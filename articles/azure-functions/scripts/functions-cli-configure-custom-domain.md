@@ -13,19 +13,19 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/01/2017
+ms.date: 06/26/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d2efd0891cb0010aac6135ce190ad77667f78efd
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7d3fc71bc53e85fa7555dbee5ee79b3f06f27fe8
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843983"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960335"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Een aangepast domein toewijzen aan een functie-app
 
-Met dit voorbeeldscript wordt er een functie-app gemaakt, inclusief de bijbehorende resources, waarna `www.<yourdomain>` wordt gekoppeld aan de app. Als u een aangepast domein wilt toewijzen, moet de functie-app worden gemaakt in een App Service-abonnement en niet in een verbruiksabonnement. Azure Functions biedt alleen ondersteuning voor het toewijzen van een aangepast domein met behulp van een A-record.
+Met dit voorbeeldscript wordt er een functie-app gemaakt, inclusief de bijbehorende resources, waarna `www.<yourdomain>` wordt gekoppeld aan de app. Wanneer een functie-app wordt gehost in een [App Service-plan](../functions-scale.md#app-service-plan), kunt u een aangepast domein toewijzen met een CNAME of een A-record. Voor functie-apps in een [verbruiksabonnement](../functions-scale.md#consumption-plan) wordt alleen de optie CNAME ondersteund.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

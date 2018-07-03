@@ -1,6 +1,6 @@
 ---
-title: Met behulp van MySQL-databases op Azure-Stack | Microsoft Docs
-description: Meer informatie over hoe u MySQL-databases kan implementeren als een service op Azure-Stack en de snelle stappen voor het implementeren van de resource provider-adapter van MySQL-Server.
+title: Met behulp van de MySQL-databases in Azure Stack | Microsoft Docs
+description: Meer informatie over hoe u MySQL-databases kunt implementeren als een service op Azure Stack en de snelle stappen voor het implementeren van de MySQL-Server resource provider-adapter.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,36 +11,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e4c3eb1d7dfd4894576d5fbed52cf4de5fed9e44
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 8c758f78b661f492c98ac174d7fbbf8b7e3a5e52
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938109"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345080"
 ---
-# <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>De resourceprovider MySQL op Azure-Stack implementeren
+# <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>De resourceprovider van MySQL in Azure Stack implementeren
 
-De resourceprovider MySQL-Server te kunnen stellen MySQL-databases als een Azure-Stack-service gebruiken. De MySQL-resourceprovider als een service wordt uitgevoerd op een Windows Server 2016 Server Core-virtuele machine (VM).
+De resourceprovider van MySQL-Server gebruiken om MySQL-databases als een Azure Stack-service zichtbaar te maken. De MySQL-resourceprovider wordt uitgevoerd als een service op een Windows Server 2016 Server Core-machine (VM).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Er zijn verschillende vereisten die worden voldaan moet voordat u de Azure-Stack MySQL-resourceprovider kunt implementeren. Om te voldoen aan deze vereisten, de stappen in dit artikel op een computer die toegang heeft tot de bevoegde VM-eindpunt.
+Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure Stack-MySQL-resourceprovider implementeren. Om te voldoen aan deze vereisten, de stappen in dit artikel op een computer die toegang de beschermde VM-eindpunt tot.
 
-* Als u dit nog niet hebt gedaan, [registreren Azure Stack](.\azure-stack-registration.md) met Azure zodat u via Azure marketplace-items downloaden kunt.
-* De vereiste Windows Server core VM toevoegen aan de Stack van Azure marketplace downloaden de **Windows Server 2016 Datacenter - Server Core** installatiekopie. U kunt ook een script maken van een [installatiekopie van Windows Server 2016](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). Zorg ervoor dat u de core-optie selecteert wanneer u het script uitvoert.
-
-  >[!NOTE]
-  >Als u een update installeert moet, kunt u één plaatsen. MSU-pakket in het pad van de lokale afhankelijkheid. Als meer dan één. MSU-bestand wordt gevonden, mislukt de installatie van de MySQL resource provider.
-
-* De binaire MySQL resourceprovider downloaden en voer vervolgens de zelfstandig uitpakken om de inhoud naar een tijdelijke map te pakken.
+* Als u dit nog niet hebt gedaan, [registreren Azure Stack](.\azure-stack-registration.md) met Azure, zodat u kunt Azure marketplace-items downloaden.
+* U moet de Azure- en PowerShell voor Azure Stack-modules installeren op het systeem waarbij u deze installatie wordt uitgevoerd. Dat systeem moet een installatiekopie van Windows 10 of Windows Server 2016 met de meest recente versie van de .NET runtime. Zie [PowerShell voor Azure Stack installeren](.\azure-stack-powershell-install.md).
+* De vereiste Windows Server-core VM toevoegen aan de Azure Stack marketplace door te downloaden de **Windows Server 2016 Datacenter - Server Core** installatiekopie.
 
   >[!NOTE]
-  >Voor het implementeren van de MySQL-provider op een systeem dat geen toegang tot Internet, kopieert u de [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) bestand naar een lokale share. Geef de sharenaam wanneer u wordt gevraagd om deze. U moet de Azure en Azure Stack PowerShell-modules installeren.
+  >Als u nodig hebt om een Windows-update te installeren, kunt u één kunt plaatsen. MSU-pakket in het afhankelijkheidspad van de lokale. Als meer dan één. MSU-bestand wordt gevonden, mislukt de installatie van MySQL resource provider.
 
-* De resourceprovider heeft een minimale bijbehorende Azure-Stack bouwen. Zorg ervoor dat u het juiste binaire bestand voor de versie van Azure-Stack die u gebruikt downloaden.
+* De MySQL-resourceprovider binaire downloaden en voer vervolgens de zelfstandige extractor om de inhoud uitpakken naar een tijdelijke map.
+
+  >[!NOTE]
+  >Voor het implementeren van de MySQL-provider op een computer die geen toegang tot Internet, Kopieer de [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) bestand naar een lokaal pad. Geef het pad de naam met behulp de **DependencyFilesLocalPath** parameter.
+
+* De resourceprovider heeft een minimale bijbehorende Azure Stack bouwen. Zorg ervoor dat u het juiste binaire bestand voor de versie van Azure-Stack die u gebruikt downloaden.
 
     | Azure Stack-versie | MySQL RP-versie|
     | --- | --- |
@@ -50,64 +51,54 @@ Er zijn verschillende vereisten die worden voldaan moet voordat u de Azure-Stack
 
 ### <a name="certificates"></a>Certificaten
 
-Voor de ASDK een zelfondertekend certificaat gemaakt als onderdeel van het installatieproces. Voor een Azure-Stack geïntegreerd, moet u een geschikt certificaat opgeven. Als u moet uw eigen certificaat op te geven, plaatst u een .pfx-bestand in de **DependencyFilesLocalPath** die voldoet aan de volgende criteria:
-
-* Een jokertekencertificaat voor \*.dbadapter.\< regio\>.\< externe fqdn\> of een certificaat voor één site met een algemene naam van mysqladapter.dbadapter.\< regio\>.\< externe fqdn\>.
-* Het certificaat moet worden vertrouwd. De vertrouwensketen moet zonder tussenliggende certificaten bestaan.
-* Een enkele certificaatbestand bestaat in de DependencyFilesLocalPath.
-* De bestandsnaam kan niet hebben speciale tekens of spaties.
+_Geïntegreerde systemen alleen voor installaties_. Moet u de SQL-PaaS-PKI-certificaat dat is beschreven in de sectie met optionele PaaS certificaten van [Azure Stack-implementatievereisten PKI](.\azure-stack-pki-certs.md#optional-paas-certificates). Plaats het pfx-bestand in de locatie die is opgegeven door de **DependencyFilesLocalPath** parameter. Bieden een certificaat voor ASDK systemen.
 
 ## <a name="deploy-the-resource-provider"></a>De resourceprovider implementeren
 
-Nadat u de vereisten die zijn geïnstalleerd hebt, voert u de **DeployMySqlProvider.ps1** script voor het implementeren van de MYSQL-resourceprovider. Het script DeployMySqlProvider.ps1 wordt opgehaald als onderdeel van het binaire MySQL resource provider die u hebt gedownload voor uw versie van Azure-Stack.
+Nadat u alle vereisten die zijn geïnstalleerd hebt, voert u de **DeployMySqlProvider.ps1** script voor het implementeren van de MYSQL-resourceprovider. Het script DeployMySqlProvider.ps1 wordt opgehaald als onderdeel van de MySQL-resource provider binaire bestand dat u hebt gedownload voor uw versie van Azure Stack.
 
-> [!IMPORTANT]
-> Het systeem dat u het script uitvoert op moet een Windows 10 of Windows Server 2016-systeem met de meest recente versie van de .NET runtime geïnstalleerd.
+Voor het implementeren van de MySQL-resourceprovider, open een nieuw verhoogde PowerShell-console-venster en Ga naar de map waar u de binaire bestanden voor MySQL resource provider hebt uitgepakt. We raden u aan met behulp van een nieuwe PowerShell-venster om te voorkomen van potentiële problemen veroorzaakt door een PowerShell-modules die al zijn geladen.
 
-Een nieuwe verhoogde PowerShell-consolevenster openen voor het implementeren van de resourceprovider MySQL en Ga naar de map waar u de binaire bestanden van MySQL resource provider hebt uitgepakt. U wordt aangeraden met behulp van een nieuwe PowerShell-venster om te voorkomen dat potentiële problemen veroorzaakt door een PowerShell-modules die al zijn geladen.
+Voer de **DeployMySqlProvider.ps1** script, dat bestaat uit de volgende taken:
 
-Voer de **DeployMySqlProvider.ps1** script, dat de volgende taken:
-
-* De certificaten en andere artefacten uploadt naar een opslagaccount op Azure-Stack.
-* Publiceert galerie pakketten zodat u kunt implementeren met de galerie MySQL-databases.
-* Publiceert een gallery-pakket voor het implementeren van de hosting-servers.
-* Een virtuele machine met behulp van de installatiekopie van de belangrijkste Windows Server 2016 u hebt gedownload en installeert vervolgens de MySQL-resourceprovider implementeert.
-* Registreert een lokale DNS-record dat is toegewezen aan uw VM-resourceprovider.
-* Met de lokale Azure Resource Manager voor de operator en gebruikersaccounts voor de resourceprovider geregistreerd.
-* Desgewenst installeert één Windows Server update tijdens de installatie van de resource provider.
+* De certificaten en andere artefacten worden geüpload naar een opslagaccount in Azure Stack.
+* Publiceert galeriepakketten zodat u MySQL-databases met behulp van de galerie kunt implementeren.
+* Hiermee geeft u een galerijpakket voor het implementeren van hostingservers mogelijk.
+* Een virtuele machine met behulp van de Windows Server 2016 core u hebt gedownload en vervolgens installeert hij de MySQL-resourceprovider implementeert.
+* Hiermee wordt een lokale DNS-record die wordt toegewezen aan uw VM-resourceprovider geregistreerd.
+* Hiermee wordt de resourceprovider geregistreerd met de lokale Azure Resource Manager voor de operator- en gebruikersaccounts.
+* (Optioneel) een één Windows Server update is geïnstalleerd tijdens de installatie van de resource provider.
 
 > [!NOTE]
-> Wanneer de MySQL resource provider-implementatie wordt gestart, wordt de **system.local.mysqladapter** resourcegroep wordt gemaakt. Het kan voltooien van de vier implementaties die zijn vereist voor deze resourcegroep 75 minuten duren.
+> Wanneer de implementatie van MySQL resource provider wordt gestart, wordt de **system.local.mysqladapter** resourcegroep wordt gemaakt. Het duurt maximaal 75 minuten aan de implementaties die zijn vereist om deze resourcegroep te voltooien.
 
 ### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 
-U kunt deze parameters vanaf de opdrachtregel opgeven. Als u dit niet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters bevatten.
+U kunt deze parameters vanaf de opdrachtregel opgeven. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven.
 
 | Parameternaam | Beschrijving | Opmerking of de standaardwaarde |
 | --- | --- | --- |
-| **CloudAdminCredential** | De referentie voor de beheerder van de cloud, nodig voor toegang tot de bevoegde eindpunt. | _Vereist_ |
-| **AzCredential** | De referenties voor de Azure-Stack-admin-serviceaccount. Gebruik dezelfde referenties die u gebruikt voor de implementatie van Azure-Stack. | _Vereist_ |
-| **VMLocalCredential** | De referenties voor het lokale administrator-account van de resourceprovider MySQL VM. | _Vereist_ |
-| **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het bevoegde eindpunt. |  _Vereist_ |
-| **DependencyFilesLocalPath** | Pad naar een lokale share met [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Als u een van deze paden opgeeft, moet het certificaatbestand dat u in deze map ook worden geplaatst. | _Optionele_ voor één knooppunt _verplichte_ voor meerdere knooppunten. |
+| **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ |
+| **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack. | _Vereist_ |
+| **VMLocalCredential** | De referenties voor het lokale administrator-account van de MySQL-resourceprovider VM. | _Vereist_ |
+| **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ |
+| **DependencyFilesLocalPath** | Voor alleen geïntegreerde systemen, moet uw certificaat-pfx-bestand in deze map worden geplaatst. Download voor niet-verbonden enviroments [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) naar deze map. U kunt eventueel een pakket voor Windows Update MSU hier kopiëren. | _Optionele_ (_verplichte_ voor geïntegreerde systemen of niet-verbonden omgevingen) |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ |
-| **MaxRetryCount** | Het aantal keren dat u wilt opnieuw proberen aan elke als er een storing optreedt.| 2 |
-| **RetryDuration** | De time-interval tussen nieuwe pogingen, in seconden. | 120 |
-| **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources (Zie de volgende opmerkingen). | Nee |
-| **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
-| **AcceptLicense** | Slaat de prompt voor het accepteren van de licentie GPL.  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
+| **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 |
+| **RetryDuration** | De time-outinterval tussen nieuwe pogingen in seconden. | 120 |
+| **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources (Zie de opmerkingen bij de volgende). | Nee |
+| **Fouten opsporen-modus** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee |
+| **AcceptLicense** | Hiermee slaat u de prompt om de GPL-licentie te accepteren.  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
-> [!NOTE]
-> SKU's kunnen een uur duren zichtbaar in de portal. U kunt een database kan niet maken, totdat de SKU geïmplementeerd en wordt uitgevoerd is.
+## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>De MySQL-resourceprovider met behulp van een aangepast script implementeren
 
-## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Implementeert de bronprovider van MySQL met een aangepast script
-
-Om te voorkomen handmatige configuratie bij het implementeren van de resourceprovider, kunt u het volgende script aanpassen. Wijzig de standaard-accountgegevens en -wachtwoorden voor uw Azure-Stack-implementatie.
+Om te voorkomen handmatige configuratie bij het implementeren van de resourceprovider, kunt u het volgende script aanpassen. Wijzig de standaard-accountgegevens en -wachtwoorden voor uw Azure Stack-implementatie.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module and set the profile.
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.3.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
@@ -134,8 +125,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Run the installation script from the folder where you extracted the installation files.
-# Find the ERCS01 IP address first, and make sure the certificate file is in the specified directory.
+# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
 . $tempDir\DeployMySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
@@ -147,15 +137,14 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ```
 
-Wanneer het script resource provider voor installatie is voltooid, vernieuw uw browser om te controleren of dat u de meest recente updates kunt zien.
+Wanneer het script voor resource provider-installatie is voltooid, vernieuw uw browser om ervoor te zorgen dat u de meest recente updates kunt zien.
 
-## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Controleer of de implementatie met behulp van de Stack van Azure-portal
+## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Controleer of de implementatie met behulp van de Azure Stack-portal
 
-1. Aanmelden bij de beheerportal als de servicebeheerder.
+1. Meld u aan de admin-portal als de servicebeheerder.
 2. Selecteer **resourcegroepen**
 3. Selecteer de **system.\< locatie\>.mysqladapter** resourcegroep.
-4. Groeperen op de pagina overzicht voor Resource overzicht van het bericht onder **implementaties** moet **3 geslaagd**.
-5. Krijgt u meer gedetailleerde informatie over de implementatie van de resource provider onder **instellingen**. Selecteer **implementaties** ophalen van informatie, zoals: STATUS, TIMESTAMP en duur voor elke implementatie.
+4. Op de overzichtspagina voor de resourcegroep overzicht, mogen er geen mislukte implementaties.
 
 ## <a name="next-steps"></a>Volgende stappen
 

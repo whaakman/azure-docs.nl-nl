@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ca8d5a26205e65668d46be6b558d596ab066c5f8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 02c9d3715d8c4632bf19512cd9ffee64e4a22e8a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404868"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047017"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Zelfstudie: Een data factory maken met behulp van Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -32,7 +32,7 @@ ms.locfileid: "31404868"
 
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service gebruikt, welke nog een preview is, raadpleegt u [Snelstartgids: een gegevensfactory maken met Azure Data Factory versie 2](../quickstart-create-data-factory-dot-net.md).
+> Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [snelstart: een gegevensfactory maken met Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 In deze zelfstudie leert u hoe u een Azure Data Factory maakt met Visual Studio. U maakt een Visual Studio-project met de Data Factory-projectsjabloon. Daarna definieert u Data Factory-entiteiten (gekoppelde services, gegevenssets en pipeline) in de JSON-indeling en vervolgens publiceert/implementeert u deze entiteiten in de cloud. 
 

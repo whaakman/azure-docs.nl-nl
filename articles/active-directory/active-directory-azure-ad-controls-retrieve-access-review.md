@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a2d356afd33ddd2e641c6f9bc028f235623b448b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233111"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024686"
 ---
 # <a name="retrieve-access-review-results"></a>Resultaten van toegangsbeoordeling ophalen
 
-Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](active-directory-azure-ad-controls-create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing.  Een gebruiker met de rol **Globale beheerder**, **Beveiligingsadministrator** of **Beveiligingslezer** kan ook de resultaten van een toegangsbeoordeling lezen.  Om gebruikers toe te wijzen aan een van deze rollen, kan een Beheerder met bevoorrechte rol Azure AD PIM gebruiken om een ​​gebruiker in aanmerking te laten komen voor het activeren van de rol, of kan een Globale beheerder [een gebruiker permanent toewijzen aan de rol](active-directory-users-assign-role-azure-portal.md).
+Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](active-directory-azure-ad-controls-create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing.  Een gebruiker met de rol **Globale beheerder**, **Gebruikersaccountbeheerder**, **Beveiligingsbeheerder** of **Beveiligingslezer** kan de resultaten van een toegangsbeoordeling ook lezen.  Om gebruikers toe te wijzen aan een van deze rollen, kan een Beheerder met bevoorrechte rol Azure AD PIM gebruiken om een ​​gebruiker in aanmerking te laten komen voor het activeren van de rol, of kan een Globale beheerder [een gebruiker permanent toewijzen aan de rol](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>Een toegangsbeoordeling vinden
 
@@ -46,7 +46,7 @@ Als u de resultaten van een voltooid exemplaar van een terugkerende toegangsbeoo
 
 ## <a name="removing-users-from-an-access-review"></a>Gebruikers verwijderen uit een toegangsbeoordeling
 
-Standaard geldt dat een verwijderde gebruiker gedurende dertig dagen in Azure AD aanwezig blijft met de status Verwijderd. In deze periode kan de gebruiker eventueel door een beheerder worden teruggezet.  Na dertig dagen wordt die gebruiker definitief verwijderd.  Daarnaast kan een hoofdbeheerder via de Azure Active Directory-portal expliciet [een recentelijk verwijderde gebruiker definitief verwijderen](active-directory-users-restore.md) voordat de dertig dagen zijn verstreken.  Als een gebruiker definitief is verwijderd, worden gegevens over die gebruiker vervolgens uit actieve toegangsbeoordelingen verwijderd.  Controle-informatie over verwijderde gebruikers blijft in het auditlogboek aanwezig.
+Standaard geldt dat een verwijderde gebruiker gedurende dertig dagen in Azure AD aanwezig blijft met de status Verwijderd. In deze periode kan de gebruiker eventueel door een beheerder worden teruggezet.  Na dertig dagen wordt die gebruiker definitief verwijderd.  Daarnaast kan een hoofdbeheerder via de Azure Active Directory-portal expliciet [een recentelijk verwijderde gebruiker definitief verwijderen](fundamentals/active-directory-users-restore.md) voordat de dertig dagen zijn verstreken.  Als een gebruiker definitief is verwijderd, worden gegevens over die gebruiker vervolgens uit actieve toegangsbeoordelingen verwijderd.  Controle-informatie over verwijderde gebruikers blijft in het auditlogboek aanwezig.
 
 ## <a name="next-steps"></a>Volgende stappen
 

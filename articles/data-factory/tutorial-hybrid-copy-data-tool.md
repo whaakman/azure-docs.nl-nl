@@ -11,25 +11,22 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: 85b721df1e666903c4966ca240c433ded01c06b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b080029cdf7e7200663830abad02ae7e61dbdb99
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171900"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053351"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Gegevens uit een on-premises SQL-serverdatabase naar Azure Blob-opslag kopiëren met behulp van het hulpprogramma Copy Data.
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1: algemeen verkrijgbaar](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Versie 2 - Preview](tutorial-hybrid-copy-data-tool.md)
+> * [Versie 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Huidige versie](tutorial-hybrid-copy-data-tool.md)
 
 In deze zelfstudie gebruikt u Azure Portal om een gegevensfactory te maken. Vervolgens gebruikt u het hulpprogramma Copy Data om een pijplijn te maken waarmee gegevens uit een on-premises SQL Server-database worden gekopieerd naar Azure Blob Storage.
 
 > [!NOTE]
 > - Zie [Inleiding tot Data Factory](introduction.md) als u niet bekend bent met Azure Data Factory.
->
-> - Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van Data Factory gebruikt, die algemeen beschikbaar is, raadpleegt u [Aan de slag met versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 In deze zelfstudie voert u de volgende stappen uit:
 
 > [!div class="checklist"]
@@ -54,7 +51,7 @@ In deze zelfstudie gebruikt u een on-premises SQL Server-database als een *brong
 2. Maak verbinding met SQL Server-exemplaar met behulp van uw referenties. 
 
 3. Maak een voorbeelddatabase. Klik in de structuurweergave met de rechtermuisknop op **Databases** en selecteer **Nieuwe database**. 
- 
+
 4. Voer in het venster **Nieuwe database** een naam in voor de database en selecteer **OK**. 
 
 5. Voer het volgende queryscript uit voor de database. Hiermee wordt de **emp**-tabel gemaakt en worden enkele voorbeeldgegevens ingevoegd in deze tabel. In de structuurweergave klikt u met de rechtermuisknop op de database die u hebt gemaakt en selecteert u **Nieuwe query**.
@@ -120,24 +117,24 @@ In deze sectie maakt u in uw Blob Storage een blobcontainer met de naam **adftut
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
 1. Selecteer in het linkermenu **Nieuw** > **Gegevens en analyses** > **Data Factory**. 
-   
+  
    ![Nieuwe data factory maken](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory-menu.png)
 2. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in bij **Naam**. 
-      
+   
      ![Nieuwe data factory](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory.png)
- 
+
    De naam van de data factory moet *wereldwijd uniek* zijn. Als het volgende foutbericht wordt weergegeven voor het naamveld, wijzigt u de naam van de data factory (bijvoorbeeld uwnaamADFTutorialDataFactory). Zie [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
-  
+
    ![Naam nieuwe data factory](./media/tutorial-hybrid-copy-data-tool/name-not-available-error.png)
 3. Selecteer het Azure-**abonnement** waarin u de data factory wilt maken. 
 4. Voer een van de volgende stappen uit voor **Resourcegroep**:
-     
+  
       - Selecteer **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst.
 
       - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in. 
-         
+        
       Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
-5. Selecteer **V2 (preview-versie)** bij **Versie**.
+5. Selecteer **V2 ** onder **Versie**.
 6. Selecteer bij **Locatie** de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven (bijvoorbeeld Azure Storage en SQL Database) en -berekeningen (bijvoorbeeld Azure HDInsight) die door Data Factory worden gebruikt, kunnen zich in andere locaties/regio's bevinden.
 7. Selecteer **Vastmaken aan dashboard**. 
 8. Selecteer **Maken**.
@@ -145,7 +142,7 @@ In deze sectie maakt u in uw Blob Storage een blobcontainer met de naam **adftut
 
     ![Tegel Data Factory implementeren](media/tutorial-hybrid-copy-data-tool/deploying-data-factory.png)
 10. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
-   
+  
     ![Startpagina van de gegevensfactory](./media/tutorial-hybrid-copy-data-tool/data-factory-home-page.png)
 11. Selecteer **Maken en controleren** om de Data Factory-gebruikersinterface te openen op een afzonderlijk tabblad. 
 
@@ -154,82 +151,126 @@ In deze sectie maakt u in uw Blob Storage een blobcontainer met de naam **adftut
 1. Selecteer op de pagina **Aan de slag** **Copy Data** om het hulpprogramma Copy Data te starten. 
 
    ![De tegel Copy Data-hulpprogramma](./media/tutorial-hybrid-copy-data-tool/copy-data-tool-tile.png)
+
 2. Typ op de pagina **Eigenschappen** van het hulpprogramma Copy Data **CopyFromOnPremSqlToAzureBlobPipeline** bij **Taaknaam**. Selecteer vervolgens **Volgende**. Met het hulpprogramma Copy Data wordt een pijplijn gemaakt met de naam die u opgeeft in dit veld. 
-    
+
    ![Taaknaam](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
-3. Selecteer op de pagina **Brongegevensarchief** de optie **SQL Server** en selecteer vervolgens **Volgende**. Mogelijk moet u omlaag schuiven om **SQL Server** te zien in de lijst. 
+
+3. Klik op de pagina **Brongegevensarchief** op **Nieuwe verbinding maken**. 
+
+   ![Nieuwe gekoppelde service maken](./media/tutorial-hybrid-copy-data-tool/create-new-source-data-store.png)
+
+4. Zoek onder **Nieuwe gekoppelde service** naar **SQL Server** en selecteer vervolgens **Volgende**. 
 
    ![SQL Server-selecteren](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
-4. Voer **SqlServerLinkedService** in bij **Verbindingsnaam**. Selecteer de koppeling **Integratieruntime maken**. U moet een zelf-hostende integratieruntime maken, deze downloaden op de computer en registreren bij Data Factory. Met de zelf-hostende integratieruntime worden gegevens gekopieerd tussen uw on-premises omgeving en de cloud.
+
+5. Voer onder Nieuwe gekoppelde service (SQL Server) ** Naam *** **SqlServerLinkedService** in. Selecteer **+ Nieuw** onder **Verbinding maken via integratieruntime**. U moet een zelf-hostende integratieruntime maken, deze downloaden op de computer en registreren bij Data Factory. Met de zelf-hostende integratieruntime worden gegevens gekopieerd tussen uw on-premises omgeving en de cloud.
 
    ![Een zelf-hostende integratieruntime maken](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
-5. Voer in het dialoogvenster **Integratieruntime maken** **TutorialIntegration Runtime** bij **Naam**. Selecteer vervolgens **Maken**. 
+
+6. Selecteer in het dialoogvenster **Integratieruntime instellen** de optie **Privénetwerk**. Selecteer vervolgens **Volgende**. 
+
+   ![](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
+
+7. Voer in het dialoogvenster **Integratieruntime maken** onder **Naam** **TutorialIntegrationRuntime** in. Selecteer vervolgens **Volgende**. 
 
    ![Naam integratieruntime](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog.png)
-6. Selecteer **Snelle installatie op deze computer starten**. Met deze actie wordt de integratieruntime op de computer geïnstalleerd en geregistreerd bij Data Factory. U kunt er ook voor kiezen om handmatig te configureren door het installatiebestand te downloaden, uit te voeren, en de sleutel te gebruiken om de integratieruntime te registreren. 
+
+8. Selecteer **Klik hier om de snelle installatie voor deze computer te starten**. Met deze actie wordt de integratieruntime op de computer geïnstalleerd en geregistreerd bij Data Factory. U kunt er ook voor kiezen om handmatig te configureren door het installatiebestand te downloaden, uit te voeren, en de sleutel te gebruiken om de integratieruntime te registreren. 
 
     ![Koppeling Snelle installatie op deze computer starten](./media/tutorial-hybrid-copy-data-tool/launch-express-setup-link.png)
-7. Voer de gedownloade toepassing uit. U ziet de status van de snelle installatie in het venster. 
+
+9. Voer de gedownloade toepassing uit. U ziet de status van de snelle installatie in het venster. 
 
     ![Status van snelle installatie](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
-8. Controleer of **TutorialIntegrationRuntime** is geselecteerd voor het veld **Integratieruntime**.
+
+10. Controleer of **TutorialIntegrationRuntime** is geselecteerd voor het veld **Integratieruntime**.
 
     ![Integratieruntime geselecteerd](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
-9. Voer bij **De on-premises SQL Server-database opgeven** de volgende stappen uit: 
 
-    a. Voer **OnPremSqlLinkedService** in bij **Verbindingsnaam**.
+11. Voer bij **De on-premises SQL Server-database opgeven** de volgende stappen uit: 
 
-    b. Voer de naam van uw on-premises SQL Server-exemplaar in bij **Servernaam**.
+      a. Voer **SqlServerLinkedService** in bij **Naam**.
 
-    c. Voer de naam van uw on-premises database in bij **Databasenaam**.
+      b. Voer de naam van uw on-premises SQL Server-exemplaar in bij **Servernaam**.
 
-    d. Selecteer de juiste verificatie bij **Verificatietype**.
+      c. Voer de naam van uw on-premises database in bij **Databasenaam**.
 
-    e. Voer bij **Gebruikersnaam** de naam in van de gebruiker die toegang heeft tot de on-premises SQL Server.
+      d. Selecteer de juiste verificatie bij **Verificatietype**.
 
-    f. Voer het **wachtwoord** voor de gebruiker in. 
-10. Selecteer op de pagina **Tabellen selecteren waaruit de gegevens moeten worden gekopieerd of een aangepaste query gebruiken** de tabel **[dbo].[emp]** in de lijst en selecteer **Volgende**. 
+      e. Voer bij **Gebruikersnaam** de naam in van de gebruiker die toegang heeft tot de on-premises SQL Server.
 
-    ![De selectie van de emp-tabel](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
-11. Selecteer op de pagina **Doelgegevensarchief** de optie **Azure Blob Storage** en selecteer **Volgende**.
+      f. Voer het **wachtwoord** voor de gebruiker in. Selecteer **Voltooien**. 
 
-    ![Selectie Blob-opslag](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
-12. Voer op de pagina **Azure Blob-opslagaccount opgeven** de volgende stappen uit: 
+12. Selecteer **Volgende**.
 
-    a. Voer bij **Verbindingsnaam** **AzureStorageLinkedService** in.
+     ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
 
-    b. Selecteer bij **Opslagaccountnaam** uw opslagaccount in de vervolgkeuzelijst. 
+13. Selecteer op de pagina **Tabellen selecteren waaruit de gegevens moeten worden gekopieerd of een aangepaste query gebruiken** de tabel **[dbo].[emp]** in de lijst en selecteer **Volgende**. U kunt een andere tabel selecteren op basis van uw database.
 
-    c. Selecteer **Volgende**.
+     ![De selectie van de tabel Product](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
 
-    ![Geef het opslagaccount op.](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
-13. Typ bij **Mappad** **adftutorial/fromonprem** op de pagina **Het uitvoerbestand of de uitvoermap kiezen**. U hebt de container **adftutorial** gemaakt als onderdeel van de vereisten. Als de uitvoermap niet bestaat, wordt deze automatisch aangemaakt in Data Factory. U kunt ook de knop **Bladeren** gebruiken om te navigeren in de blob-opslag en bijbehorende containers/mappen. U ziet dat de naam van het uitvoerbestand standaard is ingesteld op **dbo.emp**.
-        
-    ![Het uitvoerbestand of de uitvoermap kiezen](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
-14. Selecteer op de pagina **Instellingen Bestandsindelingen** de optie **Volgende**. 
+14. Selecteer op de pagina **Doelgegevensopslag** de optie **Nieuwe verbinding maken**
 
-    ![De pagina Instellingen bestandsindelingen](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
-15. Selecteer op de pagina **Instellingen** de optie **Volgende**. 
+     //image create-new-sink-connection.png
 
-    ![De pagina Instellingen](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
-16. Bekijk op de **Overzichtspagina** de waarden voor alle instellingen en selecteer **Volgende**. 
+     ![Aan bestemming gekoppelde service maken](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
 
-    ![Overzichtspagina](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
-17. Selecteer op de pagina **Implementatie** de optie **Controleren** om de pijplijn of taak die u hebt gemaakt, te controleren.
+15. Zoek in **Nieuwe gekoppelde service** naar **Azure Blob** en selecteert dit. Klik vervolgens op **Doorgaan**. 
 
-    ![De pagina Implementatie](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
-18. Op het tabblad **Controleren** kunt u de status bekijken van de pijplijn die u hebt gemaakt. Met de koppelingen in de kolom **Acties** kunt u de uitvoeringen van activiteit weergeven die zijn gekoppeld aan de pijplijnuitvoering, en de pijplijn opnieuw uitvoeren. 
+     ![Selectie Blob-opslag](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
-    ![Pijplijnuitvoeringen controleren](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
-19. Selecteer de koppeling **Uitvoeringen van activiteit weergeven** in de kolom **Acties** om de activiteituitvoeringen te zien die zijn gekoppeld aan de pijplijnuitvoering. Selecteer de koppeling **Details** (pictogram van een bril) in de kolom **Acties** om details over de kopieerbewerking te zien. Als u wilt terugkeren naar de weergave**Pijplijnuitvoeringen**, selecteert u **Pijplijnen** bovenaan.
+16. Voer de volgende stappen uit in het dialoogvenster **Nieuwe gekoppelde service (Azure Blob Storage)**: 
 
-    ![Uitvoering van activiteiten controleren](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
-20. Controleer of een uitvoerbestand wordt weergegeven in de map **fromonprem** van de container **adftutorial**. 
- 
-    ![Uitvoer-blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
-21. Selecteer het tabblad **Bewerken** aan de linkerkant om over te schakelen naar de bewerkingsmodus. U kunt de gekoppelde services, gegevenssets en pijplijnen die zijn gemaakt met het hulpprogramma, bijwerken met behulp van de editor. Selecteer **Code** om de JSON-code weer te geven die is gekoppeld aan de entiteit die in de editor is geopend. Bekijk [de Azure Portal-versie van deze tutorial](tutorial-copy-data-portal.md) voor details over hoe u entiteiten in de Data Factory-gebruikersinterface kunt bewerken.
+     a. Voer onder **Naam**** **AzureStorageLinkedService** in.
 
-    ![Tabblad Bewerken](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
+     b. Selecteer onder **Verbinden via integratieruntime** de optie **TutorialIntegrationRuntime**
+
+     c. Selecteer bij **Opslagaccountnaam** uw opslagaccount in de vervolgkeuzelijst. 
+
+     d. Selecteer **Volgende**.
+
+     ![Geef het opslagaccount op.](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
+
+17. Selecteer in **Doelgegevensopslag** de optie **Volgende**. Selecteer in **Verbindingseigenschappen** voor **Azure Storage-service** de optie **Azure Blob Storage**. Selecteer **Volgende**. 
+
+     ![verbindingseigenschappen](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
+
+18. Voer onder **Mappad** **adftutorial/fromonprem** in het dialoogvenster **Het uitvoerbestand of de uitvoermap kiezen** in. U hebt de container **adftutorial** gemaakt als onderdeel van de vereisten. Als de uitvoermap (in dit geval **fromonprem**) niet bestaat, wordt deze automatisch aangemaakt in Data Factory. U kunt ook de knop **Bladeren** gebruiken om te navigeren in de blob-opslag en bijbehorende containers/mappen. Als u geen waarde opgeeft onder **Bestandsnaam** wordt standaard de naam van de bron gebruikt (in dit geval **dbo.emp**).
+           
+     ![Het uitvoerbestand of de uitvoermap kiezen](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
+
+19. Selecteer op de pagina **Instellingen bestandsindelingen** de optie **Volgende**. 
+
+     ![De pagina Instellingen bestandsindelingen](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
+
+20. Selecteer in het dialoogvenster **Instellingen** de optie **Volgende**. 
+
+     ![De pagina Instellingen](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
+
+21. Bekijk in het dialoogvenster **Overzicht** de waarden voor alle instellingen en selecteer **Volgende**. 
+
+     ![Overzichtspagina](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
+
+22. Selecteer op de pagina **Implementatie** de optie **Controleren** om de pijplijn of taak die u hebt gemaakt, te controleren.
+
+     ![De pagina Implementatie](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+
+23. Op het tabblad **Controleren** kunt u de status bekijken van de pijplijn die u hebt gemaakt. Met de koppelingen in de kolom **Acties** kunt u de uitvoeringen van activiteit weergeven die zijn gekoppeld aan de pijplijnuitvoering, en de pijplijn opnieuw uitvoeren. 
+
+     ![Pijplijnuitvoeringen controleren](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
+
+24. Selecteer de koppeling **Uitvoeringen van activiteit weergeven** in de kolom **Acties** om de activiteituitvoeringen te zien die zijn gekoppeld aan de pijplijnuitvoering. Selecteer de koppeling **Details** (pictogram van een bril) in de kolom **Acties** om details over de kopieerbewerking te zien. Als u wilt terugkeren naar de weergave**Pijplijnuitvoeringen**, selecteert u **Pijplijnen** bovenaan.
+
+     ![Uitvoering van activiteiten controleren](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
+
+25. Controleer of een uitvoerbestand wordt weergegeven in de map **fromonprem** van de container **adftutorial**. 
+
+     ![Uitvoer-blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
+
+26. Selecteer het tabblad **Bewerken** aan de linkerkant om over te schakelen naar de bewerkingsmodus. U kunt de gekoppelde services, gegevenssets en pijplijnen die zijn gemaakt met het hulpprogramma, bijwerken met behulp van de editor. Selecteer **Code** om de JSON-code weer te geven die is gekoppeld aan de entiteit die in de editor is geopend. Bekijk [de Azure Portal-versie van deze tutorial](tutorial-copy-data-portal.md) voor details over hoe u entiteiten in de Data Factory-gebruikersinterface kunt bewerken.
+
+     ![Tabblad Bewerken](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

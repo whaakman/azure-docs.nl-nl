@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
 ms.custom: mvc
-ms.openlocfilehash: 321f84e0d56a2bda57e1fbfa2cc562b65c6e1d30
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e3f1d5edf12980cb0324bb130725ec2588aa220
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779154"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36957977"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>Snelstartgids: Een Spark-cluster in HDInsight maken met behulp van PowerShell
 Leer hoe u een Apache Spark-cluster maakt in Azure HDInsight en hoe u Spark SQL-query's uitvoert op Hive-tabellen. Apache Spark maakt het mogelijk om snelle gegevensanalyses en clusterberekeningen uit te voeren met behulp van verwerking in het geheugen. Zie [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md) voor informatie over Spark in HDInsight.
@@ -34,7 +34,7 @@ Het maken van een HDInsight-cluster omvat het maken van de volgende Azure object
 
 - Een Azure-resourcegroep. Een Azure-resourcegroep is een container voor Azure-resources. 
 - Een Azure-opslagaccount of een Azure Data Lake Store.  Elk HDInsight-cluster vereist een eigen gegevensopslag. In deze snelstartgids maakt u een opslagaccount.
-- Een HDInsight-cluster met verschillende clustertypen.  In deze snelstartgids maakt u een cluster van Spark 2.2.
+- Een HDInsight-cluster met verschillende clustertypen.  In deze snelstartgids maakt u een cluster van Spark 2.3.
 
 U gebruikt een PowerShell-script om de resources te maken.  Wanneer u het script uitvoert, wordt u gevraagd om de volgende waarden in te voeren:
 
@@ -53,7 +53,7 @@ U gebruikt een PowerShell-script om de resources te maken.  Wanneer u het script
 2. Kopieer en plak het volgende PowerShell-script in de cloud-shell. 
 
     ```azurepowershell-interactive
-    ### Create a Spark 2.2 cluster in Azure HDInsight
+    ### Create a Spark 2.3 cluster in Azure HDInsight
         
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -75,7 +75,7 @@ U gebruikt een PowerShell-script om de resources te maken.  Wanneer u het script
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
-    # Create a Spark 2.2 cluster
+    # Create a Spark 2.3 cluster
     $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
     # Cluster login is used to secure HTTPS services hosted on the cluster
     $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
@@ -96,7 +96,7 @@ U gebruikt een PowerShell-script om de resources te maken.  Wanneer u het script
         -Name $clusterName -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-    $sparkConfig.Add("spark", "2.2")
+    $sparkConfig.Add("spark", "2.3")
     
     # Create the HDInsight cluster
     New-AzureRmHDInsightCluster `
@@ -133,7 +133,7 @@ Jupyter Notebook is een interactieve notitieblokomgeving die ondersteuning biedt
 
    ![Jupyter Notebook openen om de interactieve Spark SQL-query uit te voeren](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook openen om de interactieve Apache Spark SQL-query uit te voeren")
 
-4. Selecteer **Nieuw** > **PySpark** om een notitieblok te maken. 
+4. Selecteer **Nieuw** > **PySpark** om een notebook te maken. 
 
    ![Jupyter Notebook maken om de interactieve Spark SQL-query uit te voeren](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter Notebook maken om de interactieve Apache Spark SQL-query uit te voeren")
 
@@ -172,7 +172,7 @@ SQL (Structured Query Language) is de meest voorkomende en gebruikte taal voor h
 
     ![Uitvoer van Hive-query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Uitvoer van Hive-query in HDInsight Spark")
 
-2. Klik in het menu **Bestand** van het notitieblok op **Sluiten en stoppen**. Als de notebook wordt afgesloten, komen de clusterbronnen vrij.
+2. Klik in het menu **File** van het notebook op **Close and Halt**. Als de notebook wordt afgesloten, komen de clusterbronnen vrij.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Met HDInsight worden uw gegevens opgeslagen in Azure Storage of Azure Data Lake Store, zodat u een cluster veilig kunt verwijderen wanneer dit niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Als u direct verder wilt met de zelfstudie die wordt vermeld bij [Volgende stappen](#next-steps), is het beter om het cluster te behouden.
@@ -185,7 +185,7 @@ U kunt ook de naam van de resourcegroep selecteren om de pagina van de resourceg
 
 ## <a name="next-steps"></a>Volgende stappen 
 
-In deze snelstartgids hebt u geleerd hoe u een HDInsight Spark-cluster maakt en een eenvoudige Spark SQL-query uitvoert. Ga naar de volgende zelfstudie voor informatie over het gebruik van een HDInsight Spark-cluster om interactieve query's uit te voeren op voorbeeldgegevens.
+In deze snelstart hebt u geleerd hoe u een HDInsight Spark-cluster maakt en een eenvoudige Spark SQL-query uitvoert. Ga naar de volgende zelfstudie voor informatie over het gebruik van een HDInsight Spark-cluster om interactieve query's uit te voeren op voorbeeldgegevens.
 
 > [!div class="nextstepaction"]
 >[Interactieve query's uitvoeren in Spark](./apache-spark-load-data-run-query.md)

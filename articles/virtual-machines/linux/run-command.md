@@ -1,6 +1,6 @@
 ---
 title: Shell-scripts uitvoeren in een Linux-VM op Azure
-description: Dit onderwerp wordt beschreven voor het uitvoeren van scripts in een Azure Linux virtuele machine met behulp van de opdracht uitvoeren
+description: In dit onderwerp wordt beschreven hoe u uitvoeren van scripts in een virtuele Azure Linux-machine met behulp van de opdracht uitvoeren
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,38 +8,39 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 850c5ac4df8ff3bd0e35567060b3b90dad7baacc
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334870"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342688"
 ---
-# <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Shellscripts uitvoeren in uw Linux-VM met de opdracht uitvoeren
+# <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Shell-scripts uitvoeren in uw Linux-VM met de opdracht uitvoeren
 
-Opdracht maakt gebruik van de VM-agent om te worden uitgevoerd binnen een virtuele machine van Azure Linux shell-scripts uitvoeren. Deze scripts kunnen worden gebruikt voor algemene machine of Toepassingsbeheer en kunnen worden gebruikt om snel te onderzoeken en VM-netwerk- en problemen oplossen en ophalen van de virtuele machine terug naar een goede status.
+Opdracht wordt de VM-agent voor het uitvoeren van shell-scripts in een Azure Linux VM uitvoeren. Deze scripts voor algemene machine of beheer van toepassingen kunnen worden gebruikt en kunnen worden gebruikt om snel opsporen en VM-netwerk- en problemen oplossen en ophalen van de virtuele machine naar een goede staat verkeren.
 
 ## <a name="benefits"></a>Voordelen
 
-Er zijn meerdere opties die kunnen worden gebruikt voor toegang tot uw virtuele machines. Opdracht kunt u scripts uitvoeren op uw virtuele machines op afstand met behulp van de VM-agent. Opdracht kan worden gebruikt via de Azure-portal [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), of [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Er zijn meerdere opties die kunnen worden gebruikt voor toegang tot uw virtuele machines. Voer de opdracht kunt u scripts uitvoeren op uw virtuele machines die op afstand met behulp van de VM-agent. Voer de opdracht kan worden gebruikt via Azure portal, [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), of [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Deze functie is nuttig in alle scenario's waarbij u een script binnen een virtuele machines wilt uitvoeren en is een van de enige manieren oplossen en het herstellen van een virtuele machine die niet het RDP of SSH-poort openen als gevolg van onjuiste netwerk of een gebruiker met beheerdersrechten de configuratie.
+Deze mogelijkheid is handig in alle scenario's waarin u wilt uitvoeren van een script in een virtuele machine en is een van de enige manieren om problemen op te herstellen van een virtuele machine die beschikt niet over de RDP of SSH-poort openen vanwege een onjuiste netwerk of de gebruiker met beheerdersrechten de configuratie.
 
 ## <a name="restrictions"></a>Beperkingen
 
-Hieronder vindt u een lijst met beperkingen die aanwezig zijn bij gebruik van de opdracht uitvoeren.
+Hieronder vindt u een lijst met beperkingen die aanwezig zijn bij het gebruik van de opdracht uitvoeren.
 
 * Uitvoer is beperkt tot de laatste 4096 bytes
 * De minimale tijd ongeveer 20 seconden voor een script uitvoeren
-* Scripts standaard als gebruiker met verhoogde bevoegdheden op Linux wordt uitgevoerd
-* Een script tegelijk kunt uitvoeren
-* Scripts die om informatie (interactieve modus vraagt) worden niet ondersteund.
-* U kunt een script wordt uitgevoerd niet annuleren.
-* De maximale tijdsduur dat een script kunt uitvoeren is 90 minuten, na waarin het time-out wordt
+* Scripts standaard als gebruiker met verhoogde bevoegdheid op Linux wordt uitgevoerd
+* Een script tegelijk kan worden uitgevoerd
+* Scripts die voor meer informatie (interactieve modus vragen) worden niet ondersteund.
+* U kunt een script uit te voeren niet annuleren
+* De maximale tijd die kan worden uitgevoerd door een script is 90 minuten, na waarin het time-out wordt
+* Uitgaande connectiviteit van de virtuele machine is vereist om de resultaten van het script te retourneren.
 
 ## <a name="azure-cli"></a>Azure-CLI
 
-Hieronder volgt een voorbeeld met behulp van de [az vm-opdracht uitvoeren](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) opdracht een shellscript uitvoeren op een Azure Linux VM.
+Hier volgt een voorbeeld met behulp van de [az vm-opdracht uitvoeren](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) opdracht een shell-script uitvoeren op een virtuele Azure Linux-machine.
 
 ```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
@@ -50,22 +51,22 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Navigeer naar een virtuele machine in [Azure](https://portal.azure.com) en selecteer **opdracht uitvoeren** onder **OPERATIONS**. Krijgt u een lijst met beschikbare opdrachten uit te voeren op de virtuele machine.
+Navigeer naar een virtuele machine in [Azure](https://portal.azure.com) en selecteer **RunCommand-** onder **OPERATIONS**. Krijgt u een lijst van de beschikbare opdrachten uit te voeren op de virtuele machine.
 
-![Opdrachtlijst uitvoeren](./media/run-command/run-command-list.png)
+![Lijst met opdrachten uitvoeren](./media/run-command/run-command-list.png)
 
-Kies een andere opdracht om uit te voeren. Sommige van de opdrachten kan optioneel of vereist invoerparameters hebben. Voor deze opdrachten worden de parameters weergegeven als tekstvelden voor u de invoerwaarden opgeven. Voor elke opdracht kunt u het script dat wordt uitgevoerd door het uitbreiden van weergeven **script weergeven**. **RunShellScript** verschilt van de andere opdrachten zoals kunt u uw eigen aangepaste scripts opgeven. 
+Kies een opdracht uit te voeren. Enkele van de opdrachten mogelijk optioneel of vereiste invoerparameters. Voor deze opdrachten worden de parameters weergegeven als tekstvelden voor u de ingevoerde waarden op te geven. Voor elke opdracht die u kunt het script dat wordt uitgevoerd door het uitbreiden van weergeven **script weergeven**. **RunShellScript** wijkt af van de andere opdrachten aangezien kunt u uw eigen aangepaste script opgeven. 
 
 > [!NOTE]
 > De ingebouwde opdrachten kunnen niet worden bewerkt.
 
-Zodra de opdracht is gekozen, klikt u op **uitvoeren** het script uit te voeren. Het script wordt uitgevoerd en als u klaar is, retourneert de uitvoer en eventuele fouten in het uitvoervenster. De volgende schermafbeelding ziet u een voorbeeld van uitvoer uitvoeren van de **ifconfig** opdracht.
+Nadat de opdracht is gekozen, klikt u op **uitvoeren** het script uit te voeren. Het script wordt uitgevoerd en als u klaar bent, retourneert de uitvoer en eventuele fouten in het uitvoervenster weergegeven. De volgende schermafbeelding ziet u een voorbeeld van uitvoer wordt uitgevoerd de **ifconfig** opdracht.
 
-![Uitvoer van een opdracht uitvoeren](./media/run-command/run-command-script-output.png)
+![Uitvoer van de opdracht-script uitvoeren](./media/run-command/run-command-script-output.png)
 
 ## <a name="available-commands"></a>Beschikbare opdrachten
 
-Deze tabel bevat de lijst met opdrachten die beschikbaar zijn voor virtuele Linux-machines. De **RunShellScript** opdracht kan worden gebruikt voor een aangepast script die u wilt uitvoeren.
+Deze tabel bevat de lijst met opdrachten die beschikbaar zijn voor virtuele Linux-machines. De **RunShellScript** opdracht kan worden gebruikt om een aangepast script dat u wilt uitvoeren.
 
 |**Naam**|**Beschrijving**|
 |---|---|
@@ -74,9 +75,9 @@ Deze tabel bevat de lijst met opdrachten die beschikbaar zijn voor virtuele Linu
 
 ## <a name="limiting-access-to-run-command"></a>Beperken van toegang tot de opdracht uitvoeren
 
-Lijst van de opdrachten uitvoeren of worden de details van een opdracht moet de `Microsoft.Compute/locations/runCommands/read` toestemming hebben, die de ingebouwde [lezer](../../role-based-access-control/built-in-roles.md#reader) rol en hoger.
+Lijst van de uitvoering van de opdrachten of worden de details van een opdracht moet de `Microsoft.Compute/locations/runCommands/read` machtiging, waarmee de ingebouwde [lezer](../../role-based-access-control/built-in-roles.md#reader) rol en hoger.
 
-Het uitvoeren van een opdracht moet de `Microsoft.Compute/virtualMachines/runCommand/action` toestemming hebben, die de [Inzender](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol en hoger.
+Het uitvoeren van een opdracht moet de `Microsoft.Compute/virtualMachines/runCommand/action` machtiging, die de [Inzender](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol en hoger.
 
 U kunt een van de [ingebouwde](../../role-based-access-control/built-in-roles.md) rollen of maak een [aangepaste](../../role-based-access-control/custom-roles.md) rol opdracht uitvoeren te gebruiken.
 

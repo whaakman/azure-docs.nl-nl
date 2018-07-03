@@ -11,29 +11,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 564ed357a838e5e0c3e6db869eefafb7925e155b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 001fefef900a0dd468f8deb8d705c308d8149f71
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261497"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055151"
 ---
-# <a name="pipelines-and-activities-in-azure-data-factory"></a>Pijplijnen en activiteiten in Azure Data Factory 
+# <a name="pipelines-and-activities-in-azure-data-factory"></a>Pijplijnen en activiteiten in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-create-pipelines.md)
-> * [Versie 2 - Preview](concepts-pipelines-activities.md)
+> * [Versie 1](v1/data-factory-create-pipelines.md)
+> * [Huidige versie](concepts-pipelines-activities.md)
 
 Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in Azure Data Factory en in de wijze waarop u deze kunt gebruiken om end-to-end gegevensgestuurde werkstromen te maken voor uw gegevensverplaatsingen en scenario’s voor gegevensverwerking.
 
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Pijplijnen in versie 1 van Data Factory](v1/data-factory-create-pipelines.md).
-> 
-> In dit artikel wordt ervan uitgegaan dat u [Inleiding tot Azure Data Factory](introduction.md) en de [snelstartgids](quickstart-create-data-factory-powershell.md) hebt doorlopen.
-
 ## <a name="overview"></a>Overzicht
-Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn is een logische groep activiteiten die samen een taak uitvoeren. Een pijplijn kan bijvoorbeeld een set van activiteiten bevatten die logboekgegevens opnemen en opschonen, en vervolgens een Spark-taak starten op een HDInsight-cluster voor het analyseren van de logboekgegevens. Het voordeel van een pijplijn is dat u de activiteiten kunt beheren als een set in plaats van afzonderlijk. U kunt de pijplijn bijvoorbeeld in zijn geheel implementeren en plannen, in plaats van de afzonderlijke activiteiten.  
+Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn is een logische groep activiteiten die samen een taak uitvoeren. Een pijplijn kan bijvoorbeeld een set van activiteiten bevatten die logboekgegevens opnemen en opschonen, en vervolgens een Spark-taak starten op een HDInsight-cluster voor het analyseren van de logboekgegevens. Het voordeel van een pijplijn is dat u de activiteiten kunt beheren als een set in plaats van afzonderlijk. U kunt de pijplijn bijvoorbeeld in zijn geheel implementeren en plannen, in plaats van de afzonderlijke activiteiten.
 
 Met activiteiten in een pijplijn definieert u welk acties moeten worden uitgevoerd voor uw gegevens. U kunt bijvoorbeeld een kopieeractiviteit gebruiken om gegevens van een on-premises SQL Server naar Azure Blob Storage te kopiëren. Vervolgens kunt u een Hive-activiteit gebruiken waarmee een Hive-script op een Azure HDInsight-cluster wordt uitgevoerd om gegevens uit Blob Storage te verwerken/transformeren en uitvoergegevens te produceren. Gebruik tot slot een tweede kopieeractiviteit voor het kopiëren van de uitvoergegevens naar een Azure SQL Data Warehouse waarop rapportageoplossingen voor business intelligence (BI) zijn gebouwd.
 
@@ -64,7 +59,7 @@ Activiteiten voor gegevenstransformatie | Compute-omgeving
 [Opgeslagen procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse of SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 
-Zie het artikel [Activiteiten voor gegevenstransformatie](transform-data.md) voor meer informatie. 
+Zie het artikel [Activiteiten voor gegevenstransformatie](transform-data.md) voor meer informatie.
 
 ## <a name="control-activities"></a>Controleactiviteiten
 De volgende controlestroomactiviteiten worden ondersteund:
@@ -73,20 +68,20 @@ Controleactiviteit | Beschrijving
 ---------------- | -----------
 [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md) | De Execute Pipeline Activity stelt een Data Factory-pijplijn in staat om een andere pijplijn aan te roepen.
 [ForEachActivity](control-flow-for-each-activity.md) | De ForEachActivity definieert een herhalende controlestroom in de pijplijn. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
-[WebActivity](control-flow-web-activity.md) | De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit. 
-[Lookup Activity](control-flow-lookup-activity.md) | De Lookup Activity kan worden gebruikt om een record/tabelnaam/waarde van een externe bron te lezen of op te zoeken. Er kan naar deze uitvoer worden verwezen door volgende activiteiten. 
-[Get Metadata Activity](control-flow-get-metadata-activity.md) | De Get Metadata Activity kan worden gebruikt voor het ophalen van metagegevens van gegevens in Azure Data Factory. 
+[WebActivity](control-flow-web-activity.md) | De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit.
+[Lookup Activity](control-flow-lookup-activity.md) | De Lookup Activity kan worden gebruikt om een record/tabelnaam/waarde van een externe bron te lezen of op te zoeken. Er kan naar deze uitvoer worden verwezen door volgende activiteiten.
+[Get Metadata Activity](control-flow-get-metadata-activity.md) | De Get Metadata Activity kan worden gebruikt voor het ophalen van metagegevens van gegevens in Azure Data Factory.
 [Until Activity](control-flow-until-activity.md) | Hiermee implementeert u een Doen totdat-lus die vergelijkbaar is met een Doen totdat-lusstructuur in computertalen. Er wordt een reeks activiteiten uitgevoerd totdat de voorwaarde die aan de activiteit is gekoppeld, resulteert in waar. U kunt in Data Factory een time-outwaarde voor de Until-activiteit opgeven.
 [If Condition Activity](control-flow-if-condition-activity.md) | De If Condition kan worden gebruikt als vertakking onder de voorwaarde dat deze resulteert in waar of onwaar. De If Condition Activity biedt dezelfde functionaliteit als een If-instructie in een programmeertaal. Er wordt een reeks activiteiten mee geëvalueerd als de voorwaarde resulteert in `true` en een andere reeks activiteiten als de voorwaarde resulteert in `false`.
-[Wait Activity](control-flow-wait-activity.md) | Als u een Wait Activity in een pijplijn gebruikt, wacht de pijplijn tot de opgegeven periode voorbij is voordat de volgende activiteiten worden uitgevoerd. 
+[Wait Activity](control-flow-wait-activity.md) | Als u een Wait Activity in een pijplijn gebruikt, wacht de pijplijn tot de opgegeven periode voorbij is voordat de volgende activiteiten worden uitgevoerd.
 
 ## <a name="pipeline-json"></a>Pijplijn in JSON-indeling
-Een pijplijn wordt als volgt in de JSON-indeling gedefinieerd: 
+Een pijplijn wordt als volgt in de JSON-indeling gedefinieerd:
 
 ```json
 {
     "name": "PipelineName",
-    "properties": 
+    "properties":
     {
         "description": "pipeline description",
         "activities":
@@ -114,7 +109,7 @@ Uitvoeringsactiviteiten zijn [activiteiten voor gegevensverplaatsing](#data-move
 ```json
 {
     "name": "Execution Activity Name",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
     "typeProperties":
     {
@@ -142,7 +137,7 @@ policy | Beleidsregels die van invloed zijn op het runtimegedrag van de activite
 dependsOn | Deze eigenschap wordt gebruikt voor het definiëren van afhankelijkheden van de activiteit, en hoe de volgende activiteiten afhankelijk zijn van vorige activiteiten. Zie voor meer informatie de sectie [Afhankelijkheid van activiteiten](#activity-dependency) | Nee
 
 ### <a name="activity-policy"></a>Beleidsregels voor activiteiten
-Beleidsregels beïnvloeden het de runtimegedrag van een activiteit, waarbij configuratiemogelijkheden worden geboden. Beleidsregels voor activiteiten zijn alleen beschikbaar voor uitvoeringsactiviteiten. 
+Beleidsregels beïnvloeden het de runtimegedrag van een activiteit, waarbij configuratiemogelijkheden worden geboden. Beleidsregels voor activiteiten zijn alleen beschikbaar voor uitvoeringsactiviteiten.
 
 ### <a name="activity-policy-json-definition"></a>JSON-definitie van beleidsregels voor activiteiten
 
@@ -160,7 +155,8 @@ Beleidsregels beïnvloeden het de runtimegedrag van een activiteit, waarbij conf
          "policy": {
             "timeout": "00:10:00",
             "retry": 1,
-            "retryIntervalInSeconds": 60
+            "retryIntervalInSeconds": 60,
+            "secureOutput": true
          }
         }
       ],
@@ -175,6 +171,7 @@ JSON-naam | Beschrijving | Toegestane waarden | Vereist
 timeout | Hiermee geeft u de time-out op voor de activiteit die moet worden uitgevoerd. | Periode | Nee. De standaardwaarde is 7 dagen.
 retry | Maximaal aantal nieuwe pogingen | Geheel getal | Nee. De standaardwaarde is 0
 retryIntervalInSeconds | De vertraging tussen nieuwe pogingen in seconden | Geheel getal | Nee. De standaardwaarde is 20 seconden
+secureOutput | Wanneer dit is ingesteld op waar, wordt uitvoer van de activiteit als veilig beschouwd en niet ter controle opgeslagen in een logboek. | Booleaans | Nee. De standaardinstelling is onwaar.
 
 ### <a name="control-activity"></a>Controleactiviteit
 Controleactiviteiten hebben de volgende structuur op het hoogste niveau:
@@ -182,7 +179,7 @@ Controleactiviteiten hebben de volgende structuur op het hoogste niveau:
 ```json
 {
     "name": "Control Activity Name",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
     "typeProperties":
     {
@@ -195,14 +192,14 @@ Controleactiviteiten hebben de volgende structuur op het hoogste niveau:
 
 Label | Beschrijving | Vereist
 --- | ----------- | --------
-naam | De naam van de activiteit. Geef een naam op die staat voor de actie die de activiteit uitvoert.<br/><ul><li>Maximum aantal tekens: 55</li><li>Moet beginnen met een letter, cijfer of onderstrepingsteken (_)</li><li>De volgende tekens zijn niet toegestaan: '.', '+', '?', '/', '<', '>', ' * ', '%', '&', ':', '\' | Ja</li><ul> 
+naam | De naam van de activiteit. Geef een naam op die staat voor de actie die de activiteit uitvoert.<br/><ul><li>Maximum aantal tekens: 55</li><li>Moet beginnen met een letter, cijfer of onderstrepingsteken (_)</li><li>De volgende tekens zijn niet toegestaan: '.', '+', '?', '/', '<', '>', ' * ', '%', '&', ':', '\' | Ja</li><ul>
 description | Beschrijving van het doel waarvoor de activiteit of wordt gebruikt | Ja
 type | Type activiteit. Bekijk de secties [Activiteiten voor gegevensverplaatsing](#data-movement-activities), [Activiteiten voor gegevenstransformatie](#data-transformation-activities) en [Controleactiviteiten](#control-activities) voor andere typen activiteiten. | Ja
 typeProperties | Eigenschappen in de sectie typeProperties zijn afhankelijk van elk type activiteit. Klik op koppelingen naar de activiteiten in de vorige sectie om typeProperties voor een activiteit te bekijken. | Nee
 dependsOn | Deze eigenschap wordt gebruikt voor het definiëren van afhankelijkheden van de activiteit, en hoe de volgende activiteiten afhankelijk zijn van vorige activiteiten. Zie voor meer informatie de sectie [Afhankelijkheid van activiteiten](#activity-dependency). | Nee
 
 ### <a name="activity-dependency"></a>Afhankelijkheid van activiteiten
-De afhankelijkheid van activiteiten definieert hoe latere activiteiten afhankelijk zijn van vorige activiteiten. Op basis hiervan wordt bepaald of de volgende taak kan worden uitgevoerd. Een activiteit kan afhankelijk zijn van een of meer eerdere activiteiten met verschillende afhankelijkheidsvoorwaarden. 
+De afhankelijkheid van activiteiten definieert hoe latere activiteiten afhankelijk zijn van vorige activiteiten. Op basis hiervan wordt bepaald of de volgende taak kan worden uitgevoerd. Een activiteit kan afhankelijk zijn van een of meer eerdere activiteiten met verschillende afhankelijkheidsvoorwaarden.
 
 De verschillende afhankelijkheidsvoorwaarden zijn: Succeeded, Failed, Skipped, Completed.
 
@@ -218,7 +215,7 @@ Als een pijplijn bijvoorbeeld Activiteit A -> Activiteit B heeft, zijn dit de ve
 ```json
 {
     "name": "PipelineName",
-    "properties": 
+    "properties":
     {
         "description": "pipeline description",
         "activities": [
@@ -293,7 +290,7 @@ De volgende voorbeeldpijplijn bevat een activiteit van het type **Copy** in de s
       }
     ]
   }
-} 
+}
 ```
 Houd rekening met de volgende punten:
 
@@ -350,17 +347,17 @@ Houd rekening met de volgende punten:
 
 De sectie **typeProperties** verschilt voor elke transformatieactiviteit. Voor meer informatie over ondersteunde typeProperties voor een transformatieactiviteit, klikt u op de transformatieactiviteit in [Activiteiten voor gegevenstransformatie](#data-transformation-activities).
 
-Zie [Zelfstudie: Gegevens transformeren met Spark](tutorial-transform-data-spark-powershell.md)voor een volledige procedure voor het maken van deze pijplijn. 
+Zie [Zelfstudie: Gegevens transformeren met Spark](tutorial-transform-data-spark-powershell.md)voor een volledige procedure voor het maken van deze pijplijn.
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Meerdere activiteiten in een pijplijn
-De vorige twee voorbeeldpijplijnen bevatten slechts één activiteit. Een pijplijn kan echter meer dan één activiteit hebben. Als een pijplijn meerdere activiteiten bevat en latere activiteiten niet afhankelijk zijn van de vorige activiteiten, kunnen de activiteiten parallel worden uitgevoerd. 
+De vorige twee voorbeeldpijplijnen bevatten slechts één activiteit. Een pijplijn kan echter meer dan één activiteit hebben. Als een pijplijn meerdere activiteiten bevat en latere activiteiten niet afhankelijk zijn van de vorige activiteiten, kunnen de activiteiten parallel worden uitgevoerd.
 
-U kunt twee activiteiten koppelen met de [afhankelijkheid van activiteiten](#activity-dependency), waarmee u definieert hoe latere activiteiten afhankelijk zijn van vorige activiteiten. Op basis hiervan wordt bepaald of de volgende taak kan worden uitgevoerd. Een activiteit kan één of meerdere vorige activiteiten beschermen met verschillende afhankelijkheidsvoorwaarden. 
+U kunt twee activiteiten koppelen met de [afhankelijkheid van activiteiten](#activity-dependency), waarmee u definieert hoe latere activiteiten afhankelijk zijn van vorige activiteiten. Op basis hiervan wordt bepaald of de volgende taak kan worden uitgevoerd. Een activiteit kan één of meerdere vorige activiteiten beschermen met verschillende afhankelijkheidsvoorwaarden.
 
 ## <a name="scheduling-pipelines"></a>Pijplijnen plannen
-Pijplijnen worden door triggers gepland. Er zijn verschillende soorten triggers (scheduler-triggers, waarmee pijplijnen worden geactiveerd volgens een wandklokplanning, en handmatige triggers, waarmee pijplijnen op aanvraag worden geactiveerd). Zie het artikel [Pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md)voor meer informatie over triggers. 
+Pijplijnen worden door triggers gepland. Er zijn verschillende soorten triggers (scheduler-triggers, waarmee pijplijnen worden geactiveerd volgens een wandklokplanning, en handmatige triggers, waarmee pijplijnen op aanvraag worden geactiveerd). Zie het artikel [Pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md)voor meer informatie over triggers.
 
-Als u wilt dat de trigger een pijplijnuitvoering activeert, moet u een verwijzing naar de betreffende pijplijn opnemen in de definitie van de trigger. Pijplijnen en triggers hebben een 'n-m-relatie'. Meerdere triggers kunnen één pijplijn starten en één trigger kan meerdere pijplijnen starten. Als de trigger is gedefinieerd, moet u de trigger starten zodat deze de pijplijn kan activeren. Zie het artikel [Pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md)voor meer informatie over triggers. 
+Als u wilt dat de trigger een pijplijnuitvoering activeert, moet u een verwijzing naar de betreffende pijplijn opnemen in de definitie van de trigger. Pijplijnen en triggers hebben een 'n-m-relatie'. Meerdere triggers kunnen één pijplijn starten en één trigger kan meerdere pijplijnen starten. Als de trigger is gedefinieerd, moet u de trigger starten zodat deze de pijplijn kan activeren. Zie het artikel [Pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md)voor meer informatie over triggers.
 
 Stel dat u een scheduler-trigger hebt met de naam 'Trigger A' waarmee u de pijplijn 'MyCopyPipeline' wilt activeren. U definieert de trigger zoals in het volgende voorbeeld wordt weergegeven:
 
@@ -391,7 +388,7 @@ Stel dat u een scheduler-trigger hebt met de naam 'Trigger A' waarmee u de pijpl
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende zelfstudies voor stapsgewijze instructies voor het maken van pijplijnen met activiteiten: 
+Zie de volgende zelfstudies voor stapsgewijze instructies voor het maken van pijplijnen met activiteiten:
 
 - [Een pijplijn met een kopieerbewerking maken](quickstart-create-data-factory-powershell.md)
 - [Een pijplijn met een transformatieactiviteit voor gegevens bouwen](tutorial-transform-data-spark-powershell.md)

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 00e4da5fa1867aeddebe0e452f78ea24a3d0a821
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 6f6a622c2b9faf6117a8212000e1e632df3526b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808516"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016604"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Zelfstudie Azure Cosmos DB: gebruik de Gremlin-console om objecten te maken, query’s op grafen uit te voeren en door grafen te gaan
 
@@ -45,11 +45,11 @@ U moet ook de [Gremlin-console](http://tinkerpop.apache.org/) installeren. Gebru
 
 ## <a id="ConnectAppService"></a>Verbinding maken met uw app service
 1. Voordat u de Gremlin-console start, moet u het configuratiebestand remote-secure.yaml in de map `apache-tinkerpop-gremlin-console-3.2.5/conf` maken of wijzigen.
-2. Vul uw *host-*, *poort-*, *gebruikersnaam-*, *wachtwoord-*, *connectionPool-* en *serializer-* configuraties in:
+2. Vul uw *host-*, *poort-*, *gebruikersnaam-*, *wachtwoord-*, *connectionPool-* en *serializer-* configuraties in zoals in de volgende tabel is gedefinieerd:
 
     Instelling|Voorgestelde waarde|Beschrijving
     ---|---|---
-    hosts|[*account-name*.gremlin.cosmosdb.azure.com] of [*account-name*.graphs.azure.com] voor accounts die zijn gemaakt vóór 20 december 2017|Zie de volgende schermafbeelding. Dit is de Gremlin URI-waarde op de pagina Overzicht van Azure Portal tussen vierkante haken, waarbij de afsluitende: 443/ is verwijderd.<br><br>Deze waarde kan ook worden opgehaald van het tabblad Sleutels met behulp van de URI-waarde door https:// te verwijderen, documenten in grafieken of gremlin.cosmosdb te wijzigen en de afsluitende: 443/ te verwijderen.
+    hosts|[*account-name*.gremlin.cosmosdb.azure.com] of [*account-name*.graphs.azure.com] voor accounts die zijn gemaakt vóór 20 december 2017|Zie de volgende schermafbeelding. Dit is de Gremlin URI-waarde op de pagina Overzicht van Azure Portal tussen vierkante haken, waarbij de afsluitende: 443/ is verwijderd.
     poort|443|Ingesteld op 443.
     gebruikersnaam|*Uw gebruikersnaam*|De bron van het formulier `/dbs/<db>/colls/<coll>` waar `<db>` de naam van uw database is en `<coll>` de naam van uw verzameling is.
     wachtwoord|*Uw primaire sleutel*| Zie de tweede onderstaande schermafbeelding. Dit is uw primaire sleutel, die u kunt ophalen van de pagina Sleutels in Azure Portal, in het vak Primaire sleutel. Gebruik de kopieerknop aan de linkerkant van het vak om de waarde te kopiëren.

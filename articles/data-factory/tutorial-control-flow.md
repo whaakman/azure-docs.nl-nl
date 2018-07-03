@@ -13,17 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: eec2b5f84d11c946c5cae1d7d90d0b96dacc9d8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f39b2b54509efabcab3a818c9f1b02645f5b099
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055141"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activiteiten vertakken en koppelen in een Data Factory-pijplijn
 In deze zelfstudie maakt u een Data Factory-pijplijn die enkele van de stroombeheerfuncties demonstreert. Deze pijplijn voert een eenvoudige kopieerbewerking uit van een container in Azure Blob Storage naar een andere container in hetzelfde opslagaccount. Als de kopieerbewerking is geslaagd, wilt u details over de geslaagde kopieerbewerking (zoals de hoeveelheid geschreven gegevens) verzenden in een e-mail met een succesbericht. Als de kopieerbewerking is mislukt, wilt u details over de mislukte kopieerbewerking (zoals de foutmelding) verzenden in een e-mailbericht met een foutmelding. In de zelfstudie ziet u hoe u parameters kunt doorgeven.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Een overzicht van het scenario: ![overzicht](media/tutorial-control-flow/overview.png)
 
@@ -488,7 +486,7 @@ Plak de eindpunten van de aanvraag-URL uit uw Logic Apps-werkstroom in de overee
 - Bericht: geeft de waarde van `@{activity('CopyBlobtoBlob').output.dataWritten` door. Leest een eigenschap van de vorige kopieeractiviteit en geeft de waarde van dataWritten door. In het geval waarin het kopiëren mislukt, wordt de uitvoer van de fout doorgegeven in plaats van `@{activity('CopyBlobtoBlob').error.message`.
 - Naam data factory: geeft de waarde van `@{pipeline().DataFactory}` door. Dit is een systeemvariabele, zodat u toegang hebt tot de bijbehorende data factory-naam. Zie voor een lijst van systeemvariabelen het artikel [System Variables](control-flow-system-variables.md) (Systeemvariabelen).
 - Naam pijplijn: geeft de waarde van `@{pipeline().Pipeline}` door. Dit is ook een systeemvariabele, zodat u toegang hebt tot de bijbehorende pijplijnnaam. 
-- Ontvanger: geeft de waarde van "@pipeline().parameters.receiver") door. Toegang tot de pijplijnparameters.
+- Ontvanger: geeft de waarde van "\@pipeline().parameters.receiver") door. Toegang tot de pijplijnparameters.
  
 Deze code maakt een nieuwe activiteitafhankelijkheid, die afhankelijk is van de vorige kopieeractiviteit waarop hij volgt.
 

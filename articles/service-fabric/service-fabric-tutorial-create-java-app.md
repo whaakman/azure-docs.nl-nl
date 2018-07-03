@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: dc67de00abb2eac2eeb6e2b6bf3798e3aa210152
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b512ba91d1df7ec0432bdf9048268714e570fe6b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29949885"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958673"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: een toepassing met een Java web-API front-endservice en een stateful back-endservice maken en implementeren
 Deze zelfstudie is deel één van een serie. Wanneer u klaar bent, hebt u een stemtoepassing met een web-front-end in Java die stemresultaten opslaat in een stateful back-endservice in het cluster. Voor deze zelfstudie hebt u een werkende Mac OSX- of Linux-ontwikkelaarsmachine nodig. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-java-quickstart) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
@@ -596,7 +596,7 @@ De basis voor de front-end stateless service en de back-endservice is nu gemaakt
     }
     
     dependencies {
-        compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
+        compile ('com.microsoft.servicefabric:sf-actors:1.0.0')
     }
     
     jar {
@@ -898,7 +898,7 @@ De toepassing is nu gereed om te worden geïmplementeerd in een lokaal Service F
 
 4. Klik in de Package Explorer voor Eclipse met de rechtermuisknop op het project **Voting** en klik op **Service Fabric -> Publish Application ...** 
 5. Selecteer in het venster **Publish Application** de optie **Local.json** in de vervolgkeuzelijst en klik op **Publish**.
-6. Ga naar uw webbrowser en open **http://localhost:8080** om uw toepassing die wordt uitgevoerd in het lokale Service Fabric-cluster weer te geven. 
+6. Ga naar uw webbrowser en open **http://localhost:8080** om uw toepassing weer te geven die wordt uitgevoerd in het lokale Service Fabric-cluster. 
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit deel van de zelfstudie hebt u het volgende geleerd:

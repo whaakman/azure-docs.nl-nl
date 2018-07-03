@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 41418cb908f2bf149a3d0087728652b44cd6b19e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825507"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939159"
 ---
 Tot nu toe hebt u de code van de toepassing uitgevoerd alsof u de enige ontwikkelaar bent die werkt aan de app. In deze sectie leert u hoe teamontwikkeling wordt gestroomlijnd met Azure Dev Spaces:
 * Laat een team ontwikkelaars in dezelfde omgeving werken door ze naar behoefte in een gedeelde ontwikkelruimte of in individuele ontwikkelruimten te laten werken.
@@ -56,13 +56,15 @@ webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-c
 
 De kolom Ruimte toont dat beide services in een ruimte genaamd `default` worden uitgevoerd. Iedereen die de openbare URL opent en naar de web-app navigeert, roept het codepad aan dat u eerder hebt geschreven en dat actief is in beide services. Stel nu dat u door wilt gaan met de ontwikkeling van `mywebapi`. Hoe kunt u wijzigingen aanbrengen in de code en die testen zonder andere ontwikkelaars te onderbreken die dezelfde ontwikkelruimte gebruiken? Hiervoor moet u uw eigen ruimte instellen.
 
-### <a name="create-a-space"></a>Een ruimte maken
+### <a name="create-a-dev-space"></a>Een ontwikkelruimte maken
 Om uw eigen versie van `mywebapi` uit te voeren in een andere ruimte dan `default`, kunt u uw eigen ruimte maken met de volgende opdracht:
 
 ``` 
-azds space create --name scott
+azds space select --name scott
 ```
+
+Selecteer `default` als de **bovenliggende ontwikkelruimte** als u daarom wordt gevraagd. Dit betekent dat onze nieuwe ruimte, `default/scott`, wordt afgeleid van de ruimte `default`. Binnenkort zien we hoe dit ons helpt met testen. 
 
 In bovenstaand voorbeeld heb ik mijn naam gebruikt voor een nieuwe ruimte zodat die herkenbaar is voor mijn collega’s als de ruimte waarin ik werk. U kunt het echter noemen zoals u wilt en flexibel zijn voor wat betreft de betekenis, zoals ‘sprint4’ of ‘demo’.
 
-Voer de opdracht `azds space list` uit om een lijst te krijgen van alle ruimten in de ontwikkelomgeving. Naast de momenteel geselecteerde ruimte verschijnt een asterisk (*). In uw geval is de ruimte met de naam ‘scott’ automatisch geselecteerd toen die werd gemaakt. U kunt op elk moment een andere ruimte selecteren met de opdracht `azds space select`.
+Voer de opdracht `azds space list` uit om een lijst te krijgen van alle ruimten in de ontwikkelomgeving. Naast de momenteel geselecteerde ruimte verschijnt een asterisk (*). In uw geval is de ruimte met de naam 'default/scott' automatisch geselecteerd toen deze werd gemaakt. U kunt op elk moment een andere ruimte selecteren met de opdracht `azds space select`.

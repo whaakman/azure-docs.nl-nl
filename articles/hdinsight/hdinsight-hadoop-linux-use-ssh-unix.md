@@ -17,11 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046775"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Verbinding maken met HDInsight (Hadoop) via SSH
 
@@ -31,7 +32,7 @@ HDInsight kan Linux (Ubuntu) als het besturingssysteem gebruiken voor knooppunte
 
 | Adres | Poort | Maakt verbinding met... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (R Server op HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (ML Services in HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (ieder ander clustertype, als er een Edge-knooppunt bestaat) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Primaire hoofdknooppunt |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Secundaire hoofdknooppunt |

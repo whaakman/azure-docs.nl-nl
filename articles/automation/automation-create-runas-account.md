@@ -1,5 +1,5 @@
 ---
-title: Automation Azure die Run As-accounts maken
+title: Azure Automation uitvoeren als-accounts maken
 description: In dit artikel wordt beschreven hoe u uw Automation-account bijwerkt en Uitvoeren als-accounts maakt met PowerShell of vanuit de portal.
 services: automation
 ms.service: automation
@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9180b3f6bf6b151909ab681d0f33bc6b3583ce0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3f6f2768e13e85edb8a314359fef0b0312a8e84d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714660"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344888"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Uw Automation-account bijwerken met Uitvoeren als-accounts 
 In de volgende gevallen kunt u een bestaand Automation-account bijwerken vanuit Azure Portal of met PowerShell:
 
-* U maakt wel een Automation-account, maar geen Uitvoeren als-account.
+* U maakt een Automation-account, maar geen uitvoeren als-account maken.
 * U gebruikt al een Automation-account voor het beheer van Resource Manager-resources en u wilt het account bijwerken met het Uitvoeren als-account voor runbookverificatie.
 * U gebruikt al een Automation-account voor het beheer van klassieke resources en u wilt dit bijwerken, zodat u het klassieke Uitvoeren als-account kunt gebruiken in plaats van een nieuw account te maken, en uw runbooks en activa daarnaartoe te migreren.   
 
@@ -52,7 +52,7 @@ Ga als volgt te werk om de waarden op te halen voor *SubscriptionID*, *ResourceG
 ### <a name="required-permissions-to-update-your-automation-account"></a>Machtigingen die zijn vereist om een Automation-account bij te werken
 Als u een Automation-account wilt bijwerken, moet u de volgende specifieke machtigingen en bevoegdheden hebben om dit onderwerp te voltooien.   
  
-* Uw AD-gebruikersaccount moet worden toegevoegd aan een rol met machtigingen die equivalent zijn aan de rol Inzender voor Microsoft.Automation bronnen, zoals wordt beschreven in artikel [toegangsbeheer op basis van rollen in Azure Automation](automation-role-based-access-control.md#contributor).  
+* Uw AD-gebruikersaccount moet worden toegevoegd aan een rol die machtigingen heeft die equivalent zijn aan de rol Inzender voor Microsoft.Automation-resources, zoals beschreven in het artikel [rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md#contributor).  
 * Gebruikers zonder beheerdersrechten in uw Azure AD-tenant kunnen [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) als de optie **Gebruikers kunnen toepassingen registreren** van de Azure AD-tenant op de pagina **Gebruikersinstellingen** is ingesteld op **Ja**. Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD.
 
 Als u geen lid bent van het Active Directory-exemplaar van het abonnement voordat u wordt toegevoegd aan de rol van globale beheerder/medebeheerder van het abonnement, wordt u als gast toegevoegd aan Active Directory. In dat geval wordt de waarschuwing 'U bent niet gemachtigd om…' weergegeven op de blade **Automation-account toevoegen**. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
@@ -272,19 +272,19 @@ Dit PowerShell-script biedt ondersteuning voor de volgende configuraties:
 
 Let op het volgende nadat het script is uitgevoerd:
 * Als u een klassiek Uitvoeren als-account hebt gemaakt met een zelfondertekend openbaar certificaat (.cer-bestand), wordt het door het script gemaakt en opgeslagen in de map met tijdelijke bestanden op uw computer, onder het gebruikersprofiel *%USERPROFILE%\AppData\Local\Temp*, dat u hebt gebruikt voor het uitvoeren van de PowerShell-sessie.
-* Gebruik dit certificaat als u een klassiek Uitvoeren als-account hebt gemaakt met een openbaar certificaat (.cer-bestand). Volg de instructies voor [een beheer-API-certificaat uploaden naar de Azure-portal](../azure-api-management-certs.md), en vervolgens de verwijzingsconfiguratie met resources van klassieke implementatie te valideren met behulp van de [voorbeeldcode om te verifiëren met de klassieke Azure-implementatieresources](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Gebruik dit certificaat als u een klassiek Uitvoeren als-account hebt gemaakt met een openbaar certificaat (.cer-bestand). Volg de instructies voor [een API-beheercertificaat uploaden naar de Azure portal](../azure-api-management-certs.md), en vervolgens valideert de configuratie van de referenties met klassieke implementatieresources met behulp van de [voorbeeldcode voor verificatie met de klassieke Azure-implementatieresources](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Als u *geen* klassiek Uitvoeren als-account hebt gemaakt, verifieert u met Resource Manager-resources en valideert u de configuratie van de referenties met behulp van de [voorbeeldcode om verificatie met Service Management-resources uit te voeren](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
-## <a name="limiting-run-as-account-permissions"></a>Run As-accountmachtigingen beperken
+## <a name="limiting-run-as-account-permissions"></a>Uitvoeren als-accountmachtigingen beperken
 
-Voor het beheren van doelen van automatisering op basis van bronnen in Azure Automation, krijgt het account uitvoeren als standaard Inzender-rechten in het abonnement. Als u beperken wat de RunAs-service-principal kunt doen wilt, kunt u het account niet verwijderen uit de rol Inzender aan het abonnement en als een inzender toevoegen aan de resourcegroepen die u wilt opgeven.
+Als u wilt beheren die zijn gericht op van automation voor resources in Azure Automation, krijgt de uitvoeren als-account standaard Inzender-rechten in het abonnement. Als u nodig hebt om te beperken wat de RunAs-service-principal kunt doen, kunt u het account verwijderen uit de inzendersrol aan het abonnement en dit toevoegen als een bijdrager aan de resourcegroepen die u wilt opgeven.
 
-Selecteer in de Azure-portal **abonnementen** en kiest u het abonnement van uw Automation-Account. Selecteer **toegangsbeheer (IAM)** en zoek naar de service-principal voor uw Automation-Account (het lijkt erop dat \<AutomationAccountName\>_unique id). Selecteer het account en klik op **verwijderen** te verwijderen uit het abonnement.
+Selecteer in de Azure portal, **abonnementen** en kies het abonnement van uw Automation-Account. Selecteer **toegangsbeheer (IAM)** en zoek naar de service-principal voor uw Automation-Account (het ziet eruit als \<AutomationAccountName\>_unique-id). Selecteer het account en klikt u op **verwijderen** te verwijderen uit het abonnement.
 
-![Abonnement medewerkers](media/automation-create-runas-account/automation-account-remove-subscription.png)
+![Abonnement inzenders](media/automation-create-runas-account/automation-account-remove-subscription.png)
 
-Om de service-principal toevoegen aan een resourcegroep, selecteert u de resourcegroep in de Azure portal en selecteert u een **toegangsbeheer (IAM)**. Selecteer **toevoegen**, Hiermee opent u de **machtigingen toevoegen** pagina. Voor **rol**, selecteer **Inzender**. In de **Selecteer** tekstvak Typ de naam van de service-principal voor de Run As-account in en selecteert u deze in de lijst. Klik op **Opslaan** om de wijzigingen op te slaan. Doe dit voor de resourcegroepen die u wilt uw Automation Azure die worden uitgevoerd als service principal toegang geven tot.
+Selecteer de service-principal toevoegen aan een resourcegroep, de resourcegroep in Azure portal en selecteer **toegangsbeheer (IAM)**. Selecteer **toevoegen**, Hiermee opent u de **machtigingen toevoegen** pagina. Voor **rol**, selecteer **Inzender**. In de **Selecteer** tekstvak Typ de naam van de service-principal voor uw uitvoeren als-account in en selecteert u deze in de lijst. Klik op **Opslaan** om de wijzigingen op te slaan. Doe dit voor de resourcegroepen die u wilt uw Azure Automation uitvoeren als-service-principal toegang te geven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over Service-Principals [toepassingsobjecten en Service-Principal objecten](../active-directory/active-directory-application-objects.md).
-* Zie voor meer informatie over certificaten en Azure-services [certificaten voor Azure Cloud Services-overzicht](../cloud-services/cloud-services-certs-create.md).
+* Zie voor meer informatie over Service-Principals [toepassing en Service-Principal-objecten](../active-directory/active-directory-application-objects.md).
+* Zie voor meer informatie over certificaten en Azure-services, [overzicht van certificaten voor Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

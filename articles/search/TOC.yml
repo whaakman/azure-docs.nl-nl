@@ -145,7 +145,7 @@
           href: search-faceted-navigation.md
         - name: Relevantie afstemmen
           href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
-        - name: Synoniemen (preview)
+        - name: Synoniemen
           href: search-synonyms.md
     - name: Gegevens indexeren
       items:

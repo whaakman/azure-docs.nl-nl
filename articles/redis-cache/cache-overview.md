@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8f477282e49104e9b034e11656ff50c2a67545f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5efb0087c8e1ea55051d8eb7b209059b3abd5c5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195869"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062756"
 ---
 # <a name="what-is-azure-redis-cache"></a>Wat is Azure Redis Cache?
 
@@ -77,6 +77,7 @@ De pagina [Prijzen van Redis Cache](https://azure.microsoft.com/pricing/details/
 
 * [Snelstart ASP.NET-webapp](cache-web-app-howto.md) Maak een eenvoudige ASP.NET-webapp die gebruikmaakt van een Azure Redis Cache.
 * [Snelstart .NET](cache-dotnet-how-to-use-azure-redis-cache.md) Maak een eenvoudige .NET-app die gebruikmaakt van een Azure Redis Cache.
+* [Quickstart voor .NET Core](cache-dotnet-core-quickstart.md) Maak een eenvoudige .NET-app die gebruikmaakt van een Azure Redis Cache.
 * [Snelstart Node.js](cache-nodejs-get-started.md) Maak een eenvoudige Node.js-app die gebruikmaakt van een Azure Redis Cache.
 * [Snelstart Java](cache-java-get-started.md) Maak een eenvoudige Java-app die gebruikmaakt van een Azure Redis Cache.
 * [Snelstart Python](cache-python-get-started.md) Maak een eenvoudige Python-app die gebruikmaakt van een Azure Redis Cache.

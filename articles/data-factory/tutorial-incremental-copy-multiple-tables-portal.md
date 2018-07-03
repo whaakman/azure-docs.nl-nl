@@ -3,7 +3,7 @@ title: Incrementeel meerdere tabellen kopiëren met behulp van Azure Data Factor
 description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee wijzigingsgegevens incrementeel uit meerdere tabellen van een lokale Microsoft SQL Server worden gekopieerd naar een Azure SQL-database.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052841"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
-In deze zelfstudie maakt u een Azure Data Factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
+In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
 
 In deze zelfstudie voert u de volgende stappen uit:
 
@@ -36,9 +37,6 @@ In deze zelfstudie voert u de volgende stappen uit:
 > * Gegevens in brontabellen toevoegen of bijwerken.
 > * De pijplijn opnieuw uitvoeren en controleren.
 > * De eindresultaten bekijken.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is, raadpleegt u de [documentatie voor versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Overzicht
 Dit zijn de belangrijke stappen voor het maken van deze oplossing: 
@@ -293,7 +291,7 @@ Als u gegevens uit een gegevensopslag in een particulier netwerk (on-premises) n
        ![Integratieruntimes - lijst](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
-U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze sectie maakt u gekoppelde services in de lokale SQL Server en de SQL-database. 
+U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze sectie maakt u gekoppelde services in de lokale SQL Server-database en de SQL-database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>De gekoppelde service voor SQL Server maken
 In deze stap gaat u uw on-premises SQL Server-database aan de data factory koppelen.
@@ -369,16 +367,25 @@ In deze stap maakt u gegevenssets die de gegevensbron, het gegevensdoel en de pl
 3. Uit ziet een nieuw tabblad dat geopend wordt in de webbrowser voor het configureren van de gegevensset. U ziet ook de gegevensset in de structuurweergave. Voer in het tabblad **Algemeen** in het venster Eigenschappen onderaan **SinkDataset** in als **Naam**.
 
    ![Sink-gegevensset - algemeen](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Ga in het venster Eigenschappen naar het tabblad **Verbindingen** en selecteer **AzureSqlLinkedService** voor **Gekoppelde service**. 
-
-   ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. Ga naar het tabblad **Parameters** in het venster Eigenschappen en voer de volgende stappen uit: 
+4. Ga naar het tabblad **Parameters** in het venster Eigenschappen en voer de volgende stappen uit: 
 
     1. Klik op **Nieuw** in de sectie **Parameters maken/bijwerken**. 
     2. Voer **SinkTableName** in bij de **naam** en **Tekenreeks** voor het **type**. Deze gegevensset gebruikt **SinkTableName** als parameter. De parameter SinkTableName wordt in runtime dynamisch ingesteld door de pijplijn. De ForEach-activiteit in de pijplijn doorloopt een lijst met namen van tabellen en geeft de tabelnaam door aan deze gegevensset in elke iteratie.
-    3. Voer `@{dataset().SinkTableName}` in als eigenschap voor de **tableName** in de sectie **Parametiseerbare eigenschappen**. U gebruikt de waarde die is doorgegeven aan de **SinkTableName**-parameter voor het initialiseren van de eigenschap **tableName** van de gegevensset. 
-
+   
        ![Sink gegevensset - eigenschappen](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. Ga in het venster Eigenschappen naar het tabblad **Verbindingen** en selecteer **AzureSqlLinkedService** voor **Gekoppelde service**. Klik voor de eigenschap **Tabel** op **Dynamische inhoud toevoegen**. 
+
+   ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+    
+6. Selecteer in de sectie **Parameters** de optie **SinkTableName**
+   
+   ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. Nadat u op **Voltooien** hebt geklikt, ziet u **@dataset().SinkTableName** als de tabelnaam.
+   
+   ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### <a name="create-a-dataset-for-a-watermark"></a>Een gegevensset maken voor een grenswaarde
 In deze stap maakt u een gegevensset voor het opslaan van een bovengrenswaarde. 
@@ -502,7 +509,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
     2. Selecteer **Importparameter**. 
     3. Geef de volgende waarden op voor de parameters: 
 
-        | Name | Type | Waarde | 
+        | Naam | Type | Waarde | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | Tekenreeks | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
@@ -644,7 +651,7 @@ VALUES
     ]
     ```
 
-## <a name="monitor-the-pipeline"></a>De pijplijn bewaken
+## <a name="monitor-the-pipeline-again"></a>De pijplijn opnieuw controleren
 
 1. Ga naar het tabblad **Controleren** aan de linkerkant. U kunt de status van de pijplijnuitvoering zien die is geactiveerd met de **handmatige trigger**. Klik op de knop **Vernieuwen** om de lijst te vernieuwen. Met de koppelingen in de kolom **Acties** kunt u de uitvoeringen van activiteiten weergeven die zijn gekoppeld aan de pijplijnuitvoering, en de pijplijn opnieuw uitvoeren. 
 

@@ -3,7 +3,7 @@ title: Stapsgewijs een tabel kopiëren met behulp van Azure Data Factory | Micro
 description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee gegevens uit een Azure SQL- database stapsgewijs worden gekopieerd naar Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,21 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
-ms.author: shlo
-ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: yexu
+ms.openlocfilehash: 6d63a443da0fd331d02039ed3a3715dbc59f273b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406487"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051464"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit een Azure SQL-database laden in Azure Blob Storage
 In deze zelfstudie maakt u een Azure-gegevensfactory met een pijplijn waarmee deltagegevens uit een tabel in een Azure SQL-database worden geladen naar Azure Blob Storage. 
-
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is, raadpleegt u de [documentatie voor versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 In deze zelfstudie voert u de volgende stappen uit:
 
@@ -173,7 +168,7 @@ END
       - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.   
          
         Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-4. Selecteer **V2 (Preview)** als de **versie**.
+4. Selecteer **V2** als de **versie**.
 5. Selecteer de **locatie** voor de gegevensfactory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 6. Selecteer **Vastmaken aan dashboard**.     
 7. Klik op **Create**.      
@@ -303,7 +298,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 24. Selecteer **Opgeslagen procedureactiviteit** in de pijplijnontwerper en verander de naam ervan in **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Opgeslagen-procedureactiviteit - naam](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
-25. Ga naar het tabblad **SQL-account** en selecteer *AzureSqlDatabaseLinkedService*\* als **Gekoppelde service**. 
+25. Ga naar het tabblad **SQL-account** en selecteer *AzureSqlDatabaseLinkedService* als **Gekoppelde service**. 
 
     ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Ga naar het tabblad **Opgeslagen procedure** en voer de volgende stappen uit: 

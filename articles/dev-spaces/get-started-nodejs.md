@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 0507208e58323fd31bb7c6cdb3a293ec0179cabe
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: efd19393a661a48a566e85a058dad071c3bdb63c
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823908"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945986"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Aan de slag in Azure Dev Spaces met behulp van Node.js
 
@@ -32,7 +32,7 @@ U kunt nu een op Kubernetes gebaseerde ontwikkelomgeving maken in Azure.
 Azure Dev Spaces vereist minimale instellingen voor de lokale computer. De configuratie van uw ontwikkelomgeving wordt grotendeels opgeslagen in de cloud en kan worden gedeeld met andere gebruikers. Begin met het downloaden en uitvoeren van de [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!IMPORTANT]
-> Als u de Azure CLI al hebt geïnstalleerd, controleert u of u versie 2.0.33 of hoger gebruikt.
+> Als u de Azure CLI al hebt geïnstalleerd, controleert u of u versie 2.0.38 of hoger gebruikt.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -68,7 +68,7 @@ Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd
 Wat is er gebeurd? Voor bewerkingen van inhoudsbestanden, zoals HTML en CSS, is niet vereist dat het Node.js-proces opnieuw wordt opgestart. Door een actieve `azds up`-opdracht worden gewijzigde inhoudsbestanden rechtstreeks automatisch gesynchroniseerd in de actieve container in Azure. Zo kunt u de bewerkingen van uw inhoud snel zien.
 
 ### <a name="test-from-a-mobile-device"></a>Testen via een mobiel apparaat
-Als u de web-app op een mobiel apparaat opent, ziet u dat de gebruikersinterface niet correct wordt weergegeven op een klein apparaat.
+Open de web-app op een mobiel apparaat die de openbare URL als webfrontend gebruikt. Mogelijk wilt u de URL kopiëren en vanaf het bureaublad naar uw apparaat verzenden zodat u het lange adres niet hoeft in te voeren. Wanneer de web-app op een mobiel apparaat wordt geladen, ziet u dat de gebruikersinterface niet correct wordt weergegeven op een klein apparaat.
 
 Om dit te verhelpen voegt u een `viewport`-metatag toe:
 1. Open het bestand `./public/index.html`
@@ -113,7 +113,7 @@ Er bestaat echter een nog *snellere methode* voor het ontwikkelen van code. Deze
 1. Om de foutopsporingsweergave te openen, klikt u op het pictogram Foutopsporing in de **activiteitenbalk** van VS Code.
 1. Selecteer **Launch Program (AZDS)** als de actieve foutopsporingsconfiguratie.
 
-![](media/get-started-node/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > Als u geen Azure Dev Spaces-opdrachten ziet in het Opdrachtenpalet, controleert u of u [de VS Code-extensie voor Azure Dev Spaces hebt geïnstalleerd](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).

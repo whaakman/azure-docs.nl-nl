@@ -3,7 +3,7 @@ title: PowerShell-voorbeeldsynchronisatie tussen SQL Database en SQL Server on-p
 description: Azure PowerShell-voorbeeldscript om te synchroniseren tussen een Azure SQL-database en een on-premises SQL Server-database
 services: sql-database
 documentationcenter: sql-database
-author: jognanay
+author: allenwux
 manager: craigg
 editor: ''
 tags: ''
@@ -15,23 +15,24 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: jognanay
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: bef2e3088bf3f3d32f59b382792608fbf3a03a60
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 51624e162d4c3304e51ab69923f54213f317e42b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024683"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell gebruiken om te synchroniseren tussen een SQL-database en een on-premises SQL Server-database
 
-Met dit PowerShell-voorbeeld wordt Data Sync (preview) geconfigureerd voor synchroniseren tussen een Azure SQL-database en een on-premises SQL Server-database. 
+Met dit PowerShell-voorbeeld wordt Data Sync geconfigureerd voor synchronisatie tussen een Azure SQL-database en een on-premises SQL Server-database. 
 
 Voor dit voorbeeld is versie 4.2 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
 Voer `Connect-AzureRmAccount` uit om een verbinding op te zetten met Azure.
 
-Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync (Preview)](../sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
+Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](../sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
 
 ## <a name="sample-script"></a>Voorbeeldscript
 

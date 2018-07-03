@@ -1,6 +1,6 @@
 ---
-title: Toegangsrechten voor een globale beheerder in Azure Active Directory uitbreiden | Microsoft Docs
-description: Beschrijft hoe een globale beheerder in Azure Active Directory met Azure portal of REST-API toegang uitbreiden.
+title: Toegangsrechten voor een globale beheerder in Azure Active Directory | Microsoft Docs
+description: Beschrijft hoe u toegangsrechten voor een globale beheerder in Azure Active Directory met Azure portal of REST-API.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,56 +12,56 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/29/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0004390264ed0c22adbdc0de5e20150c7946dc4b
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266497"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346990"
 ---
-# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Toegangsrechten voor een globale beheerder in Azure Active Directory uitbreiden
+# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Toegangsrechten voor een globale beheerder in Azure Active Directory
 
-Als u een [hoofdbeheerder](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) in Azure Active Directory (Azure AD), kan gebeuren als u wilt de volgende handelingen uit:
+Als u een [hoofdbeheerder](../active-directory/active-directory-assign-admin-roles-azure-portal.md#company-administrator) in Azure Active Directory (Azure AD), er kan gebeuren als u wilt het volgende doen:
 
-- Weer toegang tot een Azure-abonnement als een gebruiker toegang heeft verloren
-- Verleen een andere gebruiker of zelf de toegang tot een Azure-abonnement
+- Opnieuw toegang krijgen tot een Azure-abonnement wanneer een gebruiker heeft geen toegang meer
+- Een andere gebruiker of voor uzelf toegang tot een Azure-abonnement verlenen
 - Zie alle Azure-abonnementen in een organisatie
 - Een automation-app (zoals een facturering of controle-app) voor toegang tot alle Azure-abonnementen toestaan
 
-Beheren (RBAC) functies komen niet span Azure AD en Azure standaard Azure AD-beheerdersrollen en -toegang tot Azure op basis van rollen. Als u een globale beheerder in Azure AD, kunt u uw toegang tot het beheer van Azure-abonnementen en beheergroepen uitbreiden. Wanneer u de toegang tot de bevoegdheden, u krijgt de [beheerder voor gebruikerstoegang](built-in-roles.md#user-access-administrator) rol (een RBAC-rol) voor alle abonnementen voor een bepaalde tenant. De beheerder voor gebruikerstoegang-functie kunt u andere gebruikers toegang verlenen tot Azure-resources voor het root-bereik (`/`).
+Standaard Azure AD-beheerdersrollen en Azure op rollen gebaseerd toegangsbeheer (RBAC) rollen wilt niet span Azure AD en Azure. Als u een globale beheerder in Azure AD, kunt u de toegang tot het beheer van Azure-abonnementen en beheergroepen verhogen. Wanneer u uw toegangsrechten, u krijgt de [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator) rol (een RBAC-rol) voor alle abonnementen voor een bepaalde tenant. De rol Administrator voor gebruikerstoegang kunt u andere gebruikers toegang verlenen tot Azure-resources op het bereik van de hoofdmap (`/`).
 
-Deze uitbreiding van bevoegdheden moet tijdelijk en alleen uitgevoerd wanneer deze nodig is.
+Deze uitbreiding van bevoegdheden moet tijdelijke en alleen uitgevoerd wanneer dat nodig is.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Toegangsrechten uitbreiden voor een globale beheerder met behulp van de Azure-portal
+## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Toegangsrechten voor een globale beheerder met behulp van de Azure portal
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) of de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com).
 
-1. Klik in de lijst navigatie op **Azure Active Directory** en klik vervolgens op **eigenschappen**.
+1. Klik in de navigatielijst **Azure Active Directory** en klik vervolgens op **eigenschappen**.
 
    ![Eigenschappen van Azure AD - schermafbeelding](./media/elevate-access-global-admin/aad-properties.png)
 
-1. Onder **globale beheerder kunnen worden beheerd Azure-abonnementen en beheergroepen**, instellen van de switch op **Ja**.
+1. Onder **globale beheerder kan beheren Azure-abonnementen en beheergroepen**, instellen van de switch op **Ja**.
 
-   ![Globale beheerder kunnen worden beheerd Azure-abonnementen en beheergroepen - schermafbeelding](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
+   ![Globale beheerder kan beheren Azure-abonnementen en beheergroepen - schermafbeelding](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Als u de switch instelt op **Ja**, uw globale beheerdersaccount (momenteel aangemelde gebruiker) wordt toegevoegd aan de rol beheerder voor gebruikerstoegang in Azure RBAC voor het root-bereik (`/`), hebt u toegang tot de weergave en het rapport op alle Azure-abonnementen die zijn gekoppeld aan uw Azure AD-tenant.
+   Als u de switch instelt op **Ja**, uw account voor globale beheerders (momenteel aangemelde gebruiker) wordt toegevoegd aan de rol Administrator voor gebruikerstoegang in Azure RBAC bij het root-bereik (`/`), hebt u toegang tot het weergeven en rapporteren op alle Azure-abonnementen die zijn gekoppeld aan uw Azure AD-tenant.
 
-   Als u de switch instelt op **Nee**, uw globale beheerdersaccount (momenteel aangemelde gebruiker) is verwijderd uit de rol beheerder voor gebruikerstoegang in Azure RBAC. U kunt niet alle Azure-abonnementen die gekoppeld aan de Azure AD-tenant zijn bekijken en u kunt weergeven en beheren van alleen de Azure-abonnementen waartoe u toegang hebben gekregen.
+   Als u de switch instelt op **Nee**, uw account voor globale beheerders (momenteel aangemelde gebruiker) wordt verwijderd uit de rol Administrator voor gebruikerstoegang in Azure RBAC. Alle Azure-abonnementen die gekoppeld aan de Azure AD-tenant zijn niet wordt weergegeven, en u kunt weergeven en beheren van alleen de Azure-abonnementen waartoe u toegang is verleend.
 
 1. Klik op **opslaan** om op te slaan van de instelling.
 
-   Deze instelling is geen globale eigenschap en geldt alleen voor de momenteel aangemelde gebruiker.
+   Deze instelling is niet een globale eigenschap en geldt alleen voor de momenteel aangemelde gebruiker.
 
-1. De taken die u wilt maken op de uitgebreide toegangsrechten uitvoeren. Als u klaar bent, stelt u de schakeloptie terug naar **Nee**.
+1. De taken die u wilt maken op de uitgebreide toegangsrechten uitvoeren. Wanneer u klaar bent, stelt u de switch terug naar **Nee**.
 
-## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>Lijst van de roltoewijzing bij het root-bereik (/) met behulp van PowerShell
+## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>Lijst met roltoewijzing bij het root-bereik (/) met behulp van PowerShell
 
-Voor een lijst met de toewijzing van de rol beheerder voor gebruikerstoegang voor een gebruiker bij het root-bereik (`/`), gebruikt u de [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) opdracht.
+Om de toewijzing van de rol Administrator voor gebruikerstoegang voor een gebruiker bij het bereik van de hoofdmap weer te geven (`/`), gebruikt u de [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) opdracht.
 
 ```azurepowershell
 Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
@@ -79,26 +79,26 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>Een roltoewijzing bij het root-bereik (/) met behulp van PowerShell verwijderen
+## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>Verwijderen van een roltoewijzing bij het root-bereik (/) met behulp van PowerShell
 
-Verwijderen van een beheerder voor gebruikerstoegang roltoewijzing voor een gebruiker bij het root-bereik (`/`), gebruikt u de [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) opdracht.
+Verwijderen van een roltoewijzing Administrator voor gebruikerstoegang voor een gebruiker bij het root-bereik (`/`), gebruikt u de [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) opdracht.
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Toegangsrechten voor een globale beheerder met de REST API uitbreiden
+## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Toegangsrechten voor een globale beheerder met behulp van de REST-API
 
-Gebruik de volgende basisstappen wilt uitbreiden toegang tot een globale beheerder met behulp van de REST-API.
+Gebruik de volgende eenvoudige stappen aan de toegangsrechten voor een globale beheerder met behulp van de REST-API.
 
-1. REST, aanroepen `elevateAccess`, verleent dat u de rol beheerder voor gebruikerstoegang voor het root-bereik (`/`).
+1. Met behulp van REST, aanroepen `elevateAccess`, verleent dat u de rol Administrator voor gebruikerstoegang voor het root-bereik (`/`).
 
    ```http
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
    ```
 
-1. Maak een [roltoewijzing](/rest/api/authorization/roleassignments) aan elke rol op een bereik toe te wijzen. Het volgende voorbeeld ziet u de eigenschappen voor het toewijzen van de rol {roleDefinitionID} bij het root-bereik (`/`):
+1. Maak een [roltoewijzing](/rest/api/authorization/roleassignments) om toe te wijzen een rol op een bereik. Het volgende voorbeeld ziet u de eigenschappen voor het toewijzen van de rol {roleDefinitionID} in het bereik van de hoofdmap (`/`):
 
    ```json
    { 
@@ -113,25 +113,25 @@ Gebruik de volgende basisstappen wilt uitbreiden toegang tot een globale beheerd
    }
    ```
 
-1. Tijdens een beheerder voor gebruikerstoegang, u kunt ook functietoewijzingen voor de scope hoofdmap verwijderen (`/`).
+1. Tijdens een beheerder van gebruikerstoegang, u kunt ook roltoewijzingen weergegeven bij het root-bereik verwijderen (`/`).
 
-1. Verwijder uw beheerder voor gebruikerstoegang bevoegdheden totdat ze weer nodig zijn.
+1. Verwijder de bevoegdheden van de beheerder van gebruikerstoegang totdat ze weer nodig zijn.
 
-## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>Lijst van roltoewijzingen bij het root-bereik (/) met de REST API
+## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>Lijst van roltoewijzingen weergegeven bij het root-bereik (/) met behulp van de REST-API
 
-U kunt lijst weer met alle van de roltoewijzing voor een gebruiker bij het root-bereik (`/`).
+U kunt vindt u al de roltoewijzingen voor een gebruiker bij het root-bereik (`/`).
 
-- Roep [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope) waar `{objectIdOfUser}` is de object-ID van de gebruiker waarvan u wilt ophalen roltoewijzingen.
+- Bel [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope) waar `{objectIdOfUser}` is de object-ID van de gebruiker waarvan u wilt ophalen van roltoewijzingen.
 
    ```http
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## <a name="remove-elevated-access-using-the-rest-api"></a>Verhoogde toegang met de REST API verwijderen
+## <a name="remove-elevated-access-using-the-rest-api"></a>Verwijderen van toegang met verhoogde bevoegdheid met behulp van de REST-API
 
-Als u aanroept `elevateAccess`, u een roltoewijzing voor uzelf maken, zodat deze bevoegdheden intrekken moet u verwijdert de toewijzing.
+Als u aanroept `elevateAccess`, u een roltoewijzing voor uzelf maken, dus deze bevoegdheden intrekken moet u de toewijzing verwijderen.
 
-1. Roep [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) waar `roleName` gelijk is aan de beheerder voor gebruikerstoegang om te bepalen van de naam-ID van de rol beheerder voor gebruikerstoegang.
+1. Bel [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) waar `roleName` gelijk is aan de Administrator voor gebruikerstoegang om te bepalen van de naam-ID van de rol Administrator voor gebruikerstoegang.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User Access Administrator'
@@ -172,18 +172,18 @@ Als u aanroept `elevateAccess`, u een roltoewijzing voor uzelf maken, zodat deze
     }
     ```
 
-    Sla de ID van de `name` parameter in dit geval `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
+    Sla de ID van de `name` parameter, in dit geval `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-2. U moet er ook voor het weergeven van de roltoewijzing voor tenantbeheerder binnen het bereik van de tenant. Lijst van alle toewijzingen in het bereik van de tenant voor de `principalId` van de tenantbeheerder die de uitbreiden toegang aanroepen. Hiermee wordt een lijst van alle toewijzingen in de tenant voor de object-id.
+2. U moet ook om de roltoewijzing voor tenantbeheerder binnen het tenantbereik weer te geven. Lijst van alle toewijzingen in het tenantbereik voor de `principalId` van de tenantbeheerder die de toegang toestaan tot aanroepen. Hiermee worden alle toewijzingen in de tenant voor de object-id.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
     
     >[!NOTE] 
-    >Een tenantbeheerder mag geen veel toewijzingen hebben als de vorige query te veel toewijzingen, u kunt ook een query retourneert voor alle toewijzingen van op scopeniveau tenant Just en vervolgens de resultaten filteren: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >Een tenantbeheerder moet niet veel toewijzingen hebben als de vorige query te veel toewijzingen, u kunt ook een query geeft voor alle toewijzingen gewoon op het niveau van bereik tenant en vervolgens de resultaten te filteren: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Het aanroepen van de vorige retourneren een lijst met roltoewijzingen. De roltoewijzing vinden waar de scope is `"/"` en de `roleDefinitionId` eindigt op de rol naam-ID die u in stap 1 hebt gevonden en `principalId` overeenkomt met de object-id van de tenantbeheerder. 
+    2. Het aanroepen van de vorige retourneert een lijst van roltoewijzingen. De roltoewijzing vinden waar het bereik is `"/"` en de `roleDefinitionId` eindigt met de rol van naam-ID die u in stap 1 hebt gevonden en `principalId` komt overeen met de object-id van de tenantbeheerder. 
     
     Voorbeeld van roltoewijzing:
 
@@ -209,9 +209,9 @@ Als u aanroept `elevateAccess`, u een roltoewijzing voor uzelf maken, zodat deze
         }
         ```
         
-    Opnieuw in en sla de ID van de `name` parameter in dit geval e7dd75bc-06f6-4e71-9014-ee96a929d099.
+    Nogmaals, sla de ID van de `name` parameter, in dit geval e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-    3. Gebruik tot slot de roltoewijzings-ID te verwijderen van de toewijzing toegevoegd door `elevateAccess`:
+    3. Gebruik tot slot de roltoewijzings-ID te verwijderen van de toewijzing is toegevoegd door `elevateAccess`:
 
     ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
@@ -219,5 +219,6 @@ Als u aanroept `elevateAccess`, u een roltoewijzing voor uzelf maken, zodat deze
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Toegangsbeheer op basis van rollen met REST](role-assignments-rest.md)
-- [Toewijzingen access beheren](role-assignments-users.md)
+- [Op rollen gebaseerd toegangsbeheer met REST](role-assignments-rest.md)
+- [Toegang tot Azure-resources met Privileged Identity Management beheren](pim-azure-resource.md)
+- [Toegang tot Azure-beheer met voorwaardelijke toegang beheren](conditional-access-azure-management.md)

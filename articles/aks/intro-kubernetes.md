@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/13/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4b2294d7816a92dccb14caaadc09a2797edeafe6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fdff52a1fa34fa2033db19690d20a1c2f417e646
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237394"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307788"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ Azure Kubernetes Service biedt meerdere Kubernetes versies. Wanneer nieuwe versi
 
 Zie [Een Azure Kubernetes Service-cluster (AKS) upgraden][aks-upgrade] voor meer informatie.
 
-## <a name="http-application-routing"></a>HTTP-toepassingsroutering
+## <a name="http-application-routing"></a>Routering van HTTP-toepassing
 
 De HTTP-toepassingsrouteringsoplossing maakt het eenvoudig om toegang te krijgen tot in uw AKS-cluster geïmplementeerde toepassingen. Indien ingeschakeld, configureert de HTTP-toepassingsrouteringsoplossing een ingangscontroller in uw AKS-cluster. Wanneer er toepassingen worden geïmplementeerd, worden automatisch openbaar toegankelijke DNS-namen geconfigureerd.
 
@@ -104,7 +104,7 @@ De Azure Kubernetes Service (AKS) is door de CNCF gecertificeerd als compatibel 
 
 ## <a name="regulatory-compliance"></a>Naleving van regelgeving
 
-Azure Kubernetes Service (AKS) voldoet aan SOC en ISO/HIPPA/HITRUST.
+Azure Kubernetes Service (AKS) voldoet aan SOC en ISO/HIPAA/HITRUST.
 
 ## <a name="next-steps"></a>Volgende stappen
 

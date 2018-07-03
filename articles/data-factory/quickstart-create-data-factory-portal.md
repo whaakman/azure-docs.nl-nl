@@ -11,25 +11,22 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 69c0661f515f062a6a99b0692130d52eb23d20d6
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 454eaba26155b2bf4a0381af98047dbcbb514bb5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285896"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046813"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Een gegevensfactory maken met de Azure Data Factory-UI
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Versie 2 - Preview](quickstart-create-data-factory-portal.md)
+> * [Versie 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Huidige versie](quickstart-create-data-factory-portal.md)
 
 In deze quickstart wordt beschreven hoe u de Azure Data Factory-UI kunt gebruiken om een Azure-gegevensfactory te maken en te controleren. Met de pijplijn die u in deze data factory maakt, worden gegevens *gekopieerd* van één map naar een andere map in een Azure Blob-opslag. Zie [Zelfstudie: Gegevens transformeren met Spark](tutorial-transform-data-spark-portal.md) voor meer informatie over het *transformeren* van gegevens met Azure Data Factory. 
 
-
 > [!NOTE]
 > Als u niet bekend bent met Azure Data Factory, raadpleegt u eerst de [Inleiding voor Azure Data Factory](data-factory-introduction.md) voordat u deze quickstart uitvoert. 
->
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de service gebruikt die algemeen beschikbaar is, raadpleegt u [Zelfstudie: Data Factory-versie 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -58,8 +55,8 @@ Bekijk deze video voor een beter begrip van de Data Factory-UI:
    - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.   
          
    Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-4. Selecteer **V2 (Preview)** voor **Versie**.
-5. Selecteer voor **Locatie** de locatie voor de data factory.
+4. Selecteer **V2** als **Versie**.
+5. Selecteer voor **Locatie** een locatie voor de data factory.
 
    In de lijst worden alleen locaties getoond die door Data Factory worden ondersteund. De gegevensarchieven (zoals Azure Storage en Azure SQL Database) en berekeningen (zoals Azure HDInsight) die Data Factory gebruikt, kunnen zich in andere locaties bevinden.
 6. Selecteer **Vastmaken aan dashboard**.     
@@ -160,7 +157,7 @@ In deze stap spoort u fouten op in de pijplijn voordat u deze implementeert in D
 3. Controleer of een uitvoerbestand wordt weergegeven in de **uitvoermap** van de container **adftutorial**. Als de uitvoermap niet bestaat, wordt deze automatisch aangemaakt in de Data Factory-service. 
 
 ## <a name="trigger-the-pipeline-manually"></a>De pijplijn handmatig activeren
-In deze procedure implementeert u entiteiten (gekoppelde services, gegevenssets, pijplijnen) in Azure Data Factory. Vervolgens activeert u handmatig een pijplijnuitvoering. U kunt ook entiteiten publiceren in uw eigen Visual Studio Team Services Git-archief. Dit wordt behandeld in een [andere zelfstudie](tutorial-copy-data-portal.md?#configure-code-repository).
+In deze procedure implementeert u entiteiten (gekoppelde services, gegevenssets, pijplijnen) in Azure Data Factory. Vervolgens activeert u handmatig een pijplijnuitvoering. 
 
 1. Voordat u een pijplijn activeert, moet u eerst entiteiten publiceren in Data Factory. Selecteer hiervoor bovenaan de optie **Alles publiceren**. 
 

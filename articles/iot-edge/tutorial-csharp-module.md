@@ -1,22 +1,22 @@
 ---
-title: Azure IoT Edge C#-module| Microsoft Docs
-description: Een IoT Edge-module met C#-code make en implementeren op een Edge-apparaat
+title: Zelfstudie voor Azure IoT Edge C# | Microsoft Docs
+description: In deze zelfstudie ziet u hoe u een IoT Edge-module met C#-code maakt en deze implementeert op een Edge-apparaat
+services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1da3a246a2ad33a4563f491058f5d4d115f3954d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cd4f87e690d64e1f69ef39f3422ebc73d79974a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631068"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053089"
 ---
-# <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Een C# IoT Edge-module maken en implementeren op uw gesimuleerd apparaat - preview
+# <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Zelfstudie: Een C# IoT Edge-module ontwikkelen en implementeren op een gesimuleerd apparaat
 
 U kunt IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. In deze zelfstudie leert u een IoT Edge-module te maken die sensorgegevens filtert. U gebruikt het gesimuleerde IoT Edge-apparaat dat u hebt gemaakt in de zelfstudie Azure IoT Edge implementeren op een gesimuleerd apparaat in [Windows][lnk-tutorial1-win] of [Linux][lnk-tutorial1-lin]. In deze zelfstudie leert u het volgende:    
 
@@ -29,15 +29,19 @@ U kunt IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijf
 
 De IoT Edge-module die u maakt in deze zelfstudie filtert de temperatuurgegevens die door uw apparaat worden gegenereerd. Er worden alleen gegevens upstream gezonden als de temperatuur boven een opgegeven drempelwaarde komt. Dit soort analyse is nuttig om de hoeveelheidgegevens die worden gecommuniceerd naar en opgeslagen in de cloud te reduceren. 
 
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free) aan voordat u begint.
+
+
 ## <a name="prerequisites"></a>Vereisten
 
-* Het Azure IoT Edge-apparaat dat u hebt gemaakt in de snelstartgids of de vorige zelfstudie.
+* Het Azure IoT Edge-apparaat dat u hebt gemaakt in de quickstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
 * De verbindingsreeks van de primaire sleutel voor het IoT Edge-apparaat.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [De extensie C# voor Visual Studio Code (van OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
-* [Docker](https://docs.docker.com/engine/installation/) op dezelfde computer met Visual Studio Code. De Community Edition (CE) is voldoende voor deze zelfstudie. 
-* [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
+* [C#-extensie voor Visual Studio Code (van OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) voor Visual Studio Code.
+* [Azure IoT Edge-extensie](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) voor Visual Studio Code. 
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [Docker CE](https://docs.docker.com/install/) op de ontwikkelcomputer. 
+
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 In deze zelfstudie gebruikt u de Azure IoT Edge-extensie voor VS Code om een module te bouwen en maakt u een **containerinstallatiekopie** van de bestanden. Vervolgens pusht u deze installatiekopie naar een **register** waarin uw installatiekopieën worden opgeslagen en beheerd. Tot slot implementeert u de installatiekopie uit het register voor uitvoering op uw IoT Edge-apparaat.  
@@ -52,27 +56,20 @@ Voor deze zelfstudie kunt u elk register gebruiken dat compatibel is met Docker.
 6. Kopieer de waarden voor **Aanmeldingsserver**, **Gebruikersnaam** en **wachtwoord**. U gebruikt deze waarden later in deze zelfstudie wanneer u de Docker-installatiekopie publiceert naar uw register en wanneer u de registerreferenties toevoegt aan de Edge-runtime. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Een IoT Edge-moduleproject creëren
-De volgende stappen laten zien hoe u een IoT-Edge-module op basis van .NET core 2.0 maakt met behulp van Visual Studio Code en de Azure IoT Edge-extensie.
+In de volgende stappen ziet u hoe u een IoT Edge-moduleproject op basis van .NET core 2.0 maakt met behulp van Visual Studio Code en de Azure IoT Edge-extensie.
 1. Selecteer in Visual Studio Code **View** > **Integrated Terminal** om de met VS code geïntegreerde terminal te openen.
-2. Voer de volgende opdracht uit in de geïntegreerde terminal om de **AzureIoTEdgeModule**-sjabloon in dotnet te installeren (of bij te werken):
-
-    ```cmd/sh
-    dotnet new -i Microsoft.Azure.IoT.Edge.Module
-    ```
-
-3. Maak een project voor de nieuwe module. Met de volgende opdracht maakt u de projectmap, **FilterModule**, met de containeropslagplaats. De tweede parameter moet een indeling vergelijkbaar met `<your container registry name>.azurecr.io` hebben als u Azure Container Registry gebruikt. Voer de volgende opdracht in de huidige werkmap in:
-
-    ```cmd/sh
-    dotnet new aziotedgemodule -n FilterModule -r <your container registry address>/filtermodule
-    ```
+2. Selecteer **View** > **Command Palette** om het VS Code-opdrachtpalet te openen. 
+3. Typ in het opdrachtpalet de opdracht **Azure: Sign in** en voer deze uit. Volg vervolgens de instructies om u aan te melden bij uw Azure-account. Als u zich al hebt aangemeld, kunt u deze stap overslaan.
+4. Typ in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** en voer deze uit. Geef in het opdrachtpalet de volgende informatie op om de oplossing te maken: 
+   1. Selecteer de map waarin u de oplossing wilt maken. 
+   2. Geef een naam op voor de oplossing of houd de standaardnaam **EdgeSolution** aan.
+   3. Kies **C# Module** als de modulesjabloon. 
+   4. Geef de module de naam **CSharpModule**. 
+   5. Geef het Azure-containerregister dat u in de vorige sectie hebt gemaakt, op als de opslagplaats voor installatiekopieën voor de eerste module. Vervang **localhost:5000** door de gekopieerde waarde voor de aanmeldingsserver. De uiteindelijke tekenreeks ziet er ongeveer als volgt uit: **\<registernaam\>.azurecr.io/csharpmodule**.
  
-4. Selecteer **Bestand** > **Map openen**.
-5. Blader naar de map **FilterModule** en klik op **Map selecteren** om het project in VS Code te openen.
-6. Klik in VS Code-verkenner op **Program.cs** om het te openen.
+4. In het VS Code-venster wordt de werkruimte van de IoT Edge-oplossing geladen. Er is een map **modules**, een map **.vscode**, een sjabloonbestand voor het distributiemanifest en een **.env**-bestand. Open **modules** > **CSharpModule** > **Program.cs**.
 
-   ![Open Program.cs][1]
-
-7. Voeg drie `using`-instructies toe bovenaan de naamruimte **FilterModule** voor typen die later worden gebruikt:
+5. Voeg boven aan de naamruimte **CsharpModule** drie `using`-instructies toe voor typen die later worden gebruikt op:
 
     ```csharp
     using System.Collections.Generic;     // for KeyValuePair<>
@@ -80,13 +77,13 @@ De volgende stappen laten zien hoe u een IoT-Edge-module op basis van .NET core 
     using Newtonsoft.Json;                // for JsonConvert
     ```
 
-8. Voeg de variabele `temperatureThreshold` toe aan de klasse **Programma**. Deze variabele bepaalt de waarde die de gemeten temperatuur moet overschrijden voordat de gegevens naar IoT Hub worden verzonden. 
+6. Voeg de variabele `temperatureThreshold` toe aan de klasse **Programma**. Deze variabele bepaalt de waarde die de gemeten temperatuur moet overschrijden voordat de gegevens naar IoT Hub worden verzonden. 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-9. Voeg de klassen `MessageBody`, `Machine` en `Ambient` toe aan de klasse **Programma**. Deze klassen bepalen het verwachte schema voor de hoofdtekst van inkomende berichten.
+7. Voeg de klassen `MessageBody`, `Machine` en `Ambient` toe aan de klasse **Programma**. Deze klassen bepalen het verwachte schema voor de hoofdtekst van inkomende berichten.
 
     ```csharp
     class MessageBody
@@ -107,7 +104,7 @@ De volgende stappen laten zien hoe u een IoT-Edge-module op basis van .NET core 
     }
     ```
 
-10. In de methode **Init** maakt en configureert de code een object **DeviceClient**. Met dit object kan de module verbinding maken met de lokale Azure IoT Edge-runtime om berichten te verzenden en te ontvangen. De verbindingsreeks die in de methode **Init** wordt gebruikt wordt door IoT Edge-runtime aan de module geleverd. Na het maken van de **DeviceClient** leest de code de TemperatureThreshold uit de gewenste eigenschappen van Moduledubbel en registreert een terugbelfunctie voor ontvangen berichten van de IoT Edge-hub via het **input1**-eindpunt. Vervang de methode `SetInputMessageHandlerAsync` door een nieuwe en voeg een methode `SetDesiredPropertyUpdateCallbackAsync` toe voor updates van gewenste eigenschappen. Om deze wijziging aan te brengen, moet u de laatste regel van de methode **Init** vervangen door de volgende code:
+8. In de methode **Init** wordt met de code een object **ModuleClient** gemaakt en geconfigureerd. Met dit object kan de module verbinding maken met de lokale Azure IoT Edge-runtime om berichten te verzenden en te ontvangen. De verbindingsreeks die in de methode **Init** wordt gebruikt wordt door IoT Edge-runtime aan de module geleverd. Als **ModuleClient** is gemaakt, leest de code de variabele TemperatureThreshold uit de gewenste eigenschappen van de moduledubbel en registreert een aanroep om berichten van de IoT Edge-hub te ontvangen via het eindpunt **input1**. Vervang de methode `SetInputMessageHandlerAsync` door een nieuwe en voeg een methode `SetDesiredPropertyUpdateCallbackAsync` toe voor updates van gewenste eigenschappen. Om deze wijziging aan te brengen, moet u de laatste regel van de methode **Init** vervangen door de volgende code:
 
     ```csharp
     // Register callback to be called when a message is received by the module
@@ -119,7 +116,7 @@ De volgende stappen laten zien hoe u een IoT-Edge-module op basis van .NET core 
     try {
         temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
     } catch(ArgumentOutOfRangeException e) {
-        Console.WriteLine("Property TemperatureThreshold not exist");
+        Console.WriteLine($"Property TemperatureThreshold not exist: {e.Message}"); 
     }
 
     // Attach callback for Twin desired properties updates
@@ -129,7 +126,7 @@ De volgende stappen laten zien hoe u een IoT-Edge-module op basis van .NET core 
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-11. Voeg de methode `onDesiredPropertiesUpdate`toe aan de klasse **Programma**. Deze methode ontvangt updates van de gewenste eigenschappen van de moduledubbel en updatet de variabele **temperatureThreshold** naar dezelfde waarde. Alle modules hebben hun eigen moduledubbel, waardoor u rechtstreeks in de cloud de code kunt configureren die in een module wordt uitgevoerd.
+9. Voeg de methode `onDesiredPropertiesUpdate`toe aan de klasse **Programma**. Deze methode ontvangt updates van de gewenste eigenschappen van de moduledubbel en updatet de variabele **temperatureThreshold** naar dezelfde waarde. Alle modules hebben hun eigen moduledubbel, waardoor u rechtstreeks in de cloud de code kunt configureren die in een module wordt uitgevoerd.
 
     ```csharp
     static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -160,16 +157,15 @@ De volgende stappen laten zien hoe u een IoT-Edge-module op basis van .NET core 
     }
     ```
 
-12. Vervang de methode `PipeMessage` door de methode `FilterMessages`. Deze methode wordt aangeroepen wanneer de module een bericht ontvangt van de IoT Edge-hub. Berichten die temperaturen onder de drempelwaarde die via de moduledubbel is ingesteld, worden hierdoor gefilterd. Ook wordt de eigenschap **BerichtType** toegevoegd aan het bericht met de waarde ingesteld op **Alarm**. 
+10. Vervang de methode `PipeMessage` door de methode `FilterMessages`. Deze methode wordt aangeroepen wanneer de module een bericht ontvangt van de IoT Edge-hub. Berichten die temperaturen onder de drempelwaarde die via de moduledubbel is ingesteld, worden hierdoor gefilterd. Ook wordt de eigenschap **BerichtType** toegevoegd aan het bericht met de waarde ingesteld op **Alarm**. 
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
     {
         var counterValue = Interlocked.Increment(ref counter);
-
-        try {
-            DeviceClient deviceClient = (DeviceClient)userContext;
-
+        try
+        {
+            ModuleClient moduleClient = (ModuleClient)userContext;
             var messageBytes = message.GetBytes();
             var messageString = Encoding.UTF8.GetString(messageBytes);
             Console.WriteLine($"Received message {counterValue}: [{messageString}]");
@@ -188,7 +184,7 @@ De volgende stappen laten zien hoe u een IoT-Edge-module op basis van .NET core 
                 }
 
                 filteredMessage.Properties.Add("MessageType", "Alert");
-                await deviceClient.SendEventAsync("output1", filteredMessage);
+                await moduleClient.SendEventAsync("output1", filteredMessage);
             }
 
             // Indicate that the message treatment is completed
@@ -202,7 +198,7 @@ De volgende stappen laten zien hoe u een IoT-Edge-module op basis van .NET core 
                 Console.WriteLine("Error in sample: {0}", exception);
             }
             // Indicate that the message treatment is not completed
-            var deviceClient = (DeviceClient)userContext;
+            var moduleClient = (ModuleClient)userContext;
             return MessageResponse.Abandoned;
         }
         catch (Exception ex)
@@ -210,109 +206,105 @@ De volgende stappen laten zien hoe u een IoT-Edge-module op basis van .NET core 
             Console.WriteLine();
             Console.WriteLine("Error in sample: {0}", ex.Message);
             // Indicate that the message treatment is not completed
-            DeviceClient deviceClient = (DeviceClient)userContext;
+            ModuleClient moduleClient = (ModuleClient)userContext;
             return MessageResponse.Abandoned;
         }
     }
     ```
 
-13. Dit bestand opslaan.
+11. Sla dit bestand op.
 
-## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Een Docker-installatiekopie maken en deze publiceren naar het register
+## <a name="build-your-iot-edge-solution"></a>Uw eigen IoT Edge-oplossing bouwen
 
-1. Meld u aan bij Docker door de volgende opdracht in de geïntegreerde VS Code-terminal in te voeren: 
+In de vorige sectie hebt u een IoT Edge-oplossing gemaakt en code toegevoegd aan de CSharpModule waarmee berichten worden gefilterd waarin de gemelde temperatuur van de machine onder de aanvaardbare drempelwaarde is. Nu moet u de oplossing bouwen als een containerinstallatiekopie en deze naar het containerregister pushen. 
+
+1. Meld u aan bij Docker door de volgende opdracht in te voeren in de geïntegreerde terminal van Visual Studio Code, zodat u de module-installatiekopie naar het ACR kunt pushen: 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   Ga naar de [Azure Portal] https://portal.azure.com) om de gebruikersnaam, het wachtwoord en de aanmeldingsserver op te zoeken die in deze opdracht moeten worden gebruikt. Klik vanuit **Alle resources** op de tegel voor uw Azure-containerregister om de eigenschappen te openen en klik vervolgens op **Toegangssleutels**. Kopieer de waarden in de velden **Gebruikersnaam**, **Wachtwoord** en **Aanmeldingsserver**. 
+   Gebruik de gebruikersnaam, het wachtwoord en de aanmeldingsserver die u in de eerste sectie hebt gekopieerd uit het Azure-containerregister. Of haal deze opnieuw op in de sectie **Toegangssleutels** van het register in Azure Portal.
 
-2. Klik in VS Code explorer met de rechtermuisknop op het bestand **module.json** en klik op **Build and Push IoT Edge module Docker image** (Docker-installatiekopie voor IoT Edge-module maken en pushen). Selecteer in de vervolgkeuzelijst bovenaan het venster VS Code uw containerplatform: **amd64** voor een Linux-container of **windows-amd64** voor een Windows-container. VS Code bouwt uw code, plaatst de `FilterModule.dll` in een container en pusht deze naar het containerregister dat u hebt opgegeven.
+2. Open in VS Code Explorer het bestand **deployment.template.json** in de werkruimte van de IoT Edge-oplossing. Dit bestand zorgt ervoor dat deze twee modules worden geïmplementeerd in `$edgeAgent`: **tempSensor** en **CSharpModule**. De waarde `CSharpModule.image` is ingesteld op een installatiekopie met de versie Linux amd64. Zie [Informatie over het gebruiken, configureren en hergebruiken van IoT Edge-modules](module-composition.md) voor meer informatie over distributiemanifesten.
 
+3. Het bestand **deployment.template.json** heeft een sectie **registryCredentials** waarin de referenties van het Docker-register zijn opgeslagen. De actuele gebruikersnaam en het bijbehorende wachtwoord zijn opgeslagen in het .env-bestand dat niet wordt herkend in Git.
 
-3. U kunt het volledige adres van de containerinstallatiekopie, inclusief tag, in de geïntegreerde terminal van VS Code krijgen. Bekijk het `module.json`-bestand als u meer wilt weten over de build- en push-definitie.
-
-## <a name="add-registry-credentials-to-edge-runtime"></a>Registerreferenties toevoegen aan uw Edge-runtime
-Voeg de referenties voor uw register toe aan de Edge-runtime op de computer waarop u het Edge-apparaat uitvoert. Deze referenties geven de runtime toegang voor het ophalen van de container. 
-
-- Voer voor Windows de volgende opdracht uit:
-    
-    ```cmd/sh
-    iotedgectl login --address <your container registry address> --username <username> --password <password> 
-    ```
-
-- Voer voor Linux de volgende opdracht uit:
-    
-    ```cmd/sh
-    sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
-    ```
-
-## <a name="run-the-solution"></a>De oplossing uitvoeren
-
-1. Navigeer in [Azure Portal](https://portal.azure.com) naar uw IoT-hub.
-2. Ga naar **IoT Edge (Preview)** en selecteer uw IoT Edge-apparaat.
-3. Selecteer **Modules instellen**. 
-4. Controleer of de **tempSensor**-module automatisch wordt gevuld. Zo niet, gebruik dan de volgende stappen om die toe te voegen:
-    1. Selecteer **IoT Edge-module toevoegen**.
-    2. Voer in het veld **Naam** `tempSensor` in.
-    3. Voer in het veld **URI installatiekopie** `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` in.
-    4. Laat de overige instellingen ongewijzigd en klik op **Opslaan**.
-5. Voeg de module **filterModule** toe die u hebt gemaakt in de vorige sectie. 
-    1. Selecteer **IoT Edge-module toevoegen**.
-    2. Voer in het veld **Naam** `filterModule` in.
-    3. Voer in het veld **URI installatiekopie** het adres van uw installatiekopie in, bijvoorbeeld `<your container registry address>/filtermodule:0.0.1-amd64`. Het volledige adres van de installatiekopie vindt u in de vorige sectie.
-    4. Schakel het vak **Inschakelen** in, zodat u de moduledubbel kunt bewerken. 
-    5. Vervang de JSON in het tekstvak voor de moduledubbel met de volgende JSON: 
-
-        ```json
-        {
-           "properties.desired":{
-              "TemperatureThreshold":25
-           }
-        }
-        ```
- 
-    6. Klik op **Opslaan**.
-6. Klik op **Volgende**.
-7. Kopieer in de stap **Routes opgeven** de onderstaande JSON in het tekstvak. Modules publiceren alle berichten naar de Edge-runtime. Declaratieve regels in de runtime bepalen waar de berichten naartoe stromen. In deze zelfstudie heb je twee routes nodig. De eerste route vervoert berichten van de temperatuursensor naar de filtermodule via het eindpunt ‘input1’, het eindpunt dat u hebt geconfigureerd met de handler **FilterMessages**. Met de tweede route worden berichten van de filtermodule naar IoT Hub getransporteerd. In deze route is `upstream` een speciale bestemming die Edge Hub opdracht geeft berichten te verzenden naar IoT Hub. 
-
+4. Voeg de moduledubbel CSharpModule toe aan het distributiemanifest. Voeg de volgende JSON-inhoud onder aan de sectie `moduleContent` in, na de moduledubbel `$edgeHub`: 
     ```json
-    {
-       "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterModule/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filterModule/outputs/output1 INTO $upstream"
-       }
-    }
+        "CSharpModule": {
+            "properties.desired":{
+                "TemperatureThreshold":25
+            }
+        }
     ```
 
-8. Klik op **Volgende**.
-9. Klik in de stap **Sjabloon controleren** op **Indienen**. 
-10. Ga terug naar de detailpagina van het IoT Edge-apparaat en klik op **Vernieuwen**. U ziet nu dat de nieuwe **filtermodule** samen met de **tempSensor**-module en de **IoT Edge-runtime** wordt uitgevoerd. 
+4. Sla dit bestand op.
+5. Klik in VS Code Explorer met de rechtermuisknop op het bestand **deployment.template.json** en selecteer **IoT Edge-oplossing bouwen**. 
+
+Wanneer u Visual Studio Code de opdracht geeft om uw oplossing te bouwen, wordt eerst een `deployment.json`-bestand gemaakt in een nieuwe **configuratiemap** op basis van de informatie in het distributiesjabloon. Vervolgens worden twee opdrachten uitgevoerd in de geïntegreerde terminal: `docker build` en `docker push`. Met deze twee opdrachten wordt uw code gebouwd, `CSharpModule.dll` opgeslagen in een container, en vervolgens naar het containerregister gepusht dat u hebt opgegeven toen u de oplossing initialiseerde. 
+
+U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, zien in de geïntegreerde terminal van VS Code. Het adres van de installatiekopie is opgebouwd uit informatie uit het `module.json`-bestand, in de indeling **\<opslagplaats\>:\<versie\>-\<platform\>**. Voor deze zelfstudie ziet dit adres er ongeveer als volgt uit: **registryname.azurecr.io/csharpmodule:0.0.1-amd64**.
+
+## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
+
+1. Configureer de Azure IoT Toolkit-extensie met de verbindingsreeks voor uw IoT Hub: 
+    1. Open VS Code Explorer door **Verkenner** > **bekijken** te selecteren. 
+    2. Klik in Explorer op **AZURE IOT HUB EXPLORER** en klik vervolgens op **...**. Klik op **IoT Hub selecteren**. Volg de instructies om u aan te melden bij uw Azure-account en kies uw IoT-hub. 
+       Let op: u kunt dit ook instellen door te klikken op **IoT Hub-verbindingsreeks instellen**. Voer in het pop-upvenster de verbindingsreeks voor de IoT-hub in waarmee het IoT Edge-apparaat verbinding maakt.
+
+2. Klik in Azure IoT Hub Devices Explorer met de rechtermuisknop op uw IoT Edge-apparaat. Selecteer vervolgens **Implementatie maken voor IoT Edge-apparaat**. Selecteer het bestand **deployment.json** in de **configuratiemap** en klik vervolgens op **Edge-distributiemanifest selecteren**.
+
+3. Klik op de knop Vernieuwen. U ziet nu dat de nieuwe **CSharpModule** wordt uitgevoerd, samen met de module **TempSensor** en de **$edgeAgent** en **$edgeHub**. 
 
 ## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
-Ga als volgt te werk om het apparaat te controleren op cloudberichten die vanaf uw IoT Edge-apparaat worden verzonden naar uw IoT Hub:
-1. Configureer de Azure IoT Toolkit-extensie met de verbindingsreeks voor uw IoT Hub: 
-    1. Open de VS Code Explorer door **Verkenner** > **bekijken** te selecteren. 
-    2. Klik in de verkenner op **IOT HUB DEVICES** en klik vervolgens op **...** . Klik op **IoT Hub-verbindingsreeks instellen** en voer in het pop-upvenster de verbindingsreeks in voor de IoT Hub waarnaar uw IoT Edge-apparaat verbindt. 
+1. Klik op **...** en selecteer **Controle D2C-berichten starten** om de gegevens te controleren die binnenkomen bij de IoT-hub.
+2. Als u de D2C-berichten voor een specifiek apparaat wilt controleren, klikt u met de rechtermuisknop op dit apparaat in de lijst en selecteert u **Controle D2C-berichten starten**.
+3. Voer de opdracht **Azure IoT Hub: Stop monitoring D2C message** uit in het opdrachtpalet om het controleren van berichten te stoppen. 
+4. Als u de moduledubbel wilt weergeven of bewerken, klikt u met de rechtermuisknop op deze moduledubbel in de lijst en selecteert u **Moduledubbel bewerken**. Als u de moduledubbel wilt bijwerken, slaat u het dubbele JSON-bestand op, klikt u met de rechtermuisknop in de editor en selecteert u **Moduledubbel bijwerken**.
+5. Als u Docker-logboeken wilt bekijken, kunt u [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) voor VS Code installeren. U kunt de actieve modules lokaal zoeken in Docker Explorer. Klik in het contextmenu op **Logboeken weergeven** om ze te bekijken in de geïntegreerde terminal.
+ 
+## <a name="clean-up-resources"></a>Resources opschonen 
 
-        Om de verbindingsreeks te vinden, klikt u op de tegel voor uw IoT Hub in Azure Portal en vervolgens op **Gedeeld toegangsbeleid**. Klik in **Gedeeld toegangsbeleid** op het beleid **iothubowner** en kopieer de IoT Hub-verbindingsreeks in het venster **iothubowner**.   
+<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
 
-2. Om gegevens die binnenkomen in de IoT Hub te controleren, selecteert u **View** > **Command Palette** en zoekt u naar de menuopdracht **IoT: Start monitoring D2C message**. 
-3. Als u wilt stoppen met het controleren van gegevens, gebruikt u de menuopdracht **IoT: Stop monitoring D2C message**. 
+Als u doorgaat met het volgende aanbevolen artikel, kunt u de resources en configuraties die u al hebt gemaakt, behouden en opnieuw gebruiken.
+
+Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel hebt gemaakt, verwijderen om kosten te voorkomen. 
+
+> [!IMPORTANT]
+> Het verwijderen van de Azure-resources en resourcegroep kan niet ongedaan worden gemaakt. Zodra u dit hebt uitgevoerd, zijn de resourcegroep en alle bijbehorende resources definitief verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de IoT Hub in een bestaande resourcegroep hebt gemaakt met resources die u wilt behouden, moet u alleen de IoT Hub-resource zelf verwijderen in plaats van de resourcegroep te verwijderen.
+>
+
+Als u alleen de IoT-hub wilt verwijderen, voert u de volgende opdracht uit met behulp van de naam van de hub en van de resourcegroep:
+
+```azurecli-interactive
+az iot hub delete --name MyIoTHub --resource-group TestResources
+```
+
+
+Ga als volgt te werk om de hele resourcegroep te verwijderen op naam:
+
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+
+2. Typ in het tekstvak **Filteren op naam...** de naam van de resourcegroep die uw IoT Hub bevat. 
+
+3. Klik rechts van de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+
+4. U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep nogmaals om te bevestigen en klik op **Verwijderen**. Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een IoT Edge-module gemaakt die code bevat voor het filteren van onbewerkte gegevens die worden gegenereerd door uw IoT Edge-apparaat. U kunt doorgaan met en van de volgende zelfstudies om te leren waarmee Azure IoT Edge u nog meer kan helpen uw gegevens om te zetten in bedrijfsinzichten.
+In deze zelfstudie hebt u een IoT Edge-module gemaakt die code bevat voor het filteren van onbewerkte gegevens die worden gegenereerd door uw IoT Edge-apparaat. Als u klaar bent om uw eigen modules te bouwen, kunt u meer informatie krijgen over het [ontwikkelen van een C#-module met Azure IoT Edge voor Visual Studio Code](how-to-develop-csharp-module.md). U kunt verdergaan met de volgende zelfstudies om te leren hoe Azure IoT Edge u nog meer kan helpen bij het omzetten van uw gegevens in bedrijfsinzichten.
 
 > [!div class="nextstepaction"]
-> [Azure-functies als module implementeren](tutorial-deploy-function.md)
-> [Azure Stream Analytics als module implementeren](tutorial-deploy-stream-analytics.md)
-
+> [Gegevens opslaan met SQL Server-databases](tutorial-store-data-sql-server.md)
 
 <!-- Links -->
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-tutorial1-win]: quickstart.md
+[lnk-tutorial1-lin]: quickstart-linux.md
 
 <!-- Images -->
 [1]: ./media/tutorial-csharp-module/programcs.png

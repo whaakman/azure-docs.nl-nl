@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: bd1b0f21162978496750886d32e7166c3a90922d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 130e9956702515574da47dc872b03598ca19ff29
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868293"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031677"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Aan de slag met de Azure Multi-Factor Authentication-server
 
@@ -103,8 +103,8 @@ Nu u de server hebt gedownload, kunt u deze installeren en configureren. Zorg er
 
 1. Dubbelklik op het uitvoerbare bestand.
 2. Zorg ervoor dat in het scherm Installatiemap selecteren de map juist is en klik op **Volgende**.
-3. Nadat de installatie is voltooid, klikt u op **Voltooien**.  De configuratiewizard wordt gestart.
-4. Schakel in het welkomstscherm van de configuratiewizard het selectievakje **De wizard Verificatieconfiguratie overslaan** en klik op **Volgende**.  De wizard wordt gesloten en de server wordt gestart.
+3. Nadat de installatie is voltooid, klikt u op **Voltooien**. De configuratiewizard wordt gestart.
+4. Schakel in het welkomstscherm van de configuratiewizard het selectievakje **De wizard Verificatieconfiguratie overslaan** en klik op **Volgende**. De wizard wordt gesloten en de server wordt gestart.
 
    ![Cloud](./media/howto-mfaserver-deploy/skip2.png)
 
@@ -116,7 +116,7 @@ U kunt de implementatie vereenvoudigen door de MFA-server toestemming te geven o
 
 U moet uw e-mail aanpassen aan de manier waarop u de gebruikers hebt geconfigureerd voor verificatie in twee stappen. Als u bijvoorbeeld de telefoonnummers vanuit het bedrijfsadresboek importeert, moeten in de e-mail de standaardtelefoonnummers staan. Gebruikers weten dan wat ze kunnen verwachten. Als u de telefoonnummers niet importeert of als uw gebruikers de mobiele app gaan gebruiken, stuurt u hun een e-mail met het verzoek om de accountinschrijving te voltooien. Voeg in de e-mail een hyperlink toe naar de portal voor Multi-Factor Authentication via Azure Portal.
 
-De inhoud van het e-mailbericht is ook afhankelijk van de verificatiemethode die voor de gebruiker is ingesteld (telefoonoproep, sms of mobiele app).  Als de gebruiker bijvoorbeeld bij de verificatie een pincode moet opgeven, staat in het e-mailbericht welke pincode initieel is ingesteld.  Gebruikers moeten hun pincode wijzigen bij de eerste verificatie.
+De inhoud van het e-mailbericht is ook afhankelijk van de verificatiemethode die voor de gebruiker is ingesteld (telefoonoproep, sms of mobiele app). Als de gebruiker bijvoorbeeld bij de verificatie een pincode moet opgeven, staat in het e-mailbericht welke pincode initieel is ingesteld. Gebruikers moeten hun pincode wijzigen bij de eerste verificatie.
 
 ### <a name="configure-email-and-email-templates"></a>E-mailberichten en e-mailsjablonen configureren
 
@@ -130,14 +130,14 @@ Op het tabblad E-mailinhoud ziet u alle beschikbare e-mailsjablonen waaruit u ku
 
 ## <a name="import-users-from-active-directory"></a>Gebruikers uit Active Directory importeren
 
-De server is nu geïnstalleerd en dus kunt u gebruikers gaan toevoegen. U kunt handmatig gebruikers maken, importeren uit Active Directory of automatische synchronisatie met Active Directory configureren.
+Nu de server is geïnstalleerd, kunt u gebruikers gaan toevoegen. U kunt handmatig gebruikers maken, importeren uit Active Directory of automatische synchronisatie met Active Directory configureren.
 
 ### <a name="manual-import-from-active-directory"></a>Handmatig importeren uit Active Directory
 
 1. Selecteer links in de Azure MFA-server de optie **Gebruikers**.
 2. Selecteer onderaan **Importeren uit Active Directory**.
-3. Nu kunt u zoeken naar afzonderlijke gebruikers of in de AD-directory zoeken naar organisatie-eenheden met gebruikers.  In dit geval geeft u de organisatie-eenheid met gebruikers op.
-4. Markeer rechts alle gebruikers en klik op **Importeren**.  Normaal verschijnt dan een pop-upvenster met de melding dat het importeren is gelukt.  Sluit het importvenster.
+3. Nu kunt u zoeken naar afzonderlijke gebruikers of in de AD-directory zoeken naar organisatie-eenheden met gebruikers. In dit geval geeft u de organisatie-eenheid met gebruikers op.
+4. Markeer rechts alle gebruikers en klik op **Importeren**. Normaal verschijnt dan een pop-upvenster met de melding dat het importeren is gelukt. Sluit het importvenster.
 
    ![Gebruikers importeren op MFA-server](./media/howto-mfaserver-deploy/import2.png)
 
@@ -181,6 +181,10 @@ Als u de back-up moet terugzetten, voert u de volgende stappen uit:
 5. Start de service **MultiFactorAuth**.
 
 De nieuwe server is nu actief en wordt uitgevoerd met de oorspronkelijke configuratie en gebruikersgegevens.
+
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Beheer van de TLS/SSL-protocollen en coderingssuites
+
+Nadat u een upgrade naar MFA Server versie 8.x of hoger hebt uitgevoerd of deze hebt geïnstalleerd, is het raadzaam oudere en zwakkere coderingssuites uit te schakelen of te verwijderen, tenzij uw organisatie ze nodig heeft. Informatie over het uitvoeren van deze taak vindt u in het artikel [​​SSL/TLS-protocollen en coderingssuites beheren voor AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## <a name="next-steps"></a>Volgende stappen
 

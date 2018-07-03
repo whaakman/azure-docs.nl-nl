@@ -1,10 +1,10 @@
 ---
 title: Een ASP.NET-app bouwen in Azure met SQL Database | Microsoft Docs
-description: Informatie over het laten functioneren van een ASP.NET-app in Azure, gekoppeld aan een SQL-database.
+description: Informatie over het implementeren van een C# ASP.NET-app met een SQL Server-database in Azure.
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: cfowler
 editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/09/2017
+ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b08033c53185e6229e6fa368a3456749e19eb1f0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789245"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021320"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Zelfstudie: Een ASP.NET-app bouwen in Azure met SQL Database
 
@@ -44,19 +44,15 @@ In deze zelfstudie leert u het volgende:
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
-  - **ASP.NET- en web-ontwikkeling**
-  - **Azure-ontwikkeling**
-
-  ![ASP.NET- en web-ontwikkeling en Azure-ontwikkeling (onder Web en cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+U moet <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> met de **ASP.NET- en webontwikkelworkload** installeren.
 
 Als u Visual Studio al hebt geïnstalleerd, voegt u de workloads toe in Visual Studio door te klikken op **Hulpprogramma's** > **Hulpprogramma's en functies ophalen**.
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-[Download het voorbeeldproject](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-
-Extraheer (uitpakken) het *dotnet-sqldb-zelfstudie-master.zip*-bestand.
+<a name="-download-the-sample-projecthttpsgithubcomazure-samplesdotnet-sqldb-tutorialarchivemasterzip"></a>-[Download het voorbeeldproject](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+-
+Pak (unzip) het bestand *dotnet-sqldb-zelfstudie-master.zip* uit.
 
 Het voorbeeldproject bevat een eenvoudige [ASP.NET MVC](https://www.asp.net/mvc)-CRUD-app (create-read-update-delete) die gebruikmaakt van [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -86,20 +82,20 @@ Hiermee opent u het dialoogvenster **App Service maken** waarmee u alle Azure-re
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Klik in het dialoogvenster **App Service maken** op **Een account toevoegen** en meld u vervolgens aan bij uw Azure-abonnement. Als u al bent aangemeld bij een Microsoft-account, moet u ervoor zorgen dat dit account uw Azure-abonnement bevat. Als het aangemelde Microsoft-account niet uw Azure-abonnement bevat, klikt u erop om het juiste account toe te voegen.
+Klik in het dialoogvenster **App Service maken** op **Een account toevoegen** en meld u vervolgens aan bij uw Azure-abonnement. Als u al bent aangemeld bij een Microsoft-account, moet u ervoor zorgen dat dit account uw Azure-abonnement bevat. Als het aangemelde Microsoft-account niet uw Azure-abonnement bevat, klikt u erop om het juiste account toe te voegen. 
+
+> [!NOTE]
+> Als u al bent aangemeld, selecteert u **Maken** nog niet.
+>
+>
    
 ![Aanmelden bij Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
-
-Als u bent aangemeld, kunt u in dit dialoogvenster alle resources gaan maken die u nodig hebt voor uw Azure-web-app.
 
 ### <a name="configure-the-web-app-name"></a>Naam van web-app configureren
 
 U kunt de naam van de gegenereerde web-app houden of wijzigen in een andere unieke naam (geldige tekens zijn `a-z`, `0-9` en `-`). De naam van de web-app wordt gebruikt als onderdeel van de standaard-URL voor uw app (`<app_name>.azurewebsites.net`, waarbij `<app_name>` de naam is van uw web-app). De naam van de web-app moet uniek zijn in alle apps in Azure. 
 
 ![Het dialoogvenster App Service maken](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
-
-> [!NOTE]
-> Klik niet op **Maken**. U moet eerst in een later stadium een SQL Database instellen.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -131,13 +127,9 @@ Configureer in het dialoogvenster **App Service-plan configureren** het nieuwe A
 
 Voordat u een database maakt, hebt u een [logische Azure SQL Database-server](../sql-database/sql-database-features.md) nodig. Een logische server bevat een groep met databases die worden beheerd als groep.
 
-Selecteer **Aanvullende Azure-services verkennen**.
+Klik op **Een SQL Database maken**.
 
-![Naam van web-app configureren](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
-
-Klik in het tabblad **Services** op het pictogram **+** naast **SQL Database**. 
-
-![Klik in het tabblad Services op het pictogram + naast SQL Database.](media/app-service-web-tutorial-dotnet-sqldatabase/sql.png)
+![Een SQL-database maken](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 Klik in het dialoogvenster **SQL Database configureren** op **Nieuw** naast **SQL Server**. 
 
@@ -164,7 +156,7 @@ In het dialoogvenster **SQL Database configureren**:
 
 ![SQL Database configureren](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-Het dialoogvenster **App Service maken** toont de resources die u hebt gemaakt. Klik op **Create**. 
+Het dialoogvenster **App Service maken** toont de resources die u hebt geconfigureerd. Klik op **Create**. 
 
 ![de resources die u hebt gemaakt](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -314,7 +306,7 @@ Nu het wijzigen van uw code werkt, met inbegrip van de databasemigratie, moet u 
 
 Klik net als voorheen met de rechtermuisknop op uw project en selecteer **Publiceren**.
 
-Klik op **Instellingen** om de wizard Publiceren te openen.
+Klik op **Configureren** om de publicatie-instellingen te openen.
 
 ![Publicatie-instellingen openen](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 

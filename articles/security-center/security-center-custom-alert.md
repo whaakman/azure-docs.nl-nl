@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 326b07a18b07f15850e0283ad51a05b42c1ef0ab
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284774"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341310"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regels voor aangepaste waarschuwingen in Azure Security Center (Preview)
 In dit document leest u hoe u regels voor aangepaste waarschuwingen maakt in Azure Security Center.
@@ -31,7 +31,7 @@ Security Center bevat een set vooraf gedefinieerde [beveiligingswaarschuwingen](
 In Security Center kunt u met behulp van regels voor aangepaste waarschuwingen nieuwe beveiligingswaarschuwingen definiëren op basis van gegevens die al zijn verzameld voor uw omgeving. U kunt query's maken en het resultaat van deze query's als criteria gebruiken voor de aangepaste regel. Zodra wordt voldaan aan deze criteria, wordt de regel uitgevoerd. U kunt aangepaste query's maken aan de hand van beveiligingsgebeurtenissen op computers, beveiligingslogboeken van partneroplossingen of gegevens die zijn opgenomen via een API.
 
 > [!NOTE]
-> U moet de machtiging schrijven in de werkruimte die u selecteert voor het opslaan van uw aangepaste waarschuwing.
+> Aangepaste waarschuwingen worden niet ondersteund in Security Center [onderzoeksfunctie](security-center-investigation.md).
 >
 >
 
@@ -52,7 +52,14 @@ Open het dashboard van **Security Center** en volg deze stappen om een regel voo
 5.  Typ in het veld **Beschrijving** een korte beschrijving die de bedoeling van deze regel aangeeft.
 6.  Selecteer in het veld **Ernst** het ernstniveau (Hoog, Gemiddeld, Laag) dat aansluit bij uw behoeften.
 7.  Selecteer in het veld **Abonnement** het abonnement waarin deze regel van toepassing is.
-8.  Selecteer de werkruimte die u wilt controleren met deze regel in de **werkruimte** veld en in de **zoekquery** veld, wordt de query die u wilt gebruiken om op te halen van de resultaten. U moet de machtiging schrijven in de werkruimte die u selecteert voor het opslaan van uw aangepaste waarschuwing. Het resultaat van de query zorgt uiteindelijk voor activering van de waarschuwing. U ziet een groen vinkje in de rechterbovenhoek van dit veld wanneer u een geldige query hebt ingevoerd:
+8.  Selecteer de werkruimte die u wilt controleren met deze regel in de **werkruimte** veld, en klik in de **zoekquery** veld, de query die u wilt gebruiken om de resultaten te verkrijgen.
+
+    > [!NOTE]
+    > U moet de machtiging schrijven in de werkruimte die u selecteert voor het opslaan van uw aangepaste waarschuwing.
+    >
+    >
+
+    Het resultaat van de query zorgt uiteindelijk voor activering van de waarschuwing. U ziet een groen vinkje in de rechterbovenhoek van dit veld wanneer u een geldige query hebt ingevoerd:
 
     ![Query’s uitvoeren](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 

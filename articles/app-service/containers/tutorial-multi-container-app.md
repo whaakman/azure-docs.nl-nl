@@ -1,7 +1,7 @@
 ---
-title: Een app met meerdere containers (preview) maken met Azure Web App for Containers
+title: Een app met meerdere containers (preview) maken in Web App for Containers
 description: Lees hoe u meerdere containers in Azure met configuratiebestanden van Docker Compose en Kubernetes kunt gebruiken met een WordPress- en MySQL-app.
-keywords: Azure App Service, web-app, Linux, Docker, Compose, meerdere containers, container, Kubernetes
+keywords: azure app service, web-app, linux, docker, compose, meerdere containers, container, kubernetes
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 05/02/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 61158af0bc978665c3d914c8de3376b8f5d5c69f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651310"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751911"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Zelfstudie: Een app met meerdere containers (preview) maken in Web App for Containers
+# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>Zelfstudie: Een app met meerdere containers (preview) maken in Web App for Containers
 
 Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. In deze zelfstudie leert u hoe u een app met meerdere containers maakt met behulp van WordPress en MySQL.
 
@@ -172,7 +172,7 @@ Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in he
 
 Blader naar de geïmplementeerde app in (`http://<app_name>.azurewebsites.net`). Het laden van de app kan een paar minuten duren. Als u een foutbericht ontvangt, wacht u een paar minuten en vernieuwt u de browser. Lees [containerlogboeken](#find-docker-container-logs) als u problemen ondervindt en deze wilt oplossen.
 
-![Voorbeeld-app met meerdere containers in Web App for Containers][1]
+![Voorbeeld van app met meerdere containers in Web App for Containers][1]
 
 **Gefeliciteerd**, u hebt een app met meerdere containers gemaakt in Web App for Containers. Vervolgens configureert u uw app voor gebruik met Azure Database for MySQL. Installeer WordPress nu nog niet.
 
@@ -332,7 +332,7 @@ Wanneer de app opnieuw is geconfigureerd, wordt in Azure CLI informatie weergege
 
 Blader naar de geïmplementeerde app in (`http://<app_name>.azurewebsites.net`). Azure Database for MySQL wordt nu gebruikt voor de app.
 
-![Voorbeeld-app met meerdere containers in Web App for Containers][1]
+![Voorbeeld van app met meerdere containers in Web App for Containers][1]
 
 ## <a name="add-persistent-storage"></a>Permanente opslag toevoegen
 
@@ -511,7 +511,7 @@ WordPress wordt verbonden met de Redis-server. De **status** van de verbinding w
 
 In deze sectie leert u hoe u een Kubernetes-configuratie gebruikt om meerdere containers te implementeren. Zorg ervoor dat u de eerdere stappen voor het maken van een [resourcegroep](#create-a-resource-group) en een [App Service-plan](#create-an-azure-app-service-plan) hebt uitgevoerd. Aangezien het merendeel van de stappen vergelijkbaar is met de stappen van de Compose-sectie, is het configuratiebestand voor u gecombineerd.
 
-### <a name="supported-kubernetes-options-for-multi-container"></a>Ondersteunde Kubernetes-opties voor meerdere containers
+### <a name="supported-kubernetes-options-for-multicontainer"></a>Ondersteunde Kubernetes-opties voor meerdere containers
 
 * argumenten
 * opdracht
@@ -649,7 +649,7 @@ Wanneer de app-instelling is gemaakt, wordt in Azure CLI informatie weergegeven 
 ]
 ```
 
-### <a name="create-a-multi-container-app-kubernetes"></a>Een app met meerdere containers maken (Kubernetes)
+### <a name="create-a-multicontainer-app-kubernetes"></a>Een app met meerdere containers maken (Kubernetes)
 
 Maak in de lokale opdrachtpromptterminal een [web-app](app-service-linux-intro.md) met meerdere containers in de `myResourceGroup` resourcegroep en het `myAppServicePlan` App Service-plan met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
 
@@ -679,7 +679,7 @@ Blader naar de geïmplementeerde app in (`http://<app_name>.azurewebsites.net`).
 
 De app wordt nu uitgevoerd met meerdere containers in Web App for Containers.
 
-![Voorbeeld-app met meerdere containers in Web App for Containers][1]
+![Voorbeeld van app met meerdere containers in Web App for Containers][1]
 
 **Gefeliciteerd**, u hebt een app met meerdere containers gemaakt in Web App for Containers.
 

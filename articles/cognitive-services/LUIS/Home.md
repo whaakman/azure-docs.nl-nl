@@ -1,6 +1,6 @@
 ---
-title: Over Language Understanding (LUIS) in Azure | Microsoft Docs
-description: Informatie over het Language Understanding (LUIS) gebruiken om de status van de kracht van machine learning om uw toepassingen.
+title: Informatie over Language Understanding (LUIS) in Azure | Microsoft Docs
+description: Informatie over het gebruik van Language Understanding (LUIS) om de vele mogelijkheden van machine learning aan uw toepassingen.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,37 +9,37 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: bbd0a532e54f9b221739c8ae9ff097fe44fdc4df
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751592"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344828"
 ---
-# <a name="what-is-language-understanding-luis"></a>Wat is de taal Understanding (LUIS)?
-Language Understanding (LUIS) is een cloud-gebaseerde service die van toepassing is aangepast machine learning eigen, natuurlijke taal tekst van een gebruiker om te voorspellen algehele betekenis en ophalen van de relevante, gedetailleerde informatie. 
+# <a name="what-is-language-understanding-luis"></a>Wat is Language Understanding (LUIS)?
+Language Understanding (LUIS) is een cloud-gebaseerde service die aangepaste machine learning is van toepassing op van een gebruiker tekst met betrekking tot een conversatie, natuurlijke taal algehele betekenis te voorspellen en pull-relevante, gedetailleerde informatie. 
 
-Een clienttoepassing voor LUIS mag eigen toepassing die communiceert met een gebruiker in natuurlijke taal om een taak te voltooien. Voorbeelden van clienttoepassingen zijn sociale media apps, chatbots en bureaubladtoepassingen waarvoor spraakherkenning is ingeschakeld.  
+Een clienttoepassing voor LUIS mag elke conversatie toepassing die communiceert met een gebruiker in natuurlijke taal om een taak te voltooien. Voorbeelden van clienttoepassingen zijn socialemedia-apps, chatbots en bureaubladtoepassingen spraak ingeschakeld.  
 
-![Conceptuele afbeelding van 3-toepassingen informatie info LUIS voeding](./media/luis-overview/luis-entry-point.png)
+![Conceptuele afbeelding van deze informatie info LUIS uit 3-toepassingen](./media/luis-overview/luis-entry-point.png)
 
-## <a name="what-is-a-luis-app"></a>Wat is een app LUIS?
-Een app LUIS bevat een domeinspecifieke natuurlijke taalmodel ontwerpen. U kunt uw app LUIS beginnen met een vooraf gedefinieerde domeinmodel, bouwen van uw eigen of onderdelen van een vooraf gedefinieerde domein overlopen door uw eigen aangepaste informatie.
+## <a name="what-is-a-luis-app"></a>Wat is een LUIS-app?
+Een LUIS-app bevat een domeinspecifieke natuurlijke taalmodel ontwerpen. U kunt uw LUIS-app te starten met een vooraf gedefinieerde domeinmodel, bouw uw eigen of onderdelen van een vooraf gedefinieerde domein met uw eigen aangepaste gegevens combineren.
 
-[Vooraf gedefinieerde domeinmodellen](luis-how-to-use-prebuilt-domains.md) bevatten van alle onderdelen van deze voor u en een uitstekende manier om aan de slag met LUIS snel zijn.
+[Vooraf gedefinieerde domeinmodellen](luis-how-to-use-prebuilt-domains.md) al deze onderdelen zijn voor u en zijn een uitstekende manier om te beginnen met LUIS snel.
 
-De app LUIS bevat ook de instellingen voor adreslijstintegratie [deelnemers](luis-concept-collaborator.md), en [versies](luis-concept-version.md).
+De LUIS-app bevat ook de instellingen voor adreslijstintegratie [samenwerkers](luis-concept-collaborator.md), en [versies](luis-concept-version.md).
 
-## <a name="using-a-luis-app"></a>Met behulp van een app LUIS
-<a name="Accessing-LUIS"></a> Als uw app LUIS is gepubliceerd, uw clienttoepassing utterances verzendt naar de LUIS [eindpunt API] [ endpoint-apis] en ontvangt van de voorspelling resultaten als JSON-antwoorden.
+## <a name="using-a-luis-app"></a>Met behulp van een LUIS-app
+<a name="Accessing-LUIS"></a> Zodra uw LUIS-app is gepubliceerd, uw clienttoepassing uitingen verzendt naar de LUIS [eindpunt API] [ endpoint-apis] en ontvangt de voorspellingsresultaten als JSON-antwoorden.
 
-In het volgende diagram verzendt de client chatbot eerst tekst van de gebruiker van een persoon wil in hun eigen woorden om naar te LUIS in een HTTP-aanvraag. Ten tweede LUIS uw geleerde model geldt voor de natuurlijke taal zinnig input van de gebruikers en een indeling notatie JSON (JavaScript Object) antwoord geretourneerd. Ten slotte uw chatbot client maakt gebruik van de JSON-antwoord om te voldoen aan aanvragen van de gebruiker. 
+In het volgende diagram verzendt de client-chatbot eerst tekst van de gebruiker van een persoon wil in hun eigen woorden LUIS in een HTTP-aanvraag. Ten tweede LUIS het geleerde model is van toepassing op de natuurlijke taal die zinvol zijn van de invoer van de gebruiker en een JavaScript Object Notation (JSON)-indeling-antwoord geretourneerd. Derde, uw client-chatbot maakt gebruik van het JSON-antwoord om te voldoen aan aanvragen van de gebruiker. 
 
-![Conceptuele beelden van LUIS werken met Chatbot](./media/luis-overview/luis-overview-process-2.png)
+![Conceptuele beeldmateriaal van LUIS werken met Chatbot](./media/luis-overview/luis-overview-process-2.png)
 
-### <a name="example-of-json-endpoint-response"></a>Voorbeeld van JSON-antwoord voor eindpunt
+### <a name="example-of-json-endpoint-response"></a>Voorbeeld van JSON-eindpunt-antwoord
 
-Het antwoord van de JSON-eindpunt minimaal bevat de query utterance, en de bovenkant score berekenen voor doel. 
+Het antwoord van een JSON-eindpunt, ten minste bevat de query-utterance, en de bovenkant scoring-doel. 
 
 ```JSON
 {
@@ -63,56 +63,56 @@ Het antwoord van de JSON-eindpunt minimaal bevat de query utterance, en de boven
 <a name="Key-LUIS-concepts"></a>
 <a name="what-is-a-luis-model"></a>
 ## <a name="what-is-a-natural-language-model"></a>Wat is een natuurlijke taalmodel?
-Een model begint met een lijst met algemene gebruiker bedoelingen aangeroepen _intents_, zoals 'Adresboek vlucht' of 'Neem contact op met helpdesk'. Bieden van de voorbeeldtekst van gebruiker, aangeroepen _voorbeeld utterances_ voor de intents. Markeert vervolgens aanzienlijke woorden of zinnen in de utterance, aangeroepen _entiteiten_.
+Een model begint met een lijst met algemene gebruiker bedoelingen, met de naam _intents_, zoals 'Vlucht' of 'Neem contact op met helpdesk'. U opgeven dat de voorbeeldtekst van de gebruiker, met de naam _voorbeeld uitingen_ voor de intents. Markeert vervolgens aanzienlijke woorden of zinsdelen in de utterance, met de naam _entiteiten_.
 
 
 Een model omvat:
 
-* **[intents](#intents)**: categorieën van gebruiker bedoelingen (beoogde actie of resultaat)
-* **[entiteiten](#entities)**: bepaalde typen gegevens in utterances zoals, de e-mailadres of de naam
-* **[voorbeeld utterances](#example-utterances)**: een gebruiker in de clienttoepassing invoert voorbeeldtekst
+* **[intents](#intents)**: categorieën van de gebruiker bedoelingen (beoogde actie of resultaat)
+* **[entiteiten](#entities)**: bepaalde typen gegevens in uitingen zoals nummer, e-mailadres of naam
+* **[voorbeeld-uitingen](#example-utterances)**: een gebruiker moet in de clienttoepassing invoeren voorbeeldtekst
 
 ### <a name="intents"></a>Intents 
-Een [bedoeling](luis-how-to-add-intents.md), afkorting voor _voornemen_, is een doel of doel uitgedrukt in utterance van een gebruiker, zoals een vlucht reservering, betaalt een factuur of een nieuwsbericht zoeken. U maakt een doel voor elke actie. Een LUIS reizen app mogen het definiëren van de opzet met de naam 'BookFlight'. De clienttoepassing kunt boven bedoeling score berekenen voor het activeren van een actie. Als 'BookFlight' bedoeling van LUIS wordt geretourneerd, kan uw clienttoepassing een API-aanroep naar een externe service voor het reserveren van een ticket vlak activeren.
+Een [bedoeling](luis-how-to-add-intents.md), kort voor _voornemen_, is het doel of doel, uitgedrukt in van een gebruiker utterance, zoals een vlucht reserveren, een factuur betaalt of zoeken naar een nieuwsartikel. U maakt een doel voor elke actie. Een LUIS reis-app kan definiëren een doel met de naam "BookFlight." Uw clienttoepassing kan boven scoren doel gebruiken voor het activeren van een actie. Als "BookFlight" intentie wordt geretourneerd van LUIS, kan uw clienttoepassing een API-aanroep naar een externe service voor het reserveren van een ticket vlak activeren.
 
 ### <a name="entities"></a>Entiteiten
-Een [entiteit](luis-how-to-add-entities.md) staat voor gedetailleerde informatie gevonden binnen de utterance die relevant is voor de aanvraag van de gebruiker. Bijvoorbeeld, in de utterance 'Adresboek een ticket naar Parijs' een één ticket wordt aangevraagd en 'Parijs' is een locatie. Twee entiteiten zijn gevonden 'een ticket' die een één-ticket en 'Parijs', die wijzen op de bestemming aangeeft. 
+Een [entiteit](luis-how-to-add-entities.md) staat voor gedetailleerde informatie vindt u in de utterance die relevant is voor de aanvraag van de gebruiker. Bijvoorbeeld, in de utterance "Book een ticket naar Parijs", één ticket wordt aangevraagd, en "Parijs" is een locatie. Twee entiteiten zijn 'een ticket"die wijzen op een enkele ticket en"Parijs", die wijzen op de bestemming gevonden. 
 
-Nadat LUIS de entiteiten die zijn gevonden in utterance van de gebruiker retourneert, kan de clienttoepassing gebruik de lijst van entiteiten als parameters voor het activeren van een actie. Bijvoorbeeld, vereist een vlucht reservering entiteiten, zoals de reizen bestemming, de datum en het luchtvaartmaatschappij.
+Nadat LUIS de entiteiten in van de gebruiker utterance gevonden retourneert, kunt de lijst met entiteiten als parameters door de clienttoepassing voor het activeren van een actie gebruiken. Bijvoorbeeld: entiteiten, zoals de reis-doel, de datum en de luchtvaartmaatschappij een vlucht reserveren heeft.
 
 LUIS biedt verschillende manieren om te identificeren en categoriseren entiteiten.
 
-* **Vooraf gedefinieerde entiteiten** LUIS heeft veel vooraf gedefinieerde domeinmodellen intents, utterances, inclusief en [vooraf gemaakte entiteiten](pre-builtentities.md). U kunt de vooraf gedefinieerde entiteiten gebruiken zonder gebruik te maken van de intents en utterances van het vooraf gedefinieerde model. De vooraf gedefinieerde entiteiten u tijd besparen.
+* **Vooraf gemaakte entiteiten** LUIS heeft veel vooraf gedefinieerde domeinmodellen intents, uitingen, inclusief en [vooraf gemaakte entiteiten](luis-prebuilt-entities.md). U kunt de vooraf gemaakte entiteiten gebruiken zonder gebruik te maken van de intenties en uitingen van de vooraf gebouwde model. De vooraf gemaakte entiteiten u tijd besparen.
 
-* **Aangepaste entiteiten** LUIS biedt u verschillende methoden voor het identificeren van uw eigen aangepaste [entiteiten](luis-concept-entity-types.md) waaronder machine geleerde entiteiten, specifieke of letterlijke waarde entiteiten en een combinatie van machine geleerd en literal.
+* **Aangepaste entiteiten** LUIS kunt u verschillende manieren om te bepalen van uw eigen aangepaste [entiteiten](luis-concept-entity-types.md) inclusief machine geleerde entiteiten, letterlijke of specifieke entiteiten en een combinatie van machine-geleerd en letterlijke.
 
-### <a name="example-utterances"></a>Voorbeeld utterances
-Een voorbeeld [utterance](luis-how-to-add-example-utterances.md) tekstinvoer van de gebruiker die de clienttoepassing nodig heeft om te begrijpen is. Het is mogelijk een zin, zoals 'Een ticket naar Parijs boek' of een fragment van een zin, zoals 'Reservering' of "Parijs vlucht." Utterances niet altijd goed ingedeelde en kunnen er veel utterance variaties voor een bepaald doel. Toevoegen van 10 tot 20 voorbeeld utterances aan elk doel en entiteiten in elke utterance markeren.
+### <a name="example-utterances"></a>Voorbeelden van utterances
+Een voorbeeld [utterance](luis-how-to-add-example-utterances.md) tekstinvoer van de gebruiker die de clienttoepassing nodig heeft om te begrijpen is. Het is mogelijk een zin, zoals "Book een ticket naar Parijs", of een fragment van een zin, zoals 'Reservering' of "Parijs vlucht." Uitingen niet altijd goed is ingedeeld en kunnen er veel utterance variaties voor een bepaald doel. 10 tot 20 voorbeeld utterances toevoegen aan elke kunt u lezen wat en markeren van entiteiten in elke utterance.
 
 |Voorbeeld van de gebruiker utterance|Doel|Entiteiten|
 |-----------|-----------|-----------|
-|"Een vlucht een boek __Seattle__?"|BookFlight|Seattle|
-|"Wanneer uw store biedt __openen__?"|StoreHoursAndLocation|openen|
-|' Een vergadering op plannen __13: 00__ met __Bob__ in distributie '|ScheduleMeeting|1 uur, Berend|
+|"Een overdracht naar het adresboek __Seattle__?"|BookFlight|Seattle|
+|"Wanneer heeft uw winkel __open__?"|StoreHoursAndLocation|openen|
+|"Een vergadering op plannen __1 uur__ met __Bob__ in distributie"|ScheduleMeeting|1 uur, Bob|
 
-## <a name="improve-prediction-accuracy"></a>Nauwkeurigheid verbeteren
-Nadat uw app LUIS is gepubliceerd en echte gebruiker utterances ontvangt, LUIS voorziet verschillende methodes om de nauwkeurigheid voorspelling te verbeteren: [active learning](#active-learning) van endpoint-utterances [een lijst met woorden](#phrase-lists) voor domein opgenomen, Word en [patronen](#patterns) om het aantal utterances nodig te verminderen.
+## <a name="improve-prediction-accuracy"></a>Nauwkeurigheid van voorspelling verbeteren
+Nadat uw LUIS-app is gepubliceerd en real-user-uitingen ontvangt, LUIS, biedt verschillende methoden voor het verbeteren van de nauwkeurigheid: [actief leren](#active-learning) van eindpunt-uitingen [lijsten woordgroep](#phrase-lists) voor domein opgenomen, Word en [patronen](#patterns) te verminderen van het aantal uitingen die nodig zijn.
 
 ### <a name="active-learning"></a>Actief leren
-In de [active learning](label-suggested-utterances.md) proces LUIS kunt u aan te passen aan uw app LUIS echte utterances door het selecteren van utterances het ontvangen door het eindpunt te controleren. U kunt accepteren of corrigeer de voorspelling eindpunt, retrain en opnieuw publiceren. LUIS aan leert snel met dit proces duurt de minimale hoeveelheid de tijd en moeite. 
+In de [actief leren](label-suggested-utterances.md) proces, LUIS kunt u uw LUIS-app op echte uitingen aanpassen door te uitingen die het ontvangen op het eindpunt voor de beoordeling selecteren. U kunt accepteren of corrigeer de voorspelling van het eindpunt, retrain en opnieuw publiceren. LUIS snel aan het aanleren met dit proces duurt de minimale hoeveelheid tijd en moeite. 
 
-### <a name="phrase-lists"></a>Een lijst met woordgroep 
-LUIS biedt [woordgroepen met lijsten](luis-concept-feature.md) zodat u belangrijke woorden of zinnen aan uw domein model kunt aangeven. LUIS maakt gebruik van deze lijsten aanvullende significante toevoegen aan deze woorden en woordgroepen die zou anders niet worden gevonden in het model.
+### <a name="phrase-lists"></a>Frasenlijsten 
+LUIS biedt [woordgroepen met lijsten](luis-concept-feature.md) zodat u belangrijke woorden of zinsdelen aan het domein van uw model aangeven kunt. LUIS maakt gebruik van deze lijsten meer betekenis toevoegen aan deze woorden en zinnen die zouden anders niet worden gevonden in het model.
 
 ### <a name="patterns"></a>Patronen 
-Patronen kunnen u de opzet utterance verzameling in algemene [sjablonen](luis-concept-patterns.md) van word keuze en word volgorde. Hierdoor LUIS te leren sneller door hoeven minder voorbeeld utterances voor de intents. Een hybride-systeem van reguliere expressies en machine geleerd expressies zijn. 
+Patronen kunnen u voor het vereenvoudigen van de opzet utterance verzameling naar algemene [sjablonen](luis-concept-patterns.md) van word keuze en word volgorde. Hiermee wordt LUIS voor meer informatie over snellere door minder voorbeeld uitingen die voor de intents. Patronen zijn een hybride systeem van reguliere expressies en expressies machine geleerd. 
 
 <a name="using-luis"></a>
 
-## <a name="authoring-and-accessing-luis"></a>Ontwerp en de toegang tot LUIS
-Bouwen van uw app LUIS van de website LUIS of programmatisch met de [ontwerpen](https://aka.ms/luis-authoring-apis) -API's of gebruik afhankelijk van de ontwerpen behoeften. Toegang tot uw gepubliceerde LUIS-app door de query [eindpunt](https://aka.ms/luis-endpoint-apis). 
+## <a name="authoring-and-accessing-luis"></a>Ontwerpen en openen van LUIS
+Bouw uw LUIS-app van de website van LUIS of programmatisch met de [ontwerpen](https://aka.ms/luis-authoring-apis) API's of gebruik afhankelijk van de behoeften van de ontwerphandleiding. Toegang tot uw gepubliceerde LUIS-app door de query [eindpunt](https://aka.ms/luis-endpoint-apis). 
 
-LUIS biedt drie websites overal ter wereld, afhankelijk van uw regio ontwerpen. De authoring regio bepaalt de Azure-regio waar u uw app LUIS kunt publiceren.
+LUIS biedt drie websites over de hele wereld, afhankelijk van uw regio voor schrijven. De regio voor schrijven bepaalt de Azure-regio waar u uw LUIS-app kunt publiceren.
 <!--
 |Authoring region|Publishing region(s)|
 |--|--|
@@ -121,19 +121,19 @@ LUIS biedt drie websites overal ter wereld, afhankelijk van uw regio ontwerpen. 
 |[eu.luis.ai](https://eu.luis.ai)|West Europe<br>North Europe|
 -->
 
-Meer informatie over [meer](luis-reference-regions.md) over het ontwerpen en regio's publiceren.
+Informatie over [meer](luis-reference-regions.md) over het ontwerpen en publiceren van regio's.
 
-## <a name="what-technologies-work-with-luis"></a>Welke technologieën met LUIS werken?
-Enkele Microsoft-technologieën werken met LUIS:
+## <a name="what-technologies-work-with-luis"></a>Welke technologieën werken met LUIS?
+Verschillende Microsoft-technologieën werken met LUIS:
 
-* [Bing spellen controleren API](../bing-spell-check/proof-text.md) Tekstcorrectie voordat voorspelling biedt. 
-* [Bot Framework] [ bot-framework] kunt u een chatbot om te communiceren met een gebruiker via tekstinvoer. Selecteer [3.x](https://github.com/Microsoft/BotBuilder) of [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK voor een volledige bot-ervaring.
-* [De QnA Maker] [ qnamaker] kunt u verschillende soorten tekst te combineren in een vraag en antwoord knowledge base.
-* [Spraak](../Speech/home.md) gesproken aanvragen geconverteerd naar tekst. Na de conversie naar tekst LUIS de aanvragen worden verwerkt. Zie [spraak SDK](https://aka.ms/csspeech) voor meer informatie.
-* [Tekstanalyse](../text-analytics/overview.md) gevoel analyse en sleutel woordgroep ophalen van gegevens biedt.
+* [Bing Spell Check-API](../bing-spell-check/proof-text.md) Tekstcorrectie voor voorspelling biedt. 
+* [Botframework] [ bot-framework] kunt u een chatbot om te communiceren met een gebruiker via tekstinvoer. Selecteer [3.x](https://github.com/Microsoft/BotBuilder) of [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK voor een complete bot-ervaring.
+* [QnA Maker] [ qnamaker] kunnen verschillende soorten tekst om te combineren in een kennisdatabase vragen en antwoorden.
+* [Spraak](../Speech/home.md) zet gesproken taalaanvragen om in tekst. Na de conversie naar tekst, LUIS de aanvragen worden verwerkt. Zie [spraak SDK](https://aka.ms/csspeech) voor meer informatie.
+* [Tekstanalyse](../text-analytics/overview.md) sentiment-analyse en de sleutel woordgroep ophalen van gegevens biedt.
 
 ## <a name="next-steps"></a>Volgende stappen
-Maakt een nieuwe app LUIS met een [vooraf gedefinieerde](luis-get-started-create-app.md) of [aangepaste](luis-quickstart-intents-only.md) domein.
+Maak een nieuwe LUIS-app met een [vooraf gedefinieerde](luis-get-started-create-app.md) of [aangepaste](luis-quickstart-intents-only.md) domein.
 
 <!-- Reference-style links -->
 [bot-framework]: https://docs.microsoft.com/bot-framework/

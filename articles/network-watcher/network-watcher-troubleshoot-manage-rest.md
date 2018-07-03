@@ -1,6 +1,6 @@
 ---
-title: Problemen met virtuele netwerkgateway en verbindingen met behulp van Azure-netwerk-Watcher - REST | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u problemen met virtuele netwerkgateways en verbindingen met Azure met behulp van REST netwerk-Watcher
+title: Problemen oplossen met de Gateway van virtueel netwerk en verbindingen met behulp van Azure Network Watcher - REST | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe u problemen oplossen met Gateways van virtueel netwerk en verbindingen met Azure Network Watcher met behulp van REST
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 35762d5781d5437a25eaf9942e50f60846ae1ae2
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2c65b595e4c56b8c69d38a6e2f30ae8e57bba3f4
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779138"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344101"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Problemen met virtuele netwerkgateway en verbindingen met behulp van Azure-netwerk-Watcher
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Problemen oplossen met de gateway van Virtueelnetwerk en verbindingen met behulp van Azure Network Watcher
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -30,24 +30,24 @@ ms.locfileid: "32779138"
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
-Netwerk-Watcher biedt veel mogelijkheden met betrekking tot het begrijpen van uw netwerkbronnen in Azure. Een van deze mogelijkheden resource is het oplossen van problemen. Het oplossen van bron kan worden aangeroepen via de portal, PowerShell, CLI of REST-API. Als deze wordt aangeroepen, netwerk-Watcher inspecteert de status van de Gateway van een virtueel netwerk of een verbinding en retourneert de bevindingen zijn.
+Network Watcher biedt veel mogelijkheden met betrekking tot het begrijpen van de netwerkresources van uw in Azure. Een van deze mogelijkheden is resource-oplossen van problemen. Het oplossen van resource kan worden aangeroepen via de portal, PowerShell, CLI of REST-API. Indien aangeroepen, wordt Network Watcher inspecteert de status van de Gateway van een virtueel netwerk of een verbinding en retourneert de bevindingen.
 
-In dit artikel leert u de verschillende beheertaken die momenteel beschikbaar voor het oplossen van resource zijn.
+In dit artikel doorloopt u de verschillende beheertaken die momenteel beschikbaar voor het oplossen van de resource zijn.
 
-- [**Problemen met een virtuele netwerkgateway**](#troubleshoot-a-virtual-network-gateway)
-- [**Problemen met een verbinding**](#troubleshoot-connections)
+- [**Oplossen van een virtuele netwerkgateway**](#troubleshoot-a-virtual-network-gateway)
+- [**Problemen met een verbinding oplossen**](#troubleshoot-connections)
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 ARMclient wordt gebruikt voor het aanroepen van de REST-API met behulp van PowerShell. ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een netwerk-Watcher](network-watcher-create.md) voor het maken van een netwerk-Watcher.
+In dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een Network Watcher](network-watcher-create.md) te maken van een Network Watcher.
 
-Voor een lijst met ondersteunde gateway typen bezoek, [ondersteund gatewaytypen](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+Voor een lijst van ondersteunde gateway typen bezoek, [ondersteund gatewaytypen](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## <a name="overview"></a>Overzicht
 
-Netwerk-Watcher Probleemoplossing biedt de mogelijkheid oplossen van problemen die zich bij het virtuele netwerk gateways en verbindingen voordoen. Wanneer een aanvraag wordt gedaan aan de resource die het oplossen van problemen, worden de logboeken query wordt uitgevoerd en gecontroleerd. Als controle voltooid is, worden de resultaten worden geretourneerd. De problemen met API-aanvragen zijn lang aanvragen die een resultaat te retourneren van meerdere minuten duren voordat het kunnen worden uitgevoerd. Logboeken worden opgeslagen in een container voor een opslagaccount.
+Network Watcher troubleshooting biedt de mogelijkheid voor het oplossen van problemen die met Virtual Network-gateways en verbindingen optreden. Wanneer een aanvraag wordt gedaan bij het oplossen van problemen resource, worden de logboeken wilt zoeken en geïnspecteerd. Als controle voltooid is, worden de resultaten worden geretourneerd. De problemen met API-aanvragen zijn lang actieve aanvragen, die kunnen meerdere minuten om een resultaat te retourneren. Logboeken worden opgeslagen in een container op een storage-account.
 
 ## <a name="log-in-with-armclient"></a>Meld u aan met ARMClient
 
@@ -55,12 +55,12 @@ Netwerk-Watcher Probleemoplossing biedt de mogelijkheid oplossen van problemen d
 armclient login
 ```
 
-## <a name="troubleshoot-a-virtual-network-gateway"></a>Problemen met een virtuele netwerkgateway
+## <a name="troubleshoot-a-virtual-network-gateway"></a>Oplossen van een virtuele netwerkgateway
 
 
-### <a name="post-the-troubleshoot-request"></a>NA de aanvraag oplossen
+### <a name="post-the-troubleshoot-request"></a>NA de aanvraag voor problemen oplossen
 
-Het volgende voorbeeld wordt de status van een virtuele netwerkgateway opgevraagd.
+Het volgende voorbeeld wordt de status van een virtuele netwerkgateway opvragen.
 
 ```powershell
 
@@ -82,14 +82,14 @@ $requestBody = @"
 "@
 
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" -verbose
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" $requestBody -verbose
 ```
 
-Omdat deze bewerking lang is uitgevoerd, de URI voor het opvragen van de bewerking en de URI voor het resultaat wordt geretourneerd als de antwoordheader zoals weergegeven in het volgende antwoord:
+Omdat deze bewerking lang is uitgevoerd, de URI voor het uitvoeren van query's de bewerking en de URI voor het resultaat wordt geretourneerd in de antwoordkop zoals wordt weergegeven in het volgende antwoord:
 
 **Belangrijke waarden**
 
-* **Azure-asynchrone bewerking** -deze eigenschap bevat de URI moet een query de asynchrone bewerking oplossen
+* **Azure-AsyncOperation** -deze eigenschap bevat de URI aan query de asynchrone bewerking oplossen
 * **Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is
 
 ```
@@ -112,7 +112,7 @@ null
 
 ### <a name="query-the-async-operation-for-completion"></a>Query uitvoeren op de asynchrone bewerking voor voltooiing
 
-Gebruik de bewerkingen URI query voor de voortgang van de bewerking zoals te zien is in het volgende voorbeeld:
+Gebruik de bewerkingen URI aan query voor de voortgang van de bewerking, zoals te zien is in het volgende voorbeeld:
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
@@ -126,7 +126,7 @@ Terwijl de bewerking uitgevoerd wordt, ziet u het antwoord **InProgress** zoals 
 }
 ```
 
-Als de bewerking voltooid is de status gewijzigd in **geslaagd**.
+Wanneer de bewerking voltooid is wordt de status gewijzigd in **geslaagd**.
 
 ```json
 {
@@ -136,13 +136,13 @@ Als de bewerking voltooid is de status gewijzigd in **geslaagd**.
 
 ### <a name="retrieve-the-results"></a>De resultaten ophalen
 
-Zodra de status wordt geretourneerd is **geslaagd**, een GET-methode aanroepen voor de operationResult URI voor het ophalen van de resultaten.
+Zodra de status wordt geretourneerd **geslaagd**, een GET-methode aanroepen op kan operationresult niet URI om de resultaten te halen.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
-De volgende antwoorden zijn voorbeelden van een typische verslechterde antwoord geretourneerd bij het opvragen van de resultaten van het oplossen van een gateway. Zie [inzicht in de resultaten](#understanding-the-results) ophalen van informatie over de betekenis van de eigenschappen in het antwoord.
+De volgende antwoorden zijn voorbeelden van een typische gedegradeerde antwoord geretourneerd bij het opvragen van de resultaten van het oplossen van een gateway. Zie [inzicht in de resultaten](#understanding-the-results) uitleg over de betekenis van de eigenschappen in het antwoord ophalen.
 
 ```json
 {
@@ -191,7 +191,7 @@ De volgende antwoorden zijn voorbeelden van een typische verslechterde antwoord 
 
 ## <a name="troubleshoot-connections"></a>Problemen met verbindingen oplossen
 
-Het volgende voorbeeld wordt de status van een verbinding opgevraagd.
+Het volgende voorbeeld vraagt de status van een verbinding.
 
 ```powershell
 
@@ -210,17 +210,17 @@ $requestBody = @{
 }
 
 }
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 $requestBody"
 ```
 
 > [!NOTE]
-> De bewerking oplossen kan niet op een verbinding en de bijbehorende gateways parallel worden uitgevoerd. De bewerking moet voltooien voordat u deze uitvoert op de vorige resource.
+> De problemen oplossen-bewerking kan niet parallel worden uitgevoerd op een verbinding en de bijbehorende gateways. De bewerking moet uitvoeren voordat u deze uitvoert op de vorige resource.
 
-Omdat dit een langdurige transactie, in de kop response, wordt de URI voor query's in de bewerking en de URI voor het resultaat zoals weergegeven in het volgende antwoord geretourneerd:
+Aangezien dit een langlopende transactie, in de antwoordkop, wordt de URI voor het uitvoeren van query's de bewerking en de URI voor het resultaat zoals in het volgende antwoord geretourneerd:
 
 **Belangrijke waarden**
 
-* **Azure-asynchrone bewerking** -deze eigenschap bevat de URI moet een query de asynchrone bewerking oplossen
+* **Azure-AsyncOperation** -deze eigenschap bevat de URI aan query de asynchrone bewerking oplossen
 * **Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is
 
 ```
@@ -243,7 +243,7 @@ null
 
 ### <a name="query-the-async-operation-for-completion"></a>Query uitvoeren op de asynchrone bewerking voor voltooiing
 
-Gebruik de bewerkingen URI query voor de voortgang van de bewerking zoals te zien is in het volgende voorbeeld:
+Gebruik de bewerkingen URI aan query voor de voortgang van de bewerking, zoals te zien is in het volgende voorbeeld:
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
@@ -257,7 +257,7 @@ Terwijl de bewerking uitgevoerd wordt, ziet u het antwoord **InProgress** zoals 
 }
 ```
 
-Wanneer de bewerking voltooid is, wordt de status gewijzigd in **geslaagd**.
+Wanneer de bewerking voltooid is, verandert de status in **geslaagd**.
 
 ```json
 {
@@ -269,7 +269,7 @@ De volgende antwoorden zijn voorbeelden van een typische antwoord geretourneerd 
 
 ### <a name="retrieve-the-results"></a>De resultaten ophalen
 
-Zodra de status wordt geretourneerd is **geslaagd**, een GET-methode aanroepen voor de operationResult URI voor het ophalen van de resultaten.
+Zodra de status wordt geretourneerd **geslaagd**, een GET-methode aanroepen op kan operationresult niet URI om de resultaten te halen.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
@@ -322,12 +322,12 @@ is a transient state while the Azure platform is being updated.",
 }
 ```
 
-## <a name="understanding-the-results"></a>Inzicht in de resultaten
+## <a name="understanding-the-results"></a>Inzicht krijgen in de resultaten
 
-De actietekst bevat algemene richtlijnen over het oplossen van het probleem. Als een actie kan worden uitgevoerd voor de uitgifte, wordt een koppeling geboden met aanvullende richtlijnen. In het geval wanneer er geen aanvullende richtlijnen, het antwoord geeft de url om een ondersteuningsaanvraag te openen.  Voor meer informatie over de eigenschappen van het antwoord en wat is opgenomen, gaat u naar [overzicht van netwerk-Watcher oplossen](network-watcher-troubleshoot-overview.md)
+De actietekst bevat algemene richtlijnen over het probleem op te lossen. Als een actie kan worden ondernomen voor het probleem, wordt een koppeling volgen met aanvullende richtlijnen. In het geval waarbij er geen aanvullende richtlijnen, het antwoord geeft de url om een ondersteuningsaanvraag openen.  Voor meer informatie over de eigenschappen van het antwoord en wat is opgenomen, gaat u naar [overzicht van Network Watcher oplossen](network-watcher-troubleshoot-overview.md)
 
-Zie voor instructies over het downloaden van bestanden van azure storage-accounts, [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een ander hulpprogramma dat kan worden gebruikt, is Storage Explorer. Meer informatie over Opslagverkenner vindt u hier op de volgende koppeling: [Opslagverkenner](http://storageexplorer.com/)
+Zie voor instructies over het downloaden van bestanden vanuit azure storage-accounts, [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een ander hulpmiddel dat kan worden gebruikt, is Storage Explorer. Meer informatie over Storage Explorer hier kan worden gevonden op de volgende koppeling: [Storage Explorer](http://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als de instellingen zijn gewijzigd die stop VPN-verbindingen, raadpleegt u [Netwerkbeveiligingsgroepen beheren](../virtual-network/manage-network-security-group.md) voor het opsporen van de groep en beveiliging netwerkbeveiligingsregels die betrokken zijn.
+Als de instellingen zijn gewijzigd dat stop VPN-connectiviteit, raadpleegt u [Netwerkbeveiligingsgroepen beheren](../virtual-network/manage-network-security-group.md) voor het opsporen van de groep en beveiliging netwerkbeveiligingsregels die mogelijk in kwestie.

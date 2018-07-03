@@ -1,6 +1,6 @@
 ---
-title: Over VPN-gateway voor Azure-Stack | Microsoft Docs
-description: Meer informatie over en configureren van VPN-gateways die u met Azure-Stack gebruiken.
+title: Over VPN-gateway voor Azure Stack | Microsoft Docs
+description: Meer informatie over en configureren van VPN-gateways die u met Azure Stack gebruikt.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,89 +12,112 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/01/2017
+ms.date: 07/02/2018
 ms.author: brenduns
-ms.openlocfilehash: 7e489db0d9a65b850df41360ce11616d518c5265
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 0ff3402115ae9f4c736bf9058fc09de16eaefb1e
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37347182"
 ---
-# <a name="about-vpn-gateway-for-azure-stack"></a>Over VPN-gateway voor Azure-Stack
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+# <a name="about-vpn-gateway-for-azure-stack"></a>Over VPN-gateway voor Azure Stack
 
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Voordat u netwerkverkeer tussen uw virtuele Azure-netwerk en uw on-premises site verzenden kunt, moet u een virtuele netwerkgateway maken voor het virtuele netwerk.
+Voordat u netwerkverkeer tussen uw Azure-netwerk en uw on-premises site verzendt kunt, moet u een virtuele netwerkgateway maken voor het virtuele netwerk.
 
-Een VPN-gateway is een soort gateway voor virtuele netwerken die versleuteld verkeer verzendt via een openbare verbinding. U kunt VPN-gateways gebruiken om verkeer te verzenden veilig tussen een virtueel netwerk in Azure-Stack en een virtueel netwerk in Azure. Ook kunt u verkeer veilig tussen een virtueel netwerk en een ander netwerk dat is verbonden met een VPN-apparaat verzenden.
+Een VPN-gateway is een soort gateway voor virtuele netwerken die versleuteld verkeer verzendt via een openbare verbinding. U kunt VPN-gateways gebruiken om verkeer te verzenden veilig tussen een virtueel netwerk in Azure Stack en een virtueel netwerk in Azure. U kunt ook verkeer veilig tussen een virtueel netwerk en een ander netwerk die is verbonden met een VPN-apparaat verzenden.
 
-Wanneer u een virtuele netwerkgateway maakt, geeft u het gatewaytype aan dat u wilt maken. Azure Stack ondersteunt één type van de virtuele netwerkgateway: het type 'VPN-'.
+Wanneer u een virtuele netwerkgateway maakt, geeft u het gatewaytype aan dat u wilt maken. Azure Stack biedt ondersteuning voor één type virtuele netwerkgateway, de **Vpn** type.
 
 Elk virtueel netwerk kan twee virtuele netwerkgateways hebben, maar slechts één van elk type. Afhankelijk van de instellingen die u kiest, kunt u meerdere verbindingen maken voor één VPN-gateway. Een voorbeeld is een configuratie met meerdere Site-verbinding.
 
-> [!NOTE]
-> In Azure, moet de doorvoer bandbreedte voor VPN-Gateway-SKU gewenst worden verdeeld over alle verbindingen die zijn verbonden.  De waarde voor de bandbreedte voor de VPN-Gateway-SKU wordt in Azure-Stack toegepast op elke verbindingsbron die is verbonden met het.     
+Voordat u maken en configureren van VPN-Gateways voor Azure Stack, controleert u de [overwegingen voor Azure Stack-netwerken](/azure/azure-stack/user/azure-stack-network-differences) voor meer informatie over hoe configuraties voor Azure Stack verschillen van Azure.
 
-> Bijvoorbeeld, In Azure, de Basic VPN-Gateway-SKU aankan ongeveer 100 Mbps van geaggregeerde doorvoer.  Als u twee verbindingen met deze VPN-Gateway maken en één verbinding met behulp van 50 Mbps bandbreedte, vervolgens 50 Mbps is beschikbaar voor de andere verbinding.   
-
-> In Azure-Stack *elke* verbinding met de Basic VPN-Gateway-SKU 100 Mbps van doorvoer wordt toegewezen.
+>[!NOTE]
+>In Azure, moet de doorvoer van de bandbreedte voor VPN-gateway-SKU die u kiest, worden verdeeld over alle verbindingen die zijn verbonden met de gateway. Maar in Azure Stack, de waarde voor de bandbreedte voor de VPN-gateway-SKU wordt toegepast op elke verbinding-resource die is verbonden met de gateway.
+>
+> Bijvoorbeeld:
+> * De Basic VPN-Gateway-SKU aankan in Azure, ongeveer 100 Mbps van geaggregeerde doorvoer. Als u twee verbindingen met deze VPN-Gateway maken en één verbinding 50 Mbps bandbreedte wordt gebruikt, klikt u vervolgens 50 Mbps is beschikbaar voor de andere verbinding.
+> * In Azure Stack, *elke* verbinding met de Basic VPN-Gateway-SKU wordt het toegewezen 100 Mbps aan doorvoer.
 
 ## <a name="configuring-a-vpn-gateway"></a>Een VPN-gateway configureren
-Een VPN-gatewayverbinding is afhankelijk van meerdere resources die zijn geconfigureerd met specifieke instellingen. De meeste resources kunnen afzonderlijk worden geconfigureerd, hoewel ze in sommige gevallen in een bepaalde volgorde moeten worden geconfigureerd.
+
+Een VPN-gatewayverbinding is afhankelijk van verschillende resources die zijn geconfigureerd met specifieke instellingen. De meeste van deze resources kunnen afzonderlijk worden geconfigureerd, maar in sommige gevallen deze in een bepaalde volgorde moeten worden geconfigureerd.
 
 ### <a name="settings"></a>Instellingen
-De instellingen die u voor elke resource hebt gekozen, zijn essentieel om een geslaagde verbinding te maken. Zie voor meer informatie over afzonderlijke bronnen en instellingen voor VPN-Gateway [over VPN-gateway-instellingen voor Azure-Stack](azure-stack-vpn-gateway-settings.md). Hier vindt u informatie om te begrijpen gatewaytypen, VPN-typen, verbindingstypen, gateway-subnetten, lokale netwerkgateways en diverse andere resource-instellingen kunt u overwegen.
+
+De instellingen die u voor elke resource hebt gekozen, zijn essentieel voor het maken van verbinding is geslaagd.
+
+Zie voor meer informatie over afzonderlijke resources en -instellingen voor een VPN-gateway [over VPN gateway-instellingen voor Azure Stack](azure-stack-vpn-gateway-settings.md). In dit artikel krijgt u inzicht in:
+
+* Gatewaytypen, VPN-typen en verbindingstypen.
+* Gatewaysubnetten, lokale netwerkgateways en andere resource-instellingen die u wilt gebruiken.
 
 ### <a name="deployment-tools"></a>Implementatiehulpmiddelen
-U kunt maken en configureren van resources met behulp van een configuratiehulpprogramma, zoals de Azure-portal. U kunt later overschakelen naar een ander hulpprogramma zoals PowerShell aanvullende bronnen configureren of te wijzigen van bestaande bronnen, indien van toepassing. Op dit moment is het niet mogelijk om elke resource en resource-instelling in Azure Portal te configureren. De instructies in de artikelen voor elke verbindingstopologie geven aan of een specifiek confihuratiehulpprogramma nodig is.
 
-## <a name="connection-topology-diagrams"></a>Topologie gatewayverbindingsdiagrammen
-Het is belangrijk te weten dat er verschillende configuraties beschikbaar zijn voor VPN-gatewayverbindingen. Bepalen welke configuratie komt het beste past bij uw behoeften. In de gedeelten hieronder kunt u informatie en topologiediagrammen over de volgende VPN-gatewayverbindingen bekijken. In de tabellen worden de volgende zaken weergegeven:
+U kunt maken en configureren van resources met behulp van een configuratiehulpprogramma, zoals de Azure-portal. U kunt later overschakelen naar een ander hulpprogramma, zoals PowerShell voor het configureren van extra resources of wijzig indien nodig bestaande bronnen. Op dit moment is het niet mogelijk om elke resource en resource-instelling in Azure Portal te configureren. De instructies in de artikelen voor elke verbindingstopologie geven aan of een specifiek confihuratiehulpprogramma nodig is.
 
-- Beschikbaar implementatiemodel
-- Beschikbare configuratiehulpprogramma's
-- Rechtstreekse koppelingen naar een artikel, indien beschikbaar
+## <a name="connection-topology-diagrams"></a>De verbindingstopologie
 
-De diagrammen en beschrijvingen in de volgende secties kunt u een verbinding-topologie voor uw vereisten selecteert. De diagrammen tonen de belangrijkste basistopologieën, maar het is mogelijk om met de diagrammen als richtlijn complexere configuraties te bouwen.
+Het is belangrijk te weten dat er verschillende configuraties beschikbaar zijn voor VPN-gatewayverbindingen. Bepalen welke configuratie het beste past bij uw behoeften. In de volgende secties vindt u informatie en topologiediagrammen over de volgende VPN-gateway-verbindingen:
+
+* Beschikbaar implementatiemodel
+* Beschikbare configuratiehulpprogramma's
+* Rechtstreekse koppelingen naar een artikel, indien beschikbaar
+
+De diagrammen en beschrijvingen in de volgende secties kunt u een verbinding selecteren om te voldoen aan uw vereisten. De diagrammen tonen de belangrijkste basistopologieën, maar het is mogelijk te maken van complexere configuraties met de diagrammen als richtlijn.
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site-naar-site en multi-site (IPsec-/IKE VPN-tunnel)
+
 ### <a name="site-to-site"></a>Site-naar-site
-Een site-naar-site-VPN-gatewayverbinding (S2S) is een verbinding via een VPN-tunnel met IPsec/IKE (IKEv1 of IKEv2). Voor dit type verbinding moet er een VPN-apparaat on-premises aanwezig zijn waaraan een openbaar IP-adres is toegewezen en dat zich niet achter een NAT bevindt. S2S-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.    
-![Configuratievoorbeeld voor site-naar-site VPN-verbinding](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
+
+Een site-naar-site-VPN-gatewayverbinding (S2S) is een verbinding via een VPN-tunnel met IPsec/IKE (IKEv1 of IKEv2). Dit type verbinding vereist een VPN-apparaat die zich on-premises en een openbaar IP-adres is toegewezen. Dit apparaat kan zich niet achter een NAT bevinden. S2S-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
+
+![Voorbeeld van configuratie van een site-naar-site VPN-verbinding](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
 ### <a name="multi-site"></a>Multi-site
-Dit type verbinding is een variatie op de site-naar-site-verbinding. U maakt meer dan één VPN-verbinding vanaf uw virtuele netwerkgateway, meestal met verschillende on-premises sites. Als u met meerdere verbindingen werkt, moet u een op een route gebaseerd VPN-type (ook bekend als een dynamische gateway voor klassieke VNets) gebruiken. Omdat elk virtueel netwerk maar één VPN-gateway kan hebben, delen alle verbindingen via de gateway de beschikbare bandbreedte. Dit wordt vaak een multi-site-verbinding genoemd.   
+
+Dit type verbinding is een variatie op de site-naar-site-verbinding. U maakt meer dan één VPN-verbinding vanaf uw virtuele netwerkgateway, meestal met verschillende on-premises sites. Wanneer u met meerdere verbindingen werkt, moet u een RouteBased VPN-type (ook wel een gateway voor dynamische bij het werken met klassieke VNets.) Omdat elk virtueel netwerk maar één VPN-gateway kan hebben, delen alle verbindingen via de gateway de beschikbare bandbreedte. Dit wordt vaak een multi-site-verbinding genoemd.
+
 ![Voorbeeld van een verbinding tussen meerdere locaties met Azure VPN Gateway](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-multisite-connection-diagram.png)
 
-
-
 ## <a name="gateway-skus"></a>Gateway-SKU's
-Wanneer u een virtuele netwerkgateway voor Azure-Stack maakt, geeft u de gateway-SKU die u wilt gebruiken. De volgende VPN-gateway-SKU's worden ondersteund:
-- Basic
-- Standard
-- HighPerformance
 
-Wanneer u een hogere SKU, zoals Standard via Basic of HighPerformance-gateway via Standard- of Basic selecteert, worden meer CPU's en bandbreedte van het netwerk worden toegewezen aan de gateway. De gateway kan als gevolg hiervan hoger netwerkdoorvoer aan het virtuele netwerk te ondersteunen.
+Wanneer u een virtuele netwerkgateway voor Azure Stack maken, geeft u de gateway-SKU die u wilt gebruiken. De volgende VPN-gateway-SKU's worden ondersteund:
 
-Azure-Stack biedt geen ondersteuning voor de gateway UltraPerformance SKU kan uitsluitend met Express Route gebruikt.
+* Basic
+* Standard
+* HighPerformance
 
-Overweeg het volgende wanneer u SKU selecteert:
-- Azure-Stack biedt geen ondersteuning voor op beleid gebaseerde gateways.
-- Border Gateway Protocol (BGP) wordt niet ondersteund op de basis-SKU.
-- ExpressRoute-VPN-Gateway worden gecombineerd configuraties worden niet ondersteund in Azure-Stack
-- Actief-actief S2S VPN-gatewayverbindingen kunnen alleen worden geconfigureerd op de HighPerformance SKU.
+Wanneer u een hogere gateway-SKU, zoals Standard via Basic of HighPerformance via Standard- of Basic selecteert, worden meer CPU en bandbreedte van het netwerk worden toegewezen aan de gateway. Als gevolg hiervan kan de gateway hogere netwerkdoorvoer aan het virtuele netwerk ondersteunen.
+
+Azure Stack biedt geen ondersteuning voor de UltraPerformance-gateway-SKU, die wordt gebruikt met Express Route.
+
+Overweeg het volgende wanneer u een SKU selecteert:
+
+* Azure Stack biedt geen ondersteuning voor op beleid gebaseerde gateways.
+* Border Gateway Protocol (BGP) wordt niet ondersteund op de basis-SKU.
+* ExpressRoute-VPN-Gateway worden gecombineerd configuraties worden niet ondersteund in Azure Stack.
+* Actief-actief S2S VPN-gatewayverbindingen kunnen alleen worden geconfigureerd op de HighPerformance SKU.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Geschatte geaggregeerde doorvoer per SKU
+
 In de volgende tabel ziet u de gatewaytypen en de geschatte geaggregeerde doorvoer per gateway-SKU.
 
 |   | Doorvoer VPN-Gateway *(1)* | VPN-Gateway max. IPsec-tunnels *(2)* |
 |-------|-------|-------|
 |**Basis-SKU** ***(3)***    | 100 Mbps  | 10    |
-|**Standaard SKU**       | 100 Mbps  | 10    |
-|**Hoge prestaties SKU** | 200 Mbps    | 5 |
-***(1)***  De VPN-doorvoer is niet een gegarandeerde doorvoer voor cross-premises verbindingen via Internet. Het is een meting van de maximaal mogelijke doorvoer.  
-***(2)***  Max tunnels aantal is het totale aantal per Azure-Stack-implementatie voor alle abonnementen.  
-***(3)***  BGP wordt niet ondersteund voor de basis-SKU.
+|**Standaard-SKU**       | 100 Mbps  | 10    |
+|**High Performance SKU** | 200 Mbps    | 5 |
+
+**Opmerkingen bij de tabel:**
+
+*Houd er rekening mee (1)* -VPN-doorvoer is niet een gegarandeerde doorvoer voor cross-premises verbindingen via Internet. Het is de meting van de maximaal mogelijke doorvoer.  
+*Houd er rekening mee (2)* -Max tunnels wordt het totale aantal per Azure Stack-implementatie voor alle abonnementen.  
+*Houd er rekening mee (3)* -BGP-routering wordt niet ondersteund voor de basis-SKU.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over [instellingen voor VPN-gateways](azure-stack-vpn-gateway-settings.md) voor Azure-Stack.
+
+[VPN-gatewayconfiguratie-instellingen voor Azure Stack](azure-stack-vpn-gateway-settings.md)

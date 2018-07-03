@@ -12,17 +12,26 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 85dc16b07b72f2e8c1ed00fb5dd25288b985ae21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 576558f7ab3ae9a0e3ceebb65d19f689b4836022
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603040"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958813"
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. Met Azure Resource Manager kunt u met de resources als groep in uw oplossing werken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources. 
+
+## <a name="consistent-management-layer"></a>Consistente beheerlaag
+Resource Manager biedt een consistente beheerlaag om taken uit te voeren via Azure PowerShell, Azure CLI, Azure Portal, REST API en client-SDK's. Alle mogelijkheden die beschikbaar zijn in de Azure Portal zijn ook beschikbaar via Azure PowerShell, Azure CLI, de Azure REST API's en client-SDK's. Functionaliteit die oorspronkelijk wordt uitgegeven via API's, is binnen 180 dagen na de eerste release beschikbaar in de portal.
+
+Kies de hulpprogramma's en API's die voor u het best werken. Ze hebben dezelfde mogelijkheden en bieden consistente resultaten.
+
+In de volgende afbeelding ziet u hoe alle hulpprogramma's werken met dezelfde Azure Resource Manager-API. Via de API worden aanvragen doorgegeven aan de Resource Manager-service, waar de aanvragen worden geverifieerd en geautoriseerd. De aanvragen worden vervolgens via Resource Manager naar de juiste resourceproviders geleid.
+
+![Resource Manager-aanvraagmodel](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="terminology"></a>Terminologie
 Als u nog geen ervaring hebt met de Azure Resource Manager, zijn er enkele termen die u mogelijk niet kent.
@@ -46,13 +55,6 @@ Resource Manager biedt diverse voordelen:
 
 Resource Manager biedt een nieuwe manier om uw oplossingen te implementeren en te beheren. Als u het eerdere implementatiemodel hebt gebruikt en meer te weten wilt komen over de wijzigingen, leest u [Resource Manager-implementatie en klassieke implementatie begrijpen](resource-manager-deployment-model.md).
 
-## <a name="consistent-management-layer"></a>Consistente beheerlaag
-Resource Manager biedt een consistente beheerlaag voor de taken die u uitvoert via Azure PowerShell, Azure CLI, Azure portal, REST API en ontwikkelhulpprogramma's. Alle hulpprogramma's gebruiken een gemeenschappelijke set bewerkingen. U kunt de hulpprogramma's gebruiken die voor u het meest geschikt zijn en u kunt ze zonder problemen door elkaar gebruiken. 
-
-In de volgende afbeelding ziet u hoe alle hulpprogramma's werken met dezelfde Azure Resource Manager-API. Via de API worden aanvragen doorgegeven aan de Resource Manager-service, waar de aanvragen worden geverifieerd en geautoriseerd. De aanvragen worden vervolgens via Resource Manager naar de juiste resourceproviders geleid.
-
-![Resource Manager-aanvraagmodel](./media/resource-group-overview/consistent-management-layer.png)
-
 ## <a name="guidance"></a>Richtlijnen
 Met de volgende tips kunt u profiteren van alle mogelijkheden die Resource Manager voor uw oplossingen biedt.
 
@@ -72,7 +74,7 @@ Er zijn een aantal belangrijke factoren waarmee u rekening moet houden bij het d
 4. U kunt een resource van de ene naar de andere resourcegroep verplaatsen. Zie voor meer informatie [Resources verplaatsen naar een nieuwe resourcegroep of een nieuw abonnement](resource-group-move-resources.md).
 5. Een resourcegroep kan resources uit verschillende regio’s bevatten.
 6. Een resourcegroep kan worden gebruikt voor het bepalen van de mate van toegangsbeheer voor beheertaken.
-7. Een resource kan communiceren met resources in andere resourcegroepen. Deze communicatie is gebruikelijk wanneer er een relatie bestaat tussen de twee resources, maar deze niet de dezelfde levenscyclus delen (bijvoorbeeld web-apps die verbinding maken met een database).
+7. Een resource kan communiceren met resources in andere resourcegroepen. Deze interactie is gebruikelijk wanneer er een relatie bestaat tussen de twee resources, maar deze niet dezelfde levenscyclus delen (bijvoorbeeld web-apps die verbinding maken met een database).
 
 Als u een resourcegroep maakt, moet u voor die resourcegroep een locatie opgeven. U vraagt zich misschien af: 'Waarom heeft een resourcegroep een locatie nodig? En als de resources andere locaties kunnen hebben dan de resourcegroep, wat is dan het nut van een locatie voor de resourcegroep?' De resourcegroep slaat metagegevens op over de resources. Dat is de reden waarom u moet aangeven waar die metagegevens moeten worden opgeslagen als u een locatie voor de resourcegroep opgeeft. In verband met nalevingsvereisten moet u er mogelijk voor zorgen dat uw gegevens worden opgeslagen in een bepaalde regio.
 
@@ -210,15 +212,15 @@ Azure biedt de volgende vier platformrollen:
 
 Azure biedt ook diverse resourcespecifieke rollen. Een aantal gangbare zijn:
 
-1. Inzender voor virtuele machines: kan virtuele machines beheren maar geen toegang verlenen, en kan het virtuele netwerk of het opslagaccount waarmee ze zijn verbonden, niet beheren
+1. Inzender voor virtuele machines: kan virtuele machines beheren maar geen toegang verlenen, en kan het virtuele netwerk of het opslagaccount waarmee hij/zij is verbonden, niet beheren
 2. Inzender voor netwerken: kan alle netwerkbronnen beheren, maar geen toegang verlenen
 3. Inzender voor opslagaccounts: kan opslagaccounts beheren, maar geen toegang verlenen
 4. Inzender voor SQL Server: kan SQL-servers en -databases beheren, maar niet het beveiligingsbeleid
-5. Inzender voor websites: kan websites beheren, maar niet de webabonnementen waarmee ze zijn verbonden
+5. Inzender voor websites: kan websites beheren, maar niet de webabonnementen waarmee hij/zij is verbonden
 
 Zie voor een volledige lijst met functies en toegestane acties [RBAC: ingebouwde rollen](../role-based-access-control/built-in-roles.md). Zie voor meer informatie over op rollen gebaseerd toegangsbeheer [Op rollen gebaseerd Azure-toegangsbeheer](../role-based-access-control/role-assignments-portal.md). 
 
-In sommige gevallen wilt u code of scripts uitvoeren die toegang hebben tot resources, maar dan niet via de referenties van een gebruiker. In plaats daarvan kunt u een identiteit, een service-principal, voor de toepassing maken en de juiste rol voor de service-principal toewijzen. Met Resource Manager kunt u referenties voor de toepassing maken en de toepassing programmatisch verifiëren. Raadpleeg een van de volgende onderwerpen voor informatie over het maken van service-principals:
+In sommige gevallen wilt u code of scripts uitvoeren die toegang hebben tot resources, maar wilt u ze niet uitvoeren via de referenties van een gebruiker. In plaats daarvan kunt u een identiteit, een service-principal, voor de toepassing maken en de juiste rol voor de service-principal toewijzen. Met Resource Manager kunt u referenties voor de toepassing maken en de toepassing programmatisch verifiëren. Raadpleeg een van de volgende onderwerpen voor informatie over het maken van service-principals:
 
 * [Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources](resource-group-authenticate-service-principal.md)
 * [Azure CLI gebruiken om een service-principal te maken voor toegang tot resources](resource-group-authenticate-service-principal-cli.md)
@@ -227,7 +229,7 @@ In sommige gevallen wilt u code of scripts uitvoeren die toegang hebben tot reso
 U kunt kritieke resources ook expliciet vergrendelen om te voorkomen dat gebruikers deze wijzigen of verwijderen. Zie voor meer informatie [Resources vergrendelen met Azure Resource Manager](resource-group-lock-resources.md).
 
 ## <a name="activity-logs"></a>Activiteitenlogboeken
-Resource Manager registreert alle bewerkingen waarmee een resource wordt gemaakt, gewijzigd of verwijderd. U kunt de activiteitenlogboeken gebruiken om fouten te vinden bij foutoplossing of om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd. Selecteer **Activiteitenlogboeken** op de blade **Instellingen** voor een resourcegroep om de logboeken in te zien. U kunt de logboeken filteren op veel verschillende waarden, inclusief welke gebruiker de bewerking heeft gestart. Zie voor meer informatie over het werken met de activiteitenlogboeken [View activity logs to manage Azure resources](resource-group-audit.md) (Activiteitenlogboeken weergeven met Resource Manager).
+Resource Manager registreert alle bewerkingen waarmee een resource wordt gemaakt, gewijzigd of verwijderd. U kunt de activiteitenlogboeken gebruiken om fouten te vinden bij foutoplossing of om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd. U kunt de logboeken filteren op veel verschillende waarden, inclusief welke gebruiker de bewerking heeft gestart. Zie voor meer informatie over het werken met de activiteitenlogboeken [View activity logs to manage Azure resources](resource-group-audit.md) (Activiteitenlogboeken weergeven met Resource Manager).
 
 ## <a name="customized-policies"></a>Aangepast beleid
 Met Resource Manager kunt u aangepaste beleidsregels maken voor het beheer van resources. De soorten beleid die u maakt, kunnen diverse scenario's bevatten. U kunt een naamgevingsconventie voor resources afdwingen, u kunt beperken welke typen resources en resource-exemplaren kunnen worden geïmplementeerd of u kunt beperken welke regio's als host voor een bepaald type resource kunnen fungeren. U kunt een tagwaarde voor resources verplicht stellen, om te organiseren dat facturering per afdeling plaatsvindt. U maakt beleid om kostenverlaging te stimuleren en consistentie binnen uw abonnement te waarborgen. 
@@ -255,7 +257,7 @@ Er zijn nog veel meer soorten beleid die u kunt maken. Zie [Wat is Azure Policy?
 ## <a name="sdks"></a>SDK's
 Azure SDK's zijn beschikbaar voor meerdere talen en platforms. Elk van deze taalimplementaties is beschikbaar via zijn ecosystem package manager en GitHub.
 
-Hier vindt u onze Open Source SDK-opslagplaatsen. We ontvangen graag uw feedback, vragen bij problemen en pull-aanvragen.
+Hier vindt u de Open Source SDK-opslagplaatsen.
 
 * [Azure-SDK voor .NET](https://github.com/Azure/azure-sdk-for-net)
 * [Azure-beheerbibliotheken voor Java](https://github.com/Azure/azure-sdk-for-java)

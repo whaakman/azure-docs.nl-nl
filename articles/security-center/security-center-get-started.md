@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 0004db332ec13e23ed49f2c19e3454a516ca6a40
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29531669"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059851"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snelstartgids: uw Azure-abonnement onboarden voor Security Center Standard
 Azure Security Center biedt geïntegreerd beveiligingsbeheer en bedreigingsbeveiliging voor uw verschillende hybride cloudworkloads. De Gratis laag biedt beperkte beveiliging voor alleen uw Azure-resources, maar de prijscategorie Standard biedt deze mogelijkheden ook voor on-premises en andere clouds. Standard van Security Center helpt u beveiligingsproblemen te vinden en op te lossen, toegangs- en toepassingsbesturingselementen toe te passen om schadelijke activiteiten te blokkeren, bedreigingen te detecteren met behulp van analyses en gegevens en snel te reageren bij aanvallen. U kunt Security Center Standard de eerste 60 dagen kosteloos proberen.
@@ -37,7 +37,7 @@ Als u een abonnement wilt upgraden naar de prijscategorie Standard, moet de rol 
 1. Meld u aan bij de [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - Overzicht** wordt geopend.
 
- ![Security Center-overzicht][2]
+ ![Overzicht van Security Center][2]
 
 **Security Center - overzicht** biedt een duidelijk overzicht van de beveiligingsstatus van uw hybride cloudworkloads, zodat u de beveiliging van uw workloads kunt bepalen en beoordelen en risico's kunt herkennen en verminderen. Security Center activeert automatisch de Azure-abonnementen naar de Gratis laag waarvoor u of een andere abonnementsgebruiker niet eerder onboarding hebt uitgevoerd.
 
@@ -46,7 +46,7 @@ U kunt de lijst met abonnementen bekijken en filteren door op het menu-item **Ab
 Binnen enkele minuten nadat u Security Center voor het eerst hebt gestart, ziet u mogelijk het volgende:
 
 - **Aanbevelingen** voor manieren om de beveiliging van uw Azure-abonnementen te verbeteren. Als u op de tegel **Aanbevelingen** klikt, wordt er een gerangschikte lijst geopend.
-- Een overzicht van **Compute**-, **Netwerken**-, **Opslag & gegevens**-, en **Toepassingen**-resources die nu worden beoordeeld door Security Center samen met de beveiligingsstatus van elke resource.
+- Een overzicht van de resources **Compute en apps**, **Netwerken**, **Gegevensbeveiliging** en **Identiteit en toegang** die nu worden beoordeeld in Security Center, samen met de beveiligingsstatus van elke resource.
 
 Voltooi de stappen hieronder om naar de prijscategorie Standard te upgraden en de MMA te installeren om zo volledig van Security Center te profiteren.
 

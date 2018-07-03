@@ -1,6 +1,6 @@
 ---
 title: Azure Marketplace en AppSource voorkeur oplossingen
-description: Overzicht van de aanbevolen oplossingen in de Marketplace en hoe ze worden geselecteerd
+description: Overzicht van gewenste oplossingen in de Marketplace en hoe ze worden geselecteerd
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: ellacroi
@@ -14,15 +14,15 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: ellacroi
-ms.openlocfilehash: 727c1e5095f875151c6d6e94ec013fa4dba6c1ba
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: cee313f2f648de987fde8c769435264048a12eff
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116021"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344026"
 ---
-#<a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Aanbevolen oplossingen in Azure Marketplace en AppSource
+# <a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Gewenste oplossingen in Azure Marketplace en AppSource
 
-Een voorkeurs-oplossing van Microsoft is een cloudtoepassing voor de kwaliteit, prestaties en behoeften van de klant in een bepaalde bedrijfstak verticaal of oplossing adres kunnen worden geselecteerd. Een team van Microsoft industrie- en experts kiest oplossingen van Microsoft Partner Network [goud lidmaatschap](https://partner.microsoft.com/en-us/membership/core-benefits) partners. Deze oplossingen in aanmerking komen voor in de cloud marketplace winkelobjecten dankzij. Klanten vindt u veel van de voorkeurs-oplossingen aanbevolen op AppSource bedrijfstak's, terwijl de werkbelasting voorkeur oplossingen kunnen worden opgenomen in Azure Marketplace. 
+Een Microsoft-oplossing de voorkeur is een cloudtoepassing voor de kwaliteit, prestaties en kunnen de klantbehoeften adres in een bepaalde industrie verticale of oplossing geselecteerd. Een team van Microsoft-experts voor de bedrijfstak en verkoop kiest oplossingen van Microsoft Partner Network [Gold lidmaatschap](https://partner.microsoft.com/en-us/membership/core-benefits) partners. Deze oplossingen komen in aanmerking voor evenementen met toonaangevende leden in onze cloud-marketplace-storefronts. Klanten zullen vinden dat veel van de branche aanbevolen oplossingen aanbevolen op AppSource branche's, terwijl de werkbelasting bij voorkeur oplossingen op Azure Marketplace kunnen worden aanbevolen. 
 
-Microsoft kan samenwerken met deze providers op gezamenlijke marketing- en betrokkenheid. Microsoft neemt contact met de oplossingsproviders als een of meer van hun oplossingen voor de voorkeur badging is geselecteerd. 
+Microsoft kan samenwerken met deze providers voor gezamenlijke marketing en verkoop engagements. Microsoft neemt contact met leveranciers van oplossingen als een of meer van hun oplossingen voor Preferred badging is geselecteerd. 

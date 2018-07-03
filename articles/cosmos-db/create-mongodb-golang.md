@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB: een MongoDB-API-console-app ontwikkelen met Golang en Azure Portal | Microsoft Docs'
 description: Is een Golang-codevoorbeeld dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit Azure Cosmos DB
 services: cosmos-db
-author: Durgaprasad-Budhwani
+author: SnehaGunda
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c02d85546a50b197639929158dc97b3d9bf7ff90
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d1a45389e95dbd7f5f762b6dee0edc3897d0c3b8
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795768"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029843"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: een MongoDB-API-console-app ontwikkelen met Golang en Azure Portal
 
@@ -210,7 +210,7 @@ if err != nil {
 ## <a name="run-the-app"></a>De app uitvoeren
 
 1. In Golang controleert u of uw GOPATH (beschikbaar via **Bestand**, **Instellingen**, **Go**, **GOPATH**) de locatie bevat waarin de gopkg is geïnstalleerd. Standaard is dit USERPROFILE\go. 
-2. Markeer de regels waarmee het document wordt verwijderd (regel 91-96) als commentaar, zodat u het document na het uitvoeren van de app kunt bekijken.
+2. Markeer de regels waarmee het document wordt verwijderd (regel 103-107) als commentaar, zodat u het document na het uitvoeren van de app kunt bekijken.
 3. In Goglang klikt u op **Uitvoeren** en daarna op **'Build main.go and run' uitvoeren**.
 
     De app wordt voltooid en de beschrijving wordt weergegeven van het document dat u hebt gemaakt in [Een document maken](#create-document).

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1e7245afe36d348b1cbd955900e34876b8e34511
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651723"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031427"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snelstart: Een Stream Analytics-taak maken via Azure Portal
 
@@ -40,7 +40,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
      "hmdt": 44
    }
    ```
-2. Meld u aan bij Azure Portal.  
+2. Meld u aan bij [Azure Portal](https://portal.azure.com/).  
 
 3. Selecteer in de linkerbovenhoek in Azure Portal **Een resource maken** > **Storage** > **Storage-account**. Vul de pagina voor de Storage-accounttaak in, waarbij **Naam** is ingesteld op 'asaquickstartstorage', **Locatie** op 'VS - west2', **Resourcegroep** op 'asaquickstart-resourcegroup' (host het opslagaccount in dezelfde resourcegroep als de streaming-taak voor betere prestaties). De overige instellingen kunnen op de standaardwaarden blijven staan.  
 
@@ -116,7 +116,7 @@ In deze sectie gaat u blobopslag configureren als invoer voor de Stream Analytic
    |---------|---------|---------|
    |Uitvoeralias |   BlobOutput   |   Voer een unieke naam in voor de uitvoer van de taak. |
    |Abonnement  |  \<Uw abonnement\>  |  Selecteer het Azure-abonnement met het opslagaccount dat u hebt gemaakt. Het opslagaccount kan voor hetzelfde of een ander abonnement gelden. Voor dit voorbeeld wordt aangenomen dat u een opslagaccount voor hetzelfde abonnement hebt gemaakt. |
-   |Storage-account |  myasastorageaccount |   Kies of typ de naam van het opslagaccount. Namen van opslagaccounts worden automatisch gedetecteerd als ze worden gemaakt in hetzelfde abonnement.       |
+   |Storage-account |  asaquickstartstorage |   Kies of typ de naam van het opslagaccount. Namen van opslagaccounts worden automatisch gedetecteerd als ze worden gemaakt in hetzelfde abonnement.       |
    |Container |   container1  |  Selecteer de bestaande container die u in uw opslagaccount hebt gemaakt.   |
    |Padpatroon |   output  |  Voer een naam in die voor de uitvoer dient als het pad in uw bestaande container.   |
 

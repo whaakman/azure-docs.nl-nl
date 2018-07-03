@@ -1,6 +1,6 @@
 ---
-title: -Exemplaren in duurzame functies - Azure beheren
-description: Informatie over het beheren van exemplaren in de uitbreiding duurzame functies voor Azure Functions.
+title: Duurzame functies - Azure-instanties beheren
+description: Informatie over het beheren van instanties met de extensie duurzame functies voor Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287745"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341089"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>-Exemplaren in duurzame functies (Azure Functions) beheren
 
-[Duurzame functies](durable-functions-overview.md) orchestration exemplaren kunnen worden gestart, is beëindigd, opgevraagd en meldingsgebeurtenissen verzonden. Alle exemplaar management wordt uitgevoerd met behulp van de [orchestration client binding](durable-functions-bindings.md). In dit artikel gaat naar de details van elke bewerking voor het beheer van exemplaar.
+[Duurzame functies](durable-functions-overview.md) orchestration-exemplaren kunnen worden gestart, beëindigd, opgevraagd en meldingsgebeurtenissen verzonden. Alle instantiebeheer wordt gedaan met behulp van de [orchestration-client-binding](durable-functions-bindings.md). In dit artikel gaat in op de details van elke bewerking voor het beheer van exemplaar.
 
-## <a name="starting-instances"></a>Exemplaren wordt gestart
+## <a name="starting-instances"></a>De exemplaren starten
 
-De [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) methode op de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) start een nieuw exemplaar van een orchestrator-functie. Instanties van deze klasse kunnen worden opgehaald met behulp van de `orchestrationClient` binding. Intern maakt de enqueues van deze methode een bericht in de wachtrij besturingselement, die vervolgens activeert het begin van een functie met de opgegeven naam die gebruikmaakt van de `orchestrationTrigger` binding activeren. 
+De [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) methode voor het [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) start een nieuw exemplaar van een orchestrator-functie. Instanties van deze klasse kunnen worden verkregen met behulp van de `orchestrationClient` binding. Intern maakt de enqueues van deze methode een bericht in de wachtrij besturingselement, dat vervolgens wordt het begin van een functie met de opgegeven naam die gebruikmaakt van de `orchestrationTrigger` binding activeren. 
 
-De taak is voltooid als de orchestration-proces wordt gestart. De orchestration-proces moet worden gestart binnen 30 seconden. Als het duurt langer, een `TimeoutException` gegenereerd. 
+De taak is voltooid wanneer de orchestration-proces wordt gestart. De orchestration-proces moet worden gestart binnen 30 seconden. Als het langer duurt een `TimeoutException` wordt gegenereerd. 
 
 De parameters voor [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) zijn als volgt:
 
 * **Naam**: de naam van de orchestrator-functie te plannen.
-* **Invoer**: JSON-serialiseerbaar gegevens die moeten worden doorgegeven als invoer voor de orchestrator-functie.
-* **InstanceId**: (optioneel) de unieke ID van het exemplaar. Als niet wordt opgegeven, wordt er een willekeurig exemplaar-ID gegenereerd.
+* **Invoer**: JSON-geserialiseerd gegevens die moet worden doorgegeven als invoer voor de orchestrator-functie.
+* **InstanceId**: (optioneel) de unieke ID van het exemplaar. Indien niet opgegeven, wordt een willekeurig exemplaar-ID worden gegenereerd.
 
-Dit is een eenvoudig C#-voorbeeld:
+Hier is een eenvoudig C#-voorbeeld:
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-Voor niet-.NET-talen, de functie binding uitvoer kan worden gebruikt voor nieuwe exemplaren ook starten. In dit geval kan een JSON-geserialiseerd object met de bovenstaande drie parameters als velden worden gebruikt. Neem bijvoorbeeld de volgende JavaScript-functie:
+Voor niet-.NET-talen, de functie-Uitvoerbinding kan worden gebruikt om nieuwe exemplaren ook worden gestart. In dit geval kan een JSON-geserialiseerd object met de bovenstaande drie parameters als velden worden gebruikt. Bijvoorbeeld, houd rekening met de volgende JavaScript-functie:
 
 ```js
 module.exports = function (context, input) {
@@ -67,26 +67,27 @@ module.exports = function (context, input) {
 ```
 
 > [!NOTE]
-> Het is raadzaam dat u een willekeurige id voor de exemplaar-ID gebruiken. Dit helpt zorgen voor een distributiepunt gelijk load wanneer orchestrator-functies schalen op meerdere virtuele machines. De juiste tijd voor het gebruik van niet-willekeurig exemplaar-id is als de ID afkomstig van een externe bron zijn moet of bij het implementeren van de [singleton orchestrator](durable-functions-singletons.md) patroon.
+> Het is raadzaam dat u een willekeurige id voor de exemplaar-ID gebruiken. Dit helpt zorgen voor een gelijke verdeling wanneer orchestrator-functies schalen op meerdere virtuele machines. De juiste tijd voor het gebruik van niet-willekeurig exemplaar-id's is als de ID afkomstig van een externe bron zijn moet, of bij het implementeren van de [singleton orchestrator](durable-functions-singletons.md) patroon.
 
-## <a name="querying-instances"></a>Opvragen van exemplaren
+## <a name="querying-instances"></a>Een query uitvoeren op exemplaren
 
-De [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) methode op de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse de status van een exemplaar van de orchestration opgevraagd. Het duurt een `instanceId` (vereist), `showHistory` (optioneel) en `showHistoryOutput` (optioneel) als parameters. Als `showHistory` is ingesteld op `true`, het antwoord bevat de geschiedenis van de uitvoering. Als `showHistoryOutput` is ingesteld op `true` , evenals de uitvoergeschiedenis van de uitvoer voor activiteiten bevat. De methode retourneert een object met de volgende eigenschappen:
+De [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) methode voor het [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse query naar de status van een orchestration-exemplaar. Het duurt voordat een `instanceId` (vereist), `showHistory` (optioneel), en `showHistoryOutput` (optioneel) als parameters. Als `showHistory` is ingesteld op `true`, het antwoord bevat de uitvoeringsgeschiedenis. Als `showHistoryOutput` is ingesteld op `true` ook de uitvoeringsgeschiedenis uitvoer voor activiteiten bevat. De methode retourneert een object met de volgende eigenschappen:
 
 * **Naam**: de naam van de orchestrator-functie.
-* **InstanceId**: de exemplaar-ID van de orchestration (moet hetzelfde zijn als de `instanceId` invoer).
-* **CreatedTime**: de tijd waarop de orchestrator-functie is gestart.
+* **InstanceId**: de exemplaar-ID van de indeling (moet gelijk zijn aan de `instanceId` invoer).
+* **Aanmaaktijd**: de tijd waarop de orchestrator-functie is gestart.
 * **LastUpdatedTime**: het tijdstip waarop de orchestration laatste controlepunt.
 * **Invoer**: de invoer van de functie als een JSON-waarde.
-* **CustomStatus**: status van de aangepaste orchestration in JSON-indeling. 
-* **Uitvoer**: de uitvoer van de functie als een JSON-waarde (als de functie is voltooid). Als de orchestrator-functie is mislukt, wordt deze eigenschap de foutgegevens bevatten. Als de orchestrator-functie is beëindigd, bevat deze eigenschap de opgegeven reden voor de beëindiging (indien aanwezig).
+* **CustomStatus**: status van de aangepaste indeling in JSON-indeling. 
+* **Uitvoer**: de uitvoer van de functie als een JSON-waarde (als de functie is voltooid). Als de orchestrator-functie is mislukt, bevat deze eigenschap de foutdetails. Als de orchestrator-functie is beëindigd, bevat deze eigenschap de opgegeven reden voor de beëindiging (indien aanwezig).
 * **RuntimeStatus**: een van de volgende waarden:
-    * **Met**: het exemplaar eenmaal is gestart.
-    * **Voltooid**: het exemplaar normaal is voltooid.
-    * **ContinuedAsNew**: het exemplaar zelf een nieuwe geschiedenis is opgestart. Dit is een tijdelijke status.
-    * **Kan geen**: het exemplaar is mislukt met een fout opgetreden.
+    * **In behandeling**: is gepland, maar is nog niet begonnen met het exemplaar.
+    * **Met**: het exemplaar is gestart.
+    * **Voltooid**: het exemplaar normaal gesproken is voltooid.
+    * **ContinuedAsNew**: de instantie zelf is gestart met een nieuwe geschiedenis. Dit is een tijdelijke situatie.
+    * **Kan geen**: de instantie is mislukt met een fout.
     * **Beëindigd**: het exemplaar is onverwacht beëindigd.
-* **Geschiedenis**: de geschiedenis van de uitvoering van de orchestration. Dit veld wordt alleen ingevuld als `showHistory` is ingesteld op `true`.
+* **Geschiedenis**: de uitvoeringsgeschiedenis van de indeling. Dit veld wordt alleen ingevuld als `showHistory` is ingesteld op `true`.
     
 Deze methode retourneert `null` als het exemplaar bestaat niet of is nog niet begonnen uitgevoerd.
 
@@ -100,9 +101,9 @@ public static async Task Run(
     // do something based on the current status.
 }
 ```
-## <a name="querying-all-instances"></a>Opvragen van alle exemplaren
+## <a name="querying-all-instances"></a>Uitvoeren van query's alle exemplaren
 
-U kunt de `GetStatusAsync` methode query uitvoeren op de status van alle exemplaren van de orchestration. Parameters hoeft u alleen, of u kunt doorgeven een `CancellationToken` object als u wilt annuleren. De methode retourneert objecten met dezelfde eigenschappen als de `GetStatusAsync` methode met parameters, behalve dat het geschiedenis niet retourneren. 
+U kunt de `GetStatusAsync` methode om op te vragen van de status van alle exemplaren van de indeling. Deze parameters niet uitvoeren, of u kunt doorgeven een `CancellationToken` object in het geval u wilt annuleren. De methode retourneert objecten met dezelfde eigenschappen als de `GetStatusAsync` methode met de parameters, behalve dat het geen geschiedenis retourneert. 
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -119,9 +120,9 @@ public static async Task Run(
 }
 ```
 
-## <a name="terminating-instances"></a>Afsluitende exemplaren
+## <a name="terminating-instances"></a>Exemplaren beëindigen
 
-Een actief exemplaar van de orchestration kan worden beëindigd met de [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse. De twee parameters zijn een `instanceId` en een `reason` tekenreeks, die in de logboeken en status van het exemplaar wordt geschreven. Een beëindigde exemplaar niet meer zodra het de volgende bereikt `await` punt, of het wordt onmiddellijk beëindigd als deze al ingeschakeld is een `await`. 
+Een actief exemplaar van de indeling kan worden afgesloten met behulp van de [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) -methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse. De twee parameters zijn een `instanceId` en een `reason` tekenreeks, die worden geschreven naar Logboeken en de status van het exemplaar. Een beëindigde exemplaar werkt niet meer als het de volgende bereikt `await` punt, of deze wordt onmiddellijk beëindigd als deze al op een `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -135,17 +136,17 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Exemplaar beëindiging wordt momenteel niet doorgegeven. Activiteit-functies en onderdelen integraties wordt uitgevoerd voor voltooiing ongeacht of de orchestration-exemplaar dat ze aangeroepen is beëindigd.
+> Beëindiging van de instantie wordt momenteel niet doorgegeven. Activiteitsfuncties en subquery indelingen wordt uitgevoerd tot voltooiing, ongeacht of de orchestration-exemplaar dat ze met de naam is beëindigd.
 
-## <a name="sending-events-to-instances"></a>Het verzenden van gebeurtenissen naar exemplaren
+## <a name="sending-events-to-instances"></a>Verzenden van gebeurtenissen naar exemplaren
 
-Gebeurtenismeldingen kunnen worden verzonden voor het uitvoeren van exemplaren die gebruikmaken van de [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse. -Exemplaren die deze gebeurtenissen kunnen verwerken zijn die wachten op een aanroep van [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
+Meldingen van gebeurtenissen kunnen worden verzonden naar het uitvoeren van exemplaren met behulp van de [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) -methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse. Instanties die deze gebeurtenissen kunnen worden verwerkt zijn die in afwachting van een aanroep van [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
 
 De parameters voor [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) zijn als volgt:
 
 * **InstanceId**: de unieke ID van het exemplaar.
 * **EventName**: de naam van de gebeurtenis te verzenden.
-* **EventData**: een JSON-serialiseerbaar nettolading wilt verzenden naar het exemplaar.
+* **EventData**: een JSON-geserialiseerd nettolading verzenden naar het exemplaar.
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -161,13 +162,13 @@ public static Task Run(
 ```
 
 > [!WARNING]
-> Als er geen orchestration-exemplaar met de opgegeven is *instantie-ID* of als het exemplaar niet op de opgegeven wachten is *gebeurtenisnaam*, het gebeurtenisbericht is verwijderd. Zie voor meer informatie over dit gedrag, de [GitHub probleem](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> Als er geen orchestration-exemplaar met de opgegeven *exemplaar-ID* of als het exemplaar niet op de opgegeven wachten is *gebeurtenisnaam*, het gebeurtenisbericht wordt verwijderd. Zie voor meer informatie over dit gedrag, de [GitHub-probleem](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
 ## <a name="wait-for-orchestration-completion"></a>Wachten op voltooiing van de orchestration
 
-De [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse zichtbaar gemaakt een [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API die kan worden gebruikt om op te halen synchroon de werkelijke uitvoer van een orchestration-exemplaar. De methode wordt de standaardwaarde van 10 seconden voor `timeout` en 1 seconde voor `retryInterval` wanneer ze niet zijn ingesteld.  
+De [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse toont een [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API die kan worden gebruikt om op te halen synchroon de werkelijke uitvoer van een orchestration-exemplaar. De methode maakt gebruik van de standaardwaarde van tien seconden totdat de `timeout` en 1 seconde voor `retryInterval` wanneer ze niet worden ingesteld.  
 
-Hier volgt een voorbeeld van HTTP-trigger-functie die laat zien hoe u deze API:
+Hier volgt een voorbeeld van de HTTP-trigger-functie die wordt gedemonstreerd hoe u deze API:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
@@ -177,9 +178,9 @@ De functie kan worden aangeroepen met de volgende regel met behulp van 2 seconde
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
 ```
 
-Er zijn twee gevallen afhankelijk van de tijd om op te halen van het antwoord van de orchestration-exemplaar:
+Er zijn twee mogelijke situaties, afhankelijk van de tijd die nodig is om op te halen van het antwoord van de orchestration-exemplaar:
 
-1. De orchestration-exemplaren binnen de gedefinieerde time-out (in dit geval 2 seconden) is voltooid, het antwoord is de uitvoer van de werkelijke orchestration exemplaar synchroon geleverd:
+1. De orchestration-exemplaren is voltooid binnen de gedefinieerde time-out (in dit geval 2 seconden), het antwoord is de daadwerkelijke orchestration exemplaar uitvoer synchroon geleverd:
 
     ```http
         HTTP/1.1 200 OK
@@ -195,7 +196,7 @@ Er zijn twee gevallen afhankelijk van de tijd om op te halen van het antwoord va
         ]
     ```
 
-2. De orchestration-exemplaren kunnen niet worden voltooid binnen de gedefinieerde time-out (in dit geval 2 seconden), het antwoord is de standaardinstelling een beschreven in **HTTP-URL van de API-detectie**:
+2. De orchestration-exemplaren kunnen niet worden voltooid binnen de gedefinieerde time-out (in dit geval 2 seconden), het antwoord is de standaard één dat wordt beschreven in **HTTP API-URL detectie**:
 
     ```http
         HTTP/1.1 202 Accepted
@@ -215,24 +216,24 @@ Er zijn twee gevallen afhankelijk van de tijd om op te halen van het antwoord va
     ```
 
 > [!NOTE]
-> De indeling van de webhook-URL's kan verschillen, afhankelijk van welke versie van de Azure Functions-host die u uitvoert. Het vorige voorbeeld is voor de Azure Functions 2.0-host.
+> De indeling van de webhook-URL's kan verschillen afhankelijk van welke versie van de Azure Functions-host die u uitvoert. Het vorige voorbeeld is voor de Azure Functions 2.0-host.
 
 ## <a name="retrieving-http-management-webhook-urls"></a>Bij het ophalen van HTTP-beheer Webhook-URL 's
 
-Externe systemen kunnen communiceren met duurzame functies via de webhook-URL's die deel van het standaardantwoord dat wordt beschreven uitmaken in [HTTP-URL van de API-detectie](durable-functions-http-api.md). Echter, de webhook-URL's ook toegankelijk zijn via een programma in de orchestration-client of in een functie van de activiteit via de [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)klasse. 
+Externe systemen kunnen communiceren met duurzame functies via de webhook-URL's die deel van het standaardantwoord dat wordt beschreven uitmaken in [HTTP API-URL detectie](durable-functions-http-api.md). Echter, de webhook-URL's ook toegankelijk via een programma in de orchestration-client of in een functie van de activiteit via de [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) -methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)klasse. 
 
 [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) heeft één parameter:
 
-* **InstanceId**: de unieke ID van het exemplaar.
+* **instanceId**: de unieke ID van het exemplaar.
 
 De methode retourneert een exemplaar van de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) met de volgende tekenreekseigenschappen:
 
-* **Id**: de exemplaar-ID van de orchestration (moet hetzelfde zijn als de `InstanceId` invoer).
-* **StatusQueryGetUri**: de URL van de status van de orchestration-exemplaar.
-* **SendEventPostUri**: de URL 'gebeurtenis activeren' van de orchestration-exemplaar.
-* **TerminatePostUri**: de URL 'is beëindigd' van de orchestration-exemplaar.
+* **Id**: de exemplaar-ID van de indeling (moet gelijk zijn aan de `InstanceId` invoer).
+* **StatusQueryGetUri**: de URL van de status van de orchestration-instantie.
+* **SendEventPostUri**: de ' raise '-URL van de orchestration-instantie.
+* **TerminatePostUri**: de URL 'beëindigd' van de orchestration-exemplaar.
 
-Functies van de activiteit kunnen een exemplaar van verzenden [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) en externe systemen om te controleren of gebeurtenissen naar een orchestration verhogen:
+Activiteitsfuncties kunnen een exemplaar van verzenden [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) met externe systemen om te controleren of het genereren van gebeurtenissen naar een indeling:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"

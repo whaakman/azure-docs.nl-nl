@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: f839b05a1d97ce78601697469c982839358d6b06
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248238"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300853"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Zelfstudie: Windows-containers in Service Fabric bewaken met behulp van Log Analytics
 
@@ -31,7 +31,7 @@ In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Log Analytics configureren voor uw Service Fabric-cluster
 > * Een Log Analytics-werkruimte gebruiken om logboeken te bekijken en te doorzoeken vanuit uw containers en knooppunten
-> * De OMS-agent configureren om metrische gegevens uit containers en knooppunten te halen
+> * De Log Analytics-agent configureren om metrische gegevens uit containers en knooppunten te halen
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u aan deze zelfstudie begint, dient u eerst:
@@ -81,7 +81,7 @@ Breng de volgende wijzigingen in *template.json* aan:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Voeg de OMS MMA toe als een extensie van de virtuele machine. Zoek de resource voor virtuele-machineschaalsets: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. Voeg onder *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* de volgende beschrijving van de extensie toe onder de extensie *ServiceFabricNode*: 
+3. Voeg de MMA toe als een extensie van de virtuele machine. Zoek de resource voor virtuele-machineschaalsets: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. Voeg onder *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* de volgende beschrijving van de extensie toe onder de extensie *ServiceFabricNode*: 
     
     ```json
     {
@@ -181,7 +181,7 @@ Breng de volgende wijzigingen in *template.json* aan:
     },
     ```
 
-[Hier](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) vindt u een voorbeeldsjabloon (gebruikt in deel één van deze zelfstudie) die al deze wijzigingen bevat en die u zo nodig kunt raadplegen. Dankzij deze wijzigingen wordt er een Log Analytics-werkruimte aan de resourcegroep toegevoegd. De werkruimte wordt geconfigureerd zodat Service Fabric-platformgebeurtenissen kunnen worden opgehaald uit de opslagtabellen die met de [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)-agent zijn geconfigureerd. De OMS-agent (Microsoft Monitoring Agent) is ook aan elk knooppunt in het cluster toegevoegd als een extensie van de virtuele machine. Dit betekent dat als het cluster wordt geschaald, de agent automatisch op elke machine wordt geconfigureerd en aan dezelfde werkruimte gekoppeld.
+[Hier](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) vindt u een voorbeeldsjabloon (gebruikt in deel één van deze zelfstudie) die al deze wijzigingen bevat en die u zo nodig kunt raadplegen. Dankzij deze wijzigingen wordt er een Log Analytics-werkruimte aan de resourcegroep toegevoegd. De werkruimte wordt geconfigureerd zodat Service Fabric-platformgebeurtenissen kunnen worden opgehaald uit de opslagtabellen die met de [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)-agent zijn geconfigureerd. De Log Analytics-agent (MMA) is ook aan elk knooppunt in het cluster toegevoegd als een extensie van de virtuele machine. Dit betekent dat als het cluster wordt geschaald, de agent automatisch op elke machine wordt geconfigureerd en aan dezelfde werkruimte gekoppeld.
 
 Implementeer de sjabloon met de nieuwe wijzigingen om het huidige cluster bij te werken. U ziet de Log Analytics-resources in uw resourcegroep wanneer deze is voltooid. Als het cluster klaar is, implementeert u er de containertoepassing in. In de volgende stap, wordt het bewaken van de containers ingesteld.
 
@@ -191,7 +191,7 @@ Als u de Container-oplossing in uw werkruimte wilt instellen, zoekt u naar *Cont
 
 ![Containers-oplossing toevoegen](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-Als u er door de *Log Analytics-werkruimte* om wordt gevraagd, selecteert u de werkruimte die in uw resourcegroep is gemaakt en klikt u op **Maken**. Hierdoor wordt een *Container Monitoring Solution* aan de werkruimte toegevoegd en wordt automatisch het verzamelen van docker-logboeken en -statistieken gestart. 
+Als u er door de *Log Analytics-werkruimte* om wordt gevraagd, selecteert u de werkruimte die in uw resourcegroep is gemaakt en klikt u op **Maken**. Hierdoor wordt een *Container Monitoring Solution* aan de werkruimte toegevoegd en wordt automatisch het verzamelen van docker-logboeken en -statistieken met de Log Analytics-agent gestart. 
 
 Ga terug naar uw *resourcegroep*, waar u nu de pas toegevoegde bewakingsoplossing moet kunnen zien. Als u erin klikt, moet op de startpagina het aantal containerinstallatiekopieën dat wordt uitgevoerd, worden weergegeven. 
 
@@ -211,11 +211,11 @@ Als u op een van deze panelen klikt, komt u terecht bij de Log Analytics-query d
 
 ![Containerquery](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>OMS-agent configureren voor het ophalen van prestatiemeteritems
+## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>Log Analytics-agent configureren voor het ophalen van prestatiemeteritems
 
-Een ander voordeel van het gebruik van de OMS-agent is de mogelijkheid om de prestatiemeteritems te wijzigen die u wilt ophalen via de OMS-gebruikersinterface. U hoeft dan de Azure diagnoseagent niet te configureren en geen op een Resource Manager-sjabloon gebaseerde upgrade uit te voeren. Als u dit wilt doen, klikt u op **OMS-werkruimte** op de startpagina van uw Container Monitoring- of Service Fabric-oplossing.
+Een ander voordeel van het gebruik van de Log Analytics-agent is de mogelijkheid om de prestatiemeteritems te wijzigen die u wilt ophalen via de Log Analytics-gebruikersinterface. U hoeft dan de Azure diagnoseagent niet te configureren en geen op een Resource Manager-sjabloon gebaseerde upgrade uit te voeren. Als u dit wilt doen, klikt u op **OMS-werkruimte** op de startpagina van uw Container Monitoring- of Service Fabric-oplossing.
 
-Hierna komt u terecht in de OMS-werkruimte, waar u uw oplossingen kunt zien, aangepaste dashboards kunt maken en de OMS-agent kunt configureren. 
+Hierna komt u terecht in de Log Analytics-werkruimte, waar u uw oplossingen kunt zien, aangepaste dashboards kunt maken en de Log Analytics-agent kunt configureren. 
 * Klik op **Geavanceerde instellingen** om het menu Geavanceerde instellingen te openen.
 * Klik op **Verbonden bronnen** > **Windows Servers** om te controleren of er *5 Windows-computers verbonden* zijn.
 * Klik op **Gegevens** > **Windows-prestatiemeteritems** om nieuwe prestatiemeteritems te zoeken en toe te voegen. Hier ziet u een lijst met aanbevelingen van Log Analytics voor prestatiemeteritems die u kunt verzamelen, evenals de optie om andere tellers te zoeken. Controleer of de tellers **Processor(_Total)\% Processor Time** en **Memory(*)\Available MBytes** worden verzameld.

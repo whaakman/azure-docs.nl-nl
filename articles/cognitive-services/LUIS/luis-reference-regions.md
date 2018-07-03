@@ -1,7 +1,7 @@
 ---
-title: Language Understanding (LUIS) gebieden | Microsoft Docs
+title: Language Understanding (LUIS)-regio's | Microsoft Docs
 titleSuffix: Azure
-description: Dit artikel bevat een lijst met de LUIS regio's voor de website LUIS, Azure-abonnementen en world regio's.
+description: Dit artikel bevat een lijst met de LUIS-regio's voor de website LUIS, Azure-abonnementen en regio's ter wereld.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -10,34 +10,34 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 86a20770178707f72cf2991ca08b6b98eaeaf0cf
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d81fbc03689788066fb9275523a5e96647117c58
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237003"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346441"
 ---
 # <a name="regions-and-keys"></a>Regio's en sleutels
 
-De regio waarin u uw app LUIS publiceren overeenkomt met de regio of de locatie die u in de Azure portal opgeeft bij het maken van een Azure-LUIS endpoint-sleutel. Wanneer u [een app publiceren](./PublishApp.md), LUIS genereert automatisch een eindpunt-URL voor de regio die aan de sleutel gekoppeld. Als u wilt een app LUIS publiceert naar meer dan één regio, moet u ten minste één sleutel per regio. 
+De regio waarin u uw LUIS-app publiceren overeenkomt met de regio of locatie die u in de Azure-portal opgeeft wanneer u een Azure LUIS-eindpuntsleutel maakt. Wanneer u [een app publiceren](./luis-how-to-publish-app.md), LUIS genereert automatisch een eindpunt-URL voor de regio die is gekoppeld aan de sleutel. Als u wilt een LUIS-app publiceren in meer dan één regio, moet u ten minste één sleutel per regio. 
 
-## <a name="luis-website"></a>LUIS website
-Er zijn drie LUIS websites, op basis van regio. U moet maken en publiceren in dezelfde regio. 
+## <a name="luis-website"></a>LUIS-website
+Er zijn drie LUIS-websites, op basis van regio. U moet maken en publiceren in dezelfde regio. 
 
 |LUIS|Regio|
 |--|--|
-|[www.Luis.AI][www.luis.ai]|V.S.<br>niet-Europa<br>geen Australië|
+|[www.Luis.AI][www.luis.ai]|V.S.<br>niet-Europa<br>niet-Australië|
 |[AU.Luis.AI][au.luis.ai]|Australië|
 |[EU.Luis.AI][eu.luis.ai]|Europa|
 
 
-## <a name="publishing-regions"></a>Publishing regio 's
+## <a name="publishing-regions"></a>Publicatie-regio 's
 
-LUIS apps die zijn gemaakt op https://www.luis.ai kan worden gepubliceerd naar alle eindpunten, behalve de [Europese](#publishing-to-europe) en [Australische](#publishing-to-australia) regio's. 
+LUIS-apps die zijn gemaakt op https://www.luis.ai kunnen worden gepubliceerd naar alle eindpunten, behalve de [Europese](#publishing-to-europe) en [Australische](#publishing-to-australia) regio's. 
 
-De authoring regio-app kan alleen worden gepubliceerd naar een bijbehorende regio publiceren. Als uw app zich momenteel in de verkeerde regio ontwerpen, de app exporteren en importeren in de juiste authoring regio voor uw publishing regio. 
+De ontwerphandleiding regio app kan alleen worden gepubliceerd naar een bijbehorende regio publiceren. Als uw app zich momenteel in de verkeerde regio voor schrijven bevindt, de app exporteren en importeren in de juiste authoring regio voor uw regio publiceren. 
 
- Globale regio | Regio ontwerpen | Publiceren & opvragen van regio   |   LUIS website | Eindpunt-URL-indeling   |
+ Globale regio | Regio ontwerpen | Publiceren en uitvoeren van query's regio   |   LUIS-website | Eindpunt-URL-indeling   |
 |-----|------|------|------|------|
 | Azië | VS - west| Oost-Azië     | [www.Luis.AI][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Azië | VS - west| Zuidoost-Azië     | [www.Luis.AI][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
@@ -54,16 +54,16 @@ De authoring regio-app kan alleen worden gepubliceerd naar een bijbehorende regi
 
 ## <a name="publishing-to-europe"></a>Publiceren naar Europa
 
-Als u wilt publiceren naar de Europese gebieden, hebt u LUIS apps op https://eu.luis.ai alleen. Als u probeert te publiceren ergens anders met een sleutel in de regio Europa, wordt LUIS een waarschuwingsbericht weergegeven. Gebruik in plaats daarvan https://eu.luis.ai. LUIS apps die zijn gemaakt op [ https://eu.luis.ai ] [ eu.luis.ai] niet automatisch kunnen worden gemigreerd naar andere regio's. Exporteer en importeer vervolgens de app LUIS om te migreren.
+Als u wilt publiceren naar de Europese regio's, u LUIS apps maken op https://eu.luis.ai alleen. Als u probeert te publiceren ergens anders met behulp van een sleutel in de regio Europa, weergegeven LUIS een waarschuwingsbericht. In plaats daarvan gebruik https://eu.luis.ai. LUIS-apps die zijn gemaakt op [ https://eu.luis.ai ] [ eu.luis.ai] niet automatisch gemigreerd naar andere regio's. Exporteren en vervolgens de LUIS-app importeren als u wilt deze migreren.
 
 ## <a name="publishing-to-australia"></a>Publiceren naar Australië
 
-Als u wilt publiceren naar de Australische regio's, hebt u LUIS apps op https://au.luis.ai alleen. Als u probeert te publiceren ergens anders met een sleutel in de Australische regio, wordt LUIS een waarschuwingsbericht weergegeven. Gebruik in plaats daarvan https://au.luis.ai. LUIS apps die zijn gemaakt op [ https://au.luis.ai ] [ au.luis.ai] niet automatisch kunnen worden gemigreerd naar andere regio's. Exporteer en importeer vervolgens de app LUIS om te migreren.
+Als u wilt publiceren naar de Australische regio's, u LUIS apps maken op https://au.luis.ai alleen. Als u probeert te publiceren ergens anders met behulp van een sleutel in de Australische regio, weergegeven LUIS een waarschuwingsbericht. In plaats daarvan gebruik https://au.luis.ai. LUIS-apps die zijn gemaakt op [ https://au.luis.ai ] [ au.luis.ai] niet automatisch gemigreerd naar andere regio's. Exporteren en vervolgens de LUIS-app importeren als u wilt deze migreren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Vooraf gedefinieerde entiteiten verwijzing](./luis-reference-prebuilt-entities.md)
+> [Naslaginformatie over de vooraf gemaakte entiteiten](./luis-reference-prebuilt-entities.md)
 
  [www.luis.ai]: https://www.luis.ai
  [au.luis.ai]: https://au.luis.ai

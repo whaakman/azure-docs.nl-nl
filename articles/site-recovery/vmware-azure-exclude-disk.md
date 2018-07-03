@@ -4,18 +4,18 @@ description: In dit artikel wordt beschreven waarom en hoe u een of meer VM-schi
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/01/2018
 ms.author: nisoneji
-ms.openlocfilehash: 59c8d38d94604a9950693d6bb73b6263f9cdb23b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6a0b8891e25a764ecd0430696e155b2bd8e06e13
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285087"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342603"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Schijven uitsluiten van replicatie voor VMware-naar-Azure-scenario
 
-In dit artikel wordt beschreven hoe schijven uitsluiten bij het virtuele VMware-machines repliceren naar Azure. Door schijven uit te sluiten, kunt u de verbruikte replicatiebandbreedte optimaliseren of de resources aan de doelzijde waarvan deze schijven gebruikmaken, optimaliseren. Als u informatie over het uitsluiten van schijven voor Hyper-V nodig hebt, leest u [in dit artikel](hyper-v-exclude-disk.md)
+In dit artikel wordt beschreven hoe u schijven uitsluiten bij het repliceren van virtuele VMware-machines naar Azure. Door schijven uit te sluiten, kunt u de verbruikte replicatiebandbreedte optimaliseren of de resources aan de doelzijde waarvan deze schijven gebruikmaken, optimaliseren. Als u informatie over het uitsluiten van schijven voor Hyper-V nodig hebt, leest u [in dit artikel](hyper-v-exclude-disk.md)
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -50,7 +50,7 @@ Volg de werkstroom [Replicatie inschakelen](vmware-azure-enable-replication.md) 
 
 >[!NOTE]
 >
-> * U kunt alleen schijven uitsluiten waarop de Mobility-service al is geïnstalleerd. U moet de Mobility-service handmatig installeren. De Mobility-service wordt namelijk alleen geïnstalleerd met behulp van het push-mechanisme, nadat replicatie is ingeschakeld.
+> * U kunt alleen schijven op virtuele machines die al zijn van de Mobility-service geïnstalleerd uitsluiten. U moet de Mobility-service handmatig installeren. De Mobility-service wordt namelijk alleen geïnstalleerd met behulp van het push-mechanisme, nadat replicatie is ingeschakeld.
 > * Alleen standaardschijven kunnen worden uitgesloten van replicatie. Besturingssystemen en dynamische schijven kunt u niet uitsluiten.
 > * Nadat u de replicatie hebt ingeschakeld, kunt u geen schijven meer toevoegen of verwijderen voor replicatie. Als u een schijf wilt toevoegen of uitsluiten, moet u de beveiliging voor de machine uitschakelen en vervolgens weer inschakelen.
 > * Als u een schijf uitsluit die nodig is voor de werking van een toepassing, moet u deze na een failover naar Azure handmatig maken in Azure, zodat de gerepliceerde toepassing kan worden uitgevoerd. U kunt ook Azure Automation integreren in een herstelplan om de schijf te maken tijdens failover van de machine.

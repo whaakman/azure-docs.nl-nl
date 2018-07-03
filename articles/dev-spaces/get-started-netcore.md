@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: bd42268c36f44dc20b88d27d19cbf378e848b82f
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 8b14f06f364bde1d4c5588e60a54aefe07c821d2
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823143"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945918"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Aan de slag in Azure Dev Spaces met behulp van .NET Core
 
@@ -32,7 +32,7 @@ U kunt nu een op Kubernetes gebaseerde ontwikkelomgeving maken in Azure.
 Azure Dev Spaces vereist minimale instellingen voor de lokale computer. De configuratie van uw ontwikkelomgeving wordt grotendeels opgeslagen in de cloud en kan worden gedeeld met andere gebruikers. Begin met het downloaden en uitvoeren van de [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
-> Als u de Azure CLI al hebt geïnstalleerd, controleert u of u versie 2.0.33 of hoger gebruikt.
+> Als u de Azure CLI al hebt geïnstalleerd, controleert u of u versie 2.0.38 of hoger gebruikt.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -193,13 +193,14 @@ Dat is dus gelukt. U hebt nu een toepassing met meerdere containers waarin elke 
 
 Laten we eens kijken hoe dat in zijn werk gaat. Ga naar het venster van VS Code voor `mywebapi` en bewerk de code op basis van de `string Get(int id)`-methode, bijvoorbeeld:
 
-    ```csharp
-    [HttpGet("{id}")]
-    public string Get(int id)
-    {
-        return "mywebapi now says something new";
-    }
-    ```
+```csharp
+[HttpGet("{id}")]
+public string Get(int id)
+{
+    return "mywebapi now says something new";
+}
+```
+
 
 [!INCLUDE[](includes/team-development-2.md)]
 

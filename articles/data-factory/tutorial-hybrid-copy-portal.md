@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e21c08d418022430400ff14baedc1759d2d16069
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 27e7d6f22678bf33ffd81fb34472fe4add3f9a15
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171560"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045458"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Gegevens van een on-premises SQL-serverdatabase naar Azure Blob Storage kopiëren
 In deze zelfstudie gebruikt u de gebruikersinterface (UI) van Azure Data Factory om een pijplijn voor een data factory te maken waarmee gegevens worden gekopieerd van een on-premises SQL Server-database naar Azure Blob-opslag. U gaat een zelf-hostende Integration Runtime maken en gebruiken. Deze verplaatst gegevens van on-premises gegevensarchieven en gegevensarchieven in de cloud en omgekeerd.
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van Data Factory gebruikt, die algemeen beschikbaar is, raadpleegt u de [ documentatie voor versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-> 
 > Dit artikel is geen gedetailleerde introductie tot Data Factory. Zie [Inleiding tot Data Factory](introduction.md) voor meer informatie. 
 
 In deze zelfstudie voert u de volgende stappen uit:
@@ -128,21 +126,21 @@ In deze stap maakt u een data factory en start u de Data Factory-gebruikersinter
    
    ![Nieuwe data factory maken](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
 3. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in bij **Naam**. 
-      
+   
      ![De pagina Nieuwe data factory](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
- 
-   De naam van de data factory moet *wereldwijd uniek* zijn. Als het volgende foutbericht wordt weergegeven voor het naamveld, wijzigt u de naam van de data factory (bijvoorbeeld uwnaamADFTutorialDataFactory). Zie [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
-  
+
+De naam van de data factory moet *wereldwijd uniek* zijn. Als het volgende foutbericht wordt weergegeven voor het naamveld, wijzigt u de naam van de data factory (bijvoorbeeld uwnaamADFTutorialDataFactory). Zie [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+
    ![Naam nieuwe data factory](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
 4. Selecteer het Azure-**abonnement** waarin u de data factory wilt maken.
 5. Voer een van de volgende stappen uit voor **Resourcegroep**:
-     
+   
       - Selecteer **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst.
 
       - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.
-         
+        
     Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
-6. Selecteer **V2 (preview-versie)** bij **Versie**.
+6. Selecteer **V2** onder **Versie**.
 7. Selecteer bij **Locatie** de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven (bijvoorbeeld Storage en SQL Database) en -berekeningen (bijvoorbeeld Azure HDInsight) die door Data Factory worden gebruikt, kunnen zich in andere regio's bevinden.
 8. Selecteer **Vastmaken aan dashboard**. 
 9. Selecteer **Maken**.
@@ -160,42 +158,55 @@ In deze stap maakt u een data factory en start u de Data Factory-gebruikersinter
 1. Selecteer op de pagina **Aan de slag** de optie **Pijplijn maken**. Er wordt automatisch een pijplijn voor u gemaakt. U ziet de pijplijn in de structuurweergave en de bijbehorende editor wordt geopend. 
 
    ![Pagina Aan de slag](./media/tutorial-hybrid-copy-portal/get-started-page.png)
+
 2. Voer op het tabblad **Algemeen** onder in het venster **Eigenschappen** bij **Naam** **SQLServerToBlobPipeline** in.
 
    ![Naam pijplijn](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
+
 3. Vouw in de werkset **Activiteiten** **DataFlow** uit. Gebruik slepen en neerzetten om de activiteit **Kopiëren** naar het ontwerpoppervlak van de pijplijn te verplaatsen. Stel de naam van de activiteit in op **CopySqlServerToAzureBlobActivity**.
 
    ![Naam van de activiteit](./media/tutorial-hybrid-copy-portal/copy-activity-name.png)
+
 4. Ga in het venster **Eigenschappen** naar het tabblad **Bron** en selecteer **+ Nieuw**.
 
    ![Tabblad Bron](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
+
 5. Zoek in het venster **Nieuwe gegevensset** naar **SQL Server**. Selecteer **SQL Server** en vervolgens **Voltooien**. U ziet een nieuw tabblad met de titel **SqlServerTable1**. U ziet ook de gegevensset **SqlServerTable1** in de structuurweergave aan de linkerkant. 
 
    ![SQL Server-selecteren](./media/tutorial-hybrid-copy-portal/select-sql-server.png)
+
 6. Voer op het tabblad **Algemeen** onder in het venster **Eigenschappen** bij **Naam** **SqlServerDataset** in.
-    
+
    ![Naam van de brongegevensset](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
+
 7. Ga naar het tabblad **Verbinding** en klik op **+ Nieuw**. In deze stap maakt u een verbinding met het brongegevensexemplaar (SQL Server-database). 
 
    ![Verbinding maken met brongegevensset](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
-8. Selecteer in het venster **Nieuwe gekoppelde service** de optie **Nieuwe integratieruntime**. In deze sectie kunt u een zelf-hostende Integration Runtime maken en deze koppelen aan een on-premises computer met de SQL Server-database. De zelf-hostende Integration Runtime is het onderdeel waarmee gegevens worden gekopieerd van SQL Server-database op uw computer naar Blob Storage. 
+
+8. Voeg in het venster **Nieuwe gekoppelde service** **Naam** toe als **SqlServerLinkedService**. Selecteer **Nieuw** onder **Verbinding maken via integratieruntime**. In deze sectie kunt u een zelf-hostende Integration Runtime maken en deze koppelen aan een on-premises computer met de SQL Server-database. De zelf-hostende Integration Runtime is het onderdeel waarmee gegevens worden gekopieerd van SQL Server-database op uw computer naar Blob Storage. 
 
    ![Nieuwe integratieruntime](./media/tutorial-hybrid-copy-portal/new-integration-runtime-button.png)
+
 9. Selecteer in het venster **Integratieruntime instellen** de optie **Privénetwerk** en selecteer vervolgens **Volgende**. 
 
    ![Privénetwerk selecteren](./media/tutorial-hybrid-copy-portal/select-private-network.png)
+
 10. Voer een naam in voor de integratieruntime en selecteer **Volgende**.
-    
+
     ![Naam integratieruntime](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
+
 11. Selecteer bij **Optie 1: snelle installatie** op **Klik hier om de snelle installatie voor deze computer te starten**. 
 
     ![Koppeling Snelle installatie](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+
 12. Selecteer **Sluiten** in het venster **Snelle installatie van integratieruntime (zelf-hostend)**. 
 
     ![Snelle installatie van integratieruntime (zelf-hostend)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-13. Selecteer in de webbrowser in het venster **Installatie van integratieruntime** op **Voltooien**. 
 
-    ![Installatie van integratieruntime](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
+13. Controleer in het venster **Nieuwe gekoppelde service** of de **Integratieruntime** die hierboven is gemaakt, is geselecteerd onder **Verbinding maken via integratieruntime**. 
+
+    ![](./media/tutorial-hybrid-copy-portal/select-integration-runtime.png)
+
 14. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
 
     a. Voer **SqlServerLinkedService** in bij **Naam**.
@@ -212,9 +223,10 @@ In deze stap maakt u een data factory en start u de Data Factory-gebruikersinter
 
     g. Selecteer **Verbinding testen**. Voer deze stap uit om te bevestigen dat Data Factory verbinding mag maken met de SQL Server-database met behulp van de zelf-hostende integratieruntime die u hebt gemaakt.
 
-    h. Selecteer **Opslaan** om de gekoppelde service op te slaan.
+    h. Selecteer **Voltooien** om de gekoppelde service op te slaan.
 
-       ![Instellingen nieuwe gekoppelde service](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
+       
+
 15. Als het goed is, ziet u nu het venster met de geopende brongegevensset weer. Voer in het tabblad **Verbinding** in het venster **Eigenschappen** de volgende stappen uit: 
 
     a. Controleer of in **Gekoppelde service** **SqlServerLinkedService** wordt weergegeven.
@@ -222,21 +234,27 @@ In deze stap maakt u een data factory en start u de Data Factory-gebruikersinter
     b. Selecteer bij **Tabel** **[dbo].[emp]**.
 
     ![Brongegevenssetinformatie](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
+
 16. Ga naar het tabblad met de **SQLServerToBlobPipeline** of selecteer **SQLServerToBlobPipeline** in de structuurweergave. 
 
     ![Tabblad Pijplijn](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+
 17. Ga naar het tabblad **Sink** onder in het venster **Eigenschappen** en selecteer **+ Nieuw**. 
 
     ![Tabblad Sink](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
+
 18. Selecteer in het venster **Nieuwe gegevensset** de optie **Azure Blob Storage**. Selecteer vervolgens **Voltooien**. Er wordt nu een nieuw tabblad geopend voor de gegevensset. Ook ziet u de gegevensset in de structuurweergave. 
 
     ![Selectie Blob-opslag](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
+
 19. Voer **AzureBlobDataset** in bij **Naam**.
 
     ![Sink-gegevenssetnaam](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
+
 20. Ga naar het tabblad **Verbinding** onder in het venster **Eigenschappen**. Selecteer **+ Nieuw** naast **Gekoppelde service**. 
 
     ![Knop Nieuwe gekoppelde service](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
+
 21. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
 
     a. Voer bij **Naam** **AzureStorageLinkedService** in.
@@ -248,28 +266,39 @@ In deze stap maakt u een data factory en start u de Data Factory-gebruikersinter
     d. Selecteer **Opslaan**.
 
     ![Instellingen voor gekoppelde Storage-service](./media/tutorial-hybrid-copy-portal/azure-storage-linked-service-settings.png) 
-22.  Als het goed is, ziet u nu het venster met de geopende sink-gegevensset weer. Voer op het tabblad **Verbinding** de volgende stappen uit: 
 
-        a. Controleer of **AzureStorageLinkedService** is geselecteerd bij **Gekoppelde service**.
+22. Als het goed is, ziet u nu het venster met de geopende sink-gegevensset weer. Voer op het tabblad **Verbinding** de volgende stappen uit: 
 
-        b. Voer **adftutorial/fromonprem** in als het **mapgedeelte** van het **bestandspad**. Als de uitvoermap niet bestaat in de container adftutorial, wordt de uitvoermap automatisch gemaakt door Data Factory.
+       a. Controleer of **AzureStorageLinkedService** is geselecteerd bij **Gekoppelde service**.
 
-        c. Voer `@CONCAT(pipeline().RunId, '.txt')` in als het **bestandsnaamgedeelte** van het **bestandspad**.
+       b. Voer **adftutorial/fromonprem** in voor het **map**/ **Directory**-gedeelte van het **bestandspad**. Als de uitvoermap niet bestaat in de container adftutorial, wordt de uitvoermap automatisch gemaakt door Data Factory.
 
-     ![Verbinding met sink-gegevensset](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+       c. Selecteer **Dynamische inhoud toevoegen**voor het **bestandsnaam**-deel van het **bestandspad**.   
+
+    ![waarde voor dynamische bestandsnaam](./media/tutorial-hybrid-copy-portal/file-name.png)
+
+       d. Voeg `@CONCAT(pipeline().RunId, '.txt')` toe, selecteer **Voltooien**. Hierdoor wordt de naam van het bestand gewijzigd in PipelineRunID.txt. 
+
+    ![dynamische expressie voor omzetten van bestandsnaam](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
+
+    ![Verbinding met sink-gegevensset](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+
 23. Ga naar het tabblad met de pijplijn geopend of selecteer de pijplijn in de structuurweergave. Controleer of **AzureBlobDataset** is geselecteerd bij **Sink-gegevensset**. 
 
     ![Sink-gegevensset geselecteerd](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
+
 24. Selecteer in de werkbalk de optie **Valideren** om de instellingen voor de pijplijn te valideren. Sluit het **Validatierapport voor de pijplijn** door **Sluiten** te selecteren. 
 
     ![Pijplijn valideren](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
+
 25. Als u entiteiten die u hebt gemaakt, naar Data Factory wilt publiceren, selecteert u **Alles publiceren**.
 
     ![De knop Publiceren](./media/tutorial-hybrid-copy-portal/publish-button.png)
+
 26. Wacht tot u de pop-up **Het publiceren is voltooid** ziet. U kunt de status van de publicatie controleren door aan de linkerkant **Meldingen weergeven** te selecteren. Selecteer **Sluiten** als u het meldingenvenster wilt sluiten. 
 
     ![Het publiceren is voltooid](./media/tutorial-hybrid-copy-portal/publishing-succeeded.png)
-    
+
 
 ## <a name="trigger-a-pipeline-run"></a>Een pijplijnuitvoering activeren
 Selecteer **Activeren** op de werkbalk en selecteer vervolgens **Nu activeren**.
@@ -286,15 +315,9 @@ Selecteer **Activeren** op de werkbalk en selecteer vervolgens **Nu activeren**.
     ![Uitvoering van activiteiten controleren](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 
 ## <a name="verify-the-output"></a>De uitvoer controleren
-De uitvoermap *fromonprem* wordt automatisch door de pijplijn gemaakt in de `adftutorial` blobcontainer. Controleer of u het bestand *dbo.emp.txt* in de uitvoermap ziet. 
+De uitvoermap *fromonprem* wordt automatisch door de pijplijn gemaakt in de `adftutorial` blobcontainer. Controleer of u het bestand *[pipeline().RunId].txt* in de uitvoermap ziet. 
 
-1. Klik in Azure Portal op het venster met de **adftutorial**-container op **Vernieuwen** om de uitvoermap weer te geven.
-
-    ![Uitvoermap gemaakt](media/tutorial-hybrid-copy-portal/fromonprem-folder.png)
-2. Selecteer `fromonprem` in de lijst met mappen. 
-3. Controleer of u een bestand met de naam `dbo.emp.txt` ziet.
-
-    ![Uitvoerbestand](media/tutorial-hybrid-copy-portal/fromonprem-file.png)
+![naam uitvoerbestand bevestigen](./media/tutorial-hybrid-copy-portal/sink-output.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

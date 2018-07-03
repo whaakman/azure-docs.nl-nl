@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293476"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048635"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-scheduling-and-execution.md)
-> * [Versie 2 - Preview](concepts-pipeline-execution-triggers.md)
+> * [Versie 1](v1/data-factory-scheduling-and-execution.md)
+> * [Huidige versie](concepts-pipeline-execution-triggers.md)
 
-Een _pijplijnuitvoering_ in versie 2 van Azure Data Factory definieert een exemplaar van een pijplijnuitvoering. Stel dat u een pijplijn hebt die wordt uitgevoerd om 8:00 uur, 9:00 uur en 10:00 uur. In dit geval wordt de pijplijn drie keer afzonderlijk uitgevoerd, ook wel pijplijnuitvoeringen genoemd. Elke pijplijnuitvoering heeft een unieke id. Een uitvoerings-id is een GUID die de betreffende specifieke pijplijnuitvoering definieert. 
+Een _pijplijnuitvoering_ in Azure Data Factory definieert een exemplaar van een pijplijnuitvoering. Stel dat u een pijplijn hebt die wordt uitgevoerd om 8:00 uur, 9:00 uur en 10:00 uur. In dit geval wordt de pijplijn drie keer afzonderlijk uitgevoerd, ook wel pijplijnuitvoeringen genoemd. Elke pijplijnuitvoering heeft een unieke id. Een uitvoerings-id is een GUID die de betreffende specifieke pijplijnuitvoering definieert. 
 
 Pijplijnuitvoeringen worden doorgaans geïnstantieerd doordat argumenten worden doorgegeven aan parameters die u in de pijplijn definieert. U kunt een pijplijn handmatig uitvoeren of door middel van een _trigger_. Dit artikel bevat informatie over beide manieren om een pijplijn uit te voeren.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Zie [Data Factory plannen en uitvoeren](v1/data-factory-scheduling-and-execution.md) als u versie 1 van Azure Data Factory gebruikt, die algemeen beschikbaar is.
 
 ## <a name="manual-execution-on-demand"></a>Handmatig uitvoeren (op aanvraag)
 De handmatige uitvoering van een pijplijn wordt ook wel een uitvoering _op aanvraag_ genoemd.
@@ -136,7 +133,7 @@ Zie [Snelstart: een data factory en pijplijn maken met behulp van .NET SDK](quic
 > U kunt de .NET SDK gebruiken om Data Factory-pijplijnen vanuit Azure Functions, uw eigen webservices, enzovoort aan te roepen.
 
 <h2 id="triggers">Uitvoeren van triggers</h2>
-Triggers zijn een andere manier om een pijplijnuitvoering te starten. Triggers zijn verwerkingseenheden die bepalen wanneer een pijplijnuitvoering moet worden gestart. Data Factory ondersteunt momenteel twee soorten triggers:
+Triggers zijn een andere manier om een pijplijnuitvoering te starten. Triggers zijn verwerkingseenheden die bepalen wanneer een pijplijnuitvoering moet worden gestart. Data Factory ondersteunt momenteel drie soorten triggers:
 
 - Schematrigger: een trigger die een pijplijn volgens een wandklokschema aanroept.
 

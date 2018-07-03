@@ -3,7 +3,7 @@ title: Incrementeel meerdere tabellen kopiëren met behulp van Azure Data Factor
 description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee wijzigingsgegevens incrementeel uit meerdere tabellen van een lokale Microsoft SQL Server worden gekopieerd naar een Azure SQL-database.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 8f59ffb2011ad43173881d4ced231e4820fcf5f8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: 73d6039624a52ae06d8cf74c386bf0d12d9b65d9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30184498"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046303"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
-In deze zelfstudie maakt u een Azure Data Factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
+In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
 
 In deze zelfstudie voert u de volgende stappen uit:
 
@@ -37,9 +37,6 @@ In deze zelfstudie voert u de volgende stappen uit:
 > * Gegevens in brontabellen toevoegen of bijwerken.
 > * De pijplijn opnieuw uitvoeren en controleren.
 > * De eindresultaten bekijken.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is, raadpleegt u de [documentatie voor versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Overzicht
 Dit zijn de belangrijke stappen voor het maken van deze oplossing: 
@@ -271,14 +268,14 @@ Houd rekening met de volgende punten:
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen Inzender of Eigenaar, of moet dit een beheerder van het Azure-abonnement zijn.
-* Momenteel kunt u met Data Factory versie 2 alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Azure Storage, SQL Database, enzovoort) en berekeningen (Azure HDInsight, enzovoort) die worden gebruikt door de data factory, kunnen zich in andere regio's bevinden.
+* Momenteel kunt u in Data Factory alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Azure Storage, SQL Database, enzovoort) en berekeningen (Azure HDInsight, enzovoort) die worden gebruikt door de data factory, kunnen zich in andere regio's bevinden.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
 
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
-U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze sectie maakt u gekoppelde services in de lokale SQL Server en de SQL-database. 
+U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze sectie maakt u gekoppelde services in de lokale SQL Server-database en de SQL-database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>De gekoppelde service voor SQL Server maken
 In deze stap gaat u uw on-premises SQL Server-database aan de data factory koppelen.
@@ -335,8 +332,8 @@ In deze stap gaat u uw on-premises SQL Server-database aan de data factory koppe
     ```
     > [!IMPORTANT]
     > - Selecteer de juiste sectie op basis van de verificatie die u gebruikt om verbinding te maken met SQL Server.
-    > - Vervang de &lt;naam> van de integration runtime door de naam van uw integration runtime.
-    > - Vervang &lt;servername>, &lt;databasename>,&lt; username> en&lt; password> door de waarden van uw SQL Server-exemplaar voordat u het bestand opslaat.
+    > - Vervang &lt;integration runtime name> door de naam van uw integration runtime.
+    > - Vervang &lt;servername>, &lt;databasename>, &lt;username> en &lt;password> door de waarden van uw SQL Server-exemplaar voordat u het bestand opslaat.
     > - Als u een slash wilt gebruiken (`\`) in de naam van uw gebruikersaccount of server, moet u het escapeteken (`\`) gebruiken. Een voorbeeld is `mydomain\\myuser`.
 
 2. Schakel in PowerShell over naar de map C:\ADFTutorials\IncCopyMultiTableTutorial.
@@ -713,7 +710,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 
     ![Naar de data factory zoeken](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-search-data-factory-2.png)
 
-4. Selecteer op de pagina **Data Factory** op de tegel de optie **Controleren en beheren**. 
+4. Selecteer op de pagina **Data Factory** de optie **Controleren en beheren**. 
 
     ![De tegel Bewaking en beheer](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
 
@@ -724,7 +721,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 
     ![Uitvoering van activiteiten](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
 
-7. Als u wilt teruggaan naar de weergave met **pijplijnuitvoeringen**, selecteert u **Pijplijnen** zoals weergegeven op de afbeelding. 
+7. Als u wilt teruggaan naar de weergave met **pijplijnuitvoeringen**, selecteert u **Pijplijnen** zoals weergegeven in de afbeelding. 
 
 ## <a name="review-the-results"></a>De resultaten bekijken
 Voer in SQL Server Management Studio de volgende query's uit op de SQL-doeldatabase om te controleren of de gegevens van de brontabellen naar de doeltabellen zijn gekopieerd: 
@@ -806,7 +803,7 @@ VALUES
 
     ![Pijplijnuitvoeringen worden uitgevoerd](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)
 
-3. Klik op **Vernieuwen** om te lijst te vernieuwen totdat de uitvoering van de pijplijn is voltooid. 
+3. Klik op **Vernieuwen** om de lijst te vernieuwen totdat de uitvoering van de pijplijn is voltooid. 
 
     ![Pijplijnuitvoeringen vernieuwen](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
 

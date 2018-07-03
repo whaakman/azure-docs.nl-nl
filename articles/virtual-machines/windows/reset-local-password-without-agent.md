@@ -1,6 +1,6 @@
 ---
 title: Een lokale Windows-wachtwoord zonder Azure-agent opnieuw instellen | Microsoft Docs
-description: Het opnieuw instellen van het wachtwoord van een lokale Windows-gebruikersaccount wanneer u de Azure guest-agent is niet geïnstalleerd of op een virtuele machine werkt
+description: Het opnieuw instellen van het wachtwoord van een lokale Windows-gebruikersaccount wanneer de Azure-gastagent niet geïnstalleerd of op een virtuele machine werkt is
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
@@ -14,52 +14,52 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: iainfou
-ms.openlocfilehash: ad892aee646b1a5f8c96d5bdeca24b7a0d88f38e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6745d5f7c31ca00c7915874b038488f4487959a9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915602"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342919"
 ---
-# <a name="reset-local-windows-password-for-azure-vm-offline"></a>Opnieuw offline lokale Windows-wachtwoord instellen voor de virtuele machine in Azure
-U kunt opnieuw instellen van het lokale Windows-wachtwoord van een virtuele machine in Azure worden verkregen met de [Azure-portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) opgegeven in de Azure guest-agent is geïnstalleerd. Deze methode is de eenvoudigste manier om in te stellen van een wachtwoord voor een virtuele machine in Azure. Als u problemen ondervindt met de Azure guest-agent niet reageert of niet worden geïnstalleerd na het uploaden van een aangepaste installatiekopie, u handmatig kunt moet u een Windows-wachtwoord opnieuw instellen. Dit artikel wordt uitgelegd hoe u een lokaal account-wachtwoord opnieuw instellen door de virtuele bron OS-schijf koppelen aan een andere virtuele machine. De stappen in dit artikel zijn niet van toepassing op Windows-domeincontrollers. 
+# <a name="reset-local-windows-password-for-azure-vm-offline"></a>Lokale Windows-wachtwoord offline voor Azure-VM herstellen
+U kunt opnieuw instellen van het lokale Windows-wachtwoord van een virtuele machine in Azure met de [Azure portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voorwaarde dat de Azure-gastagent is geïnstalleerd. Deze methode is de belangrijkste manier om een wachtwoord opnieuw instellen voor een Azure-VM. Als u problemen ondervindt met de Azure-gastagent niet reageert of niet worden geïnstalleerd na het uploaden van een aangepaste installatiekopie, u handmatig kunt moet u een Windows-wachtwoord opnieuw instellen. Dit artikel wordt uitgelegd hoe u een lokaal account-wachtwoord opnieuw instellen door de virtuele bron-OS-schijf koppelen aan een andere virtuele machine. De stappen in dit artikel niet van toepassing op Windows-domeincontrollers. 
 
 > [!WARNING]
-> Gebruik deze methode alleen als een laatste toevlucht. Probeert altijd opnieuw instellen van een wachtwoord met de [Azure-portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eerste.
+> Gebruik deze methode alleen als laatste redmiddel. Altijd probeer het opnieuw instellen van een wachtwoord met de [Azure portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eerste.
 > 
 > 
 
 ## <a name="overview-of-the-process"></a>Overzicht van het proces
-De belangrijkste stappen voor het uitvoeren van een lokale wachtwoord opnieuw instellen voor een Windows-VM in Azure als er geen toegang tot de Azure guest-agent is als volgt:
+De belangrijkste stappen voor het uitvoeren van een lokaal wachtwoord opnieuw instellen voor een Windows-VM in Azure als er geen toegang tot de Azure-gastagent is als volgt:
 
 * Verwijder de bron-VM. De virtuele schijven worden bewaard.
-* De besturingssysteemschijf van de bron-VM koppelen aan een andere virtuele machine op dezelfde locatie binnen uw Azure-abonnement. Deze virtuele machine wordt de probleemoplossing VM genoemd.
-* Maak met de probleemoplossing VM enkele configuratiebestanden van de besturingssysteemschijf van de bron-VM.
-* Loskoppelen van de VM-besturingssysteemschijf van de VM voor het oplossen van problemen.
-* Gebruik Resource Manager-sjabloon maken van een virtuele machine met behulp van de oorspronkelijke virtuele schijf.
+* Koppel de besturingssysteemschijf van de bron-VM aan een andere virtuele machine op dezelfde locatie binnen uw Azure-abonnement. Deze virtuele machine wordt aangeduid als de virtuele machine voor probleemoplossing.
+* Met behulp van de virtuele machine voor probleemoplossing, sommige configuratiebestanden op de besturingssysteemschijf van de bron-VM maken.
+* Loskoppelen van de besturingssysteemschijf van de virtuele machine van de VM voor probleemoplossing.
+* Resource Manager-sjabloon gebruiken om te maken van een VM met behulp van de oorspronkelijke virtuele schijf.
 * Wanneer de nieuwe virtuele machine wordt opgestart, werk de configuratiebestanden die u maakt het wachtwoord van de gebruiker vereist.
 
 ## <a name="detailed-steps"></a>Gedetailleerde stappen
 
 > [!NOTE]
-> De stappen zijn niet van toepassing op Windows-domeincontrollers. Deze functie werkt alleen op zelfstandige server of een server die lid is van een domein.
+> De stappen niet van toepassing op Windows-domeincontrollers. Dit werkt alleen op de zelfstandige server of een server die deel uitmaakt van een domein.
 > 
 > 
 
-Probeert altijd opnieuw instellen van een wachtwoord met de [Azure-portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voordat u de volgende stappen uit. Zorg ervoor dat er een back-up van uw virtuele machine voordat u begint. 
+Altijd probeer het opnieuw instellen van een wachtwoord met de [Azure portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voordat u de volgende stappen uit. Zorg ervoor dat u hebt een back-up van uw virtuele machine voordat u begint. 
 
-1. Verwijder de betrokken virtuele machine in Azure-portal. Verwijderen van de virtuele machine verwijdert u alleen de metagegevens van de referentie van de virtuele machine in Azure. De virtuele schijven worden bewaard wanneer de virtuele machine wordt verwijderd:
+1. Verwijder de betrokken virtuele machine in Azure portal. De virtuele machine verwijderen, verwijdert u alleen de metagegevens worden de referentie van de virtuele machine in Azure. De virtuele schijven worden bewaard wanneer de virtuele machine wordt verwijderd:
    
-   * Selecteer de virtuele machine in de Azure portal, klik op *verwijderen*:
+   * Selecteer de virtuele machine in Azure portal, klikt u op *verwijderen*:
      
      ![Bestaande virtuele machine verwijderen](./media/reset-local-password-without-agent/delete_vm.png)
-2. De besturingssysteemschijf van de bron-VM voor het oplossen van problemen VM koppelen. De probleemoplossing VM moet zich in dezelfde regio bevinden als de besturingssysteemschijf van de bron-VM (zoals `West US`):
+2. Koppel de besturingssysteemschijf van de bron-VM aan de virtuele machine voor probleemoplossing. De virtuele machine voor probleemoplossing moet zich in dezelfde regio bevinden als de besturingssysteemschijf van de bron-VM (zoals `West US`):
    
-   * Selecteer de probleemoplossing VM in de Azure-portal. Klik op *schijven* | *Attach bestaande*:
+   * Selecteer de virtuele machine voor probleemoplossing in Azure portal. Klik op *schijven* | *koppelen aan bestaande*:
      
      ![Bestaande schijf koppelen](./media/reset-local-password-without-agent/disks_attach_existing.png)
      
-     Selecteer *VHD-bestand* en selecteer vervolgens het opslagaccount met de bron-VM:
+     Selecteer *VHD-bestand* en selecteer vervolgens het opslagaccount waarin uw bron-VM:
      
      ![Opslagaccount selecteren](./media/reset-local-password-without-agent/disks_select_storageaccount.PNG)
      
@@ -67,24 +67,24 @@ Probeert altijd opnieuw instellen van een wachtwoord met de [Azure-portal of Azu
      
      ![Storage-container selecteren](./media/reset-local-password-without-agent/disks_select_container.png)
      
-     Selecteer de OS-vhd koppelen. Klik op *Selecteer* om het proces te voltooien:
+     Selecteer de OS vhd te koppelen. Klik op *Selecteer* om het proces te voltooien:
      
-     ![Selecteer de virtuele bronschijf](./media/reset-local-password-without-agent/disks_select_source_vhd.png)
-3. Verbinding maken met de probleemoplossing virtuele machine via Extern bureaublad en zorg ervoor dat de besturingssysteemschijf van de bron-VM wordt weergegeven:
+     ![Selecteer de virtuele schijf die als bron](./media/reset-local-password-without-agent/disks_select_source_vhd.png)
+3. Verbinding maken met de VM voor probleemoplossing met behulp van extern bureaublad en zorg ervoor dat de besturingssysteemschijf van de bron-VM wordt weergegeven:
    
-   * Selecteer de probleemoplossing VM in de Azure portal en klik op *Connect*.
-   * Open het RDP-bestand die kan worden gedownload. Geef de gebruikersnaam en wachtwoord van de VM voor het oplossen van problemen.
-   * Zoek in Windows Verkenner naar de door u bijgevoegde gegevensschijf. Als de bron van de virtuele machine VHD de enige gegevensschijf is gekoppeld aan de VM voor het oplossen van problemen is, moet het station F::
+   * Selecteer de virtuele machine voor probleemoplossing in Azure portal en klik op *Connect*.
+   * Open het RDP-bestand die kan worden gedownload. Voer de gebruikersnaam en wachtwoord van de virtuele machine voor probleemoplossing.
+   * Zoeken in Windows Verkenner naar de gegevensschijf die u hebt gekoppeld. Als de bron van de virtuele machine VHD de enige gegevensschijf die is gekoppeld aan de virtuele machine voor probleemoplossing is, moet het station F::
      
-     ![De schijf bijgesloten gegevens weergeven](./media/reset-local-password-without-agent/troubleshooting_vm_fileexplorer.png)
-4. Maak `gpt.ini` in `\Windows\System32\GroupPolicy` op de bron-VM-station (als gpt.ini bestaat, wijzig in gpt.ini.bak):
+     ![Gekoppelde gegevensschijf weergeven](./media/reset-local-password-without-agent/troubleshooting_vm_fileexplorer.png)
+4. Maak `gpt.ini` in `\Windows\System32\GroupPolicy` op de bron-VM-schijf (als gpt.ini bestaat, naam wijzigen in gpt.ini.bak):
    
    > [!WARNING]
-   > Zorg ervoor dat u niet per ongeluk de volgende bestanden in C:\Windows, de OS-schijf voor het oplossen van problemen VM maakt. De volgende bestanden in het station van het besturingssysteem voor de bron-VM die is gekoppeld als een gegevensschijf maken.
+   > Zorg ervoor dat u per ongeluk de volgende bestanden in C:\Windows, de besturingssysteemschijf voor de virtuele machine voor probleemoplossing maakt. Maak de volgende bestanden in de besturingssysteemschijf voor de bron-VM die is gekoppeld als een gegevensschijf.
    > 
    > 
    
-   * Voeg de volgende regels in de `gpt.ini` dat u hebt gemaakt:
+   * Voeg de volgende regels in de `gpt.ini` bestand dat u hebt gemaakt:
      
      ```
      [General]
@@ -94,9 +94,9 @@ Probeert altijd opnieuw instellen van een wachtwoord met de [Azure-portal of Azu
      ```
      
      ![Gpt.ini maken](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Maak `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts`. Zorg ervoor dat verborgen mappen worden weergegeven. Maak indien nodig de `Machine` of `Scripts` mappen.
+5. Maak `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Zorg ervoor dat verborgen mappen worden weergegeven. Maak indien nodig de `Machine` of `Scripts` mappen.
    
-   * Voeg de volgende regels de `scripts.ini` dat u hebt gemaakt:
+   * Voeg de volgende regels toe de `scripts.ini` bestand dat u hebt gemaakt:
      
      ```
      [Startup]
@@ -105,7 +105,7 @@ Probeert altijd opnieuw instellen van een wachtwoord met de [Azure-portal of Azu
      ```
      
      ![Scripts.ini maken](./media/reset-local-password-without-agent/create_scripts_ini.png)
-6. Maak `FixAzureVM.cmd` in `\Windows\System32` met de volgende inhoud, vervangen `<username>` en `<newpassword>` met uw eigen waarden:
+6. Maak `FixAzureVM.cmd` in `\Windows\System32` met de volgende inhoud, vervangen `<username>` en `<newpassword>` door uw eigen waarden:
    
     ```
     net user <username> <newpassword> /add
@@ -116,39 +116,39 @@ Probeert altijd opnieuw instellen van een wachtwoord met de [Azure-portal of Azu
     ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
    
     U moet voldoen aan de complexiteitsvereisten van het ingestelde wachtwoord voor uw virtuele machine bij het definiëren van het nieuwe wachtwoord.
-7. Ontkoppel de schijf van de VM voor het oplossen van problemen in Azure-portal:
+7. Ontkoppel de schijf van de virtuele machine voor probleemoplossing in Azure-portal:
    
-   * Selecteer de probleemoplossing VM in de Azure portal, klik op *schijven*.
-   * Selecteer de gegevensschijf gekoppeld in stap 2, klik op *Detach*:
+   * Selecteer de virtuele machine voor probleemoplossing in Azure portal, klik op *schijven*.
+   * Selecteer de gegevensschijf die is gekoppeld in stap 2, klik op *loskoppelen*:
      
-     ![Loskoppelen van schijf](./media/reset-local-password-without-agent/detach_disk.png)
-8. Voordat u een virtuele machine maakt, krijgen de URI naar de bron-OS-schijf:
+     ![Schijf loskoppelen](./media/reset-local-password-without-agent/detach_disk.png)
+8. Voordat u een virtuele machine maken, verkrijgen van de URI voor de bron-OS-schijf:
    
-   * Selecteer het opslagaccount in de Azure portal, klikt u op *Blobs*.
+   * Selecteer het opslagaccount in Azure portal, klikt u op *Blobs*.
    * Selecteer de container. De Broncontainer is doorgaans *VHD's*:
      
-     ![Storage-blob voor account selecteren](./media/reset-local-password-without-agent/select_storage_details.png)
+     ![Selecteer de logboekopslagaccount-blob](./media/reset-local-password-without-agent/select_storage_details.png)
      
      Selecteer de bron-VM OS VHD en klik op de *kopie* naast de *URL* naam:
      
-     ![Kopiëren van schijf URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
+     ![Kopiëren van schijf-URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Een virtuele machine maken van de besturingssysteemschijf van de bron-VM:
    
-   * Gebruik [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) voor het maken van een virtuele machine vanaf een speciale VHD. Klik op de `Deploy to Azure` knop voor het openen van de Azure-portal met de details van de sjablonen die voor u wordt gevuld.
-   * Als u behouden van de vorige instellingen voor de virtuele machine wilt, selecteert u *template bewerken* om te bieden uw bestaande VNet, subnet, netwerkadapter of openbare IP-adres.
-   * In de `OSDISKVHDURI` tekstvak parameter, plak de URI van de bron-VHD verkrijgen in de vorige stap:
+   * Gebruik [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) aan een virtuele machine maken vanaf een gespecialiseerde VHD. Klik op de `Deploy to Azure` knop voor het openen van de Azure-portal met de details van de sjablonen die voor u wordt gevuld.
+   * Als u behouden van alle voorgaande instellingen voor de virtuele machine wilt, selecteert u *template bewerken* voor uw bestaande VNet, subnet, netwerkadapter of openbaar IP-adres.
+   * In de `OSDISKVHDURI` parameter tekstvak, plak de URI van de bron-VHD verkrijgen in de vorige stap:
      
-     ![Maak een VM van sjabloon](./media/reset-local-password-without-agent/create_new_vm_from_template.png)
+     ![Een virtuele machine maken van sjabloon](./media/reset-local-password-without-agent/create_new_vm_from_template.png)
 10. Nadat de nieuwe virtuele machine wordt uitgevoerd, verbinding maken met de virtuele machine via Extern bureaublad met het nieuwe wachtwoord dat u hebt opgegeven in de `FixAzureVM.cmd` script.
-11. Verwijderen van de externe sessie naar de nieuwe virtuele machine de volgende bestanden om de omgeving op te schonen:
+11. Verwijderen van de externe sessie moet de nieuwe virtuele machine, de volgende bestanden voor het opschonen van de omgeving:
     
     * From %windir%\System32
       * remove FixAzureVM.cmd
     * From %windir%\System32\GroupPolicy\Machine\
       * scripts.ini verwijderen
-    * From %windir%\System32\GroupPolicy
-      * gpt.ini verwijderen (indien gpt.ini bestond en u een naam gewijzigd in gpt.ini.bak, wijzig de naam van het .bak-bestand terug naar gpt.ini)
+    * Van %windir%\System32\GroupPolicy
+      * gpt.ini verwijderen (als gpt.ini bestond, en u deze hebt gewijzigd in gpt.ini.bak, het bestand .bak terug naar gpt.ini wijzigen)
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u nog steeds geen verbinding maken met extern bureaublad, raadpleegt u de [RDP-probleemoplossingsgids](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). De [RDP probleemoplossingsgids gedetailleerde](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) gekeken naar het oplossen van methoden in plaats van specifieke stappen uitvoeren. U kunt ook [opent u een Azure ondersteuningsaanvraag](https://azure.microsoft.com/support/options/) voor praktische hulp.
+Als u nog steeds geen verbinding met behulp van extern bureaublad maken, raadpleegt u de [RDP-gids voor probleemoplossing](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). De [gedetailleerde RDP-problemen oplossen met](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kijkt naar het oplossen van methoden in plaats van specifieke stappen. U kunt ook [opent u een Azure-ondersteuningsaanvraag](https://azure.microsoft.com/support/options/) voor praktische hulp.
 

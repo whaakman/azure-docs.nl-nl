@@ -1,6 +1,6 @@
 ---
-title: Het installeren van Azure IoT Edge op Linux | Microsoft Docs
-description: Azure IoT rand installatie-instructies op Linux
+title: Over het installeren van Azure IoT Edge op Linux | Microsoft Docs
+description: Azure IoT Edge-installatie-instructies op Linux
 author: kgremban
 manager: timlt
 ms.reviewer: veyalla
@@ -9,23 +9,23 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 273bb920b1ef2cac425ba9e636d488c8219ad9d2
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 0174aa2288bbb95cc5cfc796446893fde00a8964
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126963"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344348"
 ---
-# <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Azure IoT rand runtime installeren op Linux (x64)
+# <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>De Azure IoT Edge-runtime installeren in Linux (x64)
 
-De runtime Azure IoT-rand wordt geïmplementeerd op alle rand van de IoT-apparaten. Er zijn drie onderdelen gedefinieerd. De **IoT rand beveiliging daemon** biedt en onderhoudt beveiligingsstandaarden op het apparaat aan de rand. De daemon begint op elke keer opstarten en het apparaat bootstraps door de rand van de IoT-agent wordt gestart. De **IoT rand agent** vereenvoudigt de implementatie en controle van modules op het apparaat aan de rand, met inbegrip van de rand van de IoT-hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
+De Azure IoT Edge-runtime wordt geïmplementeerd op alle IoT Edge-apparaten. Het bevat drie onderdelen. De **IoT Edge security daemon** biedt en onderhoudt beveiligingsstandaarden op het Edge-apparaat. De daemon begint op elke keer opstarten en bootstrapt van het apparaat door de IoT Edge-agent wordt gestart. De **IoT Edge agent** vergemakkelijkt de implementatie en bewaking van modules op het Edge-apparaat, met inbegrip van de IoT Edge hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
 
-In dit artikel vindt u de stappen voor het installeren van de rand van Azure IoT-runtime op uw Linux x64 (Intel/AMD) randapparaat.
+In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime op uw Linux x64 (Intel/AMD) Edge-apparaat.
 
 >[!NOTE]
->Pakketten in de Linux-software-opslagplaatsen zijn onderworpen aan de licentievoorwaarden die zich in elk pakket (/ usr/delen doc/*pakketnaam*). Lees de licentievoorwaarden voordat het pakket. De installatie en het gebruik van het pakket wordt verstaan onder de bevestiging van deze voorwaarden. Als u niet akkoord met de licentievoorwaarden gaat, gebruik niet het pakket.
+>Pakketten in de opslagplaatsen met Linux-software zijn afhankelijk van de licentievoorwaarden die zich in elk pakket (/ usr/delen/Docs/*pakketnaam*). Lees de licentievoorwaarden voordat u het pakket. De installatie en het gebruik van het pakket wordt verstaan onder uw acceptatie van deze voorwaarden. Als u niet akkoord met de licentievoorwaarden gaat, moet u het pakket niet gebruiken.
 
-## <a name="register-microsoft-key-and-software-repository-feed"></a>Microsoft sleutel en software-opslagplaats feed registreren
+## <a name="register-microsoft-key-and-software-repository-feed"></a>Feed voor Microsoft-sleutel en software-opslagplaats registreren
 
 ### <a name="ubuntu-1604"></a>Ubuntu 16.04
 
@@ -49,44 +49,76 @@ sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 # Install Microsoft GPG public key
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+
+# Perform apt upgrade
+sudo apt-get upgrade
 ```
 
-## <a name="install-the-container-runtime"></a>Installeren van de container-runtime 
+## <a name="install-the-container-runtime"></a>De container-runtime installeren 
 
-Azure IoT-rand is afhankelijk van een [OCI-compatibele] [ lnk-oci] container runtime (bijvoorbeeld Docker). Als u al Docker CE/EE geïnstalleerd op de Edge-apparaat hebt, kunt u blijven gebruiken voor ontwikkeling en tests met Azure IoT rand. 
+Azure IoT Edge is afhankelijk van een [OCI-compatibele] [ lnk-oci] container runtime (bijvoorbeeld Docker). Als u al Docker CE/EE geïnstalleerd op uw Edge-apparaat hebt, kunt u blijven gebruiken voor ontwikkelen en testen met Azure IoT Edge. 
 
-Voor productiescenario's is het raadzaam u gebruikt de [Moby gebaseerde] [ lnk-moby] engine hieronder. Dit is de enige container-engine officieel ondersteund met Azure IoT rand. Docker CE/EE container afbeeldingen zijn volledig compatibel is met de runtime Moby.
+Voor productiescenario's, het is raadzaam gebruikt u de [Moby gebaseerde] [ lnk-moby] engine hieronder. Dit is de enige container-engine officieel ondersteund met Azure IoT Edge. Containerinstallatiekopieën met docker CE/EE zijn volledig compatibel is met de runtime Moby.
 
-*Onderstaande instructies installeren moby-engine en opdrachtregelinterface (CLI). De CLI is nuttig voor ontwikkeling, maar is optioneel voor productie-implementaties.*
+Apt-get bijwerken.
 
-```cmd/sh
+```bash
 sudo apt-get update
+```
+
+Installeer de Moby-engine en de opdrachtregelinterface (CLI). De CLI is handig voor het ontwikkelen van, maar is optioneel voor productie deployments.*
+
+```bash
 sudo apt-get install moby-engine
 sudo apt-get install moby-cli
 ```
 
-## <a name="install-the-azure-iot-edge-security-daemon"></a>De Daemon van de beveiliging Azure IoT-rand installeren
+## <a name="install-the-azure-iot-edge-security-daemon"></a>De Daemon van de beveiliging met Azure IoT Edge installeren
 
-Onderstaande opdrachten installeert ook de standaardversie van de **iothsmlib** als dat niet al aanwezig zijn.
+De standaardversie van zal ook installeren door onderstaande opdrachten de **iothsmlib** als dit nog niet geïnstalleerd.
 
-```cmd/sh
+```bash
 sudo apt-get update
 sudo apt-get install iotedge
 ```
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>De Daemon van Azure IoT-rand beveiliging configureren
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>De Daemon van de beveiliging met Azure IoT Edge configureren
 
-De daemon kan worden geconfigureerd met behulp van het configuratiebestand op `/etc/iotedge/config.yaml` apparaat aan de rand kan worden geconfigureerd <!--[automatically via Device Provisioning Service][lnk-dps] or--> handmatig met een [apparaat verbindingsreeks][lnk-dcs].
+De daemon kan worden geconfigureerd met behulp van het configuratiebestand op `/etc/iotedge/config.yaml`. Het bestand is tegen schrijven beveiligd standaard, moet u mogelijk de verhoogde machtigingen om deze te bewerken.
 
-Voer de apparaat-verbindingsreeks in voor de handmatige configuratie **inrichting** sectie van **config.yaml**
-
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```bash
+sudo nano /etc/iotedge/config.yaml
 ```
 
-*Het bestand is beveiligd tegen schrijven standaard moet u mogelijk gebruik van `sudo` om deze te bewerken. Bijvoorbeeld `sudo nano /etc/iotedge/config.yaml`*
+Het edge-apparaat kan worden geconfigureerd handmatig met behulp van een [apparaatverbindingsreeks] [ lnk-dcs] of [automatisch via Device Provisioning Service] [ lnk-dps].
+
+* Handmatige configuratie, verwijder opmerkingen bij de **handmatige** Inrichtingsmethode. Werk de waarde van **device_connection_string** door de verbindingsreeks van uw IoT Edge-apparaat.
+
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* Voor automatische configuratie, verwijder de opmerking bij de **dps** Inrichtingsmethode. De waarden voor **scope_id** en **registration_id** door de waarden van uw IoT Hub-DPS-exemplaar en uw IoT Edge-apparaat met TPM. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
 
 Na het invoeren van de Inrichtingsgegevens in de configuratie, start u de daemon opnieuw:
 
@@ -96,13 +128,15 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>Controleer of geslaagde installatie
 
-U kunt de status van het gebruik van de IoT rand Daemon controleren:
+Als u gebruikt de **handmatige configuratie** stappen in de vorige sectie, IoT Edge-runtime moet is ingericht en wordt uitgevoerd op uw apparaat. Als u gebruikt de **automatische configuratie** stappen, moet u enkele extra stappen uitvoeren zodat de runtime uw apparaat met uw IoT-hub uit uw naam registreren kan. Zie voor de volgende stappen [maken en inrichten van een gesimuleerd TPM-Edge-apparaat op een Linux-machine](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
+
+U kunt de status van het gebruik van de IoT Edge-Daemon controleren:
 
 ```cmd/sh
 systemctl status iotedge
 ```
 
-Controleer de daemon logboeken met behulp van:
+Controleer de daemon-logboeken met behulp van:
 
 ```cmd/sh
 journalctl -u iotedge --no-pager --no-full
@@ -116,11 +150,11 @@ sudo iotedge list
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u problemen ondervindt met de installatie naar behoren afhandeling Edge-runtime de [probleemoplossing] [ lnk-trouble] pagina.
+Als u problemen ondervindt met het Edge-runtime installeren goed, bekijk de [probleemoplossing] [ lnk-trouble] pagina.
 
 <!-- Links -->
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a3801573f3ffe3a0941f3941cf33e516f4f1b614
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30229945"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961635"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>De Azure AD Connect synchronisatie met Azure AD Connect Health bewaken
 De volgende documentatie is specifiek voor het bewaken van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
 
-![Azure AD Connect Health voor synchroniseren](./media/active-directory-aadconnect-health-sync/sync-blade.png)
+![Azure AD Connect Health voor synchroniseren](./media/active-directory-aadconnect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Waarschuwingen voor Azure AD Connect Health voor synchroniseren
 In de sectie Waarschuwingen van Azure AD Connect Health voor synchroniseren vindt u een lijst met actieve waarschuwingen. Elke waarschuwing omvat relevante informatie, stappen voor het oplossen van het probleem en koppelingen naar gerelateerde documentatie. Als u een actieve of opgeloste waarschuwing selecteert, ziet u een nieuwe blade met aanvullende informatie. Ook ziet u stappen die u kunt nemen voor het oplossen van het probleem en koppelingen naar aanvullende documentatie. U kunt ook u historische gegevens bekijken voor waarschuwingen die in het verleden zijn opgelost.
@@ -98,15 +98,18 @@ Als u op een categorie inzoomt, wordt de lijst weergegeven met objecten die de f
 ### <a name="error-details"></a>Foutdetails
 De volgende gegevens zijn beschikbaar in de gedetailleerde weergave van elke fout
 
+* Conflicterend kenmerk gemarkeerd
 * Id's voor het betrokken *AD-object*
 * Id's voor betrokken *Azure AD-object* (indien van toepassing)
 * Beschrijving van de fout en de oplossing
-* Verwante artikelen:
 
-![Details van synchronisatiefoutenrapport](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+![Details van synchronisatiefoutenrapport](./media/active-directory-aadconnect-health-sync/duplicateAttributeSyncError.png)
 
 ### <a name="download-the-error-report-as-csv"></a>Het foutenrapport downloaden als een CSV
 Als u op Exporteren klikt, downloadt u een CSV-bestand met alle informatie over alle fouten.
+
+### <a name="diagnose-and-remediate-sync-errors"></a>Synchronisatiefouten analyseren en herstellen 
+In het specifieke scenario met synchronisatiefout door dubbel kenmerk waarbij een bronankerupdate van de gebruiker is betrokken, kunt u het probleem rechtstreeks vanuit de portal oplossen. Lees meer over [Diagnose and remediate duplicated attribute sync errors](active-directory-aadconnect-health-diagnose-sync-errors.md) (Synchronisatiefouten door dubbel kenmerk analyseren en herstellen)
 
 ## <a name="related-links"></a>Verwante koppelingen
 * [Troubleshooting Errors during synchronization](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md) (Synchronisatiefouten oplossen)

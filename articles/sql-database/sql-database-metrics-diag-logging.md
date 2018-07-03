@@ -1,121 +1,122 @@
 ---
-title: Azure SQL database-metrische gegevens en logboekregistratie van diagnostische gegevens | Microsoft Docs
+title: Metrische gegevens van Azure SQL database en diagnostische logboekregistratie | Microsoft Docs
 description: Meer informatie over het configureren van Azure SQL Database voor het opslaan van Resourcegebruik, connectiviteit en Uitvoeringsstatistieken query.
 services: sql-database
 documentationcenter: ''
-author: veljko-msft
+author: Danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vvasic
-ms.openlocfilehash: c9126080db4d8091b672a9250c68a5c5590e10c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650176"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346022"
 ---
-# <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens 
-Azure SQL Database kunt verzenden metrische gegevens en diagnostische logboeken voor het bewaken van eenvoudiger. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
+# <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens 
+Azure SQL-Database kan metrische en diagnostische gegevens verzenden logboeken voor de bewaking vergemakkelijken. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
 
-* **Azure Storage**: gebruikt voor het archiveren van de enorme hoeveelheden telemetrie voor een kleine prijs.
-* **Azure Event Hubs**: gebruikt voor de SQL-Database telemetrie integratie met uw aangepaste bewakingsoplossing of hot pijplijnen.
-* **Azure Log Analytics**: gebruikt voor een out-of-the-box-bewakingsoplossing met rapportage, waarschuwingen en beperkende mogelijkheden. Dit is een functie van de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+* **Azure Storage**: gebruikt voor het archiveren van grote hoeveelheden telemetriegegevens voor een lage prijs.
+* **Azure Event Hubs**: gebruikt voor het integreren van SQL Database-telemetrie in uw eigen bewakingsoplossing of actieve pijplijnen.
+* **Azure Log Analytics**: gebruikt voor een out-of-the-box-oplossing voor prestatiecontrole met rapportages, waarschuwingen en risicobeperking mogelijkheden. Dit is een functie van de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Architectuur](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="enable-logging"></a>Logboekregistratie inschakelen
 
-Metrische gegevens en diagnostische logboekregistratie is standaard niet ingeschakeld. U kunt inschakelen en beheren van metrische gegevens en diagnostische logboekregistratie met behulp van een van de volgende methoden:
+Metrische en diagnostische gegevens logboekregistratie is standaard niet ingeschakeld. U kunt inschakelen en beheren van metrische en diagnostische gegevens logboekregistratie met behulp van een van de volgende methoden:
 
 - Azure Portal
 - PowerShell
 - Azure-CLI
-- Monitor voor Azure REST-API 
+- Azure Monitor REST-API 
 - Azure Resource Manager-sjabloon
 
-Wanneer u metrische gegevens en logboekregistratie van diagnostische gegevens inschakelen, moet u het opgeven van de Azure-resource waar de geselecteerde gegevens worden verzameld. Beschikbare opties zijn:
+Wanneer u metrische gegevens en logboekregistratie van diagnostische gegevens inschakelt, moet u om op te geven van de Azure-resource waar de geselecteerde gegevens worden verzameld. Beschikbare opties zijn onder andere:
 
 - Log Analytics
 - Event Hubs
 - Storage 
 
-U kunt inrichten van een nieuwe Azure resource of Selecteer een bestaande resource. Na het selecteren van de opslagbronnen, moet u opgeven welke gegevens worden verzameld. Beschikbare opties zijn:
+U kunt inrichten van een nieuwe Azure-resource of Selecteer een bestaande resource. Na het selecteren van de storage-resource, moet u opgeven welke gegevens worden verzameld. Beschikbare opties zijn onder andere:
 
-- [Alle metrische gegevens](sql-database-metrics-diag-logging.md#all-metrics): bevat DTU-percentage, DTU limiet, CPU-percentage fysieke gegevens gelezen percentage, logboek schrijven percentage, mislukt-geslaagd/geblokkeerd door de firewall-verbindingen, sessies percentage, werknemers percentage, opslag, opslagpercentage , en het percentage voor XTP-opslag.
-- [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): bevat informatie over de query-runtime-statistieken, zoals de duur van de CPU-gebruik en de query.
-- [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): bevat informatie over de statistieken van de wachttijd query, dit geeft aan wat uw query's gewacht op, zoals CPU, het logboek en VERGRENDELEN.
-- [Fouten](sql-database-metrics-diag-logging.md#errors-dataset): bevat informatie over SQL-fouten die hebben plaatsgevonden om op deze database.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): bevat informatie over hoeveel tijd een database die is doorgebracht wachten op een andere wacht typen.
-- [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): bevat informatie over time-outs die hebben plaatsgevonden voor een database.
-- [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): bevat informatie over het blokkeren van gebeurtenissen die hebben plaatsgevonden voor een database.
+- [Alle metrische gegevens](sql-database-metrics-diag-logging.md#all-metrics): bevat DTU-percentage, DTU limiet, CPU-percentage, fysieke gegevens gelezen percentage, logboek schrijven percentage geslaagd/mislukt/geblokkeerd door firewallverbindingen, percentage van sessies, percentage van de werknemers, opslag, opslagpercentage , en het percentage van XTP-opslag.
+- [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): bevat informatie over de query-runtime-statistieken, zoals CPU-gebruik en de query duur.
+- [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): bevat informatie over de query wait-statistieken, dit geeft aan wat uw query's wachtte op, zoals CPU, het logboek en VERGRENDELEN.
+- [Fouten](sql-database-metrics-diag-logging.md#errors-dataset): bevat informatie over SQL-fouten die hebben plaatsgevonden voor deze database.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): bevat informatie over hoeveel tijd een database besteed aan het wachten op andere wacht typen.
+- [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): bevat informatie over time-outs die hebben plaatsgevonden in een database.
+- [Blokken](sql-database-metrics-diag-logging.md#blockings-dataset): bevat informatie over het blokkeren van gebeurtenissen die hebben plaatsgevonden in een database.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Intelligent Insights bevat. [Meer informatie over Intelligent Insights](sql-database-intelligent-insights.md).
 - **Audit** / **SQLSecurityAuditEvents**: momenteel niet beschikbaar.
 
-Als u Event Hubs of een opslagaccount selecteert, kunt u een bewaarbeleid opgeven. Dit beleid verwijdert de gegevens die ouder is dan een geselecteerde periode. Als u Log Analytics opgeeft, is het bewaarbeleid voor afhankelijk van de geselecteerde prijscategorie. Zie voor meer informatie [logboekanalyse prijzen](https://azure.microsoft.com/pricing/details/log-analytics/). 
+Als u Event Hubs of een storage-account selecteert, kunt u een bewaarbeleid opgeven. Dit beleid verwijdert de gegevens die ouder is dan een geselecteerde periode. Als u Log Analytics opgeeft, is het bewaarbeleid afhankelijk van de geselecteerde prijscategorie. Zie voor meer informatie, [Log Analytics-prijzen](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Voor informatie over het inschakelen van logboekregistratie en begrijpen van de metrische gegevens en logboekbestanden categorieën die worden ondersteund door de verschillende Azure-services, raden we aan dat u leest: 
+Voor meer informatie over het inschakelen van logboekregistratie en begrijpen van de metrische gegevens en logboekbestanden categorieën die worden ondersteund door de verschillende Azure-services, wordt u aangeraden dat u leest: 
 
 * [Overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Overzicht van Azure diagnostics-Logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
+* [Overzicht van diagnostische logboeken van Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Om metrische gegevens en diagnostische logboeken-verzameling in de portal, gaat u naar de SQL-Database of de elastische groep pagina en selecteer vervolgens **diagnostische instellingen**.
+1. Om in te schakelen logboeken verzamelen van metrische en diagnostische gegevens in de portal, gaat u naar uw SQL-Database of elastische pool-pagina en selecteer vervolgens **diagnostische instellingen**.
 
-   ![Schakel in de Azure portal](./media/sql-database-metrics-diag-logging/enable-portal.png)
+   ![Inschakelen in Azure portal](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
-2. Maken van nieuwe of bestaande diagnostische instellingen bewerken door het doel en de telemetrie te selecteren.
+2. Maak een nieuwe of bestaande diagnostische instellingen bewerken door het doel en de telemetrie te selecteren.
 
    ![Diagnostische instellingen](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik de volgende opdrachten zodat metrische gegevens en diagnostische logboekregistratie met behulp van PowerShell:
+Om in te schakelen metrische en diagnostische gegevens logboekregistratie met behulp van PowerShell, gebruikt u de volgende opdrachten:
 
-- Om opslag van diagnostische logboeken in een opslagaccount, gebruikt u deze opdracht:
+- Om in te schakelen opslag van diagnostische logboeken in een opslagaccount, gebruikt u deze opdracht:
 
    ```powershell
    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
-   De storage-account-ID is de resource-ID voor het opslagaccount waar u de logboeken verzenden.
+   Het opslagaccount-ID is de resource-ID voor het opslagaccount waar u om de logboeken te verzenden.
 
-- Om streaming van diagnostische logboeken naar een event hub, gebruikt u deze opdracht:
+- Als u wilt inschakelen voor streaming van diagnostische logboeken naar een event hub, gebruikt u deze opdracht:
 
    ```powershell
    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
-   De regel-ID van Azure Service Bus is een tekenreeks met deze indeling:
+   De regel-ID van Azure Service Bus is een tekenreeks zijn met deze indeling:
 
    ```powershell
    {service bus resource ID}/authorizationrules/{key name}
    ``` 
 
-- Als u wilt verzenden diagnostische logboeken naar een werkruimte voor logboekanalyse inschakelen, gebruikt u deze opdracht:
+- Als u wilt inschakelen verzenden van diagnostische logboeken naar Log Analytics-werkruimte, moet u deze opdracht gebruiken:
 
    ```powershell
    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- U kunt de bron-ID van de werkruimte voor logboekanalyse verkrijgen via de volgende opdracht:
+- U vindt de resource-ID van uw Log Analytics-werkruimte met behulp van de volgende opdracht uit:
 
    ```powershell
    (Get-AzureRmOperationalInsightsWorkspace).ResourceId
    ```
 
-U kunt deze parameters zodat meerdere uitvoeropties combineren.
+U kunt deze parameters voor het inschakelen van meerdere uitvoeropties combineren.
 
-### <a name="to-configure-multiple-azure-resources"></a>Meerdere Azure-resources configureren
+### <a name="to-configure-multiple-azure-resources"></a>Het configureren van meerdere Azure-resources
 
-Gebruik de PowerShell-script uit ter ondersteuning van meerdere abonnementen [inschakelen Azure resource metrische gegevens logboekregistratie met behulp van PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+Ter ondersteuning van meerdere abonnementen, gebruikt u de PowerShell-script uit [inschakelen Azure resource metrische gegevens vastleggen met behulp van PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
-Geef de werkruimte resource-ID &lt;$WSID&gt; als parameter bij het uitvoeren van het script (Enable-AzureRMDiagnostics.ps1) voor het verzenden van diagnostische gegevens van meerdere resources in de werkruimte. De werkruimte-ID ophalen &lt;$WSID&gt; als u wilt dat u diagnostische gegevens verzenden wilt, vervangt &lt;subID&gt; vervangen met de abonnements-ID &lt;RG_NAME&gt; met de naam van de resourcegroep, en vervang &lt;WS_NAME&gt; met de naam van de werkruimte in het volgende script.
+De werkruimte resource-ID opgeven &lt;$WSID&gt; als parameter bij het uitvoeren van het script (inschakelen-AzureRMDiagnostics.ps1) voor het verzenden van diagnostische gegevens uit meerdere bronnen naar de werkruimte. Om op te halen van de werkruimte-ID &lt;$WSID&gt; naar die u verzenden van diagnostische gegevens wilt, Vervang &lt;subID&gt; vervangen door de abonnements-ID, &lt;RG_NAME&gt; met de naam van de resourcegroep, en vervang &lt;WS_NAME&gt; met de naam van de werkruimte in het volgende script.
 
-- Gebruik de volgende opdrachten voor het configureren van meerdere Azure-resources:
+- Voor het configureren van meerdere Azure-resources, gebruikt u de volgende opdrachten:
 
     ```powershell
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
@@ -124,129 +125,129 @@ Geef de werkruimte resource-ID &lt;$WSID&gt; als parameter bij het uitvoeren van
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-Om in te schakelen metrische gegevens en diagnostische logboekregistratie met behulp van de Azure CLI, gebruik de volgende opdrachten:
+Om in te schakelen metrische en diagnostische gegevens logboekregistratie met behulp van de Azure CLI, gebruikt u de volgende opdrachten:
 
-- Om opslag van diagnostische logboeken in een opslagaccount, gebruikt u deze opdracht:
+- Om in te schakelen opslag van diagnostische logboeken in een opslagaccount, gebruikt u deze opdracht:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
    ```
 
-   De storage-account-ID is de resource-ID voor het opslagaccount waar u de logboeken verzenden.
+   Het opslagaccount-ID is de resource-ID voor het opslagaccount waar u om de logboeken te verzenden.
 
-- Om streaming van diagnostische logboeken naar een event hub, gebruikt u deze opdracht:
+- Als u wilt inschakelen voor streaming van diagnostische logboeken naar een event hub, gebruikt u deze opdracht:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
    ```
 
-   De regel-ID van Service Bus is een tekenreeks met deze indeling:
+   De regel-ID van Service Bus is een tekenreeks zijn met deze indeling:
 
    ```azurecli-interactive
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Als u wilt verzenden diagnostische logboeken naar een werkruimte voor logboekanalyse inschakelen, gebruikt u deze opdracht:
+- Als u wilt inschakelen verzenden van diagnostische logboeken naar Log Analytics-werkruimte, moet u deze opdracht gebruiken:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
    ```
 
-U kunt deze parameters zodat meerdere uitvoeropties combineren.
+U kunt deze parameters voor het inschakelen van meerdere uitvoeropties combineren.
 
 ### <a name="rest-api"></a>REST-API
 
-Meer informatie over het [diagnostische instellingen wijzigen met behulp van de REST-API van Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
+Meer informatie over hoe u [diagnostische instellingen wijzigen met behulp van de Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
 
 ### <a name="resource-manager-template"></a>Resource Manager-sjabloon
 
-Meer informatie over het [diagnostische instellingen bij het maken van de resource inschakelen met behulp van een Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
+Meer informatie over hoe u [diagnostische instellingen bij het maken van resource inschakelen met behulp van Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
 
 ## <a name="stream-into-log-analytics"></a>Stream in Log Analytics 
-De logboeken van de metrische gegevens en diagnostische gegevens van de SQL-Database kunnen worden gestreamd naar logboekanalyse met behulp van de ingebouwde **verzenden met logboekanalyse** optie in de portal. U kunt Log Analytics inschakelen met behulp van een instelling diagnostische gegevens via PowerShell-cmdlets, de Azure CLI of de Monitor REST-API van Azure.
+De logboeken van de metrische gegevens en diagnostische gegevens van de SQL-Database kunnen worden gestreamd naar Log Analytics met behulp van de ingebouwde **verzenden naar Log Analytics** optie in de portal. U kunt ook Log Analytics inschakelen met behulp van een diagnostische instelling via PowerShell-cmdlets, de Azure CLI of de Azure Monitor REST API.
 
 ### <a name="installation-overview"></a>Installatie-overzicht
 
-Bewaking van een wagenpark SQL-Database is heel eenvoudig met logboekanalyse. Er zijn drie stappen vereist:
+Bewaking van de vloot van een SQL-Database is heel eenvoudig met Log Analytics. Er zijn drie stappen vereist:
 
-1. Maak een Log Analytics-resource.
+1. Een Log Analytics-resource maken.
 
-2. Configureer de databases in de record metrische gegevens en diagnostische logboeken in de Log Analytics-bron die u hebt gemaakt.
+2. Databases naar record metrische gegevens en diagnostische logboeken configureren in de Log Analytics-resource die u hebt gemaakt.
 
-3. Installeer de **Azure SQL Analytics** oplossing uit de galerie in logboekanalyse.
+3. Installeer de **Azure SQL Analytics** oplossing uit de galerie in Log Analytics.
 
 ### <a name="create-a-log-analytics-resource"></a>Een Log Analytics-resource maken
 
-1. Selecteer **maken van een resource** in het menu aan de linkerkant.
+1. Selecteer **een resource maken** in het menu aan de linkerkant.
 
-2. Selecteer **bewaking + Management**.
+2. Selecteer **bewaking en beheer**.
 
 3. Selecteer **Log Analytics**.
 
-4. Vul het formulier logboekanalyse met de aanvullende informatie die is vereist: werkruimtenaam, abonnement, resourcegroep, locatie en prijscategorie.
+4. Vul het formulier Log Analytics met de aanvullende informatie die is vereist: naam van de werkruimte, abonnement, resourcegroep, locatie en prijscategorie.
 
    ![Log Analytics](./media/sql-database-metrics-diag-logging/log-analytics.png)
 
-### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>In de record metrische gegevens en diagnostische logboeken-databases configureren
+### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Databases naar Logboeken voor records metrische en diagnostische gegevens configureren
 
-De eenvoudigste manier om te configureren waarin de hun metrische gegevens voor het registreren van databases is via de Azure portal. Ga naar de bron van de SQL-Database in de portal en selecteer **diagnostische instellingen**. 
+De eenvoudigste manier om te configureren waarin de hun metrische gegevens voor het registreren van databases is via de Azure-portal. In de portal, gaat u naar de resource van uw SQL-Database en selecteer **diagnostische instellingen**. 
 
-### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Installeer de SQL-Analytics-oplossing uit de galerie
+### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>De oplossing SQL Analytics installeren vanuit de galerie
 
-1. Nadat u de bron Log Analytics maakt en uw gegevens die in deze binnenkomen is, installeert u de SQL-Analytics-oplossing. Selecteer op de startpagina in het menu aan clientzijde **galerie met oplossingen**. Selecteer in de galerie, de **Azure SQL Analytics** oplossing en selecteer **toevoegen**.
+1. Nadat u de Log Analytics-resource maakt en uw gegevens worden doorgestuurd naar het, installeert u de oplossing SQL Analytics. Selecteer op de startpagina op het menu aan de **Oplossingengalerie**. Selecteer in de galerie, de **Azure SQL Analytics** oplossing en selecteer **toevoegen**.
 
-   ![oplossing voor controle](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
+   ![Oplossing voor controle](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. Op uw startpagina, de **Azure SQL Analytics** tegel wordt weergegeven. Selecteer deze tegel om de SQL-Analytics dashboard te openen.
+2. Op uw startpagina, de **Azure SQL Analytics** tegel wordt weergegeven. Selecteer deze tegel om de SQL Analytics-dashboard te openen.
 
-### <a name="use-the-sql-analytics-solution"></a>Gebruik de SQL-Analytics-oplossing
+### <a name="use-the-sql-analytics-solution"></a>De oplossing SQL Analytics gebruiken
 
-SQL-Analytics is een hiërarchische dashboard waarmee u de hiërarchie van SQL Database-resources te doorlopen. Zie voor meer informatie over het gebruik van de SQL-Analytics-oplossing, [Monitor SQL-Database met behulp van de SQL-Analytics-oplossing](../log-analytics/log-analytics-azure-sql.md).
+SQL-analyse is een hiërarchische dashboard waarmee u de hiërarchie van SQL Database-resources te doorlopen. Zie voor meer informatie over het gebruik van de oplossing SQL Analytics, [SQL-Database controleren met behulp van de oplossing SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="stream-into-event-hubs"></a>Stream in Event Hubs
+## <a name="stream-into-event-hubs"></a>Stream naar Eventhubs
 
-De logboeken van de metrische gegevens en diagnostische gegevens van de SQL-Database kunnen worden gestreamd naar Event Hubs met behulp van de ingebouwde **Stream naar een event hub** optie in de portal. U kunt de regel-ID van Service Bus ook inschakelen met behulp van een instelling diagnostische gegevens via PowerShell-cmdlets, de Azure CLI of de Monitor REST-API van Azure. 
+De logboeken van de metrische gegevens en diagnostische gegevens van de SQL-Database kunnen worden gestreamd naar Event Hubs met behulp van de ingebouwde **Stream naar een event hub** optie in de portal. U kunt de regel-ID van Service Bus ook inschakelen met behulp van een diagnostische instelling via PowerShell-cmdlets, de Azure CLI of de Azure Monitor REST API. 
 
-### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Wat te doen met metrische gegevens en diagnostische gegevens geregistreerd in Event Hubs
-Wanneer de geselecteerde gegevens gestreamd in Event Hubs, bent u een stap dichter in geavanceerde bewakingsscenario's inschakelen. Event Hubs fungeert als de deur van een gebeurtenispijplijn. Nadat de gegevens worden verzameld in een event hub, kan deze worden omgezet en opgeslagen met behulp van een realtime-analyseprovider of batchverwerking/opslagadapters. Event Hubs worden losgekoppeld van de productie van een stream van gebeurtenissen van het gebruik van deze gebeurtenissen. Op deze manier gebeurtenisconsumers toegang tot de gebeurtenissen op basis van hun eigen planning. Zie voor meer informatie over Event Hubs:
+### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Wat te doen met metrische en diagnostische gegevens in Event Hubs-Logboeken
+Nadat u de geselecteerde gegevens worden gestreamd naar Event Hubs, bent u een stapje dichter bij het inschakelen van geavanceerde bewakingsscenario's. Eventhubs fungeert als de voordeur van een gebeurtenispijplijn. Nadat gegevens zijn verzameld in een event hub, kan worden omgezet en opgeslagen met behulp van elke gewenste realtime analyseprovider of batching/opslagadapters. Eventhubs worden losgekoppeld van de productie van een stroom gebeurtenissen van het gebruik van deze gebeurtenissen. Op deze manier kunnen gebeurtenisconsumers toegang tot de gebeurtenissen op hun eigen planning. Zie voor meer informatie over Event Hubs:
 
-- [Wat is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Wat zijn Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 
-Hier volgen enkele manieren waarop u de mogelijkheid streaming mogelijk gebruiken:
+Hier volgen enkele manieren waarop u de streaming-mogelijkheden kan gebruiken:
 
-* **Servicestatus weergeven door het streamen van gegevens met Power BI hot pad**. U kunt eenvoudig uw metrische gegevens en diagnostische gegevens in bijna realtime-inzichten aan uw Azure-services met behulp van Event Hubs, Stream Analytics en Power BI, transformeren. Zie voor een overzicht van het instellen van een event hub, gegevens over het installatieproces met Stream Analytics en gebruik Power BI als uitvoer gebruikt, [Stream Analytics en Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
+* **Servicestatus weergeven door het streamen van gegevens naar Power BI hot pad**. Met behulp van Event Hubs, Stream Analytics en Power BI, kunt u eenvoudig uw metrische gegevens en diagnostische gegevens in bijna realtime inzichten in uw Azure-services te transformeren. Zie voor een overzicht van het instellen van een event hub, gegevens verwerken met Stream Analytics, en gebruik Power BI als uitvoer, [Stream Analytics en Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
 
-* **Logboeken naar derden logboekregistratie en telemetrie stromen stream**. Met behulp van streaming van Event Hubs, kunt u uw metrische gegevens en diagnostische logboeken in andere oplossingen van derden bewaking en log analytics ophalen. 
+* **Stream logboeken naar derden logboekregistratie en telemetrie stromen**. Met behulp van Event Hubs streamen, krijgt u uw logboeken metrische en diagnostische gegevens in verschillende oplossingen van derden controleren en log analytics. 
 
-* **Maken van een aangepaste Telemetrie en logboekregistratie platform**. Als u al hebt een op maat gemaakte telemetrie-platform of overweegt een bouwen, zeer schaalbare voor publiceren / abonneren aard van Event Hubs kunt u logboeken met diagnostische gegevens flexibel opnemen. Zie [Dan Rosanova van handleiding voor het gebruik van Event Hubs in een platform wereldwijde schaal telemetrie](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+* **Een aangepaste Telemetrie-en logboekregistratie platform**. Als u al beschikken over een platform op maat gemaakte telemetrie of van plan bent te maken van een, de zeer schaalbare publish-subscribe aard van Event Hubs kunt u logboeken met diagnostische gegevens flexibel opnemen. Zie [Dan Rosanova van handleiding voor het gebruik van Event Hubs in een wereldwijde schaal telemetrie-platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-## <a name="stream-into-storage"></a>Gegevensstroom naar de opslag
+## <a name="stream-into-storage"></a>Stream naar Storage
 
-De logboeken van de metrische gegevens en diagnostische gegevens van de SQL-Database kunnen worden opgeslagen in de opslag met behulp van de ingebouwde **archiveren naar een opslagaccount** optie in de portal. U kunt ook de opslag via een instelling diagnostische gegevens via PowerShell-cmdlets, de Azure CLI of de Monitor REST-API van Azure inschakelen.
+De logboeken van de metrische gegevens en diagnostische gegevens van de SQL-Database kunnen worden opgeslagen in opslag met behulp van de ingebouwde **archiveren naar een opslagaccount** optie in de portal. U kunt ook Storage inschakelen met behulp van een diagnostische instelling via PowerShell-cmdlets, de Azure CLI of de Azure Monitor REST API.
 
-### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>Schema van de metrische gegevens en diagnostische gegevens geregistreerd in het opslagaccount
+### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>Registreert het schema van de metrische en diagnostische gegevens in het storage-account
 
-Na het instellen van de metrische gegevens en diagnostische gegevens verzamelen van Logboeken, wordt een storage-container gemaakt in het opslagaccount dat u hebt geselecteerd tijdens de eerste rijen van de gegevens beschikbaar zijn. De structuur van deze BLOB's is:
+Na het instellen van metrische gegevens en diagnostische gegevens over het verzamelen van Logboeken, wordt een storage-container gemaakt in het opslagaccount dat u hebt geselecteerd tijdens de eerste rijen met gegevens beschikbaar zijn. De structuur van deze blobs is:
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ databases/{database_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
     
-Of gewoon meer:
+Of eenvoudiger gezegd:
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Bijvoorbeeld, een blobnaam voor alle metrische gegevens mogelijk:
+Bijvoorbeeld, kan een blobnaam voor alle metrische gegevens zijn:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 ```
 
-Als u vastleggen van de gegevens uit de elastische groep wilt, is de blobnaam van de iets anders:
+Als u wilt om vast te leggen van de gegevens van de elastische pool, is de blobnaam van de is iets anders:
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
@@ -254,7 +255,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="download-metrics-and-logs-from-storage"></a>Metrische gegevens en logboeken downloaden uit Storage
 
-Meer informatie over hoe [metrische gegevens en diagnostische logboeken downloaden uit Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
+Meer informatie over het [metrische en diagnostische gegevens logboeken downloaden uit Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="metrics-and-logs-available"></a>Metrische gegevens en logboeken beschikbaar
 
@@ -262,8 +263,8 @@ Meer informatie over hoe [metrische gegevens en diagnostische logboeken download
 
 |**Resource**|**Metrische gegevens**|
 |---|---|
-|Database|DTU-percentage DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens gelezen percentage, logboek schrijven percentage, mislukt-geslaagd/geblokkeerd door de firewall-verbindingen, sessies percentage, werknemers percentage, opslag, opslagpercentage, XTP-opslagpercentage, en impassen |
-|Elastische groep|percentage van de eDTU, eDTU gebruikt, eDTU limiet, CPU-percentage, fysieke gegevens gelezen percentage, logboek schrijven percentage, sessies percentage, werknemers percentage, opslag, opslagpercentage, opslaglimiet bereikt, XTP-opslagpercentage |
+|Database|DTU-percentage, DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, percentage van XTP-opslag, en impassen |
+|Elastische groep|eDTU-percentage, eDTU gebruikt, eDTU-limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag, XTP-opslagpercentage |
 |||
 
 ### <a name="query-store-runtime-statistics"></a>Query Store runtime-statistieken
@@ -272,36 +273,36 @@ Meer informatie over hoe [metrische gegevens en diagnostische logboeken download
 |---|---|
 |TenantId|Uw tenant-ID.|
 |SourceSystem|Altijd: Azure|
-|TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
+|TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
+|ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: QueryStoreRuntimeStatistics|
 |OperationName|Naam van de bewerking. Altijd: QueryStoreRuntimeStatisticsEvent|
-|Resource|De naam van de resource.|
-|ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
-|SubscriptionId|Abonnement-GUID die de database behoort.|
-|ResourceGroup|Naam van de resourcegroep die de database behoort.|
+|Resource|Naam van de resource.|
+|ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
+|SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
+|ResourceGroup|De naam van de resourcegroep die de database behoort.|
 |LogicalServerName_s|De naam van de server die de database behoort.|
-|ElasticPoolName_s|Naam van de elastische groep waartoe de database behoort, indien van toepassing.|
-|DatabaseName_s|De naam van de database.|
+|ElasticPoolName_s|De naam van de elastische groep die de database deel uitmaakt, indien van toepassing.|
+|DatabaseName_s|Naam van de database.|
 |ResourceId|Resource-URI.|
 |query_hash_s|Query uitvoeren op hash.|
-|query_plan_hash_s|Query-hash, plan.|
-|statement_sql_handle_s|Instructie sql-ingang.|
-|interval_start_time_d|Start datetimeoffset van het interval in aantal ticks van 1900-1-1.|
-|interval_end_time_d|Beëindigen datetimeoffset van het aantal maatstreepjes van 1900-1-1-interval.|
+|query_plan_hash_s|Queryhash-plan.|
+|statement_sql_handle_s|Overzicht sql-ingang.|
+|interval_start_time_d|Start datetimeoffset van het interval in aantal tikken vanaf 1900-1-1.|
+|interval_end_time_d|Einde datetimeoffset van het aantal tikken vanaf 1900-1-1-interval.|
 |logical_io_writes_d|Totaal aantal logische i/o-schrijfbewerkingen.|
-|max_logical_io_writes_d|Maximumaantal logische IO schrijft per uitvoering.|
+|max_logical_io_writes_d|Maximumaantal logische i/o-schrijfbewerkingen per uitvoering.|
 |physical_io_reads_d|Totaal aantal fysieke i/o-leesbewerkingen.|
-|max_physical_io_reads_d|Maximumaantal logische IO gelezen per uitvoering.|
+|max_physical_io_reads_d|Maximumaantal logische i/o-leesbewerkingen per uitvoering.|
 |logical_io_reads_d|Totaal aantal logische i/o-leesbewerkingen.|
-|max_logical_io_reads_d|Maximumaantal logische IO gelezen per uitvoering.|
-|execution_type_d|Type van de uitvoering.|
+|max_logical_io_reads_d|Maximumaantal logische i/o-leesbewerkingen per uitvoering.|
+|execution_type_d|Uitvoering van het type.|
 |count_executions_d|Het aantal uitvoeringen van de query.|
 |cpu_time_d|Totale CPU-tijd gebruikt door de query in microseconden.|
-|max_cpu_time_d|Max CPU tijd consument door één uitvoering in microseconden.|
-|dop_d|De som van de mate van parallelle uitvoering.|
-|max_dop_d|Maximale mate van parallelle uitvoering gebruikt voor één uitvoering.|
+|max_cpu_time_d|Maximaal CPU tijd consumenten door één uitvoering in microseconden.|
+|dop_d|Som van de mate van parallelle uitvoering.|
+|max_dop_d|Maximale graad van parallelle uitvoering voor één uitvoering gebruikt.|
 |rowcount_d|Totaal aantal rijen dat wordt geretourneerd.|
 |max_rowcount_d|Maximumaantal rijen dat wordt geretourneerd in één uitvoering.|
 |query_max_used_memory_d|Totale hoeveelheid geheugen die wordt gebruikt in KB.|
@@ -309,13 +310,13 @@ Meer informatie over hoe [metrische gegevens en diagnostische logboeken download
 |duration_d|Totale uitvoeringstijd in microseconden.|
 |max_duration_d|Maximale uitvoeringstijd van één uitvoering.|
 |num_physical_io_reads_d|Totaal aantal fysieke leesbewerkingen.|
-|max_num_physical_io_reads_d|Max.aantal fysieke leesbewerkingen per uitvoering.|
-|log_bytes_used_d|Totale hoeveelheid logboek bytes dat wordt gebruikt.|
-|max_log_bytes_used_d|Maximale hoeveelheid logboek bytes per uitvoering gebruikt.|
+|max_num_physical_io_reads_d|Maximumaantal fysieke leesbewerkingen per uitvoering.|
+|log_bytes_used_d|Totale hoeveelheid log bytes dat wordt gebruikt.|
+|max_log_bytes_used_d|Maximale hoeveelheid log bytes per uitvoering gebruikt.|
 |query_id_d|ID van de query in Query Store.|
 |plan_id_d|ID van het plan in Query Store.|
 
-Meer informatie over [gegevens Query Store runtime-statistieken](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Meer informatie over [gegevens voor Query Store runtime-statistieken](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Query Store wacht statistieken
 
@@ -323,64 +324,64 @@ Meer informatie over [gegevens Query Store runtime-statistieken](https://docs.mi
 |---|---|
 |TenantId|Uw tenant-ID.|
 |SourceSystem|Altijd: Azure|
-|TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
+|TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
+|ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: QueryStoreWaitStatistics|
 |OperationName|Naam van de bewerking. Altijd: QueryStoreWaitStatisticsEvent|
 |Resource|De naam van de resource|
-|ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
-|SubscriptionId|Abonnement-GUID die de database behoort.|
-|ResourceGroup|Naam van de resourcegroep die de database behoort.|
+|ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
+|SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
+|ResourceGroup|De naam van de resourcegroep die de database behoort.|
 |LogicalServerName_s|De naam van de server die de database behoort.|
-|ElasticPoolName_s|Naam van de elastische groep waartoe de database behoort, indien van toepassing.|
-|DatabaseName_s|De naam van de database.|
+|ElasticPoolName_s|De naam van de elastische groep die de database deel uitmaakt, indien van toepassing.|
+|DatabaseName_s|Naam van de database.|
 |ResourceId|Resource-URI.|
 |wait_category_s|De categorie van de wachttijd.|
 |is_parameterizable_s|Is de query worden gebruikt als parameter.|
-|statement_type_s|Type van de instructie.|
-|statement_key_hash_s|Hash van de sleutel van de instructie.|
-|exec_type_d|Type van de uitvoering.|
-|total_query_wait_time_ms_d|Totale wachttijd van de query op de specifieke wait-categorie.|
-|max_query_wait_time_ms_d|Maximale wachttijd van de query in afzonderlijke uitvoering in de categorie specifieke wacht.|
+|statement_type_s|Het type van de instructie.|
+|statement_key_hash_s|Instructie sleutel-hash.|
+|exec_type_d|Het type kan worden uitgevoerd.|
+|total_query_wait_time_ms_d|De totale wachttijd van de query op de specifieke wait-categorie.|
+|max_query_wait_time_ms_d|Maximale wachttijd van de query in afzonderlijke uitvoering in de categorie specifieke wachten.|
 |query_param_type_d|0|
-|query_hash_s|Query uitvoeren op de hash in Query Store.|
-|query_plan_hash_s|Query plan hash in Query Store.|
-|statement_sql_handle_s|Instructie-ingang in Query Store.|
-|interval_start_time_d|Start datetimeoffset van het interval in aantal ticks van 1900-1-1.|
-|interval_end_time_d|Beëindigen datetimeoffset van het aantal maatstreepjes van 1900-1-1-interval.|
+|query_hash_s|Query uitvoeren op hash in Query Store.|
+|query_plan_hash_s|Queryhash-plan in Query Store.|
+|statement_sql_handle_s|Ingang voor de instructie in Query Store.|
+|interval_start_time_d|Start datetimeoffset van het interval in aantal tikken vanaf 1900-1-1.|
+|interval_end_time_d|Einde datetimeoffset van het aantal tikken vanaf 1900-1-1-interval.|
 |count_executions_d|Het aantal uitvoeringen van de query.|
 |query_id_d|ID van de query in Query Store.|
 |plan_id_d|ID van het plan in Query Store.|
 
 Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
-### <a name="errors-dataset"></a>De dataset fouten
+### <a name="errors-dataset"></a>Gegevensset voor fouten
 
 |Eigenschap|Beschrijving|
 |---|---|
 |TenantId|Uw tenant-ID.|
 |SourceSystem|Altijd: Azure|
-|TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
+|TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
+|ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: fouten|
 |OperationName|Naam van de bewerking. Altijd: ErrorEvent|
 |Resource|De naam van de resource|
-|ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
-|SubscriptionId|Abonnement-GUID die de database behoort.|
-|ResourceGroup|Naam van de resourcegroep die de database behoort.|
+|ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
+|SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
+|ResourceGroup|De naam van de resourcegroep die de database behoort.|
 |LogicalServerName_s|De naam van de server die de database behoort.|
-|ElasticPoolName_s|Naam van de elastische groep waartoe de database behoort, indien van toepassing.|
-|DatabaseName_s|De naam van de database.|
+|ElasticPoolName_s|De naam van de elastische groep die de database deel uitmaakt, indien van toepassing.|
+|DatabaseName_s|Naam van de database.|
 |ResourceId|Resource-URI.|
 |Bericht|Foutbericht als tekst zonder opmaak.|
-|user_defined_b|De gebruiker gedefinieerde fout bit is.|
+|user_defined_b|De gebruiker gedefinieerde fout bits is.|
 |error_number_d|Foutcode.|
 |Severity|Ernst van de fout.|
 |state_d|Status van de fout.|
-|query_hash_s|Query-hash van de mislukte query, indien beschikbaar.|
-|query_plan_hash_s|Query plan hash van de mislukte query, indien beschikbaar.|
+|query_hash_s|Queryhash van de mislukte query, indien beschikbaar.|
+|query_plan_hash_s|Query-plan-hash van de mislukte query, indien beschikbaar.|
 
 Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/library/cc645603.aspx).
 
@@ -390,26 +391,26 @@ Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/libra
 |---|---|
 |TenantId|Uw tenant-ID.|
 |SourceSystem|Altijd: Azure|
-|TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
+|TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
+|ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: DatabaseWaitStatistics|
 |OperationName|Naam van de bewerking. Altijd: DatabaseWaitStatisticsEvent|
 |Resource|De naam van de resource|
-|ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
-|SubscriptionId|Abonnement-GUID die de database behoort.|
-|ResourceGroup|Naam van de resourcegroep die de database behoort.|
+|ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
+|SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
+|ResourceGroup|De naam van de resourcegroep die de database behoort.|
 |LogicalServerName_s|De naam van de server die de database behoort.|
-|ElasticPoolName_s|Naam van de elastische groep waartoe de database behoort, indien van toepassing.|
-|DatabaseName_s|De naam van de database.|
+|ElasticPoolName_s|De naam van de elastische groep die de database deel uitmaakt, indien van toepassing.|
+|DatabaseName_s|Naam van de database.|
 |ResourceId|Resource-URI.|
-|wait_type_s|De naam van het type wacht.|
-|start_utc_date_t [UTC]|Begintijd van de periode wordt gemeten.|
+|wait_type_s|Naam van het type wachten.|
+|start_utc_date_t [UTC]|Begintijd van de periode tijd wordt gemeten.|
 |end_utc_date_t [UTC]|Einde van de periode tijd wordt gemeten.|
-|delta_max_wait_time_ms_d|Maximale tijd per uitvoering gewacht|
+|delta_max_wait_time_ms_d|Maximum aantal keer per uitvoering gewacht|
 |delta_signal_wait_time_ms_d|Totaal aantal signaal wachttijd.|
-|delta_wait_time_ms_d|Totale wachttijd in de periode.|
-|delta_waiting_tasks_count_d|Het aantal taken dat wachten.|
+|delta_wait_time_ms_d|De totale wachttijd in de periode.|
+|delta_waiting_tasks_count_d|Het aantal taken wachten.|
 
 Meer informatie over [wacht statistieken van de database](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
@@ -419,22 +420,22 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |---|---|
 |TenantId|Uw tenant-ID.|
 |SourceSystem|Altijd: Azure|
-|TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
+|TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
+|ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: time-outs|
 |OperationName|Naam van de bewerking. Altijd: TimeoutEvent|
 |Resource|De naam van de resource|
-|ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
-|SubscriptionId|Abonnement-GUID die de database behoort.|
-|ResourceGroup|Naam van de resourcegroep die de database behoort.|
+|ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
+|SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
+|ResourceGroup|De naam van de resourcegroep die de database behoort.|
 |LogicalServerName_s|De naam van de server die de database behoort.|
-|ElasticPoolName_s|Naam van de elastische groep waartoe de database behoort, indien van toepassing.|
-|DatabaseName_s|De naam van de database.|
+|ElasticPoolName_s|De naam van de elastische groep die de database deel uitmaakt, indien van toepassing.|
+|DatabaseName_s|Naam van de database.|
 |ResourceId|Resource-URI.|
 |error_state_d|Status van foutcode.|
 |query_hash_s|Query-hash, indien beschikbaar.|
-|query_plan_hash_s|Query-hash plan, indien beschikbaar.|
+|query_plan_hash_s|Query uitvoeren op hash van de planning, indien beschikbaar.|
 
 ### <a name="blockings-dataset"></a>Blockings gegevensset
 
@@ -442,37 +443,37 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |---|---|
 |TenantId|Uw tenant-ID.|
 |SourceSystem|Altijd: Azure|
-|TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
+|TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
+|ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: blokken|
 |OperationName|Naam van de bewerking. Altijd: BlockEvent|
 |Resource|De naam van de resource|
-|ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
-|SubscriptionId|Abonnement-GUID die de database behoort.|
-|ResourceGroup|Naam van de resourcegroep die de database behoort.|
+|ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
+|SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
+|ResourceGroup|De naam van de resourcegroep die de database behoort.|
 |LogicalServerName_s|De naam van de server die de database behoort.|
-|ElasticPoolName_s|Naam van de elastische groep waartoe de database behoort, indien van toepassing.|
-|DatabaseName_s|De naam van de database.|
+|ElasticPoolName_s|De naam van de elastische groep die de database deel uitmaakt, indien van toepassing.|
+|DatabaseName_s|Naam van de database.|
 |ResourceId|Resource-URI.|
-|lock_mode_s|Vergrendelingsmodus wordt gebruikt door de query.|
+|lock_mode_s|LOCK-modus gebruikt door de query.|
 |resource_owner_type_s|Eigenaar van de vergrendeling.|
 |blocked_process_filtered_s|Proces rapport XML geblokkeerd.|
-|duration_d|Duur van de vergrendeling in microseconden.|
+|duration_d|De duur van de vergrendeling in microseconden.|
 
-### <a name="intelligent-insights-dataset"></a>Intelligent Insights gegevensset
-Meer informatie over de [Intelligent Insights logboekindeling](sql-database-intelligent-insights-use-diagnostics-log.md).
+### <a name="intelligent-insights-dataset"></a>Intelligent Insights-gegevensset
+Meer informatie over de [Intelligent Insights-logboekindeling](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor informatie over het inschakelen van logboekregistratie en begrijpen van de metrische gegevens en logboekbestanden categorieën ondersteund door de verschillende Azure-services, lezen:
+Voor meer informatie over het inschakelen van logboekregistratie en begrijpen van de metrische gegevens en logboekbestanden categorieën ondersteund door de verschillende Azure-services, lezen:
 
  * [Overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
- * [Overzicht van Azure diagnostics-Logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+ * [Overzicht van diagnostische logboeken van Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
 
 Voor meer informatie over Event Hubs, lezen:
 
 * [Wat is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-Zie voor meer informatie over opslag, hoe [metrische gegevens en diagnostische logboeken downloaden uit Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
+Zie voor meer informatie over opslag, hoe u [metrische en diagnostische gegevens logboeken downloaden uit Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

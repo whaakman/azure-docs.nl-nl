@@ -1,6 +1,6 @@
 ---
-title: Met behulp van een lijst van de wachtwoordzin op te geven voor het verbeteren van LUIS voorspellingen - Azure zelfstudie | Microsoft Docs
-description: In deze zelfstudie maakt een woordgroepenlijst toevoegen aan een app LUIS en het verbeteren van de score zien.
+title: Zelfstudie over het gebruiken van een lijst zin voor het verbeteren van LUIS voorspellingen - Azure | Microsoft Docs
+description: In deze zelfstudie een woordgroepenlijst toevoegen aan een LUIS-app en het verbeteren van de score te zien.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,44 +9,44 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: feb8acb674fd2dc62b62c26da6a6b42515f30242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 9f12d9e8c9ee2038e7841cd05bb438421a5a8984
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265968"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345342"
 ---
-# <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Zelfstudie: Woordgroepenlijst ter verbetering van de voorspellingen toevoegen
-In deze zelfstudie, de nauwkeurigheid van opzet scores verbeteren en identificeren van entiteiten voor de woorden die dezelfde betekenis (synoniemen hebben) door het toevoegen van een verwisselbaar [woordgroep lijstfunctie](./luis-concept-feature.md).
+# <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Zelfstudie: Woordgroepenlijst ter verbetering van voorspellingen toevoegen
+In deze zelfstudie, de nauwkeurigheid van intentie scores verbeteren en identificeren van entiteiten voor woorden die beschikken over dezelfde betekenis (synoniemen) met het toevoegen van een verwisselbaar [woordgroep lijstfunctie](./luis-concept-feature.md).
 
 > [!div class="checklist"]
 * Een nieuwe app importeren  
-* Query-eindpunt met bekende utterance 
+* Query-eindpunt met de bekende utterance 
 * Query-eindpunt met _onbekende_ utterance
-* Lijst van de wachtwoordzin op te geven ter verbetering van de onbekende utterance score toevoegen
-* Controleer of de entiteit wordt gevonden wanneer met behulp van woordgroepenlijst
+* Woordgroepenlijst met ter verbetering van onbekende utterance score toevoegen
+* Controleer of de entiteit is gevonden bij het gebruik van de woordgroepenlijst met
 
-Voor dit artikel, moet u een gratis [LUIS] [ LUIS] account om uw toepassing LUIS ontwerpen.
+Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
 
 ## <a name="import-a-new-app"></a>Een nieuwe app importeren
-1. Download de [voorbeeld LUIS app] [ LuisSampleApp] die ontworpen voor deze zelfstudie. U gebruikt deze in de volgende stap. 
+1. Download de [voorbeeld LUIS-app] [ LuisSampleApp] dat ontworpen voor deze zelfstudie. U gebruikt deze in de volgende stap. 
 
-2. Zoals beschreven in [maken van een app](Create-new-app.md#import-new-app), importeer het bestand dat u gedownload naar de [LUIS] [ LUIS] website als een nieuwe app. De appnaam van de is 'Mijn woordgroepenlijst zelfstudie'. Intents en entiteiten utterances heeft. 
+2. Zoals beschreven in [maken van een app](Create-new-app.md#import-new-app), importeert u het bestand dat u hebt gedownload in de [LUIS] [ LUIS] website als een nieuwe app. Naam van de app is 'Mijn woordgroepenlijst zelfstudie'. Intenties en entiteiten uitingen heeft. 
 
 3. [Train](luis-how-to-train.md) uw app. Totdat deze is getraind, u kunt geen [interactief testen](interactive-test.md#interactive-testing) in de [LUIS] [ LUIS] website. 
 
-4. Op de [publiceren](PublishApp.md) pagina de **opnemen alle voorspelde scores opzet** selectievakje. Wanneer het selectievakje is ingeschakeld, worden alle intents geretourneerd. Wanneer het selectievakje is uitgeschakeld, wordt alleen de bovenste bedoeling geretourneerd. 
+4. Op de [publiceren](luis-how-to-publish-app.md) weergeeft, schakelt de **inclusief alle voorspelde scores intentie** selectievakje. Als het selectievakje is ingeschakeld, worden alle intents worden geretourneerd. Wanneer het selectievakje is uitgeschakeld, wordt alleen het belangrijkste doel geretourneerd. 
 
-5. [Publiceren](PublishApp.md) de app. De app publiceert, kunt u testen met behulp van het HTTPS-eindpunt. 
+5. [Publiceren](luis-how-to-publish-app.md) de app. De app publiceert, kunt u om dit te testen met behulp van het HTTPS-eindpunt. 
 
-## <a name="test-a-trained-utterance"></a>Een getraind utterance testen
-Gebruik het gepubliceerde eindpunt query uitvoeren op een utterance dat de app al kent. Omdat LUIS al de utterance kent, de score is hoog en de entiteit wordt gedetecteerd.
+## <a name="test-a-trained-utterance"></a>Testen van een getraind utterance
+Het gepubliceerde-eindpunt gebruiken om op te vragen een utterance die de app al kent. Omdat LUIS al de utterance kent, de score is hoog en de entiteit wordt gedetecteerd.
 
 1. Op de [Language Understanding (LUIS)] [ LUIS] website op de **publiceren** pagina voor de nieuwe app, selecteert u de eindpunt-URL in de **Resources en sleutels**sectie. 
 
     ![Publiceren van de eindpunt-URL](./media/luis-tutorial-interchangeable-phrase-list/luis-publish-url.png)
 
-2. Toevoegen aan het einde van de URL in de browser de volgende query na de `q=`.
+2. In de browser aan het einde van de URL toevoegen de volgende query uit na het `q=`.
 
     `I want a computer replacement`
 
@@ -93,25 +93,25 @@ Gebruik het gepubliceerde eindpunt query uitvoeren op een utterance dat de app a
     }
     ```
 
-    De opzet score van 0.973 en de score van de detectie van entiteit van 0.846 zijn hoog omdat de app is getraind met deze utterance. De utterance is in de app LUIS op de pagina opzet voor **GetHardware**. Tekst van de utterance, `computer`, wordt aangeduid als de **Hardware** entiteit. 
+    De intentie score van 0.973 en de score van de detectie van entiteit van 0.846 zijn hoge omdat de app is getraind met deze utterance. De utterance is in de LUIS-app op de intentie-pagina voor **GetHardware**. Tekst van de utterance `computer`, wordt aangeduid als de **Hardware** entiteit. 
     
-    |Status|Word| Opzet score | Entiteit score |
+    |Status|Word| Intentie score | Entiteit score |
     |--|--|--|--|
     |Getraind| gewenste | 0.973 | 0.846 |
     
     
 ## <a name="test-an-untrained-utterance"></a>Een ongetrainde utterance testen
-In de browser, gebruikt u hetzelfde gepubliceerde eindpunt aan query met een utterance die de app niet al bekend is:
+Gebruik hetzelfde gepubliceerde eindpunt aan query met een utterance waarmee de app niet al in de browser:
 
 `I require a computer replacement`
 
 Deze utterance maakt gebruik van een synoniem van de vorige utterance:
 
-| Getraind word | Ongetrainde synoniem |
+| Getrainde word | Ongetrainde synoniem |
 |--|--|
-| gewenste | Vereisen |
+| gewenste | vereisen |
 
-Het antwoord van het eindpunt is:
+De eindpunt-antwoord is:
 
 ```JSON
 {
@@ -146,61 +146,61 @@ Het antwoord van het eindpunt is:
 }
 ```
 
-| Status | Word | Opzet score | Entiteit score |
+| Status | Word | Intentie score | Entiteit score |
 |--|--|--|--|
 | Getraind| gewenste | 0.973 | 0.846 |
-| Ongetrainde| Vereisen | 0.840 | - |
+| Ongetrainde| vereisen | 0.840 | - |
 
-De opzet score ongetrainde utterance is lager dan die van de gelabelde utterance omdat LUIS weet dat de zin grammaticaal hetzelfde is. Maar LUIS niet weet dat de utterances dezelfde betekenis hebben. Ook zonder de woordgroepenlijst de **Hardware** entiteit is niet gevonden.
+De intentie score ongetrainde utterance is lager dan die van de gelabelde utterance omdat LUIS weet dat de zin grammaticaal hetzelfde is. Maar LUIS niet weet dat de uitingen dezelfde betekenis hebben. Ook, zonder de woordgroepenlijst de **Hardware** entiteit is niet gevonden.
 
-U moet leren gebruiken LUIS die *wilt* en *vereisen* dezelfde betekenis in dit app domain omdat een woord kan meer dan één betekenis hebben. 
+U moet LUIS die leren *wilt* en *vereisen* dezelfde betekenis in het domein van deze app omdat een woord kan meer dan één betekenis hebben. 
 
 ## <a name="improve-the-score-of-untrained-utterance-with-phrase-list"></a>De score van ongetrainde utterance woordgroep lijst verbeteren 
-1. Voeg een [woordgroepenlijst](luis-how-to-add-features.md) functie **wilt** met de waarde van `want`, en selecteer vervolgens **Enter**.
+1. Voeg een [woordgroepenlijst](luis-how-to-add-features.md) functie met de naam **wilt** met de waarde van `want`, en selecteer vervolgens **Enter**.
 
     > [!TIP]
-    > Elk woord of woordgroep, selecteer de **Enter** sleutel. Het woord of zinsdeel wordt toegevoegd aan de **woorden lijstwaarden** vak terwijl de cursor blijft de **waarde** vak. U kunt meerdere waarden snel met deze functie kunt invoeren.
+    > Elke woord of woordgroep, selecteer de **Enter** sleutel. Het woord of woordgroep wordt toegevoegd aan de **woordgroep lijstwaarden** vak terwijl de cursor blijft de **waarde** vak. U kunt veel waarden snel met deze functie kunt invoeren.
 
-2. Als u wilt de woorden die LUIS aanbeveelt weergeven, selecteert u **raden**. 
+2. Als u de woorden die LUIS wordt aanbevolen, selecteer **raden**. 
 
     ![Aanbevolen waarden](./media/luis-tutorial-interchangeable-phrase-list/recommend.png)
 
-3. De woorden toevoegen. Als `require` is niet in de aanbevolen lijst toevoegen als een vereiste waarde. 
+3. Alle woorden toevoegen. Als `require` is niet in de lijst met aanbevolen, dit toevoegen als een vereiste waarde. 
 
-4. Omdat deze woorden synoniemen, blijven de *uitwisselbaar* instelling en selecteer vervolgens **opslaan**.
+4. Omdat deze woorden synoniemen zijn, behouden de *uitwisselbaar* instellen en selecteer vervolgens **opslaan**.
 
-    ![De lijstwaarden woordgroep](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
+    ![Woordgroep lijstwaarden](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
-5. Selecteer in de bovenste navigatiebalk **trainen** voor het trainen van de app, maar deze niet publiceren. U hebt nu twee modellen. U kunt waarden in de twee modellen vergelijken.
+5. Selecteer in de bovenste navigatiebalk **trainen** met het trainen van de app, maar deze niet publiceren. U hebt nu twee modellen. U kunt waarden in de twee modellen kunt vergelijken.
 
 ## <a name="compare-the-phrase-list-model-to-the-published-model"></a>Het model woordgroep lijst naar de gepubliceerde model vergelijken
-In deze app is niet het gepubliceerde model getraind met de synoniemen. Alleen het momenteel bewerkte model bevat de woordgroep synoniemen. Met kunt u de modellen vergelijken [interactieve testen](interactive-test.md#interactive-testing). 
+In deze app, het gepubliceerde model niet is getraind met de synoniemen. Alleen het momenteel wordt bewerkt model bevat de woordgroepenlijst van synoniemen. Als u wilt vergelijken de modellen, gebruikt u [interactieve testen](interactive-test.md#interactive-testing). 
 
-1. Open de **Test** deelvenster en voer de volgende utterance:
+1. Open de **Test** in het deelvenster en voer de volgende utterance:
 
     `I require a computer replacement`
 
-2. De controle om Configuratiescherm te openen, selecteer **inspecteren**. 
+2. Selecteer om te openen in het deelvenster controle, **inspecteren**. 
 
     ![Selecteer controleren](./media/luis-tutorial-interchangeable-phrase-list/inspect-button.png)
 
-3. Als u wilt vergelijken in het gepubliceerde model naar het nieuwe model van de woordgroep-lijst, selecteert u **vergelijken met gepubliceerd**.
+3. Als u wilt vergelijken van het gepubliceerde model naar het nieuwe model van de woordgroep-lijst, selecteer **vergelijken met gepubliceerd**.
 
     ![Controleer ten opzichte van de huidige gepubliceerd](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
 
-Nadat u de woordgroepenlijst, de toegenomen nauwkeurigheid van de utterance toevoegen en de **Hardware** entiteit is gevonden. 
+Nadat u de woordgroepenlijst, de betere nauwkeurigheid van de utterance hebt toegevoegd en de **Hardware** entiteit is gevonden. 
 
-|Status | Lijst van de wachtwoordzin op te geven| Opzet score | Entiteit score |
+|Status | Woordgroepenlijst met| Intentie score | Entiteit score |
 |--|--|--|--|
 | Gepubliceerd | - | 0,84 | - |
-| Momenteel bewerken |✔| 0.92 | Hardware-entiteit geïdentificeerd |
+| Wordt bewerkt |✔| 0.92 | Hardware-entiteit geïdentificeerd |
 
 > [!TIP]
-> * Met behulp van [interactieve testen](interactive-test.md#interactive-testing), u kunt vergelijken met het gepubliceerde model om te trained wijzigingen die zijn aangebracht nadat u hebt gepubliceerd. 
-> * Met behulp van [eindpunt testen](PublishApp.md#test-your-published-endpoint-in-a-browser), kunt u de daadwerkelijke LUIS reactie JSON bekijken. 
+> * Met behulp van [interactieve testen](interactive-test.md#interactive-testing), kunt u vergelijken met het gepubliceerde model getrainde wijzigingen die zijn aangebracht nadat u hebt gepubliceerd. 
+> * Met behulp van [eindpunt testen](luis-how-to-publish-app.md#test-your-published-endpoint-in-a-browser), kunt u de daadwerkelijke reactie van LUIS JSON bekijken. 
 
-## <a name="get-the-entity-score-with-the-endpoint-test"></a>De score van de entiteit ophalen met de eindpunt-test
-Om de score entiteit weer te geven [publiceren van het model](PublishApp.md) en het eindpunt van een query. 
+## <a name="get-the-entity-score-with-the-endpoint-test"></a>De entiteit-score ophalen met de eindpunt-test
+Om de score entiteit weer te geven [publiceer het model](luis-how-to-publish-app.md) en het eindpunt op te vragen. 
 
 `I require a computer replacement`
 
@@ -245,21 +245,21 @@ Om de score entiteit weer te geven [publiceren van het model](PublishApp.md) en 
 }
 ```
 
-De **Hardware** entiteit toont een score van 0.595 met de lijst wachtwoordzin op te geven. Voordat u de woordgroepenlijst bestond, wordt de entiteit is niet gedetecteerd. 
+De **Hardware** entiteit bevat een score van 0.595 met de woordgroepenlijst met. Voordat u de woordgroepenlijst met bestond, wordt de entiteit is niet gevonden. 
 
-|Status | Lijst van de wachtwoordzin op te geven| Opzet score | Entiteit score |
+|Status | Woordgroepenlijst met| Intentie score | Entiteit score |
 |--|--|--|--|
 | Gepubliceerd | - | 0,84 | - |
-| Momenteel bewerken |✔| 0.92 | 0.595 |
+| Wordt bewerkt |✔| 0.92 | 0.595 |
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer deze niet langer nodig is, verwijdert u de app LUIS. Om dit te doen, selecteert u het menu drie punt (...) rechts van de naam van de app in de lijst met Apps, selecteer **verwijderen**. In het pop-updialoogvenster **app verwijderen?**, selecteer **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer hiervoor het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Utterance voorspelling met eindpunt query ophalen](luis-get-started-cs-get-intent.md)
+> [Voorspelling van utterance met eindpunt query ophalen](luis-get-started-cs-get-intent.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 [LuisFeatures]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature

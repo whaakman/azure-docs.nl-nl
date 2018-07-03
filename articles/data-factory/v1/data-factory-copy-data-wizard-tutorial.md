@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8407249ed56059f278f8e4f84a4466ab286a0c24
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c0823fa839df98fa81f42bfbb3f7cd2bec6d7c1a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178086"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054481"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "30178086"
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service gebruikt, welke nog een preview is, raadpleegt u de [zelfstudie kopieeractiviteit in de documentatie voor versie 2](../quickstart-create-data-factory-dot-net.md). 
+> Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u de [zelfstudie over kopieeractiviteiten](../quickstart-create-data-factory-dot-net.md). 
 
 
 Deze zelfstudie laat zien hoe u de **Wizard Kopiëren** kunt gebruiken om gegevens uit een Azure Blob-opslag te kopiëren naar een Azure SQL database. 
@@ -75,7 +75,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
    ![Startpagina van de gegevensfactory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>De wizard Kopiëren starten
-1. Klik op de blade Gegevensfactory op **Gegevens kopiëren [PREVIEW]** om de **wizard Kopiëren** te starten. 
+1. Klik op de blade Data Factory op **Gegevens kopiëren** om de **wizard Kopiëren** te starten. 
    
    > [!NOTE]
    > Als u ziet dat de webbrowser is vastgelopen bij Autoriseren..., schakelt u **Cookies van derden en sitegegevens blokkeren** in de browserinstellingen uit. U kunt deze instelling ook ingeschakeld laten en een uitzondering maken voor **login.microsoftonline.com**. Open de wizard vervolgens opnieuw.

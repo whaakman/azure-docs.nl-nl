@@ -1,5 +1,5 @@
 ---
-title: Azure Batch schrijffouten API | Azure Microsoft Docs
+title: Azure Batch transcriptie API | Azure Microsoft Docs
 description: Voorbeelden
 services: cognitive-services
 author: PanosPeriorellis
@@ -9,27 +9,27 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cf58f676be52aa16ce6de59c3566613c7ee9276d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084079"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346437"
 ---
-# <a name="batch-transcription"></a>Batch schrijffouten
+# <a name="batch-transcription"></a>Batchtranscriptie
 
-Batch schrijffouten is ideaal voor gebruiksvoorbeelden met grote hoeveelheden audio. Kan de ontwikkelaar wijst audio-bestanden en transcriptie teruggaan in asynchrone modus wordt uitgevoerd.
+Batch transcriptie is ideaal voor toepassingen met grote hoeveelheden audio. Hiermee kan de ontwikkelaar verwijzen naar audio bestanden, waarna transcripties in asynchrone modus wordt uitgevoerd.
 
-## <a name="batch-transcription-api"></a>Batch schrijffouten API
+## <a name="batch-transcription-api"></a>Batch transcriptie API
 
-De Batch-schrijffouten API maakt het bovenstaande scenario mogelijk. Asynchrone spraak naar tekst schrijffouten samen met aanvullende functies biedt.
+De Batch-transcriptie API maakt het bovenstaande scenario mogelijk. Het biedt asynchrone spraak naar tekst transcriptie samen met extra functies.
 
 > [!NOTE]
-> De Batch-schrijffouten API is ideaal voor aanroep van datacenters die doorgaans uren audio verzamelt. De API, Fire & vergeten achter gemakkelijk grote hoeveelheid geluidsopnamen transcriberen.
+> De Batch-transcriptie API is ideaal voor callcenters die meestal worden verzameld duizenden uur aan audio. De brand & vergeten filosofie van de API kunt gemakkelijk grote hoeveelheid audio-opnamen transcriberen.
 
 ### <a name="supported-formats"></a>Ondersteunde indelingen
 
-De Batch-schrijffouten API is erop gericht de de-facto voor alle offline aanroep center-gerelateerde scenario's en bieden ondersteuning voor alle gerelateerde indelingen. Momenteel ondersteunde indelingen:
+De Batch-transcriptie API is erop gericht de vermeldden voor alle offline call center-gerelateerde scenario's en bieden ondersteuning voor alle gerelateerde indelingen. Momenteel ondersteunde indelingen:
 
 Naam| Kanaal  |
 ----|----------|
@@ -38,7 +38,7 @@ MP3 |  Stereo  |
 wav |   Mono   |
 wav |  Stereo  |
 
-Voor de aansluiting audio gegevensstromen splitst Batch schrijffouten het kanaal linker- en tijdens de schrijffouten. De twee JSON-bestanden met het resultaat zijn elk gemaakt op basis van één kanaal. De tijdstempels per utterance inschakelen de ontwikkelaar de tekst van een geordende laatste maken. Het volgende JSON-voorbeeld ziet u de uitvoer van een kanaal.
+Voor stereo audiostreams, zal Batch transcriptie de linker- en -kanaal tijdens de transcriptie splitsen. De twee JSON-bestanden met het resultaat zijn alle gemaakt van één kanaal. De tijdstempels per utterance bieden de ontwikkelaar te maken van een geordende definitieve transcriptie. De volgende JSON-voorbeeld wordt de uitvoer van een kanaal.
 
 ```json
        {
@@ -56,11 +56,11 @@ Voor de aansluiting audio gegevensstromen splitst Batch schrijffouten het kanaal
 ```
 
 > [!NOTE]
-> De Batch-schrijffouten API maakt gebruik van een REST-service voor het aanvragen van transcriptie, hun status en de bijbehorende resultaten. Dit is gebaseerd op .NET en heeft geen externe afhankelijkheden. De volgende sectie wordt beschreven hoe deze wordt gebruikt.
+> De Batch-transcriptie API maakt gebruik van een REST-service voor het aanvragen van transcripties, hun status en de bijbehorende resultaten. De API kan worden gebruikt vanuit een willekeurige taal. De volgende sectie wordt beschreven hoe deze wordt gebruikt.
 
-## <a name="authorization-token"></a>Verificatietoken
+## <a name="authorization-token"></a>Autorisatietoken
 
-Als met alle functies van de Service Unified spraak, de gebruiker moet voor het maken van een abonnementssleutel van de [Azure-portal](https://portal.azure.com). Bovendien moet een API-sleutel moet worden verkregen via de Portal spraak. De stappen voor het genereren van een API-sleutel:
+Als met alle functies van de spraakherkenning Unified Service, de gebruiker moet te maken van een abonnementssleutel van de [Azure-portal](https://portal.azure.com). Bovendien moet een API-sleutel worden verkregen via de Portal van spraak. De stappen voor het genereren van een API-sleutel:
 
 1. Meld u aan bij https://customspeech.ai.
 
@@ -73,11 +73,11 @@ Als met alle functies van de Service Unified spraak, de gebruiker moet voor het 
 4. Kopieer en plak deze sleutel in de clientcode in het onderstaande voorbeeld.
 
 > [!NOTE]
-> Als u wilt gebruiken een aangepaste model wordt moet u de ID van het model te. Houd er rekening mee dat dit niet is de implementatie of de Endpoint-ID die zich in de detailweergave van het eindpunt, maar de model-ID die u ophalen kunt wanneer u de Details van dit model op
+> Als u van plan bent te gebruiken van een aangepast model vervolgens moet u de ID van dit model te. Houd er rekening mee dat dit niet is de implementatie of de eindpunt-ID die u op de detailweergave van het eindpunt, maar de model-ID die u ophalen vinden kunt wanneer u de Details van dit model op
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
-Maakt gebruik van de API is redelijk meteen doorsturen. De voorbeeldcode hieronder moet worden aangepast met een abonnementssleutel en een API-sleutel, wat op zijn beurt kan de ontwikkelaar een bearer-token verkrijgen als de volgende code codefragment bevat:
+Maakt gebruik van de API is redelijk eenvoudig. De voorbeeldcode hieronder moet worden aangepast met een abonnementssleutel en een API-sleutel, die op zijn beurt kan de ontwikkelaar een bearer-token, als het volgende codefragment laat zien:
 
 ```cs
     public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
@@ -94,7 +94,7 @@ Maakt gebruik van de API is redelijk meteen doorsturen. De voorbeeldcode hierond
         }
 ```
 
-Zodra het token is verkregen moet de ontwikkelaar van de door de SAS-Uri die verwijst naar het audiobestand schrijffouten vereisen. De rest van de code gewoon doorloopt de status en resultaten worden weergegeven.
+Zodra het token is verkregen moet de ontwikkelaar van de door de SAS-Uri die verwijst naar het audiobestand transcriptie vereisen. De rest van de code gewoon doorloopt de status en worden resultaten weergegeven.
 
 ```cs
    static async Task TranscribeAsync()
@@ -153,29 +153,29 @@ Zodra het token is verkregen moet de ontwikkelaar van de door de SAS-Uri die ver
 ```
 
 > [!NOTE]
-> De sleutel van het abonnement vermeld in het bovenstaande codefragment is de sleutel van de Speech(Preview) resource die u op Azure-portal maakt. Sleutels die worden opgehaald uit de bron van de aangepaste spraak Service werkt niet.
+> De abonnementssleutel die worden vermeld in het bovenstaande codefragment is de sleutel van de Speech(Preview)-resource die u in Azure portal maakt. Sleutels die zijn verkregen van de resource Custom Speech Service werkt niet.
 
 
-U ziet de asynchrone instellingen voor het publiceren van audio en schrijffouten status ontvangen. De client gemaakt is een NET Http-client. Er is een `PostTranscriptions` methode voor het verzenden van de details audiobestand en een `GetTranscriptions` methode om de resultaten te ontvangen. `PostTranscriptions` retourneert een ingang en `GetTranscriptions` methode is met behulp van deze koppeling te maken van een greep voor het verkrijgen van de status schrijffouten.
+U ziet de asynchrone instellingen voor het plaatsen van audio en transcriptie status ontvangen. De client die gemaakt is een .NET-Http-client. Er is een `PostTranscriptions` methode voor het verzenden van de details van de audio-bestand en een `GetTranscriptions` methode om de resultaten te ontvangen. `PostTranscriptions` retourneert een ingang en `GetTranscriptions` methode deze alias wordt gebruikt om te maken van een greep om op te halen van de status van de transcriptie.
 
-De huidige voorbeeldcode geeft geen aangepaste modellen. De service gebruikt de basislijn-modellen voor ze de bestanden. Als de gebruiker wil de modellen opgeven, een kan worden doorgegeven op dezelfde manier de modelIDs voor de acoustic en het taalmodel. 
+De huidige voorbeeldcode geeft geen aangepaste modellen. De service gebruikt de basislijn-modellen voor de bestanden te transcriberen. Als de gebruiker wil om op te geven van de modellen, kunt een doorgeven op dezelfde manier de modelIDs voor de akoestische en het taalmodel. 
 
-Als een niet wil basislijn gebruiken, moet een model-id's voor acoustic- en taalinstellingen modellen doorgeven.
+Als een niet wil basislijn gebruiken, moet een model-id's voor zowel akoestische en modellen doorgeven.
 
 > [!NOTE]
-> Voor de basislijn schrijffouten de gebruiker geen declareren van de eindpunten van de basislijn-modellen. Als de gebruiker wil gebruiken van aangepaste modellen hij zou moeten bieden hun eindpunten-id als de [voorbeeld](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Als de gebruiker wil een akoestisch baseline gebruiken met een model van de taal basislijn zou vervolgens hij alleen moeten declareren van het aangepaste model endpoint-ID. Intern ons systeem nagaan wat het partner-basislijn-model (het akoestisch of taal zijn) en gebruiken om te voldoen aan het verzoek schrijffouten.
+> Voor basislijn heeft transcriptie de gebruiker geen om aan te geven van de eindpunten van de basislijn-modellen. Als de gebruiker wil gebruiken van aangepaste modellen hij zou hebben voor hun eindpunten-id als de [voorbeeld](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Als de gebruiker wil een akoestisch basislijn gebruiken met een basislijn taalmodel zou hij alleen moeten declareren van het aangepaste model endpoint-ID. Ons systeem wordt intern achterhalen van de partner basislijn-model (niet het akoestisch of taal) en gebruikt deze om te voldoen aan het verzoek transcriptie.
 
 ### <a name="supported-storage"></a>Ondersteunde opslag
 
-De enige opslag ondersteund is momenteel Azure-blob.
+De enige opslag wordt ondersteund is momenteel Azure-blob.
 
 ## <a name="downloading-the-sample"></a>Het voorbeeld downloaden
 
-Het voorbeeld dat hier weergegeven is op [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Het voorbeeld dat hier wordt weergegeven is op [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Een audio schrijffouten is doorgaans een tijdsspanne gelijk zijn aan de duur van het audiobestand plus een minuut 2-3-overhead.
+> Een audiotranscriptie is doorgaans een tijdspanne gelijk zijn aan de duur van het audiobestand plus een 2-3 minuten overhead vereist.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw proefabonnement spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
+* [Uw proefabonnement voor spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)

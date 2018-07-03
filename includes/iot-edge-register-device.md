@@ -1,12 +1,29 @@
-Maak een apparaat-id waarmee uw gesimuleerde apparaat kan communiceren met uw IoT-hub. Aangezien IoT Edge-apparaten zich gedragen en anders dan typische IoT-apparaten kunnen worden beheerd, kunt declareren u deze optie om te worden van een IoT-randapparaat vanaf het begin. 
+---
+title: bestand opnemen
+description: bestand opnemen
+services: iot-edge
+author: kgremban
+ms.service: iot-edge
+ms.topic: include
+ms.date: 06/25/2018
+ms.author: kgremban
+ms.custom: include file
+ms.openlocfilehash: bacafdc8f7fd8e206335f3be0a086df1c54f1081
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37032109"
+---
+Maak een apparaat-id voor uw gesimuleerde apparaat, zodat het met uw IoT-hub kan communiceren. Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd dan typische IoT-apparaten, geeft u vanaf het begin aan dat dit een IoT Edge-apparaat is. 
 
-1. Navigeer naar uw IoT-hub in de Azure portal.
-1. Selecteer **IoT rand (preview)** Selecteer **IoT randapparaat toevoegen**.
+1. Ga in Azure Portal naar uw IoT-hub.
+1. Selecteer **IoT Edge** en selecteer vervolgens **IoT Edge-apparaat toevoegen**.
 
-   ![Rand van de IoT-apparaat toevoegen](./media/iot-edge-register-device/add-device.png)
+   ![IoT Edge-apparaat toevoegen](./media/iot-edge-register-device/add-device.png)
 
 1. Geef uw gesimuleerde apparaat een unieke apparaat-ID.
-1. Selecteer **opslaan** apparaat toevoegen.
+1. Selecteer **Opslaan** om uw apparaat toe te voegen.
 1. Selecteer het nieuwe apparaat in de lijst met apparaten.
-1. Kopieer de waarde voor **verbindingsreeks: primaire sleutel** en op te slaan. U gebruikt deze waarde voor het configureren van de rand van de IoT-runtime in de volgende sectie. 
+1. Kopieer de waarde voor **Verbindingsreeks: primaire sleutel** en sla deze op. U gebruikt deze waarde voor het configureren van de IoT Edge-runtime in de volgende sectie. 
 

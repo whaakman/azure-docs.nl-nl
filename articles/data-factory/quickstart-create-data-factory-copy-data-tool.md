@@ -11,25 +11,22 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 23d4afffbe108d439dd53d95ed81f7d9fc4246ef
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 4df392ec7e100ef0efcbb3876079710a6b9ca4fb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284570"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048023"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Het hulpprogramma Copy Data gebruiken om gegevens te kopiëren 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Versie 2 - Preview](quickstart-create-data-factory-copy-data-tool.md)
+> * [Versie 1:](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Huidige versie](quickstart-create-data-factory-copy-data-tool.md)
 
 In deze snelstart gebruikt u Azure Portal voor het maken van een data factory. Gebruik vervolgens het hulpprogramma Copy Data om een pijplijn te maken waarmee gegevens uit een map in Azure Blob Storage worden gekopieerd naar een andere map. 
 
 > [!NOTE]
 > Als u niet bekend bent met Azure Data Factory, raadpleegt u eerst de [Inleiding voor Azure Data Factory](data-factory-introduction.md) voordat u deze quickstart uitvoert. 
->
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de service gebruikt, die algemeen beschikbaar is, raadpleegt u [Aan de slag met versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -52,7 +49,7 @@ In deze snelstart gebruikt u Azure Portal voor het maken van een data factory. G
    - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.   
          
    Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-4. Selecteer **V2 (Preview)** voor **Versie**.
+4. Selecteer **V2** als **Versie**.
 5. Selecteer voor **Locatie** een locatie voor de data factory. 
 
    In de lijst worden alleen ondersteunde locaties getoond. De gegevensarchieven (zoals Azure Storage en Azure SQL Database) en -berekeningen (zoals Azure HDInsight) die Data Factory gebruikt, kunnen zich in andere locaties of regio's bevinden.
@@ -85,7 +82,7 @@ In deze snelstart gebruikt u Azure Portal voor het maken van een data factory. G
 
     ![Blob-opslag selecteren in de galerie](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    c. Selecteer op de pagina **Azure Blob Storage-account opgeven** uw opslagaccount in de lijst **Naam van opslagaccount** en selecteer **Volgende**. 
+    c. Selecteer op de pagina **Azure Blob Storage-account opgeven** uw opslagaccount in de lijst **Naam van opslagaccount** en selecteer **Voltooien**. 
 
    ![Het nieuwe Azure Blob Storage-account configureren](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 

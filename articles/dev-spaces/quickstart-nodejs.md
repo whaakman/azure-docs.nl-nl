@@ -11,36 +11,36 @@ ms.topic: quickstart
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 764606d838ac067a09072b84222a8ec092c4c124
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 99508d6e4e6502fe4fd2a81ee7aaefdde7cd2e15
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823204"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945799"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Snelstart: Kubernetes-dev-ruimte maken met Azure Dev Spaces (Node.js)
 
 In deze handleiding leert u het volgende:
 
 - Azure Dev Spaces instellen met een beheerd Kubernetes-cluster in Azure.
-- Iteratief code ontwikkelen in containers met behulp van VS Code en de opdrachtregel.
+- Iteratief code ontwikkelt in containers met behulp van VS Code en de opdrachtregel.
 - Fouten opsporen in code die in uw cluster wordt uitgevoerd.
 
 > [!Note]
-> **Als u op enig moment niet verder kunt**, kunt u de [probleemoplossingssectie](troubleshooting.md)raadplegen of een opmerking op deze pagina plaatsen. U kunt ook de meer gedetailleerde [zelfstudie](get-started-nodejs.md) doen.
+> **Als u op enig moment niet verder kunt**, kunt u de [probleemoplossingssectie](troubleshooting.md) raadplegen of een opmerking op deze pagina plaatsen. U kunt ook de meer gedetailleerde [zelfstudie](get-started-nodejs.md) proberen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Azure-abonnement. Als u geen abonnement op Azure hebt, kunt u een [gratis account](https://azure.microsoft.com/free) maken.
+- Een Azure-abonnement. Als u geen Azure-abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free) maken.
 - Een [Kubernetes-cluster](https://ms.portal.azure.com/#create/microsoft.aks) met Kubernetes 1.9.6, in de regio EastUS, WestEurope of CanadaEast met **Routering van HTTP-toepassing** ingeschakeld.
 
   ![Zorg ervoor dat routering van HTTP-toepassing is ingeschakeld.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
 - Visual Studio Code, die u [hier](https://code.visualstudio.com/download) kunt downloaden.
 
-## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces installeren
+## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces instellen
 
-1. Installeer [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (versie 2.0.33 of hoger).
+1. Installeer [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (versie 2.0.38 of hoger).
 1. Dev Spaces instellen op uw AKS-cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Download de extensie [Azure Dev Spaces ](https://aka.ms/get-azds-code) voor VS Code.
 1. De extensie installeren: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
@@ -50,12 +50,15 @@ In deze handleiding leert u het volgende:
 1. Voorbeeldcode van GitHub downloaden: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. De map in de map webfrontend wijzigen: `cd dev-spaces/samples/nodejs/getting-started/webfrontend`
 1. Activa voor Docker- en Helm-grafieken genereren: `azds prep --public`
-1. Bouw uw dev-ruimte in AKS. In het terminalvenster voert u deze opdracht uit vanuit de **hoofdcodemap**, webfrontend: `azds up`
+1. Compileer de code in AKS en voer deze uit. Voer in het terminalvenster de volgende opdracht uit vanuit de **map webfrontend**: `azds up`
 1. Scan de console-uitvoer voor informatie over de URL die door de opdracht `up` is gemaakt. Het zal in deze vorm te zien zijn: 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
 
-   Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. 
+   Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. Terwijl de container wordt uitgevoerd, wordt `stdout`- en `stderr`-uitvoer naar het terminalvenster gestreamd.
+   
+   > [!Note]
+   > Bij de eerste uitvoering kan het enkele minuten duren voordat de openbare DNS gereed is. Als de openbare URL niet wordt omgezet, kunt u de alternatieve URL http://localhost:<portnumber> gebruiken die wordt weergegeven in de console-uitvoer. Als u de localhost-URL gebruikt, lijkt het misschien alsof de container lokaal wordt uitgevoerd, maar wordt deze feitelijk uitgevoerd in AKS. Voor uw gemak en om interactie met de service mogelijk te maken vanaf de lokale computer, wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure. U kunt later terugkomen en de openbare URL proberen wanneer de DNS-record gereed is.
 
 ### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
 Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
@@ -72,7 +75,7 @@ Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd
 Wat is er gebeurd? Voor bewerkingen van inhoudsbestanden, zoals HTML en CSS, is niet vereist dat het Node.js-proces opnieuw wordt opgestart. Door een actieve `azds up`-opdracht worden gewijzigde inhoudsbestanden rechtstreeks automatisch gesynchroniseerd in de actieve container in Azure. Zo kunt u de bewerkingen van uw inhoud snel zien.
 
 ### <a name="test-from-a-mobile-device"></a>Testen via een mobiel apparaat
-Als u de web-app op een mobiel apparaat opent, ziet u dat de gebruikersinterface niet correct wordt weergegeven op een klein apparaat.
+Open de web-app op een mobiel apparaat die de openbare URL als webfrontend gebruikt. Mogelijk wilt u de URL kopiëren en vanaf het bureaublad naar uw apparaat verzenden zodat u het lange adres niet hoeft in te voeren. Wanneer de web-app op een mobiel apparaat wordt geladen, ziet u dat de gebruikersinterface niet correct wordt weergegeven op een klein apparaat.
 
 Om dit te verhelpen voegt u een `viewport`-metatag toe:
 1. Open het bestand `./public/index.html`
@@ -116,7 +119,7 @@ In deze sectie gaat u VS Code gebruiken om direct fouten op te sporen in de cont
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Foutopsporingsassets initialiseren met de VS Code-extensie
 U moet eerst uw codeproject configureren, zodat de VS Code met onze dev-ruimte in Azure gaat communiceren. De VS Code-extensie voor Azure Dev Spaces bevat een helpopdracht om de foutopsporingsconfiguratie in te stellen. 
 
-Open het **Opdrachtenpalet** (via het menu **Beeld | Opdrachtenpalet**), en gebruik automatisch aanvullen om te typen en deze opdracht te selecteren: `Azure Dev Spaces: Create configuration files for connected development`. 
+Open het **Opdrachtenpalet** (via het menu **Beeld | Opdrachtenpalet**), en gebruik automatisch aanvullen om te typen en deze opdracht te selecteren: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
 Hiermee wordt de foutopsporingsconfiguratie voor Azure Dev Spaces toegevoegd onder de map `.vscode`.
 
@@ -126,7 +129,7 @@ Hiermee wordt de foutopsporingsconfiguratie voor Azure Dev Spaces toegevoegd ond
 1. Om de foutopsporingsweergave te openen, klikt u op het pictogram Foutopsporing in de **activiteitenbalk** van VS Code.
 1. Selecteer **Programma starten (AZDS)** als de actieve foutopsporingsconfiguratie.
 
-![](media/get-started-node/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > Als u geen Azure Dev Spaces-opdrachten ziet in het Opdrachtenpalet, controleert u of u de VS Code-extensie hebt geïnstalleerd voor Azure Dev Spaces.

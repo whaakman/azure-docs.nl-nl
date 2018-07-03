@@ -1,6 +1,6 @@
 ---
-title: Azure-Stack Ethereum oplossingssjabloon
-description: Aangepaste oplossingssjablonen gebruiken voor het implementeren en configureren van een consortium Ethereum-netwerk op Azure-Stack
+title: Azure Stack Ethereum blockchain-oplossingssjabloon
+description: Gebruik aangepaste oplossingssjablonen te implementeren en configureren van een consortium Ethereum blockchain-netwerk in Azure Stack
 services: azure-stack
 keywords: ''
 author: PatAltimore
@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 4c2b0cda2d4144cde733f7f57ac6311e1a69f547
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: fb870cbfbc233725752b3d97fc0ad048a7c14040
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114727"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341729"
 ---
-# <a name="azure-stack-ethereum-solution-templates"></a>Azure-Stack Ethereum oplossing-sjablonen
+# <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blockchain-oplossingssjablonen
 
-De sjabloon van de oplossing Ethereum is ontworpen voor het u gemakkelijker en sneller te implementeren en configureren van een lid van meerdere consortium Ethereum netwerk met minimale kennis van Azure en Ethereum.
+De sjabloon van de Ethereum-oplossing is ontworpen voor u gemakkelijker en sneller om te implementeren en configureren van een consortium voor meerdere leden Ethereum blockchain-netwerk met minimale kennis van Azure en Ethereum.
 
-Elk lid kan een handvol gebruikersinvoer en een implementatie met één klik via de Azure-Stack-beheerdersportal hun netwerk footprint inrichten. Netwerk voetafdruk van elk lid bestaat uit een set van netwerktaakverdeling transactie knooppunten met die een toepassing of de gebruiker communiceren kan als u wilt indienen transacties, een reeks analysemodel knooppunten Registreer transacties en een netwerk virtuele toestel (NVA). Een stap van de volgende verbinding maakt verbinding met de NVAs een volledig geconfigureerde meerdere leden blockchain-netwerk maken.
+Met een aantal van de invoer van gebruikers en een implementatie met één klik via de portal van Azure Stack-tenant inrichten elk lid van de netwerk-footprint. Netwerk-voetafdruk van elk lid bestaat uit een set met load balancing transactie knooppunten met die een toepassing of de gebruiker communiceren kan om in te dienen transacties, een set knooppunten van de analysestructuur voor vastleggen van transacties en een Network Virtual Appliance (NVA). Een stap van de volgende verbinding maakt verbinding met de NVA's voor het maken van een volledig geconfigureerde meerdere leden blockchain-netwerk.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -32,172 +32,172 @@ Downloaden van de volgende [vanuit de Marketplace](azure-stack-download-azure-ma
 * Aangepast Script voor Linux 2.0 
 * Aangepaste scriptextensie 
 
-Zie voor meer informatie over scenario's voor blockchain op Azure [Ethereum bewijs van werkzaamheden consortium oplossingssjabloon](../blockchain-workbench/ethereum-deployment-guide.md).
+Zie voor meer informatie over scenario's voor blockchain op Azure, [Ethereum bewijs van werk consortium oplossingssjabloon](../blockchain-workbench/ethereum-deployment-guide.md).
 
-Een Azure-abonnement die ondersteuning biedt voor het implementeren van verschillende virtuele machines is vereist. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
+Een Azure-abonnement dat u kunt ondersteuning voor de implementatie van meerdere virtuele machines is vereist. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 
-## <a name="deployment-architecture"></a>Architectuur voor implementatie
+## <a name="deployment-architecture"></a>Implementatie-architectuur
 
-Deze oplossingssjabloon kan één of meerdere lid Ethereum consortium netwerk kunt implementeren. Het virtuele netwerk is in een keten-topologie-bronnen virtuele netwerkapparaat en de verbinding verbonden. 
+Deze oplossingssjabloon kan één of meerdere items lid Ethereum consortium network implementeren. Het virtuele netwerk is verbonden in een keten-topologie met behulp van Network Virtual Appliance en verbinding bronnen. 
 
-## <a name="deployment-use-cases"></a>Gebruiksvoorbeelden voor implementatie
+## <a name="deployment-use-cases"></a>Implementatie van use cases
 
-De sjabloon Ethereum consortium voor opvulteken en lid join in tal van manieren kunt implementeren, hier zijn die we hebben getest:
-- Implementeer op een Azure-Stack van meerdere knooppunten, met Azure AD of AD FS, potentiële klanten en lid met hetzelfde abonnement of met verschillende abonnementen behoren.
-- Implementeer lead en lid met hetzelfde abonnement op een Azure-Stack van één knooppunt (met Azure AD).
+De sjabloon Ethereum consortium voor leider en lid join in tal van manieren kunt implementeren, zijn hier die we hebben getest:
+- Implementeren in een Azure-Stack van meerdere knooppunten, met Azure AD of AD FS, potentiële klanten en lid met behulp van hetzelfde abonnement of met verschillende abonnementen.
+- Implementeren in een Azure-Stack van één knooppunt (met Azure AD) potentiële klanten en lid met behulp van hetzelfde abonnement.
 
-### <a name="standalone-and-consortium-leader-deployment"></a>Implementatie van zelfstandige en consortium opvulteken
+### <a name="standalone-and-consortium-leader-deployment"></a>Zelfstandige en consortium leider-implementatie
 
-Het eerste lid footprint configureert de consortium opvulteken-sjabloon in het netwerk. 
+De sjabloon van de leider consortium Hiermee configureert u het eerste lid footprint in het netwerk. 
 
-1. Download de [opvulteken sjabloon vanuit GitHub](https://raw.githubusercontent.com/seyadava/AzureStack-QuickStart-Templates-1/blockchain_nva/eth/marketplace/ConsortiumLeader/mainTemplate.json)
-2. Selecteer in de Azure-Stack-beheerportal, **Nieuw > sjabloonimplementatie** voor het implementeren van een aangepaste sjabloon.
-3. Selecteer **template bewerken** de nieuwe aangepaste sjabloon te bewerken.
-4. Klik in het deelvenster bewerking aan de rechterkant kopieert en plakt u de sjabloon opvulteken JSON die u eerder hebt gedownload.
+1. Download de [leider-sjabloon](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
+2. Selecteer in de beheerportal van Azure Stack **New > sjabloonimplementatie** om vanuit een aangepaste sjabloon te implementeren.
+3. Selecteer **template bewerken** naar de nieuwe aangepaste sjabloon te bewerken.
+4. In het deelvenster bewerken aan de rechterkant, kopieer en plak de JSON die u eerder hebt gedownload van de leider-sjabloon.
     
-    ![Opvulteken sjabloon bewerken](media/azure-stack-ethereum/edit-leader-template.png)
+    ![Leider sjabloon bewerken](media/azure-stack-ethereum/edit-leader-template.png)
 
 5. Selecteer **Opslaan**.
-6. Selecteer **parameters bewerken** en de sjabloonparameters voor uw implementatie te voltooien.
+6. Selecteer **parameters bewerken** en de parameters van de sjabloon voor uw implementatie te voltooien.
     
-    ![Sjabloonparameters opvulteken bewerken](media/azure-stack-ethereum/edit-leader-parameters.png)
+    ![Leider Sjabloonparameters bewerken](media/azure-stack-ethereum/edit-leader-parameters.png)
 
     Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
-    NAMEPREFIX | De tekenreeks die wordt gebruikt als basis voor de naamgeving van de geïmplementeerde resources. | Alfanumerieke tekens met lengte 1 tot en met 6 | Eth
-    AUTHTYPE | De methode voor verificatie bij de virtuele machine. | Wachtwoord of SSH openbare sleutel | Wachtwoord
+    NAMEPREFIX | De tekenreeks die wordt gebruikt als basis voor de naam van de geïmplementeerde resources. | Alfanumerieke tekens met lengte 1 tot en met 6 | Eth
+    AUTHTYPE | De methode voor verificatie bij de virtuele machine. | Wachtwoord of SSH de openbare sleutel | Wachtwoord
     ADMINUSERNAME | Gebruikersnaam voor de beheerder van elke geïmplementeerde virtuele machine | 1 - 64 tekens | gethadmin
-    ADMINPASSWORD (verificatietype = wachtwoord)| Het wachtwoord voor het administrator-account voor elk van de geïmplementeerde virtuele machines. Het wachtwoord moet bevatten 3 van de volgende vereisten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken. <br />Terwijl alle VM's in eerste instantie hetzelfde wachtwoord zijn, kunt u het wachtwoord kunt wijzigen na het inrichten.|12 - 72 tekens|
-    ADMINSSHKEY (verificatietype = sshPublicKey) | De sleutel voor secure shell gebruikt voor externe aanmelding. | |
-    GENESISBLOCK | JSON-tekenreeks voor aangepaste genesis blok. | |
-    ETHEREUMACCOUNTPSSWD | Het beheerderswachtwoord dat wordt gebruikt om Ethereum account te beveiligen. | |
-    ETHEREUMACCOUNTPASSPHRASE | De wachtwoordzin die wordt gebruikt voor het genereren van de persoonlijke sleutel die is gekoppeld aan het account Ethereum. | |
-    ETHEREUMNETWORKID | De netwerk-ID van het consortium. | Een waarde tussen 5 en 999.999.999 gebruiken | 72
+    ADMINPASSWORD (verificatietype = wachtwoord)| Het wachtwoord voor het beheerdersaccount voor elk van de virtuele machines die zijn geïmplementeerd. Het wachtwoord moet bestaan 3 van de volgende vereisten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken. <br />Hoewel alle virtuele machines wordt in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord kunt wijzigen na het inrichten.|12 - 72 tekens|
+    ADMINSSHKEY (verificatietype = sshPublicKey) | De veilige shell-sleutel die wordt gebruikt voor externe aanmelding. | |
+    GENESISBLOCK | JSON-tekenreeks voor aangepaste genesis blokkeren. | |
+    ETHEREUMACCOUNTPSSWD | Het beheerderswachtwoord dat wordt gebruikt om Ethereum-account te beveiligen. | |
+    ETHEREUMACCOUNTPASSPHRASE | De wachtwoordzin die wordt gebruikt voor het genereren van de persoonlijke sleutel die is gekoppeld aan het Ethereum-account. | |
+    ETHEREUMNETWORKID | De netwerk-ID van het consortium. | Elke waarde tussen 5 en 999.999.999 gebruiken | 72
     CONSORTIUMMEMBERID | De ID die is gekoppeld aan elk lid van het netwerk consortium.   | Deze ID moet uniek zijn in het netwerk. | 0
     NUMMININGNODES | Het aantal knooppunten van de analysestructuur. | Tussen 2 en 15. | 2
-    MNNODEVMSIZE | VM-grootte van de knooppunten van het analysemodel. | | Standard_A1
-    MNSTORAGEACCOUNTTYPE | De prestaties van de opslag van de knooppunten van het analysemodel. | | Standard_LRS
+    MNNODEVMSIZE | VM-grootte van de analysestructuur-knooppunten. | | Standard_A1
+    MNSTORAGEACCOUNTTYPE | De prestaties van de opslagruimte van de analysestructuur-knooppunten. | | Standard_LRS
     NUMTXNODES | Het aantal knooppunten van de transactie. | Tussen 1 en 5. | 1
     TXNODEVMSIZE | VM-grootte van de transactie-knooppunten. | | Standard_A1
-    TXSTORAGEACCOUNTTYPE | De prestaties van de opslag van de transactie-knooppunten. | | Standard_LRS
-    BASEURL | Basis-URL ophalen van de betreffende sjablonen uit. | Gebruik de standaardwaarde, tenzij u wilt aanpassen van de van implementatiesjablonen. | 
+    TXSTORAGEACCOUNTTYPE | De prestaties van de opslagruimte van de transactie-knooppunten. | | Standard_LRS
+    BASEURL | Basis-URL om de al naar gelang sjablonen uit te verkrijgen. | Gebruik de standaardwaarde, tenzij u wilt aanpassen van de sjablonen voor implementatie. | 
 
 7. Selecteer **OK**.
-8. In **aangepaste implementatie**, geef **abonnement**, **resourcegroep**, en **locatie voor resourcegroep**.
+8. In **aangepaste implementatie**, geef **abonnement**, **resourcegroep**, en **resourcegroeplocatie**.
     
-    ![Opvulteken implementatieparameters](media/azure-stack-ethereum/leader-deployment-parameters.png)
+    ![Leider implementatieparameters](media/azure-stack-ethereum/leader-deployment-parameters.png)
 
     Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
-    Abonnement | Het abonnement waaraan het consortium netwerk implementeren | | Abonnement voor verbruik
-    Resourcegroep | De resourcegroep waartoe het consortium netwerk implementeren. | | EthereumResources
+    Abonnement | Het abonnement waaraan het implementeren van het netwerk consortium | | Gebruik-abonnement
+    Resourcegroep | De resourcegroep waaraan de consortium network implementeren. | | EthereumResources
     Locatie | De Azure-regio voor de resourcegroep. | | lokaal
 
 8. Selecteer **Maken**.
 
 Implementatie kunt duurt ongeveer 20 minuten of langer duren.
 
-Nadat de implementatie is voltooid, kunt u de samenvatting voor implementatie bekijken **Microsoft. Sjabloon** in het gedeelte van de implementatie van de resourcegroep. De samenvatting bevat de uitvoerwaarden die kunnen worden gebruikt voor het consortium leden toevoegen.
+Nadat de implementatie is voltooid, kunt u de samenvatting voor implementatie controleren **Microsoft. Sjabloon** in het gedeelte van de implementatie van de resourcegroep. De samenvatting bevat uitvoerwaarden die kunnen worden gebruikt om toe te voegen consortium leden.
 
-Blader om te controleren of de implementatie van opvulteken, opvulteken van beheer-site. Adres van de beheer-site vindt u in het gedeelte van de uitvoer van **Microsoft.Template** implementatie.  
+Bladeren om te controleren of de implementatie van de leider, beheer-site van de leider. Siteadres admin vindt u in de sectie uitvoer van **Microsoft.Template** implementatie.  
 
-![Implementatieoverzicht opvulteken](media/azure-stack-ethereum/ethereum-node-status.png)
+![Leider implementatieoverzicht](media/azure-stack-ethereum/ethereum-node-status.png)
 
-### <a name="joining-consortium-member-deployment"></a>Lid worden van consortium lid implementatie
+### <a name="joining-consortium-member-deployment"></a>Implementatie van consortium lid toevoegen
 
-1. Download de [consortium lid sjabloon vanuit GitHub](https://raw.githubusercontent.com/seyadava/AzureStack-QuickStart-Templates-1/blockchain_nva/eth/marketplace/JoiningMember/mainTemplate.json)
-2. Selecteer in de Azure-Stack-beheerportal, **Nieuw > sjabloonimplementatie** voor het implementeren van een aangepaste sjabloon.
-3. Selecteer **template bewerken** de nieuwe aangepaste sjabloon te bewerken.
-4. Klik in het deelvenster bewerking aan de rechterkant kopieert en plakt u de sjabloon opvulteken JSON die u eerder hebt gedownload.
+1. Download de [consortium lid sjabloon vanuit GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
+2. Selecteer in de beheerportal van Azure Stack **New > sjabloonimplementatie** om vanuit een aangepaste sjabloon te implementeren.
+3. Selecteer **template bewerken** naar de nieuwe aangepaste sjabloon te bewerken.
+4. In het deelvenster bewerken aan de rechterkant, kopieer en plak de JSON die u eerder hebt gedownload van de leider-sjabloon.
 5. Selecteer **Opslaan**.
-6. Selecteer **parameters bewerken** en de sjabloonparameters voor uw implementatie te voltooien.
+6. Selecteer **parameters bewerken** en de parameters van de sjabloon voor uw implementatie te voltooien.
 
     Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
-    NAMEPREFIX | De tekenreeks die wordt gebruikt als basis voor de naamgeving van de geïmplementeerde resources. | Alfanumerieke tekens met lengte 1 tot en met 6 | Eth
-    AUTHTYPE | De methode voor verificatie bij de virtuele machine. | Wachtwoord of SSH openbare sleutel | Wachtwoord
+    NAMEPREFIX | De tekenreeks die wordt gebruikt als basis voor de naam van de geïmplementeerde resources. | Alfanumerieke tekens met lengte 1 tot en met 6 | Eth
+    AUTHTYPE | De methode voor verificatie bij de virtuele machine. | Wachtwoord of SSH de openbare sleutel | Wachtwoord
     ADMINUSERNAME | Gebruikersnaam voor de beheerder van elke geïmplementeerde virtuele machine | 1 - 64 tekens | gethadmin
-    ADMINPASSWORD (verificatietype = wachtwoord)| Het wachtwoord voor het administrator-account voor elk van de geïmplementeerde virtuele machines. Het wachtwoord moet bevatten 3 van de volgende vereisten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken. <br />Terwijl alle VM's in eerste instantie hetzelfde wachtwoord zijn, kunt u het wachtwoord kunt wijzigen na het inrichten.|12 - 72 tekens|
-    ADMINSSHKEY (verificatietype = sshPublicKey) | De sleutel voor secure shell gebruikt voor externe aanmelding. | |
+    ADMINPASSWORD (verificatietype = wachtwoord)| Het wachtwoord voor het beheerdersaccount voor elk van de virtuele machines die zijn geïmplementeerd. Het wachtwoord moet bestaan 3 van de volgende vereisten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken. <br />Hoewel alle virtuele machines wordt in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord kunt wijzigen na het inrichten.|12 - 72 tekens|
+    ADMINSSHKEY (verificatietype = sshPublicKey) | De veilige shell-sleutel die wordt gebruikt voor externe aanmelding. | |
     CONSORTIUMMEMBERID | De ID die is gekoppeld aan elk lid van het netwerk consortium.   | Deze ID moet uniek zijn in het netwerk. | 0
     NUMMININGNODES | Het aantal knooppunten van de analysestructuur. | Tussen 2 en 15. | 2
-    MNNODEVMSIZE | VM-grootte van de knooppunten van het analysemodel. | | Standard_A1
-    MNSTORAGEACCOUNTTYPE | De prestaties van de opslag van de knooppunten van het analysemodel. | | Standard_LRS
+    MNNODEVMSIZE | VM-grootte van de analysestructuur-knooppunten. | | Standard_A1
+    MNSTORAGEACCOUNTTYPE | De prestaties van de opslagruimte van de analysestructuur-knooppunten. | | Standard_LRS
     NUMTXNODES | Het aantal knooppunten van de transactie. | Tussen 1 en 5. | 1
     TXNODEVMSIZE | VM-grootte van de transactie-knooppunten. | | Standard_A1
-    TXSTORAGEACCOUNTTYPE | De prestaties van de opslag van de transactie-knooppunten. | | Standard_LRS
-    CONSORTIUMDATA | De URL die verwijst naar de relevante consortium configuratiegegevens geleverd door de implementatie van een ander lid. Deze waarde kan worden gevonden op opvulteken van implementatie uitvoer. | |
-    REMOTEMEMBERVNETADDRESSSPACE | Het NVA-IP-adres van het opvulteken. Deze waarde kan worden gevonden op opvulteken van implementatie uitvoer. | | 
-    REMOTEMEMBERNVAPUBLICIP | Het NVA-IP-adres van het opvulteken. Deze waarde kan worden gevonden op opvulteken van implementatie uitvoer. | | 
+    TXSTORAGEACCOUNTTYPE | De prestaties van de opslagruimte van de transactie-knooppunten. | | Standard_LRS
+    CONSORTIUMDATA | De URL die verwijst naar de relevante consortium configuratiegegevens worden geleverd door een ander lid van de implementatie. Deze waarde kan worden gevonden op implementatie-uitvoer van de leider. | |
+    REMOTEMEMBERVNETADDRESSSPACE | De NVA-IP-adres van de leider. Deze waarde kan worden gevonden op implementatie-uitvoer van de leider. | | 
+    REMOTEMEMBERNVAPUBLICIP | De NVA-IP-adres van de leider. Deze waarde kan worden gevonden op implementatie-uitvoer van de leider. | | 
     CONNECTIONSHAREDKEY | Een vooraf vastgestelde geheim tussen de leden van het netwerk consortium die een verbinding tot stand brengt. | |
-    BASEURL | Basis-URL voor de sjabloon. | Gebruik de standaardwaarde, tenzij u wilt aanpassen van de van implementatiesjablonen. | 
+    BASEURL | Basis-URL voor de sjabloon. | Gebruik de standaardwaarde, tenzij u wilt aanpassen van de sjablonen voor implementatie. | 
 
 7. Selecteer **OK**.
-8. In **aangepaste implementatie**, geef **abonnement**, **resourcegroep**, en **locatie voor resourcegroep**.
+8. In **aangepaste implementatie**, geef **abonnement**, **resourcegroep**, en **resourcegroeplocatie**.
 
     Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
-    Abonnement | Het abonnement waaraan het consortium netwerk implementeren | | Abonnement voor verbruik
-    Resourcegroep | De resourcegroep waartoe het consortium netwerk implementeren. | | MemberResources
+    Abonnement | Het abonnement waaraan het implementeren van het netwerk consortium | | Gebruik-abonnement
+    Resourcegroep | De resourcegroep waaraan de consortium network implementeren. | | MemberResources
     Locatie | De Azure-regio voor de resourcegroep. | | lokaal
 
 8. Selecteer **Maken**.
 
 Implementatie kunt duurt ongeveer 20 minuten of langer duren.
 
-Nadat de implementatie is voltooid, kunt u de samenvatting voor implementatie bekijken **Microsoft.Template** in het gedeelte van de implementatie van de resourcegroep. De samenvatting bevat uitvoerwaarden die kunnen worden gebruikt voor verbinding consortium leden.
+Nadat de implementatie is voltooid, kunt u de samenvatting voor implementatie controleren **Microsoft.Template** in het gedeelte van de implementatie van de resourcegroep. De samenvatting bevat uitvoerwaarden die kunnen worden gebruikt om verbinding maken met consortium leden.
 
-Blader om te controleren of de implementatie van het lid, lid zijn van beheer-site. Adres van de beheer-site vindt u in het gedeelte van de uitvoer van Microsoft.Template-implementatie.
+Blader om te controleren of de implementatie van het lid, van het lid beheerder site. U kunt admin siteadres vinden in de sectie uitvoer van Microsoft.Template implementatie.
 
 ![Implementatieoverzicht lid](media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-Zoals u in de afbeelding, status van de knooppunten van het lid is **niet actief**. Dit is omdat de verbinding tussen lid en opvulteken is niet gemaakt. De verbinding tussen een lid en opvulteken is een tweerichtingsrelatie tussen verbinding. Wanneer u lid implementeert, maakt-sjabloon automatisch de verbinding van lid voor het opvulteken. De verbinding van opvulteken lid Ga te maken met de volgende stap.
+Zoals weergegeven in de afbeelding, de status van de knooppunten van het lid is **niet actief**. Dit is omdat de verbinding tussen lid en leider is niet gemaakt. De verbinding tussen lid en leider is een tweerichtingenverbinding. Wanneer u lid implementeert, maakt sjabloon automatisch de verbinding van lid aan de leider. Maakt de verbinding van de leider aan een lid van gaat u naar de volgende stap.
 
-### <a name="connect-member-and-leader"></a>Verbinding maken met het lid en opvulteken
+### <a name="connect-member-and-leader"></a>Verbinding maken met het lid en leader
 
-Deze sjabloon maakt een verbinding van het opvulteken naar een extern lid. 
+Deze sjabloon maakt een verbinding van de leider aan een extern lid. 
 
-1. Download de [lid en opvulteken sjabloon verbinding vanuit GitHub](https://raw.githubusercontent.com/seyadava/AzureStack-QuickStart-Templates-1/blockchain_nva/eth/marketplace/Connection/mainTemplate.json)
-2. Selecteer in de Azure-Stack-beheerportal, **Nieuw > sjabloonimplementatie** voor het implementeren van een aangepaste sjabloon.
-3. Selecteer **template bewerken** de nieuwe aangepaste sjabloon te bewerken.
-4. Klik in het deelvenster bewerking aan de rechterkant kopieert en plakt u de sjabloon opvulteken JSON die u eerder hebt gedownload.
+1. Download de [verbinding maken met sjabloon lid en leider vanuit GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
+2. Selecteer in de beheerportal van Azure Stack **New > sjabloonimplementatie** om vanuit een aangepaste sjabloon te implementeren.
+3. Selecteer **template bewerken** naar de nieuwe aangepaste sjabloon te bewerken.
+4. In het deelvenster bewerken aan de rechterkant, kopieer en plak de JSON die u eerder hebt gedownload van de leider-sjabloon.
     
-    ![Bewerken verbinding maken met de sjabloon](media/azure-stack-ethereum/edit-connect-template.png)
+    ![Bewerken verbinding maken met sjabloon](media/azure-stack-ethereum/edit-connect-template.png)
 
 5. Selecteer **Opslaan**.
-6. Selecteer **parameters bewerken** en de sjabloonparameters voor uw implementatie te voltooien.
+6. Selecteer **parameters bewerken** en de parameters van de sjabloon voor uw implementatie te voltooien.
     
-    ![Bewerken verbinding Sjabloonparameters](media/azure-stack-ethereum/edit-connect-parameters.png)
+    ![Bewerken verbinding maken met Sjabloonparameters](media/azure-stack-ethereum/edit-connect-parameters.png)
 
     Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
-    MEMBERNAMEPREFIX | Het voorvoegsel van opvulteken. Deze waarde kan worden gevonden op opvulteken van implementatie uitvoer.  | Alfanumerieke tekens met lengte 1 tot en met 6 | |
-    MEMBERROUTETABLENAME | Naam van het opvulteken routetabel. Deze waarde kan worden gevonden op opvulteken van implementatie uitvoer. |  | 
-    REMOTEMEMBERVNETADDRESSSPACE | De adresruimte van het lid. Deze waarde vindt u op de implementatie-uitvoer van het lid. | |
+    MEMBERNAMEPREFIX | Het voorvoegsel van de leider. Deze waarde kan worden gevonden op implementatie-uitvoer van de leider.  | Alfanumerieke tekens met lengte 1 tot en met 6 | |
+    MEMBERROUTETABLENAME | De naam van de routetabel van de leider. Deze waarde kan worden gevonden op implementatie-uitvoer van de leider. |  | 
+    REMOTEMEMBERVNETADDRESSSPACE | De adresruimte van het lid. Deze waarde kan worden gevonden op implementatie-uitvoer van het lid. | |
     CONNECTIONSHAREDKEY | Een vooraf vastgestelde geheim tussen de leden van het netwerk consortium die een verbinding tot stand brengt.  | |
-    REMOTEMEMBERNVAPUBLICIP | Het NVA-IP-adres van het lid. Deze waarde vindt u op de implementatie-uitvoer van het lid. | |
-    MEMBERNVAPRIVATEIP | Opvulteken van persoonlijke NVA IP-adres. Deze waarde kan worden gevonden op opvulteken van implementatie uitvoer. | |
-    LOCATIE | Locatie van uw Azure-Stack-omgeving. | | lokaal
-    BASEURL | Basis-URL voor de sjabloon. | Gebruik de standaardwaarde, tenzij u wilt aanpassen van de van implementatiesjablonen. | 
+    REMOTEMEMBERNVAPUBLICIP | De NVA-IP-adres van het lid. Deze waarde kan worden gevonden op implementatie-uitvoer van het lid. | |
+    MEMBERNVAPRIVATEIP | Privé NVA IP-adres van de leider. Deze waarde kan worden gevonden op implementatie-uitvoer van de leider. | |
+    LOCATIE | Locatie van uw Azure Stack-omgeving. | | lokaal
+    BASEURL | Basis-URL voor de sjabloon. | Gebruik de standaardwaarde, tenzij u wilt aanpassen van de sjablonen voor implementatie. | 
 
 7. Selecteer **OK**.
-8. In **aangepaste implementatie**, geef **abonnement**, **resourcegroep**, en **locatie voor resourcegroep**.
+8. In **aangepaste implementatie**, geef **abonnement**, **resourcegroep**, en **resourcegroeplocatie**.
     
-    ![Verbinding maken met de implementatieparameters](media/azure-stack-ethereum/connect-deployment-parameters.png)
+    ![Verbinding maken met implementatieparameters](media/azure-stack-ethereum/connect-deployment-parameters.png)
 
     Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
-    Abonnement | Het opvulteken abonnement. | | Abonnement voor verbruik
-    Resourcegroep | Het opvulteken resourcegroep. | | EthereumResources
+    Abonnement | Abonnement van de leider. | | Gebruik-abonnement
+    Resourcegroep | De resourcegroep van de leider. | | EthereumResources
     Locatie | De Azure-regio voor de resourcegroep. | | lokaal
 
 8. Selecteer **Maken**.
 
-Nadat de implementatie is voltooid, duurt het enkele minuten opvulteken en lid communicatie wordt gestart. Vernieuwen om te controleren of de implementatie, beheer-site van het lid. Status van de knooppunten van het lid moet worden uitgevoerd. 
+Nadat de implementatie is voltooid, duurt het enkele minuten voordat de leider en lid te starten communicatie. Vernieuwen om te controleren of de implementatie, beheer-site van het lid. Status van de knooppunten van het lid moet worden uitgevoerd. 
 
 ![De implementatie controleren](media/azure-stack-ethereum/ethererum-node-status-3.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over Ethereum en Azure, [Blockchain technologie en toepassingen | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/).
-- Zie voor meer informatie over scenario's voor blockchain op Azure [Ethereum bewijs van werkzaamheden consortium oplossingssjabloon](../blockchain-workbench/ethereum-deployment-guide.md).
+- Zie voor meer informatie over Ethereum- en Azure, [Blockchain-technologie en toepassingen | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/).
+- Zie voor meer informatie over scenario's voor blockchain op Azure, [Ethereum bewijs van werk consortium oplossingssjabloon](../blockchain-workbench/ethereum-deployment-guide.md).

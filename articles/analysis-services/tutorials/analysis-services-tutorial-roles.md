@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/10/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: fcedba0a5b8a9684216f181a6d16f86044edb961
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 10b2e77a89e2b8d7481559396d102177cf70161c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651306"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307360"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Zelfstudie: Serverbeheerder- en gebruikersrollen configureren
 
@@ -67,7 +67,7 @@ Voor de resterende taken gebruikt u SSMS voor het maken van verbinding met en he
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Een gebruikersaccount toevoegen aan de rol van serverbeheerder
 
-In deze taak voegt u een gebruikers- of groepsaccount uit uw Azure AD toe aan de serverbeheerderrol.
+In deze taak voegt u een gebruikers- of groepsaccount uit uw Azure AD toe aan de serverbeheerderrol. Als u een beveiligingsgroep toevoegt, moet de eigenschap `MailEnabled` zijn ingesteld op `True`.
 
 1. Klik in **Objectverkenner** met de rechtermuisknop op de naam van uw server en klik vervolgens op **Eigenschappen**. 
 2. In het **eigenschappenvenster van de analyseserver** klikt u op **Beveiliging** > **Toevoegen**.

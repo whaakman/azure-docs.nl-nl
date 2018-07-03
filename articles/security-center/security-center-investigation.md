@@ -3,36 +3,41 @@ title: Incidenten en waarschuwingen onderzoeken in Azure Security Center | Micro
 description: In dit document wordt uitgelegd hoe u de onderzoeksfunctie van Azure Security Center gebruikt voor het onderzoeken van beveiligingsincidenten en waarschuwingen.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 06/29/2018
+ms.author: terrylan
+ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776477"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340787"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Incidenten en waarschuwingen onderzoeken in Azure Security Center (Preview)
 In dit document wordt uitgelegd hoe u de onderzoeksfunctie van Azure Security Center gebruikt voor het onderzoeken van beveiligingsincidenten en waarschuwingen.
 
 ## <a name="what-is-investigation-in-security-center"></a>Wat is onderzoek in Security Center?
 Met de onderzoeksfunctie in Security Center kunt u potentiële [beveiligingsincidenten](https://docs.microsoft.com/azure/security-center/security-center-incident) sorteren, kijken wat voor gevolgen ze hebben en de hoofdoorzaak van een probleem opsporen.
- 
+
 De bedoeling is om het onderzoek te vereenvoudigen door alle entiteiten ([beveiligingswaarschuwingen](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), gebruikers, computers en incidenten) weer te geven die op een of andere manier betrokken zijn bij het incident dat u onderzoekt.  Dit kan door relevante gegevens te correleren met betrokken entiteiten en deze correlatie inzichtelijk te maken met behulp van een live grafiek waarmee u door de objecten kunt navigeren en relevante informatie kunt visualiseren.
+
+> [!NOTE]
+> [Aangepaste waarschuwingen](security-center-custom-alert.md) worden niet ondersteund in de onderzoeksfunctie van Security Center bevinden.
+>
+>
 
 
 ## <a name="how-investigation-works"></a>Hoe werkt de onderzoeksfunctie?
 Het onderzoek bestaat uit een grafiek die het centrale gebied van het dashboard inneemt. De grafiek is altijd gericht op een specifieke entiteit en toont de entiteiten die hieraan zijn gerelateerd. Een entiteit kan bestaan uit een beveiligingswaarschuwing, een gebruiker, een computer of een incident.
- 
+
 ![Kaart](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 De gebruiker kan schakelen tussen entiteiten door erop te klikken in de grafiek. De grafiek wordt dan automatisch gecentreerd rond de geselecteerde entiteit, met daaromheen de gerelateerde entiteiten. Entiteiten die nu niet meer relevant zijn, worden mogelijk verwijderd uit de grafiek.
@@ -43,7 +48,7 @@ Terwijl de gebruiker door de verschillende entiteiten navigeert, is het onderzoe
 ![Pad](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Algemene informatie
-Wanneer een entiteit wordt weergegeven in de grafiek, bevatten de tabbladen aanvullende informatie over deze entiteit. Op het tabblad **Info** ziet u algemene informatie over de entiteit, afkomstig uit de verschillende beschikbare informatiebronnen. 
+Wanneer een entiteit wordt weergegeven in de grafiek, bevatten de tabbladen aanvullende informatie over deze entiteit. Op het tabblad **Info** ziet u algemene informatie over de entiteit, afkomstig uit de verschillende beschikbare informatiebronnen.
 
 ![Algemene informatie](./media/security-center-investigation/security-center-investigation-fig3.png)
 
@@ -71,7 +76,7 @@ Via het tabblad **Verkennen** kan de onderzoeker gegevens onderzoeken die te mak
 
 ### <a name="timeline"></a>Tijdlijn
 
-De meeste gegevens in de grafiek en op de verschillende tabbladen zijn alleen relevant voor een bepaalde periode. Dit tijdsbereik kan worden ingesteld in de linkerbovenhoek van de grafiek. U kunt op verschillende manieren het bereik voor het onderzoek instellen. 
+De meeste gegevens in de grafiek en op de verschillende tabbladen zijn alleen relevant voor een bepaalde periode. Dit tijdsbereik kan worden ingesteld in de linkerbovenhoek van de grafiek. U kunt op verschillende manieren het bereik voor het onderzoek instellen.
 
 ![Tijdlijn](./media/security-center-investigation/security-center-investigation-fig7.png)
 
@@ -103,7 +108,7 @@ U kunt een onderzoek starten vanuit een beveiligingsincident of vanuit een waars
 
     ![Het dashboard Verkennen](./media/security-center-investigation/security-center-investigation-fig9.png)
 
-Vanaf hier kunt u de entiteiten onderzoeken die bij dit incident betrokken zijn en voor elk incident details bestuderen. 
+Vanaf hier kunt u de entiteiten onderzoeken die bij dit incident betrokken zijn en voor elk incident details bestuderen.
 
 ## <a name="see-also"></a>Zie ook
 In dit document hebt u gelezen hoe u de onderzoeksfunctie in Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
@@ -111,7 +116,6 @@ In dit document hebt u gelezen hoe u de onderzoeksfunctie in Security Center geb
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informatie over het beheren van waarschuwingen en het reageren op beveiligingsincidenten in Security Center.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md). Meer informatie over het controleren van de status van uw Azure-resources.
 * [Beveiligingswaarschuwingen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Meer informatie over de verschillende typen beveiligingswaarschuwingen.
-* [Handleiding voor het oplossen van problemen met Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informatie over het oplossen van veelvoorkomende problemen met Security Center. 
+* [Handleiding voor het oplossen van problemen met Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informatie over het oplossen van veelvoorkomende problemen met Security Center.
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md). Raadpleeg de veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/). Raadpleeg de blogberichten over beveiliging en naleving in Azure.
-

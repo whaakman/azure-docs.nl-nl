@@ -1,6 +1,6 @@
 ---
 title: Singletons voor duurzame functies - Azure
-description: Het gebruik van singletons in de uitbreiding duurzame Functons voor Azure Functions.
+description: Het gebruik van singletons in de duurzame Functons-extensie voor Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ea8b5db946d6b35ea4583d9170ec36e5f95e16cd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 71c0cebf676d29308fe9f4942350ae96d3bedcf6
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972548"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340828"
 ---
-# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-orchestrators in duurzame functies (Azure-functies)
+# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-orchestrators in duurzame functies (Azure Functions)
 
-Voor achtergrondtaken of actor-stijl-integraties u vaak nodig om ervoor te zorgen dat slechts één exemplaar van een bepaalde orchestrator tegelijkertijd wordt uitgevoerd. Dit kan worden gedaan [duurzame functies](durable-functions-overview.md) door het toewijzen van een specifieke instantie-ID aan een orchestrator bij het maken van deze.
+Voor achtergrondtaken of actor-stijl-indelingen, u vaak nodig om ervoor te zorgen dat slechts één exemplaar van een bepaalde orchestrator tegelijkertijd wordt uitgevoerd. Dit kan worden gedaan [duurzame functies](durable-functions-overview.md) door het toewijzen van een specifiek exemplaar-ID voor een orchestrator bij het maken van deze.
 
 ## <a name="singleton-example"></a>Singleton-voorbeeld
 
-De volgende C#-voorbeeld ziet een HTTP-trigger-functie die een singleton achtergrond taak orchestration maakt. De code zorgt ervoor dat slechts één exemplaar bestaat voor een opgegeven exemplaar-ID.
+De volgende C#-voorbeeld ziet u een HTTP-trigger-functie waarmee een Taakindeling voor singleton-achtergrond. De code zorgt ervoor dat slechts één exemplaar bestaat voor een opgegeven exemplaar-ID.
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -58,11 +58,14 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-Exemplaar-id's willekeurig zijn gegenereerd GUID's. Maar in dit geval de exemplaar-ID wordt doorgegeven in gegevens routeren van de URL. Het aanroepen van de code [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) om te controleren als er al een exemplaar met de opgegeven ID is uitgevoerd. Als dit niet het geval is, is een exemplaar gemaakt met die ID.
+Exemplaar-id's willekeurig zijn gegenereerd standaard GUID's. Maar in dit geval de exemplaar-ID van de URL in de routegegevens wordt doorgegeven. De code roept [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) om te controleren als er al een exemplaar met de opgegeven ID is uitgevoerd. Als dit niet het geval is, is een exemplaar gemaakt met die ID.
 
-Details over de implementatie van de orchestrator-functie niet daadwerkelijk van belang. Het kan een reguliere orchestrator-functie die wordt gestart en is voltooid, of kan zijn dat wordt altijd uitgevoerd (dat wil zeggen, een [eeuwige Orchestration](durable-functions-eternal-orchestrations.md)). Wat belangrijk is, is er ooit slechts één exemplaar tegelijk uitvoeren.
+> [!NOTE]
+> Er is een mogelijke racevoorwaarde in dit voorbeeld. Als twee exemplaren van **HttpStartSingle** uitvoeren gelijktijdig, het resultaat kan worden twee verschillende gemaakt exemplaren van de singleton, die de andere worden overschreven. Dit kan neveneffecten hebben, afhankelijk van uw vereisten. Daarom is het belangrijk om ervoor te zorgen dat geen twee aanvragen gelijktijdig deze triggerfunctie kunnen uitvoeren.
+
+Details over de implementatie van de orchestrator-functie niet werkelijk van belang. Dit kan een reguliere orchestrator-functie die wordt gestart en is voltooid, of kan de oorzaak zijn dat wordt altijd uitgevoerd (dat wil zeggen, een [eeuwige Orchestration](durable-functions-eternal-orchestrations.md)). Wat belangrijk is dat er altijd maar één instantie die wordt uitgevoerd op een tijdstip.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Informatie over het aanroepen van onderliggende integraties](durable-functions-sub-orchestrations.md)
+> [Informatie over het aanroepen van onderliggende indelingen](durable-functions-sub-orchestrations.md)

@@ -1,6 +1,6 @@
 ---
-title: SQL Data Warehouse data management partners | Microsoft Docs
-description: Lijsten met gegevens van derden management partners met oplossingen die ondersteuning bieden voor SQL Data Warehouse.
+title: SQL Data Warehouse data management-partners | Microsoft Docs
+description: Lijsten met gegevens van derden management-partners met oplossingen die ondersteuning bieden voor SQL Data Warehouse.
 services: sql-data-warehouse
 author: jrowlandjones
 manager: craigg-msft
@@ -10,25 +10,25 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2b25bb73a9f7227fbe3c15610a5b91016505bae4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b2179aa80e97a6c043bf97fe40a8de2f1ba25204
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187365"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341161"
 ---
-# <a name="sql-data-warehouse-data-management-partners"></a>SQL Data Warehouse data management partners
-Voor het maken van uw datawarehouse-oplossing kiezen uit een groot aantal toonaangevende hulpprogramma's. In dit artikel markeert Microsoft partnerbedrijven met gegevens beheerhulpprogramma's en oplossingen voor ondersteuning van Azure SQL Data Warehouse.
+# <a name="sql-data-warehouse-data-management-partners"></a>SQL Data Warehouse data management-partners
+Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw datawarehouse-oplossing. In dit artikel ziet u Microsoft-partnerbedrijven met een gegevens-beheerhulpprogramma's en ondersteuning van Azure SQL Data Warehouse-oplossingen.
 
-## <a name="data-management-partners"></a>Data management partners
+## <a name="data-management-partners"></a>Gegevensbeheerpartners
 | Partner | Beschrijving | Koppelingen | Video's |
 | --- | --- | --- | --- |
-| ![Coffing gegevensopslag][1] |**Coffing gegevensopslag**<br>Coffing Data Warehousing biedt Nexus Chameleon, een hulpmiddel met tien jaar van ontwerp die specifiek zijn voor het uitvoeren van query's systemen. Nexus is beschikbaar als een queryprogramma voor SQL Data Warehouse. Gebruik Nexus intern doorzoeken en cloud computers en join-gegevens op verschillende platforms. Klik op punt rapport! |[Marketplace][coffing_marketplace]<br>[Website][coffing_website]<br>[Kies vrijgeven][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![coffing video](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
-| ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD biedt de hulpprogramma's die u wilt maken van een nauwkeurige gegevensmodel, verminderen gegevensredundantie productiviteit verbeteren en standaarden zien. Met behulp van de gebruikersinterface, die is ontwikkeld op basis van uitgebreide gebruikerservaringen, kunt een samenstellen werken DB modellen eenvoudig en gemakkelijk. U kunt continu Profiteer van nieuwe en verbeterde functies van MicroERD via vragen functionele verbeteringen en updates. |[Website][inbrein_website]<br>[Gegevensblad][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![inbrein video](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |
-| ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian catalogus maken, worden opgeslagen en metagegevens om u te helpen bij het oplossen van de belangrijkste knelpunten van gegevensbeheer beheert. Daarnaast biedt Infolibrarian metagegevens management, gegevensbeheer en asset management softwareoplossingen voor het beheren en publiceren van metagegevens uit een uitgebreide set hulpprogramma's en-technologieën. |[Marketplace][infolibrarian_marketplace]<br>[Website][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] |[![infolibrarian video](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
-| ![Globale Redpoint][4] |**RedPoint interactie**<br>RedPoint interactie kunt u klanten in een continue dialoogvenster benaderen via elke communicatiekanaal en touch punt. De volledige levenscyclus van omnichannel marketing vanuit één punt van operationele besturingselement eenvoudig beheren |[Marketplace][redpoint_it_marketplace]<br>[Website][redpoint_it_website]<br>[Kies vrijgeven][redpoint_press]<br>[Gegevensblad][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm-video](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
-| ![Globale Redpoint][4] |**RedPoint gegevensbeheer**<br>Gegevensbeheer RedPoint inschakelen s marketeers om toe te passen van hun gegevens om cross-kanaal klant engagement tijdens het uitvoeren van gestructureerde en ongestructureerde gegevens management. U kunt de waarde van uw gestructureerde en ongestructureerde gegevens op de hyper-gepersonaliseerde, contextgevoelige interacties die nodig zijn voor het benaderen van vandaag omni-kanaal klant leveren maximaliseren door gebruik te maken van Azure SQL Data Warehouse en RedPoint. Slepen en neerzetten interface maakt ontwerpen en beheerprocessen gegevens gemakkelijk uitvoeren. |[Marketplace][redpoint_dm_marketplace]<br>[Website][redpoint_dm_website]<br>[Kies vrijgeven][redpoint_press]<br>[Gegevensblad][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm-video](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://www.youtube.com/watch?v=o3DtXRpiEg0) |
-| ![Een Sentry][5] |**DW Sentry**<br>Met de intelligent data movement dashboard en de gebeurtenis agenda weet u altijd precies wat van invloed is op de uw workload. Ontworpen om u te bieden inzicht in uw query's en taken die worden uitgevoerd om te laden, back-up of herstellen van uw gegevens en u nooit geen zorgen over het al dan niet het aanbrengen van de meeste van uw Azure-resources. |[Marketplace][sql_sentry_marketplace]<br>[Website][sql_sentry_website]<br>[Kies vrijgeven][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
+| ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>Coffing Data Warehousing biedt Nexus Chameleon, een hulpprogramma met tien jaar van ontwerp toegewezen aan het uitvoeren van query's systemen. Nexus is beschikbaar als een hulpprogramma voor SQL Data Warehouse. Gebruik Nexus query uitvoeren op intern en computers en join-gegevens in de cloud voor meerdere platformen. Punt-klikken-rapport. |[Marketplace][coffing_marketplace]<br>[Website][coffing_website]<br>[Persberichten][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![coffing video](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
+| ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD biedt de hulpprogramma's die u wilt maken van een nauwkeurige gegevensmodel, gegevensredundantie verminderen, de productiviteit te verbeteren en standaarden observeren. Een samenstellen kunt werken in DB-modellen met behulp van de gebruikersinterface, die is ontwikkeld op basis van uitgebreide gebruikerservaringen, eenvoudig en gemakkelijk. U kunt continu profiteren van nieuwe en verbeterde functies van MicroERD via vragen functionele verbeteringen en updates. |[Website][inbrein_website]<br>[Gegevensblad] [inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![inbrein video](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |
+| ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian catalogiseren, worden opgeslagen en beheren van metagegevens om u te helpen bij het oplossen van belangrijke knelpunten van gegevensbeheer. Bovendien biedt Infolibrarian metagegevens, gegevensbeheer, en oplossingen voor software asset voor het beheren en publiceren van metagegevens uit een groot aantal hulpprogramma's en technologieën. |[Marketplace] [infolibrarian_marketplace]<br>[Website][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] |[![infolibrarian video](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
+| ![Globale Redpoint][4] |**RedPoint interactie**<br>RedPoint interactie kunt u samenwerken met klanten in een dialoogvenster voor continue voor elke communicatiekanaal en touch punt. De volledige levenscyclus van omnichannel marketing van een single point of operationele controle eenvoudig te beheren |[Marketplace] [redpoint_it_marketplace]<br>[Website][redpoint_it_website]<br>[Persberichten] [redpoint_press]<br>[Gegevensblad] [redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube] [redpoint_youtube] |[![redpoint dm-video](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
+| ![Globale Redpoint][4] |**RedPoint gegevensbeheer**<br>Gegevensbeheer RedPoint inschakelen s marketeers om toe te passen van hun gegevens om cross-kanaal klantbetrokkenheid tijdens het uitvoeren van gestructureerde en ongestructureerde gegevens management. U kunt de waarde van uw gestructureerde en ongestructureerde gegevens op het leveren van de hyper-gepersonaliseerde, contextuele interacties nodig contact opnemen met de hedendaagse omni-kanaal klant maximaliseren door te profiteren van Azure SQL Data Warehouse en RedPoint. Slepen-en-neerzetten-interface kunt u het ontwerpen en uitvoeren van gegevensprocessen eenvoudig. |[Marketplace] [redpoint_dm_marketplace]<br>[Website][redpoint_dm_website]<br>[Persberichten] [redpoint_press]<br>[Gegevensblad] [redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube] [redpoint_youtube] |[![redpoint dm-video](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://www.youtube.com/watch?v=o3DtXRpiEg0) |
+| ![Sentry één][5] |**DW Sentry**<br>Met de intelligente data movement dashboard en de gebeurtenis agenda weet u altijd precies wat uw workload beïnvloedt. Is ontworpen om u te bieden inzicht in uw query's en taken die worden uitgevoerd als u wilt laden, back-up of herstellen van uw gegevens en u nooit zorgen maken over of u alles uit uw Azure-resources wilt maken. |[Marketplace] [sql_sentry_marketplace]<br>[Website][sql_sentry_website]<br>[Persberichten] [sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube] [sql_sentry_youtube] | |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over andere partners, [Business Intelligence partners] [ bi_partners] en [gegevensintegratie partners][di_partners].
@@ -56,35 +56,22 @@ Zie voor meer informatie over andere partners, [Business Intelligence partners] 
 <!--ebook Links-->
 
 <!--Datasheet Links-->
-<!--[coffing_datasheet]:-->
-[inbrein_datasheet]:http://microerd.com/images/MicroERD_Manual/MicroERD_Manual.pdf
-<!--[infolibrarian_datasheet]:-->
-[redpoint_it_datasheet]:http://www.redpoint.net/wp-content/uploads/2016/06/RedPoint-Interaction-FS-wordle-8.5x11-RPIUS0815-07-PRINT.pdf
-[redpoint_dm_datasheet]:http://www.redpoint.net/wp-content/uploads/2014/09/RedPoint-Data-Management-FS-V2-wordle-8.5x11-0216-WEB.pdf
-<!--[sql_sentry_datasheet]:-->
+<!--[coffing_datasheet]:--> [inbrein_datasheet]:http://microerd.com/images/MicroERD_Manual/MicroERD_Manual.pdf <!--[infolibrarian_datasheet]:--> [redpoint_it_datasheet]:http://www.redpoint.net/wp-content/uploads/2016/06/RedPoint-Interaction-FS-wordle-8.5x11-RPIUS0815-07-PRINT.pdf [redpoint_dm_datasheet]:http://www.redpoint.net/wp-content/uploads/2014/09/RedPoint-Data-Management-FS-V2-wordle-8.5x11-0216-WEB.pdf <!--[sql_sentry_datasheet]:-->
 
 <!--Marketplace Links -->
 [coffing_marketplace]:https://azure.microsoft.com/marketplace/partners/nexus/nexus-chameleon-9/ 
-<!--[inbrein_marketplace]:-->
-[infolibrarian_marketplace]:https://azure.microsoft.com/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
-[redpoint_it_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-interaction/
-[redpoint_dm_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/ 
-[sql_sentry_marketplace]:https://azure.microsoft.com/marketplace/partners/sqlsentry/sqlsentryplatform/
+<!--[inbrein_marketplace]:--> [infolibrarian_marketplace]:https://azure.microsoft.com/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/ [redpoint_it_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-interaction/ [redpoint_dm_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/ [sql_sentry_marketplace]:https://azure.microsoft.com/marketplace/partners/sqlsentry/sqlsentryplatform//
 
 <!--Press links-->
 [coffing_press]:http://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/
 <!--[inbrein_press]:-->
-<!--[infolibrarian_press]:-->
-[redpoint_press]:http://www.redpoint.net/press/redpoint-global-announces-support-for-microsoft-azure-sql-data-warehouse-microsoft-azure-data-lake-service/
-[sql_sentry_press]:https://www.sentryone.com/Company/News-Article/20160713-sql-sentry-performance-advisor-for-azure-sql-dw/
+<!--[infolibrarian_press]:--> [redpoint_press]:http://www.redpoint.net/press/redpoint-global-announces-support-for-microsoft-azure-sql-data-warehouse-microsoft-azure-data-lake-service/ [sql_sentry_press]:https://www.sentryone.com/sentryone-v-11.2-offers-new-insights-and-powerful-automationn
 
 
 <!--YouTube links-->
 [coffing_youtube]:https://www.youtube.com/channel/UC8o1zhc9tNp9ve6vDn34tkw
 [inbrein_youtube]:https://www.youtube.com/channel/UCHTYjFFaTpo6bPAtuxgdZig
-<!--[infolibrarian_youtube]:-->
-[redpoint_youtube]:https://www.youtube.com/user/RedPointGlobal
-[sql_sentry_youtube]:https://www.youtube.com/user/SQLSentry
+<!--[infolibrarian_youtube]:--> [redpoint_youtube]:https://www.youtube.com/user/RedPointGlobal [sql_sentry_youtube]:https://www.youtube.com/user/SQLSentryy
 
 <!--Twitter links-->
 [coffing_twitter]:https://twitter.com/CoffingDW

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ae0247df0bbde07e755bd910bca08b8703969cec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237002"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047272"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-introduction.md)
-> * [Versie 2 - Preview](introduction.md)
+> * [Versie 1](v1/data-factory-introduction.md)
+> * [Huidige versie](introduction.md)
 
 In de wereld van big data worden onbewerkte, ongeordende gegevens vaak opgeslagen in relationele, niet-relationele en andere opslagsystemen. Op zichzelf staande, onbewerkte gegevens hebben echter niet de juiste context of betekenis om nuttige inzichten te kunnen bieden aan analisten, gegevenswetenschappers en besluitvormers. 
 
@@ -40,9 +40,6 @@ Azure Data Factory is het platform dat dergelijke gegevensscenario's oplost. Het
 Bovendien kunt u uitvoergegevens publiceren naar gegevensopslaglocaties zoals Azure SQL Data Warehouse, waar BI-toepassingen (business intelligence-oplossingen) er gebruik van kunnen maken. Via de Azure Data Factory kunt onbewerkte gegevens uiteindelijk worden ingedeeld in zinvolle gegevensarchieven en gegevensmeren zodat u betere zakelijke beslissingen kunt nemen.
 
 ![Weergave van het hoogste niveau van Data Factory](media/introduction/big-picture.png)
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Inleiding tot versie 1 van Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="how-does-it-work"></a>Hoe werkt het?
 De pijplijnen (gegevensgestuurde werkstromen) in Azure Data Factory voeren normaal gesproken de volgende vier stappen uit:
@@ -92,7 +89,7 @@ Gekoppelde services worden voor twee doeleinden gebruikt in een Data Factory:
 - Ter vertegenwoordiging van een **rekenresource** die de uitvoering van een activiteit kan hosten. De activiteit HDInsightHive wordt bijvoorbeeld uitgevoerd in een HDInsight Hadoop-cluster. Zie het artikel [Gegevens transformeren](transform-data.md) voor een lijst met transformatieactiviteiten en ondersteunde rekenomgevingen.
 
 ### <a name="triggers"></a>Triggers
-Triggers zijn verwerkingseenheden die bepalen wanneer een pijplijnuitvoering moet worden gestart. Er zijn verschillende soorten triggers voor verschillende soorten gebeurtenissen. Als preview ondersteunt Data Factory de klok-scheduler-trigger. 
+Triggers zijn verwerkingseenheden die bepalen wanneer een pijplijnuitvoering moet worden gestart. Er zijn verschillende soorten triggers voor verschillende soorten gebeurtenissen.
 
 ### <a name="pipeline-runs"></a>Pijplijnuitvoeringen
 Een pijplijnuitvoering is een exemplaar van de uitvoering van de pijplijn. Pijplijnuitvoeringen worden doorgaans geïnstantieerd doordat argumenten worden doorgegeven aan de parameters die zijn gedefinieerd in pijplijnen. De argumenten kunnen handmatig of in de triggerdefinitie worden doorgegeven.
@@ -124,8 +121,8 @@ Hoewel Data Factory alleen beschikbaar is in VS - oost, VS - oost 2 en West-Euro
 
 Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio West-Europa. U kunt een Azure Data Factory-exemplaar maken en gebruiken in VS Oost of VS Oost 2 en dit gebruiken om taken te plannen in uw berekeningsomgevingen in West-Europa. Het duurt enkele milliseconden voordat Data Factory de taak in uw rekenomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw rekenomgeving.
 
-## <a name="compare-with-version-2"></a>Vergelijken met versie 2
-Zie [Compare with version 1](compare-versions.md) (Vergelijken met versie 1) voor een lijst met verschillen tussen versie 1 en versie 2 van de Data Factory-service. 
+## <a name="compare-with-version-1"></a>Vergelijken met versie 1
+Zie [Vergelijken met versie 1](compare-versions.md) voor een lijst met verschillen tussen versie 1 en de huidige versie van de Data Factory-service. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Aan de slag met het maken van een Data Factory-pijplijn met een van de volgende hulpprogramma's/SDK's: 

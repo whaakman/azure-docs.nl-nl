@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge op Windows installeren met Windows containers | Microsoft Docs
-description: Azure IoT rand installatie-instructies in Windows met de Windows-containers
+title: Azure IoT Edge op Windows installeren met Windows-containers | Microsoft Docs
+description: Azure IoT Edge installatie-instructies op Windows met Windows-containers
 author: kgremban
 manager: timlt
 ms.reviewer: veyalla
@@ -9,41 +9,41 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 1ae51d948fdaa5654c59549d384b784f0e87dcc3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b2878f9d7aa32b2502487cdc081896e5ba306af1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112616"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346373"
 ---
-# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Azure IoT rand runtime installeren op Windows gebruiken met Windows-containers
+# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Azure IoT Edge-runtime installeren op Windows voor gebruik met Windows-containers
 
-De runtime Azure IoT-rand wordt geïmplementeerd op alle rand van de IoT-apparaten. Er zijn drie onderdelen gedefinieerd. De **IoT rand beveiliging daemon** biedt en onderhoudt beveiligingsstandaarden op het apparaat aan de rand. De daemon begint op elke keer opstarten en het apparaat bootstraps door de rand van de IoT-agent wordt gestart. De **IoT rand agent** vereenvoudigt de implementatie en controle van modules op het apparaat aan de rand, met inbegrip van de rand van de IoT-hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
+De Azure IoT Edge-runtime wordt geïmplementeerd op alle IoT Edge-apparaten. Het bevat drie onderdelen. De **IoT Edge security daemon** biedt en onderhoudt beveiligingsstandaarden op het Edge-apparaat. De daemon begint op elke keer opstarten en bootstrapt van het apparaat door de IoT Edge-agent wordt gestart. De **IoT Edge agent** vergemakkelijkt de implementatie en bewaking van modules op het Edge-apparaat, met inbegrip van de IoT Edge hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
 
-In dit artikel vindt u de stappen voor het installeren van de rand van Azure IoT-runtime op uw Windows-x64 (AMD/Intel) systeem. 
+In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime op uw Windows x64 (AMD/Intel) systeem. 
 
-Ondersteuning voor Windows is momenteel in Preview.
+Windows-ondersteuning is momenteel in Preview.
 
-## <a name="supported-windows-versions"></a>Ondersteunde Windows-versies
+## <a name="supported-windows-versions"></a>Ondersteunde versies van Windows
 Azure IoT Edge met Windows-containers kunnen worden gebruikt met:
-  * Windows 10 IoT Enterprise/IoT Core met April 2018-update (17134 bouwen).
+  * Windows 10 IoT Enterprise/IoT Core met April 2018 update (17134 bouwen).
   * WindowsServer 1803
 
-## <a name="install-the-container-runtime"></a>Installeren van de container-runtime 
+## <a name="install-the-container-runtime"></a>De container-runtime installeren 
 
 >[!NOTE]
->Volg de stappen uit voor container engine-installatie op Windows IoT Core [inrichten van een apparaat IoT Core artikel] [ lnk-iot-core] en ga verder met de onderstaande instructies.
+>Volg de stappen uit voor container engine-installatie op Windows IoT Core [inrichten van een IoT Core apparaat artikel] [ lnk-iot-core] en ga verder met de onderstaande instructies.
 
-Azure IoT-rand is afhankelijk van een [OCI-compatibele] [ lnk-oci] container runtime (bijvoorbeeld Docker). U kunt [Docker voor Windows] [ lnk-docker-for-windows] voor ontwikkeling en testen. 
+Azure IoT Edge is afhankelijk van een [OCI-compatibele] [ lnk-oci] container runtime (bijvoorbeeld Docker). U kunt [Docker voor Windows] [ lnk-docker-for-windows] voor ontwikkelen en testen. 
 
-**Zorg ervoor dat Docker voor Windows [geconfigureerd voor het gebruik van Windows-containers][lnk-docker-config]**
+**Zorg ervoor dat Docker voor Windows is [geconfigureerd voor het gebruik van Windows-containers][lnk-docker-config]**
 
-## <a name="install-the-azure-iot-edge-security-daemon"></a>De Daemon van de beveiliging Azure IoT-rand installeren
+## <a name="install-the-azure-iot-edge-security-daemon"></a>De Daemon van de beveiliging met Azure IoT Edge installeren
 
 >[!NOTE]
->Azure IoT rand softwarepakketten zijn onderworpen aan de licentievoorwaarden die zich in de pakketten (in de map LICENSE). Lees de licentievoorwaarden voordat het pakket. De installatie en het gebruik van het pakket wordt verstaan onder de bevestiging van deze voorwaarden. Als u niet akkoord met de licentievoorwaarden gaat, gebruik niet het pakket.
+>Azure IoT Edge-softwarepakketten zijn afhankelijk van de licentievoorwaarden die zich in de pakketten (in de map LICENSE). Lees de licentievoorwaarden voordat u het pakket. De installatie en het gebruik van het pakket wordt verstaan onder uw acceptatie van deze voorwaarden. Als u niet akkoord met de licentievoorwaarden gaat, moet u het pakket niet gebruiken.
 
-### <a name="download-the-edge-daemon-package-and-install"></a>De Edge-daemon downloaden en installeren
+### <a name="download-the-edge-daemon-package-and-install"></a>Het Edge-daemon-pakket downloaden en installeren
 
 Voer de volgende opdrachten in een beheerder PowerShell-venster:
 
@@ -56,7 +56,7 @@ $env:Path += ";C:\ProgramData\iotedge"
 SETX /M PATH "$env:Path"
 ```
 
-Installeer de vcruntime via (u kunt deze stap overslaan op een randapparaat IoT-core):
+Installeer de vcruntime gebruiken (u kunt deze stap overslaan op een IoT core Edge-apparaat):
 
 ```powershell
 Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
@@ -70,7 +70,7 @@ New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe
 Start-Service iotedge
 ```
 
-Firewalluitzonderingen voor de poorten gebruikt door de service toevoegen:
+Firewall-uitzonderingen voor de poorten die door de service toevoegen:
 
 ```powershell
 New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
@@ -87,13 +87,13 @@ Windows Registry Editor Version 5.00
 "TypesSupported"=dword:00000007
 ```
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>De Daemon van Azure IoT-rand beveiliging configureren
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>De Daemon van de beveiliging met Azure IoT Edge configureren
 
 De daemon kan worden geconfigureerd met behulp van het configuratiebestand op `C:\ProgramData\iotedge\config.yaml`.
 
-Het apparaat aan de rand kan worden geconfigureerd handmatig met behulp van een [apparaat verbindingsreeks] [ lnk-dcs] of [automatisch via apparaat inrichtingsservice] [ lnk-dps].
+Het edge-apparaat kan worden geconfigureerd handmatig met behulp van een [apparaatverbindingsreeks] [ lnk-dcs] of [automatisch via Device Provisioning Service] [ lnk-dps].
 
-* Handmatige configuratie opmerkingen bij de **handmatige** Inrichtingsmethode. Werk de waarde van **device_connection_string** met de verbindingsreeks van uw IoT-Edge-apparaat.
+* Handmatige configuratie, verwijder opmerkingen bij de **handmatige** Inrichtingsmethode. Werk de waarde van **device_connection_string** door de verbindingsreeks van uw IoT Edge-apparaat.
 
    ```yaml
    provisioning:
@@ -107,7 +107,7 @@ Het apparaat aan de rand kan worden geconfigureerd handmatig met behulp van een 
    #   registration_id: "{registration_id}"
    ```
 
-* Voor de automatische configuratie opmerkingen bij de **DP's** Inrichtingsmethode. Werk de waarden van **scope_id** en **registration_id** door de waarden van het exemplaar van uw IoT Hub DP's en uw IoT-randapparaat met TPM. 
+* Voor automatische configuratie, verwijder de opmerking bij de **dps** Inrichtingsmethode. De waarden voor **scope_id** en **registration_id** door de waarden van uw IoT Hub-DPS-exemplaar en uw IoT Edge-apparaat met TPM. 
 
    ```yaml
    # provisioning:
@@ -121,7 +121,7 @@ Het apparaat aan de rand kan worden geconfigureerd handmatig met behulp van een 
      registration_id: "{registration_id}"
    ```
 
-De naam van het edge-apparaten met `hostname` opdracht in PowerShell en stel dit in als de waarde voor **hostnaam:** in de configuratie yaml. Bijvoorbeeld:
+Haal de naam van het gebruik van edge-apparaat `hostname` opdracht in PowerShell en stel deze in als de waarde voor **hostnaam:** in de configuratie van yaml. Bijvoorbeeld:
 
 ```yaml
   ###############################################################################
@@ -136,33 +136,35 @@ De naam van het edge-apparaten met `hostname` opdracht in PowerShell en stel dit
   hostname: "edgedevice-1"
 ```
 
-Vervolgens moet u het IP-adres en poort voor **workload_uri** en **management_uri** in de **verbinding:** sectie van de configuratie.
+Vervolgens geeft u het ip-adres en poort voor **workload_uri** en **management_uri** in de **verbinding:** en **luisteren:** secties van de de configuratie.
 
-Voer voor het IP-adres, `ipconfig` in uw PowerShell-venster en selecteert u het IP-adres van de **vEthernet (nat)** interface zoals weergegeven in het onderstaande voorbeeld (mogelijk is het IP-adres op uw systeem verschillende):  
+Als u wilt ophalen van uw ip-adres, voer `ipconfig` in uw PowerShell-venster en kopieert u het ip-adres van de **vEthernet (nat)** interface zoals wordt weergegeven in het volgende voorbeeld (het ip-adres op uw systeem kan afwijken):  
 
 ![nat][img-nat]
 
+Update de **workload_uri** en **management_uri** in de **verbinding:** gedeelte van het configuratiebestand. Vervang **\<GATEWAY_ADDRESS\>** met het IP-adres dat u hebt gekopieerd. 
+
 ```yaml
 connect:
-  management_uri: "http://172.29.240.1:15580"
-  workload_uri: "http://172.29.240.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Voer dezelfde adressen in de **luisteren:** sectie van de configuratie. Bijvoorbeeld:
+Geef de dezelfde adressen in de **luisteren:** sectie van de configuratie, met behulp van uw IP-adres als de gateway-adres.
 
 ```yaml
 listen:
-  management_uri: "http://172.29.240.1:15580"
-  workload_uri: "http://172.29.240.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-In de PowerShell-venster maken van een omgevingsvariabele **IOTEDGE_HOST** met de **management_uri** adres, bijvoorbeeld:
+In het PowerShell-venster, maakt u een omgevingsvariabele **IOTEDGE_HOST** met de **management_uri** adres.
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://172.29.240.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
 ```
 
-Controleer ten slotte de **netwerk:** onder **moby_runtime:** zonder opmerkingen en ingesteld op **nat**
+Ten slotte, zorg ervoor dat de **netwerk:** bij **moby_runtime:** commentaarteken en ingesteld op **nat**
 
 ```yaml
 moby_runtime:
@@ -180,15 +182,15 @@ Start-Service iotedge
 
 ## <a name="verify-successful-installation"></a>Controleer of geslaagde installatie
 
-Als u gebruikt de **handmatige configuratie** stappen in de vorige sectie is ingericht en wordt uitgevoerd op uw apparaat, moet de rand van de IoT-runtime zijn. Als u gebruikt de **automatische configuratie** stappen, moet u een aantal extra stappen uitvoeren, zodat de runtime het apparaat met uw IoT-hub namens jou registreren kunt. Zie voor de volgende stappen [maken en inrichten van een gesimuleerd apparaat van de rand van de TPM in Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+Als u gebruikt de **handmatige configuratie** stappen in de vorige sectie, IoT Edge-runtime moet is ingericht en wordt uitgevoerd op uw apparaat. Als u gebruikt de **automatische configuratie** stappen, moet u enkele extra stappen uitvoeren zodat de runtime uw apparaat met uw IoT-hub uit uw naam registreren kan. Zie voor de volgende stappen [maken en inrichten van een gesimuleerd TPM-Edge-apparaat op Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
 
-U kunt de status van de rand van de IoT-service controleren: 
+U kunt de status van de IoT Edge-service door te controleren: 
 
 ```powershell
 Get-Service iotedge
 ```
 
-Controleer service-logboeken voor de laatste vijf minuten met:
+Controleer Logboeken voor de laatste 5 minuten met behulp van:
 
 ```powershell
 
@@ -209,7 +211,7 @@ iotedge list
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u problemen ondervindt met de installatie naar behoren afhandeling Edge-runtime de [probleemoplossing] [ lnk-trouble] pagina.
+Als u problemen ondervindt met het Edge-runtime installeren goed, bekijk de [probleemoplossing] [ lnk-trouble] pagina.
 
 
 <!-- Images -->

@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 04/09/2018
 ms.author: tdykstra
 ms.custom: mvc
-ms.openlocfilehash: 6df97a40be7bf1c437c5228006d114ace768f8ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9b9ef150a86a754d4ed328184eb02c1937008b7b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157370"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028860"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions en WebJobs vergelijken
 
@@ -50,7 +50,7 @@ Raadpleeg de volgende tabel om te bepalen of Flow of Logic Apps het meest geschi
 | Ontwerpomgeving |In browser en mobiele app, alleen UI |In browser en [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [codeweergave](../logic-apps/logic-apps-author-definitions.md) beschikbaar |
 | Beheer van toepassingslevenscyclus |Ontwerpen en testen in niet-productieomgevingen, niveau verhogen naar productie wanneer u klaar bent. |DevOps: resourcebeheer, testen, ondersteuning, automatisering en beheersbaarheid in [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Beheerervaring |Beleidsregels voor stroomomgevingen en preventie van gegevensverlies beheren, licenties bijhouden [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Resourcegroepen, verbindingen, toegangsbeheer en logboekregistratie beheren [https://portal.azure.com](https://portal.azure.com) |
-| Beveiliging |Office 365-beveiliging en auditlogboeken voor naleving, preventie van gegevensverlies, [inactieve versleuteling](https://wikipedia.org/wiki/Data_at_rest#Encryption) voor gevoelige gegevens, etc. |Beveiligingsondersteuning van Azure: [Azure-beveiliging](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [auditlogboeken](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) en meer. |
+| Beveiliging |Office 365-beveiliging en auditlogboeken voor naleving, preventie van gegevensverlies, [inactieve versleuteling](https://wikipedia.org/wiki/Data_at_rest#Encryption) voor gevoelige gegevens, etc. |Beveiligingsondersteuning van Azure: [Azure-beveiliging](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [auditlogboeken](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) en meer. |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Azure Functions en Azure Logic Apps vergelijken
 
@@ -85,7 +85,7 @@ WebJobs en de WebJobs SDK werken samen het beste, maar u kunt WebJobs ook zonder
 
 Azure Functions is gebaseerd op de WebJobs SDK en deelt daarom veel triggers en verbindingen met andere Azure-services. Hier volgt een aantal factoren om te overwegen bij de keuze tussen Azure Functions en WebJobs met de WebJobs SDK:
 
-|  | Functies | WebJobs met WebJobs SDK |
+|  | Functions | WebJobs met WebJobs SDK |
 | --- | --- | --- |
 |[App-model zonder server](https://azure.microsoft.com/overview/serverless-computing/) met [automatisch schalen](functions-scale.md#how-the-consumption-plan-works)|✔||
 |[Ontwikkelen en testen in de browser](functions-create-first-azure-function.md) |✔||

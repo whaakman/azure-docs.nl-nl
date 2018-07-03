@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 4ca555b53de3dd626c52a5a5d17196a82829d3e8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 2b40d5fdd2b21cc9ff82b4749e1f2b4fe2c38614
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293244"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028659"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Zelfstudie: een Azure Database for MySQL ontwerpen met Azure CLI
 
@@ -59,6 +59,13 @@ In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
+De parameterwaarde voor de sku-naam volgt de conventie {prijscategorie} \_{compute-generatie}\_{vCores}, zoals in de onderstaande voorbeelden:
++ `--sku-name B_Gen4_4` komt overeen met Basic, Gen 4 en 4 vCores.
++ `--sku-name GP_Gen5_32` komt overeen met Algemeen gebruik, Gen 5 en 32 vCores.
++ `--sku-name MO_Gen5_2` komt overeen met Geoptimaliseerd voor geheugen, Gen 5 en 2 vCores.
+
+Raadpleeg de documentatie over [prijscategorieën](./concepts-pricing-tiers.md) om de geldige waarden per regio en categorie te begrijpen.
+
 > [!IMPORTANT]
 > De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze quickstart. Onthoud of noteer deze informatie voor later gebruik.
 
@@ -66,7 +73,7 @@ az mysql server create --resource-group myresourcegroup --name mydemoserver --lo
 ## <a name="configure-firewall-rule"></a>Firewallregel configureren
 Maak een Azure Database for MySQL-firewallregel op serverniveau met de opdracht az mysql server firewall-rule create. Een firewallregel op serverniveau stelt een externe toepassing, zoals het opdrachtregelprogramma **mysql.exe** of MySQL Workbench, in staat om verbinding te maken met uw server via de firewall van de MySQL-service van Azure. 
 
-In het volgende voorbeeld wordt een firewallregel met de naam `AllowMyIP` gemaakt, die verbindingen van een specifiek IP-adres, 192.168.0.1, toestaat. Vervang deze door het IP-adres of reeks IP-adressen die overeenkomen met het IP-adres waarmee u verbinding gaat maken. 
+In het volgende voorbeeld wordt een firewallregel met de naam `AllowMyIP` gemaakt, die verbindingen van een specifiek IP-adres, 192.168.0.1, toestaat. Vervang dit adres door het IP-adres of de reeks IP-adressen die overeenkomen met het IP-adres waarmee u verbinding gaat maken. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1

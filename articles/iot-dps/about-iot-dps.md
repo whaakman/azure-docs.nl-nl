@@ -1,123 +1,123 @@
 ---
-title: Overzicht van Azure IoT Hub apparaat-Service inricht | Microsoft Docs
-description: Beschrijving van mobiele apparaten inrichten in Azure met de inrichtingsservice apparaat en IoT-Hub
+title: Overzicht van Azure IoT Hub Device Provisioning Service | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u in Azure apparaten inricht met Device Provisioning Service en IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 12/05/2017
-ms.topic: conceptual
+ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 45f47a553f94da2759c4db2b79c8ef5a1b42b8e8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: bad33376b9457eff25e3407c8e480cf7c0078a1d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630237"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316411"
 ---
-# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Apparaten inrichten met Azure IoT Hub apparaat inrichten van Service
-Microsoft Azure biedt een uitgebreide set geïntegreerde openbare cloud-services voor al uw IoT-oplossing. De inrichtingsservice van IoT Hub apparaat is een helper-service voor IoT-Hub die zonder tussenkomst, just in time inrichten met de juiste IoT-hub zonder menselijke tussenkomst, kunnen klanten om in te richten miljoenen apparaten op een veilige en schaalbare inschakelen manier.
+# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Apparaten inrichten met Azure IoT Hub Device Provisioning Service
+Microsoft Azure biedt een uitgebreide set geïntegreerde openbare cloudservices om tegemoet te komen aan al uw IoT-vragen. IoT Hub Device Provisioning Service is een Helper-service voor IoT Hub die Just-In-Time-inrichting naar de juiste IoT-hub mogelijk maakt zonder tussenkomst van de gebruiker, zodat klanten miljoenen apparaten op een veilige en schaalbare manier kunnen inrichten.
 
-## <a name="when-to-use-device-provisioning-service"></a>Wanneer gebruikt u inrichting Device-Service
-Er zijn veel inrichting scenario's waarin de Service voor het inrichten van apparaten is een uitstekende keuze voor ophalen apparaten aangesloten en geconfigureerd met IoT Hub, zoals:
+## <a name="when-to-use-device-provisioning-service"></a>Wanneer Device Provisioning Service gebruiken
+Er zijn veel scenario's waarin Device Provisioning Service een uitstekende keuze is voor het verbinden en configureren van apparaten met IoT Hub, zoals:
 
-* Zonder tussenkomst inrichten van een enkele IoT-oplossing zonder hardcoderen verbindingsgegevens IoT-Hub in de fabriek (eerste installatie)
-* Apparaten voor taakverdeling over meerdere hubs
-* Apparaten verbinding laten maken met hun eigenaar IoT-oplossing op basis van de verkoop transactiegegevens (multitenancy)
-* Apparaten verbinden met een bepaalde IoT-oplossing, afhankelijk van een gebruiksvoorbeeld (oplossing isolatie)
-* Een apparaat aansluit op de iothub met de laagste latentie (geo-sharding)
-* Opnieuw inrichten op basis van een wijziging in het apparaat
-* De sleutels die worden gebruikt door het apparaat verbinding maakt met IoT Hub (bij X.509-certificaten niet wordt gebruikt om verbinding te) rolling
+* Apparaat zonder tussenkomst van gebruiker inrichten voor een afzonderlijke IoT-oplossing zonder dat hiervoor in de fabriek (eerste installatie) hardcoding van verbindingsgegevens voor IoT-Hub nodig is
+* Taken van apparaten verdelen over meerdere hubs
+* Apparaten verbinden met de IoT-oplossing van hun eigenaar op basis van verkooptransactiegegevens (multitenancy)
+* Apparaten verbinden met een bepaalde IoT-oplossing, afhankelijk van het gebruiksscenario (isolatie van oplossing)
+* Apparaat met de laagst mogelijke latentie (geo-sharding) verbinden met de IoT-hub
+* Herinrichten op basis van een wijziging op het apparaat
+* Aanpassen van de sleutels die door het apparaat worden gebruikt om verbinding te maken met IoT Hub (als er geen verbinding wordt gemaakt met behulp van X.509-certificaten)
 
 ## <a name="behind-the-scenes"></a>Achter de schermen
-Alle scenario's die worden vermeld in de vorige sectie kunnen worden gedaan met behulp van de inrichting service voor het inrichten van zonder tussenkomst met dezelfde stroom. Veel van de handmatige stappen oudsher voor inrichting worden automatisch met de Service apparaat inrichten in minder tijd voor het implementeren van IoT-apparaten en verlaagt het risico van handmatige fouten. Hier volgt een beschrijving van wat achter de schermen gebeurt er ophalen van een apparaat dat is ingericht. De eerste stap is handmatige, alle volgende stappen worden geautomatiseerd.
+Alle scenario's die hierboven worden vermeld kunnen met dezelfde werkstroom en zonder tussenkomst van de gebruiker worden uitgevoerd met behulp van de inrichtingsservice. Veel van de handmatige stappen die gebruikelijk zijn bij het inrichten van apparaten zijn geautomatiseerd met de Device Provisioning Service om zo het implementeren van IoT-apparaten te versnellen en de kans op handmatige fouten te verkleinen. In de volgende sectie wordt beschreven wat er achter de schermen gebeurt om een apparaat in te richten. De eerste stap is handmatig, alle overige gebeuren automatisch.
 
-![Basisstroom voor inrichting](./media/about-iot-dps/dps-provisioning-flow.png)
+![Basiswerkstroom voor inrichting van apparaat](./media/about-iot-dps/dps-provisioning-flow.png)
 
-1. Apparaatfabrikant toegevoegd apparaat registratie-informatie aan de lijst van de inschrijving in de Azure portal.
-2. Apparaat neemt contact op met het inrichtingsproces service-eindpunt ingesteld in de fabriek. Het apparaat de inrichting-service de identificatiegegevens voor de identiteit is geslaagd.
-3. Valideert de inrichting-service de identiteit van het apparaat door het valideren van de registratie-ID en sleutel op basis van de inschrijving van vermelding in de lijst met behulp van een nonce uitdaging ([Trusted Platform Module](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)) of standaard x.509-verificatie ( X.509).
-4. De inrichting service het apparaat wordt geregistreerd met een IoT-hub en vult u het apparaat [gewenst twin status](../iot-hub/iot-hub-devguide-device-twins.md).
-5. De IoT-hub retourneert gegevens van een apparaat-ID en de inrichting service.
-6. De inrichting service retourneert de verbindingsgegevens van de IoT-hub aan het apparaat. Het apparaat kunt nu starten voor het verzenden van gegevens rechtstreeks naar de IoT-hub.
-7. Het apparaat verbinding maakt met iothub.
-8. Het apparaat krijgt de gewenste status van de apparaat-twin in IoT-hub.
+1. De apparaatfabrikant voegt de registratiegegevens van het apparaat toe aan de lijst met registraties in Azure Portal.
+2. Het apparaat neemt contact op met het eindpunt van de inrichtingsservice dat in de fabriek is ingesteld. Het apparaat geeft de identificatiegegevens door aan de inrichtingsservice om de identiteit aan te tonen.
+3. De inrichtingsservice valideert de identiteit van het apparaat door de registratie-id en -sleutel te vergelijken met de vermelding in de lijst met registraties. Dit gebeurt met een nonce-challenge ([Trusted Platform Module](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)) of standaard x.509-verificatie (X.509).
+4. De inrichtingsservice registreert het apparaat bij een IoT-hub en vult de [gewenste dubbelstatus](../iot-hub/iot-hub-devguide-device-twins.md) van het apparaat in.
+5. De IoT-hub retourneert de gegevens van de apparaat-id naar de inrichtingsservice.
+6. De inrichtingsservice retourneert de verbindingsgegevens van de IoT-hub naar het apparaat. Het apparaat kan nu rechtstreeks gegevens gaan verzenden naar de IoT-hub.
+7. Het apparaat maakt verbinding met IoT Hub.
+8. Het apparaat krijgt de gewenste status van de apparaatdubbel in IoT Hub.
 
 ## <a name="provisioning-process"></a>Inrichtingsproces
-Er zijn twee verschillende stappen in het implementatieproces van een apparaat waarop de Service voor het inrichten van apparaten neemt een deel die onafhankelijk kan worden uitgevoerd:
+Er zijn twee verschillende stappen in het implementatieproces van een apparaat waarbij de inrichtingsservice een rol speelt en die onafhankelijk kunnen worden uitgevoerd:
 
-* De **productie stap** waarop het apparaat is gemaakt en voorbereid in de fabriek en
-* De **cloud instellingsstap** in die de Service-inrichting van het apparaat is geconfigureerd voor het automatisch inrichten.
+* De **productiestap** waarin het apparaat wordt gemaakt en voorbereid in de fabriek, en
+* De **configuratiestap voor de cloud** waarin Device Provisioning Service wordt geconfigureerd voor automatisch inrichten.
 
-Beide volgende stappen uit past in naadloos met bestaande productie- en implementatie van processen. De Service voor het inrichten van apparaten vereenvoudigt zelfs enkele implementatieprocessen die betrekking hebben op veel handmatige werk ophalen van gegevens van de verbinding op het apparaat.
+Beide stappen sluiten naadloos aan op bestaande productie- en implementatieprocessen. Device Provisioning Service vereenvoudigt zelfs enkele implementatieprocessen die heel veel handmatig werk vereisen om verbindingsgegevens op het apparaat te krijgen.
 
-### <a name="manufacturing-step"></a>Stap voor productie
-Deze stap is alles wat er gebeurt op de regel voor productie. De rollen die zijn betrokken bij deze stap bevatten silicon designer, silicon fabrikant, integrator en/of de fabrikant van het einde van het apparaat. Deze stap is betrokken bij het maken van de hardware zelf.
+### <a name="manufacturing-step"></a>Productiestap
+Deze stap omvat alles wat te maken heeft met de productielijn. Voorbeelden van rollen die zijn betrokken bij deze stap zijn siliciumontwerper, siliciumfabrikant, integrator en/of de eindfabrikant van het apparaat. Deze stap gaat om het maken van de hardware zelf.
 
-De Service voor het inrichten van apparaten wordt geen een nieuwe stap in het fabricageproces; in plaats daarvan koppelt in de bestaande stap waarmee het eerste software- en (in het ideale geval) de HSM worden geïnstalleerd op het apparaat. In plaats van een apparaat-ID in deze stap maakt, is het apparaat gewoon geprogrammeerd met de Inrichtingsgegevens service zodat deze de inrichting-service roept voor de verbinding info/IoT-oplossing toewijzing bij is ingeschakeld.
+Device Provisioning Service introduceert geen nieuwe stap in het productieproces. De service wordt geïntegreerd in de bestaande stap waarmee de eerste versie van de software en (in het ideale geval) de HSM worden geïnstalleerd op het apparaat. In plaats van een apparaat-id te maken in deze stap, wordt het apparaat geprogrammeerd met de gegevens van de inrichtingsservice, waardoor het apparaat bij inschakeling de service kan aanroepen om de verbindingsgegevens/toewijzing van de IoT-oplossing op te vragen.
 
-In deze stap voorziet de fabrikant ook de apparaat-deployer/operator met belangrijke informatie te identificeren. Dit kan zijn net zo eenvoudig als het bevestigen van alle apparaten, hebben een X.509-certificaat dat is gegenereerd op basis van een ondertekend certificaat opgegeven door de operator/apparaat deployer, voor het openbare deel van een TPM-goedkeuringssleutel extraheren uit een TPM-apparaat. Deze services worden aangeboden door veel fabrikanten van silicon vandaag.
+In deze stap verstrekt de fabrikant ook belangrijke identificatiegegevens aan de persoon die het apparaat implementeert/gebruikt (operator). Het verstrekken van die gegevens kan zo eenvoudig zijn als het bevestigen dat alle apparaten beschikken over een X.509-certificaat dat is gegenereerd op basis van een ondertekend certificaat dat is geleverd door de persoon die het apparaat implementeert/gebruikt, of zo ingewikkeld als het extraheren van het openbare deel van een TPM-goedkeuringssleutel van elk TPM-apparaat. Deze services worden vandaag de dag aangeboden door verschillende fabrikanten van silicium.
 
-### <a name="cloud-setup-step"></a>Cloud-instellingsstap
-Deze stap is over het configureren van de cloud voor de juiste automatische inrichting. In het algemeen er zijn twee typen van gebruikers die zijn betrokken bij de stap van de setup cloud: iemand weet hoe apparaten moeten worden ingesteld (een operator apparaat) en iemand anders die kent hoe apparaten worden om te worden verdeeld tussen de IoT-hubs (een oplossing-operator).
+### <a name="cloud-setup-step"></a>Configuratiestap voor de cloud
+Deze stap betreft het configureren van de cloud voor een juiste automatische inrichting. In het algemeen er zijn twee typen gebruikers betrokken bij deze stap: iemand die weet hoe apparaten in eerste instantie moeten worden geconfigureerd (een operator van apparaten) en iemand anders die weet hoe apparaten moeten worden verdeeld tussen de IoT-hubs (een operator van oplossingen).
 
-Er is een eenmalige eerste installatie van de inrichting moet plaatsvinden en deze taak wordt doorgaans afgehandeld door de operator oplossing. Zodra de inrichting-service is geconfigureerd, heeft deze niet worden gewijzigd, tenzij het gebruiksvoorbeeld wijzigt.
+De inrichting moet in eerste instantie eenmalig worden geconfigureerd, wat meestal wordt afgehandeld door de operator van de oplossing. Zodra de inrichtingsservice is geconfigureerd, hoeft deze niet meer te worden gewijzigd, tenzij het gebruiksscenario verandert.
 
-Nadat de service is geconfigureerd voor automatische inrichting, moet het worden voorbereid om apparaten te registreren. Deze stap wordt uitgevoerd door de operator apparaat, die de gewenste configuratie van de apparaten kent en verantwoordelijk ervoor te zorgen dat de inrichting service kunt goed sta in voor de apparaat-id wanneer ze op zoek naar de IoT-hub afkomstig is. De operator apparaat neemt de belangrijkste gegevens van de fabrikant en voegt het toe aan de lijst van de inschrijving. Er mag daaropvolgende updates voor de lijst van de inschrijving als nieuwe items worden toegevoegd of bestaande vermeldingen worden bijgewerkt met de meest recente informatie over de apparaten.
+Nadat de service is geconfigureerd voor automatische inrichting, moet de service worden voorbereid voor de registratie van apparaten. Deze stap wordt uitgevoerd door de operator van het apparaat, die weet wat de gewenste configuratie is van het apparaat of de apparaten en die ervoor moet zorgen dat de inrichtingsservice de identiteit van het apparaat goed kan bevestigen wanneer het apparaat op zoek gaat naar de juiste IoT-hub. De operator van het apparaat neemt de belangrijkste identificatiegegevens van de fabrikant en voegt deze toe aan de lijst met registraties. De lijst met registraties kan nog worden gewijzigd als er nieuwe items worden toegevoegd of bestaande vermeldingen worden bijgewerkt met de meest recente informatie over de apparaten.
 
 ## <a name="registration-and-provisioning"></a>Registratie en inrichting
-*Inrichting* betekent dat verschillende dingen afhankelijk van de branche waarin de term wordt gebruikt. In de context van het inrichten van IoT-apparaten aan hun cloudoplossing, bestaat inrichting proces uit twee delen:
+*Inrichting* kan verschillende dingen betekenen, afhankelijk van de branche waarin de term wordt gebruikt. In de context van het inrichten van IoT-apparaten bij hun cloudoplossing bestaat het proces uit twee delen:
 
-1. Het eerste deel is tot stand brengen van de eerste verbinding tussen het apparaat en de IoT-oplossing door het apparaat te registreren.
-2. Het tweede gedeelte is de juiste configuratie toepassen op het apparaat op basis van de specifieke vereisten van de oplossing die is geregistreerd op.
+1. Het eerste deel omvat het tot stand brengen van de eerste verbinding tussen het apparaat en de IoT-oplossing door het apparaat te registreren.
+2. Het tweede gedeelte bestaat uit het toepassen van de juiste configuratie op het apparaat op basis van de specifieke vereisten van de oplossing waarbij het apparaat is geregistreerd.
 
-Alleen wanneer die twee stappen hebt voltooid kunt we zeggen dat het apparaat volledig is ingericht. Sommige cloudservices wordt alleen de eerste stap van het inrichtingsproces, het registreren van apparaten met het eindpunt IoT-oplossing te bieden maar bieden niet de eerste configuratie. De Service voor het inrichten van apparaten automatiseert beide stappen om een naadloze ervaring voor de inrichting van het apparaat.
+Als beide stappen zijn voltooid, kunnen we zeggen dat het apparaat volledig is ingericht. Sommige cloudservices bieden alleen de eerste stap van het inrichtingsproces, het registreren van apparaten bij het eindpunt van de IoT-oplossing, maar niet de eerste configuratie. Device Provisioning Service automatiseert beide stappen en biedt zo een naadloze ervaring voor de inrichting van het apparaat.
 
-## <a name="features-of-the-device-provisioning-service"></a>Functies van het apparaat Service inrichten
-De Service voor het inrichten van apparaten bevat veel functies die het ideaal voor inrichting apparaten te maken.
+## <a name="features-of-the-device-provisioning-service"></a>Functies van Device Provisioning Service
+Device Provisioning Service heeft allerlei functies, waardoor de service ideaal is voor het inrichten van apparaten.
 
-* **Attestation Secure** ondersteuning voor X.509- en op basis van TPM identiteiten.
-* **Lijst van de inschrijving** met de volledige record van de apparaten/groepen van apparaten die op sommige registreren serviceverbindingspunt mogelijk. De registratie-lijst bevat informatie over de gewenste configuratie van het apparaat nadat deze is geregistreerd en deze op elk gewenst moment kan worden bijgewerkt.
-* **Meerdere beleidsregels voor brontoewijzing** om te bepalen hoe apparaten in de Service voor het inrichten van apparaten naar IoT hubs ter ondersteuning van uw scenario's worden toegewezen.
-* **Controle en diagnostische gegevens logboeken** om ervoor te zorgen dat alles goed werkt.
-* **Ondersteuning voor meerdere hub** waarmee de apparaat-inrichtingsservice apparaten toewijzen aan meer dan één IoT-hub. De Service voor het inrichten van apparaten kunt contact opnemen met hubs over meerdere Azure-abonnementen.
-* **Ondersteuning voor de regio-overschrijdende** waarmee de apparaat-inrichtingsservice apparaten toewijzen aan IoT hubs in andere regio's.
+* Ondersteuning voor **beveiligde attestation** voor identiteiten op basis van zowel X.509 als TPM.
+* **Lijst van registraties** met een volledig overzicht van de apparaten/groepen apparaten die op enige moment kunnen worden geregistreerd. De registratielijst bevat informatie over de gewenste configuratie van het apparaat als dit wordt geregistreerd en de lijst kan op elk gewenst moment worden bijgewerkt.
+* **Meerdere beleidsregels voor toewijzing** om te bepalen hoe apparaten door Device Provisioning Service worden toegewezen aan IoT-hubs ter ondersteuning van uw scenario's.
+* **Controle en logboekregistratie van diagnostische gegevens** om ervoor te zorgen dat alles goed werkt.
+* **Ondersteuning voor meerdere hubs** zorgt ervoor dat Device Provisioning Service apparaten kan toewijzen aan meer dan één IoT-hub. Device Provisioning Service kan communiceren met hubs binnen verschillende Azure-abonnementen.
+* **Ondersteuning voor meerdere regio's** zorgt ervoor dat Device Provisioning Service apparaten kan toewijzen aan IoT-hubs in andere regio's.
 
-U kunt meer informatie over de concepten en functies die zijn betrokken bij de mobiele apparaten inrichten [apparaat concepten](concepts-device.md), [service concepten](concepts-service.md), en [veiligheidsconcepten](concepts-security.md).
+Zie [apparaatconcepten](concepts-device.md), [serviceconcepten](concepts-service.md) en [veiligheidsconcepten](concepts-security.md) voor meer informatie over de concepten en functies die zijn betrokken bij het inrichten van apparaten.
 
-## <a name="cross-platform-support"></a>Ondersteuning voor meerdere platforms
-De apparaat-inrichtingsservice, zoals alle Azure IoT services werkt platformoverschrijdende met tal van besturingssystemen. Azure biedt bron SDK's openen in een veelheid aan [talen](https://github.com/Azure/azure-iot-sdks) ter bevordering van de apparaten verbinding laten maken en beheren van de service. De Service voor het inrichten van apparaten ondersteunt de volgende protocollen voor het verbinden van apparaten:
+## <a name="cross-platform-support"></a>Ondersteuning voor meerdere platformen
+Device Provisioning Service werkt net zoals alle andere Azure IoT-services platformoverschrijdende met tal van besturingssystemen. Azure biedt open source-SDK's in een veelheid aan [talen](https://github.com/Azure/azure-iot-sdks) ter bevordering van het verbinden van apparaten en het beheren van de service. Device Provisioning Service ondersteunt de volgende protocollen voor het verbinden van apparaten:
 
 * HTTPS
 * AMQP
-* AMQP via websockets
+* AMQP via WebSockets
 * MQTT
-* MQTT via websockets
+* MQTT via WebSockets
 
-De Service voor het inrichten van apparaten ondersteunt alleen HTTPS-verbindingen voor servicebewerkingen.
+Device Provisioning Service ondersteunt alleen HTTPS-verbindingen voor servicebewerkingen.
 
 ## <a name="regions"></a>Regio's
-De Service voor het inrichten van apparaten is beschikbaar in veel regio's. Onderhouden we een bijgewerkte lijst met bestaande en nieuwe aangekondigd regio's voor alle services op [Azure-gebieden](https://azure.microsoft.com/regions/). U kunt zien waar de Service voor het inrichten van apparaten is beschikbaar op de [Azure Status](https://azure.microsoft.com/status/) pagina.
+Device Provisioning Service is beschikbaar in verschillende regio's. De bijgewerkte lijst met bestaande en nieuwe regio's voor alle services wordt aangekondigd op [Azure-regio's](https://azure.microsoft.com/regions/). U kunt de beschikbaarheid van Device Provisioning Service controleren op de pagina [Status van Azure](https://azure.microsoft.com/status/).
 
 > [!NOTE]
-> De Service voor het inrichten van apparaten is globale en is niet gebonden aan een locatie. U moet echter opgeven dat een regio waarin de metagegevens gekoppeld aan uw profiel inrichtingsservice apparaat blijven staan.
+> Device Provisioning Service is globaal en is niet gebonden aan een locatie. U moet echter een regio opgeven waarin de metagegevens worden opgeslagen die zijn gekoppeld aan uw profiel van Device Provisioning Service.
 
 ## <a name="availability"></a>Beschikbaarheid
-Onderhouden we een 99,9% serviceovereenkomst voor de Service voor het inrichten van apparaten, en u kunt [lezen van de SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
+Er wordt een serviceovereenkomst met een beschikbaarheid van 99,9% gehanteerd voor Device Provisioning Service. U kunt [de SLA hier lezen](https://azure.microsoft.com/support/legal/sla/iot-hub/). In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
 
 ## <a name="quotas"></a>Quota
-Elk Azure-abonnement heeft standaard de quotalimieten dat kan invloed hebben op het bereik van uw IoT-oplossing. De huidige limiet per abonnement op basis van een is 10 apparaat leveren van Services per abonnement.
+Voor elk Azure-abonnement gelden standaardquotalimieten. Deze limieten kunnen invloed hebben op het bereik van uw IoT-oplossing. De huidige limiet voor een abonnementsvariant is 10 Device Provisioning Services per abonnement.
 
 Meer informatie over quotalimieten vindt u hier:
 
 * [Azure-abonnement en servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Gerelateerde Azure-onderdelen
-De Service voor het inrichten van apparaten automatiseert apparaten inrichten met Azure IoT Hub. Meer informatie over [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+Device Provisioning Service maakt het mogelijk om het inrichten van apparaten met Azure IoT Hub te automatiseren. Lees hier meer informatie over [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt nu een overzicht van de inrichting van IoT-apparaten in Azure. De volgende stap is een end-to-end-IoT-scenario uitproberen.
+U hebt nu een algemeen beeld van het inrichten van IoT-apparaten in Azure. De volgende stap is het uitproberen van een compleet IoT-scenario.
 > [!div class="nextstepaction"]
-> [Inrichting-Service van IoT Hub apparaat instellen met de Azure-portal](quick-setup-auto-provision.md)
-> [maken en een gesimuleerd apparaat in te richten](quick-create-simulated-device.md)
-> [apparaat voor het inrichten van instellen](tutorial-set-up-device.md)
+> [IoT Hub Device Provisioning Service instellen met Azure Portal](quick-setup-auto-provision.md)
+> [Een gesimuleerd apparaat maken en inrichten](quick-create-simulated-device.md)
+> [Apparaat voorbereiden voor inrichten](tutorial-set-up-device.md)

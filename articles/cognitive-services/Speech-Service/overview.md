@@ -1,6 +1,6 @@
 ---
-title: Wat is de spraak-service (preview)? | Microsoft Docs
-description: 'De service spraak, onderdeel van de cognitieve Services van Microsoft, koppelt zijn verschillende Azure-spraakservices die eerder beschikbaar afzonderlijk waren netwerk: aangepaste spraak, Bing Speech (die bestaat uit spraakherkenning en tekst-naar-spraak) en de vertaling van spraak.'
+title: Wat is de spraakservice (preview)? | Microsoft Docs
+description: 'De spraak-service, onderdeel van de Microsoft Cognitive Services, koppelt zijn verschillende Azure speech services die eerder beschikbaar afzonderlijk waren netwerk: Bing Speech (die bestaat uit spraakherkenning en tekst naar spraak), aangepaste spraak en Spraakomzetting.'
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,84 +10,86 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e7c09eee1634c52e78a523a7cc65641ea99f23e6
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: ccdcdeeaf4ac8730be4f9e3ee648dc41c2a02641
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35345983"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345155"
 ---
-# <a name="what-is-the-speech-service-preview"></a>Wat is de spraak-service (preview)?
+# <a name="what-is-the-speech-service-preview"></a>Wat is de spraakservice (preview)?
 
-De service spraak, onderdeel van de cognitieve Services van Microsoft, koppelt zijn verschillende Azure-spraakservices die eerder beschikbaar afzonderlijk waren netwerk: aangepaste spraak, Bing Speech (die bestaat uit spraakherkenning en tekst-naar-spraak) en de vertaling van spraak. Zoals de precursoren, wordt de service spraak aangedreven door technologieën in andere Microsoft-producten, waaronder Cortana en Microsoft Office.
+De spraak-service, onderdeel van de Microsoft Cognitive Services, koppelt zijn verschillende Azure speech services die eerder beschikbaar afzonderlijk waren netwerk: Bing Speech (die bestaat uit spraakherkenning en tekst naar spraak), aangepaste spraak en Spraakomzetting. De Speech-service is, zoals de precursoren, mogelijk gemaakt door de technologieën die worden gebruikt in andere Microsoft-producten, met inbegrip van Cortana en Microsoft Office.
 
 > [!NOTE]
-> De spraak-service is momenteel in de openbare preview. Retourneren hier regelmatig updates voor documentatie en aanvullende codevoorbeelden.
+> De spraak-service is momenteel in openbare preview. Ga terug hier regelmatig op updates naar documentatie en voorbeelden van aanvullende code.
 
-De uniforme spraak-service biedt ontwikkelaars een eenvoudige manier om te bieden hun toepassingen krachtige spraak ingeschakelde functies met één abonnement. Uw apps kunnen nu functie gesproken opdracht, schrijffouten dicteren, spraak synthese en vertaling.
+De geïntegreerde Speech-service biedt ontwikkelaars een eenvoudige manier om aan te geven van hun toepassingen krachtige spraak ingeschakelde functies met één abonnement. Uw apps kunnen nu voorzien van gesproken opdrachten, transcriptie, dicteren, spraaksynthese en vertaling.
 
 |Functie|Beschrijving|
 |-|-|
-|Spraak naar tekst|Continue menselijke stem converteert naar tekst die kan worden gebruikt als invoer voor uw toepassing. Kan worden geïntegreerd met de [Language Understanding service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) worden afgeleid van de gebruiker van utterances.|
-|Tekst naar spraak|Tekst wordt geconverteerd naar audio-bestanden van natuurlijke klinkt kunstmatige spraak.|
-|Spraak&nbsp;vertaling|Tekst of gesproken uitvoer bieden vertalingen van spraak naar andere talen.|
+|Spraak naar tekst|Converteert continue menselijke spraak naar tekst die kan worden gebruikt als invoer voor uw toepassing. Kan worden geïntegreerd met de [Language Understanding service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) worden afgeleid van de bedoeling van gebruikers van uitingen.|
+|Tekst naar spraak|Converteert tekst naar audio-bestanden van de kunstmatige spraak natuurlijke klinkende.|
+|Spraak&nbsp;vertaling|Vertalingen van spraak naar andere talen met tekst of spraak uitvoer opgeven.|
 
-## <a name="using-the-speech-service"></a>Met behulp van de service spraak
+## <a name="using-the-speech-service"></a>Met behulp van de Speech-service
 
-De spraak-service wordt uitgevoerd op twee manieren beschikbaar zijn. [De SDK](speech-sdk.md) isoleert weg de details van de netwerkprotocollen. De [REST-API](rest-apis.md) werkt met elke programmeertaal maar biedt niet alle functies die worden aangeboden door de SDK.
+De spraak-service is beschikbaar op twee manieren. [De SDK](speech-sdk.md) de details van de netwerkprotocollen volledig weggewerkt. De [REST-API](rest-apis.md) werkt met elke programmeertaal, maar biedt niet alle functies die worden aangeboden door de SDK.
 
-|<br>Methode|Speech<br>naar tekst|Tekst<br>Speech|Speech<br>De vertaling|<br>Beschrijving|
+|<br>Methode|Speech<br>naar tekst|Tekst die moet worden<br>Speech|Speech<br>Omzetting|<br>Beschrijving|
 |-|-|-|-|-|
-|[SDK 's](speech-sdk.md)|Ja|Nee|Ja|Bibliotheken voor specifieke programmeertalen die vereenvoudigen.|
-|[REST](rest-apis.md)|Ja|Ja|Nee|Een eenvoudige HTTP-gebaseerde-API waarmee u gemakkelijk spraak toevoegen aan uw toepassing.|
+|[SDK 's](speech-sdk.md)|Ja|Nee|Ja|-Bibliotheken voor specifieke programmeertalen die eenvoudiger.|
+|[REST](rest-apis.md)|Ja|Ja|Nee|Een eenvoudige, door de HTTP-gebaseerde API waarmee u eenvoudig spraak toevoegen aan uw toepassing.|
 
 ## <a name="speech-to-text"></a>Spraak naar tekst
 
-De [spraak naar tekst](speech-to-text.md) (STT) of spraakherkenning, API transcribes audio stromen naar tekst die uw toepassing kan worden geaccepteerd als invoer. Uw toepassing kan vervolgens bijvoorbeeld de tekst in een document invoeren of bij het fungeren als een opdracht.
+De [spraak naar tekst](speech-to-text.md) (STT), of spraakherkenning, API transcribes audiostreams naar tekst die uw toepassing als invoer accepteren kunt. Uw toepassing kan de tekst dan bijvoorbeeld in een document invoeren of als een opdracht interpreteren.
 
-Spraak naar tekst afzonderlijk is geoptimaliseerd voor interactieve, conversatie en dicteren scenario's. Hieronder vindt u algemene gebruiksvoorbeelden voor de spraak tekst API. 
+Spraak naar tekst afzonderlijk is geoptimaliseerd voor interactieve, conversatie en dicteren scenario's. Hieronder vindt u algemene scenario's voor de Speech to Text-API. 
 
-* Herkent korte een utterance, zoals een opdracht, zonder tussentijdse resultaten
-* Transcriberen met gebruikmaking van een lange, eerder opgenomen utterance, zoals een voicemailbericht
-* Transcriberen met gebruikmaking van streaming spraak in realtime met gedeeltelijke resultaten, voor dicteren
-* Bepalen wat gebruikers wilt doen op basis van een aanvraag voor gesproken natuurlijke taal
+* Een korte utterance, zoals een opdracht, zonder tussentijdse resultaten herkennen
+* Een lange, eerder opgenomen utterance, zoals een voicemailbericht transcriberen
+* Transcriberen streaming gesproken tekst in realtime met gedeeltelijke resultaten, voor spraakherkenning
+* Bepalen wat gebruikers doen op basis van een aanvraag voor spraak natuurlijke taal
 
-De spraak tekst API biedt ondersteuning voor interactieve spraak schrijffouten met realtime continue opname en tussentijdse resultaten. Het ondersteunt ook detectie van het einde van spraak, optioneel automatisch hoofdlettergebruik en leestekens taalgebruik maskeren en tekst normalisatie.
+De spraak-naar-tekst-API biedt ondersteuning voor interactieve spraaktranscriptie met realtime continue erkenning en tijdelijke resultaten. De SDK ondersteunt ook de detectie van het einde van de spraak, optioneel automatisch hoofdlettergebruik, maskering van grof taalgebruik, en tekstnormalisatie.
 
-U kunt aanpassen spraak naar tekst akoestisch en taal-modellen voor gespecialiseerde vocabulaire, omgevingen met veel ruis veroorzaken en verschillende manieren van spreken.
+U kunt spraak naar tekst akoestische en taalmodellen om te voldoen aan gespecialiseerde vocabulaire ruis omgevingen en spreken op verschillende manieren aanpassen.
 
 ## <a name="text-to-speech"></a>Tekst naar spraak
 
-De [Text to Speech](text-to-speech.md) (TTS) of spraak synthese, API converteert natuurlijke klinkt spraak, geleverd aan uw toepassing in een audiobestand tekst zonder opmaak. Meerdere stemmen, variëren in geslacht of accent, zijn beschikbaar voor veel van de ondersteunde talen.
+De [tekst naar spraak](text-to-speech.md) (Text-to-Speech), of spraaksynthese, API converteert natuurlijk klinkende spraak, die worden geleverd aan uw toepassing in een geluidsbestand tekst zonder opmaak. Meerdere stemmen, variëren in geslacht of accent, zijn beschikbaar voor vele ondersteunde talen.
 
-De API ondersteunt tags van spraak synthese Markup Language (SSML), zodat u kunt exacte fonetische uitspraak voor lastige woorden opgeven. SSML kan ook duiden op spraak kenmerken (inclusief de nadruk, snelheid, volume, geslacht en presentatie) rechts in de tekst.
+De API ondersteunt tags van spraak synthese Markup Language (SSML), zodat u kunt opgeven aan welke exacte fonetische uitspraak voor lastige woorden. Met SSML kunt u direct vanuit de tekst ook spraakkenmerken aangeven, waaronder nadruk, tempo, volume, geslacht en toonhoogte.
 
-Hieronder vindt u algemene gebruiksvoorbeelden voor Text to Speech API.
+Hieronder vindt u algemene scenario's voor de Text to Speech-API.
 
-* Spraakuitvoer als een alternatieve schermuitvoer voor een visuele gebruikers
-* Stem te vragen voor de toepassingen in de auto zoals navigatie
-* Eigen gebruikersinterfaces in overleg met de spraak tekst API
+* Spraakuitvoer als een alternatieve schermuitvoer voor slechtzienden gebruikers
+* Stem vragen om in de auto-toepassingen, zoals navigatie
+* Conversatie gebruikersinterfaces in combinatie met de Speech to Text-API
 
-Als u een niet-ondersteunde dialect moet of gewoon een unieke stem voor uw toepassing wilt, Text to Speech API biedt ondersteuning voor aangepaste gesproken modellen.
+Als u een niet-ondersteunde dialect moet of alleen een unieke stem voor uw toepassing wilt, de Text to Speech-API biedt ondersteuning voor aangepaste gesproken modellen.
 
 ## <a name="speech-translation"></a>Spraakomzetting
 
-De [spraak vertaling](speech-translation.md) API kan worden gebruikt om te vertalen streaming audio in near-realtime of opgenomen spraak te verwerken. In de streaming vertaling, stuurt de service tussentijdse resultaten die kunnen worden weergegeven voor de gebruiker om de voortgang vertaling te geven. De resultaten kunnen worden geretourneerd als tekst of als een stem.
+De [Spraakomzetting](speech-translation.md) API kan worden gebruikt voor de omzetting van streaming audio in near-real-time of opgenomen spraak te verwerken. In de streaming-vertaling, retourneert de service tussentijdse resultaten die kunnen worden weergegeven aan de gebruiker om aan te geven van de voortgang van de vertaling. De resultaten kunnen worden geretourneerd als tekst of als spraak.
 
-Gebruiksvoorbeelden voor spraak vertaling biedt de volgende.
+Use cases voor Spraakomzetting zijn de volgende.
 
-* Een 'eigen' vertaling mobiele app of apparaat implementeren voor reizigers 
-* Bieden van automatische vertalingen voor subtitling van audio en video-opnamen
+* Een 'beschrijvende' vertaling mobiele app of een apparaat voor reizigers implementeren 
+* Automatische vertalingen voor subtitling van audio en video-opnamen opgeven
 
-## <a name="speech-devices-sdk"></a>Speech Devices-SDK
+## <a name="speech-devices-sdk"></a>Speech Devices SDK
 
-Met de introductie van de geïntegreerde spraak service Microsoft en haar partners bieden een geïntegreerde hardware/software-platform geoptimaliseerd voor het ontwikkelen van spraak-apparaten: de [spraak apparaten SDK](speech-devices-sdk.md). Deze SDK is geschikt voor smart spraak apparaten voor alle typen toepassingen ontwikkelen.
+Met de introductie van de geïntegreerde Speech-service, Microsoft en haar partners bieden een geïntegreerde hardware/software-platform dat is geoptimaliseerd voor het ontwikkelen van spraak ingeschakelde apparaten: de [spraak Devices SDK](speech-devices-sdk.md). Deze SDK is geschikt voor het ontwikkelen van slimme apparaten met spraakmogelijkheden voor alle toepassingstypen.
 
-De apparaten spraak SDK kunt u voor het bouwen van uw eigen ambient apparaten met een aangepaste wake-woord, zodat de hint die audio vastleggen activeert uniek voor uw merk is. Het bevat ook bovenliggende audio van meerkanaals bronnen voor nauwkeuriger spraakherkenning, met inbegrip van ruis onderdrukking, helemaal veld spraak en beamforming verwerken.
+De SDK van de apparaten spraakherkenning kunt u bouw uw eigen omgeving apparaten met een aangepaste wake, zodat de hint die wordt geactiveerd vastleggen systeemaudio uniek is voor uw merk is. De SDK bevat ook audioverwerking van superieure kwaliteit van audio uit meerkanaals bronnen, voor nauwkeurigere spraakherkenning, waaronder ruisonderdrukking, 'far-field' spraak en golfvorming.
+
+De SDK is gebaseerd op websockets met behulp van poort 443.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De sleutel voor een gratis proefabonnement voor de service spraak ophalen.
+Een gratis proefabonnement-sleutel voor de service voor spraak ophalen.
 
 > [!div class="nextstepaction"]
-> [De service spraak gratis uitproberen](get-started.md)
+> [De spraak-service gratis uitproberen](get-started.md)

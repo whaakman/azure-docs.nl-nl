@@ -1,54 +1,54 @@
 ---
-title: " Beheren van de configuratieserver voor noodherstel van de fysieke server met Azure Site Recovery | Microsoft Docs"
-description: Dit artikel wordt beschreven hoe u een bestaande configuratieserver voor noodherstel fysieke server naar Azure, met de Azure Site Recovery-service beheert.
+title: " De configuratieserver voor fysieke server-noodherstel met Azure Site Recovery beheren | Microsoft Docs"
+description: In dit artikel wordt beschreven hoe u een bestaande configuratieserver voor fysieke server disaster recovery naar Azure, met de Azure Site Recovery-service beheren.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 07/01/2018
 ms.author: anoopkv
-ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0b30e4df71bae631366e81ebd2d4e1c467981fbe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598860"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341957"
 ---
-# <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor noodherstel van de fysieke server beheren
+# <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor herstel na noodgevallen van fysieke beheren
 
-Instellen van een on-premises configuratieserver wanneer u de [Azure Site Recovery](site-recovery-overview.md) service voor herstel na noodgevallen van fysieke servers naar Azure. De configuratieserver coördineert de communicatie tussen de on-premises machines en Azure en beheert gegevensreplicatie. In dit artikel bevat een overzicht van algemene taken voor het beheren van de configuratieserver nadat deze geïmplementeerd.
+Instellen van een on-premises configuratieserver wanneer u de [Azure Site Recovery](site-recovery-overview.md) service voor herstel na noodgeval voor fysieke servers naar Azure. De configuratieserver coördineert de communicatie tussen on-premises machines en Azure, en beheert de gegevensreplicatie. In dit artikel bevat een overzicht van algemene taken voor het beheren van de configuratieserver nadat deze geïmplementeerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
-De tabel ziet u de prerequistes voor het implementeren van de lokale configuratie-servercomputer.
+De tabel bevat een overzicht van aan de vereisten voor het implementeren van de on-premises configuratie van server-computer.
 
 | **Onderdeel** | **Vereiste** |
 | --- |---|
 | CPU-kernen| 8 |
 | RAM | 16 GB|
-| Aantal schijven | 3, met inbegrip van de OS-schijf, proces server cache schijf en bewaarstation voor failback |
+| Aantal schijven | 3, met inbegrip van de OS-schijf, cacheschijf proces en bewaarstation voor failback |
 | Vrije schijfruimte (cache van de processerver) | 600 GB
 | Vrije schijfruimte (bewaarschijf) | 600 GB|
 | Besturingssysteem  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Landinstelling van het besturingssysteem | English (US)|
 | VMware vSphere PowerCLI-versie | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
-| Windows Server-functies | Schakel niet in deze rollen: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
-| Groepsbeleid| Geen groepsbeleid voor deze inschakelen: <br> -Voorkomen dat toegang tot de opdrachtprompt <br> -Toegang tot het register te bewerken van hulpprogramma's voorkomen <br> -Logica vertrouwen voor bestandsbijlagen <br> -Uitvoering van Script inschakelen <br> [Meer informatie](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-| IIS | -Er zijn geen bestaande standaardwebsite <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br> -Niet bestaande reeds websitetoepassing geluisterd op poort 443<br>|
-| NIC-type | VMXNET3 (indien geïmplementeerd als een VMware-VM) |
+| Windows Server-functies | Deze rollen niet worden ingeschakeld: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
+| Groepsbeleid| Geen groepsbeleid voor deze inschakelen: <br> -Toegang tot de opdrachtprompt voorkomen <br> -Toegang tot registerbewerkingsprogramma's voorkomen <br> -Logica vertrouwen voor bestandsbijlagen <br> -Uitvoering van Script inschakelen <br> [Meer informatie](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+| IIS | -Er zijn geen bestaande standaardwebsite <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br> -Er is geen bestaande website/toepassing luistert op poort 443<br>|
+| Type NIC | VMXNET3 (indien geïmplementeerd als een VMware-VM) |
 | Type IP-adres | Statisch |
-| Toegang tot het internet | De server heeft toegang tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (niet vereist voor Scale-out proces Servers) <br> - time.nist.gov <br> - time.windows.com |
+| Toegang tot het internet | De server moet toegang hebben tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (niet vereist voor Scale-out processervers) <br> - time.nist.gov <br> - time.windows.com |
 | Poorten | 443 (Orchestration-besturingselement)<br>9443 (Gegevenstransport)|
 
-## <a name="download-the-latest-installation-file"></a>Download de meest recente installatiebestand
+## <a name="download-the-latest-installation-file"></a>Download het recentste installatiebestand
 
 De meest recente versie van het configuratiebestand van de server-installatie is beschikbaar in de Site Recovery-portal. Bovendien kan worden gedownload rechtstreeks vanuit de [Microsoft Download Center](http://aka.ms/unifiedsetup).
 
-1. Meld u aan bij de Azure portal en blader naar de Recovery Services-kluis.
-2. Blader naar **Site Recovery-infrastructuur** > **configuratieservers** (onder voor VMware en fysieke Machines).
+1. Meld u aan bij de Azure-portal en blader naar de Recovery Services-kluis.
+2. Blader naar **infrastructuur voor Site Recovery** > **configuratieservers** (onder voor VMware en fysieke Machines).
 3. Klik op de **+ Servers** knop.
-4. Op de **Server toevoegen** pagina, klikt u op de knop downloaden om te downloaden van de registratiesleutel. U kunt deze sleutel moet tijdens de installatie van de configuratieserver registreren met Azure Site Recovery-service.
-5. Klik op de **downloaden van de Microsoft Azure Site Recovery Unified Setup** koppeling voor het downloaden van de nieuwste versie van de configuratieserver.
+4. Op de **-Server toevoegen** pagina, klikt u op de knop downloaden om te downloaden van de registratiesleutel. Deze sleutel moet u tijdens de installatie van de configuratieserver registreren bij Azure Site Recovery-service.
+5. Klik op de **downloaden van de Microsoft Azure Site Recovery geïntegreerde Setup** koppeling om te downloaden van de meest recente versie van de configuratieserver.
 
   ![Downloadpagina](./media/physical-manage-configuration-server/downloadcs.png)
 
@@ -56,16 +56,16 @@ De meest recente versie van het configuratiebestand van de server-installatie is
 ## <a name="install-and-register-the-server"></a>Installeer en registreer de server
 
 1. Voer het installatiebestand voor de geïntegreerde Setup uit.
-2. In **voordat u begint**, selecteer **installeren van de configuratieserver en de processerver**.
+2. In **voordat u begint**, selecteer **de configuratieserver en processerver installeren**.
 
     ![Voordat u begint](./media/physical-manage-configuration-server/combined-wiz1.png)
 
 3. Klik bij **Licentievoorwaarden voor software van derden** op **Ik ga akkoord** om MySQL te downloaden en te installeren.
-4. Geef bij **Internetinstellingen** op hoe de provider die op de configuratieserver wordt uitgevoerd, via internet verbinding moet maken met Azure Site Recovery. Zorg ervoor dat u hebt de gewenste URL's toegestaan.
+4. Geef bij **Internetinstellingen** op hoe de provider die op de configuratieserver wordt uitgevoerd, via internet verbinding moet maken met Azure Site Recovery. Zorg ervoor dat u hebt de vereiste URL's toegestaan.
 
-    - Als u verbinding wilt maken met de proxy die momenteel is ingesteld op de computer, selecteer **verbinding maken met Azure Site Recovery via een proxyserver**.
+    - Als u wilt verbinding maken met de proxy die momenteel ingesteld op de machine, selecteer **verbinding maken met Azure Site Recovery via een proxyserver**.
     - Als u wilt dat de Provider rechtstreeks verbinding maakt, selecteert u **rechtstreeks verbinding maken met Azure Site Recovery zonder proxyserver**.
-    - Als de bestaande proxy verificatie vereist is of als u wilt een aangepaste proxy gebruikt voor de providerverbinding, selecteer **verbinding maken met aangepaste proxyinstellingen**, en het adres, poort en referenties opgeven.
+    - Als de bestaande proxy verificatie is vereist of als u wilt een aangepaste proxy gebruikt voor verbinding met de Provider, selecteer **verbinding maken met aangepaste proxyinstellingen**, en geeft u het adres, poort en referenties.
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. Tijdens Setup wordt in **Controle op vereisten** gecontroleerd of de installatie kan worden uitgevoerd. Als er een waarschuwing wordt weergegeven over **Synchronisatiecontrole voor algemene tijd**, moet u controleren of de tijd op de systeemklok (instellingen voor **datum en tijd**) overeenkomt met de tijdzone.
 
@@ -77,7 +77,7 @@ De meest recente versie van het configuratiebestand van de server-installatie is
 9. Selecteer bij **Installatielocatie** waar u de binaire bestanden wilt installeren en de cache wilt opslaan. Het station dat u selecteert, moet ten minste 5 GB vrije schijfruimte bevatten, maar wij raden u aan een cachestation te gebruiken met minstens 600 GB vrije ruimte.
 
     ![Installatielocatie](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. Geef bij **Netwerk selecteren** de listener op (netwerkadapter en SSL-poort) met behulp waarvan de configuratieserver replicatiegegevens verzendt en ontvangt. Poort 9443 is de standaardpoort voor het verzenden en ontvangen van replicatieverkeer, maar u kunt dit poortnummer aanpassen aan de vereisten van de omgeving. Naast poort 9443 wordt ook poort 443 geopend. Deze wordt door een webserver gebruikt om replicatiebewerkingen in te delen. Gebruik geen poort 443 voor het verzenden of ontvangen van replicatieverkeer.
+10. Geef bij **Netwerk selecteren** de listener op (netwerkadapter en SSL-poort) met behulp waarvan de configuratieserver replicatiegegevens verzendt en ontvangt. Poort 9443 is de standaardpoort voor het verzenden en ontvangen van replicatieverkeer, maar u kunt dit poortnummer aanpassen aan de vereisten van de omgeving. Naast poort 9443 wordt ook poort 443 geopend. Deze wordt door een webserver gebruikt om replicatiebewerkingen in te delen. Gebruik poort 443 niet voor het verzenden of ontvangen van replicatieverkeer.
 
     ![Netwerk selecteren](./media/physical-manage-configuration-server/combined-wiz9.png)
 
@@ -90,7 +90,7 @@ Na voltooiing van de registratie wordt de server weergegeven op de blade **Inste
 
 ## <a name="install-from-the-command-line"></a>Installeren vanaf de opdrachtregel
 
-Voer het installatiebestand als volgt uit:
+Voer het bestand voor installatie als volgt uit:
 
   ```
   UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
@@ -98,7 +98,7 @@ Voer het installatiebestand als volgt uit:
 
 ### <a name="sample-usage"></a>Voorbeeld van gebruik
   ```
-  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
   ```
@@ -127,14 +127,14 @@ Voer het installatiebestand als volgt uit:
 
 ### <a name="create-file-input-for-mysqlcredsfilepath"></a>Bestandsinvoer voor MYSQLCredsFilePath maken
 
-De parameter MySQLCredsFilePath Neem een bestand op als invoer. Het bestand maken met de volgende indeling en geven deze als invoerparameter MySQLCredsFilePath.
+De parameter MySQLCredsFilePath wordt een bestand gebruikt als invoer. Maak het bestand met de volgende notatie en geven deze als invoerparameter MySQLCredsFilePath.
 ```
 [MySQLCredentials]
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
 ```
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Bestandsinvoer voor ProxySettingsFilePath maken
-De parameter ProxySettingsFilePath Neem een bestand als invoer. Het bestand maken met de volgende indeling en geven deze als invoerparameter ProxySettingsFilePath.
+ProxySettingsFilePath parameter wordt een bestand gebruikt als invoer. Maak het bestand met de volgende notatie en geven deze als invoerparameter ProxySettingsFilePath.
 
 ```
 [ProxySettings]
@@ -148,13 +148,13 @@ ProxyPassword="Password"
 
 Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijzigen:
 
-1. Meld u bij de configuratieserver.
+1. Aanmelden bij de configuratieserver.
 2. Start de cspsconfigtool.exe met behulp van de snelkoppeling op uw.
 3. Klik op de **kluis registratie** tabblad.
-4. Download een nieuwe kluis registratie vanuit de portal en opgeven als invoer voor het hulpprogramma.
+4. Een nieuwe kluis registratie-bestand downloaden via de portal en geef deze als invoer voor het hulpprogramma.
 
   ![register-configuratie-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-5. De nieuwe proxy-gegevens op en klik op de **registreren** knop.
+5. Geef de nieuwe proxy-informatie op en klik op de **registreren** knop.
 6. Open een opdrachtvenster Admin PowerShell.
 7. Voer de volgende opdracht uit:
   ```
@@ -165,15 +165,15 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
   ```
 
   >[!WARNING]
-  Als u aanvullende processen-servers die zijn gekoppeld aan de configuratieserver hebt, moet u [los van de proxy-instellingen op alle processervers van de scale-out](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) in uw implementatie.
+  Als u extra processervers die is gekoppeld aan de configuratieserver hebt, moet u [los van de proxy-instellingen op alle processervers van de scale-out](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) in uw implementatie.
 
-## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Een configuratieserver met dezelfde kluis te registreren
-  1. Aanmelden bij de configuratieserver van uw.
+## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Een configuratieserver bij dezelfde kluis registreren
+  1. Meld u aan bij uw configuratieserver.
   2. Start de cspsconfigtool.exe met behulp van de snelkoppeling op het bureaublad.
   3. Klik op de **kluis registratie** tabblad.
   4. Een nieuwe registratiebestand downloaden via de portal en geef deze als invoer voor het hulpprogramma.
         ![register-configuratie-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. Geef de details van de proxyserver en klik op de **registreren** knop.  
+  5. Geef de details van de proxyserver en klikt u op de **registreren** knop.  
   6. Open een opdrachtvenster Admin PowerShell.
   7. De volgende opdracht uitvoeren
 
@@ -190,10 +190,10 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Een configuratieserver registreren bij een andere kluis
 
 > [!WARNING]
-> De configuratieserver uit de huidige kluis instelt, scheidt u de volgende stap en de replicatie van alle beveiligde virtuele machines onder de configuratieserver is gestopt.
+> De volgende stap de configuratieserver in de huidige kluis schaduwkopieën verbroken en de replicatie van alle beveiligde virtuele machines onder de configuratieserver is gestopt.
 
 1. Meld u aan bij de configuratieserver
-2. Voer de opdracht vanaf een opdrachtprompt beheerder:
+2. Voer de opdracht uit vanaf een beheerprompt:
 
     ```
     reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
@@ -202,7 +202,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
 3. Start de cspsconfigtool.exe met behulp van de snelkoppeling op het bureaublad.
 4. Klik op de **kluis registratie** tabblad.
 5. Een nieuwe registratiebestand downloaden via de portal en geef deze als invoer voor het hulpprogramma.
-6. Geef de details van de proxyserver en klik op de **registreren** knop.  
+6. Geef de details van de proxyserver en klikt u op de **registreren** knop.  
 7. Open een opdrachtvenster Admin PowerShell.
 8. De volgende opdracht uitvoeren
     ```
@@ -212,52 +212,52 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
     net start obengine
     ```
 
-## <a name="upgrade-a-configuration-server"></a>Een configuratieserver bijwerken
+## <a name="upgrade-a-configuration-server"></a>Een configuratieserver upgraden
 
-Updatepakketten voor het bijwerken van de configuratieserver worden uitgevoerd. Updates kunnen worden toegepast voor maximaal N-4 versies. Bijvoorbeeld:
+U uitvoeren updatepakketten voor het bijwerken van de configuratieserver. Updates kunnen worden toegepast voor maximaal N-4 versies. Bijvoorbeeld:
 
-- Als u werkt met 9.7, 9,8, 9,9 of 9.10 - kunt u rechtstreeks upgraden naar 9.11.
-- Als u 9,6 of eerder uitvoert en u wilt upgraden naar 9.11, moet u eerst bijwerken naar versie 9.7. voordat u 9.11.
+- Als u werkt met 9.7, 9,8, 9,9 of 9.10 - kunt u rechtstreeks naar 9.11 upgraden.
+- Als u 9,6 of een eerdere versie uitvoert en u wilt upgraden naar 9.11, moet u eerst upgraden naar versie 9.7. voordat u 9.11.
 
 Koppelingen naar de updatepakketten voor het upgraden van alle versies van de configuratieserver zijn beschikbaar in de [wiki updates pagina](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 
 De server als volgt bijwerken:
 
-1. Download het installatiebestand van de update voor de configuratieserver.
+1. Download het installatiebestand van de update naar de configuratieserver.
 2. Dubbelklik erop om het installatieprogramma uitvoert.
-3. Het installatieprogramma detecteert de huidige versie op de machine.
+3. Het installatieprogramma detecteert de huidige versie die wordt uitgevoerd op de machine.
 4. Klik op **OK** om te bevestigen en de upgrade uitvoert. 
 
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Verwijderen of de registratie van een configuratieserver
 
 > [!WARNING]
-> Zorg ervoor dat het volgende voordat u begint met het buiten gebruik stellen van de configuratieserver.
-> 1. [Schakel de beveiliging](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) voor alle virtuele machines op deze Server Configuration.
-> 2. [Loskoppelen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) en [verwijderen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alle beleidsregels voor replicatie van de configuratieserver.
-> 3. [Verwijder](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alle Vcenter-servers/vSphere-hosts die gekoppeld aan de configuratieserver zijn.
+> Controleer het volgende voordat u begint met het buiten gebruik stellen van uw configuratieserver.
+> 1. [Schakel de beveiliging](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) voor alle virtuele machines onder deze configuratieserver.
+> 2. [Loskoppelen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) en [verwijderen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alle beleidsregels voor replicatie vanaf de configuratieserver.
+> 3. [Verwijder](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alle vCenters servers/vSphere-hosts die gekoppeld aan de configuratieserver zijn.
 
 
-### <a name="delete-the-configuration-server-from-azure-portal"></a>Verwijderen van de configuratieserver via Azure-portal
-1. Blader in de Azure-portal naar **Site Recovery-infrastructuur** > **configuratieservers** in het kluismenu.
+### <a name="delete-the-configuration-server-from-azure-portal"></a>De configuratieserver verwijderen uit Azure portal
+1. Blader in Azure portal naar **Site Recovery-infrastructuur** > **configuratieservers** in het menu kluis.
 2. Klik op de configuratieserver die u wilt buiten gebruik stellen.
-3. Klik op de pagina met details van de Server van de configuratie op de **verwijderen** knop.
-4. Klik op **Ja** het verwijderen van de server te bevestigen.
+3. Klik op de pagina details van de configuratieserver, de **verwijderen** knop.
+4. Klik op **Ja** om de verwijdering van de server te bevestigen.
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>Verwijderen van de configuratieserver en de bijbehorende afhankelijkheden
   > [!TIP]
-  Als u van plan bent om de configuratieserver met Azure Site Recovery opnieuw opnieuw te gebruiken, kunt klikt u vervolgens u doorgaan met stap 4 rechtstreeks
+  Als u van plan bent om de configuratieserver met Azure Site Recovery opnieuw opnieuw te gebruiken, kunt u overslaan naar stap 4 rechtstreeks
 
 1. Meld u aan bij de configuratieserver als beheerder.
 2. Open het Configuratiescherm > programma > programma's verwijderen
 3. Verwijder de programma's in de volgende volgorde:
   * Microsoft Azure Recovery Services-agent
-  * Microsoft Azure Site Recovery Mobility Service/hoofddoelserver
-  * Microsoft Azure Site Recovery Provider
-  * Microsoft Azure Site Recovery-configuratieserver Server-proces
-  * Microsoft Azure Site Recovery configuratie Server afhankelijkheden
+  * Microsoft Azure Site Recovery Mobility Service/Master Target server
+  * Microsoft Azure Site Recovery-Provider
+  * Microsoft Azure Site Recovery-configuratieserver/Server-proces
+  * Microsoft Azure Site Recovery Configuration Serverafhankelijkheden
   * MySQL Server 5.5
-4. Voer de volgende opdracht uit en admin-opdrachtprompt.
+4. Voer de volgende opdracht uit en een opdrachtprompt met beheerdersrechten.
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
@@ -265,13 +265,13 @@ De server als volgt bijwerken:
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Verwijderen of de registratie van een configuratieserver (PowerShell)
 
 1. [Installeer](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-module
-2. Aanmelden bij aan uw Azure-account met de opdracht
+2. Meld u aan bij uw Azure-account met de opdracht
     
     `Connect-AzureRmAccount`
-3. Selecteer het abonnement waaronder de kluis aanwezig is
+3. Selecteer het abonnement waarin de kluis aanwezig is
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
-3.  Nu uw kluis context instellen
+3.  Nu de context van uw kluis instellen
     
     ```
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
@@ -285,23 +285,23 @@ De server als volgt bijwerken:
     `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
 
 > [!NOTE]
-> De **-Force** optie in de Remove-AzureRmSiteRecoveryFabric kan worden gebruikt om af te dwingen de verwijdering/verwijdering van de configuratieserver.
+> De **-forceren** optie in de Remove-AzureRmSiteRecoveryFabric kan worden gebruikt om af te dwingen de verwijdering/verwijdering van de configuratieserver.
 
 ## <a name="renew-ssl-certificates"></a>SSL-certificaten vernieuwen
-De configuratieserver heeft een ingebouwde webserver, die de activiteiten van de Mobility-service, processervers en hoofddoelservers verbonden ingedeeld. Een SSL-certificaat de webserver gebruikmaakt om clients te verifiëren. Het certificaat verloopt na drie jaar en op elk gewenst moment kan worden vernieuwd.
+De configuratieserver heeft een ingebouwde webserver, die regelt de activiteiten van de Mobility-service, processervers en hoofddoelservers die zijn verbonden. De webserver wordt een SSL-certificaat gebruikt om clients te verifiëren. Het certificaat verloopt na drie jaar en kan op elk gewenst moment worden vernieuwd.
 
 ### <a name="check-expiry"></a>Controleer de vervaldatum
 
-Voor implementaties van configuration server vóór mei 2016, is verloopdatum voor certificaten ingesteld op één jaar. Als u hebt is een certificaat vereist, is verlopen, gebeurt het volgende:
+Configuratie van implementaties van de server voordat mei 2016, is verlopen van het certificaat ingesteld op één jaar. Als u gaat een certificaat is verlopen, gebeurt het volgende:
 
-- Wanneer de vervaldatum is twee maanden of minder, door de service wordt gestart verzenden van meldingen in de portal en per e-mail (als u zich hebt geabonneerd op Azure Site Recovery meldingen).
-- Er verschijnt een meldingsbanner op de pagina van de resource kluis. Klik op de banner voor meer informatie.
-- Als u ziet een **nu bijwerken** knop, dit geeft aan dat er een aantal onderdelen in uw omgeving die nog niet zijn bijgewerkt naar 9.4.xxxx.x of hogere versies. Onderdelen worden bijgewerkt voordat u het certificaat vernieuwen. Bij oudere versies kunt u niet vernieuwen.
+- Wanneer de vervaldatum is twee maanden of minder, start de service verzenden van meldingen in de portal en via e-mail (als u zich hebt geabonneerd op meldingen voor Azure Site Recovery).
+- Een meldingsbanner wordt weergegeven op de pagina van de kluis-resource. Klik op de banner voor meer informatie.
+- Als u ziet een **nu bijwerken** knop, dit geeft aan dat er bepaalde onderdelen in uw omgeving die nog niet hebt bijgewerkt naar 9.4.xxxx.x of hogere versies. Onderdelen bijwerken voordat u het certificaat vernieuwen. Kunt u vernieuwen niet in oudere versies.
 
 ### <a name="renew-the-certificate"></a>Het certificaat vernieuwen
 
 1. Open in de kluis **Site Recovery-infrastructuur** > **configuratieserver**, en klik op de vereiste configuratie-server.
-2. De vervaldatum weergegeven onder **configuratie-serverstatus**
+2. De vervaldatum wordt weergegeven onder **configuratie-serverstatus**
 3. Klik op **certificaten vernieuwen**. 
 
 

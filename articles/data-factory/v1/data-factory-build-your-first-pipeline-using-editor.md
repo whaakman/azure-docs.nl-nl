@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 75139e39c3391a7662e3d02ee8d56463ac9fcc7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e57a2e72479d36908ef1e9f537506bb67ae311fe
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406555"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048404"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Zelfstudie: uw eerste data factory bouwen met Azure Portal
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "31406555"
 
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service gebruikt, die zich nog in de preview-fase bevindt, raadpleegt u [Quickstart: Create a data factory by using Data Factory version 2](../quickstart-create-data-factory-dot-net.md) (Snelstartgids: een data factory maken met Data Factory versie 2).
+> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u de huidige versie van de Data Factory-service gebruikt,raadpleegt u [snelstart: een gegevensfactory maken met Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 In dit artikel leert u hoe u [Azure Portal](https://portal.azure.com/) gebruikt om uw eerste data factory te maken. Als u de zelfstudie wilt volgen met andere hulpprogramma's/SDK's, selecteert u een van de opties uit de vervolgkeuzelijst. 
 

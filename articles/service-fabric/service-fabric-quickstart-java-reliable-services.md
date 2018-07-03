@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ae6ba28ba448591d58cc3963f5df9a563997ab0
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642390"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959542"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Snelstart: een toepassing van betrouwbare Java Service Fabric-services implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en distribueren van microservices en containers. 
@@ -120,13 +120,13 @@ Gebruik de methode die u het handigst vindt om het certificaat naar uw systeem t
 
 Vingerafdruk van certificaat moet aan uw toepassing worden toegevoegd omdat het certificaat gebruikmaakt van Service Fabric-programmeermodellen. 
 
-1. U hebt de vingerafdruk van het certificaat nodig in het bestand ```Voting/VotingApplication/ApplicationManiest.xml``` wanneer dit wordt uitgevoerd op een beveiligde cluster. Voer de volgende opdracht uit om de vingerafdruk van het certificaat te extraheren.
+1. U hebt de vingerafdruk van het certificaat nodig in het bestand `Voting/VotingApplication/ApplicationManifest.xml` wanneer dit wordt uitgevoerd op een beveiligde cluster. Voer de volgende opdracht uit om de vingerafdruk van het certificaat te extraheren.
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. Voeg in het ```Voting/VotingApplication/ApplicationManiest.xml``` het volgende fragment uit onder het label **ApplicationManifest**. **X509FindValue** moet de vingerafdruk zijn uit de vorige stap (geen puntkomma's). 
+2. Voeg in het bestand `Voting/VotingApplication/ApplicationManifest.xml` het volgende fragment uit onder het label **ApplicationManifest**. **X509FindValue** moet de vingerafdruk zijn uit de vorige stap (geen puntkomma's). 
 
     ```xml
     <Certificates>

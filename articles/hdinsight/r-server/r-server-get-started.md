@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met R Server op HDInsight - Azure | Microsoft Docs
-description: Informatie over hoe u een Apache Spark op HDInsight-cluster maakt dat R-Server omvat en over het verzenden van een R-script op het cluster.
+title: Aan de slag met ML Services in HDInsight - Azure | Microsoft Docs
+description: Informatie over hoe u een Apache Spark op HDInsight-cluster maakt dat ML Services omvat en over het verzenden van een R-script in het cluster.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -13,19 +13,18 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d6910ab257312626ca25126721410edeed6cdeae
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: efc7ada12f722b0447712594de496e933bde3d36
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411478"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053429"
 ---
-# <a name="get-started-with-r-server-cluster-on-azure-hdinsight"></a>Aan de slag met R Server-cluster in Azure HDInsight
+# <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Aan de slag met ML Services in Azure HDInsight
 
-Azure HDInsight bevat een R Server-optie die kan worden geïntegreerd in uw HDInsight-cluster. Met deze optie kunnen R-scripts gebruikmaken van Spark en MapReduce om gedistribueerde berekeningen uit te voeren. In dit artikel leest u hoe u R Server op een HDInsight-cluster kunt maken. Vervolgens leert u hoe u een R-script uitvoert waarmee het gebruik van Spark voor gedistribueerde R-berekeningen wordt gedemonstreerd.
-
+Met Azure HDInsight kunt u een cluster met ML Services maken. Met deze optie kunnen R-scripts gebruikmaken van Spark en MapReduce om gedistribueerde berekeningen uit te voeren. In dit artikel leert u hoe u een cluster met ML Services in HDInsight maakt en hoe u een R-script uitvoert waarin wordt gedemonstreerd hoe Apache Spark wordt gebruikt voor gedistribueerde R-berekeningen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -53,13 +52,13 @@ Azure HDInsight bevat een R Server-optie die kan worden geïntegreerd in uw HDIn
 
 4. Selecteer **Clustertype** en stel de volgende waarden in op de sectie **Clusterconfiguratie**:
 
-    * **Clustertype**: R Server
+    * **Clustertype**: ML Services
 
     * **Besturingssysteem**: Linux
 
-    * **Versie**: R Server 9.1 (HDI 3.6). Releaseopmerkingen voor de beschikbare versies van R Server vindt u op [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91).
+    * **Versie**: ML Server 9.3 (HDI 3.6). Releaseopmerkingen voor ML Server 9.3 zijn beschikbaar op [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server).
 
-    * **R Studio Community-editie voor R Server**: deze IDE op basis van een browser wordt standaard geïnstalleerd op het edge-knooppunt. Schakel het selectievakje uit als u de IDE niet wilt installeren. Als u ervoor kiest deze wel te laten installeren, is de URL naar de aanmeldingspagina voor RStudio Server beschikbaar op een portaltoepassingsblade voor het cluster nadat het is gemaakt.
+    * **R Studio Community-editie voor ML Server**: deze IDE op basis van een browser wordt standaard geïnstalleerd op het Edge-knooppunt. Schakel het selectievakje uit als u de IDE niet wilt installeren. Als u ervoor kiest deze wel te laten installeren, is de URL naar de aanmeldingspagina voor RStudio Server beschikbaar op een portaltoepassingsblade voor het cluster nadat het is gemaakt.
 
         ![Basisgegevens van clusters](./media/r-server-get-started/clustertypeconfig.png)
 
@@ -81,11 +80,11 @@ Azure HDInsight bevat een R Server-optie die kan worden geïntegreerd in uw HDIn
 
 Als u ervoor kiest RStudio Server Community Edition te installeren als onderdeel van uw HDInsight-cluster, kunt u zich op een van de volgende twee methoden aanmelden bij RStudio:
 
-* **Optie 1**: ga naar de volgende URL (waarbij **CLUSTERNAAM** de naam is van het R Server-cluster dat u hebt gemaakt):
+* **Optie 1**: ga naar de volgende URL (waarbij **CLUSTERNAAM** de naam is van het ML Services-cluster dat u hebt gemaakt):
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* **Optie 2**: open het R Server-cluster in Azure Portal onder **Snelkoppelingen** en klik op **R Server-dashboards**.
+* **Optie 2**: open het ML Services-cluster in Azure Portal onder **Snelkoppelingen** en klik op **ML Services-dashboards**.
 
      ![De instellingen van het opslagaccount voor HDInsight configureren](./media/r-server-get-started/dashboard-quick-links.png)
 
@@ -175,9 +174,9 @@ U kunt een taak met ScaleR-functies verzenden. Hier volgt een voorbeeld van de o
 <a name="connect-to-edge-node"></a>
 ## <a name="connect-to-the-cluster-edge-node"></a>Verbinding maken met het Edge-knooppunt van het cluster
 
-In deze sectie leert u hoe verbinding maakt met het Edge-knooppunt van een R Server HDInsight-cluster via SSH. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over het gebruik van SSH.
+In deze sectie leert u hoe verbinding maakt met het Edge-knooppunt van een ML Services HDInsight-cluster via SSH. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over het gebruik van SSH.
 
-De SSH-opdracht voor het maken van verbinding met het Edge-knooppunt van het R Server-cluster is:
+De SSH-opdracht voor het maken van verbinding met het Edge-knooppunt van het ML Services-cluster is:
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
 
@@ -194,15 +193,15 @@ Zodra er verbinding is gemaakt, wordt er een prompt weergegeven die er ongeveer 
     sshuser@ed00-myrclu:~$
 
 <a name="use-r-console"></a>
-## <a name="use-the-r-server-console"></a>De R Server-console gebruiken
+## <a name="use-the-r-console"></a>De R-console gebruiken
 
 1. Gebruik tijdens de SSH-sessie de volgende opdracht om de R-console te starten:  
 
         R
 
-2. U moet uitvoer zien die naast andere informatie de versie van R Server bevat.
+2. U moet uitvoer zien die naast andere informatie de versie van ML Server bevat.
     
-3. U kunt de R-code invoeren vanuit de `>`-prompt. R Server in HDInsight bevat pakketten waarmee u eenvoudig kunt werken met Hadoop en gedistribueerde berekeningen kunt uitvoeren. Gebruik bijvoorbeeld de volgende opdracht om de hoofdmap te bekijken van het standaardbestandssysteem voor het HDInsight-cluster:
+3. U kunt de R-code invoeren vanuit de `>`-prompt. ML Services in HDInsight bevat pakketten waarmee u eenvoudig kunt werken met Hadoop en gedistribueerde berekeningen kunt uitvoeren. Gebruik bijvoorbeeld de volgende opdracht om de hoofdmap te bekijken van het standaardbestandssysteem voor het HDInsight-cluster:
 
         rxHadoopListFiles("/")
 
@@ -216,11 +215,11 @@ Zodra er verbinding is gemaakt, wordt er een prompt weergegeven die er ongeveer 
 
 ## <a name="automated-cluster-creation"></a>Automatisch een cluster maken
 
-U kunt het maken van het R Server-cluster voor HDInsight automatiseren met Azure Resource Manager-sjablonen, de SDK en de PowerShell.
+U kunt het maken van het ML Services-cluster voor HDInsight automatiseren met de SDK en de PowerShell.
 
-* Zie [Een R Server implementeren voor HDInsight-cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) voor het maken van een R Server-cluster met een Azure Resource Manager-sjabloon.
-* Zie [In HDInsight op Linux gebaseerde clusters maken met de .NET-SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) voor het maken van een R Server-cluster met behulp van de .NET-SDK.
-* Zie het artikel [HDInsight-clusters maken met Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md) voor het maken van een R Server-cluster met behulp van Azure PowerShell.
+<!---* To create an ML Server cluster using an Azure Resource Management template, see [Deploy an R Server for HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).--->
+* Zie voor het maken van een ML Services-cluster met behulp van de .NET-SDK het onderwerp [In HDInsight op Linux gebaseerde clusters maken met de .NET-SDK.](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+* Zie het artikel [HDInsight-clusters maken met Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md) voor het maken van een ML Services-cluster met behulp van Azure PowerShell.
 
 ## <a name="delete-the-cluster"></a>Het cluster verwijderen
 
@@ -232,10 +231,10 @@ Zie [Vereisten voor toegangsbeheer](../hdinsight-administer-use-portal-linux.md#
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u meer geleerd over het maken van een nieuw R Server-cluster in Azure HDInsight en de basisbeginselen van het gebruik van de R-console van een SSH-sessie. In de volgende artikelen worden andere manieren beschreven om R Server op HDInsight te beheren en ermee te werken:
+In dit artikel hebt u meer geleerd over het maken van een nieuw ML Services-cluster in Azure HDInsight en de basisbeginselen van het gebruik van de R-console van een SSH-sessie. In de volgende artikelen worden andere manieren beschreven om ML Services in HDInsight te beheren en ermee te werken:
 
 * [Taken verzenden vanuit R-hulpprogramma's voor Visual Studio](r-server-submit-jobs-r-tools-vs.md)
-* [R Server-cluster beheren in HDInsight](r-server-hdinsight-manage.md)
-* [R Server-cluster uitvoeren in HDInsight](r-server-operationalize.md)
-* [Opties voor compute-context voor R Server-cluster in HDInsight](r-server-compute-contexts.md)
-* [Opties voor Azure Storage voor R Server-cluster in HDInsight](r-server-storage.md)
+* [ML Services-cluster beheren in HDInsight](r-server-hdinsight-manage.md)
+* [ML Services-cluster operationeel maken in HDInsight](r-server-operationalize.md)
+* [Opties voor compute-context voor ML Services-cluster in HDInsight](r-server-compute-contexts.md)
+* [Opties voor Azure Storage voor ML Services-cluster in HDInsight](r-server-storage.md)

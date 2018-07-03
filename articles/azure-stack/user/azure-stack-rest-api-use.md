@@ -1,44 +1,44 @@
 ---
-title: Gebruik de Azure API-Stack | Microsoft Docs
-description: Informatie over het ophalen van een verificatie van Azure API-aanvragen in Azure Stack aanbrengen.
+title: Gebruik de Azure Stack-API | Microsoft Docs
+description: Informatie over het ophalen van een verificatie van Azure naar de API-aanvragen versturen naar Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: cblackuk
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/02/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359108"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346787"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="use-the-azure-stack-api"></a>De Azure API-Stack gebruiken
+# <a name="use-the-azure-stack-api"></a>De Azure Stack-API gebruiken
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U kunt de Azure Stack Interface API (Application Programming) gebruiken om bewerkingen zoals Webfeedindeling marketplace-items te automatiseren.
+U kunt de Application Programming Interface (API) gebruiken om bewerkingen zoals het toevoegen van een virtuele machine met uw Azure Stack-cloud te automatiseren.
 
-De API vereist dat de client om te verifiëren voor het eindpunt van Microsoft Azure-aanmelding. Het eindpunt retourneert een token voor gebruik in de koptekst van elke aanvraag verzonden naar de Stack-API van Azure. Oauth 2.0 maakt gebruik van Microsoft Azure.
+De API vereist dat uw client om te verifiëren bij de Microsoft Azure-eindpunt voor aanmelding. Het eindpunt retourneert een token te gebruiken in de header van elke aanvraag verzonden naar de Azure Stack-API. Microsoft Azure maakt gebruik van Oauth 2.0.
 
-Dit artikel vindt u voorbeelden die gebruikmaken van de **cURL** hulpprogramma voor het maken van Azure-Stack-aanvragen. De toepassing, cURL, is een opdrachtregelprogramma met een bibliotheek voor het overbrengen van gegevens. Deze voorbeelden is doorlopen van het proces van het ophalen van een token voor toegang tot de Azure-Stack-API. De meeste programmeertalen bieden Oauth 2.0-bibliotheken die robuust token taken voor beheer en de ingang die het vernieuwen van het token.
+Dit artikel biedt voorbeelden die gebruikmaken van de **cURL** hulpprogramma voor het maken van Azure Stack-aanvragen. De toepassing, cURL, is een opdrachtregelprogramma met een bibliotheek voor het overbrengen van gegevens. Deze voorbeelden stapsgewijs door het proces van het ophalen van een token voor toegang tot de Azure Stack-API. De meeste moderne programmeertalen bieden Oauth 2.0-bibliotheken, die krachtige token management en verwerk taken hebt die het vernieuwen van het token.
 
-Bekijk het hele proces van het gebruik van de Stack REST-API van Azure met een algemene REST-client, zoals **cURL**waarmee u inzicht krijgen in de onderliggende aanvragen en ziet u wat u kunt verwachten in een nettolading antwoord ontvangen.
+Bekijk het hele proces van het gebruik van de Azure Stack REST-API met een algemene REST-client, zoals **cURL**, om te begrijpen van de onderliggende aanvraagt en laat zien wat u kunt verwachten om in een nettolading van het antwoord te ontvangen.
 
-In dit artikel verkennen niet alle opties die beschikbaar zijn voor het ophalen van tokens zoals interactieve aanmelding of specifieke App-id's maken. Zie voor informatie over deze onderwerpen, [Azure REST API-verwijzing](https://docs.microsoft.com/rest/api/).
+In dit artikel verkennen niet alle opties die beschikbaar zijn voor het ophalen van tokens, zoals interactieve aanmelding of het maken van de toegewezen App-id's. Zie voor informatie over deze onderwerpen, [Azure REST API-verwijzing](https://docs.microsoft.com/rest/api/).
 
-## <a name="get-a-token-from-azure"></a>Een token verkrijgen van Azure
+## <a name="get-a-token-from-azure"></a>Een token krijgen van Azure
 
-Maak een aanvraagtekst geformatteerd met het type inhoud x-1-800-www-Dell-form-urlencoded verkrijgen van een toegangstoken. Uw aanvraag om het eindpunt Azure REST Authentication en meld u aan te plaatsen.
+Maak een aanvraagtekst geformatteerd met het type inhoud x-www-form-urlencoded goedkeurt op te halen van een toegangstoken. Uw aanvraag om het eindpunt van de Azure REST-verificatie en meld u aan te plaatsen.
 
 ### <a name="uri"></a>URI
 
@@ -50,9 +50,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
  - Uw tenant-domein, zoals `fabrikam.onmicrosoft.com`
  - Uw tenant-ID, zoals `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
- - De standaardwaarde voor tenant-onafhankelijke sleutels: `common`
+ - De standaardwaarde voor de tenant-onafhankelijke sleutels: `common`
 
-### <a name="post-body"></a>Post-instantie
+### <a name="post-body"></a>Hoofdtekst van bericht
 
 ```bash  
 grant_type=password
@@ -66,20 +66,20 @@ grant_type=password
 Voor elke waarde:
 
  - **grant_type**  
-    Het type verificatieschema u gaat gebruiken. In dit voorbeeld wordt is de waarde `password`
+    Het type van u met behulp van wordt het schema voor verificatie. In dit voorbeeld wordt is de waarde `password`
 
- - **Resource**  
-    De resource het token wordt opgevraagd. U vindt de resource een query uitgevoerd op het Azure-Stack management metagegevens-eindpunt. Bekijk de **doelgroepen** sectie
+ - **resource**  
+    De resource het token wordt geopend. U vindt de resource door het opvragen van het eindpunt voor Azure Stack-metagegevens. Bekijk de **doelgroepen** sectie
 
- - **Azure Stack-management-eindpunt**  
+ - **Azure Stack-beheereindpunt**  
     ```
     https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
     ```
 
   > [!NOTE]  
-  > Als u een beheerder toegang wilt krijgen tot de tenant-API moet vervolgens u controleren eindpunt te gebruiken tenant, bijvoorbeeld: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+  > Als u een beheerder het openen van de tenant-API moet vervolgens u Zorg ervoor dat u eindpunt voor de tenant, bijvoorbeeld: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
-  Bijvoorbeeld, met de Azure-Stack Development Kit als een eindpunt:
+  Bijvoorbeeld, met de Azure Stack Development Kit als een eindpunt:
 
     ```bash
     curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
@@ -107,13 +107,13 @@ Voor elke waarde:
 
   **client_id**
 
-  Deze waarde is vastgelegd op een standaardwaarde:
+  Deze waarde wordt vastgelegd op een standaardwaarde:
 
   ```
   1950a258-227b-4e31-a9cf-717495945fc2
   ```
 
-  Alternatieve opties zijn beschikbaar voor specifieke scenario's:
+  Andere opties zijn beschikbaar voor specifieke scenario's:
 
   
   | Toepassing | ApplicationID |
@@ -124,9 +124,9 @@ Voor elke waarde:
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
-  **Gebruikersnaam**
+  **gebruikersnaam**
 
-  De Azure-Stack AAD-account:
+  Bijvoorbeeld, de Azure Stack AAD-account:
 
   ```
   azurestackadmin@fabrikam.onmicrosoft.com
@@ -134,7 +134,7 @@ Voor elke waarde:
 
   **Wachtwoord**
 
-  De Azure-Stack AAD Administrator-wachtwoord.
+  Het wachtwoord van de Azure Stack AAD-beheerder.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -167,7 +167,7 @@ Antwoord:
 
 ## <a name="api-queries"></a>API-query 's
 
-Nadat u uw toegangstoken ontvangt, moet u als een koptekst toevoegen aan elk van uw API-aanvragen. Als u wilt doen, moet u een koptekst maken **autorisatie** met waarde: `Bearer <access token>`. Bijvoorbeeld:
+Wanneer u uw toegangstoken, die u wilt toevoegen als een header aan elk van uw API-aanvragen. Als u wilt doen, moet u een koptekst maken **autorisatie** met waarde: `Bearer <access token>`. Bijvoorbeeld:
 
 Aanvraag:
 
@@ -187,20 +187,20 @@ state : Enabled
 subscriptionPolicies : @{locationPlacementId=AzureStack}
 ```
 
-### <a name="url-structure-and-query-syntax"></a>De syntaxis van de structuur en query van de URL
+### <a name="url-structure-and-query-syntax"></a>URL-structuur en query-syntaxis
 
-Algemene aanvraag-URI, bestaat uit: {URI-schema} :// {URI-host} / {bronpad}? {queryreeks}
+Algemene aanvraag-URI, bestaat uit: {URI-scheme} :// {URI-host} / {resource-path}? {queryreeks}
 
 - **URI-schema**:  
-De URI geeft aan dat het protocol dat wordt gebruikt om de aanvraag te verzenden. Bijvoorbeeld: `http` of `https`.
-- **URI host**:  
-De host geeft de domeinnaam of het IP-adres van de server waarop de REST-service-eindpunt wordt gehost, zoals `graph.microsoft.com` of `adminmanagement.local.azurestack.external`.
-- **Bronpad**:  
-Het pad bevat de resource of resourceverzameling, waaronder verschillende segmenten die worden gebruikt door de service bij het bepalen van de selectie van deze bronnen. Bijvoorbeeld: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` query uitvoeren op de lijst met eigenaren van een specifieke toepassing binnen de verzameling toepassingen kunnen worden gebruikt.
+De URI geeft aan dat het protocol dat wordt gebruikt om de aanvraag te verzenden. Bijvoorbeeld, `http` of `https`.
+- **URI-host**:  
+De host Hiermee geeft u de domeinnaam of het IP-adres van de server waar de REST-service-eindpunt wordt gehost, zoals `graph.microsoft.com` of `adminmanagement.local.azurestack.external`.
+- **Resourcepad**:  
+Het pad Hiermee geeft u de resource of resourceverzameling op, die verschillende segmenten die worden gebruikt door de service bij het bepalen van de selectie van deze resources kan bevatten. Bijvoorbeeld: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` kan worden gebruikt om op te vragen van de lijst met eigenaren van een bepaalde toepassing binnen de verzameling van toepassingen.
 - **Querytekenreeks**:  
 De tekenreeks biedt extra eenvoudige parameters, zoals de API-versie of resource selectiecriteria.
 
-## <a name="azure-stack-request-uri-construct"></a>Azure-Stack aanvraag-URI constructie
+## <a name="azure-stack-request-uri-construct"></a>Azure Stack-aanvraag-URI-constructie
 
 ```
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
@@ -212,7 +212,7 @@ De tekenreeks biedt extra eenvoudige parameters, zoals de API-versie of resource
 https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version}
 ```
 
-### <a name="query-uri-example"></a>Voorbeeld van de query-URI
+### <a name="query-uri-example"></a>Voorbeeld van URI
 
 ```
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
@@ -220,4 +220,4 @@ https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-40
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het gebruik van de RESTful Azure-eindpunten [Azure REST API-verwijzing](https://docs.microsoft.com/rest/api/).
+Zie voor meer informatie over het gebruik van de Azure RESTful-eindpunten [Azure REST API-verwijzing](https://docs.microsoft.com/rest/api/).

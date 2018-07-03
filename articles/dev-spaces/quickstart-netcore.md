@@ -1,5 +1,5 @@
 ---
-title: Een Kubernetes-ontwikkelomgeving maken in de cloud | Microsoft Docs
+title: Een Kubernetes-dev-ruimte in de cloud maken | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 author: ghogen
 services: azure-dev-spaces
@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 3802e67503fd546ef71b9c26daddc8ef63cf4bd2
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 21b94544105f55cbb8cb77c28d8c546ffcf7f8c0
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823223"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945853"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Snelstartgids: Kubernetes-ontwikkelomgeving maken met Azure Dev Spaces (.NET Core en VS Code)
 
@@ -40,7 +40,7 @@ In deze handleiding leert u het volgende:
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces instellen
 
-1. Installeer de [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (versie 2.0.33 of hoger).
+1. Installeer [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (versie 2.0.38 of hoger).
 1. Dev Spaces instellen op uw AKS-cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Download de extensie [Azure Dev Spaces ](https://aka.ms/get-azds-code) voor VS Code.
 1. De extensie installeren: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
@@ -50,12 +50,15 @@ In deze handleiding leert u het volgende:
 1. Voorbeeldcode van GitHub downloaden: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. De map in de map webfrontend wijzigen: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
 1. Activa voor Docker- en Helm-grafieken genereren: `azds prep --public`
-1. Compileer de code in AKS en voer deze uit. In het terminalvenster voert u deze opdracht uit vanuit de **hoofdcodemap**, webfrontend: `azds up`
+1. Compileer de code in AKS en voer deze uit. Voer in het terminalvenster de volgende opdracht uit vanuit de **map webfrontend**: `azds up`
 1. Scan de console-uitvoer voor informatie over de URL die door de opdracht `up` is gemaakt. Het zal in deze vorm te zien zijn: 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
 
    Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. 
+   
+   > [!Note]
+   > Bij de eerste uitvoering kan het enkele minuten duren voordat de openbare DNS gereed is. Als de openbare URL niet wordt omgezet, kunt u de alternatieve URL http://localhost:<portnumber> gebruiken die wordt weergegeven in de console-uitvoer. Als u de localhost-URL gebruikt, lijkt het misschien alsof de container lokaal wordt uitgevoerd, maar wordt deze feitelijk uitgevoerd in AKS. Voor uw gemak en om interactie met de service mogelijk te maken vanaf de lokale computer, wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure. U kunt later terugkomen en de openbare URL proberen wanneer de DNS-record gereed is.
 
 ### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
 
