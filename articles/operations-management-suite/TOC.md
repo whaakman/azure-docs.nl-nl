@@ -1,6 +1,5 @@
 # Overzicht
-## [Wat is Operations Management Suite?](operations-management-suite-overview.md)
-## [OMS-architectuur](operations-management-suite-architecture.md)
+## [Agentbewaking](../monitoring/index.md)
 
 # Aan de slag
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
@@ -13,8 +12,6 @@
 
 ## Analyseren
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Vergelijking van producten bewaken](operations-management-suite-monitoring-product-comparison.md)
-### [Waarschuwingen beheren](operations-management-suite-monitoring-alerts.md)
 ## Automatiseren
 ### [Overzicht van Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -68,12 +65,7 @@
 ### [Aanbevolen procedures](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Beheerscenario's
-### [Analytische gegevens verzamelen van runbook](operations-management-suite-runbook-datacollect.md)
-
-## [Integreren met OMS](operations-management-suite-integration.md)
-
-# Naslaginformatie
-## [SDK](operations-management-suite-sdk.md)
+### [Analytische gegevens verzamelen van runbook](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)

@@ -5,6 +5,8 @@
     - name: Wat is de Speech-service?
       href: overview.md
       expanded: true
+    - name: Spraakscenario's
+      href: speech-scenarios.md
 - name: Snelstartgidsen
   items:
     - name: Speech Service gratis uitproberen
@@ -25,16 +27,18 @@
       href: how-to-text-to-speech.md
     - name: Spraak vertalen
       href: how-to-translate-speech.md
-    - name: De Speech Devices SDK ophalen
-      href: get-speech-devices-sdk.md
     - name: Batchtranscriptie
       href: batch-transcription.md
+    - name: De Speech Devices SDK ophalen
+      href: get-speech-devices-sdk.md
 - name: Aanpassing
   items:
     - name: Akoestische modellen aanpassen
       href: how-to-customize-acoustic-models.md
     - name: Taalmodellen aanpassen
       href: how-to-customize-language-model.md
+    - name: Uitspraak aanapssen
+      href: how-to-customize-pronunciation.md
     - name: Spraakstijlen aanpassen (Bot Brand Voice)
       href: how-to-customize-voice-font.md
     - name: Transcripties voorbereiden

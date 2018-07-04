@@ -278,3 +278,11 @@
               href: app-service-web-open-source-technologies-faq.md
             - name: Veelgestelde vragen over configuratie en beheer
               href: app-service-web-configuration-and-management-faq.md
+    - name: IP-adreswijziging
+      items:
+        - name: Inkomend uitgaand IP-adres
+          href: ip-address-change-inbound.md
+        - name: Uitgaand IP-adres
+          href: ip-address-change-outbound.md
+        - name: SSL-adres
+          href: ip-address-change-ssl.md

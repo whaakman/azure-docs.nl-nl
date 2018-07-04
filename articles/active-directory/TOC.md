@@ -380,6 +380,7 @@
 ### [On-premises identiteiten integreren met Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Toegang tot resources delegeren
+### [Leden met een beheerdersrol weergeven](directory-manage-roles-portal.md)
 ### [Beheerdersrollen](active-directory-assign-admin-roles-azure-portal.md)
 #### [Een beheerdersrol toewijzen aan een gebruiker](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Gebruikersmachtigingen voor leden en voor gasten vergelijken](fundamentals/users-default-permissions.md)
