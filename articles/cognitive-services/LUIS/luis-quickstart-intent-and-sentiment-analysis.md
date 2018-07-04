@@ -7,104 +7,98 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: d000637312619fc493e2f7bad8e8edf0d8d0d94b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265331"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958426"
 ---
 # <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>Zelfstudie: app maken die gevoel retourneert samen met voorspelling van intentie
 In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt extraheren uit utterances.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Hiërarchische entiteiten en contextueel geleerde onderliggende elementen 
-> * Nieuwe LUIS-app maken voor het domein Travel met de intent Bookflight
-> * Intent _None_ toevoegen en voorbeelden van utterances
-> * Entiteit van het type Hierarchical toevoegen met onderliggende elementen Origin en Destination
+> * Sentimentanalyse begrijpen
+> * De LUIS-app in HR-domein (Human Resources) gebruiken 
+> * Sentimentanalyse toevoegen
 > * App inleren en publiceren
-> * Eindpunt van de app opvragen om LUIS JSON-antwoord te zien inclusief hiërarchische onderliggende elementen 
+> * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien 
 
 Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+
+## <a name="before-you-begin"></a>Voordat u begint
+Als u geen Human Resources-app uit de zelfstudie over [keyPhrase-entiteiten](luis-quickstart-intent-and-key-phrase.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `sentiment`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
 ## <a name="sentiment-analysis"></a>Sentimentanalyse
 Sentimentanalyse is de mogelijkheid om te bepalen of de uiting (utterance) van een gebruiker positief, negatief of neutraal is. 
 
 De volgende utterances zijn voorbeelden van gevoelens:
 
-|Gevoel en score|Utterance|
-|:--|--|
-|positief - 0.89 |De combinatie van soep en salade was geweldig.|
-|negatief - 0.07 |Ik vond het voorgerecht niet lekker.|
+|Stemming|Score|Utterance|
+|:--|:--|:--|
+|positief|0,91 |John W. Smith heeft een geweldige presentatie gegeven in Parijs.|
+|positief|0,84 |jill-jones@mycompany.com heeft het fantastisch gedaan om Parker als klant binnen te halen.|
 
-Sentimentanalyse is een app-instelling die voor elke utterance geldt. U hoeft niet de woorden te vinden die gevoel aangeven in een utterance en deze te labelen. LUIS doet dat voor u.
+Sentimentanalyse is een app-instelling die voor elke utterance geldt. U hoeft niet op zoek te gaan naar woorden om in de utterance een sentiment aan te duiden en deze van een label te voorzien, omdat sentimentanalyse voor de hele utterance geldt. 
 
-## <a name="create-a-new-app"></a>Een nieuwe app maken
-1. Meld u aan op de website van [LUIS][LUIS]. Doe dit bij de [regio][LUIS-regions] waarin u de LUIS-eindpunten wilt publiceren.
+## <a name="add-employeefeedback-intent"></a>Intentie EmployeeFeedback toevoegen 
+Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf behoren, vast te leggen. 
 
-2. Selecteer op de website van [LUIS][LUIS] de optie **Create new app**. 
+1. Zorg ervoor dat uw Human Resources-app zich bevindt in de sectie **Build** van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png "Schermopname van de pagina met de lijst met apps")](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png#lightbox)
+    [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
-3. Geef op de pagina **Create new app** de app de naam `Restaurant Reservations With Sentiment` en selecteer **Done**. 
+2. Selecteer **Create new intent**.
 
-    ![Afbeelding van het dialoogvenster voor het maken van een nieuwe app](./media/luis-quickstart-intent-and-sentiment-analysis/create-app-ddl.png)
+    [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
-    Wanneer het maken van de app is voltooid, ziet u in LUIS een lijst met intents met daarin de intent None.
+3. Geef de nieuwe intentie de naam  `EmployeeFeedback`.
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png "Schermopname van de lijst met intents")](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png#lightbox)
+    ![Een nieuw dialoogvenster maken met de naam EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
-## <a name="add-a-prebuilt-domain"></a>Een vooraf gedefinieerd domein toevoegen
-Voeg een vooraf gedefinieerd domein toe om snel intents, entiteiten en gelabelde utterances toe te voegen.
+4. Voeg een aantal utterances toe die aanduiden op welk terrein een werknemer het goed doet of waar er ruimte is voor verbetering:
 
-1. Selecteer **Prebuilt Domains** in het menu aan de linkerkant.
+    Vergeet niet dat in deze Human Resources-app, werknemers in de lijstentiteit `Employee` worden gedefinieerd met behulp van hun naam, e-mailadres, toestelnummer, mobiele-telefoonnummer en Amerikaans sociaal-fiscaal nummer. 
 
-    [ ![Schermopname van de knop Prebuilt Domains](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-expanded.png#lightbox)
+    |Utterances|
+    |--|
+    |425-555-1212 heeft het goed gedaan toen ze een collega welkom heette die terugkwam van zwangerschapsverlof.|
+    |234-56-7891 heeft het geweldig gedaan toen ze een collega tijdens een emotioneel moeilijke tijd troost bood.|
+    |jill-jones@mycompany.com had niet alle facturen die nodig waren om de administratieve procedures goed uit te voeren.|
+    |john.w.smith@mycompany.com leverde de benodigde formulieren een maand te laat en zonder handtekeningen aan.|
+    |x23456 was niet aanwezig op de belangrijke marketingbijeenkomst buiten de deur.|
+    |x12345 was niet aanwezig op het beoordelingsgesprek in juni.|
+    |Jill Jones deed het fantastisch tijdens haar verkooppraatje voor Harvard.|
+    |John W. Smith heeft een geweldige presentatie gegeven voor Stanford.|
 
-2. Selecteer **Add domain** voor het vooraf gedefinieerde domein **RestaurantReservation**. Wacht totdat het domein is toegevoegd.
-
-    [ ![Schermopname van de lijst met vooraf gedefinieerde domeinen](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-expanded.png#lightbox)
-
-3. Selecteer **Intents** in de linkernavigatiebalk. Dit vooraf gedefinieerde domein heeft één intent.
-
-    [ ![Schermopname van de lijst met vooraf gedefinieerde domeinen met Intents gemarkeerd in het linkernavigatievenster](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png#lightbox)
-
-4.  Selecteer de intent **RestaurantReservation.Reserve**. 
-
-    [ ![Schermopname van lijst met intents met RestaurantReservation.Reserve gemarkeerd](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png#lightbox)
-
-5. Schakel **Entities View** in en uit om de verschillende utterances te zien, met labels voor domeinspecifieke entiteiten.
-
-    [ ![Schermopname van de intent RestaurantReservation.Reserve met Entities View uitgeschakeld en Token View gemarkeerd](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-expanded.png#lightbox)
+    [ ![Schermopname van de LUIS-app met voorbeelden van utterances in de EmployeeFeedback-intentie](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>LUIS-app inleren
-LUIS niet weet dat de intents en entiteiten (het model) zijn gewijzigd, totdat u de app hebt ingeleerd. 
+LUIS is pas op de hoogte van de nieuwe intentie en de voorbeelden van utterances na te zijn ingeleerd. 
 
 1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
 
-    ![Schermopname met knop Train gemarkeerd](./media/luis-quickstart-intent-and-sentiment-analysis/train-button-expanded.png)
+    ![Schermopname met knop Train gemarkeerd](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
 2. Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
 
-    ![Schermopname van melding dat het inleren is gelukt ](./media/luis-quickstart-intent-and-sentiment-analysis/trained-expanded.png)
+    ![Schermopname van melding dat het inleren is gelukt ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>App configureren voor gebruik van sentimentanalyse
-U kunt sentimentanalyse inschakelen op de pagina **Publish**. 
+Configureer sentimentanalyse op de pagina **Publish**. 
 
 1. Selecteer **Publish** in de navigatiebalk rechtsboven.
 
-    ![Schermopname van de pagina Intent met de knop Publish uitgevouwen ](./media/luis-quickstart-intent-and-sentiment-analysis/publish-expanded.png)
+    ![Schermopname van de pagina Intent met de knop Publish uitgevouwen ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. Selecteer **Enable Sentiment Analysis**.
+2. Selecteer **Enable Sentiment Analysis**. Selecteer de slot Production en vervolgens de knop **Publish**.
 
-    ![Schermopname van de pagina Publish met Enable Sentiment Analysis gemarkeerd ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-expanded.png)
-
-3. Selecteer de slot Production en vervolgens de knop **Publish**.
-
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-inline.png "Schermopname van de pagina Publish app met de knop Publish gemarkeerd")](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Schermopname van de pagina Publish app met de knop Publish gemarkeerd")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
 
 4. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
@@ -112,34 +106,102 @@ U kunt sentimentanalyse inschakelen op de pagina **Publish**.
 
 1. Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
 
-    ![Schermopname van de pagina Publish met eindpunt-URL gemarkeerd](media/luis-quickstart-intent-and-sentiment-analysis/endpoint-url-inline.png)
+    ![Schermopname van de pagina Publish met eindpunt-URL gemarkeerd](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
 
-2. Ga naar het einde van de URL in het adres en voer `Reserve table for  10 on upper level away from kitchen` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intent `RestaurantReservation.Reserve` als resultaat moet geven met de sentimentanalyse geëxtraheerd.
+2. Ga naar het einde van de URL in het adres en voer `Jill Jones work with the media team on the public portal was amazing` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intent `EmployeeFeedback` als resultaat moet geven met de sentimentanalyse geëxtraheerd.
 
 ```
 {
-  "query": "Reserve table for 10 on upper level away from kitchen",
+  "query": "Jill Jones work with the media team on the public portal was amazing",
   "topScoringIntent": {
-    "intent": "RestaurantReservation.Reserve",
-    "score": 0.9926384
+    "intent": "EmployeeFeedback",
+    "score": 0.4983256
   },
   "intents": [
     {
-      "intent": "RestaurantReservation.Reserve",
-      "score": 0.9926384
+      "intent": "EmployeeFeedback",
+      "score": 0.4983256
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.06617523
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.04631853
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.0103248553
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.007531875
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00344597152
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00337914471
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.0026357458
     },
     {
       "intent": "None",
-      "score": 0.00961109251
+      "score": 0.00214573368
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00157622492
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 7.379545E-05
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "entity": "jill jones",
+      "type": "Employee",
+      "startIndex": 0,
+      "endIndex": 9,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
+    },
+    {
+      "entity": "media team",
+      "type": "builtin.keyPhrase",
+      "startIndex": 25,
+      "endIndex": 34
+    },
+    {
+      "entity": "public portal",
+      "type": "builtin.keyPhrase",
+      "startIndex": 43,
+      "endIndex": 55
+    },
+    {
+      "entity": "jill jones",
+      "type": "builtin.keyPhrase",
+      "startIndex": 0,
+      "endIndex": 9
+    }
+  ],
   "sentimentAnalysis": {
-    "label": "neutral",
-    "score": 0.5
+    "label": "positive",
+    "score": 0.8694164
   }
 }
 ```
+
+SentimentAnalysis is met een score van 0,86 positief. 
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
 Deze app, met sentimentanalyse ingeschakeld, heeft de intentie van een query in natuurlijke taal geïdentificeerd en de overeenkomende geëxtraheerde gegevens geretourneerd, met inbegrip van het algehele gevoel uitgedrukt als een score. 

@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: v-geberr
-ms.openlocfilehash: c31e7d130d02ab6b0fad7577026e557692c2b60e
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 317d5b37b90f6c436e3cecf0486d587f54960598
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285947"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316539"
 ---
 # <a name="tutorial-use-regular-expression-entity"></a>Zelfstudie: Entiteit in de vorm van een gewone expressie gebruiken
 In deze zelfstudie maakt u een app die laat zien hoe u consistent opgemaakte gegevens kunt extraheren uit een utterance met behulp van de entiteit **Regular Expression (regex)**.
@@ -28,10 +28,10 @@ In deze zelfstudie maakt u een app die laat zien hoe u consistent opgemaakte geg
 > * App inleren en publiceren
 > * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
 
-Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u niet beschikt over de Human Resources-app uit de snelstartgids over de vooraf gedefinieerde entiteit [custom domain](luis-tutorial-prebuilt-intents-entities.md), [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de website van [LUIS][LUIS]. Dit kan vanuit de Github-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
+Als u niet beschikt over de Human Resources-app uit de snelstartgids over de vooraf gedefinieerde entiteit [custom domain](luis-tutorial-prebuilt-intents-entities.md), [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de website van [LUIS](luis-reference-regions.md#luis-website). Dit kan vanuit de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
 
 Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `regex`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
@@ -244,6 +244,3 @@ Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer h
 > [!div class="nextstepaction"]
 > [Meer informatie over de entiteit KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 06/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 2547407126943161ba604fa2f5e80b9186cae57e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5fb93ebbd2da02df0c2cdf0d19ed282aeafe9473
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266495"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335557"
 ---
 # <a name="tutorial-create-app-that-uses-hierarchical-entity"></a>Zelfstudie: App maken die de entiteit Hierarchical gebruikt
 In deze zelfstudie maakt u een app die laat zien hoe u gerelateerde soorten gegevens kunt vinden op basis van context. 
@@ -22,140 +22,111 @@ In deze zelfstudie maakt u een app die laat zien hoe u gerelateerde soorten gege
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Hiërarchische entiteiten en contextueel geleerde onderliggende elementen 
-> * Nieuwe LUIS-app maken voor het domein Travel met de intent Bookflight
-> * Intent _None_ toevoegen en voorbeelden van utterances
+> * De LUIS-app in HR-domein (Human Resources) gebruiken 
 > * Entiteit van het type Hierarchical toevoegen met onderliggende elementen Origin en Destination
 > * App inleren en publiceren
 > * Eindpunt van de app opvragen om LUIS JSON-antwoord te zien inclusief hiërarchische onderliggende elementen 
 
 Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
 
+## <a name="before-you-begin"></a>Voordat u begint
+Als u geen Human Resources-app uit de zelfstudie over [List-entiteiten](luis-quickstart-intent-and-list-entity.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
+
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `hier`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
+
 ## <a name="purpose-of-the-app-with-this-entity"></a>Doel van de app met deze entiteit
-Deze app bepaalt of een gebruiker een vlucht wil boeken. De entiteit Hierarchical wordt gebruikt om binnen de tekst van de gebruiker de locaties, plaats van herkomst en plaats van bestemming te bepalen. 
+Met deze app wordt bepaald waar een werknemer naartoe wordt verplaatst van de locatie van herkomst (gebouw en kantoor) naar de bestemmingslocatie (gebouw en kantoor). Hierbij wordt de entiteit Hierarchical gebruikt om vast te stellen wat de locaties binnen de utterance zijn. 
 
 De entiteit Hierarchical is geschikt voor dit type gegevens omdat het volgende geldt voor de twee soorten gegevens:
 
-* Het zijn beide locaties, meestal uitgedrukt als steden of luchthavencodes.
-* Ze hebben beide meestal een unieke woordkeuze rond de woorden om te kunnen bepalen wat de plaats van herkomst is en wat de plaats van bestemming. Voorbeelden van deze woorden zijn: to, headed toward, from, leaving.
+* Ze zijn aan elkaar gerelateerd in de context van de utterance.
+* Ze hebben een specifieke woordkeuze ter aanduiding van een locatie. Voorbeelden van deze woorden zijn: van/naar verlaten/gaan naar, weg van/naar.
 * Beide locaties komen vaak in dezelfde utterance voor. 
 
 Het doel van de entiteit **Hierarchical** is het vinden van gerelateerde gegevens binnen de utterance op basis van context. Kijk eens naar de volgende utterance:
 
 ```JSON
-1 ticket from Seattle to Cairo`
+mv Jill Jones from a-2349 to b-1298
 ```
-
-In de utterance zijn twee locaties opgegeven. Een is de plaats van herkomst, Seattle, en de andere de plaats van bestemming, Caïro. Deze steden zijn beide belangrijk voor het boeken van een vlucht. Hoewel ze met een entiteit van het type Simple kunnen worden gevonden, zijn ze gerelateerd en zullen ze vaak in dezelfde utterance worden gevonden. Daarom is het zinvol dat ze beide gegroepeerd worden als onderliggende elementen van een entiteit van het type Hierarchical met de naam **Location**. 
-
-Aangezien het entiteiten zijn die via machine learning zijn verkregen, heeft de app voorbeelden van utterances nodig waarin de plaatsen van herkomst en bestemming zijn gelabeld. Hierdoor weet LUIS waar zich de entiteiten in utterances bevinden, hoe lang ze zijn en wat de omringende woorden zijn. 
-
-## <a name="app-intents"></a>Intents van app
-De intents zijn categorieën van wat de gebruiker wil. Deze app heeft twee intents: Bookflight en None. De intent [None](luis-concept-intent.md#none-intent-is-fallback-for-app) is doelgericht, om iets aan te geven dat buiten het bereik van de app ligt.  
-
-## <a name="hierarchical-entity-is-contextually-learned"></a>Entiteit van het type Hierarchical wordt contextueel geleerd 
-Het doel van de entiteit is het vinden en categoriseren van delen van de tekst in de utterance. Een entiteit van het type [Hierarchical](luis-concept-entity-types.md) is een bovenliggende/onderliggende entiteit op basis van de context van het gebruik. Een persoon kan de steden van herkomst en bestemming in een utterance bepalen op basis van het gebruik van `to` en `from`. Dit is een voorbeeld van contextueel gebruik.  
-
-Voor deze reizen-app extraheert LUIS de locaties van herkomst en bestemming op zo'n manier dat er een standaardboeking kan worden gemaakt en ingevuld. LUIS ondersteunt variaties, afkortingen en spreektaal in utterances. 
-
-Enkele voorbeelden van eenvoudige utterances van gebruikers:
-
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Researve a seat from New York to Paris on the first of April
-```
-
-Voorbeelden van afgekorte of spreektaalversies van utterances:
-
-```
-LHR tomorrow
-SEA to NYC next Monday
-LA to MCO spring break
-```
+In de utterance zijn twee locaties opgegeven `a-2349` en `b-1298`. Stel dat de letter naar een naam van een gebouw verwijst en het nummer het kantoor in dat gebouw aanduidt. Het is zinvol dat ze beide zijn gegroepeerd als onderliggende elementen van een entiteit Hierarchical, `Locations` omdat beide gegevenselementen moeten worden opgehaald uit de utterance en ze aan elkaar zijn gerelateerd. 
  
-De entiteit Hierarchical matches de locatie van de plaats van herkomst en van bestemming. Als slechts één onderliggend element (herkomst of bestemming) van een hiërarchische entiteit aanwezig is, wordt dit nog steeds geëxtraheerd. Niet alle onderliggende elementen hoeven te worden gevonden om er maar één, of enkele, te extraheren. 
+Als slechts één onderliggend element (herkomst of bestemming) van een hiërarchische entiteit aanwezig is, wordt dit nog steeds geëxtraheerd. Niet alle onderliggende elementen hoeven te worden gevonden om er maar één, of enkele, te extraheren. 
 
-## <a name="what-luis-does"></a>Wat LUIS doet
-Als de intent en entiteiten van de utterance zijn geïdentificeerd, [geëxtraheerd](luis-concept-data-extraction.md#list-entity-data) en geretourneerd in JSON vanaf het [eindpunt](https://aka.ms/luis-endpoint-apis), zit de taak van LUIS erop. De aanroepende toepassing of chatbot verwerkt dit JSON-antwoord en reageert vervolgens op de aanvraag, op de manier waarop de app of chatbot is ontworpen om dit te doen. 
+## <a name="remove-prebuilt-number-entity-from-app"></a>Vooraf gedefinieerde cijferentiteit uit app verwijderen
+Om de volledige utterance te zien en de onderliggende entiteiten Hierarchical te kunnen markeren, moet u de vooraf gedefinieerde cijferentiteit tijdelijk verwijderen.
 
-## <a name="create-a-new-app"></a>Een nieuwe app maken
-1. Meld u aan op de website van [LUIS][LUIS]. Doe dit bij de [regio][LUIS-regions] waarin u de LUIS-eindpunten wilt publiceren.
+1. Zorg ervoor dat uw Human Resources-app zich bevindt in de sectie **Build** van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
-2. Selecteer op de website van [LUIS][LUIS] de optie **Create new app**.  
+    [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
 
-    [![](media/luis-quickstart-intent-and-hier-entity/app-list.png "Schermopname van de pagina met de lijst met apps")](media/luis-quickstart-intent-and-hier-entity/app-list.png#lightbox)
+2. Selecteer **Entities** in het menu aan de linkerkant.
 
-3. Typ in het pop-upvenster de naam `MyTravelApp`. 
+    [ ![Schermopname van LUIS-app met de knop Entities in het linkermenu gemarkeerd](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-app.png "Schermopname van het pop-upvenster voor de naam van een nieuwe app")](media/luis-quickstart-intent-and-hier-entity/create-new-app.png#lightbox)
 
-4. Als dat proces is voltooid, ziet u de pagina **Intents** met de intent **None**. 
+3. Selecteer de drie puntjes (...) rechts van de cijferentiteit in de lijst. Selecteer **Verwijderen**. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png "Schermopname van de lijst met intents met alleen de intent None")](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png#lightbox)
+    [ ![Schermopname van LUIS-app op de lijstpagina met entiteiten met de verwijderknop gemarkeerd voor de vooraf gedefinieerde cijferentiteit](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
-## <a name="create-a-new-intent"></a>Een nieuwe intent maken
 
-1. Selecteer **Create new intent** op de pagina **Intents**. 
+## <a name="add-utterances-to-findform-intent"></a>Utterances toevoegen aan de intentie FindForm
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png "Schermopname van lijst met intents met de knop 'Create new intent' gemarkeerd")](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png#lightbox)
+1. Selecteer **Intents** in het linkermenu.
 
-2. Voer de naam `BookFlight` in voor de nieuwe intent. Deze intent moet steeds worden geselecteerd als een gebruiker een vlucht wil boeken.
+    [ ![Schermopname van LUIS app met intenties in het linkermenu gemarkeerd](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
 
-    U maakt een intent om de primaire categorie gegevens te bepalen die u wilt identificeren. Door de categorie een naam te geven, kunnen andere toepassingen die de queryresultaten van LUIS gebruiken aan de hand van die naam een geschikt antwoord vinden of passende maatregelen nemen. LUIS geeft geen antwoord op deze vragen, maar identificeert alleen om wat voor soort informatie er wordt gevraagd in natuurlijke taal. 
+2. Selecteer **MoveEmployee** in de lijst met intenties.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png "Schermopname van het pop-upvenster voor het maken van een nieuwe intent")](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png#lightbox)
+    [ ![Schermopname van LUIS-app met de intentie MoveEmployee gemarkeerd in het linkermenu](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
-3. Voeg verschillende utterances toe aan de intent `BookFlight` waarnaar een gebruiker waarschijnlijk zal vragen, zoals:
+3. De volgende voorbeelden van utterances toevoegen:
 
-    | Voorbeelden van utterances|
+    |Voorbeelden van utterances|
     |--|
-    |Book 2 flights from Seattle to Cairo next Monday|
-    |Reserve a ticket to London tomorrow|
-    |Schedule 4 seats from Paris to London for April 1|
+    |John W. Smith **naar** a-2345 verplaatsen|
+    |Jill Jones **naar** b-3499 verplaatsen|
+    |De verplaatsing van x23456 **van** hh-2345 **naar** e-0234 organiseren|
+    |Beginnen met administratieve taken omdat x12345 a-3459 **verlaat** om **naar** f-34567 te gaan|
+    |425-555-0000 **uit** g-2323 **naar** hh- 2345 verplaatsen|
 
-    [![](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png "Schermopname van het invoeren van utterances voor de intent Bookflight")](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png#lightbox)
+    In de zelfstudie [entiteit List](luis-quickstart-intent-and-list-entity.md) kon een werknemer worden aangeduid met zijn of haar naam, e-mailadres, toestelnummer, mobiele-telefoonnummer of het Amerikaans sociaal-fiscaal nummer. Deze werknemernummers worden in de utterances gebruikt. In de voorgaande utterances worden andere manieren gebruikt om de locatie van herkomst en de bestemmingslocatie aan te duiden: vet gemarkeerd. Er zijn slechts een klein aantal utterances die opzettelijk bestemmingen bevatten. Dit helpt LUIS om te begrijpen hoe deze locaties in de utterance worden geplaatst als de locatie van herkomst niet wordt opgegeven.
 
-## <a name="add-utterances-to-none-intent"></a>Utterances toevoegen aan de intent None
+    [ ![Schermopname van LUIS met nieuwe utterances in de intentie MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+     
 
-De LUIS-app heeft momenteel geen utterances voor de intent **None**. Er zijn utterances nodig die de app niet hoeft te beantwoorden, dus moeten er utterances worden toegevoegd aan de intent **None**. U mag deze intent niet leeglaten. 
+## <a name="create-a-location-entity"></a>Een entiteit Location maken
+LUIS moet kunnen vaststellen wat een locatie is door de herkomst en bestemming in de utterances van labels te voorzien. Als u de utterance in de tokenweergave (onbewerkte weergave) wilt zien, selecteert u de wisselknop op de balk boven de utterances met het label **Entities View**. Door de wisselknop te selecteren, kunt u ervoor zorgen dat voor het besturingselement het label **Entities View** wordt weergegeven.
 
-1. Selecteer **Intents** in het linkerpaneel. 
+1. Selecteer het woord `g-2323` in de utterance, `Displace 425-555-0000 away from g-2323 toward hh-2345`. Er wordt een vervolgkeuzelijst weergegeven met bovenaan een tekstvak. Typ de entiteitsnaam `Locations` in het tekstvak en selecteer vervolgens **Create new entity** in de vervolgkeuzelijst. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png "Schermopname van de intent Bookflight met de knop Intents gemarkeerd")](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Schermopname van het maken van een nieuwe entiteit op de intentiepagina")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
-2. Selecteer de intent **None**. Voeg drie utterances toe die een gebruiker misschien kan invoeren, maar die niet relevant zijn voor uw app:
+2. Selecteer in het pop-upvenster het entiteittype **Hierarchical** met `Origin` en `Destination` als de onderliggende entiteiten. Selecteer **Done**.
 
-    | Voorbeelden van utterances|
-    |--|
-    |Cancel!|
-    |Good bye|
-    |What is going on?|
+    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Schermopname van het pop-upvenster voor het maken van een nieuwe entiteit van het type Location")
 
-## <a name="when-the-utterance-is-predicted-for-the-none-intent"></a>Wanneer de utterance wordt voorspeld voor de intent None
-Als LUIS de intent **None** retourneert voor een toepassing die LUIS aanroept (zoals een chatbot), kan de bot hierop reageren door te vragen of de gebruiker het gesprek wil beëindigen. De bot kan ook meer aanwijzingen geven voor het vervolgen van het gesprek als de gebruiker dit niet wil beëindigen. 
+3. Het label voor `g-2323` is gemarkeerd als `Locations` omdat LUIS niet weet of de term verwijst naar de plaats van herkomst of van bestemming, of geen van beide. Selecteer `g-2323`, vervolgens **Locations** en selecteer `Origin` in het menu aan de rechterkant.
 
-Entiteiten werken in de intent **None**. Als de hoogst scorende intent **None** is maar er een entiteit wordt geëxtraheerd die zinvol is voor uw chatbot, kan de chatbot met een vraag komen die is gericht op de intentie van de klant. 
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Schermopname van pop-updialoogvenster om met behulp van labels in een onderliggend entiteit de locaties te wijzigen")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
-## <a name="create-a-location-entity-from-the-intent-page"></a>Een entiteit van het type Location maken op de pagina Intent
-Nu dat de twee intents utterances hebben, moet LUIS begrijpen wat een locatie is. Ga terug naar de intent `BookFlight` en label (markeer) de plaatsnaam in een utterance door deze stappen te volgen:
+5. Voorzie de andere locaties in alle andere utterances van labels door het gebouw en kantoor in de utterance te selecteren, vervolgens Locations de selecteren en `Origin` of `Destination` in het rechtermenu te selecteren. Wanneer alle locaties van een label zijn voorzien, beginnen de utterances in **Tokens View** er als een patroon uit te zien. 
 
-1. Ga terug naar de intent `BookFlight` door **Intents** te selecteren in het linkerdeelvenster.
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Schermopname van de gelabelde entiteit Locations in utterances")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
-2. Selecteer `BookFlight` in de lijst met intents.
+## <a name="add-prebuilt-number-entity-to-app"></a>Vooraf gedefinieerde cijferentiteit aan app toevoegen
+De vooraf gedefinieerde cijferentiteit opnieuw toevoegen aan de toepassing.
 
-3. Selecteer het woord `Seattle` in de utterance, `Book 2 flights from Seattle to Cairo next Monday`. Er wordt een vervolgkeuzelijst weergegeven met bovenaan een tekstvak voor het maken van de nieuwe entiteit. Typ de entiteitsnaam `Location` in het tekstvak en selecteer vervolgens **Create new entity** in de vervolgkeuzelijst. 
+1. Selecteer **Entities** in het navigatiemenu aan de linkerkant.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png "Schermopname van de pagina met de intent Bookflight, voor het maken van een nieuwe entiteit van de geselecteerde tekst")](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png#lightbox)
+    [ ![Schermopname van de knop Entities gemarkeerd in het linkernavigatiegedeelte](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
 
-4. Selecteer in het pop-upvenster het entiteittype **Hierarchical** met `Origin` en `Destination` als de onderliggende entiteiten. Selecteer **Done**.
+2. Selecteer de knop **Manage prebuilt entities**.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png "Schermopname van het pop-upvenster voor het maken van een nieuwe entiteit van het type Location")](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png#lightbox)
+    [ ![Schermopname van de entiteitenlijst met Manage prebuilt entities gemarkeerd](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
 
-    Het label voor `Seattle` is gemarkeerd als `Location` omdat LUIS niet weet of de term verwijst naar de plaats van herkomst of van bestemming, of geen van beide. Selecteer `Seattle`, vervolgens Location en selecteer `Origin` in het menu aan de rechterkant.
+3. Selecteer het **cijfer** uit de lijst met vooraf gedefinieerde entiteiten en selecteer vervolgens **Done**.
 
-5. Nu dat de entiteit is gemaakt, en één utterance een label heeft, geeft u de andere steden een label door de plaatsnaam te selecteren, vervolgens Location en ten slotte `Origin` of `Destination` in het menu aan de rechterkant.
-
-    [![](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png "Schermopname van de entiteit Bookflight met utterancetekst geselecteerd entiteitsselectie")](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png#lightbox)
+    ![Schermopname van het selecteren van een cijfer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>LUIS-app inleren
 LUIS niet weet dat de intents en entiteiten (het model) zijn gewijzigd, totdat u de app hebt ingeleerd. 
@@ -173,8 +144,6 @@ Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing,
 
 1. Selecteer rechtsboven op de website van LUIS de knop **Publish**. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish.png "Schermopname van de intent Bookflight met de knop Publish gemarkeerd")](media/luis-quickstart-intent-and-hier-entity/publish.png#lightbox)
-
 2. Selecteer de slot Production en vervolgens de knop **Publish**.
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Schermopname van de pagina Publish app met de knop Publish gemarkeerd")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
@@ -186,41 +155,114 @@ Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing,
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "Schermopname van de pagina Publish met eindpunt-URL gemarkeerd")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
 
-2. Ga naar het einde van de URL in het adres en voer `1 ticket to Portland on Friday` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intent `BookFlight` als resultaat moet geven met de entiteit Hierarchical geëxtraheerd.
+2. Ga naar het einde van de URL in de adresbalk en voer `Please relocation jill-jones@mycompany.com from x-2345 to g-23456` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intent `MoveEmployee` als resultaat moet geven met de entiteit Hierarchical geëxtraheerd.
 
-```
+```JSON
 {
-  "query": "1 ticket to Portland on Friday",
+  "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
   "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.9998226
+    "intent": "MoveEmployee",
+    "score": 0.9966052
   },
   "intents": [
     {
-      "intent": "BookFlight",
-      "score": 0.9998226
+      "intent": "MoveEmployee",
+      "score": 0.9966052
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0325253047
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.006137873
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.00462633232
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00415637763
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.00382325822
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00249120337
     },
     {
       "intent": "None",
-      "score": 0.221926212
+      "score": 0.00130756292
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00119622645
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 1.26910036E-05
     }
   ],
   "entities": [
     {
-      "entity": "portland",
-      "type": "Location::Destination",
-      "startIndex": 12,
-      "endIndex": 19,
-      "score": 0.564448953
+      "entity": "jill - jones @ mycompany . com",
+      "type": "Employee",
+      "startIndex": 18,
+      "endIndex": 41,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
+    },
+    {
+      "entity": "x - 2345",
+      "type": "Locations::Origin",
+      "startIndex": 48,
+      "endIndex": 53,
+      "score": 0.8520272
+    },
+    {
+      "entity": "g - 23456",
+      "type": "Locations::Destination",
+      "startIndex": 58,
+      "endIndex": 64,
+      "score": 0.974032
+    },
+    {
+      "entity": "-2345",
+      "type": "builtin.number",
+      "startIndex": 49,
+      "endIndex": 53,
+      "resolution": {
+        "value": "-2345"
+      }
+    },
+    {
+      "entity": "-23456",
+      "type": "builtin.number",
+      "startIndex": 59,
+      "endIndex": 64,
+      "resolution": {
+        "value": "-23456"
+      }
     }
   ]
 }
 ```
 
-## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
-Deze app, bestaande uit slechts twee intents en één hiërarchische entiteit, heeft de intentie van een query in natuurlijke taal geïdentificeerd en de geëxtraheerde gegevens geretourneerd. 
+## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Kan het zijn dat u een reguliere expressie voor elke locatie hebt gebruikt?
+Ja, maak de reguliere expressie met de rollen herkomst en bestemming en gebruik deze in een patroon.
 
-Uw chatbot heeft nu voldoende gegevens om de primaire actie te bepalen, `BookFlight`, en de locatiegegevens die aanwezig zijn in de utterance. 
+De locaties in dit voorbeeld zoals `a-1234` volgen een specifieke indeling met één of twee letters, dan een streepje en vervolgens een reeks van 4 of 5 cijfers. Deze gegevens kunnen worden aangeduid als een entiteit van een reguliere expressie met een rol voor elke locatie. Rollen zijn beschikbaar voor patronen. U kunt op basis van deze utterances patronen maken en vervolgens een reguliere expressie voor de locatie-indeling maken en deze toevoegen aan de patronen. <!-- Go to this tutorial to see how that is done -->
+
+## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
+Deze app, bestaande uit slechts een paar intenties en één entiteit Hierarchical, heeft de intentie van een query in natuurlijke taal geïdentificeerd en de geëxtraheerde gegevens geretourneerd. 
+
+Uw chatbot heeft nu voldoende gegevens om de primaire actie te bepalen, `MoveEmployee`, en de locatiegegevens die aanwezig zijn in de utterance. 
 
 ## <a name="where-is-this-luis-data-used"></a>Waar worden deze gegevens van LUIS gebruikt? 
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
@@ -231,11 +273,6 @@ Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer h
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
 > [Informatie over het toevoegen van een entiteit van het type List](luis-quickstart-intent-and-list-entity.md) 
-
-Voeg de [vooraf gedefinieerde entiteit](luis-how-to-add-entities.md#add-prebuilt-entity) **number** toe om het aantal te extraheren. 
-
-Voeg de [vooraf gedefinieerde entiteit](luis-how-to-add-entities.md#add-prebuilt-entity) **datetimeV2** toe om de datumgegevens te extraheren.
-
 
 <!--References-->
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

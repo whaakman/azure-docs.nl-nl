@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 33394dff1091f27c79c74d8648a90724ba8d6698
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 68c241833aab756bfc5e71c03da5d4175401910d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264824"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335819"
 ---
 # <a name="tutorial-create-app-using-a-list-entity"></a>Zelfstudie: Een app maken met een lijstentiteit
 In deze zelfstudie gaat u een app maken die laat zien hoe u gegevens ophaalt die overeenkomen met een vooraf gedefinieerde lijst. 
@@ -22,154 +22,126 @@ In deze zelfstudie gaat u een app maken die laat zien hoe u gegevens ophaalt die
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Algemene informatie over lijstentiteiten 
-> * Nieuwe LUIS-app maken voor het domein Beverage met de intent OrderDrinks
-> * Intent _None_ toevoegen en voorbeelden van utterances
-> * Lijstentiteit toevoegen om drankjes op te halen uit utterance
+> * Met de intentie MoveEmployee een nieuwe LUIS-app maken voor het domein Human Resources (HR)
+> * Entiteit List toevoegen om Employee uit utterance te extraheren
 > * App inleren en publiceren
 > * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
 
-Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
+
+## <a name="before-you-begin"></a>Voordat u begint
+Als u geen Human Resources-app uit de zelfstudie over de regex-entiteiten [custom domain](luis-quickstart-intents-regex-entity.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
+
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `list`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
 ## <a name="purpose-of-the-list-entity"></a>Doel van de entiteit List
-Deze app accepteert bestellingen van drankjes zoals `1 coke and 1 milk please` en retourneert de gegevens zoals het soort drank. Een entiteit van het type **List** zoekt naar exacte tekstovereenkomsten en retourneert deze overeenkomsten. 
+Deze app voorspelt utterances over het verplaatsen van een werknemer van het ene gebouw naar een ander. Deze app maakt gebruik van een entiteit List om een werknemer te extraheren. Naar de werknemer kan worden verwezen met de naam, het telefoonnummer, het e-mailadres of het Amerikaans sociaal-fiscaal nummer. 
 
-Een lijstentiteit is een goede keuze voor dit type gegevens wanneer de gegevenswaarden deel uitmaken van een bekende set. De namen van drankjes kunnen variëren, inclusief spreektaal en afkortingen, maar de namen zullen niet vaak veranderen. 
+Een entiteit List kan veel items bevatten met synoniemen voor elk item. Voor een klein tot middelgrote bedrijf wordt de entiteit List gebruikt voor het extraheren van werknemersgegevens. 
 
-## <a name="app-intents"></a>Intents van app
-De intents zijn categorieën van wat de gebruiker wil. Deze app heeft twee intents: OrderDrinks en None. De intent [None](luis-concept-intent.md#none-intent-is-fallback-for-app) is doelgericht, om iets aan te geven dat buiten het bereik van de app ligt.  
+De canonieke naam voor elk item is het werknemersnummer. Voorbeelden van de synoniemen binnen dit domein zijn: 
 
-## <a name="list-entity-is-an-exact-text-match"></a>Lijstentiteit is een exacte overeenkomst
-Het doel van de entiteit is het vinden en categoriseren van delen van de tekst in de utterance. Met een entiteit van het type [List](luis-concept-entity-types.md) kunt u zoeken naar een exacte overeenkomst van woorden of zinnen.  
+|Doel synoniem|Waarde synoniem|
+|--|--|
+|Naam|John W. Smith|
+|E-mailadres|john.w.smith@mycompany.com|
+|Toestelnummer|x12345|
+|Mobiel nummer (privé)|425-555-1212|
+|Amerikaans sociaal-fiscaal nummer|123-45-6789|
 
-Voor deze bestel-app extraheert LUIS de bestelde drankjes op zo'n manier dat er een standaardbestelling kan worden gemaakt en ingevuld. LUIS ondersteunt variaties, afkortingen en spreektaal in utterances. 
+Een entiteit List is een goede keuze voor dit type gegevens wanneer:
 
-Enkele voorbeelden van eenvoudige utterances van gebruikers:
+* De gegevenswaarden deel uitmaken van een bekende set.
+* De set maximale [begrenzingen](luis-boundaries.md) van LUIS voor dit entiteitstype niet overschrijdt.
+* De tekst in de utterance exact overeenkomt met een synoniem. 
+
+LUIS extraheert de werknemer op een manier dat een standaardopdracht om de werknemer te verplaatsen door de clienttoepassing kan worden gemaakt.
+<!--
+## Example utterances
+Simple example utterances for a `MoveEmployee` inent:
 
 ```
-2 glasses of milk
-3 bottles of water
-2 cokes
-```
-
-Voorbeelden van afgekorte of spreektaalversies van utterances:
+move John W. Smith from B-1234 to H-4452
+mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 ```
-5 milk
-3 h2o
-1 pop
-```
- 
-De lijstentiteit koppelt `h2o` aan water en `pop` aan fris.  
+-->
 
-## <a name="what-luis-does"></a>Wat LUIS doet
-Als de intent en entiteiten van de utterance zijn geïdentificeerd, [geëxtraheerd](luis-concept-data-extraction.md#list-entity-data) en geretourneerd in JSON vanaf het [eindpunt](https://aka.ms/luis-endpoint-apis), zit de taak van LUIS erop. De aanroepende toepassing of chatbot verwerkt dit JSON-antwoord en reageert vervolgens op de aanvraag, op de manier waarop de app of chatbot is ontworpen om dit te doen. 
+## <a name="add-moveemployee-intent"></a>De intentie MoveEmployee toevoegen
 
-## <a name="create-a-new-app"></a>Een nieuwe app maken
-1. Meld u aan op de website van [LUIS][LUIS]. Doe dit bij de [regio][LUIS-regions] waarin u de LUIS-eindpunten wilt publiceren.
+1. Zorg ervoor dat uw Human Resources-app zich bevindt in de sectie **Build** van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
-2. Selecteer op de website van [LUIS][LUIS] de optie **Create new app**.  
+    [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png#lightbox)
 
-    ![Nieuwe app maken](./media/luis-quickstart-intent-and-list-entity/app-list.png)
+2. Selecteer **Create new intent**. 
 
-3. Typ in het pop-upvenster de naam `MyDrinklist`. 
+    [![Schermopname van pagina Intents met de knop 'Create new intent' gemarkeerd](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png#lightbox)
 
-    ![Geef de app de naam MyDrinkList](./media/luis-quickstart-intent-and-list-entity/create-app-dialog.png)
+3. Voer in het pop-updialoogvenster `MoveEmployee` in en selecteer vervolgens **Done**. 
 
-4. Als dat proces is voltooid, ziet u de pagina **Intents** met de intent **None**. 
+    ![Schermopname van het pop-updialoogvenster voor het maken van een nieuwe intentie met](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
 
-    [![](media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png "Schermopname van pagina Intents")](media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png#lightbox)
+4. Voeg voorbeelden van utterances toe aan de intent.
 
-## <a name="create-a-new-intent"></a>Een nieuwe intent maken
-
-1. Selecteer **Create new intent** op de pagina **Intents**. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/create-new-intent.png "Schermopname van pagina Intents met de knop 'Create new intent' gemarkeerd")](media/luis-quickstart-intent-and-list-entity/create-new-intent.png#lightbox)
-
-2. Voer de naam `OrderDrinks` in voor de nieuwe intent. Deze intent moet steeds worden geselecteerd als een gebruiker een drankje wil bestellen.
-
-    U maakt een intent om de primaire categorie gegevens te bepalen die u wilt identificeren. Door de categorie een naam te geven, kunnen andere toepassingen die de queryresultaten van LUIS gebruiken aan de hand van die naam een geschikt antwoord vinden of passende maatregelen nemen. LUIS geeft geen antwoord op deze vragen, maar identificeert alleen om wat voor soort informatie er wordt gevraagd in natuurlijke taal. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/intent-create-dialog-order-drinks.png "Schermopname van het maken van de nieuwe intent OrderDrinks")](media/luis-quickstart-intent-and-list-entity/intent-create-dialog-order-drinks.png#lightbox)
-
-3. Voeg verschillende utterances toe aan de intent `OrderDrinks` waarnaar een gebruiker waarschijnlijk zal vragen, zoals:
-
-    | Voorbeelden van utterances|
+    |Voorbeelden van utterances|
     |--|
-    |Please send 2 cokes and a bottle of water to my room|
-    |2 perriers with a twist of lime|
-    |h20|
+    |John W. Smith van B-1234 naar H-4452 verplaatsen|
+    |verplaats john.w.smith@mycompany.com van kantoor b-1234 naar kantoor h-4452|
+    |verplaats x12345 naar h-1234 morgen|
+    |plaats 425-555-1212 in HH 2345|
+    |verplaats 123-45-6789 van A-4321 naar J-23456|
+    |Verplaats Jill Jones van D-2345 naar J-23456|
+    |verplaats jill-jones@mycompany.com naar M-12345|
+    |x23456 naar M-12345|
+    |425-555-0000 naar h-4452|
+    |234 56 7891 naar hh 2345|
 
-    [![](media/luis-quickstart-intent-and-list-entity/intent-order-drinks-utterance.png "Schermopname van het invoeren van utterances voor de intent OrderDrinks")](media/luis-quickstart-intent-and-list-entity/intent-order-drinks-utterance.png#lightbox)
+    [ ![Schermopname van de intent met de nieuwe utterances gemarkeerd](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-## <a name="add-utterances-to-none-intent"></a>Utterances toevoegen aan de intent None
+    De toepassing is uitgebreid met de vooraf gedefinieerde entiteit Number uit de vorige zelfstudie, waardoor elk nummer een tag heeft. Dit is mogelijk voldoende informatie voor uw clienttoepassing, maar het cijfer wordt niet gelabeld met het type. Door een nieuwe entiteit met een geschikte naam te maken, kan de clienttoepassing de entiteit verwerken wanneer deze wordt geretourneerd door LUIS.
 
-De LUIS-app heeft momenteel geen utterances voor de intent **None**. Er zijn utterances nodig die de app niet hoeft te beantwoorden, dus moeten er utterances worden toegevoegd aan de intent **None**. U mag deze intent niet leeglaten. 
-
-1. Selecteer **Intents** in het linkerpaneel. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/left-panel-intents.png "Schermopname van het selecteren van de koppeling Intents in het linkerpaneel")](media/luis-quickstart-intent-and-list-entity/left-panel-intents.png#lightbox)
-
-2. Selecteer de intent **None**. Voeg drie utterances toe die een gebruiker misschien kan invoeren, maar die niet relevant zijn voor uw app:
-
-    | Voorbeelden van utterances|
-    |--|
-    |Cancel!|
-    |Good bye|
-    |What is going on?|
-
-## <a name="when-the-utterance-is-predicted-for-the-none-intent"></a>Wanneer de utterance wordt voorspeld voor de intent None
-Als LUIS de intent **None** retourneert voor een toepassing die LUIS aanroept (zoals een chatbot), kan de bot hierop reageren door te vragen of de gebruiker het gesprek wil beëindigen. De bot kan ook meer aanwijzingen geven voor het vervolgen van het gesprek als de gebruiker dit niet wil beëindigen. 
-
-Entiteiten werken in de intent **None**. Als de hoogst scorende intent **None** is maar er een entiteit wordt geëxtraheerd die zinvol is voor uw chatbot, kan de chatbot met een vraag komen die is gericht op de intentie van de klant. 
-
-## <a name="create-a-menu-entity-from-the-intent-page"></a>Een entiteit van het type List maken op de pagina Intent
-Nu dat de twee intents utterances hebben, moet LUIS begrijpen wat een drankje is. Ga terug naar de intent `OrderDrinks` en label (markeer) de drankjes in een utterance door deze stappen te volgen:
-
-1. Ga terug naar de intent `OrderDrinks` door **Intents** te selecteren in het linkerdeelvenster.
-
-2. Selecteer `OrderDrinks` in de lijst met intents.
-
-3. Selecteer het woord `water` in de utterance, `Please send 2 cokes and a bottle of water to my room`. Er wordt een vervolgkeuzelijst weergegeven met bovenaan een tekstvak voor het maken van de nieuwe entiteit. Typ de entiteitsnaam `Drink` in het tekstvak en selecteer vervolgens **Create new entity** in de vervolgkeuzelijst. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/intent-label-h2o-in-utterance.png "Schermopname van het maken van een nieuwe entiteit door een woord te selecteren in een utterance")](media/luis-quickstart-intent-and-list-entity/intent-label-h2o-in-utterance.png#lightbox)
-
-4. Selecteer in het pop-upvenster het entiteitstype **list**. Voeg het synoniem `h20` toe. Selecteer de Enter-toets na elk synoniem. Voeg `perrier` niet toe aan de synoniemenlijst. Dat woord wordt als voorbeeld toegevoegd in de volgende stap. Selecteer **Done**.
-
-    [![](media/luis-quickstart-intent-and-list-entity/create-list-ddl.png "Schermopname van het configureren van een nieuwe entiteit")](media/luis-quickstart-intent-and-list-entity/create-list-ddl.png#lightbox)
-
-5. Nu de entiteit is gemaakt, kunt u de andere synoniemen voor water labelen door het synoniem voor water te selecteren en vervolgens `Drink` te selecteren in de vervolgkeuzelijst. Volg het menu naar rechts en selecteer achtereenvolgens `Set as synonym` en `water`.
-
-    [![](media/luis-quickstart-intent-and-list-entity/intent-label-perriers.png "Schermopname van het labelen van een utterance met een bestaande entiteit")](media/luis-quickstart-intent-and-list-entity/intent-label-perriers.png#lightbox)
-
-## <a name="modify-the-list-entity-from-the-entity-page"></a>De lijstentiteit wijzigen op de pagina Entity
-De entiteit Drink is gemaakt, maar bevat onvoldoende items en synoniemen. Als u enkele van de woorden, afkortingen of spreektaal weet, is het sneller om de lijst op de pagina **Entity** in te vullen. 
+## <a name="create-an-employee-list-entity"></a>Een entiteit Employee List maken
+Nu de intentie **MoveEmployee** utterances bevat, moet LUIS kunnen vaststellen wat een werknemer is. 
 
 1. Selecteer **Entities** in het linkerpaneel.
 
-    [![](media/luis-quickstart-intent-and-list-entity/intent-select-entities.png "Schermopname van het selecteren van Entities in het linkerpaneel")](media/luis-quickstart-intent-and-list-entity/intent-select-entities.png#lightbox)
+    [ ![Schermopname van de pagina Intent met de knop Entities gemarkeerd in het linkernavigatiegedeelte](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png#lightbox)
 
-2. Selecteer `Drink` in de lijst met entiteiten.
+2. Selecteer **Create new intent**.
 
-    [![](media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png "Schermopname van het selecteren van de entiteit Drink in de lijst met entiteiten")](media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png#lightbox)
+    [ ![Schermopname van de pagina Entities met Create new entity gemarkeerd](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png#lightbox)
 
-3. Typ `Soda pop` in het tekstvak en selecteer Enter. 'Pop' is een term die in Amerika algemeen wordt gebruikt voor frisdrank. Elke cultuur heeft een andere naam of aanduiding voor dit type drankje.
+3. Voer in het pop-updialoogvenster `Employee` in als naam voor de entiteit en **List** als het entiteitstype. Selecteer **Done**.  
 
-    [![](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png "Schermafbeelding van het invoeren van een canonieke naam")](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png#lightbox)
+    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Schermopname van het pop-updialoogvenster voor het maken van een nieuwe entiteit")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
-4. Voer op dezelfde rij als `Soda pop` synoniemen in zoals: 
+4. Voer op de pagina van de entiteit Employee `Employee-24612` als de nieuwe waarde in.
 
-    ```
-    coke
-    cokes
-    coca-cola
-    coca-colas
-    ```
+    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Schermafbeelding van het invoeren van de waarde")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
-    De synoniemen kunnen zinsdelen, leestekens, bezittelijke voornaamwoorden en meervouden bevatten. Aangezien de entiteit List een exacte tekstovereenkomst is (met uitzondering van hoofdlettergebruik), moeten de synoniemen elke variatie hebben. U kunt de lijst uitbreiden als er meer variaties bekend worden vanuit de querylogboeken of door het bekijken van hits op eindpunten. 
+5. Voor synoniemen voegt u de volgende waarden toe:
 
-    Dit artikel bevat slechts enkele synoniemen om het voorbeeld kort te houden. Een LUIS-app op productieniveau zou veel meer synoniemen bevatten en regelmatig worden gecontroleerd en uitgebreid. 
+    |Doel synoniem|Waarde synoniem|
+    |--|--|
+    |Naam|John W. Smith|
+    |E-mailadres|john.w.smith@mycompany.com|
+    |Toestelnummer|x12345|
+    |Mobiel nummer (privé)|425-555-1212|
+    |Amerikaans sociaal-fiscaal nummer|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png "Schermopname van het toevoegen van synoniemen")](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png#lightbox)
+    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Schermafbeelding van het invoeren van synoniemen")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+
+6. Voer `Employee-45612` als een nieuwe waarde in.
+
+7. Voor synoniemen voegt u de volgende waarden toe:
+
+    |Doel synoniem|Waarde synoniem|
+    |--|--|
+    |Naam|Jill Jones|
+    |E-mailadres|jill-jones@mycompany.com|
+    |Toestelnummer|x23456|
+    |Mobiel nummer (privé)|425-555-0000|
+    |Amerikaans sociaal-fiscaal nummer|234-56-7891|
 
 ## <a name="train-the-luis-app"></a>LUIS-app inleren
 LUIS niet weet dat de intents en entiteiten (het model) zijn gewijzigd, totdat u de app hebt ingeleerd. 
@@ -200,59 +172,127 @@ Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing,
 
     [![](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png "Schermopname van eindpunt-URL op pagina Publish")](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png#lightbox)
 
-2. Ga naar het einde van de URL in het adres en voer `2 cokes and 3 waters` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intent `OrderDrinks` als resultaat moet geven met de twee drankjes `cokes` en `waters`.
+2. Ga naar het einde van de URL in het adres en voer `shift 123-45-6789 from Z-1242 to T-54672` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `MoveEmployee` met `Employee` geëxtraheerd als resultaat moet geven.
 
-```
+```JSON
 {
-  "query": "2 cokes and 3 waters",
+  "query": "shift 123-45-6789 from Z-1242 to T-54672",
   "topScoringIntent": {
-    "intent": "OrderDrinks",
-    "score": 0.999998569
+    "intent": "MoveEmployee",
+    "score": 0.9882801
   },
   "intents": [
     {
-      "intent": "OrderDrinks",
-      "score": 0.999998569
+      "intent": "MoveEmployee",
+      "score": 0.9882801
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.016044287
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.007611245
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.007063288
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00684710965
     },
     {
       "intent": "None",
-      "score": 0.23884207
+      "score": 0.00304174074
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.002981
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00212222221
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00191026414
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0007461446
     }
   ],
   "entities": [
     {
-      "entity": "cokes",
-      "type": "Drink",
-      "startIndex": 2,
-      "endIndex": 6,
+      "entity": "123 - 45 - 6789",
+      "type": "Employee",
+      "startIndex": 6,
+      "endIndex": 16,
       "resolution": {
         "values": [
-          "Soda pop"
+          "Employee-24612"
         ]
       }
     },
     {
-      "entity": "waters",
-      "type": "Drink",
-      "startIndex": 14,
-      "endIndex": 19,
+      "entity": "123",
+      "type": "builtin.number",
+      "startIndex": 6,
+      "endIndex": 8,
       "resolution": {
-        "values": [
-          "h20"
-        ]
+        "value": "123"
+      }
+    },
+    {
+      "entity": "45",
+      "type": "builtin.number",
+      "startIndex": 10,
+      "endIndex": 11,
+      "resolution": {
+        "value": "45"
+      }
+    },
+    {
+      "entity": "6789",
+      "type": "builtin.number",
+      "startIndex": 13,
+      "endIndex": 16,
+      "resolution": {
+        "value": "6789"
+      }
+    },
+    {
+      "entity": "-1242",
+      "type": "builtin.number",
+      "startIndex": 24,
+      "endIndex": 28,
+      "resolution": {
+        "value": "-1242"
+      }
+    },
+    {
+      "entity": "-54672",
+      "type": "builtin.number",
+      "startIndex": 34,
+      "endIndex": 39,
+      "resolution": {
+        "value": "-54672"
       }
     }
   ]
 }
 ```
 
+De werknemer is gevonden en is geretourneerd als type `Employee` met de resolutiewaarde `Employee-24612`.
+
 ## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>Waar vindt de verwerking van natuurlijke taal plaats in de entiteit List? 
-Omdat de lijstentiteit een exacte tekstovereenkomst is, is er geen verwerking van natuurlijke taal (of machine learning) nodig. LUIS maakt gebruik van verwerking van natuurlijke taal (of machine learning) om de juiste best scorende intent te selecteren. Daarnaast kan een utterance een combinatie zijn van meer dan één entiteit of zelfs meer dan één type entiteit. Elke utterance wordt verwerkt voor alle entiteiten in de app, inclusief de verwerking van entiteiten in natuurlijke taal (of verkregen via machine learning), zoals de entiteit **Simple**.
+Omdat de lijstentiteit een exacte tekstovereenkomst is, is er geen verwerking van natuurlijke taal (of machine learning) nodig. LUIS maakt gebruik van verwerking van natuurlijke taal (of machine learning) om de juiste best scorende intent te selecteren. Daarnaast kan een utterance een combinatie zijn van meer dan één entiteit of zelfs meer dan één type entiteit. Elke utterance wordt verwerkt voor alle entiteiten in de app, inclusief de verwerking van entiteiten in natuurlijke taal (of verkregen via machine learning).
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
-Deze app, bestaande uit slechts twee intents en één lijstentiteit, heeft de intentie van een query in natuurlijke taal geïdentificeerd en de geëxtraheerde gegevens geretourneerd. 
+Deze app heeft met behulp van een entiteit List de juiste werknemer geëxtraheerd. 
 
-Uw chatbot heeft nu voldoende gegevens om de primaire actie te bepalen, `OrderDrinks`, en welke soorten drankjes er zijn besteld uit de lijstentiteit Drink. 
+Uw chatbot heeft nu voldoende gegevens om de primaire actie `MoveEmployee` te bepalen en welke medewerker moet worden verplaatst. 
 
 ## <a name="where-is-this-luis-data-used"></a>Waar worden deze gegevens van LUIS gebruikt? 
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
@@ -263,10 +303,5 @@ Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer h
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Informatie over het toevoegen van een entiteit in de vorm van een reguliere expressie](luis-quickstart-intents-regex-entity.md)
+> [Informatie over het toevoegen van een hiërarchische entiteit](luis-quickstart-intent-and-hier-entity.md)
 
-Voeg de [vooraf gedefinieerde entiteit](luis-how-to-add-entities.md#add-prebuilt-entity) **number** toe om het aantal te extraheren. 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
