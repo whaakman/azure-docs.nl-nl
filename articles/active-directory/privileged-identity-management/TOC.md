@@ -1,17 +1,14 @@
 # Overzicht
-## [Beveiligde uitgebreide toegang](active-directory-securing-privileged-access.md)
 ## [Wat is Azure AD PIM?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Beveiligde uitgebreide toegang](../admin-roles-best-practices.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Directory-rollen in PIM](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [PIM voor Azure-resources](azure-pim-resource-rbac.md)
 ## [PIM-werkstroom voor goedkeuring](azure-ad-pim-approval-workflow.md)
-## [Rollen](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-
-
 
 # Aan de slag
 ## [Vereisten voor abonnementen](subscription-requirements.md)
 ## [Aan de slag in Azure Portal](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [De beveiligingswizard](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Beveiligingswizard](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Toegang geven tot PIM](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Abonnementsbeheer inschakelen](pim-resource-roles-enable-subscription-management.md)
 ## [Resources doorzoeken](pim-resource-roles-discover-resources.md)
@@ -46,16 +43,8 @@
 ### [Een toegangscontrole voltooien](pim-resource-roles-complete-access-review.md)
 
 # Veelgestelde vragen
-## PIM voor directory-rollen
 ## PIM voor resource-rollen
 ### [Toewijzingstypen](pim-resource-roles-eligible-visibility.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory)
-
-# Verwant
-## [Azure Active Directory](/azure/active-directory/)
-## [Op rollen gebaseerd toegangsbeheer](../../role-based-access-control/overview.md)
-# Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

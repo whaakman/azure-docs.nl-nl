@@ -5,7 +5,6 @@
 ### Webwinkels  
 #### [AppSource en Azure Marketplace vergelijken](./comparing-appsource-azure-marketplace.md)  
 #### [Breid uw bedrijf uit met Appsource](./grow-your-business-with-appsource.md) 
-#### [Voorkeursoplossingen](./preferred-solutions.md)
 ##### [Startpagina maken](./build-your-landing-page.md)  
 ##### [Delen van leads inschakelen](./enable-lead-sharing.md)  
 ##### [GTM-voordelen op Marketplace](./gtm-benefits.md)  
@@ -19,17 +18,17 @@
 ### Publiceren in webwinkels op Marketplace  
 #### [Type vermelding voor uw oplossing bepalen](./determine-your-listing-type.md)  
 #### [Uitgever worden in webwinkels op Marketplace](./become-publisher.md)  
-#### [Vereisten per type vermelding](./listing-type-requirements.md)  
+#### [Vereisten per type vermelding](./listing-type-requirements.md) 
+#### [Voorkeursoplossingen](./preferred-solutions.md) 
 
 ### Controlelijsten voor publiceren  
 #### [Controlelijst voor publiceren in AppSource](./publishing-checklist-appsource.md)  
 #### [Controlelijst voor publiceren voor Azure Marketplace](./publishing-checklist-azure-marketplace.md)  
 
 ### Ondersteuning  
-#### [Ondersteuning voor AppSource](./support-appsource.md)  
-#### [Ondersteuning voor Azure Marketplace](./support-azure-marketplace.md)  
+#### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)  
 
-### Handleidingen  
+### Publicatiehandleidingen  
 #### [Adviesdienst voor Azure Marketplace](consulting-services.md)  
 #### [Technische handleiding voor publicatie van SaaS-toepassingen op Azure Marketplace](marketplace-saas-applications-technical-publishing-guide.md) 
 

@@ -20,6 +20,8 @@
       href: ../spark/apache-spark-intellij-tool-plugin.md
     - name: Gebruik Eclipse om een koppeling te maken met een cluster dat aan een domein is toegevoegd
       href: ../spark/apache-spark-eclipse-tool-plugin.md
+    - name: Oozie gebruiken in aan een domein gekoppelde clusters
+      href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Gegevens beveiligen
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true
@@ -69,6 +71,10 @@
     - name: Releaseopmerkingen
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Gearchiveerde releaseopmerkingen
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Hulp op het forum

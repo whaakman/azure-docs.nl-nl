@@ -4,7 +4,7 @@
 ## [Veelgestelde vragen](faq-classic.md)
 
 # Aan de slag
-## [Een virtuele Linux-machine maken met behulp van Azure Portal](createportal-classic.md)
+## [Een Linux-VM maken](createportal-classic.md)
 
 # Procedures
 ## Compute

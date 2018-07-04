@@ -45,19 +45,21 @@
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
 - name: Resources
   items:
+    - name: Analytische gegevens voor Bing Spellingcontrole-API
+      href: bing-spell-check-stats.md
     - name: Veelgestelde vragen
       href: bing-spell-check-resource-faq.md
     - name: Prijzen
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/bing-api'
-    - name: Ondersteunde talen
-      href: bing-spell-check-supported-languages.md
-    - name: Analytische gegevens voor Bing Spellingcontrole-API
-      href: bing-spell-check-stats.md
     - name: Abonnementssleutel
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: Ondersteunde talen
+      href: bing-spell-check-supported-languages.md
     - name: Probeer het nu!
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'

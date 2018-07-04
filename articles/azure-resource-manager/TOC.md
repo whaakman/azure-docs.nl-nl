@@ -2,15 +2,17 @@
 
 # Overzicht
 ## [Wat is Resource Manager?](resource-group-overview.md)
-## [Resourceproviders en -typen](resource-manager-supported-services.md)
 ## [Resource Manager en klassieke implementatie](resource-manager-deployment-model.md)
-## [Abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [Resources organiseren met beheergroepen](management-groups-overview.md)
 
 # Aan de slag
 ## [Een sjabloon maken en implementeren](resource-manager-create-first-template.md)
 ## [Visual Studio-code-extensie voor sjablonen](resource-manager-vscode-extension.md)
 ## [Visual Studio met Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
+# Concepten
+## [Resourceproviders en -typen](resource-manager-supported-services.md)
+## [Beheergroepen](management-groups-overview.md)
+## [Abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 # Procedures
 ## Sjablonen maken

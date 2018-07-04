@@ -308,6 +308,10 @@
     - name: Releaseopmerkingen
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Gearchiveerde releaseopmerkingen
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Hulp op het forum
