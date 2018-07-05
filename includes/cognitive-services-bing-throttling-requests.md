@@ -1,5 +1,5 @@
-The service and your subscription type determines the number of requests that you may make per second (QPS) or per month (QPM). You should ensure that your application includes the logic necessary to stay within your quota. If you exceed your QPM, the request fails with HTTP status code 403. If you exceed your QPS, the request fails with HTTP status code 429. The response also includes the Retry-After header, which contains the number of seconds that you should wait before sending another request.  
+De service en uw abonnementtype bepalen hoeveel query’s u per seconde kunt uitvoeren (QPS). U dient ervoor te zorgen dat uw toepassing logica bevat die zorgt dat u binnen uw quotum blijft. Als u uw QPS overschrijdt, mislukt de aanvraag met HTTP-statuscode 429. Het antwoord bevat ook de Retry-After-header, die aangeeft hoeveel seconden u dient te wachten voordat u een andere aanvraag verzendt.  
   
-### <a name="denial-of-service-dos-versus-throttling"></a>Denial of Service (DOS) versus Throttling
+### <a name="denial-of-service-dos-versus-throttling"></a>Denial of Service (DOS) versus beperking
 
-The service differentiates between a DOS attack and QPS violation. If the service suspects a denial of service attack, the request succeeds (HTTP status code is 200 OK); however, the body of the response is empty.
+De service maakt onderscheidt tussen een DOS-aanval en een QPS-overschrijding. Als de service een Denial of Service-aanval vermoedt, slaagt de aanvraag (HTTP-statuscode is 200 OK). De hoofdtekst van het antwoord is in dit geval echter leeg.
