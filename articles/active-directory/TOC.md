@@ -83,8 +83,8 @@
 ## [Groepen en leden beheren](fundamentals/active-directory-manage-groups.md)
 ### Groepen beheren
 #### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell voor Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell voor Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Groepsleden beheren](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Eigenaren van groepen beheren](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Groepslidmaatschap beheren](fundamentals/active-directory-groups-membership-azure-portal.md)
@@ -99,13 +99,13 @@
 ### [Vervaldatum instellen voor Office 365-groepen](active-directory-groups-lifecycle-azure-portal.md)
 ### [Een naamgevingsbeleid voor groepen afdwingen](groups-naming-policy.md)
 ### [Alle groepen weergeven](fundamentals/active-directory-groups-view-azure-portal.md)
-### [Groepstoegang tot SaaS-apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
+### [Groepstoegang tot SaaS-apps toevoegen](users-groups-roles/groups-saasapps.md)
 ### [Herstellen van een verwijderde Office 365-groep](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Groepsinstellingen beheren](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Geavanceerde regels maken
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-### [Selfservicegroepen instellen](active-directory-accessmanagement-self-service-group-management.md)
-### [Problemen oplossen](active-directory-accessmanagement-troubleshooting.md)
+### [Selfservicegroepen instellen](users-groups-roles/groups-self-service-management.md)
+### [Problemen oplossen](users-groups-roles/groups-troubleshooting.md)
 
 ## [Rapporten beheren](active-directory-reporting-azure-portal.md)
 ### [Aanmeldingsactiviteit](active-directory-reporting-activity-sign-ins.md)
@@ -363,7 +363,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Aangepaste domeinnamen
 #### [Snelstartgids](fundamentals/add-custom-domain.md)
-#### [Aangepaste domeinnamen toevoegen](active-directory-domains-manage-azure-portal.md)
+#### [Aangepaste domeinnamen toevoegen](users-groups-roles/domains-manage.md)
 ### [Uw directory beheren](fundamentals/active-directory-administer.md)
 ### [Een directory verwijderen](directory-delete-howto.md)
 ### [Meerdere directory’s beheren](active-directory-licensing-directory-independence.md)
@@ -381,12 +381,12 @@
 
 ## Toegang tot resources delegeren
 ### [Leden met een beheerdersrol weergeven](directory-manage-roles-portal.md)
-### [Beheerdersrollen](active-directory-assign-admin-roles-azure-portal.md)
+### [Beheerdersrollen](users-groups-roles/directory-assign-admin-roles.md)
 #### [Een beheerdersrol toewijzen aan een gebruiker](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Gebruikersmachtigingen voor leden en voor gasten vergelijken](fundamentals/users-default-permissions.md)
 ### [De beheerdersrol beter beveiligen](admin-roles-best-practices.md)  
-#### [Beheerdersaccounts voor noodtoegang maken](active-directory-admin-manage-emergency-access-accounts.md)
-### [Beheereenheden](active-directory-administrative-units-management.md)
+#### [Beheerdersaccounts voor noodtoegang maken](users-groups-roles/directory-emergency-access.md)
+### [Beheereenheden](users-groups-roles/directory-administrative-units.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
 
 ## Toegangsbeoordelingen
@@ -406,6 +406,7 @@
 #### Snelstartgidsen
 ##### [MFA per cloud-app configureren](active-directory-conditional-access-app-based-mfa.md)
 ##### [Vereisen dat de gebruiksvoorwaarden worden geaccepteerd](active-directory-conditional-access-tou.md)
+##### [Toegang blokkeren wanneer er een sessierisico wordt gedetecteerd](active-directory-conditional-access-app-sign-in-risk.md)
 #### Zelfstudies
 ##### [Klassiek MFA-beleid migreren](active-directory-conditional-access-migration-mfa.md)
 #### Concepten

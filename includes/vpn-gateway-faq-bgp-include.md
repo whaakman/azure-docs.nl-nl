@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 93698df0e1684b469b6e2a03e6681499949aab6d
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: c6c67f6f1500ee90a1e0e4a04309f3f7aa2f6d05
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35414600"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36338319"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Wordt BGP ondersteunt op alle Azure VPN-gateway SKU’s?
 Nee. BGP wordt ondersteund op Azure VPN-gateways **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** en **HighPerformance**. SKU **Basic** wordt NIET ondersteund.
@@ -24,11 +24,14 @@ Nee, BGP wordt alleen ondersteund op route-gebaseerde VPN-gateways.
 ### <a name="can-i-use-private-asns-autonomous-system-numbers"></a>Kan ik persoonlijke ASN's (autonome systeemnummers) gebruiken?
 Ja, u kunt uw eigen openbare ASN's of persoonlijke ASN's voor zowel uw on-premises netwerken en virtuele netwerken van Azure gebruiken.
 
+### <a name="can-i-use-32-bit-asns-autonomous-system-numbers"></a>Kan ik 32-bits ASN's (autonome systeemnummers) gebruiken?
+Nee, Azure VPN-gateways bieden momenteel alleen ondersteuning voor 16-bits ASN's.
+
 ### <a name="are-there-asns-reserved-by-azure"></a>Zijn er ASN's die zijn gereserveerd door Azure?
 Ja, de volgende ASN's zijn gereserveerd door Azure voor zowel interne als externe koppelingen:
 
 * Openbare ASN's: 8074, 8075, 12076
-* Privé-ASN's: 65515, 65517, 65518, 65519, 65520
+* Privé-ASNs: 65515, 65517, 65518, 65519, 65520
 
 U kunt deze ASN's niet opgeven voor uw on-premises VPN-apparaten wanneer u verbinding maakt met Azure VPN-gateways.
 
