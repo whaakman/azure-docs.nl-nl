@@ -1,6 +1,6 @@
 ---
-title: Windows virtuele machine maken met vereenvoudigde New-AzureRMVM cmdlet in de Azure-Cloud-Shell | Microsoft Docs
-description: Snel informatie over Windows virtuele machines maken met de vereenvoudigde cmdlet New-AzureRMVM in de Azure-Cloud-Shell.
+title: Windows virtuele machine maken met vereenvoudigde New-AzureRMVM-cmdlet in Azure Cloud Shell | Microsoft Docs
+description: Leer snel hoe u Windows-machines maakt met de vereenvoudigde cmdlet New-AzureRMVM in Azure Cloud Shell.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,15 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a44c9ec9270e4ba76f0ff367e039f5ef72eb04a5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435666"
 ---
-# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Een Windows-machine maken met de vereenvoudigde cmdlet New-AzureRMVM in de Cloud-Shell 
+# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Een Windows-machine maken met de vereenvoudigde cmdlet New-AzureRMVM in Cloud Shell 
 
-De [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet een vereenvoudigde set parameters voor het maken van een nieuwe virtuele machine met behulp van PowerShell is toegevoegd. Dit onderwerp leest u hoe u PowerShell gebruikt in de Azure-Cloud-Shell met de meest recente versie van de cmdlet New-AzureVM is vooraf geïnstalleerd, voor het maken van een nieuwe virtuele machine. We gebruiken een vereenvoudigde parameterset die automatisch de benodigde resources met behulp van slimme standaardwaarden worden gemaakt. 
+De [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet een vereenvoudigde set parameters voor het maken van een nieuwe virtuele machine met behulp van PowerShell is toegevoegd. Dit onderwerp ziet u hoe u PowerShell in Azure Cloud Shell met de meest recente versie van de cmdlet New-AzureVM is vooraf geïnstalleerd, voor het maken van een nieuwe virtuele machine. We gebruiken een vereenvoudigde parameterset die automatisch alle benodigde bronnen met slimme standaardinstellingen worden gemaakt. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -35,7 +36,7 @@ Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudi
 
 ## <a name="create-the-vm"></a>De virtuele machine maken
 
-U kunt de [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet voor het maken van een virtuele machine met smart standaardwaarden met behulp van de installatiekopie van het Windows Server 2016 Datacenter vanuit Azure Marketplace. U kunt New-AzureRMVM met alleen de **-naam** parameter en wordt die waarde gebruiken voor alle resourcenamen van de. In dit voorbeeld wordt de parameter **-Name** ingesteld op *myVM*. 
+U kunt de [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet voor het maken van een virtuele machine met slimme standaardwaarden die gebruikmaken van de installatiekopie van het Windows Server 2016 Datacenter vanuit de Azure Marketplace. U kunt New-AzureRMVM met alleen de **-naam** parameter en wordt die waarde gebruiken voor alle resourcenamen van de. In dit voorbeeld wordt de parameter **-Name** ingesteld op *myVM*. 
 
 Controleer of **PowerShell** in Cloud Shell is geselecteerd en typ:
 
@@ -45,11 +46,11 @@ New-AzureRMVm -Name myVM
 
 U wordt gevraagd om een gebruikersnaam en wachtwoord voor de virtuele machine te maken. Deze worden later in dit onderwerp gebruikt wanneer u verbinding maakt met de virtuele machine. Het wachtwoord moet 12 tot 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken.
 
-Het duurt een minuut om de virtuele machine en de bijbehorende bronnen te maken. Wanneer u klaar bent, kunt u met de cmdlet [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) alle resources zien die zijn gemaakt.
+Het duurt een minuut om de virtuele machine en de bijbehorende bronnen te maken. Wanneer u klaar bent, ziet u alle resources die zijn gemaakt met behulp van de [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet.
 
 ```azurepowershell-interactive
-Find-AzureRmResource `
-    -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+Get-AzureRmResource `
+    -ResourceGroupName myVMResourceGroup | Format-Table Name
 ```
 
 ## <a name="connect-to-the-vm"></a>Verbinding maken met de virtuele machine
@@ -63,14 +64,14 @@ Get-AzureRmPublicIpAddress `
     -ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
-Op uw lokale computer een opdrachtprompt openen en gebruiken de **mstsc** opdracht een extern bureaublad-sessiehost starten met de nieuwe virtuele machine. Vervang &lt;publicIPAddress&gt; door het IP-adres van de virtuele machine. Wanneer dit wordt gevraagd, voert u de gebruikersnaam en het wachtwoord in dat u bij het maken van de virtuele machine hebt opgegeven.
+Open een opdrachtprompt op uw lokale computer en gebruik de **mstsc** opdracht uit om te beginnen een extern-bureaubladsessie met de nieuwe virtuele machine. Vervang &lt;publicIPAddress&gt; door het IP-adres van de virtuele machine. Wanneer dit wordt gevraagd, voert u de gebruikersnaam en het wachtwoord in dat u bij het maken van de virtuele machine hebt opgegeven.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
-## <a name="specify-different-resource-names"></a>Geef verschillende Bronnamen
+## <a name="specify-different-resource-names"></a>Geef verschillende resourcenamen
 
-U kunt ook beschrijvende naam voor de bronnen te bieden en nog steeds ze automatisch gemaakt. Hier volgt een voorbeeld waarin we hebben met de naam meerdere resources voor de nieuwe virtuele machine, met inbegrip van een nieuwe resourcegroep.
+U kunt ook bieden meer beschrijvende namen voor de resources en nog steeds ze automatisch gemaakt. Hier volgt een voorbeeld waarin we hebben met de naam meerdere resources voor de nieuwe virtuele machine, met inbegrip van een nieuwe resourcegroep.
 
 ```azurepowershell-interactive
 New-AzureRmVm `

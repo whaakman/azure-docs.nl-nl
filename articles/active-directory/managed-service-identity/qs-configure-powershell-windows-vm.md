@@ -1,6 +1,6 @@
 ---
-title: Het configureren van MSI op een virtuele machine in Azure met behulp van PowerShell
-description: Stap door stapsgewijze instructies voor het configureren van een beheerde Service identiteit (MSI) op een virtuele machine van Azure, met behulp van PowerShell.
+title: MSI configureren op een Azure-VM met behulp van PowerShell
+description: Voor stap door stap instructies voor het configureren van een Managed Service Identity (MSI) op een Azure-VM, met behulp van PowerShell.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,89 +14,90 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 6981c0f917fb7175f444ceca8c55c0df186774db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 20bf16eeb6aff952423af6754812f9532e55cd5f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444449"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configureren van een VM beheerde Service identiteit (MSI) met behulp van PowerShell
+# <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configureren van een virtuele machine Managed Service Identity (MSI) met behulp van PowerShell
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om alle services die Azure AD-verificatie ondersteunt, zonder referenties in uw code te verifiëren. 
+Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
-<a name="in-this-article-you-learn-how-to-perform-the-following-managed-service-identity-operations-on-an-azure-vm-using-powershell"></a>In dit artikel leert u hoe op de volgende Service-identiteit beheerd bewerkingen uitvoeren op een virtuele machine van Azure, met behulp van PowerShell:
+<a name="in-this-article-you-learn-how-to-perform-the-following-managed-service-identity-operations-on-an-azure-vm-using-powershell"></a>In dit artikel leert u hoe u de volgende bewerkingen van de beheerde Service-identiteit op een Azure-VM, met behulp van PowerShell uit te voeren:
 - 
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u niet bekend met de Service-identiteit beheerd bent, bekijk de [overzichtssectie van](overview.md). **Lees de [verschil tussen een systeem dat is toegewezen en de gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
-- Als u al een Azure-account niet hebt [aanmelden voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
+- Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
+- Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
 - Installeer [de meest recente versie van Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) als u dat nog niet gedaan hebt.
 
-## <a name="system-assigned-identity"></a>Automatisch toegewezen identiteit
+## <a name="system-assigned-identity"></a>Systeem toegewezen identiteit
 
-In deze sectie leert u hoe inschakelen en uitschakelen van de identiteit van de automatisch toegewezen met Azure PowerShell.
+In deze sectie leert u hoe u kunt in- en uitschakelen van het systeem toegewezen identiteit met Azure PowerShell.
 
-### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm"></a>Automatisch toegewezen identiteit bij het maken van een virtuele machine van Azure inschakelen
+### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm"></a>Systeem toegewezen identiteit tijdens het maken van een virtuele Azure-machine inschakelen
 
-Als u een virtuele machine in Azure maken met het systeem toegewezen identiteit ingeschakeld:
+Voor het maken van een Azure-VM met het systeem toegewezen identiteit ingeschakeld:
 
-1. Verwijzen naar een van de volgende Azure VM snelstartgidsen, alleen de benodigde secties voltooid ('Aanmelden bij Azure', 'Resourcegroep maken', 'Netwerken groep maken', 'De virtuele machine maken').
+1. Verwijzen naar een van de volgende snelstartgidsen voor Azure VM, alleen de benodigde secties voltooid ('Meld u aan bij Azure', 'Resourcegroep maken', 'Netwerken groep maken', 'Create VM').
     
-    Wanneer u naar de sectie 'De VM maken' krijgen, moet u een kleine wijziging van de [nieuw AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet-syntaxis. Zorg ervoor dat om toe te voegen een `-AssignIdentity "SystemAssigned"` -parameter voor het inrichten van de virtuele machine met de identiteit van de automatisch toegewezen ingeschakeld, bijvoorbeeld:
+    Wanneer u naar de sectie 'Maken van de virtuele machine', een kleine wijziging aanbrengt in de [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet-syntaxis. Zorg ervoor dat u toevoegt een `-AssignIdentity:$SystemAssigned` parameter voor het inrichten van de virtuele machine met het systeem toegewezen identiteit ingeschakeld, bijvoorbeeld:
       
     ```powershell
-    $vmConfig = New-AzureRmVMConfig -VMName myVM -AssignIdentity "SystemAssigned" ...
+    $vmConfig = New-AzureRmVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
     ```
 
-   - [Maken van een virtuele Windows-machine met behulp van PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+   - [Maak een Windows-machine met behulp van PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Maken van een virtuele Linux-machine met behulp van PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Optioneel) Toevoegen van de MSI VM uitbreiding met behulp van de `-Type` parameter bij de [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven 'ManagedIdentityExtensionForWindows' of 'ManagedIdentityExtensionForLinux', afhankelijk van het type van de virtuele machine, en deze met de naam de `-Name` parameter. De `-Settings` parameter geeft u de poort die wordt gebruikt door het eindpunt van het OAuth-token voor de aanschaf van token:
+2. (Optioneel) Toevoegen van de MSI VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens:
 
    ```powershell
    $settings = @{ "port" = 50342 }
    Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
    ```
     > [!NOTE]
-    > Deze stap is optioneel als u het eindpunt van de identiteit Azure exemplaar metagegevens Service (IMDS) gebruiken kunt en tokens op te halen.
+    > Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.
 
-### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>Automatisch toegewezen identiteit op een bestaande virtuele machine van Azure inschakelen
+### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>Systeem toegewezen identiteit van een bestaande VM in Azure inschakelen
 
-Als u een toegewezen identiteit op een bestaande virtuele Machine inschakelen moet:
+Als u nodig hebt om in te schakelen van een systeem toegewezen identiteit op een bestaande virtuele Machine:
 
-1. Meld u bij het gebruik van Azure `Login-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Controleer ook of uw account behoort tot een functie waarmee u schrijfmachtigingen heeft op de virtuele machine, zoals 'Virtual Machine Contributor':
+1. Aanmelden bij Azure met `Login-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Ook voor zorgen dat uw account deel uitmaakt van een rol waarmee u beschikt over machtigingen voor schrijven op de virtuele machine, zoals 'Inzender voor virtuele machines':
 
    ```powershell
    Login-AzureRmAccount
    ```
 
-2. Eerst ophalen van de eigenschappen van de virtuele machine met behulp van de `Get-AzureRmVM` cmdlet. Gebruik vervolgens om de systeemidentiteit van een die zijn toegewezen, de `-AssignIdentity` overschakelen op de [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
+2. Eerst ophalen van de eigenschappen van de virtuele machine met behulp van de `Get-AzureRmVM` cmdlet. Als u wilt een systeem toegewezen identiteit inschakelen, gebruikt u de `-AssignIdentity` overschakelen op de [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity "SystemAssigned"
+   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (Optioneel) Toevoegen van de MSI VM uitbreiding met behulp van de `-Type` parameter bij de [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven 'ManagedIdentityExtensionForWindows' of 'ManagedIdentityExtensionForLinux', afhankelijk van het type van de virtuele machine, en deze met de naam de `-Name` parameter. De `-Settings` parameter geeft u de poort die wordt gebruikt door het eindpunt van het OAuth-token voor de aanschaf van token. Zorg ervoor dat u de juiste `-Location` parameter die overeenkomt met de locatie van de bestaande virtuele machine:
+3. (Optioneel) Toevoegen van de MSI VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens. Geef de juiste `-Location` parameter, die overeenkomt met de locatie van de bestaande virtuele machine:
 
    ```powershell
    $settings = @{ "port" = 50342 }
    Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
    ```
     > [!NOTE]
-    > Deze stap is optioneel als u het eindpunt van de identiteit Azure exemplaar metagegevens Service (IMDS) gebruiken kunt en tokens op te halen.
+    > Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.
 
-## <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Het systeem toegewezen identiteit van een Azure-virtuele machine uitschakelen
+## <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Uitschakelen van het systeem toegewezen identiteit van een Azure VM
 
 > [!NOTE]
->  Het uitschakelen van de Service-identiteit beheerd vanaf een virtuele Machine is momenteel niet ondersteund. In de tussentijd kunt u schakelen tussen het gebruik van het systeem toegewezen en toegewezen gebruikersidentiteiten.
+>  Uitschakelen van de beheerde Service-identiteit van een virtuele Machine wordt momenteel niet ondersteund. In de tussentijd kunt u overschakelen tussen het gebruik van het systeem toegewezen en de gebruiker toegewezen identiteiten.
 
-Als u een virtuele Machine die niet langer nodig heeft het systeem toegewezen identiteit maar nog steeds moet gebruiker toegewezen identiteiten hebt, gebruikt u de volgende cmdlet:
+Als u een virtuele Machine die niet meer nodig is op het systeem toegewezen identiteit maar nog steeds moet gebruiker toegewezen identiteiten hebt, gebruikt u de volgende cmdlet:
 
-1. Meld u bij het gebruik van Azure `Login-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Controleer ook of uw account behoort tot een functie waarmee u schrijfmachtigingen heeft op de virtuele machine, zoals 'Virtual Machine Contributor':
+1. Aanmelden bij Azure met `Login-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Ook voor zorgen dat uw account deel uitmaakt van een rol waarmee u beschikt over machtigingen voor schrijven op de virtuele machine, zoals 'Inzender voor virtuele machines':
 
    ```powershell
    Login-AzureRmAccount
@@ -106,67 +107,67 @@ Als u een virtuele Machine die niet langer nodig heeft het systeem toegewezen id
     ```powershell       
     Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -IdentityType "UserAssigned"
     ```
-Verwijderen van de MSI-VM-extensie, gebruiker-naam switch met de [verwijderen AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet, geven de dezelfde naam die u hebt gebruikt toen u de extensie toegevoegd:
+Verwijderen van de MSI-VM-extensie, gebruiker de - de naam switch met de [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet, op te geven de dezelfde naam die u hebt gebruikt toen u de extensie toegevoegd:
 
    ```powershell
    Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
    ```
 
-## <a name="user-assigned-identity"></a>Identiteit toegewezen door gebruiker
+## <a name="user-assigned-identity"></a>Door gebruiker toegewezen identiteit
 
-In deze sectie informatie over het toevoegen en verwijderen van een gebruiker met de identiteit van een virtuele machine met Azure PowerShell.
+In deze sectie leert u hoe u toevoegen en verwijderen van een gebruiker toegewezen identiteit van een virtuele machine met behulp van Azure PowerShell.
 
-### <a name="assign-a-user-assigned-identity-to-a-vm-during-creation"></a>Een identiteit toegewezen aan een virtuele machine tijdens het maken van gebruiker toewijzen
+### <a name="assign-a-user-assigned-identity-to-a-vm-during-creation"></a>Een gebruiker toegewezen identiteit aan een virtuele machine tijdens het maken van toewijzen
 
-Toewijzen aan een virtuele machine in Azure een toegewezen gebruikers-id bij het maken van de virtuele machine:
+De identiteit van een gebruiker toegewezen aan een Azure-VM toewijzen bij het maken van de virtuele machine:
 
-1. Verwijzen naar een van de volgende Azure VM snelstartgidsen, alleen de benodigde secties voltooid ('Aanmelden bij Azure', 'Resourcegroep maken', 'Netwerken groep maken', 'De virtuele machine maken'). 
+1. Verwijzen naar een van de volgende snelstartgidsen voor Azure VM, alleen de benodigde secties voltooid ('Meld u aan bij Azure', 'Resourcegroep maken', 'Netwerken groep maken', 'Create VM'). 
   
-    Wanneer u naar de sectie 'De VM maken' krijgen, moet u een kleine wijziging van de [ `New-AzureRmVMConfig` ](/powershell/module/azurerm.compute/new-azurermvm) cmdlet-syntaxis. Voeg de `-IdentityType UserAssigned` en `-IdentityID ` parameters voor het inrichten van de virtuele machine met de identiteit van een gebruiker toegewezen.  Vervang `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, en `<MSI NAME>` met uw eigen waarden.  Bijvoorbeeld:
+    Wanneer u naar de sectie 'Maken van de virtuele machine', een kleine wijziging aanbrengt in de [ `New-AzureRmVMConfig` ](/powershell/module/azurerm.compute/new-azurermvm) cmdlet-syntaxis. Voeg de `-IdentityType UserAssigned` en `-IdentityID ` parameters voor het inrichten van de virtuele machine met de identiteit van een gebruiker toegewezen.  Vervang `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, en `<MSI NAME>` door uw eigen waarden.  Bijvoorbeeld:
     
     ```powershell 
     $vmConfig = New-AzureRmVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>..."
     ```
     
-    - [Maken van een virtuele Windows-machine met behulp van PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+    - [Maak een Windows-machine met behulp van PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Maken van een virtuele Linux-machine met behulp van PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Optioneel) Toevoegen van de MSI VM uitbreiding met behulp van de `-Type` parameter bij de [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven 'ManagedIdentityExtensionForWindows' of 'ManagedIdentityExtensionForLinux', afhankelijk van het type van de virtuele machine, en deze met de naam de `-Name` parameter. De `-Settings` parameter geeft u de poort die wordt gebruikt door het eindpunt van het OAuth-token voor de aanschaf van token. Zorg ervoor dat u de juiste `-Location` parameter die overeenkomt met de locatie van de bestaande virtuele machine:
+2. (Optioneel) Toevoegen van de MSI VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens. Geef de juiste `-Location` parameter, die overeenkomt met de locatie van de bestaande virtuele machine:
       > [!NOTE]
-    > Deze stap is optioneel als u het eindpunt van de identiteit Azure exemplaar metagegevens Service (IMDS) gebruiken kunt en tokens op te halen.
+    > Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.
 
    ```powershell
    $settings = @{ "port" = 50342 }
    Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
    ```
 
-### <a name="assign-a-user-identity-to-an-existing-azure-vm"></a>De identiteit van een gebruiker toewijzen aan een bestaande virtuele machine in Azure
+### <a name="assign-a-user-identity-to-an-existing-azure-vm"></a>De identiteit van een gebruiker toewijzen aan een bestaande VM in Azure
 
-Toegewezen identiteit naar een bestaande Azure-virtuele machine als een gebruiker wilt toewijzen:
+Als u wilt toewijzen van een gebruiker toegewezen identiteit aan een bestaande Azure-VM:
 
-1. Meld u bij het gebruik van Azure `Connect-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Controleer ook of uw account behoort tot een functie waarmee u schrijfmachtigingen heeft op de virtuele machine, zoals 'Virtual Machine Contributor':
+1. Aanmelden bij Azure met `Connect-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Ook voor zorgen dat uw account deel uitmaakt van een rol waarmee u beschikt over machtigingen voor schrijven op de virtuele machine, zoals 'Inzender voor virtuele machines':
 
    ```powershell
    Connect-AzureRmAccount
    ```
 
-2. Maken van een gebruiker toegewezen identiteit via de [nieuw AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) cmdlet.  Opmerking de `Id` in de uitvoer omdat u dit in de volgende stap moet.
+2. Maken van een gebruiker toegewezen identiteit via de [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) cmdlet.  Houd er rekening mee de `Id` in de uitvoer omdat u dit in de volgende stap moet.
 
     > [!IMPORTANT]
-    > Maken van toegewezen gebruikers-id's ondersteunt alleen alfanumerieke en het koppelteken (0-9 of a-z of A-Z of -) tekens. Bovendien moeten worden beperkt tot 24 tekens voor de toewijzing aan een VM/VMSS goed te laten werken. Controleer regelmatig op updates. Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
+    > Het maken van een gebruiker toegewezen identiteiten ondersteunt alleen alfanumerieke tekens en afbreekstreepjes (0-9 of a-z of A-Z of -) tekens. Bovendien moet de naam zijn beperkt tot 24 tekens voor de toewijzing van VM/VMSS goed te laten werken. Kijk binnenkort voor updates. Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
 
 
   ```powershell
   New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
   ```
-3. Ophalen van de eigenschappen van de virtuele machine met behulp van de `Get-AzureRmVM` cmdlet. Als u wilt de identiteit van een gebruiker is toegewezen aan de virtuele machine van Azure toewijst, gebruikt u de `-IdentityType` en `-IdentityID` overschakelen op de [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet.  De waarde voor de`-IdentityId` -parameter is de `Id` in de vorige stap hebt genoteerd.  Vervang `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, en `<USER ASSIGNED IDENTITY NAME>` met uw eigen waarden.
+3. Ophalen van de eigenschappen van de virtuele machine met behulp van de `Get-AzureRmVM` cmdlet. Als u wilt de identiteit van een gebruiker toegewezen aan de Azure-VM toewijst, gebruikt u de `-IdentityType` en `-IdentityID` overschakelen op de [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet.  De waarde voor de`-IdentityId` parameter wordt de `Id` u in de vorige stap hebt genoteerd.  Vervang `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, en `<USER ASSIGNED IDENTITY NAME>` door uw eigen waarden.
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
    Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. Toevoegen van de MSI VM uitbreiding met behulp van de `-Type` parameter bij de [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven 'ManagedIdentityExtensionForWindows' of 'ManagedIdentityExtensionForLinux', afhankelijk van het type van de virtuele machine, en deze met de naam de `-Name` parameter. De `-Settings` parameter geeft u de poort die wordt gebruikt door het eindpunt van het OAuth-token voor de aanschaf van token. Geef de juiste `-Location` parameter die overeenkomt met de locatie van de bestaande virtuele machine.
+4. Toevoegen van de MSI VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens. Geef de juiste `-Location` parameter, die overeenkomt met de locatie van de bestaande virtuele machine.
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -176,9 +177,9 @@ Toegewezen identiteit naar een bestaande Azure-virtuele machine als een gebruike
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Een beheerde identiteit van een Azure VM toegewezen gebruiker verwijderen
 
 > [!NOTE]
->  Alle toegewezen gebruikersidentiteiten verwijderen uit een virtuele Machine is momenteel niet ondersteund, tenzij u een systeem toegewezen identiteit hebt. Controleer regelmatig op updates.
+>  Alle gebruiker toegewezen identiteiten verwijderen uit een virtuele Machine wordt momenteel niet ondersteund, tenzij er een systeem toegewezen identiteit. Kijk binnenkort voor updates.
 
-Als uw virtuele machine meerdere identiteiten van de gebruiker die is toegewezen heeft, kunt u alles behalve het laatste bestand met de volgende opdrachten verwijderen. Zorg ervoor dat u de `<RESOURCE GROUP>` en `<VM NAME>` parameterwaarden met uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die op de virtuele machine moet blijven. Deze informatie kunt u vinden door in de sectie van de identiteit van het gebruik van de VM `az vm show`:
+Als uw virtuele machine meerdere gebruiker toegewezen identiteiten heeft, kunt u alles behalve het laatste item met de volgende opdrachten verwijderen. Vervang de `<RESOURCE GROUP>` en `<VM NAME>` parameterwaarden door uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die op de virtuele machine moet blijven. Deze informatie kan worden gevonden door in de sectie van de identiteit van het gebruik van de virtuele machine `az vm show`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
@@ -186,7 +187,7 @@ $vm.Identity.IdentityIds = "<MSI NAME>"
 Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm
 ```
 
-Als uw virtuele machine heeft zowel automatisch toegewezen als de gebruiker toegewezen identiteiten, kunt u alle gebruikers identiteiten toegewezen door over te schakelen voor het gebruik van alleen automatisch toegewezen. Gebruik de volgende opdracht:
+Als uw virtuele machine is zowel de systeem toegewezen als de gebruiker toegewezen identiteiten, kunt u alle gebruiker toegewezen identiteiten door over te schakelen voor het gebruik van alleen systeem toegewezen verwijderen. Gebruik de volgende opdracht:
 
 ```powershell 
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
@@ -196,8 +197,8 @@ Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 
-- [Overzicht van beheerde Service-identiteit](overview.md)
-- Voor het volledige virtuele machine in Azure maken snelstartgidsen, Zie:
+- [Overzicht van de beheerde Service-identiteit](overview.md)
+- Zie voor het volledige Azure-VM maken snelstartgidsen:
   
-  - [Een virtuele Windows-machine maken met PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
+  - [Een Windows-machine maken met PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
   - [Een virtuele Linux-machine maken met PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 

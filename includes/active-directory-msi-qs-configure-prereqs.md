@@ -1,1 +1,1 @@
-Als u niet bekend met MSI bent, bekijk de [overzicht van de Service-identiteit beheerd](../articles/active-directory/msi-overview.md). Als u al een Azure-account niet hebt [aanmelden voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
+Als u niet bekend met MSI-bestand bent, bekijk dan de [overzicht van de beheerde Service-identiteit](../articles/active-directory/msi-overview.md). Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
