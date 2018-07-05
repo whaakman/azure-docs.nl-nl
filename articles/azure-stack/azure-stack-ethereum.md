@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 6/28/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fb870cbfbc233725752b3d97fc0ad048a7c14040
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341729"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446968"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blockchain-oplossingssjablonen
 
@@ -69,7 +69,7 @@ De sjabloon van de leider consortium Hiermee configureert u het eerste lid footp
     ADMINUSERNAME | Gebruikersnaam voor de beheerder van elke geïmplementeerde virtuele machine | 1 - 64 tekens | gethadmin
     ADMINPASSWORD (verificatietype = wachtwoord)| Het wachtwoord voor het beheerdersaccount voor elk van de virtuele machines die zijn geïmplementeerd. Het wachtwoord moet bestaan 3 van de volgende vereisten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken. <br />Hoewel alle virtuele machines wordt in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord kunt wijzigen na het inrichten.|12 - 72 tekens|
     ADMINSSHKEY (verificatietype = sshPublicKey) | De veilige shell-sleutel die wordt gebruikt voor externe aanmelding. | |
-    GENESISBLOCK | JSON-tekenreeks voor aangepaste genesis blokkeren. | |
+    GENESISBLOCK | JSON-tekenreeks voor aangepaste genesis blokkeren.  Een waarde opgeeft voor deze parameter is optioneel. | |
     ETHEREUMACCOUNTPSSWD | Het beheerderswachtwoord dat wordt gebruikt om Ethereum-account te beveiligen. | |
     ETHEREUMACCOUNTPASSPHRASE | De wachtwoordzin die wordt gebruikt voor het genereren van de persoonlijke sleutel die is gekoppeld aan het Ethereum-account. | |
     ETHEREUMNETWORKID | De netwerk-ID van het consortium. | Elke waarde tussen 5 en 999.999.999 gebruiken | 72

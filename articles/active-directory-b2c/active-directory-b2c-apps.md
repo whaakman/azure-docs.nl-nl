@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu1
 ms.component: B2C
-ms.openlocfilehash: 63bf3725eddd14d665e51427a65a339116ceb09b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: d306d27f448ab9dd95e891b81f27b69e11f05495
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710080"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442063"
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: Typen toepassingen
 Azure Active Directory (Azure AD) B2C ondersteunt verificatie voor diverse moderne app-architecturen. Ze zijn allemaal gebaseerd op de protocollen volgens de industrienorm [OAuth 2.0](active-directory-b2c-reference-protocols.md) of [OpenID Connect](active-directory-b2c-reference-protocols.md). In dit document vindt u een korte beschrijving van de typen apps die u kunt maken, onafhankelijk van de taal of het platform waaraan u de voorkeur geeft. Het document geeft ook inzicht in geavanceerde scenario's voordat u [toepassingen gaat ontwikkelen](active-directory-b2c-overview.md).
@@ -38,8 +38,7 @@ De interactie van elke app volgt eenzelfde globaal patroon:
 5. De resource-server valideert het beveiligingstoken om te controleren of toegang kan worden verleend.
 6. Het beveiligingstoken wordt regelmatig door de app vernieuwd.
 
-<!-- TODO: Need a page for libraries to link to -->
-Deze stappen kunnen enigszins verschillen op basis van het type app dat u maakt.
+<!-- TODO: Need a page for libraries to link to --> Deze stappen kunnen verschillen enigszins afhankelijk van het type app dat u maakt.
 
 ## <a name="web-apps"></a>Web-apps
 Voor web-apps (zoals .NET, PHP, Java, Ruby, Python en Node.js) die worden gehost op een server en worden geopend via een browser, ondersteunt Azure AD B2C [OpenID Connect](active-directory-b2c-reference-protocols.md) voor alle gebruikerservaringen. Hiertoe behoren aanmelden, registreren en profielbeheer. In de Azure AD B2C-implementatie van OpenID Connect initieert uw web-app deze gebruikerservaringen door verificatieaanvragen naar Azure AD te sturen. Het resultaat van de aanvraag is een `id_token`. Dit beveiligingstoken vertegenwoordigt de identiteit van de gebruiker. Het bevat ook informatie over de gebruiker in de vorm van claims:

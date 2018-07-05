@@ -1,6 +1,6 @@
 ---
-title: Meld u Analytics HTTP-gegevensverzamelaar API | Microsoft Docs
-description: Log Analytics HTTP Data Collector API kunt u POST JSON-gegevens toevoegen aan de opslagplaats logboekanalyse van elke client die u kunt de REST-API aanroepen. Dit artikel wordt beschreven hoe u de API en voorbeelden van hoe u gegevens publiceert met behulp van verschillende programmeertalen heeft.
+title: Meld u Analytics HTTP-gegevensverzamelaar-API | Microsoft Docs
+description: De Log Analytics HTTP Data Collector-API kunt u POST-JSON-gegevens toevoegen aan de Log Analytics-opslagplaats vanaf een willekeurige client die de REST-API kunt aanroepen. Dit artikel wordt beschreven hoe u de API en bevat voorbeelden van hoe u gegevens publiceert met behulp van verschillende programmeertalen.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 07/03/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 1125cdb5b1cc6829345c71537582816d020edc53
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a2aab89bcd550cc2b1dcc4f980f09b5c1e0e9464
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132928"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436376"
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar logboekanalyse met de HTTP-API van Data Collector (openbare preview)
-In dit artikel laat zien hoe de HTTP-gegevens Collector API gebruiken om gegevens te verzenden met logboekanalyse van een REST-API-client.  Dit wordt beschreven hoe gegevens die door het script of een toepassing verzameld opmaken, opnemen in een aanvraag en die aanvraag geautoriseerd door logboekanalyse hebben.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
+# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview-versie)
+Dit artikel ziet u hoe u de API HTTP Data Collector gebruikt om gegevens te verzenden naar Log Analytics van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Log Analytics.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
 
 > [!NOTE]
-> Log Analytics HTTP Data Collector API is openbare preview.
+> De Log Analytics HTTP Data Collector-API is in openbare preview.
 
 ## <a name="concepts"></a>Concepten
-U kunt HTTP Data Collector API gebruiken om gegevens te verzenden met logboekanalyse vanaf elke client die een REST-API kan aanroepen.  Dit wordt mogelijk een runbook in Azure Automation die management verzamelt mogelijk gegevens van Azure of een andere cloud wordt aangegeven of een alternatieve beheersysteem dat Log Analytics gebruikt om te consolideren en analyseren van gegevens.
+U kunt de API HTTP Data Collector gebruiken om gegevens te verzenden naar Log Analytics vanaf een willekeurige client die een REST-API kunt aanroepen.  Dit wordt mogelijk een runbook in Azure Automation die management verzamelt mogelijk gegevens vanuit Azure of een andere cloud, of het een ander beheersysteem die gebruikmaakt van Log Analytics om te consolideren en analyseren van gegevens.
 
-Alle gegevens in de opslagplaats Log Analytics wordt opgeslagen als een record met een bepaald recordtype.  U uw gegevens worden verzonden naar de API van HTTP-Data Collector als meerdere records in JSON-notatie.  Wanneer u de gegevens verzendt, wordt een afzonderlijke record gemaakt in de opslagplaats voor elke record in de nettolading van de aanvraag.
+Alle gegevens in de opslagplaats van Log Analytics wordt opgeslagen als een record met een bepaald type.  U uw gegevens worden verzonden naar de API HTTP Data Collector als meerdere records in de JSON-indeling.  Wanneer u de gegevens hebt ingediend, wordt een afzonderlijke record gemaakt in de opslagplaats voor elke record in de nettolading van de aanvraag.
 
 
 ![Overzicht van de HTTP-gegevensverzamelaar](media/log-analytics-data-collector-api/overview.png)
@@ -39,7 +39,7 @@ Alle gegevens in de opslagplaats Log Analytics wordt opgeslagen als een record m
 
 
 ## <a name="create-a-request"></a>Een aanvraag maken
-Voor het gebruik van de API van HTTP-Data Collector, moet u een POST-aanvraag met de gegevens worden verzonden in de notatie JSON (JavaScript Object) maken.  De volgende drie tabellen worden de kenmerken die vereist voor elke aanvraag zijn. Elk kenmerk in meer detail later in dit artikel worden beschreven.
+Voor het gebruik van de API HTTP Data Collector, maakt u een POST-aanvraag met de gegevens worden verzonden in JavaScript Object Notation (JSON).  De volgende drie tabellen worden de kenmerken die vereist voor elke aanvraag zijn. Elk kenmerk in meer detail later in dit artikel wordt beschreven.
 
 ### <a name="request-uri"></a>Aanvraag-URI
 | Kenmerk | Eigenschap |
@@ -48,33 +48,33 @@ Voor het gebruik van de API van HTTP-Data Collector, moet u een POST-aanvraag me
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Inhoudstype |application/json |
 
-### <a name="request-uri-parameters"></a>De parameters van de aanvraag-URI
+### <a name="request-uri-parameters"></a>Aanvraag-URI-parameters
 | Parameter | Beschrijving |
 |:--- |:--- |
-| Klant-id |De unieke id voor de werkruimte voor logboekanalyse. |
-| Resource |De naam van de API-resource: / api/Logboeken. |
-| API-versie |De versie van de API voor gebruik met deze aanvraag. Het is momenteel 2016-04-01. |
+| Klant-id |De unieke id voor de Log Analytics-werkruimte. |
+| Resource |De naam van de API-resource: / api/logs. |
+| API-versie |De versie van de API voor gebruik met deze aanvraag. Het is momenteel, 2016-04-01. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 | Koptekst | Beschrijving |
 |:--- |:--- |
-| Autorisatie |De autorisatie-handtekening. U kunt later in dit artikel lezen over het maken van een HMAC SHA256-header. |
-| Log-Type |Geef het recordtype van de gegevens die wordt verzonden. Het logboektype ondersteunt momenteel alleen alfanumerieke tekens. Het ondersteunt geen numerieke waarden of speciale tekens. De maximale grootte voor deze parameter is 100 tekens. |
-| x-ms-date |De datum waarop de aanvraag is verwerkt in RFC 1123-indeling. |
-| Time-gegenereerd-veld |De naam van een veld in de gegevens die de tijdstempel van het gegevensitem bevat. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt ingenomen. De inhoud van het berichtenveld moeten volgen de ISO 8601-notatie jjjj-MM-ssZ. |
+| Autorisatie |De autorisatie-handtekening. Later in dit artikel, kunt u lezen over het maken van een HMAC-SHA256-header. |
+| Log-Type |Geef het recordtype van de gegevens die wordt verzonden. Het logboektype ondersteunt momenteel alleen alfanumerieke tekens. Het ondersteunt geen numerieke waarden of speciale tekens bevatten. De maximale grootte voor deze parameter is 100 tekens. |
+| x-ms-date |De datum waarop de aanvraag is verwerkt, in de RFC 1123-indeling. |
+| Time-gegenereerd-veld |De naam van een veld in de gegevens die met het tijdstempel van het gegevensitem. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt opgenomen. De inhoud van het berichtenveld diende de ISO 8601-notatie jjjj-MM-ddTHH. |
 
 ## <a name="authorization"></a>Autorisatie
-Elk verzoek aan de API van Log Analytics HTTP Data Collector moet een autorisatie-header bevatten. Voor een aanvraag voor verificatie, moet u de aanvraag met de primaire of de secundaire sleutel voor de werkruimte die de aanvraag wordt ingediend ondertekenen. Vervolgens moet die handtekening doorgegeven als onderdeel van de aanvraag.   
+Elk verzoek aan de Log Analytics HTTP Data Collector-API moet een autorisatie-header bevatten. Als u wilt een aanvraag worden geverifieerd, moet u zich aanmelden met de aanvraag met de primaire of de secundaire sleutel voor de werkruimte die de aanvraag wordt uitgevoerd. Geeft de handtekening die als onderdeel van de aanvraag.   
 
-Dit is de indeling voor de autorisatie-header:
+Hier volgt de indeling voor de autorisatie-header:
 
 ```
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* is de unieke id voor de werkruimte voor logboekanalyse. *Handtekening* is een [HMAC Hash-based Message Authentication Code ()](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) die is gemaakt op basis van de aanvraag en vervolgens wordt berekend met behulp van de [algoritme SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Vervolgens coderen u deze met behulp van Base64-codering.
+*Werkruimte-id* is de unieke id voor de Log Analytics-werkruimte. *Handtekening* is een [HMAC Hash-based Message Authentication Code ()](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) die is samengesteld uit de aanvraag en vervolgens worden berekend met behulp van de [algoritme SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Klik, codeert u deze met behulp van Base64-codering.
 
-Gebruik deze notatie voor het coderen van de **SharedKey** handtekening tekenreeks:
+Deze indeling gebruiken om te coderen de **SharedKey** handtekening tekenreeks:
 
 ```
 StringToSign = VERB + "\n" +
@@ -84,19 +84,19 @@ StringToSign = VERB + "\n" +
                   "/api/logs";
 ```
 
-Hier volgt een voorbeeld van een tekenreeks in handtekening:
+Hier volgt een voorbeeld van een handtekening-tekenreeks:
 
 ```
 POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
 ```
 
-Wanneer u de tekenreeks handtekening hebt, deze met behulp van het algoritme HMAC SHA256 op de UTF-8-gecodeerde tekenreeks coderen en vervolgens het resultaat als Base64 coderen. Gebruik deze indeling:
+Wanneer u de handtekening-tekenreeks hebt, deze met behulp van de HMAC-SHA256-algoritme op de UTF-8-gecodeerde tekenreeks te coderen en vervolgens het resultaat als Base64 coderen. Gebruik deze indeling:
 
 ```
 Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
-De voorbeelden in de volgende secties hebben voorbeeldcode voor hulp bij het maken van een autorisatie-header.
+De voorbeelden in de volgende secties hebben voorbeeldcode voor het maken van een autorisatie-header.
 
 ## <a name="request-body"></a>Aanvraagtekst
 De hoofdtekst van het bericht moet zich in JSON. Er moet een of meer records met de eigenschap naam / waarde-paren opnemen in deze indeling:
@@ -112,7 +112,7 @@ De hoofdtekst van het bericht moet zich in JSON. Er moet een of meer records met
 ]
 ```
 
-U kunt meerdere records samen in één aanvraag batch met behulp van de volgende indeling. Alle records moet hetzelfde type zijn.
+U kunt meerdere records samen in één aanvraag batch met behulp van de volgende indeling hebben. Alle records moet hetzelfde type zijn.
 
 ```
 [
@@ -131,91 +131,91 @@ U kunt meerdere records samen in één aanvraag batch met behulp van de volgende
 ]
 ```
 
-## <a name="record-type-and-properties"></a>Recordtype en de eigenschappen
-U kunt een aangepaste recordtype definiëren bij het indienen van gegevens via de API van Log Analytics HTTP Data Collector. U kunt gegevens op dit moment kan niet schrijven naar bestaande recordtypen die zijn gemaakt door andere gegevenstypen en oplossingen. Log Analytics leest de binnenkomende gegevens en maakt vervolgens eigenschappen die overeenkomen met de gegevenstypen van de waarden die u invoert.
+## <a name="record-type-and-properties"></a>Recordtype en eigenschappen
+Wanneer u gegevens via de Log Analytics HTTP Data Collector-API verzendt definieert u een aangepaste recordtype. U kunt gegevens op dit moment kan niet schrijven naar bestaande typen bronrecords vermeld die zijn gemaakt door andere gegevenstypen en -oplossingen. Log Analytics wordt gelezen van de binnenkomende gegevens en maakt vervolgens eigenschappen die overeenkomen met de gegevenstypen van de waarden die u invoert.
 
-Elke aanvraag naar het Log Analytics-API moet bevatten een **Logboektype** header met de naam voor het recordtype. Het achtervoegsel **_CL** wordt automatisch toegevoegd aan de naam die u invoert om te onderscheiden van andere typen logboek als een aangepast logboek. Bijvoorbeeld, als u de naam invoeren **MyNewRecordType**, logboekanalyse een record gemaakt met het type **MyNewRecordType_CL**. Dit zorgt ervoor dat er geen conflicten tussen typenamen die door de gebruiker is gemaakt en die in de huidig of toekomstig Microsoft-oplossingen hebt verzonden zijn.
+Elke aanvraag aan de Log Analytics-API moet bevatten een **Logboektype** -header met de naam van het recordtype. Het achtervoegsel **_CL** wordt automatisch toegevoegd aan de naam die u invoert voor deze onderscheidt van andere typen logboeken als een aangepast logboek. Bijvoorbeeld, als u de naam invoeren **MyNewRecordType**, Log Analytics maakt u een record met het type **MyNewRecordType_CL**. Dit zorgt ervoor dat er geen conflicten tussen typenamen die door de gebruiker heeft gemaakt en die in de huidige of toekomstige Microsoft-oplossingen hebt verzonden zijn.
 
-Voor het gegevenstype van de eigenschap voegt Log Analytics het achtervoegsel voor de naam van de eigenschap. Als een eigenschap een null-waarde bevat, wordt de eigenschap is niet opgenomen in deze record. Deze tabel bevat de eigenschap gegevenstype en de bijbehorende achtervoegsel:
+Voor het identificeren van het gegevenstype van een eigenschap, voegt Log Analytics het achtervoegsel aan de naam van de eigenschap. Als een eigenschap een null-waarde bevat, wordt de eigenschap is niet opgenomen in die record. Deze tabel bevat de eigenschap gegevenstype en de bijbehorende achtervoegsel:
 
-| Het gegevenstype eigenschap | Achtervoegsel |
+| Eigenschap gegevenstype | Achtervoegsel |
 |:--- |:--- |
 | Reeks |_K |
-| Boole-waarde |_b |
-| Double |_d |
+| Booleaans |_b |
+| Double-waarde |_d |
 | Datum/tijd |_t |
 | GUID |_g |
 
-Het gegevenstype dat Log Analytics voor elke eigenschap gebruikt, is afhankelijk van of het recordtype dat voor de nieuwe record al bestaat.
+Het gegevenstype dat Log Analytics voor elke eigenschap gebruikt is afhankelijk van of het recordtype voor de nieuwe record al bestaat.
 
-* Als het recordtype dat niet bestaat, maakt Log Analytics is een nieuwe. Log Analytics maakt gebruik van de JSON van de typeverwijzing vaststellen welk gegevenstype voor elke eigenschap voor de nieuwe record.
-* Als het recordtype bestaat, probeert Log Analytics maakt u een nieuwe record op basis van bestaande eigenschappen. Als het gegevenstype voor een eigenschap in de nieuwe record komt niet overeen met en kan niet worden geconverteerd naar het bestaande type, of als de record een eigenschap die niet bestaat bevat, Log Analytics maakt een nieuwe eigenschap met het achtervoegsel voor de relevante.
+* Als het recordtype niet bestaat nog, wordt een nieuw gemaakt in Log Analytics. Log Analytics maakt gebruik van het type JSON Deductie om te bepalen van het gegevenstype voor elke eigenschap voor de nieuwe record.
+* Als het recordtype bestaat, wordt de Log Analytics probeert te maken van een nieuwe record op basis van bestaande eigenschappen. Als de gegevens voor een eigenschap in de nieuwe record komt niet overeen met en kan niet worden geconverteerd naar het type van een bestaande, of als de record een eigenschap die niet bestaat bevat, maakt u een nieuwe eigenschap met het achtervoegsel van de relevante Log Analytics.
 
-Deze vermelding verzending zou bijvoorbeeld een record maken met drie eigenschappen **number_d**, **boolean_b**, en **string_s**:
+Deze vermelding inzending zou bijvoorbeeld een record maken met drie eigenschappen **number_d**, **boolean_b**, en **string_s**:
 
 ![Voorbeeldrecord 1](media/log-analytics-data-collector-api/record-01.png)
 
-Als u vervolgens de volgende post met alle waarden die zijn opgemaakt als tekenreeksen hebt ingediend, worden de eigenschappen zou niet wijzigen. Deze waarden kunnen worden geconverteerd naar bestaande gegevenstypen:
+Als u deze volgende vermelding, klik vervolgens met alle waarden die zijn opgemaakt als tekenreeksen hebt ingediend, worden de eigenschappen zou niet wijzigen. Deze waarden kunnen worden geconverteerd naar bestaande gegevenstypen:
 
 ![Voorbeeldrecord 2](media/log-analytics-data-collector-api/record-02.png)
 
-Maar als u vervolgens het volgende indienen hebt aangebracht, Log Analytics maakt de nieuwe eigenschappen **boolean_d** en **string_d**. Deze waarden kunnen niet worden geconverteerd:
+Maar als u deze volgende verzending vervolgens gemaakt, Log Analytics maakt de nieuwe eigenschappen **boolean_d** en **string_d**. Deze waarden kunnen niet worden geconverteerd:
 
 ![Voorbeeldrecord 3](media/log-analytics-data-collector-api/record-03.png)
 
-Als u de volgende vermelding vervolgens ingediend voordat het recordtype dat is gemaakt, Log Analytics maakt een record met drie eigenschappen **gunstig**, **boolean_s**, en **string_s**. In dit item wordt elk van de oorspronkelijke waarden opgemaakt als een tekenreeks:
+Als u de volgende vermelding, klikt u vervolgens verzonden voordat het recordtype is gemaakt, Log Analytics een record wilt maken met drie eigenschappen **gunstig**, **boolean_s**, en **string_s**. In deze post is elk van de oorspronkelijke waarden opgemaakt als een tekenreeks:
 
 ![Voorbeeldrecord 4](media/log-analytics-data-collector-api/record-04.png)
 
-## <a name="data-limits"></a>Gegevenslimieten
-Er zijn enkele beperkingen rond de gegevens op de verzameling Log Analytics-gegevens API geplaatst.
+## <a name="data-limits"></a>Limieten voor gegevens
+Er zijn enkele beperkingen om de gegevens in de Log Analytics-gegevens-verzameling API geplaatst.
 
-* Maximaal 30 MB per post naar Log Analytics Data Collector API. Dit is een maximale grootte voor een enkele post. Als de gegevens van één die boekt groter is dan 30 MB, moet u de gegevens maximaal kleinere gegevenssegmenten grootte splitsen en ze gelijktijdig te verzenden.
-* Maximum van 32 KB limiet voor veldwaarden. Als de veldwaarde groter dan 32 KB is, worden de gegevens afgekapt.
+* Maximaal 30 MB per post naar Log Analytics Data Collector-API. Dit is een maximale grootte voor een enkel bericht. Als de gegevens van één die boeken groter is dan 30 MB, moet u de gegevens tot een kleinere grootte segmenten splitsen en ze gelijktijdig te verzenden.
+* Maximum van 32 KB-limiet voor veldwaarden. Als de veldwaarde groter dan 32 KB is, wordt de gegevens worden afgekapt.
 * Aanbevolen maximumaantal velden voor een bepaald type is 50. Dit is een limiet van bruikbaarheid en zoeken ervaring perspectief.  
 
 ## <a name="return-codes"></a>Retourcodes
-De HTTP-statuscode 200 betekent dat de aanvraag is ontvangen voor verwerking. Dit betekent dat de bewerking is voltooid.
+De HTTP-statuscode 200 betekent dat de aanvraag is ontvangen voor verwerking. Hiermee wordt aangegeven dat de bewerking is voltooid.
 
-Deze tabel bevat de volledige reeks statuscodes die de service mogelijk geretourneerd:
+Deze tabel bevat de volledige reeks statuscodes die de service kan worden geretourneerd:
 
 | Code | Status | Foutcode | Beschrijving |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |De aanvraag is geaccepteerd. |
 | 400 |Ongeldig verzoek |InactiveCustomer |De werkruimte is gesloten. |
-| 400 |Ongeldig verzoek |InvalidApiVersion |De API-versie die u hebt opgegeven, is niet herkend door de service. |
+| 400 |Ongeldig verzoek |InvalidApiVersion |De API-versie die u hebt opgegeven is niet herkend door de service. |
 | 400 |Ongeldig verzoek |InvalidCustomerId |De opgegeven werkruimte-ID is ongeldig. |
-| 400 |Ongeldig verzoek |InvalidDataFormat |Ongeldige JSON is ingediend. De antwoordtekst mogelijk meer informatie over het oplossen van de fout. |
-| 400 |Ongeldig verzoek |InvalidLogType |Het logboektype opgegeven opgenomen speciale tekens of cijfers. |
+| 400 |Ongeldig verzoek |InvalidDataFormat |Ongeldige JSON is ingediend. De antwoordtekst kan bevatten meer informatie over de fout op te lossen. |
+| 400 |Ongeldig verzoek |InvalidLogType |Het logboektype opgegeven ingesloten speciale tekens of cijfers. |
 | 400 |Ongeldig verzoek |MissingApiVersion |De API-versie is niet opgegeven. |
-| 400 |Ongeldig verzoek |MissingContentType |Het type inhoud is niet opgegeven. |
-| 400 |Ongeldig verzoek |MissingLogType |Het type van de logboekbestanden vereiste waarde is niet opgegeven. |
-| 400 |Ongeldig verzoek |UnsupportedContentType |Het type inhoud is niet ingesteld op **application/json**. |
-| 403 |Verboden |InvalidAuthorization |De service kan niet verifiëren van de aanvraag. Controleer of de sleutel voor de werkruimte-ID en de verbinding zijn geldig. |
-| 404 |Niet gevonden | | Op de opgegeven URL is onjuist of de aanvraag is te groot. |
-| 429 |Te veel aanvragen | | De service ondervindt een grote hoeveelheid gegevens uit uw account. Probeer de aanvraag later opnieuw. |
+| 400 |Ongeldig verzoek |MissingContentType |Het inhoudstype is niet opgegeven. |
+| 400 |Ongeldig verzoek |MissingLogType |De vereiste waarde Logboektype is niet opgegeven. |
+| 400 |Ongeldig verzoek |UnsupportedContentType |Het inhoudstype is niet ingesteld op **application/json**. |
+| 403 |Verboden |InvalidAuthorization |De service kan niet verifiëren van de aanvraag. Controleer of de sleutel van de werkruimte-ID en verbinding geldig zijn. |
+| 404 |Niet gevonden | | De opgegeven URL is onjuist, of de aanvraag is te groot. |
+| 429 |Te veel aanvragen | | De service ondervindt een groot aantal gegevens uit uw account. Probeer de aanvraag later opnieuw. |
 | 500 |Interne serverfout |UnspecifiedError |De service heeft een interne fout aangetroffen. Probeer de aanvraag. |
 | 503 |Service niet beschikbaar |ServiceUnavailable |De service is momenteel niet beschikbaar is om aanvragen te ontvangen. Probeer uw aanvraag. |
 
 ## <a name="query-data"></a>Querygegevens
-Query uitvoeren op gegevens verzonden door de Log Analytics HTTP Collector API van Data, zoekt u records met **Type** die gelijk is aan de **LogType** waarde die u hebt opgegeven, worden toegevoegd aan de **_CL**. Als u gebruikt bijvoorbeeld **MyCustomLog**, zou u alle records met geretourneerd **Type = MyCustomLog_CL**.
+Query uitvoeren op gegevens verzonden door de Log Analytics HTTP Data Collector-API, zoeken naar records met **Type** die gelijk is aan de **LogType** waarde die u hebt opgegeven, met het achtervoegsel **_CL**. Als u gebruikt bijvoorbeeld **MyCustomLog**, zou u alle records geretourneerd **Type = MyCustomLog_CL**.
 
 >[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query zou Wijzig in het volgende.
+> Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
 
 > `MyCustomLog_CL`
 
-## <a name="sample-requests"></a>Voorbeeld aanvragen
-In de volgende secties vindt u voorbeelden van hoe u gegevens verzenden naar de API van Log Analytics HTTP Data Collector met behulp van verschillende programmeertalen.
+## <a name="sample-requests"></a>Van voorbeeldaanvragen
+In de volgende secties vindt u voorbeelden van hoe u gegevens verzenden naar de Log Analytics HTTP Data Collector-API met behulp van verschillende programmeertalen.
 
 Voer deze stappen om de variabelen voor de autorisatie-header voor elk voorbeeld:
 
-1. Zoek in de Azure-portal uw werkruimte voor logboekanalyse.
-2. Selecteer **geavanceerde instellingen** en vervolgens **verbonden gegevensbronnen**.
-2. Aan de rechterkant van **werkruimte-ID**, selecteer het pictogram kopiëren en plak de-ID als de waarde van de **klant-ID** variabele.
-3. Aan de rechterkant van **primaire sleutel**, selecteer het pictogram kopiëren en plak de-ID als de waarde van de **gedeelde sleutel** variabele.
+1. Ga naar uw Log Analytics-werkruimte in de Azure-portal.
+2. Selecteer **geavanceerde instellingen** en vervolgens **verbonden bronnen**.
+2. Aan de rechterkant van **werkruimte-ID**, selecteer het kopieerpictogram en plak de-ID als de waarde van de **klant-ID** variabele.
+3. Aan de rechterkant van **primaire sleutel**, selecteer het kopieerpictogram en plak de-ID als de waarde van de **gedeelde sleutel** variabele.
 
-U kunt ook kunt u de variabelen voor de Logboektype en JSON-gegevens.
+U kunt ook de variabelen voor de Logboektype en JSON-gegevens wijzigen.
 
 ### <a name="powershell-sample"></a>Voorbeeld van PowerShell
 ```
@@ -279,7 +279,6 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
         -sharedKey $sharedKey `
         -date $rfc1123date `
         -contentLength $contentLength `
-        -fileName $fileName `
         -method $method `
         -contentType $contentType `
         -resource $resource
@@ -387,7 +386,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-2-sample"></a>Voorbeeld 2 Python
+### <a name="python-2-sample"></a>Voorbeeld van Python 2
 ```
 import json
 import requests
@@ -471,4 +470,4 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Gebruik de [Log-API van zoekservice](log-analytics-log-search-api.md) gegevens ophalen uit de opslagplaats voor logboekanalyse.
+- Gebruik de [Log Search API](log-analytics-log-search-api.md) gegevens ophalen uit de opslagplaats van Log Analytics.

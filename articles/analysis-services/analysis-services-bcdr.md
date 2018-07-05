@@ -1,37 +1,37 @@
 ---
-title: Hoge beschikbaarheid van Azure Analysis Services | Microsoft Docs
-description: Zodat zeker Azure Analysis Services met hoge beschikbaarheid.
+title: Azure Analysis Services met hoge beschikbaarheid | Microsoft Docs
+description: Ingeschakeld, hoge beschikbaarheid van Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: db8f8b9b5af1583662418f774b2eb141bea53ffa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42e270f26a4576014d3a08a0ab3c59808c65fc56
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596733"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445463"
 ---
 # <a name="analysis-services-high-availability"></a>Hoge beschikbaarheid van Analysis Services
-Dit artikel wordt beschreven zodat zeker hoge beschikbaarheid voor Azure Analysis Services-servers. 
+Dit artikel wordt beschreven om hoge beschikbaarheid voor Azure Analysis Services-servers. 
 
 
-## <a name="assuring-high-availability-during-a-service-disruption"></a>Hoge beschikbaarheid zodat zeker tijdens een service wordt onderbroken
-Hoewel dit zelden voorkomt, kan een storing in een Azure-datacenter hebben. Wanneer er een storing optreedt, wordt er een onderbreking van de bedrijven die mogelijk een paar minuten laatste of uur kan duren. Hoge beschikbaarheid wordt vaak bereikt met server redundantie. U kunt met Azure Analysis Services redundantie bereiken door het maken van aanvullende, secundaire servers in een of meer regio's. Bij het maken van redundante servers, om ervoor te zorgen voor de gegevens en metagegevens op die servers in de synchronisatie is met de server in een regio die is geworden offline, kunt u:
+## <a name="assuring-high-availability-during-a-service-disruption"></a>Hoge beschikbaarheid ingeschakeld tijdens een onderbreking van de service
+Hoewel zeldzaam, kan een Azure-Datacenter een storing hebben. Wanneer een storing optreedt, veroorzaakt deze een bedrijfsonderbreking die mogelijk een paar minuten afgelopen of uren kan duren. Hoge beschikbaarheid wordt vaak bereikt met de server redundantie. Met Azure Analysis Services, kunt u redundantie bereiken door het maken van aanvullende, secundaire servers in een of meer regio's. Wanneer het maken van redundante servers, om ervoor te zorgen voor de gegevens en metagegevens op die servers is gesynchroniseerd met de server in een regio die offline is, kunt u:
 
-* Het implementeren van modellen voor redundante servers in andere regio's. Deze methode moet verwerken van gegevens op uw primaire server en de redundante servers in parallel, zodat alle servers zeker synchroon.
+* Implementeer modellen op redundante servers in andere regio's. Deze methode moet verwerken van gegevens op uw primaire server en de redundante servers in parallelle, om alle servers worden gesynchroniseerd.
 
-* [Back-up](analysis-services-backup.md) databases van de primaire server en terugzetten op servers met redundante. U kunt bijvoorbeeld elke nacht back-ups naar Azure-opslag automatiseren en herstellen naar andere redundante servers in andere regio's. 
+* [Back-up](analysis-services-backup.md) databases van de primaire server en het terugzetten op redundante servers. U kunt bijvoorbeeld 's nachts back-ups naar Azure storage automatiseren en herstellen naar andere redundante servers in andere regio's. 
 
-Als een storing optreedt in de primaire server moet u in beide gevallen moet de verbindingsreeksen in reporting clients verbinding maken met de server in een andere regionale datacenter wijzigen. Deze wijziging als een laatste toevlucht moet worden beschouwd en alleen als een onherstelbare regionale datacentrum optreedt. Het is waarschijnlijk een datacentrum die als host fungeert voor de primaire server weer online zou komen voordat verbindingen op alle clients kan worden bijgewerkt. 
+Als er een storing optreedt in de primaire server moet u in beide gevallen moet de verbindingsreeksen in reporting clients verbinding met de server in een ander regionaal datacenter te wijzigen. Deze wijziging moet worden beschouwd als een laatste toevlucht en alleen als een catastrofale regionale datacenterstoring optreedt. Is het meer waarschijnlijk een storing in het datacenter die als host fungeert voor de primaire server zou weer online komt voordat u verbindingen op alle clients kan bijwerken. 
 
-Om te voorkomen dat verbindingsreeksen op reporting clients wijzigen, kunt u een server [alias](analysis-services-server-alias.md) voor de primaire server. Als de primaire server uitgeschakeld wordt, kunt u de alias die verwijzen naar een redundante server in een andere regio. U kunt automatiseren alias aan de naam van de statuscontrole van een eindpunt op de primaire server coderen. Als de statuscontrole is mislukt, kan hetzelfde eindpunt rechtstreeks naar een redundante server in een andere regio. 
+Om te voorkomen dat tekenreeksen voor databaseverbindingen op rapportage clients wijzigen, kunt u een server [alias](analysis-services-server-alias.md) voor de primaire server. Als de primaire server uitvalt, kunt u de alias om te verwijzen naar een redundante server in een andere regio. U kunt automatiseren alias aan de naam van de statuscontrole van een eindpunt op de primaire server coderen. Als de controle van gatewayservicestatus is mislukt, wordt hetzelfde eindpunt kan sturen naar een redundante server in een andere regio. 
 
 ## <a name="related-information"></a>Gerelateerde informatie
 [Back-up en herstel](analysis-services-backup.md)   
 [Azure analyseservices beheren](analysis-services-manage.md)   
-[Servernamen alias](analysis-services-server-alias.md) 
+[De namen van de alias](analysis-services-server-alias.md) 
 

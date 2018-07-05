@@ -1,61 +1,61 @@
 ---
-title: Hand voor beschikbaarheid & gegevens vestigingsplaats regio in Azure Active Directory B2C | Microsoft Docs
+title: Regionale beschikbaarheid en opslaglocaties in Azure Active Directory B2C | Microsoft Docs
 description: Een onderwerp over de verschillende typen Azure Active Directory B2C-tenants.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: add7c49d8efaec0fddf057c454b4f01aec5df1ce
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7c0348dad507b118af542c1bbc47f6ceb88ae7be
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709594"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443049"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Regio beschikbaarheid & gegevens hand vestigingsplaats
-Beschikbaarheid in regio's en de hand van gegevens vestigingsplaats zijn twee heel andere concepten die anders van toepassing op Azure AD B2C van de rest van Azure. In dit artikel wordt uitgelegd van de verschillen tussen deze twee concepten en vergelijken hoe ze van toepassing op Azure ten opzichte van Azure AD B2C.
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Regionale beschikbaarheid en opslaglocaties
+Beschikbaarheid in regio's en gegevensopslag zijn twee zeer verschillende concepten die anders van toepassing op Azure AD B2C van de rest van Azure. In dit artikel worden de verschillen tussen deze twee concepten uitgelegd en hoe ze van toepassing op Azure ten opzichte van Azure AD B2C vergelijken.
 
 ## <a name="summary"></a>Samenvatting
-Azure AD B2C wordt **algemeen beschikbaar wereldwijd** met de optie voor **hand vestigingsplaats gegevens in de Verenigde Staten of Europa**.
+Azure AD B2C is **algemeen beschikbaar over de hele wereld** met de optie voor **gegevensresidentie in de Verenigde Staten of Europa**.
 
 ## <a name="concepts"></a>Concepten
-* **Beschikbaarheid in regio's** verwijst naar waar een service beschikbaar voor gebruik is.
-* **De hand van gegevens vestigingsplaats** verwijst naar waar de gebruikersgegevens zijn opgeslagen.
+* **Beschikbaarheid in regio** verwijst naar waar een service beschikbaar voor gebruik is.
+* **Gegevensresidentie** verwijst naar waar de gebruikersgegevens zijn opgeslagen.
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
-Azure AD B2C is wereldwijd beschikbaar via de openbare Azure-cloud. 
+Azure AD B2C is wereldwijd beschikbaar via de openbare cloud van Azure. 
 
-Dit verschilt van het model meeste andere Azure-services volgen die Combineer beschikbaarheid aan de hand van gegevens vestigingsplaats. Ziet u voorbeelden van deze in beide Azure [beschikbare producten door regio](https://azure.microsoft.com/regions/services/) pagina en de [Active Directory B2C prijscategorie Rekenmachine](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+Dit verschilt van het model meeste andere Azure-services-Volg die Combineer beschikbaarheid met gegevensresidentie. Ziet u voorbeelden van deze in een van beide Azure [beschikbare producten per regio](https://azure.microsoft.com/regions/services/) pagina en de [Active Directory B2C-prijscalculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## <a name="data-residency"></a>Gegevensresidentie
 Azure AD B2C slaat gebruikersgegevens in de Verenigde Staten of Europa.
 
-De hand van gegevens vestigingsplaats wordt bepaald op basis van welke land/regio is geselecteerd als [maken van een Azure AD B2C-tenant](active-directory-b2c-get-started.md).
+Gegevensresidentie wordt bepaald op basis van welke land/regio is geselecteerd als [het maken van een Azure AD B2C-tenant](active-directory-b2c-get-started.md).
 
-![Schermopname van een tenant preview](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+![Schermopname van een preview-tenant](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
 
-Gegevens bevinden zich in de Verenigde Staten voor de volgende landen/regio's:
+Gegevens zich bevinden in de Verenigde Staten voor de volgende landen/regio's:
 
-> Verenigde Staten, Canada, Costa Rica, Dominicaanse Republiek, El Salvador, Guatemala, Mexico, Panama, Portorico en Trinidad en Tobago
+> Verenigde Staten, Canada, Costa Rica, Dominicaanse Republiek, El Salvador, Guatemala, Mexico, Panama, Porto Rico en Trinidad en Tobago
 
-Voor de volgende landen/regio's, bevindt zich in Europa gegevens:
+Gegevens zich in Europa bevinden voor de volgende landen/regio's:
 
-> Algerije, Oostenrijk, Azerbeidzjan, Bahrein, Belarus, België, Bulgarije, Kroatië, Cyprus, Tsjechië, Denemarken, Egypte, Estland, Finland, Frankrijk, Duitsland, Griekenland, Hongarije, IJsland, Ierland, Israël, Italië, Jordanië, Kazachstan, Kenia, Koeweit, Letland, Libanon, Liechtenstein, NNNNNN, Luxemburg, Macedonië Macedonisch, Malta, Montenegro, Marokko, Nederland, Nigeria, Noorwegen, Oman, Pakistan, Polen, Portugal, Qatar, Roemenië, Rusland, Saudi-Arabië, Servië, Slowakije, Slovenië, Zuid-Afrika, Spanje, Zweden, Zwitserland, Tunesië, Turkije, Oekraïne, VAE en Verenigd Koninkrijk.
+> Algerije, Oostenrijk, Azerbeidzjan, Bahrein, Belarus, België, Bulgarije, Kroatië, Cyprus, Tsjechië, Denemarken, Egypte, Estland, Finland, Frankrijk, Duitsland, Griekenland, Hongarije, IJsland, Ierland, Israël, Italië, Jordanië, Kazachstan, Kenia, Koeweit, Letland, Libanon Macedonië Liechtenstein NNNNNN, Luxemburg, Voormalige Joegoslavische Republiek, Malta, Montenegro, Marokko, Nederland, Nigeria, Noorwegen, Oman, Pakistan, Polen, Portugal, Qatar, Roemenië, Rusland, Saoedi-Arabië, Servië, Slowakije, Slovenië, Zuid-Afrika, Spanje, Zweden, Zwitserland, Tunesië, Turkije, Oekraïne, Verenigde Arabische Emiraten en het Verenigd Koninkrijk.
 
-De overige landen/regio's zijn bezig met worden toegevoegd aan de lijst.  Op dit moment kunt u Azure AD B2C door een van de landen/regio's bovenstaande verzamelen.
+De overige landen/regio's zijn momenteel wordt toegevoegd aan de lijst.  U kunt nog steeds Azure AD B2C door selectie van een van de bovenstaande landen/regio nu gebruiken.
 
-> Afghanistan, Argentinië, Australië, Brazilië, onderliggende, Colombia, Ecuador, Hongkong SAR, India, Indonesië, Irak, Japan, Korea, Maleisië, Nieuw-Zeeland, Paraguay, Peru, Filipijnen, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay en Venezuela.
+> Afghanistan, Argentinië, Australië, Brazilië, Chili, Colombia, Ecuador, Hongkong SAR, India, Indonesië, Irak, Japan, Korea, Maleisië, Nieuw-Zeeland, Paraguay, Peru, Filippijnen, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay en Venezuela.
 
 ## <a name="preview-tenant"></a>Preview-tenant
-Als u een B2C-tenant had gemaakt in Azure AD B2C preview-periode, is het waarschijnlijk dat uw **Tenant-type** zegt **Preview tenant**. Als dit het geval is, moet u uw tenant alleen voor ontwikkelings- en testdoeleinden en niet voor productie-apps gebruiken.
+Als u een B2C-tenant hebt gemaakt tijdens de preview-periode van Azure AD B2C, is het waarschijnlijk dat uw **type Tenant** zegt **Preview-tenant**. Als dit het geval is, moet u uw tenant alleen voor ontwikkeling en tests en niet voor productie-apps gebruiken.
 
 > [!IMPORTANT]
-> Er is geen migratiepad van een preview B2C-tenant in een productie-scale B2C-tenant. Let op: Er zijn bekende problemen wanneer u een voorbeeld B2C-tenant verwijderen en opnieuw maken van een productie-scale B2C-tenant met dezelfde domeinnaam. U moet een productie-scale B2C-tenant maken met een andere domeinnaam.
+> Er is geen migratiepad van een preview van B2C-tenant naar productieschaal B2C-tenant. Let op: Er zijn bekende problemen wanneer u een preview van B2C-tenant verwijderen en opnieuw maken van een productieschaal B2C-tenant met dezelfde domeinnaam. U moet een productieschaal B2C-tenant maken met de naam van een ander domein.
 
 
-![Schermopname van een tenant preview](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+![Schermopname van een preview-tenant](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)

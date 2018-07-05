@@ -1,6 +1,6 @@
 ---
 title: Overzicht van Azure PIM Resource RBAC | Microsoft Docs
-description: Krijgt u een overzicht van de functie RBAC in PIM inclusief terminologie en meldingen
+description: Bekijk een overzicht van de RBAC-functie in PIM met inbegrip van de terminologie en meldingen
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,34 +9,34 @@ editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: f8eb574a98294b2858edd2ae36293c2857a50403
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 7cf628495a79fe775528080ae6ec31df8e9a0f37
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261029"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447574"
 ---
 # <a name="pim-for-azure-resources"></a>PIM voor Azure-resources
 
-Met Azure Active Directory Privileged Identity Management (PIM), kunt u nu beheren, beheren en te controleren, toegang tot Azure-Resources binnen uw organisatie. Dit omvat abonnementen en resourcegroepen zelfs virtuele Machines. Een bron binnen de Azure-portal die gebruikmaakt van de functionaliteit van Azure rollen gebaseerd toegangsbeheer (RBAC) kan profiteren van alle betrouwbaarheid en beheermogelijkheden van de levenscyclus van die Azure AD PIM te bieden heeft en een aantal geweldige nieuwe functies die we willen meenemen naar Azure AD-rollen snel. 
+Met Azure Active Directory Privileged Identity Management (PIM), kunt u nu beheren, beheren en te controleren, toegang tot Azure-Resources binnen uw organisatie. Dit omvat abonnementen, resourcegroepen en zelfs virtuele Machines. Elke resource in Azure portal die gebruikmaakt van de functionaliteit van Azure rollen gebaseerd toegangsbeheer (RBAC) kunt profiteren van alle de uitstekende beveiligings- en functionaliteit voor het beheer die Azure AD PIM te bieden heeft en aantal geweldige nieuwe functies die we om te plannen Azure AD-rollen beschikbaar. 
 
 ## <a name="pim-for-azure-resources-helps-resource-administrators"></a>PIM voor Azure-Resources kan beheerders een resource
 
 - Zien welke gebruikers en groepen zijn toegewezen rollen voor de Azure-resources beheren
-- Inschakelen van on-demand 'just in time' toegang tot resources zoals abonnementen en resourcegroepen beheren
-- Toegang tot bedrijfsbronnen toegewezen gebruikers/groepen automatisch met nieuwe tijdsgebonden toewijzingsinstellingen verlopen
-- Tijdelijke brontoegang voor snelle taken of op oproep schema's toewijzen
-- Afdwingen van multi-factor Authentication voor toegang tot bronnen op eventuele ingebouwde of aangepaste rol 
-- Rapporten over resourceactiviteit voor resource gecorreleerde toegang tijdens een actieve gebruikerssessie ophalen
-- Ontvang waarschuwingen wanneer nieuwe gebruikers of groepen worden toegewezen toegang tot bedrijfsbronnen, en wanneer ze in aanmerking komende toewijzingen activeren
+- Op aanvraag, 'just-in-time' toegang tot bronnen zoals abonnementen en resourcegroepen beheren inschakelen
+- Toegang tot toegewezen gebruikers/groepen met toewijzingsinstellingen voor nieuwe tijdsgebonden automatisch verlopen
+- Tijdelijke toegang voor snelle taken of op een aanroep schema's toewijzen
+- Multi-factor Authentication afdwingen voor toegang tot bronnen op een ingebouwde of aangepaste rol 
+- Rapporten over resourceactiviteit voor resource access gecorreleerde tijdens de actieve sessie van een gebruiker ophalen
+- Waarschuwingen ontvangen wanneer nieuwe gebruikers of groepen toegang tot resources worden toegewezen, en wanneer ze in aanmerking komende toewijzingen activeren
 
-Azure AD PIM kunt beheren de ingebouwde Azure Resource rollen, evenals aangepaste rollen (RBAC), inclusief (maar niet beperkt tot):
+Azure AD PIM kunt beheren de ingebouwde Azure-Resource-rollen, evenals aangepaste rollen (RBAC), inclusief (maar niet beperkt tot):
 
 - Eigenaar
 - Beheerder van gebruikerstoegang
@@ -45,66 +45,66 @@ Azure AD PIM kunt beheren de ingebouwde Azure Resource rollen, evenals aangepast
 - Beveiligingsbeheer en meer
 
 >[!NOTE]
-Gebruikers of leden van een groep die is toegewezen aan de eigenaar of beheerder voor gebruikerstoegang rollen en globale beheerders die beheer van abonnementen inschakelen in Azure AD zijn Resource-beheerders. Deze beheerders kunnen rollen toewijzen, serverfunctie-instellingen configureren en controleren via toegang tot PIM voor Azure-Resources. De lijst weergeven met [ingebouwde functies voor Azure-resources](../../role-based-access-control/built-in-roles.md).
+Gebruikers of leden van een groep die is toegewezen aan de rollen eigenaar of Administrator voor gebruikerstoegang en globale beheerders waarmee beheer van abonnementen in Azure AD zijn Resource-beheerders. Deze beheerders kunnen rollen toewijzen, configureren van instellingen voor de sitesysteemrol en toegang met behulp van PIM voor Azure-Resources beoordelen. De lijst weergeven met [ingebouwde rollen voor Azure-resources](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="tasks"></a>Taken
 
-PIM biedt snel toegang tot rollen activeren, bekijken in behandeling zijnde activeringen/aanvragen in behandeling genomen goedkeuringen (voor [functies van Azure AD-directory](azure-ad-pim-approval-workflow.md)), en in afwachting van uw antwoord in het gedeelte van de taken van het navigatiemenu links beoordeelt.
+PIM biedt snel toegang tot rollen activeren, activeringen/aanvragen, in afwachting van goedkeuring in behandeling weergeven (voor [Azure AD-maprollen](azure-ad-pim-approval-workflow.md)), en in afwachting van je reactie in het gedeelte van de taken van het linkernavigatiemenu beoordeelt.
 
-Bij het openen van een van de taken menu-items van het toegangspunt overzicht, bevat het resulterende weergave resultaten voor Azure AD-directory-rollen en functies van Azure Resource. 
+Bij het openen van een van de taken menu-items van het toegangspunt overzicht, bevat de resulterende weergave resultaten voor Azure AD-maprollen en Azure-Resource-rollen. 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
 
-Mijn rollen bevatten een lijst met uw actieve en in aanmerking komende roltoewijzingen voor Azure Resource rollen en functies van Azure AD-directory.
+Mijn rollen bevatten een lijst van uw actieve en in aanmerking komende roltoewijzingen voor Azure AD-maprollen en Azure-Resource-rollen.
 
 ## <a name="activate-roles"></a>Rollen activeren
 
-Rollen activeren voor Azure-Resources introduceert een nieuwe ervaring waarmee de leden van een in aanmerking komende rol activeren voor een toekomstige datum/tijd plannen en selecteert u een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders). Meer informatie over [hier Azure AD-rollen activeren](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Rollen voor Azure-Resources activeren introduceert een nieuwe ervaring biedt waarmee leden van een in aanmerking komende rol voor het plannen van activering voor een toekomstige datum/tijd en selecteer een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders). Meer informatie over [hier Azure AD-rollen activeren](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
-Voer in het menu activeringen, de gewenste begindatum en de tijd om de rol te activeren. Eventueel de activeringsduur van de te verlagen (hoe lang de functie actief is) en voer een reden indien nodig; klikt u op activeren.
+Voer in het menu activeringen in de gewenste datum en tijd om de rol te activeren. (Optioneel) de duur van de activering te verlagen (hoe lang de rol actief is) en voer een reden als vereist. klikt u op activeren.
 
-Als de begindatum en -tijd niet worden gewijzigd, wordt de rol binnen enkele seconden worden geactiveerd. U ziet dat een rol voor activering bannerbericht aangegeven op de pagina Mijn rollen in de wachtrij. Klik op de knop Vernieuwen om te wissen van dit bericht.
+Als de begindatum en -tijd is niet gewijzigd, wordt de rol binnen enkele seconden worden geactiveerd. U ziet dat een rol in de wachtrij voor activering bannerbericht aangegeven op de pagina Mijn rollen. Klik op de vernieuwknop om te wissen van dit bericht.
 
 ![](media/azure-pim-resource-rbac/my-roles.png)
 
-Als de activering is gepland voor een tijdstip in de toekomst, wordt de aanvraag in behandeling op het tabblad aanvragen in behandeling van het navigatiemenu links weergegeven. In het geval van de rolactivering van de is niet langer vereist, kan de gebruiker de aanvraag annuleren door te klikken op de knop Annuleren aan de rechterkant van de pagina.
+Als de activering is gepland voor een toekomstige datum-tijd, wordt de aanvraag in behandeling weergegeven op het tabblad aanvragen in behandeling van het navigatiemenu links. In het geval dat de rolactivering is niet langer vereist, kan de gebruiker de aanvraag annuleren door te klikken op de knop Annuleren aan de rechterkant van de pagina.
 
 ![](media/azure-pim-resource-rbac/pending-requests.png)
 
 ## <a name="discover-and-manage-azure-resources"></a>Detecteren en beheren van Azure-resources
 
-Selecteer de Azure-Resources onder het tabblad beheren in het navigatiemenu links om te zoeken en beheren van rollen voor een Azure-Resource. Met de filters of zoekbalk boven aan de pagina zoeken naar een resource.
+Selecteer om te zoeken en beheren van rollen voor een Azure-Resource, Azure-Resources op het tabblad beheren in het navigatiemenu links. Gebruik de filters of de zoekbalk boven aan de pagina te vinden van een resource.
 
 ![](media/azure-pim-resource-rbac/azure-resources.png)
 
 ## <a name="resource-dashboards"></a>Resource-dashboards
 
-Het dashboard Admin weergave bestaat uit vier primaire onderdelen. Een grafische weergave van de resource rol activeringen gedurende de afgelopen zeven dagen. Deze gegevens is afgestemd op de geselecteerde resource en geeft weer activeringen voor de meest voorkomende rollen (eigenaar, bijdrager, beheerder voor gebruikerstoegang) en alle rollen die worden gecombineerd.
+Het dashboard Beheerdersweergave heeft vier primaire onderdelen. Een grafische weergave van rolactiveringen resource gedurende de afgelopen zeven dagen. Deze gegevens is afgestemd op de geselecteerde resource en activeringen voor de meest voorkomende rollen (eigenaar, Inzender, beheerder van gebruikerstoegang) en alle rollen gecombineerd weergegeven.
 
-Aan de rechterkant van de grafiek activeringen zijn twee grafieken die de distributie van roltoewijzingen door toewijzingstype voor gebruikers en groepen weergeven. Selecteren van een segment van de grafiek wordt de waarde in een percentage (of andersom).
+Aan de rechterkant van de grafiek activeringen, zijn twee grafieken die de distributie van roltoewijzingen door dit toewijzingstype, voor zowel gebruikers en groepen weergeven. Een segment van de grafiek selecteert, verandert de waarde in een percentage (of omgekeerd).
 
 ![](media/azure-pim-resource-rbac/admin-view.png)
 
-U ziet het aantal gebruikers en groepen met nieuwe roltoewijzingen gedurende de afgelopen 30 dagen (links) en een lijst met rollen gesorteerd op basis van totale toewijzingen (aflopend) onder de grafieken.
+Onder de grafieken ziet u het aantal gebruikers en groepen met nieuwe roltoewijzingen gedurende de afgelopen 30 dagen (links) en een lijst met functies die zijn gesorteerd op basis van totaal aantal toewijzingen (aflopend).
 
 ![](media/azure-pim-resource-rbac/role-settings.png)
 
 ## <a name="manage-role-assignments"></a>Roltoewijzingen beheren
 
-Beheerders kunnen roltoewijzingen beheren door functies of leden selecteren in de linkernavigatiebalk. Functies selecteren, kunnen beheerders hun beheertaken voor een specifieke rol bereik terwijl de leden wordt weergegeven voor alle gebruikers en groepen roltoewijzingen voor de resource.
+Beheerders kunnen roltoewijzingen beheren door te selecteren van functies of leden in de linkernavigatiebalk. Rollen selecteren Hiermee kunnen beheerders het bereik van hun beheertaken voor een specifieke rol, terwijl de leden wordt weergegeven voor alle gebruikers en groepen-roltoewijzingen voor de resource.
 
 ![](media/azure-pim-resource-rbac/roles.png)
 
 ![](media/azure-pim-resource-rbac/members.png)
 
 >[!NOTE]
-Als u een rol in behandeling zijnde activering hebt, wordt een meldingsbanner wordt weergegeven boven aan de pagina wanneer lidmaatschap weer te geven.
+Hebt u een rol in behandeling zijnde activering, wordt een meldingenbanner weergegeven aan de bovenkant van de pagina bij het weergeven van het lidmaatschap.
 
 ## <a name="assign-roles"></a>Rollen toewijzen
 
-Als u wilt een gebruiker of groep toewijzen aan een rol, selecteer de rol (als bekijkt rollen) of klikt u op toevoegen in de actiebalk (als op de weergave leden).
+Als u wilt een gebruiker of groep toewijzen aan een rol, selecteer de rol (als rollen weergeven) of klik op toevoegen in de actiebalk (als op de leden weergeven).
 
 ![](media/azure-pim-resource-rbac/members2.png)
 
@@ -117,84 +117,84 @@ Kies een gebruiker of groep in de map.
 
 ![](media/azure-pim-resource-rbac/choose.png)
 
-Kies het toewijzingstype van de juiste in de vervolgkeuzelijst. 
+Kies het juiste toewijzingstype in de vervolgkeuzelijst. 
 
-**Just In Time toewijzing:** u biedt de leden van de gebruiker of groep in aanmerking komende maar geen permanente toegang tot de functie voor een opgegeven periode of voor onbepaalde tijd (indien geconfigureerd in de functie-instellingen). 
+**Just-In-Time-toewijzing:** biedt de leden van de gebruiker of groep met die in aanmerking komen, maar geen permanente toegang tot de rol voor een opgegeven periode of voor onbepaalde tijd (indien geconfigureerd in de rolinstellingen). 
 
-**Rechtstreekse toewijzing:** hoeft niet de leden van de gebruiker of groep voor het activeren van de roltoewijzing (bekend als permanente toegang). Microsoft raadt het gebruik van rechtstreekse toewijzing op korte termijn gebruikt zoals ploegendiensten op oproep of tijd gevoelige activiteiten, waarbij toegang niet vereist wanneer de taak voltooid is.
+**Directe toewijzing:** vereist niet de leden van de gebruiker of groep activeren van de roltoewijzing (bekend als permanente toegang). Microsoft adviseert om rechtstreekse toewijzing toe voor de korte termijn gebruikt, zoals op de aanroep ploegen of tijd gevoelige activiteiten, waarbij toegang wordt niet zijn vereist wanneer de taak voltooid is.
 
 ![](media/azure-pim-resource-rbac/membership-settings.png)
 
-Een selectievakje onder de vervolgkeuzelijst toewijzing kunt u opgeven als de toewijzing permanente moet (permanent in aanmerking voor het activeren van Just in Time toewijzing/permanent active voor rechtstreekse toewijzing). Geef de duur van een specifieke toewijzing, schakel het selectievakje in en start wijzigen en/of datum- en tijdvelden eindigen.
+Een selectievakje onder de vervolgkeuzelijst toewijzing kunt u opgeven als de toewijzing permanente moet (permanent in aanmerking voor het activeren van Just-in-Time-toewijzing/permanent actief voor directe toewijzing). Als u wilt een duur van de specifieke toewijzing opgeven, schakelt u het selectievakje in en start wijzigen en/of eindigen velden voor datum en tijd.
 
 >[!NOTE]
-Het is mogelijk dat het selectievakje unmodifiable als een andere beheerder de toewijzing van de maximale duur voor elk toewijzingstype is opgegeven in de functie-instellingen.
+Het is mogelijk dat het selectievakje unmodifiable als een andere beheerder de duur van de maximale toewijzing voor elk toewijzingstype is opgegeven in de functie-instellingen.
 
 ![](media/azure-pim-resource-rbac/calendar.png)
 
-## <a name="view-activation-and-azure-resource-activity"></a>Activering en Azure Resource activiteit weergeven
+## <a name="view-activation-and-azure-resource-activity"></a>Activering en de activiteit Azure-resources weergeven
 
-In het geval u zien welke acties die een specifieke gebruiker heeft uitgevoerd op verschillende bronnen wilt, kunt u de Azure Resource-activiteit die is gekoppeld aan een bepaalde activeringsperiode (voor gebruikers in aanmerking komende) kunt bekijken. Begin met het selecteren van een gebruiker vanuit de weergave van de leden of in de lijst met leden in een specifieke functie. Het resultaat wordt een grafische weergave van de gebruiker acties op Azure-Resources op datum en de recente functie-activeringen via dezelfde periode.
+In het geval dat u nodig hebt om te zien welke verschillende resources heeft een specifieke gebruiker ondernomen acties, kunt u de Azure-Resource-activiteit die is gekoppeld aan een bepaalde activeringsperiode (voor in aanmerking komende gebruikers) bekijken. Begin met het selecteren van een gebruiker vanuit de weergave van de leden of in de lijst met leden in een specifieke rol. Het resultaat wordt een grafische weergave van acties van de gebruiker op de Azure-Resources op datum en de recente rolactiveringen diezelfde periode van tijd weergegeven.
 
 ![](media/azure-pim-resource-rbac/user-details.png)
 
-Selecteren van een specifieke rol moet worden geactiveerd, ziet de rolgegevens voor activering en de bijbehorende Azure Resource-activiteit die is opgetreden tijdens het die gebruiker actief was.
+Selecteren van een specifieke rol moet worden geactiveerd, ziet de details van rolactivering en de bijbehorende Azure-Resource-activiteit die is opgetreden bij die gebruiker actief is.
 
 ![](media/azure-pim-resource-rbac/audits.png)
 
 ## <a name="modify-existing-assignments"></a>Bestaande toewijzingen wijzigen
 
-Selecteer de instellingen wijzigen van de actiebalk boven aan de pagina voor het wijzigen van bestaande toewijzingen van de gebruiker of groep detailweergave. Wijzig het toewijzingstype in NET In tijdtoewijzing of rechtstreekse toewijzing toe.
+Selecteer instellingen wijzigen in de actiebalk aan de bovenkant van de pagina voor het wijzigen van bestaande toewijzingen uit de detailweergave van de gebruiker of groep. Het toewijzingstype alleen In tijdtoewijzing of rechtstreekse toewijzing toe.
 
 ![](media/azure-pim-resource-rbac/change-settings.png)
 
 ## <a name="review-who-has-access-in-a-subscription"></a>Bekijk wie toegang in een abonnement heeft
 
-Als u wilt controleren roltoewijzingen in uw abonnement, selecteer het tabblad leden in de linkernavigatiebalk of Selecteer rollen en kiest u een specifieke rol leden bekijken. 
+Als u wilt controleren roltoewijzingen in uw abonnement, selecteer het tabblad leden in de linkernavigatiebalk of rollen selecteren en kiest u een specifieke rol om te controleren van leden. 
 
-Selecteer controleren in de actiebalk bestaande toegang beoordelingen weergeven en selecteren van toevoegen aan een nieuwe revisie te maken.
+Controleer in de actiebalk bestaande toegangsbeoordelingen weergeven en selecteert u toevoegen aan het maken van een nieuwe beoordeling selecteren.
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[Meer informatie over toegang beoordelingen](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[Meer informatie over toegangsbeoordelingen](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
 >[!NOTE]
 Beoordelingen worden alleen ondersteund voor resourcetypen abonnement op dit moment.
 
-## <a name="configure-role-settings"></a>Functie-instellingen configureren
+## <a name="configure-role-settings"></a>Rolinstellingen configureren
 
-Configuratie van de functie instellingen definiëren de standaardwaarden die wordt toegepast op toewijzingen in de PIM-omgeving. Deze voor uw resource definiëren het tabblad instellingen van de rol van de navigatiebalk aan de linkerkant of de knop rol instellingen van de actiebalk in een rol van de huidige opties weergeven te selecteren.
+Configuratie van de rolinstellingen definiëren de standaardinstellingen die zijn toegepast op de toewijzingen in de PIM-omgeving. Voor het definiëren van deze voor uw resource, selecteer u het tabblad serverfunctie-instellingen van de navigatiebalk aan de linkerkant of de knop rol instellingen in de actiebalk in een rol om de huidige opties weer te geven.
 
-Klik op bewerken vanuit de actiebalk boven aan de pagina kunt u om elke instelling te wijzigen.
+Klik op bewerken in de actiebalk aan de bovenkant van de pagina kunt u om elke instelling te wijzigen.
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
 ![](media/azure-pim-resource-rbac/owner02.png)
 
-Wijzigingen in de instellingen worden geregistreerd op de instellingenpagina van rol met inbegrip van de laatste keer dat bijgewerkte datum en de beheerder die de instellingen gewijzigd.
+Wijzigingen in de instellingen worden geregistreerd op de instellingenpagina van rol met inbegrip van het laatst bijgewerkt op, en de beheerder die de instellingen gewijzigd.
 
 ![](media/azure-pim-resource-rbac/role-settings-02.png)
 
 ## <a name="resource-audit"></a>Resourcecontrole
 
-Controle van de resource hebt u een overzicht van de rol van activiteiten voor de resource. U kunt de gegevens door middel van een vooraf gedefinieerde datum of aangepaste datumbereik filteren.
-![](media/azure-pim-resource-rbac/last-day.png) Controle van de resource biedt ook snel toegang om gegevens van de activiteit van een gebruiker weer te geven. In de weergave worden alle acties voor 'Rol activeren' koppelingen naar de specifieke aanvrager resourceactiviteit.
+Resourcecontrole geeft u een overzicht van alle activiteiten van de rol voor de resource. U kunt de informatie die met behulp van een vooraf gedefinieerde datum of aangepast datumbereik filteren.
+![](media/azure-pim-resource-rbac/last-day.png) Resourcecontrole biedt ook snel toegang om gegevens van de activiteit van een gebruiker weer te geven. In de weergave worden alle acties voor 'Rol activeren' koppelingen naar de activiteit van de resources van de specifieke aanvrager.
 ![](media/azure-pim-resource-rbac/resource-audit.png)
 
 ## <a name="just-enough-administration"></a>Net voldoende beheer
 
-Met behulp van de aanbevolen procedures van net voldoende administration (JEA) met uw roltoewijzingen resource is heel eenvoudig met PIM voor Azure-Resources. Gebruikers en leden van de beveiligingsgroep met toewijzingen in de Azure-abonnementen of resourcegroepen kunnen hun bestaande roltoewijzing op een verminderde scope activeren. 
+Met behulp van aanbevolen procedures voor net voldoende administration (JEA) met de roltoewijzingen van uw resource is heel eenvoudig met PIM voor Azure-Resources. Gebruikers en leden van de groep met toewijzingen in de Azure-abonnementen of resourcegroepen kunnen activeren van hun bestaande roltoewijzing met een lagere bereik. 
 
-Zoeken naar de onderliggende resource die u wilt beheren door de zoekpagina.
+Op de zoekpagina vinden de onderliggende resource die u wilt beheren.
 
 ![](media/azure-pim-resource-rbac/azure-resources-02.png)
 
-Mijn rollen selecteren in het menu linkernavigatiegedeelte en kies de juiste rol te activeren. U ziet het toewijzingstype wordt overgenomen, omdat de rol is toegewezen aan het abonnement, in plaats van de resourcegroep, zoals hieronder wordt weergegeven.
+Mijn rollen selecteren in het navigatiemenu links en kies de juiste rol te activeren. U ziet dat het toewijzingstype wordt overgenomen, omdat de rol is toegewezen aan het abonnement, in plaats van de resourcegroep, zoals hieronder wordt weergegeven.
 
 ![](media/azure-pim-resource-rbac/my-roles-02.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Ingebouwde functies voor Azure-resources](../../role-based-access-control/built-in-roles.md)
+- [Ingebouwde rollen voor Azure-resources](../../role-based-access-control/built-in-roles.md)
 - Meer informatie over [hier Azure AD-rollen activeren](../active-directory-privileged-identity-management-how-to-activate-role.md)
-- [Werkstromen voor PIM goedkeuring](azure-ad-pim-approval-workflow.md)
+- [Goedkeuringswerkstromen voor PIM](azure-ad-pim-approval-workflow.md)

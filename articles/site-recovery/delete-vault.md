@@ -5,12 +5,12 @@ author: rajani-janaki-ram
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 05ae90767c6f0347c43e6476001eb84df61b9df5
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: f5f92b0dc064a992b93447f785db6c717f81e47b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342494"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436640"
 ---
 # <a name="delete-a-site-recovery-vault"></a>Een Site Recovery-kluis verwijderen
 
@@ -48,7 +48,7 @@ Als de kluis verwijderen, gaat u als volgt de aanbevolen stappen voor uw scenari
 
 2. Ontkoppelen en verwijderen van alle replicatiebeleidsregels voor door te bladeren naar de kluis -> **Site Recovery-infrastructuur** -> **voor Hyper-V-Sites** -> **replicatiebeleid**
 
-3. Verwijzingen naar Hyper-V-servers verwijderen met de volgende stappen in [registratie ongedaan maken van een Hyper-V-host](/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Verwijzingen naar Hyper-V-servers verwijderen met de volgende stappen in [registratie ongedaan maken van een Hyper-V-host](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 4. De Hyper-V-site verwijderen.
 

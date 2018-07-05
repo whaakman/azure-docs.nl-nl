@@ -1,17 +1,17 @@
 ---
-title: Hyper-V-replicatie met de architectuur van de secundaire site in de Azure Site Recovery | Microsoft Docs
+title: Hyper-V-replicatie naar secundaire site-architectuur in Azure Site Recovery | Microsoft Docs
 description: Dit artikel biedt een overzicht van de architectuur voor het repliceren van on-premises Hyper-V-VM’s naar een secundaire System Center VMM-site met Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 39a397edd17327a91882535fbd00222a4ae4dddc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 11c80a1e1fa0d5afbb70eddd5adcd272d12f1c74
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894293"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437855"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Hyper-V-replicatie naar een secundaire site
 
@@ -20,7 +20,7 @@ In dit artikel worden de onderdelen en processen beschreven die zijn betrokken b
 
 ## <a name="architectural-components"></a>Architectuuronderdelen
 
-De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderdelen voor Hyper-V-replicatie naar een secundaire site gebruikt.
+De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderdelen die voor Hyper-V-replicatie naar een secundaire site.
 
 **Onderdeel** | **Vereiste** | **Details**
 --- | --- | ---
@@ -29,28 +29,28 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
 **Hyper-V-server** |  U hebt een of meer Hyper-V-hostservers nodig die zich bevinden in de primaire en secundaire VMM-clouds. | Gegevens worden tussen de primaire en secundaire Hyper-V-hostservers via het LAN of VPN gerepliceerd met behulp van Kerberos of verificatie via certificaat.  
 **Virtuele Hyper-V-machines** | Op Hyper-V-hostserver. | De bronhostserver moet ten minste één VM hebben die u wilt repliceren.
 
-**On-premises naar lokale-architectuur**
+**On-premises naar on-premises-architectuur**
 
 ![On-premises naar on-premises](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## <a name="replication-process"></a>Replicatieproces
 
-1. Wanneer de eerste replicatie wordt geactiveerd, een [Hyper-V VM-momentopname](https://technet.microsoft.com/library/dd560637.aspx) momentopname wordt gemaakt.
-2. Virtuele harde schijven op de virtuele machine zijn een voor een gerepliceerd, naar de secundaire locatie.
-3. Als er schijfwijzigingen optreden terwijl de eerste replicatie uitgevoerd wordt, 
-4. Als de initiële replicatie is voltooid, begint de replicatie van verschillen. De wijzigingen de Hyper-V Replica Replication Tracker bijgehouden als Hyper-V-replicatielogboeken (.hrl). Deze logboekbestanden bevinden zich in dezelfde map als de schijven. Elke schijf heeft een hrl-bestand dat naar de secundaire locatie wordt verzonden. De momentopname- en logboekbestanden nemen schijfbronnen in beslag terwijl de eerste replicatie wordt uitgevoerd.
+1. Wanneer de eerste replicatie wordt geactiveerd, een [Hyper-V-VM-momentopname](https://technet.microsoft.com/library/dd560637.aspx) momentopname wordt gemaakt.
+2. Virtuele harde schijven op de virtuele machine worden één voor één gerepliceerd, naar de secundaire locatie.
+3. Als er tijdens de initiële replicatie wordt uitgevoerd, worden de wijzigingen in de Hyper-V Replica Replication Tracker bijgehouden als Hyper-V-replicatielogboeken (.hrl). Deze logboekbestanden bevinden zich in dezelfde map als de schijven. Elke schijf heeft een bijbehorend .hrl-bestand dat wordt verzonden naar de secundaire locatie. De momentopname- en logboekbestanden nemen schijfbronnen in beslag terwijl de eerste replicatie wordt uitgevoerd.
+4. Wanneer de initiële replicatie is voltooid, de VM-momentopname is verwijderd en begint de replicatie van verschillen.
 5. Verschillen in het logboek worden gesynchroniseerd en samengevoegd op de bovenliggende schijf.
 
 
 ## <a name="failover-and-failback-process"></a>Failover- en failbackproces
 
-- U kunt één machine failover of herstelplannen, indelen failover van meerdere machines maken.
-- U kunt een geplande of niet-geplande failover tussen on-premises sites uitvoeren. Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.
-    - Als u een niet-geplande failover naar een secundaire site uitvoeren nadat de failover-machines in de secundaire locatie zijn niet beveiligd.
+- U kunt een enkele machine failover of plannen voor herstel, voor het indelen van failover van meerdere virtuele machines maken.
+- U kunt een geplande of niet-geplande failover uitvoeren tussen on-premises sites. Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.
+    - Als u een niet-geplande failover naar een secundaire site uitvoeren nadat de failovermachines in de secundaire locatie zijn niet beveiligd.
     - Als u een geplande failover hebt uitgevoerd, zijn de machines op de secundaire locatie na de failover beveiligd.
-- Nadat de initiële failover wordt uitgevoerd, wijst u het toe, voor het starten van de toegang tot de werkbelasting van de replica-VM.
-- Wanneer de primaire locatie weer beschikbaar is, kunt u failback uit.
-    - U initiëren omgekeerde replicatie voor het starten van de secundaire site repliceren naar de primaire. Omgekeerde replicatie geeft de virtuele machines een beveiligde status, maar het secundaire datacenter is nog steeds de actieve locatie.
+- Nadat de initiële failover wordt uitgevoerd, wijst u het toe, toegang tot de workload van de replica-VM.
+- Als de primaire locatie weer beschikbaar is, kunt u failover terug.
+    - U starten omgekeerde replicatie, om te beginnen met het repliceren van de secundaire site naar de primaire. Omgekeerde replicatie geeft de virtuele machines een beveiligde status, maar het secundaire datacenter is nog steeds de actieve locatie.
     - Als u de primaire site weer de actieve locatie wilt maken, start u een geplande failover van de secundaire site naar de primaire site, gevolgd door nog een omgekeerde replicatie.
 
 
@@ -58,4 +58,4 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
 ## <a name="next-steps"></a>Volgende stappen
 
 
-Ga als volgt [in deze zelfstudie](hyper-v-vmm-disaster-recovery.md) Hyper-V-replicatie tussen de VMM-clouds in te schakelen.
+Ga als volgt [in deze zelfstudie](hyper-v-vmm-disaster-recovery.md) Hyper-V-replicatie tussen VMM-clouds in te schakelen.

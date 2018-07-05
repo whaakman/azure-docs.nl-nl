@@ -1,6 +1,6 @@
 ---
-title: Archiveren van de Azure Activity Log
-description: Archiveren van uw Azure Activity Log voor lange bewaartermijn in een opslagaccount.
+title: De Azure-activiteitenlogboek archiveren
+description: Archiveer uw activiteitenlogboek van Azure voor langdurige bewaarperioden in een storage-account.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,39 +8,39 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 508b2f615819f20a717065d8fff25beff64957d5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0f3f2347dd277cb155bf5edf3f8c30da34788b65
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263426"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437756"
 ---
-# <a name="archive-the-azure-activity-log"></a>Archiveren van de Azure Activity Log
-In dit artikel, laten we zien hoe u de Azure-portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt bij de archivering van uw [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) in een opslagaccount. Deze optie is handig als u wilt behouden uw activiteitenlogboek van meer dan 90 dagen (met volledige controle over het bewaarbeleid) voor controle, statische analyses of back-up. Als u hoeft alleen uw gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft instellen naar een opslagaccount archivering omdat activiteitenlogboek gebeurtenissen worden behouden in de Azure-platform gedurende 90 dagen zonder in te schakelen archivering.
+# <a name="archive-the-azure-activity-log"></a>De Azure-activiteitenlogboek archiveren
+In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt om te archiveren uw [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) in een storage-account. Deze optie is handig als u wilt behouden het activiteitenlogboek is langer dan 90 dagen (met volledige controle over het bewaarbeleid) voor de controle-, statische analysis- of back-up opgenomen. Als u hoeft alleen de gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft om in te stellen archiveren naar een opslagaccount, omdat gebeurtenissen in activiteitenlogboeken worden bewaard in de Azure-platform voor 90 dagen zonder in te schakelen archivering.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u begint, moet u [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) waarmee u uw activiteitenlogboek kunt archiveren. Het is raadzaam dat u niet een bestaand opslagaccount met andere, niet-bewaking gegevens die zijn opgeslagen in het gebruikt zodat u toegang tot bewakingsgegevens beter kunt beheren. Echter, als u ook van diagnostische logboeken en metrische gegevens naar een opslagaccount archiveren, kan zinvol zijn voor dit opslagaccount voor uw logboek ook gebruiken om alle bewakingsgegevens in een centrale locatie. Het opslagaccount dat u moet een algemeen opslagaccount, niet een blob storage-account. Het opslagaccount heeft geen zich in hetzelfde abonnement als het abonnement dat Logboeken, zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
+Voordat u begint, moet u [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) waarop kunt u uw activiteitenlogboek archiveren. Het is raadzaam dat u gebruik niet een bestaand opslagaccount met andere, niet-bewaking gegevens opgeslagen in het zodat u toegang tot bewakingsgegevens beter kunt beheren. Echter, als u ook diagnostische logboeken en metrische gegevens naar een opslagaccount archiveren weet, het wellicht verstandig dat opslagaccount voor uw activiteitenlogboek ook gebruiken om te houden van alle gegevens op een centrale locatie. Het storage-account heeft geen zich in hetzelfde abonnement bevinden als het abonnement dat Logboeken verzendt, zolang de gebruiker die de instelling configureert de juiste RBAC-toegang voor beide abonnementen heeft.
 
 > [!NOTE]
->  U kan momenteel niet archiveren gegevens naar een opslag-account die achter een beveiligde virtuele netwerk.
+>  U kan momenteel niet archiveren gegevens aan een storage-account die achter een beveiligd virtueel netwerk.
 
-## <a name="log-profile"></a>Logboek-profiel
-Als u wilt archiveren het activiteitenlogboek met behulp van de methoden hieronder, u stelt de **logboek profiel** voor een abonnement. Het logboek-profiel definieert het type gebeurtenissen die zijn opgeslagen of gestreamd en de uitvoer-storage-account en/of event hub. Het definieert ook het bewaarbeleid (aantal dagen wilt bewaren) voor gebeurtenissen die zijn opgeslagen in een opslagaccount. Als het bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor onbepaalde tijd opgeslagen. Dit kan anders worden ingesteld op een waarde tussen 1 en 2147483647. Bewaarbeleid zijn toegepaste per dag, aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode beleid wordt dus verwijderd. Bijvoorbeeld, als u had een bewaarbeleid van één dag, zou aan het begin van vandaag de dag de logboeken van de dag voordat gisteren worden verwijderd. De verwijderbewerking begint bij middernacht UTC, maar let op: duurt maximaal 24 uur voor de logboeken worden verwijderd uit uw storage-account. [U kunt meer lezen over log profielen hier](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
+## <a name="log-profile"></a>Logboekprofiel
+Als u wilt archiveren het activiteitenlogboek via een van de onderstaande methoden, stelt u de **Logboekprofiel** voor een abonnement. Het Logboekprofiel bepaalt het type gebeurtenissen die zijn opgeslagen of gestreamd en de uitvoer-storage-account en/of event hub. Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen die zijn opgeslagen in een storage-account. Als het bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor onbepaalde tijd opgeslagen. Dit kan anders worden ingesteld op een waarde tussen 1 en 2147483647. Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. [U kunt meer lezen over log profielen hier](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
-## <a name="archive-the-activity-log-using-the-portal"></a>Archiveren van het activiteitenlogboek via de portal
-1. Klik in de portal op de **activiteitenlogboek** koppeling op de navigatiebalk aan de linkerkant. Als u een koppeling voor het logboek niet ziet, klikt u op de **alle Services** eerst koppelen.
+## <a name="archive-the-activity-log-using-the-portal"></a>Met behulp van de portal activiteitenlogboek archiveren
+1. Klik in de portal op de **activiteitenlogboek** koppeling op de navigatiebalk aan de linkerkant. Als u een koppeling voor het activiteitenlogboek niet ziet, klikt u op de **alle Services** eerst koppelen.
    
-    ![Ga naar de blade Activity Log](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. Klik boven aan de blade op **exporteren**.
+    ![Navigeer naar de blade met activiteitenlogboek](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
+2. Aan de bovenkant van de blade, klikt u op **exporteren**.
    
     ![Klik op de knop exporteren](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
-3. Schakel het selectievakje voor de blade **exporteren naar een opslagaccount** en selecteer een opslagaccount.
+3. In de blade die wordt weergegeven, schakel het selectievakje voor **exporteren naar een opslagaccount** en selecteer een opslagaccount.
    
-    ![Een opslagaccount instellen](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
-4. De schuifregelaar of in het tekstvak, definieert een aantal dagen waarvoor activiteitenlogboek gebeurtenissen moeten worden opgeslagen in uw opslagaccount. Als u liever uw gegevens op de voor onbepaalde tijd bewaard in de storage-account, dit nummer wordt ingesteld op nul.
+    ![Een storage-account instellen](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
+4. Met behulp van de schuifregelaar of tekstvak, definieert u een aantal dagen (0-365) voor die activiteit logboekgebeurtenissen moeten worden opgeslagen in uw storage-account. Als u liever uw gegevens persistent gemaakt in de storage-account voor onbepaalde tijd, stelt u dit aantal naar nul. Als u moet het nummer van meer dan 365 dagen invoeren, gebruikt u de onderstaande methoden van PowerShell of CLI.
 5. Klik op **Opslaan**.
 
-## <a name="archive-the-activity-log-via-powershell"></a>Het activiteitenlogboek via PowerShell archiveren
+## <a name="archive-the-activity-log-via-powershell"></a>Archiveren van het activiteitenlogboek via PowerShell
 
    ```powershell
    # Settings needed for the new log profile
@@ -59,12 +59,12 @@ Als u wilt archiveren het activiteitenlogboek met behulp van de methoden hierond
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| StorageAccountId |Ja |Resource-ID van het Opslagaccount waarin activiteitenlogboeken moet worden opgeslagen. |
-| Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. U kunt een lijst met alle regio's weergeven voor uw abonnement met `(Get-AzureRmLocation).Location`. |
-| RetentionInDays |Nee |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
-| Categorieën |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen.  Als niet wordt opgegeven, klikt u vervolgens alle mogelijke waarden wordt aangenomen dat |
+| StorageAccountId |Ja |Resource-ID van het Opslagaccount waarin u de activiteitenlogboeken worden opgeslagen. |
+| Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. U vindt een lijst van alle regio's voor uw abonnement met `(Get-AzureRmLocation).Location`. |
+| RetentionInDays |Nee |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
+| Categorieën |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie.  Als niet is opgegeven, klikt u vervolgens alle mogelijke waarden wordt aangenomen dat |
 
-## <a name="archive-the-activity-log-via-cli"></a>Het activiteitenlogboek via CLI archiveren
+## <a name="archive-the-activity-log-via-cli"></a>Archiveren van het activiteitenlogboek via CLI
 
    ```azurecli-interactive
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
@@ -72,31 +72,31 @@ Als u wilt archiveren het activiteitenlogboek met behulp van de methoden hierond
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| naam |Ja |Naam van uw logboek-profiel. |
-| storage-account-id |Ja |Resource-ID van het Opslagaccount waarin activiteitenlogboeken moet worden opgeslagen. |
-| Locaties |Ja |Door spaties gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. U kunt een lijst met alle regio's weergeven voor uw abonnement met `az account list-locations --query [].name`. |
-| dagen |Ja |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. De waarde nul wordt de logboeken voor onbepaalde tijd worden opgeslagen (permanent).  Als nul is, wordt de ingeschakelde parameter moet worden ingesteld op true. |
-|ingeschakeld | Ja |Waar of ONWAAR.  Gebruikt voor het in- of uitschakelen van het bewaarbeleid.  Indien waar, moet de parameter dagen een waarde groter dan 0 zijn.
-| categorieën |Ja |Door spaties gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
+| naam |Ja |Naam van uw logboekprofiel. |
+| storage-account-id |Ja |Resource-ID van het Opslagaccount waarin u de activiteitenlogboeken worden opgeslagen. |
+| locaties |Ja |Spaties gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. U vindt een lijst van alle regio's voor uw abonnement met `az account list-locations --query [].name`. |
+| dagen |Ja |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. De waarde nul worden de logboeken voor onbepaalde tijd opgeslagen (permanent).  Als nul is, klikt u vervolgens de ingeschakelde parameter moet worden ingesteld op true. |
+|ingeschakeld | Ja |Waar of ONWAAR.  Gebruikt voor het in- of uitschakelen van het bewaarbeleid.  Indien waar, moet de parameter dagen een waarde die groter is dan 0 zijn.
+| categorieën |Ja |Spaties gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie. |
 
-## <a name="storage-schema-of-the-activity-log"></a>Opslag-schema van het activiteitenlogboek
-Nadat u hebt ingesteld archivering, wordt een opslagcontainer gemaakt in de storage-account zodra een activiteitenlogboek gebeurtenis plaatsvindt. De blobs in de container Volg dezelfde indeling voor de activiteitenlogboek- en diagnostische logboeken. De structuur van deze BLOB's is:
-
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{abonnements-id}/y={jaar als vier cijfers}/m={maand als twee cijfers}/d={dag als twee cijfers}/h={uur als twee cijfers in 24-uurs notatie}/m=00/PT1H.json
-> 
-> 
-
-Zo mogelijk een blob-naam:
-
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
-> 
-> 
-
-Elke blob PT1H.json bevat een JSON-blob van gebeurtenissen die hebben plaatsgevonden binnen het uur die is opgegeven in de blob-URL (bijvoorbeeld h = 12). Tijdens het huidige uur worden gebeurtenissen toegevoegd aan het bestand PT1H.json wanneer deze zich voordoen. De minuut waarde (m = 00) is altijd 00, omdat het activiteitenlogboek gebeurtenissen worden onderverdeeld in afzonderlijke blobs per uur.
-
-Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix 'records', volgt deze indeling:
+## <a name="storage-schema-of-the-activity-log"></a>Schema van de opslag van het activiteitenlogboek
+Nadat u hebt ingesteld gearchiveerd, wordt een storage-container gemaakt in de storage-account als een gebeurtenis in het activiteitenlogboek. De blobs in de container Volg dezelfde naamconventie voor activiteitenlogboeken en logboeken met diagnostische gegevens, zoals hier wordt geïllustreerd:
 
 ```
+insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+
+Bijvoorbeeld, kan een blobnaam zijn:
+
+```
+insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
+
+Elke PT1H.json-blob bevat een JSON-blob van gebeurtenissen die hebben plaatsgevonden binnen het uur dat is opgegeven in de blob-URL (bijvoorbeeld h = 12). Tijdens het huidige uur worden gebeurtenissen toegevoegd aan het bestand PT1H.json wanneer deze zich voordoen. De minuutwaarde (m = 00) is altijd 00 omdat logboekgebeurtenissen activiteit zijn onderverdeeld in afzonderlijke blobs per uur.
+
+Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix "records", volgen deze indeling:
+
+``` JSON
 {
     "records": [
         {
@@ -153,22 +153,22 @@ Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix 'records
 ```
 
 
-| Elementnaam | Beschrijving |
+| De naam van element | Beschrijving |
 | --- | --- |
-| tijd |Tijdstempel wanneer de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag de gebeurtenis overeenkomt. |
-| resourceId |Bron-ID van de betrokken resource. |
+| tijd |Tijdstip waarop de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag die de gebeurtenis overeenkomt. |
+| resourceId |Resource-ID van de betrokken resource. |
 | operationName |Naam van de bewerking. |
-| category |Categorie van de actie, bijvoorbeeld. Schrijven, lezen, in te grijpen. |
-| resultType |Het type van het resultaat, bijv. Geslaagd, mislukt, Start |
-| resultSignature |Afhankelijk van het brontype. |
+| category |Categorie van de actie, bijvoorbeeld. Schrijven, lezen, actie. |
+| resultType |Het type van het resultaat, bijvoorbeeld. Bewerking is geslaagd, mislukt, Start |
+| resultSignature |Afhankelijk van het resourcetype. |
 | durationMs |Duur van de bewerking in milliseconden |
-| callerIpAddress |IP-adres van de gebruiker die is uitgevoerd. de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid. |
-| correlationId |Meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen die een correlationId share deel uitmaken van dezelfde uber actie. |
+| callerIpAddress |IP-adres van de gebruiker die de bewerking, UPN-claim of op basis van beschikbaarheid SPN-claim heeft uitgevoerd. |
+| correlationId |Meestal een GUID in de indeling van de verbindingsreeks. Gebeurtenissen die delen van een correlationId behoren tot dezelfde uber actie. |
 | identity |JSON-blob met een beschrijving van de autorisatie en claims. |
-| Autorisatie |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk het eigenschappen "action", 'rol' en 'bereik'. |
-| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', 'Ter informatie' en 'Verbose' |
+| Autorisatie |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk de "action", 'rol' en 'bereik'-Eigenschappen. |
+| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', "Ter informatie" en "Uitgebreide" |
 | location |De regio in de locatie is opgetreden (of globale). |
-| properties |Een set `<Key, Value>` paren (dat wil zeggen woordenboek) met een beschrijving van de details van de gebeurtenis. |
+| properties |Instellen van `<Key, Value>` paren (dat wil zeggen woordenboek) met een beschrijving van de details van de gebeurtenis. |
 
 > [!NOTE]
 > De eigenschappen en het gebruik van deze eigenschappen kunnen variëren afhankelijk van de resource.
@@ -176,7 +176,7 @@ Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix 'records
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Blobs voor analyse downloaden](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Stream het activiteitenlogboek naar Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
-* [Lees meer over het activiteitenlogboek](monitoring-overview-activity-logs.md)
+* [Downloaden van blobs voor analyse](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+* [Stream het activiteitenlogboek naar Eventhubs](monitoring-stream-activity-logs-event-hubs.md)
+* [Meer informatie over het activiteitenlogboek](monitoring-overview-activity-logs.md)
 

@@ -1,32 +1,32 @@
 ---
-title: Aanpassing van de taal in Azure Active Directory B2C aangepast beleid | Microsoft Docs
-description: Informatie over het gebruik localize inhoud in aangepaste beleidsregels voor meerdere talen.
+title: Aanpassing van taal in aangepaste beleidsregels voor Azure Active Directory B2C | Microsoft Docs
+description: Meer informatie over het gebruik van inhoud in het aangepaste beleid voor meerdere talen te lokaliseren.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c8deabd4d0a4126365b014875624525d5b1f3063
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6269ac65e5db20521346d5312bcbadd0905c36e2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711753"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440561"
 ---
-# <a name="language-customization-in-custom-policies"></a>Aanpassing van de taal in het aangepaste beleid
+# <a name="language-customization-in-custom-policies"></a>Aanpassing van taal in aangepaste beleidsregels
 
 > [!NOTE]
-> Deze functie is openbare preview.
+> Deze functie is beschikbaar als openbare preview.
 > 
 
-In aangepaste beleidsregels werkt aanpassing van de taal hetzelfde als in de ingebouwde beleid.  Zie de ingebouwde [documentatie](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-language-customization) die het gedrag in hoe een taal is gekozen op basis van de parameters en browserinstellingen beschrijft.
+In aangepaste beleidsregels werkt aanpassing van taal hetzelfde als in de ingebouwde beleidsregels.  Zie de ingebouwde [documentatie](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-language-customization) met de beschrijving van het gedrag in de manier waarop een taal wordt gekozen op basis van de parameters en de browserinstellingen.
 
 ## <a name="enable-supported-languages"></a>Enable ondersteunde talen
-Als ui landinstellingen is niet opgegeven en browser van de gebruiker om een van deze talen vraagt, worden de ondersteunde talen aan de gebruiker weergegeven.  
+Als ui-landinstellingen niet is opgegeven en de browser van de gebruiker wordt gevraagd om een van deze talen, worden de ondersteunde talen voor de gebruiker weergegeven.  
 
 Ondersteunde talen zijn gedefinieerd in `<BuildingBlocks>` in de volgende indeling:
 
@@ -41,19 +41,19 @@ Ondersteunde talen zijn gedefinieerd in `<BuildingBlocks>` in de volgende indeli
 </BuildingBlocks>
 ```
 
-Standaardtaal en ondersteunde talen gedragen zich op dezelfde manier als in de ingebouwde beleid.
+Ondersteunde talen en in welke taal gedragen zich op dezelfde manier als in de ingebouwde beleidsregels.
 
-## <a name="enable-custom-language-strings"></a>Aangepaste taal tekenreeksen inschakelen
+## <a name="enable-custom-language-strings"></a>Tekenreeksen voor aangepaste taal inschakelen
 
-Maken van aangepaste taal tekenreeksen zijn twee stappen vereist:
+Het maken van aangepaste taal tekenreeksen zijn twee stappen vereist:
 1. Bewerk de `<ContentDefinition>` voor de pagina om op te geven van een resource-ID voor de gewenste talen
-2. Maak de `<LocalizedResources>` met overeenkomende id's in uw `<BuildingBlocks>`
+2. Maak de `<LocalizedResources>` met de bijbehorende id's in uw `<BuildingBlocks>`
 
-Houd er rekening mee dat u kunt plaatsen een `<ContentDefinition>` en `<BuildingBlock>` in zowel het extensiebestand of het relying beleidsbestand, afhankelijk van of u wilt dat de wijzigingen in uw Traceringstabellen beleid of niet worden.
+Houd er rekening mee dat u kunt een `<ContentDefinition>` en `<BuildingBlock>` in zowel uw extensiebestand of het bestand met de Relying Party, afhankelijk van of u wilt dat de wijzigingen worden in uw Traceringstabellen beleid of niet.
 
 ### <a name="edit-the-contentdefinition-for-the-page"></a>De ContentDefinition voor de pagina bewerken
 
-Voor elke pagina die u wilt localize, kunt u in de `<ContentDefinition>` welke taalbronnen om te zoeken voor elke taalcode.
+Voor elke pagina die u wilt om te lokaliseren, kunt u de `<ContentDefinition>` welke taal resources om te controleren of voor elke taal.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -64,12 +64,12 @@ Voor elke pagina die u wilt localize, kunt u in de `<ContentDefinition>` welke t
 </ContentDefinition>
 ```
 
-Frans (fr) en aangepaste tekenreeksen voor Engels (en) in dit voorbeeld worden toegevoegd aan de Unified registreren of aanmelden pagina.  De `LocalizedResourcesReferenceId` voor elk `LocalizedResourcesReference` is hetzelfde als de landinstellingen, maar u kunt een willekeurige tekenreeks gebruiken als de ID.  Voor elke combinatie van taal en een pagina die u moet een bijbehorend `<LocalizedResources>` weergegeven in de volgende.
+Frans (fr) en aangepaste tekenreeksen voor Engels (en) in dit voorbeeld worden toegevoegd aan de Unified-pagina voor registreren of aanmelden.  De `LocalizedResourcesReferenceId` voor elk `LocalizedResourcesReference` is hetzelfde als de landinstellingen, maar u kunt een willekeurige tekenreeks als de ID.  Voor elke combinatie van taal en een pagina die u moet een bijbehorend `<LocalizedResources>` weergegeven in de volgende.
 
 
 ### <a name="create-the-localizedresources"></a>De LocalizedResources maken
 
-Uw onderdrukkingen zijn opgenomen in uw `<BuildingBlocks>` en er is een `<LocalizedResources>` voor elke pagina en de taal die u hebt opgegeven in de `<ContentDefinition>` voor elke pagina.  Elke overschrijving is opgegeven als een `<LocalizedString>` zoals in het volgende voorbeeld:
+Uw onderdrukkingen zijn opgenomen in uw `<BuildingBlocks>` en er is een `<LocalizedResources>` voor elke pagina en de taal die u hebt opgegeven in de `<ContentDefinition>` voor elke pagina.  Elke overschrijven is opgegeven als een `<LocalizedString>` zoals in het volgende voorbeeld:
 
 ```XML
 <BuildingBlocks>
@@ -88,8 +88,8 @@ Uw onderdrukkingen zijn opgenomen in uw `<BuildingBlocks>` en er is een `<Locali
 </BuildingBlocks>
 ```
 
-Er zijn vier typen van string-elementen op de pagina:
+Er zijn vier typen tekenreeks elementen op de pagina:
 
-**ClaimsProvider** -Labels voor de id-providers (Facebook, Google, Azure AD enz.) **ClaimType** -Labels voor de kenmerken en de bijbehorende help-tekst of veld validatiefouten **UxElement** - andere elementen op de pagina die er standaard zoals knoppen, koppelingen of tekst string**ErrorMessage** -formulier validatiefoutberichten
+**ClaimsProvider** -Labels voor uw id-providers (Facebook, Google, Azure AD enz.) **ClaimType** -Labels voor de kenmerken en de bijbehorende help-tekst of validatiefouten veld **UxElement** - andere elementen op de pagina die er standaard, zoals knoppen, koppelingen of tekst tekenreeks**ErrorMessage** -formulier validatie-foutberichten
 
-Zorg ervoor dat de `StringId`s overeen voor de pagina die u gebruikt deze overschrijvingen anders is geblokkeerd door een voor Beleidsvalidatie tijdens het uploaden.  
+Zorg ervoor dat de `StringId`s overeenkomen voor de pagina die u gebruikt deze onderdrukkingen anders het wordt geblokkeerd door de Beleidsvalidatie van.  

@@ -1,6 +1,6 @@
 ---
-title: Twitter gegevens analyseren met Hadoop in HDInsight - Azure | Microsoft Docs
-description: Informatie over het gebruik van Hive om gegevens met Hadoop in HDInsight vinden van de frequentie van de informatie over het gebruik van een bepaald woord Twitter te analyseren.
+title: Analyseer Twitter-gegevens met Hadoop in HDInsight - Azure | Microsoft Docs
+description: Informatie over het gebruik van Hive om gegevens van Twitter van Hadoop in HDInsight te vinden van de gebruiksfrequentie van een bepaald woord te analyseren.
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -13,34 +13,34 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35f8937ddef54d407a6e3c83566225ca8ede8bd9
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 6b47e54e56b12a2975c44ab3b87b023d20a769c3
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960124"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436161"
 ---
-# <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Twitter-gegevens met Hive in HDInsight analyseren
-Sociale websites zijn een van de belangrijke drijvende kracht voor big data acceptatie. Openbare API's die worden geleverd door sites zoals Twitter zijn nuttig gegevensbron voor het analyseren en kennis van populaire trends.
-In deze zelfstudie wordt u tweets verkrijgen door middel van een streaming-API Twitter en gebruik vervolgens Apache Hive in Azure HDInsight om een lijst met Twitter-gebruikers die de meeste tweets die deel uitmaakt van een bepaald woord verzonden.
+# <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Twitter-gegevens met behulp van Hive in HDInsight analyseren
+Sociale websites vormen een van de belangrijkste drijvende krachten voor acceptatie van big data. Openbare API's die worden geleverd door sites zoals Twitter zijn een handige bron van de gegevens voor het analyseren en inzicht krijgen in populaire trends.
+In deze zelfstudie wordt u tweets ophalen met behulp van een streaming API Twitter en gebruik vervolgens Apache Hive op Azure HDInsight voor een lijst van Twitter-gebruikers die de meeste tweets die deel uitmaakt van een bepaald woord verzonden.
 
 > [!IMPORTANT]
-> De stappen in dit document moet een HDInsight op basis van Windows-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor specifieke stappen voor een cluster op basis van Linux, [analyseren Twitter-gegevens met Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
+> De stappen in dit document moet een Windows-gebaseerde HDInsight-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor specifieke stappen aan een cluster op basis van Linux, [analyseren van Twitter-gegevens met behulp van Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan:
 
-* **Een werkstation** met Azure PowerShell installeren en configureren.
+* **Een werkstation** met Azure PowerShell is geïnstalleerd en geconfigureerd.
 
-    Voor het uitvoeren van Windows PowerShell-scripts, moet u Azure PowerShell als administrator uitvoeren en het uitvoeringsbeleid instellen op *RemoteSigned*. Zie [Run Windows PowerShell-scripts][powershell-script].
+    Voor het uitvoeren van Windows PowerShell-scripts, moet u Azure PowerShell als administrator uitvoeren en het uitvoeringsbeleid ingesteld op *RemoteSigned*. Zie [uitgevoerd Windows PowerShell-scripts][powershell-script].
 
-    Voordat u Windows PowerShell-scripts uitvoert, zorg ervoor dat u bent verbonden met uw Azure-abonnement met behulp van de volgende cmdlet:
+    Voordat u Windows PowerShell-scripts uitvoert, moet dat u zijn verbonden met uw Azure-abonnement met behulp van de volgende cmdlet:
 
     ```powershell
     Connect-AzureRmAccount
     ```
 
-    Als u meerdere Azure-abonnementen hebt, gebruikt u de volgende cmdlet instellen van het huidige abonnement:
+    Als u meerdere Azure-abonnementen hebt, gebruikt u de volgende cmdlet om in te stellen van het huidige abonnement:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
@@ -51,34 +51,34 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
     >
     > Volg de stappen in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Azure PowerShell installeren en configureren) als u de nieuwste versie van Azure PowerShell wilt installeren. Als u scripts hebt die moeten worden gewijzigd om ze te kunnen gebruiken met de nieuwe cmdlets die werken met Azure Resource Manager, raadpleegt u [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migreren naar op Azure Resource Manager gebaseerde hulpprogramma’s voor HDInsight-clusters) voor meer informatie.
 
-* **Een Azure HDInsight-cluster**. Zie voor instructies over het inrichten van het cluster [aan de slag met HDInsight] [ hdinsight-get-started] of [HDInsight-clusters inrichten][hdinsight-provision]. Naam van het cluster moet u later in de zelfstudie.
+* **Een Azure HDInsight-cluster**. Zie voor instructies over het inrichten van het cluster, [aan de slag met HDInsight] [ hdinsight-get-started] of [inrichten HDInsight-clusters][hdinsight-provision]. Naam van het cluster moet u later in de zelfstudie.
 
-De volgende tabel bevat de bestanden in deze zelfstudie gebruikt:
+De volgende tabel bevat de bestanden die in deze zelfstudie worden gebruikt:
 
 | Bestanden | Beschrijving |
 | --- | --- |
 | /tutorials/Twitter/Data/tweets.txt |De brongegevens voor de Hive-taak. |
-| /tutorials/Twitter/output |De uitvoermap voor het Hive-taak. Het Hive-taak uitvoer standaardbestandsnaam is **000000_0**. |
-| tutorials/Twitter/Twitter.hql |Het scriptbestand HiveQL. |
+| /tutorials/Twitter/output |De map voor uitvoer voor de Hive-taak. Standaard Hive-Taaknaam van het uitvoerbestand is **000000_0**. |
+| tutorials/Twitter/Twitter.hql |Het HiveQL-script-bestand. |
 | /tutorials/Twitter/JobStatus |De status van de Hadoop-taak. |
 
-## <a name="get-twitter-feed"></a>Get Twitter-feeds
-In deze zelfstudie gebruikt u de [Twitter streaming-API's][twitter-streaming-api]. De specifieke Twitter streaming-API die u wilt gebruiken is [statussen-/ filter][twitter-statuses-filter].
+## <a name="get-twitter-feed"></a>Get Twitter-feed
+In deze zelfstudie gebruikt u de [Twitter-streaming-API's][twitter-streaming-api]. De specifieke Twitter streaming-API die u wilt gebruiken is [statussen/filter][twitter-statuses-filter].
 
 > [!NOTE]
-> Een bestand met 10.000 tweets en het Hive-scriptbestand (behandeld in de volgende sectie) zijn geüpload in een openbare Blob-container. Als u wilt de geüploade bestanden gebruiken, kunt u deze sectie overslaan.
+> Een bestand met 10.000 tweets en het Hive-scriptbestand (behandeld in de volgende sectie) zijn in een openbare blobcontainer geüpload. Als u wilt de geüploade bestanden gebruiken, kunt u deze sectie overslaan.
 
-Tweets gegevens worden opgeslagen in de notatie JSON (JavaScript Object)-indeling die een complexe geneste structuur bevat. In plaats van een groot aantal regels code schrijven met behulp van een conventionele programmeertaal, kunt u deze geneste structuur in een Hive-tabel transformeren zodat deze kan worden doorzocht door een Structured Query Language (SQL)-taal genaamd HiveQL, zoals.
+Tweets gegevens worden opgeslagen in het JavaScript Object Notation (JSON)-indeling die een complexe geneste structuur bevat. In plaats van een groot aantal regels code schrijven met behulp van een traditionele programmeertaal, kunt u deze geneste structuur in een Hive-tabel transformeren zodat deze kan worden opgevraagd met een Structured Query Language (SQL)-achtige taal genaamd HiveQL.
 
-Twitter maakt gebruik van OAuth voor geautoriseerde toegang tot de API. OAuth is een authenticatieprotocol dat Hiermee gebruikers toepassingen kunnen te handelen namens hen zonder het delen van hun wachtwoord goedkeuren. Meer informatie kunt vinden op [oauth.net](http://oauth.net/) of in de uitstekende [basisinformatie over OAuth](http://hueniverse.com/oauth/) van Hueniverse.
+Twitter maakt gebruik van OAuth voor geautoriseerde toegang tot de API. OAuth is een authenticatieprotocol waarmee gebruikers om goed te keuren toepassingen om te handelen namens hen zonder het delen van hun wachtwoord. Meer informatie kunt vinden op [oauth.net](http://oauth.net/) of in de uitstekende [tot OAuth Zoekmachineoptimalisatie](http://hueniverse.com/oauth/) van Hueniverse.
 
-De eerste stap bij het gebruik van OAuth is een nieuwe toepassing maken op de site Developer Twitter.
+De eerste stap voor het gebruik van OAuth is het maken van een nieuwe toepassing op de Twitter-Developer-site.
 
 **Een Twitter-toepassing maken**
 
-1. Aanmelden bij [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klik op de **nu aanmelden** koppelen als u een Twitter-account niet hebt.
+1. Aanmelden bij [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klik op de **Meld u nu** koppelen als u geen een Twitter-account.
 2. Klik op **nieuwe App maken**.
-3. Voer **naam**, **beschrijving**, **Website**. U kunt maken van een URL op voor de **Website** veld. De volgende tabel ziet u enkele voorbeeldwaarden te gebruiken:
+3. Voer **naam**, **beschrijving**, **Website**. U kunt maken van een URL voor de **Website** veld. De volgende tabel ziet u enkele voorbeeldwaarden gebruiken:
 
    | Veld | Waarde |
    | --- | --- |
@@ -87,20 +87,20 @@ De eerste stap bij het gebruik van OAuth is een nieuwe toepassing maken op de si
    |  Website |http://www.myhdinsightapp.com |
 4. Controleer **Ja, ik ga akkoord**, en klik vervolgens op **uw Twitter-toepassing maken**.
 5. Klik op de **machtigingen** tabblad. Standaard de machtiging is **alleen-lezen**. Dit is voldoende voor deze zelfstudie.
-6. Klik op de **sleutels en toegangstokens** tabblad.
+6. Klik op de **Keys and Access Tokens** tabblad.
 7. Klik op **maken van mijn toegangstoken**.
 8. Klik op **Test OAuth** in de rechterbovenhoek van de pagina.
-9. Noteer **consumentsleutel**, **consumentgeheim**, **toegangstoken**, en **Access token geheim**. Verderop in de zelfstudie moet u de waarden.
+9. Noteer **consumer key**, **Consumer secret**, **toegangstoken**, en **Access token secret**. U moet de waarden later in de zelfstudie.
 
-In deze zelfstudie kunt u Windows PowerShell gebruiken om de webservice aanroepen. Het populaire hulpprogramma web service aanroepen is [ *Curl*][curl]. CURL kan worden gedownload vanaf [hier][curl-download].
+In deze zelfstudie, kunt u Windows PowerShell gebruiken om de webservice aanroepen. De andere populair hulpprogramma voor web serviceaanroepen is [ *Curl*][curl]. CURL kan worden gedownload vanaf [hier][curl-download].
 
 > [!NOTE]
-> Als u de curl-opdracht in Windows gebruikt, kunt u dubbele aanhalingstekens in plaats van enkele aanhalingstekens voor de optiewaarden.
+> Wanneer u de opdracht curl in Windows, gebruik dubbele aanhalingstekens in plaats van enkele aanhalingstekens voor de optiewaarden.
 
 **Tweets ophalen**
 
-1. Open Windows PowerShell Integrated Scripting Environment (ISE). (Typ op het Windows 8 startscherm **PowerShell_ISE** en klik vervolgens op **Windows PowerShell ISE**. Zie [Start Windows PowerShell in Windows 8 en Windows][powershell-start].)
-2. Het volgende script kopiëren naar het deelvenster script:
+1. Open de Windows PowerShell Integrated Scripting Environment (ISE). (Typ op het scherm Start van Windows 8 **PowerShell_ISE** en klik vervolgens op **Windows PowerShell ISE**. Zie [Start Windows PowerShell in Windows 8 en Windows](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
+2. Kopieer het volgende script in het scriptvenster:
 
     ```powershell
     #region - variables and constants
@@ -232,40 +232,40 @@ In deze zelfstudie kunt u Windows PowerShell gebruiken om de webservice aanroepe
 
     Variabele|Beschrijving
     ---|---
-    $clusterName|Dit is de naam van het HDInsight-cluster waar u de toepassing uitvoeren.
-    $oauth_consumer_key|Dit is de toepassing Twitter **consumentsleutel** u opgeschreven eerder wanneer u de Twitter-toepassing gemaakt.
-    $oauth_consumer_secret|Dit is de toepassing Twitter **consumentgeheim** u eerder hebt genoteerd.
-    $oauth_token|Dit is de toepassing Twitter **toegangstoken** u eerder hebt genoteerd.
-    $oauth_token_secret|Dit is de toepassing Twitter **access token geheim** u eerder hebt genoteerd.
-    $destBlobName|Dit is de uitvoer-blob-naam. De standaardwaarde is **tutorials/twitter/data/tweets.txt**. Als u de standaardwaarde wijzigt, moet u de Windows PowerShell-scripts worden dienovereenkomstig bijgewerkt.
-    $trackString|De webservice wordt tweets die betrekking hebben op deze trefwoorden geretourneerd. De standaardwaarde is **Azure, Cloud, HDInsight**. Als u de standaardwaarde wijzigt, wordt u de Windows PowerShell-scripts dienovereenkomstig bijgewerkt.
-    $lineMax|De waarde bepaalt hoeveel tweets het script wordt gelezen. Het duurt ongeveer drie minuten 100 tweets lezen. U kunt een groter aantal instellen, maar duurt het meer tijd om te downloaden.
+    $clusterName|Dit is de naam van het HDInsight-cluster waar u de toepassing uit te voeren.
+    $oauth_consumer_key|Dit is de Twitter-toepassing **consumer key** u opgeschreven eerder tijdens het maken van de Twitter-toepassing.
+    $oauth_consumer_secret|Dit is de Twitter-toepassing **consumer secret** u eerder hebt genoteerd.
+    $oauth_token|Dit is de Twitter-toepassing **toegangstoken** u eerder hebt genoteerd.
+    $oauth_token_secret|Dit is de Twitter-toepassing **access token secret** u eerder hebt genoteerd.
+    $destBlobName|Dit is de naam van de uitvoer-blob. De standaardwaarde is **tutorials/twitter/data/tweets.txt**. Als u de standaardwaarde wijzigt, moet u de Windows PowerShell-scripts dienovereenkomstig bijwerken.
+    $trackString|De webservice wordt tweets die betrekking hebben op deze trefwoorden geretourneerd. De standaardwaarde is **HDInsight van Azure, Cloud,**. Als u de standaardwaarde wijzigt, wordt u de Windows PowerShell-scripts dienovereenkomstig bijgewerkt.
+    $lineMax|De waarde bepaalt hoeveel tweets die het script wordt gelezen. Het duurt ongeveer drie minuten 100 tweets lezen. U kunt een groter aantal instellen, maar het duurt meer tijd om te downloaden.
 
-1. Druk op **F5** om het script uit te voeren. Als u problemen als tijdelijke oplossing ondervindt alle regels selecteren en druk vervolgens op **F8**.
-2. U ziet 'Voltooi!' aan het einde van de uitvoer. Eventuele foutberichten wordt rood weergegeven.
+1. Druk op **F5** om het script uit te voeren. Als u problemen als tijdelijke oplossing ondervindt, selecteert u alle regels en druk vervolgens op **F8**.
+2. U ziet 'Volledig'! aan het einde van de uitvoer. Eventuele foutberichten wordt rood weergegeven.
 
-U kunt het uitvoerbestand controleren als de validatieprocedure **/tutorials/twitter/data/tweets.txt**, op de Azure Blob-opslag met behulp van een Azure storage explorer of Azure PowerShell. Zie voor een Windows PowerShell-voorbeeldscript voor het weergeven van bestanden, [gebruik Blob storage met HDInsight][hdinsight-storage-powershell].
+Als een validatieprocedure, kunt u het uitvoerbestand controleren **/tutorials/twitter/data/tweets.txt**, op de Azure Blob-opslag met behulp van een Azure storage explorer- of Azure PowerShell. Zie voor een Windows PowerShell-voorbeeldscript voor het weergeven van bestanden, [Blob storage gebruiken met HDInsight][hdinsight-storage-powershell].
 
 ## <a name="create-hiveql-script"></a>HiveQL-script maken
-Met Azure PowerShell, kunt u meerdere HiveQL-instructies een tegelijk uitvoeren of de instructie van HiveQL in een scriptbestand van het pakket. In deze zelfstudie maakt u een HiveQL-script. Het scriptbestand moet worden geüpload naar Azure Blob-opslag. In de volgende sectie stelt uitvoeren u het scriptbestand met behulp van Azure PowerShell.
+Met Azure PowerShell, kunt u meerdere HiveQL-instructies een tegelijk uitgevoerd, of pakket met de instructie HiveQL in een scriptbestand. In deze zelfstudie maakt u een HiveQL-script uit. Het scriptbestand moet worden geüpload naar Azure Blob storage. In de volgende sectie, wordt u het scriptbestand uitvoeren met behulp van Azure PowerShell.
 
 > [!NOTE]
-> Het Hive-scriptbestand en een bestand met 10.000 tweets zijn geüpload in een openbare Blob-container. Als u wilt de geüploade bestanden gebruiken, kunt u deze sectie overslaan.
+> Het Hive-scriptbestand en een bestand met 10.000 tweets zijn in een openbare blobcontainer geüpload. Als u wilt de geüploade bestanden gebruiken, kunt u deze sectie overslaan.
 
 Het HiveQL-script wordt het volgende doen:
 
-1. **Verwijderen van de tabel tweets_raw** als de tabel al bestaat.
-2. **De tweets_raw Hive-tabel maken**. Deze tijdelijke gestructureerde Hive-tabel bevat de gegevens voor verdere uitpakken, transformeren en laden (ETL) verwerking. Zie voor informatie over partities, [Hive-zelfstudie][apache-hive-tutorial].
-3. **Gegevens laden** van de bronmap, /tutorials/twitter/data. De gegevensset grote tweets in geneste JSON-indeling heeft nu is omgezet in de structuur van een tijdelijke Hive-tabel.
-4. **Verwijderen van de tabel tweets** als de tabel al bestaat.
-5. **Maken van de tabel tweets**. Voordat u kunt een query op basis van de gegevensset tweets met Hive, moet u een ander ETL-proces worden uitgevoerd. Dit proces ETL definieert een meer gedetailleerde tabelschema voor de gegevens die u hebt opgeslagen in de tabel 'twitter_raw'.
-6. **Overschrijven tabel invoegen**. Dit complexe Hive-script wordt een reeks lang MapReduce-taken starten door het Hadoop-cluster. Dit kan ongeveer 10 minuten duren, afhankelijk van uw gegevensset en de grootte van het cluster.
-7. **INSERT map overschrijven**. Een query uitvoert en de uitvoer van de gegevensset naar een bestand. Deze query retourneert een lijst met Twitter gebruikers afzender meeste tweets of het woord 'Azure'.
+1. **De tabel tweets_raw** in het geval de tabel al bestaat.
+2. **Maken van de Hive-tabel tweets_raw**. Deze tijdelijke gestructureerde Hive-tabel bevat de gegevens voor verdere extraheren, transformeren en laden (ETL) verwerken. Zie voor informatie over partities, [Hive zelfstudie][apache-hive-tutorial].
+3. **Gegevens laden** van de bronmap, /tutorials/twitter/data. De gegevensset grote tweets in geneste JSON-indeling heeft nu zijn omgezet in de structuur van een tijdelijke Hive-tabel.
+4. **Verwijdert u de tweets-tabel** in het geval de tabel al bestaat.
+5. **De tweets-tabel maken**. Voordat u kunt een query op basis van de gegevensset tweets met behulp van Hive, moet u een ander ETL-proces uitvoeren. Deze ETL-proces definieert een meer gedetailleerde tabelschema voor de gegevens die u hebt opgeslagen in de tabel 'twitter_raw'.
+6. **Overschrijven tabel invoegen**. Deze complexe Hive-script wordt een set lang MapReduce-taken gestart door de Hadoop-cluster. Dit kan ongeveer 10 minuten duren, afhankelijk van uw gegevensset en de grootte van uw cluster.
+7. **INSERT map overschrijven**. Een query uitvoert en de uitvoer van de gegevensset naar een bestand. Deze query retourneert een lijst met Twitter-gebruikers die de meeste tweets die het woord 'Azure'.
 
 **Een Hive-script maken en uploaden naar Azure**
 
 1. Open Windows PowerShell ISE.
-2. Het volgende script kopiëren naar het deelvenster script:
+2. Kopieer het volgende script in het scriptvenster:
 
     ```powershell
     #region - variables and constants
@@ -437,28 +437,28 @@ Het HiveQL-script wordt het volgende doen:
     Write-Host "Completed!" -ForegroundColor Green
     ```
 
-3. Stel de eerste twee variabelen in het script:
+3. Hiermee stelt u de eerste twee variabelen in het script:
 
    | Variabele | Beschrijving |
    | --- | --- |
-   |  $clusterName |Voer de naam van het HDInsight-cluster waar u de toepassing uitvoeren. |
+   |  $clusterName |Voer de naam van het HDInsight-cluster waar u de toepassing uit te voeren. |
    |  $subscriptionID |Voer uw Azure-abonnement-ID. |
-   |  $sourceDataPath |De Azure Blob storage locatie waar u het Hive-query's de gegevens van leest. U hoeft niet te wijzigen van deze variabele. |
-   |  $outputPath |De Azure Blob storage locatie waar de Hive-query wordt de resultaten. U hoeft niet te wijzigen van deze variabele. |
-   |  $hqlScriptFile |De locatie en de bestandsnaam van het scriptbestand HiveQL. U hoeft niet te wijzigen van deze variabele. |
-4. Druk op **F5** om het script uit te voeren. Als u problemen als tijdelijke oplossing ondervindt alle regels selecteren en druk vervolgens op **F8**.
-5. U ziet 'Voltooi!' aan het einde van de uitvoer. Eventuele foutberichten wordt rood weergegeven.
+   |  $sourceDataPath |De Azure Blob storage locatie waar de Hive-query's de gegevens leest. U hoeft niet te wijzigen van deze variabele. |
+   |  $outputPath |De Azure Blob storage locatie waar de Hive-query's worden de resultaten. U hoeft niet te wijzigen van deze variabele. |
+   |  $hqlScriptFile |De locatie en de bestandsnaam van het bestand HiveQL-script. U hoeft niet te wijzigen van deze variabele. |
+4. Druk op **F5** om het script uit te voeren. Als u problemen als tijdelijke oplossing ondervindt, selecteert u alle regels en druk vervolgens op **F8**.
+5. U ziet 'Volledig'! aan het einde van de uitvoer. Eventuele foutberichten wordt rood weergegeven.
 
-U kunt het uitvoerbestand controleren als de validatieprocedure **/tutorials/twitter/twitter.hql**, op de Azure Blob-opslag met behulp van een Azure storage explorer of Azure PowerShell. Zie voor een Windows PowerShell-voorbeeldscript voor het weergeven van bestanden, [gebruik Blob storage met HDInsight][hdinsight-storage-powershell].
+Als een validatieprocedure, kunt u het uitvoerbestand controleren **/tutorials/twitter/twitter.hql**, op de Azure Blob-opslag met behulp van een Azure storage explorer- of Azure PowerShell. Zie voor een Windows PowerShell-voorbeeldscript voor het weergeven van bestanden, [Blob storage gebruiken met HDInsight][hdinsight-storage-powershell].
 
 ## <a name="process-twitter-data-by-using-hive"></a>Twitter-gegevens verwerken met behulp van Hive
-U hebt al het werk voorbereiding. U kunt nu het Hive-script aanroepen en de resultaten controleren.
+U hebt al de voorbereiding van het werk. U kunt nu het Hive-script aanroepen en de resultaten controleren.
 
-### <a name="submit-a-hive-job"></a>Verzenden van een Hive-taak
-Gebruik de volgende Windows PowerShell-script de Hive-script uit te voeren. U moet de eerste variabele ingesteld.
+### <a name="submit-a-hive-job"></a>Een Hive-taak verzenden
+Gebruik de volgende Windows PowerShell-script om uit te voeren van het Hive-script. U moet de eerste variabele instellen.
 
 > [!NOTE]
-> Instellen als u de tweets en het HiveQL-script dat u hebt geüpload in de laatste twee secties, $hqlScriptFile op ' / tutorials/twitter/twitter.hql '. Ingesteld voor het gebruik van de waarden die voor u zijn geüpload naar een openbare blob $hqlScriptFile op 'wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql'.
+> Instellen als u de tweets en het HiveQL-script dat u hebt geüpload in de laatste twee secties, $hqlScriptFile op ' / tutorials/twitter/twitter.hql '. Instellen als u wilt gebruiken die voor u zijn geüpload naar een openbare blob, $hqlScriptFile op 'wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql'.
 
 ```powershell
 #region variables and constants
@@ -497,7 +497,7 @@ Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -DefaultCo
 ```
 
 ### <a name="check-the-results"></a>De resultaten controleren
-De volgende Windows PowerShell-script gebruiken om te controleren van de uitvoer van de Hive-taak. U moet de eerste twee variabelen worden ingesteld.
+Gebruik de volgende Windows PowerShell-script om te controleren of de uitvoer van Hive-taak. U moet de eerste twee variabelen worden ingesteld.
 
 ```powershell
 #region variables and constants
@@ -534,15 +534,15 @@ Write-Host "==================================" -ForegroundColor Green
 ```
 
 > [!NOTE]
-> De Hive-tabel gebruikt \001 als het veldscheidingsteken. Het scheidingsteken is niet zichtbaar in de uitvoer.
+> De Hive-tabel gebruikt \001 als het scheidingsteken. Het scheidingsteken wordt niet weergegeven in de uitvoer.
 
-Nadat de resultaten van de analyse in Azure Blob-opslag zijn geplaatst, kunt u de gegevens exporteren naar een Azure SQL database/SQL-server, de gegevens exporteren naar Excel via Power Query of verbinding maken met uw toepassing uit om de gegevens met behulp van het Hive ODBC-stuurprogramma. Zie voor meer informatie [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop], [vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-delay-data], [ Excel verbinden met HDInsight met Power Query][hdinsight-power-query], en [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma][hdinsight-hive-odbc].
+Nadat de resultaten van de analyse in Azure Blob-opslag zijn geplaatst, kunt u de gegevens exporteren naar een Azure SQL database/SQL-server, de gegevens exporteren naar Excel met Power Query of verbinding maken met uw toepassing in de gegevens met behulp van het Hive ODBC-stuurprogramma. Zie voor meer informatie, [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop], [analyseren van gegevens van vertragingen van vluchten met behulp van HDInsight][hdinsight-analyze-flight-delay-data], [ Excel verbinden met HDInsight met Power Query][hdinsight-power-query], en [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma][hdinsight-hive-odbc].
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebben we gezien hoe u een niet-gestructureerde JSON-gegevensset transformeren naar een gestructureerde Hive-tabel om te zoeken, verkennen en analyseren van gegevens van Twitter met behulp van HDInsight op Azure. Voor meer informatie zie:
+In deze zelfstudie hebben we gezien hoe u een niet-gestructureerde JSON-gegevensset omzetten in een gestructureerde Hive-tabel om te zoeken, verkennen en analyseren van gegevens van Twitter met behulp van HDInsight op Azure. Voor meer informatie zie:
 
 * [Aan de slag met HDInsight][hdinsight-get-started]
-* [Vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-delay-data]
+* [HDInsight met gegevens van vertragingen van vluchten analyseren][hdinsight-analyze-flight-delay-data]
 * [Excel verbinden met HDInsight met Power Query][hdinsight-power-query]
 * [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma][hdinsight-hive-odbc]
 * [Sqoop gebruiken met Hadoop][hdinsight-use-sqoop]

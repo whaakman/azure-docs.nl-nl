@@ -1,48 +1,48 @@
 ---
-title: Meervoudige verificatie vereisen | Microsoft Docs
-description: Ontdek hoe meervoudige authenticatie (MFA) voor bevoegde identiteiten met de extensie Azure Active Directory Privileged Identity Management.
+title: Hoe u multi-factor authentication vereist | Microsoft Docs
+description: Leer hoe u multi-factor authentication (MFA) vereist voor bevoegde identiteiten met de extensie van Azure Active Directory Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d0a9abc145a4d108e48bc81cbb6a849c62e5862b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 727147673a527f2c28c9ca01ad17b30db292b6c0
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234009"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447214"
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>MFA in Azure AD Privileged Identity Management vereisen
-Het is raadzaam dat u multi-factor authentication (MFA) voor al uw beheerders vereist. Dit vermindert het risico van een aanval als gevolg van een wachtwoord waarmee is geknoeid.
+Het is raadzaam dat u multi-factor authentication (MFA) voor al uw beheerders vereisen. Dit vermindert het risico van een aanval vanwege een wachtwoord is verdacht.
 
-U kunt vereisen dat gebruikers een challenge MFA voltooid wanneer ze zich aanmelden. Het blogbericht [MFA voor Office 365 en MFA voor Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) vergelijkt wat is opgenomen in de Office- en Azure-abonnementen, met de functies die zijn opgenomen in de Microsoft Azure multi-factor Authentication-aanbieding.
+U kunt vereisen dat gebruikers een MFA-controle voltooien wanneer ze zich aanmelden. Het blogbericht: [MFA voor Office 365 en MFA voor Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) vergeleken wat is opgenomen in Office en Azure-abonnementen, met de functies die deel uitmaken van de aanbieding voor Microsoft Azure multi-factor Authentication.
 
-U kunt ook vereisen dat gebruikers een challenge MFA voltooien bij het activeren van een rol in Azure AD PIM. Op deze manier als de gebruiker kan een challenge MFA niet hebt voltooid wanneer ze zich aangemeld, wordt ze gevraagd om dit te doen door PIM.
+U kunt ook vereisen dat gebruikers een MFA-controle voltooien wanneer ze een rol in Azure AD PIM kunt activeren. Op deze manier als de gebruiker is niet een MFA-controle uitvoeren wanneer zij is aangemeld, wordt ze gevraagd om dit te doen door PIM.
 
-## <a name="requiring-mfa-in-azure-ad-privileged-identity-management"></a>Het vereisen van MFA in Azure AD Privileged Identity Management
-Bij het beheren van identiteiten in PIM als een beheerder met bevoorrechte rol, ziet u waarschuwingen die u kunt het beste MFA voor bevoegde accounts. Klik op de beveiligingswaarschuwing in het dashboard PIM en een nieuwe blade geopend met een lijst met de administratoraccounts die MFA te vereisen.  U kunt MFA vereisen door meerdere rollen selecteren en vervolgens te klikken op de **los** knop, of u kunt op de weglatingstekens naast afzonderlijke rollen en klik op de **los** knop.
+## <a name="requiring-mfa-in-azure-ad-privileged-identity-management"></a>Vereisen dat MFA in Azure AD Privileged Identity Management
+Bij het beheren van identiteiten in PIM als een beheerder met bevoorrechte rol, ziet u mogelijk waarschuwingen dat MFA voor bevoegde accounts aanbeveelt. Klik op de beveiligingswaarschuwing in het dashboard PIM en er wordt een nieuwe blade geopend met een lijst van de administrator-accounts waarvoor MFA moet.  U kunt MFA vereisen door meerdere rollen selecteren en vervolgens te klikken op de **oplossen** knop, of u kunt op het beletselteken naast de afzonderlijke rollen en klik op de **oplossen** knop.
 
 > [!IMPORTANT]
-> Rechtermuisknop nu werkt alleen voor Azure MFA met werk of schoolaccounts, geen Microsoft-accounts (meestal een persoonlijk account die wordt gebruikt om aan te melden bij Microsoft-services zoals Skype, Xbox, Outlook.com, enz.). Daarom kan iedereen met een Microsoft-account een in aanmerking komende beheerder niet omdat ze MFA niet gebruiken voor het activeren van hun rollen. Als deze gebruikers om door te gaan met het beheren van werkbelastingen met een Microsoft-account nodig hebt, worden de bevoegdheden ze voor permanente beheerders nu.
+> Rechts nu werkt alleen voor Azure MFA met werk- of schoolaccounts, geen Microsoft-accounts (meestal een persoonlijk account dat wordt gebruikt voor het aanmelden bij Microsoft-services zoals Skype, Xbox, Outlook.com, enz.). Als gevolg hiervan kan iedereen met een Microsoft-account een in aanmerking komende beheerder niet omdat ze niet MFA gebruiken om te activeren van hun rollen. Als deze gebruikers gaan met het beheren van werkbelastingen met behulp van een Microsoft-account wilt, uitbreiden u ze naar de permanente beheerders nu.
 > 
 > 
 
-Bovendien kunt u de MFA-vereiste voor een specifieke rol door erop te klikken in het gedeelte van de functies van de PIM-dashboard. Klik vervolgens op **instellingen** in de rolblade en klikt u vervolgens selecteren **inschakelen** onder multi-factor authentication-server.
+Bovendien kunt u de MFA-vereiste voor een specifieke rol door erop te klikken in de sectie rollen van de PIM-dashboard. Klik vervolgens op **instellingen** in de rolblade en vervolgens **inschakelen** onder multi-factor authentication.
 
 ## <a name="how-azure-ad-pim-validates-mfa"></a>Hoe Azure AD PIM wordt gevalideerd met MFA
-Er zijn twee opties voor het valideren van MFA wanneer een gebruiker een rol activeren.
+Er zijn twee opties voor het valideren van MFA wanneer een gebruiker een rol activeert.
 
-De eenvoudigste optie is te vertrouwen op de Azure MFA voor gebruikers die een bevoorrechte rol wilt activeren. U doet dit door Controleer eerst of die gebruikers in licentie gegeven zijn, indien nodig, en hebt geregistreerd voor Azure MFA. Meer informatie over hoe u dit doet zich in [aan de slag met Azure multi-factor Authentication in de cloud](authentication/howto-mfa-getstarted.md). Het wordt aanbevolen, maar niet vereist, dat u Azure AD MFA afdwingen voor deze gebruikers wanneer ze zich aanmelden als u wilt configureren. Dit is omdat de MFA-controles worden uitgevoerd per Azure AD PIM zelf.
+De eenvoudigste optie is om zijn afhankelijk van de Azure MFA voor gebruikers die een bevoorrechte rol wilt activeren. U doet dit door Controleer eerst of die gebruikers zijn gelicentieerd, indien nodig, en voor Azure MFA hebt geregistreerd. Meer informatie over hoe u dit doet, wordt [aan de slag met Azure multi-factor Authentication in de cloud](authentication/howto-mfa-getstarted.md). Het wordt aanbevolen, maar niet vereist dat u Azure AD configureren voor meervoudige verificatie afdwingen voor deze gebruikers wanneer ze zich aanmelden. Dit is omdat de MFA-controles zullen worden gemaakt door Azure AD PIM zelf.
 
-Als gebruikers lokale verificatie kunt u ook hebt id-provider is verantwoordelijk voor MFA. Bijvoorbeeld, als u AD Federation Services om te vereisen verificatie op basis van een smartcard voor de toegang tot Azure AD hebt geconfigureerd [cloudresources beveiligen met Azure multi-factor Authentication en AD FS](authentication/howto-mfa-adfs.md) bevat instructies voor het configureren van AD FS verzendt u claims die naar Azure AD. Wanneer een gebruiker probeert een rol wilt activeren, accepteert Azure AD PIM dat MFA is al gevalideerd voor de gebruiker wanneer deze de juiste claims ontvangt.
+Als gebruikers on-premises verificatie kunt u ook uw id-provider die verantwoordelijk zijn voor MFA hebt. Bijvoorbeeld, als u AD Federation Services om te vereisen dat verificatie op basis van een smartcard voordat u toegang tot Azure AD hebt geconfigureerd [cloudresources beveiligen met Azure multi-factor Authentication en AD FS](authentication/howto-mfa-adfs.md) bevat instructies voor het configureren van AD FS voor het verzenden van claims voor Azure AD. Wanneer een gebruiker probeert om een rol te activeren, moet u Azure AD PIM accepteert dat MFA is al gevalideerd voor de gebruiker zodra deze de juiste claims ontvangt.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,52 +1,52 @@
 ---
-title: REST-API-claims kunnen worden uitgewisseld als validatie in Azure Active Directory B2C | Microsoft Docs
+title: REST-API claims worden uitgewisseld als validatie in Azure Active Directory B2C | Microsoft Docs
 description: Een onderwerp op Azure Active Directory B2C aangepast beleid.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2c8b676ffff0f95a0966bfe18ce171de888265b9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b4fda38834782be502e2581b7b3d1097000b07bb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709169"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440660"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Overzicht: Uitwisseling van claims REST-API in uw Azure AD B2C gebruiker reis integreren als validatie op invoer van gebruiker
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Walkthrough: Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie op invoer van de gebruiker
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-De identiteit ervaring Framework (IEF) waarop Azure Active Directory B2C (Azure AD B2C) kunt u de ontwikkelaar van de identiteit voor het integreren van een interactie met een RESTful-API in het traject van een gebruiker.  
+De identiteit ervaring Framework (IEF) waarop Azure Active Directory B2C (Azure AD B2C) kunnen de identiteitsontwikkelaar een interactie met een RESTful-API in een gebruikersbeleving integreren.  
 
-Aan het einde van dit scenario kunt u zich kunt maken van een Azure AD B2C gebruiker reis die communiceert met RESTful-services.
+Aan het einde van dit scenario zich kunt u kunt maken van een Azure AD B2C-gebruikersbeleving die communiceert met de RESTful-services.
 
 De IEF gegevens in de claims gegevens verzendt en ontvangt in claims. De interactie met de API:
 
-- Kan worden ontworpen als een REST-API claims exchange of als een validatieprofiel, die wordt uitgevoerd binnen een stap orchestration.
-- Doorgaans valideert invoer van de gebruiker. Als de waarde van de gebruiker is afgewezen, de gebruiker kan proberen opnieuw Voer een geldige waarde met de mogelijkheid om te retourneren van een foutbericht weergegeven.
+- Kunnen worden ontworpen als een REST-API claims exchange of als een validatieprofiel, die wordt uitgevoerd in een orchestration-stap.
+- Invoer van de gebruiker normaal gesproken worden gevalideerd. Als de waarde van de gebruiker wordt geweigerd, kunt de gebruiker het opnieuw proberen in te voeren van een geldige waarde met de mogelijkheid om terug te keren een foutbericht weergegeven.
 
-U kunt ook de interactie als een stap orchestration ontwerpen. Zie voor meer informatie [Walkthrough: REST-API integreren claims kunnen worden uitgewisseld in uw Azure AD B2C gebruiker reis als een stap orchestration](active-directory-b2c-rest-api-step-custom.md).
+U kunt ook de interactie als een indelingsstap ontwerpen. Zie voor meer informatie, [rondleiding: REST-API integreren claims worden uitgewisseld in uw Azure AD B2C de gebruikersbeleving als een indelingsstap](active-directory-b2c-rest-api-step-custom.md).
 
-De validatie profiel bijvoorbeeld we het traject profiel bewerken gebruiker in de starter pack-bestand ProfileEdit.xml gebruiken.
+Voor de validatie-profiel-voorbeeld gebruiken we de gebruikersbeleving profiel bewerken in de starter pack-bestand ProfileEdit.xml.
 
-Kan worden gecontroleerd of de naam die is opgegeven door de gebruiker in het profiel voor bewerken is niet deel uit van een uitsluitingslijst staan.
+We kunnen verifiëren dat de naam die is opgegeven door de gebruiker in het bewerken van het profiel niet deel van een uitsluitingslijst uitmaakt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Azure AD B2C-tenant die is geconfigureerd voor het voltooien van een lokaal account sign-up-to-date/aanmelden, zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
-- Een REST-API-eindpunt om te communiceren met. Voor dit scenario wordt een demo site met de naam hebt ingesteld [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) met een REST-API-service.
+- Een Azure AD B2C-tenant die is geconfigureerd voor het voltooien van een lokaal account aanmelden-up-to-date/aanmelden, zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
+- Een REST-API-eindpunt om te communiceren met. Voor dit scenario wordt een demo-site met de naam hebt ingesteld [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) met een REST-API-service.
 
 ## <a name="step-1-prepare-the-rest-api-function"></a>Stap 1: Bereid de REST-API-functie
 
 > [!NOTE]
-> Installatie van de REST-API-functies is buiten het bereik van dit artikel. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) biedt een uitstekend toolkit voor het maken van RESTful-services in de cloud.
+> Installatie van de REST API-functies is buiten het bereik van dit artikel. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) biedt een uitstekende toolkit voor het maken van RESTful-services in de cloud.
 
-Er is een Azure-functie die een claim die wordt verwacht als ontvangt gemaakt `playerTag`. De functie wordt gecontroleerd of deze claim bestaat. U hebt toegang tot de volledige Azure functiecode in [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+We hebben een Azure-functie die een claim die wordt verwacht als ontvangt gemaakt `playerTag`. De functie wordt gevalideerd of deze claim bestaat. U hebt toegang tot de volledige Azure-functiecode in [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
 ```csharp
 if (requestContentAsJObject.playerTag == null)
@@ -73,14 +73,14 @@ if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcott
 return request.CreateResponse(HttpStatusCode.OK);
 ```
 
-De IEF verwacht de `userMessage` claim die de Azure-functie wordt geretourneerd. Deze claim wordt weergegeven als een tekenreeks voor de gebruiker als de validatie mislukt, zoals wanneer de status 409 conflict in het voorgaande voorbeeld worden geretourneerd.
+De IEF wordt verwacht dat de `userMessage` claim die de Azure-functie geeft als resultaat. Deze claim wordt weergegeven als een tekenreeks voor de gebruiker als de validatie mislukt, zoals wanneer de status 409 conflict in het voorgaande voorbeeld wordt geretourneerd.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Stap 2: De uitwisseling van de claims RESTful-API als in uw bestand TrustFrameworkExtensions.xml technische profiel configureren
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Stap 2: De claims-uitwisseling van RESTful-API als een technisch profiel in het bestand TrustFrameworkExtensions.xml configureren
 
-Een technische profiel is de volledige configuratie van de uitwisseling van de gewenste met de RESTful-service. Open het bestand TrustFrameworkExtensions.xml en voeg de volgende XML-fragment in de `<ClaimsProviders>` element.
+Een technisch profiel is de volledige configuratie van de uitwisseling van de gewenste met de RESTful-service. Open het bestand TrustFrameworkExtensions.xml en voeg de volgende XML-fragment in de `<ClaimsProviders>` element.
 
 > [!NOTE]
-> In de volgende XML, RESTful-provider `Version=1.0.0.0` als protocol wordt beschreven. Beschouwen als de functie die met de externe service communiceren. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+> In het volgende XML-bestand, RESTful-provider `Version=1.0.0.0` als protocol wordt beschreven. Houd rekening met deze als de functie die interactie met de externe service hebben wordt. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
 
 ```xml
 <ClaimsProvider>
@@ -108,26 +108,26 @@ Een technische profiel is de volledige configuratie van de uitwisseling van de g
 </ClaimsProvider>
 ```
 
-De `InputClaims` element definieert de claims die wordt verzonden via de IEF met de REST-service. In dit voorbeeld wordt de inhoud van de claim `givenName` wordt verzonden naar de REST-service als `playerTag`. In dit voorbeeld wordt verwacht de IEF geen claims terug. In plaats daarvan wordt de gewacht op een reactie van de REST-service en de handelingen op basis van de statuscodes die het ontvangt.
+De `InputClaims` element wordt gedefinieerd voor de claims die worden verzonden vanuit de IEF met de REST-service. In dit voorbeeld wordt de inhoud van de claim `givenName` verzonden naar de REST-service als `playerTag`. In dit voorbeeld wordt verwacht de IEF terug claims niet. In plaats daarvan wachten het op antwoord van de REST-service en besluiten op basis van de statuscodes die deze ontvangt.
 
-## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Stap 3: De uitwisseling van RESTful-service de claims in zelf aangenomen technische profiel waarin u wilt valideren van de gebruikersinvoer opnemen
+## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Stap 3: De claims-uitwisseling van RESTful-service opnemen in het zelf-gecontroleerde technische profiel waarin u wilt valideren van de invoer van de gebruiker
 
-De meest voorkomende gebruik van de validatiestap is in de interactie met een gebruiker. Alle interacties waarin de gebruiker om invoer worden verwacht zijn *zelf technische profielen die wordt beweerd*. In dit voorbeeld wordt we de validatie toevoegen aan het technische Asserted ProfileUpdate-profiel. Dit is de technische gebruikersprofiel dat het bestand met beleidsregel van relying party (RP) `Profile Edit` gebruikt.
+De meest voorkomende gebruik van de validatiestap is in de interactie met een gebruiker. Alle interacties waar de gebruiker wordt verwacht voor invoer zijn *door technische profielen zelf de bevestigde*. We gaan de validatie toevoegen aan het technische profiel Asserted ProfileUpdate voor dit voorbeeld. Dit is de technische profiel dat het bestand met de relying party (RP) `Profile Edit` wordt gebruikt.
 
-De uitwisseling van claims toevoegen aan het zelf aangenomen technische profiel:
+De claimuitwisseling die aan de zelf-gecontroleerde technisch profiel toevoegen:
 
-1. Open het bestand TrustFrameworkBase.xml en zoek naar `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
-2. Controleer de configuratie van deze technische profiel. Houd rekening met hoe de uitwisseling van de gebruiker is gedefinieerd als claims die wordt gevraagd van de gebruiker (invoerclaims) en claims die terug vanaf de zelf aangenomen (uitvoer claims)-provider verwacht worden.
-3. Zoeken naar `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, en u ziet dat dit profiel wordt opgeroepen als orchestration stap 4 van `<UserJourney Id="ProfileEdit">`.
+1. Open het bestand TrustFrameworkBase.xml en zoeken naar `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
+2. Controleer de configuratie van deze technische profiel. Bekijk hoe de uitwisseling van de gebruiker is gedefinieerd als claims die van de gebruiker (invoerclaims) wordt gevraagd en claims die wordt verwacht van de zelf-gecontroleerde provider (uitvoerclaims).
+3. Zoeken naar `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, en u ziet dat dit profiel wordt aangeroepen als de orchestration-stap 4 van `<UserJourney Id="ProfileEdit">`.
 
-## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Stap 4: Upload het bestand en testen profiel bewerken RP-beleid
+## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Stap 4: Uploaden en testen van het profiel bewerken RP-beleidsbestand
 
 1. De nieuwe versie van het bestand TrustFrameworkExtensions.xml uploaden.
-2. Gebruik **nu uitvoeren** voor het testen van het profiel bewerken RP-beleidsbestand.
-3. De validatie testen met behulp van een van de bestaande namen (bijvoorbeeld mcvinny) in de **voornaam** veld. Als alles juist is ingesteld, ontvangt u een bericht weergegeven waarin de gebruiker een melding dat de tag player al wordt gebruikt.
+2. Gebruik **nu uitvoeren** voor het testen van het profiel bewerken RP beleid-bestand.
+3. De validatie testen door te geven van een van de bestaande namen (bijvoorbeeld mcvinny) in de **voornaam** veld. Als alles juist is ingesteld, moet u ontvangt een bericht waarmee de gebruiker wordt gewaarschuwd dat de code van de speler wordt al gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[De profiel bewerken en de gebruiker de registratie voor het verzamelen van aanvullende informatie van uw gebruikers wijzigen](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Het profiel bewerken en de gebruiker de registratie voor het verzamelen van aanvullende informatie van uw gebruikers wijzigen](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
-[Overzicht: Uitwisseling van claims REST-API in uw Azure AD B2C gebruiker reis integreren als een stap orchestration](active-directory-b2c-rest-api-step-custom.md)
+[Walkthrough: Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als een orchestration-stap](active-directory-b2c-rest-api-step-custom.md)

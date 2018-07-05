@@ -1,6 +1,6 @@
 ---
-title: Afbeelding classificatie met CNTK in Azure Machine Learning Workbench | Microsoft Docs
-description: Trainen, evalueren en een aangepaste installatiekopie classificatie-model met behulp van Azure ML-Workbench implementeren.
+title: Afbeeldingsclassificatie met behulp van CNTK in Azure Machine Learning Workbench | Microsoft Docs
+description: Trainen, evalueren en implementeren van een aangepaste installatiekopie classificatie-model met behulp van Azure ML Workbench.
 services: machine-learning
 documentationcenter: ''
 author: PatrickBue
@@ -8,111 +8,111 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
-ms.translationtype: HT
+ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850168"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35622215"
 ---
-# <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificatie van de installatiekopie met behulp van Azure Machine Learning Workbench
+# <a name="image-classification-using-azure-machine-learning-workbench"></a>Afbeeldingsclassificatie met behulp van Azure Machine Learning Workbench
 
-Afbeelding classificatie benaderingen kunnen worden gebruikt voor het oplossen van een groot aantal Computer Vision-problemen.
-Deze omvatten ontwikkelen van modellen die antwoorden op vragen zoals: *Is aanwezig in de installatiekopie van het OBJECT?* waar OBJECT kan bijvoorbeeld worden *aquaduct*, *auto*, of  *verzenden*. Of complexere vragen zoals: *welke klasse ogen ziekte ernst wordt door deze geduld retinal scan evinced?*.
+Afbeelding classificatie methoden kunnen worden gebruikt voor het oplossen van een groot aantal Computer Vision-problemen.
+Deze omvatten het ontwikkelen van modellen die antwoorden op vragen zoals: *Is een aanwezig zijn in de installatiekopie van het OBJECT?* waar OBJECT kan bijvoorbeeld worden *hond*, *auto*, of  *Verzend*. Of complexere vragen zoals: *welke klasse van ogen ziekten ernst is evinced door retinal scan van de patiënt?*.
 
-Deze zelfstudie adressen dergelijke problemen op te lossen. Laten we zien hoe trainen, evalueren en implementeren van uw eigen installatiekopie classificatie model met de [Microsoft cognitieve Toolkit (CNTK) ](https://docs.microsoft.com/cognitive-toolkit/) voor grondige learning.
-Voorbeeld afbeeldingen worden geleverd, maar de lezer kan ook hun eigen gegevensset brengen en hun eigen aangepaste modellen trainen.
+Deze zelfstudie wordt het oplossen van dergelijke problemen. We laten zien hoe om te trainen, evalueren en implementeren van uw eigen installatiekopie classificatie model met de [Microsoft Cognitive Toolkit (CNTK) ](https://docs.microsoft.com/cognitive-toolkit/) voor deep learning.
+Voorbeeld van de installatiekopieën worden geleverd, maar de lezer kan ook hun eigen gegevensset brengen en hun eigen aangepaste modellen trainen.
 
-Computer Vision oplossingen vereist normaal diepgaande kennis om handmatig te identificeren en implementeren zogenaamde *functies*, die gewenste gegevens in de afbeeldingen markeren.
-Deze handmatige methode is gewijzigd in 2012 met de beroemdheid [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) [1] diepe Learning papier, en op dit moment, Deep Neural Networks (DNN) worden gebruikt om automatisch te vinden deze functies.
-DNNs heeft geleid tot een enorme verbetering in het veld niet alleen voor classificatie van de installatiekopie, maar ook voor andere Computer Vision-problemen zoals object detectie- en image-overeenkomsten.
+Computer Vision oplossingen vereist traditioneel diepgaande kennis om handmatig te identificeren en implementeren zogeheten *functies*, die de gewenste gegevens in afbeeldingen markeren.
+Deze handmatige methode gewijzigd in 2012 met de beroemde [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) [1] Deep Learning papier, en op dit moment, Deep Neural Networks (DNN) worden gebruikt om automatisch te vinden deze functies.
+Dnn's heeft geleid tot een enorme verbetering in het veld niet alleen voor de classificatie van afbeeldingen, maar ook voor andere problemen met Computer Vision, zoals de objectdetectie van het en afbeelding gelijkenis.
 
 
-## <a name="link-to-the-gallery-github-repository"></a>Koppeling naar de galerie GitHub-opslagplaats
+## <a name="link-to-the-gallery-github-repository"></a>Koppeling naar de galerie met GitHub-opslagplaats
 [https://github.com/Azure/MachineLearningSamples-ImageClassificationUsingCNTK](https://github.com/Azure/MachineLearningSamples-ImageClassificationUsingCNTK)
 
 ## <a name="overview"></a>Overzicht
 
-Deze zelfstudie wordt opgedeeld in drie delen:
+In deze zelfstudie is opgesplitst in drie delen:
 
-- Deel 1 ziet u hoe te trainen, evalueren en implementeren van een installatiekopie van classificatie-systeem met een vooraf getraind DNN als featurizer en training van een SVM op de uitvoer ervan weergegeven.
-- Deel 2 vervolgens laat zien hoe nauwkeuriger door, bijvoorbeeld de DNN verfijnen dan als een vaste featurizer gebruiken.
-- Deel 3 beschreven hoe u uw eigen gegevensset wordt gebruikt in plaats van de installatiekopieën van het opgegeven voorbeeld en indien nodig, het produceren van uw eigen gegevensset door slijmen afbeeldingen vanaf het netwerk.
+- Deel 1 laat zien hoe om te trainen, evalueren en implementeren van een afbeeldingsclassificatiesysteem met behulp van een vooraf getrainde DNN als featurizer en training van een SVM op de uitvoer ervan weergegeven.
+- Deel 2 wordt weergegeven over het verbeteren van nauwkeurigheid door, bijvoorbeeld de DNN verfijnen, in plaats van als een vaste featurizer gebruiken.
+- Deel 3 wordt uitgelegd hoe u uw eigen gegevensset gebruiken in plaats van de voorbeeld-afbeeldingen en indien nodig, over het maken van uw eigen gegevensset door slijmen afbeeldingen uit het net.
 
-Hoewel ervaring met machine learning en CNTK niet vereist is, is het handig zijn om de onderliggende principes te begrijpen. Nauwkeurigheid cijfers training tijd, enz. gerapporteerd in de zelfstudie zijn alleen ter informatie en de werkelijke waarden bij het uitvoeren van de code bijna zeker verschillen.
+Hoewel eerdere ervaring met machine learning en CNTK niet vereist is, is het handig om te begrijpen van de onderliggende principes. Nauwkeurigheid van getallen, training tijd, enz. die zijn gerapporteerd in de zelfstudie zijn alleen ter referentie en de werkelijke waarden bij het uitvoeren van de code bijna zeker verschillen.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
+De vereisten voor het uitvoeren van dit voorbeeld zijn er als volgt uit:
 
-1. Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies beschikbaar zijn).
-2. De [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [installatie snelstartgids](../service/quickstart-installation.md) het programma te installeren en het maken van een werkruimte.  
-3. Een Windows-machine. Windows-besturingssysteem is nodig omdat de Workbench alleen Windows- en Mac OS tijdens cognitieve Toolkit van Microsoft ondersteunt (die we gebruiken als grondige learning bibliotheek) biedt alleen ondersteuning voor Windows en Linux.
-4. Een speciale GPU is niet vereist voor het uitvoeren van de training SVM in deel 1, maar dit is nodig voor het verfijnen van de DNN beschreven in deel 2. Als u niet over een sterke GPU, wilt trainen op meerdere GPU's of hebben geen Windows-computer, klikt u vervolgens Overweeg het gebruik van Azure grondige Learning virtuele Machine met Windows-besturingssysteem. Zie [hier](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) voor een 1 Klik-Implementatiehandleiding. Zodra geïmplementeerd, verbinding maken met de virtuele machine via een verbinding met extern bureaublad, Workbench er installeren en de code lokaal uitvoeren van de virtuele machine.
-5. Verschillende Python-bibliotheken zoals OpenCV moeten worden geïnstalleerd. Klik op *opdrachtprompt openen* van de *bestand* menu in de Workbench en voer de volgende opdrachten voor het installeren van deze afhankelijkheden:  
+1. Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies zijn beschikbaar).
+2. De [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snel starten-installatiehandleiding](../service/quickstart-installation.md) aan het programma te installeren en een werkruimte maken.  
+3. Een Windows-machine. Windows-besturingssysteem is nodig omdat de Workbench alleen Windows en MacOS, terwijl de Microsoft Cognitive Toolkit ondersteunt (die we gebruiken als deep learning-bibliotheek) biedt alleen ondersteuning voor Windows en Linux.
+4. Een GPU die toegewezen is niet vereist voor het uitvoeren van de training SVM in deel 1, maar dit is nodig voor het verfijnen van de DNN in deel 2 beschreven. Als u niet over een sterke GPU, wilt trainen op meerdere GPU's of geen een Windows-machine hebt, klikt u vervolgens kunt u overwegen van Azure Deep Learning Virtual Machine met Windows-besturingssysteem. Zie [hier](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) voor een 1-klikken-Implementatiehandleiding. Zodra geïmplementeerd, verbinding maken met de virtuele machine via een verbinding met extern bureaublad, er Workbench installeren en de code lokaal uitvoeren van de virtuele machine.
+5. Verschillende Python-bibliotheken zoals OpenCV moeten worden geïnstalleerd. Klik op *Open Command Prompt* uit de *bestand* menu in de Workbench en de volgende opdrachten voor het installeren van deze afhankelijkheden:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` na het downloaden van de OpenCV steeds uit http://www.lfd.uci.edu/~gohlke/pythonlibs/ (de exacte bestandsnaam en de versie kunnen wijzigen)
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` Nadat u hebt gedownload van de OpenCV steeds uit http://www.lfd.uci.edu/~gohlke/pythonlibs/ (de exacte bestandsnaam en -versie kunnen wijzigen)
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
     - `jupyter nbextension enable --py --sys-prefix bqplot`
     - `jupyter nbextension enable --py widgetsnbextension`
 
-### <a name="troubleshooting--known-bugs"></a>Voor probleemoplossing / bekende fouten
-- Een GPU die nodig is voor deel 2 en anders de fout 'Batch normalisatie training van CPU is nog niet geïmplementeerd' wordt gegenereerd wanneer u probeert om de DNN te verfijnen.
+### <a name="troubleshooting--known-bugs"></a>Het oplossen van problemen / bekende fouten
+- Een GPU die nodig is voor deel 2, en anders de fout 'Batch training normalisering van CPU is nog niet geïmplementeerd' is een opgetreden tijdens het verfijnen van de DNN.
 - Fouten tijdens de training DNN-geheugen kunnen worden vermeden door minibatch verkleinen (variabele `cntk_mb_size` in `PARAMETERS.py`).
-- De code is getest met CNTK 2.2 en moet ook uitvoeren op oudere (tot v2.0) en nieuwere versies zonder of alleen kleine wijzigingen.
-- Op het moment van schrijven had de Workbench van Azure Machine Learning problemen met notitieblokken groter is dan 5 MB. Notitieblokken van deze grote omvang kunnen gebeuren als de laptop is opgeslagen met alle cellen uitvoer weergegeven. Als u deze fout optreedt en vervolgens de opdrachtprompt vanuit het menu bestand in de Workbench openen, uitvoermachtigingen `jupyter notebook`, opent u de notebook Wis alle uitvoer en opslaan van de notebook. Na deze stappen uitvoert, wordt de notebook correct in de Azure Machine Learning-Workbench opnieuw openen.
-- Alle scripts die zijn opgegeven in dit voorbeeld moeten lokaal worden uitgevoerd en niet op bijvoorbeeld een docker externe omgeving. Alle notitieblokken moeten worden uitgevoerd met kernel ingesteld op de kernel lokaal project met de naam 'PROJECTNAME lokale' (bijvoorbeeld ' myImgClassUsingCNTK lokale').
+- De code is getest met behulp van CNTK 2.2 en moet ook uitvoeren op oudere (tot v2.0) en nieuwere versies zonder of alleen kleine wijzigingen.
+- De Azure Machine Learning Workbench was op het moment van schrijven, problemen met notitieblokken groter is dan 5 MB. Notitieblokken van deze grote omvang kunnen gebeuren als de notebook wordt opgeslagen met alle cellen uitvoer weergegeven. Als u deze fout optreedt, en vervolgens de opdrachtprompt vanuit het menu bestand in Workbench openen, voeren `jupyter notebook`, open het notitieblok, schakel alle uitvoer en sla de notebook. Nadat u deze stappen uitvoert, wordt de notebook goed in de Azure Machine Learning Workbench opnieuw openen.
+- Alle scripts die zijn opgegeven in dit voorbeeld moeten lokaal worden uitgevoerd en niet op bijvoorbeeld een docker externe omgeving. Alle notitieblokken moeten worden uitgevoerd met kernel ingesteld op de kernel lokale-project met de naam 'PROJECTNAME lokale' (bijvoorbeeld ' myImgClassUsingCNTK lokale").
 
     
-## <a name="create-a-new-workbench-project"></a>Maak een nieuw project in de workbench
+## <a name="create-a-new-workbench-project"></a>Een nieuw workbench-project maken
 
-Een nieuw project in dit voorbeeld gebruiken als een sjabloon maken:
+Een nieuw project te maken met behulp van dit voorbeeld als een sjabloon:
 1.  Open Azure Machine Learning Workbench.
-2.  Op de **projecten** pagina, klikt u op de **+** en selecteer **nieuw Project**.
-3.  In de **nieuw Project maken** deelvenster Vul de informatie voor het nieuwe project.
-4.  In de **zoeken projectsjablonen** het zoekvak, typ 'Installatiekopie classificatie' en selecteer de sjabloon.
+2.  Op de **projecten** pagina, klikt u op de **+** Meld u aan en selecteer **nieuw Project**.
+3.  In de **nieuw Project maken** deelvenster, vult u in de gegevens voor het nieuwe project.
+4.  In de **zoeken naar projectsjablonen** het zoekvak, typ 'Afbeeldingsclassificatie' en selecteer de sjabloon.
 5.  Klik op **Create**.
 
-Deze stappen uitvoert, maakt de projectstructuur die hieronder wordt weergegeven. De projectmap is beperkt tot minder dan 25 megabytes (MB) mogelijk, omdat de Azure Machine Learning-Workbench een kopie van deze map na elke uitvoering maakt (zodat uitvoeringsgeschiedenis). Daarom alle installatiekopie en tijdelijke bestanden worden opgeslagen en naar de map *~/Desktop/imgClassificationUsingCntk_data* (aangeduid als *DATA_DIR* in dit document).
+Deze stappen uitvoert, maakt de projectstructuur die hieronder wordt weergegeven. De projectmap is beperkt tot minder dan 25 megabytes (MB) zijn omdat met de Azure Machine Learning Workbench maakt een kopie van deze map na elke uitvoering (voor het uitvoeringsgeschiedenis). Daarom kan alle installatiekopie en de tijdelijke bestanden worden opgeslagen en naar de map *~/Desktop/imgClassificationUsingCntk_data* (aangeduid als *DATA_DIR* in dit document).
 
   Map| Beschrijving
   ---|---
-  aml_config/|                           Map met de Azure Machine Learning Workbench configuratiebestanden
-  bibliotheken /|                              Map met alle Python en Jupyter hulpfuncties
-  laptops /|                              Map met alle notitieblokken
-  resources /|                              Map met alle resources (voor de voorbeeld-url van wijze installatiekopieën)
-  scripts /|                              Map met alle scripts uitvoeren
-  PARAMETERS.py|                       Python-script op alle parameters opgeven
-  Readme.MD|                           Dit document Leesmij-bestand
+  aml_config/|                           Map met de Azure Machine Learning Workbench-configuratiebestanden
+  bibliotheken /|                              Map met alle Python en Jupyter ondersteunende functies
+  notitieblokken /|                              Map met alle notitieblokken
+  resources /|                              Map met alle resources (voor de voorbeeld-url van manier installatiekopieën)
+  scripts /|                              Map met alle scripts
+  PARAMETERS.py|                       Python-script alle parameters op te geven
+  Readme.MD|                           Dit Leesmij-document
 
 
 ## <a name="data-description"></a>Beschrijving van de gegevens
 
-Deze zelfstudie wordt gebruikt als voorbeeld met een hogere hoofdtekst kleding patroon gegevensset die bestaan uit maximaal 428 installatiekopieën. Elke installatiekopie is voorzien van een van drie verschillende structuren (decimale, striped, leopard). We het aantal images kleine opgeslagen zodat deze zelfstudie kan snel worden uitgevoerd. De code is echter goed geteste en werkt met tienduizenden installatiekopieën of meer. Alle installatiekopieën zijn geslijmd met zoeken naar Bing-afbeelding en hand aangetekend zoals is beschreven in [deel 3](#using-a-custom-dataset). De installatiekopie van URL's met hun respectieve kenmerken worden vermeld in de */resources/fashionTextureUrls.tsv* bestand.
+Deze zelfstudie wordt gebruikt als voorbeeld een bovenste hoofdtekst kleding patroon gegevensset die bestaan uit maximaal 428 installatiekopieën wordt uitgevoerd. Elke installatiekopie is gemarkeerd als een van drie verschillende structuren (onderbroken, striped, leopard). We het aantal afbeeldingen kleine opgeslagen zodat deze zelfstudie kan snel worden uitgevoerd. De code is echter goed geteste en werkt samen met tienduizenden afbeeldingen of meer. Alle installatiekopieën zijn die is geëxtraheerd met behulp van de Bing afbeeldingen zoeken en hand-aangetekend zoals wordt uitgelegd in [deel 3](#using-a-custom-dataset). De URL's met hun respectieve kenmerken worden weergegeven in afbeelding de */resources/fashionTextureUrls.tsv* bestand.
 
-Het script `0_downloadData.py` downloadt alle installatiekopieën naar de *installatiekopieën-DATA_DIR/fashionTexture/* directory. Sommige van de 428 URL's zijn waarschijnlijk verbroken. Dit is geen probleem en houdt in dat we iets minder afbeeldingen hebben voor trainings- en testdoeleinden. Alle scripts die zijn opgegeven in dit voorbeeld moeten lokaal worden uitgevoerd en niet op bijvoorbeeld een docker externe omgeving.
+Het script `0_downloadData.py` downloadt alle installatiekopieën op de *DATA_DIR/afbeeldingen/fashionTexture/* directory. Sommige van de 428 URL's zijn waarschijnlijk verbroken. Dit is niet een probleem en houdt in dat we iets minder installatiekopieën hebben voor trainings- en testdoeleinden. Alle scripts die zijn opgegeven in dit voorbeeld moeten lokaal worden uitgevoerd en niet op bijvoorbeeld een docker externe omgeving.
 
-De volgende afbeelding ziet u voorbeelden van de kenmerken (links) scheidingspunten striped (midden) en leopard (rechts). Aantekeningen zijn uitgevoerd volgens het bovenste hoofdtekst kleding item.
+De volgende afbeelding ziet u voorbeelden van de kenmerken die met punten (links), striped (midden) en leopard (rechts). Aantekeningen zijn gedaan op basis van de hoofdtekst van de bovenste kleding-item.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 
-## <a name="part-1---model-training-and-evaluation"></a>Deel 1 - Model training en evaluatie
+## <a name="part-1---model-training-and-evaluation"></a>Deel 1: Model voor training en evaluatie
 
-We zijn een systeem dat wordt gebruikt, maar niet wijzigen, een vooraf getraind diep neurale netwerk trainen in het eerste deel van deze zelfstudie. Deze vooraf getraind DNN wordt gebruikt als een featurizer en een lineaire SVM wordt getraind te voorspellen van het kenmerk (scheidingspunten, striped of leopard) van een installatiekopie van het gegeven.
+In het eerste deel van deze zelfstudie, zijn we een systeem dat wordt gebruikt, maar niet wijzigen, een vooraf getrainde deep neural network training. Deze vooraf getrainde DNN wordt gebruikt als een featurizer en een lineaire SVM wordt getraind om te voorspellen van het kenmerk (gestippeld, striped of leopard) van een bepaalde installatiekopie.
 
-We deze benadering in detail stapsgewijze, en geeft weer welke scripts moeten worden uitgevoerd voor het nu beschreven. Het is raadzaam na elke stap om te controleren welke bestanden zijn geschreven en waar ze naar worden geschreven.
+We nu beschreven deze benadering in detail, stap voor stap en weergeven welke scripts moeten worden uitgevoerd. We raden aan na elke stap om te controleren welke bestanden zijn geschreven en waar ze worden geschreven naar.
 
-Alle belangrijke parameters zijn opgegeven en een korte uitleg hebt opgegeven, op één plaats: de `PARAMETERS.py` bestand.
+Alle belangrijke parameters zijn opgegeven en een korte uitleg te vinden, op één plek: de `PARAMETERS.py` bestand.
 
 
 
@@ -120,12 +120,12 @@ Alle belangrijke parameters zijn opgegeven en een korte uitleg hebt opgegeven, o
 ### <a name="step-1-data-preparation"></a>Stap 1: Gegevens voorbereiden
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-De notebook `showImages.ipynb` kunnen worden gebruikt voor het visualiseren van de installatiekopieën en corrigeren van de aantekening indien nodig. Voor het uitvoeren van de notebook, opent u het in Azure Machine Learning Workbench, klik op 'Start-Notebook Server' als deze optie wordt weergegeven, wijzigen in de kernel lokaal project met de naam 'PROJECTNAME lokale' (bijvoorbeeld de ' myImgClassUsingCNTK-lokaal'), en vervolgens uitgevoerd alle cellen in de laptop. Zie de sectie Probleemoplossing in dit document als u een fout klagen krijgt dat de laptop is te groot om te worden weergegeven.
+De notebook `showImages.ipynb` kan worden gebruikt voor het visualiseren van de installatiekopieën, en om op te lossen van de aantekening indien nodig. Als u wilt uitvoeren van het notitieblok, opent u het in Azure Machine Learning Workbench, klik op 'Start-Notebook Server' als deze optie wordt weergegeven, wijzigt in de kernel lokale-project met de naam 'PROJECTNAME lokale' (bijvoorbeeld de "myImgClassUsingCNTK-lokaal'), en voer vervolgens alle cellen in de laptop. Zie de sectie Probleemoplossing in dit document als er een fout optreedt klagen dat de laptop is te groot om te worden weergegeven.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
 
-Nu voert u het script met de naam `1_prepareData.py`, welke wijst alle installatiekopieën op ofwel de training ingesteld of de test. Deze toewijzing is wederzijds exclusief - er is geen afbeelding training wordt ook gebruikt voor testdoeleinden of vice versa. Standaard een willekeurige 75% van de installatiekopieën van elke kenmerkklasse zijn toegewezen aan de training en de overige 25% zijn toegewezen om te testen. Alle gegevens die zijn gegenereerd door het script worden opgeslagen in de *proc-DATA_DIR/fashionTexture/* map.
+Nu Voer het script met de naam `1_prepareData.py`, welke wijst alle installatiekopieën op een van beide de training ingesteld of de test is ingesteld. Deze toewijzing is sluiten elkaar wederzijds uit - er is geen afbeelding training wordt ook gebruikt voor het testen of vice versa. Standaard een willekeurige 75% van de installatiekopieën van de kenmerkklasse zijn toegewezen aan de training en de overige 25% zijn toegewezen aan een test. Alle gegevens die zijn gegenereerd door het script worden opgeslagen in de *DATA_DIR/proc/fashionTexture/* map.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/output_script_1_white.jpg" alt="alt text" width="700"/>
@@ -133,33 +133,33 @@ Nu voert u het script met de naam `1_prepareData.py`, welke wijst alle installat
 
 
 
-### <a name="step-2-refining-the-deep-neural-network"></a>Stap 2: Het diep Neurale netwerk verfijnen
+### <a name="step-2-refining-the-deep-neural-network"></a>Stap 2: De Deep Neural Network verfijnen
 `Script: 2_refineDNN.py`
 
-Zoals wordt uitgelegd in deze zelfstudie, deel 1, de vooraf getraind DNN vaste wordt opgeslagen (dat wil zeggen, het is niet verfijnd). Echter, het script met de naam `2_refineDNN.py` nog steeds worden uitgevoerd in deel 1, die wordt geladen vooraf getraind [ResNet](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) [2] model en wijzigt u dit, bijvoorbeeld, als u wilt toestaan voor hogere invoer afbeeldingsresolutie. Deze stap is snel (seconden) en is niet vereist voor een GPU.
+Zoals we in deel 1 van deze zelfstudie is uitgelegd, de vooraf getrainde DNN vaste wordt opgeslagen (dat wil zeggen, het is niet verfijnd). Echter, het script met de naam `2_refineDNN.py` nog steeds wordt uitgevoerd in deel 1, tijdens het laden van een vooraf getrainde [ResNet](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) [2]-model en wijzigt u dit bijvoorbeeld, als u wilt toestaan voor hogere resolutie van de afbeelding. Deze stap is (seconden) van een snelle en een GPU die niet is vereist.
 
-Deel 2 van de zelfstudie een wijziging in de PARAMETERS.py van de bestandsserver oorzaken de `2_refineDNN.py` script om de vooraf getraind DNN ook verfijnen. Standaard we 45 training epoches tijdens verfijning uitgevoerd.
+In deel 2 van de zelfstudie een wijziging in de PARAMETERS.py bestand oorzaken de `2_refineDNN.py` script om de vooraf getrainde DNN ook te verfijnen. Standaard uitvoeren we 45 training epoches tijdens verfijning.
 
-In beide gevallen wordt het laatste model vervolgens naar het bestand geschreven *DATA_DIR/proc/fashionTexture/cntk_fixed.model*.
+In beide gevallen klikt u vervolgens het uiteindelijke model is geschreven naar het bestand *DATA_DIR/proc/fashionTexture/cntk_fixed.model*.
 
-### <a name="step-3-evaluate-dnn-for-all-images"></a>Stap 3: Evalueer DNN voor alle afbeeldingen
+### <a name="step-3-evaluate-dnn-for-all-images"></a>Stap 3: Evalueer DNN voor alle installatiekopieën
 `Script: 3_runDNN.py`
 
-We kunnen de (mogelijk verfijnd) DNN van de laatste stap naar featurize nu onze installatiekopieën gebruiken. Een installatiekopie van een opgegeven als invoer voor de DNN, is de uitvoer de vector 512 tekst uit de voorlaatste laag van het model. Deze vector is veel kleiner dan de installatiekopie zelf dimensionale. Evenwel moet deze bevatten (en zelfs Markeer) alle informatie in de afbeelding die relevant zijn voor het herkennen van de afbeelding kenmerk, dat zich bevindt, als het item kleding een decimale heeft striped, of leopard patroon.
+We kunnen de (mogelijk verfijnd) DNN van de laatste stap op parametriseer nu onze installatiekopieën gebruiken. Een installatiekopie van een opgegeven als invoer voor de DNN, is de uitvoer de vector 512-tekst uit de voorlaatste laag van het model. Deze vector is veel kleiner dan de afbeelding zelf dimensionale. Niettemin moet bevatten (en zelfs markeren) alle informatie in de afbeelding die relevant zijn voor het herkennen van de installatiekopie-kenmerk, dat is, als het item kleding een stippellijn met heeft striped, of leopard patroon.
 
-Alle van de DNN installatiekopie representaties zijn opgeslagen in het bestand *DATA_DIR/proc/fashionTexture/cntkFiles/features.pickle*.
+Alle van de weergaven van de installatiekopie van DNN worden opgeslagen in het bestand *DATA_DIR/proc/fashionTexture/cntkFiles/features.pickle*.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/output_script_4_white.jpg" alt="alt text" width="700"/>
 </p>
 
 
-### <a name="step-4-support-vector-machine-training"></a>Stap 4: Vectormachine ondersteuning training
+### <a name="step-4-support-vector-machine-training"></a>Stap 4: Support Vector Machine training
 `Script: 4_trainSVM.py`
 
-De 512-tekst verklaringen berekend in de laatste stap nu worden gebruikt voor het trainen van een classificatie SVM: de SVM gezien een afbeelding als invoer, uitvoer een score voor elk kenmerk aanwezig zijn. In onze gegevensset voorbeeld betekent dit een score voor 'striped', voor 'onderbroken' en 'leopard'.
+De 512-tekst voorstellingen berekend in de vorige stap zijn nu gebruikt voor het trainen van een classificatie SVM: een afbeelding als invoer worden gegeven, de SVM levert een score voor elk kenmerk aanwezig zijn. In onze gegevensset voorbeeld betekent dit een score voor 'striped', voor 'onderbroken' en 'leopard'.
 
-Script `4_trainSVM.py` laadt de installatiekopieën van de training, een SVM voor verschillende waarden van de parameter regularisatie (slack) C traint en de SVM houdt met de hoogste nauwkeurigheid. De nauwkeurigheid van de classificatie is afgedrukt op de console en in de Workbench uitgezet. Voor de gegevens van het opgegeven patroon moet deze waarden ongeveer 100% en % 88 respectievelijk. Ten slotte het getrainde SVM is geschreven naar het bestand *DATA_DIR/proc/fashionTexture/cntkFiles/svm.np*.
+Script `4_trainSVM.py` laadt de training-installatiekopieën, een SVM voor verschillende waarden van de parameter regularisatie (slack) C traint en de SVM houdt met de hoogste nauwkeurigheid. De nauwkeurigheid van de classificatie is afgedrukt op de console en in de Workbench getekend. Voor de gegevens van het opgegeven patroon moet deze waarden ongeveer 100% en % 88 respectievelijk. Ten slotte het getrainde SVM is geschreven naar het bestand *DATA_DIR/proc/fashionTexture/cntkFiles/svm.np*.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/vienna_svm_log_zoom.jpg" alt="alt text" width="700"/>
@@ -170,21 +170,21 @@ Script `4_trainSVM.py` laadt de installatiekopieën van de training, een SVM voo
 ### <a name="step-5-evaluation-and-visualization"></a>Stap 5: Evaluatie en visualisatie
 `Script: 5_evaluate.py. Notebook: showResults.ipynb`
 
-De nauwkeurigheid van de installatiekopie getraind classificatie kan worden gemeten met behulp van het script `5_evaluate.py`. De script-scores alle test afbeeldingen met behulp van de trained SVM classificatie wordt toegewezen elke installatiekopie van het kenmerk met de hoogste score en vergelijkt de voorspelde kenmerken met de grond waarheid aantekeningen.
+De nauwkeurigheid van de classificatie getrainde installatiekopie kan worden gemeten met behulp van het script `5_evaluate.py`. De script-scores alle test-installatiekopieën met behulp van het getrainde SVM classificatie, wijst elke installatiekopie het kenmerk met de hoogste score en vergelijkt de voorspelde kenmerken met de grond waarheid aantekeningen.
 
-De uitvoer van script `5_evaluate.py` worden hieronder weergegeven. De nauwkeurigheid van de classificatie van elke afzonderlijke klasse wordt berekend, evenals de nauwkeurigheid van de volledige testset ('algehele nauwkeurigheid') en het gemiddelde gedurende de afzonderlijke accuratesse ('algemene klasse gemiddeld nauwkeurigheid'). 100% komt overeen met de best mogelijke nauwkeurigheid en 0-% naar de slechtste. Willekeurige raden gemiddeld geeft als resultaat een gemiddelde waarde van klasse nauwkeurigheid van 1 via het aantal kenmerken: in ons geval deze nauwkeurigheid 33,33% zou zijn. Deze resultaten aanzienlijk verbeteren wanneer u een hogere resolutie invoer zoals `rf_inputResoluton = 1000`, echter ten koste van de langere DNN berekening tijden.
+De uitvoer van het script `5_evaluate.py` wordt hieronder weergegeven. De nauwkeurigheid van de classificatie van elke afzonderlijke categorie is en de nauwkeurigheid van de volledige testset ('algehele nauwkeurigheid') en het gemiddelde berekend voor de afzonderlijke nauwkeurigheden ('algemene klasse gemiddelde nauwkeurigheid'). 100% komt overeen met de best mogelijke nauwkeurigheid en 0% tot de slechtste. Willekeurige raden gemiddeld geeft als resultaat een klasse gemiddelde nauwkeurigheid van 1 over het aantal kenmerken: in ons geval deze nauwkeurigheid 33,33% zou zijn. Deze resultaten aanzienlijk verbeteren bij het gebruik van een hogere resolutie invoer zoals `rf_inputResoluton = 1000`echter ten koste van de langere DNN berekening tijden.
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/output_script_6_white.jpg" alt="alt text" width="700"/>
 </p>
 
-Naast de nauwkeurigheid, wordt de ROC-curve getekend met respectieve gebied-onder-curve (links); en de matrix verwarring (rechts) wordt weergegeven:
+Naast de nauwkeurigheid van wordt de ROC-curve getekend met het desbetreffende gebied-onder-curve (links); en de verwarringsmatrix (rechts) wordt weergegeven:
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Ten slotte de notebook `showResults.py` is opgegeven voor de installatiekopieën van de test schuift en hun respectieve classificatie scores visualiseren. Zoals wordt beschreven in stap 1, moet elke laptop in dit voorbeeld gebruiken de kernel lokaal project met de naam 'PROJECTNAME lokale':
+Ten slotte de notebook `showResults.py` wordt geleverd door de test-installatiekopieën bladeren en visualiseren van hun respectieve classificatie scores. Zoals wordt beschreven in stap 1, moet elke laptop in dit voorbeeld gebruikt u de kernel lokale-project met de naam 'PROJECTNAME lokale':
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -196,9 +196,9 @@ Ten slotte de notebook `showResults.py` is opgegeven voor de installatiekopieën
 ### <a name="step-6-deployment"></a>Stap 6: implementatie
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Het getrainde systeem kan nu worden gepubliceerd als een REST-API. Implementatie wordt uitgelegd in de notebook `deploy.ipynb`, en op basis van de functionaliteit in de Azure Machine Learning-Workbench (Vergeet niet in te stellen als kernel de kernel lokaal project met de naam 'local PROJECTNAME'). Zie ook de Implementatiesectie uitstekende van de [IRIS zelfstudie](tutorial-classifying-iris-part-3.md) voor de implementatie van meer gerelateerde informatie.
+Het getrainde systeem kan nu worden gepubliceerd als een REST-API. Implementatie wordt uitgelegd in de notebook `deploy.ipynb`, en op basis van functionaliteit in de Azure Machine Learning Workbench (Vergeet niet om in te stellen als een kernel van de kernel lokale-project met de naam "PROJECTNAME lokale"). Zie ook de Implementatiesectie uitstekende van de [zelfstudie IRIS](tutorial-classifying-iris-part-3.md) gerelateerde voor de implementatie van meer informatie.
 
-Zodra geïmplementeerd, de webservice kan worden aangeroepen met het script `6_callWebservice.py`. Houd er rekening mee dat het IP-adres (lokaal of in de cloud) van de webservice moet eerst worden ingesteld in het script. De notebook `deploy.ipynb` wordt uitgelegd hoe u deze IP-adres vinden.
+Zodra geïmplementeerd, de webservice kan worden aangeroepen met behulp van het script `6_callWebservice.py`. Houd er rekening mee dat het IP-adres (lokaal of in de cloud) van de webservice moet eerst worden ingesteld in het script. De notebook `deploy.ipynb` wordt uitgelegd hoe u dit IP-adres vinden.
 
 
 
@@ -209,34 +209,35 @@ Zodra geïmplementeerd, de webservice kan worden aangeroepen met het script `6_c
 
 ## <a name="part-2---accuracy-improvements"></a>Deel 2 - nauwkeurigheid verbeteringen
 
-Deel 1, we hebt u geleerd hoe u een installatiekopie van een door een lineaire Vectormachine ondersteuning op de uitvoer 512-tekst van een Deep Neural Network training. Deze DNN is vooraf getraind op miljoenen installatiekopieën en de voorlaatste laag geretourneerd als de functie vector. Deze methode is snel omdat de DNN wordt gebruikt als-is, maar toch vaak biedt goede resultaten.
+In deel 1, we hebt u geleerd hoe u een installatiekopie van een door een lineaire Support Vector Machine op de 512-tekst-uitvoer van een Deep Neural Network training classificeren. Deze DNN is vooraf getrainde op miljoenen afbeeldingen en de voorlaatste laag geretourneerd als de functie vector. Deze aanpak is snel omdat de DNN wordt gebruikt als-is, maar toch vaak goede resultaten oplevert.
 
-We nu aanwezig zijn op verschillende manieren voor het verbeteren van de nauwkeurigheid van het model van deel 1. We verfijnen met name de DNN in plaats van deze vast te houden.
+We bieden nu verschillende manieren voor het verbeteren van de nauwkeurigheid van het model van deel 1. Met name verfijnen we de DNN in plaats van deze vast te houden.
 
 ### <a name="dnn-refinement"></a>DNN verfijning
 
-In plaats van een SVM kunt een de classificatie rechtstreeks in het neurale netwerk doen. Dit wordt bereikt door een nieuwe laatste laag toe te voegen aan de vooraf getraind DNN, waarbij de 512-tekst uit de voorlaatste laag als invoer wordt. De classificatie in de DNN te doen is dat het volledige netwerk kunt u retrained met backpropagation. Deze aanpak leidt vaak tot veel betere classificatie accuratesse vergeleken met het gebruik van de vooraf getraind DNN als-is echter ten koste van veel langer trainingstijd (zelfs met een GPU).
+In plaats van een SVM kunt een de classificatie rechtstreeks in het neurale netwerk doen. Dit wordt bereikt door een nieuwe laatste laag toe te voegen aan de vooraf getrainde DNN, waarbij de 512-tekst uit de voorlaatste laag als invoer. Het voordeel van de classificatie in de DNN doen is dat nu het volledige netwerk kan opnieuw worden getraind met behulp van backpropagation. Deze benadering leidt vaak tot veel betere classificatie nauwkeurigheden vergeleken met het gebruik van de vooraf getrainde DNN as-is echter ten koste van veel langere trainingstijd (zelfs met GPU).
 
-Het Neurale netwerk in plaats van een SVM wordt gerealiseerd door het wijzigen van de variabele `classifier` in `PARAMETERS.py` van `svm` naar `dnn`. Zoals wordt beschreven in deel 1, de scripts, met uitzondering van voorbereiden van gegevens (stap 1) voor en training SVM (stap 4) moeten opnieuw worden uitgevoerd. DNN verfijning vereist een GPU. Als er geen GPU is gevonden of als de GPU is vergrendeld (bijvoorbeeld door een vorige CNTK-run) script `2_refineDNN.py` een fout genereert. DNN training kunt-geheugen fout genereert op sommige GPU's die kunnen worden vermeden door minibatch verkleinen (variabele `cntk_mb_size` in `PARAMETERS.py`).
+Het Neurale netwerk in plaats van een SVM wordt gedaan door het veranderen van de variabele `classifier` in `PARAMETERS.py` van `svm` naar `dnn`. Klik, zoals beschreven in deel 1, moeten de scripts, met uitzondering van gegevens voor te bereiden (stap 1) en SVM training (stap 4) moet opnieuw worden uitgevoerd. DNN verfijning vereist een GPU. Als er geen GPU is gevonden of als de GPU is vergrendeld (bijvoorbeeld door een vorige uitvoering voor CNTK) script `2_refineDNN.py` genereert een fout. DNN training-geheugen fout op sommige GPU's, die kunnen worden vermeden door minibatch verkleinen kunt genereren (variabele `cntk_mb_size` in `PARAMETERS.py`).
 
-Wanneer de training is voltooid, het verfijnd model is opgeslagen in *DATA_DIR/proc/fashionTexture/cntk_refined.model*, en tekent getekend dat toont hoe de trainings- en classificatiefouten tijdens de training wijzigen. Let op dat tekent die de fout op de training ingesteld is veel kleiner is dan op de testset. Dit zogenaamde te veel passende gedrag kan worden verkleind, bijvoorbeeld met behulp van een hogere waarde voor de frequentie Drop-out `rf_dropoutRate`.
+Zodra training is voltooid, het verfijnde model is opgeslagen in *DATA_DIR/proc/fashionTexture/cntk_refined.model*, en een diagram waarin wordt getoond hoe de trainings- en testset classificatiefouten tijdens de training wijzigen. Houd er rekening mee in dit diagram die de fout op de trainingsset veel kleiner is dan voor de test is. Dit zogenaamde te veel passende gedrag kan worden verkleind, bijvoorbeeld met behulp van een hogere waarde voor het tarief Drop-out `rf_dropoutRate`.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/output_script_3_plot.png" alt="alt text" height="300"/>
 </p>
 
-Zoals u kunt zien in de onderstaande tekent, is de nauwkeurigheid DNN verfijning voor de opgegeven gegevensset met 92.35% ten opzichte van de 88.92% voordat (deel 1). Installatiekopieën van het 'onderbroken' de met een ROC gebied-onder-curve van 0,98 met verfijning vs in het bijzonder aanzienlijk verbeteren. 0.94 voordat. We gebruiken een kleine gegevensset en daarom de werkelijke accuratesse uitvoering van de programmacode zijn verschillend. Dit verschil is vanwege stochastische effecten zoals willekeurige splitsen in trainings- en testdoeleinden sets afbeeldingen.
+Zoals te zien in het onderstaande diagram, wordt de nauwkeurigheid met DNN verfijning voor de opgegeven gegevensset 92.35% ten opzichte van de % 88.92 voordat (deel 1). In het bijzonder verbeteren de 'onderbroken' afbeeldingen aanzienlijk, met een ROC gebied-onder-curve van 0,98 met verfijning vs. 0.94 voordat. Gebruiken we een kleine gegevensset, en daarom zijn de werkelijke nauwkeurigheden uitvoeren van de code verschillen. Dit verschil is vanwege stochastische effecten, zoals de willekeurige splitsing van de afbeeldingen in trainings- en testsets.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/roc_confMat_dnn.jpg" alt="alt text" width="700"/>
 </p>
 
 ### <a name="run-history-tracking"></a>Bijhouden van de geschiedenis uitvoeren
 
-De Azure Machine Learning-Workbench worden de geschiedenis van elke uitvoeren op Azure opdat vergelijking van twee of meer wordt uitgevoerd die zijn opgeslagen, zelfs weken elkaar. Dit wordt gedetailleerd uitgelegd in de [Iris zelfstudie](tutorial-classifying-iris-part-2.md). Dit wordt ook weergegeven in de volgende schermafbeeldingen waar we twee wordt uitgevoerd van het script vergelijken `5_evaluate.py`, met behulp van beide verfijning DNN dat wil zeggen, `classifier = "dnn"`(volgnummer 148) of SVM opleiding, dat wil zeggen, `classifier = "svm"` (volgnummer 150).
+De Azure Machine Learning Workbench-winkels de geschiedenis van elke uitvoeren op Azure om toe te staan van de vergelijking van twee of meer uitvoeringen die zijn zelfs weken elkaar. Dit wordt gedetailleerd uitgelegd in de [zelfstudie Iris](tutorial-classifying-iris-part-2.md). Het wordt ook weergegeven in de volgende schermafbeeldingen waar we twee uitvoeringen van het script vergelijken `5_evaluate.py`, met behulp van een van beide verfijning DNN dat wil zeggen, `classifier = "dnn"`(uitvoeringsnummer 148) of SVM opleiding, dat wil zeggen, `classifier = "svm"` (uitvoeringsnummer 150).
 
-In de eerste schermafbeelding leidt DNN verfijning tot betere accuratesse dan SVM training voor alle klassen. De tweede schermafbeelding ziet u alle metrische gegevens die worden bijgehouden, inclusief wat de classificatie is. Deze bijhouden wordt uitgevoerd in het script `5_evaluate.py` door het aanroepen van het logboek Azure Machine Learning-Workbench. Het script opslaat bovendien ook de ROC-curve en verwarring matrix aan de *levert* map. Dit *levert* map is speciaal in dat de inhoud ervan ook wordt gevolgd door de geschiedenisfunctie Workbench en daarom de uitvoerbestanden toegankelijk zijn op elk gewenst moment, ongeacht of lokale kopieën zijn overschreven.
+In de eerste schermafbeelding leidt DNN verfijning tot betere nauwkeurigheden dan SVM training voor alle klassen. De tweede schermafbeelding ziet u alle metrische gegevens die worden bijgehouden, met inbegrip van wat de classificatie is. Deze tracering wordt uitgevoerd in het script `5_evaluate.py` door het aanroepen van het logboek van Azure Machine Learning Workbench. Bovendien het script ook worden opgeslagen in de matrix voor ROC-curve en verwarring om de *levert* map. Dit *levert* map is bijzonder in dat de inhoud ook wordt gevolgd door de functie van de geschiedenis van Workbench en kan daarom de uitvoerbestanden op elk gewenst moment, ongeacht of lokale kopieën zijn overschreven kunnen worden geopend.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/> </p>
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>
+</p>
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison2b.jpg" alt="alt text" width="700"/>
@@ -245,50 +246,50 @@ In de eerste schermafbeelding leidt DNN verfijning tot betere accuratesse dan SV
 
 ### <a name="parameter-tuning"></a>Parameter afstemmen
 
-Zoals geldt voor de meeste machine learning-projecten, vereist goede resultaten ophalen voor een nieuwe gegevensset zorgvuldige parameter afstemmen, evenals een evaluatie van verschillende ontwerpbeslissingen. Om te helpen met deze taken, alle belangrijke parameters zijn opgegeven en een korte uitleg hebt opgegeven, op één plaats: de `PARAMETERS.py` bestand.
+Zoals geldt voor de meeste machine learning-projecten, vereist goede resultaten ophalen voor een nieuwe gegevensset zorgvuldige parameter afstemmen, evenals verschillende ontwerpbeslissingen te evalueren. Om te helpen bij deze taken, alle belangrijke parameters zijn opgegeven en een korte uitleg te vinden, op één plek: de `PARAMETERS.py` bestand.
 
-Enkele van de meestbelovende mogelijkheden voor verbeteringen zijn:
+Enkele van de meest veelbelovende mogelijkheden voor verbeteringen zijn:
 
-- Gegevenskwaliteit: Zorg ervoor dat de trainings- en testset sets van hoge kwaliteit hebben. Dat wil zeggen, de afbeeldingen zijn correct aantekeningen, niet-eenduidige afbeeldingen verwijderd (bijvoorbeeld kleding items met zowel streepjes en punten), en de kenmerken sluiten elkaar wederzijds uit (dat wil zeggen, zodat elke installatiekopie tot exact één kenmerk behoort gekozen).
+- Gegevenskwaliteit: Zorg ervoor dat de trainings- en testset sets van hoge kwaliteit zijn. Dat wil zeggen, de afbeeldingen met aantekeningen correct, niet-eenduidige afbeeldingen zijn verwijderd (bijvoorbeeld kleding items met streepjes en punten) en de kenmerken zijn sluiten elkaar wederzijds uit (dat wil zeggen, dat deel uitmaakt van elke afbeelding naar exact één kenmerk gekozen).
 
-- Als het object van belang klein is in de installatiekopie vervolgens installatiekopie classificatie benaderingen niet te werken goed bekend. In dergelijke gevallen kunt u overwegen een benadering van de detectie object zoals beschreven in dit [zelfstudie](https://github.com/Azure/ObjectDetectionUsingCntk).
-- DNN verfijning: de weliswaar belangrijkste parameter direct is het leertempo `rf_lrPerMb`. Als de nauwkeurigheid van de training ingesteld (eerste afbeelding in deel 2) is niet dicht bij 0-5%, waarschijnlijk is vanwege een onjuiste het leertempo. De andere parameters te beginnen met `rf_` minder belangrijk zijn. De fout training moet normaal gesproken exponentieel verlagen en worden dicht bij 0% na de training.
+- Als het object van belang klein in de afbeelding is vervolgens Afbeeldingsclassificatie benaderingen bekend is niet goed werken. In dergelijke gevallen kunt u overwegen een benadering voor het detecteren van object zoals beschreven in dit [zelfstudie](https://github.com/Azure/ObjectDetectionUsingCntk).
+- DNN verfijning: de weliswaar belangrijkste parameter meteen is het leertempo `rf_lrPerMb`. Als de nauwkeurigheid van de training ingesteld (eerste afbeelding in deel 2) is niet dicht bij 0-5%, waarschijnlijk te wijten is een onjuiste het leertempo. De andere parameters te beginnen met `rf_` minder belangrijk zijn. Normaal gesproken moet de training fout exponentieel verlagen en worden dicht bij 0% na de training.
 
-- Resolutie invoer: de standaardresolutie installatiekopie is 224 x 224 pixels. Met behulp van hogere afbeeldingsresolutie (parameter: `rf_inputResoluton`), bijvoorbeeld 448 x 448 of 896 x 896 pixels vaak aanzienlijke verbetert de nauwkeurigheid maar vertraagt de DNN verfijnen. **Met behulp van hogere afbeeldingsresolutie is bijna eenvoudig en bevordert de bijna altijd nauwkeurig**.
+- Resolutie van invoer: de standaardresolutie van de installatiekopie is 224 x 224 pixels. Met behulp van hogere resolutie (parameter: `rf_inputResoluton`), bijvoorbeeld 448 x 448 of 896 x 896 pixels vaak aanzienlijke verbetert de nauwkeurigheid van de gegevens, maar DNN verfijning vertraagt. **Met behulp van hogere resolutie is bijna gaat de zon en bijna altijd verhoogt de nauwkeurigheid**.
 
-- Te veel aanpassen DNN: voorkomen dat een grote hiaat tussen de trainings- en test nauwkeurigheid tijdens DNN verfijning (eerste afbeelding in deel 2). Door dit gat kan worden teruggebracht met Drop-out tarieven `rf_dropoutRate` van 0,5 of meer en door te verhogen van het gewicht regularizer `rf_l2RegWeight`. Met behulp van de frequentie waarmee een hoge Drop-out kan vooral nuttig als de invoer afbeeldingsresolutie DNN hoog zijn.
+- DNN sprake van redundante aanpassing van labels: te voorkomen dat een grote hiaat tussen de trainings- en test nauwkeurigheid tijdens verfijning van DNN (eerste afbeelding in deel 2). De lege ruimte kan worden teruggebracht tarieven voor Drop-out `rf_dropoutRate` van 0,5 of meer, en door het gewicht regularizer `rf_l2RegWeight`. Met een hoge Drop-out-tarief is vooral nuttig zijn als de invoer resolutie DNN hoog is.
 
-- Probeer diepere DNNs door te wijzigen met `rf_pretrainedModelFilename` van `ResNet_18.model` naar elk `ResNet_34.model` of `ResNet_50.model`. Het model Resnet 50 is niet alleen beter, maar de uitvoer van de voorlaatste laag is van de grootte van 2048 tekst (vs. 512 tekst van de modellen ResNet 18 en ResNet 34). Deze verhoogde dimensie kunt vooral nuttig zijn bij het trainen van een classificatie SVM.
+- Probeer met behulp van diepere dnn's door het veranderen van `rf_pretrainedModelFilename` van `ResNet_18.model` aan `ResNet_34.model` of `ResNet_50.model`. Het model Resnet 50 is niet alleen beter, maar de uitvoer van de voorlaatste laag is van de grootte van 2048 tekst (in plaats van 512 tekst van de modellen ResNet robmazz van 18 en ResNet 34). Deze verbeterde dimensie kan met name nuttig zijn bij het trainen van een classificatie SVM.
 
-## <a name="part-3---custom-dataset"></a>Deel 3: aangepaste gegevensset
+## <a name="part-3---custom-dataset"></a>Deel 3 - aangepaste gegevensset
 
-Deel 1 en 2, we getraind en geëvalueerd van een installatiekopie van classificatie-model met behulp van de installatiekopieën van het opgegeven bovenste hoofdtekst kleding structuren. Nu laten we zien hoe u een aangepaste gebruiker gemaakte gegevensset te gebruiken. Of, als niet beschikbaar is, hoe genereren en aantekeningen toevoegen aan deze een gegevensset met Bing installatiekopie zoeken.
+In deel 1 en 2, we getraind en geëvalueerd van een installatiekopie classificeringsmodel met behulp van de opgegeven hoofdtekst van de bovenste kleding structuren afbeeldingen. Nu laten we zien hoe u een aangepaste gebruiker gemaakte gegevensset in plaats daarvan gebruikt. Of, als deze niet beschikbaar zijn, hoe om te genereren en aantekeningen toevoegen aan deze een gegevensset met behulp van de Bing afbeeldingen zoeken.
 
 ### <a name="using-a-custom-dataset"></a>Met behulp van een aangepaste gegevensset
 
-Eerst gaan we kijken de mapstructuur voor de gegevens van de structuur kleding hebben. Opmerking hoe alle afbeeldingen voor de verschillende kenmerken zijn in de bijbehorende submappen *decimale*, * leopard, en *striped* op *installatiekopieën-DATA_DIR/fashionTexture/*. U ziet ook hoe de naam van de installatiekopie-map vindt ook plaats de `PARAMETERS.py` bestand:
+Eerst hebben we een overzicht van de mappenstructuur voor de gegevens van de structuur kleding. Houd er rekening mee hoe alle installatiekopieën voor de verschillende kenmerken zijn in de bijbehorende submappen *gestippelde*, * leopard, en *striped* op *DATA_DIR/afbeeldingen/fashionTexture/*. U ziet ook hoe de naam van de installatiekopie-map vindt ook plaats de `PARAMETERS.py` bestand:
 ```python
 datasetName = "fashionTexture"
 ```
 
-Met behulp van een aangepaste gegevensset is net zo eenvoudig als deze mapstructuur reproduceren waarin alle installatiekopieën zijn in submappen volgens hun kenmerk en deze submappen kopiëren naar een nieuwe gebruiker opgegeven map *installatiekopieën-DATA_DIR/newDataSetName/*. De enige codewijziging vereist is om in te stellen de `datasetName` variabele *newDataSetName*. Scripts 1-5 kunnen vervolgens worden uitgevoerd in de volgorde en alle tussenliggende bestanden worden vastgelegd in *proc-DATA_DIR/newDataSetName/*. Er zijn geen andere codewijzigingen vereist.
+Met behulp van een aangepaste gegevensset is net zo eenvoudig als deze mapstructuur reproduceren waarin alle installatiekopieën in submappen op basis van hun kenmerk en deze submappen kopiëren naar een nieuwe gebruiker opgegeven map zijn *DATA_DIR/afbeeldingen/newDataSetName/*. De enige codewijziging vereist is om in te stellen de `datasetName` variabele *newDataSetName*. Scripts 1-5 kunnen vervolgens worden uitgevoerd in volgorde en alle tussenliggende bestanden worden geschreven naar *DATA_DIR/proc/newDataSetName/*. Er zijn geen codewijzigingen vereist.
 
-Het is belangrijk dat elke installatiekopie kan worden toegewezen aan exact één kenmerk. Het normaal zou zijn bijvoorbeeld verkeerde kenmerken voor "dieren" en 'leopard' hebben omdat de installatiekopie van een 'leopard' zouden ook "dieren" behoren. Bovendien is het beste verwijderen van niet-eenduidige en daarom moeilijk aantekeningen toevoegen aan installatiekopieën.
+Het is belangrijk dat elke installatiekopie kan worden toegewezen aan exact één kenmerk. Zo zou het verkeerde kenmerken voor 'dieren' en 'leopard' hebben omdat de installatiekopie van een 'leopard' ook behoren zouden "dieren" zijn. Het is ook raadzaam om te verwijderen van installatiekopieën die niet-eenduidige en kan daarom moeilijk aantekeningen toevoegen aan.
 
 
 
 ### <a name="image-scraping-and-annotation"></a>Afbeelding afschrapen en aantekening
 
-Verzamelen van een voldoende aantal aantekeningen afbeeldingen voor trainings- en testdoeleinden kan lastig zijn. Er is een manier om dit probleem oplossen bij installatiekopieën van het Internet. Zie bijvoorbeeld onder de zoekresultaten van Bing afbeelding voor de query *t-shirt striped*. Zoals verwacht, installatiekopieën van de meeste inderdaad striped t-shirts. Het paar onjuist of is niet eenduidig installatiekopieën (zoals kolom 1, 1; rij of kolom 3, rij 2) kunnen worden geïdentificeerd en eenvoudig verwijderd:
+Verzamelen van een voldoende aantal interpretaties installatiekopieën voor trainings- als testdoeleinden kan lastig zijn. Er is een manier om dit probleem oplossen bij installatiekopieën van het Internet. Zie bijvoorbeeld onder de Bing afbeeldingen zoeken-resultaten voor de query *t-shirt striped*. Zoals verwacht, meeste afbeeldingen inderdaad worden striped t-shirt. Het paar onjuist of niet-eenduidige afbeeldingen (zoals kolom 1, 1; rij of kolom 3, rij 2) kunnen worden geïdentificeerd en eenvoudig worden verwijderd:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
 
-Voor het genereren van een grote en diverse gegevensset moeten meerdere query's worden gebruikt. Bijvoorbeeld: 7\*3 = 21 query's kunnen worden gemaakt met automatisch alle combinaties van kleding items {bloes, hoodie, aangebreide, trui, shirt, t-shirt, uitoefenbaarheid} en {striped, decimale, leopard} kenmerken. Vervolgens de installatiekopieën van het bovenste 50 per query downloaden zou leiden tot een maximum van 21 * 50 = 1050 installatiekopieën.
+Voor het genereren van een grote en diverse gegevensset moeten meerdere query's worden gebruikt. Bijvoorbeeld: 7\*3 = 21-query's kunnen worden gemaakt met automatisch alle combinaties van kleding items {bloes, hoodie, aangebreide, trui, shirt, t-shirt, uitoefenbaarheid} en {striped, decimale, leopard} kenmerken. Vervolgens downloaden van de bovenste 50 afbeeldingen per query zou leiden tot een maximum van 21 * 50 = 1050 installatiekopieën.
 
-In plaats van handmatig afbeeldingen worden gedownload van het zoeken naar Bing-afbeelding, is het veel eenvoudiger te gebruiken in plaats daarvan de [cognitieve Services Bing installatiekopie Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) die retourneert een set met een queryreeks opgegeven afbeelding-URL's.
+In plaats van handmatig afbeeldingen worden gedownload van de Bing afbeeldingen zoeken, is het veel eenvoudiger te gebruiken in plaats daarvan de [Cognitive Services Bing afbeeldingen zoeken-API](https://www.microsoft.com/cognitive-services/bing-image-search-api) die retourneert een set met afbeelding-URL's die een queryreeks opgegeven.
 
-Enkele van de gedownloade afbeeldingen exacte of in de buurt van duplicaten zijn (bijvoorbeeld door de installatiekopie van oplossing of jpg-artefacten verschillen). Deze dubbele vermeldingen moeten worden verwijderd, zodat de splitsing trainings- en bevatten niet dezelfde afbeeldingen. Verwijderen van dubbele afbeeldingen kan worden bereikt met een hash-gebaseerde benadering die in twee stappen werkt: (i) eerst de hash-tekenreeks is berekend voor alle installatiekopieën. (ii) in een tweede keer via de afbeeldingen, zijn alleen afbeeldingen met een hash-tekenreeks die nog niet zichtbaar bewaard. Alle andere afbeeldingen worden genegeerd. Zagen we de `dhash` benadering in de bibliotheek Python `imagehash` en wordt beschreven in dit [blog](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) om uit te voeren, met de parameter `hash_size` is ingesteld op 16. Het is OK onjuist enkele afbeeldingen niet dubbele verwijderen zolang het merendeel van de echte duplicaten verwijderd.
+Sommige van de gedownloade afbeeldingen exact of in de buurt van dubbele waarden zijn (bijvoorbeeld door installatiekopie resolutie of jpg-artefacten verschillen). Deze dubbele vermeldingen moeten worden verwijderd zodat de splitsing trainings- en testset niet dezelfde afbeeldingen bevatten. Verwijderen van dubbele installatiekopieën kan worden bereikt met behulp van een hash-gebaseerde benadering waarmee u in twee stappen werkt: (i) eerst de tekenreeks hash wordt berekend voor alle installatiekopieën. (ii) in een tweede keer via de installatiekopieën, zijn alleen afbeeldingen worden bewaard met een hash-tekenreeks is die nog niet zichtbaar. Alle andere installatiekopieën worden verwijderd. We vinden het `dhash` benadering in de Python-bibliotheek `imagehash` en die worden beschreven in deze [blog](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) om uit te voeren, met de parameter `hash_size` is ingesteld op 16. Het is OK onjuist verwijderen van enkele afbeeldingen unieke, zolang het merendeel van de echte dubbele records worden verwijderd.
 
 
 
@@ -296,14 +297,14 @@ Enkele van de gedownloade afbeeldingen exacte of in de buurt van duplicaten zijn
 
 ## <a name="conclusion"></a>Conclusie
 
-Er zijn een aantal belangrijke licht van dit voorbeeld:
-- De code te trainen, evalueren en afbeelding classificatiemodellen kunnen implementeren.
-- Demo voor installatiekopieën die zijn opgegeven, maar gemakkelijk kan worden aangepast (één regel wijzigen) gegevensset eigen installatiekopie gebruiken.
-- De nieuwste deskundige functies geïmplementeerd om het trainen van modellen van hoge nauwkeurigheid op basis van Learning overdragen.
+Er zijn enkele belangrijke kenmerken van het volgende voorbeeld:
+- De code om te trainen, evalueren en implementeren van modellen voor classificatie van afbeeldingen.
+- Demo-installatiekopieën die zijn opgegeven, maar gemakkelijk kan worden aangepast (één regel wijzigen) in de gegevensset van de eigen installatiekopie gebruiken.
+- Status-of-the-art deskundige functies geïmplementeerd om te hoge nauwkeurigheid modellen op basis van Transfer Learning te trainen.
 - Interactieve model ontwikkelen met Azure Machine Learning Workbench en Jupyter-Notebook.
 
 
 ## <a name="references"></a>Verwijzingen
 
-[1] Alex Krizhevsky Ilya Sutskever en Geoffrey E. Hinton, [ _ImageNet classificatie met diep Convolutional Neural Networks_](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf). NIPS 2012.  
-[2] Kaiming hij, Xiangyu Zhang Shaoqing Ren en Jian Sun, [ _diep achtergebleven voor opname van de installatiekopie leren_](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). CVPR 2016.
+[1] Alex Krizhevsky en Ilya Sutskever Geoffrey E. Hinton, [ _ImageNet classificatie met uitgebreide Convolutional Neural Networks_](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf). NIPS 2012.  
+[2] Kaiming hij, Xiangyu Zhang Shaoqing Ren en Jian Sun, [ _diep resterende Learning voor Beeldherkenning_](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). CVPR 2016.

@@ -1,6 +1,6 @@
 ---
-title: Het beheren van toegang tot apps die gebruikmaken van Azure AD | Microsoft Docs
-description: Hierin wordt beschreven hoe Azure Active Directory kunnen organisaties om op te geven de apps waartoe elke gebruiker toegang heeft.
+title: Beheer van toegang tot apps met behulp van Azure AD | Microsoft Docs
+description: Hierin wordt beschreven hoe Azure Active Directory kunnen organisaties om op te geven van de apps waartoe elke gebruiker toegang heeft.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: barbkess
-ms.openlocfilehash: 019bdecd315f6da91fef8e7ed5d088e328253ef6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f03516bf22f46f1b5e4869409ad7e999dc9960f1
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303482"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449845"
 ---
 # <a name="managing-access-to-apps"></a>Toegang tot apps beheren
-Beheer lopende toegang, gebruik beoordeling en rapportage blijven een challenge nadat een app is geïntegreerd in uw organisatie identiteitsbeheersysteem. In veel gevallen hebben IT-beheerders of de helpdesk te nemen van een doorlopende actieve rol bij het beheren van toegang tot uw apps. Soms wordt toewijzing uitgevoerd door een algemene of divisie IT-team. Vaak wordt de beslissing toewijzing bedoeld worden gedelegeerd naar de besluitvormer vereisen van hun goedkeuring voordat IT heeft de toewijzing.  Andere organisaties Investeer in integratie met een bestaand geautomatiseerde identiteits- en toegangsbeheer management-systeem, zoals rollen gebaseerd toegangsbeheer (RBAC) of toegangsbeheer op basis van kenmerken (ABAC). De integratie en de ontwikkeling van de regel zijn meestal gespecialiseerde en duur. Controleren of rapportage over de aanpak van beide management is een eigen afzonderlijke, complexe en dure investering.
+Beheer van continue toegang, gebruik evaluatie en rapportage blijven lastig zijn om nadat een app is geïntegreerd in identiteitssysteem van uw organisatie. In veel gevallen hebben IT-beheerders of de helpdesk te nemen van een doorlopende actieve rol bij het beheren van toegang tot uw apps. Toewijzing wordt soms uitgevoerd door een algemene of divisie IT-team. Vaak de beslissing van de toewijzing is bedoeld om te worden overgedragen aan de zakelijke besluitvormer, waarvoor ze worden goedgekeurd voordat IT heeft de toewijzing.  Andere organisaties investeren in integratie met een bestaande geautomatiseerde identiteits- en toegangsbeheer management-systeem, zoals Role-Based Access Control (RBAC) of op kenmerken gebaseerde Access Control (ABAC). De integratie en de ontwikkeling van de regel zijn meestal gespecialiseerde en dure. Controleren of rapportage over beide benaderingen management is een eigen afzonderlijke, dure en complexe investering.
 
 ## <a name="how-does-azure-active-directory-help"></a>Hoe helpt Azure Active Directory?
- Azure AD ondersteunt uitgebreide toegangsbeheer voor geconfigureerde toepassingen, waarmee organisaties eenvoudig de juiste toegangsbeleid, variërend van automatische, op basis van kenmerken toewijzing (ABAC of RBAC scenario's) via overdracht en inclusief bereiken beheerdersbeheer. Met Azure AD kunt eenvoudig complexe beleidsregels bereiken combineren van meerdere management modellen voor één toepassing en regels voor poortbeheer opnieuw zelfs voor toepassingen met de dezelfde doelgroepen kunt gebruiken.
+ Azure AD biedt ondersteuning voor uitgebreide toegang management voor geconfigureerde toepassingen waarmee organisaties het juiste toegangsbeleid, variërend van automatische, op basis van een kenmerk toewijzing (ABAC of RBAC scenario's) door middel van overdracht en inclusief eenvoudig wordt om beheerdersbeheer. Met Azure AD, u kunt eenvoudig complexe beleid bereiken combineren van meerdere modellen voor één toepassing en kan zelfs opnieuw te gebruiken regels binnen toepassingen met de dezelfde doelgroepen.
 
 * [Toevoegen van nieuwe of bestaande toepassingen](configure-single-sign-on-portal.md)
 
- Toewijzing van Azure AD-toepassing is gericht op twee primaire toewijzing modi:
+ Toewijzing van de Azure AD-toepassing is gericht op twee modi van de primaire toewijzing:
 
-* **Afzonderlijke toewijzing** een IT-beheerder met de globale beheerder mapmachtigingen kunt selecteren van afzonderlijke gebruikersaccounts en ze toegang verlenen tot de toepassing.
-* **Toewijzing op basis van een groep (betaald alleen Azure AD)** een IT-beheerder met globale beheerdersmachtigingen voor directory een groep kunt toewijzen aan de toepassing. Specifieke gebruikers toegang is afhankelijk van of ze lid zijn van de groep op het moment dat ze proberen toegang tot de toepassing. Een beheerder kan met andere woorden, een mededeling 'alle huidige leden van de toegewezen groep toegang heeft tot de toepassing' toewijzingsregel effectief maken. Met deze optie toewijzing beheerders kunnen profiteren van een Azure AD-groep voor beheeropties, met inbegrip van [dynamische groepen op basis van kenmerken](../active-directory-groups-create-azure-portal.md), extern systeemgroepen (bijvoorbeeld on-premises Active Directory of werkdag) of de Administrator beheerde of zelfstandige-verkeer beheerde groepen. Een groep kan worden eenvoudig toegewezen aan meerdere apps ervoor te zorgen dat toepassingen met toewijzing affiniteit toewijzingsregels, kunnen delen de algehele management complexiteit te verminderen. Houd er rekening mee dat geneste groep lidmaatschappen worden niet ondersteund voor toewijzing op basis van een groep van toepassingen op dit moment.
+* **Individuele toewijzing** een IT-beheerder met de globale beheerdersmachtigingen directory kunt selecteren van afzonderlijke gebruikersaccounts en hun toegang tot de toepassing wordt verleend.
+* **Toewijzing op basis van een groep (Azure AD alleen betaald)** een IT-beheerder met de globale beheerdersmachtigingen directory een groep kunt toewijzen aan de toepassing. Specifieke gebruikers toegang wordt bepaald door of ze leden van de groep op het moment dat ze proberen zijn te krijgen tot de toepassing. Een beheerder kan met andere woorden, een regel voor de toewijzing met vermelding van "alle huidige leden van de toegewezen groep heeft toegang tot de toepassing" effectief maken. Met deze optie toewijzing, beheerders kunnen profiteren van een van de Azure AD-groep beheeropties, met inbegrip van [dynamische groepen op basis van een kenmerk](../fundamentals/active-directory-groups-create-azure-portal.md), extern systeemgroepen (bijvoorbeeld on-premises Active Directory of Workday) of de beheerder of de zelf-Self-service beheerd groepen. Een groep kan worden eenvoudig toegewezen aan meerdere apps ervoor te zorgen dat toepassingen met toewijzing affiniteit toewijzingsregels, kunnen delen de complexiteit van het totale beheer verminderen. Houd er rekening mee dat genest groepslidmaatschap worden niet ondersteund voor toewijzing op basis van een groep aan een toepassing op dit moment.
 
-Met behulp van deze toewijzing van de twee modi, kunnen beheerders eventuele wenselijk toewijzing managementbenadering bereiken.
+Met behulp van deze toewijzing van de twee modi, beheerders kunnen maar liefst de methode voor elk gewenst toewijzing.
 
-Met Azure AD is gebruiks- en rapportage over volledig geïntegreerd, waardoor beheerders gemakkelijk rapporteren over de status van sitetoewijzing toewijzingsfouten en zelfs informatie over het gebruik.
+Met Azure AD, is gebruik en de toewijzing reporting volledig geïntegreerd, waardoor beheerders gemakkelijk rapporteren over de status van sitetoewijzing, fouten bij licentietoewijzing en zelfs gebruik.
 
 ## <a name="complex-application-assignment-with-azure-ad"></a>Toewijzing van complexe toepassingen met Azure AD
-U kunt een toepassing zoals Salesforce. In veel organisaties wordt Salesforce voornamelijk gebruikt door de marketing- en organisaties. Vaak uitgebreide marketing teamleden maximaal toegang tot Salesforce, terwijl de leden van het verkoopteam beperkte toegang hebben. In veel gevallen een algemene populatie informatiemedewerkers beperkte toegang hebben tot de toepassing. Uitzonderingen op deze regels bemoeilijken belangrijk is. Het is vaak het recht van de leidinggevende teams marketing- of een gebruikerstoegang verlenen of hun rollen onafhankelijk van deze algemene regels wijzigen.
+Houd rekening met een toepassing zoals Salesforce. In veel organisaties wordt Salesforce voornamelijk gebruikt met de marketing- en organisaties. Vaak, uitgebreide leden van het marketing-team zeer toegang tot Salesforce, terwijl de leden van het verkoopteam beperkte toegang hebben. In veel gevallen is een brede populatie van IT-medewerkers toegang beperkt tot de toepassing. Uitzonderingen op deze regels bemoeilijken belangrijk is. Het is vaak het recht van de teams van de leiderschap marketing- of een gebruikerstoegang verlenen of hun rollen onafhankelijk van deze algemene regels wijzigen.
 
-Met Azure AD kunnen toepassingen zoals Salesforce zijn vooraf geconfigureerd voor eenmalige aanmelding (SSO) en de geautomatiseerde inrichting. Zodra de toepassing is geconfigureerd, kan een beheerder de eenmalige actie maken en toewijzen van de juiste groepen duren. In dit voorbeeld kan een beheerder de volgende toewijzingen uitvoeren:
+Met Azure AD is-toepassingen, zoals Salesforce vooraf geconfigureerd voor eenmalige aanmelding (SSO) en geautomatiseerde inrichting. Nadat de toepassing is geconfigureerd, kan een beheerder de eenmalige actie maken en toewijzen van de juiste groepen duren. In dit voorbeeld kan een beheerder de volgende toewijzingen uitvoeren:
 
-* [Dynamische groepen](../active-directory-groups-create-azure-portal.md) ter vertegenwoordiging van alle leden van de marketing- en teams met kenmerken zoals afdeling of rol automatisch kunnen worden gedefinieerd:
+* [Dynamische groepen](../fundamentals/active-directory-groups-create-azure-portal.md) staat voor alle leden van het marketing- en teams met behulp van kenmerken, zoals afdeling of rol automatisch kunnen worden gedefinieerd:
   
-  * Alle leden van marketing groepen wordt toegewezen aan de rol 'marketing' in Salesforce
-  * Alle leden van het verkoopteam groepen wordt toegewezen aan de rol 'verkoop' in Salesforce. Een verdere verfijning kan meerdere groepen die overeenkomen met regionale sales-teams toegewezen aan verschillende rollen van Salesforce gebruiken.
-* Om de uitzonderingsmechanisme, kan een groepsbeheer met Self-service voor elke rol worden gemaakt. De groep 'Salesforce marketing uitzondering' kan bijvoorbeeld worden gemaakt als een groepsbeheer met Self-service. De groep kan worden toegewezen aan de rol van de Salesforce-marketing en de marketing leiding eigenaren kan worden gemaakt. Leden van de marketing leiding kunnen toevoegen of verwijderen gebruikers, stelt u een beleid join of zelfs goedkeuren of weigeren van afzonderlijke gebruikers aanvragen voor deelname aan. Dit wordt ondersteund door een information worker juiste ervaring die geen speciale training voor eigenaars of leden vereist.
+  * Alle leden van groepen van marketing wordt toegewezen aan de rol 'marketing' in Salesforce
+  * Alle leden van het verkoopteam groepen wordt toegewezen aan de rol 'sales' in Salesforce. Een verdere verfijning kan meerdere groepen die staan voor regionale verkoopteams toegewezen aan verschillende rollen voor Salesforce gebruiken.
+* Als u wilt het uitzonderingsmechanisme voor inschakelen, kan een groepsbeheer met Self-service voor elke rol worden gemaakt. De groep 'Salesforce marketing uitzondering' kan bijvoorbeeld worden gemaakt als een groep zelf. De groep kan worden toegewezen aan de rol van de Salesforce-marketing en het marketingteam van leidinggevenden eigenaren kan worden gemaakt. Leden van het marketingteam van leidinggevenden kunnen toevoegen of verwijderen van gebruikers, instellen van een join-beleid, of zelfs goedkeuren of afwijzen afzonderlijke gebruikers aanvragen voor deelname aan. Dit mechanisme wordt ondersteund door een information worker juiste ervaring die geen speciale training voor eigenaren of leden vereist.
 
-In dit geval zouden alle toegewezen gebruikers worden automatisch ingericht bij Salesforce, wanneer ze worden toegevoegd aan verschillende groepen die hun roltoewijzing zou worden bijgewerkt in Salesforce. Gebruikers zou kunnen detecteren en toegang tot de Salesforce via de toepassing toegang Configuratiescherm van Microsoft Office web-clients, of zelfs door te navigeren naar de aanmeldingspagina van hun organisatie Salesforce. Beheerders zou kunnen eenvoudig bekijken en toewijzing van de status van met behulp van Azure AD-rapportage.
+In dit geval zouden alle toegewezen gebruikers worden automatisch ingericht met Salesforce, wanneer ze worden toegevoegd aan verschillende groepen die hun roltoewijzing zou worden bijgewerkt in Salesforce. Gebruikers zou kunnen detecteren en Salesforce via het toegangsvenster Microsoft-toepassing en Office web-clients, of zelfs door te navigeren naar de aanmeldingspagina van hun organisatie Salesforce. Beheerders zou kunnen eenvoudig gebruik en de toewijzing om status te bekijken met behulp van Azure AD-rapportage zijn.
 
-Beheerders kunnen gebruikmaken van [voorwaardelijke toegang van Azure AD](../active-directory-conditional-access-azure-portal.md) beleidsregels voor toegang voor specifieke rollen instellen. Deze beleidsregels kunnen bevatten of toegang is toegestaan buiten de bedrijfsomgeving en zelfs multi-Factor Authentication vereisten of apparaten toegang in verschillende gevallen bereiken.
+Beheerders kunnen gebruikmaken van [voorwaardelijke toegang voor Azure AD](../active-directory-conditional-access-azure-portal.md) toegangsbeleid voor specifieke rollen instellen. Deze beleidsregels kunnen opnemen of toegang is toegestaan buiten de bedrijfsomgeving en zelfs multi-factor Authentication of het apparaat vereisten voor toegang in verschillende gevallen bereiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
-* [Apps met voorwaardelijke toegang beveiligen](../active-directory-conditional-access-azure-portal.md)
-* [Groepsbeheer met Self-Service management/SSAA](../active-directory-accessmanagement-self-service-group-management.md)
+* [Beveiligen van apps met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md)
+* [Groepsbeheer met Self-Service management/SSAA](../users-groups-roles/groups-self-service-management.md)

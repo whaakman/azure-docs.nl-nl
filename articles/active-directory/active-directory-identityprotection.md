@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory Identity Protection | Microsoft Docs
-description: Meer informatie over hoe Azure AD Identity Protection kunt u de mogelijkheid van een aanvaller misbruik maakt van een verdachte identiteit of het apparaat en voor het beveiligen van een identiteit of een apparaat dat eerder is verdacht of bekend is dat inbreuk wordt gepleegd beperken.
+description: Meer informatie over hoe Azure AD Identity Protection kunt u de mogelijkheid van een aanvaller misbruik te maken van een apparaat of aangetaste identiteit en beveiliging van een identiteit of een apparaat dat eerder is verdacht of bekend is dat inbreuk worden gepleegd beperken.
 services: active-directory
-keywords: beveiliging in Azure active directory-identiteit, cloud app discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
+keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -16,79 +16,79 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9658eaaf35d9b937d76926c73dba23d2a4989b3a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: faeeebb21c6dde73be855af469e03ede4c6d0b5d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713181"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444953"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-Azure Active Directory: Identity Protection is een functie van de Azure AD Premium P2-versie waarmee u kunt:
+Azure Active Directory Identity Protection is een functie van de Azure AD Premium P2-editie waarmee u kunt:
 
-- Detecteren van mogelijke beveiligingsproblemen die invloed hebben op de identiteiten van uw organisatie
+- Detecteren van mogelijke beveiligingsproblemen die betrekking hebben op de identiteiten van uw organisatie
 
-- Automatische antwoorden op gedetecteerde verdachte acties die zijn gekoppeld aan de identiteiten van uw organisatie configureren  
+- Automatische antwoorden op gedetecteerde verdachte activiteit die betrekking op de identiteiten van uw organisatie hebben configureren  
 
-- Verdachte incidenten onderzoeken en onderneem gepaste actie deze op te lossen   
+- Verdachte incidenten onderzoeken en onderneem gepaste actie op te lossen   
 
 
 ## <a name="getting-started"></a>Aan de slag
 
-Cloud-gebaseerde identiteiten is voor meer dan een tien jaar beveiligd door Microsoft. Met Azure Active Directory: Identity Protection kunt in uw omgeving, u de dezelfde systemen ter bescherming van die Microsoft gebruikt voor het beveiligen van identiteiten.
+Cloud-gebaseerde identiteiten is voor meer dan tien jaar beveiligd door Microsoft. Met Azure Active Directory Identity Protection kunt in uw omgeving, u de dezelfde systemen ter bescherming van die Microsoft gebruikt voor het beveiligen van identiteiten.
 
-De meeste beveiligingslekken plaatsvinden als aanvallers toegang krijgen tot een omgeving met de identiteit van een gebruiker te stelen. In de afgelopen jaren, zijn aanvallers steeds effectief gebruik van schendingen van derden en het gebruik van geavanceerde phishingaanvallen geworden. Als een aanvaller toegang tot het zelfs als deze gebruiker met laag bevoegde accounts krijgt, is het relatief gemakkelijk voor hen toegang te krijgen tot bronnen van belangrijke bedrijfsgegevens via laterale verplaatsing.
+De meeste van de beveiliging terugdringen plaatsvinden als aanvallers toegang krijgen tot een omgeving door het stelen van de identiteit van een gebruiker. In de afgelopen jaren, zijn aanvallers steeds meer in gebruik te maken van inbreuken op de derde partij en het gebruik van geavanceerde phishing-aanvallen van kracht geworden. Als een aanvaller toegang heeft om met lage bevoegdheden gebruikersaccounts nog, is het relatief gemakkelijk voor hen toegang te krijgen tot belangrijke bedrijfsbronnen via een laterale verplaatsing.
 
-Als gevolg hiervan moet u:
+Als dit moet u naar:
 
-- Beveiligen van alle identiteiten ongeacht hun machtigingsniveau
+- Beveiligen van alle identiteiten, ongeacht hun niveau van bevoegdheden
 
-- Proactief te voorkomen dat waarmee is geknoeid identiteiten geschonden
+- Proactief te voorkomen dat verdachte identiteiten worden misbruikt
 
-Detectie van verdachte identiteiten is geen eenvoudige taak. Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en identiteiten waarmee is geknoeid methodiek voor het detecteren van afwijkingen en verdachte incidenten die mogelijk aangeven. Met deze gegevens Identity Protection genereert rapporten en waarschuwingen waarmee u kunt de gedetecteerde problemen evalueren en juiste risicobeperking of herstelacties duren.
+Verdachte identiteiten detecteren, is geen eenvoudige taak. Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en methodieken voor het detecteren van afwijkingen en verdachte incidenten die duiden op mogelijk verdachte identiteiten. Met behulp van deze gegevens genereert Identity Protection rapporten en waarschuwingen waarmee u kunt de gedetecteerde problemen evalueren en juiste risicobeperking of herstelacties.
 
-Azure Active Directory: Identity Protection is meer dan een controle en rapportage. Ter bescherming van uw organisatie identiteiten, kunt u risico-beleidsregels die automatisch op gedetecteerde problemen reageren als een opgegeven risiconiveau is bereikt. Deze beleidsregels, naast de andere besturingselementen voorwaardelijke toegang is verstrekt door Azure Active Directory en EMS, kunnen automatisch blokkeren of initiëren adaptieve herstelacties met inbegrip van wachtwoorden opnieuw instellen en afdwingen van multi-factor authentication-server.
-
-
-#### <a name="identity-protection-capabilities"></a>Mogelijkheden voor preventie van identiteit
-
-**Detecteren van zwakke plekken en riskant accounts:**  
-
-* Aangepaste aanbevelingen voor de algehele beveiligingsstatus markeert beveiligingslekken bieden
-* Aanmelden risiconiveaus berekenen
-* Gebruiker risiconiveaus berekenen
+Azure Active Directory Identity Protection is meer dan een controle- en rapportagetool. Ter bescherming van identiteiten in uw organisatie, kunt u risico's gebaseerd beleid die automatisch op gedetecteerde problemen reageren wanneer een opgegeven risiconiveau is bereikt. Deze beleidsregels, naast andere besturingselementen voor voorwaardelijke toegang is geleverd door Azure Active Directory en EMS, kunnen automatisch blokkeren of adaptieve herstelacties met inbegrip van wachtwoorden en meervoudige verificatie afdwingen initiëren.
 
 
-**Bezig met het onderzoeken van risico's:**
+#### <a name="identity-protection-capabilities"></a>Mogelijkheden voor identiteits-beveiliging
 
-* Verzenden van meldingen voor risico 's
-* Het onderzoeken van risico's met behulp van de relevante en contextuele informatie
-* Biedt eenvoudige werkstromen voor het bijhouden van onderzoeken
-* Eenvoudige toegang tot herstelacties zoals het wachtwoord opnieuw instellen
+**Detecteren van beveiligingsproblemen en riskante accounts:**  
+
+* Bieden van aangepaste aanbevelingen voor het totale beveiligingspostuur verbeteren door het markeren van beveiligingsproblemen
+* Berekenen van de aanmelding risiconiveaus
+* Berekenen van de gebruiker risiconiveaus
+
+
+**Risicogebeurtenissen onderzoeken:**
+
+* Verzenden van meldingen voor risicogebeurtenissen
+* Het onderzoeken van risico's met behulp van relevante en contextuele informatie
+* Biedt eenvoudige werkstromen voor het volgen van onderzoek
+* Eenvoudige toegang tot herstelacties, zoals wachtwoord opnieuw instellen
 
 **Beleid voor voorwaardelijke toegang op basis van risico's:**
 
-* Beleid voor riskante aanmeldingen beperken door aanmeldingen blokkeren of uitdagingen voor meervoudige verificatie vereisen
-* Beleid voor het blokkeren of beveiligde riskant gebruikersaccounts
-* Beleid voor gebruikers moeten zich registreren voor meervoudige verificatie
+* Beleid voor riskante aanmeldingen beperken door het blokkeren van aanmeldingen of het vereisen van multi-factor authentication-uitdagingen
+* Beleid op blokkeren of accounts voor beveiligde riskante gebruikers
+* Beleid om te vereisen dat gebruikers zich registreren voor meervoudige verificatie
 
 
 
 ## <a name="identity-protection-roles"></a>Identity Protection-functies
 
-Taakverdeling van de beheertaken voor uw implementatie Identity Protection kunt u verschillende rollen toewijzen. Azure AD Identity Protection ondersteunt 3 directory-functies:
+Om taken te verdelen de beheeractiviteiten rond uw Identity Protection-implementatie, kunt u verschillende rollen toewijzen. Azure AD Identity Protection ondersteunt 3 directory-rollen:
 
-| Rol                         | Kan doen                          | Is niet mogelijk
+| Rol                         | Kan doen                          | Niet mogelijk is
 | :--                          | ---                                |  ---   |
-| Globale beheerder         | Volledige toegang tot Identity Protection, vrijgeven Identity Protection| |
-| Beveiligingsbeheerder       | Volledige toegang tot Identity Protection | Ingebouwde Identity Protection, wachtwoorden opnieuw instellen voor een gebruiker |
-| Beveiligingslezer              | Alleen-lezentoegang tot Identity Protection | Ingebouwde Identity Protection, remidiate gebruikers,-beleid configureren, wachtwoorden opnieuw instellen |
+| Globale beheerder         | Volledige toegang tot Identity Protection, onboarding Identity Protection| |
+| Beveiligingsbeheerder       | Volledige toegang tot Identity Protection | Onboarding Identity Protection, wachtwoorden opnieuw instellen voor een gebruiker |
+| Beveiligingslezer              | Alleen-lezen toegang tot Identity Protection | Onboarding Identity Protection, remidiate gebruikers,-beleid configureren, wachtwoorden opnieuw instellen |
 
 
 
 
-Zie voor meer informatie [beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+Zie voor meer informatie, [beheerdersrollen toewijzen in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md)
 
 
 
@@ -96,151 +96,151 @@ Zie voor meer informatie [beheerdersrollen toewijzen in Azure Active Directory](
 
 ### <a name="vulnerabilities"></a>Beveiligingsproblemen
 
-Azure Active Directory: Identity Protection analyses van uw configuratie en beveiligingsproblemen die invloed op uw gebruikers-id's hebben kunnen detecteert. Zie voor meer informatie [beveiligingsproblemen die worden gedetecteerd door Azure Active Directory: Identity Protection](active-directory-identityprotection-vulnerabilities.md).
+Azure Active Directory Identity Protection analyseert uw configuratie en beveiligingsproblemen die invloed op van uw gebruikers-id's hebben kunnen detecteert. Zie voor meer informatie, [beveiligingsproblemen die worden gedetecteerd door Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
 
 ### <a name="risk-events"></a>Risicogebeurtenissen
 
-Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en methodiek voor het detecteren van verdachte acties die zijn gerelateerd aan uw gebruikers-id's. Maakt een record voor elke gedetecteerde verdachte actie van het systeem. Deze records worden ook wel bekend als risico's.  
+Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en methodieken voor het detecteren van verdachte activiteit die betrekking op de identiteiten van uw gebruikers hebben. Maakt een record voor elke gedetecteerde verdachte actie van het systeem. Deze records worden ook wel bekend als risicogebeurtenissen.  
 Zie [Risicogebeurtenissen in Azure Active Directory](active-directory-identity-protection-risk-events.md) voor meer informatie.
 
 
 ## <a name="investigation"></a>Onderzoek
-Uw reis door Identity Protection wordt doorgaans begint met het Identity Protection-dashboard.
+Uw reis via Identity Protection wordt doorgaans begint met het dashboard Identity Protection.
 
 ![Herstel](./media/active-directory-identityprotection/1000.png "herstel")
 
-Het dashboard biedt die u toegang tot:
+Het dashboard biedt u toegang hebt tot:
 
-* Rapporten, zoals **gebruikers die zijn gemarkeerd voor risico**, **bestaat de kans dat gebeurtenissen** en **beveiligingsproblemen**
-* Instellingen zoals de configuratie van uw **beveiligingsbeleid**, **meldingen** en **multi-factor authentication-registratie**
+* Rapporten, zoals **gebruikers die zijn gemarkeerd voor risico's**, **Risicogebeurtenissen** en **beveiligingsproblemen**
+* Instellingen zoals de configuratie van uw **beveiligingsbeleid**, **meldingen** en **registratie voor meervoudige verificatie**
 
-Is doorgaans het beginpunt voor onderzoek, het proces is van het controleren van de activiteiten, logboeken en andere relevante informatie die betrekking hebben op een risicogebeurtenis om te bepalen of de updateherstel- of risicobeperking stappen nodig zijn, en hoe de identiteit is geknoeid en begrijpen hoe de identiteit van de verdachte is gebruikt.
+Het is doorgaans het startpunt voor onderzoek, is het proces van het controleren van de activiteiten, logboeken en andere relevante informatie met betrekking tot een risicogebeurtenis om te bepalen of de updateherstel- of risicobeperking stappen nodig zijn, en hoe de identiteit is aangetast en te begrijpen hoe de identiteit van de aangetaste is gebruikt.
 
-U kunt verbinden, de onderzoeksactiviteiten van uw naar het [meldingen](active-directory-identityprotection-notifications.md) Azure Active Directory Protection per e-mail verzendt.
+U kunt uw onderzoeksactiviteiten om te verbinden, de [meldingen](active-directory-identityprotection-notifications.md) Azure Active Directory Protection per e-mail verzendt.
 
-De volgende secties bieden u meer informatie en de stappen die zijn gerelateerd aan een onderzoek.  
+De volgende secties vindt u met meer informatie en de stappen die betrekking op een onderzoek hebben.  
 
 
 ## <a name="risky-sign-ins"></a>Riskante aanmeldingen
 
-Azure Active Directory detecteert [risico gebeurtenistypen](active-directory-reporting-risk-events.md#risk-event-types) in realtime en offline. Elke risicogebeurtenis dat is aangetroffen voor een aanmelding van een gebruiker bijdraagt aan een logisch concept is aangeroepen riskant aanmelden. Een riskante aanmelden is een indicator voor een aanmeldingspoging die mogelijk niet uitgevoerd door de legitieme eigenaar van een gebruikersaccount.
+Azure Active Directory detecteert [risicogebeurtenistypen](active-directory-reporting-risk-events.md#risk-event-types) in realtime en offline. Elke risicogebeurtenis die is gedetecteerd voor een aanmelding van een gebruiker draagt bij aan een logisch concept is met de naam riskante aanmelding. Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk niet uitgevoerd door de rechtmatige eigenaar van een gebruikersaccount.
 
 
-### <a name="sign-in-risk-level"></a>Aanmelden risiconiveau
+### <a name="sign-in-risk-level"></a>Het niveau van aanmeldingsrisico
 
-Een risiconiveau aanmelden is een indicatie (hoog, Gemiddeld of laag) van de kans op een aanmeldingspoging is niet uitgevoerd door de legitieme eigenaar van een gebruikersaccount.
+Een niveau voor aanmeldingsrisico wordt aangegeven (hoog, Gemiddeld of laag) van de kans dat een poging tot aanmelden niet is uitgevoerd door de rechtmatige eigenaar van een gebruikersaccount.
 
-### <a name="mitigating-sign-in-risk-events"></a>Beperkende aanmelden risico 's
+### <a name="mitigating-sign-in-risk-events"></a>Beperkende aanmeldingsrisico gebeurtenissen
 
-Een beperking is een actie die de mogelijkheid van een aanvaller misbruik maakt van een verdachte identiteit of het apparaat zonder dat de identiteit of het apparaat hersteld naar een veilige status beperken. Een risicobeperking vorige aanmelden risicogebeurtenissen die zijn gekoppeld aan de identiteit of het apparaat niet is opgelost.
+Een beperking is een actie om te beperken van de mogelijkheid van een aanvaller om misbruik te maken van een apparaat of aangetaste identiteit zonder dat de identiteit of het apparaat terugzet op een veilige status heeft. Een vorige aanmeldingsrisico gebeurtenissen die zijn gekoppeld aan de identiteit of het apparaat niet wordt opgelost.
 
-U kunt aanmelden risico beveiligingsbeleid configureren riskant aanmeldingen automatisch om's te beperken. Met deze beleidsregels, u rekening houden met het risiconiveau van de gebruiker of de aanmeldingspagina riskant aanmeldingen wordt geblokkeerd of dat de gebruiker naar de multi-factor authentication uitvoeren. Deze acties kunnen voorkomen dat een aanvaller gebruikmaakt van de identiteit van een gestolen om te leiden tot beschadiging en mogelijk hebt u enige tijd voor het beveiligen van de identiteit.
+Als u wilt riskante aanmeldingen automatisch oplossen, kunt u aanmeldingsrisico beveiligingsbeleid configureren. Met behulp van deze beleidsregels, overwegen u het risiconiveau van de gebruiker of de aanmelding voor het blokkeren van riskante aanmeldingen of vereisen dat de gebruiker naar de multi-factor authentication uitvoeren. Deze acties kunnen voorkomen dat een aanvaller misbruik kan maken van de identiteit van een gestolen om te leiden tot beschadiging en mogelijk hebt u enige tijd voor het beveiligen van de identiteit.
 
-### <a name="sign-in-risk-security-policy"></a>Beveiligingsbeleid Aanmelden risico
-Een beleid voor aanmelden risico is een beleid voor voorwaardelijke toegang dat het risico op een specifieke aanmelden wordt geëvalueerd en oplossingen op basis van vooraf gedefinieerde voorwaarden en regels van toepassing is.
+### <a name="sign-in-risk-security-policy"></a>Beveiligingsbeleid voor aanmeldingsrisico
+Een beleid voor aanmeldingsrisico is een beleid voor voorwaardelijke toegang die wordt geëvalueerd als de risico's voor een specifieke aanmelding en oplossingen op basis van vooraf gedefinieerde voorwaarden en regels van toepassing is.
 
-![Beleid voor aanmelden risico](./media/active-directory-identityprotection/1014.png "aanmelden risico beleid")
+![Beleid voor aanmeldingsrisico](./media/active-directory-identityprotection/1014.png "aanmelden beleid voor gebruikersrisico's")
 
 Azure AD Identity Protection helpt die u bij het beheren van het beperken van riskante aanmeldingen doordat u:
 
-* Stel de gebruikers en groepen die het beleid van toepassing:
+* Stel de gebruikers en groepen die het beleid van toepassing op:
 
-    ![Beleid voor aanmelden risico](./media/active-directory-identityprotection/1015.png "aanmelden risico beleid")
-* Stel de aanmeldingspagina risico niveau drempelwaarde (laag, Gemiddeld of hoog) waarmee het beleid wordt geactiveerd:
+    ![Beleid voor aanmeldingsrisico](./media/active-directory-identityprotection/1015.png "aanmelden beleid voor gebruikersrisico's")
+* Stel de aanmeldingsrisico niveau drempelwaarde (laag, Gemiddeld of hoog) waarmee het beleid wordt geactiveerd:
 
-    ![Beleid voor aanmelden risico](./media/active-directory-identityprotection/1016.png "aanmelden risico beleid")
-* Stel de besturingselementen om te worden afgedwongen wanneer het beleid wordt geactiveerd:  
+    ![Beleid voor aanmeldingsrisico](./media/active-directory-identityprotection/1016.png "aanmelden beleid voor gebruikersrisico's")
+* Stel de besturingselementen moeten worden afgedwongen wanneer het beleid wordt geactiveerd:  
 
-    ![Beleid voor aanmelden risico](./media/active-directory-identityprotection/1017.png "aanmelden risico beleid")
+    ![Beleid voor aanmeldingsrisico](./media/active-directory-identityprotection/1017.png "aanmelden beleid voor gebruikersrisico's")
 * De status van uw beleid switch:
 
-    ![Registratieprocedure voor MFA](./media/active-directory-identityprotection/403.png "registratieprocedure voor MFA")
+    ![MFA-registratie](./media/active-directory-identityprotection/403.png "MFA-registratie")
 * Bekijken en evalueren van de gevolgen van een wijziging voordat u deze activeert:
 
-    ![Beleid voor aanmelden risico](./media/active-directory-identityprotection/1018.png "aanmelden risico beleid")
+    ![Beleid voor aanmeldingsrisico](./media/active-directory-identityprotection/1018.png "aanmelden beleid voor gebruikersrisico's")
 
 #### <a name="what-you-need-to-know"></a>Wat u moet weten
-U kunt een beveiligingsbeleid Aanmelden risico meervoudige authenticatie configureren:
+U kunt een beveiligingsbeleid aanmeldingsrisico om te vereisen dat multi-factor authentication configureren:
 
-![Beleid voor aanmelden risico](./media/active-directory-identityprotection/1017.png "aanmelden risico beleid")
+![Beleid voor aanmeldingsrisico](./media/active-directory-identityprotection/1017.png "aanmelden beleid voor gebruikersrisico's")
 
-Echter, uit veiligheidsoverwegingen deze instelling werkt alleen voor gebruikers die al zijn geregistreerd voor multi-factor authentication. Als de voorwaarde voor meervoudige authenticatie voor een gebruiker die nog niet is geregistreerd voor multi-factor authentication is voldaan, wordt de gebruiker is geblokkeerd.
+Echter, uit veiligheidsoverwegingen, deze instelling werkt alleen voor gebruikers die al zijn geregistreerd voor meervoudige verificatie. Als de voorwaarde voor meervoudige verificatie vereisen voor een gebruiker die nog niet is geregistreerd voor multi-factor authentication is voldaan, wordt de gebruiker is geblokkeerd.
 
-Als het wordt aanbevolen als u wilt meervoudige verificatie vereisen voor riskante aanmeldingen, moet u:
+Als een best practice, als u wilt meervoudige verificatie vereisen voor riskante aanmeldingen, dient u eerst:
 
-1. Schakel de [registratiebeleid voor meervoudige verificatie](#multi-factor-authentication-registration-policy) voor de betrokken gebruikers.
-2. Vereisen dat de betrokken gebruikers aanmelding in een niet-riskant sessie een MFA-registratie uitvoeren
+1. Schakel de [registratiebeleid voor meervoudige verificatie](#multi-factor-authentication-registration-policy) voor de betreffende gebruikers.
+2. Vereisen dat de betrokken gebruikers om aan te melden in een niet-riskante-sessie met het uitvoeren van een MFA-registratie
 
-U deze stappen uitvoert, zorgt u ervoor dat meervoudige verificatie is vereist voor een riskante aanmelden.
+Deze stappen uit te voeren, zorgt u ervoor dat meervoudige verificatie is vereist voor een riskante aanmelding.
 
 #### <a name="best-practices"></a>Aanbevolen procedures
-U kiest een **hoge** drempelwaarde vermindert het aantal keer dat een beleid wordt geactiveerd en minimaliseert de overlast voor gebruikers.  
+Kiezen van een **hoge** drempelwaarde vermindert het aantal keer dat een beleid wordt geactiveerd en minimaliseert de gevolgen voor gebruikers.  
 
-Echter, worden uitgesloten **laag** en **gemiddeld** aanmeldingen gemarkeerd voor risico's van het beleid, dat een aanvaller gebruikmaakt van de identiteit van een verdachte kan niet worden geblokkeerd.
+Echter, worden uitgesloten **laag** en **gemiddeld** aanmeldingen die zijn gemarkeerd voor risico's van het beleid, dat een aanvaller misbruik kan maken van de identiteit van een verdachte kan niet worden geblokkeerd.
 
 Bij het instellen van het beleid
 
-* Gebruikers die geen / multi-factor authentication-server kunnen geen uitsluiten
-* Gebruikers in landen waar het inschakelen van het beleid is het niet praktisch uitsluiten (bijvoorbeeld geen toegang tot de helpdesk)
-* Voorkomen dat gebruikers die waarschijnlijk voor het genereren van een groot aantal ONWAAR-positieven (ontwikkelaars, beveiligingsanalisten)
-* Gebruik een **hoge** drempelwaarde tijdens de eerste beleid implementeert, of als u uitdagingen die zichtbaar zijn voor eindgebruikers minimaliseert.
-* Gebruik een **laag** drempelwaarde als uw organisatie betere beveiliging vereist. Als u een **laag** drempelwaarde introduceert extra gebruiker aanmelden uitdagingen, maar een hogere beveiliging.
+* Voorkomen dat gebruikers die geen / geen meervoudige verificatie
+* Gebruikers in de landinstellingen waar als het beleid is het niet praktisch uitsluiten (bijvoorbeeld geen toegang tot de helpdesk)
+* Gebruikers die waarschijnlijk voor het genereren van een groot aantal fout-positieven (ontwikkelaars, beveiligingsanalisten) uitsluiten
+* Gebruik een **hoge** drempelwaarde tijdens de implementatie van het eerste beleid, of als u uitdagingen gezien door eindgebruikers moet minimaliseren.
+* Gebruik een **laag** drempelwaarde als uw organisatie betere beveiliging vereist. Selecteren van een **laag** drempelwaarde introduceert extra gebruiker aanmelden uitdagingen, maar de verbeterde beveiliging.
 
-De aanbevolen standaardwaarde voor de meeste organisaties is het configureren van een regel voor een **gemiddeld** drempelwaarde een evenwicht tot stand tussen bruikbaarheid en veiligheid.
+De aanbevolen standaardwaarde voor de meeste organisaties is het configureren van een regel voor een **gemiddeld** drempelwaarde een evenwicht tussen bruikbaarheid en veiligheid te vinden.
 
-Het beleid voor aanmelden risico is:
+Het beleid voor aanmeldingsrisico is:
 
 * Toegepast op alle browserverkeer en aanmeldingen die moderne authenticatie gebruiken.
-* Niet toegepast op toepassingen met behulp van beveiligingsprotocollen voor oudere door het WS-Trust-eindpunt op de federatieve IDP, zoals ADFS uit te schakelen.
+* Niet toegepast op toepassingen die gebruikmaken van oudere beveiligingsprotocollen door het WS-Trust-eindpunt op de federatieve id-provider, zoals ADFS uit te schakelen.
 
-De **Risicogebeurtenissen** pagina in de console Identity Protection worden alle gebeurtenissen:
+De **Risicogebeurtenissen** pagina in de console Identity Protection geeft een lijst van alle gebeurtenissen:
 
-* Dit beleid is toegepast
-* U kunt bekijken van de activiteit en bepalen of de actie die geschikt of niet is
+* Dit beleid is toegepast op
+* U kunt de activiteiten controleren en bepalen of de actie die geschikt of niet is
 
-Zie voor een overzicht van de gerelateerde gebruikerservaring:
+Zie voor een overzicht van de gebruikerservaring:
 
-* [Herstel voor riskante aanmelden](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
-* [Riskant aanmelden geblokkeerd](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
-* [Aanmelden-ervaring met Azure AD Identity Protection](active-directory-identityprotection-flows.md)  
+* [Riskante aanmelding herstel](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+* [Riskante aanmelding geblokkeerd](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
+* [Aanmelden-ervaringen met Azure AD Identity Protection](active-directory-identityprotection-flows.md)  
 
 **Opent het dialoogvenster gerelateerde configuratie**:
 
-- Op de **Azure AD Identity Protection** blade in de **configureren** sectie, klikt u op **aanmelden risico beleid**.
+- Op de **Azure AD Identity Protection** blade in de **configureren** sectie, klikt u op **aanmelden beleid voor gebruikersrisico's**.
 
-    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1014.png "risico gebruikersbeleid")
+    ![Beleid voor gebruikersrisico's](./media/active-directory-identityprotection/1014.png "beleid voor gebruikersrisico's")
 
 
 
 ## <a name="users-flagged-for-risk"></a>Gebruikers voor wie wordt aangegeven dat ze risico lopen
 
-Alle actieve [bestaat de kans dat gebeurtenissen](active-directory-identity-protection-risk-events.md) die zijn gedetecteerd door Azure Active Directory voor een gebruiker bijdragen aan een logisch concept is aangeroepen gebruiker risico. Een gebruiker die is gemarkeerd voor risico is een indicator voor een gebruikersaccount die mogelijk zijn aangetast.
+Alle actieve [risicogebeurtenissen](active-directory-identity-protection-risk-events.md) die zijn gedetecteerd door Azure Active Directory voor een gebruiker bijdragen aan een logisch concept is gebruikersrisico genoemd. Een gebruiker die is gemarkeerd voor risico's is een indicator van een gebruikersaccount dat mogelijk is aangetast.
 
 ![Gebruikers voor wie wordt aangegeven dat ze risico lopen](./media/active-directory-identityprotection/1200.png)
 
 
-### <a name="user-risk-level"></a>Risiconiveau van gebruiker
+### <a name="user-risk-level"></a>Risiconiveau van de gebruiker
 
-Het risiconiveau van een gebruiker is een indicatie van de kans dat de identiteit van de gebruiker is ingebroken (hoog, Gemiddeld of laag). Deze wordt berekend op basis van de gebruiker risicogebeurtenissen die gekoppeld aan de identiteit van een gebruiker zijn.
+Een risiconiveau van de gebruiker wordt aangegeven (hoog, Gemiddeld of laag) van de kans dat de identiteit van de gebruiker is aangetast. Dit wordt berekend op basis van de gebruiker risicogebeurtenissen die gekoppeld aan de identiteit van een gebruiker zijn.
 
-De status van een risicogebeurtenis is **Active** of **gesloten**. Alleen het risico van gebeurtenissen die zijn **Active** bijdragen aan de gebruiker risico niveau berekening.
+De status van een risicogebeurtenis is **Active** of **gesloten**. Alleen risicogebeurtenissen die zijn **Active** bijdragen aan de berekening van risico-niveau voor de gebruiker.
 
-Het risiconiveau van de gebruiker wordt berekend met behulp van de volgende invoer:
+Het risiconiveau van de gebruiker wordt berekend met behulp van de invoer van de volgende:
 
 * Actieve risicogebeurtenissen die invloed hebben op de gebruiker
 * Risiconiveau van deze gebeurtenissen
-* Hiermee wordt aangegeven of welke herstelacties zijn gemaakt
+* Of welke herstelacties zijn getroffen
 
 ![Gebruiker risico's](./media/active-directory-identityprotection/1031.png "gebruiker risico's")
 
-U kunt de risiconiveaus gebruiker gebruiken voor het maken van beleid voor voorwaardelijke toegang die riskant gebruikers aanmelden blokkeren of zorgen dat ze veilig hun wachtwoord wijzigen.
+U kunt de risiconiveaus van de gebruiker gebruiken voor het maken van beleid voor voorwaardelijke toegang die riskante gebruikers aanmelden blokkeren of zorgen dat ze veilig hun wachtwoord wijzigen.
 
-### <a name="closing-risk-events-manually"></a>Risico's handmatig sluiten
+### <a name="closing-risk-events-manually"></a>Risicogebeurtenissen handmatig sluiten
 
 In de meeste gevallen neemt u herstelacties zoals het opnieuw instellen van een beveiligd wachtwoord om risicogebeurtenissen automatisch te sluiten. Dit is echter niet altijd mogelijk.  
 Dit is, bijvoorbeeld het geval wanneer:
 
-* Een gebruiker met actieve risicogebeurtenissen is verwijderd
+* Een gebruiker met actieve risicogebeurtenissen zijn verwijderd
 * Uit onderzoek blijkt dat een risicogebeurtenis is uitgevoerd door een legitieme gebruiker
 
 Omdat risicogebeurtenissen die **Actief** zijn, bijdragen aan de berekening van het gebruikersrisico, moet u een risiconiveau mogelijk handmatig verlagen door risicogebeurtenissen handmatig te sluiten.  
@@ -249,148 +249,148 @@ Gedurende het onderzoek kunt u een van deze acties kiezen om de status van een r
 ![Acties](./media/active-directory-identityprotection/34.png "acties")
 
 * **Oplossen** - als u na onderzoek van een risicogebeurtenis een juiste herstelactie buiten Identity Protection hebt ondernomen en van mening bent dat de risicogebeurtenis kan worden gesloten, markeert u de gebeurtenis als Opgelost. Een opgeloste risicogebeurtenis krijgt de status Gesloten. Bovendien draagt de risicogebeurtenis niet meer bij aan het gebruikersrisico.
-* **Markeren als fout-positieve** -In sommige gevallen kan u een risicogebeurtenis onderzoeken en onjuist is gemarkeerd als een riskante te detecteren. Verkleint u het aantal dergelijke instanties door de risicogebeurtenis als fout-positieve markeren. Dit helpt de machine learning-algoritmen ter verbetering van de classificatie van soortgelijke gebeurtenissen in de toekomst. De status van de fout-positieve gebeurtenissen wordt **gesloten** en ze niet langer draagt bij tot het risico van de gebruiker.
+* **Markeren als fout-positieve** -In sommige gevallen kan u een risicogebeurtenis onderzoeken en ontdek ten onrechte is gemarkeerd als een riskant. U kunt het nummer van deze instanties verminderen door de risicogebeurtenis als fout-positieve markeren. Hiermee kunt u de machine learning-algoritmen voor de classificatie van soortgelijke gebeurtenissen in de toekomst te verbeteren. De status van de fout-positieve gebeurtenissen wordt **gesloten** en ze niet meer dragen bij aan gebruikersrisico.
 * **Negeren** :  als u geen herstelactie heb uitgevoerd, maar wilt dat de risicogebeurtenis wordt verwijderd uit de actieve lijst, kunt u een risicogebeurtenis markeren als Negeren. De status van de gebeurtenis wordt dan Gesloten. Genegeerde gebeurtenissen dragen niet bij aan het gebruikersrisico. Deze optie dient alleen in ongebruikelijke omstandigheden te worden gebruikt.
 * **Opnieuw activeren** -gebeurtenissen die handmatig zijn gesloten (door bijvoorbeeld te kiezen voor **Oplossen**,  **Vals positief** of **Negeren**), kunnen opnieuw worden geactiveerd. Dit kan door de status van de gebeurtenis terug te zetten naar **Actief**. Opnieuw geactiveerde risicogebeurtenissen dragen bij aan de berekening van het gebruikersrisiconiveau. Risico's die gesloten zijn via herstelacties (zoals het opnieuw instellen van een beveiligd wachtwoord), kunnen niet opnieuw worden geactiveerd.
 
 
 **Opent het dialoogvenster gerelateerde configuratie**:
 
-1. Op de **Azure AD Identity Protection** blade onder **onderzoeken**, klikt u op **bestaat de kans dat gebeurtenissen**.
+1. Op de **Azure AD Identity Protection** blade onder **onderzoeken**, klikt u op **Risicogebeurtenissen**.
 
     ![Handmatige wachtwoordherstel](./media/active-directory-identityprotection/1002.png "handmatige wachtwoord opnieuw instellen")
-2. In de **bestaat de kans dat gebeurtenissen** lijst, klikt u op een risico.
+2. In de **Risicogebeurtenissen** lijst, klikt u op een risico.
 
     ![Handmatige wachtwoordherstel](./media/active-directory-identityprotection/1003.png "handmatige wachtwoord opnieuw instellen")
 3. Met de rechtermuisknop op een gebruiker op de blade risico.
 
     ![Handmatige wachtwoordherstel](./media/active-directory-identityprotection/1004.png "handmatige wachtwoord opnieuw instellen")
 
-### <a name="closing-all-risk-events-for-a-user-manually"></a>Alle gebeurtenissen van de risico's voor een gebruiker sluiten handmatig
-In plaats van handmatig sluiten afzonderlijk risico's voor een gebruiker, biedt Azure Active Directory: Identity Protection u ook een methode voor het sluiten van alle gebeurtenissen voor een gebruiker met één klik.
+### <a name="closing-all-risk-events-for-a-user-manually"></a>Alle risicogebeurtenissen voor een gebruiker sluiten handmatig
+In plaats van handmatig sluiten afzonderlijk risicogebeurtenissen voor een gebruiker, biedt Azure Active Directory Identity Protection u ook een methode voor het sluiten van alle gebeurtenissen voor een gebruiker met één klik.
 
 ![Acties](./media/active-directory-identityprotection/2222.png "acties")
 
-Wanneer u klikt op **sluiten alle gebeurtenissen**, alle gebeurtenissen zijn gesloten en de betrokken gebruiker is niet meer risico.
+Wanneer u klikt op **alle gebeurtenissen sluiten**, alle gebeurtenissen worden gesloten en de betrokken gebruiker is niet meer risico.
 
-### <a name="remediating-user-risk-events"></a>Beveiligingsstatus gebruiker risico 's
+### <a name="remediating-user-risk-events"></a>Bescherm risicogebeurtenissen voor gebruiker
 
-Een herstel is een actie voor het beveiligen van een identiteit of een apparaat dat eerder verdachte of bekend is mogelijk onveilig. Een herstelactie herstelt u de identiteit of het apparaat naar een veilige status en wordt omgezet vorige risico's die zijn gekoppeld aan de identiteit of het apparaat.
+Een herstel is een actie voor het beveiligen van een identiteit of een apparaat dat eerder is verdacht of bekend is. Een herstelactie wordt de identiteit of het apparaat hersteld naar een veilige status en wordt omgezet vorige risicogebeurtenissen die zijn gekoppeld aan de identiteit of het apparaat.
 
-Als u wilt herstellen, gebruiker risicogebeurtenissen, kunt u:
+Als u wilt herstellen risicogebeurtenissen gebruiker, kunt u het volgende doen:
 
-* Uitvoeren van een beveiligd wachtwoord opnieuw instellen op gebruiker risicogebeurtenissen handmatig herstellen
-* Een gebruiker risico security-beleid te beperken of gebruiker risicogebeurtenissen automatisch herstellen configureren
-* Het geïnfecteerde apparaat herstellen met installatiekopie  
+* Uitvoeren van een veilig wachtwoord opnieuw instellen op gebruiker risicogebeurtenissen handmatig herstellen
+* Configureren van een security beleid voor gebruikersrisico's om te beperken of gebruiker risicogebeurtenissen automatisch herstellen
+* De geïnfecteerd apparaat herstellen met installatiekopie  
 
 #### <a name="manual-secure-password-reset"></a>Handmatige beveiligd wachtwoord opnieuw instellen
-Een beveiligd wachtwoord opnieuw instellen is een effectieve herstel voor veel risicogebeurtenissen en wanneer uitgevoerd, sluit u deze risicogebeurtenissen automatisch en het risiconiveau van de gebruiker opnieuw worden berekend. Het Identity Protection-dashboard kunt u een wachtwoord opnieuw instellen voor een riskante gebruiker te initiëren.
+Een veilig wachtwoord opnieuw instellen is van een doeltreffende herstel voor veel risicogebeurtenissen en wanneer uitgevoerd, sluit u deze risicogebeurtenissen automatisch en het risiconiveau van de gebruiker opnieuw worden berekend. U kunt het dashboard Identity Protection gebruiken om te starten van een wachtwoord opnieuw instellen voor een riskante gebruiker.
 
-Het gerelateerde dialoogvenster biedt twee verschillende methoden om uw wachtwoord opnieuw instellen:
+De gerelateerde dialoogvenster biedt twee verschillende methoden om een wachtwoord opnieuw instellen:
 
-**Wachtwoord opnieuw instellen** : Selecteer **dat hun wachtwoord opnieuw instellen van de gebruiker** zodat de gebruiker zelf herstellen als de gebruiker is geregistreerd voor multi-factor authentication. Tijdens de gebruiker van de volgende keer aanmelden, wordt de gebruiker worden vereist voor het oplossen van een challenge multi-factor authentication-server is en vervolgens gedwongen het wachtwoord te wijzigen. Deze optie niet beschikbaar als het gebruikersaccount nog niet is geregistreerd multi-factor authentication-server.
+**Wachtwoord opnieuw instellen** : Selecteer **vereisen dat de gebruiker het wachtwoord opnieuw instelt** zodat de gebruiker zelf herstellen als de gebruiker is geregistreerd voor meervoudige verificatie. Tijdens de gebruiker de volgende aanmelding wordt worden de gebruiker voor het oplossen van een uitdaging meervoudige verificatie is vereist en vervolgens gedwongen om het wachtwoord te wijzigen. Deze optie niet beschikbaar als het gebruikersaccount dat nog niet is geregistreerd met meervoudige verificatie.
 
-**Tijdelijke wachtwoord** : Selecteer **genereren van een tijdelijk wachtwoord** onmiddellijk het bestaande wachtwoord ongeldig te maken en het maken van een nieuw tijdelijk wachtwoord voor de gebruiker. Nieuw tijdelijk wachtwoord verzenden naar een alternatief e-mailadres voor de gebruiker of de manager van de gebruiker. Omdat het wachtwoord tijdelijk is, wordt de gebruiker gevraagd het wachtwoord van de aanmeldingspagina te wijzigen.
+**Tijdelijk wachtwoord** : Selecteer **een tijdelijk wachtwoord genereren** onmiddellijk het bestaande wachtwoord ongeldig te maken en het maken van een nieuw tijdelijk wachtwoord voor de gebruiker. Het tijdelijke wachtwoord verzenden naar een alternatieve e-mailadres voor de gebruiker of de manager van de gebruiker. Omdat het wachtwoord tijdelijk is, wordt de gebruiker gevraagd het wachtwoord aanmelden bij een te wijzigen.
 
-![Beleid voor](./media/active-directory-identityprotection/1005.png "beleid")
+![Beleid](./media/active-directory-identityprotection/1005.png "beleid")
 
 **Opent het dialoogvenster gerelateerde configuratie**:
 
-1. Op de **Azure AD Identity Protection** blade, klikt u op **gebruikers die zijn gemarkeerd voor risico**.
+1. Op de **Azure AD Identity Protection** blade, klikt u op **gebruikers die zijn gemarkeerd voor risico's**.
 
     ![Handmatige wachtwoordherstel](./media/active-directory-identityprotection/1006.png "handmatige wachtwoord opnieuw instellen")
-2. Selecteer een gebruiker met ten minste één risicogebeurtenissen uit de lijst met gebruikers.
+2. Selecteer een gebruiker met ten minste één risicogebeurtenissen in de lijst van gebruikers.
 
     ![Handmatige wachtwoordherstel](./media/active-directory-identityprotection/1007.png "handmatige wachtwoord opnieuw instellen")
-3. Klik op de blade gebruiker **wachtwoord opnieuw instellen**.
+3. Klik op de blade van de gebruiker, **wachtwoord opnieuw instellen**.
 
     ![Handmatige wachtwoordherstel](./media/active-directory-identityprotection/1008.png "handmatige wachtwoord opnieuw instellen")
 
-### <a name="user-risk-security-policy"></a>Gebruiker risico beveiligingsbeleid
-Een beveiligingsbeleid voor gebruiker risico is een beleid voor voorwaardelijke toegang dat het risiconiveau aan een specifieke gebruiker wordt geëvalueerd en herstel en risicobeperking op basis van vooraf gedefinieerde voorwaarden en regels maatregelen.
+### <a name="user-risk-security-policy"></a>Beleid voor gebruikersrisico's security
+Een beleid voor gebruikersrisico's security is een beleid voor voorwaardelijke toegang die wordt geëvalueerd als het risiconiveau dat aan een specifieke gebruiker en het herstel en risicobeperking op basis van vooraf gedefinieerde voorwaarden en regels maatregelen.
 
-![Gebruikersbeleid risico](./media/active-directory-identityprotection/1009.png "risico gebruikersbeleid")
+![Beleid voor gebruikersrisico's](./media/active-directory-identityprotection/1009.png "beleid voor gebruikersrisico's")
 
-Azure AD Identity Protection helpt bij het beheren van de risicobeperking en het doorvoeren van gebruikers die zijn gemarkeerd voor risico doordat u:
+Azure AD Identity Protection kunt u de risicobeperking en herstel van gebruikers die zijn gemarkeerd voor risico's door te beheren:
 
-* Stel de gebruikers en groepen die het beleid van toepassing:
+* Stel de gebruikers en groepen die het beleid van toepassing op:
 
-    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1010.png "risico gebruikersbeleid")
-* Stel de gebruiker risico niveau drempelwaarde (laag, Gemiddeld of hoog) waarmee het beleid wordt geactiveerd:
+    ![Beleid voor gebruikersrisico's](./media/active-directory-identityprotection/1010.png "beleid voor gebruikersrisico's")
+* Drempelwaarde in te stellen de gebruiker risico niveau (laag, Gemiddeld of hoog) waarmee het beleid wordt geactiveerd:
 
-    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1011.png "risico gebruikersbeleid")
-* Stel de besturingselementen om te worden afgedwongen wanneer het beleid wordt geactiveerd:
+    ![Beleid voor gebruikersrisico's](./media/active-directory-identityprotection/1011.png "beleid voor gebruikersrisico's")
+* Stel de besturingselementen moeten worden afgedwongen wanneer het beleid wordt geactiveerd:
 
-    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1012.png "risico gebruikersbeleid")
+    ![Beleid voor gebruikersrisico's](./media/active-directory-identityprotection/1012.png "beleid voor gebruikersrisico's")
 * De status van uw beleid switch:
 
-    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/403.png "registratieprocedure voor MFA")
+    ![Beleid voor gebruikersrisico's](./media/active-directory-identityprotection/403.png "MFA-registratie")
 * Bekijken en evalueren van de gevolgen van een wijziging voordat u deze activeert:
 
-    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1013.png "risico gebruikersbeleid")
+    ![Beleid voor gebruikersrisico's](./media/active-directory-identityprotection/1013.png "beleid voor gebruikersrisico's")
 
-U kiest een **hoge** drempelwaarde vermindert het aantal keer dat een beleid wordt geactiveerd en minimaliseert de overlast voor gebruikers.
-Echter, worden uitgesloten **laag** en **gemiddeld** gebruikers die zijn gemarkeerd voor risico's van het beleid, die mogelijk niet beveiligd identiteiten of apparaten die eerder zijn verdachte of bekend is mogelijk onveilig.
+Kiezen van een **hoge** drempelwaarde vermindert het aantal keer dat een beleid wordt geactiveerd en minimaliseert de gevolgen voor gebruikers.
+Echter, worden uitgesloten **laag** en **gemiddeld** gebruikers die zijn gemarkeerd voor risico's van het beleid, die niet-id's of apparaten die beveiligen mogelijk eerder zijn verdachte of bekend is.
 
 Bij het instellen van het beleid
 
-* Voorkomen dat gebruikers die waarschijnlijk voor het genereren van een groot aantal ONWAAR-positieven (ontwikkelaars, beveiligingsanalisten)
-* Gebruikers in landen waar het inschakelen van het beleid is het niet praktisch uitsluiten (bijvoorbeeld geen toegang tot de helpdesk)
-* Gebruik een **hoge** drempelwaarde tijdens de eerste beleid implementeert, of als u uitdagingen die zichtbaar zijn voor eindgebruikers minimaliseert.
-* Gebruik een **laag** drempelwaarde als uw organisatie betere beveiliging vereist. Als u een **laag** drempelwaarde introduceert extra gebruiker aanmelden uitdagingen, maar een hogere beveiliging.
+* Gebruikers die waarschijnlijk voor het genereren van een groot aantal fout-positieven (ontwikkelaars, beveiligingsanalisten) uitsluiten
+* Gebruikers in de landinstellingen waar als het beleid is het niet praktisch uitsluiten (bijvoorbeeld geen toegang tot de helpdesk)
+* Gebruik een **hoge** drempelwaarde tijdens de implementatie van het eerste beleid, of als u uitdagingen gezien door eindgebruikers moet minimaliseren.
+* Gebruik een **laag** drempelwaarde als uw organisatie betere beveiliging vereist. Selecteren van een **laag** drempelwaarde introduceert extra gebruiker aanmelden uitdagingen, maar de verbeterde beveiliging.
 
-De aanbevolen standaardwaarde voor de meeste organisaties is het configureren van een regel voor een **gemiddeld** drempelwaarde een evenwicht tot stand tussen bruikbaarheid en veiligheid.
+De aanbevolen standaardwaarde voor de meeste organisaties is het configureren van een regel voor een **gemiddeld** drempelwaarde een evenwicht tussen bruikbaarheid en veiligheid te vinden.
 
-Zie voor een overzicht van de gerelateerde gebruikerservaring:
+Zie voor een overzicht van de gebruikerservaring:
 
-* [Account recovery stroom geknoeid](active-directory-identityprotection-flows.md#compromised-account-recovery).  
-* [Account geblokkeerd stroom geknoeid](active-directory-identityprotection-flows.md#compromised-account-blocked).  
+* [Aangetast account recovery stroom](active-directory-identityprotection-flows.md#compromised-account-recovery).  
+* [Aangetast account geblokkeerd stroom](active-directory-identityprotection-flows.md#compromised-account-blocked).  
 
 **Opent het dialoogvenster gerelateerde configuratie**:
 
-- Op de **Azure AD Identity Protection** blade in de **configureren** sectie, klikt u op **risico gebruikersbeleid**.
+- Op de **Azure AD Identity Protection** blade in de **configureren** sectie, klikt u op **beleid voor gebruikersrisico's**.
 
-    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1009.png "risico gebruikersbeleid")
+    ![Beleid voor gebruikersrisico's](./media/active-directory-identityprotection/1009.png "beleid voor gebruikersrisico's")
 
-### <a name="mitigating-user-risk-events"></a>Beperkende gebruiker risico 's
-Beheerders kunnen een beveiligingsbeleid voor gebruiker risico voorkomen dat gebruikers bij het aanmelden, afhankelijk van het risiconiveau instellen.
+### <a name="mitigating-user-risk-events"></a>Beperkende risicogebeurtenissen voor gebruiker
+Beheerders kunnen een beleid voor gebruikersrisico's security instellen om te voorkomen dat gebruikers bij het aanmelden, afhankelijk van het risiconiveau.
 
-Een aanmeldingspagina blokkeren:
+Blokkering van een aanmeldingen:
 
-* Voorkomt dat het genereren van de nieuwe gebruiker risico's voor de betrokken gebruiker
-* Hiermee kunnen beheerders handmatig herstellen van de risicogebeurtenissen die invloed hebben op de identiteit van de gebruiker en herstellen naar een beveiligde status
+* Hiermee voorkomt u dat de generatie van de nieuwe gebruiker-risicogebeurtenissen voor de betrokken gebruiker
+* Hiermee kunnen beheerders handmatig de risicogebeurtenissen die betrekking hebben op de identiteit van de gebruiker herstellen en terug te zetten naar een veilige status
 
 
 
 ## <a name="multi-factor-authentication-registration-policy"></a>Registratiebeleid voor meervoudige verificatie
-Azure multi-factor authentication-server is een methode om te controleren wie u bent die het gebruik van meer dan alleen een gebruikersnaam en wachtwoord vereist. Het biedt een tweede beveiligingslaag op gebruikersaanmeldingen en transacties.  
-We raden u aan Azure multi-factor authentication-server voor de gebruikersaanmeldingen omdat deze:
+Verificatie met meerdere factoren van Azure is een methode om te controleren wie u bent die het gebruik van meer dan alleen een gebruikersnaam en wachtwoord vereist. Het biedt een tweede beveiligingslaag gebruikersaanmeldingen en transacties.  
+Het is raadzaam dat u Azure multi-factor authentication voor gebruikersaanmeldingen, vereisen omdat deze:
 
-* Biedt geavanceerde verificatie met een bereik van eenvoudige verificatie-opties
-* Speelt een belangrijke rol bij het voorbereiden van uw organisatie te beveiligen en herstellen van account compromissen
+* Biedt een robuuste verificatie met een scala aan gebruiksvriendelijke verificatieopties
+* Speelt een belangrijke rol bij het voorbereiden van uw organisatie beveiligen en herstellen van account compromissen
 
-![Gebruikersbeleid risico](./media/active-directory-identityprotection/1019.png "risico gebruikersbeleid")
+![Beleid voor gebruikersrisico's](./media/active-directory-identityprotection/1019.png "beleid voor gebruikersrisico's")
 
-Zie voor meer informatie [wat is Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
+Zie voor meer informatie, [wat is Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
 
-Azure AD Identity Protection helpt u de uitrollen van multi-factor authentication-registratie beheren door een beleid waarmee u kunt configureren:
+Azure AD Identity Protection kunt u het uitrollen van de registratie voor meervoudige verificatie beheren door een beleid waarmee u kunt configureren:
 
-* Stel de gebruikers en groepen die het beleid van toepassing:
+* Stel de gebruikers en groepen die het beleid van toepassing op:
 
     ![MFA-beleid](./media/active-directory-identityprotection/1020.png "MFA-beleid")
-* Stel de instellingen moeten worden afgedwongen wanneer het beleid wordt geactiveerd::  
+* Stel de besturingselementen moeten worden afgedwongen wanneer het beleid wordt geactiveerd:  
 
     ![MFA-beleid](./media/active-directory-identityprotection/1021.png "MFA-beleid")
 * De status van uw beleid switch:
 
     ![MFA-beleid](./media/active-directory-identityprotection/403.png "MFA-beleid")
-* De registratiestatus van de huidige weergave:
+* De huidige registratiestatus weergeven:
 
     ![MFA-beleid](./media/active-directory-identityprotection/1022.png "MFA-beleid")
 
-Zie voor een overzicht van de gerelateerde gebruikerservaring:
+Zie voor een overzicht van de gebruikerservaring:
 
-* [Meerledige verificatie inschrijving stroom](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
+* [Multi-factor authentication-registratie stroom](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
 * [Aanmelden-ervaringen met Azure AD Identity Protection](active-directory-identityprotection-flows.md).  
 
 **Opent het dialoogvenster gerelateerde configuratie**:
@@ -402,20 +402,20 @@ Zie voor een overzicht van de gerelateerde gebruikerservaring:
 ## <a name="next-steps"></a>Volgende stappen
 * [Channel 9: Azure AD en Identity weergeven: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-* [Inschakelen van beveiliging voor Azure Active Directory-identiteit](active-directory-identityprotection-enable.md)
+* [Azure Active Directory Identity Protection inschakelen](active-directory-identityprotection-enable.md)
 
-* [Beveiligingsproblemen die worden gedetecteerd door Azure Active Directory: Identity Protection](active-directory-identityprotection-vulnerabilities.md)
+* [Beveiligingsproblemen die worden gedetecteerd door Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
 
 * [Azure Active Directory-risicogebeurtenissen](active-directory-identity-protection-risk-events.md)
 
-* [Azure Active Directory: Identity Protection-meldingen](active-directory-identityprotection-notifications.md)
+* [Azure Active Directory Identity Protection-meldingen](active-directory-identityprotection-notifications.md)
 
-* [Playbook voor Azure Active Directory: Identity Protection](active-directory-identityprotection-playbook.md)
+* [Playbook voor Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
 
-* [Azure Active Directory identiteitsbeveiliging woordenlijst](active-directory-identityprotection-glossary.md)
+* [Azure Active Directory Identity Protection-woordenlijst](active-directory-identityprotection-glossary.md)
 
-* [Aanmelden-ervaring met Azure AD Identity Protection](active-directory-identityprotection-flows.md)
+* [Aanmelden-ervaringen met Azure AD Identity Protection](active-directory-identityprotection-flows.md)
 
-* [Azure Active Directory: Identity Protection - blokkering opheffen van gebruikers](active-directory-identityprotection-unblock-howto.md)
+* [Azure Active Directory Identity Protection - blokkering opheffen van gebruikers](active-directory-identityprotection-unblock-howto.md)
 
-* [Aan de slag met Azure Active Directory: Identity Protection en Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+* [Aan de slag met Azure Active Directory Identity Protection en Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)

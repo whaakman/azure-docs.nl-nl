@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 6/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dad35f26496306558a6e0105db86321c497a8306
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d44ea5afca15519fee1bc8a4ebd6c2ba1f36d760
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342917"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448625"
 ---
 # <a name="provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts-using-azure-ad-b2c"></a>Meld u aan en meld u aan consumenten bieden met Twitter-accounts met behulp van Azure AD B2C
 
@@ -26,7 +26,7 @@ Voor het gebruik van Twitter als id-provider in Azure Active Directory (Azure AD
 1. Ga naar de [Twitter Apps](https://apps.twitter.com/) en meld u aan met uw referenties.
 2. Klik op **nieuwe App maken**.
 3. In de vorm, Geef een waarde voor de **naam**, **beschrijving**, en **Website**.
-4. Voor de **URL voor terugbellen**, voer `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Vervang **{tenant}** met de naam (bijvoorbeeld: contosob2c.onmicrosoft.com) en {policyId} van de tenant met de beleids-id (bijvoorbeeld b2c_1_policy).  Deze callback URL moet zich in alleen kleine letters. U moet een URL voor terugbellen voor alle beleidsregels die gebruikmaken van de Twitter-aanmelding toevoegen. Zorg ervoor dat u `b2clogin.com` in plaats van ` login.microsoftonline.com` als u deze in uw toepassing.
+4. Voor de **URL voor terugbellen**, voer `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com) en **{policyId}** met uw beleids-id (bijvoorbeeld b2c_1_policy).  **De callback URL moet zich in alleen kleine letters.** U moet een URL voor terugbellen voor alle beleidsregels die gebruikmaken van de Twitter-aanmelding toevoegen. Zorg ervoor dat u `b2clogin.com` in plaats van ` login.microsoftonline.com` als u deze in uw toepassing.
 5. Schakel het selectievakje in om te accepteren de **Developer-overeenkomst** en klikt u op **uw Twitter-toepassing maken**.
 6. Nadat de app is gemaakt, selecteert u deze in de lijst, selecteer de **instellingen** tabblad en klik vervolgens op **-instellingen bijwerken**.
 7. Selecteer de **Keys and Access Tokens** tabblad.

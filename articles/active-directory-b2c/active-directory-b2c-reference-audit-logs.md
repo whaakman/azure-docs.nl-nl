@@ -1,80 +1,80 @@
 ---
-title: Auditlogboeken voorbeelden en definities in Azure Active Directory B2C | Microsoft Docs
-description: Handleiding en voorbeelden op toegang tot de auditlogboeken van Azure AD B2C.
+title: Auditlogboeken beschikbaar zijn voorbeelden en definities in Azure Active Directory B2C | Microsoft Docs
+description: Handleiding en voorbeelden over de toegang tot de auditlogboeken van Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4828bf2f0faa596c8222c3a36dc3d38ec1b3bd1a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0024f8ab914eba83effe8f5787cfb252775b5f0f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709815"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443382"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Toegang tot Azure AD B2C-auditlogboeken
 
-Azure Active Directory B2C (Azure AD B2C) verzendt controlelogboeken activiteit dat informatie bevat over B2C-resources, uitgegeven tokens en toegang als beheerder. Dit artikel bevat een kort overzicht van de informatie die beschikbaar is via controlelogboeken en instructies over de toegang tot deze gegevens voor uw Azure AD B2C-tenant.
+Azure Active Directory B2C (Azure AD B2C) verzendt auditlogboeken dat activiteiteninformatie bevat over B2C-resources, uitgegeven tokens en toegang als beheerder. In dit artikel geeft een kort overzicht van de informatie is beschikbaar via de logboeken voor controle en instructies over hoe u toegang tot deze gegevens voor uw Azure AD B2C-tenant.
 
 > [!IMPORTANT]
-> Controlelogboeken blijven alleen behouden voor zeven dagen. Plannen voor het downloaden en opslaan van uw logboeken met een van de methoden hieronder wordt weergegeven als u een langere bewaartermijn nodig. 
+> Auditlogboeken worden alleen gedurende zeven dagen bewaard. Plannen om te downloaden en opslaan van uw logboeken met behulp van een van de methoden die hieronder wordt weergegeven als u een langere bewaartermijn nodig. 
 
-##<a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Overzicht van activiteiten die beschikbaar zijn in de categorie B2C van controlelogboeken
-De **B2C** categorie van controlelogboeken bevat de volgende soorten activiteiten:
+##<a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Overzicht van activiteiten in de B2C-categorie van de auditlogboeken beschikbaar
+De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
 |Type activiteit |Beschrijving  |
 |---------|---------|
-|Autorisatie |Activiteiten met betrekking tot de autorisatie van een gebruiker toegang krijgen tot B2C bronnen (bijvoorbeeld een beheerder toegang tot een lijst met beleidsregels B2C)         |
-|Directory |Activiteiten die zijn gerelateerd aan directorykenmerken die zijn opgehaald als een beheerder zich aanmeldt met de Azure Portal |
+|Autorisatie |Activiteiten met betrekking tot de autorisatie van een gebruiker voor toegang tot B2C resources (bijvoorbeeld een beheerder toegang tot een lijst met B2C-beleid)         |
+|Directory |Activiteiten met betrekking tot directory-attributen opgehaald wanneer een beheerder zich aanmeldt met behulp van de Azure-Portal |
 |Toepassing | CRUD-bewerkingen op B2C-toepassingen |
-|Sleutel |CRUD-bewerkingen voor sleutels die zijn opgeslagen in een sleutelcontainer met B2C |
-|Resource |CRUD-bewerkingen op B2C-resources (bijvoorbeeld, beleid en id-providers)
-|Verificatie |Validatie van de gebruikersreferenties en uitgifte van tokens|
+|Sleutel |CRUD-bewerkingen voor sleutels die zijn opgeslagen in de B2C-sleutelcontainer |
+|Resource |CRUD-bewerkingen op B2C-resources (bijvoorbeeld beleidsregels en id-providers)
+|Verificatie |Validatie van referenties van gebruiker en token-uitgifte|
 
 > [!NOTE]
-> Voor een gebruiker object CRUD-activiteiten, raadpleegt u de **Core Directory** categorie.
+> Voor gebruikersactiviteiten object CRUD, raadpleegt u de **hoofddirectory** categorie.
 
 ##<a name="example-activity"></a>Voorbeeld van de activiteit
-Het volgende voorbeeld ziet u de gegevens die zijn vastgelegd, wanneer een gebruiker zich met een externe id-provider aanmeldt: ![controlelogboeken - voorbeeld](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+Het volgende voorbeeld ziet u de gegevens die zijn vastgelegd wanneer een gebruiker zich met een externe id-provider aanmeldt: ![Audit Logs - voorbeeld](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-##<a name="accessing-audit-logs-through-the-azure-portal"></a>Controlelogboeken openen via de Azure-Portal
-1. Ga naar de [Azure Portal](https://portal.azure.com). Zorg ervoor dat u in uw B2C-directory.
+##<a name="accessing-audit-logs-through-the-azure-portal"></a>Auditlogboeken openen via de Azure Portal
+1. Ga naar de [Azure Portal](https://portal.azure.com). Zorg ervoor dat u zich in uw B2C-directory.
 2. Klik op **Azure Active Directory** in de werkbalk met Favorieten aan de linkerkant 
     
-    ![Controlelogboeken - AAD-knop](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+    ![Auditlogboeken - AAD-knop](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
-1. Onder **activiteit**, klikt u op **controlelogboeken**
+1. Onder **activiteit**, klikt u op **auditlogboeken**
 
-    ![Controlelogboeken - sectie Logs](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Auditlogboeken - sectie van de logboeken](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. In de **categorie** dropbox, selecteer **B2C**
 3. Klik op **toepassen**
 
-    ![Controlelogboeken - categorie](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![Auditlogboeken - categorie](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
-U ziet een lijst van activiteiten die zijn geregistreerd in de afgelopen zeven dagen. 
-- Gebruik de **activiteit brontype** dropdown filteren op de activiteitstypen die hierboven worden beschreven
-- Gebruik de **datumbereik** vervolgkeuzelijst voor het filteren van het datumbereik van de activiteiten weergegeven
-- Als u op een specifieke rij in de lijst klikt, ziet een contextuele vak aan de rechterkant u extra kenmerken die zijn gekoppeld aan de activiteit
+Hier ziet u een lijst van activiteiten die zijn geregistreerd in de afgelopen zeven dagen. 
+- Gebruik de **resourcetype van activiteit** vervolgkeuzelijst om te filteren op de activiteitstypen die hierboven worden beschreven
+- Gebruik de **datumbereik** vervolgkeuzelijst voor het filteren van het datumbereik van de activiteiten die worden weergegeven
+- Als u op een specifieke rij in de lijst klikt, ziet een contextuele vak aan de rechterkant u aanvullende kenmerken die zijn gekoppeld aan de activiteit
 - Klik op **downloaden** voor het downloaden van de activiteiten als een csv-bestand
 
-##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Controlelogboeken benaderen via de Azure AD rapportage-API
-Auditlogboeken worden gepubliceerd naar de dezelfde pijplijn als andere activiteiten voor Azure Active Directory, zodat ze toegankelijk zijn via de [Azure Active Directory-rapportage API](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-audit-reference). 
+##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Auditlogboeken openen via de Azure AD rapportage-API
+Auditlogboeken worden gepubliceerd naar de dezelfde pijplijn als andere activiteiten voor Azure Active Directory, zodat ze kunnen worden geopend via de [Azure Active Directory reporting API](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
 ###<a name="prerequisites"></a>Vereisten
-Om te verifiëren met Azure AD rapportage-API moet u eerst een toepassing registreren. Zorg ervoor dat u de stappen in [vereisten voor toegang tot de Azure AD rapportage-API's](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
+Als u wilt verifiëren met de Azure AD rapportage-API moet u eerst het registreren van een toepassing. Zorg ervoor dat u de stappen in [vereisten voor toegang tot de rapportage-API's Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
 ###<a name="accesing-the-api"></a>Toegang tot de API
-Voor het downloaden van de Azure AD B2C-controlelogboeken via de API, moet u voor het filteren van de logboeken naar de **B2C** categorie. Als u wilt filteren op categorie, gebruiken de querytekenreeksparameter bij het aanroepen van de Azure AD reporting API-eindpunt, zoals hieronder wordt weergegeven:
+Voor het downloaden van de auditlogboeken van Azure AD B2C via de API, moet u de logboeken om te filteren de **B2C** categorie. Als u wilt filteren op categorie, gebruikt u de queryreeks-parameter bij het aanroepen van de Azure AD reporting API-eindpunt, zoals hieronder wordt weergegeven:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 
 ###<a name="powershell-script"></a>PowerShell-script
-Het volgende script geeft een voorbeeld van een query uitvoeren op de Azure AD rapportage-API en de resultaten opslaan als een JSON-bestand met behulp van PowerShell:
+Het volgende script geeft een voorbeeld van een query uitvoeren op de rapportage-API van Azure AD en de resultaten opslaan als een JSON-bestand met behulp van PowerShell:
 
 ```powershell
 # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)

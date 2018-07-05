@@ -1,6 +1,6 @@
 ---
-title: Verplaatsen van een virtuele machine van Windows-resource in Azure | Microsoft Docs
-description: Een Windows-VM verplaatsen naar een andere Azure-abonnement of de resource-groep in het Resource Manager-implementatiemodel.
+title: Verplaatsen van een Windows VM-resource in Azure | Microsoft Docs
+description: Een Windows-VM verplaatsen naar een andere Azure-abonnement of resourcegroep groep in het Resource Manager-implementatiemodel.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: cynthn
-ms.openlocfilehash: b98b8c947fb34b60c7bd27b006672e0e9d923d3b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 168ba57399b2649af29820f7321dd0151618346e
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918146"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436477"
 ---
-# <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Een Windows VM verplaatsen naar een andere Azure-abonnement of resourcegroep groep
-Dit artikel begeleidt u bij het verplaatsen van een virtuele machine van Windows tussen resourcegroepen of abonnementen. Verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine hebt gemaakt in een persoonlijke abonnement en wilt verplaatsen naar een abonnement van uw bedrijf om na te gaan met uw werk.
+# <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Een Windows-VM verplaatsen naar een andere Azure-abonnement of resourcegroep groep
+In dit artikel leert u hoe u een Windows-VM verplaatsen tussen resourcegroepen of abonnementen. Verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine hebt gemaakt in een persoonlijke abonnement en wil verplaatsen naar het abonnement van uw bedrijf kunnen doorgaan met uw werk.
 
 > [!IMPORTANT]
 >U kunt beheerde schijven op dit moment niet verplaatsen. 
 >
->Nieuwe resource-id's worden gemaakt als onderdeel van de verplaatsing. Nadat de virtuele machine is verplaatst, moet u de hulpprogramma's en scripts die de nieuwe resource-ID bijwerken. 
+>Nieuwe resource-id's worden gemaakt als onderdeel van de verplaatsing. Zodra de virtuele machine is verplaatst, moet u de hulpprogramma's en scripts gebruikmaken van de nieuwe resource-id's bijwerken. 
 > 
 > 
 
@@ -36,13 +36,13 @@ Dit artikel begeleidt u bij het verplaatsen van een virtuele machine van Windows
 
 ## <a name="use-powershell-to-move-a-vm"></a>Powershell gebruiken voor het verplaatsen van een virtuele machine
 
-Als een virtuele machine naar een andere resourcegroep verplaatsen, moet u ervoor zorgen dat u ook alle afhankelijke resources verplaatsen. De cmdlet Move-AzureRMResource gebruiken, moet u de ResourceId van elk van de resources. U kunt een lijst van het gebruik van de ResourceId ophalen de [zoeken AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
+Om een virtuele machine naar een andere resourcegroep verplaatsen, moet u ervoor zorgen dat u ook alle van de afhankelijke resources verplaatsen. Voor het gebruik van de cmdlet Move-AzureRMResource, moet u de ResourceId van elk van de resources. Krijgt u een lijst van de ResourceId met behulp van de [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet.
 
 ```azurepowershell-interactive
- Find-AzureRMResource -ResourceGroupNameContains <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-Voor het verplaatsen van een virtuele machine moet worden verplaatst van meerdere resources. We kunnen de uitvoer van zoeken AzureRMResource gebruiken voor het maken van een door komma's gescheiden lijst met de ResourceIds en die u wilt doorgeven [verplaatsen AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) om ze te verplaatsen naar de bestemming. 
+We moeten voor het verplaatsen van een virtuele machine om meerdere resources te verplaatsen. We kunnen de uitvoer van Get-AzureRMResource gebruiken voor het maken van een door komma's gescheiden lijst met de ResourceIds en dat doorgeven aan [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) om ze te verplaatsen naar de bestemming. 
 
 ```azurepowershell-interactive
 
@@ -50,7 +50,7 @@ Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
     
-De om resources te verplaatsen naar een ander abonnement, omvatten de **- DestinationSubscriptionId** parameter. 
+Om de resources verplaatsen naar een ander abonnement, bevatten de **- DestinationSubscriptionId** parameter. 
 
 ```azurepowershell-interactive
 Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `

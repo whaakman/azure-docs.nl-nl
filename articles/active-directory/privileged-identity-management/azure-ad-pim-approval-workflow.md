@@ -1,6 +1,6 @@
 ---
-title: Azure Privileged Identity Management goedkeuring werkstromen | Microsoft Docs
-description: Meer informatie over werkstromen voor goedkeuring in Privileged Identity Management (PIM)
+title: Azure Privileged Identity Management goedkeuringswerkstromen | Microsoft Docs
+description: Meer informatie over goedkeuringswerkstromen in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,60 +8,60 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: protection
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 135c789dc6e41e07bb939ece679756c8c42de2d1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 025bcd0cde8d73cfdd4d79a77256a1705950f90a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085280"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444643"
 ---
 # <a name="approvals"></a>Approvals
 
 ## <a name="overview"></a>Overzicht
 
-Met goedkeuringen voor Privileged Identity Management, kunt u rollen configureren om te goedkeuring vereisen voor activering en kies een of meerdere gebruikers of groepen als gedelegeerde fiatteurs. Houd lezen voor meer informatie over het configureren van rollen en fiatteurs selecteren.
+Met goedkeuringen voor Privileged Identity Management, kunt u rollen om te vereisen van goedkeuring voor activering configureren en kies een of meer gebruikers of groepen als gedelegeerde fiatteurs. Blijf lezen voor meer informatie over het configureren van rollen en fiatteurs selecteren.
 
 
 ## <a name="new-terminology"></a>Nieuwe terminologie
 
-*In aanmerking komende gebruiker van de rol* – een in aanmerking komende rol is een gebruiker binnen uw organisatie die is toegewezen aan een Azure AD-rol als in aanmerking komende (rol activering vereist is).
+*In aanmerking komende rol gebruiker* : een gebruiker in aanmerking komende rol is een gebruiker binnen uw organisatie die is toegewezen aan een Azure AD-rol als in aanmerking komende (rol vereist activering).
 
-*Gedelegeerde goedkeurder* : een gemachtigde goedkeurder is een of meerdere personen of groepen binnen uw Azure AD die verantwoordelijk is voor het goedkeuren van aanvragen voor het activeren van rollen.
+*Gedelegeerde fiatteur* : een gedelegeerde fiatteur is een of meerdere personen of groepen in uw Azure AD die verantwoordelijk is voor het goedkeuren van aanvragen voor rollen activeren.
 
 ## <a name="scenarios"></a>Scenario's
 
-De private preview ondersteunt de volgende scenario's:
+De beperkte Preview-versie ondersteunt de volgende scenario's:
 
-**Als een bevoorrechte rol beheerder (PRA) kunt u:**
+**Als een bevoorrechte rol beheerder (PRA) kunt u de:**
 
 -   [goedkeuring voor specifieke rollen inschakelen](#enable-approval-for-specific-roles)
 
--   [Geef goedkeurder gebruikers en/of groepen voor het goedkeuren van aanvragen](#specify-approver-users-and/or-groups-to-approve-requests)
+-   [Geef gebruikers van de fiatteur en/of groepen voor het goedkeuren van aanvragen](#specify-approver-users-and/or-groups-to-approve-requests)
 
--   [Geschiedenis van de aanvraag en goedkeuring voor alle bevoorrechte rollen weergeven](#view-request-and-approval-history-for-all-privileged-roles)
+-   [Geschiedenis van een aanvraag en goedkeuring voor alle bevoorrechte rollen weergeven](#view-request-and-approval-history-for-all-privileged-roles)
 
-**Als een specifieke goedkeurder kunt u:**
+**Als een aangewezen fiatteur, kunt u het volgende doen:**
 
--   [in afwachting van goedkeuring (aanvragen) weergeven](#view-pending-approvals-requests)
+-   [weergeven in afwachting van goedkeuring (aanvragen)](#view-pending-approvals-requests)
 
--   [goedkeuren of afwijzen aanvragen voor uitbreiding van de rol (één en/of bulk)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
+-   [goedkeuren of afwijzen van aanvragen om benodigde bevoegdheden rol (één en/of bulk)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
 
--   [Geef de reden voor Mijn goedkeuring/afwijzing](#provide-justification-for-my-approval/rejection) 
+-   [reden voor Mijn goedkeuring of afkeuring opgeven](#provide-justification-for-my-approval/rejection) 
 
-**Als een in aanmerking komende gebruiker voor de rol kunt u:**
+**Als de gebruiker van een in aanmerking komende rol kunt u het volgende doen:**
 
--   [activering van de aanvraag van een rol die goedkeuring vereist](#request-activation-of-a-role-that-requires-approval)
+-   [aanvraag voor activering van een rol waarvoor goedkeuring is vereist](#request-activation-of-a-role-that-requires-approval)
 
--   [de status van uw aanvraag voor het activeren van weergeven](#view-the-status-of-your-request-to-activate)
+-   [Bekijk de status van uw aanvraag voor activeren](#view-the-status-of-your-request-to-activate)
 
--   [uw taak te voltooien in Azure AD als activering is goedgekeurd](#complete-your-task-in-azure-ad-if-activation-was-approved)
+-   [Uw taak te voltooien in Azure AD als de activering is goedgekeurd](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
 ### <a name="navigation"></a>Navigatie
 
@@ -69,25 +69,25 @@ We hebben de navigatie ter ondersteuning van goedkeuringen bijgewerkt
 
 ![](media/azure-ad-pim-approval-workflow/image001.png)
 
-De standaardwaarde landingspagina biedt snel toegang tot informatie over PIM en de nieuwe goedkeuringen-documentatie.
+De standaardwaarde landingspagina biedt een gemakkelijke manier toegang tot informatie over PIM en de nieuwe goedkeuringen-documentatie.
 
 ![](media/azure-ad-pim-approval-workflow/image002.png)
 
-We hebben hebt ook een nieuwe sectie voor alle gebruikers van PIM, 'Mijn controlegeschiedenis' toegevoegd. Hier vindt u alle informatie die relevant zijn voor uw identiteit. Dit omvat alle uw in behandeling en voltooid aanvragen, alle beslissingen over de aanvragen die u hebt opgelost en de afgelopen rol activeringen op één handige locatie.
+We hebben ook een nieuwe sectie voor alle gebruikers van PIM, 'Mijn controlegeschiedenis' toegevoegd. Hier vindt u alle informatie die relevant zijn voor uw identiteit. Dit omvat alle aanvragen voor de in behandeling en voltooid, alle beslissingen over de aanvragen die u kunt oplossen en uw laatste rolactiveringen in één handige locatie.
 
 ![](media/azure-ad-pim-approval-workflow/image003.png)
 
 ### <a name="enable-approval-for-specific-roles"></a>Goedkeuring voor specifieke rollen inschakelen
 
-Om goedkeuring voor een specifieke rol, moet u eerst Directory rollen selecteren in de linkernavigatiebalk.
+Als u wilt goedkeuren voor een specifieke functie hebt ingeschakeld, moet u eerst Directory-rollen selecteren in de linkernavigatiebalk.
 
 ![](media/azure-ad-pim-approval-workflow/image004.png)
 
-Zoek en selecteer de instellingen in het linkernavigatievenster van Directory-functies
+Zoek en selecteer de instellingen in de navigatiebalk aan de Directory-rollen
 
 ![](media/azure-ad-pim-approval-workflow/image006.png)
 
-Selecteer de bevoorrechte rollen:
+Bevoorrechte rollen selecteren:
 
 ![](media/azure-ad-pim-approval-workflow/image009.png)
 
@@ -95,24 +95,24 @@ Selecteert u 'Inschakelen' in de goedkeuringssectie vereisen:
 
 ![](media/azure-ad-pim-approval-workflow/image011.png)
 
-Eenmaal is ingeschakeld, wordt de blade uitvouwen om weer te geven van de volgende details:
+Eenmaal is ingeschakeld, wordt de blade uitvouwen om weer te geven van de volgende gegevens:
 
 ![](media/azure-ad-pim-approval-workflow/image013.png)
 
 >[!NOTE]
-Als u niet alle goedkeurders opgeeft, worden de PRA(s) de standaard fiatteur (s). PRA(s) nodig zijn voor het goedkeuren van alle activeringsaanvragen voor deze rol.
+Als u niet alle goedkeurders opgeeft, worden de PRA(s) de standaard fiatteur (s). PRA(s) zou zijn vereist voor het goedkeuren van alle activeringsaanvragen voor deze rol.
 
-### <a name="specify-approver-users-andor-groups-to-approve-requests"></a>Geef goedkeurder gebruikers en/of groepen voor het goedkeuren van aanvragen
+### <a name="specify-approver-users-andor-groups-to-approve-requests"></a>Geef gebruikers van de fiatteur en/of groepen voor het goedkeuren van aanvragen
 
-Als u wilt delegeren goedkeuring, klik op de optie 'Select goedkeurders':
+Klik op de optie 'Select goedkeurders' voor het delegeren van goedkeuring:
 
 ![](media/azure-ad-pim-approval-workflow/image015.png)
 
-Wanneer de blade Selecteer goedkeurders wordt geladen, u kunt zoeken naar een specifieke gebruiker of groep met behulp van de zoekbalk boven of selecteren in de lijst met vooraf ingestelde en klik vervolgens op 'Selecteren' als voltooid:
+Wanneer de optie fiatteurs-blade wordt geladen, u kunt zoeken naar een specifieke gebruiker of groep met behulp van de zoekbalk boven of selecteren in de vooraf gevulde lijst en klik vervolgens op "Selecteren" wanneer u klaar bent:
 
 ![](media/azure-ad-pim-approval-workflow/image017.png)
 
-Opmerking: U kunt meerdere gebruikers of groepen tegelijkertijd selecteren.
+Opmerking: Kunt u meerdere gebruikers of groepen selecteren op een tijdstip.
 
 Uw selectie wordt weergegeven in de lijst met geselecteerde goedkeurders zoals hieronder wordt weergegeven:
 
@@ -120,50 +120,50 @@ Uw selectie wordt weergegeven in de lijst met geselecteerde goedkeurders zoals h
 
 Als u wilt een goedkeurder verwijderen, klikt u op de knop verwijderen naast hun naam.
 
-Aanvullende als fiatteurs wilt toevoegen, moet u het proces herhalen.
+Als u wilt meer fiatteurs toevoegen, moet u het proces herhalen.
 
-## <a name="view-request-and-approval-history-for-all-privileged-roles"></a>Geschiedenis van de aanvraag en goedkeuring voor alle bevoorrechte rollen weergeven
+## <a name="view-request-and-approval-history-for-all-privileged-roles"></a>Geschiedenis van een aanvraag en goedkeuring voor alle bevoorrechte rollen weergeven
 
-Aanvraag en goedkeuring als geschiedenis wilt weergeven voor alle bevoorrechte rollen, selecteer controlegeschiedenis vanuit het dashboard:
+Aanvraag- en goedkeuringsprocessen als geschiedenis wilt weergeven voor alle bevoorrechte rollen, selecteert u controlegeschiedenis vanuit het dashboard:
 
 ![](media/azure-ad-pim-approval-workflow/image021.png)
 
 >[!NOTE]
-Sorteer de gegevens door de actie en zoek naar 'Activering goedgekeurd'
+Sorteer de gegevens door de actie en zoek naar "Activeren goedgekeurd"
 
-### <a name="view-pending-approvals-requests"></a>In afwachting van goedkeuring (aanvragen) weergeven
+### <a name="view-pending-approvals-requests"></a>Weergeven in afwachting van goedkeuring (aanvragen)
 
-U zult als een gemachtigde goedkeurder e-mailmeldingen ontvangen wanneer een aanvraag wacht op uw goedkeuring wordt. Selecteer het tabblad 'goedkeuringsaanvragen in behandeling' in de linkernavigatiebalk om weer te geven deze aanvragen in de PIM-portal, vanuit het dashboard (in het navigatievenster aan de nieuwe).
+Als een gedelegeerde fiatteur ontvangt u e-mailmeldingen wanneer een aanvraag voor de goedkeuring in behandeling is. Als u wilt weergeven van deze aanvragen in de portal voor PIM, vanuit het dashboard (in de nieuwe navigatiefunctie) Selecteer het tabblad 'Goedkeuringsaanvragen in behandeling' in de linker navigatiebalk.
 
 ![](media/azure-ad-pim-approval-workflow/image023.png)
 
-Van daaruit ziet u een lijst met aanvragen in afwachting van goedkeuring:
+Daar ziet u een lijst met aanvragen in afwachting van goedkeuring:
 
 ![](media/azure-ad-pim-approval-workflow/image024.png)
 
-### <a name="approve-or-reject-requests-for-role-elevation-single-andor-bulk"></a>Goedkeuren of afwijzen aanvragen voor uitbreiding van de rol (één en/of bulk)
+### <a name="approve-or-reject-requests-for-role-elevation-single-andor-bulk"></a>Goedkeuren of afwijzen van aanvragen om benodigde bevoegdheden rol (één en/of bulk)
 
-Selecteer de aanvragen die u wilt goedkeuren of weigeren en klik op de knop in de actiebalk die met uw beslissing overeenkomt:
+Selecteer de aanvragen die u wilt goedkeuren of afwijzen en klik op de knop in de actiebalk die met uw beslissing overeenkomt:
 
 ![](media/azure-ad-pim-approval-workflow/image025.png)
 
-### <a name="provide-justification-for-my-approvalrejection"></a>Geef de reden voor Mijn goedkeuring/afwijzing
+### <a name="provide-justification-for-my-approvalrejection"></a>Reden voor Mijn goedkeuring of afkeuring opgeven
 
-Hiermee opent u een nieuwe blade als u wilt goedkeuren of weigeren van meerdere aanvragen tegelijk. Voer een reden voor uw beslissing en klikt u op (toestaan of weigeren) aan de onderkant of de blade:
+Hiermee wordt een nieuwe blade als u wilt goedkeuren of weigeren van meerdere aanvragen in één keer geopend. Voer een reden voor uw beslissing, en klik op (toestaan of weigeren) aan de onderkant of de blade:
 
 ![](media/azure-ad-pim-approval-workflow/image029.png)
 
-Wanneer het proces voor aanvragen voltooid is, geeft het statussymbool hand van de beslissing (in dit voorbeeld wordt de beslissing is goedkeuren):
+Wanneer het proces voor aanvragen voltooid is, het statussymbool de beslissing weer (in dit voorbeeld wordt de beslissing is goedgekeurd):
 
 ![](media/azure-ad-pim-approval-workflow/image031.png)
 
-### <a name="request-activation-of-a-role-that-requires-approval"></a>Activering van de aanvraag van een rol die goedkeuring vereist
+### <a name="request-activation-of-a-role-that-requires-approval"></a>Activering van een rol waarvoor goedkeuring aanvragen
 
-Activering van een rol die goedkeuring vereist aanvraagt kan van de oude PIM-navigatie of de nieuwe navigatie worden gestart omdat het proces voor rolactivering hetzelfde is gebleven. Selecteer een rol gewoon uit de lijst met rollen te activeren:
+Activering van een rol waarvoor goedkeuring aanvragen kan worden gestart via de oude PIM-navigatie, of de nieuwe navigatiefunctie, als het proces voor rolactivering hetzelfde blijft. Selecteer een rol gewoon uit de lijst met rollen te activeren:
 
 ![](media/azure-ad-pim-approval-workflow/image033.png)
 
-Als een bevoorrechte rol meerledige verificatie vereist, wordt u gevraagd eerst die taak te voltooien:
+Als een bevoorrechte rol is vereist voor multi-factor Authentication, wordt u gevraagd om te voltooien die taak eerst:
 
 ![](media/azure-ad-pim-approval-workflow/image035.png)
 
@@ -175,20 +175,20 @@ De aanvrager ziet een melding dat de aanvraag in afwachting van goedkeuring is:
 
 ![](media/azure-ad-pim-approval-workflow/image039.png)
 
-### <a name="view-the-status-of-your-request-to-activate"></a>De status van uw aanvraag voor het activeren van weergeven
+### <a name="view-the-status-of-your-request-to-activate"></a>Bekijk de status van uw aanvraag voor activeren
 
-De statuscontrole van een aanvraag in behandeling activeren moet worden geopend in de nieuwe navigatie. Selecteer het tabblad 'Mijn aanvragen' in de linkernavigatiebalk:
+De status van een aanvraag in behandeling voor het activeren van weer te geven moet worden geopend in de nieuwe navigatie. Selecteer het tabblad 'Mijn Requests' in de linker navigatiebalk:
 
 ![](media/azure-ad-pim-approval-workflow/image041.png)
 
-De aanvraagstatus wordt standaard ingesteld op 'In behandeling', maar u kunt schakelen om alle te zien of afgewezen aanvragen.
+De status van de standaard ingesteld op 'In behandeling', maar u kunt in-of uitschakelen om te zien of de aanvragen is geweigerd.
 
-### <a name="complete-your-task-in-azure-ad-if-activation-was-approved"></a>Uw taak te voltooien in Azure AD als activering is goedgekeurd
+### <a name="complete-your-task-in-azure-ad-if-activation-was-approved"></a>Uw taak te voltooien in Azure AD als de activering is goedgekeurd
 
-Zodra de aanvraag is goedgekeurd, wordt de rol actief is en u kunt doorgaan met werk waarvoor deze rol is vereist.
+Zodra de aanvraag is goedgekeurd, de rol actief is en u kunt doorgaan met werk dat deze rol is vereist.
 
 ![](media/azure-ad-pim-approval-workflow/image043.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Uw feedback is belangrijk voor ons. Aarzel niet om te delen opmerkingen of feedback met ons hier!
+Uw feedback is belangrijk voor ons. Neem gerust opmerkingen of feedback met ons hier!

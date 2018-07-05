@@ -1,43 +1,43 @@
 ---
 title: Azure Analysis Services-code, project en databasevoorbeelden | Microsoft Docs
-description: Meer informatie over de code, project en databasevoorbeelden voor Azure Analysis Services.
+description: Meer informatie over code, project en databasevoorbeelden voor Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 54913fa7940ac83f5de87ad9f35d6dcee07d29d0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6456663a1114ec00f2a071458c54067da53b52a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598426"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443711"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services-voorbeelden
-Gebruik de volgende voorbeeld-bronnen waarmee u kunt meer informatie over en testen van Analysis Services voor uw omgeving.
+Gebruik de volgende voorbeeld-bronnen voor meer informatie over en testen van Analysis Services voor uw omgeving.
 
 ## <a name="code-samples"></a>Codevoorbeelden
-De [Analysis Services](https://github.com/Microsoft/Analysis-Services) opslagplaats op GitHub bevat voorbeelden van open-source code en community-projecten. 
+De [Analysis Services](https://github.com/Microsoft/Analysis-Services) -bibliotheek op GitHub bevat codevoorbeelden van open-source en community-projecten. 
 
-## <a name="tabular-model-project-and-database-samples"></a>Voorbeelden voor het project en de database van model in tabelvorm
-[Adventure Works voor Analysis Services](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) op GitHub, is het meest gebruikte voorbeeldproject model in tabelvorm. U kunt een VS-project of een tabellaire modeldatabase voltooide voorbeeld downloaden.
+## <a name="tabular-model-project-and-database-samples"></a>Tabellair model project en database-voorbeelden
+[Adventure Works voor Analysis Services](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) is de meest gebruikte voorbeeld-project voor tabellair model op GitHub. U kunt een VS-project of een tabellaire modeldatabase voltooide voorbeeld downloaden.
 
 
 ## <a name="sample-databases-on-github"></a>Voorbeelddatabases op GitHub
 Deze voorbeelddatabases op GitHub kunnen worden gebruikt voor het maken en testen van uw eigen modellen. 
 
-[Adventure Works voorbeeld-databases](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
+[Adventure Works-voorbeeld-databases](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
 
 [Wide World Importers voorbeelddatabases](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 
-## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Voorbeeld van Adventure Works Internet verkoop-model in de Azure-portal
-Als u een Analysis Services-server in Azure-portal hebt, kunt u snel en eenvoudig een voorbeeld-model te maken. Klik in de overzichtspagina van uw server in Azure-portal op **nieuw model**, en klik vervolgens in **een gegevensbron kiezen**, selecteer **voorbeeldgegevens**.
+## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Voorbeeld van Adventure Works Internet Sales model in Azure portal
+Als u een Analysis Services-server in Azure portal hebt, kunt u snel en eenvoudig een voorbeeldmodel maken. In de overzichtspagina van uw server in Azure portal, klikt u op **nieuw model**, en klik vervolgens in **een gegevensbron kiezen**, selecteer **voorbeeldgegevens**.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Adventure Works-zelfstudie](/tutorials/aas-adventure-works-tutorial.md)   
-[De gegevensgateway Azure On-premises](analysis-services-gateway.md)  
+[Adventure Works-zelfstudie](tutorials/aas-adventure-works-tutorial.md)   
+[Azure On-premises gegevensgateway](analysis-services-gateway.md)  

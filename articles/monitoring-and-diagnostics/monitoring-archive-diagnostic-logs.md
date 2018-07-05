@@ -1,6 +1,6 @@
 ---
-title: Azure logboeken met diagnostische gegevens archiveren
-description: Informatie over het archiveren van uw Azure diagnostische logboeken voor lange bewaartermijn in een opslagaccount.
+title: Archiveren van diagnostische logboeken in Azure
+description: Leer hoe u uw diagnostische logboeken van Azure voor langdurige bewaarperioden in een opslagaccount archiveren.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: d48828c8d2ec439f389fe4eddabb59599cc1680b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 99f150b2c62331a63e5bd4377f51fd11359628ab
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752823"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436025"
 ---
-# <a name="archive-azure-diagnostic-logs"></a>Azure logboeken met diagnostische gegevens archiveren
+# <a name="archive-azure-diagnostic-logs"></a>Archiveren van diagnostische logboeken in Azure
 
-In dit artikel, laten we zien hoe u de Azure-portal, PowerShell-Cmdlets, CLI of REST-API gebruiken kunt bij de archivering van uw [Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md) in een opslagaccount. Deze optie is handig als u wilt behouden van de diagnostische logboeken met een optionele bewaarbeleid voor controle, statische analyses of back-up. Het opslagaccount heeft geen zich in hetzelfde abonnement als de bron logboeken verzenden zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
+In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets, CLI of REST-API gebruiken kunt om te archiveren uw [diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md) in een storage-account. Deze optie is handig als u wilt behouden van de diagnostische logboeken met een optionele bewaarbeleid voor controle-, statische analysis- of back-up. Het storage-account heeft geen zich in hetzelfde abonnement als de resource dat Logboeken verzendt, zolang de gebruiker die de instelling configureert de juiste RBAC-toegang voor beide abonnementen heeft.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint, moet u [een opslagaccount maken](../storage/storage-create-storage-account.md) waarnaar uw logboeken met diagnostische gegevens kunnen worden gearchiveerd. Het is raadzaam dat u niet een bestaand opslagaccount met andere, niet-bewaking gegevens die zijn opgeslagen in het gebruikt zodat u toegang tot bewakingsgegevens beter kunt beheren. Echter, als u ook uw activiteitenlogboek en diagnostische metrische gegevens naar een opslagaccount archiveert, kan zinvol zijn voor dit opslagaccount voor uw logboeken met diagnostische gegevens ook gebruiken om alle bewakingsgegevens in een centrale locatie. Het opslagaccount dat u moet een algemeen opslagaccount, niet een blob storage-account.
+Voordat u begint, moet u [een opslagaccount maken](../storage/storage-create-storage-account.md) waarop uw logboeken met diagnostische gegevens kunnen worden gearchiveerd. Het is raadzaam dat u gebruik niet een bestaand opslagaccount met andere, niet-bewaking gegevens opgeslagen in het zodat u toegang tot bewakingsgegevens beter kunt beheren. Echter, als u ook van uw activiteitenlogboek en diagnostische gegevens naar een opslagaccount archiveren, het wellicht verstandig dat opslagaccount voor uw logboeken met diagnostische gegevens ook gebruiken om te houden van alle gegevens op een centrale locatie.
 
 > [!NOTE]
->  U kan momenteel niet archiveren gegevens naar een opslag-account die achter een beveiligde virtuele netwerk.
+>  U kan momenteel niet archiveren gegevens aan een storage-account die achter een beveiligd virtueel netwerk.
 
 ## <a name="diagnostic-settings"></a>Diagnostische instellingen
 
-Als u wilt archiveren uw logboeken met diagnostische gegevens met behulp van de methoden hieronder, u stelt een **diagnostische instelling** voor een bepaalde resource. Een diagnostische instelling voor een resource definieert de categorieën van Logboeken en metrische gegevens die worden verzonden naar een bestemming (storage-account, Event Hubs-naamruimte of Log Analytics). Het definieert ook het bewaarbeleid (aantal dagen wilt bewaren) voor gebeurtenissen van elke categorie logboek en metrische gegevens die zijn opgeslagen in een opslagaccount. Als een bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor die categorie logboekbestanden opgeslagen voor onbepaalde tijd (dat wil zeggen, permanent). Een bewaarbeleid kan anders zijn voor een willekeurig aantal dagen tussen 1 en 2147483647. [U kunt meer lezen over de diagnostische instellingen hier](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Bewaarbeleid zijn toegepaste per dag, aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode beleid wordt dus verwijderd. Bijvoorbeeld, als u had een bewaarbeleid van één dag, zou aan het begin van vandaag de dag de logboeken van de dag voordat gisteren worden verwijderd. De verwijderbewerking begint bij middernacht UTC, maar let op: duurt maximaal 24 uur voor de logboeken worden verwijderd uit uw storage-account. 
+Als u wilt archiveren van uw logboeken met diagnostische gegevens met behulp van een van de onderstaande methoden, stelt u een **diagnostische instelling** voor een bepaalde resource. Een diagnostische instelling voor een resource definieert de categorieën van Logboeken en metrische gegevens die worden verzonden naar een bestemming (storage-account, Event Hubs-naamruimte of Log Analytics). Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen van elke logboekcategorie en metrische gegevens die zijn opgeslagen in een storage-account. Als een bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor die categorie logboekbestanden opgeslagen voor onbepaalde tijd (dat wil zeggen, permanent). Een bewaarbeleid kan anders zijn voor een willekeurig aantal dagen tussen 1 en 2147483647. [U kunt meer lezen over de diagnostische instellingen hier](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. 
 
 > [!NOTE]
 > Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
@@ -37,31 +37,31 @@ Als u wilt archiveren uw logboeken met diagnostische gegevens met behulp van de 
 >
 >
 
-## <a name="archive-diagnostic-logs-using-the-portal"></a>Archief diagnostische logboeken met behulp van de portal
+## <a name="archive-diagnostic-logs-using-the-portal"></a>De diagnostische logboeken archiveren met behulp van de portal
 
 1. In de portal, gaat u naar Azure Monitor en klikt u op **diagnostische instellingen**
 
-    ![Sectie van de Monitor Azure bewaking](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
+    ![Sectie van Azure Monitor bewaking](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
 
-2. Optioneel de lijst filteren op resourcegroep of brontype en klik vervolgens op de bron die u wilt geen diagnostische instellen.
+2. (Optioneel) de lijst met door de resourcegroep of resourcetype filteren en klik vervolgens op de resource waarvoor u wilt een diagnostische instelling instellen.
 
-3. Als er geen instellingen bestaan op de bron voor hebt u geselecteerd, u wordt gevraagd om een instelling te maken. Klik op "Diagnostische gegevens inschakelen."
+3. Als er geen instellingen zijn op de resource hebt u geselecteerd, wordt u gevraagd om een instelling te maken. Klik op "Diagnostische gegevens inschakelen."
 
-   ![Diagnostische instelling - geen bestaande instellingen toevoegen](media/monitoring-archive-diagnostic-logs/diagnostic-settings-none.png)
+   ![Diagnostische instelling - er zijn geen bestaande instellingen toevoegen](media/monitoring-archive-diagnostic-logs/diagnostic-settings-none.png)
 
-   Als er bestaande instellingen op de bron, ziet u een lijst met instellingen die al zijn geconfigureerd op deze resource. Klik op 'Diagnostische instelling toevoegen'.
+   Als er bestaande instellingen op de resource, ziet u een lijst met instellingen die al zijn geconfigureerd voor deze resource. Klik op 'Diagnostische instelling toevoegen'.
 
    ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-archive-diagnostic-logs/diagnostic-settings-multiple.png)
 
-3. Geef een naam van de instelling en schakel het selectievakje voor **exporteren naar Opslagaccount**, selecteert u een opslagaccount. Eventueel, stel een aantal dagen wilt bewaren van deze logboeken met behulp van de **bewaartermijn (dagen)** schuifregelaars. Een bewaartermijn van nul dagen worden de logboeken voor onbepaalde tijd opgeslagen.
+3. Geef een naam van uw instelling en schakel het selectievakje voor **exporteren naar Opslagaccount**, selecteer vervolgens een storage-account. (Optioneel) Stel een aantal dagen te bewaren van deze logboeken met behulp van de **bewaarperiode (dagen)** schuifregelaars. Een bewaarperiode van nul dagen worden de logboeken voor onbepaalde tijd opgeslagen.
 
    ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-archive-diagnostic-logs/diagnostic-settings-configure.png)
 
 4. Klik op **Opslaan**.
 
-De nieuwe instelling wordt weergegeven in de lijst met instellingen voor deze bron na enkele ogenblikken en logboeken met diagnostische gegevens naar die storage-account worden gearchiveerd zodra er nieuwe gebeurtenisgegevens wordt gegenereerd.
+Na enkele ogenblikken wordt de nieuwe instelling wordt weergegeven in de lijst met instellingen voor deze resource en logboeken met diagnostische gegevens naar dit opslagaccount worden gearchiveerd zodra de gegevens van een nieuwe gebeurtenis wordt gegenereerd.
 
-## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Diagnostische logboeken archief via Azure PowerShell
+## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Diagnostische logboeken archiveren via Azure PowerShell
 
 ```
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
@@ -69,14 +69,14 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| resourceId |Ja |Bron-ID van de resource waarop u wilt geen diagnostische instellen. |
-| StorageAccountId |Nee |Resource-ID van het Opslagaccount waarin u de logboeken met diagnostische gegevens worden opgeslagen. |
-| Categorieën |Nee |Door komma's gescheiden lijst met categorieën logboek om in te schakelen. |
-| Ingeschakeld |Ja |Een Boolean die aangeeft of diagnostische gegevens zijn ingeschakeld of uitgeschakeld op deze resource. |
-| RetentionEnabled |Nee |Een Boolean die aangeeft of een bewaarbeleid zijn ingeschakeld op deze resource. |
-| RetentionInDays |Nee |Aantal dagen waarvoor gebeurtenissen moeten worden gehandhaafd tussen 1 en 2147483647. De waarde nul wordt de logboeken voor onbepaalde tijd opgeslagen. |
+| ResourceId |Ja |Resource-ID van de resource waarop u wilt een diagnostische instelling instellen. |
+| StorageAccountId |Nee |Resource-ID van het Opslagaccount waarin logboeken met diagnostische gegevens moeten worden opgeslagen. |
+| Categorieën |Nee |Door komma's gescheiden lijst met logboekcategorieën om in te schakelen. |
+| Ingeschakeld |Ja |Booleaanse waarde die aangeeft of de diagnostische gegevens zijn ingeschakeld of uitgeschakeld op deze resource. |
+| RetentionEnabled |Nee |Booleaanse waarde waarmee wordt aangegeven of een bewaarbeleid zijn ingeschakeld voor deze resource. |
+| RetentionInDays |Nee |Het aantal dagen waarvoor gebeurtenissen moeten worden bewaard tussen 1 en 2147483647. De logboeken worden voor onbepaalde tijd opgeslagen door de waarde nul. |
 
-## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Diagnostische logboeken archief via de Azure CLI 2.0
+## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Diagnostische logboeken archiveren via de Azure CLI 2.0
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -94,33 +94,33 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-U kunt extra categorieën toevoegen aan de diagnostische logboeken door woordenlijsten toe te voegen aan de JSON-matrix doorgegeven als de `--logs` parameter.
+U kunt extra categorieën toevoegen aan de diagnostische logboeken van woordenlijsten toe te voegen aan de JSON-matrix die is doorgegeven als de `--logs` parameter.
 
-De `--resource-group` -argument is alleen vereist als `--storage-account` is niet een object-ID. Zie voor de volledige documentatie voor het archiveren van diagnostische logboeken naar de opslag, de [CLI-opdrachten](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+De `--resource-group` argument is alleen vereist als `--storage-account` is niet een object-ID. Zie voor de volledige documentatie voor het archiveren van diagnostische logboeken naar de opslag, de [CLI-opdrachten](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
-## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Diagnostische logboeken archief via de REST-API
+## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Diagnostische logboeken archiveren via de REST-API
 
-[Dit document](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) voor meer informatie over hoe u een diagnostische instelling met de REST-API van Azure Monitor kunt instellen.
+[Raadpleeg dit document](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) voor meer informatie over hoe u een diagnostische instelling met de Azure Monitor REST API kunt instellen.
 
-## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Schema van diagnostische logboeken in de storage-account
+## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Schema van logboeken met diagnostische gegevens in de storage-account
 
-Nadat u hebt ingesteld archivering, wordt een storage-container gemaakt in de storage-account zodra een gebeurtenis optreedt in een van de logboek-categorieën die u hebt ingeschakeld. De blobs in de container Volg dezelfde indeling over diagnostische logboeken en het activiteitenlogboek. De structuur van deze BLOB's is:
-
-> Insights - logs-{categorie logboeknaam} / resourceId = / ABONNEMENTEN / {abonnements-ID} /RESOURCEGROUPS/ {Resourcegroepnaam} /PROVIDERS/ {resource provider name} / {brontype} / {resourcenaam} / y = {4-cijferige numerieke year} / m = {jaartallen met twee numerieke month} / d = {jaartallen met twee numerieke dag} /h = {jaartallen met twee 24-uurs klok hour}/m=00/PT1H.json
-
-Of eenvoudigweg
-
-> Insights - logs-{categorie logboeknaam} / resourceId = / {resource Id} / y = {4-cijferige numerieke year} / m = {jaartallen met twee numerieke month} / d = {jaartallen met twee numerieke dag} /h = {jaartallen met twee 24-uurs klok hour}/m=00/PT1H.json
-
-Zo mogelijk een blob-naam:
-
-> insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
-
-Elke PT1H.json-blob bevat een JSON-blob van gebeurtenissen die hebben plaatsgevonden binnen het uur dat is opgegeven in de blob-URL (bijvoorbeeld, h=12). Tijdens het huidige uur worden gebeurtenissen toegevoegd aan het bestand PT1H.json wanneer deze zich voordoen. De minuut waarde (m = 00) is altijd 00, aangezien diagnostische gebeurtenissen worden onderverdeeld in afzonderlijke blobs per uur.
-
-Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix 'records', volgt deze indeling:
+Nadat u hebt ingesteld gearchiveerd, wordt een opslagcontainer wordt gemaakt in de storage-account als een gebeurtenis optreedt in een van de logboekcategorieën die u hebt ingeschakeld. De blobs in de container Volg dezelfde naamconventie voor activiteitenlogboeken en logboeken met diagnostische gegevens, zoals hier wordt geïllustreerd:
 
 ```
+insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+
+Bijvoorbeeld, kan een blobnaam zijn:
+
+```
+insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
+
+Elke PT1H.json-blob bevat een JSON-blob van gebeurtenissen die hebben plaatsgevonden binnen het uur dat is opgegeven in de blob-URL (bijvoorbeeld, h=12). Tijdens het huidige uur worden gebeurtenissen toegevoegd aan het bestand PT1H.json wanneer deze zich voordoen. De minuutwaarde (m = 00) is altijd 00 omdat logboekgebeurtenissen voor diagnostische zijn onderverdeeld in afzonderlijke blobs per uur.
+
+Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix "records", volgen deze indeling:
+
+``` JSON
 {
     "records": [
         {
@@ -143,19 +143,19 @@ Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix 'records
 }
 ```
 
-| Elementnaam | Beschrijving |
+| De naam van element | Beschrijving |
 | --- | --- |
-| tijd |Tijdstempel wanneer de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag de gebeurtenis overeenkomt. |
-| resourceId |Bron-ID van de betrokken resource. |
+| tijd |Tijdstip waarop de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag die de gebeurtenis overeenkomt. |
+| resourceId |Resource-ID van de betrokken resource. |
 | operationName |Naam van de bewerking. |
-| category |De categorie van het logboek van de gebeurtenis. |
-| properties |Een set `<Key, Value>` paren (dat wil zeggen woordenboek) met een beschrijving van de details van de gebeurtenis. |
+| category |De categorie van de logboekbestanden van de gebeurtenis. |
+| properties |Instellen van `<Key, Value>` paren (dat wil zeggen woordenboek) met een beschrijving van de details van de gebeurtenis. |
 
 > [!NOTE]
 > De eigenschappen en het gebruik van deze eigenschappen kunnen variëren afhankelijk van de resource.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Blobs voor analyse downloaden](../storage/storage-dotnet-how-to-use-blobs.md)
-* [Diagnostische logboeken van de stream naar een Event Hubs-naamruimte](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Lees meer over de logboeken met diagnostische gegevens](monitoring-overview-of-diagnostic-logs.md)
+* [Downloaden van blobs voor analyse](../storage/storage-dotnet-how-to-use-blobs.md)
+* [Diagnostische logboeken van de Stream naar een Event Hubs-naamruimte](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Lees meer over de diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)

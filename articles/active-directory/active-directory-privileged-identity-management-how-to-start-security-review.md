@@ -1,80 +1,80 @@
 ---
-title: Het starten van een onderzoek toegang | Microsoft Docs
-description: Informatie over het maken van een revisie toegang voor bevoegde identiteiten met de Azure Privileged Identity Management-toepassing.
+title: Een toegangsbeoordeling starten | Microsoft Docs
+description: Informatie over het maken van een toegangscontrole voor bevoegde identiteiten met de Azure Privileged Identity Management-toepassing.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a4ef91f7055db8f202e3a4e48375427c85964781
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 28a998647dacdf57390638b8ce1629a76077b450
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020944"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446891"
 ---
-# <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Het starten van een onderzoek toegang in Azure AD Privileged Identity Management
-Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang dat ze niet meer nodig hebt. Om te reduceren het risico dat samenhangt met deze verouderde roltoewijzingen bevoorrechte rol moeten medewerkers of hoofdbeheerders regelmatig maken beoordelingen van toegang als u vragen beheerders om te controleren van de functies die gebruikers hebben gekregen. Dit document worden de stappen voor het starten van een onderzoek toegang in Azure AD Privileged Identity Management (PIM).
+# <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Een toegangsbeoordeling starten in Azure AD Privileged Identity Management
+Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang die ze niet meer nodig hebt. Om te reduceren het risico dat samenhangt met deze verouderde roltoewijzingen bevoorrechte rol moeten medewerkers of hoofdbeheerders regelmatig maken toegangsbeoordelingen om te vragen van beheerders voor het controleren van de functies die gebruikers hebben gekregen. In dit document bevat informatie over de stappen voor het starten van een toegangscontrole in Azure AD Privileged Identity Management (PIM).
 
 ## <a name="start-an-access-review"></a>Een toegangsbeoordeling starten
 > [!NOTE]
-> Als u de PIM-toepassing aan uw dashboard hebt toegevoegd in de Azure portal, Zie de stappen in [aan de slag met Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
+> Als u dit nog niet hebt de PIM-toepassing aan uw dashboard toegevoegd in de Azure-portal, raadpleegt u de stappen in [aan de slag met Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
 > 
 > 
 
-Er zijn drie manieren kunt u een revisie toegang starten van de PIM-toepassing hoofdpagina van:
+Op de toepassing hoofdpagina van PIM zijn er drie manieren om een toegangscontrole starten:
 
-* **Toegang tot beoordelingen** > **toevoegen**
+* **Toegangsbeoordelingen** > **toevoegen**
 * **Rollen** > **revisie** knop
-* Selecteer de specifieke rol moet worden geëvalueerd in de lijst met functies > **revisie** knop
+* Selecteer de specifieke rol om te worden verwijderd uit de lijst met gebruikersrollen > **revisie** knop
 
-Wanneer u klikt op in de **bekijken** knop, de **een revisie toegang starten** blade wordt weergegeven. Op deze blade en gaat u naar de revisie configureren met een naam en een tijdslimiet, kiest u een rol om te controleren en beslissen wie verantwoordelijk is voor de controle.
+Als u klikt op de **bekijken** knop, de **een toegangscontrole starten** blade wordt weergegeven. Op deze blade gaat u naar de revisie configureren met een naam en een tijdslimiet, kiest u een rol om te controleren en bepalen wie verantwoordelijk is voor de beoordeling.
 
-![Starten van de evaluatie van een access - schermafbeelding][1]
+![Start een toegangsbeoordeling - schermafbeelding][1]
 
-### <a name="configure-the-review"></a>De controle configureren
-Voor het maken van een onderzoek toegang, moet u deze de naam en stel een begin- en datum.
+### <a name="configure-the-review"></a>Configureren van de beoordeling
+Als u wilt een toegangsbeoordeling maken, moet u deze de naam en stel een begin- en datum.
 
-![Configureren van de evaluatie - schermafbeelding][2]
+![Configureren van controle - schermafbeelding][2]
 
-Controleer de lengte van de evaluatie lang genoeg is voor gebruikers om deze te voltooien. Als u klaar voor de einddatum vallen bent, kunt u de controle vroeg altijd stoppen.
+Controleer de lengte van de beoordeling lang genoeg is voor gebruikers om deze te voltooien. Als u klaar voor de einddatum bent, kunt u de controle vroeg altijd stoppen.
 
-### <a name="choose-a-role-to-review"></a>Kies een rol te bekijken
-Iedere evaluatie is gericht op slechts één rol. Tenzij u de controle van toegang vanuit een specifieke rolblade hebt gestart, moet u nu een rol kiezen.
+### <a name="choose-a-role-to-review"></a>Kies een rol om te controleren
+Elke beoordeling die is gericht op slechts één rol. Tenzij u de toegangsbeoordeling vanuit de blade voor een specifieke rol gestart, moet u nu een rol kiezen.
 
-1. Navigeer naar **lidmaatschap van de gebruikersrol controleren**
+1. Navigeer naar **rollidmaatschap beoordelen**
    
-    ![Bekijk rollidmaatschap - schermafbeelding][3]
+    ![Rollidmaatschap controle - schermafbeelding][3]
 2. Kies één rol in de lijst.
 
-### <a name="decide-who-will-perform-the-review"></a>Bepalen wie verantwoordelijk is voor de controle
-Er zijn drie opties voor het uitvoeren van een beoordeling. Kunt u de controle toewijzen aan iemand anders is voltooid, kunt u dit zelf doen of u kunt elke gebruiker bekijken van hun eigen toegang hebben.
+### <a name="decide-who-will-perform-the-review"></a>Bepalen wie verantwoordelijk is voor de beoordeling
+Er zijn drie opties voor het uitvoeren van een beoordeling. U kunt de beoordeling toewijzen aan iemand anders om te voltooien, zelf doen of u kunt elke gebruikersbeoordeling een eigen toegang hebben.
 
-1. Navigeer naar **revisoren selecteren**
+1. Navigeer naar **beoordelaars selecteren**
    
     ![Selecteer revisoren - schermafbeelding][4]
 2. Kies een van de opties:
    
-   * **Selecteer revisor**: Gebruik deze optie als u niet weet die toegang nodig heeft. Met deze optie kunt u de controle toewijzen aan een resource-eigenaar of de groepmanager te voltooien.
-   * **Mij**: handig als u wilt zien hoe de toegang tot werk controleert of u wilt bekijken namens mensen die niet kan.
-   * **Leden lees zelf**: Gebruik deze optie om gebruikers hun eigen roltoewijzingen bekijken.
+   * **Selecteer de revisor**: Gebruik deze optie als u niet weet die toegang nodig heeft. Met deze optie kunt u de controle toewijzen aan een resource-eigenaar of groepmanager om te voltooien.
+   * **Mij**: handig als u wilt zien hoe toegang tot beoordelingen voor werk of u wenst te namens de mensen die niet kan controleren.
+   * **Leden lees zelf**: Gebruik deze optie om de gebruikers hun eigen roltoewijzingen bekijken.
 
 ### <a name="start-the-review"></a>De revisie starten
-Tot slot hebt u de optie om te vereisen dat gebruikers een reden opgeven als ze hun toegang wordt goedgekeurd. Indien gewenst een beschrijving van de evaluatie toevoegen en selecteer **Start**.
+Ten slotte hebt u de mogelijkheid om te vereisen dat gebruikers een reden opgeven als ze hun toegang goedkeuren. Indien gewenst een beschrijving van de beoordeling toevoegen en selecteer **Start**.
 
-Zorg ervoor dat u uw gebruikers weten dat er een wachten tot ze toegang-controleren en te laten laten [het uitvoeren van een onderzoek toegang](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+Zorg ervoor dat u uw gebruikers weten dat er een toegangsbeoordeling wachten tot ze en ze weergeven brengt [hoe u een toegangscontrole uitvoeren](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
-## <a name="manage-the-access-review"></a>De controle van toegang beheren
-U kunt de voortgang volgen als de revisoren hun beoordelingen in het Azure AD PIM-dashboard in de sectie toegang beoordelingen voltooid. Er is geen toegangsrechten worden gewijzigd in de map tot [de controle is voltooid](active-directory-privileged-identity-management-how-to-complete-review.md).
+## <a name="manage-the-access-review"></a>Beheren van de toegangsbeoordeling
+U kunt de voortgang volgen de revisoren hun beoordelingen in het dashboard Azure AD PIM in de sectie toegang beoordelingen zijn voltooid. Er is geen toegangsrechten worden gewijzigd in de map tot [de controle is voltooid](active-directory-privileged-identity-management-how-to-complete-review.md).
 
-Totdat de controleperiode afgelopen is, kunt u gebruikers kunnen hun beoordeling voltooien herinneren of stoppen van de controle vroeg in het gedeelte van de beoordelingen toegang.
+Totdat de periode van de toegangsbeoordeling voltooid is, kunt u Herinner de gebruikers om uit te voeren van de beoordeling of stoppen van de beoordeling vroeg in het gedeelte van de beoordelingen toegang.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="pim-table-of-contents"></a>PIM inhoudsopgave

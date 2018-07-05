@@ -1,51 +1,51 @@
 ---
 title: Verbinding maken met Azure analyseservices met Power BI | Microsoft Docs
-description: Informatie over het verbinding maken met een Azure Analysis Services-server met behulp van Power BI.
+description: Leer hoe u verbinding maken met een Azure Analysis Services-server met behulp van Power BI.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2ab13c0d36102c5cd75a5b297f77b23cae40b530
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 00a975ae3acb470912c702d8a37717e5c270c9af
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596675"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446789"
 ---
 # <a name="connect-with-power-bi"></a>Verbinding maken met Power BI
 
-Zodra u hebt een server in Azure gemaakt en geïmplementeerd een model in tabelvorm, zijn gebruikers in uw organisatie gereed om te koppelen en gebruiken van gegevens. 
+Nadat u hebt gemaakt van een server in Azure en een tabellair model geïmplementeerd, zijn gebruikers in uw organisatie klaar om te verbinden en begint met het verkennen van gegevens. 
 
 > [!TIP]
 > Zorg ervoor dat u de nieuwste versie van [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 > 
 > 
   
-## <a name="connect-in-power-bi-desktop"></a>Verbinding maken in Power BI Desktop
+## <a name="connect-in-power-bi-desktop"></a>Verbinden maken in Power BI Desktop
 
-1. Klik in Power BI Desktop op **gegevens ophalen** > **Azure** > **Azure Analysis Services-database**.
+1. Klik in Power BI Desktop op **Gegevens ophalen** > **Azure** > **Azure Analysis Services-database**.
 
-2. In **Server**, voer de naam van de server. Zorg ervoor dat de volledige URL; bijvoorbeeld: asazure://westcentralus.asazure.windows.net/advworks.
+2. In **Server**, voer de naam van de server. Zorg ervoor dat u de volledige URL; bijvoorbeeld, asazure://westcentralus.asazure.windows.net/advworks.
 
-3. In **Database**, als u weet dat de naam van de tabellaire modeldatabase of perspectief die u verbinding maken met wilt, plakt u deze hier. Anders kunt u dit veld leeg laten en later een database of perspectief selecteren.
+3. In **Database**, als u bekend bent met de naam van de database tabellaire model of perspectief die u verbinding maken met wilt, plak deze hier. Anders kunt u dit veld leeg laten en later een database of een perspectief selecteren.
 
-4. Selecteer een verbindingsoptie voor de en druk vervolgens op **Connect**. 
+4. Selecteer een verbindingsoptie voor en druk vervolgens op **Connect**. 
 
-    Beide **Connect live** en **importeren** opties worden ondersteund. Echter, raden we dat u live-verbindingen gebruiken omdat de modus Import heeft enkele beperkingen; met name, kan prestaties van de server worden beïnvloed tijdens het importeren. Ook als het model is worden vernieuwd in de Power BI-service, de **toegang toestaan vanuit Power BI** instelling geldt alleen wanneer u ervoor kiest **Connect live**.
+    Beide **live Connect** en **importeren** opties worden ondersteund. Echter, raden we dat u live-verbindingen gebruiken, omdat de modus Import heeft enkele beperkingen; met name, kan prestaties van de server worden beïnvloed tijdens het importeren. Ook als het model worden vernieuwd in de Power BI-service is de **toegang toestaan vanuit Power BI** instelling geldt alleen bij het kiezen van **live Connect**.
 
-5. Als u wordt gevraagd, voert u de aanmeldingsreferenties. 
+5. Als u hierom wordt gevraagd, voert u uw aanmeldingsreferenties. 
 
 6. In **Navigator**, vouw de server uit en selecteer vervolgens het model of perspectief die u wilt verbinding maken met en klik vervolgens op **Connect**. Klik op een model of perspectief om alle objecten voor deze weergave weer te geven.
 
-    Het model wordt geopend in Power BI Desktop met een leeg rapport in de rapportweergave. De veldenlijst bevat alle modelobjecten niet-verborgen. Verbindingsstatus wordt weergegeven in de rechterbenedenhoek.
+    Het model wordt geopend in Power BI Desktop met een leeg rapport in de rapportweergave. De lijst met velden wordt weergegeven voor alle modelobjecten niet-verborgen. De verbindingsstatus wordt rechtsonder weergegeven.
 
 ## <a name="connect-in-power-bi-service"></a>Verbinding maken in Power BI (service)
 
-1. Maak een Power BI Desktop-bestand met een actieve verbinding met het model op uw server.
-2. In [Power BI](https://powerbi.microsoft.com), klikt u op **gegevens ophalen** > **bestanden**, zoek en selecteer vervolgens uw pbix-bestand.
+1. Maak een Power BI Desktop-bestand met een live-verbinding aan uw model op uw server.
+2. In [Power BI](https://powerbi.microsoft.com), klikt u op **gegevens ophalen** > **bestanden**, zoekt en selecteert u uw pbix-bestand.
 
 
 

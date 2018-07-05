@@ -1,6 +1,6 @@
 ---
-title: Stream de Azure Activity Log naar Event Hubs
-description: Informatie over het streamen van de Azure Activity Log naar Event Hubs.
+title: Stream het Azure-activiteitenlogboek naar Eventhubs
+description: Meer informatie over het streamen van de Azure-activiteitenlogboek naar Event Hubs.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,33 +8,33 @@ ms.topic: conceptual
 ms.date: 03/02/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 1f1a131d4e0cf900d04acc9730b04e1375f396a6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264296"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436702"
 ---
-# <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream de Azure Activity Log naar Event Hubs
+# <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream het Azure-activiteitenlogboek naar Eventhubs
 U kunt streamen de [Azure Activity Log](monitoring-overview-activity-logs.md) in bijna realtime voor elke toepassing door een van beide:
 
-* Met de ingebouwde **exporteren** optie in de portal
-* Inschakelen van de Azure Service Bus-regel-ID in een logboek profiel via de Azure PowerShell-cmdlets of Azure CLI
+* Met behulp van de ingebouwde **exporteren** optie in de portal
+* Inschakelen van de Azure Service Bus-regel-ID in een logboekprofiel via de Azure PowerShell-cmdlets of Azure CLI
 
-## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>Wat u kunt doen met de activiteitenlogboek en Event Hubs
-Hier zijn twee manieren kunt u de streaming mogelijkheid voor het logboek:
+## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>U kunt doen met het activiteitenlogboek en Event Hubs
+Hier vindt u de streaming-mogelijkheden kunt gebruiken voor het activiteitenlogboek op twee manieren:
 
-* **Stream met de logboekregistratie en telemetrie systemen van derden**: gedurende een periode, streaming van Azure Event Hubs, raken de methode om uw activiteitenlogboek doorsluizen naar siem's van derden en meld u analytics-oplossingen.
-* **Maken van een aangepaste Telemetrie en logboekregistratie platform**: als u al hebt een op maat gemaakte telemetrie-platform of nadenken over het bouwen van een zijn, zeer schaalbare voor publiceren / abonneren aard van Event Hubs kunt u het activiteitenlogboek flexibel opnemen. Zie voor meer informatie [Dan Rosanova van video over het gebruik van Event Hubs in een platform wereldwijde schaal telemetrie](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+* **Stream naar de logboeken en telemetrie systemen van derden**: gedurende een periode, Azure Event Hubs streamen wordt het mechanisme voor het doorgeven van het activiteitenlogboek is opgenomen in de siem's van derden en meld u analytics-oplossingen.
+* **Een aangepaste Telemetrie-en logboekregistratie platform**: als u al beschikken over een platform op maat gemaakte telemetrie of na te denken over het bouwen van een zijn, het zeer schaalbare publish-subscribe aard van Event Hubs kunt u het activiteitenlogboek flexibel opnemen. Zie voor meer informatie, [Dan Rosanova van video over het gebruik van Event Hubs in een wereldwijde schaal telemetrie-platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-## <a name="enable-streaming-of-the-activity-log"></a>Streaming van het activiteitenlogboek activeren
-U kunt het inschakelen van het activiteitenlogboek streaming via programmacode of via de portal. In beide gevallen moet u kiest een Event Hubs-naamruimte en een gedeeld toegangsbeleid voor die naamruimte. Een event hub met de naam insights-logboeken-operationallogs wordt gemaakt in die naamruimte als de eerste nieuwe activiteitenlogboek gebeurtenis plaatsvindt. 
+## <a name="enable-streaming-of-the-activity-log"></a>Streaming van het activiteitenlogboek inschakelen
+U kunt het inschakelen van het activiteitenlogboek streamen via programmacode of via de portal. In beide gevallen die u kiest een Event Hubs-naamruimte en een gedeeld toegangsbeleid voor die naamruimte. Een event hub met de naam insights-logs-operationallogs wordt gemaakt in die naamruimte als de eerste nieuwe activiteitenlogboekgebeurtenis plaatsvindt. 
 
-Als u een Event Hubs-naamruimte hebt, moet u eerst een maken. Als u eerder activiteitenlogboek van gebeurtenissen naar deze naamruimte Event Hubs gestreamd, wordt opnieuw gebruikt de event hub die eerder is gemaakt. 
+Als u een Event Hubs-naamruimte hebt, moet u eerst een te maken. Als u gestreamd eerder activiteitenlogboek gebeurtenissen naar deze Event Hubs-naamruimte, wordt de event hub die eerder is gemaakt worden hergebruikt. 
 
-Het beleid voor gedeelde toegang definieert de machtigingen van het mechanisme voor streaming. Vandaag de dag streaming naar Event Hubs vereist **beheren**, **verzenden**, en **luisteren** machtigingen. U kunt maken of wijzigen van beleid voor gedeelde toegang voor de naamruimte Event Hubs in de Azure portal onder de **configureren** tabblad voor de naamruimte van uw Event Hubs. 
+Het beleid voor gedeelde toegang definieert de machtigingen die het mechanisme voor streaming is. Vandaag de dag streamen naar Event Hubs vereist **beheren**, **verzenden**, en **luisteren** machtigingen. U kunt maken of wijzigen van beleid voor gedeelde toegang voor de Event Hubs-naamruimte in Azure portal onder de **configureren** tabblad voor uw Event Hubs-naamruimte. 
 
-Voor het bijwerken van het profiel van het logboek activiteitenlogboek om op te nemen streaming moet de gebruiker die de wijziging aan te brengen de machtiging ListKey hebben op deze Event Hubs-autorisatieregel. De naamruimte van Event Hubs heeft geen zich in hetzelfde abonnement als het abonnement dat u zich aanmeldt, wordt tekensetcodering, zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
+Voor het bijwerken van het activiteitenlogboek logboekprofiel om op te nemen streaming, moet de gebruiker die een wijziging aan te brengen de machtiging ListKey hebben op deze Event Hubs-autorisatieregel. De Event Hubs-naamruimte heeft geen zich in hetzelfde abonnement bevinden als het abonnement dat dat Logboeken verzendt wordt, mits de gebruiker die de instelling configureert de juiste RBAC-toegang voor beide abonnementen heeft.
 
 ### <a name="via-the-azure-portal"></a>Via de Azure-portal
 1. Blader naar de **activiteitenlogboek** sectie met behulp van de **alle services** zoeken aan de linkerkant van de portal.
@@ -42,31 +42,31 @@ Voor het bijwerken van het profiel van het logboek activiteitenlogboek om op te 
    ![Activiteitenlogboek selecteren in de lijst met services in de portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
 2. Selecteer de **exporteren** knop aan de bovenkant van het logboek.
    
-   ![Knop exporteren in de portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![De knop exporteren in de portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
 
-   Houd er rekening mee u toegepast waren tijdens het bekijken van het activiteitenlogboek in de vorige weergave instellingen voor het filter hebben geen invloed op uw instellingen exporteren. Dit zijn alleen voor het filteren van wat u tijdens het bladeren door uw activiteitenlogboek in de portal ziet.
-3. Selecteer in de sectie **alle regio's**. Selecteer specifieke regio's niet.
+   Houd er rekening mee dat de filterinstellingen die u toegepast tijdens het bekijken van het activiteitenlogboek in de vorige weergave geen invloed op uw instellingen voor exporteren hebben. Dit zijn alleen voor het filteren van wat u ziet tijdens het bladeren door het activiteitenlogboek is opgenomen in de portal.
+3. Selecteer in de sectie die wordt weergegeven, **alle regio's**. Selecteer specifieke regio's niet.
    
    ![Sectie exporteren](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
 
    > [!WARNING]  
-   > Als u iets anders dan selecteert **alle regio's**, mist u belangrijke gebeurtenissen die u verwacht te ontvangen. Het activiteitenlogboek is een logboek met algemene (niet-regionale), de meeste gebeurtenissen hoeft dus niet een regio die is gekoppeld. 
+   > Als u iets anders dan selecteert **alle regio's**, u zult missen belangrijke gebeurtenissen die u verwacht te ontvangen. Het activiteitenlogboek is een logboek met algemene (niet-regionaal) zodat de meeste gebeurtenissen niet in een regio die is gekoppeld aan deze hoeft. 
    >
 
-4. Selecteer **opslaan** deze instellingen op te slaan. De instellingen zijn direct toegepast op uw abonnement.
+4. Selecteer **opslaan** deze instellingen op te slaan. De instellingen worden onmiddellijk toegepast op uw abonnement.
 5. Als u meerdere abonnementen hebt, herhaalt u deze actie en alle gegevens verzenden naar de dezelfde event hub.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-cmdlets
-Als een profiel voor een logboek al bestaat, moet u eerst het bestaande profiel voor het logboek verwijderen en vervolgens een nieuw logboekbestand-profiel maken.
+Als een logboekprofiel al bestaat, moet u eerst de bestaande logboekprofiel verwijderen en maak vervolgens een nieuwe logboekprofiel.
 
-1. Gebruik `Get-AzureRmLogProfile` om te bepalen of er een logboek-profiel bestaat.  Als u een profiel voor een logboek bestaat, zoekt u naar de *naam* eigenschap.
-2. Gebruik `Remove-AzureRmLogProfile` verwijderen van het logboek-profiel met behulp van de waarde van de *naam* eigenschap.
+1. Gebruik `Get-AzureRmLogProfile` om te identificeren als een logboekprofiel bestaat.  Als een logboekprofiel bestaat, gaat u naar de *naam* eigenschap.
+2. Gebruik `Remove-AzureRmLogProfile` te verwijderen van het logboekprofiel met de waarde van de *naam* eigenschap.
 
     ```powershell
     # For example, if the log profile name is 'default'
     Remove-AzureRmLogProfile -Name "default"
     ```
-3. Gebruik `Add-AzureRmLogProfile` voor het maken van een nieuw logboekbestand-profiel:
+3. Gebruik `Add-AzureRmLogProfile` om een nieuwe logboekprofiel te maken:
 
    ```powershell
    # Settings needed for the new log profile
@@ -78,27 +78,27 @@ Als een profiel voor een logboek al bestaat, moet u eerst het bestaande profiel 
    $eventHubNamespace = "<event hub namespace>"
 
    # Build the service bus rule Id from the settings above
-   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
    Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
 
 ### <a name="via-azure-cli"></a>Via Azure CLI
-Als een profiel voor een logboek al bestaat, moet u eerst het bestaande profiel voor het logboek verwijderen en vervolgens een nieuw logboekbestand-profiel maken.
+Als een logboekprofiel al bestaat, moet u eerst de bestaande logboekprofiel verwijderen en maak vervolgens een nieuwe logboekprofiel.
 
-1. Gebruik `az monitor log-profiles list` om te bepalen of er een logboek-profiel bestaat.
-2. Gebruik `az monitor log-profiles delete --name "<log profile name>` verwijderen van het logboek-profiel met behulp van de waarde van de *naam* eigenschap.
-3. Gebruik `az monitor log-profiles create` voor het maken van een nieuw logboekbestand-profiel:
+1. Gebruik `az monitor log-profiles list` om te identificeren als een logboekprofiel bestaat.
+2. Gebruik `az monitor log-profiles delete --name "<log profile name>` te verwijderen van het logboekprofiel met de waarde van de *naam* eigenschap.
+3. Gebruik `az monitor log-profiles create` om een nieuwe logboekprofiel te maken:
 
    ```azurecli-interactive
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
 ## <a name="consume-the-log-data-from-event-hubs"></a>De logboekgegevens van Event Hubs gebruiken
-Het schema voor het logboek is beschikbaar in [bewaken abonnement activiteit met de Azure Activity Log](monitoring-overview-activity-logs.md). Elke gebeurtenis wordt in een matrix met JSON-blobs aangeroepen *records*.
+Het schema voor het activiteitenlogboek is beschikbaar in [abonnement activiteiten met de Azure-activiteitenlogboek](monitoring-overview-activity-logs.md). Elke gebeurtenis in een matrix met JSON-blobs met de naam is *records*.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Het activiteitenlogboek naar een opslagaccount archiveren](monitoring-archive-activity-log.md)
-* [Lees het overzicht van de Azure Activity Log](monitoring-overview-activity-logs.md)
-* [Een waarschuwing op basis van een gebeurtenis activiteitenlogboek instellen](insights-auditlog-to-webhook-email.md)
+* [Lees het overzicht van de Azure-activiteitenlogboek](monitoring-overview-activity-logs.md)
+* [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](insights-auditlog-to-webhook-email.md)
 

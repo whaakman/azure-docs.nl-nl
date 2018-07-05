@@ -1,22 +1,22 @@
 ---
 title: Azure Site Recovery-implementatieplanner voor Hyper-V naar Azure | Microsoft Docs
-description: In dit artikel leert u hoe u Site Recovery-implementatie-planner foro Hyper-V uitvoert naar Azure replicatie.
+description: Dit artikel leert u hoe u kunt het uitvoeren van de Site Recovery deployment planner foro Hyper-V naar Azure-replicatie.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 0293ace13dbcd30988ce571c60f2d7c6a338e779
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 870b8d501db4a31bf7a822bd9c86965bdfa224e4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287487"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447615"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>De Azure Site Recovery-implementatieplanner voor Hyper-V naar Azure uitvoeren
 
-U kunt de Site Recovery uitvoeren implementatie planner opdrachtregelprogramma (ASRDeploymentPlanner.exe) in een van de volgende vier modi: 
+Kunt u uitvoeren van de Site Recovery deployment planner opdrachtregelprogramma (ASRDeploymentPlanner.exe in een van deze vier modi): 
 -   [De lijst met VM’s (virtuele machines) ophalen](#get-vm-list-for-profiling-hyper-v-vms)
 -   [Profiel](#profile-hyper-v-vms)
 -   [Een rapport genereren](#generate-report)
@@ -40,7 +40,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 | -User | De gebruikersnaam om verbinding te maken met de Hyper-V-host of het Hyper-V-cluster. De gebruiker moet beheerderstoegang hebben.|
 | -ServerListFile | Het bestand met de lijst met servers die de VM’s bevatten die moeten worden geprofileerd. Het bestandspad kan absoluut of relatief zijn. Dit bestand moet op elke regel een van de volgende items bevatten:<ul><li>Naam of IP-adres van Hyper-V-host</li><li>Naam of IP-adres van Hyper-V-cluster</li></ul><br>**Voorbeeld:** ServerList.txt bevat de volgende servers:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(Optioneel) Het UNC-pad (Universal Naming Convention) of het pad naar de lokale directory voor het opslaan van gegevens die tijdens deze bewerking worden gegenereerd. Als er geen naam is opgegeven, wordt de directory met de naam ProfiledData onder het huidige pad gebruikt als de standaarddirectory.|
-|-OutputFile| (Optioneel) Het bestand met de lijst met virtuele machines die zijn opgehaald van de Hyper-V-servers wordt opgeslagen. Als er geen naam wordt vermeld, worden de details opgeslagen in VMList.txt.  Gebruik het bestand om met de profilering te starten nadat u de virtuele machines hebt verwijderd die niet hoeven te worden geprofileerd.|
+|-OutputFile| (Optioneel) Het bestand met de lijst met virtuele machines die zijn opgehaald uit de Hyper-V-servers wordt opgeslagen. Als er geen naam wordt vermeld, worden de details opgeslagen in VMList.txt.  Gebruik het bestand om met de profilering te starten nadat u de virtuele machines hebt verwijderd die niet hoeven te worden geprofileerd.|
 |-Password|(Optioneel) Het wachtwoord om verbinding te maken met de Hyper-V-host. Als u dit niet als een parameter opgeeft, wordt u om dit wachtwoord gevraagd wanneer u de opdracht uitvoert.|
 
 ### <a name="getvmlist-discovery"></a>GetVMList-detectie
@@ -56,7 +56,7 @@ Open het uitvoerbestand in Kladblok en kopieer vervolgens de namen van alle VM�
 
 #### <a name="store-the-list-of-vms-in-a-file"></a>De lijst met VM’s opslaan in een bestand
 ```
-ASRDeploymentPlanner.exe -Operation GetVMlist -ServerListFile “E:\Hyper-V_ProfiledData\ServerList.txt" -User Hyper-VUser1 -OutputFile "E:\Hyper-V_ProfiledData\VMListFile.txt"
+ASRDeploymentPlanner.exe -Operation GetVMlist -ServerListFile "E:\Hyper-V_ProfiledData\ServerList.txt" -User Hyper-VUser1 -OutputFile "E:\Hyper-V_ProfiledData\VMListFile.txt"
 ```
 
 #### <a name="store-the-list-of-vms-at-the-default-location--directory-path"></a>De lijst met VM’s opslaan op de standaardlocatie (het pad -Directory)
@@ -128,22 +128,22 @@ Met de profileringsopdracht worden meerdere bestanden gegenereerd in de director
 
 #### <a name="profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>VM’s gedurende 30 dagen profileren en de doorvoer van on-premises naar Azure bepalen
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile 30 -User Contoso\HyperVUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile 30 -User Contoso\HyperVUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 #### <a name="profile-vms-for-15-days"></a>VM’s gedurende 15 dagen profileren
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
 ```
 
 #### <a name="profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>VM’s gedurende 60 minuten profileren om het hulpprogramma kort te testen
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60 -User Contoso\HyperVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -NoOfMinutesToProfile 60 -User Contoso\HyperVUser1
 ```
 
 #### <a name="profile-vms-for-2-hours-for-a-proof-of-concept"></a>VM’s gedurende 2 uur profileren om het concept te testen
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfHoursToProfile 2 -User Contoso\HyperVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -NoOfHoursToProfile 2 -User Contoso\HyperVUser1
 ```
 
 ### <a name="considerations-for-profiling"></a>Overwegingen voor profileren
@@ -152,7 +152,7 @@ Als de server waarop het hulpprogramma wordt uitgevoerd, opnieuw wordt opgestart
 
 Wanneer de accountnaam en -sleutel worden doorgegeven, meet het hulpprogramma de doorvoer tijdens de laatste stap van de profilering. Als het hulpprogramma wordt beëindigd voordat de profilering is voltooid, wordt de doorvoer niet berekend. Als u de doorvoer wilt weten voordat het rapport wordt gegenereerd, kunt u de bewerking GetThroughput uitvoeren vanuit de opdrachtregelconsole. Anders bevat het gegenereerde rapport geen informatie over de doorvoer.
 
-Azure Site Recovery biedt geen ondersteuning voor virtuele machines met iSCSI- en Pass Through-schijf een. Het hulpprogramma kan niet detecteren en profiel iSCSI en Pass Through-schijven die zijn gekoppeld aan virtuele machines.
+Azure Site Recovery biedt geen ondersteuning voor virtuele machines met iSCSI en Passthrough-schijven. Het hulpprogramma kan niet detecteren en iSCSI- en Passthrough-schijven die zijn gekoppeld aan virtuele machines.
 
 ## <a name="generate-a-report"></a>Een rapport genereren
 Met het hulpprogramma wordt een Microsoft Excel-bestand met ingeschakelde macro's (XLSM-bestand) gegenereerd als de rapportuitvoer. Dit bestand bevat een overzicht van alle aanbevelingen voor implementatie. Het rapport heeft de naam DeploymentPlannerReport_*unieke numerieke id*.xlsm en wordt in de opgegeven directory geplaatst.
@@ -192,39 +192,39 @@ Het hulpprogramma is standaard geconfigureerd om voor maximaal 1000 VM’s profi
 ### <a name="examples"></a>Voorbeelden
 #### <a name="generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Een rapport met standaardwaarden genereren wanneer de geprofileerde gegevens zich op de lokale schijf bevinden
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"
 ```
 
 #### <a name="generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Een rapport genereren wanneer de geprofileerde gegevens zich op een externe server bevinden
 De gebruiker moet lees-/schrijftoegang hebben voor de externe directory.
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “\\PS1-W2K12R2\Hyper-V_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "\\PS1-W2K12R2\Hyper-V_ProfiledData" -VMListFile "\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt"
 ```
 
 #### <a name="generate-a-report-with-a-specific-bandwidth-that-you-will-provision-for-the-replication"></a>Een rapport genereren met een specifieke bandbreedte die u voor de replicatie gaat inrichten
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -Bandwidth 100
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt" -Bandwidth 100
 ```
 
 #### <a name="generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Een rapport genereren met een groeifactor van 5% in plaats van de standaardwaarde van 30% 
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt" -GrowthFactor 5
 ```
 
 #### <a name="generate-a-report-with-a-subset-of-profiled-data"></a>Een rapport genereren met een subset geprofileerde gegevens
 U hebt gedurende 30 dagen gegevens geprofileerd en u wilt een rapport genereren voor slechts 20 van de 30 dagen.
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
+ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt" -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
 #### <a name="generate-a-report-for-a-5-minute-rpo"></a>Een rapport genereren voor een RPO van 5 minuten
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -DesiredRPO 5
 ```
 
 #### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>Een rapport genereren voor de Azure-regio Zuid-India met de Indiase roepie en een specifieke aanbiedings-id
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
 
 
@@ -283,7 +283,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 
 ### <a name="example"></a>Voorbeeld
 ```
-ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory E:\Hyp-erV_ProfiledData -VMListFile E:\Hyper-V_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 ### <a name="throughput-considerations"></a>Overwegingen over de doorvoer

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5cbad33bf98e4138b94916a8f87cc7e34901b3da
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9a3b969af861d6fb750b8aad666f2e1dfb7c8a3d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595655"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447282"
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Een model implementeren vanuit SSDT
 Wanneer u een server in uw Azure-abonnement hebt gemaakt, kunt u een tabellaire modeldatabase op de server implementeren. U kunt SQL Server Data Tools (SSDT) gebruiken om een project voor een tabellair model te bouwen en implementeren waaraan u werkt. 
@@ -30,13 +30,13 @@ Om aan de slag te gaan, hebt u het volgende nodig:
 > 
 > 
 
-## <a name="get-the-server-name"></a>Naam van de server ophalen
+## <a name="get-the-server-name"></a>De naam van de server
 
 In **Azure Portal** > server > **Overview** > **Servernaam**,kopieer de servernaam.
    
 ![Servernaam bepalen in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
-## <a name="to-deploy-from-ssdt"></a>Voor het implementeren van SSDT
+## <a name="to-deploy-from-ssdt"></a>Implementeren vanuit SSDT
 
 1. In SSDT > **Solution Explorer**, klik met de rechtermuisknop op het project > **Properties**. Plak vervolgens in **Deployment** > **Server** de naam van de server.   
    

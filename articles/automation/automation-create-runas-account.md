@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3f6f2768e13e85edb8a314359fef0b0312a8e84d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: a29379492f4ffd662244c3e42de321f47be13d9f
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344888"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436970"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Uw Automation-account bijwerken met Uitvoeren als-accounts 
 In de volgende gevallen kunt u een bestaand Automation-account bijwerken vanuit Azure Portal of met PowerShell:
@@ -248,6 +248,9 @@ Dit PowerShell-script biedt ondersteuning voor de volgende configuraties:
         Write-Host -ForegroundColor red       $UploadMessage
     }
     ```
+
+    > [!IMPORTANT]
+    > **Add-AzureRmAccount** is nu een alias voor **Connect-AzureRMAccount**. Wanneer uw bibliotheek zoeken items, als u niet ziet **Connect-AzureRMAccount**, kunt u **Add-AzureRmAccount**, of u kunt uw modules bijwerken in uw Automation-Account.
 
 2. Start op uw computer **Windows PowerShell** op vanaf het **Start**scherm met verhoogde gebruikersrechten.
 3. Ga vanuit de opdrachtregel-shell met verhoogde bevoegdheden naar de map die het script bevat dat u in stap 1 hebt gemaakt.  

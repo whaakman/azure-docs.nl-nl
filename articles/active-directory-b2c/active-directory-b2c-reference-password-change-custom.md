@@ -1,38 +1,38 @@
 ---
-title: Wijziging van de selfservice voor wachtwoordherstel in Azure Active Directory B2C | Microsoft Docs
-description: Een onderwerp het instellen van de wijziging van de selfservice voor wachtwoordherstel voor uw consumenten in Azure Active Directory B2C te demonstreren.
+title: Self-service voor wachtwoord wijzigen in Azure Active Directory B2C | Microsoft Docs
+description: Een onderwerp over het instellen van de opties wachtwoorden wijzigen voor uw consumenten in Azure Active Directory B2C aan te tonen.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/05/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5474f469c6271a0c1348004664ead8b190de08c7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 028d10b5c005be2db7cfd9c5ca5210ab55f0592a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709135"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448132"
 ---
-# <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C: Wachtwoordwijziging configureren in het aangepaste beleid  
+# <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C: Wachtwoord wijzigen in het aangepaste beleid configureren  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Met de functie wachtwoord wijzigen kunnen aangemelde gebruikers (met behulp van de lokale accounts) hun wachtwoord wijzigen zonder de authenticiteit bewijzen door e-mailverificatie zoals beschreven in de [selfservice voor wachtwoordherstel stroom.](active-directory-b2c-reference-sspr.md) Als de sessie is verlopen op het moment dat de consument opgehaald wachtwoord wijzigen stroom, gebruiker wordt gevraagd om zich opnieuw aanmelden. 
+Met de functie wachtwoord wijzigen is aangemeld consumenten (met behulp van de lokale accounts) kunnen hun wachtwoord te wijzigen zonder dat om te bewijzen dat de echtheid van e-mailverificatie, zoals beschreven in de [Self-service voor wachtwoord opnieuw instellen van flow.](active-directory-b2c-reference-sspr.md) Als de sessie is verlopen op het moment dat de consument opgehaald wachtwoord stroom wijzigen, gebruiker wordt gevraagd om opnieuw aan te melden. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Een Azure AD B2C-tenant die is geconfigureerd voor het voltooien van een lokaal account sign-up-to-date/aanmelden, zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
+Een Azure AD B2C-tenant die is geconfigureerd voor het voltooien van een lokaal account aanmelden-up-to-date/aanmelden, zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
 
-## <a name="how-to-configure-password-change-in-custom-policy"></a>Het wijzigen van wachtwoorden in aangepast beleid configureren
+## <a name="how-to-configure-password-change-in-custom-policy"></a>Wachtwoord wijzigen in het aangepaste beleid configureren
 
-Als u wilt configureren wachtwoordwijziging in aangepast beleid voor de volgende wijzigingen aanbrengen in uw framework extensies vertrouwensbeleid, 
+Voor het configureren van wachtwoord wijzigen in het aangepaste beleid de volgende wijzigingen aanbrengen in uw beleid vertrouwensrelatie framework-extensies 
 
-## <a name="define-a-claimtype-oldpassword"></a>Een ClaimType 'OudWachtwoord' definiëren
+## <a name="define-a-claimtype-oldpassword"></a>Een ClaimType 'oldPassword' definiëren
 
-De algemene structuur van het aangepaste beleid moet bevatten een `ClaimsSchema`en definieert u een nieuwe `ClaimType` 'OudWachtwoord, zoals hieronder, 
+De algemene structuur van het aangepaste beleid moet bevatten een `ClaimsSchema`en definieert u een nieuwe `ClaimType` 'oldPassword' zoals hieronder, 
 
 ```XML
   <BuildingBlocks>
@@ -49,18 +49,18 @@ De algemene structuur van het aangepaste beleid moet bevatten een `ClaimsSchema`
 
 Het doel van deze elementen is als volgt:
 
-- De `ClaimsSchema` wordt gedefinieerd welke claim wordt gevalideerd.  In dit geval wordt wordt het oude wachtwoord' gevalideerd. 
+- De `ClaimsSchema` wordt gedefinieerd welke claim wordt gevalideerd.  In dit geval wordt het oude wachtwoord' worden gevalideerd. 
 
 ## <a name="add-a-password-change-claims-provider-with-its-supporting-elements"></a>Toevoegen van een claimprovider voor wachtwoord wijzigen met de ondersteunende elementen
 
-Claims provider wordt het wijzigen van wachtwoorden
+Claims provider wordt het wijzigen van wachtwoord
 
-1. De gebruiker op basis van het oude wachtwoord verifiëren
-2. En als 'nieuw wachtwoord' komt overeen met 'het nieuwe wachtwoord bevestigen', deze waarde wordt opgeslagen in het gegevensarchief B2C en daarom is het wachtwoord is gewijzigd. 
+1. Verifiëren van de gebruiker op basis van het oude wachtwoord
+2. En als 'nieuw wachtwoord' overeenkomt met 'nieuw wachtwoord bevestigen', deze waarde wordt opgeslagen in de B2C-gegevensopslag en kan daarom is het wachtwoord is gewijzigd. 
 
 ![img](images/passwordchange.jpg)
 
-De volgende claimprovider toevoegen aan uw beleid voor uitbreidingen. 
+De volgende claimprovider toevoegen aan uw beleid extensies. 
 
 ```XML
 <ClaimsProviders>
@@ -148,25 +148,25 @@ De volgende claimprovider toevoegen aan uw beleid voor uitbreidingen.
 
 
 
-### <a name="add-the-application-ids-to-your-custom-policy"></a>De toepassings-id's toevoegen aan het aangepaste beleid
+### <a name="add-the-application-ids-to-your-custom-policy"></a>De toepassings-id's toevoegen aan uw aangepaste beleid
 
 De toepassings-id's toevoegen aan het extensiebestand (`TrustFrameworkExtensions.xml`):
 
 1. Zoek het element in het extensiebestand (TrustFrameworkExtensions.xml) `<TechnicalProfile Id="login-NonInteractive">` en `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
-2. Vervang alle exemplaren van `IdentityExperienceFrameworkAppId` met de ID van de toepassing identiteit ervaring Framework zoals is beschreven in [aan de slag](active-directory-b2c-get-started-custom.md). Hier volgt een voorbeeld:
+2. Vervang alle exemplaren van `IdentityExperienceFrameworkAppId` met toepassings-ID van de application Identity-Ervaringsframework zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md). Hier volgt een voorbeeld:
 
    ```
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 
-3. Vervang alle exemplaren van `ProxyIdentityExperienceFrameworkAppId` met de ID van de toepassing Proxy identiteit ervaring Framework zoals is beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
+3. Vervang alle exemplaren van `ProxyIdentityExperienceFrameworkAppId` met toepassings-ID van de Proxy Identiteitservaring-Framework-toepassing zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
 
-4. Sla het bestand uitbreidingen.
+4. Sla het extensiebestand.
 
 
 
-## <a name="create-a-password-change-user-journey"></a>Maken van een gebruiker reis van wachtwoord wijzigen
+## <a name="create-a-password-change-user-journey"></a>Maken van een gebruikersbeleving voor wachtwoord wijzigen
 
 ```XML
  <UserJourneys>
@@ -194,26 +194,26 @@ De toepassings-id's toevoegen aan het extensiebestand (`TrustFrameworkExtensions
   </UserJourneys>
 ```
 
-U klaar bent met wijzigen van het extensiebestand. Sla en dit bestand niet uploaden. Zorg ervoor dat alle validaties slaagt.
+U klaar bent met de extensiebestand wijzigt. Opslaan en upload dit bestand. Zorg ervoor dat alle validaties slagen.
 
 
 
-## <a name="create-a-relying-party-rp-file"></a>Een relying party (RP)-bestand maken
+## <a name="create-a-relying-party-rp-file"></a>Maak een relying party (RP)-bestand
 
-Werk vervolgens de relying party (RP)-bestand waarmee de gebruiker reis die u hebt gemaakt:
+Werk vervolgens de relying party (RP)-bestand dat initieert de gebruikersbeleving die u hebt gemaakt:
 
-1. Maak een kopie van ProfileEdit.xml in uw werkmap. Wijzig de naam (bijvoorbeeld PasswordChange.xml).
-2. Open het nieuwe bestand en update de `PolicyId` kenmerk voor `<TrustFrameworkPolicy>` met een unieke waarde. Dit is de naam van uw beleid (bijvoorbeeld PasswordChange).
-3. Wijzig de `ReferenceId` kenmerk in `<DefaultUserJourney>` overeenkomen met de `Id` van de nieuwe gebruiker reis die u hebt gemaakt (bijvoorbeeld PasswordChange).
-4. De wijzigingen opslaan en vervolgens te uploaden.
-5. Test het aangepaste beleid dat u hebt geüpload, in de Azure-portal, gaat u naar de blade beleid op en klik vervolgens op **nu uitvoeren**.
+1. Maak een kopie van ProfileEdit.xml in uw werkmap. Wijzig de naam van het (bijvoorbeeld PasswordChange.xml).
+2. Open het nieuwe bestand en update de `PolicyId` voor het kenmerk `<TrustFrameworkPolicy>` met een unieke waarde. Dit is de naam van uw beleid (bijvoorbeeld PasswordChange).
+3. Wijzig de `ReferenceId` kenmerk in `<DefaultUserJourney>` zodat deze overeenkomen met de `Id` van de nieuwe gebruikersbeleving die u hebt gemaakt (bijvoorbeeld PasswordChange).
+4. Sla uw wijzigingen op en upload het bestand.
+5. Als u wilt testen het aangepaste beleid dat u hebt geüpload, in de Azure-portal, gaat u naar de beleidsblade op en klik vervolgens op **nu uitvoeren**.
 
 
 
 
 ## <a name="link-to-password-change-sample-policy"></a>Koppeling naar wachtwoord voorbeeld beleid wijzigen
 
-U vindt het beleid voorbeeld [hier](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
+U vindt de voorbeeld-beleid [hier](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
 
 
 

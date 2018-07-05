@@ -3,23 +3,24 @@ title: Gebruikerstoegang beheren met Azure AD-toegangsbeoordelingen | Microsoft 
 description: Informatie over hoe u Azure Active Directory-toegangsbeoordelingen gebruikt om gebruikerstoegang te beheren als lidmaatschap van een groep of toewijzing aan een toepassing
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 86ca14c8865ee82d61cb63a20f66c508f532f124
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: HT
+ms.reviewer: mwahl
+ms.openlocfilehash: bf91b21f803628bbcab3d3fd50c1af4b4bd40a64
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019999"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445891"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gebruikerstoegang beheren met Azure AD-toegangsbeoordelingen
 

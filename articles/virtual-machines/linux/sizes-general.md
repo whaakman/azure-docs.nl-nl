@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM-groottes - algemeen | Microsoft Docs
-description: Hier worden de verschillende algemeen grootten beschikbaar voor virtuele Linux-machines in Azure. Bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor de grootte van deze reeks.
+title: Azure Linux VM-grootten - algemene doeleinden | Microsoft Docs
+description: Geeft een lijst van de verschillende algemeen gebruik-grootten die beschikbaar zijn voor virtuele Linux-machines in Azure. Bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslag en doorvoer netwerkbandbreedte voor grootten die in deze reeks.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: jonbeck
-ms.openlocfilehash: cb001705a0864899f070db3c36c1b82f0227ec16
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3dc2a3baa77a6aed1a8128d8172089efc2958e5c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34654086"
 ---
-# <a name="general-purpose-virtual-machine-sizes"></a>Grootte van virtuele machines voor algemene doeleinden
+# <a name="general-purpose-virtual-machine-sizes"></a>Grootten van virtuele machines voor algemeen gebruik
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-general.md)]
@@ -35,7 +36,8 @@ ms.lasthandoff: 04/16/2018
 - [Geoptimaliseerde opslag](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [Krachtig rekenvermogen](sizes-hpc.md)
+- [Vorige generaties](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het [Azure compute-eenheden (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
+Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
 

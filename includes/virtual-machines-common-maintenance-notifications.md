@@ -2,70 +2,72 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines
-author: zivraf
+author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: zivr
+ms.date: 07/02/2018
+ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958891"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437974"
 ---
-## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Weergave virtuele machines die zijn gepland voor onderhoud in de portal
+## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Gepland voor onderhoud in de portal van de virtuele machines weergeven
 
-Zodra een golf gepland onderhoud is gepland en meldingen worden verzonden, kunt u de lijst met virtuele machines die worden beïnvloed door het aanstaande onderhoud wave kunt zien. 
+Nadat een geplande onderhoudsgolf is gepland, kunt u de lijst met virtuele machines die worden beïnvloed door de geplande onderhoudsgolf kunt zien. 
 
-U kunt de Azure portal gebruiken en zoekt u naar virtuele machines die zijn gepland voor onderhoud.
+U kunt gebruiken de Azure-portal en zoek naar virtuele machines die zijn gepland voor onderhoud.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2. Klik in het linkernavigatievenster op **virtuele Machines**.
 
-3. Klik in het deelvenster met virtuele Machines op de **kolommen** knop om de lijst met beschikbare kolommen te openen.
+3. Klik in het deelvenster met virtuele Machines op de **kolommen** knop om de lijst van beschikbare kolommen te openen.
 
 4. Selecteer en voeg de volgende kolommen:
 
-   **Onderhoud** -ziet u de onderhoudsstatus voor de virtuele machine. Hier volgen de mogelijke waarden:
+   **Onderhoud**: toont de onderhoudsstatus voor de virtuele machine. Hier volgen de mogelijke waarden:
       
       | Waarde | Beschrijving |
       |-------|-------------|
-      | Nu beginnen | De VM bevindt zich in het selfservice-onderhoudsvenster waarin u het onderhoud zelf kunt starten. Hieronder vindt u voor het onderhoud op de virtuele machine starten | 
-      | Gepland | Er is onderhoud gepland voor uw virtuele machine, zonder mogelijkheid dit onderhoud zelf te starten. U leert van het onderhoudsvenster door te selecteren van het venster automatisch gepland in deze weergave of door te klikken op de virtuele machine | 
-      | Voltooid | U hebt gestart en onderhoud voltooid op de virtuele machine. | 
-      | Overgeslagen| U hebt onderhoud gestart, maar dit is mislukt. Niet mogelijk de onderhoudsoptie selfservice gebruiken. Uw virtuele machine moet opnieuw worden opgestart door Azure tijdens de fase gepland onderhoud. | 
+      | Nu beginnen | De virtuele machine is in de selfservice-onderhoud-venster waarmee u het onderhoud zelf initiëren. Zie hieronder voor het starten van onderhoud op de virtuele machine. | 
+      | Gepland | Er is onderhoud gepland voor uw virtuele machine, zonder mogelijkheid dit onderhoud zelf te starten. U kunt meer over het onderhoudsvenster door te selecteren van het onderhoud - geplande venster in deze weergave of door te klikken op de virtuele machine. | 
+      | Al bijgewerkt | Uw virtuele machine al is bijgewerkt en op dit moment is geen verdere actie vereist. | 
+      | Later opnieuw proberen | U hebt gestart onderhoud is mislukt. U kunt zich de optie selfservice-onderhoud gebruiken op een later tijdstip. | 
+      | Nu opnieuw proberen | U kunt een eerder mislukte zelf gestart onderhoud opnieuw proberen. | 
 
-   **Onderhoud proactief** -het tijdvenster ziet wanneer u onderhoud zelf op uw virtuele machines kunt starten.
+   **Onderhoud - venster selfservice**: het tijdvenster ziet wanneer u zelf onderhoud op uw virtuele machines starten kunt.
    
-   **Gepland onderhoud** -ziet u het tijdvenster wanneer Azure opnieuw wordt opgestart van uw virtuele machine om te kunnen voltooien onderhoud. 
-
+   **Onderhoud - venster voor geplande**: bevat het tijdvenster wanneer Azure uw virtuele machine blijft om te kunnen voltooien onderhoud. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Meldingen en waarschuwingen in de portal
 
-Een planning voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de groep van eigenaar en mede-eigenaren abonnement. U kunt extra ontvangers en kanalen toevoegen aan deze communicatie door het maken van Azure activiteit logboek waarschuwingen. Zie voor meer informatie [Monitor abonnement activiteit met de Azure Activity Log] (... / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Een schema voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de abonnement-eigenaar en mede-eigenaars-groep. U kunt extra ontvangers en kanalen toevoegen aan deze communicatie met het maken van Azure-activiteit waarschuwingen. Zie voor meer informatie [abonnementsactiviteiten controleren met de Azure-activiteitenlogboek] (.. / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer in het menu aan de linkerkant **Monitor**. 
-3. In de **Monitor - activiteitenlogboek** deelvenster **waarschuwingen**.
-4. In de **Monitor - waarschuwingen** deelvenster, klikt u op **+ toevoegen activiteit logboek waarschuwing**.
-5. Vul de gegevens in de **toevoegen activiteit logboek waarschuwing** pagina en zorg ervoor dat u het volgende instellen in **Criteria**: **Type**: onderhoud **Status**: Alle (status niet ingesteld op actief of opgelost) **niveau**: alle
+2. Selecteer in het menu aan de linkerkant, **Monitor**. 
+3. In de **Monitor - waarschuwingen (klassiek)** deelvenster, klikt u op **+ waarschuwing voor activiteitenlogboek toevoegen**.
+5. Vul de gegevens in de **waarschuwing voor activiteitenlogboek toevoegen** pagina en zorg ervoor dat u het volgende instellen in de **Criteria**:
+   - **Gebeurteniscategorie**: servicestatus
+   - **Services**: Virtual Machine Scale Sets en virtuele Machines
+   - **Type**: gepland onderhoud 
     
-Zie voor meer informatie over het configureren van de activiteit logboek waarschuwingen, [logboek waarschuwingen voor de activiteit maken](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Zie voor meer informatie over het configureren van waarschuwingen voor activiteitenlogboeken, [waarschuwingen voor activiteitenlogboek maken](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
     
     
-## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Onderhoudsmodus starten op de virtuele machine vanuit de portal
+## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Onderhoud starten op de virtuele machine vanuit de portal
 
-Terwijl u bekijkt de details van de virtuele machine, kunt u zich kunnen meer onderhoud gerelateerde informatie.  
-Aan de bovenkant van de VM-detailweergave, worden een nieuwe melding lint toegevoegd als uw VM is opgenomen in een golf gepland onderhoud. Bovendien wordt een nieuwe optie toegevoegd aan het onderhoud indien mogelijk te starten. 
+Tijdens het zoeken naar de details van de virtuele machine, kunt u zich voor meer informatie met betrekking tot onderhoud.  
+Aan de bovenkant van de detailweergave van de virtuele machine, een nieuwe melding-lint toegevoegd als uw virtuele machine is opgenomen in een geplande onderhoudsgolf. Bovendien wordt een nieuwe optie toegevoegd aan het starten van onderhoud indien mogelijk. 
 
 
-Klik op de melding onderhoud voor de onderhoudspagina met meer informatie over het geplande onderhoud. Daar kunt u zich kunt **start onderhoud** op de virtuele machine.
+Klik op de onderhoudsmelding voor de onderhoudspagina met meer informatie over het geplande onderhoud. Van daaruit kunt u zich aan **onderhoud starten** op de virtuele machine.
 
-Zodra u onderhoud gaat uw virtuele machine opnieuw wordt opgestart en de onderhoudsstatus wordt bijgewerkt naar aanleiding van het resultaat binnen enkele minuten.
+Als u onderhoud gestart, wordt uw virtuele machine worden onderhouden en de onderhoudsstatus wordt bijgewerkt om het resultaat binnen enkele minuten weer te geven.
 
-Als u het venster waar u onderhoud kan starten gemist, is het nog steeds mogelijk om het venster openen wanneer de virtuele machine opnieuw door Azure opgestart. 
+Als u het venster selfservice hebt gemist, kunt u zich nog steeds het venster zien wanneer uw virtuele machine wordt onderhouden door Azure. 

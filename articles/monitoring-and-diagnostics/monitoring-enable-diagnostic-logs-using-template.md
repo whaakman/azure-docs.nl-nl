@@ -1,6 +1,6 @@
 ---
-title: Diagnostische instellingen met een Resource Manager-sjabloon automatisch inschakelen
-description: Informatie over het Resource Manager-sjabloon gebruiken om diagnostische instellingen waarmee u kunt uw logboeken met diagnostische gegevens naar Event Hubs stream of op te slaan in een opslagaccount te maken.
+title: Automatisch diagnostische instellingen inschakelen met Resource Manager-sjabloon
+description: Informatie over het gebruik van Resource Manager-sjabloon om diagnostische instellingen waarmee u kunt de diagnostische logboeken naar Event Hubs streamen of sla ze op een storage-account te maken.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,34 +8,34 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6c202afaca893609d41384ee8302b0c4c6c4a6f6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a69cefc3c9363c0e8378a90c44d6a466780402b1
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263385"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434484"
 ---
-# <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Diagnostische instellingen voor automatisch inschakelen bij het maken van de resource met een Resource Manager-sjabloon
-In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een bron wanneer deze wordt gemaakt. Hiermee kunt u op automatisch starten streaming uw diagnostische logboeken en metrische gegevens naar Event Hubs in een Opslagaccount wilt archiveren, of ze worden verzonden naar logboekanalyse wanneer een bron wordt gemaakt.
+# <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Automatisch diagnostische instellingen inschakelen bij het maken van resources met behulp van Resource Manager-sjabloon
+In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een resource als deze wordt gemaakt. Hiermee kunt u automatisch wilt streamen uw logboeken met diagnostische gegevens en metrische gegevens naar Event Hubs, archiveren in een Opslagaccount of ze naar Log Analytics verzenden wanneer een resource wordt gemaakt.
 
-De methode voor het inschakelen van diagnostische logboeken met een Resource Manager-sjabloon is afhankelijk van het brontype.
+De methode voor het inschakelen van diagnostische logboeken met behulp van Resource Manager-sjabloon, is afhankelijk van het resourcetype.
 
-* **Niet-Compute** resources (bijvoorbeeld Netwerkbeveiligingsgroepen Logic Apps automatisering) gebruiken [diagnostische instellingen die worden beschreven in dit artikel](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-* **COMPUTE** resources (af/LAD gebaseerde) gebruikt de [af/LAD configuratiebestand beschreven in dit artikel](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **Niet-Compute** resources (bijvoorbeeld, Network Security Groups, Logic Apps, automatisering) gebruiken [diagnostische instellingen die worden beschreven in dit artikel](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
+* **COMPUTE** resources (WAD/LAD-indeling) gebruikt de [WAD/LAD-configuratiebestand in dit artikel beschreven](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
-In dit artikel wordt beschreven hoe diagnostische gegevens met een van de methoden configureren.
+In dit artikel wordt beschreven hoe u met behulp van een van beide methoden diagnosefuncties te configureren.
 
 De eenvoudige stappen zijn als volgt:
 
-1. Een sjabloon maken als een JSON-bestand dat wordt beschreven hoe u voor het maken van de bron en diagnostische gegevens inschakelen.
-2. [De sjabloon met een implementatiemethode implementeert](../azure-resource-manager/resource-group-template-deploy.md).
+1. Een sjabloon maken als een JSON-bestand dat wordt beschreven hoe u het maken van de resource en diagnostische gegevens inschakelen.
+2. [Implementeren van de sjabloon met een implementatiemethode](../azure-resource-manager/resource-group-template-deploy.md).
 
-We bieden hieronder een voorbeeld van het JSON-bestand voor sjabloon die u wilt genereren voor niet-berekenings- en rekenresources.
+We geven hieronder een voorbeeld van het JSON-bestand van het sjabloon u moet voor het genereren van niet-gebruikte reken-en Compute-resources.
 
-## <a name="non-compute-resource-template"></a>Niet-Compute resource-sjabloon
-Voor niet-rekenresources moet u twee dingen doen:
+## <a name="non-compute-resource-template"></a>Niet-Compute-resource-sjabloon
+Voor niet-Compute-resources moet u twee dingen doen:
 
-1. Parameters toevoegen aan de parameters-blob voor de naam van het opslagaccount, de event hub autorisatie regel-ID en/of de logboekanalyse werkruimte-ID (waardoor archivering van diagnostische logboeken in een opslagaccount, streamen van logboeken naar Event Hubs en/of Logboeken verzenden met logboekanalyse).
+1. Parameters toevoegen aan de parameters-blob voor de storage-accountnaam, de event hub autorisatie regel-ID en/of de Log Analytics-werkruimte-ID (waardoor archivering van logboeken met diagnostische gegevens in een opslagaccount, streamen van logboeken naar Event Hubs en/of Logboeken verzenden naar Log Analytics).
    
     ```json
     "settingName": {
@@ -69,13 +69,13 @@ Voor niet-rekenresources moet u twee dingen doen:
       }
     }
     ```
-2. In de matrix resources van de bron waarvoor u logboeken met diagnostische gegevens inschakelen, voegt u een resource van het type `[resource namespace]/providers/diagnosticSettings`.
+2. In de matrix van de resources van de resource waarvoor u wenst te logboeken met diagnostische gegevens inschakelen, voegt u een resource van het type `[resource namespace]/providers/diagnosticSettings`.
    
     ```json
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/[parameters('settingName')]",
+        "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
@@ -111,9 +111,9 @@ Voor niet-rekenresources moet u twee dingen doen:
     ]
     ```
 
-De blob eigenschappen voor de diagnostische instelling volgt [de indeling die wordt beschreven in dit artikel](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Toevoegen van de `metrics` eigenschap kunt u ook resource metrische gegevens verzenden naar deze dezelfde uitvoer, op voorwaarde dat [Azure Monitor metrische gegevens biedt ondersteuning voor de resource](monitoring-supported-metrics.md).
+De eigenschappen van de blob voor de diagnostische instelling volgt [de indeling die wordt beschreven in dit artikel](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Toevoegen van de `metrics` eigenschap kunt u ook metrische gegevens voor resources verzenden naar deze dezelfde uitvoer, op voorwaarde dat [metrische gegevens van Azure Monitor biedt ondersteuning voor de resource](monitoring-supported-metrics.md).
 
-Hier volgt een voorbeeld van een volledige die een logische App maakt en Hiermee schakelt u streaming met Event Hubs en opslag in een opslagaccount.
+Hier volgt een volledig voorbeeld waarin een logische App maakt en schakelt streamen met Event Hubs en opslag in een storage-account.
 
 ```json
 
@@ -205,7 +205,7 @@ Hier volgt een voorbeeld van een volledige die een logische App maakt en Hiermee
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/[parameters('settingName')]",
+          "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
@@ -247,20 +247,20 @@ Hier volgt een voorbeeld van een volledige die een logische App maakt en Hiermee
 ```
 
 ## <a name="compute-resource-template"></a>COMPUTE resource-sjabloon
-Schakel diagnostische gegevens op een berekeningsresource door bijvoorbeeld een virtuele Machine of Service Fabric-cluster, moet u:
+Om in te schakelen diagnostische gegevens op een Compute-resource, bijvoorbeeld een virtuele Machine of Service Fabric-cluster, moet u naar:
 
-1. De extensie Azure Diagnostics aan de definitie van de VM-resource toevoegen.
-2. Geef een opslag-account en/of event hub als parameter.
-3. De inhoud van uw WADCfg XML-bestand in de eigenschap XMLCfg, alle XML-tekens juist aanhalingstekens toevoegen.
+1. De Azure Diagnostics-extensie toevoegen aan de definitie van de VM-resource.
+2. Geef een storage-account en/of event hub als parameter.
+3. De inhoud van uw WADCfg XML-bestand in de eigenschap XMLCfg, alle XML-tekens correct escapereeksen toevoegen.
 
 > [!WARNING]
-> Deze laatste stap is lastig direct. [Raadpleeg dit artikel](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) voor een voorbeeld waarin het configuratieschema Diagnostics splitst in variabelen die zijn escape-teken en de juiste indeling.
+> Deze laatste stap is lastig meteen. [Raadpleeg dit artikel](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) voor een voorbeeld waarin het configuratieschema van Diagnostics splitst in variabelen die worden voorafgegaan en juist opgemaakt.
 > 
 > 
 
-Het hele proces, inclusief voorbeelden, wordt beschreven [in dit document](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Het hele proces, inclusief voorbeelden wordt beschreven [in dit document](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)
-* [Stream Azure logboeken met diagnostische gegevens naar Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Meer informatie over hoe Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)
+* [Diagnostische logboeken naar Eventhubs in Azure Stream](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

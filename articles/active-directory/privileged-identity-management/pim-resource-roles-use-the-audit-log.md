@@ -1,6 +1,6 @@
 ---
-title: Resource-functies voor Azure-resources met behulp van Privileged Identity Management controleren | Microsoft Docs
-description: Wordt uitgelegd hoe u een overzicht krijgen van de rol van activiteiten voor de een bepaalde bron.
+title: Resource-rollen voor Azure-resources met behulp van Privileged Identity Management controleren | Microsoft Docs
+description: Wordt uitgelegd hoe u een overzicht van alle activiteiten van de rol voor het een bepaalde resource.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,40 +9,40 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 211b8c69a1462f7efdcb4002269d96d1d5cf2ae6
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2740297337e1de0d041a80c7860324175413c833
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233781"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447710"
 ---
-# <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>Audit resourcerollen voor Azure-resources met behulp van Privileged Identity Management 
+# <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>Resource-rollen voor Azure-resources controleren met behulp van Privileged Identity Management 
 
-Controle van de resource hebt u een overzicht van de rol van activiteiten voor de resource. U kunt de gegevens door middel van een vooraf gedefinieerde datum of aangepaste datumbereik filteren.
+Resourcecontrole geeft u een overzicht van alle activiteiten van de rol voor de resource. U kunt de informatie die met behulp van een vooraf gedefinieerde datum of aangepast datumbereik filteren.
 ![Gegevens filteren](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-Controle van de resource biedt ook snel toegang tot gegevens van de activiteit van een gebruiker. Onder **type controleren**, selecteer **activeren**. Selecteer **(activiteit)** om te zien die gebruiker acties in de Azure-resources.
-![Details controleactiviteit](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+Resourcecontrole biedt ook snel toegang tot gegevens van de activiteit van een gebruiker. Onder **controletype**, selecteer **activeren**. Selecteer **(activiteit)** om te zien van acties van die gebruiker in Azure-resources.
+![Detail van activiteit](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 ![Meer details van de activiteit](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 # <a name="my-audit"></a>Mijn controle
 
-Mijn audit biedt u een weergave van een gebruiker persoonlijk rol activiteit. U kunt de gegevens door middel van een vooraf gedefinieerde datum of aangepaste datumbereik filteren.
+Mijn controle biedt u een overzicht van de gebruiker persoonlijke rol activiteit. U kunt de informatie die met behulp van een vooraf gedefinieerde datum of aangepast datumbereik filteren.
 ![Persoonlijke rol activiteit](media/azure-pim-resource-rbac/my-audit-time.png)
 
-## <a name="view-activation-and-azure-resource-activity"></a>Activering en Azure Resource activiteit weergeven
+## <a name="view-activation-and-azure-resource-activity"></a>Activering en de activiteit Azure-resources weergeven
 
-Als u wilt zien welke acties die een specifieke gebruiker in verschillende bronnen heeft, kunt u de Azure-resource-activiteit die is gekoppeld aan een bepaalde activeringsperiode bekijken. Begin met het selecteren van een gebruiker vanuit de **leden** weergave of uit de lijst met leden in een specifieke functie. Het resultaat wordt een grafische weergave van acties van de gebruiker weergegeven in de Azure-resources op datum. Ook ziet u de recente functie-activeringen via dezelfde periode.
+Als u wilt zien welke acties die een specifieke gebruiker in verschillende resources heeft, kunt u de activiteit Azure-resource die is gekoppeld aan een bepaalde activeringsperiode bekijken. Begin met het selecteren van een gebruiker vanuit de **leden** weergave of uit de lijst met leden in een specifieke rol. Het resultaat wordt een grafische weergave van acties van de gebruiker weergegeven in de Azure-resources op datum. U ziet ook de recente rolactiveringen diezelfde periode van tijd.
 
 ![Gebruikersdetails](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-Selecteren van een specifieke rol moet worden geactiveerd, ziet u de rolgegevens voor activering en de bijbehorende Azure-resource-activiteit die is opgetreden tijdens het die gebruiker actief was.
+Selecteren van een specifieke rol moet worden geactiveerd, ziet u de details van rolactivering en de bijbehorende Azure-resource-activiteit die is opgetreden bij die gebruiker actief is.
 
-![Selecteer rolactivering](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+![Selecteer de rolactivering](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 

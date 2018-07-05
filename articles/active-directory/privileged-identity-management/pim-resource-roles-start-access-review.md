@@ -1,6 +1,6 @@
 ---
-title: Toegang beoordelingen uitvoeren in Azure-resources met behulp van Privileged Identity Management | Microsoft Docs
-description: Wordt uitgelegd hoe u een access-revisie starten in Privileged Identity Management voor Azure-Resources
+title: Toegangsbeoordelingen uitvoeren in Azure-resources met behulp van Privileged Identity Management | Microsoft Docs
+description: Wordt uitgelegd hoe u een toegangsbeoordeling starten in de Privileged Identity Management voor Azure-Resources
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,65 +9,65 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5c2f13386a996a6c7895bd4755b6cf609a5df72
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f963e63aa92e15205f20ecb3e502065b8dd2c58c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233251"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443066"
 ---
-# <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Toegang beoordelingen uitvoeren in Azure-resources met behulp van Privileged Identity Management
-Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang dat ze niet meer nodig hebt. Als u het risico dat is gekoppeld aan deze verouderde roltoewijzingen, neem bevoorrechte rol beheerders regelmatig rollen. Dit document worden de stappen voor het starten van een onderzoek toegang in Privileged Identity Management (PIM) voor Azure-resources.
+# <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Toegangsbeoordelingen uitvoeren in Azure-resources met behulp van Privileged Identity Management
+Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang die ze niet meer nodig hebt. Beheerders met bevoegdheid om het risico dat is gekoppeld aan deze verouderde roltoewijzingen, moeten regelmatig rollen controleren. In dit document bevat informatie over de stappen voor het starten van een toegangscontrole in Privileged Identity Management (PIM) voor Azure-resources.
 
-Ga naar de PIM-toepassing hoofdpagina van:
+Op de toepassing hoofdpagina van PIM, gaat u naar:
 
-* **Toegang tot beoordelingen** > **toevoegen**
+* **Toegangsbeoordelingen** > **toevoegen**
 
-![Beoordelingen toegang toevoegen](media/azure-pim-resource-rbac/rbac-access-review-home.png)
+![Toegangsbeoordelingen toevoegen](media/azure-pim-resource-rbac/rbac-access-review-home.png)
 
-Wanneer u selecteert de **toevoegen** knop, de **maken een bekijken toegang** blade wordt weergegeven. De controle configureren met een naam en een tijdslimiet, kiest u een rol om te controleren en vervolgens besluit wie doet de controle op deze blade.
+Wanneer u selecteert de **toevoegen** knop, de **een toegangsbeoordeling maken** blade wordt weergegeven. De controle configureren met een naam en een tijdslimiet, kiest u een rol om te controleren en vervolgens besluit die de beoordeling is op deze blade.
 
 ![Een toegangsbeoordeling maken](media/azure-pim-resource-rbac/rbac-create-access-review.png)
 
-### <a name="configure-the-review"></a>De controle configureren
-Eerst naam voor het maken van een toegang controleren en stel een begin- en datum.
+### <a name="configure-the-review"></a>Configureren van de beoordeling
+Voor het maken van een toegangscontrole, geef het eerst de naam en stel een begin- en datum.
 
-![Configureren van de evaluatie - schermafbeelding](media/azure-pim-resource-rbac/rbac-access-review-setting-1.png)
+![Configureren van controle - schermafbeelding](media/azure-pim-resource-rbac/rbac-access-review-setting-1.png)
 
-Controleer de lengte van de evaluatie lang genoeg is voor gebruikers om deze te voltooien. Als ze wordt voltooid voordat de einddatum, kunnen ze de controle altijd voortijdig gestopt.
+Controleer de lengte van de beoordeling lang genoeg is voor gebruikers om deze te voltooien. Als ze klaar zijn voor de einddatum vallen, kunnen ze de beoordeling vroeg altijd stoppen.
 
-### <a name="choose-a-role-to-review"></a>Kies een rol te bekijken
-Iedere evaluatie is gericht op slechts één rol. Tenzij u de controle van toegang vanuit een specifieke rolblade hebt gestart, moet u nu een rol kiezen.
+### <a name="choose-a-role-to-review"></a>Kies een rol om te controleren
+Elke beoordeling die is gericht op slechts één rol. Tenzij u de toegangsbeoordeling vanuit de blade voor een specifieke rol gestart, moet u nu een rol kiezen.
 
-1. Ga naar **lidmaatschap van de gebruikersrol controleren**
+1. Ga naar **rollidmaatschap beoordelen**
    
-    ![Bekijk rollidmaatschap - schermafbeelding](media/azure-pim-resource-rbac/rbac-access-review-setting-2.png)
+    ![Rollidmaatschap controle - schermafbeelding](media/azure-pim-resource-rbac/rbac-access-review-setting-2.png)
 2. Kies één rol in de lijst.
 
-### <a name="decide-who-will-perform-the-review"></a>Bepalen wie verantwoordelijk is voor de controle
-Er zijn drie opties voor het uitvoeren van een beoordeling. Kunt u de controle toewijzen aan iemand anders is voltooid, kunt u dit zelf doen of hun eigen toegang kunt bekijken voor elke gebruiker.
+### <a name="decide-who-will-perform-the-review"></a>Bepalen wie verantwoordelijk is voor de beoordeling
+Er zijn drie opties voor het uitvoeren van een beoordeling. U kunt de beoordeling toewijzen aan iemand anders om te voltooien, zelf doen of elke gebruiker een eigen toegang kunt bekijken.
 
 1. Kies een van de opties:
    
-   * **Geselecteerde gebruikers**: Gebruik deze optie als u niet weet die toegang nodig heeft. Met deze optie kunt u de controle toewijzen aan een resource-eigenaar of de groepmanager te voltooien.
-   * **Toegewezen (selfservicegebruiker)**: Gebruik deze optie om gebruikers hun eigen roltoewijzingen bekijken.
+   * **Geselecteerde gebruikers**: Gebruik deze optie als u niet weet die toegang nodig heeft. Met deze optie kunt u de controle toewijzen aan een resource-eigenaar of groepmanager om te voltooien.
+   * **Toegewezen (zelf)**: Gebruik deze optie om de gebruikers hun eigen roltoewijzingen bekijken.
    
-2. Ga naar **Selecteer revisoren**.
+2. Ga naar **beoordelaars selecteren**.
    
     ![Selecteer revisoren - schermafbeelding](media/azure-pim-resource-rbac/rbac-access-review-setting-3.png)
 
 ### <a name="start-the-review"></a>De revisie starten
-Ten slotte kunt u vereisen dat gebruikers een reden voor het goedkeuren van toegang bieden. Een beschrijving van de evaluatie als u dit wilt toevoegen. Selecteer vervolgens **Start**.
+Ten slotte kunt u vereisen dat gebruikers een reden voor het goedkeuren van toegang bieden. Een beschrijving van de beoordeling als u dat wilt toevoegen. Selecteer vervolgens **Start**.
 
-Zorg ervoor dat u uw gebruikers weten dat er een wachten tot ze toegang-controleren en te laten laten [het uitvoeren van een onderzoek toegang](pim-resource-roles-perform-access-review.md).
+Zorg ervoor dat u uw gebruikers weten dat er een toegangsbeoordeling wachten tot ze en ze weergeven brengt [hoe u een toegangscontrole uitvoeren](pim-resource-roles-perform-access-review.md).
 
-## <a name="manage-the-access-review"></a>De controle van toegang beheren
-In het dashboard PIM Azure-resources kunt u de voortgang volgen als de revisoren hun beoordelingen voltooid. Er is geen toegangsrechten zijn gewijzigd in de map tot [de controle is voltooid](pim-resource-roles-complete-access-review.md).
+## <a name="manage-the-access-review"></a>Beheren van de toegangsbeoordeling
+In het dashboard PIM-Azure-resources kunt u de voortgang volgen de revisoren hun beoordelingen zijn voltooid. Er is geen toegangsrechten worden gewijzigd in de map tot [de beoordeling is voltooid](pim-resource-roles-complete-access-review.md).
 
-Totdat de controleperiode afgelopen is, kunt u gebruikers kunnen hun beoordeling voltooien herinneren of stoppen van de controle vroeg in het gedeelte van de beoordelingen toegang.
+Totdat de periode van de toegangsbeoordeling voltooid is, kunt u Herinner de gebruikers om uit te voeren van de beoordeling of stoppen van de beoordeling vroeg in het gedeelte van de beoordelingen toegang.
 

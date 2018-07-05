@@ -1,38 +1,38 @@
 ---
 title: Gebruik reporting API voorbeelden en definities in Azure Active Directory B2C | Microsoft Docs
-description: Handleiding en voorbeelden op rapporten op Azure AD B2C-tenant ophalen van gebruikers, verificaties en multi-factor Authentication-oproepen.
+description: Handleiding en voorbeelden over het gebruik van rapporten in Azure AD B2C-tenant gebruikers, verificaties en multi-factor Authentication-oproepen.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dc7f18e29367a3979a2650a87465366d9727cff6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 544b0618f9135b684846c42bb7edeb37cf599883
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711627"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445531"
 ---
-# <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Toegang tot gebruiksrapporten in Azure AD B2C via de rapportage-API
+# <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Toegang tot rapporten voor gebruik in Azure AD B2C via de rapportage-API
 
-Azure Active Directory B2C (Azure AD B2C) biedt verificatie op basis van de gebruiker zich aanmelden en Azure multi-factor Authentication. Verificatie is bestemd voor eindgebruikers van uw toepassing familie over id-providers. Als u het aantal gebruikers dat is geregistreerd in de tenant, de providers die ze gebruikt om u te registreren en het aantal authenticaties door type weet, kunt u beantwoorden van vragen als:
-* Hoeveel gebruikers vanuit elk type id-provider (bijvoorbeeld een account van Microsoft of LinkedIn) hebt geregistreerd in de afgelopen tien dagen?
-* Het aantal authenticaties met multi-factor Authentication zijn met succes voltooid in de afgelopen maand?
-* Hoeveel aanmelding in gebaseerd verificaties zijn deze maand voltooid? Per dag? Per toepassing?
-* Hoe kan ik schatting maken van de verwachte maandelijkse kosten van de activiteit van mijn Azure AD B2C-tenant?
+Azure Active Directory B2C (Azure AD B2C) biedt verificatie op basis van de gebruiker zich aanmelden en Azure multi-factor Authentication. Verificatie is bedoeld voor eindgebruikers van uw toepassing-familie over id-providers. Als u het aantal gebruikers die zijn geregistreerd in de tenant, de providers die ze gebruikt om u te registreren en het aantal verificaties per type weet, kunt u vragen beantwoorden zoals:
+* Hoeveel gebruikers van elk type id-provider (bijvoorbeeld, een Microsoft- of LinkedIn-account) in de afgelopen 10 dagen hebben geregistreerd?
+* Het aantal authenticaties met multi-factor Authentication in de afgelopen maand zijn voltooid?
+* Het aantal verificaties sign-in-gebaseerd zijn deze maand voltooid? Per dag? Per toepassing?
+* Hoe schat ik de verwachte maandelijkse kosten van de activiteit van mijn Azure AD B2C-tenant?
 
-Dit artikel is gericht op rapporten die zijn gekoppeld aan facturering activiteit, die is gebaseerd op het aantal gebruikers, factureerbare aanmelding in gebaseerd verificaties en multi-factor Authentication-oproepen.
+In dit artikel richt zich op rapporten die zijn gekoppeld aan facturering activiteit, die is gebaseerd op het aantal gebruikers, factureerbare sign-in-gebaseerd verificaties en multi-factor Authentication-oproepen.
 
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u begint, moet u de stappen in [vereisten voor toegang tot de Azure AD rapportage-API's](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Een toepassing maken en toegang verlenen verkrijgen van een geheim voor deze rechten aan uw Azure AD B2C-tenant-rapporten. *Script Bash* en *pythonscript* voorbeelden vindt u ook hier. 
+Voordat u begint, moet u de stappen in [vereisten voor toegang tot de rapportage-API's Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Maken van een toepassing, een geheim voor het verkrijgen en toegang verlenen rechten voor rapporten van uw Azure AD B2C-tenant. *Bash-script-* en *Python-script* voorbeelden vindt u ook hier. 
 
 ## <a name="powershell-script"></a>PowerShell-script
-Dit script wordt het maken van rapporten over gebruik van vier gedemonstreerd met behulp van de `TimeStamp` parameter en de `ApplicationId` filter.
+Dit script toont het maken van rapporten over gebruik van vier met behulp van de `TimeStamp` parameter en de `ApplicationId` filter.
 
 ```powershell
 # This script will require the Web Application and permissions setup in Azure Active Directory
@@ -97,32 +97,32 @@ if ($oauth.access_token -ne $null) {
 
 
 ## <a name="usage-report-definitions"></a>Gebruik rapportdefinities
-* **tenantUserCount**: het aantal gebruikers in de tenant door type id-provider per dag in de afgelopen 30 dagen. (U kunt desgewenst een `TimeStamp` -filter biedt aantallen van de gebruiker van een opgegeven datum in de huidige datum). Het rapport bevat:
-  * **TotalUserCount**: het aantal van alle gebruikersobjecten.
-  * **OtherUserCount**: het aantal Azure Active Directory-gebruikers (geen Azure AD B2C-gebruikers).
+* **tenantUserCount**: het aantal gebruikers in de tenant door het type id-provider, per dag in de afgelopen 30 dagen. (U kunt desgewenst een `TimeStamp` -filter biedt een aantal van de gebruiker vanaf een opgegeven datum in de huidige datum). Het rapport bevat:
+  * **TotalUserCount**: het aantal alle gebruikersobjecten.
+  * **OtherUserCount**: het aantal Active Directory-gebruikers (niet Azure AD B2C-gebruikers).
   * **LocalUserCount**: het aantal Azure AD B2C-gebruikersaccounts gemaakt met de referenties die lokaal op de Azure AD B2C-tenant.
 
-* **AlternateIdUserCount**: het aantal gebruikers van Azure AD B2C wordt geregistreerd bij externe id-providers (bijvoorbeeld, Facebook, een Microsoft-account of een andere Azure Active Directory-tenant, ook wel een `OrgId`).
+* **AlternateIdUserCount**: het aantal Azure AD B2C-gebruikers die zijn geregistreerd bij externe id-providers (bijvoorbeeld Facebook, een Microsoft-account of een andere Azure Active Directory-tenant, ook wel een `OrgId`).
 
-* **b2cAuthenticationCountSummary**: samenvatting van de dagelijkse aantal factureerbare verificaties in de afgelopen 30 dagen door de dag en het type verificatiestroom.
+* **b2cAuthenticationCountSummary**: overzicht van het dagelijkse aantal factureerbare verificaties in de afgelopen 30 dagen, per dag en het type verificatie-stroom.
 
-* **b2cAuthenticationCount**: het aantal authenticaties binnen een periode. De standaardwaarde is de afgelopen 30 dagen.  (Optioneel: het begin en einde `TimeStamp` parameters definiëren een bepaalde periode.) De uitvoer bevat `StartTimeStamp` (vroegste datum van activiteiten voor deze tenant) en `EndTimeStamp` (laatste update).
+* **b2cAuthenticationCount**: het aantal verificaties binnen een bepaalde periode. De standaardwaarde is de afgelopen 30 dagen.  (Optioneel: het begin en einde `TimeStamp` parameters definiëren in een bepaalde periode.) De uitvoer bevat `StartTimeStamp` (vroegste datum van de activiteit voor deze tenant) en `EndTimeStamp` (meest recente update).
 
-* **b2cMfaRequestCountSummary**: samenvatting van de dagelijkse aantal multi-factor Authentication-oproepen per dag en het type (SMS of stem).
+* **b2cMfaRequestCountSummary**: overzicht van het dagelijkse aantal multi-factor Authentication-oproepen per dag en type (SMS of spraak).
 
 
 ## <a name="limitations"></a>Beperkingen
-Aantal gebruikersgegevens wordt elke 24-48 uur vernieuwd. Authenticaties worden meerdere keren per dag bijgewerkt. Wanneer u de `ApplicationId` filter, een antwoord leeg rapport kan zijn veroorzaakt door een van volgende voorwaarden:
+Gegevens over het aantal gebruikers wordt elke 24 uur per dag op 48 uur vernieuwd. Verificaties zijn meerdere keren per dag bijgewerkt. Wanneer u de `ApplicationId` filter, een leeg rapport-antwoord kan worden veroorzaakt door een van de volgende voorwaarden:
   * De toepassings-ID bestaat niet in de tenant. Zorg ervoor dat deze juist is.
-  * De toepassings-ID bestaat, maar er zijn geen gegevens gevonden in de rapportageperiode. Herzie de datum/tijd-parameters.
+  * De toepassings-ID bestaat, maar er zijn geen gegevens gevonden in de rapportageperiode. Herzie de parameters van de datum/tijd.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-### <a name="monthly-bill-estimates-for-azure-ad"></a>Maandelijkse factuur schattingen voor Azure AD
-In combinatie met [de meest recente Azure AD B2C prijzen beschikbaar](https://azure.microsoft.com/pricing/details/active-directory-b2c/), u kunt schatten dagelijkse, wekelijkse en maandelijkse Azure-verbruik.  Een schatting is vooral nuttig wanneer u van plan bent om wijzigingen in gedrag die voor de totale kosten gevolgen mogelijk van de tenant. U kunt bekijken werkelijke kosten in uw [Azure-abonnement gekoppeld](active-directory-b2c-how-to-enable-billing.md).
+### <a name="monthly-bill-estimates-for-azure-ad"></a>Maandelijkse factuur maakt een schatting van voor Azure AD
+In combinatie met [de meest recente Azure AD B2C prijzen beschikbaar](https://azure.microsoft.com/pricing/details/active-directory-b2c/), u kunt een schatting maken dagelijkse, wekelijkse en maandelijkse Azure-verbruik.  Een schatting is vooral nuttig wanneer u van plan bent om wijzigingen in de tenant-gedrag dat mogelijk invloed op de totale kosten. U kunt bekijken werkelijke kosten in uw [gekoppelde Azure-abonnement](active-directory-b2c-how-to-enable-billing.md).
 
-### <a name="options-for-other-output-formats"></a>Opties voor andere uitvoerindelingen
-De volgende code ziet u voorbeelden van uitvoer naar JSON, een lijst met waarden van naam en XML verzenden:
+### <a name="options-for-other-output-formats"></a>Opties voor andere uitvoerindeling op te geven
+De volgende code ziet u voorbeelden van het verzenden van uitvoer in JSON, een lijst met de naam van waarde en XML:
 ```powershell
 # to output to JSON use following line in the PowerShell sample
 $myReport.Content | Out-File -FilePath name-your-file.json -Force

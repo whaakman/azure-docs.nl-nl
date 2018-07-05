@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: f819952c0b20a632f3ee2b95f0b5b2d4613be3e1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c1d797e3dd3a0926cfce8fee323aaaa1a866a169
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345971"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436923"
 ---
 # <a name="best-practices"></a>Aanbevolen procedures
 Gebruik Apps kunt maken om uw LUIS-app te bouwen. 
@@ -113,6 +113,4 @@ Voeg niet te veel [patronen](luis-concept-patterns.md). LUIS is bedoeld voor mee
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [uw app plannen](plan-your-app.md) in uw LUIS-app.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Meer informatie over het [uw app plannen](luis-how-plan-your-app.md) in uw LUIS-app.

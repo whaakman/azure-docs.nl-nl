@@ -1,80 +1,80 @@
 ---
-title: Opmerkingen voor ontwikkelaars over het gebruik van aangepast beleid in Azure Active Directory B2C | Microsoft Docs
+title: Opmerkingen voor ontwikkelaars over het gebruik van aangepaste beleidsregels in Azure Active Directory B2C | Microsoft Docs
 description: Opmerkingen voor ontwikkelaars over het configureren en onderhouden van Azure AD B2C met aangepast beleid.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ce323972dcdbf673311b407f427bc452fbe6dc3a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 31ca79976ec2ecf2755b975749e9c9150c4a49e8
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709723"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441070"
 ---
-# <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Releaseopmerkingen voor openbare preview van Azure Active Directory B2C aangepast beleid
-De functieset aangepast beleid is nu beschikbaar voor evaluatie van de openbare preview voor alle Azure Active Directory B2C (Azure AD B2C) klanten. Deze functieset is gericht op geavanceerde identiteit ontwikkelaars oplossingen die het meest complexe identiteit.  
+# <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Opmerkingen bij de release voor de openbare preview van Azure Active Directory B2C aangepast beleid
+De functieset aangepast beleid is nu beschikbaar voor evaluatie in openbare preview voor alle Azure Active Directory B2C (Azure AD B2C)-klanten. Deze functieset is gericht op ontwikkelaars Geavanceerd Identiteitsbeheer voor het bouwen van de meest complexe identiteitsoplossingen.  
 
-Vandaag de dag, vereist deze functieset ontwikkelaars voor het configureren van het Framework identiteit ervaring rechtstreeks via XML-bestand bewerken. Deze methode van de configuratie is een krachtige en complexe. Geavanceerde identiteit ontwikkelaars met behulp van het kader van de gebruikerservaring identiteit moeten wilt investeren enige tijd voor het voltooien van de zelfstudies en verwijzing naar documenten te lezen. 
+Deze functieset vereist vandaag, ontwikkelaars het configureren van de Identity-Ervaringsframework rechtstreeks via het XML-bestand bewerken. Deze methode van de configuratie is een krachtige en complexe. Geavanceerde identiteit ontwikkelaars die gebruikmaken van de Identity-Ervaringsframework plannen moeten om te investeren enige tijd voltooien van de zelfstudies en naslaginformatie over documenten te lezen. 
 
-## <a name="features-included-in-this-public-preview"></a>Functies in deze openbare preview
-Met de nieuwe functies geïntroduceerd in de openbare preview, kunnen ontwikkelaars de volgende taken uitvoeren:<br>
+## <a name="features-included-in-this-public-preview"></a>Functies die zijn opgenomen in deze openbare preview
+Met de nieuwe functies geïntroduceerd in de openbare preview-versie, kunnen ontwikkelaars de volgende taken uitvoeren:<br>
 
-* Maken en uploaden aangepaste verificatie gebruiker trajecten met behulp van aangepast beleid. 
-   * Gebruikers reizen stapsgewijze als kunnen worden uitgewisseld tussen claimproviders beschrijven. 
-   * Definieer Voorwaardelijke vertakkingen in trajecten van de gebruiker. 
-* REST-API-diensten in uw aangepaste verificatie gebruiker trajecten worden geïntegreerd.  
-* Federatie met de id-providers die compatibel met de standaard OpenIDConnect zijn toevoegen. <br>
-* Toevoegen van Federatie met de id-providers die aan het SAML 2.0-protocol voldoen. 
+* De auteur en te uploaden, aangepaste verificatie gebruiker reizen met behulp van aangepast beleid. 
+   * Gebruikers reizen stapsgewijze als worden uitgewisseld tussen claims-providers wordt beschreven. 
+   * Definieer Voorwaardelijke vertakkingen in gebruiker reizen. 
+* Services REST API's in uw aangepaste verificatie gebruiker reizen integreren.  
+* Federatie met id-providers die compatibel met de standaard OpenIDConnect zijn toevoegen. <br>
+* Federatie met id-providers die aan het SAML 2.0-protocol voldoen toevoegen. 
 
 ## <a name="terms-of-the-public-preview"></a>Voorwaarden van de openbare preview
 
-* We raden u aan de nieuwe functies gebruiken voor evaluatiedoeleinden.<br>
+* We raden u aan het gebruik van de nieuwe functies voor evaluatiedoeleinden.<br>
 * De nieuwe functies zijn niet bedoeld voor gebruik in een productieomgeving.<br>
-* Service level agreements (Sla) niet van toepassing op de nieuwe functies. <br>
+* Service level agreements (Sla's) niet van toepassing op de nieuwe functies. <br>
 * Ondersteuningsaanvragen kunnen worden ingediend via reguliere ondersteuningskanalen. <br>
-* Er is geen toegezegde opgegeven voor algemene beschikbaarheid.<br>
-* Onze goeddunken, en voor welke reden dan ook, kunt Microsoft markeren en weigeren of scenario's en gebruiker trajecten die groter is dan het bereik van de Azure AD B2C product Freelance moeten fungeren als een klant identiteits- en toegangsbeheer (CIAM) beheerplatform beperken.
+* Er is geen toegezegde datum voor algemene beschikbaarheid.<br>
+* Goeddunken door ons, en voor welke reden dan ook, kunt Microsoft markeren en weigeren of scenario's en gebruiker reizen die groter zijn dan het bereik van het Handvest van de Azure AD B2C-product om te fungeren als een klant identiteits- en toegangsbeheer (CIAM) beheerplatform beperken.
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>De verantwoordelijkheden van aangepast beleid functieset ontwikkelaars
-Handmatige beleidsconfiguratie lager niveau toegang verleent tot het onderliggende platform van Azure AD B2C en resulteert in het maken van een unieke, volledig aanpasbare vertrouwensrelatie-framework. Het aantal mogelijke permutaties met aangepaste identiteitsproviders, vertrouwensrelaties, integraties met externe services en stapsgewijze werkstromen hogere eisen op plaatsen gevorderde ontwikkelaars die ze gebruiken.
+Handmatige configuratie op lager niveau toegang verleent tot het onderliggende platform van Azure AD B2C en resulteert in het maken van een unieke, volledig aanpasbare vertrouwensrelatie-framework. De mogelijke permutaties van aangepaste id-providers, vertrouwensrelaties, integratie met externe services en stapsgewijze werkstromen plaats hogere eisen op het gebruiken van deze ontwikkelaars.
 
-Om volledig profiteren van de openbare preview, is het raadzaam dat ontwikkelaars de functieset aangepast beleid gebruiken in overeenstemming zijn met de volgende richtlijnen:
-* Vertrouwd raken met de taal van de configuratie van de identiteit ervaring Framework en het beheer van de sleutel/geheimen.
+Om volledig te profiteren van de openbare preview, is het raadzaam dat ontwikkelaars de functieset aangepast beleid gebruiken in overeenstemming zijn met de volgende richtlijnen:
+* Vertrouwd raken met de taal van de configuratie van de Identity-Ervaringsframework en het beheer van de sleutel/geheimen.
 * Eigenaar worden van scenario's en aangepaste integraties.
 * Methodisch scenariotests uitvoeren.
-* Ga als volgt software ontwikkelings- en staging-best practices met ten minste één ontwikkelings- en testomgeving en een productie-omgeving.
-* Blijf op de hoogte over nieuwe ontwikkelingen in de id-providers en services die u met integreert. Bijvoorbeeld: bijhouden van wijzigingen in geheimen en geplande en ongeplande wijzigingen in de service.
-* Actieve bewaking hebt ingesteld en bewaak de reactiesnelheid van productieomgevingen.
-* Neem contact op met e-mailadressen met actuele in de Azure-abonnement en blijven reageert op de Microsoft live-site-team e-mailberichten.
-* Maatregelen tijdige wanneer aangeraden om dit te doen door het team van Microsoft live-site. 
+* Ga als volgt software ontwikkel- en staging-best practices met een minimum van een ontwikkelings- en testomgeving en een productie-omgeving.
+* Blijf op de hoogte van nieuwe ontwikkelingen op het gebied van de id-providers en de services die u met integreert. Bijvoorbeeld, bijhouden van wijzigingen in de geheimen en van geplande en ongeplande wijzigingen in de service.
+* Actieve bewaking hebt ingesteld en de reactietijd van productie-omgevingen bewaken.
+* Neem contact op met e-mailadressen Houd in het Azure-abonnement bent en blijf te reageren op de Microsoft live-site-team e-mailberichten.
+* Maatregelen tijdig wanneer op de hoogte om dit te doen door het team van Microsoft live-site. 
 
-## <a name="features-by-stage-and-known-issues"></a>Functies door de fase en bekende problemen
-Aangepast beleid/identiteit ervaring Framework mogelijkheden zijn onder constante en snelle ontwikkeling.  Deze tabel is een index van de beschikbaarheid van functies/componenten.
+## <a name="features-by-stage-and-known-issues"></a>Functies van de fase en bekende problemen
+Aangepaste beleid/Identity-Ervaringsframework mogelijkheden zijn onder constante en snelle ontwikkeling.  Deze tabel is een index van de beschikbaarheid van de functies/component.
 
-Stel vragen in de Stack Overflow op [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
+Stel vragen op Stack Overflow op [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
-### <a name="identity-providers-tokens-protocols"></a>Protocollen voor identiteit Providers, Tokens.
+### <a name="identity-providers-tokens-protocols"></a>ID-Providers, Tokens, protocollen
 Interfaces met externe onderdelen en toepassingen
 
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |---------------------------------------------|-------------|---------|----|-------|
 | IDP-OpenIDConnect |  | x |  | bijvoorbeeld, Google + |
-| IDP OAUTH2 |  | x |  | bijvoorbeeld, Facebook  |
-| IDP OAUTH1 |  | x |  | bijvoorbeeld, Twitter |
-| IDP SAML |  | x |  | bijvoorbeeld Salesforce, AD FS |
+| IDP-OAUTH2 |  | x |  | bijvoorbeeld, Facebook  |
+| IDP-OAUTH1 |  | x |  | bijvoorbeeld, Twitter |
+| IDP-SAML |  | x |  | bijvoorbeeld, Salesforce, AD FS |
 | IDP-WSFED | x |  |  |  |
 | Relying Party OAUTH |  | x |  |  |
 | Relying Party OIDC |  | x |  |  |
 | Relying Party SAML | x |  |  |  |
 | Relying Party WSFED | x |  |  |  |
-| REST-API met basic en belastingdienst verificatie |  | x |  | bijvoorbeeld: Azure Functions |
+| REST-API met verificatie op basis- en -certificaat aanvragen basis |  | x |  | bijvoorbeeld, Azure Functions |
 
 
 ### <a name="component-support"></a>Ondersteuning voor onderdeel
@@ -83,25 +83,25 @@ Interfaces met externe onderdelen en toepassingen
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |-------------------------------------------|-------------|---------|----|-------|
 | Azure Multi Factor Authentication |  | x |  |  |
-| Azure Active Directory als de lokale directory |  | x |  |  |
+| Azure Active Directory als de lokale map |  | x |  |  |
 | Azure e-subsysteem voor 2FA |  | x |  |  |
 | Ondersteuning voor meerdere talen|  | x |  |  |
 | Wachtwoordcomplexiteit | x |  |  |  |
 
 
-### <a name="content-definition"></a>De definitie van inhoud
+### <a name="content-definition"></a>Inhoudsdefinitie
 
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |-----------------------------------------------------------------------------|-------------|---------|----|-------|
 |   Foutpagina, api.error |  | x |  |  |
-|   De pagina selectie IDP, api.idpselections |  | x |  |  |
-|   IDP selectie voor aanmelding, api.idpselections.signup |  | x |  |  |
-|   Wachtwoord vergeten api.localaccountpasswordreset |  | x |  |  |
+|   Pagina voor het selecteren van id-provider, api.idpselections |  | x |  |  |
+|   Selectie van de id-provider voor aanmelding, api.idpselections.signup |  | x |  |  |
+|   Wachtwoord bent vergeten, api.localaccountpasswordreset |  | x |  |  |
 |   Lokaal Account aanmelden, api.localaccountsignin |  | x |  |  |
 |   Lokaal Account aanmelden, api.localaccountsignup |  | x |  |  |
 |   MFA-pagina, api.phonefactor |  | x |  |  |
-|   Zelf die wordt beweerd-bijvoorbeeld sociale account sig-up api.selfasserted |  | x |  |  |
-|   Zelf Profielupdate die wordt beweerd api.selfasserted.profileupdate |  | x |  |  |
+|   Zelf een door de bevestigde-bijvoorbeeld sociaal account sig-up, api.selfasserted |  | x |  |  |
+|   Zelf een profiel bijwerken door de bevestigde api.selfasserted.profileupdate |  | x |  |  |
 |   Geïntegreerde aanmelding of aanmeldingspagina, api.signuporsignin |  | x |  |  |
 
 
@@ -109,10 +109,10 @@ Interfaces met externe onderdelen en toepassingen
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
 | Query-tekenreeks parameter id_token_hint | x |  |  |  |
-| Query-tekenreeks parameter domain_hint |  | x |  | beschikbaar als de claim, kan worden doorgegeven aan IDP |
-| Query-tekenreeks parameter login_hint |  | x |  | beschikbaar als de claim, kan worden doorgegeven aan IDP |
-| JSON invoegen in UserJourney via client_assertion | x |  |  | afgeschaft |
-| JSON invoegen in UserJourney als id_token_hint | x |  |  | Ga doorsturen benadering JSON doorgeven |
+| Query-tekenreeks parameter domain_hint |  | x |  | beschikbaar is als de claim, kunnen worden doorgegeven aan de id-provider |
+| Query-tekenreeks parameter login_hint |  | x |  | beschikbaar is als de claim, kunnen worden doorgegeven aan de id-provider |
+| JSON in UserJourney via client_assertion invoegen | x |  |  | wordt afgeschaft |
+| JSON in UserJourney als id_token_hint invoegen | x |  |  | go-zone voor forward benadering voor het doorgeven van JSON |
 
 
 ### <a name="session-management"></a>Sessiebeheer
@@ -120,22 +120,22 @@ Interfaces met externe onderdelen en toepassingen
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |---------------------------------|-------------|---------|----|-------|
 | Sessie-Provider voor eenmalige aanmelding |  | x |  |  |
-| Sessie-Provider voor externe aanmelding |  | x |  |  |
-| Provider voor eenmalige aanmelding voor SAML-sessie |  | x |  |  |
+| Provider voor de sessie externe aanmelding |  | x |  |  |
+| Provider voor SAML SSO-sessie |  | x |  |  |
 
 
 ### <a name="security"></a>Beveiliging
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |---------------------------------------------|-------------|---------|----|-------|
-| Beleid sleutels genereren, handmatig uploaden |  | x |  |  |
-| Beleid sleutels - RSA/Cert geheimen |  | x |  |  |
+| Beleid voor sleutels te genereren, handmatig, uploaden |  | x |  |  |
+| Beleid voor sleutels - RSA/Cert geheimen |  | x |  |  |
 
 
 ### <a name="developer-interface"></a>Developer-interface
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |---------------------------------------------|-------------|---------|----|-------|
 | Azure Portal-IEF UX |  | x |  |  |
-| Application Insights UserJourney Logboeken  |  | x |  |  |
+| Application Insights-logboekbestanden met UserJourney  |  | x |  |  |
 | Application Insights-gebeurtenislogboeken |x|  |  |  |
 
 

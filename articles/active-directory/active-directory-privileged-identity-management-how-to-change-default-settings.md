@@ -1,48 +1,48 @@
 ---
-title: Het beheren van serverfunctie-instellingen voor activering | Microsoft Docs
-description: Informatie over het wijzigen van de standaardinstellingen voor bevoegde identiteiten met de extensie Azure Active Directory Privileged Identity Management.
+title: Over het beheren van instellingen voor rolactivering | Microsoft Docs
+description: Informatie over het wijzigen van de standaardinstellingen voor bevoegde identiteiten met de extensie van Azure Active Directory Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4557457e28a9a9b8bcd7f5c3bda40fbba8cdd24b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9735023fa8aefe942892fc10d5f186cca62ab6be
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233302"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446918"
 ---
-# <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Het beheren van instellingen voor de sitesysteemrol activering in Azure AD Privileged Identity Management
-Een beheerder met bevoorrechte rol kunt aanpassen Azure AD Privileged Identity Management (PIM) in hun organisatie, inclusief het wijzigen van de ervaring voor een gebruiker die een in aanmerking komende roltoewijzing is geactiveerd.
+# <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Over het beheren van instellingen voor rolactivering in Azure AD Privileged Identity Management
+Een beheerder met bevoorrechte rol kunt aanpassen Azure AD Privileged Identity Management (PIM) in hun organisatie, met inbegrip van de ervaring voor een gebruiker die is een in aanmerking komende roltoewijzing activeren wijzigen.
 
-## <a name="manage-the-role-activation-settings"></a>De instellingen van de activering beheren
+## <a name="manage-the-role-activation-settings"></a>De instellingen voor rolactivering beheren
 1. Ga naar de [Azure-portal](https://portal.azure.com) en selecteer de **Azure AD Privileged Identity Management** app vanuit het dashboard.
 2. Selecteer **bevoorrechte rollen beheren** > **instellingen** > **bevoorrechte rollen**.
-3. Selecteer de rol waarvoor u de instellingen u wilt beheren.
+3. Selecteer de rol waarvan u de instellingen u wilt beheren.
 
-Er zijn een aantal instellingen die u kunt configureren op de instellingenpagina voor elke rol. Deze instellingen zijn alleen van invloed op gebruikers die in aanmerking komende beheerders, niet-permanente beheerders zijn.
+Er zijn een aantal instellingen die u kunt configureren op de instellingenpagina voor elke rol. Deze instellingen zijn alleen van invloed op gebruikers die in aanmerking komende beheerders, niet-permanente beheerders.
 
-**Activeringen**: de tijd in uren, die een rol actief blijft voordat het verloopt. Dit kan zijn tussen 1 en 72 uur.
+**Activeringen**: de tijd in uren, die een rol actief blijft voordat het verloopt. Dit kan zijn van 1 tot 72 uur.
 
-**Meldingen**: U kunt kiezen of het systeem e-mailberichten verzendt naar het admins bevestigen dat ze een rol hebben geactiveerd. Dit kan handig zijn voor het detecteren van niet-geautoriseerde of illegale activeringen zijn.
+**Meldingen**: U kunt kiezen of het systeem e-mailberichten verzendt naar beheerders bevestigen dat ze een rol hebt geactiveerd. Dit kan nuttig zijn voor het detecteren van niet-geautoriseerde of illegale activeringen zijn.
 
-**Ticket incident/aanvraag**: U kunt al dan niet in aanmerking komende beheerders een Ticketnummer nemen bij het activeren van hun rol nodig. Dit kan nuttig zijn wanneer u de rol toegang audits uitvoert.
+**Incident-/ Aanvraagticket**: U kunt wel of niet vereisen dat in aanmerking komende beheerders op te nemen van een Ticketnummer wanneer ze hun rol activeren. Dit kan nuttig zijn wanneer u de rol toegang controles uitvoeren.
 
-**Multi-Factor Authentication**: U kunt kiezen of gebruikers hun identiteit verifiëren met MFA voordat ze hun rollen kunnen activeren. Ze hebben alleen om te controleren of deze eenmaal per sessie niet elke keer dat ze een rol activeren. Er zijn twee tips rekening moet houden wanneer u MFA inschakelen:
+**Multi-Factor Authentication**: U kunt wel of niet vereisen dat gebruikers hun identiteit met MFA verifiëren voordat ze hun rol kunnen activeren. Ze hebben alleen om te controleren of deze één keer per sessie niet telkens wanneer ze een rol activeren. Er zijn twee tips waarmee u rekening moet houden wanneer u MFA inschakelen:
 
-* Gebruikers met Microsoft-account voor hun e-mailadressen (meestal @outlook.com, maar niet altijd) kan niet registreren voor Azure MFA. Als u wilt toewijzen van rollen aan gebruikers met Microsoft-accounts, moet u doen permanente beheerders of MFA uitschakelen voor die rol.
-* U kunt MFA niet uitschakelen voor maximaal bevoorrechte rollen voor Azure AD en Office365. Dit is een functie veiligheid omdat deze rollen moeten zorgvuldig worden beveiligd:  
+* Gebruikers met Microsoft-account voor hun e-mailadressen (meestal @outlook.com, maar niet altijd) kan niet registreren voor Azure MFA. Als u rollen toewijzen aan gebruikers met een Microsoft-account wilt, moet u permanente beheerders toepast of MFA uitschakelen voor die rol.
+* U kunt MFA niet uitschakelen voor maximaal bevoorrechte rollen voor Azure AD en Office 365. Dit is een functie veiligheid omdat deze rollen moeten zorgvuldig worden beveiligd:  
   
   * Toepassingsbeheerder
-  * Toepassingsbeheerder Proxy server
+  * Application Proxy server-beheerder
   * Factureringsbeheerder  
   * Beheerder voor naleving  
   * CRM-servicebeheerder
@@ -51,16 +51,16 @@ Er zijn een aantal instellingen die u kunt configureren op de instellingenpagina
   * Exchange-beheerder  
   * Globale beheerder
   * Intune-servicebeheerder
-  * Postvak beheerder  
+  * Postvakbeheerder  
   * Laag1-ondersteuning voor partner  
   * Laag2-ondersteuning voor partner  
   * Beheerder met bevoorrechte rol   
   * Beveiligingsbeheerder  
   * SharePoint-beheerder  
   * Skype voor Bedrijven-beheerder  
-  * De beheerder van gebruiker  
+  * Beheerder van gebruikersaccounts  
 
-Zie voor meer informatie over het gebruik van MFA met PIM [hoe MFA vereisen](active-directory-privileged-identity-management-how-to-require-mfa.md).
+Zie voor meer informatie over het gebruik van MFA met PIM [hoe u kunt MFA vereisen](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 

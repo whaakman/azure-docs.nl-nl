@@ -1,27 +1,27 @@
 ---
-title: Voeg Google + als een OAuth2-id-provider voor het gebruik van aangepast beleid in Azure Active Directory B2C | Microsoft Docs
+title: Voeg Google + als een OAuth2-id-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C | Microsoft Docs
 description: Voorbeeld met Google + als id-provider met behulp van OAuth2-protocol.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3be17ca815910b7472a8760529971bd6c2016792
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 19b7f708d43907ac45450a64f988b2a517293511
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709271"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446704"
 ---
-# <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Voeg Google + als een OAuth2-id-provider met behulp van aangepaste beleid
+# <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Toevoegen Google + als een OAuth2-id-provider met behulp van aangepaste beleidsregels
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Deze handleiding ziet u het inschakelen van aanmelden voor gebruikers van Google + account met behulp van [aangepast beleid](active-directory-b2c-overview-custom.md).
+Deze handleiding wordt beschreven hoe u om in te schakelen aanmelding voor gebruikers van Google + account via het gebruik van [aangepast beleid](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,21 +29,21 @@ Voer de stappen in de [aan de slag met aangepaste beleidsregels](active-director
 
 Deze stappen omvatten:
 
-1.  Maken van een toepassing Google + account.
-2.  Google + Toepassingssleutel toevoegen aan Azure AD B2C
-3.  Het toevoegen van de claimprovider naar een door beleid
-4.  De provider wordt geregistreerd Google + account claims voor een gebruiker reis
-5.  Uploaden van het beleid naar een Azure AD B2C-tenant en testen
+1.  Het maken van een toepassing Google +-account.
+2.  Google + accountsleutel van de toepassing toe te voegen aan Azure AD B2C
+3.  Claimprovider toevoegen aan een beleid
+4.  Google + account claimprovider registreren voor een gebruikersbeleving
+5.  Het uploaden van het beleid naar een Azure AD B2C-tenant en het testen
 
-## <a name="create-a-google-account-application"></a>Een toepassing Google + account maken
-Voor het gebruik van Google + als een id-provider in Azure Active Directory (Azure AD) B2C, moet u een Google +-toepassing maken en geeft deze met de juiste parameters. U kunt een Google +-toepassing hier registreren: [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
+## <a name="create-a-google-account-application"></a>Een toepassing Google +-account maken
+Voor het gebruik van Google + als id-provider in Azure Active Directory (Azure AD) B2C, moet u een Google +-toepassing maken en geven met de juiste parameters. U kunt een Google +-toepassing hier registreren: [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
 
 1.  Ga naar de [Google ontwikkelaars Console](https://console.developers.google.com/) en meld u aan met de referenties van uw Google + account.
 2.  Klik op **project maken**, voer een **projectnaam**, en klik vervolgens op **maken**.
 
 3.  Klik op de **menu projecten**.
 
-    ![Google + account - Selecteer project](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
+    ![Google + account - project selecteren](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
 
 4.  Klik op de **+** knop.
 
@@ -53,62 +53,62 @@ Voor het gebruik van Google + als een id-provider in Azure Active Directory (Azu
 
     ![Google + account - nieuw project](media/active-directory-b2c-custom-setup-goog-idp//goog-app-name.png)
 
-6.  Wacht totdat het project gereed is en klik op de **menu projecten**.
+6.  Wacht totdat het project klaar is en klik op de **menu projecten**.
 
-    ![Google + account - wacht totdat de nieuw project is klaar voor gebruik](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app1.png)
+    ![Google + account - wacht totdat het nieuwe project is klaar voor gebruik](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app1.png)
 
 7.  Klik op de projectnaam van uw.
 
-    ![Selecteer het nieuwe project-Google + account:](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app2.png)
+    ![Google + account: Selecteer het nieuwe project](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app2.png)
 
-8.  Klik op **API Manager** en klik vervolgens op **referenties** in de linkernavigatiebalk.
-9.  Klik op de **OAuth toestemming scherm** boven op het tabblad.
+8.  Klik op **API Manager** en klik vervolgens op **referenties** in het linkernavigatievenster.
+9.  Klik op de **OAuth instemmingsscherm** tabblad bovenaan.
 
-    ![Google + account - ingesteld OAuth toestemming scherm](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
+    ![Google + account - toestemmingsscherm OAuth instellen](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
 
-10.  Selecteer of geef een geldige **e-mailadres**, bieden een **Productnaam**, en klik op **opslaan**.
+10.  Selecteer of geef een geldige **e-mailadres**, bieden een **Productnaam**, en klikt u op **opslaan**.
 
     ![Google + - toepassing-referenties](media/active-directory-b2c-custom-setup-goog-idp/goog-consent-screen.png)
 
 11.  Klik op **nieuwe referenties** en kies vervolgens **OAuth-Clientidentiteit**.
 
-    ![Google + - referenties van de nieuwe toepassing maken](media/active-directory-b2c-custom-setup-goog-idp/goog-add-oauth2-client-id.png)
+    ![Google + - referenties voor nieuwe toepassingen maken](media/active-directory-b2c-custom-setup-goog-idp/goog-add-oauth2-client-id.png)
 
 12.  Onder **toepassingstype**, selecteer **webtoepassing**.
 
     ![Google + - toepassingstype selecteren](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Geef een **naam** voor uw toepassing, voert u `https://login.microsoftonline.com` in de **geautoriseerd JavaScript oorsprongen** veld en `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in de **geautoriseerde omleidings-URI's** veld. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c.onmicrosoft.com). De **{tenant}** hoofdlettergevoelig. Klik op **Create**.
+13.  Geef een **naam** voor uw toepassing, voert u `https://login.microsoftonline.com` in de **geautoriseerd JavaScript oorsprongen** veld en `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in de **geautoriseerde omleidings-URI's** het veld. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com). De **{tenant}** hoofdlettergevoelig. Klik op **Create**.
 
-    ![Google + - JavaScript geautoriseerd oorsprongen bieden en omleidings-URI's](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
+    ![Google + - JavaScript geautoriseerd oorsprongen opgeven en omleidings-URI's](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 
-14.  Kopieer de waarden van **Client-Id** en **clientgeheim**. U moet zowel voor het configureren van Google + als een id-provider in uw tenant. **Clientgeheim** is een belangrijke beveiligingsreferentie.
+14.  Kopieer de waarden van **Client-Id** en **clientgeheim**. U moet zowel het configureren van Google + als id-provider in uw tenant. **Clientgeheim** is een belangrijke beveiligingsreferentie.
 
-    ![Google + - Kopieer de waarden van de client-Id en Client geheime](media/active-directory-b2c-custom-setup-goog-idp/goog-client-secret.png)
+    ![Google + - Kopieer de waarden van de client-Id en het clientgeheim](media/active-directory-b2c-custom-setup-goog-idp/goog-client-secret.png)
 
-## <a name="add-the-google-account-application-key-to-azure-ad-b2c"></a>De Google + account Toepassingssleutel toevoegen aan Azure AD B2C
-Federatie met Google + accounts vereist een clientgeheim voor Google + account aan Azure AD B2C-vertrouwensrelatie voor de toepassing is. U moet uw Google + toepassingsgeheim opslaan in Azure AD B2C-tenant:  
+## <a name="add-the-google-account-application-key-to-azure-ad-b2c"></a>Google + accountsleutel van de toepassing toevoegen aan Azure AD B2C
+Federatie met Google + accounts vereist een clientgeheim voor Google +-account aan Azure AD B2C-vertrouwensrelatie namens de toepassing. U moet voor het opslaan van uw Google + toepassingsgeheim in Azure AD B2C-tenant:  
 
-1.  Ga naar uw Azure AD B2C-tenant en selecteer **B2C-instellingen** > **identiteit ervaring Framework**
-2.  Selecteer **beleid sleutels** om de sleutels die beschikbaar zijn in uw tenant weer te geven.
+1.  Ga naar uw Azure AD B2C-tenant, en selecteer **B2C-instellingen** > **Identity-Ervaringsframework**
+2.  Selecteer **Beleidssleutels** om de sleutels die beschikbaar zijn in uw tenant weer te geven.
 3.  Klik op **+ toevoegen**.
-4.  Voor **opties**, gebruik **handmatige**.
-5.  Voor **naam**, gebruik `GoogleSecret`.  
-    Het voorvoegsel `B2C_1A_` kunnen automatisch worden toegevoegd.
-6.  In de **geheim** Voer uw Google-toepassingsgeheim van de [Google ontwikkelaars Console](https://console.developers.google.com/) die u hierboven hebt gekopieerd.
-7.  Voor **sleutelgebruik**, gebruik **handtekening**.
+4.  Voor **opties**, gebruikt u **handmatig**.
+5.  Voor **naam**, gebruikt u `GoogleSecret`.  
+    Het voorvoegsel `B2C_1A_` mogelijk automatisch worden toegevoegd.
+6.  In de **geheim** voert u uw Google-toepassingsgeheim uit de [Google ontwikkelaars Console](https://console.developers.google.com/) die u hebt gekopieerd hierboven.
+7.  Voor **sleutelgebruik**, gebruikt u **handtekening**.
 8.  Klik op **Maken**.
-9.  Controleer of u de sleutel hebt gemaakt `B2C_1A_GoogleSecret`.
+9.  Bevestig dat u de sleutel hebt `B2C_1A_GoogleSecret`.
 
-## <a name="add-a-claims-provider-in-your-extension-policy"></a>Toevoegen van een claimprovider in de uitbreiding beleid
+## <a name="add-a-claims-provider-in-your-extension-policy"></a>Toevoegen van een claimprovider in uw extensie-beleid
 
-Als u wilt dat gebruikers zich aanmelden via Google + account, moet u Google + account definiëren als een claimprovider. Met andere woorden, moet u een eindpunt dat Azure AD B2C met communiceert opgeven. Het eindpunt biedt een set claims die worden gebruikt door Azure AD B2C om te controleren dat een specifieke gebruiker is geverifieerd.
+Als u wilt dat gebruikers zich aanmelden met Google +-account, moet u voor het definiëren van Google + account als een claimprovider. Met andere woorden, moet u een eindpunt dat Azure AD B2C met communiceert opgeven. Het eindpunt biedt een set claims die worden gebruikt door Azure AD B2C om te controleren of dat een specifieke gebruiker is geverifieerd.
 
-Google + Account definiëren als een claimprovider door toe te voegen `<ClaimsProvider>` knooppunt in het beleidsbestand extensie:
+Google + Account definiëren als een claimprovider door toe te voegen `<ClaimsProvider>` knooppunt in de uitbreiding beleid-bestand:
 
-1.  Open het bestand met de extensie (TrustFrameworkExtensions.xml) van uw werkmap. Als u een XML-editor moet [Visual Studio Code probeert](https://code.visualstudio.com/download), een lichtgewicht platformoverschrijdende-editor.
+1.  Open het beleid extensiebestand (TrustFrameworkExtensions.xml) van uw werkmap. Als u een XML-editor, moet [probeer Visual Studio Code](https://code.visualstudio.com/download), een lichtgewicht editor voor meerdere platforms.
 2.  Zoek de `<ClaimsProviders>` sectie
-3.  Voeg de volgende XML-fragment onder de `ClaimsProviders` element en vervang `client_id` waarde met Google + toepassing client ID van uw account voordat u het bestand opslaat.  
+3.  Voeg de volgende XML-fragment uit onder de `ClaimsProviders` -element en vervang `client_id` waarde met Google + account client ID van uw toepassing voordat u het bestand opslaat.  
 
 ```xml
 <ClaimsProvider>
@@ -161,35 +161,35 @@ Google + Account definiëren als een claimprovider door toe te voegen `<ClaimsPr
 </ClaimsProvider>
 ```
 
-## <a name="register-the-google-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>De Google + account claimprovider om te registreren of aanmelden gebruiker reis registreren
+## <a name="register-the-google-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>De Google + account claimprovider registreren om te registreren of aanmelden in de gebruikersbeleving
 
-De id-provider is ingesteld.  Het is echter niet beschikbaar in een van de schermen sign-up-to-date/aanmelden. De Google + account id-provider toevoegen aan uw gebruikers `SignUpOrSignIn` traject van de gebruiker. Als u deze beschikbaar, maken we een duplicaat van een bestaande sjabloon gebruiker reis.  Vervolgens wordt de Google + account id-provider toevoegen:
+De id-provider is ingesteld.  Het is echter niet beschikbaar in elk van de schermen aanmelden-up-to-date/aanmelden. De Google + account id-provider toevoegen aan uw gebruikers `SignUpOrSignIn` gebruikersbeleving. Om het beschikbaar maken, maken we een duplicaat van een bestaande sjabloon voor de gebruikersbeleving.  Vervolgens voegen we de Google + account id-provider:
 
 >[!NOTE]
 >
->Als u hebt gekopieerd de `<UserJourneys>` element uit de base-bestand van uw beleid aan het extensiebestand (TrustFrameworkExtensions.xml), kunt u doorgaan met deze sectie.
+>Als u hebt gekopieerd de `<UserJourneys>` element van het base-bestand van uw beleid aan het extensiebestand (TrustFrameworkExtensions.xml), kunt u doorgaan met deze sectie.
 
 1.  Open het bestand basis van uw beleid (bijvoorbeeld TrustFrameworkBase.xml).
-2.  Zoek de `<UserJourneys>` element en kopieert u de volledige inhoud van `<UserJourneys>` knooppunt.
-3.  Open het extensiebestand (bijvoorbeeld TrustFrameworkExtensions.xml) en Ga naar de `<UserJourneys>` element. Als het element niet bestaat, Voeg een.
-4.  Plak de volledige inhoud van `<UserJourney>` knooppunt dat u hebt gekopieerd als een onderliggend element van de `<UserJourneys>` element.
+2.  Zoek de `<UserJourneys>` element en kopieer de gehele inhoud van `<UserJourneys>` knooppunt.
+3.  Open het extensiebestand (bijvoorbeeld TrustFrameworkExtensions.xml) en zoek de `<UserJourneys>` element. Als het element niet bestaat, Voeg een.
+4.  Plak de volledige inhoud van `<UserJourney>` knooppunt dat u hebt gekopieerd als onderliggende site van de `<UserJourneys>` element.
 
 ### <a name="display-the-button"></a>De knop weergeven
-De `<ClaimsProviderSelections>` element wordt de lijst met opties voor de selectie van claims provider en de volgorde gedefinieerd.  `<ClaimsProviderSelection>` element is vergelijkbaar met een knop identiteit provider op een pagina sign-up-to-date/aanmelden. Als u een `<ClaimsProviderSelection>` element voor Google + account, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt. Dit element toevoegen:
+De `<ClaimsProviderSelections>` element wordt de lijst met opties voor de selectie van claims-provider en de volgorde gedefinieerd.  `<ClaimsProviderSelection>` element is vergelijkbaar met een knop identity provider op een pagina aanmelden-up-to-date/aanmelden. Als u een `<ClaimsProviderSelection>` -element voor Google + account, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt. Dit element toevoegen:
 
-1.  Zoek de `<UserJourney>` knooppunt met `Id="SignUpOrSignIn"` in het traject gebruiker die u hebt gekopieerd.
-2.  Zoek de `<OrchestrationStep>` knooppunt bevat `Order="1"`
-3.  Plaats de volgende XML-fragment onder `<ClaimsProviderSelections>` knooppunt:
+1.  Zoek de `<UserJourney>` knooppunt met `Id="SignUpOrSignIn"` in de gebruikersbeleving die u hebt gekopieerd.
+2.  Zoek de `<OrchestrationStep>` knooppunt met `Order="1"`
+3.  Voeg de volgende XML-fragment uit onder `<ClaimsProviderSelections>` knooppunt:
 
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
 ```
 
 ### <a name="link-the-button-to-an-action"></a>De knop koppelen aan een actie
-Nu u een knop hebt geïmplementeerd, moet u deze koppelen aan een actie. Er is in dit geval de actie voor Azure AD B2C om te communiceren met Google + account geen token ontvangen.
+Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, wordt in dit geval is voor Azure AD B2C om te communiceren met Google + account voor het ontvangen van een token.
 
-1.  Zoek de `<OrchestrationStep>` die omvat `Order="2"` in de `<UserJourney>` knooppunt.
-2.  Plaats de volgende XML-fragment onder `<ClaimsExchanges>` knooppunt:
+1.  Zoek de `<OrchestrationStep>` die bevat `Order="2"` in de `<UserJourney>` knooppunt.
+2.  Voeg de volgende XML-fragment uit onder `<ClaimsExchanges>` knooppunt:
 
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
@@ -197,63 +197,63 @@ Nu u een knop hebt geïmplementeerd, moet u deze koppelen aan een actie. Er is i
 
 >[!NOTE]
 >
-> * Zorg ervoor dat de `Id` heeft dezelfde waarde als die van `TargetClaimsExchangeId` in de vorige sectie
-> * Zorg ervoor dat `TechnicalProfileReferenceId` -ID is ingesteld in het technische profiel u eerdere (Google OAUTH) gemaakt.
+> * Zorg ervoor dat de `Id` heeft dezelfde waarde als die van `TargetClaimsExchangeId` in de voorgaande sectie
+> * Zorg ervoor dat `TechnicalProfileReferenceId` -ID is ingesteld in het technische profiel u eerdere (Google-OAUTH) hebt gemaakt.
 
-## <a name="upload-the-policy-to-your-tenant"></a>Het beleid uploaden naar uw tenant
+## <a name="upload-the-policy-to-your-tenant"></a>Uploaden van het beleid aan uw tenant
 1.  In de [Azure-portal](https://portal.azure.com), schakel over naar de [context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md), en open de **Azure AD B2C** blade.
-2.  Selecteer **identiteit ervaring Framework**.
+2.  Selecteer **Identity-Ervaringsframework**.
 3.  Open de **alle beleidsregels** blade.
-4.  Selecteer **uploaden beleid**.
-5.  Controleer **het beleid overschreven als deze bestaat** vak.
+4.  Selecteer **beleid uploaden**.
+5.  Controleer **het beleid overschrijven als deze bestaat** vak.
 6.  **Uploaden** TrustFrameworkExtensions.xml en zorg ervoor dat deze niet de validatie mislukt
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Het aangepaste beleid testen met behulp van nu uitvoeren
-1.  Open **Azure AD B2C-instellingen** en Ga naar **identiteit ervaring Framework**.
+1.  Open **Azure AD B2C-instellingen** en Ga naar **Identity-Ervaringsframework**.
 
     >[!NOTE]
     >
-    >    **Nu uitvoeren** vereist ten minste één toepassing om te worden preregistered op de tenant. 
-    >    Zie voor informatie over het registreren van toepassingen, de Azure AD B2C [aan de slag](active-directory-b2c-get-started.md) artikel of de [toepassingsregistratie](active-directory-b2c-app-registration.md) artikel.
+    >    **Nu uitvoeren** vereist ten minste één toepassing vooraf op de tenant worden geregistreerd. 
+    >    Zie voor meer informatie over het registreren van toepassingen, de Azure AD B2C [aan de slag](active-directory-b2c-get-started.md) artikel of de [toepassingsregistratie](active-directory-b2c-app-registration.md) artikel.
 
 
-2.  Open **B2C_1A_signup_signin**, de relying party (RP) aangepast-beleid die u hebt geüpload. Selecteer **nu uitvoeren**.
-3.  U moet zich aanmelden met Google + account.
+2.  Open **B2C_1A_signup_signin**, de relying party (RP) aangepast-beleid dat u hebt geüpload. Selecteer **nu uitvoeren**.
+3.  U moet aanmelden met Google +-account.
 
-## <a name="optional-register-the-google-account-claims-provider-to-profile-edit-user-journey"></a>[Optioneel] De Google + account claimprovider te bewerken van profielen gebruiker reis registreren
-U kunt de Google + account identiteitsprovider ook toevoegen aan uw gebruikers `ProfileEdit` traject van de gebruiker. Als u deze beschikbaar, herhaalt u de laatste twee stappen:
+## <a name="optional-register-the-google-account-claims-provider-to-profile-edit-user-journey"></a>[Optioneel] De Google + account claimprovider registreren om te bewerken van profielen gebruikersbeleving
+U kunt de Google + account id-provider ook toevoegen aan uw gebruikers `ProfileEdit` gebruikersbeleving. Om het beschikbaar maken, herhaalt u de laatste twee stappen:
 
 ### <a name="display-the-button"></a>De knop weergeven
-1.  Open het extensiebestand van uw beleid (bijvoorbeeld TrustFrameworkExtensions.xml).
-2.  Zoek de `<UserJourney>` knooppunt met `Id="ProfileEdit"` in het traject gebruiker die u hebt gekopieerd.
-3.  Zoek de `<OrchestrationStep>` knooppunt bevat `Order="1"`
-4.  Plaats de volgende XML-fragment onder `<ClaimsProviderSelections>` knooppunt:
+1.  Open het bestand uitbreiding van uw beleid (bijvoorbeeld TrustFrameworkExtensions.xml).
+2.  Zoek de `<UserJourney>` knooppunt met `Id="ProfileEdit"` in de gebruikersbeleving die u hebt gekopieerd.
+3.  Zoek de `<OrchestrationStep>` knooppunt met `Order="1"`
+4.  Voeg de volgende XML-fragment uit onder `<ClaimsProviderSelections>` knooppunt:
 
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
 ```
 
 ### <a name="link-the-button-to-an-action"></a>De knop koppelen aan een actie
-1.  Zoek de `<OrchestrationStep>` die omvat `Order="2"` in de `<UserJourney>` knooppunt.
-2.  Plaats de volgende XML-fragment onder `<ClaimsExchanges>` knooppunt:
+1.  Zoek de `<OrchestrationStep>` die bevat `Order="2"` in de `<UserJourney>` knooppunt.
+2.  Voeg de volgende XML-fragment uit onder `<ClaimsExchanges>` knooppunt:
 
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
 
-### <a name="upload-the-policy-to-your-tenant"></a>Het beleid uploaden naar uw tenant
+### <a name="upload-the-policy-to-your-tenant"></a>Uploaden van het beleid aan uw tenant
 1.  In de [Azure-portal](https://portal.azure.com), schakel over naar de [context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md), en open de **Azure AD B2C** blade.
-2.  Selecteer **identiteit ervaring Framework**.
+2.  Selecteer **Identity-Ervaringsframework**.
 3.  Open de **alle beleidsregels** blade.
-4.  Selecteer **uploaden beleid**.
-5.  Controleer de **het beleid overschreven als deze bestaat** vak.
+4.  Selecteer **beleid uploaden**.
+5.  Controleer de **het beleid overschrijven als deze bestaat** vak.
 6.  **Uploaden** TrustFrameworkExtensions.xml en zorg ervoor dat deze niet de validatie mislukt.
 
-### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Het aangepaste profiel bewerken beleid testen met behulp van nu uitvoeren
+### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Het aangepaste profiel bewerken-beleid testen met behulp van nu uitvoeren
 
-1.  Open **Azure AD B2C-instellingen** en Ga naar **identiteit ervaring Framework**.
-2.  Open **B2C_1A_ProfileEdit**, de relying party (RP) aangepast-beleid die u hebt geüpload. Selecteer **nu uitvoeren**.
-3.  U moet zich aanmelden met Google + account.
+1.  Open **Azure AD B2C-instellingen** en Ga naar **Identity-Ervaringsframework**.
+2.  Open **B2C_1A_ProfileEdit**, de relying party (RP) aangepast-beleid dat u hebt geüpload. Selecteer **nu uitvoeren**.
+3.  U moet aanmelden met Google +-account.
 
-## <a name="download-the-complete-policy-files"></a>De volledige beleidsbestanden downloaden
-Optioneel: We raden aan bouwen van uw scenario in plaats van deze voorbeeldbestanden met behulp van uw eigen aangepaste beleid bestanden na het voltooien van de aan de slag met aangepast beleid dat is doorlopen.  [Beleid voorbeeldbestanden voor verwijzing](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-goog-app)
+## <a name="download-the-complete-policy-files"></a>De volledige bestanden downloaden
+Optioneel: Wordt aangeraden bouwen van uw scenario met behulp van uw eigen aangepaste beleid bestanden na het voltooien van de aan de slag met aangepast beleid doorlopen in plaats van deze voorbeeldbestanden.  [Voorbeeld-beleidsbestanden ter referentie](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-goog-app)

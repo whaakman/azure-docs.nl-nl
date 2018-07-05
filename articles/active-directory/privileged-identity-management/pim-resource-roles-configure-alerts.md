@@ -1,52 +1,52 @@
 ---
 title: Beveiligingswaarschuwingen voor Azure-resources beheren met behulp van Privileged Identity Management | Microsoft Docs
-description: Beschrijft de PIM-beveiligingswaarschuwingen.
+description: Hierin wordt beschreven in PIM-beveiligingswaarschuwingen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 5d65201c8940e63e3ba514ae0a2dc8a247d7b859
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a773d5ae8ba07dc73cd2587039e2029ce50152d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233509"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444992"
 ---
 # <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Beveiligingswaarschuwingen voor Azure-resources beheren met behulp van Privileged Identity Management
-Privileged Identity Management (PIM) voor Azure-Resources genereert waarschuwingen wanneer er verdachte of unsafe activiteiten in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de pagina waarschuwingen. 
+Privileged Identity Management (PIM) voor Azure-Resources genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de pagina met waarschuwingen. 
 
-![pagina waarschuwingen](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![Pagina met waarschuwingen](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
 ## <a name="review-alerts"></a>Waarschuwingen weergeven
-Selecteer een waarschuwing voor een overzicht van een rapport met de gebruikers of rollen die de waarschuwing, samen met advies voor herstel is geactiveerd.
+Selecteer een waarschuwing om te zien van een rapport met de gebruikers of rollen die de waarschuwing, samen met herstel advies is geactiveerd.
 
-![Waarschuwingsrapport](media/azure-pim-resource-rbac/rbac-alert-info.png)
+![Rapport waarschuwingen](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Waarschuwingen
 | Waarschuwing | Severity | Trigger | Aanbeveling |
 | --- | --- | --- | --- |
-| **Te veel eigenaren toegewezen aan een resource** |Middelgroot |Te veel gebruikers hebben de rol van eigenaar. |Bekijk de gebruikers in de lijst en sommige aan minder bevoorrechte rollen toewijzen. |
-| **Te veel permanente eigenaar worden toegewezen aan een resource** |Middelgroot |Te veel gebruikers zijn permanent toegewezen aan een rol. |Bekijk de gebruikers in de lijst en sommige moeten worden geactiveerd voor rol opnieuw toewijzen. |
-| **Dubbele rol gemaakt** |Middelgroot |Meerdere rollen hebben dezelfde criteria. |Gebruik alleen een van deze rollen. |
+| **Te veel eigenaren toegewezen aan een resource** |Middelgroot |Te veel gebruikers hebben de rol van eigenaar. |Bekijk de gebruikers in de lijst en opnieuw toewijzen van enkele tot minder bevoorrechte rollen. |
+| **Te veel permanente eigenaren toegewezen aan een resource** |Middelgroot |Te veel gebruikers zijn definitief toegewezen aan een rol. |Bekijk de gebruikers in de lijst en sommige activering vereist voor gebruik van de rol opnieuw toewijzen. |
+| **Dubbele rol gemaakt** |Middelgroot |Meerdere rollen hebben dezelfde criteria. |Gebruik slechts één van deze rollen. |
 
 
 ### <a name="severity"></a>Severity
-* **Hoge**: directe actie is vereist vanwege een schending van het beleid. 
-* **Gemiddeld**: geen directe actie is vereist, maar geeft u een potentiële beleidsovertreding.
+* **Hoge**: direct actie vereist vanwege een schending van het beleid. 
+* **Gemiddeld**: geen directe actie is vereist, maar geeft een mogelijke schending van het beleid.
 * **Lage**: geen directe actie is vereist, maar stelt u een beleidswijziging van het gewenste.
 
-## <a name="configure-security-alert-settings"></a>Waarschuwing beveiligingsinstellingen configureren
-Ga op de pagina waarschuwingen naar **instellingen**.
+## <a name="configure-security-alert-settings"></a>Instellingen voor beveiligingswaarschuwingen configureren
+Op de pagina met waarschuwingen, gaat u naar **instellingen**.
 ![Instellingen](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
 
-Instellingen op de andere waarschuwingen werken met uw omgeving en beveiligingsdoelen aanpassen.
+Pas de instellingen op de verschillende waarschuwingen om te werken met uw omgeving en beveiligingsdoelen.
 ![Instellingen aanpassen](media/azure-pim-resource-rbac/rbac-alert-settings.png)

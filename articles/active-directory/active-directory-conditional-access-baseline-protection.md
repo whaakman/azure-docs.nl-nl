@@ -1,8 +1,8 @@
 ---
-title: Wat is de beveiliging van een basislijn van voorwaardelijke toegang van Azure Active Directory? -preview | Microsoft Docs
-description: Meer informatie over hoe basislijn beveiliging zorgt ervoor dat er ten minste de basisbeveiliging ingeschakeld in uw Azure Active Directory-omgeving.
+title: Wat is de beveiliging van een basislijn voor de voorwaardelijke toegang van Azure Active Directory? -preview | Microsoft Docs
+description: Meer informatie over hoe basisbeveiliging zorgt ervoor dat u ten minste het niveau van de basislijn van de beveiliging is ingeschakeld in uw Azure Active Directory-omgeving hebt.
 services: active-directory
-keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
+keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 86b57a82573760ac73975e851b2bb4caf769845b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1e7eb3a0098dc27b6f3c47d8d4848b2b9b5f7e61
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308557"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447537"
 ---
-# <a name="what-is-baseline-protection---preview"></a>Wat is basislijn beveiliging? -preview  
+# <a name="what-is-baseline-protection---preview"></a>Wat is de basislijn beveiliging? -preview  
 
-In het afgelopen jaar zijn aanvallen identiteit met 300% verhoogd. Om te voorkomen dat uw omgeving de steeds groter wordende aanvallen, introduceert Azure Active Directory (Azure AD) een nieuwe functie voor basislijn beveiliging genoemd. Beveiliging van de basislijn is een reeks vooraf gedefinieerde [beleidsregels voor voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md). Het doel van dit beleid is om ervoor te zorgen dat er ten minste het niveau van de basislijn van de beveiliging is ingeschakeld in alle edities van Azure AD. 
+In het afgelopen jaar hebben identiteitsaanvallen met 300% verhoogd. Ter bescherming van uw omgeving tegen de steeds groter wordende aanvallen, introduceert Azure Active Directory (Azure AD) een nieuwe functie voor basislijn beveiliging genoemd. Beveiliging van de basislijn is een set vooraf gedefinieerde [beleid voor voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md). Het doel van dit beleid is om ervoor te zorgen dat u ten minste het niveau van de basislijn van de beveiliging is ingeschakeld in alle edities van Azure AD. 
 
-In dit artikel biedt een overzicht van basislijn-beveiliging in Azure Active Directory.
+In dit artikel biedt een overzicht van de basislijn beveiliging in Azure Active Directory.
 
 
  
 ## <a name="require-mfa-for-admins"></a>MFA vereisen voor beheerders
 
-Gebruikers met toegang tot beschermde accounts hebben onbeperkte toegang tot uw omgeving. Als gevolg van de stroom die deze accounts hebt, moet u ze behandelen speciale zorgvuldig. Een veelgebruikte methode voor het verbeteren van de beveiliging van bevoorrechte accounts is zodat een sterkere vorm van verificatie van account is vereist wanneer ze worden gebruikt om aan te melden. In Azure Active Directory krijgt u een sterkere accountverificatie doordat multi-factor authentication (MFA).  
+Gebruikers met toegang tot beschermde accounts hebben onbeperkte toegang tot uw omgeving. Vanwege de stroom die deze accounts hebt, moet u ze behandelen met speciale aandacht. Een veelgebruikte methode voor het verbeteren van de beveiliging van bevoegde accounts is een sterkere vorm van verificatie-account vereist wanneer deze worden gebruikt om aan te melden. In Azure Active Directory krijgt u een sterkere accountverificatie doordat multi-factor authentication (MFA).  
 
-**MFA vereisen voor beheerders** is een baseline-beleid dat MFA is vereist voor de functies van de volgende map: 
+**MFA vereisen voor beheerders** is een baseline-beleid dat MFA voor de volgende maprollen vereist: 
 
 - Globale beheerder  
 
@@ -44,32 +44,32 @@ Gebruikers met toegang tot beschermde accounts hebben onbeperkte toegang tot uw 
 
 - Exchange-beheerder  
 
-- Voorwaardelijke toegang beheerder  
+- Voorwaardelijke-toegangsbeheerder  
 
 - Beveiligingsbeheerder  
 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-Deze basislijn-beleid biedt u de optie om gebruikers en groepen te sluiten. U mogelijk wilt uitsluiten van een *[EMS-access-Administrator-account](active-directory-admin-manage-emergency-access-accounts.md)* zodat u niet de tenant zijn vergrendeld.
+Dit beleid biedt u de optie om gebruikers en groepen te sluiten. U mogelijk wilt uitsluiten van een *[EMS-access-Administrator-account](users-groups-roles/directory-emergency-access.md)* om te controleren of u geen toegang tot de tenant zijn geblokkeerd.
 
 
-## <a name="enable-a-baseline-policy"></a>Een Basisbeleid inschakelen 
+## <a name="enable-a-baseline-policy"></a>Een beleid inschakelen 
 
-Basislijn beleidsregels zijn Preview-versie, zijn ze standaard niet geactiveerd. U moet een beleid handmatig inschakelen als u wilt activeren. Zodra deze functie is algemeen beschikbaar is bereikt, worden de beleidsregels zijn standaard ingeschakeld. De wijziging geplande gedrag is de reden waarom u bovendien activeren en deactiveren van een derde optie hebt om de status van een beleid ingesteld: **automatisch inschakelen in de toekomst beleid**. Als u deze optie selecteert, kunt u Microsoft bepalen wanneer een beleid activeren.      
+Basislijn-beleidsregels zijn beschikbaar als preview, zijn ze standaard niet geactiveerd. U moet handmatig een beleid inschakelen als u wilt activeren. Zodra deze functie de algemene beschikbaarheid bereikt heeft, worden de beleidsregels zijn standaard ingeschakeld. De wijziging geplande gedrag is de reden waarom u bovendien activeren en deactiveren van een derde optie hebt om de status van een beleid ingesteld: **automatisch inschakelen van beleid in de toekomst**. Als u deze optie selecteert, kunt u Microsoft bepalen wanneer u een beleid activeren.      
 
 
 **Een Basisbeleid inschakelen:**  
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als globale beheerder, beveiligingsbeheerder of beheerder voorwaardelijke toegang.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als hoofdbeheerder, beveiligingsbeheerder of beheerder van voorwaardelijke toegang.
 
-2. In de **Azure-portal**, klik op de navigatiebalk links, **Azure Active Directory**.
+2. In de **Azure-portal**, klik op de navigatiebalk links **Azure Active Directory**.
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. Op de **Azure Active Directory** pagina in de **beheren** sectie, klikt u op **voorwaardelijke toegang**.
+3. Op de **Azure Active Directory** pagina, in de **Security** sectie, klikt u op **voorwaardelijke toegang**.
 
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-baseline-protection/05.png)
 
 4. Klik in de lijst met beleidsregels op een beleid dat met begint **Basisbeleid:**. 
 
@@ -84,19 +84,19 @@ Basislijn beleidsregels zijn Preview-versie, zijn ze standaard niet geactiveerd.
 
 ## <a name="what-you-should-know"></a>Wat u moet weten 
 
-Het beheren van beleidsregels voor voorwaardelijke toegang aangepaste beschikt over een Azure AD Premium-licentie, zijn basislijn beleidsregels beschikbaar in alle edities van Azure AD.     
+Tijdens het beheren van beleid voor aangepaste voorwaardelijke toegang vereist een Azure AD Premium-licentie, zijn basislijn beleidsregels beschikbaar in alle edities van Azure AD.     
 
-De directory-functies die zijn opgenomen in het Basisbeleid zijn het meest bevoorrechte rollen voor Azure AD. 
+De directory-rollen die zijn opgenomen in het Basisbeleid zijn de meeste bevoegdheden Azure AD-rollen. 
 
-Als u accounts die worden gebruikt in uw scripts uitgebreide, vervangt u deze met [beheerde Service identiteit (MSI)](./managed-service-identity/overview.md) of [service-principals met certificaten](../azure-resource-manager/resource-group-authenticate-service-principal.md). Als tijdelijke oplossing kunt u specifieke gebruikersaccounts uitsluiten van het Basisbeleid. 
+Als u accounts die worden gebruikt in uw scripts uitgebreide, vervangt u deze met [Managed Service Identity (MSI)](./managed-service-identity/overview.md) of [service-principals met certificaten](../azure-resource-manager/resource-group-authenticate-service-principal.md). Als tijdelijke oplossing, kunt u specifieke gebruikersaccounts uitsluiten van het Basisbeleid. 
 
-Basislijn-beleid van toepassing op verouderde verificatie stroomt zoals POP, IMAP, oudere Office desktop client. 
+Basislijn-beleid van toepassing op verouderde verificatiestromen zoals POP, IMAP, oudere Office-bureaublad-client. 
 
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u weten hoe beleid voor voorwaardelijke toegang configureren wilt, Zie [aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
-Als u klaar om te configureren van beleidsregels voor voorwaardelijke toegang voor uw omgeving bent, Zie de [best practices voor voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

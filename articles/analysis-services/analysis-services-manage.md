@@ -5,66 +5,66 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a589a75c1d8c353c7e8dabc508904282e28cf371
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fa5eeaad6ec98bb7ce725e1bf4c977cb2d5398a6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597685"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448608"
 ---
 # <a name="manage-analysis-services"></a>Analyseservices beheren
-Als u een Analysis Services-server hebt gemaakt in Azure, worden sommige administratie en beheer taken moet u meteen of later opnieuw uitvoeren op de weg. Voer bijvoorbeeld verwerking naar de gegevens vernieuwen, bepalen wie toegang de modellen op uw server of controleren van de status van uw server. Bepaalde beheertaken kunnen alleen worden uitgevoerd in Azure-portal anderen in SQL Server Management Studio (SSMS), en sommige taken kunnen worden uitgevoerd op een.
+Wanneer u een Analysis Services-server in Azure hebt gemaakt, worden sommige administratie en beheer taken die u wilt uitvoeren van direct of enige tijd in de weg. Bijvoorbeeld uitvoeren om de gegevens vernieuwen, bepalen wie toegang tot de modellen op uw server, of bewaak de status van uw server. Bepaalde beheertaken kunnen alleen worden uitgevoerd in Azure portal voor anderen in SQL Server Management Studio (SSMS), en sommige taken kunnen worden uitgevoerd in een.
 
 ## <a name="azure-portal"></a>Azure Portal
-[Azure-portal](http://portal.azure.com/) is waar u kunt maken en verwijderen van servers, serverbronnen bewaken, grootte wijzigen en beheren wie toegang heeft tot uw servers.  Als u problemen ondervindt, kunt u ook een verzoek om ondersteuning te verzenden.
+[Azure-portal](http://portal.azure.com/) is waar u kunt maken en verwijderen van servers, bewaken van serverbronnen grootte wijzigen en beheren wie toegang heeft tot uw servers.  Als u problemen ondervindt, kunt u ook een ondersteuningsaanvraag indienen.
 
 ![Servernaam bepalen in Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
-Verbinding maken met uw server in Azure is net als de verbinding te maken met een exemplaar van de server in uw eigen organisatie. Van SSMS, kunt u veel van dezelfde taken zoals gegevens over het installatieproces uitvoeren of maken van een verwerkingsscript, rollen beheren en PowerShell gebruiken.
+Verbinding maken met uw server in Azure is net als bij verbinding maken met een server-exemplaar in uw eigen organisatie. Van SSMS, kunt u veel van dezelfde taken, zoals gegevens verwerken uitvoeren of maken van een verwerkingsscript, rollen beheren en PowerShell gebruiken.
   
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
 ### <a name="download-and-install-ssms"></a>Download en installeer SSMS
-Als u de nieuwste functies en de meest vloeiende ervaring bij het verbinden met uw Azure Analysis Services-server, moet u de nieuwste versie van SSMS. 
+Als u de nieuwste functies, samen met de meest vloeiende ervaring bij het verbinden met uw Azure Analysis Services-server, moet u de meest recente versie van SSMS. 
 
 [SQL Server Management Studio downloaden](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### <a name="to-connect-with-ssms"></a>Verbinding maken met SSMS
- Wanneer u SSMS, voordat u verbinding maakt met de server het eerst gebruikt, zorg er dan voor dat uw gebruikersnaam is opgenomen in de Analysis Services-beheerdersgroep. Zie voor meer informatie, [serverbeheerders](#server-administrators) verderop in dit artikel.
+ Wanneer met behulp van SSMS, voordat u verbinding maakt met uw server de eerste keer, zorg er dan voor dat uw gebruikersnaam is opgenomen in de Analysis Services-Admins-groep. Zie voor meer informatie, [serverbeheerders](#server-administrators) verderop in dit artikel.
 
-1. Voordat u verbinding maakt, moet u de naam van de server ophalen. In **Azure Portal** > server > **Overview** > **Servernaam**,kopieer de servernaam.
+1. Voordat u verbinding maakt, moet u de naam van de server. In **Azure Portal** > server > **Overview** > **Servernaam**,kopieer de servernaam.
    
     ![Servernaam bepalen in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. In SSMS > **Objectverkenner**, klikt u op **Connect** > **Analysis Services**.
+2. Klik in SSMS > **Objectverkenner** op **Verbinding maken** > **Analysis Services**.
 3. In de **verbinding maken met Server** in het dialoogvenster Plakken in de naam van de server vervolgens in **verificatie**, kies een van de volgende verificatietypen:   
     > [!NOTE]
     > Verificatietype, **Active Directory - Universal met ondersteuning voor MFA**, wordt aanbevolen.
 
     > [!NOTE]
-    > Als u zich aanmeldt met een Microsoft-Account, Live ID, Yanoo, Gmail, enz., laat u het wachtwoordveld leeg. U wordt gevraagd om een wachtwoord als u op verbinden klikt.
+    > Als u zich aanmeldt met een Microsoft-Account, Live ID, Yanoo, Gmail, enz., laat u het wachtwoordveld leeg. U wordt gevraagd om een wachtwoord na op verbinden te klikken.
 
     **Windows-verificatie** om uw Windows-referenties voor domein\gebruikersnaam en het wachtwoord te gebruiken.
 
-    **Active Directory-wachtwoordverificatie** om een organisatie-account te gebruiken. Bijvoorbeeld, wanneer verbinding maakt vanaf een niet-domein lid zijn van computer.
+    **Active Directory-wachtwoordverificatie** gebruik van een organisatie-account. Bijvoorbeeld, wanneer verbinding maakt vanaf een niet-domein toegevoegde computer.
 
     **Active Directory - Universal met ondersteuning voor MFA** gebruiken [niet-interactieve of multi-factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![Verbinding maken in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
-## <a name="server-administrators-and-database-users"></a>Serverbeheerders en databasegebruikers
-Er zijn twee typen van gebruikers, beheerders en databasegebruikers in Azure Analysis Services. Beide typen gebruikers, moeten in uw Azure Active Directory en moeten worden opgegeven met de organisatie-e-mailadres of de UPN. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
+## <a name="server-administrators-and-database-users"></a>Server-beheerders en databasegebruikers
+Er zijn twee typen van gebruikers, beheerders en databasegebruikers in Azure Analysis Services. Beide typen gebruikers moeten zich in uw Azure Active Directory en moeten worden opgegeven met organisatie-e-mailadres of UPN. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
 
 
-## <a name="troubleshooting-connection-problems"></a>Het oplossen van problemen met de verbinding
-Wanneer u verbinding maakt met behulp van SSMS, als u op problemen stuit, moet u wellicht de aanmeldings-cache wissen. Niets in cache wordt opgeslagen op schijf. Schakel de cache, sluiten en opnieuw starten van het proces connect. 
+## <a name="troubleshooting-connection-problems"></a>Het oplossen van verbindingsproblemen
+Wanneer u verbinding maakt met behulp van SSMS, als u problemen ondervindt, moet u mogelijk de aanmeldings-cache wissen. Niets in cache is opgeslagen op schijf. Als u wilt wissen in de cache, sluiten en de verbinding maken met het proces opnieuw starten. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u dit nog niet hebt al een model in tabelvorm geïmplementeerd naar de nieuwe server, is een goed moment. Zie [Implementeren naar Azure Analysis Services](analysis-services-deploy.md) voor meer informatie.
+Als u hebt al een tabellair model geïmplementeerd naar uw nieuwe server, is nu een goed moment. Zie [Implementeren naar Azure Analysis Services](analysis-services-deploy.md) voor meer informatie.
 
-Als u een model hebt geïmplementeerd met de server, bent u klaar om te verbinden met met behulp van een client of de browser. Zie voor meer informatie, [gegevens ophalen uit Azure Analysis Services-server](analysis-services-connect.md).
+Als u een model hebt geïmplementeerd op uw server, bent u klaar om te verbinden met behulp van een client of de browser. Zie voor meer informatie, [gegevens ophalen uit Azure Analysis Services-server](analysis-services-connect.md).
 

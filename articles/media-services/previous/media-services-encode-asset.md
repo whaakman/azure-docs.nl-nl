@@ -1,6 +1,6 @@
 ---
-title: Overzicht en een vergelijking van Azure op aanvraag media encoders | Microsoft Docs
-description: In dit onderwerp biedt een overzicht en een vergelijking van Azure op aanvraag media coderingsprogramma's.
+title: Overzicht en vergelijking van Azure op media coderingsprogramma | Microsoft Docs
+description: Dit onderwerp bevat een overzicht en vergelijking van Azure op aanvraag media coderingsprogramma's.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,74 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.openlocfilehash: 6e44cff930f943f5cf30fb5335ad6a7fd1d08ab5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f44f5cffd105d958c7d6552a170150623a0701ea
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34638448"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Overzicht en een vergelijking van Azure op aanvraag media coderingsprogramma 's
-## <a name="encoding-overview"></a>Overzicht van de codering
-Azure Media Services biedt meerdere opties voor de codering van media in de cloud.
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Overzicht en vergelijking van Azure op de media-coderingsprogramma
+## <a name="encoding-overview"></a>Overzicht van versleuteling
+Azure Media Services biedt meerdere opties voor de versleuteling van media in de cloud.
 
-Wanneer u begint met Media Services, is het belangrijk om het verschil tussen codecs en bestandsindelingen.
-Codecs zijn de software die u de algoritmen compressie/decompressie implementeert dat bestandsindelingen zijn containers waarin de gecomprimeerde video.
+Wanneer u begint met Media Services, is het belangrijk dat u het verschil tussen codecs en bestandsindelingen.
+Codecs zijn de software die de algoritmen compressie/decompressie implementeert dat bestandsindelingen zijn containers waarin de gecomprimeerde video.
 
-Media Services biedt dynamische pakketten zodat u uw adaptive bitrate MP4- of Smooth Streaming gecodeerde inhoud kunt in de streaming-indelingen die worden ondersteund door Media Services (MPEG DASH, HLS, Smooth Streaming) leveren zonder dat u opnieuw verpakken in een van deze streaming-indelingen hoeft.
+Media Services biedt dynamische pakketten waarmee u uw adaptive bitrate MP4- of Smooth Streaming gecodeerde inhoud in de streaming-indelingen die worden ondersteund door Media Services (MPEG DASH, HLS, Smooth Streaming) leveren zonder dat u hoeft op te opnieuw in een van deze streaming-indelingen.
 
->[!NOTE]
->Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. Om te profiteren van [dynamische pakketten](media-services-dynamic-packaging-overview.md), moet u het volgende doen:
->
->Bovendien moet u uw bronbestand coderen in een set adaptive bitrate MP4-bestanden of adaptive bitrate Smooth Streaming-bestanden (de coderingsstappen worden verderop in deze zelfstudie uitgelegd).
+> [!NOTE]
+> Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
 
-Media Services ondersteunt de volgende op aanvraag coderingsprogramma's die worden beschreven in dit artikel:
+Media Services ondersteunt de volgende op aanvraag coderingsprogramma's die in dit artikel worden beschreven:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 * [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Dit artikel bevat een kort overzicht van op verzoek media coderingsprogramma's en koppelingen naar artikelen waarmee u meer gedetailleerde informatie. Het onderwerp bevat ook een vergelijking van het coderingsprogramma's.
+In dit artikel biedt een kort overzicht van de on-demand media coderingsprogramma's en vindt u koppelingen naar artikelen met meer gedetailleerde informatie. Het onderwerp bevat ook een vergelijking van het coderingsprogramma's.
 
 >[!NOTE]
->Standaard hebben elke Media Services-account een actieve codering taak tegelijk. U kunt codering eenheden waarmee u kunt meerdere codering taken gelijktijdig uitgevoerd, één voor elke codering gereserveerde eenheid aankoop reserveren. Zie voor informatie [codering eenheden schalen](media-services-scale-media-processing-overview.md).
+>Standaard kan elke Media Services-account een actieve coderingstaak tegelijk hebben. Encoding-eenheden waarmee u kunt meerdere coderingstaken gelijktijdig worden uitgevoerd, één voor elke codering gereserveerde eenheid die u koopt hebt, kunt u reserveren. Zie voor meer informatie, [encoding-eenheden schalen](media-services-scale-media-processing-overview.md).
 
 ## <a name="media-encoder-standard"></a>Media Encoder Standard
 ### <a name="how-to-use"></a>Gebruiksinstructies
-[Het coderen met Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
+[Coderen met Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
 ### <a name="formats"></a>Indelingen
-[Indelingen en codecs](media-services-media-encoder-standard-formats.md)
+[Indelingen en codecs voor](media-services-media-encoder-standard-formats.md)
 
-### <a name="presets"></a>Standaardinstellingen
-Media Encoder Standard is geconfigureerd met een van de encoder standaardinstellingen beschreven [hier](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+### <a name="presets"></a>Voorinstellingen
+Media Encoder Standard is geconfigureerd met behulp van een van de encoder voorinstellingen beschreven [hier](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Invoer en uitvoer van metagegevens
-De invoer metagegevens coderingsprogramma's wordt beschreven [hier](media-services-input-metadata-schema.md).
+De metagegevens van de invoer van de coderingsprogramma's wordt beschreven [hier](media-services-input-metadata-schema.md).
 
 De metagegevens van de uitvoer coderingsprogramma's wordt beschreven [hier](media-services-output-metadata-schema.md).
 
-### <a name="generate-thumbnails"></a>Genereren van miniaturen
-Zie voor informatie [het genereren van miniaturen met Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
+### <a name="generate-thumbnails"></a>Miniatuurweergaven genereren
+Zie voor meer informatie, [hoe miniatuurweergaven genereren met Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
 
-### <a name="trim-videos-clipping"></a>Trim video's (paginaknipsel)
-Zie voor informatie [hoe video's met Media Encoder Standard trim](media-services-advanced-encoding-with-mes.md#trim_video).
+### <a name="trim-videos-clipping"></a>Trim video's (knippen)
+Zie voor meer informatie, [hoe u video's met Media Encoder Standard trim](media-services-advanced-encoding-with-mes.md#trim_video).
 
 ### <a name="create-overlays"></a>Overlays maken
-Zie voor informatie [maken met behulp van Media Encoder Standard overlays](media-services-advanced-encoding-with-mes.md#overlay).
+Zie voor meer informatie, [over het maken van overlays met Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
 
 ### <a name="see-also"></a>Zie ook
 [De Media Services-blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Media Encoder Premium Workflow
 ### <a name="overview"></a>Overzicht
-[Inleiding tot Premium codering in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
+[Introductie van Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ### <a name="how-to-use"></a>Gebruiksinstructies
-Werkstroom voor Media Encoder Premium is geconfigureerd met behulp van complexe werkstromen. Werkstroombestanden kan worden gemaakt en bijgewerkt met de [Workflow Designer](media-services-workflow-designer.md) hulpprogramma.
+Media Encoder Premium Workflow is geconfigureerd met behulp van complexe werkstromen. Werkstroombestanden kan worden gemaakt en bijgewerkt met de [Workflow Designer](media-services-workflow-designer.md) hulpprogramma.
 
-[Het gebruik van Premium codering in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+[Het gebruik van Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>Bekende problemen
-Als uw invoervideo geen bevat nog ondertiteling, de uitvoer van de Asset bevatten steeds een leeg TTML-bestand.
+Als uw invoervideo geen bevat bevat ondertiteling, de uitvoer Asset nog steeds een leeg TTML-bestand.
 
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
@@ -91,8 +90,8 @@ Als uw invoervideo geen bevat nog ondertiteling, de uitvoer van de Asset bevatte
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Verwante artikelen:
-* [Geavanceerde codering taken uitvoeren met Media Encoder Standard standaardinstellingen aanpassen](media-services-custom-mes-presets-with-dotnet.md)
-* [Quota's en beperkingen](media-services-quotas-and-limitations.md)
+* [Geavanceerde codering taken uitvoeren door aan te passen voorinstellingen voor Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
+* [Quota en beperkingen](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/

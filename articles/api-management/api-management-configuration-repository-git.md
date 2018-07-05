@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 7342e0fe69cf3c82ec82bf1a864e7325449fff22
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 87381a27a59d6719f4bfff9ed367598932c1985c
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342249"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436400"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met behulp van Git
 
@@ -226,7 +226,7 @@ De `apis` een map bevat voor elke API in de service-exemplaar dat de volgende it
 ### <a name="groups-folder"></a>map groepen
 De `groups` map bevat een map voor elke groep die is gedefinieerd in het service-exemplaar.
 
-* `groups\<group name>\configuration.json` -Dit is de configuratie voor de groep. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifieke groep](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) bewerking.
+* `groups\<group name>\configuration.json` -Dit is de configuratie voor de groep. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifieke groep](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) bewerking.
 * `groups\<group name>\description.html` -Dit is de beschrijving van de groep en komt overeen met de `description` eigenschap van de [groep entiteit](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### <a name="policies-folder"></a>map beleid
@@ -246,7 +246,7 @@ De `portalStyles` map bevat configuratie- en opmaakmodellen voor developer porta
 ### <a name="products-folder"></a>producten map
 De `products` map bevat een map voor elk product dat is gedefinieerd in het service-exemplaar.
 
-* `products\<product name>\configuration.json` -Dit is de configuratie voor het product. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifiek product](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) bewerking.
+* `products\<product name>\configuration.json` -Dit is de configuratie voor het product. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifiek product](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) bewerking.
 * `products\<product name>\product.description.html` -Dit is de beschrijving van het product en komt overeen met de `description` eigenschap van de [productenentiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) in de REST-API.
 
 ### <a name="templates"></a>sjablonen

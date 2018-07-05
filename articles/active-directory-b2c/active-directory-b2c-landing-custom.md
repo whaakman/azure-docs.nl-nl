@@ -1,23 +1,23 @@
 ---
-title: Aangepast beleid voor Azure Active Directory B2C | Microsoft Docs
-description: Consumententoepassingen met Azure Active Directory B2C met behulp van aangepast beleid ontwikkelen.
+title: Aangepaste beleidsregels van Azure Active Directory B2C | Microsoft Docs
+description: Het ontwikkelen van consumententoepassingen met Azure Active Directory B2C aangepast beleid gebruiken.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0a22731f5e047a29e1b9287c6e89b1dc37291f3a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 26469d735d7165e8b21665df6c169bc4668d8a5a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712348"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440515"
 ---
-# <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Aanmelden en meld u aan gebruikers in uw toepassingen met behulp van aangepast beleid in Azure Active Directory B2C
+# <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Registreren en aanmelden bij de consumenten in uw toepassingen via aangepast beleid in Azure Active Directory B2C
 
 Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van uw Azure AD B2C-tenant definiëren. Ze kunnen volledig worden bewerkt door een identiteitsontwikkelaar om een bijna onbeperkt aantal taken te voltooien.
 

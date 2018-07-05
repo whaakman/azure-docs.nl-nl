@@ -1,10 +1,10 @@
 ---
 title: Ondersteuning voor AppSource | Azure
-description: Ondersteuning voor informatie en koppelingen voor AppSource.
+description: Informatie over ondersteuning en koppelingen naar AppSource.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: ''
 ms.service: marketplace
@@ -12,26 +12,26 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: b2ca55456a735a19f4739b20d7c7530efc357621
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 447453abb59507e0f3a8505410ceb52640914f22
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825119"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436573"
 ---
 # <a name="support-for-appsource"></a>Ondersteuning voor AppSource  
 De ondersteuningsopties voor AppSource.  
 
 ## <a name="technical"></a>Technisch  
 
-| Kanaal voor ondersteuning | Beschrijving |  
+| Ondersteuning van kanaal | Beschrijving |  
 |:--- |:--- |  
-| MSDN-formulieren: Azure Active Directory vinden op [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "Azure AD in de MSDN-forums") | Microsoft Developer Network-forum. |  
-| StackOverflow: Azure Active Directory vinden op [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "Azure AD op stackoverflow") | Stack Overflow-omgeving om oplossingen en vragen over alles met betrekking tot Azure Active Directory (Azure AD). |  
+| MSDN-formulieren: Azure Active Directory dat zich bevindt in [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "Azure AD in de MSDN-forums") | Forum voor Microsoft Developer Network. |  
+| StackOverflow: Azure Active Directory dat zich bevindt in [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "Azure AD op stackoverflow") | Stack Overflow-omgeving zodanig dat deze oplossingen en vragen over alles met betrekking tot Azure Active Directory (Azure AD). |  
 
 ## <a name="next-steps"></a>Volgende stappen
-*   Ga naar de [AppSource Publisher handleiding en Azure Marketplace](./marketplace-publishers-guide.md) pagina.  
+Ga naar de [Azure Marketplace en AppSource Uitgevershandleiding voor](./marketplace-publishers-guide.md) pagina.  
  
 ---  

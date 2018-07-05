@@ -1,31 +1,31 @@
 ---
-title: Een model in tabelvorm maken met behulp van de ontwerpfunctie Azure Analysis Services-webserver | Microsoft Docs
-description: Informatie over het maken van een model in tabelvorm Azure Analysis Services met behulp van de ontwerpfunctie voor webpagina's in Azure-portal.
+title: Een tabellair model maken met behulp van de Azure Analysis Services-Web designer | Microsoft Docs
+description: Informatie over het maken van een tabellair model van Azure Analysis Services met behulp van de Web designer in Azure portal.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 443549b9456d8e7d29e807fb00a9f25be00e6faa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 17ff6ebed615971b4157831431d9e2395ca68b48
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597838"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441672"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Een model maken in Azure portal
 
-De functie designer (preview) Azure Analysis Services in Azure-portal biedt een snelle en gemakkelijke manier om te maken en bewerken van modellen in tabelvorm en query model direct in uw browser. 
+De functie Azure Analysis Services web designer (preview) in Azure portal biedt een snelle en eenvoudige manier om te maken en bewerken van modellen in tabelvorm en query uitvoeren op model gegevens rechtstreeks in uw browser. 
 
-Houd er rekening mee, de ontwerpfunctie web **preview**. Functionaliteit is beperkt. Voor meer geavanceerde model ontwikkelen en testen is het aanbevolen gebruik van Visual Studio (SSDT) en SQL Server Management Studio (SSMS).
+Houd er rekening mee, is de webdesigner **preview**. Functionaliteit is beperkt. Voor meer geavanceerde model ontwikkelen en testen is het raadzaam het gebruik van Visual Studio (SSDT) en SQL Server Management Studio (SSMS).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-- Een Azure Analysis Services-server op de categorie Standard of ontwikkelaar. Nieuwe modellen die zijn gemaakt met behulp van de ontwerpfunctie Web zijn DirectQuery, wordt alleen ondersteund door deze lagen.
-- Een Azure SQL Database, Azure SQL Data Warehouse of Power BI Desktop (pbix)-bestand als een gegevensbron. Nieuwe modellen gemaakt op basis van Power BI Desktop-ondersteuning voor Azure SQL Database en Azure SQL Data Warehouse.
-- Een SQL Server-account en wachtwoord voor het verbinden met Azure SQL Database- of Azure SQL Data Warehouse-gegevensbronnen.
+- Een Azure Analysis Services-server op de laag Standard- of -ontwikkelaar. Nieuwe modellen die zijn gemaakt met behulp van de Web designer zijn DirectQuery, alleen ondersteund door deze lagen.
+- Een Azure SQL Database, Azure SQL Data Warehouse of Power BI Desktop (.pbix)-bestand als een gegevensbron. Nieuwe modellen die zijn gemaakt op basis van Power BI Desktop-ondersteuning voor Azure SQL Database en Azure SQL Data Warehouse.
+- Een SQL Server-account en wachtwoord om verbinding te maken met Azure SQL Database of Azure SQL Data Warehouse-gegevensbronnen.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
@@ -43,27 +43,27 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 3. In **nieuw model**, typ de modelnaam van een en selecteer vervolgens een gegevensbron.
 
-    ![Dialoogvenster voor nieuwe model in Azure-portal](./media/analysis-services-create-model-portal/aas-create-portal-new-model.png)
+    ![Dialoogvenster voor nieuw model in Azure portal](./media/analysis-services-create-model-portal/aas-create-portal-new-model.png)
 
-4. In **Connect**, geeft u de verbindingseigenschappen. Gebruikersnaam en het wachtwoord moet een SQL Server-serviceaccount.
+4. In **Connect**, voer de verbindingseigenschappen. Gebruikersnaam en het wachtwoord moet een SQL Server-serviceaccount.
 
-     ![Verbinding maken met het dialoogvenster in Azure-portal](./media/analysis-services-create-model-portal/aas-create-portal-connect.png)
+     ![Verbinding maken met het dialoogvenster in Azure portal](./media/analysis-services-create-model-portal/aas-create-portal-connect.png)
 
-5. In **tabellen en weergaven**, selecteer de tabellen voor opname in het model en klik vervolgens op **maken**. Relaties worden automatisch gemaakt tussen de tabellen met een sleutelpaar.
+5. In **tabellen en weergaven**, selecteer de tabellen in een model opneemt, en klik vervolgens op **maken**. Relaties worden automatisch gemaakt tussen de tabellen met een sleutelpaar.
 
-     ![Selecteer tabellen en weergaven](./media/analysis-services-create-model-portal/aas-create-portal-tables.png)
+     ![Tabellen en weergaven selecteren](./media/analysis-services-create-model-portal/aas-create-portal-tables.png)
 
-Het nieuwe model wordt weergegeven in uw browser. U kunt hier:   
+Het nieuwe model wordt weergegeven in uw browser. Hier kunt u het volgende doen:   
 
-- De model-gegevens opvragen door velden naar de ontwerpfunctie voor query's te slepen en filters toe te voegen.
-- Nieuwe maatregelen in tabellen maken.
+- Modelgegevens op te vragen door velden naar de ontwerpfunctie voor query's te slepen en filters toe te voegen.
+- Maak nieuwe metingen in tabellen.
 - De metagegevens van model bewerken met behulp van de json-editor.
 - Open het model in Visual Studio (SSDT), Power BI Desktop of Excel.
 
-![Selecteer tabellen en weergaven](./media/analysis-services-create-model-portal/aas-create-portal-query.png)
+![Tabellen en weergaven selecteren](./media/analysis-services-create-model-portal/aas-create-portal-query.png)
 
 > [!NOTE]
-> Wanneer u modelmetagegevens bewerken of maken van nieuwe maatregelen in uw browser, opslaat u deze wijzigingen aan uw model in Azure. Als u op het model in SSDT, Power BI Desktop of Excel werkt, kan het model niet meer synchroon.
+> Wanneer u de metagegevens van model bewerken of maken van nieuwe metingen in uw browser, kunt u deze wijzigingen wilt opslaan aan uw model in Azure. Als u ook aan uw model in SSDT, Power BI Desktop of Excel werkt, is uw model krijgt niet gesynchroniseerd.
 
 
 ## <a name="next-steps"></a>Volgende stappen 

@@ -1,102 +1,107 @@
 ---
-title: 'Azure Storage-Service: versleuteling voor gegevens in rust | Microsoft Docs'
-description: 'De functie Azure Storage-Service: versleuteling gebruiken voor het versleutelen van Azure Blob-opslag aan de kant van de service bij het opslaan van de gegevens en bij het ophalen van de gegevens worden gedecodeerd.'
+title: Azure Storage-Serviceversleuteling voor Data-at-Rest | Microsoft Docs
+description: De functie Azure Storage-Serviceversleuteling gebruiken voor het versleutelen van Azure Blob-opslag aan de servicezijde bij het opslaan van de gegevens en bij het ophalen van de gegevens ontsleutelen.
 services: storage
 author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 06/12/2018
 ms.author: lakasa
-ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d469dfb5092f1269a6600ee8ee2f81778fd83b96
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449927"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service-versleuteling voor inactieve gegevens
 
-Azure Storage-versleuteling voor gegevens in rust kunt u uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verbintenissen beschermen. Met deze functie wordt Azure Storage automatisch de gegevens versleuteld voordat behouden blijven van Azure Storage en ontsleutelt de gegevens voordat ophalen. De verwerking van versleuteling en versleuteling op rest, ontsleuteling en sleutelbeheer in Storage-Service: versleuteling is transparant voor gebruikers. Alle gegevens geschreven naar Azure Storage worden versleuteld via 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de sterkste blok coderingen beschikbaar.
+Azure Storage-Serviceversleuteling voor Data-at-Rest kunt u uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen beveiligen. Met deze functie wordt door Azure Storage automatisch uw gegevens worden versleuteld voordat deze persistent te maken met Azure Storage en ontsleutelt de gegevens voor het ophalen van. De verwerking van versleuteling en versleuteling-at-rest, ontsleuteling en sleutelbeheer in Storage Service-versleuteling is transparant voor gebruikers. Alle gegevens die zijn geschreven naar Azure Storage worden versleuteld met 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.
 
-Storage-Service: versleuteling is ingeschakeld voor alle nieuwe en bestaande opslagaccounts en kan niet worden uitgeschakeld. Omdat uw gegevens zijn standaard beveiligd, hoeft u niet te wijzigen van uw code of toepassingen kunnen profiteren van de versleuteling van de opslagruimte.
+Storage-Serviceversleuteling is ingeschakeld voor alle nieuwe en bestaande opslagaccounts en kan niet worden uitgeschakeld. Omdat uw gegevens beveiligd standaard, hoeft u niet te wijzigen van uw code of toepassingen om te profiteren van Storage Service Encryption.
 
 De functie versleutelt automatisch gegevens in:
 
 - Beide prestatielagen (standaard en Premium).
-- Beide implementatiemodellen (Azure Resource Manager en classic).
+- Beide implementatiemodellen (Azure Resource Manager en klassiek).
 - Alle Azure Storage-services (Blob storage, Queue storage, Table storage en Azure-bestanden). 
 
-Versleuteling van opslag-Service heeft geen invloed op prestaties van de Azure-opslag.
+Storage-Serviceversleuteling heeft geen invloed op prestaties van Azure Storage.
 
-U kunt Microsoft beheerde versleutelingssleutels versleuteling van de opslagruimte of kunt u uw eigen versleutelingssleutels. Zie voor meer informatie over het gebruik van uw eigen sleutels [Service versleuteling van opslag met behulp van de klant beheerd sleutels in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+U kunt Microsoft beheerde sleutels gebruiken met Storage Service Encryption of kunt u uw eigen versleutelingssleutels. Zie voor meer informatie over het gebruik van uw eigen sleutels [Storage Service Encryption door de klant beheerde sleutels in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
-## <a name="view-encryption-settings-in-the-azure-portal"></a>Versleutelingsinstellingen voor weergave in de Azure portal
+## <a name="view-encryption-settings-in-the-azure-portal"></a>Versleutelingsinstellingen voor weergave in de Azure-portal
 
-Als u wilt weergeven van instellingen voor de versleuteling van de opslagruimte, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer een opslagaccount. In de **instellingen** deelvenster, selecteer de **versleuteling** instelling.
+Als u wilt weergeven van instellingen voor versleuteling voor opslagservice, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer een opslagaccount. In de **instellingen** venster de **versleuteling** instelling.
 
-![Portal schermafbeelding van de instelling voor wachtwoordversleuteling](./media/storage-service-encryption/image1.png)
+![Portal schermopname die laat zien hoe de versleutelingsinstelling](./media/storage-service-encryption/image1.png)
 
-## <a name="faq-for-storage-service-encryption"></a>Veelgestelde vragen over de versleuteling van opslag-Service
+## <a name="faq-for-storage-service-encryption"></a>Veelgestelde vragen over de Storage-Serviceversleuteling
 
-**V: ik heb een klassieke storage-account. Kan ik versleuteling van de opslagruimte op het inschakelen?**
+**V: ik heb een klassiek opslagaccount. Kan ik versleuteling voor opslagservice erop inschakelen?**
 
-A: Storage-Service: versleuteling is standaard ingeschakeld voor alle opslagaccounts (klassiek en Resource Manager).
+A: Storage-Serviceversleuteling is ingeschakeld voor alle opslagaccounts (klassiek en Resource Manager).
 
-**V: hoe kan ik gegevens coderen in mijn klassieke storage-account?**
+**V: hoe kan ik gegevens versleutelen in mijn klassieke storage-account?**
 
-A: met versleuteling is standaard ingeschakeld, versleutelt Azure Storage automatisch de nieuwe gegevens. 
+A: met versleuteling standaard ingeschakeld, worden uw nieuwe gegevens automatisch versleuteld door Azure Storage. 
 
-**V: ik heb een Resource Manager-opslagaccount. Kan ik versleuteling van de opslagruimte op het inschakelen?**
+**V: ik heb een Resource Manager-opslagaccount. Kan ik versleuteling voor opslagservice erop inschakelen?**
 
-A: storage-Service: versleuteling is standaard ingeschakeld op alle bestaande opslagaccounts van Resource Manager. Dit wordt ondersteund voor Blob storage, Table storage, Queue storage en Azure-bestanden. 
+A: storage Service Encryption is standaard ingeschakeld op alle bestaande Resource Manager-opslagaccounts. Dit wordt ondersteund voor Blob storage, Table storage, Queue storage en Azure Files. 
 
-**V: hoe de gegevens in een opslagaccount van Resource Manager versleutelen?**
+**V: hoe ik de gegevens in een Resource Manager-opslagaccount versleutelen?**
 
-A: Storage-Service: versleuteling is standaard ingeschakeld voor alle opslagaccounts--klassieke en het Resource Manager worden alle bestaande bestanden in de storage-account maken voordat de versleuteling is ingeschakeld wordt met terugwerkende kracht ophalen versleuteld met een achtergrondproces voor versleuteling.
+A: Storage-Serviceversleuteling is ingeschakeld voor alle opslagaccounts--klassieke en Resource Manager worden alle bestaande bestanden in de storage-account hebt gemaakt voordat versleuteling werd ingeschakeld wordt met terugwerkende kracht versleuteld met behulp van een achtergrondproces voor versleuteling.
 
-**V: kan ik storage-accounts maken met de versleuteling van opslag-Service is ingeschakeld met behulp van Azure PowerShell en Azure CLI**
+**V: kan ik storage-accounts maken met de Storage-Serviceversleuteling is ingeschakeld met behulp van Azure PowerShell en Azure CLI**
 
-A: Storage-Service: versleuteling is standaard ingeschakeld op het moment van het maken van een opslagaccount (klassieke of Resource Manager). U kunt eigenschappen van account controleren met behulp van zowel Azure PowerShell en Azure CLI.
+A: Storage Service Encryption is standaard ingeschakeld op het moment van het maken van een opslagaccount (klassiek of Resource Manager). U kunt de eigenschappen van account controleren met behulp van zowel Azure PowerShell en Azure CLI.
 
-**V: hoe veel meer kost Azure Storage als versleuteling van opslag-Service is ingeschakeld?**
+**V: hoe veel meer kost Azure Storage als de Storage-Serviceversleuteling is ingeschakeld?**
 
-A: Er is geen extra kosten.
+Antwoord: Er is geen extra kosten.
 
 **V: kan ik mijn eigen versleutelingssleutels gebruiken?**
 
-A: Ja, kunt u uw eigen versleutelingssleutels. Zie voor meer informatie [Service versleuteling van opslag met behulp van de klant beheerd sleutels in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+A: Ja, kunt u uw eigen versleutelingssleutels. Zie voor meer informatie, [Storage Service Encryption door de klant beheerde sleutels in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
-**V: kan ik de toegang tot de versleutelingssleutels intrekken?**
+**V: kan ik toegang tot de versleutelingssleutels intrekken?**
 
-A: Ja, als u [gebruik van uw eigen versleutelingssleutels](storage-service-encryption-customer-managed-keys.md) in Azure Sleutelkluis.
+A: Ja, als u [gebruik uw eigen versleutelingssleutels](storage-service-encryption-customer-managed-keys.md) in Azure Key Vault.
 
-**V: is de versleuteling van opslag-Service is standaard ingeschakeld wanneer ik een opslagaccount maken?**
+**Vraag: is Storage Service Encryption is standaard ingeschakeld wanneer ik een opslagaccount maken?**
 
-A: Ja, versleuteling van de opslagruimte standaard voor alle opslagaccounts en voor alle Azure Storage-services is ingeschakeld.
+A: Ja, Storage-Serviceversleuteling is ingeschakeld voor alle opslagaccounts en voor alle Azure Storage-services.
 
-**V: hoe verschilt dit van Azure Disk Encryption?**
+**V: Wat is dit verschil met Azure Disk Encryption?**
 
-A: azure Disk Encryption wordt gebruikt voor het versleutelen van besturingssysteem en gegevensschijven in IaaS VM's. Zie voor meer informatie de [opslag beveiligingshandleiding](../storage-security-guide.md).
+A: azure Disk Encryption wordt gebruikt voor het versleutelen van besturingssysteem en gegevensschijven in IaaS-VM's. Zie voor meer informatie de [Storage-beveiligingshandleiding](../storage-security-guide.md).
 
-**V: Wat gebeurt er als ik Azure Disk Encryption in mijn gegevensschijven inschakelen?**
+**V: Wat gebeurt er als ik Azure Disk Encryption inschakelen op de gegevensschijven van mijn?**
 
-A: dit werkt naadloos. Beide methoden worden uw gegevens te versleutelen.
+A: deze werkt naadloos. Beide methoden wordt uw gegevens te versleutelen.
 
-**V: Mijn storage-account is ingesteld geo-redundante worden gerepliceerd. Met Storage-Service Encryption mijn redundante kopie ook worden versleuteld?**
+**V: Mijn storage-account is ingesteld om geo-redundante worden gerepliceerd. Met Storage Service Encryption wordt mijn redundante kopie ook worden versleuteld?**
 
-A: Ja, alle exemplaren van het opslagaccount zijn versleuteld. Alle redundantie opties worden ondersteund--lokaal redundante opslag, zone-redundante opslag, geografisch redundante opslag en geografisch redundante opslag met leestoegang.
+A: Ja, alle exemplaren van het opslagaccount zijn versleuteld. Alle redundantie opties worden ondersteund: lokaal redundante opslag, zone-redundante opslag, geografisch redundante opslag en geografisch redundante opslag met leestoegang.
 
 **V: kan ik versleuteling uitschakelen op mijn storage-account?**
 
-A: versleuteling is standaard ingeschakeld en er zijn geen versleuteling voor uw opslagaccount uitschakelen. 
+A: versleuteling is standaard ingeschakeld en er is geen inrichten om versleuteling voor uw opslagaccount te schakelen. 
 
-**V: is versleuteling van opslag Service alleen toegestaan in specifieke gebieden?**
+**Vraag: is Storage Service Encryption alleen toegestaan in specifieke regio's?**
 
-A: storage-Service: versleuteling is beschikbaar in alle regio's voor alle services. 
+A: storage Service Encryption is beschikbaar in alle regio's voor alle services.
 
-**V: hoe ik contact op met iemand als ik problemen hebt of feedback wilt geven?**
+**V: is Storage Service Encryption FIPS 140-2 compatibel?**
 
-A: Neem contact op met [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) voor problemen of feedback over versleuteling van de opslagruimte.
+A: Ja, is Storage Service Encryption FIPS 140-2-compatibel.
+
+**V: hoe moet ik contact opnemen iemand als ik problemen hebt of feedback wilt geven?**
+
+A: Neem contact op met [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) voor eventuele problemen of feedback die betrekking hebben op Storage-Serviceversleuteling.
 
 ## <a name="next-steps"></a>Volgende stappen
-Azure Storage biedt dat een uitgebreide reeks beveiligingsmogelijkheden die ontwikkelaars samen help build beveiligde toepassingen. Zie voor meer informatie de [opslag beveiligingshandleiding](../storage-security-guide.md).
+Azure Storage biedt dat een uitgebreide set mogelijkheden voor beveiliging die ontwikkelaars samen help veilige toepassingen bouwen. Zie voor meer informatie de [Storage-beveiligingshandleiding](../storage-security-guide.md).

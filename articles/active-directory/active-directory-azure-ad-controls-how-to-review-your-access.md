@@ -1,5 +1,5 @@
 ---
-title: Bekijk uw toegang | Microsoft Docs
+title: Uw toegang controleren | Microsoft Docs
 description: Uw toegang met Azure Active Directory controleren
 author: rolyon
 manager: mtillman
@@ -8,41 +8,41 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 09/19/2017
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 32cdbf75025c1368ff3d5173307883179af184c7
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 0ac43637adc91c22aaab78f04732a613c74706d9
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085620"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446113"
 ---
 # <a name="review-your-access"></a>Uw toegang controleren
 
-Azure Active Directory (Azure AD) vereenvoudigt de manier waarop ondernemingen toegang tot toepassingen en leden van groepen beheren in Azure AD en andere Microsoft Online Services met een functie, de toegang controleert. U misschien ontvangen een e-mailbericht van Microsoft waarmee u vraagt te bekijken van toegang voor leden van een groep of gebruikers met toegang tot een toepassing. 
+Azure Active Directory (Azure AD) vereenvoudigt de manier waarop ondernemingen toegang tot toepassingen en leden van groepen beheren in Azure AD en andere Microsoft Online Services met een functie met de naam van de toegang beoordeelt. U kunt mogelijk geen e-mail ontvangen van Microsoft waarmee u wordt gevraagd te toegang beoordelen voor leden van een groep of gebruikers met toegang tot een toepassing. 
 
-## <a name="open-an-access-review"></a>Open een toegang controleren
+## <a name="open-an-access-review"></a>Een toegangsbeoordeling openen
 
-Als u wilt de in behandeling toegang beoordelingen ziet, selecteer de koppeling in het e-mailbericht. Als u het e-mailbericht niet hebt, kunt u de beoordelingen toegang zoeken met de volgende stappen:
+Als u wilt zien van de in behandeling zijnde toegangsbeoordelingen, selecteer de koppeling in het e-mailbericht. Als u het e-mailbericht niet hebt, kunt u de toegangsbeoordelingen vinden door de volgende stappen:
 
-1. Meld u aan bij de [Azure AD-Toegangsvenster](https://myapps.microsoft.com).
+1. Meld u bij de [Azure AD-toegangspaneel](https://myapps.microsoft.com).
 
-2. Selecteer het symbool gebruiker in de rechterbovenhoek van de pagina, waarin uw organisatie naam en de standaardwaarde. Als meer dan één organisatie wordt weergegeven, selecteert u de organisatie die een onderzoek toegang aangevraagd.
+2. Selecteer het symbool gebruiker in de rechterbovenhoek van de pagina, die uw organisatie naam en het standaard weergegeven. Als meer dan één organisatie wordt weergegeven, selecteert u de organisatie die een toegangsbeoordeling aangevraagd.
 
-3. Als een tegel gelabeld **toegang tot beoordelingen** is aan de rechterkant van de pagina, selecteer het. Als de tegel niet zichtbaar is, er zijn geen beoordelingen toegang om uit te voeren voor de organisatie en op dit moment is geen actie vereist.
+3. Als een tegel met het label **Toegangsbeoordelingen** is aan de rechterkant van de pagina, selecteer het. Als de tegel niet zichtbaar is, er zijn geen toegangsbeoordelingen om uit te voeren voor deze organisatie en is er op dit moment geen actie nodig.
 
-## <a name="fill-out-an-access-review"></a>Vul een toegang controleren
+## <a name="fill-out-an-access-review"></a>Vul een toegangsbeoordeling
 
-Wanneer u een toegang controleren in de lijst selecteert, ziet u de toegang. Selecteer de rij en kies of u wilt goedkeuren of weigeren van uw behoeften voor permanente toegang.
+Wanneer u een toegangscontrole uit de lijst selecteert, ziet u de toegang. Selecteer de rij en kiest u of u wilt goedkeuren of weigeren van uw behoeften voor blijvende toegang.
 
-De revisor mogelijk dat u een reden voor het goedkeuren van continue toegang te geven.
+De revisor mogelijk dat u een reden voor het goedkeuren van blijvende toegang opgeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Geweigerde toegang is niet onmiddellijk verwijderd. Als u wilt uw antwoord wijzigen en goedkeuren, opnieuw instellen van het antwoord en selecteert u een nieuw antwoord. U kunt deze stap doen totdat de controle van de toegang is voltooid.
+De toegang is geweigerd, wordt niet onmiddellijk verwijderd. Als u wilt wijzigen van het antwoord en goedkeuren, opnieuw instellen van het antwoord en selecteert u een nieuw antwoord. U kunt deze stap kunt doen, totdat de toegangsbeoordeling is voltooid.
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Inrichten doorvoer voor Azure Cosmos DB | Microsoft Docs
+title: Doorvoer inrichten voor Azure Cosmos DB | Microsoft Docs
 description: Informatie over het instellen van de ingerichte doorvoer voor uw Azure Cosmos DB containsers, verzamelingen, grafieken en tabellen.
 services: cosmos-db
 author: SnehaGunda
@@ -7,114 +7,118 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285770"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444258"
 ---
-# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Stel en doorvoer ophalen voor Azure DB die Cosmos-containers en -database
+# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Instellen en opvragen van doorvoer voor Azure Cosmos DB-containers en -database
 
-Met behulp van Azure-portal of met behulp van de client-SDK's, kunt u de doorvoer instellen voor een Azure DB die Cosmos-container of een set van containers. Wanneer u de doorvoer voor een set van containers inricht, delen alle containers die de ingerichte doorvoer. Inrichting doorvoer voor afzonderlijke containers wordt gegarandeerd dat de reservering van doorvoer voor die specifieke container. Aan de andere kant kunt u de doorvoer van de containers die deel uitmaken van die database delen inrichting doorvoer voor een database. U kunt een set van containers die delen van de doorvoer als containers voor doorvoer hebben speciale hebben in een Azure DB die Cosmos-database. 
+U kunt doorvoer instellen voor een Azure Cosmos DB-container of een set van containers met behulp van Azure portal of met behulp van de client-SDK's. 
 
-Op basis van de ingerichte doorvoer, toewijzen Azure Cosmos DB fysieke partities voor het hosten van de container (s) en splitsingen/rebalances gegevens meerdere partities wanneer deze groeit.
+**Doorvoer voor een afzonderlijke container inrichten:** wanneer u de doorvoer voor een set met containers inrichten, alle containers die de ingerichte doorvoer delen. Inrichting doorvoer voor afzonderlijke containers zorgt ervoor dat de reservering van de doorvoer voor die specifieke container. Bij het toewijzen van RU/sec. op het niveau van de afzonderlijke container, de containers kunnen worden gemaakt als *vaste* of *onbeperkte*. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Voor het maken van een onbeperkte container, moet u een minimale doorvoer van 1000 RU/s en een [partitiesleutel](partition-data.md). Omdat uw gegevens worden verdeeld over meerdere partities moeten mogelijk, is het nodig om het kiezen van een partitiesleutel waarvoor een hoge kardinaliteit (100 naar miljoenen afzonderlijke waarden). Door een partitiesleutel met veel verschillende waarden selecteert, zorgt u ervoor dat uw container/tabel/graph en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
 
-Bij het toewijzen van RU per seconde op het niveau van afzonderlijke container de containers kunnen worden gemaakt als *vaste* of *onbeperkte*. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Een onbeperkte om container te maken, moet u een minimale doorvoer van 1000 RU/s en een [partitiesleutel](partition-data.md). Aangezien uw gegevens hebben mogelijk om te worden verdeeld over meerdere partities, is het nodig om het kiezen van een partitiesleutel met een hoge kardinaliteit (100 tot miljoenen afzonderlijke waarden). Als u een partitiesleutel met veel afzonderlijke waarden selecteert, zorgt u ervoor dat uw tabel-container/grafiek en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
+**Doorvoer voor een set met containers of een database inrichten:** Provisioning doorvoer voor een database kunt u voor het delen van de doorvoer van alle containers die deel uitmaken van die database. U kunt een set van containers die de doorvoer, evenals de containers die zijn toegewezen doorvoer deelt hebben binnen een Azure Cosmos DB-database. Bij het toewijzen van RU/sec. over een verzameling van containers, de containers die behoren tot deze verzameling worden behandeld als *onbeperkte* containers en moeten een partitiesleutel opgeven.
 
-Bij het toewijzen van RU per seconde over een set van containers, de containers die horen bij deze set worden behandeld als *onbeperkte* containers en een partitiesleutel moet opgeven.
+Op basis van de ingerichte doorvoer, toewijzen Azure Cosmos DB fysieke partities voor het hosten van uw containers en splitsingen/rebalances gegevens over meerdere partities wanneer deze groeit. Container en de inrichting van de database-level doorvoer zijn aparte aanbiedingen en schakelen tussen een van deze vereisen migreren van gegevens van bron naar bestemming. Dit betekent dat u wilt maken van een nieuwe database of een nieuwe verzameling en vervolgens migreren van gegevens met behulp van [bulksgewijs executor bibliotheek](bulk-executor-overview.md) of [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). De volgende afbeelding ziet u inrichting doorvoer op verschillende niveaus:
 
-![Inrichting aanvraageenheden voor afzonderlijke containers en set containers](./media/request-units/provisioning_set_containers.png)
+![Inrichting van aanvraageenheden voor afzonderlijke containers en instellen van containers](./media/request-units/provisioning_set_containers.png)
 
-Dit artikel begeleidt u bij de stappen die nodig zijn voor het configureren van doorvoer op verschillende niveaus voor een Azure DB die Cosmos-account. 
+In de volgende gedeelten leert u de stappen die zijn vereist voor het configureren van doorvoer op verschillende niveaus voor een Azure Cosmos DB-account. 
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Doorvoer inrichten met behulp van Azure portal
 
-### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Inrichten doorvoer voor een container (graph-verzameling/tabel)
+### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Inrichten doorvoer voor een container (verzameling/grafiek/tabel)
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).  
-2. Selecteer in de Linkernavigatie **alle resources** en zoek uw account voor Azure Cosmos DB.  
-3. U kunt de doorvoer configureren tijdens het maken van een container (verzameling, grafiek, tabel) of de doorvoer van de update voor een bestaande container.  
-4. Als doorvoer toewijzen tijdens het maken van een container, opent u de **Data Explorer** blade en selecteer **nieuwe verzameling** (nieuwe grafiek, nieuwe tabel voor andere API's)  
-5. Het formulier invullen **verzameling toevoegen** blade. Velden in deze blade worden in de volgende tabel beschreven:  
+2. Selecteer in de linker navigatie **alle resources** en zoek uw Azure Cosmos DB-account.  
+3. U kunt doorvoer configureren tijdens het maken van een container (verzameling, grafiek, tabel) of de doorvoer van de update voor een bestaande container.  
+4. Als u wilt toewijzen doorvoer tijdens het maken van een container, opent u de **Data Explorer** blade en selecteer **nieuwe verzameling** (nieuwe grafiek, nieuwe tabel voor andere API's)  
+5. Vul het formulier **verzameling toevoegen** blade. Velden in deze blade worden in de volgende tabel beschreven:  
 
    |**Instelling**  |**Beschrijving**  |
    |---------|---------|
-   |Database-id  |  Geef een unieke naam voor uw database. De database is een logische container voor een of meer verzamelingen. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen /, \\, # of ? bevatten en mogen niet eindigen met een spatie. |
-   |Verzamelings-id  | Geef een unieke naam voor uw verzameling. Voor id’s van verzamelingen gelden dezelfde tekenvereisten als voor databasenamen. |
-   |Opslagcapaciteit   | Deze waarde vertegenwoordigt de capaciteit van de database. Bij het inrichten van doorvoer voor een verzameling afzonderlijke opslagcapaciteit kan worden **vast (10 GB)** of **onbeperkt**. Onbeperkte opslagcapaciteit moet worden ingesteld van een partitiesleutel voor uw gegevens.  |
-   |Doorvoer   | Elke verzameling en de database zijn doorvoer in aanvraageenheden per seconde.  Voor vaste opslagcapaciteit, minimale doorvoer is 400 aanvraageenheden per seconde (RU/s), voor onbeperkte opslag capaciteit, minimale doorvoer is ingesteld op 1000 RU/s.|
+   |Database-id  |  Geef een unieke naam voor het identificeren van uw database. Database is een logische container voor een of meer verzamelingen. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen /, \\, # of ? bevatten en mogen niet eindigen met een spatie. |
+   |Verzamelings-id  | Geef een unieke naam voor het identificeren van uw verzameling. Voor id’s van verzamelingen gelden dezelfde tekenvereisten als voor databasenamen. |
+   |Opslagcapaciteit   | Deze waarde vertegenwoordigt de opslagcapaciteit van de database. Bij het inrichten van de doorvoer voor een verzameling afzonderlijke opslagcapaciteit kan worden **vast (10 GB)** of **onbeperkt**. Onbeperkte opslagcapaciteit, moet u om in te stellen van een partitiesleutel voor uw gegevens.  |
+   |Doorvoer   | Elke verzameling en -database hebben doorvoer in aanvraageenheden per seconde.  Voor vaste opslagcapaciteit, minimaal doorvoer is 400 aanvraageenheden per seconde (RU/s), voor onbeperkte opslag capaciteit, minimum doorvoer is ingesteld op 1000 RU/s.|
 
 6. Nadat u waarden voor deze velden opgeven, selecteert u **OK** de instellingen op te slaan.  
 
-   ![Set-doorvoer voor een verzameling](./media/set-throughput/set-throughput-for-container.png)
+   ![Doorvoer instellen voor een verzameling](./media/set-throughput/set-throughput-for-container.png)
 
-7. Vouw de database en de container voor het bijwerken van de doorvoer voor een bestaande container, en klik vervolgens op **instellingen**. Typ in het nieuwe venster de nieuwe waarde voor de doorvoer en selecteer vervolgens **opslaan**.  
+7. Voor het bijwerken van de doorvoer voor een bestaande container, vouw de database en de container en klik vervolgens op **instellingen**. Typ in het nieuwe venster de nieuwe waarde voor de doorvoer en selecteer vervolgens **opslaan**.  
 
    ![Doorvoer voor een verzameling bijwerken](./media/set-throughput/update-throughput-for-container.png)
 
-### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>Doorvoer inrichten voor een set van containers of op het databaseniveau
+### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>Doorvoer voor een set van containers of op het databaseniveau van de inrichten
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).  
-2. Selecteer in de Linkernavigatie **alle resources** en zoek uw account voor Azure Cosmos DB.  
-3. U kunt de doorvoer configureren tijdens het maken van de doorvoer van een database of de update voor een bestaande database.  
-4. Als doorvoer tijdens het maken van een database toewijzen, opent u de **Data Explorer** blade en selecteer **nieuwe Database**  
-5. Vul de **Database-id** waarde, Controleer **inrichten doorvoer** optie en doorvoercapaciteit configureren. Een database kan worden ingericht met minimale doorvoercapaciteit 50.000 RU/s.  
+2. Selecteer in de linker navigatie **alle resources** en zoek uw Azure Cosmos DB-account.  
+3. U kunt doorvoer configureren tijdens het maken van de doorvoer van een database of een update voor een bestaande database.  
+4. Als u wilt toewijzen doorvoer tijdens het maken van een database, opent u de **Data Explorer** blade en selecteer **nieuwe Database**  
+5. Vul de **Database-id** waarde selectievakje **inrichten doorvoer** optie en configureer doorvoercapaciteit. Een database kan worden ingericht met minimale doorvoercapaciteit 50.000 RU/s.  
 
-   ![Doorvoer met nieuwe databaseoptie instellen](./media/set-throughput/set-throughput-with-new-database-option.png)
+   ![Doorvoer instellen met de optie voor de nieuwe database](./media/set-throughput/set-throughput-with-new-database-option.png)
 
-6. Vouw de database en de container voor het bijwerken van de doorvoer voor een bestaande database en klik vervolgens op **Scale**. Typ in het nieuwe venster de nieuwe waarde voor de doorvoer en selecteer vervolgens **opslaan**.  
+6. Voor het bijwerken van de doorvoer voor een bestaande database, vouw de database en de container en klik vervolgens op **schaal**. Typ in het nieuwe venster de nieuwe waarde voor de doorvoer en selecteer vervolgens **opslaan**.  
 
    ![Doorvoer voor een database bijwerken](./media/set-throughput/update-throughput-for-database.png)
 
-### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Doorvoer inrichten voor een set van containers ook als voor een afzonderlijke-container in een database
+### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Doorvoer voor een set met containers ook als voor een afzonderlijke container in een database inrichten
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).  
-2. Selecteer in de Linkernavigatie **alle resources** en zoek uw account voor Azure Cosmos DB.  
+2. Selecteer in de linker navigatie **alle resources** en zoek uw Azure Cosmos DB-account.  
 3. Een database maken en toewijzen van doorvoer toe. Open de **Data Explorer** blade en selecteer **nieuwe Database**  
-4. Vul de **Database-id** waarde, Controleer **inrichten doorvoer** optie en doorvoercapaciteit configureren. Een database kan worden ingericht met minimale doorvoercapaciteit 50.000 RU/s.  
+4. Vul de **Database-id** waarde selectievakje **inrichten doorvoer** optie en configureer doorvoercapaciteit. Een database kan worden ingericht met minimale doorvoercapaciteit 50.000 RU/s.  
 
-   ![Doorvoer met nieuwe databaseoptie instellen](./media/set-throughput/set-throughput-with-new-database-option.png)
+   ![Doorvoer instellen met de optie voor de nieuwe database](./media/set-throughput/set-throughput-with-new-database-option.png)
 
-5. Maak een verzameling in de database die u hebt gemaakt in bovenstaande stap. Voor het maken van een verzameling met de rechtermuisknop op de database en selecteer **nieuwe verzameling**.  
+5. Vervolgens maakt u een verzameling in de database die u hebt gemaakt in hierboven genoemde stap. Voor het maken van een verzameling met de rechtermuisknop op de database en selecteer **nieuwe verzameling**.  
 
-6. In de **verzameling toevoegen** blade, voer een naam voor de verzameling en partitie-sleutel. Desgewenst kunt u de doorvoer voor die specifieke container inrichten als u ervoor kiest geen waarde toe te wijzen een doorvoer, de doorvoer die is toegewezen aan de database wordt gedeeld met de verzameling.  
+6. In de **verzameling toevoegen** blade, voer een naam voor de verzameling en partitiesleutel. (Optioneel) u kunt de doorvoer voor die specifieke container inrichten als u ervoor kiest geen waarde toe te wijzen een doorvoer, de doorvoer die is toegewezen aan de database wordt gedeeld met de verzameling.  
 
-   ![Doorvoer desgewenst instellen voor de container](./media/set-throughput/optionally-set-throughput-for-the-container.png)
+   ![Doorvoer (optioneel) instellen voor de container](./media/set-throughput/optionally-set-throughput-for-the-container.png)
 
 ## <a name="considerations-when-provisioning-throughput"></a>Overwegingen bij het inrichten van doorvoer
 
-Hieronder vindt u enkele overwegingen die u helpen beslissen over de strategie voor een doorvoer-reservering.
+Hieronder vindt u enkele overwegingen waarmee u kunt beslissen over een strategie voor de reservering doorvoer.
 
-Houd rekening met het inrichten van doorvoer op databaseniveau (dat wil zeggen voor set van containers) in de volgende gevallen:
+### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Overwegingen bij het inrichten van doorvoer op databaseniveau
 
-* Als u meer dan tien of meer aantal containers die doorvoer in enkele of alle mappen delen kan.  
+Houd rekening met het inrichten van doorvoer op databaseniveau (dat wil zeggen voor een set met containers) in de volgende gevallen:
 
-* Wanneer u migreert vanaf een één-tenant-database die is ontworpen om te worden uitgevoerd op IaaS gehoste virtuele machines of on-premises (voor bijvoorbeeld NoSQL of relationele databases) in Azure Cosmos DB en veel containers hebben.  
+* Als u meer dan tien of meer aantal containers dat doorvoer tussen sommige of alle mappen delen kan hebt.  
 
-* Als u rekening houden met niet-geplande pieken in werkbelastingen met behulp van de gegroepeerde doorvoer op databaseniveau.  
+* Wanneer u migreert van een database met één tenant die is ontworpen om te worden uitgevoerd op virtuele machines van IaaS gehost of on-premises (voor bijvoorbeeld NoSQL of relationele databases) met Azure Cosmos DB en veel containers hebt.  
 
-* In plaats van de doorvoer van de instelling op een afzonderlijke-container bent u geïnteresseerd in de geaggregeerde doorvoer van een set containers in de database ophalen.
+* Als u gebruiken niet-geplande pieken in de werkbelastingen wilt met behulp van gegroepeerde doorvoer op het databaseniveau van de.  
 
-Overweeg het inrichten van doorvoer op een afzonderlijke-container in de volgende gevallen:
+* In plaats van de doorvoer van de instelling voor een afzonderlijke container bent u geïnteresseerd in het ophalen van de cumulatieve doorvoer van een set van containers in de database.
 
-* Als u een kleiner aantal Azure Cosmos DB containers hebt.  
+### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Overwegingen bij het inrichten van doorvoer op het niveau van de container
 
-* Als u de gegarandeerde doorvoer ophalen op een bepaalde container SLA voor back-up wilt.
+Houd rekening met provisioning doorvoer op een afzonderlijke container in de volgende gevallen:
+
+* Hebt u een kleiner aantal Azure Cosmos DB-containers.  
+
+* Als u wilt de gegarandeerde doorvoer voor een bepaalde container gesteund door een SLA aan.
 
 ## <a name="throughput-ranges"></a>Doorvoer bereiken
 
-De volgende tabel bevat de doorvoer die beschikbaar zijn voor containers:
+De volgende tabel bevat de doorvoer beschikbaar voor containers:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
             <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Container één partitie</strong></p></td>
+            <td valign="top"><p><strong>Container van één partitie</strong></p></td>
             <td valign="top"><p><strong>Gepartitioneerde Container</strong></p></td>
-            <td valign="top"><p><strong>Aantal Containers</strong></p></td>
+            <td valign="top"><p><strong>Instellen van Containers</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>Minimaal doorvoer</p></td>
@@ -133,9 +137,10 @@ De volgende tabel bevat de doorvoer die beschikbaar zijn voor containers:
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="set-throughput-by-using-sql-api-for-net"></a>Doorvoer ingesteld met behulp van SQL-API voor .NET
+## <a name="set-throughput-by-using-sql-api-for-net"></a>Doorvoer instellen met behulp van SQL-API voor .NET
 
-Hier volgt een codefragment voor het maken van een container met 3000 aanvraageenheden per seconde voor een afzonderlijke-container met de SQL-API .NET SDK:
+### <a name="set-throughput-at-the-container-level"></a>Doorvoer instellen op het niveau van de container
+Hier volgt een codefragment voor het maken van een container met 3.000 aanvraageenheden per seconde voor een afzonderlijke container met behulp van de SQL-API .NET SDK:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -148,7 +153,9 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-Hier volgt een codefragment voor inrichting 100.000 aanvraageenheden per seconde over een set van containers met behulp van de SQL-API .NET SDK:
+### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Doorvoer instellen op de voor een set van containers of op databaseniveau
+
+Hier volgt een codefragment voor inrichting 100.000 aanvraageenheden per seconde in een set van containers met behulp van de SQL-API .NET SDK:
 
 ```csharp
 // Provision 100,000 RU/sec at the database level. 
@@ -175,9 +182,9 @@ dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
 await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
 ```
 
-Azure Cosmos-database is van invloed op een model reservering voor de doorvoer. Dat wil zeggen, u wordt gefactureerd voor de hoeveelheid doorvoer *gereserveerde*, ongeacht hoeveel waarop doorvoer is actief *gebruikt*. Als uw toepassing de belasting, gegevens en gebruiksgegevens patronen wijzigen kunt u eenvoudig de schaal omhoog en omlaag op het aantal gereserveerde RUs via SDK's of met behulp van de [Azure Portal](https://portal.azure.com).
+Azure Cosmos DB is van invloed op een model reservering voor doorvoer. Dat wil zeggen, in rekening gebracht voor de hoeveelheid doorvoer *gereserveerde*, ongeacht hoeveel dat de doorvoer is actief *gebruikt*. Als uw toepassing de belasting, gegevens en gebruiksgegevens patronen wijzigen kunt u eenvoudig de schaal omhoog en omlaag het aantal gereserveerde ru's via SDK's of met behulp van de [Azure Portal](https://portal.azure.com).
 
-Elke container of set van containers, is toegewezen aan een `Offer` resource in Azure Cosmos DB met metagegevens over de ingerichte doorvoer. U kunt de toegewezen doorvoer wijzigen door op de overeenkomende resource in de aanbieding voor een container te zoeken en vervolgens bijgewerkt met de nieuwe waarde voor de doorvoer. Hier volgt een codefragment voor het wijzigen van de doorvoer van een container in 5000 aanvraageenheden per tweede met de .NET SDK. Na het wijzigen van de doorvoer, moet u een bestaande Azure portal windows voor de gewijzigde doorvoer weergegeven vernieuwen. 
+Elke container of een set van containers, is toegewezen aan een `Offer` resource in Azure Cosmos DB, met metagegevens over de ingerichte doorvoer. U kunt de toegewezen doorvoer wijzigen door het opzoeken van de bijbehorende resource-aanbieding voor een container en klik vervolgens met de nieuwe waarde voor de doorvoer wordt bijgewerkt. Hier volgt een codefragment voor het wijzigen van de doorvoer van een container in 5000 aanvraageenheden per seconde door de .NET SDK. Na het wijzigen van de doorvoer, moet u een bestaande Azure portal windows voor de gewijzigde doorvoer weergegeven vernieuwen. 
 
 ```csharp
 // Fetch the resource to be updated
@@ -194,13 +201,13 @@ offer = new OfferV2(offer, 5000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-Er zijn geen gevolgen voor de beschikbaarheid van de container of set van containers, wanneer u de doorvoer wijzigt. De nieuwe gereserveerde doorvoer is doorgaans effectieve binnen enkele seconden op de toepassing van de nieuwe doorvoer.
+Er zijn geen gevolgen voor de beschikbaarheid van de container of set van containers, wanneer u de doorvoer wijzigen. De nieuwe gereserveerde doorvoer is doorgaans effectieve binnen enkele seconden op aanvraag van de nieuwe doorvoer.
 
 <a id="set-throughput-java"></a>
 
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>De doorvoer instellen met behulp van de SQL-API voor Java
 
-Het volgende codefragment haalt de huidige doorvoer en gewijzigd in 500 RU/s. Zie voor een compleet codevoorbeeld de [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) -bestand op GitHub. 
+Het volgende codefragment wordt de huidige doorvoer opgehaald en gewijzigd in 500 RU/s. Zie voor een volledige codevoorbeeld de [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) -bestand op GitHub. 
 
 ```Java
 // find offer associated with this collection
@@ -219,16 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Doorvoer ophalen met behulp van de MongoDB-API GetLastRequestStatistics-opdracht
+## <a id="GetLastRequestStatistics"></a>Doorvoer met behulp van MongoDB-API GetLastRequestStatistics opdracht ophalen
 
 De MongoDB-API biedt ondersteuning voor een aangepaste opdracht *getLastRequestStatistics*, voor het ophalen van de kosten van de aanvraag voor een bepaalde bewerking.
 
-Bijvoorbeeld, in de Mongo-shell de bewerking niet uitvoeren die u wilt controleren of de kosten van de aanvraag voor.
+Voer bijvoorbeeld de bewerking die u wilt controleren of de aanvraag kosten in rekening gebracht voor in de Mongo-shell.
 ```
 > db.sample.find()
 ```
 
-Voer vervolgens de opdracht *getLastRequestStatistics*.
+Vervolgens geeft u de opdracht *getLastRequestStatistics*.
 ```
 > db.runCommand({getLastRequestStatistics: 1})
 {
@@ -240,36 +247,36 @@ Voer vervolgens de opdracht *getLastRequestStatistics*.
 }
 ```
 
-Een methode voor het schatten van de hoeveelheid gereserveerde doorvoer vereist door uw toepassing is voor het vastleggen van de aanvraag eenheid kosten die zijn gekoppeld aan met het normale bewerkingen uitvoeren in een representatieve item gebruikt door de toepassing en schatting maken van het aantal bewerkingen die u verwacht te uitvoeren per seconde.
+Een methode voor het schatten van de hoeveelheid gereserveerde doorvoer die is vereist voor de toepassing is op te nemen de kosten van de aanvraag-eenheden die zijn gekoppeld aan met het normale bewerkingen uitvoeren in een representatieve item dat wordt gebruikt door uw toepassing en maak vervolgens een schatting van het aantal bewerkingen die u verwacht om uit te voeren per seconde.
 
 > [!NOTE]
-> Als er itemtypen die aanzienlijk in termen van de grootte en het aantal geïndexeerde eigenschappen verschillen wordt, en noteer vervolgens de betreffende bewerking aanvraag eenheid kosten die zijn gekoppeld aan elk *type* van typische item.
+> Hebt u itemtypen die aanzienlijk wat betreft grootte en het aantal geïndexeerde eigenschappen verschillen, en noteer vervolgens de kosten van toepassing bewerking aanvraag eenheden die zijn gekoppeld aan elk *type* van gemiddeld item.
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Doorvoer verkrijgen door middel van MongoDB API portal metrische gegevens
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Doorvoer ophalen met behulp van MongoDB-API-portal metrische gegevens
 
-De eenvoudigste manier om een goede indicatie van aanvraag ophalen eenheid kosten voor de MongoDB-API-database is het gebruik van de [Azure-portal](https://portal.azure.com) metrische gegevens. Met de *aantal aanvragen* en *aanvraag kosten* grafieken, kunt u een schatting van het aantal aanvraageenheden elke bewerking verbruikt en het aantal aanvraageenheden die ze gebruiken ten opzichte van elkaar ophalen.
+De eenvoudigste manier om een goede schatting van de aanvraag eenheid kosten in rekening gebracht voor uw MongoDB-API-database is het gebruik van de [Azure-portal](https://portal.azure.com) metrische gegevens. Met de *aantal aanvragen* en *aanvraag kosten in rekening gebracht* grafieken, krijgt u een schatting van het aantal aanvraageenheden elke bewerking is verbruikt en het aantal aanvraageenheden dat ze gebruiken ten opzichte van elkaar.
 
-![MongoDB API portal metrische gegevens][1]
+![Portal metrische gegevens voor MongoDB-API][1]
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Overschrijding van gereserveerde doorvoer grenzen in de MongoDB-API
-Toepassingen die groter is dan de ingerichte doorvoer voor een container of een set van containers zijn beperkt in de frequentie waarmee totdat het verbruiksniveau onder de snelheid van de ingerichte doorvoer zakt. Wanneer een snelheid-beperking optreedt, de back-end beëindigd wanneer de aanvraag met een `16500` foutcode - `Too Many Requests`. Standaard de MongoDB-API wordt automatisch opnieuw geprobeerd maximaal 10 keer voordat er een `Too Many Requests` foutcode. Als er veel `Too Many Requests` foutcodes, kunt u overwegen een toe te voegen aan een Pogingslogica routines voor foutafhandeling van uw toepassing of [verhogen ingerichte doorvoer voor de container](set-throughput.md).
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Overschrijding van grenzen van de gereserveerde doorvoer in de MongoDB-API
+Toepassingen die groter zijn dan de ingerichte doorvoer voor een container of een set van containers zijn beperkt in de snelheid totdat het tarief verbruik lager is dan het tarief voor de ingerichte doorvoer. Wanneer er een tarief-beperking optreedt, de back-end verloopt de aanvraag met een `16500` foutcode - `Too Many Requests`. Standaard de MongoDB-API wordt automatisch opnieuw geprobeerd maximaal 10 keer alvorens een `Too Many Requests` foutcode. Als u veel ontvangt `Too Many Requests` foutcodes, kunt u overwegen toe te voegen een logica voor opnieuw proberen routines voor foutafhandeling van uw toepassing of [verhogen van de ingerichte doorvoer voor de container](set-throughput.md).
 
-## <a name="throughput-faq"></a>Veelgestelde vragen over doorvoer
+## <a name="throughput-faq"></a>Veelgestelde vragen over de doorvoer
 
-**Kan ik mijn doorvoer ingesteld op minder dan 400 RU/s**
+**Kan ik mijn doorvoer op minder dan 400 RU/s instellen?**
 
-400 RU/s is de minimale doorvoer voor Cosmos DB één partitie containers (het minimum voor gepartitioneerde containers 1000 RU/s is). Aanvraag eenheden worden ingesteld met intervallen van 100 RU/s, maar doorvoer kan niet worden ingesteld op 100 RU/s of een willekeurige waarde kleiner is dan 400 RU/s. Als u naar een voordelige methode zoekt te ontwikkelen en testen van de Cosmos-DB, kunt u de gratis [Azure Cosmos DB Emulator](local-emulator.md), die u lokaal kunt implementeren zonder kosten. 
+400 RU/s is de minimale doorvoer beschikbaar is voor Cosmos DB één partitie containers (1000 RU/s is het minimale aantal voor gepartitioneerde containers). De aanvraag eenheden worden ingesteld in intervallen van 100 RU/s, maar de doorvoer kan niet worden ingesteld op 100 RU/s of een willekeurige waarde kleiner zijn dan 400 RU/s. Als u naar een rendabele methode zoekt voor het ontwikkelen en testen van Cosmos DB, kunt u de gratis [Azure Cosmos DB-Emulator](local-emulator.md), die u lokaal kunt implementeren zonder kosten. 
 
-**Hoe stel ik doorvoer met de MongoDB-API**
+**Hoe stel ik de doorvoer met behulp van de MongoDB-API?**
 
-Er is geen extensie MongoDB-API om in te stellen doorvoer. De aanbeveling is het gebruik van de SQL-API, zoals wordt weergegeven in [de doorvoer instellen met behulp van de SQL-API voor .NET](#set-throughput-sdk).
+Er is geen MongoDB-API-extensie om in te stellen doorvoer. De aanbeveling is het gebruik van de SQL-API, zoals wordt weergegeven in [de doorvoer instellen met behulp van de SQL-API voor .NET](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het schatten van de doorvoer en aanvraag eenheden, [aanvragen eenheden & schatten van doorvoer in Azure Cosmos-DB](request-units.md)
+* Zie voor meer informatie over het schatten van de doorvoer- en aanvraageenheden, [aanvragen rekeneenheden en het schatten van de doorvoer in Azure Cosmos DB](request-units.md)
 
-* Zie voor meer informatie over het inrichten en gaat wereld-schaal met Cosmos DB, [partitionering en schalen met Cosmos DB](partition-data.md).
+* Zie voor meer informatie over het inrichten en gaan op planetaire schaal met Cosmos DB, [partitioneren en schalen met Cosmos DB](partition-data.md).
 
 [1]: ./media/set-throughput/api-for-mongodb-metrics.png

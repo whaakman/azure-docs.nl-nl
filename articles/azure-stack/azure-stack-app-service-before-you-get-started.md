@@ -1,6 +1,6 @@
 ---
-title: Voordat u op Azure-Stack-App Service implementeert | Microsoft Docs
-description: Stappen voor het voltooien voordat u op Azure-Stack-App Service implementeert
+title: Voordat u App Service in Azure Stack implementeren | Microsoft Docs
+description: Stappen voor het voltooien voordat u App Service in Azure Stack implementeren
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: 37d6ee2f047768f08ea7a113b7d97911d58a46e2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 660532118549a23416f4c0571845ec3517cb1b5b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110572"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436215"
 ---
-# <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App-Service op Azure-Stack
+# <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Voordat u Azure App Service op de Stack Azure implementeert, moet u de vereiste stappen in dit artikel.
+Voordat u Azure App Service in Azure Stack implementeren, moet u de vereiste stappen in dit artikel te voltooien.
 
 > [!IMPORTANT]
-> De update 1804 toepassen op uw systeem Azure Stack geïntegreerd of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.2 implementeren.
+> De update 1804 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack Development Kit (ASDK) implementeren voordat u implementeert in Azure App Service 1.2.
 
-## <a name="download-the-installer-and-helper-scripts"></a>Het installatieprogramma en helper-scripts downloaden
+## <a name="download-the-installer-and-helper-scripts"></a>Het installatieprogramma en helper scripts downloaden
 
-1. Download de [App-Service op Azure-Stack helper implementatiescripts](https://aka.ms/appsvconmashelpers).
-2. Download de [App-Service op Azure-Stack-installatieprogramma](https://aka.ms/appsvconmasinstaller).
-3. Pak de bestanden van het ZIP-bestand van de helper-scripts. De volgende bestanden en mappen zijn uitgepakt:
+1. Download de [App Service op Azure Stack-implementatie helperscripts](https://aka.ms/appsvconmashelpers).
+2. Download de [App Service op Azure Stack-installatieprogramma](https://aka.ms/appsvconmasinstaller).
+3. Pak de bestanden van het ZIP-bestand van de helper-scripts. De volgende bestanden en mappen worden geëxtraheerd:
 
    - Common.ps1
    - Create-AADIdentityApp.ps1
@@ -47,21 +47,21 @@ Voordat u Azure App Service op de Stack Azure implementeert, moet u de vereiste 
 
 ## <a name="high-availability"></a>Hoge beschikbaarheid
 
-De update Azure Stack 1802 is ondersteuning toegevoegd voor domeinen met fouten. Nieuwe implementaties van Azure App Service op Azure-Stack worden verdeeld over de domeinen met fouten en fouttolerantie.
+De update voor Azure Stack 1802 ondersteuning toegevoegd voor domeinen met fouten. Nieuwe implementaties van Azure App Service in Azure Stack wordt verdeeld over foutdomeinen en fouttolerantie.
 
-Zie voor bestaande implementaties van Azure App Service op Azure-Stack die zijn geïmplementeerd voor de update 1802, de [opnieuw verdelen van een App Service-resourceprovider tussen domeinen met fouten](azure-stack-app-service-fault-domain-update.md) artikel.
+Zie voor bestaande implementaties van Azure App Service in Azure Stack, die zijn geïmplementeerd voordat de update 1802, de [opnieuw verdelen van een App Service-resourceprovider over foutdomeinen](azure-stack-app-service-fault-domain-update.md) artikel.
 
 Bovendien implementeren de vereiste bestandsserver en de SQL Server-exemplaren in een maximaal beschikbare configuratie.
 
 ## <a name="get-certificates"></a>Certificaten ophalen
 
-### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Resource Manager-basiscertificaat voor Azure-Stack
+### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Resource Manager-basiscertificaat voor Azure Stack
 
-Open een PowerShell-sessie met verhoogde bevoegdheden op een computer die toegang heeft tot de bevoegde eindpunt op de Azure-Stack geïntegreerd systeem of Azure Stack Development Kit Host.
+Open een verhoogde PowerShell-sessie op een computer die de bevoegde eindpunt op de geïntegreerde Azure Stack-systeem of Azure Stack Development Kit Host kunt bereiken.
 
-Voer de *Get-AzureStackRootCert.ps1* script uit de map waar u de scripts helper hebt uitgepakt. Het script maakt een basiscertificaat in dezelfde map als het script dat een App Service nodig heeft voor het maken van certificaten.
+Voer de *Get-AzureStackRootCert.ps1* script uit de map waar u de helperscripts hebt uitgepakt. Het script maakt u een basiscertificaat in dezelfde map als het script dat een App Service nodig zijn voor het maken van certificaten.
 
-Wanneer u de volgende PowerShell-opdracht uitvoert hebt u het bevoegde eindpunt en de referenties voor de AzureStack\CloudAdmin opgeven.
+Wanneer u de volgende PowerShell-opdracht uitvoeren hebt u voor het eindpunt van de bevoegdheden en de referenties voor de AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -71,37 +71,37 @@ Wanneer u de volgende PowerShell-opdracht uitvoert hebt u het bevoegde eindpunt 
 
 | Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | Vereist | AzS-ERCS01 | Bevoorrechte eindpunt |
-| CloudAdminCredential | Vereist | AzureStack\CloudAdmin | Account domeinreferentie voor beheerders voor Azure-Stack-cloud |
+| PrivilegedEndpoint | Vereist | AzS-ERCS01 | Bevoegde eindpunt |
+| CloudAdminCredential | Vereist | AzureStack\CloudAdmin | Referenties van het domein account voor Azure Stack-cloud-beheerders |
 
-### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Certificaten zijn vereist voor de implementatie van ASDK van Azure App Service
+### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Certificaten die zijn vereist voor de implementatie van Azure App Service ASDK
 
-De *maken AppServiceCerts.ps1* script werkt met de Azure-Stack certificeringsinstantie voor het maken van de vier certificaten die door App Service nodig heeft.
+De *maken AppServiceCerts.ps1* script werkt met de Azure Stack-CA te maken van de vier certificaten die App Service nodig heeft.
 
 | Bestandsnaam | Gebruiken |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | Het standaard-SSL-certificaatbestand voor App Service |
-| api.appservice.local.azurestack.external.pfx | App Service API SSL-certificaat |
-| ftp.appservice.local.azurestack.external.pfx | App Service publisher SSL-certificaat |
-| sso.appservice.local.azurestack.external.pfx | App Service-identiteitscertificaat toepassing |
+| api.appservice.local.azurestack.external.pfx | App Service API-SSL-certificaat |
+| ftp.appservice.local.azurestack.external.pfx | SSL-certificaat voor App Service-uitgever |
+| sso.appservice.local.azurestack.external.pfx | Toepassingscertificaat voor App Service-identiteit |
 
 Volg deze stappen voor het maken van de certificaten:
 
-1. Aanmelden bij de Azure-Stack Development Kit host met de AzureStack\AzureStackAdmin-account.
+1. Aanmelden bij de Azure Stack Development Kit-host met behulp van de AzureStack\AzureStackAdmin-account.
 2. Open een PowerShell-sessie met verhoogde bevoegdheden.
-3. Voer de *maken AppServiceCerts.ps1* script uit de map waar u de scripts helper hebt uitgepakt. Dit script maakt vier certificaten in dezelfde map als het script dat een App Service nodig heeft voor het maken van certificaten.
-4. Een wachtwoord invoeren voor het pfx-bestanden beveiligen en noteer deze. U hebt deze invoeren in de App-Service op Azure-Stack-installatieprogramma.
+3. Voer de *maken AppServiceCerts.ps1* script uit de map waar u de helperscripts hebt uitgepakt. Dit script maakt vier certificaten in dezelfde map als het script dat een App Service nodig zijn voor het maken van certificaten.
+4. Een wachtwoord invoeren voor het beveiligen van het pfx-bestanden en noteer deze. Hebt u deze invoeren in de App Service op Azure Stack-installatieprogramma.
 
-#### <a name="create-appservicecertsps1-script-parameters"></a>Maak AppServiceCerts.ps1 scriptparameters
+#### <a name="create-appservicecertsps1-script-parameters"></a>Scriptparameters maken AppServiceCerts.ps1
 
 | Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
-| pfxPassword | Vereist | Null | Wachtwoord beschermt de privésleutel voor certificaten |
+| pfxPassword | Vereist | Null | Wachtwoord dat helpt de persoonlijke sleutel van het certificaat te beschermen |
 | Domeinnaam | Vereist | Local.azurestack.external | Azure Stack-achtervoegsel voor de regio en het domein |
 
-### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Vereiste certificaten voor Azure-Stack productie-implementatie van Azure App Service
+### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Certificaten die vereist zijn voor Azure Stack-productie-implementatie van Azure App Service
 
-Als u wilt uitvoeren van de resourceprovider in productie, moet u de volgende certificaten opgeven:
+Als u wilt de resourceprovider in productie uitvoeren, moet u de volgende certificaten:
 
 - Certificaat van het standaarddomein
 - API-certificaat
@@ -110,48 +110,48 @@ Als u wilt uitvoeren van de resourceprovider in productie, moet u de volgende ce
 
 #### <a name="default-domain-certificate"></a>Certificaat van het standaarddomein
 
-Het certificaat van het standaarddomein wordt geplaatst op de Front-End-rol. Gebruikerstoepassingen voor jokerteken of standaard domein-aanvraag in Azure App Service gebruikmaken van dit certificaat. Het certificaat wordt ook gebruikt voor beheerbewerkingen bron (Kudu).
+Het certificaat van het standaarddomein wordt geplaatst op de Front-End-rol. Gebruikerstoepassingen voor jokertekens of standaard domein-aanvraag in Azure App Service gebruikt dit certificaat. Het certificaat wordt ook gebruikt voor bewerkingen van bron-beheer (Kudu).
 
-Het certificaat in PFX-indeling moet zijn en moet een jokertekencertificaat met drie-onderwerp. Deze vereiste kan een certificaat hebben betrekking op het standaarddomein en het SCM-eindpunt voor de bron-en beheerbewerkingen.
+Het certificaat in PFX-indeling moet worden en moet een certificaat met jokertekens drie-onderwerp. Deze vereiste kan een certificaat van toepassing op zowel het standaarddomein en de SCM-eindpunt voor bewerkingen voor beheer van gegevensbron.
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| \*.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | \*.appservice.redmond.azurestack.external |
+| \*.appservice. \<regio\>.\< Domeinnaam\>.\< extensie\> | \*.appservice.redmond.azurestack.external |
 | \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
 | \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>API-certificaat
 
-De API-certificaat is op de rol geplaatst. De resourceprovider gebruikt om u te helpen beveiligen API-aanroepen. Het certificaat voor de publicatie moet een onderwerpnaam die overeenkomt met de API-DNS-vermelding bevatten.
+De API-certificaat is op de beheerrol geplaatst. De resourceprovider gebruikt om u te helpen bij de beveiligde API-aanroepen. Het certificaat voor publicatie moet een onderwerpnaam die overeenkomt met de API-DNS-vermelding bevatten.
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| API.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | api.appservice.redmond.azurestack.external |
+| API.appservice. \<regio\>.\< Domeinnaam\>.\< extensie\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Publicatiecertificaat
 
-Het certificaat voor de rol Publisher beveiligt het verkeer FTPS voor eigenaren van toepassing wanneer ze inhoud uploaden. Het certificaat voor de publicatie moet een onderwerpnaam die overeenkomt met de FTPS DNS-vermelding bevatten.
+Het certificaat voor de rol van de uitgever beveiligt het FTPS-verkeer voor toepassingseigenaren van wanneer ze inhoud uploaden. Het certificaat voor publicatie moet een onderwerpnaam die overeenkomt met de FTPS DNS-vermelding bevatten.
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| FTP.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | ftp.appservice.redmond.azurestack.external |
+| FTP.appservice. \<regio\>.\< Domeinnaam\>.\< extensie\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Identiteitscertificaat
 
-Maakt gebruik van het certificaat voor de identiteit van toepassing:
+Het certificaat voor de identiteitstoepassing kunt:
 
-- Integratie tussen de Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) directory, Azure-Stack en App Service voor de integratie met de compute-resourceprovider.
-- Eenmalige aanmelding scenario's voor geavanceerde ontwikkelhulpprogramma's in Azure App Service op Azure-Stack.
+- Integratie tussen de Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) directory, Azure Stack, en App Service die ondersteuning bieden voor integratie met de compute resourceprovider.
+- Eenmalige aanmelding scenario's voor geavanceerde ontwikkelhulpprogramma's in Azure App Service in Azure Stack.
 
-Het certificaat voor identiteit moet een onderwerpnaam die overeenkomt met de volgende indeling bevatten.
+Het certificaat voor de id moet een onderwerpnaam die overeenkomt met de volgende indeling bevatten.
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| SSO.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | sso.appservice.redmond.azurestack.external |
+| SSO.appservice. \<regio\>.\< Domeinnaam\>.\< extensie\> | sso.appservice.redmond.azurestack.external |
 
 ## <a name="virtual-network"></a>Virtueel netwerk
 
-Op Azure-Stack-Azure App Service kunt u de resourceprovider implementeren op een bestaand virtueel netwerk of kunt u een virtueel netwerk maken als onderdeel van de implementatie. Met behulp van een bestaand virtueel netwerk maakt het gebruik van interne IP-adressen verbinding maken met de bestandsserver en de SQL server in Azure App Service op Azure-Stack is vereist. Het virtuele netwerk moet worden geconfigureerd met de volgende adresbereik en subnetten voor de installatie van Azure App Service op Azure-Stack:
+Azure App Service in Azure Stack kunt u de resourceprovider implementeren op een bestaand virtueel netwerk of kunt u een virtueel netwerk maken als onderdeel van de implementatie. Met behulp van een bestaand virtueel netwerk, kunt het gebruik van interne IP-adressen verbinding maken met de bestandsserver en de SQL server vereist voor Azure App Service in Azure Stack. Het virtuele netwerk moet worden geconfigureerd met de volgende adresbereik en subnetten voor de installatie van Azure App Service in Azure Stack:
 
 Virtueel netwerk - /16
 
@@ -165,12 +165,12 @@ Subnetten
 
 ## <a name="prepare-the-file-server"></a>De bestandsserver voorbereiden
 
-Azure App Service vereist het gebruik van een bestandsserver. De bestandsserver moet worden geconfigureerd om maximaal beschikbaar is en kan afhandelen van fouten voor productie-implementaties.
+Azure App Service is vereist voor het gebruik van een bestandsserver. Voor productie-implementaties, moet de server worden geconfigureerd om maximaal beschikbare en kan afhandelen van fouten.
 
-Voor Azure Stack Development Kit implementaties, kunt u de [voorbeeld Azure Resource Manager-implementatiesjabloon](https://aka.ms/appsvconmasdkfstemplate) voor het implementeren van een geconfigureerde bestandsserver van één knooppunt. De bestandsserver met één knooppunt bevindt zich in een werkgroep.
+Voor alleen voor implementaties van Azure Stack Development Kit, kunt u de [voorbeeld van Azure Resource Manager-implementatiesjabloon](https://aka.ms/appsvconmasdkfstemplate) om een geconfigureerde bestandsserver van één knooppunt te implementeren. De bestandsserver van één knooppunt bevindt zich in een werkgroep.
 
 >[!IMPORTANT]
-> Als u implementeren in een bestaand virtueel netwerk dat de bestandsserver moeten worden geïmplementeerd in een apart Subnet van App Service-App Service wilt.
+> Als u ervoor kiest om te implementeren App Service in een bestaand Virtueelnetwerk moet de Server worden geïmplementeerd in een apart Subnet vanuit App Service.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Inrichten van groepen en accounts in Active Directory
 
@@ -179,18 +179,18 @@ Voor Azure Stack Development Kit implementaties, kunt u de [voorbeeld Azure Reso
    - FileShareOwners
    - FileShareUsers
 
-2. De volgende Active Directory-accounts als serviceaccounts maken:
+2. Maak de volgende Active Directory-accounts als service-accounts:
 
    - FileShareOwner
    - FileShareUser
 
-   Beveiliging moet aanbevolen procedure is om de gebruikers voor deze accounts (en voor alle webrollen) uniek en sterke gebruikersnamen en wachtwoorden hebben. Stel de wachtwoorden met de volgende voorwaarden:
+   Het wordt aanbevolen de gebruikers voor deze accounts (en voor alle webrollen) moet als een uniek en sterke gebruikersnamen en wachtwoorden hebben. Stel de wachtwoorden met de volgende voorwaarden:
 
    - Schakel **wachtwoord verloopt nooit**.
    - Schakel **gebruiker kan wachtwoord niet wijzigen**.
-   - Schakel **gebruiker moet wachtwoord bij volgende aanmelding wijzigen**.
+   - Uitschakelen **gebruiker moet wachtwoord bij volgende aanmelding wijzigen**.
 
-3. De accounts aan de groepslidmaatschappen als volgt toevoegen:
+3. Voeg als volgt de accounts toe aan het lidmaatschap van groepen:
 
    - Voeg **FileShareOwner** naar de **FileShareOwners** groep.
    - Voeg **FileShareUser** naar de **FileShareUsers** groep.
@@ -200,36 +200,38 @@ Voor Azure Stack Development Kit implementaties, kunt u de [voorbeeld Azure Reso
 >[!NOTE]
 > Wanneer u een bestandsserver, voer de volgende opdrachten uit configureert een **Beheerdersopdrachtprompt**. <br>***Gebruik geen PowerShell.***
 
-Wanneer u de Azure Resource Manager-sjabloon gebruikt, worden de gebruikers zijn al gemaakt.
+Wanneer u de Azure Resource Manager-sjabloon gebruikt, worden de gebruikers al gemaakt.
 
-1. Voer de volgende opdrachten voor het maken van de accounts FileShareOwner en FileShareUser. Vervang `<password>` met uw eigen waarden.
+1. Voer de volgende opdrachten om de FileShareOwner en FileShareUser-accounts te maken. Vervang `<password>` door uw eigen waarden.
 
-    ``` DOS
-    net user FileShareOwner <password> /add /expires:never /passwordchg:no
-    net user FileShareUser <password> /add /expires:never /passwordchg:no
-    ```
-2. Stel de wachtwoorden voor de accounts nooit verloopt met de volgende WMIC-opdrachten:
+``` DOS
+net user FileShareOwner <password> /add /expires:never /passwordchg:no
+net user FileShareUser <password> /add /expires:never /passwordchg:no
+```
 
-    ``` DOS
-    WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-    WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
-    ```
-3. Maken van de lokale groepen FileShareUsers en FileShareOwners en aan de accounts in de eerste stap toevoegen:
+2. Stel de wachtwoorden voor de accounts op nooit verlopen door het uitvoeren van de volgende WMIC-opdrachten:
 
-    ``` DOS
-    net localgroup FileShareUsers /add
-    net localgroup FileShareUsers FileShareUser /add
-    net localgroup FileShareOwners /add
-    net localgroup FileShareOwners FileShareOwner /add
-    ```
+``` DOS
+WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+```
+
+3. De lokale groepen FileShareUsers en FileShareOwners maken en de accounts in de eerste stap toevoegen aan deze:
+
+``` DOS
+net localgroup FileShareUsers /add
+net localgroup FileShareUsers FileShareUser /add
+net localgroup FileShareOwners /add
+net localgroup FileShareOwners FileShareOwner /add
+```
 
 ### <a name="provision-the-content-share"></a>De inhoudsshare inrichten
 
-De inhoudsshare van de bevat tenant-website-inhoud. De procedure voor het inrichten van de inhoud-share op een server met één bestand is hetzelfde voor Active Directory-en werkgroepomgevingen. Maar het is verschillend voor een failovercluster in Active Directory.
+Inhoudsshare van de bevat tenant-website-inhoud. De procedure voor het inrichten van de inhoud delen op een server met één bestand is hetzelfde voor Active Directory-en werkgroepomgevingen. Maar het is verschillend voor een failovercluster in Active Directory.
 
-#### <a name="provision-the-content-share-on-a-single-file-server-active-directory-or-workgroup"></a>Inrichten van de inhoud-share op een server met één bestand (Active Directory of werkgroep)
+#### <a name="provision-the-content-share-on-a-single-file-server-active-directory-or-workgroup"></a>De inhoud delen op een server met één bestand (Active Directory of werkgroep) inrichten
 
-Voer de volgende opdrachten bij een opdrachtprompt met verhoogde bevoegdheden op een server met één bestand. Vervang de waarde voor `C:\WebSites` met de bijbehorende paden in uw omgeving.
+Voer de volgende opdrachten bij een opdrachtprompt met verhoogde bevoegdheid op een server met één bestand. Vervang de waarde voor `C:\WebSites` met de bijbehorende paden in uw omgeving.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
@@ -239,7 +241,7 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### <a name="add-the-fileshareowners-group-to-the-local-administrators-group"></a>Voeg de FileShareOwners toe aan de lokale groep Administrators
+### <a name="add-the-fileshareowners-group-to-the-local-administrators-group"></a>De groep FileShareOwners toevoegen aan de lokale groep Administrators
 
 Voor Windows Remote Management goed te laten werken, moet u de groep FileShareOwners toevoegen aan de lokale groep Administrators.
 
@@ -262,7 +264,7 @@ net localgroup Administrators FileShareOwners /add
 
 ### <a name="configure-access-control-to-the-shares"></a>Beheer van toegang tot de shares configureren
 
-Voer de volgende opdrachten bij een opdrachtprompt met verhoogde bevoegdheid op de bestandsserver of op het failoverclusterknooppunt, de huidige eigenaar van de cluster-bron. Waarden cursief vervangen door waarden die specifiek voor uw omgeving zijn.
+Voer de volgende opdrachten bij een opdrachtprompt met verhoogde bevoegdheid op de bestandsserver of op het failoverclusterknooppunt, de huidige eigenaar van de cluster-resource is. Waarden in cursief vervangen door waarden die specifiek voor uw omgeving zijn.
 
 #### <a name="active-directory"></a>Active Directory
 
@@ -291,53 +293,53 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 ## <a name="prepare-the-sql-server-instance"></a>De SQL Server-exemplaar voorbereiden
 
-Voor de Azure App Service voor het hosten van de Azure-Stack en softwarelicentiecontrole databases, moet u een SQL Server-exemplaar voor het opslaan van de App Service-databases voorbereiden.
+Voor de Azure App Service op Azure Stack die als host fungeert en softwarelicentiecontrole databases, moet u een exemplaar van SQL Server voor het opslaan van de App Service-databases.
 
 Voor implementaties van Azure Stack Development Kit, kunt u SQL Server Express 2014 SP2 of hoger.
 
-Voor productie en hoge beschikbaarheid doeleinden, u moet een volledige versie van SQL Server 2014 SP2 of hoger, gemengde modus-verificatie inschakelen en implementeren in een [maximaal beschikbare configuratie](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+Voor productie en hoge beschikbaarheid, u moet een volledige versie van SQL Server 2014 SP2 of hoger, verificatie in gemengde modus inschakelen en implementeren een [maximaal beschikbare configuratie](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-De SQL Server-exemplaar voor Azure App Service op Azure-Stack moet toegankelijk is vanaf alle functies van de App Service. U kunt SQL Server in het abonnement van de Provider standaard in Azure-Stack implementeren. Of u kunt het gebruik van de bestaande infrastructuur binnen uw organisatie (zo lang er is verbinding met Azure-Stack). Als u een Azure Marketplace-installatiekopie, moet u de firewall dienovereenkomstig configureren.
+De SQL Server-exemplaar voor Azure App Service in Azure Stack moet toegankelijk zijn vanuit alle App Service-rollen. U kunt SQL Server binnen het abonnement van de Provider standaard in Azure Stack implementeren. U kunt ook het gebruik van de bestaande infrastructuur binnen uw organisatie (zolang er een verbinding met Azure Stack is). Als u een Azure Marketplace-installatiekopie, moet u de firewall dienovereenkomstig configureren.
 
 >[!NOTE]
-> Een aantal SQL IaaS virtuele machine afbeeldingen zijn beschikbaar via de Marketplace-Management-functie. Zorg ervoor dat u altijd de nieuwste versie van de SQL-IaaS-uitbreiding downloaden voordat u een VM die gebruikmaakt van een Marketplace-item implementeert. De SQL-afbeeldingen zijn hetzelfde als de SQL-VM's die beschikbaar in Azure zijn. Geef functies zoals automatisch patchen en Backup-functies voor virtuele SQL-machines gemaakt op basis van deze installatiekopieën, de IaaS-uitbreiding en de bijbehorende portal verbeteringen.
+> Een aantal SQL IaaS-installatiekopieën voor virtuele machines zijn beschikbaar via de Marketplace-Management-functie. Zorg ervoor dat u altijd de nieuwste versie van de SQL IaaS-extensie downloaden voordat u een virtuele machine met behulp van een Marketplace-item implementeert. De SQL-installatiekopieën zijn hetzelfde als de SQL-VM's die beschikbaar in Azure zijn. Voor SQL-VM's gemaakt op basis van deze installatiekopieën, de IaaS-extensie en de bijbehorende portal verbeteringen bieden functies zoals automatische toepassing van patches en back-mogelijkheden.
 >
-Voor een van de SQL Server-rollen, kunt u een standaardexemplaar of een benoemd exemplaar. Als u een benoemd exemplaar gebruikt, moet u handmatig de SQL Server Browser-service starten en open poort 1434.
+Voor een van de SQL Server-rollen, kunt u een standaardexemplaar of een benoemd exemplaar. Als u een benoemd exemplaar gebruikt, moet u handmatig de SQL Server Browser-service starten en-poort 1434 openen.
 
 >[!IMPORTANT]
-> Als u wilt implementeren in een bestaand virtueel netwerk-App Service kan de SQL-Server moeten worden geïmplementeerd in een apart Subnet van App Service en de bestandsserver.
+> Als u ervoor kiest om App Service in een bestaand Virtueelnetwerk, de SQL-Server moet worden geïmplementeerd in een apart Subnet van App Service en de bestandsserver te implementeren.
 >
 
 ## <a name="create-an-azure-active-directory-application"></a>Een Azure Active Directory-toepassing maken
 
-Configureer een Azure AD-service-principal ter ondersteuning van de volgende bewerkingen:
+Configureren van een service-principal voor Azure AD, ter ondersteuning van de volgende bewerkingen:
 
-- Virtuele-machineschaalset ingesteld integratie op worker lagen.
-- Eenmalige aanmelding voor de Azure Functions-portal en geavanceerde developer-tools.
+- Virtuele-machineschaalset integratie op werkrolniveaus.
+- Eenmalige aanmelding voor de hulpprogramma's voor Azure Functions-portal en geavanceerde ontwikkelaars.
 
-Deze stappen gelden voor alleen in omgevingen met Azure AD-beveiligde Azure-Stack.
+Deze stappen gelden voor alleen in omgevingen met Azure AD-beveiligde Azure Stack.
 
 Beheerders moeten eenmalige aanmelding te configureren:
 
-- Schakel de geavanceerde ontwikkelhulpprogramma's in App Service (Kudu).
+- De hulpprogramma's voor ontwikkelaars in App Service (Kudu) inschakelen.
 - Het gebruik van de Azure Functions-portal-ervaring inschakelen.
 
 Volg deze stappen:
 
-1. Open een PowerShell-exemplaar als azurestack\AzureStackAdmin.
+1. Open een PowerShell-sessie als azurestack\AzureStackAdmin.
 2. Ga naar de locatie van de scripts die u hebt gedownload en uitgepakt de [vereiste stap](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
-3. [Installeer PowerShell voor Azure Stack](azure-stack-powershell-install.md).
-4. Voer de **maken AADIdentityApp.ps1** script. Wanneer u wordt gevraagd, typt u de Azure AD-tenant-ID die u voor uw Azure-Stack-implementatie. Voer bijvoorbeeld **myazurestack.onmicrosoft.com**.
+3. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
+4. Voer de **maken AADIdentityApp.ps1** script. Wanneer u wordt gevraagd, typt u de Azure AD-tenant-ID die u voor uw Azure Stack-implementatie. Voer bijvoorbeeld **myazurestack.onmicrosoft.com**.
 5. In de **referentie** venster, Voer uw Azure AD-service admin-account en wachtwoord. Selecteer **OK**.
-6. Geef het bestandspad van de certificaat en het wachtwoord van het certificaat voor de [certificaat eerder gemaakte](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat voor deze stap standaard is gemaakt, **sso.appservice.local.azurestack.external.pfx**.
-7. Het script maakt een nieuwe toepassing in de Azure AD-exemplaar van tenant. Noteer de toepassings-ID die wordt geretourneerd in de PowerShell-uitvoer. U moet deze informatie tijdens de installatie.
-8. Open een nieuw browservenster en meld u bij de [Azure-portal](https://portal.azure.com) als de service Azure Active Directory-beheerder.
+6. Voer het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
+7. Het script maakt een nieuwe toepassing in de tenant Azure AD-instantie. Noteer de toepassings-ID die wordt geretourneerd in de PowerShell-uitvoer. U hebt deze informatie tijdens de installatie nodig.
+8. Open een nieuw browservenster en meld u aan de [Azure-portal](https://portal.azure.com) als de Azure Active Directory-service-beheerder.
 9. Open de Azure AD-resourceprovider.
-10. Selecteer **App registraties**.
+10. Selecteer **App-registraties**.
 11. Zoek de toepassings-ID geretourneerd als onderdeel van stap 7. Een App Service-toepassing wordt vermeld.
 12. Selecteer **toepassing** in de lijst.
 13. Selecteer **instellingen**.
-14. Selecteer **vereist machtigingen** > **machtigingen verlenen** > **Ja**.
+14. Selecteer **vereiste machtigingen** > **machtigingen verlenen** > **Ja**.
 
 ```PowerShell
     Create-AADIdentityApp.ps1
@@ -345,34 +347,34 @@ Volg deze stappen:
 
 | Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Vereist | Null | Azure AD tenant-ID. Geef het GUID of een tekenreeks. Een voorbeeld is myazureaaddirectory.onmicrosoft.com. |
-| AdminArmEndpoint | Vereist | Null | Beheerder Azure Resource Manager-eindpunt. Een voorbeeld is adminmanagement.local.azurestack.external. |
-| TenantARMEndpoint | Vereist | Null | Tenant van Azure Resource Manager-eindpunt. Een voorbeeld is management.local.azurestack.external. |
-| AzureStackAdminCredential | Vereist | Null | Azure AD-service admin credential. |
-| CertificateFilePath | Vereist | Null | **Volledig pad** naar het certificaatbestand van de identiteit toepassing eerder gegenereerd. |
-| CertificatePassword | Vereist | Null | Wachtwoord beschermt de persoonlijke sleutel van het certificaat. |
+| DirectoryTenantName | Vereist | Null | Azure AD-tenant-ID. Geef de GUID of een tekenreeks. Een voorbeeld is myazureaaddirectory.onmicrosoft.com. |
+| AdminArmEndpoint | Vereist | Null | Eindpunt van Admin Azure Resource Manager. Een voorbeeld is adminmanagement.local.azurestack.external. |
+| TenantARMEndpoint | Vereist | Null | Eindpunt voor de tenant Azure Resource Manager. Een voorbeeld is management.local.azurestack.external. |
+| AzureStackAdminCredential | Vereist | Null | Azure AD-service-beheerreferenties. |
+| CertificateFilePath | Vereist | Null | **Volledig pad** naar het bestand voor het identiteitstoepassingscertificaat eerder gegenereerd. |
+| CertificatePassword | Vereist | Null | Het wachtwoord dat helpt de persoonlijke sleutel van het certificaat te beschermen. |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Een Active Directory Federation Services-toepassing maken
 
-Azure-Stack-omgevingen is beveiligd met AD FS, moet u een AD FS-service-principal ter ondersteuning van de volgende bewerkingen configureren:
+Voor Azure Stack-omgevingen die zijn beveiligd door AD FS, moet u een AD FS-service-principal ter ondersteuning van de volgende bewerkingen configureren:
 
-- Virtuele-machineschaalset ingesteld integratie op worker lagen.
-- Eenmalige aanmelding voor de Azure Functions-portal en geavanceerde developer-tools.
+- Virtuele-machineschaalset integratie op werkrolniveaus.
+- Eenmalige aanmelding voor de hulpprogramma's voor Azure Functions-portal en geavanceerde ontwikkelaars.
 
 Beheerders moeten eenmalige aanmelding te configureren:
 
-- Een service-principal voor de virtuele machine scale set integratie op worker lagen configureren.
-- Schakel de geavanceerde ontwikkelhulpprogramma's in App Service (Kudu).
+- Een service-principal voor de virtuele machine scale set integratie op werkrolniveaus configureren.
+- De hulpprogramma's voor ontwikkelaars in App Service (Kudu) inschakelen.
 - Het gebruik van de Azure Functions-portal-ervaring inschakelen.
 
 Volg deze stappen:
 
-1. Open een PowerShell-exemplaar als azurestack\AzureStackAdmin.
+1. Open een PowerShell-sessie als azurestack\AzureStackAdmin.
 2. Ga naar de locatie van de scripts die u hebt gedownload en uitgepakt de [vereiste stap](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
-3. [Installeer PowerShell voor Azure Stack](azure-stack-powershell-install.md).
+3. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
 4. Voer de **maken ADFSIdentityApp.ps1** script.
-5. In de **referentie** venster uw AD FS cloud admin-account en wachtwoord invoeren. Selecteer **OK**.
-6. Geef de bestandspad certificaat en het wachtwoord van het certificaat voor de [certificaat eerder gemaakte](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat voor deze stap standaard is gemaakt, **sso.appservice.local.azurestack.external.pfx**.
+5. In de **referentie** venster, Geef uw AD FS cloud-beheerdersaccount en het wachtwoord. Selecteer **OK**.
+6. Geef het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1
@@ -380,11 +382,11 @@ Volg deze stappen:
 
 | Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Vereist | Null | Beheerder Azure Resource Manager-eindpunt. Een voorbeeld is adminmanagement.local.azurestack.external. |
-| PrivilegedEndpoint | Vereist | Null | Bevoorrechte eindpunt. Een voorbeeld is AzS ERCS01. |
-| CloudAdminCredential | Vereist | Null | Referentie voor domein-account voor Azure-Stack cloud beheerders. Een voorbeeld is Azurestack\CloudAdmin. |
-| CertificateFilePath | Vereist | Null | **Volledig pad** aan de identiteit van de toepassing PFX-certificaatbestand. |
-| CertificatePassword | Vereist | Null | Wachtwoord beschermt de persoonlijke sleutel van het certificaat. |
+| AdminArmEndpoint | Vereist | Null | Eindpunt van Admin Azure Resource Manager. Een voorbeeld is adminmanagement.local.azurestack.external. |
+| PrivilegedEndpoint | Vereist | Null | Bevoegde eindpunt. Een voorbeeld is AzS-ERCS01. |
+| CloudAdminCredential | Vereist | Null | Referenties van het domein account voor Azure Stack-cloud-beheerders. Een voorbeeld is Azurestack\CloudAdmin. |
+| CertificateFilePath | Vereist | Null | **Volledig pad** naar de identiteitstoepassing certificaat-PFX-bestand. |
+| CertificatePassword | Vereist | Null | Het wachtwoord dat helpt de persoonlijke sleutel van het certificaat te beschermen. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.date: 07/02/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: e8aaf828d366db0f008e842ba1b0f76907aa8791
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 39f7d69482845af48b1dce8c2e51f4acf77bf4fb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346970"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448057"
 ---
 # <a name="view-all-members-of-an-administrator-role-in-azure-active-directory"></a>Alle leden van een beheerdersrol weergeven in Azure Active Directory
 
@@ -45,5 +45,5 @@ Wanneer u de leden van een rol bekijkt, selecteert u **beschrijving** om te zien
 ## <a name="next-steps"></a>Volgende stappen
 
 * U kunt delen met ons op de [forum van Azure AD-beheerdersrollen](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Zie voor meer informatie over de functies en de toewijzing van de rol beheerder [beheerdersrollen toewijzen](active-directory-assign-admin-roles-azure-portal.md).
+* Zie voor meer informatie over de functies en de toewijzing van de rol beheerder [beheerdersrollen toewijzen](users-groups-roles/directory-assign-admin-roles.md).
 * Zie voor gedetailleerde bevoegdheden voor standaard een [vergelijking van de standaard Gast en lid gebruikersmachtigingen](./fundamentals/users-default-permissions.md).

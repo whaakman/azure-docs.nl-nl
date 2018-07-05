@@ -12,30 +12,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 8fd70380dbb88f379789e1a4730934dcd38cac5a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4f74b0f90795362d3e509fdbd33e5f358227f147
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29393215"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436868"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van het .NET Framework
 
 ## <a name="introduction"></a>Inleiding
 
-Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT).
+Azure Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT).
 
-In deze zelfstudie ziet u hoe u een .NET Framework-consoletoepassing schrijft die met de **[EventProcessorHost][EventProcessorHost]** berichten ontvangt van een Event Hub. Als u gebeurtenissen wilt verzenden met het .NET Framework, raadpleeg dan het artikel [Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) of klik in de inhoudsopgave aan de linkerkant op de juiste taal voor verzending.
+In deze zelfstudie ziet u hoe u een .NET Framework-consoletoepassing schrijft die met de **[EventProcessorHost][Event Processor Host]** berichten ontvangt van een Event Hub. Als u gebeurtenissen wilt verzenden met het .NET Framework, raadpleeg dan het artikel [Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) of klik in de inhoudsopgave aan de linkerkant op de juiste taal voor verzending.
 
-De [EventProcessorHost][EventProcessorHost] is een .NET-klasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met de [EventProcessorHost][Event Processor Host] kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van de [EventProcessorHost][EventProcessorHost] gedemonstreerd voor één ontvanger. In het voorbeeld [Uitgeschaalde gebeurtenisverwerking][Scale out Event Processing with Event Hubs] ziet u hoe u de [EventProcessorHost][EventProcessorHost] gebruikt met meerdere ontvangers.
+De [EventProcessorHost][EventProcessorHost] is een .NET-klasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met behulp van de Event Processor Host, splitsen u gebeurtenissen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld laat zien hoe u de Event Processor Host voor één ontvanger. De [Uitgeschaalde gebeurtenisverwerking] [ Scale out Event Processing with Event Hubs] voorbeeld ziet u hoe u de Event Processor Host met meerdere ontvangers.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* [Microsoft Visual Studio 2015 of hoger](http://visualstudio.com). In de schermafbeeldingen in deze zelfstudie wordt Visual Studio 2017 gebruikt.
+* [Microsoft Visual Studio 2017 of hoger](http://visualstudio.com).
 * Een actief Azure-account. Als u geen Azure-account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
@@ -46,15 +46,19 @@ In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naa
 
 Als u de [EventProcessorHost][EventProcessorHost] wilt gebruiken, moet u een [Azure Storage-account][Azure Storage account] hebben:
 
-1. Meld u aan bij de [Azure-portal][Azure portal], en klik op **maken van een resource** op linksboven op het scherm.
+1. Aanmelden bij de [Azure-portal][Azure portal], en klikt u op **een resource maken** op linksboven in het scherm.
+
 2. Klik op **Opslag** en klik vervolgens op **Opslagaccount**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
+
 3. In de **storage-account maken** deelvenster, typ een naam voor het opslagaccount. Kies een Azure-abonnement, resourcegroep en locatie voor het maken van de resource. Klik vervolgens op **Maken**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+
 4. Klik in de lijst met opslagaccounts op het zojuist gemaakte opslagaccount.
-5. Klik in het deelvenster storage-account op **toegangssleutels**. Kopieer de waarde van **key1** voor gebruik verderop in deze zelfstudie.
+
+5. Klik in het deelvenster met storage-account op **toegangssleutels**. Kopieer de waarde van **key1** voor gebruik verderop in deze zelfstudie.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -168,7 +172,7 @@ Gefeliciteerd! U hebt nu met behulp van de EventProcessorHost berichten ontvange
 
 Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt en ontvangt, kunt u via de volgende koppelingen meer informatie opdoen:
 
-* [EventProcessorHost][Event Processor Host]
+* [Overzicht van Event Processor Host][Event Processor Host]
 * [Event Hubs-overzicht][Event Hubs overview]
 * [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
 
@@ -179,10 +183,10 @@ Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens ve
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Hubs overview]: event-hubs-about.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]:../storage/common/storage-create-storage-account.md
-[Event Processor Host]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Processor Host]: event-hubs-event-processor-host.md
 [Azure portal]: https://portal.azure.com

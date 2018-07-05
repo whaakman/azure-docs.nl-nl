@@ -1,6 +1,6 @@
 ---
 title: Overzicht van Azure Event Hubs-API | Microsoft Docs
-description: Overzicht van de beschikbare Azure Event Hubs-API 's
+description: Overzicht van beschikbare Azure Event Hubs-API 's
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,49 +12,50 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: abd44fd0c9cbfab2365b1552e3cd90e84a5348d7
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: bcd570d5fd2bdcf6cd344f5c81902420163b87ae
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
-ms.locfileid: "25957524"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434538"
 ---
 # <a name="available-event-hubs-apis"></a>Beschikbare Event Hubs-API 's
 
-In dit artikel wordt beschreven welke beschikbare API-clients die u gebruiken kunt voor het beheren van Event Hubs-resources.
+Dit artikel beschrijft de set beschikbare API-clients die u gebruiken kunt voor het beheren van Event Hubs-bronnen.
 
 ## <a name="runtime-apis"></a>Runtime-API 's
 
-Hier volgt een beschrijving van alle beschikbare Azure Event Hubs runtime-clients. Sommige van deze bibliotheken ook beperkte beheerfunctionaliteit bevatten, maar er zijn ook [specifieke bibliotheken](#management-apis) toegewezen aan beheertaken uit te voeren. De focus core van deze bibliotheken is verzenden en ontvangen van berichten van een event hub.
+Het volgende gedeelte bevat alle beschikbare Azure Event Hubs runtime-clients. Sommige van deze bibliotheken ook beperkte beheerfunctionaliteit bevatten, maar er zijn ook [specifieke bibliotheken](#management-apis) toegewezen aan bewerkingen. De focus core van deze bibliotheken is voor het verzenden en ontvangen van berichten van een event hub.
 
-Zie [aanvullende informatie](#additional-information) voor meer informatie over de huidige status van elke runtime-bibliotheek.
+Zie voor meer informatie over de huidige status van elke wisselaar runtime [aanvullende informatie](#additional-information).
 
-| Taal/Platform | Clientpakket | EventProcessorHost-pakket | Opslagplaats |
+| Taal/Platform | Client-pakket | EventProcessorHost-pakket | Opslagplaats |
 | --- | --- | --- | --- |
-| .NET-standaard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
-| .NET framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N.v.t. |
+| .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
+| .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/A |
 | Java | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22) | [GitHub](https://github.com/Azure/azure-event-hubs-java) |
-| Knooppunt | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N.v.t. | [GitHub](https://github.com/Azure/azure-event-hubs-node) |
-| C | N.v.t. | N.v.t. | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
+| Knooppunt | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/A | [GitHub](https://github.com/Azure/azure-event-hubs-node) |
+| C | N/A | N/A | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
 
 ### <a name="additional-information"></a>Aanvullende informatie
 
 #### <a name="net"></a>.NET
-Het .NET-ecosysteem heeft meerdere runtimes, dus er zijn meerdere .NET-bibliotheken voor Event Hubs. De standaard .NET-bibliotheek kan worden uitgevoerd met .NET Core of de .NET Framework, terwijl de .NET Framework-bibliotheek kan alleen worden uitgevoerd in een omgeving met .NET Framework. Zie voor meer informatie over .NET Frameworks [framework-versies](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+
+Het .NET-ecosysteem heeft meerdere runtimes, dus er meerdere .NET-bibliotheken voor Event Hubs zijn. De standaard .NET-bibliotheek kan worden uitgevoerd met behulp van .NET Core of .NET Framework, terwijl de .NET Framework-bibliotheek kan alleen worden uitgevoerd in een omgeving met .NET Framework. Zie voor meer informatie over de versies van .NET Framework, [frameworkversies](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 #### <a name="node"></a>Knooppunt
 
-De Node.js-bibliotheek is momenteel in preview en als een kant-project wordt beheerd door Microsoft-werknemers en externe medewerkers. Alle bijdragen, met inbegrip van broncode Welkom zijn en zal worden beoordeeld.
+De [Node.js-bibliotheek](https://github.com/Azure/azure-event-hubs-node) is momenteel in preview en als een project aan clientzijde wordt onderhouden door Microsoft-werknemers en externe inzenders. Alle bijdragen, met inbegrip van broncode vrij en wordt gecontroleerd.
 
 ## <a name="management-apis"></a>Management-API 's
 
-Hier volgt een lijst met alle beschikbare management specifieke bibliotheken. Geen van deze bibliotheken runtime bewerkingen bevatten, en zijn voor enig doel van het beheer van Event Hubs-entiteiten.
+De volgende tabel bevat alle beschikbare management-specifieke-bibliotheken. Geen van deze bibliotheken runtime-bewerkingen bevatten, en zijn voor het enige doel van het beheren van Event Hubs-entiteiten.
 
 | Taal/Platform | Management Pack | Opslagplaats |
 | --- | --- | --- | --- |
-| .NET-standaard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
+| .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 
 ## <a name="next-steps"></a>Volgende stappen
 U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:

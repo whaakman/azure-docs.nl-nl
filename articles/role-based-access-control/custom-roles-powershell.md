@@ -1,6 +1,6 @@
 ---
-title: Maken van aangepaste rollen met Azure PowerShell | Microsoft Docs
-description: Informatie over het maken van aangepaste rollen voor op rollen gebaseerde toegangsbeheer (RBAC) met Azure PowerShell. Dit omvat de lijst, maken, bijwerken en verwijderen van aangepaste rollen.
+title: Aangepaste rollen met behulp van Azure PowerShell maken | Microsoft Docs
+description: Informatie over het maken van aangepaste rollen voor op rollen gebaseerd toegangsbeheer (RBAC) met behulp van Azure PowerShell. Dit omvat het weergeven, maken, bijwerken en verwijderen van aangepaste rollen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,33 +8,33 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6205198d3f9c4ec5bfa2311014cf9b90dcade6dc
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: c8e5f34bb6b38a3f187d86a1ebc0c7019c7f1046
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320518"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437015"
 ---
-# <a name="create-custom-roles-using-azure-powershell"></a>Maken van aangepaste rollen met Azure PowerShell
+# <a name="create-custom-roles-using-azure-powershell"></a>Maken van aangepaste rollen met behulp van Azure PowerShell
 
-Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. In dit artikel wordt beschreven hoe maken en beheren van aangepaste rollen met Azure PowerShell.
+Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. In dit artikel wordt beschreven hoe u maken en beheren van aangepaste rollen met behulp van Azure PowerShell.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het aangepaste rollen maken, hebt u het volgende nodig:
+Voor het maken van aangepaste rollen, hebt u het volgende nodig:
 
-- Machtigingen voor het maken van aangepaste rollen, zoals [eigenaar](built-in-roles.md#owner) of [beheerder voor gebruikerstoegang](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell](/powershell/azure/install-azurerm-ps) lokaal geïnstalleerd
+- Machtigingen voor het maken van aangepaste rollen, zoals [Eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator)
+- [Azure PowerShell lokaal geïnstalleerd](/powershell/azure/install-azurerm-ps)
 
-## <a name="list-custom-roles"></a>Lijst met aangepaste rollen
+## <a name="list-custom-roles"></a>Aangepaste rollen opvragen
 
-Als de functies die beschikbaar voor toewijzing op een scope zijn wilt weergeven, gebruikt de [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) opdracht. Het volgende voorbeeld worden alle functies die beschikbaar voor toewijzing in het geselecteerde abonnement zijn.
+Als u de functies die beschikbaar voor toewijzing aan een bereik zijn, gebruikt u de [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) opdracht. Het volgende voorbeeld worden alle functies die beschikbaar voor toewijzing in het geselecteerde abonnement zijn.
 
 ```azurepowershell
 Get-AzureRmRoleDefinition | FT Name, IsCustom
@@ -51,7 +51,7 @@ API Management Service Contributor                   False
 ...
 ```
 
-Het volgende voorbeeld worden alleen de aangepaste rollen die beschikbaar voor toewijzing in het geselecteerde abonnement zijn.
+Het volgende voorbeeld worden alleen de aangepaste functies die beschikbaar voor toewijzing in het geselecteerde abonnement zijn.
 
 ```azurepowershell
 Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
@@ -63,17 +63,17 @@ Name                     IsCustom
 Virtual Machine Operator     True
 ```
 
-Als het geselecteerde abonnement niet in de `AssignableScopes` van de functie, de aangepaste rol die niet weergegeven.
+Als het geselecteerde abonnement zich niet in de `AssignableScopes` van de rol, de aangepaste rol niet weergegeven.
 
-## <a name="create-a-custom-role"></a>Een aangepaste beveiligingsrol maken
+## <a name="create-a-custom-role"></a>Een aangepaste rol maken
 
-Gebruik voor het maken van een aangepaste rol de [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) opdracht. Er zijn twee methoden van de rol structureren met `PSRoleDefinition` object of een JSON-sjabloon. 
+U kunt een aangepaste rol maken met de [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) opdracht. Er zijn twee methoden voor het structureren van de rol, met behulp van `PSRoleDefinition` object of een JSON-sjabloon. 
 
 ### <a name="get-operations-for-a-resource-provider"></a>Bewerkingen ophalen voor een resourceprovider
 
 Wanneer u aangepaste rollen maken, is het belangrijk te weten van alle mogelijke bewerkingen van de resourceproviders.
-U kunt de lijst weergeven met [resource provider operations](resource-provider-operations.md) of kunt u de [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) opdracht voor deze informatie.
-Als u controleren van de beschikbare bewerkingen voor virtuele machines wilt, gebruikt u deze opdracht in:
+U kunt de lijst weergeven met [resourceproviderbewerkingen](resource-provider-operations.md) of kunt u de [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) opdracht voor het ophalen van deze informatie.
+Als u controleren van de beschikbare bewerkingen voor virtuele machines wilt, bijvoorbeeld deze opdracht gebruiken:
 
 ```azurepowershell
 Get-AzureRMProviderOperation <operation> | FT OperationName, Operation, Description -AutoSize
@@ -91,11 +91,11 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 ...
 ```
 
-### <a name="create-a-custom-role-with-the-psroledefinition-object"></a>Een aangepaste beveiligingsrol maken met het object PSRoleDefinition
+### <a name="create-a-custom-role-with-the-psroledefinition-object"></a>Een aangepaste rol maken met het object PSRoleDefinition
 
-Wanneer u een aangepaste beveiligingsrol maken met PowerShell, kunt u een van de [ingebouwde rollen](built-in-roles.md) als uitgangspunt nemen of u vanaf het begin starten kunt. Het eerste voorbeeld in deze sectie begint met een ingebouwde rol en past deze met meer machtigingen. Bewerk de kenmerken toevoegen de `Actions`, `NotActions`, of `AssignableScopes` die u wilt en klikt u vervolgens de wijzigingen opslaan als een nieuwe rol.
+Als u PowerShell gebruiken om een aangepaste rol maken, kunt u een van de [ingebouwde rollen](built-in-roles.md) als uitgangspunt of als u opnieuw kunt beginnen. Het eerste voorbeeld in deze sectie begint met een ingebouwde rol en past deze met meer machtigingen. Bewerk de kenmerken toe te voegen de `Actions`, `NotActions`, of `AssignableScopes` die u wilt en klikt u vervolgens de wijzigingen opslaan als een nieuwe rol.
 
-Het volgende voorbeeld begint met de [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) ingebouwde rol voor het maken van een aangepaste beveiligingsrol met de naam *virtuele Machine Operator*. De nieuwe rol verleent toegang tot alle leesbewerkingen van *Microsoft.Compute*, *Microsoft.Storage*, en *Microsoft.Network* resource providers en geeft toegang tot het starten , start opnieuw op en virtuele machines bewaken. De aangepaste rol kan worden gebruikt in twee abonnementen.
+Het volgende voorbeeld wordt gestart met de [Inzender voor virtuele machines](built-in-roles.md#virtual-machine-contributor) ingebouwde rol te maken van een aangepaste rol met de naam *virtuele Machine-Operator*. De nieuwe rol verleent toegang tot alle leesbewerkingen van *Microsoft.Compute*, *Microsoft.Storage*, en *Microsoft.Network* resource providers en geeft toegang tot het starten , opnieuw opstarten en controleren van virtuele machines. De aangepaste rol kan worden gebruikt in twee abonnementen.
 
 ```azurepowershell
 $role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"
@@ -118,7 +118,7 @@ $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111"
 New-AzureRmRoleDefinition -Role $role
 ```
 
-Het volgende voorbeeld ziet u een andere manier om te maken de *virtuele Machine Operator* aangepaste rol. Deze methode begint met het maken van een nieuw `PSRoleDefinition` object. De actie-bewerkingen zijn opgegeven in de `perms` -variabele en is ingesteld op de `Actions` eigenschap. De `NotActions` eigenschap is ingesteld door het lezen van de `NotActions` van de [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) ingebouwde rol. Aangezien [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) geen `NotActions`, deze regel is niet vereist, maar er wordt weergegeven hoe gegevens kan worden opgehaald uit een andere rol.
+Het volgende voorbeeld ziet u een andere manier om te maken de *virtuele Machine-Operator* aangepaste rol. Deze methode begint met het maken van een nieuw `PSRoleDefinition` object. De actie-bewerkingen zijn opgegeven in de `perms` -variabele en ingesteld op de `Actions` eigenschap. De `NotActions` eigenschap wordt ingesteld met het lezen van de `NotActions` uit de [Inzender voor virtuele machines](built-in-roles.md#virtual-machine-contributor) ingebouwde rol. Aangezien [Inzender voor virtuele machines](built-in-roles.md#virtual-machine-contributor) geen `NotActions`, deze regel is niet vereist, maar u ziet hoe gegevens kan worden opgehaald uit een andere rol.
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
@@ -136,9 +136,9 @@ $role.AssignableScopes = $subs
 New-AzureRmRoleDefinition -Role $role
 ```
 
-### <a name="create-a-custom-role-with-json-template"></a>Een aangepaste beveiligingsrol maken met JSON-sjabloon
+### <a name="create-a-custom-role-with-json-template"></a>Een aangepaste rol maken met JSON-sjabloon
 
-Een JSON-sjabloon kan worden gebruikt als de definitie van de gegevensbron voor de aangepaste rol. Het volgende voorbeeld wordt een aangepaste rol waarmee de leestoegang voor opslagruimte en rekencapaciteit resources, toegang tot ondersteuning, en die rol worden toegevoegd aan twee abonnementen. Maak een nieuw bestand `C:\CustomRoles\customrole1.json` met het volgende voorbeeld. De Id moet worden ingesteld op `null` op het eerste rol maken als een nieuwe ID automatisch wordt gegenereerd. 
+Een JSON-sjabloon kan worden gebruikt als de definitie van de gegevensbron voor de aangepaste rol. Het volgende voorbeeld wordt een aangepaste rol lezen-toegang tot opslagruimte en rekencapaciteit resources, toegang tot ondersteuning, en die rol worden toegevoegd aan twee abonnementen. Maak een nieuw bestand `C:\CustomRoles\customrole1.json` met het volgende voorbeeld. De Id moet worden ingesteld op `null` bij het maken van de rol van de eerste als een nieuwe ID wordt automatisch gegenereerd. 
 
 ```json
 {
@@ -160,21 +160,21 @@ Een JSON-sjabloon kan worden gebruikt als de definitie van de gegevensbron voor 
 }
 ```
 
-Als u wilt de rol toevoegen aan de abonnementen, voer de volgende PowerShell-opdracht:
+De rol toevoegen aan de abonnementen, voer de volgende PowerShell-opdracht:
 
 ```azurepowershell
 New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
-## <a name="update-a-custom-role"></a>Bijwerken van een aangepaste rol
+## <a name="update-a-custom-role"></a>Een aangepaste rol bijwerken
 
-Net als bij het maken van een aangepaste beveiligingsrol, kunt u een bestaande aangepaste rol met behulp van de `PSRoleDefinition` object of een JSON-sjabloon.
+Net als bij het maken van een aangepaste rol, kunt u een bestaande aangepaste rol met behulp van de `PSRoleDefinition` object of een JSON-sjabloon.
 
-### <a name="update-a-custom-role-with-the-psroledefinition-object"></a>Een aangepaste beveiligingsrol aan het object PSRoleDefinition bijwerken
+### <a name="update-a-custom-role-with-the-psroledefinition-object"></a>Een aangepaste rol bijwerken met het object PSRoleDefinition
 
-Voor het wijzigen van een aangepaste beveiligingsrol, gebruikt u eerst de [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) opdracht voor het ophalen van de functiedefinitie. Controleer vervolgens de gewenste wijzigingen aan de functiedefinitie. Gebruik tot slot de [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) opdracht voor het opslaan van de gewijzigde roldefinitie.
+Voor het wijzigen van een aangepaste rol, gebruikt u eerst de [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) opdracht voor het ophalen van de roldefinitie. Controleer vervolgens de gewenste wijzigingen aan de roldefinitie van de. Gebruik tot slot de [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) opdracht voor het opslaan van de aangepaste roldefinitie.
 
-Het volgende voorbeeld wordt de `Microsoft.Insights/diagnosticSettings/*` bewerking is de *virtuele Machine Operator* aangepaste rol.
+Het volgende voorbeeld wordt de `Microsoft.Insights/diagnosticSettings/*` bewerking naar de *virtuele Machine-Operator* aangepaste rol.
 
 ```azurepowershell
 $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
@@ -198,7 +198,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/11111111-1111-1111-1111-111111111111}
 ```
 
-Het volgende voorbeeld wordt een Azure-abonnement aan de toewijsbare bereiken van de *virtuele Machine Operator* aangepaste rol.
+Het volgende voorbeeld wordt een Azure-abonnement aan de toewijsbare bereiken van de *virtuele Machine-Operator* aangepaste rol.
 
 ```azurepowershell
 Get-AzureRmSubscription -SubscriptionName Production3
@@ -232,9 +232,9 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
 ```
 
-### <a name="update-a-custom-role-with-a-json-template"></a>Bijwerken van een aangepaste beveiligingsrol met een JSON-sjabloon
+### <a name="update-a-custom-role-with-a-json-template"></a>Een aangepaste rol bijwerken met een JSON-sjabloon
 
-De vorige JSON-sjabloon gebruikt, kunt u eenvoudig wijzigen een bestaande aangepaste rol wilt toevoegen of verwijderen van acties. Het JSON-sjabloon bijwerken en toevoegen van de gelezen actie voor netwerken, zoals wordt weergegeven in het volgende voorbeeld. De definities die worden vermeld in de sjabloon zijn niet cumulatief toegepast op de definitie van een bestaande, wat betekent dat de rol wordt weergegeven zoals u in de sjabloon opgeven. Ook moet u het veld Id bijwerken met de ID van de rol. Als u niet zeker weet wat deze waarde is, kunt u de [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet deze gegevens worden opgehaald.
+U kunt eenvoudig een een bestaande aangepaste rol toevoegen of verwijderen van acties wijzigen met behulp van de vorige JSON-sjabloon. De JSON-sjabloon bijwerken en toevoegen van de gelezen actie voor netwerken, zoals wordt weergegeven in het volgende voorbeeld. De definities die worden vermeld in de sjabloon zijn niet cumulatief toegepast op een bestaande definitie, wat betekent dat de rol wordt weergegeven zoals u in de sjabloon. U moet ook het veld-Id bijwerken met de ID van de rol. Als u niet zeker weet wat deze waarde is, kunt u de [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet om op te halen van deze informatie.
 
 ```json
 {
@@ -265,9 +265,9 @@ Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 
 ## <a name="delete-a-custom-role"></a>Een aangepaste rol verwijderen
 
-U een aangepaste rol verwijderen met de [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition) opdracht.
+Als u wilt een aangepaste rol verwijderen, gebruikt u de [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition) opdracht.
 
-Het volgende voorbeeld verwijdert u de *virtuele Machine Operator* aangepaste rol.
+Het volgende voorbeeld verwijdert u de *virtuele Machine-Operator* aangepaste rol.
 
 ```azurepowershell
 Get-AzureRmRoleDefinition "Virtual Machine Operator"
@@ -296,6 +296,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zelfstudie: Een aangepaste beveiligingsrol met Azure PowerShell maken](tutorial-custom-role-powershell.md)
+- [Zelfstudie: Een aangepaste rol die met behulp van Azure PowerShell maken](tutorial-custom-role-powershell.md)
 - [Aangepaste rollen in Azure](custom-roles.md)
-- [Azure Resource Manager resource provider-bewerkingen](resource-provider-operations.md)
+- [Azure Resource Manager-resourceproviderbewerkingen](resource-provider-operations.md)

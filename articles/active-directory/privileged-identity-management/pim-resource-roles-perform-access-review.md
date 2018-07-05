@@ -1,6 +1,6 @@
 ---
-title: Uitvoeren van een onderzoek toegang in Privileged Identity Management voor Azure-resources | Microsoft Docs
-description: Dit document wordt beschreven hoe u een revisie toegang uitvoert in PIM voor Azure-resources, volgens de resourcerol.
+title: Een toegangscontrole uitvoeren in Privileged Identity Management voor Azure-resources | Microsoft Docs
+description: Dit document wordt beschreven hoe u een toegangscontrole uitvoeren in PIM voor Azure-resources op basis van de resourcerol van de.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,43 +10,43 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 10da40cf83dd39251033403a6a6913eb2e3b8b1d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fc4499e56d3508086365a353d5fa3f2bb42082b7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260848"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447299"
 ---
-# <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>Een onderzoek toegang in PIM, volgens de resourcerol uitvoeren
-Privileged Identity Management (PIM) voor Azure-resources vereenvoudigt de manier waarop bedrijven bevoorrechte toegang tot bronnen in Azure beheert. 
+# <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>Een toegangscontrole uitvoeren in PIM, op basis van de resourcerol van de
+Privileged Identity Management (PIM) voor Azure-resources vereenvoudigt de manier waarop ondernemingen bevoegde toegang tot resources in Azure beheren. 
 
-Als u zijn toegewezen aan een beheerderrol, kan beheerder met bevoorrechte rol van uw organisatie u vragen om regelmatig bevestigen dat u nog steeds die rol voor uw project moet. Krijgt u mogelijk een e-mailbericht een koppeling bevat of u kunt dan direct door naar de [Azure-portal](https://portal.azure.com). Volg de stappen in dit artikel om uit te voeren met een zelf controleren van de toegewezen rollen.
+Als u aan een beheerdersrol toegewezen bent, kan beheerder met bevoorrechte rol van uw organisatie u vragen om regelmatig bevestigen dat u die rol nog voor de taak moet. U kunt een e-mailbericht een koppeling bevat krijgen of gaat u rechtstreeks naar de [Azure-portal](https://portal.azure.com). Volg de stappen in dit artikel om uit te voeren met een zelf bekijken van de toegewezen rollen.
 
-Als u een beheerder met bevoorrechte rol geïnteresseerd in toegang revisies, vraag meer details op [starten een onderzoek toegang](pim-resource-roles-start-access-review.md).
+Als u een beheerder met bevoorrechte rol toegangsbeoordelingen geïnteresseerd bent, meer details op ophalen [een toegangsbeoordeling starten](pim-resource-roles-start-access-review.md).
 
 ## <a name="add-the-privileged-identity-management-application"></a>De Privileged Identity Management-toepassing toevoegen
-U kunt de Azure Active Directory (Azure AD) PIM-toepassing in de [Azure-portal](https://portal.azure.com/) om uit te voeren van uw beoordeling. Als u de toepassing geen in uw portal hebt, als volgt te werk om te beginnen.
+U kunt de Azure Active Directory (Azure AD) PIM-toepassing in de [Azure-portal](https://portal.azure.com/) om uit te voeren van uw beoordeling. Als u de toepassing in de portal hebt, volgt u deze stappen om te beginnen.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer uw gebruiker naam in de rechterbovenhoek van de Azure portal en selecteer de map waar u wilt dat u werkt.
-3. Selecteer **alle services**, en gebruik de **Filter** vak om te zoeken naar *Azure AD Privileged Identity Management*.
+2. Selecteer uw gebruiker in de rechterbovenhoek van de Azure-portal de naam en selecteer de map waar u u wilt worden uitgevoerd.
+3. Selecteer **alle services**, en gebruik de **Filter** om te zoeken naar *Azure AD Privileged Identity Management*.
 4. Controleer **vastmaken aan dashboard**, en selecteer vervolgens **maken**. De PIM-toepassing wordt geopend.
 
 ## <a name="approve-or-deny-access"></a>Goedkeuren of weigeren van toegang
-Wanneer u goedkeuren of weigeren van toegang, u hebt zojuist zorgt ervoor dat de revisor of u deze rol of niet. Kies **goedkeuren** als u wilt blijven in de rol of **weigeren** als u de toegang niet meer nodig. De status verandert alleen wanneer de revisor van toepassing de resultaten is.
+Wanneer u goedkeuren of weigeren van toegang, u bent slechts zorgt ervoor dat de revisor of u nog steeds gebruik van deze rol of niet. Kies **goedkeuren** als u wilt blijven in de rol of **weigeren** als u de toegang niet meer nodig. De status verandert alleen wanneer de revisor van de toepassing de resultaten.
 
-Volg deze stappen om te zoeken en voltooien van de controle van toegang:
+Volg deze stappen om te zoeken en de toegangsbeoordeling voltooien:
 1. Blader naar de Azure AD PIM-toepassing.
-2. Selecteer de **toegang controleren** blade.
+2. Selecteer de **toegang beoordelen** blade.
 
    ![Schermafbeelding van de PIM-toepassing, met controle toegang blade geselecteerd](media/azure-pim-resource-rbac/rbac-access-review-complete.png)
 
-3. Selecteer de revisie die u wilt voltooien. 
-4. Kies een **goedkeuren** of **weigeren**. In de **een vak reden**, moet u mogelijk een reden voor uw beslissing nemen.
+3. Selecteer de beoordeling die u wilt uitvoeren. 
+4. Kies een **goedkeuren** of **weigeren**. In de **een vak reden**, moet u mogelijk een reden op voor uw beslissing nemen.
 
-   ![Schermopname van details voorbeeldpagina](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+   ![Pagina met details van schermafbeelding van de beoordeling](media/azure-pim-resource-rbac/rbac-access-review-choice.png)

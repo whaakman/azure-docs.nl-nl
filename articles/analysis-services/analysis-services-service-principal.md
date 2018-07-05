@@ -4,49 +4,49 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 931a45fdbb04d15f3080ee0a2c0546ab6e924b59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 76cadc453a696b8d19788525bfb69cf9cacd353d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595713"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448234"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering met service-principals
 
-Service-principals zijn de bron van een Azure Active Directory-toepassing u binnen uw tenant om uit te voeren zonder toezicht resource en niveau servicebewerkingen maken. Ze zijn van een uniek type *gebruikersidentiteit* met een toepassings-ID en wachtwoord of certificaat. Een service-principal heeft alleen de machtigingen die nodig zijn voor het uitvoeren van taken die zijn gedefinieerd door de rollen en machtigingen waarvoor deze toegewezen. 
+Service-principals zijn een Azure Active Directory-toepassingsresource die u in uw tenant maakt om onbeheerde bewerkingen op resource- en serviceniveau uit te voeren. Ze een uniek soort *gebruikersidentiteit* met een toepassings-ID en wachtwoord of certificaat. Een service-principal heeft alleen de machtigingen die nodig zijn voor het uitvoeren van taken die zijn gedefinieerd door de rollen en machtigingen waarvoor deze toegewezen. 
 
-In Analysis Services, service-principals met Azure Automation, PowerShell zonder toezicht, aangepaste clienttoepassingen en web-apps gebruikt om algemene taken te automatiseren. Bijvoorbeeld: inrichting servers, het implementeren van modellen, gegevens vernieuwen, schaal omhoog/omlaag en onderbreken/hervatten kan alle worden geautomatiseerd met behulp van de service-principals. Machtigingen worden toegewezen aan de service-principals via het rollidmaatschap, net als normale UPN van Azure AD-accounts.
+In Analysis Services, service-principals met Azure Automation, PowerShell installatie zonder toezicht, aangepaste toepassingen en web-apps gebruikt om algemene taken te automatiseren. Bijvoorbeeld, inrichting servers, het implementeren van modellen, het vernieuwen van gegevens, schaal omhoog/omlaag en onderbreken/hervatten kan alle worden geautomatiseerd met behulp van service-principals. Machtigingen zijn toegewezen aan service-principals via rollidmaatschap, net als normale UPN van Azure AD-accounts.
 
 ## <a name="create-service-principals"></a>Service-principals maken
  
-Service-principals kunnen worden gemaakt in de Azure portal of met behulp van PowerShell. Voor meer informatie zie:
+Service-principals kunnen worden gemaakt in Azure portal of met behulp van PowerShell. Voor meer informatie zie:
 
-[Maken van de service-principal - Azure-portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
+[Service-principal - Azure portal maken](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
 [Service-principal maken - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
-## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Opslaan van referenties en certificaat activa in Azure Automation
+## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Referentie en certificaat activa Store in Azure Automation
 
-Principal-Servicereferenties en certificaten kunnen worden veilig opgeslagen in Azure Automation voor runbook-bewerkingen. Voor meer informatie zie:
+Referenties voor service-principal en certificaten kunnen worden veilig opgeslagen in Azure Automation voor runbook-bewerkingen. Voor meer informatie zie:
 
 [Referentieassets in Azure Automation](../automation/automation-credentials.md)   
 [Certificaatassets in Azure Automation](../automation/automation-certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Service-principals toevoegen aan de rol admin server
 
-Voordat u een service-principal voor beheerbewerkingen voor Analysis Services-server gebruiken kunt, moet u deze toevoegen aan de server-rol Administrator. Zie voor meer informatie, [een service-principal toevoegen aan de serverbeheerdersrol](analysis-services-addservprinc-admins.md).
+Voordat u een service-principal voor beheerbewerkingen voor Analysis Services-server gebruiken kunt, moet u deze toevoegen aan de beheerdersrol van de server. Zie voor meer informatie, [een service-principal toevoegen aan de serverbeheerdersrol](analysis-services-addservprinc-admins.md).
 
 ## <a name="service-principals-in-connection-strings"></a>Service-principals in verbindingsreeksen
 
-Service-principal appID en wachtwoord of certificaat kan worden gebruikt in verbinding tekenreeksen grotendeels hetzelfde als een UPN.
+App service principal-id en wachtwoord of certificaat kan worden gebruikt in connection strings bijna hetzelfde als een UPN.
 
 ### <a name="powershell"></a>PowerShell
 
-Wanneer een service-principal wordt gebruikt voor bewerkingen van de resource management met de [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) module, gebruik `Login-AzureRmAccount` cmdlet. Wanneer een service-principal wordt gebruikt voor serverbewerkingen met de [SQLServer](https://www.powershellgallery.com/packages/SqlServer) module, gebruik `Add-AzureAnalysisServicesAccount` cmdlet. 
+Bij het gebruik van een service-principal voor resource management-bewerkingen met de [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) -module, gebruik `Login-AzureRmAccount` cmdlet. Wanneer u een service-principal voor de werking van de server met de [SQLServer](https://www.powershellgallery.com/packages/SqlServer) -module, gebruik `Add-AzureAnalysisServicesAccount` cmdlet. 
 
-Toepassings-id en een wachtwoord in het volgende voorbeeld worden gebruikt om een model database vernieuwen uit te voeren:
+Toepassings-id en het wachtwoord in het volgende voorbeeld worden gebruikt om uit te voeren van een model-bewerking voor het vernieuwen van database:
 
 ```PowerShell
 Param (
@@ -66,9 +66,9 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO en ADOMD 
 
-Wanneer u verbinding maakt met clienttoepassingen en web-apps, [AMO en ADOMD clientbibliotheken](analysis-services-data-providers.md) versie 15.0.2 en hogere installeerbare pakketten vanuit NuGet ondersteuning voor service-principals in verbindingsreeksen met de volgende syntaxis: `app:AppID` en het wachtwoord of `cert:thumbprint`. 
+Wanneer u verbinding maakt met client-toepassingen en web-apps, [AMO en ADOMD-clientbibliotheken](analysis-services-data-providers.md) versie 15.0.2 en hogere installeerbare pakketten vanuit NuGet ondersteuning voor service-principals in de verbindingsreeksen die gebruikmaken van de volgende syntaxis: `app:AppID` en het wachtwoord of `cert:thumbprint`. 
 
-In het volgende voorbeeld `appID` en een `password` worden gebruikt om een model database vernieuwen uit te voeren:
+In het volgende voorbeeld `appID` en een `password` worden gebruikt voor het uitvoeren van een model-bewerking voor het vernieuwen van database:
 
 ```C#
 string appId = "xxx";
@@ -84,4 +84,4 @@ db.Model.SaveChanges();
 
 ## <a name="next-steps"></a>Volgende stappen
 [Meld u aan met Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[Een service-principal toevoegen aan de rol van server](analysis-services-addservprinc-admins.md)   
+[Een service-principal toevoegen aan de rol van de server-beheerder](analysis-services-addservprinc-admins.md)   

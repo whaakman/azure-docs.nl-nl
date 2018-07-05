@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub beveiliging begrijpen | Microsoft Docs
-description: Handleiding voor ontwikkelaars - toegang met IoT Hub voor apparaat-apps en apps van de back-end beheren. Bevat informatie over beveiligingstokens en ondersteuning voor X.509-certificaten.
+title: Meer uitleg over Azure IoT Hub-beveiliging | Microsoft Docs
+description: Ontwikkelaars begeleiden - toegang tot IoT Hub voor apps op apparaten en back-end-apps beheren. Bevat informatie over de beveiligingstokens en ondersteuning voor X.509-certificaten.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,118 +8,121 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 04823409b209d1f35a27452321cfd37d30097dde
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808771"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444392"
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
-In dit artikel beschrijft de opties voor het beveiligen van uw IoT-hub. IoT Hub gebruikt *machtigingen* toegang verlenen tot elk IoT hub-eindpunt. Machtigingen beperken de toegang tot een IoT-hub die op basis van functionaliteit.
+In dit artikel beschrijft de opties voor het beveiligen van uw IoT-hub. IoT Hub gebruikt *machtigingen* toegang verlenen tot elk IoT hub-eindpunt. Machtigingen beperken de toegang tot een IoT-hub op basis van functionaliteit.
 
-Dit artikel bevat:
+In dit artikel worden geïntroduceerd:
 
-* De andere machtigingen die u kunt verlenen aan een apparaat of back-end-app voor toegang tot uw IoT-hub.
+* De andere machtigingen die u aan een apparaat of de back-end-app verlenen kunt voor toegang tot uw IoT-hub.
 * Het verificatieproces en de tokens die wordt gebruikt om machtigingen te controleren.
-* Het bereik van referenties om toegang tot specifieke bronnen te beperken.
-* IoT Hub-ondersteuning voor het X.509-certificaten.
-* Aangepast apparaat verificatiemechanismen die gebruikmaken van bestaande apparaten identiteit registers of verificatieschema's.
+* Klik hier voor meer informatie over het bereik van referenties om toegang tot bepaalde resources te beperken.
+* IoT Hub-ondersteuning voor X.509-certificaten.
+* Aangepaste apparaat-verificatiemechanismen die gebruikmaken van bestaande identiteit apparaatregisters of verificatiemethoden.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-U moet de juiste machtigingen voor toegang tot een van de IoT Hub-eindpunten hebben. Een apparaat moet bijvoorbeeld een token met beveiligingsreferenties samen met elk bericht dat naar IoT Hub verzendt.
+U moet de juiste machtigingen voor toegang tot een van de IoT Hub-eindpunten hebben. Een apparaat moet bijvoorbeeld een token met beveiligingsreferenties samen met elk bericht dat wordt verzonden naar IoT Hub.
 
-## <a name="access-control-and-permissions"></a>Toegangsbeheer en machtigingen
+## <a name="access-control-and-permissions"></a>Access control en machtigingen
 
 U kunt verlenen [machtigingen](#iot-hub-permissions) in de volgende manieren:
 
-* **IoT hub-niveau gedeelde toegangsbeleid**. Beleid voor gedeelde toegang kunnen verlenen tot een combinatie van [machtigingen](#iot-hub-permissions). U kunt beleid in definiëren de [Azure-portal][lnk-management-portal], of programmatisch met behulp van de [resourceprovider IoT Hub REST-API's][lnk-resource-provider-apis]. Een nieuwe iothub heeft de volgende standaardbeleidsregels:
+* **Niveau van IoT hub gedeelde toegangsbeleid**. Beleid voor gedeelde toegang kunnen verlenen tot een combinatie van [machtigingen](#iot-hub-permissions). U kunt beleid in definiëren de [Azure-portal][lnk-management-portal], of programmatisch met behulp van de [IoT-Hub resourceprovider REST-API's][lnk-resource-provider-apis]. Een nieuwe IoT-hub heeft de volgende standaard-beleid:
+  
+  | Beleid voor gedeelde toegang | Machtigingen |
+  | -------------------- | ----------- |
+  | iothubowner | Alle machtigingen |
+  | service | **ServiceConnect** machtigingen |
+  | apparaat | **DeviceConnect** machtigingen |
+  | registryRead | **RegistryRead** machtigingen |
+  | registryReadWrite | **RegistryRead** en **RegistryWrite** machtigingen |
 
-  * **iothubowner**: beleid met alle machtigingen.
-  * **service**: beleid met **ServiceConnect** machtiging.
-  * **apparaat**: beleid met **DeviceConnect** machtiging.
-  * **registryRead**: beleid met **RegistryRead** machtiging.
-  * **registryReadWrite**: beleid met **RegistryRead** en RegistryWrite machtigingen.
-  * **Beveiligingsreferenties per apparaat**. Elke IoT-Hub bevat een [identiteitsregister][lnk-identity-registry]. U kunt beveiligingsreferenties op die verlenen configureren voor elk apparaat in het identiteitenregister van deze **DeviceConnect** machtigingen binnen het bereik van de bijbehorende apparaat-eindpunten.
+* **Beveiligingsreferenties per apparaat**. Elke IoT-Hub bevat een [id-register][lnk-identity-registry]. Voor elk apparaat in deze id-register, kunt u beveiligingsreferenties op die verlenen **DeviceConnect** machtigingen binnen het bereik van de bijbehorende apparaat-eindpunten.
 
-Bijvoorbeeld in een typische IoT-oplossing:
+Bijvoorbeeld, in een typische IoT-oplossing:
 
-* De apparaat-management-component gebruikt de *registryReadWrite* beleid.
-* De gebeurtenis processor-component gebruikt de *service* beleid.
-* De component runtime-apparaat zakelijke logica gebruikt de *service* beleid.
-* Afzonderlijke apparaten verbinding maken met behulp van referenties opgeslagen in het identiteitsregister van de IoT-hub.
+* De beheercomponent apparaat maakt gebruik van de *registryReadWrite* beleid.
+* De event processor-component gebruikt de *service* beleid.
+* De runtime-apparaat zakelijke logica-component gebruikt de *service* beleid.
+* Afzonderlijke apparaten verbinding maken met behulp van referenties die zijn opgeslagen in het id-register van de IoT-hub.
 
 > [!NOTE]
 > Zie [machtigingen](#iot-hub-permissions) voor gedetailleerde informatie.
 
 ## <a name="authentication"></a>Verificatie
 
-Azure IoT Hub verleent toegang tot eindpunten door te controleren of een token tegen gedeeld toegangsbeleid en identiteit register beveiligingsreferenties.
+Azure IoT Hub verleent toegang tot eindpunten door te controleren of een token met het beleid voor gedeelde toegang en de beveiligingsreferenties voor id-register.
 
-Beveiligingsreferenties zoals symmetrische sleutels worden nooit verzonden via de kabel.
+Beveiligingsreferenties, zoals symmetrische sleutels worden nooit via de kabel verzonden.
 
 > [!NOTE]
-> De resourceprovider van Azure IoT Hub is beveiligd via uw Azure-abonnement, omdat alle providers in het [Azure Resource Manager][lnk-azure-resource-manager].
+> De resourceprovider van Azure IoT Hub wordt beveiligd via uw Azure-abonnement, omdat alle providers in het [Azure Resource Manager][lnk-azure-resource-manager].
 
-Zie voor meer informatie over het maken en gebruiken van beveiligingstokens [IoT Hub beveiligingstokens][lnk-sas-tokens].
+Zie voor meer informatie over het maken en gebruiken van beveiligingstokens [beveiligingstokens van IoT-Hub][lnk-sas-tokens].
 
 ### <a name="protocol-specifics"></a>Protocol-specificaties
 
-Elke ondersteunde protocollen, zoals MQTT AMQP en HTTPS, transporten tokens op verschillende manieren.
+Elke ondersteunde protocol, zoals het MQTT-, AMQP- en HTTPS, worden tokens op verschillende manieren filtermodule getransporteerd.
 
-Wanneer u MQTT, het CONNECT-pakket heeft de apparaat-id als de ClientId `{iothubhostname}/{deviceId}` in het veld Username en een SAS-token in het veld wachtwoord. `{iothubhostname}` moet u de volledige CName van de IoT-hub (bijvoorbeeld contoso.azure-devices.net).
+Bij het gebruik van MQTT, het pakket verbinding maken met de apparaat-id als de ClientId, heeft `{iothubhostname}/{deviceId}` in het veld gebruikersnaam en een SAS-token in het veld wachtwoord. `{iothubhostname}` moet u de volledige CName van de IoT-hub (bijvoorbeeld contoso.azure devices.net).
 
-Wanneer u [AMQP][lnk-amqp], IoT-Hub ondersteunt [SASL zonder opmaak] [ lnk-sasl-plain] en [AMQP Claims-beveiliging op basis van-] [ lnk-cbs].
+Bij het gebruik van [AMQP][lnk-amqp], IoT Hub worden ondersteund [SASL zonder opmaak] [ lnk-sasl-plain] en [AMQP Claims-beveiliging op basis van-] [ lnk-cbs].
 
-Als u AMQP claims-beveiliging op basis van-gebruikt, geeft de standaard geeft aan hoe deze tokens worden verzonden.
+Als u AMQP claims op basis van-beveiliging gebruikt, is de standaard Hiermee geeft u het verzenden van deze tokens.
 
 Voor SASL zonder opmaak, de **gebruikersnaam** kan zijn:
 
-* `{policyName}@sas.root.{iothubName}` Als met IoT hub-niveau tokens.
+* `{policyName}@sas.root.{iothubName}` Als u met behulp van IoT hub op serverniveau tokens.
 * `{deviceId}@sas.{iothubname}` Als het gebruik van tokens binnen het bereik van apparaat.
 
-In beide gevallen wordt het wachtwoordveld bevat het token, zoals beschreven in [IoT Hub beveiligingstokens][lnk-sas-tokens].
+In beide gevallen wordt het wachtwoordveld bevat het token, zoals beschreven in [beveiligingstokens van IoT-Hub][lnk-sas-tokens].
 
-HTTPS wordt de verificatie geïmplementeerd door een geldig token in de **autorisatie** aanvraag-header.
+HTTPS wordt de verificatie geïmplementeerd door te nemen van een geldig token in de **autorisatie** aanvraagheader.
 
 #### <a name="example"></a>Voorbeeld
 
-Gebruikersnaam (DeviceId is hoofdlettergevoelig): `iothubname.azure-devices.net/DeviceId`
+Gebruikersnaam (apparaat-id is hoofdlettergevoelig): `iothubname.azure-devices.net/DeviceId`
 
-Wachtwoord (genereren van SAS-token met de [apparaat explorer] [ lnk-device-explorer] hulpprogramma): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Wachtwoord (genereren van SAS-token met de [apparatenverkenner] [ lnk-device-explorer] hulpprogramma): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
-> De [Azure IoT SDK's] [ lnk-sdks] automatisch genereren van tokens bij het verbinden met de service. In sommige gevallen worden de Azure IoT SDK's bieden geen ondersteuning alle protocollen of de verificatiemethoden.
+> De [Azure IoT SDK's] [ lnk-sdks] automatisch genereren van tokens bij het verbinden met de service. In sommige gevallen kan ondersteunen de Azure IoT SDK's niet alle protocollen of alle verificatiemethoden.
 
 ### <a name="special-considerations-for-sasl-plain"></a>Speciale overwegingen voor SASL zonder opmaak
 
-Als u SASL zonder opmaak met AMQP, kunt een client die verbinding met een IoT-hub-token van een enkele gebruiken voor elke TCP-verbinding. Wanneer het token is verlopen, wordt de TCP-verbinding losgekoppeld van de service en een nieuwe verbindingen wordt geactiveerd. Dit gedrag, raakt terwijl niet problematisch voor een back-endserver voor apps, voor een apparaat-app voor de volgende redenen:
+Wanneer u SASL zonder opmaak met AMQP, kan een client die verbinding maken met een IoT-hub een enkele token gebruiken voor elke TCP-verbinding. Wanneer het token is verlopen, wordt de TCP-verbinding verbreekt u de service en wordt een nieuwe verbindingen wordt geactiveerd. Dit gedrag, is terwijl niet geschikt is voor een back-end-app beschadigen voor een apparaat-app voor de volgende redenen:
 
-* Gateways verbinding meestal namens veel apparaten. Wanneer u SASL zonder opmaak, hebben ze een afzonderlijke TCP-verbinding voor elk apparaat verbinding maakt met een IoT-hub te maken. Dit scenario aanzienlijk verhoogd het verbruik van kracht en netwerkresources, en de latentie van elk apparaatverbinding.
-* Resource beperkte apparaten nadelig worden beïnvloed door het toegenomen gebruik van bronnen te herstellen nadat elke token is verlopen.
+* Gateways maken doorgaans verbinding namens een groot aantal apparaten. Wanneer u SASL zonder opmaak, hebben ze geen afzonderlijke TCP-verbinding voor elk apparaat verbinding maakt met een IoT-hub te maken. In dit scenario aanzienlijk verhoogt het verbruik van power- en netwerkresources, en verhoogt de latentie van elke apparaatverbinding.
+* Apparaten met beperkte capaciteit nadelig worden beïnvloed door het toegenomen gebruik van resources te herstellen na elke verlopen van het token.
 
-## <a name="scope-iot-hub-level-credentials"></a>Bereik IoT hub-niveau referenties
+## <a name="scope-iot-hub-level-credentials"></a>Het bereik van IoT hub-niveau van referenties
 
-U kunt het beveiligingsbeleid van IoT hub-niveau bereik tokens met een beperkte resource-URI te maken. Het eindpunt op apparaat-naar-cloud-berichten verzenden van een apparaat is bijvoorbeeld **/devices/ {deviceId} / berichten/gebeurtenissen**. U kunt ook een IoT hub-niveau gedeeld toegangsbeleid met **DeviceConnect** machtigingen voor het ondertekenen van een token waarvan resourceURI wordt **/devices/ {deviceId}**. Deze methode maakt u een token die alleen kan worden gebruikt voor het verzenden van berichten namens apparaat **deviceId**.
+IoT hub-niveau beveiligingsbeleid kunt u beperken door het maken van tokens met een beperkte resource-URI. Het eindpunt voor het verzenden van apparaat-naar-cloud-berichten vanaf een apparaat is bijvoorbeeld **/devices/ {apparaat-id} / berichten/gebeurtenissen**. U kunt ook een IoT hub-niveau gedeeld toegangsbeleid met **DeviceConnect** machtigingen voor het ondertekenen van een token waarvan resourceURI is **/devices/ {deviceId}**. Deze methode maakt u een token dat kan alleen worden gebruikt voor het verzenden van berichten namens apparaat **deviceId**.
 
-Deze methode is vergelijkbaar met de [Event Hubs uitgeversbeleid][lnk-event-hubs-publisher-policy], en kunt u aangepaste verificatiemethoden implementeren.
+Dit mechanisme is vergelijkbaar met de [Event Hubs uitgeversbeleid][lnk-event-hubs-publisher-policy], en kunt u voor het implementeren van aangepaste verificatiemethoden.
 
 ## <a name="security-tokens"></a>Beveiligingstokens
 
-IoT Hub gebruikt de beveiligingstokens voor verificatie van apparaten en services om te voorkomen dat sleutels op de kabel verzonden. Bovendien zijn beveiligingstokens beperkt in geldigheid en het bereik. [Azure IoT SDK's] [ lnk-sdks] automatisch genereren van tokens zonder speciale configuratie. Sommige scenario's hoeven te genereren en beveiligingstokens rechtstreeks gebruiken. Dergelijke scenario's omvatten:
+IoT Hub maakt gebruik van beveiligingstokens voor de verificatie van apparaten en services om te voorkomen dat sleutels op de kabel verzonden. Bovendien zijn beveiligingstokens beperkt in de geldigheid van de tijd en het bereik. [Azure IoT SDK's] [ lnk-sdks] automatisch genereren van tokens zonder speciale configuratie. Sommige scenario's hoeven te genereren en beveiligingstokens rechtstreeks gebruiken. Dergelijke scenario's omvatten:
 
-* Het direct gebruik van het oppervlak MQTT AMQP of HTTPS.
-* De implementatie van het patroon token service, zoals wordt beschreven in [aangepaste apparaatverificatie][lnk-custom-auth].
+* Het direct gebruik van de oppervlakken MQTT-, AMQP- of HTTPS.
+* De implementatie van de service voor beveiligingstokens patroon, zoals uitgelegd in [aangepaste apparaatverificatie][lnk-custom-auth].
 
-IoT Hub kan ook apparaten te verifiëren met IoT Hub met [X.509-certificaten][lnk-x509].
+IoT Hub ook kunt u apparaten om te verifiëren met IoT Hub met behulp van [X.509-certificaten][lnk-x509].
 
-### <a name="security-token-structure"></a>Security token structuur
+### <a name="security-token-structure"></a>Token beveiligingsstructuur
 
-U beveiligingstokens verlenen tijd begrensd toegang tot apparaten en services met specifieke functionaliteit van IoT-Hub. Als u toestemming om te verbinden met IoT Hub, moeten apparaten en services de beveiligingstokens die zijn ondertekend met een gedeelde toegang of de symmetrische sleutel verzenden. Deze sleutels worden opgeslagen met een apparaat-id in het identiteitsregister.
+U beveiligingstokens gebruiken voor toegang tot tijd worden gebonden aan apparaten en services in de specifieke functionaliteit van IoT Hub. Als u toestemming om te verbinden met IoT Hub, moeten apparaten en services beveiligingstokens die zijn ondertekend met een gedeelde toegang of de symmetrische sleutel verzenden. Deze sleutels worden opgeslagen met een apparaat-id in het id-register.
 
-Een token dat is ondertekend met een gedeelde toegang sleutel verleent toegang tot alle functies die zijn gekoppeld aan de gedeelde beleid toegangsmachtigingen. Een token die is ondertekend met een apparaat-id symmetrische sleutel alleen verleent de **DeviceConnect** machtiging voor het gekoppelde apparaat-id.
+Een token is ondertekend met een gedeelde toegang sleutel verleent toegang tot alle functionaliteit die is gekoppeld met de machtigingen van het beleid voor gedeelde toegang. Een token is ondertekend met een apparaat-id symmetrische sleutel alleen verleent de **DeviceConnect** machtiging voor de identiteit van de gekoppelde op een apparaat.
 
 Het beveiligingstoken heeft de volgende indeling:
 
@@ -129,15 +132,15 @@ Hier volgen de verwachte waarden:
 
 | Waarde | Beschrijving |
 | --- | --- |
-| {handtekening} |Een tekenreeks HMAC SHA256 handtekening van het formulier: `{URL-encoded-resourceURI} + "\n" + expiry`. **Belangrijke**: de sleutel is gedecodeerd van base64 en gebruikt als sleutel voor het uitvoeren van de berekening HMAC SHA256. |
-| {resourceURI} |De voorvoegsels van URI (door het segment) van de eindpunten die toegankelijk zijn met dit token, beginnen met de hostnaam van de IoT-hub (geen protocol). Bijvoorbeeld: `myHub.azure-devices.net/devices/device1` |
-| {verstrijken} |UTF8-tekenreeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |
-| {{URL-codering-resourceURI} |Lagere case URL-codering van de resource-URI van kleine letters |
-| {policyName} |De naam van het beleid voor gedeelde toegang waarnaar dit token verwijst. Ontbrekende als verwijst het token naar apparaatregister referenties. |
+| {handtekening} |Een tekenreeks van de HMAC-SHA256 handtekening van het formulier: `{URL-encoded-resourceURI} + "\n" + expiry`. **Belangrijke**: de sleutel is gedecodeerd op basis van base64 en gebruikt als sleutel voor het uitvoeren van de HMAC-SHA256-berekening. |
+| {resourceURI} |URI-voorvoegsel (per segment) van de eindpunten die toegankelijk zijn met dit token, beginnend met de hostnaam van de IoT-hub (Er is geen protocol). Bijvoorbeeld: `myHub.azure-devices.net/devices/device1` |
+| {expiry} |UTF8-tekenreeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |
+| {URL-encoded-resourceURI} |Lagere aanvraag-URL-codering van de resource-URI van de kleine letters |
+| {policyName} |De naam van het beleid voor gedeelde toegang waarvoor dit token verwijst. Ontbrekende als verwijst het token naar apparaatregister referenties. |
 
-**Opmerking van het voorvoegsel**: de URI-voorvoegsel wordt berekend door het segment en niet door teken. Bijvoorbeeld `/a/b` is een voorvoegsel voor `/a/b/c` maar niet voor `/a/bc`.
+**Houd er rekening mee op het voorvoegsel van**: de URI-voorvoegsel wordt berekend per segment en niet door het teken. Bijvoorbeeld `/a/b` is een voorvoegsel voor `/a/b/c` , maar niet voor `/a/bc`.
 
-De volgende Node.js-fragment toont een aangeroepen functie **generateSasToken** die het token van de invoer berekent `resourceUri, signingKey, policyName, expiresInMins`. De volgende secties bevatten informatie over het initialiseren van de andere invoer voor de verschillende token gebruiksvoorbeelden.
+Het volgende Node.js-fragment toont een functie met de naam **generateSasToken** die het token van de invoer berekent `resourceUri, signingKey, policyName, expiresInMins`. De volgende secties bevatten informatie over het initialiseren van de verschillende soorten invoer voor de verschillende token use cases.
 
 ```nodejs
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -161,7 +164,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
 };
 ```
 
-Als een vergelijking is de equivalente Python-code voor het genereren van een beveiligingstoken:
+Als een vergelijking: de equivalente Python-code voor het genereren van een beveiligingstoken is:
 
 ```python
 from base64 import b64encode, b64decode
@@ -222,33 +225,33 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 
 > [!NOTE]
-> Aangezien de geldigheid van het token is gevalideerd op de machines IoT Hub, is de afwijking van de klok van de computer die het token genereert moet minimaal.
+> Aangezien de geldigheid van het token is gevalideerd op IoT Hub-machines, moet de afwijking van de klok van de computer waarmee het token wordt gegenereerd minimaal zijn.
 
 ### <a name="use-sas-tokens-in-a-device-app"></a>SAS-tokens gebruiken in een apparaat-app
 
-Er zijn twee manieren verkrijgen **DeviceConnect** machtigingen met IoT Hub met beveiligingstokens: gebruik een [symmetrische apparaatsleutel uit het identiteitenregister](#use-a-symmetric-key-in-the-identity-registry), of gebruik een [gedeelde toegangssleutel](#use-a-shared-access-policy).
+Er zijn twee manieren om op te halen **DeviceConnect** machtigingen met IoT Hub met beveiligingstokens: gebruik een [symmetrische apparaatsleutel vanuit het identiteitsregister](#use-a-symmetric-key-in-the-identity-registry), of gebruik een [gedeelde toegangssleutel](#use-a-shared-access-policy).
 
-Houd er rekening mee dat alle functionaliteit die toegankelijk is vanaf apparaten wordt blootgesteld aan het ontwerp voor eindpunten met voorvoegsel `/devices/{deviceId}`.
+Houd er rekening mee dat alle functionaliteit die toegankelijk is vanaf apparaten wordt weergegeven op de eindpunten met het voorvoegsel standaard `/devices/{deviceId}`.
 
 > [!IMPORTANT]
-> De enige manier om dat IoT Hub wordt geverifieerd voor een specifiek apparaat maakt gebruik van de symmetrische sleutel voor apparaat-id. In gevallen wanneer een beleid voor gedeelde toegang wordt gebruikt voor toegang tot de functionaliteit van apparaten, de oplossing moet rekening houden met het onderdeel voor het uitgeven van het beveiligingstoken als een vertrouwde subonderdeel.
+> De enige manier dat een specifiek apparaat wordt geverifieerd door IoT Hub maakt gebruik van de symmetrische sleutel voor apparaat-id. In gevallen wanneer een beleid voor gedeelde toegang wordt gebruikt voor toegang tot de functionaliteit van apparaten, de oplossing moet rekening houden met het uitgeven van het beveiligingstoken als een vertrouwde subonderdeel onderdeel.
 
-Het apparaat gerichte eindpunten zijn (onafhankelijk van het protocol):
+Het apparaat gerichte eindpunten zijn (ongeacht het protocol):
 
 | Eindpunt | Functionaliteit |
 | --- | --- |
-| `{iot hub host name}/devices/{deviceId}/messages/events` |Apparaat-naar-cloud-berichten verzenden. |
+| `{iot hub host name}/devices/{deviceId}/messages/events` |Apparaat-naar-cloud-berichten worden verzonden. |
 | `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Cloud-naar-apparaat-berichten ontvangen. |
 
-### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Een symmetrische sleutel in het identiteitenregister gebruiken
+### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Gebruik van een symmetrische sleutel in het id-register
 
-Wanneer u een apparaat-id symmetrische sleutel voor het genereren van een token, de policyName (`skn`) element van het token wordt weggelaten.
+Bij het gebruik van een apparaat-id symmetrische sleutel voor het genereren van een token, de naam (`skn`)-element van het token wordt weggelaten.
 
-Een token dat is gemaakt voor toegang tot alle apparaatfunctionaliteit moet bijvoorbeeld de volgende parameters:
+Een token dat is gemaakt voor toegang tot alle apparaatfunctionaliteit van het moet bijvoorbeeld de volgende parameters:
 
 * resource-URI: `{IoT hub name}.azure-devices.net/devices/{device id}`,
-* de handtekeningsleutel: een symmetrische sleutel voor de `{device id}` identiteit
-* Er is geen naam van beleid
+* ondertekeningssleutel: een symmetrische sleutel voor de `{device id}` identiteit
+* geen beleidsnaam
 * elk gewenst moment verlopen.
 
 Een voorbeeld met behulp van de voorgaande Node.js-functie is:
@@ -260,29 +263,29 @@ var deviceKey ="...";
 var token = generateSasToken(endpoint, deviceKey, null, 60);
 ```
 
-Het resultaat toegang tot alle functionaliteit voor device1 verleent, zou zijn:
+Het resultaat, waarmee de toegang tot alle functionaliteit voor device1 worden verleend, zijn:
 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Het is mogelijk voor het genereren van een SAS-token met behulp van de .NET [apparaat explorer] [ lnk-device-explorer] hulpprogramma of de platformoverschrijdende Python gebaseerde [de IoT-extensie voor Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] opdrachtregelprogramma.
+> Het is mogelijk voor het genereren van een SAS-token met behulp van de .NET [apparatenverkenner] [ lnk-device-explorer] hulpprogramma of de platformoverschrijdende, op basis van Python [de IoT-extensie voor Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] opdrachtregel-hulpprogramma.
 
-### <a name="use-a-shared-access-policy"></a>Gebruik een beleid voor gedeelde toegang
+### <a name="use-a-shared-access-policy"></a>Een beleid voor gedeelde toegang gebruiken
 
-Als u een token van een gedeeld toegangsbeleid maakt, stelt de `skn` veld op de naam van het beleid. Dit beleid moet verlenen de **DeviceConnect** machtiging.
+Als u een token van een beleid voor gedeelde toegang, de `skn` veld aan de naam van het beleid. Dit beleid moet verlenen de **DeviceConnect** machtiging.
 
-De twee belangrijkste scenario's voor het gebruik van beleid voor gedeelde toegang te krijgen tot de functionaliteit voor apparaten zijn:
+De twee belangrijkste scenario's voor het gebruik van beleid voor gedeelde toegang tot functionaliteit voor apparaten zijn:
 
-* [cloud protocol gateways][lnk-endpoints],
-* [token services] [ lnk-custom-auth] gebruikt voor het implementeren van aangepaste verificatieschema's.
+* [cloud protocolgateways][lnk-endpoints],
+* [token services] [ lnk-custom-auth] gebruikt voor het implementeren van aangepaste verificatiemethoden.
 
-Omdat het beleid voor gedeelde toegang mogelijk toegang verlenen kunt tot verbinden als een apparaat, is het belangrijk dat u de juiste bron-URI bij het maken van beveiligingstokens. Deze instelling is vooral belangrijk voor token-services, die als bereik voor de token voor een specifiek apparaat met behulp van de bron-URI. Dit punt is minder relevant voor gateways protocol zoals ze zijn verkeer voor alle apparaten al op de volgende manier regelt.
+Omdat het beleid voor gedeelde toegang mogelijk toegang verlenen kan tot verbinding maken als een apparaat, is het belangrijk dat u de juiste resource-URI wordt gebruikt bij het maken van beveiligingstokens. Deze instelling is vooral belangrijk voor token-services, die als bereik voor het token met een bepaald apparaat met behulp van de resource-URI. Dit punt is minder relevant voor protocolgateways zoals ze zijn verkeer voor alle apparaten al op de volgende manier regelt.
 
-Als u bijvoorbeeld een token service met de vooraf gemaakte gedeeld toegangsbeleid aangeroepen **apparaat** zou maken van een token met de volgende parameters:
+Als u bijvoorbeeld een token service met behulp van de vooraf gemaakte gedeeld toegangsbeleid met de naam **apparaat** zou maken van een token met de volgende parameters:
 
 * resource-URI: `{IoT hub name}.azure-devices.net/devices/{device id}`,
-* de handtekeningsleutel: een van de sleutels van de `device` -beleid
-* de naam van beleid: `device`,
+* ondertekeningssleutel: een van de sleutels van de `device` -beleid
+* Beleidsnaam: `device`,
 * elk gewenst moment verlopen.
 
 Een voorbeeld met behulp van de voorgaande Node.js-functie is:
@@ -295,30 +298,30 @@ var policyKey = '...';
 var token = generateSasToken(endpoint, policyKey, policyName, 60);
 ```
 
-Het resultaat toegang tot alle functionaliteit voor device1 verleent, zou zijn:
+Het resultaat, waarmee de toegang tot alle functionaliteit voor device1 worden verleend, zijn:
 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697&skn=device`
 
-Een protocolgateway hetzelfde token kan gebruiken voor alle apparaten eenvoudigweg de bron-URI te `myhub.azure-devices.net/devices`.
+Een protocolgateway kunt gebruiken om hetzelfde token voor alle apparaten eenvoudig in te stellen de resource-URI op `myhub.azure-devices.net/devices`.
 
-### <a name="use-security-tokens-from-service-components"></a>Gebruik de beveiligingstokens van de onderdelen van service
+### <a name="use-security-tokens-from-service-components"></a>Beveiligingstokens van de onderdelen van service gebruiken
 
-Serviceonderdelen kunnen alleen beveiligingstokens die werken met beleid voor gedeelde toegang tot de juiste machtigingen verlenen zoals hierboven is gegenereerd.
+Serviceonderdelen kunnen alleen beveiligingstokens met behulp van de juiste machtigingen verlenen zoals hierboven is beleid voor gedeelde toegang genereren.
 
-Dit is de servicefuncties beschikbaar op de eindpunten zijn gemaakt:
+Dit is de servicefuncties beschikbaar gesteld op de eindpunten:
 
 | Eindpunt | Functionaliteit |
 | --- | --- |
 | `{iot hub host name}/devices` |Maken, bijwerken, ophalen en verwijderen van apparaat-id's. |
 | `{iot hub host name}/messages/events` |Apparaat-naar-cloud-berichten ontvangen. |
 | `{iot hub host name}/servicebound/feedback` |Feedback voor cloud-naar-apparaat-berichten ontvangen. |
-| `{iot hub host name}/devicebound` |Cloud-naar-apparaat-berichten verzenden. |
+| `{iot hub host name}/devicebound` |Cloud-naar-apparaat-berichten worden verzonden. |
 
-Als u bijvoorbeeld een service genereren met behulp van de vooraf gemaakte gedeeld toegangsbeleid aangeroepen **registryRead** zou maken van een token met de volgende parameters:
+Als u bijvoorbeeld een service genereren met behulp van de vooraf gemaakte gedeeld toegangsbeleid met de naam **registryRead** zou maken van een token met de volgende parameters:
 
 * resource-URI: `{IoT hub name}.azure-devices.net/devices`,
-* de handtekeningsleutel: een van de sleutels van de `registryRead` -beleid
-* de naam van beleid: `registryRead`,
+* ondertekeningssleutel: een van de sleutels van de `registryRead` -beleid
+* Beleidsnaam: `registryRead`,
 * elk gewenst moment verlopen.
 
 ```nodejs
@@ -329,33 +332,33 @@ var policyKey = '...';
 var token = generateSasToken(endpoint, policyKey, policyName, 60);
 ```
 
-Het resultaat toegang tot het lezen van alle apparaat-id's verlenen wilt, zou zijn:
+Het resultaat toegang tot het lezen van alle apparaat-id's verleent zou, zijn:
 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead`
 
 ## <a name="supported-x509-certificates"></a>Ondersteunde X.509-certificaten
 
-U kunt een X.509-certificaat gebruiken voor verificatie van een apparaat met IoT Hub door de vingerafdruk van een certificaat of een certificeringsinstantie (CA) uploaden naar Azure IoT Hub. Verificatie met behulp van certificaatvingerafdrukken alleen wordt gecontroleerd of de vingerafdruk van het aangeboden overeenkomt met de geconfigureerde vingerafdruk. Verificatie met behulp van de certificeringsinstantie valideert de certificaatketen. 
+U kunt een X.509-certificaat gebruiken voor verificatie van een apparaat met IoT Hub door de vingerafdruk van een certificaat of een certificeringsinstantie (CA) uploaden naar Azure IoT Hub. Verificatie met behulp van alleen vingerafdrukken van het certificaat wordt gecontroleerd of de vingerafdruk van het voorgestelde overeenkomt met de geconfigureerde vingerafdruk. Verificatie met behulp van de certificeringsinstantie valideert de certificaatketen. 
 
 Ondersteunde certificaten zijn onder andere:
 
-* **Een bestaand X.509-certificaat**. Een apparaat mogelijk al een X.509-certificaat dat is gekoppeld. Het apparaat kan dit certificaat gebruiken om te verifiëren met IoT Hub. Als u werkt met de vingerafdruk of verificatie van de CA. 
-* **X.509-certificaat voor ondertekening van CA**. Als u wilt een apparaat te identificeren en deze kan worden geverifieerd met IoT Hub, kunt u een X.509-certificaat gegenereerd en ondertekend door een certificeringsinstantie (CA). Als u werkt met de vingerafdruk of verificatie van de CA.
-* **Een automatisch gegenereerd en zelfondertekend certificaat X-509**. Een fabrikant of interne-implementatie van deze certificaten genereren en de bijbehorende persoonlijke sleutel (en het certificaat) opslaan op het apparaat. U kunt hulpprogramma's gebruiken zoals [OpenSSL] [ lnk-openssl] en [Windows SelfSignedCertificate] [ lnk-selfsigned] hulpprogramma voor dit doel. Werkt alleen met de vingerafdruk van verificatie. 
+* **Een bestaand X.509-certificaat**. Een apparaat mogelijk al een X.509-certificaat dat is gekoppeld. Het apparaat kan dit certificaat gebruiken om te verifiëren met IoT Hub. Als u werkt met de vingerafdruk of CA-verificatie. 
+* **CA-ondertekend x.509-certificaat**. Als u wilt een apparaat identificeren en verifiëren met IoT Hub, kunt u een X.509-certificaat gegenereerd en ondertekend door een certificeringsinstantie (CA). Als u werkt met de vingerafdruk of CA-verificatie.
+* **Een zelf gegenereerd en zelfondertekend certificaat van de x-509**. Een fabrikant van apparaat- of interne implementatie van deze certificaten genereren en opslaan van de bijbehorende persoonlijke sleutel (en het certificaat) op het apparaat. U kunt hulpprogramma's zoals [OpenSSL] [ lnk-openssl] en [Windows SelfSignedCertificate] [ lnk-selfsigned] hulpprogramma voor dit doel. Werkt alleen met de vingerafdruk van verificatie. 
 
-Een apparaat kan gebruikmaken van een X.509-certificaat of een beveiligingstoken voor verificatie, maar niet beide.
+Een apparaat kan gebruiken een X.509-certificaat of een beveiligingstoken voor verificatie, maar niet beide.
 
-Zie voor meer informatie over verificatie met behulp van de certificeringsinstantie [conceptuele begrip van de CA X.509-certificaten](iot-hub-x509ca-concept.md).
+Zie voor meer informatie over verificatie met behulp van de certificeringsinstantie, [conceptuele kennis van x.509-CA-certificaten](iot-hub-x509ca-concept.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Een X.509-certificaat voor een apparaat registreren
 
-De [Azure IoT Service SDK voor C#] [ lnk-service-sdk] (versie 1.0.8+) biedt ondersteuning voor het registreren van een apparaat dat gebruikmaakt van een X.509-certificaat voor verificatie. Andere API's zoals importeren/exporteren van apparaten bieden ook ondersteuning voor X.509-certificaten.
+De [Azure IoT Service SDK voor C#] [ lnk-service-sdk] (versie 1.0.8+) biedt ondersteuning voor het registreren van een apparaat dat gebruikmaakt van een X.509-certificaat voor verificatie. Andere API's zoals importeren/exporteren van apparaten ondersteunen ook X.509-certificaten.
 
 ### <a name="c-support"></a>C\# ondersteuning
 
-De **RegistryManager** klasse biedt een programmatische manier kunt u een apparaat registreren. In het bijzonder de **AddDeviceAsync** en **UpdateDeviceAsync** methoden kunnen u registreren en bijwerken van een apparaat in de id-register van IoT Hub. Deze twee methoden maken gebruik van een **apparaat** exemplaar als invoer. De **apparaat** klasse bevat een **verificatie** eigenschap waarmee u primaire en secundaire x.509-certificaatvingerafdrukken opgeven. De vingerafdruk van het vertegenwoordigt een SHA256-hash van het X.509-certificaat (met behulp van binaire codering DER opgeslagen). U hebt de optie voor het opgeven van de vingerafdruk van een primaire of een secundaire vingerafdruk of beide. Primaire en secundaire vingerafdrukken worden ondersteund voor het afhandelen van certificaat rollover-scenario's.
+De **RegistryManager** klasse biedt een programmatische manier om een apparaat te registreren. In het bijzonder de **AddDeviceAsync** en **UpdateDeviceAsync** methoden kunnen u zich registreren en bijwerken van een apparaat in de id-register van IoT Hub. Deze twee methoden maken gebruik van een **apparaat** exemplaar als invoer. De **apparaat** klasse bevat een **verificatie** eigenschap waarmee u om op te geven van de primaire en secundaire x.509-certificaatvingerafdrukken. De vingerafdruk van het vertegenwoordigt een SHA256-hash van het X.509-certificaat (opgeslagen met binaire DER-codering). U hebt de optie voor het opgeven van de vingerafdruk van een primaire of secundaire vingerafdruk van een of beide. Primaire en secundaire vingerafdrukken worden ondersteund voor het afhandelen van certificaat rollover-scenario's.
 
-Hier volgt een voorbeeld van C\# codefragment kunt u een apparaat met een vingerafdruk van het x.509-certificaat registreren:
+Hier volgt een voorbeeld van C\# codefragment voor het registreren van een apparaat met de vingerafdruk van een X.509-certificaat:
 
 ```csharp
 var device = new Device(deviceId)
@@ -372,13 +375,13 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString(dev
 await registryManager.AddDeviceAsync(device);
 ```
 
-### <a name="use-an-x509-certificate-during-run-time-operations"></a>Gebruik van een X.509-certificaat tijdens runtime-bewerkingen
+### <a name="use-an-x509-certificate-during-run-time-operations"></a>Een X.509-certificaat gebruiken tijdens de runtime-bewerkingen
 
-De [Azure IoT-device SDK voor .NET] [ lnk-client-sdk] (versie 1.0.11+) ondersteunt het gebruik van X.509-certificaten.
+De [Azure IoT device-SDK voor .NET] [ lnk-client-sdk] (versie 1.0.11+) ondersteunt het gebruik van X.509-certificaten.
 
 ### <a name="c-support"></a>C\# ondersteuning
 
-De klasse **DeviceAuthenticationWithX509Certificate** ondersteunt het maken van **DeviceClient** exemplaren met behulp van een X.509-certificaat. Het X.509-certificaat moet zich in de indeling PFX (ook wel PKCS #12) dat de persoonlijke sleutel bevat.
+De klasse **DeviceAuthenticationWithX509Certificate** ondersteunt het maken van **DeviceClient** machineschaalinstanties met een X.509-certificaat. Het X.509-certificaat moet zich in de PFX (ook wel PKCS #12)-indeling die de persoonlijke sleutel bevat.
 
 Hier volgt een voorbeeld-codefragment:
 
@@ -388,70 +391,70 @@ var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509
 var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ```
 
-## <a name="custom-device-and-module-authentication"></a>Aangepaste apparaat en de module-verificatie
+## <a name="custom-device-and-module-authentication"></a>Aangepaste module-apparaat en -verificatie
 
-U kunt de IoT-Hub [identiteitsregister] [ lnk-identity-registry] beveiligingsreferenties voor de per-apparaat/module configureren en toegang beheren met [tokens] [ lnk-sas-tokens]. Als een IoT-oplossing al een aangepaste identiteit register en/of de verificatie-schema heeft, kunt u een *token service* deze infrastructuur integreren met IoT Hub. Op deze manier kunt u andere IoT-functies in uw oplossing.
+U kunt de IoT-Hub [id-register] [ lnk-identity-registry] per-apparaat/module beveiligingsreferenties configureren en beheren met [tokens] [ lnk-sas-tokens]. Als een IoT-oplossing al een aangepaste id-register en/of verificatie-schema heeft, houd rekening met het maken van een *token service* deze infrastructuur integreren met IoT Hub. U kunt op deze manier kunnen andere IoT-functies gebruiken in uw oplossing.
 
-Een service voor beveiligingstokens is een aangepaste cloudservice. Dit maakt gebruik van een IoT-Hub *gedeeld toegangsbeleid* met **DeviceConnect** of **ModuleConnect** machtigingen voor het maken *binnen het bereik van apparaat* of *binnen het bereik van module* tokens. Deze tokens inschakelen op een apparaat en de module die u wilt verbinding maken met uw IoT-hub.
+Een service voor beveiligingstokens is een aangepaste cloud-service. Het maakt gebruik van een IoT-Hub *gedeeld toegangsbeleid* met **DeviceConnect** of **ModuleConnect** machtigingen voor het maken *binnen het bereik van apparaat* of *binnen het bereik van module* tokens. Deze tokens kunnen een apparaat en de module verbinding maken met uw IoT-hub.
 
-![Stappen van de service voor beveiligingstokens patroon][img-tokenservice]
+![Stappen van de service voor beveiligingstokens-patroon][img-tokenservice]
 
-Hier volgen de belangrijkste stappen van de service voor beveiligingstokens patroon:
+Hier volgen de belangrijkste stappen van de service voor beveiligingstokens-patroon:
 
-1. Maken van een Iothub gedeeld toegangsbeleid met **DeviceConnect** of **ModuleConnect** machtigingen voor uw IoT-hub. Kunt u dit beleid in de [Azure-portal] [ lnk-management-portal] of via een programma. De Tokenservice die gebruikmaakt van dit beleid voor het ondertekenen van de tokens die wordt gemaakt.
-1. Wanneer een apparaat/module toegang tot uw IoT-hub moet, wordt het token van een ondertekende aanvraagt van uw service voor beveiligingstokens. Het apparaat kunt verifiëren met uw aangepaste identiteit register/verificatieschema om te bepalen van de identiteit van de apparaten/module die de token service gebruikt voor het maken van het token.
-1. De token-service retourneert een token. Het token wordt gemaakt met behulp van `/devices/{deviceId}` of `/devices/{deviceId}/module/{moduleId}` als `resourceURI`, met `deviceId` als het apparaat wordt geverifieerd of `moduleId` als de module wordt geverifieerd. De token service gebruikt het beleid voor gedeelde toegang voor het maken van het token.
-1. Het apparaat/module gebruikt het token rechtstreeks met de IoT-hub.
+1. Maken van een IoT-Hub gedeelde toegangsbeleid met **DeviceConnect** of **ModuleConnect** machtigingen voor uw IoT-hub. Kunt u dit beleid in de [Azure-portal] [ lnk-management-portal] of via een programma. De service voor beveiligingstokens gebruikmaakt van dit beleid voor het ondertekenen van de tokens die wordt gemaakt.
+1. Wanneer een apparaat/module nodig tot uw IoT-hub heeft, vraagt het een ondertekende tokens van uw service voor beveiligingstokens. Het apparaat kan worden geverifieerd met het schema voor uw aangepaste id-register/verificatie om te bepalen van de identiteit van de apparaatmodule/die de token service gebruikt om het token te maken.
+1. De token service retourneert een token. Het token wordt gemaakt met behulp van `/devices/{deviceId}` of `/devices/{deviceId}/module/{moduleId}` als `resourceURI`, met `deviceId` als het apparaat wordt geverifieerd of `moduleId` als de module die wordt geverifieerd. De token service gebruikt het gedeelde toegangsbeleid te maken van het token.
+1. De apparaatmodule gebruikt het token rechtstreeks met de IoT-hub.
 
 > [!NOTE]
-> U kunt de .NET-klasse [SharedAccessSignatureBuilder] [ lnk-dotnet-sas] of de Java-klasse [IotHubServiceSasToken] [ lnk-java-sas] voor het maken van een token in uw service voor beveiligingstokens.
+> U kunt de .NET-klasse [SharedAccessSignatureBuilder] [ lnk-dotnet-sas] of de Java-klasse [IotHubServiceSasToken] [ lnk-java-sas] te maken van een token in uw service voor beveiligingstokens.
 
-De token-service kan het verlopen van het token naar wens ingesteld. Wanneer het token is verlopen, servers de IoT-hub het apparaat/module-verbinding. Het apparaat/module moet vervolgens een nieuw token aanvragen van de service voor beveiligingstokens. Een korte verlooptijd verhoogt de belasting op het apparaat/module en de service voor beveiligingstokens.
+De service voor beveiligingstokens kunt het verlopen van het token naar wens instellen. Wanneer het token is verlopen, verbreekt de IoT-hub de apparaatmodule /-verbinding. De apparaatmodule moet vervolgens een nieuw token aanvragen van de service voor beveiligingstokens. Een korte verlooptijd verhoogt de belasting van zowel de apparaatmodule als de service voor beveiligingstokens.
 
-Voor een apparaat/module verbinding maken met uw hub, moet u nog steeds deze toevoegen aan de id-register van IoT Hub, zelfs als de it is een token en niet een sleutel verbinding maken. Daarom kunt u blijven per-apparaat/per-module toegangsbeheer gebruiken door de in- of uitschakelen van apparaat/module identiteiten in de [identiteitsregister][lnk-identity-registry]. Deze benadering vermindert het risico van het gebruik van tokens met lange verstrijken tijden.
+Voor een apparaat/module verbinding maken met uw hub, moet u nog steeds deze toevoegen aan de id-register van IoT Hub, zelfs als de it een token en niet een sleutel wordt gebruikt om verbinding te maken. Daarom kunt u blijven gebruikmaken van per-apparaat/per-module toegangsbeheer met in- of uitschakelen van de apparaatmodule /-id's in de [id-register][lnk-identity-registry]. Deze aanpak vermindert de risico's van het gebruik van tokens met minder lang verlopen.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Vergelijking met een aangepaste gateway
 
-Het patroon van de service voor beveiligingstokens is de aanbevolen manier voor het implementeren van een aangepaste identiteit register/verificatieschema met IoT Hub. Dit patroon wordt aanbevolen omdat IoT Hub blijft het grootste gedeelte van het verkeer van de oplossing. Echter, als de aangepaste verificatieschema dus met het protocol verweven is, hebt u mogelijk nodig een *aangepaste gateway* alle verkeer verwerken. Het gebruik van een voorbeeld van een dergelijk scenario[Transport Layer Security (TLS) en vooraf gedeelde sleutels (PSKs)][lnk-tls-psk]. Zie voor meer informatie de [protocolgateway] [ lnk-protocols] artikel.
+Het patroon van de service voor beveiligingstokens is de aanbevolen manier voor het implementeren van een aangepaste id-register/verificatieschema met IoT Hub. Dit patroon wordt aanbevolen omdat de IoT Hub voor het afhandelen van het meeste verkeer oplossing blijft. Echter, als de aangepaste verificatiemethode dus met het protocol verweven wordt, u hebt mogelijk een *aangepaste gateway* al het verkeer verwerken. Een voorbeeld van een dergelijk scenario is het gebruik[Transport Layer Security (TLS) en vooraf-gedeelde sleutels (PSKs)][lnk-tls-psk]. Zie voor meer informatie de [protocolgateway] [ lnk-protocols] artikel.
 
-## <a name="reference-topics"></a>De onderwerpen waarnaar wordt verwezen:
+## <a name="reference-topics"></a>Onderwerpen met naslaginformatie:
 
 De volgende onderwerpen met naslaginformatie bieden u meer informatie over het beheren van toegang tot uw IoT-hub.
 
-## <a name="iot-hub-permissions"></a>Machtigingen van de IoT-Hub
+## <a name="iot-hub-permissions"></a>IoT Hub machtigingen
 
-De volgende tabel bevat de machtigingen die u kunt toegang tot uw IoT-hub.
+De volgende tabel bevat de machtigingen die u gebruiken kunt voor het beheren van toegang tot uw IoT-hub.
 
 | Machtiging | Opmerkingen |
 | --- | --- |
-| **RegistryRead** |Verleent leestoegang tot het identiteitsregister. Zie voor meer informatie [identiteitsregister][lnk-identity-registry]. <br/>Deze machtiging wordt gebruikt door de back-end-cloudservices. |
-| **RegistryReadWrite** |Verleent lezen en schrijven in het identiteitsregister. Zie voor meer informatie [identiteitsregister][lnk-identity-registry]. <br/>Deze machtiging wordt gebruikt door de back-end-cloudservices. |
-| **ServiceConnect** |Verleent toegang tot de cloud service gerichte communicatie en controle-eindpunten. <br/>Geeft het recht op apparaat-naar-cloud-berichten ontvangen berichten van cloud naar apparaat verzenden en het ophalen van de bijbehorende levering bevestigingen. <br/>Verleent toestemming voor het ophalen van de levering van bevestigingen voor het bestand uploadt. <br/>Toestemming verleent voor toegang tot horende bijwerken tags en gewenste eigenschappen, gemelde eigenschappen ophalen en uitvoeren van query's. <br/>Deze machtiging wordt gebruikt door de back-end-cloudservices. |
-| **DeviceConnect** |Verleent toegang tot apparaat gerichte eindpunten. <br/>Verleent toestemming voor apparaat-naar-cloud-berichten verzenden en ontvangen berichten van de cloud-naar-apparaat. <br/>Verleent toestemming voor het uploaden van het bestand uitvoeren vanaf een apparaat. <br/>Geeft het recht apparaat twin gewenst eigenschap meldingen ontvangen en bijwerken van apparaat twin gerapporteerd eigenschappen. <br/>Verleent toestemming voor het uitvoeren van bestand uploadt. <br/>Deze machtiging wordt gebruikt door apparaten. |
+| **RegistryRead** |Verleent leestoegang tot het id-register. Zie voor meer informatie, [id-register][lnk-identity-registry]. <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
+| **RegistryReadWrite** |Verleent lezen en schrijven naar het id-register. Zie voor meer informatie, [id-register][lnk-identity-registry]. <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
+| **ServiceConnect** |Verleent toegang tot de cloud service gerichte communicatie en -eindpunten worden gecontroleerd. <br/>Een machtiging verleend voor apparaat-naar-cloud-berichten ontvangen, cloud-naar-apparaat-berichten verzenden en ophalen van de bijbehorende delivery-bevestigingen. <br/>Verleent toestemming om op te halen van de levering van bevestigingen voor het bestand wordt geüpload. <br/>Geeft het recht op toegang dubbels bijwerken labels en gewenste eigenschappen, gerapporteerde eigenschappen ophalen en query's uitvoeren. <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
+| **DeviceConnect** |Verleent toegang tot apparaat gerichte eindpunten. <br/>Een machtiging verleend voor apparaat-naar-cloud-berichten verzenden en ontvangen van berichten van cloud-naar-apparaat. <br/>Verleent machtiging voor het uploaden van bestanden vanaf een apparaat uitvoeren. <br/>Verleent toestemming voor het apparaat apparaatdubbel-gewenste eigenschap meldingen ontvangen en bijwerken van de apparaatdubbel gerapporteerde eigenschappen. <br/>Verleent machtiging voor het uitvoeren van bestand wordt geüpload. <br/>Deze machtiging wordt gebruikt door apparaten. |
 
-## <a name="additional-reference-material"></a>Aanvullende referentiemateriaal
+## <a name="additional-reference-material"></a>Meer referentiemateriaal dat beschikbaar is
 
-Er zijn andere onderwerpen waarnaar wordt verwezen in de IoT Hub developer guide:
+Er zijn andere onderwerpen met naslaginformatie in de IoT Hub developer guide:
 
-* [IoT-hubeindpunten] [ lnk-endpoints] beschrijft de verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont.
-* [Bandbreedtebeperking en quota's] [ lnk-quotas] beschrijving van de quota en beperking gedrag die betrekking hebben op de service IoT Hub.
-* [Azure IoT-SDKs voor apparaat en de service] [ lnk-sdks] geeft een lijst van de verschillende SDK's kunt u bij het ontwikkelen van apps voor het apparaat en de service die communiceren met IoT Hub-taal.
-* [IoT Hub-querytaal] [ lnk-query] beschrijft de querytaal kunt u gegevens ophalen uit IoT Hub over uw apparaat horende en taken.
-* [Ondersteuning voor IoT Hub MQTT] [ lnk-devguide-mqtt] meer informatie over IoT Hub ondersteuning biedt voor het MQTT-protocol.
+* [IoT Hub-eindpunten] [ lnk-endpoints] beschrijft de verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont.
+* [Bandbreedtebeperking en quota's] [ lnk-quotas] beschrijving van de quota en beperkingen van problemen die betrekking hebben op de IoT Hub-service.
+* [Azure IoT-apparaat en service-SDK's] [ lnk-sdks] geeft een lijst van de verschillende SDK's kunt u bij het ontwikkelen van apparaat- en service-apps die communiceren met IoT Hub-taal.
+* [IoT Hub-querytaal] [ lnk-query] de querytaal kunt u gegevens ophalen uit IoT Hub over uw apparaatdubbels en taken beschreven.
+* [IoT Hub MQTT-ondersteuning] [ lnk-devguide-mqtt] vindt u meer informatie over IoT Hub-ondersteuning voor het MQTT-protocol.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe toegangsbeheer IoT Hub, kunt u mogelijk geïnteresseerd in de volgende onderwerpen van IoT Hub developer guide:
+U hebt geleerd hoe u voor het beheren van toegang tot IoT Hub, kunt u mogelijk geïnteresseerd in de volgende onderwerpen van IoT Hub developer guide:
 
-* [Horende apparaten gebruiken om de status en configuraties te synchroniseren][lnk-devguide-device-twins]
-* [Een directe methode aangeroepen voor een apparaat][lnk-devguide-directmethods]
-* [Taken plannen op meerdere apparaten][lnk-devguide-jobs]
+* [Apparaatdubbels gebruiken voor het synchroniseren van de status en -configuraties][lnk-devguide-device-twins]
+* [Een rechtstreekse methode aanroepen op een apparaat][lnk-devguide-directmethods]
+* [Taken op meerdere apparaten plannen][lnk-devguide-jobs]
 
-Als u uitproberen enkele concepten die worden beschreven in dit artikel wilt, raadpleegt u de volgende zelfstudies met IoT Hub:
+Als u wilt voor het uitproberen van enkele concepten die worden beschreven in dit artikel, raadpleegt u de volgende zelfstudies voor IoT-Hub:
 
 * [Aan de slag met Azure IoT Hub][lnk-getstarted-tutorial]
-* [Het verzenden van berichten van de cloud-naar-apparaat met IoT Hub][lnk-c2d-tutorial]
-* [IoT Hub apparaat-naar-cloud-berichten verwerken][lnk-d2c-tutorial]
+* [Over het verzenden van berichten van cloud-naar-apparaat met IoT Hub][lnk-c2d-tutorial]
+* [How to process IoT Hub apparaat-naar-cloud-berichten verwerken][lnk-d2c-tutorial]
 
 <!-- links and images -->
 
@@ -462,7 +465,7 @@ Als u uitproberen enkele concepten die worden beschreven in dit artikel wilt, ra
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-openssl]: https://www.openssl.org/
-[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
+[lnk-selfsigned]: https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate
 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens

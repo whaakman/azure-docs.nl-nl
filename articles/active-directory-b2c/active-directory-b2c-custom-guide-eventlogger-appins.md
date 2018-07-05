@@ -1,60 +1,60 @@
 ---
-title: Gedrag van de gebruiker bijhouden met behulp van gebeurtenissen in Application Insights van Azure Active Directory B2C | Microsoft Docs
-description: Stapsgewijze handleiding voor het inschakelen van gebeurtenislogboeken in Application Insights van Azure AD B2C gebruiker trajecten met behulp van aangepaste beleidsregels (preview)
+title: Gebruikersgedrag bijhouden met behulp van gebeurtenissen in Application Insights van Azure Active Directory B2C | Microsoft Docs
+description: Stapsgewijze handleiding voor het inschakelen van gebeurtenislogboeken in Application Insights van Azure AD B2C gebruiker reizen met behulp van aangepaste beleidsregels (preview)
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 94d96af8db651a848ac092d1f8b85da4909427b7
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 300a8a15552fe1e8ec9d6b434a14a31b3d827f19
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110112"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445582"
 ---
-# <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Gedrag van de gebruiker in Azure AD B2C trajecten bijhouden met Application Insights
+# <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Gebruikersgedrag bijhouden in Azure AD B2C reizen met behulp van Application Insights
 
-Azure Active Directory B2C (Azure AD B2C) werkt goed samen met Azure Application Insights. Ze bieden gedetailleerde en aangepaste logboeken voor de gebruiker gemaakte aangepaste reizen. In dit artikel ziet u hoe zodat u kunt aan de slag:
+Azure Active Directory B2C (Azure AD B2C) werkt goed samen met Azure Application Insights. Ze bieden gedetailleerde en aangepaste gebeurtenislogboeken voor de gebruiker gemaakte aangepaste reizen. In dit artikel ziet u hoe u aan de slag zodat u deze kunt:
 
-* Verkrijg inzicht van gebruikersgedrag.
-* Los problemen met uw eigen beleid in ontwikkeling of productie.
-* De prestaties van de meting.
-* Meldingen van Application Insights maken.
+* Krijg inzicht in gebruikersgedrag.
+* Problemen met uw eigen beleid bij de ontwikkeling of productie.
+* Meten van prestaties.
+* Maak meldingen van Application Insights.
 
 > [!NOTE]
 > Deze functie is beschikbaar als preview-versie.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Het Framework identiteit ervaring in Azure AD B2C bevat nu de provider `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`.  Het verzendt gebeurtenisgegevens rechtstreeks naar Application Insights met behulp van de instrumentatiesleutel die aan Azure AD B2C.
+De Identity-Ervaringsframework in Azure AD B2C bevat nu de provider `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`.  Het verzendt event gegevens rechtstreeks naar Application Insights met behulp van de instrumentatiesleutel die is opgegeven voor Azure AD B2C.
 
-Een profiel voor technische gebruikt deze provider voor het definiëren van een gebeurtenis van B2C.  Het profiel geeft de naam van de gebeurtenis, de claims die worden beschreven en de instrumentatiesleutel.  U kunt een gebeurtenis boeken door het technische profiel vervolgens wordt toegevoegd als een `orchestration step` of als een `validation technical profile` in een aangepaste gebruiker reis.
+Een technisch profiel gebruikt deze provider voor het definiëren van een gebeurtenis van B2C.  Het profiel bevat de naam van de gebeurtenis, de claims die worden vastgelegd en de instrumentatiesleutel.  Als u een bericht op een gebeurtenis, klikt u vervolgens het technische profiel wordt toegevoegd als een `orchestration step` of als een `validation technical profile` in een aangepaste gebruikersbeleving.
 
-Application Insights kunnen u de gebeurtenissen Combineer met behulp van een correlatie-ID voor het vastleggen van een gebruikerssessie. Application Insights maakt de gebeurtenis en sessie beschikbaar binnen enkele seconden en geeft veel visualisatie, exporteren en analysefuncties.
+Application Insights kunnen leiden tot een uniformer de gebeurtenissen met behulp van een correlatie-ID om vast te leggen van een gebruikerssessie. Application Insights maakt de gebeurtenis en de sessie beschikbaar binnen enkele seconden en geeft veel visualisatie, exporteren en analysehulpprogramma's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voer de stappen in [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md). In dit artikel wordt ervan uitgegaan dat u het aangepaste beleid starter pack. Maar het starter pack is niet vereist.
+Voer de stappen in [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md). In dit artikel wordt ervan uitgegaan dat u het aangepaste beleid starter pack. Maar het pack starter is niet vereist.
 
-## <a name="step-1-create-an-application-insights-resource-and-get-the-instrumentation-key"></a>Step 1. Een Application Insights-resource maken en de instrumentatiesleutel ophalen
+## <a name="step-1-create-an-application-insights-resource-and-get-the-instrumentation-key"></a>Step 1. Maak een Application Insights-resource en de instrumentatiesleutel ophalen
 
-Wanneer u van Application Insights met Azure AD B2C gebruikmaakt, is de enige vereiste voor het maken van een resource en een instrumentatiesleutel ophalen. U maakt een resource in de [Azure-portal.](https://portal.azure.com)
+Wanneer u Application Insights met Azure AD B2C gebruikt, is de enige vereiste te maken van een resource een instrumentatiesleutel ophalen. Maken van een resource in de [Azure-portal.](https://portal.azure.com)
 
-1. Selecteer in de Azure-portal in uw tenant abonnement **+ maken van een resource**. Deze tenant is niet uw Azure AD B2C-tenant.  
+1. Selecteer in de Azure portal, binnen uw tenant abonnement **+ een resource maken**. Deze tenant is niet uw Azure AD B2C-tenant.  
 2. Zoek en selecteer **Application Insights**.  
-3. Maak een resource die gebruikmaakt van **ASP.NET-webtoepassing** als **toepassingstype**, onder een abonnement van uw voorkeur.
-4. Nadat u de Application Insights-resource maken, openen en noteer de instrumentatiesleutel.
+3. Maken van een resource die gebruikmaakt van **ASP.NET-webtoepassing** als **toepassingstype**, onder een abonnement van uw voorkeur.
+4. Nadat u de Application Insights-resource maakt, opent u het en houd er rekening mee de instrumentatiesleutel.
 
-![Application Insights overzicht en de Instrumentatiesleutel](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-key.png)
+![Overzicht van Application Insights en Instrumentatiesleutel](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-key.png)
 
 ## <a name="step-2-add-new-claimtype-definitions-to-your-trust-framework-extension-file"></a>Stap 2. Nieuwe ClaimType definities aan het bestand vertrouwensrelatie framework-extensie toevoegen
 
-Het extensiebestand openen vanuit het pack starter en toevoegen van de volgende elementen op de `<BuildingBlocks>` knooppunt. De bestandsnaam is doorgaans `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
+Open het extensiebestand in de beginnerspakket en voeg de volgende elementen op de `<BuildingBlocks>` knooppunt. De bestandsnaam is doorgaans `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
 
 ```xml
 <ClaimsSchema>
@@ -101,22 +101,22 @@ Het extensiebestand openen vanuit het pack starter en toevoegen van de volgende 
 </ClaimsSchema>
 ```
 
-## <a name="step-3-add-new-technical-profiles-that-use-the-application-insights-provider"></a>Stap 3. Toevoegen van nieuwe technische profielen die gebruikmaken van de Application Insights-provider
+## <a name="step-3-add-new-technical-profiles-that-use-the-application-insights-provider"></a>Stap 3. Nieuwe technische profielen die gebruikmaken van de Application Insights-provider toevoegen
 
-Technische profielen kunnen worden beschouwd als functies in de identiteit ervaring Framework van Azure AD B2C. In dit voorbeeld definieert vijf technische profielen voor een sessie openen en gebeurtenissen plaatsen:
+Technische profielen kunnen worden beschouwd als functies in de identiteit ervaring Framework van Azure AD B2C. In dit voorbeeld definieert vijf technische profielen voor het openen van een sessie en gebeurtenissen kunt posten:
 
-| Technische profiel | Taak |
+| Technisch profiel | Taak |
 | ----------------- | -----|
-| AzureInsights gemeenschappelijke | Hiermee maakt u een gemeenschappelijke set parameters moeten worden opgenomen in alle AzureInsights technische profielen | 
-| JourneyContextForInsights | Hiermee opent u de sessie in Application Insights en verzendt een correlatie-ID |
-| AzureInsights SignInRequest | Maakt een `SignIn` gebeurtenis met een set claims wanneer een aanvraag voor aanmelden is ontvangen | 
-| AzureInsights-UserSignup | Maakt een gebeurtenis UserSignup wanneer de gebruiker de optie voor aanmelding in een reis sign-up-to-date/aanmelden | 
-| AzureInsights SignInComplete | Registreert de voltooiing van een authenticatie wanneer een token is verzonden naar de relying party-toepassing | 
+| AzureInsights-algemeen | Hiermee maakt u een gemeenschappelijke set parameters moeten worden opgenomen in alle AzureInsights technische profielen | 
+| JourneyContextForInsights | Hiermee opent u de sessie in Application Insights en stuurt een correlatie-ID |
+| AzureInsights SignInRequest | Hiermee maakt u een `SignIn` gebeurtenis met een set claims wanneer een aanmeldingsaanvraag is ontvangen | 
+| AzureInsights-UserSignup | Maakt een gebeurtenis UserSignup wanneer de gebruiker de optie voor aanmelding bij in een reis aanmelden-up-to-date/aanmelden wordt geactiveerd | 
+| AzureInsights SignInComplete | De voltooiing van een verificatie wordt vastgelegd wanneer een token is verzonden naar de relying party-toepassing | 
 
-De profielen naar het extensiebestand van het starter pack toevoegen door het toevoegen van deze elementen te de `<ClaimsProviders>` knooppunt.  De bestandsnaam is doorgaans `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
+De profielen toevoegen aan het extensiebestand van het pack starter door toe te voegen deze elementen op de `<ClaimsProviders>` knooppunt.  De bestandsnaam is doorgaans `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
 
 > [!IMPORTANT]
-> Wijzig de instrumentatiesleutel wordt in de `ApplicationInsights-Common` technische profiel op de GUID die voorziet in uw Application Insights-resource.
+> Wijzigen van de instrumentatiesleutel in de `ApplicationInsights-Common` technische profiel dat u wilt de GUID die de Application Insights-resource biedt.
 
 ```xml
 <ClaimsProvider>
@@ -172,9 +172,9 @@ De profielen naar het extensiebestand van het starter pack toevoegen door het to
 </ClaimsProvider>
 ```
 
-## <a name="step-4-add-the-technical-profiles-for-application-insights-as-orchestration-steps-in-an-existing-user-journey"></a>Stap 4. De technische profielen voor Application Insights toevoegen als orchestration in een bestaande gebruiker reis stappen
+## <a name="step-4-add-the-technical-profiles-for-application-insights-as-orchestration-steps-in-an-existing-user-journey"></a>Stap 4. De technische profielen voor Application Insights toevoegen als orchestration stappen toe aan een bestaande gebruikersbeleving
 
-Roep `JournyeContextForInsights` als orchestration stap 1:
+Bel `JournyeContextForInsights` als de orchestration-stap 1:
 
 ```xml
 <!-- Initialize a session with Application Insights -->
@@ -185,7 +185,7 @@ Roep `JournyeContextForInsights` als orchestration stap 1:
 </OrchestrationStep>
 ```
 
-Roep `Azure-Insights-SignInRequest` als orchestration stap 2 om bij te houden dat een sign-in/sign-van-aanvraag is ontvangen:
+Bel `Azure-Insights-SignInRequest` als orchestration stap 2 om bij te houden dat een sign-in/aanmelden-van-aanvraag is ontvangen:
 
 ```xml
 <!-- Track that we have received a sign in request -->
@@ -196,7 +196,7 @@ Roep `Azure-Insights-SignInRequest` als orchestration stap 2 om bij te houden da
 </OrchestrationStep>
 ```
 
-Onmiddellijk *voordat* de `SendClaims` orchestration stap, het toevoegen van een nieuwe stap die aanroept `Azure-Insights-UserSignup`. Deze wordt geactiveerd wanneer de gebruiker de aanmelding knop in een reis sign-up-to-date/aanmelden selecteert.
+Onmiddellijk *voordat* de `SendClaims` orchestration stap, voegt u een nieuwe stap die worden aangeroepen `Azure-Insights-UserSignup`. Deze wordt geactiveerd wanneer de gebruiker de knop registreren in een reis aanmelden-up-to-date/aanmelden selecteert.
 
 ```xml
 <!-- Handles the user clicking the sign up link in the local account sign in page -->
@@ -217,7 +217,7 @@ Onmiddellijk *voordat* de `SendClaims` orchestration stap, het toevoegen van een
   </ClaimsExchanges>
 ```
 
-Direct na de `SendClaims` orchestration stap, belt `Azure-Insights-SignInComplete`. Deze stap duidt op een reis is voltooid.
+Onmiddellijk na de `SendClaims` indelingsstap, aanroep `Azure-Insights-SignInComplete`. Deze stap is inclusief een reis is voltooid.
 
 ```xml
 <!-- Track that we have successfully sent a token -->
@@ -229,22 +229,22 @@ Direct na de `SendClaims` orchestration stap, belt `Azure-Insights-SignInComplet
 ```
 
 > [!IMPORTANT]
-> Nadat u de stappen voor nieuwe orchestration toevoegt, hernummeren de stappen sequentieel zonder het overslaan van een gehele getallen van 1 op N.
+> Nadat u de nieuwe indelingsstappen hebt toegevoegd, hernummeren de stappen sequentieel worden verwerkt zonder het overslaan van een gehele getallen van 1 op N.
 
 
-## <a name="step-5-upload-your-modified-extensions-file-run-the-policy-and-view-events-in-application-insights"></a>Stap 5. Uw aangepaste extensiebestand uploadt, worden het beleid uitgevoerd en gebeurtenissen in Application Insights weergeven
+## <a name="step-5-upload-your-modified-extensions-file-run-the-policy-and-view-events-in-application-insights"></a>Stap 5. Uw aangepaste extensiebestand uploaden, uitvoeren van het beleid en gebeurtenissen in Application Insights weergeven
 
-Sla en upload het bestand nieuwe vertrouwensrelatie framework-extensie. Roep vervolgens de relying party-beleid van uw toepassing of gebruik `Run Now` in de Azure AD B2C-interface. Uw gebeurtenissen zijn beschikbaar in Application Insights in seconden.
+Opslaan en upload het nieuwe vertrouwensrelatie framework-extensie-bestand. Roep vervolgens de relying party-beleid van uw toepassing of gebruik `Run Now` in de Azure AD B2C-interface. De gebeurtenissen zijn in seconden, beschikbaar in Application Insights.
 
 1. Open de **Application Insights** resource in uw Azure Active Directory-tenant.
 2. Selecteer **gebruik** > **gebeurtenissen**.
-3. Ingesteld **tijdens** naar **afgelopen uur** en **door** naar **3 minuten**.  U wilt selecteren **vernieuwen** zoekresultaten wilt weergeven.
+3. Instellen **tijdens** naar **afgelopen uur** en **door** naar **3 minuten**.  Mogelijk moet u selecteren **vernieuwen** resultaten om weer te geven.
 
 ![Application Insights-Gebruiksgebeurtenissen Blase](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
 
 ##  <a name="next-steps"></a>Volgende stappen
 
-Claimtypen en -gebeurtenissen toevoegen aan de gebruiker reis aan uw behoeften voldoet. Hier volgt een lijst van mogelijke claims, met aanvullende claims resolvers
+Claimtypen en -gebeurtenissen toevoegen aan uw gebruikersbeleving aan uw behoeften voldoet. Hier volgt een lijst van mogelijke claims, met behulp van aanvullende claims resolvers
 
 ### <a name="culture-specific-claims"></a>Cultuur-specifieke claims
 
@@ -254,8 +254,8 @@ Referenced using: {Culture:One of the property names below}
 
 | Claim | Definitie | Voorbeeld |
 | ----- | -----------| --------|
-| LanguageName | De twee letter ISO-code voor de taal | nl |
-| RegionName | De twee letter ISO-code voor de regio | VS |
+| LanguageName | ISO-code voor de taal van de twee letters | nl |
+| RegionName | ISO-code voor de regio van de twee letters | VS |
 | RFC5646 | De taalcode RFC5646 | nl-NL |
 | LCID   | De LCID van taalcode | 19 |
 
@@ -278,24 +278,24 @@ Referenced using {Policy:One of the property names below}
 Referenced using {OIDC:One of the property names below}
 ```
 
-| Claim | De parameter OpenIdConnect | Voorbeeld |
+| Claim | OpenIdConnect parameter | Voorbeeld |
 | ----- | ----------------------- | --------|
-| Vragen | prompt | N/A |
+| prompt | prompt | N/A |
 | LoginHint |  login_hint | N/A |
 | DomainHint | domain_hint | N/A |
 |  MaxAge | max_age | N/A |
-| clientId | client_id | N/A |
+| ClientId | client_id | N/A |
 | Gebruikersnaam | login_hint | N/A |
 |  Resource | Bron| N/A |
 | AuthenticationContextReferences | acr_values | N/A |
 
-### <a name="non-protocol-parameters-included-with-oidc--oauth2-requests"></a>Niet-protocol-parameters die zijn opgenomen in aanvragen OIDC & OAuth2
+### <a name="non-protocol-parameters-included-with-oidc--oauth2-requests"></a>Niet-protocol-parameters die zijn opgenomen in OIDC & OAuth2-aanvragen
 
 ```xml
 Referenced using { OAUTH-KV:Querystring parameter name }
 ```
 
-Elke parameternaam opgenomen als onderdeel van een OIDC of OAuth2-aanvraag kan worden toegewezen aan een claim in het traject van de gebruiker. U kunt deze vervolgens opnemen in de gebeurtenis. De aanvraag van de toepassing kan bijvoorbeeld een queryreeksparameter opgeven met de naam `app_session`, `loyalty_number` of `any_string`.
+Elke parameternaam opgenomen als onderdeel van een OIDC of OAuth2-aanvraag kan worden toegewezen aan een claim in de gebruikersbeleving. U kunt deze vervolgens opnemen in de gebeurtenis. De aanvraag van de toepassing kan bijvoorbeeld een queryreeks-parameter met de naam `app_session`, `loyalty_number` of `any_string`.
 
 Hier volgt een voorbeeld van een aanvraag van de toepassing:
 
@@ -303,16 +303,16 @@ Hier volgt een voorbeeld van een aanvraag van de toepassing:
 https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
-Vervolgens kunt u de claims toevoegen door toe te voegen een `Input Claim` element op de Application Insights-gebeurtenis. Eigenschappen van een gebeurtenis worden toegevoegd via de syntaxis {eigenschap: NAME}, waarbij naam eigenschap wordt toegevoegd aan de gebeurtenis. Bijvoorbeeld:
+Vervolgens kunt u de claims toevoegen door toe te voegen een `Input Claim` element aan de Application Insights-gebeurtenis. Eigenschappen van een gebeurtenis worden toegevoegd via de syntaxis van de {eigenschap: NAME}, waarbij naam eigenschap wordt toegevoegd aan de gebeurtenis. Bijvoorbeeld:
 
 ```
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
 <InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 ```
 
-### <a name="other-system-claims"></a>Andere claims systeem
+### <a name="other-system-claims"></a>Andere claims system
 
-Sommige claims systeem moeten worden toegevoegd aan de eigenschappenverzameling claims voordat ze beschikbaar zijn voor het vastleggen van gebeurtenissen zijn. Het profiel voor technische `SimpleUJContext` als een stap orchestration of een profiel van de technische moet worden aangeroepen voordat deze claims beschikbaar zijn.
+Bepaalde claims systeem moeten worden toegevoegd aan de eigenschappenverzameling claims voordat ze beschikbaar zijn om vast te leggen als gebeurtenissen zijn. Het technische profiel `SimpleUJContext` moet worden aangeroepen als een indelingsstap of een profiel van de technische voordat deze claims beschikbaar zijn.
 
 ```xml
 <ClaimsProvider>

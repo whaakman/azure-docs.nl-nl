@@ -1,6 +1,6 @@
 ---
-title: Talen die worden ondersteund door Azure inhoud beheerder | Microsoft Docs
-description: Hier volgt een lijst met talen die worden ondersteund door de beheerder van inhoud.
+title: Talen die worden ondersteund door Azure Content Moderator | Microsoft Docs
+description: Hier volgt een lijst met talen die worden ondersteund door de Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,22 +9,22 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0fb9f92e736e598662f66ae3d283ba02f715e3af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 973e4efcbe9d0627ca261def2449a237819559ad
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344853"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441145"
 ---
-# <a name="text-moderation---supported-languages-by-feature"></a>Tekst toezicht - ondersteunde talen door functie
+# <a name="text-moderation---supported-languages-by-feature"></a>Beheer van tekst - talen met functie
 
 > [!NOTE]
-> Voor de **taal** parameter toewijzen `eng` of laat het veld leeg voor een overzicht van de machine-ondersteunde **classificatie** antwoord (preview-functie). **Deze functie ondersteunt alleen Engels**.
+> Voor de **taal** parameter toewijzen `eng` of laat het veld leeg om te zien van de computer-ondersteund **classificatie** antwoord (preview-functie). **Deze functie ondersteunt alleen Engels**.
 >
-> Voor **taalgebruik voorwaarden** detectie, gebruik de [ISO 639-3-code](http://www-01.sil.org/iso639-3/codes.asp) van de ondersteunde talen die worden vermeld in dit artikel of laat het veld leeg.
+> Voor **grof taalgebruik voorwaarden** detectie, gebruik de [ISO 639-3-code](http://www-01.sil.org/iso639-3/codes.asp) van de ondersteunde talen die worden vermeld in dit artikel of laat het veld leeg.
 
 
-| Taaldetectie | Taalgebruik   | OCR    | Automatische correcties     |
+| Taaldetectie | Grof taalgebruik   | OCR    | Automatische correctie     |
 | -------------------- |-------------|--------|---------------------|
 | Arabisch (Romanized)   | Afrikaans   | Arabisch   | Arabisch
 | Balinese | Albanees | Chinees (vereenvoudigd)    | Deens
@@ -33,64 +33,64 @@ ms.locfileid: "35344853"
 | Buhid | Armeens | Deens                     | Fins
 | Carian | Assamees | Nederlands                     | Frans
 | Chinees (vereenvoudigd) | Azerbeidzjaans | Nederlands  | Grieks (modern)
-| Chinees (traditioneel) | Bengaals - Bangladesh | Fins  | Italiaans
-| Kerk (Slavisch) | Bengaals - India | Frans     | Koreaans
+| Chinees (traditioneel) | Bengalees - Bangladesh | Fins  | Italiaans
+| Kerk (Slavisch) | Bengalees - India | Frans     | Koreaans
 | Koptisch | Baskisch | Duits                      | Noors
-| Dhivehi | Belarussisch | Grieks (modern)         | Pools
-| Farsi | Bosnisch - Cyrillisch | Hongaars        | Portugees
-| Grieks | Bosnisch - Latijn | Italiaans             | Roemeens
-| Haïtiaanse (Creole) | Bretons [niet-GeoPol] | Japans  | Russisch
-| Hebreeuws | Bulgaars | Koreaans                        | Slowaaks
-| Hmong | Catalaans | Noors                        | Spaans
-| Koerdische (Arabisch) | Centrale Koerdische | Pools        | Turks
-| Koerdische (Latijns) | Cherokee | Portugees
-| Lepcha | Chinees (vereenvoudigd) | Roemeens
-| Limbu | Chinees (Traditioneel) - Hongkong SAR | Russisch
-| Lu | Chinees (Traditioneel) - Taiwan | Servisch Cyrillisch
-| Lycian | Kroatisch | Servisch Latijns
-| Lydian | Tsjechisch | Slowaaks
-| Mycenaean (Grieks) | Deens | Spaans
-| Nko | Dari | Zweeds
-| Noors (Bokmål) | Nederlands | Turks
-| Noors (Nynorsk) | Nederlands 
-| Oude (Perzisch) | Estisch 
-| Pashto | Filipijns
-| Punjabi | Fins
-| Rejang | Frans
-| Santali | Galicisch
-| Sasak | Georgisch
-| Saurashtra | Duits
-| Servisch (Cyrillisch) | Grieks
-| Servisch (Latijns) | Gujarati
-| Sinhala | Hausa
-| Sloveens | Hebreeuws
-| Sylheti | Hindi
-| Syrisch | Hongaars
-| Tagbanwa | IJslands
-| Tai (Nua) | Igbo
-| Tamashek | Indonesisch
-| Ugaritic | Inuktitut
-| Oezbeeks (Cyrillisch) | Iers
-| Oezbeeks (Latijns) | Xhosa
-| Vai | Zoeloe
-| Yi | Italiaans
-| Zhuang, Chuang | Japans
-| | Kanarees
-| | Kazachs
-| | Khmer
-| | K'iche
-| | Kinyarwanda
-| | Swahili
-| | Konkani
-| | Koreaans
-| | Kirgizisch
-| | Laotiaans
-| | Lets
-| | Litouws
-| | Luxemburgs
-| | Macedonisch
-| | Maleis
-| | Malayalam
+| Tsjechisch |  Belarussisch | Grieks (modern)         | Pools
+| Dhivehi | Bosnisch - Cyrillisch | Hongaars      | Portugees
+| Nederlands | Bosnisch - Latijns | Italiaans             | Roemeens
+| Nederlands | (Creole) | Bretons [niet GeoPol] | Japans  | Russisch
+| Farsi | Bulgaars | Koreaans                        | Slowaaks
+| Frans | Catalaans | Noors                        | Spaans
+| Duits | Centraal-Koerdisch | Pools        | Turks
+| Grieks | Cherokee | Portugees
+| Haïtiaanse | Chinees (vereenvoudigd) | Roemeens
+| Hebreeuws | Chinees (Traditioneel) - Hongkong SAR | Russisch
+| Hindi | Chinees (Traditioneel) - Taiwan | Cyrillisch Servisch
+| Hmong | Kroatisch | Servisch Latijns
+| Hongaars | Tsjechisch | Slowaaks
+| Italiaans | Deens | Spaans
+| Japans | Dari | Zweeds
+| Koreaans | Nederlands | Turks
+| Koerdisch (Arabisch) | Nederlands
+| Koerdisch (Latijns) | Estisch
+| Lepcha | Filipijns
+| Limbu | Fins
+| Lu | Frans
+| Lycian | Galicisch
+| Lydian | Georgisch
+| Mycenaean (Grieks) | Duits
+| Nko | Grieks
+| Noors (Bokmål) | Gujarati
+| Noors (Nynorsk) |  Hausa
+| Oude (Perzisch) | Hebreeuws
+| Pashto | Hindi
+| Pools | Hongaars
+| Portugese | IJslands
+| Punjabi | Igbo
+| Rejang | Indonesisch
+| Russisch | Inuktitut
+| Santali | Iers
+| Sasak | Xhosa
+| Saurashtra | Zoeloe
+| Servisch (Cyrillisch) | Italiaans
+| Servisch (Latijns) | Japans
+| Sinhala | Kanarees
+| Sloveens | Kazachs
+| Spaans | Khmer
+| Zweeds | K'iche
+| Sylheti | Kinyarwanda
+| Syrisch | Swahili
+| Tagbanwa | Konkani
+| Tai (Nua) | Koreaans
+| Tamashek | Kirgizisch
+| Turks | Laotiaans
+| Ugaritic | Lets
+| Oezbeeks (Cyrillisch) | Litouws
+| Oezbeeks (Latijns) | Luxemburgs
+| Vai | Macedonisch
+| Yi | Maleis
+| Zhuang, Chuang | Malayalam
 | | Maltees
 | | Maori
 | | Mahratti
@@ -116,7 +116,7 @@ ms.locfileid: "35344853"
 | | Servisch (Latijns)
 | | Noord
 | | Noord-Sotho
-| | Setswana
+| | Tswana
 | | Sindhi
 | | Sinhala
 | | Slowaaks
@@ -135,7 +135,7 @@ ms.locfileid: "35344853"
 | | Urdu
 | | Uyghur
 | | Oezbeeks
-| | Valencian
+| | Valenciaans
 | | Vietnamees
 | | Welsh
 | | Wolof

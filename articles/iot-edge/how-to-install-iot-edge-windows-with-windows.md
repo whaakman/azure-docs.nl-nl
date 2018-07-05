@@ -9,16 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: b2878f9d7aa32b2502487cdc081896e5ba306af1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 3d34628a5a47788bca8cdafcb6e199a0c2cb3bcc
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346373"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437838"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Azure IoT Edge-runtime installeren op Windows voor gebruik met Windows-containers
 
-De Azure IoT Edge-runtime wordt geïmplementeerd op alle IoT Edge-apparaten. Het bevat drie onderdelen. De **IoT Edge security daemon** biedt en onderhoudt beveiligingsstandaarden op het Edge-apparaat. De daemon begint op elke keer opstarten en bootstrapt van het apparaat door de IoT Edge-agent wordt gestart. De **IoT Edge agent** vergemakkelijkt de implementatie en bewaking van modules op het Edge-apparaat, met inbegrip van de IoT Edge hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
+De Azure IoT Edge-runtime wordt geïmplementeerd op alle IoT Edge-apparaten. Deze bevat drie onderdelen. De **IoT Edge security daemon** biedt en onderhoudt beveiligingsstandaarden op het Edge-apparaat. De daemon begint op elke keer opstarten en bootstrapt van het apparaat door de IoT Edge-agent wordt gestart. De **IoT Edge agent** vergemakkelijkt de implementatie en bewaking van modules op het Edge-apparaat, met inbegrip van de IoT Edge hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
 
 In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime op uw Windows x64 (AMD/Intel) systeem. 
 
@@ -162,6 +162,12 @@ In het PowerShell-venster, maakt u een omgevingsvariabele **IOTEDGE_HOST** met d
 
 ```powershell
 [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
+```
+
+De omgevingsvariabele behouden tijdens opnieuw opstarten.
+
+```powershell
+SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"
 ```
 
 Ten slotte, zorg ervoor dat de **netwerk:** bij **moby_runtime:** commentaarteken en ingesteld op **nat**

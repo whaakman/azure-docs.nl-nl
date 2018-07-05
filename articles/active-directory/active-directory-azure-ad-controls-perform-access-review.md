@@ -1,6 +1,6 @@
 ---
-title: Toegang met behulp van Azure AD bekijken beoordelingen toegang | Microsoft Docs
-description: Informatie over het bekijken van toegang met behulp van Azure Active Directory toegang beoordelingen.
+title: Toegang controleren met behulp van Azure AD toegangsbeoordelingen | Microsoft Docs
+description: Meer informatie over het bekijken van toegang met behulp van Azure Active Directory-toegangsbeoordelingen.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -9,43 +9,43 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 09/19/2017
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: e6a109e499395e09be27770a510427038872da38
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 52d832de10de93c5bd4b91df821f96845b3b21be
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085120"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446636"
 ---
-# <a name="review-access-with-azure-ad-access-reviews"></a>Toegang met Azure AD bekijken beoordelingen openen
+# <a name="review-access-with-azure-ad-access-reviews"></a>Toegang met Azure AD controleren toegangsbeoordelingen
 
-Azure Active Directory (Azure AD) vereenvoudigt de manier waarop ondernemingen toegang tot toepassingen en leden van groepen beheren in Azure AD en andere Microsoft Online Services met een functie, de toegang controleert. U misschien ontvangen een e-mailbericht van Microsoft waarmee u vraagt te bekijken van toegang voor leden van een groep of gebruikers met toegang tot een toepassing. 
+Azure Active Directory (Azure AD) vereenvoudigt de manier waarop ondernemingen toegang tot toepassingen en leden van groepen beheren in Azure AD en andere Microsoft Online Services met een functie met de naam van de toegang beoordeelt. U kunt mogelijk geen e-mail ontvangen van Microsoft waarmee u wordt gevraagd te toegang beoordelen voor leden van een groep of gebruikers met toegang tot een toepassing. 
 
-## <a name="open-an-access-review"></a>Open een toegang controleren
+## <a name="open-an-access-review"></a>Een toegangsbeoordeling openen
 
-Als u wilt de in behandeling toegang beoordelingen ziet, selecteer de koppeling in het e-mailbericht. Als u het e-mailbericht niet hebt, kunt u de beoordelingen toegang zoeken met de volgende stappen:
+Als u wilt zien van de in behandeling zijnde toegangsbeoordelingen, selecteer de koppeling in het e-mailbericht. Als u het e-mailbericht niet hebt, kunt u de toegangsbeoordelingen vinden door de volgende stappen:
 
-1. Meld u aan bij de [Azure AD-Toegangsvenster](https://myapps.microsoft.com).
+1. Meld u bij de [Azure AD-toegangspaneel](https://myapps.microsoft.com).
 
-2. Selecteer het symbool gebruiker in de rechterbovenhoek van de pagina, waarin uw organisatie naam en de standaardwaarde. Als meer dan één organisatie wordt weergegeven, selecteert u de organisatie die een onderzoek toegang aangevraagd.
+2. Selecteer het symbool gebruiker in de rechterbovenhoek van de pagina, die uw organisatie naam en het standaard weergegeven. Als meer dan één organisatie wordt weergegeven, selecteert u de organisatie die een toegangsbeoordeling aangevraagd.
 
-3. Als een tegel gelabeld **toegang tot beoordelingen** is aan de rechterkant van de pagina, selecteer het. Als de tegel niet zichtbaar is, er zijn geen beoordelingen toegang om uit te voeren voor de organisatie en op dit moment is geen actie vereist.
+3. Als een tegel met het label **Toegangsbeoordelingen** is aan de rechterkant van de pagina, selecteer het. Als de tegel niet zichtbaar is, er zijn geen toegangsbeoordelingen om uit te voeren voor deze organisatie en is er op dit moment geen actie nodig.
 
-## <a name="fill-out-an-access-review"></a>Vul een toegang controleren
+## <a name="fill-out-an-access-review"></a>Vul een toegangsbeoordeling
 
-Als u een toegang controleren in de lijst selecteert, ziet u de namen van gebruikers die moeten worden beoordeeld. Slechts één naam--ziet u mogelijk uw eigen--als de aanvraag is om te controleren van uw eigen toegang.
+Wanneer u een toegangscontrole uit de lijst selecteert, ziet u de namen van gebruikers die moeten worden gecontroleerd. Ziet u mogelijk slechts één naam van uw eigen--als de aanvraag is uw eigen toegang controleren.
 
-Voor elke rij in de lijst, kunt u beslissen of goedkeuren of weigeren van toegang van de gebruiker. Selecteer de rij en kies of u wilt goedkeuren of weigeren. (Als u de gebruiker niet weet, kunt u aangeven dat te.)
+Voor elke rij in de lijst, kunt u beslissen of goedkeuren of weigeren van toegang van de gebruiker. Selecteer de rij en kiest u of u wilt goedkeuren of weigeren. (Als u de gebruiker niet weet, kunt u aangeven dat te.)
 
-De revisor mogelijk dat u een reden voor het goedkeuren van continue toegang of het lidmaatschap opgeven.
+De revisor mogelijk dat u een reden voor het goedkeuren van blijvende toegang of lidmaatschap van groep opgeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Toegang geweigerd voor een gebruiker is niet onmiddellijk verwijderd. Het kan worden verwijderd wanneer de revisie is voltooid of wanneer een beheerder de controle wordt gestopt. Als u wilt uw antwoord wijzigen en een gebruiker eerder geweigerde goedkeuren of weigeren van een gebruiker eerder goedgekeurd, selecteer de rij, opnieuw instellen van het antwoord op en selecteert u een nieuw antwoord. U kunt deze stap doen totdat de controle van de toegang is voltooid.
+Een geweigerde gebruikerstoegang wordt niet onmiddellijk verwijderd. Het kan worden verwijderd wanneer de beoordeling is voltooid of wanneer een beheerder de controle wordt gestopt. Als u wilt wijzigen van het antwoord en een eerder geweigerde gebruiker goedkeuren of weigeren van een eerder goedgekeurde gebruikers, selecteert u de rij, opnieuw instellen van het antwoord en selecteert u een nieuw antwoord. U kunt deze stap kunt doen, totdat de toegangsbeoordeling is voltooid.
 
 
 

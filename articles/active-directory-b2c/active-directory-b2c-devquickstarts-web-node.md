@@ -1,27 +1,27 @@
 ---
 title: Aanmelden toevoegen aan een Node.js-web-app in Azure Active Directory B2C | Microsoft Docs
-description: Het bouwen van een Node.js-web-app die gebruikers met Azure Active Directory B2C worden aangemeld.
+description: Over het bouwen van een Node.js-web-app die gebruikers met Azure Active Directory B2C worden aangemeld.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b9c589f8bf8189961f88a6ae1d66f1fd9e17e9bc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ee8dab24d53c7f3563d741ff74e49b0b87cda6da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711107"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442492"
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: aanmelding toevoegen aan een Node.js-web-app
 
 **Passport** is verificatiemiddleware voor Node.js. Passport is flexibel en modulair, en kan onopvallend worden geïnstalleerd in een Express- of Restify-webtoepassing. Een uitgebreide set strategieën ondersteunt verificatie met een gebruikersnaam en wachtwoord, Facebook, Twitter en meer.
 
-Voor Azure Active Directory (Azure AD), kunnen installeert deze module en voegt u de Azure AD `passport-azure-ad` invoegtoepassing.
+Voor Azure Active Directory (Azure AD), kunt installeert deze module en voegt u de Azure AD `passport-azure-ad` invoegtoepassing.
 
 U moet:
 

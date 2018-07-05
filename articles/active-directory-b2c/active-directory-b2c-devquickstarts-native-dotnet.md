@@ -1,24 +1,24 @@
 ---
-title: Aanmelden, verificatie bewerken-profiel in Azure Active Directory B2C | Microsoft Docs
-description: Het bouwen van een Windows-bureaubladtoepassing met aanmelden, aanmelding en Profielbeheer met behulp van Azure Active Directory B2C.
+title: Verificatie, aanmelden, profiel in Azure Active Directory B2C bewerken | Microsoft Docs
+description: Over het bouwen van een Windows-bureaubladtoepassing met aanmelding, registratie, en Profielbeheer met behulp van Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 980d554d96796a673db13bb369337d90088e8a75
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: bd504beabbb126db2cd90ac010dbc2757e571185
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711053"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441896"
 ---
-# <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Een Windows desktop app bouwen
-U kunt met behulp van Azure Active Directory (Azure AD) B2C beheerfuncties krachtige Self-service identiteitsbeheer toevoegen aan uw bureaublad-app in slechts enkele korte stappen. In dit artikel wordt beschreven hoe u een .NET Windows Presentation Foundation (WPF) 'takenlijst' u app maakt die gebruikersregistratie, aanmelding en Profielbeheer bevat. De app biedt ondersteuning voor aanmelden en aanmelden met een gebruikersnaam of e-mailbericht. Het biedt ook ondersteuning voor zich kunnen registreren en aanmelden via sociale accounts zoals Facebook en Google.
+# <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Een Windows-desktop-app bouwen
+Met behulp van Azure Active Directory (Azure AD) B2C, kunt u functies voor krachtige Self-service identiteitsbeheer toevoegen aan uw bureaubladapp in slechts enkele korte stappen. Dit artikel wordt beschreven hoe u een .NET Windows Presentation Foundation (WPF) 'takenlijst-app maakt die gebruikersregistratie, aanmelding en Profielbeheer bevat. De app biedt ondersteuning voor het registreren en aanmelden met behulp van een gebruikersnaam of e-mailbericht. Het bevat ook ondersteuning voor registratie en aanmelding via sociale accounts zoals Facebook en Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Een Azure AD B2C-directory maken
 Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken.  Een directory is een container voor alle gebruikers, apps, groepen en meer. Als u nog geen directory hebt, [maakt u een B2C-directory](active-directory-b2c-get-started.md) voordat u doorgaat in deze handleiding.
@@ -26,12 +26,12 @@ Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken.  
 ## <a name="create-an-application"></a>Een app maken
 Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door aan Azure AD die nodig is om veilig te communiceren met uw app. Volg [deze instructies](active-directory-b2c-app-registration.md) om een app te maken.  Zorg ervoor dat:
 
-* Omvatten een **native client** in de toepassing.
+* Bevatten een **native client** in de toepassing.
 * Kopieer de **omleidings-URI** `urn:ietf:wg:oauth:2.0:oob`. Dit is de standaard-URL voor dit codevoorbeeld.
 * U de **toepassings-id** kopieert die is toegewezen aan uw app. U hebt dit later nodig.
 
 ## <a name="create-your-policies"></a>Het beleid maken
-In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Dit codevoorbeeld bevat drie identiteitservaringen: registreren, aanmelden en profiel bewerken. U moet een beleid voor elk type maken, zoals beschreven in de [naslagartikel](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u uw drie beleidsregels maakt:
+In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Dit codevoorbeeld bevat drie identiteitservaringen: registreren, aanmelden en profiel bewerken. U moet een beleid maken voor elk type, zoals wordt beschreven de [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u uw drie beleidsregels maakt:
 
 * Kiest u **Registratie met gebruikers-id** of **Registratie via e-mail** op de blade met identiteitsproviders.
 * Kiest u **Weergavenaam** en andere registratiekenmerken in het registratiebeleid.
@@ -51,22 +51,22 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 De voltooide app is ook [beschikbaar als zip-bestand](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) of in de `complete`-vertakking van dezelfde opslagplaats.
 
-Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. De `TaskClient` project is de WPF-bureaubladtoepassing die de gebruiker werkt. Voor de doeleinden van deze zelfstudie wordt een taak back-end-web-API, gehost in Azure die de takenlijst van elke gebruiker opslaat aangeroepen.  U hoeft niet voor het bouwen van de web-API, we hebben al actief voor u.
+Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. De `TaskClient` project is de WPF-bureaubladtoepassing waarmee de gebruiker werkt. Voor de doeleinden van deze zelfstudie wordt een web-API, die wordt gehost in Azure, waarin de takenlijst van elke gebruiker van de back-end-taak.  U hoeft niet naar de web-API bouwen, we dat u al hebt.
 
-Bekijk voor meer informatie over hoe een web-API veilig wordt geverifieerd aanvragen met behulp van Azure AD B2C, de [web-API aan de slag artikel](active-directory-b2c-devquickstarts-api-dotnet.md).
+Als u wilt weten hoe een web-API veilig verifieert aanvragen met behulp van Azure AD B2C, bekijk de [web-API aan de slag artikel](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## <a name="execute-policies"></a>Uitvoeren van beleid
-Uw app communiceert met Azure AD B2C door te sturen verificatieberichten die het beleid dat hij of zij wil uit te voeren als onderdeel van de HTTP-aanvraag opgeven. Voor .NET-desktoptoepassingen, kunt u de voorbeeld Microsoft Authentication Library (MSAL) gebruiken om te verzenden van berichten van OAuth 2.0-verificatie, voert u beleidsregels en ophalen van tokens die aanroepen van web-API's.
+## <a name="execute-policies"></a>Beleid uitvoeren
+Uw app communiceert met Azure AD B2C door te sturen verificatieberichten die ze willen om uit te voeren als onderdeel van de HTTP-aanvraag beleid opgeven. U kunt voor desktop .NET-toepassingen, de Preview-versie van Microsoft Authentication Library (MSAL) gebruiken om te verzenden van berichten van OAuth 2.0-verificatie, voert u beleidsregels en ophalen van tokens die web-API's aanroepen.
 
 ### <a name="install-msal"></a>MSAL installeren
-Toevoegen van MSAL naar de `TaskClient` project met de Visual Studio Package Manager-Console.
+Toevoegen van MSAL naar de `TaskClient` project met behulp van Visual Studio Package Manager Console.
 
 ```
 PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### <a name="enter-your-b2c-details"></a>Uw B2C-gegevens invoeren
-Open het bestand `Globals.cs` en elk van de eigenschapswaarden vervangt door uw eigen. Deze klasse wordt gebruikt in de gehele `TaskClient` verwijzing gebruikte waarden.
+Open het bestand `Globals.cs` en elk van de eigenschapswaarden vervangen door uw eigen. Deze klasse wordt gebruikt in de gehele `TaskClient` verwijzing gebruikte waarden.
 
 ```csharp
 public static class Globals
@@ -87,7 +87,7 @@ public static class Globals
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="create-the-publicclientapplication"></a>De PublicClientApplication maken
-De primaire klasse van MSAL is `PublicClientApplication`. Deze klasse vertegenwoordigt de toepassing in het Azure AD B2C-systeem. Wanneer de initalizes app maakt voor een exemplaar van `PublicClientApplication` in `MainWindow.xaml.cs`. Dit kan worden gebruikt in het venster.
+De primaire klasse van MSAL is `PublicClientApplication`. Deze klasse vertegenwoordigt de toepassing in de Azure AD B2C-systeem. Wanneer de initalizes app maakt een exemplaar van `PublicClientApplication` in `MainWindow.xaml.cs`. Dit kan worden gebruikt in het venster.
 
 ```csharp
 protected async override void OnInitialized(EventArgs e)
@@ -104,8 +104,8 @@ protected async override void OnInitialized(EventArgs e)
     ...
 ```
 
-### <a name="initiate-a-sign-up-flow"></a>Een registratie stroom initiëren
-Wanneer een gebruiker ervoor om te tekenen van kiest, die u wilt starten een aanmelding stroom die gebruikmaakt van het registratiebeleid die u hebt gemaakt. Met behulp van MSAL die u zojuist hebt aanroepen `pca.AcquireTokenAsync(...)`. De parameters die u doorgeeft aan `AcquireTokenAsync(...)` bepalen welk token wordt weergegeven, het beleid op waarmee de verificatieaanvraag, enzovoort.
+### <a name="initiate-a-sign-up-flow"></a>Een proefaccount stroom starten
+Wanneer een gebruiker kan worden gebruikt te tekenen van, die u wilt starten een proefaccount stroom die gebruikmaakt van het registratiebeleid die u hebt gemaakt. Met behulp van MSAL, roep je `pca.AcquireTokenAsync(...)`. De parameters die u doorgeeft aan `AcquireTokenAsync(...)` te bepalen welke token u ontvangen, het beleid wordt gebruikt voor de verificatieaanvraag, en meer.
 
 ```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
@@ -155,8 +155,8 @@ private async void SignUp(object sender, RoutedEventArgs e)
 }
 ```
 
-### <a name="initiate-a-sign-in-flow"></a>Starten van een stroom aanmelden
-U kunt een stroom aanmelden op dezelfde manier als dat u een aanmelding stroom initiëren initiëren. Wanneer een gebruiker zich aanmeldt, moet u dezelfde aanroep MSAL, ditmaal met behulp van uw beleid voor aanmelden:
+### <a name="initiate-a-sign-in-flow"></a>Start een stroom aanmelden
+U kunt een stroom aanmelden starten op dezelfde manier dat u een aanmelding stroom gestart. Wanneer een gebruiker zich aanmeldt, moet u dezelfde aanroep van MSAL, ditmaal met behulp van uw beleid voor aanmelden:
 
 ```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -170,8 +170,8 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
         ...
 ```
 
-### <a name="initiate-an-edit-profile-flow"></a>Starten van een stroom profiel bewerken
-U kunt een beleid voor het profiel bewerken opnieuw uitvoeren op dezelfde manier:
+### <a name="initiate-an-edit-profile-flow"></a>Start een stroom profiel bewerken
+U kunt een beleid voor profiel bewerken, uitvoeren op dezelfde manier:
 
 ```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
@@ -184,10 +184,10 @@ private async void EditProfile(object sender, RoutedEventArgs e)
                     Globals.editProfilePolicy);
 ```
 
-In al deze gevallen retourneert MSAL ofwel een token in `AuthenticationResult` of er een uitzondering gegenereerd. Telkens wanneer u een token via MSAL krijgen, kunt u de `AuthenticationResult.User` object bijwerken van de gebruikersgegevens in de app, zoals de gebruikersinterface. Het token voor gebruik in andere onderdelen van de toepassing worden ook opgeslagen in ADAL.
+In al deze gevallen retourneert MSAL ofwel een token in `AuthenticationResult` of een uitzondering genereert. Telkens wanneer u een token van MSAL verkrijgen, kunt u de `AuthenticationResult.User` object om bij te werken van de gebruikersgegevens in de app, zoals de gebruikersinterface. Het token voor gebruik in andere onderdelen van de toepassing worden ook opgeslagen door ADAL.
 
-### <a name="check-for-tokens-on-app-start"></a>Controleer voor tokens op app starten
-U kunt ook MSAL gebruiken om-in status van de gebruiker bij te houden.  In deze app willen we de gebruiker blijft aangemeld nadat ze de app sluiten en opnieuw openen.  Terug in de `OnInitialized` overschrijven, gebruikt u de MSAL `AcquireTokenSilent` methode om te controleren of tokens in de cache opgeslagen:
+### <a name="check-for-tokens-on-app-start"></a>Controleer voor op het startscherm van app-tokens
+U kunt ook MSAL gebruiken om-in status van de gebruiker bij te houden.  In deze app willen we de gebruiker aangemeld blijven, zelfs nadat ze de app sluiten en opnieuw opent.  Terug in de `OnInitialized` negeren, gebruikt u de MSAL `AcquireTokenSilent` methode om te controleren voor tokens in de cache opgeslagen:
 
 ```csharp
 AuthenticationResult result = null;
@@ -226,7 +226,7 @@ catch (MsalException ex)
 ```
 
 ## <a name="call-the-task-api"></a>De takenlijst-API aanroepen
-U hebt nu MSAL gebruikt om beleidsregels uitvoeren en tokens verkrijgen.  Wanneer u een deze tokens aan te roepen de takenlijst-API gebruiken wilt, kunt u opnieuw gebruiken van MSAL `AcquireTokenSilent` methode om te controleren of tokens in de cache opgeslagen:
+U hebt nu MSAL gebruikt uit te voeren van beleid en tokens verkrijgen.  Wanneer u een deze tokens gebruiken wilt voor het aanroepen van de takenlijst-API, kunt u het opnieuw gebruiken van MSAL `AcquireTokenSilent` methode om te controleren voor tokens in de cache opgeslagen:
 
 ```csharp
 private async void GetTodoList()
@@ -271,7 +271,7 @@ private async void GetTodoList()
     ...
 ```
 
-Bij het aanroepen van `AcquireTokenSilentAsync(...)` is gelukt en een token gevonden in de cache, kunt u het token voor toevoegen de `Authorization` koptekst van de HTTP-aanvraag. De web-API van de taak wordt deze header gebruiken om te verifiëren van de aanvraag voor het lezen van de takenlijst van de gebruiker:
+Wanneer de aanroep van `AcquireTokenSilentAsync(...)` is geslaagd en een token gevonden in de cache, kunt u het token voor toevoegen de `Authorization` -header van de HTTP-aanvraag. De web-API van de taak wordt deze header gebruiken om te verifiëren van de aanvraag voor het lezen van de takenlijst van de gebruiker:
 
 ```csharp
     ...
@@ -284,7 +284,7 @@ Bij het aanroepen van `AcquireTokenSilentAsync(...)` is gelukt en een token gevo
 ```
 
 ## <a name="sign-the-user-out"></a>De gebruiker afmelden
-Ten slotte kunt u MSAL naar einde van een gebruikerssessie met de app wanneer de gebruiker selecteert **Afmelden**.  Wanneer u MSAL gebruikt, wordt dit wordt bereikt door het wissen van alle van de tokens van de tokencache:
+Ten slotte u MSAL kunt gebruiken voor het einde van de sessie van een gebruiker met de app wanneer de gebruiker selecteert **Afmelden**.  Wanneer u MSAL gebruikt, wordt dit wordt bereikt door het wissen van alle tokens uit de cache token:
 
 ```csharp
 private void SignOut(object sender, RoutedEventArgs e)
@@ -306,21 +306,21 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## <a name="run-the-sample-app"></a>De voorbeeld-app uitvoeren
-Ten slotte bouwen en uitvoeren van het voorbeeld.  Zich registreren voor de app met behulp van de naam van een e-adres of de gebruiker. Meld u af en meld u opnieuw aan als dezelfde gebruiker. Profiel van de gebruiker bewerken. Meld u af en meld u aan met behulp van een andere gebruiker.
+Ten slotte, ontwikkel en voer het voorbeeld.  Zich registreren voor de app met behulp van de naam van een e-mailadres of gebruikersnaam. Meld u af en meld u opnieuw aan als de gebruiker. Bewerk het profiel van die gebruiker. Meld u af en meld u aan met behulp van een andere gebruiker.
 
-## <a name="add-social-idps"></a>Sociale IDPs toevoegen
-Op dit moment wordt de app ondersteunt alleen gebruiker registreren en aanmelden met **lokale accounts**. Dit zijn opgeslagen in uw B2C-directory accounts die gebruikmaken van een gebruikersnaam en wachtwoord. U kunt met behulp van Azure AD B2C, ondersteuning voor andere id-providers (IDPs) toevoegen zonder uw code.
+## <a name="add-social-idps"></a>Sociale id-providers toevoegen
+De app ondersteunt momenteel alleen gebruiker zich aanmeldt en meld u met **lokale accounts**. Dit zijn accounts die zijn opgeslagen in uw B2C-directory die gebruikmaken van een gebruikersnaam en wachtwoord. Met behulp van Azure AD B2C, kunt u ondersteuning voor andere id-providers (IDPs) toevoegen zonder te hoeven wijzigen van uw code.
 
-Volg de gedetailleerde instructies in deze artikelen wilt sociale IDPs toevoegen aan uw app, eerst. Voor elke IDP die u wilt ondersteunen, moet u een toepassing registreren in dat systeem en het verkrijgen van een client-ID.
+Sociale id-providers toevoegen aan uw app, u eerst de gedetailleerde instructies in deze artikelen. Voor elke IDP die u wilt ondersteunen, moet u een toepassing registreren in dat systeem en het verkrijgen van een client-ID.
 
-* [Facebook ingesteld als een IDP](active-directory-b2c-setup-fb-app.md)
-* [Google ingesteld als een IDP](active-directory-b2c-setup-goog-app.md)
-* [Amazon ingesteld als een IDP](active-directory-b2c-setup-amzn-app.md)
-* [LinkedIn instellen als een IDP](active-directory-b2c-setup-li-app.md)
+* [Facebook instellen als een id-provider](active-directory-b2c-setup-fb-app.md)
+* [Google instellen als een id-provider](active-directory-b2c-setup-goog-app.md)
+* [Amazon instellen als een id-provider](active-directory-b2c-setup-amzn-app.md)
+* [LinkedIn instellen als een id-provider](active-directory-b2c-setup-li-app.md)
 
-Nadat u de id-providers aan uw B2C-directory toevoegen, moet u elk van de drie beleidsregels om op te nemen van de nieuwe IDPs bewerken, zoals beschreven in de [naslagartikel](active-directory-b2c-reference-policies.md). Nadat u uw beleid opslaat, voer de app opnieuw. U ziet nu de nieuwe IDPs toegevoegd als aanmelden en aanmeldingsopties in elk van uw identiteit ervaringen.
+Nadat u de id-providers aan uw B2C-directory toevoegen, moet u elk van de drie beleidsregels om op te nemen van de nieuwe id-providers, zoals beschreven in de [naslagartikel voor beleid](active-directory-b2c-reference-policies.md). Nadat u uw beleid hebt opgeslagen, voer de app opnieuw uit. Ziet u de nieuwe id-providers toegevoegd als aanmelden en meld u aan opties voor elk van uw identiteit ervaringen.
 
-U kunt experimenteren met het beleid en houd rekening met de gevolgen voor uw voorbeeld-app. Toevoegen of verwijderen van IDPs, toepassingsclaims bewerken of registratiekenmerken wijzigen. Experiment totdat u kunt zien hoe beleidsregels, verificatieaanvragen en MSAL met elkaar verbinden.
+U kunt experimenteren met uw beleid en bekijk wat het effect op uw voorbeeld-app. Toevoegen of verwijderen van de id-providers, toepassingsclaims bewerken of registratiekenmerken wijzigen. Experiment totdat u kunt zien hoe beleidsregels, aanvragen voor authenticatie en MSAL met elkaar verbinden.
 
 Voor een verwijzing naar het voltooide voorbeeld [wordt geleverd als ZIP-bestand](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). U kunt dit ook klonen van GitHub:
 

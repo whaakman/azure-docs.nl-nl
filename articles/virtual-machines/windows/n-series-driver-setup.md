@@ -1,6 +1,6 @@
 ---
-title: Azure N-reeks stuurprogramma-instellingen voor Windows | Microsoft Docs
-description: Het instellen van NVIDIA GPU-stuurprogramma's voor N-serie VM's met Windows Server of Windows in Azure
+title: Azure N-serie stuurprogramma-instellingen voor Windows | Microsoft Docs
+description: Over het instellen van NVIDIA GPU-stuurprogramma's voor N-serie VM's met Windows Server of Windows in Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
@@ -13,60 +13,62 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/29/2018
+ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc4b9cb9940f073034df01143f4d9e77a47cb19b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 50d9ea88afc0e7d96d71b2ab26c8a8489ae41fee
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654382"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442260"
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>GPU-stuurprogramma's instellen voor N-reeks virtuele machines waarop Windows wordt uitgevoerd 
-Als u wilt profiteren van de GPU-mogelijkheden van N-reeks virtuele machines in Azure met een ondersteunde versie van Windows Server of Windows, moeten de NVIDIA grafische stuurprogramma's worden geïnstalleerd. Dit artikel bevat de installatiestappen stuurprogramma nadat u een VM N-serie implementeren. Stuurprogramma-installatie-informatie is ook beschikbaar voor [virtuele Linux-machines](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>GPU-stuurprogramma's instellen voor N-serie VM's waarop Windows wordt uitgevoerd 
+Als u wilt profiteren van de GPU-mogelijkheden van Azure uit de N-serie VM's waarop Windows wordt uitgevoerd, moeten de NVIDIA GPU-stuurprogramma's worden geïnstalleerd. De [NVIDIA GPU-stuurprogramma extensie](../extensions/hpccompute-gpu-windows.md) juiste NVIDIA CUDA- of GRID stuurprogramma's worden geïnstalleerd op een VM uit de N-serie. Installeren of beheren van de extensie met de Azure portal of hulpprogramma's, zoals Azure PowerShell of Azure Resource Manager-sjablonen. Zie de [NVIDIA GPU-stuurprogramma extensie documentatie](../extensions/hpccompute-gpu-windows.md) voor ondersteunde besturingssystemen en implementatiestappen.
 
-Zie voor basic specificaties, opslagcapaciteit en details van de schijf, [GPU Windows VM-grootten](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Als u ervoor kiest GPU-stuurprogramma's handmatig te installeren, wordt dit artikel bevat ondersteunde besturingssystemen, stuurprogramma's en installatie-en verificatiestappen. Stuurprogramma voor handmatige installatie-informatie is ook beschikbaar voor [virtuele Linux-machines](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Zie voor basic-specificaties, opslagcapaciteit en details van doelschijf [GPU Windows VM-grootten](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 [!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
 ## <a name="driver-installation"></a>De installatie van stuurprogramma
 
-1. Verbinding maken met extern bureaublad voor elke VM N-serie.
+1. Maak verbinding met extern bureaublad voor elke VM uit de N-serie.
 
-2. Downloaden, ophalen en installeer het ondersteunde stuurprogramma voor uw Windows-besturingssysteem.
+2. Downloaden, uitpakken en installeer het ondersteunde stuurprogramma voor uw Windows-besturingssysteem.
 
-Op Azure NV virtuele machines, moet worden opgestart na de installatie van het stuurprogramma. Op virtuele machines NC is niet opnieuw opstarten vereist.
+NV virtuele Azure-machines is opnieuw opstarten vereist na het installeren van stuurprogramma's. Op de Netwerkcontroller-VM's is niet opnieuw opstarten vereist.
 
 ## <a name="verify-driver-installation"></a>Controleer of de installatie van stuurprogramma
 
-U kunt controleren of stuurprogramma-installatiebestand in Apparaatbeheer. Het volgende voorbeeld ziet geslaagde configuratie van de kaart Tesla R80 op een NC Azure VM.
+U kunt controleren of installeren van stuurprogramma's in Apparaatbeheer. Het volgende voorbeeld ziet de juiste configuratie van de Tesla R80-kaart op een Azure-NC-VM.
 
 ![Eigenschappen van de GPU-stuurprogramma](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-Om te vragen van de apparaatstatus GPU, voer de [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) opdrachtregelprogramma met het stuurprogramma geïnstalleerd.
+Uitvoeren om te vragen de GPU-Apparaatstatus, de [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) opdrachtregelprogramma moet zijn geïnstalleerd met het stuurprogramma.
 
-1. Open een opdrachtprompt en Ga naar de **C:\Program Files\NVIDIA Corporation\NVSMI** directory.
+1. Open een opdrachtprompt en wijzig in het **C:\Program Files\NVIDIA Corporation\NVSMI** directory.
 
-2. Voer `nvidia-smi` uit. Als het stuurprogramma is geïnstalleerd ziet u uitvoer die vergelijkbaar zijn met de volgende. Houd er rekening mee dat **GPU-Util** toont **0%** tenzij u de werkbelasting van een GPU die momenteel worden uitgevoerd op de virtuele machine. Het is mogelijk dat uw versie van stuurprogramma en GPU details afwijken van de namen weergegeven.
+2. Voer `nvidia-smi` uit. Als het stuurprogramma is geïnstalleerd ziet u uitvoer die vergelijkbaar is met het volgende. Houd er rekening mee dat **GPU-Util** bevat **0%** , tenzij u een werkbelasting GPU momenteel worden uitgevoerd op de virtuele machine. Het is mogelijk dat de stuurprogrammaversie en -details van GPU afwijken van de namen weergegeven.
 
-![De apparaatstatus NVIDIA](./media/n-series-driver-setup/smi.png)  
+![NVIDIA-Apparaatstatus](./media/n-series-driver-setup/smi.png)  
 
 ## <a name="rdma-network-connectivity"></a>RDMA-netwerkverbinding
 
-RDMA-netwerkverbinding kan worden ingeschakeld op virtuele machines van RDMA-compatibele N-serie, zoals NC24r geïmplementeerd in dezelfde beschikbaarheidsset of in een groep één positie in een VM-schaalset. De extensie HpcVmDrivers moet worden toegevoegd voor het installeren van Windows network apparaatstuurprogramma's die RDMA-verbindingen. U kunt de VM-extensie toevoegen naar een virtuele machine van RDMA-functionaliteit N-reeks met [Azure PowerShell](/powershell/azure/overview) cmdlets voor Azure Resource Manager.
+RDMA-netwerkverbinding kan worden ingeschakeld op RDMA-compatibele virtuele machines voor N-serie, zoals NC24r geïmplementeerd in dezelfde beschikbaarheidsset bevinden of in één plaatsingsgroep in een VM-schaalset. De extensie HpcVmDrivers moet worden toegevoegd aan Windows network apparaatstuurprogramma's die mogelijk van RDMA verbinding installeren. Gebruik van de VM-extensie toevoegen aan een virtuele machine van RDMA-functionaliteit uit de N-serie, [Azure PowerShell](/powershell/azure/overview) -cmdlets voor Azure Resource Manager.
 
-Voor het installeren van de meest recente versie 1.1 HpcVMDrivers-extensie op een bestaande virtuele machine van RDMA-compatibel is met de naam myVM in de regio VS-West:
+Voor het installeren van de meest recente versie 1.1 HpcVMDrivers-extensie op een bestaande RDMA-compatibele virtuele machine met de naam myVM in de regio VS-West:
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Zie voor meer informatie [uitbreidingen van de virtuele machine en functies voor Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  Zie voor meer informatie, [extensies voor virtuele machines en functies voor Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Het netwerk RDMA ondersteunt Message Passing Interface (MPI)-verkeer voor toepassingen die worden uitgevoerd met [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) of Intel MPI 5.x. 
+De RDMA-netwerk ondersteunt Message Passing Interface (MPI)-verkeer voor toepassingen die worden uitgevoerd met [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) of Intel MPI 5.x. 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Ontwikkelaars die toepassingen voor de NVIDIA Tesla GPU's GPU-versnelde maken ook kunnen downloaden en installeer de meest recente [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). Zie voor meer informatie de [CUDA installatiehandleiding](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Ontwikkelaars die het bouwen van toepassingen voor de Tesla GPU's van NVIDIA GPU-versnelde ook downloaden en installeer de meest recente [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). Zie voor meer informatie de [CUDA-installatiehandleiding](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

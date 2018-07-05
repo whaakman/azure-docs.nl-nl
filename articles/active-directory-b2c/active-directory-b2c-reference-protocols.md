@@ -1,26 +1,26 @@
 ---
-title: Verificatieprotocollen in Azure Active Directory B2C | Microsoft Docs
-description: Het bouwen van apps via de protocollen die worden ondersteund door Azure Active Directory B2C.
+title: Protocollen voor verificatie in Azure Active Directory B2C | Microsoft Docs
+description: Over het bouwen van apps direct met behulp van de protocollen die worden ondersteund door Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 09b76cd2235663d76b9973ff722ec6a515c30285
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e6f722afead39c8a0ba940d9e2cb54d1f197d143
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709679"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442277"
 ---
-# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Verificatieprotocollen
-Azure Active Directory B2C (Azure AD B2C) biedt identiteit als een service voor uw apps door de ondersteuning van twee standaardprotocollen: OpenID Connect en OAuth 2.0. De service is compatibel met standaarden, maar de twee implementaties van deze protocollen subtiele verschillen kunnen hebben. 
+# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C:-Verificatieprotocollen
+Azure Active Directory B2C (Azure AD B2C) biedt identiteit als een service voor uw apps door de ondersteuning van twee protocollen volgens de industrienorm: OpenID Connect en OAuth 2.0. De service is compatibel met de standaarden, maar de twee implementaties van deze protocollen subtiele verschillen kunnen hebben. 
 
-De informatie in deze handleiding is handig als u uw code schrijven door rechtstreeks verzenden en HTTP-aanvragen voor de verwerking, in plaats van via een open-source-bibliotheek. Het is raadzaam dat u deze pagina te lezen voordat u Duik in de details van elk protocol dat specifieke. Maar als u al bekend met Azure AD B2C bent, gaat u meteen naar [de verwijzing naar protocol handleidingen](#protocols).
+De informatie in deze handleiding is handig als u uw code schrijven door rechtstreeks verzenden en verwerken van HTTP-aanvragen, in plaats van met behulp van een open source-bibliotheek. Het is raadzaam dat u deze pagina hebt gelezen voordat u de details van elk protocol dat door specifieke duiken. Maar als u al bekend met Azure AD B2C bent, gaat u rechtstreeks naar [de naslaghandleidingen protocol](#protocols).
 
 <!-- TODO: Need link to libraries above -->
 
@@ -28,52 +28,52 @@ De informatie in deze handleiding is handig als u uw code schrijven door rechtst
 Elke app die gebruikmaakt van Azure AD B2C moet worden geregistreerd in uw B2C-directory in de [Azure-portal](https://portal.azure.com). Tijdens het registratieproces van de app worden enkele waarden verzameld en toegewezen aan uw app:
 
 * Een **toepassings-id** die de app op unieke wijze identificeert.
-* Een **omleidings-URI** of **pakket-id** die kunnen worden gebruikt om een directe antwoorden terug naar uw app.
-* Enkele andere scenariospecifieke waarden. Informatie voor meer informatie over [voor de registratie van uw toepassing](active-directory-b2c-app-registration.md).
+* Een **omleidings-URI** of **pakket-id** die kunnen worden gebruikt om antwoorden naar uw app terug te regelen.
+* Enkele andere scenariospecifieke waarden. Informatie voor meer informatie over [informatie over het registreren van uw toepassing](active-directory-b2c-app-registration.md).
 
-Nadat u uw app registreert, wordt deze door verzoeken te sturen naar het eindpunt communiceert met Azure Active Directory (Azure AD):
+Nadat u uw app hebt geregistreerd, wordt deze door het verzenden van aanvragen naar het eindpunt communiceert met Azure Active Directory (Azure AD):
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
-Bijna alle OAuth en OpenID Connect stromen zijn vier partijen betrokken in de exchange:
+In bijna alle OAuth en OpenID Connect-stromen zijn de vier partijen die betrokken zijn bij de exchange:
 
-![OAuth 2.0-functies](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
+![OAuth 2.0-rollen](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
-* De **autorisatie server** is het Azure AD-eindpunt. Veilig verwerkt iets betrekking hebben op gebruikersgegevens en -toegang. Ook verwerkt de vertrouwensrelaties tussen de partijen in een stroom. Het is verantwoordelijk voor het controleren van de identiteit van de gebruiker, verlenen en intrekken van toegang tot bronnen en uitgeven van tokens. Het is ook bekend als de id-provider.
+* De **autorisatieserver** is het Azure AD-eindpunt. Veilig verwerkt alles met betrekking tot gebruikersinformatie en -toegang. Ook verwerkt deze de vertrouwensrelaties tussen de partijen in een stroom. Het is verantwoordelijk voor het controleren van de identiteit van de gebruiker, verlenen en intrekken van toegang tot bronnen en uitgeven van tokens. Het is ook wel bekend als de id-provider.
 
-* De **resource-eigenaar** is meestal de eindgebruiker. Is de partij die eigenaar is van de gegevens en hieraan het vermogen om toe te staan van derden voor toegang tot die gegevens of de resource.
+* De **resource-eigenaar** is doorgaans de eindgebruiker. Is de partij die eigenaar is van de gegevens en het vermogen om toe te staan van derden voor toegang tot die gegevens of bron heeft.
 
-* De **OAuth client** wordt uw app. Die wordt geïdentificeerd door de toepassing-ID. Dit is meestal de partij die eindgebruikers interactie met hebben. Deze tokens ook-aanvragen van de autorisatie-server. De resource-eigenaar moet de machtiging client toegang tot de bron.
+* De **OAuth-client** is uw app. Die wordt geïdentificeerd door de toepassings-ID. Dit is meestal de partij die eindgebruikers interactie met hebben. Ook vraagt deze tokens uit de autorisatie-server. De resource-eigenaar moet de client-machtiging voor toegang tot de resource te verlenen.
 
-* De **bronserver** is waar de resource of de gegevens zich bevindt. Deze vertrouwt de autorisatie-server veilig verifiëren en autoriseren van de OAuth-client. Access-bearer-tokens worden ook gebruikt om ervoor te zorgen dat toegang tot een bron kan worden toegekend.
+* De **bronserver** is waarin de resource of de gegevens zich bevindt. Deze vertrouwt de autorisatieserver veilig verifiëren en autoriseren van de OAuth-client. Access-bearer-tokens worden ook gebruikt om ervoor te zorgen dat toegang tot een resource kan worden verleend.
 
 ## <a name="policies"></a>Beleidsregels
-Azure AD B2C-beleidsregels zijn weliswaar, de belangrijkste functies van de service. Azure AD B2C breidt de standaard OAuth 2.0 en OpenID Connect-protocollen door de introductie van beleid. Hiermee kunnen Azure AD B2C om uit te voeren veel meer dan een eenvoudige verificatie en autorisatie. 
+Azure AD B2C-beleid zijn weliswaar, de belangrijkste functies van de service. Azure AD B2C breidt de standaardprotocollen OAuth 2.0 en OpenID Connect door de introductie van beleid. Azure AD B2C om uit te voeren veel meer dan een eenvoudige verificatie en autorisatie kunt. 
 
-Beleid beschrijven consumer identiteitservaringen, met inbegrip van registreren, aanmelden, volledig en profiel bewerken. Beleidsregels kunnen worden gedefinieerd in een administratieve gebruikersinterface. Ze kunnen worden uitgevoerd met behulp van een speciale queryparameter in HTTP-aanvragen voor verificatie. 
+Beleid volledig consumentervaringen van identiteit, met inbegrip van gebruikersregistratie, aanmelding, beschrijven en profiel bewerken. Beleidsregels kunnen worden gedefinieerd in een gebruikersinterface met beheerdersrechten. Ze kunnen worden uitgevoerd met behulp van een speciale queryparameter in HTTP-aanvragen voor verificatie. 
 
-Beleidsregels zijn niet standaard functies van OAuth 2.0 en OpenID Connect, dus u moet de tijd om te begrijpen. Zie voor meer informatie de [Naslaggids voor Azure AD B2C beleid](active-directory-b2c-reference-policies.md).
+Beleidsregels kunnen niet standard-functies van OAuth 2.0 en OpenID Connect, dus moet u rekening houden met de tijd om te begrijpen. Zie voor meer informatie de [Naslaggids voor Azure AD B2C-beleid](active-directory-b2c-reference-policies.md).
 
 ## <a name="tokens"></a>Tokens
-De Azure AD B2C-implementatie van OAuth 2.0 en OpenID Connect wordt uitgebreid gebruikgemaakt van bearer-tokens, bearer-tokens die worden weergegeven als JSON webtokens (JWTs). Een bearer-token is een lichtgewicht beveiligingstoken die de 'bearer' toegang tot een beveiligde bron verleent.
+De Azure AD B2C-implementatie van OAuth 2.0 en OpenID Connect maakt uitgebreid gebruik van bearer-tokens, met inbegrip van bearer-tokens die worden weergegeven als JSON-webtokens (JWTs). Een bearer-token is een lichtgewicht beveiligingstoken die de "bearer" toegang tot een beveiligde bron verleent.
 
-De houder is een partij die het token kan opleveren. Azure AD een partij moet eerst worden geverifieerd voordat er een bearer-token kan ontvangen. Maar als de vereiste stappen niet genomen worden voor het beveiligen van het token in overdracht en opslag, kan deze kan worden onderschept en gebruikt door een onbedoelde partij.
+De houder is een partij die het token kan opleveren. Azure AD een partij moet eerst worden geverifieerd voordat het bearer-token kan ontvangen. Maar als de vereiste stappen zijn niet in gebruik voor het beveiligen van de token in overdracht en opslag, kan worden onderschept en die worden gebruikt door een onbedoelde partij.
 
-Sommige beveiligingstokens ingebouwde mechanismen die voorkomen dat onbevoegden gebruiken ze hebben, maar bearer-tokens hebben geen dit mechanisme. Zij moeten worden overgebracht in een beveiligd kanaal, zoals een transport layer security (HTTPS). 
+Sommige beveiligingstokens ingebouwde mechanismen die voorkomen dat onbevoegden gebruiken ze hebben, maar bearer-tokens geen dit mechanisme. Zij moeten worden overgebracht in een beveiligd kanaal, zoals een transport layer security (HTTPS). 
 
-Als een bearer-token buiten een beveiligd kanaal wordt verzonden, kunnen een kwaadwillende party een man-in-the-middle-aanval kunt gebruiken om het token verkrijgen en gebruiken om onbevoegde toegang te krijgen tot een beveiligde bron. De dezelfde beveiligings-principals van toepassing wanneer bearer-tokens worden opgeslagen of voor later gebruik opgeslagen. Altijd voor zorgen dat uw app verzendt en bearer-tokens worden opgeslagen op een veilige manier.
+Als een bearer-token buiten een beveiligd kanaal wordt verzonden, kunnen een schadelijke partij een man-in-the-middle-aanval kunt gebruiken om de token verkrijgen en gebruiken om ongeoorloofde toegang verlenen tot een beveiligde bron. Dezelfde beveiligingsprincipes van toepassing wanneer bearer-tokens worden opgeslagen of in de cache voor later gebruik opgeslagen. Altijd voor zorgen dat uw app worden verzonden en bearer-tokens worden opgeslagen op een veilige manier.
 
-Zie voor aanvullende bearer-token beveiligingsoverwegingen [RFC 6750 sectie 5](http://tools.ietf.org/html/rfc6750).
+Zie voor aanvullende bearer token beveiligingsoverwegingen [RFC 6750 sectie 5](http://tools.ietf.org/html/rfc6750).
 
-Meer informatie over de verschillende typen tokens die worden gebruikt in Azure AD B2C zijn beschikbaar in [de Azure AD-tokenverwijzing](active-directory-b2c-reference-tokens.md).
+Meer informatie over de verschillende typen tokens die worden gebruikt in Azure AD B2C zijn beschikbaar in [de naslaginformatie over voor Azure AD-tokens](active-directory-b2c-reference-tokens.md).
 
 ## <a name="protocols"></a>Protocollen
-Wanneer u klaar bent om te controleren van bepaalde aanvragen voorbeeld, kunt u beginnen met een van de volgende zelfstudies. Elke komt overeen met een bepaalde verificatiescenario. Als u hulp bij het bepalen welke stroom geschikt is voor u nodig hebt, kijk dan eens [de typen apps die u maken kunt met behulp van Azure AD B2C](active-directory-b2c-apps.md).
+Wanneer u klaar bent om de aanvragen van een voorbeeld bekijken, kunt u beginnen met een van de volgende zelfstudies. Elke komt overeen met een bepaalde verificatiescenario. Als u hulp te bepalen welke stroom is geschikt voor u nodig hebt, Bekijk [de typen apps die u bouwen kunt met behulp van Azure AD B2C](active-directory-b2c-apps.md).
 
-* [Mobiele en systeemeigen toepassingen bouwen met behulp van OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
+* [Mobiele en systeemeigen toepassingen kunt maken met behulp van OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 * [Web-apps bouwen met behulp van OpenID Connect](active-directory-b2c-reference-oidc.md)
-* [Apps van één pagina met behulp van de impliciete OAuth 2.0-stroom maken](active-directory-b2c-reference-spa.md)
+* [Bouw apps van één pagina met behulp van de impliciete flow OAuth 2.0](active-directory-b2c-reference-spa.md)
 

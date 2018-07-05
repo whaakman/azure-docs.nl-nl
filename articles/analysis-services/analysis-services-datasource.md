@@ -1,23 +1,23 @@
 ---
-title: Gegevensbronnen die worden ondersteund in Azure Analysis Services | Microsoft Docs
-description: Beschrijft de gegevensbronnen die worden ondersteund voor gegevensmodellen in Azure Analysis Services.
+title: Ondersteunde gegevensbronnen in Azure Analysis Services | Microsoft Docs
+description: Beschrijving van gegevensbronnen die worden ondersteund voor gegevensmodellen in Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 06/21/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 60b6769dd3c15bbe628f60318cc08fcac78357ea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: f6ad95eb45cc208fe2289cb2095214f98a0b250b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307956"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442386"
 ---
-# <a name="data-sources-supported-in-azure-analysis-services"></a>Gegevensbronnen die worden ondersteund in Azure Analysis Services
+# <a name="data-sources-supported-in-azure-analysis-services"></a>Ondersteunde gegevensbronnen in Azure Analysis Services
 
-Gegevensbronnen en weergegeven in de gegevens opvragen of de Wizard importeren in Visual Studio-connectors worden weergegeven voor zowel Azure Analysis Services en SQL Server Analysis Services. Echter niet alle gegevensbronnen en weergegeven connectors worden ondersteund in Azure Analysis Services. De soorten gegevensbronnen die kunt u afhankelijk van veel factoren, zoals het model compatibiliteitsniveau, beschikbare gegevens connectors verificatietype, providers en On-premises gateway gegevensondersteuning. 
+Gegevensbronnen en connectors die wordt weergegeven in gegevens ophalen of in de Wizard importeren in Visual Studio worden weergegeven voor zowel Azure Analysis Services en SQL Server Analysis Services. Echter niet alle gegevensbronnen en connectors die worden weergegeven in Azure Analysis Services worden ondersteund. De soorten gegevensbronnen die u kunt verbinding maken met zijn afhankelijk van veel factoren af zoals model compatibiliteitsniveau, beschikbare gegevensconnectors verificatietype, providers en ondersteuning voor On-premises data gateway. 
 
 ## <a name="azure-data-sources"></a>Azure-gegevensbronnen
 
@@ -33,21 +33,21 @@ Gegevensbronnen en weergegeven in de gegevens opvragen of de Wizard importeren i
 |Azure HDInsight Spark *     |   Ja       |   Nee       |
 ||||
 
-\* 1400-modellen in tabelvorm alleen.
+\* Tabellaire modellen met compatibiliteitsniveau 1400 alleen.
 
 **Provider**   
-In het geheugen en DirectQuery-modellen die verbinding maken met Azure-gegevensbronnen gebruiken .NET Framework Data Provider voor SQL Server.
+In-memory en DirectQuery-modellen verbinding te maken met Azure-gegevensbronnen gebruikt .NET Framework Data Provider voor SQL Server.
 
 ## <a name="on-premises-data-sources"></a>On-premises gegevensbronnen
 
-Verbinding maken met lokale gegevensbronnen uit en AS Azure-server moet een On-premises gateway. Wanneer u een gateway, zijn 64-bits providers vereist.
+Verbinding maken met on-premises gegevensbronnen van en Azure-AS-server moet een On-premises gateway. Bij het gebruik van een gateway is 64-bits-providers zijn vereist.
 
-### <a name="in-memory-and-directquery"></a>In het geheugen- en DirectQuery
+### <a name="in-memory-and-directquery"></a>In-memory en DirectQuery
 
-|Gegevensbron | In het geheugen-provider | DirectQuery-provider |
+|Gegevensbron | In-memory-provider | DirectQuery-provider |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB-Provider voor SQL Server, .NET Framework Data Provider voor SQL Server | .NET framework Data Provider voor SQL Server |
-| SQL Server-datawarehouse |SQL Server Native Client 11.0, Microsoft OLE DB-Provider voor SQL Server, .NET Framework Data Provider voor SQL Server | .NET framework Data Provider voor SQL Server |
+| SQL Server datawarehouse |SQL Server Native Client 11.0, Microsoft OLE DB-Provider voor SQL Server, .NET Framework Data Provider voor SQL Server | .NET framework Data Provider voor SQL Server |
 | Oracle |Microsoft OLE DB-Provider voor Oracle, Oracle-gegevensprovider voor .NET |Oracle-gegevensprovider voor .NET | |
 | Teradata |OLE DB-Provider voor Teradata, Teradata-gegevensprovider voor .NET |Teradata-gegevensprovider voor .NET | |
 | | | |
@@ -66,13 +66,13 @@ Verbinding maken met lokale gegevensbronnen uit en AS Azure-server moet een On-p
 |Map *     |
 |IBM Informix * (bèta) |
 |JSON-document *     |  
-|Regels uit binair *     | 
+|Regels van binaire *     | 
 |MySQL-database     | 
 |OData-Feed *     |  
 |ODBC-query     | 
 |OLE DB     |   
-|Postgre SQL Database *    | 
-|SalesForce objecten * |  
+|Postgre SQL-Database *    | 
+|SalesForce-objecten * |  
 |SalesForce-rapporten * |
 |SAP HANA *    |  
 |SAP Business Warehouse *    |  
@@ -81,33 +81,33 @@ Verbinding maken met lokale gegevensbronnen uit en AS Azure-server moet een On-p
 |XML-tabel *    |  
 |||
  
-\* 1400-modellen in tabelvorm alleen.
+\* Tabellaire modellen met compatibiliteitsniveau 1400 alleen.
 
-## <a name="specifying-a-different-provider"></a>Geef een andere provider
+## <a name="specifying-a-different-provider"></a>Een andere provider op te geven
 
-Gegevensmodellen in Azure Analysis Services moet mogelijk verschillende gegevensproviders bij het verbinden met bepaalde gegevensbronnen. In sommige gevallen kunnen verbinding maken met gegevensbronnen met behulp van systeemeigen providers zoals SQL Server Native Client (SQLNCLI11) modellen in tabelvorm een fout geretourneerd. Als u native providers dan SQLOLEDB, ziet u mogelijk foutbericht: **de provider 'SQLNCLI11.1' is niet geregistreerd**. Of, als u een verbinding te maken met on-premises gegevensbronnen DirectQuery-model hebt en u systeemeigen providers gebruiken, ziet u mogelijk foutbericht: **fout bij het maken van de OLE DB-rijenset. Onjuiste syntaxis bij 'LIMIET'**.
+Gegevensmodellen in Azure Analysis Services mogelijk verschillende gegevensproviders bij het verbinden met bepaalde gegevensbronnen. In sommige gevallen mogelijk modellen in tabelvorm verbinding maken met gegevensbronnen met behulp van systeemeigen providers, zoals SQL Server Native Client (SQLNCLI11) een fout geretourneerd. Als u systeemeigen providers dan SQLOLEDB, ziet u mogelijk het foutbericht: **de provider 'SQLNCLI11.1' is niet geregistreerd**. Of, als u een DirectQuery-model verbinding te maken met on-premises gegevensbronnen hebt en u systeemeigen providers gebruikt, ziet u mogelijk het foutbericht: **fout bij het maken van OLE DB-rijenset. Onjuiste syntaxis bij 'LIMIET'**.
 
-Wanneer een lokale SQL Server Analysis Services model in tabelvorm migreert naar Azure Analysis Services, is het mogelijk nodig om te wijzigen van de provider.
+Bij het migreren van een on-premises SQL Server Analysis Services tabellair model naar Azure Analysis Services, is het mogelijk nodig is om te wijzigen van de provider.
 
 **Om op te geven van een provider**
 
-1. In SSDT > **Tabellaire Model Explorer** > **gegevensbronnen**, met de rechtermuisknop op een gegevensbronverbinding en klik vervolgens op **gegevensbron bewerken**.
+1. In SSDT > **Tabular Model Explorer** > **gegevensbronnen**, met de rechtermuisknop op een verbinding met de gegevensbron en klik vervolgens op **gegevensbron bewerken**.
 2. In **verbinding bewerken**, klikt u op **Geavanceerd** om de geavanceerde eigenschappen-venster te openen.
 3. In **geavanceerde eigenschappen instellen** > **Providers**, selecteer vervolgens de juiste provider.
 
 ## <a name="impersonation"></a>Imitatie
-In sommige gevallen is het mogelijk nodig om op te geven van een andere imitatieaccount. Imitatieaccount kan worden opgegeven in Visual Studio (SSDT) of SSMS.
+In sommige gevallen is het mogelijk dat het nodig om op te geven van een verschillende imitatieaccount. Imitatieaccount kan worden opgegeven in Visual Studio (SSDT) of in SSMS.
 
 Voor on-premises gegevensbronnen:
 
-* Als SQL-verificatie wordt gebruikt, moet de imitatie-serviceaccount.
-* Als Windows-verificatie wordt gebruikt, moet u Windows-gebruiker/wachtwoord instellen. Voor SQL Server, wordt Windows-verificatie met een specifieke imitatie-account alleen ondersteund voor modellen van gegevens in het geheugen.
+* Als u SQL-verificatie gebruikt, moet de imitatie-serviceaccount.
+* Als Windows-verificatie, stelt u de Windows-gebruiker en wachtwoord. Voor SQL Server, wordt Windows-verificatie met een specifieke imitatieaccount alleen ondersteund voor modellen in-memory-gegevens.
 
 Voor cloud-gegevensbronnen:
 
-* Als SQL-verificatie wordt gebruikt, moet de imitatie-serviceaccount.
+* Als u SQL-verificatie gebruikt, moet de imitatie-serviceaccount.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Lokale gateway](analysis-services-gateway.md)   
-[Beheren van uw server](analysis-services-manage.md)   
+[On-premises gateway](analysis-services-gateway.md)   
+[Uw server beheren](analysis-services-manage.md)   
 

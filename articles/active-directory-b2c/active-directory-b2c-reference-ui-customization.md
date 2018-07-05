@@ -1,53 +1,53 @@
 ---
 title: Aanpassingen van de gebruikersinterface (UI) in Azure Active Directory B2C | Microsoft Docs
-description: Een onderwerp op functies voor aanpassing van de gebruikersinterface (UI) in Azure Active Directory B2C.
+description: Een onderwerp op functies voor aanpassing van gebruikersinterface (UI) in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00f1dc8c9cffbff240f96fed3d2f09888c041301
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 385c13194063761d6449fafa49714d8627f6c6fc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754481"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447050"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: De Azure AD B2C-gebruikersinterface (UI) aanpassen
 
-Gebruikerservaring is uitermate belangrijk in een klantgerichte toepassing.  Uw klant base vergroten door gebruikerservaringen met het uiterlijk van uw merk. Azure Active Directory B2C (Azure AD B2C) kunt u aanpassen registreren, aanmelden, profiel bewerken en wachtwoord opnieuw instellen van pagina's met pixel perfect besturingselement.
+Gebruikerservaring is uitermate belangrijk in een klantgerichte toepassingen.  Breid uw klant basis door gebruikerservaringen met het uiterlijk van uw merk. Azure Active Directory B2C (Azure AD B2C) kunt u aanpassen met het bewerken van profielen voor gebruikersregistratie, aanmelding, en het wachtwoord opnieuw instellen van pagina's met perfecte controle.
 
 > [!NOTE]
-> De pagina UI aanpassing-functie beschreven in dit artikel geldt niet voor het enige beleid aanmelden, het bijbehorende wachtwoord opnieuw instellen van pagina- en verificatiestappen e-mailberichten.  Deze functies gebruiken de [functie huisstijl](../active-directory/fundamentals/customize-branding.md) in plaats daarvan.
+> De functie pagina gebruikersinterface aanpassen die worden beschreven in dit artikel is niet van toepassing op de aanmelding alleen beleid, de bijbehorende pagina voor het opnieuw instellen van wachtwoorden en verificatie e-mailberichten.  Deze functies gebruiken de [functie huisstijl van bedrijf](../active-directory/fundamentals/customize-branding.md) in plaats daarvan.
 >
-> Op dezelfde manier als een gebruiker intiates een beleid van het profiel bewerken *voordat* aangemeld, de gebruiker wordt omgeleid naar een pagina die kan worden aangepast met behulp van de [functie huisstijl](../active-directory/fundamentals/customize-branding.md).
+> Op dezelfde manier als een gebruiker intiates een bewerkingsprofielbeleid *voordat* aanmeldt, wordt de gebruiker worden omgeleid naar een pagina die kan worden aangepast met behulp van de [functie huisstijl van bedrijf](../active-directory/fundamentals/customize-branding.md).
 
 In dit artikel bevat informatie over de volgende onderwerpen:
 
 * De pagina UI aanpassing-functie.
-* Een hulpprogramma voor het HTML-inhoud uploaden naar Azure Blob-opslag voor gebruik met de functie UI aanpassing.
-* De UI-elementen die worden gebruikt door Azure AD B2C die u kunt aanpassen met behulp van Cascading stylesheets (CSS).
-* Aanbevolen procedures bij het uitoefenen van deze functie.
+* Een hulpprogramma voor het HTML-inhoud uploaden naar Azure Blob-opslag voor gebruik met de pagina-functie voor het aanpassen van de gebruikersinterface.
+* De UI-elementen die worden gebruikt door Azure AD B2C die u kunt aanpassen met behulp van Cascading Style Sheets (CSS).
+* Aanbevolen procedures bij het nakomen van deze functie.
 
-## <a name="the-page-ui-customization-feature"></a>De pagina UI-functie aanpassing
+## <a name="the-page-ui-customization-feature"></a>De functie pagina gebruikersinterface aanpassen
 
-U kunt het uiterlijk van de klant registreren, aanmelden (Zie hierboven Opmerking voor uitzonderingen die zijn gerelateerd aan de huisstijl), wachtwoord opnieuw instellen en bewerken van profiel pagina's (door het configureren van [beleid](active-directory-b2c-reference-policies.md)). Uw klanten krijgen een naadloze ervaring bij het navigeren tussen de toepassing en pagina's die worden bediend door Azure AD B2C.
+U kunt het uiterlijk van de klant gebruikersregistratie, aanmelding bij (Zie de bovenstaande opmerking voor uitzonderingen met betrekking tot huisstijl), wachtwoord opnieuw instellen en bewerken van profielen pagina's (door het configureren van [beleid](active-directory-b2c-reference-policies.md)). Uw klanten genieten van een naadloze ervaring bij het navigeren tussen uw toepassing en pagina's die worden geleverd door Azure AD B2C.
 
-In tegenstelling tot andere services waarbij de opties van de gebruikersinterface, Azure AD B2C gebruikmaakt van een eenvoudige en moderne benadering van UI-aanpassing.
+In tegenstelling tot andere services waar opties van de gebruikersinterface, Azure AD B2C maakt gebruik van een eenvoudige en moderne aanpak voor UI-aanpassing.
 
-Dit is hoe het werkt: Azure AD B2C wordt code wordt uitgevoerd in de browser van uw klant en maakt gebruik van een benadering van moderne aangeroepen [Cross-Origin-Resource delen (CORS)](http://www.w3.org/TR/cors/).  Inhoud wordt geladen tijdens runtime, via een URL die u in een beleid opgeeft. U kunt verschillende URL's voor verschillende pagina's opgeven. Nadat geladen vanuit de URL van uw inhoud wordt samengevoegd met een HTML-fragment ingevoegd vanuit Azure AD B2C, wordt de pagina naar de klant weergegeven. U hoeft te doen is:
+Hoe het werkt als volgt: Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  Inhoud is geladen op het moment van uitvoering, vanuit een URL die u in een beleid opgeeft. U kunt verschillende URL's voor verschillende pagina's opgeven. Nadat de geladen uit de URL van uw inhoud met een HTML-fragment ingevoegd vanuit Azure AD B2C wordt samengevoegd, wordt de pagina wordt weergegeven aan de klant. U hoeft alleen is:
 
-1. HTML5 juist opgemaakte inhoud met een lege maken `<div id="api"></div>` element zich ergens in de `<body>`. Dit element aanhalingstekens waar de inhoud van de Azure AD B2C wordt ingevoegd.
-1. Host uw inhoud op een HTTPS-eindpunt (met CORS toegestaan). Houd er rekening mee beide ophalen en opties aanvraagmethoden moeten zijn ingeschakeld wanneer u CORS configureert.
-1. CSS gebruiken voor de stijl van de UI-elementen die worden ingevoegd door Azure AD B2C.
+1. HTML5 opgemaakte inhoud met een lege maken `<div id="api"></div>` element zich ergens in de `<body>`. Dit element merken waar de inhoud van de Azure AD B2C wordt ingevoegd.
+1. Host uw inhoud op een HTTPS-eindpunt (met CORS toegestaan). Houd er rekening mee beide ophalen en opties aanvraagmethoden moeten zijn ingeschakeld bij het configureren van CORS.
+1. CSS gebruiken voor de stijl van de UI-elementen die Azure AD B2C wordt ingevoegd.
 
 ### <a name="a-basic-example-of-customized-html"></a>Een eenvoudige voorbeeld van aangepaste HTML
 
-Het volgende voorbeeld is de meest eenvoudige HTML-inhoud die u gebruiken kunt voor het testen van deze mogelijkheid. Gebruik de [hulpprogramma helper](active-directory-b2c-reference-ui-customization-helper-tool.md) uploaden en configureren van deze inhoud op uw Azure-blobopslag. Vervolgens kunt u controleren of de knoppen van eenvoudige, niet-vorm van een gestileerde & formuliervelden op elke pagina weergegeven en werken worden.
+Het volgende voorbeeld is de meest eenvoudige HTML-inhoud die u gebruiken kunt voor het testen van deze mogelijkheid. Gebruik de [hulpprogramma](active-directory-b2c-reference-ui-customization-helper-tool.md) uploaden en configureren van deze inhoud op uw Azure Blob-opslag. Vervolgens kunt u controleren dat de basis-, niet-vorm van een gestileerde knoppen & formuliervelden op elke pagina weergegeven en functioneert worden.
 
 ```HTML
 <!DOCTYPE html>
@@ -61,21 +61,21 @@ Het volgende voorbeeld is de meest eenvoudige HTML-inhoud die u gebruiken kunt v
 </html>
 ```
 
-## <a name="test-out-the-ui-customization-feature"></a>Testen van de UI-functie voor aanpassing
+## <a name="test-out-the-ui-customization-feature"></a>Testen van de functie van de gebruikersinterface aanpassen
 
-Wilt u de UI-functie voor aanpassing door het gebruik van onze voorbeeld HTML en CSS-inhoud uitproberen?  We bieden u [een helper-hulpprogramma](active-directory-b2c-reference-ui-customization-helper-tool.md) die uploadt en configureert u voorbeelden van uw Azure Blob-opslag.
+Wilt u voor het uitproberen van de functie van de gebruikersinterface aanpassen met behulp van onze voorbeeld-HTML en CSS-inhoud?  We bieden u [een hulpprogramma](active-directory-b2c-reference-ui-customization-helper-tool.md) die wordt geüpload en voorbeelden voor inhoud op uw Azure Blob-opslag configureert.
 
 > [!NOTE]
-> U kunt de inhoud van uw gebruikersinterface overal hosten: op webservers CDN, AWS S3, delen bestandssystemen, enzovoort. Als de inhoud wordt gehost op een openbaar HTTPS-eindpunt met CORS ingeschakeld, bent u klaar om te beginnen. We ter illustratie alleen Azure Blob-opslag gebruiken.
+> U kunt de inhoud van uw gebruikersinterface overal hosten: op de webservers, CDN, AWS S3, delen bestandssystemen, enzovoort. Als de inhoud wordt gehost op een openbaar beschikbare HTTPS-eindpunt met CORS ingeschakeld, bent u aan de slag. Ter illustratie alleen gebruiken we Azure Blob-opslag.
 >
 
 ## <a name="the-ui-fragments-embedded-by-azure-ad-b2c"></a>De UI-fragmenten ingesloten door Azure AD B2C
 
-De volgende secties worden de HTML5-fragmenten die Azure AD B2C, worden in de `<div id="api"></div>` element zich in uw inhoud. **Voeg deze fragmenten geen uw HTML 5-inhoud.** De service Azure AD B2C ingevoegd in tijdens runtime. Deze fragmenten gebruiken als referentiemateriaal bij het ontwerpen van uw eigen Cascading stylesheets (CSS).
+De volgende secties worden de HTML5-fragmenten die Azure AD B2C worden samengevoegd in de `<div id="api"></div>` element zich in uw inhoud. **Voeg geen deze fragmenten in uw HTML-5-inhoud.** De Azure AD B2C-service voegt deze in op het moment van uitvoering. Gebruik deze fragmenten als referentie bij het ontwerpen van uw eigen Cascading Style Sheets (CSS).
 
-### <a name="fragment-inserted-into-the-identity-provider-selection-page"></a>Fragment ingevoegd in de 'provider selectiepagina'
+### <a name="fragment-inserted-into-the-identity-provider-selection-page"></a>Fragment ingevoegd in de "Identity provider selectie page"
 
-Deze pagina bevat een lijst met de id-providers die de gebruiker uit tijdens het registreren of aanmelden kiezen kan. Deze knoppen bevatten sociale id-providers zoals Facebook en Google + of lokale accounts (op basis van e-mailadres of de gebruiker naam).
+Deze pagina bevat een lijst met id-providers die de gebruiker uit tijdens het registreren of aanmelden kiezen kan. Deze knoppen bevatten sociale id-providers, zoals Facebook en Google + of lokale accounts (op basis van e-mailadres of gebruikersnaam naam).
 
 ```HTML
 <div id="api" data-name="IdpSelections">
@@ -99,9 +99,9 @@ Deze pagina bevat een lijst met de id-providers die de gebruiker uit tijdens het
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-local-account-sign-up-page"></a>Fragment ingevoegd in de 'lokale account aanmeldpagina'
+### <a name="fragment-inserted-into-the-local-account-sign-up-page"></a>Fragment ingevoegd in de 'lokale account registratiepagina"
 
-Deze pagina bevat een formulier voor het lokale account aanmelding op basis van een e-mailadres of een gebruikersnaam. Het formulier kan andere invoer besturingselementen zoals tekstinvoervak, vermelding wachtwoordvak keuzerondje, één vervolgkeuzelijsten en meervoudige selectie selectievakjes bevatten.
+Deze pagina bevat een formulier voor het lokale account Meld u aan op basis van een e-mailadres of de naam van een gebruiker. Het formulier kan verschillende besturingselementen voor tekstinvoer zoals tekstinvoervak, wachtwoordinvoervak, keuzerondje, enkelvoudige selectie vervolgkeuzelijsten en meervoudige selectie selectievakjes bevatten.
 
 ```HTML
 <div id="api" data-name="SelfAsserted">
@@ -214,13 +214,13 @@ Deze pagina bevat een formulier voor het lokale account aanmelding op basis van 
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragment ingevoegd in de 'sociale account aanmeldpagina'
+### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragment ingevoegd in de 'sociaal account registratiepagina"
 
-Deze pagina kan worden weergegeven wanneer u zich aanmeldt met een bestaand account van een identiteitsprovider van sociale zoals Facebook of Google +.  Wordt gebruikt wanneer u aanvullende informatie moet worden verzameld van de eindgebruiker via een aanmeldingsformulier hebt ingevuld. Deze pagina is vergelijkbaar met de lokale account aanmeldpagina (weergegeven in de vorige sectie) met uitzondering van de invoervelden wachtwoord.
+Deze pagina kan worden weergegeven bij het aanmelden met een bestaand account van een sociale id-provider zoals Facebook of Google +.  Deze wordt gebruikt wanneer aanvullende informatie moet worden verzameld van een eindgebruiker met behulp van een aanmeldingsformulier hebt ingevuld. Deze pagina is vergelijkbaar met het lokale accountpagina voor het registreren (weergegeven in de vorige sectie) met uitzondering van de velden van de vermelding wachtwoord.
 
-### <a name="fragment-inserted-into-the-unified-sign-up-or-sign-in-page"></a>Fragment ingevoegd in de "Unified registreren of aanmelden pagina'
+### <a name="fragment-inserted-into-the-unified-sign-up-or-sign-in-page"></a>Fragment ingevoegd in de "Unified registreren of aanmelden pagina"
 
-Deze pagina verwerkt zowel registreren en aanmelden aan klanten, die sociale id-providers zoals Facebook of Google + of lokale accounts kunnen gebruiken.
+Deze pagina verwerkt zowel registreren en aanmelden van klanten die op sociale id-providers zoals Facebook of Google + of lokale accounts kunnen gebruiken.
 
 ```HTML
 <div id="api" data-name="Unified">
@@ -273,7 +273,7 @@ Deze pagina verwerkt zowel registreren en aanmelden aan klanten, die sociale id-
 
 ### <a name="fragment-inserted-into-the-multi-factor-authentication-page"></a>Fragment ingevoegd op de pagina' multi-factor authentication'
 
-Gebruikers kunnen hun telefoonnummers (met behulp van de tekst of stem) verifiëren tijdens het registreren of aanmelden op deze pagina.
+Gebruikers kunnen hun telefoonnummers (via SMS of spraak) controleren tijdens het registreren of aanmelden op deze pagina.
 
 ```HTML
 <div id="api" data-name="Phonefactor">
@@ -315,7 +315,7 @@ Gebruikers kunnen hun telefoonnummers (met behulp van de tekst of stem) verifië
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-error-page"></a>Fragment ingevoegd op de pagina' fout'
+### <a name="fragment-inserted-into-the-error-page"></a>Fragment op de pagina' fout' ingevoegd
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">
@@ -332,27 +332,27 @@ Gebruikers kunnen hun telefoonnummers (met behulp van de tekst of stem) verifië
 
 ## <a name="localizing-your-html-content"></a>Lokalisatie van uw HTML-inhoud
 
-Er zijn twee manieren om te lokaliseren uw HTML-inhoud. Een manier is om in te schakelen [taal aanpassing](active-directory-b2c-reference-language-customization.md). Azure AD B2C voor het doorsturen van de parameter Open ID Connect inschakelen van deze functie kunt `ui-locales`, naar het eindpunt.  De inhoudsserver kunt u deze parameter gebruiken voor aangepaste HTML-pagina's die een specifieke taal zijn.
+Er zijn twee manieren om uw HTML-inhoud te lokaliseren. Één manier is om in te schakelen [aanpassing van taal](active-directory-b2c-reference-language-customization.md). Azure AD B2C voor het doorsturen van de parameter Open ID Connect inschakelen van deze functie kunt `ui-locales`, aan uw eindpunt.  Uw server voor webinhoud kunt u deze parameter gebruiken voor aangepaste HTML-pagina's die specifieke taal.
 
-U kunt ook inhoud ophalen vanaf verschillende locaties op basis van de landinstellingen die wordt gebruikt. U kunt een mapstructuur naar host-inhoud voor specifieke talen instellen in uw eindpunt CORS ingeschakeld. U moet de juiste is aanroepen als u het jokerteken `{Culture:RFC5646}`.  Stel bijvoorbeeld dat dit uw aangepaste URI-pagina is:
+U kunt ook inhoud ophaalt uit verschillende plaatsen op basis van de landinstelling die wordt gebruikt. U kunt een mapstructuur op de host-inhoud voor specifieke talen instellen in uw eindpunt CORS is ingeschakeld. U moet de juiste is aanroepen als u het jokerteken `{Culture:RFC5646}`.  Bijvoorbeeld, wordt ervan uitgegaan dat dit de URI voor uw aangepaste pagina is:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
 ```
-U kunt de pagina in laden `fr`. Wanneer de pagina HTML en CSS inhoud ophaalt, wordt het binnenhalen van:
+U kunt de pagina in laden `fr`. Wanneer de pagina HTML en CSS-inhoud haalt, wordt het binnenhalen van:
 ```
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="things-to-remember-when-building-your-own-content"></a>Om te onthouden tijdens het bouwen van uw eigen inhoud
+## <a name="things-to-remember-when-building-your-own-content"></a>Om te onthouden bij het bouwen van uw eigen inhoud
 
-Als u van plan bent om de pagina UI aanpassing functie te gebruiken, controleert u de volgende aanbevolen procedures:
+Als u van plan bent om de pagina gebruikersinterface aanpassing functie te gebruiken, raadpleegt u de volgende aanbevolen procedures:
 
-* Niet kopiëren van de Standaardinhoud van de Azure AD B2C en probeert te wijzigen. Het is raadzaam om uw HTML5-inhoud vanaf het begin samen te stellen en standaardinhoud gebruikt als referentie.
-* Uit veiligheidsoverwegingen kunt geen we u alle JavaScript opnemen in uw inhoud. Wat u moet de meeste zijn gebruiksklaar beschikbaar. Als dit niet het geval is, gebruik [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) om aan te vragen van de nieuwe functionaliteit.
+* Niet kopiëren van de Standaardinhoud van de Azure AD B2C en proberen om deze te wijzigen. Het is raadzaam om te maken van uw inhoud HTML5 helemaal en standaardinhoud gebruikt als referentie.
+* Uit veiligheidsoverwegingen kunt geen we u alle JavaScript opnemen in uw inhoud. De meeste van wat u nodig hebt, moet zijn gebruiksklaar beschikbaar. Als dit niet het geval is, gebruikt u [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) om aan te vragen van de nieuwe functionaliteit.
 * Ondersteunde browserversies:
-  * Internet Explorer 11, 10, rand
-  * Beperkte ondersteuning voor Internet Explorer 9 kunt 8
+  * Internet Explorer 11, 10, Edge
+  * Beperkte ondersteuning voor Internet Explorer 9, 8
   * Google Chrome 42.0 en hoger
   * Mozilla Firefox 38.0 en hoger
-* Zorg ervoor dat u geen opneemt `<form>` in uw HTML-tags zoals dit heeft invloed op de POST-bewerkingen die worden gegenereerd door de geïnjecteerde HTML-code van Azure AD B2C.
+* Zorg ervoor dat u geen opneemt `<form>` tags in uw HTML-code, zoals dit leiden tot met de POST-bewerkingen die worden gegenereerd door de geïnjecteerde HTML uit Azure AD B2C problemen zal.

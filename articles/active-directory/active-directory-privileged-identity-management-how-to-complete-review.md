@@ -1,56 +1,56 @@
 ---
-title: Het uitvoeren van een onderzoek toegang | Microsoft Docs
-description: Nadat u een revisie toegang in Azure AD Privileged Identity Management gestart, informatie over het voltooien en de resultaten bekijken
+title: Een toegangscontrole voltooien | Microsoft Docs
+description: Nadat u een toegangsbeoordeling in Azure AD Privileged Identity Management starten, informatie over het voltooien en de resultaten bekijken
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b026a1fce61cfbf6469c8ef8140813906beba5f7
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a3de94aa11b9326a9eadfb3385db83724f427ff2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234320"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447231"
 ---
-# <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Het uitvoeren van een revisie toegang in Azure AD Privileged Identity Management
-Bevoorrechte rol beheerders kunnen bekijken voor bevoorrechte toegang eenmaal een [beveiligingsbeoordeling is gestart](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) stuurt automatisch een e-mailbericht gebruikers om te controleren van de toegang te vragen. Als een gebruiker niet een e-mailbericht ontvangt is, kunt u ze de instructies in verzenden [het uitvoeren van een beveiligingsbeoordeling](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+# <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Het uitvoeren van een toegangscontrole in Azure AD Privileged Identity Management
+Beheerders met bevoegdheid kunnen eenmaal bevoegde toegang beoordelen een [beveiligingsbeoordeling is gestart](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) ontvangt automatisch een e-mailbericht waarin wordt gevraagd de gebruikers kunnen hun toegang beoordelen. Als een gebruiker niet een e-mailbericht ontvangt is, kunt u ze de instructies in verzenden [hoe u een beveiligingsbeoordeling uitvoeren](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
-Nadat de periode van beveiliging controleren of alle gebruikers klaar bent met hun eigen bekijken, de stappen in dit artikel voor het beheren van de controle en de resultaten te zien.
+Nadat de periode van beveiliging controleren of alle gebruikers hun zelf bekijken hebt, volgt u de stappen in dit artikel voor het beheren van de beoordeling en bekijkt de resultaten.
 
-## <a name="manage-security-reviews"></a>Beoordelingen van beveiliging beheren
-1. Ga naar de [Azure-portal](https://portal.azure.com/) en selecteer de **Azure AD Privileged Identity Management** toepassing op uw dashboard.
-2. Selecteer de **toegang tot beoordelingen** sectie van het dashboard.
-3. Selecteer de controle van toegang dat u wilt beheren.
+## <a name="manage-security-reviews"></a>Beoordelingen voor beveiliging beheren
+1. Ga naar de [Azure-portal](https://portal.azure.com/) en selecteer de **Azure AD Privileged Identity Management** toepassingen op uw dashboard.
+2. Selecteer de **Toegangsbeoordelingen** gedeelte van het dashboard.
+3. Selecteer de toegangsbeoordeling die u wilt beheren.
 
-Op de toegang-revisie detail blade zijn er een aantal opties voor het beheren van deze evaluatie.
+Op de blade details van de toegangsbeoordeling zijn er een aantal opties voor het beheren van deze evaluatie.
 
-![PIM toegang controleren knoppen - schermafbeelding][1]
+![PIM-knoppen voor het controleren van toegang - schermafbeelding][1]
 
 ### <a name="remind"></a>Herinneren
-Als een onderzoek toegang is ingesteld, zodat de gebruikers zelf, Controleer de **herinnering sturen** knop verstuurt een melding. 
+Als een toegangsbeoordeling is ingesteld zodat de gebruikers zelf, Controleer de **herinnering sturen** knop verstuurt een melding. 
 
 ### <a name="stop"></a>Stoppen
-Alle beoordelingen van toegang tot een einddatum hebben, maar u kunt de **stoppen** knop vroeg voltooid. Als gebruikers zich nog niet op dit tijdstip zijn gecontroleerd, ze niet mogelijk om te na het stoppen van de controle. U kunt een beoordeling niet opnieuw starten nadat deze gestopt.
+Alle beoordelingen voor toegang tot een einddatum hebben, maar u kunt de **stoppen** knop vroeg voltooid. Als gebruikers nog niet hebt op dit moment zijn gecontroleerd, ze niet mogelijk om te na het stoppen van de beoordeling. U kunt een evaluatie kan niet opnieuw starten nadat deze gestopt.
 
 ### <a name="apply"></a>Toepassen
-Nadat een revisie access is voltooid, omdat u de einddatum is bereikt of handmatig gestopt omdat de **toepassen** knop implementeert de uitkomst van de evaluatie. Als een gebruiker toegang is geweigerd in de evaluatie, is dit de stap die hun roltoewijzing wordt verwijderd.  
+Wanneer een toegangsbeoordeling is voltooid, omdat u de einddatum is bereikt of handmatig gestopt omdat de **toepassen** knop implementeert de uitkomst van de beoordeling. Als een gebruiker de toegang is geweigerd in de evaluatie, is dit de stap die hun roltoewijzing wordt verwijderd.  
 
 ### <a name="export"></a>Exporteren
-Als u de resultaten van de beveiligingsbeoordeling handmatig toepassen wilt, kunt u de controle exporteren. De **exporteren** knop downloaden van een CSV-bestand wordt gestart. U kunt de resultaten in Excel of andere programma's die CSV-bestanden beheren.
+Als u de resultaten van de beveiligingsbeoordeling handmatig toepassen wilt, kunt u de evaluatie exporteren. De **exporteren** knop downloaden van een CSV-bestand wordt gestart. U kunt de resultaten in Excel of andere programma's die CSV-bestanden open beheren.
 
 ### <a name="delete"></a>Verwijderen
-Als u niet geïnteresseerd in de revisie verdere bent, verwijderen. De **verwijderen** knop verwijdert u de controle van de PIM-toepassing.
+Als u niet geïnteresseerd in de beoordeling verdere bent, het verwijderen. De **verwijderen** knop verwijdert u de controle van de PIM-toepassing.
 
 > [!IMPORTANT]
-> U wordt niet ophalen van een waarschuwing alvorens deze wordt verwijderd, dus wees zeker dat u wilt verwijderen van deze evaluatie. 
+> U wordt niet ontvangt een waarschuwing voordat de verwijdering plaatsvindt, dus wees zeker dat u wilt verwijderen van deze evaluatie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

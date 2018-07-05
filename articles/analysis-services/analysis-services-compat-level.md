@@ -1,51 +1,51 @@
 ---
-title: Gegevensmodel compatibiliteitsniveau in Azure Analysis Services | Microsoft Docs
-description: Understanding tabelgegevens model compatibiliteitsniveau.
+title: Gegevens modelleren compatibiliteitsniveau in Azure Analysis Services | Microsoft Docs
+description: Inzicht in gegevens in tabelvorm model compatibiliteitsniveau.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d68d544a66448fbbf193ff53fa43e179b1edb706
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 17a75e86d5539427c8837b3077aacf85b4681ad6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602064"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447520"
 ---
-# <a name="compatibility-level-for-analysis-services-tabular-models"></a>Het compatibiliteitsniveau voor Analysis Services-modellen in tabelvorm
+# <a name="compatibility-level-for-analysis-services-tabular-models"></a>Compatibiliteitsniveau voor tabellaire modellen van Analysis Services
 
-*Het compatibiliteitsniveau* verwijst naar de release-specifieke gedrag in de Analysis Services-engine. Wijzigingen in het compatibiliteitsniveau wordt doorgaans samenvallen met belangrijke releases van SQL Server. Deze wijzigingen zijn ook geïmplementeerd in Azure Analysis Services onderhouden pariteit tussen beide platforms. Het compatibiliteitsniveau wijzigt ook effect die beschikbaar zijn in uw modellen in tabelvorm. Bijvoorbeeld, hebben DirectQuery en metagegevens in tabelvorm object verschillende implementaties, afhankelijk van het compatibiliteitsniveau. Het compatibiliteitsniveau is opgegeven in het model in tabelvorm-project in Visual Studio (SSDT). Alleen het 1400 compatibiliteitsniveau zijn modellen in tabelvorm gemaakt in en uit Power BI Desktop geïmporteerd.
+*Compatibiliteitsniveau* verwijst naar de release-specifieke gedrag in de Analysis Services-engine. Wijzigingen in het compatibiliteitsniveau is doorgaans valt samen met belangrijke releases van SQL Server. Deze wijzigingen worden ook geïmplementeerd in Azure Analysis Services te onderhouden pariteit tussen beide platforms. Compatibiliteitsniveau verandert ook effect die beschikbaar zijn in uw modellen in tabelvorm. Bijvoorbeeld, hebben DirectQuery en metagegevens in tabelvorm object verschillende implementaties, afhankelijk van het compatibiliteitsniveau. Compatibiliteitsniveau is opgegeven in het project voor tabellair model in Visual Studio (SSDT). Modellen in tabelvorm in hebt gemaakt en worden geïmporteerd uit Power BI Desktop zijn op het compatibiliteitsniveau 1400 alleen.
 
-Azure Analysis Services biedt ondersteuning voor tabelmodellen op het niveau van de compatibiliteit 1200 en 1400. 
+Azure Analysis Services ondersteunt tabellaire modellen met het compatibiliteitsniveau 1200 en 1400. 
 
-Het compatibiliteitsniveau van de meest recente is 1400. Dit niveau samenvalt met SQL Server 2017 Analysis Services. Belangrijke functies in het compatibiliteitsniveau 1400:
+De meest recente versie van het compatibiliteitsniveau is 1400. Dit niveau overeenkomt met de SQL Server 2017 Analysis Services. Belangrijkste functies in het compatibiliteitsniveau 1400 zijn onder andere:
 
-*  Nieuwe functies voor toegang tot gegevens en importeren met ondersteuning voor TOM APIs en TMSL scripting. 
-*  Gegevenstransformatie en gegevens mashup mogelijkheden met behulp van expressies gegevens ophalen en M.
-*  Metingen ondersteuning voor een eigenschap detailrijen met een DAX-expressie. Deze eigenschap kunt clienthulpprogramma's zoals Microsoft Excel om in te zoomen naar beneden gedetailleerde gegevens van een samengevoegde lijst. Bijvoorbeeld, wanneer gebruikers totale verkoop voor een regio en de maand bekijken, kunnen ze de details van de bijbehorende bekijken. 
+*  Nieuwe functies voor toegang tot gegevens en importeren met ondersteuning voor TOM APIs en het uitvoeren van TMSL-scripts. 
+*  Gegevenstransformatie en mashup mogelijkheden om gegevens met behulp van gegevens ophalen en M-expressies.
+*  Metingen ondersteuning voor detailrijen eigenschap met een DAX-expressie. Met deze eigenschap kunt clienthulpprogramma's zoals Microsoft Excel om te zoomen op gedetailleerde gegevens van een samengevoegde rapport. Wanneer gebruikers totale verkoop voor een regio en de maand bekijken, kunnen ze bijvoorbeeld de details van de bijbehorende weergeven. 
 *  Beveiliging op objectniveau voor tabel- en kolomnamen, naast de gegevens daarin.
 *  Verbeterde ondersteuning voor niet-aaneengesloten hiërarchieën.
 *  Bewaking van prestaties en verbeteringen.
   
-## <a name="set-compatibility-level"></a>Het compatibiliteitsniveau instellen 
- Wanneer u een nieuw model in tabelvorm-project in SSDT, kunt u het compatibiliteitsniveau opgeven op de **model in tabelvorm designer** dialoogvenster. 
+## <a name="set-compatibility-level"></a>Compatibiliteitsniveau van de set 
+ Als u een nieuw project voor tabellair model in SSDT, kunt u het compatibiliteitsniveau van de **ontwerpfunctie Tabellair model** dialoogvenster. 
   
  ![ssas_tabularproject_compat1200](./media/analysis-services-compat-level/aas-tabularproject-compat.png)  
   
- Als u selecteert de **dit bericht niet meer weergeven** optie, alle volgende projecten gebruik van het compatibiliteitsniveau die u hebt opgegeven als de standaardwaarde. U kunt het standaardniveau voor compatibiliteit in SSDT in wijzigen **extra** > **opties**.  
+ Als u selecteert de **dit bericht niet opnieuw weergeven** optie, alle volgende projecten wordt gebruikgemaakt van het compatibiliteitsniveau die u hebt opgegeven als de standaardwaarde. U kunt het standaardcompatibiliteitsniveau in SSDT in wijzigen **extra** > **opties**.  
   
- Om een upgrade van een bestaand project model in tabelvorm in SSDT, te stellen de **compatibiliteitsniveau** eigenschap in het model **eigenschappen** venster. Houd in gedachten, upgraden van het compatibiliteitsniveau wordt niet ongedaan worden gemaakt.
+ Als u wilt upgraden van een bestaand project voor tabellair model in SSDT, stel de **compatibiliteitsniveau** eigenschap in het model **eigenschappen** venster. Denk eraan dat, de uitbreiding van het compatibiliteitsniveau is niet ongedaan worden gemaakt.
   
 ## <a name="check-compatibility-level-for-a-tabular-model-database-in-sql-server-management-studio"></a>Controleer het compatibiliteitsniveau voor een tabellaire modeldatabase in SQL Server Management Studio 
- SSMS, met de rechtermuisknop op de databasenaam > **eigenschappen** > **compatibiliteitsniveau**.  
+ In SSMS, met de rechtermuisknop op de databasenaam > **eigenschappen** > **compatibiliteitsniveau**.  
   
-## <a name="check-supported-compatibility-level-for-a-server-in-ssms"></a>Controleer het compatibiliteitsniveau van de ondersteunde versies voor een server in SSMS  
- SSMS, met de rechtermuisknop op de servernaam > **eigenschappen** > **compatibiliteitsniveau ondersteund**.  
+## <a name="check-supported-compatibility-level-for-a-server-in-ssms"></a>Ondersteunde compatibiliteitsniveau voor een server in SSMS controleren  
+ In SSMS, met de rechtermuisknop op de servernaam > **eigenschappen** > **compatibiliteitsniveau ondersteund**.  
   
- Deze eigenschap geeft het hoogste compatibiliteitsniveau van een database die wordt uitgevoerd op de server (met uitzondering van de preview). Het compatibiliteitsniveau van de ondersteunde kan niet worden gewijzigd.  
+ Deze eigenschap geeft u het hoogste compatibiliteitsniveau van een database die wordt uitgevoerd op de server (exclusief Preview-versie). Het compatibiliteitsniveau van de ondersteunde kan niet worden gewijzigd.  
 
 ## <a name="next-steps"></a>Volgende stappen
   [Een model maken in Azure portal](analysis-services-create-model-portal.md)   
