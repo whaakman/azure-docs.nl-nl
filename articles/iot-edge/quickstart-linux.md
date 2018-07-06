@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 86bf28249321a705e8855de35121611b05009854
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27e5b7fed227248d9d60c8ede460c9ecc65ca52d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063490"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096271"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snelstart: uw eerste IoT Edge-module implementeren op een Linux x64-apparaat
 
@@ -51,7 +51,7 @@ Begin met de snelstart door uw IoT Hub in Azure Portal te maken.
 
 Het gratis niveau van IoT Hub werkt voor deze snelstart. Als u in het verleden IoT Hub hebt gebruikt en al een gratis hub hebt gemaakt, kunt u die IoT-hub gebruiken. Elk abonnement biedt toegang tot slechts één gratis IoT-hub. 
 
-1. Maak een resourcegroep in Azure Cloud Shell. Met de volgende code wordt een resourcegroep met de naam **TestResources** gemaakt in de regio **West US - west**. Door alle resources voor de snelstarts en zelfstudies in een groep te plaatsen, kunt u ze samen beheren. 
+1. Maak een resourcegroep in Azure Cloud Shell. In het volgende voorbeeld wordt een resourcegroep met de naam **TestResources** gemaakt in de regio **US - west**. Door alle resources voor de snelstarts en zelfstudies in een groep te plaatsen, kunt u ze samen beheren. 
 
    ```azurecli-interactive
    az group create --name TestResources --location westus
@@ -171,8 +171,10 @@ De beveiligingsdeamon wordt geïnstalleerd als een systeemservice, zodat de IoT 
 6. De modules bekijken die op uw apparaat worden uitgevoerd: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+
+   Na een af- en aanmelding is *sudo* niet vereist voor de bovenstaande opdracht.
 
    ![Eén module op uw apparaat bekijken](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -190,8 +192,9 @@ In deze snelstart hebt u een nieuw IoT Edge-apparaat gemaakt en de IoT Edge-runt
 Open nogmaals de opdrachtprompt op de computer waarop het gesimuleerde apparaat wordt uitgevoerd. Bevestig dat de module die vanuit de cloud is geïmplementeerd, op uw IoT Edge -apparaat wordt uitgevoerd:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+   Na een af- en aanmelding is *sudo* niet vereist voor de bovenstaande opdracht.
 
    ![Drie modules op uw apparaat bekijken](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -219,7 +222,7 @@ De IoT Edge-runtime verwijderen.
    sudo apt-get remove --purge iotedge
    ```
 
-De containers die zijn gemaakt op uw apparaat verwijderen. 
+Verwijder de containers die op uw apparaat zijn gemaakt. 
 
    ```bash
    sudo docker rm -f $(sudo docker ps -aq)

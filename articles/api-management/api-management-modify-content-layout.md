@@ -3,7 +3,7 @@ title: Pagina-inhoud bewerken in de ontwikkelaarsportal in Azure API Management 
 description: Informatie over het bewerken van pagina-inhoud in de ontwikkelaarsportal in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: vlvinogr
 editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: vlvinogr
+ms.openlocfilehash: 4a372b54ace87816b9e7cccbd38466331b5ebfc7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29377796"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437593"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>De inhoud en opmaak van pagina’s bewerken in de ontwikkelaarsportal in Azure API Management
 Er zijn die manieren waarop u de ontwikkelaarsportal in Azure API Management kunt aanpassen:
@@ -34,7 +34,7 @@ De ontwikkelaarsportal is gebaseerd op een inhoudsbeheersysteem. De indeling van
 
 ![Paginastructuur in de ontwikkelaarsportal][api-management-customization-widget-structure]
 
-Alle widgets kunnen worden bewerkt. 
+Alle widgets kunnen worden bewerkt.
 * De belangrijkste inhoud die voor elke pagina anders is, staat in de widget Inhoud. Als u een pagina bewerkt, bewerkt u eigenlijk de inhoud van deze widget.
 * Alle elementen van pagina-indeling staan in de overige widgets. Als u wijzigingen aanbrengt aan deze widgets, worden die toegepast op alle pagina's. Deze widgets heten ook wel indelingswidgets.
 
@@ -42,12 +42,12 @@ Voor de alledaagse paginabewerkingen bewerkt u meestal alleen de widget Inhoud, 
 
 ## <a name="modify-layout-widget"> </a>De inhoud van een indelingswidget wijzigen
 
-De Developer-portal is toegankelijk via de Azure Portal. 
+De Developer-portal is toegankelijk via de Azure Portal.
 
 1. Klik op **Developer portal** op de werkbalk van uw API Management-exemplaar.
-2. Als u de inhoud van widgets wilt bewerken, klikt u op het pictogram met de twee verfkwasten van het portalmenu **Developer** aan de linkerkant. 
+2. Als u de inhoud van widgets wilt bewerken, klikt u op het pictogram met de twee verfkwasten van het portalmenu **Developer** aan de linkerkant.
 3. Als u de inhoud van de koptekst wilt wijzigen, schuift u naar de sectie **Koptekst** in de lijst links.
-    
+
     De widgets kunnen worden bewerkt vanuit de velden.
 4. Wanneer u klaar bent om uw wijzigingen te publiceren, klikt u op **Publiceren** onderaan de pagina.
 

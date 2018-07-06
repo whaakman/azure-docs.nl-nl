@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 9c562f1ce938e5f5d9371cbccf032c0eb1d67125
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3e7fcde204966e5a6a8154ab307807652cfa0419
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055027"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37086208"
 ---
 Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules voor uw IoT Edge-apparaten mee kunt implementeren vanuit de cloud. Een IoT Edge-module is een uitvoerbaar pakket dat is geïmplementeerd als container. In deze sectie implementeert u een module die telemetrie genereert voor uw gesimuleerde apparaat. 
 
@@ -21,7 +21,7 @@ Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules vo
 1. Ga naar **IoT Edge** en selecteer het IoT Edge-apparaat.
 1. Selecteer **Modules instellen**.
 1. Klik in de sectie **Implementatiemodules** van de pagina op **Toevoegen** en selecteer **IoT Edge-module**.
-1. Voer in het veld **Naam** `tempsensor` in. 
+1. Voer in het veld **Naam** `tempSensor` in. 
 1. Voer in het veld **URI installatiekopie** `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` in. 
 1. Laat de overige instellingen ongewijzigd en selecteer **Opslaan**.
 

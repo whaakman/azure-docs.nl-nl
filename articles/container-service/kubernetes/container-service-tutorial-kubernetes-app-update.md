@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f54179329b521cc861e90f023ff0b010b7ce1f75
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 81f2302df5740b482f03a4a724d2899734579949
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164951"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096856"
 ---
 # <a name="update-an-application-in-kubernetes"></a>Een toepassing bijwerken in Kubernetes
 
@@ -100,7 +100,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>De bijwerkte toepassing implementeren
 
-Voor een maximale uptime moeten meerdere exemplaren van de toepassingsschil worden uitgevoerd. Controleer deze configuratie met de opdracht [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
+Voor een maximale uptime moeten meerdere exemplaren van de toepassingsschil worden uitgevoerd. Controleer deze configuratie met de opdracht [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
 ```bash
 kubectl get pod
@@ -123,13 +123,13 @@ Als er niet meerdere schillen zijn waarin de installatiekopie azure-vote-front w
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Gebruik de opdracht [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) om de toepassing bij te werken. Werk `<acrLoginServer>` bij met de aanmeldingserver of hostnaam van uw containerregister.
+Gebruik de opdracht [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set) om de toepassing bij te werken. Werk `<acrLoginServer>` bij met de aanmeldingserver of hostnaam van uw containerregister.
 
 ```azurecli-interactive
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Voor het controleren van de implementatie gebruikt u de opdracht [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get). Terwijl de bijgewerkte toepassing wordt geïmplementeerd, worden uw schillen beëindigd en opnieuw gemaakt met de nieuwe containerinstallatiekopie.
+Voor het controleren van de implementatie gebruikt u de opdracht [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get). Terwijl de bijgewerkte toepassing wordt geïmplementeerd, worden uw schillen beëindigd en opnieuw gemaakt met de nieuwe containerinstallatiekopie.
 
 ```azurecli-interactive
 kubectl get pod

@@ -3,7 +3,7 @@ title: Azure PowerShell-voorbeeldscript - Docker | Microsoft Docs
 description: Azure PowerShell-voorbeeldscript - Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/02/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 87b87734ebf2eaa266447cab0083c24399844f55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cfa42180d0cc25b3ee4da3f79b51775e8e62db81
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653389"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096659"
 ---
 # <a name="create-a-docker-host-with-powershell"></a>Een Docker-host maken met PowerShell
 
-Met dit script maakt u een virtuele machine waarvoor Docker is ingeschakeld en start u een container waarin NGINX wordt uitgevoerd. Nadat het script is uitgevoerd, is de NGINX-webserver toegankelijk via de FQDN van de virtuele Azure-machine. 
+Met dit script maakt u een virtuele machine waarvoor Docker is ingeschakeld en start u een container waarin NGINX wordt uitgevoerd. Nadat het script is uitgevoerd, is de NGINX-webserver toegankelijk via de FQDN van de virtuele Azure-machine.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -35,7 +35,7 @@ Met dit script maakt u een virtuele machine waarvoor Docker is ingeschakeld en s
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-docker-host/create-docker-host.ps1 "Create Docker host")]
 
-## <a name="clean-up-deployment"></a>Opschonen van implementatie 
+## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
 Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 

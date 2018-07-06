@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-ms.openlocfilehash: 991feaa61a73d5ac96159fbd6a7dd1fdd420fd3c
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: e2571a6854d2c3de2425547b69c5435286182ef7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291409"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448149"
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Standaardgebruikersmachtigingen in Azure Active Directory
 
@@ -50,8 +50,8 @@ Standaardmachtigingen voor lidgebruikers kunnen op de volgende manieren worden b
 
 Machtiging | Uitleg van de instelling
 ---------- | ------------
-De mogelijkheid beveiligingsgroepen te maken | Als u deze optie op Nee instelt, kunnen gebruikers geen beveiligingsgroepen maken. Globale beheerders en gebruikersaccountbeheerders kunnen nog steeds beveiligingsgroepen maken. Zie [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](../active-directory-accessmanagement-groups-settings-cmdlets.md) voor meer informatie.
-De mogelijkheid Office 365-groepen te maken | Als u deze optie op Nee instelt, kunnen gebruikers geen Office 365-groepen maken. Als u deze optie op Sommige instelt, kan een beperkte selectie van gebruikers Office 365-groepen maken. Globale beheerders en gebruikersaccountbeheerders kunnen nog steeds Office 365-groepen maken. Zie [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](../active-directory-accessmanagement-groups-settings-cmdlets.md) voor meer informatie.
+De mogelijkheid beveiligingsgroepen te maken | Als u deze optie op Nee instelt, kunnen gebruikers geen beveiligingsgroepen maken. Globale beheerders en gebruikersaccountbeheerders kunnen nog steeds beveiligingsgroepen maken. Zie [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](../users-groups-roles/groups-settings-cmdlets.md) voor meer informatie.
+De mogelijkheid Office 365-groepen te maken | Als u deze optie op Nee instelt, kunnen gebruikers geen Office 365-groepen maken. Als u deze optie op Sommige instelt, kan een beperkte selectie van gebruikers Office 365-groepen maken. Globale beheerders en gebruikersaccountbeheerders kunnen nog steeds Office 365-groepen maken. Zie [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](../users-groups-roles/groups-settings-cmdlets.md) voor meer informatie.
 De toegang tot de Azure AD-beheerportal beperken | Als u deze optie op Nee instelt, hebben gebruikers geen toegang tot de Azure Active Directory-portal.
 Mogelijkheid om andere gebruikers te lezen | Deze instelling is alleen beschikbaar in PowerShell. Als u deze optie instelt op $false, voorkomt u dat alle niet-beheerders gebruikersgegevens uit de map lezen. Hiermee voorkomt u niet dat andere gebruikersgegevens in andere Microsoft-services, zoals Exchange Online, worden gelezen. Deze instelling is alleen bedoeld voor speciale omstandigheden en het wordt niet aanbevolen deze op $false in te stellen.
 

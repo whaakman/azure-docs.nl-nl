@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b63c10a8c092d6568f8caf9842f007a5dc9c027
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049159"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099182"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snelstart: uw eerste IoT Edge-module implementeren op een Linux x64-apparaat
 
@@ -134,8 +134,9 @@ De beveiligingsdeamon wordt geïnstalleerd als een systeemservice, zodat de IoT 
 6. De modules bekijken die op uw apparaat worden uitgevoerd: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Na een af- en aanmelding is *sudo* niet vereist voor de bovenstaande opdracht.
 
    ![Eén module op uw apparaat bekijken](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -154,16 +155,19 @@ In deze snelstart hebt u een nieuw IoT Edge-apparaat gemaakt en de IoT Edge-runt
 Open nogmaals de opdrachtprompt op de computer waarop het gesimuleerde apparaat wordt uitgevoerd. Bevestig dat de module die vanuit de cloud is geïmplementeerd, op uw IoT Edge -apparaat wordt uitgevoerd:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Na een af- en aanmelding is *sudo* niet vereist voor de bovenstaande opdracht.
 
    ![Drie modules op uw apparaat bekijken](./media/quickstart-linux/iotedge-list-2.png)
 
 De berichten bekijken die vanuit de module tempSensor worden verzonden:
 
-   ```bash
-   iotedge logs tempSensor -f 
+  ```bash
+   sudo iotedge logs tempSensor -f 
    ```
+
+Na een af- en aanmelding is *sudo* niet vereist voor de bovenstaande opdracht.
 
 ![De gegevens van uw module bekijken](./media/quickstart-linux/iotedge-logs.png)
 
@@ -181,7 +185,7 @@ De IoT Edge-runtime verwijderen.
    sudo apt-get remove --purge iotedge
    ```
 
-De containers die zijn gemaakt op uw apparaat verwijderen. 
+Verwijder de containers die op uw apparaat zijn gemaakt. 
 
    ```bash
    sudo docker rm -f $(sudo docker ps -aq)
@@ -197,7 +201,7 @@ Als u de Azure IoT Hub of het IoT Edge-apparaat dat u hebt gemaakt in deze snels
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een nieuw IoT Edge-apparaat gemaakt en de Azure IoT Edge-cloudinterface gebruikt om code te implementeren op het apparaat. U hebt nu een gesimuleerd apparaat waarmee onbewerkte gegevens over de omgeving worden gegenereerd. 
+In deze snelstartgids hebt u een nieuw IoT Edge-apparaat gemaakt en de Azure IoT Edge-cloudinterface gebruikt om code te implementeren op het apparaat. U hebt nu een gesimuleerd apparaat waarmee onbewerkte gegevens over de omgeving worden gegenereerd. 
 
 Deze snelstart is vereist voor alle IoT Edge-zelfstudies. U kunt doorgaan met elke andere zelfstudie om te leren hoe Azure IoT Edge u verder kan helpen bij het omzetten van uw gegevens in bedrijfsinzichten.
 

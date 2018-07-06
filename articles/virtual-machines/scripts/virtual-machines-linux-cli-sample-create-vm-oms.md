@@ -3,7 +3,7 @@ title: Voorbeeld van Azure CLI-script - Een virtuele Linux-machine maken met OMS
 description: Voorbeeld van Azure CLI-script - Een virtuele Linux-machine maken met OMS-controle
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8a966d1d58067eb73937d3abfdef42396e5ba9a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cda46d250dc052b024c8f090bafe7a22b94d41ac
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653413"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098831"
 ---
 # <a name="monitor-a-vm-with-operations-management-suite"></a>Een virtuele machine bewaken met Operations Management Suite
 
@@ -35,11 +35,11 @@ Met dit script maakt u een virtuele machine in Azure, installeert u de OMS-agent
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Opschonen van implementatie 
+## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
 Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: bd90b460-bacf-4345-ae31-26e155beac0e
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: bwren
-ms.openlocfilehash: b951d41dab4d349a8d648e7eaa7e23b73ced2ced
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: 463ac7ee3e640f8bc275adb9e6ac27cc3e6a037a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29939039"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127956"
 ---
 # <a name="what-is-azure-log-analytics"></a>Wat is Azure Log Analytics?
 Log Analytics speelt een centrale rol in Azure-management door telemetrie en andere gegevens te verzamelen uit verschillende bronnen en een querytaal en analysesysteem te leveren die inzicht geven in de werking van uw toepassingen en resources.  U kunt rechtstreeks met Log Analytics- gegevens werken door logboeken en weergaven te doorzoeken, of u kunt gebruikmaken van analyseprogramma's in andere Azure-services die hun gegevens opslaan in Log Analytics, zoals Application Insights of Azure Security Center.  

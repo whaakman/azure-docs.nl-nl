@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: 7ed564d5954841f96109568b33183908d25bb8be
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: ec30f1507bfa45c29709a7f4b7dc1e91aa25ca57
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939517"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440745"
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Beheerdersrollen toewijzen aan gebruikers in Azure Active Directory
 In dit artikel wordt uitgelegd hoe u een beheerdersrol toewijst aan een gebruiker in Azure Active Directory (Azure AD). Zie [Add new users to Azure Active Directory](../add-users-azure-active-directory.md) (Engelstalig) voor meer informatie over het toevoegen van nieuwe gebruikers in uw organisatie. Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
@@ -30,7 +30,7 @@ In dit artikel wordt uitgelegd hoe u een beheerdersrol toewijst aan een gebruike
 
     ![Gebruikersbeheer openen](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 
-3. Selecteer voor de geselecteerde gebruiker **Maprol**, selecteer **Rol toevoegen** en selecteer vervolgens de juiste beheerdersrollen in de lijst **Maprollen**, zoals  **Voorwaardelijke toegang beheerder**. Zie [Assigning administrator roles in Azure AD](../active-directory-assign-admin-roles-azure-portal.md) (Engelstalig) voor meer informatie over beheerdersrollen. 
+3. Selecteer voor de geselecteerde gebruiker **Maprol**, selecteer **Rol toevoegen** en selecteer vervolgens de juiste beheerdersrollen in de lijst **Maprollen**, zoals  **Voorwaardelijke toegang beheerder**. Zie [Assigning administrator roles in Azure AD](../users-groups-roles/directory-assign-admin-roles.md) (Engelstalig) voor meer informatie over beheerdersrollen. 
 
     ![Een gebruiker toewijzen aan een rol](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 

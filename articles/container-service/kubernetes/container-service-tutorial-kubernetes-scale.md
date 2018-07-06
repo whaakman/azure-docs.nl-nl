@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f643c09f00b23cd14e85e83ed0cf7ab7a13c7646
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162820"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098529"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes-schillen en Kubernetes-infrastructuur schalen
 
@@ -39,7 +39,7 @@ Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u t
 
 ## <a name="manually-scale-pods"></a>Schillen handmatig schalen
 
-Tot nu toe zijn de Azure Vote-front-end en het Redis-exemplaar geïmplementeerd, elk met één replica. U kunt dit controleren door de opdracht [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) uit te voeren.
+Tot nu toe zijn de Azure Vote-front-end en het Redis-exemplaar geïmplementeerd, elk met één replica. U kunt dit controleren door de opdracht [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) uit te voeren.
 
 ```azurecli-interactive
 kubectl get pods
@@ -53,13 +53,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Wijzig het aantal schillen in de `azure-vote-front`-implementatie handmatig met behulp van de opdracht [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale). In dit voorbeeld wordt het aantal verhoogd naar 5.
+Wijzig het aantal schillen in de `azure-vote-front`-implementatie handmatig met behulp van de opdracht [kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale). In dit voorbeeld wordt het aantal verhoogd naar 5.
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Voer [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) uit om te controleren of Kubernetes de schillen heeft gemaakt. Na ongeveer een minuut worden de extra schillen uitgevoerd:
+Voer [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) uit om te controleren of Kubernetes de schillen heeft gemaakt. Na ongeveer een minuut worden de extra schillen uitgevoerd:
 
 ```azurecli-interactive
 kubectl get pods
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-In het volgende voorbeeld wordt de opdracht [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) gebruikt om het aantal schillen in de `azure-vote-front`-implementatie automatisch te schalen. Als het CPU-gebruik in dit geval hoger is dan 50%, wordt het aantal schillen automatisch verhoogd naar maximaal 10.
+In het volgende voorbeeld wordt de opdracht [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) gebruikt om het aantal schillen in de `azure-vote-front`-implementatie automatisch te schalen. Als het CPU-gebruik in dit geval hoger is dan 50%, wordt het aantal schillen automatisch verhoogd naar maximaal 10.
 
 
 ```azurecli-interactive

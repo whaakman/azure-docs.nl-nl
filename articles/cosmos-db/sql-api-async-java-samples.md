@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.devlang: java
 ms.topic: sample
-ms.date: 02/08/2018
+ms.date: 06/18/2018
 ms.author: sngun
-ms.openlocfilehash: 90b6ac48373056d5a4bec13c79574336bab73c51
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: eafc05d825535fe1a0c13dd52823b4e59499fb91
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839916"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113653"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Async Java-voorbeelden voor de SQL API
 
@@ -137,7 +137,7 @@ Het bestand [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb
 Zie [Azure Cosmos DB-indexeringsbeleid](indexing-policies.md) voor meer informatie over indexering.
 
 ## <a name="query-examples"></a>Voorbeelden van query's
-In het bestand [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java) ziet u hoe u de volgende taken uitvoeren:
+Het bestand [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java) laat u zien hoe u de volgende taken uitvoert:
 
 | Taak | API-verwijzing |
 | --- | --- |

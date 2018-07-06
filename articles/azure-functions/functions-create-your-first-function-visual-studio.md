@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, 23113853-34f2-4f
-ms.openlocfilehash: d815bf3fa4b63f12ac9f0d871e353e872a5aca25
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c5d09e03eb79d89604cba6d9533051bb9b50ce90
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699968"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084838"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Uw eerste functie maken met Visual Studio
 
@@ -95,5 +95,4 @@ Voordat u uw project kunt publiceren, moet u een functie-app in uw Azure-abonnem
 U hebt Visual Studio gebruikt om een C#-functie-app met een eenvoudige HTTP-geactiveerde functie te maken en te publiceren.
 
 * [Lees hoe u invoer- en uitvoerbindingen toevoegt voor integratie met andere services.](functions-develop-vs.md#add-bindings)
-* [Lees meer over het lokaal testen en opsporen van fouten met behulp van de belangrijkste hulpprogramma's van Azure Functions.](functions-run-local.md#vs-debug)
 * [Lees meer over het ontwikkelen van functies als .NET-klassebibliotheken](functions-dotnet-class-library.md).
