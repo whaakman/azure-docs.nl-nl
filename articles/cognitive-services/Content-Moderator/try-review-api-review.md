@@ -1,6 +1,6 @@
 ---
-title: Gemiddelde van inhoud met behulp van menselijke beoordelingen in Azure inhoud beheerder | Microsoft Docs
-description: Informatie over het maken van menselijke beoordelingen in de console inhoud beheerder API.
+title: Beheren van inhoud met behulp van onlinebeoordelingen door mensen in Azure Content Moderator | Microsoft Docs
+description: Informatie over het maken van onlinebeoordelingen door mensen in de Content Moderator-API-console.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,59 +9,59 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: e9faf595e65ba4475a743e4cb45919fd30fbd6e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 214695ed3e23d1f501d6d4691104b3f8a91f6efc
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344473"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866505"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Beoordelingen van de API-console maken
 
-De bekijken API gebruiken [bewerkingen controleren](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) afbeelding of tekst beoordelingen voor menselijke toezicht te maken. Menselijke moderators gebruiken de Controleer de inhoud van het hulpprogramma controleren. Deze bewerking op basis van uw bedrijfslogica na controle gebruiken. Deze gebruiken nadat u uw inhoud hebt gescand met behulp van de installatiekopie van de beheerder van de inhoud of tekst API's of andere cognitieve Services-API's. 
+Gebruik van de bekijken API [bewerkingen controleren](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) afbeelding of tekst beoordelingen voor menselijk toezicht maken. Het beoordelingsprogramma menselijke moderators gebruiken om de inhoud te controleren. Deze bewerking op basis van uw bedrijfslogica na toezicht gebruiken. Gebruik deze nadat u uw inhoud met behulp van de installatiekopie van het Content Moderator of tekst-API's of andere Cognitive Services-API's hebt gescand. 
 
-Nadat een menselijke beheerder de labels automatisch toegewezen en de gegevens van de voorspelling bekijkt en een beslissing laatste controle verstuurt, verzendt de API Controleer alle gegevens naar uw API-eindpunt.
+Nadat een menselijke moderator de labels automatisch toegewezen en voorspellingsgegevens controleert en een beslissing laatste toezicht verzendt, verzendt de API controleren alle gegevens naar uw API-eindpunt.
 
 ## <a name="use-the-api-console"></a>De API-console gebruiken
-Als u wilt de API test-drive met behulp van de online-console, moet u enkele waarden invoeren in de console:
+Als u wilt Maak een proefrit met de API met behulp van de online-console, moet u enkele waarden invoeren in de console:
 
-- **teamName**: de teamnaam die u hebt gemaakt bij het instellen van uw account controleren-hulpprogramma. 
-- **ContentId**: deze reeks is doorgegeven aan de API en geretourneerd via de retouraanroep. De ContentId is nuttig voor het koppelen van interne id's of metagegevens met de resultaten van een taak toezicht.
-- **Metagegevens**: aangepaste sleutel-waardeparen die aan uw API-eindpunt worden geretourneerd tijdens de callback. Als de sleutel een korte code die is gedefinieerd in het hulpprogramma controleren is, wordt deze weergegeven als een label.
-- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie [overzicht](overview.md).
+- **teamName**: de teamnaam in die u hebt gemaakt bij het instellen van uw account lees-hulpprogramma. 
+- **ContentId**: deze reeks wordt doorgegeven aan de API en die zijn geretourneerd via de callback. De ContentId is handig voor het koppelen van interne id's of metagegevens met de resultaten van een taak voor beheer.
+- **Metagegevens**: aangepaste sleutel / waarde-paren tijdens de callback die aan uw API-eindpunt geretourneerd. Als de sleutel een korte code die is gedefinieerd in het beoordelingsprogramma is, wordt deze weergegeven als een label.
+- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie, [overzicht](overview.md).
 
-De eenvoudigste manier om toegang tot een test-console is van de **referenties** venster.
+De eenvoudigste manier om toegang tot een testconsole is van de **referenties** venster.
 
-1.  In de **referenties** Selecteer [revisie API-referentiemateriaal](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+1.  In de **referenties** venster [revisie API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-  De **bekijken - maken** pagina wordt geopend.
+  De **controleren - maken** pagina wordt geopend.
 
-2.  Voor **Open API testen console**, selecteer de regio die het beste past bij uw locatie.
+2.  Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie.
 
-  ![Bekijk - pagina Regioselectie maken](images/test-drive-region.png)
+  ![Controleren - pagina Regioselectie maken](images/test-drive-region.png)
 
-  De **bekijken - maken** API-console wordt geopend.
+  De **controleren - maken** API-console wordt geopend.
   
-3.  Geef waarden voor de vereiste queryparameters type inhoud en de abonnementssleutel van uw. In de **aanvraagtekst** geeft u de inhoud (bijvoorbeeld bevinden), metagegevens en andere informatie die is gekoppeld aan de inhoud.
+3.  Geef waarden op voor de vereiste queryparameters, inhoudstype en de abonnementssleutel van uw. In de **aanvraagtekst** geeft u de inhoud (bijvoorbeeld installatiekopie-locatie), metagegevens en andere informatie die is gekoppeld aan de inhoud.
 
-  ![Bekijk - console queryparameters, kopteksten en aanvraag hoofdtekst vak maken](images/test-drive-review-1.PNG)
+  ![Controleren - console queryparameters, headers en -vak voor hoofdtekst van aanvraag](images/test-drive-review-1.PNG)
   
-4.  Selecteer **Verzenden**. Een revisie-ID is gemaakt. Kopieer deze ID moet worden gebruikt in de volgende stappen uit.
+4.  Selecteer **Verzenden**. De ID van een toegangsbeoordeling is gemaakt. Kopieer deze ID in de volgende stappen gebruiken.
 
-  ![Bekijk - console antwoord inhoud vak geeft de revisie-ID maken](images/test-drive-review-2.PNG)
+  ![Controleren - console antwoord inhoud vak geeft de revisie-ID maken](images/test-drive-review-2.PNG)
   
-5.  Selecteer **ophalen**, en open vervolgens de API door de knop die overeenkomt met uw regio te selecteren. Voer de waarden voor op de resulterende pagina **teamName**, **ReviewID**, en **abonnementssleutel**. Selecteer de **verzenden** knop op de pagina. 
+5.  Selecteer **ophalen**, en open vervolgens de API door de knop die overeenkomt met uw regio te selecteren. Voer op de resulterende pagina, de waarden voor **teamName**, **ReviewID**, en **abonnementssleutel**. Selecteer de **verzenden** knop op de pagina. 
 
-  ![Bekijk - Get-resultaten voor console maken](images/test-drive-review-3.PNG)
+  ![Controleren - console Get resultaten maken](images/test-drive-review-3.PNG)
   
 6.  Hier ziet u de resultaten van de scan.
 
-  ![Bekijk - vak console antwoord inhoud maken](images/test-drive-review-4.PNG)
+  ![Controleren - vak console antwoord inhoud maken](images/test-drive-review-4.PNG)
   
-7.  Selecteer op het Dashboard inhoud beheerder **revisie** > **installatiekopie**. De gescande afbeelding wordt weergegeven, gereed voor menselijke revisie.
+7.  Selecteer op het Dashboard met Content Moderator, **revisie** > **installatiekopie**. De installatiekopie die u hebt gescand wordt weergegeven, klaar te maken voor menselijke beoordeling.
 
-  ![Hulpprogramma voor de installatiekopie van een voetbal controleren](images/test-drive-review-5.PNG)
+  ![Controleren of hulpprogramma installatiekopie van een voetbal](images/test-drive-review-5.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De REST API gebruiken in uw code of starten met de [beoordelingen .NET Quick Start](moderation-reviews-quickstart-dotnet.md) integreren met uw toepassing.
+De REST-API in uw code te gebruiken of beginnen met de [Snelstartgids voor .NET beoordelingen](moderation-reviews-quickstart-dotnet.md) om te integreren in uw toepassing.

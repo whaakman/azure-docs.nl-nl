@@ -9,16 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 320eef05faec6b3e399e5a1289e3ee076823c921
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c78de020e3cbaae6fccf2f981bb3601269ceba58
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346311"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859830"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IoT Edge-runtime installeren in Linux (ARM32v7/armhf)
 
-De Azure IoT Edge-runtime wordt geïmplementeerd op alle IoT Edge-apparaten. Het bevat drie onderdelen. De **IoT Edge security daemon** biedt en onderhoudt beveiligingsstandaarden op het Edge-apparaat. De daemon begint op elke keer opstarten en bootstrapt van het apparaat door de IoT Edge-agent wordt gestart. De **IoT Edge agent** vergemakkelijkt de implementatie en bewaking van modules op het Edge-apparaat, met inbegrip van de IoT Edge hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
+De Azure IoT Edge-runtime wordt geïmplementeerd op alle IoT Edge-apparaten. Deze bevat drie onderdelen. De **IoT Edge security daemon** biedt en onderhoudt beveiligingsstandaarden op het Edge-apparaat. De daemon begint op elke keer opstarten en bootstrapt van het apparaat door de IoT Edge-agent wordt gestart. De **IoT Edge agent** vergemakkelijkt de implementatie en bewaking van modules op het Edge-apparaat, met inbegrip van de IoT Edge hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
 
 In dit artikel bevat de stappen voor het installeren van de Azure IoT Edge-runtime op een Linux ARM32v7/armhf Edge-apparaat (bijvoorbeeld Raspberry Pi).
 
@@ -131,6 +131,9 @@ En lijst met modules met:
 ```cmd/sh
 sudo iotedge list
 ```
+>[!NOTE]
+>Voor de resource beperkte apparaten zoals RaspberryPi, het is raadzaam dat *OptimizeForPerformance* omgevingsvariabele is ingesteld op *false* volgens de instructies in de [ gids voor probleemoplossing.][lnk-trouble]
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -139,6 +142,7 @@ Als u problemen ondervindt met het Edge-runtime installeren goed, bekijk de [pro
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md
 [lnk-dps]: how-to-auto-provision-simulated-device-linux.md
+[lnk-trouble]: https://review.docs.microsoft.com/en-us/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

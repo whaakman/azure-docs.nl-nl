@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met U-SQL-taal in Azure Data Lake Analytics
-description: Leer de basisbeginselen van de U-SQL-taal in Azure Data Lake Analytics.
+description: Leer de basisprincipes van de U-SQL-taal in Azure Data Lake Analytics.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,29 +10,29 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: 2903046154808da5113f7b32a04bbfba254a07ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2d6688524e396a6e36f6d7f293f2930598afaad1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623448"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867280"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Aan de slag met U-SQL in Azure Data Lake Analytics
-U-SQL is een taal die combineert declaratieve SQL met imperatieve C# om u te laten verwerken van gegevens op elke schaal. Via de functie schaalbare, gedistribueerde query van U-SQL, kunt u gegevens efficiënt te analyseren in relationele winkels zoals Azure SQL Database. U kunt met de U-SQL, ongestructureerde gegevens verwerken met schema toepassen op lezen en het invoegen van aangepaste regels en UDF's. Daarnaast bevat U-SQL uitbreidbaarheid waarmee u fijnmazig controle over het uitvoeren van op grote schaal. 
+U-SQL is een taal die combineert verklarende SQL met imperatieve C# om u te laten verwerken van gegevens op elke schaal. Via de schaalbare, gedistribueerde query-mogelijkheid van U-SQL kunt u gegevens efficiënter analyseren in relationele winkels, zoals Azure SQL Database. U kunt met U-SQL, ongestructureerde gegevens verwerken door het schema toepassen op lezen en het invoegen van aangepaste logica en UDF's. U-SQL omvat daarnaast uitbreidbaarheid waarmee u heel nauwkeurig bepalen hoe u kunt om uit te voeren op schaal. 
 
-## <a name="learning-resources"></a>Trainingsmateriaal
+## <a name="learning-resources"></a>Learning-resources
 
-* De [U-SQL-zelfstudie](http://aka.ms/usqltutorial) biedt aanwijzingen van de meeste van de U-SQL-taal. Dit document wordt aanbevolen voor alle ontwikkelaars willen U-SQL te leren lezen.
+* De [U-SQL-zelfstudie](http://aka.ms/usqltutorial) biedt aanwijzingen van de meeste van de U-SQL-taal. Dit document wordt aanbevolen voor alle ontwikkelaars die voor meer informatie over U-SQL lezen.
 * Voor gedetailleerde informatie over de **U-SQL-syntaxis**, Zie de [naslaginformatie U-SQL-taal](http://go.microsoft.com/fwlink/p/?LinkId=691348).
-* Om te begrijpen de **U-SQL-ontwerpplan**, Zie het blogbericht Visual Studio [introductie van U-SQL: een taal die gemakkelijk grote gegevensverwerking](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+* Om te begrijpen de **U-SQL-ontwerpplan**, Zie het blogbericht Visual Studio [Maak kennis met U-SQL: een taal die Big Data-verwerking eenvoudig maakt](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u de U-SQL-voorbeelden in dit document doorloopt, lezen en voltooien [zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Deze zelfstudie wordt uitgelegd hoe het mechanisme van het gebruik van U-SQL met Azure Data Lake Tools voor Visual Studio.
+Voordat u de U-SQL-voorbeelden in dit document hebt doorlopen, lezen en uitvoeren [zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Deze zelfstudie wordt uitgelegd dat het mechanisme van het gebruik van U-SQL met Azure Data Lake Tools voor Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>Uw eerste U-SQL-script
 
-Het volgende U-SQL-script is eenvoudig en kan we verkennen veel aspecten van de U-SQL-taal.
+Het volgende U-SQL-script is eenvoudig en kan we veel aspecten verkennen de U-SQL-taal.
 
 ```
 @searchlog =
@@ -51,30 +51,30 @@ OUTPUT @searchlog
     USING Outputters.Csv();
 ```
 
-Dit script is geen transformatie stappen. Gelezen uit het bronbestand aangeroepen `SearchLog.tsv`, het schematizes en de rijenset terug naar een bestand met de naam SearchLog-first-u sql.csv schrijft.
+Met dit script beschikt niet over de transformatiestappen. Deze leest uit de bronbestand met de naam `SearchLog.tsv`, het schematizes en schrijft de rijenset terug in een bestand met de naam SearchLog-eerst-u-sql.csv.
 
-Let op het vraagteken naast de gegevens typt in het `Duration` veld. Betekent dit dat de `Duration` veld kan niet null zijn.
+Let op het vraagteken naast de gegevens typt in het `Duration` veld. Dit betekent dat de `Duration` veld kan niet null zijn.
 
 ### <a name="key-concepts"></a>Belangrijkste concepten
-* **Variabelen voor de rijenset**: elke query-expressie die een rijenset produceert kan worden toegewezen aan een variabele. U-SQL volgt de TSQL-variabele naamgevingspatroon (`@searchlog`, bijvoorbeeld) in het script.
-* De **EXTRAHEREN** sleutelwoord leest de gegevens uit een bestand en definieert u het schema bij lezen. `Extractors.Tsv` is een ingebouwde U-SQL zelfstandig uitpakken voor bestanden tabblad's gescheiden waarden. U kunt aangepaste extractie ontwikkelen.
-* De **uitvoer** schrijft gegevens uit een rijenset naar een bestand. `Outputters.Csv()` is een ingebouwde outputter U-SQL te maken van een bestand met door komma's gescheiden waarden. U kunt aangepaste outputters ontwikkelen.
+* **Variabelen voor de rijenset**: elke query-expressie die een rijenset produceert kan worden toegewezen aan een variabele. U-SQL volgt de variabele T-SQL-naamgevingspatroon (`@searchlog`, bijvoorbeeld) in het script.
+* De **EXTRAHEREN** trefwoord leest gegevens uit een bestand en bepaalt u het schema op lezen. `Extractors.Tsv` is een ingebouwde U-SQL-extractor voor bestanden van tabblad gescheiden waarden. U kunt aangepaste extractors ontwikkelen.
+* De **uitvoer** schrijft gegevens uit een rijenset naar een bestand. `Outputters.Csv()` is een ingebouwde U-SQL-outputter te maken van een bestand met door komma's gescheiden waarden. U kunt aangepaste outputters ontwikkelen.
 
 ### <a name="file-paths"></a>Bestandspaden
 
-De instructies uitpakken en uitvoer bestandspaden gebruiken. Absolute of relatieve zijn paden:
+De instructies uitpakken en uitvoer bestandspaden gebruiken. Bestandspaden kunnen absoluut of relatief zijn:
 
-Deze volgende absoluut bestandspad verwijst naar een bestand in een Data Lake Store met de naam `mystore`:
+Deze volgende absolute pad verwijst naar een bestand in een Data Lake Store met de naam `mystore`:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-Deze volgende bestandspad begint met `"/"`. Het verwijst naar een bestand in de standaard Data Lake Store-account:
+Deze volgende pad begint met `"/"`. Deze gegevensset verwijst naar een bestand in het Data Lake Store-account:
 
     /output/SearchLog-first-u-sql.csv
 
 ## <a name="use-scalar-variables"></a>Scalaire variabelen gebruiken
 
-U kunt ook scalaire variabelen gebruiken om uw script-onderhoud te vereenvoudigen. Het vorige U-SQL-script kan ook worden opgeslagen als:
+U kunt ook scalaire variabelen gebruiken om uw script onderhoud eenvoudiger. Het vorige U-SQL-script kan ook worden geschreven als:
 
     DECLARE @in  string = "/Samples/Data/SearchLog.tsv";
     DECLARE @out string = "/output/SearchLog-scalar-variables.csv";
@@ -96,7 +96,7 @@ U kunt ook scalaire variabelen gebruiken om uw script-onderhoud te vereenvoudige
 
 ## <a name="transform-rowsets"></a>Rijensets transformeren
 
-Gebruik **Selecteer** voor het transformeren van rijensets:
+Gebruik **Selecteer** rijensets transformeren:
 
     @searchlog =
         EXTRACT UserId          int,
@@ -118,7 +118,7 @@ Gebruik **Selecteer** voor het transformeren van rijensets:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-De WHERE-component gebruikt een [C# Boole-expressie](https://msdn.microsoft.com/library/6a71f45d.aspx). De taal C#-expressie kunt u uw eigen expressies en functies doen. U kunt zelfs uitvoeren complexere filteren ze te combineren met logische voegwoorden (programmapad en) en disjunctions (ORs).
+De WHERE-component gebruikt een [C# Booleaanse expressie](https://msdn.microsoft.com/library/6a71f45d.aspx). De computertaal C#-expressie kunt u uw eigen expressies en functies. U kunt zelfs uitvoeren meer complexe filteren door ze te combineren met logische voegwoorden (and) en disjunctions (or-items).
 
 Het volgende script maakt gebruik van de methode DateTime.Parse() en een combinatie.
 
@@ -148,14 +148,14 @@ Het volgende script maakt gebruik van de methode DateTime.Parse() en een combina
         USING Outputters.Csv();
 
  >[!NOTE]
- >De tweede query wordt uitgevoerd op het resultaat van de eerste rijenset die wordt gemaakt van een samenstelling van twee filters. U kunt ook een variabelenaam hergebruiken en de namen lexically zijn gericht.
+ >De tweede query wordt uitgevoerd op het resultaat van de eerste rijenset, die zorgt voor een samenstelling van de twee filters. U kunt ook opnieuw gebruiken met de naam van een variabele en de namen van de lexicaal zijn gericht.
 
 ## <a name="aggregate-rowsets"></a>Cumulatieve rijensets
-U-SQL biedt u de vertrouwde ORDER BY, GROUP BY en aggregaties.
+U-SQL kunt u de vertrouwde ORDER BY, GROUP BY en aggregaties.
 
-De volgende query vindt de totale duur per regio en wordt vervolgens de bovenste vijf duur in volgorde.
+De volgende query zoekt de totale duur per regio en geeft de top vijf duur in volgorde.
 
-U-SQL-rijensets blijven niet behouden in de volgorde voor de volgende query. Als u wilt bestellen uitvoer, moet u dus ORDER BY toevoegen aan de uitvoer-instructie:
+U-SQL-rijensets blijven niet behouden in de volgorde voor de volgende query. Om te bestellen uitvoer, moet u dus ORDER BY toevoegen aan de uitvoer-instructie:
 
     DECLARE @outpref string = "/output/Searchlog-aggregation";
     DECLARE @out1    string = @outpref+"_agg.csv";
@@ -195,9 +195,9 @@ U-SQL-rijensets blijven niet behouden in de volgorde voor de volgende query. Als
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-De component ORDER BY in de U-SQL, moet u de component FETCH in een SELECT-expressie.
+De component ORDER BY in de U-SQL, moet u de ophalen-component in een SELECT-expressie.
 
-De component U-SQL die kan worden gebruikt te beperken tot de uitvoer van de groepen die voldoen aan de HAVING-voorwaarde:
+De component die van U-SQL kan worden gebruikt voor de uitvoer beperkt tot groepen die voldoen aan de HAVING-voorwaarde:
 
     @searchlog =
         EXTRACT UserId          int,
@@ -223,7 +223,7 @@ De component U-SQL die kan worden gebruikt te beperken tot de uitvoer van de gro
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Voor geavanceerde aggregatie-scenario's, Zie de documentatie van de verwijzing naar de U-SQL voor [statistische analyse- en verwijzingstypen van functies](https://msdn.microsoft.com/library/azure/mt621335.aspx)
+Zie voor aggregatie van geavanceerde scenario's, naslagdocumentatie over de U-SQL voor [statistische analyse- en verwijzen naar functies](https://msdn.microsoft.com/library/azure/mt621335.aspx)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

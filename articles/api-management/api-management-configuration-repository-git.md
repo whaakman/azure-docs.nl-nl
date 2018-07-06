@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 87381a27a59d6719f4bfff9ed367598932c1985c
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436400"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857528"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met behulp van Git
 
@@ -227,7 +227,7 @@ De `apis` een map bevat voor elke API in de service-exemplaar dat de volgende it
 De `groups` map bevat een map voor elke groep die is gedefinieerd in het service-exemplaar.
 
 * `groups\<group name>\configuration.json` -Dit is de configuratie voor de groep. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifieke groep](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) bewerking.
-* `groups\<group name>\description.html` -Dit is de beschrijving van de groep en komt overeen met de `description` eigenschap van de [groep entiteit](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\description.html` -Dit is de beschrijving van de groep en komt overeen met de `description` eigenschap van de [groep entiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>map beleid
 De `policies` map bevat de beleidsinstructies voor uw service-exemplaar.

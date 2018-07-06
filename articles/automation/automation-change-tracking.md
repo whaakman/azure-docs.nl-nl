@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79d64a5a7eb339c6904fe026209292202632f640
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342008"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867950"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -57,6 +57,7 @@ Gebruik de volgende stappen voor het configureren van bestand bijhouden op Linux
 |Recursie     | Bepaalt of recursie wordt gebruikt bij het zoeken naar het item dat moet worden bijgehouden.        |
 |Sudo gebruiken     | Deze instelling bepaalt of sudo wordt gebruikt bij het controleren op het item.         |
 |Koppelingen     | Deze instelling bepaalt hoe symbolische koppelingen worden afgehandeld bij het doorlopen van mappen.<br> **Negeren** - symbolische koppelingen worden genegeerd en maakt geen deel uit van de bestanden/mappen waarnaar wordt verwezen.<br>**Ga als volgt** - symbolische koppelingen worden gevolgd tijdens recursie en bevat ook de bestanden/mappen waarnaar wordt verwezen.<br>**Beheren** - symbolische koppelingen worden en kunnen wijzigen van de geretourneerde inhoud.     |
+|Bestandsinhoud voor alle instellingen uploaden| Hiermee schakelt u in of uit bestand inhoud te uploaden bijgehouden wijzigingen. Beschikbare opties: **waar** of **False**.|
 
 > [!NOTE]
 > Het gebruik van de optie 'Beheren' voor koppelingen wordt niet aanbevolen. Het ophalen van bestandsinhoud wordt niet ondersteund.
@@ -75,6 +76,13 @@ Gebruik de volgende stappen uit om te configureren op Windows-computers bijhoude
 |Itemnaam     | Beschrijvende naam van het bestand moet worden bijgehouden.        |
 |Groep     | De groepsnaam van een voor logisch groeperen van bestanden.        |
 |Pad invoeren     | Het pad voor het controleren op het bestand, bijvoorbeeld: "C:\temp\myfile.txt"       |
+|Bestandsinhoud voor alle instellingen uploaden| Hiermee schakelt u in of uit bestand inhoud te uploaden bijgehouden wijzigingen. Beschikbare opties: **waar** of **False**.|
+
+## <a name="configure-file-content-tracking"></a>Configureren van bestandsinhoud bijhouden
+
+U vindt de inhoud voor en na een wijziging van een bestand met bestand inhoud wijzigingen bijhouden. Dit is beschikbaar voor Windows en Linux-bestanden, voor elke wijziging van het bestand, de inhoud van het bestand is opgeslagen in een storage-account en ziet u het bestand voor en na de wijziging, inline of naast elkaar. Zie voor meer informatie, [weergeven van de inhoud van een bestand bijgehouden](change-tracking-file-contents.md).
+
+![wijzigingen in een bestand weergeven](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Windows-registersleutels om bij te houden
 

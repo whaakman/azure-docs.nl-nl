@@ -1,6 +1,6 @@
 ---
 title: Continue integratie en implementatie in Azure Data Factory | Microsoft Docs
-description: Informatie over het gebruik van continue integratie en implementatie voor de Data Factory-pijplijnen verplaatsen van de ene omgeving (ontwikkeling, testen, productie) naar een andere.
+description: Informatie over het gebruik van continue integratie en implementatie Data Factory-pijplijnen verplaatsen van de ene omgeving (ontwikkeling, testen, productie) naar een andere.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,76 +12,76 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: douglasl
-ms.openlocfilehash: febd43586ab3006303143ca04ce8a37941a6fd60
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ee01980229495d9b3f372ec85ee874955c291e5c
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268162"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868317"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Continue integratie en implementatie in Azure Data Factory
 
-Continue integratie is de praktijk van elke wijziging om te testen uw codebase automatisch en zo spoedig mogelijk. Doorlopende implementatie volgt de tests die er gebeurt tijdens continue integratie en wijzigingen verstuurd naar een test- of productieomgeving-systeem.
+Continue integratie is het testen van elke wijziging gereed om terug te uw codebasis automatisch en zo vroeg mogelijk. Continue implementatie volgt de tests die plaatsvindt tijdens de continue integratie en verstuurd van wijzigingen naar een systeem fasering of productie.
 
-Betekent zwevend Data Factory-pijplijnen van de ene omgeving (ontwikkeling, testen, productie) naar een andere voor Azure Data Factory continue integratie en implementatie. Hiertoe continue integratie en implementatie, kunt u Data Factory-UI-integratie met Azure Resource Manager-sjablonen. De Data Factory-gebruikersinterface Resource Manager-sjabloon kan worden gegenereerd wanneer u selecteert de **ARM-sjabloon** opties. Wanneer u selecteert **exporteren ARM-sjabloon**, de portal wordt gegenereerd voor de Resource Manager-sjabloon voor de gegevensfactory en een configuratiebestand dat alle verbindingen-tekenreeksen en andere parameters bevat. Hebt u een configuratiebestand voor elke omgeving (ontwikkeling, testen, productie) maken. Het belangrijkste Resource Manager-sjabloonbestand blijft hetzelfde voor alle omgevingen.
+Betekent verplaatsen Data Factory-pijplijnen van de ene omgeving (ontwikkeling, testen, productie) naar een andere voor Azure Data Factory, doorlopende integratie en implementatie. Als u wilt doen doorlopende integratie en implementatie, kunt u Data Factory-UI-integratie met Azure Resource Manager-sjablonen. De gebruikersinterface van Data Factory een Resource Manager-sjabloon kunt genereren wanneer u selecteert de **ARM-sjabloon** opties. Wanneer u selecteert **exporteren ARM-sjabloon**, de portal voor het Resource Manager-sjabloon voor de data factory en een configuratiebestand met alle tekenreeksen in uw verbindingen en andere parameters wordt gegenereerd. Vervolgens moet u maken van een configuratiebestand voor elke omgeving (ontwikkeling, testen, productie). Het belangrijkste Resource Manager-sjabloonbestand blijft hetzelfde voor alle omgevingen.
 
-Bekijk de volgende video voor een inleiding negen minuten en demonstratie van deze functie:
+Bekijk de volgende video voor een 9 minuten durende inleiding en demonstratie van deze functie:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
-## <a name="create-a-resource-manager-template-for-each-environment"></a>Resource Manager-sjabloon voor elke omgeving maken
-Selecteer **exporteren ARM-sjabloon** exporteren van de Resource Manager-sjabloon voor uw gegevensfactory in de ontwikkelomgeving.
+## <a name="create-a-resource-manager-template-for-each-environment"></a>Een Resource Manager-sjabloon voor elke omgeving maken
+Selecteer **exporteren ARM-sjabloon** voor het exporteren van de Resource Manager-sjabloon voor uw gegevensfactory in de ontwikkelomgeving.
 
 ![](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-Vervolgens gaat u naar uw gegevensfactory test en productie gegevensfactory en selecteer **importeren ARM-sjabloon**.
+Vervolgens gaat u naar uw gegevensfactory testen en productie data factory en selecteer **importeren ARM-sjabloon**.
 
 ![](media/continuous-integration-deployment/continuous-integration-image2.png)
 
-Deze actie gaat u naar de Azure-portal waar u de geëxporteerde sjabloon kunt importeren. Selecteer **bouwen van uw eigen sjabloon in de editor** en vervolgens **bestand laden** en selecteer de gegenereerde Resource Manager-sjabloon. Geef de instellingen en de gegevensfactory en de volledige pijplijn is geïmporteerd in uw productieomgeving.
+Hiermee gaat u naar de Azure-portal, waar u de geëxporteerde sjabloon kunt importeren. Selecteer **bouw uw eigen sjabloon in de editor** en vervolgens **bestand laden** en selecteer de gegenereerde Resource Manager-sjabloon. Geef de instellingen en de data factory en de hele pijplijn wordt geïmporteerd in uw productieomgeving.
 
 ![](media/continuous-integration-deployment/continuous-integration-image3.png)
 
 ![](media/continuous-integration-deployment/continuous-integration-image4.png)
 
-Selecteer **bestand laden** Selecteer van de geëxporteerde Resource Manager-sjabloon en geef alle configuratiewaarden (bijvoorbeeld, gekoppelde services).
+Selecteer **bestand laden** voor het selecteren van de geëxporteerde Resource Manager-sjabloon en geef alle configuratiewaarden (bijvoorbeeld, gekoppelde services).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
-## <a name="continuous-integration-lifecycle"></a>Continue integratie levenscyclus
-Hier wordt de hele levenscyclus voor continue integratie en implementatie die u kunt gebruiken nadat u VSTS GIT-integratie in de gebruikersinterface van Data Factory inschakelen:
+## <a name="continuous-integration-lifecycle"></a>Levenscyclus van continue integratie
+Hier wordt de hele levenscyclus voor doorlopende integratie en implementatie die u kunt gebruiken nadat u VSTS GIT-integratie in de Data Factory-gebruikersinterface ingeschakeld:
 
-1.  Stel een gegevensfactory ontwikkeling met VSTS waarin alle ontwikkelaars Data Factory-bronnen zoals pijplijnen en gegevenssets kunnen schrijven.
+1.  Instellen van een gegevensfactory ontwikkeling met VSTS waarin alle ontwikkelaars Data Factory-resources, zoals de pijplijnen en gegevenssets kunnen maken.
 
-2.  Vervolgens kunnen ontwikkelaars resources zoals pijplijnen wijzigen. Terwijl ze hun wijzigingen doorvoert, kunnen ze selecteren **Debug** om te zien hoe de pijplijn wordt uitgevoerd met de meest recente wijzigingen.
+2.  Ontwikkelaars kunnen vervolgens resources zoals pijplijnen wijzigen. Wanneer ze hun wijzigingen aanbrengt, kunnen ze selecteren **Debug** om te zien hoe de pijplijn wordt uitgevoerd met de meest recente wijzigingen.
 
-3.  Nadat de ontwikkelaars tevreden bent met hun wijzigingen, kunnen ze een pull-aanvraag maken vanuit hun vertakking naar de hoofdvertakking (of de vertakking samenwerking) hun beoordeeld door peers wijzigingen op te halen.
+3.  Nadat ontwikkelaars tevreden met hun wijzigingen bent, kunnen ze een pull-aanvraag maken van de vertakking naar de master-vertakking (of de vertakking samenwerking) om op te halen van hun wijzigingen gecontroleerd door de peers.
 
-4.  Nadat wijzigingen in de hoofdvertakking zijn, kunnen ze publiceren naar de factory ontwikkeling door te selecteren **publiceren**.
+4.  Nadat wijzigingen in de master-vertakking zijn, kunnen ze publiceren naar de factory ontwikkeling door te selecteren **publiceren**.
 
-5.  Wanneer het team klaar is voor wijzigingen in de fabriek test en de productie-factory promoveren, kunnen zij de Resource Manager-sjabloon exporteren vanuit de hoofdvertakking of vanuit een andere vertakking als hun hoofdvertakking een back-up de live Data Factory-ontwikkeling.
+5.  Wanneer het team gereed om te promoten wijzigingen in de fabriek test en de productie-factory is, kunnen zij de Resource Manager-sjabloon exporteren vanuit de master-vertakking of vanuit een andere vertakking in het geval de master-vertakking back-ups de live Data Factory-ontwikkeling.
 
-6.  De geëxporteerde Resource Manager-sjabloon kan worden geïmplementeerd met andere bestanden naar de fabriek test en de productie-factory.
+6.  De geëxporteerde Resource Manager-sjabloon kan worden geïmplementeerd met andere parameterbestanden voor de factory test en de productie-factory.
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>Continue integratie met VSTS Releases automatiseren
 
-Hier volgen de stappen voor het instellen van een Release VSTS zodat u kunt de implementatie van een gegevensfactory om meerdere omgevingen te automatiseren.
+Hier volgen de stappen voor het instellen van een VSTS-Release, zodat u kunt de implementatie van een data factory om meerdere omgevingen te automatiseren.
 
 ![Diagram van continue integratie met VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Vereisten
 
--   Een Azure-abonnement is gekoppeld aan het Team Foundation Server of VSTS gebruikt de [ *Azure Resource Manager-service-eindpunt*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   Een Azure-abonnement is gekoppeld voor het gebruik van Team Foundation Server of VSTS de [ *Azure Resource Manager-service-eindpunt*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
--   Een Gegevensfactory met VSTS Git geconfigureerd.
+-   Een Data Factory met VSTS Git geconfigureerd.
 
 -   Een [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) met de geheimen.
 
-### <a name="set-up-a-vsts-release"></a>Een Release VSTS instellen
+### <a name="set-up-a-vsts-release"></a>Een VSTS-versie instellen
 
-1.  Ga naar de pagina VSTS in hetzelfde project als het account dat is geconfigureerd met de Data Factory.
+1.  Ga naar uw VSTS-pagina in hetzelfde project als het account dat is geconfigureerd met de Data Factory.
 
-2.  Klik op het bovenste menu **bouwen en de vrijgave van** &gt; **Releases** &gt; **maken release definitie**.
+2.  Klik op het bovenste menu **Build and Release** &gt; **Releases** &gt; **release-definitie maken**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -89,41 +89,41 @@ Hier volgen de stappen voor het instellen van een Release VSTS zodat u kunt de i
 
 4.  Voer de naam van uw omgeving.
 
-5.  Voeg een Git-artefacten en selecteert u dezelfde repo geconfigureerd met de Data Factory. Kies `adf_publish` als de standaardvertakking met de meest recente standaardversie.
+5.  Een Git-artefact toevoegen en selecteer de dezelfde opslagplaats is geconfigureerd met de Data Factory. Kies `adf_publish` als de standaardvertakking met de meest recente standaardversie.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 7.  Een implementatie van Azure Resource Manager-taak toevoegen:
 
-    a.  Nieuwe taak maken, zoekt u **Azure Resource Group Deployment**, en voeg deze toe.
+    a.  Nieuwe taak maken, te zoeken naar **Azure Resource Group Deployment**, en voeg deze toe.
 
-    b.  In de taak voor implementatie, kiest u het abonnement, resourcegroep en locatie voor het Data Factory-doel en geef referenties, indien nodig.
+    b.  In de implementatie-taak, kies het abonnement, resourcegroep en locatie voor het doel van Data Factory en referenties opgeven indien nodig.
 
-    c.  Selecteer de **resourcegroep maken of bijwerken** in te grijpen.
+    c.  Selecteer de **resourcegroep maken of bijwerken** actie.
 
-    d.  Selecteer **...** in de **sjabloon** veld. Bladeren naar het Resource Manager-sjabloon (*ARMTemplateForFactory.json*) die is gemaakt door de actie publiceren in de portal. Zoekt u naar dit bestand in de map `<FactoryName>` van de `adf_publish` vertakking.
+    d.  Selecteer **...** in de **sjabloon** veld. Bladeren naar het Resource Manager-sjabloon (*ARMTemplateForFactory.json*) die is gemaakt door de actie publiceren in de portal. Zoek naar dit bestand in de map `<FactoryName>` van de `adf_publish` vertakking.
 
-    e.  Doe hetzelfde voor het parameterbestand. Kies het juiste bestand afhankelijk van of u een kopie gemaakt of u het standaardbestand *ARMTemplateParametersForFactory.json*.
+    e.  Doe hetzelfde voor de parameterbestand. Kies het juiste bestand, afhankelijk van of u een kopie gemaakt of u het standaardbestand *ARMTemplateParametersForFactory.json*.
 
-    f.  Selecteer **...** naast de **overschrijven Sjabloonparameters** veld en de gegevens voor het Data Factory-doel in te vullen. Voor de referenties die afkomstig zijn van de sleutelkluis, gebruikt dezelfde naam voor het geheim in de volgende indeling: ervan uitgaande dat de naam van het geheim `cred1`, voer `"$(cred1)"` (tussen aanhalingstekens).
+    f.  Selecteer **...** naast de **overschrijven Sjabloonparameters** veld en vul de gegevens voor het doel van Data Factory. Voor de referenties die worden geleverd vanuit key vault, gebruikt u dezelfde naam voor het geheim in de volgende indeling: ervan uitgaande dat de naam van het geheim is `cred1`, voer `"$(cred1)"` (tussen aanhalingstekens).
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 8.  Sla de release-definitie.
 
-9.  Maak een nieuwe release van de definitie van deze release.
+9.  Maak een nieuwe versie van deze release-definitie.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
-### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Optioneel: de geheimen van Azure Sleutelkluis ophalen
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Optioneel: de geheimen ophalen uit Azure Key Vault
 
-Als u geheimen om door te geven in een Azure Resource Manager-sjabloon hebt, raden wij u aan met Azure Key Vault met de release VSTS.
+Als u geheimen om door te geven in een Azure Resource Manager-sjabloon hebt, raden wij met behulp van Azure Key Vault met de VSTS-release.
 
 Er zijn twee manieren voor het afhandelen van de geheimen:
 
-1.  De geheimen aan parameterbestand toevoegen. Zie voor meer informatie [Azure Sleutelkluis gebruiken voor veilige parameterwaarde worden doorgegeven tijdens de implementatie van](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+1.  De geheimen toevoegen aan het parameterbestand. Zie voor meer informatie, [Azure Key Vault gebruikt om door te geven beveiligde parameterwaarde tijdens de implementatie van](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-    -   Maak een kopie van de parameterbestand dat is geüpload naar de vertakking publiceren en stel de waarden van de parameters die u wilt ophalen uit de sleutelkluis met de volgende indeling:
+    -   Maak een kopie van de parameterbestand dat is geüpload naar de vertakking publiceren en stel de waarden van de parameters die u wilt ophalen uit key vault met de volgende indeling:
 
     ```json
     {
@@ -140,29 +140,29 @@ Er zijn twee manieren voor het afhandelen van de geheimen:
     }
     ```
 
-    -   Wanneer u deze methode gebruikt, wordt het geheim automatisch opgehaald uit de sleutelkluis.
+    -   Wanneer u deze methode gebruikt, wordt het geheim automatisch opgehaald uit de key vault.
 
-    -   De parameterbestand moet zich in de publiceren onderliggende items.
+    -   Het parameterbestand moet zich in de vertakking publiceren ook.
 
-2.  Voeg een [Azure Key Vault taak](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) voordat de implementatie van Azure Resource Manager in de vorige sectie beschreven:
+2.  Voeg een [Azure Key Vault-taak](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) voordat u de Azure Resource Manager-implementatie in de vorige sectie beschreven:
 
     -   Selecteer de **taken** tabblad, een nieuwe taak maken, zoekt u **Azure Key Vault** en toe te voegen.
 
-    -   Kies in de Sleutelkluis-taak, het abonnement waarin u de sleutelkluis hebt gemaakt, Geef indien nodig referenties in en kies vervolgens de sleutelkluis.
+    -   Kies in de Key Vault-taak, het abonnement waarin u de sleutelkluis hebt gemaakt, geeft u indien nodig referenties in en kies vervolgens de key vault.
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>Machtigingen verlenen voor de agent VSTS
-De taak Azure Key Vault mislukken de eerste keer met een fout toegang geweigerd. De logboeken voor de versie downloaden en zoek de `.ps1` bestand met de opdracht uit om machtigingen geven voor de agent VSTS. U kunt de opdracht rechtstreeks uitvoeren of u kunt kopiëren van de principal-ID uit het bestand en het toegangsbeleid handmatig toevoegen in de Azure portal. (*Ophalen* en *lijst* de minimale machtigingen zijn vereist).
+### <a name="grant-permissions-to-the-vsts-agent"></a>Machtigingen verlenen voor de VSTS-agent
+De Azure Key Vault-taak mislukken de eerste keer met een foutbericht over geweigerde toegang. De logboeken voor de versie te downloaden, en Ga naar de `.ps1` -bestand met de opdracht uit om machtigingen te geven met de VSTS-agent. U kunt de opdracht rechtstreeks uitvoeren, of u kunt kopiëren van de principal-ID uit het bestand en het handmatig toevoegen van het toegangsbeleid in Azure portal. (*Ophalen* en *lijst* zijn de minimale machtigingen die zijn vereist).
 
 ### <a name="update-active-triggers"></a>Actieve triggers bijwerken
-Implementatie kan mislukken als u probeert bij te werken, actief triggers. Voor het actieve triggers bijwerken, moet u handmatig te stoppen en starten na de implementatie. U kunt een Azure Powershell-taak toevoegen voor dit doel, zoals wordt weergegeven in het volgende voorbeeld:
+Implementatie kan mislukken als u probeert active triggers bijwerken. Voor het actieve triggers bijwerken, moet u handmatig ze stopt en start deze na de implementatie. U kunt een Azure Powershell-taak toevoegen voor dit doel, zoals wordt weergegeven in het volgende voorbeeld:
 
-1.  Zoek in het tabblad taken van de Release VSTS op **Azure Powershell** en toe te voegen.
+1.  Zoek in het tabblad taken van de VSTS Release **Azure Powershell** en toe te voegen.
 
-2.  Kies **Azure Resource Manager** als de verbinding typt u en uw abonnement te selecteren.
+2.  Kies **Azure Resource Manager** als de verbinding typt en selecteer uw abonnement.
 
-3.  Kies **Inline-Script** als het script typt en geef vervolgens uw code. Het volgende voorbeeld wordt de triggers gestopt:
+3.  Kies **Inline Script** als het script typt en geef vervolgens uw code. Het volgende voorbeeld stopt de triggers:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -172,13 +172,13 @@ Implementatie kan mislukken als u probeert bij te werken, actief triggers. Voor 
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-U kunt dezelfde stappen volgen en vergelijkbare code (met de `Start-AzureRmDataFactoryV2Trigger` functie) opnieuw opstarten van de triggers na de implementatie.
+U kunt uitvoeren van gelijksoortige stappen en vergelijkbare code gebruiken (met de `Start-AzureRmDataFactoryV2Trigger` functie) opnieuw op te starten van de triggers na de implementatie.
 
-## <a name="sample-template-and-script"></a>Voorbeeldsjabloon en scripts
-Hier vindt u twee voorbeelden die u aan de slag met continue integratie en implementatie voor Data Factory kunt gebruiken:
+## <a name="sample-template-and-script"></a>Voorbeeldsjabloon en het script
+Hier volgen twee voorbeelden die u aan de slag met continue integratie en implementatie voor Data Factory kunt gebruiken:
 
--   Een voorbeeld implementatiesjabloon die u in VSTS importeren kunt.
--   Een voorbeeld van een script te stoppen triggers vóór de implementatie en daarna triggers wordt opgestart. Het script bevat ook de code voor het verwijderen van de resources die zijn verwijderd.
+-   Een implementatiesjabloon voorbeeld dat u in VSTS importeren kunt.
+-   Een voorbeeld van een script triggers vóór de implementatie te stoppen en opnieuw opstarten daarna wordt geactiveerd. Het script bevat ook de code voor het verwijderen van resources die zijn verwijderd.
 
 Hier volgt een voorbeeld-implementatiesjabloon die u in VSTS importeren kunt.
 
@@ -718,7 +718,7 @@ Hier volgt een voorbeeld-implementatiesjabloon die u in VSTS importeren kunt.
 }
 ```
 
-Hier volgt een voorbeeld van een script te stoppen triggers vóór de implementatie en daarna triggers wordt opgestart:
+Hier volgt een voorbeeld van een script om te stoppen triggers vóór de implementatie en triggers daarna opnieuw starten:
 
 ```powershell
 param
@@ -794,3 +794,94 @@ else {
     $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
 }
 ```
+
+## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Aangepaste parameters met de Resource Manager-sjabloon gebruiken
+
+U kunt aangepaste parameters voor de Resource Manager-sjabloon definiëren. U hoeft alleen te hebben van een bestand met de naam `arm-template-parameters-definition.json` in de hoofdmap van de opslagplaats. (Naam van het bestand moet overeenkomen met de naam exact hieronder.) Data Factory probeert te lezen van het bestand, vanuit welke vertakking u momenteel werkt, niet alleen de vertakking samenwerking. Als er geen bestand wordt gevonden, wordt in Data Factory maakt gebruik van de standaarddefinities.
+
+Het volgende voorbeeld ziet een voorbeeldbestand voor parameters. Dit voorbeeld gebruiken als uitgangspunt om uw eigen aangepaste parameters-bestand te maken. Als het bestand dat u zich niet in de juiste JSON-indeling, wordt in Data Factory voert een foutbericht weergegeven in de browserconsole en keert terug naar de standaarddefinities die wordt weergegeven in de gebruikersinterface van Data Factory.
+
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {},
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }
+    }
+}
+```
+

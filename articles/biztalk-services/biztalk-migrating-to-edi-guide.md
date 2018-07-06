@@ -1,5 +1,5 @@
 ---
-title: BizTalk Server EDI-oplossingen migreren naar technische handleiding voor BizTalk Services | Microsoft Docs
+title: BizTalk Server EDI-oplossingen migreren naar BizTalk Services technische handleiding | Microsoft Docs
 description: EDI migreren naar MABS; Microsoft Azure BizTalk Services
 services: biztalk-services
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 1b70fc3d199d7f1521acb534dafec8fb3e69500e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa7028bb37ac4c2c313efce2afebc1dc5e814d2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23843488"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860075"
 ---
 # <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI-oplossingen migreren naar BizTalk Services: technische handleiding
 
@@ -29,99 +29,99 @@ Auteur: Tim Wieman en Mirchandani Mehrotra
 
 Revisoren: Karthik Bharthy
 
-Geschreven met behulp van: Microsoft Azure BizTalk Services – februari 2014-release.
+Met behulp van geschreven: Microsoft Azure BizTalk Services – februari 2014-release.
 
 ## <a name="introduction"></a>Inleiding
-Elektronische Data Interchange (EDI) is een van de meest gangbare manier waarop bedrijven exchange de gegevens elektronisch, ook als Business-to-Business- of B2B genoemd. BizTalk Server heeft EDI-ondersteuning voor via een tien jaar na de initiële release van BizTalk Server. Met BizTalk Services blijft Microsoft de ondersteuning voor EDI-oplossingen op de Microsoft Azure-platform. B2B-transacties zijn voornamelijk buiten een organisatie en daarom is het gemakkelijker te implementeren als deze is geïmplementeerd op een cloudplatform. Microsoft Azure biedt deze mogelijkheid via BizTalk Services.
+(EDI, Electronic Data Interchange) is een van de meest voorkomende manier waarop bedrijven exchange de gegevens elektronisch, ook als Business-to-Business- of B2B-transacties worden genoemd. BizTalk Server heeft EDI-ondersteuning voor meer dan een decennium, sinds de eerste release van BizTalk Server. Microsoft blijft de ondersteuning voor EDI-oplossingen met BizTalk Services, de op het Microsoft Azure-platform. B2B-transacties worden meestal buiten een organisatie en daarom is het gemakkelijker te implementeren als deze is geïmplementeerd op een cloudplatform. Microsoft Azure biedt deze mogelijkheid tot en met BizTalk Services.
 
-Terwijl sommige klanten BizTalk Services als een platform 'greenfield' voor nieuwe EDI-oplossingen bekijkt, hebben veel klanten huidige BizTalk Server EDI-oplossingen die willen migreren naar Azure. Omdat BizTalk Services EDI is ontworpen is op basis van de entiteiten voor dezelfde sleutel als BizTalk Server EDI-architectuur (handel partners, entiteiten, overeenkomsten), het mogelijk om te migreren van BizTalk Server EDI-artefacten naar BizTalk Services.
+Hoewel sommige klanten naar BizTalk Services als een 'greenfield'-platform voor het nieuwe EDI-oplossingen kijkt, hebben veel klanten huidige BizTalk Server EDI-oplossingen die ze wilt migreren naar Azure. Omdat EDI van BizTalk Services is ontworpen is op basis van de dezelfde voornaamste entiteiten als BizTalk Server EDI-architectuur (trading partners, entiteiten, overeenkomsten), het mogelijk om te migreren van BizTalk Server EDI-artefacten naar BizTalk Services.
 
-Dit document worden enkele van de verschillen zijn betrokken bij migratie BizTalk Server EDI-artefacten BizTalk Services beschreven. Dit document wordt ervan uitgegaan dat een praktische kennis van de BizTalk Server EDI-verwerking en Trading Partner overeenkomsten. Zie voor meer informatie over BizTalk Server EDI [Trading Partner met behulp van BizTalk beheerserver](https://msdn.microsoft.com/library/bb259970.aspx).
+Dit document komen enkele van de verschillen die betrokken zijn bij het migreren van BizTalk Server EDI-artefacten naar BizTalk Services. Dit document wordt ervan uitgegaan dat een praktische kennis van BizTalk Server EDI-verwerking en Trading Partner overeenkomsten. Zie voor meer informatie over BizTalk Server EDI [Trading Partner met behulp van BizTalk-beheerserver](https://msdn.microsoft.com/library/bb259970.aspx).
 
 ## <a name="which-version-of-biztalk-server-edi-artifacts-can-be-migrated-to-biztalk-services"></a>Welke versie van BizTalk Server EDI-artefacten kan worden gemigreerd naar BizTalk Services?
-De BizTalk Server EDI-module is aanzienlijk verbeterd voor BizTalk Server 2010, wanneer deze opnieuw is gemodelleerd naar partners, profielen en overeenkomsten bevatten. BizTalk Services maakt gebruik van hetzelfde model om de handelspartners en de zakelijke afdelingen binnen deze handelspartners te organiseren. Als gevolg hiervan is EDI-artefacten van BizTalk Server 2010 en nieuwere versies voor BizTalk Services migreert, een veel meer eenvoudig proces. Als u wilt migreren die zijn gekoppeld aan versies voorafgaand aan de BizTalk Server 2010 EDI-artefacten, moet u eerst een upgrade naar BizTalk Server 2010 en vervolgens uw EDI-artefacten te migreren naar BizTalk Services.
+De BizTalk Server EDI-module is aanzienlijk verbeterd voor BizTalk Server 2010, wanneer deze opnieuw om op te nemen van partners, profielen, en overeenkomsten is gemodelleerd. BizTalk Services maakt gebruik van hetzelfde model om de handelspartners en de business-divisies binnen deze handelspartners te organiseren. Als gevolg hiervan is EDI-artefacten van BizTalk Server 2010 en latere versies naar BizTalk Services migreert, een nog veel meer eenvoudig proces. Als u wilt migreren EDI-artefacten die zijn gekoppeld aan versies voorafgaand aan BizTalk Server 2010, moet u eerst een upgrade naar BizTalk Server 2010 en vervolgens uw EDI-artefacten te migreren naar BizTalk Services.
 
-## <a name="scenariosmessage-flow"></a>Scenario's / berichtenstroom
-Als met BizTalk Server is EDI verwerking van BizTalk Services gebaseerd op een oplossing Trading Partner Management (TPM). De TPM-oplossing heeft de volgende hoofdonderdelen:
+## <a name="scenariosmessage-flow"></a>Scenario's / stroom
+Als met BizTalk Server is EDI-verwerking van BizTalk Services gebaseerd op een oplossing Trading Partner Management (TPM). De TPM-oplossing heeft de volgende belangrijke onderdelen:
 
-* Handelspartners, die de organisatie in een transactie B2B vertegenwoordigen.
+* Handelspartners, welke organisatie in een B2B-transacties vertegenwoordigen.
 * Profielen die afdelingen binnen een trading partner vertegenwoordigen.
-* Trading partner overeenkomsten (of overeenkomsten) die staan voor de zakelijke overeenkomst tussen de twee partners/profielen.
+* Trading partner overeenkomsten (of overeenkomsten), die staan voor de zakelijke overeenkomst tussen de twee partners/profielen.
 
-De volgende afbeelding ziet de overeenkomsten, evenals de verschillen tussen een BizTalk Server EDI-oplossing en de BizTalk Services EDI-oplossing:
+De volgende afbeelding ziet u de overeenkomsten, evenals de verschillen tussen een BizTalk Server EDI-oplossing en de BizTalk Services EDI-oplossing:
 
 ![][EDImessageflow]
 
-De belangrijkste verschillen en overeenkomsten tussen een stroom EDI-oplossing in BizTalk Server en BizTalk Services zijn:
+De belangrijkste verschillen en overeenkomsten tussen een EDI-oplossingsstroom in BizTalk Server en BizTalk Services zijn:
 
-* Net zoals BizTalk Server gebruikmaakt van een pijplijn EDIReceive voor het ontvangen van een EDI-bericht en een pijplijn EDISend EDI-berichten wilt verzenden, gebruikt de BizTalk Services een brug EDI ontvangen voor het ontvangen en verzenden EDI-brug EDI-berichten verzenden. BizTalk Server pijplijnen zijn gekoppeld aan een overeenkomst met behulp van verzenden of ontvangen van poorten. De overeenkomst zelf geeft de verzenden of ontvangen over de sitekoppelingsbrug in BizTalk Services.
-* Nadat de pijplijn EDIReceive het EDI-bericht verwerkt, wordt het bericht in BizTalk Server gedumpt met een SQL Server-database. De pijplijn EdiSend vervolgens haalt het bericht uit de SQL Server-database, verwerkt en verstuurt het vervolgens aan de trading partner.
+* Net zoals een pijplijn EDIReceive BizTalk Server gebruikt voor het ontvangen van een EDI-bericht en een pijplijn EDISend een EDI-bericht te verzenden, gebruikt de BizTalk Services een brug EDI ontvangen voor het ontvangen en verzenden EDI-brug EDI-berichten verzenden. De pijplijnen zijn gekoppeld aan een overeenkomst met behulp van verzenden of ontvangen van poorten in BizTalk Server. De overeenkomst zelf geeft aan het verzenden of ontvangen van brug in BizTalk Services.
+* Nadat de pijplijn EDIReceive de EDI-bericht verwerkt, wordt het bericht in BizTalk Server gedumpt met een SQL Server-database. De pijplijn EdiSend vervolgens neemt het bericht uit de SQL Server-database, verwerkt en verzendt die gegevens vervolgens uit naar de trading partner.
   
-    In BizTalk Services nadat de EDI ontvangen bridge verwerkt het EDI-bericht, wordt het bericht gerouteerd naar een extern proces. Het externe proces kan worden uitgevoerd op Microsoft Azure of on-premises. Het externe proces moet het bericht doorsturen naar de EDI verzenden brug; het bericht heeft geen inherent pull-de brug verzenden. Na het verwerken van het bericht, stuurt de brug EDI-verzenden het bericht naar de trading partner.
+    In BizTalk Services, nadat de EDI ontvangen bridge verwerkt de EDI-bericht, wordt het bericht naar een extern proces gerouteerd. De extern proces kan worden uitgevoerd op Microsoft Azure of on-premises. De extern proces moet het bericht routeren naar de EDI verzenden brug; het bericht niet inherent wordt opgehaald door de brug verzenden. Na het verwerken van het bericht, stuurt de brug EDI-verzenden het bericht naar de trading partner.
 
-BizTalk Services biedt een ervaring configuratie eenvoudig te gebruiken om snel te maken en implementeren van een B2B-overeenkomst tussen handelspartners zonder configureren van een Microsoft Azure Compute-exemplaren (Web- of Worker rollen), een Microsoft Azure SQL-Databases of een Microsoft Azure storage-accounts. Complexere scenario's verbinden in werkstromen of andere service-verwerking is vereist 'rond de randen' van een Trading Partner-overeenkomst, dat wil zeggen vóór of na de verwerking van Trading Partner Agreement EDI-bridge. In de details over optreden de volgende reeks gebeurtenissen tijdens een EDI-berichtverwerking in BizTalk Services.
+BizTalk Services biedt een eenvoudig te gebruiken configuratie-ervaring voor het snel maken en implementeren van een B2B-overeenkomst tussen handelspartners zonder configureren van een Microsoft Azure Compute-exemplaren (Web- of Worker-rollen), een Microsoft Azure SQL-Databases of een Microsoft Azure storage-accounts. Complexere scenario's verbinden in werkstromen of andere service-verwerking is vereist 'rond de randen' van een Trading Partner-overeenkomst, dat wil zeggen, vóór of na de verwerking van Trading Partner Agreement EDI-brug. In de details, wordt de volgende reeks gebeurtenissen optreden tijdens een EDI-berichtverwerking in BizTalk Services.
 
-1. Een EDI-bericht is ontvangen van trading partner Fabrikam.  Voor EDI-berichten ontvangen van handelspartners, ondersteunt BizTalk Services transportprotocollen zoals FTP-, SFTP AS2 en HTTP-/ S.
-2. De trading partner agreement ontvangstzijde verwerking worden ontleed EDI-bericht naar XML-indeling.  U kunt het EDI-bericht (in XML-indeling) versturen naar Service Bus-eindpunten zoals een Service Bus Relay-eindpunt, Service Bus-onderwerp, Service Bus-wachtrij of een brug BizTalk Services.
-3. De XML-berichten kunnen vervolgens worden ontvangen van het eindpunt voor verdere aangepaste verwerking.  Deze eindpunten kunnen bijvoorbeeld worden verwerkt door het onderdeel van een lokale of een exemplaar van Microsoft Azure Compute verdere verwerking van het bericht in een Windows-werkstroom (WF) of Windows Communication Foundation (WCF)-service.
-4. De 'verzendkant verwerking' van de trading partner agreement vervolgens het XML-bericht ophaalprotocol naar EDI-indeling en verzendt het naar trading partner, Contoso.  BizTalk Services ondersteuning EDI-berichten verzonden naar handelspartners, dezelfde protocollen als die worden gebruikt voor het ontvangen van EDI-berichten.
+1. Een EDI-bericht wordt ontvangen van trading partner, Fabrikam.  BizTalk Services biedt voor EDI-berichten ontvangen van handelspartners, ondersteuning van transportprotocollen, zoals FTP-, SFTP-, AS2- en HTTP/S.
+2. De trading partner agreement schalen aan de verwerking worden ontleed de EDI-bericht naar XML-indeling.  U kunt het EDI-bericht (in XML-indeling) versturen naar Service Bus-eindpunten, zoals een Service Bus Relay-eindpunt, Service Bus-onderwerp, Service Bus-wachtrij of een brug BizTalk Services.
+3. De-XML-berichten kunnen vervolgens worden ontvangen van het eindpunt voor verdere aangepaste verwerking.  Deze eindpunten kunnen bijvoorbeeld worden verwerkt door een on-premises-onderdeel of een Microsoft Azure Compute-instantie verdere verwerking van het bericht in een Windows-werkstroom (WF) of Windows Communication Foundation (WCF)-service.
+4. De 'verzendkant verwerking' van de trading partner agreement vervolgens ophaalprotocol van het XML-bericht naar de EDI-indeling en verzendt dit naar trading partner, Contoso.  BizTalk Services biedt voor het EDI-berichten verzenden naar handelspartners, ondersteuning van dezelfde protocollen als die worden gebruikt voor het ontvangen van EDI-berichten.
 
-Dit document verder bevat algemene richtlijnen op sommige andere BizTalk Server EDI-artefacten naar BizTalk Services migreert.
+Dit document verder biedt wel theoretische richtlijnen enkele van de verschillende BizTalk Server EDI-artefacten op migreren naar BizTalk Services.
 
 ## <a name="sendreceive-ports-to-trading-partners"></a>Verzenden/ontvangen poorten voor handelspartners
-BizTalk Server u locaties ontvangen en instellen ontvangen poorten EDI/XML om berichten te ontvangen van handelspartners, en u Send poorten EDI/XML om berichten te verzenden naar trading partner instellen. U bezighouden deze poorten op een handelspartnerovereenkomst met behulp van de beheerconsole van BizTalk Server vervolgens. In de locaties waar u berichten ontvangt van handelspartners van BizTalk Services en waarop u verzendt berichten naar handelspartners zijn geconfigureerd als onderdeel van de handelspartnerovereenkomst zelf (als onderdeel van Transport-instellingen) in de Portal van BizTalk Services.  Zodat u echt geen het concept van 'send poorten' en 'ontvangen locaties', per definitie in BizTalk Services. Zie voor meer informatie [overeenkomsten maken](https://msdn.microsoft.com/library/windowsazure/hh689908.aspx).
+In BizTalk Server u instellen-ontvangstlocaties weergegeven ontvangen en poorten en EDI/XML-berichten ontvangen van handelspartners en EDI/XML-berichten te verzenden naar trading partner instellen van poorten verzenden. U bezighouden deze poorten op een handelspartnerovereenkomst met behulp van de beheerconsole van BizTalk Server vervolgens. In de BizTalk Services, de locaties waar u berichten ontvangt van handelspartners en waar u verzendt berichten naar handelspartners zijn geconfigureerd als onderdeel van de handelspartnerovereenkomst zelf (als onderdeel van de instellingen voor Transport) in de BizTalk Services-Portal.  Zodat u echt geen het concept van 'poorten verzenden' en 'ontvangen locaties', per se in BizTalk Services. Zie voor meer informatie, [overeenkomsten voor het maken van](https://msdn.microsoft.com/library/windowsazure/hh689908.aspx).
 
 ## <a name="pipelines-bridges"></a>Pijplijnen (bruggen)
-In de BizTalk Server EDI zijn pijplijnen bericht verwerking entiteiten die kunnen ook aangepaste regels voor de van de specifieke verwerkingsmogelijkheden, zoals vereist door de toepassing bevatten. Voor BizTalk Services zou hetzelfde als een brug EDI. Maar in BizTalk Services op dit moment de EDI-bruggen 'gesloten'.  U kunt uw eigen aangepaste activiteiten dat wil zeggen, niet toevoegen aan een EDI-bridge. De aangepaste verwerking moet worden uitgevoerd buiten de EDI-brug in uw toepassing voor of na het bericht de brug geconfigureerd als onderdeel van de overeenkomst Trading Partner krijgt. EAI-bruggen hebt de mogelijkheid aangepaste verwerking. Als u aangepaste verwerking wilt, kunt u EAI-bruggen vóór of na het bericht is verwerkt door de EDI-brug is ingesteld. Zie voor meer informatie [hoe aangepaste Code opnemen in bruggen](https://msdn.microsoft.com/library/azure/dn232389.aspx).
+Pijplijnen zijn in BizTalk Server EDI, bericht verwerking entiteiten die u kunnen ook aangepaste logica voor de van de specifieke verwerkingsmogelijkheden, zoals vereist door de toepassing. Voor BizTalk Services zou het equivalent een brug EDI. Maar in BizTalk Services, nu de EDI-bruggen 'gesloten'.  U kunt uw eigen aangepaste activiteiten dat wil zeggen, niet toevoegen aan een bridge EDI. Een aangepaste verwerking moet worden uitgevoerd buiten de EDI-brug in uw toepassing voordat of nadat het bericht de brug geconfigureerd als onderdeel van de Trading Partner agreement krijgt. EAI-bruggen hebt de optie aangepaste verwerken. Als u wilt dat aangepaste verwerking, kunt u EAI-bruggen vóór of na het bericht is verwerkt door de EDI-brug is ingesteld. Zie voor meer informatie, [hoe u aangepaste Code opnemen in bruggen](https://msdn.microsoft.com/library/azure/dn232389.aspx).
 
-U kunt een stroom publiceren/abonneren met aangepaste code en/of met behulp van Service Bus-wachtrijen en onderwerpen messaging voordat de handelspartnerovereenkomst ontvangt het bericht of nadat de overeenkomst verwerkt het bericht en doorgestuurd naar een Service Bus-eindpunt kunt invoegen.
+U kunt een stroom voor publiceren/abonneren met aangepaste code en/of met behulp van Service Bus messaging-wachtrijen en onderwerpen voordat de handelspartnerovereenkomst ontvangt het bericht of nadat de overeenkomst verwerkt het bericht en doorgestuurd naar een Service Bus-eindpunt kunt invoegen.
 
-Zie **scenario's / berichtenstroom** in dit onderwerp voor het bericht stroom-patroon.
+Zie **scenario's / berichtenstroom** in dit onderwerp voor het patroon van de stroom weergegeven.
 
 ## <a name="agreements"></a>Overeenkomsten
-Als u bekend met de BizTalk Server 2010 handel Partner overeenkomsten voor EDI-bewerking gebruikt bent, zijn BizTalk Services handelspartnerovereenkomsten zoekt bekend. De meeste van de instellingen van de overeenkomst zijn hetzelfde en de dezelfde terminologie gebruiken. In sommige gevallen kan de instellingen van de overeenkomst zijn veel eenvoudiger vergeleken met dezelfde instellingen in BizTalk Server. Microsoft Azure BizTalk Services ondersteunt X12, EDIFACT en AS2-transport.
+Als u bekend met de BizTalk Server 2010 handel Partner overeenkomsten voor EDI-verwerking gebruikt bent, zijn BizTalk Services handelspartnerovereenkomsten er waarschijnlijk bekend. De meeste van de instellingen van de overeenkomst zijn hetzelfde, en gebruik de dezelfde terminologie. In sommige gevallen kan de instellingen van de overeenkomst zijn veel eenvoudiger vergeleken met dezelfde instellingen in BizTalk Server. Microsoft Azure BizTalk Services ondersteunt X12 en EDIFACT, AS2-transport.
 
-Microsoft Azure BizTalk Services biedt ook een **TPM gegevensmigratie** hulpprogramma voor het migreren van handelspartners partners en overeenkomsten uit module BizTalk Server Trading Partner bij BizTalk Services-Portal. Het hulpprogramma voor gegevensmigratie TPM is beschikbaar als onderdeel van een pakket hulpprogramma's die kunnen worden gedownload vanuit de [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057). Het pakket bevat ook een Leesmij-bestand met instructies over het gebruik van het hulpprogramma en elementaire informatie over probleemoplossing voor het hulpprogramma.
+Microsoft Azure BizTalk Services biedt ook een **TPM gegevensmigratie** hulpprogramma handelspartners en -overeenkomsten van BizTalk Server Trading Partner module migreren naar BizTalk Services-Portal. Het hulpprogramma voor gegevensmigratie TPM is beschikbaar als onderdeel van een pakket hulpprogramma's, die kan worden gedownload vanaf de [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057). Het pakket bevat ook een Leesmij-bestand met instructies over het gebruik van het hulpprogramma en elementaire informatie over probleemoplossing voor het hulpprogramma.
 
 ## <a name="schemas"></a>Schema 's
-BizTalk Services biedt EDI-schema's die kunnen worden gebruikt in BizTalk Services-oplossingen.  BizTalk Server EDI-schema's kunnen bovendien ook worden gebruikt met BizTalk Services omdat het hoofdknooppunt van het EDI-schema hetzelfde voor BizTalk Server, evenals BizTalk Services is. Zo kunt u zich rechtstreeks duren voordat uw BizTalk Server EDI-schema's en deze gebruiken in de EDI-oplossingen die u ontwikkelt met behulp van BizTalk Services. U kunt ook downloaden de schema's van de [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057).
+BizTalk Services biedt EDI-schema's die kunnen worden gebruikt in oplossingen voor BizTalk Services.  BizTalk Server EDI-schema's kunnen bovendien ook worden gebruikt met BizTalk Services omdat het hoofdknooppunt van het EDI-schema hetzelfde voor BizTalk Server, evenals de BizTalk Services is. Zo kunt u zich rechtstreeks uw BizTalk Server EDI-schema's en deze gebruiken in de EDI-oplossingen die u hebt ontwikkeld met behulp van BizTalk Services. U kunt ook downloaden de schema's uit de [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057).
 
 ## <a name="maps-transforms"></a>Maps (transformaties)
-Toewijzingen in BizTalk Server heten transformaties in BizTalk Services. Toewijzingen van de BizTalk Server migreren naar BizTalk Services mogelijk een van de complexere taken te bereiken (afhankelijk van de complexiteit van de kaart). De toewijzingsfunctie voor BizTalk Services gebruikt, wijkt af van de BizTalk-toewijzing. Hoewel de mapper ziet er meestal hetzelfde uit, worden de onderliggende toewijzingsindeling verschilt. De functoids (aangeroepen **kaart Operations** in BizTalk Services) beschikbaar zijn voor de gebruikers zijn ook verschillend.  In feite kan niet rechtstreeks u een BizTalk-kaart in BizTalk Services. Niet alle functoids in BizTalk Server beschikbaar zijn ook beschikbaar als de bewerkingen van de kaart in BizTalk Services.
+Kaarten in BizTalk Server heten transformaties in BizTalk Services. Toewijzingen van BizTalk Server migreren naar BizTalk Services wordt mogelijk een van de complexere taken om te realiseren (afhankelijk van de complexiteit van de kaart). De toewijzingsfunctie voor BizTalk Services gebruikt, wijkt af van het toewijzen van de BizTalk. Hoewel het toewijzen van de ziet er meestal hetzelfde, wordt de onderliggende toewijzingsindeling verschilt. De functoids (met de naam **kaart Operations** in BizTalk Services) beschikbaar voor de gebruikers ook verschillend zijn.  U kunt een BizTalk-kaart van kracht, rechtstreeks in BizTalk Services gebruiken. Niet alle functoids die beschikbaar zijn in BizTalk Server zijn ook beschikbaar als kaart bewerkingen in BizTalk Services.
 
 ### <a name="new-transform-operations"></a>Nieuwe transformatiebewerkingen
-Terwijl de lijst met kaart transformatiebewerkingen beschikbaar heel anders dan de mapper BizTalk Server lijkt, hebben transformeert van BizTalk Services nieuwe manieren voor het uitvoeren van de dezelfde taken. BizTalk Services transformeert bijvoorbeeld **bewerkingen na opvragen** beschikbaar. Dit is niet beschikbaar in de BizTalk-toewijzing.  De **bewerkingen na opvragen** zodat u kunt maken en gebruiken op een 'List', waarbij een lijst met een reeks items (ook wel bekend als ' rijen') en waarbij elk item kan meerdere leden (ook wel bekend als ' kolommen') hebben.  U kunt de lijst sorteren, selecteert u items op basis van een voorwaarde, enzovoort.
+Terwijl de lijst met kaart transformatiebewerkingen beschikbaar heel anders dan het toewijzen van de BizTalk Server lijkt, BizTalk Services transformeert beschikken over nieuwe manieren van dezelfde taken uitvoeren. BizTalk Services transformaties bijvoorbeeld **Opvraagbewerkingen** beschikbaar. Dit is niet beschikbaar in de BizTalk-toewijzing.  De **Opvraagbewerkingen** kunt u maken en uitvoeren op een 'List', waarbij een lijst met een reeks items (ook wel bekend als ' rijen') en waarbij elk item kan meerdere leden (ook wel bekend als ' kolommen') hebben.  U kunt de lijst sorteren, selecteert u items op basis van een voorwaarde, enzovoort.
 
-Een ander voorbeeld van de nieuwe functionaliteit in BizTalk Services transformeert zijn de **lus Operations**.  Het is moeilijk geneste lussen maken in de BizTalk Server-toewijzing.  Zo worden de bewerkingen van de kaart lus toegevoegd voor de BizTalk Services transformaties.
+Een ander voorbeeld van nieuwe functionaliteit van BizTalk Services transformeert zijn de **lus Operations**.  Het is moeilijk om te maken van geneste lussen in het toewijzen van de BizTalk Server.  Zo worden de bewerkingen van de kaart lus toegevoegd voor de BizTalk-Services worden getransformeerd.
 
-Nog een ander voorbeeld is de **If vervolgens Else** expressie kaart bewerking.  Met een if-then-else bewerking is mogelijk in BizTalk mapper, maar het vereist dat meerdere functoids een schijnbaar eenvoudige taak uit te voeren.
+Nog een ander voorbeeld is de **als-dan-anders** expressie kaart bewerking.  Een bewerking als-dan-anders doen is mogelijk in het toewijzen van de BizTalk, maar deze meerdere functoids om uit te voeren een ogenschijnlijk eenvoudige taak vereist.
 
-### <a name="migrating-biztalk-server-maps"></a>Toegewezen BizTalk-Server migreren
-Microsoft Azure BizTalk Services biedt een hulpprogramma voor het migreren van BizTalk Server toegewezen aan BizTalk Services transformaties. De **BTMMigrationTool** is beschikbaar als onderdeel van de **extra** pakket voorzien van de [BizTalk Services SDK downloaden](http://go.microsoft.com/fwlink/p/?LinkId=235057). Zie voor meer informatie over het hulpprogramma [omzetten in een kaart BizTalk een transformatie van BizTalk Services](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+### <a name="migrating-biztalk-server-maps"></a>BizTalk-Server migreren wordt toegewezen
+Microsoft Azure BizTalk Services biedt een hulpprogramma voor het migreren van BizTalk Server toegewezen aan de transformaties BizTalk Services. De **BTMMigrationTool** is beschikbaar als onderdeel van de **extra** pakket voorzien van de [BizTalk Services SDK downloaden](http://go.microsoft.com/fwlink/p/?LinkId=235057). Zie voor meer informatie over het hulpprogramma [omzetten in een BizTalk-kaart een transformatie van BizTalk Services](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-U kunt ook zoeken op een codevoorbeeld door Sandro Pereira, MVP BizTalk, voor het [maps BizTalk Server migreren naar BizTalk Services transformaties](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+U kunt ook een voorbeeld van Sandro Pereira, BizTalk MVP, voor het kijken [maps voor BizTalk Server migreren naar BizTalk Services transformaties](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
-## <a name="orchestrations"></a>Integraties
-Als u migreren van BizTalk Server orchestration verwerking naar Microsoft Azure wilt, zou de integraties moet opnieuw worden geschreven omdat er actieve BizTalk Server integraties biedt geen ondersteuning voor Microsoft Azure.  U kunt de orchestration-functionaliteit in een Windows Workflow Foundation 4.0 (WF4)-service kan herschrijven.  Dit is een volledig herschreven omdat er momenteel geen migratie van BizTalk Server integraties naar WF4. Hier volgen enkele resources voor Windows-werkstroom:
+## <a name="orchestrations"></a>Indelingen
+Als u nodig hebt voor het migreren van BizTalk Server-orchestration verwerking naar Microsoft Azure, moet de indelingen worden herschreven omdat Microsoft Azure biedt geen ondersteuning voor actieve BizTalk Server-indelingen.  U kunt de orchestration-functionaliteit in een Windows Workflow Foundation 4.0 (WF4)-service kan herschrijven.  Dit moet een volledig herschreven omdat er momenteel geen migratie van BizTalk Server-indelingen naar WF4. Hier volgen enkele resources voor Windows-werkstroom:
 
-* [*Het integreren van een werkstroom WCF-Service met Service Bus-wachtrijen en onderwerpen* ](https://msdn.microsoft.com/library/azure/hh709041.aspx) door Paolo Salvatori. 
+* [*Over het integreren van een werkstroom WCF-Service met Service Bus-wachtrijen en onderwerpen* ](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) door Paolo Salvatori. 
 * [*Het bouwen van apps met Windows Workflow Foundation en Azure* sessie](http://go.microsoft.com/fwlink/p/?LinkId=237314) van de Conferentie Build 2011.
 * [*Windows Workflow Foundation Developer Center* ](http://go.microsoft.com/fwlink/p/?LinkId=237315) op MSDN.
 * [*Documentatie van Windows Workflow Foundation 4 (WF4)* ](https://msdn.microsoft.com/library/dd489441.aspx) op MSDN.
 
 ## <a name="other-considerations"></a>Andere overwegingen
-Hieronder volgen enkele overwegingen die u aanbrengen moet tijdens het gebruik van BizTalk Services.
+Hier volgen enkele overwegingen die u aanbrengen moet tijdens het gebruik van BizTalk Services.
 
 ### <a name="fallback-agreements"></a>Alternatieve overeenkomsten
-BizTalk Server EDI-bewerking heeft het concept van 'Terugval overeenkomsten'.  BizTalk Services biedt **niet** een concept terugval overeenkomst tot nu toe hebben.  Zie BizTalk documentatie onderwerpen [de rol van de overeenkomsten bij het verwerken van EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) en [terugval overeenkomst eigenschappen of configureren van algemene](https://msdn.microsoft.com/library/bb245981.aspx) voor meer informatie over hoe terugval overeenkomsten worden gebruikt in BizTalk -Server.
+BizTalk Server EDI-verwerking heeft het concept van 'Terugval overeenkomsten'.  BizTalk Services biedt **niet** een concept terugval overeenkomst tot nu toe hebt.  Zie BizTalk documentatie onderwerpen [de rol van de overeenkomsten in de EDI-verwerking](http://go.microsoft.com/fwlink/p/?LinkId=237317) en [terugval overeenkomst eigenschappen of configureren van algemene](https://msdn.microsoft.com/library/bb245981.aspx) voor meer informatie over hoe alternatieve overeenkomsten worden gebruikt in BizTalk De server.
 
 ### <a name="routing-to-multiple-destinations"></a>Routering naar meerdere bestemmingen
-BizTalk Services bruggen, in de huidige status biedt geen ondersteuning voor routeren van berichten naar meerdere bestemmingen met behulp van een publiceren-abonneren model. In plaats daarvan kunt u berichten van een brug BizTalk Services aan een Service Bus-onderwerp dat meerdere abonnementen het bericht op meer dan één eindpunt hebben versturen.
+BizTalk Services-bruggen, in de huidige status biedt geen ondersteuning voor routeren van berichten naar meerdere bestemmingen van een publish-subscribe-model. In plaats daarvan kunt u berichten van een brug BizTalk Services naar een Service Bus-onderwerp, die vervolgens uit meerdere abonnementen voor het bericht op meer dan één eindpunt versturen.
 
 ## <a name="conclusion"></a>Conclusie
-Microsoft Azure BizTalk Services is bijgewerkt op reguliere mijlpalen toevoegen van meer functies en mogelijkheden. Bij elke update graag we ondersteunende verbeterde functionaliteit vergemakkelijkt end-to-end-oplossingen met behulp van BizTalk Services en andere technologieën voor Azure maken.
+Microsoft Azure BizTalk Services is bijgewerkt op reguliere mijlpalen om toe te voegen meer functies en mogelijkheden. Bij elke update wordt we kijken ernaar uit om ontwikkelaars te ondersteunen verbeterde functionaliteit voor het maken van end-to-end-oplossingen met behulp van BizTalk Services en andere Azure-technologieën in het kader.
 
 ## <a name="see-also"></a>Zie ook
-[Ontwikkelen van toepassingen met Azure Enterprise](https://msdn.microsoft.com/library/azure/hh674490.aspx)
+[Het ontwikkelen van zakelijke toepassingen met Azure](https://msdn.microsoft.com/library/azure/hh674490.aspx)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png

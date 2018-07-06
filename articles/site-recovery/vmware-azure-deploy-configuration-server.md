@@ -1,6 +1,6 @@
 ---
-title: De configuratieserver voor noodherstel van VMware met Azure Site Recovery implementeren | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u een configuratieserver voor noodherstel van VMware met Azure Site Recovery implementeert
+title: De configuratieserver voor VMware-noodherstel met Azure Site Recovery implementeren | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u een configuratieserver voor VMware-noodherstel met Azure Site Recovery implementeren
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,23 +8,23 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/06/2018
 ms.author: raynew
-ms.openlocfilehash: 841176d8c5f215d18edf25b1f191792b37555fa9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 0a5eb81ea4456be3d01c9d446798ce1732dff630
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318116"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857245"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
-U implementeert een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. De configuratie server coördinaten communicatie tussen on-premises VMware en Azure. Hiermee gegevensreplicatie ook worden beheerd. Dit artikel begeleidt u bij de stappen die nodig zijn voor het implementeren van de configuratieserver wanneer u virtuele VMware-machines naar Azure repliceert. [Ga als volgt in dit artikel](physical-azure-set-up-source.md) als u nodig hebt voor het instellen van een configuratieserver voor replicatie van de fysieke server.
+U implementeert een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. De configuratie van server coördinaten communicatie tussen on-premises VMware en Azure. Deze beheert de gegevensreplicatie. In dit artikel begeleidt u bij de stappen die nodig zijn voor de configuratieserver implementeren wanneer u virtuele VMware-machines naar Azure repliceert. [In dit artikel volgen](physical-azure-set-up-source.md) als u nodig hebt voor het instellen van een configuratieserver voor replicatie van fysieke server.
 
 >[!TIP]
 U kunt meer informatie over de rol van de configuratieserver als onderdeel van Azure Site Recovery-architectuur [hier](vmware-azure-architecture.md).
 
-## <a name="deployment-of-configuration-server-through-ova-template"></a>Implementatie van configuratieserver via eicellen sjabloon
+## <a name="deployment-of-configuration-server-through-ova-template"></a>Implementatie van de configuratieserver via OVA-sjabloon
 
-Configuratieserver moet worden ingesteld als een maximaal beschikbare VMware-VM met bepaalde minimale hardware- en sizing vereisten. Site Recovery biedt voor de implementatie van gemakkelijk en een sjabloon downloaden eicellen (Open Virtualization-toepassing) voor het instellen van de configuratieserver die aan de verplichte vereisten die voldoet hieronder worden vermeld.
+Configuratieserver moet worden ingesteld als een maximaal beschikbare VMware-VM met bepaalde minimale hardware- en vereisten voor volumegrootte. Site Recovery biedt handige en eenvoudige implementatie wilt uitvoeren, een downloadbare OVA (Open Virtualization-toepassing)-sjabloon voor het instellen van de configuratieserver die aan de verplichte vereisten die voldoet hieronder worden vermeld.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,28 +34,28 @@ Minimale hardwarevereisten voor een configuratieserver worden samengevat in de v
 
 ## <a name="capacity-planning"></a>Capaciteitsplanning
 
-De sizing vereisten voor de configuratieserver is afhankelijk van de mogelijke snelheid waarmee u gegevens wijzigt. Deze tabel als richtlijn gebruiken.
+Vereisten voor de configuratieserver de grootte is afhankelijk van de mogelijke veranderingssnelheid van gegevens. Gebruik deze tabel als richtlijn.
 
-| **CPU** | **Geheugen** | **Cachegrootte van de schijf** | **Snelheid van de gegevens wijzigen** | **Beveiligde machines** |
+| **CPU** | **Geheugen** | **Cachegrootte van de schijf** | **Veranderingssnelheid van gegevens** | **Beveiligde machines** |
 | --- | --- | --- | --- | --- |
 | 8 vcpu's (2-sockets * @ 2,5 GHz-4 kernen) |16 GB |300 GB |500 GB of minder |Minder dan 100 machines repliceren. |
-| 12 vcpu's (2-sockets * @ 2,5 GHz-6 kernen) |18 GB |600 GB |500 GB tot 1 TB |100 tot 150-machines repliceren. |
+| 12 vcpu's (2-sockets * @ 2,5 GHz-6 kernen) |18 GB |600 GB |500 GB tot 1 TB |100-150-machines repliceren. |
 | 16 vcpu's (2-sockets * @ 2,5 GHz-8 kernen) |32 GB |1 TB |1 TB tot 2 TB |150 tot 200-machines repliceren. |
 
-Als u meer dan één VMware VM repliceert, leest u [overwegingen bij capaciteitsplanning](/site-recovery-plan-capacity-vmware.md). Voer de [planner implementatieprogramma](site-recovery-deployment-planner.md) voor VMWare-replicatie.
+Als u meer dan een VMware-VM repliceert, leest u [overwegingen voor capaciteitsplanning](/site-recovery-plan-capacity-vmware.md). Voer de [tool voor implementatieplanning](site-recovery-deployment-planner.md) voor VMWare-replicatie.
 
 ## <a name="download-the-template"></a>De sjabloon downloaden
 
 1. Ga in de kluis naar **Infrastructuur voorbereiden** > **Bron**.
 2. Selecteer **+Configuratieserver** in **Bron voorbereiden**.
 3. Controleer in **Server toevoegen** of **Configuratieserver voor VMware** wordt weergegeven in **Servertype**.
-4. Download de sjabloon Open Virtualization-toepassing (eicellen) voor de configuratieserver.
+4. Download de Open Virtualization-toepassing (OVA)-sjabloon voor de configuratieserver.
 
   > [!TIP]
->U kunt ook de nieuwste versie van de configuratie van server-sjabloon rechtstreeks vanuit downloaden [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+>U kunt ook de meest recente versie van de configuratieserversjabloon rechtstreeks vanuit downloaden [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 >[!NOTE]
-Het certificaat dat is opgegeven met eicellen sjabloon is een evaluatie van 180 dagen geldig certificaat. Na moet deze periode klant de windows activeren bij een geleverde certificaat.
+Het certificaat dat is opgegeven met OVA-sjabloon is een geldig gedurende 180 dagen evaluatie-certificaat. Na deze periode klant nodig heeft om de windows met een geleverde certificaat te activeren.
 
 ## <a name="import-the-template-in-vmware"></a>De sjabloon in VMware importeren
 
@@ -64,27 +64,27 @@ Het certificaat dat is opgegeven met eicellen sjabloon is een evaluatie van 180 
 
      ![OVF-sjabloon](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
 
-3. In **Select bron**, geef de locatie van de gedownloade OVF.
-4. In **Bekijk de details**, selecteer **volgende**.
-5. In **naam en een map selecteren** en **Select configuration**, accepteer de standaardinstellingen.
+3. In **bron selecteren**, geef de locatie van de gedownloade OVF.
+4. In **Beoordelingsdetails**, selecteer **volgende**.
+5. In **naam en map selecteren** en **configuratie selecteren**, accepteer de standaardinstellingen.
 6. Selecteer in **Opslag selecteren****Thick Provision Eager Zeroed** in **Indeling virtuele schijf selecteren**.
 7. Accepteer de standaardinstellingen in de rest van de wizardpagina’s.
 8. In **Klaar om te voltooien**:
 
     * Selecteer **Inschakelen na de implementatie** > **Voltooien** om de VM in te stellen met de standaardinstellingen.
 
-    * Als u wilt een extra netwerkinterface toevoegen, schakelt u **na de implementatie inschakelen**, en selecteer vervolgens **voltooien**. Standaard wordt de configuratieserversjabloon met één NIC geïmplementeerd. Na de implementatie kunt u meer NIC’s toevoegen.
+    * Als u wilt toevoegen een extra netwerkinterface, schakelt u **inschakelen na de implementatie**, en selecteer vervolgens **voltooien**. Standaard wordt de configuratieserversjabloon met één NIC geïmplementeerd. Na de implementatie kunt u meer NIC’s toevoegen.
 
 ## <a name="add-an-additional-adapter"></a>Een extra adapter toevoegen
 
-Als u een extra NIC en de configuratieserver toevoegen wilt, moet u deze toevoegen voordat u de server in de kluis registreren. Het toevoegen van extra adapters wordt niet ondersteund na registratie.
+Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toevoegen voordat u de server in de kluis registreert. Het toevoegen van extra adapters wordt niet ondersteund na registratie.
 
 1. Klik in de vSphere Client-inventaris met de rechtermuisknop op de VM en selecteer **Instellingen bewerken**.
 2. Selecteer **Toevoegen** > **Ethernet-adapter** bij **Hardware**. Selecteer vervolgens **Volgende**.
 3. Selecteer een adaptertype en een netwerk. 
-4. Selecteer voor de virtuele NIC verbinding als de virtuele machine is ingeschakeld, **Connect bij opstarten**. Selecteer vervolgens **volgende** > **voltooien** > **OK**.
+4. Selecteer voor de virtuele NIC verbinding wanneer de virtuele machine is ingeschakeld, **verbinding maken met power-on**. Selecteer vervolgens **volgende** > **voltooien** > **OK**.
 
-## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>De configuratieserver registreren met Azure Site Recovery-services
+## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>De configuratieserver registreren bij Azure Site Recovery-services
 
 1. Schakel de VM in vanuit de VMWare vSphere Client-console.
 2. De VM wordt opgestart in een Windows Server 2016-installatie-ervaring. Accepteer de gebruiksrechtovereenkomst en voer een Administrator-wachtwoord in.
@@ -93,39 +93,57 @@ Als u een extra NIC en de configuratieserver toevoegen wilt, moet u deze toevoeg
 5. Voer een naam in die wordt gebruikt voor het registreren van de configuratieserver bij Site Recovery. Selecteer vervolgens **Volgende**.
 6. Het hulpprogramma controleert of de VM verbinding kan maken met Azure. Nadat de verbinding tot stand is gebracht, selecteert u **Aanmelden** om u aan te melden bij uw Azure-abonnement. De referenties moeten toegang hebben tot de kluis waarin u de configuratieserver wilt registreren.
 7. Het hulpprogramma voert enkele configuratietaken uit en start opnieuw op.
-8. Meld u opnieuw aan bij de machine. De configuratiewizard voor server management begint **automatisch** in enkele seconden.
+8. Meld u opnieuw aan bij de machine. Start de wizard voor het beheer configuratie **automatisch** in enkele seconden.
 
 ### <a name="configure-settings"></a>Instellingen configureren
 
 1. Selecteer in de wizard voor het beheer van de configuratieserver **Connectiviteit instellen** en selecteer vervolgens de NIC die door de processerver wordt gebruikt voor het ontvangen van replicatieverkeer van VM's. Selecteer vervolgens **Opslaan**. U kunt deze instelling niet wijzigen nadat deze is geconfigureerd.
-2. In **Selecteer Recovery Services-kluis**, zich aanmelden bij Microsoft Azure, selecteert u uw Azure-abonnement en de betreffende resourcegroep en de kluis.
-    >[!NOTE]
-    > Na de registratie is er geen flexibiliteit voor het wijzigen van de recovery services-kluis.
+2. In **Selecteer Recovery Services-kluis**, zich aanmelden bij Microsoft Azure, selecteer uw Azure-abonnement en de relevante resourcegroep en kluis.
+
+    > [!NOTE]
+    > Zodra geregistreerd, is er geen flexibiliteit om te wijzigen van de recovery services-kluis.
+    
 3. In **software van derden installeren**,
 
-    |Scenario   |Volgende stappen uitvoeren  |
+    |Scenario   |Stappen om te volgen  |
     |---------|---------|
-    |Kan ik & downloaden MySQL handmatig installeren?     |  Ja. MySQL-toepassing downloaden en plaats deze in de map **C:\Temp\ASRSetup**, klikt u vervolgens handmatig installeren. Nu, wanneer u de voorwaarden accepteert > klikt u op **downloaden en installeren**, de portal zegt *al geïnstalleerd*. U kunt doorgaan met de volgende stap.       |
-    |Voorkom ik downloaden van MySQL online?     |   Ja. Plaats uw MySQL installer-toepassing in de map **C:\Temp\ASRSetup**. De voorwaarden accepteren > Klik op **downloaden en installeren**, de portal gebruikt het installatieprogramma die u hebt toegevoegd, en installeert de toepassing. U kunt doorgaan met de volgende stap na de installatie.    |
-    |Ik wil downloaden en installeren van MySQL via Azure Site Recovery     |  Accepteer de gebruiksrechtovereenkomst en klik op **downloaden en installeren**. Vervolgens kunt u doorgaan met de volgende stap na de installatie.       |
+    |Kan ik downloaden en handmatig installeren van MySQL?     |  Ja. MySQL-toepassing downloaden en plaats deze in de map **C:\Temp\ASRSetup**, installeert u vervolgens handmatig. Nu, wanneer u de voorwaarden accepteert > Klik op **downloaden en installeren**, de portal zegt *al geïnstalleerd*. U kunt doorgaan met de volgende stap.       |
+    |Kan ik voorkomen downloaden van MySQL online?     |   Ja. Plaats uw MySQL-installer-toepassing in de map **C:\Temp\ASRSetup**. Accepteer de voorwaarden > Klik op **Download en installeer**, de portal wordt gebruikt het installatieprogramma die u hebt toegevoegd en de toepassing wordt geïnstalleerd. U kunt doorgaan met de volgende stap na de installatie.    |
+    |Ik wil downloaden en installeren van MySQL via Azure Site Recovery     |  Accepteer de gebruiksrechtovereenkomst en klik op **Download en installeer**. U kunt vervolgens doorgaan met de volgende stap na de installatie.       |
 4. In **De configuratie van het apparaat valideren** worden de vereisten gecontroleerd voordat u doorgaat.
 5. In **vCenter Server vSphere/ESXi-server configureren** voert u de FQDN of het IP-adres van de vCenter-server, of vSphere-host, in waar de VM's die u wilt repliceren zich bevinden. Voer de poort in waarop de server luistert. Voer een beschrijvende naam in voor de VMware-server in de kluis.
-6. Voer referenties in die door de configuratieserver moeten worden gebruikt voor verbinding met de VMware-server. Site Recovery gebruikt deze referenties voor het automatisch detecteren van VMware-VM’s die beschikbaar zijn voor replicatie. Selecteer **toevoegen**, en vervolgens **gaan**. De referenties die u hier opgeeft, worden lokaal opgeslagen.
-7. In **referenties voor de virtuele machine configureren**, geef de gebruikersnaam en wachtwoord van de Mobility-Service automatisch geïnstalleerd tijdens de replicatie voor virtuele machines. Voor **Windows** machines, het account moet lokale beheerrechten op de machines die u wilt repliceren. Voor **Linux**, informatie opgeven voor het root-account.
+6. Voer referenties in die door de configuratieserver moeten worden gebruikt voor verbinding met de VMware-server. Site Recovery gebruikt deze referenties voor het automatisch detecteren van VMware-VM’s die beschikbaar zijn voor replicatie. Selecteer **toevoegen**, en vervolgens **blijven**. De referenties die u hier opgeeft, worden lokaal opgeslagen.
+7. In **referenties voor virtuele machine configureren**, voer de gebruikersnaam en het wachtwoord van de Mobility-Service automatisch te installeren tijdens de replicatie voor virtuele machines. Voor **Windows** machines, het account moet lokale beheerrechten heeft op de machines die u wilt repliceren. Voor **Linux**, Geef details op voor het root-account.
 8. Selecteer **Configuratie voltooien** om de registratie te voltooien.
-9. Nadat de registratie is voltooid, Azure portal openen, Controleer of de configuratieserver en de VMware-server worden vermeld op **Recovery Services-kluis** > **beheren**  >  **Site Recovery-infrastructuur** > **configuratieservers**.
+9. Nadat de registratie is voltooid, opent u Azure portal, controleert u of de configuratieserver en de VMware-server worden weergegeven op **Recovery Services-kluis** > **beheren**  >  **Infrastructuur voor site Recovery** > **configuratieservers**.
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-1. Kan ik de virtuele machine waarop de configuratie-server is geïnstalleerd voor verschillende doeleinden gebruiken? **Geen**, configuratie-server moet een server met één doeleinde en gebruiken als een gedeelde server wordt niet ondersteund.
-2. Kan ik overschakelen van de kluis die al zijn geregistreerd in de configuratieserver met een nieuwe kluis? **Geen**, zodra een kluis is geregistreerd met de configuratieserver, kan niet worden gewijzigd.
-3. Kan ik dezelfde configuratieserver gebruiken voor het beveiligen van zowel fysieke en virtuele machines? **Ja**, configuratieserver met dezelfde kan worden gebruikt voor het repliceren van fysieke en virtuele machines. Echter, de failback naar een fysieke computer wordt niet ondersteund.
-4. Waar worden configuratieserver gebruikt? Raadpleeg onze Azure Site Recovery-architectuur [hier](vmware-azure-architecture.md) voor meer informatie over de configuratieserver en de functionaliteiten.
-5. Waar vind ik de nieuwste versie van de configuratieserver U kunt rechtstreeks downloaden van [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Raadpleeg het artikel stappen om de upgrade configuratieserver [hier](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+1. Kan ik de virtuele machine, waarop de configuratieserver is geïnstalleerd, voor verschillende doeleinden gebruiken?
 
-## <a name="upgrade-the-configuration-server"></a>Upgrade de configuratieserver
+    **Geen**, raden we u met de virtuele machine voor enig doel van de configuratieserver. Volg de specificaties die zijn vermeld in de [vorige sectie](vmware-azure-deploy-configuration-server.md#Prerequisites) voor efficiënt beheer van herstel na noodgevallen.
+2. Kan ik wisselen van de kluis die al zijn geregistreerd in de configuratieserver met een nieuwe kluis?
 
-Lees de stappen voor het upgraden van de configuratieserver naar de nieuwste versie [hier](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+    **Geen**, zodra een kluis is geregistreerd met de configuratieserver, kan niet worden gewijzigd.
+3. Kan ik de dezelfde configuratieserver gebruiken voor het beveiligen van zowel fysieke en virtuele machines?
+
+    **Ja**, dezelfde configuratieserver kan worden gebruikt voor het repliceren van fysieke en virtuele machines. Echter kan fysieke machine kan worden niet terug alleen bij een VMware-VM.
+4. Wat is het doel van een configuratieserver en waar wordt deze gebruikt?
+
+    Raadpleeg onze Azure Site Recovery-architectuur [hier](vmware-azure-architecture.md) voor meer informatie over de configuratieserver en de functionaliteiten.
+5. Waar vind ik de meest recente versie van de configuratieserver
+
+    Raadpleeg het artikel voor stappen voor het bijwerken van de configuratieserver [via portal](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). U kunt ook rechtstreeks downloaden vanaf [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+6. Waar kan ik de wachtwoordzin voor de configuratieserver downloaden?
+
+    Raadpleeg [in dit artikel](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) voor het downloaden van de wachtwoordzin.
+7. Waar kan ik registratiesleutels kluis downloaden?
+
+    In de **Recovery Services-kluis**, **beheren** > **infrastructuur voor Site Recovery** > **configuratieservers**. Selecteer in de Servers, **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
+
+## <a name="upgrade-the-configuration-server"></a>De configuratieserver upgraden
+
+Als u de configuratieserver bijwerken naar de nieuwste versie, lees de stappen Breng [hier](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
 
 ## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen
 

@@ -1,6 +1,6 @@
 ---
-title: Virtuele machine maken vanuit een beheerde-installatiekopie in Azure | Microsoft Docs
-description: Een virtuele Windows-machine maken van een algemene beheerde installatiekopie met behulp van Azure PowerShell of de Azure-portal in het Resource Manager-implementatiemodel.
+title: Virtuele machine maken vanaf een beheerde installatiekopie in Azure | Microsoft Docs
+description: Een Windows-machine maken vanaf een gegeneraliseerde beheerde installatiekopie met behulp van Azure PowerShell of de Azure-portal, in het Resource Manager-implementatiemodel.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: cynthn
-ms.openlocfilehash: 1d543bd9590664e74cff70cf55e8f7bd42f2c6f0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6baf784068b1fba0c35d2848b8d2dda4f1064a2d
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239052"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867977"
 ---
-# <a name="create-a-vm-from-a-managed-image"></a>Een virtuele machine maken van een begeleide afbeelding
+# <a name="create-a-vm-from-a-managed-image"></a>Een virtuele machine van een beheerde installatiekopie maken
 
-U kunt meerdere virtuele machines maken in een beheerde VM-installatiekopie met PowerShell of de Azure-portal. Een beheerde VM-installatiekopie bevat de benodigde gegevens voor het maken van een virtuele machine, met inbegrip van het besturingssysteem en gegevensschijven. De VHD's die gezamenlijk de afbeelding, met inbegrip van zowel de OS-schijven en eventuele gegevensschijven, als beheerde schijven zijn opgeslagen. 
+U kunt meerdere virtuele machines maken van een beheerde VM-installatiekopie met behulp van PowerShell of Azure portal. Een beheerde VM-installatiekopie bevat de informatie die nodig zijn voor het maken van een virtuele machine, met inbegrip van het besturingssysteem en gegevensschijven. De VHD's die gezamenlijk de afbeelding, met inbegrip van zowel de besturingssysteemschijven en eventuele gegevensschijven worden opgeslagen als beheerde schijven. 
 
-U moet al hebben [gemaakt van een beheerde VM-installatiekopie](capture-image-resource.md) moet worden gebruikt voor het maken van de nieuwe virtuele machine. 
+U moet beschikken over al [een beheerde VM-installatiekopie gemaakt](capture-image-resource.md) te gebruiken voor het maken van de nieuwe virtuele machine. 
 
 ## <a name="use-the-portal"></a>Gebruik de portal
 
 1. Open de [Azure Portal](https://portal.azure.com).
-2. Selecteer **Alle resources** in het menu aan de linkerkant. U kunt de resources door sorteren **Type** afbeeldingen gemakkelijk te vinden.
+2. Selecteer **Alle resources** in het menu aan de linkerkant. U kunt de resources door sorteren **Type** eenvoudig uw installatiekopieën vinden.
 3. Selecteer de installatiekopie die u wilt gebruiken in de lijst. De installatiekopie van het **overzicht** pagina wordt geopend.
 4. Klik op **+ maken VM** in het menu.
-5. Geef de informatie van de virtuele machine op. De gebruikersnaam en het wachtwoord die u hier opgeeft, worden gebruikt voor aanmelding bij de virtuele machine. Na het voltooien klikt u op **OK**. U kunt de nieuwe virtuele machine maken in een bestaande groep voor Resrouce of kies **nieuw** om een nieuwe resourcegroep voor het opslaan van de virtuele machine te maken.
+5. Geef de informatie van de virtuele machine op. De gebruikersnaam en het wachtwoord die u hier opgeeft, worden gebruikt voor aanmelding bij de virtuele machine. Na het voltooien klikt u op **OK**. U kunt de nieuwe virtuele machine maken in een bestaande resourcegroep of kies **nieuw** te maken van een nieuwe resourcegroep voor het opslaan van de virtuele machine.
 6. Selecteer een grootte voor de VM. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. 
-7. Onder **instellingen**, zo nodig en klikt u op **OK**. 
+7. Onder **instellingen**, breng wijzigingen aan die nodig zijn en op **OK**. 
 8. Op de pagina overzicht ziet u de installatiekopienaam van uw die wordt vermeld voor **persoonlijke installatiekopie**. Klik op **Ok** implementatie van virtuele machine te starten.
 
 
 ## <a name="use-powershell"></a>PowerShell gebruiken
 
-U kunt PowerShell gebruiken voor een virtuele machine maken van een installatiekopie met de vereenvoudigde parameter ingesteld voor de [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. De installatiekopie moet zich in dezelfde resourcegroep waar u de virtuele machine maken.
+U kunt PowerShell gebruiken voor een virtuele machine maken van een installatiekopie met behulp van de vereenvoudigde parameter is ingesteld voor de [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. De installatiekopie moet zich in dezelfde resourcegroep waarin u wilt maken van de virtuele machine.
 
-Dit voorbeeld vereist dat de AzureRM moduleversie 5.6.0 of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Dit voorbeeld vereist dat de AzureRM-moduleversie 5.6.0 of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
-De vereenvoudigde parameterset voor nieuw-AzureRmVm alleen vereist dat u een naam, de groep en afbeelding bronnaam voor het maken van een virtuele machine van een installatiekopie opgeven, maar wordt gebruikt de waarde van de **-naam** parameter als de naam van alle resources die er het wordt automatisch gemaakt. In dit voorbeeld kunt wij bieden meer gedetailleerde namen voor elk van de resource, maar kunt de cmdlet automatisch worden gemaakt. Ook kunt u bronnen, zoals het virtuele netwerk, tevoren maken en de naam van de doorgegeven aan de cmdlet. De bestaande resources wordt gebruikt als het vindt deze door hun naam.
+De vereenvoudigde parameterset voor New-AzureRmVm alleen vereist dat u een naam, afbeelding namen van resourcegroep en een virtuele machine maken vanaf een installatiekopie opgeven, maar deze wordt gebruikt voor de waarde van de **-naam** parameter als de naam van alle resources die it wordt automatisch gemaakt. In dit voorbeeld kunt we meer gedetailleerde namen voor elk van de resource opgeven, maar kunt de cmdlet deze automatisch worden gemaakt. U kunt ook resources, zoals het virtuele netwerk, vooraf maken en de naam doorgeven aan de cmdlet. De bestaande resources wordt gebruikt als het vindt deze door hun naam.
 
 Het volgende voorbeeld wordt een virtuele machine met de naam *myVMFromImage*, in de *myResourceGroup* resourcegroep van de installatiekopie met de naam *myImage*. 
 
@@ -66,5 +66,5 @@ New-AzureRmVm `
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor het beheren van uw nieuwe virtuele machine met Azure PowerShell [maken en beheren van Windows-VM's met de Azure PowerShell-module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Zie voor het beheren van uw nieuwe virtuele machine met Azure PowerShell, [maken en beheren van Windows-VM's met de Azure PowerShell-module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -1,6 +1,6 @@
 ---
-title: Beveiligen van inhoud met Microsoft PlayReady- of Apple FairPlay - Azure HLS | Microsoft Docs
-description: Dit onderwerp een overzicht en laat zien hoe u Azure Media Services voor het dynamisch versleutelen van de inhoud van uw HTTP Live Streaming (HLS) met Apple FairPlay. U ziet ook hoe u met het Media Services-service voor het leveren van licenties FairPlay-licenties aan clients leveren.
+title: Beveiligen van HLS-inhoud met Microsoft PlayReady- of Apple FairPlay - Azure | Microsoft Docs
+description: In dit onderwerp biedt een overzicht en laat zien hoe Azure Media Services gebruiken op uw HTTP Live Streaming (HLS) inhoud met Apple FairPlay dynamisch wordt versleuteld. U ziet ook het gebruik van de Media Services-service voor het leveren van licenties FairPlay-licenties te leveren aan clients.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,82 +13,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: fc3504f71af2f5e8f989a1d015ff78dda2c85d66
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 65188dacbb29fea5562ca5b83283861986719ce1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790683"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866675"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Beveiligen van uw inhoud met Apple FairPlay of Microsoft PlayReady HLS
-Azure Media Services kunt u uw inhoud HTTP Live Streaming (HLS) dynamisch versleutelen met behulp van de volgende indelingen:  
+Azure Media Services kunt u de inhoud van uw HTTP Live Streaming (HLS) dynamisch wordt versleuteld met behulp van de volgende indelingen:  
 
-* **De lege sleutel envelop voor AES-128**
+* **De lege sleutel AES-128-envelop**
 
-    De volledige chunk is versleuteld met behulp van de **AES-128 CBC** modus. De ontsleuteling van de stroom wordt ondersteund door iOS en OS X-speler systeemeigen. Zie voor meer informatie [dynamische versleuteling met behulp van AES-128 en sleutellevering service](media-services-protect-with-aes128.md).
-* **FairPlay van Apple**
+    Het hele segment is versleuteld met behulp van de **AES-128 CBC** modus. De ontsleuteling van de stroom wordt ondersteund door iOS en OS X de ingesloten speler van de systeemeigen. Zie voor meer informatie, [dynamische versleuteling met behulp van AES-128 en sleutelleveringsservice](media-services-protect-with-aes128.md).
+* **Apple FairPlay**
 
-    De afzonderlijke video en audio-voorbeelden zijn versleuteld met behulp van de **AES-128 CBC** modus. **FairPlay Streaming** (FPS) is geïntegreerd in de besturingssystemen van apparaten, met systeemeigen ondersteuning op iOS- en Apple TV. Safari op OS X kunt FPS met behulp van de interfaceondersteuning versleuteld Media extensies (EME).
+    De afzonderlijke video en audio-voorbeelden zijn versleuteld met behulp van de **AES-128 CBC** modus. **FairPlay Streaming** (FPS) is geïntegreerd in de besturingssystemen van apparaten, met systeemeigen ondersteuning op iOS- en Apple tv-programma's. Safari op OS X kan FPS met behulp van de ondersteuning van de Encrypted Media Extensions (EME)-interface.
 * **Microsoft PlayReady**
 
 De volgende afbeelding toont de **HLS + FairPlay of PlayReady dynamische versleuteling** werkstroom.
 
-![Diagram van de dynamische versleuteling werkstroom](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
+![Diagram van de werkstroom voor dynamische versleuteling](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-In dit artikel laat zien hoe Media Services gebruiken voor het dynamisch versleutelen van uw inhoud HLS met Apple FairPlay. U ziet ook hoe u met het Media Services-service voor het leveren van licenties FairPlay-licenties aan clients leveren.
+In dit artikel laat zien hoe u uw HLS-inhoud met Apple FairPlay dynamisch wordt versleuteld met Media Services. U ziet ook het gebruik van de Media Services-service voor het leveren van licenties FairPlay-licenties te leveren aan clients.
 
 > [!NOTE]
-> Als u wilt er ook voor het versleutelen van uw inhoud HLS met PlayReady, moet u een algemene inhoudssleutel maken en deze koppelen aan uw asset. U moet ook configureren autorisatiebeleid voor de inhoudssleutel, zoals beschreven in [PlayReady met behulp van dynamische algemene versleuteling](media-services-protect-with-playready-widevine.md).
+> Als u ook wilt voor het versleutelen van uw HLS-inhoud met PlayReady, moet u een algemene inhoudssleutel maken en deze koppelen aan uw asset. U moet ook configureren voor de inhoudssleutel autorisatie, zoals beschreven in [dynamische algemene versleuteling met PlayReady met behulp van](media-services-protect-with-playready-widevine.md).
 >
 >
 
 ## <a name="requirements-and-considerations"></a>Vereisten en overwegingen
 
-Het volgende is vereist als u Media Services leveren HLS versleuteld met FairPlay en FairPlay-licenties te leveren:
+Het volgende is vereist als u Media Services leveren HLS versleuteld met FairPlay en om FairPlay-licenties te leveren:
 
   * Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie.
-  * Een Media Services-account. Als u wilt maken, Zie [een Azure Media Services-account maken met de Azure-portal](media-services-portal-create-account.md).
-  * Aanmelden bij [Apple Development Program](https://developer.apple.com/).
-  * Apple vereist dat de eigenaar van de inhoud verkrijgen van de [implementatiepakket](https://developer.apple.com/contact/fps/). Staat u sleutel Security Module (KSM) met Media Services al geïmplementeerd en dat u het laatste FPS pakket aanvraagt. Er zijn instructies in het laatste FPS pakket certificeringsinstantie genereren en ophalen van de toepassing geheime sleutel (vraag). VRAAG kunt u FairPlay configureren.
-  * Azure Media Services .NET SDK versie **3.6.0** of hoger.
+  * Een Media Services-account. Zie voor het maken van een [een Azure Media Services-account maken met de Azure-portal](media-services-portal-create-account.md).
+  * Aanmelden met [Program van Apple Development](https://developer.apple.com/).
+  * Apple vereist dat de eigenaar van de inhoud verkrijgen van de [implementatiepakket](https://developer.apple.com/contact/fps/). Status die u al sleutel Security Module (KSM) met Media Services hebt geïmplementeerd en dat u het laatste FPS pakket aanvraagt. Er zijn instructies in het definitieve pakket FPS certificering genereren en downloaden van de toepassing geheime sleutel (ASK). VRAAG kunt u FairPlay configureren.
+  * Azure Media Services .NET SDK-versie **3.6.0** of hoger.
 
-De volgende zaken moeten worden ingesteld op Media Services sleutellevering kant:
+De volgende dingen moeten worden ingesteld op Media Services sleutellevering aan clientzijde:
 
-  * **App-certificaat (AC)**: dit is een .pfx-bestand dat de persoonlijke sleutel bevat. Dit bestand te maken en versleuteld met een wachtwoord.
+  * **App-certificaat (AC)**: dit is een pfx-bestand dat de persoonlijke sleutel bevat. U kunt dit bestand maken en versleutelen met een wachtwoord.
 
-       Wanneer u een sleutel leveringsbeleid configureert, moet u opgeven dat het wachtwoord en het pfx-bestand in Base64-indeling.
+       Wanneer u een sleutel leveringsbeleid configureert, moet u opgeven dat wachtwoord en het pfx-bestand in Base 64-indeling.
 
-      De volgende stappen wordt beschreven hoe een PFX-certificaatbestand voor FairPlay genereren:
+      De volgende stappen wordt beschreven hoe u een PFX-certificaatbestand voor FairPlay genereren:
 
-    1. Installeren van OpenSSL van https://slproweb.com/products/Win32OpenSSL.html.
+    1. Installeer de OpenSSL van https://slproweb.com/products/Win32OpenSSL.html.
 
-        Ga naar de map waarin het certificaat FairPlay en andere bestanden die door Apple worden geleverd zijn.
-    2. Voer de volgende opdracht uit via de opdrachtregel. Dit converteert het cer-bestand naar een .pem-bestand.
+        Ga naar de map waar het certificaat FairPlay en andere bestanden die worden geleverd door Apple zijn.
+    2. Voer de volgende opdracht uit via de opdrachtregel. Hiermee zet u het cer-bestand naar een PEM-bestand.
 
-        'C:\OpenSSL-Win32\bin\openssl.exe' x509-informeren der-in FairPlay.cer-out FairPlay out.pem
-    3. Voer de volgende opdracht uit via de opdrachtregel. Dit converteert het .pem-bestand naar een pfx-bestand met de persoonlijke sleutel. Het wachtwoord voor het pfx-bestand wordt vervolgens door OpenSSL gevraagd.
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informeren der-in FairPlay.cer-out FairPlay-out.pem
+    3. Voer de volgende opdracht uit via de opdrachtregel. Hiermee zet u het .pem-bestand naar een pfx-bestand met de persoonlijke sleutel. Het wachtwoord voor het pfx-bestand wordt vervolgens gevraagd door OpenSSL.
 
-        'C:\OpenSSL-Win32\bin\openssl.exe' pkcs12-Exporteer - FairPlay out.pfx-inkey privatekey.pem-in FairPlay out.pem - passin file:privatekey-pem-pass.txt
-  * **Certificaat van de App-wachtwoord**: het wachtwoord voor het maken van het pfx-bestand.
-  * **App-Cert wachtwoord ID**: U moet het wachtwoord, vergelijkbaar met hoe ze andere Media Services-sleutels uploaden uploaden. Gebruik de **ContentKeyType.FairPlayPfxPassword** enum-waarde ophalen van de Media Services-ID. Dit is wat ze moeten binnen de beleidsoptie sleutellevering gebruiken.
-  * **IV**: dit is een willekeurige waarde van 16 bytes. Deze moet overeenkomen met de iv in het leveringsbeleid voor Assets. U de iv genereren en plaatsen op beide plaatsen: het leveringsbeleid voor Assets en de optie voor het beleid van sleutel levering.
-  * **VRAAG**: deze sleutel wordt ontvangen bij het genereren van de certificeringsinstantie van Apple Developer portal. Elke ontwikkelteam ontvangt een unieke vraag. Sla een kopie van de vraag en sla deze op een veilige plaats. U moet vraag als FairPlayAsk met Media Services later configureren.
-  * **Vraag-ID**: deze ID wordt verkregen tijdens het uploaden van vraag in Media Services. U moet een vraag uploaden met behulp van de **ContentKeyType.FairPlayAsk** enum-waarde. Als het resultaat wordt geretourneerd met de ID van de Media Services en dit is wat moet worden gebruikt bij het instellen van de optie voor het beleid van sleutel levering.
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-Exporteer - FairPlay-out.pfx-inkey privatekey.pem-in FairPlay-out.pem - passin file:privatekey-pem-pass.txt
+  * **Certificaat voor App-wachtwoord**: het wachtwoord voor het maken van het pfx-bestand.
+  * **App-certificaat wachtwoord ID**: U moet het wachtwoord, vergelijkbaar met hoe ze andere sleutels Media Services uploaden uploaden. Gebruik de **ContentKeyType.FairPlayPfxPassword** enum-waarde om de Media Services-ID. Dit is wat ze nodig hebben om te gebruiken binnen de beleidsoptie sleutellevering.
+  * **IV**: dit is een willekeurige waarde van 16 bytes. Dit moet overeenkomen met de iv in het leveringsbeleid voor Assets. U genereert de iv en plaatsen op beide plaatsen: het leveringsbeleid voor Assets en de optie voor sleutellevering.
+  * **VRAAG**: deze sleutel wordt weergegeven wanneer u het certificaat genereert met behulp van de Apple Developer-portal. Elke ontwikkelingsteam ontvangt een unieke vraag. Sla een kopie van de vraag, en sla deze op een veilige plaats. U moet vragen als FairPlayAsk met Media Services later configureren.
+  * **Vraag ID**: deze ID wordt verkregen tijdens het uploaden van vragen in Media Services. U moet bevestigen uploaden met behulp van de **ContentKeyType.FairPlayAsk** enum-waarde. Als het resultaat wordt geretourneerd met de ID van de Media Services en dit is wat moet worden gebruikt bij het instellen van de belangrijkste bezorgingsoptie beleid.
 
-De volgende zaken moeten worden ingesteld door de client FPS:
+De volgende dingen moeten zijn ingesteld door de client FPS:
 
-  * **App-certificaat (AC)**: dit is een.cer/.der-bestand met de openbare sleutel, die het besturingssysteem wordt gebruikt voor het versleutelen van sommige nettolading. Media Services moet weten over het omdat deze door Windows media player is vereist. De service sleutellevering ontsleuteld met behulp van de bijbehorende persoonlijke sleutel.
+  * **App-certificaat (AC)**: dit is een.cer/.der-bestand met de openbare sleutel, die het besturingssysteem wordt gebruikt voor het versleutelen van sommige nettolading. Media Services moet weten over het, omdat deze is vereist voor de speler. De sleutelleveringsservice ontsleutelt deze met behulp van de bijbehorende persoonlijke sleutel.
 
-Zorg dat u hebt een echte vraag om af te spelen een versleutelde gegevensstroom FairPlay, en vervolgens een echte certificaat genereren. Dit proces wordt gemaakt van alle drie onderdelen:
+Als u wilt afspelen van een versleutelde FairPlay-stream een echte vraag eerste ophalen en genereer vervolgens een echt certificaat zijn. Dit proces wordt gemaakt van alle drie onderdelen:
 
   * der-bestand
   * PFX-bestand
-  * wachtwoord voor de .pfx
+  * wachtwoord voor het .pfx-bestand
 
-De volgende clients ondersteunen HLS met **AES-128 CBC** versleuteling: Safari op OS X, Apple TV iOS.
+De volgende clients ondersteunen HLS met **AES-128 CBC** versleuteling: Safari op OS X-, Apple TV, iOS.
 
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>FairPlay dynamische versleuteling en licentie levering van services configureren
-Hieronder vindt u algemene stappen voor het beveiligen van uw assets met FairPlay met behulp van de Media Services-service voor het leveren van licenties en met behulp van dynamische versleuteling.
+Hier volgen de algemene stappen voor het beveiligen van uw activa met FairPlay met behulp van de Media Services-service voor het leveren van licenties en dynamische versleuteling.
 
 1. Maak een asset en upload bestanden in de asset.
 2. Codeer de asset die het bestand bevat naar de Adaptive Bitrate MP4-set.
@@ -96,51 +96,51 @@ Hieronder vindt u algemene stappen voor het beveiligen van uw assets met FairPla
 4. Configureer het autorisatiebeleid voor de inhoudssleutel. Het volgende opgeven:
 
    * De leveringsmethode (in dit geval FairPlay).
-   * FairPlay opties beleidsconfiguratie. Zie voor meer informatie over het configureren van FairPlay de **ConfigureFairPlayPolicyOptions()** methode in het voorbeeld hieronder.
+   * Configuratie van opties voor FairPlay. Zie voor meer informatie over het configureren van FairPlay de **ConfigureFairPlayPolicyOptions()** methode in het onderstaande voorbeeld.
 
      > [!NOTE]
-     > Meestal kunt zou u wilt configureren FairPlay beleidsopties slechts één keer omdat er slechts één set van een certificeringsinstantie en een vraag.
+     > Normaal gesproken zou u wilt configureren beleidsopties voor FairPlay slechts één keer, omdat er slechts één set van een certificeringsinstantie en een vraag.
      >
      >
    * Beperkingen (openen of token).
-   * Specifieke informatie voor het type sleutellevering waarmee wordt gedefinieerd hoe de sleutel aan de client wordt geleverd.
+   * Informatie die specifiek zijn voor het sleutelleveringstype waarmee wordt gedefinieerd hoe de sleutel aan de client wordt geleverd.
 5. Configureer het leveringsbeleid voor Assets. De configuratie van een leveringsbeleid omvat:
 
-   * De leveringsprotocol (HLS).
+   * Het leveringsprotocol (HLS).
    * Het type dynamische versleuteling (algemene CBC versleuteling).
-   * De URL aanschaf van licentie.
+   * De URL voor het verkrijgen licentie.
 
      > [!NOTE]
-     > Als u wilt leveren een stroom die is versleuteld met FairPlay en een ander systeem voor beheer van digitale rechten (DRM), hebt u het beleid voor de afzonderlijke levering configureren:
+     > Als u een stroom die is versleuteld met een andere Digital Rights Management (DRM)-systeem en FairPlay leveren wilt, hebt u beleid voor de afzonderlijke levering configureren:
      >
-     > * Een IAssetDeliveryPolicy configureren met dynamische adaptief streamen via HTTP-(KOPPELTEKEN) met Common Encryption (CENC) (PlayReady en Widevine) en Smooth met PlayReady
+     > * Een IAssetDeliveryPolicy Dynamic Adaptive Streaming via HTTP (DASH) met algemene versleuteling (CENC) (PlayReady en Widevine) en Smooth met PlayReady configureren
      > * Een andere IAssetDeliveryPolicy FairPlay voor HLS configureren
      >
      >
 6. Maak een OnDemand-locator om een streaming-URL te verkrijgen.
 
-## <a name="use-fairplay-key-delivery-by-player-apps"></a>FairPlay-sleutellevering door player apps gebruiken
-U kunt player apps ontwikkelen met behulp van de iOS-SDK. U hebt om te kunnen FairPlay inhoud af te spelen, voor het implementeren van de licentie voor exchange-protocol. Dit protocol is niet opgegeven door Apple. Het is tot elke app het sleutellevering aanvragen verzenden. De Media Services FairPlay sleutellevering service verwacht dat de SPC bij als een www-form-url gecodeerde post bericht in de volgende notatie:
+## <a name="use-fairplay-key-delivery-by-player-apps"></a>FairPlay sleutellevering met player-apps gebruiken
+U kunt player-apps ontwikkelen met behulp van de iOS SDK. Als u FairPlay inhoud af te spelen, moet u de licentie voor exchange-protocol implementeren. Dit protocol is niet opgegeven door Apple. Het is aan elke app sleutellevering aanvragen verzenden. De Media Services FairPlay sleutelleveringsservice wordt verwacht dat de SPC te komen als een bericht van het gecodeerde bericht www-form-url, in de volgende notatie:
 
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player ondersteunt FairPlay afspelen. Zie [Azure Media Player documentatie](https://amp.azure.net/libs/amp/latest/docs/index.html) voor meer informatie.
+> Azure Media Player ondersteunt FairPlay afspelen. Zie [documentatie voor Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) voor meer informatie.
 >
 >
 
 ## <a name="streaming-urls"></a>Streaming-URL's
-Als uw asset is versleuteld met meer dan één DRM, moet u een tag versleuteling in de streaming-URL: (format = 'm3u8-aapl', versleuteling = 'xxx').
+Als uw asset is versleuteld met meer dan één DRM, moet u een tag versleuteling in de streaming-URL: (format = 'm3u8-aapl' codering = 'xxx').
 
-Het volgende letten:
+De volgende overwegingen zijn van toepassing:
 
 * Alleen nul of één versleutelingstype kan worden opgegeven.
-* Het versleutelingstype hoeft niet te worden opgegeven in de URL als er slechts één versleuteling is toegepast op de asset.
+* Het versleutelingstype hoeft te worden opgegeven in de URL als er slechts één versleuteling is toegepast op de asset.
 * Het versleutelingstype is niet hoofdlettergevoelig.
 * De volgende versleutelingstypen kunnen worden opgegeven:  
   * **cenc**: Common encryption (PlayReady of Widevine)
-  * **cbcs-aapl**: FairPlay
-  * **CBC**: AES envelope-versleuteling
+  * **cbcs aapl**: FairPlay
+  * **CBC**: AES-codering van envelop
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
@@ -154,7 +154,7 @@ Het volgende letten:
 
 ## <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld demonstreert de mogelijkheid om Media Services gebruiken om uw inhoud die is versleuteld met FairPlay. Deze functionaliteit werd geïntroduceerd in Azure Media Services SDK voor .NET versie 3.6.0. 
+Het volgende voorbeeld ziet u de mogelijkheid om met Media Services om uw inhoud die is versleuteld met FairPlay te leveren. Deze functionaliteit is ingevoerd in de Azure Media Services SDK voor .NET versie 3.6.0. 
 
 Overschrijf de code in uw Program.cs-bestand met de code die wordt weergegeven in deze sectie.
 
@@ -249,7 +249,7 @@ namespace DynamicEncryptionWithFairPlay
                 TokenRestrictionTemplate tokenTemplate =
                     TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-                // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+                // Generate a test token based on the data in the given TokenRestrictionTemplate.
                 // Note, you need to pass the key id Guid because we specified
                 // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
                 Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);

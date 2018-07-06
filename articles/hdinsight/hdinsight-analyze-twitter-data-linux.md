@@ -1,6 +1,6 @@
 ---
-title: Twitter gegevens analyseren met Apache Hive - Azure HDInsight | Microsoft Docs
-description: Informatie over het gebruik van gebruik Hive en Hadoop in HDInsight voor het transformeren van onbewerkte gegevens van TWitter in een doorzoekbare Hive-tabel.
+title: Twitter-gegevens met Apache Hive - Azure HDInsight analyseren | Microsoft Docs
+description: Informatie over het gebruik van gebruik Hive en Hadoop op HDInsight onbewerkte TWitter-gegevens omzetten in een doorzoekbare Hive-tabel.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,33 +14,33 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f48aa68838ff8cac0119f66f168fce6008d388bc
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 0c6643e167f43c2524a4d00a209c5a5db22076a8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959019"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865311"
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Twitter-gegevens met Hive en Hadoop op HDInsight analyseren
 
-Informatie over het gebruik van Apache Hive om gegevens van Twitter te verwerken. Het resultaat is een lijst met Twitter-gebruikers die de meeste tweets met een bepaald woord verzonden.
+Leer hoe u Twitter-gegevens verwerken met Apache Hive. Het resultaat is een lijst van Twitter-gebruikers die de meeste tweets met een bepaald woord verzonden.
 
 > [!IMPORTANT]
-> De stappen in dit document zijn getest op HDInsight 3.6.
+> De stappen in dit document zijn getest in HDInsight 3.6.
 >
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="get-the-data"></a>De gegevens ophalen
 
-Twitter kunt u de gegevens voor elke tweet ophalen als een document notatie JSON (JavaScript Object) via een REST-API. [OAuth](http://oauth.net) is vereist voor verificatie van de API.
+Twitter kunt u de gegevens voor elke tweet ophalen als een document JavaScript Object Notation (JSON) via een REST-API. [OAuth](http://oauth.net) is vereist voor verificatie aan de API.
 
 ### <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
 
-1. Vanuit een webbrowser, moet u zich aanmelden bij [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klik op de **nu aanmelden** koppelen als u een Twitter-account niet hebt.
+1. Via een webbrowser, moet u zich aanmelden bij [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klik op de **Meld u nu** koppelen als u geen een Twitter-account.
 
 2. Klik op **nieuwe App maken**.
 
-3. Voer **naam**, **beschrijving**, **Website**. U kunt maken van een URL op voor de **Website** veld. De volgende tabel ziet u enkele voorbeeldwaarden te gebruiken:
+3. Voer **naam**, **beschrijving**, **Website**. U kunt maken van een URL voor de **Website** veld. De volgende tabel ziet u enkele voorbeeldwaarden gebruiken:
 
    | Veld | Waarde |
    |:--- |:--- |
@@ -52,20 +52,20 @@ Twitter kunt u de gegevens voor elke tweet ophalen als een document notatie JSON
 
 5. Klik op de **machtigingen** tabblad. Standaard de machtiging is **alleen-lezen**.
 
-6. Klik op de **sleutels en toegangstokens** tabblad.
+6. Klik op de **Keys and Access Tokens** tabblad.
 
 7. Klik op **maken van mijn toegangstoken**.
 
 8. Klik op **Test OAuth** in de rechterbovenhoek van de pagina.
 
-9. Noteer **consumentsleutel**, **consumentgeheim**, **toegangstoken**, en **Access token geheim**.
+9. Noteer **consumer key**, **Consumer secret**, **toegangstoken**, en **Access token secret**.
 
 ### <a name="download-tweets"></a>Tweets downloaden
 
 De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een bestand met de naam **tweets.txt**.
 
 > [!NOTE]
-> De volgende stappen worden uitgevoerd op het HDInsight-cluster omdat Python al is geïnstalleerd.
+> De volgende stappen worden uitgevoerd op het HDInsight-cluster, omdat Python al is geïnstalleerd.
 
 1. Maak verbinding met het HDInsight-cluster via SSH:
 
@@ -75,7 +75,7 @@ De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een b
 
     Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-3. Gebruik de volgende opdrachten voor het installeren van [Tweepy](http://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2), en andere vereiste pakketten:
+3. Gebruik de volgende opdrachten voor het installeren van [Tweepy](http://www.tweepy.org/), [voortgangsbalk](https://pypi.python.org/pypi/progressbar/2.2), en andere vereiste pakketten:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -88,7 +88,7 @@ De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een b
    pip install tweepy progressbar pyOpenSSL requests[security]
    ```
 
-4. Gebruik de volgende opdracht voor het maken van een bestand met de naam **gettweets.py**:
+4. Gebruik de volgende opdracht om te maken van een bestand met de naam **gettweets.py**:
 
    ```bash
    nano gettweets.py
@@ -151,7 +151,7 @@ De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een b
    ```
 
     > [!IMPORTANT]
-    > Vervang de tijdelijke aanduiding voor de volgende items met de gegevens van twitter-toepassing:
+    > Vervang de tijdelijke aanduiding voor de volgende items met de gegevens uit uw twitter-toepassing:
     >
     > * `consumer_secret`
     > * `consumer_key`
@@ -159,24 +159,24 @@ De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een b
     > * `access_token_secret`
 
     > [!TIP]
-    > Het filter onderwerpen op de laatste regel voor het bijhouden van populaire trefwoorden aanpassen. Op het moment dat u het script uitvoeren met behulp van populaire trefwoorden kunt u sneller vastleggen van gegevens.
+    > Het filter van de onderwerpen in de laatste regel voor het bijhouden van populaire trefwoorden aanpassen. Met populaire trefwoorden op het moment dat u het script uitvoert beschikt u over snellere vastleggen van gegevens.
 
-6. Gebruik **Ctrl + X**, klikt u vervolgens **Y** het bestand wilt opslaan.
+6. Gebruik **Ctrl + X**, klikt u vervolgens **Y** op te slaan.
 
-7. Gebruik de volgende opdracht voor het uitvoeren van het bestand en tweets downloaden:
+7. Gebruik de volgende opdracht uitvoeren van het bestand en tweets downloaden:
 
     ```bash
     python gettweets.py
     ```
 
-    Er verschijnt een voortgangsindicator. De functie telt tot wel 100% terwijl de tweets worden gedownload.
+    Er verschijnt een voortgangsindicator. Deze telt tot 100% als de tweets worden gedownload.
 
    > [!NOTE]
-   > Als het duurt lang voordat de voortgangsbalk om door te gaan, moet u het filter om bij te houden van trends onderwerpen wijzigen. Wanneer er veel tweets over het onderwerp in het filter, krijgt u snel de 10000 tweets nodig.
+   > Als het duurt lang voordat de voortgangsbalk om door te gaan, moet u het filter voor het volgen van actuele onderwerpen op wijzigen. Wanneer er veel tweets over een onderwerp in het filter, krijgt u snel de 10000 tweets die nodig zijn.
 
 ### <a name="upload-the-data"></a>De gegevens uploaden
 
-Als u wilt de gegevens uploaden naar HDInsight-opslag, gebruikt u de volgende opdrachten:
+Als u wilt de gegevens uploaden naar HDInsight-opslag, gebruik de volgende opdrachten:
 
 ```bash
 hdfs dfs -mkdir -p /tutorials/twitter/data
@@ -187,7 +187,7 @@ Deze opdrachten worden de gegevens opslaan op een locatie die toegankelijk is vo
 
 ## <a name="run-the-hiveql-job"></a>Voer de taak HiveQL
 
-1. Gebruik de volgende opdracht voor het maken van een bestand met HiveQL-instructies:
+1. Gebruik de volgende opdracht om te maken van een bestand met HiveQL-instructies:
 
    ```bash
    nano twitter.hql
@@ -301,16 +301,16 @@ Deze opdrachten worden de gegevens opslaan op een locatie die toegankelijk is vo
    WHERE (length(json_response) > 500);
    ```
 
-2. Druk op **Ctrl + X**, drukt u vervolgens op **Y** het bestand wilt opslaan.
+2. Druk op **Ctrl + X**, drukt u vervolgens op **Y** op te slaan.
 3. Gebruik de volgende opdracht om uit te voeren van de HiveQL opgenomen in het bestand:
 
    ```bash
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    Met deze opdracht wordt uitgevoerd de de **twitter.hql** bestand. Nadat de query is voltooid, ziet u een `jdbc:hive2//localhost:10001/>` prompt.
+    Met deze opdracht wordt uitgevoerd de **twitter.hql** bestand. Nadat de query is voltooid, ziet u een `jdbc:hive2//localhost:10001/>` prompt.
 
-4. Gebruik de volgende query om te controleren dat de gegevens zijn geïmporteerd achter de opdrachtprompt beeline:
+4. Gebruik de volgende query om te controleren dat de gegevens zijn geïmporteerd uit de beeline-prompt:
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
@@ -320,17 +320,17 @@ Deze opdrachten worden de gegevens opslaan op een locatie die toegankelijk is vo
    ORDER BY cc DESC LIMIT 10;
    ```
 
-    Deze query retourneert maximaal 10 tweets met het woord **Azure** in de berichttekst.
+    Deze query retourneert maximaal 10 tweets waarin het woord bevatten **Azure** in de berichttekst.
 
     > [!NOTE]
-    > Als u het filter in gewijzigd de `gettweets.py` script, vervangen door **Azure** met een van de filters die u hebt gebruikt.
+    > Als u het filter in gewijzigd de `gettweets.py` script, Vervang **Azure** met een van de filters die u hebt gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u een niet-gestructureerde JSON-gegevensset transformeren naar een gestructureerde Hive-tabel. Zie de volgende documenten voor meer informatie over Hive in HDInsight:
+U hebt geleerd hoe een niet-gestructureerde JSON-gegevensset omzetten in een gestructureerde Hive-tabel. Zie de volgende documenten voor meer informatie over Hive in HDInsight:
 
 * [Aan de slag met HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Vertraging vluchtgegevens met HDInsight analyseren](hdinsight-analyze-flight-delay-data-linux.md)
+* [HDInsight met gegevens van vertragingen van vluchten analyseren](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html

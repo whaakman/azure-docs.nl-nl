@@ -1,6 +1,6 @@
 ---
-title: Hoe het configureren van hybride Azure Active Directory die lid zijn van apparaten | Microsoft Docs
-description: Informatie over het configureren van hybride Azure Active Directory die lid zijn van apparaten.
+title: Hoe het configureren van hybride Azure Active Directory apparaten gekoppelde | Microsoft Docs
+description: Informatie over het configureren van hybride Azure Active Directory verbonden apparaten.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,40 +16,40 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261182"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868432"
 ---
-# <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hybride Azure Active Directory die lid zijn van apparaten configureren
+# <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Het configureren van hybride Azure Active Directory verbonden apparaten
 
-Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen vanaf apparaten die voldoen aan uw standaarden voor beveiliging en naleving. Zie voor meer informatie [Inleiding tot beheer van apparaten in Azure Active Directory](device-management-introduction.md).
+Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen van apparaten die voldoen aan uw normen voor beveiliging en naleving. Zie voor meer informatie, [Inleiding tot Apparaatbeheer in Azure Active Directory](device-management-introduction.md).
 
-Als u een on-premises Active Directory-omgeving hebt en u wilt deelnemen aan uw domein apparaten naar Azure AD, kunt u dit doen door hybride Azure AD die lid zijn van apparaten te configureren. In dit artikel biedt u de bijbehorende stappen. 
+Als u een on-premises Active Directory-omgeving hebt en u wilt deelnemen aan uw domein apparaten naar Azure AD, kunt u dit doen met hybride Azure AD gekoppelde apparaten configureren. In dit artikel biedt u de bijbehorende stappen. 
 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Voordat u begint met het configureren van hybride Azure AD die lid zijn van apparaten in uw omgeving, moet u dat vertrouwd raken met de ondersteunde scenario's en de beperkingen.  
+Voordat u begint met het configureren van hybride Azure AD gekoppelde apparaten in uw omgeving, moet u uzelf vertrouwd met de ondersteunde scenario's en de beperkingen.  
 
-Als u vertrouwen op de [hulpprogramma voor systeemvoorbereiding (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), Controleer of u installatiekopieën maken van een installatie van Windows die is nog niet geregistreerd met Azure AD.
+Als u de [hulpprogramma voor systeemvoorbereiding (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), zorg ervoor dat u installatiekopieën maken van een installatie van Windows die niet nog is geregistreerd bij Azure AD.
 
-Alle domein-apparaten met Windows 10 Verjaardag Update en Windows Server 2016 automatisch wordt geregistreerd bij Azure AD herstart van het apparaat of gebruiker aanmelden als de hieronder vermelde configuratiestappen voltooid zijn. **Als dit probleem automatisch registreren niet aanbevolen wordt of een gecontroleerde rollout desgewenst**, volg de instructies in de sectie 'Stap 4: beheer implementatie en Rollout' hieronder om selectief in- of uitschakelen van automatische implementatie voordat eerst te na de configuratiestappen.  
+Alle domein-apparaten wordt uitgevoerd Windows 10 Verjaardag Update en Windows Server 2016 automatisch wordt geregistreerd bij Azure AD op herstart van het apparaat of gebruiker aanmelden als de hieronder vermelde configuratiestappen voltooid zijn. **Als dit probleem automatisch registreren niet aanbevolen wordt of een beheerde implementatie desgewenst**,. Volg de instructies in de sectie 'Stap 4: beheer implementatie en Rollout' hieronder om selectief in- of uitschakelen van automatische implementatie voordat u de andere configuratiestappen te volgen.  
 
-In dit artikel gebruikt ter verbetering van de leesbaarheid van de beschrijvingen van de volgende voorwaarden: 
+Ter verbetering van de leesbaarheid van de beschrijvingen wordt in dit artikel de volgende vermelding: 
 
-- **Huidige Windows-apparaten** -deze term verwijst naar domein apparaten met Windows 10 of Windows Server 2016.
-- **Apparaten met Windows downlevel-** -deze term verwijst naar alle **ondersteund** domein Windows-apparaten die geen actieve Windows 10 of Windows Server 2016.  
+- **Huidige Windows-apparaten** -deze term heeft betrekking op domein apparaten met Windows 10 of Windows Server 2016.
+- **Windows downlevel-apparaten** -deze term heeft betrekking op alle **ondersteund** domein Windows-apparaten die geen actieve Windows 10 of Windows Server 2016.  
 
 ### <a name="windows-current-devices"></a>Huidige Windows-apparaten
 
-- Voor apparaten waarop het besturingssysteem voor Windows-bureaublad, de ondersteunde versie is de Update voor Windows 10 Verjaardag (versie 1607) of hoger. 
-- De registratie van de huidige Windows-apparaten **is** in niet-gefedereerde omgevingen zoals wachtwoord-hash-synchronisatie configuraties ondersteund.  
+- Voor apparaten met het besturingssysteem voor Windows-bureaublad, de ondersteunde versie is de Windows 10 Jubileumupdate (versie 1607) of hoger. 
+- De registratie van de huidige Windows-apparaten **is** in niet-gefedereerde omgevingen, zoals wachtwoord-hash gesynchroniseerde configuraties ondersteund.  
 
 
-### <a name="windows-down-level-devices"></a>Eerdere Windows-apparaten
+### <a name="windows-down-level-devices"></a>Windows downlevel-apparaten
 
 - De volgende Windows downlevel-apparaten worden ondersteund:
     - Windows 8.1
@@ -57,26 +57,26 @@ In dit artikel gebruikt ter verbetering van de leesbaarheid van de beschrijvinge
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- De registratie van apparaten met Windows downlevel- **is** in niet-gefedereerde omgevingen via naadloze eenmalige aanmelding ondersteund [Azure Active Directory naadloze eenmalige aanmelding](https://aka.ms/hybrid/sso). 
-- De registratie van apparaten met Windows downlevel- **is niet** ondersteund bij het gebruik van Azure AD Pass-through-verificatie.
-- De registratie van apparaten met Windows downlevel- **is niet** ondersteund voor apparaten met behulp van zwervende profielen. Als u gebruik van zwervende profielen of instellingen, gebruikt u Windows 10.
+- De registratie van Windows downlevel-apparaten **is** in omgevingen met niet-gefedereerde via naadloze eenmalige aanmelding ondersteund [Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+- De registratie van Windows downlevel-apparaten **is niet** ondersteund bij het gebruik van Azure AD Pass-through-verificatie zonder naadloze eenmalige aanmelding.
+- De registratie van Windows downlevel-apparaten **is niet** ondersteund voor apparaten die gebruikmaken van zwervende profielen. Als u zwervende profielen of instellingen vertrouwen, gebruikt u Windows 10.
 
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint met het inschakelen van hybride Azure AD die lid zijn van apparaten in uw organisatie, moet u Zorg ervoor dat:
+Voordat u begint met het inschakelen van hybride Azure AD gekoppelde apparaten in uw organisatie, moet u om ervoor te zorgen dat:
 
-- U uitvoert een actuele versie van Azure AD connect.
+- U gebruikt een actuele versie van Azure AD connect.
 
-- Azure AD connect is de computerobjecten van de apparaten die u wilt hybride Azure AD toegevoegd aan Azure AD worden gesynchroniseerd. Verbinding maken ook de computerobjecten behoren tot specifieke organisatie-eenheden (OE), moeten deze OE's opnieuw worden geconfigureerd voor Azure AD-synchronisatie.
+- Azure AD connect is de computerobjecten van de apparaten die u wilt worden toegevoegd aan hybrid Azure AD toegevoegd aan Azure AD gesynchroniseerd. Verbinding maken ook de computerobjecten behoren tot specifieke organisatie-eenheden (OE), en vervolgens deze organisatie-eenheden moeten worden geconfigureerd voor synchronisatie in Azure AD.
 
   
 
 Azure AD Connect:
 
-- Houdt de koppeling tussen de computeraccount in uw on-premises Active Directory (AD) en het apparaatobject in Azure AD. 
-- Andere apparaat gerelateerde functies, zoals Windows Hello voor bedrijven.
+- Houdt u de koppeling tussen het computeraccount in uw on-premises Active Directory (AD) en het apparaatobject in Azure AD. 
+- Hiermee stelt u andere apparaat gerelateerde functies zoals Windows Hello voor bedrijven.
 
 Zorg ervoor dat de volgende URL's toegankelijk vanaf computers in het netwerk van uw organisatie voor de registratie van computers met Azure AD zijn:
 
@@ -89,39 +89,37 @@ Zorg ervoor dat de volgende URL's toegankelijk vanaf computers in het netwerk va
 
 Als u niet hebt gedaan, moeten de STS (voor federatieve domeinen) van uw organisatie worden opgenomen in de gebruikersinstellingen lokaal intranet.
 
-Als uw organisatie is wilt naadloze eenmalige aanmelding gebruiken, zijn de volgende URL's moeten bereikbaar zijn vanaf de computers binnen uw organisatie en deze moeten ook worden toegevoegd aan de zone Lokaal intranet van de gebruiker:
+Als uw organisatie is plan te gebruiken van naadloze eenmalige aanmelding, zijn de volgende URL's moeten bereikbaar zijn vanaf de computers binnen uw organisatie en ze moeten ook worden toegevoegd aan de lokale intranetzone van de gebruiker:
 
 - https://autologon.microsoftazuread-sso.com
 
-- https://aadg.windows.net.nsatc.net
+- Bovendien de volgende instelling in de intranetzone van de gebruiker moet worden ingeschakeld: 'Balk statusupdates via scripts toestaan'.
 
-- Ook de volgende instelling in de intranetzone van de gebruiker moet worden ingeschakeld: 'Balk statusupdates via script toestaan'.
+Als uw organisatie gebruikmaakt van beheerde (niet-gefedereerde)-installatie met behulp van on-premises AD en maakt geen gebruik van ADFS om te federeren met Azure AD en hybride Azure AD join op Windows 10 is afhankelijk van de computerobjecten in AD worden sync'ed naar Azure AD. Zorg ervoor dat een organisatie-eenheden (OE) waarin de computerobjecten die moeten worden toegevoegd aan hybrid Azure AD zijn ingeschakeld voor synchronisatie in de configuratie van de Azure AD Connect-synchronisatie.
 
-Als uw organisatie gebruikmaakt van de beheerde (niet-gefedereerde)-installatie met on-premises AD en maakt geen gebruik van AD FS wilt federeren met Azure AD en hybride Azure AD join op Windows 10 is afhankelijk van de computerobjecten in AD worden sync'ed naar Azure AD. Zorg ervoor dat een organisatie-eenheden (OE) die de computerobjecten bevatten die moeten worden hybride die lid zijn van Azure AD zijn ingeschakeld voor synchronisatie in de configuratie van de Azure AD Connect-synchronisatie.
-
-Als uw organisatie toegang tot Internet via een uitgaande proxyconfiguratie vereist, moet u Web Proxy Auto-Discovery (WPAD) zodat Windows 10-computers te registreren bij Azure AD implementeren.
+Als uw organisatie toegang tot Internet via een uitgaande proxy is vereist, moet u Web Proxy Auto-Discovery (WPAD) om in te schakelen om u te registreren bij Azure AD Windows 10-computers implementeren.
 
 ## <a name="configuration-steps"></a>Configuratiestappen
 
-U kunt hybride Azure AD die lid zijn van apparaten voor diverse typen van platforms voor Windows-apparaten kunt configureren. Dit onderwerp bevat de vereiste stappen voor alle standaardconfiguratie-scenario's.  
+U kunt hybride Azure AD gekoppelde apparaten voor verschillende typen Windows-apparaatplatforms configureren. Dit onderwerp bevat de vereiste stappen voor alle standaardconfiguratie-scenario's.  
 
-Gebruik de volgende tabel om een overzicht van de stappen die nodig voor uw scenario zijn:  
+Gebruik de volgende tabel voor een overzicht van de stappen die vereist voor uw scenario zijn:  
 
 
 
-| Stappen                                      | Windows huidige en het wachtwoord-hash-synchronisatie | De huidige Windows- en Federatie | Windows downlevel- |
+| Stappen                                      | Windows huidige en het wachtwoord-hash-synchronisatie | Huidige Windows- en Federatie | Oudere versies van Windows |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| Stap 1: Een serviceverbindingspunt configureren | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
+| Stap 1: Het service connection point configureren | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
 | Stap 2: De uitgifte van claims instellen           |                                        | ![Selecteren][1]                    | ![Selecteren][1]        |
 | Stap 3: Windows 10-apparaten inschakelen      |                                        |                                | ![Selecteren][1]        |
-| Stap 4: Implementatie van het besturingselement en implementatie     | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
-| Stap 5: Gekoppelde apparaten controleren          | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
+| Stap 4: Implementatie beheren     | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
+| Stap 5: Controleer of de gekoppelde apparaten          | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>Stap 1: Een serviceverbindingspunt configureren
+## <a name="step-1-configure-service-connection-point"></a>Stap 1: Het service connection point configureren
 
-Het service connection point (SCP)-object wordt gebruikt door uw apparaten tijdens de registratie voor het detecteren van informatie over het Azure AD-tenant. Het SCP-object voor de hybride Azure AD die lid zijn van apparaten moet in uw lokale Active Directory (AD) bestaan in de configuratie van de naamgeving van de partitie van de context van de forest van de computer. Er is slechts één configuratienaamgevingscontext per forest. In een configuratie met meerdere forests met Active Directory moet het service connection point in alle forests met computers domein bestaan.
+Het service connection point (SCP)-object wordt gebruikt door uw apparaten tijdens de registratie voor het detecteren van informatie over Azure AD-tenant. In uw on-premises Active Directory (AD) moet het SCP-object voor de hybride Azure AD gekoppelde apparaten zich in de configuratie van de naam van de partitie van de context van de forest van de computer. Er is slechts één configuratienaamgevingscontext per forest. In een configuratie met meerdere forests Active Directory, moet de service connection point in alle forests met domein computers bestaan.
 
 U kunt de [ **Get-ADRootDSE** ](https://technet.microsoft.com/library/ee617246.aspx) cmdlet voor het ophalen van de configuratienaamgevingscontext van het forest.  
 
@@ -129,12 +127,12 @@ Voor een forest met de naam van de Active Directory-domein *fabrikam.com*, is de
 
 `CN=Configuration,DC=fabrikam,DC=com`
 
-Het SCP-object voor de automatische registratie van apparaten die lid zijn van een domein bevindt in uw forest zich op:  
+In het forest zich het SCP-object voor de automatische registratie van apparaten domein bevindt hier:  
 
 `CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Your Configuration Naming Context]`
 
-Afhankelijk van hoe u Azure AD Connect hebt geïmplementeerd, het SCP-object mogelijk al zijn geconfigureerd.
-U kunt controleren of het object bestaat en ophalen van de detectie van waarden met behulp van de volgende Windows PowerShell-script: 
+Afhankelijk van hoe u Azure AD Connect hebt geïmplementeerd, kan het SCP-object al zijn geconfigureerd.
+U kunt controleren of er sprake van het object en ophalen van de detectie-waarden met behulp van de volgende Windows PowerShell-script: 
 
     $scp = New-Object System.DirectoryServices.DirectoryEntry;
 
@@ -142,19 +140,19 @@ U kunt controleren of het object bestaat en ophalen van de detectie van waarden 
 
     $scp.Keywords;
 
-De **$scp. Trefwoorden** uitvoer toont de Azure AD-tenant-informatie, bijvoorbeeld:
+De **$scp. Trefwoorden** uitvoer toont de Azure AD-tenant-gegevens, bijvoorbeeld:
 
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-Als het serviceverbindingspunt niet bestaat, kunt u dit maken door het uitvoeren van de `Initialize-ADSyncDomainJoinedComputerSync` cmdlet uit op uw Azure AD Connect-server. Enterprise admin credential is vereist voor deze cmdlet uitvoeren.  
+Als de service connection point niet bestaat, kunt u dit maken door het uitvoeren van de `Initialize-ADSyncDomainJoinedComputerSync` cmdlet uit op uw Azure AD Connect-server. Referenties voor Enterprise-beheerder is vereist voor deze cmdlet uitvoert.  
 De cmdlet:
 
-- Maakt het serviceverbindingspunt wordt gehost in Azure AD Connect is verbonden met Active Directory-forest. 
-- Moet u opgeven de `AdConnectorAccount` parameter. Dit is het account dat is geconfigureerd als Active Directory connector-account in Azure AD connect. 
+- Hiermee maakt u de service connection point in Azure AD Connect is verbonden met Active Directory-forest. 
+- U moet opgeven de `AdConnectorAccount` parameter. Dit is het account dat is geconfigureerd als Active Directory connector-account in Azure AD connect. 
 
 
-Het volgende script toont een voorbeeld voor het gebruik van de cmdlet. In dit script `$aadAdminCred = Get-Credential` , moet u een gebruikersnaam typt. U moet de gebruikersnaam van de in de indeling van de principal-naam (User Principal Name) gebruiker opgeven (`user@example.com`). 
+Het volgende script toont een voorbeeld voor het gebruik van de cmdlet. In dit script `$aadAdminCred = Get-Credential` , moet u een gebruikersnaam typt. U moet de naam van de gebruiker in de indeling van de principal-naam (User Principal Name) gebruiker opgeven (`user@example.com`). 
 
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
@@ -165,13 +163,13 @@ Het volgende script toont een voorbeeld voor het gebruik van de cmdlet. In dit s
 
 De `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-- Gebruikt de Active Directory PowerShell-module en de AD DS-hulpprogramma's, die afhankelijk zijn van Active Directory Web Services uitgevoerd op een domeincontroller. Active Directory Web Services wordt ondersteund op domeincontrollers met Windows Server 2008 R2 en hoger.
-- Wordt alleen ondersteund door de **MSOnline PowerShell moduleversie 1.1.166.0**. Deze module downloaden, gebruiken deze [koppeling](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).   
-- Als de AD DS-hulpprogramma's zijn niet geïnstalleerd, de `Initialize-ADSyncDomainJoinedComputerSync` zal mislukken.  De AD DS-hulpprogramma's kunnen worden geïnstalleerd via Serverbeheer onder functies - Remote Server Administration Tools - beheerprogramma's voor rollen.
+- Maakt gebruik van de Active Directory PowerShell-module en AD DS-hulpprogramma's, die afhankelijk zijn van Active Directory Web Services die worden uitgevoerd op een domeincontroller. Active Directory Web Services wordt ondersteund op domeincontrollers met Windows Server 2008 R2 en hoger.
+- Wordt alleen ondersteund door de **MSOnline PowerShell-moduleversie 1.1.166.0**. Gebruik deze module downloaden, deze [koppeling](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).   
+- Als de AD DS-hulpprogramma's zijn niet geïnstalleerd, de `Initialize-ADSyncDomainJoinedComputerSync` mislukken.  De AD DS-hulpprogramma's kunnen worden geïnstalleerd via Serverbeheer onder functies - Remote Server Administration Tools - rol beheerprogramma's.
 
-Gebruik het onderstaande script voor het maken van het service connection point voor domeincontrollers met Windows Server 2008 of eerdere versies.
+Gebruik het onderstaande script te maken van de service connection point voor domeincontrollers met Windows Server 2008 of eerdere versies.
 
-In een configuratie met meerdere forests, moet u het volgende script voor het maken van het service connection point in elk forest waar computers bestaan:
+In een configuratie met meerdere forests, moet u het volgende script gebruiken om te maken van de service connection point in elk forest waar computers bestaan:
  
     $verifiedDomain = "contoso.com"    # Replace this with any of your verified domain names in Azure AD
     $tenantID = "72f988bf-86f1-41af-91ab-2d7cd011db47"    # Replace this with you tenant ID
@@ -179,7 +177,6 @@ In een configuratie met meerdere forests, moet u het volgende script voor het ma
 
     $de = New-Object System.DirectoryServices.DirectoryEntry
     $de.Path = "LDAP://CN=Services," + $configNC
-
     $deDRC = $de.Children.Add("CN=Device Registration Configuration", "container")
     $deDRC.CommitChanges()
 
@@ -191,25 +188,25 @@ In een configuratie met meerdere forests, moet u het volgende script voor het ma
 
 In het bovenstaande script
 
-- `$verifiedDomain = "contoso.com"` is een tijdelijke aanduiding die u wilt vervangen door een van uw geverifieerde domeinnamen in Azure AD. U moet eigenaar van het domein voordat u deze kunt gebruiken.
+- `$verifiedDomain = "contoso.com"` is een tijdelijke aanduiding die u wilt vervangen door een van de namen van uw geverifieerde domeinnaam in Azure AD. U moet eigenaar van het domein voordat u deze kunt gebruiken.
 
 Zie voor meer informatie over geverifieerde domeinnamen [een aangepaste domeinnaam toevoegen aan Azure Active Directory](active-directory-domains-add-azure-portal.md).  
-Als u een lijst van uw bedrijf geverifieerde domeinen, kunt u de [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet. 
+Als u een lijst van uw bedrijf met geverifieerde domeinen, kunt u de [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet. 
 
 ![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## <a name="step-2-setup-issuance-of-claims"></a>Stap 2: De uitgifte van claims instellen
 
-In een federatieve Azure AD-configuratie apparaten zijn afhankelijk van de Active Directory Federation Services (AD FS) of een 3e party on-premises federation-service om te verifiëren met Azure AD. Apparaten verifiëren als u een toegangstoken registreren op basis van de Azure Active Directory Device Registration Service (DRS Azure).
+In een federatieve Azure AD-configuratie, de apparaten zijn afhankelijk van de Active Directory Federation Services (AD FS) of een 3e partij on-premises federation-service om te verifiëren met Azure AD. Apparaten worden geverifieerd voor een toegangstoken om te registreren op basis van de Azure Active Directory Device Registration Service (Azure DRS).
 
-Windows huidige apparaten met behulp van geïntegreerde Windows-verificatie naar een actieve WS-Trust-eindpunt (1.3 of 2005 versies verifiëren) gehost door de lokale federation-service.
+Windows huidige apparaten worden geverifieerd met behulp van geïntegreerde Windows-verificatie naar een actieve WS-Trust-eindpunt (versie 1.3 of 2005) die door de federation-service voor on-premises worden gehost.
 
 > [!NOTE]
-> Wanneer u AD FS, ofwel **adfs/services/trust/13/windowstransport** of **adfs/services/trust/2005/windowstransport** moet zijn ingeschakeld. Als u de webproxy verificatie gebruikt, zorg er ook voor dat dit eindpunt is gepubliceerd via de proxy. U kunt zien welke eindpunten worden ingeschakeld via de AD FS-beheerconsole onder **Service > eindpunten**.
+> Bij het gebruik van AD FS, ofwel **adfs/services/trust/13/windowstransport** of **adfs/services/trust/2005/windowstransport** moet zijn ingeschakeld. Als u de webproxy verificatie gebruikt, zorg er ook voor dat dit eindpunt is gepubliceerd via de proxy. U kunt zien welke eindpunten worden ingeschakeld via de AD FS-beheerconsole onder **Service > eindpunten**.
 >
->Als u geen AD FS als de lokale federation-service, volg de instructies van uw leverancier om ervoor te zorgen dat ze WS-Trust 1.3 of 2005 eindpunten en deze zijn gepubliceerd via het Metadata Exchange-bestand (MEX) ondersteunen.
+>Als u geen AD FS als uw on-premises federation-service, volg de instructies van uw leverancier om te controleren of dat ze ondersteuning voor WS-Trust 1.3 of 2005 eindpunten en deze worden gepubliceerd via de metagegevens van Exchange bestand (MEX).
 
-De volgende claims moeten bestaan in het token dat is ontvangen door Azure DRS voor apparaatregistratie te voltooien. Azure DRS maakt een apparaatobject in Azure AD met enkele van deze informatie die vervolgens door Azure AD Connect gebruikt wordt het zojuist gemaakte apparaatobject koppelen aan de computer account on-premises.
+De volgende claims moeten bestaan in het token dat is ontvangen door Azure DRS voor device Registration service om te voltooien. Azure DRS maakt een apparaatobject in Azure AD met een aantal van deze gegevens die vervolgens worden gebruikt door Azure AD Connect naar de zojuist gemaakte apparaatobject koppelen aan de computer account on-premises.
 
 * `http://schemas.microsoft.com/ws/2012/01/accounttype`
 * `http://schemas.microsoft.com/identity/claims/onpremobjectguid`
@@ -219,11 +216,11 @@ Als u meer dan een geverifieerde domeinnaam hebt, moet u bieden de volgende clai
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-Als u al een claim onveranderbare id genoemd (bijv, alternatieve aanmeldings-ID) moet u een overeenkomende claim voor computers:
+Als u al een ImmutableID-claim (bijvoorbeeld alternatieve aanmeldings-ID) u moet een overeenkomende claim voor computers opgeven:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
-In de volgende secties vindt vinden u informatie over:
+In de volgende secties vindt u informatie over:
  
 - De waarden elke claim moet hebben.
 - Hoe een definitie eruit als in AD FS
@@ -231,11 +228,11 @@ In de volgende secties vindt vinden u informatie over:
 De definitie helpt u om te controleren of de waarden aanwezig zijn of als u nodig hebt om ze te maken.
 
 > [!NOTE]
-> Als u AD FS niet voor de lokale federation-server gebruikt, volgt u de leverancier van uw instructies voor het maken van de juiste configuratie om deze claims te verlenen.
+> Als u AD FS niet voor uw on-premises-federatieserver gebruikt, instructies van uw leverancier om de juiste configuratie voor het uitgeven van deze claims te maken.
 
 ### <a name="issue-account-type-claim"></a>Probleem account type claim
 
-**`http://schemas.microsoft.com/ws/2012/01/accounttype`** -Deze claim moet een waarde van bevatten **DJ**, die het apparaat als een domein gekoppelde computer identificeert. U kunt een regel voor het transformeren van uitgifte die uitziet toevoegen in AD FS:
+**`http://schemas.microsoft.com/ws/2012/01/accounttype`** -Deze claim moet een waarde van bevatten **DJ**, waarin het apparaat als een domein computer. In AD FS, kunt u een regel voor het transformeren van uitgifte die er als uitzien volgt toevoegen:
 
     @RuleName = "Issue account type for domain-joined computers"
     c:[
@@ -250,7 +247,7 @@ De definitie helpt u om te controleren of de waarden aanwezig zijn of als u nodi
 
 ### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Probleem objectGUID van de computer account on-premises
 
-**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** -Deze claim moet bevatten de **objectGUID** waarde van de lokale computeraccount. U kunt een regel voor het transformeren van uitgifte die uitziet toevoegen in AD FS:
+**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** -Deze claim moet bevatten de **objectGUID** waarde van het account lokale computer. In AD FS, kunt u een regel voor het transformeren van uitgifte die er als uitzien volgt toevoegen:
 
     @RuleName = "Issue object GUID for domain-joined computers"
     c1:[
@@ -270,9 +267,9 @@ De definitie helpt u om te controleren of de waarden aanwezig zijn of als u nodi
         param = c2.Value
     );
  
-### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Probleem objectSID van de computer account on-premises
+### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>ObjectSID probleem van de computer account on-premises
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** -Deze claim moet bevatten de de **objectSid** waarde van de lokale computeraccount. U kunt een regel voor het transformeren van uitgifte die uitziet toevoegen in AD FS:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** -Deze claim moet bevatten de **objectSid** waarde van het account lokale computer. In AD FS, kunt u een regel voor het transformeren van uitgifte die er als uitzien volgt toevoegen:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -289,7 +286,7 @@ De definitie helpt u om te controleren of de waarden aanwezig zijn of als u nodi
 
 ### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>IssuerID voor computer uitgeven wanneer meerdere domeinnamen in Azure AD geverifieerd
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** -Deze claim moet de id URI (Uniform Resource) van een van de geverifieerde domeinnamen die verbinding met de lokale federation-service (AD FS of 3e partij maken) bevatten voor het uitgeven van het token. U kunt in AD FS uitgifte transformatieregels die lijken op die hieronder in die specifieke volgorde na de bovenstaande waarden toevoegen. Houd er rekening mee dat één regel expliciet uitgeven van de regel voor gebruikers nodig is. Een eerste regel gebruiker versus computerverificatie identificeren in de onderstaande regels is toegevoegd.
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** -Deze claim moet de id URI (Uniform Resource) van een van de geverifieerde domeinnamen die verbinding met de lokale federation-service (AD FS of 3e partij maken) bevatten voor het uitgeven van het token. U kunt de transformatieregels voor uitgifte die er zoals hieronder in die specifieke volgorde na de bovenstaande prijzen uitzien toevoegen in AD FS. Houd er rekening mee dat een regel om uit te geven expliciet de regel voor gebruikers nodig is. Een eerste regel voor het identificeren van gebruiker en computerverificatie wordt in de onderstaande regels toegevoegd.
 
     @RuleName = "Issue account type with the value User when its not a computer"
     NOT EXISTS(
@@ -335,19 +332,19 @@ De definitie helpt u om te controleren of de waarden aanwezig zijn of als u nodi
 
 In de bovenstaande claim
 
-- `<verified-domain-name>` is een tijdelijke aanduiding die u wilt vervangen door een van uw geverifieerde domeinnamen in Azure AD. Bijvoorbeeld, Value = "http://contoso.com/adfs/services/trust/"
+- `<verified-domain-name>` is een tijdelijke aanduiding die u wilt vervangen door een van de namen van uw geverifieerde domeinnaam in Azure AD. Bijvoorbeeld, Value = "http://contoso.com/adfs/services/trust/"
 
 
 
 Zie voor meer informatie over geverifieerde domeinnamen [een aangepaste domeinnaam toevoegen aan Azure Active Directory](active-directory-domains-add-azure-portal.md).  
 
-Als u een lijst van uw bedrijf geverifieerde domeinen, kunt u de [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
+Als u een lijst van uw bedrijf met geverifieerde domeinen, kunt u de [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
-### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>Onveranderbare id genoemd uitgeven voor computer, als een voor gebruikers bestaat (bijvoorbeeld alternatieve aanmeldings-ID is ingesteld)
+### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>ImmutableID uitgeven voor computer wanneer er voor gebruikers bestaat (bijvoorbeeld alternatieve aanmeldings-ID is ingesteld)
 
-**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** -Deze claim moet een geldige waarde voor computers bevatten. In AD FS, kunt u een regel voor het transformeren van uitgifte als volgt:
+**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** -Deze claim moet een geldige waarde voor computers bevatten. In AD FS, kunt u als volgt een uitgifte-transformatieregel maken:
 
     @RuleName = "Issue ImmutableID for computers"
     c1:[
@@ -367,9 +364,9 @@ Als u een lijst van uw bedrijf geverifieerde domeinen, kunt u de [Get-MsolDomain
         param = c2.Value
     );
 
-### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>Help-script voor het maken van de AD FS-uitgifte transformatieregels
+### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>Helper-script voor het maken van de AD FS-uitgifte transformatieregels voor
 
-Het volgende script helpt u bij het maken van de uitgifte transformeren regels die hierboven worden beschreven.
+Het volgende script waarmee u met het maken van de uitgifte regels die hierboven worden beschreven.
 
     $multipleVerifiedDomainNames = $false
     $immutableIDAlreadyIssuedforUsers = $false
@@ -492,132 +489,132 @@ Het volgende script helpt u bij het maken van de uitgifte transformeren regels d
 
 ### <a name="remarks"></a>Opmerkingen 
 
-- Dit script worden de regels toegevoegd aan de bestaande regels. Het script niet twee keer uitgevoerd omdat de set regels tweemaal zou worden toegevoegd. Zorg ervoor dat er geen overeenkomende regels bestaan voor deze claims (onder de bijbehorende voorwaarden) voordat u het script opnieuw uitvoert.
+- Met dit script worden de regels aan de bestaande regels toegevoegd. Het script niet twee keer uitgevoerd omdat de verzameling van regels wordt twee keer worden toegevoegd. Zorg ervoor dat er geen overeenkomende regels bestaan voor deze claims (onder de bijbehorende voorwaarden) voordat het script nogmaals uit te voeren.
 
-- Als u meerdere geverifieerde domeinnamen (zoals weergegeven in de Azure AD-portal of via de cmdlet Get-MsolDomains) hebt, stel de waarde van **$multipleVerifiedDomainNames** in het script naar **$true**. Controleer ook of u een bestaande issuerid claim die mogelijk zijn gemaakt met Azure AD Connect of via andere middelen. Hier volgt een voorbeeld voor deze regel:
+- Als u meerdere geverifieerde domeinnamen (zoals weergegeven in de Azure AD-portal of via de cmdlet Get-MsolDomains) hebt, stel de waarde van **$multipleVerifiedDomainNames** in het script naar **$true**. Controleer ook of u alle bestaande issuerid-claim die mogelijk zijn gemaakt door Azure AD Connect of via andere middelen. Hier volgt een voorbeeld voor deze regel:
 
 
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
         => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-- Als u al uitgegeven een **onveranderbare id genoemd** claim voor gebruikersaccounts, stelt u de waarde van **$immutableIDAlreadyIssuedforUsers** in het script naar **$true**.
+- Als u al hebt verzonden een **ImmutableID** claim voor gebruikersaccounts, stel de waarde van **$immutableIDAlreadyIssuedforUsers** in het script naar **$true**.
 
-## <a name="step-3-enable-windows-down-level-devices"></a>Stap 3: Eerdere Windows-apparaten inschakelen
+## <a name="step-3-enable-windows-down-level-devices"></a>Stap 3: Windows downlevel-apparaten inschakelen
 
-Als sommige van uw apparaten domein Windows downlevel-apparaten, moet u naar:
+Als sommige van uw apparaten domein Windows downlevel-apparaten zijn, moet u naar:
 
-- Stel een beleid in Azure AD, zodat gebruikers kunnen apparaten registreren.
+- Een beleid instellen in Azure AD zodat gebruikers om apparaten te registreren.
  
-- Configureren van de lokale federation-service voor het verlenen van claims voor de ondersteuning van **geïntegreerde Windows-verificatie (IWA)** voor apparaatregistratie.
+- Configureren van uw on-premises federation-service voor het uitgeven van claims voor de ondersteuning van **geïntegreerde Windows-verificatie (IWA)** voor device Registration service.
  
-- Het verificatie-eindpunt van de Azure AD-apparaat toevoegen aan het lokale Intranet-zones certificaatmeldingen voorkomen wanneer het apparaat te verifiëren.
+- Het verificatie-eindpunt van de Azure AD-apparaat toevoegen aan het lokale intranetzones om te voorkomen dat certificaat wordt gevraagd wanneer het apparaat te verifiëren.
 
-### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Beleid instellen in Azure AD, zodat gebruikers kunnen apparaten registreren
+### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Beleid instellen in Azure AD waarmee gebruikers apparaten registreren
 
-Voor het registreren van eerdere Windows-apparaten, moet u ervoor zorgen dat de instelling waarmee gebruikers apparaten registreren in Azure AD is ingesteld. U kunt deze instelling onder vinden in de Azure-portal:
+Voor het registreren van Windows downlevel-apparaten, moet u om ervoor te zorgen dat de instelling als u wilt toestaan dat gebruikers voor het registreren van apparaten in Azure AD is ingesteld. U kunt deze instelling onder vinden in de Azure-portal:
 
 `Azure Active Directory > Users and groups > Device settings`
     
-Het volgende beleid moet worden ingesteld op **alle**: **gebruikers hun apparaten kunnen registreren met Azure AD**
+Het volgende beleid moet worden ingesteld op **alle**: **gebruikers hun apparaten kunnen registreren bij Azure AD**
 
 ![Apparaten registreren](./media/active-directory-conditional-access-automatic-device-registration-setup/23.png)
 
 
-### <a name="configure-on-premises-federation-service"></a>Configureren van de lokale federation-service 
+### <a name="configure-on-premises-federation-service"></a>On-premises federation-service configureren 
 
-De lokale federation-service moet ondersteuning voor het uitgeven de **authenticationmethod** en **wiaormultiauthn** claims tijdens het ontvangen van een verificatieaanvraag naar de Azure AD relying party die een resouce_params parameter met een gecodeerde waarde zoals hieronder:
+Uw on-premises federation-service moet ondersteuning voor het uitgeven de **authenticationmethod** en **wiaormultiauthn** claims bij de ontvangst van een verificatieaanvraag naar de relying party van Azure AD met een resouce_params parameter met een gecodeerde waarde zoals hieronder:
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
     which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
 
-Wanneer een dergelijke aanvraag afkomstig is, wordt de gebruiker met behulp van geïntegreerde Windows-verificatie moet worden geverifieerd door de lokale federation-service en dit lukt, moet deze de volgende twee claims uitgeven:
+Wanneer een dergelijke aanvraag afkomstig is, wordt de gebruiker met behulp van geïntegreerde Windows-verificatie moet worden geverifieerd door de federation-service voor on-premises en implementatie is geslaagd, moet deze de volgende twee claims uitgeven:
 
     http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows
     http://schemas.microsoft.com/claims/wiaormultiauthn
 
-In AD FS, moet u een regel voor het transformeren van uitgifte die geeft via de verificatiemethode toevoegen.  
+In AD FS, moet u een regel voor het transformeren van uitgifte die passen via de methode voor netwerkauthenticatie toevoegen.  
 
 **Deze regel toevoegen:**
 
-1. Ga in de AD FS-beheerconsole naar `AD FS > Trust Relationships > Relying Party Trusts`.
-2. Met de rechtermuisknop op het Identiteitsplatform van Microsoft Office 365 relying party trust object en selecteer vervolgens **Claimregels bewerken**.
+1. In de AD FS-beheerconsole, gaat u naar `AD FS > Trust Relationships > Relying Party Trusts`.
+2. Met de rechtermuisknop op het Identiteitsplatform van Microsoft Office 365 relying party vertrouwensrelatieobject en selecteer vervolgens **Claimregels bewerken**.
 3. Op de **uitgifte Transformatieregels** tabblad **regel toevoegen**.
-4. In de **claimregel** lijst met sjablonen, selecteer **Claims verzenden met een aangepaste regel**.
+4. In de **claimregel** sjabloon in de lijst met **met behulp van een aangepaste regel Claims verzenden**.
 5. Selecteer **Volgende**.
-6. In de **naam Claimregel** in het vak **Auth methode Claimregel**.
+6. In de **naam van Claimregel** in het vak **Claimregel Auth-methode**.
 7. In de **claimregel** typt u de volgende regel:
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. Typ op de federatieserver de PowerShell-opdracht hieronder na het vervangen **\<RPObjectName\>** met de relying party objectnaam voor uw Azure AD relying party trust-object. Dit object meestal heet **Identiteitsplatform van Microsoft Office 365**.
+8. Op de federatieserver, typt u de PowerShell-opdracht hieronder nadat vervangen **\<RPObjectName\>** met de relying party-objectnaam voor uw Azure AD relying party trust-object. Dit object doorgaans de naam **Identiteitsplatform van Microsoft Office 365**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
 ### <a name="add-the-azure-ad-device-authentication-end-point-to-the-local-intranet-zones"></a>Het verificatie-eindpunt van de Azure AD-apparaat toevoegen aan de zones Lokaal Intranet
 
-Om te voorkomen dat certificaat wordt gevraagd wanneer gebruikers in het register apparaten verifiëren met Azure AD kunt u een beleid pushen naar uw apparaten domein de volgende URL toevoegen aan de zone Lokaal Intranet in Internet Explorer:
+Om te voorkomen dat certificaat wordt gevraagd wanneer gebruikers van apparaten registreren zich met Azure AD u een beleid pushen naar uw domein apparaten verifiëren kunt naar de volgende URL toevoegen aan de zone Lokaal Intranet in Internet Explorer:
 
 `https://device.login.microsoftonline.com`
 
-## <a name="step-4-control-deployment-and-rollout"></a>Stap 4: Implementatie van het besturingselement en implementatie
+## <a name="step-4-control-deployment-and-rollout"></a>Stap 4: Implementatie beheren
 
-Wanneer u de vereiste stappen hebt voltooid, worden apparaten die lid zijn van een domein gereed automatisch lid worden van Azure AD:
+Wanneer u de vereiste stappen hebt voltooid, gaan domein apparaten worden automatisch gekoppeld aan Azure AD:
 
-- Alle domein op apparaten met Windows 10 Verjaardag Update en Windows Server 2016 automatisch registreren met Azure AD op het apparaat opnieuw wordt gestart of gebruikersaanmelding. 
+- Alle domein op apparaten met Windows 10 Verjaardag Update en Windows Server 2016 automatisch registreren met Azure AD op het apparaat opnieuw opstarten of aanmelden van gebruikers. 
 
-- Nieuwe apparaten registreren met Azure AD wanneer het apparaat opnieuw wordt gestart nadat de domein-join-bewerking is voltooid.
+- Nieuwe apparaten registreren bij Azure AD wanneer het apparaat opnieuw wordt opgestart nadat de domain-join-bewerking is voltooid.
 
-- Apparaten die eerder in Azure AD zijn geregistreerd (bijvoorbeeld voor Intune) overgang naar '*lid van een domein, geregistreerd bij AAD*"; maar het duurt enige tijd voor dit proces te voltooien op alle apparaten als gevolg van de normale stroom van de domein- en gebruikersactiviteit.
+- Apparaten die u eerder Azure AD zijn geregistreerd (bijvoorbeeld voor Intune) worden overgezet naar "*van een domein, geregistreerd bij AAD*"; maar het duurt even voordat dit proces is voltooid voor alle apparaten vanwege de normale stroom van het domein en Gebruikersactiviteit.
 
 ### <a name="remarks"></a>Opmerkingen
 
-- U kunt een Group Policy object gebruiken voor het beheren van de implementatie van automatische inschrijving van Windows 10 en Windows Server 2016 domein computers. **Als u niet dat deze apparaten wilt worden automatisch geregistreerd bij Azure AD of als u wilt bepalen van de registratie**, en vervolgens moet u Groepsbeleid voor de automatische registratie al deze apparaten eerst uitschakelen voordat u begint met de configuratie uitrolt stappen. Nadat u klaar bent u configureert, en wanneer u gereed om te testen bent, moet u Groepsbeleid inschakelen van de automatische registratie alleen voor de testapparaten implementeert en vervolgens naar alle andere apparaten als u kiest.
+- U kunt een Group Policy object of System Center Configuration Manager client-instelling voor het beheren van de implementatie van automatische inschrijving van Windows 10 en Windows Server 2016 domein computers gebruiken. **Als u niet wilt dat deze apparaten automatisch registreren bij Azure AD of u wilt voor het beheren van de registratie**, en vervolgens moet u Groepsbeleid eerst uitschakelen van de automatische inschrijving naar al deze apparaten uitgerold of als u van configuratie gebruikmaakt Manager moet u de clientinstelling in Cloud Services configureren -> automatisch nieuwe Windows 10 domein apparaten registreren met Azure Active Directory op "Nee", voordat u begint met een van de configuratiestappen. Als u klaar bent u configureert, en wanneer u klaar om te testen bent, moet u Groepsbeleid inschakelen van de automatische inschrijving alleen voor de testapparaten implementeren en kies vervolgens voor alle andere apparaten als u.
 
 - Implementatie van Windows downlevel-computers, u kunt implementeren een [Windows Installer-pakket](#windows-installer-packages-for-non-windows-10-computers) op computers die u selecteert.
 
-- Als u het groepsbeleidsobject naar domein Windows 8.1-apparaten pushen, is een poging tot een join; maar het wordt aangeraden dat u de [Windows Installer-pakket](#windows-installer-packages-for-non-windows-10-computers) op uw apparaten voor de eerdere Windows aanmelden. 
+- Als u de Groepsbeleid-object op domein Windows 8.1-apparaten hebt gepusht, wordt een join geprobeerd. maar het wordt aangeraden dat u de [Windows Installer-pakket](#windows-installer-packages-for-non-windows-10-computers) worden toegevoegd aan uw apparaten voor de downlevel Windows. 
 
 ### <a name="create-a-group-policy-object"></a>Een groepsbeleidsobject maken 
 
-Voor het beheren van de implementatie van de huidige Windows-computers, implementeert u de **Domeincomputers registreren als apparaten** groepsbeleidsobject voor de apparaten die u wilt registreren. U kunt bijvoorbeeld het beleid implementeren naar een organisatie-eenheid of aan een beveiligingsgroep.
+Als u wilt beheren van de implementatie van de huidige Windows-computers, moet u implementeren de **Domeincomputers registreren als apparaten** Group Policy object naar de apparaten die u wilt registreren. Bijvoorbeeld, kunt u het beleid implementeren naar een organisatie-eenheid of aan een beveiligingsgroep.
 
 **Het beleid instellen:**
 
 1. Open **Serverbeheer**, en ga vervolgens naar `Tools > Group Policy Management`.
-2. Ga naar het knooppunt dat overeenkomt met het domein waar u wilt activeren, automatische registratie van de huidige Windows-computers.
+2. Ga naar het knooppunt van het domein dat overeenkomt met het domein waar u automatische registratie van de huidige Windows-computers te activeren.
 3. Met de rechtermuisknop op **Group Policy Objects**, en selecteer vervolgens **nieuw**.
-4. Typ een naam voor uw groepsbeleidsobject. Bijvoorbeeld: * hybride Azure AD join. 
+4. Typ een naam voor de Groepsbeleid-object. Bijvoorbeeld: * Hybrid Azure AD join. 
 5. Klik op **OK**.
 6. Met de rechtermuisknop op uw nieuwe groepsbeleidsobject en selecteer vervolgens **bewerken**.
-7. Ga naar **Computerconfiguratie** > **beleid** > **Beheersjablonen** > **Windows-onderdelen** > **apparaatregistratie**. 
+7. Ga naar **Computerconfiguratie** > **beleid** > **Beheersjablonen** > **Windows Onderdelen** > **Device Registration service**. 
 8. Met de rechtermuisknop op **Domeincomputers registreren als apparaten**, en selecteer vervolgens **bewerken**.
    
    > [!NOTE]
-   > Deze groepsbeleidssjabloon gewijzigd van eerdere versies van de console Groepsbeleidsbeheer. Als u van een eerdere versie van de console gebruikmaakt, gaat u naar `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
+   > Deze sjabloon Groepsbeleid is gewijzigd van eerdere versies van de console Groepsbeleidsbeheer. Als u een eerdere versie van de-console gebruikt, gaat u naar `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Selecteer **ingeschakeld**, en klik vervolgens op **toepassen**. U moet selecteren **uitgeschakelde** als u wilt dat het beleid voor het blokkeren van apparaten die worden beheerd door dit groepsbeleid automatisch wordt geregistreerd met Azure AD.
+7. Selecteer **ingeschakeld**, en klik vervolgens op **toepassen**. U moet selecteren **uitgeschakelde** als u wilt dat het beleid moet worden geblokkeerd dat de apparaten die beheerd door dit groepsbeleid automatisch registreren met Azure AD.
 
 8. Klik op **OK**.
-9. Het groepsbeleidsobject koppelen naar een locatie van uw keuze. Bijvoorbeeld, kunt u deze koppelen aan een specifieke organisatie-eenheid. U kan ook deze koppelen aan een specifieke beveiligingsgroep met computers automatisch worden toegevoegd met Azure AD. U dit beleid instellen voor alle Windows 10 en Windows Server 2016 Domeincomputers in uw organisatie, het groepsbeleidsobject aan het domein te koppelen.
+9. De Groepsbeleid-object een koppeling naar een locatie van uw keuze. Bijvoorbeeld, kunt u deze koppelen aan een specifieke organisatie-eenheid. U kan ook deze koppelen aan een specifieke beveiligingsgroep met computers die automatisch met Azure AD join. U dit beleid instellen voor alle Windows 10 en Windows Server 2016 Domeincomputers in uw organisatie, de Groepsbeleid-object aan het domein te koppelen.
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Windows Installer-pakketten voor Windows 10-computers
 
-Als u wilt deelnemen aan Windows downlevel-Domeincomputers in een federatieve omgeving, kunt u downloaden en installeren van deze Windows Installer-pakket (.msi) van Downloadcentrum op de [Microsoft Apparaatwerkplek toevoegen voor Windows 10-computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) pagina.
+Als u wilt deelnemen aan domein toegevoegde Windows downlevel-computers in een federatieve omgeving, kunt u downloaden en installeren van deze Windows Installer-pakket (.msi) van Download Center op de [Microsoft Workplace Join voor Windows 10-computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) de pagina.
 
-U kunt het pakket implementeren met behulp van een software-distributiesysteem zoals System Center Configuration Manager. Het pakket ondersteunt de standard stille installatie-opties, waarbij de *stille* parameter. System Center Configuration Manager Current Branch biedt extra voordelen van eerdere versies, zoals de mogelijkheid om bij te houden van voltooide registraties. Zie voor meer informatie [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
+U kunt het pakket implementeren met behulp van het systeem in een software-distributie, zoals System Center Configuration Manager. Het pakket biedt ondersteuning voor de opties standaard op de achtergrond installeren met de *stille* parameter. System Center Configuration Manager Current Branch biedt extra voordelen van eerdere versies, zoals de mogelijkheid voor het bijhouden van voltooide registraties. Zie voor meer informatie, [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
 
-Het installatieprogramma maakt een geplande taak op het systeem dat wordt uitgevoerd in de context van de gebruiker. De taak wordt geactiveerd wanneer de gebruiker zich aanmeldt bij Windows. De taak achtergrond lid wordt van het apparaat met Azure AD met referenties van de gebruiker na verificatie met behulp van geïntegreerde Windows-verificatie. De geplande taak, het apparaat, Ga naar **Microsoft** > **Workplace Join**, en gaat u naar de bibliotheek voor Taakplanner.
+Het installatieprogramma maakt een geplande taak op het systeem dat wordt uitgevoerd in de context van de gebruiker. De taak wordt geactiveerd wanneer de gebruiker zich aanmeldt bij Windows. De taak op de achtergrond lid wordt van het apparaat met Azure AD met de referenties van de gebruiker na verificatie met behulp van geïntegreerde Windows-verificatie. De geplande taak, het apparaat, Ga naar **Microsoft** > **Workplace Join**, en ga vervolgens naar de Task Scheduler-bibliotheek.
 
-## <a name="step-5-verify-joined-devices"></a>Stap 5: Gekoppelde apparaten controleren
+## <a name="step-5-verify-joined-devices"></a>Stap 5: Controleer of de gekoppelde apparaten
 
 U kunt geslaagde gekoppelde apparaten controleren in uw organisatie met behulp van de [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in de [Azure Active Directory PowerShell-module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
-De uitvoer van deze cmdlet toont de apparaten die zijn geregistreerd en samengevoegd met Azure AD. Als u alle apparaten, gebruikt de **-alle** parameter, en ze filteren met behulp van de **deviceTrustType** eigenschap. Verbonden met het domein apparaten hebben een waarde van **domein**.
+De uitvoer van deze cmdlet toont de apparaten die zijn geregistreerd en samengevoegd met Azure AD. Voor alle apparaten, gebruikt de **-alle** parameter, en ze vervolgens te filteren met behulp van de **deviceTrustType** eigenschap. Domein apparaten hebben een waarde van **domein**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Inleiding tot beheer van apparaten in Azure Active Directory](device-management-introduction.md)
+* [Inleiding tot Apparaatbeheer in Azure Active Directory](device-management-introduction.md)
 
 
 

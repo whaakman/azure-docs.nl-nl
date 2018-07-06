@@ -15,12 +15,12 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc05ff8c6961cd9389a12ff9c082867eecb79bca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: eff93b37be2ff770b90518f886bd4b54fa0ca2a1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449923"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868987"
 ---
 # <a name="what-is-the-access-panel"></a>Wat is het toegangsvenster?
 
@@ -104,6 +104,10 @@ Als u wilt gebruiken intern bedrijf URL's tijdens het externe bestand met de ext
 2. [De toepassing publiceren](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) en -URL via de toepassingsproxy.
 3. Installeer de extensie en ME niet aanmelden door te selecteren, meld u aan de slag.
 4. Nu kunt u bladeren naar de URL van de interne bedrijf zelfs terwijl deze extern is.
+
+> [!NOTE]
+> U kan automatisch worden omgeleid naar bedrijf URL's uitschakelen door het tandrad van instellingen in het hoofdmenu te selecteren en klikken op **uit** voor de optie bedrijf interne URL-omleiding.
+
 
 ## <a name="mobile-app-support"></a>Ondersteuning voor mobiele Apps
 

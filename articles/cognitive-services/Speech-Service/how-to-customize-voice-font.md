@@ -1,6 +1,6 @@
 ---
-title: Wat is aangepast stem? -Azure-cognitieve Services | Microsoft Docs
-description: Dit artikel overzichten Microsoft Text to Speech stem aanpassing, waarmee u een stem te herkennen, een van een soort merk maken.
+title: Wat is aangepaste spraak? -Azure Cognitive Services | Microsoft Docs
+description: In dit artikel overzichten Microsoft tekst naar spraak stem aanpassing, waarmee u kunt het maken van een stem te herkennen, één van een soort merk.
 services: cognitive-services
 author: noellelacharite
 manager: nolach
@@ -8,87 +8,77 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: ad5af799fd46dc51b85432999f986de8cdb056ec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9f7fbcc804229de69c3c72fb33ae03c88af70145
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345645"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857494"
 ---
-# <a name="creating-custom-voice-fonts"></a>Maken van aangepaste gesproken lettertypen
+# <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
-Microsoft Text to Speech (TTS) stem aanpassing kunt u een stem te herkennen, een van een type voor uw huisstijl maken: een *voice-lettertype.* 
+Microsoft Text to Speech (Text-to-Speech) gesproken aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk maken: een *spraakstijl.* 
 
-Voor het maken van uw stem lettertype een opname studio maken en de bijbehorende scripts als de trainingsgegevens uploaden. De service maakt vervolgens een unieke stem model dat is afgestemd op uw opname. U kunt dit lettertype stem vervolgens gebruiken om na te bootsen spraak. 
+Voor het maken van uw spraakstijl, moet u een studio-opname maken en uploaden van de bijbehorende scripts als de trainingsgegevens. De service maakt vervolgens een unieke stem-model dat is afgestemd op de opname. U kunt deze spraakstijl vervolgens gebruiken om na te bootsen spraak. 
 
-U kunt aan de slag met een kleine hoeveelheid gegevens voor het testen van het concept. Maar hoe meer gegevens u opgeeft, hoe meer natuurlijke en professional uw stem klinkt.
+U kunt aan de slag met een kleine hoeveelheid gegevens voor een concepttest. Maar hoe meer gegevens u hebt opgegeven, hoe meer natuurlijke en professional geluiden in uw stem.
 
-Voice-aanpassing is beschikbaar voor Amerikaans Engels (en-US) en via Chinees (zh-CN).
+Stem aanpassing is beschikbaar voor Amerikaans Engels (en-US) en vasteland Chinees (zh-CN).
 
 ## <a name="prerequisites"></a>Vereisten
 
-De functie Text to Speech stem aanpassing wordt momenteel private preview. [Vul het formulier toepassing](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) worden overwogen om toegang te krijgen.
+De functie tekst naar spraak aanpassing is momenteel in private preview. [Vul het aanvraagformulier](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) worden overwogen om toegang te krijgen.
 
-U hebt ook het volgende nodig:
+U moet ook een Azure-account en een abonnement op de Speech-service. [Maak een] (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) als u dat nog niet gedaan hebt. Uw abonnement als volgt verbinding te maken met de aangepaste spraak-portal.
 
-* Een Azure-account ([gratis aanmelden](https://azure.microsoft.com/free/ai/) als u er nog geen hebt).
+1. Meld u aan bij de [aangepaste spraak portal](https://customvoice.ai) met hetzelfde Microsoft-account dat u gebruikt om toe te passen om toegang te krijgen.
 
-* Een abonnement op de service spraak. [Maak een](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) als u dat nog niet gedaan hebt.
-
-    ![Deelvenster maken](media/custom-voice/create-panel.png)
-
-Nadat uw abonnement is gemaakt, vindt u twee abonnement sleutels in het deelvenster Quick Start of het overzicht van het nieuwe abonnement. U kunt de sleutel.
-
-Ten slotte verbinding maken met uw abonnement bij de portal voor aangepaste gesproken als volgt.
-
-1. Meld u aan bij de [aangepaste gesproken portal](https://customvoice.ai) met hetzelfde Microsoft-account dat u gebruikt om te passen om toegang te krijgen.
-
-2. Ga naar 'Abonnementen' onder de accountnaam van uw op de rechterbovenhoek.
+2. Ga naar 'Abonnementen' onder de accountnaam in de rechterbovenhoek.
 
     ![Abonnementen](media/custom-voice/subscriptions.png)
 
-3. Kies op de pagina 'Abonnementen', 'Verbinding maken met bestaande subscription'.
+3. Kies op de pagina 'Abonnementen', 'Verbinding maken met bestaande abonnement'.
 
      ![Verbinding maken met bestaande abonnement](media/custom-voice/connect-existing-sub.png)
 
-4. Plak de abonnementssleutel van uw in de tabel, zoals hieronder wordt weergegeven.
+4. Plak uw abonnementssleutel in de tabel, zoals hieronder wordt weergegeven. Elk abonnement heeft twee sleutels en u kunt een van beide.
 
      ![Abonnement toevoegen](media/custom-voice/add-subscription.png)
 
-U bent nu klaar voor!
+U bent klaar om te beginnen.
 
-## <a name="prepare-recordings-and-transcripts"></a>Opnamen en transcripties voorbereiden
+## <a name="prepare-recordings-and-transcripts"></a>Voorbereiden van de opnamen en transcripties
 
-Een stem training gegevensset bestaat uit een reeks audio-bestanden, samen met een tekstbestand met de transcripties van al deze audio-bestanden.
+Een stem training-gegevensset bestaat uit een verzameling van audio-bestanden, samen met een tekstbestand met de Transcripten van alle audio-bestanden.
 
-U kunt deze bestanden in beide richtingen voorbereiden: ofwel een script schrijven en laat het gelezen door stem talent, of gebruik openbaar beschikbaar audio en ze transcriberen met gebruikmaking naar tekst. Bewerk in het laatste geval disfluencies uit de audio-bestanden, zoals 'um' en andere opvulteken geluiden, haperen, mumbled woorden of mispronunciations.
+U kunt deze bestanden in beide richtingen voorbereiden: hetzij een script schrijven en deze gelezen door spraak talent, of gebruik openbaar beschikbare audio en ze naar tekst te transcriberen. Bewerken in het laatste geval disfluencies uit de audio-bestanden, zoals 'um' en andere geluiden opvullende, haperen, mumbled woorden of mispronunciations.
 
-Een goede voice-lettertype produceren, is het belangrijk dat de opnamen in een stille lokaal worden uitgevoerd met een microfoon van hoge kwaliteit. Consistente volume spreken frequentie, spreken presentatie en expressieve gebaren van spraak zijn essentieel voor het bouwen van een geweldige digitale stem. U wordt aangeraden dat u een professionele opname studio en stem talent gebruiken voor het maken van een stem voor gebruik in productieomgevingen.
+Als u wilt een goede spraakstijl produceren, is het belangrijk dat de opnamen in een stille ruimte klaar bent met een hoge kwaliteit microfoon. Consistente volume, prijs, spreekstijl inspiratie en expressieve gebaren van spraak spreken zijn essentieel voor het bouwen van een geweldige digitale stem. Voor het maken van een stem voor gebruik in productieomgevingen, is het raadzaam dat een professionele opname studio en toon talent te gebruiken.
 
 ### <a name="audio-files"></a>Audio-bestanden
 
-Elke audiobestand moet een enkel utterance (bijvoorbeeld één zin of een enkel inschakelen van een systeem dialoogvenster) bevatten. Alle bestanden moeten zich in dezelfde taal (meertalige aangepaste stemmen worden niet ondersteund). De audio-bestanden ook elke moet een unieke numerieke bestandsnaam die zijn aangebracht met de bestandsnaamextensie `.wav`.
+Elke audiobestand moet een enkel utterance (bijvoorbeeld één zin of een enkel inschakelen van een systeem dialoogvenster) bevatten. Alle bestanden moeten zich in dezelfde taal (meertalige aangepaste stemmen worden niet ondersteund). De audio-bestanden moeten ook elk een unieke numerieke bestandsnaam hebben die zijn aangebracht met de bestandsextensie `.wav`.
 
-Audio-bestanden moeten als volgt worden voorbereid. Andere indelingen worden niet ondersteund en wordt geweigerd.
+Audio-bestanden moeten als volgt worden voorbereid. Andere indelingen worden niet ondersteund en worden geweigerd.
 
 | **Eigenschap** | **Waarde** |
 | ------------ | --------- |
 | Bestandsindeling  | RIFF (WAV)|
-| Samplefrequentie| 16.000 Hz |
-| Kanalen     | 1 (mono)  |
-| Voorbeeld-indeling| PCM, 16-bits |
+| Samplefrequentie| ten minste 16.000 Hz |
+| Voorbeeldindeling| PCM, 16-bits |
 | Bestandsnaam    | Numerieke met `.wav` extensie |
-| Archiefindeling| Postcode      |
-| De archiefgrootte van de maximale|200 MB|
+| Indeling archiveren| Postcode      |
+| Grootte van maximaal archiveren|200 MB|
 
-Plaats de reeks audio-bestanden in een enkele map zonder submappen en de gehele set als een ZIP-archief voor één bestand van het pakket.
+Plaats de set audio-bestanden in een enkele map zonder de submappen en inpakken van de gehele set als een ZIP-archief voor één bestand.
 
 > [!NOTE]
-> De portal op dit moment importeert ZIP archiveert maximaal 200 MB. Meerdere archieven kunnen echter worden geüpload. Het maximum aantal toegestane gegevenssets is dat 10 ZIP bestanden gratis abonnement gebruikers en 50 voor standaardabonnement gebruikers.
+> Bestanden met een lager is dan 16.000 Hz samplefrequentie Wave worden geweigerd. In het geval waarbij een zip-bestand blokken met verschillende tarieven bevat, worden alleen die gelijk is aan of hoger is dan 16.000 Hz geïmporteerd.
+> De portal importeert momenteel ZIP-archieven 200 MB. Meerdere archieven kunnen echter worden geüpload. Het maximum aantal toegestane gegevenssets is dat 10 ZIP bestanden gratis gebruikers en 50 voor abonnementsgebruikers van de standard.
 
-### <a name="transcripts"></a>Transcripties
+### <a name="transcripts"></a>Transcripten
 
-Het bestand schrijffouten is een gewone Unicode-tekstbestand (weinig UTF-16-endian). Elke regel van het bestand schrijffouten moet de naam van een audiobestand, gevolgd door een tab-teken (codepunt 9) en tot slot de tekst van de hebben. Geen lege regels zijn toegestaan.
+Het bestand transcriptie is een bestand met tekst zonder opmaak (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE). Elke regel van het bestand transcriptie moet de naam van een geluidsbestand, gevolgd door een tab (codepunt 9) en ten slotte het transcript hebben. Er is geen lege regels zijn toegestaan.
 
 Bijvoorbeeld:
 
@@ -98,17 +88,17 @@ Bijvoorbeeld:
 0000000003  It was Janet Maslin.
 ```
 
-Het systeem voor aangepaste gesproken normaliseert transcripties door de tekst converteren naar kleine letters bestaan en verwijderen van overbodige leestekens. Het is belangrijk dat de transcripties 100% nauwkeurig tot op het bijbehorende geluidsopnamen zijn.
+Het systeem aangepaste gesproken normaliseert Transcripten door de tekst converteren naar kleine letters en te verwijderen van overbodige leestekens. Het is belangrijk dat de Transcripten 100% nauwkeurig tot op het bijbehorende audio-opnamen zijn.
 
 > [!TIP]
-> Wanneer bouwen productie spraak stemmen, selecteer utterances (of scripts schrijven) overweegt zowel fonetische dekking en efficiëntie.
+> Wanneer het maken van productie tekst naar spraak stemmen, selecteer uitingen (of scripts schrijven) overweegt zowel fonetische dekking en efficiëntie.
 
-## <a name="upload-your-datasets"></a>Gegevenssets uploaden
+## <a name="upload-your-datasets"></a>Uw gegevenssets uploaden
 
-Na het voorbereiden van uw audio bestandsarchief en transcripties uploaden via de [serviceportal voor aangepaste gesproken](https://customvoice.ai).
+Na het voorbereiden van uw audio-bestand archiveren en transcripties, upload deze via de [aangepaste spraak-serviceportal](https://customvoice.ai).
 
 > [!NOTE]
-> Gegevenssets kan niet worden bewerkt nadat ze zijn geüpload. Als u vergeten transcripties van enkele van de audio-bestanden bevatten, bijvoorbeeld of per ongeluk het verkeerde geslacht kiest, moet u de volledige gegevensset opnieuw uploaden. Controleer uw gegevensset en instellingen zorgvuldig door voordat u begint met het uploaden.
+> Gegevenssets kan niet worden bewerkt nadat ze zijn geüpload. Als u bent vergeten Transcripten van enkele van de audio-bestanden bevatten, bijvoorbeeld of per ongeluk de verkeerde geslacht kiest, moet u de volledige gegevensset opnieuw uploaden. Controleer uw gegevensset en instellingen zorgvuldig voordat u begint met het uploaden.
 
 1. Meld u aan bij de portal.
 
@@ -116,7 +106,7 @@ Na het voorbereiden van uw audio bestandsarchief en transcripties uploaden via d
 
     ![Mijn projecten](media/custom-voice/my-projects.png)
 
-    De tabel mijn stem wordt weergegeven. Het is leeg als u alle gegevenssets stem nog niet hebt geüpload.
+    De tabel mijn Voice-gegevens wordt weergegeven. Het is leeg als u hebt geen gegevenssets stem nog niet geüpload.
 
 3. Klik op **gegevens importeren** om de pagina voor het uploaden van een nieuwe gegevensset te openen.
 
@@ -124,126 +114,126 @@ Na het voorbereiden van uw audio bestandsarchief en transcripties uploaden via d
 
 4. Voer een naam en beschrijving in de opgegeven velden. 
 
-5. Selecteer de landinstelling voor uw stem lettertypen. Zorg ervoor dat de landinstelling-informatie komt overeen met de taal van de opname-gegevens en de scripts. 
+5. Selecteer de landinstelling voor uw spraakstijlen. Zorg ervoor dat de informatie over landinstellingen overeenkomt met de taal van de gegevens opnemen en de scripts. 
 
-6. Selecteer het geslacht van de spreker waarvan stem die u gebruikt.
+6. Selecteer het geslacht van de spreker waarvan u gebruikmaakt van spraak.
 
 7. Kies de script- en audio-bestanden te uploaden. 
 
 8. Klik op **importeren** om uw gegevens te uploaden. Voor grotere gegevenssets kan importeren enkele minuten duren.
 
 > [!NOTE]
-> Gratis abonnement gebruikers kunnen twee gegevenssets tegelijk uploaden. Standard-abonnement gebruikers kunnen tegelijkertijd vijf gegevenssets uploaden. Als u de limiet bereikt, wacht u tot ten minste één van uw gegevenssets eindigt importeren, probeer het opnieuw.
+> Gratis gebruikers kunnen twee gegevenssets tegelijk uploaden. Abonnementsgebruikers van de Standard-kunnen vijf gegevenssets gelijktijdig uploaden. Als u de limiet is bereikt, wacht tot ten minste één van uw gegevenssets is geïmporteerd, probeer het vervolgens opnieuw.
 
-Wanneer het uploaden voltooid is, wordt de mijn stem gegevenstabel opnieuw weergegeven. U ziet een vermelding die overeenkomt met uw DataSet zojuist hebt geüpload. 
+Wanneer het uploaden voltooid is, wordt de tabel mijn Voice-gegevens opnieuw weergegeven. U ziet een vermelding die overeenkomt met uw gegevensset zojuist hebt geüpload. 
 
-Gegevenssets worden automatisch gevalideerd nadat het uploaden. De gegevensvalidatie bevat een reeks controles op de audio-bestanden om te controleren of de bestandsindeling, de grootte en de samplingfrequentie. Controles op de bestanden schrijffouten controleert de bestandsindeling en voert u enkele normalisatie tekst. De utterances worden omgezet met behulp van spraakherkenning en de resulterende tekst wordt vergeleken met de tekst die u hebt opgegeven.
+Gegevenssets worden automatisch gevalideerd nadat het uploaden. De gegevensvalidatie bevat een reeks controles op de audio-bestanden om te controleren of de bestandsindeling, de grootte en de samplingfrequentie. Controles op de bestanden transcriptie controleren of de bestandsindeling en uitvoeren van sommige normalisering tekst. De uitingen worden omgezet met behulp van spraakherkenning en de resulterende tekst wordt vergeleken met het transcript die u hebt opgegeven.
 
 ![Mijn Voice-gegevens](media/custom-voice/my-voice-data.png)
 
-De volgende tabel geeft de verwerking voor geïmporteerde gegevenssets. 
+De volgende tabel ziet u de verwerking van statussen voor geïmporteerde gegevenssets. 
 
 | Status | Betekenis
 | ----- | -------
-| `NotStarted` | Uw gegevensset is ontvangen en in de wachtrij staat voor verwerking
+| `NotStarted` | Uw gegevensset is ontvangen en in de wachtrij is geplaatst voor verwerking
 | `Running` | Uw gegevensset wordt gevalideerd
-| `Succeeded` | Uw gegevensset is gevalideerd en kan nu worden gebruikt voor het bouwen van een voice-lettertype
+| `Succeeded` | Uw gegevensset is gevalideerd en kan nu worden gebruikt voor het bouwen van een spraakstijl
 
-Nadat de validatie is voltooid, ziet u het totale aantal overeenkomende utterances voor elk van de gegevenssets in de kolom Utterance.
+Nadat de validatie is voltooid, ziet u het totale aantal overeenkomende uitingen voor elk van uw gegevenssets in de kolom Utterance.
 
-U kunt een rapport om te controleren van de uitspraak scores en het niveau van de ruis voor elk van de opnamen downloaden. De uitspraak score kan variëren van 0 tot 100; een score hieronder 70 doorgaans duidt dit op spraak fout of het script niet overeenkomen. Een zware accent vermindert uw score uitspraak en invloed van de gegenereerde digitale stem.
+U kunt een rapport om te controleren of de uitspraak van scores en het niveau van de ruis voor elk van de opnamen downloaden. Uitspraak van score varieert van 0 tot 100; een score lager 70 geeft doorgaans aan dat de spraak-fout of script niet overeenkomen. Een zware accent vermindert uw score uitspraak en van invloed zijn op de gegenereerde digitale stem.
 
-Een hogere signaal ruis ratio (signaal) geeft aan dat lagere ruis in de audio. U kunt een signaal 50 + doorgaans bereiken door opname via professional studios. Audio met een signaal hieronder 20 kan resulteren in voor de hand liggende ruis in uw gegenereerde stem.
+Een hogere signaal ruis snelheid (signaal) geeft aan dat lagere ruis in uw audio. Doorgaans kunt u een signaal meer dan 50 bereiken door registratie via professionele studios. Audio met een signaal hieronder 20 kan resulteren in voor de hand liggende ruis in uw gegenereerde stem.
 
-U kunt nieuwe opname eventuele utterances met een lage uitspraak scores of slechte signaal ruis ratio's. Als nieuwe opname niet mogelijk is, kunt u deze utterances uitsluiten van uw gegevensset.
+Houd rekening met alle uitingen met lage uitspraak van scores of slechte signaal ruis ratio's opnieuw op te nemen. Als niet is het mogelijk om opnieuw op te nemen, kunt u die uitingen uitsluiten van uw gegevensset.
 
-## <a name="build-your-voice-font"></a>Het lettertype stem bouwen
+## <a name="build-your-voice-font"></a>Bouw uw spraakstijl
 
-Als uw gegevensset is gevalideerd, kunt u deze kunt gebruiken voor het bouwen van uw aangepaste gesproken lettertype. 
+Als uw gegevensset is gevalideerd, kunt u deze kunt gebruiken voor het bouwen van uw aangepaste spraakstijl. 
 
-1. Kies **modellen** in de vervolgkeuzelijst 'Aangepaste stem'. 
+1. Kies **modellen** in de vervolgkeuzelijst 'Aangepaste spraak'. 
  
-    De tabel mijn stem lettertypen verschijnt, eventuele aangepaste gesproken lettertypen die u al hebt gemaakt.
+    De tabel mijn Spraakstijlen wordt weergegeven, met een aangepaste spraakstijlen die u al hebt gemaakt.
 
-1. Klik op **stemmen maken** onder de titel van de tabel. 
+1. Klik op **stemmen maken** onder de tabeltitel. 
 
-    De pagina voor het maken van een lettertype stem wordt weergegeven. De huidige landinstelling wordt weergegeven in de eerste rij van de tabel. De landinstelling voor het maken van een stem in een andere taal wijzigen. De landinstelling moet hetzelfde zijn als de gegevenssets die wordt gebruikt voor het maken van de stem.
+    De pagina voor het maken van een spraakstijl wordt weergegeven. De huidige landinstelling wordt weergegeven in de eerste rij van de tabel. Wijzig de landinstellingen voor het maken van een stem in een andere taal. De landinstelling moet gelijk zijn aan de gegevenssets die worden gebruikt voor het maken van de stem.
 
-1. Net als bij uw gegevensset die u hebt geüpload, voer een naam en beschrijving voor hulp bij het identificeren van dit model. 
+1. Zoals u deed toen u uw gegevensset hebt geüpload, voer een naam en beschrijving om te identificeren van dit model. 
 
-    De naam die u hier opgeeft, worden de naam die u gebruikt voor het opgeven van de stem in uw aanvraag voor spraak-synthese als onderdeel van de SSML-invoer en dus zorgvuldig te kiezen. Alleen letters, cijfers en enkele leestekens zoals '-', '_' '(',')' zijn toegestaan.
+    De naam die u hier opgeeft, worden de naam die u kunt de toon in uw aanvraag voor spraaksynthese opgeven als onderdeel van de invoer SSML, kiest u dus zorgvuldig. Alleen letters, cijfers en enkele leestekens zoals '-', '_' '(',')' zijn toegestaan.
 
-    Het beschrijvingsveld worden vaak gebruikt is om vast te leggen van de namen van de gegevenssets die werden gebruikt voor het maken van het model.
+    Een algemene gebruik van het veld Beschrijving is om vast te leggen van de namen van de gegevenssets die zijn gebruikt voor het maken van het model.
 
-1. Kies het geslacht van uw voice-lettertype. Deze moet overeenkomen met het geslacht van de gegevensset.
+1. Kies het geslacht van uw spraakstijl. Dit moet overeenkomen met het geslacht van de gegevensset.
 
-1. Selecteer de gegevensset (s) die u gebruiken wilt voor het trainen van het lettertype stem. Alle gegevenssets die worden gebruikt, moet tussen de dezelfde spreker.
+1. Selecteer de gegevensset (s) die u gebruiken wilt voor het trainen van het lettertype van spraak. Alle gegevenssets die worden gebruikt, moeten op de dezelfde spreker.
 
-1. Klik op **maken** om te beginnen met het maken van uw voice-lettertype.
+1. Klik op **maken** om te beginnen met het maken van uw spraakstijl.
 
     ![Model maken](media/custom-voice/create-model.png)
 
-Het nieuwe model wordt weergegeven in de tabel mijn stem lettertypen. 
+Het nieuwe model wordt weergegeven in de tabel mijn Spraakstijlen. 
 
-![Mijn stem lettertypen](media/custom-voice/my-voice-fonts.png)
+![Mijn Spraakstijlen](media/custom-voice/my-voice-fonts.png)
 
-De weergegeven status weerspiegelt het proces van het converteren van uw gegevensset naar een lettertype spraak, zoals hier wordt weergegeven.
+De weergegeven status geeft het proces van het converteren van uw gegevensset naar een spraakstijl, zoals hier wordt weergegeven.
 
 | Status | Betekenis
 | ----- | -------
-| `NotStarted` | Uw aanvraag voor het maken van de stem lettertype in de wachtrij voor verwerking
-| `Running` | Het lettertype stem wordt gemaakt
-| `Succeeded` | Het lettertype stem is gemaakt en kan worden geïmplementeerd
+| `NotStarted` | Uw aanvraag voor het maken van spraak lettertype is in de wachtrij geplaatst voor verwerking
+| `Running` | Uw spraakstijl wordt gemaakt
+| `Succeeded` | Uw spraakstijl is gemaakt en kan worden geïmplementeerd
 
-Training tijd varieert, afhankelijk van het volume van audiogegevens verwerkt. Typische keren tussen over honderden utterances 30 minuten en 40 uur voor 20.000 utterances.
+Tijd training, is afhankelijk van het volume van audiogegevens verwerkt. Typische tijden variëren van informatie over-30 minuten voor honderden uitingen tot 20.000 uitingen 40 uur.
 
 > [!NOTE]
-> Gratis abonnement gebruikers kunnen u twee stem lettertypen trainen tegelijk. Standaardabonnement gebruikers kunnen tegelijkertijd drie stemmen trainen. Als u de limiet bereikt, wacht totdat ten minste één van uw stem lettertypen training is voltooid en probeer het opnieuw.
+> Gratis gebruikers kunnen één spraakstijl trainen op een tijdstip. Abonnementsgebruikers van de Standard-kunnen drie stemmen tegelijkertijd trainen. Als u de limiet is bereikt, wacht totdat ten minste één van uw spraakstijlen training is voltooid en probeer het opnieuw.
 
-## <a name="test-your-voice-font"></a>Het lettertype stem testen
+## <a name="test-your-voice-font"></a>Test uw spraakstijl
 
-Als uw stem lettertype met succes is gebouwd, kunt u het testen voordat u deze implementeert voor gebruik. Klik op **Test** in de Operations-kolom. De testpagina wordt weergegeven voor het lettertype van de geselecteerde stem. De tabel is leeg als u verzoeken van test voor de voice nog niet hebt ingediend.
+Als uw spraakstijl met succes is gemaakt, kunt u deze testen voordat u deze implementeert voor gebruik. Klik op **Test** in de Operations-kolom. De testpagina wordt weergegeven voor de geselecteerde spraakstijl. De tabel is leeg als u nog een test-aanvragen voor de stem nog niet hebt verzonden.
 
-![Mijn stem lettertypen, deel 2](media/custom-voice/my-voice-fonts2.png)
+![Mijn Spraakstijlen, deel 2](media/custom-voice/my-voice-fonts2.png)
 
-Klik op **Test met tekst** knop onder de titel van de tabel om een pop-upmenu voor het indienen van aanvragen van de tekst weer te geven. U kunt uw testaanvraag in tekst zonder opmaak of SSML verzenden. De maximale grootte van de invoer is 1024 tekens, inclusief alle codes voor SSML-aanvraag. De taal van de tekst moet hetzelfde zijn als de taal van het lettertype stem.
+Klik op **Test met tekst** knop onder de tabeltitel om een pop-upmenu voor het indienen van aanvragen van de tekst weer te geven. U kunt uw testaanvraag in tekst zonder opmaak of SSML indienen. De maximale grootte van de invoer is 1024 tekens, inclusief alle tags voor SSML aanvraag. De taal van de tekst moet hetzelfde zijn als de taal van uw spraakstijl.
 
 ![Stem lettertype testen](media/custom-voice/voice-font-testing.png)
 
-Nadat de invullen in het tekstvak en de invoermodus te bevestigen, klikt u op **Ja** dient u de testaanvraag en terugkeren naar de testpagina. De tabel bevat nu een vermelding die overeenkomt met uw nieuwe aanvraag en de kolom nu bekende status. Het kan even duren om na te bootsen spraak. Wanneer de statuskolom is voltooid gelezen, kunt u downloaden met de tekstinvoer (een `.txt` bestand) en audio-uitvoer (een `.wav` bestand) en de laatste voor kwaliteit beluisteren.
+Na het invullen van het tekstvak en waaruit blijkt dat de invoer-modus, klikt u op **Ja** uw testaanvraag indienen en gaat u terug naar de testpagina. De tabel bevat nu een vermelding die overeenkomt met uw nieuwe aanvraag en de kolom nu bekende status. Het kan enkele minuten om na te bootsen spraak duren. Wanneer de statuskolom is voltooid gelezen, kunt u de tekstinvoer downloaden (een `.txt` bestand) en audio-uitvoer (een `.wav` bestand) en de laatste voor kwaliteit beluisteren.
 
-![Voice lettertype testen, deel 2](media/custom-voice/voice-font-testing2.png)
+![Stem lettertype testen, deel 2](media/custom-voice/voice-font-testing2.png)
 
-## <a name="create-and-use-a-custom-endpoint"></a>Maken en gebruiken van een aangepaste eindpunt
+## <a name="create-and-use-a-custom-endpoint"></a>Maken en gebruiken van een aangepast eindpunt
 
-Nadat u hebt gemaakt en het model van uw stem getest, kunt u deze implementeren in een aangepaste Text to Speech-eindpunt. Vervolgens gebruikt u dit eindpunt in plaats van het gebruikelijke eindpunt bij Text to Speech-aanvragen via de REST-API. Uw aangepaste eindpunt kan alleen worden aangeroepen door het abonnement dat u gebruikt voor het implementeren van het lettertype.
+Nadat u hebt gemaakt en het model van uw stem getest, kunt u deze implementeren in een aangepaste tekst-naar-spraak-eindpunt. Vervolgens gebruikt u dit eindpunt in plaats van het eindpunt van de gebruikelijke bij het maken van tekst naar spraak aanvragen via de REST-API. Uw aangepaste eindpunt kan worden aangeroepen door het abonnement dat u gebruikt voor het implementeren van het lettertype.
 
-Kies voor het maken van een nieuwe aangepaste eindpunt **eindpunten** in het menu aangepaste gesproken boven aan de pagina. De pagina implementatie weergegeven met de tabel van de huidige aangepaste gesproken eindpunten, indien van toepassing.
+Kies voor het maken van een nieuw aangepast eindpunt **eindpunten** in het menu voor aangepaste gesproken aan de bovenkant van de pagina. De implementatie-pagina wordt weergegeven, met de tabel van de huidige eindpunten voor aangepaste spraak, indien van toepassing.
 
-Klik op de **implementeren stemmen** knop om een nieuwe eindpunt te maken. Pagina uit het eindpunt maken', de huidige landinstelling wordt weergegeven in de eerste rij van de tabel. Wijzig de landinstelling weergegeven voor het maken van een implementatie voor een andere taal. (Moet overeenkomen met de stem die u implementeert.) Voer de naam en beschrijving van uw aangepaste eindpunt.
+Klik op de **implementeren stemmen** knop om een nieuwe eindpunt te maken. In het eindpunt maken' pagina, de huidige landinstelling wordt weergegeven in de eerste rij van de tabel. Wijzig de landinstelling van het weergegeven voor het maken van een implementatie voor een andere taal. (Deze moet overeenkomen met de stem die u implementeert.) Voer de naam en beschrijving van uw aangepast eindpunt.
 
-Kies in het menu abonnement, het abonnement dat u wilt gebruiken. Gratis abonnement gebruikers hebben slechts één model tegelijk worden geïmplementeerd. Standaardabonnement-gebruikers kunnen maximaal 20 eindpunten, elk met een eigen aangepaste gesproken maken.
+Kies het abonnement dat u wilt gebruiken in het menu abonnement. Gratis abonnementsgebruikers kunnen slechts één model geïmplementeerd op een moment hebben. Abonnementsgebruikers van de Standard-kunnen maximaal 20 eindpunten, elk met een eigen aangepaste gesproken maken.
 
 ![Eindpunt maken](media/custom-voice/create-endpoint.png)
 
-Klik na het selecteren van het model om te worden geïmplementeerd op **maken**. De pagina implementatie opnieuw wordt weergegeven, nu met een vermelding voor uw nieuwe eindpunt. Het duurt enkele minuten instantiëren van een nieuw eindpunt. Wanneer de status van de implementatie is geslaagd, wordt het eindpunt is klaar voor gebruik.
+Selecteer het model om te worden geïmplementeerd en klik op **maken**. De pagina implementatie opnieuw wordt weergegeven, nu met een vermelding voor het nieuwe eindpunt voor. Het duurt een paar minuten voor het starten van een nieuw eindpunt. Wanneer de status van de implementatie is geslaagd, wordt het eindpunt is klaar voor gebruik.
 
 ![Mijn geïmplementeerde stemmen](media/custom-voice/my-deployed-voices.png)
 
-Wanneer de status van de implementatie is voltooid, het eindpunt van het lettertype geïmplementeerde stem wordt weergegeven in de tabel geïmplementeerde stemmen. U kunt deze URI gebruiken rechtstreeks in een HTTP-aanvraag.
+Wanneer de status van de implementatie is geslaagd, het eindpunt van uw geïmplementeerde spraakstijl wordt weergegeven in de tabel geïmplementeerde stemmen. U kunt deze URI gebruiken rechtstreeks in een HTTP-aanvraag.
 
-Online testen van het eindpunt is ook beschikbaar via de portal voor aangepaste gesproken. Als u wilt testen van uw eindpunt, kies **eindpunten testen** uit de vervolgkeuzelijst van aangepaste stem. Het eindpunt pagina testen wordt weergegeven. Kies een stem die u hebt geïmplementeerd en voer de tekst die moet worden gesproken (in tekst zonder opmaak of SSML-indeling) in het tekstvak.
+Online testen van het eindpunt is ook beschikbaar via de portal voor aangepaste gesproken. Als u wilt testen op uw eindpunt, kies **eindpunten testen** uit de vervolgkeuzelijst van aangepaste spraak. Het eindpunt testen van de pagina wordt weergegeven. Kies een toon die u hebt geïmplementeerd en voer de tekst die moet worden uitgesproken (in tekst zonder opmaak of SSML-indeling) in het tekstvak.
 
 > [!NOTE] 
-> Wanneer u SSML, de `<voice>` tag geeft de naam die u uw aangepaste stem is opgegeven toen u het hebt gemaakt.
+> Bij het gebruik van SSML, de `<voice>` tag geeft de naam die u uw aangepaste gesproken hebt opgegeven toen u het maakte.
 
-Klik op **afspelen** de tekst die in uw aangepaste gesproken lettertype horen.
+Klik op **afspelen** graag de tekst die in uw aangepaste spraakstijl gesproken.
 
 ![Eindpunt testen](media/custom-voice/endpoint-testing.png)
 
-Het aangepaste eindpunt is identiek aan het standaardeindpunt gebruikt voor het aanvragen van spraak. Zie [REST-API](rest-apis.md) voor meer informatie.
+Het eindpunt van de aangepaste is identiek aan de standaard-eindpunt gebruikt voor het aanvragen van tekst naar spraak. Zie [REST-API](rest-apis.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Uw proefabonnement spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
-- [Herkent spraak in C#](quickstart-csharp-windows.md)
+- [Uw proefabonnement voor spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
+- [Water in C#](quickstart-csharp-windows.md)

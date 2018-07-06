@@ -14,12 +14,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 79d78d282d454586f5930d54248467365f2e684f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 658ec5bb2aa7c15fb1d38da5249ff9b13973cf41
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449828"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867994"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory cmdlets voor het configureren van groepsinstellingen
 In dit artikel bevat instructies voor het gebruik van Azure Active Directory (Azure AD) PowerShell-cmdlets voor groepen maken en bijwerken. Deze inhoud geldt alleen voor Office 365-groepen (ook wel gecombineerde groepen). 
@@ -98,8 +98,8 @@ Hier vindt u de instellingen die zijn gedefinieerd in de Group.Unified SettingsT
 |  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Standaard: ' " |Een koppeling naar de groepsgebruik. |
 |  <ul><li>ClassificationDescriptions<li>Type: String<li>Standaard: ' " | Een door komma's gescheiden lijst met beschrijvingen van de classificatie. |
 |  <ul><li>DefaultClassification<li>Type: String<li>Standaard: ' " | De classificatie die moet worden gebruikt als de Standaardclassificatie voor een groep als niets is opgegeven.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Standaard: ' " | Tekenreeks met een maximale lengte van 64 tekens die de naamconventie die is geconfigureerd voor Office 365-groepen definieert. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen (preview)](../groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Type: String<li>Standaard: ' " | Door komma's gescheiden tekenreeks van zinnen die gebruikers niet mogen gebruiken in namen of aliassen. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen (preview)](../groups-naming-policy.md). |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Standaard: ' " | Tekenreeks met een maximale lengte van 64 tekens die de naamconventie die is geconfigureerd voor Office 365-groepen definieert. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Type: String<li>Standaard: ' " | Door komma's gescheiden tekenreeks van zinnen die gebruikers niet mogen gebruiken in namen of aliassen. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Type: Boolean-waarde<li>Standaard: "False" | Gebruik geen
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Boolean-waarde<li>Standaard: False | Booleaanse waarde waarmee wordt aangegeven of een gastgebruiker moet een eigenaar van de groepen kan worden. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean-waarde<li>Standaard: True | Booleaanse waarde waarmee wordt aangegeven of een gastgebruiker toegang tot inhoud voor Office 365-groepen kan hebben.  Deze instelling is niet vereist voor een Azure Active Directory Premium P1-licentie.|

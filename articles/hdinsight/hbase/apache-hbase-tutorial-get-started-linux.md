@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b9298b081baf94350ab19a5d9a8af2705327eed6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a77724bd5ed14bf8eb91bf64a1837ce7106edd06
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102178"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867892"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Aan de slag met een voorbeeld van Apache HBase in HDInsight
 
@@ -35,7 +35,7 @@ Voordat u begint met dit HBase-voorbeeld, moet u beschikken over de volgende ite
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>Een HBase-cluster maken
-In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om een HBase-cluster en het afhankelijke standaard Azure Storage-opslagaccount te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters. Zie voor meer informatie over het gebruik van Data Lake Storage Gen2 [Snelstartgids: instellen van clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om een HBase-cluster en het afhankelijke standaard Azure Storage-opslagaccount te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters. Zie voor meer informatie over het gebruik van Data Lake Storage Gen2 [Quick Start: clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/).
    
@@ -43,7 +43,7 @@ In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om e
 2. Voer op de blade **Aangepaste implementatie** de volgende waarden in:
    
    * **Abonnement**: selecteer het Azure-abonnement dat wordt gebruikt om het cluster te maken.
-   * **Resourcegroep**: een Azure Resource management-groep maken of een bestaande gebruiken.
+   * **Resourcegroep**: maken van een Azure-resourcebeheergroep of gebruik een bestaande resourcegroep.
    * **Locatie**: geef de locatie van de resourcegroep op. 
    * **Clusternaam**: voer een naam in voor het HBase-cluster.
    * **Aanmeldingsgegevens voor het cluster**: de standaardaanmeldingsnaam is **admin**.
@@ -248,7 +248,7 @@ HBase in HDInsight wordt geleverd met een webgebruikersinterface voor het bewake
 
 **De HBase-hoofdinterface openen**
 
-1. Meld u aan bij de Ambari-webinterface op https://&lt;clusternaam>.azurehdinsight.net.
+1. Meld u aan bij de Ambari-Webinterface op https://&lt;Clustername >. azurehdinsight.net.
 2. Klik in het linkermenu op **HBase**.
 3. Klik op **Quick links** boven aan de pagina, wijs de actieve Zookeeper-knooppuntkoppeling aan en klik vervolgens op **HBase Master UI**.  De interface wordt in een nieuw browsertabblad geopend:
 

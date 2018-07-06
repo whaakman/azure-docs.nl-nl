@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdf8731b2a5028f47c2baf6f164d75123f716ebb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23836306"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857636"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Wederzijdse TLS-verificatie voor web-app configureren
 ## <a name="overview"></a>Overzicht
-U kunt toegang tot uw Azure-web-app beperken door verschillende soorten verificatie voor het inschakelen. Een manier om dit te doen is om te verifiëren met een clientcertificaat als de aanvraag via TLS/SSL. Dit mechanisme wordt TLS wederzijdse verificatie of verificatie en dit artikel wordt beschreven hoe u voor het instellen van uw web-app voor het gebruik van verificatie van clientcertificaten clientcertificaat genoemd.
+U kunt toegang tot uw Azure-web-app beperken door in te schakelen van verschillende soorten verificatie voor deze. Een manier om dit te doen is om te verifiëren met behulp van een clientcertificaat als de aanvraag via TLS/SSL is. Dit mechanisme wordt TLS wederzijdse verificatie of verificatie en in dit artikel wordt beschreven hoe u uw web-app ingesteld voor het gebruik van verificatie van clientcertificaten clientcertificaat genoemd.
 
 > **Opmerking:** als u toegang uw site via HTTP en niet HTTPS tot, ontvangt u geen een clientcertificaat. Dus als uw toepassing clientcertificaten vereist moet u niet toestaan aanvragen voor uw toepassing via HTTP.
 > 
@@ -32,13 +32,13 @@ U kunt toegang tot uw Azure-web-app beperken door verschillende soorten verifica
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="configure-web-app-for-client-certificate-authentication"></a>Web-App configureren voor verificatie van clientcertificaten
-Instellen van uw web-app moet u de instelling van de site clientCertEnabled voor uw web-app toevoegen en stel deze in op true clientcertificaten vereist. Deze instelling is momenteel niet beschikbaar via de beheerervaring in de Portal en de REST-API moet worden gebruikt om dit te bereiken.
+Als u uw web-app instelt om clientcertificaten te vereisen, moet u de instelling van de site clientCertEnabled voor uw web-app toevoegen en stel deze in op true. Deze instelling kan ook worden geconfigureerd in Azure portal onder de blade van de SSL-certificaten.
 
-U kunt de [ARMClient hulpprogramma](https://github.com/projectkudu/ARMClient) gemakkelijk worden opgesteld van de REST-API-aanroep. Nadat u met het hulpprogramma aanmelden moet u de volgende opdracht:
+U kunt de [ARMClient hulpprogramma](https://github.com/projectkudu/ARMClient) om eenvoudig de REST-API-aanroep ze moesten maken. Nadat u zich met het hulpprogramma aanmeldt, moet u de volgende opdracht:
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-Alles in {} worden vervangen door de gegevens voor uw web-app en het maken van een bestand met de naam enableclientcert.json met de volgende JSON-inhoud:
+vervangen van alles in {} met informatie voor uw web-app en het maken van een bestand met de naam enableclientcert.json met de volgende JSON-inhoud:
 
     {
         "location": "My Web App Location",
@@ -47,19 +47,19 @@ Alles in {} worden vervangen door de gegevens voor uw web-app en het maken van e
         }
     }
 
-Zorg ervoor dat u de waarde van 'locatie' wijzigen waar uw web-app zich bevindt bijvoorbeeld Noordelijk Centraal, VS of West VS enzovoort.
+Zorg ervoor dat u de waarde van "locatie" wijzigen waar uw web-app bevindt zich bijvoorbeeld Noord-centraal VS of Westelijke VS enzovoort.
 
-U kunt ook https://resources.azure.com spiegelen gebruiken de `clientCertEnabled` eigenschap `true`.
+U kunt ook https://resources.azure.com aan of de `clientCertEnabled` eigenschap `true`.
 
-> **Opmerking:** als u ARMClient vanuit Powershell uitvoert, moet u als escapeteken voor het @-teken voor de JSON-bestand met een back-maatstreepjes '.
+> **Opmerking:** als u ARMClient vanuit Powershell uitvoert, moet u als escapeteken voor het @-teken voor de JSON-bestand met een vorige tick '.
 > 
 > 
 
 ## <a name="accessing-the-client-certificate-from-your-web-app"></a>Toegang tot het certificaat van uw Web-App
-Als u gebruik van ASP.NET en configureer uw app voor het gebruik van verificatie van clientcertificaten, het certificaat is beschikbaar via de **HttpRequest.ClientCertificate** eigenschap. Voor andere stacks toepassing zijn de client-certificaat beschikbaar in uw app via een base64-gecodeerde waarde in de aanvraagheader 'X ARR ClientCert'. Uw toepassing kunt maken van een certificaat via deze waarde en vervolgens worden gebruikt voor verificatie en autorisatie doeleinden in uw toepassing.
+Als u van ASP.NET gebruikmaakt en uw app configureren voor het gebruik van verificatie van clientcertificaten, het certificaat zijn beschikbaar via de **HttpRequest.ClientCertificate** eigenschap. Voor andere toepassingsstacks is het clientcertificaat beschikbaar in uw app met een met base64 gecodeerde waarde in de aanvraagheader "X-ARR-ClientCert". Uw toepassing kunt maken van een certificaat van deze waarde en vervolgens worden gebruikt voor verificatie en autorisatie in uw toepassing.
 
 ## <a name="special-considerations-for-certificate-validation"></a>Speciale overwegingen voor validatie van het servercertificaat
-Het clientcertificaat dat wordt verzonden naar de toepassing via niet een validatie door het platform Azure Web Apps. Dit certificaat wordt gevalideerd, is de verantwoordelijkheid van de web-app. Hier volgt een voorbeeld ASP.NET-code te valideren en eigenschappen voor certificaat voor verificatie.
+Het clientcertificaat dat wordt verzonden naar de toepassing gaat niet via een validatie met het Azure Web Apps-platform. Dit certificaat wordt gevalideerd, is de verantwoordelijkheid van de web-app. Hier volgt een ASP.NET-voorbeeldcode die eigenschappen voor certificaat voor verificatiedoeleinden wordt gebruikt valideert.
 
     using System;
     using System.Collections.Specialized;

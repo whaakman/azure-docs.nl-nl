@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 9f12d9e8c9ee2038e7841cd05bb438421a5a8984
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2fd53225a455a34d03772487a10f62a94ac86735
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345342"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868970"
 ---
 # <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Zelfstudie: Woordgroepenlijst ter verbetering van voorspellingen toevoegen
 In deze zelfstudie, de nauwkeurigheid van intentie scores verbeteren en identificeren van entiteiten voor woorden die beschikken over dezelfde betekenis (synoniemen) met het toevoegen van een verwisselbaar [woordgroep lijstfunctie](./luis-concept-feature.md).
@@ -254,7 +254,7 @@ De **Hardware** entiteit bevat een score van 0.595 met de woordgroepenlijst met.
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer hiervoor het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Om dit te doen, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de naam van de app in de lijst met Apps, selecteer **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

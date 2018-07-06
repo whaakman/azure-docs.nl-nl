@@ -1,111 +1,135 @@
 ---
-title: Migreren van de Azure - Veelgestelde vragen (FAQ) | Microsoft Docs
-description: Adressen Veelgestelde vragen over Azure migreren
+title: Azure Migrate - Frequently Asked Questions (FAQ) | Microsoft Docs
+description: Veelgestelde vragen over Azure Migrate adressen
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/03/2018
 ms.author: snehaa
-ms.openlocfilehash: db47f774dd4f73692d0b6ab2c4a511f687864e37
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: c85e512dede7c14e7b678297ed524fa7a1d7e79d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285702"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859520"
 ---
-# <a name="azure-migrate---frequently-asked-questions-faq"></a>Migreren van de Azure - Veelgestelde vragen (FAQ)
+# <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
-Dit artikel bevat veelgestelde vragen over Azure migreren. Als u aanvullende vragen na het lezen van dit artikel hebt, plaatst u deze op de [forum Azure migreren](http://aka.ms/AzureMigrateForum).
+Dit artikel bevat veelgestelde vragen over Azure Migrate. Hebt u geen verdere query's na het lezen van dit artikel, plaatst u deze op de [Azure Migrate forum](http://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Algemeen
 
-### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Verschilt Azure migreren vanuit Azure Site Recovery?
+### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Wat is Azure Migrate verschil met Azure Site Recovery?
 
-Azure migreren is een beoordeling service waarmee u de werkbelasting van uw lokale detecteren en plan de migratie naar Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), samen met alleen een noodherstel, helpt u bij het migreren van lokale werkbelastingen voor IaaS VM's in Azure.
+Azure Migrate is een service voor beveiligingsbeoordeling die helpt u bij het detecteren van uw on-premises workloads en plan uw migratie naar Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), samen met enkel een oplossing voor noodherstel, helpt u bij het migreren van on-premises werkbelastingen naar IaaS-VM's in Azure.
 
-### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Hoe wordt Azure migreren vanuit Azure Site Recovery implementatie Planner verschillende?
+### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>Wat is het verschil tussen het gebruik van Azure Migrate voor beoordelingen en de Map Toolkit?
 
-Azure migreren is een hulpprogramma voor migratieplanning en Azure Site Recovery implementatie Planner is een hulpprogramma voor het plannen noodherstel (DR).
+[Azure Migrate](migrate-overview.md) biedt migratie-analyse met name om te helpen bij de voorbereiding op de migratie en evaluatie van de on-premises werkbelastingen in Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) heeft andere functies. Voorbeeld: de migratie plannen voor nieuwere versies van Windows-client en server-besturingssystemen, software gebruik bijhouden enzovoort. Voor deze scenario's, echter ook doorgaan met de MAP Toolkit.
 
-**Migratie van VMware naar Azure**: als u van plan bent uw lokale werkbelastingen naar Azure migreren, gebruikt u Azure migreren voor beheerders voor migratieplanning. Azure migreren evalueert voor lokale werkbelastingen en biedt richtlijnen en inzichten mechanismen om u te helpen migreren naar Azure. Wanneer u klaar met u van plan bent bent, kunt u services, zoals Azure Site Recovery en Azure Database migratie-Service voor het migreren van de machines naar Azure.
 
-**Migratie van Hyper-V naar Azure**: Azure migreren ondersteunt momenteel alleen beoordeling van de virtuele VMware-machines op de migratie naar Azure. Ondersteuning voor Hyper-V is op het overzicht voor het migreren van Azure. In de tussentijd kunt u ASR implementatie Planner. Wanneer Hyper-V-ondersteuning is ingeschakeld in Azure migreren, kunt u Azure migreren kunt gebruiken voor het plannen van de migratie van Hyper-V-werkbelastingen.
+### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Wat is Azure Migrate verschil met Azure Site Recovery Deployment Planner?
 
-**Herstel na noodgevallen van VMware/Hyper-V naar Azure**: als u van plan bent te doen noodherstel (DR) op Azure met Azure Site Recovery (ASR), gebruikt u ASR implementatie Planner voor herstel na Noodgevallen plannen. ASR implementatie Planner biedt een diepgaande, ASR-specifieke beoordeling van uw on-premises omgeving. Deze aanbevelingen die door ASR voor geslaagde DR-bewerkingen zoals replicatie, failover van uw virtuele machines vereist zijn.  
+Azure Migrate is een hulpprogramma voor migratieplanning en Azure Site Recovery Deployment Planner is een hulpprogramma voor het plannen noodherstel (DR).
 
-### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Heeft Azure migreren vCenter-Server voor het detecteren van een VMware-omgeving nodig?
+**Migratie van VMware naar Azure**: als u van plan bent uw on-premises workloads migreren naar Azure, Azure Migrate gebruiken voor het plannen van de migratie. Azure Migrate beoordeelt on-premises werkbelastingen en biedt richtlijnen, inzichten en mechanismen om u te helpen bij het migreren naar Azure. Wanneer u klaar met uw migratieplan bent, kunt u services zoals Azure Site Recovery en Azure Database Migration Service de machines migreren naar Azure.
 
-Ja, Azure migreren vereist vCenter-Server voor het detecteren van een VMware-omgeving. Geen biedt ondersteuning voor detectie van ESXi-hosts die niet worden beheerd door een vCenter-Server.
+**Migratie van Hyper-V naar Azure**: Azure Migrate ondersteunt momenteel alleen evaluatie van virtuele VMware-machines voor migratie naar Azure. Ondersteuning voor Hyper-V is op de roadmap voor Azure Migrate. In de tussentijd kunt u Site Recovery Deployment Planner. Zodra de Hyper-V-ondersteuning is ingeschakeld in Azure Migrate, kunt u Azure Migrate kunt gebruiken voor het plannen van de migratie van Hyper-V-werkbelastingen.
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Welke Azure-regio's worden ondersteund door Azure migreren?
+**Herstel na noodgevallen van VMware/Hyper-V naar Azure**: als u van plan bent om te doen, herstel na noodgeval (DR) op Azure met behulp van Azure Site Recovery (Site Recovery), gebruikt u Site Recovery Deployment Planner voor herstel na Noodgevallen plannen. Site Recovery Deployment Planner biedt een diepgaande, ASR-specifieke beoordeling van uw on-premises omgeving. Het biedt aanbevelingen die door Site Recovery voor geslaagde DR-bewerkingen, zoals replicatie, failover van uw virtuele machines vereist zijn.  
 
-Azure migreren ondersteunt momenteel VS-Oost en West-Centraal VS als project locaties. Houd er rekening mee dat zelfs als in West-Centraal VS en VS-Oost, u alleen migratie projecten maken kunt, kunt u nog steeds beoordelen uw machines voor [doellocaties voor meerdere](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). De projectlocatie wordt alleen gebruikt voor het opslaan van de gedetecteerde gegevens.
+### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Heeft Azure Migrate vCenter-Server voor het detecteren van een VMware-omgeving nodig?
 
-## <a name="discovery"></a>Detectie
+Ja, vereist Azure Migrate vCenter-Server voor het detecteren van een VMware-omgeving. Het biedt geen ondersteuning voor detectie van ESXi-hosts die niet worden beheerd door een vCenter-Server.
 
-### <a name="what-data-is-collected-by-azure-migrate"></a>Welke gegevens worden verzameld door Azure migreren?
+### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Welke Azure-regio's worden ondersteund door Azure Migrate?
 
-Azure migreren ondersteunt twee soorten detectie, detectie op basis van het toestel en detectie op basis van de agent.
-De detectie op basis van het toestel verzamelt metagegevens over de lokale virtuele machines, de volledige lijst met metagegevens dat is verzameld door het toestel hieronder wordt:
+### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hoe worden de on-premises site, maakt verbinding met Azure Migrate?
+
+De verbinding kan worden via internet of het gebruik van ExpressRoute met openbare peering.
+
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan ik beveiliging van de virtuele machine instellen met de. OVA-sjabloon?
+
+Extra onderdelen (zoals antivirusprogramma's) kunnen worden toegevoegd aan de. OVA-sjabloon is, zolang de communicatie en firewall-regels die zijn vereist voor het apparaat Azure Migrate werken worden gehandhaafd.   
+
+
+## <a name="discovery-and-assessment"></a>Detectie en evaluatie
+
+### <a name="what-data-is-collected-by-azure-migrate"></a>Welke gegevens worden verzameld door Azure Migrate?
+
+Azure Migrate ondersteunt twee soorten detectie, detectie op basis van een apparaat en op basis van een agent.
+De detectie op basis van een apparaat verzamelt metagegevens over de on-premises VM's, de volledige lijst met metagegevens die zijn verzameld door het apparaat vindt u hieronder:
 
 **Configuratiegegevens van de virtuele machine**
-- Weergavenaam van de virtuele machine (op vCenter)
-- VM-inventarisatie-pad (host of cluster/de map in vCenter)
+- Naam van de virtuele machine weergegeven (op vCenter)
+- VM-inventarisatie-pad (host/cluster/map in vCenter)
 - IP-adres
 - MAC-adres
 - Besturingssysteem
-- Het aantal kernen, schijven, NIC 's
-- Grootte van het systeemgeheugen, schijfgrootten
+- Aantal kernen, schijven, NIC 's
+- Grootte van geheugen, schijf-grootten
 
 **Prestatiegegevens van de virtuele machine**
 - CPU-gebruik
 - Geheugengebruik
 - Voor elke schijf die is gekoppeld aan de virtuele machine:
   - Schijf lezen doorvoer
-  - Schijf schrijven doorvoer
-  - Schijf leesbewerkingen per seconde
-  - Schijf schrijven per seconde
+  - Doorvoer van schrijfbewerkingen per schijf
+  - Schijf lezen-bewerkingen per seconde
+  - Schijf schrijft-bewerkingen per seconde
 - Voor elke netwerkadapter die is gekoppeld aan de virtuele machine:
   - Het netwerk
-  - Uit het netwerk
+  - Netwerk-uitgaand
 
-De detectie op basis van een agent is een optie beschikbaar boven op de detectie op basis van het toestel en helpt klanten [visualiseren afhankelijkheden](how-to-create-group-machine-dependencies.md) van de on-premises virtuele machines. De afhankelijkheid agents verzamelen van gegevens, zoals de FQDN-naam, besturingssysteem, IP-adres, MAC-adres, de processen die worden uitgevoerd in de virtuele machine en de binnenkomende/uitgaande TCP-verbindingen van de virtuele machine. De detectie op basis van een agent is optioneel en u kunt de agents niet te installeren als u niet wilt dat de afhankelijkheden van de virtuele machines te visualiseren.
+De detectie op basis van een agent is een optie die beschikbaar zijn op de detectie op basis van een apparaat en helpt klanten [afhankelijkheden visualiseren](how-to-create-group-machine-dependencies.md) van de on-premises virtuele machines. De agents afhankelijkheid verzamelen van gegevens, zoals besturingssysteem, FQDN-naam-IP-adres, MAC-adres, processen die op de virtuele machine en de inkomende/uitgaande TCP-verbindingen van de virtuele machine. De detectie op basis van een agent is optioneel en u kunt de agents niet te installeren als u niet wilt visualiseren van de afhankelijkheden van de virtuele machines.
 
-### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Waar bevindt zich de verzamelde gegevens opgeslagen en hoe lang?
+### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Waar worden de verzamelde gegevens opgeslagen en hoe lang?
 
-De gegevens die door het toestel collector zijn verzameld, wordt opgeslagen in de Azure-locatie die u opgeeft tijdens het maken van het migratieproject. De gegevens zijn veilig opgeslagen in een Microsoft-abonnement en wordt verwijderd wanneer de gebruiker wordt verwijderd van het project Azure migreren.
+De gegevens die zijn verzameld door de collector-apparaat is opgeslagen in de Azure-locatie die u opgeeft tijdens het maken van het migratieproject. De gegevens worden veilig opgeslagen in een Microsoft-abonnement en wordt verwijderd wanneer de gebruiker wordt verwijderd van de Azure Migrate-project.
 
-Als u agenten op de virtuele machines installeert, wordt de gegevens die worden verzameld door de agents afhankelijkheid voor afhankelijkheid visualisatie opgeslagen in de Verenigde Staten in een OMS-werkruimte gemaakt in het abonnement van de gebruiker. Deze gegevens worden verwijderd wanneer de gebruiker de OMS-werkruimte in haar of zijn abonnement verwijdert. [Meer informatie](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+Als u agents op de virtuele machines installeren, wordt de gegevens die zijn verzameld door de agents van de afhankelijkheid voor visualisatie van afhankelijkheden opgeslagen in de Verenigde Staten in een OMS-werkruimte hebt gemaakt in het abonnement van de gebruiker. Deze gegevens worden verwijderd wanneer u de OMS-werkruimte in uw abonnement verwijdert. [Meer informatie](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
-### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Hoe de collector communiceren met de vCenter-Server en de service Azure migreren?
+### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Hoe de collector communiceren met de vCenter-Server en de service Azure Migrate?
 
-Het toestel collector verbinding maakt met de vCenter-Server (poort 443) met de referenties die zijn opgegeven door de gebruiker in het toestel. De vCenter-Server met VMware PowerCLI voor het verzamelen van metagegevens over de virtuele machines die worden beheerd door de vCenter-Server opgevraagd. Worden verzameld beide configuratiegegevens over virtuele machines (kernen, geheugen, schijven, NIC enz.) en de geschiedenis van elke virtuele machine van de laatste één maand van de vCenter-Server. De verzamelde metagegevens wordt dan gezonden naar de service Azure migreren (via internet via https) voor evaluatie. [Meer informatie](concepts-collector.md)
+Het collector-apparaat verbinding maakt met de vCenter-Server (poort 443) met behulp van de referenties die zijn opgegeven door de gebruiker in het apparaat. Deze query uitgevoerd voor de vCenter-Server met behulp van VMware PowerCLI voor het verzamelen van metagegevens over de VM's beheerd door vCenter Server. Deze verzamelt beide configuratiegegevens over VM's (kernen, geheugen, schijven, NIC enzovoort) en de prestatiegeschiedenis van elke virtuele machine voor de laatste maand van vCenter-Server. De verzamelde metagegevens wordt verzonden naar de service Azure Migrate (via internet via https) voor de beoordeling. [Meer informatie](concepts-collector.md)
 
-### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>De gegevens worden versleuteld in rust en onderweg?
+### <a name="can-i-connect-to-multiple-vcenter-servers"></a>Kan ik verbinding maken met meerdere vCenter-servers?
 
-Ja, de verzamelde gegevens worden versleuteld zowel in rust en onderweg. De metagegevens die zijn verzameld door het toestel veilig verzonden naar de service Azure migreren via internet via https. De verzamelde metagegevens worden opgeslagen in [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) en in [Azure blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in een Microsoft-abonnement en in rust versleuteld.
+U moet een toestel connector ingesteld voor elke server.
 
-De gegevens die worden verzameld door de agents afhankelijkheid is ook versleuteld in doorvoer (beveiligde https-kanaal) en wordt opgeslagen in een werkruimte voor logboekanalyse in het abonnement van de gebruiker. Het is ook in rust versleuteld.
+### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Is de. OVA-sjabloon die wordt gebruikt door Site Recovery worden geïntegreerd met de. OVA die worden gebruikt door Azure Migrate?
 
-### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Hoe kan ik een omgeving met meerdere tenants in Azure migreren detecteren?
+Er is momenteel geen-integratie. De. OVA-sjabloon in Site Recovery wordt gebruikt voor het instellen van een Site Recovery-configuratieserver voor replicatie van virtuele VMware-machine/fysieke server. De. OVA die worden gebruikt door Azure Migrate wordt gebruikt voor het detecteren van VMware-VM's beheerd door een vCenter-server voor de doeleinden van migratie-analyse.
 
-Als u een omgeving die worden gedeeld door tenants hebt en u niet wilt detecteren van de virtuele machines van een tenant in een andere tenant abonnement, kunt u het veld bereik in het toestel collector als bereik voor de detectie. Als de tenants hosts deelt, een referentie die alleen-lezen toegang heeft tot alleen de virtuele machines die horen bij de specifieke tenant maken en deze referentie gebruiken in het toestel collector en het bereik opgeven als host voor de detectie uitvoeren. Als alternatief kunt u ook mappen maken in vCenter Server (Stel Map1 voor tenant1 en folder2 voor tenant2), onder de gedeelde host, de virtuele machines voor tenant1 in Map1 en tenant2 verplaatsen naar folder2 en vervolgens de detecties in de collector dienovereenkomstig bereik door op te geven op de juiste map.
+### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>Ik heb mijn machinegrootte gewijzigd. Kan ik de evaluatie opnieuw uitvoeren?
 
-### <a name="how-many-virtual-machines-can-be-discovered-in-a-single-migration-project"></a>Het aantal virtuele machines kunnen worden gevonden in een project voor afzonderlijke migratie?
+Als u wijzigt de instellingen op een virtuele machine die u wilt beoordelen, Ontdek trigger opnieuw met behulp van het collector-apparaat. Gebruik in het toestel, de **verzamelen opnieuw starten** optie om dit te doen. Nadat de verzameling is voltooid, selecteert u de **opnieuw berekenen** optie voor de evaluatie in de portal voor van de bijgewerkte evaluatieresultaten ophalen.
 
-U kunt 1500 virtuele machines in een project voor afzonderlijke migratie detecteren. Als u meer computers in uw on-premises-omgeving hebt [meer](how-to-scale-assessment.md) over hoe u een grote omgeving in Azure migreren kunt detecteren.
+### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>De gegevens worden versleuteld in rust en onderweg zijn?
+
+Ja, de verzamelde gegevens worden versleuteld in rust en onderweg zijn. De metagegevens die zijn verzameld door het apparaat veilig verzonden naar de Azure Migrate-service via internet via https. De verzamelde metagegevens worden opgeslagen in [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) en [Azure blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in een Microsoft-abonnement en in rust worden versleuteld.
+
+De gegevens die zijn verzameld door de agents afhankelijkheid is ook versleuteld in doorvoer (beveiligde https-kanaal) en wordt opgeslagen in een Log Analytics-werkruimte in het abonnement van de gebruiker. Het is ook versleuteld in rust.
+
+### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Hoe kan ik een multitenant-omgeving in Azure Migrate detecteren?
+
+Als u een omgeving die wordt gedeeld door tenants hebt en u niet wilt detecteren van de virtuele machines van één tenant in een andere tenant-abonnement, kunt u het veld bereik in het collector-apparaat als bereik voor de detectie. Als de tenants hosts delen, een referentie met alleen-lezen toegang tot alleen de virtuele machines die horen bij de specifieke tenant maken en deze referentie gebruiken in het collector-apparaat en het bereik opgeven als de host te doen de detectie. U kunt ook u kunt ook mappen maken in vCenter Server (Stel Map1 voor tenant1 en folder2 voor tenant2), onder de gedeelde host, de virtuele machines voor tenant1 in Map1 en tenant2 verplaatsen naar folder2 en vervolgens het bereik van de detecties in de collector dienovereenkomstig door op te geven op de juiste map.
+
+### <a name="how-many-virtual-machines-can-be-discovered-in-a-single-migration-project"></a>Het aantal virtuele machines kunnen worden gevonden in een enkele migration-project?
+
+U kunt 1500 virtuele machines in een enkele migratieproject detecteren. Als u meer computers in uw on-premises-omgeving hebt [meer](how-to-scale-assessment.md) over hoe u een grote omgeving in Azure Migrate kunt detecteren.
 
 ## <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
 
-### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Heb ik nodig om te betalen de afhankelijkheid-visualisatie gebruiken?
+### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Moet ik betalen voor het gebruik van de functie voor visualisatie van afhankelijkheden?
 
 Azure Migrate is zonder extra kosten beschikbaar. Meer informatie over prijzen voor Azure Migrate vindt u [hier](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
-### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Kan ik een bestaande werkruimte voor afhankelijkheid visualisatie gebruiken?
+### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Kan ik een bestaande werkruimte gebruiken voor visualisatie van afhankelijkheden?
 
-Azure migreren biedt geen ondersteuning voor het gebruik van een bestaande werkruimte voor afhankelijkheid visualisatie, echter Microsoft Monitoring Agent (MMA) biedt ondersteuning voor multihoming en kunt u gegevens verzenden naar meerdere werkruimten. Dus als u de agents geïmplementeerd en geconfigureerd met een werkruimte al hebt, kunt u gebruikmaken van multihoming in de agent MMA en deze configureren in de werkruimte Azure migreren (in aanvulling op de bestaande werkruimte) en werken. [Hier](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) is een blog over hoe u multihoming in een agent MMA kunt inschakelen.
+Azure Migrate biedt geen ondersteuning voor het gebruik van een bestaande werkruimte voor visualisatie van afhankelijkheden, echter Microsoft Monitoring Agent (MMA) biedt ondersteuning voor multihoming en kunt u gegevens verzenden naar meerdere werkruimten. Dus als u al de agents geïmplementeerd en geconfigureerd met een werkruimte hebt, kunt u gebruikmaken van multihoming in de MMA-agent en configureert in de werkruimte Azure Migrate (naast de bestaande werkruimte) en daarvan. [Hier](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) is een blog over hoe u multihoming in een MMA-agent kunt inschakelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees de [overzicht Azure migreren](migrate-overview.md)
-- Meer informatie over hoe u kunt [detecteren en te beoordelen](tutorial-assessment-vmware.md) een omgeving met VMware
+- Lees de [Azure Migrate-overzicht](migrate-overview.md)
+- Leer hoe u kunt [detecteren en evalueren](tutorial-assessment-vmware.md) een VMware-omgeving

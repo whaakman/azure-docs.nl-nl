@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 9dd23fd5f8a0024f127b71160899d10042037a66
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 26fb9c6349b46e0c920506c39ba53b26f215d330
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346005"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867185"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Patronen voor het verbeteren van nauwkeurigheid toevoegen
 Nadat een LUIS-app eindpunt uitingen ontvangt, gebruikt u de [concept](luis-concept-patterns.md) van patronen voor het verbeteren van nauwkeurigheid voor uitingen dat een patroon in de woordvolgorde en word keuze. Gebruik patronen [entiteiten](luis-concept-entity-types.md) en hun rollen om gegevens met behulp van specifieke patroon syntaxis te extraheren. 
@@ -57,7 +57,7 @@ Zoeken, kunt u het vinden van patronen die bepaalde tekst bevatten.
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>Een patroon bewerken
-1. Als u wilt een patroon bewerken, selecteert u het pictogram van de drie puntjes (...) aan de rechterkant van de regel voor dit patroon en vervolgens **bewerken**. 
+1. Als u wilt bewerken een patroon, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de regel voor dit patroon knop en selecteer vervolgens **bewerken**. 
 
     ![Menu-item in de rij patroon Screenshot van bewerken](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -79,7 +79,7 @@ Als u wilt toewijzen verschillende patronen naar een ander doel, schakelt u het 
 
 ## <a name="delete-a-single-pattern"></a>Een enkel patroon verwijderen
 
-1. Als u wilt verwijderen een patroon, selecteer het pictogram van de drie puntjes (...) aan de rechterkant van de regel voor dit patroon, en selecteer vervolgens **verwijderen**. 
+1. Als u wilt verwijderen een patroon, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de regel voor dit patroon knop en selecteer vervolgens **verwijderen**. 
 
     ![Schermafbeelding van verwijderen utterance](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -123,7 +123,7 @@ Het filter verwijderd en alle patronen weer te geven.
 ## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Patroon van bestaande utterance op de pagina kunt u lezen wat of entiteit toevoegen
 U kunt een patroon maken van een bestaande utterance in elk de **bedoeling** of **entiteit** pagina. Alle uitingen op een willekeurige pagina doel of de entiteit worden weergegeven in een lijst met in de rechterkolom bevindt die toegang geeft tot utterance-opties zoals **bewerken**, **verwijderen**, en **als patroontoevoegen**.
 
-1. Selecteer de drie puntjes (...) aan de rechterkant van de utterance op de geselecteerde rij van de utterance, en selecteer **toevoegen als patroon**.
+1. Op de geselecteerde rij van de utterance, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de utterance en selecteer **toevoegen als patroon**.
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Schermafbeelding van de tabel uitingen met Add-patroon gemarkeerd in het optiemenu")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 

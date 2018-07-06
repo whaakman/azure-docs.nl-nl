@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d9d58d12e8b2060fe6062118e639dd4f4a7504f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445550"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865230"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Afhankelijkheden van de taak voor het uitvoeren van taken die afhankelijk van andere taken zijn maken
 
@@ -117,7 +117,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### <a name="task-id-range"></a>Taak-ID-bereik
-In een afhankelijkheid van een bereik van bovenliggende taken, een taak afhankelijk is van de de voltooiing van taken waarvoor id's binnen een bereik liggen.
+In een afhankelijkheid van een bereik van bovenliggende taken, is een taak afhangt van de voltooiing van taken waarvoor id's binnen een bereik liggen.
 Voor het maken van de afhankelijkheid, geef de eerste en laatste taak-id's in het bereik tot de [TaskDependencies][net_taskdependencies].[ OnIdRange] [ net_onidrange] statische methode vullen van de [DependsOn] [ net_dependson] eigenschap van [CloudTask] [ net_cloudtask].
 
 > [!IMPORTANT]

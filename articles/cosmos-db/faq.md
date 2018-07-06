@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: c1ddb6beec3f7c41fa49f62a3ed9baa17c515fbd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445514"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859697"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure Cosmos DB
@@ -136,12 +136,16 @@ Voorbeelden voor de SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://gi
 Ja, de SQL-API kunt toepassingen om op te slaan zonder schemadefinities of hints willekeurige JSON-documenten. Gegevens zijn onmiddellijk beschikbaar voor query's via de Azure Cosmos DB SQL-QueryInterface.  
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>De SQL-API biedt ondersteuning voor ACID-transactions?
-Ja, de SQL-API biedt ondersteuning voor transacties van tussen meerder documenten uitgedrukt in JavaScript opgeslagen procedures en triggers. Transacties worden binnen het bereik van één partitie binnen elke verzameling en uitgevoerd met ACID-semantiek als "Alles of niets," geïsoleerd van andere code en gebruikersaanvragen die gelijktijdig worden uitgevoerd. Als er uitzonderingen worden veroorzaakt door de server-side-uitvoering van JavaScript-toepassingscode, de hele transactie teruggedraaid. Zie voor meer informatie over transacties [Database programmatransacties](programming.md#database-program-transactions).
+Ja, de SQL-API biedt ondersteuning voor transacties van tussen meerder documenten uitgedrukt in JavaScript opgeslagen procedures en triggers. Transacties worden binnen het bereik van één partitie binnen elke container en uitgevoerd met ACID-semantiek als "Alles of niets," geïsoleerd van andere code en gebruikersaanvragen die gelijktijdig worden uitgevoerd. Als er uitzonderingen worden veroorzaakt door de server-side-uitvoering van JavaScript-toepassingscode, de hele transactie teruggedraaid. Zie voor meer informatie over transacties [Database programmatransacties](programming.md#database-program-transactions).
 
-### <a name="what-is-a-collection"></a>Wat is een verzameling?
-Een verzameling is een groep van documenten en de bijbehorende JavaScript-toepassingslogica. Een verzameling is een factureerbare entiteit, waar de [kosten](performance-levels.md) wordt bepaald door de doorvoer en opslag gebruikt. Verzamelingen kunnen omvatten een of meer partities of servers en voor het afhandelen van vrijwel onbeperkte hoeveelheid opslag of doorvoer kunnen schalen.
+### <a name="what-is-a-container"></a>Wat is een container?
+Een container is een groep van documenten en de bijbehorende JavaScript-toepassingslogica. Een container is een factureerbare entiteit, waar de [kosten](performance-levels.md) wordt bepaald door de doorvoer en opslag gebruikt. Containers kunnen omvatten een of meer partities of servers en voor het afhandelen van vrijwel onbeperkte hoeveelheid opslag of doorvoer kunnen schalen. 
 
-Verzamelingen zijn ook de factureringsentiteiten voor Azure Cosmos DB. Elke verzameling wordt per uur gefactureerd, op basis van de ingerichte doorvoer en opslagruimte gebruikt. Zie voor meer informatie, [prijzen voor Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+* Voor SQL- en MongoDB-API is een container worden toegewezen aan een verzameling. 
+* Voor Cassandra en Table-API-accounts, wordt een container toegewezen aan een tabel. 
+* Voor accounts van de Gremlin-API, is een container worden toegewezen aan een grafiek. 
+
+Containers zijn ook de factureringsentiteiten voor Azure Cosmos DB. Elke container wordt gefactureerd per uur, op basis van de ingerichte doorvoer en opslagruimte gebruikt. Zie voor meer informatie, [prijzen voor Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Hoe maak ik een database?
 U kunt databases maken met behulp van de [Azure-portal](https://portal.azure.com), zoals beschreven in [toevoegen van een verzameling](create-sql-api-dotnet.md#create-collection), een van de [Azure Cosmos DB SDK's](sql-api-sdk-dotnet.md), of de [REST-API's](/rest/api/cosmos-db/). 
@@ -170,7 +174,7 @@ U kunt bulksgewijs invoegen documenten in Azure Cosmos DB in een van de volgende
 * Het hulpprogramma voor migratie, zoals beschreven in [Database-hulpprogramma voor migratie voor Azure Cosmos DB](import-data.md).
 * Opgeslagen procedures, zoals beschreven in [serverzijde JavaScript programmeren voor Azure Cosmos DB](programming.md).
 
-### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Ik heb setup Mijn verzameling om te gebruiken vertraagde indexeren, zie ik dat mijn query's geen verwachte resultaten retourneren. 
+### <a name="i-have-setup-my-container-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Ik heb setup mijn container gebruiken vertraagde indexeren, zie ik dat mijn query's geen verwachte resultaten retourneren. 
 Zoals uitgelegd in de sectie indexering, kan vertraagde indexeren resulteren in dit gedrag. U moet altijd een consistente indexering voor alle toepassingen gebruiken. 
 
 
@@ -185,7 +189,7 @@ Dit is beperking van JavaScript. Drijvende-indeling met dubbele precisie cijfers
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Waar zijn de machtigingen in de objecthiërarchie toegestaan?
 
-Het maken van machtigingen met ResourceTokens is toegestaan op het niveau van de verzameling en de onderliggende objecten (zoals documenten, bijlagen). Dit houdt in dat bij het maken van een machtiging op de database of het accountniveau van een is momenteel niet toegestaan.
+Het maken van machtigingen met ResourceTokens is toegestaan op het niveau van de container en de onderliggende objecten (zoals documenten, bijlagen). Dit houdt in dat bij het maken van een machtiging op de database of het accountniveau van een is momenteel niet toegestaan.
 
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Ontwikkelen met betrekking tot de API voor MongoDB

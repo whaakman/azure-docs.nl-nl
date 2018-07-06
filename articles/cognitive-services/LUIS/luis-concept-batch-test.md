@@ -1,78 +1,79 @@
 ---
-title: Uw LUIS voor app - Azure batch testen | Microsoft Docs
-description: Gebruik de batch voor testdoeleinden continu werken op uw toepassing voor het verfijnen en taal inzicht te verbeteren.
+title: Batch test uw LUIS-app - Azure | Microsoft Docs
+description: Gebruik batch testen om te werken continu op uw toepassing het verfijnen en verbeteren van de taal begrijpen.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3803df32d6431b8413e8df0837ed62b2e4344cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f0366e805c9ae809a2800b0f4be53d08d9fc3d60
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345063"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857905"
 ---
-# <a name="batch-testing-in-luis"></a>Batch in LUIS testen
+# <a name="batch-testing-in-luis"></a>Batch testen in LUIS
 
-Tests in batch valideert uw [active](luis-concept-version.md#active-version) getrainde model voor het meten van de nauwkeurigheid. Een batch-test kunt u de nauwkeurigheid van elke doel en de entiteit in uw huidige getraind model in een grafiek weergeven. Bekijk de testresultaten van batch om passende maatregelen te verbeteren, nauwkeurigheid, zoals het toevoegen van meer voorbeeld utterances aan de opzet als uw app vaak niet de juiste bedoeling identificeren.
+Batch testen valideert uw [active](luis-concept-version.md#active-version) getrainde model voor het meten van de nauwkeurigheid. Een batch-test, kunt u de nauwkeurigheid van de intentie en de entiteit in uw huidige, getrainde model in een grafiek weergeven. De resultaten van de batch voor de passende maatregelen nemen om de nauwkeurigheid, zoals het toevoegen van meer voorbeeld uitingen aan een doel als uw app vaak mislukt voor het identificeren van de juiste intentie te bekijken.
 
 ## <a name="group-data-for-batch-test"></a>Groepsgegevens voor batch-test
-Het is belangrijk dat utterances gebruikt voor het testen van de batch niet bekend met LUIS bent. Als u een gegevensset van utterances hebt, deelt de utterances in drie sets: utterances toegevoegd aan de opzet, utterances ontvangen van het gepubliceerde eindpunt en utterances gebruikt voor het batch-test LUIS nadat deze is getraind. 
+Het is belangrijk dat uitingen die wordt gebruikt voor het testen van de batch niet bekend bent met LUIS. Als u een gegevensset van uitingen hebt, waardoor de uitingen in drie groepen: uitingen toegevoegd aan een doel en uitingen ontvangen van het eindpunt van de gepubliceerde uitingen gebruikt voor het batch-test LUIS nadat deze is getraind. 
 
-## <a name="a-dataset-of-utterances"></a>Een gegevensset van utterances
-Verzenden van een batch-bestand van utterances, ook wel een *gegevensset*, voor het testen van de batch. De gegevensset is een JSON-indeling bestand met een maximum van 1000 gelabeld **niet dubbele** utterances. U kunt maximaal 10 gegevenssets testen in een app. Als u testen meer wilt, een gegevensset verwijderen en voegt u een nieuwe.
+## <a name="a-dataset-of-utterances"></a>Een gegevensset van uitingen
+Indienen van een batch-bestand van uitingen, ook wel een *gegevensset*, voor het testen van batch. De gegevensset is een JSON-indeling bestand met maximaal 1000 met het label **unieke** uitingen. U kunt maximaal 10 gegevenssets testen in een app. Als u nodig hebt voor het testen van meer, een gegevensset verwijdert en vervolgens een nieuwe toevoegen.
 
 |**Regels**|
 |--|
-|* Geen dubbele utterances|
+|* Er zijn geen dubbele uitingen|
 |Er is geen onderliggende hiërarchische entiteit|
-|utterances 1000 of minder|
+|uitingen van 1000 of minder|
 
-* Duplicaten worden beschouwd als de exacte tekenreeks overeenkomt met, niet overeenkomt met die eerst worden getokeniseerd. 
+* Dubbele waarden worden beschouwd als de exacte tekenreeks komt overeen met, niet overeenkomt met die eerst worden getokeniseerd. 
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## <a name="batch-file-format"></a>Batch-bestandsindeling
-Het batchbestand bestaat uit utterances. Elke utterance moet een verwachte opzet prediction samen hebben [machine geleerde entiteiten](luis-concept-entity-types.md#types-of-entities) u verwacht te worden gedetecteerd. 
+De batch-bestand bestaat uit uitingen. Elke utterance ze beschikken over een verwachte intentie voorspelling samen met een [machine geleerde entiteiten](luis-concept-entity-types.md#types-of-entities) u verwacht te worden gedetecteerd. 
 
-Hier volgt een voorbeeld van batchbestand:
+Hier volgt een voorbeeld van de batch-bestand:
 
    [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
 
 
-## <a name="common-errors-importing-a-batch"></a>Veelvoorkomende fouten bij het importeren van een batch
+## <a name="common-errors-importing-a-batch"></a>Veelvoorkomende fouten in een batch importeren
 Veelvoorkomende fouten zijn onder andere: 
 
-> * Meer dan 1000 utterances
-> * Een utterance JSON-object dat geen van de eigenschap van een entiteiten
+> * Uitingen van meer dan 1000
+> * Een utterance JSON-object dat niet een eigenschap entiteiten hebben
+> * Woorden die met het label in meerdere entiteiten
 
-## <a name="batch-test-state"></a>Teststatus batch
-LUIS houdt de status van de laatste test elke gegevensset. Dit omvat de datum van de grootte (aantal utterances in de batch), het laatst is uitgevoerd, en het laatste resultaat (aantal met succes voorspelde utterances).
+## <a name="batch-test-state"></a>Status van de batch-test
+LUIS houdt de status van de laatste test van elke gegevensset. Dit omvat de grootte (aantal uitingen in de batch), voor het laatst uitgevoerd datum en de laatste resultaat (aantal is voorspelde uitingen).
 
 <a name="sections-of-the-results-chart"></a>
-## <a name="batch-test-results"></a>Batch-testresultaten
-Het resultaat van de test batch is een spreidingsgrafiek bekend als een matrix van de fout. Deze grafiek is een 4-weg vergelijking van de utterances in het bestand en het huidige model voorspelde bedoeling en entiteiten. 
+## <a name="batch-test-results"></a>De resultaten van batch
+Het resultaat van de test batch is een spreidingsgrafiek bekend als een matrix van de fout. Deze grafiek bevat een vergelijking 4-weg van de uitingen in het bestand en het huidige model voorspelde intentie en entiteiten. 
 
-Gegevenspunten op de **onjuiste positieve** en **False negatieve** secties duiden op fouten, die moeten worden onderzocht. Als alle gegevenspunten op de **True positieve** en **True negatieve** secties, en vervolgens de nauwkeurigheid van uw app is bij uitstek geschikt voor deze gegevensset.
+Gegevenspunten op de **ONWAAR positief** en **False negatieve** secties duiden op fouten, die moeten worden onderzocht. Als u alle gegevenspunten zijn op de **waar positieve** en **waar negatieve** secties, en vervolgens de nauwkeurigheid van uw app is bij uitstek geschikt voor deze gegevensset.
 
-![Vier secties van de grafiek](./media/luis-concept-batch-test/chart-sections.png)
+![Vier secties van grafiek](./media/luis-concept-batch-test/chart-sections.png)
 
-Dit diagram kunt u utterances die LUIS voorspelt onjuist op basis van de huidige training vinden. De resultaten worden weergegeven per regio van de grafiek. Selecteer de afzonderlijke punten op de grafiek Lees de informatie utterance of regionaam te bekijken van resultaten utterance in deze regio selecteren.
+In deze grafiek helpt u uitingen die LUIS voorspelt ten onrechte op basis van de huidige training te vinden. De resultaten worden weergegeven per regio van de grafiek. Selecteer afzonderlijke punten in de grafiek Lees de informatie utterance of selecteer regionaam utterance resultaten in die regio bekijken.
 
-![Batch testen](./media/luis-concept-batch-test/batch-testing.png)
+![Batchgewijs testen](./media/luis-concept-batch-test/batch-testing.png)
 
 ## <a name="errors-in-the-results"></a>Fouten in de resultaten
-Fouten in de batch-test duiden intents die niet zijn voorspeld zoals aangegeven in de batch-bestand op. Fouten worden aangeduid in de twee rode secties van de grafiek. 
+Fouten in de batch-test duiden intents die niet worden voorspeld, zoals vermeld in de batch-bestand. Fouten worden aangegeven in de twee rode secties van de grafiek. 
 
-De waarde false positief sectie geeft aan dat een utterance komt overeen met een doel of de entiteit wanneer het mag geen. De waarde false negatief geeft een utterance komt niet overeen met een doel of de entiteit wanneer heeft. 
+De waarde false positieve sectie geeft aan dat een utterance overeenkomen met een doel of de entiteit als het al dan niet mogen hebben. De negatieve waarde false geeft aan dat een utterance komt niet overeen met een doel of de entiteit wanneer deze moet hebben. 
 
-## <a name="fixing-batch-errors"></a>Batchfouten
-Als er fouten in de batch-tests zijn, u kunt ofwel meer utterances toevoegen aan de opzet en/of meer utterances aan de entiteit bij het maken van het onderscheid tussen intents LUIS labelen. Als u hebt toegevoegd utterances en gelabeld ze en toch get voorspelling fouten in het testen van batch, overweeg een [woordgroepenlijst](luis-concept-feature.md) onderdeel met domeinspecifieke vocabulaire LUIS leert sneller help. 
+## <a name="fixing-batch-errors"></a>Batchfouten oplossen
+Als er fouten in de batch-tests, u kunt een meer utterances toevoegen aan een doel en/of meer uitingen aan de entiteit te maken van het onderscheid tussen intents LUIS label. Als u hebt toegevoegd uitingen en deze en nog steeds get gelabeld voorspelling fouten in de batch testen, kunt u toevoegen een [woordgroepenlijst](luis-concept-feature.md) -functie met domeinspecifieke vocabulaire om u te helpen sneller meer LUIS. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over hoe [testen van een batch](luis-how-to-batch-test.md)
+* Meer informatie over het [testen van een batch](luis-how-to-batch-test.md)

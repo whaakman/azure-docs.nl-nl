@@ -1,7 +1,7 @@
 ---
-title: Overzicht van vooraf gedefinieerde domain - Azure | Microsoft Docs
+title: Vooraf gedefinieerde domein referentie - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Verwijzing voor de vooraf gedefinieerde domeinen vooraf gedefinieerde verzamelingen van intents en entiteiten van Language Understanding Intelligent Services (LUIS zijn).
+description: Referentie voor de vooraf gemaakte domeinen vooraf gemaakte verzamelingen van intenties en entiteiten van Language Understanding Intelligent Services (LUIS zijn).
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -10,79 +10,79 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: fe035c744e7cbc291fa392205239f331410412dc
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061961"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866328"
 ---
 # <a name="prebuilt-domain-reference"></a>Vooraf gemaakte domeinverwijzing
-Deze verwijzing bevat informatie over de [vooraf gedefinieerde domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gedefinieerde verzamelingen van intents en entiteiten die LUIS biedt.
+Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
 
-[Aangepaste domeinen](create-new-app.md), daarentegen starten zonder intents en modellen. U kunt alle vooraf gedefinieerde domein intents en entiteiten toevoegen aan een aangepaste model.
+[Aangepaste domeinen](create-new-app.md), daarentegen, beginnen met geen intents en modellen. U kunt een vooraf gedefinieerde domein intenties en entiteiten toevoegen aan een aangepast model.
 
-## <a name="list-of-prebuilt-domains"></a>Lijst met vooraf gedefinieerde domeinen
-LUIS biedt 20 vooraf gedefinieerde domeinen. 
+## <a name="list-of-prebuilt-domains"></a>Lijst met vooraf gemaakte domeinen
+LUIS biedt 20 vooraf gemaakte domeinen. 
 
 | Vooraf gedefinieerde domein | Beschrijving | Ondersteunde talen |
 | ---------------- |-----------------------|:------:|
-| Agenda | Het domein van de kalender biedt bedoeling en entiteiten voor toe te voegen, te verwijderen, of een afspraak te bewerken, deelnemers beschikbaarheid controleren en om informatie over gebeurtenissen te zoeken.| nl-NL<br/> zh-CN |
-| Camera | Het domein van de Camera biedt intents en entiteiten voor het maken van foto's, video's opnemen en broadcasting video voor een toepassing.| nl-NL |
+| Agenda | Het domein van de agenda biedt intentie en entiteiten voor toe te voegen, te verwijderen, of bewerken van een afspraak, deelnemers aan de beschikbaarheid gecontroleerd en zoeken naar informatie over een agenda-gebeurtenis.| nl-NL<br/> zh-CN |
+| Camera | Het domein van de Camera biedt intenties en entiteiten voor het maken van afbeeldingen, video's opnemen en uitzenden video aan een toepassing.| nl-NL |
 | Communicatie | Verzenden van berichten en telefoongesprekken.| nl-NL <br/> zh-CN |
-| Entertainment  | Query's die zijn gerelateerd aan muziek, films en tv-verwerking.| nl-NL |
+| Entertainment  | Verwerking van query's met betrekking tot muziek, films en tv-programma's.| nl-NL |
 | Gebeurtenissen | Reservering van tickets voor concerten, festivals, sport-games en comedy bevat.| nl-NL |
-| Geschiktheid | Afhandeling van aanvragen in verband met het bijhouden van geschiktheid activiteiten.| nl-NL |
-| Gaming | Afhandeling van aanvragen in verband met een game partij in een spel.| nl-NL |
-| HomeAutomation | Smart thuis-apparaten zoals lichten en apparaten beheert.| nl-NL<br/> zh-CN |
-| MovieTickets | Reservering kaartjes voor films op een locatie film.| nl-NL |
-| Music | Het afspelen van muziek op een muziekspeler.| nl-NL<br/> zh-CN |
-| Opmerking | Het domein Opmerking biedt intents en entiteiten die zijn gerelateerd aan het maken, bewerken en notities zoeken.| nl-NL<br/> zh-CN |
-| OnDevice | Het domein OnDevice biedt intents en entiteiten die betrekking hebben op het apparaat te beheren.| nl-NL<br/> zh-CN |
-| Plaatsen  | Verwerking van query's die betrekking hebben op locaties zoals bedrijven, instellingen, restaurant, ruimten voor algemeen gebruik en -adressen.| nl-NL<br/> zh-CN |
-| Herinnering | Afhandeling van aanvragen in verband met het maken, bewerken en zoeken herinneringen.| nl-NL<br/> zh-CN |
+| Geschiktheid | Afhandeling van aanvragen met betrekking tot het bijhouden van geschiktheid activiteiten.| nl-NL |
+| Gaming | Afhandeling van aanvragen die betrekking hebben op een game partij in een spel.| nl-NL |
+| HomeAutomation | Slimme home apparaten zoals verlichting en apparaten beheert.| nl-NL<br/> zh-CN |
+| MovieTickets | Tickets naar films op een film theater reservering.| nl-NL |
+| Muziek | Het afspelen van muziek op een muziekspeler.| nl-NL<br/> zh-CN |
+| Opmerking | Het domein Opmerking biedt intenties en entiteiten met betrekking tot het maken, bewerken en het zoeken van notities.| nl-NL<br/> zh-CN |
+| OnDevice | Het domein OnDevice biedt intenties en entiteiten die betrekking hebben op het apparaat te beheren.| nl-NL<br/> zh-CN |
+| Plaatsen  | Verwerking van query's die betrekking hebben op locaties zoals bedrijven, instellingen, restaurants, ruimten voor algemeen gebruik en -adressen.| nl-NL<br/> zh-CN |
+| Herinnering | Afhandeling van aanvragen in verband met het maken, bewerken en zoeken van herinneringen.| nl-NL<br/> zh-CN |
 | RestaurantReservation | Afhandeling van aanvragen voor het beheren van restaurant reserveringen.| nl-NL<br/> zh-CN |
-| Taxi | Reserveringen voor een taxi verwerking.| nl-NL<br/> zh-CN |
-| Vertalen | Tekst in een taal die doel vertalen.| nl-NL<br/> zh-CN |
-| TV | Beheert televisies.| nl-NL |
-| Nutsbedrijven  | Afhandeling van aanvragen die worden gebruikt in veel domeinen, zoals 'help', 'Herhaal', "beginnen."| nl-NL |
-| Weer | De rapporten weer en prognoses ophalen.| nl-NL<br/> zh-CN |
+| Over taxi 's | Reserveringen voor een taxi verwerken.| nl-NL<br/> zh-CN |
+| Vertalen | Vertalen van tekst naar een doel-taal.| nl-NL<br/> zh-CN |
+| TV-PROGRAMMA 'S | Tv's beheren.| nl-NL |
+| Nutsbedrijven  | Afhandeling van aanvragen die gemeenschappelijk zijn in veel domeinen, zoals "help", "Herhaal", "opnieuw beginnen."| nl-NL |
+| Weer | Ophalen van de rapporten weer en geeft een prognose.| nl-NL<br/> zh-CN |
 | Web | Navigeren naar een website.| nl-NL<br/> zh-CN |
 
 Zie de volgende secties voor meer informatie over elk domein.
 
 ## <a name="calendar"></a>Agenda 
 
-Het domein van de kalender biedt intents en entiteiten die zijn gerelateerd aan een agenda-items. De kalender intents bevatten toevoegen, verwijderen of bewerken van een afspraak beschikbaarheid controleren en om informatie over een agenda-item of een afspraak te zoeken.
+Het domein van de agenda biedt intenties en entiteiten met betrekking tot de agenda-items. De intenties agenda bevatten toe te voegen, verwijderen of bewerken van een afspraak, de beschikbaarheid gecontroleerd en informatie over een agenda-item of een afspraak zoeken.
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Toevoegen | Een nieuw eenmalige item toevoegen aan de kalender.| Een afspraak met ties om 2 uur op zondag maken <br/><br/>Ik wil een vergadering plannen<br/><br/>Ik wil een vergadering instellen|
-| CheckAvailability | Beschikbaarheid voor een afspraak of vergadering kalender van de gebruiker of een andere persoon kalender niet vinden.| Wanneer is beschikbaar om te voldoen aan Jim? <br/><br/>Weergeven wanneer de Carola morgen beschikbaar is<br/><br/>Chris vrij is op zaterdag?|
-| Verwijderen | Verzoek voor het verwijderen van een agenda-item.| Mijn afspraak met Carola annuleren. <br/><br/>Verwijderen van mijn vergadering 9: 00 uur<br/>|
-| Bewerken | Verzoek voor het wijzigen van een bestaande vergadering of een agenda-item.| Verplaats mijn vergadering 9: 00 uur tot 10 uur.<br/><br/>Ik wil mijn schema bijwerken.<br/><br/>Reschdule Mijn vergadering met Ryan.|
+| Toevoegen | Een nieuwe eenmalige item toevoegen aan de agenda.| Een afspraak met Lisa om 2 uur op zondag <br/><br/>Ik wil een vergadering plannen<br/><br/>Ik wil een vergadering instellen|
+| CheckAvailability | Beschikbaarheid voor een afspraak of vergadering agenda van de gebruiker of een andere persoon kalender niet vinden.| Wanneer is Jim beschikbaar om te voldoen? <br/><br/>Weergeven als Carola morgen beschikbaar is<br/><br/>Chris vrij is op zaterdag?|
+| Verwijderen | Aanvraag voor het verwijderen van een agenda-item.| Mijn afspraak met Carola annuleren. <br/><br/>Mijn 9: 00-vergadering verwijderen<br/>|
+| Bewerken | De aanvraag voor het wijzigen van een bestaande vergadering of een agenda-item.| Mijn 9: 00-vergadering verplaatsen naar 10 uur.<br/><br/>Ik wil mijn planning bijwerken.<br/><br/>Reschdule Mijn vergadering met Ryan.|
 | Find | Mijn wekelijkse agenda weergeven.| Zoek de tandarts afspraak bekijken. <br/><br/>Mijn agenda weergeven<br/>|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Locatie | Locatie van agenda-item, vergadering of afspraak. Adressen, plaatsen en regio's zijn goede voorbeelden van locaties.| 209 Nashville maakt <br/><br/>897 pancake house<br/><br/>Garage|
-| Onderwerp | De titel van een vergadering of afspraak.| De tandarts <br/><br/>Lunch met Julia<br/><br/>Arts afspraak|
+| Locatie | Locatie van agenda-item, afspraak of vergadering. Adressen, plaatsen en regio's zijn goede voorbeelden van locaties.| 209 Nashville sportschool <br/><br/>897 pancake house<br/><br/>Garage|
+| Onderwerp | De titel van een afspraak of vergadering.| De tandarts <br/><br/>Lunch met Julia<br/><br/>De afspraak van Doctor's|
 
 ## <a name="camera"></a>Camera 
-Het domein van de Camera biedt intents en over het gebruik van een camera-entiteiten. De intents betrekking op het vastleggen van een foto, selfie, schermafbeelding of video en video's naar een toepassing wordt uitgezonden.
+Het domein van de Camera biedt intenties en entiteiten met betrekking tot het gebruik van een camera. De intenties van toepassing op een foto, selfie, schermopname of video vastleggen en uitzenden video aan een toepassing.
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| CapturePhoto| Een foto vastleggen.| Een foto neemt<br/><br/>vastleggen|
-| CaptureScreenshot | Een schermopname vastleggen.| Schermopname in beslag nemen.<br/><br/>schermopname.|
-| CaptureSelfie | Een selfie vastleggen.| Een selfie nemen <br/><br/>Maak een foto van mij |
-| CaptureVideo | Opname video te starten.| Opname starten <br/><br/>Beginnen met opnemen|
+| CapturePhoto| Een foto vastleggen.| Maak een foto<br/><br/>vastleggen|
+| CaptureScreenshot | Een schermopname vastleggen.| Schermopname duren.<br/><br/>de schermopname.|
+| CaptureSelfie | Een selfie vastleggen.| Een selfie maken <br/><br/>een afbeelding van mij |
+| CaptureVideo | Video van opname te starten.| Opname starten <br/><br/>Beginnen met opnemen|
 | StartBroadcasting| Broadcasting video te starten.| Uitzenden naar Facebook starten|
 | StopBroadcasting| Broadcasting video stoppen.| Broadcasting stoppen|
-| StopVideoRecording| Stop de opname van een video.| Dat is voldoende<br/><br/>opname stoppen|
+| StopVideoRecording| Een video-opname stoppen| Dat is voldoende<br/><br/>opname stoppen|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
@@ -91,128 +91,128 @@ Het domein van de Camera biedt intents en over het gebruik van een camera-entite
 
 
 ## <a name="communication"></a>Communicatie 
-Het domein communicatie biedt intents en entiteiten die betrekking hebben op e-mail, berichten en telefoongesprekken.
+Het domein communicatie biedt intenties en entiteiten die betrekking hebben op e-mail, berichten en telefoongesprekken.
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AddContact| Een nieuwe contactpersoon toevoegen aan lijst met contactpersonen van de gebruiker.|Nieuwe contactpersoon toevoegen <br/><br/>Sla dit nummer en de naam op als Carola plaatsen|
-| AddMore| Meer op een e-mailadres of de tekst, als onderdeel van een stapsgewijs samenstelling van e-mailadres of tekst toevoegen.|Meer naar tekst toevoegen <br/><br/>Voeg meer voor tekst van e-mail|
-| Antwoord| Een inkomend telefoongesprek te beantwoorden.|de oproep wordt beantwoord <br/><br/>Deze kunnen worden opgepikt|
-| AssignContactNickname| Een bijnaam een contactpersoon.|Pa Isaac wijzigen <br/>De Jim bijnaam bewerken<br/>Bijnaam aan Patti Owens toevoegen|
-| CallVoiceMail| Verbinding maken met de voicemail van de gebruiker.|Verbinding maken met mijn voicemail-vak <br/>voicemail<br/>voicemail oproepen|
-| CheckIMStatus| Controleer de status van een contactpersoon in Skype.|Is de onlinestatus van Jim ingesteld op Opslaan? <br/>Carola chatten met beschikbaar is?|
-| Bevestigen| Bevestig de actie.|Ja<br/>OK<br/>OK<br/>Bevestig ik dat ik wil deze e-mail verzenden.<br/>|
-| inbelverbinding| Een telefoongesprek.|Aanroep Jim<br/>Neem 311 kiezen<br/>|
-| FindContact| Contactgegevens zoeken op naam.|Carola getal zoeken<br/>Carola nummer weergeven<br/>|
+| AddMore| Voeg meer toe aan een e-mailadres of de tekst, als onderdeel van een stap voor stap e-mail of SMS-samenstelling.|Voeg meer toe aan de tekst <br/><br/>Meer e-instantie toevoegen|
+| Antwoord| Een inkomend telefoongesprek te beantwoorden.|De oproep beantwoorden <br/><br/>Om te kiezen|
+| AssignContactNickname| Een bijnaam toewijzen aan een contactpersoon.|Isaac Pa wijzigen <br/>De bijnaam van Jim bewerken<br/>Bijnaam aan Patti Owens toevoegen|
+| CallVoiceMail| Verbinding maken met de voicemail van de gebruiker.|Verbinding maken met mijn vak voicemail <br/>Voicemail<br/>Voicemail oproepen|
+| CheckIMStatus| Controleer de status van een contactpersoon in Skype.|Is de onlinestatus van Jim ingesteld op opgeslagen? <br/>Carola beschikbaar om te chatten met is?|
+| Bevestigen| Controleer of een actie.|Ja<br/>OK<br/>OK<br/>Ik bevestig dat ik wil dit e-mailbericht verzenden.<br/>|
+| Inbelverbinding| Een telefoongesprek.|Jim aanroepen<br/>Neem 311 kiezen<br/>|
+| FindContact| De contactgegevens op naam vinden.|Carola van nummer zoeken<br/>Carola van getal weergeven<br/>|
 | FindSpeedDial| Zoek de speedial nummer een telefoonnummer in dat is ingesteld op en vice versa.|Wat is mijn telefoonnummer 5?<br/>Heb ik snelheid set kiezen?<br/>Wat is het telefoonnummer van 941-5555-333?|
-| GetForwardingsStatus| De huidige status van de aanroep doorsturen ophalen.|Is het doorsturen van mijn aanroep ingeschakeld?<br/>Meer informatie als de status van mijn aanroep in- of uitschakelen wordt<br/>|
+| GetForwardingsStatus| De huidige status van de oproep doorschakelen ophalen.|Wordt mijn doorschakelen ingeschakeld?<br/>Meer informatie als de status van de aanroep in- of uitschakelen is<br/>|
 | GoBack| Ga terug naar de vorige stap.|Ga terug naar twitter<br/>Een stap terug<br/>Terug|
-| Negeren| Een inkomend gesprek negeren.|Geen antwoord<br/>Aanroep negeren|
-| IgnoreWithMessage| Een inkomend gesprek negeren en in plaats daarvan reageren met tekst.|Geen antwoord die aanroep, maar in plaats daarvan een bericht te verzenden.<br/>Negeren en terug in een tekst verzenden.|
-| PressKey| Druk op een knop of het nummer op het toetsenbord.|Externe ster.<br/>Druk op 1-2-3.|
-| ReadAloud| Een bericht of e-mail lezen voor de gebruiker.|Lees de tekst.<br/>Wat ze zeggen in het bericht?|
+| Negeren| Een binnenkomende oproep negeren.|Geen antwoord<br/>Aanroep negeren|
+| IgnoreWithMessage| Een binnenkomende oproep negeren en reageren met de tekst in plaats daarvan.|Geen deze oproep wordt beantwoord, maar in plaats daarvan een bericht verzenden.<br/>Negeren en terug tekstbericht te verzenden.|
+| PressKey| Druk op een knop of een getal op het toetsenbord.|Ster met kiezen.<br/>Druk op 1-2-3.|
+| ReadAloud| Lees een bericht of een e-mailbericht naar de gebruiker.|Lees de tekst.<br/>Wat ze zeggen in het bericht?|
 | TurnForwardingOff| Een telefoongesprek.|<br/><br/>|
-| opnieuw kiezen| Kiezen of een nummer bellen opnieuw.|Kies opnieuw.<br/>Kies de laatste aanroep opnieuw.|
-| Afwijzen| Een binnenkomende oproep afwijzen.|Gesprek weigeren<br/>Kan nu niet beantwoorden<br/>Niet beschikbaar op het moment dat en zullen terugbellen later.|
-| EmailVerzenden| Een e-mail sturen. Dit doel is van toepassing op e-mailadres, maar geen SMS-berichten.|E-mail Mike Waters: Mike, dat diner afgelopen week schitterende is.<br/>Een e-mailbericht verzenden naar Bob<br/>|
-| SendMessage| Een SMS-bericht of een chatbericht verzenden.|Tekst verzenden naar Chris en Carola|
-| SetSpeedDial| Een snelkoppeling snelheid-op-verzoek voor een Contacttelefoonnummer instellen.|Snelkiezen een voor Carola instellen.<br/>Snelkiezen voor mom instellen.|
-| ShowNext| Zie het volgende item, bijvoorbeeld in een lijst met SMS-berichten of e-mailberichten.|De volgende gateway weergeven.<br/>Ga naar de volgende pagina.|
-| ShowPrevious| Zie het vorige item, bijvoorbeeld in een lijst met SMS-berichten of e-mailberichten.|De vorige taak weergeven.<br/>Vorige<br/>Ga naar vorige.|
+| Kiezen| Kiezen of het opnieuw aanroepen van een getal.|Kies opnieuw.<br/>Mijn laatste aanroep opnieuw.|
+| Afwijzen| Een binnenkomende oproep afwijzen.|Oproep afwijzen<br/>Nu kan geen antwoord<br/>Niet beschikbaar is op dit moment en wordt voor de terugbelfunctie later opnieuw.|
+| EmailVerzenden| Een e-mail verzenden. Dit doel is van toepassing op e-mailadres, maar geen SMS-berichten.|E-mailbericht Mike Waters: Mike, of diner afgelopen week schitterende is.<br/>Een e-mailbericht verzenden naar Bob<br/>|
+| SendMessage| Een SMS-bericht of een expresbericht verzenden.|Tekst naar Chris en Carola verzenden|
+| SetSpeedDial| Stel een snelkoppeling naar de snelheid kiezen voor het telefoonnummer van een contactpersoon.|Stel snelkiezen een voor Carola.<br/>Snelheid kiezen voor mom instellen.|
+| ShowNext| Zie het volgende item, bijvoorbeeld in een lijst van de SMS-berichten of e-mailberichten.|Het volgende object weergeven.<br/>Ga naar de volgende pagina.|
+| ShowPrevious| Zie het vorige item, bijvoorbeeld in een lijst van de SMS-berichten of e-mailberichten.|Het vorige voorbeeld weergegeven.<br/>Vorige<br/>Ga naar vorige.|
 | Opnieuw| Het systeem opnieuw starten of een nieuwe sessie starten.|Opnieuw beginnen<br/>Nieuwe sessie<br/>opnieuw opstarten|
-| TurnForwardingOff| Aanroep doorsturen uitschakelen.|stopt met het doorsturen van mijn aanroepen<br/>aanroep doorsturen uitschakelen|
-| TurnForwardingOn| De telefoon spreker uitschakelen.|Mijn aanroepen naar 3333 doorsturen<br/>Doorsturen van de aanroep naar 3333 inschakelen|
-| TurnSpeakerOff| De telefoon spreker uitschakelen.|Breng me uitschakelen spreker.<br/>Handsfree uitschakelen.<br/>|
-| TurnSpeakerOn| Schakel op de spreker telefoon.|Handsfree-modus.<br/>Plaats Handsfree op.<br/>|
+| TurnForwardingOff| Oproep doorschakelen uitschakelen.|Niet langer doorgestuurd van mijn oproepen<br/>Oproep doorschakelen uitschakelen|
+| TurnForwardingOn| De telefoon spreker uitschakelen.|Mijn oproepen naar 3333 doorsturen<br/>Oproep doorschakelen aan 3333 inschakelen|
+| TurnSpeakerOff| De telefoon spreker uitschakelen.|Breng me uit spreker.<br/>Handsfree uitschakelen.<br/>|
+| TurnSpeakerOn| Schakel de sprekerherkenning-telefoon.|Handsfree-modus.<br/>Plaats Handsfree op.<br/>|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| AudioDeviceType | Type audioapparaat (spreker, hoofdtelefoon, microfoon, enzovoort).| Spreker<br/>Handsfree<br/>Bluetooth|
+| AudioDeviceType | Het type van audio-apparaat (spreker, hoofdtelefoon, microfoon, enzovoort).| Spreker<br/>Hands-free<br/>Bluetooth|
 | Category | De categorie van een bericht of e-mail.| Belangrijk<br/>Hoge prioriteit|
-| ContactAttribute | Een kenmerk van het contact op met de gebruiker query's over.| Verjaardagen<br/>Adres<br/>Telefoonnummer|
-| Contactpersoon | De naam van een ontvanger of neem contact op met het bericht.| Carola<br/>Jim<br/>Chris|
-| EmailSubject | De tekst die wordt gebruikt als de onderwerpregel voor een e-mailbericht.| RE: interessante verhaal|
-| Regel | De regel van de gebruiker wil gebruiken om te bellen of een e-mail tekst/uit.| Werk regel<br/>Brits cel<br/>Skype|
-| Bericht | Het bericht te verzenden als een e-mailadres of de tekst.| Goede vandaag ziens was. Gauw!|
-| MessageType | De naam van een ontvanger of neem contact op met het bericht.| Tekst<br/>Email|
-| OrderReference | De rangtelwoord of relatieve positie in een lijst, het identificeren van een item ophalen. Bijvoorbeeld 'laatste' of 'recente' in 'Wat is het laatste bericht dat ik verzonden?'| Laatste<br/>Recent|
+| ContactAttribute | Een kenmerk van de Neem contact op met die de gebruiker query's over.| Verjaardagen<br/>Adres<br/>Telefoonnummer|
+| Naam contactpersoon | De naam van de ontvanger van een contactpersoon of een bericht.| Carola<br/>Jim<br/>Chris|
+| EmailSubject | De tekst die wordt gebruikt als de onderwerpregel voor een e-mailbericht.| RE: interessant verhaal|
+| Regel | De regel van de gebruiker wil gebruiken om te bellen of een tekst/e-mailbericht van verzenden.| Werk regel<br/>Britse cel<br/>Skype|
+| Bericht | Het bericht te verzenden als een e-mailadres of tekst.| Het was geweldige u vandaag nog aan. Bekijk u later opnieuw.|
+| MessageType | De naam van de ontvanger van een contactpersoon of een bericht.| Tekst<br/>Email|
+| OrderReference | De rangtelwoord of relatieve positie in een lijst, het identificeren van een item om op te halen. Bijvoorbeeld, 'last' of 'recente"in"Wat was de laatste ik verzonden bericht?"| Laatste<br/>Recent|
 | SenderName | De naam van de afzender.| Patti Owens|
 
 ## <a name="entertainment"></a>Entertainment  
-Het domein biedt intents en entiteiten die zijn gerelateerd aan het zoeken naar films, muziek, games en TV Entertainment bevat.
+Het domein biedt intenties en entiteiten die betrekking hebben op te zoeken naar films, muziek, games en muziek Entertainment bevat.
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Search| Zoeken naar films, muziek, apps, games en TV bevat.|Zoek in de store voor Halo.<br/>Zoeken naar Avatar.|
+| Search| Zoeken naar films, muziek, apps, games en tv-programma's bevat.|Zoek in de store naar Halo.<br/>Zoeken naar Avatar.|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteiten | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| ContentRating | Media inhoudsrestricties zoals G of R voor films.|Video van kinderen.<br/>PG geclassificeerd.|
-| Genre | Het genre van een film, de game, de app of het nummer.|Comedies<br/>Dramas<br/>Grappige|
-| Sleutelwoord| Een algemene trefwoord opgeven van een kenmerk de bestaat niet in de specifiekere media sleuven.|Soundtracks<br/>Verplichte maan<br/>Amelia Earhart|
-| Taal | Media inhoudsrestricties zoals G of R voor films.|Frans<br/>Nederlands<br/>Koreaans|
-| MediaFormat | De aanvullende speciale technische type waarin het medium is geformatteerd.|HD films<br/>3D-films<br/>Downloadbare|
-| MediaSource | De store of marketplace voor het ophalen van de media.|NetFlix<br/>Prime|
-| MediaSubTypes| Kleiner dan films en games mediatypen.|Demo 's<br/>De DLC<br/>Aanhangwagens|
+| ContentRating | Media inhoudsrestricties, zoals G of R voor films.|Video van kinderen.<br/>PG beoordeeld.|
+| Genre | Het genre van een film, games, app of nummer.|Comedies<br/>Dramas<br/>Grappige|
+| Trefwoord| Een algemene trefwoord op te geven van een kenmerk de bestaat niet in de specifiekere media sleuven.|Soundtracks<br/>Maan-rivier<br/>Amelia Earhart|
+| Taal | Media inhoudsrestricties, zoals G of R voor films.|Frans<br/>Nederlands<br/>Koreaans|
+| MediaFormat | De aanvullende speciale technische type waarin het medium is geformatteerd.|HD-films<br/>3D-films<br/>Downloadbare|
+| MediaSource | De store of de marketplace voor het verkrijgen van de media.|NetFlix<br/>Prime|
+| MediaSubTypes| Media die kleiner is dan films en games.|Demo 's<br/>De DLC<br/>Aanhangwagen|
 | Nationaliteit| Het land waar een film, weergeven of nummer is gemaakt.|Frans<br/>Duits<br/>Koreaans|
-| Person| De acteur, directeur, producent, muzikant of artiest die zijn gekoppeld aan een film, app, game of tv-programma.|Madonna<br/>Stanley Kubrick|
+| Person| De actor, director, producent, muzikant of artiest die zijn gekoppeld aan een film-, app-, spel- of tv-programma.|Madonna<br/>Stanley Kubrick|
 | Rol| Rol van een persoon bij het maken van media.|Sings<br/>Omgeleid door<br/>Door|
-| Titel| De naam van een film app, game, tv-programma of nummer.|Vrienden<br/>Minecraft|
-| Type| Het type of media-indeling van een film app, game, tv-programma of nummer.|Music<br/>MovieTV <br/>toont|
-| UserRating| Gebruiker ster of duim classificatie.|5 sterren<br/>3 sterren<br/>4 sterren|
+| Titel| De naam van een film, app, games, tv-programma of nummer.|Vrienden<br/>Minecraft|
+| Type| Het type of media-indeling van een film, app, games, tv-programma of nummer.|Muziek<br/>MovieTV <br/>bevat|
+| UserRating| Gebruiker ster of thumbs waardering.|5 sterren<br/>3 sterren<br/>4 sterren|
 
 ## <a name="events"></a>Gebeurtenissen 
-Het domein van gebeurtenissen biedt intents en entiteiten die zijn gerelateerd aan reservering tickets voor gebeurtenissen, zoals concerten, festivals, sport-games en comedy bevat.
+Het domein van de gebeurtenissen biedt intenties en entiteiten die betrekking hebben op reservering tickets voor gebeurtenissen, zoals concerten, festivals, sport-games en comedy wordt weergegeven.
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Rapport| Koop tickets op een gebeurtenis.|Ik wil een ticket voor de symphony weekend kopen.|
+| Boek| Tickets op een gebeurtenis kopen.|Ik wil graag een ticket voor de symphony dit weekend kopen.|
 
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteiten | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Adres | Locatie van de gebeurtenis of het adres. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
-| Naam | De naam van een gebeurtenis.|Shakespeare in de Park|
-| PlaceName| De naam van de gebeurtenis-locatie.|Louvre<br/>Opera huis<br/>Gewijzigd in Broadway|
-| PlaceType | Het type van de locatie van de gebeurtenis worden ondergebracht in.|Cafe<br/>OK<br/>Bibliotheek|
-| Type | Het type van een gebeurtenis.|Energieverbruikoptimalisatie tegelijk<br/>Sport game|
+| Naam | De naam van een gebeurtenis.|Shakespeare in het strand|
+| PlaceName| De naam van de gebeurtenis-locatie.|Louvre<br/>Opera House<br/>Gewijzigd in Broadway|
+| PlaceType | Het type van de locatie van de gebeurtenis worden ondergebracht in.|Cafe<br/>Theater<br/>Bibliotheek|
+| Type | Het type van een gebeurtenis.|Concert<br/>Sport-game|
 
 ## <a name="fitness"></a>Geschiktheid 
-Het domein geschiktheid biedt intents en entiteiten voor het bijhouden van geschiktheid activiteiten. De intents bevatten opmerkingen, de resterende tijd of op afstand of het opslaan van Activiteitsresultaten opslaan.
+Het domein geschiktheid biedt intenties en entiteiten met betrekking tot het bijhouden van geschiktheid activiteiten. De intenties bevatten opslaan, notities, resterende tijd of afstand of het opslaan van Activiteitsresultaten.
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| AddNote| Voegt aanvullende opmerkingen toe aan een activiteit die wordt bijgehouden.|De moeite van deze sessie is 6/10<br/>Het terrein dat ik ben op die worden uitgevoerd op asfalt is<br/>Ik gebruik een fiets 3 snelheid|
-|GetRemaining| Hiermee haalt de resterende tijd of afstand voor een activiteit.|Na hoeveel tijd tot de volgende lap?<br/>Hoeveel mijl blijven in mijn uitvoeren? Na hoeveel tijd voor de splitsing?|
-| LogActivity| Opslaan of meld u resultaten van de voltooide activiteit.|Opslaan van mijn laatste uitvoering<br/>Meld u Mijn zaterdag ochtend walk<br/>Mijn vorige zwem opslaan|
-| LogWeight| Opslaan of meld u huidige gewicht van de gebruiker.|Mijn huidige gewicht opslaan<br/>Mijn gewicht nu niet aanmelden<br/>Mijn huidige instantie gewicht opslaan|
+| AddNote| Aanvullende opmerkingen toevoegen aan een activiteit die wordt bijgehouden.|De moeite van het uitvoeren is 6/10<br/>Het terrein dat ik ben over het uitvoeren van op asfalt is<br/>Ik gebruik een fiets 3 snelheid|
+|GetRemaining| Hiermee haalt de resterende tijd of afstand voor een activiteit.|Hoeveel tijd tot de volgende lap?<br/>Hoeveel mijl blijven in mijn uitvoeren? Hoeveel tijd voor de splitsing?|
+| LogActivity| Opslaan of resultaten van de voltooide activiteit vastleggen.|Opslaan van de laatste uitvoering<br/>Meld u Mijn zaterdag ochtend-overzicht<br/>Mijn vorige zwem opslaan|
+| LogWeight| Opslaan of de huidige gewicht van de gebruiker zich.|Mijn huidige gewicht opslaan<br/>Mijn gewicht nu aanmelden<br/>Mijn huidige instantie gewicht opslaan|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteiten | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| ActivityType | Het type activiteit om bij te houden. |Voer<br/>Walk<br/>Swim<br/>Cyclus |
-| Voedsel | Een type voeding om bij te houden in een app geschiktheid. |Banana<br/>Zalm<br/>Schud eiwit|
-| MealType| Het type maaltijd om bij te houden in een status- of geschiktheid app.|Ontbijt<br/>Diner<br/>Lunch<br/>Supper|
-| Meting| Een type afmetingen voor de tijd, afstand of het gewicht voor gebruik in een app geschiktheid of status.|Kilometers<br/>Miles<br/>Minuten<br/>Kilogram|
+| ActivityType | Het type van de activiteit om bij te houden. |Voer<br/>Overzicht<br/>Zwemmen<br/>Cyclus |
+| Voedsel | Een type food om bij te houden in een app geschiktheid. |Bananen<br/>Zalmkleurig<br/>Door te schudden eiwitten|
+| MealType| Het type maaltijd om bij te houden in een status- of geschiktheid app.|Ontbijt<br/>Diner<br/>Lunchpauze<br/>Supper|
+| Meting| Een type van de metingen voor tijd, afstand of het gewicht voor gebruik in een app geschiktheid of status.|Kilometer zijn verwijderd<br/>Mijl<br/>Minuten<br/>Kg|
 | Aantal | Een numerieke hoeveelheid voor gebruik in een app geschiktheid of status.|19<br/>drie<br/>200<br/>één|
 | StatType | Een type statistiek op geaggregeerde gegevens, voor gebruik in een app geschiktheid of status.|Sum<br/>Gemiddeld<br/>Maximum<br/>Minimum|
 
 ## <a name="gaming"></a>Gaming 
-Het domein games biedt intents en entiteiten die zijn gerelateerd aan een game partij in een spel te beheren.
+Het domein Gaming biedt intenties en entiteiten met betrekking tot het beheren van een game partij in een spel.
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| InviteParty| Contactpersoon voor een gaming-party uitnodigen.|Deze player aan mijn partij uit te nodigen<br/>Ga naar Mijn partij<br/>Deelnemen aan mijn clan|
-|LeaveParty| Hiermee haalt de resterende tijd of afstand voor een activiteit.|Ik ben uit<br/>Deze belanghebbende voor een andere laat<br/>Ik ben afsluiten|
-| StartParty| Start een gaming-party in een spel.|Laten we man starten van een partij<br/>starten van een partij<br/>Er moet een clan vanavond beginnen|
+| InviteParty| Een contactpersoon voor deelname aan een gaming-party uitnodigen.|De speler aan mijn partij uitnodigen<br/>Worden geleverd aan mijn partij<br/>Lid worden van mijn clan|
+|LeaveParty| Hiermee haalt de resterende tijd of afstand voor een activiteit.|Ik ben uit<br/>Ik heb deze partij voor een andere verlaten<br/>Ik ben afsluiten|
+| StartParty| Start een partij games in een spel.|Laten we man starten van een partij<br/>starten van een partij<br/>we moeten een clan vanavond beginnen|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
@@ -221,24 +221,24 @@ Het domein games biedt intents en entiteiten die zijn gerelateerd aan een game p
 
 
 ## <a name="homeautomation"></a>HomeAutomation 
-Het domein HomeAutomation biedt intents en entiteiten die betrekking hebben op de smartcard thuis apparaten zoals lichten en toestellen besturen.
+Het domein HomeAutomation biedt intenties en entiteiten die betrekking hebben op de slimme home apparaten zoals verlichting en apparaten te beheren.
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Uitschakelen| Uitschakelen, sluiten of een apparaat te ontgrendelen.|De lichten uitschakelen<br/>De maker koffie stoppen<br/>Sluiten Garagedeur|
-|Inschakelen| Schakel op een apparaat of het apparaat is ingesteld op een bepaalde instelling of modus.|de maker van mijn koffie inschakelen<br/>kunt u de maker van mijn koffie inschakelen?<br/>Stel de thermostaat op 72 graden.|
+| Uitschakelen| Uit te schakelen, sluiten of een apparaat kan worden ontgrendeld.|De verlichting uitschakelen<br/>De maker van de koffie stoppen<br/>Garagedeur die sluiten|
+|Inschakelen| Schakel op een apparaat of het apparaat ingesteld op een bepaalde instelling of modus.|de maker van mijn koffie inschakelen<br/>kunt u de maker van mijn koffie inschakelen?<br/>Stel de thermostaat op 72 graden.|
 
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Apparaat | Een type apparaat dat kan worden ingeschakeld in- of uitschakelen.|koffie maker<br/>Thermostaat<br/>lichten|
+| Apparaat | Een type apparaat dat kan worden ingeschakeld in- of uitschakelen.|koffie maker<br/>thermostaat<br/>licht|
 | Bewerking | De status van het apparaat.|vergrendelen<br/>openen<br/>op<br/>uit|
-| Ruimte | De locatie of het apparaat zich in de ruimte.|Woonkamer<br/>kamer uw<br/>keuken|
+| Ruimte | De locatie of het apparaat zich in de ruimte.|Woonkamer<br/>slaapkamers<br/>keuken|
 
 ## <a name="movietickets"></a>MovieTickets 
-Het domein MovieTickets biedt intents en reservering kaartjes voor films op een locatie film-entiteiten.
+Het domein MovieTickets biedt intenties en entiteiten met betrekking tot reservering tickets naar films op een theater film.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -248,22 +248,22 @@ When is Captain Omar showing?
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Rapport | Film tickets aanschaffen.|Het adresboek mij twee tickets voor kapitein Omar en de twee musketeers<br/>Ik wil een ticket voor morgen film kopen<br/>Ik wil dat een serviceticket voor Captian Omar deel 2 volgende woensdag|
-|GetShowTime| De showtime van een film ophalen.|Wanneer wordt kapitein Omar weergegeven?|
+| Boek | Film tickets kopen.|Boek me twee tickets voor kapitein Omar en de twee musketeers<br/>Ik wil een ticket voor morgen film kopen<br/>Ik wilt een ticket Captian Omar deel 2 volgende woensdag|
+|GetShowTime| Haal de showtime van een film.|Wanneer wordt kapitein Omar weergegeven?|
 
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Adres | Het adres van de locatie van een film.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Adres | Het adres van een theater film.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | MovieTitle | De titel van een film.|Levensduur van Pi<br/>Hunger Games<br/>Begin|
-| PlaceName | De naam van een film locatie of bioscoop.|Bioscoop Amir<br/>Alexandrië OK<br/>Locatie van de New York|
-| PlaceType | Het type van een film wordt weergegeven op locatie.|bioscoop<br/>locatie<br/>IMAX bioscoop|
+| PlaceName | De naam van een film theater of bioscoopvertoningen.|Bioscoopvertoningen Amir<br/>Alexandrië Theater<br/>New York Theater|
+| PlaceType | Het type van een film wordt weergegeven op locatie.|bioscoopvertoningen<br/>Theater<br/>IMAX bioscoopvertoningen|
 
-## <a name="music"></a>Music 
-Het domein muziek biedt intents en entiteiten die zijn gerelateerd aan het afspelen van muziek op een muziekspeler.
+## <a name="music"></a>Muziek 
+Het domein muziek biedt intenties en entiteiten met betrekking tot het afspelen van muziek op een muziekspeler.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -273,28 +273,28 @@ Skip to the next song
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| DecreaseVolume | De apparaat-volume te verlagen.|track volume te verlagen<br/>volume omlaag|
-| IncreaseVolume | Vergroot het volume van het apparaat.|track volume verhogen<br/>volume omhoog|
-| Dempen |Dempen afgespeeld muziek.|Dempen nummer<br/>Het nummer op dempen plaatsen<br/>Dempen muziek |
-| Onderbreken | De afgespeeld muziek onderbreken.|Onderbreken<br/>Music onderbreken<br/>Onderbreken bijhouden|
-| PlayMusic | Muziek afspelen op een apparaat.|Kevin Durant afspelen<br/>Paradise door Coldplay afspelen<br/>Hallo door Adele afspelen|
-| Herhalen |Herhaal de afgespeeld muziek.|Herhaal nummer<br/>Het voordeel bijhouden afspelen<br/>Herhaal muziek|
-| Hervatten | Hervat de afgespeeld muziek.|Nummer hervatten<br/>music opnieuw starten<br/>Hervatten|
-| SkipBack | Overslaan achterwaartse bijgehouden.|Ga naar het volgende nummer<br/>Het volgende nummer afspelen|
-| SkipForward |Overslaan doorsturen bijgehouden.|Het vorige nummer afspelen<br/>Ga terug naar het vorige nummer |
-| Stoppen | Een actie met betrekking tot muziek afspelen stoppen. |Dit album afspelen stoppen.|
-| Uitschakelen | Een muziek afspelen apparaat uitschakelen.| Uitschakelen.|
+| DecreaseVolume | De apparaat-volume te verlagen.|spoor volume te verlagen<br/>volume omlaag|
+| IncreaseVolume | Verhoog het volume van het apparaat.|spoor volume verhogen<br/>volume van|
+| Dempen |Dempen van de afgespeelde muziek.|Dempen nummer<br/>De track op dempen plaatsen<br/>Dempen muziek |
+| Onderbreken | Onderbreken van de afgespeelde muziek.|Onderbreken<br/>Onderbreken muziek<br/>Onderbreken bijhouden|
+| PlayMusic | Het afspelen van muziek op een apparaat.|Kevin Durant afspelen<br/>Paradise door Coldplay afspelen<br/>Hallo door songs afspelen|
+| Herhalen |Herhaal de afgespeelde muziek.|Herhaal de nummer<br/>De track winst afspelen<br/>Herhaal de muziek|
+| Hervatten | Hervatten van de afgespeelde muziek.|Nummer hervatten<br/>Muziek opnieuw starten<br/>Hervatten|
+| SkipBack | Overslaan achterwaartse een nummer.|Gaat u naar het volgende nummer<br/>Het volgende nummer afspelen|
+| SkipForward |Een nummer vooruit springen.|De vorige nummer afspelen<br/>Ga terug naar de vorige bijhouden |
+| Stoppen | Een actie met betrekking tot het afspelen van muziek stoppen. |Dit album afspelen stoppen.|
+| Dempen opheffen | Een afspelen van muziekapparaat uitschakelen.| Dempen opheffen.|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| ArtistName | De acteur, directeur, producent, schrijver, muzikant of artiest media af te spelen op een apparaat gekoppeld.|ELVIS Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
-| Genre | Het genre van de aangevraagde muziek.|Land muziek<br/>Gewijzigd in Broadway kerstmuziek<br/>Mijn klassieke muziek van de Barok periode|
+| ArtistName | De actor, director, producent, schrijver, muzikant of artiest media om af te spelen op een apparaat dat is gekoppeld.|ELVIS Presley<br/>Taylor Swift<br/>Songs<br/>Mozart|
+| Genre | Het genre muziek wordt aangevraagd.|Land/regio muziek<br/>Gewijzigd in Broadway klassiekers<br/>Mijn klassieke muziek van de Barok periode|
 
 ## <a name="note"></a>Opmerking 
-Het domein Opmerking biedt intents en entiteiten die zijn gerelateerd aan het maken, bewerken en notities zoeken.
+Het domein Opmerking biedt intenties en entiteiten met betrekking tot het maken, bewerken en het zoeken van notities.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -304,30 +304,30 @@ Remove all items from my vacation list
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| AddToNote | Gegevens aan een opmerking toevoegen.|Toevoegen aan mijn boodschappen Opmerking Sla tomaten brood koffie<br/>Toevoegen aan mijn takenlijst<br/>Cakejes gebruiken toevoegen aan mijn Wunderlist|
-| CheckOffItem | Controleer de items van een bestaande notitie af.|Schakel bananen uit mijn boodschappenlijst<br/>Kaas taart op Mijn vakantie winkelen lijst als voltooid markeren|
-| Wissen | Alle items uit een bestaande opmerking verwijderen.|Alle items verwijderen uit de lijst van Mijn vakantie<br/>Alles wissen uit de lijst van mijn lezen|
-| Bevestigen | Een actie met betrekking tot een notitie bevestigen.|Het is geen probleem door mij<br/>ja<br/>Ik ben bevestigen zorgt ervoor dat alle items op lijsten|
-| Maken | Een nieuwe notitie maken. | Een lijst maken<br/>Om te herinneren dat Jason is in de stad eerste week van mei|
-| Verwijderen | Een volledige Opmerking verwijderen. |Mijn vakantie lijst verwijderen <br/>Mijn boodschappen Opmerking verwijderen|
-| DeleteNoteItem | Items verwijderen uit een bestaande opmerking.| Chips uit mijn boodschappenlijst verwijderen<br/>Pennen uit mijn school winkelen lijst verwijderen|
-| ReadAloud | Een lijst hardop lezen.|Lees dit het eerste beheerpunt<br/>De details lezen|
-| ShowNext | Zie het volgende item in een lijst van notities.|De volgende gateway weergeven<br/>Volgende pagina<br/>Volgende|
+| AddToNote | Gegevens toevoegen aan een opmerking.|Toevoegen aan mijn boodschappen Opmerking Sla tomaten brood koffie<br/>Toevoegen aan mijn takenlijst<br/>cupcakes toevoegen aan mijn Wunderlist|
+| CheckOffItem | Items uit een bestaande notitie afvinken.|Schakel bananen in mijn lijst kruidenierswaren<br/>Kaas taart op Mijn vakantie winkelen lijst als voltooid markeren|
+| Wissen | Alle items uit een bestaande notitie wissen.|Alle items uit de lijst van Mijn vakantie verwijderen<br/>Alles wissen uit de lijst van mijn lezen|
+| Bevestigen | Controleer of een actie met betrekking tot een opmerking.|Dit klopt door mij<br/>ja<br/>Ik ben bevestigen zorgt ervoor dat alle items op een lijst met|
+| Maken | Maak een nieuwe notitie. | Een lijst maken<br/>Houd er rekening mee om u te herinneren dat Jason is in een stad eerste week van mei|
+| Verwijderen | Een volledige notitie verwijderen. |Mijn lijst vakantie verwijderen <br/>Mijn boodschappen Opmerking verwijderen|
+| DeleteNoteItem | Items verwijderen uit een bestaande opmerking.| Chips verwijderen uit de lijst van mijn kruidenierswaren<br/>Pennen van mijn school winkelen lijst verwijderen|
+| ReadAloud | Een lijst hardop lezen.|Lees het eerste item<br/>Lees de details|
+| ShowNext | Zie het volgende item in een lijst van notities.|Het volgende object weergeven<br/>Volgende pagina<br/>Volgende|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| AppName | De toepassingsnaam notities.|Wunderlist<br/>OneNote|
-| Contactpersoon | De naam van een contactpersoon in een opmerking.|Carola<br/>Jim<br/>Chris|
-| Gegevensbron | Locatie van opmerkingen.|OneDrive<br/>Google-docs<br/>Mijn computer|
-| Gegevenstype | Het type van het bestand of het document, meestal samenhangen met bepaalde softwareprogramma's.|Dia<br/>Spreadsheet<br/>Werkblad|
-| Tekst | De tekst van een notitie of herinnering.|stretch voordat roulatie van<br/>morgen lange termijn|
-| Titel | De titel van een opmerking.|boodschappen<br/>mensen aan te roepen<br/>taak|
+| AppName | De naam van de notities.|Wunderlist<br/>OneNote|
+| Naam contactpersoon | De naam van een contactpersoon in een opmerking.|Carola<br/>Jim<br/>Chris|
+| Gegevensbron | Locatie van notities.|OneDrive<br/>Google docs<br/>Mijn computer|
+| Gegevenstype | Het type van het bestand of document, meestal samenhangen met bepaalde softwareprogramma's.|Dia 's<br/>Spreadsheet<br/>Werkblad|
+| Tekst | De tekst van een opmerking of een herinnering.|voordat u walking uitbreiden<br/>lange termijn morgen|
+| Titel | De titel van een opmerking.|boodschappen<br/>mensen om aan te roepen<br/>taak|
 
 ## <a name="ondevice"></a>OnDevice 
-Het domein OnDevice biedt intents en entiteiten die betrekking hebben op het apparaat te beheren.
+Het domein OnDevice biedt intenties en entiteiten die betrekking hebben op het apparaat te beheren.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -337,48 +337,48 @@ Can you make the screen brighter?
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| AreYouListening | Vraag als het apparaat luistert.|is dit op?<br/>wordt geluisterd?|
-|CloseApplication|Sluit de apparaattoepassing.|Sluit-speler|
-|FileBug|Het bestand een bug op het apparaat.|Geef een bug bestand<br/>Kunt u een bug indienen voor mij?<br/>Ik wil deze fout rapporteren|
-|GoBack|Vraag om één stap teruggaan of Ga terug naar de vorige stap.|Ga terug<br/>Ga naar het vorige scherm<br/>Ga terug stoppen luisteren|
-|Help| Hulp vragen.|Neem Help<br/>Hallo!<br/>Wat kunt u doen?<br/>Ik heb nodig hulp| 
-|LocateDevice|Zoek het apparaat.|U kunt vinden mijn telefoon<br/>Vinden van de aangepaste iphone<br/>Mijn telefoon zoeken|
-|Aanmelding|Aanmelden bij een service met het apparaat.|Aanmelding Neem<br/>Facebook aanmelden<br/>Meld u aan bij LinkedIn|
-|Afmelden|Afmelding van een service met het apparaat.|Mijn telefoon afmelden<br/>Meld u aan bij twitter<br/>Afmelden|
+| AreYouListening | Vraag als het apparaat luistert.|is dit op?<br/>u luisteren?|
+|CloseApplication|Sluit de apparaattoepassing.|Sluit de videospeler|
+|FileBug|Een bug melden op het apparaat.|een bug.<br/>Kunt u een bug voor mij?<br/>Ik wil deze fout melden|
+|GoBack|Vraag om één stap terug of Ga terug naar de vorige stap.|Ga terug.<br/>Ga naar het vorige scherm<br/>Ga terug stoppen luisteren|
+|Help| Hulp vragen.|Help.<br/>Hallo!<br/>Wat kunt u doen?<br/>Ik heb nodig hulp| 
+|LocateDevice|Ga naar het apparaat.|U kunt mijn telefoon vinden<br/>Zoek mijn iphone tom's<br/>Mijn telefoon zoeken|
+|Aanmelding|Meld u aan bij een service met behulp van het apparaat.|Aanmelding.<br/>Facebook-aanmelding.<br/>Meld u aan bij LinkedIn|
+|Afmelden|Meld u af bij van een service met behulp van het apparaat.|Mijn telefoon afmelden<br/>Meld u aan bij twitter<br/>Afmelden|
 |MainMenu|Het hoofdmenu van een apparaat weergeven.|Menu Beeld.|
-|OpenApplication|Hiermee opent u een toepassing op het apparaat.|Geef het alarm openen<br/>Camera inschakelen<br/>Starten van de kalender|
+|OpenApplication|Hiermee opent u een toepassing op het apparaat.|Open de waarschuwing.<br/>Camera inschakelen<br/>Agenda openen|
 |OpenSetting|Open een instelling op het apparaat.|Open de netwerkinstellingen.|
-|PairDevice|Koppel het apparaat.|U kunt u mij Bluetooth-signaal moet telefoon koppelen<br/>De bluetooth inschakelen en koppel het aan een laptop<br/>Bluetooth-signaal op mijn laptop koppelen|
-|Uitgeschakeld | Het apparaat uitschakelen.|U kunt de computer afsluiten<br/>Afsluiten<br/>Uitschakelen van mijn mobiele telefoon|
-|QueryBattery|Informatie ophalen over de batterij.|Batterij weergeven.<br/>Wat is de accustatus van mijn<br/>Hoeveel accu links nu?<br/>Accu weergeven|
+|PairDevice|Koppel het apparaat.|U kunt mij in het koppelen van Bluetooth-signaal naar telefoon helpen<br/>De bluetooth inschakelen en koppel het aan een laptop<br/>Bluetooth-signaal op mijn laptop worden gekoppeld|
+|Zijn uitgeschakeld | Het apparaat uitschakelen.|U kunt de computer afsluiten<br/>Afsluiten<br/>Mijn mobiele apparaat uitschakelen|
+|QueryBattery|Informatie ophalen over acculevensduur hebben.|Levensduur van de batterij weergeven.<br/>Wat is de accustatus van mijn<br/>Hoeveel accu links nu?<br/>Toon accu|
 |QueryWifi|Informatie ophalen over Wi-Fi.|Wi-Fi-gegevens opvragen.|
 |Opnieuw starten|Het apparaat opnieuw te starten.|Start opnieuw.|
-|RingDevice| Vraag het apparaat ring, om te kunnen terugvinden als deze is verbroken.|Mijn telefoon ring.| 
-|SetBrightness|De helderheid apparaat instellen.|De helderheid instellen op Gemiddeld<br/>Helderheid op Hoog instellen<br/>Set helderheid op laag|
-|SetupDevice|Start de configuratie van het apparaat.|Ik wil installatie van het Besturingssyteem installeren<br/>Neem instellen<br/>Heb ik setup|
-|ShowAppBar|Een app-balk weergeven.|De toepassingsbalk weergeven<br/>Toepassing balk Neem<br/>Ik kan de toepassing weergegeven|
-|ShowContextMenu|Een contextmenu weergeven.|Ik wil het contextmenu Zie<br/>Contextmenu Neem<br/>Ik kan zien het contextmenu|
-|Slaapstand|Het apparaat naar de slaapstand plaatsen.|Ga slapen<br/>Slaapstand<br/>Mijn computer slaapstand|
-|SwitchApplication|Schakel over naar de toepassing te gebruiken op het apparaat.|Overschakelen naar Mijn mediaspeler.|
-|TurnDownBrightness|Schakel omlaag apparaat helderheid.|Het scherm dimmen.|
-|TurnOffSetting|De Apparaatinstelling van een uitschakelen.|Bluetooth deactiveren<br/>Uitschakelen van gegevens<br/>Bluetooth verbreken|
+|RingDevice| Het apparaat ring, vragen om te kunnen terugvinden wanneer deze is verbroken.|Mijn telefoon ring.| 
+|SetBrightness|Stel de helderheid van het apparaat.|De helderheid instellen op Gemiddeld<br/>Helderheid op Hoog instellen<br/>Helderheid op laag instellen|
+|SetupDevice|Start de installatie van apparaat.|Ik wil installeren OS setup<br/>Setup.<br/>Voer setup voor mij|
+|ShowAppBar|Een app-balk weergeven.|De balk weergeven<br/>Toepassing balk Neem<br/>Ik zie de balk|
+|ShowContextMenu|Weergeven in het contextmenu.|Ik zie het contextmenu<br/>In het contextmenu.<br/>Ik kan zien het contextmenu|
+|Slaapstand|Plaats het apparaat naar de slaapstand.|Ga slapen<br/>Slaapstand<br/>Mijn slaapstand|
+|SwitchApplication|Schakel over naar de toepassing te gebruiken op het apparaat.|Schakel over naar Mijn MediaPlayer.|
+|TurnDownBrightness|Schakel omlaag helderheid van het apparaat.|Het scherm dimmen.|
+|TurnOffSetting|De Apparaatinstelling van een uitschakelen.|Bluetooth deactiveren<br/>Gegevens uitschakelen<br/>Bluetooth verbreken|
 |TurnOnSetting|Schakel de Apparaatinstelling van een.|Aan <br/> Uit|
-|TurnUpBrightness|Schakel de helderheid apparaat.|Kunt u het scherm lichter?|
+|TurnUpBrightness|Inschakelen van de helderheid van het apparaat.|Kunt u het scherm lichtere?|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| AppName | Naam van een toepassing op het apparaat.|SoundCloud<br/>YouTube|
-| BrightnessLevel | Het helderheidsniveau van de ingesteld op het apparaat.|100 procent<br/>Vijftig<br/>40%|
-| Contactpersoon | De naam van een contactpersoon op het apparaat.|Paul<br/>Marlen Max|
-| DeviceType | Het type apparaat. |Telefoon<br/>Kindle<br/>Laptop|
-| MediaType | Het mediatype is verwerkt door het apparaat.|Music<br/>Film<br/>Tv-programma 's|
-| Settingtype hebben | Een type instelling of het paneel met toepassingsinstellingen die de gebruiker wil bewerken.|Wi-Fi<br/>Draadloos netwerk<br/>Kleurenschema<br/>Meldingencentrum|
+| AppName | De naam van een toepassing op het apparaat.|SoundCloud<br/>YouTube|
+| BrightnessLevel | Het helderheidsniveau van de ingesteld op het apparaat.|Honderd procent<br/>Vijftig<br/>40%|
+| Naam contactpersoon | De naam van een contactpersoon op het apparaat.|Paul<br/>Maximum aantal Marlen|
+| Apparaattype | Het type apparaat. |Telefoon<br/>Kindle<br/>Laptop|
+| MediaType | Het mediatype dat is verwerkt door het apparaat.|Muziek<br/>Film<br/>Tv-programma 's|
+| Settingtype hebben | Een type instelling of het instellingenpaneel die de gebruiker wil bewerken.|Wi-Fi<br/>Draadloos netwerk<br/>Kleurenschema<br/>Meldingencentrum|
 
 ## <a name="places"></a>Plaatsen  
-Het domein plaatsen biedt intents voor het verwerken van query's die betrekking hebben op locaties zoals bedrijven, instelling, restaurant, ruimten voor algemeen gebruik en -adressen.
+Het domein locaties biedt intents voor het verwerken van query's die betrekking hebben op locaties zoals bedrijven, instelling, restaurants, ruimten voor algemeen gebruik en -adressen.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -388,66 +388,66 @@ At what time does Safeway close?
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| AddFavoritePlace | Toevoegen van een locatie aan de lijst met Favorieten van de gebruiker.|deze locatie in Mijn favorieten opslaan<br/>Dit adres toevoegen aan Favorieten|
+| AddFavoritePlace | Voeg een locatie toe aan de lijst Favorieten van de gebruiker.|Deze locatie opslaan in mijn Favorieten<br/>Dit adres toevoegen aan mijn Favorieten|
 |CheckAccident|Vraag of er een ongeluk beschikbaar is op een opgegeven weg.|Is er een ongeluk op 880?<br/>Ongeluk informatie weergeven|
-|CheckAreaTraffic|Controleer het verkeer voor een algemene gedeelte of snelweg niet op een opgegeven route.|Verkeer in Haarlem<br/>Wat is het verkeer zoals in Haarlem?|
-|CheckIntoPlace|Controleer een plaats met behulp van sociale media.|Me inchecken op Foursquare<br/>Schakel dit selectievakje|
+|CheckAreaTraffic|Controleer het verkeer voor een algemene gebied of weg, niet op een opgegeven route.|Verkeer in Seattle<br/>Wat is het verkeer, zoals in Seattle?|
+|CheckIntoPlace|Controleer in op een plaats met behulp van sociale media.|Ik wil inchecken op Foursquare<br/>Kom hier|
 |CheckRouteTraffic| Controleer het verkeer van een specifieke route die is opgegeven door de gebruiker.|Hoe wordt het verkeer naar Mashiko?<br/>De traffice naar Kirkland weergeven<br/>Hoe wordt het verkeer naar Seattle?| 
-|Bevestigen|Controleer een actie met betrekking tot een plaats.|Bevestig de reservering van mijn restaurant.|
-|Afsluiten|Actie om af te sluiten van een taak met betrekking tot een plaats.|Neem afsluiten<br/>Sluit geeft mij richtingen|
-|FindPlace|Zoeken naar een locatie (business, instelling, restaurant, openbare ruimte, adres).|Waar bevindt zich de dichtstbijzijnde bibliotheek?<br/>Mij een goede Italiaanse restaurant vinden in Mountain weergeven|
-|GetAddress| Vragen voor het adres van een plaats.|Het adres van Guu in Robson straat weergeven<br/>Wat is het adres van de dichtstbijzijnde Starbucks?| 
-|GetDistance|Vraag afstand tot een bepaalde locatie.|Hoe ver Inn vakantie is?<br/>hoe ver is het aan Bellevue vierkante hiervandaan<br/>Wat is de afstand tot Tahoe|
-|GetHours|Vragen over de operationele uur voor een plaats.|Welk tijdstip Safeway sluiten?<br/>Wat zijn de uren voor Start Depot?<br/>Starbucks nog is geopend?|
-|GetMenu|Vragen om de menu-items voor een restaurant.|Zucca biedt fungeren iets Veganistische?<br/>Wat is er in het menu Sizzler<br/>Applebee van menu weergeven|
-|GetPhoneNumber| Vragen om het telefoonnummer van een plaats.|Wat is het telefoonnummer van de dichtstbijzijnde Starbucks?<br/>Geeft het aantal voor Start Depot| 
-|GetPriceRange| Vraagt om het prijsbereik van een plaats.|Zucca goedkope is?<br/>Is de Cineplex half prijs op woensdagen?<br/>Wat kost een hele kreeft diner op Sizzler?|
-|GetReviews|Vraag voor revisies van een plaats.|Beoordelingen voor Cheesecase Factory weergeven<br/>Beoordelingen Cineplex in Yelp lezen|
-|GetRoute|Vragen naar een locatie.|Hoe helpt naar Bellevue vierkante<br/>De kortste manier om 8ste en 59th hier weergeven<br/>Hoe kom ik routebeschrijving naar uitzicht CA|
-|GetStarRating|Vragen voor de beoordeling van een plaats.|Hoe wordt de Zucca volgens Yelp geclassificeerd?<br/>Hoeveel sterren heeft de wasgoed Frans?<br/>Het aquarium in Monterrey goed is?|
-|GetTransportationSchedule|De planning bus ophalen voor een plaats.|Welk tijdstip is de volgende bus naar centrum?<br/>De bussen in koning regio weergeven|
-|GetTravelTime|Vragen om de reistijd naar een opgegeven bestemming.|Hoe lang het duurt om te krijgen tot San Francisco hiervandaan<br/>Wat is de aangedreven tijd om Denver van SF|
-|MakeCall|Een telefoongesprek naar een locatie op te nemen.|Roep mom<br/>Ik wil een Skype gesprek Anna<br/>Aanroep Jim|
-|MakeReservation|Aanvraag een reservering voor een restaurant of andere bedrijven.|Reserveer op Zucca voor twee tonight<br/>Een tabel voor morgen adresboek<br/>Tabel 3 in Palo Alto op 8|
-|MapQuestions|Informatie over de richtingen of of een opgegeven weg overschakelt naar een bestemming aanvragen.|Geeft 13 in het Centrum?<br/>Kan ik 880 tot Oakland duren?|
-|Waardering|De beschrijving van de beoordeling van een restaurant of plaats ophalen.|Hoeveel sterren heeft de Contoso-Inn?|
-|ReadAloud|Een lijst van plaatsen hardop lezen.|Lees dit het eerste beheerpunt<br/>De details lezen|
-|SelectItem|Kies een item uit een lijst met opties met betrekking tot een plaats of plaatsen.|Kies in het tweede voorbeeld<br/>Selecteer de eerste|
-|ShowMap|Een toewijzing van een gebied weergeven.|Een toewijzing voor de tweede weergeven<br/>Kaart weergeven<br/>San Francisco vinden op de kaart|
-|ShowNext|Het volgende item in een serie weergeven.|De volgende gateway weergeven<br/>Ga naar de volgende pagina|
-|ShowPrevious|Het vorige item in een serie weergeven.|Vorige weergeven<br/>vorige<br/>Ga naar vorige|
-|Opnieuw|Start de app opnieuw of start een nieuwe sessie.|Opnieuw beginnen<br/>Nieuwe sessie<br/>
+|Bevestigen|Controleer of een actie die betrekking hebben op een plaats.|Controleer of de reservering van mijn restaurant.|
+|Afsluiten|Actie om af te sluiten van een taak met betrekking tot een centrale locatie.|Sluit het.<br/>Sluit mij aanwijzingen geven|
+|FindPlace|Zoeken naar een locatie (business, instelling, restaurant, openbare ruimte, adres).|Waar is de dichtstbijzijnde bibliotheek?<br/>Me een goede Italiaanse restaurant vinden in de weergave Mountain|
+|GetAddress| Vraag voor het adres van een centrale locatie.|Het adres van Guu in Robson straat weergeven<br/>Wat is het adres van de dichtstbijzijnde ergens?| 
+|GetDistance|Vragen over afstand tot een bepaalde locatie.|Hoe ver weg Inn vakantie is?<br/>hoe ver is het vierkante Bellevue hier<br/>Wat is de afstand tot Tahoe|
+|GetHours|Vragen over de operationele uur voor een centrale locatie.|Op welk tijdstip wordt Safeway gesloten?<br/>Wat zijn de uren voor Start Depot?<br/>Is er ergens nog steeds openen?|
+|GetMenu|Vragen om het menu-items voor een restaurant.|Zucca biedt fungeren iets Veganistische?<br/>Wat is er in het menu Sizzler<br/>Toon Applebee van menu|
+|GetPhoneNumber| Vragen om het telefoonnummer van een centrale locatie.|Wat is het telefoonnummer van de dichtstbijzijnde ergens?<br/>Geeft het aantal voor Start Depot| 
+|GetPriceRange| Wordt u gevraagd voor het prijsbereik van een centrale locatie.|Zucca goedkoop is?<br/>Is de halve prijs aangeboden Cineplex op woensdag?<br/>Wat kost een hele lobster diner op Sizzler?|
+|GetReviews|Beoordelingen van een plaats om vragen.|Beoordelingen voor Cheesecase Factory weergeven<br/>Cineplex beoordelingen in Yelp lezen|
+|GetRoute|Vragen in een locatie.|Hoe worden uitgelegd op Bellevue vierkant<br/>De kortste manier om de 8 en 59th hier weergeven<br/>Hoe kom ik routebeschrijving uitzicht op CA|
+|GetStarRating|Vragen om de beoordeling van een centrale locatie.|Hoe wordt Zucca beoordeeld op basis van Yelp?<br/>Hoeveel sterren is er in het Frans wasgoed?<br/>Het aquarium in Monterrey goed is?|
+|GetTransportationSchedule|De planning bus ophalen voor een plaats.|Welk moment is het volgende bus centrum?<br/>De bussen in King County weergeven|
+|GetTravelTime|Vraag om de reistijd voor een opgegeven bestemming.|Hoe lang duurt het voor de San Francisco komen vanaf deze locatie<br/>Wat is de rijtijd naar Denver van SF|
+|MakeCall|Bellen naar een locatie.|Roep mom<br/>Ik wil graag wilt Anna Skype bellen<br/>Jim aanroepen|
+|MakeReservation|Een reservering voor een restaurant of andere zakelijke vragen.|Op Zucca reserveren voor twee voor tonight<br/>Boek een tabel voor morgen<br/>Tabel 3 in Palo Alto op 8|
+|MapQuestions|Aanvragen van informatie over instructies of of een opgegeven weg overschakelt naar een bestemming.|Voldoet 13 aan in het centrum van?<br/>Kan ik duurt het voordat 880 Oakland?|
+|Classificatie|De beschrijving van de beoordeling van een restaurant of een plaats ophalen.|Hoeveel sterren hebben de Contoso-Inn?|
+|ReadAloud|Een lijst met locaties hardop lezen.|Lees het eerste item<br/>Lees de details|
+|SelectItem|Kies een item uit een lijst van de opties die betrekking hebben op een plaats of plaatsen.|Kies de tweede waarde<br/>Selecteer de eerste|
+|ShowMap|Een overzicht van een gebied weergeven.|Een kaart voor de tweede waarde weergeven<br/>Kaart weergeven<br/>San Francisco vinden op de kaart|
+|ShowNext|Het volgende item in een reeks weergeven.|Het volgende object weergeven<br/>Ga naar de volgende pagina|
+|ShowPrevious|Het vorige item weergeven in een serie.|Vorige weergeven<br/>vorige<br/>Ga naar vorige|
+|Opnieuw|De app opnieuw starten of een nieuwe sessie starten.|Opnieuw beginnen<br/>Nieuwe sessie<br/>
 opnieuw opstarten|
-|TakesReservations|Vraag of een plaats reserveringen accepteert.|accepteert de galerie illustraties reserveringen<br/>Is het mogelijk om een reservering op de Olive Garden
+|TakesReservations|Vragen of een plaats reserveringen accepteert.|Accepteert de Galerie WordArt reserveringen<br/>Is het mogelijk om een reservering op de Olive Garden maken
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| AbsoluteLocation | De locatie of het adres van een plaats.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| Faciliteiten | De servicedoelstelling kenmerken/voordelen van een plaats.|kinderen eat gratis<br/>kust<br/>Gratis parkeren|
-| Lucht | De omgeving van een plaats.|KID-vriendelijk<br/>verborgen restaurant<br/>sportief|
-| Cuisine | De cuisine een plaats. |Middellandse<br/>Italiaans<br/>Indische Oceaan|
+| AbsoluteLocation | De locatie of het adres van een centrale locatie.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Recreatie | De servicedoelstelling kenmerken/voordelen van een centrale locatie.|kinderen eten gratis<br/>afgebakend<br/>gratis vervangende domeinpagina|
+| Lucht | De omgeving van een centrale locatie.|kind-vriendelijk<br/>illegaal restaurant<br/>sportief|
+| Cuisine | De cuisine van een centrale locatie. |Middellandse<br/>Italiaans<br/>Indiase|
 | DestinationAddress| Een nieuwe locatie of het adres.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| DestinationPlaceName| De naam van een doel is van een bedrijf, een restaurant, openbare voordelen of instelling.|centrale park<br/>safeway<br/>walmart|
-| DestinationPlaceType | Het type van een doel dat is een lokale business, restaurant, openbare voordelen of instelling. |Restaurant<br/>Opera<br/>bioscoop|
-| Afstand | De afstand tot een plaats.|15 mijl<br/>5 mijl<br/>10 mijl verwijderd|
-| MealType | Type maaltijd zoals ontbijt of lunch. |Ontbijt<br/>Diner<br/>Lunch<br/>Supper|
-| OpenStatus | Hiermee wordt aangegeven of een plaats open of closed is.|Open<br/>gesloten<br/>openen|
-| PlaceName | De naam van een plaats.|Cheesecake Factory|
-| PlaceType | Het type van een plaats.|Cafe<br/>OK<br/>Bibliotheek|
-| PreferredRoute | De route die de voorkeur is opgegeven door de gebruiker. | 101 <br/>202 <br/>Route 401|
-| Product | Het product die worden aangeboden door een plaats. | Kleding<br/>ASR digitale camera 's<br/>Nieuwe vis | 
-| PublicTransportationRoute | De naam van de openbare vervoer route die naar de gebruiker zoekt. | De trein noordoosten bandbreedte<br/>Bus route 3 X |
-| Waardering | De classificatie van een plaats. | 5 sterren<br/>3 sterren<br/>4 sterren|
-| RouteAvoidanceCriteria | Criteria voor het vermijden van specifieke routes zoals ongevallen, constructies of tolgelden voorkomen | Tolgelden <br/>Constructies<br/>Route 11|
-| ServiceProvided | Dit is de service van een bedrijf of een plaats zoals kapper, sneeuw plowing, waarde van onze. | kapper<br/>Mechanic<br/>loodgieter|
+| DestinationPlaceName| De naam van een doel dat is een bedrijf, restaurant, openbare voordelen of instelling.|centrale park<br/>safeway<br/>walmart|
+| DestinationPlaceType | Het type van een doel dat is een lokale bedrijven, restaurant, openbare voordelen of instelling. |Restaurant<br/>Opera<br/>Bioscoopvertoningen|
+| Afstand | De afstand op een plaats.|15 mijl<br/>5 mijl<br/>10 mijl opslaan|
+| MealType | Het type maaltijd zoals ontbijt of lunch. |ontbijt<br/>Diner<br/>Lunchpauze<br/>supper|
+| OpenStatus | Geeft aan of een plaats open of gesloten is.|Open<br/>gesloten<br/>openen|
+| PlaceName | De naam van een centrale locatie.|Cheesecake Factory|
+| PlaceType | Het type van een centrale locatie.|Cafe<br/>Theater<br/>Bibliotheek|
+| PreferredRoute | De voorkeursroute is opgegeven door de gebruiker. | 101 <br/>202 <br/>Route 401|
+| Product | Het product die worden aangeboden door een centrale locatie. | Kleding<br/>ASR digitale camera 's<br/>Nieuwe aquarium | 
+| PublicTransportationRoute | De naam van de route voor openbaar vervoer die naar de gebruiker zoekt. | Noordoosten bandbreedte train<br/>Bus route 3 X |
+| Classificatie | De classificatie van een centrale locatie. | 5 sterren<br/>3 sterren<br/>4 sterren|
+| RouteAvoidanceCriteria | Criteria voor het voorkomen van specifieke routes zoals ongevallen, constructies of tolwegen voorkomen | Tolwegen <br/>Constructies<br/>Route 11|
+| ServiceProvided | Dit is de service van een bedrijf of een locatie zoals kapper, willen plowing, waarde van onze. | kapper<br/>Mechanic<br/>loodgieter|
 | TransportationCompany | De naam van een transportprovider.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | Het type transport.|Bus<br/>Trainen<br/>Auto|
+| TransportationType | Het soort vervoer.|Bus<br/>Trainen<br/>Auto|
 
 ## <a name="reminder"></a>Herinnering 
-Het domein herinnering biedt intents en entiteiten voor het maken, bewerken en zoeken herinneringen.
+Het domein herinnering biedt intenties en entiteiten voor het maken, bewerken en zoeken naar herinneringen.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -457,20 +457,20 @@ Can you check if I have a reminder about Christine's birthday?
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Wijzigen| Een herinnering wijzigen.|Mijn gesprek 9: 00 uur morgen wijzigen<br/>Mijn herinnering toewijzing aan morgen verplaatsen|
-| Maken| Maak een nieuwe herinnering.|een herinnering maken<br/>Herinnering voor melk kopen<br/>Ik wil onthouden om aan te roepen Rebecca wanneer ik thuis ben|
-| Verwijderen | Een herinnering verwijderen.|Mijn herinnering afbeelding verwijderen<br/>Deze herinnering verwijderen|
-| Find | Een herinnering vinden.|Heb ik een herinnering over mijn verjaardag?<br/>Kunt u controleren als ik een herinnering over van Christine geboren?|
+| Wijzigen| Een herinnering wijzigen.|Mijn interview 9 uur morgen wijzigen<br/>Mijn herinnering toewijzing naar morgen verplaatsen|
+| Maken| Maak een nieuwe herinnering.|Een herinnering maken<br/>Herinner me aan te schaffen melk<br/>Ik wil Vergeet niet om aan te roepen Rebecca wanneer ik bij u thuis ben|
+| Verwijderen | Een herinnering verwijderen.|De herinnering van mijn afbeelding verwijderen<br/>Deze herinnering verwijderen|
+| Find | Zoek een herinnering.|Heb ik een herinnering over mijn verjaardag?<br/>Kunt u als ik een herinnering over de verjaardag van Christine controleren?|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Tekst | De tekstbeschrijving van een herinnering.|Stomerij ophalen<br/>mijn auto verwijderen uitschakelen in het midden van de service|
+| Tekst | De beschrijving van een herinnering.|pikken chemisch reinigen<br/>mijn auto verwijderen uitschakelen in het midden van de service|
 
 ## <a name="restaurantreservation"></a>RestaurantReservation 
-Het domein RestaurantReservation biedt intents en entiteiten die zijn gerelateerd aan een restaurant reserveringen beheren.
+Het domein RestaurantReservation biedt intenties en entiteiten met betrekking tot het beheren van restaurant reserveringen.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -480,26 +480,26 @@ Table for 3 in Palo Alto at 7
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Reserve | Aanvraag een reservering voor een restaurant. |Reserveer op Zucca voor twee tonight<br/>Een tabel voor morgen adresboek<br/>Tabel 3 in Palo Alto op 7|
+| Reserve | Vraag een reservering voor een restaurant. |Op Zucca reserveren voor twee voor tonight<br/>Boek een tabel voor morgen<br/>Tabel 3 in Palo Alto op 7|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Adres| Een gebeurtenis locatie of het adres voor een reservering.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| Faciliteiten | Een kenmerk met een beschrijving van de voorzieningen van een plaats.|weergave Oceaan<br/>niet soorten|
-| AppName | De naam van een toepassing voor het reserveren van plaatsen.|TabelOpenen<br/>Yelp<br/>TripAdvisor|
-| Lucht | Een beschrijving van de omgeving van een restaurant of een andere locatie.|Romantisch<br/>verborgen<br/>goede voor groepen|
-| Cuisine | Een soort voedingsmiddel, cuisine of cuisine nationaliteit. |Chinees<br/>Italiaans<br/>Mexico|
-| MealType | Een maaltijd type die zijn gekoppeld aan een reservering.|Ontbijt<br/>Diner<br/>Lunch<br/>Supper|
-| PlaceName | De naam van een lokale business, restaurant, openbare voordelen of instelling.|IHOP<br/>Cheesecake Factory<br/>Louvre|
-| PlaceType | Het type van een lokale business, restaurant, openbare voordelen of instelling.|restaurant<br/>Opera<br/>bioscoop|
-| Waardering | De classificatie van een plaats of een restaurant.|5 sterren<br/>3 sterren<br/>4 sterren|
+| Adres| Een locatie van de gebeurtenis of het adres voor een reservering.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Recreatie | Een kenmerk met een beschrijving van de voorzieningen van een centrale locatie.|in de Indische Oceaan weergeven<br/>niet soorten|
+| AppName | De naam van een toepassing voor het maken van reserveringen.|TabelOpenen<br/>Yelp<br/>TripAdvisor|
+| Lucht | Een beschrijving van de omgeving van een restaurant of een andere locatie.|Romantisch<br/>illegaal<br/>goed voor groepen|
+| Cuisine | Een type eten, cuisine of cuisine nationaliteit. |Chinees<br/>Italiaans<br/>Mexicaanse|
+| MealType | Een maaltijd-type dat is gekoppeld aan een reservering.|ontbijt<br/>Diner<br/>Lunchpauze<br/>supper|
+| PlaceName | De naam van een lokale bedrijven, restaurant, openbare voordelen of instelling.|IHOP<br/>Cheesecake Factory<br/>Louvre|
+| PlaceType | Het type van een lokale bedrijven, restaurant, openbare voordelen of instelling.|restaurant<br/>Opera<br/>bioscoopvertoningen|
+| Classificatie | De classificatie van een plaats of een restaurant.|5 sterren<br/>3 sterren<br/>4 sterren|
 
-## <a name="taxi"></a>Taxi 
+## <a name="taxi"></a>Over taxi 's 
  
-Het domein Taxi biedt intents en entiteiten voor het maken en beheren van taxi reserveringen.
+Het domein Taxi biedt intenties en entiteiten voor het maken en beheren van taxi-reserveringen.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -509,26 +509,26 @@ Cancel my Uber
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Rapport | Een taxi aanroepen. |Hoe kom ik een CAB-bestand<br/>een taxi vinden<br/>Mij een uber boek x|
+| Boek | Een taxi aanroepen. |Hoe kom ik een CAB-bestand<br/>Een taxi zoeken<br/>Boek me een uber x|
 | Annuleren | Een actie met betrekking tot een taxi reservering annuleren.|Mijn taxi annuleren<br/>Mijn Uber annuleren|
-| Bijhouden | Een route taxi traceren.|Hoe lang heb ik mijn taxi wachten?<br/>Waar kan ik mijn Uber?|
+| Bijhouden | Een taxi route traceren.|Hoe lang heb ik mijn taxi wachten?<br/>Waar bevindt mijn Uber?|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Adres| Het adres die zijn gekoppeld aan een taxi reservering. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Adres| Het adres dat is gekoppeld aan een taxi reservering. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationAddress| Een nieuwe locatie of het adres. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| DestinationPlaceName | De naam van een doel dat is een lokale business, restaurant, openbare voordelen of instelling. |Centrale Park<br/>Safeway<br/>Walmart|
-| DestinationPlaceType | Het type van een doel dat is een lokale business, restaurant, openbare voordelen of instelling. |Restaurant<br/>Opera<br/>bioscoop|
-| PlaceName | Naam van de lokale business, restaurant, openbare voordelen of instelling. |Centrale Park<br/>Safeway<br/>Walmart|
-| PlaceType| Het type plaats in een aanvraag bij een taxi het adresboek.|Restaurant<br/>Opera<br/>bioscoop|
+| DestinationPlaceName | De naam van een doel dat is een lokale bedrijven, restaurant, openbare voordelen of instelling. |Centrale Park<br/>Safeway<br/>Walmart|
+| DestinationPlaceType | Het type van een doel dat is een lokale bedrijven, restaurant, openbare voordelen of instelling. |Restaurant<br/>Opera<br/>Bioscoopvertoningen|
+| PlaceName | De naam van lokale bedrijven, restaurant, openbare voordelen of instelling. |Centrale Park<br/>Safeway<br/>Walmart|
+| PlaceType| Het type van plaats in een aanvraag voor een taxi het adresboek.|Restaurant<br/>Opera<br/>Bioscoopvertoningen|
 | TransportationCompany | De naam van een transportprovider.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | Het type transport.|Bus<br/>Trainen<br/>Auto|
+| TransportationType | Het soort vervoer.|Bus<br/>Trainen<br/>Auto|
 
 ## <a name="translate"></a>Vertalen 
-Het domein vertalen biedt intents en entiteiten die zijn gerelateerd aan het vertalen van de tekst naar een target-taal.
+Het domein vertalen biedt intenties en entiteiten met betrekking tot het vertalen van tekst naar een doel-taal.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -538,20 +538,20 @@ Translate this sentence to English
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Vertalen| Tekst in een andere taal te vertalen.|Kan vertalen naar Frans<br/>Hallo Duits vertalen|
+| Vertalen| Vertaal tekst naar een andere taal.|Vertalen naar Frans<br/>Hallo Duits vertalen|
 
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| TargetLanguage | De taal van het doel van een vertaling.|Frans<br/>Duits<br/>Koreaans|
+| TargetLanguage | De doeltaal van een vertaling.|Frans<br/>Duits<br/>Koreaans|
 | Tekst | Te vertalen tekst.|Hallo wereld<br/>Goedemorgen<br/>Goedenavond|
 
-## <a name="tv"></a>TV 
+## <a name="tv"></a>TV-PROGRAMMA 'S 
  
-Het domein TV biedt intents en entiteiten voor het beheren van televisies.
+Het domein tv-programma biedt intenties en entiteiten voor het beheren van tv's.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -561,19 +561,19 @@ Watch National Geographic
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| ChangeChannel| Een kanaal op een TV wijzigen.|Wijziging kanaal CNN<br/>Switchkanaal BBC<br/>Ga naar het kanaal 4|
-| ShowGuide| De gids TV weergeven.|Tv-gids weergeven<br/>Wat is nu op kanaal film?<br/>Mijn lijst met programma's weergeven|
-| WatchTV| Vraag een tv-kanaal bekijkt.|Ik wil het kanaal Disney bekijken<br/>Ga naar TV Neem<br/>Bekijk National geografische|
+| ChangeChannel| Een kanaal op een tv-programma's wijzigen.|Wijziging CNN-kanaal<br/>Switchkanaal BBC<br/>Ga naar kanaal 4|
+| ShowGuide| De handleiding tv-programma's weergeven.|Tv-handleiding weergeven<br/>Wat is nu in film-kanaal ontvangen?<br/>Mijn lijst met programma's weergeven|
+| WatchTV| Vragen om te bekijken van een tv-kanaal.|Ik wil het kanaal Disney bekijken<br/>Ga naar tv-programma's.<br/>Nationale geografische bekijken|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| ChannelName | De naam van een tv-kanaal.|CNN<br/>BBC<br/>Film kanaal|
+| ChannelName | De naam van een tv-kanaal.|CNN<br/>BBC<br/>Film-kanaal|
 
 ## <a name="utilities"></a>Nutsbedrijven  
-Het domein van de hulpprogramma's biedt intents voor taken die gemeenschappelijk voor veel taken, zoals begroetingen, annulering, bevestiging, help, herhaling, navigatie zijn, starten en stoppen.
+Het domein van de hulpprogramma's biedt intents voor taken die gemeenschappelijk voor veel taken, zoals begroetingen, annuleren, bevestiging, help, herhaling, navigatie zijn, starten en stoppen.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -583,21 +583,21 @@ Repeat last question please
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Annuleren | Een actie annuleren.|Annuleer het bericht<br/>Ik wil niet meer het e-mailbericht verzenden|
-| Bevestigen | Bevestig de actie.|Ja bevestigen geselecteerd ik<br/>Ik ben goed bevestigen<br/>Ik ben bevestigen OK|
-| FinishTask | Een taak gestart voor de gebruiker voltooien.|Ik ben klaar<br/>Ik ben klaar met<br/>Het is voltooid|
-| GoBack | Ga terug naar stap of Ga terug naar de vorige stap.|Ga terug naar Twitter<br/>Een stap terug<br/>Terug|
+| Annuleren | Een actie annuleren.|Annuleren van het bericht<br/>Ik wil niet meer het e-mailbericht verzenden|
+| Bevestigen | Controleer of een actie.|Ja bevestigen oh ik<br/>Ik ben goed bevestigen<br/>Oké, die ik ben bevestigen|
+| FinishTask | Een taak die de gebruiker begon voltooien.|Ik ben klaar<br/>Ik ben klaar<br/>Dit is voltooid|
+| GoBack | Ga naar de vorige stap, of Ga terug naar een vorige stap.|Ga terug naar Twitter<br/>Een stap terug<br/>Terug|
 | Help | Aanvraag voor hulp.|Help<br/>help openen<br/>Help|
-| Herhalen | Een actie herhalen.|Herhaal de laatste vraag Neem<br/>Herhaal de laatste nummer|
-| ShowNext | Het volgende item in een serie weergeven. |De volgende gateway weergeven<br/>Ga naar de volgende pagina|
-| ShowPrevious | Het vorige item in een serie weergeven.|Vorige weergeven|
-| Opnieuw | Start de app opnieuw of start een nieuwe sessie.|Opnieuw beginnen<br/>Nieuwe sessie<br/>opnieuw opstarten|
-| Stoppen | Een actie stoppen.| Deze melding stoppen<br/>Afsluiten van<br/>Neem stoppen|
+| Herhalen | Een actie herhalen.|Herhaal de laatste vraag.<br/>Herhaal de laatste nummer|
+| ShowNext | Het volgende item in een reeks weergeven. |Het volgende object weergeven<br/>Ga naar de volgende pagina|
+| ShowPrevious | Het vorige item weergeven in een serie.|Vorige weergeven|
+| Opnieuw | De app opnieuw starten of een nieuwe sessie starten.|Opnieuw beginnen<br/>Nieuwe sessie<br/>opnieuw opstarten|
+| Stoppen | Een actie stoppen.| Dit zeggen stoppen<br/>Afsluiten van<br/>Stoppen.|
 
 ## <a name="weather"></a>Weer 
-Het domein weer biedt intents en entiteiten voor het ophalen van de rapporten weer en prognoses.
+Het domein weer biedt intenties en entiteiten voor het ophalen van de rapporten weer en geeft een prognose.
 
 ### <a name="examples"></a>Voorbeelden
 ```
@@ -607,10 +607,10 @@ What's the average temperature in India in september?
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| GetCondition | Historische gegevens gerelateerd aan weer opgehaald. |weer in Londen september<br/>Wat is de gemiddelde temperatuur India september?|
-| GetForecast | Ophalen van het huidige weer en het voorspellen van de volgende paar dagen. |Hoe wordt het weer vandaag?<br/>Wat is de 10 dagen forecast?<br/>Hoe worden de weer weekend?|
+| GetCondition | Historische gegevens met betrekking tot de weersomstandigheden ophalen. |weer in Londen in September<br/>Wat is de gemiddelde temperatuur in India in September?|
+| GetForecast | De huidige weersvoorspelling opvragen en prognose voor de komende dagen. |Hoe wordt het weer vandaag?<br/>Wat is de tien dagen prognose?<br/>Hoe worden de weersomstandigheden dit weekend?|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
@@ -628,7 +628,7 @@ Navigate to www.bing.com
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de opzet | Beschrijving | Voorbeelden |
+| De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Navigeren | Een aanvraag om naar een opgegeven website te gaan. |Navigeer naar facebook.com<br/>Ga naar www.twitter.com|
 

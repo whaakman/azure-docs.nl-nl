@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud-Shell-beperkingen | Microsoft Docs
+title: Azure Cloud Shell-beperkingen | Microsoft Docs
 description: Overzicht van de beperkingen van Azure Cloud Shell
 services: azure
 documentationcenter: ''
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 15e3dd11c371e0b23d5b506da9d824e1409fd359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 135496e17ae884db580922aa31f6824b2e7fd934
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590518"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855981"
 ---
-# <a name="limitations-of-azure-cloud-shell"></a>Beperkingen van de Azure-Cloud-Shell
+# <a name="limitations-of-azure-cloud-shell"></a>Beperkingen van Azure Cloudshell
 
-Azure Cloud-Shell heeft de volgende beperkingen:
+Azure Cloud Shell bevat de volgende beperkingen:
 
 ## <a name="general-limitations"></a>Algemene beperkingen
 
-### <a name="system-state-and-persistence"></a>Systeemstatus en persistentie
+### <a name="system-state-and-persistence"></a>Systeemstatus- en persistentie
 
-De computer waarmee u uw Cloud-Shell-sessie is tijdelijk en deze wordt gerecycled nadat uw sessie is niet actief is gedurende 20 minuten. Cloud-Shell vereist een Azure-bestandsshare te koppelen. Uw abonnement moet als gevolg hiervan kunnen storage-resources instellen voor toegang tot Cloud-Shell. Andere overwegingen zijn onder andere:
+De computer waarmee u uw Cloud Shell-sessie is tijdelijk en deze wordt gerecycled nadat uw sessie niet actief voor de 20 minuten is. Cloudshell is vereist voor een Azure-bestandsshare te koppelen. Uw abonnement moet als gevolg hiervan kunnen opslagresources instellen voor toegang tot Cloud Shell. Andere overwegingen zijn onder andere:
 
-* Met gekoppelde opslag, alleen de wijzigingen in de `clouddrive` directory blijven bestaan. In Bash, uw `$Home` directory ook persistent is gemaakt.
-* Azure-bestandsshares worden gekoppeld, alleen vanuit uw [regio toegewezen](persisting-shell-storage.md#mount-a-new-clouddrive).
-  * Voer in Bash, `env` vinden van uw regio ingesteld als `ACC_LOCATION`.
+* Met gekoppelde opslag, alleen de wijzigingen in de `$Home` directory zijn opgeslagen.
+* Azure-bestandsshares kunnen worden gekoppeld alleen vanuit uw [regio toegewezen](persisting-shell-storage.md#mount-a-new-clouddrive).
+  * Voer in Bash, `env` te vinden van uw regio instellen als `ACC_LOCATION`.
 
 ### <a name="browser-support"></a>Browserondersteuning
 
-Cloud-Shell biedt ondersteuning voor de nieuwste versies van Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox en Apple Safari. Safari in privé-modus wordt niet ondersteund.
+Cloudshell biedt ondersteuning voor de nieuwste versies van Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox en Apple Safari. Safari in de privémodus wordt niet ondersteund.
 
 ### <a name="copy-and-paste"></a>Kopiëren en plakken
 
@@ -45,42 +45,54 @@ Cloud-Shell biedt ondersteuning voor de nieuwste versies van Microsoft Edge, Mic
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Voor een bepaalde gebruiker kan slechts één shell actief zijn
 
-Gebruikers kunnen alleen openen één type shell op een tijdstip ofwel **Bash** of **PowerShell**. U wellicht echter meerdere exemplaren van Bash of PowerShell tegelijkertijd uitvoert. Wisselen tussen Bash of PowerShell oorzaken Cloud Shell opnieuw wordt opgestart, waarmee bestaande sessies wordt beëindigd.
+Gebruikers kunnen alleen starten één type shell op een tijdstip, ofwel **Bash** of **PowerShell**. U mogelijk echter meerdere exemplaren van de Bash- of PowerShell in één keer uitgevoerd. Wisselen tussen Bash of PowerShell oorzaken Cloud Shell te starten, waarmee bestaande sessies beëindigd.
 
 ### <a name="usage-limits"></a>Gebruiksbeperkingen
 
-Cloud-Shell is bedoeld voor interactieve gebruiksvoorbeelden. Als gevolg hiervan zijn geen niet-interactieve sessies langlopende beëindigd zonder waarschuwing.
+Cloudshell is bedoeld voor interactieve gebruiksvoorbeelden. Als gevolg hiervan, geen niet-interactieve langlopende-sessies worden beëindigd zonder waarschuwing.
 
 ## <a name="bash-limitations"></a>Bash-beperkingen
 
 ### <a name="user-permissions"></a>Gebruikersmachtigingen
 
-Machtigingen zijn ingesteld als gewone gebruikers zonder toegang tot sudo. Elke installatie buiten uw `$Home` directory is niet persistent.
+Machtigingen zijn ingesteld als normale gebruikers zonder toegang tot sudo. Elke installatie buiten uw `$Home` directory is niet persistent.
 
 ### <a name="editing-bashrc"></a>.Bashrc bewerken
 
-Waarschuwing nemen bij het bewerken van .bashrc, in dat geval kan leiden tot onverwachte fouten in de Cloud-Shell.
+Nemen voorzichtig bij het bewerken van .bashrc, in dat geval kan onverwachte fouten veroorzaken in Cloud Shell.
 
 ## <a name="powershell-limitations"></a>PowerShell-beperkingen
 
-### <a name="slow-startup-time"></a>Trage opstarten
+### <a name="azuread-module-name"></a>`AzureAD` modulenaam
 
-PowerShell in Azure Cloud-Shell (Preview) kan enige tijd duren om te initialiseren tijdens de preview 60 seconden.
+De `AzureAD` modulenaam is momenteel `AzureAD.Standard.Preview`, de module biedt dezelfde functionaliteit.
 
-### <a name="no-home-directory-persistence"></a>No $Home directory persistentie
+### <a name="sqlserver-module-functionality"></a>`SqlServer` modulefunctionaliteit
 
-Gegevens geschreven naar `$Home` door elke toepassing (bijvoorbeeld: git, vim en andere) niet bewaard is gebleven via PowerShell-sessies. Voor een tijdelijke oplossing [Hier ziet](troubleshooting.md#powershell-troubleshooting).
+De `SqlServer` opgenomen in de Cloud Shell-module bevat alleen prerelease ondersteuning voor PowerShell Core. In het bijzonder `Invoke-SqlCmd` is nog niet beschikbaar.
 
-### <a name="default-file-location-when-created-from-azure-drive"></a>Standaardbestandslocatie tijdens het maken van het Azure-station:
+### <a name="default-file-location-when-created-from-azure-drive"></a>Standaardlocatie wanneer gemaakt op basis van Azure-station:
 
-Met PowerShell-cmdlets, kunnen gebruikers niet maken onder het Azure-station. Wanneer gebruikers nieuwe bestanden met andere hulpprogramma's, zoals vim of nano, maken worden de bestanden naar de map C:\Users standaard opgeslagen. 
+Met behulp van PowerShell-cmdlets, kunnen gebruikers niet maken in de Azure-station bestanden. Wanneer gebruikers nieuwe bestanden met andere hulpprogramma's, zoals vim of nano, maakt de bestanden worden opgeslagen in de `$HOME` standaard. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-toepassingen worden niet ondersteund
 
-Als de gebruiker wordt uitgevoerd een opdracht die u een Windows-dialoogvenster zoals maakt `Connect-AzureAD` of `Connect-AzureRmAccount`, een foutbericht zoals ziet: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Als de gebruiker wordt uitgevoerd een opdracht die u een Windows-dialoogvenster, zoals maakt `Connect-AzureAD` of `Connect-AzureRmAccount`, een foutmelding zoals ziet: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+### <a name="tab-completion-crashes-psreadline"></a>Tab-Aanvulling PSReadline loopt vast
+
+Als de gebruiker EditMode in PSReadline is ingesteld op Emacs, de gebruiker probeert om weer te geven van alle mogelijkheden via de tab-aanvulling, en de-venstergrootte is te klein om weer te geven van alle mogelijkheden, PSReadline loopt vast.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>Wijd nadat de voortgangsbalk weergegeven
+
+Als de gebruiker een actie uitvoert die wordt weergegeven een voortgangsbalk, zoals een tabblad voltooien tijdens het in de `Azure:` station, dan is het mogelijk dat de cursor is niet juist ingesteld en een onderbreking wordt weergegeven wanneer de voortgangsbalk is eerder.
+
+### <a name="random-characters-appear-inline"></a>Willekeurige tekens inline worden weergegeven
+
+De volgorde van de positie van cursor codes, bijvoorbeeld `5;13R`, kan worden weergegeven in de invoer van de gebruiker.  De tekens kunnen handmatig worden verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Het oplossen van Cloud-Shell](troubleshooting.md) <br>
+[Oplossen van problemen met Cloudshell](troubleshooting.md) <br>
 [Snelstartgids voor Bash](quickstart.md) <br>
 [Snelstartgids voor PowerShell](quickstart-powershell.md)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/29/2018
 ms.author: rolyon
-ms.openlocfilehash: f22190d81d8ffbb91e9573974d93d4b1ad35af18
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444341"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856413"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Azure AD Gebruiksrechtovereenkomst.
@@ -30,7 +30,7 @@ Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisatie
 Met Azure AD Gebruiksrechtovereenkomst kunt u het volgende doen:
 - Werknemers of gasten dwingen akkoord te gaan met uw gebruiksrechtovereenkomst voordat ze toegang krijgen.
 - Algemene gebruiksrechtovereenkomst presenteren voor alle gebruikers in uw organisatie.
-- Specifieke gebruiksvoorwaarden presenteren op basis van gebruikerskenmerken (bijvoorbeeld artsen versus verpleegkundigen of binnenlandse werknemers versus werknemers in het buitenland) met behulp van [dynamische groepen](active-directory-groups-dynamic-membership-azure-portal.md).
+- Specifieke gebruiksvoorwaarden presenteren op basis van gebruikerskenmerken (bijvoorbeeld artsen versus verpleegkundigen of binnenlandse werknemers versus werknemers in het buitenland) met behulp van [dynamische groepen](users-groups-roles/groups-dynamic-membership.md).
 - Specifieke gebruiksrechtovereenkomsten presenteren bij toegang tot toepassingen met grote bedrijfsimpact, zoals Salesforce.
 - Aanwezig gebruiksvoorwaarden presenteren in verschillende talen.
 - Een lijst maken met personen die wel of niet akkoord zijn gegaan met uw Gebruiksrechtovereenkomst.

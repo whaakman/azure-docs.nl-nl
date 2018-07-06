@@ -1,5 +1,5 @@
 ---
-title: Inschakelen van beveiligde TLS voor Azure Storage client | Microsoft Docs
+title: Beveiligde TLS voor Azure Storage client in te schakelen | Microsoft Docs
 description: Informatie over het inschakelen van TLS 1.2 op de client van Azure Storage.
 services: storage
 documentationcenter: na
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/25/2018
 ms.author: fryu
-ms.openlocfilehash: 5c21df2b3bdeee6ac7c3956fe1cafa4f947dd6dd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 6c313b6015a8a6dcc4ca5befb5fef70b047d0410
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035927"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866522"
 ---
-# <a name="enable-secure-tls-for-azure-storage-client"></a>Beveiligde TLS voor Azure Storage client inschakelen
+# <a name="enable-secure-tls-for-azure-storage-client"></a>Beveiligde TLS voor Azure Storage-client inschakelen
 
-Als u wilt controleren uw services in het gebruik van Azure Storage op basis van de meest recente naleving en de beveiligingsvereisten, SSL 1.0, 2.0, 3.0 en TLS 1.0 zijn bekend als niet-compatibele communicatieprotocollen.
+Wanneer u nodig hebt om te controleren uw services in het gebruik van Azure Storage op basis van de meest recente nalevings- en beveiligingsvereisten, SSL 1.0, 2.0, 3.0 en TLS 1.0 worden herkend als niet-compatibele communicatieprotocollen.
 
-SSL 1.0, 2.0 en 3.0 zijn kwetsbaar gevonden. Ze hebben door RFC is verboden. TLS 1.0 wordt onbeveiligde voor het gebruik van onbeveiligde blokcodering (DES CBC en RC2 CBC) en de Stream cipher (RC4). PCI Raad wordt ook aangeraden de migratie naar de hogere versies van TLS. Voor meer informatie ziet u [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
+1.0 SSL 2.0 en 3.0 zijn kwetsbaar gevonden. Ze hebben door RFC is verboden. TLS 1.0 is onveilig voor het gebruik van onbeveiligde blok-codering (DES CBC en RC2 CBC) en Stream-codering (RC4). PCI-Raad wordt ook aangeraden de migratie naar een hoger TLS-versie. Voor meer informatie kunt u zien [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
 
-Azure Storage SSL 3.0 is gestopt omdat 2015 en maakt gebruik van TLS 1.2 op openbare HTTPs-eindpunten maar TLS 1.0- en TLS 1.1 worden nog steeds ondersteund voor compatibiliteit met eerdere versies.
+Azure Storage is gestopt met SSL 3.0 sinds 2015 en maakt gebruik van TLS 1.2 op openbare HTTPs-eindpunten, maar de TLS 1.0 en 1.1 TLS zijn nog steeds worden ondersteund voor achterwaartse compatibiliteit.
 
-Om ervoor te zorgen beveiligd en compatibel verbinding met Azure Storage, moet u TLS 1.2 in client-side inschakelen voordat verzendt aanvragen naar Azure Storage-service werkt.
+Om ervoor te zorgen beveiligd en compatibel verbinding met Azure Storage, moet u TLS 1.2 in client-side inschakelen voordat u verzendt aanvragen naar Azure Storage-service werkt.
 
 ## <a name="enable-tls-12-in-net-client"></a>TLS 1.2 in .NET-client inschakelen
 
 Voor de client om te onderhandelen over TLS 1.2, het besturingssysteem en de .NET Framework-versie moeten beide ondersteunen TLS 1.2. Zie voor meer informatie [ondersteuning voor TLS 1.2](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).
 
-Het volgende voorbeeld laat zien hoe TLS 1.2 inschakelen in uw .NET-client.
+Het volgende voorbeeld laat zien hoe voor het inschakelen van TLS 1.2 in uw .NET-client.
 
 ```csharp
 
@@ -54,9 +54,9 @@ Het volgende voorbeeld laat zien hoe TLS 1.2 inschakelen in uw .NET-client.
 
 ```
 
-## <a name="enable-tls-12-in-powershell-client"></a>Inschakelen van TLS 1.2 in PowerShell-client
+## <a name="enable-tls-12-in-powershell-client"></a>TLS 1.2 in PowerShell-client inschakelen
 
-Het volgende voorbeeld laat zien hoe TLS 1.2 inschakelen in uw PowerShell-client.
+Het volgende voorbeeld laat zien hoe voor het inschakelen van TLS 1.2 in uw PowerShell-client.
 
 ```powershell
 
@@ -77,12 +77,13 @@ $listOfContainers
 
 ## <a name="verify-tls-12-connection"></a>TLS 1.2-verbinding controleren
 
-U kunt Fiddler gebruiken om te controleren als TLS 1.2 daadwerkelijk wordt gebruikt. Open Fiddler beginnen met client-netwerkverkeer opnemen en klik hierboven voorbeeld uitvoeren. Vervolgens kunt u het TLS-versie vinden in de verbinding waarmee het voorbeeld.
+U kunt Fiddler gebruiken om te controleren als TLS 1.2 daadwerkelijk wordt gebruikt. Open Fiddler om te beginnen met het vastleggen van netwerkverkeer van de client vervolgens bovenstaande voorbeeld worden uitgevoerd. U kunt vervolgens de TLS-versie vinden in de verbinding die het voorbeeld maakt.
 
-De volgende schermafbeelding is een voorbeeld voor de verificatie.
+De volgende schermafbeelding is een voorbeeld van de verificatie.
 
-![schermopname van het TLS-versie in Fiddler controleren](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
+![Schermafbeelding van de verificatie van TLS-versie in Fiddler](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
 
 ## <a name="see-also"></a>Zie ook
 
 * [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [Schakel TLS in Java-client](https://www.java.com/en/configure_crypto.html)

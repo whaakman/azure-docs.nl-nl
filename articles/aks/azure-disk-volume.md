@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8aea56017d38b57d36f5f1d42e2d4e9ed1d809e5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f807264dc2c2e07ccd175fb1b0427b7ce9e9f524
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346090"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868242"
 ---
 # <a name="volumes-with-azure-disks"></a>Volumes met Azure-schijven
 
@@ -51,6 +51,10 @@ Zodra de schijf is gemaakt, ziet u uitvoer die vergelijkbaar is met de volgende.
 ```
 > [!NOTE]
 > Azure-beheerde schijven worden gefactureerd op basis van de SKU voor een specifieke grootte. Deze SKU's variëren van 32GiB voor S4 of P4 schijven tot 4TiB voor S50 of P50 schijven. Daarnaast wordt de doorvoer en IOPS-prestaties van een Premium-beheerde schijf is afhankelijk van de SKU en de exemplaargrootte van de knooppunten in het AKS-cluster. Zie [prijzen en de prestaties van beheerde schijven][managed-disk-pricing-performance].
+
+> [!NOTE]
+> Als u de schijf in een afzonderlijke resourcegroep te maken wilt, moet u ook de Azure Kubernetes Service (AKS) service-principal voor uw cluster toevoegen aan de resourcegroep met de schijf met de `Contributor` rol. 
+>
 
 ## <a name="mount-disk-as-volume"></a>Schijf als een volume koppelen
 

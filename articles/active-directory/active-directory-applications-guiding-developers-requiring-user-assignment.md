@@ -1,6 +1,6 @@
 ---
-title: Gebruikerstoewijzing - Azure AD vereisen | Microsoft-Docs
-description: Klik hier voor meer informatie over het vereisen van de gebruiker is toegewezen voor Azure-toepassingen.
+title: Vereisen dat de Gebruikerstoewijzing - Azure AD | Microsoft-Docs
+description: Klik hier voor meer informatie over het toewijzen van gebruikers vereisen voor Azure-toepassingen.
 services: active-directory
 documentationcenter: ''
 author: kgremban
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: b02460435edca336325e472ea910b73e7895c948
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4519681d9b91383d27c00a992f85b0cb5d74f235
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26598826"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859459"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD en toepassingen: Gebruikerstoewijzing vereisen
-## <a name="requiring-user-assignment"></a>Toewijzing van gebruiker vereisen
-1. Aanmelden bij de Azure-portal met een administratoraccount.
-2. Klik op de **alle Items** item in het hoofdmenu.
+## <a name="requiring-user-assignment"></a>Gebruikerstoewijzing vereisen
+1. Meld u aan bij Azure portal met een administrator-account.
+2. Klik op de **alle services** item in het hoofdmenu.
 3. Kies de map die u voor de toepassing gebruikt.
-4. Klik op de **toepassingen** tabblad.
+4. Klik op de **bedrijfstoepassingen** tabblad.
 5. Selecteer de toepassing uit de lijst met toepassingen die zijn gekoppeld aan deze map.
-6. Klik op de **configureren** tabblad.
-7. Wijzig de **gebruiker toewijzing vereist voor toegang tot App** in-of uitschakelen op Ja.
-8. Klik op de **opslaan** knop aan de onderkant van het scherm.
+6. Klik op de **eigenschappen** tabblad.
+7. Wijzig de **Gebruikerstoewijzing vereist?** in-/ uitschakelen op Ja.
+8. Klik op de **opslaan** knop aan de bovenkant van het scherm.
 
 U hebt nu gebruikers en/of groepen toewijzen aan de toepassing. Zie [gebruikers toewijzen aan een toepassing](active-directory-applications-guiding-developers-assigning-users.md) en [groepen toewijzen aan een toepassing](active-directory-applications-guiding-developers-assigning-groups.md).
 

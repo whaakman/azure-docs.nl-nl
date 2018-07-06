@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met de Cloud Security Fabric | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en de Cloud Security Fabric.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en de Cloud Security-Infrastructuurresources.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 5ec729c6f82cec503cae2fa057f5842849004ac7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 5f469269d88320a41551fc86168debcd8fe43f7f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318242"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865451"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Zelfstudie: Azure Active Directory-integratie met de Cloud Security Fabric
+# <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Zelfstudie: Azure Active Directory-integratie met de Cloud Security-Fabric
 
-In deze zelfstudie leert u hoe de beveiliging Cloudfabric integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u de Cloud Security Fabric integreren met Azure Active Directory (Azure AD).
 
-De Cloud Security Fabric integreren met Azure AD biedt de volgende voordelen:
+De Cloud Security Fabric integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot de Cloud Security Fabric heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij de beveiliging van Cloud-Infrastructuurresources (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt beheren in Azure AD die toegang tot de Cloud Security-Infrastructuurresources heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij de Cloud Security-Infrastructuurresources (Single Sign-On) inschakelen met hun Azure AD-accounts.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met de Cloud Security-Fabric, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met de Cloud Security-Fabric, hebt u de volgende items nodig:
 
 - Een Azure AD-abonnement
-- Een infrastructuur voor de Cloud Security eenmalige aanmelding ingeschakeld abonnement
+- Een Fabric van de Cloud Security eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. De Cloud Security Fabric uit de galerie toevoegen
+1. De Cloud Security-Infrastructuurresources toevoegen vanuit de galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-the-cloud-security-fabric-from-the-gallery"></a>De Cloud Security Fabric uit de galerie toevoegen
-Voor het configureren van de integratie van de Cloud Security Fabric in Azure AD, moet u de beveiliging Cloudfabric uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-the-cloud-security-fabric-from-the-gallery"></a>De Cloud Security-Infrastructuurresources toevoegen vanuit de galerie
+Voor het configureren van de integratie van de Cloud Security-infrastructuur in Azure AD, moet u de Cloud Security Fabric uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen de Cloud Security Fabric uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -67,80 +67,80 @@ Voor het configureren van de integratie van de Cloud Security Fabric in Azure AD
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **beveiliging van de Cloudfabric**, selecteer **Fabric van de Cloud Security** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Fabric van de Cloud Security**, selecteer **Fabric van de Cloud Security** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![De Cloud Security Fabric in de lijst met resultaten](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_addfromgallery.png)
+    ![De Cloud Security-infrastructuur in de lijst met resultaten](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met de Cloud Security infrastructuur op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met de Cloud Security-infrastructuur op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in de Cloud Security Fabric is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in de Cloud Security Fabric tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in de Cloud Security-infrastructuur is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in de Cloud Security-infrastructuur tot stand worden gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met de Cloud Security-Fabric, moet u de volgende bouwstenen voltooien:
+Als u wilt configureren en testen van Azure AD eenmalige aanmelding met de Cloud Security-Fabric, u nodig hebt voor de volgende bouwstenen:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Fabric van de Cloud Security](#create-a-the-cloud-security-fabric-test-user)**  : als u wilt een equivalent van Britta Simon hebben in de Cloud Security-Fabric die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker van de Cloud Security Fabric](#create-a-the-cloud-security-fabric-test-user)**  : als u wilt een equivalent van Britta Simon hebben in de Cloud Security-infrastructuur die is gekoppeld aan de Azure AD-weergave van de gebruiker.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing de Cloudfabric beveiliging configureren.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing met de Cloud Security-Infrastructuurresources.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met de Cloud Security-Fabric, moet u de volgende stappen uitvoeren:**
+**Voor het configureren van Azure AD eenmalige aanmelding met de Cloud Security-Fabric, kunt u de volgende stappen uitvoeren:**
 
-1. In de Azure portal op de **beveiliging van de Cloudfabric** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **de Cloud Security Fabric** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-1. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
-    ![Dialoogvenster voor eenmalige aanmelding](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_samlbase.png)
 
-3. Op de **URL's en de Cloud Fabric beveiligingsdomein** sectie, voert u de volgende stappen uit:
+3. Op de **van de Cloud Security Fabric-domein en URL's** sectie, voert u de volgende stappen uit:
 
-    ![De URL's en Cloud Fabric beveiligingsdomein één aanmelding informatie](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
+    ![De URL's en Cloud-infrastructuur beveiligingsdomein eenmalige aanmelding informatie](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL:
+    a. In de **aanmeldings-URL** tekstvak, een URL typen:
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon:
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
     | `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
 
     > [!NOTE]
-    > De id-waarde is geen echte. Werk de waarde met de werkelijke identificatie. Neem contact op met [ondersteuningsteam van de Cloud Security Fabric-Client](mailto:support@cloudlock.com) de waarde op te halen. 
+    > De id-waarde is niet echt. Werk de waarde bij met de werkelijke-id. Neem contact op met [ondersteuningsteam voor de Cloud Security Fabric Client](mailto:support@cloudlock.com) om de waarde. 
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_certificate.png)
 
 5. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/ciscocloudlock-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/ciscocloudlock-tutorial/tutorial_general_400.png)
 
-6. Eenmalige aanmelding configureren op **beveiliging van de Cloudfabric** zijde, moet u de gedownloade verzenden **Metadata XML** naar [ondersteuningsteam van de Cloud Security Fabric](mailto:support@cloudlock.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+6. Het configureren van eenmalige aanmelding op **de Cloud Security Fabric** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [ondersteuningsteam voor de Cloud Security Fabric](mailto:support@cloudlock.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/ciscocloudlock-tutorial/create_aaduser_01.png)
 
@@ -148,11 +148,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/ciscocloudlock-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/ciscocloudlock-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/ciscocloudlock-tutorial/create_aaduser_04.png)
 
@@ -160,29 +160,29 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
 
-### <a name="create-a-the-cloud-security-fabric-test-user"></a>Maak een testgebruiker Fabric van de Cloud-beveiliging
+### <a name="create-a-the-cloud-security-fabric-test-user"></a>Maak een testgebruiker van de Cloud Security-Infrastructuurresources
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in de Cloud Security Fabric maken. Werken met [ondersteuningsteam van de Cloud Security Fabric](mailto:support@cloudlock.com) om toe te voegen de gebruikers van het platform van de Cloud Security Fabric. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in de Cloud Security-infrastructuur. Werken met [ondersteuningsteam voor de Cloud Security Fabric](mailto:support@cloudlock.com) om toe te voegen de gebruikers in de Cloud Security Fabric-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang te verlenen aan de Cloud Security Fabric.
+In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan de Cloud Security-infrastructuur.
 
-![Toewijzen van de gebruikersrol][200]
+![De de gebruikersrol toewijzen][200]
 
-**Als u wilt Britta Simon toewijzen aan de Cloud Security-Fabric, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon aan de Cloud Security-infrastructuur, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201]
 
-2. Selecteer in de lijst met toepassingen **beveiliging van de Cloudfabric**.
+2. Selecteer in de lijst met toepassingen, **de Cloud Security Fabric**.
 
-    ![De beveiliging van de Cloudfabric-koppeling in de lijst met toepassingen](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
+    ![De Cloud Security Fabric-koppeling in de lijst met toepassingen](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
@@ -192,23 +192,23 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u de beveiliging van de Cloudfabric-tegel in het deelvenster toegang op, u moet ophalen automatisch aangemeld bij uw Fabric van de Cloud Security-toepassing.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
+Wanneer u op de Cloud Security Fabric-tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw de Cloud Security Fabric-toepassing.
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

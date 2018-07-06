@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cc5b4955d6bd239f99a9be0ab158ac8003f67ddf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 8892f9a2699d18fbaf9161ffb01906a071ab2243
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110518"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856753"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -75,6 +75,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |50008|SAML-verklaring ontbreekt of is niet juist geconfigureerd in het token. Neem contact op met uw federatieprovider.|
 |50010|Validatie van de doelgroep-URI voor de toepassing is mislukt, omdat er geen tokendoelgroepen zijn geconfigureerd. Neem contact op met de eigenaar van de toepassing|
 |50011|Het antwoordadres ontbreekt, is onjuist geconfigureerd of komt niet overeen met de antwoordadressen die voor de toepassing zijn geconfigureerd. Probeer de oplossing die wordt vermeld in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Als u nog steeds problemen hebt, neemt u contact op met de eigenaar van de toepassing of de beheerder van de app|
+|50012| Dit is een algemene foutmelding die aangeeft dat de verificatie is mislukt. Dit kan gebeuren om redenen als de ontbrekende of ongeldige referenties of claims in de aanvraag. Zorg ervoor dat de aanvraag is verzonden met de juiste referenties en claims. |
 |50013|Verklaring is ongeldig vanwege verschillende oorzaken: de uitgever van het token komt niet overeen met de api-versie binnen het geldige bereik - verlopen - onjuist gevormd - Vernieuwingstoken in de verklaring is niet een primair vernieuwingstoken.|
 |50017|Validatie van certificaat is mislukt om de volgende redenen:<ul><li>Kan uitgiftecertificaat niet vinden in de lijst met vertrouwde certificaten</li><li>Verwacht CrlSegment kan niet worden gevonden</li><li>Kan uitgiftecertificaat niet vinden in de lijst met vertrouwde certificaten</li><li>Delta CRL-distributiepunt is geconfigureerd zonder een bijbehorend CRL-distributiepunt</li><li>Kan geen geldige CRL-segmenten ophalen als gevolg van time-outprobleem</li><li>Kan CRL niet downloaden</li></ul>Neem contact op met de beheerder van de tenant.|
 |50020|Gebruiker is niet geautoriseerd, kan geen tokens uitgeven vanwege versieprobleem: naam van verlener is niet opgegeven, problemen met de naam van certificaatverlener (nul - max. lengte). Neem contact op met de eigenaar van de app|
@@ -104,7 +105,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |50120|Probleem met de JWT-header. Neem contact op met de beheerder van de tenant.|
 |50124|Claimtransformatie bevat een ongeldige invoerparameter. Neem contact op met de tenantbeheerder om het beleid bij te werken.|
 |50125|Het aanmelden is onderbroken vanwege het opnieuw instellen van een wachtwoord of een nieuwe wachtwoordregistratie-invoer|
-|50126|Ongeldige gebruikersnaam of wachtwoord of ongeldige lokale gebruikersnaam of wachtwoord.|
+|50126|Ongeldige gebruikersnaam of wachtwoord of ongeldige on-premises gebruikersnaam of het wachtwoord.|
 |50127|De gebruiker moet een broker-app installeren om toegang te krijgen tot zijn inhoud.|
 |50128|De domeinnaam is ongeldig: geen tenant-identificatiegegevens gevonden in de aanvraag of impliciet door opgegeven referenties|
 |50129|Het apparaat is niet toegevoegd aan de werkplek: aan werkplek toevoegen is vereist om het apparaat te registreren.|
@@ -173,7 +174,9 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |81001|Kerberos-ticket van de gebruiker is te groot. Dit kan gebeuren als de gebruiker te veel groepen heeft en het Kerberos-ticket dus te veel groepslidmaatschappen bevat. Reduceer het aantal groepslidmaatschappen van de gebruiker en probeer het opnieuw.|
 |81005|Verificatiepakket wordt niet ondersteund|
 |81007|Tenant is niet ingeschakeld voor naadloze eenmalige aanmelding|
-
+|90014| Er ontbreekt een vereist veld voor een protocolbericht, neem contact op met de eigenaar van de toepassing. Als u eigenaar van de toepassing bent, zorgt u ervoor dat u de vereiste parameters voor de aanmeldingsaanvraag hebt. 
+|90072| Het account moet eerst worden toegevoegd als een externe gebruiker in de tenant. Afmelden en aanmelden met een andere Azure AD account.|
+|90094| De toekenning zijn beheerdersrechten vereist. Vraag de beheerder van de tenant voor toestemming voor deze toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 

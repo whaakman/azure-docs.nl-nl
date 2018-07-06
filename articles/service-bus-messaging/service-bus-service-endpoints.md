@@ -1,6 +1,6 @@
 ---
-title: Virtueel netwerk service-eindpunten en regels voor Azure Service Bus | Microsoft Docs
-description: Een service-eindpunt Microsoft.ServiceBus toevoegen aan een virtueel netwerk.
+title: Virtual Network-service-eindpunten en regels voor Azure Service Bus | Microsoft Docs
+description: Een service-eindpunt voor Microsoft.ServiceBus toevoegen aan een virtueel netwerk.
 services: event-hubs
 documentationcenter: ''
 author: clemensv
@@ -8,48 +8,54 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 7716ff503bd492cc4b5d510758cb20d74eb82a4f
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f8874a1d9db754485e9624596465560981bd6425
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036222"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858042"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Service-eindpunten voor virtueel netwerk gebruiken met Azure Service Bus
+# <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Service-eindpunten voor Virtueelnetwerk gebruiken met Azure Service Bus
 
-De integratie van Service Bus met [virtueel netwerk (VNet) Service-eindpunten] [ vnet-sep] kunt van beveiligde toegang via workloads zoals virtuele machines die zijn gebonden aan virtuele netwerken met mogelijkheden voor messaging , met het netwerkpad verkeer aan beide uiteinden worden beveiligd. 
+De integratie van Service Bus met [service-eindpunten voor Virtueelnetwerk (VNet)] [ vnet-sep] kunt veilige toegang tot berichten mogelijkheden van workloads, zoals virtuele machines die zijn gekoppeld aan virtuele netwerken , met het netwerkpad verkeer aan beide uiteinden worden beveiligd. 
 
-Eenmaal worden gekoppeld aan ten minste één virtueel netwerk subnet service-eindpunt is geconfigureerd, wordt de betreffende Service Bus-naamruimte niet meer verkeer vanaf elke locatie accepteert maar geautoriseerd virtuele netwerken. Vanuit het perspectief van virtueel netwerk wordt een Service Bus-naamruimte binden aan een service-eindpunt configureert u een geïsoleerde netwerken tunnel van het subnet van het virtuele netwerk met de messaging-service.
+Eenmaal is geconfigureerd om te worden gekoppeld aan ten minste één virtueel netwerk subnet service-eindpunt, wordt de betreffende Service Bus-naamruimte niet meer verkeer vanaf elke locatie accepteert maar geautoriseerd virtuele netwerken. Vanuit het perspectief van het virtuele netwerk, een Service Bus-naamruimte binden aan een service-eindpunt configureert u een geïsoleerde netwerken tunnel vanuit het subnet van het virtuele netwerk naar de messaging-service.
 
-Het resultaat is een privé en geïsoleerd relatie tussen de werkbelastingen die zijn gebonden aan het subnet en de betreffende Service Bus-naamruimte, altijd een beroep het waarneembare netwerkadres van het messaging service eindpunt wordt in een openbare IP-adresbereik.
+Het resultaat is een privé- en geïsoleerd relatie tussen de werkbelastingen die zijn gebonden aan het subnet en de bijbehorende Service Bus-naamruimte, ondanks het waarneembare netwerkadres van de berichten service eindpunt wordt in een openbare IP-adresbereik.
+
+## <a name="enable-service-endpoints-with-service-bus"></a>Met Service Bus-service-eindpunten inschakelen
+
+Virtuele netwerken worden alleen ondersteund in [Premium-laag](service-bus-premium-messaging.md) Service Bus-naamruimten. 
+
+Een belangrijk aandachtspunt bij het gebruik van VNet-service-eindpunten met Service Bus is dat u deze eindpunten in toepassingen die elkaar Standard en Premium-laag Service Bus-naamruimten niet moet inschakelen. Omdat de Standard-laag biedt geen ondersteuning voor vnet's, is het eindpunt is beperkt tot alleen Premium-laag-naamruimten. Het VNet wordt geblokkeerd verkeer naar de Standard-naamruimte. 
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Geavanceerde beveiliging mogelijke scenario's met VNet-integratie 
 
-Oplossingen die dicht en compartmentalized beveiliging vereisen en waarin virtueel netwerksubnetten opgeven voor de segmentering tussen de compartmentalized services, moeten doorgaans nog steeds communicatiepaden tussen services die zich in deze secties.
+Oplossingen die voorziet in een hechte en compartmentalized beveiliging vereisen, en waarbij virtuele subnetten hardwareoplossing tussen de compartmentalized services, moeten doorgaans nog steeds communicatiepaden tussen services die zich bevinden in deze secties.
 
-Alle direct IP-route tussen de afdelingen, inclusief de uitvoering van HTTPS via TCP/IP, wordt het risico op misbruik van zwakke plekken die vanaf het netwerk op omhoog. Messaging-services bieden volledig geïsoleerd communicatiepaden, waar berichten zelfs worden geschreven naar de schijf als ze worden overgedragen tussen partijen. Werkbelastingen in twee afzonderlijke virtuele netwerken die zijn beide gekoppeld aan hetzelfde exemplaar van de Service Bus te kunnen communiceren efficiënt en betrouwbaar via berichten, terwijl de respectieve netwerk isolatie grens integriteit blijft behouden.
+Een direct IP-route tussen de afdelingen, inclusief de uitvoering van HTTPS via TCP/IP, voert u het risico van misbruik van zwakke plekken van de netwerklaag op omhoog. Messaging-services bieden een volledig geïsoleerd communicatiepaden, waar berichten ook naar de schijf als ze worden overgedragen tussen de partijen worden geschreven. Workloads in twee verschillende virtuele netwerken die zijn beide gekoppeld aan hetzelfde exemplaar van de Service Bus kunnen communiceren efficiënt en betrouwbaar via berichten, terwijl de respectieve netwerk isolatie grens integriteit behouden blijft.
  
-Dit betekent dat de beveiliging van uw gevoelige cloudoplossingen niet alleen toegang te krijgen tot de toonaangevende betrouwbaar en schaalbaar asynchrone messaging mogelijkheden van Azure, maar ze kunnen nu gebruiken messaging communicatiepaden tussen veilige oplossing maken die reizigerscompartimenten zijn veiliger dan haalbare met een peer-to-peer communicatiemodus, met inbegrip van HTTPS en andere protocollen socket TLS beveiligd is.
+Dit betekent dat de beveiliging van uw gevoelige cloudoplossingen niet alleen toegang krijgen tot toonaangevende betrouwbare en schaalbare asynchrone messaging mogelijkheden van Azure, maar ze kunnen nu gebruiken messaging communicatiepaden tussen veilige oplossing maken die reizigerscompartimenten zijn inherent veiliger is dan wat met een peer-to-peer communicatiemodus is, met inbegrip van HTTPS en andere TLS beveiligde socket-protocollen.
 
 ## <a name="binding-service-bus-to-virtual-networks"></a>Servicebus binding met een virtueel netwerk
 
-*Virtueel netwerk regels* zijn van de functie van de firewall-beveiliging die bepaalt of de Azure Service Bus-server verbindingen van een bepaald virtueel netwerksubnet aanvaardt.
+*Regels voor virtueel netwerk* zijn van de firewall beveiligingsfunctie die bepaalt of de server van uw Azure Service Bus-verbindingen van een bepaald virtueel netwerksubnet accepteert.
 
-Het binden van een Service Bus-naamruimte met een virtueel netwerk is een proces. U moet eerst maken een **Virtual Network service-eindpunt** op een virtueel netwerksubnet en inschakelen voor "Microsoft.ServiceBus' als beschreven in de [overzicht van de service-eindpunt] [ vnet-sep]. Nadat u het service-eindpunt hebt toegevoegd, u de Service Bus-naamruimte binden aan deze met een *virtueel netwerk regel*.
+Een Service Bus-naamruimte binden aan een virtueel netwerk is een proces in twee stappen. U moet eerst maken een **service-eindpunt voor Virtueelnetwerk** op een Virtueelnetwerk, subnet en inschakelen voor "Microsoft.ServiceBus" als beschreven in de [overzicht van service-eindpunt] [ vnet-sep]. Nadat u het service-eindpunt hebt toegevoegd, verbindt u de Service Bus-naamruimte toe met een *regel voor virtuele netwerken*.
 
-De regel van het virtuele netwerk is een benoemde koppeling van de Service Bus-naamruimte met een virtueel netwerksubnet. Terwijl de regel bestaat, krijgen alle werkbelastingen die zijn gebonden aan het subnet toegang tot de Service Bus-naamruimte. Servicebus zelf nooit uitgaande verbindingen vaststelt, heeft geen nodig om toegang te krijgen en daarom nooit krijgt toegang tot uw subnet doordat deze regel.
+De regel voor virtuele netwerken is een benoemde koppeling van de Service Bus-naamruimte met een subnet van een virtueel netwerk. Terwijl de regel bestaat, worden alle werkbelastingen die zijn gekoppeld aan het subnet toegang tot de Service Bus-naamruimte toegekend. Servicebus zelf nooit uitgaande verbindingen maakt, heeft niet nodig om toegang te krijgen, en is daarom nooit toegang verleend tot uw subnet door in te schakelen met deze regel.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>De regel van een virtueel netwerk maken met Azure Resource Manager-sjablonen
+### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Het maken van een regel voor virtuele netwerken met Azure Resource Manager-sjablonen
 
-De volgende Resource Manager-sjabloon kunt een regel van het virtuele netwerk toe te voegen aan een bestaande Service Bus-naamruimte.
+De volgende Resource Manager-sjabloon kunt een regel voor virtuele netwerken toe te voegen aan een bestaande Service Bus-naamruimte.
 
 Sjabloonparameters:
 
 * **namespaceName**: Service Bus-naamruimte.
-* **vnetRuleName**: naam voor de regel van het virtuele netwerk moet worden gemaakt.
-* **virtualNetworkingSubnetId**: volledig gekwalificeerde Resource Manager-pad voor het subnet van het virtuele netwerk; bijvoorbeeld `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` voor het subnet standaard van een virtueel netwerk.
+* **vnetRuleName**: naam voor de regel van het Virtueelnetwerk moet worden gemaakt.
+* **virtualNetworkingSubnetId**: volledig gekwalificeerde pad van de Resource Manager voor het subnet van het virtuele netwerk; bijvoorbeeld `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` voor de standaard-subnet van een virtueel netwerk.
 
 Sjabloon:
 
@@ -90,13 +96,13 @@ Sjabloon:
 }
 ```
 
-Volg de instructies voor het als sjabloon wilt implementeren, [Azure Resource Manager][lnk-deploy].
+Volg de instructies voor het implementeren van de sjabloon, [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende koppelingen voor meer informatie over virtuele netwerken:
+Zie voor meer informatie over virtuele netwerken, de volgende koppelingen:
 
-- [Virtueel netwerk van Azure service-eindpunten][vnet-sep]
+- [Azure virtual network-service-eindpunten][vnet-sep]
 - [Azure Service Bus-IP-filtering][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md

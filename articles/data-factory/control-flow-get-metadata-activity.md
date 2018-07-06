@@ -1,6 +1,6 @@
 ---
-title: Ophalen van metagegevens van activiteit in Azure Data Factory | Microsoft Docs
-description: Meer informatie over hoe u de SQL Server opgeslagen Procedure activiteit kunt gebruiken om aan te roepen, een opgeslagen procedure in een Azure SQL Database of een Azure SQL Data Warehouse van een Data Factory-pijplijn.
+title: Activiteit metagegevens ophalen in Azure Data Factory | Microsoft Docs
+description: Lees hoe u de SQL Server opgeslagen Procedure-activiteit kunt gebruiken om aan te roepen een opgeslagen procedure in een Azure SQL Database of Azure SQL Data Warehouse van een Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -12,38 +12,38 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 07/03/2018
 ms.author: shlo
-ms.openlocfilehash: c07199887faf073d19007f1ef410c193bbdbf3ee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049363"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859275"
 ---
-# <a name="get-metadata-activity-in-azure-data-factory"></a>Ophalen van metagegevens van activiteit in Azure Data Factory
-GetMetadata activiteit kan worden gebruikt voor het ophalen van **metagegevens** van alle gegevens in Azure Data Factory. Deze activiteit kan worden gebruikt in de volgende scenario's:
+# <a name="get-metadata-activity-in-azure-data-factory"></a>Activiteit metagegevens ophalen in Azure Data Factory
+De GET metadata activity kan worden gebruikt om op te halen **metagegevens** van gegevens in Azure Data Factory. Deze activiteit kan worden gebruikt in de volgende scenario's:
 
-- De informatie over de metagegevens van alle gegevens valideren
-- Een pijplijn wordt geactiveerd wanneer gegevens gereed / beschikbaar
+- De informatie over de metagegevens van de gegevens valideren
+- Een pijplijn activeren wanneer gegevens gereed / beschikbaar
 
 De volgende functionaliteit is beschikbaar in de Controlestroom:
 
-- De uitvoer van activiteit GetMetadata kan worden gebruikt in voorwaardelijke expressies validatie uitvoeren.
-- Een pijplijn kan worden geactiveerd als voorwaarde wordt voldaan via komen-totdat herhalen
+- De uitvoer van de GET metadata Activity kan worden gebruikt in voorwaardelijke expressies validatie uitvoeren.
+- Een pijplijn kan worden geactiveerd wanneer de voorwaarde is voldaan via-tot lussen
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvoer van de metagegevens beschikbaar als uitvoer van activiteit. Op dit moment wordt worden de volgende connectors met bijbehorende ophalen mogelijk meatadata ondersteund:
+De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvoer metagegevensinformatie beschikbaar als uitvoer van activiteit. Op dit moment de volgende connectors met bijbehorende ophaalbaar meatadata worden ondersteund en de grootte van de maximale ondersteunde metagegevens is tot **1MB**.
 
 >[!NOTE]
->Als u GetMetadata activiteit op een Self-hosted integratie Runtime uitvoert, wordt de meest recente functionaliteit wordt ondersteund op versie 3.6 of hoger. 
+>Als u de activiteit GetMetadata op een zelfgehoste Cloudintegratieruntime uitvoert, wordt de meest recente mogelijkheid wordt ondersteund op versie 3.6 of hoger. 
 
 ### <a name="supported-connectors"></a>Ondersteunde connectors
 
 **Opslag van bestanden:**
 
-| Connector-Metadata | itemName<br>(bestand/map) | itemType<br>(bestand/map) | grootte<br>(bestand) | gemaakt<br>(bestand/map) | lastModified<br>(bestand/map) |childItems<br>(map) |contentMD5<br>(bestand) | structuur<br/>(bestand) | aantal kolommen<br>(bestand) | Er bestaat<br>(bestand/map) |
+| Connector/metagegevens | Itemnaam<br>(bestand/map) | itemType<br>(bestand/map) | grootte<br>(bestand) | gemaakt<br>(bestand/map) | lastModified<br>(bestand/map) |childItems<br>(map) |contentMD5<br>(bestand) | structuur<br/>(bestand) | aantal kolommen<br>(bestand) | Er bestaat<br>(bestand/map) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
 | Azure Blob | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
@@ -53,12 +53,12 @@ De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvo
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- Voor Amazon S3 de `lastModified` geldt voor de bucket en sleutel maar geen virtuele map; en de `exists` geldt voor de bucket en sleutel, maar geen voorvoegsel of virtuele map.
-- Voor Azure Blob de `lastModified` is van toepassing op de container en blob maar geen virtuele map.
+- Voor Amazon S3, de `lastModified` is van toepassing op bucket en -sleutel, maar geen virtuele map; en de `exists` is van toepassing op bucket en -sleutel, maar geen voorvoegsel of virtuele map.
+- Voor Azure-Blob, het `lastModified` is van toepassing op de container en blob, maar geen virtuele map.
 
 **Relationele database:**
 
-| Connector-Metadata | structuur | aantal kolommen | Er bestaat |
+| Connector/metagegevens | structuur | aantal kolommen | Er bestaat |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
 | Azure SQL Data Warehouse | √ | √ | √ |
@@ -66,27 +66,27 @@ De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvo
 
 ### <a name="metadata-options"></a>Opties voor metagegevens
 
-De volgende typen van de metagegevens kunnen worden opgegeven in de lijst met GetMetadata activiteit om op te halen:
+De volgende typen van de metagegevens kunnen worden opgegeven in de lijst met velden activiteit GetMetadata om op te halen:
 
-| Metagegevens van type | Beschrijving |
+| Metagegevenstype | Beschrijving |
 |:--- |:--- |
-| itemName | Naam van het bestand of map. |
-| itemType | Type van het bestand of map. Uitvoerwaarde `File` of `Folder`. |
-| grootte | De grootte van het bestand in bytes. Van toepassing op het bestand alleen. |
-| gemaakt | Gemaakte datum/tijd van het bestand of map. |
+| Itemnaam | De naam van het bestand of map. |
+| itemType | Het type van het bestand of map. Uitvoerwaarde `File` of `Folder`. |
+| grootte | Grootte van het bestand in bytes. Van toepassing op het bestand alleen. |
+| gemaakt | Gemaakte datum en tijd van het bestand of map. |
 | lastModified | Datum/tijd van het bestand of map het laatst is gewijzigd. |
-| childItems | Lijst met submappen en bestanden in de opgegeven map. Van toepassing op de map alleen. Uitvoerwaarde is een lijst met de naam en type van elk onderliggend item. |
-| contentMD5 | MD5 van het bestand. Van toepassing op het bestand alleen. |
-| structuur | De structuur van de gegevens in het bestand of de relationele database-tabel. Waarde voor uitvoer is een lijst met de naam van kolom en kolomtype. |
-| aantal kolommen | Het aantal kolommen in het bestand of de relationele tabel. |
-| Er bestaat| Hiermee wordt aangegeven of een bestand/map/tabel of niet bestaat. Houd er rekening mee dat als 'bestaat' is opgegeven in de veldenlijst GetaMetadata, de activiteit treedt er geen fout zelfs als het item (bestand/map/tabel) bestaat niet; in plaats daarvan de methode retourneert `exists: false` in de uitvoer. |
+| childItems | Lijst met bestanden in de opgegeven map en submappen. Van toepassing op de map alleen. Waarde voor uitvoer is een lijst met naam en type van elk onderliggend item. |
+| contentMD5 | MD5-algoritme van het bestand. Van toepassing op het bestand alleen. |
+| structuur | De gegevensstructuur in het bestand of de relationele database-tabel. Waarde voor uitvoer is een lijst met de naam van kolom en het type van kolom. |
+| aantal kolommen | Het aantal kolommen in het bestand of een relationele tabel. |
+| Er bestaat| Of een bestand/map/table of niet bestaat. Houd er rekening mee dat als 'bestaat' is opgegeven in de veldenlijst GetaMetadata, de activiteit wordt niet mislukt, zelfs wanneer het item (bestand/map/table) niet bestaat. in plaats daarvan het resultaat `exists: false` in de uitvoer. |
 
 >[!TIP]
->Als u valideren wilt of een bestand/map/tabel of niet bestaat, geef `exists` in de veldenlijst GetMetadata activiteit kunt u controleren de `exists: true/false` het gevolg zijn van de uitvoer van de activiteit. Als `exists` is niet geconfigureerd in de lijst de GetMetadata activiteit mislukt wanneer het object is niet gevonden.
+>Als u valideren wilt als een bestand/map/table of niet bestaat, geeft `exists` in de veldenlijst GetMetadata activiteit kunt u vervolgens controleren de `exists: true/false` als gevolg van de uitvoer van de activiteit. Als `exists` is niet geconfigureerd in de lijst met velden, de GetMetadata activiteit mislukt wanneer het object is niet gevonden.
 
 ## <a name="syntax"></a>Syntaxis
 
-**GetMetadata activiteit:**
+**De GET metadata activity:**
 
 ```json
 {
@@ -126,18 +126,18 @@ De volgende typen van de metagegevens kunnen worden opgegeven in de lijst met Ge
 
 ## <a name="type-properties"></a>Type-eigenschappen
 
-GetMetadata activiteit kunt momenteel de volgende soorten informatie over metagegevens ophalen.
+De activiteit GetMetadata kan momenteel de volgende typen metagegevens worden opgehaald.
 
 Eigenschap | Beschrijving | Vereist
 -------- | ----------- | --------
-Veldenlijst | Bevat de typen metagegevens die zijn vereist. Zie voor meer informatie [opties voor metagegevens](#metadata-options) sectie op ondersteunde metagegevens. | Ja 
-Gegevensset | De verwijzingsgegevensset waarvan activiteit metagegevens worden opgehaald door de activiteit GetMetadata is. Zie [ondersteunde mogelijkheden](#supported-capabilities) sectie op ondersteunde connectors en verwijzen naar de connector onderwerp bij de details van de syntaxis van de gegevensset. | Ja
+Veldenlijst | Bevat de soorten metagegevens die zijn vereist. Zie voor meer informatie [opties voor metagegevens](#metadata-options) gedeelte over ondersteunde metagegevens. | Ja 
+gegevensset | De verwijzing gegevensset waarvan de metagegevens van de activiteit moet worden opgehaald door de activiteit GetMetadata is. Zie [ondersteunde mogelijkheden](#supported-capabilities) sectie op ondersteunde connectors en verwijzen naar het onderwerp van de connector op de details van de syntaxis van de gegevensset. | Ja
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
 
-Het resultaat GetMetadata wordt weergegeven in de uitvoer van activiteit. Hieronder ziet u twee voorbeelden met opties voor volledige metagegevens geselecteerd in de lijst met velden als verwijzing. Als u het resultaat van de volgende activiteit, gebruikt u het patroon van `@{activity('MyGetMetadataActivity').output.itemName}`.
+Het resultaat GetMetadata wordt weergegeven in de uitvoer van activiteit. Hieronder vindt u twee voorbeelden met uitgebreide metagegevens opties geselecteerd in de lijst met velden als verwijzing. Als u het resultaat van de volgende activiteit, gebruikt u het patroon van `@{activity('MyGetMetadataActivity').output.itemName}`.
 
-### <a name="get-a-files-metadata"></a>Ophalen van metagegevens van het bestand
+### <a name="get-a-files-metadata"></a>De metagegevens van een bestand ophalen
 
 ```json
 {
@@ -162,7 +162,7 @@ Het resultaat GetMetadata wordt weergegeven in de uitvoer van activiteit. Hieron
 }
 ```
 
-### <a name="get-a-folders-metadata"></a>Een map metagegevens ophalen
+### <a name="get-a-folders-metadata"></a>De metagegevens van een map ophalen
 
 ```json
 {

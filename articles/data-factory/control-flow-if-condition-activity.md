@@ -1,6 +1,6 @@
 ---
 title: Als de activiteit in Azure Data Factory-voorwaarde | Microsoft Docs
-description: De activiteit als voorwaarde kunt u de verwerking transportbesturing op basis van een voorwaarde.
+description: De If Condition activity kunt u voor het beheren van de verwerking van stroom op basis van een voorwaarde.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 0141694b87664a83872f7b270631d454f863d5a8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046163"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857375"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Als de activiteit in Azure Data Factory-voorwaarde
 De If Condition Activity biedt dezelfde functionaliteit als een If-instructie in een programmeertaal. Er wordt een reeks activiteiten mee geëvalueerd als de voorwaarde resulteert in `true` en een andere reeks activiteiten als de voorwaarde resulteert in `false`. 
@@ -67,19 +67,19 @@ De If Condition Activity biedt dezelfde functionaliteit als een If-instructie in
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | De naam van de activiteit als voorwaarde. | Reeks | Ja
+naam | Naam van de activiteit als-voorwaarde. | Reeks | Ja
 type | Moet worden ingesteld op **IfCondition** | Reeks | Ja
-expressie | Expressie die moet worden geëvalueerd op true of false | Ja
-ifTrueActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie resulteert in `true`. | Ja
-ifFalseActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie resulteert in `false`. | Ja
+expressie | Expressie die moet worden geëvalueerd op waar of ONWAAR | Expressie met een resultaat van het type boolean | Ja
+ifTrueActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie wordt geëvalueerd als `true`. | Matrix | Ja
+ifFalseActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie wordt geëvalueerd als `false`. | Matrix | Ja
 
 ## <a name="example"></a>Voorbeeld
-De pijplijn in dit voorbeeld kopieert gegevens van een invoermap naar een map voor uitvoer. De uitvoermap wordt bepaald door de waarde van parameter pijplijn: routeSelection. Als de waarde van routeSelection waar is, wordt de gegevens gekopieerd naar outputPath1. En als de waarde van routeSelection ONWAAR is, wordt de gegevens gekopieerd naar outputPath2. 
+De pijplijn in dit voorbeeld kopieert gegevens uit een invoermap naar een map voor uitvoer. De uitvoermap wordt bepaald door de waarde van pijplijnparameter: routeSelection. Als de waarde van routeSelection waar is, worden de gegevens worden gekopieerd naar outputPath1. En als de waarde van routeSelection ONWAAR is, de gegevens worden gekopieerd naar outputPath2. 
 
 > [!NOTE]
-> Deze sectie bevat de definities van JSON en PowerShell-Voorbeeldopdrachten om uit te voeren van de pijplijn. Zie voor een overzicht met stapsgewijze instructies voor het maken van een Data Factory-pijplijn met behulp van Azure PowerShell en JSON definities [zelfstudie: Maak een gegevensfactory met Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Deze sectie bevat JSON-definities en voorbeeld van PowerShell-opdrachten om uit te voeren van de pijplijn. Zie voor een overzicht met stapsgewijze instructies voor het maken van een Data Factory-pijplijn met behulp van Azure PowerShell en JSON-definities [zelfstudie: een data factory maken met behulp van Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pijplijn met als voorwaarde activiteit (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pijplijn met een activiteit als-voorwaarde (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -190,7 +190,7 @@ Er is een ander voorbeeld voor expressie:
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure gekoppelde Storage-service (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage gekoppelde service (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -207,8 +207,8 @@ Er is een ander voorbeeld voor expressie:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Geparameteriseerde Azure Blob-gegevensset (BlobDataset.json)
-De pijplijn sets de **folderPath** aan de waarde van een **outputPath1** of **outputPath2** parameter van de pijplijn. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Met parameters Azure Blob-gegevensset (BlobDataset.json)
+De pijplijn-stelt de **folderPath** aan de waarde van een **outputPath1** of **outputPath2** parameter van de pijplijn. 
 
 ```json
 {
@@ -234,7 +234,7 @@ De pijplijn sets de **folderPath** aan de waarde van een **outputPath1** of **ou
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Sourceblobcontainer JSON (PipelineParameters.json)
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
 title: Hadoop Hive en extern bureaublad gebruiken in HDInsight - Azure | Microsoft Docs
-description: Informatie over het verbinden met Hadoop-cluster in HDInsight met behulp van extern bureaublad en voer de Hive-query's via de opdrachtregelinterface Hive.
+description: Meer informatie over het verbinden met Hadoop-cluster in HDInsight met behulp van extern bureaublad en klikt u vervolgens Hive-query's uitvoeren met behulp van de Hive-opdrachtregelinterface.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,42 +14,42 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 70eab088ce87d8a62d3f258b70aaec5e2e147d0e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 73b85e99ae1c100cefd50a1f2136a6b526490776
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400636"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868953"
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Hive gebruiken met Hadoop op HDInsight met extern bureaublad
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-In dit artikel hebt u meer informatie over het verbinding maken met een HDInsight-cluster met behulp van extern bureaublad, en vervolgens Hive-query's uitvoeren met Hive-opdrachtregelinterface (CLI).
+In dit artikel hebt u meer informatie over het verbinding maken met een HDInsight-cluster met behulp van extern bureaublad, en vervolgens Hive-query's uitvoeren met behulp van Hive-opdrachtregelinterface (CLI).
 
 > [!IMPORTANT]
-> Extern bureaublad is alleen beschikbaar op HDInsight-clusters die Windows als het besturingssysteem gebruiken. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Extern bureaublad is alleen beschikbaar op HDInsight-clusters die gebruikmaken van Windows als het besturingssysteem. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 >
-> Voor HDInsight 3.4 of hoger, Zie [Hive gebruiken met HDInsight en Beeline](apache-hadoop-use-hive-beeline.md) voor informatie over het uitvoeren van Hive-query's op het cluster rechtstreeks vanaf een opdrachtregel.
+> Voor HDInsight 3.4 of hoger, Zie [Hive gebruiken met HDInsight en Beeline](apache-hadoop-use-hive-beeline.md) voor informatie over het uitvoeren van Hive-query's rechtstreeks op het cluster vanaf een opdrachtregel.
 
 ## <a id="prereq"></a>Vereisten
-Voor het voltooien van de stappen in dit artikel, moet u het volgende:
+Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende:
 
-* Een cluster op basis van Windows HDInsight (Hadoop in HDInsight)
+* Een cluster op basis van Windows HDInsight (Hadoop op HDInsight)
 * Een clientcomputer met Windows 10, Windows 8 of Windows 7
 
 ## <a id="connect"></a>Verbinding maken met extern bureaublad
-Extern bureaublad inschakelen voor het HDInsight-cluster en vervolgens verbinding maken met het door de instructies op [verbinding maken met HDInsight-clusters met RDP](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+Extern bureaublad inschakelen voor het HDInsight-cluster en vervolgens verbinding mee maken door de instructies op [verbinding maken met HDInsight-clusters met behulp van RDP](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
 ## <a id="hive"></a>Gebruik de opdracht Hive
-Wanneer u verbinding hebt met het bureaublad voor het HDInsight-cluster, gebruik de volgende stappen uit om te werken met Hive:
+Wanneer u verbinding hebt gemaakt op het bureaublad voor het HDInsight-cluster, gebruikt u de volgende stappen uit om te werken met Hive:
 
-1. Start vanaf het bureaublad HDInsight de **Hadoop-opdrachtregel**.
+1. Start vanaf het bureaublad HDInsight de **Hadoop-opdrachtregels**.
 2. Voer de volgende opdracht om de CLI Hive starten:
 
         %hive_home%\bin\hive
 
-    Als de CLI is gestart, ziet u de CLI Hive-prompt: `hive>`.
-3. De volgende instructies om een nieuwe tabel met de naam te maken met behulp van de CLI Voer **log4jLogs** voorbeeldgegevens gebruikt:
+    Wanneer u de CLI is gestart, ziet u de Hive-CLI-prompt: `hive>`.
+3. De volgende instructies om een nieuwe tabel met de naam te maken met behulp van de CLI, voer **log4jLogs** met voorbeeldgegevens:
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -58,59 +58,59 @@ Wanneer u verbinding hebt met het bureaublad voor het HDInsight-cluster, gebruik
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Deze instructies uitvoeren de volgende acties:
+    Deze instructies uit uitvoeren de volgende acties:
 
    * **DROP TABLE**: Hiermee verwijdert u de tabel en het gegevensbestand als de tabel al bestaat.
-   * **EXTERNE tabel maken**: maakt een nieuwe 'extern' tabel in Hive. De definitie van de tabel opslaan externe tabellen in Hive (de gegevens links op de oorspronkelijke locatie).
+   * **CREATE EXTERNAL TABLE**: maakt een nieuwe 'externe' tabel in Hive. Externe tabellen opslaan van de definitie van de tabel in Hive (de gegevens blijft in de oorspronkelijke locatie).
 
      > [!NOTE]
-     > Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens worden bijgewerkt door een externe bron (zoals een uploadproces geautomatiseerde gegevens) of door een andere MapReduce-bewerking verwacht, maar u wilt dat altijd de meest recente gegevens gebruiken voor Hive-query's.
+     > Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens worden bijgewerkt door een externe bron (zoals een geautomatiseerde upload-proces) of door een andere bewerking van MapReduce verwacht, maar u wilt dat altijd Hive-query's te gebruiken van de meest recente gegevens.
      >
-     > Verwijderen van een externe tabel komt **niet** de gegevens, de definitie van de tabel verwijderen.
+     > Verwijderen van een externe tabel heeft **niet** de gegevens, alleen de definitie van de tabel verwijderen.
      >
      >
-   * **INDELING van de rij**: Hive-wordt uitgelegd hoe de gegevens wordt opgemaakt. In dit geval worden de velden in elk logboek gescheiden door een spatie.
-   * **AS TEXTFILE locatie opgeslagen**: vertelt Hive waar de gegevens zijn opgeslagen (de map met de voorbeeldgegevens /) en deze is opgeslagen als tekst.
-   * **Selecteer**: selecteert een telling van alle rijen waarin kolom **t4** bevat de waarde **[fout]**. Dit moet een waarde van retourneren **3** omdat er drie rijen met deze waarde.
-   * **INPUT__FILE__NAME zoals '%.log'** -vertelt Hive die we alleen gegevens uit bestanden eindigt op moet retourneren. log. Dit beperkt de zoekopdracht tot het sample.log-bestand dat de gegevens bevat, en voorkomt dat het retourneren van gegevens uit andere voorbeeld gegevensbestanden die komen niet overeen met het schema dat is gedefinieerd.
-4. Gebruik de volgende instructies voor het maken van een nieuwe 'interne' tabel met de naam **foutenlogboeken**:
+   * **INDELING van de rij**: Hive-geeft aan hoe de gegevens zijn opgemaakt. In dit geval worden de velden in elk logboek gescheiden door een spatie.
+   * **OPGESLAGEN als TEXTFILE locatie**: Hive-geeft aan waar de gegevens zijn opgeslagen (de voorbeeldgegevens/map) en dat deze zijn opgeslagen als tekst.
+   * **Selecteer**: selecteert een telling van alle rijen waar kolom **t4** bevat de waarde **[fout]**. Dit moet een retourwaarde van **3** omdat er drie rijen die deze waarde bevatten.
+   * **INPUT__FILE__NAME, zoals '%.log'** -geeft aan dat we alleen gegevens uit bestanden hebben die eindigt op moet retourneren Hive. log. Dit beperkt de zoekopdracht tot het sample.log-bestand dat de gegevens bevat, en zorgt ervoor dat dit niet het retourneren van gegevens uit andere voorbeeld gegevensbestanden die niet overeenkomen met het schema dat wordt gedefinieerd.
+4. De volgende instructies gebruiken om te maken van een nieuwe 'intern' tabel met de naam **foutenlogboeken**:
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    Deze instructies uitvoeren de volgende acties:
+    Deze instructies uit uitvoeren de volgende acties:
 
-   * **MAKEN van tabel als niet bestaat**: maakt een tabel als deze niet al bestaat. Omdat de **externe** trefwoord wordt niet gebruikt, is dit een interne tabel die is opgeslagen in het datawarehouse Hive en volledig wordt beheerd door Hive.
+   * **MAKEN van tabel als niet bestaat**: maakt een tabel als deze niet al bestaat. Omdat de **externe** trefwoord wordt niet gebruikt, is dit een interne tabel, die is opgeslagen in de Hive-datawarehouse en volledig wordt beheerd door Hive.
 
      > [!NOTE]
      > In tegenstelling tot **externe** tabellen, ook verwijderen van een interne tabel worden de onderliggende gegevens verwijderd.
      >
      >
-   * **OPGESLAGEN AS ORC**: de gegevens opslaat in geoptimaliseerde rij kolomindeling (ORC). Dit is een maximaal geoptimaliseerd en efficiënte indeling voor het opslaan van gegevens met Hive.
+   * **OPGESLAGEN als ORC**: de gegevens worden opgeslagen in de kolommen (ORC)-indeling geoptimaliseerde rij. Dit is een uiterst geoptimaliseerde en efficiënte indeling voor het opslaan van gegevens met Hive.
    * **INSERT OVERSCHRIJVEN... Selecteer**: selecteert rijen uit de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
 
-     Om te controleren dat die bevatten alleen rijen **[fout]** in kolom t4 zijn opgeslagen op de **foutenlogboeken** tabel, met de volgende instructie retourneert alle rijen uit **foutenlogboeken**:
+     Om te controleren dat die bevatten alleen rijen **[fout]** in kolom t4 zijn opgeslagen in de **foutenlogboeken** tabel, gebruikt u de volgende instructie om te retourneren van alle rijen uit **foutenlogboeken**:
 
        Selecteer * uit foutenlogboeken;
 
-     Drie rijen met gegevens moeten worden geretourneerd, alle overkoepelende **[fout]** in kolom t4.
+     Drie rijen met gegevens moeten worden geretourneerd, allemaal met **[fout]** in kolom t4.
 
 ## <a id="summary"></a>Samenvatting
-Zoals u ziet de de Hive-opdracht biedt een eenvoudige manier om interactief Hive-query's uitvoeren op een HDInsight-cluster, de taakstatus te controleren en ophalen van de uitvoer.
+Zoals u ziet, biedt de Hive-opdracht een eenvoudige manier interactief Hive-query's uitvoeren op een HDInsight-cluster, het bewaken van de taak de status en het ophalen van de uitvoer.
 
 ## <a id="nextsteps"></a>Volgende stappen
 Voor algemene informatie over Hive in HDInsight:
 
-* [Hive gebruiken met Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
 
-Voor informatie over andere manieren kunt u werken met Hadoop op HDInsight:
+Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Pig gebruiken met Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
 * [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
-Als u van Tez met Hive gebruikmaakt, raadpleegt u de volgende documenten voor het opsporen van informatie:
+Als u met Hive Tez gebruikt, ziet u de volgende documenten voor foutopsporing van informatie:
 
-* [De Tez-gebruikersinterface op HDInsight op basis van Windows gebruiken](../hdinsight-debug-tez-ui.md)
+* [De Tez-gebruikersinterface gebruiken op HDInsight op basis van Windows](../hdinsight-debug-tez-ui.md)
 * [De weergave Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md

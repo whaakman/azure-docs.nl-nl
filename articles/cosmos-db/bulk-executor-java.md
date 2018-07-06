@@ -1,6 +1,6 @@
 ---
-title: Met bulksgewijs executor Java-bibliotheek voor het uitvoeren van bulkbewerkingen in Azure Cosmos DB | Microsoft Docs
-description: Gebruik Azure Cosmos DB bulksgewijs executor Java-bibliotheek bulkimport en documenten bijwerken naar Azure Cosmos DB verzamelingen.
+title: Met behulp van Java-bibliotheek voor bulksgewijs executor bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB | Microsoft Docs
+description: Gebruik Azure Cosmos DB bulksgewijs executor Java-bibliotheek voor het bulksgewijs importeren en bijwerken van documenten naar Azure Cosmos DB-containers.
 keywords: Java bulksgewijs executor
 services: cosmos-db
 author: tknandu
@@ -10,22 +10,22 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 8e68a90c347d4802a99072d6ee4492e01dab54ca
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300710"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859973"
 ---
-# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulksgewijs executor Java-bibliotheek gebruiken voor het uitvoeren van andere bulkbewerkingen op Azure DB die Cosmos-gegevens
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulksgewijs executor Java-clientbibliotheek gebruiken om te bulksgewijs bewerkingen uitvoeren op Azure Cosmos DB-gegevens
 
-Deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos-DB bulksgewijs executor Java-bibliotheek te importeren en bijwerken van Azure DB die Cosmos-documenten. Zie voor meer informatie over bulksgewijs executor-bibliotheek en hoe kunt u gebruikmaken van grote doorvoer en opslag, [bulksgewijs executor bibliotheek overzicht](bulk-executor-overview.md) artikel. In deze zelfstudie maakt u een Java-toepassing bouwt die willekeurige documenten genereert en bulksgewijs geïmporteerd in een verzameling Azure Cosmos DB zijn. Nadat u hebt geïmporteerd, wordt u bulksgewijs bijwerken van sommige eigenschappen van een document. 
+In deze zelfstudie vindt u instructies over het gebruik van de Azure Cosmos DB bulksgewijs executor Java-bibliotheek voor het importeren en bijwerken van Azure Cosmos DB-documenten. Zie voor meer informatie over het bulksgewijs executor-bibliotheek en hoe Hiermee kunt u gebruikmaken van de enorme doorvoer en opslag, [bulk-overzicht van de bibliotheek executor](bulk-executor-overview.md) artikel. In deze zelfstudie, u een Java-toepassing die wordt gegenereerd willekeurige documenten maken en ze zijn bulksgewijs geïmporteerd in een Azure Cosmos DB-container. Na het importeren wordt u bulksgewijs sommige eigenschappen van een document bij te werken. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.  
 
-* [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen. Of u kunt de [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) met de `https://localhost:8081` URI. De primaire sleutel wordt gegeven in [Aanvragen verifiëren](local-emulator.md#authenticating-requests).  
+* [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen. Of u kunt de [Azure Cosmos DB-Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) met de `https://localhost:8081` URI. De primaire sleutel wordt gegeven in [Aanvragen verifiëren](local-emulator.md#authenticating-requests).  
 
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
   - Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.  
@@ -36,21 +36,21 @@ Deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos-DB bulksg
   
   - Op Ubuntu kunt u `apt-get install maven` uitvoeren om Maven te installeren.
 
-* Een SQL-API van Azure Cosmos DB-account maken met behulp van de stappen in [-databaseaccount maken](create-sql-api-java.md#create-a-database-account) sectie van het artikel Java-Quick Start.
+* Een Azure Cosmos DB SQL API-account maken met behulp van de stappen in [-databaseaccount maken](create-sql-api-java.md#create-a-database-account) gedeelte van het Java-quickstart-artikel.
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-Nu gaan we overschakelen naar het werken met code door een voorbeeld van een Java-toepassing vanuit GitHub downloaden. Deze toepassing werkt bulkbewerkingen op Azure DB die Cosmos-gegevens. Klonen van de toepassing, open een opdrachtprompt, Ga naar de map waar u wilt kopiëren van de toepassing en voer de volgende opdracht:
+Nu gaan we werken met code door een voorbeeld van Java-toepassing downloaden vanuit GitHub. Deze toepassing voert bulksgewijs bewerkingen op Azure Cosmos DB-gegevens. Als u wilt klonen van de toepassing, open een opdrachtprompt, Ga naar de map waar u wilt kopiëren van de toepassing en voer de volgende opdracht uit:
 
 ```
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
-De gekloonde opslagplaats bevat twee voorbeelden 'bulkimport' en 'bulkupdate' ten opzichte van de map '\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor'. De toepassing 'bulkimport' willekeurige documenten genereert en importeert ze in Azure Cosmos DB. De toepassing 'bulkupdate' een aantal documenten in Azure DB die Cosmos-updates. In de volgende secties wordt we de code in elk van deze voorbeeld-apps te bekijken. 
+De gekloonde opslagplaats bevat twee voorbeelden "bulkimport" en "bulkupdate" ten opzichte van de map '\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor'. De toepassing "bulkimport" genereert willekeurige documenten en importeert in Azure Cosmos DB. De toepassing 'bulkupdate' updates een aantal documenten in Azure Cosmos DB. In de volgende secties, zullen we de code in elk van deze voorbeeld-apps bekijken. 
 
-## <a name="bulk-import-data-to-azure-cosmos-db"></a>Importeer gegevens bulksgewijs naar Azure Cosmos-DB
+## <a name="bulk-import-data-to-azure-cosmos-db"></a>Bulksgewijs importeren van gegevens met Azure Cosmos DB
 
-1. De Azure Cosmos-DB-verbindingsreeksen worden gelezen als argumenten en toegewezen aan variabelen die zijn gedefinieerd in CmdLineConfiguration.java-bestand.  
+1. De Azure Cosmos DB-verbindingsreeksen worden gelezen als argumenten en toegewezen aan variabelen die zijn gedefinieerd in CmdLineConfiguration.java-bestand.  
 
 2. Naast is de DocumentClient-object geïnitialiseerd met behulp van de volgende instructies:  
 
@@ -64,7 +64,7 @@ De gekloonde opslagplaats bevat twee voorbeelden 'bulkimport' en 'bulkupdate' te
       ConsistencyLevel.Session)
    ```
 
-3. Het object DocumentBulkExecutor is geïnitialiseerd met een hoge opnieuw waarden voor de wachttijd en de snelheid van aanvragen. En vervolgens worden ze ingesteld op 0 overbezetting doorgeven aan DocumentBulkExecutor voor de levensduur.  
+3. Het object DocumentBulkExecutor wordt geïnitialiseerd met de waarden voor een hoge nieuwe pogingen voor de wachttijd en aanvragen beperkt. En vervolgens worden ze ingesteld op 0 overbezetting doorgeven aan DocumentBulkExecutor voor de levensduur.  
 
    ```java
    // Set client's retry options high for initialization
@@ -77,7 +77,7 @@ De gekloonde opslagplaats bevat twee voorbeelden 'bulkimport' en 'bulkupdate' te
      DATABASE_NAME,
      COLLECTION_NAME,
      collection.getPartitionKey(),
-     offerThroughput) // throughput you want to allocate for bulk import out of the collection's total throughput
+     offerThroughput) // throughput you want to allocate for bulk import out of the container's total throughput
 
    // Instantiate DocumentBulkExecutor
    DocumentBulkExecutor bulkExecutor = bulkExecutorBuilder.build()
@@ -87,12 +87,12 @@ De gekloonde opslagplaats bevat twee voorbeelden 'bulkimport' en 'bulkupdate' te
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
 ```
 
-4. Roep de importAll API die willekeurige documenten om te importeren in een verzameling Azure Cosmos DB bulksgewijs genereert. U kunt de opdrachtregel-configuraties in het bestand CmdLineConfiguration.java configureren.
+4. Roep de importAll API waarmee willekeurige documenten om te importeren in een Azure Cosmos DB-container bulksgewijs worden gegenereerd. U kunt de opdrachtregel-configuraties in het bestand CmdLineConfiguration.java configureren.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
 ```
-   De bulksgewijs import API accepteert een verzameling van documenten JSON-geserialiseerd en heeft de volgende syntaxis, voor meer informatie, Zie de [API-documentatie](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
+   De bulksgewijs importeren API accepteert een verzameling documenten JSON-geserialiseerd en heeft de volgende syntaxis, voor meer informatie, Zie de [API-documentatie](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkImportResponse importAll(
@@ -106,39 +106,39 @@ De gekloonde opslagplaats bevat twee voorbeelden 'bulkimport' en 'bulkupdate' te
  
    |**Parameter**  |**Beschrijving**  |
    |---------|---------|
-   |isUpsert    |   Een markering om in te schakelen upsert van de documenten. Als een document met opgegeven ID bestaat al, wordt bijgewerkt.  |
-   |disableAutomaticIdGeneration     |   Een markering automatisch genereren van id uitschakelen Standaard is ingesteld op true.   |
-   |maxConcurrencyPerPartitionRange    |  De maximale mate van inbreuk op gelijktijdige per partitiesleutelbereik. De standaardwaarde is 20.  |
+   |isUpsert    |   Een vlag om in te schakelen upsert van de documenten. Als een document met de opgegeven ID bestaat al, wordt deze bijgewerkt.  |
+   |disableAutomaticIdGeneration     |   Een vlag om uit te schakelen automatisch genereren van ID. Standaard is ingesteld op true.   |
+   |maxConcurrencyPerPartitionRange    |  De maximale graad van gelijktijdigheid per partitiesleutelbereik. De standaardwaarde is 20.  |
 
-   **Bulksgewijs importeren antwoord objectdefinitie** het resultaat van de bulkimport API-aanroep heeft de volgende get-methoden:
+   **Bulksgewijs importeren antwoord objectdefinitie** het resultaat van de bulkimport API-aanroep bevat de volgende get-methoden:
 
    |**Parameter**  |**Beschrijving**  |
    |---------|---------|
-   |int getNumberOfDocumentsImported()  |   Het totale aantal documenten die zijn geïmporteerd uit de opgegeven voor het bulksgewijs documenten importeren API-aanroep.      |
-   |dubbele getTotalRequestUnitsConsumed()   |  De totale aanvraageenheden (RU) gebruikt door de bulksgewijs importeren API-aanroep.       |
+   |int getNumberOfDocumentsImported()  |   Het totale aantal documenten die zijn geïmporteerd uit de documenten die zijn opgegeven voor het bulksgewijs importeren API-aanroep.      |
+   |dubbele getTotalRequestUnitsConsumed()   |  Het totaal aantal aanvragen van aanvraageenheden (RU) die worden gebruikt door de bulksgewijs importeren API-aanroep.       |
    |Duur getTotalTimeTaken()   |    De totale tijd die door de bulkimport API-aanroep uitgevoerd.     |
-   |Lijst<Exception> getErrors() |  Haalt de lijst met fouten als bepaalde documenten buiten de opgegeven voor de bulkinschrijving batch importeert API-aanroep kan niet worden ingevoegd ophalen.       |
-   |Lijst<Object> getBadInputDocuments()  |    De lijst met onjuiste indeling documenten die zijn niet geïmporteerd in de meeste importeren API-aanroep. Gebruiker moet los van de documenten die worden geretourneerd en probeer het opnieuw importeren. Onjuiste indeling of meer documenten waarvan id-waarde geen tekenreeks is (null of een andere datatype wordt beschouwd als ongeldig).     |
+   |Lijst met<Exception> getErrors() |  Hiermee haalt u de lijst met fouten als bepaalde documenten in de batch doorgegeven aan de bulksgewijs importeren API-aanroep kan niet worden ingevoegd ophalen.       |
+   |Lijst met<Object> getBadInputDocuments()  |    De lijst met slechte indeling documenten die zijn niet geïmporteerd in de bulksgewijs importeren API-aanroep. Gebruiker moet de geretourneerde documenten los en probeer het opnieuw importeren. -Ongeldige indeling of meer documenten waarvan u de id-waarde geen tekenreeks is (null of een andere gegevenstype is als ongeldig wordt beschouwd).     |
 
-5. Nadat u de toepassing gereed importeren bulksgewijs hebt, maken het opdrachtregelprogramma van bron met de opdracht 'schone pakket mvn'. Met deze opdracht genereert u een jar-bestand in de doelmap:  
+5. Nadat u de bulksgewijs importeren van de toepassing gereed hebt, bouw het opdrachtregelprogramma van bron met de opdracht 'mvn opschonen pakket'. Met deze opdracht wordt een jar-bestand gegenereerd in de doelmap:  
 
    ```java
    mvn clean package
    ```
 
-6. Nadat de doel-afhankelijkheden zijn gegenereerd, kunt u de toepassing van de importfunctie bulksgewijs kunt aanroepen met behulp van de volgende opdracht:  
+6. Nadat de doel-afhankelijkheden zijn gegenereerd, kunt u de toepassing van de importprogramma bulksgewijs aanroepen met behulp van de volgende opdracht uit:  
 
    ```java
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB’s endpoint URI>*  -masterKey *<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
-   De importfunctie bulksgewijs maakt een nieuwe database en een verzameling met de databasenaam, de verzamelingsnaam en de doorvoer waarden die zijn opgegeven in het bestand App.config. 
+   Het importprogramma bulksgewijs maakt een nieuwe database en een verzameling met de databasenaam, de naam van verzameling en de doorvoer die zijn opgegeven in het bestand App.config. 
 
-## <a name="bulk-update-data-in-azure-cosmos-db"></a>Gegevens voor bulksgewijs bijwerken in Azure Cosmos-DB
+## <a name="bulk-update-data-in-azure-cosmos-db"></a>Gegevens voor bulksgewijs bijwerken in Azure Cosmos DB
 
-U kunt bestaande documenten met behulp van de API BulkUpdateAsync bijwerken. In dit voorbeeld wordt u het veld naam ingesteld op een nieuwe waarde en beschrijvingsveld verwijderen uit de bestaande documenten. Voor de volledige lijst met ondersteunde veld updatebewerkingen, Zie [API-documentatie](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
+U kunt bestaande documenten met behulp van de API BulkUpdateAsync bijwerken. In dit voorbeeld wordt u het veld naam ingesteld op een nieuwe waarde en de beschrijving van veld verwijderen uit de bestaande documenten. Voor een volledig overzicht van ondersteunde veld updatebewerkingen, Zie [API-documentatie](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
 
-1. Hiermee definieert u de update-items, samen met de bijbehorende veld update-bewerkingen. In dit voorbeeld gebruikt u SetUpdateOperation het naamveld en UnsetUpdateOperation het beschrijvingsveld verwijderen uit alle documenten bij te werken. U kunt ook andere bewerkingen zoals verhoging een documentveld uitvoeren door een specifieke waarde, push-specifieke waarden in het matrixveld van een of een specifieke waarde verwijderen uit een array-veld. Zie voor meer informatie over verschillende methoden die worden geleverd door de bulk-update API, de [API-documentatie](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
+1. Hiermee definieert u de update-items, samen met de bijbehorende veld update-bewerkingen. In dit voorbeeld gebruikt u SetUpdateOperation het veld naam en UnsetUpdateOperation het omschrijvingsveld verwijderen uit alle documenten bij te werken. U kunt ook andere bewerkingen zoals het verhogen van een veld van het document door een specifieke waarde uitvoeren, push-specifieke waarden in het matrixveld van een of een specifieke waarde verwijderen uit een matrixveld. Zie voor meer informatie over verschillende methoden die door de bulk-update API, de [API-documentatie](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
 
    ```java
    SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
@@ -154,13 +154,13 @@ U kunt bestaande documenten met behulp van de API BulkUpdateAsync bijwerken. In 
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. Roep de updateAll API die willekeurige documenten om te worden vervolgens geïmporteerd in een verzameling Azure Cosmos DB bulksgewijs genereert. U kunt de opdrachtregelprogramma configuraties in CmdLineConfiguration.java bestand moet worden doorgegeven.
+2. Roep de updateAll API waarmee willekeurige documenten die moeten worden vervolgens geïmporteerd in een Azure Cosmos DB-container bulksgewijs worden gegenereerd. U kunt de opdrachtregel configuraties moeten worden doorgegeven in CmdLineConfiguration.java bestand configureren.
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
    ```
 
-   De bulk-update API accepteert een verzameling items worden bijgewerkt. Elk item update geeft de lijst met veld update-bewerkingen worden uitgevoerd op een document aangeduid met een ID en een waarde voor de partitiesleutel. Zie voor meer informatie de [API-documentatie](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
+   De bulk-update API accepteert een verzameling items moeten worden bijgewerkt. Elk item bijwerken Hiermee geeft u de lijst met veld update-bewerkingen worden uitgevoerd op een document aangeduid met een ID en een waarde voor de partitiesleutel. Zie voor meer informatie de [API-documentatie](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkUpdateResponse updateAll(
@@ -172,24 +172,24 @@ U kunt bestaande documenten met behulp van de API BulkUpdateAsync bijwerken. In 
 
    |**Parameter** |**Beschrijving** |
    |---------|---------|
-   |maxConcurrencyPerPartitionRange   |  De maximale mate van inbreuk op gelijktijdige per partitiesleutelbereik. De standaardwaarde is 20.  |
+   |maxConcurrencyPerPartitionRange   |  De maximale graad van gelijktijdigheid per partitiesleutelbereik. De standaardwaarde is 20.  |
  
-   **Bulksgewijs importeren antwoord objectdefinitie** het resultaat van de bulkimport API-aanroep heeft de volgende get-methoden:
+   **Bulksgewijs importeren antwoord objectdefinitie** het resultaat van de bulkimport API-aanroep bevat de volgende get-methoden:
 
    |**Parameter** |**Beschrijving**  |
    |---------|---------|
-   |int getNumberOfDocumentsUpdated()  |   Het totale aantal documenten die zijn bijgewerkt buiten de documenten die is opgegeven voor de bulk-update-API-aanroep.      |
-   |dubbele getTotalRequestUnitsConsumed() |  Het totale aantal aanvraageenheden (RU) gebruikt door de bulk-update-API-aanroep.       |
-   |Duur getTotalTimeTaken()  |   De totale tijd die het bulksgewijs bijwerken API-aanroep uitgevoerd.      |
-   |Lijst<Exception> getErrors()   |     Hiermee haalt de lijst van fouten als bepaalde documenten buiten de batch is opgegeven voor de bulk-update API-aanroep kan niet worden ingevoegd ophalen.      |
+   |int getNumberOfDocumentsUpdated()  |   Het totale aantal documenten die zijn bijgewerkt uit de documenten die is opgegeven voor de Bulkupdate-API-aanroep.      |
+   |dubbele getTotalRequestUnitsConsumed() |  Het totale aantal aanvraageenheden (RU) die worden gebruikt door de bulk-update-API-aanroep.       |
+   |Duur getTotalTimeTaken()  |   De totale tijd die door de bulksgewijs bijwerken API-aanroep uitgevoerd.      |
+   |Lijst met<Exception> getErrors()   |     Hiermee haalt u de lijst met fouten als bepaalde documenten in de batch is opgegeven voor de bulk-update API-aanroep kan niet worden ingevoegd ophalen.      |
 
-3. Nadat u het bijwerken van de toepassing gereed bulksgewijs hebt, maken het opdrachtregelprogramma van bron met de opdracht 'schone pakket mvn'. Met deze opdracht genereert u een jar-bestand in de doelmap:  
+3. Nadat u het grootste deel bij het bijwerken van de toepassing gereed hebt, bouw het opdrachtregelprogramma van bron met de opdracht 'mvn opschonen pakket'. Met deze opdracht wordt een jar-bestand gegenereerd in de doelmap:  
 
    ```
    mvn clean package
    ```
 
-4. Nadat de doel-afhankelijkheden zijn gegenereerd, kunt u de toepassing van de update bulksgewijs aanroept met behulp van de volgende opdracht:
+4. Nadat de doel-afhankelijkheden zijn gegenereerd, kunt u de toepassing van de update bulksgewijs aanroepen met behulp van de volgende opdracht uit:
 
    ```
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB’s endpoint URI>* -masterKey **<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
@@ -197,20 +197,20 @@ U kunt bestaande documenten met behulp van de API BulkUpdateAsync bijwerken. In 
 
 ## <a name="performance-tips"></a>Tips voor prestaties 
 
-Houd rekening met de volgende punten voor betere prestaties bij gebruik van bulksgewijs executor bibliotheek:
+Houd rekening met de volgende punten voor betere prestaties bij het gebruik van grote hoeveelheden executor-bibliotheek:
 
-* Voer uw toepassing van een virtuele machine van Azure in dezelfde regio bevinden als uw regio Cosmos DB account schrijven voor de beste prestaties.  
-* Voor hogere doorvoer kan bereiken:  
+* Voor optimale prestaties moet u de toepassing uitvoeren vanuit een Azure-VM in dezelfde regio als de schrijfregio van uw Cosmos DB-account.  
+* Voor het bereiken van hogere doorvoer:  
 
-   * De JVM heap-grootte ingesteld op een aantal groot genoeg zijn om te voorkomen dat een geheugen probleem bij het verwerken van grote aantallen documenten. Voorstel voor de heap-grootte: max (3GB, 3 * (alle documenten die zijn doorgegeven aan bulksgewijs importeren API in één batch) sizeof).  
-   * Er is een voorverwerking tijd, vanwege die ontvangt u een hogere doorvoer bij het uitvoeren van andere bulkbewerkingen met een groot aantal documenten. Als u importeren 10.000.000 documenten wilt, is waarop bulkimport 10 keer 10 bulksgewijs documenten elk van de grootte van 1.000.000 beter dan het uitvoeren van bulkimport 100 keer op 100 bulksgewijs documenten elk van de grootte van 100.000 documenten.  
+   * Grootte van de heap van JVM ingesteld op een aantal groot genoeg is om te voorkomen dat een probleem met geheugen bij het verwerken van grote aantal documenten. Heap-grootte aanbevolen: max (3GB, 3 * sizeof (alle documenten die worden doorgegeven aan bulksgewijs importeren API in één batch)).  
+   * Er is een voorverwerking tijd, dit ontvangt u een hogere doorvoer bij het uitvoeren van bulkbewerkingen met een groot aantal documenten. Dus als u importeren 10.000.000 documenten wilt, is waarop bulkimport 10 keer 10 bulksgewijs documenten elk van de grootte van 1.000.000 beter dan het uitvoeren van bulkimport 100 keer op 100 bulksgewijs documenten elk van de grootte van 100.000 documenten.  
 
-* Het verdient het instantiëren van een enkel object DocumentBulkExecutor voor de gehele toepassing binnen een enkele virtuele machine die overeenkomt met een specifieke Azure DB die Cosmos-verzameling.  
+* Het verdient aanbeveling om een enkele DocumentBulkExecutor-object voor de gehele toepassing binnen een enkele virtuele machine die overeenkomt met een specifieke Azure Cosmos DB-container te maken.  
 
-* Omdat de uitvoering van een één bulksgewijze bewerking API een grote hoeveelheid CPU en het netwerk-IO van de client-computer verbruikt. Dit gebeurt door het starten van meerdere taken intern, Vermijd meerdere gelijktijdige taken in uw toepassingsproces voor die elke uitvoering bulksgewijze bewerking API-aanroepen te starten. Als een enkel bulksgewijs bewerking API-aanroep uitgevoerd op een enkele virtuele machine niet kan gebruiken voor uw hele verzameling doorvoer (als uw verzameling doorvoer > 1 miljoen RU/s), is het raadzaam om het maken van afzonderlijke virtuele machines voor het gelijktijdig uitvoeren bulksgewijs bewerking API-aanroepen.
+* Omdat de uitvoering van een enkele bulksgewijs bewerking API een grote hoeveelheid CPU- en IO van de client-computer verbruikt. Dit gebeurt door bij het maken van meerdere taken intern, te voorkomen dat bij het maken van meerdere gelijktijdige taken binnen uw het toepassingsproces dat elke uitvoering bulksgewijze bewerking API-aanroepen. Als een enkel bulksgewijs bewerking API-aanroep die wordt uitgevoerd op een enkele virtuele machine niet kan gebruiken voor uw hele containerdoorvoer (als uw container doorvoer > 1 miljoen RU/s), is het beter om te maken van afzonderlijke virtuele machines voor het gelijktijdig uitvoeren van bulksgewijs bewerking API-aanroepen.
 
     
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over de pakketgegevens maven en release-opmerkingen van bulksgewijs executor Java-bibliotheek,[bulksgewijs executor SDK details](sql-api-sdk-bulk-executor-java.md).
+* Zie voor meer informatie over de details van de maven-pakket en release-opmerkingen van bulksgewijs executor Java-bibliotheek,[bulksgewijs details over de SDK van de executor](sql-api-sdk-bulk-executor-java.md).
 
 

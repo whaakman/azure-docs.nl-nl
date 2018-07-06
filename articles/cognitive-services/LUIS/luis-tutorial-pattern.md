@@ -1,7 +1,7 @@
 ---
-title: Zelfstudie met patronen voor het verbeteren van LUIS voorspellingen - Azure | Microsoft Docs
+title: Zelfstudie over het gebruiken van patronen voor het verbeteren van LUIS voorspellingen - Azure | Microsoft Docs
 titleSuffix: Azure
-description: In deze zelfstudie gebruikt u patroon voor intents om betere LUIS bedoeling en entiteit voorspellingen.
+description: In deze zelfstudie, gebruikt u patroon voor intents voor het verbeteren van LUIS intentie en entiteit voorspellingen.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -10,78 +10,78 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: ff5572366be548132b28e5ce03b9595e7f98128c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 9793b98c384346dc0de68061d42b4bcb3c513ed4
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265313"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866199"
 ---
-# <a name="tutorial-use-patterns-to-improve-predictions"></a>Zelfstudie: Patronen gebruiken voor het verbeteren van voorspellingen
+# <a name="tutorial-use-patterns-to-improve-predictions"></a>Zelfstudie: Gebruiken om patronen te verbeteren van voorspellingen
 
-In deze zelfstudie patronen te verhogen bedoeling en entiteit voorspelling te gebruiken.  
+In deze zelfstudie gebruiken u patronen voor het verhogen van de intentie en entiteit voorspelling.  
 
 > [!div class="checklist"]
-* Identificeren dat een patroon uw app helpen kan
-* Het maken van een patroon 
-* Het gebruik van vooraf gedefinieerde en aangepaste entiteiten in een patroon 
-* Het patroon voorspelling verbeteringen controleren
-* Een rol toevoegen aan een entiteit contextueel gebaseerde entiteiten vinden
-* Het toevoegen van een Pattern.any om te zoeken vrije vorm entiteiten
+* Identificeren dat een patroon waarmee uw app
+* Over het maken van een patroon 
+* Over het gebruik van vooraf gedefinieerde en aangepaste entiteiten in een patroon 
+* Patroon voorspelling verbeteringen controleren
+* Een rol toevoegen aan een entiteit contextueel op basis van entiteiten zoeken
+* Een Pattern.any om te zoeken vrije entiteiten toevoegen
 
-Voor dit artikel, moet u een gratis [LUIS] [ LUIS] account om uw toepassing LUIS ontwerpen.
+Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
 
-## <a name="import-humanresources-app"></a>Importeren humanresources heet app
-Deze zelfstudie importeert een app humanresources heet. De app heeft drie intents: None, GetEmployeeOrgChart, GetEmployeeBenefits. De app heeft twee entiteiten: vooraf gedefinieerde aantal en de werknemer. De werknemer entiteit is een enkele entiteit uitpakken van de naam van een werknemer. 
+## <a name="import-humanresources-app"></a>Personeelszaken-app importeren
+In deze zelfstudie worden geïmporteerd van een app personeelszaken. De app heeft drie intents: None, GetEmployeeOrgChart, GetEmployeeBenefits. De app heeft twee entiteiten: vooraf gedefinieerde aantal en de werknemer. De werknemer entiteit is een eenvoudige entiteit om op te halen van de naam van een werknemer. 
 
-1. Maak een nieuw LUIS app-bestand en noem deze `HumanResources.json`. 
+1. Maak een nieuw bestand van LUIS-app en geef deze de naam `HumanResources.json`. 
 
 2. Kopieer de volgende app-definitie in het bestand:
 
    [!code-json[Add the LUIS model](~/samples-luis/documentation-samples/tutorial-patterns/HumanResources.json?range=1-164 "Add the LUIS model")]
 
-3. Op de LUIS **Apps** pagina **importeren nieuwe app**. 
+3. Op de LUIS **Apps** weergeeft, schakelt **importeren nieuwe app**. 
 
 4. In de **importeren nieuwe app** dialoogvenster, selecteer de `HumanResources.json` bestand dat u in stap 1 hebt gemaakt.
 
-5. Selecteer de **GetEmployeeOrgChart** bedoeling en vervolgens de wijzigingen van de **entiteiten weergave** naar **Tokens weergave**. Verschillende voorbeeld utterances worden weergegeven. Elke utterance bevat een naam die een entiteit van de werknemer is. U ziet dat de naam van elke anders is en dat de indeling van de vermelding voor elke utterance verschilt. Deze verscheidenheid helpt LUIS meer informatie over een breed scala aan utterances.
+5. Selecteer de **GetEmployeeOrgChart** intentie en vervolgens wijziging ten opzichte van **entiteiten weergeven** naar **Tokens weergave**. Verschillende voorbeeld-uitingen worden weergegeven. Elke utterance bevat een naam, een werknemer-entiteit. U ziet dat elke andere naam heeft en dat de indeling van de bewoording voor elk utterance verschilt. Deze verscheidenheid kunt u informatie over een breed scala aan uitingen LUIS.
 
-    ![Schermafbeelding van de doel-pagina met entiteiten weergave uitgeschakeld](media/luis-tutorial-pattern/utterances-token-view.png)
+    ![Schermafbeelding van de doel-pagina met entiteiten weergave omschakelt](media/luis-tutorial-pattern/utterances-token-view.png)
 
-6. Selecteer **trainen** in de bovenste navigatiebalk voor het trainen van de app. Wacht totdat de balk groen geslaagd.
+6. Selecteer **trainen** in de bovenste navigatiebalk om terug te trainen van de app. Wachten op de balk groen geslaagd.
 
-7. Selecteer **Test** in het bovenste deelvenster. Voer `Who does Patti Owens report to?` voert u selecteert. Selecteer **inspecteren** onder de utterance voor meer informatie over de test.
+7. Selecteer **Test** in het bovenste deelvenster. Voer `Who does Patti Owens report to?` en selecteer enter. Selecteer **inspecteren** onder de utterance voor meer informatie over de test.
     
-    De naam van de werknemer, Patti Owens, is niet in een voorbeeld utterance nog gebruikt. Dit is een test om te zien hoe goed LUIS geleerd deze utterance is voor de `GetEmployeeOrgChart` doel en de werknemer-entiteit moeten worden `Patti Owens`. Het resultaat moet minder zijn dan 50% (. 50) voor de `GetEmployeeOrgChart` bedoeld. Terwijl de bedoeling juist is, is de score laag. De entiteit van de werknemer ook correct wordt geïdentificeerd als `Patti Owens`. Patronen vergroot deze initiële voorspelling score. 
+    De naam van de werknemer, Patti Owens, is niet in een voorbeeld-utterance nog gebruikt. Dit is een test om te zien hoe goed LUIS geleerd, deze utterance is voor de `GetEmployeeOrgChart` intentie en de entiteit werknemer moet `Patti Owens`. Het resultaat moet minder zijn dan 50% (. 50) voor de `GetEmployeeOrgChart` intentie. Terwijl de bedoeling juist is, wordt de score is laag. De entiteit werknemer ook correct wordt geïdentificeerd als `Patti Owens`. Patronen Verhoog deze score initiële voorspelling. 
 
     ![Schermafbeelding van de Test-Configuratiescherm](media/luis-tutorial-pattern/original-test.png)
 
-8. Het paneel test sluiten door het selecteren van de **testen** knop in de bovenste navigatiebalk. 
+8. Sluit het deelvenster testen door te selecteren de **testen** knop in de bovenste navigatiebalk. 
 
-## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Patronen leren LUIS algemene utterances met minder voorbeelden
-Vanwege de aard van het domein Personeelszaken zijn er enkele algemene manieren van vragen over werknemer relaties in organisaties. Bijvoorbeeld:
+## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Patronen leren LUIS algemene uitingen met minder voorbeelden
+Vanwege de aard van het human resources-domein, moet u er een paar algemene manieren om vragen over werknemer relaties in organisaties zijn. Bijvoorbeeld:
 
 ```
 Who does Mike Jones report to?
 Who reports to Mike Jones? 
 ```
 
-Deze utterances zijn te dicht bij de contextuele Uniekheid van elke zonder op te geven voorbeelden van veel utterance bepalen. Als u een patroon voor de opzet, leert LUIS algemene utterance patronen voor een doel zonder op te geven voorbeelden van veel utterance. 
+Deze uitingen zijn te dicht bij de contextuele Uniekheid van elk zonder op te geven veel utterance voorbeelden bepalen. Door toe te voegen een patroon voor een doel, LUIS algemene utterance-patronen leert herkennen voor een doel zonder op te geven veel utterance voorbeelden. 
 
-Voorbeeld van de sjabloon utterances hiervoor opzet zijn:
+Voorbeeld van de sjabloon uitingen hiervoor intentie zijn:
 
 ```
 Who does {Employee} report to?
 Who reports to {Employee}? 
 ```
 
-Het patroon is een combinatie van reguliere expressie die overeenkomt met en machine learning. Vervolgens bieden sommige sjabloon utterance voorbeelden voor LUIS voor meer informatie over het patroon. Deze voorbeelden, samen met de opzet utterances geven LUIS beter inzicht aanpassen aan de bedoeling van welke utterances en waar binnen de utterance de entiteit bestaat. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
+Het patroon is een combinatie van reguliere expressie die overeenkomen met en machine learning. Geef enkele sjabloon vervolgens utterance voorbeelden voor LUIS voor meer informatie over het patroon. Deze voorbeelden, samen met de intentie uitingen geven LUIS een beter beeld van welke uitingen past de bedoeling is en waar, binnen de utterance, de entiteit bestaat. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
 
 ## <a name="add-the-template-utterances"></a>De sjabloon utterances toevoegen
 
-1. In het linkernavigatievenster onder **app sneller**, selecteer **patronen** van de linkernavigatiebalk.
+1. In het linker navigatiedeelvenster, onder **verbeterde app-prestaties**, selecteer **patronen** in de linkernavigatiebalk.
 
-2. Selecteer de **GetEmployeeOrgChart** bedoelingen, voert u de volgende sjabloon utterances, één voor één, selecteren invoeren na elke utterance sjabloon:
+2. Selecteer de **GetEmployeeOrgChart** doel, voert u de volgende sjabloon uitingen, één voor één, selecteren enter na elke utterance sjabloon:
 
     ```
     Does {Employee} have {number} subordinates?
@@ -92,31 +92,31 @@ Het patroon is een combinatie van reguliere expressie die overeenkomt met en mac
     Who are {Employee}'s subordinates?
     ```
 
-    De `{Employee}` syntaxis markeert de locatie van de entiteit in de sjabloon utterance alsmede welke entiteit is. 
+    De `{Employee}` syntaxis van de locatie van de entiteit in de sjabloon utterance als het goed als welke entiteit is gemarkeerd. 
 
-    ![Schermopname van het sjabloon utterances voor bedoeling invoeren](./media/luis-tutorial-pattern/enter-pattern.png)
+    ![Schermafbeelding van het invoeren van de sjabloon-uitingen voor doel](./media/luis-tutorial-pattern/enter-pattern.png)
 
-3. Selecteer **Train** in de bovenste navigatiebalk. Wacht totdat de balk groen geslaagd.
+3. Selecteer **Train** in de bovenste navigatiebalk. Wachten op de balk groen geslaagd.
 
-4. Selecteer **Test** in het bovenste deelvenster. Voer `Who does Patti Owens report to?` in het tekstvak. Selecteer invoeren. Dit is de dezelfde utterance getest in de vorige sectie. Het resultaat moet hoger zijn voor de `GetEmployeeOrgChart` bedoeld. 
+4. Selecteer **Test** in het bovenste deelvenster. Voer `Who does Patti Owens report to?` in het tekstvak in. Selecteer invoeren. Dit is de dezelfde utterance getest in de vorige sectie. Het resultaat moet hoger zijn voor de `GetEmployeeOrgChart` intentie. 
 
-    De score is nu veel beter. Het patroon die relevant zijn voor de bedoeling LUIS geleerd zonder te veel voorbeelden geven.
+    De score is nu veel beter. LUIS hebt geleerd van het patroon die relevant zijn voor het doel zonder op te geven veel voorbeelden.
 
-    ![Schermopname van Test deelvenster met de hoogste score leiden](./media/luis-tutorial-pattern/high-score.png)
+    ![Schermafbeelding van de Test-deelvenster met hoge score leiden tot](./media/luis-tutorial-pattern/high-score.png)
 
     De entiteit is eerst gevonden en vervolgens het patroon wordt gevonden, die wijzen op het doel. Als u een testresultaat waar de entiteit wordt niet gedetecteerd en daarom niet het patroon wordt gevonden hebt, moet u meer voorbeeld utterances toevoegen op het doel (niet het patroon). 
 
-5. Het paneel test sluiten door het selecteren van de **testen** knop in de bovenste navigatiebalk.
+5. Sluit het deelvenster testen door te selecteren de **testen** knop in de bovenste navigatiebalk.
 
 ## <a name="use-an-entity-with-a-role-in-a-pattern"></a>Een entiteit met een rol in een patroon gebruiken
-De app LUIS wordt gebruikt om te verplaatsen van werknemers vanaf één locatie naar een andere. Een voorbeeld utterance is `Move Bob Jones from Seattle to Los Colinas`. Elke locatie in de utterance heeft een andere betekenis. Seattle is de oorspronkelijke locatie en Los Colinas is de bestemmingslocatie voor de verplaatsing. Als u wilt onderscheiden van die locaties in het patroon, in de volgende secties u een enkele entiteit voor de locatie van kunt maken met twee rollen: oorsprong en de bestemming. 
+De LUIS-app wordt gebruikt om u te helpen bij het verplaatsen van werknemers van de ene locatie naar een andere. Een voorbeeld-utterance is `Move Bob Jones from Seattle to Los Colinas`. Elke locatie in de utterance heeft een andere betekenis. Seattle is de oorspronkelijke locatie en Los Colinas is de doellocatie voor de verplaatsing. Om te onderscheiden van die locaties in het patroon maakt in de volgende secties u een eenvoudige entiteit voor de locatie van kunt maken met twee rollen: bron en doel. 
 
-### <a name="create-a-new-intent-for-moving-people-and-assets"></a>Maak een nieuwe bedoeld voor het verplaatsen van mensen en activa
-Maak een nieuwe bedoeld voor een utterances die over zwevend personen of activa zijn.
+### <a name="create-a-new-intent-for-moving-people-and-assets"></a>Maak een nieuw doel voor het verplaatsen van mensen en activa
+Maak een nieuw doel voor alle uitingen die over het verplaatsen personen of activa zijn.
 
-1. Selecteer **Intents** van linkernavigatiegedeelte
+1. Selecteer **Intents** in linkernavigatiebalk
 2. Selecteer **nieuwe doel maken**
-3. De naam van de nieuwe bedoeling `MoveAssetsOrPeople`
+3. De naam van het nieuwe doel `MoveAssetsOrPeople`
 4. Voorbeeld utterances toevoegen:
 
     ```
@@ -128,77 +128,77 @@ Maak een nieuwe bedoeld voor een utterances die over zwevend personen of activa 
     ```
     ![Schermopname van voorbeeld utterance voor MoveAssetsOrPeople doel](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
 
-    Het doel van de voorbeeld-utterances is om voldoende voorbeelden te geven. Als u later in de test, de locatie-entiteit wordt niet gedetecteerd en als gevolg daarvan het patroon is niet gevonden, keert u terug naar deze stap en meer voorbeelden toevoegen. Vervolgens trainen en test u het opnieuw. 
+    Het doel van de voorbeeld-uitingen is om voldoende voorbeelden te geven. Als u later in de test, de locatie-entiteit wordt niet gedetecteerd en als gevolg daarvan het patroon is niet gevonden, keert u terug naar deze stap en meer voorbeelden toevoegen. Vervolgens trainen en opnieuw testen. 
 
-5. Markeer de entiteiten in de utterances voorbeeld met de werknemer entiteit door de voornaam vervolgens de achternaam in een utterance selecteren en vervolgens de werknemer entiteit selecteren in de lijst.
+5. Markeer de entiteiten in de voorbeeld-uitingen aan de werknemer entiteit door de naam van de eerste vervolgens de achternaam in een utterance selecteren en vervolgens de werknemer entiteit selecteren in de lijst.
 
-    ![Schermopname van utterances in MoveAssetsOrPeople gemarkeerd met werknemer entiteit](./media/luis-tutorial-pattern/intent-moveasserts-employee.png)
+    ![Schermafbeelding van uitingen in MoveAssetsOrPeople gemarkeerd met werknemer entiteit](./media/luis-tutorial-pattern/intent-moveasserts-employee.png)
 
-6. Selecteer de tekst `portland` in de utterance `move travis hinton from portland to orlando`. Geef de nieuwe entiteitsnaam in het pop-updialoogvenster `Location`, en selecteer **nieuwe entiteit maken**. Kies de **eenvoudige** entiteitstype en selecteer **gedaan**.
+6. Selecteer de tekst `portland` in de utterance `move travis hinton from portland to orlando`. Voer de naam van de nieuwe entiteit in het pop-updialoogvenster `Location`, en selecteer **nieuwe entiteit maken**. Kies de **eenvoudige** entiteitstype en selecteer **gedaan**.
 
-    ![Schermafdruk van het maken van de nieuwe locatie entiteit](./media/luis-tutorial-pattern/create-new-location-entity.png)
+    ![Schermopname van het maken van nieuwe entiteit op locatie](./media/luis-tutorial-pattern/create-new-location-entity.png)
 
-    De rest van de locatienamen in de utterances markeren. 
+    De rest van de locatienamen van de in de uitingen markeren. 
 
-    ![Schermopname van alle entiteiten die zijn gemarkeerd](./media/luis-tutorial-pattern/moveasset-all-entities-labeled.png)
+    ![Schermafbeelding van alle entiteiten die zijn gemarkeerd](./media/luis-tutorial-pattern/moveasset-all-entities-labeled.png)
 
-    Het patroon van word keuze en -volgorde is duidelijk in de vorige afbeelding. Als u **niet** met patronen, en de utterances van het doel een duidelijk patroon, dat een goede indicatie moet u patronen hebben. 
+    Het patroon van word keuze en volgorde is duidelijk in de vorige afbeelding. Als u **niet** met patronen, en de uitingen op het doel hebben een duidelijk patroon, dat is een goede indicatie u patronen moet worden gebruikt. 
 
-    Als u verwacht een groot aantal utterances in plaats van een patroon dat, zijn dit de verkeerde voorbeeld utterances. In dat geval kunt u uiteenlopende utterances in term woord keuze utterance lengte en de plaatsing van de entiteit. 
+    Dit zijn de verkeerde voorbeeld-uitingen als u verwacht een groot aantal uitingen, in plaats van een patroon dat. In dat geval wilt u uiteenlopende uitingen term of word keuze, utterance lang zijn, en de plaatsing van de entiteit. 
 
 <!--TBD: what guidance to move from hier entities to patterns with roles -->
 <!--    The [Hierarchical entity quickstart](luis-quickstart-intent-and-hier-entity.md) uses the  same idea of location but uses child entities to find origin and destination locations. 
 -->
 ### <a name="add-role-to-location-entity"></a>Functie toevoegen aan de entiteit locatie 
-Rollen kunnen alleen worden gebruikt voor patronen. De rollen van de oorsprong en de bestemming toevoegen aan de locatie-entiteit. 
+Rollen kunnen alleen worden gebruikt voor patronen. De rollen van de bron en doel toevoegen aan de locatie-entiteit. 
 
-1. Selecteer **entiteiten** in de navigatiebalk links, klikt u vervolgens **locatie** uit de lijst van entiteiten.
+1. Selecteer **entiteiten** in het linkernavigatievenster, klikt u vervolgens **locatie** uit de lijst met entiteiten.
 
 2. Voeg `Origin` en `Destination` rollen aan de entiteit.
 
     ![Schermafbeelding van de nieuwe entiteit met rollen](./media/luis-tutorial-pattern/location-entity.png)
 
-    De rollen zijn niet gemarkeerd op de opzet pagina MoveAssetsOrPeople omdat de rollen op opzet utterances bestaan niet. Ze bestaan alleen op patroon sjabloon utterances. 
+    De rollen zijn niet gemarkeerd op de intentie pagina MoveAssetsOrPeople omdat rollen niet bestaan op de intentie uitingen. Ze bestaan alleen op uitingen van patroon-sjabloon. 
 
-### <a name="add-template-utterances-that-uses-location-and-destination-roles"></a>Sjabloon utterances die gebruikmaakt van locatie- en doelserver rollen toevoegen
-Sjabloon utterances die gebruikmaken van de nieuwe entiteit toevoegen.
+### <a name="add-template-utterances-that-uses-location-and-destination-roles"></a>Sjabloon-uitingen die gebruikmaakt van locatie-en-doel toevoegen
+Sjabloon-uitingen die gebruikmaken van de nieuwe entiteit toevoegen.
 
-1. Selecteer **patronen** van de linkernavigatiebalk.
+1. Selecteer **patronen** in de linkernavigatiebalk.
 
-2. Selecteer de **MoveAssetsOrPeople** bedoeld.
+2. Selecteer de **MoveAssetsOrPeople** intentie.
 
-3. Voer een nieuwe sjabloon utterance met behulp van de nieuwe entiteit `Move {Employee} from {Location:Origin} to {Location:Destination}`. De syntaxis voor een entiteit en de rol binnen een sjabloon utterance is `{entity:role}`.
+3. Voer een nieuwe sjabloon utterance met behulp van de nieuwe entiteit `Move {Employee} from {Location:Origin} to {Location:Destination}`. De syntaxis voor een entiteit en een rol in een sjabloon utterance is `{entity:role}`.
 
     ![Schermafbeelding van de nieuwe entiteit met rollen](./media/luis-tutorial-pattern/pattern-moveassets.png)
 
-4. Training van de app voor de nieuwe doel, de entiteit en het patroon.
+4. De app voor de nieuwe doel, de entiteit en het patroon trainen.
 
-### <a name="test-the-new-pattern-for-role-data-extraction"></a>Het nieuwe patroon voor het ophalen van de rol gegevens testen
+### <a name="test-the-new-pattern-for-role-data-extraction"></a>Het nieuwe patroon voor rol gegevensextractie testen
 Het nieuwe patroon overeen met een test.
 
 1. Selecteer **Test** in het bovenste deelvenster. 
 2. Voer de utterance `Move Tammi Carlson from Bellingham to Winthrop`.
-3. Selecteer **inspecteren** onder het resultaat om te zien van de testresultaten voor entiteit en hetzelfde doel.
+3. Selecteer **inspecteren** onder het resultaat om te zien van de testresultaten voor de entiteit en voor welk doel.
 
     ![Schermafbeelding van de nieuwe entiteit met rollen](./media/luis-tutorial-pattern/test-with-roles.png)
 
-    De entiteiten worden eerst gevonden en vervolgens het patroon wordt gevonden, die wijzen op het doel. Als u een testresultaat waarbij de entiteiten worden niet gedetecteerd en daarom niet het patroon wordt gevonden hebt, moet u meer voorbeeld utterances toevoegen op het doel (niet het patroon). 
+    De entiteiten worden eerst gevonden en vervolgens het patroon wordt gevonden, die wijzen op het doel. Als u een testresultaat waar de entiteiten zijn niet gedetecteerd en daarom niet het patroon wordt gevonden hebt, moet u meer voorbeeld utterances toevoegen op het doel (niet het patroon). 
 
-4. Het paneel test sluiten door het selecteren van de **testen** knop in de bovenste navigatiebalk.
+4. Sluit het deelvenster testen door te selecteren de **testen** knop in de bovenste navigatiebalk.
 
-## <a name="use-a-patternany-entity-to-find-free-form-entities-in-a-pattern"></a>Gebruik van een entiteit Pattern.any om te zoeken vrije vorm entiteiten in een patroon
-Deze app humanresources heet helpt ook bij werknemers bedrijf formulieren zoeken. Veel van de formulieren hebben softwaretitels die zijn verschillende lengte. De verschillende lengten omvat die verwarrend LUIS over waar de naam van het formulier eindigt. Met behulp van een **Pattern.any** entiteit in een patroon kunt u het begin en einde van de naam van het formulier opgeven zodat LUIS correct naam van het formulier extraheert. 
+## <a name="use-a-patternany-entity-to-find-free-form-entities-in-a-pattern"></a>Een entiteit Pattern.any vrije entiteiten zoeken in een patroon gebruiken
+Deze app Personeelszaken helpt ook bij werknemers bedrijf formulieren zoeken. Veel van de formulieren hebben softwaretitels die worden verschillende lengte. De verschillende lengten bevat zinnen die verwarrend kunnen zijn LUIS over waar de naam van het formulier eindigt. Met behulp van een **Pattern.any** entiteit in een patroon kunt u het begin en einde van de naam van het formulier opgeven, zodat de naam van het formulier in LUIS correct worden geëxtraheerd. 
 
 ### <a name="create-a-new-intent-for-the-form"></a>Een nieuw doel voor het formulier maken
-Maak een nieuwe bedoeld voor utterances die formulieren zoekt.
+Maak een nieuw doel voor uitingen die formulieren zoekt.
 
-1. Selecteer **Intents** van de navigatiebalk aan de linkerkant.
+1. Selecteer **Intents** in linkernavigatiebalk.
 
-2. Selecteer **maken van nieuwe bedoeling**.
+2. Selecteer **Create new intent**.
 
-3. Naam van de nieuwe bedoeling `FindForm`.
+3. Naam van het nieuwe doel `FindForm`.
 
-4. Een voorbeeld utterance toevoegen.
+4. Voeg een voorbeeld-utterance.
 
     ```
     `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`
@@ -206,46 +206,46 @@ Maak een nieuwe bedoeld voor utterances die formulieren zoekt.
 
     ![Schermafbeelding van de nieuwe entiteit met rollen](./media/luis-tutorial-pattern/intent-findform.png)
 
-    De formuliertitel is `What to do when a fire breaks out in the Lab`. De utterance vraagt om de locatie van het formulier en wordt ook gevraagd wie moet het valideren van de werknemer lezen ondertekenen. Zonder een entiteit Pattern.any zou het lastig zijn om te begrijpen waar de titel van het formulier wordt beëindigd en de titel van het formulier als een entiteit van de utterance extraheren.
+    De formuliertitel van het is `What to do when a fire breaks out in the Lab`. De utterance vraagt om de locatie van het formulier en wordt ook gevraagd die behoefte hebben aan te melden dat het valideren van de werknemer lezen. Zonder een entiteit Pattern.any, zou het lastig zijn om te begrijpen waar de titel van het formulier wordt beëindigd en uitpakken van de titel van het formulier als een entiteit van de utterance.
 
-### <a name="create-a-patternany-entity-for-the-form-title"></a>Maak een entiteit Pattern.any voor de titel van het formulier
-De entiteit Pattern.any kunt voor entiteiten met verschillende lengten. Deze functie werkt alleen in een patroon omdat het patroon het begin en einde van de entiteit markeert. Als u die het patroon bevat een Pattern.any, uitgepakt entiteiten foutief, gebruiken een [expliciete lijst](luis-concept-patterns.md#explicit-lists) om dit probleem te verhelpen. 
+### <a name="create-a-patternany-entity-for-the-form-title"></a>Een entiteit Pattern.any voor de formuliertitel van het maken
+De entiteit Pattern.any kunt voor entiteiten met verschillende lengten. Dit werkt alleen in een patroon omdat het patroon het begin en einde van de entiteit markeert. Als u dat het patroon zien wanneer deze een Pattern.any bevat, extraheert entiteiten onjuist, gebruikt u een [expliciete lijst](luis-concept-patterns.md#explicit-lists) om dit probleem te verhelpen. 
 
-1. Selecteer **entiteiten** in de linkernavigatiebalk.
+1. Selecteer **entiteiten** in het linkernavigatievenster.
 
-2. Selecteer **nieuwe entiteit maken**. 
+2. Selecteer **Create new intent**. 
 
-3. Naam van de entiteit `FormName` met type **Pattern.any**. Voor deze specifieke zelfstudie hoeft u geen rollen toevoegen aan de entiteit.
+3. Naam van de entiteit `FormName` met het type **Pattern.any**. Voor deze specifieke zelfstudie hoeft u niet alle functies toevoegen aan de entiteit.
 
     ![Afbeelding van dialoogvenster voor de naam van de entiteit en entiteitstype](./media/luis-tutorial-pattern/create-entity-pattern-any.png)
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Een patroon dat gebruikmaakt van de Pattern.any toevoegen
 
-1. Selecteer **patronen** van de linkernavigatiebalk.
+1. Selecteer **patronen** in de linkernavigatiebalk.
 
-2. Selecteer de **FindForm** bedoeld.
+2. Selecteer de **FindForm** intentie.
 
-3. Voer een sjabloon utterance met behulp van de nieuwe entiteit `Where is the form {FormName} and who needs to sign it after I read it?`
+3. Voer de utterance van een sjabloon met behulp van de nieuwe entiteit `Where is the form {FormName} and who needs to sign it after I read it?`
 
-    ![Schermafbeelding van de sjabloon utterance met pattern.any entiteit](./media/luis-tutorial-pattern/pattern.any-template-utterance.png)
+    ![Schermafbeelding van de sjabloon utterance pattern.any entiteit gebruiken](./media/luis-tutorial-pattern/pattern.any-template-utterance.png)
 
-4. Training van de app voor de nieuwe doel, de entiteit en het patroon.
+4. De app voor de nieuwe doel, de entiteit en het patroon trainen.
 
-### <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Het nieuwe patroon voor het ophalen van gegevens van de vrije vorm testen
-1. Selecteer **testen** van de bovenste balk te openen van het paneel test. 
+### <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Het nieuwe patroon voor vrije gegevensextractie testen
+1. Selecteer **testen** in de bovenste balk met om de test-deelvenster te openen. 
 
 2. Voer de utterance `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
 
-3. Selecteer **inspecteren** onder het resultaat om te zien van de testresultaten voor entiteit en hetzelfde doel.
+3. Selecteer **inspecteren** onder het resultaat om te zien van de testresultaten voor de entiteit en voor welk doel.
 
-    ![Schermafbeelding van de sjabloon utterance met pattern.any entiteit](./media/luis-tutorial-pattern/test-pattern.any-results.png)
+    ![Schermafbeelding van de sjabloon utterance pattern.any entiteit gebruiken](./media/luis-tutorial-pattern/test-pattern.any-results.png)
 
-    De entiteit is eerst gevonden en vervolgens het patroon wordt gevonden, die wijzen op het doel. Als u een testresultaat waarbij de entiteiten worden niet gedetecteerd en daarom niet het patroon wordt gevonden hebt, moet u meer voorbeeld utterances toevoegen op het doel (niet het patroon).
+    De entiteit is eerst gevonden en vervolgens het patroon wordt gevonden, die wijzen op het doel. Als u een testresultaat waar de entiteiten zijn niet gedetecteerd en daarom niet het patroon wordt gevonden hebt, moet u meer voorbeeld utterances toevoegen op het doel (niet het patroon).
 
-4. Het paneel test sluiten door het selecteren van de **testen** knop in de bovenste navigatiebalk.
+4. Sluit het deelvenster testen door te selecteren de **testen** knop in de bovenste navigatiebalk.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer deze niet langer nodig is, verwijdert u de app LUIS. Om dit te doen, selecteert u het menu drie punt (...) rechts van de naam van de app in de lijst met Apps, selecteer **verwijderen**. In het pop-updialoogvenster **app verwijderen?**, selecteer **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Om dit te doen, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de naam van de app in de lijst met Apps, selecteer **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

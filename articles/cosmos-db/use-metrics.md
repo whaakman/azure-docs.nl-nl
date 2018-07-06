@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 9b9f72812b1a1f0e30379c32e10d316fcbf71d3b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345586"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858660"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Controle en foutopsporing met metrische gegevens in Azure Cosmos DB
 
@@ -39,7 +39,7 @@ De meest voorkomende foutstatuscode wordt 429 (snelheid beperken/beperking), wat
 
 ## <a name="determining-the-throughput-distribution-across-partitions"></a>Bepalen van de doorvoer-distributie over meerdere partities
 
-Met een goede kardinaliteit van de partitiesleutels is essentieel voor elke schaalbare toepassing. Om te bepalen van de distributie van de doorvoer van een gepartitioneerde verzameling onderverdeeld op basis van partities, gaat u naar de **blade met metrische gegevens** in de [Azure-portal](https://portal.azure.com). In de **doorvoer** tabblad de uitsplitsing van de opslag wordt weergegeven in de **maximaal verbruikte ru's / seconde per elke fysieke partitie** grafiek. De volgende afbeelding toont een voorbeeld van een slechte verdeling van gegevens als blijkt uit de ongelijke partitie aan de linkerkant. 
+Met een goede kardinaliteit van de partitiesleutels is essentieel voor elke schaalbare toepassing. Om te bepalen van de distributie van de doorvoer van een gepartitioneerde container onderverdeeld op basis van partities, gaat u naar de **blade met metrische gegevens** in de [Azure-portal](https://portal.azure.com). In de **doorvoer** tabblad de uitsplitsing van de opslag wordt weergegeven in de **maximaal verbruikte ru's / seconde per elke fysieke partitie** grafiek. De volgende afbeelding toont een voorbeeld van een slechte verdeling van gegevens als blijkt uit de ongelijke partitie aan de linkerkant. 
 
 ![Één partitie intensief gebruik zien om 3:05 uur](media/use-metrics/metrics-17.png)
 
@@ -47,7 +47,7 @@ Een doorvoer ongelijke verdeling kan ertoe leiden dat *hot* partities, die kunne
 
 ## <a name="determining-the-storage-distribution-across-partitions"></a>Bepalen van de opslag-distributie over meerdere partities
 
-Met een goede kardinaliteit van de partitie is essentieel voor elke schaalbare toepassing. Om te bepalen van de distributie van de doorvoer van een gepartitioneerde verzameling onderverdeeld op basis van partities, Ga naar de blade met metrische gegevens in de [Azure-portal](https://portal.azure.com). Op het tabblad doorvoer wordt de uitsplitsing van de opslag weergegeven in het maximum aantal verbruikte RU/seconde per elke fysieke partitie-grafiek. De volgende afbeelding ziet u een slechte verdeling van gegevens als blijkt uit de ongelijke partitie aan de linkerkant. 
+Met een goede kardinaliteit van de partitie is essentieel voor elke schaalbare toepassing. Om te bepalen van de distributie van de doorvoer van een gepartitioneerde container onderverdeeld op basis van partities, Ga naar de blade met metrische gegevens in de [Azure-portal](https://portal.azure.com). Op het tabblad doorvoer wordt de uitsplitsing van de opslag weergegeven in het maximum aantal verbruikte RU/seconde per elke fysieke partitie-grafiek. De volgende afbeelding ziet u een slechte verdeling van gegevens als blijkt uit de ongelijke partitie aan de linkerkant. 
 
 ![Voorbeeld van slechte gegevensdistributie](media/use-metrics/metrics-07.png)
 
@@ -55,7 +55,7 @@ U kunt de hoofd-oorzaak welke partitiesleutel de distributie scheeftrekken is do
 
 ![Partitiesleutel is de distributie scheeftrekken](media/use-metrics/metrics-05.png)
 
-Nadat identificeren welke partitiesleutel het scheeftrekken in distributie veroorzaakt, moet u wellicht uw verzameling met een meer gedistribueerde partitiesleutel partitioneren. Zie voor meer informatie over partitionering in Azure Cosmos DB, [partitioneren en schalen in Azure Cosmos DB](./partition-data.md).
+Nadat het identificeren van welke partitiesleutel veroorzaakt het scheeftrekken in distributie, moet u wellicht opnieuw partitioneren van de container met een meer gedistribueerde partitiesleutel. Zie voor meer informatie over partitionering in Azure Cosmos DB, [partitioneren en schalen in Azure Cosmos DB](./partition-data.md).
 
 ## <a name="comparing-data-size-against-index-size"></a>Vergelijking van de grootte van de gegevens op basis van de indexgrootte van de
 

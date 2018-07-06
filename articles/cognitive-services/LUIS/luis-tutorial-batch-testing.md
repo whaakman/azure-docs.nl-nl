@@ -1,7 +1,7 @@
 ---
-title: Tests in batch te gebruiken voor het verbeteren van LUIS voorspellingen | Microsoft Docs
+title: Testen van batch gebruiken voor het verbeteren van LUIS voorspellingen | Microsoft Docs
 titleSuffix: Azure
-description: Laden van de batch-test, resultaten bekijken en LUIS voorspellingen met wijzigingen te verbeteren.
+description: Een belastingtest uit batch, bekijk de resultaten en verbeteren van LUIS voorspellingen te wijzigen.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -10,38 +10,38 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5788f17f2724a0354a1db506971c2343c1800f01
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4a5ace10c171d17235051c5bd666526318829fd7
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266393"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867338"
 ---
-# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Gebruik alleen voor testdoeleinden batch voorspelling nauwkeurigheid vinden
+# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Gebruik van batch testen om te zoeken voorspelling nauwkeurigheid problemen
 
-Deze zelfstudie laat zien hoe gebruikt u batch testen om te zoeken utterance voorspelling problemen.  
+Deze zelfstudie wordt gedemonstreerd hoe u met batch testen utterance voorspelling problemen vinden.  
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-* Maak een batchbestand test 
-* Voer een batch-test
-* Test-resultaten bekijken
-* Los de fouten voor intents
-* De batch testen
+* Maak een batchbestand testen 
+* Een batch-test uitvoeren
+* Bekijk de resultaten
+* Corrigeer de fouten voor intents
+* Testen van de batch
 
 ## <a name="prerequisites"></a>Vereisten
 
 > [!div class="checklist"]
-> * Voor dit artikel, moet u ook een [LUIS][LUIS] account om uw toepassing LUIS ontwerpen.
+> * Voor dit artikel, moet u ook een [LUIS][LUIS] account om te kunnen maken van uw LUIS-toepassing.
 
 > [!Tip]
-> Als u nog geen een abonnement, kunt u registreren voor een [gratis account](https://azure.microsoft.com/free/).
+> Als u nog geen een abonnement, kunt u zich registreren voor een [gratis account](https://azure.microsoft.com/free/).
 
 ## <a name="create-new-app"></a>Nieuwe app maken
-Dit artikel wordt gebruikt voor het vooraf gedefinieerde HomeAutomation-domein. Het vooraf gedefinieerde domein heeft intents en entiteiten utterances voor het beheren van HomeAutomation apparaten zoals lichten. Maken van de app, het toevoegen van het domein, te trainen en te publiceren.
+In dit artikel wordt het vooraf gedefinieerde HomeAutomation-domein. De vooraf gedefinieerde domein heeft intenties en entiteiten uitingen voor het beheren van apparaten zoals verlichting HomeAutomation. De app maken, toevoegen van het domein, trainen en publiceren.
 
-1. In de [LUIS] website, een nieuwe app maken door het selecteren van **nieuwe app maken** op de **MyApps** pagina. 
+1. In de [LUIS] website, een nieuwe app maken door te selecteren **nieuwe app maken** op de **MyApps** pagina. 
 
     ![Nieuwe app maken](./media/luis-tutorial-batch-testing/create-app-1.png)
 
@@ -49,7 +49,7 @@ Dit artikel wordt gebruikt voor het vooraf gedefinieerde HomeAutomation-domein. 
 
     ![Voer de naam van app](./media/luis-tutorial-batch-testing/create-app-2.png)
 
-3. Selecteer **vooraf gedefinieerde domeinen** in de linkerbenedenhoek. 
+3. Selecteer **vooraf gemaakte domeinen** in de linkerbenedenhoek. 
 
     ![Vooraf gedefinieerde domein selecteren](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
 
@@ -57,16 +57,16 @@ Dit artikel wordt gebruikt voor het vooraf gedefinieerde HomeAutomation-domein. 
 
     ![HomeAutomation domein toevoegen](./media/luis-tutorial-batch-testing/prebuilt-domain-2.png)
 
-5. Selecteer **Train** in de juiste navigatiebalk bovenaan.
+5. Selecteer **Train** in de navigatiebalk bovenaan rechts.
 
-    ![Selecteer de knop Train](./media/luis-tutorial-batch-testing/train-button.png)
+    ![Selecteer de knop van de trein](./media/luis-tutorial-batch-testing/train-button.png)
 
 ## <a name="batch-test-criteria"></a>Criteria voor batch-test
-Testen van batch kunt maximaal 1000 utterances testen op een tijdstip. De batch mag geen dubbele waarden. [Exporteren](create-new-app.md#export-app) de app om te zien van de lijst met huidige utterances.  
+Batch testen kunt tot 1000 uitingen testen op een tijdstip. De batch mag geen dubbele waarden hebben. [Exporteren](create-new-app.md#export-app) de app om te zien van de lijst met huidige uitingen.  
 
-De test-strategie voor LUIS maakt gebruik van drie afzonderlijke gegevenssets: model utterances, batch test utterances en utterances eindpunt. Zorg ervoor dat u niet de utterances van beide model utterances (toegevoegd aan de opzet), of een eindpunt utterances voor deze zelfstudie. 
+De test-strategie voor LUIS maakt gebruik van drie verschillende sets van gegevens: uitingen batch test uitingen en eindpunt uitingen model. Zorg ervoor dat u niet de uitingen van een model-uitingen (toegevoegd aan een doel) of een eindpunt uitingen voor deze zelfstudie. 
 
-Gebruik niet een van de utterances al in de app voor de batch-test:
+Gebruik niet een van de uitingen al in de app voor de batch-test:
 
 ```
 'breezeway on please',
@@ -108,12 +108,12 @@ Gebruik niet een van de utterances al in de app voor de batch-test:
 'turn thermostat on 70 .' 
 ```
 
-## <a name="create-a-batch-to-test-intent-prediction-accuracy"></a>Maak een batch opzet nauwkeurigheid testen
+## <a name="create-a-batch-to-test-intent-prediction-accuracy"></a>Maak een batch als u wilt testen van intentie nauwkeurigheid
 1. Maak `homeauto-batch-1.json` in een teksteditor zoals [VSCode](https://code.visualstudio.com/). 
 
-2. Toevoegen van utterances met de **bedoeling** gewenste voorspelde in de test. Voor deze zelfstudie, u kunt het eenvoudig door utterances duren in de `HomeAutomation.TurnOn` en `HomeAutomation.TurnOff` en schakel de `on` en `off` tekst in de utterances. Voor de `None` hetzelfde doel toevoegen van een aantal utterances die geen deel uit van de [domein](luis-glossary.md#domain) (onderwerp). 
+2. Utterances met toevoegen de **bedoeling** gewenste voorspelde in de test. Voor deze zelfstudie om het eenvoudig maken, uitingen nemen de `HomeAutomation.TurnOn` en `HomeAutomation.TurnOff` en schakelt u over de `on` en `off` tekst in de uitingen. Voor de `None` doel toevoegen van een aantal uitingen die geen deel uitmaken van de [domein](luis-glossary.md#domain) (onderwerp). 
 
-    Toevoegen om te begrijpen hoe de testresultaten batch correleert met de batch JSON, alleen zes intents.
+    Om te begrijpen hoe de resultaten van de batch correleert met de JSON van de batch, moet u alleen zes intents toevoegen.
 
     ```JSON
     [
@@ -150,12 +150,12 @@ Gebruik niet een van de utterances al in de app voor de batch-test:
     ]
     ```
 
-## <a name="run-the-batch"></a>De batch uitvoeren
+## <a name="run-the-batch"></a>Voer de batch
 1. Selecteer **Test** in de bovenste navigatiebalk. 
 
     ![Selecteer de Test in de navigatiebalk](./media/luis-tutorial-batch-testing/test-1.png)
 
-2. Selecteer **Batch testen Configuratiescherm** in het paneel aan de rechterkant. 
+2. Selecteer **Batch testen deelvenster** in het deelvenster aan de rechterkant. 
 
     ![Selecteer Batch test deelvenster](./media/luis-tutorial-batch-testing/test-2.png)
 
@@ -163,7 +163,7 @@ Gebruik niet een van de utterances al in de app voor de batch-test:
 
     ![Selecteer de gegevensset importeren](./media/luis-tutorial-batch-testing/test-3.png)
 
-4. Kies de locatie van de `homeauto-batch-1.json` bestand.
+4. Kies de locatie van het bestand system van de `homeauto-batch-1.json` bestand.
 
 5. Naam van de gegevensset `set 1`.
 
@@ -175,80 +175,80 @@ Gebruik niet een van de utterances al in de app voor de batch-test:
 
 7. Selecteer **resultaten**.
 
-    ![Resultaten te zien](./media/luis-tutorial-batch-testing/test-6.png)
+    ![Resultaten weergeven](./media/luis-tutorial-batch-testing/test-6.png)
 
-8. Bekijk de resultaten in de grafiek en de legenda.
+8. Bekijk de resultaten in de grafiek en legenda.
 
     ![Batch-resultaten](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
-## <a name="review-batch-results"></a>Batch-resultaten bekijken
-De resultaten van de batch zijn in twee secties. Het bovenste gedeelte bevat de grafiek en de legenda. Het onderste gedeelte wordt utterances wanneer u een naam van de grafiek selecteert.
+## <a name="review-batch-results"></a>Bekijk de resultaten van batch
+De batch-resultaten worden in twee secties. Het bovenste gedeelte bevat de grafiek en de legenda. In het onderste gedeelte vindt u uitingen als u de naam van een gebied van de grafiek.
 
-Eventuele fouten worden aangeduid met de kleur rood. De grafiek wordt in vier secties, met twee van de secties in rood weergegeven. **Dit zijn de secties zich te concentreren op**. 
+Eventuele fouten worden aangeduid met de kleur rood. De grafiek wordt in vier secties met twee van de secties in het rood weergegeven. **Dit zijn de secties zich richten op**. 
 
-De rechterbovenhoek sectie geeft aan de test onjuist voorspelde het bestaan van een doel of de entiteit. Het linkergedeelte onder geeft aan dat de test voorspeld onjuist het ontbreken van een doel of de entiteit.
+De rechterbovenhoek sectie onjuist geeft aan dat de test voorspelde sprake is van een doel of de entiteit. Het linkergedeelte onder geeft aan dat de test voorspeld ten onrechte de afwezigheid van een doel of de entiteit.
 
-### <a name="homeautomationturnoff-test-results"></a>HomeAutomation.TurnOff testresultaten
-Selecteer in de legenda de `HomeAutomation.TurnOff` bedoeld. Heeft een pictogram groen succes aan de linkerkant van de naam in de legenda. Er zijn geen fouten voor dit doel. 
+### <a name="homeautomationturnoff-test-results"></a>De resultaten van HomeAutomation.TurnOff
+Selecteer in de legenda de `HomeAutomation.TurnOff` intentie. Heeft een pictogram groen succes aan de linkerkant van de naam in de legenda. Er zijn geen fouten voor dit doel. 
 
 ![Batch-resultaten](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
-### <a name="homeautomationturnon-and-none-intents-have-errors"></a>HomeAutomation.TurnOn en er is geen intents bevatten fouten
-De twee intents hebt fouten, wat betekent dat de voorspellingen test niet overeenkomen met de batch-bestand. Selecteer de `None` opzet in de legenda om te controleren van de eerste fout. 
+### <a name="homeautomationturnon-and-none-intents-have-errors"></a>HomeAutomation.TurnOn en geen intents bevatten fouten
+De andere twee intenties bevatten fouten, wat betekent dat de test voorspellingen komen niet overeen met de verwachtingen van batch-bestand. Selecteer de `None` intentie in de legenda om te controleren van de eerste fout. 
 
-![Geen opzet](./media/luis-tutorial-batch-testing/none-intent-failures.png)
+![Geen intentie](./media/luis-tutorial-batch-testing/none-intent-failures.png)
 
-Fouten worden weergegeven in de grafiek in de secties rode: **onjuiste positieve** en **False negatieve**. Selecteer de **False negatieve** sectienaam in de grafiek zien van de mislukte utterances onder de grafiek. 
+Fouten worden weergegeven in de grafiek in de rode secties: **ONWAAR positief** en **False negatieve**. Selecteer de **False negatieve** sectienaam in de grafiek om te zien van de mislukte uitingen onder de grafiek. 
 
-![ONWAAR negatieve fouten](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
+![De waarde False negatieve fouten](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
 
-De utterance mislukt `help` werd verwacht als een `None` bedoelingen, maar de test voorspeld `HomeAutomation.TurnOn` bedoeld.  
+De utterance mislukt `help` verwacht als een `None` doel, maar de test voorspeld `HomeAutomation.TurnOn` intentie.  
 
-Er zijn twee fouten, één in HomeAutomation.TurnOn en één in None. Beide zijn veroorzaakt door de utterance `help` omdat het niet voldeed aan de verwachting geen en dit een onverwachte overeenkomst voor de bedoeling HomeAutomation.TurnOn is. 
+Er zijn twee fouten, één in HomeAutomation.TurnOn en één in None. Beide zijn veroorzaakt door de utterance `help` omdat het niet voldeed aan de verwachting geen en er een onverwachte overeenkomst voor het doel HomeAutomation.TurnOn is. 
 
-Om te bepalen waarom de `None` utterances mislukken, controleert u de utterances in `None`. 
+Om te bepalen waarom de `None` uitingen mislukken, controleert u de uitingen die momenteel in `None`. 
 
-## <a name="review-none-intents-utterances"></a>Bekijk geen opzet utterances de
+## <a name="review-none-intents-utterances"></a>Controleer geen intentie uitingen de
 
-1. Sluit de **Test** Configuratiescherm door het selecteren van de **Test** knop op de bovenste navigatiebalk. 
+1. Sluit de **Test** panel door het selecteren van de **Test** knop op de bovenste navigatiebalk. 
 
 2. Selecteer **bouwen** van het bovenste navigatievenster. 
 
-3. Selecteer **geen** opzet uit de lijst met intents.
+3. Selecteer **geen** intentie van de lijst met intents.
 
-4. Besturingselement + E om te zien van de token weergave van de utterances selecteren 
+4. Besturingselement + E om een token weergave van de uitingen selecteren 
     
-    |Geen opzet's utterances|Voorspelling score|
+    |Geen intentie's uitingen|Voorspellingsscore|
     |--|--|
-    |'verkleinen temperatuur voor mij Neem'|0.44|
-    |"dim keuken lichten 25."|0,43|
-    |'het volume verlagen'|0.46|
-    |"internet in mijn Raadpleeg kamer uw inschakelen"|0,28|
+    |"verkleinen temperatuur voor mij."|0.44|
+    |"dimensie keuken verlichting op 25."|0,43|
+    |"het volume lager"|0.46|
+    |"inschakelen op het internet in mijn Neem slaapkamers"|0,28|
 
-## <a name="fix-none-intents-utterances"></a>Herstel geen opzet utterances de
+## <a name="fix-none-intents-utterances"></a>Los geen intentie uitingen de
     
-Alle utterances in `None` zijn buiten de app-domein. Deze utterances zijn ten opzichte van HomeAutomation, zodat ze in de verkeerde bedoelingen. 
+Alle uitingen in `None` zijn buiten de app-domein. Deze uitingen zijn ten opzichte van HomeAutomation, zodat ze zich in de verkeerde bedoelingen. 
 
-LUIS biedt ook de utterances op die kleiner is dan 50% (<.50) voorspelling score. Als u de utterances in de andere twee intents bekijkt, ziet u veel hoger voorspelling scores. Als LUIS lage scores voor voorbeeld utterances, die een goede indicatie zijn de utterances verwarring opleveren voor LUIS tussen het huidige doel en andere intents. 
+LUIS biedt ook de uitingen op die kleiner is dan 50% (<.50) voorspelling score. Als u de uitingen in de andere twee intenties bekijkt, ziet u veel hoger voorspelling scores. Als LUIS lage scores voor de voorbeeld-uitingen die een goede indicatie zijn de uitingen lastig te LUIS tussen de huidige intentie en andere intents. 
 
-Oplossen van de app, de utterances geopend in de `None` bedoeling moeten worden verplaatst naar het juiste doel en de `None` doel moet een nieuwe, juiste intents. 
+Om op te lossen van de app, de uitingen die momenteel in de `None` doel moet worden verplaatst naar het juiste doel en de `None` bedoeling moet nieuwe, juiste intents. 
 
-Drie van de utterances in de `None` bedoeld zijn bedoeld om het verlagen van de instellingen van het automation-apparaat. Ze gebruiken woorden zoals `dim`, `lower`, of `decrease`. De vierde utterance wordt u gevraagd om in te schakelen op het internet. Aangezien alle vier utterances over het inschakelen van of de mate van power wijzigen op een apparaat, moeten u deze verplaatst naar de `HomeAutomation.TurnOn` bedoeld. 
+Drie van de uitingen in de `None` doel zijn bedoeld om u te verlagen van de instellingen van het automation-apparaat. Ze gebruiken woorden, zoals `dim`, `lower`, of `decrease`. De vierde utterance wordt gevraagd om in te schakelen op het internet. Aangezien alle vier uitingen over het inschakelen of wijzigen van de mate van kracht op een apparaat, moeten u ze verplaatst naar de `HomeAutomation.TurnOn` intentie. 
 
-Dit is slechts één oplossing. U kunt ook een nieuwe bedoeling van maken `ChangeSetting` en verplaatsen van de utterances met dim, verlagen en verlagen naar die nieuwe intentie. 
+Dit is slechts één oplossing. U kunt ook een nieuw doel van maken `ChangeSetting` en verplaatsen van de uitingen met behulp van dimensie, verlagen en verlagen naar die nieuwe intentie. 
 
-## <a name="fix-the-app-based-on-batch-results"></a>Los van de app op basis van batch-resultaten
-Verplaatsen van de vier utterances naar de `HomeAutomation.TurnOn` bedoeld. 
+## <a name="fix-the-app-based-on-batch-results"></a>Herstellen van de app op basis van batch-resultaten
+Verplaatsen van de vier uitingen naar de `HomeAutomation.TurnOn` intentie. 
 
-1. Schakel het selectievakje boven de lijst utterance zodat alle utterances zijn geselecteerd. 
+1. Selecteer het selectievakje boven de lijst met utterance zodat alle uitingen zijn geselecteerd. 
 
-2. In de **opnieuw toewijzen bedoeling** vervolgkeuzelijst, selecteer `HomeAutomation.TurnOn`. 
+2. In de **opnieuw toewijzen van intentie** vervolgkeuzelijst, selecteer `HomeAutomation.TurnOn`. 
 
-    ![Utterances verplaatsen](./media/luis-tutorial-batch-testing/move-utterances.png)
+    ![Uitingen verplaatsen](./media/luis-tutorial-batch-testing/move-utterances.png)
 
-    Nadat de vier utterances opnieuw zijn toegewezen, de utterance lijst voor de `None` bedoeling is leeg.
+    Nadat de vier uitingen zijn toegewezen, de utterance lijst voor de `None` bedoeling is leeg.
 
-3. Vier nieuwe intents voor de opzet geen toevoegen:
+3. Vier nieuwe intents toevoegen voor de intentie geen:
 
     ```
     "fish"
@@ -257,26 +257,26 @@ Verplaatsen van de vier utterances naar de `HomeAutomation.TurnOn` bedoeld.
     "pizza"
     ```
 
-    Deze utterances zijn zeker buiten het domein van HomeAutomation. Terwijl u elke utterance invoert, bekijkt u de score voor. De score zijn lage of zelfs zeer lage (met een rood kader omheen). Nadat het trainen van de app, klikt u in stap 8, wordt de score veel hoger zijn. 
+    Deze uitingen zijn absoluut buiten het domein van HomeAutomation. Als u elke utterance invoert, bekijk de score voor. De score is mogelijk met lage of zelfs zeer laag (met een rood kader rond het). Nadat u in stap 8, de app trainen zal de score is veel hoger zijn. 
 
-7. Labels verwijderen door de blauwe label in het utterance en selecteer **label verwijderen**.
+7. Verwijderen van de labels die door het blauwe label selecteren in de utterance en selecteer **label verwijderen**.
 
-8. Selecteer **Train** in de juiste navigatiebalk bovenaan. De score van elke utterance is veel hoger. Alle scores voor de `None` bedoeling nu hoger.80 zijn. 
+8. Selecteer **Train** in de navigatiebalk bovenaan rechts. De score van elke utterance is veel hoger. Alle scores voor de `None` nu kunt u lezen wat hierboven.80 moet zijn. 
 
-## <a name="verify-the-fix-worked"></a>Controleren of het probleem heeft gewerkt
-Om te controleren dat de utterances in de batch-test correct worden voorspeld voor de **geen** hetzelfde doel de test van de batch opnieuw uitvoeren.
+## <a name="verify-the-fix-worked"></a>Controleren of de oplossing heeft gewerkt
+Om te controleren dat de uitingen in de batch-test correct worden voorspeld voor de **geen** doel, voer de batch-test opnieuw uit.
 
 1. Selecteer **Test** in de bovenste navigatiebalk. 
 
-2. Selecteer **Batch testen Configuratiescherm** in het paneel aan de rechterkant. 
+2. Selecteer **Batch testen deelvenster** in het deelvenster aan de rechterkant. 
 
-3. Selecteer de drie puntjes (...) rechts van de batchnaam van de en selecteer **gegevensset uitgevoerd**. Wacht totdat de batch-test is voltooid.
+3. Selecteer het weglatingsteken (***...*** ) aan de rechterkant van de batchnaam en selecteer **gegevensset uitvoeren**. Wacht totdat de batch-test is voltooid.
 
-    ![Dataset uitvoeren](./media/luis-tutorial-batch-testing/run-dataset.png)
+    ![Gegevensset uitvoeren](./media/luis-tutorial-batch-testing/run-dataset.png)
 
-4. Selecteer **resultaten**. De intents moeten alle groen pictogrammen aan de linkerkant van de opzet namen hebben. Met het juiste filter ingesteld op de `HomeAutomation.Turnoff` bedoelingen, selecteer de groene punt in het bovenste rechterpaneel die het dichtst bij het midden van de grafiek. De naam van de utterance wordt weergegeven in de tabel onder de grafiek. De score van `breezeway off please` zeer laag. Een optionele activiteit is meer utterances toevoegen aan de bedoeling deze score verhogen. 
+4. Selecteer **resultaten**. De intenties moeten alle groen pictogrammen aan de linkerkant van de intentie namen hebben. Met het juiste filter ingesteld op de `HomeAutomation.Turnoff` doel, selecteer het groene stip in het bovenste deelvenster aan de rechterkant die het dichtst bij het midden van de grafiek. De naam van de utterance wordt weergegeven in de tabel onder de grafiek. De score van `breezeway off please` zeer laag. Een optionele activiteit is meer uitingen toevoegen aan het doel te verhogen van deze score. 
 
-    ![Dataset uitvoeren](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
+    ![Gegevensset uitvoeren](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
 
 <!--
     The Entities section of the legend may have errors. That is the next thing to fix.
@@ -374,7 +374,7 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 
 3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
 
-4. If the list of datasets is not visible, select **Back to list**. Select the three dots (...) at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
+4. If the list of datasets is not visible, select **Back to list**. Select the ellipsis (***...***) button at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
 
 5. Select **See results** to review the test results.
 
@@ -383,6 +383,6 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over voorbeeld utterances](luis-how-to-add-example-utterances.md)
+> [Meer informatie over de voorbeeld-uitingen](luis-how-to-add-example-utterances.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

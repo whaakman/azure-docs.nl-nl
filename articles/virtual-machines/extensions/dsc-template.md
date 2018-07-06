@@ -1,6 +1,6 @@
 ---
 title: Desired State Configuration-extensie met Azure Resource Manager-sjablonen
-description: Meer informatie over de Sjabloondefinitie Resource Manager voor de uitbreiding Desired State Configuration (DSC) in Azure.
+description: Meer informatie over de Sjabloondefinitie van de Resource Manager-voor de extensie Desired State Configuration (DSC) in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: DCtheGeek
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 8d1e8b4d529936a2401c734b2eff1f0c02dae352
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: d007869bb8bad1a2f0775a1ab2c1bf5d27c1cb8f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307863"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866217"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-extensie met Azure Resource Manager-sjablonen
 
-In dit artikel beschrijft de Azure Resource Manager-sjabloon voor de [Desired State Configuration (DSC) extensie handler](dsc-overview.md).
+In dit artikel beschrijft de Azure Resource Manager-sjabloon voor de [handler voor Desired State Configuration (DSC)-extensie](dsc-overview.md).
 
 > [!NOTE]
-> U kunt tegenkomen iets anders schema voorbeelden. De wijziging in het schema is opgetreden in de release van oktober 2016. Zie voor meer informatie [Update van de vorige indeling](#update-from-the-previous-format).
+> U kunt tegenkomen enigszins schema voorbeelden. De wijziging in het schema is opgetreden in de release van oktober 2016. Zie voor meer informatie, [bijwerken vanuit een eerdere indeling](#update-from-a-previous-format).
 
-## <a name="template-example-for-a-windows-vm"></a>Voorbeeld van de sjabloon voor een virtuele machine van Windows
+## <a name="template-example-for-a-windows-vm"></a>Voorbeeld van de sjabloon voor een Windows-VM
 
-Het volgende fragment gaat de **Resource** gedeelte van de sjabloon.
-De DSC-extensie neemt standaard extensie eigenschappen.
-Zie voor meer informatie [VirtualMachineExtension klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Het volgende codefragment wordt de **Resource** gedeelte van de sjabloon.
+De DSC-extensie neemt standaard extensie-eigenschappen.
+Zie voor meer informatie, [VirtualMachineExtension klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
 {
@@ -77,13 +77,13 @@ Zie voor meer informatie [VirtualMachineExtension klasse](https://docs.microsoft
 }
 ```
 
-## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Voorbeeld van de sjabloon voor virtuele-machineschaalset van Windows wordt ingesteld
+## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Hiermee stelt u het voorbeeld van de sjabloon voor virtuele-machineschaalset in Windows
 
-Een virtuele machine scale set knooppunt heeft een **eigenschappen** sectie met een **VirtualMachineProfile, extensionProfile** kenmerk.
-Onder **extensies**, de details voor DSC-extensie toevoegen.
+Een virtuele machine scale set knooppunt heeft een **eigenschappen** sectie waarvoor een **VirtualMachineProfile, extensionProfile** kenmerk.
+Onder **extensies**, de gegevens voor DSC-extensie toe te voegen.
 
-De DSC-extensie neemt standaard extensie eigenschappen.
-Zie voor meer informatie [VirtualMachineScaleSetExtension klasse](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+De DSC-extensie neemt standaard extensie-eigenschappen.
+Zie voor meer informatie, [VirtualMachineScaleSetExtension klasse](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -128,11 +128,11 @@ Zie voor meer informatie [VirtualMachineScaleSetExtension klasse](/dotnet/api/mi
 }
 ```
 
-## <a name="detailed-settings-information"></a>Informatie over de gedetailleerde instellingen
+## <a name="detailed-settings-information"></a>Instellingen voor gedetailleerde informatie
 
-Gebruik het volgende schema in de **instellingen** sectie van de Azure DSC-uitbreiding in de Resource Manager-sjabloon.
+Gebruik het volgende schema in de **instellingen** sectie van de Azure-DSC-extensie in Resource Manager-sjabloon.
 
-Zie voor een lijst van de argumenten die beschikbaar voor een script voor de configuratie van de standaard zijn [configuratiescript standaard](#default-configuration-script).
+Zie voor een lijst van de argumenten die beschikbaar voor een script voor de configuratie van de standaard zijn, [configuratiescript standaard](#default-configuration-script).
 
 ```json
 "settings": {
@@ -178,41 +178,41 @@ Zie voor een lijst van de argumenten die beschikbaar voor een script voor de con
 
 | Naam van eigenschap | Type | Beschrijving |
 | --- | --- | --- |
-| settings.wmfVersion |tekenreeks |Hiermee geeft u de versie van Windows Management Framework (WMF) die moet worden geïnstalleerd op de virtuele machine. Deze eigenschap instelt op **nieuwste** installeert de meest recente versie van WMF. De enige mogelijke waarden voor deze eigenschap zijn momenteel **4.0**, **5.0**, **5.0PP**, en **nieuwste**. Deze mogelijke waarden zijn onderworpen aan updates. De standaardwaarde is **nieuwste**. |
-| settings.configuration.url |tekenreeks |Hiermee geeft u de URL-locatie van waaruit u uw DSC configuration ZIP-bestand te downloaden. Als de URL die u een SAS-token is vereist voor toegang, stelt u de **protectedSettings.configurationUrlSasToken** eigenschap met de waarde van de SAS-token. Deze eigenschap is vereist als **settings.configuration.script** of **settings.configuration.function** zijn gedefinieerd. Als geen waarde voor deze eigenschappen opgeeft, de extensie roept de standaard-configuratiescript voor het instellen van de metagegevens van de locatie van Configuration Manager (LCM) en moeten worden opgegeven als argumenten. |
-| settings.configuration.script |tekenreeks |Hiermee geeft u de bestandsnaam van het script met de definitie van de DSC-configuratie. Dit script moet zich in de hoofdmap van het ZIP-bestand wordt gedownload van de URL die is opgegeven door de **configuration.url** eigenschap. Deze eigenschap is vereist als **settings.configuration.url** of **settings.configuration.script** zijn gedefinieerd. Als geen waarde voor deze eigenschappen opgeeft, de extensie roept de script voor de configuratie van de standaard om in te stellen LCM metagegevens en moeten worden opgegeven als argumenten. |
-| settings.configuration.function |tekenreeks |Geeft de naam van de DSC-configuratie. De configuratie met de naam moet worden opgenomen in het script dat **configuration.script** definieert. Deze eigenschap is vereist als **settings.configuration.url** of **settings.configuration.function** zijn gedefinieerd. Als geen waarde voor deze eigenschappen opgeeft, de extensie roept de script voor de configuratie van de standaard om in te stellen LCM metagegevens en moeten worden opgegeven als argumenten. |
+| settings.wmfVersion |tekenreeks |Hiermee geeft u de versie van Windows Management Framework (WMF) die moet worden geïnstalleerd op de virtuele machine. Als deze eigenschap instelt op **nieuwste** installeert de meest recente versie van WMF. Op dit moment de enige mogelijke waarden voor deze eigenschap zijn **4.0**, **5.0**, **5.0PP**, en **nieuwste**. Deze mogelijke waarden zijn afhankelijk van updates. De standaardwaarde is **nieuwste**. |
+| settings.configuration.url |tekenreeks |Hiermee geeft u de URL-locatie van waaruit het ZIP-bestand van uw DSC-configuratie gedownload. Als de opgegeven URL is een SAS-token voor toegang vereist, stelt u de **protectedSettings.configurationUrlSasToken** eigenschap met de waarde van uw SAS-token. Deze eigenschap is vereist als **settings.configuration.script** of **settings.configuration.function** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript voor het instellen van de metagegevens van de locatie van Configuration Manager (LCM) en moeten worden opgegeven als argumenten. |
+| settings.configuration.script |tekenreeks |Hiermee geeft u de bestandsnaam van het script dat de definitie van de DSC-configuratie bevat. Met dit script moet zich in de hoofdmap van het ZIP-bestand dat moet worden gedownload vanaf de URL die is opgegeven door de **configuration.url** eigenschap. Deze eigenschap is vereist als **settings.configuration.url** of **settings.configuration.script** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript om in te stellen LCM metagegevens en moeten worden opgegeven als argumenten. |
+| settings.configuration.function |tekenreeks |Hiermee geeft u de naam van de DSC-configuratie. De configuratie met de naam moet worden opgenomen in het script dat **configuration.script** definieert. Deze eigenschap is vereist als **settings.configuration.url** of **settings.configuration.function** zijn gedefinieerd. Als er geen waarde is opgegeven voor deze eigenschappen, de extensie roept de standaard-configuratiescript om in te stellen LCM metagegevens en moeten worden opgegeven als argumenten. |
 | settings.configurationArguments |Verzameling |Hiermee definieert u de parameters die u wilt doorgeven aan uw DSC-configuratie. Deze eigenschap is niet versleuteld. |
-| settings.configurationData.url |tekenreeks |Geeft de URL waaruit u uw gegevens (.psd1) configuratiebestand te downloaden om te gebruiken als invoer voor uw DSC-configuratie. Als de URL die u een SAS-token is vereist voor toegang, stelt u de **protectedSettings.configurationDataUrlSasToken** eigenschap met de waarde van de SAS-token. |
-| settings.privacy.dataEnabled |tekenreeks |Schakelt verzamelen van telemetriegegevens in of uit. De enige mogelijke waarden voor deze eigenschap zijn **inschakelen**, **uitschakelen**, **''**, of **$null**. Als u deze eigenschap leeg of null kan telemetrie. De standaardwaarde is **''**. Zie voor meer informatie [Azure DSC-uitbreiding gegevensverzameling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
-| settings.advancedOptions.downloadMappings |Verzameling |Alternatieve locaties voor het downloaden van WMF definieert. Zie voor meer informatie [Azure DSC-uitbreiding 2.8 en het downloaden van de extensie afhankelijkheden toewijzen aan uw eigen locatie](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| settings.configurationData.url |tekenreeks |Geeft de URL waaruit u uw gegevens (.psd1)-configuratiebestand te downloaden om te gebruiken als invoer voor uw DSC-configuratie. Als de opgegeven URL is een SAS-token voor toegang vereist, stelt u de **protectedSettings.configurationDataUrlSasToken** eigenschap met de waarde van uw SAS-token. |
+| settings.privacy.dataEnabled |tekenreeks |Hiermee of verzamelen van telemetriegegevens uitgeschakeld. De enige mogelijke waarden voor deze eigenschap zijn **inschakelen**, **uitschakelen**, **''**, of **$null**. Deze eigenschap verlaten leeg of null zijn, kunt telemetrie. De standaardwaarde is **''**. Zie voor meer informatie, [Azure DSC-extensie gegevensverzameling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.advancedOptions.downloadMappings |Verzameling |Hiermee definieert u alternatieve locaties van waaruit WMF gedownload. Zie voor meer informatie, [Azure DSC-extensie 2.8 en downloaden van de extensie afhankelijkheden toewijzen aan uw eigen locatie](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Verzameling |Hiermee definieert u de parameters die u wilt doorgeven aan uw DSC-configuratie. Deze eigenschap is versleuteld. |
-| protectedSettings.configurationUrlSasToken |tekenreeks |Hiermee geeft u de SAS-token te gebruiken voor toegang tot de URL die **configuration.url** definieert. Deze eigenschap is versleuteld. |
-| protectedSettings.configurationDataUrlSasToken |tekenreeks |Hiermee geeft u de SAS-token te gebruiken voor toegang tot de URL die **configurationData.url** definieert. Deze eigenschap is versleuteld. |
+| protectedSettings.configurationUrlSasToken |tekenreeks |Hiermee geeft u de SAS-token gebruiken voor toegang tot de URL die **configuration.url** definieert. Deze eigenschap is versleuteld. |
+| protectedSettings.configurationDataUrlSasToken |tekenreeks |Hiermee geeft u de SAS-token gebruiken voor toegang tot de URL die **configurationData.url** definieert. Deze eigenschap is versleuteld. |
 
 ## <a name="default-configuration-script"></a>Standaard-configuratiescript
 
 Zie voor meer informatie over de volgende waarden [Local Configuration Manager-basisinstellingen](/powershell/dsc/metaconfig#basic-settings).
-U kunt het DSC-uitbreiding Standaardscript configuratie gebruiken voor het configureren van de LCM-eigenschappen die worden vermeld in de volgende tabel.
+U kunt de DSC-extensie standaard-configuratiescript gebruiken alleen de LCM om eigenschappen te configureren die worden vermeld in de volgende tabel.
 
 | Naam van eigenschap | Type | Beschrijving |
 | --- | --- | --- |
-| settings.configurationArguments.RegistrationKey |SecureString |Vereiste eigenschap. Hiermee geeft u de sleutel die wordt gebruikt om een knooppunt te registreren bij Azure Automation-service als het wachtwoord van een PowerShell-referentieobject. Deze waarde automatisch worden gedetecteerd met behulp van de **listkeys** methode op basis van het Automation-account. De waarde moet worden beveiligd als een beveiligde instelling. |
-| settings.configurationArguments.RegistrationUrl |tekenreeks |Vereiste eigenschap. Hiermee geeft u de URL van het Automation-eindpunt waarbij het knooppunt probeert te registreren. Deze waarde automatisch worden gedetecteerd met behulp van de **verwijzing** methode op basis van het Automation-account. |
-| settings.configurationArguments.NodeConfigurationName |tekenreeks |Vereiste eigenschap. Hiermee geeft u de configuratie van de knooppunten in het Automation-account toewijzen aan het knooppunt. |
-| settings.configurationArguments.ConfigurationMode |tekenreeks |Hiermee wordt de modus voor LCM. Geldige opties zijn **ApplyOnly**, **ApplyandMonitor**, en **ApplyandAutoCorrect**.  De standaardwaarde is **ApplyandMonitor**. |
-| settings.configurationArguments.RefreshFrequencyMins | UInt32 | Hiermee geeft u op hoe vaak LCM probeert om te controleren met het Automation-account voor updates.  Standaardwaarde is **30**.  Minimumwaarde is **15**. |
-| settings.configurationArguments.ConfigurationModeFrequencyMins | UInt32 | Hiermee geeft u op hoe vaak LCM valideert de huidige configuratie. Standaardwaarde is **15**. Minimumwaarde is **15**. |
-| settings.configurationArguments.RebootNodeIfNeeded | booleaans | Hiermee geeft u op of een knooppunt kan worden automatisch opnieuw opgestart als een DSC-bewerking wordt gevraagd. Standaardwaarde is **false**. |
-| settings.configurationArguments.ActionAfterReboot | tekenreeks | Hiermee geeft u op wat er gebeurt na opnieuw opstarten als een configuratie toepassen. Geldige opties zijn **ContinueConfiguration** en **StopConfiguration**. Standaardwaarde is **ContinueConfiguration**. |
+| settings.configurationArguments.RegistrationKey |SecureString |De vereiste eigenschap. Hiermee geeft u de sleutel die wordt gebruikt om een knooppunt te registreren bij Azure Automation-service als het wachtwoord van een PowerShell-referentieobject. Deze waarde automatisch worden gedetecteerd met behulp van de **listkeys** methode op basis van het Automation-account. De waarde moet worden beveiligd als een beveiligde instelling. |
+| settings.configurationArguments.RegistrationUrl |tekenreeks |De vereiste eigenschap. Hiermee geeft u de URL van het Automation-eindpunt waar het knooppunt probeert te registreren. Deze waarde automatisch worden gedetecteerd met behulp van de **verwijzing** methode op basis van het Automation-account. |
+| settings.configurationArguments.NodeConfigurationName |tekenreeks |De vereiste eigenschap. Hiermee geeft u de configuratie van de knooppunten in het Automation-account om toe te wijzen aan het knooppunt. |
+| settings.configurationArguments.ConfigurationMode |tekenreeks |Hiermee geeft u de modus voor LCM. Geldige opties zijn onder andere **ApplyOnly**, **ApplyandMonitor**, en **ApplyandAutoCorrect**.  De standaardwaarde is **ApplyandMonitor**. |
+| settings.configurationArguments.RefreshFrequencyMins | UInt32 | Hiermee geeft u op hoe vaak LCM probeert om te controleren met de Automation-account voor updates.  Standaardwaarde is **30**.  De minimumwaarde is **15**. |
+| settings.configurationArguments.ConfigurationModeFrequencyMins | UInt32 | Hiermee geeft u op hoe vaak LCM valideert de huidige configuratie. Standaardwaarde is **15**. De minimumwaarde is **15**. |
+| settings.configurationArguments.RebootNodeIfNeeded | booleaans | Hiermee geeft u op of een knooppunt worden automatisch opnieuw opgestart kan als een bewerking DSC om vraagt. Standaardwaarde is **false**. |
+| settings.configurationArguments.ActionAfterReboot | tekenreeks | Hiermee geeft u op wat gebeurt er na een opnieuw opstarten bij het toepassen van een configuratie. Geldige opties zijn **ContinueConfiguration** en **de StopConfiguration**. Standaardwaarde is **ContinueConfiguration**. |
 | settings.configurationArguments.AllowModuleOverwrite | booleaans | Hiermee geeft u op of LCM bestaande modules op het knooppunt overschrijft. Standaardwaarde is **false**. |
 
-## <a name="settings-vs-protectedsettings"></a>Vs instellingen. ProtectedSettings
+## <a name="settings-vs-protectedsettings"></a>Instellingen voor Visual Studio. ProtectedSettings
 
 Alle instellingen worden opgeslagen in een tekstbestand instellingen op de virtuele machine.
-Eigenschappen die worden vermeld onder **instellingen** openbare eigenschappen zijn.
+Eigenschappen die worden vermeld onder **instellingen** zijn openbare eigenschappen.
 Openbare eigenschappen worden niet in het tekstbestand instellingen versleuteld.
-Eigenschappen die worden vermeld onder **protectedSettings** zijn versleuteld met een certificaat en worden niet weergegeven als tekst zonder opmaak in het bestand met instellingen op de virtuele machine.
+Eigenschappen die worden vermeld onder **protectedSettings** zijn versleuteld met een certificaat en worden niet weergegeven in tekst zonder opmaak in het bestand met instellingen op de virtuele machine.
 
 Als de configuratie moet referenties, kunt u de referenties in opnemen **protectedSettings**:
 
@@ -227,11 +227,11 @@ Als de configuratie moet referenties, kunt u de referenties in opnemen **protect
 }
 ```
 
-## <a name="example-configuration-script"></a>Voorbeeld-configuratiescript
+## <a name="example-configuration-script"></a>Configuratie-voorbeeldscript
 
-Het volgende voorbeeld ziet het standaardgedrag voor de DSC-uitbreiding is metagegevensinstellingen bieden aan LCM en registreren met de service Automation DSC.
-Configuratie-argumenten zijn verplicht.
-Configuratie argumenten zijn doorgegeven aan de standaard-configuratiescript LCM metagegevens instellen.
+Het volgende voorbeeld ziet het standaardgedrag voor het DSC-extensie, die is het metagegevensinstellingen bieden aan LCM en registreren bij de service Automation DSC.
+Configuratie-argumenten zijn vereist.
+Configuratie argumenten worden doorgegeven aan de standaard-configuratiescript LCM metagegevens instellen.
 
 ```json
 "settings": {
@@ -254,14 +254,14 @@ Configuratie argumenten zijn doorgegeven aan de standaard-configuratiescript LCM
 }
 ```
 
-## <a name="example-using-the-configuration-script-in-azure-storage"></a>Voorbeeld met de configuratiescript in Azure Storage
+## <a name="example-using-the-configuration-script-in-azure-storage"></a>Voorbeeld met behulp van een script voor de configuratie in Azure Storage
 
-Het volgende voorbeeld komt uit de [DSC-extensieoverzicht handler](dsc-overview.md).
+Het volgende voorbeeld komt uit de [DSC-extensie-handler overzicht](dsc-overview.md).
 In dit voorbeeld maakt gebruik van Resource Manager-sjablonen in plaats van de cmdlets voor het implementeren van de extensie.
-Sla de configuratie IisInstall.ps1, plaatst u het in een ZIP-bestand en upload het bestand in een toegankelijke URL.
-In dit voorbeeld gebruikt Azure Blob-opslag, maar u kunt een ZIP-bestanden downloaden vanaf een willekeurige locatie.
+De IisInstall.ps1-configuratie op te slaan, plaats deze in een ZIP-bestand en upload het bestand in een toegankelijke URL.
+In dit voorbeeld maakt gebruik van Azure Blob-opslag, maar u kunt een ZIP-bestanden downloaden vanaf elke willekeurige locatie.
 
-De volgende code Hiermee geeft u de virtuele machine te downloaden van het juiste bestand en voer vervolgens de juiste PowerShell-functie in het Resource Manager-sjabloon:
+In het Resource Manager-sjabloon, Hiermee geeft u de volgende code de virtuele machine om te downloaden van het juiste bestand en voer vervolgens de juiste PowerShell-functie:
 
 ```json
 "settings": {
@@ -278,10 +278,10 @@ De volgende code Hiermee geeft u de virtuele machine te downloaden van het juist
 
 ## <a name="update-from-a-previous-format"></a>Bijwerken van een vorige indeling
 
-Alle instellingen in de vorige indeling van de extensie (en de openbare eigenschappen hebben **ModulesUrl**, **ConfigurationFunction**, **SasToken**, of  **Eigenschappen**) automatisch aanpassen aan de huidige indeling van de extensie.
-Ze worden uitgevoerd net als voor.
+Alle instellingen in de vorige indeling van de extensie (en de openbare eigenschappen hebben **ModulesUrl**, **ConfigurationFunction**, **SasToken**, of  **Eigenschappen van**) automatisch worden aangepast aan de huidige indeling van de extensie.
+Ze net zoals voor worden uitgevoerd.
 
-Het volgende schema ziet u welke het vorige instellingenschema staande:
+Het volgende schema ziet u wat de vorige instellingenschema hebt bekeken, zoals:
 
 ```json
 "settings": {
@@ -311,16 +311,16 @@ Het volgende schema ziet u welke het vorige instellingenschema staande:
 }
 ```
 
-Hier ziet u hoe de vorige indeling wordt aangepast aan de huidige indeling:
+Hier ziet u hoe de vorige indeling worden aangepast aan de huidige indeling:
 
 | Naam van eigenschap | Vorige schema equivalent |
 | --- | --- |
 | settings.wmfVersion |Instellingen. WMFVersion |
 | settings.configuration.url |settings.ModulesUrl |
-| settings.configuration.script |Eerste deel van de instellingen. ConfigurationFunction (voordat \\ \\) |
+| settings.configuration.script |Eerste deel van de instellingen. ConfigurationFunction (vóór \\ \\) |
 | settings.configuration.function |Tweede deel van de instellingen. ConfigurationFunction (nadat \\ \\) |
 | settings.configurationArguments |Instellingen. Eigenschappen |
-| settings.configurationData.url |protectedSettings.DataBlobUri (zonder SAS-token) |
+| settings.configurationData.url |protectedSettings.DataBlobUri (zonder de SAS-token) |
 | settings.privacy.dataEnabled |Instellingen. Privacy.DataEnabled |
 | settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
 | protectedSettings.configurationArguments |protectedSettings.Properties |
@@ -329,16 +329,16 @@ Hier ziet u hoe de vorige indeling wordt aangepast aan de huidige indeling:
 
 ## <a name="troubleshooting---error-code-1100"></a>Probleemoplossing - foutcode 1100
 
-Foutcode 1100 duidt op een probleem met de invoer van de gebruiker toe aan de DSC-uitbreiding.
-De tekst van deze fouten varieert en kan worden gewijzigd.
-Hier volgen enkele van de fouten die u kunt tegenkomen en hoe u deze kunt oplossen.
+Foutcode 1100 duidt op een probleem met de invoer van de gebruiker naar de DSC-extensie.
+De tekst van deze fouten varieert, en kan worden gewijzigd.
+Hier volgen enkele van de fouten die u kunt tegenkomen, en hoe u deze kunt oplossen.
 
 ### <a name="invalid-values"></a>Ongeldige waarden
 
-' Privacy.dataCollection is '{0}'.
-De enige mogelijke waarden zijn ', 'Enable' en 'Disable' '.
-' WmfVersion is '{0}'.
-Alleen de mogelijke waarden zijn... en de 'nieuwste' '.
+"Privacy.dataCollection is '{0}'.
+De enige mogelijke waarden zijn ", 'Inschakelen' en 'Disable'".
+"WmfVersion is '{0}'.
+Alleen de mogelijke waarden zijn... en de 'nieuwste' ".
 
 **Probleem**: een opgegeven waarde is niet toegestaan.
 
@@ -347,33 +347,33 @@ Voor meer informatie, Zie de tabel in [Details](#details).
 
 ### <a name="invalid-url"></a>De URL is ongeldig
 
-' ConfigurationData.url is '{0}'. Dit is geen geldige URL' ' DataBlobUri is '{0}'. Dit is geen geldige URL' ' Configuration.url is '{0}'. Dit is geen geldige URL'
+"ConfigurationData.url is '{0}'. Dit is geen geldige URL' ' DataBlobUri is '{0}'. Dit is geen geldige URL' ' Configuration.url is '{0}'. Dit is geen geldige URL'
 
 **Probleem**: een opgegeven URL is niet geldig.
 
 **Oplossing**: Controleer de opgegeven URL's.
-Zorg ervoor dat alle URL's naar geldige locaties omzetten dat de uitbreiding op de externe computer openen kunt.
+Zorg ervoor dat alle URL's omgezet in geldige locaties dat de extensie op de externe computer openen kunt.
 
-### <a name="invalid-configurationargument-type"></a>Ongeldig type voor ConfigurationArgument
+### <a name="invalid-configurationargument-type"></a>Ongeldig ConfigurationArgument-type
 
-' Ongeldige configurationArguments type {0}'
+"Ongeldige configurationArguments type {0}"
 
 **Probleem**: de *ConfigurationArguments* eigenschap kan niet worden omgezet naar een **hashtabel** object.
 
 **Oplossing**: Controleer uw *ConfigurationArguments* eigenschap een **hashtabel**.
-Volg de indeling die is opgegeven in het voorgaande voorbeeld. Bekijk voor aanhalingstekens, komma's en accolades.
+Ga als volgt de indeling die is opgegeven in het voorgaande voorbeeld. Bekijk voor offertes, komma's en accolades.
 
 ### <a name="duplicate-configurationarguments"></a>Dubbele ConfigurationArguments
 
-' Dubbele argumenten gevonden{0}' in de openbare en beveiligde configurationArguments '
+"Gevonden dubbele argumenten{0}' in zowel openbare als beveiligde configurationArguments"
 
-**Probleem**: de *ConfigurationArguments* in instellingen voor openbare en de *ConfigurationArguments* in de instellingen van beveiligde eigenschappen met dezelfde naam hebben.
+**Probleem**: de *ConfigurationArguments* in de openbare-instellingen en de *ConfigurationArguments* in beveiligde instellingen eigenschappen met dezelfde naam hebben.
 
 **Oplossing**: Verwijder een van de dubbele eigenschappen.
 
 ### <a name="missing-properties"></a>Ontbrekende eigenschappen
 
-"Configuration.function moet configuration.url of configuration.module worden opgegeven."
+"Configuration.function vereist configuration.url of configuration.module is opgegeven."
 
 "Configuration.url vereist dat configuration.script is opgegeven."
 
@@ -385,16 +385,16 @@ Volg de indeling die is opgegeven in het voorgaande voorbeeld. Bekijk voor aanha
 
 "ConfigurationDataUrlSasToken vereist dat configurationData.url is opgegeven."
 
-**Probleem**: een gedefinieerde eigenschap moet een andere eigenschap die ontbreekt.
+**Probleem**: een gedefinieerde eigenschap moet een andere eigenschap ontbreekt.
 
 **Oplossingen**:
 
 - Geef de eigenschap ontbreekt.
-- Verwijder de eigenschap die de eigenschap ontbreekt moet.
+- Verwijder de eigenschap waarvoor de eigenschap ontbreekt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [met behulp van de virtuele-machineschaalset ingesteld met de extensie Azure DSC](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-- Meer informatie vinden over [van DSC beveiligde Referentiebeheer](dsc-credentials.md).
-- Ophalen van een [Inleiding tot de Azure DSC-uitbreiding handler](dsc-overview.md).
+- Meer informatie over [ingesteld met behulp van de virtuele-machineschaalset met de Azure-DSC-extensie](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
+- Lees meer informatie over [van DSC beveiligde Referentiebeheer](dsc-credentials.md).
+- Krijgen een [Inleiding tot de Azure-DSC-extensie-handler](dsc-overview.md).
 - Voor meer informatie over PowerShell DSC, gaat u naar de [PowerShell-documentatiecentrum](/powershell/dsc/overview).

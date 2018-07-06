@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: ff78a7ed700506625761b0b1060040548b4a3ea1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0572caa1cd09c164d6c5a53bfe1c143bccffd535
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344811"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859085"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace en AppSource Uitgevershandleiding voor  
 
@@ -75,27 +75,18 @@ Nadat u [indienen van uw oplossing](https://azuremarketplace.microsoft.com/sell/
 Voor meer informatie over de voordelen van Microsoft go-to-market en manieren om uw bedrijfsactiviteiten in op de marketplace, gaat u naar de [pagina Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
 ---  
+## <a name="marketplace-and-storefronts"></a>Marketplace en Storefronts 
 
-## <a name="storefronts"></a>Webwinkels  
-Microsoft biedt twee afzonderlijke storefronts op de marketplace. De storefronts kunnen u lijst aanbiedingen, proefversies inschakelen en transact rechtstreeks met Microsoft-klanten.  
-*   Vergelijking van AppSource en Azure Marketplace
-    *   Voor meer informatie over de storefronts, gaat u naar het vergelijken van AppSource en Azure Marketplace-pagina te vinden op [AppSource vergelijken en de Azure Marketplace](./comparing-appsource-azure-marketplace.md).
-*   AppSource 
-    *   Voor meer informatie over AppSource, gaat u naar de groei die uw bedrijf uit met AppSource-pagina te vinden op [ontwikkel uw bedrijfsactiviteiten met AppSource](./grow-your-business-with-appsource.md).  
-*   Azure Marketplace 
-    *   Voor meer informatie over Azure Marketplace, gaat u naar de groei die uw bedrijf met de Azure Marketplace-pagina te vinden op [ontwikkel uw bedrijfsactiviteiten met Azure Marketplace](./grow-your-business-with-azure-marketplace.md).  
+Microsoft biedt twee afzonderlijke storefronts op onze marketplace: AppSource en de Azure Marketplace. De marketplace-storefronts worden uitgelijnd op doelgroepen en Microsoft-cloudproducten, zodat klanten eenvoudig vinden precies wat ze nodig hebben. 
 
-De storefronts kunnen u zoeken, uitproberen en kopen apps en services die uw digitale transformatie versnellen. De storefronts kunnen u uw bedrijf groeien door toegang tot Microsoft-klanten en partners.  
- 
-Iedere storefront biedt gespecialiseerde opties waarmee u kunt uw publicatie-investering te maximaliseren. De volgende tabel geeft een overzicht van deze opties.  
+Een storefront wordt gestart bij het identificeren van de doelgroep voor uw oplossing te kiezen. Gebruik de onderstaande tabel om te bepalen: 
 
-|  | AppSource | Azure Marketplace |  
-|:--- |:--- |:--- |  
-| Doelgroep | Besluitvormers voor line-of-business<table> <tr> <th>gespecialiseerde functies </th> </tr> <tr> <td>Boekhouding</td> </tr> <tr> <td>Een Inkoopanalyse</td> </tr> <tr> <td>Productie</td> </tr> </table> | IT-professionals en ontwikkelaars<table> <tr> <th>gespecialiseerde functies </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBA</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
+|  | AppSource | Azure Marketplace |
+|:--- |:--- |:--- |
+| Doelgroep | Besluitvormers voor line-of-business | IT-professionals en ontwikkelaars | 
 | Gebouwd met of uit te breiden | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
-| Typen oplossingen en services | Line-of-business-cloud-apps is voltooid<br />Office 365-invoegtoepassingen | Infrastructuuroplossingen<br />Professionele diensten |  
-| Type aanbieding | Adviesservices<br />Contact opnemen<br />Gratis proefversie<br />Nu ophalen<br />Test drive | Azure-apps: beheerde apps<br />Azure-apps: oplossingssjablonen<br />Adviesservices<br />Contact opnemen<br />Proefversie<br />virtuele machine |  
-| De ervaring in de app om gebruikerstoegang te geven<br />met apps en services in de context van<br />uw app | Dynamics 365<br />Office 365<br />Office-ClientApps<br />Power BI | Azure Portal<br />Azure Resource Manager-CLI |  
+
+Iedere storefront biedt gespecialiseerde opties en mogelijkheden voor het optimaliseren van uw zakelijke kans. Voor een meer gedetailleerde vergelijking van onze storefronts, gaat u naar [AppSource vergelijken en de Azure Marketplace](./comparing-appsource-azure-marketplace.md). 
 
 ---   
 

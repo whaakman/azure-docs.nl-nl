@@ -1,6 +1,6 @@
 ---
-title: Oproep-eindpunt met cognitieve Node.js - Bing aangepaste zoekactie - Microsoft-Services
-description: Deze snelstartgids laat zien hoe zoekresultaten aanvragen bij uw aangepaste zoekactie-exemplaar met behulp van Node.js aan te roepen van het eindpunt van de aangepaste Bing-zoekactie.
+title: Eindpunt aanroepen met behulp van Node.js - Bing Custom Search - Microsoft Cognitive Services
+description: Deze quickstart laat zien hoe zoekresultaten van uw exemplaar voor aangepast zoeken met behulp van Node.js om aan te roepen van het eindpunt van de Bing Custom Search aanvraagt.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,38 +9,42 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 48fc234e15ce3b9172d766f6fae11b51a017ce70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345857"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858456"
 ---
-# <a name="call-bing-custom-search-endpoint-nodejs"></a>Aanroep Bing aangepaste zoekactie eindpunt (Node.js)
+# <a name="call-bing-custom-search-endpoint-nodejs"></a>Aanroep van Bing Custom Search-eindpunt (Node.js)
 
-Deze snelstartgids laat zien hoe zoekresultaten aanvragen bij uw aangepaste zoekactie-exemplaar met behulp van Node.js aan te roepen van het eindpunt van de aangepaste Bing-zoekactie. 
+Deze quickstart laat zien hoe zoekresultaten van uw exemplaar voor aangepast zoeken met behulp van Node.js om aan te roepen van het eindpunt van de Bing Custom Search aanvraagt. 
 
 ## <a name="prerequisites"></a>Vereisten
 U hebt het volgende nodig om deze quickstart te voltooien:
 
-- Een exemplaar van de aangepaste zoekactie. Zie [maken van uw eerste exemplaar van Bing aangepaste zoekactie](quick-start.md).
+- Een exemplaar voor aangepast zoeken. Zie [maken van uw eerste exemplaar van de Bing Custom Search](quick-start.md).
 
 - [Node.js](https://www.nodejs.org/) geïnstalleerd.
 
--  [Cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+-  [Account voor cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) is voldoende voor deze Quick Start. Moet u de toegangssleutel die is opgegeven wanneer u uw gratis proefversie activeren, of u de sleutel van een betaald abonnement van uw Azure-dashboard kunt.
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-Volg deze stappen voor het aanroepen van het eindpunt Bing aangepaste zoeken:
+Volg deze stappen voor het aanroepen van de Bing Custom Search-eindpunt:
 
 1. Maak een map voor uw code.
+
 2. Navigeer naar de map die u zojuist hebt gemaakt vanaf een opdrachtprompt of terminal.
+
 3. Installeer de **aanvraag** knooppunt module:
     <pre>
     npm install request
     </pre>
-4. Het bestand BingCustomSearch.js maken en kopieer de volgende code toe.
-5. Vervang **uw ABONNEMENTSSLEUTEL** en **uw-aangepaste-CONFIG-ID** met uw sleutel en configuratie-ID (Zie stap 1).
+    
+4. Maak het bestand BingCustomSearch.js en kopieer de volgende code toe.
+
+5. Vervang **uw-SUBSCRIPTION-KEY** en **uw-aangepaste-CONFIG-ID** door uw sleutel en -configuratie-ID (Zie stap 1).
 
     ``` javascript
     var request = require("request");
@@ -71,12 +75,12 @@ Volg deze stappen voor het aanroepen van het eindpunt Bing aangepaste zoeken:
         }
     })
     ```
-6. De code met de volgende opdracht uitvoeren.
+6. Voer de code met de volgende opdracht uit.
     ```    
     node BingCustomSearch.js
    ``` 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Configureer uw gehoste UI-mogelijkheden](./hosted-ui.md)
+- [Configureren van uw gehoste gebruikersinterface-ervaring](./hosted-ui.md)
 - [Decoration markeringen gebruiken om te markeren van tekst](./hit-highlighting.md)
 - [Pagina webpagina 's](./page-webpages.md)

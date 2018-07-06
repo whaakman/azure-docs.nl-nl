@@ -1,6 +1,6 @@
 ---
-title: Licentie selfservice voor wachtwoordherstel - Azure Active Directory
-description: Azure AD selfservice voor wachtwoordherstel licentievereisten
+title: Licentie Self-service voor wachtwoord opnieuw instellen - Azure Active Directory
+description: Azure AD-selfservice wachtwoord opnieuw instellen van licentievereisten duidelijk zijn
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,25 +10,25 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292556"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855521"
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licentievereisten voor selfservicegebruikers Azure AD-wachtwoord opnieuw instellen
+# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Vereisten voor licentieverlening voor Azure AD Self-service voor wachtwoord opnieuw instellen
 
-Azure Active Directory (Azure AD) voor wachtwoordherstel functie, zodat u *moet ten minste één licentie is toegewezen in uw organisatie hebben* voor die gebruiker. U hebt een echte licentie nodig als een gebruiker direct of indirect profiteert van een functie die door die licentie mogelijk wordt gemaakt.
+Azure Active Directory (Azure AD) voor wachtwoord opnieuw instellen van functie, zodat u *moet er ten minste één licentie is toegewezen in uw organisatie* voor die gebruiker. U hebt een echte licentie nodig als een gebruiker direct of indirect profiteert van een functie die door die licentie mogelijk wordt gemaakt.
 
-* **Alleen in de cloud gebruikers**: Office 365 een betaald SKU of Azure AD Basic
-* **Cloud** of **on-premises gebruikers**: Azure AD Premium-P1 of P2, Enterprise Mobility + Security (EMS) of Microsoft 365
+* **Cloudgebruikers**: Office 365 betaalde SKU of Azure AD Basic
+* **Cloud** of **on-premises gebruikers**: Azure AD Premium P1 of P2, Enterprise Mobility + Security (EMS) of Microsoft 365
 
-## <a name="licensing-requirements-for-password-writeback"></a>Licentievereisten voor write-back van wachtwoord
+## <a name="licensing-requirements-for-password-writeback"></a>Licentievereisten voor wachtwoord terugschrijven
 
-**Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen met lokale Write-back is een premium-functie van Azure AD**. Zie voor meer informatie over licentieverlening de [Azure Active Directory website prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
+**Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen met on-premises Write-back is een premium-functie van Azure AD**. Zie voor meer informatie over de licentieverlening voor de [Azure Active Directory-site prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Voor het gebruik van wachtwoord terugschrijven, moet u een van de volgende licenties die zijn toegewezen op uw tenant hebben:
+Voor het gebruik van het terugschrijven van wachtwoorden, moet u een van de volgende licenties zijn toegewezen op uw tenant hebben:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
@@ -39,21 +39,21 @@ Voor het gebruik van wachtwoord terugschrijven, moet u een van de volgende licen
 * Microsoft 365 F1
 
 > [!WARNING]
-> Zelfstandige Office 365-abonnementen licentieverlening *bieden geen ondersteuning voor write-back van wachtwoord* en vereisen dat u een van de voorgaande plannen voor deze functie werkt.
+> Zelfstandige Office 365-abonnementen licentieverlening *bieden geen ondersteuning voor het terugschrijven van wachtwoorden* en vereisen dat u met een van de voorgaande plannen voor deze functionaliteit te werken.
 >
 
-Aanvullende licentie-informatie, inclusief kosten, vindt u op de volgende pagina's:
+Extra licentie-informatie, inclusief kosten, vindt u op de volgende pagina's:
 
-* [Azure Active Directory website prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory-site prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Azure Active Directory-functies en mogelijkheden](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
 
-## <a name="enable-group-or-user-based-licensing"></a>Groep of gebruiker gebaseerde licentieverlening inschakelen
+## <a name="enable-group-or-user-based-licensing"></a>Groep of gebruiker op basis van licentieverlening inschakelen
 
-Azure AD nu ondersteunt op basis van een groep licentieverlening. Beheerders kunnen bulksgewijs licenties toewijzen aan een groep gebruikers in plaats van één voor één toewijzen. Zie voor meer informatie [toewijzen, controleren en oplossen van problemen met licenties](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
+Nu Azure AD biedt ondersteuning voor Groepslicenties. Beheerders kunnen bulksgewijs-licenties toewijzen aan een groep gebruikers, in plaats van één voor één toewijzen. Zie voor meer informatie, [toewijzen, controleren en oplossen van problemen met licenties](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Sommige Microsoft-services zijn niet beschikbaar op alle locaties. Voordat u een licentie kan worden toegewezen aan een gebruiker, de beheerder moet opgeven de **gebruikslocatie** eigenschap van de gebruiker. Toewijzing van licenties kan worden uitgevoerd onder de **gebruiker** > **profiel** > **instellingen** sectie in de Azure-portal. *Wanneer u de licentietoewijzing van de groep, nemen alle gebruikers zonder een gebruikslocatie opgegeven de locatie van de map.*
+Sommige Microsoft-services zijn niet beschikbaar op alle locaties. Voordat een licentie kan worden toegewezen aan een gebruiker, de beheerder moet opgeven de **gebruikslocatie** eigenschap van de gebruiker. Toewijzing van licenties kan worden uitgevoerd onder de **gebruiker** > **profiel** > **instellingen** sectie in Azure portal. *Wanneer u de licentietoewijzing groep, nemen alle gebruikers geen gebruikslocatie opgegeven de locatie van de map.*
 
 ## <a name="next-steps"></a>Volgende stappen
 

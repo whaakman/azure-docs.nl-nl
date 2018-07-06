@@ -1,27 +1,27 @@
 ---
-title: Azure Blob storage-gebeurtenissen te routeren naar een aangepaste website-eindpunt - Powershell | Microsoft Docs
+title: Azure Blob-opslaggebeurtenissen doorsturen naar een eindpunt op het aangepaste web - Powershell | Microsoft Docs
 description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage.
 services: storage,event-grid
 keywords: ''
 author: david-stanford
 ms.author: dastanfo
-ms.date: 05/24/2018
+ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: b6764ffa0e7cfbc888f11c22af855d48d8160372
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2c61c58398b8c095002db4bc59afed1c95e3550f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650499"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865417"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Blob storage gebeurtenissen routeren naar een aangepaste website-eindpunt met PowerShell
+# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Blob-opslaggebeurtenissen doorsturen naar een aangepaste web-eindpunt met PowerShell
 
-Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel, Azure PowerShell gebruiken om u te abonneren op gebeurtenissen in de Blob-opslag, trigger een gebeurtenis en het resultaat te bekijken. 
+Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel hebt u Azure PowerShell gebruiken om u te abonneren op gebeurtenissen van Blob storage, trigger een gebeurtenis, en het resultaat weergeven. 
 
-Normaal gesproken verzenden u gebeurtenissen naar een eindpunt dat gegevens van de gebeurtenis wordt verwerkt en acties onderneemt. Echter, om te vereenvoudigen in dit artikel, u de gebeurtenissen verzenden naar een web-app die worden verzameld en worden de berichten weergegeven.
+Normaal gesproken verzendt u gebeurtenissen naar een eindpunt dat de gebeurtenisgegevens verwerkt en vervolgens in actie komt. Ter vereenvoudiging van dit artikel stuurt u hier de gebeurtenissen echter naar een web-app die de berichten verzamelt en weergeeft.
 
-Wanneer u klaar bent, ziet u dat gegevens van de gebeurtenis is verzonden naar de web-app.
+Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar de web-app zijn verzonden.
 
 ![Resultaten weergeven](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
@@ -38,9 +38,9 @@ Connect-AzureRmAccount
 ```
 
 > [!NOTE]
-> De beschikbaarheid van gebeurtenissen voor opslag is gekoppeld aan de gebeurtenis raster [beschikbaarheid](../../event-grid/overview.md) en zijn binnenkort beschikbaar in andere regio's zoals het raster gebeurtenis.
+> De beschikbaarheid van gebeurtenissen van Storage is gekoppeld aan Event Grid [beschikbaarheid](../../event-grid/overview.md) en worden pas beschikbaar in andere regio's als Event Grid.
 
-In dit voorbeeld wordt **westus2** en slaat u de selectie in een variabele voor gebruik in.
+In dit voorbeeld wordt **westus2** en slaat u de selectie in een variabele voor gebruik over de hele.
 
 ```powershell
 $location = "westus2"
@@ -61,12 +61,12 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-Als u gebeurtenissen van Blob-opslag, moet u ofwel een [Blob-opslagaccount](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) of een [algemeen v2-opslagaccount](../common/storage-account-options.md#general-purpose-v2). **Algemene doel v2 (GPv2)** storage-accounts die ondersteuning bieden voor alle functies voor storage-services, met inbegrip van Blobs, bestanden, wachtrijen en tabellen zijn. Een **Blob-opslagaccount** is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. BLOB storage-accounts zijn vergelijkbaar met opslagaccounts voor algemeen gebruik en delen van de meeste duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties van functies dat u vandaag inclusief 100 procent API-consistentie voor blok-blobs gebruikt en toevoeg-blobs. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden.  
+Om Blob-opslaggebeurtenissen te kunnen gebruiken, hebt u een [Blob-opslagaccount](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) of een [algemeen v2-opslagaccount](../common/storage-account-options.md#general-purpose-v2) nodig. **GPv2-accounts (v2 voor algemeen gebruik)** zijn opslagaccounts die alle functies voor alle opslagservices ondersteunen, waaronder Blobs, Files, Queues en Tables. Een **Blob-opslagaccount** is een opslagaccount dat speciaal is bedoeld om ongestructureerde gegevens als blobs (objecten) op te slaan in Azure Storage. Blob-opslagaccounts zijn vergelijkbaar met de opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden.  
 
-Een Blob storage-account maken met het gebruik van de replicatie LRS [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), haal vervolgens de context van het opslagaccount waarin de storage-account moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven. In dit voorbeeld maakt u een opslagaccount aangeroepen **gridstorage** met lokaal redundante opslag (LRS). 
+Een Blob storage-account maken met het gebruik van LRS-replicatie [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), haal vervolgens de opslagaccountcontext op waarin het opslagaccount dat moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven. Dit voorbeeld maakt u een opslagaccount met de naam **gridstorage** met lokaal redundante opslag (LRS). 
 
 > [!NOTE]
-> Namen van opslagaccounts zijn in een globale naamruimte, dus moet u bepaalde willekeurige tekens toevoegen aan de naam in dit script.
+> Namen van opslagaccounts zijn een globale naamruimte, moet u het aantal willekeurige tekens toevoegen aan de naam die in dit script worden opgegeven.
 
 ```powershell
 $storageName = "gridstorage"
@@ -82,9 +82,9 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
 
-Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. Het eindpunt duurt normaal gesproken acties op basis van gegevens van de gebeurtenis. Als u wilt deze snelstartgids vereenvoudigen, die u implementeert een [vooraf samengestelde web-app](https://github.com/dbarkol/azure-event-grid-viewer) waarmee de event-berichten worden weergegeven. De geïmplementeerde oplossing omvat een App Service-abonnement, een App Service-web-app en de broncode van GitHub.
+Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. Het eindpunt onderneemt normaal gesproken actie op basis van de gebeurtenisgegevens. Ter vereenvoudiging van deze snelstart gaat u een [vooraf gebouwde web-app](https://github.com/dbarkol/azure-event-grid-viewer) implementeren waarmee de gebeurtenisberichten worden weergegeven. De geïmplementeerde oplossing omvat een App Service-plan, een App Service-web-app en broncode van GitHub.
 
-Vervang `<your-site-name>` met een unieke naam voor uw web-app. De naam van de web-app moet uniek zijn, omdat deze deel uitmaakt van de DNS-vermelding.
+Vervang `<your-site-name>` door een unieke naam voor de web-app. De naam van de web-app moet uniek zijn omdat deze deel uitmaakt van de DNS-vermelding.
 
 ```powershell
 $sitename="<your-site-name>"
@@ -96,13 +96,15 @@ New-AzureRmResourceGroupDeployment `
   -hostingPlanName viewerhost
 ```
 
-De implementatie kan enkele minuten duren. Nadat de implementatie voltooid is, geven uw web-app zodat deze wordt uitgevoerd. Navigeer in een webbrowser naar: `https://<your-site-name>.azurewebsites.net`
+De implementatie kan enkele minuten duren. Controleer of uw web-app wordt uitgevoerd nadat de implementatie is voltooid. Navigeer in een webbrowser naar: `https://<your-site-name>.azurewebsites.net`
 
-U ziet de site geen berichten sturen die momenteel wordt weergegeven.
+Op de site zouden momenteel geen berichten moeten wijn weergeven.
+
+[!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
 
 ## <a name="subscribe-to-your-storage-account"></a>Abonneren op uw storage-account
 
-U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. Het volgende voorbeeld is lid van het opslagaccount dat u hebt gemaakt en wordt de URL van uw web-app als het eindpunt voor gebeurtenismelding doorgegeven. Het eindpunt voor uw web-app moet het achtervoegsel bevatten `/api/updates/`.
+U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. Het volgende voorbeeld is geabonneerd naar het opslagaccount dat u hebt gemaakt en hoe de URL van uw web-app als het eindpunt voor de gebeurtenismelding. Het eindpunt voor uw web-app moet het achtervoegsel `/api/updates/` bevatten.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
@@ -114,13 +116,13 @@ New-AzureRmEventGridSubscription `
   -ResourceId $storageId
 ```
 
-Uw web-app weer en merk op dat een gebeurtenis abonnement-validatie is verzonden naar het. Selecteer het pictogram ogen uit te breiden de gebeurtenisgegevens worden opgeslagen. Gebeurtenis raster verzendt de validatiegebeurtenis zodat het eindpunt controleren kunt, dat wil ontvangen van gegevens van gebeurtenissen. De web-app bevat een code voor het valideren van het abonnement.
+Bekijk opnieuw uw web-app en u zult zien dat er een validatiegebeurtenis voor een abonnement naartoe is verzonden. Selecteer het oogpictogram om de gebeurtenisgegevens uit te breiden. Via Event Grid wordt de validatiegebeurtenis verzonden zodat het eindpunt kan controleren of de gebeurtenisgegevens in aanmerking komen om ontvangen te worden. De web-app bevat code waarmee het abonnement kan worden gevalideerd.
 
-![De gebeurtenis abonnement weergeven](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
+![Een abonnementgebeurtenis weergeven](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Een gebeurtenis van Blob Storage activeren
 
-Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Eerst gaan we een container en een object te maken. Vervolgens laten we het object te uploaden naar de container.
+Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Eerst gaan we een container en een object maken. Vervolgens gaan we het object te uploaden naar de container.
 
 ```powershell
 $containerName = "gridcontainer"
@@ -131,7 +133,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk uw web-app om te zien van de gebeurtenis die u zojuist hebt verzonden.
+U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk uw web-app om de gebeurtenis te zien die u zojuist hebt verzonden.
 
 ```json
 [{

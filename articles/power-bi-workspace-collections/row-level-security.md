@@ -1,6 +1,6 @@
 ---
-title: Beveiliging op rijniveau met Power BI werkruimte verzamelingen
-description: Meer informatie over beveiliging met Power BI werkruimte verzamelingen
+title: Beveiliging op rijniveau met Power BI-werkruimteverzamelingen
+description: Meer informatie over de beveiliging op rijniveau met Power BI-Werkruimteverzamelingen
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
@@ -15,94 +15,94 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 09a0de1efc909b72192f9d8584edd0fda5e6217d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414091"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856348"
 ---
-# <a name="row-level-security-with-power-bi-workspace-collections"></a>Beveiliging op rijniveau met Power BI werkruimte verzamelingen
+# <a name="row-level-security-with-power-bi-workspace-collections"></a>Beveiliging op rijniveau met Power BI-werkruimteverzamelingen
 
-Beveiliging op rijniveau (RLS) kan gebruikerstoegang te beperken tot bepaalde gegevens binnen een rapport of de gegevensset, zodat meerdere verschillende gebruikers gebruiken hetzelfde rapport tijdens het weergeven van alle andere gegevens worden gebruikt. Power BI werkruimte verzamelingen bieden ondersteuning voor gegevenssets die zijn geconfigureerd voor beveiliging op Rijniveau.
+Beveiliging op rijniveau (RLS) kan worden gebruikt om toegang van gebruikers beperken tot bepaalde gegevens in een rapport of gegevensset, zodat voor verschillende gebruikers hetzelfde rapport terwijl er verschillende gegevens. Power BI Workspace Collections ondersteuning voor gegevenssets die zijn geconfigureerd met beveiliging op Rijniveau.
 
-![Stroom van beveiliging op rijniveau in Power BI werkruimte verzamelingen](media/row-level-security/flow-1.png)
+![Stroom van beveiliging op rijniveau in Power BI-Werkruimteverzamelingen](media/row-level-security/flow-1.png)
 
 > [!IMPORTANT]
 > Power BI Workspace Collections is afgeschaft en is beschikbaar tot juni 2018 of tot de datum die in uw contract wordt aangegeven. Om onderbreking van uw toepassing te voorkomen, wordt u geadviseerd om een migratie naar Power BI Embedded te plannen. Voor meer informatie over het migreren van gegevens naar Power BI Embedded raadpleegt u [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/) (Inhoud van Power BI-werkruimteverzamelingen migreren naar Power BI Embedded).
 
-Om te profiteren van RLS, is het belangrijk dat u begrijpt dat drie belangrijkste concepten; Gebruikers, rollen en -regels. Laten we dichter bij elke:
+Om te profiteren van RLS, is het belangrijk dat u drie hoofdbegrippen; Gebruikers, rollen en regels. We nemen een items eens nader bekijken:
 
-**Gebruikers** : deze worden de werkelijke eindgebruikers weergeven van rapporten. In Power BI werkruimte verzamelingen worden gebruikers geïdentificeerd door de eigenschap username in een App-Token.
+**Gebruikers** : dit zijn de werkelijke eindgebruikers weergeven van rapporten. In Power BI Workspace Collections, worden gebruikers geïdentificeerd door de eigenschap username in een App-Token.
 
-**Rollen** – gebruikers tot functies behoren. Een rol is een container voor regels en kan de naam zoals 'Sales Manager' of 'Vertegenwoordiger'. In Power BI werkruimte verzamelingen worden gebruikers geïdentificeerd door de eigenschap rollen in een App-Token.
+**Rollen** : gebruikers behoren tot rollen. Een rol is een container voor regels en kan namen hebben, zoals 'Sales Manager' of 'Vertegenwoordiger'. In Power BI Workspace Collections, worden gebruikers geïdentificeerd door de eigenschap van de rollen in een App-Token.
 
-**Regels** : rollen regels hebben en deze regels zijn de werkelijke filters die u op de gegevens worden toegepast. Dit wordt mogelijk net zo eenvoudig als ' land Verenigde Staten = ' of iets meer dynamische.
+**Regels** : rollen bevatten regels, en deze regels zijn de werkelijke filters die worden toegepast op de gegevens. Dit kan worden net zo eenvoudig als "land = Nederland" of ook veel ingewikkelder.
 
 ### <a name="example"></a>Voorbeeld
 
-Voor de rest van dit artikel bieden we een voorbeeld van RLS ontwerpen en verbruikt die in een ingesloten toepassing. Dit voorbeeld wordt de [Retail Analysis Sample](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX-bestand.
+Voor de rest van dit artikel bieden we een voorbeeld van het ontwerpen van beveiliging op Rijniveau en gebruik binnen een ingesloten toepassing. Dit voorbeeld gebruiken de [Retail Analysis Sample](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX-bestand.
 
-![Voorbeeld verkooprapport](media/row-level-security/scenario-2.png)
+![Voorbeeld-verkooprapport](media/row-level-security/scenario-2.png)
 
-Onze Retail Analysis sample verkoopcijfers voor alle winkels in een bepaalde winkelketen. Ze zien dezelfde gegevens zonder RLS, ongeacht welke regionale manager zich aanmeldt en bekijkt het rapport. Senior management heeft elke regionale manager ziet alleen de verkoop voor de winkels die ze beheren en om dit te doen, gebruiken we RLS vastgesteld.
+Onze Retailanalyse als voorbeeld worden de verkoopcijfers voor alle winkels van een bepaalde winkelketen. Ze zien dezelfde gegevens zonder RLS zou elke regiomanager die zich aanmeldt en het rapport weergeeft. Senior management heeft besloten dat elke regiomanager ziet alleen de verkoopcijfers voor de winkels die ze beheren en om dit te doen, kunnen we RLS gebruiken.
 
-RLS is geschreven in Power BI Desktop. Wanneer de gegevensset en het rapport wordt geopend, kunnen we overschakelen naar diagram weer te geven van het schema:
+RLS is geschreven in Power BI Desktop. Wanneer de gegevensset en het rapport wordt geopend, kunnen we overschakelen naar de diagramweergave van het schema:
 
 ![Modeldiagram van het in Power BI Desktop](media/row-level-security/diagram-view-3.png)
 
-Hier volgen een aantal dingen opvalt met dit schema:
+Hier volgen enkele dingen die opvallen in dit schema:
 
-* Alle maateenheden zoals **totale verkoop**, worden opgeslagen in de **verkoop** feitentabel.
-* Er zijn vier extra gerelateerde dimensietabellen: **Item**, **tijd**, **Store**, en **regionale**.
-* De pijlen op de relatie regels aangeven welke filters van één tabel naar een andere stromen kunnen manier. Bijvoorbeeld, als een filter is geplaatst **tijd [datum]**, in het huidige schema deze alleen filtert u de waarden in de **verkoop** tabel. Er zijn geen andere tabellen wordt beïnvloed door dit filter omdat alle van de pijlen op de relatie regels naar de tabel sales en niet verwijderd verwijzen.
-* De **regionale** tabel geeft aan wie de manager is voor elk:
+* Alle metingen, zoals **totale verkoop**, worden opgeslagen in de **verkoop** feitentabel.
+* Er zijn vier extra gerelateerde dimensietabellen: **Item**, **tijd**, **Store**, en **District**.
+* De pijlen op de relatielijnen aangeven welke filters van de ene tabel naar een andere stromen kunnen manier. Bijvoorbeeld, als een filter wordt belast **tijd [datum]**, in het huidige schema deze alleen filtert u de waarden in de **verkoop** tabel. Er zijn geen andere tabellen worden niet beïnvloed door dit filter omdat alle pijlen op de relatielijnen naar de tabel verkoop en niet ervandaan verwijzen.
+* De **District** tabel wordt aangegeven wie de manager voor elk district is:
   
-  ![Regionale tabelrijen](media/row-level-security/district-table-4.png)
+  ![Tabelrijen district](media/row-level-security/district-table-4.png)
 
-Op basis van dit schema als we een filter toepassen op de **regionale Manager** kolom in de tabel regionale en als dat filter overeenkomt met de gebruiker het rapport weer te geven, die filteren ook filters omlaag de **Store** en  **Verkoop** tabellen alleen gegevens weergeven die voor die specifieke regionale manager.
+Op basis van dit schema als we een filter toepassen op de **District Manager** kolom in de tabel District en als dat filter overeenkomt met de gebruiker die het rapport weergeeft, die filteren ook filters de **Store** en  **Verkoop** tabellen alleen gegevens weergeven voor die bepaalde district manager.
 
-Hier ziet u hoe:
+Hier volgt hoe:
 
 1. Klik op het tabblad modellering **rollen beheren**.  
-   ![Knop in het lint modelleren rollen beheren](media/row-level-security/modeling-tab-5.png)
-2. Maak een nieuwe rol aangeroepen **Manager**.  
+   ![Beheren van rollen knop in het lint model maken](media/row-level-security/modeling-tab-5.png)
+2. Maak een nieuwe rol met de naam **Manager**.  
    ![Het maken van rollen in Power BI Desktop](media/row-level-security/manager-role-6.png)
-3. In de **regionale** tabel voert de volgende DAX-expressie: **[regionale Manager] USERNAME() =**  
+3. In de **District** tabel voert de volgende DAX-expressie: **[regiomanager] = USERNAME()**  
    ![DAX-filterexpressie voor de tabel in de rol](media/row-level-security/manager-role-7.png)
-4. Om ervoor te zorgen dat de regels werkt, op de **modelleren** tabblad **weergave als rollen**, en voer de volgende:  
-   ![Als functies weergeven](media/row-level-security/view-as-roles-8.png)
+4. Om ervoor te zorgen de regels correct functioneren, op de **modelleren** tabblad **als rollen weergeven**, en voer het volgende:  
+   ![Als rollen weergeven](media/row-level-security/view-as-roles-8.png)
 
-   Gegevens worden nu door de rapporten worden weergegeven alsof u bent aangemeld als **Andrew Ma**.
+   De rapporten worden de gegevens weergegeven alsof u bent aangemeld als **Andrew Ma**.
 
-Filter toe te passen, de manier waarop werkwijze, filtert u alle records in de **regionale**, **Store**, en **verkoop** tabellen. Echter, vanwege de Filterrichting van de relaties tussen **verkoop** en **tijd**, **verkoop** en **Item**, en **Item** en **tijd** tabellen worden niet gefilterd omlaag.
+Filter toe te passen, de manier waarop we hier hebben gedaan, filtert u alle records in de **District**, **Store**, en **verkoop** tabellen. Echter, vanwege de Filterrichting van de relaties tussen **verkoop** en **tijd**, **verkoop** en **Item**, en **Item** en **tijd** tabellen wordt niet gefilterd.
 
-![Diagramweergave relaties die zijn gemarkeerd](media/row-level-security/diagram-view-9.png)
+![Diagramweergave met relaties die zijn gemarkeerd](media/row-level-security/diagram-view-9.png)
 
-Die mogelijk voor deze vereiste ok, echter als we managers items waarvoor ze niet beschikken over een verkopen zien, niet wilt dat we kan bidirectionele cross-filteren voor de relatie inschakelen en het beveiligingsfilter in beide richtingen stromen. Dit kan worden gedaan door het bewerken van de relatie tussen **verkoop** en **Item**, zoals deze:
+Die ok voor deze vereiste kan worden, als we niet wilt dat managers als items waarvoor ze geen omzet wilt bekijken, we kan in twee richtingen kruislings filteren voor de relatie inschakelen en het beveiligingsfilter in beide richtingen stroom. Dit kan worden gedaan door het bewerken van de relatie tussen **verkoop** en **Item**, zoals deze:
 
-![Cross-Filterrichting voor de relatie](media/row-level-security/edit-relationship-10.png)
+![Richting kruislings filteren voor relatie](media/row-level-security/edit-relationship-10.png)
 
-Filters kunnen nu ook stromen van de verkoop-tabel om de **Item** tabel:
+Filters kunnen nu ook stromen in de tabel Sales naar de **Item** tabel:
 
 ![Pictogram van relatie in de diagramweergave richting filteren](media/row-level-security/diagram-view-11.png)
 
 > [!NOTE]
-> Als u de modus DirectQuery voor uw gegevens, moet u inschakelen bidirectionele cross filteren op deze twee opties selecteren:
+> Als u de modus DirectQuery om uw gegevens gebruikt, moet u om in te schakelen in twee richtingen kruislings filteren door deze twee opties te selecteren:
 
-1. **Bestand** -> **opties en instellingen** -> **Voorbeeldfuncties** -> **inschakelen kruislings filteren in beide richtingen voor DirectQuery** .
+1. **Bestand** -> **opties en instellingen** -> **Preview-functies** -> **inschakelen kruislings filteren in beide richtingen voor DirectQuery** .
 2. **Bestand** -> **opties en instellingen** -> **DirectQuery** -> **onbeperkte meting toestaan in de modus DirectQuery**.
 
-Voor meer informatie over bidirectionele cross-filtering, downloaden de [bidirectionele cross-filteren in SQL Server Analysis Services 2016 en Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) technisch document.
+Voor meer informatie over het in twee richtingen kruislings filteren, downloaden de [in twee richtingen kruislings filteren in SQL Server Analysis Services 2016 en Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) technisch document.
 
-Dit wordt afgerond al het werk dat moet worden gedaan in Power BI Desktop, maar er is een meer stuk werk dat worden gedaan moet om de RLS regels dat hebben we werken in Power BI Embedded gedefinieerd. Gebruikers worden geverifieerd en geautoriseerd door uw toepassing en App-tokens worden gebruikt voor die gebruikerstoegang verlenen tot een specifiek Power BI Embedded rapport. Power BI Embedded geen specifieke gegevens die op die de gebruiker is. U moet enkele aanvullende context doorgeven als onderdeel van uw app-token voor RLS werken:
+Dit al het werk dat moet worden aangebracht in Power BI Desktop hebt afgerond, maar er is een meer stuk werk dat moet worden gedaan om te maken van de beveiliging op Rijniveau regels dat hebben we gedefinieerd werk in Power BI Embedded. Gebruikers worden geverifieerd en geautoriseerd door de toepassing en App-tokens worden gebruikt voor die gebruikerstoegang verlenen tot een specifiek Power BI Embedded-rapport. Power BI Embedded beschikt niet over een specifieke informatie op die de gebruiker is. Voor een juiste werking van RLS moet u enkele aanvullende context doorgeven als onderdeel van uw app-token:
 
-* **gebruikersnaam** (optioneel) – gebruikt voor beveiliging op Rijniveau dit is een tekenreeks die kan worden gebruikt om vast te stellen van de gebruiker bij het toepassen van RLS regels. Zie rij beveiliging op rijniveau met Power BI Embedded
-* **rollen** : een tekenreeks met de rollen selecteren bij het toepassen van regels voor beveiliging op rijniveau. Als meer dan één rol wordt doorgegeven, moeten worden doorgegeven als een tekenreeksmatrix.
+* **gebruikersnaam** (optioneel): beveiliging op rijniveau gebruikt dit is een tekenreeks die kan worden gebruikt voor het identificeren van de gebruiker bij het toepassen van RLS-regels. Zie de rij op rijniveau met Power BI Embedded
+* **rollen** : een tekenreeks met de rollen selecteren bij het toepassen van beveiliging op rijniveau regels. Als meer dan één rol wordt doorgegeven, moeten ze worden doorgegeven als een tekenreeksmatrix.
 
 Maken van het token met behulp van de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) methode. Als de eigenschap username aanwezig is, moet u ook ten minste één waarde doorgeven in rollen.
 
-U kan bijvoorbeeld de EmbedSample wijzigen. DashboardController regel 55 kan worden bijgewerkt vanuit
+U kunt bijvoorbeeld de EmbedSample wijzigen. DashboardController regel 55 kan worden gewijzigd van
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 
@@ -112,15 +112,15 @@ tot
 
 Het volledige app-token ziet er ongeveer als volgt uit:
 
-![JSON web token voorbeeld](media/row-level-security/app-token-string-12.png)
+![Voorbeeld van JSON web token](media/row-level-security/app-token-string-12.png)
 
-Nu met alle benodigde onderdelen samen zien wanneer iemand zich aan onze toepassing aanmeldt voor dit rapport bekijken ze de gegevens die ze zien, kunnen zoals gedefinieerd door onze beveiliging.
+Nu met alle benodigde onderdelen aanwezig zien wanneer iemand zich aanmeldt bij de toepassing om dit rapport weer te geven ze de gegevens die zij mag zien, zoals gedefinieerd in de beveiliging op rijniveau.
 
 ![Rapport wordt weergegeven in de toepassing](media/row-level-security/dashboard-13.png)
 
 ## <a name="see-also"></a>Zie ook
 
-[Beveiliging (RLS) met Power](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
+[Beveiliging van beveiliging op rijniveau (RLS) met de kracht van](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Verifiëren en autoriseren in Power BI Workspace Collections)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Voorbeeld van ingesloten JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  

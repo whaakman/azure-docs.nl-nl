@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3630d4d694452f2c619e707d1e2e58f1bfe71c0e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34643495"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858949"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditing in Azure SQL datawarehouse
 
@@ -52,8 +52,9 @@ Een controlebeleid kan worden gedefinieerd voor een specifieke database of als e
 > * U wilt gebruiken een andere *opslagaccount* of *bewaarperiode* voor een specifieke database.
 > * U wilt controleren gebeurtenistypen of categorieën voor een specifieke database die van de rest van de databases op de server afwijken. Bijvoorbeeld, mogelijk hebt tabel ingevoegd die moeten worden gecontroleerd alleen voor een specifieke database.
 > * U wilt gebruiken, detectie van bedreigingen momenteel is alleen ondersteund met de controle op databaseniveau.
->
 
+> [!IMPORTANT]
+>Inschakelen van controle op een Azure SQL Data Warehouse, of op een server met een Azure SQL Data Warehouse, **zal leiden tot het datawarehouse wordt hervat**, zelfs in het geval waarin het programma eerder is onderbroken. **Zorg ervoor dat u de datawarehouse onderbreken opnieuw na het inschakelen van controle**.
 
 ## <a id="subheading-5"></a>Op serverniveau voor alle databases controle instellen
 

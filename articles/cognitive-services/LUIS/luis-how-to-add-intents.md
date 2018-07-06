@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
 ms.service: cognitive-services
-ms.openlocfilehash: f004a0a1726ca6c513e2cb4c137f82ae40e31a01
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 479fa450b86d19032e75ef6aa511a7bdca608d75
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344324"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869040"
 ---
 # <a name="manage-intents"></a>Intents beheren 
 Voeg [intents](luis-concept-intent.md) aan uw LUIS-app voor het identificeren van groepen van vragen of de opdrachten die het hetzelfde doel hebben. 
@@ -75,9 +75,9 @@ Zie [toevoegen patroon uit bestaande utterance op de pagina kunt u lezen wat of 
 
 ## <a name="edit-an-utterance-on-intent-page"></a>Een utterance op intentie pagina bewerken
 
-Als u wilt een utterance bewerken, selecteert u het pictogram van de drie puntjes (...) aan de rechterkant van de regel voor die utterance en selecteer vervolgens **bewerken**. Wijzig de tekst en druk op Enter op het toetsenbord.
+Als u wilt een utterance bewerken, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de regel voor die utterance en selecteer vervolgens **bewerken**. Wijzig de tekst en druk op Enter op het toetsenbord.
 
-![Schermafbeelding van de intenties pagina, met het pictogram van de drie puntjes gemarkeerd](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Schermafbeelding van de intenties pagina, met de knop met weglatingsteken gemarkeerd](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## <a name="reassign-utterances-on-intent-page"></a>Uitingen op intentie pagina opnieuw toewijzen
 U kunt het doel van een of meer uitingen wijzigen door deze opnieuw toewijzen aan een ander doel. 
@@ -92,7 +92,7 @@ Als u wilt wijzigen van de intentie van verschillende uitingen, schakel de selec
 
 ## <a name="delete-utterances-on-intent-page"></a>Uitingen op intentie pagina verwijderen
 
-Als u wilt verwijderen een utterance, selecteer het pictogram van de drie puntjes (...) aan de rechterkant van de regel voor die utterance en selecteer vervolgens **verwijderen**. De utterance wordt verwijderd uit de lijst en de LUIS-app.
+Als u wilt verwijderen een utterance, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de regel voor die utterance en selecteer vervolgens **verwijderen**. De utterance wordt verwijderd uit de lijst en de LUIS-app.
 
 ![Schermafbeelding van de intenties pagina, met de optie voor het verwijderen is gemarkeerd](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 

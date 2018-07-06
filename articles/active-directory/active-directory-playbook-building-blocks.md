@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d2a63a1a9b335b7765c5eaf8c90e1d755b2ce9c9
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446772"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867117"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -42,7 +42,7 @@ Hier volgen enkele vereisten die nodig zijn voor elk POC met Azure AD Premium.
 | Vereiste | Resources |
 | --- | --- |
 | Azure AD-tenant gedefinieerd met een geldig Azure-abonnement | [Een Azure Active Directory-tenant verkrijgen](active-directory-howto-tenant.md)<br/>**Opmerking:** als u al een omgeving met Azure AD Premium-licenties hebt, kunt u een nul cap-abonnement downloaden door te navigeren naar https://aka.ms/accessaad <br/>Meer informatie over: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ en https://technet.microsoft.com/library/dn832618.aspx |
-| Domeinen gedefinieerd en geverifieerd | [Een aangepaste domeinnaam toevoegen aan Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Opmerking:** sommige werkbelastingen zoals Power BI kunnen een azure AD-tenant op de achtergrond hebt ingericht. Als u wilt controleren of een bepaald domein gekoppeld aan een tenant is, gaat u naar https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Als u een geslaagde respons ophalen en vervolgens het domein al aan een tenant toegewezen is en overnemen kunnen nodig zijn. Als dit het geval is, contact op met Microsoft voor verdere richtlijnen. Meer informatie over de overname opties op: [wat is Selfserviceregistratie voor Azure?](active-directory-self-service-signup.md) |
+| Domeinen gedefinieerd en geverifieerd | [Een aangepaste domeinnaam toevoegen aan Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Opmerking:** sommige werkbelastingen zoals Power BI kunnen een azure AD-tenant op de achtergrond hebt ingericht. Als u wilt controleren of een bepaald domein gekoppeld aan een tenant is, gaat u naar https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Als u een geslaagde respons ophalen en vervolgens het domein al aan een tenant toegewezen is en overnemen kunnen nodig zijn. Als dit het geval is, contact op met Microsoft voor verdere richtlijnen. Meer informatie over de overname opties op: [wat is Selfserviceregistratie voor Azure?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium of EMS proefversie ingeschakeld | [Azure Active Directory Premium één maand gratis uitproberen](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | U hebt de Azure AD Premium of EMS-licenties toegewezen aan de PoC-gebruikers | [Licentie voor uzelf en uw gebruikers in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Azure AD-hoofdbeheerder referenties | [Beheerdersrollen toewijzen in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
@@ -125,11 +125,11 @@ Geschatte tijd om te voltooien: 10 minuten
 | Stap | Resources |
 | --- | --- |
 | Ga naar de blade licenties in Azure AD-beheerportal | [Azure AD-beheerportal: licentieverlening](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
-| De licenties toewijzen aan de beveiligingsgroep met de POC-gebruikers. | [Licenties toewijzen aan een groep gebruikers in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) |
+| De licenties toewijzen aan de beveiligingsgroep met de POC-gebruikers. | [Licenties toewijzen aan een groep gebruikers in Azure Active Directory](users-groups-roles/licensing-groups-assign.md) |
 
 ### <a name="considerations"></a>Overwegingen
 
-In het geval van problemen, gaat u naar [scenario's, beperkingen en bekende problemen bij het gebruik van groepen beheren in Azure Active Directory-licentieverlening](active-directory-licensing-group-advanced.md)
+In het geval van problemen, gaat u naar [scenario's, beperkingen en bekende problemen bij het gebruik van groepen beheren in Azure Active Directory-licentieverlening](users-groups-roles/licensing-group-advanced.md)
 
 ## <a name="saas-federated-sso-configuration"></a>SaaS van federatieve SSO-configuratie
 

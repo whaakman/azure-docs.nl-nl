@@ -1,6 +1,6 @@
 ---
-title: Migreren naar de nieuwe elastische Database taken | Microsoft Docs
-description: Migreren naar de nieuwe taken voor elastische Database.
+title: Migreren naar de nieuwe elastische databasetaken | Microsoft Docs
+description: Migreren naar de nieuwe taken voor Elastic Database.
 services: sql-database
 author: johnpaulkee
 manager: craigg
@@ -8,29 +8,29 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: johnpaulkee
-ms.openlocfilehash: 2f5e4587de009329cd8cf0eded88f79afe96a184
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 97d50b6ddcbb46cb291578caab5193e13cc56932
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035934"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868878"
 ---
-# <a name="migrate-to-the-new-elastic-database-jobs"></a>Migreren naar de nieuwe taken voor elastische Database
+# <a name="migrate-to-the-new-elastic-database-jobs"></a>Migreren naar de nieuwe taken voor Elastic Database
 
-Een bijgewerkte versie van [elastische Database taken](elastic-jobs-overview.md) is beschikbaar.
+Een bijgewerkte versie van [elastische databasetaken](elastic-jobs-overview.md) beschikbaar is.
 
-Als u een bestaande versie van de klant gehost van [elastische Database taken](sql-database-elastic-jobs-overview.md), migratie-cmdlets en scripts zijn beschikbaar voor het migreren van eenvoudig naar de nieuwste versie.
+Hebt u een bestaande versie van de klant die wordt gehost van [elastische databasetaken](sql-database-elastic-jobs-overview.md), migratie-cmdlets en scripts voor het eenvoudig migreren naar de nieuwste versie worden geleverd.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-De bijgewerkte versie van de elastische Database taken heeft een nieuwe set PowerShell-cmdlets voor gebruik tijdens de migratie. Deze nieuwe cmdlets dragen alle van de referenties van uw bestaande taak, gericht (inclusief databases, servers, aangepaste verzamelingen), taak triggers, taakschema's, inhoud van de taak en -taken via naar een nieuwe elastische taak agent.
+De bijgewerkte versie van de taken voor Elastic Database heeft een nieuwe set PowerShell-cmdlets voor gebruik tijdens de migratie. Deze nieuwe cmdlets dragen alle van de taakreferenties van uw bestaande, gericht op (met inbegrip van databases, servers en aangepaste verzamelingen), taak triggers, taakschema's, de inhoud van de taak en taken naar een nieuwe agent voor elastische taken.
 
-### <a name="install-the-latest-elastic-jobs-cmdlets"></a>De meest recente elastische taken-cmdlets installeren
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installeer de meest recente cmdlets voor elastische taken
 
-Als u nog geen hebt een Azure-abonnement hebben [een gratis account maken](https://azure.microsoft.com/free/) voordat u begint.
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-Installeer de meest recente preview AzureRM.Sql Powershell-module ophalen van de elastische taak-cmdlets.
+Installeer de meest recente preview AzureRM.Sql Powershell-module om op te halen van de elastische taak-cmdlets.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
@@ -44,9 +44,9 @@ Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
 ```
 
-### <a name="create-a-new-elastic-job-agent"></a>Maak een nieuwe elastische taak agent
+### <a name="create-a-new-elastic-job-agent"></a>Een nieuwe agent voor elastische taken maken
 
-Maak een nieuwe elastische taak agent na de installatie van de nieuwe cmdlets.
+Maak een nieuwe agent voor elastische taken na de installatie van de nieuwe-cmdlets.
 
 ```powershell
 # Register your subscription for the for the Elastic Jobs public preview feature
@@ -58,15 +58,15 @@ $db = Get-AzureRmSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName 
 $agent = $db | New-AzureRmSqlElasticJobAgent -Name <agentName>
 ```
 
-### <a name="install-the-old-elastic-database-jobs-cmdlets"></a>De oude elastische taken van de Database-cmdlets installeren
+### <a name="install-the-old-elastic-database-jobs-cmdlets"></a>De oude taken voor Elastic Database-cmdlets installeren
 
-Migratie moet u een aantal van de *oude* elastische taak-cmdlets, voer de volgende opdrachten dus als u deze niet hebt geïnstalleerd.
+Migratie moet u sommige van de *oude* elastische taak-cmdlets, voer de volgende opdrachten dus als u deze niet hebt geïnstalleerd.
 
 ```powershell
 # Install the old elastic job cmdlets if necessary and initialize the old jobs cmdlets
 .\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-# Install the the old jobs cmdlets
+# Install the old jobs cmdlets
 cd Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools
 Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
 .\InstallElasticDatabaseJobsCmdlets.ps1
@@ -80,7 +80,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 ## <a name="migration"></a>Migratie
 
-Nu dat zowel de oude en nieuwe elastische taken-cmdlets zijn geïnitialiseerd, migreren uw taak referenties, doelen en taken aan de nieuwe *taak database*.
+Nu dat zowel de oude en nieuwe elastische taken-cmdlets zijn geïnitialiseerd, migreren uw taakreferenties, doelen en taken naar de nieuwe *taak database*.
 
 ### <a name="setup"></a>Instellen
 
@@ -128,7 +128,7 @@ function Migrate-Credentials ($agent) {
 }
 ```
 
-Uitvoeren van de volgende opdracht voor het migreren van uw referenties door door te geven in de `$agent` van eerder PowerShell-object.
+Voor het migreren van uw referenties, de volgende opdracht niet uitvoeren door te geven in de `$agent` PowerShell-object van eerder.
 
 ```powershell
 Migrate-Credentials $agent
@@ -356,10 +356,10 @@ function Setup-TargetGroup ($tgName, $agent) {
 }
 ```
 
-Uitvoeren als u wilt uw doelen (servers, databases en aangepaste verzamelingen) naar de nieuwe taak database migreert, de **migreren TargetGroups** cmdlet uit te voeren van het volgende:
+Uitvoeren als u wilt uw doelen (servers, databases en aangepaste verzamelingen) migreren naar uw nieuwe database van de taak, de **migreren TargetGroups** cmdlet uit te voeren van het volgende:
 
-- Niveau hoofddoelen die servers en -databases worden gemigreerd naar een nieuwe doelgroep met de naam ' (\<serverName\>, \<databaseName\>) ' met alleen het niveau hoofddoel.
-- Een aangepaste verzameling wordt naar een nieuwe doelgroep met alle onderliggende doelen gemigreerd.
+- Niveau hoofddoelen die servers databases en worden gemigreerd naar een nieuwe doelgroep met de naam ' (\<serverName\>, \<databaseName\>) ' met alleen de basis-doel serviceniveau.
+- Een aangepaste verzameling worden gemigreerd naar een nieuwe groep met alle onderliggende doelen.
 
 ```powershell
 Migrate-TargetGroups $agent
@@ -552,11 +552,11 @@ function Setup-JobStep ($newJob, $job) {
 }
 ```
 
-Uitvoeren als u wilt migreren uw taken, inhoud van de taak, taak triggers en taakschema's over naar de database van uw nieuwe elastische taak agent, de **migreren taken** cmdlet doorgeven in de agent.
+Voor het migreren van uw taken, de inhoud van de taak, de taak triggers en het taakschema's via met uw nieuwe agent voor elastische taken van database, uitvoeren van de **migreren-Jobs** cmdlet doorgeven in de agent.
 
-- Taken met meerdere triggers met verschillende schema's zijn verdeeld in meerdere taken met schematische naam: '\<jobName\> (\<scheduleName\>) '.
-- Taak inhoud worden gemigreerd naar een taak door een standaard-taakstap taakstap benoemd met bijbehorende opdrachttekst toe te voegen.
-- Taken zijn standaard uitgeschakeld, zodat u ze valideren kunt voordat u deze wilt inschakelen.
+- Taken met meerdere triggers met verschillende schema's worden onderverdeeld in meerdere taken met schematische naam: "\<jobName\> (\<scheduleName\>) '.
+- Taak inhoud worden gemigreerd naar een taak door een standaard-taakstap met de naam van de taakstap met de bijbehorende opdrachttekst toe te voegen.
+- Taken zijn standaard uitgeschakeld zodat u ze valideren kunt voordat deze wordt ingeschakeld.
 
 ```powershell
 Migrate-Jobs $agent
@@ -592,11 +592,11 @@ Job job4
 
 
 
-## <a name="migration-complete"></a>De migratie is voltooid
+## <a name="migration-complete"></a>Migratie is voltooid
 
-De *taak database* hebt nu alle de referenties van de taak, doelen, taak triggers, taakschema's, inhoud van de taak en taken gemigreerd.
+De *taak database* hebt nu alle de taakreferenties, doelen, taak triggers, taakschema's, de inhoud van de taak en taken gemigreerd.
 
-Om te controleren of alles correct is gemigreerd, moet u de volgende scripts gebruiken:
+Om te bevestigen dat alles correct is gemigreerd, moet u het volgende script gebruiken:
 
 ```powershell
 $creds = $agent | Get-AzureRmSqlElasticJobCredential
@@ -611,7 +611,7 @@ Als u wilt testen dat taken correct worden uitgevoerd, start u deze:
 $jobs | Start-AzureRmSqlElasticJob
 ```
 
-Voor alle taken die werden uitgevoerd volgens een schema, moet u ze inschakelen zodat ze kunnen worden uitgevoerd op de achtergrond:
+Houd er rekening mee voor alle taken die werden uitgevoerd volgens een schema, in te schakelen zodat ze op de achtergrond kunnen uitvoeren:
 
 ```powershell
 $jobs | Set-AzureRmSqlElasticJob -Enable
@@ -619,5 +619,5 @@ $jobs | Set-AzureRmSqlElasticJob -Enable
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Maken en beheren van elastische taken met behulp van PowerShell](elastic-jobs-powershell.md)
-- [Maken en beheren van elastische taken met Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [Elastische taken maken en beheren met PowerShell](elastic-jobs-powershell.md)
+- [Elastische taken maken en beheren met Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

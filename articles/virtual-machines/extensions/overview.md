@@ -1,6 +1,6 @@
 ---
 title: Virtuele machine van Azure-extensies en functies | Microsoft Docs
-description: Meer informatie over welke Azure VM-extensies anre hoe u deze gebruikt met virtuele machines in Azure
+description: Welke Azure-VM-extensies anre leren om ze te gebruiken met Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1fd4e1a67b6aa4cc66e62822c34606e2769890f8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653260"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866488"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Virtuele machine van Azure-extensies en functies
-Azure virtuele machine (VM)-uitbreidingen zijn kleine toepassingen waarmee de configuratie en automatisering taken na de implementatie op Azure Virtual machines, kunt u bestaande installatiekopieën gebruiken en ze vervolgens aanpassen als onderdeel van uw implementaties u buiten het bedrijf van aangepaste ophalen installatiekopie bouwen.
+Extensies voor Azure-machines (VM) zijn kleine toepassingen die taken van configuratie- en automatiseringstaken na de implementatie op Azure Virtual machines bieden, kunt u de bestaande installatiekopieën gebruiken en ze vervolgens aanpassen als onderdeel van uw implementaties aan u buiten het bedrijf van aangepaste installatiekopie samenstellen.
 
-De Azure-platform als host fungeert voor veel extensies die van het VM-configuratie, bewaking, beveiliging en hulpprogramma toepassingen variëren. Uitgevers een toepassing, klikt u vervolgens opnemen in een uitbreiding en vereenvoudigen van de installatie, dus u hoeft alleen verplichte parameters bevatten. 
+Het Azure-platform als host fungeert voor veel extensies die van het VM-configuratie, bewaking, beveiliging en hulpprogramma voor toepassingen variëren. Uitgevers een toepassing, klikt u vervolgens omsluit u deze in een extensie en vereenvoudigen van de installatie, dus u hoeft alleen verplichte parameters opgeven. 
 
- Er is een grote keuze van de eerste en uitbreidingen van derden, als de toepassing in de extensieopslagplaats niet bestaat, en vervolgens kunt u de extensie voor aangepaste scripts gebruiken en configureren van uw virtuele machine met uw eigen opdrachten en scripts.
+ Er is een grote keuze van de eerste en extensies van derden, als de toepassing in de extensieopslagplaats niet bestaat en u kunt de aangepaste scriptextensie gebruiken en configureren van uw virtuele machine met uw eigen scripts en opdrachten.
 
-Voorbeelden van belangrijke scenario's die uitbreidingen worden gebruikt voor:
-* VM-configuratie, kunt u Powershell DSC (Desired State Configuration), Chef, Puppet en aangepaste scriptextensies VM configuratie agents installeren en configureren van uw virtuele machine. 
+Voorbeelden van belangrijke scenario's die worden gebruikt voor extensies:
+* VM-configuratie, kunt u Powershell DSC (Desired State Configuration), Chef, Puppet en aangepaste scriptextensies VM-configuratie van agents installeren en configureren van uw virtuele machine. 
 * AV-producten, zoals Symantec, ESET.
-* VM beveiligingslek hulpprogramma zoals Qualys, Rapid7, HPE.
-* Virtuele machine en App controle tooling zoals DynaTrace, Azure-netwerk-Watcher Site24x7 en Stackify.
+* Virtuele machine door een beveiligingslek hulpprogramma, zoals Qualys, Rapid7, HPE.
+* Virtuele machine en hulpprogramma's, zoals DynaTrace, Azure Network Watcher, Site24x7 en Stackify controle-App.
 
-Extensies zijn gekoppeld aan een nieuwe VM-implementatie. Ze kunnen bijvoorbeeld deel uitmaken van een grotere implementatie van toepassingen op de virtuele machine inrichten, configureren of uitvoeren op alle ondersteunde extensie gerund systemen post-implementatie.
+Extensies zijn gekoppeld aan een nieuwe VM-implementatie. Bijvoorbeeld, kunnen ze deel uitmaken van een grotere implementatie van toepassingen op virtuele machine inrichten, configureren of uitvoeren op alle ondersteunde extensie bediend systemen na de implementatie.
 
 ## <a name="how-can-i-find-what-extensions-are-available"></a>Hoe vind ik welke extensies beschikbaar zijn?
-U kunt beschikbare uitbreidingen bekijken in de VM-blade in de Portal onder extensies, dit is slechts een kleine hoeveelheid voor een volledige lijst kunt u de CLI-hulpprogramma's gebruiken, Zie [VM-extensies voor Linux detecteren](features-linux.md) en [ Detectie van VM-extensies voor Windows](features-windows.md).
+U kunt beschikbare uitbreidingen bekijken in de VM-blade in de Portal, onder extensies, dit is slechts een klein bedrag voor de volledige lijst, kunt u de CLI-hulpprogramma's gebruiken, Zie [VM-extensies voor Linux detecteren](features-linux.md) en [ Detectie van VM-extensies voor Windows](features-windows.md).
 
-## <a name="how-can-i-install-an-extension"></a>Hoe kan ik een uitbreiding installeren?
-Azure VM-extensies kunnen worden beheerd via de Azure CLI 2.0, Azure PowerShell, Azure Resource Manager-sjablonen en de Azure-portal. Als u wilt proberen een uitbreiding, kunt u gaat u naar de Azure portal, selecteert de aangepaste Scriptextensie, doorgeven in een opdracht / script en de extensies worden uitgevoerd.
+## <a name="how-can-i-install-an-extension"></a>Hoe kan ik een extensie installeren?
+Azure VM-extensies kunnen worden beheerd met behulp van de Azure CLI 2.0, Azure PowerShell, Azure Resource Manager-sjablonen en Azure portal. Als u wilt proberen een uitbreiding, kunt u gaat u naar de Azure portal, selecteer de aangepaste Scriptextensie, vervolgens doorgeven in een opdracht / script en voert de extensies.
 
-Als u dezelfde extensie u hebt toegevoegd wilt de de portal door CLI of Resource Manager-sjabloon, Zie de documentatie voor andere extensie, zoals [Windows aangepaste Scriptextensie](custom-script-windows.md) en [Linux aangepaste Scriptextensie](custom-script-linux.md).
+Als u dezelfde extensie die u hebt toegevoegd in de portal via de CLI of Resource Manager-sjabloon wilt, ziet u andere extensies documentatie, zoals [Windows Custom Script Extension](custom-script-windows.md) en [Linux Custom Script Extension](custom-script-linux.md).
 
-## <a name="how-do-i-manage-extension-application-lifecycle"></a>Hoe beheer ik extensie toepassing lifecycle?
-U hoeft geen verbinding maken met een virtuele machine rechtstreeks te installeren of verwijderen van de extensie. Als de levenscyclus van de toepassing Azure-extensie is beheerd buiten de virtuele machine en geïntegreerd in de Azure-platform, ophalen u ook geïntegreerde status van de extensie.
+## <a name="how-do-i-manage-extension-application-lifecycle"></a>Hoe kan ik extensie toepassingslevenscyclus beheren?
+U hoeft geen verbinding maken met een virtuele machine rechtstreeks te installeren of verwijderen van de extensie. Als de levensduur van de extensie van Azure-toepassingen wordt beheerd buiten de virtuele machine en is geïntegreerd in het Azure-platform, ophalen u ook geïntegreerde status van de extensie.
 
-## <a name="anything-else-i-should-be-thinking-about-for-extensions"></a>Overige die ik over voor uitbreidingen nadenkt moet?
-Extensies toepassingen installeren, zoals toepassingen er zijn een aantal vereisten voor uitbreidingen er is een lijst met ondersteunde Windows- en Linux-OSes en moet u beschikken over de Azure VM moeten worden geïnstalleerd. Sommige afzonderlijke VM-extensie-toepassingen kunnen hun eigen omgevingsvereisten, zoals toegang tot een eindpunt hebben.
+## <a name="anything-else-i-should-be-thinking-about-for-extensions"></a>Iets anders die ik over voor uitbreidingen nadenken moet?
+Extensies installeren van toepassingen, net als alle toepassingen die er zijn aan bepaalde vereisten, voor extensies er wordt een lijst met ondersteunde OSes voor Linux en Windows, en moet u beschikken over de Azure VM agents zijn geïnstalleerd. Sommige afzonderlijke VM-extensie toepassingen hebben hun eigen omgevingsvereisten beschreven, zoals toegang tot een eindpunt.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over de werking van de Linux-Agent en -extensies [Azure VM-extensies en functies voor Linux](features-linux.md).
-* Zie voor meer informatie over de werking van de Windows-Gastagent en -extensies [Azure VM-extensies en functies voor Windows](features-windows.md).  
-* Zie het installeren van de Windows-Gastagent [overzicht van Azure Windows virtuele machines Agent ](agent-windows.md).  
-* Zie de Linux-Agent installeren [overzicht van Azure Linux VM-Agent ](agent-linux.md).  
+* Zie voor meer informatie over de werking van de Windows Guest Agent en -extensies [Azure VM-extensies en functies voor Windows](features-windows.md).  
+* Zie voor het installeren van de Windows-Gastagent [overzicht van Azure Windows VM Agent ](agent-windows.md).  
+* Zie voor het installeren van de Linux-Agent, [overzicht van Azure Linux Virtual Machine Agent ](agent-linux.md).  
 

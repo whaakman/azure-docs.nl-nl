@@ -12,18 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0886c220dfe926c7dfd9fa378ebb3c13fc900cbf
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984983"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860034"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework
-
-## <a name="introduction"></a>Inleiding
 
 Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT).
 
@@ -31,7 +29,7 @@ In deze zelfstudie kunt u zien hoe u [Azure Portal](https://portal.azure.com) ge
 
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* [Microsoft Visual Studio 2015 of hoger](http://visualstudio.com). In de schermafbeeldingen in deze zelfstudie wordt Visual Studio 2017 gebruikt.
+* [Microsoft Visual Studio 2017 of hoger](http://visualstudio.com).
 * Een actief Azure-account. Als u geen Azure-account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
@@ -60,8 +58,8 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
 5. Voeg de volgende velden toe aan de klasse **Program**, waarbij u de waarden van de tijdelijke aanduiding vervangt door de naam van de Event Hub die u in de vorige sectie hebt gemaakt, en de verbindingsreeks op naamruimteniveau die u eerder hebt opgeslagen.
    
   ```csharp
-  static string eventHubName = "{Event Hub name}";
-  static string connectionString = "{send connection string}";
+  static string eventHubName = "Your Event Hub name";
+  static string connectionString = "namespace connection string";
   ```
 6. Voeg de volgende methode toe aan de klasse **Program**:
    
@@ -103,6 +101,7 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
 Gefeliciteerd! U hebt nu berichten verzonden naar een Event Hub.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt, kunt u naar de volgende scenario's gaan:
 
 * [Gebeurtenissen ontvangen met de gebeurtenisprocessorhost](event-hubs-dotnet-framework-getstarted-receive-eph.md)

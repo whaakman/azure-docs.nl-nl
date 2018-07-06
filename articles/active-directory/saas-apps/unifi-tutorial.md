@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 589366bc3a079cdf1cacc21982cd03a1ff6d74ce
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0aa3ec013e93ddb89cd6982c01a38411f67b34c4
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220774"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Zelfstudie: Azure Active Directory-integratie met UNIFI
 
-In deze zelfstudie leert u hoe UNIFI integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u UNIFI integreren met Azure Active Directory (Azure AD).
 
-UNIFI integreren met Azure AD biedt de volgende voordelen:
+UNIFI integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot UNIFI heeft
 - U kunt uw gebruikers automatisch ophalen aangemeld bij UNIFI (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt uw accounts in één centrale locatie - Azure portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,25 +41,25 @@ Voor het configureren van Azure AD-integratie met UNIFI, moet u de volgende item
 - Een UNIFI eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. UNIFI uit de galerie toevoegen
+1. UNIFI uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-unifi-from-the-gallery"></a>UNIFI uit de galerie toevoegen
-Voor het configureren van de integratie van UNIFI in Azure AD, moet u UNIFI uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-unifi-from-the-gallery"></a>UNIFI uit de galerie toe te voegen
+Voor het configureren van de integratie van UNIFI in Azure AD, moet u UNIFI uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen UNIFI uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -67,60 +67,60 @@ Voor het configureren van de integratie van UNIFI in Azure AD, moet u UNIFI uit 
 
     ![Toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
 4. Typ in het zoekvak **UNIFI**.
 
-    ![Een Azure AD-testgebruiker maken](./media/unifi-tutorial/tutorial_unifi_search.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/unifi-tutorial/tutorial_unifi_search.png)
 
 5. Selecteer in het deelvenster resultaten **UNIFI**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/unifi-tutorial/tutorial_unifi_addfromgallery.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/unifi-tutorial/tutorial_unifi_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie configureert en test eenmalige aanmelding Azure AD met UNIFI op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met UNIFI op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in UNIFI is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in UNIFI tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in UNIFI is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in UNIFI tot stand worden gebracht.
 
-Wijs in UNIFI, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In UNIFI, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met UNIFI, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een UNIFI testgebruiker](#creating-a-unifi-test-user)**  - UNIFI die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Het maken van een UNIFI testgebruiker](#creating-a-unifi-test-user)**  : als u wilt een equivalent van Britta Simon in UNIFI die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing UNIFI configureren.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing UNIFI.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met UNIFI, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **UNIFI** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **UNIFI** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/unifi-tutorial/tutorial_unifi_samlbase.png)
 
-3. Op de **UNIFI domein en de URL's** sectie als u wilt configureren van de toepassing in **IDP** modus gestart:
+3. Op de **UNIFI domein en URL's** sectie, als u wilt configureren van de toepassing in **IDP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/unifi-tutorial/tutorial_unifi_url1.png)
 
-    In de **id** textbox, typ de waarde: `INVIEWlabs` 
+    In de **id** tekstvak typt u de waarde: `INVIEWlabs` 
 
-4. Controleer **weergeven geavanceerde instellingen voor URL**, als u wilt configureren van de toepassing in **SP** modus gestart:
+4. Controleer **geavanceerde URL-instellingen weergeven**, als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/unifi-tutorial/tutorial_unifi_url2.png)
 
-    In de **aanmeldings-URL** textbox, typ de URL: `https://app.discoverunifi.com/login`
+    In de **aanmeldings-URL** tekstvak typt u de URL: `https://app.discoverunifi.com/login`
 
-5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/unifi-tutorial/tutorial_unifi_certificate.png) 
 
@@ -128,38 +128,38 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/unifi-tutorial/tutorial_general_400.png)
     
-7. Op de **UNIFI configuratie** sectie, klikt u op **configureren UNIFI** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+7. Op de **UNIFI configuratie** sectie, klikt u op **configureren UNIFI** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/unifi-tutorial/tutorial_unifi_configure.png)
 
-8. In een ander browservenster, meld u aan bij uw **UNIFI** bedrijf site als administrator.
+8. In een ander browservenster aanmelden bij uw **UNIFI** bedrijf site als administrator.
 
 9. Klik op de **gebruikers**.
 
     ![Eenmalige aanmelding configureren](./media/unifi-tutorial/app1.png) 
 
-10. Klik op de **toevoegen van nieuwe identiteitsprovider**.
+10. Klik op de **nieuwe id-Provider toevoegen**.
 
     ![Eenmalige aanmelding configureren](./media/unifi-tutorial/app2.png)
 
-11. In de **identiteitsprovider toevoegen** sectie, voert u de volgende stappen uit:   
+11. In de **id-Provider toevoegen** sectie, voert u de volgende stappen uit:   
 
     ![Eenmalige aanmelding configureren](./media/unifi-tutorial/app3.png) 
 
-    a. In de **providernaam** textbox, typ de naam van de identiteitsprovider...
+    a. In de **providernaam** tekstvak, typ de naam van de id-Provider...
 
-    b. In de de **Provider URL** textbox plakken de **SAML Single Sign-On Service-URL** waarde, die u hebt gekopieerd vanuit Azure-portal.
+    b. In de **URL van de Provider** tekstvak plakken de **Single Sign-On Service URL voor SAML** waarde die u hebt gekopieerd vanuit Azure portal.
 
-    c. Open het certificaat dat u hebt gedownload vanuit de Azure-portal in Kladblok en verwijder de **---BEGIN CERTIFICATE---** en **---EINDCERTIFICAAT---** code en plak vervolgens de resterende inhoud in de **certificaat** textbox.
+    c. Open het certificaat dat u hebt gedownload vanuit Azure portal in Kladblok en verwijder de **---BEGIN CERTIFICATE---** en **---END CERTIFICATE---** code en plak de resterende inhoud in de **Certificaat** tekstvak.
 
-    d. Selecteer de **provider is standaard** selectievakje.
+    d. Selecteer de **-provider is standaard** selectievakje.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -167,45 +167,45 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![Een Azure AD-testgebruiker maken](./media/unifi-tutorial/create_aaduser_01.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/unifi-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
-    ![Een Azure AD-testgebruiker maken](./media/unifi-tutorial/create_aaduser_02.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/unifi-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
-    ![Een Azure AD-testgebruiker maken](./media/unifi-tutorial/create_aaduser_03.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/unifi-tutorial/create_aaduser_03.png) 
 
 4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
-    ![Een Azure AD-testgebruiker maken](./media/unifi-tutorial/create_aaduser_04.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/unifi-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In de **naam** tekstvak, type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
 
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
-### <a name="creating-a-unifi-test-user"></a>Een testgebruiker UNIFI maken
+### <a name="creating-a-unifi-test-user"></a>Het maken van een testgebruiker UNIFI
 
-In deze sectie maakt u een gebruiker met de naam Britta Simon. **UNIFI** ondersteunt automatische gebruikersaanvragen zodat er geen handmatige stappen vereist zijn. Gebruikers worden automatisch gemaakt na een geslaagde authenticatie van de Azure AD.
+In deze sectie maakt u een gebruiker met de naam Britta Simon. **UNIFI** biedt ondersteuning voor automatisch gebruikers inrichten, zodat er geen handmatige stappen vereist zijn. Gebruikers worden automatisch gemaakt na een geslaagde authenticatie van de Azure AD.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan UNIFI.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan UNIFI.
 
 ![Gebruiker toewijzen][200] 
 
-**Britta Simon om aan te wijzen UNIFI, moet u de volgende stappen uitvoeren:**
+**Als u wilt Britta Simon aan UNIFI toewijst, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **UNIFI**.
+2. Selecteer in de lijst met toepassingen, **UNIFI**.
 
     ![Eenmalige aanmelding configureren](./media/unifi-tutorial/tutorial_unifi_app.png) 
 
@@ -217,23 +217,23 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u op de tegel UNIFI in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing UNIFI.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel UNIFI in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing UNIFI.
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

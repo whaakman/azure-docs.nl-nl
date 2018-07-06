@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ec396e8a1ad36e85e1291995345ca1de24668d0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d814bed6f126cb3b81d85c4e797a22d2ac22ddfb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128057"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856202"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -23,37 +23,37 @@ Als u problemen hebt met het uitvoeren van Azure IoT Edge in uw omgeving, kunt u
 
 Wanneer u een probleem ondervindt, kunt u meer informatie verzamelen over de status van uw Azure IoT Edge-apparaat aan de hand van de containerlogboeken en -berichten die naar en van het apparaat worden doorgegeven. Gebruik de opdrachten en hulpprogramma's in deze sectie om informatie te verzamelen. 
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Controleer de status van de beveiligingsinstellingen van de IoT-rand en de logboeken:
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Controleer de status van de IoT Edge Security Manager en de logboeken:
 
 Op Linux:
-- De status van de beveiligingsinstellingen van IoT-rand weergeven:
+- De status van de IoT Edge Security Manager weergeven:
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-- De logboeken van de beveiligingsinstellingen van IoT-rand weergeven:
+- De logboeken van de IoT Edge Security Manager weergeven:
 
     ```bash
     sudo journalctl -u iotedge -f
     ```
 
-- Gedetailleerdere logboeken van de beveiligingsinstellingen van IoT-rand weergeven:
+- Gedetailleerde logboeken van de IoT Edge Security Manager om informatie weer te geven:
 
-   - De iotedge daemon-instellingen bewerken:
+   - De instellingen van de daemon iotedge bewerken:
 
       ```bash
       sudo systemctl edit iotedge.service
       ```
    
-   - Update de volgende regels:
+   - Werk de volgende regels:
     
       ```
       [Service]
       Environment=IOTEDGE_LOG=edgelet=debug
       ```
     
-   - Start opnieuw op de rand van de IoT-Daemon beveiliging:
+   - De IoT Edge Security-Daemon opnieuw:
     
       ```bash
       sudo systemctl cat iotedge.service
@@ -62,13 +62,13 @@ Op Linux:
       ```
 
 In Windows:
-- De status van de beveiligingsinstellingen van IoT-rand weergeven:
+- De status van de IoT Edge Security Manager weergeven:
 
    ```powershell
    Get-Service iotedge
    ```
 
-- De logboeken van de beveiligingsinstellingen van IoT-rand weergeven:
+- De logboeken van de IoT Edge Security Manager weergeven:
 
    ```powershell
    # Displays logs from today, newest at the bottom.
@@ -80,10 +80,10 @@ In Windows:
    sort-object @{Expression="TimeCreated";Descending=$false}
    ```
 
-### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Als de beveiligingsinstellingen van de IoT-rand wordt niet uitgevoerd, controleert u of uw yaml-configuratiebestand
+### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Als de IoT Edge Security Manager wordt niet uitgevoerd, controleert u of uw yaml-configuratiebestand
 
 > [!WARNING]
-> YAML bestanden mogen geen tabs als inspringing. Gebruik in plaats daarvan 2 spaties.
+> YAML-bestanden mag geen tabbladen als inspringing bevatten. Gebruik in plaats daarvan 2 spaties.
 
 Op Linux:
 
@@ -97,17 +97,17 @@ In Windows:
    notepad C:\ProgramData\iotedge\config.yaml
    ```
 
-### <a name="check-container-logs-for-issues"></a>Controleer de logboeken van de container voor problemen
+### <a name="check-container-logs-for-issues"></a>Raadpleeg de containerlogboeken voor problemen
 
-Zodra de IoT rand Security-Daemon wordt uitgevoerd, bekijkt u de logboeken van de containers voor het detecteren van problemen. Begin met uw geïmplementeerde containers en kijk vervolgens naar de containers die gezamenlijk de IoT Edge-runtime vormen: Edge Agent en Edge Hub. De Edge Agent-logboeken bieden doorgaans informatie over de levenscyclus van elke container. De Edge Hub-logboeken bieden informatie over berichten en routering. 
+Zodra de IoT Edge Security-Daemon wordt uitgevoerd, bekijkt u de logboeken van de containers om problemen te detecteren. Begin met uw geïmplementeerde containers en kijk vervolgens naar de containers die gezamenlijk de IoT Edge-runtime vormen: Edge Agent en Edge Hub. De Edge Agent-logboeken bieden doorgaans informatie over de levenscyclus van elke container. De Edge Hub-logboeken bieden informatie over berichten en routering. 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-edge-hub"></a>De berichten gaan via de Edge-hub weergeven
+### <a name="view-the-messages-going-through-the-edge-hub"></a>Bekijk de berichten die via Edge hub gaan
 
-De berichten gaan via de Edge-hub kunt weergeven en inzichten op Eigenschappen apparaatupdates met uitgebreide logboeken verzamelen van de runtime edgeAgent en edgeHub containers. Om in te schakelen uitgebreide logboeken op deze containers, stel de `RuntimeLogLevel` omgevingsvariabele: 
+Bekijk de berichten die via Edge hub gaan en verzamel inzichten over updates van apparaateigenschappen met uitgebreide Logboeken uit de runtimecontainers edgeAgent en edgeHub. Als u wilt inschakelen op de uitgebreide logboeken op deze containers, stel de `RuntimeLogLevel` omgevingsvariabele: 
 
 Op Linux:
     
@@ -124,21 +124,21 @@ In Windows:
 U kunt ook de berichten controleren die worden verzonden tussen IoT Hub en de IoT Edge-apparaten. Bekijk deze berichten met behulp van de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)-extensie voor Visual Studio Code. Zie [Handig hulpprogramma bij het ontwikkelen met Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) voor meer richtlijnen.
 
 ### <a name="restart-containers"></a>Opnieuw opstarten van containers
-Na het onderzoeken van de logboeken en berichten voor meer informatie, kunt u proberen opnieuw te starten containers:
+Na onderzoek van de logboeken en berichten voor meer informatie, kunt u proberen opnieuw te starten containers:
 
 ```
 iotedge restart <container name>
 ```
 
-Start opnieuw op de rand van de IoT-runtime-containers:
+Start opnieuw op de IoT Edge-runtime-containers:
 
 ```
 iotedge restart edgeAgent && iotedge restart edgeHub
 ```
 
-### <a name="restart-the-iot-edge-security-manager"></a>Opnieuw opstarten van de rand van de IoT security manager
+### <a name="restart-the-iot-edge-security-manager"></a>Opnieuw opstarten van de IoT Edge-beveiligingsbeheer
 
-Als het probleem nog steeds in de persistent maken, kunt u proberen opnieuw starten van de rand van de IoT security manager.
+Als het probleem nog steeds in de persistent maken, kunt u proberen de IoT Edge security manager opnieuw te starten.
 
 Op Linux:
 
@@ -199,30 +199,30 @@ Een container kan niet worden uitgevoerd en in de logboeken van de Edge Agent wo
 De Edge Agent beschikt niet over machtigingen voor toegang tot de installatiekopie van een module. 
 
 ### <a name="resolution"></a>Oplossing
-Zorg ervoor dat uw referenties register correct zijn opgegeven in uw deployment manifest
+Zorg ervoor dat de registerreferenties van uw juist zijn opgegeven in uw manifest implementatie
 
-## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IoT-rand security-daemon is mislukt met een ongeldige hostnaam
+## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IoT Edge security-daemon is mislukt met een ongeldige hostnaam
 
-De opdracht `sudo journalctl -u iotedge` mislukt en wordt het volgende bericht: 
+De opdracht `sudo journalctl -u iotedge` mislukt dat en wordt het volgende bericht: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
 ```
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-De rand van de IoT-runtime biedt slechts ondersteuning voor hostnamen die korter dan 64 tekens zijn. Dit meestal geen belemmering vormt voor fysieke computers, maar kan zich voordoen bij het instellen van de runtime op een virtuele machine. De automatisch gegenereerde hostnamen voor Windows virtuele machines die worden gehost in Azure, met name hebben vaak lang zijn. 
+IoT Edge-runtime biedt alleen ondersteuning voor hostnamen die korter zijn dan 64 tekens lang zijn. Dit meestal is een probleem voor fysieke computers, maar kan zich voordoen bij het instellen van de runtime op een virtuele machine. De automatisch gegenereerde hostnamen voor Windows virtuele machines die worden gehost in Azure, meestal in het bijzonder te lang. 
 
 ### <a name="resolution"></a>Oplossing
-Wanneer u deze fout ziet, kunt u deze kunt oplossen door de DNS-naam van uw virtuele machine configureren en de DNS-naam in te stellen als de hostnaam in de setup-opdracht.
+Wanneer u deze fout ziet, kunt u deze kunt oplossen door de DNS-naam van uw virtuele machine configureren en vervolgens de DNS-naam als de hostnaam in de setup-opdracht in te stellen.
 
-1. Ga naar de overzichtspagina van uw virtuele machine in de Azure-portal. 
-2. Selecteer **configureren** met DNS-naam. Als uw virtuele machine is al een DNS-naam is geconfigureerd, hoeft u niet te configureren van een nieuwe. 
+1. Navigeer naar de overzichtspagina van de virtuele machine in Azure portal. 
+2. Selecteer **configureren** onder DNS-naam. Als uw virtuele machine is al een DNS-naam die is geconfigureerd, hoeft u niet te configureren van een nieuwe. 
 
-   ![Configureer DNS-naam](./media/troubleshoot/configure-dns.png)
+   ![Configureren van DNS-naam](./media/troubleshoot/configure-dns.png)
 
-3. Geef een waarde voor **label DNS-naam** en selecteer **opslaan**.
+3. Geef een waarde voor **DNS-naamlabel** en selecteer **opslaan**.
 4. Kopiëren van de nieuwe DNS-naam, de indeling moet  **\<DNSnamelabel\>.\< VM-locatie\>. cloudapp.azure.com**.
-5. Gebruik de volgende opdracht voor het instellen van de rand van de IoT-runtime met uw DNS-naam in de virtuele machine:
+5. Gebruik de volgende opdracht voor het instellen van de IoT Edge-runtime met uw DNS-naam in de virtuele machine:
 
    - Op Linux:
 
@@ -236,5 +236,37 @@ Wanneer u deze fout ziet, kunt u deze kunt oplossen door de DNS-naam van uw virt
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
+## <a name="stability-issues-on-resource-constrained-devices"></a>Problemen met de stabiliteit van bron beperkte apparaten 
+U kunt de stabiliteitsproblemen op beperkte apparaten, zoals de Raspberry Pi, ondervinden met name wanneer die wordt gebruikt als een gateway. Symptomen zijn buiten het geheugen uitzonderingen in de edge hub-module, downstream apparaten kunnen geen verbinding maken of het apparaat reageert verzenden van berichten over telemetrie na een paar uur.
+
+### <a name="root-cause"></a>Hoofdoorzaak
+De edge hub, die deel van de edge-runtime uitmaakt, standaard is geoptimaliseerd voor prestaties en grote hoeveelheden geheugen wordt toegewezen. Dit is niet ideaal voor beperkte edge-apparaten en stabiliteitsproblemen kan veroorzaken.
+
+### <a name="resolution"></a>Oplossing
+Voor de edge hub stelt de omgevingsvariabele **OptimizeForPerformance** naar **false**. Er zijn twee manieren om dit te doen:
+
+In de gebruikersinterface: In de portal van *Apparaatdetails*->*Modules instellen*->*geavanceerde instellingen voor Edge-Runtime configureren*, een omgeving maken variabele met de naam *OptimizeForPerformance* die is ingesteld op *false* voor de *Edge Hub*.
+
+![optimizeforperformance][img-optimize-for-perf]
+
+In het manifest van de implementatie:
+
+```json
+  "edgeHub": {
+    "type": "docker",
+    "settings": {
+      "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+      "createOptions": <snipped>
+    },
+    "env": {
+      "OptimizeForPerformance": {
+          "value": "false"
+      }
+    },
+```
+
 ## <a name="next-steps"></a>Volgende stappen
 Denkt u dat u een fout op het IoT Edge-platform hebt gevonden? [Verzend een probleem](https://github.com/Azure/iotedge/issues) zodat we het product verder kunnen blijven verbeteren. 
+
+<!-- Images -->
+[img-optimize-for-perf]: ./media/troubleshoot/OptimizeForPerformanceFalse.png
