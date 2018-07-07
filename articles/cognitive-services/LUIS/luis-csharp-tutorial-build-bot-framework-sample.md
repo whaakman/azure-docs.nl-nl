@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: b7e8bf9046d432bd830f65e1934704ec5036fd1c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: af5079e8c448a0df6b1109f5f23e3e3a2871a167
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346627"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887263"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web App-Bot met behulp van de sjabloon LUIS voor C#
 
@@ -47,7 +47,7 @@ Bouw een chatbot met geïntegreerde language understanding.
     * Stel **appnaam** op de naam van uw bot. De naam wordt gebruikt als het subdomein wanneer uw bot wordt geïmplementeerd naar de cloud (bijvoorbeeld mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Selecteer het abonnement [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan en [locatie](https://azure.microsoft.com/regions/).
     * Selecteer de **Language understanding (C#)** sjabloon voor de **Bot sjabloon** veld.
-    * Selecteer de **LUIS-App locatie**. Dit is het ontwerpen van [regio] [ LUIS] in de app is gemaakt.
+    * Selecteer de **LUIS-App locatie**. Dit is het ontwerpen van [regio](luis-reference-regions.md) in de app is gemaakt.
     * Selecteer het selectievakje bevestiging voor de juridische kennisgeving. De voorwaarden van de juridische kennisgeving staan hieronder het selectievakje in.
 
     ![Bot Service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
@@ -170,7 +170,6 @@ Voeg de LUIS intents en Bot service dialoogvensters voor het verwerken van **Hel
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+
 <!-- tested on Win10 -->

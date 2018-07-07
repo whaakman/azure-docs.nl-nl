@@ -1,6 +1,6 @@
 ---
-title: Een Ruby op Rails website op een Linux-VM hosten | Microsoft Docs
-description: Instellen en een Ruby op Rails gebaseerde website op Azure met behulp van een virtuele Linux-machine host.
+title: Een Ruby on Rails-website op een Linux VM hosten | Microsoft Docs
+description: Instellen en een Ruby on Rails-website op Azure met behulp van een virtuele Linux-machine host.
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
@@ -15,49 +15,49 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6ea1d249b7f9aec3a45923b162a97ce7f83d0d31
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29397594"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901150"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Ruby on Rails-webtoepassing op een Azure VM
-Deze zelfstudie laat zien hoe voor het hosten van een Ruby op Rails website op Azure met behulp van een virtuele Linux-machine.  
+Deze zelfstudie leert hoe u een Ruby on Rails-website op Azure host met behulp van een virtuele Linux-machine.  
 
-Deze zelfstudie is gevalideerd met behulp van Ubuntu Server 14.04 TNS. Als u een ander Linux-distributiepunt gebruikt, moet u mogelijk de stappen voor het installeren van Rails wijzigen.
+In deze zelfstudie is gevalideerd met behulp van Ubuntu Server 14.04 TNS. Als u gebruikmaakt van een andere Linux-distributie, moet u mogelijk om te wijzigen van de stappen voor het installeren van Rails.
 
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../../azure-resource-manager/resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 >
 
-## <a name="create-an-azure-vm"></a>Een Azure virtuele machine maken
-Begint met het maken van een virtuele machine in Azure met een Linux-installatiekopie.
+## <a name="create-an-azure-vm"></a>Een Azure-VM maken
+Beginnen met het maken van een Azure-VM met een installatiekopie van Linux.
 
 U kunt de Azure portal of de Azure-opdrachtregelinterface (CLI) gebruiken voor het maken van de virtuele machine.
 
 ### <a name="azure-portal"></a>Azure Portal
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com)
-2. Klik op **maken van een resource**, typt u 'Ubuntu Server 14.04' in het zoekvak. Klik op het item dat is geretourneerd door de zoekopdracht. Selecteer het implementatiemodel **klassieke**, klik op 'Maken'.
-3. Geef waarden voor de vereiste velden in de blade grondbeginselen: naam (voor de virtuele machine), gebruikersnaam, authenticatietype en de bijbehorende aanmeldingsreferenties Azure-abonnement, resourcegroep en locatie.
+2. Klik op **een resource maken**, typ 'Ubuntu Server 14.04' in het zoekvak in. Klik op het item dat is geretourneerd door de zoekopdracht. Selecteer voor het implementatiemodel **klassieke**, klik vervolgens op 'Maken'.
+3. Geef waarden voor de vereiste velden in de blade grondbeginselen: naam (voor de virtuele machine), gebruikersnaam, het verificatietype en de bijbehorende referenties, Azure-abonnement, resourcegroep en locatie.
 
-   ![Maak een nieuwe Ubuntu-afbeelding](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
+   ![Een nieuwe Ubuntu-installatiekopie maken](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
 
-4. Nadat de virtuele machine is ingericht, klik op de VM-naam en klikt u op **eindpunten** in de **instellingen** categorie. De SSH-eindpunt, die worden vermeld onder vinden **zelfstandige**.
+4. Nadat de virtuele machine is ingericht, klikt u op de naam van de virtuele machine en klikt u op **eindpunten** in de **instellingen** categorie. De SSH-eindpunt, die worden vermeld onder vinden **zelfstandige**.
 
-   ![Standaardeindpunt](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
+   ![Eindpunt](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### <a name="azure-cli"></a>Azure-CLI
-Volg de stappen in [maken van een virtuele Machine waarop Linux][vm-instructions].
+Volg de stappen in [maken van een virtuele Machine wordt uitgevoerd op Linux][vm-instructions].
 
-Nadat de virtuele machine is ingericht, kunt u het SSH-eindpunt kunt krijgen met de volgende opdracht:
+Nadat de virtuele machine is ingericht, kunt u het SSH-eindpunt krijgen door de volgende opdracht uit:
 
     azure vm endpoint list <vm-name>  
 
-## <a name="install-ruby-on-rails"></a>Ruby op Rails installeren
-1. SSH gebruiken voor verbinding met de virtuele machine.
-2. Gebruik de volgende opdrachten Ruby installeren op de virtuele machine van de SSH-sessie:
+## <a name="install-ruby-on-rails"></a>Installeer Ruby on Rails
+1. Gebruik SSH om verbinding met de virtuele machine te maken.
+2. Gebruik de volgende opdrachten voor het installeren van Ruby op de virtuele machine van de SSH-sessie:
 
         sudo apt-get update -y
         sudo apt-get upgrade -y
@@ -69,7 +69,7 @@ Nadat de virtuele machine is ingericht, kunt u het SSH-eindpunt kunt krijgen met
         > [!TIP]
         > The brightbox repository contains the current Ruby distribution.
 
-    De installatie kan enkele minuten duren. Wanneer deze is voltooid, moet u de volgende opdracht gebruiken om te controleren of Ruby is geïnstalleerd:
+    De installatie kan enkele minuten duren. Wanneer deze is voltooid, gebruikt u de volgende opdracht uit om te controleren of Ruby is geïnstalleerd:
 
         ruby -v
 
@@ -77,17 +77,17 @@ Nadat de virtuele machine is ingericht, kunt u het SSH-eindpunt kunt krijgen met
 
         sudo gem install rails --no-rdoc --no-ri -V
 
-    Gebruik de--vlaggen Nee rdoc en--Nee k om over te slaan voor het installeren van de documentatie, die sneller is.
-    Met deze opdracht wordt waarschijnlijk lang duren om uit te voeren, zodat de -V toe te voegen, wordt informatie over de installatievoortgang weergegeven.
+    Gebruik de--niet-rdoc en--niet-gereserveerde instanties vlaggen om over te slaan de documentatie die sneller te installeren.
+    Met deze opdracht wordt waarschijnlijk een lang duren om uit te voeren, zodat de -V toe te voegen, wordt informatie over de voortgang van de installatie weergegeven.
 
-## <a name="create-and-run-an-app"></a>Maken en een app uitvoeren
-Terwijl u nog steeds wordt aangemeld via SSH, voer de volgende opdrachten:
+## <a name="create-and-run-an-app"></a>Maken en uitvoeren van een app
+Terwijl u nog steeds bent aangemeld via SSH, voer de volgende opdrachten:
 
     rails new myapp
     cd myapp
     rails server -b 0.0.0.0 -p 3000
 
-De [nieuwe](http://guides.rubyonrails.org/command_line.html#rails-new) opdracht maakt u een nieuwe Rails-app. De [server](http://guides.rubyonrails.org/command_line.html#rails-server) opdracht start u de webserver WEBrick die wordt geleverd met Rails. (Voor gebruik in productieomgevingen, u wilt waarschijnlijk wilt gebruiken een andere server, zoals Eenhoorn of passagiers.)
+De [nieuwe](http://guides.rubyonrails.org/command_line.html#rails-new) opdracht maakt u een nieuwe Rails-app. De [server](http://guides.rubyonrails.org/command_line.html#rails-server) opdracht start u de WEBrick-webserver die wordt geleverd met Rails. (Voor gebruik in productieomgevingen, u wilt waarschijnlijk wilt gebruiken een andere server, zoals Unicorn of passagiers.)
 
 De uitvoer ziet er als volgt uit.
 
@@ -100,11 +100,11 @@ De uitvoer ziet er als volgt uit.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Een eindpunt toevoegen
-1. Ga naar de [Azure portal] [https://portal.azure.com] en selecteert u de virtuele machine.
+1. Ga naar de [Azure portal] [https://portal.azure.com] en selecteer de virtuele machine.
 
-2. Selecteer **EINDPUNTEN** in de **instellingen** langs de linkerkant van de rand de pagina.
+2. Selecteer **EINDPUNTEN** in de **instellingen** aan de linkerkant van de rand de pagina.
 
-3. Klik op **toevoegen** boven aan de pagina.
+3. Klik op **toevoegen** aan de bovenkant van de pagina.
 
 4. In de **eindpunt toevoegen** dialoogvenster pagina, voer de volgende informatie:
 
@@ -113,31 +113,31 @@ De uitvoer ziet er als volgt uit.
    * **Openbare poort**: 80
    * **Particuliere poort**: 3000
    * **Zwevende PI adres**: uitgeschakeld
-   * **ACL - volgorde**: 1001 of een andere waarde die de prioriteit van deze regel wordt ingesteld.
-   * **ACL - naam**: allowHTTP
-   * **ACL - actie**: toestaan
-   * **ACL - extern subnet**: 1.0.0.0/16
+   * **Toegangsbeheerlijst - volgorde**: 1001 of een andere waarde die de prioriteit van deze toegangsregel ingesteld.
+   * **Toegangsbeheerlijst - naam**: allowHTTP
+   * **Toegangsbeheerlijst - actie**: toestaan
+   * **Toegangsbeheerlijst - extern subnet**: 1.0.0.0/16
 
-     Dit eindpunt heeft een openbare poort 80 dat verkeer wordt gerouteerd naar de particuliere poort van 3000, waarbij de Rails server luistert. De toegangsbeheerlijstregel kunt openbaar verkeer op poort 80.
+     Dit eindpunt heeft een openbare poort 80 die verkeer naar de particuliere poort van 3000 routeert, waar de Rails-server luistert. De toegangsbeheerlijstregel toestaat openbare verkeer op poort 80.
 
-     ![nieuwe endpoint](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
+     ![nieuw eindpunt](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
 
 5. Klik op OK om op te slaan van het eindpunt.
 
-6. Een bericht moet worden weergegeven waarin wordt vermeld **eindpunt van de virtuele machine opslaan**. Als dit bericht verdwijnt, is het eindpunt is actief. U kunt nu uw toepassing testen door te navigeren naar de DNS-naam van uw virtuele machine. De website moet worden de volgende strekking weergegeven:
+6. Een bericht moet worden weergegeven met de mededeling **eindpunt van de virtuele machine opslaan**. Zodra dit bericht verdwijnt, is het eindpunt is actief. U kunt nu uw toepassing testen door te navigeren naar de DNS-naam van uw virtuele machine. De website moet worden de volgende strekking weergegeven:
 
     ![standaardpagina rails][default-rails-cloud]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u de meeste van de stappen handmatig. In een productieomgeving zou u uw app op een ontwikkelcomputer schrijven en deze implementeren in de Azure VM. De meeste productieomgevingen hosten ook de toepassing Rails in combinatie met een andere server-proces zoals Apache of NginX, welke ingangen aanvragen routering naar meerdere exemplaren van de toepassing Rails ten behoeve van statische resources. Zie http://rubyonrails.org/deploy/ voor meer informatie.
+In deze zelfstudie hebt u de meeste van de stappen handmatig. In een productieomgeving zou u schrijft u uw app op een ontwikkelcomputer en deze implementeren in de Azure-VM. De meeste productieomgevingen host ook de Rails-toepassing in combinatie met een andere server-proces, zoals Apache of NginX, welke ingangen aanvragen doorsturen naar meerdere exemplaren van de Rails-toepassing ten behoeve van statische resources. Zie voor meer informatie, http://guides.rubyonrails.org/routing.html.
 
-Voor meer informatie over Ruby op Rails, gaat u naar de [Ruby op Rails handleidingen][rails-guides].
+Voor meer informatie over de Ruby on Rails, gaat u naar de [Ruby on Rails-handleidingen][rails-guides].
 
-Voor het gebruik van Azure-services van uw toepassing Ruby, Zie:
+Zie voor het gebruik van Azure-services van uw Ruby-toepassing:
 
-* [Niet-gestructureerde gegevens blobs opslaan][blobs]
-* [Store sleutel-waardeparen met tabellen][tables]
-* [Inhoud van de hoge bandbreedte met het netwerk van de levering van inhoud][cdn-howto]
+* [Niet-gestructureerde gegevens blobs Store][blobs]
+* [Store-sleutel/waarde-paren met tabellen][tables]
+* [Leveren van inhoud met hoge bandbreedte met het Content Delivery Network][cdn-howto]
 
 <!-- WA.com links -->
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md

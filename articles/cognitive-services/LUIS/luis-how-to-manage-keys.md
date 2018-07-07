@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 80064584468c109d0bad49f1a22c485fa9cce846
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 99ba867b10c82d226948b13fda448cd24a33c553
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344515"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888725"
 ---
 # <a name="manage-your-luis-keys"></a>Uw LUIS-sleutels beheren
 Een sleutel kunt u maken en publiceren van uw LUIS-app of query uitvoeren op uw eindpunt. 
@@ -72,5 +72,3 @@ Meer informatie over publiceren [regio's](luis-reference-regions.md) inclusief p
 ## <a name="next-steps"></a>Volgende stappen
 
 Gebruikt u uw sleutel voor het publiceren van uw app in de **app publiceren** pagina. Zie voor instructies over het publiceren, [app publiceren](luis-how-to-publish-app.md).
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

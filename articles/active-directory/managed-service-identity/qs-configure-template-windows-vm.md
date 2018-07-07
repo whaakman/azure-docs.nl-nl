@@ -1,6 +1,6 @@
 ---
-title: Het configureren van MSI op een virtuele machine in Azure met behulp van een sjabloon
-description: Stapsgewijze instructies voor het configureren van een beheerde Service identiteit (MSI) op een virtuele machine van Azure, met een Azure Resource Manager-sjabloon.
+title: MSI-bestand op een Azure-VM configureren met behulp van een sjabloon
+description: Stapsgewijze instructies voor het configureren van een Managed Service Identity (MSI) op een Azure-VM, met een Azure Resource Manager-sjabloon.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,59 +9,59 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 05859187a5734d982b750e287c3ecd375ed1da2f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 30e186c86d9947c5d0ef609a1c447dc6ed938c35
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723742"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902408"
 ---
-# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Een VM beheerde Service-identiteit configureren met behulp van een sjabloon
+# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Een virtuele machine beheerde Service-identiteit configureren met behulp van een sjabloon
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om alle services die Azure AD-verificatie ondersteunt, zonder referenties in uw code te verifiëren. 
+Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
-In dit artikel leert u hoe op de volgende Service-identiteit beheerd bewerkingen uitvoeren op een virtuele machine van Azure, Azure Resource Manager-implementatiesjabloon met:
+In dit artikel leert u hoe u de volgende bewerkingen van de beheerde Service-identiteit op een Azure-VM, met behulp van Azure Resource Manager-implementatiesjabloon uit te voeren:
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u niet bekend met de Service-identiteit beheerd bent, bekijk de [overzichtssectie van](overview.md). **Lees de [verschil tussen een systeem dat is toegewezen en de gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
-- Als u al een Azure-account niet hebt [aanmelden voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
+- Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
+- Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 
-Net als bij de Azure portal en uitvoeren van scripts, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) sjablonen bieden de mogelijkheid voor het implementeren van nieuwe of gewijzigde bronnen die zijn gedefinieerd door een Azure-resourcegroep. Er zijn diverse opties beschikbaar voor het bewerken van sjablonen en implementatie van zowel lokale als portal-gebaseerde, met inbegrip van:
+Net als bij Azure portal en uitvoeren van scripts, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) sjablonen bieden de mogelijkheid om nieuwe of gewijzigde resources die zijn gedefinieerd door een Azure-resourcegroep te implementeren. Er zijn diverse opties beschikbaar voor het bewerken van de sjabloon en implementatie, zowel lokaal als portal-gebaseerd, met inbegrip van:
 
-   - Met behulp van een [aangepaste sjabloon vanuit Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), waarmee u kunt een sjabloon maken vanaf het begin of baseren op een bestaande gemeenschappelijke of [snelstartsjabloon](https://azure.microsoft.com/documentation/templates/).
-   - Die zijn afgeleid van een bestaande resourcegroep door een sjabloon exporteren vanuit [de oorspronkelijke implementatie](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), of vanuit de [huidige status van de implementatie](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
-   - Met behulp van een lokale [JSON-editor (zoals VS-Code)](../../azure-resource-manager/resource-manager-create-first-template.md), uploaden en implementeren met behulp van PowerShell of CLI.
-   - Met de Visual Studio [Azure-resourcegroepproject](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) zowel maken en implementeren van een sjabloon.  
+   - Met behulp van een [aangepaste sjabloon vanuit Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), waarmee u een sjabloon maken van een volledig nieuwe of baseren op een bestaande gemeenschappelijke of [QuickStart-sjabloon](https://azure.microsoft.com/documentation/templates/).
+   - Die is afgeleid van een bestaande resourcegroep door een sjabloon exporteren vanuit een [de oorspronkelijke implementatie](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), of vanuit de [huidige status van de implementatie van](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
+   - Met behulp van een lokale [JSON-editor (zoals VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), en vervolgens uploaden en implementeren met behulp van PowerShell of CLI.
+   - Met Visual Studio [Azure-resourcegroepproject](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) te maken en implementeren van een sjabloon.  
 
-Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijdens de eerste implementatie en opnieuw installeren. Inschakelen van een systeem of de gebruiker toegewezen identiteit op een nieuwe of bestaande virtuele machine wordt uitgevoerd op dezelfde manier. Ook standaard Azure Resource Manager biedt een [incrementele update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) voor implementaties.
+Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijdens de initiële implementatie en opnieuw implementeren. Inschakelen van een systeem of de gebruiker toegewezen identiteit op een nieuwe of bestaande virtuele machine wordt uitgevoerd op dezelfde manier. Bovendien standaard Azure Resource Manager biedt een [incrementele update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) implementaties.
 
-## <a name="system-assigned-identity"></a>Automatisch toegewezen identiteit
+## <a name="system-assigned-identity"></a>Systeem toegewezen identiteit
 
-In deze sectie kunt u inschakelen en uitschakelen van een systeem toegewezen identiteit met een Azure Resource Manager-sjabloon.
+In deze sectie maakt u inschakelen en uitschakelen van een systeem toegewezen identiteit met een Azure Resource Manager-sjabloon.
 
-### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Automatisch toegewezen identiteit tijdens het maken van een virtuele machine in Azure of op een bestaande virtuele machine inschakelen
+### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Systeem toegewezen identiteit tijdens het maken van een Azure-VM, of op een bestaande virtuele machine inschakelen
 
-1. Of u lokaal bij Azure aanmelden of gebruik een account dat is gekoppeld aan het Azure-abonnement via de Azure-portal bevat die de virtuele machine. Zorg er ook voor dat uw account deel uitmaakt van een functie waarmee u schrijfmachtigingen heeft op de virtuele machine (bijvoorbeeld de rol 'Virtual Machine Contributor').
+1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine. Zorg er ook voor dat uw account deel uitmaakt van een functie waarmee u beschikt over machtigingen voor schrijven op de virtuele machine (bijvoorbeeld de rol 'Inzender voor virtuele machines').
 
-2. Na het laden van de sjabloon in een editor, zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Jouw e-mailadres eruit enigszins afwijken van de volgende schermafbeelding, afhankelijk van de editor die u gebruikt en of het bewerken van een sjabloon voor een nieuwe implementatie of een bestaande set.
+2. Na het laden van de sjabloon in een editor, Ga naar de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Uw uitzien enigszins afwijken van de volgende schermafbeelding, afhankelijk van de editor die u gebruikt en of het bewerken van een sjabloon voor de implementatie van een nieuwe of bestaande resourcegroep.
 
    >[!NOTE] 
-   > Hierbij wordt verondersteld variabelen, zoals `vmName`, `storageAccountName`, en `nicName` zijn gedefinieerd in de sjabloon.
+   > Dit voorbeeld wordt aangenomen variabelen zoals `vmName`, `storageAccountName`, en `nicName` zijn gedefinieerd in de sjabloon.
    >
 
-   ![Schermopname van sjabloon: zoek VM](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Schermafbeelding van de sjabloon: zoek VM](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-3. Om automatisch toegewezen identiteit, voeg de `"identity"` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachines"` eigenschap. Gebruik de volgende syntaxis:
+3. Om in te schakelen systeem toegewezen identiteit, voeg de `"identity"` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachines"` eigenschap. Gebruik de volgende syntaxis:
 
    ```JSON
    "identity": { 
@@ -69,10 +69,10 @@ In deze sectie kunt u inschakelen en uitschakelen van een systeem toegewezen ide
    },
    ```
 
-4. (Optioneel) Toevoegen van de VM MSI-extensie als een `resources` element. Deze stap is optioneel als u het eindpunt van de identiteit Azure exemplaar metagegevens Service (IMDS) gebruiken kunt en tokens op te halen.  Gebruik de volgende syntaxis:
+4. (Optioneel) Toevoegen van de VM MSI-extensie als een `resources` element. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.  Gebruik de volgende syntaxis:
 
    >[!NOTE] 
-   > Het volgende voorbeeld wordt ervan uitgegaan dat een Windows-VM-extensie (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux via `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen.
+   > Het volgende voorbeeld wordt ervan uitgegaan dat een Windows VM-extensie (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux met behulp van `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen.
    >
 
    ```JSON
@@ -97,31 +97,31 @@ In deze sectie kunt u inschakelen en uitschakelen van een systeem toegewezen ide
    }
    ```
 
-5. Wanneer u bent klaar, ziet de sjabloon er ongeveer als volgt:
+5. Wanneer u klaar bent, is de sjabloon ziet die vergelijkbaar is met het volgende:
 
-   ![Schermafbeelding van de sjabloon na de update](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ![Schermafbeelding van de sjabloon na-update](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-vm"></a>Uitschakelen van een systeem toegewezen identiteit van een Azure VM
 
 > [!NOTE]
-> Het uitschakelen van de Service-identiteit beheerd vanaf een virtuele Machine is momenteel niet ondersteund. In de tussentijd kunt u schakelen tussen het gebruik van het systeem toegewezen en toegewezen gebruikersidentiteiten.
+> Uitschakelen van de beheerde Service-identiteit van een virtuele Machine wordt momenteel niet ondersteund. In de tussentijd kunt u overschakelen tussen het gebruik van het systeem toegewezen en de gebruiker toegewezen identiteiten.
 
-Als u een virtuele machine die niet langer nodig een beheerde service-identiteit heeft hebt:
+Als u een virtuele machine die een beheerde service-identiteit niet meer nodig hebt:
 
-1. Of u lokaal bij Azure aanmelden of gebruik een account dat is gekoppeld aan het Azure-abonnement via de Azure-portal bevat die de virtuele machine. Zorg er ook voor dat uw account deel uitmaakt van een functie waarmee u schrijfmachtigingen heeft op de virtuele machine (bijvoorbeeld de rol 'Virtual Machine Contributor').
+1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine. Zorg er ook voor dat uw account deel uitmaakt van een functie waarmee u beschikt over machtigingen voor schrijven op de virtuele machine (bijvoorbeeld de rol 'Inzender voor virtuele machines').
 
-2. Wijzigen van het identiteitstype `UserAssigned`.
+2. Wijzigen van het identiteitstype in `UserAssigned`.
 
-## <a name="user-assigned-identity"></a>Identiteit toegewezen door gebruiker
+## <a name="user-assigned-identity"></a>Door gebruiker toegewezen identiteit
 
-In deze sectie wijst u een toegewezen gebruikers-id aan een virtuele machine in Azure met Azure Resource Manager-sjabloon.
+In deze sectie maakt u de identiteit van een gebruiker toegewezen aan een Azure VM met behulp van Azure Resource Manager-sjabloon.
 
 > [!Note]
-> Zie de identiteit van een gebruiker aan zijn toegewezen met een Azure Resource Manager-sjabloon maken [maken van de identiteit van een gebruiker toegewezen](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
+> Zie voor het maken van een gebruiker toegewezen identiteit met een Azure Resource Manager-sjabloon, [maken van een gebruiker toegewezen identiteit](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
- ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Een gebruiker identiteit toegewezen aan een Azure VM toewijzen
+ ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Een gebruiker toegewezen identiteit met een Azure VM toewijzen
 
-1. Onder de `resources` element, de volgende vermelding voor het toewijzen van de identiteit van een gebruiker toegewezen aan uw virtuele machine toevoegen.  Zorg ervoor dat u `<USERASSIGNEDIDENTITY>` met de naam van de identiteit van de gebruiker toegewezen die u hebt gemaakt.
+1. Onder de `resources` -element de volgende vermelding voor het toewijzen van de identiteit van een gebruiker toegewezen aan uw virtuele machine toevoegen.  Vervang `<USERASSIGNEDIDENTITY>` met de naam van de toegewezen gebruikers-id die u hebt gemaakt.
     ```json
     {
         "apiVersion": "2017-12-01",
@@ -136,7 +136,7 @@ In deze sectie wijst u een toegewezen gebruikers-id aan een virtuele machine in 
         },
     ```
     
-2. (Optioneel) Vervolgens onder de `resources` element, de volgende vermelding voor de extensie beheerde identity toewijzen aan uw virtuele machine toevoegen. Deze stap is optioneel als u het eindpunt van de identiteit Azure exemplaar metagegevens Service (IMDS) gebruiken kunt en tokens op te halen. Gebruik de volgende syntaxis:
+2. (Optioneel) Vervolgens onder de `resources` -element de volgende vermelding voor het toewijzen van de extensie beheerde identiteit aan uw virtuele machine toevoegen. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens. Gebruik de volgende syntaxis:
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -158,12 +158,12 @@ In deze sectie wijst u een toegewezen gebruikers-id aan een virtuele machine in 
     }
     ```
     
-3.  Wanneer u klaar bent, ziet de sjabloon er ongeveer als volgt:
+3.  Wanneer u klaar bent, is de sjabloon ziet die vergelijkbaar is met het volgende:
 
-      ![Schermopname van toegewezen gebruikers-id](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
+      ![Schermafbeelding van de gebruiker toegewezen identiteit](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 
-- Lees voor een breder perspectief over MSI de [overzicht van de Service-identiteit beheerd](overview.md).
+- Voor een breder perspectief over MSI leest de [overzicht van de beheerde Service-identiteit](overview.md).
 

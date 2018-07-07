@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: sngun
-ms.openlocfilehash: eddfce08711043f81cee0b1c8d7ee8c6c02f6a45
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: c51d399b646e7914ba85048c0928837caac7c15b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858735"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901116"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Toegang tot Azure Cosmos DB-gegevens beveiligen
 In dit artikel biedt een overzicht van het beveiligen van toegang tot gegevens die zijn opgeslagen in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -174,6 +174,11 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="delete-or-export-user-data"></a>Verwijder of gebruikersgegevens exporteren
+Azure Cosmos DB kunt u zoeken, selecteren, wijzigen en verwijderen van persoonlijke gegevens zich bevinden in de database of verzamelingen. Azure Cosmos DB biedt API's om te zoeken en verwijderen van persoonlijke gegevens echter, is het uw verantwoordelijkheid om te gebruiken de API's en het definiëren van logica die nodig zijn om de persoonlijke gegevens te wissen. Elke multi-modeldatabase API (SQL-API, MongoDB-API, Gremlin-API, Cassandra-API, tabel-API) biedt een andere taal-SDK's methoden voor het zoeken en verwijderen van persoonlijke gegevens bevatten. U kunt ook inschakelen de [introductie op de live (TTL)](time-to-live.md) functie om gegevens te verwijderen automatisch na een opgegeven periode, zonder extra kosten.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over de beveiliging van de Cosmos DB-database, [Cosmos DB: Database security](database-security.md).

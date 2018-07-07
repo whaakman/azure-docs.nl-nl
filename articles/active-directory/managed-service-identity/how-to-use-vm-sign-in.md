@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van een Azure VM beheerde Service-identiteit voor aanmelden
-description: Stapsgewijze openen instructies en voorbeelden voor het gebruik van een Azure VM MSI-service-principal voor script-client zich aanmelden en resource.
+title: Het gebruik van een Azure VM Managed Service Identity voor aanmelden
+description: Stapsgewijze openen instructies en voorbeelden om met behulp van een service-principal voor Azure VM-MSI voor script client zich aanmelden en resources te.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,48 +9,48 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: c48e4bdf9a8c4b8515028fe45cdf724f5ff9f666
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4a811c5354a9ff2aaa48a300d9b2655f91fdab23
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929192"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901089"
 ---
-# <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Het gebruik van een Azure VM beheerde Service identiteit (MSI) voor aanmelding 
+# <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Het gebruik van een Azure VM Managed Service Identity (MSI) voor aanmelding 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-Dit artikel vindt voorbeelden van PowerShell en CLI scripts voor aanmelden met een MSI-service-principal en richtlijnen over belangrijke onderwerpen, zoals foutafhandeling.
+Dit artikel vindt PowerShell en CLI-scriptvoorbeelden voor aanmelden met een MSI-service-principal en richtlijnen over belangrijke onderwerpen, zoals foutafhandeling.
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Als u gebruiken in de Azure PowerShell of Azure CLI-voorbeelden in dit artikel wilt, moet u Installeer de nieuwste versie van [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) of [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Als u van plan bent de Azure PowerShell of Azure CLI-voorbeelden in dit artikel gebruiken, moet u Installeer de nieuwste versie van [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) of [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
-> - Alle voorbeeldscript in dit artikel wordt ervan uitgegaan dat de client voor de opdrachtregel wordt uitgevoerd op een virtuele Machine van MSI-functionaliteit. Gebruik de virtuele machine 'Verbinding'-functie in de Azure portal op afstand verbinding maken met uw virtuele machine. Zie voor meer informatie over het inschakelen van MSI op een virtuele machine [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md), of een van de variant artikelen (met behulp van PowerShell, CLI, een sjabloon of een Azure-SDK). 
-> - Om fouten te voorkomen tijdens toegang tot bedrijfsbronnen, MSI van de virtuele machine ten minste worden besteed 'Lezer' toegang tot op het juiste bereik (de virtuele machine of hoger) om toe te staan van Azure Resource Manager-bewerkingen op de virtuele machine. Zie [een beheerde Service identiteit (MSI) toegang toewijzen aan een resource met de Azure portal](howto-assign-access-portal.md) voor meer informatie.
+> - Alle voorbeeld van een script in dit artikel wordt ervan uitgegaan dat de client voor de opdrachtregel wordt uitgevoerd op een virtuele Machine van MSI-functionaliteit. Gebruik de virtuele machine 'Connect'-functie in Azure portal, op afstand verbinding maken met uw virtuele machine. Zie voor meer informatie over het inschakelen van MSI-bestand op een virtuele machine [configureren van een virtuele machine Managed Service Identity (MSI) met behulp van de Azure-portal](qs-configure-portal-windows-vm.md), of een van de variant artikelen (met behulp van PowerShell, CLI, een sjabloon of een Azure-SDK). 
+> - Om fouten te voorkomen tijdens toegang tot bronnen, van de VM-MSI-bestand minimaal moet worden opgegeven op het juiste bereik 'Lezer' toegang tot (de virtuele machine of hoger) om toe te staan van Azure Resource Manager-bewerkingen op de virtuele machine. Zie [een Managed Service Identity (MSI) toegang toewijzen aan een resource met de Azure-portal](howto-assign-access-portal.md) voor meer informatie.
 
 ## <a name="overview"></a>Overzicht
 
-Een MSI-bestand bevat een [service-principal-object](../develop/active-directory-dev-glossary.md#service-principal-object) , namelijk [gemaakt bij het inschakelen van MSI](overview.md#how-does-it-work) op de virtuele machine. De service-principal kunt toegang krijgen tot Azure-resources en gebruikt als een identiteit door script/vanaf de opdrachtregel-line-clients voor aanmelden en toegang tot bedrijfsbronnen. Traditioneel voor toegang tot beveiligde bronnen met een eigen identiteit wordt moet een script-client:  
+Een MSI-bestand bevat een [service-principal-object](../develop/active-directory-dev-glossary.md#service-principal-object) , die is [gemaakt bij het inschakelen van MSI](overview.md#how-does-it-work) op de virtuele machine. De service-principal kan toegang krijgen tot Azure-resources en gebruikt als een identiteit door script/vanaf de opdrachtregel-line-clients voor aanmelden en toegang tot bronnen. Traditioneel voor toegang tot beveiligde resources onder een eigen identiteit wordt moet een script-client:  
 
-   - worden geregistreerd en ingestemd met Azure AD als een clienttoepassing vertrouwelijke of web
-   - Meld u aan bij de service-principal met behulp van de app-referenties (die zijn waarschijnlijk ingesloten in het script)
+   - worden geregistreerd en heeft ingestemd met Azure AD als een vertrouwelijk/web-clienttoepassing
+   - Meld u aan bij de service-principal met behulp van de app-referenties (dit zijn waarschijnlijk ingesloten in het script)
 
-Met MSI moet uw script-client niet meer doen, als deze onder de MSI-service-principal kunt aanmelden. 
+Met MSI-bestand moet de script-client niet meer doen, omdat deze kan zich aanmelden bij de MSI-service-principal. 
 
 ## <a name="azure-cli"></a>Azure-CLI
 
-Het volgende script toont hoe:
+Het volgende script laat zien hoe u:
 
-1. aanmelden bij Azure AD onder de VM MSI service-principal  
-2. Aanroepen van Azure Resource Manager en ophalen van de VM service principal-ID. CLI zorgt voor het beheren van de token overname/gebruik automatisch voor u. Zorg ervoor dat uw virtuele machine van de naam `<VM-NAME>`.  
+1. Aanmelden bij Azure AD onder de VM MSI-service-principal  
+2. Aanroepen van Azure Resource Manager en ophalen van de virtuele machine service principal-ID. CLI zorgt dat token ophalen en gebruiken van automatisch voor u beheren. Zorg ervoor dat u vervangen door de naam van uw virtuele machine voor `<VM-NAME>`.  
 
    ```azurecli
    az login --identity
@@ -61,10 +61,10 @@ Het volgende script toont hoe:
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Het volgende script toont hoe:
+Het volgende script laat zien hoe u:
 
-1. aanmelden bij Azure AD onder de VM MSI service-principal  
-2. Aanroepen van een cmdlet voor Azure Resource Manager voor informatie over de virtuele machine. PowerShell zorgt voor het beheren van token gebruikt voor u automatisch.  
+1. Aanmelden bij Azure AD onder de VM MSI-service-principal  
+2. Aanroepen van een Azure Resource Manager-cmdlet voor informatie over de virtuele machine. PowerShell zorgt automatisch beheren van token gebruikt voor u.  
 
    ```azurepowershell
    Add-AzureRmAccount -identity
@@ -75,29 +75,29 @@ Het volgende script toont hoe:
    echo "The MSI service principal ID is $spID"
    ```
 
-## <a name="resource-ids-for-azure-services"></a>Resource-id voor Azure-services
+## <a name="resource-ids-for-azure-services"></a>Resource-id's voor Azure-services
 
-Zie [Azure-services die ondersteuning voor Azure AD authentication](services-support-msi.md#azure-services-that-support-azure-ad-authentication) voor een lijst met bronnen die ondersteuning voor Azure AD en met MSI zijn getest en hun respectieve resource-id.
+Zie [Azure-services die ondersteuning voor Azure AD-verificatie](services-support-msi.md#azure-services-that-support-azure-ad-authentication) voor een lijst van resources met Azure AD ondersteunen en die zijn getest met MSI-bestand en hun respectieve resource-id's.
 
-## <a name="error-handling-guidance"></a>Fout bij verwerking richtlijnen 
+## <a name="error-handling-guidance"></a>Richtlijnen voor het verwerken van fout 
 
-Antwoorden zoals de volgende kunnen erop wijzen dat de VM-MSI niet correct geconfigureerd:
+Antwoorden, zoals het volgende kunnen duiden dat de VM MSI niet correct geconfigureerd:
 
 - PowerShell: *Invoke-WebRequest: kan geen verbinding maken met de externe server*
 - CLI: *MSI: kan niet ophalen van een token van 'http://localhost:50342/oauth2/token' met een fout van ' HTTPConnectionPool (host = 'localhost', poort = 50342)* 
 
-Als u een van deze fouten ontvangt, terug naar de Azure VM in de [Azure-portal](https://portal.azure.com) en:
+Als u een van deze fouten ontvangt, terug naar de Azure-VM in de [Azure-portal](https://portal.azure.com) en:
 
-- Ga naar de **configuratie** pagina en zorg ervoor dat "Beheerde service-identiteit" is ingesteld op 'Ja'.
-- Ga naar de **extensies** pagina en zorg ervoor dat de MSI-extensie die is geïmplementeerd.
+- Ga naar de **configuratie** pagina en zorg ervoor dat 'Beheerde service-identiteit' is ingesteld op "Ja".
+- Ga naar de **extensies** pagina en zorg ervoor dat de MSI-extensie is geïmplementeerd.
 
-Als een onjuist is, moet u wellicht de MSI van uw resources opnieuw te implementeren of problemen met de implementatie is mislukt. Zie [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md) als u hulp bij het VM-configuratie nodig.
+Als een onjuist is, moet u mogelijk het MSI-bestand voor uw resource opnieuw implementeren of problemen met de implementatie mislukt. Zie [configureren van een virtuele machine Managed Service Identity (MSI) met behulp van de Azure-portal](qs-configure-portal-windows-vm.md) als u hulp nodig met VM-configuratie.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 
-- Zie voor het inschakelen van MSI op een Azure VM [configureren van een VM beheerde Service identiteit (MSI) met behulp van PowerShell](qs-configure-powershell-windows-vm.md), of [configureren van een VM beheerde Service identiteit (MSI) met Azure CLI](qs-configure-cli-windows-vm.md)
+- Zie voor het inschakelen van MSI-bestand op een Azure VM [configureren van een virtuele machine Managed Service Identity (MSI) met behulp van PowerShell](qs-configure-powershell-windows-vm.md), of [configureren van een virtuele machine Managed Service Identity (MSI) met behulp van Azure CLI](qs-configure-cli-windows-vm.md)
 
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.
+Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en vorm van onze inhoud.
 
 
 

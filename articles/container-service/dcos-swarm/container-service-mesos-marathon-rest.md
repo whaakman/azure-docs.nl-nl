@@ -1,20 +1,20 @@
 ---
-title: Azure DC/OS-cluster met Marathon REST API beheren
+title: Beheren Azure DC/OS-cluster met de Marathon REST API
 description: Implementeer containers naar een Azure Container Service DC/OS-cluster met behulp van de Marathon REST API.
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: edd66be25bf2571a7315372898300476fec101ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 34fc6f946d172f1431367e84f9d4d8a6855003ed
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165602"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901761"
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>DC/OS-containerbeheer via de Marathon REST API
 
@@ -28,12 +28,12 @@ Voer het uitvoeren van deze voorbeelden hebt u een DC/OS-cluster nodig dat is ge
 * [Verbinding maken met een Azure Container Service-cluster](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Toegang tot de DC/OS-API 's
-Nadat u met het Azure Container Service-cluster verbonden bent, u kunt toegang tot de DC/OS en gerelateerde REST-API's via http://localhost:local-port. In de voorbeelden in dit document wordt ervan uitgegaan dat u poort 80 gebruikt. Bijvoorbeeld, de Marathon-eindpunten op URI's kunnen worden bereikt vanaf `http://localhost/marathon/v2/`. 
+Nadat u met het Azure Container Service-cluster verbonden bent, u kunt toegang tot de DC/OS en gerelateerde REST-API's via http://localhost:local-port. In de voorbeelden in dit document wordt ervan uitgegaan dat u poort 80 gebruikt. Bijvoorbeeld, de Marathon-eindpunten kunnen worden bereikt op URI's vanaf `http://localhost/marathon/v2/`. 
 
 Zie voor meer informatie over de verschillende API's de Mesosphere-documentatie voor de [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) en de [Chronos API](https://mesos.github.io/chronos/docs/api.html), en de Apache-documentatie voor de [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Informatie verzamelen van DC/OS en Marathon
-Voordat u containers naar het DC/OS-cluster implementeert, verzamelt u wat informatie over het DC/OS-cluster, zoals de namen en de status van de DC/OS-agents. U doet dit door een query uit te voeren op het `master/slaves`-eindpunt van de DC/OS REST API. Als alles goed gaat, wordt met de query een lijst geretourneerd van DC/OS-agents en de verschillende eigenschappen voor elke agent.
+Voordat u containers op het DC/OS-cluster implementeert, verzamelt u wat informatie over het DC/OS-cluster, zoals de namen en de status van de DC/OS-agents. U doet dit door een query uit te voeren op het `master/slaves`-eindpunt van de DC/OS REST API. Als alles goed gaat, wordt met de query een lijst geretourneerd van DC/OS-agents en de verschillende eigenschappen voor elke agent.
 
 ```bash
 curl http://localhost/mesos/master/slaves
@@ -48,7 +48,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## <a name="deploy-a-docker-formatted-container"></a>Een met Docker ingedeelde container implementeren
-U kunt Docker ingedeelde containers via Marathon REST-API implementeren met behulp van een JSON-bestand dat het doel van de implementatie beschrijft. Het volgende voorbeeld wordt een Nginx-container geïmplementeerd naar een persoonlijke agent in het cluster. 
+U kunt Docker ingedeelde containers via de Marathon REST API implementeren met behulp van een JSON-bestand met een beschrijving van het doel van de implementatie. Het volgende voorbeeld wordt een Nginx-container geïmplementeerd naar een privé-agent in het cluster. 
 
 ```json
 {
@@ -69,7 +69,7 @@ U kunt Docker ingedeelde containers via Marathon REST-API implementeren met behu
 }
 ```
 
-Sla het JSON-bestand op een toegankelijke locatie voor het implementeren van een met Docker ingedeelde container. Voer vervolgens de volgende opdracht uit om de container te implementeren Geef de naam van het JSON-bestand (`marathon.json` in dit voorbeeld).
+Voor het implementeren van een container in Docker-indeling opslaan van het JSON-bestand op een toegankelijke locatie. Voer vervolgens de volgende opdracht uit om de container te implementeren Geef de naam van het JSON-bestand (`marathon.json` in dit voorbeeld).
 
 ```bash
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
@@ -89,22 +89,22 @@ curl localhost/marathon/v2/apps
 
 ## <a name="reach-the-container"></a>De container bereiken
 
-U kunt controleren of de Nginx wordt uitgevoerd in een container op een van de persoonlijke agents in het cluster. Als u wilt zoeken op de host en de poort waarop de container wordt uitgevoerd, query Marathon voor actieve taken: 
+U kunt controleren of de Nginx wordt uitgevoerd in een container op een van de privé-agents in het cluster. Als u wilt zoeken op de host en de poort waarop de container wordt uitgevoerd, Marathon via een query voor de actieve taken: 
 
 ```bash
 curl localhost/marathon/v2/tasks
 ```
 
-De waarde van zoeken `host` in de uitvoer (een IP-adres dat lijkt op `10.32.0.x`), en de waarde van `ports`.
+Zoek de waarde van `host` in de uitvoer (een vergelijkbaar met IP-adres `10.32.0.x`), en de waarde van `ports`.
 
 
-Nu een terminal SSH-verbinding (niet via een tunnel verbinding) aanbrengen in de management FQDN-naam van het cluster. Eenmaal zijn verbonden, maken de volgende aanvraag, vervangen door de juiste waarden van `host` en `ports`:
+Nu een terminal SSH-verbinding (niet een tunnelverbinding) maken voor het beheer van FQDN-naam van het cluster. Eenmaal verbinding hebben, maken van de volgende aanvraag, vervangen door de juiste waarden van `host` en `ports`:
 
 ```bash
 curl http://host:ports
 ```
 
-De uitvoer van de server Nginx is vergelijkbaar met het volgende:
+De uitvoer van Nginx-server is vergelijkbaar met het volgende:
 
 ![Nginx van container](./media/container-service-mesos-marathon-rest/nginx.png)
 
@@ -112,16 +112,16 @@ De uitvoer van de server Nginx is vergelijkbaar met het volgende:
 
 
 ## <a name="scale-your-containers"></a>Uw containers schalen
-U kunt de Marathon API uitbreiden of schalen in implementaties van toepassingen. In het vorige voorbeeld hebt u één exemplaar van een toepassing geïmplementeerd. Laten we dit uitschalen naar drie exemplaren van een toepassing. Dit doet u door een JSON-bestand te maken met behulp van de volgende JSON-tekst en dit op een toegankelijke locatie op te slaan.
+U kunt de Marathon API gebruiken voor omhoog of omlaag schalen in implementaties van toepassingen. In het vorige voorbeeld hebt u één exemplaar van een toepassing geïmplementeerd. Laten we dit uitschalen naar drie exemplaren van een toepassing. Dit doet u door een JSON-bestand te maken met behulp van de volgende JSON-tekst en dit op een toegankelijke locatie op te slaan.
 
 ```json
 { "instances": 3 }
 ```
 
-Voer de volgende opdracht uit de toepassing te schalen van uw via een tunnel verbinding.
+Uw verbinding is via een tunnel, voer de volgende opdracht om uit de toepassing te schalen.
 
 > [!NOTE]
-> De URI is http://localhost/marathon/v2/apps/ gevolgd door de ID van de toepassing om te schalen. Als u het Nginx-voorbeeld dat hier de URI zou worden http://localhost/marathon/v2/apps/nginx.
+> De URI is http://localhost/marathon/v2/apps/ gevolgd door de ID van de toepassing om te schalen. Als u de Nginx-voorbeeld gebruikt die is opgegeven, de URI zou worden http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -165,7 +165,7 @@ U implementeert met Docker ingedeelde containers via Marathon met behulp van een
 }
 ```
 
-Sla het JSON-bestand op een toegankelijke locatie voor het implementeren van een met Docker ingedeelde container. Voer vervolgens de volgende opdracht uit om de container te implementeren Geef het pad naar het JSON-bestand (`marathon.json` in dit voorbeeld).
+Voor het implementeren van een container in Docker-indeling opslaan van het JSON-bestand op een toegankelijke locatie. Voer vervolgens de volgende opdracht uit om de container te implementeren Geef het pad op naar het JSON-bestand (`marathon.json` in dit voorbeeld).
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
@@ -177,10 +177,10 @@ U kunt ook de Marathon API gebruiken om in implementaties van toepassingen uit o
 { "instances": 3 }
 ```
 
-Voer de volgende opdracht uit de toepassing te schalen:
+Voer de volgende opdracht uit om de toepassing geschaald uitbreiden:
 
 > [!NOTE]
-> De URI is http://localhost/marathon/v2/apps/ gevolgd door de ID van de toepassing om te schalen. Als u het Nginx-voorbeeld opgegeven hier gebruikt, de URI zou zijn http://localhost/marathon/v2/apps/nginx.
+> De URI is http://localhost/marathon/v2/apps/ gevolgd door de ID van de toepassing om te schalen. Als u het Nginx-voorbeeld opgegeven hier gebruikt, de URI zou worden http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -189,6 +189,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Lees meer over de Mesos HTTP-eindpunten](http://mesos.apache.org/documentation/latest/endpoints/)
-* [Lees meer over de Marathon REST API](https://mesosphere.github.io/marathon/docs/rest-api.html)
+* [Meer informatie over de Mesos HTTP-eindpunten](http://mesos.apache.org/documentation/latest/endpoints/)
+* [Meer informatie over de Marathon REST API](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

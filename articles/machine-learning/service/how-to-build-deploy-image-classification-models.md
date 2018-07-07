@@ -1,6 +1,6 @@
 ---
-title: Bouw en implementeer een installatiekopie classificatie-model met behulp van Azure Machine Learning-pakket voor de visie van de Computer.
-description: Informatie over het bouwen, te trainen, te testen en te implementeren van een visie installatiekopie classificatie computermodel met het Azure Machine Learning-pakket voor Computer Vision.
+title: Bouw en implementeer een installatiekopie classificeringsmodel met behulp van Azure Machine Learning-pakket voor Computer Vision.
+description: Informatie over het bouwen, trainen, testen en implementeren van een computer vision-installatiekopie classificatie model met behulp van de Azure Machine Learning-pakket voor Computer Vision.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,68 +9,62 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 2c988f8651d0ae9a8662b502ca2ba2dbabb2defe
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115988"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888429"
 ---
-# <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Bouw en implementeer de installatiekopie classificatiemodellen kunnen met Azure Machine Learning
+# <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Bouw en implementeer modellen voor classificatie van de installatiekopie met Azure Machine Learning
 
-Informatie over het gebruik in dit artikel **Azure Machine Learning-pakket voor Computer Vision** (AMLPCV) te trainen, testen en implementeren van een installatiekopie van classificatie-model. 
+In dit artikel leert u hoe u **Azure Machine Learning-pakket voor Computer Vision** (AMLPCV) te trainen, testen en implementeren van een installatiekopie classificatie-model. 
 
-Een groot aantal problemen in het domein van de visie computer kan worden opgelost met de classificatie van de installatiekopie. Deze problemen zijn voor het bouwen van modellen die antwoorden op vragen zoals:
-+ _Een OBJECT aanwezig in de afbeelding is? Bijvoorbeeld 'aquaduct', 'auto', 'verzenden', enzovoort_
-+ _Welke klasse ogen ziekte ernst wordt door deze geduld retinal scan evinced?_
+Een groot aantal problemen in het domein van de computer vision, kan worden opgelost met behulp van classificatie van afbeeldingen. Deze problemen zijn onder andere het ontwikkelen van modellen die antwoorden op vragen zoals:
++ _Een OBJECT aanwezig zijn in de afbeelding is? Bijvoorbeeld, "hond", "auto", "verzenden", enzovoort_
++ _Welke klasse van ogen ziekten ernst is evinced door retinal scan van de patiënt?_
 
-Bij het maken en implementeren van dit model met AMLPCV, gaat u de volgende stappen:
-1. Het maken van de gegevensset
-2. Visualisatie van de installatiekopie en aantekening
+Als het bouwen en implementeren van dit model met AMLPCV, gaat u door de volgende stappen:
+1. Gegevensset maken
+2. Afbeelding van aantekeningen en visualisatie
 3. Afbeelding uitdiepen
-4. Modeldefinitie diep Neurale netwerk (DNN)
-5. Training van classificatie
+4. Definitie van deep Neural Network (DNN)-Model
+5. Classificatie Training
 6. Evaluatie en visualisatie
 7. Implementatie-webservice
-8. Testen van de Load-webservice
+8. Webservice Belastingstesten
 
-[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) wordt gebruikt als het framework grondige learning training wordt lokaal uitgevoerd op een machine GPU ingeschakeld, zoals de ([grondige learning gegevens wetenschappelijke VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), en implementatie gebruikmaakt van de Azure ML uitoefening CLI.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) wordt gebruikt als de deep learning-frameworks, training wordt lokaal uitgevoerd op een GPU gemaakte virtuele machine, zoals de ([Deep learning, Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), en implementatie maakt gebruik van de CLI van Azure ML uitoefening.
 
-Raadpleeg de [pakket naslagdocumentatie](https://aka.ms/aml-packages/vision) voor de gedetailleerde naslaginformatie voor elke module en de klasse.
+Raadpleeg de [referentiedocumentatie voor het pakket](https://aka.ms/aml-packages/vision) voor de uitgebreide referentie voor elke module en de klasse.
 
 ## <a name="prerequisites"></a>Vereisten
 
 1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-1. De volgende accounts en de toepassing moeten worden ingesteld en geïnstalleerd:
+1. De volgende accounts en de toepassing moeten worden ingesteld en worden geïnstalleerd:
    - Een Azure Machine Learning Experimenten-account 
-   - Een Azure Machine Learning-Model Management-account
+   - Een Azure Machine Learning Modelbeheer-account
    - Azure Machine Learning Workbench moet zijn geïnstalleerd
 
-   Als deze drie zijn nog niet gemaakt of geïnstalleerd, voert u de [Quick Start Azure Machine Learning en de Workbench](../service/quickstart-installation.md) artikel. 
+   Als deze drie nog niet zijn gemaakt of is geïnstalleerd, volgt u de [installatie van Azure Machine Learning-Quickstart en Workbench](../service/quickstart-installation.md) artikel. 
 
-1. Het Azure Machine Learning-pakket voor de visie van de Computer moet worden geïnstalleerd. Meer informatie over hoe [hier in dit pakket installeren](https://aka.ms/aml-packages/vision).
+1. De Azure Machine Learning-pakketten voor Computer Vision moet worden geïnstalleerd. Meer informatie over het [hier in dit pakket installeert](https://aka.ms/aml-packages/vision).
 
-## <a name="sample-data-and-notebook"></a>Voorbeeldgegevens en notebook
+## <a name="sample-data-and-notebook"></a>Voorbeeldgegevens en -laptops
 
 ### <a name="get-the-jupyter-notebook"></a>De Jupyter-notebook ophalen
 
-Download de notebook om uit te voeren van het voorbeeld beschreven hier zelf.
+Download het notitieblok om uit te voeren van het voorbeeld beschreven hier zelf.
 
 > [!div class="nextstepaction"]
 > [De Jupyter-notebook ophalen](https://aka.ms/aml-packages/vision/notebooks/image_classification)
 
 ### <a name="load-the-sample-data"></a>De voorbeeldgegevens laden
 
-Het volgende voorbeeld wordt een gegevensset die bestaan uit 63 tafelgerei installatiekopieën. Elke installatiekopie wordt aangeduid als onderdeel van een van de vier verschillende klassen (kom, kop, bestek, plaat). Het aantal afbeeldingen in dit voorbeeld is klein zodat dit voorbeeld kan snel worden uitgevoerd. In de praktijk moeten ten minste 100 afbeeldingen per klasse worden opgegeven. Alle installatiekopieën bevinden zich op *'... /sample_data/imgs_recycling / '*, in submappen aangeroepen 'kom', 'kop', 'bestek' en 'plaat'.
+Het volgende voorbeeld wordt een gegevensset die bestaat uit een 63 borden installatiekopieën. Elke afbeelding wordt aangeduid als behorend tot een van de vier verschillende klassen (bowl, cup, bestek, plaat). Het aantal afbeeldingen in dit voorbeeld is klein dat dit voorbeeld kan snel worden uitgevoerd. In de praktijk moeten ten minste 100 afbeeldingen per klasse worden opgegeven. Alle installatiekopieën bevinden zich op *".. /sample_data/imgs_recycling / "*, in de submappen met de naam"bowl","cup", 'bestek' en 'element'.
 
 ![Azure Machine Learning-gegevensset](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
-
-## <a name="storage-context"></a>Opslag-context
-
-De context van de opslag wordt gebruikt om te bepalen waarin verschillende uitvoerbestanden zoals uitgebreide afbeeldingen of DNN modelbestanden wordt opgeslagen. Zie voor meer informatie over opslag contexten de [StorageContext documentatie](https://review.docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-python&branch=smoke-test). 
-
-De inhoud van de opslag hoeft normaal gesproken niet expliciet worden ingesteld. Echter om te voorkomen de 25 MB bereikt voor de projectgrootte die zijn opgelegd door de Azure Machine Learning-Workbench, de uitvoer directory instellen voor het Azure Machine Learning-pakket voor Computer Vision naar een locatie buiten het Azure Machine Learning-project ('... /.. /.. /.. / cvtk_output '). Zorg ervoor dat de map 'cvtk_output' verwijderen wanneer deze niet meer nodig is.
 
 
 ```python
@@ -84,49 +78,39 @@ from sklearn import svm
 from cvtk import ClassificationDataset, CNTKTLModel, Context, Splitter, StorageContext
 from cvtk.augmentation import augment_dataset
 from cvtk.core.classifier import ScikitClassifier
-from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix, basic_plot
+from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix
 import matplotlib.pyplot as plt
+
+from classification.notebook.ui_utils.ui_annotation import AnnotationUI
+from classification.notebook.ui_utils.ui_results_viewer import ResultsUI
+from classification.notebook.ui_utils.ui_precision_recall import PrecisionRecallUI
+
 %matplotlib inline
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
-
-# Set storage context.
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
 ```
-
-
-
-
-    {
-        "storage": {
-            "outputs_path": "../../../cvtk_output",
-            "persistent_path": "../../../cvtk_output",
-            "temp_path": "../../../cvtk_output"
-        }
-    }
 
 
 
 ## <a name="create-a-dataset"></a>Een gegevensset maken
 
-Zodra u hebt geïmporteerd, de afhankelijkheden en stelt u de context van de opslag, kunt u het object dataset.
+Nadat u hebt geïmporteerd van de afhankelijkheden en stel de opslagcontext van de, kunt u de gegevensset-object maken.
 
-Als u wilt dat object maken met Azure Machine Learning-pakket voor Computer Vision, bieden de hoofdmap van de installatiekopieën op de lokale schijf. Deze map moet dezelfde algemene structuur als de dataset tafelgerei die volgen, submappen met de werkelijke installatiekopieën bevatten:
+Als u wilt dat object maken met Azure Machine Learning-pakket voor Computer Vision, bieden u de hoofdmap van de installatiekopieën op de lokale schijf. Deze map moet volgt u dezelfde algemene structuur als de gegevensset borden, dat wil zeggen, de submappen met de werkelijke afbeeldingen bevatten:
 - hoofdmap
     - label 1
     - Label 2
     - ...
     - label n
   
-Een installatiekopie classificatie model trainen voor een andere dataset net zo eenvoudig is als het pad naar de hoofdmap wijzigen `dataset_location` in de volgende code verschillende afbeeldingen verwijzen.
+Een afbeelding classificeringsmodel training voor een andere gegevensset net zo gemakkelijk is als het wijzigen van het hoofdpad `dataset_location` in de volgende code om te verwijzen naar verschillende afbeeldingen.
 
 
 ```python
-# Root image directory 
-dataset_location = os.path.abspath(os.path.join(os.getcwd(), "../sample_data/imgs_recycling"))
+# Root image directory
+dataset_location = os.path.abspath("classification/sample_data/imgs_recycling")
 
 dataset_name = 'recycling'
 dataset = ClassificationDataset.create_from_dir(dataset_name, dataset_location)
@@ -140,13 +124,13 @@ print("Select information for image 2: name={}, label={}, unique id={}.".format(
     Dataset consists of 63 images with 4 labels.
     Select information for image 2: name=msft-plastic-bowl20170725152154282.jpg, label=bowl, unique id=3.
 
-Het object dataset biedt functionaliteit om het downloaden van afbeeldingen met behulp van de [Bing-API van zoekservice installatiekopie](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
+Het object dataset biedt functionaliteit voor het downloaden van afbeeldingen met behulp van de [Bing afbeeldingen zoeken-API](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
 
-Er zijn twee soorten zoekquery's ondersteund: 
+Twee typen zoekquery's worden ondersteund: 
 + Gewone tekst query 's
-+ Afbeelding URL-query 's
++ De installatiekopie van URL-query 's
 
-Deze query's samen met het label van de klasse moeten worden opgegeven in een bestand met JSON gecodeerde tekst. Bijvoorbeeld:
+Deze query's samen met het label klasse moeten worden opgegeven in een bestand met JSON gecodeerde tekst. Bijvoorbeeld:
 
 ```json
 {
@@ -171,18 +155,17 @@ Deze query's samen met het label van de klasse moeten worden opgegeven in een be
 }
 ```
 
-Bovendien moet u expliciet een Context-object bevat de Bing installatiekopie zoeken-API-sleutel maken. Hiervoor moet een Bing installatiekopie zoeken-API-abonnement.
+Bovendien moet u expliciet een Context-object bevat de Bing afbeeldingen zoeken-API-sleutel maken. Dit is een Bing afbeeldingen zoeken-API-abonnement vereist.
 
-## <a name="visualize-and-annotate-images"></a>Visualiseren en aantekeningen toevoegen aan installatiekopieën
+## <a name="visualize-and-annotate-images"></a>Visualiseer en aantekeningen toevoegen aan installatiekopieën
 
-U kunt de afbeeldingen en de juiste labels in de dataset-object op met de volgende widget visualiseren. 
+U kunt de afbeeldingen en de juiste labels in de gegevensset-object met behulp van de volgende widget visualiseren. 
 
-Als de 'Widget Javascript is niet gevonden'-fout optreedt, voert u deze opdracht voor het oplossen van het:
+Als u de 'Widget Javascript is niet gevonden'-fout optreedt, voer deze opdracht op te lossen:
 <br>`jupyter nbextension enable --py --sys-prefix widgetsnbextension`
 
 
 ```python
-from ui_utils.ui_annotation import AnnotationUI
 annotation_ui = AnnotationUI(dataset, Context.get_global_context())
 display(annotation_ui.ui)
 ```
@@ -191,11 +174,11 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Afbeeldingen verbeteren
 
-De [ `augmentation` module](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) biedt functionaliteit om het uitbreiden van een dataset-object met behulp van de transformaties die zijn beschreven in de [imgaug](https://github.com/aleju/imgaug) bibliotheek. Afbeelding transformaties kunnen worden gegroepeerd in één pijplijn in dat geval alle transformaties in de pijplijn tegelijkertijd worden toegepast elke installatiekopie. 
+De [ `augmentation` module](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) biedt functionaliteit uitbreiden-object voor een gegevensset met behulp van de transformaties die zijn beschreven in de [imgaug](https://github.com/aleju/imgaug) bibliotheek. Afbeelding transformaties kunnen worden gegroepeerd in één pijplijn, in welk geval alle transformaties in de pijplijn tegelijkertijd worden toegepast elke afbeelding. 
 
-Als u wilt verschillende uitdiepen stappen afzonderlijk toepassen, of op een andere manier kunt u meerdere pijplijnen definiëren en ze doorgeven aan de *augment_dataset* functie. Zie voor meer informatie en voorbeelden van afbeelding uitdiepen de [imgaug documentatie](https://github.com/aleju/imgaug).
+Als u wilt andere uitdiepen stappen afzonderlijk toegepast, of op een andere manier kunt u meerdere pijplijnen definiëren en ze doorgeven aan de *augment_dataset* functie. Zie voor meer informatie en voorbeelden van afbeelding uitdiepen, de [imgaug documentatie](https://github.com/aleju/imgaug).
 
-Uitgebreide afbeeldingen toevoegen aan de trainingset is met name handig voor kleine gegevenssets. Aangezien het DNN training-proces langzamer vanwege het toegenomen aantal training afbeeldingen is, raden we aan dat u experimenteren zonder uitdiepen start.
+Uitgebreide afbeeldingen toevoegen aan de trainingsset is vooral handig voor kleine gegevenssets. Omdat het DNN training-proces langzamer vanwege het grotere aantal trainingsafbeeldingen is, raden we aan dat u experimenten zonder uitdiepen start.
 
 
 ```python
@@ -227,18 +210,18 @@ else:
 
 ## <a name="define-dnn-models"></a>DNN modellen definiëren
 
-De volgende pretrained Deep Neural Network-modellen worden ondersteund met dit pakket: 
-+ Resnet 18
+De volgende pretrained Deep Neural Network-modellen worden met dit pakket ondersteund: 
++ Resnet robmazz van 18
 + Resnet 34
 + Resnet 50
 + Resnet 101
 + Resnet 152
 
-Deze DNNs kunnen worden gebruikt als classificatie, of als featurizer. 
+Deze dnn's kunnen worden gebruikt als classificatie, of als featurizer. 
 
-Meer informatie over de netwerken vindt u [hier](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), en is een algemene inleiding tot naar Transfer Learning [hier](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
+Meer informatie over de netwerken vindt [hier](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), en is een algemene inleiding tot Transfer Learning [hier](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
 
-De standaard installatiekopie classificatieparameters voor dit pakket zijn 224 x 224 pixelresolutie en een DNN Resnet 18. Deze parameters zijn geselecteerd voor de goede werking op een groot aantal taken. Nauwkeurigheid kan vaak worden verbeterd, bijvoorbeeld door het verhogen van de installatiekopie resolutie en 500 x 500 pixels en/of een dieper model (Resnet 50) selecteren. Echter als u de parameters kan worden geleverd op een aanzienlijke toename in de trainingstijd. Zie het artikel op [hoe nauwkeuriger](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
+De standaard installatiekopie classificatieparameters voor dit pakket zijn 224 x 224 pixelresolutie en een DNN Resnet robmazz van 18. Deze parameters zijn geselecteerd om te werken op een groot aantal taken. Nauwkeurigheid kan vaak worden verbeterd, bijvoorbeeld door het verhogen van de resolutie van de afbeelding op 500 x 500 pixels en/of een uitgebreidere model (Resnet 50) selecteren. Echter kan wijzigen van de parameters komen op een aanzienlijke toename in de trainingstijd. Zie het artikel op [over het verbeteren van nauwkeurigheid](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
 
 
 ```python
@@ -266,16 +249,16 @@ dnn_model = CNTKTLModel(train_set.labels,
 
 ## <a name="train-the-classifier"></a>De classificatie trainen
 
-U kunt een van de volgende methoden voor het vooraf getraind DNN.
+U kunt een van de volgende methoden voor het vooraf getrainde DNN.
 
-  - **DNN verfijning**, die de DNN rechtstreeks uitvoeren van de classificatie traint. Tijdens de training DNN traag is, leidt het doorgaans tot de beste resultaten omdat het gewicht van alle netwerk tijdens de training waarmee nauwkeurigheid kunnen worden verbeterd.
+  - **DNN verfijning**, die de DNN om uit te voeren van de classificatie rechtstreeks traint. Terwijl DNN training traag is, dat doorgaans het leidt tot de beste resultaten omdat het gewicht van alle netwerk tijdens de training te geven van de beste nauwkeurigheid kunnen worden verbeterd.
 
-  - **DNN featurization**, die wordt uitgevoerd de DNN als-is op te halen van een lagere dimensionale weergave van een installatiekopie (512, 2048 of 4096 zwevend). Deze weergave wordt vervolgens gebruikt als invoer voor het trainen van een afzonderlijke classificatie. Omdat de DNN ongewijzigd blijft, wordt deze methode veel sneller vergeleken met DNN verfijning, maar nauwkeurigheid niet goed is. Echter kan een externe classificatie zoals een lineaire SVM training (zoals weergegeven in de volgende code) een sterke referentiepunt te bieden, en helpen bij het begrijpen van de haalbaarheid van een probleem.
+  - **DNN parametrisatie**, die wordt uitgevoerd de DNN as-is op te halen van een kleine-dimensionale weergave van een installatiekopie (512 of 2048, 4096 zweeft). Deze weergave wordt vervolgens gebruikt als invoer voor het trainen van een afzonderlijke classificatie. Omdat de DNN ongewijzigd worden bewaard, deze benadering is veel sneller dan DNN verfijning, maar nauwkeurigheid niet zo goed is. Evenwel een externe classificatie, zoals een lineaire SVM training (zoals weergegeven in de volgende code) biedt een sterke basislijn en te helpen bij het begrijpen van de haalbaarheid van een probleem.
   
-TensorBoard kan worden gebruikt om de voortgang van de training te visualiseren. TensorBoard activeren:
-1. De parameter toevoegen `tensorboard_logdir=PATH` zoals weergegeven in de volgende code
+TensorBoard kan worden gebruikt voor het visualiseren van de voortgang van de training. TensorBoard activeren:
+1. De parameter toevoegen `tensorboard_logdir=PATH` zoals wordt weergegeven in de volgende code
 1. Start de TensorBoard-client met de opdracht `tensorboard --logdir=PATH` in een nieuwe console.
-1. Open een webbrowser volgens de instructies van TensorBoard, dat standaard localhost:6006 is. 
+1. Open een webbrowser volgens de instructies TensorBoard, dat standaard localhost:6006 is. 
 
 
 ```python
@@ -356,15 +339,15 @@ if classifier_name == "dnn":
 ![PNG](media/how-to-build-deploy-image-classification-models/output_17_0.png)
 
 
-## <a name="evaluate-and-visualize-model-performance"></a>Evalueren en visualiseren model prestaties
+## <a name="evaluate-and-visualize-model-performance"></a>Evalueren en modelprestaties visualiseren
 
-U kunt de prestaties van het getrainde model op een onafhankelijke testgegevensset met de module evaluatie evalueren. Enkele van de evaluatie van metrische gegevens die wordt berekend:
+U kunt de prestaties van het getrainde model op de testgegevensset van een onafhankelijke met behulp van de evaluatie-module kunt evalueren. Enkele van de evaluatie van metrische gegevens berekent zijn:
  
-+ Nauwkeurigheid (standaard klasse gemiddeld)
-+ PR curve
++ Nauwkeurigheid (standaard klasse gemiddelde)
++ Curve van de pull-aanvraag
 + ROC-curve
-+ Gebied onder curve
-+ Verwarring matrix
++ Gebied-onder-curve
++ Verwarringsmatrix
 
 
 ```python
@@ -407,7 +390,6 @@ labels = [l.name for l in dataset.labels]
 pred_scores = ce.scores #classification scores for all images and all classes
 pred_labels = [labels[i] for i in np.argmax(pred_scores, axis=1)]
 
-from ui_utils.ui_results_viewer import ResultsUI
 results_ui = ResultsUI(test_set, Context.get_global_context(), pred_scores, pred_labels)
 display(results_ui.ui)
 ```
@@ -420,7 +402,6 @@ display(results_ui.ui)
 precisions, recalls, thresholds = ce.compute_precision_recall_curve() 
 thresholds = list(thresholds)
 thresholds.append(thresholds[-1])
-from ui_utils.ui_precision_recall import PrecisionRecallUI
 pr_ui = PrecisionRecallUI(100*precisions[::-1], 100*recalls[::-1], thresholds[::-1])
 display(pr_ui.ui) 
 ```
@@ -429,29 +410,29 @@ display(pr_ui.ui)
 
 ## <a name="operationalization-deploy-and-consume"></a>Uitoefening: implementeren en gebruiken
 
-Uitoefening is het proces van het publiceren van modellen en code als webservices en het verbruik van deze services levert geen resultaten voor bedrijven. 
+Uitoefening is het proces van het publiceren van modellen en webservices-code en het gebruik van deze services voor het produceren van bedrijfsresultaten te verbeteren. 
 
-Nadat uw model is getraind, kunt u dit model implementeren als een webservice voor verbruik met [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Uw modellen kunnen worden toegepast op uw lokale computer of een Azure Container Service (ACS)-cluster. ACS gebruikt, kunt u uw webservice handmatig schalen of gebruik de functie voor automatisch schalen.
+Nadat uw model wordt getraind, kunt u dit model implementeren als een webservice voor het gebruik van het verbruik [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Uw modellen kunnen worden geïmplementeerd op uw lokale computer of cluster in Azure Container Service (ACS). Met ACS, kunt u uw web-service handmatig schalen of gebruikt u de functionaliteit voor automatisch schalen.
 
 **Meld u aan met Azure CLI**
 
 Met behulp van een [Azure](https://azure.microsoft.com/) account met een geldig abonnement, meld u aan met de volgende CLI-opdracht:
 <br>`az login`
 
-+ Als u wilt overschakelen naar een andere Azure-abonnement, moet u de opdracht gebruiken:
++ Als u wilt overschakelen naar een andere Azure-abonnement, gebruikt u de opdracht:
 <br>`az account set --subscription [your subscription name]`
 
-+ Als het huidige model-management-account weergeven, gebruikt u de opdracht:
++ Als de huidige Modelbeheer-account weergeven, gebruikt u de opdracht:
   <br>`az ml account modelmanagement show`
 
-**Maak en stel uw clusteromgeving voor implementatie**
+**Maken en uw clusteromgeving implementatie instellen**
 
-U hoeft alleen te uw implementatieomgeving eenmaal worden ingesteld. Als u een nog geen hebt, kunt u uw implementatieomgeving nu met gebruik van instellen [deze instructies](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
+U hoeft alleen te stelt één keer in uw implementatieomgeving. Als u een nog geen hebt, uw implementatieomgeving instellen met [deze instructies](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
 
 Als uw omgeving actieve implementatie weergeven, gebruikt u de volgende CLI-opdracht:
 <br>`az ml env show`
    
-Azure CLI voorbeeldopdracht maken en implementatieomgeving instellen
+Voorbeeld van Azure CLI-opdracht voor het maken en implementatieomgeving instellen
 
 ```CLI
 az provider register -n Microsoft.MachineLearningCompute
@@ -462,25 +443,25 @@ az ml env set -n [environment name] -g [resource group]
 az ml env cluster
 ```
     
-### <a name="manage-web-services-and-deployments"></a>Web-services en -implementaties beheren
+### <a name="manage-web-services-and-deployments"></a>Webservices en implementaties beheren
 
-De volgende API's kunnen worden gebruikt voor modellen als webservices implementeren en beheren van implementaties die webservices te beheren.
+De volgende API's kunnen worden gebruikt om modellen als webservices implementeren en beheren van implementaties die webservices beheren.
 
 |Taak|API|
 |----|----|
 |Implementatieobject maken|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
 |-Webservice implementeren|`deploy_obj.deploy()`|
-|Score-afbeelding|`deploy_obj.score_image(local_image_path_or_image_url)`|
+|Afbeelding van score|`deploy_obj.score_image(local_image_path_or_image_url)`|
 |Webservice verwijderen|`deploy_obj.delete()`|
-|Een installatiekopie docker zonder webservice maken|`deploy_obj.build_docker_image()`|
-|Lijst van de bestaande implementatie|`AMLDeployment.list_deployment()`|
+|Docker-installatiekopie zonder webservice bouwen|`deploy_obj.build_docker_image()`|
+|Lijst met bestaande implementatie|`AMLDeployment.list_deployment()`|
 |Als de service met de implementatienaam van de bestaat verwijderen|`AMLDeployment.delete_if_service_exist(deployment_name)`|
 
-**API-documentatie:** raadpleegt u de [pakket naslagdocumentatie](https://aka.ms/aml-packages/vision) voor de gedetailleerde naslaginformatie voor elke module en de klasse.
+**API-documentatie:** raadpleegt u de [referentiedocumentatie voor het pakket](https://aka.ms/aml-packages/vision) voor de uitgebreide referentie voor elke module en de klasse.
 
-**CLI-verwijzing:** voor meer geavanceerde bewerkingen die zijn gerelateerd aan implementatie, naar verwijzen de [management CLI reference model](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
+**CLI-verwijzing:** voor meer geavanceerde bewerkingen met betrekking tot implementatie, naar verwijzen de [Modelbeheer-CLI-verwijzing](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
 
-**Implementatiebeheer in Azure-portal**: U kunt bijhouden en beheren van uw implementaties in de [Azure-portal](https://ms.portal.azure.com/). Vinden uw pagina voor het serviceaccount van Machine Learning-Model Management met de naam van de Azure-portal. Ga naar de pagina van de account Model Management > Model Management > Services.
+**In Azure portal onder implementatiebeheer**: U kunt bijhouden en beheren van uw implementaties in de [Azure-portal](https://ms.portal.azure.com/). Vinden uw Machine Learning Modelbeheer-account-pagina met de naam van de Azure-portal. Ga vervolgens naar de pagina Modelbeheer-account > Modelbeheer > Services.
 
 
 ```python
@@ -535,17 +516,17 @@ deploy_obj.deploy()
 print("Deployment DONE")
 ```
 
-### <a name="consume-the-web-service"></a>De web-service gebruiken 
+### <a name="consume-the-web-service"></a>De webservice gebruiken 
 
-Zodra u het model als een webservice implementeert, kunt u installatiekopieën score met de webservice met behulp van een van deze methoden:
+Nadat u het model als een webservice implementeert, kunt u installatiekopieën score met de webservice met behulp van een van de volgende methoden:
 
-- De webservice rechtstreeks met de implementatie van object met behulp van beoordelen `deploy_obj.score_image(image_path_or_url)`
+- De webservice rechtstreeks met de implementatie van object met behulp van score `deploy_obj.score_image(image_path_or_url)`
 
-- Gebruik de eindpunt-URL en de Service servicesleutel (geen voor de implementatie van de lokale) met: `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
+- Gebruik de eindpunt-URL en Service servicesleutel (geen voor lokale implementatie) met: `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
 
-- De HTTP-aanvragen rechtstreeks naar de webservice-eindpunt score vormen. Deze optie is bedoeld voor ervaren gebruikers.
+- Vormen op uw HTTP-aanvragen rechtstreeks naar de webservice-eindpunt te beoordelen. Deze optie is voor ervaren gebruikers.
 
-### <a name="score-with-existing-deployment-object"></a>Score met bestaande implementatieobject
+### <a name="score-with-existing-deployment-object"></a>Score met de bestaande implementatieobject
 
 ```
 deploy_obj.score_image(image_path_or_url)
@@ -591,7 +572,7 @@ for img_index, img_obj in enumerate(test_set.images[:10]):
     print(return_json)
 ```
 
-### <a name="score-with-service-endpoint-url-and-service-key"></a>Met de service-eindpunt-url en servicesleutel beoordelen
+### <a name="score-with-service-endpoint-url-and-service-key"></a>Met service-eindpunt-url en servicesleutel score
 
 `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
 
@@ -614,7 +595,7 @@ serialized_result_in_json = AMLDeployment.score_existing_service_with_image(imag
 print("serialized_result_in_json:", serialized_result_in_json)
 ```
 
-### <a name="score-endpoint-with-http-request-directly"></a>Score-eindpunt met HTTP-aanvraag rechtstreeks
+### <a name="score-endpoint-with-http-request-directly"></a>Score-eindpunt met de http-aanvraag rechtstreeks
 
 De volgende voorbeeldcode vormt de HTTP-aanvraag rechtstreeks in Python. Echter, kunt u dit doen in andere programmeertalen.
 
@@ -669,7 +650,7 @@ score_image_list_with_http(images, service_endpoint_url, service_key)
 
 ### <a name="parse-serialized-result-from-web-service"></a>Parseren van geserialiseerde resultaat van de webservice
 
-De uitvoer van de webservice is een JSON-tekenreeks. Deze JSON-tekenreeks met verschillende DNN modelklassen kunnen worden geparseerd.
+De uitvoer van de webservice is een JSON-tekenreeks. U kunt deze JSON-tekenreeks met verschillende DNN modelklassen parseren.
 
 
 ```python
@@ -697,10 +678,10 @@ print("Class label:", dnn_model.class_map[class_index])
 
 Meer informatie over Azure Machine Learning-pakket voor Computer Vision in deze artikelen:
 
-+ Meer informatie over hoe [verbeteren de nauwkeurigheid van dit model](how-to-improve-accuracy-for-computer-vision-models.md).
++ Meer informatie over het [verbeteren van de nauwkeurigheid van dit model](how-to-improve-accuracy-for-computer-vision-models.md).
 
-+ Lees de [overzicht van het pakket en informatie over het installeren van deze](https://aka.ms/aml-packages/vision).
++ Lees de [overzicht verpakt en informatie over het installeren van deze](https://aka.ms/aml-packages/vision).
 
-+ Verken de [documentatie verwijst naar](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) voor dit pakket.
++ Verken de [referentiedocumentatie](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) voor dit pakket.
 
 + Meer informatie over [andere Python-pakketten voor Azure Machine Learning](reference-python-package-overview.md).

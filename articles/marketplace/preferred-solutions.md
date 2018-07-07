@@ -14,15 +14,15 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: ellacroi
-ms.openlocfilehash: cee313f2f648de987fde8c769435264048a12eff
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 49da9f58ff99c5d844c41a575deaf2f4cc84d426
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344026"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888463"
 ---
 # <a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Gewenste oplossingen in Azure Marketplace en AppSource
 
-Een Microsoft-oplossing de voorkeur is een cloudtoepassing voor de kwaliteit, prestaties en kunnen de klantbehoeften adres in een bepaalde industrie verticale of oplossing geselecteerd. Een team van Microsoft-experts voor de bedrijfstak en verkoop kiest oplossingen van Microsoft Partner Network [Gold lidmaatschap](https://partner.microsoft.com/en-us/membership/core-benefits) partners. Deze oplossingen komen in aanmerking voor evenementen met toonaangevende leden in onze cloud-marketplace-storefronts. Klanten zullen vinden dat veel van de branche aanbevolen oplossingen aanbevolen op AppSource branche's, terwijl de werkbelasting bij voorkeur oplossingen op Azure Marketplace kunnen worden aanbevolen. 
+Bij voorkeur een Microsoft-oplossing is een cloudtoepassing geselecteerd voor de kwaliteit, prestaties en kunnen de klantbehoeften adres in een bepaalde industrie verticale of oplossing. Een team van Microsoft-experts voor de bedrijfstak en verkoop kiest oplossingen van Microsoft Partner Network [Gold lidmaatschap](https://partner.microsoft.com/en-us/membership/core-benefits) partners. Deze oplossingen worden vermeld in onze cloud-marketplace-storefronts: Azure Marketplace en AppSource. Gewenste oplossingen in AppSource kunnen worden gedetecteerd door de bedrijfstak van zakelijke dienstverlening, terwijl op Azure Marketplace, kunt u binnen de oplossing gebied categorieën 
 
-Microsoft kan samenwerken met deze providers voor gezamenlijke marketing en verkoop engagements. Microsoft neemt contact met leveranciers van oplossingen als een of meer van hun oplossingen voor Preferred badging is geselecteerd. 
+Microsoft neemt contact met leveranciers van oplossingen als een of meer van hun oplossingen als een aanbevolen oplossing is geselecteerd.

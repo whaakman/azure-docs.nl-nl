@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: c7c90a2e24d8dbe7764825abe18c5a1e73b67499
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1d3089052a67b899e2e4b38123145bd4ae51693f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868735"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902296"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Back-up van SAP HANA op basis van opslagmomentopnamen
 
@@ -90,7 +90,8 @@ Voor meer informatie over waar u deze scripts kopiëren en meer informatie over 
 
 - [Plannen van uw VM-back-upinfrastructuur in Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
 - [Toepassing consistente consistente back-up van Azure Linux VM 's](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
-- 
+
+
 
 Op dit moment, Microsoft niet gepubliceerd scripts en volgt op momentopnamen scripts voorbereiden voor SAP HANA. U als klant- of system integrator moet deze scripts maken en configureren van de procedure op basis van de hierboven vermelde documentatie.
 
@@ -99,7 +100,7 @@ Op dit moment, Microsoft niet gepubliceerd scripts en volgt op momentopnamen scr
 Het herstelproces van een toepassing consistente back-up gemaakt door Azure backup wordt beschreven in het artikel [bestanden herstellen vanuit back-up van virtuele Azure-machine](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm). 
 
 > [!IMPORTANT]
-> In het artikel [bestanden herstellen vanuit back-up van virtuele Azure-machine](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm), er is een lijst met uitzonderingen en stappen die worden vermeld als schijf stripesets gebruiken. Striped schijven zijn waarschijnlijk de gewone VM-configuratie voor SAP HANA. Daarom is het essentieel is voor het artikel lezen en testen van het herstelproces voor dergelijke gevallen, zoals vermeld in het artikel. 
+> In het artikel [bestanden herstellen vanuit back-up van virtuele Azure-machine](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) is een lijst met uitzonderingen en de stappen die worden vermeld bij het gebruik van sets met stripe. Striped schijven zijn waarschijnlijk de gewone VM-configuratie voor SAP HANA. Daarom is het essentieel is voor het artikel lezen en testen van het herstelproces voor dergelijke gevallen, zoals vermeld in het artikel. 
 
 
 

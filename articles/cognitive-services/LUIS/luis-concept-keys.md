@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: fe6bd0803098854c7ced1a7d816ebbc8cce23b09
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: eb3487a304ec2e4045ff76253c456dc4b6ee19b5
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340610"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888619"
 ---
 # <a name="keys-in-luis"></a>Sleutels in LUIS
 LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpunt](#endpoint-key). De ontwerphandleiding sleutel wordt automatisch voor u gemaakt wanneer u uw LUIS-account maakt. Wanneer u klaar om uw LUIS-app te publiceren bent, moet u [maken van de eindpuntsleutel](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [toewijzen](luis-how-to-manage-keys.md#assign-endpoint-key) aan uw LUIS-app en [gebruiken met de query eindpunt](#use-endpoint-key-in-query). 
@@ -31,7 +31,7 @@ Het is belangrijk om te maken van LUIS-apps in [regio's](luis-reference-regions.
 
 Een authoring sleutel, ook wel bekend als een starter-sleutel, wordt automatisch gemaakt wanneer u een LUIS-account maakt en het is gratis. U beschikt over een authoring sleutel uit al uw LUIS-apps voor elk ontwerpen [regio](luis-reference-regions.md). De authoring sleutel is opgegeven om te maken van uw LUIS-app of het eindpunt query's testen. 
 
-Als u wilt zoeken in de ontwerphandleiding sleutel, moet u zich aanmelden bij [LUIS] [ LUIS] en klik op de accountnaam in de rechterbovenhoek navigatiebalk openen **Accountinstellingen**.
+Als u wilt zoeken in de ontwerphandleiding sleutel, moet u zich aanmelden bij [LUIS](luis-reference-regions.md#luis-website) en klik op de accountnaam in de rechterbovenhoek navigatiebalk openen **Accountinstellingen**.
 
 ![Sleutel ontwerpen](./media/luis-concept-keys/programatic-key.png)
 
@@ -70,10 +70,8 @@ Zie [sleutel limieten](luis-boundaries.md#key-limits) en [Azure-regio's](luis-re
 Publicatie-regio's wijken af van het ontwerpen van regio's. Zorg ervoor dat u een app maken in de ontwerphandleiding regio overeenkomt met de gewenste regio voor publiceren.
 
 ## <a name="key-limit-errors"></a>Belangrijkste limiet fouten
-Als u meer dan uw per seconde quotum, ontvangt u fout HTTP 429. Als u meer dan uw per maand quotum, ontvangt u een HTTP 403-fout. Los de fouten met het ophalen van een LUIS [eindpunt](#endpoint-key) sleutel [toe te wijzen](luis-how-to-manage-keys.md#assign-endpoint-key) de sleutel met de app op de **publiceren** pagina van de [LUIS] [ LUIS] website.
+Als u meer dan uw per seconde quotum, ontvangt u fout HTTP 429. Als u meer dan uw per maand quotum, ontvangt u een HTTP 403-fout. Los de fouten met het ophalen van een LUIS [eindpunt](#endpoint-key) sleutel [toe te wijzen](luis-how-to-manage-keys.md#assign-endpoint-key) de sleutel met de app op de **publiceren** pagina van de [LUIS](luis-reference-regions.md#luis-website) website.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Informatie over [concepten](luis-how-to-manage-keys.md#assign-endpoint-key) over ontwerp- en eindpunt-codes.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

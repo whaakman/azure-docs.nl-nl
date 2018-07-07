@@ -1,6 +1,6 @@
 ---
-title: Maak een samengestelde entiteit om uit te pakken complexe gegevens - Azure | Microsoft Docs
-description: Informatie over het maken van een samengestelde entiteit in uw app LUIS uitpakken van verschillende soorten entiteitsgegevens.
+title: Maken van een samengestelde entiteit om uit te pakken van complexe gegevens - Azure | Microsoft Docs
+description: Informatie over het maken van een samengestelde entiteit in uw LUIS-app om op te halen van verschillende typen entiteitsgegevens.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,35 +9,35 @@ ms.component: luis
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: cb581ee60dea2b0810332933455a03a8b68e16ea
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 375b52f9206f55e620d5e664844b8fa1d7249a07
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264382"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888742"
 ---
 # <a name="use-composite-entity-to-extract-complex-data"></a>Samengestelde entiteit gebruiken om complexe gegevens te extraheren
-Deze eenvoudige app heeft twee [intents](luis-concept-intent.md) en meerdere entiteiten. Het doel is het boek vlucht zoals '1 ticket van Seattle Caïro op vrijdag' en de details van de reservering als een los stukje van gegevens retourneren. 
+Deze eenvoudige app heeft twee [intents](luis-concept-intent.md) en over verschillende entiteiten. Het doel is het boek van vluchten, zoals '1 ticket van Seattle naar Cairo op vrijdag' en de details van de reservering als een los stukje van gegevens retourneren. 
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-* Vooraf gedefinieerde entiteiten datetimeV2 en nummer toevoegen
-* Maak een samengestelde entiteit
+* Vooraf gemaakte entiteiten datetimeV2 en nummer toevoegen
+* Een samengestelde entiteit maken
 * LUIS opvragen en ontvangen van samengestelde entiteitsgegevens
 
 ## <a name="before-you-begin"></a>Voordat u begint
-* Uw app LUIS uit de  **[hiërarchische Quick Start](luis-tutorial-composite-entity.md)**. 
+* Uw LUIS-app uit de  **[hiërarchische snelstartgids](luis-tutorial-composite-entity.md)**. 
 
 > [!Tip]
-> Als u nog geen een abonnement, kunt u registreren voor een [gratis account](https://azure.microsoft.com/free/).
+> Als u nog geen een abonnement, kunt u zich registreren voor een [gratis account](https://azure.microsoft.com/free/).
 
 ## <a name="composite-entity-is-a-logical-grouping"></a>Samengestelde entiteit is een logische groepering 
-Het doel van de entiteit is om te zoeken en delen van de tekst in de utterance categoriseren. Een [samengestelde](luis-concept-entity-types.md) entiteit bestaat uit andere Entiteitstypen geleerd uit context. Er zijn verschillende soorten informatie zoals datums, locaties en aantal seats voor deze app reizen waarmee Vluchtreserveringen. 
+Het doel van de entiteit is het vinden en categoriseren van delen van de tekst in de utterance. Een [samengestelde](luis-concept-entity-types.md) entiteit bestaat uit andere Entiteitstypen geleerd van context. Voor deze reis-app waarmee de Vluchtreserveringen, zijn er verschillende soorten gegevens, zoals datums, locaties en het aantal seats. 
 
-De informatie bestaat als afzonderlijke entiteiten voordat een samengestelde wordt gemaakt. Maak een samengestelde entiteit als afzonderlijke entiteiten kunnen logisch worden gegroepeerd en deze logische groepering nuttig zijn voor de chatbot of andere LUIS verbruikende toepassing is. 
+De informatie bestaat als afzonderlijke entiteiten voordat een samengestelde wordt gemaakt. Maak een samengestelde entiteit als afzonderlijke entiteiten kunnen logisch worden gegroepeerd en deze logische groepering is het handig om de chatbot of andere LUIS verbruikende toepassing. 
 
-Eenvoudige voorbeeld utterances van gebruikers zijn onder andere:
+Enkele voorbeelden van eenvoudige utterances van gebruikers:
 
 ```
 Book a flight to London for next Monday
@@ -45,19 +45,19 @@ Book a flight to London for next Monday
 Reserve a seat from New York to Paris on the first of April
 ```
  
-De samengestelde entiteit komt overeen met seat aantal, de locatie van de oorsprong, doellocatie en datum. 
+De samengestelde entiteit komt overeen met het aantal seats, verzendingslocatie doellocatie en datum. 
 
 ## <a name="what-luis-does"></a>Wat LUIS doet
-Als de bedoeling en entiteiten van de utterance zijn geïdentificeerd, [uitgepakt](luis-concept-data-extraction.md#list-entity-data), en geretourneerd in de JSON van de [eindpunt](https://aka.ms/luis-endpoint-apis), LUIS wordt uitgevoerd. De aanroepende toepassing of chatbot neemt deze JSON-antwoord en voldoet aan de aanvraag--op welke manier de app of chatbot is ontworpen om u te doen. 
+Als de intent en entiteiten van de utterance zijn geïdentificeerd, [geëxtraheerd](luis-concept-data-extraction.md#list-entity-data) en geretourneerd in JSON vanaf het [eindpunt](https://aka.ms/luis-endpoint-apis), zit de taak van LUIS erop. De aanroepende toepassing of chatbot verwerkt dit JSON-antwoord en reageert vervolgens op de aanvraag, op de manier waarop de app of chatbot is ontworpen om dit te doen. 
 
-## <a name="add-prebuilt-entities-number-and-datetimev2"></a>Aantal vooraf gedefinieerde entiteiten en datetimeV2 toevoegen
-1. Selecteer de `MyTravelApp` -app uit de lijst met apps op de [LUIS] [ LUIS] website.
+## <a name="add-prebuilt-entities-number-and-datetimev2"></a>Nummer van de vooraf gemaakte entiteiten en datetimeV2 toevoegen
+1. Selecteer de `MyTravelApp` app uit de lijst met apps op de [LUIS](luis-reference-regions.md#luis-website) website.
 
-2. Wanneer de app wordt geopend, selecteert u de **entiteiten** linkernavigatievenster koppeling.
+2. Wanneer de app wordt geopend, selecteert u de **entiteiten** koppeling van de navigatiebalk aan de linkerkant.
 
     ![Selecteer de knop entiteiten](./media/luis-tutorial-composite-entity/intents-page-select-entities.png)    
 
-3. Selecteer **vooraf gemaakte entiteiten beheren**.
+3. Selecteer **Manage prebuilt entities**.
 
     ![Selecteer de knop entiteiten](./media/luis-tutorial-composite-entity/manage-prebuilt-entities-button.png)
 
@@ -65,78 +65,78 @@ Als de bedoeling en entiteiten van de utterance zijn geïdentificeerd, [uitgepak
 
     ![Selecteer de knop entiteiten](./media/luis-tutorial-composite-entity/prebuilt-entity-ddl.png)
 
-5. Selecteer in de volgorde voor de nieuwe entiteiten moet worden geëxtraheerd, **Train** in de bovenste navigatiebalk.
+5. Selecteer in de volgorde voor de nieuwe entiteiten moet worden opgehaald wordt geplaatst, **Train** in de bovenste navigatiebalk.
 
-    ![Selecteer train-knop](./media/luis-tutorial-composite-entity/train.png)
+    ![De knop Train selecteren](./media/luis-tutorial-composite-entity/train.png)
 
-## <a name="use-existing-intent-to-create-composite-entity"></a>Bestaande bedoeling gebruiken voor het maken van samengestelde entiteit
-1. Selecteer **Intents** van de linkernavigatiebalk. 
+## <a name="use-existing-intent-to-create-composite-entity"></a>Gebruik bestaande bedoeling om samengestelde entiteit te maken
+1. Selecteer **Intents** in de linkernavigatiebalk. 
 
     ![Intents pagina selecteren](./media/luis-tutorial-composite-entity/intents-from-entities-page.png)
 
-2. Selecteer `BookFlight` van de **Intents** lijst.  
+2. Selecteer `BookFlight` uit de **Intents** lijst.  
 
     ![BookFlight doel selecteren in lijst](./media/luis-tutorial-composite-entity/intent-page-with-prebuilt-entities-labeled.png)
 
-    Het aantal en de datetimeV2 vooraf gemaakte entiteiten worden aangeduid op de utterances.
+    Het aantal en de datetimeV2 vooraf gemaakte entiteiten gelabeld zijn op de uitingen.
 
-3. Voor de utterance `book 2 flights from seattle to cairo next monday`, selecteer de blauw `number` entiteit, selecteer vervolgens **verpakken in samengestelde entiteit** uit de lijst. Een groene lijn, onder de woorden, volgt de cursor wordt aan de rechterkant, die wijzen op een samengestelde entiteit. Ga vervolgens naar het recht om te selecteren van de laatste vooraf gedefinieerde entiteit `datetimeV2`, voer dan `FlightReservation` in het tekstvak van het pop-upvenster, schakelt u **maken nieuwe samengestelde**. 
+3. Voor de utterance `book 2 flights from seattle to cairo next monday`, selecteert u de blauwe `number` entiteit, selecteer vervolgens **verpakken in samengestelde entiteit** in de lijst. Een groene lijn, onder de woorden, volgt de cursor als wordt verplaatst naar de rechterkant, die wijzen op een samengestelde entiteit. Schuif naar rechts om te selecteren van de laatste entiteit van de vooraf gedefinieerde `datetimeV2`, voert u `FlightReservation` in het tekstvak van het pop-upvenster, schakelt u vervolgens **maken nieuwe samengestelde**. 
 
-    ![Samengestelde entiteit op de pagina intents maken](./media/luis-tutorial-composite-entity/create-new-composite.png)
+    ![Samengestelde entiteit maken op de pagina intents](./media/luis-tutorial-composite-entity/create-new-composite.png)
 
-4. Een pop-upvenster wordt weergegeven zodat u kunt controleren of de onderliggende samengestelde entiteit. Selecteer **gedaan**.
+4. Een pop-upvenster wordt weergegeven zodat u kunt controleren of de onderliggende samengestelde entiteit. Selecteer **Done**.
 
-    ![Samengestelde entiteit op de pagina intents maken](./media/luis-tutorial-composite-entity/validate-composite-entity.png)
+    ![Samengestelde entiteit maken op de pagina intents](./media/luis-tutorial-composite-entity/validate-composite-entity.png)
 
-## <a name="wrap-the-entities-in-the-composite-entity"></a>Het verpakken van de entiteiten in de samengestelde entiteit
-Zodra de samengestelde entiteit is gemaakt, label de resterende utterances in de samengestelde entiteit. Als u wilt een wachtwoordzin als een samengesteld entiteit doorloopt, moet u het meest linkse woord selecteert en vervolgens **verpakken in samengestelde entiteit** uit de lijst die wordt weergegeven, klikt u vervolgens selecteert u het woord meest rechtse en selecteer vervolgens de benoemde samengestelde entiteit `FlightReservation`. Dit is een snelle, smooth stap van selecties, onderverdeeld in de volgende stappen uit:
+## <a name="wrap-the-entities-in-the-composite-entity"></a>De entiteiten in de samengestelde entiteit verpakken
+Zodra de samengestelde entiteit is gemaakt, de resterende uitingen in de samengestelde entiteit van label. Als u wilt dat een zin als een samengestelde entiteit wordt weergegeven, moet u het meest linkse woord selecteert en vervolgens **verpakken in samengestelde entiteit** in de lijst die wordt weergegeven, klikt u vervolgens selecteert u het meest rechtse woord en vervolgens de benoemde samengestelde entiteit `FlightReservation`. Dit is een snelle en vloeiende stap van de selecties, onderverdeeld in de volgende stappen uit:
 
-1. In de utterance `schedule 4 seats from paris to london for april 1`, selecteer de 4 als aantal vooraf gedefinieerde entiteit.
+1. In de utterance `schedule 4 seats from paris to london for april 1`, selecteert u de 4 als aantal vooraf gedefinieerde entiteit.
 
-    ![Selecteer de meest linkse word](./media/luis-tutorial-composite-entity/wrap-composite-step-1.png)
+    ![Selecteer het meest linkse woord](./media/luis-tutorial-composite-entity/wrap-composite-step-1.png)
 
-2. Selecteer **verpakken in samengestelde entiteit** uit de lijst die wordt weergegeven.
+2. Selecteer **verpakken in samengestelde entiteit** in de lijst die wordt weergegeven.
 
-    ![Selecteer tekstterugloop uit de lijst](./media/luis-tutorial-composite-entity/wrap-composite-step-2.png)
+    ![Selecteer terugloop in de lijst](./media/luis-tutorial-composite-entity/wrap-composite-step-2.png)
 
-3. Selecteer de meest rechtse woord. Er verschijnt een groen lijn onder de wachtwoordzin op te geven, die wijzen op een samengestelde entiteit.
+3. Selecteer het meest rechtse woord. Een groene lijn weergegeven onder de woordgroep die wijzen op een samengestelde entiteit.
 
-    ![Selecteer de meest rechtse word](./media/luis-tutorial-composite-entity/wrap-composite-step-3.png)
+    ![Meest rechtse woord selecteren](./media/luis-tutorial-composite-entity/wrap-composite-step-3.png)
 
-4. Selecteer samengestelde naam `FlightReservation` uit de lijst die wordt weergegeven.
+4. Selecteer samengestelde naam `FlightReservation` in de lijst die wordt weergegeven.
 
     ![Benoemde samengestelde entiteit selecteren](./media/luis-tutorial-composite-entity/wrap-composite-step-4.png)
 
-    Voor de laatste utterance teruglopen `London` en `tomorrow` met behulp van de instructies in de samengestelde entiteit. 
+    Voor de laatste utterance verpakken `London` en `tomorrow` met behulp van de instructies in de samengestelde entiteit. 
 
-## <a name="train-the-luis-app"></a>De app LUIS trainen
-LUIS niet weet over de wijzigingen aan de intents en entiteiten (model), totdat deze is getraind. 
+## <a name="train-the-luis-app"></a>LUIS-app inleren
+LUIS niet weet dat de intents en entiteiten (het model) zijn gewijzigd, totdat u de app hebt ingeleerd. 
 
-1. Selecteer in het bovenste aan de rechterkant van de website LUIS, de **Train** knop.
+1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
 
-    ![De app trainen](./media/luis-tutorial-composite-entity/train-button.png)
+    ![App inleren](./media/luis-tutorial-composite-entity/train-button.png)
 
-2. Training is voltooid wanneer u de groene statusbalk aan de bovenkant van de website bevestiging ziet.
+2. Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
 
-    ![Training is voltooid](./media/luis-tutorial-composite-entity/trained.png)
+    ![Inleren is voltooid](./media/luis-tutorial-composite-entity/trained.png)
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publiceer de app als u de eindpunt-URL
-Om een voorspelling LUIS in een chatbot of een andere toepassing, moet u de app te publiceren. 
+## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
+Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing, moet u de app publiceren. 
 
-1. Selecteer in het bovenste aan de rechterkant van de website LUIS, de **publiceren** knop. 
+1. Selecteer rechtsboven op de website van LUIS de knop **Publish**. 
 
-2. Selecteer de productiesite en de **publiceren** knop.
+2. Selecteer de slot Production en vervolgens de knop **Publish**.
 
-    ![App publiceren](./media/luis-tutorial-composite-entity/publish-to-production.png)
+    ![app publiceren](./media/luis-tutorial-composite-entity/publish-to-production.png)
 
-3. Het publiceren is voltooid wanneer u de groene statusbalk aan de bovenkant van de website bevestiging ziet.
+3. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Het eindpunt met een andere utterance query
-1. Op de **publiceren** pagina de **eindpunt** koppeling aan de onderkant van de pagina. Deze actie wordt een ander browservenster geopend met de eindpunt-URL in de adresbalk. 
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Eindpunt opvragen met een andere utterance
+1. Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
 
-    ![Selecteer de eindpunt-URL](./media/luis-tutorial-composite-entity/publish-select-endpoint.png)
+    ![Eindpunt-URL selecteren](./media/luis-tutorial-composite-entity/publish-select-endpoint.png)
 
-2. Ga naar het einde van de URL in het adres en voer `reserve 3 seats from London to Cairo on Sunday`. De laatste parameter van de querystring is `q`, de utterance-query. Deze utterance is niet hetzelfde zijn als een van de gelabelde utterances zodat het is een goede test en als resultaat moet de `BookFlight` opzet met de hiërarchische entiteit hebt uitgepakt.
+2. Ga naar het einde van de URL in het adres en voer `reserve 3 seats from London to Cairo on Sunday` in. De laatste querystring-parameter is `q`, de query utterance. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intent `BookFlight` als resultaat moet geven met de entiteit Hierarchical geëxtraheerd.
 
 ```
 {
@@ -234,20 +234,16 @@ Om een voorspelling LUIS in een chatbot of een andere toepassing, moet u de app 
 }
 ```
 
-Deze utterance retourneert een samengestelde entiteiten matrix met inbegrip van de **flightreservation** object met de gegevens hebt uitgepakt.  
+Deze utterance retourneert een samengestelde entiteiten matrix met inbegrip van de **flightreservation** object met gegevens die worden geëxtraheerd.  
 
-## <a name="what-has-this-luis-app-accomplished"></a>Wat is deze app LUIS bereikt?
-Deze app, met slechts twee intents en een samengestelde entiteit een natuurlijke taal query voornemen geïdentificeerd en de geëxtraheerde gegevens geretourneerd. 
+## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
+Deze app, met slechts twee intents en een samengestelde entiteit een natuurlijke taal query voornemen geïdentificeerd en de opgehaalde gegevens geretourneerd. 
 
 Uw chatbot heeft nu voldoende gegevens om te bepalen van de primaire actie `BookFlight`, en de reserveringsinformatie gevonden in de utterance. 
 
-## <a name="where-is-this-luis-data-used"></a>Waar wordt deze gegevens LUIS gebruikt? 
-LUIS wordt aan deze aanvraag gedaan. De aanroepende toepassing, zoals een chatbot kan duren voordat het resultaat topScoringIntent en de gegevens van de entiteit op te nemen van de volgende stap. LUIS doen niet die programmatische werken voor de bot of de aanroepende toepassing. LUIS alleen bepaalt wat de bedoeling van de gebruiker. 
+## <a name="where-is-this-luis-data-used"></a>Waar worden deze gegevens van LUIS gebruikt? 
+LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 [Meer informatie over entiteiten](luis-concept-entity-types.md). 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

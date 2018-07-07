@@ -1,6 +1,6 @@
 ---
-title: Gegevensopslag in LUIS - Azure begrijpen | Microsoft Docs
-description: Meer informatie over hoe de gegevens in het Language Understanding (LUIS) worden opgeslagen
+title: Inzicht in de opslag van gegevens in LUIS - Azure | Microsoft Docs
+description: Informatie over hoe de gegevens in Language Understanding (LUIS) worden opgeslagen
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,41 +9,39 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: f235c787e7d2064696e5421219a297d914b5882d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 24e179e24423412a5ff25a64157e273b1a025a6f
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266002"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888691"
 ---
-# <a name="data-storage-and-removal"></a>Opslag van gegevens en verwijderen
-LUIS slaat gegevens op in een Azure-gegevensarchief overeenkomt met de regio is opgegeven door de sleutel is gecodeerd. Deze gegevens worden opgeslagen voor 30 dagen. 
+# <a name="data-storage-and-removal"></a>De opslag van gegevens en verwijderen
+LUIS slaat gegevens op in een Azure-gegevensarchief overeenkomt met de regio die is opgegeven door de sleutel is gecodeerd. Deze gegevens worden opgeslagen voor 30 dagen. 
 
 ## <a name="export-and-delete-app"></a>Exporteren en verwijderen van app
-Gebruikers hebben volledig beheer [exporteren](create-new-app.md#export-app) en [verwijderen](create-new-app.md#delete-app) de app. 
+Gebruikers hebben volledig beheer over [exporteren](create-new-app.md#export-app) en [verwijderen](create-new-app.md#delete-app) de app. 
 
-## <a name="utterances-in-an-intent"></a>Utterances in de opzet
-Voorbeeld utterances gebruikt voor training verwijderen [LUIS][LUIS]. Als u een voorbeeld utterance van uw app LUIS verwijdert, wordt verwijderd uit de webservice LUIS en is niet beschikbaar voor exporteren.
+## <a name="utterances-in-an-intent"></a>Uitingen in opzet
+Verwijderen van de voorbeeld-uitingen die wordt gebruikt voor de training [LUIS](luis-reference-regions.md). Als u een voorbeeld-utterance uit uw LUIS-app verwijdert, wordt verwijderd uit de LUIS-webservice en is niet beschikbaar voor het exporteren.
 
-## <a name="utterances-in-review"></a>Utterances gecontroleerd
-U kunt utterances verwijderen uit de lijst met gebruikers utterances die LUIS wordt voorgesteld in de  **[voorbeeldpagina eindpunt utterances](label-suggested-utterances.md)**. Utterances verwijderen uit deze lijst voorkomt dat deze wordt voorgesteld, maar niet verwijderen van Logboeken.
+## <a name="utterances-in-review"></a>Uitingen onder revisie
+U kunt uitingen verwijderen uit de lijst met gebruikers-uitingen die LUIS voorgesteld in de  **[voorbeeldpagina eindpunt uitingen](label-suggested-utterances.md)**. Uitingen verwijderen uit deze lijst voorkomt dat deze wordt voorgesteld, maar niet verwijderd van Logboeken.
 
 ## <a name="accounts"></a>Accounts
-Als u een account verwijdert, worden alle apps verwijderd, samen met hun voorbeeld utterances en de logboeken. De gegevens worden bewaard gedurende 60 dagen voordat het account en gegevens worden definitief verwijderd.
+Als u een account verwijdert, worden alle apps verwijderd, samen met hun voorbeeld uitingen en Logboeken. De gegevens worden bewaard gedurende 60 dagen voordat het account en gegevens worden definitief verwijderd.
 
-Verwijderen van account is beschikbaar via de **instellingen** pagina. Selecteer de accountnaam van uw in de juiste bovenste navigatiebalk om te krijgen tot de **instellingen** pagina.
+Account verwijderen is beschikbaar via de **instellingen** pagina. Selecteer de accountnaam van uw in de bovenste juiste navigatiebalk om terug te gaan naar de **instellingen** pagina.
 
-## <a name="data-inactivity-as-an-expired-subscription"></a>Gegevens inactiviteit als een verlopen abonnementen
-Voor de toepassing van het bewaren van gegevens en verwijderen, een inactieve LUIS app kan op _ter discretie van Microsoft_ worden behandeld als een verlopen abonnement. Een app als inactief beschouwd als deze voldoet aan de volgende criteria voor de afgelopen 90 dagen: 
+## <a name="data-inactivity-as-an-expired-subscription"></a>Inactiviteit van de gegevens als een verlopen abonnement
+Voor de toepassing van het bewaren van gegevens en verwijderen, een inactieve LUIS-app kan op _van Microsoft en billijkheid vastgesteld_ worden behandeld als een verlopen abonnement. Een app wordt beschouwd als inactief als deze voldoet aan de volgende criteria voor de afgelopen 90 dagen: 
 
 * Heeft **geen** oproepen naar deze.
 * Is niet gewijzigd.
-* Geen biedt huidige sleutel hebben om.
-* Een gebruiker zich aanmeldt bij deze eerder niet.
+* Niet komt hebben een huidige sleutel toegewezen.
+* Heeft een gebruiker zich aanmeldt bij deze niet.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over het exporteren en het verwijderen van een app](create-new-app.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Meer informatie over het exporteren en verwijderen van een app](create-new-app.md)

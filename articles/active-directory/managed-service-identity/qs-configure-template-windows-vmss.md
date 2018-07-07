@@ -1,6 +1,6 @@
 ---
-title: MSI configureren op een virtuele machine van Azure-schaal instelt met behulp van een sjabloon
-description: Stapsgewijze instructies voor het configureren van een beheerde Service identiteit (MSI) op een Azure-VMSS, met een Azure Resource Manager-sjabloon.
+title: MSI configureren op een schaalset van de virtuele machine van Azure met behulp van een sjabloon
+description: Stapsgewijze instructies voor het configureren van een Managed Service Identity (MSI) op een Azure-VMSS, met een Azure Resource Manager-sjabloon.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,55 +9,55 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: f7c5d063bfb287de9afe808395b951ecb161da69
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9f550af869ccfc44ba4d840f54503ad017cdaf95
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930609"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901208"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Een VMSS beheerde Service-identiteit configureren met behulp van een sjabloon
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om alle services die Azure AD-verificatie ondersteunt, zonder referenties in uw code te verifiëren. 
+Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
-In dit artikel leert u hoe op de volgende Service-identiteit beheerd bewerkingen uitvoeren op een Azure-VMSS, met behulp van Azure Resource Manager-implementatiesjabloon:
-- Inschakelen en uitschakelen van het systeem toegewezen identiteit op een Azure-VMSS
-- Toevoegen en verwijderen van een gebruiker met de identiteit op een Azure-VMSS
+In dit artikel leert u hoe u de volgende bewerkingen van de beheerde Service-identiteit in een Azure-VMSS, met behulp van Azure Resource Manager-implementatiesjabloon uitvoeren:
+- In- en uitschakelen van het systeem toegewezen identiteit in een Azure VMSS
+- Toevoegen en verwijderen van een gebruiker toegewezen identiteit in een Azure VMSS
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u niet bekend met de Service-identiteit beheerd bent, bekijk de [overzichtssectie van](overview.md). **Lees de [verschil tussen een systeem dat is toegewezen en de gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
-- Als u al een Azure-account niet hebt [aanmelden voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
+- Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
+- Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 
-Net als bij de Azure portal en uitvoeren van scripts, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) sjablonen bieden de mogelijkheid voor het implementeren van nieuwe of gewijzigde bronnen die zijn gedefinieerd door een Azure-resourcegroep. Er zijn diverse opties beschikbaar voor het bewerken van sjablonen en implementatie van zowel lokale als portal-gebaseerde, met inbegrip van:
+Net als bij Azure portal en uitvoeren van scripts, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) sjablonen bieden de mogelijkheid om nieuwe of gewijzigde resources die zijn gedefinieerd door een Azure-resourcegroep te implementeren. Er zijn diverse opties beschikbaar voor het bewerken van de sjabloon en implementatie, zowel lokaal als portal-gebaseerd, met inbegrip van:
 
-   - Met behulp van een [aangepaste sjabloon vanuit Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), waarmee u kunt een sjabloon maken vanaf het begin of baseren op een bestaande gemeenschappelijke of [snelstartsjabloon](https://azure.microsoft.com/documentation/templates/).
-   - Die zijn afgeleid van een bestaande resourcegroep door een sjabloon exporteren vanuit [de oorspronkelijke implementatie](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), of vanuit de [huidige status van de implementatie](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
-   - Met behulp van een lokale [JSON-editor (zoals VS-Code)](../../azure-resource-manager/resource-manager-create-first-template.md), uploaden en implementeren met behulp van PowerShell of CLI.
-   - Met de Visual Studio [Azure-resourcegroepproject](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) zowel maken en implementeren van een sjabloon.  
+   - Met behulp van een [aangepaste sjabloon vanuit Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), waarmee u een sjabloon maken van een volledig nieuwe of baseren op een bestaande gemeenschappelijke of [QuickStart-sjabloon](https://azure.microsoft.com/documentation/templates/).
+   - Die is afgeleid van een bestaande resourcegroep door een sjabloon exporteren vanuit een [de oorspronkelijke implementatie](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), of vanuit de [huidige status van de implementatie van](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
+   - Met behulp van een lokale [JSON-editor (zoals VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), en vervolgens uploaden en implementeren met behulp van PowerShell of CLI.
+   - Met Visual Studio [Azure-resourcegroepproject](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) te maken en implementeren van een sjabloon.  
 
-Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijdens de eerste implementatie en opnieuw installeren. Inschakelen van MSI op een nieuwe of bestaande virtuele machine wordt uitgevoerd op dezelfde manier. Ook standaard Azure Resource Manager biedt een [incrementele update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) voor implementaties.
+Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijdens de initiële implementatie en opnieuw implementeren. Inschakelen van MSI op een nieuwe of bestaande virtuele machine wordt uitgevoerd op dezelfde manier. Bovendien standaard Azure Resource Manager biedt een [incrementele update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) implementaties.
 
-## <a name="system-assigned-identity"></a>Automatisch toegewezen identiteit
+## <a name="system-assigned-identity"></a>Systeem toegewezen identiteit
 
-In deze sectie kunt u inschakelen en uitschakelen van het systeem toegewezen identiteit met een Azure Resource Manager-sjabloon.
+In deze sectie maakt u inschakelen en uitschakelen van het systeem toegewezen identiteit met een Azure Resource Manager-sjabloon.
 
-### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vmss-or-an-existing-azure-vmss"></a>Automatisch toegewezen identiteit bij het maken van een Azure-VMSS of een bestaande Azure-VMSS inschakelen
+### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vmss-or-an-existing-azure-vmss"></a>Inschakelen van systeem toegewezen identiteit tijdens het maken van een Azure-VMSS of een bestaande Azure VMSS
 
-1. De sjabloon wordt geladen in een editor, zoek de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Jouw e-mailadres eruit enigszins afwijken van de volgende schermafbeelding, afhankelijk van de editor die u gebruikt en of het bewerken van een sjabloon voor een nieuwe implementatie of een bestaande set.
+1. Laden van de sjabloon in een editor, Ga naar de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Uw uitzien enigszins afwijken van de volgende schermafbeelding, afhankelijk van de editor die u gebruikt en of het bewerken van een sjabloon voor de implementatie van een nieuwe of bestaande resourcegroep.
    
-   ![Schermopname van sjabloon: zoek VM](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
+   ![Schermafbeelding van de sjabloon: zoek VM](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
 
-2. Toevoegen om de systeemidentiteit die zijn toegewezen, de `"identity"` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachineScaleSets"` eigenschap. Gebruik de volgende syntaxis:
+2. Om in te schakelen op het systeem toegewezen identiteit, voeg de `"identity"` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachineScaleSets"` eigenschap. Gebruik de volgende syntaxis:
 
    ```JSON
    "identity": { 
@@ -65,10 +65,10 @@ In deze sectie kunt u inschakelen en uitschakelen van het systeem toegewezen ide
    },
    ```
 
-3. (Optioneel) Toevoegen van de schaal van de virtuele machine ingesteld MSI-extensie als een `extensionsProfile` element. Deze stap is optioneel, zoals u de identiteit van de Azure exemplaar metagegevens Service (IMDS), kunt evenals tokens op te halen.  Gebruik de volgende syntaxis:
+3. (Optioneel) Voeg de virtuele-machineschaalset MSI-extensie als een `extensionsProfile` element. Deze stap is optioneel, zoals u de identiteit van de Azure Instance Metadata Service (IMDS), kunt evenals tokens op te halen.  Gebruik de volgende syntaxis:
 
    >[!NOTE] 
-   > Het volgende voorbeeld wordt ervan uitgegaan dat een virtuele-machineschaalset Windows extensie instellen (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux via `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen.
+   > Het volgende voorbeeld wordt ervan uitgegaan dat een virtuele-machineschaalset in Windows extensie instellen (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux met behulp van `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen.
    >
 
    ```JSON
@@ -89,29 +89,29 @@ In deze sectie kunt u inschakelen en uitschakelen van het systeem toegewezen ide
             }
    ```
 
-4. Wanneer u bent klaar, ziet de sjabloon er ongeveer als volgt:
+4. Wanneer u klaar bent, is de sjabloon ziet die vergelijkbaar is met het volgende:
 
-   ![Schermafbeelding van de sjabloon na de update](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
+   ![Schermafbeelding van de sjabloon na-update](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
 
-### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Een toegewezen identiteit van een Azure virtuele-machineschaalset uitschakelen
+### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Een systeem toegewezen identiteit van een schaalset voor virtuele Azure-machine uitschakelen
 
 > [!NOTE]
-> Het uitschakelen van de Service-identiteit beheerd vanaf een virtuele Machine is momenteel niet ondersteund. In de tussentijd kunt u schakelen tussen het gebruik van het systeem toegewezen en toegewezen gebruikersidentiteiten.
+> Uitschakelen van de beheerde Service-identiteit van een virtuele Machine wordt momenteel niet ondersteund. In de tussentijd kunt u overschakelen tussen het gebruik van het systeem toegewezen en de gebruiker toegewezen identiteiten.
 
-Als u een set die niet meer virtuele-machineschaalset moet een systeem toegewezen identiteit maar nog steeds moet identiteiten toegewezen door gebruiker:
+Hebt u een virtuele-machineschaalset die niet meer nodig is op een systeem toegewezen identiteit maar nog steeds moet gebruiker toegewezen identiteiten:
 
-- De sjabloon wordt geladen in een teksteditor en wijzig de identiteit aan `'UserAssigned'`
+- Laden van de sjabloon in een teksteditor en wijzig de identiteit aan `'UserAssigned'`
 
-## <a name="user-assigned-identity"></a>Identiteit toegewezen door gebruiker
+## <a name="user-assigned-identity"></a>Door gebruiker toegewezen identiteit
 
-In deze sectie wijst u de identiteit van een gebruiker is toegewezen aan een Azure-VMSS met Azure Resource Manager-sjabloon.
+In deze sectie wijst u de identiteit van een gebruiker toegewezen aan een Azure-VMSS met behulp van Azure Resource Manager-sjabloon.
 
 > [!Note]
-> Zie de identiteit van een gebruiker aan zijn toegewezen met een Azure Resource Manager-sjabloon maken [maken van de identiteit van een gebruiker toegewezen](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
+> Zie voor het maken van een gebruiker toegewezen identiteit met een Azure Resource Manager-sjabloon, [maken van een gebruiker toegewezen identiteit](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
-### <a name="assign-a-user-assigned-identity-to-an-azure-vmss"></a>Een gebruiker identiteit toegewezen aan een Azure-VMSS toewijzen
+### <a name="assign-a-user-assigned-identity-to-an-azure-vmss"></a>Een gebruiker toegewezen identiteit aan een Azure-VMSS toewijzen
 
-1. Onder de `resources` element, de volgende vermelding voor het toewijzen van de identiteit van een gebruiker is toegewezen aan uw VMSS toevoegen.  Zorg ervoor dat u `<USERASSIGNEDIDENTITY>` met de naam van de identiteit van de gebruiker toegewezen die u hebt gemaakt.
+1. Onder de `resources` -element de volgende vermelding voor het toewijzen van de identiteit van een gebruiker toegewezen aan uw VMSS toevoegen.  Vervang `<USERASSIGNEDIDENTITY>` met de naam van de toegewezen gebruikers-id die u hebt gemaakt.
 
     ```json
     {
@@ -127,7 +127,7 @@ In deze sectie wijst u de identiteit van een gebruiker is toegewezen aan een Azu
 
     }
     ```
-2. (Optioneel) Voeg de volgende vermelding onder de `extensionProfile` element op de extensie beheerde identity toewijzen aan uw VMSS. Deze stap is optioneel als u het eindpunt van de identiteit Azure exemplaar metagegevens Service (IMDS) gebruiken kunt en tokens op te halen. Gebruik de volgende syntaxis:
+2. (Optioneel) Voeg de volgende vermelding onder de `extensionProfile` element de extensie beheerde identiteit toewijzen aan uw VMSS. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens. Gebruik de volgende syntaxis:
    
     ```JSON
        "extensionProfile": {
@@ -146,11 +146,11 @@ In deze sectie wijst u de identiteit van een gebruiker is toegewezen aan een Azu
                     }
                 }
    ```
-3.  Wanneer u klaar bent, ziet de sjabloon er ongeveer als volgt:
+3.  Wanneer u klaar bent, is de sjabloon ziet die vergelijkbaar is met het volgende:
    
-      ![Schermopname van toegewezen gebruikers-id](./media/qs-configure-template-windows-vmss/qs-configure-template-windows-final.PNG)
+      ![Schermafbeelding van de gebruiker toegewezen identiteit](./media/qs-configure-template-windows-vmss/qs-configure-template-windows-final.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees voor een breder perspectief over MSI de [overzicht van de Service-identiteit beheerd](overview.md).
+- Voor een breder perspectief over MSI leest de [overzicht van de beheerde Service-identiteit](overview.md).
 

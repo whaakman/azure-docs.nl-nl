@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d814bed6f126cb3b81d85c4e797a22d2ac22ddfb
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4862e3aa976287512fd69fdfe9295e3f3328d5a7
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856202"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887773"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -245,9 +245,13 @@ De edge hub, die deel van de edge-runtime uitmaakt, standaard is geoptimaliseerd
 ### <a name="resolution"></a>Oplossing
 Voor de edge hub stelt de omgevingsvariabele **OptimizeForPerformance** naar **false**. Er zijn twee manieren om dit te doen:
 
-In de gebruikersinterface: In de portal van *Apparaatdetails*->*Modules instellen*->*geavanceerde instellingen voor Edge-Runtime configureren*, een omgeving maken variabele met de naam *OptimizeForPerformance* die is ingesteld op *false* voor de *Edge Hub*.
+In de gebruikersinterface: 
+
+In de portal van *Apparaatdetails*->*Modules instellen*->*geavanceerde instellingen voor Edge-Runtime configureren*, maken van een omgevingsvariabele met de naam *OptimizeForPerformance* die is ingesteld op *false* voor de *Edge Hub*.
 
 ![optimizeforperformance][img-optimize-for-perf]
+
+**OR**
 
 In het manifest van de implementatie:
 

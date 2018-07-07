@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 15f21fd03b0373c189f3b6c4972280d128024217
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 83dbe4b7bad8935e7d047a06d6d01ca74329027d
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "36943518"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906640"
 ---
 Geoptimaliseerd voor geheugen VM-grootten aanbieding een hoge geheugen-naar-CPU-snelheid voor relationele-databaseservers, middelgrote tot grote caches en analysefuncties in het geheugen die. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals de doorvoer en netwerkbandbreedte opslag voor elke grootte in deze groepering. 
 
@@ -31,6 +31,10 @@ Geoptimaliseerd voor geheugen VM-grootten aanbieding een hoge geheugen-naar-CPU-
 ## <a name="esv3-series"></a>Esv3-serie 
 
 ACU: 160-190 <sup>1</sup>
+
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
 
 Exemplaren uit de ESv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0 en maken gebruik van Premium Storage. Ev3-exemplaren zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
 
@@ -57,6 +61,10 @@ Exemplaren uit de ESv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processo
 
 ACU: 160-190 <sup>1</sup>
 
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
+
 Exemplaren uit de Ev3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0. Ev3-exemplaren zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
 
 Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als u Premium Storage-schijven wilt gebruiken, gebruik dan de ESv3-grootten. De prijs- en factureringsmeters voor de ESv3-grootten zijn gelijk aan die van de Ev3-serie. 
@@ -80,6 +88,12 @@ Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als
 ## <a name="m-series"></a>M-serie 
 
 ACU: 160-180 <sup>1</sup>
+
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
+Write Accelerator: [ondersteund](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | Grootte            | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -113,6 +127,10 @@ ACU: 160-180 <sup>1</sup>
 
 ACU: 180-240 <sup>1</sup>
 
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10.000 / 100 (264) |5000 / 125 |2 / 2000 |
@@ -133,6 +151,10 @@ ACU: 180-240 <sup>1</sup>
 
 ACU: 180 - 240
 
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
+
 | Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
@@ -148,6 +170,10 @@ ACU: 180 - 240
 ## <a name="dsv2-series-11-15"></a>11-15, DSv2-serie
 
 ACU: 210-250 <sup>1</sup>
+
+Premium Storage: ondersteund
+
+Premium Storage Caching: Niet ondersteund
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -171,6 +197,10 @@ ACU: 210-250 <sup>1</sup>
 ## <a name="dv2-series-11-15"></a>11-15 Dv2-serie
 
 ACU: 210 - 250
+
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
 
 | Grootte              | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

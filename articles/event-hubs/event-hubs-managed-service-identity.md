@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7c8f7fff5e3cf7334ce30a3fa90ae950f841662c
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: abff3f715a1fccba172147f02b83f7209f87cf9e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865294"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902513"
 ---
 # <a name="managed-service-identity-preview"></a>Beheerde service-identiteit (preview)
 
@@ -60,6 +60,9 @@ De beheerde service-identiteit voor de webtoepassing nu heeft toegang tot de Eve
 ### <a name="run-the-app"></a>De app uitvoeren
 
 Wijzig nu de standaardpagina van de ASP.NET-toepassing die u hebt gemaakt. U kunt ook de web-toepassingscode van [deze GitHub-opslagplaats](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
+
+>[!NOTE] 
+> Wanneer de MSI-functie in preview is, zorg ervoor dat u de [preview-versie van de Service Bus-bibliotheek](https://www.nuget.org/packages/WindowsAzure.ServiceBus/4.2.2-preview) voor toegang tot de nieuwe API's. 
 
 Als u de app gestart, wijst u EventHubsMSIDemo.aspx van uw browser. U kunt ook deze instellen als uw startpagina. De code kan worden gevonden in het bestand EventHubsMSIDemo.aspx.cs. Het resultaat is een minimale webtoepassing met een paar velden, en met **verzenden** en **ontvangen** knoppen die verbinding maken met Event Hubs verzenden of ontvangen van gebeurtenissen. 
 

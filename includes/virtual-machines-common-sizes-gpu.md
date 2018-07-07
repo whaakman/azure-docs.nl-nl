@@ -1,111 +1,131 @@
 ---
-title: include file
-description: include file
+title: bestand opnemen
+description: bestand opnemen
 services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/30/2018
+ms.date: 07/06/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 268da0e5d078f7b6b4b36929dbf6755068adb444
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2018
-ms.locfileid: "30327522"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37907171"
 ---
-GPU optimized VM sizes are specialized virtual machines available with single or multiple NVIDIA GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads. This article provides information about the number and type of GPUs, vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
+GPU-geoptimaliseerde VM-grootten zijn gespecialiseerde virtuele machines die beschikbaar zijn met één of meerdere NVIDIA GPU's. Deze grootten zijn ontworpen voor intensieve compute- en grafisch intensieve visualisatie werkbelastingen. In dit artikel bevat informatie over het aantal en type van GPU's, vcpu's, gegevensschijven en NIC's. De doorvoer en netwerkbandbreedte Storage zijn ook opgenomen voor elke grootte in deze groepering. 
 
-* **NC, NCv2, NCv3, and ND** sizes are optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations, AI, and Deep Learning. 
-* **NV** sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios utilizing frameworks such as OpenGL and DirectX.  
-
-
-## <a name="nc-series"></a>NC-series
-
-NC-series VMs are powered by the [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) card. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
+* **NC, NCv2, NCv3 en ND** grootten zijn geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen en algoritmen. Enkele voorbeelden zijn CUDA - en opencl-toepassingen en simulaties, AI en Deep Learning. 
+* **NV** grootten zijn geoptimaliseerd en ontworpen voor externe visualisatie, streaming, games, codering, en VDI-scenario's met behulp van frameworks als OpenGL en DirectX.  
 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
+## <a name="nc-series"></a>NC-serie
+
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
+
+NC-serie VM's worden aangestuurd door de [NVIDIA Tesla R80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) kaart. Gebruikers kunnen Verwerk gegevens sneller door gebruik te maken van CUDA voor energie-exploratietoepassingen, vastlopen simulaties, ray getraceerde rendering, deep learning en meer. De NC24r-configuratie biedt een lage latentie en hoge doorvoer network interface die is geoptimaliseerd voor nauw gekoppelde werkbelastingen voor parallelle berekeningen.
+
+
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6 |6 |56 | 340 | 1 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 48 | 2 |
 | Standard_NC24 |24 |224 | 1440 | 4 | 64 | 4 |
 | Standard_NC24r* |24 |224 | 1440 | 4 | 64 | 4 |
 
-1 GPU = one-half K80 card.
+1 GPU = halve K80-kaart.
 
-*RDMA capable
+*RDMA-compatibel
 
-## <a name="ncv2-series"></a>NCv2-series
+## <a name="ncv2-series"></a>NCv2-serie
 
-NCv2-series VMs are powered by [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPUs. These GPUs can provide more than 2x the computational performance of the NC-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. The NC24rs v2 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
+NCv2-serie VM's worden aangestuurd door [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPU's. Deze GPU's bieden meer dan 2 x de verwerkingsprestaties van de NC-serie. Klanten kunnen profiteren van deze bijgewerkte GPU's traditionele HPC-workloads, zoals de modellering van reservoirmodellering, DNA sequentiëren, eiwitanalyse, Monte Carlo-simulaties en anderen. De NC24rs versie 2-configuratie biedt een lage latentie en hoge doorvoer network interface die is geoptimaliseerd voor nauw gekoppelde werkbelastingen voor parallelle berekeningen.
 
 > [!IMPORTANT]
-> For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
+> Voor deze serie grootte van is de vCPU (kern) quotum in uw abonnement in eerste instantie ingesteld op 0 in elke regio. [Een vCPU-quotum verhoging](../articles/azure-supportability/resource-manager-core-quotas-request.md) voor deze serie in een [beschikbare regio](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | ---  |
 | Standard_NC6s_v2 |6 |112 | 736 | 1 | 12 | 4 |
 | Standard_NC12s_v2 |12 |224 | 1474 | 2 | 24 | 8 |
 | Standard_NC24s_v2 |24 |448 | 2948 | 4 | 32 | 8 |
 | Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 32 | 8 |
 
-1 GPU = one P100 card.
+1 GPU = één P100-kaart.
 
-*RDMA capable
+*RDMA-compatibel
 
-## <a name="ncv3-series"></a>NCv3-series
+## <a name="ncv3-series"></a>NCv3-serie
 
-NCv3-series VMs are powered by [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPUs. These GPUs can provide 1.5x the computational performance of the NCv2-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. The NC24rs v3 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
+NCv3-serie VM's worden aangestuurd door [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPU's. Deze GPU's leveren tot 1,5 keer de verwerkingsprestaties van de NCv2-serie. Klanten kunnen profiteren van deze bijgewerkte GPU's traditionele HPC-workloads, zoals de modellering van reservoirmodellering, DNA sequentiëren, eiwitanalyse, Monte Carlo-simulaties en anderen. De NC24rs v3-configuratie biedt een lage latentie en hoge doorvoer network interface die is geoptimaliseerd voor nauw gekoppelde werkbelastingen voor parallelle berekeningen.
 
 > [!IMPORTANT]
-> For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
+> Voor deze serie grootte van is de vCPU (kern) quotum in uw abonnement in eerste instantie ingesteld op 0 in elke regio. [Een vCPU-quotum verhoging](../articles/azure-supportability/resource-manager-core-quotas-request.md) voor deze serie in een [beschikbare regio](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6s_v3 |6 |112 | 736 | 1 | 12 | 4 |
 | Standard_NC12s_v3 |12 |224 | 1474 | 2 | 24 | 8 |
 | Standard_NC24s_v3 |24 |448 | 2948 | 4 | 32 | 8 | 
 | Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 32 | 8 |
 
-1 GPU = one V100 card.
+1 GPU = één V100-kaart.
 
-*RDMA capable
+*RDMA-compatibel
 
-## <a name="nd-series"></a>ND-series
+## <a name="nd-series"></a>ND-serie
 
-The ND-series virtual machines are a new addition to the GPU family designed for AI and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
+De ND-serie virtuele machines zijn een nieuwe toevoeging aan de GPU die is ontworpen voor Deep Learning- en AI-workloads. Ze bieden uitstekende prestaties voor training en Deductie. ND-exemplaren worden aangestuurd door [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPU's. Deze instanties bieden uitstekende prestaties voor enkele precisie zwevende drijvende-kommaberekeningen, voor AI-workloads met Microsoft Cognitive Toolkit, TensorFlow, Caffe en andere frameworks. De ND-serie biedt daarnaast een veel groter GPU-geheugen (24 GB), waardoor het mogelijk is om veel grotere modellen met een neuraal netwerk in te zetten. Net als de NC-serie, de ND-serie biedt een configuratie met een secundair netwerk met lage latentie en hoge doorvoersnelheid via RDMA en InfiniBand-connectiviteit, zodat u grootschalige trainingstaken waarvoor veel GPU's kunt uitvoeren.
 
 > [!IMPORTANT]
-> For this size family, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
+> Voor deze serie grootte van is de vCPU (kern) quotum per regio in uw abonnement in eerste instantie ingesteld op 0. [Een vCPU-quotum verhoging](../articles/azure-supportability/resource-manager-core-quotas-request.md) voor deze serie in een [beschikbare regio](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_ND6s |6 |112 | 736 | 1 | 12 | 4 |
 | Standard_ND12s |12 |224 | 1474 | 2 | 24 | 8 | 
 | Standard_ND24s |24 |448 | 2948 | 4 | 32 | 8 |
 | Standard_ND24rs* |24 |448 | 2948 | 4 | 32 | 8 |
 
-1 GPU = one P40 card.
+1 GPU = één P40-kaart.
 
-*RDMA capable
+*RDMA-compatibel
 
-## <a name="nv-series"></a>NV-series
+## <a name="nv-series"></a>NV-serie
 
-The NV-series virtual machines are powered by [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. 
+Premium-opslag: Niet ondersteund
 
-Each GPU in NV instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
+Premium Storage Caching: Niet ondersteund
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs | Virtual Workstations | Virtual Applications | 
+De NV-serie virtuele machines worden aangestuurd door [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU's en NVIDIA GRID technologie voor desktop versneld en virtuele bureaubladen waarop klanten hun gegevens of simulatie kunnen visualiseren zijn. Gebruikers kunnen hun grafisch intensieve werkstromen op de NV-exemplaren grafische mogelijkheden en daarnaast enkelvoudige precisieworkloads, zoals codering en rendering uitvoeren visualiseren. 
+
+Elke GPU in NV-exemplaren wordt geleverd met een licentie RASTER. Deze licentie geeft u de flexibiliteit om te gebruiken een NV-exemplaar als een virtuele werkstation voor één gebruiker of 25 gelijktijdige gebruikers verbinding kunnen maken met de virtuele machine voor een virtuele toepassing-scenario.
+
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's | Virtuele werkstations | Virtuele toepassingen | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 
-1 GPU = one-half M60 card.
+1 GPU = halve M60-kaart.
 
  

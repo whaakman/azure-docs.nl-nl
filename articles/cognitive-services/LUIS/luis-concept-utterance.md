@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9b8556a30169561488a7b46f93af87b31e049e7a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4a3571acade7b7bd304c91eadc90b1a9f6e53860
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345505"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886838"
 ---
 # <a name="utterances-in-luis"></a>Uitingen in LUIS
 
@@ -23,7 +23,7 @@ ms.locfileid: "37345505"
 Items waarvan u denkt dat gebruikers verzamelen. Uitingen die dezelfde betekenis, maar zijn samengesteld anders opnemen in word lengte en de plaatsing van word. 
 
 ## <a name="how-to-choose-varied-utterances"></a>Uiteenlopende uitingen kiezen
-Wanneer u eerst aan de slag door [toe te voegen voorbeeld uitingen] [ add-example-utterances] aan uw LUIS-model, worden hier enkele principes rekening moet houden.
+Wanneer u eerst aan de slag door [toe te voegen voorbeeld uitingen](luis-how-to-add-example-utterances.md) aan uw LUIS-model, worden hier enkele principes rekening moet houden.
 
 ### <a name="utterances-arent-always-well-formed"></a>Uitingen zijn niet altijd goed gevormd.
 Het is mogelijk een zin, zoals "Book me een ticket naar Parijs", of een fragment van een zin, zoals 'Reservering' of "Parijs vlucht."  Gebruikers maken vaak spelfouten. Overweeg of u spellingcontrole invoer van de gebruiker voordat deze aan LUIS doorgegeven bij het plannen van uw app. De [Bing Spell Check-API] [ BingSpellCheck] kan worden geïntegreerd met LUIS. U kunt uw LUIS-app koppelen aan een externe sleutel voor de Bing Spell Check-API wanneer u deze publiceert. Als het selectievakje gebruiker uitingen niet is gespeld, moet u LUIS trainen op uitingen die typefouten en spelfouten bevatten.
@@ -70,7 +70,6 @@ Nadat uw model getraind, gepubliceerde en ontvangende is [eindpunt](luis-glossar
 Beoordeling [aanbevolen procedures](luis-concept-best-practices.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [voorbeeld utterances toevoegen] [ add-example-utterances] voor meer informatie over het trainen van een LUIS-app om te begrijpen uitingen van de gebruiker.
+Zie [voorbeeld utterances toevoegen](luis-how-to-add-example-utterances.md) voor meer informatie over het trainen van een LUIS-app om te begrijpen uitingen van de gebruiker.
 
-[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

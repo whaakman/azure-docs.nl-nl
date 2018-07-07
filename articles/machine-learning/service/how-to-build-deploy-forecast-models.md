@@ -1,6 +1,6 @@
 ---
-title: Bouw en implementeer een prognosemodel met behulp van Azure Machine Learning-pakket voor de prognose.
-description: Informatie over het bouwen, trainen, testen en implementeren van een met het Azure Machine Learning-pakket voor prognose prognosemodel.
+title: Bouw en implementeer een Voorspellend model met behulp van Azure Machine Learning-pakket voor de prognose.
+description: Informatie over het bouwen, trainen, testen en implementeren van een Voorspellend model met behulp van de Azure Machine Learning-pakket voor de prognose.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,64 +9,64 @@ ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 320a7cf4a34657138c9096cdc4b573170be376e9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 44093dfde926b92d1617b85d27e362a8e40e5c56
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036171"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888667"
 ---
-# <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Bouw en implementeer prognoses modellen met Azure Machine Learning
+# <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Prognoses modellen met Azure Machine Learning bouwen en implementeren
 
-Informatie over het gebruik in dit artikel **Azure Machine Learning-pakket voor prognose** (AMLPF) om snel te bouwen en implementeren van een prognosemodel. De werkstroom is als volgt:
+In dit artikel leert u hoe u **Azure Machine Learning-pakket voor Forecasting** (AMLPF) om snel te bouwen en implementeren van een Voorspellend model. De werkstroom is als volgt:
 
-1. Laden van gegevens en verkennen
+1. Laden en gegevens verkennen
 2. Functies maken
-3. Trainen en selecteert u het beste model
-4. Het model implementeren en gebruiken van de webservice
+3. Trainen en het beste model selecteren
+4. Het model implementeren en de webservice gebruiken
 
-Raadpleeg de [pakket naslagdocumentatie](https://aka.ms/aml-packages/forecasting) voor een volledige lijst van transformatoren en modellen, evenals de gedetailleerde naslaginformatie voor elke module en de klasse.
+Raadpleeg de [referentiedocumentatie voor het pakket](https://aka.ms/aml-packages/forecasting) voor een volledige lijst van transformatoren en modellen, evenals de uitgebreide referentie voor elke module en de klasse.
 
 ## <a name="prerequisites"></a>Vereisten
 
 1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-1. De volgende accounts en de toepassing moeten worden ingesteld en geïnstalleerd:
+1. De volgende accounts en de toepassing moeten worden ingesteld en worden geïnstalleerd:
    - Een Azure Machine Learning Experimenten-account 
-   - Een Azure Machine Learning-Model Management-account
+   - Een Azure Machine Learning Modelbeheer-account
    - Azure Machine Learning Workbench moet zijn geïnstalleerd 
 
-    Als deze drie zijn nog niet gemaakt of geïnstalleerd, voert u de [Quick Start Azure Machine Learning en de Workbench](../service/quickstart-installation.md) artikel.
+    Als deze drie nog niet zijn gemaakt of is geïnstalleerd, volgt u de [installatie van Azure Machine Learning-Quickstart en Workbench](../service/quickstart-installation.md) artikel.
 
-1. Het Azure Machine Learning-pakket voor prognose moet worden geïnstalleerd. Meer informatie over hoe [hier in dit pakket installeren](https://aka.ms/aml-packages/forecasting).
+1. De Azure Machine Learning-pakket voor Forecasting moet worden geïnstalleerd. Meer informatie over het [hier in dit pakket installeert](https://aka.ms/aml-packages/forecasting).
 
 ## <a name="sample-data-and-jupyter-notebook"></a>Voorbeeldgegevens en Jupyter-notebook
 
 ### <a name="sample-workflow"></a>Voorbeeldwerkstroom 
-In het voorbeeld volgt de werkstroom:
+De werkstroom met het voorbeeld de volgende:
  
-1. **Gegevens opnemen**: laden van de gegevensset en te converteren naar TimeSeriesDataFrame. Deze dataframe is een reeks tijdgegevens structuur die wordt geboden door Azure Machine Learning-pakket voor prognose, hierna te noemen **AMLPF**.
+1. **Gegevens opnemen**: laden van de gegevensset en deze converteren naar TimeSeriesDataFrame. Deze dataframe is een time series-gegevens van Azure Machine Learning-pakket voor de prognose, in dit document aangeduid als structuur **AMLPF**.
 
-2. **Functies maken**: verschillende featurization transformatoren geleverd door AMLPF gebruiken voor het maken van functies.
+2. **Functies maken**: verschillende parametrisatie transformatoren geleverd door AMLPF gebruiken voor het maken van functies.
 
-3. **Trein en selecteert u het beste Model**: Vergelijk de prestaties van verschillende univariaat time series-modellen en machine learning-modellen. 
+3. **Train en selecteert u het beste Model**: de prestaties van verschillende univariaat time series-modellen en machine learning-modellen. 
 
-4. **Model implementeren**: de pijplijn getrainde model als een webservice via Azure Machine Learning Workbench implementeren zodat deze kan worden gebruikt door andere gebruikers.
+4. **Model implementeren**: de pijplijn getrainde model implementeren als een webservice via Azure Machine Learning Workbench, zodat deze kan worden gebruikt door anderen.
 
 ### <a name="get-the-jupyter-notebook"></a>De Jupyter-notebook ophalen
 
-Download de notebook om uit te voeren in de codevoorbeelden die hierin worden beschreven zelf.
+Download het notitieblok om uit te voeren van de codevoorbeelden beschreven, accepteert zelf.
 
 > [!div class="nextstepaction"]
 > [De Jupyter-notebook ophalen](https://aka.ms/aml-packages/forecasting/notebooks/sales_forecasting)
 
 ### <a name="explore-the-sample-data"></a>De voorbeeldgegevens verkennen
 
-De machine learning prognose voorbeelden in de volgende code voorbeelden zijn afhankelijk van de [universiteit van Chicago van Dominick van fijner levensmiddelen gegevensset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) oranje SAP verkoop te voorspellen. De Dominick is een keten kruidenierswaren in het grootstedelijke gebied Chicago.
+De machine learning voorspellen van de voorbeelden in de volgende code voorbeelden zijn afhankelijk van de [van de universiteit van Chicago van Dominick fijner Foods gegevensset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) sinaasappelsap verkoop te voorspellen. De Dominick is een keten voor kruidenierswaren in het gebied rond Tokio Chicago.
 
 ### <a name="import-any-dependencies-for-this-sample"></a>Eventuele afhankelijkheden voor dit voorbeeld importeren
 
-Deze afhankelijkheden moeten voor de volgende codevoorbeelden worden geïmporteerd:
+Deze afhankelijkheden moeten worden geïmporteerd voor de volgende codevoorbeelden:
 
 
 ```python
@@ -105,7 +105,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Gegevens laden en verkennen
 
-Dit codefragment ziet u het normale proces starten met een onbewerkte gegevensset in dit geval de [gegevens van de mate van Dominick-levensmiddelen](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  U kunt ook de functie gemak [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Dit codefragment laat zien dat het normale proces beginnen met een set met onbewerkte gegevens, in dit geval de [gegevens uit fijner voedingsmiddelen van Dominick](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  U kunt ook de functie voor uw gemak bedoeld; [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -154,7 +154,7 @@ whole_df.head()
       <td>0.25</td>
       <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0,30</td>
       <td>0.46</td>
       <td>2.11</td>
@@ -174,7 +174,7 @@ whole_df.head()
       <td>0.25</td>
       <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0,30</td>
       <td>0.46</td>
       <td>2.11</td>
@@ -194,7 +194,7 @@ whole_df.head()
       <td>0.25</td>
       <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0,30</td>
       <td>0.46</td>
       <td>2.11</td>
@@ -214,7 +214,7 @@ whole_df.head()
       <td>0.25</td>
       <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0,30</td>
       <td>0.46</td>
       <td>2.11</td>
@@ -234,7 +234,7 @@ whole_df.head()
       <td>0.25</td>
       <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0,30</td>
       <td>0.46</td>
       <td>2.11</td>
@@ -247,11 +247,11 @@ whole_df.head()
 
 
 
-De gegevens bestaan uit wekelijkse verkoop per merk en winkel. De logaritme van de hoeveelheid verkocht is in de _logmove_ kolom. De gegevens bevat ook klant demografische functies. 
+De gegevens bestaan uit wekelijkse verkoop per merk en de store. De logaritme van het aantal verkochte is in de _logmove_ kolom. De gegevens bevatten ook sommige demografische functies van de klant. 
 
-Om te modelleren tijdreeks, moet u de volgende elementen extraheren uit deze dataframe: 
-+ Een as datum/tijd 
-+ Aantal worden voorspellen
+Voor het modelleren van de tijdreeks, moet u de volgende elementen onttrekken aan deze gegevensframe: 
++ Een datum/tijd-as 
++ De verkoophoeveelheid worden voorspellen
 
 
 ```python
@@ -310,7 +310,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
       <th>3</th>
       <td>2</td>
       <td>tropicana</td>
-      <td>1990-08-15 23:59:59</td>
+      <td>15-08-1990 23:59:59</td>
       <td>8000</td>
     </tr>
     <tr>
@@ -334,11 +334,11 @@ print('{} time series in the data frame.'.format(nseries))
     249 time series in the data frame.
     
 
-De gegevens bevat ongeveer 250 verschillende combinaties van store en merk in een gegevensframe. Elke combinatie definieert een eigen tijdreeks van verkoop. 
+De gegevens bevat ongeveer 250 verschillende combinaties van opslag en merk in een gegevensframe. Elke combinatie definieert een eigen tijdreeksen van de verkoop. 
 
-U kunt de [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) klasse als gemakkelijk model voor meerdere reeksen in een enkele gegevens structuur met de _gebruikerssegmentatie_. Het interval wordt opgegeven door de `store` en `brand` kolommen.
+U kunt de [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) klasse die u wilt een eenvoudig model meerdere reeksen in een enkele gegevens structuur met de _tijdsinterval_. Het tijdsinterval is opgegeven door de `store` en `brand` kolommen.
 
-Het verschil tussen _gebruikerssegmentatie_ en _groep_ is dat gebruikerssegmentatie altijd fysiek zinvol in de praktijk, terwijl de groep hoeft te zijn. Interne pakket functies groep gebruiken voor het bouwen van een enkelvoudig model uit meerdere tijdreeksen als de gebruiker denkt dat deze groepering model helpt prestaties te verbeteren. Standaard groep is ingesteld op niet gelijk zijn aan gebruikerssegmentatie en één model is gebouwd voor elke gebruikerssegmentatie. 
+Het verschil tussen _tijdsinterval_ en _groep_ tijdsinterval is altijd fysiek zinvol in de praktijk, terwijl de groep hoeft te zijn. Groep gebruik interne pakket functies om één model uit meerdere tijdreeksen als de gebruiker is van mening dat deze groepering helpt modelprestaties te verbeteren. Standaard groep is ingesteld op gelijk zijn aan tijdsinterval en één model is gebouwd voor elk tijdsinterval. 
 
 
 ```python
@@ -393,7 +393,7 @@ whole_tsdf[['Quantity']].head()
       <td>3840</td>
     </tr>
     <tr>
-      <th>1990-08-15 23:59:59</th>
+      <th>15-08-1990 23:59:59</th>
       <th>2</th>
       <th>tropicana</th>
       <td>8000</td>
@@ -409,7 +409,7 @@ whole_tsdf[['Quantity']].head()
 
 
 
-In de weergave TimeSeriesDataFrame de tijdas gebruikerssegmentatie nu deel uitmaken van de index van het frame en gemakkelijk toegang toestaan tot pandas datetime segmentering functionaliteit.
+In de weergave TimeSeriesDataFrame de tijdas tijdsinterval zijn nu onderdeel van de gegevens frame-index en eenvoudig toegang tot de datum-/ pandas segmentering functionaliteit.
 
 
 ```python
@@ -458,7 +458,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
       <td>6848</td>
     </tr>
     <tr>
-      <th>1990-08-15 23:59:59</th>
+      <th>15-08-1990 23:59:59</th>
       <th>2</th>
       <th>dominicks</th>
       <td>2880</td>
@@ -482,7 +482,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
       <td>10752</td>
     </tr>
     <tr>
-      <th>1990-09-19 23:59:59</th>
+      <th>19-09-1990 23:59:59</th>
       <th>2</th>
       <th>dominicks</th>
       <td>6656</td>
@@ -498,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-De [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) functie genereert een uitgebreid rapport van het tijdsbestek van de reeks-gegevens. Het rapport bevat zowel een beschrijving van de algemene gegevens als statistieken die specifiek zijn voor de reeksgegevens. 
+De [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) functie genereert een uitgebreid rapport van het tijdsbestek voor de gegevens van reeks. Het rapport bevat zowel een beschrijving van de algemene gegevens als statistieken die specifiek zijn voor time series-gegevens. 
 
 
 ```python
@@ -663,11 +663,16 @@ whole_tsdf.ts_report()
 
 ![PNG](./media/how-to-build-deploy-forecast-models/output_15_6.png)
 
+![PNG](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+ 
 
 
 ## <a name="integrate-with-external-data"></a>Integratie met externe gegevens
 
-Soms is het handig voor het integreren van externe gegevens als aanvullende functies voor het voorspellen. In dit voorbeeld kunt u TimeSeriesDataFrame toevoegen met de externe gegevens met betrekking tot weer.
+Soms is het handig om te integreren van externe gegevens als aanvullende functies voor het voorspellen van. In dit voorbeeld, kunt u TimeSeriesDataFrame toevoegen met externe gegevens met betrekking tot weer.
 
 
 ```python
@@ -770,7 +775,7 @@ whole_tsdf.head()
       <td>0.25</td>
       <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0,30</td>
       <td>...</td>
       <td>2.11</td>
@@ -782,7 +787,7 @@ whole_tsdf.head()
       <td>72,00</td>
       <td>61.87</td>
       <td>9.74</td>
-      <td>0.19</td>
+      <td>0,19</td>
     </tr>
     <tr>
       <th>Minute.maid</th>
@@ -794,7 +799,7 @@ whole_tsdf.head()
       <td>0.25</td>
       <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0,30</td>
       <td>...</td>
       <td>2.11</td>
@@ -806,7 +811,7 @@ whole_tsdf.head()
       <td>72,00</td>
       <td>61.87</td>
       <td>9.74</td>
-      <td>0.19</td>
+      <td>0,19</td>
     </tr>
     <tr>
       <th>tropicana</th>
@@ -818,7 +823,7 @@ whole_tsdf.head()
       <td>0.25</td>
       <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0,30</td>
       <td>...</td>
       <td>2.11</td>
@@ -830,7 +835,7 @@ whole_tsdf.head()
       <td>72,00</td>
       <td>61.87</td>
       <td>9.74</td>
-      <td>0.19</td>
+      <td>0,19</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">5</th>
@@ -839,15 +844,15 @@ whole_tsdf.head()
       <td>7.49</td>
       <td>1</td>
       <td>1.59</td>
-      <td>0,12</td>
+      <td>0.12</td>
       <td>0,32.</td>
       <td>0,05</td>
       <td>10.92</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0.41</td>
       <td>...</td>
       <td>3,80</td>
-      <td>0.68</td>
+      <td>0,68</td>
       <td>1,60</td>
       <td>0.74</td>
       <td>1792</td>
@@ -855,7 +860,7 @@ whole_tsdf.head()
       <td>72,00</td>
       <td>61.87</td>
       <td>9.74</td>
-      <td>0.19</td>
+      <td>0,19</td>
     </tr>
     <tr>
       <th>Minute.maid</th>
@@ -863,15 +868,15 @@ whole_tsdf.head()
       <td>8.35</td>
       <td>0</td>
       <td>2.99</td>
-      <td>0,12</td>
+      <td>0.12</td>
       <td>0,32.</td>
       <td>0,05</td>
       <td>10.92</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0.41</td>
       <td>...</td>
       <td>3,80</td>
-      <td>0.68</td>
+      <td>0,68</td>
       <td>1,60</td>
       <td>0.74</td>
       <td>4224</td>
@@ -879,22 +884,22 @@ whole_tsdf.head()
       <td>72,00</td>
       <td>61.87</td>
       <td>9.74</td>
-      <td>0.19</td>
+      <td>0,19</td>
     </tr>
   </tbody>
 </table>
 
 
-## <a name="preprocess-data-and-impute-missing-values"></a>Gegevens voorverwerken en rekenen ontbrekende waarden
+## <a name="preprocess-data-and-impute-missing-values"></a>Gegevens voorverwerken en worden toegerekend ontbrekende waarden
 
-Start de gegevens splitsen in trainingset en een test in te stellen de [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) hulpprogrammafunctie. De resulterende set testen bevat de laatste 40 opmerkingen van elke tijdreeks. 
+Starten door op te splitsen in trainingsset en een testen instellen met de [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) hulpprogrammafunctie. De resulterende set testen bevat de laatste 40 opmerkingen van de tijdreeks. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Basic time series modellen vereisen aaneengesloten tijdreeks. Controleer of de reeks reguliere zijn, zodat ze een tijdsindex actieve met regelmatige tussenpozen met behulp van de [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) functie.
+Basic time series modellen nodig aaneengesloten tijdreeksen. Controleer of de reeks zijn reguliere, wat betekent dat ze een tijdsindex met regelmatige intervallen, met behulp van een steekproef genomen hebben de [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) functie.
 
 
 ```python
@@ -969,7 +974,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-U kunt zien dat de meeste van de reeks (213 van 249) onregelmatige zijn. Een [begrip transformatie](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) is vereist voor het ontbrekende aantalwaarden. Hoewel er veel begrip opties, de volgende voorbeeldcode maakt gebruik van een lineaire interpolatie.
+U kunt zien dat de meeste van de serie (213 van 249) onregelmatig zijn. Een [toerekening transformatie](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) is vereist voor het aanvullen van ontbrekende verkoophoeveelheid waarden. Er zijn veel toerekening opties, de volgende voorbeeldcode maakt gebruik van een lineaire interpolatie.
 
 
 ```python
@@ -982,7 +987,7 @@ imputer = TimeSeriesImputer(input_column='Quantity',
 train_imputed_tsdf = imputer.transform(train_tsdf)
 ```
 
-Nadat de begrip code wordt uitgevoerd, wordt in de reeks die alle een reguliere frequentie zijn:
+Nadat de toerekening-code wordt uitgevoerd, wordt in de reeks die alle een normale frequentie zijn:
 
 
 ```python
@@ -997,16 +1002,16 @@ print(ts_regularity_imputed[ts_regularity_imputed['regular'] == False])
 
 ## <a name="univariate-time-series-models"></a>Univariaat time series-modellen
 
-Nu dat u de gegevens zijn opgeschoond, kunt u beginnen met het model.  Beginnen met het maken van drie univariaat modellen: het model 'naïve', het model 'seizoensgebonden naïve' en een 'ARIMA'-model.
+Nu dat u de gegevens zijn opgeschoond, kunt u beginnen met het model.  Beginnen met het maken van drie univariaat modellen: de 'naïve'-model, het model 'seizoensgebonden naïve' en een 'ARIMA'-model.
 * De Naive prognoses algoritme maakt gebruik van de variabele waarde van de werkelijke doel van de laatste periode als de voorspelde waarde van de huidige periode.
 
-* De seizoensgebonden Naive algoritme maakt gebruik van de variabele waarde van de werkelijke doel van de dezelfde tijdstip van de vorige seizoen als de voorspelde waarde van het huidige tijdstip. Voorbeelden zijn met behulp van de werkelijke waarde van de dezelfde maand vorig jaar te voorspellen maanden van het huidige jaar. Gebruik hetzelfde uur van gisteren prognose uren vandaag. 
+* De seizoensgebonden Naive algoritme maakt gebruik van de variabele waarde van de werkelijke doel van de dezelfde tijdstip van de vorige seizoen als de voorspelde waarde van het huidige tijdstip. Enkele voorbeelden zijn met behulp van de werkelijke waarde van de dezelfde maand vorig jaar te voorspellen maanden van het huidige jaar. Gebruik hetzelfde uur van gisteren vandaag uur te voorspellen. 
 
-* De exponentiële vloeiend maken (ETS) algoritme genereert prognoses door de gewogen gemiddelden van afgelopen metingen met het gewicht Verdwijnende exponentieel als de opmerkingen oudere computing. 
+* De exponentieel vloeiend maken (ETS)-algoritme wordt prognoses gegenereerd door het gewogen gemiddelde van afgelopen metingen computing met het gewicht Verdwijnende exponentieel als de opmerkingen oudere. 
 
-* Het algoritme AutoRegressive geïntegreerde zwevend gemiddelde (ARIMA) bevat de autocorrelation in reeksgegevens. Zie voor meer informatie over ARIMA [deze koppeling](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
+* Het algoritme AutoRegressive Integrated zwevend gemiddelde (ARIMA) bevat de autocorrelation in time series-gegevens. Zie voor meer informatie over ARIMA, [deze koppeling](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
 
-Begin met het instellen van bepaalde Modelparameters op basis van uw gegevens te verkennen. 
+Beginnen met het instellen van de Modelparameters van bepaalde op basis van uw gegevens verkennen. 
 
 
 ```python
@@ -1035,7 +1040,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combineren van meerdere modellen
 
-De [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) estimator kunt u meerdere schatters combineren en past/voorspellen op deze met één regel code.
+De [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) estimator kunt u meerdere loopt combineren en past/voorspellen op met behulp van één regel code.
 
 
 ```python
@@ -1044,29 +1049,29 @@ forecaster_union = ForecasterUnion(
                      ('ets', ets_model), ('arima', arima_model)]) 
 ```
 
-### <a name="fit-and-predict"></a>Passen en te voorspellen
+### <a name="fit-and-predict"></a>Past en voorspellen
 
-De schatters in AMLPF volgt u de dezelfde API als scikit-schatters meer: een geschikte methode voor het model trainings- en een methode van voorspellingslengte voor het genereren van prognoses. 
+Het loopt in AMLPF volgt u dezelfde API als scikit-loopt meer: een passend methode voor het trainen van het model en een predict-methode voor het genereren van prognoses. 
 
 **Modellen trainen**  
-Aangezien deze modellen alle univariaat modellen zijn, wordt één model aanpassen aan elke gelijk is aan of de gegevens. Met behulp van AMLPF worden alle 249 modellen passen met slechts één functie-aanroep.
+Aangezien deze modellen alle univariaat modellen zijn, wordt één model aanpassen aan elk tijdsinterval van de gegevens. Met behulp van AMLPF, worden alle 249 modellen aanpassen door slechts één functie aan te roepen.
 
 
 ```python
 forecaster_union_fitted = forecaster_union.fit(train_imputed_tsdf)
 ```
 
-**Verkoopprognoses op testgegevens**  
-Net als bij de methode aanpassen, kunt u voorspellingen voor alle 249 reeksen in de gegevensset testen met een aanroep naar de `predict` functie. 
+**Verkoopprognoses testgegevens**  
+Net als bij de methode aanpassen, kunt u voorspellingen voor alle 249 reeksen maken in de gegevensset tests met één aanroep naar de `predict` functie. 
 
 
 ```python
 forecaster_union_prediction = forecaster_union_fitted.predict(test_tsdf, retain_feature_column=True)
 ```
 
-**Prestaties model evalueren**   
+**Modelprestatie evalueren**   
 
-U kunt nu de prognose fouten op de testset berekenen. Hier kunt u de gemiddelde absolute percentage-fout (MAPE) gebruiken. MAPE is de gemiddelde absolute percentage fout ten opzichte van de werkelijke waarden van de verkoop. De ```calc_error``` functie biedt een aantal ingebouwde functies voor vaak gebruikte fout metrische gegevens. U kunt ook onze aangepaste FOUTFUNCTIE MedianAPE berekend en doorgegeven aan het argument err_fun definiëren.
+U kunt nu de voorspelde fouten voor de test berekenen. U kunt hier de mean absolute percentage fout (MAPE) gebruiken. MAPE is de mean absolute percentage fout ten opzichte van de werkelijke waarden van de verkoop. De ```calc_error``` functie biedt een aantal ingebouwde functies voor veelgebruikte fout metrische gegevens. U kunt ook de functie aangepaste foutpagina MedianAPE berekenen en deze doorgeven aan het argument err_fun definiëren.
 
 
 ```python
@@ -1143,16 +1148,16 @@ univariate_model_errors
 
 
 
-## <a name="build-machine-learning-models"></a>Machine learning-modellen maken
+## <a name="build-machine-learning-models"></a>Machine learning-modellen bouwen
 
-Naast de traditionele univariaat modellen kunt Azure Machine Learning-pakket voor prognose ook u voor het maken van machine learning-modellen.
+Naast de traditionele univariaat modellen kunt Azure Machine Learning-pakket voor de prognose ook u machine learning-modellen te maken.
 
-Beginnen met het maken van de functies voor deze modellen.
+Beginnen met het maken van functies voor deze modellen.
 
-### <a name="feature-engineering"></a>Functie-Engineering
+### <a name="feature-engineering"></a>Feature-Engineering
 
 **Transformatoren**   
-Het pakket biedt veel transformatoren voor tijd reeksgegevens voorverwerking en featurization. De volgende voorbeelden enkele van de voorverwerking en featurization functionaliteit.
+Het pakket biedt veel transformatoren voor time series-gegevens voorverwerken en parametrisatie. Enkele van de functionaliteit voor voorverwerking en parametrisatie de voorbeelden die laten zien.
 
 
 ```python
@@ -1182,7 +1187,7 @@ grain_featurizer = GrainIndexFeaturizer(overwrite_columns=True, ts_frequency=oj_
 ```
 
 **Pijplijnen**   
-Pipeline-objecten kunnen u eenvoudig een reeks stappen opslaan zodat ze steeds opnieuw kunnen worden toegepast op verschillende objecten. Pipeline-objecten kunnen ook worden pickled zodat ze gemakkelijk draagbare naar andere computers voor implementatie. U kunt alle transformatoren die u hebt gemaakt tot nu toe met behulp van een pijplijn koppelen. 
+Pijplijnobjecten wordt het eenvoudiger om op te slaan een reeks stappen, zodat ze steeds opnieuw kunnen worden toegepast op verschillende objecten. Pijplijnobjecten kunnen ook worden pickled zodat ze eenvoudig draagbare naar andere computers voor implementatie. U kunt alle transformatoren die u hebt gemaakt tot nu toe met behulp van een pijplijn koppelen. 
 
 
 ```python
@@ -1249,7 +1254,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-De [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) functie verpakt sklearn regressie schatters zodat ze kunnen worden getraind op TimeSeriesDataFrame. De verpakte forecaster worden ook elke groep in dit geval archief in hetzelfde model. De forecaster leert één model voor een groep van reeksen die vergelijkbaar zijn vastgesteld en kunnen worden samengevoegd. De gegevens van de reeks langer één model voor een groep van reeks vaak gebruikt voor prognoses voor korte reeks verbeteren. U kunt deze modellen voor alle andere modellen in de bibliotheek die ondersteuning bieden voor regressie vervangen. 
+De [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) functie, terugloopt sklearn regressie loopt zodat ze kunnen worden getraind op TimeSeriesDataFrame. De verpakte forecaster worden elke groep, ook in dit geval archief in hetzelfde model geplaatst. De forecaster leert u een model voor een groep van de reeks die is vastgesteld dat vergelijkbare en kunnen worden samengevoegd. Een model voor een groep van reeks maakt vaak gebruik van de gegevens van meer reeks voor het verbeteren van prognoses voor korte-serie. U kunt deze modellen voor alle andere modellen in de bibliotheek die ondersteuning bieden voor regressie vervangen. 
 
 
 ```python
@@ -1363,13 +1368,13 @@ all_errors.sort_values('MedianAPE')
 
 
 
-Sommige machine learning-modellen kunnen profiteren van de nieuwe functies en de overeenkomsten tussen de reeks voor betere nauwkeurigheid van de prognose gegevens ophalen.
+Sommige machine learning-modellen konden profiteren van de nieuwe functies en de overeenkomsten tussen reeksen om op te halen van betere nauwkeurigheid van de prognose.
 
 **Kruisvalidatie en Parameter Sweeping**    
 
-Het pakket worden sommige traditionele machine learning-functies voor een toepassing prognoses aangepast.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) kruisvalidatie ondersteuningsbeheerder, biedt wat zou en zou niet bekend zijn in een prognosemodel framework te respecteren. 
+Het pakket zich enkele traditionele machine learning-functies voor een prognose toepassing aanpast.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) kruisvalidatie tijdelijk, biedt wat zou en zou niet bekend zijn in een prognoses framework wordt gerespecteerd. 
 
-In de onderstaande afbeelding geeft elke vierkante gegevens van één keer plaats. De blauwe vierkanten staan training en oranje vierkanten staan in elke Vouw testen. Testgegevens moeten afkomstig zijn van de tijdpunten nadat de grootste training tijdstip. Anders wordt toekomstige gegevens lekken naar trainingsgegevens waardoor de model-evaluatie ongeldig. 
+In de afbeelding hieronder staat elke vierkant gegevens van een tijdstip. De blauwe kwadraten vertegenwoordigen training en oranje vierkanten weer in elke Vouw testen. Testgegevens moet afkomstig zijn van de tijdpunten na de grootste training-tijdstip. Gegevens uit de toekomst is anders in trainingsgegevens veroorzaakt door de model-evaluatie ongeldig wordt gelekt. 
 
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
@@ -1391,8 +1396,8 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
     Best paramter: {'estimator__n_estimators': 100}
     
 
-**De laatste pijplijn maken**   
-Nu dat u het beste model hebt geïdentificeerd, kunt u bouwen en uw laatste pijplijn met alle transformatoren en het beste model passen. 
+**De laatste pijplijn bouwen**   
+Nu dat u het beste model hebt geïdentificeerd, kunt u deze kunt bouwen en uw laatste pijplijn met alle transformatoren en het beste model passen. 
 
 
 ```python
@@ -1413,11 +1418,11 @@ print('Median of APE of final pipeline: {0}'.format(final_median_ape))
 
 ## <a name="operationalization-deploy-and-consume"></a>Uitoefening: implementeren en gebruiken
 
-In deze sectie een pijplijn als Azure Machine Learning-webservice implementeren en deze wordt gebruikt voor trainings- en score berekenen. Score berekenen voor de geïmplementeerde webservice retrains van het model en genereert prognoses op nieuwe gegevens.
+In deze sectie maakt u een pijplijn als Azure Machine Learning-webservice implementeren en deze gebruiken voor training en scoren. De geïmplementeerde webservice scoren retrains van het model en prognoses op nieuwe gegevens worden gegenereerd.
 
-### <a name="set-model-deployment-parameters"></a>Model implementatieparameters instellen
+### <a name="set-model-deployment-parameters"></a>Model-implementatie instellen
 
-Wijzig de volgende parameters voor uw eigen waarden. Zorg ervoor dat uw Azure Machine Learning-omgeving, model-account van beheerserver en resourcegroep bevinden zich in dezelfde regio.
+Wijzig de volgende parameters in uw eigen waarden. Zorg ervoor dat uw Azure Machine Learning-omgeving, het Modelbeheer-account en de resourcegroep bevinden zich in dezelfde regio bevinden.
 
 
 ```python
@@ -1456,7 +1461,7 @@ deployment_name = '<web service name>'
 deployment_working_directory = '<local working directory>'
 ```
 
-### <a name="define-the-azure-machine-learning-environment-and-deployment"></a>Definieer het Azure Machine Learning-omgeving en de implementatie
+### <a name="define-the-azure-machine-learning-environment-and-deployment"></a>De Azure Machine Learning-omgeving en de implementatie bepalen
 
 
 ```python
@@ -1491,9 +1496,9 @@ aml_deployment = ForecastWebserviceFactory(deployment_name=deployment_name,
 aml_deployment.deploy()
 ```
 
-### <a name="score-the-web-service"></a>De webservice beoordelen
+### <a name="score-the-web-service"></a>De webservice te beoordelen
 
-Als u wilt beoordelen een kleine gegevensset, gebruiken de [score](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) methode voor het verzenden van een webservice aanroepen voor alle gegevens.
+Voor het scoren van een kleine gegevensset, gebruikt u de [score](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) methode voor het indienen van een webservice aanroepen voor alle gegevens.
 
 
 ```python
@@ -1514,7 +1519,7 @@ aml_web_service = aml_deployment.get_deployment()
 results = aml_web_service.score(score_context=score_context)
 ```
 
-Als u wilt beoordelen een grote gegevensset, gebruiken de [score berekenen voor parallelle](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) modus verzenden meerdere webservice wordt aangeroepen, één voor elke groep van gegevens.
+Voor het scoren van een grote gegevensset, gebruikt u de [parallelle scoren](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) modus om in te dienen meerdere webservice aanroept, één voor elke groep van gegevens.
 
 
 ```python
@@ -1525,8 +1530,8 @@ results = aml_web_service.score(score_context=score_context, method='parallel')
 
 Meer informatie over het Azure Machine Learning-pakket voor de prognose in deze artikelen:
 
-+ Lees de [overzicht van het pakket en informatie over het installeren van deze](https://aka.ms/aml-packages/forecasting).
++ Lees de [overzicht verpakt en informatie over het installeren van deze](https://aka.ms/aml-packages/forecasting).
 
-+ Verken de [verwijzen naar documenten](https://aka.ms/aml-packages/forecasting) voor dit pakket.
++ Verken de [verwijzen naar docs](https://aka.ms/aml-packages/forecasting) voor dit pakket.
 
 + Meer informatie over [andere Python-pakketten voor Azure Machine Learning](reference-python-package-overview.md).

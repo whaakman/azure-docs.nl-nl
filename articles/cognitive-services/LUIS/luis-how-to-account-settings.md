@@ -1,6 +1,6 @@
 ---
-title: De instellingen van uw account in LUIS beheren | Microsoft Docs
-description: LUIS website gebruiken voor het beheren van instellingen van uw account.
+title: Beheren van de instellingen van uw account in LUIS | Microsoft Docs
+description: LUIS-website gebruiken voor het beheren van instellingen van uw account.
 titleSuffix: Azure
 services: cognitive-services
 author: v-geberr
@@ -10,54 +10,53 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1f22112a38bf32af03ffaf0493db16839b3fe794
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 1b5caf199cd5bfe0fa462950cc1f7beb3f2872b2
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749960"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887603"
 ---
-# <a name="manage-your-luis-account"></a>Uw account LUIS beheren
-De twee belangrijkste stukjes informatie voor een account LUIS zijn het gebruikersaccount en de sleutel ontwerpen. Uw aanmeldingsgegevens wordt beheerd op [account.microsoft.com](https://account.microsoft.com). Uw ontwerp sleutel wordt beheerd vanaf de [LUIS][LUIS] website **instellingen** pagina. 
+# <a name="manage-your-luis-account"></a>Uw LUIS-account beheren
+De twee belangrijkste stukjes informatie voor een LUIS-account zijn het gebruikersaccount en de sleutel schrijven. Uw aanmeldingsgegevens wordt beheerd op [account.microsoft.com](https://account.microsoft.com). Uw authoring sleutel wordt beheerd via de [LUIS](luis-reference-regions.md) website **instellingen** pagina. 
 
 ## <a name="authoring-key"></a>Sleutel ontwerpen
 
-Deze enkele, regiospecifieke authoring sleutel op de **instellingen** pagina kunt u de auteur van uw apps uit de [LUIS][LUIS] website, evenals de [ API's ontwerpen](https://aka.ms/luis-authoring-api). Voor uw gemak de authoring sleutel mag een [beperkt](luis-boundaries.md) eindpunt aantal query's per maand. 
+Deze één, specifiek ontwerpen sleutel, op de **instellingen** pagina, kunt u de auteur van al uw apps uit de [LUIS](luis-reference-regions.md) website, evenals de [API's ontwerpen](https://aka.ms/luis-authoring-api). Als uw gemak de authoring sleutel is toegestaan om een [beperkt](luis-boundaries.md) nummer van het eindpunt van query's per maand. 
 
-![Pagina LUIS-instellingen](./media/luis-how-to-account-settings/account-settings.png)
+![Pagina instellingen van LUIS](./media/luis-how-to-account-settings/account-settings.png)
 
-De authoring sleutel wordt gebruikt voor alle apps die u bezit, evenals alle apps die u als een medewerker die worden vermeld.
+De ontwerphandleiding sleutel wordt gebruikt voor alle apps die u bezit, evenals alle apps die u als samenwerker wordt vermeld.
 
-## <a name="authoring-key-regions"></a>Belangrijke gebieden ontwerpen
-De sleutel authoring is specifiek voor de [authoring regio](luis-reference-regions.md#publishing-regions). De sleutel werkt niet in een andere regio. 
+## <a name="authoring-key-regions"></a>Belangrijkste regio's ontwerpen
+De sleutel schrijven is specifiek voor de [ontwerpen regio](luis-reference-regions.md#publishing-regions). De sleutel werkt niet in een andere regio. 
 
-## <a name="reset-authoring-key"></a>Authoring sleutel opnieuw instellen
-Als uw ontwerp sleutel is geknoeid, opnieuw de sleutel. De sleutel wordt opnieuw ingesteld voor uw apps in de [LUIS] website. Als u uw apps via de API's voor ontwerpen ontwerpt, moet u de waarde van wijzigen `Ocp-Apim-Subscription-Key` aan de nieuwe sleutel. 
+## <a name="reset-authoring-key"></a>Het ontwerpen van de sleutel opnieuw instellen
+Als uw authoring sleutel is geknoeid, opnieuw instellen van de sleutel. De sleutel wordt opnieuw ingesteld op al uw apps in de [LUIS](luis-reference-regions.md) website. Als u uw apps via de API's voor ontwerpen maken, moet u Wijzig de waarde van `Ocp-Apim-Subscription-Key` aan de nieuwe sleutel. 
 
 ## <a name="delete-account"></a>Account verwijderen
-Zie [gegevensopslag en verwijdering](luis-concept-data-storage.md#accounts) voor meer informatie over welke gegevens worden verwijderd wanneer u uw account verwijdert. 
+Zie [gegevensopslag en -verwijdering](luis-concept-data-storage.md#accounts) voor informatie over welke gegevens worden verwijderd wanneer u uw account verwijderen. 
 
 ## <a name="azure-active-directory-tenant-user"></a>Azure Active Directory-tenant-gebruiker
-LUIS gebruikt standaard Azure Active Directory (Azure AD) toestemming stroom. 
+LUIS gebruikt standaard instemmingsstroom van Azure Active Directory (Azure AD). 
 
-De tenantbeheerder moet samenwerken met de gebruiker die toegang te krijgen tot het gebruik van LUIS in de Azure AD nodig heeft. 
+De tenantbeheerder kunnen rechtstreeks met de gebruiker die toegang krijgen tot LUIS in de Azure AD gebruiken nodig heeft. 
 
-Eerst de gebruiker zich aanmeldt bij LUIS en ziet een pop-upvenster hoeven admin goedkeuring. De gebruiker contact op met de tenantbeheerder voordat u doorgaat. 
+Eerst de gebruiker zich aanmeldt bij LUIS en ziet de pop-upvenster hoeven beheerder goedkeuring. De gebruiker neemt contact op met de tenantbeheerder voordat u doorgaat. 
 
-Ten tweede de tenantbeheerder zich aanmeldt bij LUIS en ziet een toestemming stroom pop-upvenster. Dit is het dialoogvenster dat de beheerder moet de machtiging voor de gebruiker. Zodra de beheerder de machtiging accepteert, kan de gebruiker om door te gaan met LUIS.
+Ten tweede tenant-beheerder zich aanmeldt bij LUIS en een toestemming stroom pop-upvenster ziet. Dit is het dialoogvenster dat de beheerder moet de machtiging voor de gebruiker. Zodra de beheerder de machtiging accepteert, kan de gebruiker om door te gaan met LUIS.
 
-Als de tenantbeheerder niet bij LUIS aanmelden wordt, de beheerder toegang tot [toestemming](https://account.activedirectory.windowsazure.com/r#/applications) voor LUIS. 
+Als de tenantbeheerder niet bij LUIS aanmelden wordt, de beheerder toegang tot [toestemming geven](https://account.activedirectory.windowsazure.com/r#/applications) voor LUIS. 
 
-![Azure active directory-machtigingen door app-website](./media/luis-how-to-account-settings/tenant-permissions.png)
+![Azure active directory-machtigingen per app-website](./media/luis-how-to-account-settings/tenant-permissions.png)
 
-Als de tenantbeheerder wil dat alleen bepaalde gebruikers LUIS gebruiken, verwijzen naar dit [identiteit blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
+Als de tenant-beheerder wil dat alleen bepaalde gebruikers LUIS gebruiken, verwijzen naar dit [identiteit blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
-### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Gebruikersaccounts met meerdere e-mailberichten voor deelnemers
-Als u deelnemers aan een app LUIS toevoegt, geeft u het exacte e-mailadres moet een samenwerker LUIS gebruiken als een samenwerker. Terwijl Azure Active Directory (Azure AD) kan een enkele gebruiker meer dan één e-mailaccount uitwisselbaar, vereist LUIS dat gebruikers zich aanmelden met het e-mailadres dat is opgegeven in de lijst van de medewerker. 
+### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Gebruikersaccounts met meerdere e-mailberichten voor de medewerkers
+Als u de medewerkers aan een LUIS-app toevoegt, geeft u de exacte e-mailadres moet een samenwerker LUIS gebruikt als samenwerker. Azure Active Directory (Azure AD) kunt u een enkele gebruiker meer dan één e-mailaccount door elkaar gebruikt, is de gebruiker zich kunnen aanmelden met het e-mailadres dat is opgegeven in de lijst van de samenwerker door LUIS vereist. 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over uw [authoring sleutel](luis-concept-keys.md#authoring-key). 
+Meer informatie over uw [ontwerpen sleutel](luis-concept-keys.md#authoring-key). 
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

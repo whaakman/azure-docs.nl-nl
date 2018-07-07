@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: c1bff75ebdba656127f7860bdb72d368a94ef20b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 499c7182fba9d8efeebfb22e22a692d431dcb7ac
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866539"
+ms.locfileid: "37888650"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en Fabric-Upgradebeleid aanpassen
 Dit document leest u hoe de verschillende fabric-instellingen aanpassen en Upgradebeleid in de infrastructuur voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon.
@@ -752,6 +752,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |FabricLogRoot |Reeks | Niet toegestaan |Service fabric log-hoofdmap. Dit is waar de SF-logboeken en traceringen worden geplaatst. |
 |NodesToBeRemoved|tekenreeks, standaardwaarde is ""| Dynamisch |De knooppunten die moeten worden verwijderd als onderdeel van de upgrade van de configuratie. (Alleen voor implementaties van de zelfstandige versie)|
 |ServiceRunAsAccountName |Reeks | Niet toegestaan |De accountnaam waaronder fabric host-service uit te voeren. |
+|SkipContainerNetworkResetOnReboot|BOOL, standaard is ingesteld op FALSE|NotAllowed|Hiermee geeft u op of u moet worden overgeslagen bij het opnieuw instellen container netwerk bij het opnieuw opstarten.|
 |SkipFirewallConfiguration |BOOL, de standaardinstelling is false | Niet toegestaan |Hiermee geeft u als de firewall-instellingen moeten worden ingesteld door het systeem of niet. Dit geldt alleen als u windows firewall. Als u firewalls van derden gebruikt, moet klikt u vervolgens u de poorten openen voor het systeem en de toepassingen te gebruiken |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService

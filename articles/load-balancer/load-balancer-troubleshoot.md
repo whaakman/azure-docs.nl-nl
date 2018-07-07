@@ -1,5 +1,5 @@
 ---
-title: Azure Load Balancer oplossen | Microsoft Docs
+title: Problemen met Azure Load Balancer oplossen | Microsoft Docs
 description: Bekende problemen oplossen met Azure Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -12,125 +12,124 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 07/06/2018
 ms.author: genli
-ms.openlocfilehash: 294bb6dd780d1df642d6e793b29267da1e8b8336
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774910"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889538"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Problemen met Azure Load Balancer oplossen
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Deze pagina bevat informatie over probleemoplossing voor veelgestelde vragen voor Azure Load Balancer. Wanneer de connectiviteit taakverdeler niet beschikbaar is, zijn de meest voorkomende problemen als volgt: 
+Deze pagina bevat informatie over probleemoplossing voor veelgestelde vragen voor Azure Load Balancer. Wanneer de connectiviteit van de Load Balancer niet beschikbaar is, zijn de meest voorkomende problemen als volgt: 
 - Virtuele machines achter de Load Balancer reageert niet op statuscontroles 
 - Virtuele machines achter de Load Balancer reageert niet op het verkeer op de geconfigureerde poort
 
-## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptoom: VM's achter de Load Balancer reageert niet op statuscontroles
-Voor de back-endservers om deel te nemen in de load balancer-set moeten ze de controle van de test doorgeven. Zie voor meer informatie over statuscontroles [Understanding Load Balancer-tests](load-balancer-custom-probe-overview.md). 
+## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Probleem: VM's achter de Load Balancer reageert niet op statuscontroles
+Voor de back-endservers om deel te nemen in de load balancer-set, moeten ze slagen voor de testcontrole. Zie voor meer informatie over statuscontroles [Understanding Load Balancer controleert](load-balancer-custom-probe-overview.md). 
 
-De Load Balancer-back-endpool virtuele machines reageert niet op de testpakketten vanwege een van de volgende redenen: 
-- Back-endpool VM voor Load Balancer is slecht 
-- Load Balancer back-endpool die VM wordt niet geluisterd op de testpoort 
-- Firewall of een netwerkbeveiligingsgroep is de poort op de Load Balancer-back-endpool VM's blokkeren 
-- Overige configuratiefouten in de Load Balancer
+De Load Balancer-back-end-groep virtuele machines reageert niet op de tests vanwege een van de volgende redenen: 
+- Back-endpool VM voor Load Balancer is niet in orde 
+- Load Balancer back-endpool-VM is niet op de testpoort luisteren 
+- Firewall of een netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de Load Balancer-back-end-groep virtuele machines 
+- Andere configuraties in Load Balancer
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>1 oorzaak: De back-endpool van de Load Balancer VM is slecht 
-
-**Validatie en oplossing**
-
-U lost dit probleem, zich aanmelden bij de deelnemende virtuele machines, en controleer of de VM-status in orde is en kan reageren op **psping om** of **TCPing** uit een andere virtuele machine in de groep. Als de virtuele machine beschadigd is of niet reageren op de test, moet u het probleem corrigeren en de virtuele machine terug in een gezonde toestand verkrijgen voordat deze taakverdeling deelnemen kan.
-
-### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Oorzaak 2: Back-endpool van de Load Balancer VM niet geluisterd op de testpoort
-Als de virtuele machine in orde is, maar niet op de test reageert, is een mogelijke reden zijn kan dat de testpoort niet geopend zijn is op de deelnemen aan de virtuele machine, of de virtuele machine niet beschikbaar op deze poort.
+### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>1 oorzaak: De Load Balancer back-endpool-VM is niet in orde 
 
 **Validatie en oplossing**
 
-1. Aanmelden bij de back-end VM. 
-2. Open een opdrachtprompt en voer de volgende opdracht om te valideren, er is een toepassing die luistert op de testpoort:   
+U lost dit probleem, meld u aan bij de deelnemende virtuele machines, en controleer of de VM-status in orde is en kunnen reageren op **PsPing** of **TCPing** uit een andere virtuele machine in de groep. Als de virtuele machine beschadigd is of kan niet reageren op de test, moet u het probleem te verhelpen en ophalen van de virtuele machine naar een goede status voordat deze taakverdeling deelnemen kan.
+
+### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>2 oorzaak: Load Balancer back-endpool-VM is niet luisteren op de testpoort
+Als de virtuele machine in orde is, maar niet op de test reageert, is een mogelijke reden zijn kan dat de testpoort niet geopend is op de deelnemende virtuele machine of de virtuele machine niet luisteren op poort.
+
+**Validatie en oplossing**
+
+1. Meld u aan bij de back-end van de virtuele machine. 
+2. Open een opdrachtprompt en voer de volgende opdracht uit om te valideren, er is een toepassing die luistert op de testpoort:   
             netstat - an
-3. Als de poortstatus van de niet is vermeld als **LISTENING**, de juiste poort configureren. 
-4. Selecteer een andere poort, die wordt vermeld als **LISTENING**, en bij te werken load balancer-configuratie dienovereenkomstig.              
+3. Als de poortstatus van de niet wordt vermeld als **LISTENING**, de juiste poort configureren. 
+4. Of Selecteer een andere poort, die wordt vermeld als **LISTENING**, en load balancer-configuratie dienovereenkomstig bijwerken.              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3 oorzaak: Firewall of een netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de load balancer back-endpool virtuele machines  
-Als de testpoort wordt geblokkeerd door de firewall op de virtuele machine of een of meer beveiligingsgroepen die zijn geconfigureerd op het subnet of op de VM-netwerk, de test te bereiken, de poort niet toestaat, is de virtuele machine niet reageren op de health-test.          
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3 oorzaak: Firewall of een netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de load balancer back-endpool VM 's  
+Als de testpoort is geblokkeerd door de firewall op de virtuele machine of een of meer beveiligingsgroepen die zijn geconfigureerd op het subnet of op de VM-netwerk, de test om te bereiken, de poort, is niet toegestaan, is de virtuele machine kan niet reageren op de statustest.          
 
 **Validatie en oplossing**
 
-* Als de firewall is ingeschakeld, controleert u of deze is geconfigureerd voor het toestaan van de testpoort. Als dat niet het geval is, moet u de firewall configureren voor verkeer op de testpoort en test opnieuw. 
-* Controleer of de binnenkomende of uitgaande verkeer op de testpoort storing is in de lijst van netwerkbeveiligingsgroepen. 
-* Controleer ook als een **weigeren alle** netwerkbeveiligingsgroepen-regel op de NIC van de virtuele machine of het subnet dat een hogere prioriteit dan de standaardregel waarmee LB tests & verkeer (netwerkbeveiligingsgroepen moeten toestaan Load Balancer IP-adres van 168.63.129.16). 
+* Als de firewall is ingeschakeld, controleert u of deze is geconfigureerd voor de testpoort toestaan. Als dat niet het geval is, moet u de firewall verkeer op de testpoort toestaan en test opnieuw configureren. 
+* Controleer of het binnenkomende of uitgaande verkeer op de testpoort storing heeft in de lijst van netwerkbeveiligingsgroepen. 
+* Controleer ook of als een **Alles weigeren** netwerkbeveiligingsgroepen regel op de NIC van de virtuele machine of het subnet dat een hogere prioriteit dan de standaardregel waarmee LB tests & verkeer (netwerkbeveiligingsgroepen moeten toestaan Load Balancer IP-adres van 168.63.129.16). 
 * Als een van deze regels de test-verkeer blokkeert zijn, verwijderen en opnieuw configureren van de regels voor de test-verkeer.  
-* Test de virtuele machine is nu gestart op de statuscontroles reageert. 
+* Test of de virtuele machine heeft nu gestart voor het reageren op de statuscontroles. 
 
-### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>4 oorzaak: Andere configuratiefouten in de Load Balancer
-Als de voorgaande oorzaken lijken te worden gevalideerd en de juiste manier omgezet en de back-end VM nog steeds niet naar de health test vervolgens handmatig reageert test voor connectiviteit en sommige traceringen voor informatie over de connectiviteit verzamelen.
-
-**Validatie en oplossing**
-
-* Gebruik **psping om** uit een van de andere virtuele machines binnen het VNet voor het testen van het antwoord van de poort test (voorbeeld:.\psping.exe -t 10.0.0.4:3389) en noteer de resultaten. 
-* Gebruik **TCPing** van een van de andere virtuele machines binnen het VNet voor het testen van het antwoord van de poort test (voorbeeld:.\tcping.exe 10.0.0.4 3389) en noteer de resultaten. 
-* Als er geen reactie wordt ontvangen in de deze ping-tests vervolgens
-    - Een gelijktijdige Netsh-trace op de doel-back-endpool VM en een andere test VM uitvoeren vanuit het hetzelfde VNet. Nu, voert u een test psping om enige tijd, sommige netwerktracering verzamelen en vervolgens de test stoppen. 
-    - Analyseer het vastleggen van het netwerk en zien of er inkomende en uitgaande pakketten die betrekking hebben op de ping-query. 
-        - Als er geen inkomende pakketten zijn waargenomen op de back-endpool VM, is er mogelijk een netwerkbeveiligingsgroepen of UDR onjuiste configuratie van het verkeer blokkeert. 
-        - Als er geen uitgaande pakketten worden waargenomen op de back-endpool VM, moet de virtuele machine worden gecontroleerd op niet-verwante problemen (voor eample, toepassing blokkeren van de testpoort). 
-    - Controleer of als de testpakketten worden gedwongen naar een andere bestemming (mogelijk via instellingen UDR) voordat de load balancer is bereikt. Hierdoor kan het verkeer naar de back-end VM nooit bereikt. 
-* De test-type (bijvoorbeeld HTTP naar TCP) wijzigen en de bijbehorende poort configureren voor netwerkbeveiligingsgroepen ACL's en firewall valideren als het probleem met de configuratie van de test-antwoord is. Zie voor meer informatie over de configuratie van health test [configuratie van health test eindpunt Load Balancing](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
-
-## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Symptoom: VM's achter de Load Balancer reageert niet op verkeer op de geconfigureerde poort
-
-Als u een back-endpool VM wordt vermeld als goed en reageert op de statuscontroles, maar nog steeds niet deelneemt aan de taakverdeling of reageert niet op het gegevensverkeer van, mogelijk vanwege een van de volgende redenen: 
-* Load Balancer-back-endpool die VM niet geluisterd op de poort 
-* Netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de Load Balancer-back-endpool VM  
-* Toegang tot de Load Balancer van hetzelfde VM en NIC 
-* Toegang tot het Internet Load Balancer-VIP van de deelnemende Load Balancer back-endpool VM 
-
-### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>1 oorzaak: Back-endpool van de Load Balancer VM niet geluisterd op de poort 
-Als een virtuele machine niet op het gegevensverkeer van reageert, kan zijn omdat de doelpoort niet geopend op de deelnemende VM is of de virtuele machine niet geluisterd op poort. 
+### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Oorzaak 4: In andere configuraties van Load Balancer
+Als de voorgaande oorzaken lijken te worden gevalideerd en omgezet correct en de back-end van de virtuele machine nog steeds niet op de statustest en vervolgens handmatig reageert test de verbinding en verzamelen van sommige traceringen voor meer informatie over de verbinding.
 
 **Validatie en oplossing**
 
-1. Aanmelden bij de back-end VM. 
-2. Open een opdrachtprompt en voer de volgende opdracht om te valideren, er is een toepassing die luistert op de poort:  
+* Gebruik **Psping** uit een van de andere VM's binnen het VNet voor het testen van het antwoord van de poort test (voorbeeld:.\psping.exe -t 10.0.0.4:3389) en resultaten opnemen. 
+* Gebruik **TCPing** uit een van de andere VM's binnen het VNet voor het testen van het antwoord van de poort test (voorbeeld:.\tcping.exe 10.0.0.4 3389) en resultaten opnemen. 
+* Als er geen reactie wordt ontvangen in deze ping-tests, klikt u vervolgens
+    - Voer een gelijktijdige Netsh-tracering op de back-endpool voor doel-VM en een andere test-VM in hetzelfde VNet. Nu, voert u een test PsPing gedurende een bepaalde periode, sommige Netwerktraceringen verzamelen en stop vervolgens de test. 
+    - Het vastleggen van netwerk analyseren en te zien of er zowel inkomende als uitgaande pakketten met betrekking tot de ping-query. 
+        - Als er geen inkomende pakketten zijn waargenomen op de back-endpool-VM, is er mogelijk een netwerkbeveiligingsgroepen of UDR foutieve configuratie van het verkeer blokkeren. 
+        - Als er geen uitgaande pakketten zijn waargenomen op de back-endpool-VM, moet de virtuele machine moet worden gecontroleerd voor niet-gerelateerde problemen (voor bijvoorbeeld, toepassing de testpoort blokkeren). 
+    - Controleer of als de testpakketten wordt gedwongen naar een andere bestemming (mogelijk via de UDR-instellingen) voordat de load balancer wordt bereikt. Hierdoor kan het verkeer naar de back-end van de virtuele machine nooit te bereiken. 
+* De test-type (bijvoorbeeld HTTP naar TCP) wijzigen en de bijbehorende poort configureren voor netwerkbeveiligingsgroepen ACL's en firewall om te controleren of het probleem met de configuratie van test-antwoord is. Zie voor meer informatie over de configuratie van de health test [Testconfiguratie health Endpoint Load Balancing](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
+
+## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Probleem: VM's achter Load Balancer niet reageren op verkeer op de geconfigureerde poort
+
+Als een back-endpool VM wordt vermeld als in orde is en reageert op de statuscontroles, maar nog steeds geen deel uitmaakt van de Load Balancing of reageert niet op het gegevensverkeer, kan dit worden veroorzaakt door een van de volgende redenen: 
+* Load Balancer-back-end-pool die VM is niet op de gegevenspoort luisteren 
+* Netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de Load Balancer back-endpool VM  
+* Toegang tot de Load Balancer van dezelfde virtuele machine en NIC 
+* Toegang tot het Internet Load Balancer-VIP-adres van de deelnemende Load Balancer back-endpool VM 
+
+### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>1 oorzaak: Load Balancer back-endpool-VM is niet op de gegevenspoort luisteren 
+Als een virtuele machine niet op het gegevensverkeer reageert, kan het zijn omdat de doelpoort niet geopend op de deelnemende virtuele machine is, of de virtuele machine niet bij die poort luistert. 
+
+**Validatie en oplossing**
+
+1. Meld u aan bij de back-end van de virtuele machine. 
+2. Open een opdrachtprompt en voer de volgende opdracht uit om te valideren, er is een toepassing die luistert op de gegevenspoort:  
             netstat - an 
-3. Als de poort niet wordt vermeld met status 'Luistert', de juiste listener-poort configureren 
-4. Als de poort is gemarkeerd als Listening, controleert u de doeltoepassing bij die poort voor mogelijke problemen. 
+3. Als de poort niet wordt vermeld met de status 'Luistert', de juiste luisterpoort configureren 
+4. Als de poort is gemarkeerd als Listening, controleert u de doeltoepassing op deze poort voor mogelijke problemen. 
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>2 oorzaak: De netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de Load Balancer-back-endpool VM  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>2 oorzaak: Netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de Load Balancer back-endpool VM  
 
-Als een of meer netwerkbeveiligingsgroepen geconfigureerd op het subnet of op de virtuele machine, blokkeert de bron-IP- of -poort, dan is de virtuele machine niet kunnen reageren.
+Als een of meer netwerkbeveiligingsgroepen op het subnet of op de virtuele machine geconfigureerd, wordt geblokkeerd door de bron-IP of de poort, dan is de virtuele machine kan niet reageren.
 
-* Lijst van de netwerkbeveiligingsgroepen die zijn geconfigureerd op de back-end VM. Zie voor meer informatie [netwerkbeveiligingsgroepen beheren](../virtual-network/manage-network-security-group.md).
-* Controleer of in de lijst van netwerkbeveiligingsgroepen:
-    - het binnenkomende of uitgaande verkeer op de poort heeft een storing. 
-    - een **weigeren alle** netwerk beveiligingsregel-groep op de NIC van de virtuele machine of het subnet dat een hogere prioriteit die de standaardregel waarmee de Load Balancer-tests heeft en er verkeer (netwerkbeveiligingsgroepen moeten toestaan Load Balancer IP-adres van 168.63.129.16, is dit testpoort) 
-* Als een van de regels voor het verkeer wordt geblokkeerd, verwijderen en opnieuw configureren van deze regels voor het gegevensverkeer.  
-* Als de virtuele machine nu gestart is om te reageren op de statuscontroles testen.
+* Lijst met de netwerkbeveiligingsgroepen die zijn geconfigureerd op de back-end van de virtuele machine. Zie voor meer informatie, [netwerkbeveiligingsgroepen beheren](../virtual-network/manage-network-security-group.md).
+* Controleer in de lijst van netwerkbeveiligingsgroepen als:
+    - het binnenkomende of uitgaande verkeer op de gegevenspoort heeft storingen. 
+    - een **Alles weigeren** regel voor netwerkbeveiligingsgroep op de NIC van de virtuele machine of het subnet dat een hogere prioriteit die de standaardregel waarmee de Load Balancer-tests heeft het netwerk en het verkeer (netwerkbeveiligingsgroepen moeten toestaan Load Balancer IP-adres van 168.63.129.16, dat is testpoort) 
+* Als een van de regels voor het verkeer wordt geblokkeerd, verwijderen en opnieuw configureren van deze regels om de gegevensverkeer te staan.  
+* Testen, als u de virtuele machine nu om te reageren op de statuscontroles is gestart.
 
-### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>3 oorzaak: Toegang tot de Load Balancer van dezelfde virtuele machine en netwerk-interface 
+### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>3 oorzaak: De Load Balancer openen vanuit één virtuele machine en het netwerk 
 
-Als uw toepassing die wordt gehost in de back-end VM van een Load Balancer probeert te krijgen tot een andere toepassing die wordt gehost in de dezelfde back-end virtuele machine via de Interface met hetzelfde netwerk, is een niet-ondersteunde scenario en mislukt. 
+Als uw toepassing die wordt gehost in de back-end van de virtuele machine van een Load Balancer probeert te krijgen tot een andere toepassing die wordt gehost in de dezelfde back-end virtuele machine via de Interface met hetzelfde netwerk, een niet-ondersteund scenario en mislukken. 
 
 **Resolutie** kunt u dit probleem op via een van de volgende manieren oplossen:
-* Configureer afzonderlijke back-endpool VM's per toepassing. 
-* De toepassing in twee NIC-VM's configureren, zodat elke toepassing een eigen netwerkinterface en de IP-adres is gebruikt. 
+* Afzonderlijke back-endpool, virtuele machines per toepassing configureren. 
+* De toepassing in twee NIC-VM's configureren, zodat elke toepassing heeft een eigen netwerkinterface en IP-adres gebruikt. 
 
 ### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>4 oorzaak: Toegang tot de interne Load Balancer-VIP van de deelnemende Load Balancer back-endpool VM
 
-Als een ILB VIP is geconfigureerd in een VNet en een van de deelnemer back-end virtuele machines probeert te openen van de interne Load Balancer-VIP, waardoor de fout. Dit scenario wordt niet ondersteund.
+Als een ILB-VIP-adres binnen een VNet is geconfigureerd en een van de cursist back-end-VM's probeert te krijgen tot de interne Load Balancer-VIP, die het resultaat is mislukt. Dit scenario wordt niet ondersteund.
 **Resolutie** toepassingsgateway evalueren of andere proxy's (bijvoorbeeld nginx of haproxy) voor de ondersteuning van dit soort scenario. Zie voor meer informatie over Application Gateway [overzicht van Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>Aanvullende netwerkopnamen
-Als u besluit een ondersteuningsaanvraag te openen, verzamelt u de volgende informatie voor een snellere oplossing. Kies een eenmalige back-end VM om uit te voeren van de volgende tests:
-- Gebruik psping om een van de back-end virtuele machines binnen het VNet te testen van het antwoord van de poort test (voorbeeld: psping om 10.0.0.4:3389) en noteer de resultaten. 
-- TCPing van een van de back-end virtuele machines binnen het VNet gebruiken voor het testen van het antwoord van de poort test (voorbeeld: psping om 10.0.0.4:3389) en noteer de resultaten.
-- Als er geen reactie wordt ontvangen in de deze pingtests, moet u een gelijktijdige Netsh-trace op de back-end virtuele machine en de VNet-test VM uitvoeren terwijl u psping om Voer vervolgens de Netsh-tracering stoppen. 
+Als u besluit een ondersteuningsaanvraag openen, verzamel dan de volgende informatie voor een snellere oplossing. Kies een eenmalige back-end VM het uitvoeren van de volgende tests:
+- Psping uit een van de back-end-VM's binnen het VNet gebruiken voor het testen van het antwoord van de poort test (voorbeeld: psping 10.0.0.4:3389) en resultaten opnemen. 
+- Als er geen reactie wordt ontvangen in deze pingtests, moet u een gelijktijdige Netsh-tracering uitvoeren op de back-end van de virtuele machine en de VNet-test-VM terwijl u PsPing uitvoert en stop vervolgens de Netsh-tracering. 
   
 ## <a name="next-steps"></a>Volgende stappen
 
-Als de voorgaande stappen het probleem niet verhelpen, opent u een [ondersteunen ticket](https://azure.microsoft.com/support/options/).
+Als de voorgaande stappen het probleem niet verhelpen, opent u een [ondersteuningsticket](https://azure.microsoft.com/support/options/).
 

@@ -115,6 +115,8 @@
   items:
     - name: Veelgestelde vragen
       href: FAQs.md
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Prijzen
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
     - name: Accountgegevens exporteren of verwijderen

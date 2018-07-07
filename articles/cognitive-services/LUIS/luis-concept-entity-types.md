@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3b87f89c8f0cb6a5b22923513d78fff9085f3598
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 83e5a8db9162ef1587664c0a353252c04ade45d8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345325"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887800"
 ---
 # <a name="entities-in-luis"></a>Entiteiten in LUIS
 
@@ -197,7 +197,7 @@ Samengestelde entiteiten vertegenwoordigen onderdelen van een volledig. Een same
 
 LUIS biedt ook het type van de lijst met entiteit die niet voor machine geleerd, maar kan uw LUIS-app om op te geven van een vaste lijst met waarden. Zie [LUIS grenzen](luis-boundaries.md) verwijzing naar de grenzen van het type van de entiteit lijst bekijken. 
 
-Als u hebt besloten hiërarchische, composite, en lijst met entiteiten en moet het nog steeds meer dan de limiet, contact op met ondersteuning. Om dit te doen, verzamelt gedetailleerde informatie over uw systeem, gaat u naar de [LUIS] [ LUIS] website, en selecteer vervolgens **ondersteuning**. Als uw Azure-abonnement voor ondersteuningsservices bevat, neem dan contact op met [technische ondersteuning van Azure](https://azure.microsoft.com/support/options/). 
+Als u hebt besloten hiërarchische, composite, en lijst met entiteiten en moet het nog steeds meer dan de limiet, contact op met ondersteuning. Om dit te doen, verzamelt gedetailleerde informatie over uw systeem, gaat u naar de [LUIS](luis-reference-regions.md#luis-website) website, en selecteer vervolgens **ondersteuning**. Als uw Azure-abonnement voor ondersteuningsservices bevat, neem dan contact op met [technische ondersteuning van Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
@@ -216,5 +216,3 @@ Zie [aanbevolen procedures](luis-concept-best-practices.md) voor meer informatie
 Informatie over concepten over goede [uitingen](luis-concept-utterance.md). 
 
 Zie [entiteiten toevoegen](luis-how-to-add-entities.md) voor meer informatie over entiteiten toevoegen aan uw LUIS-app.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

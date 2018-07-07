@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van een Azure VM beheerde Service-identiteit voor het verkrijgen van een toegangstoken
-description: Stapsgewijze-instructies en voorbeelden voor het gebruik van een Azure VM-MSI voor het verkrijgen van een OAuth toegangstoken.
+title: Hoe u een Azure VM Managed Service Identity met een toegangstoken verkrijgen
+description: Stapsgewijze-instructies en voorbeelden voor het gebruik van een Azure VM-MSI-bestand voor het verkrijgen van een OAuth toegangstoken.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,59 +9,59 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 6fcf0e9cf91354cacb2940faf30a9496919ed3d7
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e564f48b4b90cfcaa72ed51d5f210a71a4980360
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796300"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902942"
 ---
-# <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Het gebruik van een Azure VM beheerde Service identiteit (MSI) voor de aanschaf van token 
+# <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Over het gebruik van een Azure VM Managed Service Identity (MSI) voor het ophalen van tokens 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 
-Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om alle services die Azure AD-verificatie ondersteunt, zonder referenties in uw code te verifiëren. 
+Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
-Dit artikel bevat verschillende voorbeelden van code en scripts voor het token verkrijgen, evenals richtlijnen over belangrijke onderwerpen, zoals het verwerken van verlopen van het token en HTTP-fouten. 
+Dit artikel bevat verschillende voorbeelden van code en scripts voor het ophalen van tokens, alsmede informatie over belangrijke onderwerpen, zoals het verlopen van het token en het HTTP-fouten. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Als u gebruiken in de Azure PowerShell-voorbeelden in dit artikel wilt, moet u Installeer de nieuwste versie van [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
+Als u van plan bent de Azure PowerShell-voorbeelden in dit artikel gebruiken, moet u Installeer de nieuwste versie van [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 
 > [!IMPORTANT]
-> - Alle code/voorbeeldscript in dit artikel wordt ervan uitgegaan dat de client wordt uitgevoerd op een virtuele Machine met een beheerde Service-identiteit. Gebruik de virtuele machine 'Verbinding'-functie in de Azure portal op afstand verbinding maken met uw virtuele machine. Zie voor meer informatie over het inschakelen van MSI op een virtuele machine [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md), of een van de variant artikelen (met behulp van PowerShell, CLI, een sjabloon of een Azure-SDK). 
+> - Alle code/voorbeeldscript in dit artikel wordt ervan uitgegaan dat de client wordt uitgevoerd op een virtuele Machine met een beheerde Service-identiteit. Gebruik de virtuele machine 'Connect'-functie in Azure portal, op afstand verbinding maken met uw virtuele machine. Zie voor meer informatie over het inschakelen van MSI-bestand op een virtuele machine [configureren van een virtuele machine Managed Service Identity (MSI) met behulp van de Azure-portal](qs-configure-portal-windows-vm.md), of een van de variant artikelen (met behulp van PowerShell, CLI, een sjabloon of een Azure-SDK). 
 
 > [!IMPORTANT]
-> - De beveiligingsgrens van een beheerde Service-identiteit is de bron wordt gebruikt op. Alle code/scripts die worden uitgevoerd op een virtuele Machine kunt aanvragen en tokens ophalen voor een beheerde Service-identiteit erop. 
+> - De beveiligingsgrens van een beheerde Service-identiteit is de resource die wordt gebruikt op. Alle code/scripts die worden uitgevoerd op een virtuele Machine kunt aanvragen en ophalen van tokens voor alle beheerde Service-identiteit beschikbaar is op deze. 
 
 ## <a name="overview"></a>Overzicht
 
-Een clienttoepassing kan een beheerde Service-identiteit aanvragen [app alleen-lezen toegangstoken](../develop/active-directory-dev-glossary.md#access-token) voor toegang tot een bepaalde resource. Het token is [op basis van de MSI-service-principal](overview.md#how-does-it-work). Hierdoor is het niet nodig voor de client zich registreert om op te halen van een toegangstoken onder een eigen service-principal. Het token is geschikt voor gebruik als een bearer-token in [service-naar-service roept vereisen clientreferenties](../develop/active-directory-protocols-oauth-service-to-service.md).
+Een clienttoepassing kan een beheerde Service-identiteit aanvragen [alleen app-toegangstoken](../develop/active-directory-dev-glossary.md#access-token) voor toegang tot een bepaalde resource. Het token is [op basis van de MSI-service-principal](overview.md#how-does-it-work). Er is daarom niet nodig voor de client zich registreert voor een toegangstoken onder een eigen service-principal. Het token is geschikt voor gebruik als een bearer-token in [service-naar-service aanroepen vereisen clientreferenties](../develop/active-directory-protocols-oauth-service-to-service.md).
 
 |  |  |
 | -------------- | -------------------- |
-| [Een met behulp van HTTP-token ophalen](#get-a-token-using-http) | Gegevens van het protocol voor het eindpunt van het MSI-token |
-| [Een met C#-token ophalen](#get-a-token-using-c) | Voorbeeld van het gebruik van de REST van de MSI-eindpunt van een C#-client |
-| [Een token met Ga ophalen](#get-a-token-using-go) | Voorbeeld van het gebruik van het eindpunt van de REST van de MSI van een client Ga |
-| [Een token met Azure PowerShell ophalen](#get-a-token-using-azure-powershell) | Voorbeeld van het gebruik van de REST van de MSI-eindpunt van een PowerShell-client |
-| [Een token met CURL ophalen](#get-a-token-using-curl) | Voorbeeld van het gebruik van de REST van de MSI-eindpunt van een client Bash/CURL |
-| [Afhandeling van token opslaan in cache](#handling-token-caching) | Richtlijnen voor het verwerken van de toegangstokens te verlopen |
-| [Foutafhandeling](#error-handling) | Richtlijnen voor het verwerken van HTTP-fouten geretourneerd door het eindpunt van het MSI-token |
-| [Resource-id voor Azure-services](#resource-ids-for-azure-services) | Waar u resource-id's voor ondersteunde Azure-services |
+| [Een met behulp van HTTP-token verkrijgen](#get-a-token-using-http) | Protocoldetails van het voor het eindpunt van de MSI-token |
+| [Een met C#-token verkrijgen](#get-a-token-using-c) | Voorbeeld van het gebruik van het MSI-REST-eindpunt van een C#-client |
+| [Een token met behulp van Go ophalen](#get-a-token-using-go) | Voorbeeld van het gebruik van het MSI-REST-eindpunt van een Go-client |
+| [Een token met Azure PowerShell ophalen](#get-a-token-using-azure-powershell) | Voorbeeld van het gebruik van het MSI-REST-eindpunt van een PowerShell-client |
+| [Ophalen van een token met CURL](#get-a-token-using-curl) | Voorbeeld van het gebruik van het MSI-REST-eindpunt van een client Bash/CURL |
+| [Afhandeling van token in cache opslaan](#handling-token-caching) | Richtlijnen voor het verwerken van verlopen toegangstokens |
+| [Foutafhandeling](#error-handling) | Richtlijnen voor het verwerken van HTTP-fouten geretourneerd door het MSI-tokeneindpunt |
+| [Resource-id's voor Azure-services](#resource-ids-for-azure-services) | Waar u de resource-id's ophalen voor ondersteunde Azure-services |
 
-## <a name="get-a-token-using-http"></a>Een met behulp van HTTP-token ophalen 
+## <a name="get-a-token-using-http"></a>Een met behulp van HTTP-token verkrijgen 
 
-De fundamentele interface voor het ophalen van een toegangstoken is gebaseerd op REST, toegankelijk maken voor elke clienttoepassing uitgevoerd op de virtuele machine die u kunt u HTTP REST-aanroepen. Dit is vergelijkbaar met het Azure AD-programmeermodel, met uitzondering van de client gebruikt een eindpunt op de virtuele machine (tegenover een Azure AD-eindpunt).
+De fundamentele interface voor het verkrijgen van een toegangstoken is gebaseerd op REST, waardoor het toegankelijk is voor elke clienttoepassing die worden uitgevoerd op de virtuele machine om een HTTP REST-aanroepen. Dit is vergelijkbaar met het Azure AD-programmeermodel, tenzij de client maakt gebruik van een eindpunt op de virtuele machine (Visual Studio een Azure AD-eindpunt).
 
-Voorbeeld van een aanvraag met behulp van het eindpunt Azure exemplaar metagegevens Service (IMDS) *(aanbevolen)*:
+Voorbeeld van een aanvraag met behulp van het eindpunt van Azure Instance Metadata Service (IMDS) *(aanbevolen)*:
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
@@ -69,13 +69,13 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 
 | Element | Beschrijving |
 | ------- | ----------- |
-| `GET` | De HTTP-term waarmee u gegevens wilt ophalen van het eindpunt. In dit geval een OAuth-toegangstoken. | 
-| `http://169.254.169.254/metadata/identity/oauth2/token` | Het MSI-eindpunt voor de Service-exemplaar voor metagegevens. |
-| `api-version`  | Een queryreeksparameter opgeven, die de API-versie voor het eindpunt IMDS aangeeft. Gebruik API-versie `2018-02-01` of hoger. |
-| `resource` | Een queryreeksparameter opgeven, die aangeeft van de App ID URI van de doelbron. Dit wordt ook weergegeven de `aud` (doelgroep) claim van het gepubliceerde token. In dit voorbeeld vraagt een token voor toegang tot Azure Resource Manager, die een App ID URI van heeft https://management.azure.com/. |
-| `Metadata` | Een HTTP-aanvraagveld header wordt vereist door MSI als een risicobeperking tegen aanvallen van Server Side aanvraag kunnen worden vervalst (SSRF). Deze waarde moet worden ingesteld op 'true', in alle kleine letters.
+| `GET` | De HTTP-term, die aangeeft dat u wilt ophalen van gegevens uit het eindpunt. In dit geval een OAuth-toegangstoken. | 
+| `http://169.254.169.254/metadata/identity/oauth2/token` | Het MSI-eindpunt voor de Instance Metadata Service. |
+| `api-version`  | Een queryreeks-parameter, die de API-versie voor het eindpunt IMDS aangeeft. Gebruik API-versie `2018-02-01` of hoger. |
+| `resource` | Een queryreeks-parameter, die wijzen op de URI van de App-ID van de doelresource. Het verschijnt ook in de `aud` claim (doelgroep) van de uitgegeven tokens. In dit voorbeeld vraagt een token voor toegang tot Azure Resource Manager heeft een URI van de App-ID van https://management.azure.com/. |
+| `Metadata` | Een HTTP-aanvraag veld header wordt vereist door MSI-bestand als een bescherming tegen aanvallen van Server Side aanvraag kunnen worden vervalst (SSRF). Deze waarde moet worden ingesteld op "true", volledig in kleine letters.
 
-Voorbeeld van een aanvraag met behulp van het eindpunt beheerde Service identiteit (MSI) VM-extensie *(om te worden afgeschaft)*:
+Voorbeeld van een aanvraag met behulp van het eindpunt van de VM-extensie voor de Managed Service Identity (MSI) *(om te worden afgeschaft)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -84,13 +84,13 @@ Metadata: true
 
 | Element | Beschrijving |
 | ------- | ----------- |
-| `GET` | De HTTP-term waarmee u gegevens wilt ophalen van het eindpunt. In dit geval een OAuth-toegangstoken. | 
+| `GET` | De HTTP-term, die aangeeft dat u wilt ophalen van gegevens uit het eindpunt. In dit geval een OAuth-toegangstoken. | 
 | `http://localhost:50342/oauth2/token` | Het MSI-eindpunt, waarbij 50342 is de standaardpoort en kan worden geconfigureerd. |
-| `resource` | Een queryreeksparameter opgeven, die aangeeft van de App ID URI van de doelbron. Dit wordt ook weergegeven de `aud` (doelgroep) claim van het gepubliceerde token. In dit voorbeeld vraagt een token voor toegang tot Azure Resource Manager, die een App ID URI van heeft https://management.azure.com/. |
-| `Metadata` | Een HTTP-aanvraagveld header wordt vereist door MSI als een risicobeperking tegen aanvallen van Server Side aanvraag kunnen worden vervalst (SSRF). Deze waarde moet worden ingesteld op 'true', in alle kleine letters.
+| `resource` | Een queryreeks-parameter, die wijzen op de URI van de App-ID van de doelresource. Het verschijnt ook in de `aud` claim (doelgroep) van de uitgegeven tokens. In dit voorbeeld vraagt een token voor toegang tot Azure Resource Manager heeft een URI van de App-ID van https://management.azure.com/. |
+| `Metadata` | Een HTTP-aanvraag veld header wordt vereist door MSI-bestand als een bescherming tegen aanvallen van Server Side aanvraag kunnen worden vervalst (SSRF). Deze waarde moet worden ingesteld op "true", volledig in kleine letters.
 
 
-Voorbeeldreactie:
+Het voorbeeldantwoord:
 
 ```
 HTTP/1.1 200 OK
@@ -108,15 +108,15 @@ Content-Type: application/json
 
 | Element | Beschrijving |
 | ------- | ----------- |
-| `access_token` | Het aangevraagde toegangstoken. Wanneer u een beveiligde REST-API aanroept, het token is ingesloten in de `Authorization` aanvraag-header-veld als een token 'bearer', zodat de API voor verificatie van de aanroeper. | 
-| `refresh_token` | Niet gebruikt door MSI. |
-| `expires_in` | Het aantal seconden dat het toegangstoken geldig is, blijft voordat het verloopt na uitgifte. Tijd van uitgifte vindt u in het token `iat` claim. |
-| `expires_on` | De timespan wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van ' 1970-01-01T0:0:0Z UTC ' (komt overeen met het token `exp` claim). |
-| `not_before` | De timespan wanneer het toegangstoken van kracht en kan worden geaccepteerd. De datum die wordt weergegeven als het aantal seconden van ' 1970-01-01T0:0:0Z UTC ' (komt overeen met het token `nbf` claim). |
-| `resource` | De resource die het toegangstoken is aangevraagd voor die overeenkomt met de `resource` querytekenreeksparameter van de aanvraag. |
+| `access_token` | Het aangevraagde toegangstoken. Bij het aanroepen van een beveiligde REST-API, het token is ingesloten in de `Authorization` headerveld aanvraag als een token 'bearer', zodat de API voor verificatie van de oproepende functie. | 
+| `refresh_token` | Niet gebruikt door MSI-bestand. |
+| `expires_in` | Het aantal seconden dat het toegangstoken nog steeds geldig zijn voordat het verloopt na uitgifte. Tijd van uitgifte kunt u vinden in van het token `iat` claim. |
+| `expires_on` | De timespan wanneer het toegangstoken is verlopen. De datum wordt weergegeven als het aantal seconden van ' 1970-01-01T0:0:0Z UTC ' (komt overeen met van het token `exp` claim). |
+| `not_before` | De timespan wanneer het toegangstoken wordt van kracht en kan worden geaccepteerd. De datum wordt weergegeven als het aantal seconden van ' 1970-01-01T0:0:0Z UTC ' (komt overeen met van het token `nbf` claim). |
+| `resource` | De resource het toegangstoken is aangevraagd voor, die overeenkomt met de `resource` query-tekenreeksparameter van de aanvraag. |
 | `token_type` | Het type token, dat een toegangstoken 'Bearer', wat betekent dat de resource kan toegang geven tot de houder van dit token is. |
 
-## <a name="get-a-token-using-c"></a>Een met C#-token ophalen
+## <a name="get-a-token-using-c"></a>Een met C#-token verkrijgen
 
 ```csharp
 using System;
@@ -149,7 +149,7 @@ catch (Exception e)
 
 ```
 
-## <a name="get-a-token-using-go"></a>Een token met Ga ophalen
+## <a name="get-a-token-using-go"></a>Een token met behulp van Go ophalen
 
 ```
 package main
@@ -229,16 +229,16 @@ func main() {
 
 ## <a name="get-a-token-using-azure-powershell"></a>Een token met Azure PowerShell ophalen
 
-Het volgende voorbeeld laat zien hoe het MSI-REST-eindpunt van een PowerShell-client om te gebruiken:
+Het volgende voorbeeld ziet u hoe u het MSI-REST-eindpunt van een PowerShell-client te gebruiken:
 
-1. Verkrijgen van een toegangstoken.
-2. Gebruik het toegangstoken aanroepen van een REST-API van Azure Resource Manager en informatie ophalen over de virtuele machine. Zorg ervoor dat uw abonnements-ID, de Resourcegroepnaam en de naam van de virtuele machine voor Vervang `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, en `<VM-NAME>`respectievelijk.
+1. Een toegangstoken verkrijgen.
+2. Gebruik het toegangstoken voor een Azure Resource Manager REST-API aanroepen en informatie over de virtuele machine. Zorg ervoor dat u vervangen door uw abonnements-ID, de naam van de resourcegroep en de naam van de virtuele machine voor `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, en `<VM-NAME>`, respectievelijk.
 
 ```azurepowershell
 Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Headers @{Metadata="true"}
 ```
 
-Voorbeeld voor het parseren van het toegangstoken op uit het antwoord:
+Voorbeeld voor het parseren van het toegangstoken uit het antwoord:
 ```azurepowershell
 # Get an access token for the MSI
 $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F `
@@ -254,14 +254,14 @@ echo $vmInfoRest
 
 ```
 
-## <a name="get-a-token-using-curl"></a>Een token met CURL ophalen
+## <a name="get-a-token-using-curl"></a>Ophalen van een token met CURL
 
 ```bash
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s
 ```
 
 
-Voorbeeld voor het parseren van het toegangstoken op uit het antwoord:
+Voorbeeld voor het parseren van het toegangstoken uit het antwoord:
 
 ```bash
 response=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s)
@@ -269,71 +269,71 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## <a name="token-caching"></a>Token opslaan in cache
+## <a name="token-caching"></a>Token in cache opslaan
 
-Terwijl het beheerde Service identiteit (MSI)-subsysteem wordt gebruikt (IMDS/MSI VM-extensie) tokens cache, wordt ook aangeraden voor het implementeren van token opslaan in cache in uw code. Als gevolg hiervan moet u voorbereiden voor scenario's waar de resource geeft aan dat het token is verlopen. 
+Terwijl het Managed Service Identity (MSI)-subsysteem wordt gebruikt (IMDS/MSI VM-extensie) in cache, tokens, wordt ook aangeraden voor het implementeren van token in cache opslaan in uw code. Als gevolg hiervan moet u voorbereiden voor scenario's waarin de resource geeft aan dat het token is verlopen. 
 
-Resulteren alleen de kabel-oproepen naar Azure AD wanneer:
-- Cachemisser van deze gebeurtenis treedt op omdat het geen token in de cache van de MSI-subsysteem
-- in de cache-token is verlopen
+De wire-aanroepen naar Azure AD alleen resultaat wanneer:
+- Cachemisser treedt op omdat er geen token in de cache van de MSI-subsysteem
+- het in cache opgeslagen token is verlopen
 
 ## <a name="error-handling"></a>Foutafhandeling
 
-Het eindpunt van de Service-identiteit beheerd signalen fouten via het statusveld van de berichtkop voor HTTP-antwoord als 4xx of 5xx-fouten:
+Het eindpunt van de beheerde Service-identiteit signalen fouten via het statusveld van de berichtkop van HTTP-antwoord als 4xx of 5xx-fouten:
 
-| Statuscode | Foutreden | Hoe moet worden verwerkt |
+| Statuscode | Foutreden | Hoe worden verwerkt |
 | ----------- | ------------ | ------------- |
-| 404 niet gevonden. | IMDS eindpunt wordt bijgewerkt. | Probeer het opnieuw met Expontential Backoff. Zie de onderstaande richtlijnen. |
-| 429 te veel aanvragen. |  IMDS beperken de limiet bereikt. | Opnieuw proberen met exponentieel uitstel. Zie de onderstaande richtlijnen. |
-| 4XX fout in de aanvraag. | Een of meer van de aanvraagparameters is onjuist. | Niet opnieuw.  Raadpleeg de foutdetails voor meer informatie.  4XX fouten zijn ontwerptijd fouten.|
-| 5XX tijdelijke fout van de service. | Onderliggende MSI-systeem of Azure Active Directory een tijdelijke fout geretourneerd. | Het is veilig om opnieuw te proberen na een wachttijd van ten minste 1 seconde.  Als u opnieuw te snel of te vaak, IMDS en/of Azure AD mogelijk geretourneerd met een frequentie limietfout (429).|
-| timeout | IMDS eindpunt wordt bijgewerkt. | Probeer het opnieuw met Expontential Backoff. Zie de onderstaande richtlijnen. |
+| 404 niet gevonden. | IMDS eindpunt wordt bijgewerkt. | Probeer het opnieuw met Expontential uitstel. Zie de onderstaande richtlijnen. |
+| 429 te veel aanvragen. |  IMDS beperken limiet is bereikt. | Opnieuw proberen met exponentieel uitstel. Zie de onderstaande richtlijnen. |
+| 4XX-fout bij de aanvraag. | Een of meer van de parameters van de aanvraag is onjuist. | Probeer niet opnieuw.  Bekijk de foutdetails voor meer informatie.  4XX-fouten zijn moment van ontwerp fouten.|
+| 5XX tijdelijke fout van de service. | De MSI-subsysteem of Azure Active Directory een tijdelijke fout geretourneerd. | Het is veilig om opnieuw te proberen na een wachttijd van ten minste 1 seconde.  Als u nieuwe te snel of te vaak pogingen, mogelijk IMDS en/of Azure AD een tarief limietfout (429) geretourneerd.|
+| timeout | IMDS eindpunt wordt bijgewerkt. | Probeer het opnieuw met Expontential uitstel. Zie de onderstaande richtlijnen. |
 
-Als er een fout optreedt, bevat de bijbehorende HTTP-antwoordtekst JSON met de details van fout:
+Als er een fout optreedt, bevat de bijbehorende HTTP-antwoordtekst JSON met details van de fout:
 
 | Element | Beschrijving |
 | ------- | ----------- |
 | error   | Fout-id. |
-| error_description | Uitgebreide beschrijving van de fout. **Beschrijvingen van de fouten kunnen op elk gewenst moment wijzigen. Geen code die vertakkingen op basis van waarden in de foutbeschrijving schrijven.**|
+| error_description | Uitgebreide beschrijving van de fout. **Beschrijvingen van de fouten kunnen op elk gewenst moment wijzigen. Geen code die vertakkingen op basis van waarden in de beschrijving van de fout schrijven.**|
 
-### <a name="http-response-reference"></a>Referentie voor HTTP-antwoord
+### <a name="http-response-reference"></a>Naslaginformatie over HTTP-antwoord
 
-In dit gedeelte worden de mogelijke foutberichten. Een ' 200 OK ' status is een geslaagde reactie en het toegangstoken is opgenomen in de hoofdtekst van de reactie JSON, in het element access_token.
+In deze sectie worden de mogelijke foutberichten. Een "200 OK ' status is een geslaagde respons en het toegangstoken is opgenomen in de antwoordtekst JSON, in het access_token-element.
 
 | Statuscode | Fout | Foutbeschrijving | Oplossing |
 | ----------- | ----- | ----------------- | -------- |
-| 400 onjuiste aanvraag | invalid_resource | AADSTS50001: De toepassing met de naam *\<URI\>* is niet gevonden in de tenant met de naam  *\<TENANT-ID\>*. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of toestemming gegeven om deze door een gebruiker in de tenant. Misschien hebt u verzonden authenticatie-aanvraag naar de verkeerde tenant. \ | (Alleen voor Linux) |
-| 400 onjuiste aanvraag | bad_request_102 | Vereiste metagegevens-header is niet opgegeven | Ofwel de `Metadata` aanvraag-header-veld uit uw aanvraag ontbreken of onjuist is ingedeeld. De waarde moet worden opgegeven als `true`, in alle kleine letters. Zie 'voorbeeldaanvraag' in de [voorgaande sectie REST](#rest) voor een voorbeeld.|
-| 401-niet toegestaan | unknown_source | Onbekende bron  *\<URI\>* | Controleer of uw HTTP GET-aanvraag URI is juist geformatteerd. De `scheme:host/resource-path` gedeelte moet worden opgegeven als `http://localhost:50342/oauth2/token`. Zie 'voorbeeldaanvraag' in de [voorgaande sectie REST](#rest) voor een voorbeeld.|
-|           | invalid_request | De aanvraag ontbreekt een vereiste parameter, bevat een ongeldige parameterwaarde, bevat een parameter meer dan één keer of anders is onjuist gevormd. |  |
-|           | unauthorized_client | De client is niet gemachtigd om aan te vragen van een toegangstoken die met deze methode. | Veroorzaakt door een aanvraag die lokale loopback niet gebruiken voor het aanroepen van de extensie, of op een virtuele machine die niet een MSI-bestand juist geconfigureerd. Zie [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md) als u hulp bij het VM-configuratie nodig. |
-|           | ACCESS_DENIED | De resource-eigenaar of autorisatie de aanvraag is geweigerd. |  |
-|           | unsupported_response_type | De autorisatie-server biedt geen ondersteuning voor het verkrijgen van een toegangstoken die met deze methode. |  |
+| 400-Ongeldige aanvraag | invalid_resource | AADSTS50001: De toepassing met de naam *\<URI\>* is niet gevonden in de tenant met de naam  *\<TENANT-ID\>*. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of toegestaan door een gebruiker in de tenant. Misschien hebt u verzonden de verificatieaanvraag naar de verkeerde tenant. \ | (Alleen Linux) |
+| 400-Ongeldige aanvraag | bad_request_102 | Vereiste metagegevens-header is niet opgegeven | Een van beide de `Metadata` koptekst van het veld van uw aanvraag, ontbreekt of heeft een onjuiste indeling. De waarde moet worden opgegeven als `true`, volledig in kleine letters. Zie de aanvraag"voorbeeld" in de [voorgaande sectie REST](#rest) voor een voorbeeld.|
+| 401-niet toegestaan | unknown_source | Onbekende bron  *\<URI\>* | Controleer of uw aanvraag HTTP GET-URI is ingedeeld. De `scheme:host/resource-path` deel moet worden opgegeven als `http://localhost:50342/oauth2/token`. Zie de aanvraag"voorbeeld" in de [voorgaande sectie REST](#rest) voor een voorbeeld.|
+|           | invalid_request | De aanvraag ontbreekt een vereiste parameter, bevat een ongeldige parameter-waarde, bevat een parameter meer dan één keer of anders is onjuist gevormd. |  |
+|           | unauthorized_client | De client is niet gemachtigd om aan te vragen van een toegangstoken met deze methode. | Veroorzaakt door een aanvraag die lokale loopback hebt gebruikt voor het aanroepen van de extensie, of op een virtuele machine waaraan geen een MSI-bestand correct geconfigureerd. Zie [configureren van een virtuele machine Managed Service Identity (MSI) met behulp van de Azure-portal](qs-configure-portal-windows-vm.md) als u hulp nodig met VM-configuratie. |
+|           | ACCESS_DENIED | De resource-eigenaar of autorisatieserver server heeft de aanvraag geweigerd. |  |
+|           | unsupported_response_type | De autorisatie-server biedt geen ondersteuning voor het verkrijgen van een toegangstoken met deze methode. |  |
 |           | invalid_scope | Het aangevraagde bereik is ongeldig, onbekend of onjuist gevormd. |  |
-| Interne serverfout 500 | onbekend | Kan geen token ophalen uit Active directory. Zie voor meer informatie Logboeken in  *\<bestandspad\>* | Controleer of MSI is ingeschakeld op de virtuele machine. Zie [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md) als u hulp bij het VM-configuratie nodig.<br><br>Controleer ook of uw HTTP GET-aanvraag URI correct is ingedeeld, met name de URI in de queryreeks opgegeven bron. Zie 'voorbeeldaanvraag' in de [voorgaande sectie REST](#rest) voor een voorbeeld of [Azure-services die ondersteuning voor Azure AD authentication](services-support-msi.md) voor een lijst met services en hun respectieve resource-id.
+| 500 Interne serverfout | onbekend | Kan geen token ophalen uit de Active directory. Zie voor meer informatie de logboeken in  *\<bestandspad\>* | Controleer of de MSI-bestand dat is ingeschakeld op de virtuele machine. Zie [configureren van een virtuele machine Managed Service Identity (MSI) met behulp van de Azure-portal](qs-configure-portal-windows-vm.md) als u hulp nodig met VM-configuratie.<br><br>Controleer ook of dat uw aanvraag HTTP GET-URI is juist opgemaakt, met name de URI die is opgegeven in de querytekenreeks resource. Zie de aanvraag"voorbeeld" in de [voorgaande sectie REST](#rest) voor een voorbeeld of [Azure-services die ondersteuning voor Azure AD-verificatie](services-support-msi.md) voor een lijst met services en hun respectieve resource-id's.
 
-## <a name="retry-guidance"></a>Probeer richtlijnen 
+## <a name="retry-guidance"></a>Richtlijnen voor opnieuw proberen 
 
-Het verdient aanbeveling om opnieuw te proberen als u een 404, 429 of 5xx-foutcode ontvangen (Zie [foutafhandeling](#error-handling) hierboven).
+Het verdient aanbeveling om opnieuw te proberen als er een 404-fout, 429 en 5xx-foutcode (Zie [foutafhandeling](#error-handling) hierboven).
 
-Bandbreedtebeperking beperkingen gelden voor het aantal aanroepen naar het eindpunt IMDS. Wanneer de bandbreedteregeling drempelwaarde wordt overschreden, beperkt IMDS eindpunt verzoeken van verdere terwijl de beperking van kracht is. Retourneert de HTTP-statuscode 429 tijdens deze periode, het eindpunt IMDS (' te veel aanvragen '), en de aanvragen mislukken. 
+Bandbreedtebeperking limieten gelden voor het aantal oproepen naar het eindpunt IMDS. Wanneer de bandbreedteregeling drempelwaarde wordt overschreden, beperkt IMDS eindpunt nieuwe aanvragen terwijl de vertraging van kracht is. Tijdens deze periode, het eindpunt IMDS retourneert de statuscode HTTP 429 ("te veel aanvragen '), en de aanvragen mislukken. 
 
-Voor een nieuwe poging, wordt aangeraden de strategie voor het volgende: 
+Voor opnieuw proberen raden we aan de volgende strategie: 
 
 | **Strategie voor opnieuw proberen** | **Instellingen** | **Waarden** | **Hoe werkt het?** |
 | --- | --- | --- | --- |
 |ExponentialBackoff |Aantal pogingen<br />Min. uitstel<br />Max. uitstel<br />Delta-uitstel<br />Eerste snelle poging |5<br />0 sec.<br />60 sec.<br />2 sec.<br />false |Poging 1, vertraging 0 sec.<br />Poging 2, vertraging ~2 sec.<br />Poging 3, vertraging ~6 sec.<br />Poging 4, vertraging ~14 sec.<br />Poging 5, vertraging ~30 sec. |
 
-## <a name="resource-ids-for-azure-services"></a>Resource-id voor Azure-services
+## <a name="resource-ids-for-azure-services"></a>Resource-id's voor Azure-services
 
-Zie [Azure-services die ondersteuning voor Azure AD authentication](services-support-msi.md) voor een lijst met bronnen die ondersteuning voor Azure AD en met MSI zijn getest en hun respectieve resource-id.
+Zie [Azure-services die ondersteuning voor Azure AD-verificatie](services-support-msi.md) voor een lijst van resources met Azure AD ondersteunen en die zijn getest met MSI-bestand en hun respectieve resource-id's.
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 
-- Zie voor het inschakelen van MSI op een Azure VM [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md).
+- Zie voor het inschakelen van MSI-bestand op een Azure VM [configureren van een virtuele machine Managed Service Identity (MSI) met behulp van de Azure-portal](qs-configure-portal-windows-vm.md).
 
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.
+Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en vorm van onze inhoud.
 
 
 

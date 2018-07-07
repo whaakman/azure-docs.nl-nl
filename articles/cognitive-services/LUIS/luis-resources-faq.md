@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: eb8e55b3763c66dd2c8aabe92376bcb1278a0f45
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 291eb9ef7d8d089b443b55ac181e9fdd65fcb413
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346753"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888854"
 ---
 # <a name="language-understanding-faq"></a>Veelgestelde vragen over de Language Understanding
 
@@ -183,7 +183,7 @@ De artikelen die eerder in het gedeelte van de zelfstudie zijn nu in de sectie v
 |Bouw een LUIS-app via een programma met behulp van [Node.js](luis-tutorial-node-import-utterances-csv.md)|
 |Gebruik [samengestelde entiteit](luis-tutorial-composite-entity.md) gegroepeerde gegevens extraheren|
 |Voeg [entiteit lijst](luis-tutorial-list-entity.md) voor verbeterde entiteit detectie met behulp van Node.js|
-|Verbetering van nauwkeurigheid met een [woordgroepenlijst](luis-tutorial-interchangeable-phrase-list.md), [patronen](luis-tutorial-pattern.md), en [batch testen](luis-tutorial-batch-testing.md)|
+|Verbetering van nauwkeurigheid met een [woordgroepenlijst](luis-quickstart-primary-and-secondary-data.md), [patronen](luis-tutorial-pattern.md), en [batch testen](luis-tutorial-batch-testing.md)|
 |[Spelling corrigeren](luis-tutorial-batch-testing.md) met de Bing Spell Check-API versie 7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Ik gehoord over een functie voor Language Understanding of een demo maar ik niet meer weet wat het werd aangeroepen op de Build-conferentie 2018? 
@@ -213,5 +213,3 @@ Projecten:
 Zie voor meer informatie over LUIS, de volgende bronnen:
 * [Stack Overflow vragen voorzien van LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN-Language Understanding Intelligent Services (LUIS)-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

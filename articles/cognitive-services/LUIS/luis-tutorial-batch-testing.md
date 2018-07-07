@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4a5ace10c171d17235051c5bd666526318829fd7
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 27d6bbc628ac3183032a90d8f3ad98998c76a957
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867338"
+ms.locfileid: "37888827"
 ---
 # <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Gebruik van batch testen om te zoeken voorspelling nauwkeurigheid problemen
 
@@ -33,7 +33,7 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 > [!div class="checklist"]
-> * Voor dit artikel, moet u ook een [LUIS][LUIS] account om te kunnen maken van uw LUIS-toepassing.
+> * Voor dit artikel, moet u ook een [LUIS](luis-reference-regions.md) account om te kunnen maken van uw LUIS-toepassing.
 
 > [!Tip]
 > Als u nog geen een abonnement, kunt u zich registreren voor een [gratis account](https://azure.microsoft.com/free/).
@@ -41,7 +41,7 @@ In deze zelfstudie leert u het volgende:
 ## <a name="create-new-app"></a>Nieuwe app maken
 In dit artikel wordt het vooraf gedefinieerde HomeAutomation-domein. De vooraf gedefinieerde domein heeft intenties en entiteiten uitingen voor het beheren van apparaten zoals verlichting HomeAutomation. De app maken, toevoegen van het domein, trainen en publiceren.
 
-1. In de [LUIS] website, een nieuwe app maken door te selecteren **nieuwe app maken** op de **MyApps** pagina. 
+1. In de [LUIS](luis-reference-regions.md) website, een nieuwe app maken door te selecteren **nieuwe app maken** op de **MyApps** pagina. 
 
     ![Nieuwe app maken](./media/luis-tutorial-batch-testing/create-app-1.png)
 

@@ -1,29 +1,29 @@
 ---
-title: Azure Event raster gebeurtenis schema
-description: Beschrijft de eigenschappen die beschikbaar zijn voor gebeurtenissen met Azure Event raster
+title: Azure Event Grid-gebeurtenisschema
+description: Beschrijft de eigenschappen die beschikbaar zijn voor gebeurtenissen met Azure Event Grid
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 04/17/2018
+ms.date: 07/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 3e0b7fd825b8e985cea2c32301986b3a7f8bb619
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 266ddced5f1949fa72508d914f76953101a7aac6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34304059"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902223"
 ---
-# <a name="azure-event-grid-event-schema"></a>Azure Event raster gebeurtenis schema
+# <a name="azure-event-grid-event-schema"></a>Azure Event Grid-gebeurtenisschema
 
-In dit artikel beschrijft de eigenschappen en het schema die aanwezig zijn voor alle gebeurtenissen. Gebeurtenissen bestaan uit een set van vijf vereiste tekenreekseigenschappen en een object van de vereiste gegevens. De eigenschappen gelden voor alle gebeurtenissen vanaf een willekeurige uitgever. Het gegevensobject bevat eigenschappen die specifiek voor elke uitgever zijn. Deze eigenschappen zijn specifiek voor de resourceprovider, zoals Azure Storage of Azure Event Hubs voor systeemonderwerpen.
+Dit artikel beschrijft de eigenschappen en het schema die aanwezig zijn voor alle gebeurtenissen. Gebeurtenissen bestaan uit een set eigenschappen van vijf vereiste tekenreeks en een vereiste gegevens-object. De eigenschappen zijn algemene aan alle gebeurtenissen van een uitgever. Het gegevensobject heeft eigenschappen die specifiek voor elke uitgever zijn. Deze eigenschappen zijn specifiek voor de resourceprovider, zoals Azure Storage of Azure Event Hubs voor systeemonderwerpen.
 
-Bronnen van gebeurtenissen voor het verzenden van gebeurtenissen naar Azure gebeurtenis raster in een matrix die meerdere gebeurtenisobjecten kan bevatten. Bij het publiceren van gebeurtenissen naar een onderwerp van het raster gebeurtenis kan een totale grootte van maximaal 1 MB hebben in de matrix. Elke gebeurtenis in de matrix is beperkt tot 64 KB. Als een gebeurtenis of de matrix de maximale grootte overschrijdt, ontvangt u het antwoord **413 nettolading te groot**.
+Bronnen van gebeurtenissen voor het verzenden van gebeurtenissen naar Azure Event Grid in een matrix, maar dit kan verschillende event-objecten hebben. Als u gebeurtenissen naar een event grid-onderwerp boeken, kan de matrix een totale grootte van maximaal 1 MB hebben. Elke gebeurtenis in de matrix is beperkt tot 64 KB. Als een gebeurtenis of de matrix groter dan de maximale grootte is, ontvangt u het antwoord **413 Payload te groot**.
 
-Gebeurtenis raster verzendt gebeurtenissen naar abonnees in een matrix met één gebeurtenis. Dit gedrag kan in de toekomst wijzigen.
+Event Grid verzonden de gebeurtenissen naar abonnees in een matrix die één gebeurtenis heeft. Dit gedrag veranderen in de toekomst.
 
-U vindt de JSON-schema voor de gebeurtenis gebeurtenis raster en elke Azure uitgever nettolading met gegevens in de [gebeurtenis Schema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
+U vindt het JSON-schema voor de Event Grid-gebeurtenis en de nettolading van de gegevens van elke Azure-uitgever van de [gebeurtenisschema in het archief](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
 ## <a name="event-schema"></a>Gebeurtenisschema
 
@@ -46,7 +46,7 @@ Het volgende voorbeeld ziet u de eigenschappen die worden gebruikt door alle geb
 ]
 ```
 
-Het schema dat is gepubliceerd voor een Azure Blob storage-gebeurtenis is bijvoorbeeld:
+Het schema is gepubliceerd voor een Azure Blob storage-gebeurtenis is bijvoorbeeld:
 
 ```json
 [
@@ -78,35 +78,36 @@ Het schema dat is gepubliceerd voor een Azure Blob storage-gebeurtenis is bijvoo
 
 ## <a name="event-properties"></a>Eigenschappen van gebeurtenis
 
-Alle gebeurtenissen bevatten dezelfde volgende op het hoogste niveau gegevens:
+Alle gebeurtenissen hebben de dezelfde gegevens van de volgende op het hoogste niveau:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
-| Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| EventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
-| eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
+| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet schrijfbaar. Event Grid biedt deze waarde. |
+| Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | id | tekenreeks | De unieke id voor de gebeurtenis. |
-| gegevens | object | Gebeurtenisgegevens die specifiek zijn voor de resourceprovider. |
+| gegevens | object | De gegevens van de gebeurtenis is specifiek voor de resourceprovider. |
 | dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
+| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
-Zie voor meer informatie over de eigenschappen in het gegevensobject, de gebeurtenisbron:
+Zie voor meer informatie over de eigenschappen in het gegevensobject, de bron van gebeurtenis:
 
-* [Azure-abonnementen (beheerbewerkingen)](event-schema-subscriptions.md)
+* [Azure-abonnementen (bewerkingen)](event-schema-subscriptions.md)
 * [Blob Storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
-* [Service Bus](event-schema-service-bus.md)
 * [IoT Hub](event-schema-iot-hub.md)
-* [Resourcegroepen (beheerbewerkingen)](event-schema-resource-groups.md)
+* [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+* [Resourcegroepen (bewerkingen)](event-schema-resource-groups.md)
+* [Service Bus](event-schema-service-bus.md)
 
-Voor aangepaste onderwerpen bepaalt de uitgever van gebeurtenissen voor het gegevensobject. De gegevens op het hoogste niveau moet dezelfde velden als resource gedefinieerd gebeurtenissen (standaard) bevatten.
+Aangepaste onderwerpen bepaalt de gebeurtenisuitgever het gegevensobject. De gegevens op het hoogste niveau moet dezelfde velden als resource gedefinieerd standaardgebeurtenissen hebben.
 
-Bij het publiceren van gebeurtenissen naar aangepaste onderwerpen, maken onderwerpen voor de gebeurtenissen die gemakkelijk voor abonnees te weten of ze geïnteresseerd in de gebeurtenis. Abonnees op basis van het onderwerp op gebeurtenissen filteren en route. Overweeg voorzien in het pad waar de gebeurtenis heeft plaatsgevonden, dus abonnees op segmenten in dat pad filteren kunnen. Het pad kan abonnees nauwkeurig of grote schaal om gebeurtenissen te filteren. Bijvoorbeeld, als u een pad drie segment zoals opgeven `/A/B/C` in het onderwerp abonnees kunnen filteren op het eerste segment `/A` ophalen van een uitgebreide reeks gebeurtenissen. Deze abonnees ophalen van gebeurtenissen met onderwerpen zoals `/A/B/C` of `/A/D/E`. Andere abonnees kunnen filteren op `/A/B` ophalen van een fijner reeks gebeurtenissen.
+Bij het publiceren van gebeurtenissen naar aangepaste onderwerpen, maken van onderwerpen voor de gebeurtenissen die het gemakkelijk voor abonnees om te weten of ze geïnteresseerd zijn in de gebeurtenis. Abonnees op basis van het onderwerp te filteren en route-gebeurtenissen. Houd rekening met voorziet in het pad waar de gebeurtenis zich voordeed, zodat abonnees op segmenten van het opgegeven pad filteren kunnen. Het pad kan abonnees nauwkeurig of ruim om gebeurtenissen te filteren. Bijvoorbeeld, als u een pad op drie segment zoals bieden `/A/B/C` in het onderwerp, abonnees kunnen filteren op het eerste segment `/A` om op te halen van een breed scala aan gebeurtenissen. Abonnees die aan de gebeurtenissen met onderwerpen zoals `/A/B/C` of `/A/D/E`. Andere abonnees kunnen filteren op `/A/B` om op te halen van een smaller reeks gebeurtenissen.
 
-Soms moet uw onderwerp meer informatie over wat er gebeurd is. Bijvoorbeeld, de **Opslagaccounts** publisher voorziet in de `/blobServices/default/containers/<container-name>/blobs/<file>` wanneer een bestand wordt toegevoegd aan een container. Een abonnee kan filteren op het pad `/blobServices/default/containers/testcontainer` alle gebeurtenissen ophalen voor die container, maar geen andere containers in het opslagaccount. Een abonnee kan ook filteren of route door het achtervoegsel `.txt` alleen werkt met tekstbestanden.
+Soms moet uw onderwerp meer informatie over wat is er gebeurd. Bijvoorbeeld, de **Opslagaccounts** publisher bevat het onderwerp `/blobServices/default/containers/<container-name>/blobs/<file>` wanneer een bestand wordt toegevoegd aan een container. Een abonnee kan filteren op het pad `/blobServices/default/containers/testcontainer` om op te halen van alle gebeurtenissen voor die container, maar geen andere containers in het opslagaccount. Een abonnee kan ook filteren of de route met het achtervoegsel `.txt` om te werken alleen met tekstbestanden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot Azure gebeurtenis raster, [wat gebeurtenis raster is?](overview.md)
-* Zie voor meer informatie over het maken van een abonnement op Azure gebeurtenis raster [gebeurtenis raster abonnement schema](subscription-creation-schema.md).
+* Zie voor een inleiding tot Azure Event Grid, [wat is Event Grid?](overview.md)
+* Zie voor meer informatie over het maken van een Azure Event Grid-abonnement [Event Grid-abonnementsschema](subscription-creation-schema.md).

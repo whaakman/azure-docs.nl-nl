@@ -1,6 +1,6 @@
 ---
-title: StorSimple 8000 series beveiliging | Microsoft Docs
-description: Beschrijft de beveiliging en privacy-functies die uw StorSimple-service, het apparaat en de on-premises en in de cloud gegevens beveiligen.
+title: StorSimple 8000-serie beveiliging | Microsoft Docs
+description: Beschrijft de functies voor beveiliging en privacy die bescherming van uw StorSimple-service, het apparaat en de gegevens on-premises en in de cloud.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,272 +14,272 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650934"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37908341"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple-beveiliging en gegevensbescherming
 
 ## <a name="overview"></a>Overzicht
 
-Beveiliging is van groot belang voor iedereen die met een nieuwe technologie werken gaat met name wanneer de technologie wordt gebruikt met vertrouwelijke of persoonlijke gegevens. Als u verschillende technologieën evalueren, moet u rekening houden met verhoogde risico's en -kosten voor gegevensbeveiliging. Microsoft Azure StorSimple biedt een beveiligings- en privacy-oplossing voor gegevensbeveiliging, zodat:
+Beveiliging is van groot belang voor iedereen die is overstappen op een nieuwe technologie, met name als de technologie wordt gebruikt met vertrouwelijke of geheime gegevens. Als u verschillende technologieën evalueren, moet u rekening houden met verbeterde risico's en de kosten voor de beveiliging van gegevens. Microsoft Azure StorSimple biedt een beveiligings- en privacy-oplossing voor gegevensbeveiliging, helpt om ervoor te zorgen:
 
 * **Vertrouwelijkheid** : alleen geautoriseerde entiteiten kunnen inzien.
 * **Integriteit** – alleen geautoriseerde entiteiten kunnen wijzigen of verwijderen van uw gegevens.
 
-De Microsoft Azure StorSimple-oplossing bestaat uit vier belangrijke onderdelen met elkaar communiceren:
+De Microsoft Azure StorSimple-oplossing bestaat uit vier hoofdonderdelen die met elkaar communiceren:
 
-* **Apparaatbeheer StorSimple service die wordt gehost in Microsoft Azure** – de management-service die u gebruikt om te configureren en inrichten van het StorSimple-apparaat.
-* **StorSimple-apparaat** – een fysiek apparaat geïnstalleerd in uw datacenter. Alle hosts en -clients die gegevens genereren verbinding met het StorSimple-apparaat en het apparaat de gegevens worden beheerd en verplaatst naar de Azure-cloud zo nodig.
-* **Clients/hosts die zijn verbonden met het apparaat** – de clients in uw infrastructuur die verbinding maken met het StorSimple-apparaat en het genereren van gegevens die moeten worden beveiligd.
+* **StorSimple Device Manager-service die wordt gehost in Microsoft Azure** – de management-service die u gebruiken om te configureren en inrichten van het StorSimple-apparaat.
+* **StorSimple-apparaat** – een fysiek apparaat is geïnstalleerd in uw datacenter. Alle hosts en -clients die gegevens genereren verbinding maken met de StorSimple-apparaat en het apparaat de gegevens worden beheerd en verplaatst die naar de Azure-cloud indien van toepassing.
+* **Clients /-hosts die zijn verbonden met het apparaat** – de clients in uw infrastructuur die verbinding maken met het StorSimple-apparaat en die gegevens genereren die moet worden beveiligd.
 * **Cloudopslag** – de locatie in de Azure-cloud waar gegevens worden opgeslagen.
 
-De volgende secties beschrijven de StorSimple-beveiligingsfuncties die beschermen elk van deze onderdelen en de gegevens die erop zijn opgeslagen. Dit omvat ook een lijst met vragen die u over de Microsoft Azure StorSimple-beveiliging en de bijbehorende antwoorden mogelijk.
+De volgende secties beschrijven de StorSimple-beveiligingsfuncties die helpen beschermen van elk van deze onderdelen en de gegevens die zijn opgeslagen op deze. Dit omvat ook een lijst met vragen die u over de beveiliging van Microsoft Azure StorSimple, en de bijbehorende antwoorden hebt mogelijk.
 
-## <a name="storsimple-device-manager-service-protection"></a>Beveiliging voor Apparaatbeheer van StorSimple-service
+## <a name="storsimple-device-manager-service-protection"></a>StorSimple Device Manager-service-beveiliging
 
-De service Manager van StorSimple-apparaat is een beheerservice gehost in Microsoft Azure en gebruikt voor het beheren van alle StorSimple-apparaten die uw organisatie heeft aangeschaft. U kunt toegang tot de service Manager voor StorSimple-apparaat met behulp van referenties voor uw organisatie aan te melden bij de Azure portal via een webbrowser.
+De StorSimple Device Manager-service is een management-service die wordt gehost in Microsoft Azure en gebruikt voor het beheren van alle StorSimple-apparaten die uw organisatie heeft aangeschaft. U kunt toegang tot de service StorSimple Device Manager met behulp van referenties voor uw organisatie om aan te melden bij Azure portal via een webbrowser.
 
-Toegang tot de service Manager voor StorSimple-apparaat vereist dat uw organisatie een Azure-abonnement met inbegrip van StorSimple. Uw abonnement bepaalt de functies die u toegang hebt tot in de Azure portal. Als uw organisatie beschikt niet over een Azure-abonnement en u wilt bekijken voor meer informatie over deze [aanmelden voor Azure als een organisatie](../active-directory/sign-up-organization.md).
+Toegang tot de service StorSimple Device Manager vereist dat uw organisatie een Azure-abonnement met inbegrip van StorSimple. Uw abonnement bepaalt de functies die u in Azure portal openen kunt. Als uw organisatie beschikt niet over een Azure-abonnement en u wilt bekijken voor meer informatie over deze [zich registreren voor Azure als een organisatie](../active-directory/fundamentals/sign-up-organization.md).
 
-Omdat de service Manager voor StorSimple-apparaat wordt gehost in Azure, wordt het beveiligd door de Azure-beveiligingsfuncties. Voor meer informatie over de beveiligingsfuncties die is geleverd door Microsoft Azure gaat u naar de [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
+Omdat de service StorSimple Device Manager wordt gehost in Azure, wordt deze wordt beveiligd door de functies van Azure-beveiliging. Voor meer informatie over de beveiligingsfuncties die worden geleverd door Microsoft Azure, gaat u naar de [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
 
-## <a name="storsimple-device-protection"></a>Beveiliging van StorSimple-apparaat
+## <a name="storsimple-device-protection"></a>Bescherming van de StorSimple-apparaat
 
-De StorSimple-apparaat is een on-premises hybride opslagapparaat die Solid-State-schijven (SSD's) en harde schijven (HDD's), samen met automatische failover-mogelijkheden en redundante controllers bevat. De controllers beheren opslag in lagen, het plaatsen van momenteel gebruikte (of hot) gegevens op de lokale opslag (in de StorSimple-apparaat of on-premises servers), tijdens het verplaatsen van minder vaak gebruikte gegevens naar de cloud.
+Het StorSimple-apparaat is een on-premises hybride opslagapparaat met (Solid-State drives) en harde schijven (HDD's), samen met redundante controllers en automatisch failover wordt toegepast. De controllers beheren opslag in lagen, het plaatsen van momenteel gebruikt (of ' hot ') gegevens in lokale opslag (in de StorSimple-apparaat of on-premises servers) tijdens het verplaatsen van gegevens die minder vaak gebruikt in de cloud.
 
-Alleen geautoriseerde StorSimple-apparaten mogen de Apparaatbeheer StorSimple-service die u hebt gemaakt in uw Azure-abonnement toevoegen. Voor het machtigen van een apparaat, moet u deze met de service Manager voor StorSimple-apparaat aan de hand van de serviceregistratiesleutel registreren. De serviceregistratiesleutel is een 128-bits willekeurige sleutel gegenereerd in de Azure-portal.
+Alleen geautoriseerde StorSimple-apparaten kunnen aanmelden bij de StorSimple Device Manager-service die u hebt gemaakt in uw Azure-abonnement. Als u wilt toestaan dat een apparaat, moet u deze registreren bij de StorSimple Device Manager-service door op te geven van de serviceregistratiesleutel. De serviceregistratiesleutel is een 128-bits van een willekeurige sleutel gegenereerd in Azure portal.
 
-![serviceregistratiesleutel](./media/storsimple-security/ServiceRegistrationKey.png)
+![Serviceregistratiesleutel](./media/storsimple-security/ServiceRegistrationKey.png)
 
 Voor meer informatie over hoe een serviceregistratiesleutel ophalen, gaat u naar [stap 2: de serviceregistratiesleutel ophalen](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
-De serviceregistratiesleutel is een lange sleutel die 100 + tekens bevat. U kunt de sleutel kopiëren en in een tekstbestand op een veilige locatie opslaan zodat u deze gebruiken kunt voor het autoriseren van extra apparaten zo nodig. Als de serviceregistratiesleutel verbroken wordt nadat u uw eerste apparaat hebt geregistreerd, kunt u een nieuwe sleutel genereren van de service Manager voor StorSimple-apparaat. Dit heeft geen invloed op de werking van bestaande apparaten.
+De serviceregistratiesleutel is een lange sleutel met meer dan 100 tekens. U kunt de sleutel kopiëren en opslaan in een tekstbestand op een veilige locatie, zodat u deze gebruiken kunt om extra apparaten zo nodig. Als u de serviceregistratiesleutel is verbroken nadat u uw eerste apparaat hebt geregistreerd, kunt u een nieuwe sleutel genereren van de StorSimple Device Manager-service. Dit wordt niet van invloed op de werking van bestaande apparaten.
 
-Wanneer een apparaat is geregistreerd, gebruikt deze tokens om te communiceren met Microsoft Azure. De serviceregistratiesleutel wordt niet gebruikt na het registreren van apparaten.
+Nadat een apparaat is geregistreerd, worden tokens gebruikt om te communiceren met Microsoft Azure. De serviceregistratiesleutel wordt niet gebruikt na het registreren van apparaten.
 
 > [!NOTE]
-> Het is raadzaam dat u de serviceregistratiesleutel na elke toepassing genereren.
+> Het is raadzaam dat u de serviceregistratiesleutel opnieuw na elke gebruik genereren.
 
 
 ## <a name="protect-your-storsimple-solution-via-passwords"></a>Beveiligen van uw StorSimple-oplossing via wachtwoorden
 
-Wachtwoorden zijn een belangrijk aspect van de beveiliging van de computer en grote schaal worden gebruikt in de StorSimple-oplossing om ervoor te zorgen dat uw gegevens voor alleen geautoriseerde gebruikers toegankelijk is. StorSimple kunt u de volgende wachtwoorden configureren:
+Wachtwoorden zijn een belangrijk aspect van de beveiliging van de computer en veel worden gebruikt in de StorSimple-oplossing om ervoor te zorgen dat uw gegevens toegankelijk voor alleen gemachtigde gebruikers is. StorSimple kunt u de volgende wachtwoorden configureren:
 
 * Beheerderswachtwoord voor StorSimple-apparaat
-* Challenge Handshake Authentication Protocol (CHAP) en doel van de initiator wachtwoorden
+* Challenge Handshake Authentication Protocol (CHAP) initiator en het doel wachtwoorden
 * Wachtwoord StorSimple Snapshot Manager
 
-### <a name="windows-powershell-for-storsimple-and-the-storsimple-device-administrator-password"></a>Windows PowerShell voor StorSimple en het beheerderswachtwoord van het StorSimple-apparaat
+### <a name="windows-powershell-for-storsimple-and-the-storsimple-device-administrator-password"></a>Windows PowerShell voor StorSimple en het beheerderswachtwoord van de StorSimple-apparaat
 
-Windows PowerShell voor StorSimple is een opdrachtregelinterface die u gebruiken kunt voor het beheren van het StorSimple-apparaat. Windows PowerShell voor StorSimple bevat functies waarmee u kunnen u Registreer uw apparaat, de netwerkinterface op het apparaat configureren, bepaalde typen updates installeren, het apparaat oplossen door het openen van de ondersteuningssessie en de apparaatstatus te wijzigen. U kunt Windows PowerShell voor StorSimple openen door verbinding te maken met de seriële console op het apparaat of via Windows PowerShell op afstand.
+Windows PowerShell voor StorSimple is een opdrachtregelinterface die u gebruiken kunt voor het beheren van het StorSimple-apparaat. Windows PowerShell voor StorSimple bevat functies die kunnen u uw apparaat registreren, configureren van de netwerkinterface op uw apparaat, bepaalde typen updates installeren, problemen oplossen van uw apparaat door het openen van de ondersteuningssessie en wijzigen van de apparaatstatus. U kunt Windows PowerShell voor StorSimple openen door verbinding te maken met de seriële console op het apparaat of met behulp van Windows PowerShell voor externe toegang.
 
-Externe communicatie van PowerShell kan plaatsvinden via HTTPS of HTTP. Als u extern beheer via HTTPS is ingeschakeld, moet u het certificaat voor extern beheer van het apparaat downloaden en installeren op de externe client. Voor meer informatie over PowerShell voor externe toegang, gaat u naar [op afstand verbinding maken met uw StorSimple-apparaat](storsimple-8000-remote-connect.md).
+PowerShell voor externe toegang kan worden gedaan via HTTPS of HTTP. Als extern beheer via HTTPS is ingeschakeld, moet u het certificaat voor extern beheer van het apparaat downloaden en installeren op de externe client. Voor meer informatie over PowerShell voor externe toegang, gaat u naar [verbinding maken met uw StorSimple-apparaat op afstand](storsimple-8000-remote-connect.md).
 
-Nadat u verbinding maken met het apparaat met Windows PowerShell voor StorSimple, moet u het apparaat administrator-wachtwoord voor aanmelding bij het apparaat te bieden.
+Nadat u Windows PowerShell voor StorSimple verbinding maken met het apparaat gebruikt, moet u voor het beheerderswachtwoord voor aanmelding bij het apparaat.
 
 ![Wachtwoord apparaatbeheerder](./media/storsimple-security/DeviceAdminPW.png)
 
 Houd rekening met de volgende aanbevolen procedures:
 
-* Extern beheer is standaard uitgeschakeld. U kunt de service Manager voor StorSimple-apparaat in te schakelen. Als een best practice bij beveiliging externe toegang moet worden ingeschakeld alleen tijdens de periode die daadwerkelijk nodig is.
-* Als u het wachtwoord wijzigt, zorg er dan voor dat alle externe gebruikers melden zodat ze zich niet een onverwachte verbinding wordt verbroken.
-* De StorSimple-apparaat Manager-service kan de bestaande wachtwoorden niet ophalen: het ze alleen opnieuw kunt instellen. U wordt aangeraden dat u alle wachtwoorden opslaan op een veilige plaats, zodat u niet een wachtwoord opnieuw instellen moet als deze is vergeten. Als u een wachtwoord opnieuw instellen wilt, zorg er dan voor dat alle gebruikers waarschuwen voordat u het opnieuw instellen.
+* Extern beheer is standaard uitgeschakeld. U kunt de StorSimple Device Manager-service te kunnen gebruiken. Als een aanbevolen beveiligingsprocedure, externe toegang moet worden ingeschakeld alleen tijdens de periode die daadwerkelijk nodig is.
+* Als u het wachtwoord wijzigt, zorg er dan voor dat alle RAS-gebruikers waarschuwen dat ze zich een onverwachte verbindingsverlies niet.
+* De StorSimple Device Manager-service kan de bestaande wachtwoorden niet ophalen: het ze alleen opnieuw kunt instellen. Het is raadzaam dat u alle wachtwoorden opslaan op een veilige plaats, zodat u geen hebt een wachtwoord opnieuw instellen als deze is vergeten. Als u een wachtwoord opnieuw instellen moet, zorg er dan voor dat alle gebruikers een melding ontvangen voordat u het opnieuw instellen.
 
-U kunt toegang tot de Windows PowerShell-interface met behulp van een seriële verbinding met het apparaat. U kunt ook toegang tot het op afstand via HTTP of HTTPS, die extra te beveiligen. HTTPS biedt een hoger niveau van beveiliging dan een serie- of HTTP-verbinding. Echter om HTTPS te gebruiken, moet u eerst een certificaat installeren op de clientcomputer die toegang het apparaat tot. U kunt het RAS-certificaat downloaden van de configuratiepagina van het apparaat in de service Manager voor StorSimple-apparaat. Als het certificaat voor externe toegang verbroken wordt, moet u een nieuw certificaat downloaden en deze doorgeven aan alle clients die gemachtigd zijn om het gebruik van extern beheer.
+U kunt toegang tot de Windows PowerShell-interface met behulp van een seriële verbinding met het apparaat. U kunt ook toegang tot het op afstand met behulp van HTTP of HTTPS, dit extra te beveiligen. HTTPS biedt een hoger beveiligingsniveau dan een serie- of HTTP-verbinding. Echter, voor het gebruik van HTTPS, moet u eerst een certificaat installeren op de clientcomputer die toegang het apparaat tot. U kunt het certificaat voor externe toegang downloaden via de configuratiepagina van apparaat in de StorSimple Device Manager-service. Als het certificaat voor externe toegang gegaan is, moet u een nieuw certificaat downloaden en deze doorgeven aan alle clients die zijn gemachtigd voor het gebruik van extern beheer.
 
-### <a name="challenge-handshake-authentication-protocol-chap-initiator-and-target-passwords"></a>Challenge Handshake Authentication Protocol (CHAP) en doel van de initiator wachtwoorden
+### <a name="challenge-handshake-authentication-protocol-chap-initiator-and-target-passwords"></a>Challenge Handshake Authentication Protocol (CHAP) initiator en het doel wachtwoorden
 
-CHAP is een verificatieschema dat wordt gebruikt door het StorSimple-apparaat om de identiteit van externe clients te valideren. De verificatie is gebaseerd op een gedeelde wachtwoord. CHAP mag eenzijdige (Unidirectioneel) of onderlinge (bidirectioneel). Met één richting CHAP verifieert het doel (de StorSimple-apparaat) een initiator (host). Wederzijdse of reverse CHAP vereist dat het doel de initiator geverifieerd en vervolgens de initiator het doel te verifiëren. Uw StorSimple kan worden geconfigureerd als een methode wilt gebruiken.
+CHAP is een verificatiemethode die wordt gebruikt door het StorSimple-apparaat om te valideren van de identiteit van externe clients. De verificatie is gebaseerd op een gedeelde wachtwoord. CHAP is één richting (Unidirectioneel) of wederzijdse (in twee richtingen). Met één richting CHAP verifieert het doel (het StorSimple-apparaat) een initiator (host). Wederzijdse of omgekeerde CHAP vereist dat het doel de initiator geverifieerd en vervolgens de initiator het doel te verifiëren. StorSimple kan worden geconfigureerd voor het gebruik van een van beide methoden.
 
-Als u CHAP configureert, worden op de hoogte van de volgende:
+Houd rekening met het volgende bij het configureren van CHAP:
 
 * De CHAP-gebruikersnaam moet minder dan 233 tekens bevatten.
-* De CHAP-wachtwoord moet tussen 12 en 16 tekens. Bij het gebruik van een langere gebruikersnaam of wachtwoord resulteert in een verificatiefout opgetreden op de Windows-host.
-* U kunt hetzelfde wachtwoord niet gebruiken voor zowel de CHAP-initiator en het CHAP-doel.
-* Nadat u het wachtwoord hebt ingesteld, kan worden gewijzigd, maar kan niet worden opgehaald. Als het wachtwoord is gewijzigd, moet u alle externe toegang om gebruikers te waarschuwen dat ze een verbinding met het StorSimple-apparaat maken kunnen.
+* De CHAP-wachtwoord moet 12 tot 16 tekens. Bij het gebruik een langer gebruikersnaam of wachtwoord zal leiden tot een verificatiefout opgetreden op de Windows-host.
+* U kunt hetzelfde wachtwoord niet gebruiken voor zowel de CHAP-initiator en CHAP-doel.
+* Nadat u het wachtwoord hebt ingesteld, kan worden gewijzigd, maar kan niet worden opgehaald. Als het wachtwoord is gewijzigd, moet u aan alle gebruikers die externe toegang zodat ze verbinding met de StorSimple-apparaat maken kunnen.
 
 Voor meer informatie over CHAP en hoe u deze wilt configureren voor uw StorSimple-oplossing, gaat u naar [CHAP configureren voor uw StorSimple-apparaat](storsimple-8000-configure-chap.md).
 
 ### <a name="storsimple-snapshot-manager-password"></a>Wachtwoord StorSimple Snapshot Manager
 
-StorSimple Snapshot Manager is een module Microsoft Management Console (MMC) dat volume groepen en de Windows Volume Shadow Copy-Service gebruikt voor het genereren van toepassingsconsistente back-ups. Bovendien kunt u StorSimple Snapshot Manager te maken van back-upschema en klonen of volumes te herstellen.
+StorSimple Snapshot Manager is een Microsoft Management Console (MMC)-module die gebruikmaakt van volumegroepen en de Windows Volume Shadow Copy-Service voor het genereren van toepassingsconsistente back-ups. Bovendien kunt u StorSimple Snapshot Manager back-upschema's en kloon maken en herstellen van volumes.
 
-Wanneer u een apparaat gebruiken StorSimple Snapshot Manager configureert, moet u het StorSimple Snapshot Manager-wachtwoord op te geven. Dit wachtwoord wordt eerst ingesteld in Windows PowerShell voor StorSimple tijdens de registratie. Het wachtwoord kan ook worden ingesteld en van de service Manager voor StorSimple-apparaat is gewijzigd. Dit wachtwoord wordt het apparaat met StorSimple Snapshot Manager geverifieerd.
+Wanneer u een apparaat om te gebruiken via StorSimple Snapshot Manager configureert, moet u het StorSimple Snapshot Manager-wachtwoord op te geven. Dit wachtwoord wordt eerst ingesteld in Windows PowerShell voor StorSimple tijdens de registratie. Het wachtwoord kan ook worden ingesteld en gewijzigd van de StorSimple Device Manager-service. Dit wachtwoord wordt geverifieerd door het apparaat met StorSimple Snapshot Manager.
 
 ![Wachtwoord StorSimple Snapshot Manager](./media/storsimple-security/SnapshotMgrPassword.png)
 
-Het StorSimple Snapshot Manager-wachtwoord moet 14 of 15 tekens bestaan en moet 3 of meer van een combinatie van hoofdletters, kleine letters, numerieke en speciale tekens bevatten. Nadat u het StorSimple Snapshot Manager-wachtwoord hebt ingesteld, kan worden gewijzigd, maar kan niet worden opgehaald. Als u het wachtwoord wijzigt, zorg er dan voor dat alle externe gebruikers melden.
+Het StorSimple Snapshot Manager-wachtwoord moet 14 of 15 tekens bestaan en moet 3 of meer van een combinatie van hoofdletters, kleine letters, cijfers en speciale tekens bevatten. Nadat u het StorSimple Snapshot Manager-wachtwoord hebt ingesteld, kan worden gewijzigd, maar kan niet worden opgehaald. Als u het wachtwoord wijzigt, zorg er dan voor dat alle externe gebruikers een melding ontvangen.
 
-Ga voor meer informatie over het StorSimple Snapshot Manager naar [wat is er StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+Voor meer informatie over StorSimple Snapshot Manager, gaat u naar [wat is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
-### <a name="password-best-practices"></a>Aanbevolen procedures voor wachtwoord
+### <a name="password-best-practices"></a>Aanbevolen procedures voor wachtwoorden
 
-Het is raadzaam om gebruik te maken van de volgende richtlijnen om ervoor te zorgen dat StorSimple-wachtwoorden sterk en goed beveiligd zijn:
+U wordt aangeraden gebruik te maken van de volgende richtlijnen om ervoor te zorgen dat de StorSimple-wachtwoorden sterke en goed beveiligde zijn:
 
-* Uw wachtwoord wijzigen om de drie maanden. De wachtwoorden wijzigen wordt jaarlijks afgedwongen.
-* Sterke wachtwoorden gebruiken. Ga voor meer informatie naar [maken van sterke wachtwoorden en beveiligt u ze](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Elke drie maanden van uw wachtwoord wijzigen. Wijzigen van de wachtwoorden wordt jaarlijks afgedwongen.
+* Sterke wachtwoorden gebruiken. Ga voor meer informatie naar [sterke wachtwoorden maken en deze beveiligen](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Gebruik altijd verschillende wachtwoorden voor verschillende mechanismen voor; elk van de wachtwoorden die u opgeeft moet uniek zijn.
-* Wachtwoorden niet delen met iedereen die is niet geautoriseerd voor toegang tot het StorSimple-apparaat.
-* Geen uitspreken over een wachtwoord voor anderen of hint de indeling van een wachtwoord.
-* Als u vermoedt dat een account of wachtwoord is ingebroken, moet u het incident melden aan uw beveiligingsafdeling informatie.
-* Alle wachtwoorden behandelen als gevoelige en vertrouwelijke informatie. 
+* Wachtwoorden niet delen met iedereen die is niet gemachtigd voor toegang tot het StorSimple-apparaat.
+* Geen spreken over een wachtwoord in het zicht van anderen of hint op de indeling van een wachtwoord.
+* Als u vermoedt dat een account of wachtwoord is aangetast, kunt u het incident melden aan uw beveiligingsafdeling informatie.
+* Alle wachtwoorden worden behandeld als gevoelige en vertrouwelijke informatie. 
 
-## <a name="storsimple-data-protection"></a>Gegevensbeveiliging voor StorSimple
+## <a name="storsimple-data-protection"></a>StorSimple-gegevensbeveiliging
 
-Deze sectie beschrijft de StorSimple-beveiligingsfuncties die gegevens onderweg en opgeslagen gegevens te beveiligen.
+Deze sectie beschrijft het StorSimple-beveiligingsfuncties die beschermen van gegevens die onderweg zijn en opgeslagen gegevens.
 
-Zoals beschreven in andere secties, worden wachtwoorden toe te staan en gebruikers worden geverifieerd voordat ze toegang tot uw StorSimple-oplossing krijgen kunnen gebruikt. Een andere veiligheidsoverweging beveiligt gegevens tegen onbevoegde gebruikers terwijl deze wordt overgebracht tussen opslagsystemen en terwijl deze wordt opgeslagen. De volgende secties worden de functies voor gegevensbeveiliging StorSimple voorzien.
+In andere gedeelten wordt beschreven, worden wachtwoorden gebruikt om te autoriseren en gebruikers te verifiëren voordat ze toegang tot uw StorSimple-oplossing krijgen kunnen. Een andere uit veiligheidsoverwegingen beveiligt gegevens tegen onbevoegde gebruikers terwijl deze worden overgebracht tussen opslagsystemen en terwijl deze worden opgeslagen. De volgende secties beschrijven de functies voor gegevensbescherming met StorSimple worden opgegeven.
 
 > [!NOTE]
-> Ontdubbeling biedt extra beveiliging voor gegevens die zijn opgeslagen op het StorSimple-apparaat en in Microsoft Azure storage. Wanneer gegevens is ontdubbeld, de gegevensobjecten afzonderlijk opgeslagen van de metagegevens toewijzen en toegang tot deze worden gebruikt: Er is geen beschikbare opslagniveau context de gegevens op basis van volumestructuur heeft, bestandssysteem of de bestandsnaam van het opnieuw.
+> Functie voor gegevensontdubbeling biedt aanvullende bescherming voor gegevens die zijn opgeslagen op het StorSimple-apparaat en in Microsoft Azure storage. Wanneer gegevens is ontdubbeld, de gegevensobjecten van de metagegevens gebruikt voor het toewijzen en toegang tot deze apart zijn opgeslagen: Er is geen beschikbare opslagniveau context om de gegevens op basis van volumestructuur, bestandssysteem of bestandsnaam te reconstrueren.
 
 
-## <a name="protect-data-flowing-through-the-service"></a>Beveiligen van gegevens die via de service
+## <a name="protect-data-flowing-through-the-service"></a>Beveiligen van gegevens die binnenkomen via de service
 
-Het voornaamste doel van de service Manager voor StorSimple-apparaat is voor het beheren en configureren van het StorSimple-apparaat. De StorSimple-apparaat Manager-service wordt uitgevoerd in Microsoft Azure. Met de Azure-portal voert u de configuratiegegevens apparaat en Microsoft Azure gebruikt vervolgens de service Manager voor StorSimple-apparaat de gegevens te verzenden naar het apparaat. StorSimple maakt gebruik van een systeem van asymmetrische sleutelparen om ervoor te zorgen dat een inbreuk op de Azure-service niet tot een inbreuk op de opgeslagen gegevens leiden.
+Het voornaamste doel van de StorSimple Device Manager-service is om te beheren en configureren van het StorSimple-apparaat. De StorSimple Device Manager-service wordt uitgevoerd in Microsoft Azure. Gebruikt u de Azure portal om in te voeren van apparaat-configuratiegegevens en Microsoft Azure gebruikt vervolgens de StorSimple Device Manager-service de gegevens te verzenden naar het apparaat. StorSimple maakt gebruik van een systeem van paren van asymmetrische sleutels om ervoor te zorgen dat een inbreuk op de Azure-service niet tot een inbreuk op de opgeslagen gegevens leidt.
 
-![Versleuteling van gegevens tijdens de vlucht](./media/storsimple-security/DataEncryption.png)
+![Versleuteling van gegevens tijdens de overdracht](./media/storsimple-security/DataEncryption.png)
 
-Het systeem voor asymmetrische sleutel beveiligt de gegevens die via de service als volgt loopt:
+Het systeem voor asymmetrische sleutel beveiligt de gegevens die via de service als volgt:
 
-1. Een versleutelingscertificaat voor gegevens die gebruikmaakt van een asymmetrische openbare en persoonlijke sleutel paar op het apparaat wordt gegenereerd en wordt gebruikt om de gegevens te beveiligen. De sleutels worden gegenereerd wanneer het eerste apparaat is geregistreerd.
-2. De gegevens van het certificaat versleutelingssleutels worden geëxporteerd naar een Personal Information Exchange (.pfx)-bestand dat wordt beveiligd door de service gegevensversleutelingssleutel, namelijk een sterke 128-bits sleutel die wordt willekeurig gegenereerd door de eerste apparaat tijdens de registratie.
-3. De openbare sleutel van het certificaat veilig beschikbaar wordt gesteld aan de service Manager voor StorSimple-apparaat en de persoonlijke sleutel blijft het apparaat.
-4. Gegevens invoeren van de service is versleuteld met behulp van de openbare sleutel en ontsleuteld met de persoonlijke sleutel die is opgeslagen op het apparaat is ervoor te zorgen dat de Azure-service kan niet worden gebruikt voor het ontsleutelen van de gegevens die op het apparaat.
+1. Een gegevens-versleutelingscertificaat die gebruikmaakt van een asymmetrische openbare en persoonlijke sleutel paar op het apparaat wordt gegenereerd en wordt gebruikt om de gegevens te beveiligen. De sleutels worden gegenereerd wanneer het eerste apparaat is geregistreerd.
+2. De gegevens van het certificaat versleutelingssleutels worden geëxporteerd naar een Personal Information Exchange (PFX)-bestand dat wordt beveiligd door de gegevensversleutelingssleutel, namelijk een sterke 128-bits sleutel die wordt willekeurig gegenereerd door het eerste apparaat tijdens de registratie.
+3. De openbare sleutel van het certificaat veilig beschikbaar wordt gesteld aan de StorSimple Device Manager-service en de persoonlijke sleutel blijft met het apparaat.
+4. Gegevens invoeren van de service is versleuteld met behulp van de openbare sleutel en ontsleuteld met de persoonlijke sleutel die is opgeslagen op het apparaat, is ervoor te zorgen dat de Azure-service kan niet worden gebruikt voor het ontsleutelen van de gegevens die op het apparaat.
 
-De gegevensversleutelingssleutel van service is gegenereerd op alleen de eerste apparaat geregistreerd bij de service. Alle latere apparaten die zijn geregistreerd bij de service moeten de dezelfde gegevensversleutelingssleutel van service gebruiken.
+De versleutelingssleutel voor servicegegevens gegenereerd op alleen het eerste apparaat geregistreerd bij de service. Alle latere apparaten die zijn geregistreerd bij de service moeten de dezelfde versleutelingssleutel voor servicegegevens gebruiken.
 
 > [!IMPORTANT]
-> Het is belangrijk om te maken van een kopie van de gegevensversleutelingssleutel van service en opslaan in een veilige locatie. Een kopie van de gegevensversleutelingssleutel van service moet zodanig dat het toegankelijk is voor een specifieke persoon en eenvoudig kan worden doorgegeven aan de apparaatbeheerder worden opgeslagen.
+> Het is heel belangrijk dat u een kopie van de versleutelingssleutel voor servicegegevens en sla deze op een veilige locatie. Een kopie van de versleutelingssleutel voor servicegegevens moet zodanig dat deze kan worden geopend door niet-gemachtigde personen en eenvoudig kan worden doorgegeven aan de apparaatbeheerder worden opgeslagen.
 > 
-> Als de gegevensversleutelingssleutel van de service verbroken wordt, kunt een ondersteuningsmedewerker van Microsoft u voor het ophalen van het opgegeven dat er ten minste één apparaat in een online status. U wordt aangeraden dat u de gegevensversleutelingssleutel van service wijzigt nadat deze is opgehaald.
+> Als de versleutelingssleutel voor servicegegevens gegaan is, kunt een ondersteuningsmedewerker van Microsoft u om op te halen deze voorwaarde dat u ten minste één apparaat in een online status hebt. U wordt aangeraden dat u de versleutelingssleutel voor servicegegevens wijzigen nadat deze is opgehaald.
 
-Als u wilt wijzigen van de gegevensversleutelingssleutel van service en de bijbehorende gegevens versleutelingscertificaat, volg de stappen in [wijzigen van de gegevensversleutelingssleutel van service voor uw StorSimple-apparaat Manager service](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Wijzigen van de versleutelingssleutels vereist dat alle apparaten worden bijgewerkt met de nieuwe sleutel. Daarom raden we aan dat u de sleutel wijzigen wanneer alle apparaten online zijn. Als er apparaten zijn offline is, kunnen de sleutels op een andere tijd worden gewijzigd. De apparaten met verouderde sleutels worden nog steeds back-ups uitvoeren, maar ze niet mogelijk om gegevens te herstellen totdat de sleutel wordt bijgewerkt.
+Als u wilt wijzigen van de versleutelingssleutel voor servicegegevens en het bijbehorende certificaat voor versleuteling, volg de stappen in [wijzigen van de versleutelingssleutel voor servicegegevens voor uw StorSimple Device Manager-service](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Wijzigen van de versleutelingssleutels vereist dat alle apparaten worden bijgewerkt met de nieuwe sleutel. Daarom raden wij aan dat u de sleutel wijzigen wanneer alle apparaten online zijn. Als er apparaten zijn offline, kunnen de sleutels worden gewijzigd op een ander tijdstip. De apparaten met verouderde sleutels worden nog steeds back-ups uitvoeren, maar ze niet mogelijk om gegevens te herstellen totdat de sleutel wordt bijgewerkt.
 
-De gegevensversleutelingssleutel van service en het certificaat voor de versleuteling verlopen niet. We raden echter aan dat u de gegevensversleutelingssleutel van service jaarlijks ter voorkoming van inbreuk op de sleutel wijzigt.
+De versleutelingssleutel voor servicegegevens en het certificaat voor versleuteling, niet verlopen. We raden echter aan dat u de versleutelingssleutel voor servicegegevens jaarlijks om te voorkomen dat inbreuk op sleutel wijzigen.
 
-## <a name="protect-data-at-rest"></a>Beveiligen van gegevens in rust
+## <a name="protect-data-at-rest"></a>Gegevens in rust beveiligen
 
-Gegevens van het StorSimple-apparaat worden beheerd door op te slaan in categorieën, lokaal en in de cloud, afhankelijk van de frequentie van gebruik. Alle hostmachines die zijn verbonden met het apparaat verzenden gegevens naar het apparaat, die vervolgens worden gegevens naar de cloud, naar gelang van toepassing verplaatst. Gegevens worden overgedragen van het apparaat naar de cloud veilig via Internet. Elk apparaat heeft een iSCSI-doel waarmee alle gedeelde volumes voor dat apparaat. Alle gegevens worden versleuteld voordat deze wordt verzonden naar de cloudopslag. 
+Gegevens van het StorSimple-apparaat worden beheerd door op te slaan in lagen, lokaal en in de cloud, afhankelijk van de frequentie van gebruik. Alle hostmachines die zijn verbonden met het apparaat verzenden gegevens naar het apparaat en deze gegevens vervolgens naar de cloud, waar nodig verplaatst. Gegevens worden overgebracht van het apparaat naar de cloud veilig via Internet. Elk apparaat heeft een iSCSI-doel waarmee alle gedeelde volumes op het apparaat. Alle gegevens worden versleuteld voordat deze wordt verzonden naar de cloudopslag. 
 
-![coderingssleutel voor cloudopslag](./media/storsimple-security/CloudStorageEncryption.png)
+![Coderingssleutel voor cloudopslag](./media/storsimple-security/CloudStorageEncryption.png)
 
-Om te helpen de beveiliging en integriteit van gegevens verplaatst naar de cloud, kunt StorSimple u definiëren versleutelingssleutels voor cloud-opslag als volgt:
+Om te helpen de beveiliging en integriteit van gegevens naar de cloud verplaatst, kunt StorSimple u voor het definiëren van versleutelingssleutels voor cloud-opslag als volgt:
 
-* U geeft de versleutelingssleutel voor cloudopslag wanneer u een volumecontainer maken. De sleutel kan niet worden gewijzigd of later worden toegevoegd.
-* Alle volumes in een volumecontainer delen de dezelfde versleutelingssleutel. Als u een andere vorm van versleuteling voor een bepaald volume wilt, wordt u aangeraden dat u een nieuwe volumecontainer maakt voor het hosten van dat volume.
-* Wanneer u de versleutelingssleutel voor cloudopslag in de service Manager voor StorSimple-apparaat opgeeft, wordt de sleutel is versleuteld met behulp van het openbare deel van de gegevensversleutelingssleutel van service en vervolgens naar het apparaat verzonden.
-* De coderingssleutel voor cloudopslag wordt niet opgeslagen in de service en bekend is alleen voor het apparaat.
-* Een coderingssleutel voor cloudopslag opgeven is optioneel. U kunt de gegevens die zijn versleuteld op de host naar het apparaat verzenden.
+* U geeft de coderingssleutel voor cloudopslag wanneer u een volumecontainer maken. De sleutel kan niet worden gewijzigd of later toegevoegd.
+* Alle volumes in een volumecontainer delen de dezelfde versleutelingssleutel. Als u een andere vorm van versleuteling voor een bepaald volume wilt, wordt u aangeraden dat u een nieuwe volumecontainer voor het hosten van dat volume maken.
+* Wanneer u de versleutelingssleutel voor cloudopslag in de StorSimple Device Manager-service invoert, wordt de sleutel is gecodeerd met behulp van het openbare gedeelte van de versleutelingssleutel voor servicegegevens en vervolgens naar het apparaat verzonden.
+* De coderingssleutel voor cloudopslag worden niet overal opgeslagen in de service en is alleen bekend bij het apparaat.
+* Een coderingssleutel voor cloudopslag op te geven is optioneel. U kunt gegevens die zijn versleuteld op de host naar het apparaat verzenden.
 
 ### <a name="additional-security-best-practices"></a>Aanbevolen procedures voor extra beveiliging
 
-* Verkeer wordt verdeeld: uw iSCSI-SAN van gebruikersverkeer op een LAN-netwerk isoleren door de implementatie van een volledig gescheiden netwerk en het gebruik van VLAN's waar fysieke isolatie kan niet worden gebruikt. Een speciaal netwerk voor iSCSI-opslag wordt gegarandeerd dat met de veiligheid en de prestaties van uw bedrijfskritieke gegevens. De combinatie van opslag- en -verkeer via een LAN-netwerk kan wordt niet aanbevolen en latentie vergroten en dat netwerkfouten.
-* Gebruik voor netwerkbeveiliging hostzijde netwerkinterfaces die ondersteuning bieden voor TCP/IP-Offload Engine (TOE). CPU-belasting beperkt TOE door TCP verwerking op de netwerkadapter.
+* Verkeer splitsen: uw iSCSI-SAN uit het gebruikersverkeer op een LAN-netwerk isoleren door het implementeren van een volledig gescheiden netwerk en het gebruik van VLAN's waarbij fysieke isolatie kan niet worden gebruikt. Een speciaal netwerk voor iSCSI-opslag zorgt ervoor dat de veiligheid en prestaties van uw bedrijfskritieke gegevens. Met een combinatie van opslag en verkeer via een LAN-netwerk kunt wordt niet aanbevolen hogere latentie en netwerk ontstaan.
+* Gebruik voor netwerkbeveiliging van host-zijde, netwerkinterfaces die ondersteuning bieden voor TCP/IP-Offload Engine (TOE). CPU-belasting beperkt TOE door het verwerken van TCP voor de netwerkadapter.
 
 ## <a name="protect-data-via-storage-accounts"></a>Bescherm gegevens via de storage-accounts
 
-Elke Microsoft Azure-abonnement kunt maken van een of meer opslagaccounts. (Een opslagaccount biedt een unieke naamruimte voor het werken met gegevens die zijn opgeslagen in de Azure-cloud.) Toegang tot een opslagaccount wordt bepaald door het abonnement en toegangssleutels die zijn gekoppeld aan dit opslagaccount.
+Elke Microsoft Azure-abonnement kan een of meer opslagaccounts maken. (Een opslagaccount biedt een unieke naamruimte voor het werken met gegevens die zijn opgeslagen in de Azure-cloud.) Toegang tot een opslagaccount wordt bepaald door het abonnement en de toegang tot sleutels die zijn gekoppeld aan dit account.
 
-Wanneer u een opslagaccount maakt, genereert Microsoft Azure twee 512-bits opslagtoegangssleutels, waarvan er één wordt gebruikt voor verificatie wanneer het StorSimple-apparaat opent het opslagaccount. Houd er rekening mee dat er slechts één van deze sleutels gebruikt wordt. De andere sleutel is ondergebracht in reserve, zodat u de sleutels periodiek draaien. De secundaire sleutel actief maken om terug te draaien sleutels, en verwijder vervolgens de primaire sleutel. Vervolgens kunt u een nieuwe sleutel voor gebruik tijdens de volgende draaiing maken. (Om veiligheidsredenen vereist veel datacenters sleutel worden gedraaid.)
+Wanneer u een opslagaccount maakt, genereert Microsoft Azure twee 512-bits opslagtoegangssleutels, een van die wordt gebruikt voor verificatie bij de StorSimple-apparaat toegang heeft tot het opslagaccount. Houd er rekening mee dat er slechts één van deze sleutels gebruikt wordt. De andere sleutel is ondergebracht in reserveren, zodat u kunt de sleutels periodiek draaien. De secundaire sleutel activeren om te roteren sleutels, en verwijder vervolgens de primaire sleutel. Vervolgens kunt u een nieuwe sleutel voor gebruik tijdens de volgende draaiing maken. (Uit veiligheidsoverwegingen vereisen veel datacenters sleutelroulatie.)
 
-U wordt aangeraden dat u deze best practices voor belangrijke rotatie volgt:
+U wordt aangeraden dat u deze aanbevolen procedures voor sleutelroulatie volgt:
 
-* U moet de opslagaccountsleutels regelmatig om ervoor te zorgen dat uw storage-account niet is geopend door onbevoegde gebruikers draaien.
-* De Azure-beheerder moet regelmatig wijzigen of de primaire of secundaire sleutel opnieuw genereren met behulp van de sectie van de opslag van de Azure portal rechtstreeks toegang krijgen tot het opslagaccount.
+* U moet draaien opslagaccountsleutels regelmatig om ervoor te zorgen dat uw storage-account niet is geopend door onbevoegde gebruikers.
+* Uw Azure-beheerder moet periodiek, wijzigen of de primaire of secundaire sleutel opnieuw genereren met behulp van de sectie voor opslag van de Azure-portal voor rechtstreekse toegang tot het opslagaccount.
 
 ## <a name="protect-data-via-encryption"></a>Bescherm gegevens via versleuteling
 
-StorSimple maakt gebruik van de volgende versleutelingsalgoritmen ter bescherming van gegevens die zijn opgeslagen- of onderweg tussen de onderdelen van uw StorSimple-oplossing.
+StorSimple maakt gebruik van de volgende versleutelingsalgoritmen gegevens die zijn opgeslagen- of onderweg tussen de onderdelen van uw StorSimple-oplossing.
 
-| Algoritme | Sleutellengte | Toepassingen-protocollen/opmerkingen |
+| Algoritme | Sleutellengte | Protocollen/applications/opmerkingen |
 | --- | --- | --- |
-| RSA |2048 |1 voor RSA-PKCS-v1.5 wordt gebruikt door de Azure-portal voor het versleutelen van de configuratiegegevens die naar het apparaat wordt verzonden: bijvoorbeeld opslag accountreferenties, configuratie van StorSimple-apparaat, en in de cloud van de versleutelingssleutels voor opslag. |
-| AES |256 |AES met CBC wordt gebruikt voor het openbare deel van de versleutelingssleutel van de service-gegevens versleutelen voordat deze wordt verzonden naar de Azure-portal van het StorSimple-apparaat. Dit wordt ook gebruikt door het StorSimple-apparaat om gegevens te versleutelen voordat de gegevens worden verzonden naar de cloud storage-account. |
+| RSA |2048 |1 van RSA PKCS-v1.5 wordt gebruikt door de Azure-portal voor het versleutelen van configuratiegegevens die wordt verzonden naar het apparaat: bijvoorbeeld storage accountreferenties, configuratie van de StorSimple-apparaat, en versleutelingssleutels voor opslag in de cloud. |
+| AES |256 |AES met CBC wordt gebruikt voor het versleutelen van het openbare gedeelte van de versleutelingssleutel voor servicegegevens voordat deze wordt verzonden naar de Azure-portal van de StorSimple-apparaat. Het is ook door de StorSimple-apparaat gebruikt om gegevens te versleutelen voordat de gegevens worden verzonden naar de cloud storage-account. |
 
-## <a name="storsimple-cloud-appliance-security"></a>Cloud-toestel StorSimple-beveiliging
+## <a name="storsimple-cloud-appliance-security"></a>StorSimple-Cloudapparaat-beveiliging
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
-## <a name="managing-personal-inforamation"></a>Het beheren van persoonlijke informatie
+## <a name="managing-personal-inforamation"></a>Beheer van persoonlijke informatie
 
-Apparaatbeheer voor zowel fysieke en virtuele-serie StorSimple verzamelt persoonlijke gegevens in de belangrijkste exemplaren van dit:
+De StorSimple Device Manager voor zowel fysieke als virtuele serie verzamelt persoonlijke gegevens in de belangrijkste follwing-exemplaren:
 
-- Waarschuwing gebruikersinstellingen waar e-mailadres van gebruikers zijn geconfigureerd. Deze informatie kunt weergeven en door de beheerder uitgeschakeld. Dit geldt voor de StorSimple 8000 series apparaten en de virtuele StorSimple-matrices.
- * Als u wilt weergeven en schakelt u de instellingen voor StorSimple 8000-serie, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Als u wilt weergeven en schakelt u de instellingen voor virtuele StorSimple-matrix, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
-- Gebruikers die toegang tot de gegevens die zich op de shares. Een lijst met gebruikers die toegang de sharegegevens tot wordt weergegeven en kan worden weergegeven. Deze lijst wordt ook verwijderd wanneer de shares is verwijderd. Dit geldt alleen voor virtuele StorSimple-matrices.
- * Om weer te geven van de lijst van gebruikers kunt openen of verwijderen van een share, volg de stappen in [shares op de virtuele StorSimple-matrix kunt beheren](storsimple-virtual-array-manage-shares.md)
+- Ontvang een waarschuwing gebruikersinstellingen waar e-mailadres van gebruikers zijn geconfigureerd. Deze informatie kan worden weergegeven en worden uitgeschakeld door de beheerder. Dit geldt voor de apparaten uit de StorSimple 8000-serie en de virtuele StorSimple-matrices.
+ * Als u wilt weergeven en schakelt u de instellingen voor de StorSimple 8000-serie, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * Als u wilt weergeven en schakelt u de instellingen voor StorSimple Virtual Array, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Gebruikers die toegang krijgen tot de gegevens die zich bevinden op de shares. Een lijst met gebruikers die toegang de sharegegevens tot krijgen wordt weergegeven en kan worden weergegeven. Deze lijst wordt ook verwijderd wanneer de shares wordt verwijderd. Dit geldt alleen voor virtuele StorSimple-matrices.
+ * Om weer te geven van de lijst met gebruikers die toegang tot of naar een share verwijdert, voert u de stappen in [shares op de StorSimple Virtual Array beheren](storsimple-virtual-array-manage-shares.md)
 
-Raadpleeg voor meer informatie, het beleid voor Microsoft Privacy [Vertrouwenscentrum](https://www.microsoft.com/trustcenter).
+Voor meer informatie raadpleegt u het beleid van Microsoft Privacy [Trust Center](https://www.microsoft.com/trustcenter).
 
 ## <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
 Hier volgen enkele vragen en antwoorden over de beveiliging en Microsoft Azure StorSimple.
 
-**V:** mijn service wordt aangetast. Wat moet de volgende stappen zijn?
+**V:** mijn service ermee is geknoeid. Wat moet de volgende stappen?
 
-**A:** u onmiddellijk de gegevensversleutelingssleutel van service en de opslagaccountsleutels voor het opslagaccount dat wordt gebruikt voor lagen gegevens moet wijzigen. Voor instructies gaat u naar:
+**A:** u onmiddellijk de versleutelingssleutel voor servicegegevens en de opslagaccountsleutels voor het opslagaccount dat wordt gebruikt voor cloudlagen gegevens moet wijzigen. Voor instructies gaat u naar:
 
-* [De gegevensversleutelingssleutel van service wijzigen](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
-* [Sleutel rotatie van de storage-accounts](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
+* [Wijzigen van de versleutelingssleutel voor servicegegevens](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
+* [Sleutelroulatie van storage-accounts](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
-**V:** ik heb een nieuwe StorSimple-apparaat die om de serviceregistratiesleutel vraagt. Hoe krijg ik terug?
+**V:** ik heb een nieuwe StorSimple-apparaat dat is de serviceregistratiesleutel wordt gevraagd. Hoe ik ophalen?
 
-**A:** deze sleutel is gemaakt tijdens het maken van de service Manager voor StorSimple-apparaat. Wanneer u de service Manager voor StorSimple-apparaat verbinding maken met het apparaat gebruikt, kunt u de pagina snel starten om te bekijken of de service registratie-sleutel opnieuw genereren. Genereren van een nieuwe registratiecode van de service heeft geen invloed op bestaande geregistreerde apparaten. Voor instructies gaat u naar:
+**A:** deze sleutel is gemaakt tijdens het maken van de StorSimple Device Manager-service. Wanneer u de StorSimple Device Manager-service verbinding maken met het apparaat gebruikt, kunt u de pagina snel starten met service kunt gebruiken om te bekijken of de serviceregistratiesleutel opnieuw genereren. Een nieuwe serviceregistratiesleutel genereren, heeft dit geen invloed op bestaande geregistreerde apparaten. Voor instructies gaat u naar:
 
-* [Weergeven of de service registratie-sleutel opnieuw genereren](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
+* [Weergeven of de serviceregistratiesleutel opnieuw genereren](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
 
-**V:** mijn gegevensversleutelingssleutel van service is verbroken. Wat moet ik doen?
+**V:** ik mijn versleutelingssleutel voor servicegegevens verloren. Wat moet ik doen?
 
-**A:** contact op met Microsoft ondersteuning. Ze kunnen zich aanmelden met een ondersteuningssessie van het apparaat en het Help-informatie ophalen van de sleutel (op voorwaarde dat ten minste één apparaat is online). Onmiddellijk nadat u de gegevensversleutelingssleutel van service verkregen, moet u wijzigen om ervoor te zorgen dat de nieuwe sleutel voor u bekend is. Voor instructies gaat u naar:
+**A:** contact op met Microsoft ondersteuning. Ze kunnen zich aanmelden bij een ondersteuningssessie op uw apparaat en hulp bij het ophalen van de sleutel (op voorwaarde dat ten minste één apparaat online is). Onmiddellijk nadat u de versleutelingssleutel voor servicegegevens hebt verkregen, moet u wijzigen om ervoor te zorgen dat de nieuwe sleutel alleen bij u bekend is. Voor instructies gaat u naar:
 
-* [De gegevensversleutelingssleutel van service wijzigen](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
+* [Wijzigen van de versleutelingssleutel voor servicegegevens](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**V:** gemachtigd een apparaat voor een service data encryption key wijziging, maar is het proces voor sleutel niet gestart. Wat moet ik doen?
+**V:** gemachtigd een apparaat voor een service gegevens codering belangrijke wijziging, maar het proces voor sleutel niet is gestart. Wat moet ik doen?
 
-**A:** als de time-outperiode is verstreken, moet u het apparaat voor de service gegevens versleuteling belangrijke wijziging opnieuw autoriseren en start het opnieuw.
+**A:** als de time-outperiode is verlopen, moet u opnieuw autoriseren van het apparaat voor de service gegevens codering belangrijke wijziging en het proces opnieuw starten.
 
-**V:** ik de gegevensversleutelingssleutel van service gewijzigd, maar ik kon niet voor het bijwerken van de andere apparaten binnen vier uur. Heb ik opnieuw starten?
+**V:** ik de versleutelingssleutel voor servicegegevens gewijzigd, maar ik kan niet voor het bijwerken van de andere apparaten binnen vier uur. Heb ik opnieuw te starten?
 
-**A:** de periode van 4 uur is alleen voor het initiëren van de wijziging. Nadat u het updateproces op de geautoriseerde StorSimple-apparaat gestart, is de autorisatie geldig totdat alle apparaten worden bijgewerkt.
+**A:** de 4 uur tijd is alleen voor het starten van de wijziging. Nadat u het updateproces op de geautoriseerde StorSimple-apparaat gestart, is de autorisatie geldig totdat alle apparaten worden bijgewerkt.
 
-**V:** onze StorSimple-beheerder heeft het bedrijf verlaten. Wat moet ik doen?
+**V:** onze StorSimple-beheerder heeft het bedrijf heeft verlaten. Wat moet ik doen?
 
-**A:** wijzigings- en opnieuw instellen van de wachtwoorden die toegang tot het StorSimple-apparaat en het wijzigen van de service-gegevensversleuteling sleutel om ervoor te zorgen dat de nieuwe informatie is niet bekend bij niet-geautoriseerde personeel. Voor instructies gaat u naar:
+**A:** wijzigen en opnieuw instellen van de wachtwoorden die toegang tot het StorSimple-apparaat en het wijzigen van de service-gegevensversleuteling sleutel om ervoor te zorgen dat de nieuwe informatie is niet bekend bij niet-geautoriseerd personeel. Voor instructies gaat u naar:
 
-* [De service StorSimple Apparaatbeheer gebruiken om uw storsimple-wachtwoorden wijzigen](storsimple-8000-change-passwords.md)
-* [De gegevensversleutelingssleutel van service wijzigen](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
+* [De StorSimple Device Manager-service gebruiken om uw storsimple-wachtwoorden wijzigen](storsimple-8000-change-passwords.md)
+* [Wijzigen van de versleutelingssleutel voor servicegegevens](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [CHAP configureren voor uw StorSimple-apparaat](storsimple-8000-configure-chap.md)
 
-**V:** ik wil geeft u het wachtwoord StorSimple Snapshot Manager naar een host die is verbonden met het StorSimple-apparaat, maar het wachtwoord is niet beschikbaar. Wat kan ik doen?
+**V:** ik wil het wachtwoord voor StorSimple Snapshot Manager naar een host die verbinding met het StorSimple-apparaat maakt geven, maar het wachtwoord is niet beschikbaar. Wat kan ik doen?
 
 **A:** als u het wachtwoord vergeten bent, moet u een nieuwe maken. Vervolgens moet u alle bestaande gebruikers te informeren dat het wachtwoord is gewijzigd en dat ze hun clients voor het gebruik van het nieuwe wachtwoord moeten bijwerken. Voor instructies gaat u naar:
 
 * [Wijzig het wachtwoord voor StorSimple Snapshot Manager](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)
 * [Een apparaat verifiëren](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**V:** het certificaat voor externe toegang tot de Windows PowerShell voor StorSimple is gewijzigd op het apparaat. Hoe kan ik mijn RAS-clients bijwerken?
+**V:** het certificaat voor externe toegang tot de Windows PowerShell voor StorSimple op het apparaat is gewijzigd. Hoe kan ik mijn RAS-clients bijwerken?
 
-**A:** kunt u het nieuwe certificaat downloaden van de service Manager voor StorSimple-apparaat en vervolgens opgeven in het certificaatarchief van uw RAS-clients moet worden geïnstalleerd. Voor instructies gaat u naar:
+**A:** kunt u het nieuwe certificaat downloaden van de StorSimple Device Manager-service en geef vervolgens deze moet worden geïnstalleerd in het certificaatarchief van de RAS-clients. Voor instructies gaat u naar:
 
-* [De cmdlet certificaat importeren](https://technet.microsoft.com/library/hh848630.aspx)
+* [De cmdlet Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
-**V:** Is mijn gegevens beveiligd als de service Manager voor StorSimple-apparaat is geknoeid?
+**V:** zijn mijn gegevens beveiligd als de service StorSimple Device Manager is geknoeid?
 
-**A:** configuratiegegevens van de Service wordt altijd versleuteld met uw openbare sleutel wanneer u deze in een webbrowser bekijken. Omdat de service heeft geen toegang tot de persoonlijke sleutel, kunnen de service zich niet gegevens ziet. Als de service Manager voor StorSimple-apparaat is geknoeid, zijn er geen gevolgen, omdat er geen sleutels zijn opgeslagen in de service Manager voor StorSimple-apparaat.
+**A:** Service configuratiegegevens worden altijd versleuteld door de openbare sleutel in een webbrowser bekijkt. Omdat de service heeft geen toegang tot de persoonlijke sleutel, is de service niet mogelijk geen gegevens zien. Als de service StorSimple Device Manager is geknoeid, zijn er geen gevolgen als er geen sleutels die zijn opgeslagen in de StorSimple Device Manager-service zijn.
 
-**V:** als iemand toegang tot het certificaat voor de versleuteling krijgt, wordt mijn gegevens worden getroffen?
+**V:** als iemand zich toegang verschaft tot het certificaat voor versleuteling, worden mijn gegevens worden aangetast?
 
-**A:** Microsoft Azure gegevensversleutelingssleutel van de klant (PFX-bestand) in een versleutelde indeling opgeslagen. Omdat het .pfx-bestand is versleuteld en het StorSimple-service beschikt niet over de gegevensversleutelingssleutel van service voor het ontsleutelen van het pfx-bestand, wordt er bij het ophalen van gewoon toegang tot het .pfx-bestand niet geen geheimen blootstellen.
+**A:** Microsoft Azure gegevensversleutelingssleutel van de klant (PFX-bestand) in een versleutelde indeling opgeslagen. Omdat het .pfx-bestand is versleuteld en de StorSimple-service beschikt niet over de versleutelingssleutel voor servicegegevens voor het ontsleutelen van het pfx-bestand, wordt er bij het gewoon de toegang tot het pfx-bestand niet alle geheimen beschikbaar.
 
-**V:** wat er gebeurt als een overheidsinstelling Microsoft om mijn gegevens vraagt?
+**V:** wat er gebeurt als een overheidsinstantie Microsoft voor mijn gegevens vraagt?
 
-**A:** omdat alle gegevens worden versleuteld op de service en de persoonlijke sleutel wordt gehouden met het apparaat, de overheidsinstelling moet de klant gegevens opvragen.
+**A:** omdat alle gegevens worden versleuteld op de service en de persoonlijke sleutel wordt gehouden met het apparaat, de overheidsinstantie de klant moet vragen voor de gegevens.
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM-groottes - opslag | Microsoft Docs
-description: Geeft een lijst van de andere opslag geoptimaliseerd grootten beschikbaar voor virtuele Linux-machines in Azure. Bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor de grootte van deze reeks.
+title: Azure Linux VM-grootten - opslag | Microsoft Docs
+description: Geeft een lijst van de grootten geoptimaliseerd voor verschillende opslag beschikbaar voor virtuele Linux-machines in Azure. Bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslag en doorvoer netwerkbandbreedte voor grootten die in deze reeks.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/11/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 70c478923b2311eb22e7bf66e62d5e8b5b9fe2de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e96a5fa15c531819f58c4d54b2dc933c686122b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653124"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903356"
 ---
-# <a name="storage-optimized-virtual-machine-sizes"></a>Opslag geoptimaliseerd grootten van virtuele machines
+# <a name="storage-optimized-virtual-machine-sizes"></a>Grootten van virtuele machines met geoptimaliseerde opslag
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
@@ -37,4 +37,4 @@ ms.locfileid: "34653124"
 - [Vorige generaties](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het [Azure compute-eenheden (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
+Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.

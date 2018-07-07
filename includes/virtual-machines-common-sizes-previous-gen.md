@@ -5,24 +5,28 @@ services: virtual-machines-windows, virtual-machines-linux
 author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4b4dcb16adf207b775bd8411848d9e5d69c397a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 36902edd7b2df472960d19b8ef9a4ebd4cdfe695
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34669795"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906677"
 ---
-In dit artikel bevat informatie over de vorige generaties van de grootte van virtuele machines. Deze formaten nog kunnen worden gebruikt, maar er zijn nieuwere generaties beschikbaar.
+In dit artikel bevat informatie over eerdere generaties groottes van virtuele machines. Met deze grootten zijn nog steeds kunnen worden gebruikt, maar er zijn nieuwere generaties beschikbaar.
 
 
 ## <a name="ds-series"></a>DS-serie
 
 ACU: 160
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |4 |4000 / 32 (43) |3200 / 32 |2 / 500 |
 | Standard_DS2 |2 |7 |14 |8 |8000 / 64 (86) |6400 / 64 |2 / 1000 |
@@ -35,14 +39,18 @@ ACU: 160
 
 ACU: 160 <sup>1</sup>
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |8 |8000 / 64 (72) |6400 / 64 |2 / 1000 |
 | Standard_DS12 |4 |28 |56 |16 |16.000 / 128 (144) |12.800 / 128 |4 / 2000 |
 | Standard_DS13 |8 |56 |112 |32 |32.000 / 256 (288) |25.600 / 256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |64 |64.000 / 512 (576) |51.200 / 512 |8 / 8000 |
 
-<sup>1</sup> de maximale schijf-doorvoer (IOP's of MBps) mogelijk een DS-serie VM kan worden beperkt door het aantal grootte en striping van de gekoppelde schijven.  Zie [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: opslag met hoge prestaties voor Azure VM-workloads) voor meer informatie.
+<sup>1</sup> de maximale schijfdoorvoer (IOPS of MBps) die mogelijk is met een virtuele machine uit de DS-serie kan worden beperkt door het aantal, grootte en de striping van de gekoppelde schijven.  Zie [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: opslag met hoge prestaties voor Azure VM-workloads) voor meer informatie.
 
 
 
@@ -50,7 +58,11 @@ ACU: 160 <sup>1</sup>
 
 ACU: 160
 
-| Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
+
+| Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 500                 |
 | Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1000                     |
@@ -59,11 +71,15 @@ ACU: 160
 
 <br>
 
-## <a name="d-series---memory-optimized"></a>D-reeks - geoptimaliseerd voor geheugen
+## <a name="d-series---memory-optimized"></a>D-serie - geoptimaliseerd voor geheugen
 
 ACU: 160
 
-| Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
+
+| Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1000                     |
 | Standard_D12 | 4         | 28          | 200            | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 2000                     |
@@ -76,7 +92,11 @@ ACU: 160
 
 ACU: 225
 
-Grootten uit de A8-A11- en H-serie worden ook wel *rekenintensieve exemplaren* genoemd. De hardware waarop deze grootten worden uitgevoerd, is ontworpen en geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen, waaronder HPC-clustertoepassingen (high-performance computing), modellerings- en simulatietoepassingen. De A8-A11-serie gebruikt Intel Xeon E5-2670 @ 2,6 GHZ en de H-serie gebruikt Intel Xeon E5-2667 v3 @ 3,2 GHz.  In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven, en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
+
+Grootten uit de A8-A11- en H-serie worden ook wel *rekenintensieve exemplaren* genoemd. De hardware waarop deze grootten worden uitgevoerd, is ontworpen en geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen, waaronder HPC-clustertoepassingen (high-performance computing), modellerings- en simulatietoepassingen. De A8-A11-serie gebruikt Intel Xeon E5-2670 @ 2,6 GHZ en de H-serie gebruikt Intel Xeon E5-2667 v3 @ 3,2 GHz.  In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven, en NIC's, evenals de doorvoer en netwerkbandbreedte opslag voor elke grootte in deze groepering. 
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (HDD): GiB | Max. aantal gegevensschijven | Max. doorvoer gegevensschijf: IOPS | Max. aantal NIC's|
 | --- | --- | --- | --- | --- | --- | --- |
@@ -85,7 +105,7 @@ Grootten uit de A8-A11- en H-serie worden ook wel *rekenintensieve exemplaren* g
 | Standard_A10 |8 |56 |382 |32 |32 x 500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64 x 500 |4 |
 
-<sup>1</sup>voor MPI-toepassingen, speciaal RDMA back-end-netwerk is ingeschakeld door FDR InfiniBand-netwerk, waardoor ultra laag-latentie en hoge bandbreedte levert.
+<sup>1</sup>voor MPI-toepassingen, toegewezen RDMA-back-endnetwerk is ingeschakeld door FDR InfiniBand-netwerk, die voorziet in een zeer lage latentie en hoge bandbreedte.
 
 <br>
 
@@ -93,7 +113,11 @@ Grootten uit de A8-A11- en H-serie worden ook wel *rekenintensieve exemplaren* g
 
 ACU: 50-100
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (HDD): GiB | Max. aantal gegevensschijven | Max. doorvoer gegevensschijf: IOPS | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht  |
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
+
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (HDD): GiB | Max. aantal gegevensschijven | Max. doorvoer gegevensschijf: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 <sup>1</sup> |1 |0,768 |20 |1 |1 x 500 |2 / 100 |
 | Standard_A1 |1 |1,75 |70 |2 |2 x 500 |2 / 500  |
@@ -105,9 +129,10 @@ ACU: 50-100
 | Standard_A7 |8 |56 |605 |16 |16 x 500 |4 / 2000 |
 <br>
 
-<sup>1</sup> de A0 grootte is te veel geabonneerde op de fysieke hardware. Alleen bij deze specifieke grootte kunnen implementaties van andere klanten invloed hebben op de prestaties van uw uitgevoerde workload. De relatieve prestaties worden hieronder beschreven, zoals de verwachte basislijn, met een variabiliteit van ongeveer 15 procent.
+<sup>1</sup> de A0-grootte wordt overgeschreven naar de fysieke hardware. Alleen bij deze specifieke grootte kunnen implementaties van andere klanten invloed hebben op de prestaties van uw uitgevoerde workload. De relatieve prestaties worden hieronder beschreven, zoals de verwachte basislijn, met een variabiliteit van ongeveer 15 procent.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 - A4 met CLI en PowerShell
+
 In het klassieke implementatiemodel verschillen sommige namen van VM-grootten enigszins in CLI en in PowerShell:
 
 * Standard_A0 is ExtraSmall 
@@ -117,6 +142,10 @@ In het klassieke implementatiemodel verschillen sommige namen van VM-grootten en
 * Standard_A4 is ExtraLarge
 
 ## <a name="basic-a"></a>Basic A
+
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
 
 De basislaaggrootten zijn met name bedoeld voor ontwikkelworkloads en andere toepassingen waarvoor geen taakverdeling, automatische schaling of geheugenintensieve virtuele machines zijn vereist.
 

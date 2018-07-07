@@ -1,6 +1,6 @@
 ---
-title: Functies in LUIS apps in Azure begrijpen | Microsoft Docs
-description: Meer informatie over de functies, die een LUIS-app-prestaties te verbeteren. Functies omvatten woordgroep lijsten en patronen voor het herkennen van reguliere expressies.
+title: Informatie over functies in LUIS-apps in Azure | Microsoft Docs
+description: Meer informatie over functies die een LUIS-app-prestaties te verbeteren. Functies omvatten woordgroep lijsten en patronen voor het herkennen van reguliere expressies.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,55 +9,55 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: v-geberr
-ms.openlocfilehash: 416fadaf52d7a71dcaab81aab3bf6099213e5af5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 597948947303b7fdf16f24576620d6f39d7c51f4
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35350056"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887443"
 ---
 # <a name="phrase-list-features-in-luis"></a>Woordgroep lijst met functies in LUIS
 
-In machine learning, een *functie* is een onderscheidende kenmerk hebben of kenmerk van de gegevens die uw systeem toetsenbordinvoer. 
+In machine learning, een *functie* is een onderscheidende eigenschap of kenmerk van de gegevens die uw systeem toetsenbordinvoer. 
 
-Functies toevoegen aan een taalmodel hints over het herkennen van invoer die u wilt markeren of classificeren geven. Functies zorgen LUIS herkent zowel intents en entiteiten, maar functies zijn niet intents of entiteiten zelf. Functies mogelijk in plaats daarvan vindt u voorbeelden van de bijbehorende voorwaarden.  
+Functies toevoegen aan een taalmodel voor tips over het herkennen van de invoer die u wilt een label of classificeren. Functies helpen LUIS zowel intenties en entiteiten herkennen, maar functies zijn niet intents of entiteiten zelf. Functies mogelijk in plaats daarvan vindt u voorbeelden van de bijbehorende voorwaarden.  
 
 ## <a name="what-is-a-phrase-list-feature"></a>Wat is een functie van de lijst woordgroep?
-Een woordgroepenlijst bevat een groep waarden (woorden of zinnen) die deel uitmaken van dezelfde klasse en op dezelfde manier (bijvoorbeeld namen van steden of producten) moet worden behandeld. LUIS gegevens verzamelt over één hiervan wordt automatisch toegepast op de andere. Dit is niet gesloten [entiteit lijst](luis-concept-entity-types.md#types-of-entities) (exacte tekst) van overeenkomende woorden.
+Een woordgroepenlijst bevat een reeks waarden (woorden of zinsdelen) die deel uitmaken van dezelfde klasse en op dezelfde manier (bijvoorbeeld de namen van steden of producten) moet worden behandeld. LUIS leert over een van beide wordt automatisch toegepast op de andere. Dit is niet een gesloten [entiteit lijst](luis-concept-entity-types.md#types-of-entities) (exacte overeenkomsten tekst) van de overeenkomende woorden.
 
-Een woordgroepenlijst wordt toegevoegd aan de woordenlijst van het domein van de app als een tweede signaal LUIS over deze woorden.
+Een woordgroepenlijst wordt toegevoegd aan het vocabulaire van het domein van de app als een tweede signaal dat moet worden LUIS over deze woorden.
 
-## <a name="how-to-use-phrase-lists"></a>Het gebruik van een lijst met woordgroep
-Maken in een app reizen agent een wachtwoordzin op te geven met de naam 'Steden' lijst die de waarden, Londen, Parijs en Caïro bevat. Als u een van deze waarden als een eenvoudige entiteit in een label een [voorbeeld utterance](luis-how-to-add-example-utterances.md#add-simple-entity-label) in de opzet LUIS leert voor het herkennen van de andere. 
+## <a name="how-to-use-phrase-lists"></a>Het gebruik van een lijst met woorden
+In een agent reis-app, een woordgroepenlijst is met de naam "Steden" met de waarden, Londen, Parijs en Cairo te maken. Als u een van deze waarden als een enkele entiteit in een label een [voorbeeld utterance](luis-how-to-add-example-utterances.md#add-simple-entity-label) in opzet, LUIS te leren herkennen de andere. 
 
-Een woordgroepenlijst mogelijk uitwisselbaar of niet-verwisselbaar. Een *uitwisselbaar* woordgroepenlijst is voor waarden die synoniemen zijn, en een *niet uitwisselbaar* woordgroepenlijst is bedoeld voor waarden die niet zijn synoniemen maar lijken op een andere manier. 
+Een woordgroepenlijst kan niet onderling verwisselbaar of niet-verwisselbaar. Een *uitwisselbaar* woordgroepenlijst is voor waarden die synoniemen worden, en een *niet uitwisselbaar* woordgroepenlijst is bedoeld voor waarden die niet worden synoniemen, maar zijn vergelijkbaar in een andere manier. 
 
-## <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>Woordgroep bevat help eenvoudige exchangeable entiteiten identificeren
-Exchangeable woordgroep lijsten zijn een goede manier om het afstemmen van de prestaties van uw app LUIS. Als uw app problemen met het voorspellen van utterances naar de juiste bedoeling of te herkennen entiteiten heeft, moet u bedenken dat de utterances ongebruikelijke woorden of woorden die mogelijk niet eenduidig in betekenis bevatten. Deze woorden zijn goede kandidaten moeten worden opgenomen in een lijst van de wachtwoordzin op te geven.
+## <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>Woordgroep geeft een lijst van de help eenvoudige exchangeable entiteiten identificeren
+Exchangeable woordgroep lijsten zijn een goede manier om af te stemmen van de prestaties van uw LUIS-app. Als uw app problemen bij het voorspellen van uitingen met de juiste intent of entiteiten herkennen heeft, moet u bedenken dat de uitingen ongebruikelijke woorden of woorden die mogelijk niet-eenduidige in betekenis bevatten. Deze woorden zijn goede kandidaten om op te nemen in een woordgroepenlijst met.
 
-## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Woordgroep bevat help intents identificeren door betere understanding context
-Woordgroep lijsten voor zeldzame, eigen en externe woorden gebruiken. LUIS is mogelijk niet worden herkend zeldzame en eigen woorden, evenals vreemde woorden (buiten de cultuur van de app) en daarom ze moeten worden toegevoegd aan de lijst van een wachtwoordzin op te geven. Deze woordgroepenlijst moet de status niet-verwisselbaar, om aan te geven dat de set van zeldzame woorden een klasse die LUIS moet meer vormt herkennen, maar ze geen synoniemen zijn of uitwisselbaar met elkaar.
+## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Woordgroep geeft een lijst van de help intents identificeren door beter inzicht in context
+Woordgroep lijsten voor zeldzaam, eigen en externe woorden gebruiken. LUIS is mogelijk niet worden herkend zeldzame en eigen woorden, evenals de woorden in vreemde talen (buiten de cultuur van de app) en daarom moeten ze worden toegevoegd aan een woordgroepenlijst. Deze woordgroepenlijst moet worden gemarkeerd, niet-verwisselbaar, om aan te geven dat de set zeldzaam woorden vormt een klasse die LUIS moet leren herkennen, maar ze niet synoniemen zijn of uitwisselbaar met elkaar.
 
-Een woordgroepenlijst is niet een instructie voor LUIS uitvoeren strikte overeenkomende of alle voorwaarden in de woordgroepenlijst altijd label precies hetzelfde. Het is gewoon een hint. Bijvoorbeeld, kan er een woordgroepenlijst die aangeeft dat 'Patti' en 'Selma' namen zijn, maar LUIS nog steeds contextuele informatie kunt gebruiken voor het herkennen van dat ze iets anders in "Maak een reservering voor 2 op de Patti Diner voor diner" en "vijf me besturen betekenen aanwijzingen voor het Selma, Georgia'. 
+Een woordgroepenlijst is niet een instructie aan LUIS uit te voeren strikte die overeenkomen met of alle voorwaarden in de woordgroepenlijst met altijd label precies hetzelfde. Het is gewoon een hint. Bijvoorbeeld, u kunt een woordgroepenlijst die aangeeft dat "Patti" en "Selma" namen zijn hebben, maar LUIS kunt contextuele informatie nog steeds gebruiken voor het herkennen van dat ze iets anders in betekenen 'Maak een reservering voor 2 op de Patti Diner voor diner' en 'vinden me te stimuleren aanwijzingen voor het Selma, Georgië'. 
 
-Toevoegen van een woordgroepenlijst vormt een alternatief voor het meer voorbeeld utterances toe te voegen aan de opzet. 
+Toevoegen van een woordgroepenlijst vormt een alternatief voor het toevoegen van meer voorbeeld uitingen aan een doel. 
 
-## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Wanneer gebruikt u lijsten woordgroep versus lijst entiteiten
-Een woordgroepenlijst zowel lijst entiteiten kunnen utterances over alle intents beïnvloeden, wordt elk dit op een andere manier. Gebruik een woordgroep lijst met opzet voorspelling score beïnvloeden. Een entiteit lijst gebruiken bij het uitpakken van de entiteit voor een overeenkomst exact tekst. 
+## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Wanneer u lijsten woordgroep ten opzichte van de lijst met entiteiten
+Zowel een woordgroep en lijst met entiteiten kunnen uitingen over alle intents beïnvloeden, elk gebeurt op een andere manier. Een woordgroepenlijst met gebruiken om te bepalen van intentie voorspelling score. Een lijst met entiteit gebruiken voor het extraheren van entiteiten af voor een overeenkomst exact overeenkomende tekst van invloed zijn op. 
 
-### <a name="use-a-phrase-list"></a>Een woordgroepenlijst gebruiken
-LUIS kan nog steeds een lijst woordgroep rekening gehouden met context en generalize om te identificeren van items die vergelijkbaar zijn met, maar niet een exacte overeenkomst als items in een lijst. Als u uw app LUIS kunnen generaliseren en identificeren van nieuwe items in een categorie nodig hebt, moet u een woordgroepenlijst gebruiken. 
+### <a name="use-a-phrase-list"></a>Gebruik een zin-lijst
+LUIS kunt nog steeds met een woordgroepenlijst rekening gehouden met context en generaliseren voor het identificeren van items die vergelijkbaar zijn met, maar niet een exacte overeenkomst als items in een lijst. Als u uw LUIS-app moet kunnen generaliseren en nieuwe items in een categorie te identificeren, gebruikt u een woordgroepenlijst met. 
 
-Als u kunnen herkennen van nieuwe exemplaren van een entiteit, zoals een vergadering scheduler die herkennen wilt, moet de namen van nieuwe contactpersonen of een inventarisatie-app die, nieuwe producten herkennen moet gebruiken een ander type entiteit machine geleerd zoals een eenvoudige of hiërarchische entiteit. Maak vervolgens een woordgroepenlijst met woorden en woordgroepen waarmee LUIS andere woorden zoeken die lijken op de entiteit. Deze lijst begeleidt LUIS dat voorbeelden van de entiteit wordt herkend door aanvullende significante toe te voegen aan de waarde van deze woorden. 
+Als u mogelijk wilt voor het herkennen van nieuwe instanties van een entiteit, zoals een vergadering scheduler die de namen van nieuwe contactpersonen of een inventarisatie-app die, nieuwe producten herkennen moet, moet herkennen gebruiken een ander type machine geleerd entiteit, zoals een eenvoudige of hiërarchische entiteit. Maak vervolgens een woordgroepenlijst met woorden en zinnen waarmee LUIS andere woorden die vergelijkbaar is met de entiteit zoeken. Deze lijst begeleidt LUIS zodat voorbeelden van de entiteit worden herkend door extra betekenis toe te voegen aan de waarde van deze woorden. 
 
-Woordgroep lijsten zijn zoals domeinspecifieke woordenlijst die u helpen bij het verbeteren van de kwaliteit van de kennis van intents en -entiteiten. Een algemene informatie over het gebruik van een woordgroepenlijst is juiste woorden zoals de plaatsnamen van. Naam van een stad mag verschillende woorden inclusief afbreekstreepjes of enkele aanhalingstekens.
+Een lijst met woorden zijn domeinspecifieke-woordenlijst die u helpen bij het verbeteren van de kwaliteit van het inzicht van zowel intenties en entiteiten. Een veelvoorkomend gebruik van een woordgroepenlijst is de juiste zelfstandige naamwoorden, zoals plaatsnamen. Naam van een plaats kan meerdere woorden, inclusief afbreekstreepjes of apostroffen zijn.
  
-### <a name="dont-use-a-phrase-list"></a>Een woordgroepenlijst niet gebruiken 
-Een entiteit van de lijst wordt elke waarde in een entiteit kan duren, en identificeert alleen waarden die exact overeenkomen. Een entiteit lijst mogelijk geschikt is voor een app waarin alle exemplaren van een entiteit bekend zijn en vaak, zoals de voeding items in een restaurantmenu die niet vaak veranderen niet te wijzigen. Als u een overeenkomst exact tekst van een entiteit moet, gebruik niet een lijst van de wachtwoordzin op te geven. 
+### <a name="dont-use-a-phrase-list"></a>Gebruik niet een woordgroepenlijst met 
+Een lijst met entiteiten definieert expliciet elke waarde in een entiteit kan duren, en identificeert alleen waarden die precies overeenkomen. Een lijst met entiteit mogelijk geschikt is voor een app waarin alle exemplaren van een entiteit bekend zijn en niet vaak wijzigen, zoals de food items in een restaurantmenu die veelvuldig wordt gewijzigd. Als u een overeenkomst exact overeenkomende tekst van een entiteit nodig hebt, gebruik niet een woordgroepenlijst met. 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
-Meer informatie over [aanbevolen procedures](luis-concept-best-practices.md).
+Informatie over [aanbevolen procedures](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [onderdelen toevoegen](luis-how-to-add-features.md) voor meer informatie over het toevoegen van functies aan uw app LUIS.
+Zie [onderdelen toevoegen](luis-how-to-add-features.md) voor meer informatie over hoe u functies toevoegt aan uw LUIS-app.

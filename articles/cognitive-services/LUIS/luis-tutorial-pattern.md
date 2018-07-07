@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 9793b98c384346dc0de68061d42b4bcb3c513ed4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 12105829f62b988760d3bbf18000466fd27b9aff
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866199"
+ms.locfileid: "37888327"
 ---
 # <a name="tutorial-use-patterns-to-improve-predictions"></a>Zelfstudie: Gebruiken om patronen te verbeteren van voorspellingen
 
@@ -29,7 +29,7 @@ In deze zelfstudie gebruiken u patronen voor het verhogen van de intentie en ent
 * Een rol toevoegen aan een entiteit contextueel op basis van entiteiten zoeken
 * Een Pattern.any om te zoeken vrije entiteiten toevoegen
 
-Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md)-account nodig om uw LUIS-toepassing te creëren.
 
 ## <a name="import-humanresources-app"></a>Personeelszaken-app importeren
 In deze zelfstudie worden geïmporteerd van een app personeelszaken. De app heeft drie intents: None, GetEmployeeOrgChart, GetEmployeeBenefits. De app heeft twee entiteiten: vooraf gedefinieerde aantal en de werknemer. De werknemer entiteit is een eenvoudige entiteit om op te halen van de naam van een werknemer. 
@@ -250,6 +250,4 @@ Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Om dit te d
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Lijst van woordgroep gebruiken voor het verbeteren van de voorspelling](luis-tutorial-interchangeable-phrase-list.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Informatie over aanbevolen procedures voor LUIS-apps](luis-concept-best-practices.md)

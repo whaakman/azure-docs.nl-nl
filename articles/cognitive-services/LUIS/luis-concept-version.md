@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 694b195440936a6eb42520c3343b6ff13194cc79
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f897a3c85bebff3c4534679d45e8af49aacba44a
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346328"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888113"
 ---
 # <a name="versions"></a>Versies
 Maken van verschillende modellen van dezelfde app met [versies](luis-how-to-manage-versions.md). 
@@ -26,7 +26,7 @@ De versie-ID bestaat uit tekens, cijfers of '.' en mag niet langer zijn dan 10 t
 De oorspronkelijke versie (0,1) is de standaard-active-versie. 
 
 ## <a name="active-version"></a>Actieve versie
-Naar [instellen van een versie](luis-how-to-manage-versions.md#set-active-version) als de actieve betekent dat momenteel wordt bewerkt en getest in de [LUIS] [ LUIS] website. Een versie instellen als actief toegang tot de gegevens, moet ook worden bijgewerkt, te testen en publiceren.
+Naar [instellen van een versie](luis-how-to-manage-versions.md#set-active-version) als de actieve betekent dat momenteel wordt bewerkt en getest in de [LUIS](luis-reference-regions.md) website. Een versie instellen als actief toegang tot de gegevens, moet ook worden bijgewerkt, te testen en publiceren.
 
 De naam van de momenteel actieve versie wordt weergegeven in het deelvenster linkerbovenhoek na de naam van de app. 
 
@@ -62,5 +62,3 @@ De eigenaar en alle [samenwerkers](luis-how-to-collaborate.md) hebben volledige 
 Zie how to add [versiebeheer](luis-how-to-manage-versions.md) op de pagina app-instellingen. 
 
 Meer informatie over het ontwerpen van [intents](luis-concept-intent.md) in het model.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

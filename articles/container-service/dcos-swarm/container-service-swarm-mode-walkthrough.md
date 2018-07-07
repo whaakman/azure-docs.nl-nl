@@ -2,19 +2,19 @@
 title: 'Quick Start: Azure Docker CE-cluster voor Linux'
 description: Leer snel hoe u een Docker CE-cluster voor Linux-containers in Azure Container Service maakt met de Azure CLI.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: cd52982fc650d5fd3b4edd8513946a721306a451
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 46e93953ba8db141b99b14aa78674e85b343adbc
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164088"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903386"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Docker CE-cluster implementeren
 
@@ -58,7 +58,7 @@ Maak een Dock CE-cluster in Azure Container Service met de opdracht [az acs crea
 In het volgende voorbeeld wordt een cluster gemaakt met de naam *mySwarmCluster* met een Linux-hoofdknooppunt en drie knooppunten van de Linux-agent.
 
 ```azurecli-interactive
-az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
+az acs create --name mySwarmCluster --orchestrator-type swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 In sommige gevallen, zoals met een beperkte proefversie, heeft een Azure-abonnement beperkte toegang tot Azure-resources. Als de implementatie mislukt vanwege beperkte beschikbare kernen, verminder dan het aantal standaardagenten door `--agent-count 1` toe te voegen aan de opdracht [az acs create](/cli/azure/acs#az_acs_create). 

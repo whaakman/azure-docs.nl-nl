@@ -1,7 +1,7 @@
 ---
-title: Een LUIS App programmatisch met behulp van Node.js | Microsoft Docs
+title: Bouw een LUIS-app via een programma met behulp van Node.js | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het bouwen van een app LUIS programmatisch van bestaande gegevens in CSV-indeling met behulp van de API LUIS ontwerpen.
+description: Meer informatie over het bouwen van een LUIS-app via een programma uit bestaande gegevens in CSV-indeling met behulp van het ontwerpen van LUIS-API.
 services: cognitive-services
 author: DeniseMak
 manager: rstand
@@ -10,45 +10,45 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: e97dc184266bc9518ee5f909891bd97f7c71804b
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 54c7565dd00305d3ce1faba5d7cc5616c53dd026
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113049"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888153"
 ---
-# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Een LUIS App programmatisch met behulp van Node.js
+# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Bouw een LUIS-app via een programma met behulp van Node.js
 
-LUIS biedt een programmatische API die alles die werkt de [LUIS] [ LUIS] website komt. Dit bespaart tijd wanneer u bestaande gegevens en het normaal zou zijn sneller maken van een app LUIS programmatisch dan door de gegevens handmatig invoeren. 
+LUIS, biedt een programmeer-API die alles die werkt de [LUIS](luis-reference-regions.md) website heeft. Dit bespaart tijd wanneer u bestaande gegevens en het normaal zou zijn sneller te maken van een LUIS-app via een programma dan door de gegevens handmatig invoeren. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Meld u aan bij de [LUIS] [ LUIS] website en zoek uw [authoring sleutel](luis-concept-keys.md#authoring-key) in Accountinstellingen. U gebruikt deze sleutel om aan te roepen de ontwerp-API's.
+* Meld u aan bij de [LUIS](luis-reference-regions.md) website en zoek uw [ontwerpen sleutel](luis-concept-keys.md#authoring-key) in Accountinstellingen. U gebruikt deze sleutel voor het aanroepen van de API's voor ontwerpen.
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-* Deze zelfstudie begint met een CSV voor een hypothetische bedrijf logboekbestanden van aanvragen van gebruikers. Download deze [hier](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
-* Installeer de meest recente Node.js met NPM. Downloaden van [hier](https://nodejs.org/en/download/).
-* **(Aanbevolen)**  Visual Studio Code voor IntelliSense en foutopsporing, downloaden via [hier](https://code.visualstudio.com/) gratis.
+* Deze zelfstudie begint met een CSV voor de logboekbestanden van een fictieve bedrijf aanvragen van gebruikers. Download het [hier](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* Installeer de meest recente Node.js met NPM. Dit ook downloaden via [hier](https://nodejs.org/en/download/).
+* **(Aanbevolen)**  Visual Studio Code IntelliSense en foutopsporing kunt uitvoeren, downloadt u dit via [hier](https://code.visualstudio.com/) gratis.
 
-## <a name="map-preexisting-data-to-intents-and-entities"></a>Bestaande kaartgegevens intents en entiteiten
-Zelfs als er een systeem dat niet is gemaakt met LUIS in gedachten, als deze tekstuele gegevens bevat die is toegewezen aan verschillende dingen gebruikers wilt doen, kunt u mogelijk met een toewijzing van de bestaande categorieën van gebruikersinvoer in intents in LUIS komen. Als u belangrijke woorden of zinnen in wat de gebruikers gezegd identificeren kunt, kunnen deze woorden toewijzen aan entiteiten.
+## <a name="map-preexisting-data-to-intents-and-entities"></a>Bestaande gegevens worden toegewezen aan intenties en entiteiten
+Zelfs als u een systeem dat niet is gemaakt met LUIS Denk eraan dat u hebt als het tekstuele gegevens bevat die is toegewezen aan gebruikers verschillende dingen wilt doen, is het mogelijk dat u kunnen komen met een toewijzing van de bestaande categorieën van de invoer van de gebruiker naar intents in LUIS. Als u belangrijke woorden of zinsdelen in wat de gebruikers gezegd identificeren kunt, kunnen deze woorden toewijzen aan entiteiten.
 
-Open het `IoT.csv`-bestand. Het bevat een logboek van gebruikersquery's naar een hypothetische thuis Automatiseringsservice, met inbegrip van hoe ze zijn gecategoriseerd, wat de gebruiker gezegd en sommige kolommen met nuttige informatie opgehaald buiten deze. 
+Open het `IoT.csv`-bestand. Het bevat een logboek van query's van gebruikers naar een hypothetische home automation-service, met inbegrip van hoe ze zijn gecategoriseerd, wat de gebruiker gezegd en sommige kolommen met nuttige informatie die buiten deze worden opgehaald. 
 
 ![CSV-bestand](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
-U ziet dat de **RequestType** kolom kan worden intents, en de **aanvragen** kolom ziet u een voorbeeld utterance. De andere velden kunnen entiteiten zijn als ze in de utterance optreden. Omdat er intents en entiteiten voorbeeld utterances, hebt u de vereisten voor een eenvoudig voorbeeld-app.
+U ziet dat de **RequestType** kolom intents, kan worden en de **aanvragen** kolom ziet u een voorbeeld-utterance. De andere velden kunnen entiteiten zijn als ze zich in de utterance voordoen. Omdat er intenties en entiteiten voorbeeld uitingen, hebt u de vereisten voor een eenvoudige, voorbeeld-app.
 
-## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>Stappen voor het genereren van een app LUIS van niet-LUIS gegevens
-Voor het genereren van een nieuwe LUIS-app uit het bronbestand, eerst u de gegevens van het CSV-bestand parseren en deze gegevens converteren naar een indeling die u kunt uploaden naar LUIS met behulp van de API ontwerpen. Van de geparseerde gegevens kunt u informatie verzamelen over wat intents en entiteiten er zijn. Vervolgens u API-aanroepen voor het maken van de app en voeg intents en entiteiten die zijn verzameld van de geparseerde gegevens. Nadat u de app LUIS hebt gemaakt, kunt u de voorbeeld-utterances toevoegen van de geparseerde gegevens. Hier ziet u deze overdracht in het laatste deel van de volgende code. Kopieer of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/index.js) deze code en opgeslagen in `index.js`.
+## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>Stappen voor het genereren van een LUIS-app van niet-LUIS-gegevens
+Voor het genereren van een nieuwe LUIS-app uit het bronbestand, eerst u de gegevens uit het CSV-bestand parseren en deze gegevens omzetten in een indeling die u kunt uploaden naar LUIS met behulp van de API ontwerpen. Van de geparseerde gegevens, kunt u informatie verzamelen over wat intenties en entiteiten er zijn. Vervolgens u API-aanroepen om de app te maken, en intenties en entiteiten die zijn verzameld van de geparseerde gegevens toevoegen. Als u de LUIS-app hebt gemaakt, kunt u de voorbeeld-uitingen van de geparseerde gegevens toevoegen. Hier ziet u deze stroom in het laatste deel van de volgende code. Kopiëren of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/index.js) deze code en sla het op in `index.js`.
 
    [!code-javascript[Node.js code for calling the steps to build a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/index.js)]
 
 
 ## <a name="parse-the-csv"></a>Parseren van de CSV
 
-De kolom posten met de utterances CSV hebben om te worden geparseerd naar een JSON-indeling die LUIS kunt begrijpen. Deze JSON-indeling moet bevatten een `intentName` veld dat de doelstelling van de utterance identificeert. Ook moet het bevatten een `entityLabels` veld kan niet leeg zijn als er geen entiteiten in de utterance zijn. 
+De gegevens van de kolom die bestaan uit de uitingen in de CSV moeten worden geparseerd in een JSON-indeling die LUIS kan begrijpen. Deze JSON-indeling moet bevatten een `intentName` veld dat de intentie van de utterance identificeert. Het moet ook bevatten een `entityLabels` veld, die kan niet leeg zijn als er geen entiteiten in de utterance. 
 
-De vermelding voor 'De lichten inschakelen' is toegewezen aan deze JSON:
+Bijvoorbeeld, wordt de vermelding voor 'Inschakelen voor de verlichting' toegewezen aan deze JSON:
 
 ```json
         {
@@ -69,33 +69,33 @@ De vermelding voor 'De lichten inschakelen' is toegewezen aan deze JSON:
         }
 ```
 
-In dit voorbeeld wordt de `intentName` afkomstig is van de aanvraag van de gebruiker onder de **aanvraag** kolomkop in het CSV-bestand en de `entityName` afkomstig is van de andere kolommen met belangrijke informatie. Bijvoorbeeld, als er een vermelding voor **bewerking** of **apparaat**, en dat tekenreeks vindt ook plaats in de huidige aanvraag en deze kan worden aangemerkt als een entiteit. De volgende code toont dit proces te parseren. U kunt kopiëren of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_parse.js) deze en opslaan voor `_parse.js`.
+In dit voorbeeld wordt de `intentName` afkomstig is van de aanvraag van de gebruiker onder de **aanvraag** kolomkop in het CSV-bestand en de `entityName` afkomstig is van de andere kolommen met belangrijke informatie. Bijvoorbeeld, als er een vermelding voor **bewerking** of **apparaat**, en dat tekenreeks vindt ook plaats in de werkelijke aanvraag en deze kan worden aangemerkt als een entiteit. De volgende code toont dit proces te parseren. U kunt kopiëren of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_parse.js) het en sla deze op `_parse.js`.
 
    [!code-javascript[Node.js code for parsing a CSV file to extract intents, entities, and labeled utterances](~/samples-luis/examples/build-app-programmatically-csv/_parse.js)]
 
 
 
-## <a name="create-the-luis-app"></a>De app LUIS maken
-Toevoegen aan een app LUIS zodra de gegevens zijn geparseerd naar JSON. De volgende code maakt de LUIS-app. Kopieer of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_create.js) , en op te slaan in `_create.js`.
+## <a name="create-the-luis-app"></a>De LUIS-app maken
+Zodra de gegevens heeft zijn geparseerd in JSON, kunt u deze aan een LUIS-app toevoegen. De volgende code wordt de LUIS-app gemaakt. Kopiëren of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_create.js) , en op te slaan in `_create.js`.
 
    [!code-javascript[Node.js code for creating a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/_create.js)]
 
 
 ## <a name="add-intents"></a>Intents toevoegen
-Zodra u een app hebt, moet u intents aan. De volgende code maakt de LUIS-app. Kopieer of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_intents.js) , en op te slaan in `_intents.js`.
+Nadat u een app hebt, moet u intents toe. De volgende code wordt de LUIS-app gemaakt. Kopiëren of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_intents.js) , en op te slaan in `_intents.js`.
 
    [!code-javascript[Node.js code for creating a series of intents](~/samples-luis/examples/build-app-programmatically-csv/_intents.js)]
 
 
 ## <a name="add-entities"></a>Entiteiten toevoegen
-De volgende code wordt de entiteiten in de app LUIS toegevoegd. Kopieer of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_entities.js) , en op te slaan in `_entities.js`.
+De volgende code wordt de entiteiten toevoegt aan de LUIS-app. Kopiëren of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_entities.js) , en op te slaan in `_entities.js`.
 
    [!code-javascript[Node.js code for creating entities](~/samples-luis/examples/build-app-programmatically-csv/_entities.js)]
    
 
 
 ## <a name="add-utterances"></a>Utterances toevoegen
-Zodra de entiteiten en intents zijn gedefinieerd in de app LUIS, kunt u de utterances toevoegen. De volgende code gebruikt de [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API, zodat u kunt maximaal 100 utterances tegelijk toevoegen.  Kopieer of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js) , en op te slaan in `_upload.js`.
+Zodra de intenties en entiteiten zijn gedefinieerd in de LUIS-app, kunt u de uitingen toevoegen. De volgende code gebruikt de [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API, zodat u kunt maximaal 100 uitingen tegelijk toevoegen.  Kopiëren of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js) , en op te slaan in `_upload.js`.
 
    [!code-javascript[Node.js code for adding utterances](~/samples-luis/examples/build-app-programmatically-csv/_upload.js)]
 
@@ -104,16 +104,16 @@ Zodra de entiteiten en intents zijn gedefinieerd in de app LUIS, kunt u de utter
 
 
 ### <a name="install-nodejs-dependencies"></a>Installeer Node.js-afhankelijkheden
-De Node.js-afhankelijkheden van NPM in de terminal/opdrachtregel installeren.
+De Node.js-afhankelijkheden installeren vanuit NPM in de terminal/opdrachtregel.
 
 ````
 > npm install
 ````
 
 ### <a name="change-configuration-settings"></a>Configuratie-instellingen wijzigen
-Om deze toepassing gebruiken, moet u de waarden in het bestand index.js wijzigen voor de eindpuntsleutel van uw eigen en geef de naam die u wilt dat de app te hebben. U kunt ook de cultuur van de app instellen of wijzigen van het versienummer.
+Om deze toepassing gebruikt, moet u de waarden in het bestand index.js wijzigen naar de eindpuntsleutel van uw eigen en geeft u de naam die u wilt dat de app hebben. U kunt ook de cultuur van de app instellen of wijzigen van het versienummer.
 
-Open het bestand index.js en deze waarden boven aan het bestand te wijzigen.
+Open het bestand index.js en deze waarden aan de bovenkant van het bestand te wijzigen.
 
 
 ````JavaScript
@@ -124,7 +124,7 @@ const LUIS_appCulture = "en-us";
 const LUIS_versionId = "0.1";
 ````
 ### <a name="run-the-script"></a>Het script uitvoeren
-Voer het script vanaf een terminal opdrachtregel met behulp van Node.js.
+Voer het script uit vanaf de terminal/opdrachtregel met behulp van Node.js.
 
 ````
 > node index.js
@@ -135,7 +135,7 @@ of
 ````
 
 ### <a name="application-progress"></a>Voortgang van de toepassing
-Terwijl de toepassing wordt uitgevoerd, wordt de opdrachtregel voortgang. De opdrachtregel-uitvoer bevat de indeling van de antwoorden van LUIS.
+Terwijl de toepassing wordt uitgevoerd, ziet u de opdrachtregel wordt uitgevoerd. De uitvoer van de opdracht bevat de indeling van de antwoorden van LUIS.
 
 ````
 > node index.js
@@ -162,8 +162,8 @@ upload done
 
 
 
-## <a name="open-the-luis-app"></a>Open de app LUIS
-Nadat het script is voltooid, kunt u zich aanmelden bij [LUIS] [ LUIS] en de LUIS-App die u hebt gemaakt onder **mijn Apps**. U moet kunnen zien van de utterances u toegevoegd onder de **inschakelen**, **uitschakelen**, en **geen** intents.
+## <a name="open-the-luis-app"></a>Open de LUIS-app
+Nadat het script is voltooid, kunt u zich aanmeldt bij [LUIS](luis-reference-regions.md) en de LUIS-App die u hebt gemaakt onder **mijn Apps**. U zou het mogelijk om te zien van de uitingen die u hebt toegevoegd onder de **inschakelen**, **uitschakelen**, en **geen** intents.
 
 ![De bedoeling inschakelen](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
@@ -171,15 +171,12 @@ Nadat het script is voltooid, kunt u zich aanmelden bij [LUIS] [ LUIS] en de LUI
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Testen en training van uw app in LUIS website](interactive-test.md)
+> [Testen en trainen van uw app in de website van LUIS](interactive-test.md)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-Deze voorbeeldtoepassing gebruikt de volgende LUIS APIs:
+Deze voorbeeldtoepassing gebruikmaakt van de volgende LUIS APIs:
 - [app maken](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [intents toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
 - [entiteiten toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [utterances toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
-
+- [utterances toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)

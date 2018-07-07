@@ -1,6 +1,6 @@
 ---
-title: Het registreren van gebeurtenissen voor Azure Event Hubs in Azure API Management | Microsoft Docs
-description: Informatie over het vastleggen van gebeurtenissen in Azure Event Hubs in Azure API Management.
+title: Hoe u gebeurtenissen registreren bij Azure Event Hubs in Azure API Management | Microsoft Docs
+description: Leer hoe u gebeurtenissen registreren bij Azure Event Hubs in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 2334aefdfb442054226ef6d7d55a8c097a433565
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 496928697af069f773e47974129bb7d3de3e1cbc
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316320"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886968"
 ---
-# <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Het registreren van gebeurtenissen voor Azure Event Hubs in Azure API Management
-Azure Event Hubs is een zeer schaalbare service voor inkomende gegevens die miljoenen gebeurtenissen per seconde kan opnemen, voor verwerking en analyse van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Event Hubs fungeert als de 'voordeur' van een gebeurtenispijplijn en zodra gegevens zijn verzameld in een event hub, kunnen worden omgezet en opgeslagen met een realtime-analyseprovider of batchverwerking/opslagadapters. Event Hubs koppelt de productie van een gebeurtenissenstroom los van het gebruik van deze gebeurtenissen, zodat de consumenten ervan toegang hebben tot de gebeurtenissen op basis van hun eigen planning.
+# <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Hoe u gebeurtenissen registreren bij Azure Event Hubs in Azure API Management
+Azure Event Hubs is een zeer schaalbare service voor inkomende gegevens die miljoenen gebeurtenissen per seconde kan opnemen, voor verwerking en analyse van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Eventhubs fungeert als de 'voordeur' van een gebeurtenispijplijn en zodra de gegevens zijn verzameld in een event hub, kunnen worden omgezet en opgeslagen met elke gewenste realtime analyseprovider of batching/opslagadapters. Event Hubs koppelt de productie van een gebeurtenissenstroom los van het gebruik van deze gebeurtenissen, zodat de consumenten ervan toegang hebben tot de gebeurtenissen op basis van hun eigen planning.
 
-Dit artikel is een aanvulling op de [Azure API Management integreren met Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video en wordt beschreven hoe u API Management-gebeurtenissen met Azure Event Hubs.
+In dit artikel is een aanvulling op de [Azure API Management integreren met Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video en wordt beschreven hoe u API Management-gebeurtenissen met Azure Event Hubs.
 
 ## <a name="create-an-azure-event-hub"></a>Een Azure Event Hub maken
 
-Zie voor gedetailleerde stappen voor het maken van een event hub en ophalen van verbindingsreeksen die u nodig hebt voor het verzenden en ontvangen van gebeurtenissen naar en van de Event Hub [een Event Hubs-naamruimte en een event hub met de Azure portal maken](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+Zie voor gedetailleerde stappen voor het maken van een event hub en verbindingsreeksen die u nodig hebt voor het verzenden en ontvangen van gebeurtenissen naar en van de Event Hub ophalen [maken van een Event Hubs-naamruimte en een event hub met behulp van de Azure-portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-## <a name="create-an-api-management-logger"></a>Maken van een API Management-logboek
-Nu dat u een Event Hub hebt, de volgende stap is voor het configureren van een [berichtenlogboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) in uw API Management-service zodat deze gebeurtenissen in de Event Hub vastleggen kan.
+## <a name="create-an-api-management-logger"></a>Een API Management-logger maken
+Nu dat u een Event Hub hebt, de volgende stap is het configureren van een [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) in uw API Management-service die gebeurtenissen naar de Event Hub zich kan aanmelden.
 
-API Management voorkomen zijn geconfigureerd met behulp van de [API Management REST API](http://aka.ms/smapi). Controleer voordat u de REST-API voor het eerst gebruikt, de [vereisten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) en zorg ervoor dat er [toegang tot de REST-API ingeschakeld](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
+U kunt API Management zijn geconfigureerd met behulp van de [API Management REST API](http://aka.ms/smapi). Controleer voordat u de REST-API voor het eerst gebruikt, de [vereisten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) en zorg ervoor dat u hebt [toegang ingeschakeld tot de REST-API](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
-Moet een HTTP PUT-aanvraag van de volgende URL-sjabloon voor het maken van een logboek:
+Als u wilt een logger maken, moet u een HTTP PUT-aanvraag van de volgende URL-sjabloon:
 
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
-* Vervang `{your service}` met de naam van uw API Management-service-exemplaar.
-* Vervang `{new logger name}` met de gewenste naam voor uw nieuwe berichtenlogboek. U verwijzen naar deze naam bij het configureren van de [logboek voor eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) beleid
+* Vervang `{your service}` met de naam van uw API Management service-exemplaar.
+* Vervang `{new logger name}` met de gewenste naam voor uw nieuwe logger. U wilt verwijzen naar deze naam wanneer u configureert de [logboek naar eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) beleid
 
-De volgende headers toevoegen aan de aanvraag:
+Voeg de volgende headers toe aan de aanvraag:
 
 * Content-Type: application/json
 * Autorisatie: SharedAccessSignature 58...
-  * Voor instructies voor het genereren van de `SharedAccessSignature` Zie [Azure API Management REST API Authentication](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
+  * Voor instructies over het genereren van de `SharedAccessSignature` Zie [Azure API Management REST API-verificatie](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
 Geef de hoofdtekst van de aanvraag van de volgende sjabloon:
 
@@ -55,47 +55,61 @@ Geef de hoofdtekst van de aanvraag van de volgende sjabloon:
   "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
-    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "name" : "Name of the Event Hub from the portal",
     "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
 }
 ```
 
 * `loggerType` moet worden ingesteld op `AzureEventHub`.
-* `description` biedt een optionele beschrijving van het logboek en tekenreekslengte van nul kan zijn, indien gewenst.
+* `description` biedt een optionele beschrijving van het logboek en kan een tekenreeks met lengte nul indien gewenst.
 * `credentials` bevat de `name` en `connectionString` van uw Azure Event Hub.
 
-Wanneer u de aanvraag als een statuscode van is gemaakt door het logboek `201 Created` wordt geretourneerd.
+Wanneer u de aanvraag als het logboek is gemaakt, statuscode `201 Created` wordt geretourneerd. Hieronder ziet u een voorbeeld op basis van het bovenstaande voorbeeld van een aanvraag.
+
+```json
+{
+    "id": "/loggers/{new logger name}",
+    "loggerType": "azureEventHub",
+    "description": "Sample logger description",
+    "credentials": {
+        "name": "Name of the Event Hub from the Portal",
+        "connectionString": "{{Logger-Credentials-xxxxxxxxxxxxxxx}}"
+    },
+    "isBuffered": true,
+    "resourceId": null
+}
+```
 
 > [!NOTE]
-> Zie voor andere mogelijke retourcodes en hun redenen [maken van een logboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Zie voor het uitvoeren van andere bewerkingen zoals lijst, bijwerken en verwijderen de [berichtenlogboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) entiteit documentatie.
+> Zie voor andere mogelijke retourcodes en hun redenen [een Logger maken](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Zie voor meer informatie over andere bewerkingen, zoals de lijst, bijwerken en verwijderen uit te voeren, de [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) entity-documentatie.
 >
 >
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Logboek-eventhubs-beleid configureren
 
-Zodra uw berichtenlogboek in API Management is geconfigureerd, kunt u uw logboek-eventhubs-beleid voor de gewenste gebeurtenissen logboekregistratie configureren. Het logboek voor eventhubs-beleid kan worden gebruikt in de sectie binnenkomende beleid of de beleidssectie voor uitgaande.
+Zodra uw logger is geconfigureerd in API Management, u kunt uw log-eventhubs-beleid configureren voor de gewenste gebeurtenissen. Het logboek naar Event hubs-beleid kan worden gebruikt in de beleidssectie voor binnenkomende of in de beleidssectie voor uitgaande.
 
 1. Blader naar de APIM-instantie.
 2. Selecteer het tabblad API.
-3. Selecteer de API die u wilt toevoegen van het beleid. In dit voorbeeld wordt een beleid voor toevoegt de **Echo-API** in de **onbeperkt** product.
+3. Selecteer de API die u wilt toevoegen van het beleid. In dit voorbeeld wordt er een beleid om te worden toegevoegd de **Echo-API** in de **onbeperkt** product.
 4. Selecteer **Alle bewerkingen**.
 5. Selecteer het tabblad ontwerpen boven aan het scherm.
-6. Klik in het venster inkomende of uitgaande verwerking op de driehoek (naast de pen).
-7. Selecteer de Code-editor. Zie voor meer informatie [het instellen of beleidsregels bewerken](set-edit-policies.md).
+6. Klik in het venster van de verwerking van binnenkomend of uitgaand, op het driehoekje (naast het potlood).
+7. Selecteer de Code-editor. Zie voor meer informatie, [hoe u beleid instellen of bewerken](set-edit-policies.md).
 8. Plaats de cursor in de `inbound` of `outbound` beleidssectie.
-9. Selecteer in het venster aan de rechterkant **Geavanceerde beleidsregels** > **logboek EventHub**. Hierdoor wordt de `log-to-eventhub` beleidssjabloon-instructie.
+9. Selecteer in het venster aan de rechterkant, **Geavanceerde beleidsregels** > **Log to EventHub**. Deze voegt de `log-to-eventhub` beleidssjabloon-instructie.
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>
   @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
 </log-to-eventhub>
 ```
-Vervang `logger-id` met de naam van het API Management-logboek die u in de vorige stap hebt geconfigureerd.
+Vervang `logger-id` met de waarde die u hebt gebruikt voor `{new logger name}` in de URL van de logger maken in de vorige stap.
 
-U kunt een expressie die een tekenreeks retourneert als de waarde voor de `log-to-eventhub` element. In dit voorbeeld wordt een tekenreeks met de datum en tijd, servicenaam, aanvraag-id, aanvraag IP-adres en de naam van bewerking geregistreerd.
+U kunt een expressie die een tekenreeks geretourneerd als de waarde voor de `log-to-eventhub` element. In dit voorbeeld wordt een tekenreeks met de datum en tijd, servicenaam, aanvraag-id, aanvraag IP-adres en de naam van bewerking geregistreerd.
 
-Klik op **opslaan** de bijgewerkte beleidsconfiguratie opslaan. Het beleid actief is en worden gebeurtenissen vastgelegd op de aangewezen Event Hub zodra deze is opgeslagen.
+Klik op **opslaan** om op te slaan van de configuratie van het bijgewerkte beleid. Het beleid actief is en gebeurtenissen worden geregistreerd in de aangewezen Event Hub zodra deze is opgeslagen.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over Azure Event Hubs
@@ -103,9 +117,9 @@ Klik op **opslaan** de bijgewerkte beleidsconfiguratie opslaan. Het beleid actie
   * [Berichten ontvangen met EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Programmeerhandleiding voor Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * Meer informatie over de integratie van API Management en Event Hubs
-  * [Entiteitsverwijzing berichtenlogboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [documentatie voor logboek-eventhub-beleid](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Uw API's met Azure API Management, Event Hubs en Runscope bewaken](api-management-log-to-eventhub-sample.md)  
+  * [Verwijzing naar de Logger-entiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
+  * [documentatie voor log Event hub beleid](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [Uw API's met Azure API Management, Eventhubs en Runscope controleren](api-management-log-to-eventhub-sample.md)  
 * Meer informatie over [integratie met Azure Application Insights](api-management-howto-app-insights.md)
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png

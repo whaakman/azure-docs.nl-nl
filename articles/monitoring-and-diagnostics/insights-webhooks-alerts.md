@@ -1,19 +1,19 @@
 ---
 title: Hebt u een klassieke waarschuwing voor metrische gegevens op de hoogte stellen een niet-Azure-systeem met behulp van een webhook
 description: Leer hoe u Azure metrische waarschuwingen naar andere, niet-Azure-systemen worden omgeleid.
-author: johnkemnetz
+author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: johnkem
+ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 429c68c009e3784546b15dbcc1286d551274d2be
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 74a4066e3d30b1e91fe558fcfeb6f39220e41c02
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856270"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887341"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Een webhook configureren voor een Azure waarschuwing voor metrische gegevens
 U kunt webhooks gebruiken voor het routeren van een Azure waarschuwingsmelding met andere systemen voor na verwerking of aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar services die de SMS-berichten, om aan te melden bugs, om de hoogte van een team via chatten of berichtenservices, of voor verschillende andere acties te verzenden. 

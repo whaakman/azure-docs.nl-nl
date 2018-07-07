@@ -164,8 +164,16 @@
           href: azure-operational-security-checklist.md
 - name: Governance en naleving
   items:
-    - name: Financiële diensten voor gereguleerde workloads
-      href: ./blueprints/financial-services-regulated-workloads.md
+    - name: FFIEC
+      items:
+        - name: Gegevensanalyse
+          href: ./blueprints/ffiec-analytics-overview.md
+        - name: Datawarehouse
+          href: ./blueprints/ffiec-dw-overview.md
+        - name: IaaS-webtoepassing
+          href: ./blueprints/ffiec-iaaswa-overview.md
+        - name: PaaS-webtoepassing
+          href: ./blueprints/ffiec-paaswa-overview.md
     - name: GDPR
       items:
         - name: Gegevensanalyse
@@ -187,34 +195,15 @@
         - name: PaaS-webtoepassing
           href: ./blueprints/fedramp-paaswa-overview.md
     - name: PCI DSS
-      href: ./blueprints/payment-processing-blueprint.md
       items:
-        - name: Overzicht van vereisten
-          href: ./blueprints/pci-dss-requirements-overview.md
-        - name: Vereiste 1 - firewalls
-          href: ./blueprints/pci-dss-requirement-1-firewall.md
-        - name: Vereiste 2 - wachtwoorden
-          href: ./blueprints/pci-dss-requirement-2-password.md
-        - name: Vereiste 3 - CHD
-          href: ./blueprints/pci-dss-requirement-3-chd.md
-        - name: Vereiste 4 - versleuteling
-          href: ./blueprints/pci-dss-requirement-4-encryption.md
-        - name: Vereiste 5 - malware
-          href: ./blueprints/pci-dss-requirement-5-malware.md
-        - name: Vereiste 6 - beveiligde systemen
-          href: ./blueprints/pci-dss-requirement-6-secure-system.md
-        - name: Vereiste 7 - toegang
-          href: ./blueprints/pci-dss-requirement-7-access.md
-        - name: Vereiste 8 - identiteit
-          href: ./blueprints/pci-dss-requirement-8-identity.md
-        - name: Vereiste 9 - fysieke toegang
-          href: ./blueprints/pci-dss-requirement-9-physical-access.md
-        - name: Vereiste 10 - bewaking
-          href: ./blueprints/pci-dss-requirement-10-monitoring.md
-        - name: Vereiste 11 - testen
-          href: ./blueprints/pci-dss-requirement-11-testing.md
-        - name: Vereiste 12 - beleid
-          href: ./blueprints/pci-dss-requirement-12-policy.md
+        - name: Gegevensanalyse
+          href: ./blueprints/pcidss-analytics-overview.md
+        - name: Datawarehouse
+          href: ./blueprints/pcidss-dw-overview.md
+        - name: IaaS-webtoepassing
+          href: ./blueprints/pcidss-iaaswa-overview.md
+        - name: PaaS-webtoepassing
+          href: ./blueprints/pcidss-paaswa-overview.md
     - name: UK NHS
       items:
         - name: Gegevensanalyse

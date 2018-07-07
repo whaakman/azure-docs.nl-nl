@@ -9,18 +9,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: c581c26f867ca78a5ed12922c9e8760f5f903881
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f55574f7a9ffbcc2a1c8bd160bb66336b59c348c
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345855"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888594"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Ontwerp- en eindpunt gebruikerstoegang
 Ontwerpen toegang is beschikbaar voor de eigenaar en samenwerkers. Eindpunt toegang is voor een persoonlijke app beschikbaar voor de eigenaar en samenwerkers. Voor een openbare app is eindpunt toegang beschikbaar voor iedereen die hun eigen account LUIS en heeft de openbare app-ID. 
 
 ## <a name="access-to-authoring"></a>Toegang tot het ontwerpen
-Toegang tot de app uit de [LUIS] [ LUIS] website of de [API's ontwerpen](https://aka.ms/luis-authoring-apis) wordt bepaald door de eigenaar van de app. 
+Toegang tot de app uit de [LUIS](luis-reference-regions.md#luis-website) website of de [API's ontwerpen](https://aka.ms/luis-authoring-apis) wordt bepaald door de eigenaar van de app. 
 
 De eigenaar en alle deelnemers hebt toegang tot het ontwerpen van de app. 
 
@@ -80,5 +80,3 @@ LUIS worden de ISO 27001: 2013- en ISO-audit 27018:2014 met nul inbreuken (bevin
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [Best Practices](luis-concept-best-practices.md) voor meer informatie over het gebruik van intenties en entiteiten voor de beste voorspellingen.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

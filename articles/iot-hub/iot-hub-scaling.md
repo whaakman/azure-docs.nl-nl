@@ -1,6 +1,6 @@
 ---
 title: Schalen met Azure IoT Hub | Microsoft Docs
-description: Klik hier voor meer informatie over het schalen van uw IoT-hub ter ondersteuning van de verwachte bericht doorvoer en de gewenste functies. Bevat een overzicht van de ondersteunde doorvoer voor elke laag en opties voor sharding.
+description: Klik hier voor meer informatie over het schalen van uw IoT-hub ter ondersteuning van uw bericht verwachte doorvoer en de gewenste functies. Bevat een overzicht van de ondersteunde doorvoer voor elke laag en opties voor sharding.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -8,112 +8,112 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030434"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901038"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
-Elke IoT-oplossing is verschillend zijn, dus Azure IoT Hub verschillende opties op basis van prijs- en schaalniveau biedt. In dit artikel is bedoeld om te evalueren van de behoeften van uw IoT-Hub. Raadpleeg voor informatie over IoT Hub categorieën prijzen [IoT Hub prijzen](https://azure.microsoft.com/pricing/details/iot-hub). 
+Elke IoT-oplossing is verschillend zijn, zodat Azure IoT Hub verschillende opties op basis van prijzen en schaal biedt. Dit artikel is bedoeld voor het evalueren van de behoeften van uw IoT-Hub. Raadpleeg voor meer informatie over Prijscategorieën van IoT Hub-prijzen [IoT Hub-prijzen](https://azure.microsoft.com/pricing/details/iot-hub). 
 
-Om te beslissen welke laag IoT Hub geschikt is voor uw oplossing, Stel uzelf twee vragen:
+Om te beslissen welke IoT Hub-laag is geschikt voor uw oplossing, Stel uzelf twee vragen:
 
 **Welke functies wilt ik gebruiken?**
-Azure IoT Hub biedt twee lagen, basis en standaard, die afwijken van het aantal functies die ze ondersteunen. Als uw IoT-oplossing is gebaseerd op het verzamelen van gegevens van apparaten en centraal analyseren vervolgens de basisstaffel waarschijnlijk geschikt is voor u. Als u meer geavanceerde configuraties met IoT-apparaten op afstand beheren of een deel van uw werkbelastingen op de apparaten zelf distribueren, moet u rekening houden de prijscategorie standard. Voor welke functies zijn opgenomen in elke laag in detail blijven [basis en standaard lagen](#basic-and-standard-tiers).
+Azure IoT Hub biedt twee lagen, basis en standaard, die afwijken van het aantal functies die erdoor worden ondersteund. Als uw IoT-oplossing is gebaseerd op gegevens van apparaten verzamelen en analyseren van deze centraal zijn de basic-laag is waarschijnlijk geschikt is voor u. Als u wilt meer geavanceerde configuraties IoT-apparaten op afstand beheren of distribueren enkele van uw werklasten op de apparaten zelf gebruiken, moet u rekening houden de standard-laag. Voor gedetailleerde informatie van deze functies zijn opgenomen in elke laag blijven [Basic en standard-laag](#basic-and-standard-tiers).
 
 **Hoeveel gegevens wilt ik dagelijks verplaatsen?**
-Elke laag IoT Hub is beschikbaar in drie grootten, op basis van rond de doorvoer van hoeveel gegevens deze in een gegeven moment kunnen verwerken. Deze formaten worden numeriek aangeduid als 1, 2 en 3. Elke eenheid van een niveau 1 iothub kan bijvoorbeeld 400 duizend berichten per dag, verwerken, terwijl een eenheid niveau 3 300 miljoen kan verwerken. Voor meer informatie over de richtlijnen gegevens blijven [bericht doorvoer](#message-throughput).
+Elke laag van IoT Hub is beschikbaar in drie grootten, op basis van hoeveel gegevens doorvoer ze kunnen worden verwerkt in elke dag. Deze grootten zijn numeriek geïdentificeerd als 1, 2 en 3. Met elke eenheid van een niveau 1 IoT-hub kan bijvoorbeeld 400 duizend berichten per dag, verwerken, terwijl een niveau 3-eenheid 300 miljoen kan verwerken. Voor meer informatie over de richtlijnen van de gegevens nog steeds [bericht doorvoer](#message-throughput).
 
-## <a name="basic-and-standard-tiers"></a>Basis en standaard lagen
+## <a name="basic-and-standard-tiers"></a>Basic en standard-laag
 
-De prijscategorie standard van IoT Hub kunt u alle functies en is vereist voor een IoT-oplossingen die wilt maken gebruik van de mogelijkheden voor bidirectionele communicatie. De laag basic kunt een subset van de functies en is bedoeld voor IoT-oplossingen die slechts één richting communicatie van apparaten naar de cloud hoeft. Beide lagen bieden de dezelfde beveiligings- en -functies.
+De prijscategorie standard van IoT Hub kunt u alle functies en is vereist voor een IoT-oplossingen te maken van de mogelijkheden met bi-directionele communicatie mogelijk te gebruiken. De basic-laag kunt een subset van de functies en is bedoeld voor IoT-oplossingen die hoeft alleen Unidirectioneel communicatie tussen apparaten en de cloud. Beide lagen bieden de dezelfde functies als verificatie en beveiliging.
 
-Wanneer u uw IoT-hub maakt u een upgrade kunt uitvoeren via de laag basic naar de prijscategorie standard zonder dat uw bestaande activiteiten worden onderbroken. Zie voor meer informatie [bijwerken van uw IoT-hub](iot-hub-upgrade.md).
+Nadat u uw IoT-hub die u van de basic-laag naar de prijscategorie standard upgraden kunt zonder dat uw bestaande bewerkingen wordt onderbroken. Zie voor meer informatie, [upgrade uitvoeren van uw IoT-hub](iot-hub-upgrade.md). Houd er rekening mee dat de partitielimiet voor basic IoT Hub tier is 8. Wanneer u migreert van basic-laag naar de standard-laag, wordt deze limiet ongewijzigd blijft.
 
 | Mogelijkheid | Basislaag | Standaardlaag |
 | ---------- | ---------- | ------------- |
-| [Telemetrie voor apparaat-naar-cloud](iot-hub-devguide-messaging.md) | Ja | Ja |
+| [Apparaat-naar-cloud telemetrie](iot-hub-devguide-messaging.md) | Ja | Ja |
 | [Per apparaat-id](iot-hub-devguide-identity-registry.md) | Ja | Ja |
-| [Berichtroutering](iot-hub-devguide-messages-read-custom.md) en [gebeurtenis raster-integratie](iot-hub-event-grid.md) | Ja | Ja |
-| [Protocollen HTTP, AMQP en MQTT](iot-hub-devguide-protocols.md) | Ja | Ja |
-| [Inrichting Device-Service](../iot-dps/about-iot-dps.md) | Ja | Ja |
-| [Controle en diagnostische gegevens](iot-hub-monitor-resource-health.md) | Ja | Ja |
-| [Messaging-cloud-naar-apparaat](iot-hub-devguide-c2d-guidance.md) |   | Ja |
-| [Apparaat horende](iot-hub-devguide-device-twins.md), [Module horende](iot-hub-devguide-module-twins.md) en [Apparaatbeheer](iot-hub-device-management-overview.md) |   | Ja |
-| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
+| [Berichtroutering](iot-hub-devguide-messages-read-custom.md) en [Event Grid-integratie](iot-hub-event-grid.md) | Ja | Ja |
+| [HTTP-, AMQP- en MQTT-protocollen](iot-hub-devguide-protocols.md) | Ja | Ja |
+| [Device Provisioning Service](../iot-dps/about-iot-dps.md) | Ja | Ja |
+| [Controle en diagnose](iot-hub-monitor-resource-health.md) | Ja | Ja |
+| [Cloud-naar-apparaat-berichten](iot-hub-devguide-c2d-guidance.md) |   | Ja |
+| [Apparaatdubbels](iot-hub-devguide-device-twins.md), [moduledubbels](iot-hub-devguide-module-twins.md) en [Apparaatbeheer](iot-hub-device-management-overview.md) |   | Ja |
+| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Ja |
 
-IoT Hub biedt ook een gratis laag die is bedoeld voor testen en evalueren. De mogelijkheden van de standard-laag, maar beperkt messaging rechten heeft. U upgraden niet van de laag gratis naar basis of standaard. 
+IoT Hub biedt ook een gratis laag die is bedoeld voor test- en evaluatiedoeleinden. Het beschikt over alle mogelijkheden van de standard-laag, maar beperkt messaging-limiet. U upgraden niet van de laag gratis naar basis of standaard. 
 
 ### <a name="iot-hub-rest-apis"></a>REST API's voor IoT Hub
 
-Het verschil in ondersteunde mogelijkheden tussen de lagen van IoT Hub, basis en standaard betekent dat sommige API-aanroepen niet met hubs basisstaffel werken. De volgende tabel ziet u welke API's zijn beschikbaar: 
+Het verschil tussen de lagen basic en standard van IoT Hub-betekent dat sommige API-aanroepen die niet met hubs basic-laag werken in ondersteunde mogelijkheden. De volgende tabel ziet u welke API's zijn beschikbaar: 
 
 | API | Basislaag | Standaardlaag |
 | --- | ---------- | ------------- |
 | [Apparaat verwijderen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | Ja | Ja |
-| [Ophalen van apparaat](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | Ja | Ja |
+| [Apparaat](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | Ja | Ja |
 | Module verwijderen | Ja | Ja |
 | Module ophalen | Ja | Ja |
-| [Register statistieken opvragen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Ja | Ja |
-| [Ophalen van de statistieken van services](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Ja | Ja |
-| [Maken of bijwerken van apparaat](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Ja | Ja |
-| Module plaatsen | Ja | Ja |
-| [Query-IoT-Hub](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Ja | Ja |
+| [Statistieken over register ophalen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Ja | Ja |
+| [Statistieken over services ophalen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Ja | Ja |
+| [Put-apparaat](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Ja | Ja |
+| Put-module | Ja | Ja |
+| [Query-apparaten](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Ja | Ja |
 | Query-modules | Ja | Ja |
 | [Bestand uploaden SAS-URI maken](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Ja | Ja |
-| [Apparaat gebonden ontvangen](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Ja | Ja |
-| [De apparaatgebeurtenis verzenden](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | Ja | Ja |
-| Module gebeurtenis verzenden | Ja | Ja |
-| [Bestand Uploadstatus bijwerken](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | Ja | Ja |
-| [Apparaat bulkbewerking](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | Ja, met uitzondering van IoT rand hebben | Ja | 
-| [Opdracht wachtrij opschonen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | Ja |
-| [Apparaat-twin ophalen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | Ja |
-| Module-twin ophalen |   | Ja |
-| [Apparaat-methode worden aangeroepen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | Ja |
-| [Apparaat-twin bijwerken](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | Ja | 
-| Module-twin bijwerken |   | Ja | 
-| [Gebonden apparaatmeldingen afbreken](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | Ja |
-| [Apparaat voltooien gebonden melding](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | Ja |
+| [Apparaat gebonden melding ontvangen](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Ja | Ja |
+| [Verzenden van apparaatgebeurtenis](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | Ja | Ja |
+| Verzenden van gebeurtenissen van module | Ja | Ja |
+| [Uploadstatus bestand bijwerken](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | Ja | Ja |
+| [Bulkbewerking voor apparaat](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | Ja, met uitzondering van IoT Edge-mogelijkheden | Ja | 
+| [Opdracht wachtrij leegmaken](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | Ja |
+| [Ophalen van apparaatdubbel](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | Ja |
+| Ophalen van de moduledubbel |   | Ja |
+| [Apparaatmethode aanroepen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | Ja |
+| [Dubbele apparaat bijwerken](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | Ja | 
+| Bijwerken van de moduledubbel |   | Ja | 
+| [Gebonden apparaatbericht afbreken](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | Ja |
+| [Apparaatconfiguratie voltooien gebonden melding](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | Ja |
 | [Taak annuleren](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/canceljob) |   | Ja |
 | [Taak maken](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/createjob) |   | Ja |
 | [Taak ophalen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getjob) |   | Ja |
 | [Query-taken](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/queryjobs) |   | Ja |
 
-## <a name="message-throughput"></a>Bericht-doorvoer
+## <a name="message-throughput"></a>Doorvoer van berichten
 
-De beste manier om het formaat van een IoT Hub-oplossing is om te evalueren van het verkeer op basis van per eenheid. Houd rekening met de vereiste piek-doorvoer voor de volgende categorieën van bewerkingen in het bijzonder:
+De beste manier om de grootte van een IoT Hub-oplossing is om te evalueren van het verkeer op basis van per eenheid. In het bijzonder, houd rekening met de vereiste piek doorvoer voor de volgende categorieën van bewerkingen:
 
 * Apparaat-naar-cloud-berichten
 * Cloud-naar-apparaat-berichten
 * Registerbewerkingen voor identiteit
 
-Verkeer wordt gemeten op basis van per eenheid, niet per hub. Een exemplaar van de Iothub niveau 1 of 2 hebben maximaal 200 eenheden die zijn gekoppeld. Een exemplaar van de Iothub niveau 3 kan maximaal 10 eenheden hebben. Wanneer u uw IoT-hub maakt kunt u het aantal eenheden of verplaatsen tussen de 1, 2 en 3 grootten binnen een bepaalde laag zonder dat uw bestaande activiteiten worden onderbroken. Zie voor meer informatie [bijwerken van uw IoT-Hub](iot-hub-upgrade.md).
+Verkeer wordt gemeten op basis van per eenheid, niet per hub. Een niveau 1 of 2 IoT Hub-instantie kan maximaal 200 eenheden die zijn gekoppeld aan deze hebben. Een niveau 3 IoT Hub-instantie kan maximaal 10 eenheden hebben. Nadat u uw IoT-hub maken kunt u het aantal eenheden wijzigen of verplaatsen tussen de 1, 2 en 3-grootten in een specifieke laag zonder dat uw bestaande bewerkingen wordt onderbroken. Zie voor meer informatie, [upgrade uitvoeren van uw IoT-Hub](iot-hub-upgrade.md).
 
-Als een voorbeeld van de mogelijkheden van elke laag verkeer volgt apparaat-naar-cloudberichten volgehouden doorvoer:
+Als een voorbeeld van de mogelijkheden van elke laag van verkeer van apparaat-naar-cloud-berichten als volgt een doorvoer:
 
-| Laag | Volgehouden doorvoer | Continue verzendsnelheid |
+| Laag | Een doorvoer | Continue verzendsnelheid |
 | --- | --- | --- |
-| B1, S1 |Maximaal 1111 KB per minuut per eenheid<br/>(1,5 GB/dag/unit) |Gemiddelde van 278 berichten per minuut per eenheid<br/>(400.000 berichten per dag per eenheid) |
-| B2, S2 |Maximaal 16 MB per minuut per eenheid<br/>(22.8 GB/dag/unit) |Gemiddelde van 4,167 berichten per minuut per eenheid<br/>(6 miljoen berichten per dag per eenheid) |
-| B3, S3 |Maximaal 814 MB per minuut per eenheid<br/>(1144.4 GB/dag/unit) |Gemiddelde van 208,333 berichten per minuut per eenheid<br/>(300 miljoen berichten per dag per eenheid) |
+| B1, S1 |Maximaal 1111 KB per minuut per eenheid<br/>(1,5 GB per dag per eenheid) |Gemiddelde van 278 berichten per minuut per eenheid<br/>(400.000 berichten per dag per eenheid) |
+| B2, S2 |Maximaal 16 MB per minuut per eenheid<br/>(22.8 GB per dag per eenheid) |Gemiddelde van 4,167 berichten per minuut per eenheid<br/>(6 miljoen berichten per dag per eenheid) |
+| B3, S3 |Maximaal 814 MB per minuut per eenheid<br/>(1144.4 GB per dag per eenheid) |Gemiddelde van 208,333 berichten per minuut per eenheid<br/>(300 miljoen berichten per dag per eenheid) |
 
-Naast deze informatie doorvoer Zie [IoT Hub quota en vertragingen] [ IoT Hub quotas and throttles] en dienovereenkomstig ontwerpen van uw oplossing.
+Naast deze informatie doorvoer [IoT Hub-quota en vertragingen in] [ IoT Hub quotas and throttles] en ontwerpen van uw oplossing dienovereenkomstig.
 
-### <a name="identity-registry-operation-throughput"></a>Identiteit register bewerking doorvoer
-IoT Hub identiteit registerbewerkingen zijn niet moet runtime-bewerkingen, zoals ze voornamelijk zijn gerelateerd aan apparaten inrichten.
+### <a name="identity-registry-operation-throughput"></a>ID-register bewerking doorvoer
+Registerbewerkingen voor identiteit van IoT-Hub zijn niet mag runtime-bewerkingen, zoals ze voornamelijk betrekking op het apparaat wordt ingericht hebben.
 
-Zie voor specifieke burst prestaties cijfers [IoT Hub quota en vertragingen][IoT Hub quotas and throttles].
+Zie voor specifieke burst prestatiecijfers [IoT Hub-quota en vertragingen in][IoT Hub quotas and throttles].
 
 ## <a name="sharding"></a>Sharding
-Terwijl een enkele IoT-hub naar miljoenen apparaten uitbreiden kunt, vereist soms uw oplossing specifieke prestatiekenmerken die een enkele iothub kan niet worden gegarandeerd. In dat geval kunt u uw apparaten partitioneren over meerdere IoT hubs. Meerdere IoT hubs verkeer bursts vloeiend en verkrijgen van de vereiste doorvoer of bewerking tarieven die vereist zijn.
+Terwijl een enkele IoT-hub naar miljoenen apparaten schalen kunt, vereist soms bepaalde prestatiekenmerken die een enkele IoT-hub kan niet garanderen dat uw oplossing. In dat geval kunt u uw apparaten partitioneren over meerdere IoT-hubs. Meerdere IoT-hubs vloeiende pieken in verkeer verwerken en downloaden van de vereiste doorvoer of bewerking tarieven die vereist zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over de mogelijkheden van de IoT Hub en details van de prestaties [IoT Hub prijzen] [koppeling prijzen] of [IoT Hub quota en vertragingen][IoT Hub quotas and throttles].
-* Als u wilt wijzigen van uw IoT Hub-laag, volg de stappen in [Upgrade van uw IoT-hub](iot-hub-upgrade.md).
+* Zie voor meer informatie over de mogelijkheden van IoT-Hub en details van de prestaties, [IoT Hub-prijzen] [koppeling prijzen] of [IoT Hub-quota en vertragingen in][IoT Hub quotas and throttles].
+* Als u wilt wijzigen van de laag van uw IoT Hub, volg de stappen in [Upgrade van uw IoT-hub](iot-hub-upgrade.md).
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md

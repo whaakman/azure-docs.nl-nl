@@ -2,68 +2,68 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines
-author: cynthn
+author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: cynthn
+ms.date: 07/05/2018
+ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: abf10177f8ce86309043da92d1f2b690775b6d89
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "30196437"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37909980"
 ---
-Azure voert regelmatig updates ter verbetering van de betrouwbaarheid, prestaties en beveiliging van de infrastructuur van de host voor virtuele machines. Deze updates tussen softwareonderdelen in de hosting-omgeving (zoals het besturingssysteem, hypervisor en verschillende agents die zijn geïmplementeerd op de host) patching bijwerken netwerkonderdelen, naar hardware buiten gebruik stellen. De meeste van deze updates worden uitgevoerd zonder nadelige gevolgen voor de gehoste virtuele machines. Er zijn echter gevallen bekend waarbij updates gevolgen:
+Azure voert regelmatig updates ter verbetering van de betrouwbaarheid, prestaties en beveiliging van de host-infrastructuur voor virtuele machines. Het bereik van deze updates van software-onderdelen in de hosting-omgeving (zoals besturingssysteem, hypervisor en verschillende agents die zijn geïmplementeerd op de host), patching bijwerken netwerkonderdelen, naar hardware buiten gebruik stellen. De meeste van deze updates worden uitgevoerd zonder dat dit van invloed is op de gehoste virtuele machines. Er zijn echter gevallen waar updates indruk hebben:
 
-- Als een update opnieuw opstarten minder mogelijk is, gebruikt Azure geheugen behouden onderhoud onderbreken van de virtuele machine, terwijl de host is bijgewerkt of de virtuele machine wordt verplaatst naar een host al bijgewerkte helemaal.
+- Als een update opnieuw opstarten zonder mogelijk is, gebruikt Azure onderhoud met statusbehoud geheugen op de virtuele machine wordt onderbroken terwijl de host is bijgewerkt of de virtuele machine wordt verplaatst naar een reeds bijgewerkte host kan worden overgeslagen.
 
-- Als u onderhoud moet worden opgestart, krijgt u een bericht wanneer het onderhoud is gepland. In dergelijke gevallen u ook krijgt een tijdvenster op waar u kunt beginnen het onderhoud zelf tegelijk die geschikt is voor u.
+- Als u onderhoud moet worden opgestart, krijgt u een kennisgeving van wanneer het onderhoud is gepland. In dergelijke gevallen u ook krijgt een bepaalde periode waar u kunt beginnen het onderhoud zelf op een tijdstip die bij u past.
 
-Deze pagina wordt beschreven hoe Microsoft Azure uitvoert voor beide typen van onderhoud. Zie voor meer informatie over niet-geplande gebeurtenissen (uitval), de beschikbaarheid van virtuele machines beheren voor [Windows] (... / articles/virtual-machines/windows/manage-availability.md) of [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Deze pagina wordt beschreven hoe beide typen onderhoud wordt uitgevoerd in Microsoft Azure. Zie voor meer informatie over niet-geplande gebeurtenissen (uitval), de beschikbaarheid van virtuele machines beheren voor [Windows] (.. / articles/virtual-machines/windows/manage-availability.md) of [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Toepassingen die worden uitgevoerd in een virtuele machine kunnen informatie verzamelen over toekomstige updates met behulp van de Service Azure metagegevens voor [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) of [Linux] (... / articles/virtual-machines/linux/instance-metadata-service.md).
+Toepassingen die worden uitgevoerd in een virtuele machine kunnen informatie verzamelen over toekomstige updates met behulp van de Azure Metadata-Service voor [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) of [Linux] (.. / articles/virtual-machines/linux/instance-metadata-service.md).
 
-Zie voor 'procedures' informatie over het beheren van gepland onderhoud 'Verwerken geplande onderhoud meldingen' voor [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) of [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+Zie voor 'procedures' informatie over het beheren van gepland onderhoud 'Meldingen gepland onderhoud verwerken' voor [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) of [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="memory-preserving-maintenance"></a>Geheugen onderhoud behouden
+## <a name="memory-preserving-maintenance"></a>Geheugen onderhoud met statusbehoud
 
-Als updates niet volledig opnieuw opstarten vereist, wordt geheugen behouden onderhoud mechanismen worden gebruikt voor het beperken van de impact op de virtuele machine. De virtuele machine is onderbroken voor maximaal 30 seconden, het geheugen in RAM, behouden terwijl de hosting-omgeving van toepassing de vereiste updates en patches is of de virtuele machine naar een host al bijgewerkt verplaatst. De virtuele machine wordt vervolgens hervat en de klok van de virtuele machine automatisch wordt gesynchroniseerd. 
+Wanneer updates volledig opnieuw worden opgestart vereisen, wordt geheugen behouden onderhoud mechanismen worden gebruikt voor het beperken van de impact op de virtuele machine. De virtuele machine wordt onderbroken tot 30 seconden, het geheugen in het RAM behouden terwijl de hostomgeving van toepassing de vereiste updates en patches is, of de virtuele machine naar een reeds bijgewerkte host verplaatst. De virtuele machine wordt vervolgens hervat en wordt de klok van de virtuele machine automatisch gesynchroniseerd. 
 
-Voor virtuele machines in beschikbaarheidssets, worden bijgewerkt een voor een update-domeinen. Alle virtuele machines in één updatedomein (UD) worden onderbroken, bijgewerkt en hervat vervolgens voordat gepland onderhoud verder met de volgende UD gaat.
+Deze onderhoudsbewerkingen niet rebootful zijn toegepast foutdomein door foutdomein en voortgang is gestopt als er health waarschuwingssignalen worden ontvangen.
 
-Sommige toepassingen worden beïnvloed door deze typen updates. Toepassingen die realtime-gebeurtenissen verwerken, zoals mediastreaming of transcodering of hoge doorvoersnelheid scenario's, toegang uitvoeren kunnen niet worden ontworpen voor een pauze van 30 seconde tolereren. <!-- sooooo, what should they do? --> Als de virtuele machine wordt verplaatst naar een andere host, betekent dit dat sommige gevoelige werkbelastingen wellicht opgevallen dat er een lichte prestatievermindering in de paar minuten aan de virtuele Machine onderbreken geleid. 
+Sommige toepassingen wordt mogelijk beïnvloed door deze typen updates. Toepassingen die gebeurtenissen in realtime verwerkt, zoals media streamen of transcodering of hoge doorvoer scenario's, netwerken kunnen niet worden ontworpen voor een pauze van 30 seconde tolereren. <!-- sooooo, what should they do? --> Als de virtuele machine wordt verplaatst naar een andere host, kunnen een lichte prestatievermindering in de aanloop naar de virtuele Machine onderbreken minuten ziet u enkele gevoelige werkbelastingen. 
 
 
-## <a name="maintenance-requiring-a-reboot"></a>Onderhoud vereisen opnieuw opstarten
+## <a name="maintenance-requiring-a-reboot"></a>Onderhoud vereisen van opnieuw opstarten
 
-Wanneer virtuele machines opnieuw worden opgestart voor gepland onderhoud, u een melding van tevoren. Gepland onderhoud heeft twee fasen: het venster selfservice en een geplande onderhoudsvenster.
+Wanneer virtuele machines nodig hebt voor gepland onderhoud opnieuw worden opgestart, wordt u van tevoren gewaarschuwd. Gepland onderhoud heeft twee fasen: het selfservice-venster en een geplande onderhoudsvenster.
 
-De **selfservice venster** kunt u het onderhoud op uw virtuele machines starten. U kunt elke virtuele machine om te zien van hun status en controleer het resultaat van uw laatste verzoek in de onderhoudsmodus query tijdens deze periode.
+De **selfservice venster** kunt u het onderhoud op uw virtuele machines starten. Gedurende deze tijd kunt u een query elke virtuele machine om te zien wat de status en controleer het resultaat van de laatste aanvraag voor onderhoud.
 
-Wanneer u onderhoud selfservice start, wordt uw virtuele machine wordt verplaatst naar een knooppunt dat al is bijgewerkt en wordt deze vervolgens weer ingeschakeld. Omdat de virtuele machine opnieuw is opgestart, is de tijdelijke schijf verloren en dynamische IP-adressen die zijn gekoppeld aan virtuele netwerkinterface worden bijgewerkt.
+Als u selfservice-onderhoud start, wordt uw virtuele machine wordt verplaatst naar een knooppunt dat al is bijgewerkt en wordt vervolgens gebruikt door terug op. Omdat de virtuele machine opnieuw is opgestart, is de tijdelijke schijf verloren en dynamische IP-adressen die zijn gekoppeld aan virtuele netwerkinterface worden bijgewerkt.
 
-Als u onderhoud selfservice start en er een fout opgetreden tijdens het proces is, de bewerking is gestopt, de virtuele machine is niet bijgewerkt en wordt deze ook verwijderd uit de herhaling gepland onderhoud. U wordt verbinding gemaakt met in een later tijdstip met een nieuw schema en krijgt een nieuwe mogelijkheid selfservice onderhoud doen. 
+Als u selfservice-onderhoud starten en er een fout opgetreden tijdens het proces is, de bewerking is gestopt, de virtuele machine is niet bijgewerkt en krijgt u de mogelijkheid om opnieuw te proberen de selfservice-onderhoud. 
 
-Wanneer het venster selfservice is verstreken, de **geplande onderhoudsvenster** begint. Tijdens dit tijdvenster kunt u nog steeds een query voor het onderhoudsvenster, maar niet langer mogelijk om te starten van het onderhoud zelf.
+Wanneer het venster selfservice is verstreken, de **geplande onderhoudsvenster** begint. Tijdens deze periode, kunt u nog steeds op te vragen voor het onderhoudsvenster, maar niet langer starten van het onderhoud zelf.
 
-Zie voor informatie over het beheren van een programma onderhoud 'Verwerken geplande onderhoud meldingen' voor [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) of [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+Zie voor meer informatie over het beheren van onderhoud vereisen van opnieuw opstarten 'Meldingen gepland onderhoud verwerken' voor [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) of [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
-## <a name="availability-considerations-during-planned-maintenance"></a>Overwegingen voor beschikbaarheid tijdens gepland onderhoud 
+### <a name="availability-considerations-during-scheduled-maintenance"></a>Beschikbaarheidsoverwegingen tijdens gepland onderhoud 
 
-Als u besluit om te wachten tot het geplande onderhoudsvenster, moet u er een paar aandachtspunten voor het onderhouden van de hoogste beschikbaarheid van uw virtuele machines zijn. 
+Als u besluit om te wachten tot het geplande onderhoudsvenster, zijn er enkele aandachtspunten voor het onderhouden van de hoogst mogelijke beschikbaarheid van uw VM's. 
 
-### <a name="paired-regions"></a>Gekoppelde regio 's
+#### <a name="paired-regions"></a>Gekoppelde regio 's
 
-Elke Azure-regio is gekoppeld aan een andere regio binnen de dezelfde Geografie, samen een combinatie van regionale indienen. Azure wordt alleen de virtuele machines in één regio uit een combinatie van regio bijgewerkt tijdens gepland onderhoud. Wanneer bijvoorbeeld de virtuele machines in Noord-centraal VS worden bijgewerkt, worden er tegelijkertijd geen virtuele machines in Zuid-centraal VS bijgewerkt. Tegelijkertijd met VS - oost kan er echter wel onderhoud plaatsvinden in andere regio's, zoals Noord-Europa. Uw VM's begrijpen hoe regio paren werken, kunt u beter verdelen over regio's. Zie voor meer informatie [Azure-regio paren](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Elke Azure-regio is gekoppeld aan een andere regio binnen hetzelfde geografische gebied, samen ze een regionaal paar maken. Azure tijdens gepland onderhoud, worden alleen de virtuele machines in één regio van een paar regio bijgewerkt. Wanneer bijvoorbeeld de virtuele machines in Noord-centraal VS worden bijgewerkt, worden er tegelijkertijd geen virtuele machines in Zuid-centraal VS bijgewerkt. Tegelijkertijd met VS - oost kan er echter wel onderhoud plaatsvinden in andere regio's, zoals Noord-Europa. Uw VM's inzicht in de werking van gekoppelde regio's, kunt u beter verdelen over regio's. Zie voor meer informatie, [Azure regioparen](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-### <a name="availability-sets-and-scale-sets"></a>Beschikbaarheidssets en schaalsets
+#### <a name="availability-sets-and-scale-sets"></a>Beschikbaarheidssets en schaalsets
 
-Bij het implementeren van een werklast op Azure Virtual machines, kunt u de virtuele machines binnen een beschikbaarheidsset voor maximale beschikbaarheid voor uw toepassing. Dit zorgt ervoor dat bij een stroomstoring of een onderhoud gebeurtenissen, ten minste één virtuele machine beschikbaar is.
+Bij het implementeren van een workload op virtuele Azure-machines, kunt u de virtuele machines in een beschikbaarheidsset voor maximale beschikbaarheid voor uw toepassing kunt maken. Dit zorgt ervoor dat tijdens een storing of rebootful onderhoud, ten minste één virtuele machine beschikbaar is.
 
-Afzonderlijke virtuele machines worden in een beschikbaarheidsset verdeeld over maximaal 20 update domeinen (UDs). Tijdens gepland onderhoud één updatedomein is dit van invloed op een bepaald moment. Let erop dat de volgorde van update-domeinen die worden beïnvloed noodzakelijkerwijs niet opeenvolgend gebeurt. 
+Afzonderlijke virtuele machines worden in een beschikbaarheidsset verdeeld over maximaal 20 updatedomeinen (ud's). Tijdens het geplande onderhoud is slechts één updatedomein van invloed op een bepaald moment. Let erop dat de volgorde van update-domeinen wordt beïnvloed niet per se is gebeurd sequentieel worden verwerkt. 
 
-Virtuele-machineschaalsets zijn een Azure compute resource waarmee u kunt implementeren en beheren van een set van identieke virtuele machines als één bron. De schaalaanpassingsset wordt automatisch geïmplementeerd in meerdere domeinen van de update, zoals virtuele machines in een beschikbaarheidsset. Net als met beschikbaarheidssets met schaalsets één updatedomein is dit van invloed op een bepaald moment.
+Virtuele-machineschaalsets vormen een Azure compute-resource waarmee u kunt implementeren en beheren van een set identieke VM's als één bron. De schaalset wordt automatisch geïmplementeerd in meerdere updatedomeinen, zoals virtuele machines in een beschikbaarheidsset. Net als met beschikbaarheidssets, met schaalsets voor slechts één updatedomein is van invloed op een bepaald moment tijdens gepland onderhoud.
 
 Zie voor meer informatie over het configureren van uw virtuele machines voor hoge beschikbaarheid, de beschikbaarheid van uw virtuele machines beheren voor [Windows](../articles/virtual-machines/windows/manage-availability.md) of [Linux](../articles/virtual-machines/linux/manage-availability.md).

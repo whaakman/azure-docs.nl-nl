@@ -14,74 +14,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: b87838a80c7c7706b9af2bd4ea274335d04a5c52
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e8e41c51b6df9962e561d56be75108ba9cd76377
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751510"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901616"
 ---
 # <a name="back-up-your-app-in-azure"></a>Back-up maken van uw app in Azure
-De functie back-up en herstel in [Azure App Service](app-service-web-overview.md) kunt u eenvoudig back-ups van app handmatig of volgens een planning aan te maken. U kunt de app naar een momentopname van een eerdere status herstellen door het overschrijven van de bestaande app of het herstellen naar een andere app. 
+De functie back-up en herstel in [Azure App Service](app-service-web-overview.md) kunt u eenvoudig back-ups maken, handmatig of volgens een schema. U kunt de app op een momentopname van een eerdere status herstellen door overschrijft de bestaande app of het herstellen naar een andere app. 
 
-Zie voor informatie over het herstellen van een app van back-up, [herstellen van een app in Azure](web-sites-restore.md).
+Zie voor meer informatie over het terugzetten van een app vanuit back-up [herstellen van een app in Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 
 ## <a name="what-gets-backed-up"></a>Wat wordt een back-up
-App Service kunt back-up van de volgende informatie naar een Azure-opslagaccount en container die u hebt geconfigureerd dat uw app te gebruiken. 
+App Service kunt back-up van de volgende informatie op een Azure storage-account en een container die u hebt geconfigureerd dat uw app te gebruiken. 
 
 * App-configuratie
 * Bestandsinhoud
 * Database verbonden met uw app
 
-De volgende databaseoplossingen worden met de functie back-ups ondersteund: 
+De volgende databaseoplossingen worden ondersteund door back-up: 
    - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-   - [Azure-Database voor MySQL (Preview)](https://azure.microsoft.com/services/mysql)
-   - [Azure-Database voor PostgreSQL (Preview)](https://azure.microsoft.com/services/postgresql)
+   - [Azure Database for MySQL (Preview)](https://azure.microsoft.com/services/mysql)
+   - [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/services/postgresql)
    - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 
 > [!NOTE]
->  Elke back-up is een volledige offline kopie van uw app, niet een incrementele update.
+>  Elke back-up is een complete offline kopie van uw app, niet een incrementele update.
 >  
 
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Vereisten en beperkingen
-* De functie back-up en terugzetten vereist het App Service-abonnement in de **standaard** laag of **Premium** laag. Zie voor meer informatie over het schalen van uw App Service-abonnement te gebruiken van een hogere laag [een app in Azure opschalen](web-sites-scale.md).  
-  **Premium** laag kan een groter aantal dagelijks back-ups dan **standaard** laag.
-* U moet een Azure-opslagaccount en container in hetzelfde abonnement als de app die u back wilt-up. Zie voor meer informatie over Azure storage-accounts, het [koppelingen](#moreaboutstorage) aan het einde van dit artikel.
-* Back-ups mag maximaal 10 GB-app en database-inhoud. Als de back-upgrootte deze limiet overschrijdt, krijgt u een fout opgetreden.
+* De functie back-up en terugzetten vereist het App Service-plan in de **Standard** laag of **Premium** laag. Zie voor meer informatie over het schalen van uw App Service-plan het gebruik van een hogere laag [opschalen van een app in Azure](web-sites-scale.md).  
+  **Premium** laag kunt u een groter aantal dagelijks back-ups dan **Standard** laag.
+* U moet een Azure storage-account en een container in hetzelfde abonnement als de app die u back wilt-up. Zie voor meer informatie over Azure storage-accounts, het [koppelingen](#moreaboutstorage) aan het einde van dit artikel.
+* Back-ups mag maximaal 10 GB-app en database-inhoud. Als de back-upgrootte deze limiet overschrijdt, krijgt u een fout.
+* Back-ups van SSL ingeschakeld Azure Database voor MySQL wordt niet ondersteund. Als een back-up is geconfigureerd, wordt er mislukte back-ups.
+* Back-ups van SSL ingeschakeld Azure Database voor PostgreSQL wordt niet ondersteund. Als een back-up is geconfigureerd, wordt er mislukte back-ups.
+* Storage-account met behulp van een firewall worden ingeschakeld als de bestemming voor uw back-ups wordt niet ondersteund. Als een back-up is geconfigureerd, wordt er mislukte back-ups.
+
 
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Een handmatige back-up maken
 1. In de [Azure-portal](https://portal.azure.com), gaat u naar de pagina van uw app, selecteer **back-ups**. De **back-ups** pagina wordt weergegeven.
    
-    ![Back-ups pagina][ChooseBackupsPage]
+    ![Pagina van de back-ups][ChooseBackupsPage]
    
    > [!NOTE]
-   > Als u het volgende bericht ziet, klikt u op om uw App Service-abonnement upgraden voordat u kunt doorgaan met de back-ups.
-   > Zie voor meer informatie [een app in Azure opschalen](web-sites-scale.md).  
+   > Als u het volgende bericht ziet, klikt u erop om te upgraden van uw App Service-plan voordat u verder kunt gaan met back-ups.
+   > Zie voor meer informatie, [opschalen van een app in Azure](web-sites-scale.md).  
    > ![Opslagaccount kiezen](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
 2. In de **back-up** pagina, klikt u op **configureren**
 ![klikt u op configureren](./media/web-sites-backup/ClickConfigure1.png)
-3. In de **back-upconfiguratie** pagina, klikt u op **opslag: niet geconfigureerd** voor het configureren van een opslagaccount.
+3. In de **back-upconfiguratie** pagina, klikt u op **opslag: niet geconfigureerd** het configureren van een storage-account.
    
     ![Opslagaccount kiezen][ChooseStorageAccount]
-4. Kies uw back-upbestemming door te selecteren een **Opslagaccount** en **Container**. Het opslagaccount moet behoren tot hetzelfde abonnement als de app die u back wilt-up. Als u wenst, kunt u een nieuw opslagaccount of een nieuwe container maken in de desbetreffende pagina's. Wanneer u bent klaar, klikt u op **Selecteer**.
+4. Kies uw back-upbestemming door het selecteren van een **Opslagaccount** en **Container**. Het opslagaccount moet behoren tot hetzelfde abonnement als de app die u wilt back-up. Als u wilt, kunt u een nieuw opslagaccount of een nieuwe container maken in de respectievelijke pagina's. Wanneer u klaar bent, klikt u op **Selecteer**.
    
     ![Opslagaccount kiezen](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. In de **back-upconfiguratie** pagina die nog steeds open blijft, kunt u configureren **Backup Database**, vervolgens selecteert u de databases die u wilt opnemen in de back-ups (SQL-database of MySQL) en klik vervolgens op **OK**.  
+5. In de **back-upconfiguratie** pagina die nog steeds geopend blijft, kunt u configureren **Backup Database**, vervolgens selecteert u de databases die u wilt opnemen in de back-ups (SQL-database of MySQL) en klik vervolgens op **OK**.  
    
     ![Opslagaccount kiezen](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Voor een database worden weergegeven in deze lijst, de verbindingsreeks moet aanwezig zijn in de **verbindingsreeksen** sectie van de **toepassingsinstellingen** pagina voor uw app.
+   > Voor een database in deze lijst wordt weergegeven, de verbindingsreeks moet aanwezig zijn in de **verbindingsreeksen** sectie van de **toepassingsinstellingen** pagina voor uw app.
    > 
    > 
 6. In de **back-upconfiguratie** pagina, klikt u op **opslaan**.    
@@ -89,77 +93,77 @@ De volgende databaseoplossingen worden met de functie back-ups ondersteund:
    
     ![Knop BackUpNow][BackUpNow]
    
-    U ziet een bericht uitgevoerd tijdens de back-upproces.
+    U ziet een bericht wordt uitgevoerd tijdens de back-upproces.
 
-Zodra het opslagaccount en container is geconfigureerd, kunt u een handmatige back-up op elk gewenst moment kunt starten.  
+Nadat het opslagaccount en container is geconfigureerd, kunt u een handmatige back-up starten op elk gewenst moment.  
 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Automatische back-ups configureren
-1. In de **back-upconfiguratie** pagina **geplande back-up** naar **op**. 
+1. In de **back-upconfiguratie** pagina, stelt u **geplande back-up** naar **op**. 
    
     ![Opslagaccount kiezen](./media/web-sites-backup/05ScheduleBackup1.png)
-2. Back-upschema opties wordt weergegeven, stel **geplande back-** naar **op**, configureer de gewenste back-upschema en klikt u op **OK**.
+2. Back-upschema opties worden weergegeven, instellen **geplande back-** naar **op**, vervolgens de back-upschema naar wens configureren en klik op **OK**.
    
     ![Automatische back-ups inschakelen][SetAutomatedBackupOn]
 
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>Gedeeltelijke back-ups configureren
-Soms wilt u geen back-up alles op uw app. Enkele voorbeelden:
+Soms wilt u geen back-up van alles in uw app. Enkele voorbeelden:
 
-* U [wekelijkse back-ups instellen](web-sites-backup.md#configure-automated-backups) van uw app met statische inhoud, die nooit wordt gewijzigd, zoals oude blogberichten of installatiekopieën.
+* U [wekelijkse back-ups instellen](web-sites-backup.md#configure-automated-backups) van uw app met statische inhoud die nooit wordt gewijzigd, zoals oude blogberichten of installatiekopieën.
 * Uw app heeft meer dan 10 GB aan inhoud (dat wil zeggen de maximale hoeveelheid die u kunt back-up op een tijdstip).
 * U wilt niet dat back-up van de logboekbestanden.
 
-Gedeeltelijke back-ups kunnen dat u precies welke bestanden die u back wilt-up kiezen.
+Gedeeltelijke back-ups kunnen u precies welke u back wilt-up van bestanden.
 
-### <a name="exclude-files-from-your-backup"></a>Bestanden uitsluiten van uw back-up
-Stel dat u hebt een app met logboekbestanden en statische afbeeldingen die zijn back-up eenmaal en gaat niet wijzigen. In dergelijke gevallen kunt u de mappen en bestanden uitsluiten van wordt opgeslagen in uw toekomstige back-ups. Als u wilt uitsluiten van bestanden en mappen van uw back-ups, maakt een `_backup.filter` bestand de `D:\home\site\wwwroot` map van uw app. Geef de lijst van bestanden en mappen die u wilt uitsluiten in dit bestand. 
+### <a name="exclude-files-from-your-backup"></a>Bestanden uitsluiten van de back-up
+Stel dat u hebt een app met logboekbestanden en statische afbeeldingen die één keer back-up zijn en niet meer wijzigen. In dergelijke gevallen kunt u de mappen en bestanden uitsluiten van wordt opgeslagen in uw toekomstige back-ups. Als u wilt uitsluiten van bestanden en mappen van uw back-ups, maakt u een `_backup.filter` -bestand in de `D:\home\site\wwwroot` map van uw app. Geef de lijst met bestanden en mappen die u wilt uitsluiten in dit bestand. 
 
-Een eenvoudige manier om toegang tot uw bestanden is het gebruik van Kudu. Klik op **geavanceerde hulpprogramma's -> Ga** instellen voor uw web-app voor toegang tot Kudu.
+Er is een eenvoudige manier om toegang tot uw bestanden met Kudu. Klik op **geavanceerde hulpprogramma's -> Go** instellen voor uw web-app voor toegang tot Kudu.
 
 ![Kudu met portal][kudu-portal]
 
-Identificeer de mappen die u wilt uitsluiten van uw back-ups.  Bijvoorbeeld, wilt u filteren van de geselecteerde map en bestanden.
+Identificeer de mappen die u wilt uitsluiten van uw back-ups.  Bijvoorbeeld, wilt u de geselecteerde map en bestanden filteren.
 
-![Map installatiekopieën][ImagesFolder]
+![De afbeeldingenmap][ImagesFolder]
 
-Maken van een bestand met de naam `_backup.filter` en de voorgaande lijst plaatsen in het bestand, maar Verwijder `D:\home`. Lijst van een directory of bestand per regel. De inhoud van het bestand moet dus:
+Maak een bestand met de naam `_backup.filter` en plaatst u de voorgaande lijst in het bestand, maar Verwijder `D:\home`. Lijst met één map of het bestand per regel. Daarom moet de inhoud van het bestand:
  ```bash
     \site\wwwroot\Images\brand.png
     \site\wwwroot\Images\2014
     \site\wwwroot\Images\2013
 ```
 
-Uploaden `_backup.filter` van het bestand in de `D:\home\site\wwwroot\` map van uw site met [ftp](app-service-deploy-ftp.md) of een andere methode. Als u wenst, kunt u het bestand rechtstreeks met Kudu `DebugConsole` en voeg de inhoud bevat.
+Uploaden `_backup.filter` van het bestand in de `D:\home\site\wwwroot\` map van uw site met [ftp](app-service-deploy-ftp.md) of een andere methode. Als u wilt, kunt u het bestand rechtstreeks met Kudu `DebugConsole` en voeg er de inhoud.
 
-Back-ups uitvoeren dezelfde manier als u normaal doet, [handmatig](#create-a-manual-backup) of [automatisch](#configure-automated-backups). Nu, worden bestanden en mappen die zijn opgegeven in `_backup.filter` is uitgesloten van de toekomstige back-ups gepland of handmatig is gestart. 
+Back-ups uitvoeren de dezelfde manier als normaal, [handmatig](#create-a-manual-backup) of [automatisch](#configure-automated-backups). Nu, bestanden en mappen die zijn opgegeven in `_backup.filter` is uitgesloten van de toekomstige back-ups volgens de planning of handmatig wordt gestart. 
 
 > [!NOTE]
-> U herstelt gedeeltelijke back-ups van uw site dezelfde manier als u doet [een regelmatige back-up terugzetten](web-sites-restore.md). Het herstelproces komt goede.
+> U een gedeeltelijke back-ups van uw site herstellen de dezelfde manier [een regelmatige back-up herstellen](web-sites-restore.md). Het herstelproces doet de juiste dingen.
 > 
-> Wanneer een volledige back-up wordt hersteld, wordt alle inhoud op de site vervangen door de gewenste bevindt zich in de back-up. Als een bestand op de site, maar niet in de back-up is, wordt deze verwijderd. Maar wanneer een gedeeltelijke back-up wordt hersteld, inhoud die zich in een van de zwarte lijst mappen of een zwarte lijst bestand is ongewijzigd.
+> Wanneer een volledige back-up wordt hersteld, wordt alle inhoud op de site vervangen door de wat in de back-up is. Als een bestand op de site, maar niet in de back-up is wordt het verwijderd. Maar wanneer een gedeeltelijke back-up wordt hersteld, alle inhoud die zich in een van de niet-toegestane mappen of een niet-toegestane bestand is ongewijzigd.
 > 
 
 
 <a name="aboutbackups"></a>
 
-## <a name="how-backups-are-stored"></a>Hoe de back-ups worden opgeslagen
-Nadat u een of meer back-ups voor uw app gemaakt hebt, de back-ups worden weergegeven op de **Containers** pagina van uw storage-account en uw app. In het opslagaccount wordt elke back-up bestaat uit een`.zip` -bestand met de back-upgegevens en een `.xml` -bestand met een manifest van de `.zip` bestand inhoud. U kunt uitpakken en deze bestanden bladeren als u toegang krijgen tot uw back-ups wilt zonder het daadwerkelijk uitvoeren van een toepassing herstellen.
+## <a name="how-backups-are-stored"></a>Hoe back-ups worden opgeslagen
+Nadat u een of meer back-ups voor uw app gemaakt hebt, de back-ups worden weergegeven op de **Containers** pagina van uw opslagaccount en uw app. In de storage-account, wordt elke back-up bestaat uit een`.zip` -bestand met de back-upgegevens en een `.xml` -bestand met een manifest van de `.zip` bestandsinhoud. U kunt pakken en deze bestanden bladeren als u toegang krijgen tot uw back-ups wilt zonder daadwerkelijk uitvoeren van een app herstellen.
 
-De databaseback-up voor de app wordt opgeslagen in de hoofdmap van het ZIP-bestand. Voor een SQL-database is een Bacpac-bestand (zonder extensie) en kunnen worden geïmporteerd. Zie het maken van een SQL-database op basis van de export Bacpac- [een Bacpac-bestand voor het maken van een nieuwe gebruiker-Database importeren](http://technet.microsoft.com/library/hh710052.aspx).
+De databaseback-up voor de app wordt opgeslagen in de hoofdmap van het ZIP-bestand. Voor een SQL-database is een BACPAC-bestand (zonder bestandsextensie) en kunnen worden geïmporteerd. Zie voor het maken van een SQL-database op basis van de export BACPAC [een BACPAC-bestand voor het maken van een nieuwe gebruiker-Database importeren](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [!WARNING]
-> Wijzigen van de bestanden in uw **websitebackups** container kan leiden tot de back-up worden ongeldig en worden daarom niet-terug te zetten.
+> Het wijzigen van een van de bestanden in uw **websitebackups** container kan leiden tot de back-up worden ongeldig en daarom niet herstelbaar.
 > 
 > 
 
 ## <a name="automate-with-scripts"></a>Automatiseren met scripts
 
-U kunt back-beheer met behulp van scripts, automatiseren met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).
+U kunt back-upbeheer met scripts automatiseren met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).
 
-Raadpleeg voor voorbeelden:
+Zie voor voorbeelden:
 
 - [Azure CLI-voorbeelden](app-service-cli-samples.md)
 - [Azure PowerShell-voorbeelden](app-service-powershell-samples.md)
@@ -167,7 +171,7 @@ Raadpleeg voor voorbeelden:
 <a name="nextsteps"></a>
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor informatie over het herstellen van een app van een back-up, [herstellen van een app in Azure](web-sites-restore.md). 
+Zie voor meer informatie over het terugzetten van een app vanuit een back-up [herstellen van een app in Azure](web-sites-restore.md). 
 
 
 <!-- IMAGES -->

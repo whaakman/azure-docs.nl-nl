@@ -1,6 +1,6 @@
 ---
-title: Uw app LUIS - Azure testen | Microsoft Docs
-description: Language Understanding (LUIS) continu werken op uw toepassing deze verfijnen en het verbeteren van de kennis van de taal gebruiken.
+title: Test uw LUIS-app - Azure | Microsoft Docs
+description: Met Language Understanding (LUIS) kunt werken continu op uw toepassing het verfijnen en verbeteren van de taal begrijpen.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,54 +9,52 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: 8c702d2adbadd2736eed05c7580e8aabf69affbf
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 6c9bd93cf6e67aa815d289260f2b37bd3189c1d1
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266325"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887585"
 ---
 # <a name="testing-in-luis"></a>Testen in LUIS
 
-Testen, is het proces van voorbeeld utterances bieden aan LUIS en een reactie ontvangen van LUIS herkend intents en entiteiten. 
+Testen, is het proces van LUIS voorbeeld uitingen die en het ophalen van een reactie van LUIS herkend intenties en entiteiten. 
 
-U kunt [testen](interactive-test.md) LUIS interactief, één utterance op een tijdstip, of geef een [batch](luis-concept-batch-test.md) van utterances. Test, u de huidige vergelijken [active](luis-concept-version.md#active-version) model in het gepubliceerde model. 
+U kunt [testen](interactive-test.md) LUIS interactief, één utterance tegelijkertijd, of geef een [batch](luis-concept-batch-test.md) van uitingen. Met testen, vergelijkt u de huidige [active](luis-concept-version.md#active-version) modellen met het gepubliceerde model. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
-## <a name="what-is-a-score-in-testing"></a>Wat is er een score tests?
+## <a name="what-is-a-score-in-testing"></a>Wat is een score in de testfase?
 Zie [voorspelling score](luis-concept-prediction-score.md) concepten voor meer informatie over de scores voorspelling.
 
-## <a name="interactive-testing"></a>Interactieve testen
-Interactieve tests worden uitgevoerd vanuit de **Test** deelvenster van de website. U kunt een utterance om te zien hoe intents en entiteiten worden geïdentificeerd en gewaardeerd invoeren. Als LUIS is niet intents en entiteiten van de voorspellen, zoals u op een utterance in het deelvenster met testen verwacht, kopieert u deze naar de **bedoeling** pagina als een nieuwe utterance. Vervolgens de onderdelen van die utterance labelen en LUIS trainen. 
+## <a name="interactive-testing"></a>Interactief testen
+Interactieve testen wordt gedaan via de **Test** deelvenster van de website. U kunt een utterance om te zien hoe intenties en entiteiten worden geïdentificeerd en gewaardeerd invoeren. Als LUIS is niet voorspellen de intenties en entiteiten zoals op een utterance in het deelvenster met testen verwacht, kopieert u deze naar de **bedoeling** pagina als een nieuwe utterance. Vervolgens de onderdelen van deze utterance labelen en LUIS trainen. 
 
-## <a name="batch-testing"></a>Batch testen
-Zie [tests in batch](luis-concept-batch-test.md) als u meer dan één utterance tegelijk wilt testen.
+## <a name="batch-testing"></a>Batchgewijs testen
+Zie [batch testen](luis-concept-batch-test.md) als u meer dan één utterance tegelijk wilt testen.
 
 ## <a name="endpoint-testing"></a>Eindpunt testen
-U kunt testen met behulp van de [eindpunt](luis-glossary.md#endpoint) met een maximum van twee versies van uw app. Met uw belangrijkste of live-versie van uw app instellen als de **productie** eindpunt, Voeg een tweede versie naar de **fasering** eindpunt. Deze aanpak geeft u drie versies van een utterance: het huidige model in het deelvenster van de [LUIS] [ LUIS] website en de twee versies op twee verschillende eindpunten. 
+U kunt testen met behulp van de [eindpunt](luis-glossary.md#endpoint) met een maximum van twee versies van uw app. Met uw belangrijkste of live-versie van uw app instellen als de **productie** eindpunt, Voeg een tweede versie op de **staging** eindpunt. Deze aanpak biedt u drie versies van een utterance: het huidige model in het deelvenster van de [LUIS](luis-reference-regions.md) website en de twee versies op twee verschillende eindpunten. 
 
-Alle eindpunt testen aantallen naar uw gebruiksquotum. 
+Alle eindpunt testen telt mee voor uw quotum voor het gebruik. 
 
-## <a name="do-not-log-tests"></a>Meld u niet tests
-Als u voor een eindpunt testen en niet dat de utterance geregistreerd wilt, moet u gebruiken de `logging=false` configuratie van de query-tekenreeks.
+## <a name="do-not-log-tests"></a>Meld u tests niet
+Als u op basis van een eindpunt testen en niet dat de utterance geregistreerd wilt, moet u gebruiken de `logging=false` configuratie query-tekenreeks.
 
-## <a name="where-to-find-utterances"></a>Waar vind ik utterances
-LUIS slaat alle geregistreerde utterances in het querylogboek, beschikbaar voor downloaden op de [LUIS] [ LUIS] website **Apps** pagina weergeven, evenals de LUIS [authoring API's ](https://aka.ms/luis-authoring-apis). 
+## <a name="where-to-find-utterances"></a>Waar vind ik uitingen
+LUIS slaat alle geregistreerde uitingen in het querylogboek, beschikbaar voor downloaden op de [LUIS](luis-reference-regions.md) website **Apps** lijstpagina, evenals de LUIS [API's ontwerpen](https://aka.ms/luis-authoring-apis). 
 
-Alle utterances LUIS niet zeker weet wat is worden vermeld in de **[bekijken eindpunt utterances](label-suggested-utterances.md)** pagina van de [LUIS] [ LUIS] website. 
+Alle uitingen LUIS zeker is worden weergegeven in de **[bekijken eindpunt uitingen](label-suggested-utterances.md)** pagina van de [LUIS](luis-reference-regions.md) website. 
 
-![Eindpunt utterances controleren](./media/luis-concept-test/review-endpoint-utterances.png)
+![Eindpuntuitingen controleren](./media/luis-concept-test/review-endpoint-utterances.png)
  
 ## <a name="remember-to-train"></a>Houd er rekening mee te trainen
-Vergeet niet te [trainen](luis-how-to-train.md) LUIS nadat u wijzigingen in het model aanbrengt. Wijzigingen in de app LUIS zijn niet zichtbaar in de testfase totdat de app wordt getraind. 
+Houd er rekening mee te [trainen](luis-how-to-train.md) LUIS nadat u wijzigingen in het model aanbrengt. Wijzigingen in de LUIS-app zijn niet zichtbaar in de testfase totdat de app wordt getraind. 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
-Meer informatie over [aanbevolen procedures](luis-concept-best-practices.md).
+Informatie over [aanbevolen procedures](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [testen](interactive-test.md) uw utterances.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+* Meer informatie over [testen](interactive-test.md) uw uitingen.

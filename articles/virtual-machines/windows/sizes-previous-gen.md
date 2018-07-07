@@ -1,6 +1,6 @@
 ---
-title: Groottes van virtuele machine van Windows Azure - vorige generaties | Microsoft Docs
-description: Hier worden de vorige generaties van de beschikbare grootten voor Windows virtuele machines in Azure. Bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor de grootte van deze reeks.
+title: Azure Windows VM-grootten - vorige generaties | Microsoft Docs
+description: Geeft een lijst van de vorige methoden voor het genereren van de grootten die beschikbaar zijn voor Windows-machines in Azure. Bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslag en doorvoer netwerkbandbreedte voor grootten die in deze reeks.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 834f3e5e58f9beb06edf9234ce05ce915e759ad6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f0397acaa39ca91280285d9bd5135b0f0d3cf7c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660850"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902557"
 ---
-# <a name="previous-generations-of-virtual-machine-sizes"></a>Vorige generaties van de grootte van virtuele machines
+# <a name="previous-generations-of-virtual-machine-sizes"></a>Vorige generaties groottes van virtuele machines
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-previous-gen.md)]
@@ -40,5 +40,5 @@ ms.locfileid: "34660850"
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het [Azure compute-eenheden (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
+Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
 
