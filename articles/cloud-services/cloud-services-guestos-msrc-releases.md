@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/3/2018
+ms.date: 7/6/2018
 ms.author: raiye
-ms.openlocfilehash: 5fe3bd3bd63c08d779abffdac6b214989fd3970f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860058"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902160"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
 
-## <a name="may-guest-os"></a>Kan gastbesturingssystemen
+## <a name="june-guest-os"></a>Juni als gast-OS
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-06 | [4284880] |Windows 10-beveiliging |5.20 |12 juni 2018 |
