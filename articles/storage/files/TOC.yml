@@ -108,6 +108,8 @@
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Beveiligde TLS voor Azure Storage-client inschakelen
           href: ../common/storage-security-tls.md
+        - name: Nalevingsaanbiedingen
+          href: ../common/storage-compliance-offerings.md
     - name: Controleren en problemen oplossen
       items:
         - name: Problemen met Azure Files-verbindingen oplossen - Windows

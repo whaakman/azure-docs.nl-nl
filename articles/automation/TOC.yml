@@ -47,6 +47,8 @@
       items:
         - name: Overzicht van wijzigingen bijhouden
           href: automation-change-tracking.md
+        - name: Inhoud van bijgehouden bestanden bekijken
+          href: change-tracking-file-contents.md
     - name: Inventaris
       items:
         - name: Een virtuele machine beheren met inventarisverzameling

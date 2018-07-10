@@ -73,7 +73,7 @@ items:
     items:
       - name: Wereldwijde distributie
         href: distribute-data-globally.md
-      - name: Meerdere masters instellen
+      - name: Meerdere masters
         href: multi-region-writers.md
       - name: Partitionering
         href: partition-data.md
@@ -172,8 +172,6 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - JAVA
                 href: bulk-executor-java.md
-              - name: Het gebruik van Storage Explorer beheren
-                href: storage-explorer.md
               - name: Query’s uitvoeren
                 items:
                   - name: SQL-query's uitvoeren
@@ -184,8 +182,6 @@ items:
                 href: indexing-policies.md
               - name: SQL-gegevenspartitionering
                 href: sql-api-partition-data.md
-              - name: 'Opgeslagen procedures, triggers en UDF''s'
-                href: programming.md
               - name: Feed wijzigen
                 href: change-feed.md
               - name: Gegevenstypen
@@ -262,8 +258,6 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Resources
             items:
-              - name: Het gebruik van Storage Explorer beheren
-                href: storage-explorer.md
               - name: Visual Studio Code-extensie
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: SQL-testomgeving
@@ -328,12 +322,8 @@ items:
                 href: mongodb-ttl.md
               - name: Uw gegevens visualiseren met Power BI
                 href: powerbi-visualize.md
-              - name: Het gebruik van Storage Explorer beheren
-                href: storage-explorer.md
           - name: Resources
             items:
-              - name: Het gebruik van Storage Explorer beheren
-                href: storage-explorer.md
               - name: Visual Studio Code-extensie
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Graph API-documenten
@@ -352,12 +342,8 @@ items:
             items:
               - name: Graph-partitionering
                 href: graph-partitioning.md
-              - name: Het gebruik van Storage Explorer beheren
-                href: storage-explorer.md
           - name: Resources
             items:
-              - name: Het gebruik van Storage Explorer beheren
-                href: storage-explorer.md
               - name: Visual Studio Code-extensie
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Tabel-API-documenten
@@ -410,8 +396,6 @@ items:
                 href: table-sdk-python.md
           - name: Resources
             items:
-              - name: Het gebruik van Storage Explorer beheren
-                href: storage-explorer.md
               - name: Overzicht van Table Storage
                 href: table-storage-overview.md
               - name: Ontwerpoverzicht voor Table Storage
@@ -450,6 +434,8 @@ items:
         href: regional-failover.md
       - name: Diagnostische logboeken
         href: logging.md
+      - name: 'Opgeslagen procedures, triggers en UDF''s'
+        href: programming.md
       - name: Overzicht van BulkExecutor
         href: bulk-executor-overview.md
       - name: Rendabele lees- en schrijfbewerkingen
@@ -460,12 +446,10 @@ items:
         href: manage-account-with-powershell.md
       - name: Het gebruik van Storage Explorer beheren
         href: storage-explorer.md
-      - name: Schrijvers voor meerdere regio's
+      - name: Meerdere masters instellen
         href: multi-master-workaround.md
   - name: Resources
     items:
-      - name: Het gebruik van Storage Explorer beheren
-        href: storage-explorer.md
       - name: Query-cheatsheet
         href: query-cheat-sheet.md
       - name: 20 dagen met tips

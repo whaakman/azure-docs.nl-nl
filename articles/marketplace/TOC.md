@@ -4,22 +4,11 @@
 ### Overzicht en voordelen  
 ### Webwinkels  
 #### [AppSource en Azure Marketplace vergelijken](./comparing-appsource-azure-marketplace.md)  
-#### [Breid uw bedrijf uit met Appsource](./grow-your-business-with-appsource.md) 
-##### [Startpagina maken](./build-your-landing-page.md)  
-##### [Delen van leads inschakelen](./enable-lead-sharing.md)  
-##### [GTM-voordelen op Marketplace](./gtm-benefits.md)  
-##### [Uw bedrijf promoten met Microsoft](./promote-your-business-with-microsoft.md)  
-#### [Laat uw bedrijf groeien met Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
-##### [Startpagina maken](./build-your-landing-page.md)  
-##### [Delen van leads inschakelen](./enable-lead-sharing.md)  
-##### [GTM-voordelen op Marketplace](./gtm-benefits.md)  
-##### [Uw bedrijf promoten met Microsoft](./promote-your-business-with-microsoft.md)  
 
 ### Publiceren in webwinkels op Marketplace  
 #### [Type vermelding voor uw oplossing bepalen](./determine-your-listing-type.md)  
 #### [Uitgever worden in webwinkels op Marketplace](./become-publisher.md)  
 #### [Vereisten per type vermelding](./listing-type-requirements.md) 
-#### [Voorkeursoplossingen](./preferred-solutions.md) 
 
 ### Controlelijsten voor publiceren  
 #### [Controlelijst voor publiceren in AppSource](./publishing-checklist-appsource.md)  
@@ -38,6 +27,9 @@
 #### [Bank- en belastinggegevens toevoegen](./add-bank-tax-info.md)  
 #### [Proefversie inschakelen met Azure AD](./enable-trial-using-azure-ad.md)  
 #### [Factureringsopties voor Azure Marketplace](./billing-options-azure-marketplace.md)  
+
+### [Laat uw bedrijf groeien via de marketplace](./grow-your-business-with-azure-marketplace.md)  
+#### [Voorkeursoplossingen](./preferred-solutions.md) 
 
 ## [Cloud Partner-portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 

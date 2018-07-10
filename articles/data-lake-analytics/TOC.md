@@ -40,12 +40,11 @@
 #### [Cognitieve extensies](data-lake-analytics-u-sql-cognitive.md)
 #### [Handleiding voor programmeren](data-lake-analytics-u-sql-programmability-guide.md)
 
-### U-SQL-SDK
-#### [Lokaal uitvoeren en fouten opsporen](data-lake-analytics-data-lake-tools-local-run.md)
-#### [Uitvoeren en testen](data-lake-analytics-u-sql-sdk.md) 
-
 ### Visual Studio
 #### [Installeren](data-lake-analytics-data-lake-tools-install.md)
+#### [Lokaal uitvoeren](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Lokaal fouten opsporen](data-lake-analytics-data-lake-tools-local-debug.md)
+#### [U-SQL-databases ontwikkelen](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 #### [Taken doorzoeken en weergeven](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Fouten opsporen in aangepaste C#-code](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Problemen in terugkerende taken oplossen](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
@@ -59,6 +58,11 @@
 #### [Ontwerpen](data-lake-analytics-data-lake-tools-for-vscode.md)
 #### [Aangepaste code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Lokaal uitvoeren en fouten opsporen](data-lake-tools-for-vscode-local-run-and-debug.md)
+
+### Doorlopende integratie en doorlopende implementatie
+#### [Overzicht](data-lake-analytics-cicd-overview.md)
+#### [Tests instellen](data-lake-analytics-cicd-test.md)
+#### [U-SQL-SDK](data-lake-analytics-u-sql-sdk.md)
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)

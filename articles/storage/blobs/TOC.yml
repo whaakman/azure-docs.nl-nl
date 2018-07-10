@@ -20,7 +20,9 @@
       href: storage-quickstart-blobs-cli.md
     - name: Werken met blobs - .NET
       href: storage-quickstart-blobs-dotnet.md
-    - name: Werken met blobs - Java
+    - name: Werken met blobs - Java (Storage SDK V10)
+      href: storage-quickstart-blobs-java-v10.md
+    - name: Werken met blobs - Java (Storage SDK V7)
       href: storage-quickstart-blobs-java.md
     - name: Werken met blobs - Python
       href: storage-quickstart-blobs-python.md
@@ -192,6 +194,8 @@
           href: storage-blob-immutable-storage.md
         - name: Beveiligde TLS voor Azure Storage-client inschakelen
           href: ../common/storage-security-tls.md
+        - name: Nalevingsaanbiedingen
+          href: ../common/storage-compliance-offerings.md
     - name: Controleren en problemen oplossen
       items:
         - name: Zelfstudie voor problemen oplossen

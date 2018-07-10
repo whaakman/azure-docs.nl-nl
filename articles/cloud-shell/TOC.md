@@ -5,13 +5,12 @@
 ## [PowerShell - Snelstartgids](quickstart-powershell.md)
 
 # Functies en hulpprogramma's
-## [Bash - Functies en hulpprogramma's](features.md)
-## [Powershell - Functies en hulpprogramma's](features-powershell.md)
+## [Functies en hulpprogramma's](features.md)
 
 # Uitleg
-## [Bash - Permanente opslag](persisting-shell-storage.md)
-## [Powershell - Permanente opslag](persisting-shell-storage-powershell.md)
+## [Permanente opslag](persisting-shell-storage.md)
 ## [Het venster gebruiken](using-the-shell-window.md)
+## [PowerShell Cloud Shell voor Windows-gebruikers](cloud-shell-windows-users.md)
 
 # Voorbeelden
 ## [Bash - Resources maken met Terraform](example-terraform-bash.md)

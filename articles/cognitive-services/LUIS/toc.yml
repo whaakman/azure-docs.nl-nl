@@ -65,8 +65,10 @@
           href: luis-quickstart-intent-and-key-phrase.md
         - name: 8. Sentimentanalyse toevoegen
           href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: Voorspelling verbeteren
+    - name: App verbeteren
       items:
+        - name: Eindpuntuitingen controleren
+          href: luis-tutorial-review-endpoint-utterances.md
         - name: Met patronen
           href: luis-tutorial-pattern.md
         - name: Met een frasenlijst
@@ -313,6 +315,8 @@
       href: 'https://github.com/Microsoft/Recognizers-Text'
 - name: Resources
   items:
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Azure-roadmap
       href: 'https://aka.ms/luis-roadmap'
     - name: Woordenlijst
@@ -326,7 +330,7 @@
     - name: UserVoice
       href: 'https://aka.ms/luis-uservoice-forum'
     - name: Search
-      href: 'https://docs.microsoft.com/en-us/search/index?search=LUIS'
+      href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: Blog
       href: 'https://blog.botframework.com/category/luis/'
     - name: Knowledge Base

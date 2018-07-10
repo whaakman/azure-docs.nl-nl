@@ -98,7 +98,7 @@
 
 ### Uitgebreide IoT-scenario 's
 #### [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-#### [IoT Hub-berichten opslaan in Azure-gegevensopslag](iot-hub-store-data-in-azure-table-storage.md)
+#### [IoT Hub-berichten opslaan in Azure Blob-opslag](iot-hub-store-data-in-azure-table-storage.md)
 #### [Gegevensvisualisatie in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Gegevensvisualisatie met Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weersvoorspelling met behulp van Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
