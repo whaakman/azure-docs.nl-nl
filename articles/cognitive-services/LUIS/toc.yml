@@ -71,8 +71,6 @@
           href: luis-tutorial-review-endpoint-utterances.md
         - name: Met patronen
           href: luis-tutorial-pattern.md
-        - name: Met een frasenlijst
-          href: luis-tutorial-interchangeable-phrase-list.md
 - name: Voorbeelden
   items:
     - name: Codevoorbeelden
