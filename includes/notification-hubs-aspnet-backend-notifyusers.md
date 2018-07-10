@@ -378,7 +378,7 @@ U gaat de app nu implementeren op een Azure-website zodat deze toegankelijk is v
 
 1. Klik met de rechtermuisknop op het project **AppBackend** en selecteer **Publiceren**.
 
-2. Selecteer **Microsoft Azure App Service** als publicatiedoel en selecteer vervolgens **Publiceren. Het venster App Service maken wordt geopend. Hier kunt u alle benodigde Azure-resources maken die nodig zijn om de ASP.NET-web-app in Azure uit te voeren.
+2. Selecteer **Microsoft Azure App Service** als publicatiedoel en selecteer vervolgens \*\*Publiceren. Het venster App Service maken wordt geopend. Hier kunt u alle benodigde Azure-resources maken die nodig zijn om de ASP.NET-web-app in Azure uit te voeren.
 
     ![De tegel Microsoft Azure App Service][B15]
 

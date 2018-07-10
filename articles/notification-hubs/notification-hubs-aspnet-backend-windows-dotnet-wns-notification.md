@@ -60,9 +60,9 @@ In dit gedeelte werkt u de code bij in het project dat u hebt voltooid voor de z
 1. Open in Visual Studio de oplossing die u hebt gemaakt voor de zelfstudie [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) (Zelfstudie: Meldingen verzenden naar UWP-apps (Universal Windows Platform) met behulp van Azure Notification Hubs).
 2. Klik in Solution Explorer met de rechtermuisknop op het project **WindowsApp** en klik vervolgens op **NuGet-pakketten beheren**.
 3. Klik aan de linkerkant op **Online**.
-4. Typ **Http Client** in**** het zoekvak.
+4. Typ **Http Client** in **het zoekvak**.
 5. Klik in de lijst met resultaten op **System.Net.Http** en vervolgens op **Installeren**. Voltooi de installatie.
-6. Typ nu **Json.net** in**** het zoekvak van NuGet. Installeer het pakket **Newtonsoft.json** en sluit het venster NuGet Package Manager.
+6. Typ nu **Json.net** in **het zoekvak** van NuGet. Installeer het pakket **Newtonsoft.json** en sluit het venster NuGet Package Manager.
 8. Dubbelklik in Solution Explorer in het project **WindowsApp** op het bestand **MainPage.xaml** om dit te openen in de Visual Studio-editor.
 9. Vervang in de XML-code **MainPage.xaml** de sectie `<Grid>` door de volgende code (met deze code worden een gebruikersnaam en een wachtwoordvak toegevoegd waarmee de gebruiker zich kan verifiëren): Ook worden er tekstvakken toegevoegd voor de melding en voor de gebruikersnaam-tag die de melding moet ontvangen:
 
