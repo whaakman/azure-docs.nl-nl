@@ -1,6 +1,6 @@
 ---
-title: PowerShell installeren en configureren voor Azure-Stack Quick Start | Microsoft Docs
-description: Meer informatie over het installeren en configureren van PowerShell voor Azure-Stack.
+title: PowerShell installeren en configureren voor Azure Stack-Quick-Start | Microsoft Docs
+description: Meer informatie over het installeren en configureren van PowerShell voor Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66598bda7ca1fcf5c6e05ab47232236b740177a6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075235"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465740"
 ---
-# <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Leren werken met PowerShell in Azure-Stack
+# <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Aan de slag met PowerShell in Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Deze snelstartgids helpt u bij het installeren en configureren van een Azure-Stack-omgeving met PowerShell. Het script die wij in dit artikel verstrekken is afgestemd op de **Azure Stack operator** alleen.
+In deze snelstartgids helpt u bij het installeren en configureren van een Azure Stack-omgeving met PowerShell. Het script waarmee we in dit artikel is afgestemd op de **Azure Stack-operators** alleen.
 
-Dit artikel is een verkorte versie van de stappen die worden beschreven in de [Installeer PowerShell]( azure-stack-powershell-install.md), [downloaden's]( azure-stack-powershell-download.md), en [PowerShell-omgeving voor de Azure-Stack-operatorconfigureren]( azure-stack-powershell-configure-admin.md) artikelen. Met behulp van de scripts in dit onderwerp, kunt u PowerShell instellen voor Azure-Stack-omgevingen die zijn geïmplementeerd met Azure Active Directory of Active Directory Federation Services (AD FS).  
+In dit artikel is een verkorte versie van de stappen die worden beschreven in de [PowerShell installeren]( azure-stack-powershell-install.md), [hulpprogramma's downloaden]( azure-stack-powershell-download.md), en [voordeAzureStack-operatorsPowerShell-omgevingconfigureren]( azure-stack-powershell-configure-admin.md) artikelen. Met behulp van de scripts in dit onderwerp, kunt u PowerShell instellen voor Azure Stack-omgevingen die zijn geïmplementeerd met Azure Active Directory of Active Directory Federation Services (AD FS).  
 
 
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>PowerShell instellen voor implementaties op basis van Azure Active Directory
 
-Aanmelden bij uw Azure-Stack Development Kit of een externe Windows-client als u via VPN-verbinding verbonden bent. Open een PowerShell ISE-sessie met verhoogde bevoegdheden en voer vervolgens het volgende script. Zorg ervoor dat u het bijwerken van de **TenantName**, **ArmEndpoint**, en **GraphAudience** variabelen die nodig zijn voor de configuratie van uw omgeving:
+Meld u aan uw Azure Stack Development Kit, of een externe Windows-client als u via VPN-verbinding verbonden bent. Open een PowerShell ISE-sessie met verhoogde bevoegdheden en voer het volgende script. Zorg ervoor dat u het bijwerken van de **TenantName**, **ArmEndpoint**, en **GraphAudience** variabelen die nodig zijn voor de configuratie van uw omgeving:
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -100,7 +100,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 ## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>PowerShell instellen voor AD FS-implementaties
 
-U kunt het volgende script gebruiken als u Azure Stack werkt wanneer verbonden met internet. Maar als u Azure-Stack zonder verbinding met internet werkt, gebruiken de [manier van PowerShell installeren verbroken](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) en de cmdlets voor het configureren van PowerShell blijft hetzelfde zijn als in dit script wordt weergegeven. Aanmelden bij uw Azure-Stack Development Kit of een externe Windows-client als u via VPN-verbinding verbonden bent. Open een PowerShell ISE-sessie met verhoogde bevoegdheden en voer vervolgens het volgende script. Zorg ervoor dat u het bijwerken van de **ArmEndpoint** en **GraphAudience** variabelen die nodig zijn voor de configuratie van uw omgeving:
+U kunt het volgende script gebruiken als u Azure Stack wanneer verbonden met internet. Maar als u Azure Stack zonder verbinding met internet, gebruiken de [manier van PowerShell verbroken](azure-stack-powershell-install.md) en de cmdlets voor het configureren van PowerShell blijft hetzelfde zoals wordt weergegeven in dit script. Meld u aan uw Azure Stack Development Kit, of een externe Windows-client als u via VPN-verbinding verbonden bent. Open een PowerShell ISE-sessie met verhoogde bevoegdheden en voer het volgende script. Zorg ervoor dat u het bijwerken van de **ArmEndpoint** en **GraphAudience** variabelen die nodig zijn voor de configuratie van uw omgeving:
 
 ```powershell
 
@@ -166,14 +166,14 @@ Add-AzureRmAccount `
 
 ## <a name="test-the-connectivity"></a>De connectiviteit testen
 
-Nu dat u PowerShell hebt geconfigureerd, kunt u de configuratie van de testen door een resourcegroep maken:
+Nu u PowerShell hebt geconfigureerd, kunt u de configuratie testen door een resourcegroep te maken:
 
 ```powershell
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
 > [!note]  
-> Als u een resourcegroep, moet u een resourcegroep in uw abonnement hebt. Zie voor meer informatie over abonnementen [Plan, aanbieding, quota en abonnement overzicht](azure-stack-plan-offer-quota-overview.md)
+> Als u een resourcegroep, moet u een resourcegroep in uw abonnement hebt. Zie voor meer informatie over abonnementen [Plan, aanbieding, quota en abonnementen overzicht](azure-stack-plan-offer-quota-overview.md)
 
 Nadat de resourcegroep is gemaakt, de **Inrichtingsstatus** eigenschap is ingesteld op **geslaagd**.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8c758f78b661f492c98ac174d7fbbf8b7e3a5e52
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: e4af3dc8aa7a656fd0020285c3f73ce414ba039c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345080"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38305893"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>De resourceprovider van MySQL in Azure Stack implementeren
 
@@ -47,7 +47,6 @@ Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure 
     | --- | --- |
     | Versie 1804 (1.0.180513.1)|[MySQL RP versie 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
     | Versie 1802 (1.0.180302.1) | [MySQL RP versie 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
-    | Versie 1712 (1.0.180102.3 of 1.0.180106.1 (geïntegreerde systemen)) | [MySQL RP versie 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
 
 ### <a name="certificates"></a>Certificaten
 

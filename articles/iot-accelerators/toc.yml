@@ -10,6 +10,8 @@
   items:
     - name: Een oplossing voor bewaking op afstand implementeren
       href: quickstart-remote-monitoring-deploy.md
+    - name: Een apparaatsimulatieoplossing implementeren
+      href: quickstart-device-simulation-deploy.md
 - name: Zelfstudies
   items:
     - name: IoT-apparaten bewaken
@@ -149,10 +151,10 @@
           href: iot-accelerators-connected-factory-customize.md
     - name: Apparaatsimulatie
       items:
-        - name: Een oplossingsversneller implementeren
-          href: iot-accelerators-device-simulation-deploy.md
-        - name: Een simulatie uitvoeren
-          href: iot-accelerators-device-simulation-explore.md
+        - name: Een bestaande IoT-hub gebruiken
+          href: iot-accelerators-device-simulation-choose-hub.md
+        - name: Een aangepast apparaatmodel toevoegen
+          href: iot-accelerators-device-simulation-custom-model.md
 - name: Naslaginformatie
   items:
     - name: Snelzoekgids voor ontwikkelaars

@@ -1,6 +1,6 @@
 ---
-title: Installeer PowerShell voor Azure Stack | Microsoft Docs
-description: Informatie over het installeren van PowerShell voor Azure-Stack.
+title: Installeren van PowerShell voor Azure Stack | Microsoft Docs
+description: Informatie over het installeren van PowerShell voor Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,34 +11,34 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/18/2018
+ms.date: 07/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: b3c09582f5135655640768bcbcbef91750827bfa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e2785b0beeab042d4b1ad9a9eb5f545dbb58b8b9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358887"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38487498"
 ---
-# <a name="install-powershell-for-azure-stack"></a>Installeer PowerShell voor Azure Stack
+# <a name="install-powershell-for-azure-stack"></a>PowerShell voor Azure Stack installeren
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Azure Stack compatibele Azure PowerShell-modules zijn vereist voor het werken met Azure-Stack. In deze handleiding doorlopen we de stappen die nodig zijn voor het installeren van PowerShell voor Azure-Stack.
+Azure Stack compatibele Azure PowerShell-modules zijn vereist voor het werken met Azure Stack. In deze handleiding helpen we u bij de stappen die nodig zijn voor het installeren van PowerShell voor Azure Stack.
 
-In dit artikel bevat gedetailleerde instructies voor het installeren van PowerShell voor Azure-Stack.
+In dit artikel bevat gedetailleerde instructies voor het installeren van PowerShell voor Azure Stack.
 
-> [!Note]
-> De volgende stappen moet PowerShell 5.0. $PSVersionTable.PSVersion uitvoeren en vergelijken te controleren of uw versie, de **belangrijke** versie.
+> [!Note]  
+> De volgende stappen moet PowerShell 5.0. Om te controleren of uw versie, $PSVersionTable.PSVersion uitvoeren en vergelijkt u de **belangrijke** versie.
 
-PowerShell-opdrachten voor Azure-Stack zijn geïnstalleerd via de PowerShell-galerie. U kunt de volgende procedure om te valideren als PSGallery is geregistreerd als een opslagplaats, open een PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht:
+PowerShell-opdrachten voor Azure Stack zijn geïnstalleerd via de PowerShell Gallery. U kunt de volgende procedure gebruiken om te valideren of PSGallery is geregistreerd als een opslagplaats, open een PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht uit:
 
 ```PowerShell  
 Get-PSRepository -Name "PSGallery"
 ```
 
-Als de opslagplaats is niet geregistreerd, open een PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht:
+Als de opslagplaats is niet geregistreerd, open een PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht uit:
 
 ```PowerShell  
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
@@ -46,11 +46,11 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 > [!Note]  
 > Deze stap is vereist voor toegang tot Internet. 
 
-## <a name="uninstall-existing-versions-of-powershell"></a>Verwijder bestaande versies van PowerShell
+## <a name="uninstall-existing-versions-of-the-azure-stack-powershell-modules"></a>Verwijder bestaande versies van de Azure Stack-PowerShell-modules
 
-Voordat u de vereiste versie installeert, moet u geen eerder geïnstalleerde Azure Stack PowerShell-modules verwijderen. U kunt ze verwijderen met behulp van een van de volgende twee methoden:
+Voordat u de vereiste versie installeert, zorg ervoor dat alle eerder geïnstalleerde Azure Stack AzureRM PowerShell-modules te verwijderen. U kunt ze verwijderen met behulp van een van de volgende twee methoden:
 
- - Voor het verwijderen van de bestaande PowerShell-modules, sluit alle actieve sessies in PowerShell en voer de volgende opdracht:
+ - Voor het verwijderen van de bestaande AzureRM PowerShell-modules, sluit u alle actieve PowerShell-sessies en voer de volgende opdracht uit:
 
   ```PowerShell
     Uninstall-Module AzureRM.AzureStackAdmin -Force
@@ -58,13 +58,13 @@ Voordat u de vereiste versie installeert, moet u geen eerder geïnstalleerde Azu
     Uninstall-Module -Name AzureStack -Force
   ```
 
- - De mappen die met 'Azure beginnen' verwijderen uit de `C:\Program Files\WindowsPowerShell\Modules` en `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` mappen. Deze mappen verwijdert, worden eventuele bestaande PowerShell-modules.
+ - Verwijderen van alle mappen die met 'Azure beginnen' uit de `C:\Program Files\WindowsPowerShell\Modules` en `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` mappen. Deze mappen verwijdert, worden alle bestaande PowerShell-modules.
 
-De volgende secties beschrijven de stappen voor het installeren van PowerShell voor Azure-Stack. PowerShell kan worden geïnstalleerd op Azure-Stack die wordt gebruikt in verbonden, gedeeltelijk is verbonden, of in een scenario met niet-verbonden.
+De volgende secties worden de stappen die nodig zijn voor het installeren van PowerShell voor Azure Stack. PowerShell kan worden geïnstalleerd op Azure Stack die wordt beheerd die zijn verbonden, gedeeltelijk verbonden of in een niet-verbonden scenario.
 
-## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Installeer PowerShell in een scenario met verbonden (met de verbinding met Internet)
+## <a name="install-the-azure-stack-powershell-modules-in-a-connected-scenario-with-internet-connectivity"></a>De Azure Stack-PowerShell-modules installeren in een scenario voor verbonden (met een internetverbinding)
 
-Azure Stack compatibel AzureRM-modules zijn geïnstalleerd via de API-versie profielen. Azure Stack vereist de **2017-03-09-profiel** profiel API-versie die beschikbaar is door de module AzureRM.Bootstrapper installeren. Raadpleeg voor meer informatie over profielen voor API-versie en de cmdlets die is geleverd door ze naar de [API-versie Profielbeheer](user/azure-stack-version-profiles.md). Naast de modules AzureRM, moet u ook de Azure-Stack-specifieke PowerShell-modules installeren. Voer het volgende PowerShell-script voor deze modules installeren op uw ontwikkelwerkstation:
+Azure Stack compatibel AzureRM-modules zijn geïnstalleerd via de API-versieprofielen. Azure Stack is vereist de **2017-03-09-profiel** profiel API-versie die door het installeren van de module AzureRM.Bootstrapper beschikbaar is. Voor meer informatie over API-versieprofielen en de beschikbare deze cmdlets, raadpleegt u de [API-versieprofielen beheren](user/azure-stack-version-profiles.md). Naast de AzureRM-modules, moet u ook de Azure Stack-specifieke PowerShell-modules installeren. Voer het volgende PowerShell-script voor het installeren van deze modules op uw ontwikkelwerkstation:
 
   ```PowerShell  
 # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -80,22 +80,22 @@ Install-Module -Name AzureStack -RequiredVersion 1.3.0
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
   ```
 
-Bevestig de installatie door de volgende opdracht uitvoeren:
+Om te bevestigen dat de installatie, moet u de volgende opdracht uitvoeren:
 
 ```PowerShell  
 Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 ```
 
-Als de installatie geslaagd is, worden de modules AzureRM en AzureStack weergegeven in de uitvoer.
+Als de installatie geslaagd is, wordt de azurerm-module en AzureStack-modules worden weergegeven in de uitvoer.
 
-## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Installeer PowerShell in een niet-verbonden of een gedeeltelijk verbonden scenario (met beperkte verbinding met Internet)
+## <a name="install-the-azure-stack-powershell-modules-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>De Azure Stack-PowerShell-modules installeren in een niet-verbonden of een gedeeltelijk verbonden scenario (met beperkte verbinding met Internet)
 
-In een niet-verbonden scenario moet u eerst de PowerShell-modules voor een machine die verbinding heeft met Internet te downloaden en ze vervolgens overbrengen naar de Azure-Stack Development Kit voor installatie.
+In een niet-verbonden scenario, moet u eerst de PowerShell-modules downloaden op een computer die verbinding heeft met Internet en deze vervolgens overbrengen naar de Azure Stack Development Kit voor installatie.
 
 > [!IMPORTANT]  
-> De versie van de Azure Stack 1.3.0 PowerShell-module is voorzien van een lijst met wijzigingen op te splitsen. Upgrade van de 1.2.11 versie, Zie de [Migratiehandleiding](https://aka.ms/azspowershellmigration).
+> De versie van de Azure Stack 1.3.0 PowerShell-module wordt geleverd met een lijst met belangrijke wijzigingen. Een upgrade van de 1.2.11 versie, Zie de [Migratiehandleiding](https://aka.ms/azspowershellmigration).
 
-1. Meld u bij een computer waarop u beschikt over een internetverbinding en gebruik het volgende script downloaden de AzureRM en AzureStack pakketten naar de lokale computer:
+1. Meld u aan bij een computer waar u over een internetverbinding beschikt en gebruik het volgende script om te downloaden van de AzureRM en AzureStack pakketten naar uw lokale computer:
 
    ```PowerShell  
    $Path = "<Path that is used to save the packages>"
@@ -118,13 +118,13 @@ In een niet-verbonden scenario moet u eerst de PowerShell-modules voor een machi
    ```
 
   > [!Important]  
-  > Als u geen Azure-Stack met update 1804 of hoger, wijzig de **requiredversion** parameterwaarde naar `1.2.11`. 
+  > Als u niet Azure Stack met update 1804 of hoger uitvoert, wijzigt u de **requiredversion** parameterwaarde `1.2.11`. 
 
 2. Kopieer het gedownloade pakketten via een USB-apparaat.
 
 3. Meld u aan met het werkstation en kopieer de pakketten van het USB-apparaat naar een locatie op het werkstation.
 
-4. U moet nu registreren van deze locatie als de standaard-opslagplaats en installeren van de modules AzureRM en AzureStack uit deze opslagplaats:
+4. Nu moet u deze locatie als de standaard-opslagplaats registreren en de azurerm-module en AzureStack-modules installeren vanuit deze opslagplaats:
 
    ```PowerShell
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
@@ -144,9 +144,9 @@ In een niet-verbonden scenario moet u eerst de PowerShell-modules voor een machi
 
 ## <a name="configure-powershell-to-use-a-proxy-server"></a>PowerShell voor het gebruik van een proxyserver configureren
 
-In scenario's waarvoor een proxyserver voor toegang tot het internet, moet u eerst de PowerShell voor het gebruik van een bestaande proxyserver configureren.
+In scenario's waarin een proxyserver voor toegang tot het internet, moet u eerst de PowerShell voor het gebruik van een bestaande proxyserver configureren.
 
-1. Open een opdrachtprompt PowerShell.
+1. Open een verhoogde PowerShell-prompt.
 2. Voer de volgende opdrachten uit:
 
 ````PowerShell  
@@ -160,7 +160,7 @@ In scenario's waarvoor een proxyserver voor toegang tot het internet, moet u eer
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - [Azure-Stack-hulpprogramma's vanuit GitHub downloaden](azure-stack-powershell-download.md)
- - [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving](user/azure-stack-powershell-configure-user.md)  
- - [De Azure-Stack-operator PowerShell-omgeving configureren](azure-stack-powershell-configure-admin.md) 
- - [Profielen voor API-versie in Azure-Stack beheren](user/azure-stack-version-profiles.md)  
+ - [Hulpprogramma's voor Azure Stack downloaden vanuit GitHub](azure-stack-powershell-download.md)
+ - [PowerShell-omgeving van de Azure Stack-gebruiker configureren](user/azure-stack-powershell-configure-user.md)  
+ - [De Azure Stack-operators PowerShell-omgeving configureren](azure-stack-powershell-configure-admin.md) 
+ - [Beheren van API-versieprofielen in Azure Stack](user/azure-stack-version-profiles.md)  

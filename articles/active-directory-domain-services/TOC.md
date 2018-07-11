@@ -54,6 +54,7 @@
 #### [Ontbrekende service-principals herstellen](active-directory-ds-troubleshoot-service-principals.md)
 #### [Fouten met betrekking tot Secure LDAP](active-directory-ds-troubleshoot-ldaps.md)
 ### [Fouten met niet-overeenkomende tenants oplossen](active-directory-ds-mismatched-tenant-error.md)
+### [Onderbroken domeinen](active-directory-ds-suspension.md)
 
 
 # Naslaginformatie

@@ -41,6 +41,8 @@
       href: how-to-customize-pronunciation.md
     - name: Spraakstijlen aanpassen (Bot Brand Voice)
       href: how-to-customize-voice-font.md
+    - name: Spraakvoorbeelden opnemen
+      href: record-custom-voice-samples.md
     - name: Transcripties voorbereiden
       href: prepare-transcription.md
     - name: Aangepaste audiostromen gebruiken

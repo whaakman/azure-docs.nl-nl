@@ -84,8 +84,6 @@
           href: sql-database-service-tiers-dtu.md
         - name: Bronlimieten
           href: sql-database-resource-limits.md
-    - name: Hoge beschikbaarheid
-      href: sql-database-high-availability.md
     - name: Logische servers en één database
       items:
         - name: Logische servers en één database
@@ -128,8 +126,46 @@
           href: sql-database-managed-instance-connect-app.md
         - name: T-SQL-verschillen
           href: sql-database-managed-instance-transact-sql-information.md
-    - name: Algemene SQL Server-functies
-      href: sql-database-features.md
+    - name: Bedrijfscontinuïteit
+      items:
+        - name: Bedrijfscontinuïteit
+          href: sql-database-business-continuity.md
+        - name: Hoge beschikbaarheid
+          href: sql-database-high-availability.md
+        - name: Databaseback-ups
+          href: sql-database-automated-backups.md
+        - name: Langetermijnretentie van back-ups
+          itmes:
+            - name: Langetermijnretentie van back-ups
+              href: sql-database-long-term-retention.md
+            - name: Langetermijnretentie van back-ups configureren - SQL-opslag
+              href: sql-database-long-term-backup-retention-configure.md
+            - name: Langetermijnretentie van back-ups configureren - Azure Vault (afgeschaft)
+              href: sql-database-long-term-backup-retention-configure-vault.md
+        - name: Failovergroepen en geo-replicatie
+          items:
+            - name: Failovergroepen en geo-replicatie
+              href: sql-database-geo-replication-overview.md
+            - name: Geo-replicatie configureren - Portal
+              href: sql-database-geo-replication-portal.md
+            - name: Beveiliging voor replica's configureren
+              href: sql-database-geo-replication-security-config.md
+        - name: Databaseherstel
+          items:
+            - name: Databaseherstel
+              href: sql-database-recovery-using-backups.md
+            - name: Herstellen na een storing
+              href: sql-database-disaster-recovery.md
+            - name: Herstelanalyse uitvoeren
+              href: sql-database-disaster-recovery-drills.md
+        - name: App-ontwerp
+          items:
+            - name: Ontwerpen voor herstel na noodgeval
+              href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+            - name: Ontwerpen voor elastische pools
+              href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+            - name: Ontwerpen voor app-upgrades
+              href: sql-database-manage-application-rolling-upgrade.md
     - name: Beveiliging
       items:
         - name: Beveiliging
@@ -192,76 +228,56 @@
               href: sql-database-always-encrypted.md
             - name: De Azure Key Vault gebruiken
               href: sql-database-always-encrypted-azure-key-vault.md
-    - name: Bedrijfscontinuïteit
+    - name: Elastische schaalbaarheid
       items:
-        - name: Bedrijfscontinuïteit
-          href: sql-database-business-continuity.md
-        - name: Databaseback-ups
-          href: sql-database-automated-backups.md
-        - name: Langetermijnretentie van back-ups
-          itmes:
-            - name: Langetermijnretentie van back-ups
-              href: sql-database-long-term-retention.md
-            - name: Langetermijnretentie van back-ups configureren - SQL-opslag
-              href: sql-database-long-term-backup-retention-configure.md
-            - name: Langetermijnretentie van back-ups configureren - Azure Vault (afgeschaft)
-              href: sql-database-long-term-backup-retention-configure-vault.md
-        - name: Failovergroepen en geo-replicatie
+        - name: Schaalbaarheid van de resource
+          href: sql-database-scale-resources.md
+        - name: Uitschaling lezen
+          href: sql-database-read-scale-out.md
+        - name: Database-sharding
           items:
-            - name: Failovergroepen en geo-replicatie
-              href: sql-database-geo-replication-overview.md
-            - name: Geo-replicatie configureren - Portal
-              href: sql-database-geo-replication-portal.md
-            - name: Beveiliging voor replica's configureren
-              href: sql-database-geo-replication-security-config.md
-        - name: Databaseherstel
-          items:
-            - name: Databaseherstel
-              href: sql-database-recovery-using-backups.md
-            - name: Herstellen na een storing
-              href: sql-database-disaster-recovery.md
-            - name: Herstelanalyse uitvoeren
-              href: sql-database-disaster-recovery-drills.md
-        - name: App-ontwerp
-          items:
-            - name: Ontwerpen voor herstel na noodgeval
-              href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-            - name: Ontwerpen voor elastische pools
-              href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-            - name: Ontwerpen voor app-upgrades
-              href: sql-database-manage-application-rolling-upgrade.md
-    - name: Migreren naar SQL Database
-      items:
-        - name: Migreren naar SQL Database
-          href: sql-database-cloud-migrate.md
-        - name: Migreren naar beheerd exemplaar
-          href: sql-database-managed-instance-migrate.md
-        - name: SQL Database na migratie beheren
-          href: sql-database-manage-after-migration.md
-    - name: Gegevens laden en verplaatsen
-      items:
-        - name: Een DB binnen Azure kopiëren
-          href: sql-database-copy.md
-        - name: Een DB uit een BACPAC importeren
-          href: sql-database-import.md
-        - name: Een DB naar een BACPAC exporteren
-          href: sql-database-export.md
-        - name: Gegevenssynchronisatie
-          items:
-            - name: SQL Data Sync
-              href: sql-database-sync-data.md
-            - name: Schemawijzigingen repliceren
-              href: sql-database-update-sync-schema.md
-            - name: Bewaken met OMS
-              href: sql-database-sync-monitor-oms.md
-            - name: Best practices voor Data Sync
-              href: sql-database-best-practices-data-sync.md
-            - name: Problemen met Data Sync oplossen
-              href: sql-database-troubleshoot-data-sync.md
-        - name: Gegevens laden met BCP
-          href: sql-database-load-from-csv-with-bcp.md
-        - name: Gegevens laden met ADF
-          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+            - name: Database-sharding
+              href: sql-database-elastic-scale-introduction.md
+            - name: Elastische clientbibliotheek - consolideren
+              href: sql-database-elastic-database-client-library.md
+            - name: Clientbibliotheek voor Elastic Database upgraden
+              href: sql-database-elastic-scale-upgrade-client-library.md
+            - name: Shard-kaarten
+              href: sql-database-elastic-scale-shard-map-management.md
+            - name: Query-routering
+              href: sql-database-elastic-scale-data-dependent-routing.md
+            - name: Referenties beheren
+              href: sql-database-elastic-scale-manage-credentials.md
+            - name: Shard-query's uitvoeren
+              href: sql-database-elastic-scale-multishard-querying.md
+            - name: Elastic-hulpprogramma's
+              href: sql-database-elastic-scale-glossary.md
+            - name: Shard-gegevens verplaatsen
+              href: sql-database-elastic-scale-overview-split-and-merge.md
+            - name: Elastische clientbibliotheek - Dapper
+              href: sql-database-elastic-scale-working-with-dapper.md
+            - name: Veelgestelde vragen over Elastic-hulpprogramma's
+              href: sql-database-elastic-scale-faq.md
+            - name: Een shard-app maken
+              href: sql-database-elastic-scale-get-started.md
+            - name: Een query uitvoeren op horizontaal gedeelde gegevens
+              href: sql-database-elastic-query-getting-started.md
+            - name: Shard-gegevens verplaatsen
+              href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+            - name: Beveiligingsconfiguratie
+              href: sql-database-elastic-scale-split-merge-security-configuration.md
+            - name: Een shard toevoegen
+              href: sql-database-elastic-scale-add-a-shard.md
+            - name: Shard-toewijzingsproblemen oplossen
+              href: sql-database-elastic-database-recovery-manager.md
+            - name: Een shard-database migreren
+              href: sql-database-elastic-convert-to-use-elastic-tools.md
+            - name: Tellers maken
+              href: sql-database-elastic-database-perf-counters.md
+            - name: Entity Framework gebruiken
+              href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+    - name: Vergelijking van SQL-functies
+      href: sql-database-features.md
     - name: Controleren en afstemmen
       items:
         - name: Controleren en afstemmen
@@ -318,52 +334,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
-    - name: Uitschalen
-      items:
-        - name: Uitschaling lezen
-          href: sql-database-read-scale-out.md
-        - name: Database-sharding
-          items:
-            - name: Database-sharding
-              href: sql-database-elastic-scale-introduction.md
-            - name: Elastische clientbibliotheek - consolideren
-              href: sql-database-elastic-database-client-library.md
-            - name: Clientbibliotheek voor Elastic Database upgraden
-              href: sql-database-elastic-scale-upgrade-client-library.md
-            - name: Shard-kaarten
-              href: sql-database-elastic-scale-shard-map-management.md
-            - name: Query-routering
-              href: sql-database-elastic-scale-data-dependent-routing.md
-            - name: Referenties beheren
-              href: sql-database-elastic-scale-manage-credentials.md
-            - name: Shard-query's uitvoeren
-              href: sql-database-elastic-scale-multishard-querying.md
-            - name: Elastic-hulpprogramma's
-              href: sql-database-elastic-scale-glossary.md
-            - name: Shard-gegevens verplaatsen
-              href: sql-database-elastic-scale-overview-split-and-merge.md
-            - name: Elastische clientbibliotheek - Dapper
-              href: sql-database-elastic-scale-working-with-dapper.md
-            - name: Veelgestelde vragen over Elastic-hulpprogramma's
-              href: sql-database-elastic-scale-faq.md
-            - name: Een shard-app maken
-              href: sql-database-elastic-scale-get-started.md
-            - name: Een query uitvoeren op horizontaal gedeelde gegevens
-              href: sql-database-elastic-query-getting-started.md
-            - name: Shard-gegevens verplaatsen
-              href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
-            - name: Beveiligingsconfiguratie
-              href: sql-database-elastic-scale-split-merge-security-configuration.md
-            - name: Een shard toevoegen
-              href: sql-database-elastic-scale-add-a-shard.md
-            - name: Shard-toewijzingsproblemen oplossen
-              href: sql-database-elastic-database-recovery-manager.md
-            - name: Een shard-database migreren
-              href: sql-database-elastic-convert-to-use-elastic-tools.md
-            - name: Tellers maken
-              href: sql-database-elastic-database-perf-counters.md
-            - name: Entity Framework gebruiken
-              href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Bewerkingen voor meerdere databases
       items:
         - name: Taken voor Elastic Database
@@ -424,6 +394,40 @@
           href: sql-database-temporal-tables-retention-policy.md
         - name: In-memory configureren
           href: sql-database-in-memory-oltp-migration.md
+- name: Handleidingen
+  items:
+    - name: Migreren naar SQL Database
+      items:
+        - name: Migreren naar SQL Database
+          href: sql-database-cloud-migrate.md
+        - name: Migreren naar beheerd exemplaar
+          href: sql-database-managed-instance-migrate.md
+        - name: SQL Database na migratie beheren
+          href: sql-database-manage-after-migration.md
+    - name: Gegevens laden en verplaatsen
+      items:
+        - name: Een DB binnen Azure kopiëren
+          href: sql-database-copy.md
+        - name: Een DB uit een BACPAC importeren
+          href: sql-database-import.md
+        - name: Een DB naar een BACPAC exporteren
+          href: sql-database-export.md
+        - name: Gegevenssynchronisatie
+          items:
+            - name: SQL Data Sync
+              href: sql-database-sync-data.md
+            - name: Schemawijzigingen repliceren
+              href: sql-database-update-sync-schema.md
+            - name: Bewaken met OMS
+              href: sql-database-sync-monitor-oms.md
+            - name: Best practices voor Data Sync
+              href: sql-database-best-practices-data-sync.md
+            - name: Problemen met Data Sync oplossen
+              href: sql-database-troubleshoot-data-sync.md
+        - name: Gegevens laden met BCP
+          href: sql-database-load-from-csv-with-bcp.md
+        - name: Gegevens laden met ADF
+          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
     - name: Apps ontwikkelen
       items:
         - name: Connectiviteit
@@ -448,8 +452,6 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
-- name: Handleidingen
-  items:
     - name: SaaS-referentiearchitectuur met meerdere tenants
       items:
         - name: Voorbeeld van Wingtip Tickets

@@ -103,6 +103,8 @@
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Diagnostische instellingen inschakelen met Resource Manager-sjablonen
           href: monitoring-enable-diagnostic-logs-using-template.md
+        - name: Voorbereiden op JSON Lines-indeling voor diagnostische logboeken
+          href: monitor-diagnostic-logs-append-blobs.md
     - name: Activiteitenlogboek gebruiken
       items:
         - name: Gebeurtenissen in het activiteitenlogboek bekijken

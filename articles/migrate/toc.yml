@@ -40,6 +40,8 @@
           href: contoso-migration-refactor-web-app-sql.md
         - name: 10. Contoso - Een Linux-app herstructureren in Azure Web Apps en Azure MySQL
           href: contoso-migration-refactor-linux-app-service-mysql.md
+        - name: 11. Contoso - THS naar VSTS migreren
+          href: contoso-migration-tfs-vsts.md
     - name: Een grote omgeving verkennen en beoordelen
       href: how-to-scale-assessment.md
     - name: Machines groeperen

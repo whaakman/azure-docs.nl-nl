@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e8dd425bbb5839b1c2f5ad4e217c61dc50b38ce1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c9249de56979d47a29fc9d7c12b99e41b3ada0fd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346821"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465834"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers voor de SQL-resourceprovider toevoegen
 
@@ -100,9 +100,6 @@ Als u wilt toevoegen van een zelfstandige host-server die al ingesteld, de volge
    * Kies een beschikbare SKU's voor het gebruik van een bestaande SKU, en selecteer vervolgens **maken**.
    * Voor het maken van een SKU selecteert **+ maken van nieuwe Voorraadeenheid**. In **SKU maken**, voer de vereiste gegevens in en selecteer vervolgens **OK**.
 
-     > [!IMPORTANT]
-     > Speciale tekens, inclusief spaties en perioden, worden niet ondersteund in **naam** veld. Gebruik de voorbeelden in de volgende schermopname Voer waarden in voor de **familie**, **laag**, en **Edition** velden.
-
      ![Een SKU maken](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Zorgen voor hoge beschikbaarheid met behulp van SQL Always On Availability Groups
@@ -119,16 +116,18 @@ Exemplaren van SQL Always On configureren zijn extra stappen vereist en moet dri
 
 U moet inschakelen [automatische Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) op elke beschikbaarheidsgroep voor elk exemplaar van SQL Server.
 
-Als u wilt inschakelen automatische seeding op alle instanties, bewerken en voer vervolgens de volgende SQL-opdracht voor elk exemplaar:
+Om in te schakelen automatische seeding op alle instanties, bewerken en voer vervolgens de volgende SQL-opdracht op de primaire replica voor elk secundair exemplaar:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
+      MODIFY REPLICA ON '<secondary_node>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-Op de secundaire exemplaren, bewerken en voer vervolgens de volgende SQL-opdracht voor elk exemplaar:
+Houd er rekening mee dat de beschikbaarheidsgroep moet worden tussen vierkante haken.
+
+Voer de volgende SQL-opdracht op de secundaire knooppunten:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,7 +155,7 @@ Deze opdrachten gebruiken om in te stellen van de ingesloten database-server-opt
 
    Onder **SQL-Servers die als host fungeert**, kunt u de Resourceprovider van de SQL-Server verbinding met de daadwerkelijke exemplaren van SQL Server, die als back-end van de resourceprovider dienen.
 
-3. Vul het formulier in met de details van de verbinding voor uw SQL Server-exemplaar. Zorg ervoor dat u de FQDN-adres van de Always On-Listener (en optioneel poortnummer.) Geef de informatie voor het account dat u hebt geconfigureerd met sysadmin-bevoegdheden.
+3. Vul het formulier in met de details van de verbinding voor uw SQL Server-exemplaar. Zorg ervoor dat u de FQDN-adres van de Always On-Listener (en optioneel getal en exemplaar poortnaam). Geef de informatie voor het account dat u hebt geconfigureerd met sysadmin-bevoegdheden.
 
 4. Controleer de AlwaysOn-beschikbaarheidsgroep ondersteuning in te schakelen voor exemplaren van SQL AlwaysOn-beschikbaarheidsgroep.
 
