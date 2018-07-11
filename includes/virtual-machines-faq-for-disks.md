@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 66964e4ed0877cc47dd7d2b5f3c6a62f4fa006b1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348181"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37935747"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -91,7 +91,7 @@ Beheerde schijven ondersteunt drie belangrijke standaardrollen:
 
 **Is er een manier dat ik kan kopiëren of een beheerde schijf naar een persoonlijke storage-account exporteren?**
 
-U kunt een alleen-lezen shared access signature (SAS) URI voor de beheerde schijf genereren en deze gebruiken om de inhoud kopiëren naar een persoonlijke opslag account of on-premises opslag. U kunt de SAS-URI met behulp van de Azure portal, Azure PowerShell of Azure CLI of [AzCopy](../articles/storage/common/storage-use-azcopy.md)
+U kunt een alleen-lezen shared access signature (SAS) URI voor de beheerde schijf genereren en deze gebruiken om de inhoud kopiëren naar een persoonlijke opslag account of on-premises opslag. U kunt de SAS-URI met behulp van de Azure portal, Azure PowerShell of de Azure CLI, of [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Kan ik een kopie van de beheerde schijf maken?**
 
@@ -125,6 +125,10 @@ Nee. U kunt de naameigenschap van de computer niet bijwerken. De nieuwe virtuele
 **Waar vind ik een voorbeeld van Azure Resource Manager-sjablonen te maken van virtuele machines met beheerde schijven?**
 * [Lijst met sjablonen met behulp van Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+**Kan ik dezelfde niet-beheerde en beheerde schijven op dezelfde VM plaatsen?**
+
+Nee.
 
 ## <a name="standard-ssd-disks-preview"></a>Standard SSD-schijven (Preview)
 
@@ -286,7 +290,7 @@ Het partitietype die Azure biedt ondersteuning voor een besturingssysteemschijf 
 
 **Wat is de maximale grootte uit pagina-blob die wordt ondersteund?**
 
-Pagina is-blob de maximumgrootte die ondersteuning biedt voor Azure 8 TB (8.191 GB). De maxmium blog paginagrootte wanneer gekoppeld aan een virtuele machine als de gegevens of besturingssysteemschijven is 4 TB (4095 GB).
+Pagina is-blob de maximumgrootte die ondersteuning biedt voor Azure 8 TB (8.191 GB). De maximale blog paginagrootte wanneer gekoppeld aan een virtuele machine als de gegevens of besturingssysteemschijven is 4 TB (4095 GB).
 
 **Moet ik een nieuwe versie van Azure-hulpprogramma's gebruiken om te maken, koppelen, vergroten of verkleinen en uploaden van schijven die groter zijn dan 1 TB?**
 

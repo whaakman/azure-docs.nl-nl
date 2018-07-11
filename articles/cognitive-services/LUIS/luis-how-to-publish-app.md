@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 1bd24af0498755b7cdcb170624fd8f9f3b39c85a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0f6ba76ede48502e4f3308b11d41bf141f0188fb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347409"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927771"
 ---
 # <a name="publish-your-trained-app"></a>Uw getrainde app publiceren
 Wanneer u klaar bent met het bouwen en testen van uw LUIS-app, publiceren. Nadat de app is gepubliceerd, wordt de pagina publiceren weergegeven alle bijbehorende HTTP [eindpunten](luis-glossary.md#endpoint). Deze eindpunten per [regio](luis-reference-regions.md) en per [sleutel](luis-how-to-manage-keys.md), klikt u vervolgens zijn geïntegreerd in elke client, chatbot of back-end-toepassing. 
@@ -67,7 +67,7 @@ De **inclusief alle voorspelde scores intentie** selectievakje kan het eindpunt 
 
 Deze instelling kunt uw chatbot of LUIS-aanroepen van toepassing op een programmatische beslissing nemen op basis van de scores van de geretourneerde intents. De eerste twee intenties zijn in het algemeen de meest interessante. Als de hoogste score is het geen intentie, dat uw chatbot kunt kiezen om een follow-up vraag te stellen die een definitieve keuze maakt tussen de intentie geen en de andere hoge score intentie. 
 
-De intenties en hun scores zijn ook opgenomen van de eindpunt-Logboeken. U kunt [exporteren](create-new-app.md#export-app) deze logboeken en analyseren van de scores. 
+De intenties en hun scores zijn ook opgenomen van de eindpunt-Logboeken. U kunt [exporteren](luis-how-to-start-new-app.md#export-app) deze logboeken en analyseren van de scores. 
 
 ```
 {

@@ -1,6 +1,6 @@
 ---
-title: Overzicht van de Azure Activity Log
-description: Meer informatie over wat het Azure Activity Log is en hoe u deze kunt gebruiken om te begrijpen gebeurtenissen binnen uw Azure-abonnement.
+title: Overzicht van de Azure-activiteitenlogboek
+description: Ontdek wat de Azure-activiteitenlogboek er en hoe u deze kunt gebruiken om te begrijpen van gebeurtenissen die plaatsvinden binnen uw Azure-abonnement.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,132 +8,137 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: b6639ecc6fbd36df29458532d555b68b50b0a19c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 51cc4c37ba661feb63880c138e98200c981f6054
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018974"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918478"
 ---
-# <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitor abonnement activiteit met de Azure Activity Log
+# <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Abonnement-activiteit controleren met de Azure-activiteitenlogboek
 
-De **Azure Activity Log** is een abonnementlogboek die biedt inzicht in het abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit omvat een bereik van gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. Het activiteitenlogboek heette vroeger 'Controlelogboeken' of 'Operationele Logs' sinds de beheercategorie rapporten besturingselement vlak gebeurtenissen voor uw abonnementen. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor een (PUT, POST, verwijderen schrijfbewerkingen) die zijn gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen. Het activiteitenlogboek bevat geen leesbewerkingen (GET) en bewerkingen voor resources die gebruikmaken van het klassieke / 'RDFE' model.
+De **Azure Activity Log** is een abonnementlogboek die biedt inzicht in gebeurtenissen op abonnementsniveau die hebben plaatsgevonden in Azure. Dit omvat een scala aan gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. Het activiteitenlogboek was voorheen bekend als 'Audit Logs' of "Operationele Logboeken," sinds de beheercategorie rapporten controlelaag gebeurtenissen voor uw abonnementen. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor (PUT, POST, DELETE schrijfbewerkingen) die wordt gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen. Het activiteitenlogboek bevat geen lees (GET)-bewerkingen of bewerkingen voor resources die gebruikmaken van het klassieke / 'RDFE'-model.
 
-![Activiteit logboeken tegenover andere typen logboeken ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
+![Activiteiten logboeken en andere typen logboeken ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
-Afbeelding 1: Activiteitenlogboeken tegenover andere typen logboeken
+Afbeelding 1: Activiteitenlogboeken vs andere typen logboeken
 
-Het activiteitenlogboek verschilt van [diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md). Activiteitenlogboeken bevatten gegevens over de bewerkingen van een resource van buitenaf (de ' besturingselement-vlak'). Logboeken met diagnostische gegevens worden gegenereerd door een resource en bieden informatie over de werking van de bron (de "data-vlak').
+Het activiteitenlogboek wijkt af van [diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md). Activiteitenlogboeken bevatten gegevens over de bewerkingen op een resource van buitenaf (de "controlelaag"). Logboeken met diagnostische gegevens worden gegenereerd door een resource en geef informatie op over de werking van die resource (de "gegevenslaag').
 
 > [!WARNING]
-> De Azure Activity Log is voornamelijk bedoeld voor activiteiten die in Azure Resource Manager optreden. Resources met behulp van het klassieke/RDFE-model worden niet bijgehouden. Sommige klassieke resource-typen hebben een proxy-resourceprovider in Azure Resource Manager (bijvoorbeeld Microsoft.ClassicCompute). Als u met een resourcetype klassieke via Azure Resource Manager met behulp van deze proxy-resourceproviders werken, is de bewerkingen worden weergegeven in het gebeurtenissenlogboek. Als u met een klassiek brontype buiten de Azure Resource Manager-proxy's communiceren, worden alleen uw acties in het logboek geregistreerd. Het logboek kan worden gebladerd in een apart gedeelte van de portal.
+> De Azure-activiteitenlogboek is voornamelijk bedoeld voor activiteiten die in Azure Resource Manager plaatsvinden. Resources met behulp van het model Klassiek/RDFE worden niet bijgehouden. Sommige resourcetypen klassiek hebben een proxy-resourceprovider in Azure Resource Manager (bijvoorbeeld Microsoft.ClassicCompute). Als u met een resourcetype klassiek via Azure Resource Manager met behulp van deze proxy-resourceproviders werken, is de bewerkingen worden weergegeven in het activiteitenlogboek. Als u met een resourcetype klassiek buiten de Azure Resource Manager-proxy's communiceert, zijn alleen uw acties in het logboek geregistreerd. Het logboek kan worden gebladerd in een apart gedeelte van de portal.
 >
 >
 
-U kunt gebeurtenissen ophalen uit uw activiteitenlogboek met de Azure portal, CLI, PowerShell-cmdlets en REST-API van Azure-Monitor.
+U kunt gebeurtenissen ophalen uit het activiteitenlogboek is opgenomen met Azure portal, CLI, PowerShell-cmdlets en REST-API van Azure Monitor.
 
 > [!NOTE]
->  [De nieuwere waarschuwingen](monitoring-overview-unified-alerts.md) biedt een verbeterde ervaring bij het maken en beheren van de activiteit zich met regels voor waarschuwingen aanmelden.  [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
+>  [De nieuwere waarschuwingen](monitoring-overview-unified-alerts.md) biedt een verbeterde ervaring wanneer het maken en beheren van de activiteit zich waarschuwingsregels.  [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
 
-Bekijk de volgende video introductie van het activiteitenlogboek.
+Bekijk de volgende video Maak kennis met het activiteitenlogboek.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 
 
-## <a name="categories-in-the-activity-log"></a>Categorieën in het gebeurtenissenlogboek
-Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor volledige informatie over de schema's uit deze categorieën [Raadpleeg dit artikel](monitoring-activity-log-schema.md). Deze omvatten:
-* **Beheerdersrechten** -deze categorie bevat de record van alle maken, update, delete en actie bewerkingen uitgevoerd via Resource Manager. Voorbeelden van welke typen gebeurtenissen u in deze categorie ziet zijn 'virtuele machine maken' en 'netwerkbeveiligingsgroep verwijderen' elke actie op die door een gebruiker of toepassing die met Resource Manager is gemodelleerd als een bewerking op een bepaald resourcetype. Als het bewerkingstype schrijven, verwijderen of actie is, worden de records van de begin- en het slagen of mislukken van die bewerking vastgelegd in de beheercategorie. De beheercategorie omvat ook eventuele wijzigingen aan rollen gebaseerd toegangsbeheer in een abonnement.
-* **Servicestatus** -deze categorie bevat de record van de service health incidenten die hebben plaatsgevonden in Azure. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "SQL Azure in VS-Oost ondervindt uitvaltijd." Gebeurtenissen van de health service in vijf soorten komen: actie vereist, ondersteunde herstel, Incident, onderhoud, gegevens of beveiliging, en wordt alleen weergegeven als er een resource in het abonnement dat zou worden beïnvloed door de gebeurtenis.
-* **Waarschuwing** -deze categorie bevat de record van alle activeringen van waarschuwingen van Azure. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "CPU-percentage op myVM is meer dan 80 voor de afgelopen vijf minuten." Een verscheidenheid aan Azure systemen hebben een waarschuwingsmethoden concept--u kunt een regel bepaalde hardwaresleutel definiëren en een melding ontvangen wanneer voorwaarden overeenkomen met die regel. Elke keer dat een ondersteunde Azure Waarschuwingstype 'wordt geactiveerd,' of de voorwaarden wordt voldaan voor het genereren van een melding, een record van de activering is ook naar deze categorie van het activiteitenlogboek gepusht.
-* **Automatisch schalen** -deze categorie bevat de record van alle gebeurtenissen met betrekking tot de werking van de engine voor het automatisch schalen op basis van de instellingen voor automatisch schalen die u hebt gedefinieerd in uw abonnement. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Automatisch schalen opschaling van de actie is mislukt." Met automatisch schalen, kunt u automatisch geschaald uitbreiden of schalen op basis van tijd van de dag en/of laden (metrische) gegevens met behulp van een instelling voor automatisch schalen van het aantal exemplaren in een ondersteunde brontype. Wanneer de voorwaarden wordt voldaan aan schaal omhoog of omlaag, de begin- en geslaagd of mislukt gebeurtenissen worden vastgelegd in deze categorie.
-* **Aanbeveling** -deze categorie bevat gebeurtenissen die aanbeveling van Azure Advisor.
-* **Beveiliging** -deze categorie bevat de record van alle waarschuwingen die door Azure Security Center. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is 'dubbele extensie verdachte file wordt uitgevoerd'
-* **Beleid en de resourcestatus** -deze categorieën bevatten niet alle gebeurtenissen; ze zijn gereserveerd voor toekomstig gebruik.
+## <a name="categories-in-the-activity-log"></a>Categorieën in het activiteitenlogboek
+Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor volledige informatie over de schema's van deze categorieën [Raadpleeg dit artikel](monitoring-activity-log-schema.md). Deze omvatten:
+* **Administratieve** -deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie bewerkingen uitgevoerd via Resource Manager. Voorbeelden van de typen gebeurtenissen u in deze categorie ziet zijn 'virtuele machine maken' en 'netwerkbeveiligingsgroep verwijderen' elke actie op die door een gebruiker of een toepassing met behulp van Resource Manager is gemodelleerd als een bewerking op een bepaald resourcetype. Als het bewerkingstype schrijven, verwijderen of actie is, worden de records van de begin- en het slagen of mislukken van deze bewerking worden opgenomen in de beheercategorie. De beheercategorie omvat ook eventuele wijzigingen in de op rollen gebaseerd toegangsbeheer in een abonnement.
+* **Servicestatus** -deze categorie bevat de record van de service health incidenten die hebben plaatsgevonden in Azure. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "SQL Azure in VS-Oost ondervindt uitvaltijd." Service health-gebeurtenissen worden geleverd in vijf soorten: actie vereist, telefonische herstel, Incident, onderhoud, informatie of beveiliging, en wordt alleen weergegeven als u een resource in het abonnement dat wordt beïnvloed door de gebeurtenis.
+* **Waarschuwing** -deze categorie bevat de record van alle activeringen van de Azure-waarschuwingen. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "CPU-percentage op myVM is meer dan 80 voor de afgelopen vijf minuten." Een reeks systemen die Azure hebben een waarschuwingen concept--u kunt een regel voor een definiëren en een melding ontvangen wanneer er voorwaarden overeenkomen met die regel. Telkens wanneer een ondersteunde Azure Waarschuwingstype 'wordt geactiveerd,' of de voorwaarden wordt voldaan voor het genereren van een melding, een record van de activering wordt ook gepusht naar deze categorie van het activiteitenlogboek.
+* **Automatisch schalen** -deze categorie bevat de record van alle gebeurtenissen die betrekking hebben op de werking van de engine voor automatisch schalen op basis van alle instellingen voor automatisch schalen die u hebt gedefinieerd in uw abonnement. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Schalen via automatisch schalen van de actie is mislukt". Automatisch schalen gebruik, u kunt automatisch omhoog of omlaag schalen op basis van tijd van de dag en/of load (metrische) gegevens met behulp van een instelling voor automatisch schalen van het aantal exemplaren in een ondersteunde resourcetype. Wanneer de voorwaarden wordt voldaan aan omhoog of omlaag schalen, de begin- en geslaagde of mislukte gebeurtenissen worden opgenomen in deze categorie.
+* **Aanbeveling** -deze categorie bevat aanbevelingsgebeurtenissen die van Azure Advisor.
+* **Beveiliging** -deze categorie bevat de record van alle waarschuwingen die worden gegenereerd door Azure Security Center. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "verdacht bestand met dubbele extensie uitgevoerd."
+* **Beleid en de resourcestatus** -deze categorieën bevatten niet alle gebeurtenissen; deze zijn gereserveerd voor toekomstig gebruik.
 
-## <a name="event-schema-per-category"></a>Schema van de gebeurtenis per categorie
-[Zie dit artikel leert u het schema van de gebeurtenis activiteitenlogboek per categorie.](monitoring-activity-log-schema.md)
+## <a name="event-schema-per-category"></a>Gebeurtenisschema per categorie
+[Zie dit artikel voor informatie over de gebeurtenisschema in het activiteitenlogboek per categorie.](monitoring-activity-log-schema.md)
 
-## <a name="what-you-can-do-with-the-activity-log"></a>Wat u kunt doen met het activiteitenlogboek
-Hier volgen enkele dingen die u met het activiteitenlogboek doen kunt:
+## <a name="what-you-can-do-with-the-activity-log"></a>U kunt doen met het activiteitenlogboek
+Hier volgen enkele dingen die u met het activiteitenlogboek kunt doen:
 
 ![Azure-activiteitenlogboek](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
-* Vragen en deze bekijken in de **Azure-portal**.
-* [Maak een waarschuwing op een activiteit van het gebeurtenislogboek.](monitoring-activity-log-alerts.md)
-* [Stream naar een **Event Hub** ](monitoring-stream-activity-logs-event-hubs.md) voor opname door een service van derden of aangepaste analytics-oplossing zoals Power BI.
+* Vragen en weer te geven in de **Azure-portal**.
+* [Een waarschuwing op een gebeurtenis voor activiteitenlogboek maken.](monitoring-activity-log-alerts.md)
+* [Stream het naar een **Event Hub** ](monitoring-stream-activity-logs-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
 * Analyseren in Power BI met behulp van de [ **Power BI-inhoudspakket**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Opslaan op een **Opslagaccount** voor archivering of handmatig inspectie](monitoring-archive-activity-log.md). Kunt u de bewaarperiode (in dagen) met behulp van de **logboek profiel**.
-* Deze query's uitvoeren via PowerShell-Cmdlet, CLI of REST-API.
+* [Opslaan naar een **Opslagaccount** voor archivering of handmatige inspectie](monitoring-archive-activity-log.md). U kunt opgeven de bewaartermijn (in dagen) met behulp van de **Logboekprofiel**.
+* Deze opvragen via PowerShell-Cmdlet, CLI of REST-API.
 
-## <a name="query-the-activity-log-in-the-azure-portal"></a>Query het activiteitenlogboek in de Azure portal
-U kunt uw activiteitenlogboek bekijken op verschillende plaatsen binnen de Azure-portal:
-* De **activiteitenlogboek** die u kunt openen door te zoeken naar het activiteitenlogboek onder **alle services** in het navigatiedeelvenster links.
-* **Monitor** wordt standaard in het navigatiedeelvenster links weergegeven. Het activiteitenlogboek is een gedeelte van de Azure-Monitor.
-* Een resource **resource**, bijvoorbeeld de configuratie-blade voor een virtuele Machine. Het activiteitenlogboek is een van de secties op de meeste van deze resourceblades en de gebeurtenissen die betrekking hebben op specifieke hulpbron die automatisch erop te klikken filtert.
+## <a name="query-the-activity-log-in-the-azure-portal"></a>Query uitvoeren op het activiteitenlogboek in Azure portal
+U kunt uw activiteitenlogboek weergeven op verschillende plaatsen binnen de Azure-portal:
+* De **activiteitenlogboek** die toegankelijk is door te zoeken naar het activiteitenlogboek onder **alle services** in het navigatiedeelvenster links.
+* **Monitor** standaard in het navigatiedeelvenster links wordt weergegeven. Het activiteitenlogboek is een gedeelte van Azure Monitor.
+* Van elke resource **resource**, bijvoorbeeld de configuratieblade voor een virtuele Machine. Het activiteitenlogboek is een van de secties op de meeste van deze resourceblades en de gebeurtenissen die zijn gerelateerd aan die specifieke resource te klikken op het automatisch gefilterd.
 
-U kunt uw activiteitenlogboek door deze velden filteren in de Azure-portal:
+U kunt het activiteitenlogboek is opgenomen door deze velden filteren in de Azure-portal:
 * TimeSpan - de begin- en -tijd voor gebeurtenissen.
-* Categorie - de gebeurteniscategorie zoals hierboven is beschreven.
-* Abonnement - een of meer namen van de Azure-abonnement.
-* Resourcegroep - een of meer resourcegroepen binnen deze abonnementen.
-* Bron (naam) - de naam van een specifieke bron.
+* Categorie - categorie van de gebeurtenis, zoals hierboven beschreven.
+* Abonnement: een of meer namen van de Azure-abonnement.
+* Resourcegroep: een of meer resourcegroepen binnen die abonnementen.
+* Bron (naam) - de naam van een specifieke resource.
 * Brontype - het type resource, bijvoorbeeld Microsoft.Compute/virtualmachines.
-* Naam van de bewerking - de naam van een Azure Resource Manager-bewerking, bijvoorbeeld Microsoft.SQL/servers/Write.
-* Ernst: de ernst van de gebeurtenis (ter informatie, waarschuwing, fout, kritiek).
-* De gebeurtenis wordt gestart door - de 'beller', of de gebruiker die de bewerking uitgevoerd.
-* Open search - dit is een open zoeken in het tekstvak waarin wordt gezocht naar de tekenreeks die tussen alle velden in alle gebeurtenissen.
+* Naam van bewerking: de naam van een Azure Resource Manager-bewerking, bijvoorbeeld Microsoft.SQL/servers/Write.
+* Ernst - de ernst van de gebeurtenis (informatief, waarschuwing, fout, kritiek).
+* Gebeurtenis gestart door - de 'beller' of de gebruiker die de bewerking heeft uitgevoerd.
+* Open search - dit is een open tekstzoekvak waarin wordt gezocht die tekenreeks voor alle velden in alle gebeurtenissen.
 
-Wanneer u een verzameling filters hebt gedefinieerd, kunt u deze opslaan als een query die over de sessies worden bewaard als u ooit moet dezelfde query uitvoeren met deze filters zijn toegepast opnieuw in de toekomst. U kunt ook een query vastmaken aan uw Azure-dashboard altijd gaten te houden van specifieke gebeurtenissen.
+Als u een set filters hebt gedefinieerd, kunt u deze opslaan als een query die blijven tussen sessies behouden als u ooit moet dezelfde query uitvoeren met deze filters toegepast opnieuw in de toekomst. U kunt een query ook vastmaken aan uw Azure-dashboard om altijd te controleren op specifieke gebeurtenissen.
 
-Te klikken op 'Toepassing' uw query wordt uitgevoerd en alle overeenkomende gebeurtenissen tonen. Te klikken op een gebeurtenis in de lijst ziet u de samenvatting van die gebeurtenis, evenals de volledige onbewerkte JSON van die gebeurtenis.
+Te klikken op 'Toepassen' uw query wordt uitgevoerd en alle overeenkomende gebeurtenissen tonen. Te klikken op elke gebeurtenis in de lijst bevat een overzicht van die gebeurtenis en de volledige onbewerkte JSON van die gebeurtenis.
 
-Voor nog meer voeding, kunt u de **logboek zoeken** pictogram waarin uw activiteitenlogboek van gegevens in de [Log Analytics activiteit Log Analytics-oplossing](../log-analytics/log-analytics-activity.md). De blade activiteitenlogboek biedt een eenvoudige filter-/ Bladerervaring van Logboeken, maar Log Analytics kunt u draait, opvragen en visualiseren van uw gegevens op krachtige manieren.
+Voor nog meer voeding, klikt u op de **zoeken in logboeken** pictogram, waarin de gegevens van uw activiteitenlogboek in de [Log Analytics Activity Log Analytics-oplossing](../log-analytics/log-analytics-activity.md). De blade met activiteitenlogboek biedt een eenvoudige filter/browse-ervaring op Logboeken, maar Log Analytics kunt u draait, vragen en Visualiseer uw gegevens op een krachtigere manier.
 
-## <a name="export-the-activity-log-with-a-log-profile"></a>Het activiteitenlogboek met een logboek profiel exporteren
-Een **logboek profiel** bepaalt hoe uw activiteitenlogboek wordt geëxporteerd. Een logboek-profiel gebruikt, kunt u configureren:
+## <a name="export-the-activity-log-with-a-log-profile"></a>Exporteren van het activiteitenlogboek met een Logboekprofiel
+Een **Logboekprofiel** bepaalt hoe uw activiteitenlogboek wordt geëxporteerd. Met behulp van een Logboekprofiel, die u kunt configureren:
 
-* Waar het activiteitenlogboek moeten worden verzonden (Storage-Account of Event Hubs)
-* Welke gebeurteniscategorieën (schrijven, verwijderen, actie) moeten worden verzonden. *De betekenis van 'categorie' in het logboek profielen en logboekgebeurtenissen activiteit verschilt. In het logboek-profiel vertegenwoordigt "Categorie" de bewerking (schrijven, verwijderen, actie). De eigenschap "categorie" vertegenwoordigt in een gebeurtenis activiteitenlogboek van de bron- of type gebeurtenis (bijvoorbeeld, beheer, ServiceHealth, waarschuwing en meer).*
-* Welke regio's (locaties) moeten worden geëxporteerd. Zorg ervoor dat 'global', zoals veel gebeurtenissen in het gebeurtenissenlogboek algemene gebeurtenissen zijn.
-* Hoe lang het activiteitenlogboek worden bewaard in een Opslagaccount.
-    - Een bewaartermijn van nul dagen betekent logboeken permanent worden bewaard. Anders wordt mag de waarde een onbeperkt aantal dagen tussen 1 en 2147483647.
-    - Als bewaarbeleid worden ingesteld, maar Logboeken opslaan in een Opslagaccount is uitgeschakeld (bijvoorbeeld, als er alleen Event Hubs of Log Analytics-opties zijn geselecteerd), is het bewaarbeleid hebben geen effect.
-    - Bewaarbeleid zijn toegepaste per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode beleid worden verwijderd. Bijvoorbeeld, als u had een bewaarbeleid van één dag, zou aan het begin van vandaag de dag de logboeken van de dag voordat gisteren worden verwijderd. De verwijderbewerking begint bij middernacht UTC, maar let op: duurt maximaal 24 uur voor de logboeken worden verwijderd uit uw storage-account.
+* Waar het activiteitenlogboek moeten worden verzonden (Opslagaccount of Event Hubs)
+* Welke gebeurteniscategorieën (schrijven, verwijderen, actie) moeten worden verzonden. *De betekenis van 'categorie' in Logboekprofielen en gebeurtenissen in activiteitenlogboeken verschilt. In het Logboekprofiel vertegenwoordigt 'Categorie' het bewerkingstype (schrijven, verwijderen, actie). De eigenschap 'categorie' vertegenwoordigt in een activiteitenlogboek-gebeurtenis, de bron- of type gebeurtenis (bijvoorbeeld, beheer, ServiceHealth, waarschuwing, en meer).*
+* Welke regio's (locaties) moeten worden geëxporteerd. Zorg ervoor dat 'global', omdat veel gebeurtenissen in het activiteitenlogboek algemene gebeurtenissen zijn.
+* Hoe lang het activiteitenlogboek worden bewaard in een Storage-Account.
+    - Een bewaarperiode van nul dagen betekent dat Logboeken altijd worden bewaard. De waarde kan anders een willekeurig aantal dagen tussen 1 en 2147483647 zijn.
+    - Als Logboeken opslaan in een Storage-Account is uitgeschakeld (bijvoorbeeld, als er alleen Event Hubs of Log Analytics-opties zijn geselecteerd), bewaarbeleid worden ingesteld, maar hebben het bewaarbeleid geen effect.
+    - Bewaarbeleid zijn toegepast per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid worden verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account.
 
-U kunt een opslag-account of gebeurtenis hub naamruimte die zich niet in hetzelfde abonnement als een tekensetcodering Logboeken kunt gebruiken. De gebruiker die de instelling configureert, moet de juiste RBAC-toegang tot beide abonnementen hebben.
+U kunt een storage-account of event hub-naamruimte die zich niet in hetzelfde abonnement als een dat Logboeken verzendt. De gebruiker die de instelling configureert, moet de juiste RBAC-toegang tot beide abonnementen hebben.
 
 > [!NOTE]
->  U kan momenteel niet archiveren gegevens naar een opslag-account die achter een beveiligde virtuele netwerk.
+>  U kan momenteel niet archiveren gegevens aan een storage-account die achter een beveiligd virtueel netwerk.
 
-Deze instellingen kunnen worden geconfigureerd via de optie "Export" in de blade activiteitenlogboek in de portal. Ze kunnen ook programmatisch te worden geconfigureerd [met de REST-API van Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell-cmdlets of CLI. Een abonnement kan slechts één logboek profiel hebben.
+> [!WARNING]
+> De indeling van de logboekgegevens in de storage-account wordt gewijzigd in JSON-regels op 1 november 2018. [Raadpleeg dit artikel voor een beschrijving van de impact en het bijwerken van uw hulpprogramma's voor het afhandelen van de nieuwe indeling.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
-### <a name="configure-log-profiles-using-the-azure-portal"></a>Logboek profielen met de Azure portal configureren
-U kunt het activiteitenlogboek naar een Event Hub stream of opslaan in een Opslagaccount met de optie "Export" in de Azure-portal.
+Deze instellingen kunnen worden geconfigureerd via de optie "Export" in de blade met activiteitenlogboek in de portal. Ze kunnen ook programmatisch te worden geconfigureerd [met behulp van de Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell-cmdlets of CLI. Een abonnement kan slechts één logboekprofiel hebben.
+
+### <a name="configure-log-profiles-using-the-azure-portal"></a>Logboekprofielen met behulp van de Azure-portal configureren
+U kunt het activiteitenlogboek naar een Event Hub streamen of sla ze op een Storage-Account met behulp van de optie 'Exporteren' in de Azure-portal.
 
 1. Navigeer naar **activiteitenlogboek** via het menu aan de linkerkant van de portal.
 
     ![Navigeer naar activiteitenlogboek in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Klik op de **exporteren** knop aan de bovenkant van de blade.
 
-    ![Knop exporteren in de portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![De knop exporteren in de portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. In de blade die wordt weergegeven, kunt u het volgende selecteren:  
   * regio's waarvoor u wilt exporteren van gebeurtenissen
   * het Opslagaccount waarnaar u wilt opslaan van gebeurtenissen
-  * het aantal dagen dat u wilt bewaren van deze gebeurtenissen in de opslag. Een instelling van 0 dagen behoudt altijd de logboeken.
-  * de Service Bus Namespace waarin u een Event Hub wilt voor streaming van deze gebeurtenissen worden gemaakt.
+  * het aantal dagen dat u wilt dat deze gebeurtenissen in de opslag worden bewaard. Een instelling van 0 dagen worden de logboeken altijd behouden.
+  * de Service Bus Namespace waarin u een Event Hub moet worden gemaakt voor het streamen van deze gebeurtenissen wilt.
 
-     ![Activiteitenlogboek blade exporteren](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+     ![Blade met activiteitenlogboek exporteren](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Klik op **opslaan** deze instellingen op te slaan. De instellingen worden onmiddellijk toegepast op uw abonnement.
 
-### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Logboek profielen met de PowerShell-Cmdlets voor Azure configureren
+### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Logboekprofielen met behulp van de Azure PowerShell-Cmdlets configureren
 
-#### <a name="get-existing-log-profile"></a>Bestaande profiel voor het logboek ophalen
+#### <a name="get-existing-log-profile"></a>Bestaand logboekprofiel ophalen
 
 ```
 Get-AzureRmLogProfile
 ```
 
-#### <a name="add-a-log-profile"></a>Een profiel van het logboek toevoegen
+#### <a name="add-a-log-profile"></a>Toevoegen van een logboekprofiel
 
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
@@ -141,30 +146,30 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| Naam |Ja |Naam van uw logboek-profiel. |
-| StorageAccountId |Nee |Resource-ID van het Opslagaccount waarin het activiteitenlogboek moet worden opgeslagen. |
-| serviceBusRuleId |Nee |Service Bus regel-ID voor de Service Bus-naamruimte die u hebben van event hubs gemaakt wilt in. Is een tekenreeks met deze indeling: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Locatie |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. |
-| RetentionInDays |Ja |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
-| Category |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
+| Naam |Ja |Naam van uw logboekprofiel. |
+| StorageAccountId |Nee |Resource-ID van het Opslagaccount waarnaar het activiteitenlogboek moeten worden opgeslagen. |
+| serviceBusRuleId |Nee |Service Bus-regel-ID voor de Service Bus-naamruimte hebt gemaakt in eventhubs hebben. Een tekenreeks zijn met deze indeling is: `{service bus resource ID}/authorizationrules/{key name}`. |
+| Locatie |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. |
+| RetentionInDays |Ja |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
+| Category |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie. |
 
-#### <a name="remove-a-log-profile"></a>Een logboek-profiel verwijderen
+#### <a name="remove-a-log-profile"></a>Een logboekprofiel verwijderen
 ```
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Logboek profielen met de Azure CLI 2.0 configureren
+### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Logboekprofielen met behulp van de Azure CLI 2.0 configureren
 
-#### <a name="get-existing-log-profile"></a>Bestaande profiel voor het logboek ophalen
+#### <a name="get-existing-log-profile"></a>Bestaand logboekprofiel ophalen
 
 ```azurecli
 az monitor log-profiles list
 az monitor log-profiles show --name <profile name>
 ```
 
-De `name` eigenschap moet de naam van uw logboek-profiel.
+De `name` eigenschap moet de naam van uw logboekprofiel.
 
-#### <a name="add-a-log-profile"></a>Een profiel van het logboek toevoegen
+#### <a name="add-a-log-profile"></a>Toevoegen van een logboekprofiel
 
 ```azurecli
 az monitor log-profiles create --name <profile name> \
@@ -173,9 +178,9 @@ az monitor log-profiles create --name <profile name> \
     --categories <category1 category2 ...>
 ```
 
-Zie voor de volledige documentatie voor het maken van een monitorprofiel voor een met de CLI de [CLI-opdrachten](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create)
+Zie voor de volledige documentatie voor het maken van een monitorprofiel met de CLI, de [CLI-opdrachten](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create)
 
-#### <a name="remove-a-log-profile"></a>Een logboek-profiel verwijderen
+#### <a name="remove-a-log-profile"></a>Een logboekprofiel verwijderen
 
 ```azurecli
 az monitor log-profiles delete --name <profile name>
@@ -183,4 +188,4 @@ az monitor log-profiles delete --name <profile name>
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over het activiteitenlogboek (voorheen controlelogboeken)](../azure-resource-manager/resource-group-audit.md)
-* [Stream de Azure Activity Log naar Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
+* [Stream het Azure-activiteitenlogboek naar Eventhubs](monitoring-stream-activity-logs-event-hubs.md)

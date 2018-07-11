@@ -1,9 +1,9 @@
 ---
-title: MongoDB installeren op een Linux-VM met de Azure CLI | Microsoft Docs
-description: Meer informatie over het installeren en configureren van MongoDB op een Linux-virtuele machine iusing de Azure CLI 2.0
+title: MongoDB op een virtuele Linux-machine met de Azure CLI installeren | Microsoft Docs
+description: Meer informatie over het installeren en configureren van MongoDB op een Linux-virtuele machine isvg gebruiken de Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
@@ -13,24 +13,24 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
-ms.author: iainfou
-ms.openlocfilehash: a47c0e2f655f51444dc586f696c26caa63ab6cac
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: cynthn
+ms.openlocfilehash: d066b412fb722318824a408861fe7d9595c71537
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937579"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928230"
 ---
-# <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Het installeren en configureren van MongoDB op een Linux-VM
-[MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel leest u hoe installeren en configureren van MongoDB op een Linux-VM met de Azure CLI 2.0. Voorbeelden worden weergegeven dat detail hoe naar:
+# <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Installeren en configureren van MongoDB op een Linux VM
+[MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. Dit artikel leest u hoe het installeren en configureren van MongoDB op een Linux-VM met de Azure CLI 2.0. Voorbeelden hoe die gegevens worden weergegeven aan:
 
 * [Handmatig installeren en configureren van een eenvoudige MongoDB-exemplaar](#manually-install-and-configure-mongodb-on-a-vm)
-* [Een basic MongoDB-exemplaar met een Resource Manager-sjabloon maken](#create-basic-mongodb-instance-on-centos-using-a-template)
-* [Een complexe MongoDB shard-cluster met de replica wordt ingesteld met een Resource Manager-sjabloon maken](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template)
+* [Een eenvoudige MongoDB-exemplaar met behulp van Resource Manager-sjabloon maken](#create-basic-mongodb-instance-on-centos-using-a-template)
+* [Een complexe MongoDB shard cluster met de replica wordt ingesteld met behulp van Resource Manager-sjabloon maken](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template)
 
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Handmatig installeren en configureren van MongoDB op een virtuele machine
-MongoDB [installatie-instructies](https://docs.mongodb.com/manual/administration/install-on-linux/) voor Linux-distributies met inbegrip van Red Hat / CentOS, SUSE, Ubuntu en Debian. Het volgende voorbeeld wordt een *CentOS* VM. Voor het maken van deze omgeving, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
+MongoDB [installatie-instructies bieden](https://docs.mongodb.com/manual/administration/install-on-linux/) voor Linux-distributies zoals Red Hat / CentOS, SUSE, Ubuntu en Debian. Het volgende voorbeeld wordt een *CentOS* VM. Voor het maken van deze omgeving, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
@@ -38,7 +38,7 @@ Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_cre
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* aan een gebruiker met de naam *azureuser* met behulp van SSH-verificatie voor openbare sleutel
+Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met een gebruiker met de naam *azureuser* met behulp van SSH-verificatie voor openbare sleutel
 
 ```azurecli
 az vm create \
@@ -49,19 +49,19 @@ az vm create \
     --generate-ssh-keys
 ```
 
-SSH naar de virtuele machine met behulp van uw eigen gebruikersnaam en het `publicIpAddress` vermeld in de uitvoer van de vorige stap:
+SSH naar de virtuele machine met behulp van uw eigen gebruikersnaam en het `publicIpAddress` die worden vermeld in de uitvoer van de vorige stap:
 
 ```bash
 ssh azureuser@<publicIpAddress>
 ```
 
-Voor het toevoegen van de installatiebronnen voor MongoDB, maken een **yum** opslagplaatsbestand als volgt:
+Als u wilt toevoegen de installatiebronnen voor MongoDB, maakt u een **yum** opslagplaatsbestand als volgt te werk:
 
 ```bash
 sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-Open het bestand van de opslagplaats MongoDB om te bewerken, zoals met `vi` of `nano`. Voeg de volgende regels:
+Open het bestand van de MongoDB-opslagplaats om te bewerken, zoals met `vi` of `nano`. Voeg de volgende regels:
 
 ```sh
 [mongodb-org-3.6]
@@ -78,7 +78,7 @@ Installeren met behulp van MongoDB **yum** als volgt:
 sudo yum install -y mongodb-org
 ```
 
-SELinux wordt standaard afgedwongen voor installatiekopieën van CentOS die voorkomen dat u toegang tot MongoDB. Beheerhulpprogramma's voor installeren en configureren van SELinux zodat MongoDB bewerkingen uitvoeren op de standaard TCP-poort 27017 als volgt:
+SELinux wordt standaard afgedwongen op CentOS-installatiekopieën die voorkomt dat u toegang tot MongoDB. Hulpprogramma's voor Groepsbeleidsbeheer installeren en configureren van SELinux om toe te staan van MongoDB naar de standaard-TCP-poort 27017 als volgt uitgevoerd:
 
 ```bash
 sudo yum install -y policycoreutils-python
@@ -97,7 +97,7 @@ De MongoDB-installatie controleren door verbinding te maken met behulp van de lo
 mongo
 ```
 
-Test de MongoDB-exemplaar nu door sommige gegevens toe te voegen en vervolgens te zoeken:
+Test nu de MongoDB-exemplaar dat door sommige gegevens toe te voegen en vervolgens te zoeken:
 
 ```sh
 > db
@@ -115,43 +115,43 @@ sudo chkconfig mongod on
 ```
 
 
-## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Basic MongoDB-exemplaar op CentOS met een sjabloon maken
-U kunt een basic MongoDB-exemplaar maken op één CentOS VM van de volgende Azure quickstart-sjabloon vanuit GitHub. Deze sjabloon wordt de aangepaste scriptextensie voor Linux toe te voegen een **yum** opslagplaats naar de zojuist gemaakte CentOS VM en installeer MongoDB.
+## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Basic MongoDB-exemplaar op CentOS met behulp van een sjabloon maken
+U kunt een eenvoudige MongoDB-exemplaar maken op een enkele CentOS-virtuele machine met behulp van de volgende Azure-snelstartsjabloon van GitHub. Deze sjabloon maakt gebruik van de aangepaste scriptextensie voor Linux om toe te voegen een **yum** opslagplaats naar uw nieuwe virtuele machine en CentOS en installeer MongoDB.
 
 * [Basic MongoDB-exemplaar op CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-Voor het maken van deze omgeving, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login). Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Voor het maken van deze omgeving, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login). Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Vervolgens implementeert u de sjabloon MongoDB met [az implementatie maken](/cli/azure/group/deployment#az_group_deployment_create). Wanneer u wordt gevraagd, typt u uw eigen unieke waarden voor *newStorageAccountName*, *dnsNameForPublicIP*, en gebruikersnaam van de beheerder en het wachtwoord:
+Vervolgens implementeert u de sjabloon MongoDB met [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create). Wanneer u wordt gevraagd, voert u uw eigen unieke waarden voor *newStorageAccountName*, *dnsNameForPublicIP*, en gebruikersnaam van beheerder en het wachtwoord:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
-Meld u bij de virtuele machine met behulp van de openbare DNS-adres van uw virtuele machine. U kunt de openbare DNS-serveradres met weergeven [az vm weergeven](/cli/azure/vm#az_vm_show):
+Meld u op de virtuele machine met behulp van de openbare DNS-adres van uw virtuele machine. U vindt het openbare DNS-adres met [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
 ```
 
-SSH met uw virtuele machine met uw eigen gebruikersnaam en een openbare DNS-adres:
+SSH naar uw virtuele machine via uw eigen gebruikersnaam en openbare DNS-adres:
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-De MongoDB-installatie controleren door verbinding te maken met behulp van de lokale `mongo` client als volgt:
+De MongoDB-installatie controleren door verbinding te maken met behulp van de lokale `mongo` client als volgt te werk:
 
 ```bash
 mongo
 ```
 
-Test nu het exemplaar door sommige gegevens toe te voegen en te zoeken als volgt:
+Test nu de instantie door sommige gegevens toe te voegen en te zoeken als volgt:
 
 ```sh
 > db
@@ -163,21 +163,21 @@ test
 ```
 
 
-## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Een complexe MongoDB Shard-Cluster op CentOS met een sjabloon maken
-U kunt een complexe MongoDB shard cluster met behulp van de volgende Azure quickstart-sjabloon vanuit GitHub maken. Deze sjabloon volgt de [MongoDB shard cluster aanbevolen procedures](https://docs.mongodb.com/manual/core/sharded-cluster-components/) voor redundantie en hoge beschikbaarheid. De sjabloon maakt twee shards met drie knooppunten replicaset. Een config server replicaset met drie knooppunten ook wordt gemaakt, plus twee **mongos** router servers om te voorzien in consistentie van toepassingen uit de shards.
+## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Een complexe Shard MongoDB-Cluster maken in CentOS met behulp van een sjabloon
+U kunt een complexe MongoDB shard cluster met behulp van de volgende Azure-snelstartsjabloon van GitHub kunt maken. Deze sjabloon volgt de [aanbevolen procedures voor MongoDB-shard-cluster](https://docs.mongodb.com/manual/core/sharded-cluster-components/) om redundantie en hoge beschikbaarheid te bieden. De sjabloon maakt u twee shards met drie knooppunten in elke replicaset. Een config replica van de server instellen met drie knooppunten ook wordt gemaakt, plus twee **mongos** router servers voor het bieden van consistentie in toepassingen over de shards.
 
-* [MongoDB Sharding-Cluster op CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+* [MongoDB Sharding-Cluster in CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> Dit complexe MongoDB shard-cluster moet de implementatie meer dan 20 kernen, dit is doorgaans de standaardinstelling core-telling per regio voor een abonnement. Open een aanvraag voor ondersteuning van Azure te verhogen van het aantal kernen.
+> Implementeren van deze complexe shard MongoDB-cluster moet meer dan 20 kernen, dit is doorgaans het standaardaantal core per regio voor een abonnement. Open een Azure-ondersteuningsaanvraag voor het verhogen van het aantal kernen.
 
-Voor het maken van deze omgeving, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login). Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Voor het maken van deze omgeving, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login). Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Vervolgens implementeert u de sjabloon MongoDB met [az implementatie maken](/cli/azure/group/deployment#az_group_deployment_create). Definieer uw eigen resource namen en waar nodig zoals als voor groottes *mongoAdminUsername*, *sizeOfDataDiskInGB*, en *configNodeVmSize*:
+Vervolgens implementeert u de sjabloon MongoDB met [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create). Definieer uw eigen resource computernamen en waar nodig deze als voor de grootte *mongoAdminUsername*, *sizeOfDataDiskInGB*, en *configNodeVmSize*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -199,7 +199,7 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-Deze implementatie kan ruim een uur implementeren en configureren van alle VM-instanties duren. De `--no-wait` vlag besturingselement terugkeren naar de opdrachtprompt wanneer de sjabloonimplementatie is geaccepteerd door de Azure-platform aan het einde van de voorgaande opdracht wordt gebruikt. Vervolgens kunt u de status van de implementatie met bekijken [az groep implementatie weergeven](/cli/azure/group/deployment#az_group_deployment_show). Het volgende voorbeeld bekijkt de status van de *myMongoDBCluster* -implementatie in de *myResourceGroup* resourcegroep:
+Deze implementatie kan overnemen van een uur om te implementeren en configureren van alle VM-exemplaren. De `--no-wait` vlag aan het einde van de voorgaande opdracht wordt gebruikt om terug te keren besturingselement naar de opdrachtprompt zodra de sjabloonimplementatie is geaccepteerd door de Azure-platform. Vervolgens kunt u de status van de implementatie met bekijken [az group deployment show](/cli/azure/group/deployment#az_group_deployment_show). Het volgende voorbeeld bekijkt de status van de *myMongoDBCluster* implementatie in de *myResourceGroup* resourcegroep:
 
 ```azurecli
 az group deployment show \
@@ -210,11 +210,11 @@ az group deployment show \
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze voorbeelden verbinding u met de MongoDB-exemplaar lokaal van de virtuele machine. Als u wilt verbinding maken met de MongoDB-exemplaar van een andere virtuele machine of een netwerk, zorg ervoor dat de juiste [Netwerkbeveiligingsgroep regels zijn gemaakt](nsg-quickstart.md).
+In deze voorbeelden verbinding u met de MongoDB-exemplaar dat lokaal van de virtuele machine. Als u verbinding maken met de MongoDB-exemplaar dat vanaf een andere virtuele machine of het netwerk wilt, controleert u of de juiste [netwerkbeveiligingsgroepsregels worden gemaakt](nsg-quickstart.md).
 
-Deze voorbeelden implementeren de core MongoDB-omgeving voor ontwikkelingsdoeleinden. De vereiste configuratie-opties voor uw omgeving van toepassing. Zie voor meer informatie de [MongoDB beveiliging docs](https://docs.mongodb.com/manual/security/).
+Deze voorbeelden implementeren de core MongoDB-omgeving voor ontwikkelingsdoeleinden. De vereiste configuratie-opties voor uw omgeving van toepassing. Zie voor meer informatie de [MongoDB security docs](https://docs.mongodb.com/manual/security/).
 
-Zie voor meer informatie over het maken van sjablonen gebruiken de [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Zie voor meer informatie over het maken van met behulp van sjablonen, de [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
-De Azure Resource Manager-sjablonen gebruiken de aangepaste Scriptextensie om te downloaden en uitvoeren van scripts op uw virtuele machines. Zie voor meer informatie [met behulp van de Azure-extensie voor aangepaste scripts met virtuele Linux-Machines](extensions-customscript.md).
+De Azure Resource Manager-sjablonen gebruiken de aangepaste Scriptextensie om te downloaden en uitvoeren van scripts op uw virtuele machines. Zie voor meer informatie, [met behulp van de aangepaste Scriptextensie van Azure met virtuele Linux-Machines](extensions-customscript.md).
 

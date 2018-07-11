@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect-synchronisatie: technische concepten | Microsoft Docs'
-description: Legt uit de technische concepten van Azure AD Connect-synchronisatie.
+description: Worden de technische concepten van Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
-ms.author: markvi;andkjell
-ms.openlocfilehash: 591f67747316b950f32c5a113edda1080ed814a0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: billmath
+ms.openlocfilehash: 4c7f1a0f1199daf9409f9ef3b4230e774321fe59
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592837"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918710"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-synchronisatie: technische concepten
-In dit artikel is een overzicht van het onderwerp [Understanding architectuur](active-directory-aadconnectsync-technical-concepts.md).
+Dit artikel is een overzicht van het onderwerp [Understanding architectuur](active-directory-aadconnectsync-technical-concepts.md).
 
-Azure AD Connect-synchronisatie is gebaseerd op een effen metadirectory synchronisatie-platform.
+Azure AD Connect-synchronisatie is gebaseerd op een solide metadirectory synchronisatie-platform.
 De volgende secties vindt de concepten voor metadirectory synchronisatie.
-Bouwt voort op MIIS, ILM en FIM, biedt Azure Active Directory Sync Services de volgende platform voor verbinding maken met gegevensbronnen, synchroniseren van gegevens tussen gegevensbronnen, evenals de inrichting en het opheffen van inrichting van identiteiten.
+Bouwen voort op MIIS ILM en FIM, biedt de Azure Active Directory Sync Services de volgende platform voor verbinding maken met gegevensbronnen, synchroniseren van gegevens tussen gegevensbronnen, evenals de inrichting en ongedaan maken van inrichting van identiteiten.
 
 ![Technische concepten](./media/active-directory-aadconnectsync-technical-concepts/scenario.png)
 
-De volgende secties bevatten meer informatie over de volgende aspecten van de FIM-synchronisatieservice:
+De volgende secties vindt u meer informatie over de volgende aspecten van de FIM-synchronisatieservice:
 
 * Connector
 * Kenmerkstroom
@@ -40,53 +40,53 @@ De volgende secties bevatten meer informatie over de volgende aspecten van de FI
 * Inrichten
 
 ## <a name="connector"></a>Connector
-De codemodules die worden gebruikt om te communiceren met een gekoppelde adreslijst worden connectors (voorheen bekend als beheeragents (MAs)) genoemd.
+De codemodules die worden gebruikt om te communiceren met een verbonden adreslijst worden connectors (voorheen bekend als beheeragents (MAs)) genoemd.
 
-Deze wordt geïnstalleerd op de computer met Azure AD Connect-synchronisatie. De connectors bieden zonder agent kunnen manier converseren door extern systeem te gebruiken in plaats van te vertrouwen op de implementatie van gespecialiseerde agents. Dit betekent dat minder risico en implementatietijden, vooral wanneer omgaan met bedrijfskritieke toepassingen en systemen.
+Deze zijn geïnstalleerd op de computer met Azure AD Connect-synchronisatie. De connectors bieden de zonder agent kunnen manier converseren met behulp van protocollen voor extern systeem in plaats van de implementatie van gespecialiseerde agents. Dit betekent dat minder risico en de implementatietijden, met name wanneer er sprake is van kritieke toepassingen en systemen.
 
-In de bovenstaande afbeelding is de connector is gelijk aan het connectorgebied overgebracht, maar omvat alle communicatie met het externe systeem.
+In de bovenstaande afbeelding is de connector is gelijk aan het connectorgebied, maar omvat alle communicatie met het externe systeem.
 
-De connector is verantwoordelijk voor alle importeren en exporteren functionaliteit aan het systeem en ontwikkelaars van hoeft te begrijpen hoe u verbinding maken met elk systeem systeemeigen gegevenstransformaties aanpassen met declaratieve inrichting maakt.
+De connector is verantwoordelijk voor alle importeren en exporteren functionaliteit aan het systeem en kunnen ontwikkelaars te weten hoe u verbinding maken met elk systeem systeemeigen bij het gebruik van declaratieve inrichting om aan te passen gegevenstransformaties hoeft.
 
-Invoer en uitvoer alleen worden uitgevoerd als gepland, waardoor verdere isolatie van veranderingen in het systeem omdat wijzigingen niet automatisch naar de gekoppelde gegevensbron doorgegeven kunnen. Ontwikkelaars kunnen bovendien ook hun eigen connectors voor het verbinden met vrijwel elke gegevensbron maken.
+Invoer en uitvoer alleen optreden bij het plannen, waardoor verdere isolatie van wijzigingen moet worden uitgevoerd binnen het systeem, omdat wijzigingen niet automatisch met de verbonden gegevensbron doorgeven doen. Ontwikkelaars kunnen bovendien ook hun eigen connectors voor het verbinden met vrijwel elke gegevensbron maken.
 
 ## <a name="attribute-flow"></a>Kenmerkstroom
-De metaverse is de geconsolideerde weergave van alle gekoppelde identiteiten van de aangrenzende connectorspaces. Kenmerkstroom wordt in de figuur hierboven is beschreven door regels met pijlpunten voor stroom inkomende en uitgaande. Kenmerkstroom is het proces van het kopiëren of omzetten van gegevens van het ene systeem naar een andere en alle kenmerk stromen (inkomend of uitgaand).
+De metaverse is de geconsolideerde weergave van alle gekoppelde id's van de aangrenzende connectorspaces. In de bovenstaande afbeelding kenmerkstroom weergegeven met regels met pijlpunten voor zowel binnenkomende als uitgaande stroom. Kenmerkstroom is het proces van het kopiëren of transformeren van gegevens uit het ene systeem naar een andere en alle stromen (inkomend of uitgaand) het kenmerk.
 
-Kenmerkstroom vindt plaats tussen het connectorgebied overgebracht en de metaverse twee richtingen als synchronisatiebewerkingen (volledige of delta) zijn gepland.
+Kenmerkstroom vindt plaats tussen het connectorgebied overgebracht en de metaverse richtingen wanneer synchronisatiebewerkingen (volledige of delta) zijn gepland om uit te voeren.
 
-Kenmerkstroom treedt alleen op wanneer deze synchronisaties worden uitgevoerd. Kenmerkstromen zijn in synchronisatieregels gedefinieerd. Deze kunnen zich inkomende ISR (in de bovenstaande afbeelding) of uitgaande (OSR in de bovenstaande afbeelding).
+Kenmerkstroom is alleen sprake wanneer deze synchronisaties worden uitgevoerd. Kenmerkstromen zijn gedefinieerd in synchronisatieregels. Dit kunnen binnenkomende (ISR in de vorige afbeelding) of uitgaande (OSR in de vorige afbeelding) zijn.
 
 ## <a name="connected-system"></a>Verbonden systeem
-Verbonden systeem (aka verbonden directory) verwijst naar het externe systeem Azure AD Connect sync is verbonden met en leest en schrijft van identiteitsgegevens naar en van.
+Verbonden systeem (ook wel verbonden directory) is die verwijzen naar het externe systeem Azure AD Connect sync is verbonden met en lezen en schrijven van identiteitsgegevens naar en van.
 
 ## <a name="connector-space"></a>Connectorgebied
-Elke verbonden gegevensbron wordt weergegeven als een gefilterde subset van de objecten en kenmerken in het connectorgebied overgebracht.
-Hiermee kan de synchronisatieservice lokaal werken zonder de noodzaak contact opnemen met het externe systeem bij het synchroniseren van de objecten en beperkt-interactie voor invoer en uitvoer alleen.
+Elke verbonden gegevensbron wordt weergegeven als een gefilterde subset van de objecten en kenmerken in het connectorgebied.
+Dit kan de synchronisatieservice lokaal werken zonder de noodzaak contact opnemen met het externe systeem bij het synchroniseren van de objecten en beperkt-interactie voor invoer en uitvoer alleen.
 
-Wanneer de gegevensbron en de connector hebt de mogelijkheid om te voorzien in een lijst met wijzigingen (een delta-import), klikt u vervolgens stijgt de operationele efficiëntie aanzienlijk als alleen wijzigingen sinds de laatste polling-cyclus worden uitgewisseld. Het connectorgebied overgebracht schermt de gekoppelde gegevensbron uit wijzigingen doorgeven automatisch door te vereisen dat de planning van de connector importeert en exporteert. Deze extra verzekering verleent u gemoedsrust tijdens het testen, bekijken of bevestiging van de volgende update.
+Wanneer de gegevensbron en de connector hebt de mogelijkheid te bieden een overzicht van de wijzigingen (een delta-import), klikt u vervolgens verhoogd de operationele efficiëntie aanzienlijk als alleen de wijzigingen sinds de laatste polling-cyclus worden uitgewisseld. Het connectorgebied schermt de verbonden gegevensbron tegen wijzigingen doorgeven automatisch door te vereisen dat het schema van de connector importeert en exporteert. Deze extra verzekering verleent u gemoedsrust tijdens het testen, is beschikbaar als Preview of bevestigen van de volgende update.
 
 ## <a name="metaverse"></a>Metaverse
-De metaverse is de geconsolideerde weergave van alle gekoppelde identiteiten van de aangrenzende connectorspaces.
+De metaverse is de geconsolideerde weergave van alle gekoppelde id's van de aangrenzende connectorspaces.
 
-Als identiteiten aan elkaar zijn gekoppeld en instantie is toegewezen voor verschillende kenmerken via stroomtoewijzingen importeren, wordt de status van de centrale metaverse-object begint met het verzamelde gegevens uit meerdere systemen. Toewijzingen uitvoeren van deze overdracht van het kenmerk object informatie naar uitgaande systemen.
+Als id's aan elkaar zijn gekoppeld en instantie is toegewezen voor verschillende kenmerken via stroomtoewijzingen importeren, begint de centrale metaverse-object met het verzamelde gegevens uit meerdere systemen. Toewijzingen uitvoeren van deze stroom van het kenmerk object informatie aan uitgaande-systemen.
 
-Objecten worden gemaakt wanneer een bindende systeem ze naar de metaverse-projecten. Zodra alle verbindingen zijn verwijderd, wordt het metaverse-object verwijderd.
+Objecten worden gemaakt wanneer een gezaghebbende systeem ze naar de metaverse-projecten. Zodra alle verbindingen zijn verwijderd, wordt het metaverse-object verwijderd.
 
-Objecten in de metaverse kunnen niet rechtstreeks worden bewerkt. Alle gegevens in het object moet worden bijgedragen via kenmerkstroom. De metaverse onderhoudt permanente connectors met elke connectorgebied overgebracht. Deze connectors hoeven niet opnieuw evalueren voor elke synchronisatie uitvoeren. Dit betekent dat dat Azure AD Connect-synchronisatie geen telkens wanneer voor de overeenkomende externe object vinden. Dit voorkomt dat de behoefte aan dure agents om te voorkomen dat wijzigingen in kenmerken die normaal gesproken verantwoordelijk is voor het correleren van de objecten.
+Objecten in de metaverse kunnen niet rechtstreeks worden bewerkt. Alle gegevens in het object moet worden bijgedragen door middel van de kenmerkstroom. De metaverse onderhoudt permanente connectors met elke-connectorgebied. Deze connectors hoeven niet opnieuw evalueren van implementaties voor elke synchronisatie uitgevoerd. Dit betekent dat Azure AD Connect-synchronisatie geen het overeenkomende externe object telkens vinden. Hiermee voorkomt de noodzaak van kostbare agents om te voorkomen dat wijzigingen in kenmerken die doorgaans verantwoordelijk is voor het correleren van de objecten.
 
-Bij het detecteren van nieuwe gegevensbronnen die wellicht al bestaande objecten die moeten worden beheerd, Azure AD Connect-synchronisatie maakt gebruik van een proces genaamd een join-regel om te evalueren mogelijke kandidaten waarmee een koppeling tot stand brengen.
-Wanneer de koppeling is gemaakt, wordt deze evaluatie niet meer optreedt en normale kenmerkstroom kan optreden tussen de verbonden externe gegevensbron en de metaverse.
+Bij het detecteren van nieuwe gegevensbronnen die wellicht al bestaande objecten die moeten worden beheerd, Azure AD Connect sync maakt gebruik van een proces genaamd een join-regel om te evalueren mogelijke kandidaten waarmee u een koppeling tot stand brengen.
+Nadat de koppeling tot stand is gebracht, deze evaluatie is opgelost en normale kenmerkstroom kan plaatsvinden tussen de externe verbonden gegevensbron en de metaverse.
 
 ## <a name="provisioning"></a>Inrichten
-Wanneer een gezaghebbende bronprojecten kan een nieuw object naar de metaverse een nieuw object van de connector-ruimte in een andere Connector voor een downstream verbonden gegevensbron worden gemaakt.
+Als een gezaghebbende source-projecten kan een nieuw object in de metaverse een nieuwe connector space-object worden gemaakt in een andere Connector vertegenwoordigt een downstream verbonden gegevensbron.
 
-Dit inherent legt een koppeling vast en kenmerkstroom twee richtingen kunt doorgaan.
+Op deze manier inherent een koppeling maakt en kenmerkstroom richtingen kunt doorgaan.
 
-Wanneer een regel bepaalt dat er een nieuw object van de connector-ruimte moet worden gemaakt, wordt het genoemd inrichten. Echter, omdat deze bewerking alleen uitgevoerd binnen het connectorgebied overgebracht wordt, deze komt niet meegenomen in de gekoppelde gegevensbron totdat het exporteren van een wordt uitgevoerd.
+Wanneer een regel bepaalt dat een nieuwe connector space-object moet worden gemaakt, wordt het inrichten van genoemd. Echter omdat deze bewerking alleen plaats in het connectorgebied overgebracht vindt, wordt deze niet meegenomen in de gekoppelde gegevensbron totdat een export wordt uitgevoerd.
 
 ## <a name="additional-resources"></a>Aanvullende resources
-* [Azure AD Connect-synchronisatie: Synchronisatie-opties voor aanpassen](active-directory-aadconnectsync-whatis.md)
+* [Azure AD Connect Sync: Synchronisatieopties aanpassen](active-directory-aadconnectsync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md)
 
 <!--Image references-->

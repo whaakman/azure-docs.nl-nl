@@ -1,84 +1,84 @@
 ---
-title: Azure Virtual machines terug naar de primaire Azure-regio met Azure Site Recovery beveiligt failover | Microsoft Docs
-description: Hierin wordt beschreven hoe virtuele Azure-machines in een secundaire regio na failover van een primaire regio, met Azure Site Recovery beveiligt.
+title: Azure-VM's opnieuw beveiligen een failover naar de primaire Azure-regio met Azure Site Recovery | Microsoft Docs
+description: Beschrijft hoe u opnieuw beveiligen van virtuele Azure-machines in een secundaire regio na een failover van een primaire regio, met behulp van Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6a57226f81e626e620033750c58d5998d8e7e894
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9759e209f15622d70aaa833a993234863ac1053c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716581"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918863"
 ---
-# <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Azure Virtual machines beveiligt failover naar de primaire regio
+# <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Azure-VM's opnieuw beveiligen een failover naar de primaire regio
 
 
-Wanneer u [failover](site-recovery-failover.md) Azure virtuele machines van één regio is voor het gebruik van een andere [Azure Site Recovery](site-recovery-overview.md), de virtuele machines opstart in de secundaire regio, in een onbeveiligde toestand. Als de virtuele machines mislukken terug naar de primaire regio, moet u het volgende doen:
+Wanneer u [failover](site-recovery-failover.md) Azure VM's van de ene regio voor het gebruik van een andere [Azure Site Recovery](site-recovery-overview.md), de VM's opstart in de secundaire regio, in een niet-beveiligde status. Als u failback-VM's naar de primaire regio, moet u het volgende doen:
 
-- Beveilig de virtuele machines in de secundaire regio opnieuw zodat deze worden gerepliceerd naar de primaire regio beginnen. 
-- Nadat de beveiligingspoging is voltooid en repliceren van de virtuele machines, kunt u ze failover van de secundaire naar primaire regio.
+- De VM's in de secundaire regio opnieuw beveiligen zodat ze gaan repliceren naar de primaire regio. 
+- Nadat het opnieuw beveiligen is voltooid en de virtuele machines worden gerepliceerd, kunt u een failover van de secundaire naar primaire regio.
 
 > [!WARNING]
-> Als u hebt [gemigreerd](migrate-overview.md#what-do-we-mean-by-migration) machines van de primaire naar de secundaire regio verplaatst van de virtuele machine naar een andere resourcegroep of is verwijderd van de Azure VM, u kan niet opnieuw beveiligen van de virtuele machine of failback uit.
+> Als u hebt [gemigreerd](migrate-overview.md#what-do-we-mean-by-migration) machines van de primaire naar de secundaire regio, verplaatst van de virtuele machine naar een andere resourcegroep of is verwijderd van de Azure-VM, u kunt de virtuele machine opnieuw beveiligen of er een failback.
 
 
 ## <a name="prerequisites"></a>Vereisten
 1. De VM-failover van de primaire naar secundaire regio moet worden doorgevoerd.
-2. De primaire doelsite moet beschikbaar zijn en moet u kunnen openen of maken van resources in deze regio.
+2. De primaire doelsite moet beschikbaar zijn en moet u kunnen openen of maken van resources in die regio.
 
 ## <a name="reprotect-a-vm"></a>Een virtuele machine opnieuw beveiligen
 
-1. In **kluis** > **gerepliceerde items**, met de rechtermuisknop op de mislukte via de virtuele machine en selecteer **opnieuw beveiligen**. De richting van de beveiligingspoging moet van secundaire op primaire weergeven. 
+1. In **kluis** > **gerepliceerde items**, met de rechtermuisknop op de mislukte uitvoert voor virtuele machine en selecteert u **opnieuw beveiligen**. De richting opnieuw beveiligen moet van de secundaire naar primaire weergeven. 
 
   ![Opnieuw beveiligen](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
-2. Controleer de resource-sets voor groep-, netwerk-, opslag- en beschikbaarheid. Klik vervolgens op **OK**. Als er geen bronnen die zijn gemarkeerd als nieuw, worden ze gemaakt als onderdeel van het proces opnieuw beveiliging inschakelen.
-3. De taak waarvoor de seeding van de doelsite met de meest recente gegevens. Nadat die is voltooid, wordt de replicatie van verschillen uitgevoerd. Vervolgens kunt u failover terug naar de primaire site. U kunt het storage-account selecteren of het netwerk die u wilt gebruiken tijdens beveiligt, met de optie aanpassen.
+2. Controleer in het resource-groep, het netwerk, opslag en beschikbaarheid wordt ingesteld. Klik vervolgens op **OK**. Als er resources gemarkeerd als nieuw zijn, worden ze gemaakt als onderdeel van het proces opnieuw beveiligen.
+3. De taak opnieuw beveiligen seeding van de doelsite van de meest recente gegevens. Nadat die is voltooid, wordt de replicatie van verschillen plaatsvindt. Vervolgens kunt u failover naar de primaire site. U kunt het storage-account selecteren of het netwerk die u wilt gebruiken tijdens het opnieuw beveiligen, met de optie aanpassen.
 
   ![Optie aanpassen](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
-### <a name="customize-reprotect-settings"></a>Beveiligt instellingen aanpassen
+### <a name="customize-reprotect-settings"></a>Instellingen voor opnieuw beveiligen aanpassen
 
-U kunt de volgende eigenschappen van het doel VMe tijdens beveiligingspoging aanpassen.
+U kunt de volgende eigenschappen van het doel VMe aanpassen tijdens het opnieuw beveiligen.
 
 ![Aanpassen](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
 |Eigenschap |Opmerkingen  |
 |---------|---------|
-|Doelresourcegroep     | Wijzig de doelresourcegroep waarin de virtuele machine wordt gemaakt. Als het onderdeel van de beveiligingspoging, het doel-virtuele machine wordt verwijderd. U kunt een nieuwe resourcegroep waaronder wilt maken van de virtuele machine na een failover.        |
-|Doel virtueel netwerk     | Het doelnetwerk kan niet worden gewijzigd tijdens de taak opnieuw beveiligen. Als u wilt wijzigen in het netwerk, de netwerktoewijzing bij het opnieuw.         |
-|Doelopslag (secundaire virtuele machine wordt niet gebruikt beheerde schijven)     | U kunt het opslagaccount dat gebruikmaakt van de virtuele machine na een failover kunt wijzigen.         |
-|Replica-beheerde schijven (secundaire virtuele machine gebruikt beheerde schijven)    | In de primaire regio voor het spiegelen van de VM van de secundaire-beheerde schijven maakt site Recovery schijven van de replica die wordt beheerd.         | 
-|Cache-opslag     | U kunt opgeven dat een opslagaccount van de cache moet worden gebruikt tijdens de replicatie. Standaard is een nieuw opslagaccount voor de cache worden gemaakt, als deze niet bestaat.         |
-|Beschikbaarheidsset     |Als de virtuele machine in de secundaire regio deel van een beschikbaarheidsset uitmaakt, kunt u een beschikbaarheidsset voor het VM-doel voor de primaire regio kiezen. Standaard Site Recovery gezocht naar de bestaande beschikbaarheidsset voor de primaire regio en deze gebruiken. Aangepast, kunt u een nieuwe beschikbaarheidsset.         |
+|Doelresourcegroep     | Wijzig de doelresourcegroep waarin de virtuele machine is gemaakt. Als onderdeel van opnieuw beveiligen, de doel-VM is verwijderd. U kunt een nieuwe resourcegroep voor het maken van de virtuele machine na een failover.        |
+|Virtueel doelnetwerk     | Het doelnetwerk kan niet worden gewijzigd tijdens het opnieuw beveiligen. Als u wilt wijzigen van het netwerk, de netwerktoewijzing bij het opnieuw.         |
+|Doel-Opslagaccount (secundaire virtuele machine gebruikt geen beheerde schijven)     | U kunt de storage-account dat gebruikmaakt van de virtuele machine na een failover kunt wijzigen.         |
+|Beheerde replicaschijven (secundaire virtuele machine maakt gebruik van beheerde schijven)    | Site Recovery maakt beheerde replicaschijven in de primaire regio voor het spiegelen van beheerde schijven van de secundaire virtuele machine.         | 
+|Cacheopslag     | U kunt een cache-opslagaccount tijdens replicatie moet worden gebruikt. Standaard is een nieuw cache-opslagaccount worden gemaakt, als deze niet bestaat.         |
+|Beschikbaarheidsset     |Als de virtuele machine in de secundaire regio deel van een beschikbaarheidsset uitmaakt, kunt u een beschikbaarheidsset voor de doel-VM in de primaire regio. Standaard, Site Recovery probeert te vinden van de bestaande beschikbaarheidsset in de primaire regio, en deze gebruiken. Aangepast, kunt u een nieuwe beschikbaarheidsset.         |
 
 
-### <a name="what-happens-during-reprotection"></a>Wat er gebeurt tijdens beveiligingspoging?
+### <a name="what-happens-during-reprotection"></a>Wat gebeurt er tijdens het opnieuw beveiligen?
 
 Standaard gebeurt het volgende:
 
-1. Een opslagaccount van de cache wordt gemaakt in de primaire regio
-2. Als het doel-storage-account (het oorspronkelijke opslagaccount in de primaire regio) niet bestaat, wordt een nieuw gemaakt. Naam van het toegewezen opslagaccount is de naam van het opslagaccount dat wordt gebruikt door de secundaire virtuele machine, voorafgegaan door 'asr'.
-3. Als uw VM beheerde schijven gebruikt, wordt beheerd door replica schijven worden gemaakt in de primaire regio voor het opslaan van de gegevens gerepliceerd van de secundaire VM-schijven. 
-4. Als de doel-beschikbaarheidsset niet bestaat, wordt een nieuw gemaakt als onderdeel van de taak opnieuw beveiligen indien nodig. Als u de instellingen waarvoor hebt aangepast, wordt de geselecteerde set gebruikt.
+1. Een cache-opslagaccount is gemaakt in de primaire regio
+2. Als het doelopslagaccount (het oorspronkelijke opslagaccount in de primaire regio) niet bestaat, wordt een nieuwe gemaakt. Naam van het toegewezen opslagaccount is de naam van het opslagaccount dat wordt gebruikt door de secundaire virtuele machine, voorafgegaan door 'asr'.
+3. Als uw virtuele machine gebruikmaakt van beheerde schijven, beheerde schijven worden gemaakt in de primaire regio voor het opslaan van de gegevens van de schijven van de secundaire virtuele machine gerepliceerd. 
+4. Als de beschikbaarheidsset niet bestaat, wordt een nieuwe resourcegroep gemaakt als onderdeel van de taak opnieuw beveiligen indien nodig. Als u de instellingen voor opnieuw beveiligen hebt aangepast, wordt de geselecteerde verzameling gebruikt.
 
-Wanneer u een taak opnieuw beveiligen en het doel dat VM bestaat activeert, gebeurt het volgende:
+Wanneer u activeert een taak opnieuw beveiligen en de doel-VM zich bevindt, gebeurt het volgende:
 
-1. De vereiste onderdelen worden gemaakt als onderdeel van het beveiligt. Als ze al aanwezig zijn, worden ze opnieuw gebruikt.
-2. De doel-zijde die VM is uitgeschakeld als deze wordt uitgevoerd.
-3. De doelschijf side-VM wordt als een seed-blob naar een container gekopieerd door Site Recovery.
-4. De doel-zijde VM wordt vervolgens verwijderd.
-5. De seed-blob wordt gebruikt door de huidige bron zijde (secundair) VM te repliceren. Dit zorgt ervoor dat alleen de delta's worden gerepliceerd.
-6. Grote wijzigingen tussen de bronschijf en de blob seed worden gesynchroniseerd. Dit kan enige tijd duren.
+1. De vereiste onderdelen worden gemaakt als onderdeel van opnieuw beveiligen. Als deze al bestaan, worden ze opnieuw gebruikt.
+2. De doel-kant die VM wordt uitgeschakeld als deze wordt uitgevoerd.
+3. De VM-schijf van de doel-kant gekopieerd door Site Recovery naar een container als een blob voor seeding.
+4. De doel-kant VM wordt vervolgens verwijderd.
+5. De blob voor seeding wordt gebruikt door de huidige bron zijde (secundaire) virtuele machine om te repliceren. Dit zorgt ervoor dat alleen delta's worden gerepliceerd.
+6. Belangrijke wijzigingen tussen de bronschijf en de blob voor seeding worden gesynchroniseerd. Dit kan enige tijd duren.
 7. Nadat de taak opnieuw beveiligen is voltooid, wordt de replicatie van verschillen begint en maakt een herstelpunt in overeenstemming met het replicatiebeleid.
-8. Nadat de taak opnieuw beveiligen is geslaagd, krijgt de virtuele machine in een beveiligde status.
+8. Nadat de taak opnieuw beveiligen is voltooid, voert de virtuele machine in een beveiligde status.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat de virtuele machine is beveiligd, kunt u een failover starten. De failover de virtuele machine in de secundaire regio wordt afgesloten en wordt gemaakt en VM wordt opgestart in de primaire regio, met kleine uitval. Het is raadzaam een tijd dienovereenkomstig kiest en dat u een testfailover uitvoeren, maar het initiëren van een volledige failover naar de primaire site. [Meer informatie](site-recovery-failover.md) over failover.
+Nadat de virtuele machine is beveiligd, kunt u een failover starten. De failover de virtuele machine in de secundaire regio wordt afgesloten en wordt gemaakt en virtuele machine wordt opgestart in de primaire regio, met enkele kleine downtime. Wij raden aan u een tijd dienovereenkomstig kiest en dat u een testfailover uitvoeren, maar het initiëren van een volledige failover naar de primaire site. [Meer informatie](site-recovery-failover.md) over failover.
 

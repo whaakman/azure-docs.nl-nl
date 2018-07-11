@@ -1,9 +1,9 @@
 ---
 title: Virtuele netwerken en virtuele Linux-machines in Azure | Microsoft Docs
-description: Meer informatie over netwerken met betrekking tot de basisprincipes van het maken van virtuele Linux-machines in Azure.
+description: Meer informatie over netwerken met betrekking tot de basistechnieken van het maken van virtuele Linux-machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: iainfou
-ms.openlocfilehash: 71a308f2a39720e9fd1ab9297971574fe35dd3e3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: cynthn
+ms.openlocfilehash: 5f9681841b2704f58b5c36036b8b71eef4b967b9
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30177634"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927788"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Virtuele netwerken en virtuele machines in Azure 
 

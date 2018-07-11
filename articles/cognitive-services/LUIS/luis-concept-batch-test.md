@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: d4f00e2470bac08c333411646dca90b3e2105073
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 0e484a6cae1b56983c4854664088ada8aa504568
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900477"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918812"
 ---
 # <a name="batch-testing-in-luis"></a>Batch testen in LUIS
 
@@ -33,6 +33,10 @@ Indienen van een batch-bestand van uitingen, ook wel een *gegevensset*, voor het
 |uitingen van 1000 of minder|
 
 * Dubbele waarden worden beschouwd als de exacte tekenreeks komt overeen met, niet overeenkomt met die eerst worden getokeniseerd. 
+
+## <a name="entities-allowed-in-batch-tests"></a>Entiteiten die zijn toegestaan in de batchtests
+Entiteiten zijn eenvoudige, hiërarchische ouders en samengesteld. Alle entiteiten van de volgende typen worden weergegeven in het filter entiteiten van batch test, zelfs als er geen bijbehorende entiteiten in de batch-bestand zijn.
+
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>

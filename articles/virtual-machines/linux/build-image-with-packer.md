@@ -1,9 +1,9 @@
 ---
-title: Het maken van Linux Azure VM-installatiekopieën met verpakker | Microsoft Docs
-description: Informatie over het gebruik van verpakker installatiekopieën maken van virtuele Linux-machines in Azure
+title: Linux Azure VM-installatiekopieën maken met Packer | Microsoft Docs
+description: Informatie over het maken van installatiekopieën van virtuele Linux-machines in Azure met Packer
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,20 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
-ms.author: iainfou
-ms.openlocfilehash: 7d7ba6a493cca3dd14829e6527136af6df424c05
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: cynthn
+ms.openlocfilehash: f84626c5a487d52f53a2c8bf492a124c87599ed0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778181"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932391"
 ---
-# <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Het gebruik van verpakker voor het maken van installatiekopieën van Linux virtuele machines in Azure
-Elke virtuele machine (VM) in Azure wordt gemaakt van een installatiekopie die u de Linux-distributie en de versie van het besturingssysteem definieert. Voorbeelden van afbeeldingen zijn vooraf geïnstalleerde toepassingen en configuraties. Azure Marketplace bevat veel installatiekopieën van het eerste en derde partij voor het meest voorkomende distributies en omgevingen met toepassingen, of kunt u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u de open-source hulpprogramma [verpakker](https://www.packer.io/) om te definiëren en te maken van aangepaste installatiekopieën in Azure.
+# <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Hoe u Linux-installatiekopieën voor virtuele machines maken in Azure met Packer
+Elke virtuele machine (VM) in Azure is gemaakt op basis van een installatiekopie die u de Linux-distributie en de versie van het besturingssysteem definieert. Installatiekopieën kunnen bevatten vooraf geïnstalleerde toepassingen en configuraties. De Azure Marketplace bevat vele installatiekopieën die eerste en derde partij voor de meest voorkomende distributies en omgevingen met toepassingen, of kunt u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u met het open-source-hulpprogramma [Packer](https://www.packer.io/) om te definiëren en maken van aangepaste installatiekopieën in Azure.
 
 
 ## <a name="create-azure-resource-group"></a>Azure-resourcegroep maken
-Tijdens het maken maakt verpakker tijdelijke Azure-resources als de bron-VM-builds. Als u wilt vastleggen die bron-VM voor gebruik als een installatiekopie, moet u een resourcegroep definiëren. De uitvoer van het buildproces verpakker wordt opgeslagen in deze resourcegroep.
+Tijdens het bouwproces maakt Packer tijdelijke Azure-resources zoals het samenstellen van de bron-VM. Om vast te leggen die bron-VM voor gebruik als een installatiekopie, moet u een resourcegroep definiëren. De uitvoer van het bouwproces Packer wordt opgeslagen in deze resourcegroep.
 
 Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
@@ -37,15 +37,15 @@ az group create -n myResourceGroup -l eastus
 
 
 ## <a name="create-azure-credentials"></a>Azure-referenties maken
-Verpakker verifieert met Azure met behulp van een service-principal. Een Azure-service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's zoals verpakker kunt gebruiken. U de machtigingen over welke bewerkingen die de service-principal in Azure uitvoeren kunt te definiëren en beheren.
+Packer verifieert met Azure met behulp van een service-principal. Een Azure service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's, zoals Packer gebruiken kunt. U bepaalt en definiëren van de machtigingen over welke bewerkingen die de service-principal in Azure uitvoeren kunt.
 
-Maken van een service principal met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#create-for-rbac) en de uitvoer van de referenties die verpakker moet:
+Een service-principal met maken [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) en de uitvoer van de referenties die Packer moet:
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
 
-Een voorbeeld van de uitvoer van de bovenstaande opdrachten is als volgt:
+Een voorbeeld van de uitvoer in de voorgaande opdrachten is als volgt:
 
 ```azurecli
 {
@@ -55,7 +55,7 @@ Een voorbeeld van de uitvoer van de bovenstaande opdrachten is als volgt:
 }
 ```
 
-Om te verifiëren naar Azure, moet u ook uw Azure-abonnement-id met [az account weergeven](/cli/azure/account#az_account_show):
+Om te worden geverifieerd bij Azure, moet u ook uw Azure-abonnement-id met [az account show](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -64,19 +64,19 @@ az account show --query "{ subscription_id: id }"
 U gebruikt de uitvoer van deze twee opdrachten in de volgende stap.
 
 
-## <a name="define-packer-template"></a>Verpakker sjabloon definiëren
-Als u wilt maken van installatiekopieën, kunt u een sjabloon maken als een JSON-bestand. In de sjabloon definieert u opbouwfuncties en provisioners die het werkelijke buildproces uitvoeren. Verpakker heeft een [provisioner voor Azure](https://www.packer.io/docs/builders/azure.html) die kunt u voor het definiëren van de Azure-resources, zoals de Servicereferenties principal gemaakt in de voorgaande stap.
+## <a name="define-packer-template"></a>Packer sjabloon definiëren
+Als u wilt maken van installatiekopieën, kunt u een sjabloon maken als een JSON-bestand. In de sjabloon definieert u builders en provisioners die het werkelijke bouwproces worden uitgevoerd. Packer heeft een [provisioner voor Azure](https://www.packer.io/docs/builders/azure.html) die kunt u definiëren van Azure-resources, zoals de service principal-referenties die zijn gemaakt in de voorgaande stap.
 
-Maak een bestand met de naam *ubuntu.json* en plak de volgende inhoud. Geef uw eigen waarden voor het volgende:
+Maak een bestand met de naam *ubuntu.json* en plak de volgende inhoud. Voer uw eigen waarden voor het volgende:
 
 | Parameter                           | Waar u kunt verkrijgen |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | Eerste regel van de uitvoer van `az ad sp` maken command - *appId* |
-| *client_secret*                     | Lijn van uitvoer van de tweede `az ad sp` maken command - *wachtwoord* |
-| *tenant_id*                         | Derde regel van uitvoer van `az ad sp` maken command - *tenant* |
-| *subscription_id*                   | De uitvoer van `az account show` opdracht |
-| *managed_image_resource_group_name* | Naam van resourcegroep die u in de eerste stap hebt gemaakt |
-| *managed_image_name*                | Naam voor de installatiekopie van de beheerde schijf die is gemaakt |
+| *client_id*                         | Eerste regel van de uitvoer van `az ad sp` maakopdracht - *appId* |
+| *client_secret*                     | Line-of uitvoer van tweede `az ad sp` maakopdracht - *wachtwoord* |
+| *tenant_id*                         | Derde regel van uitvoer van `az ad sp` maakopdracht - *tenant* |
+| *abonnements-id*                   | Uitvoer van `az account show` opdracht |
+| *managed_image_resource_group_name* | Naam van de resourcegroep die u hebt gemaakt in de eerste stap |
+| *managed_image_name*                | Naam voor de installatiekopie van het beheerde schijf die is gemaakt |
 
 
 ```json
@@ -120,23 +120,23 @@ Maak een bestand met de naam *ubuntu.json* en plak de volgende inhoud. Geef uw e
 }
 ```
 
-Deze sjabloon maakt een installatiekopie van een virtuele Ubuntu 16.04 TNS, NGINX installeert en vervolgens deprovisions van de virtuele machine.
+Deze sjabloon maakt een installatiekopie van een Ubuntu 16.04 LTS, NGINX wordt geïnstalleerd en deprovisions van de virtuele machine.
 
 > [!NOTE]
-> Als u van deze sjabloon op inrichten gebruikersreferenties wilt uitbreiden, past u de provisioner-opdracht die de Azure-agent te lezen deprovisions `-deprovision` plaats `deprovision+user`.
+> Als u wilt op de sjabloon de gebruikersreferenties inrichten uitbreiden, aanpassen van de opdracht provisioner die de Azure-agent te lezen deprovisions `-deprovision` in plaats van `deprovision+user`.
 > De `+user` vlag verwijdert alle gebruikersaccounts uit de bron-VM.
 
 
-## <a name="build-packer-image"></a>Verpakker installatiekopie maken
-Als u nog niet geïnstalleerd op uw lokale machine verpakker hebt [Volg de instructies van de installatie verpakker](https://www.packer.io/docs/install/index.html).
+## <a name="build-packer-image"></a>Packer-installatiekopie bouwen
+Als u nog niet geïnstalleerd op uw lokale computer, Packer hebt [volgt u de installatie-instructies Packer](https://www.packer.io/docs/install/index.html).
 
-Maak de installatiekopie door op te geven van uw verpakker sjabloonbestand als volgt:
+Bouw de installatiekopie door op te geven uw Packer sjabloonbestand als volgt:
 
 ```bash
 ./packer build ubuntu.json
 ```
 
-Een voorbeeld van de uitvoer van de bovenstaande opdrachten is als volgt:
+Een voorbeeld van de uitvoer in de voorgaande opdrachten is als volgt:
 
 ```bash
 azure-arm output will be in this color.
@@ -197,11 +197,11 @@ ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
 
-Het duurt enkele minuten duren voordat verpakker bouwen van de virtuele machine, het uitvoeren van de provisioners en het opschonen van de implementatie.
+Het duurt een paar minuten voor Packer bouwen van de virtuele machine, het uitvoeren van de provisioners en het opschonen van de implementatie.
 
 
-## <a name="create-vm-from-azure-image"></a>Virtuele machine van de afbeelding voor Azure maken
-U kunt nu een virtuele machine maken van de installatiekopie met [az vm maken](/cli/azure/vm#az_vm_create). Geef de afbeelding die u hebt gemaakt met de `--image` parameter. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage* en SSH-sleutels genereert als deze niet al bestaan:
+## <a name="create-vm-from-azure-image"></a>Virtuele machine maken van installatiekopieën van Azure
+U kunt nu een virtuele machine maken door uw installatiekopie met [az vm maken](/cli/azure/vm#az_vm_create). Geef de afbeelding die u hebt gemaakt met de `--image` parameter. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage* en worden SSH-sleutels gegenereerd als deze nog niet bestaan:
 
 ```azurecli
 az vm create \
@@ -212,9 +212,9 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Als u maken van virtuele machines in een andere resourcegroep of de regio dan uw installatiekopie verpakker wilt, geeft u de afbeeldings-ID in plaats van de installatiekopienaam van de. U kunt de afbeeldings-ID met verkrijgen [az afbeelding worden weergegeven](/cli/azure/image#az-image-show).
+Als u maken van virtuele machines in een andere resourcegroep of een andere regio dan uw Packer-installatiekopie wilt, geeft u de afbeeldings-ID in plaats van de naam van installatiekopie. U vindt de afbeeldings-ID met [az image show](/cli/azure/image#az-image-show).
 
-Het duurt enkele minuten voor het maken van de virtuele machine. Wanneer de virtuele machine is gemaakt, dient u de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot de NGINX-site via een webbrowser.
+Het duurt een paar minuten om de VM te maken. Nadat de virtuele machine is gemaakt, noteer de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot de NGINX-site via een webbrowser.
 
 Open poort 80 via internet met [az vm open-port](/cli/azure/vm#open-port) zodat beveiligd webverkeer uw virtuele machine kan bereiken:
 
@@ -225,13 +225,13 @@ az vm open-port \
     --port 80
 ```
 
-## <a name="test-vm-and-nginx"></a>Virtuele machine en NGINX testen
-Nu kunt u een webbrowser openen en `http://publicIpAddress` in de adresbalk invoeren. Geef uw eigen openbare IP-adres op uit het creatieproces van de virtuele machine proces. De standaard NGINX-pagina wordt weergegeven zoals in het volgende voorbeeld:
+## <a name="test-vm-and-nginx"></a>Testen van de virtuele machine en NGINX
+Nu kunt u een webbrowser openen en `http://publicIpAddress` in de adresbalk invoeren. Geef uw eigen openbare IP-adres op uit het creatieproces van de virtuele machine proces. De standaard-NGINX-pagina wordt weergegeven zoals in het volgende voorbeeld:
 
 ![Standaardsite van NGINX](./media/build-image-with-packer/nginx.png) 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit voorbeeld gebruikt u verpakker maken van een VM-installatiekopie met NGINX al is geïnstalleerd. U kunt deze VM-installatiekopie samen met bestaande werkstromen voor de implementatie, zoals uw app implementeren in virtuele machines die zijn gemaakt op basis van de installatiekopie met Ansible, Chef of Puppet.
+In dit voorbeeld gebruikt u Packer om u te maken van een installatiekopie van een virtuele machine met NGINX is al geïnstalleerd. U kunt deze VM-installatiekopie samen met bestaande werkstromen voor de implementatie, zoals uw app implementeren in virtuele machines die zijn gemaakt op basis van de installatiekopie met Ansible, Chef en Puppet.
 
-Zie voor aanvullende voorbeeld verpakker sjablonen voor andere Linux-distributies, [deze GitHub-repo-](https://github.com/hashicorp/packer/tree/master/examples/azure).
+Zie voor aanvullende Packer voorbeeldsjablonen voor andere Linux-distributies, [deze GitHub-opslagplaats](https://github.com/hashicorp/packer/tree/master/examples/azure).

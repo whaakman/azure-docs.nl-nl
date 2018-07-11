@@ -1,9 +1,9 @@
 ---
-title: Extern bureaublad voor een virtuele Linux-machine | Microsoft Docs
-description: Meer informatie over het installeren en configureren van extern bureaublad verbinding maken met een Microsoft Azure Linux VM voor het klassieke implementatiemodel
+title: Met een virtuele Linux-machine via Extern bureaublad | Microsoft Docs
+description: Meer informatie over het installeren en configureren van extern bureaublad verbinding maken met een Microsoft Azure Linux-VM voor het klassieke implementatiemodel
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -15,64 +15,64 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: iainfou
-ms.openlocfilehash: 0e1bfe468e1572ca98be956d39d82df562dce0e6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: 5e68774c3edb7d82fef388c593a6b96c52857be6
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30238610"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927737"
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Extern bureaublad gebruiken om verbinding te maken met een Microsoft Azure Linux VM
 > [!IMPORTANT] 
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Zie voor de bijgewerkte Resource Manager-versie van dit artikel, [hier](../use-remote-desktop.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Zie voor de bijgewerkte Resource Manager-versie van dit artikel, [hier](../use-remote-desktop.md).
 
 ## <a name="overview"></a>Overzicht
-RDP (Remote Desktop Protocol) is een oorspronkelijk protocol gebruikt voor Windows. Hoe kunnen we RDP extern verbinding kunnen maken met een Linux-VM (virtuele machine) gebruiken
+RDP (Remote Desktop Protocol) is een eigen protocol gebruikt voor Windows. Hoe kunnen we RDP verbinding maken met een Linux-VM (virtuele machine) op afstand gebruiken?
 
-In deze richtlijnen bieden u het antwoord! Het helpt u om te installeren en config-xrdp op uw Microsoft Azure Linux VM, waarmee u verbinding maken met extern bureaublad van een Windows-machine. Linux-VM met Ubuntu of OpenSUSE als in het voorbeeld in deze richtlijnen zullen worden gebruikt.
+Deze handleiding geeft u het antwoord. Het helpt u om te installeren en config-xrdp op uw Microsoft Azure Linux VM, waarmee u verbinding maken met extern bureaublad van een Windows-machine. Linux-VM met Ubuntu of OpenSUSE als in het voorbeeld in deze handleiding worden gebruikt.
 
-Het hulpprogramma xrdp is een open-source RDP-server waarmee u verbinding maken met de Linux-server met extern bureaublad van een Windows-machine. RDP heeft betere prestaties dan VNC (virtuele netwerk computers). VNC renders met JPEG-kwaliteit afbeeldingen en kan traag zijn, terwijl RDP snel en crystal wissen is.
+Het hulpprogramma xrdp is een open-source RDP-server waarmee u verbinding maken met uw Linux-server met extern bureaublad van een Windows-machine. RDP is betere prestaties dan VNC (virtueel netwerk Computing). VNC rendert met hoogwaardige JPEG-afbeeldingen en kan traag zijn, terwijl RDP snel en crystal wissen is.
 
 > [!NOTE]
-> U moet al een Microsoft Azure-virtuele machine met Linux hebben. Als u wilt maken en een Linux-VM instellen, Zie de [Azure Linux VM-zelfstudie](createportal-classic.md).
+> U moet al een Microsoft Azure-VM waarop Linux wordt uitgevoerd. Als u wilt maken en instellen van een Linux-VM, Zie de [zelfstudie voor Azure Linux VM](createportal-classic.md).
 > 
 > 
 
-## <a name="create-an-endpoint-for-remote-desktop"></a>Een eindpunt voor extern bureaublad maken
-We gebruiken het standaardeindpunt 3389 voor extern bureaublad in dit document. Instellen van 3389 eindpunt als `Remote Desktop` voor uw Linux-VM zoals hieronder:
+## <a name="create-an-endpoint-for-remote-desktop"></a>Een eindpunt maken voor extern bureaublad
+We gebruiken het standaardeindpunt 3389 voor extern bureaublad in dit document. Instellen van 3389 eindpunt als `Remote Desktop` voor uw Linux-VM, zoals hieronder:
 
-![Afbeelding](./media/remote-desktop/endpoint-for-linux-server.png)
+![installatiekopie](./media/remote-desktop/endpoint-for-linux-server.png)
 
-Als u niet hoe u een eindpunt voor de virtuele machine instelt weet, Zie [in deze richtlijnen](setup-endpoints.md).
+Als u niet hoe u een eindpunt voor uw virtuele machine instelt weet, raadpleegt u [deze richtlijnen](setup-endpoints.md).
 
-## <a name="install-gnome-desktop"></a>Gnome bureaublad installeren
+## <a name="install-gnome-desktop"></a>Gnome Desktop installeren
 Verbinding maken met uw Linux-VM via `putty`, en installeer `Gnome Desktop`.
 
-Ubuntu, gebruikt u in:
+Gebruik voor Ubuntu:
 
 ```bash
 sudo apt-get update
 sudo apt-get install ubuntu-desktop
 ```
 
-Voor OpenSUSE, gebruiken:
+Voor OpenSUSE, gebruikt:
 
 ```bash
 sudo zypper install gnome-session
 ```
 
 ## <a name="install-xrdp"></a>Xrdp installeren
-Ubuntu, gebruikt u in:
+Gebruik voor Ubuntu:
 
 ```bash
 sudo apt-get install xrdp
 ```
 
-Voor OpenSUSE, gebruiken:
+Voor OpenSUSE, gebruikt:
 
 > [!NOTE]
-> De versie van de OpenSUSE bijwerken met de versie die u in de volgende opdracht gebruikt. Het onderstaande voorbeeld is voor `OpenSUSE 13.2`.
+> Werk de OpenSUSE-versie met de versie die u gebruikt in de volgende opdracht uit. Het onderstaande voorbeeld is voor `OpenSUSE 13.2`.
 > 
 > 
 
@@ -81,18 +81,18 @@ sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/open
 sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
 ```
 
-## <a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>Start xrdp en xdrp service ingesteld op opstartprocedure
-Voor OpenSUSE, gebruiken:
+## <a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>Start xrdp en xdrp service zo instellen dat bij de keer opstarten
+Voor OpenSUSE, gebruikt:
 
 ```bash
 sudo systemctl start xrdp
 sudo systemctl enable xrdp
 ```
 
-Voor Ubuntu, wordt xrdp gestart en ingeschakeld op opstartprocedure automatisch na de installatie.
+Voor Ubuntu, worden xrdp gestart en ingeschakeld bij de keer opstarten automatisch na de installatie.
 
-## <a name="using-xfce-if-you-are-using-an-ubuntu-version-later-than-ubuntu-1204lts"></a>Met behulp van xfce als u een virtuele Ubuntu-versie hoger is dan Ubuntu 12.04LTS
-Omdat de huidige versie van xrdp niet Gnome bureaublad voor Ubuntu-versies hoger is dan Ubuntu 12.04LTS ondersteunt, gebruiken we `xfce` bureaublad in plaats daarvan.
+## <a name="using-xfce-if-you-are-using-an-ubuntu-version-later-than-ubuntu-1204lts"></a>Met behulp van xfce als u een Ubuntu-versie hoger is dan Ubuntu 12.04LTS
+Omdat de huidige versie van xrdp niet Gnome Desktop voor Ubuntu-versies hoger is dan Ubuntu 12.04LTS ondersteunt, gebruiken we `xfce` bureaublad in plaats daarvan.
 
 Voor het installeren van `xfce`, gebruikt u deze opdracht:
 
@@ -112,20 +112,20 @@ Het configuratiebestand bewerken `/etc/xrdp/startwm.sh`:
 sudo vi /etc/xrdp/startwm.sh   
 ```
 
-Voeg de regel `xfce4-session` voor de regel `/etc/X11/Xsession`.
+Voeg de regel `xfce4-session` vóór de regel `/etc/X11/Xsession`.
 
-Als u wilt de xrdp-service opnieuw start, gebruiken deze:
+Als u wilt de xrdp-service opnieuw start, gebruikt u dit:
 
 ```bash
 sudo service xrdp restart
 ```
 
-## <a name="connect-your-linux-vm-from-a-windows-machine"></a>Verbinding maken met uw Linux-VM van een Windows-computer
-Start de extern bureaublad-client in een Windows-computer en voer de naam van uw DNS-Linux-VM. Of Ga naar het Dashboard van de virtuele machine in de Azure-portal en klik op `Connect` verbinding maken uw Linux-VM. In dat geval ziet u het aanmeldingsvenster:
+## <a name="connect-your-linux-vm-from-a-windows-machine"></a>Verbind uw Linux-VM vanaf een Windows-machine
+In een Windows-machine, start de extern bureaublad-client en voer de naam van uw DNS-Linux-VM. Of Ga naar het Dashboard van uw virtuele machine in Azure portal en klik op `Connect` om uw Linux-VM verbinding te maken. In dat geval ziet u het aanmeldingsvenster:
 
-![Afbeelding](./media/remote-desktop/no2.png)
+![installatiekopie](./media/remote-desktop/no2.png)
 
-Aanmelden met de gebruikersnaam en wachtwoord van uw Linux-VM.
+Meld u aan met de gebruikersnaam en wachtwoord van uw Linux-VM.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het gebruik van xrdp [ http://www.xrdp.org/ ](http://www.xrdp.org/).
