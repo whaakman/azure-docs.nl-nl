@@ -8,7 +8,7 @@
 
     ![TCP inschakelen](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 
-1. Klik in het consolevenster op **SQL Server-services**. In het detailvenster met de rechtermuisknop op **SQL Server (*exemplaarnaam*)** (het standaardexemplaar is **SQL Server (MSSQLSERVER)**), en klik vervolgens op **starten**, om te stoppen en opnieuw starten van het exemplaar van SQL Server.
+1. Klik in het consolevenster op **SQL Server-services**. In het detailvenster met de rechtermuisknop op **SQL Server (*exemplaarnaam*)** (het standaardexemplaar is **SQL Server (MSSQLSERVER)**), en klik vervolgens op **opnieuwstarten**, om te stoppen en opnieuw opstarten van het exemplaar van SQL Server.
 
     ![Database-engine opnieuw starten](./media/virtual-machines-sql-server-connection-tcp-protocol/restart-sql-server.png)
 

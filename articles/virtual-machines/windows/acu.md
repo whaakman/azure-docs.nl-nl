@@ -1,6 +1,6 @@
 ---
-title: Overzicht van de Azure Compute eenheid | Microsoft Docs
-description: Overzicht van het concept van de Azure compute eenheden voor Windows. De ACU biedt een manier om CPU-prestaties via Azure SKU's vergelijken.
+title: Overzicht van de Azure Compute Unit | Microsoft Docs
+description: Overzicht van het concept van het Azure compute-eenheden voor Windows. De ACU biedt een manier om te vergelijken van CPU-prestaties in Azure-SKU's.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: jonbeck
 ms.openlocfilehash: baf49856f8f7480ece10e065b3ac002297f06617
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "30918078"
 ---
 # <a name="azure-compute-unit-acu"></a>Azure compute-eenheid (ACU)
@@ -28,7 +28,7 @@ ms.locfileid: "30918078"
 
 
 Hier vindt u koppelingen naar meer informatie over de verschillende grootten:
-- [Voor algemene doeleinden](sizes-general.md)
+- [Voor algemeen gebruik](sizes-general.md)
 - [Geoptimaliseerd geheugen](../virtual-machines-windows-sizes-memory.md)
 - [Geoptimaliseerde rekenkracht](sizes-compute.md)
 - [Geoptimaliseerde GPU](sizes-gpu.md)

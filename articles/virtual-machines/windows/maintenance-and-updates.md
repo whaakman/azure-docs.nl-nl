@@ -1,6 +1,6 @@
 ---
-title: Onderhoud en updates voor Windows-machines in Azure | Microsoft Docs
-description: Overzicht van onderhoud en updates voor Windows virtuele machines in Azure wordt uitgevoerd.
+title: Onderhoud en updates voor Windows-VM's in Azure | Microsoft Docs
+description: Overzicht van onderhoud en updates voor Windows virtuele machines die worden uitgevoerd in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: cynthn
 ms.openlocfilehash: a2222b77f049f0aa4d311abf85340c5efd5258e5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "30190273"
 ---
 # <a name="planned-maintenance-for-virtual-machines-in-azure"></a>Gepland onderhoud voor virtuele machines in Azure
@@ -28,4 +28,4 @@ ms.locfileid: "30190273"
 
 ## <a name="next-steps"></a>Volgende stappen 
 
-Zie voor meer informatie over het beheren van een programma onderhoud [verwerken geplande onderhoud meldingen](maintenance-notifications.md).
+Zie voor meer informatie over het beheren van onderhoud opnieuw opstarten vereisen [meldingen gepland onderhoud verwerken](maintenance-notifications.md).

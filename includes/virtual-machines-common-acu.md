@@ -9,13 +9,13 @@ ms.date: 03/09/2018
 ms.author: cynthn;davberg
 ms.custom: include file
 ms.openlocfilehash: 8f2cc3ce7e19a71422d3087bd78f8176bbff7364
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36338302"
 ---
-Het concept van het Azure Compute Unit (ACU) biedt een manier om computerprestaties (CPU) via de Azure-SKU's vergelijken. Op die manier kunt u eenvoudig bepalen welke SKU hoogstwaarschijnlijk aan uw prestatiebehoeften zal voldoen.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
+Het concept van de Azure Compute Unit (ACU) biedt een manier om (CPU)-computerprestaties in Azure-SKU's vergelijken. Op die manier kunt u eenvoudig bepalen welke SKU hoogstwaarschijnlijk aan uw prestatiebehoeften zal voldoen.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
 
 > [!IMPORTANT]
 > De ACU is slechts een richtlijn.  De resultaten voor uw workload kunnen verschillen. 

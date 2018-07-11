@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 36d59638984c31a98067b95fded9626f31a7f278
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.openlocfilehash: ac8686d0ea5704492bfc2e08972a2f70c9b34c43
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "34669344"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37906816"
 ---
 Azure virtual machines van de H-serie zijn de nieuwste high performance computing dat VM 's, gericht op intensieve rekenbehoeften, zoals moleculaire modellering en numerieke stromingsleer. Deze 8 en 16 worden vCPU-VM's zijn gebouwd op de Intel Haswell E5 2667 V3 processor-technologie met DDR4-geheugen en tijdelijke opslag op basis van SSD. 
 
@@ -24,6 +24,10 @@ Naast een zeer hoge CPU-kracht biedt de H-serie ook verschillende opties voor RD
 ## <a name="h-series"></a>H-serie
 
 ACU: 290-300
+
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Max. doorvoer schijf: IOPS | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- |

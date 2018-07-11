@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
 ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37859697"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
@@ -210,7 +210,7 @@ Naast de algemene foutcodes voor MongoDB heeft de MongoDB-API een eigen specifie
 | Fout               | Code  | Beschrijving  | Oplossing  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Het totale aantal gebruikte aanvraageenheden het ingerichte aanvraageenheid-tarief voor de verzameling heeft overschreden en is beperkt. | Houd rekening met schaal de doorvoer toegewezen opnieuw aan een container of een set van containers met de Azure-portal of opnieuw proberen. |
-| ExceededMemoryLimit | 16501 | Als een service met meerdere tenants, heeft de bewerking van de client geheugen toegewezen overschreden. | Verklein het bereik van de bewerking door meer beperkende querycriteria of neem contact op met ondersteuning van de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Voorbeeld:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {naam: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {leeftijd: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Als een service met meerdere tenants, heeft de bewerking van de client geheugen toegewezen overschreden. | Verklein het bereik van de bewerking door meer beperkende querycriteria of neem contact op met ondersteuning van de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Voorbeeld: * &nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {naam: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {leeftijd: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Ontwikkelen met de tabel-API
 

@@ -1,4 +1,4 @@
-1. Het installatieprogramma kopiëren naar een lokale map (bijvoorbeeld C:\Temp) op de server die u wilt beveiligen. Voer de volgende opdrachten uit als beheerder bij een opdrachtprompt:
+1. Kopieer het installatieprogramma naar een lokale map (bijvoorbeeld C:\Temp) op de server die u wilt beveiligen. Voer de volgende opdrachten uit als beheerder bij een opdrachtprompt:
 
   ```
   cd C:\Temp
@@ -11,7 +11,7 @@
   ```
   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
   ```
-3. Nu moet de agent worden geregistreerd met de configuratieserver.
+3. Nu moet de agent worden geregistreerd bij de configuratieserver.
 
   ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
@@ -27,13 +27,13 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 
 | Parameter|Type|Beschrijving|Mogelijke waarden|
 |-|-|-|-|
-|/ Functie|Verplicht|Hiermee geeft u op of de Mobility-Service (MS) moet worden geïnstalleerd of MasterTarget (MT) moet worden geïnstalleerd.|MS </br> MT|
-|/InstallLocation|Optioneel|De locatie waar de Mobility-Service is geïnstalleerd.|Een map op de computer|
-|/Platform|Verplicht|Hiermee geeft u het platform waarop de Mobility-Service is geïnstalleerd. </br> </br>- **VMware**: deze waarde wordt gebruikt als u de Mobility-Service op een virtuele machine uitgevoerd installeert op *VMware vSphere ESXi-hosts*, *Hyper-V-hosts*, en *fysieke servers*. </br> - **Azure**: deze waarde wordt gebruikt als u een agent op een virtuele machine van Azure IaaS installeren. | VMware </br> Azure|
-|/ Silent|Optioneel|Hiermee geeft u het installatieprogramma uitvoeren in de stille modus.| N/A|
+|/ Rol|Verplicht|Hiermee geeft u op of de Mobility-Service (MS) moet worden geïnstalleerd of MasterTarget (MT) moet worden geïnstalleerd.|MS </br> MT|
+|/InstallLocation|Optioneel|De locatie waarop de Mobility-Service is geïnstalleerd.|Een map op de computer|
+|/Platform|Verplicht|Hiermee geeft u het platform waarop de Mobility-Service is geïnstalleerd. </br> </br>- **VMware**: deze waarde wordt gebruikt als u de Mobility-Service op een virtuele machine die wordt uitgevoerd installeren op *VMware vSphere ESXi-hosts*, *Hyper-V-hosts*, en *fysieke servers*. </br> - **Azure**: deze waarde wordt gebruikt als u een agent op een Azure IaaS-VM installeren. | VMware </br> Azure|
+|/ Op de achtergrond|Optioneel|Hiermee geeft u het installatieprogramma uitvoeren in stille modus.| N/A|
 
 >[!TIP]
-> De setup-Logboeken vindt u onder % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+> De setup-logboeken kunnen u vinden onder % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 
 #### <a name="mobility-service-registration-command-line-arguments"></a>Opdrachtregelargumenten van de Mobility-Service-registratie
 
@@ -45,8 +45,8 @@ UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <Passphrase
   | Parameter|Type|Beschrijving|Mogelijke waarden|
   |-|-|-|-|
   |/CSEndPoint |Verplicht|IP-adres van de configuratieserver| Een geldig IP-adres|
-  |/PassphraseFilePath|Verplicht|Locatie van de wachtwoordzin |Een geldig UNC- of lokale bestandspad|
+  |/PassphraseFilePath|Verplicht|Locatie van de wachtwoordzin |Een geldig UNC- of lokaal bestandspad|
 
 
 >[!TIP]
-> De agentconfiguratie Logboeken vindt u onder % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+> De configuratie van Agent-logboeken kunnen u vinden onder % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.

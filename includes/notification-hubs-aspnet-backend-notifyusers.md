@@ -9,10 +9,10 @@ ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 634bb14cfef3df2cf944eeafbfa8d671afa4ac98
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "33835794"
 ---
 ## <a name="create-the-webapi-project"></a>Het WebAPI-project maken
@@ -378,7 +378,7 @@ U gaat de app nu implementeren op een Azure-website zodat deze toegankelijk is v
 
 1. Klik met de rechtermuisknop op het project **AppBackend** en selecteer **Publiceren**.
 
-2. Selecteer **Microsoft Azure App Service** als publicatiedoel en selecteer vervolgens \*\*Publiceren. Het venster App Service maken wordt geopend. Hier kunt u alle benodigde Azure-resources maken die nodig zijn om de ASP.NET-web-app in Azure uit te voeren.
+2. Selecteer **Microsoft Azure App Service** als publicatiedoel en selecteer vervolgens **Publiceren. Het venster App Service maken wordt geopend. Hier kunt u alle benodigde Azure-resources maken die nodig zijn om de ASP.NET-web-app in Azure uit te voeren.
 
     ![De tegel Microsoft Azure App Service][B15]
 

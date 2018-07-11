@@ -9,13 +9,13 @@ ms.date: 07/05/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: abf10177f8ce86309043da92d1f2b690775b6d89
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37909980"
 ---
-Azure voert regelmatig updates ter verbetering van de betrouwbaarheid, prestaties en beveiliging van de host-infrastructuur voor virtuele machines. Het bereik van deze updates van software-onderdelen in de hosting-omgeving (zoals besturingssysteem, hypervisor en verschillende agents die zijn geïmplementeerd op de host), patching bijwerken netwerkonderdelen, naar hardware buiten gebruik stellen. De meeste van deze updates worden uitgevoerd zonder dat dit van invloed is op de gehoste virtuele machines. Er zijn echter gevallen waar updates indruk hebben:
+Van tijd tot tijd voert Azure updates uit om de betrouwbaarheid, prestaties en veiligheid te verbeteren van de host-infrastructuur voor virtuele machines. Deze updates kunnen betrekking hebben op het patchen van software-onderdelen in de hostingomgeving (zoals besturingssysteem, hypervisor en verschillende agents die zijn geïmplementeerd op de host), het bijwerken van netwerkonderdelen en het buiten gebruik stellen van hardware. De meeste van deze updates worden uitgevoerd zonder dat dit van invloed is op de gehoste virtuele machines. Er zijn echter gevallen waar updates indruk hebben:
 
 - Als een update opnieuw opstarten zonder mogelijk is, gebruikt Azure onderhoud met statusbehoud geheugen op de virtuele machine wordt onderbroken terwijl de host is bijgewerkt of de virtuele machine wordt verplaatst naar een reeds bijgewerkte host kan worden overgeslagen.
 

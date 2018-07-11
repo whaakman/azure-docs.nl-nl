@@ -1,6 +1,6 @@
 ---
-title: Toewijzingsfouten Azure Linux VM in het klassieke implementatiemodel probleemoplossing | Microsoft Docs
-description: Toewijzingsfouten bij het maken, opnieuw opstarten of het formaat van een klassieke Linux VM in Azure oplossen
+title: Het oplossen van toewijzingsfouten voor virtuele Azure Linux-machine in het klassieke implementatiemodel | Microsoft Docs
+description: Toewijzingsfouten bij het maken, opnieuw opstarten, of het formaat van een klassieke Linux VM in Azure oplossen
 services: virtual-machines-Linux, azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: genli
 ms.openlocfilehash: d03580e688b993b9b0ea5ca0ea436e1a47a4b0bd
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31529476"
 ---
-# <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Stappen die specifiek zijn voor toewijzing scenario's in het klassieke implementatiemodel fouten oplossen
+# <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Stappen voor probleemoplossing specifieke toewijzing foutscenario's in het klassieke implementatiemodel
 
 [!INCLUDE [virtual-machines-common-allocation-failure-classic](../../../includes/virtual-machines-common-allocation-failure-classic.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Het oplossen van de virtuele machine van Windows Azure-toewijzingsfouten in het klassieke implementatiemodel | Microsoft Docs
-description: Toewijzingsfouten bij het maken, opnieuw opstarten of het formaat van een klassieke Windows-virtuele machine in Azure oplossen
+title: Het oplossen van Azure Windows VM toewijzingsfouten in het klassieke implementatiemodel | Microsoft Docs
+description: Toewijzingsfouten bij het maken, opnieuw opstarten, of het formaat van een klassieke Windows-VM in Azure oplossen
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: genli
 ms.openlocfilehash: 659781a16663d815e54454746d017eef29414b95
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31529497"
 ---
-# <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Stappen die specifiek zijn voor toewijzing scenario's in het klassieke implementatiemodel fouten oplossen
+# <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Stappen voor probleemoplossing specifieke toewijzing foutscenario's in het klassieke implementatiemodel
 
 [!INCLUDE [virtual-machines-common-allocation-failure-classic](../../../includes/virtual-machines-common-allocation-failure-classic.md)]
 

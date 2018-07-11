@@ -3,7 +3,7 @@
 -->
 U kunt een pijplijn maken met de kopieeractiviteit met behulp van een van de volgende hulpprogramma's of de SDK's. Selecteer een koppeling naar een zelfstudie met stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. 
 
-- [Hulpprogramma voor kopiëren-gegevens](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
+- [Data-hulpprogramma voor kopiëren](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [Azure Portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
 - [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)

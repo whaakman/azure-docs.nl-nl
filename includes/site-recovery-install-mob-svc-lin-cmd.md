@@ -1,4 +1,4 @@
-1. Het installatieprogramma kopiëren naar een lokale map (bijvoorbeeld map) op de server die u wilt beveiligen. Voer de volgende opdrachten in een terminal:
+1. Kopieer het installatieprogramma naar een lokale map (bijvoorbeeld: map/Tmp) op de server die u wilt beveiligen. Voer de volgende opdrachten in een terminal:
   ```
   cd /tmp ;
 
@@ -15,7 +15,7 @@
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### <a name="mobility-service-installer-command-line"></a>Mobility-Service installer-opdrachtregel
+#### <a name="mobility-service-installer-command-line"></a>Mobility Service installer-opdrachtregel
 
 ```
 Usage:
@@ -25,12 +25,12 @@ Usage:
 |Parameter|Type|Beschrijving|Mogelijke waarden|
 |-|-|-|-|
 |-r |Verplicht|Hiermee geeft u op of de Mobility-Service (MS) moet worden geïnstalleerd of MasterTarget (MT) moet worden geïnstalleerd.|MS </br> MT|
-|-d |Optioneel|De locatie waar de Mobility-Service is geïnstalleerd.|/usr/local/ASR|
-|-v|Verplicht|Hiermee geeft u het platform waarop de Mobility-Service is geïnstalleerd. </br> </br>- **VMware**: deze waarde wordt gebruikt als u de Mobility-Service op een virtuele machine uitgevoerd installeert op *VMware vSphere ESXi-hosts*, *Hyper-V-hosts*, en *fysieke servers*. </br> - **Azure**: deze waarde wordt gebruikt als u een agent op een virtuele machine van Azure IaaS installeren.| VMware </br> Azure|
-|-q|Optioneel|Hiermee geeft u het installatieprogramma uitvoeren in de stille modus.| N/A|
+|-d |Optioneel|De locatie waarop de Mobility-Service is geïnstalleerd.|/usr/local/ASR|
+|-v|Verplicht|Hiermee geeft u het platform waarop de Mobility-Service is geïnstalleerd. </br> </br>- **VMware**: deze waarde wordt gebruikt als u de Mobility-Service op een virtuele machine die wordt uitgevoerd installeren op *VMware vSphere ESXi-hosts*, *Hyper-V-hosts*, en *fysieke servers*. </br> - **Azure**: deze waarde wordt gebruikt als u een agent op een Azure IaaS-VM installeren.| VMware </br> Azure|
+|-q|Optioneel|Hiermee geeft u het installatieprogramma uitvoeren in stille modus.| N/A|
 
 
-#### <a name="mobility-service-configuration-command-line"></a>Mobility-Service configuration vanaf de opdrachtregel
+#### <a name="mobility-service-configuration-command-line"></a>Mobility-Service configureren vanaf de opdrachtregel
 
 ```
 Usage:
@@ -41,4 +41,4 @@ UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 |Parameter|Type|Beschrijving|Mogelijke waarden|
 |-|-|-|-|
 |-i |Verplicht|IP-adres van de configuratieserver|Een geldig IP-adres|
-|-P |Verplicht|Volledig pad voor het bestand waar de wachtwoordzin op te geven voor het doorgeven van de verbinding wordt opgeslagen|Een geldige map|
+|-P |Verplicht|Volledig pad voor het bestand waarin de woordgroep voor de verbinding wordt opgeslagen|Een geldige map|

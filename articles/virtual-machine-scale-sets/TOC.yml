@@ -55,10 +55,6 @@
           href: tutorial-autoscale-powershell.md
         - name: Template
           href: tutorial-autoscale-template.md
-    - name: Apps implementeren in een virtuele-machineschaalset van Azure met een aangepaste Packer-installatiekopie
-      items:
-        - name: Azure CLI 2.0
-          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Voorbeelden
   items:
     - name: Azure CLI 2.0

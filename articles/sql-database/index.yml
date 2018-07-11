@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/01/2018
   ms.author: carlrab
-  ms.openlocfilehash: c159eec7a8674e57e6f7a815040527ed60966f46
-  ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+  ms.openlocfilehash: 5fcfe7b12acc943224d3c3158f2b39b4c35de1ee
+  ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 07/06/2018
-  ms.locfileid: "37887280"
+  ms.lasthandoff: 07/09/2018
+  ms.locfileid: "37916146"
 abstract:
   description: Azure SQL Database is een relationele database als een service (DBaaS) op basis van de nieuwste stabiele versie van Microsoft SQL Server Database Engine. SQL Database is een krachtige, betrouwbare en veilige database die u kunt gebruiken om gegevensgestuurde toepassingen en websites te bouwen in de programmeertaal van uw keuze, zonder dat u hiervoor infrastructuur hoeft te beheren. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u SQL Database gebruikt.
   aside:
@@ -48,12 +48,12 @@ sections:
       image:
         src: media/index/i_perftier.svg
       title: Prijs-prestatiecategorieën
-    - href: /azure/sql-database/sql-database-single-database-scale
+    - href: /azure/sql-database/sql-database-scale-resources
       html: <p>Eenvoudig <a href="/azure/sql-database/sql-database-single-database-scale">omhoog schalen</a>, <a href="/azure/sql-database/sql-database-read-scale-out">omlaag schalen</a> of uw databases sharden, afhankelijk van de behoeften om de prestaties van uw toepassing te verbeteren.</p>
       image:
         src: media/index/i_scale.svg
       title: Schaalbaarheid en flexibiliteit
-    - href: /azure/sql-database/sql-database-automatic-tuning
+    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
       html: <p>Laat de in de service ingebouwde intelligentie <a href="/azure/sql-database/sql-database-automatic-tuning">automatisch de prestaties van uw database afstemmen</a> en <a href="/azure/sql-database/sql-advanced-threat-protection">bedreigingen</a> en <a href="/azure/sql-database/sql-vulnerability-assessment">beveiligingsproblemen</a> in uw databases identificeren.</p>
       image:
         src: media/index/i_intelligence.svg

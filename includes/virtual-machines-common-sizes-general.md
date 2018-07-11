@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 016aa15f391daedae1b87fc6c7099b72b50f7160
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.openlocfilehash: 0cd31a6acaa248b53fbe90684894b3bb3e7ebf86
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "34669319"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37907040"
 ---
 VM-grootten voor algemeen gebruik bieden evenwichtige CPU-geheugenverhouding. Ideaal voor testen en ontwikkelen, kleine tot middelgrote databases en webservers met weinig of gemiddeld verkeer. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslagdoorvoer voor grootten die in deze groepering. 
 
@@ -25,6 +25,10 @@ VM-grootten voor algemeen gebruik bieden evenwichtige CPU-geheugenverhouding. Id
 
 
 ## <a name="b-series"></a>B-serie
+
+Premium Storage: ondersteund
+
+Premium Storage Caching: Niet ondersteund
 
 De VM's met burstfunctie B-serie zijn ideaal voor workloads die niet continu de volledige prestaties van de CPU nodig hebt, zoals webservers, kleine databases en de ontwikkeling en testomgevingen. Deze werkbelastingen hebben meestal ' burstable ' prestatie-eisen. De B-serie biedt deze klanten de mogelijkheid om aan te schaffen van een VM-grootte met een basislijn waarmee het VM-exemplaar om op te bouwen tegoed bij minder dan de algemene prestatiegegevens gebruik van de virtuele machine zich bewust van prijs. Wanneer de virtuele machine zijn tegoed verzameld, kan de virtuele machine burst boven van de VM-basislijn met tot 100% van de CPU wanneer uw toepassing hogere CPU-prestaties vereist.
 
@@ -43,6 +47,10 @@ De VM's met burstfunctie B-serie zijn ideaal voor workloads die niet continu de 
 
 ACU: 160-190
 
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
 Dsv3-serie zijn gebaseerd op de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor of de meest recente 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)-processor die kan maar liefst 3,5 GHz bereiken door Intel Turbo Boost Technology 2.0 en gebruiken premiumopslag. De Dsv3-serie biedt een combinatie van vCPU, geheugen en tijdelijke opslag voor de meeste productieworkloads.
 
 
@@ -60,6 +68,10 @@ Dsv3-serie zijn gebaseerd op de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-proces
 ## <a name="dv3-series-sup1sup"></a>Dv3-serie <sup>1</sup>
 
 ACU: 160-190
+
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
 
 Dv3-serie zijn gebaseerd op de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor of 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)-processor die maar 3,5 GHz bereiken door Intel Turbo Boost Technology 2.0 liefst kan. De Dv3-serie biedt een combinatie van vCPU, geheugen en tijdelijke opslag voor de meeste productieworkloads.
 
@@ -82,6 +94,10 @@ Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als
 
 ACU: 210-250
 
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3,5 |7 |4 |4000 / 32 (43) |3200 / 48 |2 / 750 |
@@ -96,6 +112,10 @@ ACU: 210-250
 
 ACU: 210-250
 
+Premium-opslag: Niet ondersteund
+
+Premium Storage Caching: Niet ondersteund
+
 | Grootte           | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal gegevensschijven | Doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 4              | 4 x 500            | 2 / 750                                      |
@@ -109,7 +129,9 @@ ACU: 210-250
 
 ACU: 100
 
+Premium-opslag: Niet ondersteund
 
+Premium Storage Caching: Niet ondersteund
 
 | Grootte            | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

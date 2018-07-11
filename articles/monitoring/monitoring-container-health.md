@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2018
+ms.date: 07/08/2018
 ms.author: magoedte
-ms.openlocfilehash: e7d3fdf9e6f027ab1c23a057ad6e039d50cab9ad
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a94f7289c75a4f4d466542c608d81cf5b954f4b1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436419"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37917325"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Containerstatus van Azure Kubernetes Service (AKS) (voorbeeld) bewaken
 
@@ -54,7 +54,7 @@ Deze mogelijkheid is afhankelijk van een beperkte OMS-Agent voor Linux voor het 
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Inschakelen van de container en statusbewaking biedt voor een nieuw cluster
-U kunt alleen inschakelen bewaking van uw AKS-cluster tijdens de implementatie van de Azure-portal.  Volg de stappen in dit artikel [een Azure Kubernetes Service (AKS)-cluster implementeren](../aks/kubernetes-walkthrough-portal.md).  Wanneer u bent op de **bewaking** weergeeft, schakelt **Ja** voor de optie **bewaking inschakelen** inschakelt, en selecteer een bestaande of maak een nieuwe Log Analytics-werkruimte.  
+U kunt het inschakelen van een nieuw AKS-cluster in de gaten tijdens de implementatie van de Azure-portal.  Volg de stappen in dit artikel [een Azure Kubernetes Service (AKS)-cluster implementeren](../aks/kubernetes-walkthrough-portal.md).  Wanneer u bent op de **bewaking** weergeeft, schakelt **Ja** voor de optie **bewaking inschakelen** inschakelt, en selecteer een bestaande of maak een nieuwe Log Analytics-werkruimte.  
 
 Nadat de controle is ingeschakeld alle configuratietaken zijn voltooid, kunt u de prestaties van uw cluster op basis van twee manieren controleren:
 
@@ -66,7 +66,7 @@ Nadat de controle is ingeschakeld alle configuratietaken zijn voltooid, kunt u d
 Nadat de controle is ingeschakeld, kunnen duurt ongeveer 15 minuten voordat u zich kunt om te zien van operationele gegevens voor het cluster.  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Inschakelen van de container en statusbewaking biedt voor bestaande beheerde clusters
-Inschakelen van de controle van uw AKS-container al geïmplementeerd kan worden bereikt vanaf de Azure portal of met de opgegeven Azure Resource Manager-sjabloon met behulp van de PowerShell-cmdlet **New-AzureRmResourceGroupDeployment** of Azure CLI.  
+U kunt inschakelen bewaking van een AKS-cluster al geïmplementeerd vanuit Azure portal of met de opgegeven Azure Resource Manager-sjabloon met behulp van de PowerShell-cmdlet **New-AzureRmResourceGroupDeployment** of Azure CLI.  
 
 
 ### <a name="enable-from-azure-portal"></a>Inschakelen van Azure-portal
@@ -75,13 +75,11 @@ Voer de volgende stappen uit voor bewaking van uw AKS-container vanuit Azure por
 1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Containers**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Kubernetes-services**.<br><br> ![Azure Portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. Selecteer een container in uw lijst met containers.
 3. Selecteer op de overzichtspagina van container **bewaken containerstatus** en de **Onboarding naar containerstatus en logboeken** pagina wordt weergegeven.
-4. Op de **Onboarding naar containerstatus en logboeken** pagina, hebt u een bestaande Log Analytics-werkruimte in hetzelfde abonnement bevinden als het cluster, selecteert u deze in de vervolgkeuzelijst.  De lijst worden er de standaardwerkruimte en locatie van de AKS-container is geïmplementeerd op in het abonnement. Of u kunt selecteren **nieuw** en geeft u een nieuwe werkruimte in hetzelfde abonnement.<br><br> ![Statuscontrole van AKS container inschakelen](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+4. Op de **Onboarding naar containerstatus en logboeken** pagina, hebt u een bestaande Log Analytics-werkruimte in hetzelfde abonnement bevinden als het cluster, selecteert u deze in de vervolgkeuzelijst.  De lijst worden er de standaardwerkruimte en locatie van de AKS-container is geïmplementeerd op in het abonnement.<br><br> ![Statuscontrole van AKS container inschakelen](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
-    Als u selecteert **nieuw**, wordt de **nieuwe werkruimte maken** deelvenster wordt weergegeven. De **regio** standaard ingesteld op de regio voor uw containerresource wordt gemaakt in en accepteer de standaardinstelling of Selecteer een andere regio en geef een naam op voor de werkruimte.  Klik op **maken** te accepteren van uw selectie.<br><br> ![Werkruimte voor container monintoring definiëren](./media/monitoring-container-health/create-new-workspace-01.png)  
-
-    >[!NOTE]
-    >Op dit moment die u geen nieuwe werkruimte in de regio West-Centraal VS maken kunt, kunt u alleen een bestaande werkruimte selecteren in die regio.  Hoewel u deze regio in de lijst selecteren kunt, de implementatie wordt gestart, maar deze mislukt kort daarna.  
-    >
+>[!NOTE]
+>Als u maken van een nieuwe werkruimte voor logboekanalyse wilt voor het opslaan van de gegevens uit het cluster, volg de stappen in [Cretae een Log Analytics-werkruimte](../log-analytics/log-analytics-quick-create-workspace.md) en zorg ervoor dat u de werkruimte maakt in hetzelfde abonnement als dat het AKS-container geïmplementeerd op.  
+>
  
 Nadat de controle is ingeschakeld, kunnen duurt ongeveer 15 minuten voordat u zich kunt om te zien van operationele gegevens voor het cluster. 
 
@@ -243,10 +241,11 @@ Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebru
         ```
 Nadat de controle is ingeschakeld, kunnen duurt ongeveer 15 minuten voordat u zich kunt om te zien van operationele gegevens voor het cluster.  
 
-## <a name="verify-agent-deployed-successfully"></a>Controleer of de agent is geïmplementeerd
+## <a name="verify-agent-and-solution-deployment"></a>Controleer of de implementatie van agent en de oplossing
+Met de versie van agent *06072018* en hoger, kunt u om te controleren dat zowel de agent en de oplossing zijn geïmplementeerd.  U kunt alleen agentimplementatie controleren met eerdere versies van de agent.
 
 ### <a name="agent-version-06072018-and-higher"></a>Agentversie 06072018 en hoger
-Om te controleren of de versie van de OMS-agent *06072018* of hoger correct is geïmplementeerd, voer de volgende opdrachten uit: 
+Voer de volgende opdracht om te controleren of dat de agent is geïmplementeerd.   
 
 ```
 kubectl get ds omsagent --namespace=kube-system
@@ -260,7 +259,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-Als u wilt controleren of een nieuwe implementatie, moet u de volgende opdracht uitvoeren:
+Als u wilt controleren of de implementatie van de oplossing, moet u de volgende opdracht uitvoeren:
 
 ```
 kubectl get deployment omsagent-rs -n=kube-system
@@ -524,7 +523,7 @@ Als de containerstatus is ingeschakeld en geconfigureerd, maar u bent niet ziet 
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Controleer de status van de implementatie voor agentversie *06072018* of hoger met de volgende opdracht:
+2. Controleer de implementatiestatus van de oplossing met agentversie *06072018* of hoger met de volgende opdracht:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 

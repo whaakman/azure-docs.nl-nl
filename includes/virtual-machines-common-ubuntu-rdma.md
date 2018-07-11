@@ -23,7 +23,7 @@
   <User or group name> soft    memlock <memory required for your application in KB>
   ```
   
-4. Installeer Intel MPI-bibliotheek. Beide [kopen en downloaden](https://software.intel.com/intel-mpi-library/) de bibliotheek van Intel of download de [gratis evaluatieversie](https://registrationcenter.intel.com/en/forms/?productid=1740).
+4. Intel MPI bibliotheek installeren. Een van beide [kopen en downloaden](https://software.intel.com/intel-mpi-library/) de bibliotheek van Intel of download de [gratis evaluatieversie](https://registrationcenter.intel.com/en/forms/?productid=1740).
 
   ```bash
   wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
@@ -31,9 +31,9 @@
  
  Alleen Intel MPI 5.x runtimes worden ondersteund.
  
- Zie voor installatiestappen van de [Intel MPI-bibliotheek installatiehandleiding](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
+ Zie voor stappen van de installatie, de [Intel MPI-bibliotheek installatiehandleiding](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 
-5. Ptrace voor niet-hoofdmap niet foutopsporingsprogramma processen (nodig voor de meest recente versies van Intel MPI) inschakelen.
+5. Ptrace voor niet-hoofdmap niet foutopsporingsprogramma processen (die nodig zijn voor de meest recente versies van Intel MPI) inschakelen.
  
   ```bash
   echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope

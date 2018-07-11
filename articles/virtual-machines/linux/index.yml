@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: 9e60a25d8e41de22010a8b1844fdb6267868333c
-  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+  ms.openlocfilehash: 374e6a75d9ddfb5765418b1044dc525f14f86f67
+  ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 05/10/2018
-  ms.locfileid: "33943692"
+  ms.lasthandoff: 07/10/2018
+  ms.locfileid: "37950808"
 abstract:
   description: Virtuele Azure Linux-machines bieden zeer schaalbare, beveiligde, gevirtualiseerde infrastructuur op aanvraag met behulp van Red Hat, Ubuntu of de Linux-distributie van uw keuze. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u virtuele Linux-machines maakt, configureert, beheert, bijwerkt en schaalt.
   aside:
@@ -74,7 +74,6 @@ sections:
     - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD met Team Services</a>
     - html: Een webserverstack maken met <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> of <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Een webserver beveiligen met SSL</a>
-    - html: <a href="https://docs.microsoft.com/learn/deploy-custom-vmss-app/index">Apps implementeren in een virtuele-machineschaalset van Azure met een aangepaste Packer-installatiekopie</a>
 - title: Gratis Pluralsight-videotraining
   items:
   - type: list

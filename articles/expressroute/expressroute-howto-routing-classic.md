@@ -1,5 +1,5 @@
 ---
-title: 'Het configureren van routering (peering) voor een ExpressRoute-circuit: Azure: klassieke | Microsoft Docs'
+title: 'Routering (peering) voor een ExpressRoute-circuit configureren: Azure: klassieke | Microsoft Docs'
 description: Dit artikel begeleidt u stapsgewijs door de procedure voor het maken en inrichten van de persoonlijke, openbare en Microsoft-peering van een ExpressRoute-circuit. In dit artikel leest u hoe u de status controleert en peerings voor uw circuit bijwerkt of verwijdert.
 documentationcenter: na
 services: expressroute
@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: 9cebb196bd91da704798fb001763a76e6d090472
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31594134"
 ---
-# <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Maken en wijzigen van de peering voor een ExpressRoute-circuit (klassiek)
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Peering voor een ExpressRoute-circuit (klassiek) maken en wijzigen
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure-CLI](howto-routing-cli.md)
-> * [Video - persoonlijke peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Video - Privépeering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Video - openbare peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Video - Microsoft-peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (klassiek)](expressroute-howto-routing-classic.md)
 > 
 
-Dit artikel begeleidt u bij de stappen voor het maken en beheren van routeringsconfiguratie voor een ExpressRoute-circuit met PowerShell en het klassieke implementatiemodel. In de volgende stappen ziet u ook hoe u de status van een peering voor een ExpressRoute-circuit controleert en peerings bijwerkt of verwijdert en de inrichting ervan ongedaan maakt.
+In dit artikel leidt u door de stappen voor het maken en beheren van routeringsconfiguratie voor een ExpressRoute-circuit met behulp van PowerShell en het klassieke implementatiemodel. In de volgende stappen ziet u ook hoe u de status van een peering voor een ExpressRoute-circuit controleert en peerings bijwerkt of verwijdert en de inrichting ervan ongedaan maakt.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -43,9 +43,9 @@ Dit artikel begeleidt u bij de stappen voor het maken en beheren van routeringsc
 
 
 ## <a name="configuration-prerequisites"></a>Configuratievereisten
-* U moet de meest recente versie van de Azure Service Management (SM) PowerShell-cmdlets. Zie voor meer informatie [aan de slag met Azure PowerShell-cmdlets](/powershell/azure/overview).  
+* U moet de nieuwste versie van de Azure SM (Service Management) PowerShell-cmdlets. Zie voor meer informatie, [aan de slag met Azure PowerShell-cmdlets](/powershell/azure/overview).  
 * Zorg dat u de pagina met [vereisten](expressroute-prerequisites.md), de pagina over [routeringsvereisten](expressroute-routing.md) en de pagina over [werkstromen](expressroute-workflows.md) hebt gelezen voordat u begint met de configuratie.
-* U moet een actief ExpressRoute-circuit hebben. Volg de instructies voor [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) en laat het circuit ingeschakeld door de connectiviteitsprovider voordat u verder gaat. Het ExpressRoute-circuit moet zijn ingericht en zijn ingeschakeld om de hieronder beschreven cmdlets te kunnen uitvoeren.
+* U moet een actief ExpressRoute-circuit hebben. Volg de instructies voor [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) en laat het circuit ingeschakeld door de connectiviteitsprovider voordat u doorgaat. Het ExpressRoute-circuit moet zijn ingericht en zijn ingeschakeld om de hieronder beschreven cmdlets te kunnen uitvoeren.
 
 > [!IMPORTANT]
 > Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met serviceproviders die services met Laag-2-connectiviteit aanbieden. Als u gebruikmaakt van een serviceprovider die beheerde Laag-3-services aanbiedt (meestal een IPVPN, zoals MPLS), zal de connectiviteitsprovider routering voor u configureren en beheren.
@@ -55,7 +55,7 @@ Dit artikel begeleidt u bij de stappen voor het maken en beheren van routeringsc
 U kunt een, twee of alle drie de peerings (Azure privé, Azure openbaar en Microsoft) voor een ExpressRoute-circuit configureren. U kunt peerings configureren in elke gewenste volgorde. U moet er echter wel voor zorgen dat u de configuratie van elke peering een voor een voltooit.
 
 
-### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Aanmelden bij uw Azure-account en een abonnement selecteren
+### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Meld u aan bij uw Azure-account en selecteer een abonnement
 1. Open de PowerShell-console met verhoogde rechten en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
         Connect-AzureRmAccount
@@ -68,7 +68,7 @@ U kunt een, twee of alle drie de peerings (Azure privé, Azure openbaar en Micro
 
         Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-4. Gebruik vervolgens de volgende cmdlet als u uw Azure-abonnement toevoegen aan PowerShell voor het klassieke implementatiemodel.
+4. Gebruik vervolgens de volgende cmdlet uit uw Azure-abonnement toevoegen aan PowerShell voor het klassieke implementatiemodel.
 
         Add-AzureAccount
 
@@ -79,7 +79,7 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
 ### <a name="to-create-azure-private-peering"></a>Persoonlijke Azure-peering maken
 1. **Importeer de PowerShell-module voor ExpressRoute.**
    
-    U moet de Azure en een ExpressRoute-modules importeren in de PowerShell-sessie om te beginnen met behulp van de ExpressRoute-cmdlets. Voer de volgende opdrachten om te importeren van de Azure en een ExpressRoute-modules in de PowerShell-sessie. De versie kan variëren.    
+    U moet de Azure- en ExpressRoute-modules importeren in de PowerShell-sessie om te starten met de ExpressRoute-cmdlets. Voer de volgende opdrachten om te importeren van de Azure- en ExpressRoute-modules in de PowerShell-sessie. De versie kan variëren.    
    
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
@@ -101,7 +101,7 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
         Sku                              : Standard
         Status                           : Enabled
    
-    Zorg ervoor dat het circuit ingericht en ingeschakeld bevat. Als dit niet het geval is, werkt u met uw connectiviteitsprovider uw circuit met de vereiste toestand en status ophalen.
+    Zorg ervoor dat het circuit ingericht en ingeschakeld bevat. Als dat niet het geval is, werkt u met uw connectiviteitsprovider om op te halen van het circuit met de vereiste status en de status.
    
         ServiceProviderProvisioningState : Provisioned
         Status                           : Enabled
@@ -117,11 +117,11 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
      
     U kunt de volgende cmdlet uitvoeren om persoonlijke Azure-peering voor uw circuit te configureren.
      
-        Nieuwe AzureBGPPeering - AccessType persoonlijke - ServiceKey ' *** ' - PrimaryPeerSubnet '10.0.0.0/30' - SecondaryPeerSubnet '10.0.0.4/30' - PeerAsn 1234 - VlanId 100
+        New-AzureBGPPeering - AccessType privé - ServiceKey "*** ' - PrimaryPeerSubnet"10.0.0.0/30"- SecondaryPeerSubnet"10.0.0.4/30"- PeerAsn 1234 - VlanId 100
      
     U kunt onderstaande cmdlet gebruiken als u een MD5-hash wilt gebruiken.
      
-        Nieuwe AzureBGPPeering - AccessType persoonlijke - ServiceKey ' *** ' - PrimaryPeerSubnet '10.0.0.0/30' - SecondaryPeerSubnet '10.0.0.4/30' - PeerAsn 1234 - VlanId 100 - SharedKey 'A1B2C3D4'
+        New-AzureBGPPeering - AccessType privé - ServiceKey "*** ' - PrimaryPeerSubnet"10.0.0.0/30"- SecondaryPeerSubnet"10.0.0.4/30"- PeerAsn 1234 - VlanId 100 - SharedKey"A1B2C3D4"
      
      > [!IMPORTANT]
      > Zorg dat u uw AS-nummer als peering-ASN opgeeft, niet als klant-ASN.
@@ -169,7 +169,7 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
 ### <a name="to-create-azure-public-peering"></a>Openbare Azure-peering maken
 1. **Importeer de PowerShell-module voor ExpressRoute.**
    
-    U moet de Azure en een ExpressRoute-modules importeren in de PowerShell-sessie om te beginnen met behulp van de ExpressRoute-cmdlets. Voer de volgende opdrachten om te importeren van de Azure en een ExpressRoute-modules in de PowerShell-sessie. De versie kan variëren.   
+    U moet de Azure- en ExpressRoute-modules importeren in de PowerShell-sessie om te starten met de ExpressRoute-cmdlets. Voer de volgende opdrachten om te importeren van de Azure- en ExpressRoute-modules in de PowerShell-sessie. De versie kan variëren.   
    
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
@@ -191,11 +191,11 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
         Sku                              : Standard
         Status                           : Enabled
    
-    Zorg ervoor dat het circuit ingericht en ingeschakeld bevat. Als dit niet het geval is, werkt u met uw connectiviteitsprovider uw circuit met de vereiste toestand en status ophalen.
+    Zorg ervoor dat het circuit ingericht en ingeschakeld bevat. Als dat niet het geval is, werkt u met uw connectiviteitsprovider om op te halen van het circuit met de vereiste status en de status.
    
         ServiceProviderProvisioningState : Provisioned
         Status                           : Enabled
-4. **Configureer openbare Azure-peering voor het circuit**
+4. **Openbare Azure-peering voor het circuit configureren**
    
     Zorg ervoor dat u over de volgende informatie beschikt voordat u verder gaat.
    
@@ -207,11 +207,11 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
      
     U kunt de volgende cmdlet uitvoeren om openbare Azure-peering voor uw circuit te configureren.
      
-        Nieuwe AzureBGPPeering - AccessType openbare - ServiceKey ' *** ' - PrimaryPeerSubnet '131.107.0.0/30' - SecondaryPeerSubnet '131.107.0.4/30' - PeerAsn 1234 - VlanId 200
+        New-AzureBGPPeering - AccessType openbare - ServiceKey "*** ' - PrimaryPeerSubnet"131.107.0.0/30"- SecondaryPeerSubnet"131.107.0.4/30"- PeerAsn 1234 - VlanId 200
      
     U kunt onderstaande cmdlet gebruiken als u een MD5-hash wilt gebruiken
      
-        Nieuwe AzureBGPPeering - AccessType openbare - ServiceKey ' *** ' - PrimaryPeerSubnet '131.107.0.0/30' - SecondaryPeerSubnet '131.107.0.4/30' - PeerAsn 1234 - VlanId 200 - SharedKey 'A1B2C3D4'
+        New-AzureBGPPeering - AccessType openbare - ServiceKey "*** ' - PrimaryPeerSubnet"131.107.0.0/30"- SecondaryPeerSubnet"131.107.0.4/30"- PeerAsn 1234 - VlanId 200 - SharedKey"A1B2C3D4"
      
      > [!IMPORTANT]
      > Zorg dat u uw AS-nummer als peering-ASN opgeeft en niet als klant-ASN.
@@ -255,7 +255,7 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
 ### <a name="to-create-microsoft-peering"></a>Microsoft-peering maken
 1. **Importeer de PowerShell-module voor ExpressRoute.**
    
-    U moet de Azure en een ExpressRoute-modules importeren in de PowerShell-sessie om te beginnen met behulp van de ExpressRoute-cmdlets. Voer de volgende opdrachten om te importeren van de Azure en een ExpressRoute-modules in de PowerShell-sessie. De versie kan variëren.   
+    U moet de Azure- en ExpressRoute-modules importeren in de PowerShell-sessie om te starten met de ExpressRoute-cmdlets. Voer de volgende opdrachten om te importeren van de Azure- en ExpressRoute-modules in de PowerShell-sessie. De versie kan variëren.   
    
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
@@ -264,7 +264,7 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
     Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde Laag-3-services biedt, kunt u de connectiviteitsprovider vragen om persoonlijke Azure-peering voor u in te schakelen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routing niet voor u beheert, volgt u onderstaande instructies wanneer u het circuit hebt gemaakt.
 3. **Controleer of ExpressRoute-circuit is ingericht**
    
-    Eerst moet u controleren of het ExpressRoute-circuit is ingericht en ingeschakeld status.
+    U moet eerst controleren of het ExpressRoute-circuit is ingericht en ingeschakeld status.
    
         PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    
@@ -277,11 +277,11 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
         Sku                              : Standard
         Status                           : Enabled
    
-    Zorg ervoor dat het circuit ingericht en ingeschakeld bevat. Als dit niet het geval is, werkt u met uw connectiviteitsprovider uw circuit met de vereiste toestand en status ophalen.
+    Zorg ervoor dat het circuit ingericht en ingeschakeld bevat. Als dat niet het geval is, werkt u met uw connectiviteitsprovider om op te halen van het circuit met de vereiste status en de status.
    
         ServiceProviderProvisioningState : Provisioned
         Status                           : Enabled
-4. **Configureer Microsoft-peering voor het circuit**
+4. **Microsoft-peering voor het circuit configureren**
    
     Zorg ervoor dat u over de volgende informatie beschikt voordat u verder gaat.
    
@@ -294,9 +294,9 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
    * Naam van routeringsregister: u kunt het RIR/IRR opgeven waarbij het AS-nummer en de voorvoegsels zijn geregistreerd.
    * Een MD5-hash, als u er een wilt gebruiken. **Dit is optioneel.**
      
-    U kunt de volgende cmdlet als u wilt Microsoft pering voor uw circuit te configureren uitvoeren
+    U kunt de volgende cmdlet voor het configureren van Microsoft pering voor uw circuit uitvoeren
      
-        Nieuwe AzureBGPPeering - AccessType Microsoft - ServiceKey ' *** ' - PrimaryPeerSubnet '131.107.0.0/30' - SecondaryPeerSubnet '131.107.0.4/30' - VlanId 300 - PeerAsn 1234 - CustomerAsn. 2245 - AdvertisedPublicPrefixes '123.0.0.0/30' - RoutingRegistryName 'ARIN' - SharedKey 'A1B2C3D4'
+        New-AzureBGPPeering - AccessType Microsoft - ServiceKey "*** ' - PrimaryPeerSubnet"131.107.0.0/30"- SecondaryPeerSubnet"131.107.0.4/30"- VlanId 300 - PeerAsn 1234 - CustomerAsn. 2245 - AdvertisedPublicPrefixes" 123.0.0.0/30 ' - RoutingRegistryName 'ARIN' - SharedKey "A1B2C3D4"
 
 ### <a name="to-view-microsoft-peering-details"></a>De details van Microsoft-peering weergeven
 Voer de volgende cmdlet uit als u de configuratiegegevens wilt weergeven.
@@ -328,7 +328,7 @@ U kunt een peeringconfiguratie verwijderen door de volgende cmdlet uit te voeren
     Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
 ## <a name="next-steps"></a>Volgende stappen
-Vervolgens [een VNet koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-classic.md).
+Volgende [een VNet koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-classic.md).
 
 * Zie voor meer informatie over werkstromen [ExpressRoute-werkstromen](expressroute-workflows.md).
 * Voor meer informatie over circuitpeering raadpleegt u [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (ExpressRoute-circuits en -routeringsdomeinen).

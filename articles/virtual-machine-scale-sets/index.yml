@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/14/2018
   ms.author: carolz
-  ms.openlocfilehash: d26c3a94c166a91644397e4a31aeede55ec29284
-  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+  ms.openlocfilehash: ea8437adf7224c4605f31ccdea281669b89bb7c9
+  ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 05/10/2018
-  ms.locfileid: "33941064"
+  ms.lasthandoff: 07/10/2018
+  ms.locfileid: "37949727"
 abstract:
   description: Met schaalsets van virtuele Azure-machines kunt u een groep identieke, automatisch schalende VM's met gelijke taakverdeling maken en beheren. Ontdek met onze snelstarts, zelfstudies en voorbeelden hoe u virtuele-machinesschaalsets maakt, configureert, beheert en automatisch schaalt.
 sections:
@@ -52,7 +52,6 @@ sections:
     - html: Een aangepaste VM-installatiekopie gebruiken met de <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI 2.0</a> of <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure PowerShell</a>
     - html: Apps implementeren in een schaalset met de <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI 2.0</a> of <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure PowerShell</a>
     - html: Een schaalset automatisch schalen met de <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI 2.0</a> of <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure PowerShell</a>
-    - html: <a href="https://docs.microsoft.com/learn/deploy-custom-vmss-app/index">Apps implementeren in een virtuele-machineschaalset van Azure met een aangepaste Packer-installatiekopie</a>
 - title: Voorbeelden
   items:
   - type: paragraph
