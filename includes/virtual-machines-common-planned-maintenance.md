@@ -21,9 +21,9 @@ Van tijd tot tijd voert Azure updates uit om de betrouwbaarheid, prestaties en v
 
 - Als u onderhoud moet worden opgestart, krijgt u een kennisgeving van wanneer het onderhoud is gepland. In dergelijke gevallen u ook krijgt een bepaalde periode waar u kunt beginnen het onderhoud zelf op een tijdstip die bij u past.
 
-Deze pagina wordt beschreven hoe beide typen onderhoud wordt uitgevoerd in Microsoft Azure. Zie voor meer informatie over niet-geplande gebeurtenissen (uitval), de beschikbaarheid van virtuele machines beheren voor [Windows] (.. / articles/virtual-machines/windows/manage-availability.md) of [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Deze pagina wordt beschreven hoe beide typen onderhoud wordt uitgevoerd in Microsoft Azure. Zie voor meer informatie over niet-geplande gebeurtenissen (uitval), de beschikbaarheid van virtuele machines beheren voor [Windows] (.. /articles/virtual-machines/windows/manage-availability.md) of [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Toepassingen die worden uitgevoerd in een virtuele machine kunnen informatie verzamelen over toekomstige updates met behulp van de Azure Metadata-Service voor [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) of [Linux] (.. / articles/virtual-machines/linux/instance-metadata-service.md).
+Toepassingen die worden uitgevoerd in een virtuele machine kunnen informatie verzamelen over toekomstige updates met behulp van de Azure Metadata-Service voor [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) of [Linux] (.. /articles/virtual-machines/linux/instance-metadata-service.md).
 
 Zie voor 'procedures' informatie over het beheren van gepland onderhoud 'Meldingen gepland onderhoud verwerken' voor [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) of [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
