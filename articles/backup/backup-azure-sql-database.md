@@ -13,19 +13,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/04/2018
+ms.date: 7/6/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 13876991583292ec04120b9d59fb150ad236e864
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: MT
+ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858558"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918047"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Back-up van SQL Server-database in Azure
 
-SQL Server-databases zijn essentiële workloads waarvoor lage Recovery Point Objective (RPO) en langdurige bewaarperioden vereist. Azure Backup biedt een oplossing voor SQL Serverbackup waarvoor geen infrastructuur, wat betekent dat er geen back-upserver van complexe, geen beheeragent of back-upopslag voor het beheren van. Azure Backup biedt gecentraliseerd beheer voor uw back-ups voor alle SQL-servers, of zelfs in verschillende workloads.
+SQL Server-databases zijn essentiële workloads waarvoor lage Recovery Point Objective (RPO) en langdurige bewaarperioden vereist. Azure Backup biedt een SQL Server back-upoplossing die nul infrastructuur, wat betekent dat er geen back-upserver van complexe, geen beheeragent of back-upopslag voor het beheren van vereist. Azure Backup biedt gecentraliseerd beheer voor uw back-ups voor alle SQL-servers, of zelfs in verschillende workloads.
 
  In dit artikel leert u:
 
@@ -78,7 +78,7 @@ De volgende items zijn de bekende beperkingen voor de openbare Preview.
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>Ondersteunde besturingssystemen en versies van SQL server
 
-De volgende ondersteunde besturingssystemen en versies van SQL Server van toepassing op SQL marketplace virtuele machines van Azure en niet-marketplace virtuele machines (waarop SQL Server is handmatig geïnstalleerd).
+De volgende besturingssystemen worden ondersteund. SQL-marketplace virtuele machines van Azure en niet-marketplace virtuele machines (waarop SQL Server is handmatig geïnstalleerd), worden ondersteund.
 
 ### <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
 
@@ -131,7 +131,7 @@ De balans tussen de opties zijn: beheerbaarheid, gedetailleerde controle en kost
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Machtigingen instellen voor niet-marketplace SQL-VM 's
 
-Als u wilt back-up van een virtuele machine, Azure Backup moet de **AzureBackupWindowsWorkload** extensie worden geïnstalleerd. Als u van virtuele machines van Azure marketplace gebruikmaakt, gaat u verder met [detecteren SQL server-databases](backup-azure-sql-database.md#discover-sql-server-databases). Als de virtuele machine die als host fungeert voor uw SQL-databases niet vanuit de Azure marketplace gemaakt is, voert u de volgende sectie voor het installeren van de extensie en stel de juiste machtigingen. Naast de **AzureBackupWindowsWorkload** SQL sysadmin-bevoegdheden in SQL-databases beveiligen door Azure Backup-extensie is vereist. Tijdens het ontdekken van databases op de virtuele machine, maakt Azure Backup een NT-Service\AzureWLBackupPluginSvc-account. Voor Azure Backup voor het detecteren van SQL-databases, moet het account NT Service\AzureWLBackupPluginSvc logboek in SQL en SQL sysadmin-bevoegdheden hebben. De volgende procedure wordt uitgelegd hoe u deze machtigingen leveren.
+Als u wilt back-up van een virtuele machine, Azure Backup moet de **AzureBackupWindowsWorkload** extensie worden geïnstalleerd. Als u van virtuele machines van Azure marketplace gebruikmaakt, gaat u verder met [detecteren SQL server-databases](backup-azure-sql-database.md#discover-sql-server-databases). Als de virtuele machine die als host fungeert voor uw SQL-databases niet vanuit de Azure marketplace gemaakt is, voert u de volgende sectie voor het installeren van de extensie en stel de juiste machtigingen. Naast de **AzureBackupWindowsWorkload** SQL sysadmin-bevoegdheden in SQL-databases beveiligen door Azure Backup-extensie is vereist. Tijdens het ontdekken van databases op de virtuele machine, maakt Azure Backup een NT-Service\AzureWLBackupPluginSvc-account. Voor Azure Backup voor het detecteren van SQL-databases, het account NT Service\AzureWLBackupPluginSvc moet hebben SQL en SQL sysadmin-bevoegdheden. De volgende procedure wordt uitgelegd hoe u deze machtigingen leveren.
 
 Om machtigingen te configureren:
 
@@ -168,13 +168,13 @@ Nadat u de database aan de Recovery Services-kluis koppelen, de volgende stap is
 
 ### <a name="fixing-sql-sysadmin-permissions"></a>SQL sysadmin-rechten oplossen
 
-Tijdens het installatieproces, als de fout wordt weergegeven, **UserErrorSQLNoSysadminMembership**, meld u in SQL Server Management Studio (SSMS) met een account dat SQL sysadmin-machtiging heeft. Tenzij u speciale machtigingen nodig hebt, zou het mogelijk voor het gebruik van Windows-verificatie voor het herkennen van het account.
+Tijdens het installatieproces, als de fout wordt weergegeven, **UserErrorSQLNoSysadminMembership**, een account gebruiken met SQL sysadmin-machtigingen aan te melden bij naar SQL Server Management Studio (SSMS). Tenzij u speciale machtigingen nodig hebt, werkt Windows-verificatie.
 
 1. Open op de SQL Server, de **beveiliging/aanmeldingen** map.
 
     ![De mappen van SQL Server en beveiliging en meld u aan om te zien van accounts openen](./media/backup-azure-sql-database/security-login-list.png)
 
-2. Klik met de rechtermuisknop op de map aanmeldingen en selecteer **nieuwe aanmelding**, en in de aanmelding - nieuw dialoogvenster, klikt u op **zoeken**
+2. In de map aanmeldingen, met de rechtermuisknop en selecteer **nieuwe aanmelding**, en in de aanmelding - nieuw dialoogvenster, klikt u op **zoeken**
 
     ![Zoeken in de aanmelding - nieuw dialoogvenster geopend](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -190,7 +190,7 @@ Tijdens het installatieproces, als de fout wordt weergegeven, **UserErrorSQLNoSy
 
     De vereiste machtigingen moeten nu bestaan.
 
-6. Hoewel u de Machtigingsfout hebt opgelost, moet u nog steeds de database koppelen aan de Recovery Services-kluis. In de Azure-portal **beschermde Servers** lijst, klik met de rechtermuisknop op de server in de fout en selecteer **DB's opnieuw detecteren**.
+6. Hoewel u de Machtigingsfout hebt opgelost, moet u nog steeds de database koppelen aan de Recovery Services-kluis. In de Azure-portal **beschermde Servers** lijst, met de rechtermuisknop op de server in de fout en selecteer **DB's opnieuw detecteren**.
 
     ![Controleer of dat de server heeft de juiste machtigingen](./media/backup-azure-sql-database/check-erroneous-server.png)
 
@@ -335,7 +335,7 @@ Beveiliging voor uw SQL-database configureren:
 
 Een back-upbeleid definieert een matrix met wanneer de back-ups worden gemaakt en hoe lang de back-ups worden bewaard. U kunt Azure Backup gebruiken voor het plannen van de drie typen van back-up voor SQL-databases:
 
-* Volledige back-up - een volledige databaseback-up een back-up van de gehele database. Een volledige back-up bevat alle gegevens in een specifieke database of een set van bestanden of bestandsgroepen en genoeg logboekbestand om die gegevens te herstellen. U kunt maximaal, een volledige back-up per dag activeren. U kunt een volledige back-up te nemen in een interval van dagelijks of wekelijks. 
+* Volledige back-up - een volledige databaseback-up een back-up van de gehele database. Een volledige back-up bevat alle gegevens in een specifieke database, of een set van bestanden of bestandsgroepen en genoeg logboekbestand om die gegevens te herstellen. U kunt maximaal, een volledige back-up per dag activeren. U kunt een volledige back-up te nemen in een interval van dagelijks of wekelijks. 
 * Differentiële back-up - een differentiële back-up is gebaseerd op de meest recente, de vorige volledige gegevens back-up. Een differentiële back-up legt alleen de gegevens die zijn gewijzigd sinds de volledige back-up. U kunt maximaal één differentiële back-up per dag activeren. U kunt een volledige back-up en een differentiële back-up niet configureren op dezelfde dag.
 * Transactielogboekback-up - kan een logboekback-up punt in tijd herstel tot een specifieke het tweede. Maximaal, kunt u configureren transactionele logboekback-ups om de 15 minuten.
 
@@ -394,13 +394,16 @@ Een back-upbeleid maken
 
 8. Wanneer u alle wijzigingen hebt aangebracht in het back-upbeleid, klikt u op **OK**. 
 
-   ![differentiële bewaartermijn](./media/backup-azure-sql-database/differential-backup-policy.png)
+   ![Nieuw beleid accepteren](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Een SQL-database herstellen
 
 Azure Backup biedt functionaliteit voor het herstellen van afzonderlijke databases naar een specifieke datum of tijd, tot een specifieke ten tweede met transactielogboekback-ups. Op basis van hersteltijden die u opgeeft, Azure Backup bepaalt automatisch de juiste volledige, differentiële en de keten van logboekback-ups nodig zijn om uw gegevens te herstellen.
 
 U kunt ook een specifieke volledige differentiële back-up en herstellen naar een specifiek herstelpunt in plaats van een bepaald tijdstip selecteren.
+ > [!Note]
+ > Voor het activeren van de herstelbewerking van de database 'master'. start de SQL-Server in de modus voor één gebruiker met de opstartoptie '-m AzureWorkloadBackup '. Het argument -m is de naam van de client, worden alleen deze client toegestaan om de verbinding te openen. Stop de SQL Agent-service voor het activeren van de herstelbewerking voor alle systeemdatabases (master, msdb-model). Sluit alle toepassingen die probeert te stelen van een verbinding met een van deze databases.
+>
 
 Een database te herstellen
 
@@ -613,7 +616,7 @@ In deze sectie bevat informatie over de verschillende Azure Backup-bewerkingen b
 ### <a name="monitor-jobs"></a>Taken controleren
 Azure Backup wordt een klasse bedrijfsoplossing biedt geavanceerde back-up waarschuwingen en meldingen fouten (Zie onderstaande sectie voor waarschuwingen voor back-up). Als u nog steeds wilt bewaken van specifieke taken kunt u een van de volgende opties op basis van de vereiste gebruiken:
 
-#### <a name="using-azure-portal---recovery-services-vault-for-all-ad-hoc-operations"></a>Recovery Services-kluis voor alle ad-hoc-bewerkingen met behulp van Azure portal ->
+#### <a name="use-azure-portal-for-all-adhoc-operations"></a>Azure-portal gebruiken voor alle ad-hoc-bewerkingen
 Azure back-up bevat alle handmatig hebt geactiveerd, of ad-hoc, taken in de portal voor back-up-taken. De beschikbare projecten in de portal opnemen: alle back-upbewerkingen configureren, handmatig geactiveerd back-upbewerkingen, bewerkingen voor het herstellen, registratie en databasebewerkingen detecteren en back-upbewerkingen stoppen. 
 ![menu voor geavanceerde configuratie](./media/backup-azure-sql-database/jobs-list.png)
 
@@ -621,10 +624,10 @@ Azure back-up bevat alle handmatig hebt geactiveerd, of ad-hoc, taken in de port
 > Alle geplande back-uptaken met inbegrip van volledige, differentiële en logboek back-up wordt niet weergegeven in de portal en kan worden bewaakt met behulp van SQL Server Management Studio, zoals hieronder wordt beschreven.
 >
 
-#### <a name="using-sql-server-management-studio-ssms-for-backup-jobs"></a>Met behulp van SQL Server Management Studio (SSMS) voor back-uptaken
-Azure Backup gebruikt systeemeigen SQL-API's voor alle back-upbewerkingen. Met de systeemeigen API's, kunt u alle informatie over een taak uit ophalen de [SQL-tabel op de back-upset](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in de msdb-database. 
+#### <a name="use-sql-server-management-studio-for-backup-jobs"></a>SQL Server Management Studio gebruiken voor back-uptaken
+Azure Backup gebruikt systeemeigen SQL-API's voor alle back-upbewerkingen. Met systeemeigen API's, kunt u ophalen van alle informatie over een taak uit de [SQL-tabel op de back-upset](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in de msdb-database.
 
-U kunt de onderstaande query als voorbeeld voor het ophalen van alle back-uptaken voor een specifieke database met de naam 'DB1'. U kunt de onderstaande query voor meer geavanceerde controle.
+Het volgende voorbeeld wordt een query voor het ophalen van alle back-uptaken voor een database met de naam, **DB1**. De query voor meer geavanceerde bewaking aanpassen.
 ```
 select CAST (
 Case type
@@ -745,6 +748,42 @@ Registratie van een SQL-server na het verwijderen van beveiliging, maar voordat 
 5. In het menu aan de beveiligde Servers met de rechtermuisknop op de beveiligde server en selecteer **verwijderen**. 
 
    ![Databasebeveiliging hervatten](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## <a name="sql-database-backup-faq"></a>SQL database Veelgestelde vragen over backup
+
+De volgende sectie bevat aanvullende informatie over back-up van SQL database.
+
+### <a name="can-i-throttle-the-speed-of-the-sql-backup-policy-so-it-minimizes-impact-on-the-sql-server"></a>Ik kan de snelheid van de SQL-back-upbeleid beperken zodat deze minimaliseert de gevolgen voor de SQL-server
+
+Ja, kunt u beperken van de snelheid waarmee het back-upbeleid wordt uitgevoerd. De instelling te wijzigen:
+
+1. Op de SQL-Server in de `C:\Program Files\Azure Workload Backup\bin` map, open **TaskThrottlerSettings.json**.
+
+2. In de **TaskThrottlerSettings.json** bestand, wijzig de **DefaultBackupTasksThreshold** op een lagere waarde, bijvoorbeeld 5.
+
+3. Sla de wijziging en sluit het bestand.
+
+4. Op de SQL-Server, opent u Taakbeheer en start opnieuw op de **Azure Backup-werkbelasting Coordinator Service**.
+
+### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Ik kan een volledige back-up van een secundaire replica uitvoeren
+
+Nee, deze functie wordt niet ondersteund.
+
+### <a name="do-successful-backup-jobs-create-alerts"></a>Waarschuwingen in de geslaagde back-uptaken maken
+
+Nee. Geslaagde back-uptaken geen waarschuwingen worden gegenereerd. Waarschuwingen worden alleen voor back-uptaken die niet voldoen aan verzonden.
+
+### <a name="are-scheduled-backup-job-details-shown-in-the-jobs-menu"></a>Details van de geplande back-uptaak weergegeven in het menu taken
+
+Nee. Het menu taken ziet u details van de ad-hoc-taak, maar wordt niet weergegeven voor geplande back-uptaken. Als een geplande back-uptaken mislukken, vindt u alle gegevens in de mislukte taak waarschuwingen. Als u bewaken alle geplande en ad-hoc back-uptaken wilt, [SQL Server Management Studio gebruiken](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+
+### <a name="if-i-select-a-sql-server-will-future-databases-automatically-be-added"></a>Als ik een SQL server selecteert toekomstige databases automatisch toegevoegd
+
+Nee. Bij het configureren van beveiliging voor een SQL-server, als u het selectievakje op het serverniveau van de, wordt alle databases toegevoegd. Als u databases aan de SQL server toevoegen na het configureren van beveiliging, moet u echter handmatig de nieuwe databases om ze te beveiligen toevoegen. De databases worden niet automatisch opgenomen in de geconfigureerde beveiliging.
+
+### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Als ik het herstelmodel wijzigen hoe ik opnieuw beveiliging
+
+Als u het herstelmodel wijzigt, activeer een volledige back-up en logboekback-ups zullen zoals verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
 

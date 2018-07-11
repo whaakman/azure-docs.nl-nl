@@ -1,9 +1,9 @@
 ---
 title: Gebruik de Azure Docker VM-extensie | Microsoft Docs
-description: Informatie over het gebruik van de Docker-VM-extensie voor het snel en veilig implementeren van een Docker-omgeving in Azure met behulp van Resource Manager-sjablonen en Azure CLI 2.0
+description: Informatie over het gebruik van de Docker VM-extensie snel en veilig implementeren van een Docker-omgeving in Azure met behulp van Resource Manager-sjablonen en Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
@@ -13,32 +13,32 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
-ms.author: iainfou
-ms.openlocfilehash: 6cf77a6fa5e2cb7f9ce349e72444e76d4c687f49
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: cynthn
+ms.openlocfilehash: 44c307a5f21937cd2a3ef345fd4573c67efdaf59
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937649"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928615"
 ---
-# <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Maakt een Docker-omgeving in Azure met behulp van de Docker-VM-extensie
-Docker is een populair containerbeheer en installatiekopieën platform waarmee u snel werken met containers op Linux. In Azure zijn er verschillende manieren waarop u kunt Docker implementeren volgens uw behoeften. Dit artikel is gericht op het gebruik van de Docker-VM-extensie en Azure Resource Manager-sjablonen met de Azure CLI 2.0. 
+# <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Een Docker-omgeving maken in Azure met behulp van de Docker VM-extensie
+Docker is een populaire containerbeheer en beeldbewerking platform waarmee u snel werken met containers in Linux. In Azure zijn er verschillende manieren waarop u kunt Docker implementeren op basis van uw behoeften. In dit artikel richt zich op het gebruik van de Docker VM-extensie en Azure Resource Manager-sjablonen met de Azure CLI 2.0. 
 
 > [!WARNING]
-> De virtuele machine in Azure Docker-extensie voor Linux is afgeschaft en buiten gebruik gesteld November 2018.
-> De uitbreiding is alleen Docker, dus alternatieven zoals cloud init of de aangepaste Scriptextensie een betere manier voor het installeren van de Docker-versie van de keuze zijn geïnstalleerd. Zie voor meer informatie over het gebruik van cloud-init [aanpassen van een Linux-VM met cloud-init](tutorial-automate-vm-deployment.md).
+> De Azure Docker VM-extensie voor Linux is afgeschaft en wordt in November 2018 beëindigd.
+> De extensie installeert alleen Docker, dus alternatieven zoals cloud-init of de aangepaste Scriptextensie zijn een betere manier om de Docker-versie van keuze te installeren. Zie voor meer informatie over het gebruik van cloud-init [aanpassen van een Linux-VM met cloud-init](tutorial-automate-vm-deployment.md).
 
 ## <a name="azure-docker-vm-extension-overview"></a>Overzicht van Azure Docker VM-extensie
-De virtuele machine in Azure Docker-extensie installeert en configureert u de Docker-daemon, Docker-client en Docker Compose in uw virtuele Linux-machine (VM). U hebt meer controle en functies dan gewoon met behulp van Docker-Machine of maken van de Docker-host met behulp van de virtuele machine in Azure Docker-extensie. Deze aanvullende functies, zoals [Docker Compose](https://docs.docker.com/compose/overview/), zorg dat de virtuele machine in Azure Docker-extensie is geschikt voor krachtiger developer- of productieomgevingen.
+De Azure Docker VM-extensie installeert en configureert de Docker-daemon, Docker-client en Docker Compose in uw Linux-machine (VM). Met behulp van de Azure Docker VM-extensie, hebt u meer controle en functies dan gewoon met behulp van Docker Machine of het maken van de Docker-host zelf. Deze extra functies, zoals [Docker Compose](https://docs.docker.com/compose/overview/), Controleer de Azure Docker VM-extensie is geschikt voor krachtiger developer- of productieomgevingen.
 
-Zie voor meer informatie over de verschillende implementatiemethoden, met behulp van Docker-Machine en Services van Azure-Container, inclusief de volgende artikelen:
+Zie de volgende artikelen voor meer informatie over de verschillende implementatiemethoden, met behulp van Docker Machine en Azure Container Services, waaronder:
 
-* Snel prototype een app kunt u één Docker-host met behulp van [Docker-Machine](docker-machine.md).
-* Gereed voor productie, schaalbare omgevingen die aanvullende plannings- en hulpprogramma's bieden bouwen, kunt u implementeren een [Kubernetes](../../container-service/kubernetes/index.yml) of [Docker Swarm](../../container-service/dcos-swarm/index.yml) cluster op Azure Container Services.
+* Op snel prototypen maken een app, kunt u een enkele Docker-host met behulp van [Docker Machine](docker-machine.md).
+* Voor het bouwen van gereed is voor productie, schaalbare omgevingen die aanvullende tools voor planning en beheer bieden, kunt u implementeren een [Kubernetes](../../container-service/kubernetes/index.yml) of [Docker Swarm](../../container-service/dcos-swarm/index.yml) -cluster in Azure Container Services.
 
 
-## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Een sjabloon met de extensie Azure Docker VM implementeren
-We gebruiken een bestaande sjabloon voor de Quick Start voor het maken van een Ubuntu VM die gebruikmaakt van de virtuele machine in Azure Docker-uitbreiding installeren en configureren van de Docker-host. U kunt de sjabloon hier weergeven: [eenvoudige implementatie van een VM Ubuntu met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
+## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Implementeren van een sjabloon met de Azure Docker VM-extensie
+We gaan een bestaande quickstart-sjabloon gebruiken om een Ubuntu-VM die gebruikmaakt van de Azure Docker VM-extensie installeren en configureren van de Docker-host te maken. U kunt hier de sjabloon weergeven: [eenvoudige implementatie van een Ubuntu-VM met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
@@ -46,18 +46,18 @@ Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_cre
 az group create --name myResourceGroup --location eastus
 ```
 
-Vervolgens implementeert u een virtuele machine met [az implementatie maken](/cli/azure/group/deployment#az_group_deployment_create) waarin de Azure Docker VM-extensie van [deze Azure Resource Manager-sjabloon op GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Geef desgevraagd uw eigen unieke waarden voor *newStorageAccountName*, *adminUsername*, *adminPassword*, en *dnsNameForPublicIP*:
+Vervolgens implementeert u een virtuele machine met [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create) waarin de Azure Docker VM-extensie van [deze Azure Resource Manager-sjabloon op GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Geef desgevraagd uw eigen unieke waarden voor *newStorageAccountName*, *adminUsername*, *adminPassword*, en *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Het duurt enkele minuten duren voordat de implementatie is voltooid.
+Het duurt een paar minuten voor de implementatie is voltooid.
 
 
 ## <a name="deploy-your-first-nginx-container"></a>Uw eerste NGINX-container implementeren
-Gebruiken om te bekijken van de VM, met inbegrip van de DNS-naam, [az vm weergeven](/cli/azure/vm#az_vm_show):
+Als u wilt weergeven van details van uw virtuele machine, met inbegrip van de DNS-naam gebruiken [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \
@@ -74,13 +74,13 @@ SSH naar uw nieuwe Docker-host. Geef uw eigen gebruikersnaam en het DNS-naam van
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Wanneer aangemeld bij de Docker-host, gaan we een NGINX-container te uitvoeren:
+Zodra u aangemeld bij de Docker-host, moet u gaan we een NGINX-container uitvoeren:
 
 ```bash
 sudo docker run -d -p 80:80 nginx
 ```
 
-De uitvoer is vergelijkbaar met het volgende voorbeeld wordt de NGINX-installatiekopie gedownload en een container gestart:
+De uitvoer is vergelijkbaar met het volgende voorbeeld als de NGINX-installatiekopie is gedownload en een container gestart:
 
 ```bash
 Unable to find image 'nginx:latest' locally
@@ -94,25 +94,25 @@ Status: Downloaded newer image for nginx:latest
 b6ed109fb743a762ff21a4606dd38d3e5d35aff43fa7f12e8d4ed1d920b0cd74
 ```
 
-Controleer de status van de containers die wordt uitgevoerd op uw host Docker als volgt:
+Controleer de status van de containers die worden uitgevoerd op uw Docker-host als volgt:
 
 ```bash
 sudo docker ps
 ```
 
-De uitvoer is vergelijkbaar met het volgende voorbeeld, waaruit blijkt dat de NGINX-container actief is en TCP-poorten 80 en 443 en ernaar worden doorgestuurd:
+De uitvoer is vergelijkbaar met het volgende voorbeeld, waarin wordt getoond dat de NGINX-container actief is en TCP-poorten 80 en 443 en worden doorgestuurd:
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
 b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   adoring_payne
 ```
 
-De container in actie zien, opent u een webbrowser en voer de DNS-naam van de Docker-host:
+Als u wilt uw container in actie zien, opent u een webbrowser en voert de DNS-naam van uw Docker-host:
 
-![Actieve ngnix container](./media/dockerextension/nginxrunning.png)
+![Ngnix-container die wordt uitgevoerd](./media/dockerextension/nginxrunning.png)
 
-## <a name="azure-docker-vm-extension-template-reference"></a>Azure Docker VM-sjabloon uitbreidingsverwijzing
-Het vorige voorbeeld maakt gebruik van een bestaande Quick Start-sjabloon. U kunt ook de Azure Docker VM-extensie implementeren met uw eigen Resource Manager-sjablonen. Om dit te doen, kunt u het volgende toevoegen aan de Resource Manager-sjablonen, definiëren de `vmName` van uw virtuele machine op de juiste wijze:
+## <a name="azure-docker-vm-extension-template-reference"></a>Azure Docker VM-extensie-sjabloonverwijzing
+Het vorige voorbeeld maakt gebruik van een bestaande quickstart-sjabloon. U kunt ook de Azure Docker VM-extensie implementeren met uw eigen Resource Manager-sjablonen. Om dit te doen, voegt u het volgende toe aan uw Resource Manager-sjablonen definiëren de `vmName` van uw virtuele machine op de juiste wijze:
 
 ```json
 {
@@ -137,11 +137,11 @@ Het vorige voorbeeld maakt gebruik van een bestaande Quick Start-sjabloon. U kun
 U vindt meer gedetailleerde stapsgewijze instructies over het gebruik van Resource Manager-sjablonen door te lezen [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt desgewenst [de Docker-daemon TCP-poort configureren](https://docs.docker.com/engine/reference/commandline/dockerd/#/bind-docker-to-another-hostport-or-a-unix-socket), begrijpen [Docker-beveiliging](https://docs.docker.com/engine/security/security/), of met behulp van containers implementeren [Docker Compose](https://docs.docker.com/compose/overview/). Zie voor meer informatie over de Azure Docker VM-extensie zichzelf, het [GitHub project](https://github.com/Azure/azure-docker-extension/).
+U kunt desgewenst [configureren van de Docker-daemon TCP-poort](https://docs.docker.com/engine/reference/commandline/dockerd/#/bind-docker-to-another-hostport-or-a-unix-socket), begrijpen [Docker-beveiliging](https://docs.docker.com/engine/security/security/), of implementeer containers met [Docker Compose](https://docs.docker.com/compose/overview/). Zie voor meer informatie over de Azure Docker VM-extensie zichzelf, het [GitHub-project](https://github.com/Azure/azure-docker-extension/).
 
-Lees meer informatie over de extra Docker implementatie-opties in Azure:
+Lees meer informatie over de aanvullende opties van de implementatie van Docker in Azure:
 
-* [Docker-Machine met het Azure-stuurprogramma gebruiken](docker-machine.md)  
-* [Aan de slag met Docker en opstellen om te definiëren en een toepassing met meerdere container uitvoert op een virtuele machine van Azure](docker-compose-quickstart.md).
+* [Docker Machine gebruiken met de Azure-stuurprogramma](docker-machine.md)  
+* [Aan de slag met Docker en Compose om te definiëren en een toepassing met meerdere containers worden uitgevoerd op een Azure-machine](docker-compose-quickstart.md).
 * [Een Azure Container Service-cluster implementeren](../../container-service/dcos-swarm/container-service-deployment.md)
 

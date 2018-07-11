@@ -1,9 +1,9 @@
 ---
-title: Openen van poorten voor een Linux-VM met Azure CLI 2.0 | Microsoft Docs
-description: Meer informatie over het openen van een poort / maken van een eindpunt voor uw Linux-VM met de Azure resource manager-implementatiemodel en Azure CLI 2.0
+title: Openen van poorten op een Linux-VM met Azure CLI 2.0 | Microsoft Docs
+description: Leer hoe u een poort openen / maken van een eindpunt voor uw Linux-VM met behulp van het Azure resource manager-implementatiemodel en Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
@@ -13,34 +13,34 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
-ms.openlocfilehash: 77e4744d43aa4e71e6cdbbe2364149465a5aeae1
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: cynthn
+ms.openlocfilehash: 7125523b051441a2547560ff3af650ccd91f07a0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936612"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928886"
 ---
-# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Open poorten en eindpunten voor een Linux-VM met de Azure CLI
-U opent een poort of een eindpunt met een virtuele machine (VM) in Azure maken met het maken van een netwerk-filter op een subnet of een VM-netwerkinterface. U kunt deze filters die binnenkomend en uitgaand verkeer worden beheerd, plaatsen op een Netwerkbeveiligingsgroep gekoppeld aan de resource die het verkeer ontvangt. We gebruiken een voorbeeld van webverkeer op poort 80. In dit artikel leest u hoe een poort voor een virtuele machine met de Azure CLI 2.0 te openen. 
+# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Poorten en eindpunten openen voor een Linux-VM met de Azure CLI
+U een poort openen of maken van een eindpunt dat aan een virtuele machine (VM) in Azure met het maken van een netwerk-filter op een subnet of VM-netwerkinterface. U plaatst deze filters, die binnenkomend en uitgaand verkeer worden beheerd, op een Netwerkbeveiligingsgroep die is gekoppeld aan de resource die het verkeer ontvangt. We gebruiken een algemeen voorbeeld van webverkeer op poort 80. In dit artikel wordt beschreven hoe u een poort openen voor een virtuele machine met de Azure CLI 2.0. 
 
-Maken van een Netwerkbeveiligingsgroep en regels moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
+Het maken van een Netwerkbeveiligingsgroep en regels moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
-In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myNetworkSecurityGroup*, en *myVnet*.
+In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup*, *myNetworkSecurityGroup*, en *myVnet*.
 
 
-## <a name="quickly-open-a-port-for-a-vm"></a>Snel opent een poort voor een virtuele machine
-Als u openen snel een poort voor een virtuele machine in een scenario ontwikkelen en testen wilt, kunt u de [az vm open poort](/cli/azure/vm#az_vm_open_port) opdracht. Met deze opdracht een Netwerkbeveiligingsgroep maakt, voegt een regel en toegepast op een virtuele machine of een subnet. Het volgende voorbeeld wordt poort geopend *80* op de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup*.
+## <a name="quickly-open-a-port-for-a-vm"></a>Snel een poort voor een virtuele machine openen
+Als u snel een poort openen voor een virtuele machine in een scenario voor het ontwikkelen en testen wilt, kunt u de [az vm open-port](/cli/azure/vm#az_vm_open_port) opdracht. Met deze opdracht maakt u een Netwerkbeveiligingsgroep, voegt een regel en toegepast op een virtuele machine of het subnet. Het volgende voorbeeld wordt poort geopend *80* op de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup*.
 
 ```azure-cli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
 ```
 
-Doorgaan met de overige stappen in dit artikel voor meer controle over de regels, zoals het definiëren van een bron IP-adresbereik.
+Doorgaan met de extra stappen in dit artikel voor meer controle over de regels, bijvoorbeeld voor het definiëren van een bron IP-adresbereik.
 
 
 ## <a name="create-a-network-security-group-and-rules"></a>Een Netwerkbeveiligingsgroep en regels maken
-Maken van de netwerkbeveiligingsgroep met [az netwerk nsg maken](/cli/azure/network/nsg#az_network_nsg_create). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* in de *eastus* locatie:
+Maken van de netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg#az_network_nsg_create). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* in de *eastus* locatie:
 
 ```azurecli
 az network nsg create \
@@ -49,7 +49,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Toevoegen van een regel met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) toestaan HTTP-verkeer naar uw webserver (of aanpassen voor uw eigen scenario, zoals SSH-toegang of database connectivity). Het volgende voorbeeld wordt een regel met naam *myNetworkSecurityGroupRule* TCP-verkeer op poort 80 toestaan:
+Toevoegen van een regel met [az network nsg-regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) naar HTTP-verkeer naar uw webserver (of aanpassen voor uw eigen scenario, zoals SSH-toegang of database connectivity). Het volgende voorbeeld wordt een regel met de naam *myNetworkSecurityGroupRule* TCP-verkeer op poort 80 toe te staan:
 
 ```azurecli
 az network nsg rule create \
@@ -62,8 +62,8 @@ az network nsg rule create \
 ```
 
 
-## <a name="apply-network-security-group-to-vm"></a>Netwerkbeveiligingsgroep toepassen op VM
-De Netwerkbeveiligingsgroep koppelen aan uw VM-netwerkinterface (NIC) met [az netwerk nic update](/cli/azure/network/nic#az_network_nic_update). Het volgende voorbeeld wordt gekoppeld aan een bestaande NIC met de naam *myNic* met de netwerk-beveiligingsgroep met de naam *myNetworkSecurityGroup*:
+## <a name="apply-network-security-group-to-vm"></a>Netwerkbeveiligingsgroep van toepassing op virtuele machine
+De Netwerkbeveiligingsgroep koppelen aan van de virtuele machine-netwerkinterface (NIC) met [az network nic update](/cli/azure/network/nic#az_network_nic_update). Het volgende voorbeeld wordt gekoppeld aan een bestaande NIC met de naam *myNic* met de Netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \
@@ -72,7 +72,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-U kunt ook uw Netwerkbeveiligingsgroep koppelen aan een virtueel netwerksubnet met [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) in plaats van alleen aan de netwerkinterface op een enkele virtuele machine. Het volgende voorbeeld wordt een bestaand subnet met de naam *mySubnet* in de *myVnet* virtueel netwerk met de Netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup*:
+U kunt ook uw Netwerkbeveiligingsgroep koppelen aan een virtueel netwerksubnet met [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) in plaats van alleen aan de netwerkinterface op een enkele virtuele machine. Het volgende voorbeeld wordt gekoppeld aan een bestaand subnet met de naam *mySubnet* in de *myVnet* virtueel netwerk met de Netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup*:
 
 ```azurecli
 az network vnet subnet update \
@@ -83,12 +83,12 @@ az network vnet subnet update \
 ```
 
 ## <a name="more-information-on-network-security-groups"></a>Meer informatie over Netwerkbeveiligingsgroepen
-De snelle opdrachten hier kunt u aan de slag te kunnen met verkeer naar uw virtuele machine. Netwerkbeveiligingsgroepen bieden veel handige functies en granulatie voor het beheren van toegang tot uw resources. U kunt meer lezen over [hier maken van een Netwerkbeveiligingsgroep en ACL regels](tutorial-virtual-network.md#secure-network-traffic).
+De snelle opdrachten hier kunnen u aan de slag met de verkeersstroom naar uw virtuele machine. Netwerkbeveiligingsgroepen bevatten veel geweldige functies en granulariteit voor het beheren van toegang tot uw resources. U kunt meer lezen over [hier het maken van een Netwerkbeveiligingsgroep en ACL-regels](tutorial-virtual-network.md#secure-network-traffic).
 
-Voor maximaal beschikbare webtoepassingen, moet u uw virtuele machines achter een Load Balancer van Azure plaatsen. De load balancer wordt verkeer naar virtuele machines met een Netwerkbeveiligingsgroep waarmee wordt verkeer gefilterd. Zie voor meer informatie [het laden van Linux virtuele machines in Azure maken van een maximaal beschikbare toepassing in evenwicht](tutorial-load-balancer.md).
+Voor maximaal beschikbare webtoepassingen, moet u uw virtuele machines achter een Azure Load Balancer plaatsen. De load balancer verdeelt het verkeer naar virtuele machines met een Netwerkbeveiligingsgroep waarmee verkeer filteren. Zie voor meer informatie, [laden saldo van Linux virtuele machines in Azure om te maken van een maximaal beschikbare toepassing](tutorial-load-balancer.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit voorbeeld moet u een eenvoudige regel zodat HTTP-verkeer gemaakt. Hier vindt u informatie over het maken van meer gedetailleerde omgevingen in de volgende artikelen:
+In dit voorbeeld moet u een eenvoudige regel zodat HTTP-verkeer gemaakt. U vindt meer informatie over het maken van meer gedetailleerde omgevingen in de volgende artikelen:
 
 * [Overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 * [Wat is een netwerkbeveiligingsgroep (NSG)?](../../virtual-network/security-overview.md)

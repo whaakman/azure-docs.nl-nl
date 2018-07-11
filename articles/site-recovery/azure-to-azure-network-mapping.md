@@ -1,6 +1,6 @@
 ---
 title: Toewijzen van virtuele netwerken tussen twee Azure-regio's in Azure Site Recovery | Microsoft Docs
-description: Azure Site Recovery coördineert de replicatie, failovers en herstel van virtuele machines en fysieke servers. Meer informatie over failover naar Azure of naar een secundair datacenter.
+description: Azure Site Recovery coördineert de replicatie, failover en herstel van virtuele machines en fysieke servers. Meer informatie over failover naar Azure of naar een secundair datacenter.
 services: site-recovery
 documentationcenter: ''
 author: mayanknayar
@@ -12,70 +12,70 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 9294940785deb0834a419de8320286783635d68e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 7b7f9c079a1fc9d74fed4cc4d94d37f336ca5dc7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072130"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916737"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Virtuele netwerken in verschillende Azure-regio's toewijzen
 
 
-In dit artikel wordt beschreven hoe twee exemplaren van Azure Virtual Network zich in verschillende Azure-regio's met elkaar worden toegewezen. Netwerktoewijzing zorgt ervoor dat wanneer een gerepliceerde virtuele machine wordt gemaakt in de doel-Azure-regio, de virtuele machine wordt ook gemaakt op het virtuele netwerk dat toegewezen aan het virtuele netwerk van de virtuele bronmachine.  
+In dit artikel wordt beschreven hoe u twee instanties van Azure Virtual Network die zich in verschillende Azure-regio's met elkaar worden toegewezen. Netwerktoewijzing zorgt ervoor dat wanneer een gerepliceerde virtuele machine wordt gemaakt in de doel-Azure-regio, de virtuele machine wordt ook gemaakt op het virtuele netwerk dat toegewezen aan het virtuele netwerk van de virtuele bronmachine.  
 
 ## <a name="prerequisites"></a>Vereisten
-Zorg ervoor dat u hebt gemaakt voordat u netwerken toewijst, een [virtuele Azure-netwerk](../virtual-network/virtual-networks-overview.md) in zowel de bron-regio als de doel-Azure-regio.
+Zorg ervoor dat u hebt gemaakt voordat u netwerken toewijzen, een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md) in de regio van de gegevensbron en de doel-Azure-regio.
 
 ## <a name="map-virtual-networks"></a>Virtuele netwerken toewijzen
 
-Als u wilt toewijzen in een Azure-netwerk dat zich bevindt in een Azure-regio (Bronnetwerk) met een virtueel netwerk dat in een andere regio (doelnetwerk) voor virtuele machines in Azure bevindt zich, gaat u naar **Site Recovery-infrastructuur**  >  **Toewijzing netwerk**. Maak de netwerktoewijzing van een.
+Als u wilt toewijzen van een Azure-netwerk dat zich bevindt in een Azure-regio (Bronnetwerk) naar een virtueel netwerk dat in een andere regio (doelnetwerk) voor virtuele machines van Azure bevindt zich, gaat u naar **Site Recovery-infrastructuur**  >  **Toewijzing netwerk**. Maak een netwerktoewijzing.
 
-![Toewijzingen venster netwerk - Maak de netwerktoewijzing van een](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
+![Venster toewijzingen van netwerk - maken van een netwerktoewijzing](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
 
 In het volgende voorbeeld wordt wordt de virtuele machine uitgevoerd in de regio Oost-Azië. De virtuele machine wordt gerepliceerd naar de regio Zuidoost-Azië.
 
-Als u wilt maken een netwerktoewijzing van de Oost-Azië regio voor de regio Zuidoost-Azië, selecteer de locatie van het bron-netwerk en de locatie van het doelnetwerk. Selecteer vervolgens **OK**.
+Voor het maken van een netwerktoewijzing van de regio Oost-Azië naar de regio Zuidoost-Azië, selecteer de locatie van het bron-netwerk en de locatie van het doelnetwerk. Selecteer vervolgens **OK**.
 
 ![Toevoegen van venster van de toewijzing van netwerk - bron- en doellocaties voor het Bronnetwerk selecteren](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
-Herhaal de voorgaande procedure voor het maken van een netwerktoewijzing uit Zuidoost-Azië-gebied voor de regio Oost-Azië.
+Herhaal de voorgaande procedure voor het maken van een netwerktoewijzing van de regio Zuidoost-Azië naar de regio Oost-Azië.
 
-![Toevoegen van netwerk toewijzing deelvenster - bron- en doellocaties voor het doelnetwerk selecteren](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+![Toevoegen van deelvenster van de toewijzing van netwerk - bron- en doellocaties voor het doelnetwerk selecteren](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
-## <a name="map-a-network-when-you-enable-replication"></a>Toewijzen van een netwerk wanneer u replicatie inschakelen
+## <a name="map-a-network-when-you-enable-replication"></a>Een netwerk worden toegewezen wanneer u replicatie inschakelt
 
-Wanneer u een virtuele machine van een Azure-regio naar een andere regio voor de eerste keer repliceren als er geen netwerktoewijzing bestaat, kunt u het doelnetwerk instellen bij het instellen van replicatie. Op basis van deze instelling, maakt Azure Site Recovery-netwerkkoppelingen van de bron-regio voor de doelregio en van de doelregio voor de bron-regio.   
+Wanneer u een virtuele machine van de ene Azure-regio naar een andere regio voor de eerste keer repliceren als er geen netwerktoewijzing bestaat, kunt u het doelnetwerk instellen bij het instellen van replicatie. Op basis van deze instelling, maakt Azure Site Recovery-netwerkkoppelingen van de bronregio naar de doelregio en van de doelregio naar de bronregio.   
 
 ![Deelvenster instellingen configureren - de doellocatie kiezen](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
-Standaard maakt Site Recovery een netwerk in de doelregio die identiek is aan de bron-netwerk. Maakt site Recovery een netwerk door toe te voegen **-asr** als achtervoegsel aan de naam van het bron-netwerk. Als u een netwerk dat al is gemaakt, selecteert u **aanpassen**.
+Site Recovery maakt standaard een netwerk in de doelregio die identiek is aan het Bronnetwerk. Site Recovery maakt u een netwerk door toe te voegen **-asr** als achtervoegsel aan de naam van het Bronnetwerk. Als u een netwerk dat al is gemaakt, selecteert u **aanpassen**.
 
-![Deelvenster instellingen voor target - Set resource doelgroepnaam en doel-virtuele-netwerknaam aanpassen](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+![Deelvenster instellingen voor doel - Set doel Resourcegroepnaam en de naam van de doel-virtuele netwerk aanpassen](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
 
-Als u netwerktoewijzing al heeft plaatsgevonden, kunt u het virtuele netwerk niet wijzigen wanneer u replicatie inschakelt. In dit geval om te wijzigen van het virtuele netwerk, wijzig de bestaande netwerktoewijzing.  
+Als de netwerktoewijzing al is gebeurd, kunt u het virtuele netwerk niet wijzigen wanneer u replicatie inschakelt. In dit geval, als u wilt wijzigen van het virtuele netwerk, de bestaande netwerktoewijzing wijzigt.  
 
-![Doel aanpassen instellingen deelvenster - naam van de resourcegroep doel instellen](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
+![Doel aanpassen instellingenvenster - naam van de resourcegroep doel instellen](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
 
 ![Netwerk toewijzing deelvenster wijzigen - wijzigen van een bestaande virtuele-netwerknaam van doel](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
 
 > [!IMPORTANT]
-> Als u een netwerktoewijzing van regio A naar B regio wijzigt, zorg ervoor dat u ook de netwerktoewijzing van regio B regio A. wijzigen
+> Als u een netwerktoewijzing van de A-regio naar regio B wijzigt, zorgt u ervoor dat u ook de netwerktoewijzing van de B-regio naar regio A. wijzigen
 >
 >
 
 
-## <a name="subnet-selection"></a>Selectie van subnet
-Het subnet van de virtuele doelmachine is geselecteerd op basis van de naam van het subnet van de virtuele bronmachine. Als een subnet met dezelfde naam als de virtuele bronmachine beschikbaar in het doelnetwerk is, wordt dat subnet ingesteld voor de virtuele doelmachine. Als een subnet met dezelfde naam niet in het doelnetwerk bestaat, wordt het alfabetisch eerste subnet ingesteld als het doelsubnet.
+## <a name="subnet-selection"></a>Subnet is geselecteerd
+Het subnet van de virtuele doelmachine wordt geselecteerd op basis van de naam van het subnet van de virtuele bronmachine. Als een subnet met dezelfde naam als de virtuele bronmachine beschikbaar in het doelnetwerk is, wordt dat subnet is ingesteld voor de virtuele doelmachine. Als een subnet met dezelfde naam in het doelnetwerk bestaat, wordt het alfabetisch eerste subnet is ingesteld als het doelsubnet.
 
-Voor het wijzigen van het subnet, gaat u naar de **berekening en netwerk** instellingen voor de virtuele machine.
+Als u wilt wijzigen van het subnet, gaat u naar de **berekening en netwerk** instellingen voor de virtuele machine.
 
-![Reken- en het eigenschappenvenster berekenen](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
+![Reken- en compute-eigenschappenvenster](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## <a name="ip-address"></a>IP-adres
@@ -86,18 +86,18 @@ Het IP-adres voor elke netwerkinterface van de virtuele doelmachine is ingesteld
 Als de netwerkinterface van de virtuele bronmachine DHCP gebruikt, wordt de netwerkinterface van de virtuele doelmachine ook instellen op het gebruik van DHCP.
 
 ### <a name="static-ip-address"></a>Statisch IP-adres
-Als de netwerkinterface van de virtuele bronmachine gebruikmaakt van een statisch IP-adres, wordt de netwerkinterface van de virtuele doelmachine ook instellen op een statisch IP-adres gebruiken. De volgende secties wordt beschreven hoe u een statisch IP-adres is ingesteld.
+Als de netwerkinterface van de virtuele machine gebruikmaakt van een statisch IP-adres, wordt de netwerkinterface van de virtuele doelmachine ook ingesteld op statisch IP-adres. De volgende secties wordt beschreven hoe een statisch IP-adres is ingesteld.
 
-#### <a name="same-address-space"></a>Dezelfde adresruimte
+#### <a name="same-address-space"></a>Dezelfde-adresruimte
 
-Als het subnet van de bron en het doelsubnet hebt dezelfde adresruimte, wordt het IP-adres van de netwerkinterface van de virtuele bronmachine is ingesteld als het doel-IP-adres. Als hetzelfde IP-adres niet beschikbaar is, wordt het volgende beschikbare IP-adres is ingesteld als het doel-IP-adres.
+Als het Bronsubnet en het doelsubnet hebt dezelfde-adresruimte, is het IP-adres van de netwerkinterface van de virtuele bronmachine ingesteld als het doel-IP-adres. Als hetzelfde IP-adres niet beschikbaar is, wordt het volgende beschikbare IP-adres ingesteld als het doel-IP-adres.
 
-#### <a name="different-address-spaces"></a>Andere adresruimten
+#### <a name="different-address-spaces"></a>Verschillende adresruimten
 
-Als het subnet van de bron en het doelsubnet hebt verschillende adresruimten, is het volgende beschikbare IP-adres in het doelsubnet ingesteld als het doel-IP-adres.
+Als het Bronsubnet en het doelsubnet hebt verschillende adresruimten, wordt de eerstvolgende beschikbare IP-adres in het doelsubnet is ingesteld als het doel-IP-adres.
 
-Voor het wijzigen van het doel-IP op elke netwerkinterface, gaat u naar de **berekening en netwerk** instellingen voor de virtuele machine.
+Als u wilt wijzigen van de doel-IP-adres op elke netwerkinterface, gaat u naar de **berekening en netwerk** instellingen voor de virtuele machine.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Bekijk [richtlijnen voor het repliceren van virtuele machines van Azure toegang](site-recovery-azure-to-azure-networking-guidance.md).
+* Beoordeling [richtlijnen voor het repliceren van virtuele machines van Azure networking](site-recovery-azure-to-azure-networking-guidance.md).

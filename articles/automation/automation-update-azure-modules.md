@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f968bd75c7aee4ad390f9206bb1fa210e7fcd8ff
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 90aa19d690b1b4ab28c3a65a287a10aaf6a03ac6
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903146"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929029"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
@@ -47,7 +47,7 @@ Omdat modules regelmatig door de productgroep bijgewerkt worden, kunnen wijzigin
 > [!NOTE]
 > Azure Automation maakt gebruik van de meest recente modules in uw Automation-account wanneer een nieuwe geplande taak wordt uitgevoerd.    
 
-Als u van deze modules Azure PowerShell-cmdlets in uw runbooks gebruiken, wilt u dit updateproces iedere maand uitvoeren of dus om ervoor te zorgen dat u de meest recente modules hebt.
+Als u van deze modules Azure PowerShell-cmdlets in uw runbooks gebruiken, wilt u dit updateproces iedere maand uitvoeren of dus om ervoor te zorgen dat u de meest recente modules hebt. Azure Automation maakt gebruik van de verbinding AzureRunAsConnection om te verifiëren bij het bijwerken van de modules, als de service-principal is verlopen of niet meer op het abonnementsniveau, de module-update bestaat mislukt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -11,12 +11,12 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: 5e6acf59410099ba36bfa6fa89a576d83b61cf00
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ff36a67cd09dd1e5cb5635be17d1dd76fc824d1a
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341501"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917071"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Veelgestelde vragen voor ClearDB MySql-databases met Azure App Service
 Deze Veelgestelde vragen vindt u antwoorden op veelgestelde vragen over het gebruik en het kopen van de ClearDB MySQL databases voor Azure Web Apps.
@@ -44,7 +44,6 @@ Dit is afhankelijk van het type abonnement dat u gebruikt. Hier volgen enkele ve
 * [Gratis proefversie](https://azure.microsoft.com/pricing/free-trial/): tegoeden voor gebruik met Microsoft Azure-services, maar aankoop van resources van derden is niet toegestaan. Voor het kopen van services van derden of een betaald MySQL-database moet u een creditcard ingeschakeld abonnement gebruiken. U kunt een gratis ClearDB MySQL-database maken voor Web-Apps.
 * [MSDN-abonnement](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) en **MSDN Dev Test betalen**: net als bij gratis proefversie, MSDN-abonnement vereist dat u hebt een creditcard nodig om aan te schaffen een betaalde MySQL-oplossing van ClearDB.
 * [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA-klanten worden gefactureerd op basis van hun EA elk kwartaal voor al hun aankopen op Azure Marketplace (derde) op een afzonderlijke, geconsolideerde factuur. U wordt gefactureerd buiten de monetaire toezegging voor een marketplace-aankopen. Houd er rekening mee dat op dit moment Azure Store niet beschikbaar voor klanten die zijn ingeschreven in Azerbeidzjan, Kroatië, Noorwegen en Porto Rico is. 
-* [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): U kunt alleen gratis ClearDB-databases maken voor Web-Apps. Er is geen limiet voor het aantal gratis ClearDB MySQL-databases die u kunt maken. Houd er rekening mee dat de gratis databases zijn niet moet worden gebruikt voor productie-web-apps, als deze service is alleen bedoeld voor proefversie.
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Waarom is ik $3,50 voor een Web-app + MySQL op Azure Marketplace in rekening gebracht?
 De standaardoptie voor de database is Titan, wat $3,50. We niet de kosten weergeven tijdens het maken van de database, en u per ongeluk een database die u niet van plan om te bent kan aanschaffen. We willen een manier vinden om de ervaring te verbeteren, maar tot die tijd moet u alle uw geselecteerde Prijscategorieën voor web-app en database controleren voordat u op **maken** en de implementatie van de resources te starten.

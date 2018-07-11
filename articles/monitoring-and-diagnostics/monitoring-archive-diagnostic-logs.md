@@ -8,16 +8,21 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 99f150b2c62331a63e5bd4377f51fd11359628ab
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a0146c0bf2b5a10f27cb59e32978aa6dff8f5982
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436025"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916323"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiveren van diagnostische logboeken in Azure
 
 In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets, CLI of REST-API gebruiken kunt om te archiveren uw [diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md) in een storage-account. Deze optie is handig als u wilt behouden van de diagnostische logboeken met een optionele bewaarbeleid voor controle-, statische analysis- of back-up. Het storage-account heeft geen zich in hetzelfde abonnement als de resource dat Logboeken verzendt, zolang de gebruiker die de instelling configureert de juiste RBAC-toegang voor beide abonnementen heeft.
+
+> [!WARNING]
+> De indeling van de logboekgegevens in de storage-account wordt gewijzigd in JSON-regels op 1 november 2018. [Raadpleeg dit artikel voor een beschrijving van de impact en het bijwerken van uw hulpprogramma's voor het afhandelen van de nieuwe indeling.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +38,7 @@ Als u wilt archiveren van uw logboeken met diagnostische gegevens met behulp van
 > [!NOTE]
 > Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
 >
-> *Een voorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Maar wanneer de metriek wordt geëxporteerd via diagnostische instellingen, geeft de metriek alle binnenkomende berichten in alle wachtrijen in de Event Hub aan.
+> *Een voorbeeld*: de meetwaarde 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Wanneer de waarde wordt geëxporteerd via diagnostische instellingen, wordt deze echter voorgesteld als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
 >
 >
 

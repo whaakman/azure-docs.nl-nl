@@ -1,20 +1,21 @@
 ---
-title: Architectuur van VMware of fysieke server-replicatie in Azure Site Recovery | Microsoft Docs
-description: In dit artikel biedt een overzicht van de onderdelen en gebruikt bij het repliceren van lokale VMware-machines of fysieke Windows of Linux-servers naar een secundaire site VMware met Azure Site Recovery-architectuur
+title: Architectuur van VMware/fysieke server-replicatie in Azure Site Recovery | Microsoft Docs
+description: In dit artikel biedt een overzicht van de onderdelen en architectuur die worden gebruikt bij het repliceren van on-premises VMware-machines of fysieke Windows/Linux-servers naar een secundaire VMware-site met Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 97a990aa3ed9043280888900d8fc7b604b6c22b5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921400"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>VMware-virtuele machine of fysieke server met de architectuur van VMware-replicatie
+# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>VMware-virtuele machine/fysieke server naar VMware-replicatie-architectuur
 
-In dit artikel beschrijft de architectuur en processen die worden gebruikt wanneer u repliceren, failover en herstellen van de lokale virtuele VMware-machines (VM's) of fysieke Windows of Linux-servers in een secundaire VMware site met [Azure Site Recovery](site-recovery-overview.md).
+Dit artikel beschrijft de architectuur en processen die worden gebruikt bij het repliceren, failover en herstellen van on-premises VMware-machines (VM's) of fysieke Windows/Linux-servers naar een secundaire VMware site met [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Architectuuronderdelen

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4f91cfcce3643d96f241cb5408efc2455367c336
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 32ad5ef4f297a64f0925febb247ccb117dffedf0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435691"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928587"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mijn eerste PowerShell Workflow-runbook
 
@@ -113,7 +113,10 @@ u hebt getest en gepubliceerd uw runbook, maar tot nu toe doet het nog niets nut
    ```
 
    > [!IMPORTANT]
-   > **Add-AzureRmAccount** en **Login-AzureRmAccount** zijn nu aliassen voor **Connect-AzureRMAccount**. Als de **Connect-AzureRMAccount** cmdlet niet bestaat, kunt u **Add-AzureRmAccount** of **Login-AzureRmAccount**, of u kunt uw modules bijwerken in uw Automation Account naar de nieuwste versie.
+   > **Add-AzureRmAccount** en **Login-AzureRmAccount** zijn nu aliassen voor **Connect-AzureRMAccount**. Als de **Connect-AzureRMAccount** cmdlet niet bestaat, kunt u **Add-AzureRmAccount** of **Login-AzureRmAccount**, of u kunt [uw-modules bijwerken ](automation-update-azure-modules.md) in uw Automation-Account naar de nieuwste versie. 
+
+> [!NOTE]
+> U moet mogelijk [uw-modules bijwerken](automation-update-azure-modules.md) ondanks dat u net een nieuw automation-account hebt gemaakt.
 
 5. Klik op **testvenster** zodat u het runbook kan testen.
 6. Klik op **Start** om de test te starten. Zodra deze is voltooid, ontvangt u uitvoer zoals hieronder afgebeeld, waarin basisinformatie van uw account wordt weergegeven. Hiermee wordt bevestigd dat de referentie geldig is.<br><br> ![Verifiëren](media/automation-first-runbook-textual/runbook-auth-output.png)

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 9f7fbcc804229de69c3c72fb33ae03c88af70145
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b9218600db8bd3e20528e61e411bb64c10dd9c84
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857494"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917632"
 ---
 # <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
@@ -51,9 +51,9 @@ U bent klaar om te beginnen.
 
 Een stem training-gegevensset bestaat uit een verzameling van audio-bestanden, samen met een tekstbestand met de Transcripten van alle audio-bestanden.
 
-U kunt deze bestanden in beide richtingen voorbereiden: hetzij een script schrijven en deze gelezen door spraak talent, of gebruik openbaar beschikbare audio en ze naar tekst te transcriberen. Bewerken in het laatste geval disfluencies uit de audio-bestanden, zoals 'um' en andere geluiden opvullende, haperen, mumbled woorden of mispronunciations.
+U kunt deze bestanden in beide richtingen voorbereiden: hetzij een script schrijven en deze gelezen door spraak talent, of gebruik openbaar beschikbare audio en deze moet transcriberen naar tekst. Bewerken in het laatste geval disfluencies uit de audio-bestanden, zoals 'um' en andere geluiden opvullende, haperen, mumbled woorden of mispronunciations.
 
-Als u wilt een goede spraakstijl produceren, is het belangrijk dat de opnamen in een stille ruimte klaar bent met een hoge kwaliteit microfoon. Consistente volume, prijs, spreekstijl inspiratie en expressieve gebaren van spraak spreken zijn essentieel voor het bouwen van een geweldige digitale stem. Voor het maken van een stem voor gebruik in productieomgevingen, is het raadzaam dat een professionele opname studio en toon talent te gebruiken.
+Als u wilt een goede spraakstijl produceren, is het belangrijk dat de opnamen in een stille ruimte klaar bent met een hoge kwaliteit microfoon. Consistente volume, prijs, spreekstijl inspiratie en expressieve gebaren van spraak spreken zijn essentieel voor het bouwen van een geweldige digitale stem. Voor het maken van een stem voor gebruik in productieomgevingen, is het raadzaam dat een professionele opname studio en toon talent te gebruiken. Zie voor meer informatie, [vastleggen voice-voorbeelden voor een aangepaste spraak](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Audio-bestanden
 

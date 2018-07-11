@@ -1,111 +1,114 @@
 ---
-title: IP-adressen behouden wanneer failover van virtuele machines naar een andere Azure-regio in Azure | Microsoft Docs
-description: Hierin wordt beschreven hoe u IP-adressen voor scenario's voor failover van Azure naar Azure met Azure Site Recovery behouden
+title: IP-adressen behouden wanneer Failover-overschakeling uitvoeren naar een andere Azure-regio virtuele Azure-machines | Microsoft Docs
+description: Beschrijft hoe u IP-adressen voor Azure naar Azure failover-scenario's met Azure Site Recovery behouden
 ms.service: site-recovery
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.date: 07/06/2018
 author: mayanknayar
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: manayar
-ms.openlocfilehash: ec15456dcb80478e36560cde7ac0710ca8e6ca3b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d9753f4359e1123ec9051dc303416a74e7aee847
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285104"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920413"
 ---
-# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>IP-adres bewaren voor failover van de virtuele machine van Azure
+# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>IP-adres retentie voor de failover van de virtuele machine van Azure
 
-Azure Site Recovery inschakelen herstel na noodgevallen voor Azure Virtual machines Wanneer failover uit van een Azure-regio naar een andere, moeten klanten vaak bewaren van hun IP-configuraties. Site Recovery nabootst standaard bron virtueel netwerk en subnetstructuur bij het maken van deze bronnen op de doelregio. Voor de Azure VM's zijn geconfigureerd met statische privé IP-adressen, maakt Site Recovery ook een zo goed mogelijke poging probeert in te richten op de doel-virtuele machine, dezelfde persoonlijke IP als die IP al niet wordt geblokkeerd door een Azure-resource of een gerepliceerde virtuele machine.
+Azure Site Recovery maakt herstel na noodgevallen voor Azure VM's. Wanneer Failover-overschakeling uitvoeren van een Azure-regio naar een andere, vereisen klanten vaak behoud van hun IP-configuraties. Site Recovery, imiteert standaard, bron van virtueel netwerk en subnetstructuur bij het maken van deze resources in de doelregio. Voor Azure VM's geconfigureerd met statische privé IP-adressen, maakt Site Recovery ook een best-effort probeert te gebruiken voor het inrichten van de dezelfde privé IP-adres op de doel-VM, als dat IP-adres niet al wordt geblokkeerd door een Azure-resource of een gerepliceerde virtuele machine.
 
-Voor eenvoudige toepassingen is de bovenstaande standaardconfiguratie alles wat nodig is. Voor complexere bedrijfstoepassingen wellicht klanten aanvullende netwerkresources om ervoor te zorgen na een failover-connectiviteit met andere onderdelen van hun infrastructuur inrichten. Dit artikel wordt uitgelegd de netwerkvereisten voor mislukte via Azure VM's van de ene regio naar een andere terwijl de VM IP-adressen behouden.
+Voor eenvoudige toepassingen is de bovenstaande standaardconfiguratie alles dat nodig is. Voor complexere bedrijfstoepassingen, klanten mogelijk extra netwerkresources om ervoor te zorgen na een failover-connectiviteit met andere onderdelen van de infrastructuur inrichten. Dit artikel wordt uitgelegd de netwerkvereisten waarbij een failover via Azure-VM's van de ene regio naar een andere VM-IP-adressen behouden.
 
-## <a name="azure-to-azure-connectivity"></a>Connectiviteit van Azure naar Azure
+## <a name="azure-to-azure-connectivity"></a>Azure-naar-Azure-connectiviteit
 
-Voor het eerste scenario we beschouwen **bedrijf A** die alle van de toepassing-infrastructuur worden uitgevoerd in Azure heeft. Voor zakelijke continuïteit en naleving redenen **bedrijf A** beslist haar toepassingen beveiligen met Azure Site Recovery.
+Voor het eerste scenario wij beschouwen **bedrijf A** waarvoor alle van de toepassingsinfrastructuur worden uitgevoerd in Azure. Voor zakelijke continuïteit en naleving redenen **bedrijf A** wil Azure Site Recovery gebruiken de toepassingen te beschermen.
 
-Gezien de vereiste IP-retentieperiode (zoals voor bindingen van toepassing), heeft bedrijf A hetzelfde virtuele netwerk en subnet structuur op de doelregio. Verder verlagen beoogde hersteltijd (RTO) **bedrijf A** maakt gebruik van de knooppunten van de replica voor SQL Always ON, domeincontrollers, enz. en deze replica knooppunten in een ander virtueel netwerk op de doelregio worden geplaatst. Met een andere adresruimte voor de replica-knooppunten kunt **bedrijf A** om vast te stellen VPN site-naar-site-connectiviteit tussen de bron en doel-regio's, die anders niet mogelijk zijn zou als dezelfde adresruimte aan beide uiteinden wordt gebruikt .
+Opgegeven de vereiste IP-retentie (zoals toepassing bindingen), heeft een bedrijf hetzelfde virtuele netwerk en subnet structuur op de doelregio. Om beoogde hersteltijd (RTO) verder te beperken **bedrijf A** maakt gebruik van replica-knooppunten voor SQL Always ON, domeincontrollers, enz. en deze replica knooppunten worden geplaatst in een ander virtueel netwerk in de doelregio. Met behulp van een andere adresruimte voor de replica-knooppunten kunt **bedrijf A** voor het maken van VPN-site-naar-site-connectiviteit tussen bron en doel-regio's, die anders niet mogelijk zou zijn als dezelfde adresruimte aan beide uiteinden wordt gebruikt .
 
-Hier ziet u hoe de netwerkarchitectuur uitziet voordat failover wordt uitgevoerd:
-- Toepassing virtuele machines worden gehost in Azure Oost-Azië, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16. Dit virtuele netwerk heet **bron VNet**.
-- Toepassingsworkloads zijn gesplitst in drie subnetten – 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, respectievelijk met de naam **Subnet 1**, **Subnet 2**, **Subnet 3**.
-- Azure Zuidoost-Azië is de doelregio en een herstel virtueel netwerk dat lijkt op de-ruimte en subnet adresconfiguratie op de bron. Dit virtuele netwerk heet **herstel VNet**.
-- Replica knooppunten zoals die nodig zijn voor Always On, domeincontroller, enz., worden in een virtueel netwerk met adresruimte 10.2.0.0/16 binnen het Subnet 4 met adres 10.2.4.0/24 geplaatst. De naam van het virtuele netwerk **Azure VNet** en op Azure Zuidoost-Azië.
-- **Bron VNet** en **Azure VNet** zijn verbonden via VPN-site-naar-site-verbinding.
-- **Herstel VNet** niet met een virtueel netwerk is verbonden.
-- **Een bedrijf** wijst/controleert of IP-adres van doel voor gerepliceerde items. Voor dit voorbeeld is IP-adres doel hetzelfde als bron-IP voor elke virtuele machine.
+Hier ziet u hoe de netwerkarchitectuur eruitziet voordat de failover:
+- Toepassings-VM's worden gehost in Azure Oost-Azië, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16. Dit virtuele netwerk is met de naam **bron VNet**.
+- Werkbelastingen van toepassingen zijn verdeeld over drie subnetten: 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, respectievelijk met de naam **Subnet 1**, **Subnet 2**, **Subnet 3**.
+- Azure Zuidoost-Azië is de doelregio en een virtuele herstelnetwerk dat lijkt op de-ruimte en het subnetmasker adresconfiguratie op de bron. Dit virtuele netwerk is met de naam **Recovery VNet**.
+- Replica-knooppunten, zoals die nodig zijn voor Always On, domeincontroller, enzovoort worden geplaatst in een virtueel netwerk met adresruimte 10.2.0.0/16 binnen het Subnet 4 met adres 10.2.4.0/24. Het virtuele netwerk is met de naam **Azure VNet** en op Azure Zuidoost-Azië.
+- **Bron VNet** en **Azure VNet** zijn verbonden via site-naar-site-VPN-verbinding.
+- **Herstel VNet** niet is verbonden met een ander virtueel netwerk.
+- **Een bedrijf** wijst/controleert of doel-IP-adres voor gerepliceerde items. Voor dit voorbeeld is doel-IP hetzelfde als bron-IP voor elke virtuele machine.
 
-![Azure naar Azure-connectiviteit voor failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
+![Azure-naar-Azure-connectiviteit voordat de failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
 
 ### <a name="full-region-failover"></a>Volledige regio failover
 
-In het geval van een storing regionale **bedrijf A** kunt herstellen van de volledige implementatie snel en eenvoudig met behulp van Azure Site Recovery krachtige [herstelplannen](site-recovery-create-recovery-plans.md). Dat het IP-adres van het doel al ingesteld voor elke VM voordat failover, **bedrijf A** kan failover indelen en verbinding tot stand brengen tussen VNet Recovery en Azure Vnet automatiseren, zoals wordt weergegeven in het onderstaande diagram.
+In het geval van een regionale onderbreking **bedrijf A** kunt herstellen de volledige implementatie snel en eenvoudig met behulp van Azure Site Recovery krachtige [herstelplannen](site-recovery-create-recovery-plans.md). Dat het doel-IP-adres al ingesteld voor elke virtuele machine voordat u een failover, **bedrijf A** failover te organiseren en automatiseren verbinding tot stand brengen tussen VNet Recovery en Azure Vnet, zoals wordt weergegeven in het onderstaande diagram.
 
-![Failover van Azure naar Azure-verbinding volledige regio](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
+![Azure-naar-Azure-verbinding volledige regio failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
-Afhankelijk van de vereisten van webtoepassingen verbindingen tussen de twee VNets op het gebied van het doel kunnen worden gebracht voor, tijdens (als een tussenstap) of na een failover. Gebruik [herstelplannen](site-recovery-create-recovery-plans.md) scripts toevoegen en de failovervolgorde definiëren.
+Afhankelijk van de vereisten van webtoepassingen-verbindingen tussen de twee VNets in de doelregio kunnen worden vastgesteld voor, tijdens (als een tussenstap) of na een failover. Gebruik [herstelplannen](site-recovery-create-recovery-plans.md) scripts toevoegen en de failovervolgorde definiëren.
 
-Bedrijf A heeft ook de keuze van de VNet-peering of Site-naar-Site VPN-verbinding tussen VNet Recovery en Azure VNet tot stand te gebruiken. Bij VNET-peering wordt geen VPN-gateway gebruikt en er gelden diverse beperkingen voor. Bovendien worden de [prijzen voor VNET-peering](https://azure.microsoft.com/pricing/details/virtual-network) anders berekend dan voor [VNet-naar-VNet-VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway). Voor failovers is het in het algemeen wordt aangeraden om na te bootsen bron connectiviteit, met inbegrip van het verbindingstype om te minimaliseren onvoorspelbare incidenten die voortvloeien uit wijzigingen in het netwerk.
+Een bedrijf heeft ook de keuze van de verbinding tussen VNet Recovery en Azure VNet met behulp van VNet-peering of Site-naar-Site VPN. Bij VNET-peering wordt geen VPN-gateway gebruikt en er gelden diverse beperkingen voor. Bovendien worden de [prijzen voor VNET-peering](https://azure.microsoft.com/pricing/details/virtual-network) anders berekend dan voor [VNet-naar-VNet-VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway). Voor failover is het in het algemeen wordt aangeraden om na te bootsen bron connectiviteit, met inbegrip van het verbindingstype om te minimaliseren onvoorspelbare incidenten die voortvloeien uit wijzigingen in het netwerk.
 
 ### <a name="isolated-application-failover"></a>Geïsoleerde toepassing failover
 
-Onder bepaalde omstandigheden mogelijk gebruikers failover delen van hun infrastructuur van de toepassing. Een voorbeeld de failover van een specifieke toepassingen of lagen die is ondergebracht in een subnet toegewezen. Tijdens een failover subnet met IP-bewaren mogelijk is, wordt het niet aangeraden voor de meeste situaties als deze connectiviteit inconsistenties aanzienlijk toeneemt. U verliest bestemmingssubnet ook naar andere subnetten in hetzelfde virtuele netwerk van Azure.
+Onder bepaalde omstandigheden kunnen gebruikers moeten failover-onderdelen van de infrastructuur van hun toepassing. Een voorbeeld is failover van een bepaalde toepassing of de categorie die is ondergebracht in een toegewezen subnet. Failover met een bewaarperiode van IP-subnet is mogelijk, wordt het niet aangeraden voor de meeste situaties als deze connectiviteit inconsistenties aanzienlijk toeneemt. U verliest subnetverbinding ook naar andere subnetten binnen hetzelfde Azure virtual network.
 
-Een betere manier ter compensatie van failover op subnetniveau toepassingsvereisten is voor het gebruik van andere doel-IP-adressen voor failover (als de verbinding vereist voor andere subnetten in het virtuele Bronnetwerk is) of elke toepassing in een eigen toegewezen virtuele isoleren netwerk op de bron. U kunt met de laatste methode tot stand brengen tussen netwerkverbinding op de bron- en dezelfde wanneer failover wordt uitgevoerd naar de doelregio worden geëmuleerd.
+Een betere manier ter compensatie van failover op subnetniveau toepassingsvereisten heeft aan ander doel-IP-adressen gebruiken voor failover (als connectiviteit vereist voor andere subnetten op de bron van virtueel netwerk is) of isolatie van elke toepassing in een eigen toegewezen virtuele netwerk op de bron. U kunt met de laatste benadering tot stand brengen tussen netwerkverbinding beschikbaar is op de bron en hetzelfde als failover-overschakeling uitvoeren naar de doelregio worden geëmuleerd.
 
-Als u wilt bouwen afzonderlijke toepassingen voor tolerantie, wordt u aangeraden bevatten van een toepassing in een eigen toegewezen virtueel netwerk en stel de verbinding tussen deze virtuele netwerken, zoals vereist. Hierdoor geïsoleerde toepassing failover terwijl de oorspronkelijke privé IP-adressen behouden.
+Voor het ontwerpen van afzonderlijke toepassingen voor tolerantie, is het raadzaam om te bevatten van een toepassing in een eigen toegewezen virtueel netwerk en stel verbinding in tussen deze virtuele netwerken zoals vereist. Hierdoor geïsoleerde toepassing failover behoud de oorspronkelijke privé IP-adressen.
 
-De configuratie van de pre-failover vervolgens ziet er als volgt uit:
-- Toepassing virtuele machines worden gehost in Azure Oost-Azië, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16 voor de eerste toepassing en 10.2.0.0/16 voor de tweede toepassing. De virtuele netwerken zijn benoemde **bron VNet1** en **bron VNet2** voor de eerste en tweede toepassing, respectievelijk.
-- Elke VNet verdere gesplitst in twee subnetten.
-- Azure Zuidoost-Azië is de doelregio en virtuele netwerken recovery herstel VNet1 en herstel VNet2.
-- Replica knooppunten zoals die nodig zijn voor altijd aan, domeincontroller, enzovoort worden geplaatst in een virtueel netwerk met adresruimte 10.3.0.0/16 binnen **Subnet 4** met adres 10.3.4.0/24. Het virtuele netwerk heet Azure VNet en is op Azure Zuidoost-Azië.
-- **Bron VNet1** en **Azure VNet** zijn verbonden via VPN-site-naar-site-verbinding. Op deze manier **bron VNet2** en **Azure VNet** ook zijn verbonden via VPN-site-naar-site-verbinding.
-- **Bron VNet1** en **bron VNet2** zijn ook aangesloten via S2S VPN-verbinding in dit voorbeeld. Aangezien de twee VNets in dezelfde regio, kan VNet-peering ook worden gebruikt in plaats van de S2S-VPN.
-- **Herstel VNet1** en **herstel VNet2** niet zijn verbonden met een virtueel netwerk.
-- Als u beoogde hersteltijd (RTO), VPN-gateways zijn geconfigureerd op **herstel VNet1** en **herstel VNet2** voordat failover.
+De configuratie van vóór de failover vervolgens ziet er als volgt uit:
+- Toepassings-VM's worden gehost in Azure Oost-Azië, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16 voor de eerste toepassing en 10.2.0.0/16 voor de tweede toepassing. De virtuele netwerken zijn benoemde **bron VNet1** en **bron VNet2** voor de eerste en tweede toepassing, respectievelijk.
+- Elk VNet wordt verder gesplitst in twee subnetten.
+- Azure Zuidoost-Azië is de doelregio en herstel in de virtuele netwerken Recovery VNet1 en het herstel VNet2.
+- Replica-knooppunten, zoals die nodig zijn voor Always On, domeincontroller, enz. worden geplaatst in een virtueel netwerk met adresruimte 10.3.0.0/16 binnen **Subnet 4** met adres 10.3.4.0/24. Het virtuele netwerk Azure VNet wordt genoemd en is op Azure Zuidoost-Azië.
+- **Bron van VNet1** en **Azure VNet** zijn verbonden via site-naar-site-VPN-verbinding. Op deze manier **bron VNet2** en **Azure VNet** ook zijn verbonden via site-naar-site-VPN-verbinding.
+- **Bron van VNet1** en **bron VNet2** ook zijn verbonden via S2S VPN-verbinding in dit voorbeeld. Aangezien de twee VNets in dezelfde regio, kan VNet-peering ook worden gebruikt in plaats van S2S-VPN.
+- **Herstel VNet1** en **Recovery VNet2** niet zijn verbonden met een ander virtueel netwerk.
+- Beoogde hersteltijd (RTO), verminderen de VPN-gateways die zijn geconfigureerd op **Recovery VNet1** en **Recovery VNet2** voordat u een failover.
 
-![De toepassing Azure naar Azure-connectiviteit geïsoleerd voordat failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
+![Azure-naar-Azure-connectiviteit (geïsoleerd)-toepassing voor failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
 
-In het geval van een noodherstel situatie die van invloed is op slechts één toepassing (in dit voorbeeld in bron VNet2 was opgenomen), herstellen bedrijf A als volgt de desbetreffende toepassing:
-- VPN-verbindingen tussen **bron VNet1** en **bron VNet2**, en tussen **bron VNet2** en **Azure VNet** verbinding wordt verbroken.
-- VPN-verbindingen worden tot stand gebracht tussen **bron VNet1** en **herstel VNet2**, en tussen **herstel VNet2** en **Azure VNet**.
-- Virtuele machines van **bron VNet2** mislukt via **herstel VNet2**.
+In het geval van een noodherstel situatie die van invloed is op slechts één toepassing (in dit voorbeeld is ondergebracht in bron VNet2), een bedrijf kan de betreffende toepassing als volgt herstellen:
+- VPN-verbindingen tussen **bron VNet1** en **bron VNet2**, en tussen **bron VNet2** en **Azure VNet** niet zijn verbonden.
+- VPN-verbindingen tot stand worden gebracht tussen **bron VNet1** en **Recovery VNet2**, en tussen **Recovery VNet2** en **Azure VNet**.
+- Virtuele machines van **bron VNet2** failover is uitgevoerd naar **Recovery VNet2**.
 
-![Azure naar Azure-connectiviteit geïsoleerd toepassing na een failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
+![Azure-naar-Azure-connectiviteit (geïsoleerd)-toepassing na een failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
 
-De bovenstaande geïsoleerde failover voorbeeld kan worden uitgebreid bevatten meer toepassingen en netwerkverbindingen. Aanbevolen wordt een model like-achtige verbinding zoveel mogelijk uitvoeren als failover wordt uitgevoerd van bron naar doel.
+De bovenstaande geïsoleerde failover voorbeeld kan worden uitgebreid om meer toepassingen bevatten en netwerkverbindingen. De aanbeveling is voor een model like-achtige verbinding, zoveel mogelijk failover-overschakeling uitvoeren van bron naar doel.
 
 ### <a name="further-considerations"></a>Verdere overwegingen
 
-VPN-Gateways gebruikmaken van openbare IP-adressen en gateway hops verbindingen tot stand gebracht. Als u niet wilt gebruiken van openbare IP-adres en/of wilt voorkomen dat extra hops, kunt u Azure [virtueel netwerk peering](../virtual-network/virtual-network-peering-overview.md) als virtuele netwerken via peer [Azure-regio's ondersteund](../virtual-network/virtual-network-manage-peering.md#cross-region).
+VPN-Gateways gebruikmaken van openbare IP-adressen en gateway hops verbindingen tot stand gebracht. Als u niet wilt gebruiken van openbaar IP-adres en/of om te voorkomen dat extra hops, kunt u Azure [peering op Virtueelnetwerk](../virtual-network/virtual-network-peering-overview.md) virtuele netwerken via [Azure-regio's ondersteund](../virtual-network/virtual-network-manage-peering.md#cross-region).
 
-## <a name="on-premises-to-azure-connectivity"></a>Connectiviteit op lokale-die naar Azure
+## <a name="on-premises-to-azure-connectivity"></a>On-premises-to-Azure-connectiviteit
 
-Voor het tweede scenario we beschouwen **bedrijf B** die een deel van de infrastructuur van toepassingen uitgevoerd op Azure en de overige met lokale heeft. Voor zakelijke continuïteit en naleving redenen **bedrijf B** beslist Azure Site Recovery gebruiken om te beveiligen van de toepassingen die worden uitgevoerd in Azure.
+Voor het tweede scenario wij beschouwen **bedrijf B** waarvoor een deel van de infrastructuur van de toepassingen die worden uitgevoerd op Azure en de resterende on-premises uitgevoerd. Voor zakelijke continuïteit en naleving redenen **bedrijf B** wil Azure Site Recovery gebruiken de toepassingen die worden uitgevoerd in Azure te beschermen.
 
-Hier ziet u hoe de netwerkarchitectuur uitziet voordat failover wordt uitgevoerd:
-- Toepassing virtuele machines worden gehost in Azure Oost-Azië, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16. Dit virtuele netwerk heet **bron VNet**.
-- Toepassingsworkloads zijn gesplitst in drie subnetten – 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, respectievelijk met de naam **Subnet 1**, **Subnet 2**, **Subnet 3**.
-- Azure Zuidoost-Azië is de doelregio en een herstel virtueel netwerk dat lijkt op de-ruimte en subnet adresconfiguratie op de bron. Dit virtuele netwerk heet **herstel VNet**.
-- Virtuele machines in Azure Oost-Azië zijn verbonden met on-premises datacentrum via ExpressRoute of Site-naar-Site VPN.
-- Als u beoogde hersteltijd (RTO), voorziet in bedrijf B gateways op herstel VNet in Azure Zuidoost-Azië voordat failover.
-- **Bedrijf B** wijst/controleert of IP-adres van doel voor gerepliceerde items. In dit voorbeeld is IP-adres doel hetzelfde als de bron-IP voor elke virtuele machine
+Hier ziet u hoe de netwerkarchitectuur eruitziet voordat de failover:
+- Toepassings-VM's worden gehost in Azure Oost-Azië, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16. Dit virtuele netwerk is met de naam **bron VNet**.
+- Werkbelastingen van toepassingen zijn verdeeld over drie subnetten: 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, respectievelijk met de naam **Subnet 1**, **Subnet 2**, **Subnet 3**.
+- Azure Zuidoost-Azië is de doelregio en een virtuele herstelnetwerk dat lijkt op de-ruimte en het subnetmasker adresconfiguratie op de bron. Dit virtuele netwerk is met de naam **Recovery VNet**.
+- Virtuele machines in Azure Oost-Azië zijn verbonden met on-premises datacenter via ExpressRoute of Site-naar-Site VPN.
+- Beoogde hersteltijd (RTO), verminderen bepalingen bedrijf B gateways op herstel VNet in Azure Zuidoost-Azië voordat u een failover.
+- **Bedrijf B** wijst/controleert of doel-IP-adres voor gerepliceerde items. In dit voorbeeld is hetzelfde als de bron-IP voor elke virtuele machine met doel-IP
 
-![Connectiviteit vóór de failover op lokale-die naar Azure](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
+![On-premises-to-Azure-connectiviteit voordat de failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
 
 ### <a name="full-region-failover"></a>Volledige regio failover
 
-In het geval van een storing regionale **bedrijf B** kunt herstellen van de volledige implementatie snel en eenvoudig met behulp van Azure Site Recovery krachtige [herstelplannen](site-recovery-create-recovery-plans.md). Dat het IP-adres van het doel al ingesteld voor elke VM voordat failover, **bedrijf B** kan failover indelen en verbinding tot stand brengen tussen VNet van herstel en on-premises datacentrum automatiseren, zoals wordt weergegeven in het onderstaande diagram.
+In het geval van een regionale onderbreking **bedrijf B** kunt herstellen de volledige implementatie snel en eenvoudig met behulp van Azure Site Recovery krachtige [herstelplannen](site-recovery-create-recovery-plans.md). Dat het doel-IP-adres al ingesteld voor elke virtuele machine voordat u een failover, **bedrijf B** failover te organiseren en automatiseren verbinding tot stand brengen tussen Recovery VNet en on-premises datacentrum, zoals wordt weergegeven in het onderstaande diagram.
 
-De oorspronkelijke verbinding tussen Oost-Azië Azure en de on-premises datacentrum moet worden verbroken voordat het maken van de verbinding tussen Zuidoost-Azië Azure en on-premises datacentrum. De on-premises routering ook opnieuw wordt geconfigureerd om te verwijzen naar de doelregio en gateways na de failover.
+De oorspronkelijke verbinding tussen Azure-Oost-Azië en het on-premises datacenter moet worden verbroken voordat het tot stand brengen van de verbinding tussen Azure Zuidoost-Azië en on-premises datacentrum. De on-premises routering ook opnieuw wordt geconfigureerd om te verwijzen naar de doelregio en gateways na een failover.
 
-![Connectiviteit na een failover op lokale-die naar Azure](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
+![On-premises-to-Azure-connectiviteit na een failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
 
-### <a name="subnet-failover"></a>Subnet failover
+### <a name="subnet-failover"></a>Subnet-failover
 
-In tegenstelling tot het Azure naar Azure scenario beschreven voor **bedrijf A**, een failover op subnetniveau is niet mogelijk in dit geval voor **bedrijf B**. Dit is omdat de adresruimte op bron- en herstel van de virtuele netwerken hetzelfde is en de oorspronkelijke bron naar lokale verbinding actief is.
+In tegenstelling tot het Azure-naar-Azure-scenario beschreven voor **bedrijf A**, een failover op subnetniveau is niet mogelijk in dit geval voor **bedrijf B**. Dit is omdat de adresruimte op bron- en herstel van virtuele netwerken dezelfde is en de oorspronkelijke bron naar het on-premises verbinding actief is.
 
-Als u wilt bereiken tolerantie van toepassing, is het raadzaam dat elke toepassing is ondergebracht in een eigen toegewezen virtuele Azure-netwerk. Toepassingen kunnen vervolgens failover in een geïsoleerde omgeving en de vereiste on-premises verbindingen tussen bron kunnen worden doorgestuurd naar de doelregio, zoals hierboven is beschreven.
+Voor het bereiken van tolerantie voor toepassing, is het aanbevolen dat elke toepassing is ondergebracht in een eigen toegewezen virtueel Azure-netwerk. Toepassingen kunnen vervolgens failover in een geïsoleerde omgeving en de vereiste on-premises bron verbindingen kunnen worden doorgestuurd naar de doelregio zoals hierboven is beschreven.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [herstelplannen](site-recovery-create-recovery-plans.md).

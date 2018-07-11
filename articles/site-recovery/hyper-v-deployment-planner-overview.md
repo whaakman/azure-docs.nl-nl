@@ -7,16 +7,16 @@ manager: garavd
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 17ff3ece76f854cd539172019f8d154742873bb4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187300"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921209"
 ---
-# <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery implementatie Planner voor Hyper-V naar Azure
+# <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner voor Hyper-V naar Azure
 
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery Deployment Planner voor productie-installaties van het type Hyper-V-naar-Azure.
 
@@ -117,9 +117,9 @@ De aanbevolen configuratie van de virtuele machine: 8 Vcpu, 16 GB RAM-geheugen, 
 3.  Pak de gecomprimeerde map uit.
 De map bevat meerdere bestanden en submappen. Het uitvoerbare bestand is ASRDeploymentPlanner.exe in de map op het hoogste niveau.
 
-Voorbeeld: kopieer het ZIP-bestand naar station E:\ en pak het uit. E:\ASR implementatie Planner_v2.2.zip
+Voorbeeld: kopieer het ZIP-bestand naar station E:\ en pak het uit. E:\ASR Deployment Planner_v2.2.zip
 
-E:\ASR implementatie Planner_v2.2\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Bijwerken naar de nieuwste versie van de implementatieplanner
 Als u een eerdere versie van de implementatieplanner hebt, doe dan het volgende:
@@ -134,7 +134,7 @@ Als u een eerdere versie van de implementatieplanner hebt, doe dan het volgende:
   >Elke nieuwe implementatieplanner is een cumulatieve update van het ZIP-bestand. U hoeft dus niet de nieuwste bestanden naar de vorige map te kopiëren. U kunt een nieuwe map maken en deze gebruiken.
 
 ## <a name="version-history"></a>Versiegeschiedenis
-Meest recente versie van het hulpprogramma ASR implementatie Planner is 2.2.
+De meest recente versie van het hulpprogramma ASR Deployment Planner is 2.2.
 Raadpleeg de pagina [Versiegeschiedenis van ASR Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) voor de oplossingen die zijn toegevoegd in elke update.
 
 
