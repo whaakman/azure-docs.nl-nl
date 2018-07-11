@@ -3,7 +3,7 @@ title: Een lokale Windows-wachtwoord zonder Azure-agent opnieuw instellen | Micr
 description: Het opnieuw instellen van het wachtwoord van een lokale Windows-gebruikersaccount wanneer de Azure-gastagent niet geïnstalleerd of op een virtuele machine werkt is
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: iainfou
-ms.openlocfilehash: 6745d5f7c31ca00c7915874b038488f4487959a9
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.author: cynthn
+ms.openlocfilehash: 791ac9ca7795b5317c7b6e12a67327e7710a71ff
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342919"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932514"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Lokale Windows-wachtwoord offline voor Azure-VM herstellen
 U kunt opnieuw instellen van het lokale Windows-wachtwoord van een virtuele machine in Azure met de [Azure portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voorwaarde dat de Azure-gastagent is geïnstalleerd. Deze methode is de belangrijkste manier om een wachtwoord opnieuw instellen voor een Azure-VM. Als u problemen ondervindt met de Azure-gastagent niet reageert of niet worden geïnstalleerd na het uploaden van een aangepaste installatiekopie, u handmatig kunt moet u een Windows-wachtwoord opnieuw instellen. Dit artikel wordt uitgelegd hoe u een lokaal account-wachtwoord opnieuw instellen door de virtuele bron-OS-schijf koppelen aan een andere virtuele machine. De stappen in dit artikel niet van toepassing op Windows-domeincontrollers. 

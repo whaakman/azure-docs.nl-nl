@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 283dcdc718231e5f0f82fb98fe71b77aa54d741b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3b225a012abe4796172327d8a723338e8de67749
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867681"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930015"
 ---
 # <a name="integrate-speech-service"></a>Integreer Speech-service
 De [spraakservice](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u gebruikmaken van een enkele aanvraag voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren.
@@ -28,7 +28,7 @@ Voor dit artikel, moet u een gratis [LUIS] [ LUIS] website-account voor het impo
 In de Azure-portal [maken](luis-how-to-azure-subscription.md#create-luis-endpoint-key) een **Language Understanding** (LUIS)-sleutel. 
 
 ## <a name="import-human-resources-luis-app"></a>Importeren van Human Resources LUIS app
-De intenties en uitingen voor dit artikel zijn van het Human Resources LUIS-app beschikbaar is via de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-opslagplaats. Download de [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) bestand opslaan met de extensie *.json en [importeren](create-new-app.md#import-new-app) in LUIS. 
+De intenties en uitingen voor dit artikel zijn van het Human Resources LUIS-app beschikbaar is via de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-opslagplaats. Download de [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) bestand opslaan met de extensie *.json en [importeren](luis-how-to-start-new-app.md#import-new-app) in LUIS. 
 
 Deze app heeft intenties en entiteiten uitingen met betrekking tot het Human Resources-domein. Voorbeeld-uitingen zijn onder andere:
 

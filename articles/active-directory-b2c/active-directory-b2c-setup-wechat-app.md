@@ -1,23 +1,23 @@
 ---
-title: WeChat-configuratie in Azure Active Directory B2C | Microsoft Docs
-description: Meld u aan en meld u bieden voor gebruikers met een WeChat-account in uw toepassingen die zijn beveiligd met Azure Active Directory B2C.
+title: Instellen van zich kunnen registreren en aanmelden met een WeChat-account met behulp van Azure Active Directory B2C | Microsoft Docs
+description: Meld u aan en meld u bieden aan klanten met een WeChat-account in uw toepassingen met behulp van Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/26/2017
+ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a18d41a4f45b147790a17664156659d282e710d4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e88187c5035abc28ca9deecaf8517e8a21e38d1d
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445932"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952331"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C: Bieden zich kunnen registreren en aanmelden voor consumenten met WeChat-accounts
+# <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een WeChat-account met behulp van Azure Active Directory B2C
 
 > [!NOTE]
 > Deze functie is beschikbaar als preview-versie.
@@ -25,24 +25,31 @@ ms.locfileid: "37445932"
 
 ## <a name="create-a-wechat-application"></a>Een WeChat-toepassing maken
 
-Voor het gebruik van WeChat als id-provider in Azure Active Directory (Azure AD) B2C, moet u een WeChat-toepassing maken en geven met de juiste parameters. U moet een WeChat-account om dit te doen. Als u niet hebt, kunt u één voor het aanmelden via een van de mobiele apps of met behulp van het nummer van uw q kunt ophalen. Hierna krijgen uw account is geregistreerd bij de WeChat-Ontwikkelaarsprogramma. U vindt meer informatie [hier](http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
+Als u wilt een WeChat-account gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de tenant die aangeeft. Als u nog een WeChat-account hebt, krijgt u informatie op [ http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html ](http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
 
 ### <a name="register-a-wechat-application"></a>Een WeChat-toepassing registreren
 
-1. Ga naar [https://open.weixin.qq.com/](https://open.weixin.qq.com/) en meld u aan.
-2. Klik op**管理中心**(center management).
-3. Volg de stappen die nodig zijn voor het registreren van een nieuwe toepassing.
-4. Voor**授权回调域**(URL voor terugbellen), voer `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Bijvoorbeeld, als uw `tenant_name` is contoso.onmicrosoft.com, de URL die moet worden ingesteld `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
-5. Zoeken en kopieer de **APP-ID** en **APP-sleutel**. U moet deze later.
+1. Aanmelden bij [ https://open.weixin.qq.com/ ](https://open.weixin.qq.com/) met uw WeChat-referenties.
+2. Selecteer**管理中心**(center management).
+3. Volg de stappen voor het registreren van een nieuwe toepassing.
+4. Voer `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` in**授权回调域**(URL voor terugbellen). Bijvoorbeeld, als uw `tenant_name` is contoso.onmicrosoft.com, de URL die moet worden ingesteld `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+5. Kopieer de **APP-ID** en **APP-sleutel**. U moet deze de id-provider toevoegen aan uw tenant.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>WeChat configureren als een id-provider in uw tenant
-1. Volg deze stappen om [gaat u naar de blade B2C-functies](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) in Azure portal.
-2. Klik op de blade B2C-functies **id-providers**.
-3. Klik op **+Toevoegen** boven aan de blade.
-4. Geef een beschrijvende **naam** voor de configuratie van de id-provider. Voer bijvoorbeeld 'WeChat'.
-5. Klik op **type id-provider**, selecteer **WeChat**, en klikt u op **OK**.
-6. Klik op **deze id-provider instellen**
-7. Voer de **App-sleutel** die u eerder hebt gekopieerd als de **Client-ID**.
-8. Voer de **Appgeheim** die u eerder hebt gekopieerd als de **Clientgeheim**.
-9. Klik op **OK** en klik vervolgens op **maken** aan uw WeChat-configuratie op te slaan.
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant gebruikt door hiernaar over te schakelen rechtsboven in de Azure Portal. Selecteer de abonnementsgegevens en selecteer vervolgens **Schakelen tussen mappen**. 
+
+    ![Overschakelen naar de Azure AD B2C-tenant](./media/active-directory-b2c-setup-wechat-app/switch-directories.png)
+
+    Kies de map met uw tenant.
+
+    ![Map selecteren](./media/active-directory-b2c-setup-wechat-app/select-directory.png)
+
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+4. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
+5. Geef een **naam**. Voer bijvoorbeeld *WeChat*.
+6. Selecteer **type id-provider**, selecteer **WeChat (Preview)**, en klikt u op **OK**.
+7. Selecteer **instellen van deze id-provider** en voert u de APP-ID die u eerder hebt genoteerd als de **Client-ID** en voer de APP-sleutel die u hebt genoteerd als de **clientgeheim** van de WeChat-toepassing die u eerder hebt gemaakt.
+8. Klik op **OK** en klik vervolgens op **maken** aan uw WeChat-configuratie op te slaan.
 

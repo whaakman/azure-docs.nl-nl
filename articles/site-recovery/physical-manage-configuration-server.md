@@ -5,14 +5,14 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/01/2018
+ms.date: 07/06/2018
 ms.author: anoopkv
-ms.openlocfilehash: 0b30e4df71bae631366e81ebd2d4e1c467981fbe
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341957"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951173"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor herstel na noodgevallen van fysieke beheren
 
@@ -37,7 +37,7 @@ De tabel bevat een overzicht van aan de vereisten voor het implementeren van de 
 | IIS | -Er zijn geen bestaande standaardwebsite <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br> -Er is geen bestaande website/toepassing luistert op poort 443<br>|
 | Type NIC | VMXNET3 (indien geïmplementeerd als een VMware-VM) |
 | Type IP-adres | Statisch |
-| Toegang tot het internet | De server moet toegang hebben tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (niet vereist voor Scale-out processervers) <br> - time.nist.gov <br> - time.windows.com |
+| Toegang tot het internet | De server moet toegang hebben tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> -*. services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (niet vereist voor Scale-out processervers) <br> - time.nist.gov <br> - time.windows.com |
 | Poorten | 443 (Orchestration-besturingselement)<br>9443 (Gegevenstransport)|
 
 ## <a name="download-the-latest-installation-file"></a>Download het recentste installatiebestand

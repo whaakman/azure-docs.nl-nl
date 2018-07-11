@@ -1,50 +1,50 @@
 ---
-title: Maak een zone-redundante virtuele netwerkgateway in Azure beschikbaarheid Zones - Preview | Microsoft Docs
-description: VPN-Gateway en ExpressRoute-gateways in beschikbaarheid Zones - Preview implementeren.
+title: Een zone-redundante virtuele netwerkgateway maken in Azure-Beschikbaarheidszones - Preview | Microsoft Docs
+description: VPN-Gateway en ExpressRoute-gateways in Beschikbaarheidszones - voorbeeld implementeren.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 07/09/2018
 ms.author: cherylmc
-ms.openlocfilehash: c484358bf98f0121cfc3ce270b162b01c75b5b09
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: fa349555a5effd41ca519cbd5a29005203d79543
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096230"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952552"
 ---
-# <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>Maak een zone-redundante virtuele netwerkgateway in Azure beschikbaarheid Zones - Preview
+# <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>Een zone-redundante virtuele netwerkgateway maken in Azure-Beschikbaarheidszones - Preview
 
-U kunt VPN- en ExpressRoute-gateways in implementeren [Azure beschikbaarheid Zones](../availability-zones/az-overview.md). Hiermee wordt de tolerantie, schaalbaarheid en hogere beschikbaarheid voor virtuele netwerkgateways. Gateways in Azure beschikbaarheid Zones implementeren fysiek en logisch scheidt gateways binnen een regio bij het beveiligen van uw lokale netwerkverbinding naar Azure van zoneniveau fouten.
+U kunt VPN en ExpressRoute-gateways in implementeren [Azure Availability Zones](../availability-zones/az-overview.md). Dit zorgt voor tolerantie, schaalbaarheid en hogere mate van beschikbaarheid naar virtuele netwerkgateways. Implementeren van gateways in Azure-Beschikbaarheidszones fysiek en logisch, scheidt gateways binnen een regio, terwijl u uw on-premises netwerkconnectiviteit naar Azure beveiligt tegen storingen van de zone-niveau.
 
-Zonal en zone-redundante gateways hebben fundamentele prestatieverbeteringen via reguliere virtuele netwerkgateways. Maken van een zone-redundante of zonal virtuele netwerkgateway is bovendien sneller dan andere gateways te maken. Maak in plaats van 45 minuten duurt, tijden nemen ongeveer 15 minuten voor een ExpressRoute-gateway en 19 minuten voor een VPN-gateway.
+Zones gekoppelde en zoneredundante gateways hebben fundamentele prestatieverbeteringen via reguliere virtuele netwerkgateways. Daarnaast is het sneller dan andere gateways maken het maken van een zone-redundante of zonegebonden virtuele netwerkgateway. Maak in plaats van 45 minuten duurt, tijden duurt het ongeveer 15 minuten voor een ExpressRoute-gateway en 19 minuten voor een VPN-gateway.
 
 ### <a name="zrgw"></a>Zone-redundante gateways
 
-Om automatisch te implementeren uw virtuele netwerkgateways over beschikbaarheid zones, kunt u zone-redundante virtuele netwerkgateways. Met zone-redundante gateways, kunt u profiteren van de SLA van 99,99% beschikbaarheid op NH voor toegang tot uw bedrijfskritieke, schaalbare services in Azure.
+Voor het automatisch implementeren van uw virtuele netwerkgateways in meerdere beschikbaarheidszones, kunt u zone-redundante virtuele netwerkgateways. Met zone-redundante gateways, kunt u profiteren van de bedrijfstijd van 99,99% SLA bij algemene beschikbaarheid voor toegang tot uw essentiële, schaalbare services op Azure.
 
 <br>
 <br>
 
-![afbeelding van zone redunant gateways](./media/create-zone-redundant-vnet-gateway/zonered.png)
+![zone-redunant gateways afbeelding](./media/create-zone-redundant-vnet-gateway/zonered.png)
 
-### <a name="zgw"></a>Zonal gateways
+### <a name="zgw"></a>Zonegebonden gateways
 
-Als u wilt implementeren gateways in een specifieke zone, moet u zonal gateways gebruiken. Wanneer u een zonal gateway implementeert, worden beide exemplaren van de gateway worden geïmplementeerd in dezelfde regio bevindt beschikbaarheid.
+Voor het implementeren van gateways in een specifieke zone, moet u zonegebonden gateways gebruiken. Wanneer u een zonegebonden gateway implementeert, worden beide exemplaren van de gateway in dezelfde Beschikbaarheidszone geïmplementeerd.
 
 <br>
 <br>
 
-![afbeelding van zonal gateways](./media/create-zone-redundant-vnet-gateway/zonal.png)
+![afbeelding van zonegebonden gateways](./media/create-zone-redundant-vnet-gateway/zonal.png)
 
 ## <a name="gwskus"></a>Gateway-SKU's
 
-Zone-redundante en zonal gateways moeten de nieuwe gateway-SKU's gebruiken. Eenmaal u [zelf registreren in het voorbeeld](#enroll), ziet u de nieuwe virtuele netwerkgateway SKU's in alle van de AZ Azure-regio's. Deze SKU's zijn vergelijkbaar met de bijbehorende SKU's voor ExpressRoute- en VPN-Gateway, behalve dat ze specifiek voor de zone-redundante en zonal gateways zijn.
+Zone-redundante en zonegebonden gateways moeten de nieuwe gateway-SKU's gebruiken. Nadat u [zelf registreren in de Preview-versie](#enroll), ziet u de nieuwe virtuele netwerkgateway-SKU's in alle van de AZ Azure-regio's. Deze SKU's zijn vergelijkbaar met de bijbehorende SKU's voor ExpressRoute en VPN-Gateway, behalve dat ze specifiek voor de zone-redundante en zonegebonden gateways zijn.
 
-De nieuwe gateway-SKU's zijn:
+De nieuwe gateway SKU's zijn:
 
 ### <a name="vpn-gateway"></a>VPN Gateway
 
@@ -60,32 +60,32 @@ De nieuwe gateway-SKU's zijn:
 
 ## <a name="pipskus"></a>Openbare IP-SKU 's
 
-Zone-redundante gateways en zonal gateways afhankelijk van de Azure openbare IP-resource *standaard* SKU. De configuratie van de Azure openbare IP-resource wordt bepaald of de gateway die u implementeert, zone-redundante of zonal. Als u een openbaar IP-resource met een *Basic* SKU, de gateway heeft niet de zoneredundantie van een en de gateway-bronnen worden regionale.
+Zone-redundante gateways en zonegebonden gateways beide zijn afhankelijk van de Azure openbare IP-adresresource *Standard* SKU. De configuratie van de Azure openbare IP-adresresource wordt bepaald of de gateway die u implementeert zone-redundante of zonegebonden. Als u een openbare IP-resource met maakt een *Basic* SKU, de gateway heeft geen eventuele zoneredundantie en de gateway-resources worden regionale.
 
 ### <a name="pipzrg"></a>Zone-redundante gateways
 
-Wanneer u maakt een openbare IP-adres met de **standaard** openbare IP-SKU zonder op te geven van een zone voor het gedrag is afhankelijk van of de gateway een VPN-gateway of een ExpressRoute-gateway is. 
+Wanneer u een openbaar IP-adres met maakt de **Standard** openbare IP-SKU zonder een zone op te geven, het gedrag verschilt, afhankelijk van of de gateway een VPN-gateway of een ExpressRoute-gateway is. 
 
-* Voor een VPN-gateway, worden de twee gatewayexemplaren geïmplementeerd in elke 2 buiten deze drie zones om zone redundantie te verlenen. 
-* Voor een ExpressRoute-gateway, omdat er meer dan twee instanties, kan de gateway overspannen alle drie zones.
+* Voor een VPN-gateway, wordt de twee gateway-instanties worden geïmplementeerd in elke 2 buiten deze drie zones om zone-redundantie te verlenen. 
+* Voor een ExpressRoute-gateway, omdat er meer dan twee instanties, kunt de gateway overbruggen alle drie zones.
 
-### <a name="pipzg"></a>Zonal gateways
+### <a name="pipzg"></a>Zonegebonden gateways
 
-Wanneer u maakt een openbare IP-adres met de **standaard** openbare IP-SKU en geeft u de Zone (1, 2 of 3), alle gatewayexemplaren wordt geïmplementeerd in dezelfde regio bevindt.
+Wanneer u een openbaar IP-adres met maakt de **Standard** openbare IP-SKU en geef de Zone (1, 2 of 3), alle gatewayexemplaren wordt geïmplementeerd in dezelfde regio.
 
 ### <a name="piprg"></a>Regionale gateways
 
-Wanneer u maakt een openbare IP-adres met de **Basic** openbare IP-SKU de gateway wordt geïmplementeerd als een regionaal gateway en hoeft niet elke zone-redundantie ingebouwd in de gateway.
+Wanneer u een openbaar IP-adres met maakt de **Basic** openbare IP-SKU, de gateway wordt geïmplementeerd als een regionale gateway en hoeft niet elke zone-redundantie ingebouwd in de gateway.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U kunt beide PowerShell lokaal worden geïnstalleerd op uw computer of de Azure-Cloud-Shell gebruiken. Als u wilt installeren en gebruiken van de PowerShell lokaal hiervoor de nieuwste versie van de PowerShell-module.
+U kunt een van beide PowerShell lokaal is geïnstalleerd op uw computer of de Azure Cloud Shell gebruiken. Als u ervoor kiest om te installeren en de PowerShell lokaal gebruikt, is deze functie vereist de meest recente versie van de PowerShell-module.
 
 [!INCLUDE [Cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-### <a name="to-use-powershell-locally"></a>Gebruik PowerShell lokaal
+### <a name="to-use-powershell-locally"></a>Het gebruik van PowerShell lokaal
 
-Als u werkt PowerShell lokaal op uw computer in plaats van met Cloud-Shell, moet u PowerShell-module 6.1.1 installeren of hoger. Als u wilt controleren de versie van PowerShell die u hebt geïnstalleerd, moet u de volgende opdracht gebruiken:
+Als u PowerShell lokaal worden gebruikt op uw computer, in plaats van de Cloud Shell gebruikt, moet u PowerShell-module 6.1.1 installeren of hoger. Om te controleren of de versie van PowerShell die u hebt geïnstalleerd, gebruikt u de volgende opdracht:
 
 ```azurepowershell
 Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
@@ -95,30 +95,30 @@ Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module install
 
 [!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
 
-## <a name="enroll"></a>1. Registreren in de Preview-versie
+## <a name="enroll"></a>1. Schrijf u in de Preview-versie
 
-Voordat u een zone-redundante of zonal gateway configureren kunt, moet u de uw abonnement in de Preview eerst zelf inschrijven. Wanneer uw abonnement is ingericht, wordt u om te zien van de nieuwe gateway-SKU's in alle regio's Azure AZ gestart. 
+Voordat u een zone-redundante of zonegebonden gateway configureren kunt, moet u eerst zelf zich inschrijven uw abonnement in de Preview-versie. Zodra uw abonnement actief is, wordt u om te zien van de nieuwe gateway-SKU's in alle regio's Azure AZ gestart. 
 
-Zorg ervoor dat u bent aangemeld bij uw Azure-account en het abonnement dat u goedgekeurde IP-adressen voor deze Preview wilt gebruiken. Gebruik het volgende voorbeeld om in te schrijven:
+Zorg ervoor dat u zich hebt aangemeld bij uw Azure-account en het abonnement dat u voor deze Preview-versie aan lijst met geaccepteerde wilt gebruiken. Gebruik het volgende voorbeeld om in te schrijven:
 
 ```azurepowershell-interactive
 Register-AzureRmProviderFeature -FeatureName AllowVMSSVirtualNetworkGateway -ProviderNamespace Microsoft.Network
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-Gebruik de volgende opdracht om te controleren of de functie 'AllowVMSSVirtualNetworkGateway' is geregistreerd bij uw abonnement:
+Gebruik de volgende opdracht uit om te controleren of de functie 'AllowVMSSVirtualNetworkGateway' met uw abonnement is geregistreerd:
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network
 ```
 
-Het resultaat ziet er ongeveer als in dit voorbeeld:
+Het resultaat ziet eruit als in dit voorbeeld:
 
 ![ingericht](./media/create-zone-redundant-vnet-gateway/verifypreview.png)
 
 ## <a name="variables"></a>2. De variabelen declareren
 
-De waarden voor de voorbeeld-stappen worden hieronder vermeld. Daarnaast gebruiken enkele voorbeelden gedeclareerde variabelen binnen de stappen. Als u deze stappen in uw eigen omgeving gebruikt, zorg er dan voor dat deze waarden te vervangen door uw eigen. Als u opgeeft, moet u controleren of de regio die u opgeeft, wordt ondersteund. Zie voor meer informatie de [Veelgestelde vragen over](#faq).
+De waarden voor de voorbeeldenstappen worden hieronder vermeld. Bovendien enkele van de voorbeelden gedeclareerde variabelen in de stappen gebruiken. Als u deze stappen in uw eigen omgeving gebruikt, zorg er dan voor dat deze waarden vervangen door uw eigen. Wanneer u locatie opgeeft, moet u controleren of de regio die u opgeeft wordt ondersteund. Zie voor meer informatie de [Veelgestelde vragen over](#faq).
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -154,7 +154,7 @@ $vnet = New-AzureRmVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location
 
 ## <a name="gwsub"></a>4. Voeg het gatewaysubnet toe
 
-Het gatewaysubnet bevat de gereserveerde IP-adressen die gebruikmaken van de services van de gateway virtuele netwerk. Gebruik de volgende voorbeelden toe te voegen en een gatewaysubnet instellen:
+Het gatewaysubnet bevat de gereserveerde IP-adressen die de virtuele-netwerkgatewayservices gebruik. Gebruik de volgende voorbeelden toevoegen en instellen van een gateway-subnet:
 
 Voeg het gatewaysubnet toe.
 
@@ -170,19 +170,19 @@ $getvnet | Set-AzureRmVirtualNetwork
 ```
 ## <a name="publicip"></a>5. Een openbaar IP-adres aanvragen
  
-Kies de instructies die betrekking hebben op de gateway die u wilt maken in deze stap. De selectie van zones voor het implementeren van de gateways, is afhankelijk van de zones die zijn opgegeven voor het openbare IP-adres.
+In deze stap kiest u de instructies die betrekking hebben op de gateway die u wilt maken. De selectie van zones voor het implementeren van de gateways, is afhankelijk van de zones die zijn opgegeven voor het openbare IP-adres.
 
 ### <a name="ipzoneredundant"></a>Voor de zone-redundante gateways
 
-Een openbaar IP-adres met een **standaard** PublicIpaddress SKU en geeft niet een zone. In dit geval worden de standaard openbare IP-adres gemaakt een zone-redundante openbare IP-adres.   
+Vraag een openbaar IP-adres met een **Standard** PublicIpaddress SKU en geeft niet een zone. In dit geval is de standaard openbare IP-adres hebt gemaakt een zone-redundante openbare IP-adres.   
 
 ```azurepowershell-interactive
 $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="ipzonalgw"></a>Voor zonal gateways
+### <a name="ipzonalgw"></a>Voor zonegebonden gateways
 
-Een openbaar IP-adres met een **standaard** PublicIpaddress SKU. Geef de zone (1, 2 of 3). Alle gatewayexemplaren wordt geïmplementeerd in deze zone.
+Vraag een openbaar IP-adres met een **Standard** PublicIpaddress SKU. Geef de zone (1, 2 of 3). Alle gatewayexemplaren wordt geïmplementeerd in deze zone.
 
 ```azurepowershell-interactive
 $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
@@ -190,12 +190,12 @@ $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Nam
 
 ### <a name="ipregionalgw"></a>Voor regionale gateways
 
-Een openbaar IP-adres met een **Basic** PublicIpaddress SKU. In dit geval de gateway wordt geïmplementeerd als een regionaal gateway en hoeft niet elke zone-redundantie ingebouwd in de gateway. De gatewayexemplaren worden gemaakt in alle zones.
+Vraag een openbaar IP-adres met een **Basic** PublicIpaddress SKU. In dit geval wordt de gateway wordt geïmplementeerd als een regionale gateway en hoeft niet elke zone-redundantie ingebouwd in de gateway. De gateway-instanties worden gemaakt in alle zones.
 
 ```azurepowershell-interactive
 $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
-## <a name="gwipconfig"></a>6. De IP-configuratie maken
+## <a name="gwipconfig"></a>6. Maak IP-configuratie
 
 ```azurepowershell-interactive
 $getvnet = Get-AzureRmVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
@@ -205,11 +205,7 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 
 ## <a name="gwconfig"></a>7. De gateway maken
 
-Maak de virtuele netwerkgateway.
-
->[!NOTE]
->Op dit moment kunt opgeven u de gateway-SKU niet. De SKU standaard automatisch ErGw1AZ voor ExpressRoute- en VpnGw1AZ voor VPN-Gateway.
->
+De virtuele netwerkgateway maakt.
 
 ### <a name="for-expressroute"></a>Voor ExpressRoute
 
@@ -225,46 +221,50 @@ New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name 
 
 ## <a name="feedback"></a>Hoe u om feedback te geven
 
-We zouden stellen uw feedback. Een e-mail sturen naar aznetworkgateways@microsoft.com Meld eventuele problemen of feedback geven (positief of negatief) voor de zone-redundante en zonal VPN- en Express Route-gateways. De naam van uw bedrijf in '['] opnemen in de onderwerpregel. Ook uw abonnements-ID als u een probleem wilt melden.
+We zouden waarderen uw feedback. Stuur een e-mail naar aznetworkgateways@microsoft.com problemen melden of feedback (positief of negatief) bieden voor de zone-redundante en zonegebonden VPN en Expressroute-gateways. De naam van uw bedrijf in '['] opnemen in de onderwerpregel. Ook uw abonnements-ID als u een probleem wilt melden.
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-### <a name="how-do-i-sign-up-for-the-preview"></a>Hoe meld ik me voor de Preview?
+### <a name="how-do-i-sign-up-for-the-preview"></a>Hoe registreer ik me voor de Preview?
 
-U kunt [zelf inschrijven](#enroll) met de PowerShell-opdrachten in dit artikel.
+U kunt [zelf inschrijven](#enroll) met behulp van de PowerShell-opdrachten in dit artikel.
 
-### <a name="what-will-change-when-i-enroll"></a>Wat er wordt gewijzigd wanneer ik Inschrijf?
+### <a name="what-will-change-when-i-enroll"></a>Wat verandert er wanneer ik registreren?
 
-Vanuit het perspectief wordt kunt tijdens de Preview, u uw gateways met zone redundantie implementeren. Dit betekent dat alle exemplaren van de gateways worden geïmplementeerd via Azure beschikbaarheid Zones en elke Zone beschikbaarheid een ander probleem- en update-domein is. Hierdoor kan uw gateways betrouwbare, beschikbare en robuuste op fouten van de zone.
+De Preview-versie van uw perspectief, kunt u uw gateways met zone-redundantie implementeren. Dit betekent dat alle exemplaren van de gateways worden geïmplementeerd in Azure-Beschikbaarheidszones en elke Beschikbaarheidszone een ander fout- en -domein is. Dit maakt uw gateways betrouwbare, beschikbare en flexibele op fouten van de zone.
 
-### <a name="what-regions-are-available-for-the-preview"></a>Welke regio's zijn beschikbaar voor de Preview?
+### <a name="can-i-use-the-azure-portal"></a>Kan ik de Azure-portal gebruiken?
 
-Zone-redundante en zonal gateways zijn beschikbaar in productie-Azure openbare gebieden.
+Ja, u kunt de Azure-portal gebruiken voor de Preview-versie. Echter, u toch wilt inschrijven met behulp van PowerShell of kunt u zich niet aan de portal te gebruiken tijdens de Preview.
 
-### <a name="will-i-be-billed-for-participating-in-this-preview"></a>Ik krijgt voor deelname in deze Preview?
+### <a name="what-regions-are-available-for-the-preview"></a>Welke regio's zijn beschikbaar voor de Preview-versie?
 
-U wordt niet gefactureerd voor uw gateways tijdens de Preview. Er is echter geen SLA die is gekoppeld aan uw implementatie. We zijn horen uw feedback zeer geïnteresseerd.
+Zone-redundante en zonegebonden gateways zijn beschikbaar in openbare productie/Azure-regio's.
+
+### <a name="will-i-be-billed-for-participating-in-this-preview"></a>Wordt ik gefactureerd voor uw deelname aan deze Preview?
+
+U wordt niet in rekening gebracht voor uw gateways tijdens de Preview. Er is echter geen SLA die is gekoppeld met uw implementatie. Er zijn we zeer geïnteresseerd in uw feedback horen.
 
 > [!NOTE]
-> Voor ExpressRoute-gateways is de gateway niet in rekening gebracht/in rekening gebracht. Echter, het circuit zelf (niet de gateway) worden gefactureerd.
+> Voor ExpressRoute-gateways, de gateway is niet in rekening gebracht/in rekening gebracht. Echter, het circuit zelf (niet de gateway) wordt gefactureerd.
 
-### <a name="what-regions-are-available-for-me-to-try-this-in"></a>Welke regio's zijn beschikbaar voor mij om te proberen dit op?
+### <a name="what-regions-are-available-for-me-to-try-this-in"></a>Welke regio's zijn beschikbaar voor me om te proberen dit op?
 
-De openbare preview is beschikbaar in VS-midden en Frankrijk centrale regio's (Azure-regio's waarvoor beschikbaarheid Zones algemeen beschikbaar). Voortaan kunt zullen we de Zone-redundante Gateways u beschikbaar te maken in andere openbare Azure-gebieden.
+De openbare preview-versie is beschikbaar in VS-midden en Frankrijk-centraal (Azure-regio's waarvoor Beschikbaarheidszones algemeen beschikbaar). Vanaf nu maken we de Zone-redundante Gateways beschikbaar wilt voor u in andere openbare Azure-regio.
 
-### <a name="can-i-change-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kan ik mijn bestaande virtuele netwerkgateways naar zone-redundante of zonal gateways wijzigen?
+### <a name="can-i-change-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kan ik mijn bestaande virtuele netwerkgateways met zone-redundante of zonegebonden gateways wijzigen?
 
-Migreren van uw bestaande virtuele netwerkgateways naar zone-redundante of zonal gateways is momenteel niet ondersteund. U kunt echter uw bestaande gateway verwijdert en opnieuw maken van een zone-redundante of zonal-gateway.
+Migreren van uw bestaande virtuele netwerkgateways met zone-redundante of zonegebonden gateways wordt momenteel niet ondersteund. U kunt echter uw bestaande gateway verwijderen en opnieuw maken van een zone-redundante of zonegebonden-gateway.
 
-### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Kan ik zowel VPN- en Express Route-gateways in hetzelfde virtuele netwerk implementeren?
+### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Kan ik een VPN- en Expressroute-gateways in hetzelfde virtuele netwerk implementeren?
 
-Naast elkaar bestaan van zowel de VPN- en Express Route-gateways in hetzelfde virtuele netwerk wordt ondersteund tijdens de openbare Preview. Maar ook op de hoogte van de volgende vereisten en beperkingen:
+Meerdere VPN- en Expressroute-gateways in hetzelfde virtuele netwerk wordt ondersteund tijdens de openbare Preview. Echter rekening houden met de volgende vereisten en beperkingen:
 
-* Reserve a /27 IP-adresbereik voor het gatewaysubnet.
-* Zone-redundante/zonal Express Route-gateways kunnen alleen bestaan naast elkaar met zone-redundante/zonal VPN-gateways.
-* De zone-redundante/zonal Express Route-gateway implementeren voordat u de zone-redundante/zonal VPN-gateway implementeert.
-* Een zone-redundante/zonal Express Route-gateway kunt verbonden zijn met maximaal 4 circuits.
+* Reserveer een /27 IP-adresbereik voor het gatewaysubnet.
+* Zone-redundante/zonegebonden Express Route-gateways kunnen alleen naast elkaar bestaan met zone-redundante/zonegebonden VPN-gateways.
+* De zone-redundante/zonegebonden Express Route-gateway implementeren voordat u de zone-redundante/zonegebonden VPN-gateway implementeert.
+* Een zone-redundante/zonegebonden Express Route-gateway kan worden verbonden aan maximaal 4 circuits.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-We zouden stellen uw feedback. Een e-mail sturen naar aznetworkgateways@microsoft.com Meld eventuele problemen of feedback geven (positief of negatief) voor de zone-redundante en zonal VPN- en Express Route-gateways. De naam van uw bedrijf in '['] opnemen in de onderwerpregel. Ook uw abonnements-ID als u een probleem wilt melden.
+We zouden waarderen uw feedback. Stuur een e-mail naar aznetworkgateways@microsoft.com problemen melden of feedback (positief of negatief) bieden voor de zone-redundante en zonegebonden VPN en Expressroute-gateways. De naam van uw bedrijf in '['] opnemen in de onderwerpregel. Ook uw abonnements-ID als u een probleem wilt melden.

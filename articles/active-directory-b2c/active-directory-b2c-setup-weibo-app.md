@@ -1,63 +1,67 @@
 ---
-title: Weibo configuratie in Azure Active Directory B2C | Microsoft Docs
-description: Meld u aan en meld u bieden voor gebruikers met een Weibo account in uw toepassingen die zijn beveiligd met Azure Active Directory B2C.
+title: Instellen van zich kunnen registreren en aanmelden met een Weibo-account met behulp van Azure Active Directory B2C | Microsoft Docs
+description: Meld u aan en meld u bieden aan klanten met een Weibo account in uw toepassingen met behulp van Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/26/2017
+ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bfd7dde290bd040f8457e6d095fdf896e802764b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2534e3e39d4a6dd1659dced5a1b0342798c0049e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444786"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951540"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: Bieden zich kunnen registreren en aanmelden voor consumenten met Weibo-accounts
+# <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Weibo-account met behulp van Azure Active Directory B2C
 
 > [!NOTE]
-> Deze functie is beschikbaar als preview-versie. Gebruik deze id-provider niet in uw productieomgeving.
+> Deze functie is beschikbaar als preview-versie.
 > 
 
 ## <a name="create-a-weibo-application"></a>Een Weibo-toepassing maken
 
-Voor het gebruik van Weibo als id-provider in Azure Active Directory (Azure AD) B2C, moet u een Weibo-toepassing maken en geven met de juiste parameters. U moet een account Weibo om dit te doen. Als u niet hebt, krijgt u één voor één [ http://weibo.com/signup/signup.php?lang=en-us ](http://weibo.com/signup/signup.php?lang=en-us).
+Als u wilt een Weibo-account gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de tenant die aangeeft. Als u nog een Weibo-account hebt, kunt u krijgen via [ http://weibo.com/signup/signup.php?lang=en-us ](http://weibo.com/signup/signup.php?lang=en-us).
 
-### <a name="register-for-the-weibo-developer-program"></a>Meld u aan voor het Ontwikkelaarsprogramma Weibo
-
-1. Ga naar de [Weibo ontwikkelaarsportal](http://open.weibo.com/) en meld u aan met de referenties van uw Weibo-account.
-2. Na het aanmelden, klik op de weergavenaam van uw in de rechterbovenhoek.
+1. Aanmelden bij de [Weibo ontwikkelaarsportal](http://open.weibo.com/) met de referenties van uw Weibo-account.
+2. Na de aanmelding, selecteert u uw weergavenaam in de rechterbovenhoek.
 3. Selecteer in de vervolgkeuzelijst**编辑开发者信息**(informatie voor ontwikkelaars bewerken).
-4. Voer de vereiste gegevens in het formulier en klik op**提交**(verzenden).
+4. Voer de vereiste gegevens in en selecteer**提交**(verzenden).
 5. Voltooi de verificatieprocedure van de e-mailbericht.
 6. Ga naar de [identiteitverificatie pagina](http://open.weibo.com/developers/identity/edit).
-7. Voer de vereiste gegevens in het formulier en klik op**提交**(verzenden).
+7. Voer de vereiste gegevens in en selecteer**提交**(verzenden).
 
 ### <a name="register-a-weibo-application"></a>Een toepassing Weibo registreren
 
 1. Ga naar de [nieuwe pagina voor de app registratie Weibo](http://open.weibo.com/apps/new).
 2. Voer informatie over de benodigde toepassing.
-3. Klik op**创建**(maken).
-4. Kopieer de waarden van **App-sleutel** en **Appgeheim**. U moet dit later opnieuw.
+3. Selecteer**创建**(maken).
+4. Kopieer de waarden van **App-sleutel** en **Appgeheim**. U moet deze de id-provider toevoegen aan uw tenant.
 5. De vereiste foto's uploaden en voer de benodigde gegevens.
-6. Klik op**保存以上信息**(opslaan).
-7. Klik op**高级信息**(geavanceerde informatie over).
-8. Klik op**编辑**(bewerken) naast het veld voor OAuth 2.0**授权设置**(Omleidings-URL).
+6. Selecteer**保存以上信息**(opslaan).
+7. Selecteer**高级信息**(geavanceerde informatie over).
+8. Selecteer**编辑**(bewerken) naast het veld voor OAuth 2.0**授权设置**(Omleidings-URL).
 9. Voer `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` voor OAuth 2.0**授权设置**(Omleidings-URL). Bijvoorbeeld, als uw `tenant_name` is contoso.onmicrosoft.com, de URL die moet worden ingesteld `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
-10. Klik op**提交**(verzenden).  
+10. Selecteer**提交**(verzenden).  
 
-## <a name="configure-weibo-as-an-identity-provider-in-your-tenant"></a>Weibo configureren als een id-provider in uw tenant
-1. Volg deze stappen om [gaat u naar de blade B2C-functies](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) in Azure portal.
-2. Klik op de blade B2C-functies **id-providers**.
-3. Klik op **+Toevoegen** boven aan de blade.
-4. Geef een beschrijvende **naam** voor de configuratie van de id-provider. Voer bijvoorbeeld 'Weibo'.
-5. Klik op **type id-provider**, selecteer **Weibo**, en klikt u op **OK**.
-6. Klik op **deze id-provider instellen**
-7. Voer de **App-sleutel** die u eerder hebt gekopieerd als de **Client-ID**.
-8. Voer de **Appgeheim** die u eerder hebt gekopieerd als de **Clientgeheim**.
-9. Klik op **OK** en klik vervolgens op **maken** aan uw Weibo-configuratie op te slaan.
+## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Een account Weibo configureren als een id-provider
 
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant gebruikt door hiernaar over te schakelen rechtsboven in de Azure Portal. Selecteer de abonnementsgegevens en selecteer vervolgens **Schakelen tussen mappen**. 
+
+    ![Overschakelen naar de Azure AD B2C-tenant](./media/active-directory-b2c-setup-weibo-app/switch-directories.png)
+
+    Kies de map met uw tenant.
+
+    ![Map selecteren](./media/active-directory-b2c-setup-weibo-app/select-directory.png)
+
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+4. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
+5. Geef een **naam**. Voer bijvoorbeeld *Weibo*.
+6. Selecteer **type id-provider**, selecteer **Weibo (Preview)**, en klikt u op **OK**.
+7. Selecteer **instellen van deze id-provider** en voer de App-sleutel die u eerder hebt genoteerd als de **Client-ID** en voert u de App-geheim die u hebt genoteerd als de **clientgeheim** van de Weibo-toepassing die u eerder hebt gemaakt.
+8. Klik op **OK** en klik vervolgens op **maken** aan uw Weibo-configuratie op te slaan.

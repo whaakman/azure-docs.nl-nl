@@ -1,6 +1,6 @@
 ---
-title: Geautomatiseerde scripts voor het maken van Service Manager-Web-app verbinding maken met de IT-Service Management-Connector in Azure | Microsoft Docs
-description: Een Service Manager-Web-app met een geautomatiseerde script verbinding maken met de IT-Service Management-Connector in Azure, centraal kunt bewaken en beheren van de werkitems ITSM maken.
+title: Geautomatiseerd script voor het maken van Service Manager-Web-app om te verbinden met de IT Service Management-Connector in Azure | Microsoft Docs
+description: Een Service Manager-Web-app met behulp van een geautomatiseerd script verbinding maken met de IT Service Management-Connector in Azure, en centraal bewaken en beheren van de ITSM-werkitems maken.
 services: log-analytics
 documentationcenter: ''
 author: jyothirmaisuri
@@ -15,34 +15,34 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.component: na
-ms.openlocfilehash: 15626a9dd2e889470477e34d6f1ebd47cce1411b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 0fe987b00da669daf3830e903d53793d9d1edab6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128653"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950121"
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script"></a>Service Manager-Web-app met behulp van de geautomatiseerde script maken
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Service Manager-Web-app met behulp van de geautomatiseerde scripts maken
 
-Gebruik het volgende script te maken van de Web-app voor uw exemplaar van de Service Manager. Meer informatie over Service Manager-verbinding is hier: [Service Manager-Web-app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Het volgende script gebruiken om te maken van de Web-app voor uw exemplaar van Service Manager. Meer informatie over Service Manager-verbinding is hier: [Service Manager-Web-app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
-Voer het script door de volgende vereiste gegevens:
+Voer het script door te geven van de volgende vereiste gegevens:
 
 - Details van de Azure-abonnement
 - Resourcegroepnaam
 - Locatie
-- Details van Service Manager-server (server name, domein, gebruikersnaam en wachtwoord)
-- Site-voorvoegsel voor uw Web-app
+- Service Manager-server-gegevens (naam, domein, gebruikersnaam en wachtwoord)
+- Voorvoegsel van de site de naam voor uw Web-app
 - Service Bus-Namespace.
 
-Het script maakt de Web-app met de naam die u hebt opgegeven (samen met enkele extra tekenreeksen uniek te maken). Genereert het **Web-app-URL**, **client-ID**, en **clientgeheim**.
+Het script maakt de Web-app met behulp van de naam die u hebt opgegeven (samen met enkele extra tekenreeksen uniek te maken). Het genereert de **Web-app-URL**, **client-ID**, en **clientgeheim**.
 
-Sla deze waarden moet u deze waarden wanneer u een verbinding met de IT-Service Management-Connector maakt.
+Sla deze waarden moet u deze waarden wanneer u een verbinding met de IT Service Management-Connector maakt.
 
 ## <a name="prerequisites"></a>Vereisten
 
  Windows Management Framework 5.0 of hoger.
-Windows 10 heeft 5.1 standaard. U kunt downloaden van het framework van [hier](https://www.microsoft.com/download/details.aspx?id=53347):
+Windows 10 heeft 5.1 standaard. U kunt downloaden via [hier](https://www.microsoft.com/download/details.aspx?id=50395):
 
 Gebruik het volgende script:
 
@@ -323,4 +323,4 @@ if(!$err)
 
 ```
 ## <a name="next-steps"></a>Volgende stappen
-[Configureer de hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+[Configureren van de hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

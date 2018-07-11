@@ -1,9 +1,9 @@
 ---
 title: Een volledige Linux-omgeving maken met de Azure CLI 1.0 | Microsoft Docs
-description: Maken van opslag, een Linux-VM, een virtueel netwerk en subnet, een load balancer, een NIC, een openbare IP-adres en een netwerkbeveiligingsgroep via een compleet nieuwe met behulp van de Azure CLI 1.0.
+description: Maken van opslag, een Linux-VM, een virtueel netwerk en subnet, een load balancer, een NIC, een openbaar IP-adres en een netwerkbeveiligingsgroep, allemaal vanaf de grond met behulp van de Azure CLI 1.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,45 +14,45 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
-ms.author: iainfou
-ms.openlocfilehash: 4a43e138d3497e01fe9e0e5c55a4a66adac767c6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 1fb5542af77fbb584effca24a74b9e233359cf0e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30910761"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932326"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Een volledige Linux-omgeving maken met de Azure CLI 1.0
-In dit artikel verder gaan we met een eenvoudig netwerk met een combinatie van virtuele machines die gebruikt voor ontwikkeling en eenvoudige computing worden en een load balancer. We doorlopen het proces door opdracht totdat u twee werkt, beveiligde virtuele Linux-machines waarmee u verbinding hebt van een willekeurige plaats op het Internet maken kunt. Vervolgens kunt u op verplaatsen naar complexe netwerken en omgevingen.
+In dit artikel maken we een eenvoudig netwerk met een load balancer en een combinatie van VM's die nuttig voor de ontwikkeling en eenvoudig computing zijn. We helpen bij de opdracht door de opdracht uit, totdat u twee werkdagen, beveiligde virtuele Linux-machines waarmee u verbinding hebt van een willekeurige plaats op het Internet maken kan. Vervolgens kunt u op verplaatsen naar meer complexe netwerken en omgevingen.
 
-Langs de manier u meer informatie over de afhankelijkheidshiërarchie of het implementatiemodel van Resource Manager u biedt en over hoeveel inschakelen biedt. Nadat u hoe het systeem is gemaakt ziet, kunt u opnieuw bouwen het veel sneller met behulp van [Azure Resource Manager-sjablonen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nadat u meer wilt hoe de onderdelen van uw omgeving bij elkaar passen weten, maken van sjablonen voor het automatiseren van hen wordt ook eenvoudiger.
+Gaandeweg u meer informatie over de afhankelijkheidshiërarchie van dat het implementatiemodel van Resource Manager u kunt, en over hoeveel inschakelen. Nadat u hoe het systeem is gemaakt ziet, kunt u opnieuw bouwen deze veel sneller met behulp van [Azure Resource Manager-sjablonen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ook nadat u meer wilt hoe de onderdelen van uw omgeving bij elkaar passen weten, aanzienlijk het maken van sjablonen voor het automatiseren van deze eenvoudiger.
 
 De omgeving bevat:
 
 * Twee virtuele machines in een beschikbaarheidsset.
-* Een load balancer met een regel voor load balancing op poort 80.
-* (NSG) netwerkbeveiligingsgroepen uw virtuele machine te beveiligen tegen ongewenste verkeer.
+* Een load balancer met een taakverdelingsregel op poort 80.
+* (NSG) regels voor netwerkbeveiligingsgroepen op uw VM te beveiligen tegen ongewenste verkeer.
 
-Als u wilt deze aangepaste omgeving maken, moet u de meest recente [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in de modus Resource Manager (`azure config mode arm`). U moet ook een JSON hulpprogramma parseren. In dit voorbeeld wordt [jq](https://stedolan.github.io/jq/).
+Als u wilt deze aangepaste omgeving maken, moet u de meest recente [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in Resource Manager-modus (`azure config mode arm`). U moet ook een hulpprogramma voor het parseren JSON. In dit voorbeeld wordt [jq](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
 U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
-- [Azure CLI 1.0](#quick-commands) – onze CLI voor het klassieke en resource management-implementatiemodel (in dit artikel)
+- [Azure CLI 1.0](#quick-commands) : onze CLI voor het klassieke en resource Manager-implementatiemodel (dit artikel)
 - [Azure CLI 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
 
 
 ## <a name="quick-commands"></a>Snelle opdrachten
-Als u nodig hebt voor de taak, de volgende sectie details snel de base-opdrachten voor het uploaden van een virtuele machine in Azure. Meer gedetailleerde informatie en context voor elke stap vindt u in de rest van het document, te beginnen [hier](#detailed-walkthrough).
+Als u nodig hebt voor de taak, de volgende sectie gegevens snel de base-opdrachten voor het uploaden van een virtuele machine naar Azure. Meer gedetailleerde informatie en -context voor elke stap vindt u in de rest van het document, te beginnen [hier](#detailed-walkthrough).
 
-Zorg ervoor dat u hebt [de Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en het gebruik van Resource Manager-modus:
+Zorg ervoor dat u hebt [de Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en met behulp van Resource Manager-modus:
 
 ```azurecli
 azure config mode arm
 ```
 
-In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter `myResourceGroup`, `mystorageaccount`, en `myVM`.
+In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten `myResourceGroup`, `mystorageaccount`, en `myVM`.
 
 Maak de resourcegroep. Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westeurope` locatie:
 
@@ -66,7 +66,7 @@ Controleer of de resourcegroep met behulp van de JSON-parser:
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Het opslagaccount maken. Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`. (Naam van het opslagaccount moet uniek zijn, zodat uw eigen unieke naam opgeven.)
+De storage-account maken. Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`. (Naam van het opslagaccount moet uniek zijn, zodat uw eigen unieke naam opgeven.)
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
@@ -86,7 +86,7 @@ azure network vnet create -g myResourceGroup -l westeurope\
   -n myVnet -a 192.168.0.0/16
 ```
 
-Een subnet maken. Het volgende voorbeeld wordt een subnet met de naam `mySubnet`:
+Maak een subnet. Het volgende voorbeeld wordt een subnet met de naam `mySubnet`:
 
 ```azurecli
 azure network vnet subnet create -g myResourceGroup \
@@ -99,14 +99,14 @@ Controleer of het virtuele netwerk en subnet met behulp van de JSON-parser:
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-Maak een openbare IP-adres. Het volgende voorbeeld wordt een openbaar IP-adres met de naam `myPublicIP` met de DNS-naam van `mypublicdns`. (De DNS-naam moet uniek zijn, zodat uw eigen unieke naam opgeven.)
+Maak een openbaar IP-adres. Het volgende voorbeeld wordt een openbaar IP-adres met de naam `myPublicIP` met de DNS-naam van `mypublicdns`. (De DNS-naam moet uniek zijn, zodat uw eigen unieke naam opgeven.)
 
 ```azurecli
 azure network public-ip create -g myResourceGroup -l westeurope \
   -n myPublicIP  -d mypublicdns -a static -i 4
 ```
 
-De load balancer maken. Het volgende voorbeeld wordt een load balancer met de naam `myLoadBalancer`:
+Maak de load balancer. Het volgende voorbeeld wordt een load balancer met de naam `myLoadBalancer`:
 
 ```azurecli
 azure network lb create -g myResourceGroup -l westeurope -n myLoadBalancer
@@ -119,14 +119,14 @@ azure network lb frontend-ip create -g myResourceGroup -l myLoadBalancer \
   -i myPublicIP -n myFrontEndPool
 ```
 
-Maak de back-end-IP-adresgroep voor de load balancer. Het volgende voorbeeld wordt een back-end-IP-adresgroep met de naam `myBackEndPool`:
+Maak de back-end-IP-adresgroep voor de load balancer. Het volgende voorbeeld wordt een back-end-IP-adrespool met de naam `myBackEndPool`:
 
 ```azurecli
 azure network lb address-pool create -g myResourceGroup -l myLoadBalancer \
   -n myBackEndPool
 ```
 
-SSH inkomende network address translation (NAT) regels voor de load balancer maken. Het volgende voorbeeld maakt u twee regels van load balancer, `myLoadBalancerRuleSSH1` en `myLoadBalancerRuleSSH2`:
+Maak SSH inkomende netwerk regels van address translation (NAT) voor de load balancer. Het volgende voorbeeld maakt u twee load balancer-regels, `myLoadBalancerRuleSSH1` en `myLoadBalancerRuleSSH2`:
 
 ```azurecli
 azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
@@ -135,7 +135,7 @@ azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
   -n myLoadBalancerRuleSSH2 -p tcp -f 4223 -b 22
 ```
 
-Maken van het web inkomende NAT-regels voor de load balancer. Het volgende voorbeeld wordt een regel voor load balancer met de naam `myLoadBalancerRuleWeb`:
+Maken van het web inkomende NAT-regels voor de load balancer. Het volgende voorbeeld wordt een load balancer-regel met de naam `myLoadBalancerRuleWeb`:
 
 ```azurecli
 azure network lb rule create -g myResourceGroup -l myLoadBalancer \
@@ -143,7 +143,7 @@ azure network lb rule create -g myResourceGroup -l myLoadBalancer \
   -t myFrontEndPool -o myBackEndPool
 ```
 
-De load balancer-test health maken. Het volgende voorbeeld wordt een TCP-test met de naam `myHealthProbe`:
+De load balancer-statustest maken. Het volgende voorbeeld wordt een TCP-test met de naam `myHealthProbe`:
 
 ```azurecli
 azure network lb probe create -g myResourceGroup -l myLoadBalancer \
@@ -156,7 +156,7 @@ Controleer of de load balancer, IP-adresgroepen en NAT-regels met behulp van de 
 azure network lb show -g myResourceGroup -n myLoadBalancer --json | jq '.'
 ```
 
-De eerste netwerkinterfacekaart (NIC) maken. Vervang de `#####-###-###` secties met uw eigen Azure-abonnement-ID. Uw abonnement ID wordt vermeld in de uitvoer van **jq** wanneer u de resources die u maakt. U kunt ook uw abonnements-ID met weergeven `azure account list`.
+Maak de eerste netwerkinterfacekaart (NIC). Vervang de `#####-###-###` secties door uw eigen Azure-abonnement-ID. Uw abonnement ID wordt vermeld in de uitvoer van **jq** wanneer u de resources die u maakt. U kunt ook uw abonnements-ID met weergeven `azure account list`.
 
 Het volgende voorbeeld wordt een NIC met de naam `myNic1`:
 
@@ -167,7 +167,7 @@ azure network nic create -g myResourceGroup -l westeurope \
   -e "/subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1"
 ```
 
-Maken van de tweede netwerkadapter. Het volgende voorbeeld wordt een NIC met de naam `myNic2`:
+Maken van de tweede NIC Het volgende voorbeeld wordt een NIC met de naam `myNic2`:
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -190,7 +190,7 @@ azure network nsg create -g myResourceGroup -l westeurope \
   -n myNetworkSecurityGroup
 ```
 
-Twee regels voor binnenkomende verbindingen voor de netwerkbeveiligingsgroep toevoegen. Het volgende voorbeeld maakt u twee regels `myNetworkSecurityGroupRuleSSH` en `myNetworkSecurityGroupRuleHTTP`:
+Voeg twee regels voor binnenkomende verbindingen voor de netwerkbeveiligingsgroep. Het volgende voorbeeld maakt u twee regels `myNetworkSecurityGroupRuleSSH` en `myNetworkSecurityGroupRuleHTTP`:
 
 ```azurecli
 azure network nsg rule create -p tcp -r inbound -y 1000 -u 22 -c allow \
@@ -205,20 +205,20 @@ Controleer of de netwerkbeveiligingsgroep en de regels voor binnenkomende verbin
 azure network nsg show -g myResourceGroup -n myNetworkSecurityGroup --json | jq '.'
 ```
 
-De netwerkbeveiligingsgroep binden aan de twee NIC's:
+De netwerkbeveiligingsgroep koppelen aan de twee NIC's:
 
 ```azurecli
 azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic1
 azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic2
 ```
 
-De beschikbaarheidsset maken. Het volgende voorbeeld wordt een benoemde beschikbaarheidsset `myAvailabilitySet`:
+De beschikbaarheidsset maken. Het volgende voorbeeld wordt een beschikbaarheidsset met de naam `myAvailabilitySet`:
 
 ```azurecli
 azure availset create -g myResourceGroup -l westeurope -n myAvailabilitySet
 ```
 
-De eerste Linux VM maken. Het volgende voorbeeld wordt een virtuele machine met de naam `myVM1`:
+De eerste Linux-VM maken. Het volgende voorbeeld wordt een virtuele machine met de naam `myVM1`:
 
 ```azurecli
 azure vm create \
@@ -236,7 +236,7 @@ azure vm create \
     --admin-username azureuser
 ```
 
-De tweede Linux VM maken. Het volgende voorbeeld wordt een virtuele machine met de naam `myVM2`:
+De tweede Linux-VM maken. Het volgende voorbeeld wordt een virtuele machine met de naam `myVM2`:
 
 ```azurecli
 azure vm create \
@@ -254,32 +254,32 @@ azure vm create \
     --admin-username azureuser
 ```
 
-Gebruik de JSON-parser om te controleren of alles die is gemaakt:
+Gebruik de JSON-parser om te controleren of alles dat is gemaakt:
 
 ```azurecli
 azure vm show -g myResourceGroup -n myVM1 --json | jq '.'
 azure vm show -g myResourceGroup -n myVM2 --json | jq '.'
 ```
 
-Uw nieuwe omgeving exporteren naar een sjabloon om snel nieuwe exemplaren opnieuw te maken:
+Uw nieuwe omgeving exporteren naar een sjabloon voor het snel nieuwe exemplaren opnieuw te maken:
 
 ```azurecli
 azure group export myResourceGroup
 ```
 
 ## <a name="detailed-walkthrough"></a>Gedetailleerd overzicht
-De gedetailleerde stappen volgen wordt uitgelegd wat elke opdracht doet tijdens het samenstellen van buiten uw omgeving. Deze begrippen zijn handig als u uw eigen aangepaste omgevingen voor ontwikkeling of productie bouwen.
+De gedetailleerde stappen die volgen wordt uitgelegd wat elke opdracht doet tijdens het ontwikkelen van uw omgeving. Deze begrippen zijn nuttig wanneer u uw eigen aangepaste omgevingen voor ontwikkeling of productie bouwen.
 
-Zorg ervoor dat u hebt [de Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en het gebruik van Resource Manager-modus:
+Zorg ervoor dat u hebt [de Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en met behulp van Resource Manager-modus:
 
 ```azurecli
 azure config mode arm
 ```
 
-In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter `myResourceGroup`, `mystorageaccount`, en `myVM`.
+In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten `myResourceGroup`, `mystorageaccount`, en `myVM`.
 
-## <a name="create-resource-groups-and-choose-deployment-locations"></a>Maken van resourcegroepen en locaties implementatie kiezen
-Azure-resourcegroepen zijn logische implementatie entiteiten die bevatten informatie over de configuratie en metagegevens inschakelen van de logische beheer van de resource-implementaties. Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westeurope` locatie:
+## <a name="create-resource-groups-and-choose-deployment-locations"></a>Resourcegroepen maken en implementatie locaties kiezen
+Azure-resourcegroepen zijn logische implementatie-entiteiten die bevatten configuratie-informatie en de metagegevens van het inschakelen van de logische beheer van resource-implementaties. Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westeurope` locatie:
 
 ```azurecli
 azure group create --name myResourceGroup --location westeurope
@@ -304,7 +304,7 @@ info:    group create command OK
 ## <a name="create-a-storage-account"></a>Create a storage account
 Storage-accounts moet u voor uw VM-schijven en voor eventuele extra gegevensschijven die u wilt toevoegen. U kunt storage-accounts maken bijna onmiddellijk na het maken van resourcegroepen.
 
-Hier gebruiken we de `azure storage account create` opdracht, en het type opslagondersteuning die u wilt dat de locatie van het account, de resourcegroep die wordt doorgegeven bepaalt. Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`:
+Hier gebruiken we de `azure storage account create` opdracht, en het type opslagondersteuning dat u wilt doorgeven van de locatie van het account, de resourcegroep die besturingselementen. Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`:
 
 ```azurecli
 azure storage account create \  
@@ -322,7 +322,7 @@ info:    Executing command storage account create
 info:    storage account create command OK
 ```
 
-Onze resourcegroep controleren met behulp van de `azure group show` opdracht, gebruiken we de [jq](https://stedolan.github.io/jq/) hulpprogramma samen met de `--json` Azure CLI-optie. (U kunt **jsawk** of elke gewenste parseren van de JSON taal-bibliotheek.)
+Het onderzoeken van de resourcegroep met behulp van de `azure group show` opdracht, gebruiken we de [jq](https://stedolan.github.io/jq/) hulpprogramma samen met de `--json` Azure CLI-optie. (U kunt **jsawk** of elke taal-bibliotheek die u liever de JSON parseren.)
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -360,13 +360,13 @@ Uitvoer:
 }
 ```
 
-Voor het onderzoeken van het opslagaccount met behulp van de CLI, moet u eerst de accountnamen en sleutels ingesteld. Vervang de naam van het opslagaccount in het volgende voorbeeld met een naam die u kiest:
+Voor het onderzoeken van het opslagaccount met behulp van de CLI, moet u eerst de accountnamen en sleutels instellen. Vervang de naam van het opslagaccount in het volgende voorbeeld met een naam die u kiest:
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show mystorageaccount --resource-group myResourceGroup --json | jq -r '.string')"
 ```
 
-U kunt vervolgens uw storage-gegevens eenvoudig bekijken:
+Vervolgens kunt u uw storage-gegevens eenvoudig bekijken:
 
 ```azurecli
 azure storage container list
@@ -384,7 +384,7 @@ info:    storage container list command OK
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en een subnet maken
-Vervolgens gaat u moet maken van een virtueel netwerk in Azure en een subnet van uw virtuele machines maken worden uitgevoerd. Het volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` met de `192.168.0.0/16` adresvoorvoegsel:
+Vervolgens gaat u moet maken van een virtueel netwerk die wordt uitgevoerd in Azure en een subnet waarin u uw virtuele machines kunt maken. Het volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` met de `192.168.0.0/16` adresvoorvoegsel:
 
 ```azurecli
 azure network vnet create --resource-group myResourceGroup --location westeurope \
@@ -408,7 +408,7 @@ data:      192.168.0.0/16
 info:    network vnet create command OK
 ```
 
-Opnieuw, Hiermee kunt u de optie--json gebruiken `azure group show` en `jq` om te zien hoe we onze bronnen bouwen. Nu een `storageAccounts` resource en een `virtualNetworks` resource.  
+Nogmaals, gebruiken we de mogelijkheid om--json `azure group show` en `jq` om te zien hoe we onze resources bouwen. We hebben nu een `storageAccounts` resource en een `virtualNetworks` resource.  
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -453,7 +453,7 @@ Uitvoer:
 }
 ```
 
-Nu gaan we maken een subnet in de `myVnet` virtueel netwerk waarin de virtuele machines zijn geïmplementeerd. We gebruiken de `azure network vnet subnet create` opdracht samen met de resources die we al hebt gemaakt: de `myResourceGroup` resourcegroep en de `myVnet` virtueel netwerk. In het volgende voorbeeld voegen we het subnet met de naam `mySubnet` met het adres subnetvoorvoegsel van `192.168.1.0/24`:
+Nu gaan we maken een subnet in de `myVnet` virtuele netwerk waarin de virtuele machines zijn geïmplementeerd. We gebruiken de `azure network vnet subnet create` opdracht, samen met de resources die we al hebt gemaakt: de `myResourceGroup` resourcegroep en de `myVnet` virtueel netwerk. In het volgende voorbeeld voegen we het subnet met de naam `mySubnet` met het adresvoorvoegsel subnet van `192.168.1.0/24`:
 
 ```azurecli
 azure network vnet subnet create --resource-group myResourceGroup \
@@ -476,7 +476,7 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-Omdat het subnet logisch binnen het virtuele netwerk, zoeken we de informatie over het subnet met een iets andere opdracht. De opdracht we gebruiken is `azure network vnet show`, maar we verder te onderzoeken van de JSON-uitvoer met behulp van `jq`.
+Omdat het subnet logisch binnen het virtuele netwerk, zoeken we de informatie over het subnet met een iets andere opdracht. De opdracht die we gebruiken is `azure network vnet show`, maar we blijven de JSON-uitvoer onderzoeken met behulp van `jq`.
 
 ```azurecli
 azure network vnet show myResourceGroup myVnet --json | jq '.'
@@ -514,7 +514,7 @@ Uitvoer:
 ```
 
 ## <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
-Nu gaan we het openbare IP-adres (PIP) die we aan de load balancer toewijzen maken. Hiermee kunt u verbinding maken met uw virtuele machines van het Internet met behulp van de `azure network public-ip create` opdracht. Omdat het standaardadres dynamisch is, maken we een benoemde DNS-vermelding in de **cloudapp.azure.com** domein met behulp van de `--domain-name-label` optie. Het volgende voorbeeld wordt een openbaar IP-adres met de naam `myPublicIP` met de DNS-naam van `mypublicdns`. Omdat de DNS-naam moet uniek zijn, kunt u uw eigen unieke DNS-naam opgeven:
+Nu gaan we maken het openbare IP-adres (PIP) dat we aan uw load balancer toewijzen. Hiermee kunt u verbinding maken met uw VM's via Internet met behulp van de `azure network public-ip create` opdracht. Omdat het standaardadres dynamisch is, maken we een benoemde DNS-vermelding in de **cloudapp.azure.com** domein met behulp van de `--domain-name-label` optie. Het volgende voorbeeld wordt een openbaar IP-adres met de naam `myPublicIP` met de DNS-naam van `mypublicdns`. Omdat de DNS-naam moet uniek zijn, kunt u uw eigen unieke DNS-naam opgeven:
 
 ```azurecli
 azure network public-ip create --resource-group myResourceGroup \
@@ -540,7 +540,7 @@ data:    FQDN                            : mypublicdns.westeurope.cloudapp.azure
 info:    network public-ip create command OK
 ```
 
-Het openbare IP-adres is ook een bron op het hoogste niveau, zodat u deze met ziet `azure group show`.
+Het openbare IP-adres is ook een resource op het hoogste niveau, zodat u met zien kunt `azure group show`.
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -592,7 +592,7 @@ Uitvoer:
 }
 ```
 
-U kunt meer informatie over resource, zoals de volledig gekwalificeerde domeinnaam (FQDN) van het subdomein, met behulp van de volledige onderzoeken `azure network public-ip show` opdracht. Het openbare IP-adres resource logisch is toegewezen, maar een specifiek adres nog niet is toegewezen. Als u een IP-adres, gaat u moet een load balancer die we nog geen hebt gemaakt.
+U kunt meer Resourcedetails, met inbegrip van de volledig gekwalificeerde domeinnaam (FQDN) van het subdomein, met behulp van de volledige onderzoeken `azure network public-ip show` opdracht. Het openbare IP-adresresource is toegewezen logisch, maar is nog niet een specifiek adres toegewezen. Als u een IP-adres, gaat u moet een load balancer, die we nog geen hebt gemaakt.
 
 ```azurecli
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
@@ -618,7 +618,7 @@ Uitvoer:
 ```
 
 ## <a name="create-a-load-balancer-and-ip-pools"></a>Een load balancer en IP-adresgroepen maken
-Wanneer u een load balancer maakt, kunt u verkeer verdelen over meerdere virtuele machines. Het biedt redundantie voor uw toepassingen ook door het uitvoeren van meerdere virtuele machines die op aanvragen van gebruikers in het geval van onderhoud of zware belasting reageren. Het volgende voorbeeld wordt een load balancer met de naam `myLoadBalancer`:
+Wanneer u een load balancer maakt, kunt u verkeer verdelen over meerdere virtuele machines. Het biedt redundantie voor uw toepassingen ook door het uitvoeren van meerdere virtuele machines die op aanvragen van gebruikers in het geval van onderhoud of zware belastingen reageren. Het volgende voorbeeld wordt een load balancer met de naam `myLoadBalancer`:
 
 ```azurecli
 azure network lb create --resource-group myResourceGroup --location westeurope \
@@ -639,9 +639,9 @@ data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
 
-De load balancer is redelijk leeg, dus gaan we een aantal IP-adresgroepen maken. We willen maken van twee IP-adresgroepen voor de load balancer, één voor de front-end en één voor de back-end. De front-end-IP-adresgroep is openbaar zichtbaar. Het is ook de locatie waarop we de PIP die we eerder hebben gemaakt toewijzen. Vervolgens gebruiken we de back-end-pool als locatie voor de virtuele machines verbinding maken met. Op die manier het verkeer door de load balancer naar de virtuele machines kan stromen.
+Onze load balancer is redelijk leeg, dus gaan we enkele IP-adresgroepen maken. We willen maken van twee IP-adresgroepen voor de load balancer, één voor de front-end en een voor de back-end. De front-end-IP-adresgroep is zichtbaar voor iedereen. Het is ook de locatie waarop we de PIP dat we eerder hebben gemaakt toewijzen. Vervolgens gebruiken we de back-end-adrespool als een locatie voor onze VM's verbinding maken met. Op die manier kunnen door de load balancer met de VM's kan het verkeer stromen.
 
-Eerst laten we onze front-end-IP-adresgroep maken. Het volgende voorbeeld wordt een front-groep met de naam `myFrontEndPool`:
+Eerst gaan we onze front-end-IP-adresgroep maken. Het volgende voorbeeld wordt een front-end-pool met de naam `myFrontEndPool`:
 
 ```azurecli
 azure network lb frontend-ip create --resource-group myResourceGroup \
@@ -663,9 +663,9 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/my
 info:    network lb mySubnet-ip create command OK
 ```
 
-Houd er rekening mee hoe we gebruikt de `--public-ip-name` switch door te geven de `myPublicIP` die we eerder hebben gemaakt. Het openbare IP-adres toewijzen aan de load balancer, kunt u uw virtuele machines worden bereikt via Internet.
+Houd er rekening mee hoe we gebruikt de `--public-ip-name` switch om door te geven de `myPublicIP` die we eerder hebben gemaakt. Het openbare IP-adres toewijzen aan de load balancer, kunt u uw VM's via Internet te bereiken.
 
-Vervolgens maken we onze tweede IP-adresgroep voor de back-end-verkeer. Het volgende voorbeeld wordt een back-end-pool met de naam `myBackEndPool`:
+Vervolgens gaan we onze tweede IP-adresgroep maken voor onze back-end-verkeer. Het volgende voorbeeld wordt een back-end-adrespool met de naam `myBackEndPool`:
 
 ```azurecli
 azure network lb address-pool create --resource-group myResourceGroup \
@@ -683,7 +683,7 @@ data:    Provisioning state              : Succeeded
 info:    network lb address-pool create command OK
 ```
 
-We zien hoe u onze load balancer doet door te zoeken met `azure network lb show` en onderzoeken van de JSON-uitvoer:
+We zien hoe het gaat met de load balancer door te kijken met `azure network lb show` en onderzoek van de JSON-uitvoer:
 
 ```azurecli
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
@@ -728,8 +728,8 @@ Uitvoer:
 }
 ```
 
-## <a name="create-load-balancer-nat-rules"></a>NAT-regels van load balancer maken
-Als u verkeer via de load balancer, moeten we network address translation (NAT) regels maken die binnenkomend of uitgaand acties opgeven. U kunt het te gebruiken protocol opgeven en vervolgens externe poorten naar interne poorten desgewenst toewijzen. Voor onze omgeving gaan we een aantal regels maken die SSH toestaan via onze load balancer naar de virtuele machines. We instellen TCP-poorten 4222 en 4223 om om te leiden TCP-poort 22 op onze virtuele machines (die we later maken). Het volgende voorbeeld wordt een regel met naam `myLoadBalancerRuleSSH1` TCP-poort 4222 toewijzen aan poort 22:
+## <a name="create-load-balancer-nat-rules"></a>NAT-regels voor load balancer maken
+Als u verkeer via onze load balancer, moeten we netwerkadres translation (NAT) om regels te maken die binnenkomend of uitgaand acties opgeven. U kunt zelf het protocol bepalen om te gebruiken en vervolgens de externe poorten worden toegewezen aan de interne poorten naar wens. Voor onze omgeving gaan we enkele regels waarmee SSH via onze load balancer aan onze VM's maken. We instellen TCP-poorten 4222 en 4223 om te leiden naar TCP-poort 22 op onze VM's (die we later maken). Het volgende voorbeeld wordt een regel met de naam `myLoadBalancerRuleSSH1` TCP-poort 4222 toewijzen aan poort 22:
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -757,7 +757,7 @@ data:    mySubnet IP configuration id    : /subscriptions/guid/resourceGroups/my
 info:    network lb inbound-nat-rule create command OK
 ```
 
-Herhaal de procedure voor de tweede NAT-regel voor SSH. Het volgende voorbeeld wordt een regel met naam `myLoadBalancerRuleSSH2` TCP-poort 4223 toewijzen aan poort 22:
+Herhaal de procedure voor de tweede NAT-regel voor SSH. Het volgende voorbeeld wordt een regel met de naam `myLoadBalancerRuleSSH2` TCP-poort 4223 toewijzen aan poort 22:
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -765,7 +765,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --frontend-port 4223 --backend-port 22
 ```
 
-We gaan ook opwekken en maak een NAT-regel voor TCP-poort 80 voor internetverkeer, de regel aansluiting tot onze IP-adresgroepen. Als we de regel moet een IP-adresgroep, in plaats van een afzonderlijk, een regel aan onze VMs aansluiting aansluiten kunt we toevoegen of verwijderen van virtuele machines van de IP-adresgroep. De load balancer wordt automatisch de verkeersstroom aangepast. Het volgende voorbeeld wordt een regel met naam `myLoadBalancerRuleWeb` TCP-poort 80 om toe te wijzen poort 80:
+We gaan ook de slag gaan en een NAT-regel voor TCP-poort 80 voor internetverkeer, ten slotte verbindt met de regel tot onze IP-adresgroepen. Als we de regel voor een IP-adresgroep, in plaats van het installeren van de regel aan onze VM's afzonderlijk, koppelt kunnen we toevoegen of verwijderen van virtuele machines van de IP-adresgroep. De load balancer wordt automatisch aangepast voor de stroom van verkeer. Het volgende voorbeeld wordt een regel met de naam `myLoadBalancerRuleWeb` op TCP-poort 80 worden toegewezen aan poort 80:
 
 ```azurecli
 azure network lb rule create --resource-group myResourceGroup \
@@ -797,7 +797,7 @@ info:    network lb rule create command OK
 ```
 
 ## <a name="create-a-load-balancer-health-probe"></a>Een load balancer-statustest maken
-Een health test regelmatig controles op de virtuele machines die zich achter de load balancer om te controleren of ze zijn het functioneren en reageren op aanvragen, zoals is gedefinieerd. Als dat niet het geval is, moet u ze zijn verwijderd uit de bewerking om ervoor te zorgen dat gebruikers worden niet omgeleid naar deze. U kunt aangepaste controles voor de health-test, samen met intervallen en time-outwaarden definiëren. Zie voor meer informatie over statuscontroles [Load Balancer-tests](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het volgende voorbeeld wordt een TCP health aangeduid met de naam `myHealthProbe`:
+Een health test periodieke controles op de virtuele machines die zich achter de load balancer om te controleren of ze werken en reageren op aanvragen, zoals gedefinieerd. Als dat niet het geval is, moet u ze zijn verwijderd uit de bewerking om ervoor te zorgen dat gebruikers worden niet omgeleid naar deze. U kunt aangepaste controles voor de statustest, samen met intervallen en time-outwaarden definiëren. Zie voor meer informatie over statuscontroles [Load Balancer controleert](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het volgende voorbeeld wordt een TCP health dat wordt aangeduid met de naam `myHealthProbe`:
 
 ```azurecli
 azure network lb probe create --resource-group myResourceGroup \
@@ -821,18 +821,18 @@ data:    Number of probes                : 4
 info:    network lb probe create command OK
 ```
 
-Hier wordt een interval van 15 seconden voor onze statuscontroles opgegeven. We kunnen maximaal vier tests (één minuut) voordat de load balancer van oordeel is dat de host niet meer werkt over het hoofd ziet.
+We hebben opgegeven hier, een interval van 15 seconden voor onze statuscontroles. We kunnen missen maximaal vier tests (één minuut) voordat de load balancer van mening is dat de host niet meer werkt.
 
 ## <a name="verify-the-load-balancer"></a>Controleer of de load balancer
-Nu wordt de load balancer-configuratie gedaan. Hier volgen de stappen die u hebt gemaakt:
+Nu wordt de load balancer-configuratie uitgevoerd. Hier volgen de stappen die u hebt gemaakt:
 
-1. U hebt gemaakt voor een load balancer.
-2. U een front-end-IP-adresgroep gemaakt en een openbare IP-adres toegewezen.
-3. U een back-end-IP-adresgroep die virtuele machines verbinding met maken kunnen gemaakt.
-4. U NAT-regels waarmee SSH kunt uitvoeren naar de virtuele machines voor beheer, samen met een regel waarmee u TCP-poort 80 voor de web-app hebt gemaakt.
-5. U hebt een health test geregeld wordt gecontroleerd of de virtuele machines toegevoegd. Deze test health zorgt ervoor dat gebruikers niet probeert te krijgen tot een virtuele machine die niet meer werkt of inhoud.
+1. U hebt een load balancer gemaakt.
+2. U een front-end-IP-adresgroep gemaakt en een openbaar IP-adres toegewezen.
+3. Hebt u een back-end-IP-adresgroep die VM's verbinding met maken kunnen gemaakt.
+4. U NAT-regels waarmee SSH naar de virtuele machines voor beheer, samen met een regel waarmee TCP-poort 80 voor onze web-app gemaakt.
+5. U hebt toegevoegd een statustest om periodiek te controleren de virtuele machines. Deze statustest zorgt ervoor dat gebruikers geen probeert te krijgen tot een virtuele machine die is niet meer werkt of inhoud.
 
-We bekijken wat de load balancer er nu uit:
+Laten we bekijken hoe de load balancer eruitziet nu:
 
 ```azurecli
 azure network lb show --resource-group myResourceGroup \
@@ -955,10 +955,10 @@ Uitvoer:
 }
 ```
 
-## <a name="create-an-nic-to-use-with-the-linux-vm"></a>Maken van een NIC voor gebruik met de Linux-VM
-NIC's zijn programmatisch beschikbaar omdat u regels toepassen op het gebruik ervan kunt. U kunt ook meer dan één hebben. In de volgende `azure network nic create` opdracht u aansluiten op de NIC de belasting backend-IP-adresgroep en deze koppelen aan de NAT-regel SSH-verkeer toestaan.
+## <a name="create-an-nic-to-use-with-the-linux-vm"></a>Maak een NIC voor gebruik met de Linux-VM
+NIC's zijn via een programma beschikbaar omdat u regels toepassen op het gebruik ervan kunt. U kunt ook meer dan één hebben. In de volgende `azure network nic create` opdracht, u koppelt de NIC bij het laden back-end IP-adresgroep en koppel deze aan de NAT-regel om de SSH-verkeer toestaan.
 
-Vervang de `#####-###-###` secties met uw eigen Azure-abonnement-ID. Uw abonnement ID wordt vermeld in de uitvoer van `jq` wanneer u de resources die u maakt. U kunt ook uw abonnements-ID met weergeven `azure account list`.
+Vervang de `#####-###-###` secties door uw eigen Azure-abonnement-ID. Uw abonnement ID wordt vermeld in de uitvoer van `jq` wanneer u de resources die u maakt. U kunt ook uw abonnements-ID met weergeven `azure account list`.
 
 Het volgende voorbeeld wordt een NIC met de naam `myNic1`:
 
@@ -996,7 +996,7 @@ data:
 info:    network nic create command OK
 ```
 
-U ziet de details vindt u rechtstreeks van de resource. Bestuderen van de resource met behulp van de `azure network nic show` opdracht:
+U kunt de details zien door rechtstreeks onderzoek van de resource. Bestuderen van de resource met behulp van de `azure network nic show` opdracht:
 
 ```azurecli
 azure network nic show myResourceGroup myNic1 --json | jq '.'
@@ -1044,7 +1044,7 @@ Uitvoer:
 }
 ```
 
-Nu maken we de tweede Netwerkinterfacekaart, in aansluiting bij onze backend-IP-adresgroep opnieuw. Deze tijd de tweede NAT-regel toestaat SSH verkeer. Het volgende voorbeeld wordt een NIC met de naam `myNic2`:
+Nu maken we de tweede NIC, ten slotte verbindt met bij onze back-end-IP-adresgroep opnieuw. Deze tijd de tweede NAT-regel worden SSH-verkeer toestaat. Het volgende voorbeeld wordt een NIC met de naam `myNic2`:
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location westeurope \
@@ -1054,14 +1054,14 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
 ```
 
 ## <a name="create-a-network-security-group-and-rules"></a>Een netwerkbeveiligingsgroep en regels maken
-We maken nu een netwerkbeveiligingsgroep en de regels voor binnenkomende verbindingen die voor de toegang tot de NIC. Een netwerkbeveiligingsgroep kan worden toegepast op een NIC of een subnet. Definieert u regels voor het beheren van de stroom van verkeer van en naar uw virtuele machines. Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
+Nu maken we een netwerkbeveiligingsgroep en de regels voor binnenkomende verbindingen die toegang tot de NIC. bieden Een netwerkbeveiligingsgroep kan worden toegepast op een NIC of subnet. U definieert regels voor het beheren van de verkeersstroom in en uit uw virtuele machines. Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create --resource-group myResourceGroup --location westeurope \
   --name myNetworkSecurityGroup
 ```
 
-Laten we de inkomende regel voor het NSG aan het toestaan van binnenkomende verbindingen op poort 22 (voor ondersteuning van SSH) toevoegen. Het volgende voorbeeld wordt een regel met naam `myNetworkSecurityGroupRuleSSH` om TCP op poort 22 te staan:
+We gaan de binnenkomende regel voor de NSG aan het toestaan van binnenkomende verbindingen op poort 22 (tot en met ondersteuning voor SSH) toevoegen. Het volgende voorbeeld wordt een regel met de naam `myNetworkSecurityGroupRuleSSH` om TCP op poort 22 te staan:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1070,7 +1070,7 @@ azure network nsg rule create --resource-group myResourceGroup \
   --name myNetworkSecurityGroupRuleSSH
 ```
 
-Nu gaan we de binnenkomende regel voor het NSG aan het toestaan van binnenkomende verbindingen op poort 80 (voor ondersteuning webverkeer) toevoegen. Het volgende voorbeeld wordt een regel met naam `myNetworkSecurityGroupRuleHTTP` om TCP op poort 80 te staan:
+Nu gaan we de binnenkomende regel voor de NSG aan het toestaan van binnenkomende verbindingen op poort 80 (voor ondersteuning webverkeer) toevoegen. Het volgende voorbeeld wordt een regel met de naam `myNetworkSecurityGroupRuleHTTP` om TCP op poort 80 te staan:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1080,12 +1080,12 @@ azure network nsg rule create --resource-group myResourceGroup \
 ```
 
 > [!NOTE]
-> De binnenkomende regel is een filter naar binnenkomende netwerkverbindingen. In dit voorbeeld binden we het NSG aan de virtuele NIC van virtuele machines, wat betekent dat elk verzoek poort 22 wordt doorgegeven aan de NIC op de virtuele machine. Deze regel binnenkomende over een netwerkverbinding is en niet over een eindpunt met dit is wat het normaal zou zijn over in klassieke implementaties. Als u wilt een poort opent, moet u laat de `--source-port-range` ingesteld op '\*' (de standaardwaarde) te accepteren van binnenkomende aanvragen van **eventuele** poort aanvraagt. Poorten zijn meestal dynamisch zijn.
+> De binnenkomende regel is een filter voor binnenkomende netwerkverbindingen. In dit voorbeeld koppelen we de NSG op de virtuele NIC van virtuele machines, wat betekent dat elke aanvraag naar poort 22 wordt doorgegeven aan de NIC op de virtuele machine. Met deze binnenkomende regel over een netwerkverbinding is en niet over een eindpunt dat is wat het normaal zou zijn over in klassieke implementaties. Als u wilt een poort opent, moet u laten de `--source-port-range` ingesteld op '\*' (de standaardwaarde) om te accepteren van binnenkomende aanvragen van **eventuele** poort aanvraagt. Poorten zijn doorgaans dynamisch zijn.
 >
 >
 
 ## <a name="bind-to-the-nic"></a>Verbinding maken met de NIC
-Het NSG binden aan de NIC's. Moeten we onze NIC's een verbinding maakt met onze netwerkbeveiligingsgroep. Voer beide opdrachten, koppelt u beide onze NIC's:
+De NSG aan de NIC's koppelen. We moeten onze NIC's verbonden aan de netwerkbeveiligingsgroep. Voer beide opdrachten, aansluiten van onze NIC's:
 
 ```azurecli
 azure network nic set --resource-group myResourceGroup --name myNic1 \
@@ -1098,32 +1098,32 @@ azure network nic set --resource-group myResourceGroup --name myNic2 \
 ```
 
 ## <a name="create-an-availability-set"></a>Een beschikbaarheidsset maken
-Beschikbaarheidssets help verspreiding uw virtuele machines in domeinen met fouten en upgradedomeinen. Laten we de beschikbaarheidsset voor uw virtuele machines maken. Het volgende voorbeeld wordt een benoemde beschikbaarheidsset `myAvailabilitySet`:
+Beschikbaarheidssets help verspreid uw VM's over foutdomeinen en upgradedomeinen. We maken een beschikbaarheidsset voor uw VM's. Het volgende voorbeeld wordt een beschikbaarheidsset met de naam `myAvailabilitySet`:
 
 ```azurecli
 azure availset create --resource-group myResourceGroup --location westeurope
   --name myAvailabilitySet
 ```
 
-Domeinen met fouten definiëren een groepering van virtuele machines die een gemeenschappelijk power-bron- en switch delen. Standaard worden de virtuele machines die worden geconfigureerd in de beschikbaarheidsset gescheiden over maximaal drie domeinen met fouten. Het idee is een hardwareprobleem in een van deze domeinen met fouten heeft geen invloed op elke virtuele machine die uw app wordt uitgevoerd. Virtuele machines verdeelt Azure automatisch over de domeinen met fouten wanneer ze worden geplaatst in een beschikbaarheidsset.
+Domeinen met fouten definiëren een groepering van virtuele machines die een gemeenschappelijke voedingsbron en netwerkswitch delen. Standaard worden de virtuele machines die zijn geconfigureerd in uw beschikbaarheidsset verdeeld over maximaal drie foutdomeinen. Het idee is een hardwareprobleem in een van deze domeinen met fouten heeft geen invloed op elke virtuele machine waarop uw app wordt uitgevoerd. Azure automatisch virtuele machines wordt verspreid over de foutdomeinen wanneer ze in een beschikbaarheidsset worden geplaatst.
 
-Upgradedomeinen duiden op groepen van virtuele machines en de onderliggende fysieke hardware die op hetzelfde moment kan worden opgestart. De volgorde waarin upgradedomeinen worden opgestart mogelijk geen opeenvolgende tijdens gepland onderhoud, maar slechts één upgrade opnieuw wordt opgestart tegelijk. Opnieuw verdeelt Azure automatisch uw virtuele machines over upgradedomeinen wanneer ze worden geplaatst in een site beschikbaarheid.
+Upgradedomeinen geven aan groepen van virtuele machines en de onderliggende fysieke hardware die op hetzelfde moment opnieuw kan worden opgestart. De volgorde waarin upgradedomeinen opnieuw zijn opgestart niet opeenvolgende kan zijn tijdens gepland onderhoud, maar slechts één upgrade tegelijk opnieuw is opgestart. Nogmaals, Azure automatisch verdeeld over uw virtuele machines upgradedomeinen wanneer ze in een site beschikbaarheid worden geplaatst.
 
-Lees meer over [het beheren van de beschikbaarheid van virtuele machines](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Meer informatie over [beheren van de beschikbaarheid van virtuele machines](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="create-the-linux-vms"></a>De virtuele Linux-machines maken
-U kunt de opslag- en netwerkbronnen ter ondersteuning van Internet toegankelijke VM's hebt gemaakt. Nu gaan we die virtuele machines maken en ze zijn beveiligd met een SSH-sleutel die geen wachtwoord. In dit geval gaan we een Ubuntu VM op basis van de meest recente TNS maken. We vinden die informatie van de installatiekopie met behulp van `azure vm image list`, zoals beschreven in [Azure VM-installatiekopieën vinden](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="create-the-linux-vms"></a>De Linux-VM's maken
+U kunt de opslag- en netwerkresources ter ondersteuning van via Internet toegankelijke VM's hebt gemaakt. Nu gaan we die virtuele machines maken en ze zijn beveiligd met een SSH-sleutel die geen een wachtwoord. In dit geval gaan we om te maken van een Ubuntu VM op basis van de meest recente LTS. Wij vinden dat informatie over de installatiekopie met behulp van `azure vm image list`, zoals beschreven in [Azure VM-installatiekopieën zoeken](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-We een installatiekopie van een geselecteerd met de opdracht `azure vm image list westeurope canonical | grep LTS`. In dit geval gebruiken we `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Voor het laatste veld, geven we `latest` zodat in de toekomst kunnen we de meest recente build altijd beschikken. (De tekenreeks we gebruiken `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
+We een installatiekopie hebt geselecteerd met behulp van de opdracht `azure vm image list westeurope canonical | grep LTS`. In dit geval gebruiken we `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Voor het laatste veld, geven we `latest` zodat in de toekomst we altijd kunnen genieten van de meest recente build. (De tekenreeks die we gebruiken is `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
 
-Deze stap is vertrouwd voor iedereen die al is gemaakt door een ssh rsa openbare en persoonlijke sleutel koppelen op Linux- of Mac via **ssh-keygen - t rsa -b 2048**. Als u nog geen sleutelparen die een certificaat uw `~/.ssh` directory, kunt u deze maken:
+Deze stap is bekend bij iedereen die al is gemaakt door een ssh rsa-sleutel voor openbare en persoonlijke koppelen in Linux of Mac met behulp van **ssh-keygen - t rsa -b 2048**. Als u geen een certificaat-sleutelparen in uw `~/.ssh` directory, kunt u deze maken:
 
-* Automatisch, met behulp van de `azure vm create --generate-ssh-keys` optie.
+* Automatisch met behulp van de `azure vm create --generate-ssh-keys` optie.
 * Handmatig met behulp van [de instructies voor het zelf maken](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-U kunt ook de `--admin-password` methode voor het verifiëren van uw SSH-verbindingen nadat de virtuele machine is gemaakt. Deze methode is meestal minder goed beveiligd.
+U kunt ook kunt u de `--admin-password` methode voor het verifiëren van uw SSH-verbindingen nadat de virtuele machine is gemaakt. Deze methode is doorgaans minder veilig.
 
-We de virtuele machine maken door brengen onze bronnen en informatie samen met de `azure vm create` opdracht:
+We de virtuele machine maken met onze resources en informatie samen met de `azure vm create` opdracht:
 
 ```azurecli
 azure vm create \
@@ -1160,7 +1160,7 @@ info:    The storage URI 'https://mystorageaccount.blob.core.windows.net/' will 
 info:    vm create command OK
 ```
 
-U kunt verbinding maken met uw virtuele machine onmiddellijk met behulp van uw standaard SSH-sleutels. Zorg ervoor dat u de juiste poort opgeeft omdat we via de load balancer geven. (Voor onze eerste VM we instellen de NAT-regel voor het doorsturen van poort 4222 voor onze VM.)
+U kunt direct verbinding met uw virtuele machine met behulp van de standaard-SSH-sleutels. Zorg ervoor dat u de juiste poort opgeeft, aangezien we via de load balancer geven. (Voor onze eerste virtuele machine, we instellen van de NAT-regel voor het doorsturen van poort 4222 naar onze VM.)
 
 ```bash
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
@@ -1188,7 +1188,7 @@ Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 ops@myVM1:~$
 ```
 
-Opwekken en maak uw tweede virtuele machine op dezelfde manier:
+De slag gaan en de tweede virtuele machine op dezelfde manier:
 
 ```azurecli
 azure vm create \
@@ -1206,7 +1206,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-En u kunt nu de `azure vm show myResourceGroup myVM1` opdracht om te onderzoeken wat u hebt gemaakt. U uitvoert op dit moment uw Ubuntu VM's achter een load balancer in Azure die u aanmelden kunt bij alleen met uw SSH-sleutelpaar (omdat wachtwoorden zijn uitgeschakeld). U kunt nginx of httpd installeren, een web-app implementeren en het verkeer verloopt via de load balancer op beide van de virtuele machines.
+En u kunt nu de `azure vm show myResourceGroup myVM1` opdracht om te onderzoeken wat u hebt gemaakt. U voert op dit moment uw Ubuntu-VM's achter een load balancer in Azure die u met uw SSH-sleutelpaar aanmelden kunt (omdat wachtwoorden zijn uitgeschakeld). U kunt nginx of httpd installeren, een web-app implementeren en het verkeer stroom via de load balancer op beide van de virtuele machines.
 
 ```azurecli
 azure vm show --resource-group myResourceGroup --name myVM1
@@ -1270,23 +1270,23 @@ info:    vm show command OK
 ```
 
 
-## <a name="export-the-environment-as-a-template"></a>De omgeving exporteren als een sjabloon
-Nu dat u hebt gemaakt uit deze omgeving, wat gebeurt er als u wilt maken van een extra development environment met dezelfde parameters of een productie-omgeving die overeenkomt met het? Resource Manager gebruikt de JSON-sjablonen op dat de parameters voor uw omgeving definiëren. U maken uit de volledige omgeving door te verwijzen naar deze JSON-sjabloon. U kunt [handmatig JSON-sjablonen samenstellen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of een bestaande omgeving voor het maken van het JSON-sjabloon voor u te exporteren:
+## <a name="export-the-environment-as-a-template"></a>De omgeving als een sjabloon exporteren
+Nu dat u hebt gemaakt uit deze omgeving, wat gebeurt er als u wilt maken van een extra ontwikkelomgeving met dezelfde parameters, of een productie-omgeving die overeenkomt met het? Resource Manager JSON-sjablonen die de parameters voor uw omgeving definieert gebruikt. U bouwen volledige omgevingen door te verwijzen naar deze JSON-sjabloon. U kunt [handmatig JSON-sjablonen samenstellen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of een bestaande omgeving voor het maken van de JSON-sjabloon voor u te exporteren:
 
 ```azurecli
 azure group export --name myResourceGroup
 ```
 
-Deze opdracht maakt u de `myResourceGroup.json` bestand in de huidige werkmap. Wanneer u een omgeving met deze sjabloon maakt, wordt u gevraagd alle de resourcenamen, met inbegrip van de namen voor de load balancer, netwerkinterfaces of virtuele machines. U kunt deze namen in uw sjabloonbestand vullen door toe te voegen de `-p` of `--includeParameterDefaultValue` -parameter voor de `azure group export` opdracht die eerder is aangegeven. Bewerk uw JSON-sjabloon om op te geven van de resourcenamen van de of [maken van een bestand parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) die Hiermee worden de resourcenamen.
+Deze opdracht maakt u de `myResourceGroup.json` bestand in uw huidige werkmap. Wanneer u een omgeving met deze sjabloon maakt, wordt u gevraagd voor alle de resourcenamen, met inbegrip van de namen voor de load balancer, netwerkinterfaces of virtuele machines. U kunt deze namen vullen in het sjabloonbestand door toe te voegen de `-p` of `--includeParameterDefaultValue` parameter voor de `azure group export` opdracht die eerder is aangegeven. Bewerk uw JSON-sjabloon om op te geven van de resourcenamen van de of [maken van een bestand parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) die Hiermee geeft u de resourcenamen.
 
-Een omgeving maken van uw sjabloon:
+Een omgeving maken met de sjabloon:
 
 ```azurecli
 azure group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-U wilt lezen [meer over het implementeren van sjablonen](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Meer informatie over hoe u stapsgewijs omgevingen bijwerken, gebruikt u het parameterbestand en toegang tot sjablonen vanaf één locatie.
+U wilt lezen [meer over het implementeren van sjablonen](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Meer informatie over het incrementeel bijwerken omgevingen, het parameterbestand gebruiken en toegang tot sjablonen vanaf één locatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-U nu kunt aan de slag met meerdere netwerkonderdelen en virtuele machines. Voor het bouwen van uw toepassing met behulp van de belangrijkste onderdelen die zijn geïntroduceerd hier kunt u deze Voorbeeldomgeving.
+U bent nu klaar om te werken met meerdere netwerkonderdelen en virtuele machines. Deze Voorbeeldomgeving kunt u uw toepassing bouwen met behulp van de belangrijkste onderdelen die zijn geïntroduceerd hier.

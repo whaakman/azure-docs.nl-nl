@@ -13,17 +13,17 @@ ms.component: protection
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 28a998647dacdf57390638b8ce1629a76077b450
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 38386de86c83733e3539048de9e263ed6225eee5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446891"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952157"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Een toegangsbeoordeling starten in Azure AD Privileged Identity Management
 Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang die ze niet meer nodig hebt. Om te reduceren het risico dat samenhangt met deze verouderde roltoewijzingen bevoorrechte rol moeten medewerkers of hoofdbeheerders regelmatig maken toegangsbeoordelingen om te vragen van beheerders voor het controleren van de functies die gebruikers hebben gekregen. In dit document bevat informatie over de stappen voor het starten van een toegangscontrole in Azure AD Privileged Identity Management (PIM).
 
-## <a name="start-an-access-review"></a>Een toegangsbeoordeling starten
+## <a name="start-an-access-review"></a>Een toegangscontrole starten
 > [!NOTE]
 > Als u dit nog niet hebt de PIM-toepassing aan uw dashboard toegevoegd in de Azure-portal, raadpleegt u de stappen in [aan de slag met Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
 > 
@@ -37,12 +37,12 @@ Op de toepassing hoofdpagina van PIM zijn er drie manieren om een toegangscontro
 
 Als u klikt op de **bekijken** knop, de **een toegangscontrole starten** blade wordt weergegeven. Op deze blade gaat u naar de revisie configureren met een naam en een tijdslimiet, kiest u een rol om te controleren en bepalen wie verantwoordelijk is voor de beoordeling.
 
-![Start een toegangsbeoordeling - schermafbeelding][1]
+![Start een toegangsbeoordeling - schermafbeelding](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png)
 
 ### <a name="configure-the-review"></a>Configureren van de beoordeling
 Als u wilt een toegangsbeoordeling maken, moet u deze de naam en stel een begin- en datum.
 
-![Configureren van controle - schermafbeelding][2]
+![Configureren van controle - schermafbeelding](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png)
 
 Controleer de lengte van de beoordeling lang genoeg is voor gebruikers om deze te voltooien. Als u klaar voor de einddatum bent, kunt u de controle vroeg altijd stoppen.
 
@@ -51,7 +51,7 @@ Elke beoordeling die is gericht op slechts één rol. Tenzij u de toegangsbeoord
 
 1. Navigeer naar **rollidmaatschap beoordelen**
    
-    ![Rollidmaatschap controle - schermafbeelding][3]
+    ![Rollidmaatschap controle - schermafbeelding](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png)
 2. Kies één rol in de lijst.
 
 ### <a name="decide-who-will-perform-the-review"></a>Bepalen wie verantwoordelijk is voor de beoordeling
@@ -59,7 +59,7 @@ Er zijn drie opties voor het uitvoeren van een beoordeling. U kunt de beoordelin
 
 1. Navigeer naar **beoordelaars selecteren**
    
-    ![Selecteer revisoren - schermafbeelding][4]
+    ![Selecteer revisoren - schermafbeelding](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png)
 2. Kies een van de opties:
    
    * **Selecteer de revisor**: Gebruik deze optie als u niet weet die toegang nodig heeft. Met deze optie kunt u de controle toewijzen aan een resource-eigenaar of groepmanager om te voltooien.
@@ -79,10 +79,3 @@ Totdat de periode van de toegangsbeoordeling voltooid is, kunt u Herinner de geb
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="pim-table-of-contents"></a>PIM inhoudsopgave
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png

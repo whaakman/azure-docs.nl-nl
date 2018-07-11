@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: af2a6b19d74e02b9368722cadf4d57aef377d43a
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865434"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952821"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Deep Learning en AI-frameworks
 De [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) en de [Deep Learning VM](http://aka.ms/dsvm/deeplearning) ondersteunt een aantal frameworks voor deep learning bij het opbouwen van kunstmatige intelligentie (AI)-toepassingen met Voorspellend en cognitieve functionaliteit, zoals afbeeldingen en language understanding. 
@@ -66,7 +66,7 @@ Hier volgen de details voor alle deep learning-frameworks beschikbaar is op de D
 
 |    |           |
 | ------------- | ------------- |
-| Wat is het?   | Deep learning-frameworks      |
+| Wat is het?   | Op hoog niveau deep learning-API      |
 | Ondersteunde DSVM-edities      | Windows, Linux     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | TensorFlow in Python 3.5 is geïnstalleerd op [Linux en Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) en Python 3.6 op [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Koppelingen naar voorbeelden      | https://github.com/fchollet/keras/tree/master/examples      |

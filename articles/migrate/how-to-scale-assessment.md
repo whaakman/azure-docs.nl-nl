@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: dbd2ef6270d0f270dabb6a1f5461e09fc37102db
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859588"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919859"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -39,9 +39,9 @@ Als u in een omgeving met tenants implementeert, als volgt één manier om in te
 1.  Maken van een gebruiker per tenant en en het gebruik van [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), alleen-lezen machtigingen toewijzen aan van de VM dat tot een bepaalde tenant. Vervolgens gebruikt u deze referenties voor detectie. RBAC zorgt ervoor dat de bijbehorende vCenter-gebruiker toegang heeft tot alleen specifieke virtuele machine voor de tenantsleutel.
 2. U RBAC instelt voor gebruikers van andere tenant zoals beschreven in het volgende voorbeeld voor 1 gebruiker en gebruiker #2:
 
-    - In **gebruikersnaam** en **wachtwoord**, geef de referenties van het kenmerk alleen-lezen-account dat door de collector wordt gebruikt voor het detecteren van virtuele machines in 
+    - In **gebruikersnaam** en **wachtwoord**, geef de referenties van het kenmerk alleen-lezen-account dat door de collector wordt gebruikt voor het detecteren van virtuele machines in
     - Datacenter1 - geven alleen-lezen machtigingen voor 1 gebruiker en gebruiker nr. 2. Deze machtigingen op alle onderliggende objecten niet worden doorgevoerd omdat u machtigingen hebt ingesteld op afzonderlijke virtuele machine.
-    
+
       - VM1 (Tenant #1) (alleen machtiging voor lezen voor 1 gebruiker)
       - VM2 (Tenant #1) (alleen machtiging voor lezen voor 1 gebruiker)
       - VM3 (Tenant #2) (alleen de machtiging Lezen aan gebruiker 2)
@@ -125,6 +125,14 @@ Controleer dat het OVA-bestand beveiligd is voordat u deze implementeert:
    Gebruiksvoorbeeld: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Zorg ervoor dat de gegenereerde hash komt overeen met de volgende instellingen.
+
+    Voor OVA-versie 1.0.9.12
+
+    **Algoritme** | **Hash-waarde**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
     Voor OVA-versie 1.0.9.8
 

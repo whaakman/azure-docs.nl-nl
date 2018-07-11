@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: 83e5a8db9162ef1587664c0a353252c04ade45d8
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 7dc3d0ce70ca0df2c5cf951ae53ee0566451801f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887800"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952804"
 ---
 # <a name="entities-in-luis"></a>Entiteiten in LUIS
 
@@ -77,7 +77,7 @@ LUIS biedt veel soorten entiteiten; vooraf gemaakte entiteiten, aangepaste machi
 **Vooraf gedefinieerde** entiteiten zijn aangepaste entiteiten die worden geleverd door LUIS. Sommige van deze entiteiten zijn gedefinieerd in de open-source [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text) project. Er zijn veel [voorbeelden](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) in de map /Specs voor de ondersteunde culturen. Als uw specifieke cultuur of de entiteit wordt momenteel niet ondersteund, dragen bij aan het project. 
 
 <a name="machine-learned"></a>
-**Machine geleerd** entiteiten werken het beste wanneer getest [eindpunt query's](luis-concept-test.md#endpoint-testing) en [eindpunt uitingen controleren](label-suggested-utterances.md). 
+**Machine geleerd** entiteiten werken het beste wanneer getest [eindpunt query's](luis-concept-test.md#endpoint-testing) en [eindpunt uitingen controleren](luis-how-to-review-endoint-utt.md). 
 
 <a name="regex"></a>
 **Reguliere expressie entiteiten** worden gedefinieerd met een reguliere expressie die de gebruiker als onderdeel van de entiteitsdefinitie van de biedt. 

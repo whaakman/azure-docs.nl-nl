@@ -1,123 +1,123 @@
 ---
-title: Met Azure Traffic Manager met Azure Site Recovery | Microsoft Docs
-description: Hierin wordt beschreven hoe u Azure Traffic Manager gebruiken met Azure Site Recovery voor de migratie en herstel na noodgevallen
+title: Azure Traffic Manager met Azure Site Recovery | Microsoft Docs
+description: Beschrijft hoe u met Azure Traffic Manager met Azure Site Recovery voor migratie en herstel na noodgevallen
 services: site-recovery
 documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: d5b8887d4013f688cd20a0b2e4f6c0dbd5bdc9b6
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 0be013a1b8d2c619d58034157240eafb241c4e59
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071356"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919033"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager met Azure Site Recovery
 
-Azure Traffic Manager kunt u het beheer van de distributie van verkeer tussen de eindpunten van uw toepassing. Een eindpunt is een internetgerichte service die wordt gehost binnen of buiten Azure.
+Met Azure Traffic Manager kunt u voor het beheren van de distributie van verkeer tussen de toepassingseindpunten van uw. Een eindpunt is een internetgerichte service die wordt gehost binnen en buiten Azure.
 
-Traffic Manager maakt gebruik van de Domain Name System (DNS) om te leiden aanvragen van clients naar de meest geschikte eindpunt, op basis van een methode voor verkeersroutering en de status van de eindpunten. Traffic Manager biedt een reeks [verkeersroutering methoden](../traffic-manager/traffic-manager-routing-methods.md) en [eindpunt controle-opties](../traffic-manager/traffic-manager-monitoring.md) aanpassen aan de behoeften van verschillende groepen van toepassingen en automatische failover-modellen. Clients rechtstreeks verbinding gemaakt met het geselecteerde eindpunt. Traffic Manager is niet een proxy of gateway en het ondersteunt niet raadpleegt u het verkeer tussen de client en de service wordt doorgegeven.
+Traffic Manager maakt gebruik van de Domain Name System (DNS) om te leiden aanvragen van clients op het meest geschikte eindpunt, op basis van een methode routering van verkeer en de status van de eindpunten. Traffic Manager biedt een scala aan [routeringsmethoden voor verkeer](../traffic-manager/traffic-manager-routing-methods.md) en [eindpunt controle-opties](../traffic-manager/traffic-manager-monitoring.md) op basis van verschillende toepassingsbehoeften en automatische failover-modellen. Clients rechtstreeks verbinding maken met het geselecteerde eindpunt. Traffic Manager is niet een proxy of een gateway en wordt het verkeer te geven tussen de client en de service niet te zien.
 
-Dit artikel wordt beschreven hoe u kunt combineren intelligent routering van Azure verkeer bewaken met Azure Site Recovery krachtige noodherstel en migratiemogelijkheden.
+Dit artikel wordt beschreven hoe u intelligente routering van Azure verkeer controleren met de krachtige noodherstel van Azure Site Recovery en migratiemogelijkheden voor kunt combineren.
 
 ## <a name="on-premises-to-azure-failover"></a>On-premises naar Azure failover
 
-Voor het eerste scenario kunt u overwegen **bedrijf A** die alle van de toepassing-infrastructuur uitgevoerd in de on-premises omgeving is. Voor zakelijke continuïteit en naleving redenen **bedrijf A** beslist haar toepassingen beveiligen met Azure Site Recovery.
+Voor het eerste scenario kunt u overwegen **bedrijf A** waarvoor alle van de toepassingsinfrastructuur die wordt uitgevoerd in de on-premises omgeving. Voor zakelijke continuïteit en naleving redenen **bedrijf A** wil Azure Site Recovery gebruiken de toepassingen te beschermen.
 
-**Bedrijf A** toepassingen worden uitgevoerd met de openbare eindpunten en wil de mogelijkheid verkeer naadloos omleiden naar Azure in een gebeurtenis na noodgevallen. De [prioriteit](../traffic-manager/traffic-manager-configure-priority-routing-method.md) verkeersroutering methode in Azure Traffic Manager kan een bedrijf een eenvoudig implementeren dit patroon van een failover.
+**Bedrijf A** toepassingen wordt uitgevoerd met openbare eindpunten en wil de mogelijkheid naadloos verkeer omleiden naar Azure in een noodgebeurtenis. De [prioriteit](../traffic-manager/traffic-manager-configure-priority-routing-method.md) verkeersrouteringsmethode in Azure Traffic Manager kan een bedrijf een eenvoudig dit patroon wilt implementeren failover.
 
 De installatie is als volgt:
 - **Bedrijf A** maakt een [Traffic Manager-profiel](../traffic-manager/traffic-manager-create-profile.md).
-- Gebruik de **prioriteit** routeringsmethode, **bedrijf A** maakt twee eindpunten – **primaire** voor on-premises en **Failover** voor Azure. **Primaire** prioriteit 1 is toegewezen en **Failover** prioriteit 2 is toegewezen.
-- Aangezien de **primaire** eindpunt buiten Azure wordt gehost, het eindpunt is gemaakt als een [externe](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) eindpunt.
-- Met Azure Site Recovery heeft de Azure site geen alle virtuele machines of toepassingen die worden uitgevoerd voordat er failover. Ja, de **Failover** eindpunt wordt ook gemaakt als een **externe** eindpunt.
-- Standaard wordt gebruikersverkeer omgeleid naar de on-premises toepassing omdat dat eindpunt de hoogste prioriteit gekoppeld heeft. Er is geen verkeer wordt omgeleid naar Azure als de **primaire** eindpunt is in orde.
+- Met behulp van de **prioriteit** routeringsmethode, **bedrijf A** maakt u twee eindpunten: **primaire** voor on-premises en **Failover** voor Azure. **Primaire** prioriteit 1 is toegewezen en **Failover** prioriteit 2 is toegewezen.
+- Omdat de **primaire** -eindpunt wordt gehost buiten Azure, het eindpunt is gemaakt als een [externe](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) eindpunt.
+- Met Azure Site Recovery heeft de Azure-site geen elke virtuele machine of toepassingen die worden uitgevoerd voordat u een failover. Dus de **Failover** eindpunt wordt ook gemaakt als een **externe** eindpunt.
+- Standaard gebruikersverkeer doorgestuurd naar de on-premises toepassing omdat dit eindpunt de hoogste prioriteit die ermee verbonden zijn heeft. Geen verkeer wordt omgeleid naar Azure als de **primaire** eindpunt in orde is.
 
-![Op lokale-die naar Azure voordat failover wordt uitgevoerd](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-before.png)
+![On-premises-to-Azure voordat de failover](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-before.png)
 
-In een gebeurtenis na noodgevallen bedrijf A kunt activeren een [failover](site-recovery-failover.md) naar Azure en herstellen van de toepassingen in Azure. Wanneer Azure Traffic Manager gedetecteerd dat de **primaire** eindpunt is niet langer in orde, gebruikt automatisch de **Failover** eindpunt in de DNS-antwoord en gebruikers verbinding maken met de toepassing die wordt hersteld op Azure.
+In een noodgebeurtenis bedrijf A kunt activeren een [failover](site-recovery-failover.md) naar Azure en de toepassingen op Azure te herstellen. Wanneer Azure Traffic Manager detecteert dat de **primaire** eindpunt niet meer in orde is, wordt automatisch de **Failover** eindpunt in de DNS-antwoord en gebruikers verbinding maken met de toepassing die wordt hersteld op Azure.
 
-![Op lokale-die naar Azure na een failover](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-after.png)
+![On-premises-to-Azure na een failover](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-after.png)
 
-Afhankelijk van de zakelijke vereisten, **bedrijf A** kunt kiezen een hogere of lagere [probing frequentie](../traffic-manager/traffic-manager-monitoring.md) overschakelen tussen on-premises naar Azure in een gebeurtenis na noodgevallen en zorg ervoor dat de minimale downtime voor gebruikers.
+Afhankelijk van de zakelijke vereisten, **bedrijf A** kunt ervoor kiezen een hogere of lagere [probing frequentie](../traffic-manager/traffic-manager-monitoring.md) schakelen tussen on-premises naar Azure in een noodgebeurtenis, en ervoor zorgen dat minimale downtime voor gebruikers.
 
-Wanneer de sitedatabase is opgenomen, **bedrijf A** kunt failback vanuit Azure naar de on-premises-omgeving ([VMware](vmware-azure-failback.md) of [Hyper-V](hyper-v-azure-failback.md)) met Azure Site Recovery. Nu wanneer Traffic Manager gedetecteerd dat de **primaire** eindpunt opnieuw in orde is, wordt automatisch gebruikt de **primaire** eindpunt in de DNS-antwoorden.
+Wanneer het noodgeval is opgenomen, **bedrijf A** kunt failback van Azure naar de on-premises-omgeving ([VMware](vmware-azure-failback.md) of [Hyper-V](hyper-v-azure-failback.md)) met behulp van Azure Site Recovery. Nu als Traffic Manager vaststelt dat de **primaire** eindpunt weer in orde is, worden automatisch wordt toegepast. de **primaire** eindpunt in de DNS-antwoorden.
 
-## <a name="on-premises-to-azure-migration"></a>On-premises naar Azure migreren
+## <a name="on-premises-to-azure-migration"></a>On-premises naar Azure-migratie
 
-Naast het herstel na noodgevallen, kunnen Azure Site Recovery ook [migraties naar Azure](migrate-overview.md). Met behulp van Azure Site Recovery krachtige test failoverfuncties beoordelen klanten toepassingsprestaties op Azure zonder hun on-premises omgeving. En wanneer klanten gereed om te migreren zijn, volledige werkbelastingen samen migreren of ervoor kiezen om te migreren en geleidelijk schalen kunt kiezen.
+Naast het herstel na noodgevallen kunt Azure Site Recovery ook [migraties naar Azure](migrate-overview.md). Met behulp van Azure Site Recovery krachtige test failover wordt toegepast, beoordelen klanten prestaties van toepassingen op Azure zonder dat hun on-premises omgeving. En wanneer klanten klaar om te migreren zijn, ze kunnen kiezen samen gehele workloads migreren of ervoor kiezen om te migreren en geleidelijk schalen.
 
-Azure Traffic Manager van [gewogen](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) routeringsmethode kan worden gebruikt om een deel van het binnenkomende verkeer naar Azure leiden bij het doorsturen van de meeste naar de on-premises omgeving. Deze aanpak kunt beoordelen schaal, prestaties, zoals u kunt doorgaan met het verhogen van het gewicht toegewezen naar Azure als u meer en meer van de werkbelasting van uw naar Azure migreren.
+Met Azure Traffic Manager van [gewogen](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) routeringsmethode kan worden gebruikt om een deel van het binnenkomende verkeer naar Azure rechtstreeks bij het doorsturen van de meeste naar de on-premises omgeving. Deze aanpak kan helpen met het beoordelen van prestaties, zoals u kunt doorgaan met het verhogen van het gewicht dat is toegewezen aan Azure bij het migreren van meer en meer van uw workloads naar Azure.
 
-Bijvoorbeeld: **bedrijf B** kiest voor het migreren van in fasen, enkele van de omgeving van toepassing verplaatsen terwijl de rest on-premises behouden. Tijdens de eerste fasen dat wanneer het merendeel van de omgeving is on-premises een grotere gewicht is toegewezen aan de on-premises omgeving. Het Traffic manager retourneert een eindpunt op basis van gewicht is toegewezen aan het aantal beschikbare eindpunten.
+Bijvoorbeeld, **bedrijf B** kiest voor het migreren van in fasen, verplaatst enkele van de toepassingsomgeving behoudt de rest on-premises. Tijdens de eerste fasen van dat bij het grootste deel van de omgeving is on-premises een grotere gewicht is toegewezen aan de on-premises omgeving. Traffic manager retourneert een eindpunt op basis van gewicht is toegewezen aan de beschikbare eindpunten.
 
-![Migratie van lokale-die naar Azure](./media/concepts-traffic-manager-with-site-recovery/on-premises-migration.png)
+![On-premises-to-Azure-migratie](./media/concepts-traffic-manager-with-site-recovery/on-premises-migration.png)
 
-Beide eindpunten actief zijn tijdens de migratie en het meeste verkeer wordt omgeleid naar de on-premises omgeving. Als de migratie wordt voortgezet, kan een grotere gewicht kan worden toegewezen aan het eindpunt op Azure en ten slotte het lokale eindpunt gedeactiveerde na migratie.
+Tijdens de migratie, beide eindpunten zijn actief en het meeste verkeer wordt omgeleid naar de on-premises omgeving. Als de migratie wordt voortgezet, een grotere gewicht kan worden toegewezen aan het eindpunt op Azure en ten slotte het eindpunt van de on-premises gedeactiveerde nadat de migratie kan zijn.
 
 ## <a name="azure-to-azure-failover"></a>Failover van Azure naar Azure
 
-Voor dit voorbeeld kunt u overwegen **bedrijf C** is met alle van de toepassing-infrastructuur met Azure. Voor zakelijke continuïteit en naleving redenen **bedrijf C** beslist haar toepassingen beveiligen met Azure Site Recovery.
+Voor dit voorbeeld kunt u overwegen **bedrijf C** waarvoor alle van de toepassingsinfrastructuur met Azure. Voor zakelijke continuïteit en naleving redenen **bedrijf C** wil Azure Site Recovery gebruiken de toepassingen te beschermen.
 
-**Bedrijf C** toepassingen worden uitgevoerd met de openbare eindpunten en wil de mogelijkheid verkeer naadloos omleiden naar een ander Azure-regio in een gebeurtenis na noodgevallen. De [prioriteit](../traffic-manager/traffic-manager-configure-priority-routing-method.md) verkeersroutering methode kunt **bedrijf C** dit patroon failover eenvoudig te implementeren.
+**Bedrijf C** toepassingen wordt uitgevoerd met openbare eindpunten en wil de mogelijkheid naadloos verkeer omleiden naar een andere Azure-regio in een noodgebeurtenis. De [prioriteit](../traffic-manager/traffic-manager-configure-priority-routing-method.md) verkeersrouteringsmethode kunt **bedrijf C** dit patroon failover eenvoudig kunt implementeren.
 
 De installatie is als volgt:
 - **Bedrijf C** maakt een [Traffic Manager-profiel](../traffic-manager/traffic-manager-create-profile.md).
-- Gebruik de **prioriteit** routeringsmethode, **bedrijf C** maakt twee eindpunten – **primaire** voor de bron-regio (Azure Oost-Azië) en **Failover** voor het herstel de regio (Azure Zuidoost-Azië). **Primaire** prioriteit 1 is toegewezen en **Failover** prioriteit 2 is toegewezen.
-- Aangezien de **primaire** eindpunt wordt gehost in Azure, het eindpunt kan als een [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) eindpunt.
-- Met Azure Site Recovery heeft de Azure site-recovery geen alle virtuele machines of toepassingen die worden uitgevoerd voordat er failover. Ja, de **Failover** eindpunt kan worden gemaakt als een [externe](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) eindpunt.
-- Standaard wordt gebruikersverkeer omgeleid naar de bron regio (Oost-Azië)-toepassing als dat eindpunt de hoogste prioriteit gekoppeld heeft. Er is geen verkeer wordt omgeleid naar de herstel-regio als de **primaire** eindpunt is in orde.
+- Met behulp van de **prioriteit** routeringsmethode, **bedrijf C** maakt u twee eindpunten: **primaire** voor de regio van de gegevensbron (Azure Oost-Azië) en **Failover** voor de recovery-regio (Azure Zuidoost-Azië). **Primaire** prioriteit 1 is toegewezen en **Failover** prioriteit 2 is toegewezen.
+- Omdat de **primaire** eindpunt wordt gehost in Azure, het eindpunt kan worden als een [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) eindpunt.
+- Met Azure Site Recovery, heeft het herstel van Azure site geen elke virtuele machine of toepassingen die worden uitgevoerd voordat u een failover. Dus de **Failover** eindpunt kan worden gemaakt als een [externe](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) eindpunt.
+- Standaard gebruikersverkeer doorgestuurd naar de toepassing van de bron-regio's (Oost-Azië) als dit eindpunt de hoogste prioriteit die ermee verbonden zijn heeft. Geen verkeer wordt omgeleid naar de recovery-regio als de **primaire** eindpunt in orde is.
 
-![Azure naar Azure voordat failover wordt uitgevoerd](./media/concepts-traffic-manager-with-site-recovery/azure-failover-before.png)
+![Azure-naar-Azure voordat de failover](./media/concepts-traffic-manager-with-site-recovery/azure-failover-before.png)
 
-In een gebeurtenis na noodgevallen **bedrijf C** kunt activeren een [failover](azure-to-azure-tutorial-failover-failback.md) en herstellen van de toepassingen op de herstelserver Azure-regio. Wanneer Azure Traffic Manager detecteert dat het primaire eindpunt niet meer in orde is, gebruikt deze automatisch de **Failover** eindpunt in de DNS-antwoord en gebruikers verbinding maken met de toepassing die wordt hersteld op de herstelserver (Azure-regio Zuidoost-Azië).
+In een noodgebeurtenis **bedrijf C** kunt activeren een [failover](azure-to-azure-tutorial-failover-failback.md) en herstellen van de toepassingen op de Azure-regio van het herstel. Wanneer Azure Traffic Manager detecteert dat het primaire eindpunt niet meer in orde is, gebruikt deze automatisch de **Failover** eindpunt in de DNS-antwoord en gebruikers verbinding maken met de toepassing die wordt hersteld op de herstelserver (Azure-regio Zuidoost-Azië).
 
 ![Azure naar Azure na een failover](./media/concepts-traffic-manager-with-site-recovery/azure-failover-after.png)
 
-Afhankelijk van de zakelijke vereisten, **bedrijf C** kunt kiezen een hogere of lagere [probing frequentie](../traffic-manager/traffic-manager-monitoring.md) overschakelen tussen bron- en herstelinstellingen regio's en zorg ervoor dat de minimale downtime voor gebruikers.
+Afhankelijk van de zakelijke vereisten, **bedrijf C** kunt ervoor kiezen een hogere of lagere [probing frequentie](../traffic-manager/traffic-manager-monitoring.md) schakelen tussen de bron- en herstelinstellingen regio's, en ervoor zorgen dat minimale downtime voor gebruikers.
 
-Wanneer de sitedatabase is opgenomen, **bedrijf C** kunt failback vanuit Azure-regio van het herstel naar de bron van Azure-regio met Azure Site Recovery. Nu wanneer Traffic Manager gedetecteerd dat de **primaire** eindpunt opnieuw in orde is, wordt automatisch gebruikt de **primaire** eindpunt in de DNS-antwoorden.
+Wanneer het noodgeval is opgenomen, **bedrijf C** kunt failback van Azure-regio van het herstel naar de bron-Azure-regio met Azure Site Recovery. Nu als Traffic Manager vaststelt dat de **primaire** eindpunt weer in orde is, worden automatisch wordt toegepast. de **primaire** eindpunt in de DNS-antwoorden.
 
-## <a name="protecting-multi-region-enterprise-applications"></a>Meerdere landen/regio enterprise toepassingen beveiligen
+## <a name="protecting-multi-region-enterprise-applications"></a>Beveiliging van bedrijfstoepassingen voor meerdere regio 's
 
-Globale ondernemingen de klantervaring vaak verbeteren door het afstemmen van hun toepassingen voor het uitvoeren van regionale behoeften. Lokalisatie en de latentie te beperken, kunnen leiden tot infrastructuur verdelen over regio's. Ondernemingen zijn ook afhankelijk is van regionale wetten in bepaalde gebieden en kies een onderdeel hun infrastructuur toepassing binnen de grenzen van regionale isoleren.  
+Wereldwijd opererende ondernemingen de klantervaring vaak verbeteren door het afstemmen van hun toepassingen om te voldoen aan regionale behoeften. Lokalisatie en vermindering van de latentie kunnen leiden tot toepassingsinfrastructuur verdeeld over regio's. Ondernemingen zijn ook gebonden bent aan de wetten van de regionale gegevens in bepaalde gebieden en kiest u voor het isoleren van een onderdeel de toepassingsinfrastructuur van hun binnen de grenzen van regionale.  
 
-Laten we eens een voorbeeld waarin **bedrijf D** is opgesplitst in de toepassing eindpunten afzonderlijk voor Duitsland en de rest van de hele wereld. **Bedrijf D** maakt gebruik van Azure Traffic Manager [geografisch](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) routeringsmethode voor dit. Die afkomstig zijn van Duitsland verkeer wordt omgeleid naar **Eindpunt1** en alle verkeer dat afkomstig is buiten Duitsland wordt omgeleid voor **eindpunt 2**.
+Een voorbeeld waarin **bedrijf D** is gesplitst door de toepassingseindpunten afzonderlijk voor Duitsland en de rest van de hele wereld. **Bedrijf D** maakt gebruik van Azure Traffic Manager [geografisch](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) routeringsmethode dit instellen. Al het verkeer dat afkomstig is uit Duitsland wordt omgeleid naar **Eindpunt1** en al het verkeer dat afkomstig is buiten Duitsland wordt omgeleid naar **eindpunt 2**.
 
-Het probleem met deze installatie is dat als **Eindpunt1** vastloopt om welke reden er is geen omleiding van verkeer naar **eindpunt 2**. Verkeer van Duitsland blijft worden omgeleid naar **Eindpunt1** ongeacht de status van het eindpunt verlaten Duitse gebruikers geen toegang hebben tot **bedrijf D**van toepassing. Op dezelfde manier als **eindpunt 2** gaat offline, er is geen omleiding van verkeer naar **Eindpunt1**.
+Het probleem met deze instelling is dat als **Eindpunt1** niet meer werkt voor een bepaalde reden, er is geen omleiden van verkeer naar **eindpunt 2**. Verkeer dat afkomstig is uit Duitsland blijft worden omgeleid naar **Eindpunt1** verlaten, ongeacht de status van het eindpunt, Duitse gebruikers geen toegang tot **bedrijf D**van toepassing. Op dezelfde manier als **eindpunt 2** offline is, is er geen omleiding van het verkeer naar **Eindpunt1**.
 
-![Meerdere landen/regio toepassing voordat](./media/concepts-traffic-manager-with-site-recovery/geographic-application-before.png)
+![Toepassing voor meerdere regio 's](./media/concepts-traffic-manager-with-site-recovery/geographic-application-before.png)
 
-Kunt u voorkomen dat dit probleem en ervoor zorgen dat toepassingen tolerantie, **bedrijf D** gebruikt [Traffic Manager-profielen genest](../traffic-manager/traffic-manager-nested-profiles.md) met Azure Site Recovery. In een geneste profielinstellingen is verkeer niet gericht op afzonderlijke eindpunten, maar in plaats daarvan aan andere Traffic Manager-profielen. Dit is de werking van deze installatie:
-- In plaats van met behulp van geografische routering met afzonderlijke eindpunten **bedrijf D** geografische routering met Traffic Manager-profielen gebruikt.
-- Maakt gebruik van elke onderliggende Traffic Manager-profiel **prioriteit** routering met een primaire en een eindpunt voor herstel, daarom nesten **prioriteit** routering binnen **geografisch** routering.
-- De verdeling van elke werkbelasting maakt gebruik van Azure Site Recovery voor failover naar een recovery regio op basis van in het geval van een gebeurtenis na noodgevallen zodat tolerantie van toepassing.
-- Wanneer de bovenliggende Traffic Manager ontvangt een DNS-query, is het omgeleid naar de relevante onderliggende Traffic Manager dat met de query met een beschikbare eindpunt overeenkomt.
+Kunt u voorkomen dat dit probleem zich voordoet en ervoor zorgen dat tolerantie voor toepassing **bedrijf D** maakt gebruik van [geneste Traffic Manager-profielen](../traffic-manager/traffic-manager-nested-profiles.md) met Azure Site Recovery. In een geneste profielinstellingen is verkeer niet gericht op afzonderlijke eindpunten, maar in plaats daarvan naar andere Traffic Manager-profielen. Dit is de werking van deze instellingen:
+- In plaats van het gebruik van de geografische routering met afzonderlijke eindpunten **bedrijf D** maakt gebruik van de geografische routering met Traffic Manager-profielen.
+- Maakt gebruik van elke onderliggende Traffic Manager-profiel **prioriteit** routering met een primaire en een eindpunt herstel, dus het nesten van **prioriteit** routering binnen **geografisch** routering.
+- Om in te schakelen tolerantie voor toepassing, de verdeling van elke werkbelasting gebruikmaakt van Azure Site Recovery voor failover naar een recovery regio op basis van in het geval van een noodgebeurtenis.
+- Wanneer de bovenliggende Traffic Manager een DNS-query ontvangt, wordt deze omgeleid naar de relevante onderliggende Traffic Manager die met de query met een eindpunt beschikbaar overeenkomt.
 
-![Meerdere landen/regio toepassing na](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
+![Toepassing na meerdere regio 's](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
 
-Bijvoorbeeld, als het eindpunt in Duitsland centraal mislukt, kan de toepassing snel worden hersteld naar Duitsland noordoosten. Het nieuwe eindpunt verwerkt verkeer die afkomstig zijn van Duitsland met minimale downtime voor gebruikers. Een eindpunt storing in West-Europa kan op dezelfde manier worden verwerkt door het herstellen van de werkbelasting van de toepassing naar Noord-Europa, met Azure Traffic Manager-verwerking die DNS wordt omgeleid naar de beschikbare eindpunt.
+Bijvoorbeeld, als het eindpunt in Duitsland-centraal mislukt, kan de toepassing snel worden hersteld naar Duitsland-Noordoost. Het nieuwe eindpunt verwerkt verkeer dat afkomstig is uit Duitsland met minimale downtime voor gebruikers. Een eindpunt storing in West-Europa kan op dezelfde manier worden verwerkt door het herstellen van de workload van de toepassing naar Noord-Europa, met Azure Traffic Manager-verwerking die DNS wordt omgeleid naar het eindpunt beschikbaar.
 
-De bovenstaande instellingen kan worden uitgebreid met zoveel regio- en eindpunt combinaties vereist. Traffic Manager kunt maximaal 10 niveaus van geneste profielen en staat niet toe dat lussen binnen de geneste configuratie.
+De bovenstaande instellingen kan worden uitgebreid naar zo veel combinaties van de regio en -eindpunt vereist. Traffic Manager kunt maximaal 10 niveaus van geneste profielen en lussen in de geneste-configuratie niet is toegestaan.
 
-## <a name="recovery-time-objective-rto-considerations"></a>Overwegingen voor herstel tijd Objective (RTO)
+## <a name="recovery-time-objective-rto-considerations"></a>Overwegingen voor herstel tijd beoogde hersteltijd (RTO)
 
-In de meeste organisaties wordt toevoegen of wijzigen van DNS-records verwerkt door een afzonderlijk team of door iemand buiten de organisatie. Hierdoor kunt u de taak van het DNS-records erg lastig te wijzigen. De tijd om bij te werken van DNS-records die andere teams of organisaties beheren DNS-infrastructuur verschilt van de organisatie en heeft impact op de RTO van de toepassing.
+In de meeste organisaties, wordt toevoegen of wijzigen van de DNS-records verwerkt door een afzonderlijk team of door iemand buiten de organisatie. Hiermee wordt de taak van het DNS-records die zeer moeilijk te wijzigen. De gebruikte tijd voor het bijwerken van DNS-records door andere teams of organisaties beheren van DNS-infrastructuur is afhankelijk van de organisatie, en heeft gevolgen voor de RTO bepaalt van de toepassing.
 
-Door het gebruik van Traffic Manager, kunt u frontload het werk dat nodig is voor DNS-updates. Er is geen actie handmatige of een script op het moment van de werkelijke failover vereist. Deze aanpak helpt bij het snel overschakelen (en dus breek RTO) evenals vermijden kostbare tijdrovend DNS-wijziging fouten in een gebeurtenis na noodgevallen. Met Traffic Manager zelfs de stap failback wordt geautomatiseerd, die anders zelf zou moeten afzonderlijk worden beheerd.
+Door het gebruik van Traffic Manager, kunt u frontload het werk dat nodig is voor DNS-updates. Er is geen actie handmatig of gepland op het moment van de werkelijke failover vereist. Deze aanpak helpt snel overschakelen (en dus breek RTO) en het voorkomen van kostbare tijd DNS-wijziging fouten in een noodgebeurtenis. Met Traffic Manager, zelfs de stap van de failback is geautomatiseerd, die anders zelf zou moeten afzonderlijk worden beheerd.
 
-Instellen van de juiste [probing interval](../traffic-manager/traffic-manager-monitoring.md) via basis of snelle interval health controles kunnen aanzienlijk brengt u de RTO tijdens de failover en de downtime voor gebruikers.
+Instellen van de juiste [testinterval](../traffic-manager/traffic-manager-monitoring.md) via basic of snelle interval health controles kunnen aanzienlijk de RTO uitvallen tijdens de failover en minder uitvaltijd voor gebruikers.
 
-Bovendien kunt u de DNS Time to Live (TTL)-waarde voor het Traffic Manager-profiel optimaliseren. TTL is de waarde waarvoor een DNS-vermelding worden in de cache door een client opgeslagen zou. Voor een record zou DNS niet twee keer binnen het bereik van TTL worden opgevraagd. Elke DNS-record heeft TTL gekoppeld. Deze waarde verlaagt, resulteert in meer DNS-query's aan Traffic Manager, maar RTO kunt beperken door de detectie van storingen sneller.
+Daarnaast kunt u de DNS Time to Live (TTL) waarde voor het Traffic Manager-profiel optimaliseren. TTL-waarde is de waarde waarvoor een DNS-vermelding worden in de cache door een client opgeslagen zou. Voor een record zou DNS niet twee keer binnen het bereik van TTL worden opgevraagd. Elke DNS-record heeft een TTL-waarde die is gekoppeld aan deze. Deze waarde verlaagt resulteert in meer DNS-query's op Traffic Manager, maar kunt RTO verkorten door het detecteren van storingen sneller.
 
-De TTL is door de client ook verhogen niet als het aantal DNS-resolvers tussen de client en de gezaghebbende DNS-server verhoogt. DNS-resolvers 'aftellen' de TTL-waarde op en alleen op een TTL-waarde die overeenkomt met de verstreken tijd sinds de record in de cache is opgeslagen. Dit zorgt ervoor dat de DNS-record wordt vernieuwd op de client na de TTL, ongeacht het aantal DNS-Resolvers in de keten.
+De TTL-waarde door de client is ook verhogen niet als het aantal DNS-resolvers tussen de client en de gezaghebbende DNS-server wordt verhoogd. DNS-resolvers 'aftellen' de TTL-waarde en geef alleen op een TTL-waarde die overeenkomt met de verstreken tijd sinds de record in de cache is opgeslagen. Dit zorgt ervoor dat de DNS-record wordt vernieuwd op de client na de TTL-waarde, ongeacht het aantal DNS-Resolvers in de keten.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over het Traffic Manager [methoden voor het doorsturen](../traffic-manager/traffic-manager-routing-methods.md).
-- Meer informatie over [Traffic Manager-profielen genest](../traffic-manager/traffic-manager-nested-profiles.md).
-- Meer informatie over [eindpuntcontrole](../traffic-manager/traffic-manager-monitoring.md).
-- Meer informatie over [herstelplannen](site-recovery-create-recovery-plans.md) toepassing failover te automatiseren.
+- Meer informatie over Traffic Manager [routeringsmethoden](../traffic-manager/traffic-manager-routing-methods.md).
+- Meer informatie over [geneste Traffic Manager-profielen](../traffic-manager/traffic-manager-nested-profiles.md).
+- Meer informatie over [eindpuntbewaking](../traffic-manager/traffic-manager-monitoring.md).
+- Meer informatie over [herstelplannen](site-recovery-create-recovery-plans.md) toepassing failover wilt automatiseren.

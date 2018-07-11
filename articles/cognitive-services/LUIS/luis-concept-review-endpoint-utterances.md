@@ -9,18 +9,18 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: e416eec29ff9f4ac96eabf11c87424abeba0c75b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4144db7474f20f464d14722431d5d4a2546a8c5a
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855714"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949846"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Actief leren aan de hand van de eindpunt-uitingen inschakelen
 Actief leren is een van drie strategieën voor het verbeteren van nauwkeurigheid en het gemakkelijkst te implementeren. 
 
 ## <a name="what-is-active-learning"></a>Wat is actief leren
-Actief leren is een proces in twee stappen. Eerst selecteert LUIS uitingen die wordt ontvangen op van de app-eindpunt waarvoor validatie. De tweede stap wordt uitgevoerd door de eigenaar van de app of medewerker voor het valideren van de geselecteerde uitingen voor [bekijken](label-suggested-utterances.md), met inbegrip van de juiste intentie en alle entiteiten in het doel. Bekijk de uitingen en trainen en publiceer de app opnieuw. 
+Actief leren is een proces in twee stappen. Eerst selecteert LUIS uitingen die wordt ontvangen op van de app-eindpunt waarvoor validatie. De tweede stap wordt uitgevoerd door de eigenaar van de app of medewerker voor het valideren van de geselecteerde uitingen voor [bekijken](luis-how-to-review-endoint-utt.md), met inbegrip van de juiste intentie en alle entiteiten in het doel. Bekijk de uitingen en trainen en publiceer de app opnieuw. 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>Welke uitingen zijn in de lijst met controleren
 Als de bovenkant activeren kunt u lezen wat een lage score heeft of de bovenste twee intenties scores te sluiten zijn, LUIS uitingen toegevoegd aan de beoordeling-lijst. 
@@ -39,4 +39,4 @@ Als uw app groot is, besluiten kunt u om te controleren van sommige uitingen en 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [bekijken](Label-Suggested-Utterances.md) uitingen van eindpunt
+* Meer informatie over het [bekijken](luis-how-to-review-endoint-utt.md) uitingen van eindpunt

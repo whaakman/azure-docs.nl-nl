@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: fe035c744e7cbc291fa392205239f331410412dc
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 45289b712a127e70636e225778d7a36578b34fa5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866328"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931623"
 ---
 # <a name="prebuilt-domain-reference"></a>Vooraf gemaakte domeinverwijzing
 Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
 
-[Aangepaste domeinen](create-new-app.md), daarentegen, beginnen met geen intents en modellen. U kunt een vooraf gedefinieerde domein intenties en entiteiten toevoegen aan een aangepast model.
+[Aangepaste domeinen](luis-how-to-start-new-app.md), daarentegen, beginnen met geen intents en modellen. U kunt een vooraf gedefinieerde domein intenties en entiteiten toevoegen aan een aangepast model.
 
 ## <a name="list-of-prebuilt-domains"></a>Lijst met vooraf gemaakte domeinen
 LUIS biedt 20 vooraf gemaakte domeinen. 
@@ -154,7 +154,7 @@ Het domein biedt intenties en entiteiten die betrekking hebben op te zoeken naar
 | ContentRating | Media inhoudsrestricties, zoals G of R voor films.|Video van kinderen.<br/>PG beoordeeld.|
 | Genre | Het genre van een film, games, app of nummer.|Comedies<br/>Dramas<br/>Grappige|
 | Trefwoord| Een algemene trefwoord op te geven van een kenmerk de bestaat niet in de specifiekere media sleuven.|Soundtracks<br/>Maan-rivier<br/>Amelia Earhart|
-| Taal | Media inhoudsrestricties, zoals G of R voor films.|Frans<br/>Nederlands<br/>Koreaans|
+| Taal | De taal die wordt gebruikt in de media, zoals gesproken taal van de film of een nummer.|Frans<br/>Nederlands<br/>Koreaans|
 | MediaFormat | De aanvullende speciale technische type waarin het medium is geformatteerd.|HD-films<br/>3D-films<br/>Downloadbare|
 | MediaSource | De store of de marketplace voor het verkrijgen van de media.|NetFlix<br/>Prime|
 | MediaSubTypes| Media die kleiner is dan films en games.|Demo 's<br/>De DLC<br/>Aanhangwagen|

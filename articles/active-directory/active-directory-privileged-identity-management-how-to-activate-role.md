@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e0e9e01baccd71804b26282f288d19abff8ff8fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bc4280d6e0ac362712d3b406e2e32c42cf4a9be2
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444919"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952678"
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Activeren of deactiveren van rollen in Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management vereenvoudigt de manier waarop ondernemingen bevoegde toegang tot resources in Azure AD en andere Microsoft online services zoals Office 365 en Microsoft Intune beheren.  
@@ -44,11 +44,11 @@ Wanneer u nodig hebt om een rol te, kunt u de activering aanvragen door het sele
 4. Selecteer **activeren**. De **rolactivering aanvragen** blade wordt weergegeven.
 5. Sommige rollen is multi-factor Authentication (MFA) vereist voordat u de rol kunt activeren. U moet slechts één keer per sessie geverifieerd.
    
-    ![Controleer of met MFA voor rolactivering van de - schermafbeelding][2]
+    ![Controleer of met MFA voor rolactivering van de - schermafbeelding](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png)
 6. De reden voor de activeringsaanvraag invoeren in het tekstveld.  Sommige rollen moeten u een Ticketnummer problemen opgeven.
 7. Selecteer **OK**.  Als de rol geen goedkeuring is vereist, wordt deze nu geactiveerd en de rol wordt weergegeven in de lijst met actieve rollen (direct onder de lijst met in aanmerking komende roltoewijzingen). Als de [rol is goedkeuring vereist](./privileged-identity-management/azure-ad-pim-approval-workflow.md) wilt activeren, verschijnt een pop-upmelding kort in de rechterbovenhoek van uw browser waarin de aanvraag is in afwachting van goedkeuring.
 
-    ![Aanvraag in behandeling melding - schermafbeelding][3]
+    ![Aanvraag in behandeling melding - schermafbeelding](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png)
 
 ## <a name="deactivate-a-role"></a>Een rol deactiveren
 Wanneer een rol is geactiveerd, wordt deze automatisch uitgeschakeld wanneer de tijdslimiet (in aanmerking komende duur) is bereikt.
@@ -64,16 +64,9 @@ In het geval u geen activering van een rol waarvoor goedkeuring wordt vereist, k
 4. Selecteer de **activering is in afwachting van goedkeuring** standaardvaandel op de blade rol activeren.
 5. Selecteer **annuleren** aan de bovenkant van de **in afwachting van goedkeuring** blade.
 
-   ![Schermafbeelding van de aanvraag in behandeling annuleren][4]
+   ![Schermafbeelding van de aanvraag in behandeling annuleren](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u geïnteresseerd in meer informatie over Azure AD Privileged Identity Management bent, hebben de volgende koppelingen meer informatie.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png

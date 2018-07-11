@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 4d18419a6ad8be6ee46944c34205e450212b23a8
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 4341233e56ef62486b935457f606e54e54af84f4
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888503"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952586"
 ---
 # <a name="data-extraction"></a>Ophalen van gegevens
 LUIS biedt u de mogelijkheid informatie ophalen van natuurlijke taal-uitingen van een gebruiker. De informatie wordt opgehaald op een manier dat deze kan worden gebruikt door een programma, toepassing of chatbot om actie te ondernemen.
@@ -426,13 +426,13 @@ Een ander voorbeeld-utterance, met behulp van een synoniem voor Parijs:
 Namen ophalen uit een utterance is moeilijk, omdat een naam mag bestaan uit vrijwel elke combinatie van letters en woorden. Afhankelijk van welk type de naam die u uitpakken wilt, hebt u verschillende mogelijkheden. Dit zijn geen regels, maar meer richtlijnen. 
 
 ### <a name="names-of-people"></a>Namen van personen
-De naam van mensen kan een lichte indeling, afhankelijk van de taal en cultuur hebben. Gebruik een hiërarchische entiteit met voor- en achternamen als onderliggende items of een enkele entiteit met de rol van de voornaam en achternaam. Zorg ervoor dat u voorbeelden gegeven die gebruikmaken van de naam van de eerste en laatste in de verschillende onderdelen van de utterance, in uitingen van verschillende lengtes en uitingen over alle intents, met inbegrip van de geen intentie. [Beoordeling](label-suggested-utterances.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld. 
+De naam van mensen kan een lichte indeling, afhankelijk van de taal en cultuur hebben. Gebruik een hiërarchische entiteit met voor- en achternamen als onderliggende items of een enkele entiteit met de rol van de voornaam en achternaam. Zorg ervoor dat u voorbeelden gegeven die gebruikmaken van de naam van de eerste en laatste in de verschillende onderdelen van de utterance, in uitingen van verschillende lengtes en uitingen over alle intents, met inbegrip van de geen intentie. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld. 
 
 ### <a name="names-of-places"></a>Namen van plaatsen
-Locatienamen zijn ingesteld en bekend zijn, zoals steden, regio's, Staten, provincies en landen. Als uw app gebruikmaakt van een bekende set locaties, kunt u een lijst met entiteit. Als u vinden dat alle namen plaatsen wilt, een eenvoudige entiteit maken en bieden een aantal voorbeelden. Een woordgroepenlijst van het geocoderen van plaatsnamen te versterken welke plaats namen eruit in uw app toevoegen. [Beoordeling](label-suggested-utterances.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld. 
+Locatienamen zijn ingesteld en bekend zijn, zoals steden, regio's, Staten, provincies en landen. Als uw app gebruikmaakt van een bekende set locaties, kunt u een lijst met entiteit. Als u vinden dat alle namen plaatsen wilt, een eenvoudige entiteit maken en bieden een aantal voorbeelden. Een woordgroepenlijst van het geocoderen van plaatsnamen te versterken welke plaats namen eruit in uw app toevoegen. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld. 
 
 ### <a name="new-and-emerging-names"></a>Nieuwe en opkomende namen
-Sommige apps moeten kunnen om nieuwe en opkomende namen, zoals producten of bedrijven te vinden. Dit is het moeilijkste type ophalen van gegevens. Beginnen met een enkele entiteit en een woordgroepenlijst met toevoegen. [Beoordeling](label-suggested-utterances.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld. 
+Sommige apps moeten kunnen om nieuwe en opkomende namen, zoals producten of bedrijven te vinden. Dit is het moeilijkste type ophalen van gegevens. Beginnen met een enkele entiteit en een woordgroepenlijst met toevoegen. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld. 
 
 ## <a name="pattern-roles-data"></a>Patroon rollen gegevens
 Rollen zijn contextuele verschillen van entiteiten. 

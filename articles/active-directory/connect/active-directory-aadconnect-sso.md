@@ -1,10 +1,10 @@
 ---
 title: 'Azure AD Connect: Naadloze eenmalige aanmelding | Microsoft Docs'
-description: Dit onderwerp beschrijft de Azure Active Directory (Azure AD) naadloze eenmalige aanmelding en hoe kunt u opgeven waar eenmalige aanmelding voor desktop-zakelijke gebruikers binnen uw bedrijfsnetwerk.
+description: Dit onderwerp beschrijft de Azure Active Directory (Azure AD) naadloze eenmalige aanmelding en hoe kunt u opgeven waar eenmalige aanmelding voor zakelijke Desktopgebruikers binnen het bedrijfsnetwerk.
 services: active-directory
-keywords: Wat is Azure AD Connect, installeer Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
+keywords: Wat is Azure AD Connect, Active Directory installeren onderdelen vereist voor Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 11a04d40a403231db728d6bf0caade5969bba84d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593656"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916163"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>Wat is Azure Active Directory naadloze eenmalige aanmelding?
 
-Azure Active Directory naadloze eenmalige aanmelding (Azure AD naadloze SSO) wordt automatisch aangemeld gebruikers wanneer ze zijn op hun zakelijke apparaten die zijn verbonden met uw bedrijfsnetwerk. Wanneer dit is ingeschakeld, wordt gebruikers hoeft te typen in hun wachtwoord aanmelden bij Azure AD en meestal, zelfs in hun gebruikersnamen typt. Deze functie biedt uw gebruikers eenvoudig toegang krijgen tot uw cloud-gebaseerde toepassingen zonder extra on-premises onderdelen.
+Azure Active Directory naadloze eenmalige aanmelding (Azure AD naadloze eenmalige aanmelding) zich automatisch gebruikers wanneer ze zijn op hun zakelijke apparaten die zijn verbonden met uw bedrijfsnetwerk. Wanneer dit is ingeschakeld, wordt gebruikers hoeft te typen in hun wachtwoord aanmelden bij Azure AD en meestal, zelfs in hun gebruikersnamen typt. Deze functie biedt uw gebruikers eenvoudig toegang tot uw cloud-toepassingen zonder extra on-premises onderdelen.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) aanmeldingsmethoden.
+Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [wachtwoord-Hashsynchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) aanmeldingsmethoden.
 
 ![Naadloze eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -39,26 +39,26 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisat
 
 ## <a name="key-benefits"></a>Belangrijkste voordelen
 
-- *Gebruikerservaring*
-  - Gebruikers worden automatisch aangemeld bij zowel on-premises en cloudtoepassingen.
-  - Gebruikers hebben geen hun wachtwoorden herhaaldelijk invoeren.
+- *Goede gebruikerservaring*
+  - Gebruikers worden automatisch wordt aangemeld bij zowel on-premises en cloudtoepassingen.
+  - Gebruikers hebben geen herhaaldelijk hun wachtwoord invoeren.
 - *Eenvoudig te implementeren en beheren*
-  - Er zijn geen extra onderdelen nodig lokale om deze taak te maken.
-  - Werkt met een cloud-verificatie --methode [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md).
+  - Er zijn geen extra onderdelen die nodig zijn on-premises om deze taak te maken.
+  - Werkt met een methode voor verificatie van de cloud - [wachtwoord-Hashsynchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md).
   - Kan worden geïmplementeerd voor sommige of alle gebruikers met behulp van Groepsbeleid.
-  - Windows 10-apparaten registreren met Azure AD zonder de noodzaak van een AD FS-infrastructuur. Deze mogelijkheid, moet u met versie 2.1 of hoger van de [client voor werkplek koppelen](https://www.microsoft.com/download/details.aspx?id=53554).
+  - Windows 10-apparaten registreren bij Azure AD-Tenant zonder de noodzaak van een AD FS-infrastructuur. Deze mogelijkheid, moet u gebruikmaken van versie 2.1 of hoger van de [workplace join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
-## <a name="feature-highlights"></a>Highlights van functie
+## <a name="feature-highlights"></a>Functie hoogtepunten
 
-- Aanmeldnaam mag ofwel de lokale standaardgebruikersnaam (`userPrincipalName`) of een ander kenmerk geconfigureerd in Azure AD Connect (`Alternate ID`). Beide gevallen werken niet gebruiken omdat naadloze eenmalige aanmelding gebruikt de `securityIdentifier` claim in de Kerberos-ticket voor het opzoeken van het bijbehorende gebruikersobject in Azure AD.
-- Naadloze eenmalige aanmelding is een opportunistisch functie. Als het om een bepaalde reden mislukt, teruggaan de gebruikerservaring aanmelden naar het normale gedrag - eenledige, de gebruiker moet hun wachtwoord invoeren op de aanmeldingspagina.
-- Als een toepassing (bijvoorbeeld https://myapps.microsoft.com/contoso.com) stuurt een `domain_hint` (OpenID Connect) of `whr` (SAML) parameter - identificeren van uw tenant of `login_hint` parameter - identificatie van de gebruiker in de Azure AD-in aanvraag gebruikers zijn zonder deze invoeren gebruikersnamen of wachtwoorden automatisch aangemeld.
-- Gebruikers krijgen ook een ervaring voor stille als een toepassing (bijvoorbeeld https://contoso.sharepoint.com) aanmeldingsaanvragen dat wil zeggen, verzendt naar verpachte eindpunten voor Azure AD - https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> - in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>.
-- Meld u af wordt ondersteund. Hiermee kunnen gebruikers kiezen van een andere Azure AD-account voor aanmelden, in plaats van automatisch in het gebruik van automatisch naadloze eenmalige aanmelding wordt ondertekend.
-- Office 365-clients (16.0.8730.xxxx en hoger) worden ondersteund met een niet-interactieve stroom.
-- Het kan worden ingeschakeld via Azure AD Connect.
-- Er is een gratis functie en u hoeft niet elke betaald edities van Azure AD om deze te gebruiken.
-- Het wordt ondersteund op het web browser gebaseerde en Office-clients die ondersteuning bieden voor [moderne verificatie](https://aka.ms/modernauthga) op platforms en browsers die geschikt is voor Kerberos-verificatie:
+- Aanmeldnaam mag ofwel de standaardgebruikersnaam van on-premises (`userPrincipalName`) of een ander kenmerk in Azure AD Connect hebt geconfigureerd (`Alternate ID`). Beide gevallen werken niet gebruiken omdat naadloze eenmalige aanmelding gebruikt de `securityIdentifier` claim in de Kerberos-ticket om te controleren of het overeenkomstige gebruikersobject in Azure AD.
+- Naadloze eenmalige aanmelding is een functie van opportunistisch. Als het om een bepaalde reden mislukt, gaat de gebruiker aanmelden ervaring terug naar het normale gedrag - Internet Explorer, de gebruiker moet het wachtwoord invoeren op de aanmeldingspagina.
+- Als een toepassing (bijvoorbeeld https://myapps.microsoft.com/contoso.com) stuurt een `domain_hint` (OpenID Connect) of `whr` (SAML)-parameter - identificatie van uw tenant, of `login_hint` parameter - identificatie van de gebruiker in de Azure AD-aanmelden-aanvraag, gebruikers zijn automatisch wordt aangemeld zonder dat ze binnenkomen gebruikersnamen of wachtwoorden.
+- Gebruikers krijgen ook een op de achtergrond aanmelding als een toepassing (bijvoorbeeld https://contoso.sharepoint.com) aanmeldingsaanvragen naar Azure AD-tenants eindpunten - dat wil zeggen, verzendt https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> : in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>.
+- Meld u af wordt ondersteund. Hiermee kunnen gebruikers zich aanmelden met, in plaats van dat automatisch wordt aangemeld bij het gebruik van naadloze eenmalige aanmelding automatisch een andere Azure AD-account kiezen.
+- Office 365-clients (16.0.8730.xxxx en hoger) met behulp van een niet-interactieve flow worden ondersteund.
+- Dit kan worden ingeschakeld via Azure AD Connect.
+- Het is een gratis functie en hoeft u betaald edities van Azure AD om deze te gebruiken.
+- Dit wordt ondersteund op browser gebaseerde webclients en Office-clients die ondersteuning bieden voor [moderne verificatie](https://aka.ms/modernauthga) op platforms en browsers kan Kerberos-verificatie:
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
@@ -71,12 +71,12 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisat
 \*Vereist [aanvullende configuratie](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
->Voor Windows 10, wordt de aanbeveling is het gebruik [Azure AD Join](../active-directory-azureadjoin-overview.md) voor de optimale eenmalige aanmelding ervaring met Azure AD.
+>Voor Windows 10, wordt de aanbeveling is het gebruik van [Azure AD Join](../active-directory-azureadjoin-overview.md) voor de optimale eenmalige aanmelding met Azure AD.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [**Snel starten** ](active-directory-aadconnect-sso-quick-start.md) - laten en Azure AD naadloze eenmalige aanmelding wordt uitgevoerd.
-- [**Technische diepgaand** ](active-directory-aadconnect-sso-how-it-works.md) -begrijpen hoe deze functie werkt.
-- [**Veelgestelde vragen** ](active-directory-aadconnect-sso-faq.md) -antwoorden op veelgestelde vragen.
-- [**Problemen met** ](active-directory-aadconnect-troubleshoot-sso.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen indienen.
+- [**Snel aan de slag** ](active-directory-aadconnect-sso-quick-start.md) : aan de slag en Azure AD naadloze eenmalige aanmelding wordt uitgevoerd.
+- [**Technische details** ](active-directory-aadconnect-sso-how-it-works.md) -te begrijpen hoe deze functie werkt.
+- [**Veelgestelde vragen over** ](active-directory-aadconnect-sso-faq.md) -antwoorden op veelgestelde vragen.
+- [**Problemen oplossen** ](active-directory-aadconnect-troubleshoot-sso.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
+- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen in te dienen.

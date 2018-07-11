@@ -1,9 +1,9 @@
 ---
-title: Maak een Linux-VM in Azure met meerdere NIC's | Microsoft Docs
-description: Informatie over het maken van een Linux-VM met meerdere NIC's gekoppeld met behulp van de Azure CLI 2.0 of Resource Manager-sjablonen.
+title: Een Linux-VM maken in Azure met meerdere NIC's | Microsoft Docs
+description: Informatie over het maken van een Linux-VM met meerdere NIC's die zijn gekoppeld aan met behulp van de Azure CLI 2.0 of Resource Manager-sjablonen.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -13,24 +13,24 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
-ms.author: iainfou
-ms.openlocfilehash: 2ad04b17fc4c5bafb7fa0b7eea946832430a4f17
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: cynthn
+ms.openlocfilehash: 257b80c30823be41893be8659845d4fcbc922da3
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936748"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932269"
 ---
-# <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Het maken van een virtuele Linux-machine in Azure met meerdere netwerk netwerkinterfacekaarten
-U kunt een virtuele machine (VM) maken in Azure met meerdere virtuele netwerkinterfaces (NIC's) is gekoppeld. Een veelvoorkomend scenario is om verschillende subnetten voor front-end en back-end-verbinding of een netwerk dat is toegewezen aan een oplossing met bewaking of back-up. Dit artikel wordt uitgelegd hoe een virtuele machine maken met meerdere NIC's gekoppeld en hoe toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig.
+# <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Over het maken van een virtuele Linux-machine in Azure met meerdere netwerkinterfacekaarten
+U kunt een virtuele machine (VM) maken in Azure met meerdere virtuele netwerkinterfaces (NIC's) die zijn gekoppeld aan. Een veelvoorkomend scenario is dat verschillende subnetten voor front-end en back-end-connectiviteit of een netwerk dat is toegewezen aan een oplossing voor controle of back-up. Dit artikel wordt uitgelegd hoe u een virtuele machine met meerdere NIC's die zijn gekoppeld aan het maken en hoe u toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Verschillende [VM-grootten](sizes.md) een verschillend aantal NIC's ondersteunen, dus het formaat van uw virtuele machine dienovereenkomstig.
 
 Dit artikel wordt uitgelegd hoe u een virtuele machine maken met meerdere NIC's met de Azure CLI 2.0. 
 
 
 ## <a name="create-supporting-resources"></a>Ondersteunende resources maken
-Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/reference-index#az_login).
+Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
-In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. Voorbeeld parameternamen opgenomen *myResourceGroup*, *mystorageaccount*, en *myVM*.
+In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen *myResourceGroup*, *mystorageaccount*, en *myVM*.
 
 Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
@@ -49,7 +49,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Een subnet maken voor de back-end-verkeer met [az network vnet subnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Het volgende voorbeeld wordt een subnet met de naam *mySubnetBackEnd*:
+Maak een subnet voor de back-end-verkeer met [az network vnet subnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Het volgende voorbeeld wordt een subnet met de naam *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -59,7 +59,7 @@ az network vnet subnet create \
     --address-prefix 192.168.2.0/24
 ```
 
-Maken van een netwerkbeveiligingsgroep met [az netwerk nsg maken](/cli/azure/network/nsg#az_network_nsg_create). In het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* gemaakt:
+Maak een netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg#az_network_nsg_create). In het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* gemaakt:
 
 ```azurecli
 az network nsg create \
@@ -67,8 +67,8 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-## <a name="create-and-configure-multiple-nics"></a>Maak en configureer meerdere NIC 's
-Maak twee NIC's met [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create). Het volgende voorbeeld maakt u twee NIC's met de naam *myNic1* en *myNic2*, de netwerkbeveiligingsgroep verbonden met één NIC die verbinding maken met elk subnet:
+## <a name="create-and-configure-multiple-nics"></a>Maken en configureren van meerdere NIC 's
+Maak twee NIC's met [az network nic maken](/cli/azure/network/nic#az_network_nic_create). Het volgende voorbeeld maakt u twee NIC's, met de naam *myNic1* en *myNic2*, de netwerkbeveiligingsgroep die zijn verbonden met één NIC verbinding te maken met elk subnet:
 
 ```azurecli
 az network nic create \
@@ -85,8 +85,8 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="create-a-vm-and-attach-the-nics"></a>Een virtuele machine maken en koppelen van de NIC 's
-Wanneer u de virtuele machine, maakt de NIC's geven u hebt gemaakt met `--nics`. U moet ook Wees voorzichtig wanneer u de VM-grootte. Er gelden beperkingen voor het totale aantal NIC's die u aan een virtuele machine toevoegen kunt. Lees meer over [Linux VM-grootten](sizes.md). 
+## <a name="create-a-vm-and-attach-the-nics"></a>Een virtuele machine maken en de NIC's koppelen
+Wanneer u de virtuele machine, maakt de NIC's geven u hebt gemaakt met `--nics`. U moet ook Wees voorzichtig bij het selecteren van de VM-grootte. Er zijn limieten voor het totale aantal NIC's die u aan een virtuele machine toevoegen kunt. Meer informatie over [Linux VM-grootten](sizes.md). 
 
 Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt:
 
@@ -101,12 +101,12 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-Routeringstabellen toevoegen aan het gastbesturingssysteem via de stappen in [het gastbesturingssysteem configureren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
+Routering tabellen toevoegen aan het gastbesturingssysteem te installeren via de stappen in [configureren van het gastbesturingssysteem te installeren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Een NIC toevoegen aan een virtuele machine
-De vorige stappen kunt u een virtuele machine met meerdere NIC's gemaakt. U kunt ook NIC's toevoegen aan een bestaande virtuele machine met de Azure CLI 2.0. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig. Indien nodig, kunt u [vergroten of verkleinen van een virtuele machine](change-vm-size.md).
+De vorige stappen een virtuele machine met meerdere NIC's gemaakt. U kunt ook NIC's toevoegen aan een bestaande virtuele machine met de Azure CLI 2.0. Verschillende [VM-grootten](sizes.md) een verschillend aantal NIC's ondersteunen, dus het formaat van uw virtuele machine dienovereenkomstig. Indien nodig, kunt u [vergroten of verkleinen van een virtuele machine](change-vm-size.md).
 
-Maken van een ander NIC met [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create). Het volgende voorbeeld wordt een NIC met de naam *myNic3* verbonden met de back-end subnet netwerk beveiligingsgroep en in de vorige stappen hebt gemaakt:
+Maak een andere NIC met [az network nic maken](/cli/azure/network/nic#az_network_nic_create). Het volgende voorbeeld wordt een NIC met de naam *myNic3* verbonden met het subnet en netwerk-beveiligingsgroep van back-end, die in de vorige stappen is gemaakt:
 
 ```azurecli
 az network nic create \
@@ -117,14 +117,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Als een NIC toevoegen aan een bestaande virtuele machine, met de virtuele machine eerst ongedaan [az vm ongedaan](/cli/azure/vm#az_vm_deallocate). Het volgende voorbeeld de virtuele machine met de naam deallocates *myVM*:
+Een NIC toevoegen aan een bestaande virtuele machine, moet u eerst de virtuele machine met toewijzing [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM*:
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Toevoegen van de NIC met [az vm nic toevoegen](/cli/azure/vm/nic#az_vm_nic_add). Het volgende voorbeeld wordt *myNic3* naar *myVM*:
+Toevoegen van de NIC met [az vm nic toevoegen](/cli/azure/vm/nic#az_vm_nic_add). Het volgende voorbeeld voegt *myNic3* naar *myVM*:
 
 ```azurecli
 az vm nic add \
@@ -139,10 +139,10 @@ Start de virtuele machine met [az vm start](/cli/azure/vm#az_vm_start):
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-Routeringstabellen toevoegen aan het gastbesturingssysteem via de stappen in [het gastbesturingssysteem configureren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
+Routering tabellen toevoegen aan het gastbesturingssysteem te installeren via de stappen in [configureren van het gastbesturingssysteem te installeren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Een NIC van een virtuele machine verwijderen
-Als u wilt verwijderen een NIC van een bestaande virtuele machine, met de virtuele machine eerst ongedaan [az vm ongedaan](/cli/azure/vm#az_vm_deallocate). Het volgende voorbeeld de virtuele machine met de naam deallocates *myVM*:
+Als u wilt verwijderen een NIC van een bestaande virtuele machine, moet u eerst de virtuele machine met toewijzing [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -165,7 +165,7 @@ az vm start --resource-group myResourceGroup --name myVM
 
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Meerdere NIC's met behulp van Resource Manager-sjablonen maken
-Azure Resource Manager-sjablonen gebruiken declaratieve JSON-bestanden voor het definiëren van uw omgeving. U vindt een [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager-sjablonen kunnen u meerdere exemplaren van een bron tijdens implementatie, zoals het maken van meerdere NIC's maken. U gebruikt *kopie* om op te geven van het aantal exemplaren te maken:
+Azure Resource Manager-sjablonen gebruiken declaratieve JSON-bestanden voor het definiëren van uw omgeving. U vindt een [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager-sjablonen bieden een manier om meerdere exemplaren van een resource maken tijdens de implementatie, zoals het maken van meerdere NIC's. U gebruikt *kopie* om op te geven van het aantal exemplaren te maken:
 
 ```json
 "copy": {
@@ -174,31 +174,31 @@ Azure Resource Manager-sjablonen gebruiken declaratieve JSON-bestanden voor het 
 }
 ```
 
-Lees meer over [maken van meerdere exemplaren die gebruikmaken van *kopie*](../../resource-group-create-multiple.md). 
+Meer informatie over [het maken van meerdere exemplaren met behulp van *kopie*](../../resource-group-create-multiple.md). 
 
-U kunt ook een `copyIndex()` toe te voegen vervolgens een nummer aan de naam van een resource, zodat u kunt maken `myNic1`, `myNic2`, enzovoort. Hier volgt een voorbeeld van de waarde voor de index:
+U kunt ook een `copyIndex()` toe te voegen vervolgens een nummer aan de naam van een resource, zodat u kunt maken `myNic1`, `myNic2`, enzovoort. De volgende toont een voorbeeld van de indexwaarde toe te voegen:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-U kunt een compleet voorbeeld van lezen [meerdere NIC's met behulp van Resource Manager-sjablonen maken](../../virtual-network/template-samples.md).
+U kunt een compleet voorbeeld van lezen [het maken van meerdere NIC's met behulp van Resource Manager-sjablonen](../../virtual-network/template-samples.md).
 
-Routeringstabellen toevoegen aan het gastbesturingssysteem via de stappen in [het gastbesturingssysteem configureren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
+Routering tabellen toevoegen aan het gastbesturingssysteem te installeren via de stappen in [configureren van het gastbesturingssysteem te installeren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
 
-## <a name="configure-guest-os-for-multiple-nics"></a>Configureren van Gast OS voor meerdere NIC 's
-Wanneer u meerdere NIC's aan een Linux-VM toevoegt, moet u routeringsregels maken. Met deze regels kunt de virtuele machine te verzenden en ontvangen van verkeer dat tot een specifieke NIC. behoort Anders wordt het verkeer dat hoort bij *eth1*, niet bijvoorbeeld correct worden verwerkt door de gedefinieerde standaardroute.
+## <a name="configure-guest-os-for-multiple-nics"></a>Gast-OS configureren voor meerdere NIC 's
+Wanneer u meerdere NIC's aan een Linux-VM toevoegen, moet u maken van regels voor doorsturen. Met deze regels kunt de virtuele machine te verzenden en ontvangen van verkeer die deel uitmaakt van een specifieke netwerkadapter. Anders wordt het verkeer dat hoort bij *eth1*, kan niet bijvoorbeeld correct worden verwerkt door de gedefinieerde standaardroute.
 
-U lost dit probleem routering door twee routeringstabellen aan eerst toevoegen */etc/iproute2/rt_tables* als volgt:
+Om op te lossen dit probleem routering, moet u eerst twee routering tabellen toevoegen */etc/iproute2/rt_tables* als volgt:
 
 ```bash
 echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-Als u de wijziging permanente en toegepast tijdens de activering van network-stack, bewerk */etc/sysconfig/network-scripts/ifcfg-eth0* en */etc/sysconfig/network-scripts/ifcfg-eth1*. De regel ALTER *' NM_CONTROLLED = yes '* naar *' NM_CONTROLLED = Nee "*. Zonder deze stap wordt worden de aanvullende dat regels/routering niet automatisch toegepast.
+Bewerken om de wijziging permanent en toegepast tijdens de activering van netwerk-stack, */etc/sysconfig/network-scripts/ifcfg-eth0* en */etc/sysconfig/network-scripts/ifcfg-eth1*. Wijzigen van de regel *"NM_CONTROLLED = yes"* naar *"NM_CONTROLLED = Nee"*. Zonder deze stap wordt worden de extra dat regels/routes niet automatisch toegepast.
  
-Vervolgens kunt u de routeringstabellen uitbreiden. Stel, dat we hebben de volgende instellingen:
+De routetabellen vervolgens worden uitgebreid. Stel dat we hebben de volgende instellingen:
 
 *Routering*
 
@@ -218,7 +218,7 @@ eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0
 eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
 ```
 
-U zou vervolgens de volgende bestanden maken en de juiste regels en de routes toevoegen aan elk:
+U zou vervolgens de volgende bestanden maken en de juiste regels en routes toevoegen aan elk(e):
 
 - */etc/SysConfig/Network-scripts/rule-eth0*
 
@@ -248,14 +248,14 @@ U zou vervolgens de volgende bestanden maken en de juiste regels en de routes to
     default via 10.0.1.1 dev eth1 table eth1-rt
     ```
 
-De wijzigingen wilt toepassen, start opnieuw op de *netwerk* service als volgt:
+De wijzigingen wilt toepassen, opnieuw de *netwerk* service als volgt:
 
 ```bash
 systemctl restart network
 ```
 
-De routeringsregels zijn nu correct geïmplementeerd en u kunt verbinding maken met een interface naar behoefte.
+De regels voor doorsturen is nu correct voldaan en u kunt verbinding maken met een van beide interface indien nodig.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk [Linux VM-grootten](sizes.md) bij het maken van een virtuele machine met meerdere NIC's. Let op het maximum aantal NIC's die ondersteuning biedt voor elke VM-grootte. 
+Beoordeling [Linux VM-grootten](sizes.md) bij het maken van een virtuele machine met meerdere NIC's. Let op het maximum aantal NIC's die ondersteuning biedt voor elke VM-grootte. 

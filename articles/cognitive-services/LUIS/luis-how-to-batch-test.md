@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: ec023ad796c57141cb35cce15b3d982adf2b8659
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: bd586c6abb27ae0c07ac7c832fba7c1f38e4e5c6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887756"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950156"
 ---
 # <a name="batch-testing"></a>Batchgewijs testen
  Testen van de batch is een uitgebreide test op uw huidige, getrainde model voor het meten van de prestaties van LUIS. 
@@ -100,7 +100,7 @@ De twee secties van de grafiek in het groen komt overeen met de verwachte voorsp
 
 Als testen geeft aan dat uw LUIS-app niet wordt herkend door de juiste intenties en entiteiten, kunt u uw LUIS-app om prestaties te verbeteren door meer uitingen labels of het toevoegen van functies werken. 
 
-* [Label van de voorgestelde uitingen van LUIS](Label-Suggested-Utterances.md) 
+* [Label van de voorgestelde uitingen van LUIS](luis-how-to-review-endoint-utt.md) 
 * [Functies gebruiken om uw LUIS-app-prestaties te verbeteren](luis-how-to-add-features.md) 
 * [Informatie over batch testen met deze zelfstudie](luis-tutorial-batch-testing.md)
 * [Informatie over batch testen van concepten](luis-concept-batch-test.md).

@@ -1,9 +1,9 @@
 ---
-title: Het maken van Windows Azure VM-installatiekopieën met verpakker | Microsoft Docs
-description: Informatie over het gebruik van verpakker installatiekopieën maken van virtuele Windows-machines in Azure
+title: Windows Azure VM-installatiekopieën maken met Packer | Microsoft Docs
+description: Informatie over het maken van installatiekopieën van Windows virtuele machines in Azure met Packer
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
-ms.author: iainfou
-ms.openlocfilehash: b7f07ec8736086483f91746512f10118ee90762d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: cynthn
+ms.openlocfilehash: 5f19a6cb356332e95f96484953f1be3df006dd09
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333155"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931915"
 ---
-# <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Het gebruik van verpakker Windows-installatiekopieën voor virtuele machine maken in Azure
-Elke virtuele machine (VM) in Azure wordt gemaakt van een afbeelding met de Windows-distributie en de versie van het besturingssysteem gedefinieerd. Voorbeelden van afbeeldingen zijn vooraf geïnstalleerde toepassingen en configuraties. Azure Marketplace biedt veel installatiekopieën van het eerste en derde partij voor de meest voorkomende OS en omgevingen met toepassingen, of u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften kunt maken. Dit artikel wordt uitgelegd hoe u de open-source hulpprogramma [verpakker](https://www.packer.io/) om te definiëren en te maken van aangepaste installatiekopieën in Azure.
+# <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hoe u Windows-installatiekopieën voor virtuele machines maken in Azure met Packer
+Elke virtuele machine (VM) in Azure is gemaakt op basis van een installatiekopie die u de distributie van Windows en versie van het besturingssysteem definieert. Installatiekopieën kunnen bevatten vooraf geïnstalleerde toepassingen en configuraties. De Azure Marketplace bevat vele installatiekopieën die eerste en derde partij voor de meest voorkomende OS en omgevingen met toepassingen, of maak uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u de open-source-hulpprogramma [Packer](https://www.packer.io/) om te definiëren en maken van aangepaste installatiekopieën in Azure.
 
 
 ## <a name="create-azure-resource-group"></a>Azure-resourcegroep maken
-Tijdens het maken maakt verpakker tijdelijke Azure-resources als de bron-VM-builds. Als u wilt vastleggen die bron-VM voor gebruik als een installatiekopie, moet u een resourcegroep definiëren. De uitvoer van het buildproces verpakker wordt opgeslagen in deze resourcegroep.
+Tijdens het bouwproces maakt Packer tijdelijke Azure-resources zoals het samenstellen van de bron-VM. Om vast te leggen die bron-VM voor gebruik als een installatiekopie, moet u een resourcegroep definiëren. De uitvoer van het bouwproces Packer wordt opgeslagen in deze resourcegroep.
 
 Maak een resourcegroep met behulp van de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
@@ -37,9 +37,9 @@ New-AzureRmResourceGroup -Name $rgName -Location $location
 ```
 
 ## <a name="create-azure-credentials"></a>Azure-referenties maken
-Verpakker verifieert met Azure met behulp van een service-principal. Een Azure-service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's zoals verpakker kunt gebruiken. U de machtigingen over welke bewerkingen die de service-principal in Azure uitvoeren kunt te definiëren en beheren.
+Packer verifieert met Azure met behulp van een service-principal. Een Azure service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's, zoals Packer gebruiken kunt. U bepaalt en definiëren van de machtigingen over welke bewerkingen die de service-principal in Azure uitvoeren kunt.
 
-Maken van een service principal met [nieuw AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) en toewijzen van machtigingen voor de service-principal maken en beheren van resources met [New AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
+Een service-principal met maken [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) en toewijzen van machtigingen voor de service-principal maken en beheren van resources met [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
 ```powershell
 $sp = New-AzureRmADServicePrincipal -DisplayName "AzurePacker" `
@@ -48,7 +48,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Om te verifiëren naar Azure, moet u ook verkrijgen van uw Azure-tenant en de abonnement-id's met [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
+Om te worden geverifieerd bij Azure, moet u ook verkrijgen van uw Azure-tenant en abonnement-id's met [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
 
 ```powershell
 $sub = Get-AzureRmSubscription
@@ -59,20 +59,20 @@ $sub.SubscriptionId[0]
 U gebruikt deze twee id's in de volgende stap.
 
 
-## <a name="define-packer-template"></a>Verpakker sjabloon definiëren
-Als u wilt maken van installatiekopieën, kunt u een sjabloon maken als een JSON-bestand. In de sjabloon definieert u opbouwfuncties en provisioners die het werkelijke buildproces uitvoeren. Verpakker heeft een [builder voor Azure](https://www.packer.io/docs/builders/azure.html) die kunt u voor het definiëren van de Azure-resources, zoals de Servicereferenties principal gemaakt in de voorgaande stap.
+## <a name="define-packer-template"></a>Packer sjabloon definiëren
+Als u wilt maken van installatiekopieën, kunt u een sjabloon maken als een JSON-bestand. In de sjabloon definieert u builders en provisioners die het werkelijke bouwproces worden uitgevoerd. Packer heeft een [opbouwfunctie voor Azure](https://www.packer.io/docs/builders/azure.html) die kunt u definiëren van Azure-resources, zoals de service principal-referenties die zijn gemaakt in de voorgaande stap.
 
-Maak een bestand met de naam *windows.json* en plak de volgende inhoud. Geef uw eigen waarden voor het volgende:
+Maak een bestand met de naam *windows.json* en plak de volgende inhoud. Voer uw eigen waarden voor het volgende:
 
 | Parameter                           | Waar u kunt verkrijgen |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Weergave service principal-ID met `$sp.applicationId` |
 | *client_secret*                     | U hebt opgegeven in wachtwoord `$securePassword` |
-| *tenant_id*                         | De uitvoer van `$sub.TenantId` opdracht |
-| *subscription_id*                   | De uitvoer van `$sub.SubscriptionId` opdracht |
+| *tenant_id*                         | Uitvoer van `$sub.TenantId` opdracht |
+| *abonnements-id*                   | Uitvoer van `$sub.SubscriptionId` opdracht |
 | *object_id*                         | Weergave service-principal-object-ID met `$sp.Id` |
-| *managed_image_resource_group_name* | Naam van resourcegroep die u in de eerste stap hebt gemaakt |
-| *managed_image_name*                | Naam voor de installatiekopie van de beheerde schijf die is gemaakt |
+| *managed_image_resource_group_name* | Naam van de resourcegroep die u hebt gemaakt in de eerste stap |
+| *managed_image_name*                | Naam voor de installatiekopie van het beheerde schijf die is gemaakt |
 
 ```json
 {
@@ -118,19 +118,19 @@ Maak een bestand met de naam *windows.json* en plak de volgende inhoud. Geef uw 
 }
 ```
 
-Deze sjabloon maakt een virtuele machine van Windows Server 2016, installeert IIS en generaliseert van de virtuele machine met Sysprep. De IIS-installatie ziet u hoe u kunt de PowerShell-provisioner aanvullende opdrachten uit te voeren. De installatiekopie van het laatste verpakker bevat de vereiste software-installatie en configuratie.
+Deze sjabloon maakt een virtuele machine met Windows Server 2016, IIS wordt geïnstalleerd en de virtuele machine met Sysprep generaliseert. De IIS-installatie ziet u hoe u de PowerShell-provisioner kunt gebruiken om uit te voeren van aanvullende opdrachten. De uiteindelijke Packer-installatiekopie bevat de vereiste software-installatie en configuratie.
 
 
-## <a name="build-packer-image"></a>Verpakker installatiekopie maken
-Als u nog niet geïnstalleerd op uw lokale machine verpakker hebt [Volg de instructies van de installatie verpakker](https://www.packer.io/docs/install/index.html).
+## <a name="build-packer-image"></a>Packer-installatiekopie bouwen
+Als u nog niet geïnstalleerd op uw lokale computer, Packer hebt [volgt u de installatie-instructies Packer](https://www.packer.io/docs/install/index.html).
 
-Maak de installatiekopie door op te geven van uw verpakker sjabloonbestand als volgt:
+Bouw de installatiekopie door op te geven uw Packer sjabloonbestand als volgt:
 
 ```bash
 ./packer build windows.json
 ```
 
-Een voorbeeld van de uitvoer van de bovenstaande opdrachten is als volgt:
+Een voorbeeld van de uitvoer in de voorgaande opdrachten is als volgt:
 
 ```bash
 azure-arm output will be in this color.
@@ -204,11 +204,11 @@ ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
 
-Het duurt enkele minuten duren voordat verpakker bouwen van de virtuele machine, het uitvoeren van de provisioners en het opschonen van de implementatie.
+Het duurt een paar minuten voor Packer bouwen van de virtuele machine, het uitvoeren van de provisioners en het opschonen van de implementatie.
 
 
-## <a name="create-a-vm-from-the-packer-image"></a>Een virtuele machine van de installatiekopie van het verpakker maken
-U kunt nu een virtuele machine maken van de installatiekopie met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). De ondersteunende netwerkbronnen worden gemaakt als deze niet al bestaan. Voer desgevraagd een administratieve gebruikersnaam en het wachtwoord moet worden gemaakt op de virtuele machine. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage*:
+## <a name="create-a-vm-from-the-packer-image"></a>Een virtuele machine uit de Packer-installatiekopie maken
+U kunt nu een virtuele machine maken door uw installatiekopie met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). De ondersteunende netwerkresources gemaakt als deze nog niet bestaan. Wanneer u hierom wordt gevraagd, voert u een beheerdersgebruikersnaam en het wachtwoord moet worden gemaakt op de virtuele machine. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage*:
 
 ```powershell
 New-AzureRmVm `
@@ -223,12 +223,12 @@ New-AzureRmVm `
     -Image "myPackerImage"
 ```
 
-Als u maken van virtuele machines in een andere resourcegroep of de regio dan uw installatiekopie verpakker wilt, geeft u de afbeeldings-ID in plaats van de installatiekopienaam van de. U kunt de afbeeldings-ID met verkrijgen [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
+Als u maken van virtuele machines in een andere resourcegroep of een andere regio dan uw Packer-installatiekopie wilt, geeft u de afbeeldings-ID in plaats van de naam van installatiekopie. U vindt de afbeeldings-ID met [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
 
-Het duurt enkele minuten aan de virtuele machine maken van uw installatiekopie verpakker.
+Het duurt een paar minuten aan de virtuele machine maken vanaf uw Packer-installatiekopie.
 
 
-## <a name="test-vm-and-webserver"></a>Testen van de virtuele machine en de webserver
+## <a name="test-vm-and-webserver"></a>Virtuele machine en de webserver testen
 Haal het openbare IP-adres van uw virtuele machine op met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIP*:
 
 ```powershell
@@ -237,12 +237,12 @@ Get-AzureRmPublicIPAddress `
     -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-Als u wilt zien van uw virtuele machine met de IIS installeren vanaf de provisioner verpakker in actie, Geef op het openbare IP-adres in naar een webbrowser.
+Als u wilt zien van uw virtuele machine, die de IIS-installatie van de provisioner Packer in actie bevat, voer het openbare IP-adres in een webbrowser.
 
 ![Standaardsite van IIS](./media/build-image-with-packer/iis.png) 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit voorbeeld gebruikt u verpakker maken van een VM-installatiekopie met IIS al geïnstalleerd. U kunt deze VM-installatiekopie samen met bestaande werkstromen voor de implementatie, zoals uw app implementeren in virtuele machines die zijn gemaakt op basis van de installatiekopie met Team Services, Ansible, Chef of Puppet.
+In dit voorbeeld gebruikt u Packer om u te maken van een VM-installatiekopie met IIS is al geïnstalleerd. U kunt deze VM-installatiekopie samen met bestaande werkstromen voor de implementatie, zoals uw app implementeren in virtuele machines die zijn gemaakt op basis van de installatiekopie met Team Services, Ansible, Chef of Puppet.
 
-Zie voor aanvullende voorbeeld verpakker sjablonen voor andere Windows-distributies, [deze GitHub-repo-](https://github.com/hashicorp/packer/tree/master/examples/azure).
+Zie voor aanvullende Packer voorbeeldsjablonen voor andere Windows-versies, [deze GitHub-opslagplaats](https://github.com/hashicorp/packer/tree/master/examples/azure).

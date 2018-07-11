@@ -1,134 +1,134 @@
 ---
-title: Voorbeelden van Lucene-query voor Azure Search | Microsoft Docs
-description: Lucene-querysyntaxis voor fuzzy zoeken, zoeken bij benadering, term versterking, zoeken op reguliere expressies en zoeken met jokertekens.
+title: Voorbeelden van Lucene voor Azure Search | Microsoft Docs
+description: Lucene-querysyntaxis voor fuzzy zoeken, zoeken op nabijheid, termenverbetering, zoeken op reguliere expressies en zoeken met jokertekens.
 author: LiamCa
-manager: jlembicz
+manager: pablocas
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 06/28/2018
 ms.author: liamca
-ms.openlocfilehash: 46e03834cb307ea103a8794616f6f38227881272
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a3baa17906e3bfede8a7fc5f8a0bfbde9d2a57ce
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190087"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951019"
 ---
-# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene query syntaxisvoorbeelden voor het bouwen van query's in Azure Search
-Bij het maken van query's voor Azure Search, kunt u ofwel de standaard [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) of de alternatieve [Lucene Queryparser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). De Queryparser Lucene ondersteunt een complexere query-constructs, zoals veldgerelateerde query's, fuzzy zoeken, zoeken bij benadering, term versterking en zoeken op reguliere expressies.
+# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene-queryvoorbeelden syntaxis voor het bouwen van query's in Azure Search
+Bij het maken van query's voor Azure Search, kunt u ofwel de standaard [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) of de alternatieve [Lucene-Queryparser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). De Lucene-Queryparser biedt ondersteuning voor complexere query-constructs, zoals veldgerelateerde query's, fuzzy zoeken, zoeken op nabijheid, termenverbetering en zoeken op reguliere expressies.
 
-In dit artikel kunt u stapsgewijs door voorbeelden demonstreren querybewerkingen beschikbaar wanneer u de volledige syntaxis.
+In dit artikel kunt u stap voor stap door voorbeelden demonstreren querybewerkingen beschikbaar wanneer u de volledige syntaxis.
 
 ## <a name="viewing-the-examples-in-jsfiddle"></a>De voorbeelden weergeven in JSFiddle
 
-Alle voorbeelden in dit artikel zijn uitvoerbare query's uitvoeren op een vooraf geladen Search-index in [JSFiddle](https://jsfiddle.net), een online code-editor voor het testen van scripts en HTML. 
+Alle van de voorbeelden in dit artikel zijn uitvoerbare query's worden uitgevoerd voor een vooraf geladen Search-index in [JSFiddle](https://jsfiddle.net), een online code-editor voor het testen van script en HTML-code. 
 
-Als u wilt uitvoeren, met de rechtermuisknop op de query voorbeeld-URL's openen JSFiddle in een apart browservenster.
+Als u wilt uitvoeren, met de rechtermuisknop op de query voorbeeld-URL's JSFiddle openen in een nieuw browservenster.
 
 > [!NOTE]
-> De volgende voorbeelden gebruikmaken van een zoekindex die bestaat uit functies die beschikbaar zijn op basis van een gegevensset die is geleverd door de [stad New York OpenData](https://nycopendata.socrata.com/) initiatief. Deze gegevens moet niet worden beschouwd als huidige of voltooid. De index is van een sandboxservice geleverd door Microsoft. U hoeft niet een Azure-abonnement of een Azure Search om te proberen deze query's.
+> De volgende voorbeelden gebruikmaken van een zoekindex die bestaat uit functies die beschikbaar zijn op basis van een gegevensset die is geleverd door de [stad New York OpenData](https://nycopendata.socrata.com/) initiatief. Deze gegevens moet niet worden beschouwd als huidige of voltooid. De index is een sandboxservice van Microsoft. U hoeft niet een Azure-abonnement of een Azure Search om te proberen deze query's.
 >
 
 
-## <a name="how-to-invoke-full-lucene-parsing"></a>Hoe u aan te roepen bij het parseren van volledige Lucene
+## <a name="how-to-invoke-full-lucene-parsing"></a>Het aanroepen van de volledige Lucene-parseren
 
-Alle voorbeelden in dit artikel geeft de **queryType = full** parameter die aangeeft dat de volledige syntaxis wordt verwerkt door de Queryparser Lucene zoeken. 
+Alle voorbeelden in dit artikel geeft de **queryType = full** parameter, die aangeeft dat de volledige syntaxis wordt verwerkt door de Lucene-Queryparser zoeken. 
 
-**Voorbeeld 1** --met de rechtermuisknop op het volgende fragment van de query om deze te openen in een nieuwe browserpagina die wordt geladen JSFiddle en de query wordt uitgevoerd:
+**Voorbeeld 1** --met de rechtermuisknop op het volgende codefragment in de query te openen in een nieuwe browserpagina die wordt geladen JSFiddle en de query wordt uitgevoerd:
 
-* [& queryType volledige = & zoeken = *](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
+* [& queryType = full & zoeken = *](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
-In het nieuwe browservenster wordt de JavaScript-bron- als HTML-uitvoer weergegeven naast elkaar. Het script verwijst naar een volledige query (niet alleen het fragment, zoals wordt weergegeven in de koppeling). De volledige query wordt weergegeven in de URL's voor elk voorbeeld. 
+In het nieuwe browservenster worden de JavaScript-bron- en HTML-uitvoer weergegeven naast elkaar. Het script verwijst naar een volledige query (niet alleen het codefragment, zoals wordt weergegeven in de koppeling). De volledige query wordt weergegeven in de URL's voor elk voorbeeld. 
 
-Deze query retourneert documenten uit onze index New York City-taken (nycjobs, op een sandboxservice geladen). Als beknopt alternatief bevat geeft de query alleen zakelijke titels worden geretourneerd. De volledige onderliggende query is als volgt:
+Deze query retourneert documenten uit onze index New York City-taken (nycjobs, geladen in een sandboxservice). Beknopt alternatief bevat de query alleen zakelijke titels worden geretourneerd. De volledige onderliggende query is als volgt:
 
-    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
+    https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
-De **searchFields** parameter de zoekopdracht beperkt tot alleen de titel op werk. De **queryType** is ingesteld op **volledige**, die Hiermee geeft u Azure Search met de Queryparser Lucene voor deze query.
+De **searchFields** parameter beperkt de zoekopdracht tot alleen het titelveld business. De **queryType** is ingesteld op **volledige**, die Azure Search met de Lucene-Queryparser voor deze query geeft.
 
 > [!NOTE]
-> Zie voor achtergrondinformatie over de verwerking van query's, [hoe volledige tekst zoeken werkt in Azure Search](search-lucene-query-architecture.md). Zie voor meer informatie over zoekparameters [documenten zoeken (Azure Search Service REST-API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+> Zie voor achtergrondinformatie over de verwerking van query's, [hoe volledige tekst zoeken werkt in Azure Search](search-lucene-query-architecture.md). Zie voor meer informatie over zoekparameters [documenten zoeken (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 >
 
 ### <a name="fielded-query-operation"></a>Fielded querybewerking
-U kunt de voorbeelden in dit artikel wijzigen door op te geven een **fieldname:searchterm** bouw fielded querybewerking, het veld is één woord waarbij de zoekterm is ook een woord of een woordgroep, eventueel met Booleaanse operators definiëren. Voorbeelden zijn de volgende:
+U kunt de voorbeelden in dit artikel wijzigen door op te geven een **fieldname:searchterm** bouwen voor het definiëren van een querybewerking fielded het veld is één woord, waarbij de zoekterm is ook één woord of een woordgroep, eventueel met Booleaanse operators. Enkele voorbeelden omvatten het volgende:
 
 * business_title:(senior NOT junior)
-* status: ("Den Haag ' en"Nieuwe Jersey")
+* status: (' New York ' en "Nieuwe Jersey")
 
-Zorg ervoor dat meerdere tekenreeksen tussen aanhalingstekens zetten als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit, zoals in dit geval zoekt naar twee verschillende plaatsen in het locatieveld. Zorg er ook voor de operator een hoofdletter is als u niet ziet en AND.
+Zorg ervoor dat meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit, zoals in dit geval zoekt naar twee verschillende steden in het locatieveld. Zorg er ook voor de operator is een hoofdletter als u niet ziet en en.
 
-Het veld dat is opgegeven in **fieldname:searchterm** moet een doorzoekbaar veld. Zie [Create Index (Azure Search Service REST-API)](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over hoe indexkenmerken in velddefinities worden gebruikt.
+Het veld dat is opgegeven **fieldname:searchterm** moet een doorzoekbaar veld. Zie [Index maken (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van indexkenmerken in velddefinities.
 
-**Voorbeeld 2** --met de rechtermuisknop op de volgende query fragment deze query zakelijke titels met de term senior in ze, maar niet beginnend zoekt:
+**Voorbeeld 2** --met de rechtermuisknop op het volgende queryfragment deze query titels met het senior term in deze, maar niet jonge bedrijven zoekt:
 
-* [& queryType volledige = & zoeken = business_title:senior niet beginnend](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
+* [& queryType = full & zoeken = business_title:senior niet jonge](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
 
-## <a name="fuzzy-search-example"></a>Voorbeeld van fuzzy zoeken
-Een fuzzy zoeken overeenkomsten worden gevonden in de termen die vergelijkbaar gebouwd zijn. Per [Lucene documentatie](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy zoekopdrachten zijn gebaseerd op [Damerau Levenshtein afstand](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
+## <a name="fuzzy-search-example"></a>Een voorbeeld van fuzzy zoekopdracht
+Bij een fuzzy zoekopdracht overeenkomsten zoekt in termen die een dergelijke constructie hebben. Per [Lucene documentatie](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy zoekopdrachten zijn gebaseerd op [Damerau Levenshtein afstand](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-Als u wilt fuzzy zoeken, toevoegen de tilde ' ~ ' symbool aan het einde van één woord met een optionele parameter, een waarde tussen 0 en 2, waarmee de afstand bewerken. Bijvoorbeeld ' blue ~ ' of ' blue ~ 1" zou retourneren blauw, blauwe en lijm.
+Om te doen bij een fuzzy zoekopdracht, toevoegen de tilde ' ~ ' symbool aan het einde van één woord met een optionele parameter, een waarde tussen 0 en 2, die de afstand bewerken geeft. Bijvoorbeeld: "blauw ~ ' of ' blue ~ 1" retourneerde blauw, blauwe en lijm.
 
-**Voorbeeld 3** --met de rechtermuisknop op het volgende fragment van de query. Deze query zoekt naar taken met de term koppelen (waar het is verkeerd gespeld):
+**Voorbeeld 3** --met de rechtermuisknop op het volgende codefragment in de query. Deze query zoekt voor taken met de term koppelen (indien deze is onjuist gespeld):
 
-* [& queryType volledige = & zoeken = business_title:asosiate ~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+* [& queryType = full & zoeken business_title:asosiate = ~](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
 > [!Note]
-> Fuzzy query's zijn niet [geanalyseerd](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), wat verrassend als u verwacht als gevolg of Lemmata dat kan zijn. Lexicale analyse wordt alleen uitgevoerd op de volledige (een term query of woordgroep query). Querytypen met onvolledige voorwaarden (voorvoegsel query, jokertekens query, regex query, fuzzy query) worden toegevoegd rechtstreeks aan de querystructuur van de voor het omzeilen van de analyse-fase. De enige transformatie die wordt uitgevoerd op onvolledige querytermen is lowercasing.
+> Fuzzy query's zijn niet [geanalyseerd](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), wat verrassende als u verwacht als gevolg of lemmatisering dat kan zijn. Lexicale analyse wordt alleen uitgevoerd op de volledige (een term query of woordgroep query). Typen query's met onvolledige voorwaarden (voorvoegsel query, jokertekens query, regex-query, fuzzy query) worden toegevoegd rechtstreeks naar de querystructuur van de voor het overslaan van de analyse-fase. De enige transformatie uitgevoerd op onvolledig querytermen is locatieargument.
 >
 
-## <a name="proximity-search-example"></a>Voorbeeld van nabijheid zoeken
-Nabijheid zoekopdrachten worden gebruikt voor het vinden van de voorwaarden die zich dicht bij elkaar in een document. Invoegen van een tilde ' ~ ' symbool aan het einde van een wachtwoordzin gevolgd door het aantal woorden die de nabijheid grens maken. Bijvoorbeeld 'hotel luchthaven' ~ 5 vindt u de voorwaarden hotel en luchthaven binnen 5 woorden van elkaar in een document.
+## <a name="proximity-search-example"></a>Voorbeeld van de zoekopdracht nabijheid
+Nabijheid zoekopdrachten worden gebruikt om te vinden van voorwaarden die zich dicht bij elkaar in een document. Invoegen van een tilde ' ~ ' symbool aan het einde van een zin gevolgd door het aantal woorden die de grens nabijheid maken. Bijvoorbeeld, "hotel luchthaven" ongeveer 5 vindt de voorwaarden hotel en luchthaven binnen 5 woorden van elkaar in een document.
 
-**Voorbeeld 4** --met de rechtermuisknop op de query. Zoeken naar taken met de term 'senior analist' waarin deze worden gescheiden door niet meer dan één woord:
+**Voorbeeld 4** --met de rechtermuisknop op de query. Zoeken naar taken met de term "senior analist" waarin deze worden gescheiden door het niet meer dan één woord:
 
-* [& queryType volledige = & zoeken = business_title: 'senior analist' ~ 1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+* [& queryType = full & zoeken = business_title: 'senior analist' ~ 1](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
 
-**Voorbeeld 5** --verwijderen van de woorden tussen de term "senior analist" opnieuw te proberen.
+**Voorbeeld 5** --probeer het opnieuw verwijderen, de woorden tussen de term 'senior analist'.
 
-* [& queryType volledige = & zoeken = business_title: 'senior analist' ~ 0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
+* [& queryType = full & zoeken = business_title: 'senior analist' ~ 0](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
 
 ## <a name="term-boosting-examples"></a>Term versterking van voorbeelden
-Term versterking verwijst naar de positie van een document hoger als de term gestimuleerd ten opzichte van documenten die niet de term hebben bevat. Dit verschilt van de score berekenen voor profielen in de betreffende scoreprofiel profielen bepaalde velden in plaats van door specifieke termen verbeteren. Kunt u het volgende voorbeeld ziet u de verschillen.
+Termenverbetering verwijst naar de positie van een document hoger als deze bevat de boosted term, ten opzichte van documenten die de term niet bevatten. Dit wijkt af van het scoreprofielen in die scoreprofielen bepaalde velden, in plaats van specifieke voorwaarden verhogen. In het volgende voorbeeld kunt u de verschillen laten zien.
 
-U kunt een scoreprofiel die verhoogt, zoals in een bepaalde veld overeenkomt met **genre** in het voorbeeld musicstoreindex. Term versterking kan worden gebruikt voor het verder verbeteren bepaalde zoeken hoger dan de andere voorwaarden. Bijvoorbeeld ' steen ^ 2 elektronische ' verhoogd documenten met de zoektermen op in de **genre** veld hoger is dan andere doorzoekbare velden in de index. Bovendien wordt documenten met de zoekterm 'uit' gerangschikt hoger dan de andere 'elektronische' als gevolg van de termijn versterking waarde (2) zoekterm.
+Houd rekening met een scoringprofiel die de loyaliteit zoals in een bepaald veld overeenkomt met **genre** in het voorbeeld musicstoreindex. Termenverbetering kan worden gebruikt om bepaalde zoeken verder hoger dan de andere voorwaarden te verbeteren. Bijvoorbeeld, "rock ^ elektronische 2" wordt verhogen documenten met de zoektermen op in de **genre** veld hoger is dan andere doorzoekbare velden in de index. Bovendien wordt documenten die de zoekterm "rock" bevatten gerangschikt hoger dan de andere 'elektronische' als gevolg van de termijn boost waarde (2) zoekterm.
 
-Als u wilt een term verhogen, gebruikt u de caret ' ^ ', symbool met een factor versterking (een getal) aan het einde van de voorwaarden die u zoekt. Hoe hoger de versterking factor, de relevante wordt de term ten opzichte van andere zoektermen zijn. Standaard wordt de versterking factor 1. Hoewel de factor versterking moet positief zijn, kan kleiner dan 1 zijn (bijvoorbeeld 0,2) zijn.
+Een term te stimuleren, gebruik het caret-teken, "^", symbool met een boost factor (een getal) aan het einde van de term die u zoekt. Hoe hoger de boost-factor, meer relevante wordt de term is ten opzichte van andere zoektermen. Standaard is de factor boost 1. Hoewel de factor boost moet positief zijn, kan deze minder dan 1 (bijvoorbeeld 0.2) worden.
 
-**Voorbeeld 6** --met de rechtermuisknop op de query. Zoeken naar taken met de term 'computer analist"waar we zien er zijn geen resultaten met woorden computer en analist nog analist taken worden aan de bovenkant van de resultaten.
+**Voorbeeld 6** --met de rechtermuisknop op de query. Zoeken naar taken met de term 'computer analist"waar we er zijn geen resultaten met zowel de woorden computer en de analist, maar analist taken worden aan de bovenkant van de resultaten zien.
 
-* [& queryType volledige = & zoeken = business_title:computer analist](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [& queryType = full & zoeken = business_title:computer analist](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
-**Voorbeeld 7** --opnieuw probeert, versterking van deze tijd resulteert met de term computer via de analist term als beide woorden bestaat niet.
+**Voorbeeld 7** --probeer het opnieuw, deze tijd versterking resultaten met de term computer via de analist term als beide woorden bestaan niet.
 
-* [& queryType volledige = & zoeken = business_title:computer ^ 2 analist](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [& queryType = full & zoeken = business_title:computer ^ 2 analist](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 ## <a name="regular-expression-example"></a>Voorbeeld van een reguliere expressie
-Een zoekopdracht reguliere expressie gevonden op basis van de inhoud tussen voorwaartse slashes '/', zoals beschreven in de [klasse RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
+Een zoekopdracht reguliere expressie zoekt een overeenkomst op basis van de inhoud tussen forward slashes bevatten '/', zoals beschreven in de [klasse RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
 **Voorbeeld 8** --met de rechtermuisknop op de query. Zoeken naar taken met ofwel de term Senior of Junior.
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-De URL voor dit voorbeeld wordt niet correct weergegeven op de pagina. Kopieer de onderstaande URL en plak deze in de browser-URL-adres als tijdelijke oplossing: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+De URL voor dit voorbeeld worden niet goed weergegeven op de pagina. Kopieer de onderstaande URL en plak deze in de browser-URL-adres als tijdelijke oplossing: `https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
-## <a name="wildcard-search-example"></a>Voorbeeld van jokertekens zoeken
-U kunt een algemeen erkende syntaxis gebruiken voor meerdere (\*) of van afzonderlijke zoekopdrachten met jokertekens teken (?). Noteer dat de queryparser Lucene ondersteunt het gebruik van deze symbolen met één begrip en niet een wachtwoordzin.
+## <a name="wildcard-search-example"></a>Een voorbeeld van jokertekens zoekopdracht
+U kunt in het algemeen erkende syntaxis gebruiken voor meerdere (\*) of van afzonderlijke zoeken met jokertekens teken (?). Houd er rekening mee dat de Lucene-queryparser ondersteunt het gebruik van deze symbolen met een termijn van één en niet een zin.
 
-**Voorbeeld 9** --met de rechtermuisknop op de query. Zoeken naar taken die het voorvoegsel prog, waaronder zakelijke titels met de voorwaarden programmeren en programmeurs erin zou bevatten.
+**Voorbeeld 9** --met de rechtermuisknop op de query. Zoeken naar taken bevatten met het voorvoegsel 'programma', die zakelijke titels met de voorwaarden programmeren en de programmeur erin zou bevatten.
 
-* [& queryType = volledige & $select = business_title & search business_title:prog* =](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:prog*)
+* [& queryType = full & $select = business_title & zoeken business_title:prog* =](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:prog*)
 
 U kunt geen gebruiken een * of? symbool als het eerste teken van een zoekopdracht.
 
 ## <a name="next-steps"></a>Volgende stappen
-Geef de Queryparser Lucene in uw code. De volgende koppelingen wordt uitgelegd hoe zoekquery's instellen voor .NET- en de REST-API. De koppelingen gebruiken de eenvoudige standaardsyntaxis dus moet u wat u hebt geleerd uit dit artikel om op te geven van de toepassing de **queryType**.
+Probeer de Lucene-Queryparser in uw code op te geven. De volgende koppelingen wordt uitgelegd hoe het instellen van zoekquery's voor .NET en de REST-API. De koppelingen gebruikt u de standaard eenvoudige syntaxis, daarom u moet om toe te passen wat u hebt geleerd in dit artikel om op te geven de **queryType**.
 
 * [Query uitvoeren op uw Azure Search-Index met de .NET SDK](search-query-dotnet.md)
-* [Query uitvoeren op uw Azure Search-Index met de REST API](search-query-rest-api.md)
+* [Query uitvoeren op uw Azure Search-Index met behulp van de REST-API](search-query-rest-api.md)
 
 ## <a name="see-also"></a>Zie ook
 
- [Hoe vol tekst zoeken werkt in Azure Search](search-lucene-query-architecture.md)
+ [Hoe vol tekstzoekopdrachten werkt in Azure Search](search-lucene-query-architecture.md)

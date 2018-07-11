@@ -1,6 +1,6 @@
 ---
-title: 'Afhandeling van uitzonderingen & fout logboekregistratie scenario: Azure Logic Apps | Microsoft Docs'
-description: Beschrijft een echte gebruiksvoorbeeld over geavanceerde uitzonderingsverwerking en foutregistratie voor Azure Logic Apps
+title: Afhandeling van uitzonderingen & fout logboekregistratie scenario - Azure Logic Apps | Microsoft Docs
+description: Beschrijving van een echte use case over geavanceerde afhandeling van uitzonderingen en logboekregistratie van fouten voor Azure Logic Apps
 keywords: ''
 services: logic-apps
 author: hedidin
@@ -16,52 +16,52 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: cb80423266d3e9c0b3cac31821965ad92c0420d9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4114e32053410689c0482816a46376947023972
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299355"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930270"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Afhandeling van uitzonderingen en foutenregistratie voor logic apps
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Afhandeling van uitzonderingen en logboekregistratie van fouten voor logische apps
 
-Dit scenario wordt beschreven hoe u een logische app ter ondersteuning van uitzonderingsverwerking beter kunt uitbreiden. We een praktijk gebruiksvoorbeeld hebt gebruikt om de vraag te beantwoorden: 'Azure Logic Apps ondersteunt uitzondering en foutafhandeling?'
+In dit scenario wordt beschreven hoe u een logische app voor betere ondersteuning bieden voor de afhandeling van uitzonderingen kunt uitbreiden. We hebben een concrete use case gebruikt om de vraag te beantwoorden: "Azure Logic Apps ondersteunt uitzondering en foutafhandeling?"
 
 > [!NOTE]
-> Het huidige schema met Azure Logic Apps biedt een standaardsjabloon voor actie-antwoorden. Deze sjabloon bevat zowel interne validatie- en foutberichten geretourneerd van een API-app.
+> Het huidige Azure Logic Apps-schema biedt een standaardsjabloon voor antwoorden op actie. Deze sjabloon bevat zowel interne validatie en foutberichten die zijn geretourneerd door een API-app.
 
-## <a name="scenario-and-use-case-overview"></a>Scenario en het gebruik van case-overzicht
+## <a name="scenario-and-use-case-overview"></a>Scenario en gebruik case-overzicht
 
-Dit is het artikel als het gebruiksvoorbeeld voor dit scenario: 
+Dit is de boodschap als de use-case voor dit scenario: 
 
-Een bekende gezondheidszorg organisatie die zich bezighoudt ons voor het ontwikkelen van een Azure-oplossing die een patiënt portal met behulp van Microsoft Dynamics CRM Online te maken. Ze nodig voor het verzenden van afspraakrecords tussen de patiënt Dynamics CRM Online-portal en Salesforce. Er is gevraagd om te gebruiken de [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standaard voor alle patiëntrecords.
+Een bekende zorginstelling overbrugt heeft ons aan de ontwikkeling van een Azure-oplossing die een patiënt portal maken wilt met behulp van Microsoft Dynamics CRM Online. Ze nodig zijn voor het verzenden van afspraakrecords tussen de patiënt Dynamics CRM Online-portal en Salesforce. We zijn gevraagd om te gebruiken de [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standaard voor alle patiëntendossiers.
 
 Het project heeft twee belangrijke vereisten:  
 
-* Een methode aan te melden records die zijn verzonden vanaf de Dynamics CRM Online-portal
-* Een manier om eventuele fouten die zijn opgetreden in de workflow weer te geven
+* Een methode voor het melden van records die zijn verzonden vanaf de portal voor Dynamics CRM Online
+* Een manier om eventuele fouten die zijn opgetreden in de werkstroom weer te geven
 
 > [!TIP]
-> Zie voor een video op hoog niveau over dit project, [integratie gebruikersgroep](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "integratie gebruikersgroep").
+> Zie voor een op hoog niveau video over dit project, [Integration-gebruikersgroep](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration-gebruikersgroep").
 
 ## <a name="how-we-solved-the-problem"></a>Hoe we het probleem opgelost
 
-We hebben gekozen [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") als een opslagplaats voor de logboek- en fout-records (Cosmos DB verwijst naar de records als documenten). Omdat Azure Logic Apps een standaardsjabloon voor alle antwoorden heeft, moeten we dan niet voor het maken van een aangepast schema. We kunnen een API-app maken **invoegen** en **Query** voor zowel de fout en logboekvermelding records. Er kan ook een schema definiëren voor elke binnen de API-app.  
+We hebben gekozen voor [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") als een opslagplaats voor het logboek- en fout-records (Cosmos DB verwijzen we naar records als documenten). Aangezien Azure Logic Apps een standaardsjabloon voor alle antwoorden is, hebben we dan niet om een aangepaste schema te maken. Er kan een API-app maken **invoegen** en **Query** voor zowel fouten en logbestanden records. We kunnen ook een schema definiëren voor elke binnen de API-app.  
 
-Er is een andere vereiste om op te schonen records na een bepaalde datum. Cosmos DB heeft een eigenschap genaamd [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL) dat is toegestaan ons om in te stellen een **Time to Live** waarde op voor elke record of een verzameling. Deze mogelijkheid was het niet nodig handmatig verwijderen van records in Cosmos-database.
+Er is een andere vereiste records opschonen na een bepaalde datum. Cosmos DB is een eigenschap genaamd [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), die hadden we om in te stellen een **Time to Live** waarde voor elke record of verzameling. Deze mogelijkheid hoefde handmatig om records te verwijderen in Cosmos DB.
 
 > [!IMPORTANT]
-> Voor deze zelfstudie hebt voltooid, moet u een Cosmos-DB-database en twee verzamelingen (logboekregistratie en fouten) maken.
+> Voor deze zelfstudie, moet u een Cosmos DB-database en twee verzamelingen (logboekregistratie en fouten) maken.
 
 ## <a name="create-the-logic-app"></a>De logische app maken
 
-De eerste stap is de logische app maken en open de app in Logic App-ontwerper. In dit voorbeeld gebruiken we bovenliggende / onderliggende logische apps. Stel dat we het bovenliggende element al hebt gemaakt en gaat één onderliggende logische app maken.
+De eerste stap is het maken van de logische app en de app in Logic App Designer openen. In dit voorbeeld gebruiken we bovenliggende / onderliggende logische apps. Stel dat we het bovenliggende element al hebt gemaakt en gaat maken van een onderliggende logische app.
 
-Omdat we gaan de logboekrecord afkomstig zijn uit Dynamics CRM Online, laten we beginnen aan de bovenkant. We gebruiken moet een **aanvragen** trigger omdat het bovenliggende logische app getriggerd dit kind.
+Omdat we gaan de logboekrecord die afkomstig zijn uit Dynamics CRM Online, laten we beginnen aan de bovenkant. We moet gebruiken een **aanvragen** omdat het bovenliggende logische app wordt geactiveerd voor dit kind activeren.
 
 ### <a name="logic-app-trigger"></a>Activering voor een logische app
 
-We gebruiken een **aanvragen** activeren, zoals wordt weergegeven in het volgende voorbeeld:
+We gebruiken een **aanvragen** activeren zoals wordt weergegeven in het volgende voorbeeld:
 
 ```` json
 "triggers": {
@@ -101,39 +101,39 @@ We gebruiken een **aanvragen** activeren, zoals wordt weergegeven in het volgend
 
 ## <a name="steps"></a>Stappen
 
-Er moet zich aanmelden van de bron (aanvraag) van de patiënt record vanuit de Dynamics CRM Online-portal.
+We moeten de bron (aanvraag) van de patiënt record zich van de Dynamics CRM Online-portal.
 
-1. Er moet een nieuwe afspraakrecord ophalen van Dynamics CRM Online.
+1. Er moet een nieuwe afspraakrecord ophalen uit Dynamics CRM Online.
 
-   De trigger die afkomstig zijn van CRM, kunnen we met de **CRM PatentId**, **recordtype**, **nieuw of bijgewerkt Record** (nieuwe of bijwerken van Booleaanse waarde), en **SalesforceId**. De **SalesforceId** kan niet null zijn omdat deze alleen voor een update gebruikt wordt.
+   De trigger die afkomstig zijn van CRM biedt met ons op via de **CRM PatentId**, **recordtype**, **Record bijgewerkt of nieuw** (nieuw of Booleaanse waarde bijwerken), en  **SalesforceId**. De **SalesforceId** kan niet null zijn omdat deze alleen wordt gebruikt voor een update.
    Krijgen we de CRM-record met behulp van de CRM **PatientID** en de **recordtype**.
 
-2. Vervolgens moeten we onze Azure Cosmos DB SQL-API-app toevoegen **InsertLogEntry** bewerking als volgt te werk in Logic App-ontwerper.
+2. Vervolgens moeten we onze Azure Cosmos DB SQL API-app toevoegen **InsertLogEntry** bewerking zoals hier wordt weergegeven in Logic App Designer.
 
-   **Logboekvermelding invoegen**
+   **Invoegen van logboekvermelding**
 
-   ![Logboekvermelding invoegen](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Invoegen van logboekvermelding](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **Fout bij invoegen**
 
-   ![Logboekvermelding invoegen](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Invoegen van logboekvermelding](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **Controleren op record fout bij maken**
 
    ![Voorwaarde](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
-## <a name="logic-app-source-code"></a>Logic app broncode
+## <a name="logic-app-source-code"></a>Broncode van logische app
 
 > [!NOTE]
-> De volgende voorbeelden zijn alleen voorbeelden. Omdat deze zelfstudie is gebaseerd op een implementatie nu in productie, de waarde van een **bronknooppunt** mogelijk niet weergegeven voor eigenschappen die betrekking hebben op het plannen van een afspraak. > 
+> De volgende voorbeelden zijn alleen voorbeelden. Omdat deze zelfstudie is gebaseerd op een implementatie nu in productie, de waarde van een **bronknooppunt** mogelijk niet weergegeven voor eigenschappen die zijn gerelateerd aan het plannen van een afspraak. > 
 
 ### <a name="logging"></a>Logboekregistratie
 
-Het volgende codevoorbeeld voor logic app laat zien hoe logboekregistratie verwerken.
+Het volgende codevoorbeeld voor logische app laat zien hoe voor het afhandelen van logboekregistratie.
 
 #### <a name="log-entry"></a>Logboekvermelding
 
-Hier volgt de broncode van logic app voor het invoegen van een logboekvermelding.
+Hier volgt de broncode van de logische app voor het invoegen van een logboekvermelding.
 
 ``` json
 "InsertLogEntry": {
@@ -161,7 +161,7 @@ Hier volgt de broncode van logic app voor het invoegen van een logboekvermelding
 
 #### <a name="log-request"></a>Logboek-aanvraag
 
-Hier volgt het request-bericht van het logboek geplaatst in de API-app.
+Hier wordt het logboek aanvraagbericht in de API-app geplaatst.
 
 ``` json
     {
@@ -179,9 +179,9 @@ Hier volgt het request-bericht van het logboek geplaatst in de API-app.
 ```
 
 
-#### <a name="log-response"></a>Logboek antwoord
+#### <a name="log-response"></a>Logboek-antwoord
 
-Hier wordt het logboek-antwoordbericht van de API-app.
+Hier volgt het antwoordbericht logboek van de API-app.
 
 ``` json
 {
@@ -215,15 +215,15 @@ Hier wordt het logboek-antwoordbericht van de API-app.
 
 ```
 
-Nu bekijken we de stappen voor foutafhandeling.
+Nu we de stappen voor foutafhandeling bekijken.
 
 ### <a name="error-handling"></a>Foutafhandeling
 
-De volgende logic app voorbeeld ziet u hoe u foutafhandeling kunt implementeren.
+Het volgende codevoorbeeld voor logische app laat zien hoe u foutafhandeling kunt implementeren.
 
 #### <a name="create-error-record"></a>Foutrecord maken
 
-Hier volgt de broncode van logic app voor het maken van een foutrecord.
+Hier volgt de broncode van de logische app voor het maken van een foutrecord voor een.
 
 ``` json
 "actions": {
@@ -258,7 +258,7 @@ Hier volgt de broncode van logic app voor het maken van een foutrecord.
 }             
 ```
 
-#### <a name="insert-error-into-cosmos-db--request"></a>Fout bij invoegen naar Cosmos DB--aanvragen
+#### <a name="insert-error-into-cosmos-db--request"></a>Fout bij invoegen in Cosmos DB - aanvragen
 
 ``` json
 
@@ -281,7 +281,7 @@ Hier volgt de broncode van logic app voor het maken van een foutrecord.
 }
 ```
 
-#### <a name="insert-error-into-cosmos-db--response"></a>Fout bij invoegen in Cosmos DB--antwoord
+#### <a name="insert-error-into-cosmos-db--response"></a>Fout bij invoegen in Cosmos DB - antwoord
 
 ``` json
 {
@@ -349,7 +349,7 @@ Hier volgt de broncode van logic app voor het maken van een foutrecord.
 
 ```
 
-### <a name="return-the-response-back-to-parent-logic-app"></a>Het antwoord terug naar de bovenliggende logische app retourneren
+### <a name="return-the-response-back-to-parent-logic-app"></a>Retourneert het antwoord terug naar het bovenliggende logische app
 
 Nadat u het antwoord krijgt, kunt u het antwoord terug naar de bovenliggende logische app doorgeven.
 
@@ -399,48 +399,48 @@ Nadat u het antwoord krijgt, kunt u het antwoord terug naar de bovenliggende log
 ```
 
 
-## <a name="cosmos-db-repository-and-portal"></a>Cosmos DB opslagplaats en -portal
+## <a name="cosmos-db-repository-and-portal"></a>Cosmos DB-opslagplaats en -portal
 
-Mogelijkheden met toegevoegd aan de oplossing [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
+Onze oplossing mogelijkheden met toegevoegde [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Fout-beheerportal
 
-Als u wilt de fouten weergeven, kunt u een MVC-web-app om de foutrecords van de Cosmos-database weer te geven. De **lijst**, **Details**, **bewerken**, en **verwijderen** bewerkingen zijn opgenomen in de huidige versie.
+Als u de fouten, kunt u een MVC-web-app om de foutrecords uit Cosmos DB weer te geven. De **lijst**, **Details**, **bewerken**, en **verwijderen** bewerkingen zijn opgenomen in de huidige versie.
 
 > [!NOTE]
-> Bewerking bewerken: Cosmos DB vervangt het hele document. De records die wordt weergegeven in de **lijst** en **Detail** weergaven zijn alleen voorbeelden. Ze zijn geen afspraakrecords van de werkelijke patiënt.
+> Bewerking: Cosmos DB vervangt het hele document. De records die wordt weergegeven in de **lijst** en **Detail** weergaven zijn alleen voorbeelden. Ze zijn niet werkelijke patiënt afspraakrecords.
 
 Hier volgen enkele voorbeelden van de gegevens van onze MVC-app gemaakt met de eerder beschreven methode.
 
-#### <a name="error-management-list"></a>Fout bij het beheer van lijst
+#### <a name="error-management-list"></a>Foutenlijst voor beheer
 ![Foutenlijst](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
-#### <a name="error-management-detail-view"></a>Fout management detailweergave
+#### <a name="error-management-detail-view"></a>Weergave van details van fout management
 ![Foutdetails](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)
 
 ### <a name="log-management-portal"></a>Logboek-beheerportal
 
-Als u wilt weergeven in de logboeken, hebben we ook een MVC-web-app gemaakt. Hier volgen enkele voorbeelden van de gegevens van onze MVC-app gemaakt met de eerder beschreven methode.
+Als u de logboeken, we ook een MVC-web-app gemaakt. Hier volgen enkele voorbeelden van de gegevens van onze MVC-app gemaakt met de eerder beschreven methode.
 
 #### <a name="sample-log-detail-view"></a>Detailweergave van voorbeeld-logboek
-![Detailweergave logboek](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)
+![Weergave van details van logboek](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)
 
-### <a name="api-app-details"></a>De gegevens van de API-app
+### <a name="api-app-details"></a>API-app-details
 
-#### <a name="logic-apps-exception-management-api"></a>Logic Apps uitzondering management API
+#### <a name="logic-apps-exception-management-api"></a>Logic Apps-Uitzonderingsbeheer API
 
-Onze open source Azure Logic Apps uitzondering management API-app biedt functionaliteit, zoals hier wordt beschreven: Er zijn twee domeincontrollers:
+Onze open-source Azure Logic Apps uitzondering beheer-API-app biedt functionaliteit, zoals hier wordt beschreven: Er zijn twee domeincontrollers:
 
-* **ErrorController** voegt een foutrecord (document) in een verzameling Azure Cosmos DB.
-* **LogController** voegt een logboekrecord (document) in een verzameling Azure Cosmos DB.
+* **ErrorController** voegt een foutrecord (document) in een Azure Cosmos DB-verzameling.
+* **LogController** voegt een logboekrecord (document) in een Azure Cosmos DB-verzameling.
 
 > [!TIP]
-> Beide controllers gebruiken `async Task<dynamic>` bewerkingen, waardoor bewerkingen omzetten tijdens runtime, zodat we het Azure DB die Cosmos-schema in de hoofdtekst van de bewerking kunt maken. 
+> Beide controllers gebruiken `async Task<dynamic>` werkzaamheden, waardoor bewerkingen op te lossen tijdens runtime, zodat we het schema van de Azure Cosmos DB in de hoofdtekst van de bewerking maken kunt. 
 > 
 
-Elk document in Azure Cosmos DB moet een unieke id hebben. We gebruiken `PatientId` en het toevoegen van een tijdstempel dat wordt geconverteerd naar een Unix-tijdstempelwaarde (double). We afkappen de waarde voor het verwijderen van de decimale waarde.
+Elk document in Azure Cosmos DB moet een unieke id hebben. We gebruiken `PatientId` en het toevoegen van een tijdstempel die wordt geconverteerd naar een Unix-timestamp-waarde (double). We afkappen de waarde als u wilt verwijderen van de decimale waarde.
 
-U kunt de broncode van de fout controller API weergeven [vanuit GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+U vindt de broncode van de controller fout API van [GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
 
 We aanroepen de API vanuit een logische app met behulp van de volgende syntaxis:
 
@@ -475,20 +475,20 @@ We aanroepen de API vanuit een logische app met behulp van de volgende syntaxis:
  }
 ```
 
-De expressie in het voorgaande voorbeeld controleert u de *Create_NewPatientRecord* status van **mislukt**.
+De expressie in het voorgaande voorbeeld controleert de *Create_NewPatientRecord* status van **mislukt**.
 
 ## <a name="summary"></a>Samenvatting
 
 * U kunt eenvoudig logboekregistratie en foutafhandeling in een logische app implementeren.
 * U kunt Azure Cosmos DB gebruiken als de opslagplaats voor logboek- en fout-records (documenten).
-* U kunt MVC gebruiken voor het maken van een portal om records in logboek en de fout weer te geven.
+* MVC kunt u een portal als u wilt weergeven van logboek- en fout-records maken.
 
 ### <a name="source-code"></a>Broncode
 
-De broncode voor het beheer van logische Apps uitzondering toepassing API is beschikbaar in deze [GitHub-opslagplaats](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "Logic App uitzondering Management API").
+De broncode voor de Logic Apps uitzondering management-API-toepassing is beschikbaar in deze [GitHub-opslagplaats](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "Logic App uitzondering Management API").
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer logic app voorbeelden en scenario's weergeven](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Meer informatie over het bewaken van logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Geautomatiseerde implementatiesjablonen maken voor logische apps](../logic-apps/logic-apps-create-deploy-template.md)
+* [Meer voorbeelden van logic Apps en scenario's weergeven](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Meer informatie over het bewaken van logische apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Sjablonen voor automatische implementatie voor logische apps maken](../logic-apps/logic-apps-create-deploy-template.md)

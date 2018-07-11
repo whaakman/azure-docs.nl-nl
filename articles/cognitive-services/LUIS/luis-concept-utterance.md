@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4a3571acade7b7bd304c91eadc90b1a9f6e53860
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5babe089575d03db1f6bc0dd3f01bd3b6a5475fe
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37886838"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951896"
 ---
 # <a name="utterances-in-luis"></a>Uitingen in LUIS
 
@@ -51,7 +51,7 @@ In elke herhaling van het model, Voeg een grote hoeveelheid uitingen niet. Utter
 
 LUIS bouwt effectieve modellen met uitingen die goed zijn geselecteerd. Te veel uitingen toevoegen is geen waardevolle omdat het verwarring leidt.  
 
-Het is beter om te beginnen met een paar uitingen vervolgens [eindpunt uitingen bekijken](label-suggested-utterances.md) voor het juiste intentie voorspelling en entiteit ophalen.
+Het is beter om te beginnen met een paar uitingen vervolgens [eindpunt uitingen bekijken](luis-how-to-review-endoint-utt.md) voor het juiste intentie voorspelling en entiteit ophalen.
 
 ## <a name="ignoring-words-and-punctuation"></a>Woorden en leestekens worden genegeerd
 Als u wilt dat specifieke woorden of de interpunctieteken in het voorbeeld utterance negeren, gebruikt u een [patroon](luis-concept-patterns.md#pattern-syntax) met de _negeren_ syntaxis. 
@@ -61,10 +61,10 @@ Training is niet-deterministisch: de voorspelling utterance kan enigszins versch
 
 ## <a name="testing-utterances"></a>Uitingen testen 
 
-Ontwikkelaars moeten beginnen met het testen van hun LUIS-toepassing met echte verkeer door te sturen uitingen naar het eindpunt. Deze uitingen worden gebruikt voor het verbeteren van de prestaties van de intenties en entiteiten met [bekijken uitingen](label-suggested-utterances.md). Tests verzonden met het testen van deelvenster LUIS-website niet via het eindpunt zijn verzonden, en dus niet bijdragen tot actief leren. 
+Ontwikkelaars moeten beginnen met het testen van hun LUIS-toepassing met echte verkeer door te sturen uitingen naar het eindpunt. Deze uitingen worden gebruikt voor het verbeteren van de prestaties van de intenties en entiteiten met [bekijken uitingen](luis-how-to-review-endoint-utt.md). Tests verzonden met het testen van deelvenster LUIS-website niet via het eindpunt zijn verzonden, en dus niet bijdragen tot actief leren. 
 
 ## <a name="review-utterances"></a>Uitingen bekijken
-Nadat uw model getraind, gepubliceerde en ontvangende is [eindpunt](luis-glossary.md#endpoint) query's, [bekijken van de uitingen](label-suggested-utterances.md) LUIS worden voorgesteld. LUIS selecteert endpoint-uitingen waarvoor lage scores voor de doel- of entiteit. 
+Nadat uw model getraind, gepubliceerde en ontvangende is [eindpunt](luis-glossary.md#endpoint) query's, [bekijken van de uitingen](luis-how-to-review-endoint-utt.md) LUIS worden voorgesteld. LUIS selecteert endpoint-uitingen waarvoor lage scores voor de doel- of entiteit. 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 Beoordeling [aanbevolen procedures](luis-concept-best-practices.md) voor meer informatie.

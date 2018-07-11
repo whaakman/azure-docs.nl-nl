@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: 6c9bd93cf6e67aa815d289260f2b37bd3189c1d1
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d6cbba2a5bf9ff44439c6e98debde5cd47d4bfc3
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887585"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950386"
 ---
 # <a name="testing-in-luis"></a>Testen in LUIS
 
@@ -45,7 +45,7 @@ Als u op basis van een eindpunt testen en niet dat de utterance geregistreerd wi
 ## <a name="where-to-find-utterances"></a>Waar vind ik uitingen
 LUIS slaat alle geregistreerde uitingen in het querylogboek, beschikbaar voor downloaden op de [LUIS](luis-reference-regions.md) website **Apps** lijstpagina, evenals de LUIS [API's ontwerpen](https://aka.ms/luis-authoring-apis). 
 
-Alle uitingen LUIS zeker is worden weergegeven in de **[bekijken eindpunt uitingen](label-suggested-utterances.md)** pagina van de [LUIS](luis-reference-regions.md) website. 
+Alle uitingen LUIS zeker is worden weergegeven in de **[bekijken eindpunt uitingen](luis-how-to-review-endoint-utt.md)** pagina van de [LUIS](luis-reference-regions.md) website. 
 
 ![Eindpuntuitingen controleren](./media/luis-concept-test/review-endpoint-utterances.png)
  

@@ -1,6 +1,6 @@
 ---
-title: Virtuele kubelet in een cluster Azure Kubernetes Service (AKS) uitgevoerd
-description: Gebruik virtuele kubelet Kubernetes containers uitvoeren op Azure Containerexemplaren.
+title: Virtual Kubelet uitvoeren in een cluster Azure Kubernetes Service (AKS)
+description: Informatie over het gebruik van de Virtual Kubelet met Azure Kubernetes Service (AKS) uit te voeren van Linux en Windows-containers op Azure Container Instances.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -8,35 +8,66 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: iainfou
-ms.openlocfilehash: 04fdb1620dc6e7147ed10ae6eeeaeb3eeae14b62
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0466f416568b2a1a82e264a8508697fc9de87287
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097356"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952475"
 ---
-# <a name="virtual-kubelet-with-aks"></a>Virtuele Kubelet met AKS
+# <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Virtual Kubelet gebruiken met Azure Kubernetes Service (AKS)
 
-Azure Container exemplaren (ACI) bieden een gehoste omgeving voor het uitvoeren van containers in Azure. Wanneer u ACI gebruikt, is niet nodig voor het beheren van de onderliggende beheerinfrastructuur, Azure-beheer deze voor u verwerkt. Wanneer u containers in ACI uitvoert, wordt u in rekening gebracht door de tweede voor elke container uitgevoerd.
+Azure Container Instances (ACI) bieden een omgeving voor het uitvoeren van containers in Azure. Wanneer u ACI, er is niet nodig voor het beheren van de onderliggende infrastructuur van compute, Azure regelt dit beheer voor u. Bij het uitvoeren van containers in ACI, worden in rekening gebracht per seconde voor elke container die wordt uitgevoerd.
 
-Wanneer u de virtuele Kubelet-provider voor exemplaren van Azure-Container, kunnen Linux- en Windows-containers worden gepland op een exemplaar van de container als het een standaard Kubernetes-knooppunt. Deze configuratie kunt u profiteren van de mogelijkheden van Kubernetes en het beheer waarde en de kosten van het voordeel van containerexemplaren.
+Wanneer u de Virtual Kubelet-provider voor Azure Container Instances, kunnen zowel Windows als Linux-containers worden gepland op een containerinstantie alsof het een standaard Kubernetes-knooppunt. Deze configuratie kunt u profiteren van de mogelijkheden van Kubernetes en het beheer van waarde en de kosten voordeel van containerinstanties.
 
 > [!NOTE]
-> Virtuele Kubelet is een experimentele open source-project en als zodanig moet worden gebruikt. Als u wilt bijdragen, problemen met de bestanden en lees meer over virtuele kubelet, Zie de [virtuele Kubelet GitHub project][vk-github].
+> Virtual Kubelet is een experimenteel open-source-project en als zodanig moet worden gebruikt. Als u wilt bijdragen, problemen met bestanden, en lees meer over de virtual kubelet, Zie de [Virtual Kubelet GitHub-project][vk-github].
 
-Dit documentgegevens voor het configureren van de virtuele Kubelet voor containerexemplaren voor een AKS.
+Deze document informatie over het configureren van de Virtual Kubelet voor container instances voor een AKS.
 
 ## <a name="prerequisite"></a>Vereiste
 
-Dit document wordt ervan uitgegaan dat u een AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de [Azure Kubernetes Service (AKS) Quick Start][aks-quick-start].
+Dit document wordt ervan uitgegaan dat u een AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de [Azure Kubernetes Service (AKS)-snelstartgids][aks-quick-start].
 
-U moet ook de Azure CLI versie **2.0.33** of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+U moet ook de Azure CLI-versie **2.0.33** of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-[Helm](https://docs.helm.sh/using_helm/#installing-helm) is ook vereist voor de virtuele Kubelet installeren.
+Voor het installeren van de Virtual Kubelet [Helm](https://docs.helm.sh/using_helm/#installing-helm) is ook vereist.
+
+### <a name="for-rbac-enabled-clusters"></a>Voor clusters met RBAC-ingeschakeld
+
+Als uw AKS-cluster RBAC is ingeschakeld is, moet u een service-account en een binding van de rol voor gebruik met Tiller maken. Zie voor meer informatie, [Helm rollen gebaseerd toegangsbeheer][helm-rbac].
+
+Een *ClusterRoleBinding* moeten ook worden gemaakt voor de Virtual Kubelet. Maak een bestand met de naam voor het maken van een binding *rbac-virtualkubelet.yaml* en plak de definitie van de volgende:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: virtual-kubelet
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
+```
+
+Toepassen van de binding met [kubectl toepassen] [ kubectl-apply] en geef uw *rbac-virtualkubelet.yaml* bestand, zoals weergegeven in het volgende voorbeeld:
+
+```
+$ kubectl apply -f rbac-virtual-kubelet.yaml
+
+clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+```
+
+U kunt nu doorgaan naar de Virtual Kubelet installeren in uw AKS-cluster.
 
 ## <a name="installation"></a>Installatie
 
-Gebruik de [az aks install-connector] [ aks-install-connector] opdracht voor het installeren van de virtuele Kubelet. Het volgende voorbeeld wordt de Linux- en Windows connector geïmplementeerd.
+Gebruik de [az aks install-connector] [ aks-install-connector] opdracht voor het installeren van de Virtual Kubelet. De Linux- en Windows-connector heeft geïmplementeerd in het volgende voorbeeld.
 
 ```azurecli-interactive
 az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --os-type Both
@@ -46,22 +77,22 @@ Deze argumenten zijn beschikbaar voor de `aks install-connector` opdracht.
 
 | Argument: | Beschrijving | Vereist |
 |---|---|:---:|
-| `--connector-name` | Naam van de Connector ACI.| Ja |
-| `--name` `-n` | De naam van het beheerde cluster. | Ja |
-| `--resource-group` `-g` | Naam van de resourcegroep. | Ja |
-| `--os-type` | Container instanties van het besturingssysteemtype. Toegestane waarden: beide, Linux, Windows. Standaard: Linux. | Nee |
-| `--aci-resource-group` | De resourcegroep waarin u de container ACI groepen maken. | Nee |
-| `--location` `-l` | De locatie voor het maken van de container ACI groepen. | Nee |
-| `--service-principal` | Service-principal is gebruikt voor verificatie bij de Azure-API's. | Nee |
+| `--connector-name` | Naam van de ACI-Connector.| Ja |
+| `--name` `-n` | Naam van de beheerde cluster. | Ja |
+| `--resource-group` `-g` | De naam van de resourcegroep. | Ja |
+| `--os-type` | Type in de container instances-besturingssysteem. Toegestane waarden: beide, Linux, Windows. Standaard: Linux. | Nee |
+| `--aci-resource-group` | De resourcegroep waarin u wilt maken van de groepen ACI-container. | Nee |
+| `--location` `-l` | De locatie voor het maken van de groepen ACI-container. | Nee |
+| `--service-principal` | Service-principal gebruikt voor verificatie bij Azure-API's. | Nee |
 | `--client-secret` | Het geheim die is gekoppeld aan de service-principal. | Nee |
-| `--chart-url` | De URL van een grafiek Helm die ACI Connector installeert. | Nee |
-| `--image-tag` | De code van de installatiekopie van de installatiekopie van het virtuele kubelet-container. | Nee |
+| `--chart-url` | URL van een Helm-grafiek die ACI-Connector installeert. | Nee |
+| `--image-tag` | De tag de installatiekopie van de installatiekopie van de virtual kubelet-container. | Nee |
 
-## <a name="validate-virtual-kubelet"></a>Virtuele Kubelet valideren
+## <a name="validate-virtual-kubelet"></a>Valideren van de Virtual Kubelet
 
-Retourneert een lijst van Kubernetes knooppunten gebruikt om te valideren dat virtuele Kubelet is geïnstalleerd, de [kubectl ophalen knooppunten] [ kubectl-get] opdracht.
+Retourneert een lijst met behulp van Kubernetes-knooppunten om te valideren dat de Virtual Kubelet is geïnstalleerd, de [kubectl ophalen knooppunten] [ kubectl-get] opdracht.
 
-```console
+```
 $ kubectl get nodes
 
 NAME                                    STATUS    ROLES     AGE       VERSION
@@ -74,7 +105,7 @@ virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
 
 ## <a name="run-linux-container"></a>Linux-container uitvoeren
 
-Maak een bestand met de naam `virtual-kubelet-linux.yaml` en kopieer de volgende YAML. Vervang de `kubernetes.io/hostname` waarde met de naam van de virtuele Linux-Kubelet-knooppunt. Let op dat een [nodeSelector] [ node-selector] en [toleration] [ toleration] worden gebruikt voor het plannen van de container op het knooppunt.
+Maak een bestand met de naam `virtual-kubelet-linux.yaml` en kopieer de volgende YAML. Vervang de `kubernetes.io/hostname` waarde met de naam van de virtuele Linux-Kubelet-knooppunt. Houd er rekening mee houden dat een [nodeSelector] [ node-selector] en [toleration] [ toleration] worden gebruikt voor het plannen van de container op het knooppunt.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -102,22 +133,22 @@ spec:
 
 Voer de toepassing met de [kubectl maken] [ kubectl-create] opdracht.
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-linux.yaml
 ```
 
-Gebruik de [kubectl ophalen gehele product] [ kubectl-get] opdracht met de `-o wide` argument voor een lijst met gehele product met het geplande knooppunt uitvoer. U ziet dat de `aci-helloworld` schil is gepland op de `virtual-kubelet-virtual-kubelet-linux` knooppunt.
+Gebruik de [kubectl ophalen schillen] [ kubectl-get] opdracht met de `-o wide` argument voor een lijst met schillen met het knooppunt geplande uitvoer. U ziet dat de `aci-helloworld` schil is gepland op de `virtual-kubelet-virtual-kubelet-linux` knooppunt.
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
 aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
 ```
 
-## <a name="run-windows-container"></a>Uitvoeren van Windows-container
+## <a name="run-windows-container"></a>Windows-container uitvoeren
 
-Maak een bestand met de naam `virtual-kubelet-windows.yaml` en kopieer de volgende YAML. Vervang de `kubernetes.io/hostname` waarde met de naam van de virtuele Windows-Kubelet-knooppunt. Let op dat een [nodeSelector] [ node-selector] en [toleration] [ toleration] worden gebruikt voor het plannen van de container op het knooppunt.
+Maak een bestand met de naam `virtual-kubelet-windows.yaml` en kopieer de volgende YAML. Vervang de `kubernetes.io/hostname` waarde met de naam van de Virtual Kubelet van Windows-knooppunt. Houd er rekening mee houden dat een [nodeSelector] [ node-selector] en [toleration] [ toleration] worden gebruikt voor het plannen van de container op het knooppunt.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -145,22 +176,22 @@ spec:
 
 Voer de toepassing met de [kubectl maken] [ kubectl-create] opdracht.
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
-Gebruik de [kubectl ophalen gehele product] [ kubectl-get] opdracht met de `-o wide` argument voor een lijst met gehele product met het geplande knooppunt uitvoer. U ziet dat de `nanoserver-iis` schil is gepland op de `virtual-kubelet-virtual-kubelet-win` knooppunt.
+Gebruik de [kubectl ophalen schillen] [ kubectl-get] opdracht met de `-o wide` argument voor een lijst met schillen met het knooppunt geplande uitvoer. U ziet dat de `nanoserver-iis` schil is gepland op de `virtual-kubelet-virtual-kubelet-win` knooppunt.
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
 nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.91.121.91   virtual-kubelet-virtual-kubelet-win
 ```
 
-## <a name="remove-virtual-kubelet"></a>Virtuele Kubelet verwijderen
+## <a name="remove-virtual-kubelet"></a>Verwijder de Virtual Kubelet
 
-Gebruik de [az aks remove-connector] [ aks-remove-connector] opdracht virtuele Kubelet verwijderen. Vervang de argumentwaarden met de naam van de connector, AKS cluster en de AKS clusterbrongroep.
+Gebruik de [az aks remove-connector] [ aks-remove-connector] opdracht om te verwijderen van de Virtual Kubelet. Vervang de waarden van het argument met de naam van de connector, AKS-cluster en de resourcegroep van de AKS-cluster.
 
 ```azurecli-interactive
 az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
@@ -168,7 +199,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over virtuele Kubelet op de [virtuele Kubelet Github projet][vk-github].
+Meer informatie over de Virtual Kubelet op de [Virtual Kubelet Github projet][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
@@ -182,3 +213,5 @@ Meer informatie over virtuele Kubelet op de [virtuele Kubelet Github projet][vk-
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
+[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

@@ -4,20 +4,28 @@ description: Veelgestelde vragen over Azure Migrate adressen
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 07/10/2018
 ms.author: snehaa
-ms.openlocfilehash: c85e512dede7c14e7b678297ed524fa7a1d7e79d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3f035f38b1ad68e9e39d151ffad3fc650a0a1d80
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859520"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952746"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
 Dit artikel bevat veelgestelde vragen over Azure Migrate. Hebt u geen verdere query's na het lezen van dit artikel, plaatst u deze op de [Azure Migrate forum](http://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Algemeen
+
+### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Biedt Azure Migrate ondersteuning voor beoordeling van de VMware-workloads?
+
+Ja, Azure Migrate ondersteunt momenteel alleen beoordeling van de VMware-workloads. Ondersteuning voor Hyper-V en fysieke servers wordt in de toekomst worden ingeschakeld.
+
+### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Heeft Azure Migrate vCenter-Server voor het detecteren van een VMware-omgeving nodig?
+
+Ja, vereist Azure Migrate vCenter-Server voor het detecteren van een VMware-omgeving. Het biedt geen ondersteuning voor detectie van ESXi-hosts die niet worden beheerd door een vCenter-Server.
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Wat is Azure Migrate verschil met Azure Site Recovery?
 
@@ -38,11 +46,9 @@ Azure Migrate is een hulpprogramma voor migratieplanning en Azure Site Recovery 
 
 **Herstel na noodgevallen van VMware/Hyper-V naar Azure**: als u van plan bent om te doen, herstel na noodgeval (DR) op Azure met behulp van Azure Site Recovery (Site Recovery), gebruikt u Site Recovery Deployment Planner voor herstel na Noodgevallen plannen. Site Recovery Deployment Planner biedt een diepgaande, ASR-specifieke beoordeling van uw on-premises omgeving. Het biedt aanbevelingen die door Site Recovery voor geslaagde DR-bewerkingen, zoals replicatie, failover van uw virtuele machines vereist zijn.  
 
-### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Heeft Azure Migrate vCenter-Server voor het detecteren van een VMware-omgeving nodig?
-
-Ja, vereist Azure Migrate vCenter-Server voor het detecteren van een VMware-omgeving. Het biedt geen ondersteuning voor detectie van ESXi-hosts die niet worden beheerd door een vCenter-Server.
-
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Welke Azure-regio's worden ondersteund door Azure Migrate?
+
+Azure Migrate ondersteunt momenteel VS-Oost en West-Centraal VS als de locaties van migratie. Houd er rekening mee dat hoewel in West-Centraal VS en VS-Oost, u alleen migration-projecten maken kunt, kunt u nog steeds uw machines beoordelen voor [doellocaties voor meerdere](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). De projectlocatie wordt alleen gebruikt voor het opslaan van de gedetecteerde gegevens.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hoe worden de on-premises site, maakt verbinding met Azure Migrate?
 
@@ -51,7 +57,6 @@ De verbinding kan worden via internet of het gebruik van ExpressRoute met openba
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan ik beveiliging van de virtuele machine instellen met de. OVA-sjabloon?
 
 Extra onderdelen (zoals antivirusprogramma's) kunnen worden toegevoegd aan de. OVA-sjabloon is, zolang de communicatie en firewall-regels die zijn vereist voor het apparaat Azure Migrate werken worden gehandhaafd.   
-
 
 ## <a name="discovery-and-assessment"></a>Detectie en evaluatie
 
@@ -89,13 +94,19 @@ De gegevens die zijn verzameld door de collector-apparaat is opgeslagen in de Az
 
 Als u agents op de virtuele machines installeren, wordt de gegevens die zijn verzameld door de agents van de afhankelijkheid voor visualisatie van afhankelijkheden opgeslagen in de Verenigde Staten in een OMS-werkruimte hebt gemaakt in het abonnement van de gebruiker. Deze gegevens worden verwijderd wanneer u de OMS-werkruimte in uw abonnement verwijdert. [Meer informatie](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
+### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>De gegevens worden versleuteld in rust en onderweg zijn?
+
+Ja, de verzamelde gegevens worden versleuteld in rust en onderweg zijn. De metagegevens die zijn verzameld door het apparaat veilig verzonden naar de Azure Migrate-service via internet via https. De verzamelde metagegevens worden opgeslagen in [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) en [Azure blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in een Microsoft-abonnement en in rust worden versleuteld.
+
+De gegevens die zijn verzameld door de agents afhankelijkheid is ook versleuteld in doorvoer (beveiligde https-kanaal) en wordt opgeslagen in een Log Analytics-werkruimte in het abonnement van de gebruiker. Het is ook versleuteld in rust.
+
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Hoe de collector communiceren met de vCenter-Server en de service Azure Migrate?
 
 Het collector-apparaat verbinding maakt met de vCenter-Server (poort 443) met behulp van de referenties die zijn opgegeven door de gebruiker in het apparaat. Deze query uitgevoerd voor de vCenter-Server met behulp van VMware PowerCLI voor het verzamelen van metagegevens over de VM's beheerd door vCenter Server. Deze verzamelt beide configuratiegegevens over VM's (kernen, geheugen, schijven, NIC enzovoort) en de prestatiegeschiedenis van elke virtuele machine voor de laatste maand van vCenter-Server. De verzamelde metagegevens wordt verzonden naar de service Azure Migrate (via internet via https) voor de beoordeling. [Meer informatie](concepts-collector.md)
 
-### <a name="can-i-connect-to-multiple-vcenter-servers"></a>Kan ik verbinding maken met meerdere vCenter-servers?
+### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Kan ik het dezelfde collector-apparaat verbinden met meerdere vCenter-servers?
 
-U moet een toestel connector ingesteld voor elke server.
+Ja, een enkel collector-apparaat kan worden gebruikt voor het detecteren van meerdere vCenter-Servers, maar niet gelijktijdig. U moet de detecties na elkaar uitgevoerd.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Is de. OVA-sjabloon die wordt gebruikt door Site Recovery worden geïntegreerd met de. OVA die worden gebruikt door Azure Migrate?
 
@@ -104,12 +115,6 @@ Er is momenteel geen-integratie. De. OVA-sjabloon in Site Recovery wordt gebruik
 ### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>Ik heb mijn machinegrootte gewijzigd. Kan ik de evaluatie opnieuw uitvoeren?
 
 Als u wijzigt de instellingen op een virtuele machine die u wilt beoordelen, Ontdek trigger opnieuw met behulp van het collector-apparaat. Gebruik in het toestel, de **verzamelen opnieuw starten** optie om dit te doen. Nadat de verzameling is voltooid, selecteert u de **opnieuw berekenen** optie voor de evaluatie in de portal voor van de bijgewerkte evaluatieresultaten ophalen.
-
-### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>De gegevens worden versleuteld in rust en onderweg zijn?
-
-Ja, de verzamelde gegevens worden versleuteld in rust en onderweg zijn. De metagegevens die zijn verzameld door het apparaat veilig verzonden naar de Azure Migrate-service via internet via https. De verzamelde metagegevens worden opgeslagen in [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) en [Azure blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in een Microsoft-abonnement en in rust worden versleuteld.
-
-De gegevens die zijn verzameld door de agents afhankelijkheid is ook versleuteld in doorvoer (beveiligde https-kanaal) en wordt opgeslagen in een Log Analytics-werkruimte in het abonnement van de gebruiker. Het is ook versleuteld in rust.
 
 ### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Hoe kan ik een multitenant-omgeving in Azure Migrate detecteren?
 

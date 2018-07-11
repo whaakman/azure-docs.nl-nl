@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 66036da19b0c7f49935b32272e963b3766497605
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 2ce202bbb1479db18fb88cfef4d510ae4cb39a78
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37438174"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952097"
 ---
 # <a name="plan-your-luis-app"></a>Uw LUIS-app plannen
 
@@ -53,7 +53,7 @@ Een hiërarchische entiteit is een speciaal type een **eenvoudige** entiteit, ee
 
 Zie [gegevensextractie](luis-concept-data-extraction.md#hierarchical-entity-data) voor meer informatie over het uitpakken van de hiërarchische entiteit van het eindpunt JSON-query-antwoord. Probeer de hiërarchische entiteit [snelstartgids](luis-quickstart-intent-and-hier-entity.md) voor meer informatie over het gebruik van een hiërarchische entiteit.
 
-### <a name="composite-entity"></a>Samengestelde entiteit
+### <a name="composite-entity"></a>samengestelde entiteit
 Een samengestelde entiteit is opgebouwd uit andere entiteiten die onderdelen van een geheel vormen. 
 
 ![samengestelde entiteit](./media/luis-plan-your-app/composite-entity.png)
@@ -82,7 +82,7 @@ Een reguliere expressie entiteit kunt LUIS gegevens te extraheren uit een uttera
 Zie [gegevensextractie](luis-concept-data-extraction.md#regular-expression-entity-data) voor meer informatie over de reguliere expressie entiteiten extraheren uit het eindpunt van de JSON-query-antwoord. Probeer de [snelstartgids](luis-quickstart-intents-regex-entity.md) voor meer informatie over het gebruik van een entiteit reguliere expressie.
 
 ## <a name="after-getting-endpoint-utterances"></a>Nadat het eindpunt uitingen ophalen
-Nadat uw app haalt de eindpunt-uitingen, wilt implementeren voorspelling verbeteringen met [actief leren](label-suggested-utterances.md), [lijsten woordgroep](luis-concept-feature.md), en [patronen](luis-concept-patterns.md). 
+Nadat uw app haalt de eindpunt-uitingen, wilt implementeren voorspelling verbeteringen met [actief leren](luis-how-to-review-endoint-utt.md), [lijsten woordgroep](luis-concept-feature.md), en [patronen](luis-concept-patterns.md). 
 
 ### <a name="patternany-entity"></a>Pattern.any entiteit
 Patterns.any is een tijdelijke aanduiding voor de variabele lengte gebruikt alleen in een [patroon van](luis-concept-patterns.md) sjabloon utterance markeren waar de entiteit begint en eindigt. Sjabloon uitingen voldoen aan [syntaxis van de juiste](luis-concept-patterns.md#pattern-syntax) om entiteiten en ignorable tekst te identificeren.

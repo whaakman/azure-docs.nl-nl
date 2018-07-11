@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7174a78aeb339c864b2eea384b794646c215bc25
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: b60aa551d55907fcac7953efa61473c845e3c2ae
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343999"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951053"
 ---
 # <a name="api-v2-migration-guide"></a>Migratiehandleiding voor API-versie 2
 De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's wordt afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
@@ -133,7 +133,7 @@ Verschillende API's die de metagegevens van LUIS retourneren hebben nieuwe namen
 
 
 ## <a name="sample-renamed-to-suggest"></a>"Voorbeeld" gewijzigd in "voorstellen"
-LUIS stelt uitingen van bestaande [eindpunt uitingen](label-suggested-utterances.md) die het model kan verbeteren. In de vorige versie, is dit de naam **voorbeeld**. In de nieuwe versie, de naam wordt gewijzigd van voorbeeld **voorstellen**. Dit heet **[bekijken eindpunt uitingen](https://docs.microsoft.com/azure/cognitive-services/LUIS/label-suggested-utterances)** in de LUIS-website.
+LUIS stelt uitingen van bestaande [eindpunt uitingen](luis-how-to-review-endoint-utt.md) die het model kan verbeteren. In de vorige versie, is dit de naam **voorbeeld**. In de nieuwe versie, de naam wordt gewijzigd van voorbeeld **voorstellen**. Dit heet **[bekijken eindpunt uitingen](luis-how-to-review-endoint-utt.md)** in de LUIS-website.
 
 | versie | route |
 |--|--|

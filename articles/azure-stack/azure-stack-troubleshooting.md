@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure-Stack probleemoplossing | Microsoft Docs
-description: Azure Stack het oplossen van problemen.
+title: Het oplossen van Microsoft Azure Stack | Microsoft Docs
+description: Azure Stack voor probleemoplossing.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,68 +12,57 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 07/09/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: b63fdd630647cc970a2d935619b4d3f16b8c0375
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 53bb89daee47d5f380786246070cf5cddb69b731
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30229887"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929548"
 ---
-# <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure-Stack probleemoplossing
+# <a name="microsoft-azure-stack-troubleshooting"></a>Het oplossen van Microsoft Azure Stack
 
-*Van toepassing op: Azure stapelen Development Kit*
+Dit document bevat algemene informatie over probleemoplossing voor Azure Stack. 
 
-Dit document bevat algemene informatie over probleemoplossing voor Azure-Stack. 
+> [!NOTE]
+> Omdat de Azure Stack Technical Development Kit (ASDK) wordt aangeboden als een evaluatie-omgeving, is er geen officiële ondersteuning van Microsoft Customer Support Services. Als u een probleem ondervindt, controleert u of om te controleren of de [MSDN-Forum voor Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) voor verdere ondersteuning en informatie.  
 
-Omdat de Azure-Stack technische Development Kit wordt aangeboden als een evaluatieomgeving, is er geen officiële ondersteuning van Microsoft Customer Support Services. Als er een probleem dat wordt niet beschreven, Controleer of de [Stack MSDN-Forum Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) voor verdere ondersteuning en informatie.  
-
-De aanbevelingen voor het oplossen van problemen die worden beschreven in deze sectie zijn afgeleid van diverse bronnen en kunnen of kunnen uw probleem niet oplossen. Codevoorbeelden worden verstrekt vorm en de verwachte resultaten kunnen niet worden gegarandeerd. Deze sectie is onderworpen aan regelmatige wijzigingen en updates zoals verbeteringen aan het product zijn geïmplementeerd.
+De aanbevelingen voor het oplossen van problemen die worden beschreven in deze sectie zijn afgeleid van diverse bronnen en kunnen of kunnen uw probleem niet oplossen. Voorbeelden van code worden verstrekt, vorm en verwachte resultaten niet worden gegarandeerd. In deze sectie is onderhevig aan regelmatig wijzigingen en updates, verbeteringen aan het product zijn geïmplementeerd.
 
 ## <a name="deployment"></a>Implementatie
-### <a name="deployment-failure"></a>Fout bij implementatie
-Als er een fout tijdens de installatie optreden, kunt u de implementatie van de mislukte stap opnieuw starten met behulp van de - optie opnieuw uitvoeren van het script voor implementatie.  
+### <a name="deployment-failure"></a>Fout bij de implementatie
+Als u een fout opgetreden tijdens de installatie ondervindt, kunt u de implementatie van de mislukte stap opnieuw opstarten met behulp van de - optie opnieuw uitvoeren van het script voor implementatie.  
 
-
-### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Aan het einde van de implementatie van de PowerShell-sessie is nog geopend en eventuele uitvoer wordt niet weergegeven
-Dit gedrag is waarschijnlijk alleen het resultaat van het standaardgedrag van een PowerShell-opdrachtvenster wanneer dit item is geselecteerd. De implementatie van development kit daadwerkelijk is geslaagd, maar het script is onderbroken bij het selecteren van het venster. U kunt controleren of de installatie is voltooid door te zoeken naar het woord 'selecteren' in de titelbalk van het opdrachtvenster.  Druk op ESC deze selectie opheffen en de voltooiingsbericht nadat deze moet worden weergegeven.
+### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Aan het einde van de ASDK implementatie van de PowerShell-sessie is nog steeds geopend en eventuele uitvoer wordt niet weergegeven.
+Dit gedrag is waarschijnlijk alleen het resultaat van het standaardgedrag van een PowerShell-opdrachtvenster wanneer deze is geselecteerd. De development kit-implementatie is voltooid, maar het script is onderbroken bij het selecteren van het venster. U kunt controleren of de installatie is voltooid door te zoeken naar het woord 'selecteren' in de titelbalk van het opdrachtvenster.  Druk op ESC om terug te Hef de selectie van het en het voltooiingsbericht is nadat deze moet worden weergegeven.
 
 ## <a name="virtual-machines"></a>Virtuele machines
-### <a name="default-image-and-gallery-item"></a>Standaard installatiekopie en de galerie-item
-Een Windows Server-installatiekopie en de galerie-item moet worden toegevoegd voordat u virtuele machines in Azure-Stack implementeert.
+### <a name="default-image-and-gallery-item"></a>Standaard-installatiekopie en galerie-item
+Een Windows Server-installatiekopie en galerie-item moet worden toegevoegd voor het implementeren van virtuele machines in Azure Stack.
 
-### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Start opnieuw op mijn Azure-Stack-host en een aantal virtuele machines niet automatisch wordt gestart.
-De host opnieuw is opgestart, merkt u wellicht de Stack Azure-services zijn niet onmiddellijk beschikbaar.  Dit is omdat de Stack is Azure [infrastructuur VMs](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) en RPs duren een beetje om consistentie te controleren, maar wordt uiteindelijk automatisch gestart.
+### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Nadat de Azure Stack-host opnieuw is opgestart, enkele VM's kunnen niet automatisch wordt gestart.
+Na het opnieuw opstarten van de host, merkt u wellicht Azure Stack-services zijn niet onmiddellijk beschikbaar.  Dit komt doordat Azure Stack [infrastructuur-VM's](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) en resourceproviders even duren om te controleren op consistentie, maar uiteindelijk automatisch wordt gestart.
 
-U merkt wellicht ook dat virtuele machines niet automatisch wordt gestart na opnieuw opstarten van de Azure-Stack development kit host tenant. Dit is een bekend probleem en moet een aantal handmatige stappen voor het ze online brengt:
+U merkt wellicht ook die tenant die virtuele machines niet automatisch wordt gestart na opnieuw opstarten van de Azure Stack development kit-host. Dit is een bekend probleem en moet een aantal handmatige stappen voor het ze online brengt:
 
-1.  Start op de Azure-Stack development kit host, **Failoverclusterbeheer** vanuit het Menu Start.
+1.  Start op de host van Azure Stack development kit, **Failoverclusterbeheer** vanuit het Menu Start.
 2.  Selecteer het cluster **S Cluster.azurestack.local**.
 3.  Selecteer **rollen**.
-4.  Tenant-VM's worden weergegeven in een *opgeslagen* status. Zodra alle infrastructuur VM's worden uitgevoerd, met de rechtermuisknop op de tenant-VM's en selecteer **Start** hervatten van de virtuele machine.
+4.  Tenant-VM's worden weergegeven in een *opgeslagen* staat. Zodra alle infrastructuur-VM's worden uitgevoerd, met de rechtermuisknop op de tenant-VM's en selecteer **Start** hervatten van de virtuele machine.
 
-### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Ik een aantal virtuele machines hebt verwijderd, maar nog steeds de VHD-bestanden op schijf. Wordt dit gedrag verwacht?
-Ja, is dit gedrag verwacht. Het is zo ontworpen, omdat:
+### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Kan ik een aantal virtuele machines hebt verwijderd, maar nog steeds de VHD-bestanden op schijf. Is dit gedrag verwacht?
+Ja, dit is normaal. Het is zo ontworpen omdat:
 
-* Wanneer u een virtuele machine verwijdert, worden virtuele harde schijven worden niet verwijderd. Schijven zijn afzonderlijke resources in de resourcegroep.
-* Wanneer een opslagaccount wordt verwijderd, de verwijdering is zichtbaar onmiddellijk via Azure Resource Manager, maar de schijven die deze mogelijk nog steeds in de opslag worden bewaard totdat garbagecollection wordt uitgevoerd.
+* Wanneer u een virtuele machine verwijdert, worden de VHD's niet verwijderd. Schijven zijn afzonderlijke resources in de resourcegroep.
+* Wanneer een storage-account wordt verwijderd, wordt de verwijdering is zichtbaar onmiddellijk via Azure Resource Manager, maar de schijven bevat mogelijk nog steeds worden bewaard in opslag totdat garbagecollection wordt uitgevoerd.
 
-Als u 'zwevende' VHD's ziet, is het belangrijk te weten als ze deel uitmaken van de map voor een opslagaccount dat is verwijderd. Als het opslagaccount kan niet worden verwijderd, is het normaal bent.
+Als u VHD's 'zwevende' ziet, is het belangrijk te weten als ze deel uitmaken van de map voor een opslagaccount dat is verwijderd. Als het opslagaccount is niet verwijderd, is het normaal dat ze nog steeds aanwezig.
 
-Meer informatie over het configureren van de retentie drempelwaarde en on-demand vrijmaken in [storage-accounts beheren](azure-stack-manage-storage-accounts.md).
+U kunt meer lezen over het configureren van de bewaarperiode drempelwaarde en on-demand vrijmaken in [opslagaccounts beheren](azure-stack-manage-storage-accounts.md).
 
 ## <a name="storage"></a>Storage
-### <a name="storage-reclamation"></a>Opslag vrijmaken
-Het duurt maximaal 14 uur geregenereerde capaciteit worden weergegeven in de portal. Ruimte vrijmaken, is afhankelijk van verschillende factoren, met inbegrip van gebruikspercentage van de informatie over het van interne containerbestanden in het bloblarchief blok. Daarom afhankelijk van hoeveel gegevens worden verwijderd, is er geen garantie van de hoeveelheid ruimte die kan worden vrijgemaakt bij-garbagecollector wordt uitgevoerd.
-
-## <a name="windows-azure-pack-connector"></a>Windows Azure Pack-Connector
-* Als u het wachtwoord van het account azurestackadmin wijzigt nadat u Azure-Stack development kit hebt geïmplementeerd, kunt u niet langer meerdere cloud-modus. Daarom zijn deze niet mogelijk verbinding maken met de Windows Azure Pack doelomgeving.
-* Na het instellen van meerdere cloud modus:
-    * Een gebruiker ziet het dashboard nadat ze opnieuw instellen van de portalinstellingen. (Klik op het pictogram portal-instellingen (tandwielpictogram pictogram in de rechterbovenhoek) in de gebruikersportal. Onder **standaardinstellingen herstellen**, klikt u op **toepassen**.)
-    * De titels van het dashboard mogelijk niet weergegeven. Als dit probleem optreedt, moet u handmatig toevoegen ze terug.
-    * Bepaalde tegels mogelijk niet correct weergegeven wanneer u ze eerst aan het dashboard toevoegen. U kunt dit probleem oplossen door de browser te vernieuwen.
-
-
+### <a name="storage-reclamation"></a>Vrijmaken van opslagruimte
+Het duurt maximaal 14 uur geregenereerde capaciteit worden weergegeven in de portal. Vrijmaken van ruimte, is afhankelijk van diverse factoren, met inbegrip van gebruikspercentage van de interne containerbestanden in blok-blobopslag. Daarom afhankelijk van hoeveel gegevens worden verwijderd, is er geen garantie voor de hoeveelheid ruimte die kan worden vrijgemaakt wanneer garbagecollector wordt uitgevoerd.
 

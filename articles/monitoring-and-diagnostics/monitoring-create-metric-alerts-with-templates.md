@@ -1,6 +1,6 @@
 ---
 title: Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
-description: Informatie over het gebruik van een Resource Manager-sjabloon een metrische waarschuwing wilt maken.
+description: Informatie over het gebruik van Resource Manager-sjabloon te maken van een waarschuwing voor metrische gegevens.
 author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,31 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 0a4e6c2ebb57aca13a53a8ff12953f0c7a90bc61
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4dba3d182c7c2927aa4feb88e70fe5711fcc6818
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263443"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932208"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
-Dit artikel laat zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) configureren [nieuwere metrische waarschuwingen](monitoring-near-real-time-metric-alerts.md) in de Azure-Monitor. Resource Manager-sjablonen kunnen u programmatisch waarschuwingen instellen op een consistente en reproduceerbare manier tussen uw omgevingen. Nieuwere metrische waarschuwingen zijn momenteel beschikbaar op [deze reeks brontypen](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Dit artikel wordt beschreven hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) configureren [nieuwere metrische waarschuwingen](monitoring-near-real-time-metric-alerts.md) in Azure Monitor. Resource Manager-sjablonen kunnen u programmatisch waarschuwingen instellen op een consistente en reproduceerbare manier in uw omgevingen. Nieuwere metrische waarschuwingen zijn momenteel beschikbaar op [deze set resourcetypen](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+> [!IMPORTANT]
+> Resource Manager-sjabloon opgegeven voor de waarschuwing voor metrische gegevens werkt niet voor het resourcetype: Microsoft.OperationalInsights/workspaces; biedt ondersteuning voor metrische gegevens van Log Analytics is in preview. Gebruikers geïnteresseerd in de preview-functionaliteit gebruiken met resource-sjabloon, kunt contact opnemen met [Feedback voor Azure-waarschuwingen](mailto:azurealertsfeedback@microsoft.com)
+
 
 De eenvoudige stappen zijn als volgt:
 
 1. Gebruik een van de sjablonen hieronder als een JSON-bestand dat wordt beschreven hoe u de waarschuwing wilt maken.
-2. Bewerken en de bijbehorende parameterbestand als een JSON gebruiken voor het aanpassen van de waarschuwing
-3. Implementeert de sjabloon met [eventuele implementatiemethode](../azure-resource-manager/resource-group-template-deploy.md).
+2. Bewerken en de bijbehorende parameterbestand als een JSON gebruiken om aan te passen van de waarschuwing
+3. Implementeer de sjabloon met [eventuele implementatiemethode](../azure-resource-manager/resource-group-template-deploy.md).
 
 
 ## <a name="resource-manager-template-for-a-simple-metric-alert"></a>Resource Manager-sjabloon voor een eenvoudige metrische waarschuwing
-Voor het maken van een waarschuwing met een Resource Manager-sjabloon die u maakt een resource van het type `Microsoft.Insights/metricAlerts` en in alle gerelateerde eigenschappen te vullen. Hieronder volgt een voorbeeldsjabloon die een metrische waarschuwingsregel maakt.
+Voor het maken van een waarschuwing met behulp van Resource Manager-sjabloon maken van een resource van het type `Microsoft.Insights/metricAlerts` en vul alle verwante eigenschappen. Hieronder volgt een voorbeeldsjabloon die wordt gemaakt van een waarschuwingsregel voor metrische gegevens.
 
-Sla de json hieronder als simplemetricalert.json omwille van deze doorlopen.
+De onderstaande json opslaan als simplemetricalert.json ten behoeve van deze procedure.
 
 ```json
 {
@@ -180,11 +184,11 @@ Sla de json hieronder als simplemetricalert.json omwille van deze doorlopen.
 }
 ```
 
-Beschrijvingen van het schema en de eigenschappen voor een waarschuwingsregel [is hier beschikbaar](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
+Een uitleg van het schema en de eigenschappen voor een waarschuwingsregel [is hier beschikbaar](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
 
-U kunt de waarden voor de parameters instellen op de opdrachtregel of via een parameterbestand. Hieronder vindt u een parameterbestand voorbeeld. 
+U kunt de waarden voor de parameters instellen op de opdrachtregel of via een parameterbestand. Hieronder vindt u een voorbeeldbestand voor de parameter. 
 
-De json hieronder opslaan als simplemetricalert.parameters.json en breng zo nodig aan.
+De onderstaande json opslaan als simplemetricalert.parameters.json en deze zo nodig wijzigen.
 
 ```json
 {
@@ -226,7 +230,7 @@ De json hieronder opslaan als simplemetricalert.parameters.json en breng zo nodi
 ```
 
 
-U kunt de metrische waarschuwing met behulp van de sjabloon en de parameters-bestand met PowerShell of Azure CLI kunt maken.
+U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI maken.
 
 Azure PowerShell gebruiken
 
@@ -253,12 +257,12 @@ az group deployment create \
 
 > [!NOTE]
 >
-> Terwijl de metrische waarschuwing kan worden gemaakt in een andere resourcegroep voor de doelresource, wordt u aangeraden dezelfde resourcegroep als uw doelbron.
+> Hoewel de waarschuwing voor metrische gegevens kan worden gemaakt in een andere resourcegroep voor de doelresource, adviseren we met behulp van dezelfde resourcegroep bevinden als de doelresource.
 
 ## <a name="resource-manager-template-for-a-more-advanced-metric-alert"></a>Resource Manager-sjabloon voor een meer geavanceerde metrische waarschuwing
-Ondersteuning voor nieuwere metrische waarschuwingen waarschuwen voor multidimensionale metrische gegevens, evenals ondersteuning van meerdere criteria. U kunt de volgende sjabloon gebruiken voor het maken van een waarschuwing voor een meer geavanceerde metrische op dimensionale metrische gegevens en meerdere criteria opgeven.
+Nieuwere metrische waarschuwingen ondersteunt waarschuwingen voor de multi-dimensionale metrische gegevens, evenals ondersteuning van meerdere criteria. U kunt de volgende sjabloon gebruiken een geavanceerdere waarschuwing voor metrische gegevens op eendimensionale metrische gegevens maken en meerdere criteria opgeven.
 
-Sla de json hieronder als advancedmetricalert.json omwille van deze doorlopen.
+De onderstaande json opslaan als advancedmetricalert.json ten behoeve van deze procedure.
 
 ```json
 {
@@ -374,9 +378,9 @@ Sla de json hieronder als advancedmetricalert.json omwille van deze doorlopen.
 }
 ```
 
-U kunt de bovenstaande sjabloon samen met de parameter-bestand hieronder. 
+U kunt de bovenstaande sjabloon gebruiken samen met de parameter-bestand die hieronder. 
 
-Opslaan en het wijzigen van de json hieronder als advancedmetricalert.parameters.json omwille van deze doorlopen.
+Opslaan en het wijzigen van de onderstaande json als advancedmetricalert.parameters.json ten behoeve van deze procedure.
 
 ```json
 {
@@ -443,7 +447,7 @@ Opslaan en het wijzigen van de json hieronder als advancedmetricalert.parameters
 ```
 
 
-U kunt de metrische waarschuwing met behulp van de sjabloon en de parameters-bestand met PowerShell of Azure CLI vanuit de huidige werkmap maken
+U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI in uw huidige werkmap maken
 
 Azure PowerShell gebruiken
 ```powershell
@@ -470,8 +474,8 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Terwijl de metrische waarschuwing kan worden gemaakt in een andere resourcegroep voor de doelresource, wordt u aangeraden dezelfde resourcegroep als uw doelbron.
+> Hoewel de waarschuwing voor metrische gegevens kan worden gemaakt in een andere resourcegroep voor de doelresource, adviseren we met behulp van dezelfde resourcegroep bevinden als de doelresource.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Lees meer over [waarschuwingen in Azure](monitoring-overview-unified-alerts.md)
-* Meer informatie over hoe [een actiegroep met Resource Manager-sjablonen maken](monitoring-create-action-group-with-resource-manager-template.md)
+* Meer informatie over [waarschuwingen in Azure](monitoring-overview-unified-alerts.md)
+* Meer informatie over het [een actiegroep maken met Resource Manager-sjablonen](monitoring-create-action-group-with-resource-manager-template.md)

@@ -1,9 +1,9 @@
 ---
-title: Linux-VM in Azure maken van een sjabloon | Microsoft Docs
-description: Het gebruik van de Azure CLI voor het maken van een Linux-VM met een Resource Manager-sjabloon
+title: Een Linux-VM in Azure maken met een sjabloon | Microsoft Docs
+description: Hoe u een Linux-VM maken van een Resource Manager-sjabloon met de Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2b4dde9796336112d6c8a68d16d0b3006b3fee
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3e6b431ee55ee73b4f5a69471cca3cc16270198c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936411"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930236"
 ---
-# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Het maken van een virtuele Linux-machine met Azure Resource Manager-sjablonen
-In dit artikel laat zien hoe snel virtuele Linux-machine (VM) te implementeren met Azure Resource Manager-sjablonen en de Azure CLI. 
+# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Een virtuele Linux-machine maken met Azure Resource Manager-sjablonen
+In dit artikel wordt beschreven hoe u snel een Linux virtuele machine (VM) implementeren met Azure Resource Manager-sjablonen en Azure CLI. 
 
 
 ## <a name="templates-overview"></a>Overzicht van sjablonen
-Azure Resource Manager-sjablonen zijn JSON-bestanden die de infrastructuur en configuratie van uw Azure-oplossing te definiëren. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus de oplossing herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Zie voor meer informatie over de indeling van de sjabloon en de manier waarop u samenstelt, [maken van uw eerste Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-create-first-template.md). Als u de JSON-syntaxis voor resourcetypen wilt bekijken, raadpleegt u [Define resources in Azure Resource Manager templates](/azure/templates/) (Resources definiëren in Azure Resource Manager-sjablonen).
+Azure Resource Manager-sjablonen zijn JSON-bestanden die u de infrastructuur en configuratie van uw Azure-oplossing definieert. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus de oplossing herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Zie voor meer informatie over de indeling van de sjabloon en hoe u deze samenstelt, [uw eerste Azure Resource Manager-sjabloon maken](../../azure-resource-manager/resource-manager-create-first-template.md). Als u de JSON-syntaxis voor resourcetypen wilt bekijken, raadpleegt u [Define resources in Azure Resource Manager templates](/azure/templates/) (Resources definiëren in Azure Resource Manager-sjablonen).
 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
-Het volgende voorbeeld wordt een virtuele machine uit [deze Azure Resource Manager-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) met [az implementatie maken](/cli/azure/group/deployment#az_group_deployment_create). SSH-verificatie is toegestaan. Geef desgevraagd de waarde van uw eigen openbare SSH-sleutel, zoals de inhoud van *~/.ssh/id_rsa.pub*. Als u maken van een SSH-sleutelpaar wilt, Zie [maken en gebruiken van een SSH-sleutelpaar voor virtuele Linux-machines in Azure](mac-create-ssh-keys.md).
+Het volgende voorbeeld wordt een virtuele machine via [deze Azure Resource Manager-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) met [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create). Alleen SSH-verificatie is toegestaan. Als u hierom wordt gevraagd, geeft u de waarde van uw eigen openbare SSH-sleutel, zoals de inhoud van *~/.ssh/id_rsa.pub*. Als u een SSH-sleutelpaar maken wilt, Zie [maken en gebruiken van een SSH-sleutelpaar voor virtuele Linux-machines in Azure](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create \
@@ -47,11 +47,11 @@ az group deployment create \
     --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
-In het vorige voorbeeld, kunt u een sjabloon die is opgeslagen in GitHub opgegeven. U kunt ook downloaden of een sjabloon maken en geef het lokale pad op met de `--template-file` parameter.
+In het vorige voorbeeld, maar u hebt opgegeven een sjabloon die is opgeslagen in GitHub. U kunt ook downloaden of een sjabloon maken en geef het lokale pad op met de `--template-file` parameter.
 
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
-Om SSH met uw virtuele machine te verkrijgen van het openbare IP-adres met [az vm weergeven](/cli/azure/vm#az-vm-show):
+Voor SSH naar uw virtuele machine, verkrijgen van het openbare IP-adres met [az vm show](/cli/azure/vm#az-vm-show):
 
 ```azurecli
 az vm show \
@@ -62,11 +62,11 @@ az vm show \
     --output tsv
 ```
 
-U kunt vervolgens SSH met uw virtuele machine normaal. Bieden u eigen openbare IP-adres van de voorgaande opdracht:
+U kunt vervolgens SSH met uw virtuele machine normaal. Geef u eigen openbare IP-adres uit de voorgaande opdracht:
 
 ```bash
 ssh azureuser@<ipAddress>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit voorbeeld moet u een basis Linux VM gemaakt. Ga voor meer Resource Manager-sjablonen die zijn toepassingsframeworks of complexere omgevingen maken, de [Azure-sjablonen snelstartgalerie](https://azure.microsoft.com/documentation/templates/).
+In dit voorbeeld moet u een eenvoudige Linux-VM gemaakt. Ga voor meer Resource Manager-sjablonen die toepassingsframeworks of meer complexe omgevingen maken, de [galerie van Azure-quickstart-sjablonen](https://azure.microsoft.com/documentation/templates/).

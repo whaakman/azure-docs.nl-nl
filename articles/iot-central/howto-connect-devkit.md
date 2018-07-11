@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 237a19b76268e1207c9de438a4f79d3dc8382476
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c2a7278f4ee6861a1e47610c06fdc6ffcec52247
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903806"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931079"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -82,7 +82,8 @@ Instellingen voor in-/ uitschakelen
 | Type            | Weergavenaam | Veldnaam | Gegevenstype |
 | --------------- | ------------ | ---------- | --------- |
 | Apparaateigenschappen | Aantal die   | dieNumber  | getal    |
-| Tekst            | Locatie     | location   | N/A       |
+| Apparaateigenschappen | Locatie van het apparaat   | location  | location    |
+| Tekst            | Geproduceerd In     | manufacturedIn   | N/A       |
 
 
 ### <a name="add-a-real-device"></a>Echt apparaat toevoegen
@@ -152,19 +153,24 @@ U kunt de telemetrie metingen en gerapporteerde eigenschapswaarden weergeven en 
 
 1. Gebruik **Device Explorer** om te navigeren naar de **metingen** pagina voor het echte MXChip-apparaat dat u hebt toegevoegd:
 
-    ![Navigeer naar een echt apparaat](media/howto-connect-devkit/realdevice.png)
+    ![Navigeer naar een echt apparaat](media/howto-connect-devkit/realdevicenew.png)
 
 1. Op de **metingen** pagina, kunt u de telemetrie die afkomstig zijn van het apparaat MXChip zien:
 
-    ![Telemetrie van een echt apparaat weergeven](media/howto-connect-devkit/realtelemetry.png)
+    ![Telemetrie van een echt apparaat weergeven](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. Op de **eigenschappen** pagina, kunt u de laatste nummer gemeld door het apparaat bekijken:
+1. Op de **eigenschappen** pagina vindt u de laatste nummer en de locatie van het apparaat gerapporteerd door het apparaat:
 
-    ![Eigenschappen van apparaat weergeven](media/howto-connect-devkit/deviceproperties.png)
+    ![Eigenschappen van apparaat weergeven](media/howto-connect-devkit/devicepropertynew.png)
 
 1. Op de **instellingen** pagina, kunt u de instellingen op het apparaat MXChip bijwerken:
 
-    ![Weergave-instellingen voor apparaten](media/howto-connect-devkit/settings.png)
+    ![Weergave-instellingen voor apparaten](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. Op de **Dashboard** pagina, ziet u de locatie die is toegewezen
+
+    ![Apparaat-dashboard weergeven](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## <a name="download-the-source-code"></a>De broncode downloaden
 

@@ -3,7 +3,7 @@ title: Gebruik van een Linux-VM met de Azure CLI 2.0 probleemoplossing | Microso
 description: Informatie over het oplossen van problemen met Linux-VM door verbinding te maken van de besturingssysteemschijf aan een virtuele machine met behulp van de Azure CLI 2.0 voor herstel
 services: virtual-machines-linux
 documentationCenter: ''
-authors: iainfoulds
+authors: cynthn
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
-ms.author: iainfou
-ms.openlocfilehash: 91c00f8ae933cc071f18c8e24634fafb4d64be79
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.author: cynthn
+ms.openlocfilehash: 8e164393b58604d74b9a794479f6e614b8da3d6c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902204"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931392"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Een Linux-VM oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met de Azure CLI 2.0 voor herstel
 Als uw Linux-machine (VM) een fout opstart- of schijffout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een ongeldige waarde in `/etc/fstab` dat voorkomt dat de virtuele machine wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de virtuele harde schijf met een andere Linux-VM op eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine opnieuw te maken met de Azure CLI 2.0. 

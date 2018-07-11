@@ -13,18 +13,18 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d054ca015fd97b3ec45f18b2d3a795eccf606993
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fee4344be2875140a2e9c35bd83eb668bd1efa3f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447554"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952453"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Beveiligingswaarschuwingen in Azure AD Privileged Identity Management configureren
 ## <a name="security-alerts"></a>Beveiligingswaarschuwingen
 Azure Privileged Identity Management (PIM) genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de PIM-dashboard. Selecteer de waarschuwing om te zien van een rapport met de gebruikers of rollen die de waarschuwing is geactiveerd.
 
-![PIM dashboard beveiligingswaarschuwingen - schermafbeelding][1]
+![PIM dashboard beveiligingswaarschuwingen - schermafbeelding](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png)
 
 | Waarschuwing | Severity | Trigger | Aanbeveling |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ U kunt enkele van de beveiligingswaarschuwingen in PIM om te werken met uw omgev
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) en selecteer de **Azure AD Privileged Identity Management** tegel vanuit het dashboard.
 2. Selecteer **beheerd bevoorrechte rollen** > **instellingen** > **waarschuwingsinstellingen**.
    
-    ![Navigeer naar de beveiligingsinstellingen voor waarschuwingen][2]
+    ![Navigeer naar de beveiligingsinstellingen voor waarschuwingen](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png)
 
 ### <a name="roles-are-being-activated-too-frequently-alert"></a>Waarschuwing "Rollen worden geactiveerd te vaak"
 Deze waarschuwing wordt geactiveerd als een gebruiker dezelfde bevoorrechte rol meerdere keren binnen een opgegeven periode activeert. U kunt zowel de periode en het aantal activeringen configureren.
@@ -66,8 +66,3 @@ Deze waarschuwing wordt geactiveerd wanneer een gebruiker een bepaalde hoeveelhe
 
 ## <a name="next-steps"></a>Volgende stappen
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png

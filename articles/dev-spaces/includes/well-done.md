@@ -10,14 +10,14 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: abb7b3bbdbf16760db8595261ea8e543b6ed05f2
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: HT
+ms.openlocfilehash: 4f4430c916b3d7cc2a5461595e1c38620d326754
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939167"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934687"
 ---
-## <a name="well-done"></a>Dat is dus gelukt.
+### <a name="well-done"></a>Dat is dus gelukt.
 U hebt de introductiehandleiding voltooid! U hebt geleerd hoe u:
 
 > [!div class="checklist"]

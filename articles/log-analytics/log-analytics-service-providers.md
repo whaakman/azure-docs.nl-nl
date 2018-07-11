@@ -3,7 +3,7 @@ title: Log Analytics voor serviceproviders | Microsoft Docs
 description: Log Analytics kunt Managed Service Providers (MSP's), grote ondernemingen Independent Software Vendors (ISV's) en hosting serviceproviders beheren en controleren van servers in van de klant on-premises of cloud-infrastructuur.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
+author: MeirMen
 manager: jochan
 editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/05/2018
 ms.author: meirm
 ms.component: na
-ms.openlocfilehash: 13f36f67e76b75176940a0f36121be30ba27d519
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ad0a3b8e0ee5f1114ea1db95cfe2f4176b8e2ddb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340862"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931987"
 ---
-# <a name="log-analytics-features-for-service-providers"></a>Log Analytics-functies voor serviceproviders
+# <a name="log-analytics-for-service-providers"></a>Log Analytics voor serviceproviders
 Log Analytics kunt providers van beheerde services (MSP's), grote ondernemingen, onafhankelijke softwareleveranciers (ISV's) en hosting serviceproviders servers in van de klant on-premises of cloud-infrastructuur beheren en controleren. 
 
 Grote ondernemingen delen veel overeenkomsten met serviceproviders, met name wanneer er een centrale IT-team dat verantwoordelijk is is voor het beheer van IT voor veel verschillende bedrijfseenheden. Voor het gemak in dit document wordt de term gebruikt *serviceprovider* maar dezelfde functionaliteit is ook beschikbaar voor ondernemingen en andere klanten.
@@ -61,7 +61,8 @@ De voordelen van deze architectuur zijn:
 * De serviceprovider kan analyses uitvoeren voor alle klanten.
 
 De nadelen van deze architectuur zijn:
-* Het is moeilijk te scheiden van de gegevens tussen de klanten. De enige methode om dit te doen is het gebruik van de domeinnaam van de computer.
+* Deze architectuur is alleen van toepassing op de VM-gegevens op basis van een agent, er wordt geen betrekking op gegevensbronnen PaaS, SaaS en Azure-infrastructuur.
+* Het is mogelijk moeilijk te scheiden van de gegevens tussen de klanten wanneer ze worden samengevoegd in één werkruimte. De enige methode om dit te doen is voor het gebruik van de computer volledig gekwalificeerde domeinnaam (FQDN) of via het Azure-abonnement-id. 
 * Alle gegevens van alle klanten worden, opgeslagen in dezelfde regio met één factuur en dezelfde bewaartermijn en configuratie-instellingen.
 * Azure-infrastructuur- en PaaS-services zoals Azure Diagnostics en controle van Azure moet de werkruimte zich in dezelfde tenant als de resource dus kunnen ze de logboeken verzenden naar de centrale werkruimte.
 * Alle VM-agents van alle klanten wordt geverifieerd op de cental-werkruimte met behulp van dezelfde werkruimte-ID en sleutel. Er is geen methode voor het blokkeren van Logboeken van een specifieke klant zonder te onderbreken van andere klanten.

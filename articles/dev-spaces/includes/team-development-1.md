@@ -11,11 +11,11 @@ ms.date: 05/11/2018
 ms.topic: include
 manager: douge
 ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: HT
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939159"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934470"
 ---
 Tot nu toe hebt u de code van de toepassing uitgevoerd alsof u de enige ontwikkelaar bent die werkt aan de app. In deze sectie leert u hoe teamontwikkeling wordt gestroomlijnd met Azure Dev Spaces:
 * Laat een team ontwikkelaars in dezelfde omgeving werken door ze naar behoefte in een gedeelde ontwikkelruimte of in individuele ontwikkelruimten te laten werken.

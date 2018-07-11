@@ -1,6 +1,6 @@
 ---
-title: Ondersteuningsdiensten van Azure Marketplace
-description: In dit artikel beschrijft de in aanmerking komt criteria en publiceren van de vereisten voor nieuwe advies-serviceaanbiedingen in Azure Marketplace.
+title: Azure Marketplace Consulting Services
+description: In dit artikel beschrijft de criteria voor in aanmerking te komen en publiceren van de vereisten voor nieuwe consulting-service-aanbiedingen op Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: ellacroi
@@ -14,51 +14,52 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7cd902f289d0743b4aecf004f5f64a04024aa790
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312080"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950403"
 ---
-# <a name="azure-marketplace-consulting-services"></a>Ondersteuningsdiensten van Azure Marketplace
-Adviesdiensten in Azure Marketplace biedt Microsoft-partners de doelstelling van het verbinden van klanten met services om te ondersteunen en uitbreiden van het gebruik van Azure. De vermelding van de offerings advies-service van de partners van Microsoft System Integrator (SI) biedt ondersteuning voor Azure Marketplace. 
+# <a name="azure-marketplace-consulting-services"></a>Azure Marketplace Consulting Services
+Adviesservices op Azure Marketplace biedt Microsoft-partners het doel van het verbinden van klanten met services te ondersteunen en uitbreiden van hun gebruik van Azure. De Azure Marketplace biedt ondersteuning voor de aanbieding van consulting-service-aanbiedingen van partners van Microsoft System Integrator (SI). 
 
-Deze advies serviceaanbiedingen zijn klantspecifieke betrokkenheid. Ze zijn opgelost in het bereik en de duur, worden vaste prijs of gratis en hebben een gedefinieerde uitkomst. Potentiële klanten kunnen eenvoudig worden opgenomen door partners aanvragen. Partners ontvangt een melding in hun CRM-systeem en ze zijn bedoeld om te reageren op aanvragen binnen 48 uur.
+Deze aanbiedingen consulting-service zijn klantspecifieke engagements. Uitgevers de mogelijkheid om te bepalen welk type aanbieding hebben en met vaste bereik en de duur, vaste prijs of gratis, en hebben een gedefinieerde producten naar de klant. Partners ontvangen een melding in de CRM-systeem, en ze zijn bedoeld om te reageren op aanvragen binnen 48 uur.
 
-## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Advies in Azure Marketplace tegenover AppSource winkel
-De marketplace-winkelobjecten worden uitgelijnd met de doelgroepen en Microsoft cloud-producten waarmee klanten kunnen vinden die ze nodig hebben. Elke winkel biedt opties voor het publiceren van gespecialiseerde kunt u uw publishing maximaliseren. De volgende tabel geeft een overzicht van deze opties:
+## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Adviesservices op Azure Marketplace of AppSource webwinkel
+De marketplace-storefronts zijn uitgelijnd met de doelgroepen en Microsoft-cloudproducten om te helpen van klanten te vinden wat ze nodig hebben. Iedere storefront biedt opties voor het publiceren van gespecialiseerde kunt u uw publicatie-investering te maximaliseren. De volgende tabel geeft een overzicht van deze opties:
 
 |         |Azure Marketplace  |AppSource |
 |---------|---------|---------|
-|Doelgroep   |IT-professionals en ontwikkelaars van de Cloud|Zakelijke gebruikers / Line-of-Business-besluitvormers|
-|Oplossing relevantie     |Technische apps gebouwd voor of gebouwd op Azure|Business-Apps die gebruikmaken van / uitbreiden D365, Power BI, O365, Azure. (Het toevoegen of invoegtoepassing voltooid apps)|
-|Opties voor publiceren     |Neem contact op met mij, proefversie, Transact of ondersteuningsdiensten|Neem contact op met Me, proefversie of ondersteuningsdiensten|
-|In de productervaring      |Azure Management Portal|Dynamics 365, Office 365, Office-Client-Apps| 
-|Overige      |On-Premises publiceert Via Azure Stack|Advies voor Dynamics en Power BI|
+|Doelgroep   |IT-professionals en Cloudontwikkelaars|Zakelijke gebruikers / besluitvormers voor Line-of-Business|
+|Oplossing op relevantie     |Technische apps die zijn gebouwd voor of op Azure|Business-Apps die gebruikmaken van / uitbreiden D365, Power BI, Office 365, Azure. (-Invoegtoepassing of een invoegtoepassing gereed apps)|
+|Publicatieopties     |Neem contact op met mij, proefversie, Transact of Consulting Services|Neem contact op met mij, proefversie of Consulting Services|
+|In de productervaring van het      |Azure Management Portal|Dynamics 365, Office 365, Office-ClientApps| 
+|Overige      |On-Premises publiceren Via de Azure Stack|Adviesservices voor Dynamics en Power BI|
 
-Adviesdiensten in Azure Marketplace kan gebruikmaken van aanbiedingen die zijn gericht op een technische doelgroep met richt zich op Azure technische oplossingen en -services.
+>[!Note]
+>Adviesservices op Azure Marketplace, kunnen deze gebruiken gericht op een technische publiek met richt zich op aanbiedingen *Azure technische oplossingen en services.*
 
 
-Service-aanbiedingen die zijn gebaseerd op Microsoft Dynamics 365, Office 365 en Power BI komen in aanmerking op AppSource worden vermeld. Zie voor meer informatie [aanbieding richtlijnen Microsoft AppSource advies services](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Service-aanbiedingen die zijn gebaseerd op Microsoft Dynamics 365, Office 365 en Power BI komen in aanmerking wilt laten vermelden op AppSource. Zie voor meer informatie, [Microsoft AppSource consulting services-aanbieding richtlijnen](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
 >[!TIP]
->Deze informatie is alleen van toepassing zijn op Azure Marketplace services. Om te publiceren naar de Azure Marketplace-winkel, brengt u deze selectie door 'Azure' kiezen uit de vervolgkeuzelijst 'Primaire Product' in de Cloud Partner-Portal. Om te publiceren naar AppSource, brengt u deze selectie door te kiezen 'Dynamics 365 ', 'Power BI' of 'Power Apps' uit de vervolgkeuzelijst 'Primaire Product' in de Cloud Partner-Portal.
+>Deze informatie is bedoeld voor Azure Marketplace-services. Als u wilt publiceren naar de Azure Marketplace-webwinkel, brengt u deze selectie door te kiezen 'Azure' in de vervolgkeuzelijst "Primaire Product" in de Cloud Partner-Portal. Als u wilt publiceren naar AppSource, brengt u deze selectie door te kiezen 'Dynamics 365,' 'Power BI' of 'Power Apps' in het menu van de vervolgkeuzelijst "Primaire Product" in de Cloud Partner-Portal.
 
 ## <a name="eligible-partners-and-supported-countries"></a>In aanmerking komende Partners en ondersteunde landen
 
-Partners ook nodig zijn om een **zilver of gold-competentie** in het desbetreffende gebied voor de service. De in aanmerking komende bevoegdheden worden vermeld in de volgende tabel:
+Partners zijn ook nodig om een **silver- of gold-competentie** in het desbetreffende gebied voor hun service. De competenties die in aanmerking komende worden vermeld in de volgende tabel:
 
 |Competentie  |Oplossing gebied  |
 |---------|---------|
-|Cloud-Platform en infrastructuur     |   Cloud-Platform, Datacenter      |
-|Toepassingsontwikkeling en ISV     |  Application Development, integratie van toepassingen, DevOps       |
-|Gegevensbeheer en -analyse    |  Gegevensanalyse, gegevensplatform       |
+|Cloud-Platform en infrastructuur     |   Cloudplatform, Datacenter      |
+|Ontwikkeling van toepassingen en ISV     |  Toepassingen ontwikkelen, integratie van toepassingen, DevOps       |
+|Gegevensbeheer van en analyses    |  Data Analytics, Data Platform       |
 
-Zie voor meer informatie [vaardigheden via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
+Zie voor meer informatie, [vaardigheden via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
  
 
-SI-partners kunnen de offerings advies-service voor de volgende 18 landen indienen. 
+SI-partners kunnen consulting-service-aanbiedingen voor de volgende 18 landen indienen. 
 
 |In aanmerking komende landen |  |  |
 |---------|---------|---------|
@@ -69,76 +70,93 @@ SI-partners kunnen de offerings advies-service voor de volgende 18 landen indien
 |Finland     |Mexico         |Verenigd Koninkrijk         |
 |Frankrijk     |Nederland         |Verenigde Staten         |
 
-Het starten van de Azure Marketplace adviesdiensten gaat live eerste voor Australië, Canada het Verenigd Koninkrijk en de Verenigde Staten. Catalogussen voor andere landen gaat live na een zinvolle getal en selectie van serviceaanbiedingen dwingende zijn ingediend door partners en goedgekeurd door Microsoft.
+De lancering van Azure Marketplace adviesservices gaat live eerste voor Australië, Canada, het Verenigd Koninkrijk en de Verenigde Staten. De catalogi voor andere landen wordt na enkele nuttige live gaan en boeiende selectie van service-aanbiedingen zijn ingediend door partners en goedgekeurd door Microsoft.
+
+## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Hoe u zich registreren voor Consulting Services op Azure Marketplace
+Begin met het registreren van uw adviesservices met [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Uitgevers kunnen verwijzen naar [geworden van een uitgever op Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), voor een volledige lijst van vereisten voor apparaatregistratie. 
+
+**Wat te verwachten na registratie** het Voorbereidingsteam neemt contact met 1-3 werkdagen met een welkomstbericht per e-mail, waaronder de aanmeldingsgegevens voor de Cloud Partner Portal (CPP). [Cloud Partner-Portal](https://cloudpartner.azure.com) is de aanbieding aanbieding portal waar uitgevers aanbieding en inzendingen indienen. 
+
+>[!Note]
+>Partners moeten slechts één keer registreren om te worden van een uitgever. Nadat u uw verwelkomingse-mail en u aanmelden voor Cloud Partner-Portal hebt ontvangen, hoeft uitgevers niet opnieuw registreren om te kunnen publiceren van aanbiedingen voor verschillende typen. 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Voorbereiden van uw publicatie artefacten
-Voordat u uw service benoemen, kunt u beginnen met het verzamelen en voorbereiden van de inhoud die u uw aanbieding helpt bewoordingen aan de waarde van de service en de oplossing voor uw klant doel. 
+U kunt beginnen met het verzamelen van vóór registratie, en voorbereiden van de inhoud die u uw aanbieding helpt bewoordingen aan de waarde van de service en de oplossing voor uw doel-klant. 
 
 |Voor nieuwe publicaties instellen  |
 |---------|
 |MPN-id     |
-|Logo's voor de bedrijfsportal (48 &#215; 48, 216 &#215; 216)     |
+|Logo's van de bedrijfsportal (48 &#215; 48, 216 &#215; 216)     |
 |Bestemming leiden     |
 
 
-|Voor nieuwe aanbiedingen instellen  |
+|Instellen voor de nieuwe aanbiedingen  |
 |---------|
-|Bieden (200 tekens) de naam en beschrijving (2000 tekens)    |
+|Bieden van naam (200 tekens) en een beschrijving (2000 tekens)    |
 |Competenties     |
-|Land/regio-beschikbaarheid     |
-|Duur van engagement     |
-|Van toepassing branches, categorieën en zoekwoorden     |
-|Video-Productoverzicht    |
+|Beschikbaarheid van het land/regio     |
+|Duur van de engagement     |
+|Van toepassing branches, categorieën en Zoektrefwoorden     |
+|Overzicht van video    |
 |Schermafbeeldingen (maximaal 5, 1280 &#215; 720)     |
 |Marketing-documenten (maximaal 3)     |
 
 
 ## <a name="publishing-process"></a>Publicatieproces
-Uw aanbieding advies-service op Azure Marketplace aanbieding omvat de volgende fasen:
+Lijst van uw aanbieding consulting-service op Azure Marketplace omvat de volgende fasen:
 
-1. **Aanvraag**: voor het verzenden van uw aanvraag, gebruikt u de [Azure Marketplace benoeming formulier](https://azuremarketplace.microsoft.com/en-us/sell/nominate) en vertel ons meer over uw organisatie. Opmerking: Uitgevers hoeft in te dienen benoeming proces één keer aan de lijst met op Azure Marketplace of AppSource. Zodra er proces benoeming en de voorbereiding is voltooid, wordt een Cloud Partner-Portal gemaakt waar uitgevers kunnen maken en hun aanbiedingen aanbieding verzenden.
-2. **Validatie**: uw aanvraag wordt gecontroleerd om ervoor te zorgen dat u voldoet aan de criteria die in aanmerking komt. We verzend u instructies voor het aanbieden van uw advies aanbieden. 
-3. **Indienen**: Geef de vereiste informatie die wordt vermeld in de volgende instructies. Alle inhoud en ondersteunende materiaal moeten worden ingediend in het Engels. 
-4. **Bekijk**: ons team marketing en redactionele controleert uw inzending en voor de leesbaarheid, grammatica en effectiviteit worden geoptimaliseerd. 
-5. **Fasering**: uw inzending tijdelijk worden opgeslagen voor uw beoordeling. 
-6. **Publiceren van**: wanneer u en Microsoft is voldaan aan de voorbereide inhoud, uw aanbieding is klaar voor live in Azure Marketplace. De startdatum voor uw aanbieding is afhankelijk van het land die opgegeven in uw aanbieding. Als de catalogus voor het geselecteerde land al live in Azure Marketplace, worden uw aanbieding binnen een paar uur weergegeven. De aanbieding wordt anders weergegeven zodra de catalogus live gaat.
+1. **Aanvraag**: voor het verzenden van uw aanvraag, gebruikt u de [Nominatieformulier voor Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/nominate) en vertel ons meer over uw organisatie. Opmerking: Uitgevers moeten alleen nominatieproces één keer aan de lijst met op Azure Marketplace of AppSource verzenden. Wanneer uw nominatie en onboarding-proces is voltooid, wordt een Cloud Partner-Portal gemaakt waar uitgevers kunnen maken en hun aanbiedingen bieden verzenden.
+2. **Validatie**: uw aanvraag is gecontroleerd om ervoor te zorgen dat u voldoet aan de criteria in aanmerking te komen. We ontvangt u vervolgens de instructies voor het weergeven van uw aanbieding adviesservices. 
+3. **Indienen**: Geef de vereiste gegevens op die wordt vermeld in de volgende instructies. Alle inhoud en ondersteunende materiaal moeten in het Engels worden ingediend. 
+4. **Beoordeling**: ons team marketing- en redactionele controleert uw inzending en optimaliseert voor leesbaarheid, grammatica en effectiviteit. 
+5. **Staging-**: uw inzending tijdelijk worden opgeslagen voor uw beoordeling. 
+6. **Publiceren van**: wanneer u en Microsoft met de tijdelijk opgeslagen inhoud wordt voldaan, uw aanbieding is gereed om live te gaan op Azure Marketplace. De startdatum van uw aanbieding, is afhankelijk van het land dat opgegeven in uw aanbieding. Als de catalogus voor het geselecteerde land op Azure Marketplace al live is, wordt uw aanbieding binnen een paar uur weergegeven. De aanbieding wordt anders weergegeven zodra de catalogus live meteen.
 
-## <a name="offer-listings-and-content-review-criteria"></a>Aanbieding-aanbiedingen en Criteria inhoud controleren
-Aanbiedingen moeten zijn van een van de volgende vijf servicetypen (u kunt aanbieden meer dan één): 
+## <a name="offer-listings-and-content-review-criteria"></a>Vermeldingen voor aanbiedingen en inhoud controleren Criteria
+Aanbiedingen moeten zijn van een van de volgende vijf servicetypen (u kunt een lijst meer dan één): 
 
-* **Assessment**: een evaluatie van een klant-omgeving om te bepalen van de toepasselijkheid van een oplossing en bieden een schatting van de kosten en timing. 
-* **Informatierapporten**: een inleiding tot een oplossing of een advies service interesse van klanten wordt getekend met behulp van frameworks, demo's en voorbeelden van de klant. 
-* **Implementatie**: een volledige installatie die in een volledig werkende oplossing resulteert. U wordt aangeraden deze oplossingen die geïmplementeerd in twee weken of minder worden kunnen te beperken. 
-* **Testen van het concept**: een beperkt bereik implementatie om te bepalen of een oplossing voldoet aan de klant. 
-* **Workshop**: een interactieve advies die wordt uitgevoerd op de locatie van de klant. Deze hebben betrekking op training, briefings, beoordelingen of demo's die zijn gebouwd op de gegevens van de klant of de omgeving. 
+* **Evaluatie**: een evaluatie van de omgeving van een klant om te bepalen van de toepasselijkheid van een oplossing en een schatting van de kosten en het tijdstip opgeven. 
+* **Informatierapporten**: een inleiding tot een oplossing of een advies service voor het tekenen van interesse van klanten met behulp van frameworks, demo's en voorbeelden van klanten. 
+* **Implementatie**: een volledige installatie die in een volledig werkende oplossing resulteert. Het is raadzaam om deze te beperken tot oplossingen die geïmplementeerd in twee weken of minder worden kunnen. 
+* **Testen van concept**: de implementatie van een beperkt bereik om te bepalen of een oplossing voldoet aan de eisen van klanten. 
+* **Workshop**: een interactieve betrokkenheid die wordt uitgevoerd op de locatie van de klant. Dit kan betrekking hebben op training, briefings, beoordelingen en demo's die zijn gebouwd op de gegevens van de klant of de omgeving. 
 
-Opmerking:-behalve voor de *gegevens meest* servicetype adviesdiensten persoon (dat wil zeggen, op de locatie op de locatie van een klant of een partner faciliteit) kan worden aangeboden of vrijwel (dat wil zeggen, via vergaderen via, web vergaderingen of extern implementatie). Briefings moeten worden aangeboden in persoon.
+Opmerking:-, behalve voor de *Briefing* servicetype, consulting services kan worden aangeboden in een persoon (dat wil zeggen, de locatie op de locatie van een klant of een gebouw van een partner) of virtueel (dat wil zeggen, via de bijbehorende, web-vergaderingen, of extern implementatie). Briefings moeten worden aangeboden in persoon.
 
-Wanneer u de vereiste elementen bovenstaande hebt geconfigureerd, wordt het team van inhoud controleren gevalideerd of de beschrijving van uw aanbieding informatieve en voltooid voor uw doelgroep. 
+Nadat u de vereiste elementen bovenstaande hebt geconfigureerd, wordt de inhoud beoordelingsteam valideren dat de beschrijving van uw aanbieding informatieve en voltooid voor uw doelgroep is. 
 
 #### <a name="listing-title"></a>De titel van aanbieding
 
-Houd er rekening mee dat het veld functie mag maximaal 50 tekens en de duur en service type de aanbieding moet doorgeven. Dit is de maximaliseren Zoekmachineoptimalisatie. De vereiste indeling is als volgt: naam: DURATIONTYPE
+Houd er rekening mee dat het titelveld een limiet van 50 tekens heeft en de duur en de service het type van de aanbieding moet worden verzonden. Dit is het maximaliseren van zoekmachines. De vereiste indeling is als volgt: naam: DURATIONTYPE
 
 Voorbeelden:
 
 
-|Voorbeeldtitel  |Juiste indeling  |
+|Van Voorbeeldtitel  |Juiste indeling  |
 |---------|---------|
-|Aan de slag met Azure IoT in productie    |   Productie IoT: 2 dagen Assessment      |
-|Workshop over slimme broodroosters        |  Smart broodroosters: 1-Wk Workshop       |
-|  SQL Server-migratie implementatiemodel    | Migratie van SQL: 3-Wk POC        |
+|Aan de slag met Azure IoT in productie    |   IoT productie: evaluatie 2 dagen      |
+|Workshop op slimme broodroosters        |  Slimme broodroosters: 1 Wk Workshop       |
+|  SQL Server-migratie PoC    | Migratie van SQL: 3-Wk testen van Concept        |
 
-#### <a name="listing-summaries-and-descriptions"></a>Samenvattingen van de aanbieding en beschrijvingen
+#### <a name="listing-summaries-and-descriptions"></a>Aanbieding samenvattingen en beschrijvingen
 
-Bij het controleren van bieden beschrijvingen en samenvattingen bieden, geldt het team van de volgende criteria:
+Bij het beoordelen van bieden beschrijvingen en samenvattingen bieden, geldt het team van de volgende criteria:
 
 |Type aanbieding  |Vereist |Aanbevolen  |
 |---------|---------|---------|
-|Evaluatie    |   Een gedetailleerde agenda voor Meerdaags of meerdere weken beoordelingen opnemen en bewoordingen aan wat product de klant kunt verwachten      |    Uw aanbieding met de hoogste Zoekmachineoptimalisatie trefwoorden samenvatting optimaliseren     |
-|Informatie    |   Bewoordingen aan wat product de klant kunt verwachten. Houd er rekening mee dat Briefings moeten worden aangeboden in persoon. Als u een virtuele-service aanbiedt, kies een andere aanbiedingtype    |  Uw aanbieding met de hoogste Zoekmachineoptimalisatie trefwoorden samenvatting optimaliseren       |
-|Implementatie    |  Een gedetailleerde agenda voor implementaties met meerdere dagen of meerdere weken opnemen en bewoordingen aan welke technische wijzigingen, technische artefacten of andere artefacten die een klant als de resultaten van de betrokkenheid verwachten kunt       |    Uw aanbieding met de hoogste Zoekmachineoptimalisatie trefwoorden samenvatting optimaliseren     |
-|Testen van het Concept    |    Bewoordingen aan welke technische wijzigingen, technische artefacten of andere artefacten die een klant als de resultaten van de betrokkenheid verwachten kunt     | Uw aanbieding met de hoogste Zoekmachineoptimalisatie trefwoorden samenvatting optimaliseren        |
-|Workshop    |   Een gedetailleerde agenda dagelijks, wekelijks of maandelijks, afhankelijk van de gekozen duur van uw aanbod bevatten. Bewoordingen aan de doelstellingen learning of andere items van uw workshop zijn     |   Uw aanbieding met de hoogste zoekmachine optimalisatie trefwoorden samenvatting optimaliseren      |
+|Evaluatie    |   Een gedetailleerde agenda voor beoordelingen van meerdere dag of week meerdere opnemen en bewoordingen aan wat product de klant kan verwachten      |    Optimaliseren van uw aanbieding samenvatting met uw belangrijkste Search Engine Optimization trefwoorden     |
+|Informatie    |   Bewoordingen aan wat product de klant kan verwachten. Houd er rekening mee dat Briefings ook persoonlijk moeten worden aangeboden. Als u een virtuele service aanbiedt,. Kies een andere aanbieding-type    |  Optimaliseren van uw aanbieding samenvatting met uw belangrijkste Search Engine Optimization trefwoorden       |
+|Implementatie    |  Een gedetailleerde agenda voor meerdere dag of week meerdere implementaties omvatten en bewoordingen aan welke technische wijzigingen, technische artefacten of andere artefacten die een klant als de resultaten van de engagement verwachten kunt       |    Optimaliseren van uw aanbieding samenvatting met uw belangrijkste Search Engine Optimization trefwoorden     |
+|Testen van Concept    |    Welke technische wijzigingen, technische artefacten of andere artefacten die een klant als de resultaten van de engagement verwachten kunt bewoordingen     | Optimaliseren van uw aanbieding samenvatting met uw belangrijkste Search Engine Optimization trefwoorden        |
+|Workshop    |   Een gedetailleerde agenda dagelijks, wekelijks of maandelijks, afhankelijk van de geselecteerde duur van uw aanbieding opnemen. Bewoordingen aan het learning-doelen of andere producten van uw workshop zijn     |   Optimaliseren van uw aanbieding samenvatting met uw belangrijkste zoekmachine optimalisatie trefwoorden      |
 
-In de Cloud Partner-Portal, opmaak kan worden toegevoegd aan uw aanbieding met behulp van [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Dit is een lichtgewicht ontwerp taal waarmee Pools toevoegen aan de aanbieding. 
+In de Cloud Partner-Portal, kunt u toevoegen opmaak die voldoet aan uw aanbieding met behulp van [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Dit is een lichtgewicht ontwerptaal waarmee Pools toevoegen aan uw aanbieding. 
+
+**Opmerkingen bij de voorbeeld Markdown**
+*   Voeg * aan begin en einde van de kopie-blok - zonder een spatie cursief maken (Ex: *inhoud*)
+* Regeleinde na bevatten ":" puntkomma's
+*   Ruimte na ' * ' voor opsommingstekens (Ex: *(space)Content)
+*    ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>ruimte voor de kop (Ex: ###(space)Agenda/Deliverables)
+*   Regeleinde na kop
+*   ** = vet (geen spatie) (Ex: **geen ruimte**) • bieden samenvatting cursiveren • Agenda en producten is een kop
+

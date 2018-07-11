@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 774d429b960e56e998e9d964b9de1e6461816734
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5ca70b085b5ac9db4d108966fa695f042c20489d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901694"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920508"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
 
@@ -253,21 +253,25 @@ U kunt een toepassingsbeveiligingsgroep niet verwijderen als er netwerkinterface
 
 Om uit te voeren taken van netwerkbeveiligingsgroepen, beveiligingsregels en beveiligingsgroepen voor toepassing, moet uw account worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de juiste machtigingen die worden vermeld in de volgende tabellen:
 
-### <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
+### <a name="network-security-group"></a>Netwerkbeveiligingsgroep
 
 | Bewerking                                                        |   Naam                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/ruleTables/read                             |   Netwerkbeveiligingsgroep ophalen                                          |
-| Microsoft.Network/ruleTables/write                            |   Maken of bijwerken van netwerkbeveiligingsgroep                             |
-| Microsoft.Network/ruleTables/delete                           |   Netwerkbeveiligingsgroep verwijderen                                       |
-| Microsoft.Network/ruleTables/join/action                      |   Een netwerkbeveiligingsgroep aan een subnet of netwerkinterface koppelen |
-| Microsoft.Network/ruleTables/rules/read                       |   Regel ophalen                                                            |
-| Microsoft.Network/ruleTables/rules/write                      |   Maken of bijwerken van regel                                               |
-| Microsoft.Network/ruleTables/rules/delete                     |   Regel verwijderen                                                         |
-| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Aan Network Interface effectieve netwerkbeveiligingsgroep ophalen              |
-| Microsoft.Network/networkWatchers/nextHop/action              |   De volgende hop van een virtuele machine opgehaald                                         |
+| Microsoft.Network/networkSecurityGroups/read                  |   Netwerkbeveiligingsgroep ophalen                                          |
+| Microsoft.Network/networkSecurityGroups/write                 |   Maken of bijwerken van netwerkbeveiligingsgroep                             |
+| Microsoft.Network/networkSecurityGroups/delete                |   Netwerkbeveiligingsgroep verwijderen                                       |
+| Microsoft.Network/networkSecurityGroups/join/action           |   Een netwerkbeveiligingsgroep aan een subnet of netwerkinterface koppelen 
 
-### <a name="application-security-groups"></a>Toepassingsbeveiligingsgroepen
+
+### <a name="network-security-group-rule"></a>Regel voor netwerkbeveiligingsgroep
+
+| Bewerking                                                        |   Naam                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/networkSecurityGroups/rules/read            |   Regel ophalen                                                            |
+| Microsoft.Network/networkSecurityGroups/rules/write           |   Maken of bijwerken van regel                                               |
+| Microsoft.Network/networkSecurityGroups/rules/delete          |   Regel verwijderen                                                         |
+
+### <a name="application-security-group"></a>Toepassingsbeveiligingsgroep
 
 | Bewerking                                                                     | Naam                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |

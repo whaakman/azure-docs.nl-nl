@@ -8,21 +8,22 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 27d6bbc628ac3183032a90d8f3ad98998c76a957
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 962f33a178048c459e8c6c2948eb17f0e78904ae
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888827"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930987"
 ---
-# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Gebruik van batch testen om te zoeken voorspelling nauwkeurigheid problemen
+# <a name="improve-app-with-batch-test"></a>De app verbeteren met batch-test
 
 Deze zelfstudie wordt gedemonstreerd hoe u met batch testen utterance voorspelling problemen vinden.  
 
 In deze zelfstudie leert u het volgende:
 
+<!-- green checkmark -->
 > [!div class="checklist"]
 * Maak een batchbestand testen 
 * Een batch-test uitvoeren
@@ -30,359 +31,169 @@ In deze zelfstudie leert u het volgende:
 * Corrigeer de fouten voor intents
 * Testen van de batch
 
-## <a name="prerequisites"></a>Vereisten
+Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
 
-> [!div class="checklist"]
-> * Voor dit artikel, moet u ook een [LUIS](luis-reference-regions.md) account om te kunnen maken van uw LUIS-toepassing.
+## <a name="before-you-begin"></a>Voordat u begint
+Als u geen de Human Resources-app vanuit de [bekijken eindpunt uitingen](luis-tutorial-review-endpoint-utterances.md) zelfstudie [importeren](luis-how-to-start-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS](luis-reference-regions.md#luis-website) website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
 
-> [!Tip]
-> Als u nog geen een abonnement, kunt u zich registreren voor een [gratis account](https://azure.microsoft.com/free/).
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `batchtest`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
-## <a name="create-new-app"></a>Nieuwe app maken
-In dit artikel wordt het vooraf gedefinieerde HomeAutomation-domein. De vooraf gedefinieerde domein heeft intenties en entiteiten uitingen voor het beheren van apparaten zoals verlichting HomeAutomation. De app maken, toevoegen van het domein, trainen en publiceren.
+## <a name="purpose-of-batch-testing"></a>Doel van het testen van batch
+Batch testen, kunt u de status van een model met een bekende set met test-uitingen valideren en entiteiten met het label. In de JSON-indeling batch-bestand, de utterances toevoegen en instellen van de entiteit-labels die u nodig hebt binnen de utterance voorspeld. 
 
-1. In de [LUIS](luis-reference-regions.md) website, een nieuwe app maken door te selecteren **nieuwe app maken** op de **MyApps** pagina. 
+De aanbevolen test-strategie voor LUIS maakt gebruik van drie verschillende sets van gegevens: voorbeeld uitingen opgegeven voor het model, batch test uitingen en eindpunt uitingen. Zorg ervoor dat u niet de uitingen van de voorbeeld-uitingen (toegevoegd aan een doel) of een eindpunt uitingen voor deze zelfstudie. 
 
-    ![Nieuwe app maken](./media/luis-tutorial-batch-testing/create-app-1.png)
+Om te controleren of uw batch-test-uitingen op basis van de voorbeeld-uitingen en de eindpunt-uitingen [exporteren](luis-how-to-start-new-app.md#export-app) de app en [downloaden](luis-how-to-start-new-app.md#export-endpoint-logs) het querylogboek. De app voorbeeld utterance en logboek-uitingen query naar de batch-test-uitingen vergelijken. 
 
-2. Voer de naam `Batchtest-HomeAutomation` in het dialoogvenster.
+Vereisten voor het testen van batch:
 
-    ![Voer de naam van app](./media/luis-tutorial-batch-testing/create-app-2.png)
+* uitingen 1000 per test. 
+* Geen dubbele waarden. 
+* Entiteitstypen toegestaan: eenvoudig en samengesteld.
 
-3. Selecteer **vooraf gemaakte domeinen** in de linkerbenedenhoek. 
+## <a name="create-a-batch-file-with-utterances"></a>Maak een batchbestand met uitingen
+1. Maak `HumanResources-jobs-batch.json` in een teksteditor zoals [VSCode](https://code.visualstudio.com/). Of download [het bestand](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) vanuit de LUIS-Samples-Github-opslagplaats.
 
-    ![Vooraf gedefinieerde domein selecteren](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
-
-4. Selecteer **domein toevoegen** voor HomeAutomation.
-
-    ![HomeAutomation domein toevoegen](./media/luis-tutorial-batch-testing/prebuilt-domain-2.png)
-
-5. Selecteer **Train** in de navigatiebalk bovenaan rechts.
-
-    ![Selecteer de knop van de trein](./media/luis-tutorial-batch-testing/train-button.png)
-
-## <a name="batch-test-criteria"></a>Criteria voor batch-test
-Batch testen kunt tot 1000 uitingen testen op een tijdstip. De batch mag geen dubbele waarden hebben. [Exporteren](create-new-app.md#export-app) de app om te zien van de lijst met huidige uitingen.  
-
-De test-strategie voor LUIS maakt gebruik van drie verschillende sets van gegevens: uitingen batch test uitingen en eindpunt uitingen model. Zorg ervoor dat u niet de uitingen van een model-uitingen (toegevoegd aan een doel) of een eindpunt uitingen voor deze zelfstudie. 
-
-Gebruik niet een van de uitingen al in de app voor de batch-test:
-
-```
-'breezeway on please',
-'change temperature to seventy two degrees',
-'coffee bar on please',
-'decrease temperature for me please',
-'dim kitchen lights to 25 .',
-'fish pond off please',
-'fish pond on please',
-'illuminate please',
-'living room lamp on please',
-'living room lamps off please',
-'lock the doors for me please',
-'lower your volume',
-'make camera 1 off please',
-'make some coffee',
-'play dvd',
-'set lights bright',
-'set lights concentrate',
-'set lights out bedroom',
-'shut down my work computer',
-'silence the phone',
-'snap switch fan fifty percent',
-'start master bedroom light .',
-'theater on please',
-'turn dimmer off',
-'turn off ac please',
-'turn off foyer lights',
-'turn off living room light',
-'turn off staircase',
-'turn off venice lamp',
-'turn on bathroom heater',
-'turn on external speaker',
-'turn on my bedroom lights .',
-'turn on the furnace room lights',
-'turn on the internet in my bedroom please',
-'turn on thermostat please',
-'turn the fan to high',
-'turn thermostat on 70 .' 
-```
-
-## <a name="create-a-batch-to-test-intent-prediction-accuracy"></a>Maak een batch als u wilt testen van intentie nauwkeurigheid
-1. Maak `homeauto-batch-1.json` in een teksteditor zoals [VSCode](https://code.visualstudio.com/). 
-
-2. Utterances met toevoegen de **bedoeling** gewenste voorspelde in de test. Voor deze zelfstudie om het eenvoudig maken, uitingen nemen de `HomeAutomation.TurnOn` en `HomeAutomation.TurnOff` en schakelt u over de `on` en `off` tekst in de uitingen. Voor de `None` doel toevoegen van een aantal uitingen die geen deel uitmaken van de [domein](luis-glossary.md#domain) (onderwerp). 
-
-    Om te begrijpen hoe de resultaten van de batch correleert met de JSON van de batch, moet u alleen zes intents toevoegen.
+2. In het JSON-indeling batchbestand utterances met toevoegen de **bedoeling** gewenste voorspelde in de test. 
 
     ```JSON
     [
         {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
+        "text": "Are there any janitorial jobs currently open?",
+        "intent": "GetJobInformation",
+        "entities": []
         },
         {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
+        "text": "I would like a fullstack typescript programming with azure job",
+        "intent": "GetJobInformation",
+        "entities": []
         },
         {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
+        "text": "Is there a database position open in Los Colinas?",
+        "intent": "GetJobInformation",
+        "entities": []
         },
         {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
+        "text": "Can I apply for any database jobs with this resume?",
+        "intent": "GetJobInformation",
+        "entities": []
         }
     ]
     ```
 
 ## <a name="run-the-batch"></a>Voer de batch
+
 1. Selecteer **Test** in de bovenste navigatiebalk. 
 
-    ![Selecteer de Test in de navigatiebalk](./media/luis-tutorial-batch-testing/test-1.png)
+    [ ![Schermafbeelding van LUIS-app met Test gemarkeerd in de bovenste, rechts navigatiebalk](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
 
 2. Selecteer **Batch testen deelvenster** in het deelvenster aan de rechterkant. 
 
-    ![Selecteer Batch test deelvenster](./media/luis-tutorial-batch-testing/test-2.png)
+    [ ![Schermafbeelding van LUIS-app met behulp van Batch test deelvenster gemarkeerd](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Selecteer **importeren gegevensset**.
 
-    ![Selecteer de gegevensset importeren](./media/luis-tutorial-batch-testing/test-3.png)
+    [ ![Schermafbeelding van LUIS-app met importeren gegevensset gemarkeerd](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. Kies de locatie van het bestand system van de `homeauto-batch-1.json` bestand.
+4. Kies de locatie van het bestand system van de `HumanResources-jobs-batch.json` bestand.
 
-5. Naam van de gegevensset `set 1`.
+5. Naam van de gegevensset `intents only` en selecteer **gedaan**.
 
-    ![Bestand selecteren](./media/luis-tutorial-batch-testing/test-4.png)
+    ![Bestand selecteren](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
 6. Selecteer de knop **Run**. Wacht totdat de test is voltooid.
 
-    ![Selecteer uitvoeren](./media/luis-tutorial-batch-testing/test-5.png)
+    [ ![Schermafbeelding van LUIS-app met uitvoeren die zijn gemarkeerd](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
 7. Selecteer **resultaten**.
 
-    ![Resultaten weergeven](./media/luis-tutorial-batch-testing/test-6.png)
-
 8. Bekijk de resultaten in de grafiek en legenda.
 
-    ![Batch-resultaten](./media/luis-tutorial-batch-testing/batch-result-1.png)
+    [ ![Schermafbeelding van LUIS-app met de resultaten van batch](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Bekijk de resultaten van batch
-De batch-resultaten worden in twee secties. Het bovenste gedeelte bevat de grafiek en de legenda. In het onderste gedeelte vindt u uitingen als u de naam van een gebied van de grafiek.
+De batch worden vier kwadranten van de resultaten weergegeven. Aan de rechterkant van de grafiek is een filter. Het filter is standaard ingesteld op het eerste doel in de lijst. Het filter bevat alle intents en alleen eenvoudige, hiërarchische (bovenliggende alleen-), en samengestelde entiteiten. Wanneer u een sectie van de grafiek of een punt in de grafiek selecteert, wordt de bijbehorende utterance(s) onder de grafiek weergeven. 
 
-Eventuele fouten worden aangeduid met de kleur rood. De grafiek wordt in vier secties met twee van de secties in het rood weergegeven. **Dit zijn de secties zich richten op**. 
+Bij het aanwijzen van de grafiek, kan muiswiel vergroten of verkleinen van de weergave in de grafiek. Dit is handig wanneer er veel punten op de grafiek geclusterde nauw samen. 
 
-De rechterbovenhoek sectie onjuist geeft aan dat de test voorspelde sprake is van een doel of de entiteit. Het linkergedeelte onder geeft aan dat de test voorspeld ten onrechte de afwezigheid van een doel of de entiteit.
+De grafiek is in vier kwadranten, met twee van de secties in het rood weergegeven. **Dit zijn de secties zich richten op**. 
 
-### <a name="homeautomationturnoff-test-results"></a>De resultaten van HomeAutomation.TurnOff
-Selecteer in de legenda de `HomeAutomation.TurnOff` intentie. Heeft een pictogram groen succes aan de linkerkant van de naam in de legenda. Er zijn geen fouten voor dit doel. 
+### <a name="applyforjob-test-results"></a>De resultaten van ApplyForJob
+De **ApplyForJob** weergegeven in het filter de resultaten weergeven of 1 van de vier voorspellingen geslaagd is. Selecteer de naam **fout-positief** boven de bovenste juiste quadrant om te zien van de uitingen onder de grafiek. 
 
-![Batch-resultaten](./media/luis-tutorial-batch-testing/batch-result-1.png)
+![LUIS batch test uitingen](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
-### <a name="homeautomationturnon-and-none-intents-have-errors"></a>HomeAutomation.TurnOn en geen intents bevatten fouten
-De andere twee intenties bevatten fouten, wat betekent dat de test voorspellingen komen niet overeen met de verwachtingen van batch-bestand. Selecteer de `None` intentie in de legenda om te controleren van de eerste fout. 
+De drie uitingen had een belangrijkste doel van **ApplyForJob**. De bedoeling dat wordt vermeld in de batch-bestand heeft een lagere score. Waarom is dit gebeurd? De twee intenties zijn zeer nauw verwant woord keuze en word-indeling. Bovendien zijn er bijna drie keer zoveel voorbeelden voor **ApplyForJob** dan **GetJobInformation**. Deze eenvormigheid van uitingen voorbeeld weegt **ApplyForJob** van intentie voordeel. 
 
-![Geen intentie](./media/luis-tutorial-batch-testing/none-intent-failures.png)
+U ziet dat beide intents de dezelfde telling van fouten hebben: 
 
-Fouten worden weergegeven in de grafiek in de rode secties: **ONWAAR positief** en **False negatieve**. Selecteer de **False negatieve** sectienaam in de grafiek om te zien van de mislukte uitingen onder de grafiek. 
+![LUIS batch test filter fouten](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-![De waarde False negatieve fouten](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
+De utterance overeenkomt het belangrijkste punt in de **fout-positief** sectie `Can I apply for any database jobs with this resume?`. Het woord `resume` is alleen gebruikt **ApplyForJob**. 
 
-De utterance mislukt `help` verwacht als een `None` doel, maar de test voorspeld `HomeAutomation.TurnOn` intentie.  
-
-Er zijn twee fouten, één in HomeAutomation.TurnOn en één in None. Beide zijn veroorzaakt door de utterance `help` omdat het niet voldeed aan de verwachting geen en er een onverwachte overeenkomst voor het doel HomeAutomation.TurnOn is. 
-
-Om te bepalen waarom de `None` uitingen mislukken, controleert u de uitingen die momenteel in `None`. 
-
-## <a name="review-none-intents-utterances"></a>Controleer geen intentie uitingen de
-
-1. Sluit de **Test** panel door het selecteren van de **Test** knop op de bovenste navigatiebalk. 
-
-2. Selecteer **bouwen** van het bovenste navigatievenster. 
-
-3. Selecteer **geen** intentie van de lijst met intents.
-
-4. Besturingselement + E om een token weergave van de uitingen selecteren 
-    
-    |Geen intentie's uitingen|Voorspellingsscore|
-    |--|--|
-    |"verkleinen temperatuur voor mij."|0.44|
-    |"dimensie keuken verlichting op 25."|0,43|
-    |"het volume lager"|0.46|
-    |"inschakelen op het internet in mijn Neem slaapkamers"|0,28|
-
-## <a name="fix-none-intents-utterances"></a>Los geen intentie uitingen de
-    
-Alle uitingen in `None` zijn buiten de app-domein. Deze uitingen zijn ten opzichte van HomeAutomation, zodat ze zich in de verkeerde bedoelingen. 
-
-LUIS biedt ook de uitingen op die kleiner is dan 50% (<.50) voorspelling score. Als u de uitingen in de andere twee intenties bekijkt, ziet u veel hoger voorspelling scores. Als LUIS lage scores voor de voorbeeld-uitingen die een goede indicatie zijn de uitingen lastig te LUIS tussen de huidige intentie en andere intents. 
-
-Om op te lossen van de app, de uitingen die momenteel in de `None` doel moet worden verplaatst naar het juiste doel en de `None` bedoeling moet nieuwe, juiste intents. 
-
-Drie van de uitingen in de `None` doel zijn bedoeld om u te verlagen van de instellingen van het automation-apparaat. Ze gebruiken woorden, zoals `dim`, `lower`, of `decrease`. De vierde utterance wordt gevraagd om in te schakelen op het internet. Aangezien alle vier uitingen over het inschakelen of wijzigen van de mate van kracht op een apparaat, moeten u ze verplaatst naar de `HomeAutomation.TurnOn` intentie. 
-
-Dit is slechts één oplossing. U kunt ook een nieuw doel van maken `ChangeSetting` en verplaatsen van de uitingen met behulp van dimensie, verlagen en verlagen naar die nieuwe intentie. 
+De andere twee punten in de grafiek heeft veel lager scores voor de verkeerde bedoelingen, wat betekent dat ze zich dichter bij de juiste intentie. 
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Herstellen van de app op basis van batch-resultaten
-Verplaatsen van de vier uitingen naar de `HomeAutomation.TurnOn` intentie. 
+Het doel van deze sectie is dat de drie uitingen die onjuist zijn voorspeld voor **ApplyForJob** naar correct worden voorspeld voor **GetJobInformation**, nadat de app is verholpen. 
 
-1. Selecteer het selectievakje boven de lijst met utterance zodat alle uitingen zijn geselecteerd. 
+Een schijnbaar snelle oplossing zou zijn om toe te voegen deze uitingen van batch-bestand met de juiste intent. Dat is niet wat u wilt echter doen. Wilt u LUIS om goed te voorspellen deze uitingen zonder dat ze toe te voegen als voorbeelden. 
 
-2. In de **opnieuw toewijzen van intentie** vervolgkeuzelijst, selecteer `HomeAutomation.TurnOn`. 
+U vraagt zich misschien ook af over het verwijderen van uitingen van **ApplyForJob** totdat de hoeveelheid utterance hetzelfde als is **GetJobInformation**. Die de resultaten van het probleem kan mogelijk maar zou LUIS belemmeren van het voorspellen van dit doel nauwkeurig zodra. 
 
-    ![Uitingen verplaatsen](./media/luis-tutorial-batch-testing/move-utterances.png)
+De eerste oplossing is het toevoegen van meer uitingen naar **GetJobInformation**. De tweede oplossing is het verminderen van het gewicht van het woord `resume` naar de **ApplyForJob** intentie. 
 
-    Nadat de vier uitingen zijn toegewezen, de utterance lijst voor de `None` bedoeling is leeg.
+### <a name="add-more-utterances-to-getjobinformation"></a>Toevoegen van meer uitingen naar **GetJobInformation**
+1. Sluit het deelvenster van de test batch door het selecteren van de **testen** knop in het bovenste navigatievenster. 
 
-3. Vier nieuwe intents toevoegen voor de intentie geen:
+    [ ![Schermafbeelding van LUIS met knop testen gemarkeerd](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
 
-    ```
-    "fish"
-    "dogs"
-    "beer"
-    "pizza"
-    ```
+2. Selecteer **GetJobInformation** in de lijst intents. 
 
-    Deze uitingen zijn absoluut buiten het domein van HomeAutomation. Als u elke utterance invoert, bekijk de score voor. De score is mogelijk met lage of zelfs zeer laag (met een rood kader rond het). Nadat u in stap 8, de app trainen zal de score is veel hoger zijn. 
+    [ ![Schermafbeelding van LUIS met knop testen gemarkeerd](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
-7. Verwijderen van de labels die door het blauwe label selecteren in de utterance en selecteer **label verwijderen**.
-
-8. Selecteer **Train** in de navigatiebalk bovenaan rechts. De score van elke utterance is veel hoger. Alle scores voor de `None` nu kunt u lezen wat hierboven.80 moet zijn. 
-
-## <a name="verify-the-fix-worked"></a>Controleren of de oplossing heeft gewerkt
-Om te controleren dat de uitingen in de batch-test correct worden voorspeld voor de **geen** doel, voer de batch-test opnieuw uit.
-
-1. Selecteer **Test** in de bovenste navigatiebalk. 
-
-2. Selecteer **Batch testen deelvenster** in het deelvenster aan de rechterkant. 
-
-3. Selecteer het weglatingsteken (***...*** ) aan de rechterkant van de batchnaam en selecteer **gegevensset uitvoeren**. Wacht totdat de batch-test is voltooid.
-
-    ![Gegevensset uitvoeren](./media/luis-tutorial-batch-testing/run-dataset.png)
-
-4. Selecteer **resultaten**. De intenties moeten alle groen pictogrammen aan de linkerkant van de intentie namen hebben. Met het juiste filter ingesteld op de `HomeAutomation.Turnoff` doel, selecteer het groene stip in het bovenste deelvenster aan de rechterkant die het dichtst bij het midden van de grafiek. De naam van de utterance wordt weergegeven in de tabel onder de grafiek. De score van `breezeway off please` zeer laag. Een optionele activiteit is meer uitingen toevoegen aan het doel te verhogen van deze score. 
-
-    ![Gegevensset uitvoeren](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
-
-<!--
-    The Entities section of the legend may have errors. That is the next thing to fix.
-
-## Create a batch to test entity detection
-1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
-
-2. Utterances have entities identified with `startPos` and `endPost`. These two elements identify the entity before [tokenization](luis-glossary.md#token), which happens in some [cultures](luis-supported-languages.md#tokenization) in LUIS. If you plan to batch test in a tokenized culture, learn how to [extract](luis-concept-data-extraction.md#tokenized-entity-returned) the non-tokenized entities.
-
-    Copy the following JSON into the file:
+3. Toevoegen van meer uitingen die zijn verschillend voor de lengte, word keuze en word-indeling, zorg ervoor dat u de voorwaarden `resume` en `c.v.`:
 
     ```JSON
-    [
-        {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 4
-            }
-          ]
-        },
-        {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Operation",
-              "startPos": 7,
-              "endPos": 17
-            }
-          ]
-        },
-        {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 9
-            }
-          ]
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Device",
-              "startPos": 0,
-              "endPos": 10
-            }
-          ]
-        }
-      ]
+    Is there a new job in the warehouse for a stocker?
+    Where are the roofing jobs today?
+    I heard there was a medical coding job that requires a resume.
+    I would like a job helping college kids write their c.v.s. 
+    Here is my resume, looking for a new post at the community college using computers.
+    What positions are available in child and home care?
+    Is there an intern desk at the newspaper?
+    My C.v. shows I'm good at analyzing procurement, budgets, and lost money. Is there anything for this type of work?
+    Where are the earth drilling jobs right now?
+    I've worked 8 years as an EMS driver. Any new jobs?
+    New food handling jobs?
+    How many new yard work jobs are available?
+    Is there a new HR post for labor relations and negotiations?
+    I have a masters in library and archive management. Any new positions?
+    Are there any babysitting jobs for 13 year olds in the city today?
     ```
 
-3. Import the batch file, following the [same instructions](#run-the-batch) as the first import, and name the dataset `set 2`. Run the test.
+4. De app door het selecteren van de trein **Train** in het bovenste navigatievenster rechts.
 
-## Possible entity errors
-Since the intents in the right-side filter of the test panel still pass the test, this section focuses on correct entity identification. 
+## <a name="verify-the-fix-worked"></a>Controleren of de oplossing heeft gewerkt
+Om te controleren dat de uitingen in de batch-test correct worden voorspeld, moet u de batch-test opnieuw uitvoeren.
 
-Entity testing is diferrent than intents. An utterance will have only one top scoring intent, but it may have several entities. An utterance's entity may be correctly identified, may be incorrectly identified as an entity other than the one in the batch test, may overlap with other entities, or not identified at all. 
+1. Selecteer **Test** in de bovenste navigatiebalk. Als de resultaten van de batch nog steeds geopend zijn, selecteert u **terug naar lijst met**.  
 
-## Review entity errors
-1. Select `HomeAutomation.Device` in the filter panel. The chart changes to show a single false positive and several true negatives. 
+2. Selecteer het weglatingsteken (***...*** ) aan de rechterkant van de batchnaam en selecteer **gegevensset uitvoeren**. Wacht totdat de batch-test is voltooid. U ziet dat de **resultaten** knop is nu groen. Dit betekent dat de hele batch is uitgevoerd.
 
-2. Select the False positive section name. The utterance for this chart point is displayed below the chart. The labeled intent and the predicted intent are the same, which is consistent with the test -- the intent prediction is correct. 
+3. Selecteer **resultaten**. De intenties moeten alle groen pictogrammen aan de linkerkant van de intentie namen hebben. 
 
-    The issue is that the HomeAutomation.Device was detected but the batch expected HomeAutomation.Room for the utterance "coffee bar off please". `Coffee bar` could be a room or a device, depending on the environment and context. As the model designer, you can either enforce the selection as `HomeAutomation.Room` or change the batch file to use `HomeAutomation.Device`. 
+    [ ![Schermafbeelding van LUIS met batch resultaten knop gemarkeerd](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png#lightbox)
 
-    If you want to reinforce that coffee bar is a room, you nee to add an utterances to LUIS that help LUIS decide a coffee bar is a room. 
 
-    The most direct route is to add the utterance to the intent but that to add the utterance for every entity detection error is not the machine-learned solution. Another fix would be to add an utterance with `coffee bar`.
+## <a name="what-has-this-tutorial-accomplished"></a>Wat is in deze zelfstudie bereikt?
+Deze app nauwkeurigheid is nu verhoogd door fouten in de batch opsporen en corrigeren van het model door meer voorbeeld uitingen toe te voegen aan de juiste intentie en training. 
 
-## Add utterance to help extract entity
-1. Select the **Test** button on the top navigation to close the batch test panel.
+## <a name="clean-up-resources"></a>Resources opschonen
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **mijn apps** in het bovenste menu links. Selecteer het weglatingsteken **...**  aan de rechterkant van de naam van de app in de lijst met Apps, selecteer **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
-2. On the `HomeAutomation.TurnOn` intent, add the utterance, `turn coffee bar on please`. The uttterance should have all three entities detected after you select enter. 
 
-3. Select **Train** on the top navigation panel. Wait until training completes successfully.
-
-3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
-
-4. If the list of datasets is not visible, select **Back to list**. Select the ellipsis (***...***) button at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
-
-5. Select **See results** to review the test results.
-
-6. 
--->
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over de voorbeeld-uitingen](luis-how-to-add-example-utterances.md)
+> [Meer informatie over patronen](luis-tutorial-pattern.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: f47068df9da4187ee8720cf526b2d6c3b89e68e2
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 927d95f6b6fac922d2c3701b8a5124efb18825f6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345522"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951234"
 ---
 # <a name="test-your-luis-app"></a>Uw LUIS-app testen
 <a name="train-your-app"></a>
@@ -129,5 +129,5 @@ Zie batch testen [concepten](luis-concept-batch-test.md) en leer [hoe](luis-how-
 
 Als testen geeft aan dat uw LUIS-app niet wordt herkend door de juiste intenties en entiteiten, kunt u uw LUIS-app om nauwkeurigheid te verbeteren door meer uitingen labels of het toevoegen van functies werken. 
 
-* [Label van de voorgestelde uitingen van LUIS](Label-Suggested-Utterances.md) 
+* [Label van de voorgestelde uitingen van LUIS](luis-how-to-review-endoint-utt.md) 
 * [Functies gebruiken om uw LUIS-app-prestaties te verbeteren](luis-how-to-add-features.md) 

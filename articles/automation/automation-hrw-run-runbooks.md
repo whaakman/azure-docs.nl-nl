@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 58ff2b5bbf338f3af78b693aef57cf6293dc08b7
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436505"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930304"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks uitvoeren op een Hybrid Runbook Worker
 
@@ -158,7 +158,7 @@ Sla de *Export-RunAsCertificateToHybridWorker* runbook op de computer met een `.
 
 ## <a name="job-behavior"></a>Gedrag van de taak
 
-Taken worden verwerkt op Hybrid Runbook Workers iets anders dan wanneer ze worden uitgevoerd op Azure-sandboxes geladen. Één belangrijk verschil is dat er geen limiet voor de duur van de taak op Hybrid Runbook Workers. Als u een runbook langlopende hebt die u wilt ervoor te zorgen dat het bestand tegen mogelijk opnieuw wordt opgestart, bijvoorbeeld is als de computer die als host fungeert voor de Hybrid worker opnieuw wordt opgestart. Als de machine van de Hybrid worker-host opnieuw is opgestart, klikt u vervolgens een actief runbooktaak opnieuw wordt opgestart vanaf het begin of vanaf het laatste controlepunt voor PowerShell Workflow-runbooks. Als een runbook-taak is meer dan 3 keer opnieuw wordt opgestart, wordt deze onderbroken.
+Taken worden verwerkt op Hybrid Runbook Workers iets anders dan wanneer ze worden uitgevoerd op Azure-sandboxes geladen. Één belangrijk verschil is dat er geen limiet voor de duur van de taak op Hybrid Runbook Workers. Runbooks in Azure uitgevoerd sandboxes zijn beperkt tot drie uur vanwege [evenredige deel](automation-runbook-execution.md#fair-share). Als u een runbook langlopende hebt die u wilt ervoor te zorgen dat het bestand tegen mogelijk opnieuw wordt opgestart, bijvoorbeeld is als de computer die als host fungeert voor de Hybrid worker opnieuw wordt opgestart. Als de machine van de Hybrid worker-host opnieuw is opgestart, klikt u vervolgens een actief runbooktaak opnieuw wordt opgestart vanaf het begin of vanaf het laatste controlepunt voor PowerShell Workflow-runbooks. Als een runbook-taak is meer dan 3 keer opnieuw wordt opgestart, wordt deze onderbroken.
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 

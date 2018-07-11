@@ -127,11 +127,13 @@
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
-
 ### Problemen oplossen
 #### [Ontbrekende controlegegevens](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Ontbrekende gegevens in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Azure Active Directory-activiteitenlogboek registreert inhoudspakketfouten](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Fouten in Azure Active Directory Reporting-API](active-directory-reporting-troubleshoot-graph-api.md)
+
+
 ### [Toegang op programmeerniveau](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Vereisten](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Controlevoorbeelden](active-directory-reporting-api-audit-samples.md)

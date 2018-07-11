@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: c1d797e3dd3a0926cfce8fee323aaaa1a866a169
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 6c4e4c7acb5083e758aa7c6b94e2464a85ae8e9e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436923"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951106"
 ---
 # <a name="best-practices"></a>Aanbevolen procedures
 Gebruik Apps kunt maken om uw LUIS-app te bouwen. 
@@ -77,7 +77,7 @@ Deze procedures zijn niet van toepassing voordat uw app eindpunt aanvragen ontva
 Dit is de terugval doel aangegeven alles buiten uw toepassing. Een voorbeeld utterance toevoegen aan de intentie voor elke uitingen 10 voorbeeld in de rest van uw LUIS-app geen.
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Gebruikmaken van de functie voor suggesties voor actief leren
-Gebruik [actief leren](label-suggested-utterances.md)van **bekijken eindpunt uitingen** regelmatig, in plaats van meer voorbeeld uitingen aan intents toe te voegen. Omdat de app voortdurend eindpunt uitingen ontvangt, wordt deze lijst groeit en wijzigen.
+Gebruik [actief leren](luis-how-to-review-endoint-utt.md)van **bekijken eindpunt uitingen** regelmatig, in plaats van meer voorbeeld uitingen aan intents toe te voegen. Omdat de app voortdurend eindpunt uitingen ontvangt, wordt deze lijst groeit en wijzigen.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>De prestaties van uw app controleren
 Controleer de nauwkeurigheid met behulp van een testset. 

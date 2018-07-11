@@ -1,70 +1,70 @@
 ---
-title: Instellen van IP-adressering verbinding maken na een failover naar Azure met Azure Site Recovery | Microsoft Docs
-description: Beschrijft het instellen van IP-adressen voor verbinding met virtuele Azure-machines na een failover van on-premises met Azure Site Recovery
+title: IP-adressering instellen om te verbinden na een failover naar Azure met Azure Site Recovery | Microsoft Docs
+description: Beschrijft hoe u voor het instellen van IP-adressering voor verbinding met virtuele Azure-machines na een failover van on-premises met Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
 author: mayanknayar
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 9d4bf43ea727bbf7df79532499007dbd23eea925
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 99b8287b79a7cf9802ab3b71ce4c90032706bc63
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071634"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919240"
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>IP-adressen als u wilt verbinden na een failover naar Azure instellen
 
-Dit artikel wordt uitgelegd dat de netwerkvereisten voor de verbinding met virtuele Azure-machines, nadat u de [Azure Site Recovery](site-recovery-overview.md) service voor replicatie en failover naar Azure.
+Dit artikel wordt uitgelegd dat de netwerkvereisten voor de verbinding met virtuele machines van Azure, nadat u de [Azure Site Recovery](site-recovery-overview.md) service voor replicatie en failover naar Azure.
 
 In dit artikel leert u over:
 
 > [!div class="checklist"]
 > * De verbindingsmethoden die u kunt gebruiken
-> * Het gebruik van een ander IP-adres voor gerepliceerde virtuele machines van Azure
-> * Het IP-adressen behouden voor virtuele Azure-machines na een failover
+> * Over het gebruik van een ander IP-adres voor de gerepliceerde Azure-VM 's
+> * Het IP-adressen behouden voor Azure VM's na failover
 
-## <a name="connecting-to-replica-vms"></a>Verbinding maken met de replica virtuele machines
+## <a name="connecting-to-replica-vms"></a>Verbinding maken met replica-VM 's
 
-Bij het plannen van uw replicatie en failoverstrategie is een van de belangrijke vragen verbinding maken met de Azure VM na een failover. Er zijn een aantal opties bij het ontwerpen van uw netwerk-strategie voor de replica virtuele Azure-machines:
+Bij het plannen van de replicatie- en failoverstrategie, is een van de belangrijkste vragen verbinding maken met de virtuele Azure-machine na een failover. Er zijn een aantal opties bij het ontwerpen van uw netwerk-strategie voor de replica virtuele machines van Azure:
 
-- **Gebruik verschillende IP-adres**: U kunt selecteren om een ander IP-adresbereik voor de gerepliceerde Azure VM-netwerk. In dit scenario wordt de virtuele machine een nieuw IP-adres na een failover en een DNS-update is vereist.
-- **Hetzelfde IP-adres behouden**: U kunt hetzelfde IP-adresbereik gebruiken als die in uw primaire on-premises-site voor het Azure-netwerk na een failover. Houden dezelfde IP adressen het herstel vereenvoudigt door te beperken netwerkgerelateerde problemen na een failover. Echter, wanneer u naar Azure repliceert, moet u het bijwerken van routes met de nieuwe locatie van de IP-adressen na een failover.
+- **Gebruik verschillende IP-adres**: U kunt selecteren met een ander IP-adresbereik voor het gerepliceerde Azure-VM-netwerk. In dit scenario wordt de virtuele machine een nieuwe IP-adres na een failover en een DNS-update is vereist.
+- **Hetzelfde IP-adres behouden**: kunt u hetzelfde IP-adresbereik als die op uw primaire on-premises site, gebruiken voor het Azure-netwerk na een failover. Het hetzelfde IP-adres bijhouden vereenvoudigt adressen het herstel door te beperken netwerk na een failover problemen met betrekking tot. Echter, als u naar Azure repliceert, u moet bijwerken van routes met de nieuwe locatie van de IP-adressen na een failover.
 
 ## <a name="retaining-ip-addresses"></a>IP-adressen behouden
 
-Site Recovery biedt de mogelijkheid voor het bewaren van vaste IP-adressen wanneer failover wordt uitgevoerd naar Azure, met de failover van een subnet.
+Site Recovery biedt de mogelijkheid voor het behouden van vaste IP-adressen bij het uitvoeren van een failover naar Azure, met de failover van een subnet.
 
-- Met subnet-failover is een specifiek subnet aanwezig op de Site 1 of 2, maar niet op beide sites tegelijkertijd.
-- Om toegang te houden van de IP-adresruimte in het geval van een failover, rangschikt u programmatisch de router-infrastructuur voor het verplaatsen van de subnetten van de ene site naar een andere.
-- Tijdens de failover verplaatst de subnetten met de bijbehorende beveiligde virtuele machines. Het grootste nadeel is dat bij een storing, die u moet het hele subnet verplaatsen.
-
-
-### <a name="failover-example"></a>Failover-voorbeeld
-
-Bekijk een voorbeeld is voor failover naar Azure met behulp van een fictieve bedrijf Woodgrove Bank.
-
-- Woodgrove Bank fungeert als host van hun zakelijke apps in een on-premises site. Ze hosten hun mobiele apps in Azure.
-- Er is een VPN-site-naar-site-verbinding tussen hun rand on-premises netwerk en de virtuele Azure-netwerk. Vanwege de VPN-verbinding, wordt het virtuele netwerk in Azure weergegeven als een uitbreiding van de on-premises netwerk.
-- Woodgrove wil voor lokale werkbelastingen repliceren naar Azure met Site Recovery.
- - Woodgrove heeft apps die afhankelijk van de vastgelegde IP-adressen, zijn zodat ze nodig hebben voor het bewaren van IP-adressen voor de apps na een failover naar Azure.
- - Resources die worden uitgevoerd in Azure gebruikmaken van de IP-adresbereik 172.16.1.0/24, 172.16.2.0/24.
-
-![Vóór de subnet-failover](./media/site-recovery-network-design/network-design7.png)
-
-**Infrastructuur voor failover**
+- Met subnet failover is een specifiek subnet aanwezig in Site 1 of 2, maar niet op beide locaties tegelijk.
+- Om te kunnen handhaven van de IP-adresruimte in het geval van een failover, rangschikt u via een programma voor de router-infrastructuur te verplaatsen van de subnetten van de ene site naar een andere.
+- Tijdens de failover Verplaats de subnetten met de bijbehorende beveiligde virtuele machines. Het grootste nadeel is dat er een storing optreedt, moet u het hele subnet verplaatsen.
 
 
-Voor de Woodgrove kunnen aan de bijbehorende virtuele machines repliceren naar Azure behoud de IP-adressen, hier van wat moet het bedrijf doen:
+### <a name="failover-example"></a>Voorbeeld van de failover
+
+We bekijken een voorbeeld voor failover naar Azure met behulp van een fictieve bedrijf Woodgrove Bank.
+
+- Woodgrove Bank als host fungeert voor de business-apps in een on-premises site. Ze hosten hun mobiele apps op Azure.
+- Er is een site-naar-site-VPN-verbinding tussen hun edge on-premises netwerk en de Azure-netwerk. Vanwege de VPN-verbinding, wordt het virtuele netwerk in Azure weergegeven als een uitbreiding van de on-premises netwerk.
+- Voor het repliceren van on-premises werkbelastingen naar Azure met Site Recovery wil Woodgrove.
+ - Woodgrove heeft apps die afhankelijk van de vastgelegde IP-adressen, zijn daarom ze moeten voor het IP-adressen voor de apps behouden na een failover naar Azure.
+ - Resources die worden uitgevoerd in Azure gebruiken de IP-adresbereik 172.16.1.0/24, 172.16.2.0/24.
+
+![Voordat de failover van subnet](./media/site-recovery-network-design/network-design7.png)
+
+**Infrastructuur voordat de failover**
 
 
-1. Azure-netwerk waarin de Azure VM's worden gemaakt nadat de failover van lokale computers maken. Deze moet een uitbreiding van de on-premises netwerk, zodat toepassingen naadloos kunnen failover.
-2. Vóór de failover in Site Recovery toewijzen ze hetzelfde IP-adres in de eigenschappen van de machine. Na een failover wordt met Site Recovery dit adres toegewezen aan de Azure VM.
-3. Nadat de failover wordt uitgevoerd en de Azure VM's zijn gemaakt met hetzelfde IP-adres, ze verbinding maken met het netwerk met een [Vnet-naar-Vnet-verbinding](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Deze actie kan scripts worden gebruikt.
-4. Ze moeten naar routes, zodat die 192.168.1.0/24 is nu verplaatst naar Azure te wijzigen.
+Voor de Woodgrove kunnen aan de VM's repliceren naar Azure en behoud van de IP-adressen, hier van wat bedrijf het te doen:
+
+
+1. Azure-netwerk waarin de Azure VM's worden gemaakt nadat de failover van on-premises machines maken. Het moet een extensie van de on-premises netwerk, zodat toepassingen kunnen naadloos voor failover.
+2. Voordat de failover in Site Recovery, wijzen ze hetzelfde IP-adres in de eigenschappen van de machine. Site Recovery wijst dit adres na een failover toe aan de Azure VM.
+3. Nadat de failover wordt uitgevoerd en de Azure VM's worden gemaakt met hetzelfde IP-adres, ze verbinding maken met het netwerk met een [Vnet-naar-Vnet-verbinding](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Deze actie kan scripts worden gebruikt.
+4. Ze wilt wijzigen, routes, zodat die 192.168.1.0/24 is nu verplaatst naar Azure.
 
 
 **Infrastructuur na een failover**
@@ -73,16 +73,16 @@ Voor de Woodgrove kunnen aan de bijbehorende virtuele machines repliceren naar A
 
 #### <a name="site-to-site-connection"></a>Site-naar-site-verbinding
 
-Naast de vnet-naar-vnet-verbinding, na een failover kunt Woodgrove site-naar-site VPN-verbinding instellen:
-- Wanneer u een site-naar-site-verbinding instellen, in het netwerk van Azure dat kunt u alleen routeren wijkt verkeer naar de on-premises locatie (lokale ntwork) als het IP-adresbereik af van het lokale IP-adresbereik. Dit is omdat Azure biedt geen ondersteuning voor gespreide subnetten. Dus als u subnet 192.168.1.0/24 lokale hebt, kunt u een lokaal netwerk 192.168.1.0/24 niet in het Azure-netwerk toevoegen. Dit is normaal omdat Azure niet weet dat er zijn geen actieve VM's in het subnet en het subnet voor noodherstel alleen wordt gemaakt.
-- Om te kunnen routeren correct netwerkverkeer buiten een Azure-netwerk, zijn de subnetten in het netwerk en het LAN-netwerk mag niet in conflict.
+Naast de vnet-naar-vnet-verbinding na een failover kunt Woodgrove site-naar-site VPN-verbinding instellen:
+- Bij het instellen van een site-naar-site-verbinding, in het netwerk van Azure dat kunt u alleen routeren wijkt verkeer naar de on-premises locatie (LAN-netwerk) als het IP-adresbereik af van het lokale IP-adresbereik. Dit komt doordat de gespreide subnetten biedt geen ondersteuning voor Azure. Dus als u subnet 192.168.1.0/24 on-premises hebt, kunt u een lokaal netwerk 192.168.1.0/24 niet in het Azure-netwerk toevoegen. Dit is normaal omdat Azure niet bekend is dat er geen actieve VM's in het subnet zijn en dat het subnet wordt gemaakt voor alleen herstel na noodgevallen.
+- Als u goed netwerkverkeer te routeren buiten een Azure-netwerk, de subnetten in het netwerk en het LAN-netwerk kunnen niet in strijd zijn.
 
 
 
 
 ## <a name="assigning-new-ip-addresses"></a>Nieuwe IP-adressen toewijzen
 
-Dit [blogbericht](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) wordt uitgelegd hoe u de Azure-netwerkinfrastructuur wilt instellen wanneer u hoeft niet te IP-adressen behouden na een failover. Deze begint met een toepassingsbeschrijving, het instellen van het lokale netwerk en in Azure wordt bekeken en wordt afgesloten met informatie over het uitvoeren van failovers.
+Dit [blogbericht](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) wordt uitgelegd hoe u de Azure-netwerkinfrastructuur instellen wanneer u niet wilt IP-adressen behouden na een failover. Deze begint met een beschrijving, gekeken naar het on-premises netwerken en in Azure instellen en eindigt met informatie over het uitvoeren van failovers.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Een failover uitvoeren](site-recovery-failover.md)

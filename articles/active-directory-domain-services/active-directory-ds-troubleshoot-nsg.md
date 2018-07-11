@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Configuratie Netwerkbeveiligingsgroep probleemoplossing | Microsoft Docs'
-description: Het NSG-configuratie voor Azure AD Domain Services oplossen
+title: 'Azure Active Directory Domain Services: Configuratie probleemoplossing Network Security Group | Microsoft Docs'
+description: Oplossen van problemen met NSG-configuratie voor Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -15,65 +15,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 807dd2bdcc1e2ad18b1a93c3337c8244e3f1366b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 67f4f0850d0600fc7ca0f1323e7c7801187089f5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218976"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950731"
 ---
-# <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Ongeldige netwerkconfiguratie voor uw beheerde domein oplossen
-In dit artikel helpt u problemen op te lossen netwerkgerelateerde configuratiefouten die in het volgende bericht weergegeven resulteren:
+# <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Ongeldige configuratie van netwerken voor uw beheerde domein oplossen
+Dit artikel helpt u problemen op te lossen netwerkgerelateerde configuratiefouten die in het volgende bericht weergegeven resulteren:
 
 ## <a name="alert-aadds104-network-error"></a>Waarschuwing AADDS104: Netwerkfout
-**Waarschuwing:** *Microsoft kan niet tot de domeincontrollers voor dit beheerde domein. Dit kan gebeuren als een netwerkbeveiligingsgroep (NSG) geconfigureerd op uw virtuele netwerk blokkeert de toegang tot het beheerde domein. Een andere mogelijke reden is dat als er een gebruiker gedefinieerde route die inkomend verkeer van het internet wordt geblokkeerd.*
+**Waarschuwing:** *Microsoft kan niet worden bereikt van de domeincontrollers voor dit beheerde domein is. Dit kan gebeuren als een netwerkbeveiligingsgroep (NSG) geconfigureerd op uw virtuele netwerk blokkeert de toegang tot het beheerde domein. Een andere mogelijke reden is als er een door de gebruiker gedefinieerde route die het inkomende verkeer vanaf internet blokkeert.*
 
-Ongeldige NSG-configuraties zijn de meest voorkomende oorzaak van netwerkfouten voor Azure AD Domain Services. De Netwerkbeveiligingsgroep (NSG) is geconfigureerd voor het virtuele netwerk toegang tot geven moet [bepaalde poorten](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Als deze poorten worden geblokkeerd, kan Microsoft controleren of bijwerken van uw beheerde domein. Bovendien wordt de synchronisatie tussen uw Azure AD-directory en uw beheerde domein beïnvloed. Tijdens het maken van uw NSG deze poorten open houden om te voorkomen in de service wordt onderbroken.
+Ongeldige NSG-configuraties zijn de meest voorkomende oorzaak van netwerkfouten voor Azure AD Domain Services. De Netwerkbeveiligingsgroep (NSG) is geconfigureerd voor het virtuele netwerk toegang tot geven moet [specifieke poorten](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Als deze poorten worden geblokkeerd, kan Microsoft controleren of bijwerken van uw beheerde domein. Bovendien wordt de synchronisatie tussen uw Azure AD-directory en uw beheerde domein beïnvloed. Tijdens het maken van uw NSG, laat u deze poorten open zijn om te voorkomen dat wordt onderbroken.
 
 ### <a name="checking-your-nsg-for-compliance"></a>Uw NSG op naleving controleren
 
-1. Navigeer naar de [Netwerkbeveiligingsgroepen](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) pagina in de Azure-portal
+1. Navigeer naar de [Netwerkbeveiligingsgroepen](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) pagina in de Azure portal
 2. Kies uit de tabel de NSG die is gekoppeld aan het subnet waarin uw beheerde domein is ingeschakeld.
-3. Onder **instellingen** in het deelvenster links, klikt u op **beveiligingsregels voor binnenkomende verbindingen**
-4. Bekijk de regels in de plaats en bepalen welke regels zijn blokkeert de toegang tot [deze poorten](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
-5. Bewerk het NSG om compatibiliteit te garanderen door het verwijderen van de regel, een regel toe te voegen of een nieuwe NSG volledig maken. Stappen om [een regel toevoegen](#add-a-rule-to-a-network-security-group-using-the-azure-portal) of [maken van een nieuwe, conform het NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) worden hieronder.
+3. Onder **instellingen** in het linkerdeelvenster klikt u op **inkomende beveiligingsregels**
+4. Controleer de regels op locatie en bepalen welke regels worden blokkeert de toegang tot [deze poorten](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
+5. De NSG om te voldoen door de regel wordt verwijderd, een regel toe te voegen of het maken van een nieuwe NSG volledig bewerken. Stappen om [toevoegen van een regel](#add-a-rule-to-a-network-security-group-using-the-azure-portal) of [maken van een nieuwe, voldoen aan het beleid NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) zijn hieronder
 
-## <a name="sample-nsg"></a>voorbeeld NSG
-De volgende tabel ziet u een voorbeeld van een NSG die uw beheerde domein beveiligde houdt terwijl Microsoft om te controleren, beheren en gegevens bijwerken.
+## <a name="sample-nsg"></a>Voorbeeld van NSG
+De volgende tabel ziet u een voorbeeld van een Netwerkbeveiligingsgroep die uw beheerde domein beveiligen houdt terwijl Microsoft om te controleren, beheren en bijwerken van gegevens.
 
-![voorbeeld NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![Voorbeeld van NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 >[!NOTE]
-> Azure AD Domain Services vereist onbeperkte uitgaande toegang van het virtuele netwerk. We raden aan geen te maken van eventuele aanvullende NSG-regels die beperkt de uitgaande toegang tot het virtuele netwerk.
+> Azure AD Domain Services vereist onbeperkte uitgaande toegang van het virtuele netwerk. We raden aan geen te maken van een extra NSG-regel waarmee uitgaande toegang voor het virtuele netwerk wordt beperkt.
 
-## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>Een regel toevoegen aan een Netwerkbeveiligingsgroep met de Azure portal
-Als u niet gebruiken van PowerShell wilt, kunt u één regels handmatig toevoegen aan de nsg's met de Azure portal. Voor het maken van regels in de beveiligingsgroep van uw netwerk, moet u de volgende stappen uitvoeren:
+## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>Een regel toevoegen aan een Netwerkbeveiligingsgroep met behulp van de Azure portal
+Als u niet gebruiken van PowerShell wilt, kunt u handmatig enkele regels toevoegen aan de nsg's met behulp van de Azure portal. Voor het maken van regels in uw netwerkbeveiligingsgroep, voert u de volgende stappen uit:
 
-1. Navigeer naar de [Netwerkbeveiligingsgroepen](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) pagina in de Azure-portal
+1. Navigeer naar de [Netwerkbeveiligingsgroepen](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) pagina in de Azure portal.
 2. Kies uit de tabel de NSG die is gekoppeld aan het subnet waarin uw beheerde domein is ingeschakeld.
-3. Onder **instellingen** in het deelvenster links, klikt u op **inkomende beveiligingsregels** of **uitgaande beveiligingsregels**.
-4. De regel maken door te klikken op **toevoegen** en de gegevens in te vullen. Klik op **OK**.
-5. Controleer of dat de regel is gemaakt door het zoeken in de regeltabel.
+3. Onder **instellingen** in het linkerdeelvenster, klik op een **inkomende beveiligingsregels** of **uitgaande beveiligingsregels**.
+4. Maak de regel door te klikken op **toevoegen** en de gegevens in te vullen. Klik op **OK**.
+5. Controleer of dat de regel is gemaakt door te zoeken in de regeltabel.
 
 
 ## <a name="create-a-nsg-for-azure-ad-domain-services-using-powershell"></a>Maken van een NSG voor Azure AD Domain Services met behulp van PowerShell
-Deze NSG is geconfigureerd dat binnenkomend verkeer op de poorten die vereist zijn voor Azure AD Domain Services en andere ongewenste binnenkomende toegang weigert.
+Deze NSG is geconfigureerd dat binnenkomend verkeer op de poorten die vereist voor Azure AD Domain Services, terwijl andere ongewenste inkomende toegang wordt geweigerd.
 
-**Vereiste: Installeren en configureren van Azure PowerShell** Volg de instructies voor [Installeer de Azure PowerShell-module en maak verbinding met uw Azure-abonnement](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+**Vereiste: Installeren en configureren van Azure PowerShell** Volg de instructies voor [installeren van de Azure PowerShell-module en maak verbinding met uw Azure-abonnement](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 >[!TIP]
-> U wordt aangeraden de nieuwste versie van de Azure PowerShell-module. Als u al een oudere versie van de Azure PowerShell-module geïnstalleerd, bijgewerkt naar de nieuwste versie.
+> We raden u aan met behulp van de meest recente versie van de Azure PowerShell-module. Als u al een oudere versie van de Azure PowerShell-module geïnstalleerd hebt, kunt u bijwerken naar de nieuwste versie.
 >
 
-Gebruik de volgende stappen voor het maken van een nieuwe NSG met behulp van PowerShell.
-1. Aanmelden bij uw Azure-abonnement.
+Gebruik de volgende stappen uit om te maken van een nieuwe NSG met behulp van PowerShell.
+1. Meld u aan bij uw Azure-abonnement.
 
   ```PowerShell
   # Log in to your Azure subscription.
   Connect-AzureRmAccount
   ```
 
-2. Maak een NSG met drie regels. Het volgende script worden drie regels gedefinieerd voor het NSG die toegang geven tot de poorten die nodig zijn voor het uitvoeren van Azure AD Domain Services. Het script maakt vervolgens een nieuwe NSG waarin deze regels. Gebruik dezelfde indeling om toe te voegen extra regels die andere binnenkomend verkeer toestaan indien vereist door de werkbelastingen die zijn geïmplementeerd in het virtuele netwerk.
+2. Een NSG met drie regels te maken. Het volgende script worden drie regels gedefinieerd voor de Netwerkbeveiligingsgroep die toegang tot de poorten die nodig zijn om uit te voeren van Azure AD Domain Services. Het script maakt vervolgens een nieuwe NSG met deze regels. Gebruik de dezelfde indeling om toe te voegen extra regels waarmee u ander inkomend verkeer, indien nodig door werkbelastingen die zijn geïmplementeerd in het virtuele netwerk.
 
   ```PowerShell
   # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
@@ -107,7 +107,7 @@ Gebruik de volgende stappen voor het maken van een nieuwe NSG met behulp van Pow
   -Name "AADDomainServices-NSG" -SecurityRules $SyncRule, $PSRemotingRule
   ```
 
-3. Ten slotte wordt het NSG koppelen met de vnet en het subnet van de keuze.
+3. Ten slotte de NSG te koppelen met het vnet en subnet naar keuze.
 
   ```PowerShell
   # Find vnet and subnet
@@ -121,7 +121,7 @@ Gebruik de volgende stappen voor het maken van een nieuwe NSG met behulp van Pow
 
 ## <a name="full-script-to-create-and-apply-an-nsg-for-azure-ad-domain-services"></a>Volledige script maken en toepassen van een NSG voor Azure AD Domain Services
 >[!TIP]
-> U wordt aangeraden de nieuwste versie van de Azure PowerShell-module. Als u al een oudere versie van de Azure PowerShell-module geïnstalleerd, bijgewerkt naar de nieuwste versie.
+> We raden u aan met behulp van de meest recente versie van de Azure PowerShell-module. Als u al een oudere versie van de Azure PowerShell-module geïnstalleerd hebt, kunt u bijwerken naar de nieuwste versie.
 >
 
 ```PowerShell
@@ -175,4 +175,4 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $Vnet
 
 
 ## <a name="need-help"></a>Hulp nodig?
-Neem contact op met de Azure Active Directory Domain Services-productteam voor [feedback delen of voor ondersteuning](active-directory-ds-contact-us.md).
+Neem contact op met het productteam van Azure Active Directory Domain Services naar [feedback geven of voor ondersteuning van](active-directory-ds-contact-us.md).

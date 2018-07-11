@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8d52469e11ac508ee8b353311f6040ac9d6f2e4e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 85bea1b042eb9b882022118d36e5a55a802a1bdc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447146"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950560"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Verlenen van toegang voor het beheren van Azure AD Privileged Identity Management
 De hoofdbeheerder die Azure AD Privileged Identity Management (PIM) voor een organisatie automatisch kan roltoewijzingen en toegang tot PIM ophalen. Niemand anders wordt schrijftoegang standaard, met inbegrip van andere globale beheerders. Andere globale beheerders, Beveiligingsbeheerders en beveiligingslezers hebben alleen-lezen toegang tot Azure AD PIM. Als u wilt toegang geven tot PIM, de eerste gebruiker, anderen kunt toewijzen de **beheerder met bevoorrechte rol** rol.
@@ -34,10 +34,10 @@ Zorg ervoor dat er altijd ten minste twee gebruikers in een beheerdersrol bevoor
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) en selecteer de **Azure AD Privileged Identity Management** -app op het dashboard.
 2. Selecteer **bevoorrechte rollen beheren** > **beheerder met bevoorrechte rol** > **toevoegen**.
    
-    ![Toevoegen van beheerders met bevoegdheid - schermafbeelding][1]
+    ![Toevoegen van beheerders met bevoegdheid - schermafbeelding](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png)
 3. Stap 1 is al voltooid op de blade van de beheerde gebruikers toevoegen. Selecteer stap 2, **Selecteer gebruikers** en zoek naar de gebruiker die u wilt toevoegen.
    
-    ![Selecteer de gebruikers - schermafbeelding][2]
+    ![Selecteer de gebruikers - schermafbeelding](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png)
 4. Selecteer de gebruiker in de lijst met zoekresultaten en klik op **gedaan**.
 5. Klik op **OK** om op te slaan, uw selectie. De gebruiker die u hebt geselecteerd, wordt weergegeven in de lijst met beheerders met bevoegdheid.
    
@@ -55,8 +55,3 @@ Voordat u iemand uit de rol van de bevoorrechte rol beheerder verwijdert, altijd
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png

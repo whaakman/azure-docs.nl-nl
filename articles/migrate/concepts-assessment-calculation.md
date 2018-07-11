@@ -1,109 +1,109 @@
 ---
-title: Assessment berekeningen in Azure migreren | Microsoft Docs
-description: Biedt een overzicht van assessment berekeningen in de service Azure migreren.
+title: Evaluatie van berekeningen in Azure Migrate | Microsoft Docs
+description: Biedt een overzicht van evaluatie van berekeningen in de Azure Migrate-service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287885"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920920"
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
-[Azure migreren](migrate-overview.md) voor lokale werkbelastingen voor migratie naar Azure evalueert. Dit artikel bevat informatie over hoe beoordelingen zijn berekend.
+[Azure Migrate](migrate-overview.md) beoordeelt on-premises werkbelastingen voor migratie naar Azure. In dit artikel bevat informatie over hoe evaluaties worden berekend.
 
 
 ## <a name="overview"></a>Overzicht
 
-Een beoordeling voor het migreren van Azure bestaat uit drie fasen. Beoordeling begint met een geschiktheid-analyse, gevolgd door formaat wijzigen, en ten slotte een maandelijkse kosten schatting. Een machine alleen wordt verplaatst langs naar een later stadium als de vorige bewerking is geslaagd. Bijvoorbeeld, als een machine de controle van de geschiktheid van Azure mislukt, deze gemarkeerd als geschikt voor Azure, en sizing en goedkoper won't worden uitgevoerd.
+Een Azure Migrate-evaluatie bestaat uit drie fasen. Evaluatie begint met een analyse van geschiktheid, gevolgd door de grootte instelt, en ten slotte een maandelijks raming van kosten. Een virtuele machine alleen worden verplaatst langs op een later stadium als de vorige bewerking is geslaagd. Bijvoorbeeld, als een virtuele machine de controle met Azure-geschiktheid mislukt, wordt deze gemarkeerd als niet geschikt voor Azure, en de dimensionering en de kosten wordt niet worden uitgevoerd.
 
 
-## <a name="azure-suitability-analysis"></a>Azure geschiktheid analyse
+## <a name="azure-suitability-analysis"></a>Azure-geschiktheid analyse
 
-Niet alle machines zijn geschikt voor uitgevoerd in de cloud, zoals cloud een eigen beperkingen en vereisten heeft. Azure migreren beoordeelt elke lokale machine voor de geschiktheid van de migratie naar Azure en de machines ingedeeld in een van de volgende categorieën:
+Niet alle machines zijn geschikt voor het uitvoeren op de cloud als cloud een eigen beperkingen en vereisten heeft. Azure Migrate beoordeelt elke on-premises computer voor geschiktheid voor migratie naar Azure en de machines in de volgende categorieën ingedeeld:
 - **Gereed voor Azure** -de machine kan worden gemigreerd als-is naar Azure zonder deze te wijzigen. Deze wordt opgestart in Azure met volledige Azure-ondersteuning.
-- **Voorwaardelijk klaar te maken voor Azure** -de computer kan worden opgestart in Azure, maar mogelijk geen volledige Azure-ondersteuning. Bijvoorbeeld, wordt een machine met een oudere versie van Windows Server-besturingssysteem niet ondersteund in Azure. U moet zorgvuldig worden voordat deze machines migreren naar Azure en volg de richtlijnen van het herstel voorgesteld in de beoordeling van de van de Gereedheidsproblemen oplossen voordat u migreert.
-- **Niet gereed voor Azure** -de machine niet worden opgestart in Azure. Worden bijvoorbeeld, als een lokale virtuele machine een schijf met een grootte van meer heeft dan 4 TB is gekoppeld, deze kan niet gehost op Azure. U moet de herstel-richtlijnen voorgesteld in de beoordeling van gereedheid oplossen voordat u migreert naar Azure te volgen. Juiste formaat en de kosten schatting geldt niet voor de machines die zijn gemarkeerd als niet gereed voor Azure.
-- **Gereedheid van de onbekende** -Azure migreren, kan de gereedheid van de machine vanwege onvoldoende gegevens beschikbaar zijn in de vCenter-Server niet vinden.
+- **Voorwaardelijk gereed voor Azure** -de machine mogelijk op te starten in Azure, maar hebben mogelijk niet de volledige Azure-ondersteuning. Bijvoorbeeld, wordt een machine met een oudere versie van Windows Server-besturingssysteem niet ondersteund in Azure. U moet zorgvuldig worden voordat u deze machines naar Azure migreert en volg de richtlijnen van het herstel voorgesteld in de evaluatie van de van de Gereedheidsproblemen oplossen voordat u migreert.
+- **Niet gereed voor Azure** -de machine niet worden opgestart in Azure. Worden bijvoorbeeld, als een on-premises machine een schijf van de grootte meer heeft dan 4 TB is gekoppeld, deze kan niet gehost op Azure. U moet de richtlijnen voor herstel voorgesteld in de evaluatie van gereedheid oplossen voordat u migreert naar Azure te volgen. Schatting van de juiste grootte en kosten geldt niet voor machines die zijn gemarkeerd als niet gereed voor Azure.
+- **Gereedheid onbekend** -Azure Migrate, kan de gereedheid van de machine vanwege onvoldoende gegevens beschikbaar in de vCenter-Server niet vinden.
 
-Azure migreren controleert de eigenschappen van de machine en het gastbesturingssysteem te identificeren van de gereedheid van de on-premises machine van Azure.
+Azure Migrate beoordeelt de eigenschappen van de machine en de Gast-besturingssysteem voor het identificeren van de Azure-gereedheid van de on-premises machine.
 
 ### <a name="machine-properties"></a>Eigenschappen van de machine
-De volgende eigenschappen van de lokale virtuele machine om te bepalen of een virtuele machine in Azure uitvoeren kunt een overzicht van Azure migreren.
+Azure Migrate beoordeelt de volgende eigenschappen van de on-premises virtuele machine om te bepalen of een virtuele machine op Azure uitvoeren kunt.
 
-**Eigenschap** | **Details** | **Gereedheidsstatus van Azure**
+**Eigenschap** | **Details** | **Status van de Azure-gereedheid**
 --- | --- | ---
-**Type opstarten** | Azure biedt ondersteuning voor virtuele machines met opstarten type als de BIOS- en niet UEFI. | Voorwaardelijk klaar voor Azure als opstarten type UEFI.
-**Kernen** | Het aantal kernen op de machines moet gelijk zijn aan of kleiner is dan het maximum aantal kernen (32) ondersteund voor een virtuele machine in Azure.<br/><br/> Als prestatiegeschiedenis beschikbaar is, Azure migreren rekening gehouden met de gebruikte kernen voor vergelijking. Als een factor comfort is opgegeven in de instellingen voor de beoordeling, wordt het aantal gebruikte kernen vermenigvuldigd met de factor comfort.<br/><br/> Als er geen prestatiegeschiedenis van, de toegewezen kernen Azure migreren gebruikt zonder het toepassen van de factor comfort. | Niet-gereed als het aantal kernen groter dan 32 is.
-**Geheugen** | De grootte van de machine-geheugen moet gelijk zijn aan of kleiner is dan de maximale hoeveelheid geheugen (448 GB) toegestaan voor een virtuele machine in Azure. <br/><br/> Als prestatiegeschiedenis beschikbaar is, beschouwt Azure migreren het gebruikte geheugen voor vergelijking. Als een factor comfort is opgegeven, wordt het gebruikte geheugen vermenigvuldigd met de factor comfort.<br/><br/> Als er geen geschiedenis van die het toegewezen geheugen wordt gebruikt, zonder de factor comfort toepassen.<br/><br/> | Niet-gereed als geheugen groter dan 448 GB is.
-**Schijf voor opslag** | Toegewezen grootte van een schijf moet 4 TB (4096 GB) of minder.<br/><br/> Het aantal schijven die zijn gekoppeld aan de machine moet 65 of minder, inclusief de besturingssysteemschijf. | Niet gereed eventuele schijf is groter dan 4 TB of als er meer dan 65 schijven die zijn gekoppeld aan de machine.
-**Netwerken** | Een machine moet 32 of minder NIC's gekoppeld. | Niet-gereed als de computer meer dan 32 NIC's heeft
+**Opstarttype** | Azure biedt ondersteuning voor virtuele machines met opstarttype als BIOS en geen UEFI. | Voorwaardelijk gereed voor Azure als het opstarttype UEFI is.
+**Kernen** | Het aantal kernen in de virtuele machines moet gelijk zijn aan of kleiner is dan het maximum aantal kernen (32) ondersteund voor een Azure-VM.<br/><br/> Als de geschiedenis van geheugenprestaties beschikbaar is, Azure Migrate rekening gehouden met de gebruikte kernen voor een vergelijking. Als een comfortfactor is opgegeven in de instellingen voor evaluatie, wordt het aantal gebruikte kernen vermenigvuldigd met de comfortfactor.<br/><br/> Als er geen prestatiegeschiedenis, Azure Migrate de toegewezen kerngeheugens, zonder toe te passen de comfortfactor gebruikt. | Niet gereed als het aantal kernen is groter dan 32.
+**Geheugen** | De grootte van de machine-geheugen moet gelijk zijn aan of kleiner is dan de maximale hoeveelheid geheugen (448 GB) toegestaan voor een Azure-VM. <br/><br/> Als de geschiedenis van geheugenprestaties beschikbaar is, Azure Migrate rekening gehouden met het gebruikte geheugen voor de vergelijking. Als een comfortfactor is opgegeven, wordt het gebruikte geheugen vermenigvuldigd met de comfortfactor.<br/><br/> Als er geen geschiedenis van die de toegewezen geheugen wordt gebruikt, zonder toe te passen de comfortfactor.<br/><br/> | Niet gereed als geheugen groter dan 448 GB is.
+**Schijf voor opslag** | Toegewezen grootte van een schijf moet 4 TB (4096 GB) of minder.<br/><br/> Het aantal schijven die zijn gekoppeld aan de machine moet 65 of minder, met inbegrip van de besturingssysteemschijf. | Niet gereed als een schijf groter dan 4 TB, of is als er meer dan 65 schijven die zijn gekoppeld aan de machine zijn.
+**Netwerken** | Een virtuele machine moet 32 of minder NIC's die zijn gekoppeld aan deze. | Niet gereed is als de computer meer dan 32 NIC's heeft
 
-### <a name="guest-operating-system"></a>Gastbesturingssysteem
-Samen met VM-eigenschappen Azure migreren ook gekeken naar het gastbesturingssysteem van de lokale virtuele machine om te bepalen of de virtuele machine kan worden uitgevoerd op Azure.
+### <a name="guest-operating-system"></a>Gast-besturingssysteem
+Samen met VM-eigenschappen, Azure Migrate ook gekeken naar het gastbesturingssysteem van de on-premises virtuele machine om te identificeren als de virtuele machine op Azure uitvoeren kunt.
 
 > [!NOTE]
-> Azure migreren houdt rekening met het besturingssysteem die is opgegeven in vCenter Server kan de volgende analyse uitvoeren. Omdat de detectie uitgevoerd door Azure migreren op basis van het toestel is, heeft een manier om te controleren of het besturingssysteem in de virtuele machine hetzelfde als de één opgegeven in de vCenter-Server is niet meer.
+> Azure Migrate rekening gehouden met het besturingssysteem die is opgegeven in de vCenter-Server de volgende analyse. Omdat de detectie die wordt uitgevoerd door Azure Migrate op basis van een apparaat, heeft het geen een manier om te controleren of het besturingssysteem die worden uitgevoerd binnen de virtuele machine hetzelfde als het een opgegeven in VMware vCenter Server is.
 
-De volgende logica wordt gebruikt door Azure migreren om te identificeren van de Azure gereedheid van de virtuele machine op basis van het besturingssysteem.
+De volgende logica wordt gebruikt door Azure Migrate voor het identificeren van de Azure-gereedheid van de virtuele machine op basis van het besturingssysteem.
 
-**Besturingssysteem** | **Details** | **Gereedheidsstatus van Azure**
+**Besturingssysteem** | **Details** | **Status van de Azure-gereedheid**
 --- | --- | ---
-Windows Server 2016 & alle SP 's | Azure biedt volledige ondersteuning. | Gereed voor Azure
-Windows Server 2012 R2 & alle SP 's | Azure biedt volledige ondersteuning. | Gereed voor Azure
+Windows Server 2016 en alle SP 's | Azure biedt volledige ondersteuning. | Gereed voor Azure
+Windows Server 2012 R2 en alle SP 's | Azure biedt volledige ondersteuning. | Gereed voor Azure
 Windows Server 2012 & alle SP 's | Azure biedt volledige ondersteuning. | Gereed voor Azure
 Windows Server 2008 R2 met alle SP 's | Azure biedt volledige ondersteuning.| Gereed voor Azure
-Windows Server 2003-2008 R2 | Deze besturingssystemen zijn geslaagd voor hun einde van ondersteuning voor de datum en het moet een [aangepaste ondersteunen overeenkomst (CSA)](https://aka.ms/WSosstatement) voor ondersteuning in Azure. | Voorwaardelijk klaar te maken voor Azure, moet u een upgrade van het besturingssysteem vóór de migratie naar Azure.
-Windows 2000, 98, 95 NT 3.1, MS-DOS | Het einde van ondersteuning datum zijn geslaagd voor deze besturingssystemen, de machine kan worden opgestart in Azure, maar er is geen ondersteuning van het besturingssysteem wordt verstrekt door Azure. | Voorwaardelijk klaar voor Azure, verdient het besturingssysteem bijwerken voordat u migreert naar Azure.
+Windows Server 2003-2008 | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor de datum en het moet een [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) voor ondersteuning in Azure. | Voorwaardelijk gereed voor Azure, kunt u het besturingssysteem te upgraden voordat u migreert naar Azure.
+Windows 2000, 98, 95, NT, 3.1, MS-DOS | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor datum, mogelijk op de machine te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het is raadzaam het besturingssysteem upgraden voordat u migreert naar Azure.
 Client voor Windows 7, 8 en 10 | Azure biedt ondersteuning voor Visual Studio-abonnement. | Voorwaardelijk gereed voor Azure
-Windows Vista, XP Professional | Het einde van ondersteuning datum zijn geslaagd voor deze besturingssystemen, de machine kan worden opgestart in Azure, maar er is geen ondersteuning van het besturingssysteem wordt verstrekt door Azure. | Voorwaardelijk klaar voor Azure, verdient het besturingssysteem bijwerken voordat u migreert naar Azure.
-Linux | Azure onderschrijft deze [Linux-besturingssystemen](../virtual-machines/linux/endorsed-distros.md). Andere Linux-besturingssystemen kunnen worden opgestart in Azure, maar het is raadzaam het besturingssysteem bijwerkt naar een aangebracht versie voordat u migreert naar Azure. | Gereed voor Azure als de versie is goedgekeurd.<br/><br/>Voorwaardelijk klaar te maken als de versie niet is goedgekeurd.
-Andere besturingssystemen<br/><br/> bijvoorbeeld, Oracle Solaris, Apple Mac OS enz., FreeBSD, enzovoort. | Azure biedt deze besturingssystemen niet goedkeuren. De machine kan worden opgestart in Azure, maar er is geen ondersteuning van het besturingssysteem wordt verstrekt door Azure. | Voorwaardelijk klaar voor Azure, het is raadzaam een ondersteund besturingssysteem installeren voordat u migreert naar Azure.  
-OS opgegeven als *andere* in vCenter-Server | Het besturingssysteem identificeren in dit geval niet in Azure migreren. | Onbekende gereedheid. Zorg ervoor dat het besturingssysteem in de virtuele machine in Azure wordt ondersteund.
-32-bits besturingssystemen. | De machine kan worden opgestart in Azure, maar Azure kan geen volledige ondersteuning bieden. | Voorwaardelijk klaar te maken voor Azure, overweeg dan het besturingssysteem van de machine met 32-bits besturingssysteem upgraden naar de 64-bits besturingssysteem voordat u migreert naar Azure.
+Windows Vista, XP Professional | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor datum, mogelijk op de machine te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het is raadzaam het besturingssysteem upgraden voordat u migreert naar Azure.
+Linux | Azure ondersteunt deze [Linux-besturingssystemen](../virtual-machines/linux/endorsed-distros.md). Andere Linux-besturingssystemen mogelijk op te starten in Azure, maar het is raadzaam het besturingssysteem upgraden naar een onderschreven versie voordat u migreert naar Azure. | Gereed voor Azure als de versie is goedgekeurd.<br/><br/>Voorwaardelijk Gereed als de versie niet is goedgekeurd.
+Andere besturingssystemen<br/><br/> bijv, Oracle Solaris, Apple Mac OS enz., toegang tot FreeBSD, enzovoort. | Azure biedt geen enkele aanbeveling voor deze besturingssystemen. De computer mogelijk op te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het wordt aanbevolen voor het installeren van een ondersteund besturingssysteem voordat u migreert naar Azure.  
+Besturingssysteem opgegeven als *andere* in vCenter-Server | Azure Migrate identificeren in dit geval het besturingssysteem niet. | Gereedheid onbekend. Zorg ervoor dat het besturingssysteem die worden uitgevoerd binnen de virtuele machine in Azure wordt ondersteund.
+32-bits besturingssystemen | De computer mogelijk op te starten in Azure, maar Azure bieden volledige ondersteuning mogelijk niet. | Voorwaardelijk gereed voor Azure, kunt u een upgrade van het besturingssysteem van de machine van 32-bits besturingssystemen op 64-bits besturingssysteem voordat u migreert naar Azure.
 
 ## <a name="sizing"></a>Grootte aanpassen
 
-Nadat een machine is gemarkeerd als gereed voor Azure, Azure migreren de grootte van de virtuele machine en de schijven voor Azure. Als het criterium sizing is opgegeven in de eigenschappen van de assessment doen formaat op basis van prestaties, beschouwt Azure migreren de prestatiegeschiedenis van de machine om de VM-grootte en de schijf type in Azure te identificeren. Deze methode is nuttig in scenario's waarin u de lokale virtuele machine te veel hebt toegewezen, maar het gebruik van de laag is en u wilt het juiste formaat de virtuele machines in Azure om op te slaan kosten.
+Nadat een virtuele machine is gemarkeerd als gereed voor Azure, Azure Migrate de grootte van de virtuele machine en de schijven voor Azure. Als het criterium voor het opgegeven in de evaluatie-eigenschappen instellen op prestaties gebaseerde groottebepaling te doen, Azure Migrate rekening gehouden met de prestatiegeschiedenis van de machine om te identificeren van de VM-grootte en de schijf type in Azure. Deze methode is handig in scenario's waarbij u de on-premises VM te veel hebt toegewezen, maar het gebruik van de laag is en u wilt de juiste grootte de virtuele machines in Azure om kosten te besparen.
 
 > [!NOTE]
-> Azure migreren verzamelt prestatiegeschiedenis van de lokale virtuele machines van de vCenter-Server. Zorg ervoor dat de instelling van de statistieken in vCenter-Server is ingesteld op niveau 3 zodat het juiste formaat nauwkeurige en wachten op ten minste een dag voor bij de detectie van de lokale virtuele machines start. Als de instelling van de statistieken in vCenter Server lager niveau 3 is, worden prestatiegegevens voor de schijf en netwerk is niet verzameld.
+> Azure Migrate verzamelt de prestatiegeschiedenis van on-premises virtuele machines van vCenter-Server. Om ervoor te zorgen nauwkeurige juiste groottebepaling, zorg ervoor dat de instelling voor statistieken in vCenter-Server is ingesteld op niveau 3 en wacht ten minste een dag voor de detectie van de on-premises machines begon. Als de instelling voor statistieken in vCenter Server lager dan niveau 3 is, wordt de prestatiegegevens voor schijven en het netwerk niet verzameld.
 
-Als u niet wilt rekening met de prestatiegeschiedenis van de voor VM-grootte en wilt worden van de virtuele machine als-is naar Azure, kunt u het criterium sizing als *als lokale* en Azure migreren wordt vervolgens het formaat van de virtuele machines op basis van de on-premises configuratie zonder rekening te houden de gebruiksgegevens. Formaat van schijf, in dit geval wordt uitgevoerd op basis van het type opslag dat u in de eigenschappen van de assessment (schijf Standard of Premium schijf opgeeft)
+Als u niet wilt Houd rekening met de geschiedenis van geheugenprestaties voor VM-grootte en de virtuele machine als wilt-is naar Azure, kunt u het criterium voor het instellen als *zoals on-premises* en Azure Migrate wordt vervolgens het formaat van de virtuele machines op basis van de on-premises configuratie zonder rekening te houden de gegevens over het gebruik. Schijf grootte, in dit geval wordt uitgevoerd op basis van het type opslag dat u in de evaluatie-eigenschappen (Standard disk of Premium-schijf opgeeft)
 
-### <a name="performance-based-sizing"></a>Formaat op basis van prestaties
+### <a name="performance-based-sizing"></a>Prestatie gebaseerde schaling
 
-Migreren van Azure begint met de schijven die zijn gekoppeld aan de virtuele machine, gevolgd door netwerkadapters voor schaling op basis van prestaties en vervolgens maps een Azure VM op basis van de compute-vereisten van de lokale virtuele machine.
+Azure Migrate begint met de schijven die zijn gekoppeld aan de virtuele machine, gevolgd door de netwerkadapters voor prestatie gebaseerde schaling, en vervolgens maps een Azure-VM op basis van de compute-vereisten van de on-premises VM.
 
-- **Opslag**: Azure migreren probeert te koppelen van elke schijf die is gekoppeld aan de machine naar een schijf in Azure.
+- **Opslag**: Azure Migrate probeert toe te wijzen van elke schijf die is gekoppeld aan de machine naar een schijf in Azure.
 
     > [!NOTE]
-    > Azure migreren ondersteunt alleen beheerde schijven voor evaluatie.
+    > Azure Migrate ondersteunt alleen beheerde schijven voor de beoordeling.
 
-    - Azure migreren vermenigvuldigen om de effectieve schijf-i/o per seconde (IOPS) en doorvoer (MBps), de schijf-IOPS en de doorvoer met de factor comfort. Op basis van de effectieve IOP's en -waarden van doorvoer, identificeert Azure migreren als de schijf moet worden toegewezen aan een standard- of premium-schijf in Azure.
-    - Als Azure migreren, een schijf met de vereiste IOPS & doorvoer vinden kan, wordt de computer als ongeschikt zijn gemarkeerd voor Azure. [Meer informatie](../azure-subscription-service-limits.md#storage-limits) over Azure beperkt per schijf en de VM.
-    - Als het een set geschikte schijven gevonden, selecteert Azure migreren degene die ondersteuning bieden voor de opslag redundantie methode en de locatie die is opgegeven in de instellingen van de assessment.
-    - Als er meerdere schijven voor in aanmerking komt, wordt deze met de laagste kosten geselecteerd.
-    - Als u prestatiegegevens voor de schijven in niet beschikbaar is, alle schijven zijn toegewezen aan standaardschijven in Azure.
+    - Als u de effectieve schijf i/o's per seconde (IOPS) en doorvoer (MBps), vermenigvuldigt Azure Migrate de schijf-IOPS en de doorvoer met de comfortfactor. Op basis van de effectieve IOPS en doorvoer waarden, Azure Migrate wordt geïdentificeerd als de schijf moet worden toegewezen aan een standard- of premium-schijf in Azure.
+    - Als Azure Migrate, een schijf met de vereiste IOPS en doorvoer vinden kan, wordt de machine als ongeschikt zijn gemarkeerd voor Azure. [Meer informatie](../azure-subscription-service-limits.md#storage-limits) over Azure-limieten per schijf en de VM.
+    - Als er een set met geschikte schijven gevonden, Azure Migrate die ondersteuning bieden voor welke opslagmethode voor redundantie en de locatie die is opgegeven in de instellingen voor evaluatie van geselecteerd.
+    - Als er meerdere in aanmerking komende schijven, selecteert u de categorie met de laagste kosten.
+    - Als u prestatiegegevens voor schijven niet beschikbaar is, alle schijven zijn toegewezen aan standard-schijven in Azure.
 
-- **Netwerk**: Azure migreren gezocht naar een virtuele machine van Azure die ondersteuning voor het aantal netwerkadapters die zijn gekoppeld aan de lokale machine en de prestaties vereist zijn voor deze netwerkadapters biedt.
-    - Als u de effectieve netwerkervaring voor prestaties van de lokale virtuele machine, migreren van Azure maakt een aggregatie van de gegevens verzonden per seconde (MBps) buiten de machine (netwerk), op alle netwerkadapters en de factor comfort past. Dit nummer wordt gebruikt voor het vinden van een virtuele machine van Azure die ondersteuning voor de vereiste netwerkprestaties biedt.
-    - Samen met de netwerkprestaties, het ook acht als de virtuele machine van Azure ondersteuning voor de vereiste bieden kunnen het aantal netwerkadapters.
-    - Als geen prestatiegegevens netwerk beschikbaar is, kan alleen met het aantal netwerkadapters wordt beschouwd als voor VM-grootte.
+- **Netwerk**: Azure Migrate gezocht naar een Azure-VM die ondersteuning voor het aantal netwerkadapters die zijn gekoppeld aan de on-premises computer en de prestaties die zijn vereist voor deze netwerkadapters bieden.
+    - Als u de effectieve netwerkprestaties van de on-premises VM, Azure Migrate combineert de gegevens verzonden per seconde (MBps) buiten de machine (netwerk), op alle netwerkadapters en de comfortfactor is van toepassing. Dit nummer wordt gebruikt om een virtuele machine van Azure die ondersteuning voor de vereiste netwerkprestaties bieden vinden.
+    - Samen met de prestaties van het netwerk, er ook rekening gehouden of de virtuele machine in Azure de vereiste ondersteunen het aantal netwerkadapters.
+    - Als er geen prestatiegegevens netwerk beschikbaar is, kunnen alleen met het aantal netwerkadapters wordt beschouwd als de grootte van de virtuele machine instelt.
 
-- **COMPUTE**: nadat de vereisten voor appopslag en netwerk worden berekend, Azure migreren beschouwt CPU en geheugen vereisten voor het zoeken van een geschikte VM-grootte in Azure.
-    - Azure migreren wordt gekeken naar de gebruikte kernen en het geheugen en de factor comfort om de effectieve kernen en het geheugen past. Op basis van dit nummer, wordt geprobeerd een geschikte VM-grootte niet vinden in Azure.
+- **COMPUTE**: nadat de vereisten voor appopslag en netwerken worden berekend, Azure Migrate acht CPU en geheugen vereisten voor het vinden van een geschikte grootte voor de virtuele machine in Azure.
+    - Azure Migrate gekeken naar de gebruikte kernen en het geheugen en past de comfortfactor om op te halen van de effectieve kernen en geheugen. Op basis van dit getal, probeert het vinden van een geschikte grootte voor de virtuele machine in Azure.
     - Als er geen geschikte grootte wordt gevonden, wordt de machine gemarkeerd als niet geschikt voor Azure.
-    - Als een geschikte grootte wordt gevonden, Azure migreren is van toepassing de berekeningen voor opslag en netwerken. Deze locatie en prijzen van laag-instellingen voor de laatste aanbeveling voor VM-grootte is van toepassing.
+    - Als een geschikte grootte wordt gevonden, Azure Migrate is van toepassing de berekeningen van opslag en netwerken. Vervolgens wordt toegepast locatie en de instellingen, voor de uiteindelijke aanbeveling voor VM-grootte van de prijscategorie.
     - Als er meer Azure VM-grootten in aanmerking komen, wordt de grootte met de laagste kosten aanbevolen.
 
-### <a name="as-on-premises-sizing"></a>Als de lokale formaat wijzigen
-Als het criterium sizing *als lokale sizing*, Azure migreren houdt geen rekening met de prestatiegeschiedenis van de virtuele machines en de schijven en wijst u een VM-SKU in Azure op basis van de lokale toegewezen grootte. Op dezelfde manier voor het formaat van de schijf het kijkt naar de opslag-type dat is opgegeven in de eigenschappen van de assessment (standaard/Premium) en raadt het schijftype dienovereenkomstig aan. Standaard-opslagtype is Premium-schijven.
+### <a name="as-on-premises-sizing"></a>Zoals on-premises formaat wijzigen
+Als het criterium voor groottebepaling *zoals on-premises '*, Azure Migrate houdt geen rekening met de prestatiegeschiedenis van de virtuele machines en schijven en een VM-SKU in Azure op basis van de on-premises toegewezen grootte kan worden toegewezen. Op dezelfde manier voor grootte van de schijf, het kijkt naar het Storage-type dat is opgegeven in de evaluatie-eigenschappen (Standard/Premium) en raadt het schijftype dienovereenkomstig aan. Opslagtype standaard is de Premium-schijven.
 
 ### <a name="confidence-rating"></a>Betrouwbaarheidsclassificatie
 
@@ -128,16 +128,16 @@ Het kan voorkomen dat niet alle gegevenspunten beschikbaar zijn voor een evaluat
 > [!NOTE]
 > Als de betrouwbaarheidsclassificatie van een evaluatie lager dan 4 sterren is, raden we u aan om de instelling voor statistieken in vCenter Server op 3 te zetten, te wachten gedurende de periode waarover u de evaluatie wilt uitvoeren (1 dag/1 week/1 maand) en vervolgens een detectie en evaluatie uit te voeren. Als de voorgaande stappen niet kunnen worden uitgevoerd, wordt de grootte mogelijk niet op betrouwbare wijze ingesteld. In dat geval doet u er verstandig aan over te schakelen naar *instelling van de grootte op basis van 'zoals on-premises'* door de evaluatie-eigenschappen te wijzigen.
 
-## <a name="monthly-cost-estimation"></a>Maandelijkse kosten schatting
+## <a name="monthly-cost-estimation"></a>Schatting van de maandelijkse kosten
 
-Nadat sizing aanbevelingen voltooid zijn, berekend Azure migreren na de migratie berekenings- en kosten.
+Nadat het formaat aanbevelingen zijn voltooid, berekent Azure Migrate na de migratie berekenings- en opslagkosten.
 
-- **COMPUTE-kosten**: de API van de facturering voor het berekenen van de maandelijkse kosten voor de virtuele machine met behulp van de aanbevolen grootte van de virtuele machine in Azure, Azure migreren gebruikt. De berekening wordt het besturingssysteem, software assurance, gereserveerde exemplaren, VM bedrijfstijd, locatie en valuta-instellingen rekening. Deze cumuleert de kosten van alle machines, voor het berekenen van de totale maandelijkse compute-kosten.
-- **Opslagkosten**: de maandelijkse opslag kosten voor een machine wordt berekend door het samenvoegen van de maandelijkse kosten van alle schijven die zijn gekoppeld aan de machine. De totale maandelijkse opslagkosten berekend Azure migreren door de kosten voor opslag van alle machines samen te voegen. De berekening niet op dit moment aanbiedingen die zijn opgegeven in de instellingen voor evaluatie in aanmerking genomen.
+- **COMPUTE-kosten**: de API van de facturering voor het berekenen van de maandelijkse kosten voor de virtuele machine met behulp van de aanbevolen grootte van de virtuele machine van Azure, Azure Migrate gebruikt. De berekening wordt het besturingssysteem, software assurance, gereserveerde instanties, VM uptime, locatie en valuta-instellingen rekening. Worden de kosten voor alle machines, voor het berekenen van de totale maandelijkse kosten.
+- **Opslagkosten**: de maandelijkse opslagkosten voor een virtuele machine wordt berekend door samenvoeging van de maandelijkse kosten van alle schijven die zijn gekoppeld aan de machine. Azure Migrate berekent de totale maandelijkse kosten voor opslag door samenvoeging van de kosten voor opslag van alle machines. De berekening nemen niet op dit moment biedt die zijn opgegeven in de instellingen voor evaluatie van in aanmerking.
 
-Kosten worden weergegeven in de opgegeven in de instellingen voor beoordeling valuta.
+Kosten worden weergegeven in de valuta die is opgegeven in de instellingen voor evaluatie.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Maken van een beoordeling voor lokale virtuele VMware-machines](tutorial-assessment-vmware.md)
+[Een evaluatie maken voor on-premises VMware-machines](tutorial-assessment-vmware.md)

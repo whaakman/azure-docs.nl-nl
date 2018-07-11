@@ -1,6 +1,6 @@
 ---
-title: Starten en stoppen van de Azure-Stack | Microsoft Docs
-description: Informatie over het starten en Azure Stack afgesloten.
+title: Starten en stoppen van de Azure Stack | Microsoft Docs
+description: Informatie over het starten en afsluiten van Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,59 +15,62 @@ ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31391130"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930287"
 ---
-# <a name="start-and-stop-azure-stack"></a>Starten en stoppen van de Azure-Stack
-Volg de procedures in dit artikel voor het correct afsluiten en opnieuw opstarten van de Stack van het Azure-services. 
+# <a name="start-and-stop-azure-stack"></a>Starten en stoppen van de Azure Stack
+U moet de procedures in dit artikel voor het correct afsluiten en opnieuw opstarten van Azure Stack-services. Afsluiten wordt fysiek uit de gehele Azure Stack-omgeving aansturen. Opstarten bevoegdheden op alle functies van de infrastructuur en tenantresources stuurt naar de energiestatus die in het geval vóór afsluiten was.
 
 ## <a name="stop-azure-stack"></a>Azure Stack stoppen 
 
-Azure-Stack afsluiten met de volgende stappen:
+Azure Stack afgesloten met de volgende stappen uit:
 
-1. Open een bevoorrechte eindpunt sessie (PEP) van een computer met toegang tot het netwerk naar de Azure-Stack ERCS VM's. Zie voor instructies [met behulp van de bevoegde eindpunt in Azure-Stack](azure-stack-privileged-endpoint.md).
+1. Alle workloads die worden uitgevoerd op een van de omgeving van uw Azure Stack-tenantresources voor het afsluiten van de toekomstige voorbereiden. 
 
-2. Voer het volgende uit de PEP:
+2. Open een bevoegde eindpunt sessie (PEP) van een computer met toegang tot het netwerk naar de Azure Stack ERCS VM's. Zie voor instructies [met behulp van het eindpunt van de bevoegde in Azure Stack](azure-stack-privileged-endpoint.md).
+
+3. Uit de PEP uitvoeren:
 
     ```powershell
       Stop-AzureStack
     ```
 
-3. Wachten op alle fysieke knooppunten voor Azure-Stack tot macht uitschakelen.
+4. Wachten op alle fysieke Azure Stack-knooppunten te power uitschakelen.
 
 > [!Note]  
-> U kunt de energiestatus van een fysiek knooppunt controleren door de instructies van de Original Equipment Manufacturer (OEM) die uw Azure-Stack hardware opgegeven. 
+> U kunt de status van een fysiek knooppunt controleren door de instructies van de Original Equipment Manufacturer (OEM) die uw Azure Stack-hardware opgegeven. 
 
 ## <a name="start-azure-stack"></a>Start Azure Stack 
 
-Azure-Stack beginnen met de volgende stappen uit. Volg deze stappen, ongeacht hoe Azure-Stack is gestopt.
+Azure Stack beginnen met de volgende stappen uit. Volg deze stappen, ongeacht hoe Azure Stack is gestopt.
 
-1. Schakel op alle fysieke knooppunten in uw Azure-Stack-omgeving. Controleer of u de instructies voor de fysieke knooppunten inschakelen door de instructies van de Original Equipment Manufacturer (OEM) die de hardware voor uw Azure-Stack opgegeven.
+1. Inschakelen van elk van de fysieke knooppunten in uw Azure Stack-omgeving. Controleer of u de kracht van instructies voor de fysieke knooppunten door de instructies van de Original Equipment Manufacturer (OEM) die de hardware voor uw Azure Stack opgegeven.
 
-2. Wacht totdat de Stack van Azure-infrastructuurservices wordt gestart. Azure Stack-infrastructuurservices kunnen vereisen twee uur aan het beginproces is voltooid. U kunt controleren of de status van de start van Azure-Stack met de [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
+2. Wacht totdat de infrastructuurservices van Azure Stack wordt gestart. Azure Stack-infrastructuur-services kunnen vereisen dat twee uur aan het beginproces is voltooid. U kunt controleren of de begin-status van Azure Stack met de [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
 
+3. Zorg ervoor dat al uw tenantresources weer terug bent op de status die in het geval vóór afsluiten was. Workloads die worden uitgevoerd op tenantbronnen moet mogelijk opnieuw na het opstarten worden geconfigureerd door de manager van de werkbelasting.
 
-## <a name="get-the-startup-status-for-azure-stack"></a>Status ophalen voor het starten van de voor Azure-Stack
+## <a name="get-the-startup-status-for-azure-stack"></a>De status gestart ophalen voor Azure Stack
 
-Haal het opstarten van de voor de Azure-Stack Opstartroutine met de volgende stappen:
+Haal het opstarten van de voor de routine voor het opstarten van Azure Stack met de volgende stappen uit:
 
-1. Open een bevoorrechte Endpoint-sessie van een computer met toegang tot het netwerk naar de Azure-Stack ERCS VM's.
+1. Een bevoegde Endpoint-sessie openen van een computer met toegang tot het netwerk naar de Azure Stack ERCS VM's.
 
-2. Voer het volgende uit de PEP:
+2. Uit de PEP uitvoeren:
 
     ```powershell
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Problemen met opstarten en afsluiten van de Azure-Stack
+## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Problemen oplossen met opstarten en afsluiten van Azure Stack
 
-De volgende stappen uitvoeren als de infrastructuur en tenant-services niet 2 uur nadat u power van uw Azure-Stack-omgeving starten. 
+Voer de volgende stappen uit als de infrastructuur en tenant-services niet is 2 uur nadat u stroom wordt gestart op uw Azure Stack-omgeving. 
 
-1. Open een bevoorrechte Endpoint-sessie van een computer met toegang tot het netwerk naar de Azure-Stack ERCS VM's.
+1. Een bevoegde Endpoint-sessie openen van een computer met toegang tot het netwerk naar de Azure Stack ERCS VM's.
 
 2. Uitvoeren: 
 
@@ -75,7 +78,7 @@ De volgende stappen uitvoeren als de infrastructuur en tenant-services niet 2 uu
       Test-AzureStack
       ```
 
-3. Controleer de uitvoer en los eventuele fouten health. Zie voor meer informatie [uitvoeren van een validatietest van Azure-Stack](azure-stack-diagnostic-test.md).
+3. Controleer de uitvoer en los eventuele statusfouten. Zie voor meer informatie, [uitvoeren van een validatietest van Azure Stack](azure-stack-diagnostic-test.md).
 
 4. Uitvoeren:
 
@@ -83,8 +86,8 @@ De volgende stappen uitvoeren als de infrastructuur en tenant-services niet 2 uu
       Start-AzureStack
     ```
 
-5. Als met **Start AzureStack** resulteert in een fout, neem contact op met de klantondersteuning van Microsoft voor Services. 
+5. Als met **Start AzureStack** resulteert in een storing optreedt, neem contact op met de klantondersteuning van Microsoft voor Services. 
 
 ## <a name="next-steps"></a>Volgende stappen 
 
-Meer informatie over Azure-Stack diagnostische hulpprogramma en uitgeven van logboekregistratie, Zie [diagnostische hulpprogramma's voor een Azure-Stack](azure-stack-diagnostics.md).
+Meer informatie over het diagnostisch hulpprogramma voor Azure Stack en uitgeven van logboekregistratie, Zie [diagnostische hulpprogramma's voor Azure Stack](azure-stack-diagnostics.md).

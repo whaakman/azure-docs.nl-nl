@@ -1,9 +1,9 @@
 ---
 title: Schijven op een Windows-VM in Azure versleutelen | Microsoft Docs
-description: Het coderen van virtuele schijven op een virtuele machine van Windows voor een betere beveiliging met Azure PowerShell
+description: Versleutelen van virtuele schijven op een Windows-VM voor verbeterde beveiliging met Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,62 +14,62 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/07/2018
-ms.author: iainfou
-ms.openlocfilehash: 442ff942150af8a8dec89164fbc017a9e6f360e8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: cynthn
+ms.openlocfilehash: 9d8e868eb11e45a01b3992022b729369da6b42e4
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603739"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931487"
 ---
-# <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Het coderen van virtuele schijven op een virtuele machine van Windows
-Voor de uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven in Azure worden versleuteld. Schijven worden versleuteld met behulp van de cryptografische sleutels die worden beveiligd in een Azure Sleutelkluis. U kunt het gebruik ervan controleren en beheren van deze cryptografische sleutels. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Windows-VM met Azure PowerShell. U kunt ook [versleutelen van een Linux-VM met de Azure CLI 2.0](../linux/encrypt-disks.md).
+# <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Virtuele schijven op een Windows-VM versleutelen
+Voor uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven in Azure worden versleuteld. Schijven worden versleuteld met behulp van cryptografische sleutels die worden beveiligd in een Azure Key Vault. U bepaalt deze cryptografische sleutels en het gebruik ervan kunt controleren. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Windows-VM met behulp van Azure PowerShell. U kunt ook [versleutelen van een Linux-VM met de Azure CLI 2.0](../linux/encrypt-disks.md).
 
 ## <a name="overview-of-disk-encryption"></a>Overzicht van schijfversleuteling
-Virtuele schijven op Windows-VM's zijn versleuteld in rust met Bitlocker. Er zijn geen kosten voor het versleutelen van virtuele schijven in Azure. Cryptografische sleutels worden opgeslagen in Azure Key Vault met software-beveiliging, of u kunt importeren of genereren van uw sleutels in Hardware Security Modules (HSM's) die is gecertificeerd voor FIPS 140-2 level 2-standaarden. Deze cryptografische sleutels worden gebruikt voor het versleutelen en ontsleutelen van virtuele schijven gekoppeld aan uw virtuele machine. U beheer behouden over deze cryptografische sleutels en het gebruik ervan kunt controleren. Een Azure Active Directory service-principal biedt een veilige mechanisme voor het uitgeven van deze cryptografische sleutels als virtuele machines van stroom in- of uitschakelen voorzien worden.
+Virtuele schijven op Windows-VM's worden in rust versleuteld met Bitlocker. Er zijn geen kosten voor het versleutelen van virtuele schijven in Azure. Cryptografische sleutels worden opgeslagen in Azure Key Vault met behulp van software-beveiliging, of u kunt importeren of genereer uw sleutels in Hardware Security Modules (HSM's) gecertificeerd voor FIPS 140-2 level 2 standaarden. Deze cryptografische sleutels worden gebruikt voor het versleutelen en ontsleutelen van virtuele schijven die zijn gekoppeld aan uw virtuele machine. U behoudt de controle van deze cryptografische sleutels en het gebruik ervan kunt controleren. Een Azure Active Directory service-principal biedt een veilige mechanisme voor het uitgeven van deze cryptografische sleutels als VM's worden aangestuurd in of uit.
 
 Het proces voor het versleutelen van een virtuele machine is als volgt:
 
-1. Maak een cryptografische sleutel in een Azure Sleutelkluis.
+1. Maak een cryptografische sleutel in een Azure Key Vault.
 2. Configureer de cryptografische sleutel om te worden gebruikt voor het versleutelen van schijven.
-3. De cryptografische sleutel om uit te lezen Azure Sleutelkluis, maak een Azure Active Directory service principal met de juiste machtigingen.
-4. Geef de opdracht voor het versleutelen van uw virtuele schijven, opgeven van de Azure Active Directory service principal en de juiste cryptografische sleutel moet worden gebruikt.
-5. De Azure Active Directory-service-principal vraagt de cryptografiesleutel van de vereiste van Azure Sleutelkluis.
+3. Als u wilt lezen de cryptografische sleutel uit de Azure Key Vault, een Azure Active Directory-service-principal maken met de juiste machtigingen.
+4. De opdracht voor het versleutelen van de virtuele schijven, het opgeven van de Azure Active Directory service principal en de juiste cryptografische sleutel moet worden gebruikt.
+5. De service-principal voor Azure Active Directory vraagt de cryptografiesleutel van de vereiste van Azure Key Vault.
 6. De virtuele schijven worden versleuteld met behulp van de cryptografiesleutel van de opgegeven.
 
 ## <a name="encryption-process"></a>Versleutelingsproces
 Schijfversleuteling is afhankelijk van de volgende extra onderdelen:
 
-* **Azure Sleutelkluis** : wordt gebruikt ter bescherming van de cryptografische sleutels en geheimen gebruikt voor het proces van de codering/decodering schijf. 
-  * Als dit bestaat, kunt u een bestaande Azure Sleutelkluis. U hoeft niet te reserveren van een Sleutelkluis voor het versleutelen van schijven.
-  * Afzonderlijke administratieve grenzen en sleutel zichtbaarheid, kunt u een speciale Sleutelkluis.
-* **Azure Active Directory** -het veilig uitwisselen van vereiste cryptografische sleutels en verificatie voor de aangevraagde acties worden verwerkt. 
-  * Doorgaans kunt u een bestaand Azure Active Directory-exemplaar waarin de toepassing.
-  * De service-principal biedt een veilige mechanisme om te vragen en de juiste cryptografische sleutels worden uitgegeven. U ontwikkelt een werkelijke toepassing die is geïntegreerd met Azure Active Directory niet.
+* **Azure Key Vault** : wordt gebruikt om cryptografische sleutels en geheimen die worden gebruikt voor het proces van de versleuteling/ontsleuteling schijf te beveiligen. 
+  * Als er een bestaat, kunt u een bestaande Azure Key Vault. U hoeft niet te reserveren van een Key Vault voor het versleutelen van schijven.
+  * Afzonderlijke administratieve grenzen en de zichtbaarheid van de sleutel, kunt u een toegewezen Sleutelkluis maken.
+* **Azure Active Directory** -het veilig uitwisselen van vereiste cryptografische sleutels en de verificatiegegevens voor de aangevraagde acties worden verwerkt. 
+  * Doorgaans kunt u een bestaand Azure Active Directory-exemplaar waarin uw toepassing.
+  * De service-principal biedt een veilige mechanisme voor het aanvragen en de juiste cryptografische sleutels worden uitgegeven. U niet een werkelijke toepassing ontwikkelt die kan worden geïntegreerd met Azure Active Directory.
 
 ## <a name="requirements-and-limitations"></a>Vereisten en beperkingen
-Ondersteunde scenario's en vereisten voor de schijfversleuteling:
+Ondersteunde scenario's en vereisten voor versleuteling van schijf:
 
-* Inschakelen van versleuteling op nieuwe Windows VM's van Azure Marketplace-installatiekopieën of aangepaste VHD-installatiekopie.
-* Inschakelen van versleuteling op bestaande Windows virtuele machines in Azure.
-* Inschakelen van versleuteling op Windows-virtuele machines die zijn geconfigureerd met behulp van opslagruimten.
-* Het uitschakelen van versleuteling op besturingssysteem en stations voor VM's van Windows.
-* Alle resources (zoals Sleutelkluis, een opslagaccount en een VM) moeten zich in dezelfde Azure-regio en abonnement.
-* Standard-laag VM's, zoals een, D, DS, G en GS-serie virtuele machines.
+* Inschakelen van versleuteling op nieuwe Windows-VM's van Azure Marketplace-installatiekopieën of aangepaste VHD-installatiekopie.
+* Inschakelen van versleuteling op bestaande Windows-VM's in Azure.
+* Inschakelen van versleuteling op Windows-VM's die zijn geconfigureerd met behulp van opslagruimten.
+* Uitschakelen van versleuteling op besturingssysteem en schijven voor Windows-VM's.
+* Alle resources (zoals Key Vault, een Storage-account en een virtuele machine) moeten zich in dezelfde Azure-regio en -abonnement.
+* Standard-laag virtuele machines, zoals een, D, DS, G en GS-serie VM's.
 
-Schijfversleuteling is momenteel niet ondersteund in de volgende scenario's:
+Schijfversleuteling wordt momenteel niet ondersteund in de volgende scenario's:
 
-* Basisstaffel virtuele machines.
-* Virtuele machines gemaakt met behulp van het klassieke implementatiemodel.
+* Basic-laag virtuele machines.
+* Virtuele machines die zijn gemaakt met het klassieke implementatiemodel.
 * Bijwerken van de cryptografische sleutels op een VM al is versleuteld.
-* Integratie met on-premises-Service voor sleutelbeheer.
+* Integratie met on-premises Key Managementservice.
 
-## <a name="create-azure-key-vault-and-keys"></a>Azure Sleutelkluis en de sleutels maken
-Voor u begint, moet u ervoor zorgen dat de nieuwste versie van de Azure PowerShell-module is geïnstalleerd. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie. In de opdrachtvoorbeelden vervangen door alle voorbeeldparameters uw eigen namen, locatie en sleutelwaarden. Een conventie voor gebruik van de volgende voorbeelden *myResourceGroup*, *myKeyVault*, *myVM*, enzovoort.
+## <a name="create-azure-key-vault-and-keys"></a>Azure Key Vault en sleutels maken
+Voor u begint, moet u ervoor zorgen dat de nieuwste versie van de Azure PowerShell-module is geïnstalleerd. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie. Vervang in de opdrachtvoorbeelden is de alle voorbeeldparameters met uw eigen namen, locatie en sleutelwaarden die zijn. De volgende voorbeelden gebruiken een conventie *myResourceGroup*, *myKeyVault*, *myVM*, enzovoort.
 
-De eerste stap is het maken van een Azure Key Vault voor het opslaan van uw cryptografische sleutels. Azure Sleutelkluis kunt opslaan sleutels, geheimen of wachtwoorden waarmee u kunt ze veilig implementeert in uw toepassingen en services. Voor versleuteling van de virtuele schijf, moet u een Sleutelkluis voor het opslaan van een cryptografische sleutel die wordt gebruikt voor het versleutelen of ontsleutelen van de virtuele schijven maken. 
+De eerste stap is het maken van een Azure Key Vault voor het opslaan van uw cryptografische sleutels. Azure Key Vault kunt opslaan, sleutels, geheimen of wachtwoorden waarmee u kunt ze veilig in uw toepassingen en services te implementeren. Voor versleuteling van de virtuele schijf maakt u een Sleutelkluis voor het opslaan van een cryptografische sleutel die wordt gebruikt om te versleutelen of ontsleutelen van de virtuele schijven. 
 
-Inschakelen van de provider voor Azure Sleutelkluis in uw Azure-abonnement met [registreren AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider), maakt u een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld wordt een Resourcegroepnaam *myResourceGroup* in de *VS-Oost* locatie:
+Inschakelen van de provider Azure Key Vault binnen uw Azure-abonnement met [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider), maakt u een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld wordt een Resourcegroepnaam *myResourceGroup* in de *VS-Oost* locatie:
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -79,7 +79,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"
 New-AzureRmResourceGroup -Location $location -Name $rgName
 ```
 
-De Azure Sleutelkluis die de cryptografische sleutels en de bijbehorende compute-bronnen zoals opslag en de virtuele machine zelf moet zich bevinden in dezelfde regio. Maken van een Azure Key Vault met [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) en inschakelen van de Sleutelkluis voor gebruik met schijfversleuteling. Geef een unieke naam van de Sleutelkluis voor *keyVaultName* als volgt:
+De Azure Key Vault met de cryptografische sleutels en de bijbehorende rekenresources, zoals opslag en de virtuele machine zelf moet zich in dezelfde regio bevinden. Maak een Azure Key Vault met [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) en de Key Vault voor gebruik met schijfversleuteling in te schakelen. Geef een unieke naam van de Key Vault voor *keyVaultName* als volgt:
 
 ```powershell
 $keyVaultName = "myUniqueKeyVaultName"
@@ -89,9 +89,9 @@ New-AzureRmKeyVault -Location $location `
     -EnabledForDiskEncryption
 ```
 
-U kunt met behulp van software of Hardware Security Model (HSM) protection cryptografiesleutels opslaan. Een HSM, moet een premium Sleutelkluis. Er is een extra kosten voor het maken van een premium Sleutelkluis in plaats van standaard Sleutelkluis waarmee softwarematige beveiligde sleutels worden opgeslagen. Voor het maken van een premium Sleutelkluis in de vorige stap voegt u de *- Sku 'Premium'* parameters. Het volgende voorbeeld wordt de softwarematige beveiligde sleutels omdat er een standaard Sleutelkluis hebt gemaakt. 
+U kunt de cryptografische sleutels met behulp van software of Hardware Security Model (HSM) beveiliging opslaan. Met behulp van een HSM, is een premium Key Vault vereist. Er is een extra kosten voor het maken van een premium Key Vault in plaats van standard Key Vault waarin software beschermde sleutels. Voor het maken van een premium Key Vault, in de vorige stap toevoegen de *- Sku "Premium"* parameters. Het volgende voorbeeld wordt met software beschermde sleutels, omdat we een standaard Sleutelkluis hebt gemaakt. 
 
-Voor beide beveiligingsmodellen moet het Azure-platform toegang om aan te vragen van de cryptografische sleutels wanneer de virtuele machine wordt opgestart voor het ontsleutelen van de virtuele schijven worden verleend. Maken van een cryptografische sleutel in uw Sleutelkluis met [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey). Het volgende voorbeeld wordt een sleutel met de naam *myKey*:
+Voor beide beveiligingsmodellen moet het Azure-platform worden gemachtigd om aan te vragen van de cryptografische sleutels wanneer de virtuele machine wordt opgestart voor het ontsleutelen van de virtuele schijven. Maken van een cryptografische sleutel in uw Key Vault met [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey). Het volgende voorbeeld wordt een sleutel met de naam *myKey*:
 
 ```powershell
 Add-AzureKeyVaultKey -VaultName $keyVaultName `
@@ -101,9 +101,9 @@ Add-AzureKeyVaultKey -VaultName $keyVaultName `
 
 
 ## <a name="create-the-azure-active-directory-service-principal"></a>De Azure Active Directory-service-principal maken
-Wanneer virtuele schijven worden versleuteld en ontsleuteld, kunt u een account voor het afhandelen van de verificatie- en uitwisselen van cryptografische sleutels uit Sleutelkluis opgeven. Dit account, een Azure Active Directory service-principal kunt de Azure-platform om aan te vragen van de juiste cryptografische sleutels namens de virtuele machine. Een standaardexemplaar van de Azure Active Directory is beschikbaar in uw abonnement, hoewel veel organisaties hebben speciale mappen van Azure Active Directory.
+Wanneer virtuele schijven worden versleuteld of ontsleuteld, geeft u een account voor het afhandelen van de verificatie en uitwisselen van cryptografische sleutels uit Key Vault. Dit account, een service-principal van Azure Active Directory kunt het Azure-platform om aan te vragen van de juiste cryptografische sleutels namens de virtuele machine. Een standaardexemplaar van de Azure Active Directory is beschikbaar in uw abonnement, hoewel veel organisaties zijn speciaal bestemd voor Azure Active Directory-mappen.
 
-Een service-principal maken in Azure Active Directory met [nieuw AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). Als u een beveiligd wachtwoord, volgt u de [wachtwoordbeleid en -beperkingen in Azure Active Directory](../../active-directory/authentication/concept-sspr-policy.md):
+Een service-principal maken in Azure Active Directory met [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). Als u wilt een veilig wachtwoord opgeeft, volgt u de [wachtwoordbeleid en beperkingen in Azure Active Directory](../../active-directory/authentication/concept-sspr-policy.md):
 
 ```powershell
 $appName = "My App"
@@ -115,7 +115,7 @@ $app = New-AzureRmADApplication -DisplayName $appName `
 New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 ```
 
-Om deel te versleutelen of ontsleutelen van virtuele schijven, moeten de machtigingen voor de cryptografische sleutel die is opgeslagen in de Sleutelkluis toe te staan van de Azure Active Directory-service-principal te lezen van de sleutels worden ingesteld. Machtigingen instellen voor uw Sleutelkluis met [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy):
+Als u wilt versleutelen of ontsleutelen van virtuele schijven, moeten machtigingen voor de cryptografische sleutel opgeslagen in Key Vault om toe te staan van de service-principal voor Azure Active Directory te lezen van de sleutels worden ingesteld. Machtigingen instellen voor uw Key Vault met [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy):
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
@@ -126,7 +126,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
 
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
-Maak met een virtuele machine om te testen het versleutelingsproces, [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met behulp van een *Windows Server 2016 Datacenter* installatiekopie. Wanneer u om referenties gevraagd, typt u de gebruikersnaam en het wachtwoord moet worden gebruikt voor uw virtuele machine:
+Als u wilt testen het versleutelingsproces, maak een VM met [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met behulp van een *Windows Server 2016 Datacenter* installatiekopie. Wanneer u hierom wordt gevraagd om referenties op te geven, voert u de gebruikersnaam en het wachtwoord moet worden gebruikt voor uw virtuele machine:
 
 ```powershell
 $cred = Get-Credential
@@ -144,14 +144,14 @@ New-AzureRmVm `
 
 
 ## <a name="encrypt-virtual-machine"></a>Virtuele machine versleutelen
-Voor het versleutelen van de virtuele schijven, brengt u samen de eerdere onderdelen:
+Voor het versleutelen van de virtuele schijven, breng u samen de eerdere onderdelen:
 
-1. Geef de Azure Active Directory-service-principal en het wachtwoord.
-2. Geef de Sleutelkluis voor het opslaan van de metagegevens van de versleutelde schijven.
-3. Geef de cryptografische sleutels moet worden gebruikt voor de daadwerkelijke versleuteling en ontsleuteling.
-4. Geef op of u wilt versleutelen schijf met het besturingssysteem, de gegevensschijven of alle.
+1. De service-principal voor Azure Active Directory en het wachtwoord opgeven.
+2. Geef de Key Vault voor het opslaan van de metagegevens van de versleutelde schijven.
+3. Geef de cryptografische sleutels te gebruiken voor de daadwerkelijke versleuteling en ontsleuteling.
+4. Geef op of u wilt voor het versleutelen van de besturingssysteemschijf, schijven of alle.
 
-Versleutelen van uw virtuele machine met [Set AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) met behulp van de sleutel voor Azure Sleutelkluis en de Azure Active Directory-service-principal referenties. Het volgende voorbeeld haalt alle gegevens van de sleutel vervolgens de virtuele machine met de naam versleutelt *myVM*:
+Versleutelen van uw virtuele machine met [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) met behulp van de Azure Key Vault-sleutel en de referenties voor Azure Active Directory service-principal. Het volgende voorbeeld haalt alle gegevens van de sleutel en vervolgens versleutelt u de virtuele machine met de naam *myVM*:
 
 ```powershell
 $keyVault = Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
@@ -169,7 +169,7 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -KeyEncryptionKeyVaultId $keyVaultResourceId
 ```
 
-Accepteer de vraag om door te gaan met het VM-versleuteling. De virtuele machine opnieuw wordt opgestart tijdens het proces. Nadat de codering is voltooid en de virtuele machine opnieuw is opgestart, controleert u de versleutelingsstatus met [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus):
+De prompt om door te gaan met de versleuteling van de virtuele machine te accepteren. De virtuele machine opnieuw wordt opgestart tijdens het proces. Nadat de codering is voltooid en de virtuele machine opnieuw is opgestart, controleert u de versleutelingsstatus met [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus):
 
 ```powershell
 Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
@@ -185,5 +185,5 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het beheren van Azure Sleutelkluis [Sleutelkluis instellen voor virtuele machines](key-vault-setup.md).
+* Zie voor meer informatie over het beheren van Azure Key Vault [Key Vault instellen voor virtuele machines](key-vault-setup.md).
 * Zie voor meer informatie over schijfversleuteling, zoals het voorbereiden van een versleutelde aangepaste VM uploaden naar Azure, [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).

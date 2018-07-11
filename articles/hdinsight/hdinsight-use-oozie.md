@@ -1,6 +1,6 @@
 ---
-title: Hadoop Oozie in HDInsight gebruiken | Microsoft Docs
-description: Hadoop Oozie in HDInsight, een big data-service gebruiken. Informatie over het definiëren van een werkstroom Oozie, en het verzenden van een Oozie-taak.
+title: Gebruik Oozie met Hadoop in HDInsight | Microsoft Docs
+description: Gebruik Hadoop Oozie in HDInsight, een big data-service. Informatie over het definiëren van een Oozie-workflow en het verzenden van een Oozie-taak.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -16,31 +16,31 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.openlocfilehash: c0558432c0d74e2c9fcec108182a4dbafa332904
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176572"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952855"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en uitvoeren van een werkstroom in HDInsight
+# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren in HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Informatie over het gebruik van Apache Oozie voor het definiëren van een werkstroom en de werkstroom uitvoert op HDInsight. Zie voor meer informatie over de Oozie-coördinator, [op basis van tijd Hadoop Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]. Zie voor meer informatie over Azure Data Factory, [Use Pig en Hive met Data Factory][azure-data-factory-pig-hive].
+Leer hoe u Apache Oozie gebruiken voor het definiëren van een werkstroom en het uitvoeren van de werkstroom op HDInsight. Zie voor meer informatie over de Oozie-coördinator, [op basis van tijd Hadoop Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]. Zie voor meer Azure Data Factory [Pig en Hive met Data Factory gebruiken][azure-data-factory-pig-hive].
 
-Apache Oozie is een werkstroom/coördinatie systeem waarmee Hadoop-taken worden beheerd. Het is geïntegreerd met de Hadoop-stack en Hadoop-taken voor Apache MapReduce, Apache Pig, Apache Hive en Apache Sqoop ondersteunt. Het kan ook worden gebruikt voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
+Apache Oozie is een werkstroomcoördinatie/systeem waarmee Hadoop-taken worden beheerd. Dit is geïntegreerd met de Hadoop-stack en Hadoop-taken worden ondersteund voor Apache MapReduce, Apache Pig, Apache Hive en Apache Sqoop. Het kan ook worden gebruikt voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
 
 De werkstroom die u implementeert door de instructies in deze zelfstudie bevat twee acties:
 
-![Werkstroomdiagram][img-workflow-diagram]
+![Diagram van werkstroom][img-workflow-diagram]
 
-1. Een Hive-actie wordt een HiveQL-script voor het tellen van elk type logboek-niveau in een bestand log4j uitgevoerd. Elk bestand log4j bestaat uit een line-of velden met een veld [LOGBOEKNIVEAU] waarin het type en de ernst, bijvoorbeeld:
+1. Een Hive-bewerking wordt een HiveQL-script uit om te tellen hoe vaak elk type logboek-niveau in een log4j-bestand. Elk bestand log4j bestaat uit een line-of velden met een veld [LOGBOEKNIVEAU] waarin het type en de ernst, bijvoorbeeld:
    
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
         ...
    
-    De uitvoer van de Hive-script is vergelijkbaar met:
+    De Hive-script-uitvoer is vergelijkbaar met:
    
         [DEBUG] 434
         [ERROR] 3
@@ -58,7 +58,7 @@ De werkstroom die u implementeert door de instructies in deze zelfstudie bevat t
 > 
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u deze zelfstudie begint, hebt u het volgende item:
+Voordat u deze zelfstudie begint, moet u het volgende item hebben:
 
 * **Een werkstation met Azure PowerShell**. 
   
@@ -66,8 +66,8 @@ Voordat u deze zelfstudie begint, hebt u het volgende item:
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
   
 
-## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Oozie-werkstroom en het bijbehorende HiveQL-script definiëren
-Oozie werkstromen definities worden geschreven in hPDL (een XML-proces Definition Language). De standaardnaam van de werkstroom is *workflow.xml*. Hieronder volgt de werkstroombestand dat u in deze zelfstudie gebruikt.
+## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Oozie-workflow en het bijbehorende HiveQL-script definiëren
+Oozie werkstromen definities worden geschreven in hPDL (een XML-proces Definition Language). De standaardnaam van de werkstroom-bestand is *workflow.xml*. Hier volgt de bestand van de werkstroom die u in deze zelfstudie gebruikt.
 
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
@@ -126,40 +126,40 @@ Oozie werkstromen definities worden geschreven in hPDL (een XML-proces Definitio
 
 Er zijn twee acties die zijn gedefinieerd in de werkstroom. De actie start voor *RunHiveScript*. Als de actie is uitgevoerd, is de volgende actie *RunSqoopExport*.
 
-De RunHiveScript heeft meerdere variabelen. U kunt de waarden doorgeven bij het verzenden van de taak Oozie vanuit uw werkstation met behulp van Azure PowerShell.
+De RunHiveScript heeft meerdere variabelen. U kunt de waarden doorgeven bij het verzenden van de taak Oozie vanaf uw werkstation met behulp van Azure PowerShell.
 
 <table border = "1">
-<tr><th>Werkstroomvariabelen</th><th>Beschrijving</th></tr>
-<tr><td>${jobTracker}</td><td>Hiermee geeft u de URL van de taak-tracering in Hadoop. Gebruik <strong>jobtrackerhost:9010</strong> in HDInsight versie 3.0 en 2.1.</td></tr>
-<tr><td>${nameNode}</td><td>Hiermee geeft u de URL van het knooppunt Hadoop-naam. Het bestand system standaardadres gebruiken, bijvoorbeeld <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-<tr><td>${Wachtrijnaam}</td><td>Hiermee geeft u de naam van de wachtrij voor de taak wordt verzonden naar. Gebruik de <strong>standaard</strong>.</td></tr>
+<tr><th>Werkstroomvariabelen voor de</th><th>Beschrijving</th></tr>
+<tr><td>${jobTracker}</td><td>Hiermee geeft u de URL van het beheer van Hadoop-taak. Gebruik <strong>jobtrackerhost:9010</strong> in HDInsight versie 3.0 en 2.1.</td></tr>
+<tr><td>${nameNode}</td><td>Hiermee geeft u de URL van het knooppunt van de naam van Hadoop. Het bestand system standaardadres gebruiken, bijvoorbeeld <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
+<tr><td>${queueName}</td><td>Hiermee geeft u de naam van de wachtrij die de taak wordt verzonden naar. Gebruik de <strong>standaard</strong>.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Hive actie variabele</th><th>Beschrijving</th></tr>
+<tr><th>Hive-takenreeksbewerkingsvariabele</th><th>Beschrijving</th></tr>
 <tr><td>${hiveDataFolder}</td><td>Hiermee geeft u de bronmap voor de opdracht Create Table Hive.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Hiermee geeft u de map voor uitvoer voor de instructie INSERT OVERSCHRIJVEN.</td></tr>
-<tr><td>${hiveTableName}</td><td>Hiermee geeft u de naam van de Hive-tabel die verwijst naar de gegevensbestanden log4j.</td></tr>
+<tr><td>${hiveTableName}</td><td>Hiermee geeft u de naam van de Hive-tabel die verwijst naar de log4j-gegevensbestanden.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Sqoop actie variabele</th><th>Beschrijving</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Hiermee geeft u de verbindingsreeks voor Azure SQL database.</td></tr>
+<tr><th>Sqoop takenreeksbewerkingsvariabele</th><th>Beschrijving</th></tr>
+<tr><td>${sqlDatabaseConnectionString}</td><td>Hiermee geeft u de verbindingsreeks van de Azure SQL-database.</td></tr>
 <tr><td>${sqlDatabaseTableName}</td><td>Hiermee geeft u de waar de gegevens worden geëxporteerd naar Azure SQL-databasetabel.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Hiermee geeft u de map voor uitvoer voor de instructie Hive invoegen OVERSCHRIJVEN. Dit is dezelfde map voor het exporteren van Sqoop (export-dir).</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>Hiermee geeft u de map voor uitvoer voor de instructie Hive invoegen OVERSCHRIJVEN. Dit is dezelfde map voor het exporteren met Sqoop (export-dir).</td></tr>
 </table>
 
-Zie voor meer informatie over Oozie-werkstroom en het gebruik van de werkstroomacties [Apache Oozie 4.0 documentatie] [ apache-oozie-400] (voor HDInsight versie 3.0) of [Apache Oozie 3.3.2 documentatie] [ apache-oozie-332] (voor HDInsight versie 2.1).
+Zie voor meer informatie over Oozie-workflow en het gebruik van werkstroomacties [Apache Oozie 4.0 documentatie] [ apache-oozie-400] (voor HDInsight versie 3.0) of [Apache Oozie 3.3.2 documentatie] [ apache-oozie-332] (voor HDInsight versie 2.1).
 
-De Hive-bewerking in de werkstroom aangeroepen door een scriptbestand HiveQL. Dit scriptbestand bevat drie HiveQL-instructies:
+De Hive-actie in de werkstroom wordt een bestand HiveQL-script. Dit scriptbestand bevat drie HiveQL-instructies:
 
     DROP TABLE ${hiveTableName};
     CREATE EXTERNAL TABLE ${hiveTableName}(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
     INSERT OVERWRITE DIRECTORY '${hiveOutputFolder}' SELECT t4 AS sev, COUNT(*) AS cnt FROM ${hiveTableName} WHERE t4 LIKE '[%' GROUP BY t4;
 
-1. **De instructie DROP TABLE** de log4j Hive-tabel wordt verwijderd als deze bestaat.
-2. **De instructie CREATE TABLE** maakt een log4j Hive externe tabel die naar de locatie van het logboekbestand log4j verwijst. Het veldscheidingsteken is ",". Het scheidingsteken voor regel is '\n'. Een externe Hive-tabel wordt om te voorkomen dat het gegevensbestand van de oorspronkelijke locatie wordt verwijderd als u wilt uitvoeren van de werkstroom Oozie meerdere keren gebruikt.
-3. **De instructie INSERT OVERSCHRIJVEN** telt instanties van elk type logboek-niveau van de log4j Hive-tabel en de uitvoer wordt opgeslagen naar een blob in Azure Storage.
+1. **De instructie DROP TABLE** de log4j Hive-tabel worden verwijderd als deze bestaat.
+2. **De instructie CREATE TABLE** maakt een log4j Hive externe tabel die naar de locatie van het log4j-logboekbestand verwijst. Veldscheidingsteken is ','. Het scheidingsteken voor regel is '\n'. Een externe Hive-tabel wordt gebruikt om te voorkomen dat het gegevensbestand van de oorspronkelijke locatie wordt verwijderd als u wilt de Oozie-workflow meerdere keren uitvoeren.
+3. **De instructie INSERT OVERSCHRIJVEN** telt de exemplaren van elk type logboekniveau uit de log4j Hive-tabel en de uitvoer wordt opgeslagen naar een blob in Azure Storage.
 
 Er zijn drie variabelen die worden gebruikt in het script:
 
@@ -167,35 +167,35 @@ Er zijn drie variabelen die worden gebruikt in het script:
 * ${hiveDataFolder}
 * ${hiveOutputFolder}
 
-De werkstroom-definitiebestand (workflow.xml in deze zelfstudie) geeft deze waarden aan dit HiveQL-script tijdens runtime.
+Bestand van de werkstroom-definitie (workflow.xml in deze zelfstudie) worden deze waarden doorgegeven aan deze HiveQL-script uit tijdens de uitvoering.
 
-Bestand van de werkstroom en het bestand HiveQL beide worden opgeslagen in een blob-container.  Het PowerShell-script dat u later in deze zelfstudie gebruiken beide bestanden gekopieerd naar het standaardaccount voor opslag. 
+Bestand van de werkstroom en het bestand HiveQL beide worden opgeslagen in een blob-container.  Het PowerShell-script dat u later in deze zelfstudie worden beide bestanden gekopieerd naar het standaardaccount voor opslag. 
 
-## <a name="submit-oozie-jobs-using-powershell"></a>Met behulp van PowerShell Oozie-taken verzenden
-Azure PowerShell biedt momenteel niet alle cmdlets voor het definiëren van Oozie-taken. U kunt de **Invoke-RestMethod** cmdlet Oozie-webservices aanroepen. De Oozie-webservices-API is een HTTP REST-API JSON. Zie voor meer informatie over de webservices Oozie API [Apache Oozie 4.0 documentatie] [ apache-oozie-400] (voor HDInsight versie 3.0) of [Apache Oozie 3.3.2 documentatie] [ apache-oozie-332] (voor HDInsight versie 2.1).
+## <a name="submit-oozie-jobs-using-powershell"></a>Oozie-taken opgeven met behulp van PowerShell
+Azure PowerShell biedt op dit moment geen cmdlets voor het definiëren van Oozie-taken. U kunt de **Invoke-RestMethod** cmdlet om aan te roepen Oozie-webservices. De Oozie web services-API is een HTTP REST-API JSON. Zie voor meer informatie over de webservices Oozie API [Apache Oozie 4.0 documentatie] [ apache-oozie-400] (voor HDInsight versie 3.0) of [Apache Oozie 3.3.2 documentatie] [ apache-oozie-332] (voor HDInsight versie 2.1).
 
 Het PowerShell-script in deze sectie voert de volgende stappen uit:
 
 1. Verbinding maken met Azure.
-2. Maak een Azure-resourcegroep. Zie voor meer informatie [gebruik Azure PowerShell met Azure Resource Manager](../powershell-azure-resource-manager.md).
-3. Een Azure SQL Database-server, een Azure SQL database en twee tabellen maken. Deze worden gebruikt door de actie Sqoop in de werkstroom.
+2. Maak een Azure-resourcegroep. Zie voor meer informatie, [gebruik Azure PowerShell met Azure Resource Manager](../powershell-azure-resource-manager.md).
+3. Azure SQL Database-server, een Azure SQL database en twee tabellen maken. Deze worden gebruikt door de actie Sqoop in de werkstroom.
    
     De tabelnaam van de is *log4jLogCount*.
-4. Maak een HDInsight-cluster gebruikt voor het uitvoeren van Oozie-taken.
+4. Maakt een HDInsight-cluster gebruikt Oozie-taken uit te voeren.
    
-    Als u wilt onderzoeken van het cluster, kunt u de Azure portal of Azure PowerShell.
-5. Kopieer het bestand van de oozie-werkstroom en het scriptbestand HiveQL naar het standaardbestandssysteem.
+    U kunt de Azure portal of Azure PowerShell gebruiken voor het onderzoeken van het cluster.
+5. Kopieer het bestand oozie-workflow en het scriptbestand HiveQL naar het standaardbestandssysteem.
    
     Beide bestanden worden opgeslagen in een openbare Blob-container.
    
    * Kopieer het HiveQL-script (useoozie.hql) naar Azure Storage (wasb:///tutorials/useoozie/useoozie.hql).
    * Kopieer workflow.xml naar wasb:///tutorials/useoozie/workflow.xml.
    * Kopieer het bestand (/ example/data/sample.log) naar wasb:///tutorials/useoozie/data/sample.log.
-6. Verzenden van een Oozie-taak.
+6. Een taak Oozie verzenden.
    
-    Gebruiken om te controleren van de resultaten van de taak OOzie, Visual Studio of andere hulpprogramma's verbinding maken met de Azure SQL Database.
+    Voor het onderzoeken van de resultaten van de taak OOzie, gebruikt u Visual Studio of andere hulpprogramma's verbinding maken met de Azure SQL Database.
 
-Hier wordt het script.  U kunt het script uitvoeren van Windows PowerShell ISE. U moet alleen de eerste 7 variabelen configureren.
+Dit is het script.  U kunt het script uitvoeren vanuit Windows PowerShell ISE. U hoeft alleen de eerste 7 variabelen te configureren.
 
     #region - provide the following values
 
@@ -581,10 +581,10 @@ Hier wordt het script.  U kunt het script uitvoeren van Windows PowerShell ISE. 
 
 Als u wilt de werkstroom opnieuw uitvoert, moet u de volgende items verwijderen:
 
-* Het uitvoerbestand voor Hive-script
+* Het Hive-script-uitvoerbestand
 * De gegevens in de tabel log4jLogsCount
 
-Hier volgt een voorbeeld PowerShell-script die u kunt gebruiken:
+Hier volgt een voorbeeld van PowerShell-script die u kunt gebruiken:
 
     $resourceGroupName = "<AzureResourceGroupName>"
 
@@ -617,17 +617,17 @@ Hier volgt een voorbeeld PowerShell-script die u kunt gebruiken:
     $conn.close()
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u een werkstroom Oozie definiëren en hoe u een Oozie-taak uitvoert met behulp van PowerShell. Zie voor meer informatie de volgende artikelen:
+In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u kunt een Oozie-taak uitvoeren met behulp van PowerShell. Zie de volgende artikelen voor meer informatie:
 
-* [Tijd gebaseerde Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]
-* [Aan de slag met Hadoop Hive in HDInsight analyseren mobiele telefoon gebruiken][hdinsight-get-started]
+* [Op tijd gebaseerde Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]
+* [Aan de slag met Hadoop Hive in HDInsight voor het analyseren van de mobiele telefoon gebruiken][hdinsight-get-started]
 * [Azure Blob storage gebruiken met HDInsight][hdinsight-storage]
 * [HDInsight met behulp van PowerShell beheren][hdinsight-admin-powershell]
-* [Uploaden van gegevens voor Hadoop-taken in HDInsight][hdinsight-upload-data]
+* [Gegevens uploaden voor Hadoop-taken in HDInsight][hdinsight-upload-data]
 * [Sqoop gebruiken met Hadoop in HDInsight][hdinsight-use-sqoop]
-* [Hive gebruiken met Hadoop in HDInsight][hdinsight-use-hive]
-* [Pig gebruiken met Hadoop in HDInsight][hdinsight-use-pig]
-* [Het ontwikkelen van Java-MapReduce-programma's voor HDInsight][hdinsight-develop-mapreduce]
+* [Hive gebruiken met Hadoop op HDInsight][hdinsight-use-hive]
+* [Pig gebruiken met Hadoop op HDInsight][hdinsight-use-pig]
+* [Java MapReduce-programma's ontwikkelen voor HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 

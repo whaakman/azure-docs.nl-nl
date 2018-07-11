@@ -1,9 +1,9 @@
 ---
 title: Zoeken en verwijderen van niet-gekoppelde NIC's van Azure | Microsoft Docs
-description: Het vinden en verwijderen van de Azure-NIC's die niet zijn gekoppeld aan virtuele machines met de Azure CLI 2.0
+description: Over het zoeken en Azure-NIC's die niet zijn gekoppeld aan virtuele machines met de Azure CLI 2.0 verwijderen
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
-ms.author: iainfou
-ms.openlocfilehash: c730866fe73305a37b37038699a7f729085a16aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: cynthn
+ms.openlocfilehash: 54315b2b66b9fb11ae904593c285eb7623cccdbb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31427019"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930508"
 ---
-# <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Het vinden en verwijderen van niet-gekoppelde netwerkinterface kaarten (NIC's) voor Azure Virtual machines
-Wanneer u een virtuele machine (VM) in Azure verwijdert, worden de netwerkinterfacekaarten (NIC's) worden niet standaard verwijderd. Als u maken en verwijderen van meerdere virtuele machines, blijven de ongebruikte NIC's gebruiken van interne IP-adresleases. Bij het maken van andere VM-NIC, is het mogelijk dat ze niet verkrijgen van een IP-adreslease in de adresruimte van het subnet. In dit artikel leest u hoe om te zoeken en verwijderen van niet-gekoppelde NIC's.
+# <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Over het zoeken en verwijderen van niet-gekoppelde netwerkinterface kaarten (NIC's) voor virtuele machines van Azure
+Wanneer u een virtuele machine (VM) in Azure verwijdert, worden de netwerkinterfacekaarten (NIC's) worden niet standaard verwijderd. Als u maken en verwijderen van meerdere virtuele machines, blijven de niet-gebruikte NIC's gebruiken van het interne IP-adresleases. Als u andere VM-NIC's maken, is het mogelijk dat ze niet verkrijgen van een IP-adresleases in de adresruimte van het subnet. Dit artikel leest u hoe om te zoeken en niet-gekoppelde NIC's verwijderen.
 
-## <a name="find-and-delete-unattached-nics"></a>Zoeken en verwijderen van niet-gekoppelde NIC 's
+## <a name="find-and-delete-unattached-nics"></a>Niet-gekoppelde NIC's zoeken en verwijderen
 
-De *virtualMachine* opgeslagen bij de groep-ID en de bron van de virtuele machine de NIC is gekoppeld aan de eigenschap voor een NIC. Het volgende script doorlopen alle NIC's in een abonnement en controleert u of de *virtualMachine* eigenschap is null. Als deze eigenschap null is, wordt de NIC is niet gekoppeld aan een virtuele machine.
+De *virtualMachine* opgeslagen bij de groep-ID en resource van de virtuele machine de NIC is gekoppeld aan de eigenschap voor een NIC. Het volgende script wordt uitgevoerd via alle NIC's in een abonnement en controleert u of de *virtualMachine* eigenschap null is. Als deze eigenschap null is, wordt de NIC is niet gekoppeld aan een virtuele machine.
 
-Als u wilt weergeven van de niet-gekoppelde NIC's, het heeft wordt ten zeerste aanbevolen voor de eerste keer uitvoert het script dat de *deleteUnattachedNics* variabele *0*. Als u wilt de niet-gekoppelde NIC's verwijderen nadat u de uitvoer van de lijst, voer het script met *deleteUnattachedNics* naar *1*.
+Als u wilt weergeven van alle niet-gekoppelde NIC's, het heeft raden u aan voor eerste uitvoering van het script met de *deleteUnattachedNics* variabele *0*. Als u wilt de niet-gekoppelde NIC's verwijderen nadat u de uitvoer bekijken, voer het script met *deleteUnattachedNics* naar *1*.
 
 ```azurecli
 # Set deleteUnattachedNics=1 if you want to delete unattached NICs

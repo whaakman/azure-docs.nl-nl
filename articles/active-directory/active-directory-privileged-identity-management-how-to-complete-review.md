@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a3de94aa11b9326a9eadfb3385db83724f427ff2
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fc6376a7bf1abd81e7a5ff17549a7b4a193edec4
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447231"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950577"
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Het uitvoeren van een toegangscontrole in Azure AD Privileged Identity Management
 Beheerders met bevoegdheid kunnen eenmaal bevoegde toegang beoordelen een [beveiligingsbeoordeling is gestart](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) ontvangt automatisch een e-mailbericht waarin wordt gevraagd de gebruikers kunnen hun toegang beoordelen. Als een gebruiker niet een e-mailbericht ontvangt is, kunt u ze de instructies in verzenden [hoe u een beveiligingsbeoordeling uitvoeren](active-directory-privileged-identity-management-how-to-perform-security-review.md).
@@ -32,7 +32,7 @@ Nadat de periode van beveiliging controleren of alle gebruikers hun zelf bekijke
 
 Op de blade details van de toegangsbeoordeling zijn er een aantal opties voor het beheren van deze evaluatie.
 
-![PIM-knoppen voor het controleren van toegang - schermafbeelding][1]
+![PIM-knoppen voor het controleren van toegang - schermafbeelding](./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png)
 
 ### <a name="remind"></a>Herinneren
 Als een toegangsbeoordeling is ingesteld zodat de gebruikers zelf, Controleer de **herinnering sturen** knop verstuurt een melding. 
@@ -54,7 +54,3 @@ Als u niet geïnteresseerd in de beoordeling verdere bent, het verwijderen. De *
 
 ## <a name="next-steps"></a>Volgende stappen
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png

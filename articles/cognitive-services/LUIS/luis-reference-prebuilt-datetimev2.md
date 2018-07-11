@@ -1,7 +1,7 @@
 ---
-title: Vooraf gedefinieerde LUIS entiteiten datetimeV2 referentie - Azure | Microsoft Docs
+title: LUIS vooraf gemaakte entiteiten datetimeV2 referentie - Azure | Microsoft Docs
 titleSuffix: Azure
-description: In dit artikel is datetimeV2 vooraf gedefinieerde entiteitsgegevens in Language Understanding (LUIS).
+description: Dit artikel vindt u datetimeV2 vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -10,22 +10,22 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: 261f6f27c39c280efdcd070888d735374a473c85
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: c72c17fe683b771d01e619ba7889f46424ee9158
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321888"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916948"
 ---
-# <a name="datetimev2-entity"></a>DatetimeV2 entiteit
+# <a name="datetimev2-entity"></a>DatetimeV2-entiteit
 
-De **datetimeV2** entiteit vooraf gedefinieerde waarden voor datum en tijd opgehaald. Deze waarden worden omgezet in een gestandaardiseerde indeling voor client-programma's te gebruiken. Wanneer een utterance heeft een datum of tijd die niet worden voltooid, LUIS omvat _zowel verstreken en toekomstige waarden_ in het antwoord van het eindpunt. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld utterances datetimeV2 naar de toepassing die met toevoegen. 
+De **datetimeV2** vooraf gedefinieerde entiteit haalt de waarden voor datum en tijd. Deze waarden omzetten in een gestandaardiseerde indeling voor client-programma's te gebruiken. Wanneer een utterance heeft een datum of tijd die is niet voltooid, LUIS bevat _zowel afgelopen en toekomstige waarden_ in het antwoord van het eindpunt. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met datetimeV2 naar de toepassing intents. 
 
 ## <a name="types-of-datetimev2"></a>Typen datetimeV2
-DatetimeV2 wordt beheerd vanaf de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) Github-opslagplaats
+DatetimeV2 wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) Github-opslagplaats
 
-## <a name="example-json"></a>JSON-voorbeeld 
-Het volgende voorbeeld JSON-antwoord heeft een `datetimeV2` entiteit met een subtype van `datetime`. Zie voor voorbeelden van andere typen entiteiten datetimeV2 [subtypen van datetimeV2](#subtypes-of-datetimev2)</a>.
+## <a name="example-json"></a>Voorbeeld van JSON 
+Het volgende voorbeeld-JSON-antwoord heeft een `datetimeV2` entiteit met een subtype van `datetime`. Zie voor meer voorbeelden van andere typen entiteiten datetimeV2 [subtypen van datetimeV2](#subtypes-of-datetimev2)</a>.
 
 ```JSON
 "entities": [
@@ -47,20 +47,20 @@ Het volgende voorbeeld JSON-antwoord heeft een `datetimeV2` entiteit met een sub
 ]
   ```
 
-## <a name="json-property-descriptions"></a>Beschrijvingen van de JSON-eigenschap
+## <a name="json-property-descriptions"></a>Beschrijvingen van JSON-eigenschap
 
 |Naam van eigenschap |Eigenschap van het type en beschrijving|
 |---|---|
-|Entiteit|**tekenreeks** -tekst opgehaald uit de utterance met het type datum, tijd, datumbereik of tijdsbereik.|
+|Entiteit|**tekenreeks** -uit de utterance met het type van de datum, tijd, datumbereik of tijdsbereik geëxtraheerde tekst.|
 |type|**tekenreeks** : één van de [subtypen van datetimeV2](#subtypes-of-datetimev2)
-|startIndex|**int** -de index in de utterance waarop de entiteit begint.|
-|endIndex|**int** -de index in de utterance die de entiteit wordt beëindigd.|
-|oplossing|Heeft een `values` matrix een, twee of vier heeft [waarden van resolutie](#values-of-resolution).|
-|einde|De eindwaarde van een tijd of datumbereik in dezelfde indeling als `value`. Alleen gebruikt als `type` is `daterange`, `timerange`, of `datetimerange`|
+|startIndex|**int** -de index in de utterance waarop de entiteit wordt gestart.|
+|endIndex|**int** -de index in de utterance waarop de entiteit is beëindigd.|
+|oplossing|Heeft een `values` matrix waarvoor een, twee of vier [waarden van het probleem zou moeten](#values-of-resolution).|
+|einde|De eindwaarde van een tijd of datumbereik, op dezelfde indeling als `value`. Alleen gebruikt als `type` is `daterange`, `timerange`, of `datetimerange`|
 
 ## <a name="subtypes-of-datetimev2"></a>Subtypen van datetimeV2
 
-De **datetimeV2** vooraf gedefinieerde entiteit heeft de volgende subtypen en voorbeelden van elke vindt u in de tabel die volgt op:
+De **datetimeV2** vooraf gedefinieerde entiteit heeft de volgende subtypen en voorbeelden van elk vindt u in de tabel die volgt op:
 * `date`
 * `time`
 * `daterange`
@@ -69,39 +69,39 @@ De **datetimeV2** vooraf gedefinieerde entiteit heeft de volgende subtypen en vo
 * `duration`
 * `set`
 
-## <a name="values-of-resolution"></a>Waarden van resolutie
+## <a name="values-of-resolution"></a>Waarden van de oplossing
 * De matrix heeft een element als de datum of tijd in de utterance volledig is opgegeven en niet-ambigue.
-* De matrix heeft twee elementen als de waarde datetimeV2 niet eenduidig is. Dubbelzinnigheid omvat gebrek aan specifieke jaar, tijd of tijdsbereik. Zie [dubbelzinnige datums](#ambiguous-dates) voor voorbeelden. Wanneer de tijd is dubbelzinnig voor uur. of het uur, worden beide waarden zijn opgenomen.
-* De matrix heeft vier elementen als de utterance twee elementen met dubbelzinnigheid heeft. Deze dubbelzinnigheid bevat elementen die hebben:
-  * Een datum of datumbereik dat is niet eenduidig garantie jaar
-  * Een tijd of het tijdsbereik dat is niet eenduidig garantie uur. of PM Bijvoorbeeld: 3:00 April 3e.
+* De matrix heeft twee elementen als de waarde datetimeV2 niet eenduidig is. Dubbelzinnigheid bevat gebrek aan een bepaald jaar, tijd of tijdsbereik. Zie [niet-eenduidige datums](#ambiguous-dates) voor voorbeelden. Wanneer het tijd is niet eenduidig voor uur. of het uur van beide waarden zijn opgenomen.
+* De matrix heeft vier elementen als de utterance bestaat uit twee elementen met dubbelzinnigheid. Deze onduidelijkheid bevat elementen die zijn:
+  * Een datum of datumbereik dat is niet eenduidig garantie voor jaar
+  * Een tijd of het tijdsbereik dat is niet eenduidig dat uur. of uur. Voorbeeld 3:00 3 April.
 
-Elk element van de `values` matrix heeft mogelijk de volgende velden: 
+Elk element van de `values` matrix mogelijk de volgende velden: 
 
 |Naam van eigenschap|Beschrijving van de eigenschap|
 |--|--|
-|Timex|tijd, datum of datumbereik uitgedrukt in TIMEX-indeling dat volgt op de [ISO 8601-norm](https://en.wikipedia.org/wiki/ISO_8601) en de kenmerken TIMEX3 voor aantekening met de taal TimeML. Deze aantekening wordt beschreven in de [TIMEX richtlijnen](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|type|Het subtype, van de volgende items een: datum/tijd, datum, tijd, daterange, timerange, datetimerange, duur, set.|
-|waarde|**Optioneel.** Een datum/tijd-object in de indeling yyyy:MM:dd (datum) yyyy:MM:dd: mm: SS (tijd): mm: SS (datetime). Als `type` is `duration`, de waarde is het aantal seconden (duur) <br/> Alleen gebruikt als `type` is `datetime` of `date`, `time`, of ' duur.|
+|Timex|tijd, datum of datumbereik uitgedrukt in TIMEX-indeling die volgt op de [ISO 8601-norm](https://en.wikipedia.org/wiki/ISO_8601) en de kenmerken TIMEX3 van aantekening met behulp van de taal TimeML. Deze aantekening wordt beschreven in de [TIMEX richtlijnen](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
+|type|Het subtype, dit kan een van de volgende items: datum/tijd, datum, tijd, daterange, timerange, datetimerange, duur, set.|
+|waarde|**Optioneel.** Een datum/tijd-object in de indeling yyyy:MM:dd (datum), uu: mm: (tijd) yyyy:MM:dd uu: mm: (datetime). Als `type` is `duration`, de waarde is het aantal seconden (duur) <br/> Alleen gebruikt als `type` is `datetime` of `date`, `time`, of ' duur.|
 
 ## <a name="valid-date-values"></a>Geldige date-waarden
 
 De **datetimeV2** ondersteunt datums tussen de volgende bereiken:
 
-| Minimum | Maximum |
+| Min. | Max. |
 |----------|-------------|
 | 1 januari 1900   | 31 December 2099 |
 
 ## <a name="ambiguous-dates"></a>Niet-eenduidige datums
 
-Als de datum in het verleden of in de toekomst, biedt LUIS beide waarden. Een voorbeeld is een utterance met de maand en datum zonder het jaar.  
+Als de datum in het verleden of in de toekomst, biedt LUIS beide waarden. Een voorbeeld is een utterance met de datum zonder het jaar en maand.  
 
-Bijvoorbeeld, de 'Mei 2e' utterance gegeven:
-* Als de datum van vandaag 3e 2017 mogelijk is, biedt LUIS '2017-05-02' en '2018-05-02' als waarden. 
-* Wanneer de datum van vandaag 1e 2017 mogelijk is, biedt LUIS '2016-05-02' en '2017-05-02' als waarden.
+Bijvoorbeeld, krijgt de utterance 'Mei 2e':
+* Als de datum van vandaag mei 3e 2017 is, biedt LUIS "2017-05-02" en "2018-05-02" als waarden. 
+* Wanneer de datum van vandaag 1 mei-2017 is, biedt LUIS '2016-05-02' en "2017-05-02" als waarden.
 
-Het volgende voorbeeld ziet de resolutie van de entiteit 'mei 2e'. Deze oplossing wordt ervan uitgegaan dat de datum van vandaag een datum tussen mei 2e 2017 en mei 1e 2018.
-Velden met `X` in de `timex` veld zijn onderdelen van de datum die expliciet zijn niet opgegeven in de utterance.
+Het volgende voorbeeld ziet de resolutie van de entiteit 'mei 2e'. Deze oplossing wordt ervan uitgegaan dat de datum van vandaag een datum tussen mei 2e 2017 en mei 2018 op 1.
+Velden met `X` in de `timex` veld zijn onderdelen van de datum die niet zijn expliciet worden opgegeven in de utterance.
 
 ```JSON
   "entities": [
@@ -130,7 +130,7 @@ Velden met `X` in de `timex` veld zijn onderdelen van de datum die expliciet zij
 
 ## <a name="date-range-resolution-examples-for-numeric-date"></a>Datum bereik resolutie voorbeelden voor numerieke datum
 
-De `datetimeV2` entiteit extraheert datum- en tijdbereiken. De `start` en `end` velden geven het begin en einde van het bereik. Voor de 'Mei 2e naar mei 5e' utterance LUIS biedt **daterange** waarden voor het huidige jaar en het volgende jaar. In de `timex` veld de `XXXX` waarden geven de dubbelzinnigheid van het jaar. `P3D` Geeft de periode is drie dagen lang.
+De `datetimeV2` entiteit extraheert datum en tijd bereiken. De `start` en `end` velden geven het begin en einde van het bereik. Voor de utterance 'Mei 2e op 5 mei', LUIS biedt **daterange** waarden voor het huidige jaar en het komende jaar. In de `timex` veld, de `XXXX` waarden geven aan de dubbelzinnigheid van het jaar. `P3D` Geeft aan dat de periode is drie dagen lang is.
 
 ```JSON
 "entities": [
@@ -161,7 +161,7 @@ De `datetimeV2` entiteit extraheert datum- en tijdbereiken. De `start` en `end` 
 
 ## <a name="date-range-resolution-examples-for-day-of-week"></a>Datum bereik resolutie voorbeelden voor dag van week
 
-Het volgende voorbeeld ziet u hoe LUIS gebruikt **datetimeV2** omzetten van de utterance "Dinsdag donderdag". In dit voorbeeld is de huidige datum 19 juni. LUIS omvat **daterange** waarden voor zowel de datumbereiken die voorafgaan aan en volgt u de huidige datum.
+Het volgende voorbeeld laat zien hoe LUIS gebruikt **datetimeV2** om op te lossen de utterance "Dinsdag donderdag". In dit voorbeeld is de huidige datum 19 juni. LUIS bevat **daterange** waarden voor beide van de datumbereiken die voorafgaan aan en volgt u de huidige datum.
 
 ```JSON
   "entities": [
@@ -190,11 +190,11 @@ Het volgende voorbeeld ziet u hoe LUIS gebruikt **datetimeV2** omzetten van de u
   ]
 ```
 ## <a name="ambiguous-time"></a>Niet-eenduidige tijd
-De matrix values heeft twee tijdselementen als de tijd of het tijdsbereik niet eenduidig is. Wanneer er een niet-eenduidige tijd, hebben waarden beide het uur. en uur. tijden.
+De matrix met waarden is twee keer elementen als de tijd of bereik niet eenduidig is. Wanneer er een niet-eenduidige tijd, hebben waarden beide het uur. en uur. tijden.
 
 ## <a name="time-range-resolution-example"></a>Voorbeeld van de tijd range resolutie
 
-Het volgende voorbeeld ziet u hoe LUIS gebruikt **datetimeV2** omzetten van de utterance met een tijdsbereik.
+Het volgende voorbeeld laat zien hoe LUIS gebruikt **datetimeV2** om op te lossen de utterance waarvoor een tijdsbereik.
 
 ```
   "entities": [
@@ -219,14 +219,14 @@ Het volgende voorbeeld ziet u hoe LUIS gebruikt **datetimeV2** omzetten van de u
 
 ## <a name="deprecated-prebuilt-datetime"></a>Afgeschafte vooraf gedefinieerde datum/tijd
 
-De `datetime` vooraf gedefinieerde entiteit is afgeschaft en wordt vervangen door [ `datetimeV2` ](#builtindatetimev2). 
+De `datetime` vooraf gedefinieerde entiteit is afgeschaft en vervangen door **datetimeV2**. 
 
-Ter vervanging van `datetime` met `datetimeV2` in uw app LUIS de volgende stappen uitvoeren:
+Vervang `datetime` met `datetimeV2` in uw LUIS-app, de volgende stappen uitvoeren:
 
-1. Open de **entiteiten** deelvenster van de LUIS webinterface. 
-2. Verwijder de **datetime** vooraf gedefinieerde entiteit.
+1. Open de **entiteiten** deelvenster van de LUIS-webinterface. 
+2. Verwijder de **datum-/** vooraf gedefinieerde entiteit.
 3. Klik op **vooraf gedefinieerde entiteit toevoegen**
-4. Selecteer **datetimeV2** en klik op **opslaan**.
+4. Selecteer **datetimeV2** en klikt u op **opslaan**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
