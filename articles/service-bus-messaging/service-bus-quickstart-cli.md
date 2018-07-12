@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: sethm
 ms.openlocfilehash: 717ac3c61ba4e362f01bad91f52ecb217cdbe1cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660552"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630382"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Snelstart: berichten verzenden en ontvangen met behulp van Azure CLI en Java
 
@@ -62,7 +62,7 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
    --query primaryConnectionString --output tsv)
 ```
 
-Wanneer de laatste opdracht is uitgevoerd, kopieert en plakt u de verbindingstekenreeks en de naam van de wachtrij die u hebt geselecteerd, naar een tijdelijke locatie, zoals Kladblok. U hebt deze gegevens nodig in de volgende stap.
+Wanneer de laatste opdracht is uitgevoerd, kopieert en plakt u de verbindingstekenreeks en de naam van de wachtrij die u hebt geselecteerd naar een tijdelijke locatie, zoals Kladblok. U hebt deze gegevens nodig in de volgende stap.
 
 ## <a name="send-and-receive-messages"></a>Berichten verzenden en ontvangen
 
@@ -263,7 +263,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die zijn vereist voor het verzenden naar en het ontvangen van berichten vanuit een wachtrij. Voor meer informatie over het schrijven van code voor het verzenden en ontvangen van berichten, gaat u naar de volgende zelfstudie over Service Bus:
+In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die zijn vereist voor het verzenden en ontvangen van berichten in een wachtrij. Voor meer informatie over het schrijven van code voor het verzenden en ontvangen van berichten, gaat u naar de volgende zelfstudie over Service Bus:
 
 > [!div class="nextstepaction"]
 > [Inventaris bijwerken met CLI en Java](./service-bus-tutorial-topics-subscriptions-cli.md)

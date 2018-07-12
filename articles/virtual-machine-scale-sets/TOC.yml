@@ -224,6 +224,8 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Een sjabloon converteren voor beheerde schijven
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Gepland onderhoud
+          href: virtual-machine-scale-sets-maintenance-notifications.md
     - name: Problemen oplossen
       items:
         - name: Automatisch schalen

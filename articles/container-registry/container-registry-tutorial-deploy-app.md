@@ -6,18 +6,19 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ac8f22f128b350844af10f309fd3b93512d54d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582298"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Zelfstudie: web-app implementeren vanuit Azure Container Registry
 
-Dit is deel twee van een serie met drie zelfstudies. In [deel één](container-registry-tutorial-prepare-registry.md) is er een geo-gerepliceerd privécontainerregister gemaakt en is er een containerinstallatiekopie gemaakt op basis van de bron en naar het register gepusht. In dit artikel implementeert u de container naar twee web-app-instanties in twee verschillende Azure-regio's om ervan te profiteren dat het geo-gerepliceerde register dicht bij het netwerk is.
+Dit is deel twee van een serie met drie zelfstudies. In [deel één](container-registry-tutorial-prepare-registry.md) is er een geo-gerepliceerd privécontainerregister gemaakt en is er een containerinstallatiekopie gemaakt op basis van de bron en naar het register gepusht. In dit artikel implementeert u de container naar twee web-app-instanties in twee verschillende Azure-regio's om ervan te profiteren dat het geo-gerepliceerde register dicht bij het netwerk is. Met de containerinstallatiekopie wordt vervolgens elke instantie opgehaald uit het dichtstbijzijnde register.
 
 In deze zelfstudie, het tweede deel in de serie, leert u het volgende:
 
@@ -27,11 +28,11 @@ In deze zelfstudie, het tweede deel in de serie, leert u het volgende:
 
 Als u nog niet een geo-gerepliceerd register hebt gemaakt en de installatiekopie van de voorbeeld-app in een container nog niet naar het register hebt gepusht, gaat u naar de vorige zelfstudie in de serie: [Een Azure-containerregister met geo-replicatie voorbereiden](container-registry-tutorial-prepare-registry.md).
 
-In het volgende gedeelte van de serie werkt u de app bij en pusht u een nieuwe containerinstallatiekopie naar het register. Ten slotte bladert u naar elke actieve web-app-instantie om te controleren of de wijziging automatisch in beide is doorgevoerd en om geo-replicatie van Azure Container Registry en webhooks in actie te bekijken.
+In het volgende artikel uit de reeks werkt u de toepassing bij, en pusht u de bijgewerkte containerinstallatiekopie vervolgens naar het register. Ten slotte bladert u naar elke actieve web-app-instantie om te controleren of de wijziging automatisch in beide is doorgevoerd en om geo-replicatie van Azure Container Registry en webhooks in actie te bekijken.
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Automatische implementatie naar Web App for Containers
 
-Azure Container Registry biedt ondersteuning voor het rechtstreeks implementeren van apps in containers naar [Web App for Containers](../app-service/containers/index.yml). In deze zelfstudie gebruikt u Azure Portal om de containerinstallatiekopie die is gemaakt in de vorige zelfstudie te implementeren naar twee web-app-abonnementen in verschillende Azure-regio's.
+Azure Container Registry biedt ondersteuning voor het rechtstreeks implementeren van apps in containers naar [Web App for Containers](../app-service/containers/index.yml). In deze zelfstudie gebruikt u Azure Portal om de containerinstallatiekopie die is gemaakt in de vorige zelfstudie, te implementeren naar twee web-app-abonnementen in verschillende Azure-regio's.
 
 Wanneer u een web-app vanuit een containerinstallatiekopie in het register implementeert en u een geo-gerepliceerd register in dezelfde regio hebt, maakt Azure Container Registry een [webhook](container-registry-webhook.md) voor de implementatie van de installatiekopie. Wanneer u een nieuwe installatiekopie naar uw containeropslagplaats pusht, detecteert de webhook de wijziging en implementeert deze automatisch de nieuwe containerinstallatiekopie naar uw web-app.
 
@@ -103,11 +104,7 @@ Zodra de Docker-installatiekopie vanuit het geo-gerepliceerde containerregister 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u twee Web App for Containers-instanties geïmplementeerd vanuit een geo-gerepliceerd Azure-containerregister. Door de stappen in deze zelfstudie te hebben gevolgd, hebt u het volgende gedaan:
-
-> [!div class="checklist"]
-> * U hebt een containerinstallatiekopie naar twee *Web App for Containers*-instanties geïmplementeerd
-> * U hebt de geïmplementeerde app geverifieerd
+In deze zelfstudie hebt u twee Web App for Containers-instanties geïmplementeerd vanuit een geo-gerepliceerd Azure-containerregister.
 
 Ga naar de volgende zelfstudie om een nieuwe containerinstallatiekopie bij te werken en vervolgens naar het containerregister te implementeren, en om daarna te controleren of de web-apps in beide regio's automatisch zijn bijgewerkt.
 
