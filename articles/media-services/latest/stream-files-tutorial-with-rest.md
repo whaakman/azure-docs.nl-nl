@@ -13,17 +13,17 @@ ms.custom: mvc
 ms.date: 05/30/2018
 ms.author: juliako
 ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651461"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308610"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Zelfstudie: Video's uploaden, coderen en streamen met REST
 
 In deze zelfstudie ziet u hoe u videobestanden kunt uploaden, coderen en streamen met Azure Media Services.
 
-Met Media Services kunt u uw mediabestanden coderen in indelingen die kunnen worden afgespeeld op een groot aantal verschillende browsers en apparaten. Misschien wilt u uw inhoud wel streamen in de HLS-indeling van Apple of in MPEG DASH. Voordat u gaat streamen, moet u uw digitale mediabestand van hoge kwaliteit coderen. Zie [Encoding](encoding-concept.md) voor richtlijnen voor codering.
+Met Media Services kunt u uw mediabestanden coderen in indelingen die kunnen worden afgespeeld op een groot aantal verschillende browsers en apparaten. Zo kunt u bijvoorbeeld inhoud streamen in de indelingen Apple HLS of MPEG DASH. Voordat u gaat streamen, moet u uw digitale mediabestand van hoge kwaliteit coderen. Zie [Encoding](encoding-concept.md) voor richtlijnen voor codering.
 
 ![De video afspelen](./media/stream-files-tutorial-with-api/final-video.png)
 

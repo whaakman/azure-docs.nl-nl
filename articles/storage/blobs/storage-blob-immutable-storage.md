@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 4a83ebbcf045ac2b74957effceadfe80609e960c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237390"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970241"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Onveranderbare opslagfunctie van Azure Blob Storage (preview)
 
@@ -42,7 +42,7 @@ De onveranderbare opslagfunctie biedt het volgende:
 
 - **Configuratie op containerniveau:** met de onveranderbare opslagfunctie kunnen gebruikers een retentiebeleid op basis van tijd, en labels voor juridische bewaring op containerniveau configureren.  Gebruikers kunnen met eenvoudige instellingen op containerniveau een retentiebeleid op basis van tijd maken en vergrendelen, retentieperioden verlengen, juridische bewaring instellen en opheffen enzovoort.  Deze beleidsregels zijn van toepassing op alle blobs in de container, zowel op bestaande als nieuwe blobs.
 
-- **Ondersteuning voor auditlogboekregistratie:** elke container heeft een auditlogboek dat wordt weergegeven voor maximaal vijf retentieopdrachten op basis van tijd voor beleidsregels voor vergrendelde retentie op basis van tijd, met maximaal drie logboeken voor retentieperiodeverlengingen.  Voor retentie op basis van tijd bevat het logboek de gebruikers-id, het opdrachttype, tijdstempels en de retentieperiode. Voor juridische bewaring bevat het logboek de gebruikers-id, het opdrachttype, tijdstempels en de labels voor juridische bewaring. Dit logboek blijft volgens de richtlijnen van de SEC 17a-4(f)-regelgeving bewaard gedurende de levensduur van de container. Een uitgebreider logboek van activiteiten op besturingsvlak vindt u in het [Azure-activiteitenlogboek](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Het is de verantwoordelijkheid van de gebruiker om deze logboeken permanent op te slaan wat mogelijk vereist is voor andere doeleinden.
+- **Ondersteuning voor auditlogboekregistratie:** elke container heeft een auditlogboek dat wordt weergegeven voor maximaal vijf retentieopdrachten op basis van tijd voor beleidsregels voor vergrendelde retentie op basis van tijd, met maximaal drie logboeken voor retentieperiodeverlengingen.  Voor retentie op basis van tijd bevat het logboek de gebruikers-id, het opdrachttype, tijdstempels en de retentieperiode. Voor juridische bewaring bevat het logboek de gebruikers-id, het opdrachttype, tijdstempels en de labels voor juridische bewaring. Dit logboek blijft volgens de richtlijnen van de SEC 17a-4(f)-regelgeving bewaard gedurende de levensduur van de container. Een uitgebreider logboek van activiteiten op besturingsvlak vindt u in het [Azure-activiteitenlogboek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Het is de verantwoordelijkheid van de gebruiker om deze logboeken permanent op te slaan wat mogelijk vereist is voor andere doeleinden.
 
  De functie is ingeschakeld in alle openbare Azure-regio's.
 
@@ -68,7 +68,7 @@ Voor meer informatie over het instellen en opheffen van een juridische bewaring 
 
 Op een container kan tegelijkertijd een juridische bewaring en een retentiebeleid op basis van tijd zijn toegepast. Alle blobs in die container blijven onveranderbaar totdat alle juridische bewaringen zijn opgeheven, zelfs als hun effectieve retentieperiode is verlopen. Een blob blijft daarentegen onveranderbaar totdat de effectieve retentieperiode is verlopen, zelfs als alle juridische blokkeringen zijn gewist.
 De volgende tabel toont de typen blob-bewerkingen die zijn uitgeschakeld voor de verschillende scenario's voor onveranderbare opslag.
-Raadpleeg de documentatie van [Azure Blob Service-API](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api) voor de details van Blob REST API.
+Raadpleeg de documentatie van [Azure Blob Service-API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) voor de details van Blob REST API.
 
 |Scenario  |Blob-status  |Blob-bewerkingen niet toegestaan  |
 |---------|---------|---------|
@@ -79,7 +79,7 @@ Raadpleeg de documentatie van [Azure Blob Service-API](https://docs.microsoft.co
 
 > [!NOTE]
 > In de eerste twee scenario's van bovenstaande tabel zijn de eerste Put Blob-bewerking en de Put Block List- en Put Block-bewerkingen die nodig zijn om een blob te maken, toegestaan. Alle volgende bewerkingen zijn niet toegestaan.
-> De onveranderbare opslagfunctie is alleen beschikbaar in GPv2- en blob-opslagaccounts en moet worden gemaakt via de [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+> De onveranderbare opslagfunctie is alleen beschikbaar in GPv2- en blob-opslagaccounts en moet worden gemaakt via de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Prijzen
 
@@ -94,7 +94,7 @@ Tijdens de openbare preview gelden de volgende beperkingen:
 
 ## <a name="getting-started"></a>Aan de slag
 
-Onveranderbare opslag voor Azure Blobs wordt ondersteund op de meest recente versies van [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) en Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
+Onveranderbare opslag voor Azure Blobs wordt ondersteund op de meest recente versies van [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -130,7 +130,7 @@ Onveranderbare opslag voor Azure Blobs wordt ondersteund op de meest recente ver
 
 ### <a name="cli-20"></a>CLI 2.0
 
-De [CLI-extensie](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) installeren met `az extension add -n storage-preview`
+De [CLI-extensie](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installeren met `az extension add -n storage-preview`
 
 Als u de extensie al hebt geïnstalleerd, gebruikt u de volgende opdracht om de onveranderbare opslagfunctie in te schakelen: `az extension update -n storage-preview`
 

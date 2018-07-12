@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 7a860742192227e92a14d9bb5622dc9b61f6cb99
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 33d948ee283ff3ee873e2f17ee07a7a889889925
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716020"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969490"
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Aan de slag met Microsoft Power BI Embedded
 
@@ -49,7 +49,7 @@ Er zijn voorbeelden om u op weg te helpen. Voor een stapsgewijze behandeling van
 Creëer Power BI Embedded-capaciteit in Microsoft Azure om uw toepassing naar productie te verplaatsen. Voor meer informatie over het creëren van capaciteit raadpleegt u [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Power BI Embedded-capaciteit creëren in de Azure-portal).
 
 > [!IMPORTANT]
-> Omdat insluittokens alleen zijn bedoeld voor het testen door een ontwikkelaar, kan een Power BI-hoofdaccount maar een beperkt aantal insluittokens genereren. Voor productie-insluitscenario's moet een [capaciteit worden aangeschaft](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Er is geen limiet voor het genereren van insluittokens wanneer een toegewezen capaciteit is aangeschaft. Ga naar [Beschikbare functies ophalen](https://msdn.microsoft.com/en-us/library/mt846473.aspx) om te controleren op het huidige ingesloten gebruik in percentages.
+> Omdat insluittokens alleen zijn bedoeld voor het testen door een ontwikkelaar, kan een Power BI-hoofdaccount maar een beperkt aantal insluittokens genereren. Voor productie-insluitscenario's moet een [capaciteit worden aangeschaft](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Er is geen limiet voor het genereren van insluittokens wanneer een toegewezen capaciteit is aangeschaft. Ga naar [Beschikbare functies ophalen](https://msdn.microsoft.com/library/mt846473.aspx) om te controleren op het huidige ingesloten gebruik in percentages.
 
 Uw capaciteit beheren vanuit de Power BI-beheerportal. Wijs een werkruimtebeheerder toe om u te helpen bij uw app-werkruimten. Voor meer informatie raadpleegt u [Manage capacities within Power BI Premium and Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/) (Capaciteit beheren in Power BI Premium en Power BI Embedded).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 209fdda974dee2386328da43991cc9d453e61aa7
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: edfabf1f93c78cf29ff3561f437053df11e15bd5
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062153"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857477"
 ---
 # <a name="security-management-in-azure"></a>Beveiligingsbeheer in Azure
 Azure-abonnees kunnen hun cloudomgevingen beheren vanaf meerdere apparaten, waaronder beheerwerkstations, de pc's van ontwikkelaars en zelfs apparaten van bevoegde eindgebruikers met taakspecifieke rechten. In sommige gevallen worden beheerfuncties uitgevoerd via op het web gebaseerde consoles, zoals de [Azure Portal](https://azure.microsoft.com/features/azure-portal/). In andere gevallen zijn er mogelijk rechtstreekse verbindingen naar Azure vanaf on-premises systemen via virtuele particuliere netwerken (VPN), Terminal Services, protocollen van clienttoepassingen of de Azure Service Management API (SMAPI) (via een programma). Clienteindpunten kunnen bovendien zowel in een domein zijn samengevoegd als op zichzelf staand en niet-beheerd zijn, zoals tablets en smartphones.
@@ -93,7 +93,7 @@ Op een beperkt werkstation voert de beheerder een standaardgebruikersaccount uit
 * Beperkte uitvoering van software. Sta alleen een aantal vooraf gedefinieerde uitvoerbare bestanden toe die nodig zijn voor uitvoering van het beheer (de standaardinstelling is 'Niet toestaan'). Standaard moeten gebruikers geen toestemming hebben voor het uitvoeren van programma's, tenzij expliciet gedefinieerd in de acceptatielijst.
 * Minimale bevoegdheden. Gebruikers van beheerwerkstations mogen geen beheerdersbevoegdheden hebben op de lokale computer. Op deze manier kunnen zij niet per ongeluk of met opzet wijzigen aanbrengen in de systeemconfiguratie of de systeembestanden.
 
-U kunt dit afdwingen via [Groepsbeleidsobjecten](https://www.microsoft.com/download/details.aspx?id=2612) (GPO's) in Active Directory Domain Services (AD DS) en door uw (lokale) beheerdomein toe te passen op alle beheeraccounts.
+U kunt dit afdwingen via [Groepsbeleidsobjecten](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy) (GPO's) in Active Directory Domain Services (AD DS) en door uw (lokale) beheerdomein toe te passen op alle beheeraccounts.
 
 ### <a name="managing-services-applications-and-data"></a>Services, toepassingen en gegevens beheren
 Azure-cloudservices worden geconfigureerd via de Azure Portal of SMAPI, hetzij met behulp van de Windows PowerShell-opdrachtregelinterface, hetzij met een op maat gemaakte toepassing die gebruikmaakt van deze RESTful-interfaces. Services die gebruikmaken van deze methoden, zijn onder meer Azure Active Directory (Azure AD), Azure Storage, Azure Websites en Azure Virtual Network.

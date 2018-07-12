@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 9002d0636a5abaf24cc2bcd1e531f38ec5c8d2eb
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: e48c2aceb2a8f45d01b922a186900780c1c5ef51
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294009"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968753"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Een statische HTML-web-app maken in Azure
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een eenvoudige HTML+CSS-site naar Azure Web Apps implementeert. U gaat deze Quickstart in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) doen, maar u kunt deze opdrachten ook lokaal uitvoeren met [Azure CLI](/cli/azure/install-azure-cli).
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een eenvoudige HTML+CSS-site naar Azure Web Apps implementeert. U gaat deze Quickstart in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) doen, maar u kunt deze opdrachten ook lokaal uitvoeren met [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Startpagina van voorbeeld-app](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -34,7 +34,7 @@ ms.locfileid: "36294009"
 
 ## <a name="install-web-app-extension-for-cloud-shell"></a>Web-appuitbreiding voor Cloud Shell installeren
 
-Om deze Quickstart te kunnen doen, installeert u de web-appuitbreiding met [az extension add](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Als de extensie al is geïnstalleerd, moet u deze bijwerken naar de nieuwste versie. U kunt de web-appuitbreiding bijwerken door `az extension update -n webapp` te typen.
+Om deze Quickstart te kunnen doen, installeert u de web-appuitbreiding met [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). Als de extensie al is geïnstalleerd, moet u deze bijwerken naar de nieuwste versie. U kunt de web-appuitbreiding bijwerken door `az extension update -n webapp` te typen.
 
 Voer de volgende opdracht uit om het web-appuitbreiding te installeren:
 
@@ -84,7 +84,7 @@ Met de opdracht `az webapp up` worden de volgende acties uitgevoerd:
 
 - Er wordt een app met de opgegeven naam gemaakt.
 
-- Er worden via zip bestanden van de huidige werkmap naar de web-app [geïmplementeerd](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip).
+- Er worden via zip bestanden van de huidige werkmap naar de web-app [geïmplementeerd](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip).
 
 Het kan enkele minuten duren voor deze opdracht is uitgevoerd. De opdracht geeft informatie weer die lijkt op het volgende voorbeeld:
 

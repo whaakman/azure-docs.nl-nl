@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/26/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 604bb45c7da5ba6d99600b57d4b957a1f7dafb13
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 4e547a97cde896acc4b6c8b19bc6c6cebf512adb
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024578"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867627"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Blob-opslaggebeurtenissen maken en routeren met Azure Portal en Event Grid
 
@@ -56,6 +56,8 @@ Voordat u zich kunt abonneren op gebeurtenissen voor de Blob-opslag, moet u het 
 1. De site wordt weergegeven, maar er zijn nog geen gebeurtenissen op gepubliceerd.
 
    ![Nieuwe site weergeven](./media/blob-event-quickstart-portal/view-site.png)
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## <a name="subscribe-to-the-blob-storage"></a>Abonneren op de Blob-opslag
 

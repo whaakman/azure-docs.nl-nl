@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: eb1c769e034f37d05de63896f65290db79103637
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293901"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969541"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Een Node.js-web-app maken in Azure App Service op Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "35293901"
 > In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een Node.js-web-app maken in Azure](../app-service-web-get-started-nodejs.md) om een app te implementeren in App Service onder _Windows_.
 >
 
-[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze snelstart laat zien hoe u een Node.js-app implementeert in Azure App Service op Linux met behulp van [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze snelstart laat zien hoe u een Node.js-app implementeert in Azure App Service op Linux met behulp van [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 U gaat deze snelstart in Cloud Shell doen, maar u kunt deze opdrachten ook lokaal uitvoeren met [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -40,7 +40,7 @@ U gaat deze snelstart in Cloud Shell doen, maar u kunt deze opdrachten ook lokaa
 
 ## <a name="install-web-app-extension-for-cloud-shell"></a>Web-appuitbreiding voor Cloud Shell installeren
 
-U hebt de web-appuitbreiding [az web app extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add) nodig om deze snelstart te kunnen doen. Als de extensie al is geïnstalleerd, moet u deze bijwerken naar de nieuwste versie. U kunt de web-appuitbreiding bijwerken door `az extension update -n webapp` te typen.
+U hebt de web-appuitbreiding [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) nodig om deze snelstart te kunnen doen. Als de extensie al is geïnstalleerd, moet u deze bijwerken naar de nieuwste versie. U kunt de web-appuitbreiding bijwerken door `az extension update -n webapp` te typen.
 
 Voer de volgende opdracht uit om het web-appuitbreiding te installeren:
 
@@ -136,7 +136,7 @@ Met de opdracht `az webapp up` worden de volgende acties uitgevoerd:
 
 - Er wordt een app met de opgegeven naam gemaakt.
 
-- Er worden via zip bestanden van de huidige werkmap naar de web-app [geïmplementeerd](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip).
+- Er worden via zip bestanden van de huidige werkmap naar de web-app [geïmplementeerd](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip).
 
 ## <a name="browse-to-the-app"></a>Bladeren naar de app
 

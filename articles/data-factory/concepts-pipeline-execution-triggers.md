@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048635"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867083"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Versie 1](v1/data-factory-scheduling-and-execution.md)
+> * [Versie 1:](v1/data-factory-scheduling-and-execution.md)
 > * [Huidige versie](concepts-pipeline-execution-triggers.md)
 
 Een _pijplijnuitvoering_ in Azure Data Factory definieert een exemplaar van een pijplijnuitvoering. Stel dat u een pijplijn hebt die wordt uitgevoerd om 8:00 uur, 9:00 uur en 10:00 uur. In dit geval wordt de pijplijn drie keer afzonderlijk uitgevoerd, ook wel pijplijnuitvoeringen genoemd. Elke pijplijnuitvoering heeft een unieke id. Een uitvoerings-id is een GUID die de betreffende specifieke pijplijnuitvoering definieert. 
@@ -105,8 +105,8 @@ U kunt parameters doorgeven in de hoofdtekst van de nettolading van de aanvraag.
 
 ```json
 {
-  “sourceBlobContainer”: “MySourceFolder”,
-  “sinkBlobCountainer”: “MySinkFolder”
+  "sourceBlobContainer": "MySourceFolder",
+  "sinkBlobCountainer": "MySinkFolder"
 }
 ```
 
@@ -137,7 +137,7 @@ Triggers zijn een andere manier om een pijplijnuitvoering te starten. Triggers z
 
 - Schematrigger: een trigger die een pijplijn volgens een wandklokschema aanroept.
 
-- Tumblingvenstertrigger: een trigger die volgens een periodiek interval werkt terwijl de status behouden blijft. Azure Data Factory ondersteunt momenteel geen triggers op basis van gebeurtenissen. Bijvoorbeeld de trigger voor een pijplijnuitvoering die reageert op een gebeurtenis waarbij een bestand arriveert, wordt niet ondersteunt.
+- Tumblingvenstertrigger: een trigger die volgens een periodiek interval werkt terwijl de status behouden blijft.
 
 - Trigger op basis van gebeurtenissen: een trigger die reageert op een gebeurtenis.
 
