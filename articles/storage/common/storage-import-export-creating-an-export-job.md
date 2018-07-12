@@ -1,6 +1,6 @@
 ---
 title: Exporteren van een taak voor Azure Import/Export maken | Microsoft Docs
-description: Informatie over het maken van een taak voor het exporteren van de Microsoft Azure Import/Export-service.
+description: Informatie over het maken van een exporttaak voor de Microsoft Azure Import/Export-service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,83 +15,83 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363244"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232264"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Een exporttaak voor de Azure Import/Export-service maken
-Maken van een taak voor het exporteren van de Microsoft Azure Import/Export-service met de REST API omvat de volgende stappen:
+Het maken van een exporttaak voor de Microsoft Azure Import/Export-service met behulp van de REST-API omvat de volgende stappen:
 
--   Als u de blobs te exporteren.
+-   Selecteren van de blobs te exporteren.
 
--   Het verkrijgen van een back-ups van locatie.
+-   Het verkrijgen van een locatie voor verzending.
 
--   Maken van de taak voor het exporteren.
+-   Het maken van de taak voor het exporteren.
 
--   Lege stations via een ondersteunde Provider-service naar Microsoft verzenden.
+-   Verzend uw lege schijven naar Microsoft via een ondersteunde Provider-service.
 
--   De taak voor het exporteren bijwerken met de pakket-informatie.
+-   De exporttaak bijwerken met de pakketgegevens.
 
--   De stations ontvangen terug van Microsoft.
+-   De schijven ontvangt terug van Microsoft.
 
- Zie [via de Windows Azure Import/Export-service gegevens overdragen naar Blob Storage](storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie waarin wordt getoond hoe u de [Azure-portal](https://portal.azure.com/) te maken en beheren van importeren en exporteren van taken.
+ Zie [met behulp van de Windows Azure Import/Export-service gegevens overbrengen naar Blob-opslag](storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie waarin wordt gedemonstreerd hoe u de [Azure-portal](https://portal.azure.com/) te maken en beheren van importeren en exporteren van taken.
 
-## <a name="selecting-blobs-to-export"></a>Als u blobs exporteren
- Voor het maken van een taak voor het exporteren, moet u een lijst verstrekken van blobs die u wilt exporteren vanuit uw opslagaccount. Er zijn een aantal manieren blobs worden geëxporteerd selecteren:
+## <a name="selecting-blobs-to-export"></a>Te exporteren blobs selecteren
+ Voor het maken van een exporttaak bekijken, moet u een lijst met blobs die u wilt exporteren uit uw opslagaccount opgeven. Er zijn een aantal manieren om te selecteren van blobs worden geëxporteerd:
 
--   U kunt een blobpad relatief Selecteer één blob en alle bijbehorende momentopnamen.
+-   U kunt een relatief pad naar één blob en alle bijbehorende momentopnamen te selecteren.
 
--   U kunt een blobpad relatief selecteren één blob met uitzondering van de momentopnamen.
+-   U kunt een relatief pad naar gebruiken om te selecteren van één blob met uitzondering van de momentopnamen ervan verwijderd.
 
--   U kunt een relatief blobpad en de tijd van een momentopname selecteren één momentopname.
+-   U kunt een relatief pad naar en de tijd van een momentopname gebruiken om te selecteren van een momentopname van een enkele.
 
--   Een blob-voorvoegsel kunt u alle blobs en momentopnamen met het opgegeven voorvoegsel selecteren.
+-   Een blob-voorvoegsel kunt u alle blobs en -momentopnamen met het opgegeven voorvoegsel selecteren.
 
--   U kunt alle blobs en momentopnamen in de storage-account exporteren.
+-   U kunt exporteren alle blobs en momentopnamen in de storage-account.
 
- Zie voor meer informatie over het opgeven van BLOB's om te exporteren, de [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking.
+ Zie voor meer informatie over het opgeven van blobs voor het exporteren van de [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking.
 
-## <a name="obtaining-your-shipping-location"></a>Het verkrijgen van de locatie van uw back-ups
-Voordat u maakt een taak voor het exporteren, moet u een back-upfunctie locatienaam en adres ophalen door het aanroepen van de [locatie ophalen](https://portal.azure.com) of [lijst locaties](/rest/api/storageimportexport/listlocations) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en de harde schijven naar dit adres verzenden. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het adres van de back-upfunctie voor een specifieke locatie.
+## <a name="obtaining-your-shipping-location"></a>Het ophalen van de locatie van uw verzending
+Voordat u een exporttaak bekijken, moet u eerst een verzending locatienaam en adres door het aanroepen van de [locatie ophalen](https://portal.azure.com) of [lijst met locaties](/rest/api/storageimportexport/listlocations) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en verzending van uw harde schijven naar dat adres. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het verzendadres voor een specifieke locatie.
 
-Volg onderstaande stappen voor het verkrijgen van de locatie van de back-ups:
+Volg de stappen hieronder om de locatie van de verzending verkrijgen:
 
--   Geef de naam van de locatie van uw opslagaccount. Deze waarde kan worden gevonden in de **locatie** op het opslagaccount **Dashboard** in de Azure portal of voor de query met de service management API-bewerking [eigenschappen van het Opslagaccount ophalen](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Geef de naam van de locatie van uw opslagaccount. Deze waarde kunt u vinden onder de **locatie** veld in de storage-account **Dashboard** in Azure portal of opgevraagde voor met behulp van de service management API-bewerking [Opslagaccount ophalen Eigenschappen van](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
--   Ophalen van de locatie die beschikbaar zijn voor het verwerken van dit opslagaccount door het aanroepen van de `Get Location` bewerking.
+-   Ophalen van de locatie die beschikbaar zijn voor het verwerken van dit opslagaccount wordt gebruikt door het aanroepen van de `Get Location` bewerking.
 
--   Als de `AlternateLocations` eigenschap van de locatie van de locatie zelf bevat, wordt dit klopt voor gebruik van deze locatie. Anders Roep de `Get Location` opnieuw met een van de alternatieve locaties. De oorspronkelijke locatie mogelijk tijdelijk worden gesloten voor onderhoud.
+-   Als de `AlternateLocations` eigenschap van de locatie van de locatie zelf bevat, wordt dit klopt om deze locatie te gebruiken. Anders aanroepen de `Get Location` bewerking opnieuw uit met een van de alternatieve locaties. De oorspronkelijke locatie mogelijk tijdelijk worden gesloten voor onderhoud.
 
-## <a name="creating-the-export-job"></a>Maken van de taak voor exporteren
- Aanroepen voor het maken van de taak voor het exporteren, de [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking. U moet de volgende informatie:
+## <a name="creating-the-export-job"></a>De exporttaak maken
+ Aanroepen voor het maken van de taak voor het exporteren, de [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking. U moet de volgende informatie:
 
 -   Een naam voor de taak.
 
 -   De naam van het opslagaccount.
 
--   De back-upfunctie locatienaam, in de vorige stap hebt verkregen.
+-   De verzending locatienaam, in de vorige stap hebt verkregen.
 
 -   Een taaktype (exporteren).
 
--   Het retouradres waarin de schijven moeten worden verzonden nadat de taak voor het exporteren is voltooid.
+-   Het retouradres waar de stations moeten worden verzonden nadat de taak voor het exporteren is voltooid.
 
--   De lijst met BLOB's (of blob voorvoegsels) moet worden geëxporteerd.
+-   De lijst met blobs (of een blob-voorvoegsels) moet worden geëxporteerd.
 
-## <a name="shipping-your-drives"></a>Verzending van uw schijven
- Gebruik vervolgens de Azure-hulpprogramma voor importeren/exporteren om te bepalen het aantal stations dat u verzenden wilt, op basis van de blobs die u hebt geselecteerd om te exporteren en de grootte van de schijf. Zie de [Azure Import/Export hulpprogramma verwijzing](storage-import-export-tool-how-to-v1.md) voor meer informatie.
+## <a name="shipping-your-drives"></a>Verzend uw schijven
+ Gebruik vervolgens de Azure Import/Export-hulpprogramma om te bepalen het aantal stations dat u verzenden wilt, op basis van de blobs die u hebt geselecteerd om te worden geëxporteerd en de grootte van de schijf. Zie de [naslaginformatie voor Azure Import/Export-hulpprogramma](storage-import-export-tool-how-to-v1.md) voor meer informatie.
 
- De stations in een enkel pakket van het pakket en moeten worden verzonden naar het adres in de vorige stap verkregen. Noteer het nummer van het bijhouden van uw pakket voor de volgende stap.
+ De stations in één pakket verpakken en ze verzenden naar het adres dat is verkregen in de vorige stap. Houd er rekening mee het volgnummer van het pakket voor de volgende stap.
 
 > [!NOTE]
 >  U moet uw stations via een ondersteunde Provider-service, die het pakket van een volgnummer voorzien verzenden.
 
-## <a name="updating-the-export-job-with-your-package-information"></a>De taak voor het exporteren wordt bijgewerkt met de informatie van uw pakket
- Nadat u het volgnummer hebt, roept u de [Update taakeigenschappen](/rest/api/storageimportexport/jobs#Jobs_Update) bijgewerkt met de bewerking op de naam van de provider en het volgnummer voor de taak. Desgewenst kunt u het aantal stations, het adres van de afzender en ook de datum van de back-upfunctie.
+## <a name="updating-the-export-job-with-your-package-information"></a>De exporttaak bijwerken met de pakketgegevens
+ Nadat u uw traceringsnummer hebt, roept u de [Update taakeigenschappen](/rest/api/storageimportexport/jobs#Jobs_Update) bewerking is de naam van de provider en traceringsnummer voor de taak bijgewerkt. U kunt het aantal stations, adres van de afzender en de datum van verzending ook optioneel opgeven.
 
-## <a name="receiving-the-package"></a>Het pakket wordt ontvangen
- Nadat de taak voor het exporteren is verwerkt, wordt de stations voor u met uw versleutelde gegevens geretourneerd. U kunt de BitLocker-sleutel voor elk van de stations ophalen door het aanroepen van de [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) bewerking. U kunt vervolgens het station met de sleutel te ontgrendelen. Het manifestbestand van de schijf op elk station bevat de lijst met bestanden op het station, evenals het oorspronkelijke blobadres voor elk bestand.
+## <a name="receiving-the-package"></a>Het pakket ontvangen
+ Nadat de taak voor het exporteren is verwerkt, wordt uw schijven aan u worden geretourneerd met de versleutelde gegevens. U kunt de BitLocker-sleutel voor elk van de stations ophalen door het aanroepen van de [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) bewerking. U kunt vervolgens het station met de sleutel te ontgrendelen. Het manifestbestand van de schijf op elke schijf bevat de lijst met bestanden op het station, evenals het oorspronkelijke adres van de blob voor elk bestand.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

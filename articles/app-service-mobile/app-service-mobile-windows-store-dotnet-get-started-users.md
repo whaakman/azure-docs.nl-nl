@@ -1,6 +1,6 @@
 ---
-title: Verificatie toevoegen aan uw app Universal Windows Platform (UWP) | Microsoft Docs
-description: 'Informatie over het gebruik van Azure App Service Mobile Apps voor verificatie van gebruikers van uw Universal Windows Platform (UWP)-app met een aantal identiteitsproviders, waaronder: AAD, Google, Facebook, Twitter en Microsoft.'
+title: Verificatie toevoegen aan uw Universal Windows Platform (UWP)-app | Microsoft Docs
+description: 'Informatie over het gebruik van Azure App Service Mobile Apps voor verificatie van gebruikers van uw Universal Windows Platform (UWP)-app met verschillende identiteitsproviders, waaronder: AAD, Google, Facebook, Twitter en Microsoft.'
 services: app-service\mobile
 documentationcenter: windows
 author: conceptdev
@@ -15,31 +15,31 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
 ms.openlocfilehash: 4cc597f8aca13445034c8a1691b41018d4d9bc4b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592141"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306571"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Verificatie toevoegen aan uw Windows-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Dit onderwerp leest u hoe u cloud-gebaseerde verificatie toevoegen aan uw mobiele app. In deze zelfstudie maakt toevoegen u verificatie aan de Universal Windows Platform (UWP)-Quick Start-project voor mobiele Apps met behulp van een id-provider die wordt ondersteund door Azure App Service. Na wordt is geverifieerd en gemachtigd door uw back-end voor de mobiele App, wordt de waarde van de gebruiker-ID weergegeven.
+Dit onderwerp ziet u hoe u cloud-gebaseerde authenticatie toevoegen aan uw mobiele app. In deze zelfstudie hebt toevoegen u verificatie aan de Universal Windows Platform (UWP)-Quick Start-project voor mobiele Apps met behulp van een id-provider die wordt ondersteund door Azure App Service. Na wordt is geverifieerd en geautoriseerd door de back-end van uw mobiele App, wordt de waarde van de gebruiker-ID weergegeven.
 
-Deze zelfstudie is gebaseerd op de Snelstartgids Mobile Apps. U moet eerst Voltooi de zelfstudie [aan de slag met Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).
+In deze zelfstudie is gebaseerd op de Mobile Apps quickstart. U moet eerst de zelfstudie hebt voltooid [aan de slag met Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).
 
 ## <a name="register"></a>Uw app registreren voor verificatie en de App Service configureren
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ## <a name="redirecturl"></a>Uw app toevoegen aan de toegestane externe Omleidings-URL 's
 
-Veilige verificatie vereist dat u een nieuwe URL-schema voor uw app definiëren. Hierdoor kan de verificatiesysteem terug te keren naar uw app zodra het verificatieproces voltooid is. In deze zelfstudie gebruiken we het URL-schema _appname_ in. U kunt echter een URL-schema dat u kiest. Deze moet uniek zijn voor uw mobiele App. De omleiding op de server inschakelen:
+Veilige verificatie is vereist dat u een nieuwe URL-schema voor uw app definiëren. Hiermee kunt het verificatiesysteem terug te keren naar uw app nadat het verificatieproces voltooid is. In deze zelfstudie gebruiken we het URL-schema _appname_ in. U kunt echter een URL-schema dat u kiest. Deze moet uniek zijn voor uw mobiele App. De omleiding op de server inschakelen:
 
-1. Selecteer in de [Azure-portal] uw App Service.
+1. Selecteer uw App Service in de [Azure-portal].
 
-2. Klik op de **verificatie / autorisatie** menuoptie.
+2. Klik op de **verificatie / autorisatie** menu-optie.
 
-3. In de **toegestaan externe Omleidings-URL's**, voer `url_scheme_of_your_app://easyauth.callback`.  De **url_scheme_of_your_app** in deze tekenreeks wordt het URL-schema voor uw mobiele toepassing.  Deze moet voldoen aan de normale URL-specificatie voor een protocol (Gebruik letters en cijfers alleen en begin met een letter).  U moet een notitie van de tekenreeks die u naar wens aanpassen van uw mobiele toepassingscode met het URL-schema op verschillende plaatsen.
+3. In de **toegestane externe Omleidings-URL's**, voer `url_scheme_of_your_app://easyauth.callback`.  De **url_scheme_of_your_app** in deze reeks wordt het URL-schema voor uw mobiele toepassing.  Het moet normale URL-specificatie voor een protocol (Gebruik letters en cijfers alleen en beginnen met een letter) volgen.  U moet een notitie van de tekenreeks die u kiest, aangezien u nodig hebt om aan te passen van de code van uw mobiele toepassing met de URL-schema op verschillende plaatsen.
 
 4. Klik op **OK**.
 
@@ -48,12 +48,12 @@ Veilige verificatie vereist dat u een nieuwe URL-schema voor uw app definiëren.
 ## <a name="permissions"></a>Machtigingen beperken voor geverifieerde gebruikers
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Nu kunt u controleren of anonieme toegang tot uw back-end is uitgeschakeld. Met de UWP-appproject ingesteld als het opstartproject, implementeren en uitvoeren van de app; Controleer of dat een niet-verwerkte uitzondering met een statuscode van 401 (niet-geautoriseerd) treedt op nadat de app wordt gestart. Dit komt doordat de app probeert te krijgen tot uw mobiele App-Code als een niet-geverifieerde gebruiker, maar de *TodoItem* tabel nu is verificatie vereist.
+Nu kunt u controleren dat anonieme toegang tot uw back-end is uitgeschakeld. Met de UWP-appproject instellen als het opstartproject, implementeren en uitvoeren van de app; Controleer of dat een niet-verwerkte uitzondering met een statuscode 401 (niet-gemachtigd) is gegenereerd nadat de app wordt gestart. Dit komt doordat de app probeert te krijgen tot uw mobiele App-Code als een niet-geverifieerde gebruiker, maar de *TodoItem* tabel nu verificatie is vereist.
 
-Vervolgens kunt u de app om gebruikers te verifiëren voordat u resources van uw App Service wordt bijgewerkt.
+Vervolgens werkt u de app om gebruikers te verifiëren voordat u resources van uw App Service aanvraagt.
 
 ## <a name="add-authentication"></a>Verificatie toevoegen aan de app.
-1. In de UWP app bestand MainPage.xaml.cs project en voeg het volgende codefragment toe:
+1. In de UWP app bestand MainPage.xaml.cs-project en voeg het volgende codefragment toe:
    
         // Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -86,8 +86,8 @@ Vervolgens kunt u de app om gebruikers te verifiëren voordat u resources van uw
             return success;
         }
    
-    Deze code verifieert de gebruiker met een Facebook-aanmelding. Als u van een id-provider dan Facebook gebruikmaakt, wijzigt u de waarde van **MobileServiceAuthenticationProvider** boven aan de waarde voor de provider.
-2. Vervang de **OnNavigatedTo()** methode in MainPage.xaml.cs. Vervolgens voegt u een **aanmelden** knop naar de app waarmee de verificatie wordt geactiveerd.
+    Deze code verifieert de gebruiker met een Facebook-aanmelding. Als u een id-provider dan Facebook gebruikt, wijzigt u de waarde van **MobileServiceAuthenticationProvider** boven aan de waarde voor de provider.
+2. Vervang de **OnNavigatedTo()** methode in MainPage.xaml.cs. Vervolgens voegt u een **aanmelden** knop naar de app die verificatie wordt geactiveerd.
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -97,7 +97,7 @@ Vervolgens kunt u de app om gebruikers te verifiëren voordat u resources van uw
             }
         }
 
-3. Het volgende codefragment aan MainPage.xaml.cs toevoegen:
+3. Het volgende codefragment toevoegen aan de MainPage.xaml.cs:
    
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -127,7 +127,7 @@ Vervolgens kunt u de app om gebruikers te verifiëren voordat u resources van uw
                 <TextBlock Margin="5">Sign in</TextBlock> 
             </StackPanel>
         </Button>
-5. Het volgende codefragment toevoegen aan de App.xaml.cs:
+5. Voeg het volgende codefragment toe aan de App.xaml.cs:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -143,21 +143,21 @@ Vervolgens kunt u de app om gebruikers te verifiëren voordat u resources van uw
             Window.Current.Activate();
             base.OnActivated(args);
         }
-6. Package.appxmanifest bestand openen, gaat u naar **declaraties**in **beschikbaar declaraties** vervolgkeuzelijst, selecteer **Protocol** en klik op **toevoegen** knop. Nu configureren de **eigenschappen** van de **Protocol** declaratie. In **weergavenaam**, de naam die u wilt weergeven aan gebruikers van uw toepassing toevoegen. In **naam**, uw {url_scheme_of_your_app} toevoegen.
-7. Druk op F5 bij het uitvoeren van de app en klik op de **aanmelden** knop en meld u aan bij de app met uw gekozen id-provider. Nadat de aanmeldingspagina geslaagd is, de app wordt uitgevoerd zonder fouten en kunt u uw back-end doorzoeken en updates aanbrengen in de gegevens.
+6. Package.appxmanifest bestand te openen, naar **declaraties**in **beschikbaar declaraties** vervolgkeuzelijst **Protocol** en klikt u op **toevoegen** knop. Nu configureren voor de **eigenschappen** van de **Protocol** declaratie. In **weergavenaam**, de naam die u wilt weergeven voor gebruikers van uw toepassing toevoegen. In **naam**, uw {url_scheme_of_your_app} toevoegen.
+7. Druk op de F5-toets naar de app uitvoeren, klikt u op de **aanmelden** knop en meld u aan bij de app met uw gekozen identiteitsprovider. Wanneer de aanmelding geslaagd is, de app wordt uitgevoerd zonder fouten en kunt u uw back-end doorzoeken en updates aanbrengen in gegevens.
 
-## <a name="tokens"></a>Het verificatietoken opslaan op de client
-Het vorige voorbeeld blijkt een standaard aanmelden, die vereist dat de client te maken met zowel de id-provider en de App Service elke keer dat de app wordt gestart. Is deze methode niet alleen inefficiënt, u kunt uitvoeren in gebruik-betrekking heeft problemen moeten veel klanten proberen app starten op hetzelfde moment. Er is een betere benadering voor het verificatietoken dat wordt geretourneerd door de Service van uw App in de cache en probeer het eerst moet worden gebruikt deze voordat u een provider gebaseerde aanmelden.
+## <a name="tokens"></a>Het verificatietoken Store op de client
+Het vorige voorbeeld hebt u een standaard geleerd aanmelden, waarvoor de client verbinding maken met zowel de id-provider en de App Service elke keer dat de app wordt gestart. Is deze methode niet alleen inefficiënt, u kunt uitvoeren naar gebruik-betrekking heeft problemen met veel klanten proberen op te starten app op hetzelfde moment. Een betere benadering is het verificatietoken dat is geretourneerd door uw App Service in de cache en probeer het gebruik van deze eerste voordat u een aanmelding op basis van een provider.
 
 > [!NOTE]
-> U kunt het token dat is uitgegeven door App Services, ongeacht of u van verificatie van client beheerd of service gebruikmaakt-cache. Deze zelfstudie maakt gebruik van authentication service beheerd.
+> U kunt het token dat is uitgegeven door App Services, ongeacht of u van verificatie-client of de service worden beheerd gebruikmaakt in de cache. In deze zelfstudie maakt gebruik van beheerde service-verificatie.
 > 
 > 
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u deze basisverificatie-zelfstudie hebt voltooid, overweeg dan u verder gaat u aan bij een van de volgende zelfstudies:
+Nu dat u basisverificatie-zelfstudie hebt voltooid, kunt u doorgaan naar een van de volgende zelfstudies:
 
 * [Pushmeldingen toevoegen aan uw app](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   Informatie over het toevoegen van ondersteuning van pushmeldingen aan uw app en het configureren van de backend voor mobiele apps voor gebruik van Azure Notification Hubs voor het verzenden van pushmeldingen.

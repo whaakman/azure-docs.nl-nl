@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met de Azure CDN-SDK voor Node.js | Microsoft Docs
-description: Informatie over het schrijven van Node.js-toepassingen voor het beheren van Azure CDN.
+description: Informatie over het schrijven van Node.js-toepassingen in Azure CDN beheren.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23843194"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38301561"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Aan de slag met Azure CDN-ontwikkeling
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ ms.locfileid: "23843194"
 > 
 > 
 
-U kunt de [Azure CDN-SDK voor Node.js](https://www.npmjs.com/package/azure-arm-cdn) te maken en beheren van CDN-profielen en eindpunten te automatiseren.  Deze zelfstudie helpt bij het maken van een eenvoudige Node.js-consoletoepassing die u laat zien dat verschillende van de beschikbare bewerkingen.  Deze zelfstudie is niet bedoeld voor alle aspecten van de Azure CDN-SDK voor Node.js in detail beschrijven.
+U kunt de [Azure CDN SDK voor Node.js](https://www.npmjs.com/package/azure-arm-cdn) voor het automatiseren van het maken en beheren van CDN-profielen en -eindpunten.  Deze zelfstudie leidt u door het maken van een eenvoudige Node.js-consoletoepassing die ziet u enkele van de beschikbare bewerkingen.  In deze zelfstudie is niet bedoeld om alle aspecten van de Azure CDN-SDK voor Node.js in detail beschreven.
 
-Voor deze zelfstudie hebt voltooid, moet u al hebben [Node.js](http://www.nodejs.org) **4.x.x** of hoger geïnstalleerd en geconfigureerd.  U kunt een teksteditor die u wilt maken van uw Node.js-toepassing kunt gebruiken.  Voor het schrijven van deze zelfstudie gebruikt ik [Visual Studio Code](https://code.visualstudio.com).  
+Voor deze zelfstudie, moet u al hebben [Node.js](http://www.nodejs.org) **4.x.x** of hoger is geïnstalleerd en geconfigureerd.  U kunt een teksteditor die u wilt maken van uw Node.js-toepassing gebruiken.  Voor het schrijven van deze zelfstudie, ik gebruikt [Visual Studio Code](https://code.visualstudio.com).  
 
 > [!TIP]
 > De [voltooid project uit deze zelfstudie](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) is beschikbaar voor downloaden op MSDN.
@@ -39,23 +39,23 @@ Voor deze zelfstudie hebt voltooid, moet u al hebben [Node.js](http://www.nodejs
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
-## <a name="create-your-project-and-add-npm-dependencies"></a>Maken van uw project en NPM afhankelijkheden toevoegen
-Nu dat we hebben een resourcegroep gemaakt voor onze CDN-profielen en toestemming van onze Azure AD-toepassing voor het beheren van CDN-profielen en eindpunten binnen die groep, kunnen we beginnen met het maken van de toepassing.
+## <a name="create-your-project-and-add-npm-dependencies"></a>Maken van uw project en NPM-afhankelijkheden toevoegen
+Nu dat we hebben een resourcegroep gemaakt voor onze CDN-profielen en toestemming van onze Azure AD-toepassing voor het beheren van CDN-profielen en eindpunten in die groep, kunnen we beginnen met het maken van onze toepassing.
 
-Maak een map voor het opslaan van uw toepassing.  Vanuit een console met de Node.js-hulpprogramma's in uw huidige pad instellen van uw huidige locatie naar deze map en het initialiseren van uw project door te voeren:
+Maak een map voor het opslaan van uw toepassing.  Vanaf de console met de Node.js-hulpprogramma's in het huidige pad, instellen van uw huidige locatie naar deze nieuwe map en het initialiseren van uw project door uit te voeren:
 
     npm init
 
-U wordt weergegeven een reeks vragen om uw project te initialiseren.  Voor **toegangspunt**, deze zelfstudie wordt gebruikgemaakt van *app.js*.  U kunt mijn andere opties in het volgende voorbeeld kunt zien.
+U wordt vervolgens weergegeven een reeks vragen stelt uw project initialiseren.  Voor **toegangspunt**, deze zelfstudie wordt gebruikgemaakt van *app.js*.  U kunt de andere opties in het volgende voorbeeld kunt zien.
 
-![NPM init-uitvoer](./media/cdn-app-dev-node/cdn-npm-init.png)
+![NPM init uitvoer](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Onze project nu is geïnitialiseerd met een *packages.json* bestand.  Onze project gaat een aantal Azure-bibliotheken die zijn opgenomen in de NPM-pakketten gebruiken.  We gebruiken de Azure-Client-Runtime voor Node.js (ms-rest-azure) en de Azure CDN-clientbibliotheek voor Node.js (arm-azure-cd).  Laten we deze toevoegen aan het project als afhankelijkheden.
+Dit project is nu wordt geïnitialiseerd met een *packages.json* bestand.  Dit project is gaan sommige Azure-bibliotheken die zijn opgenomen in de NPM-pakketten gebruiken.  We gebruiken de Runtime van de Client Azure voor Node.js (ms-rest-azure) en de Azure CDN-clientbibliotheek voor Node.js (azure-arm-cd).  Laten we deze toevoegen aan het project als afhankelijkheden.
 
     npm install --save ms-rest-azure
     npm install --save azure-arm-cdn
 
-Nadat u klaar bent met de pakketten installeren, de *package.json* bestand zijn vergelijkbaar met het volgende voorbeeld (versie getallen kunnen verschillen):
+Nadat u klaar bent met de pakketten installeert, de *package.json* bestand moet er ongeveer als volgt in dit voorbeeld (versie getallen kunnen afwijken):
 
 ``` json
 {
@@ -75,18 +75,18 @@ Nadat u klaar bent met de pakketten installeren, de *package.json* bestand zijn 
 }
 ```
 
-Ten slotte met uw teksteditor een leeg tekstbestand maken en opslaan in de hoofdmap van onze projectmap als *app.js*.  We zijn nu gereed om te beginnen met het schrijven van code.
+Ten slotte uw teksteditor gebruiken, maak een leeg tekstbestand en sla deze in de hoofdmap van de projectmap als *app.js*.  We zijn nu gereed om te beginnen met het schrijven van code.
 
-## <a name="requires-constants-authentication-and-structure"></a>Vereist, constanten, verificatie en -structuur
-Met *app.js* openen in onze editor, gaan we aan de basisstructuur van onze programma dat is geschreven.
+## <a name="requires-constants-authentication-and-structure"></a>Is vereist, constanten, verificatie en -structuur
+Met *app.js* openen in de editor, laten we nu de basisstructuur van ons programma geschreven ophalen.
 
-1. Voeg de 'vereist' voor onze NPM pakketten aan de bovenkant met de volgende opties:
+1. Voeg de 'vereist' voor de NPM-pakketten aan de bovenkant met het volgende:
    
     ``` javascript
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. We moeten sommige constanten die onze methoden gebruikt definiëren.  Voeg het volgende toe.  Zorg ervoor dat u de tijdelijke aanduidingen, met inbegrip van de  **&lt;punthaken&gt;**, met uw eigen waarden zo nodig.
+2. We moeten sommige constanten die onze methoden gebruikt definiëren.  Voeg het volgende toe.  Zorg ervoor dat u de plaatsaanduidingen vervangt, met inbegrip van de  **&lt;punthaken&gt;**, door uw eigen waarden indien nodig.
    
     ``` javascript
     //Tenant app constants
@@ -99,17 +99,17 @@ Met *app.js* openen in onze editor, gaan we aan de basisstructuur van onze progr
     const resourceGroupName = "CdnConsoleTutorial";
     const resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
-3. Vervolgens we exemplaar maken van de CDN-management-client en wijs hieraan onze referenties.
+3. Nu we exemplaar maken van de CDN-management-client en wijs hieraan de referenties.
    
     ``` javascript
     var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Als u afzonderlijke gebruikersverificatie gebruikt, is deze twee regels er iets anders.
+    Als u van verificatie van de individuele gebruiker gebruikmaakt, is deze twee regels er enigszins anders.
    
    > [!IMPORTANT]
-   > Dit voorbeeld alleen gebruiken als u ervoor kiest om de verificatie van afzonderlijke gebruikers in plaats van een service-principal.  Zorg ervoor dat uw afzonderlijke gebruikersreferenties bewaken en geheime houden.
+   > Gebruik dit codevoorbeeld alleen als u ervoor kiest om de verificatie van de afzonderlijke gebruiker in plaats van een service-principal.  Zorg ervoor dat uw afzonderlijke gebruikersreferenties bewaken en houd ze geheim.
    > 
    > 
    
@@ -119,8 +119,8 @@ Met *app.js* openen in onze editor, gaan we aan de basisstructuur van onze progr
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Zorg ervoor dat u de items in  **&lt;punthaken&gt;**  met de juiste gegevens.  Voor `<redirect URI>`, gebruikt u de omleidings-URI die u hebt opgegeven bij de registratie van de toepassing in Azure AD.
-4. Onze Node.js-consoletoepassing zal duren voordat sommige opdrachtregelparameters.  Laten we valideren ten minste één parameter is doorgegeven.
+    Zorg ervoor dat u het vervangen van de items in **&lt;punthaken&gt;** met de juiste gegevens.  Voor `<redirect URI>`, gebruikt u de omleidings-URI die u hebt ingevoerd toen u de toepassing in Azure AD hebt geregistreerd.
+4. Onze Node.js-consoletoepassing gaat duren voordat sommige opdrachtregelparameters.  Laten we valideren ten minste één parameter is doorgegeven.
    
    ```javascript
    //Collect command-line parameters
@@ -134,7 +134,7 @@ Met *app.js* openen in onze editor, gaan we aan de basisstructuur van onze progr
        process.exit(1);
    }
    ```
-5. Ons heeft die in het hoofdgedeelte van het programma, waar we vertakking uit naar andere functies op basis van welke parameters zijn doorgegeven.
+5. Hiermee zijn we aan het belangrijkste onderdeel van ons programma, waar we vertakking uit andere functies op basis van welke parameters zijn doorgegeven.
    
     ```javascript
     switch(parms[0].toLowerCase())
@@ -160,7 +160,7 @@ Met *app.js* openen in onze editor, gaan we aan de basisstructuur van onze progr
             process.exit(1);
     }
     ```
-6. Op verschillende plaatsen in onze programma moet u om te controleren of het juiste aantal parameters zijn doorgegeven en hulp weergegeven als ze niet juist zoeken.  Laten we functies hiertoe maken.
+6. Op verschillende plaatsen in ons programma moet u om te controleren of het juiste aantal parameters zijn doorgegeven en hulp weergegeven als ze niet bevallen.  We gaan maken functies om dit te doen.
    
    ```javascript
    function requireParms(parmCount) {
@@ -198,7 +198,7 @@ Met *app.js* openen in onze editor, gaan we aan de basisstructuur van onze progr
        }
    }
    ```
-7. Tot slot worden de functies die worden gebruikt op de CDN-management-client zijn asynchroon, daarom ze een methode aan te roepen moeten wanneer ze klaar.  Zorg dat u kunt de uitvoer van de CDN management-client (indien aanwezig) weergeven en het programma afgesloten.
+7. Ten slotte worden de functies die worden gebruikt op de CDN-management-client zijn asynchroon, daarom moeten ze een methode om aan te roepen wanneer ze klaar bent.  Laten we dat kunnen weergeven van de uitvoer van de CDN management-client (indien aanwezig) en het programma zonder problemen afsluiten.
    
     ```javascript
     function callback(err, result, request, response) {
@@ -212,10 +212,10 @@ Met *app.js* openen in onze editor, gaan we aan de basisstructuur van onze progr
     }
     ```
 
-Nu dat de basisstructuur van het programma is geschreven, maken we de functies die worden aangeroepen op basis van onze parameters.
+Nu dat de basisstructuur van ons programma is geschreven, maken we de functies die worden aangeroepen op basis van onze parameters.
 
 ## <a name="list-cdn-profiles-and-endpoints"></a>Lijst met CDN-profielen en -eindpunten
-U begint met de code voor een lijst met onze bestaande profielen en -eindpunten.  Mijn codeopmerkingen beschikt u over de syntaxis van de verwachte zodat we weten waar elke parameter gaat.
+Laten we beginnen met code om onze bestaande profielen en de eindpunten weer te geven.  Mijn codeopmerkingen bevatten de syntaxis van de verwachte zodat we weten waar elke parameter gaat.
 
 ```javascript
 // list profiles
@@ -242,8 +242,8 @@ function cdnList(){
 }
 ```
 
-## <a name="create-cdn-profiles-and-endpoints"></a>CDN-profielen en eindpunten maken
-We schrijft vervolgens de functies voor het maken van profielen en -eindpunten.
+## <a name="create-cdn-profiles-and-endpoints"></a>CDN-profielen en -eindpunten maken
+Vervolgens schrijft we de functies voor het maken van profielen en de eindpunten.
 
 ```javascript
 function cdnCreate() {
@@ -295,7 +295,7 @@ function cdnCreateEndpoint() {
 ```
 
 ## <a name="purge-an-endpoint"></a>Een eindpunt leegmaken
-Ervan uitgaande dat het eindpunt is gemaakt, is een algemene taak die we wilt uitvoeren in onze programma inhoud in onze eindpunt opschonen.
+Ervan uitgaande dat het eindpunt is gemaakt, is een veelvoorkomende taak die we willen kunnen uitvoeren in ons programma inhoud in ons eindpunt voor verwijderen.
 
 ```javascript
 // purge <profile name> <endpoint name> <path>
@@ -307,8 +307,8 @@ function cdnPurge() {
 }
 ```
 
-## <a name="delete-cdn-profiles-and-endpoints"></a>CDN-profielen en eindpunten verwijderen
-De laatste functie opgeroepen we nemen verwijdert eindpunten en -profielen.
+## <a name="delete-cdn-profiles-and-endpoints"></a>CDN-profielen en -eindpunten verwijderen
+De laatste functie we nemen Hiermee verwijdert u eindpunten en -profielen.
 
 ```javascript
 function cdnDelete() {
@@ -337,18 +337,18 @@ function cdnDelete() {
 ```
 
 ## <a name="running-the-program"></a>Het programma uitvoeren
-We ons gebruik van onze favoriete debugger Node.js-programma kan nu worden uitgevoerd of bij de console.
+We kunnen onze Node.js-programma met behulp van onze favoriete debugger nu uitvoeren of op de console.
 
 > [!TIP]
-> Als u Visual Studio Code als uw debugger gebruikt, moet u uw omgeving instellen om op te geven de opdrachtregelparameters.  Visual Studio Code doet dit de **lanuch.json** bestand.  Zoeken naar een eigenschap met de naam **args** en toevoegen van een matrix van tekenreekswaarden voor uw-parameters, zodat het er ongeveer als volgt uitziet: `"args": ["list", "profiles"]`.
+> Als u Visual Studio Code als het foutopsporingsprogramma gebruikt, moet u het instellen van uw omgeving om door te geven in de opdrachtregelparameters.  Visual Studio Code gebeurt op de **lanuch.json** bestand.  Zoeken naar een eigenschap met de naam **argumenten** en toevoegen van een matrix van tekenreeksen voor de parameters, zodat het er ongeveer als volgt uitziet: `"args": ["list", "profiles"]`.
 > 
 > 
 
-Laten we beginnen met een overzicht van onze profielen.
+Laten we beginnen door onze profielen weer te geven.
 
 ![Lijst met profielen](./media/cdn-app-dev-node/cdn-list-profiles.png)
 
-Wij terug lege matrix.  Aangezien er zijn momenteel geen profielen in de resourcegroep, waarvan wordt verwacht.  We gaan nu een profiel maken.
+Wij weer een lege matrix.  Omdat we geen profielen in de resourcegroep, waarvan wordt verwacht.  We gaan nu een profiel maken.
 
 ![Profiel maken](./media/cdn-app-dev-node/cdn-create-profile.png)
 
@@ -356,16 +356,16 @@ Nu gaan we een eindpunt toevoegen.
 
 ![Eindpunt maken](./media/cdn-app-dev-node/cdn-create-endpoint.png)
 
-Tot slot gaan we onze profiel verwijderen.
+Ten slotte gaan we onze profiel verwijderen.
 
 ![Profiel verwijderen](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Om te zien van de voltooide project van dit scenario [het voorbeeld downloaden](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
+Om te zien van het voltooide project van dit scenario [het voorbeeld downloaden](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Geef weer voor de verwijzing voor de Azure CDN-SDK voor Node.js de [verwijzing](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+Als u wilt zien de verwijzing voor de Azure CDN-SDK voor Node.js, geven de [verwijzing](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-Aanvullende documentatie over de Azure SDK voor Node.js vindt geven de [volledige verwijzing](http://azure.github.io/azure-sdk-for-node/).
+Voor aanvullende documentatie over de Azure SDK voor Node.js, geven de [volledige verwijzing](http://azure.github.io/azure-sdk-for-node/).
 
-Uw CDN-resources beheren met [PowerShell](cdn-manage-powershell.md).
+Beheer uw CDN-resources met [PowerShell](cdn-manage-powershell.md).
 

@@ -447,7 +447,7 @@
 #### [Veelgestelde vragen](active-directory-identity-protection-faqs.md)
 #### [Woordenlijst](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
+### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## Andere services integreren met Azure AD 
 ### [LinkedIn integreren met Azure AD](users-groups-roles/linkedin-integration.md)
@@ -477,7 +477,7 @@
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health (Engelstalig)](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD for Developers](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Resources
 ## [Azure-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)

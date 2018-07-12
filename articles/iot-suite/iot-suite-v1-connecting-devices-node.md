@@ -1,12 +1,12 @@
 ---
 title: Verbinding maken met een apparaat met behulp van Node.js | Microsoft Docs
-description: Beschrijft hoe een apparaat aansluit op de Azure IoT Suite vooraf geconfigureerde oplossing voor externe controle met behulp van een toepassing die is geschreven in Node.js.
-services: 
+description: Beschrijft hoe u een apparaat verbinden met de Azure IoT Suite vooraf geconfigureerde oplossing voor externe controle met behulp van een toepassing die is geschreven in Node.js.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -16,28 +16,29 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 87a2e97638508eef1d90a219cfb38d1fcac81d55
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723880"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Verbind het apparaat met de vooraf geconfigureerde oplossing voor externe controle (Node.js)
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Uw apparaat aansluiten op de vooraf geconfigureerde oplossing voor externe controle (Node.js)
 [!INCLUDE [iot-suite-v1-selector-connecting](../../includes/iot-suite-v1-selector-connecting.md)]
 
 ## <a name="create-a-nodejs-sample-solution"></a>Een node.js-voorbeeld-oplossing maken
 
-Zorg dat Node.js-versie 0.11.5 of hoger is geïnstalleerd op uw ontwikkelcomputer. U kunt uitvoeren `node --version` op de opdrachtregel om te controleren van de versie.
+Zorg ervoor dat deze Node.js-versie 0.11.5 of hoger is geïnstalleerd op uw ontwikkelcomputer. U kunt uitvoeren `node --version` op de opdrachtregel om de versie te controleren.
 
-1. Maak een map **RemoteMonitoring** op uw ontwikkelcomputer. Navigeer naar deze map in uw omgeving vanaf de opdrachtregel.
+1. Maak een map genaamd **RemoteMonitoring** op uw ontwikkelcomputer. Ga naar deze map in uw opdrachtregelomgeving.
 
-1. Voer de volgende opdrachten om te downloaden en installeren van de pakketten die u moet de voorbeeld-app te voltooien:
+1. Voer de volgende opdrachten downloaden en installeren van de pakketten die u nodig hebt voor de voorbeeld-app:
 
     ```
     npm init
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. In de **RemoteMonitoring** map maken van een bestand met de naam **remote_monitoring.js**. Open dit bestand in een teksteditor.
+1. In de **RemoteMonitoring** map, maakt u een bestand met de naam **remote_monitoring.js**. Open dit bestand in een teksteditor.
 
 1. In de **remote_monitoring.js** bestand, voeg de volgende `require` instructies:
 
@@ -57,7 +58,7 @@ Zorg dat Node.js-versie 0.11.5 of hoger is geïnstalleerd op uw ontwikkelcompute
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
-1. Voeg de volgende variabelen om sommige telemetriegegevens base te definiëren:
+1. Voeg de volgende variabelen voor het definiëren van sommige base telemetrische gegevens:
 
     ```nodejs
     var temperature = 50;
@@ -65,7 +66,7 @@ Zorg dat Node.js-versie 0.11.5 of hoger is geïnstalleerd op uw ontwikkelcompute
     var externalTemperature = 55;
     ```
 
-1. De volgende Help-functie om af te drukken Bewerkingsresultaten toevoegen:
+1. Voeg de volgende helperfunctie als u wilt afdrukken van resultaten van de bewerking:
 
     ```nodejs
     function printErrorFor(op) {
@@ -75,7 +76,7 @@ Zorg dat Node.js-versie 0.11.5 of hoger is geïnstalleerd op uw ontwikkelcompute
     }
     ```
 
-1. De volgende Help-functie wilt willekeurige de telemetrie-waarden toevoegen:
+1. Voeg de volgende helperfunctie te gebruiken op een willekeurige kleur geven de telemetriewaarden:
 
     ```nodejs
     function generateRandomIncrement() {
@@ -97,7 +98,7 @@ Zorg dat Node.js-versie 0.11.5 of hoger is geïnstalleerd op uw ontwikkelcompute
     };
     ```
 
-1. Voeg de volgende definitie voor de apparaat-twin waarden gerapporteerd. Deze definitie bevat beschrijvingen van de directe methoden die biedt ondersteuning voor het apparaat:
+1. Voeg de volgende definitie voor de apparaatdubbel-gerapporteerde waarden. Deze definitie bevat beschrijvingen van de directe methoden die biedt ondersteuning voor het apparaat:
 
     ```nodejs
     var reportedProperties = {
@@ -150,7 +151,7 @@ Zorg dat Node.js-versie 0.11.5 of hoger is geïnstalleerd op uw ontwikkelcompute
     }
     ```
 
-1. Voeg de volgende functie voor het afhandelen van de **InitiateFirmwareUpdate** directe aanroep van methode. Deze directe methode wordt een parameter voor de locatie opgeven van de firmware-installatiekopie te downloaden en initieert de firmware bijwerken op het apparaat asynchroon:
+1. Voeg de volgende functie voor het afhandelen van de **InitiateFirmwareUpdate** directe aanroep van methode. Deze directe methode maakt gebruik van een parameter om op te geven van de locatie van de firmware-installatiekopie te downloaden, en start de firmware bijwerken op het apparaat asynchroon:
 
     ```nodejs
     function onInitiateFirmwareUpdate(request, response) {
@@ -177,11 +178,11 @@ Zorg dat Node.js-versie 0.11.5 of hoger is geïnstalleerd op uw ontwikkelcompute
 
 1. Voeg de volgende code toe:
 
-    * De verbinding openen.
-    * Verzenden van de **DeviceInfo** object.
-    * Een handler voor de gewenste eigenschappen instellen.
-    * Eigenschappen van de gerapporteerde verzenden.
-    * Registreer de handlers voor de rechtstreekse methoden.
+    * Open de verbinding.
+    * Verzendt de **DeviceInfo** object.
+    * Instellen van een handler voor de gewenste eigenschappen.
+    * Gerapporteerde eigenschappen verzenden.
+    * Registreer handlers voor de directe methoden.
     * Beginnen met het verzenden van telemetrie.
 
     ```nodejs
@@ -242,9 +243,9 @@ Zorg dat Node.js-versie 0.11.5 of hoger is geïnstalleerd op uw ontwikkelcompute
     });
     ```
 
-1. Sla de wijzigingen in de **remote_monitoring.js** bestand.
+1. Sla de wijzigingen aan de **remote_monitoring.js** bestand.
 
-1. Voer de volgende opdracht achter de opdrachtprompt de voorbeeldtoepassing starten:
+1. Voer de volgende opdracht achter de opdrachtprompt om de voorbeeldtoepassing te starten:
    
     ```
     node remote_monitoring.js

@@ -1,1 +1,1 @@
-15 November 2017, starten virtuele Machines is alleen beschikbaar in de [Azure-portal](https://portal.azure.com). 
+Vanaf 15 November 2017, virtuele Machines is alleen beschikbaar in de [Azure-portal](https://portal.azure.com). 

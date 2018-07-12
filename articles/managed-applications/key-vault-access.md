@@ -1,0 +1,62 @@
+---
+title: Azure Key Vault gebruiken met beheerde toepassingen | Microsoft Docs
+description: Laat zien hoe u toegang tot geheimen in Azure Key Vault gebruiken bij het implementeren van beheerde toepassingen
+services: managed-applications
+author: tfitzmac
+manager: timlt
+ms.service: managed-applications
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.date: 07/09/2018
+ms.author: tomfitz
+ms.openlocfilehash: 232bea437b38335bdaa189e504d4e5fd9b080a05
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38724055"
+---
+# <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Toegang tot Key Vault-geheim bij het implementeren van Azure Managed Applications
+
+Als u een veilige waarde (zoals een wachtwoord) als een parameter doorgeven tijdens de implementatie wilt, haalt u de waarde van een [Azure Key Vault](../key-vault/key-vault-whatis.md). Voor toegang tot de Key Vault bij het implementeren van beheerde toepassingen, u moet toegang verlenen tot de **toestel Resource Provider** service-principal. In dit artikel wordt beschreven hoe het configureren van de Key Vault om te werken met beheerde toepassingen.
+
+## <a name="enable-template-deployment"></a>Voor sjabloonimplementatie inschakelen
+
+1. Selecteer in de portal voor uw Key Vault.
+
+1. Selecteer **Toegangsbeleid**.   
+
+   ![Toegangsbeleid selecteren](./media/key-vault-access/select-access-policies.png)
+
+1. Selecteer **Klik hierop om geavanceerde Toegangsbeleidsregels**.
+
+   ![Geavanceerde beleidsregels weergeven](./media/key-vault-access/advanced.png)
+
+1. Selecteer **inschakelen van toegang tot Azure Resource Manager voor sjabloonimplementatie**. Selecteer vervolgens **Opslaan**.
+
+   ![Voor sjabloonimplementatie inschakelen](./media/key-vault-access/enable-template.png)
+
+## <a name="add-service-as-contributor"></a>Service toevoegen als Inzender
+
+1. Selecteer **toegangsbeheer (IAM)**.
+
+   ![Selecteer toegangsbeheer](./media/key-vault-access/access-control.png)
+
+1. Selecteer **Toevoegen**.
+
+   ![Selecteer toevoegen](./media/key-vault-access/add-access-control.png)
+
+1. Selecteer **Inzender** voor de rol. Zoeken naar **toestel Resource Provider** en selecteert u deze uit de beschikbare opties.
+
+   ![Zoeken naar provider](./media/key-vault-access/search-provider.png)
+
+1. Selecteer **Opslaan**.
+
+## <a name="next-steps"></a>Volgende stappen
+
+U kunt uw Key Vault, zodat ze toegankelijk zijn tijdens de implementatie van een beheerde toepassing hebt geconfigureerd.
+
+* Zie voor meer informatie over het doorgeven van een waarde uit een Key Vault als een sjabloonparameter [Azure Key Vault gebruikt om door te geven beveiligde parameterwaarde tijdens de implementatie van](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+* Zie voor voorbeelden van beheerde toepassing [voorbeeldprojecten voor Azure beheerde toepassingen](sample-projects.md).
+* Zie [Aan de slag met CreateUiDefinition](create-uidefinition-overview.md) voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing.

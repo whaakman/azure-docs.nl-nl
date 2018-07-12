@@ -1,6 +1,6 @@
 ---
-title: Resources met Azure CLI en sjabloon implementeren | Microsoft Docs
-description: Azure Resource Manager en Azure CLI gebruiken voor het implementeren van een bronnen in Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
+title: Resources implementeren met Azure CLI en een sjabloon | Microsoft Docs
+description: Gebruik Azure Resource Manager en Azure CLI om een resources implementeren op Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: ee8ce8453c24d19b3912d0f6cc506b3d3e72548f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a6b227cee3765593adbda430d8c47312f996c18
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603001"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723838"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Resources implementeren met Resource Manager-sjablonen en Azure CLI
 
-In dit artikel wordt uitgelegd hoe u Azure CLI 2.0 gebruiken met Resource Manager-sjablonen voor het implementeren van uw resources in Azure. Als u niet bekend met concepten voor het implementeren bent en beheren van uw Azure-oplossingen, Zie [overzicht van Azure Resource Manager](resource-group-overview.md).  
+In dit artikel wordt uitgelegd hoe u Azure CLI met Resource Manager-sjablonen gebruiken voor het implementeren van uw resources in Azure. Als u niet bekend met de concepten van het implementeren bent en beheren van uw Azure-oplossingen, Zie [overzicht van Azure Resource Manager](resource-group-overview.md).  
 
-De Resource Manager-sjabloon die u implementeert, kan een lokaal bestand op uw computer of een extern bestand dat zich bevindt in een zoals GitHub-opslagplaats. De sjabloon die u in dit artikel implementeert vindt u in de [voorbeeldsjabloon](#sample-template) sectie, of als een [storage accountsjabloon in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
+De Resource Manager-sjabloon die u implementeert, kunnen een lokaal bestand op uw computer of een extern bestand dat zich bevindt in een opslagplaats, zoals GitHub. De sjabloon die u in dit artikel implementeert is beschikbaar in de [voorbeeldsjabloon](#sample-template) sectie, of als een [sjabloon van de storage-account in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -33,15 +33,15 @@ Als u geen Azure CLI is geïnstalleerd, kunt u de [Cloud Shell](#deploy-template
 
 ## <a name="deploy-local-template"></a>Lokale sjabloon implementeren
 
-Bij het implementeren van resources in Azure, u:
+Bij het implementeren van resources naar Azure, u:
 
 1. Meld u aan bij uw Azure-account
-2. Maak een resourcegroep die als de container voor de geïmplementeerde resources fungeert. De naam van de resourcegroep kan alleen alfanumerieke tekens, punten, onderstrepingstekens, afbreekstreepjes en haakjes bevatten. Het kan maximaal 90 tekens zijn. Het mag niet eindigen op een punt.
-3. De sjabloon waarin de bronnen te maken aan de resourcegroep implementeren
+2. Maak een resourcegroep die als de container voor de geïmplementeerde resources fungeert. De naam van de resourcegroep kan alleen alfanumerieke tekens, punten, onderstrepingstekens, afbreekstreepjes en haakjes bevatten. Het kan maximaal 90 tekens zijn. Deze mag niet eindigen op een punt.
+3. Implementeren in de resourcegroep van de sjabloon die u de resources definieert te maken
 
-Een sjabloon kunt opnemen parameters waarmee u de implementatie aanpassen. U kunt bijvoorbeeld waarden die zijn toegesneden opgeven voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). De voorbeeldsjabloon definieert een parameter voor de SKU van het opslagaccount. 
+Een sjabloon kunt parameters waarmee u kunt het aanpassen van de implementatie bevatten. U kunt bijvoorbeeld waarden die zijn toegesneden opgeven voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). De voorbeeldsjabloon definieert een parameter voor de SKU van het opslagaccount. 
 
-Het volgende voorbeeld maakt u een resourcegroep en implementeert een sjabloon op basis van uw lokale computer:
+Het volgende voorbeeld wordt een resourcegroep en implementeert u een sjabloon van uw lokale computer:
 
 ```azurecli
 az login
@@ -54,17 +54,17 @@ az group deployment create \
     --parameters storageAccountType=Standard_GRS
 ```
 
-De implementatie kan enkele minuten duren. Wanneer deze is voltooid, ziet u een bericht die het resultaat bevat:
+De implementatie kan enkele minuten duren. Als deze is voltooid, ziet u een bericht dat het resultaat bevat:
 
 ```azurecli
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-external-template"></a>Externe sjabloon implementeren
+## <a name="deploy-external-template"></a>Externe-sjabloon implementeren
 
-In plaats van Resource Manager-sjablonen worden opgeslagen op uw lokale computer, kunt u ook deze opslaan op een externe locatie. U kunt sjablonen opslaan in een resourcebeheerbibliotheek (zoals GitHub). Of u kunt ze opslaan in Azure storage-account voor gedeelde toegang in uw organisatie.
+In plaats van Resource Manager-sjablonen op uw lokale computer, wellicht kunt u beter om op te slaan in een externe locatie. U kunt sjablonen opslaan in een opslagplaats voor bronbeheer (zoals GitHub). Of u kunt ze opslaan in Azure storage-account voor gedeelde toegang in uw organisatie.
 
-Een externe als sjabloon wilt implementeren, gebruiken de **sjabloon uri** parameter. Gebruik de URI in het voorbeeld voor het voorbeeldsjabloon implementeren vanuit GitHub.
+Voor het implementeren van een externe-sjabloon, gebruiken de **sjabloon-uri** parameter. Gebruik de URI in het voorbeeld om de voorbeeldsjabloon uit GitHub te implementeren.
    
 ```azurecli
 az login
@@ -77,11 +77,11 @@ az group deployment create \
     --parameters storageAccountType=Standard_GRS
 ```
 
-Het vorige voorbeeld vereist een openbaar toegankelijke URI voor de sjabloon die voor de meeste scenario werkt, omdat de sjabloon mag geen gevoelige gegevens bevatten. Als u nodig hebt om op te geven gevoelige gegevens (zoals een beheerderswachtwoord), wordt die waarde als beveiligde parameter doorgeven. Echter, als u niet wilt dat uw sjabloon openbaar toegankelijk is, kunt u deze beschermen door op te slaan deze in een persoonlijke opslagcontainer. Zie voor meer informatie over het implementeren van een sjabloon waarvoor een shared access signature (SAS)-token [persoonlijke sjabloon implementeren met SAS-token](resource-manager-cli-sas-token.md).
+Het vorige voorbeeld vereist een openbaar toegankelijke URI voor de sjabloon die voor de meeste scenario's, werkt omdat de sjabloon mag geen gevoelige gegevens bevatten. Als u nodig hebt om op te geven van gevoelige gegevens (zoals een beheerderswachtwoord), moet u die waarde als een beveiligde parameter. Echter, als u niet dat de sjabloon openbaar toegankelijk moeten zijn wilt, kunt u deze beschermen door in een persoonlijke opslagcontainer op te slaan. Zie voor meer informatie over het implementeren van een sjabloon die de token van een shared access signature (SAS) is vereist, [persoonlijke sjablonen implementeren met SAS-token](resource-manager-cli-sas-token.md).
 
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Gebruik de volgende opdrachten in de Cloud-Shell:
+Gebruik de volgende opdrachten in de Cloud Shell:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "South Central US"
@@ -92,11 +92,11 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implementeren naar meer dan één resourcegroep of abonnement
 
-Normaal gesproken implementeren u alle resources in de sjabloon één resourcegroep. Er zijn echter scenario's waarin u wilt implementeren van een set resources samen, maar in verschillende resourcegroepen of abonnementen plaatsen. U kunt implementeren op slechts vijf resourcegroepen in een enkele implementatie. Zie voor meer informatie [implementeren Azure-resources aan meer dan één abonnement of resourcegroep](resource-manager-cross-resource-group-deployment.md).
+Normaal gesproken implementeren u alle resources in uw sjabloon één resourcegroep bestaan. Er zijn echter scenario's waarin u wilt een set met resources samen te implementeren, maar plaats deze in verschillende resourcegroepen of abonnementen. U kunt implementeren met slechts vijf resourcegroepen in een enkele implementatie. Zie voor meer informatie, [implementeren-Azure-resources aan meer dan één abonnement of resourcegroep](resource-manager-cross-resource-group-deployment.md).
 
-## <a name="parameter-files"></a>De parameterbestanden
+## <a name="parameter-files"></a>Parameterbestanden
 
-In plaats van met parameters wordt doorgegeven als inline-waarden in het script, wellicht u eenvoudiger te gebruiken van een JSON-bestand met de parameterwaarden. De parameterbestand moet in de volgende indeling:
+In plaats van de parameters doorgeven als inline-waarden in het script, wellicht vindt u het eenvoudiger te gebruiken van een JSON-bestand met de parameterwaarden. De parameterbestand moet zich in de volgende indeling:
 
 ```json
 {
@@ -110,11 +110,11 @@ In plaats van met parameters wordt doorgegeven als inline-waarden in het script,
 }
 ```
 
-U ziet dat de parameters-sectie bevat een parameternaam die overeenkomt met de parameter die is gedefinieerd in de sjabloon (storageAccountType). De parameter-bestand bevat een waarde voor de parameter. Deze waarde wordt automatisch doorgegeven aan de sjabloon tijdens de implementatie. U kunt meerdere parameterbestanden voor verschillende scenario's maken en geeft u het juiste parameterbestand. 
+U ziet dat de parametersectie bevat een parameternaam op die overeenkomt met de parameter die is gedefinieerd in uw sjabloon (parameter). Het parameterbestand bevat een waarde voor de parameter. Deze waarde wordt automatisch doorgegeven aan de sjabloon tijdens de implementatie. U kunt meerdere parameterbestanden voor verschillende scenario's maken, en klikt u vervolgens in het parameterbestand van de juiste doorgeven. 
 
-Het vorige voorbeeld kopiëren en opslaan als een bestand met de naam `storage.parameters.json`.
+Kopieer het voorgaande voorbeeld en sla deze op als een bestand met de naam `storage.parameters.json`.
 
-Gebruik voor het doorgeven van een lokale parameterbestand, `@` om op te geven van een lokaal bestand met de naam storage.parameters.json.
+Gebruik het volgende om door te geven van een lokale parameterbestand, `@` om op te geven van een lokaal bestand met de naam storage.parameters.json.
 
 ```azurecli
 az group deployment create \
@@ -126,7 +126,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>Een sjabloonimplementatie testen
 
-U kunt uw sjabloon en de parameterbestanden waarden testen zonder het distribueren van alle resources met [az implementatie valideren](/cli/azure/group/deployment#az_group_deployment_validate). 
+U kunt de waarden van uw sjabloon en de parameterbestanden testen zonder daadwerkelijk de resources te implementeren met [az group deployment valideren](/cli/azure/group/deployment#az_group_deployment_validate). 
 
 ```azurecli
 az group deployment validate \
@@ -135,7 +135,7 @@ az group deployment validate \
     --parameters @storage.parameters.json
 ```
 
-Als er geen fouten worden aangetroffen, retourneert de opdracht informatie over de testimplementatie. In het bijzonder u ziet dat de **fout** waarde null is.
+Als er geen fouten worden aangetroffen, retourneert de opdracht de gegevens over de testimplementatie. In het bijzonder u ziet dat de **fout** waarde null is.
 
 ```azurecli
 {
@@ -144,7 +144,7 @@ Als er geen fouten worden aangetroffen, retourneert de opdracht informatie over 
       ...
 ```
 
-Als er een fout wordt gedetecteerd, wordt een foutbericht geretourneerd door de opdracht. Poging om door te geven van een onjuiste waarde voor het opslagaccount SKU, resulteert bijvoorbeeld de volgende fout:
+Als er een fout wordt gedetecteerd, wordt de opdracht een foutbericht weergegeven. Er wordt geprobeerd om door te geven van een onjuiste waarde voor het opslagaccount-SKU, retourneert bijvoorbeeld de volgende fout:
 
 ```azurecli
 {
@@ -160,7 +160,7 @@ Als er een fout wordt gedetecteerd, wordt een foutbericht geretourneerd door de 
 }
 ```
 
-Als uw sjabloon een syntaxisfout heeft, foutmelding de opdracht een die wijzen op dat de sjabloon kan niet worden geparseerd. Het bericht geeft de regelnummer en positie van de fout bij het parseren.
+Als uw sjabloon een syntaxisfout heeft, retourneert de opdracht een fout die duidt dat dit kan de sjabloon niet parseren. Het bericht geeft aan dat het regelnummer en de positie van de fout bij het parseren.
 
 ```azurecli
 {
@@ -177,7 +177,7 @@ Als uw sjabloon een syntaxisfout heeft, foutmelding de opdracht een die wijzen o
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
-Volledige modus, gebruikt de `mode` parameter:
+Als u volledige modus, gebruikt de `mode` parameter:
 
 ```azurecli
 az group deployment create \
@@ -190,7 +190,7 @@ az group deployment create \
 
 ## <a name="sample-template"></a>Voorbeeldsjabloon
 
-De volgende sjabloon wordt gebruikt voor de voorbeelden in dit artikel. Kopiëren en opslaan als een bestand met de naam storage.json. Om te begrijpen hoe u deze sjabloon maakt, Zie [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).  
+De volgende sjabloon wordt gebruikt voor de voorbeelden in dit artikel. Kopieer en sla deze op als een bestand met de naam storage.json. Zie voor meer informatie over hoe u deze sjabloon maakt, [uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).  
 
 ```json
 {
@@ -238,9 +238,9 @@ De volgende sjabloon wordt gebruikt voor de voorbeelden in dit artikel. Kopiëre
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* De voorbeelden in dit artikel implementeren resources naar een resourcegroep in uw standaardabonnement. Zie voor het gebruik van een ander abonnement [meerdere Azure-abonnementen beheren](/cli/azure/manage-azure-subscriptions-azure-cli).
-* Zie voor een compleet codevoorbeeld-script waarmee een sjabloon wordt geïmplementeerd, [script voor implementatie van Resource Manager-sjabloon](resource-manager-samples-cli-deploy.md).
-* Om te begrijpen hoe parameters in de sjabloon definieert, Zie [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
-* Zie voor tips over het oplossen van algemene implementatiefouten [oplossen van veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token [persoonlijke sjabloon implementeren met SAS-token](resource-manager-cli-sas-token.md).
+* De voorbeelden in dit artikel worden resources implementeren op een resourcegroep in uw standaardabonnement. Zie voor het gebruik van een ander abonnement [meerdere Azure-abonnementen beheren](/cli/azure/manage-azure-subscriptions-azure-cli).
+* Zie voor een volledig voorbeeld van een script waarmee een sjabloon wordt geïmplementeerd, [script voor implementatie van Resource Manager-sjabloon](resource-manager-samples-cli-deploy.md).
+* Zie voor meer informatie over het definiëren van parameters in uw sjabloon, [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
+* Zie voor tips over het oplossen van veelvoorkomende implementatiefouten [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token [persoonlijke sjablonen implementeren met SAS-token](resource-manager-cli-sas-token.md).
 * Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).

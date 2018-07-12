@@ -1,6 +1,6 @@
 ---
-title: De activiteit opzoeken in Azure Data Factory | Microsoft Docs
-description: Informatie over het gebruik van lookup-activiteit voor het opzoeken van een waarde van een externe bron. Er kan naar deze uitvoer worden verwezen door volgende activiteiten.
+title: Lookup-activiteit in Azure Data Factory | Microsoft Docs
+description: Informatie over het gebruik van lookup-activiteit om te controleren of een waarde van een externe bron. Er kan naar deze uitvoer worden verwezen door volgende activiteiten.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -14,22 +14,22 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
 ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37058956"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237829"
 ---
-# <a name="lookup-activity-in-azure-data-factory"></a>De activiteit opzoeken in Azure Data Factory
+# <a name="lookup-activity-in-azure-data-factory"></a>Lookup-activiteit in Azure Data Factory
 
-Lookup activiteit kan worden gebruikt voor het ophalen van een gegevensset uit een van de ADF-ondersteunde gegevensbron.  Worden kan gebruikt in het volgende scenario:
-- Dynamisch bepalen welke objecten (bestanden, tabellen, enzovoort) om te werken op een volgende activiteit in plaats van hard-coding van de objectnaam
+Lookup-activiteit kan worden gebruikt om een gegevensset ophalen uit een van de ADF-ondersteunde gegevensbron.  Het kan worden gebruikt in het volgende scenario:
+- Dynamisch te bepalen welke objecten (bestanden, tabellen, enzovoort) om te werken op in een volgende activiteit, in plaats van hard-coding naam van het object
 
-Lookup-activiteit kunt lezen en de inhoud van een configuratiebestand, een configuratietabel of het resultaat van het uitvoeren van een query of een opgeslagen procedure.  De uitvoer van Lookup-activiteit worden gebruikt in een latere kopiëren of transformatieactiviteit als het een waarde singleton of in een ForEach-activiteit gebruikt als het is een matrix van kenmerken.
+Lookup-activiteit kan lezen en de inhoud van een configuratiebestand, een configuratietabel of het resultaat van het uitvoeren van een query of een opgeslagen procedure.  De uitvoer van activiteit Lookup kan worden gebruikt in een latere kopiëren of activiteiten voor gegevenstransformatie als het een singleton-waarde of in een ForEach-activiteit gebruikt als het is een matrix van kenmerken.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-De volgende gegevensbronnen worden ondersteund voor het opzoeken van. Het maximale aantal rijen kan worden geretourneerd door het opzoeken van de activiteit is **5000**, tot aan **2MB** in grootte. En de maximumduur voor de activiteit opzoeken voordat de time-out is momenteel een uur.
+De volgende gegevensbronnen worden ondersteund voor het opzoeken van. Het maximum aantal rijen kan worden geretourneerd door het opzoeken van de activiteit is **5000**, en tot **2MB** in grootte. En de maximale duur voor opzoekactiviteit voordat de time-out is momenteel één uur.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -56,21 +56,21 @@ De volgende gegevensbronnen worden ondersteund voor het opzoeken van. Het maxima
 ## <a name="type-properties"></a>Type-eigenschappen
 Naam | Beschrijving | Type | Vereist?
 ---- | ----------- | ---- | --------
-Gegevensset | Biedt de dataset-verwijzing voor de zoekopdracht. Details van de sectie 'Eigenschappen van gegevensset' in elke bijbehorende connector artikel ophalen. | Sleutel-waardepaar | Ja
-source | Bevat Broneigenschappen van gegevensset-specifieke, hetzelfde zijn als de bron voor kopiëren-activiteit. Details van de sectie 'activiteitseigenschappen kopiëren' in elke bijbehorende connector artikel ophalen. | Sleutel-waardepaar | Ja
-firstRowOnly | Geeft aan of alleen de eerste rij of alle rijen retourneren. | Boole-waarde | Nee. De standaardwaarde is `true`.
+gegevensset | Bevat de gegevensset-referentie voor de zoekopdracht. Informatie ophalen uit de sectie 'Eigenschappen van gegevensset' in elke betreffende connector-artikel. | Sleutel/waarde-paar | Ja
+source | Bevat de eigenschappen van gegevensset-specifieke gegevensbron, hetzelfde als de bron voor kopiëren-activiteit. Informatie ophalen uit de sectie 'Eigenschappen van de Kopieeractiviteit' in elke betreffende connector-artikel. | Sleutel/waarde-paar | Ja
+firstRowOnly | Hiermee wordt aangegeven of alleen de eerste rij of alle rijen retourneren. | Booleaans | Nee. De standaardwaarde is `true`.
 
 **Houd rekening met de volgende punten:**
 
-1. De bronkolom met ByteArray type wordt niet ondersteund.
-2. Structuur wordt niet ondersteund in de gegevenssetdefinitie van de. Voor tekst format-bestanden in het bijzonder kunt u de rij met kolomkoppen de kolomnaam op te geven.
-3. Als bron voor het opzoeken een JSON-bestanden is, de `jsonPathDefinition` instellen voor opnieuw vormgeven van de JSON-object wordt niet ondersteund, het gehele objecten wordt opgehaald.
+1. Bronkolom met ByteArray type wordt niet ondersteund.
+2. Structuur wordt niet ondersteund in de definitie van de gegevensset. Voor indeling tekstbestanden specifiek, kunt u de rij met koppen de kolomnaam te geven.
+3. Als de lookup-bron een JSON-bestanden is, de `jsonPathDefinition` instellen voor opnieuw vormgeven van het JSON-object wordt niet ondersteund, het gehele objecten wordt opgehaald.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Gebruik het resultaat van de activiteit opzoeken in een volgende activiteit
 
-Het resultaat van de zoekactie wordt geretourneerd als de `output` sectie van het resultaat van uitgevoerde activiteit.
+De lookup-resultaat wordt geretourneerd de `output` sectie van de uitvoering van de activiteit.
 
-* **Wanneer `firstRowOnly` is ingesteld op `true` (standaard)**, de indeling van de uitvoer is zoals wordt weergegeven in de volgende code. Het resultaat van de zoekactie is onder een vaste `firstRow` sleutel. Als u het resultaat van de volgende activiteit, gebruikt u het patroon van `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Wanneer `firstRowOnly` is ingesteld op `true` (standaard)**, de indeling van de uitvoer is zoals wordt weergegeven in de volgende code. De lookup-resultaat is onder een vaste `firstRow` sleutel. Als u het resultaat van de volgende activiteit, gebruikt u het patroon van `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {
@@ -82,7 +82,7 @@ Het resultaat van de zoekactie wordt geretourneerd als de `output` sectie van he
     }
     ```
 
-* **Wanneer `firstRowOnly` is ingesteld op `false`** , de indeling van de uitvoer is zoals wordt weergegeven in de volgende code. Een `count` veld geeft aan hoeveel records worden geretourneerd en gedetailleerde waarden worden weergegeven onder een vaste `value` matrix. In dat geval wordt de activiteit opzoeken meestal gevolgd door een [Foreach-activiteit](control-flow-for-each-activity.md). U kunt doorgeven de `value` -matrix naar de ForEach-activiteit `items` veld met behulp van het patroon van `@activity('MyLookupActivity').output.value`. Voor toegang tot elementen in de `value` matrix kunnen de volgende syntaxis: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Hier volgt een voorbeeld: `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Wanneer `firstRowOnly` is ingesteld op `false`** , de indeling van de uitvoer is zoals wordt weergegeven in de volgende code. Een `count` veld geeft aan hoeveel records worden geretourneerd, en gedetailleerde waarden worden weergegeven onder een vaste `value` matrix. In dat geval de lookup-activiteit meestal wordt gevolgd door een [Foreach-activiteit](control-flow-for-each-activity.md). U kunt doorgeven de `value` -matrix naar de ForEach-activiteit `items` veld met behulp van het patroon van `@activity('MyLookupActivity').output.value`. Met access-elementen in de `value` matrix, gebruikt u de volgende syntaxis: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Hier volgt een voorbeeld: `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -101,15 +101,15 @@ Het resultaat van de zoekactie wordt geretourneerd als de `output` sectie van he
     ```
 
 ## <a name="example"></a>Voorbeeld
-In dit voorbeeld kopieert de kopieeractiviteit gegevens van een SQL-tabel in uw Azure SQL Database-exemplaar naar Azure Blob-opslag. De naam van de SQL-tabel is opgeslagen in een JSON-bestand in Blob-opslag. De activiteit opzoeken, zoekt u de naam van de tabel tijdens runtime. Deze aanpak kunt JSON dynamisch worden gewijzigd zonder dat u moet implementeren pijplijnen of gegevenssets. 
+In dit voorbeeld kopieert de kopieeractiviteit gegevens vanuit een SQL-tabel in uw Azure SQL Database-exemplaar naar Azure Blob-opslag. De naam van de SQL-tabel is opgeslagen in een JSON-bestand in Blob-opslag. De lookup-activiteit, zoekt u de naam van de tabel tijdens runtime. Deze aanpak kunt u JSON naar dynamisch worden gewijzigd zonder deze opnieuw implementeren van pijplijnen of gegevenssets. 
 
-In dit voorbeeld demonstreert lookup voor alleen de eerste rij. Zie voor lookup voor alle rijen en om te koppelen van de resultaten met ForEach-activiteit, de voorbeelden in [meerdere tabellen in bulksgewijs kopiëren met behulp van Azure Data Factory](tutorial-bulk-copy.md).
+In dit voorbeeld ziet u lookup voor alleen de eerste rij. Voor het opzoeken van alle rijen en om te koppelen van de resultaten met ForEach-activiteit, raadpleegt u de voorbeelden in [meerdere tabellen bulksgewijs kopiëren met behulp van Azure Data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Pijplijn
-Deze pipeline bevat twee activiteiten: *lookup* en *kopie*. 
+Deze pijplijn bevat twee activiteiten: *lookup* en *kopie*. 
 
-- De activiteit lookup is geconfigureerd voor gebruik van LookupDataset die naar een locatie in Azure Blob-opslag verwijst. De activiteit opzoeken leest de naam van de SQL-tabel uit een JSON-bestand op deze locatie. 
-- De kopieeractiviteit wordt de uitvoer van de activiteit lookup (naam van de SQL-tabel). De eigenschap tableName in de bron-gegevensset (SourceDataset) is geconfigureerd voor gebruik van de uitvoer van de activiteit opzoeken. De kopieeractiviteit kopieert gegevens van de SQL-tabel naar een locatie in Azure Blob-opslag die is opgegeven door de eigenschap SinkDataset. 
+- De lookup-activiteit is geconfigureerd voor het gebruik van LookupDataset, die naar een locatie in Azure Blob-opslag verwijst. De lookup-activiteit leest de naam van de SQL-tabel uit een JSON-bestand op deze locatie. 
+- De kopieeractiviteit maakt gebruik van de uitvoer van de lookup-activiteit (naam van de SQL-tabel). De eigenschap tableName in de brongegevensset (SourceDataset) is geconfigureerd voor het gebruik van de uitvoer van de lookup-activiteit. De kopieeractiviteit kopieert gegevens van de SQL-tabel naar een locatie in Azure Blob-opslag die is opgegeven door de eigenschap SinkDataset. 
 
 
 ```json
@@ -167,7 +167,7 @@ Deze pipeline bevat twee activiteiten: *lookup* en *kopie*.
 ```
 
 ### <a name="lookup-dataset"></a>Lookup-gegevensset
-De gegevensset lookup verwijst naar de *sourcetable.json* bestand in de map voor het opzoeken van Azure Storage dat opgegeven door het type AzureStorageLinkedService. 
+De lookup-gegevensset verwijst naar de *sourcetable.json* bestand in de map voor het opzoeken van Azure Storage die opgegeven door de AzureStorageLinkedService-type. 
 
 ```json
 {
@@ -190,8 +190,8 @@ De gegevensset lookup verwijst naar de *sourcetable.json* bestand in de map voor
 }
 ```
 
-### <a name="source-dataset-for-the-copy-activity"></a>Gegevensset voor de kopieeractiviteit bron
-De bron-gegevensset maakt gebruik van de uitvoer van de activiteit opzoeken, die de naam van de SQL-tabel. De kopieeractiviteit kopieert gegevens van deze SQL-tabel naar een locatie in Azure Blob-opslag die opgegeven door de sink-gegevensset. 
+### <a name="source-dataset-for-the-copy-activity"></a>Brongegevensset voor de kopieeractiviteit
+De brongegevensset maakt gebruik van de uitvoer van de lookup-activiteit, dit de naam van de SQL-tabel is. De kopieeractiviteit kopieert gegevens van deze SQL-tabel naar een locatie in Azure Blob-opslag die opgegeven door de sink-gegevensset. 
 
 ```json
 {
@@ -209,8 +209,8 @@ De bron-gegevensset maakt gebruik van de uitvoer van de activiteit opzoeken, die
 }
 ```
 
-### <a name="sink-dataset-for-the-copy-activity"></a>Gegevensset voor de kopieeractiviteit sink
-De kopieeractiviteit kopieert gegevens van de SQL-tabel om de *filebylookup.csv* bestand de *csv* map in de Azure-opslag die opgegeven door de eigenschap AzureStorageLinkedService. 
+### <a name="sink-dataset-for-the-copy-activity"></a>Sink-gegevensset voor de kopieeractiviteit
+De kopieeractiviteit worden gegevens gekopieerd van de SQL-tabel naar de *filebylookup.csv* -bestand in de *csv* map in de Azure-opslag die opgegeven door de eigenschap AzureStorageLinkedService. 
 
 ```json
 {
@@ -251,7 +251,7 @@ Dit opslagaccount bevat de JSON-bestand met de namen van de SQL-tabellen.
 ```
 
 ### <a name="azure-sql-database-linked-service"></a>Een gekoppelde Azure SQL Database-service
-Dit exemplaar van Azure SQL Database bevat de gegevens moeten worden gekopieerd naar Blob storage. 
+Dit exemplaar van Azure SQL Database bevat de gegevens moeten worden gekopieerd naar Blob-opslag. 
 
 ```json
 {
@@ -302,7 +302,7 @@ Dit exemplaar van Azure SQL Database bevat de gegevens moeten worden gekopieerd 
 ## <a name="next-steps"></a>Volgende stappen
 Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund: 
 
-- [Uitvoeren van de Pipeline-activiteit](control-flow-execute-pipeline-activity.md)
+- [Execute Pipeline-activiteit](control-flow-execute-pipeline-activity.md)
 - [Voor elke activiteit](control-flow-for-each-activity.md)
-- [Ophalen van metagegevens-activiteit](control-flow-get-metadata-activity.md)
+- [Activiteit metagegevens ophalen](control-flow-get-metadata-activity.md)
 - [Activiteit Web](control-flow-web-activity.md)

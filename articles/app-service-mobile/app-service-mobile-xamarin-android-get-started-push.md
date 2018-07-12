@@ -1,6 +1,6 @@
 ---
 title: Pushmeldingen toevoegen aan uw Xamarin.Android-app | Microsoft Docs
-description: Informatie over het gebruik van Azure App Service en Azure Notification Hubs pushmeldingen verzendt naar uw Xamarin.Android-app
+description: Informatie over het gebruik van Azure App Service en Azure Notification Hubs om pushmeldingen te verzenden aan uw Xamarin.Android-app
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
@@ -15,54 +15,54 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: a6cdff68d63859c6a6612b606664d3e1fbaae375
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118272"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306851"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Pushmeldingen toevoegen aan uw Xamarin.Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Overzicht
-In deze zelfstudie hebt u pushmeldingen toevoegen de [Xamarin.Android Quick Start](app-service-mobile-windows-store-dotnet-get-started.md) project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
+In deze zelfstudie voegt u pushmeldingen kunt verzenden naar de [Xamarin.Android-snelstartgids](app-service-mobile-windows-store-dotnet-get-started.md) project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
 
-Als u het gedownloade Quick Start-serverproject niet gebruikt, moet u het push notification-uitbreidingspakket. Zie voor meer informatie de [werken met de .NET-back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) handleiding.
+Als u het gedownloade Quick Start-serverproject niet gebruikt, moet u de push notification-uitbreidingspakket. Zie voor meer informatie de [werken met de .NET back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) handleiding.
 
 ## <a name="prerequisites"></a>Vereisten
-Deze zelfstudie vereist de installatie:
+In deze zelfstudie vereist de installatie:
 
-* Een actief Google-account. U kunt zich aanmelden voor een Google-account bij [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
+* Een actief Google-account. U kunt zich aanmelden voor een Google-account op [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Google Cloud Messaging-clientonderdeel](http://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>Een Notification Hub configureren
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a id="register"></a>Inschakelen van Firebase Cloud-berichten
+## <a id="register"></a>Inschakelen van Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## <a name="configure-azure-to-send-push-requests"></a>Azure voor het verzenden van pushmeldingen aanvragen configureren
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a id="update-server"></a>Bijwerken van het serverproject om pushmeldingen te verzenden
+## <a id="update-server"></a>Bijwerken van het serverproject voor het verzenden van pushmeldingen te verzenden
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a id="configure-app"></a>Het clientproject voor pushmeldingen configureren
+## <a id="configure-app"></a>Het clientproject voor push-meldingen configureren
 [!INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
 ## <a id="add-push"></a>Push notifications code toevoegen aan uw app
 [!INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
-## <a name="test"></a>Pushmeldingen testen in uw app
-U kunt de app testen met behulp van een virtueel apparaat in de emulator. Er zijn extra configuratiestappen vereist wanneer u gebruikmaakt van een emulator.
+## <a name="test"></a>Testpushmeldingen in uw app
+U kunt de app testen met behulp van een virtueel apparaat in de emulator. Er zijn extra configuratiestappen vereist wanneer u een emulator.
 
-1. Het virtuele apparaat moet hebben Google APIs ingesteld als doel in Android Virtual Device (AVD) manager.
+1. Het virtuele apparaat moet Google APIs ingesteld als het doel in het beheer van Android Virtual Device (AVD) hebben.
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
-2. Een Google-account toevoegen aan de Android-apparaat door te klikken op **Apps** > **instellingen** > **account toevoegen**, volg de instructies.
+2. Een Google-account toevoegen aan de Android-apparaat door te klikken op **Apps** > **instellingen** > **account toevoegen**, volgt u de aanwijzingen.
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
-3. Voer de todolist-app als voordat en een nieuwe taak invoegen. Dit moment wordt een pictogram weergegeven in het systeemvak. U kunt de meldingenlijst om weer te geven van de volledige tekst van de melding openen.
+3. De todolist-app als voordat uitvoeren en voeg een nieuwe taak. Deze keer wordt het meldingspictogram van een weergegeven in het systeemvak. U kunt de meldingenlijst als u wilt weergeven van de volledige tekst van de melding kunt openen.
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 

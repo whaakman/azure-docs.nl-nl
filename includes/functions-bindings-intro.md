@@ -1,4 +1,4 @@
-Dit is de referentie-informatie voor ontwikkelaars voor Azure Functions. Als u geen ervaring met Azure Functions, start u de volgende bronnen:
+Dit is de referentie-informatie voor ontwikkelaars van Azure Functions. Als u geen ervaring met Azure Functions, begint u met de volgende bronnen:
 
 * [Uw eerste functie maken](../articles/azure-functions/functions-create-first-azure-function.md)
 * [Naslaginformatie over Azure Functions voor ontwikkelaars](../articles/azure-functions/functions-reference.md)

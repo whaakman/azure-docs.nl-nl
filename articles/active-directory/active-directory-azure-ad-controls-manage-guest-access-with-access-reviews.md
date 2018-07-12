@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 71569da662c5d5e5ef5ad6c7d9783a69e307f2fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 452501d5da58d06093f22009c6ecc30e02f581a5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441179"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295636"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gasttoegang beheren met Azure AD toegangsbeoordelingen
 
@@ -30,7 +30,7 @@ Met Azure Active Directory (Azure AD), kunt u eenvoudig inschakelen samenwerking
 U kunt eenvoudig Zorg er ook voor dat gastgebruikers ook kunnen de juiste toegang hebben. U kunt de gasten stellen zelf of een besluitvormer deel te nemen aan een toegangsbeoordeling en opnieuw certificeren (of bevestigen) voor toegang tot de gasten. De beoordelaars kunnen op basis van suggesties uit Azure AD hun mening geven over de mate waarin een gebruiker per se toegang moet krijgen. Wanneer een toegangsbeoordeling is voltooid, kunt u vervolgens wijzigingen aanbrengen en verwijderen van toegang voor gasten die deze niet meer nodig hebben.
 
 > [!NOTE]
-> Dit document is gericht op het controleren van toegang van gastgebruikers. Als u wilt bekijken van alle gebruikers toegang, niet alleen gasten, Zie [gebruikerstoegang beheren met toegangsbeoordelingen](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md). Als u wilt bekijken, lidmaatschap van een gebruiker in een beheerderrol, zoals globale beheerder, raadpleegt u [een toegangsbeoordeling starten in Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-start-security-review.md). 
+> Dit document is gericht op het controleren van toegang van gastgebruikers. Als u wilt bekijken van alle gebruikers toegang, niet alleen gasten, Zie [gebruikerstoegang beheren met toegangsbeoordelingen](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md). Als u wilt bekijken, lidmaatschap van een gebruiker in een beheerderrol, zoals globale beheerder, raadpleegt u [een toegangsbeoordeling starten in Azure AD Privileged Identity Management](privileged-identity-management/pim-how-to-start-security-review.md). 
 >
 >
 

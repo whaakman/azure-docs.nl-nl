@@ -1,6 +1,6 @@
 ---
-title: 'Een computer verbinden met een virtueel netwerk met punt-naar-Site en de RADIUS-verificatie: PowerShell | Azure'
-description: Windows- en Mac OS X-clients veilige verbinding met een virtueel netwerk met behulp van P2S en RADIUS-verificatie.
+title: 'Een computer verbinden met een virtueel netwerk met behulp van punt-naar-Site en RADIUS-verificatie: PowerShell | Azure'
+description: Windows en Mac OS X-clients veilig verbinden met een virtuele netowrk met behulp van P2S en RADIUS-verificatie.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: anzaman
 ms.openlocfilehash: df7afe9324831ffb8e79d7320f2c716ed18a7b4f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267346"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719682"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Een punt-naar-Site-verbinding met een VNet met behulp van RADIUS-verificatie configureren: PowerShell
 
-In dit artikel leest u hoe een VNet maken met een punt-naar-Site-verbinding die gebruikmaakt van RADIUS-verificatie. Deze configuratie is alleen beschikbaar voor het Resource Manager-implementatiemodel.
+Dit artikel ziet u hoe u een VNet maakt met een punt-naar-Site-verbinding die gebruikmaakt van RADIUS-verificatie. Deze configuratie is alleen beschikbaar voor de Resource Manager-implementatiemodel.
 
-Met een punt-naar-site-VPN-gateway (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele netwerk. Punt-naar-Site VPN-verbindingen zijn nuttig wanneer u verbinding wilt maken met uw VNet vanaf een externe locatie, zoals wanneer u vanaf thuis of een conferentie teleforenzen. Een P2S-VPN is ook een uitstekende oplossing in plaats van een site-naar-site-VPN wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet.
+Met een punt-naar-site-VPN-gateway (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele netwerk. Punt-naar-Site VPN-verbindingen zijn nuttig wanneer u verbinding maken met uw VNet vanaf een externe locatie wilt, zoals wanneer u vanaf thuis of een conferentie teleforenzen. Een P2S-VPN is ook een uitstekende oplossing in plaats van een site-naar-site-VPN wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet.
 
 Er wordt een P2S-VPN-verbinding gestart vanaf Windows en Mac-apparaten. Clients die verbinding maken, kunnen de volgende verificatiemethoden gebruiken:
 
 * RADIUS-server
-* Verificatie van native VPN-Gateway
+* Systeemeigen VPN-Gateway-certificaatverificatie
 
-Dit artikel helpt u bij het configureren van een configuratie voor P2S-verificatie via RADIUS-server. Als u wilt verifiëren met behulp van gegenereerde certificaten en VPN-gateway systeemeigen verificatie via certificaat in plaats daarvan, Zie [configureren van een punt-naar-Site-verbinding met een VNet met behulp van VPN-gateway systeemeigen certificaatverificatie](vpn-gateway-howto-point-to-site-rm-ps.md).
+Dit artikel helpt u bij het configureren van een P2S-configuratie met verificatie met behulp van RADIUS-server. Als u wilt verifiëren met behulp van gegenereerde certificaten en systeemeigen certificaatverificatie van VPN-gateway in plaats daarvan, Zie [een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen certificaatverificatie van VPN-gateway configureren](vpn-gateway-howto-point-to-site-rm-ps.md).
 
 ![Verbindingsdiagram - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
@@ -46,21 +46,21 @@ Punt-naar-site-verbindingen hebben geen VPN-apparaat of openbaar IP-adres nodig.
 Voor P2S-verbindingen is het volgende vereist:
 
 * Een RouteBased VPN-gateway. 
-* Een RADIUS-server voor het afhandelen van gebruikersverificatie. De RADIUS-server kan worden geïmplementeerd on-premises of in het Azure VNet.
-* Een VPN-client configuratiepakket voor de Windows-apparaten die met het VNet verbinden zullen. Een configuratie van VPN-clientpakket bevat de vereiste instellingen voor een VPN-client verbinding maken via P2S.
+* Een RADIUS-server voor het afhandelen van verificatie van de gebruiker. De RADIUS-server kan worden on-premises geïmplementeerd, of in het Azure-VNet.
+* Een VPN-clientconfiguratiepakket voor de Windows-apparaten die verbinding met het VNet maken. Een VPN-clientconfiguratiepakket bevat de instellingen die vereist zijn voor een VPN-client verbinding maken via P2S.
 
-## <a name="aboutad"></a>Over de verificatie van Active Directory (AD)-domein voor P2S-VPN-verbindingen
+## <a name="aboutad"></a>Over Active Directory (AD)-domeinverificatie voor P2S VPN 's
 
-AD-domein verificatie kunnen gebruikers zich aanmelden bij Azure met de domeinreferenties van hun organisatie. Vereist een RADIUS-server die in combinatie met de server van AD. Organisaties kunnen gebruikmaken van hun bestaande RADIUS-implementatie.
+AD-domein verificatie kunnen gebruikers zich aanmelden bij Azure met de domeinreferenties van hun organisatie. Hiervoor een RADIUS-server die is geïntegreerd met de AD-server. Organisaties kunnen ook gebruikmaken van hun bestaande RADIUS-implementatie.
  
-De RADIUS-server kan zich bevinden op locatie, of in uw Azure VNet. Tijdens verificatie wordt fungeert de VPN-gateway als een Pass Through- en doorsturen verificatieberichten heen en weer tussen de RADIUS-server en het verbindende apparaat. Het is belangrijk voor de VPN-gateway te kunnen om de RADIUS-server te bereiken. Als de RADIUS-server zich op locatie, klikt u vervolgens is een Site-naar-Site VPN-verbinding van Azure naar de lokale site vereist.
+De RADIUS-server kan zich on-premises bevinden of in uw Azure VNet. Tijdens de verificatie, wordt de VPN-gateway fungeert als een Pass Through-query en stuurt verificatieberichten heen en weer tussen de RADIUS-server en het verbindende apparaat. Het is belangrijk voor de VPN-gateway te kunnen bereiken van de RADIUS-server. Als de RADIUS-server zich op locatie is, klikt u vervolgens is een Site-naar-Site VPN-verbinding van Azure met de on-premises site vereist.
 
-Afgezien van Active Directory, kunt een RADIUS-server ook worden geïntegreerd met andere systemen externe identiteit. Hiermee opent u tal van verificatieopties voor punt-naar-Site-VPN-verbindingen, inclusief opties voor MFA. Raadpleeg de documentatie van uw RADIUS-server leverancier om de lijst met identiteitssystemen die is geïntegreerd in.
+Naast de Active Directory, kan een RADIUS-server ook worden geïntegreerd met andere systemen externe id. Hiermee opent u tal van verificatieopties voor punt-naar-Site-VPN's, met inbegrip van opties voor MFA. Controleer uw leveranciersdocumentatie van RADIUS-server om de lijst kan worden geïntegreerd met identiteitssystemen.
 
 ![Verbindingsdiagram - RADIUS](./media/point-to-site-how-to-radius-ps/radiusimage.png)
 
 > [!IMPORTANT]
->Alleen een Site-naar-Site VPN-verbinding kan worden gebruikt voor het verbinden met een RADIUS-server lokaal. Een ExpressRoute-verbinding kan niet worden gebruikt.
+>Alleen een Site-naar-Site VPN-verbinding kan worden gebruikt voor het verbinden met een RADIUS-server on-premises. Een ExpressRoute-verbinding kan niet worden gebruikt.
 >
 >
 
@@ -95,9 +95,9 @@ U kunt de volgende voorbeeldwaarden gebruiken om een testomgeving te maken of ze
 * **Openbare IP-naam: VNet1GWPIP**
 * **VPNType: op route gebaseerd** 
 
-## 1. <a name="vnet"></a>Maken van de resourcegroep, een VNet en een openbare IP-adres
+## 1. <a name="vnet"></a>Maken van de resourcegroep, VNet en openbare IP-adres
 
-De volgende stappen maakt een resourcegroep en een virtueel netwerk in de resourcegroep met drie subnetten. Bij het vervangen van waarden, is het belangrijk dat u altijd de naam het gatewaysubnet bijzonder GatewaySubnet. Als u een andere naam kiest, mislukt het maken van uw gateway.
+De volgende stappen maakt een resourcegroep en een virtueel netwerk in de resourcegroep met drie subnetten. Bij het vervangen van waarden, is het belangrijk dat u altijd de naam het gatewaysubnet bijzonder GatewaySubnet. Als u een andere naam kiest, mislukt het maken van de gateway.
 
 1. Maak een resourcegroep.
 
@@ -113,7 +113,7 @@ De volgende stappen maakt een resourcegroep en een virtueel netwerk in de resour
   ```
 3. Maak het virtuele netwerk.
 
-  In dit voorbeeld is de serverparameter-DnsServer optioneel. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Het IP-adres van de DNS-server dat u opgeeft, moet het adres zijn van een DNS-server die de namen kan omzetten voor de resources waarmee u verbinding maakt vanuit uw VNet. Voor dit voorbeeld hebben we een privé-IP-adres gebruikt, maar het is zeer onwaarschijnlijk dat dit het IP-adres van uw DNS-server is. Zorg ervoor dat u uw eigen waarden gebruikt. De waarde die u opgeeft, wordt gebruikt door de bronnen die u op het VNet niet door de P2S-verbinding implementeert.
+  In dit voorbeeld is de serverparameter-DnsServer optioneel. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Het IP-adres van de DNS-server dat u opgeeft, moet het adres zijn van een DNS-server die de namen kan omzetten voor de resources waarmee u verbinding maakt vanuit uw VNet. Voor dit voorbeeld hebben we een privé-IP-adres gebruikt, maar het is zeer onwaarschijnlijk dat dit het IP-adres van uw DNS-server is. Zorg ervoor dat u uw eigen waarden gebruikt. De waarde die u opgeeft wordt gebruikt door de resources die u met het VNet, niet door de P2S-verbinding implementeert.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG" -Location "East US" -AddressPrefix "192.168.0.0/16","10.254.0.0/16" -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
@@ -129,22 +129,22 @@ De volgende stappen maakt een resourcegroep en een virtueel netwerk in de resour
   $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
   ```
 
-## 2. <a name="radius"></a>De RADIUS-server instellen
+## 2. <a name="radius"></a>Instellen van uw RADIUS-server
 
-Voordat u maken en configureren van de virtuele netwerkgateway, moet uw RADIUS-server correct worden geconfigureerd voor verificatie.
+Voordat u het maken en configureren van de virtuele netwerkgateway, moet uw RADIUS-server correct worden geconfigureerd voor verificatie.
 
-1. Als er geen RADIUS-server geïmplementeerd, implementeert u een. Raadpleeg de installatiehandleiding aanbieder van de RADIUS-voor de implementatiestappen.  
+1. Als u geen een RADIUS-server die is geïmplementeerd, implementeert u een. Raadpleeg de installatiehandleiding geleverd door de leverancier van de RADIUS-voor de implementatiestappen.  
 2. Configureer de VPN-gateway als een RADIUS-client op de RADIUS. Geef het virtuele netwerk GatewaySubnet dat u hebt gemaakt bij het toevoegen van deze RADIUS-client. 
-3. Zodra de RADIUS-server is ingesteld, krijgen de RADIUS-server IP-adres en het gedeelde geheim dat RADIUS-clients gebruiken moeten voor communicatie met de RADIUS-server. Als de RADIUS-server in het Azure VNet, gebruikt u de CA-IP van de virtuele machine van de RADIUS-server.
+3. Zodra de RADIUS-server is ingesteld, IP-adres van de RADIUS-server en het gedeelde geheim dat RADIUS-clients gebruiken moeten om te communiceren met de RADIUS-server ophalen. Als de RADIUS-server in de Azure-VNet, gebruikt u de CA-IP-adres van de virtuele machine van de RADIUS-server.
 
-De [Network Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) artikel vindt u richtlijnen over het configureren van een Windows-RADIUS-server (NPS) voor de verificatie van AD-domeinen.
+De [Network Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) artikel bevat richtlijnen over het configureren van een Windows-RADIUS-server (NPS) voor de verificatie van AD-domeinen.
 
 ## 3. <a name="creategw"></a>De VPN-gateway maken
 
 Configureer en maak de VPN-gateway voor uw VNet.
 
-* Het GatewayType - moet 'Vpn' en het - VpnType moet 'RouteBased'.
-* Een VPN-gateway kan tot 45 minuten duren, afhankelijk van de [gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) u selecteert.
+* Het GatewayType 'Vpn' moet zijn en - VpnType moet 'RouteBased'.
+* Een VPN-gateway kan tot 45 minuten duren om uit te voeren, afhankelijk van de [gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) u selecteert.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -152,26 +152,26 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
-## 4. <a name="addradius"></a>Toevoegen van de RADIUS-server en client-adresgroep
+## 4. <a name="addradius"></a>De RADIUS-server en client-adresgroep toevoegen
  
-* De RadiusServer - kunnen worden opgegeven met de naam of IP-adres. Als u de naam en de server zich op locatie bevindt, klikt u vervolgens de VPN-gateway mogelijk niet de naam kunnen omzetten. Als dit het geval is, is het beter om op te geven van het IP-adres van de server. 
-* De RadiusSecret - moet overeenkomen met wat is geconfigureerd op de RADIUS-server.
-* De VpnCientAddressPool - is het bereik waarvan de verbinding van de VPN-clients een IP-adres ontvangt. Gebruik een privé-IP-adresbereik dat niet overlapt met de on-premises locatie waarvanaf u verbinding maakt of met het VNet waarmee u verbinding wilt maken. Zorg ervoor dat u een groot genoeg adresgroep geconfigureerd.  
+* De RadiusServer - kan worden opgegeven door de naam of IP-adres. Als u de naam en de server bevindt zich on-premises, kan de VPN-gateway kan niet worden de naam kunnen omzetten. Als dit het geval is, is het beter om op te geven van het IP-adres van de server. 
+* De RadiusSecret - moet overeenkomen met wat er op uw RADIUS-server is geconfigureerd.
+* De VpnCientAddressPool - is het bereik van waaruit de verbindende VPN-clients een IP-adres ontvangen. Gebruik een privé-IP-adresbereik dat niet overlapt met de on-premises locatie waarvanaf u verbinding maakt of met het VNet waarmee u verbinding wilt maken. Zorg ervoor dat u een groot genoeg adresgroep geconfigureerd hebt.  
 
-1. Een beveiligde tekenreeks voor de RADIUS geheime maken.
+1. Maak een beveiligde tekenreeks voor de RADIUS geheim.
 
   ```powershell
   $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
   ```
 
-2. U wordt gevraagd om in te voeren van de RADIUS-geheim. De tekens die u invoert, worden niet weergegeven en in plaats daarvan worden vervangen door de ' * ' teken.
+2. U wordt gevraagd naar de RADIUS-geheim invoeren. De tekens die u invoert worden niet weergegeven en in plaats daarvan wordt vervangen door de "*" teken.
 
   ```powershell
   RadiusSecret:***
   ```
 3. De adresgroep van de VPN-client en de informatie van RADIUS-server toevoegen.
 
-  Voor SSTP configuraties:
+  Voor SSTP-configuraties:
 
     ```powershell
     $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -189,7 +189,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-  Voor SSTP + IKEv2
+  Voor SSTP en IKEv2
 
     ```powershell
     $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -198,22 +198,22 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-## 5. <a name="vpnclient"></a>De configuratie van VPN-clientpakket downloaden en instellen van de VPN-client
+## 5. <a name="vpnclient"></a>Het configuratiepakket voor VPN-client downloaden en de VPN-client instellen
 
-De configuratie van de VPN-client kunt apparaten verbinding maken met een VNet via een P2S-verbinding. Als u wilt een configuratie van VPN-clientpakket genereren en instellen van de VPN-client, Zie [maken van de configuratie van een VPN-Client voor RADIUS-verificatie](point-to-site-vpn-client-configuration-radius.md).
+De configuratie van de VPN-client kunt apparaten verbinding maken met een VNet via een P2S-verbinding. Als u wilt een VPN-clientconfiguratiepakket genereren en instellen van de VPN-client, Zie [maken van een VPN-clientconfiguratie voor RADIUS-verificatie](point-to-site-vpn-client-configuration-radius.md).
 
 ## <a name="connect"></a>6. Verbinding maken met Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Verbinding maken vanaf een Windows-VPN-client
 
-1. Als u met uw VNet wilt verbinden, gaat u op de clientcomputer naar de VPN-verbindingen en zoekt u de VPN-verbinding die u hebt gemaakt. Deze heeft dezelfde naam als het virtuele netwerk. Voer de domeinreferenties van uw en klik op 'Connect'. Een pop-upbericht aanvragen verhoogde rechten wordt weergegeven. Accepteer deze en voer de referenties.
+1. Als u met uw VNet wilt verbinden, gaat u op de clientcomputer naar de VPN-verbindingen en zoekt u de VPN-verbinding die u hebt gemaakt. Deze heeft dezelfde naam als het virtuele netwerk. Voer de domeinreferenties van uw en klik op 'Connect'. Een pop-upbericht aanvragen verhoogde rechten wordt weergegeven. Accepteren en voer de referenties in.
 
   ![VPN-client maakt verbinding met Azure](./media/point-to-site-how-to-radius-ps/client.png)
 2. De verbinding is tot stand gebracht.
 
   ![Verbinding tot stand gebracht](./media/point-to-site-how-to-radius-ps/connected.png)
 
-### <a name="connect-from-a-mac-vpn-client"></a>Verbinding maken via een VPN-Mac-client
+### <a name="connect-from-a-mac-vpn-client"></a>Verbinding maken vanaf een Mac-VPN-client
 
 Zoek in het dialoogvenster Netwerk het clientprofiel dat u wilt gebruiken en klik op **Verbinding maken**.
 
@@ -237,7 +237,7 @@ Zoek in het dialoogvenster Netwerk het clientprofiel dat u wilt gebruiken en kli
       NetBIOS over Tcpip..............: Enabled
   ```
 
-Zie voor het oplossen van een verbinding P2S [punt-naar-site-verbindingen voor probleemoplossing voor Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+Zie voor het oplossen van een P2S-verbinding, [punt-naar-site-verbindingen van Azure voor het oplossen van](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 
 ## <a name="connectVM"></a>Verbinding maken met een virtuele machine
 

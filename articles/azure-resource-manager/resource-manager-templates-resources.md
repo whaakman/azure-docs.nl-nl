@@ -1,31 +1,31 @@
 ---
-title: Azure Resource Manager-sjabloonresources | Microsoft Docs
-description: Hierin wordt beschreven in de bronnensectie van Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis.
+title: Sjabloonresources van Azure Resource Manager-| Microsoft Docs
+description: Hierin wordt beschreven in de sectie met resources van Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 12dc5921cc1977b53f0457d89537193eadded188
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1619f3bfdf49820ec529947ea02d1602a7b2aa8c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723831"
 ---
-# <a name="resources-section-of-azure-resource-manager-templates"></a>Sectie van de resources van Azure Resource Manager-sjablonen
+# <a name="resources-section-of-azure-resource-manager-templates"></a>Sectie met resources van Azure Resource Manager-sjablonen
 
-In de bronnensectie definieert u de resources die worden geïmplementeerd of bijgewerkt. Deze sectie kunt krijgen ingewikkeld omdat de typen die u implementeert de juiste waarden opgeven dat u begrijpt.
+In de sectie resources definieert u de resources die worden geïmplementeerd of bijgewerkt. In deze sectie krijgt ingewikkeld omdat u de typen die u implementeert zodat de juiste waarden moet begrijpen.
 
 ## <a name="available-properties"></a>Beschikbare eigenschappen
 
-U definieert resources met de volgende structuur:
+Definieert u resources met de volgende structuur:
 
 ```json
 "resources": [
@@ -81,36 +81,59 @@ U definieert resources met de volgende structuur:
 ]
 ```
 
-| Elementnaam | Vereist | Beschrijving |
+| De naam van element | Vereist | Beschrijving |
 |:--- |:--- |:--- |
 | voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource is geïmplementeerd. |
-| apiVersion |Ja |De versie van de REST-API gebruiken voor het maken van de resource. |
-| type |Ja |Type van de resource. Deze waarde is een combinatie van de naamruimte van de resourceprovider en het resourcetype (zoals **Microsoft.Storage/storageAccounts**). |
-| naam |Ja |De naam van de resource. De naam moet URI onderdeel beperkingen gedefinieerd in RFC3986 volgen. Bovendien Azure-services die beschikbaar om te valideren buiten partijen de naam om te controleren of deze de naam van de resource is niet een poging tot een andere identiteit vervalsen. |
-| location |Varieert |Ondersteunde geografische locaties van de opgegeven bron. U kunt een van de beschikbare locaties selecteren, maar meestal is het verstandig om te selecteren die dicht bij uw gebruikers. Meestal is het ook handig om resources die in dezelfde regio met elkaar communiceren. De meeste brontypen die een locatie vereist, maar sommige typen (zoals een roltoewijzing) hoeven niet een locatie. |
-| tags |Nee |Labels die gekoppeld aan de resource zijn. Labels te organiseren logisch resources in uw abonnement toepassen. |
-| Opmerkingen |Nee |De notities voor de resources in uw sjabloon documenteren |
-| kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources te implementeren op hetzelfde moment opgeven. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
-| dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat u deze bron wordt geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze worden geïmplementeerd in de juiste volgorde. Wanneer u resources zijn niet afhankelijk van elkaar, worden ze geïmplementeerd parallel. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of unieke id's voor een resource. Alleen de lijst van resources die zijn geïmplementeerd in deze sjabloon. Bronnen die niet in deze sjabloon zijn gedefinieerd, moeten al bestaan. Vermijd toe te voegen onnodige afhankelijkheden als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor instructies over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
-| properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de aanvraagtekst voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. |
-| SKU | Nee | Sommige resources zijn waarden toegestaan die de SKU definiëren te implementeren. U kunt bijvoorbeeld opgeven dat het type van redundantie voor een opslagaccount. |
-| type | Nee | Sommige resources kunnen een waarde die bepaalt het type resource die u implementeert. U kunt bijvoorbeeld opgeven dat het type van de Cosmos-database maken. |
+| apiVersion |Ja |De versie van de REST-API moet worden gebruikt voor het maken van de resource. |
+| type |Ja |Het type van de resource. Deze waarde is een combinatie van de naamruimte van de resourceprovider en het resourcetype (zoals **Microsoft.Storage/storageAccounts**). |
+| naam |Ja |Naam van de resource. De naam moet URI-onderdeel beperkingen gedefinieerd in RFC3986 volgen. Azure-services die beschikbaar maken van de naam van de resource buiten partijen valideren de naam om te controleren of het is bovendien een poging tot het vervalsen van een andere identiteit niet. |
+| location |Varieert |Geografische locaties van de opgegeven resource wordt ondersteund. U kunt een van de beschikbare locaties selecteren, maar meestal is het zinvol om te kiezen die zich in de buurt van uw gebruikers. Meestal is het ook verstandig om de resources die met elkaar in dezelfde regio communiceren te plaatsen. De meeste resourcetypen een locatie vereist, maar sommige typen (zoals een roltoewijzing) vereisen een locatie. |
+| tags |Nee |Tags die gekoppeld aan de resource zijn. Labels toevoegen om in te delen logisch resources in uw abonnement. |
+| opmerkingen |Nee |Uw notities voor het documenteren van de resources in uw sjabloon |
+| kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources om te implementeren op hetzelfde moment opgeven. Zie voor meer informatie, [meerdere exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md). |
+| dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat deze resource is geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze implementeert in de juiste volgorde. Als resources niet van elkaar afhankelijk zijn, zijn ze parallel geïmplementeerd. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of resource-id's uniek. Alleen lijst met resources die in deze sjabloon zijn geïmplementeerd. Resources die niet zijn gedefinieerd in deze sjabloon moeten al bestaan. Vermijd onnodige afhankelijkheden toevoegen als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor meer informatie over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
+| properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de hoofdtekst van de aanvraag voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. |
+| SKU | Nee | Sommige resources zijn waarden toegestaan die definiëren van de SKU om het te implementeren. Bijvoorbeeld, kunt u het type redundantie voor een opslagaccount. |
+| type | Nee | Sommige resources kunnen een waarde die bepaalt het type resource dat u implementeert. Bijvoorbeeld, kunt u het type van de Cosmos DB te maken. |
 | plan | Nee | Sommige resources zijn waarden toegestaan die in de planning definiëren wilt implementeren. U kunt bijvoorbeeld opgeven dat de marketplace-installatiekopie voor een virtuele machine. | 
-| bronnen |Nee |Onderliggende resources die afhankelijk zijn van de bron wordt gedefinieerd. Geef alleen brontypen die worden toegestaan door het schema van de bovenliggende resource. Het volledig gekwalificeerde type van de onderliggende resource bevat het type van de bovenliggende resource, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van de bovenliggende resource niet geïmpliceerd. U moet deze afhankelijkheid expliciet definiëren. |
+| bronnen |Nee |Onderliggende resources die afhankelijk zijn van de resource wordt gedefinieerd. Geef alleen resourcetypen die zijn toegestaan door het schema van de bovenliggende resource. De volledig gekwalificeerde type van de onderliggende resource bevat het type van de bovenliggende resource, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van de bovenliggende resource is niet impliciet. Afhankelijkheid zijn opgetreden, moet u expliciet definiëren. |
+
+## <a name="condition"></a>Voorwaarde
+
+Wanneer u tijdens de implementatie van al dan niet om een resource te maken beslissen moet, gebruikt u de `condition` element. De waarde voor dit element wordt omgezet in waar of ONWAAR. Wanneer de waarde true is, wordt de resource is geïmplementeerd. Wanneer de waarde false is, wordt de resource is niet geïmplementeerd. Bijvoorbeeld, om op te geven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruikt u het:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+Voor een compleet voorbeeld-sjabloon die gebruikmaakt van de `condition` -element, Zie [VM met een nieuwe of bestaande Virtueelnetwerk, opslag- en openbare IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 
 ## <a name="resource-specific-values"></a>Resource-specifieke waarden
 
-De **apiVersion**, **type**, en **eigenschappen** elementen zijn verschillend voor elk resourcetype. De **sku**, **soort**, en **plan** elementen zijn beschikbaar voor sommige brontypen, maar niet alle. Om te bepalen waarden voor deze eigenschappen, Zie [sjabloonverwijzing](/azure/templates/).
+De **apiVersion**, **type**, en **eigenschappen** elementen verschillen voor elk resourcetype. De **sku**, **soort**, en **plan** elementen zijn beschikbaar voor sommige resourcetypen, maar niet alle. Om te bepalen van waarden voor deze eigenschappen, Zie [sjabloonverwijzing](/azure/templates/).
 
-## <a name="resource-names"></a>Resourcenamen
-In het algemeen werken u met drie soorten resourcenamen in Resource Manager:
+## <a name="resource-names"></a>Namen van voorbeeldresources
 
-* Resourcenamen moeten uniek zijn.
-* Resourcenamen die nodig zijn niet uniek te zijn, maar u kunt een naam waarmee u de bron identificeren kunt geven.
-* Resourcenamen kunnen niet algemeen zijn.
+In het algemeen, werkt u met drie typen resourcenamen in Resource Manager:
 
-### <a name="unique-resource-names"></a>Unieke resourcenamen
-U moet een unieke bronnaam voor resourcetype dat een data access-eindpunt opgeven. Sommige algemene brontypen waarvoor een unieke naam zijn onder andere:
+* Namen van voorbeeldresources die moeten uniek zijn.
+* Namen van voorbeeldresources die niet zijn vereist voor het uniek zijn, maar u kiest een naam waarmee u identificeren van de resource op te geven.
+* Namen van voorbeeldresources die algemene worden kunnen.
+
+### <a name="unique-resource-names"></a>De unieke resourcenamen
+
+Geef een unieke resourcenaam voor elk resourcetype dat een eindpunt van de toegang tot gegevens heeft. Sommige algemene resourcetypen waarvoor een unieke naam zijn onder andere:
 
 * Azure Storage<sup>1</sup> 
 * Web Apps-functie van Azure App Service
@@ -122,9 +145,9 @@ U moet een unieke bronnaam voor resourcetype dat een data access-eindpunt opgeve
 * Azure Search
 * Azure HDInsight
 
-<sup>1</sup> opslagaccountnamen ook moet een kleine letter, 24 tekens of korter is, en geen eventuele verbindingsstreepjes.
+<sup>1</sup> opslagaccountnamen ook moet een kleine letter, 24 tekens of korter is, en niet alle afbreekstreepjes bevatten.
 
-Wanneer u de naam, u kunt handmatig een unieke naam of gebruik de [uniqueString()](resource-group-template-functions-string.md#uniquestring) functie voor het genereren van een naam. Ook raadzaam een voorvoegsel toevoegen of een achtervoegsel aan de **uniqueString** resultaat. De unieke naam wijzigen, kunt u gemakkelijk herkennen het brontype van de naam. U kunt bijvoorbeeld een unieke naam voor een opslagaccount genereren met behulp van de volgende variabele:
+Bij het instellen van de naam, u kunt handmatig maken van een unieke naam of gebruik de [uniqueString()](resource-group-template-functions-string.md#uniquestring) functie voor het genereren van een naam. Ook kunt u voegt u een voorvoegsel of achtervoegsel aan de **uniqueString** resultaat. De unieke naam wijzigen, kunt u eenvoudig kunt identificeren het brontype van de naam. U kunt bijvoorbeeld een unieke naam voor een opslagaccount genereren met behulp van de volgende variabele:
 
 ```json
 "variables": {
@@ -132,8 +155,8 @@ Wanneer u de naam, u kunt handmatig een unieke naam of gebruik de [uniqueString(
 }
 ```
 
-### <a name="resource-names-for-identification"></a>Resourcenamen voor identificatie
-Sommige kunt u de naam, maar hun namen van resourcetypen hoeft geen uniek zijn. U kunt een naam waarmee u zowel de context van de bron en het resourcetype opgeven voor deze resourcetypen.
+### <a name="resource-names-for-identification"></a>Namen van voorbeeldresources voor de identificatie
+Sommige resourcetypen die kunt u de naam, maar hun namen hoeft niet uniek te zijn. U kunt een naam ter identificatie van zowel de bron-context en het resourcetype opgeven voor deze resourcetypen.
 
 ```json
 "parameters": {
@@ -148,7 +171,7 @@ Sommige kunt u de naam, maar hun namen van resourcetypen hoeft geen uniek zijn. 
 ```
 
 ### <a name="generic-resource-names"></a>Algemene resourcenamen
-Voor brontypen die u voornamelijk via een andere resource benaderen, kunt u een algemene naam die is vastgelegd in de sjabloon. U kunt bijvoorbeeld een algemene naam op voor firewallregels instellen op een SQL server:
+Voor de resourcetypen die voornamelijk toegankelijk zijn via een andere resource, kunt u een algemene naam die is vastgelegd in de sjabloon. U kunt bijvoorbeeld een algemene naam voor de firewall-regels instellen op een SQL server:
 
 ```json
 {
@@ -159,23 +182,23 @@ Voor brontypen die u voornamelijk via een andere resource benaderen, kunt u een 
 ```
 
 ## <a name="location"></a>Locatie
-Bij het implementeren van een sjabloon, moet u een locatie voor elke resource opgeven. Andere brontypen die worden ondersteund in verschillende locaties. Als een lijst met locaties die beschikbaar voor uw abonnement voor een bepaald brontype zijn weergeven, gebruikt u Azure PowerShell of Azure CLI. 
+Bij het implementeren van een sjabloon, moet u een locatie voor elke resource opgeven. Andere resource-typen worden ondersteund op verschillende locaties. Een lijst met locaties die beschikbaar voor uw abonnement voor een bepaald brontype zijn wilt bekijken, gebruikt u Azure PowerShell of Azure CLI. 
 
-Het volgende voorbeeld maakt gebruik van PowerShell om op te halen van de locaties voor de `Microsoft.Web\sites` brontype:
+Het volgende voorbeeld wordt PowerShell gebruikt om op te halen van de locaties voor de `Microsoft.Web\sites` resourcetype:
 
 ```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-Het volgende voorbeeld maakt gebruik van Azure CLI 2.0 ophalen van de locaties voor de `Microsoft.Web\sites` brontype:
+Het volgende voorbeeld maakt gebruik van Azure CLI om op te halen van de locaties voor de `Microsoft.Web\sites` resourcetype:
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-Na het vaststellen van de ondersteunde locaties voor uw resources die locatie in uw sjabloon is ingesteld. De eenvoudigste manier om in te stellen van deze waarde is een resourcegroep maken op een locatie die ondersteuning biedt voor de volgende resourcetypen en elke locatie op instellen `[resourceGroup().location]`. U kunt de sjabloon aan resourcegroepen op verschillende locaties opnieuw implementeert en alle waarden in de sjabloon of parameters niet te wijzigen. 
+Na het vaststellen van de ondersteunde locaties voor uw resources, die locatie in uw sjabloon is ingesteld. De eenvoudigste manier om deze waarde hebt ingesteld, wordt een resourcegroep maken op een locatie die ondersteuning biedt voor de resourcetypen en elke locatie ingesteld op `[resourceGroup().location]`. U kunt opnieuw implementeren van de sjabloon aan resourcegroepen op verschillende locaties en alle waarden in de sjabloon of parameters niet te wijzigen. 
 
-Het volgende voorbeeld ziet u een opslagaccount dat is geïmplementeerd op dezelfde locatie als de resourcegroep:
+Het volgende voorbeeld ziet u een opslagaccount dat wordt geïmplementeerd op dezelfde locatie als de resourcegroep:
 
 ```json
 {
@@ -204,7 +227,7 @@ Het volgende voorbeeld ziet u een opslagaccount dat is geïmplementeerd op dezel
 }
 ```
 
-Als u hardcode voor de locatie in de sjabloon wilt, geef de naam van een van de ondersteunde regio's. Het volgende voorbeeld ziet u een opslagaccount die altijd wordt geïmplementeerd op Noordelijk Centraal, VS:
+Als u nodig in hardcode vastlegt de locatie in de sjabloon hebt, geef de naam van een van de ondersteunde regio's. Het volgende voorbeeld ziet u een opslagaccount die altijd is geïmplementeerd in Noord-centraal VS:
 
 ```json
 {
@@ -233,13 +256,13 @@ Als u hardcode voor de locatie in de sjabloon wilt, geef de naam van een van de 
 ## <a name="tags"></a>Tags
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
-### <a name="add-tags-to-your-template"></a>Labels toevoegen aan de sjabloon
+### <a name="add-tags-to-your-template"></a>Labels toevoegen aan uw sjabloon
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
 
 ## <a name="child-resources"></a>Onderliggende resources
 
-In sommige brontypen, kunt u ook een matrix van onderliggende resources definiëren. Onderliggende resources zijn bronnen die alleen binnen de context van een andere resource voorkomen. Bijvoorbeeld, bestaan niet een SQL-database zonder een SQL-server zodat de database een onderliggend element van de server is. U kunt de database binnen de definitie voor de server definiëren.
+In sommige resourcetypen, kunt u ook een reeks onderliggende resources definiëren. Onderliggende resources zijn resources die alleen zijn opgeslagen in de context van een andere resource. Een SQL-database niet kan bijvoorbeeld bestaan zonder een SQL-server, zodat de database een onderliggend element van de server is. U kunt de database in de definitie voor de server definiëren.
 
 ```json
 {
@@ -258,13 +281,13 @@ In sommige brontypen, kunt u ook een matrix van onderliggende resources definië
 }
 ```
 
-Wanneer genest, het type is ingesteld op `databases` , maar het type volledige resource `Microsoft.Sql/servers/databases`. U geen specifieke `Microsoft.Sql/servers/` omdat ervan wordt uitgegaan van het type van de bovenliggende resource. De naam van de onderliggende resource is ingesteld op `exampledatabase` , maar de naam van de volledige naam van het bovenliggende bevat. U geen specifieke `exampleserver` omdat ervan wordt uitgegaan van de bovenliggende resource.
+Wanneer genest, het type is ingesteld op `databases` , maar het type volledige resource `Microsoft.Sql/servers/databases`. U geen opgeeft `Microsoft.Sql/servers/` omdat ervan wordt uitgegaan van het type van de bovenliggende resource. De naam van de onderliggende bron is ingesteld op `exampledatabase` , maar de volledige naam bevat de naam van de bovenliggende. U geen opgeeft `exampleserver` omdat ervan wordt uitgegaan van de bovenliggende resource.
 
-De indeling van het onderliggende brontype is: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+De indeling van het type van de onderliggende bron is: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
-De indeling van de naam van de onderliggende resource is: `{parent-resource-name}/{child-resource-name}`
+De indeling van de naam van de onderliggende bron is: `{parent-resource-name}/{child-resource-name}`
 
-Maar u hoeft niet te definiëren van de database binnen de server. U kunt de onderliggende resource op het hoogste niveau definiëren. U kunt deze benadering gebruiken als de bovenliggende resource niet is geïmplementeerd in dezelfde sjabloon of wilt gebruiken `copy` meerdere onderliggende resources te maken. Met deze methode moet u het volledige brontype bieden en de naam van de bovenliggende resource opnemen in de naam van de onderliggende resource.
+Maar u hoeft de database in de server. U kunt de onderliggende resource op het hoogste niveau definiëren. U kunt deze methode gebruiken als de bovenliggende resource is niet geïmplementeerd in dezelfde sjabloon of wilt gebruiken `copy` meerdere onderliggende om resources te maken. Met deze methode moet u het type volledige resource en omvatten de naam van de bovenliggende resource in de naam van de onderliggende resource.
 
 ```json
 {
@@ -283,7 +306,7 @@ Maar u hoeft niet te definiëren van de database binnen de server. U kunt de ond
 }
 ```
 
-Bij het maken van een volledig gekwalificeerde verwijzing naar een resource wordt de volgorde te combineren segmenten van het type en de naam is niet gewoon een samenvoeging van de twee.  Gebruik in plaats daarvan na de naamruimte, een reeks *typenaam/* paren van minst specifiek voor het meest specifiek:
+Bij het maken van een volledig gekwalificeerde verwijzing naar een resource, is de volgorde te combineren segmenten van het type en de naam niet gewoon een samenvoeging van de twee. In plaats daarvan nadat de naamruimte van het gebruik van een reeks *typenaam/* paren van minst specifiek voor meest specifieke:
 
 ```json
 {resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
@@ -291,12 +314,12 @@ Bij het maken van een volledig gekwalificeerde verwijzing naar een resource word
 
 Bijvoorbeeld:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` juist `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is niet correct
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` klopt `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is niet correct
 
 ## <a name="recommendations"></a>Aanbevelingen
 De volgende informatie kan nuttig zijn wanneer u met resources werkt:
 
-* Andere inzenders leert wat het doel van de resource Geef, om te **opmerkingen** voor elke resource in de sjabloon:
+* Geef andere inzenders leert wat het doel van de resource, zodat **opmerkingen** voor elke resource in de sjabloon:
    
    ```json
    "resources": [
@@ -311,7 +334,7 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    ]
    ```
 
-* Als u een *openbaar eindpunt* in uw sjabloon (zoals een Azure Blob storage openbaar eindpunt), *komen niet vastleggen* de naamruimte. Gebruik de **verwijzing** functie voor het dynamisch ophalen van de naamruimte. Deze aanpak kunt u de sjabloon kan implementeren op andere openbare naamruimte omgevingen zonder handmatig wijzigen van het eindpunt in de sjabloon. Stel de API-versie naar dezelfde versie die u voor het opslagaccount in de sjabloon gebruikt:
+* Als u een *openbaar eindpunt* in uw sjabloon (zoals een Azure Blob storage openbaar eindpunt), *niet programmeren* de naamruimte. Gebruik de **verwijzing** functie voor het dynamisch de naamruimte niet ophalen. Deze aanpak kunt u de sjabloon implementeren in andere openbare naamruimte omgevingen zonder handmatig wijzigen van het eindpunt in de sjabloon. Stel de API-versie naar dezelfde versie die u voor het opslagaccount in de sjabloon gebruikt:
    
    ```json
    "osDisk": {
@@ -322,7 +345,7 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    }
    ```
    
-   Als het opslagaccount is geïmplementeerd in dezelfde sjabloon die u maakt, hoeft u geen naamruimte van de provider opgeven wanneer u verwijst naar de resource. Het volgende voorbeeld ziet u de vereenvoudigde syntaxis:
+   Als het opslagaccount dat is geïmplementeerd in dezelfde sjabloon die u maakt, moet u geen naamruimte van de provider opgeven wanneer u verwijst naar de resource. Het volgende voorbeeld ziet u de vereenvoudigde syntaxis:
    
    ```json
    "osDisk": {
@@ -333,7 +356,7 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    }
    ```
    
-   Als u andere waarden in de sjabloon die zijn geconfigureerd voor gebruik van een openbare naamruimte hebt, deze waarden zodat dezelfde wijzigen **verwijzing** functie. U kunt bijvoorbeeld instellen de **storageUri** eigenschap van de virtuele machine diagnostische profiel:
+   Als u andere waarden in de sjabloon die zijn geconfigureerd voor het gebruik van een openbare-naamruimte hebt, wijzigt u deze waarden om dezelfde **verwijzing** functie. U kunt bijvoorbeeld instellen de **storageUri** eigenschap van de virtuele machine diagnostische profiel:
    
    ```json
    "diagnosticsProfile": {
@@ -344,7 +367,7 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    }
    ```
    
-   Ook kunt u verwijzen naar een bestaand opslagaccount die zich in een andere resourcegroep:
+   U kunt ook een bestaand opslagaccount die zich in een andere resourcegroep verwijzen:
 
    ```json
    "osDisk": {
@@ -355,16 +378,16 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    }
    ```
 
-* Openbare IP-adressen toewijzen aan een virtuele machine alleen als dit vereist is voor een toepassing. Voor verbinding met een virtuele machine (VM) voor foutopsporing of voor beheer of administratieve doeleinden, inkomende NAT-regels, een virtuele netwerkgateway of een jumpbox te gebruiken.
+* Openbare IP-adressen toewijzen aan een virtuele machine alleen wanneer een toepassing vereist. Voor verbinding met een virtuele machine (VM) voor het opsporen van fouten, of voor beheer of administratieve doeleinden, inkomende NAT-regels, een virtuele netwerkgateway of een jumpbox te gebruiken.
    
      Zie voor meer informatie over verbinding maken met virtuele machines:
    
-   * [Virtuele machines worden uitgevoerd voor een architectuur N-aantal lagen in Azure](../guidance/guidance-compute-n-tier-vm.md)
-   * [WinRM toegang instellen voor virtuele machines in Azure Resource Manager](../virtual-machines/windows/winrm.md)
-   * [Toestaan van externe toegang tot uw virtuele machine met behulp van de Azure-portal](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [Toestaan van externe toegang tot uw virtuele machine met behulp van PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Toestaan van externe toegang tot uw Linux-VM met Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
-* De **domainNameLabel** eigenschap voor openbare IP-adressen moet uniek zijn. De **domainNameLabel** waarde moet tussen 3 en 63 tekens lang en volgt u de regels die door deze reguliere expressie opgegeven: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Omdat de **uniqueString** functie een tekenreeks die is 13 tekens lang zijn, genereert de **dnsPrefixString** parameter is beperkt tot 50 tekens bevatten:
+   * [VM's uitvoeren voor een architectuur met meerdere lagen in Azure](../guidance/guidance-compute-n-tier-vm.md)
+   * [WinRM-toegang instellen voor virtuele machines in Azure Resource Manager](../virtual-machines/windows/winrm.md)
+   * [Externe toegang tot uw virtuele machine toestaan met behulp van Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md)
+   * [Externe toegang tot uw virtuele machine toestaan met behulp van PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
+   * [Externe toegang tot uw Linux-VM geven met behulp van Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+* De **Domeinnaamlabel** eigenschap voor openbare IP-adressen moet uniek zijn. De **Domeinnaamlabel** waarde moet tussen 3 en 63 tekens lang en volgt u de regels die door deze reguliere expressie opgegeven: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Omdat de **uniqueString** functie genereert een tekenreeks van 13 tekens lang zijn en de **dnsPrefixString** parameter is beperkt tot 50 tekens bevatten:
 
    ```json
    "parameters": {
@@ -381,7 +404,7 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    }
    ```
 
-* Wanneer u een wachtwoord aan een extensie voor aangepaste scripts toevoegt, gebruiken de **commandToExecute** eigenschap in de **protectedSettings** eigenschap:
+* Wanneer u een wachtwoord aan een extensie voor aangepaste scripts toevoegen, gebruikt u de **commandToExecute** eigenschap in de **protectedSettings** eigenschap:
    
    ```json
    "properties": {
@@ -401,14 +424,14 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    ```
    
    > [!NOTE]
-   > Om ervoor te zorgen dat de geheimen worden versleuteld wanneer ze als parameters worden doorgegeven aan VM's en -extensies, gebruiken de **protectedSettings** eigenschap van de relevante extensies.
+   > Om ervoor te zorgen dat er geheimen worden versleuteld wanneer ze als parameters worden doorgegeven aan VM's en -extensies, gebruikt u de **protectedSettings** eigenschap van de relevante extensies.
    > 
    > 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
-* Zie voor meer informatie over de functies die u van binnen een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
-* Als u wilt combineren meerdere sjablonen tijdens de implementatie, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Wellicht moet u bronnen gebruiken die zijn opgeslagen in een andere resourcegroep. Dit scenario is gebruikelijk dat wanneer u werkt met opslagaccounts of virtuele netwerken die worden gedeeld door meerdere resourcegroepen. Zie voor meer informatie de [resourceId functie](resource-group-template-functions-resource.md#resourceid).
-* Zie voor meer informatie over de beperkingen voor resource [aanbevolen naamgevingsregels voor Azure-resources](../guidance/guidance-naming-conventions.md).
+* Zie voor meer informatie over de functies die u uit in een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
+* Zie voor het gebruik van meer dan één sjabloon tijdens de implementatie, [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
+* Mogelijk moet u de resources die zijn opgeslagen in een andere resourcegroep gebruiken. In dit scenario is gebruikelijk bij het werken met opslagaccounts of virtuele netwerken die zijn verdeeld over verschillende resourcegroepen. Zie voor meer informatie de [resourceId functie](resource-group-template-functions-resource.md#resourceid).
+* Zie voor meer informatie over de beperkingen op basis van resource [aanbevolen naamgevingsregels voor Azure-resources](../guidance/guidance-naming-conventions.md).

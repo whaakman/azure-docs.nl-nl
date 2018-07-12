@@ -1,6 +1,6 @@
 ---
-title: Back-up voor Azure-Stack inschakelen via de beheerportal | Microsoft Docs
-description: De infrastructuur Backup-Service via de beheerportal ingeschakeld zodat Azure-Stack kan worden hersteld als er een storing optreedt.
+title: Back-up inschakelen voor Azure Stack vanuit de beheerportal | Microsoft Docs
+description: Schakel de infrastructuur voor Backup-Service via de beheerportal zodat Azure Stack kan worden hersteld als er een storing optreedt.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,21 +12,21 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/11/2018
 ms.author: jeffgilb
-ms.openlocfilehash: ce5fd2feaa30948042cc0570a4b0ea7f0ab7ad77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: fba04490aca4c7123ca478ae07a5f0c865d9a826
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34302253"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968694"
 ---
-# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Back-up voor Azure-Stack inschakelen via de beheerportal
-De infrastructuur Backup-Service via de beheerportal ingeschakeld zodat Azure Stack back-ups kunnen genereren. U kunt deze back-ups herstellen van uw omgeving met behulp van cloud-herstel in geval van [een onherstelbare fout](.\azure-stack-backup-recover-data.md). Het doel van herstel van de cloud is om ervoor te zorgen dat uw operators en gebruikers zich in de portal aanmelden kunnen nadat het herstel is voltooid. Gebruikers hebben hun abonnementen met inbegrip van machtigingen voor toegang op basis van rollen en functies, oorspronkelijke plannen, aanbiedingen, en vooraf gedefinieerde compute, storage en netwerkquota worden hersteld.
+# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Back-up inschakelen voor Azure Stack vanuit de beheerportal
+Schakel de infrastructuur voor Backup-Service via de beheerportal zodat Azure Stack-back-ups kunt genereren. U kunt deze back-ups gebruiken om te herstellen van uw omgeving met behulp van de cloudherstel in geval van [een onherstelbare fout](.\azure-stack-backup-recover-data.md). Het doel van cloudherstel is om ervoor te zorgen dat uw operators en gebruikers zich weer in de portal aanmelden kunnen nadat het herstel is voltooid. Gebruikers hebben hun abonnementen hersteld met inbegrip van machtigingen voor toegang op basis van rollen en functies, oorspronkelijke plannen, aanbiedingen, en eerder gedefinieerde compute, opslag en netwerkquota.
 
-Echter, de Backup-Service-infrastructuur heeft geen back-up IaaS VM's, netwerkconfiguraties en storage-resources zoals storage-accounts, blobs, tabellen en enzovoort, zodat gebruikers aanmelden na het herstel van de cloud is voltooid, zien geen van hun eerder bestaande bronnen. Platform als een Service (PaaS) resources en gegevens worden ook niet ondersteund door de service. 
+Echter, de infrastructuur voor Backup-Service heeft geen back-up IaaS-VM's, netwerkconfiguraties en opslagresources, zoals storage-accounts, -blobs, tabellen en enzovoort, zodat gebruikers die zich aanmelden na het cloudherstel is voltooid niet een van de eerder bestaande weergegeven resources. Platform as a Service (PaaS)-resources en de gegevens worden ook niet ondersteund door de service. 
 
-Beheerders en gebruikers zijn verantwoordelijk voor een back-up en herstellen van IaaS en PaaS-resources afzonderlijk van de infrastructuur back-processen. Zie de volgende koppelingen voor meer informatie over back-ups van IaaS en PaaS-resources:
+Beheerders en gebruikers zijn die verantwoordelijk is voor back-up en herstellen van IaaS en PaaS-resources afzonderlijk van de infrastructuur voor back-processen. Zie de volgende koppelingen voor meer informatie over back-ups van IaaS en PaaS-resources:
 
 - [Virtuele machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
 - [App Service](https://docs.microsoft.com/azure/app-service/web-sites-backup)
@@ -34,27 +34,27 @@ Beheerders en gebruikers zijn verantwoordelijk voor een back-up en herstellen va
 
 
 > [!Note]  
-> Voordat u de back-up via de console inschakelt, moet u voor het configureren van de Backup-service. U kunt de Backup-service met behulp van PowerShell configureren. Zie voor meer informatie [back-up inschakelen voor Azure-Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
+> Voordat u de back-up via de console inschakelt, moet u de Backup-service configureren. U kunt de Backup-service met behulp van PowerShell configureren. Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="enable-backup"></a>Back-up inschakelen
 
-1. Open de Stack van Azure-beheerportal op [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. Open de Azure Stack-beheerportal bij [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
 2. Selecteer **meer services** > **infrastructuur back-up**. Kies **configuratie** in de **infrastructuur back-up** blade.
 
-    ![Azure Stack - instellingen voor back-up-domeincontrollers](media\azure-stack-backup\azure-stack-backup-settings.png).
+    ![Azure Stack - instellingen voor back-up-controller](media\azure-stack-backup\azure-stack-backup-settings.png).
 
-3. Typ het pad naar de **opslaglocatie back-up**. Gebruik een Universal Naming Convention (UNC)-tekenreeks voor het pad naar een bestandsshare die wordt gehost op een afzonderlijk apparaat. Een UNC-tekenreeks bevat de locatie van resources, zoals gedeelde bestanden of apparaten. Voor de service, kunt u een IP-adres. Beschikbaarheid van de back-upgegevens na een noodgeval, zodat moet het apparaat op een andere locatie.
+3. Typ het pad naar de **back-up van opslaglocatie**. Een Universal Naming Convention (UNC)-tekenreeks voor het pad naar een bestandsshare die wordt gehost op een afzonderlijk apparaat gebruiken. Een UNC-tekenreeks geeft de locatie van bronnen zoals gedeelde bestanden of apparaten. Voor de service, kunt u een IP-adres. Voor beschikbaarheid van de back-upgegevens na een noodgeval, moet het apparaat zich in een andere locatie.
     > [!Note]  
-    > Als uw omgeving naamomzetting vanaf het netwerk van Azure-Stack-infrastructuur voor uw omgeving enterprise ondersteunt, kunt u een FQDN-naam in plaats van het IP-adres.
-4. Typ de **gebruikersnaam** met het domein en gebruikersnaam voldoende toegangsrechten voor bestanden lezen en schrijven. Bijvoorbeeld `Contoso\backupshareuser`.
-5. Typ de **wachtwoord** voor de gebruiker.
+    > Als uw omgeving biedt ondersteuning voor naamomzetting van het netwerk voor Azure Stack-infrastructuur naar de omgeving van uw bedrijf, kunt u een FQDN-naam in plaats van het IP-adres gebruiken.
+4. Type de **gebruikersnaam** met behulp van het domein en gebruikersnaam met voldoende toegangsrechten voor bestanden lezen en schrijven. Bijvoorbeeld `Contoso\backupshareuser`.
+5. Type de **wachtwoord** voor de gebruiker.
 5. Typ het wachtwoord opnieuw **wachtwoord bevestigen**.
-6. Een vooraf gedeelde sleutel opgeven in de **versleutelingssleutel** vak. Back-upbestanden zijn versleuteld met behulp van deze sleutel. Zorg ervoor dat deze sleutel opslaan op een veilige locatie. Zodra u deze sleutel voor het eerst definieert of de sleutel in de toekomst draaien, kunt u deze sleutel van deze interface niet weergeven. Voor meer instructies voor het genereren van een vooraf gedeelde sleutel, volgt u de scripts op [back-up inschakelen voor Azure-Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 
+6. Geef een vooraf gedeelde sleutel in de **versleutelingssleutel** vak. Back-upbestanden zijn versleuteld met behulp van deze sleutel. Zorg ervoor dat u deze sleutel opslaan op een veilige locatie. Nadat u deze sleutel voor de eerste keer instellen of de sleutel in de toekomst draaien, kunt u deze sleutel uit deze interface niet weergeven. Voor meer instructies voor het genereren van een vooraf gedeelde sleutel, volgt u de scripts op [back-up inschakelen voor Azure Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
 7. Selecteer **OK** uw back-controller-instellingen op te slaan.
 
-Voor het uitvoeren van een back-up, moet u de hulpprogramma's van Azure Stack downloaden en voer de PowerShell-cmdlet **Start AzSBackup** in uw Azure-Stack administration-knooppunt. Zie voor meer informatie [Back-up van Azure-Stack](azure-stack-backup-back-up-azure-stack.md ).
+Voor het uitvoeren van een back-up, moet u de Azure Stack-hulpprogramma's downloaden en voer de PowerShell-cmdlet **Start AzSBackup** op het knooppunt voor het beheer van Azure Stack. Zie voor meer informatie, [maakt u een Back-up van Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Informatie over het uitvoeren van een back-up. Zie [Back-up van Azure-Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Informatie over het controleren of de back-up is uitgevoerd. Zie [bevestigen back-up is voltooid in de beheerportal](azure-stack-backup-back-up-azure-stack.md).
+- Leer hoe u een back-up uitvoeren. Zie [maakt u een Back-up van Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+- Meer informatie om te controleren of uw back-up wordt uitgevoerd. Zie [bevestigen back-up is voltooid in de beheerportal](azure-stack-backup-back-up-azure-stack.md).

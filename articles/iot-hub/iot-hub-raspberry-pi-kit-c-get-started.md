@@ -1,9 +1,9 @@
 ---
-title: Raspberry Pi naar cloud (C) - frambozen Pi verbinding maken met Azure IoT Hub | Microsoft Docs
-description: Informatie over het instellen en frambozen Pi verbinden met Azure IoT Hub voor frambozen Pi gegevens verzenden naar het Azure-cloud-platform in deze zelfstudie.
+title: Raspberry Pi tot cloud (C) - verbinding maken met Raspberry Pi met Azure IoT Hub | Microsoft Docs
+description: Informatie over het installeren en verbinden van Raspberry Pi met Azure IoT Hub voor Raspberry Pi gegevens verzenden naar de Azure-cloudplatform in deze zelfstudie.
 author: rangv
 manager: ''
-keywords: Azure iot raspberry pi, raspberry pi iothub, raspberry pi verzenden gegevens naar de cloud, raspberry pi naar cloud
+keywords: Azure iot raspberry pi, raspberry pi iot-hub, raspberry pi verzenden gegevens naar de cloud, raspberry pi naar de cloud
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
@@ -11,59 +11,59 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
 ms.openlocfilehash: 5501bc0eb65737bc779d0624195a4ecdf670eafd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635658"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299224"
 ---
-# <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Verbinding maken met Raspberry Pi Azure IoT Hub (C)
+# <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi verbinden met Azure IoT Hub (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-In deze zelfstudie maakt beginnen u door te leren over het werken met frambozen Pi met Raspbian. Vervolgens leert u hoe u uw apparaten probleemloos verbinding met de cloud via [Azure IoT Hub](iot-hub-what-is-iot-hub.md). Voor voorbeelden van Windows 10 IoT-Core, gaat u naar de [Windows-ontwikkelaarscentrum](http://www.windowsondevices.com/).
+In deze zelfstudie maakt begint u door te leren van de basisbeginselen van het werken met Raspberry Pi met Raspbian. Vervolgens leert u hoe u uw apparaten naadloos verbinding naar de cloud met behulp van [Azure IoT Hub](iot-hub-what-is-iot-hub.md). Voor voorbeelden van Windows 10 IoT Core, gaat u naar de [Windows Dev Center](http://www.windowsondevices.com/).
 
-Heb je nog een kit? Probeer [frambozen Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Een nieuwe kit kopen of [hier](https://azure.microsoft.com/develop/iot/starter-kits).
+Heb je nog een kit? Probeer [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Een nieuwe kit kopen of [hier](https://azure.microsoft.com/develop/iot/starter-kits).
 
-## <a name="what-you-do"></a>Wat u doet
+## <a name="what-you-do"></a>Wat u allemaal doen
 
-* Een iothub maken.
-* Een apparaat registreren voor Pi in uw IoT-hub.
-* Setup Raspberry Pi.
-* Een voorbeeld van een toepassing uitvoeren op Pi sensorgegevens verzenden naar uw IoT-hub.
+* Een IoT-hub maken.
+* Registreer een apparaat voor Pi in uw IoT-hub.
+* Raspberry Pi instellen.
+* Een voorbeeldtoepassing uitvoert op Pi om sensorgegevens te verzenden naar uw IoT hub.
 
-Verbinding maken met frambozen Pi naar een IoT-hub die u maakt. Vervolgens voert u een voorbeeld van toepassing op Pi temperatuur en vochtigheid om gegevens te verzamelen van een sensor BME280. U kunt ten slotte de sensorgegevens verzendt naar uw IoT-hub.
+Raspberry Pi verbinden met een IoT-hub die u maakt. Vervolgens voert u een voorbeeld van toepassing op Pi temperatuur en vochtigheid gegevens verzamelen uit een sensor BME280. Ten slotte, stuurt u de sensorgegevens naar uw IoT-hub.
 
 ## <a name="what-you-learn"></a>Wat u leert
 
-* Het maken van een Azure-IoT-hub en het nieuwe apparaat-verbindingsreeks ophalen.
-* Klik hier voor meer informatie over het Pi verbinden met een sensor BME280.
-* Klik hier voor meer informatie over het verzamelen van sensorgegevens door het uitvoeren van een voorbeeldtoepassing met Pi.
-* Hoe sensorgegevens verzendt naar uw IoT-hub.
+* Over het maken van een Azure-IoT-hub en uw nieuwe apparaat-verbindingsreeks ophalen.
+* Klik hier voor meer informatie over het verbinden van Pi met een sensor BME280.
+* Klik hier voor meer informatie over het verzamelen van sensorgegevens door het uitvoeren van een voorbeeld van toepassing op Pi.
+* Klik hier voor meer informatie over het verzenden van gegevens naar uw IoT hub.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
 ![Wat u nodig hebt](media/iot-hub-raspberry-pi-kit-c-get-started/0_starter_kit.jpg)
 
-* De frambozen Pi 2 of frambozen Pi 3-kaart.
-* Een actief Azure-abonnement. Als u een Azure-account geen [maken van een gratis Azure-proefaccount](https://azure.microsoft.com/free/) over een paar minuten.
+* Het bord Raspberry Pi 2 of Raspberry Pi 3.
+* Een actief Azure-abonnement. Als u een Azure-account geen [Azure een gratis proefaccount maken](https://azure.microsoft.com/free/) in een paar minuten.
 * Een monitor, een USB-toetsenbord en muis die verbinding met Pi maken.
-* Een Mac of een PC die Windows of Linux wordt uitgevoerd.
+* Een Mac- of een PC waarop Windows of Linux wordt uitgevoerd.
 * Een internetverbinding.
 * Een 16 GB of hoger microSD-kaart.
 * Een USB-SD adapter of microSD-kaart branden van de installatiekopie van het besturingssysteem op de microSD-kaart.
-* Een 5-v 2 amp voeding met 6 mond micro USB-kabel.
+* Een 5-v 2-en voeding met de 6-mond micro USB-kabel.
 
 De volgende items zijn optioneel:
 
-* Een samengesteld Adafruit BME280 temperatuur, druk en vochtigheid sensor.
+* Een geassembleerde Adafruit BME280 temperatuur, druk te verlichten en vochtigheid sensor.
 * Een breadboard.
-* 6 F/M meestal bedrading.
-* Een gedempt 10 mm LED.
+* 6-F/M meestal bedrading.
+* Een gedempt 10-mm-LED.
 
 
 > [!NOTE] 
-Deze items zijn optioneel, omdat de ondersteuning voor het voorbeeld van code sensorgegevens gesimuleerd.
+Deze items zijn optioneel, omdat de ondersteuning voor het voorbeeld van code sensorgegevens gesimuleerde.
 
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
@@ -74,94 +74,94 @@ Deze items zijn optioneel, omdat de ondersteuning voor het voorbeeld van code se
 
 Bereid de microSD-kaart voor de installatie van de installatiekopie van het Raspbian.
 
-1. Raspbian downloaden.
-   1. [Raspbian Jessie met bureaublad downloaden](https://www.raspberrypi.org/downloads/raspbian/) (het ZIP-bestand).
+1. Download Raspbian.
+   1. [Download Raspbian Jessie met Desktop](https://www.raspberrypi.org/downloads/raspbian/) (het ZIP-bestand).
    1. Pak de installatiekopie van het Raspbian naar een map op uw computer.
 1. Installeer Raspbian naar de microSD-kaart.
    1. [Download en installeer het hulpprogramma Etcher SD-kaart brander](https://etcher.io/).
-   1. Voer Etcher en selecteer de installatiekopie van het Raspbian die u hebt opgehaald in stap 1.
+   1. Voer Etcher en selecteer de Raspbian-installatiekopie die u hebt opgehaald in stap 1.
    1. Selecteer het station microSD-kaart. Houd er rekening mee dat Etcher mogelijk al hebt geselecteerd de juiste station.
    1. Klik op Flash voor het installeren van Raspbian naar de microSD-kaart.
-   1. Verwijder de microSD-kaart van uw computer wanneer de installatie voltooid is. Het is veilig worden verwijderd, de microSD-kaart rechtstreeks omdat Etcher automatisch uitwerpen of ontkoppelt de microSD-kaart is voltooid.
+   1. De microSD-kaart van de computer verwijderen wanneer de installatie is voltooid. Het is veilig verwijderen van de microSD-kaart rechtstreeks omdat Etcher automatisch uitwerpen of losgekoppeld van de microSD-kaart na voltooiing.
    1. Plaats de microSD-kaart in Pi.
 
-### <a name="enable-ssh-and-spi"></a>SSH- en SPI inschakelen
+### <a name="enable-ssh-and-spi"></a>SSH en SPI inschakelen
 
-1. Verbinding maken met Pi de monitor, toetsenbord en muis Pi start en meld u daarna Raspbian met behulp van `pi` als de gebruikersnaam en `raspberry` als het wachtwoord.
-1. Klik op het pictogram Raspberry > **voorkeuren** > **frambozen Pi configuratie**.
+1. Pi verbinden met de monitor, toetsenbord en muis, Pi starten en meld u vervolgens aan Raspbian met behulp van `pi` als de gebruikersnaam en `raspberry` als het wachtwoord.
+1. Klik op het pictogram Raspberry > **voorkeuren** > **Raspberry Pi configuratie**.
 
    ![Het menu Raspbian voorkeuren](media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
-1. Op de **Interfaces** tabblad, stelt u **SPI** en **SSH** naar **inschakelen**, en klik vervolgens op **OK**. Als u geen fysieke sensoren hebben en gesimuleerde sensorgegevens wilt gebruiken, is deze stap is optioneel.
+1. Op de **Interfaces** tabblad **SPI** en **SSH** naar **inschakelen**, en klik vervolgens op **OK**. Als u geen fysieke sensoren hebt en gesimuleerde sensorgegevens wilt gebruiken, is deze stap is optioneel.
 
-   ![SPI en SSH met Raspberry Pi inschakelen](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
+   ![SPI en SSH op Raspberry Pi inschakelen](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-Voor het inschakelen van SSH en SPI, vindt u meer verwijzing documenten op [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) en [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+Om in te schakelen SSH en SPI, vindt u meer referentiedocumenten op [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) en [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
 
 ### <a name="connect-the-sensor-to-pi"></a>Verbinding maken met de sensor Pi
 
-Gebruik de bedrading breadboard en meestal als volgt een LED en een BME280 tot Pi verbinden. Als u de sensor geen [deze sectie overslaan](#connect-pi-to-the-network).
+Gebruik de breadboard en meestal kabels verbinden met een LED en een BME280 Pi als volgt. Als u geen de sensor [deze sectie overslaan](#connect-pi-to-the-network).
 
-![De verbinding frambozen Pi en temperatuursensor](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+![De sensor en Raspberry Pi-verbinding](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
 
 De sensor BME280 kunt temperatuur en vochtigheid gegevens verzamelen. En de LED knippert als er een communicatie tussen het apparaat en de cloud. 
 
-Gebruik de volgende bedrading voor sensor-pincodes:
+Voor sensor pincodes, gebruikt u de volgende bedrading:
 
-| Start (Sensor & LED)     | Einde (BMC)            | Kleur van de kabel   |
+| Start (Sensor & LED)     | Einde (bord)            | Kleur van de kabel   |
 | -----------------------  | ---------------------- | ------------: |
-| LED VDD (Pin 5G)         | GPIO 4 (pincode 7)         | Witte kabel   |
-| LED GND (Pin 6G)         | GND (pincode 6)            | Zwarte kabel   |
-| VDD (Pin 18F)            | 3, 3v PWR (Pin 17)      | Witte kabel   |
+| LED VDD (pincode 5G)         | GPIO 4 (Pin 7)         | Wit-kabel   |
+| LED GND (pincode 6G)         | GND (pincode 6)            | Zwarte kabel   |
+| VDD (Pin 18F)            | 3, 3v PWR (Pin 17)      | Wit-kabel   |
 | GND (Pin 20F)            | GND (Pin 20)           | Zwarte kabel   |
 | SCK (Pin 21F)            | SPI0 SCLK (Pin 23)     | Oranje-kabel  |
 | SDO (Pin 22F)            | SPI0 MISO (Pin 21)     | Gele-kabel  |
 | SDI (Pin 23F)            | SPI0 MOSI (Pin 19)     | Groen-kabel   |
-| CS (Pin 24F)             | SPI0 CS (pincode 24)       | Blauw-kabel    |
+| CS (Pin 24F)             | SPI0 CS (Pin 24 uur per dag)       | Blauwe-kabel    |
 
-Klik hier voor weergave [frambozen Pi 2 en 3 pincode toewijzingen](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) ter referentie.
+Klik om weer te geven [Raspberry Pi 2 en 3 pincode toewijzingen](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) ter referentie.
 
-Nadat u hebt BME280 is verbonden met uw Pi frambozen, moet zoals hieronder installatiekopie.
+Nadat u hebt BME280 is verbonden met uw Raspberry Pi, moet zijn, zoals onder afbeelding.
 
 ![Verbonden Pi en BME280](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>Pi verbinding met het netwerk
 
-Pi inschakelen met behulp van het micro USB-kabel en de voeding. Via het Ethernet-kabel Pi verbinden met het bekabelde netwerk of volgen de [instructies van de frambozen Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) Pi verbinding met uw draadloze netwerk. Nadat uw Pi is verbonden met het netwerk, moet u Noteer de [IP-adres van uw Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
+Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabel gebruiken om te verbinden met het bekabelde netwerk Pi of gaat u als volgt de [instructies van de basis van Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/wifi/) Pi verbinden met het draadloze netwerk. Nadat uw Pi is verbonden met het netwerk, moet u Noteer de [IP-adres van uw Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Verbonden met een bekabeld netwerk](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
+![Verbonden met het bekabelde netwerk](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
 
 
-## <a name="run-a-sample-application-on-pi"></a>Een voorbeeld van een toepassing uitvoeren op Pi
+## <a name="run-a-sample-application-on-pi"></a>Een voorbeeld van toepassing op Pi uitvoeren
 
 ### <a name="login-to-your-raspberry-pi"></a>Meld u aan bij uw Raspberry Pi
 
-1. Gebruik een van de volgende SSH-clients van de hostcomputer verbinding maken met uw frambozen Pi.
+1. Gebruik een van de volgende SSH-clients vanaf uw hostcomputer verbinding maken met uw Raspberry Pi.
    
    **Windows-gebruikers**
    1. Download en installeer [PuTTY](http://www.putty.org/) voor Windows. 
-   1. Kopieer het IP-adres van uw sectie Pi in de Host-naam (of IP-adres) en selecteer SSH als het verbindingstype.
+   1. Kopieer het IP-adres van de sectie Pi in de Host-naam (of IP-adres) en SSH als het verbindingstype selecteren.
    
    ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
    
    **Mac- en Ubuntu-gebruikers**
    
-   Gebruik de ingebouwde SSH-client op Ubuntu- of Mac OS. U wilt uitvoeren `ssh pi@<ip address of pi>` Pi via SSH verbinding maken.
+   Gebruik de ingebouwde SSH-client op Ubuntu- of Mac OS. Mogelijk moet u uitvoeren `ssh pi@<ip address of pi>` om Pi via SSH verbinding te maken.
    > [!NOTE] 
-   De standaardgebruikersnaam `pi` , en het wachtwoord is `raspberry`.
+   De standaardgebruikersnaam is `pi` , en het wachtwoord is `raspberry`.
 
 
-### <a name="configure-the-sample-application"></a>De voorbeeldtoepassing configureren
+### <a name="configure-the-sample-application"></a>De voorbeeld-App configureren
 
-1. Kloon de voorbeeldtoepassing met de volgende opdracht:
+1. Kloon de voorbeeld-App met de volgende opdracht:
 
    ```bash
    sudo apt-get install git-core
    git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app.git
    ```
 
-2. Setup-script uitvoeren:
+2. Voer de setup-script:
 
    ```bash
    cd ./iot-hub-c-raspberrypi-client-app
@@ -170,7 +170,7 @@ Pi inschakelen met behulp van het micro USB-kabel en de voeding. Via het Etherne
    ```
 
    > [!NOTE] 
-   > Als u **beschikt niet over van een fysieke BME280**, kunt u '--simulated-data' als opdrachtregelparameter temperatuur en vochtigheid gegevens simuleren. `sudo ./setup.sh --simulated-data`
+   > Als u **geen een fysieke BME280**, kunt u '--gesimuleerde gegevens ' als opdrachtregelparameter temperatuur en vochtigheid gegevens simuleren. `sudo ./setup.sh --simulated-data`
 
 ### <a name="build-and-run-the-sample-application"></a>De voorbeeldtoepassing bouwen en uitvoeren
 
@@ -179,24 +179,24 @@ Pi inschakelen met behulp van het micro USB-kabel en de voeding. Via het Etherne
    ```bash
    cmake . && make
    ```
-   ![Uitvoer bouwen](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
+   ![Uitvoer maken](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
-1. De voorbeeldtoepassing met de volgende opdracht uitvoeren:
+1. De voorbeeldtoepassing uitvoeren met de volgende opdracht:
 
    ```bash
    sudo ./app '<DEVICE CONNECTION STRING>'
    ```
 
    > [!NOTE] 
-   Zorg ervoor dat u kopiëren en plakken de apparaat-verbindingsreeks in enkele aanhalingstekens.
+   Zorg ervoor dat u kopiëren en plakken de apparaatverbindingsreeks in enkele aanhalingstekens.
 
 
-Hier ziet u de volgende uitvoer waarin de sensorgegevens en de berichten die worden verzonden naar uw IoT-hub.
+Hier ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die worden verzonden naar uw IoT-hub.
 
-![Output - sensorgegevens verzonden van frambozen Pi naar uw IoT-hub](media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
+![Uitvoer - sensorgegevens van Raspberry Pi verzonden naar uw IoT-hub](media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een voorbeeldtoepassing sensorgegevens verzamelen en verzenden naar uw IoT-hub hebt uitgevoerd. Zie voor de berichten die uw Pi frambozen is verzonden naar uw IoT-hub of verzenden berichten naar uw Pi frambozen in een opdrachtregelinterface de [beheren cloud apparaat messaging met iothub explorer zelfstudie](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd. Zie voor de berichten die uw Raspberry Pi naar uw IoT-hub of verzenden berichten naar uw Raspberry Pi in een opdrachtregelinterface verzonden de [met iothub-explorer-zelfstudie berichten op cloudapparaten beheren](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

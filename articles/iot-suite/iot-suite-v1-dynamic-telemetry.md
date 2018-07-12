@@ -1,12 +1,12 @@
 ---
-title: Gebruik dynamische telemetrie | Microsoft Docs
-description: Volg deze zelfstudie voor meer informatie over het gebruik van dynamische telemetrie met de Azure IoT Suite vooraf geconfigureerde oplossing voor externe controle.
-services: 
+title: Dynamische telemetrie gebruiken | Microsoft Docs
+description: Volg deze zelfstudie voor informatie over het dynamische telemetrie gebruiken bij de Azure IoT Suite vooraf geconfigureerde oplossing voor externe controle.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 562799dc-06ea-4cdd-b822-80d1f70d2f09
 ms.service: iot-suite
 ms.devlang: na
@@ -16,18 +16,19 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 60e9ee00fabf15a62e782c70bca251b1a8e617c3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723999"
 ---
-# <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>Dynamische telemetrie gebruiken met de vooraf geconfigureerde oplossing voor externe controle
+# <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>Dynamische telemetrie gebruiken bij de vooraf geconfigureerde oplossing voor externe controle
 
-Dynamische telemetrie kunt u telemetrie verzonden naar de vooraf geconfigureerde oplossing voor externe controle te visualiseren. De gesimuleerde apparaten die met de vooraf geconfigureerde oplossing implementeert verzenden temperatuur en vochtigheid telemetrie die u op het dashboard kunt visualiseren. Als u bestaande gesimuleerde apparaten, nieuwe gesimuleerde apparaten maken of aanpassen fysieke apparaten met de vooraf geconfigureerde oplossing verbinden kunt u andere waarden telemetrie zoals de externe temperatuur, RPM of windsnelheid verzenden. U kunt vervolgens visualiseren van deze extra telemetrie op het dashboard.
+Dynamische telemetrie kunt u voor het visualiseren van alle telemetrie die verzonden naar de vooraf geconfigureerde oplossing voor externe controle. De gesimuleerde apparaten die met de vooraf geconfigureerde oplossing implementeert verzenden temperatuur en vochtigheid telemetrie die u op het dashboard kunt visualiseren. Als u bestaande gesimuleerde apparaten aanpassen, nieuwe gesimuleerde apparaten maken of fysieke apparaten verbinden met de vooraf geconfigureerde oplossing kunt u andere telemetriewaarden, zoals de externe temperatuur, RPM of windsnelheid verzenden. Vervolgens kunt u deze extra telemetrie op het dashboard visualiseren.
 
-Deze zelfstudie wordt een eenvoudige Node.js gesimuleerd apparaat u eenvoudig aanpassen kunt als u wilt experimenteren met dynamische telemetrie.
+In deze zelfstudie wordt een eenvoudige gesimuleerd apparaat voor Node.js, die u eenvoudig aanpassen kunt om te experimenteren met dynamische telemetrie.
 
-Deze zelfstudie hebt u het volgende nodig:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een actief Azure-abonnement. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk_free_trial] voor meer informatie.
 * [Node.js] [ lnk-node] versie 0.12.x of hoger.
@@ -38,12 +39,12 @@ U kunt voltooien van deze zelfstudie op elk besturingssysteem, zoals Windows of 
 
 [!INCLUDE [iot-suite-v1-send-external-temperature](../../includes/iot-suite-v1-send-external-temperature.md)]
 
-## <a name="add-a-telemetry-type"></a>Een type telemetrie toevoegen
+## <a name="add-a-telemetry-type"></a>Een telemetrietype toevoegen
 
-De volgende stap is het vervangen van de telemetrie die is gegenereerd door het gesimuleerde apparaat Node.js met een nieuwe set met waarden:
+De volgende stap wordt vervangen door de telemetrie die is gegenereerd door de Node.js gesimuleerd apparaat met een nieuwe set waarden:
 
-1. Stop het gesimuleerde apparaat Node.js door te typen **Ctrl + C** in uw opdrachtprompt of de shell.
-2. In het bestand remote_monitoring.js ziet u de basisgegevens waarden voor de bestaande temperatuur, vochtigheid en externe temperatuur telemetrie. Voeg een waarde basisgegevens voor **rpm** als volgt:
+1. Het gesimuleerde apparaat met Node.js stoppen door te typen **Ctrl + C** in het opdrachtprompt of een shell.
+2. In het bestand remote_monitoring.js ziet u de waarden van de basis voor de bestaande temperatuur, vochtigheid en externe temperatuurtelemetrie. Voeg een waarde basisgegevens voor **rpm** als volgt:
 
     ```nodejs
     // Sensors data
@@ -53,7 +54,7 @@ De volgende stap is het vervangen van de telemetrie die is gegenereerd door het 
     var rpm = 200;
     ```
 
-3. De Node.js gesimuleerd apparaat maakt gebruik van de **generateRandomIncrement** functie in het bestand remote_monitoring.js een willekeurige verhoging toevoegen aan de basisgegevens waarden. Een willekeurige de **rpm** waarde door een regel code na de bestaande randomizations toe te voegen als volgt:
+3. De Node.js gesimuleerd apparaat maakt gebruik van de **generateRandomIncrement** functie in het bestand remote_monitoring.js een willekeurige verhoging toevoegen aan de basis-waarden. Een willekeurige kleur geven de **rpm** waarde door het toevoegen van een regel code na de bestaande randomizations als volgt:
 
     ```nodejs
     temperature += generateRandomIncrement();
@@ -62,7 +63,7 @@ De volgende stap is het vervangen van de telemetrie die is gegenereerd door het 
     rpm += generateRandomIncrement();
     ```
 
-4. De nieuwe rpm-waarde toevoegen aan de JSON-nettolading in die het apparaat naar IoT Hub verzendt:
+4. De nieuwe rpm-waarde toevoegen aan de JSON-nettolading die het apparaat naar IoT Hub verzendt:
 
     ```nodejs
     var data = JSON.stringify({
@@ -74,20 +75,20 @@ De volgende stap is het vervangen van de telemetrie die is gegenereerd door het 
     });
     ```
 
-5. Voer het Node.js gesimuleerde apparaat met de volgende opdracht:
+5. Het Node.js gesimuleerde apparaat met de volgende opdracht uitvoeren:
 
     `node remote_monitoring.js`
 
-6. Houd rekening met het nieuwe RPM telemetrie type die wordt weergegeven in de grafiek in het dashboard:
+6. Houd rekening met de nieuwe RPM-telemetrietype die op de grafiek in het dashboard wordt weergegeven:
 
-![RPM toevoegen aan het dashboard][image3]
+![RPM aan het dashboard toevoegen][image3]
 
 > [!NOTE]
-> U wilt uitschakelen en schakel vervolgens het Node.js-apparaat op de **apparaten** pagina in het dashboard om de wijziging onmiddellijk te zien.
+> U moet mogelijk om te schakelen en schakel vervolgens het Node.js-apparaat op de **apparaten** pagina in het dashboard om de wijziging onmiddellijk weergegeven.
 
 ## <a name="customize-the-dashboard-display"></a>De dashboardweergave aanpassen
 
-De **apparaatgegevens** bericht metagegevens over de telemetrie die het apparaat met IoT Hub verzenden kunt kan bevatten. Deze metagegevens kunt opgeven welke telemetrie die het apparaat verzendt. Wijzig de **deviceMetaData** waarde in het bestand remote_monitoring.js wilt opnemen een **telemetrie** definitie volgende de **opdrachten** definitie. De volgende code codefragment bevat de **opdrachten** definition (voegt toe een `,` nadat de **opdrachten** definitie):
+De **apparaatgegevens** berichten kan metagegevens bevatten over de telemetrie die het apparaat naar IoT Hub verzenden kunt. Deze metagegevens kunt opgeven welke telemetrietypen is die het apparaat verzendt. Wijzig de **deviceMetaData** waarde in het bestand remote_monitoring.js om op te nemen een **telemetrie** volgende definitie van de **opdrachten** definitie. De volgende code codefragment bevat de **opdrachten** definitie (Zorg ervoor dat u toevoegt een `,` nadat de **opdrachten** definitie):
 
 ```nodejs
 'Commands': [{
@@ -119,10 +120,10 @@ De **apparaatgegevens** bericht metagegevens over de telemetrie die het apparaat
 ```
 
 > [!NOTE]
-> De oplossing voor externe controle gebruikt een niet-hoofdlettergevoelige overeenkomst voor de definitie van metagegevens met gegevens in de telemetriestroom vergelijken.
+> De oplossing voor externe bewaking maakt gebruik van een niet-hoofdlettergevoelige overeenkomst voor het vergelijken van de definitie van metagegevens met gegevens in de telemetriestroom.
 
 
-Toevoegen van een **telemetrie** definitie zoals weergegeven in het bovenstaande codefragment verandert het gedrag van het dashboard niet. De metagegevens kan echter ook bevatten een **DisplayName** kenmerk voor het aanpassen van de weergave in het dashboard. Update de **telemetrie** definitie van metagegevens zoals weergegeven in het volgende fragment:
+Toevoegen van een **telemetrie** definitie zoals wordt weergegeven in het bovenstaande codefragment wordt het gedrag van het dashboard niet gewijzigd. De metagegevens kan echter ook bevatten een **DisplayName** kenmerk voor het aanpassen van de weergave in het dashboard. Update de **telemetrie** definitie van metagegevens zoals wordt weergegeven in het volgende codefragment:
 
 ```nodejs
 'Telemetry': [
@@ -144,18 +145,18 @@ Toevoegen van een **telemetrie** definitie zoals weergegeven in het bovenstaande
 ]
 ```
 
-De volgende schermafbeelding ziet hoe de grafieklegenda op het dashboard Hiermee wijzigt u deze wijziging:
+De volgende schermafbeelding ziet u hoe deze wijziging de grafieklegenda op het dashboard wijzigt:
 
 ![De grafieklegenda aanpassen][image4]
 
 > [!NOTE]
-> U wilt uitschakelen en schakel vervolgens het Node.js-apparaat op de **apparaten** pagina in het dashboard om de wijziging onmiddellijk te zien.
+> U moet mogelijk om te schakelen en schakel vervolgens het Node.js-apparaat op de **apparaten** pagina in het dashboard om de wijziging onmiddellijk weergegeven.
 
-## <a name="filter-the-telemetry-types"></a>De typen telemetrie filteren
+## <a name="filter-the-telemetry-types"></a>De telemetrietypen filteren
 
-De grafiek in het dashboard wordt standaard elke gegevensreeks in de telemetriestroom. U kunt de **apparaatgegevens** metagegevens van de weergave van specifieke telemetrie typen op de grafiek onderdrukken. 
+De grafiek op het dashboard wordt standaard elke gegevensreeks in de telemetriestroom. U kunt de **apparaatgegevens** metagegevens voor het onderdrukken van de weergave van specifieke telemetrietypen op de grafiek. 
 
-Als u de grafiek alleen temperatuur en vochtigheid telemetrie weergeven, weglaten **ExternalTemperature** van de **apparaatgegevens** **telemetrie** metagegevens als volgt:
+Als u de grafiek ziet u de enige temperatuur en vochtigheid telemetrie, weglaten **ExternalTemperature** uit de **apparaatgegevens** **telemetrie** metagegevens als volgt te werk:
 
 ```nodejs
 'Telemetry': [
@@ -177,22 +178,22 @@ Als u de grafiek alleen temperatuur en vochtigheid telemetrie weergeven, weglate
 ]
 ```
 
-De **buiten temperatuur** niet meer weergegeven in de grafiek:
+De **Outdoor temperatuur** niet meer weergegeven in de grafiek:
 
-![De telemetrie op het dashboard filteren][image5]
+![Filter de telemetrie op het dashboard][image5]
 
-Deze wijziging is alleen van invloed op de grafiek weergeven. De **ExternalTemperature** gegevenswaarden nog steeds worden opgeslagen en beschikbaar gesteld voor de verwerking van de back-end.
+Deze wijziging is alleen van invloed op de grafiek weergeven. De **ExternalTemperature** gegevenswaarden nog steeds worden opgeslagen en beschikbaar gesteld voor de endverwerking van een back-.
 
 > [!NOTE]
-> U wilt uitschakelen en schakel vervolgens het Node.js-apparaat op de **apparaten** pagina in het dashboard om de wijziging onmiddellijk te zien.
+> U moet mogelijk om te schakelen en schakel vervolgens het Node.js-apparaat op de **apparaten** pagina in het dashboard om de wijziging onmiddellijk weergegeven.
 
-## <a name="handle-errors"></a>Afhandelen van fouten
+## <a name="handle-errors"></a>Afhandeling van fouten
 
-Voor een gegevensstroom op de grafiek moet worden weergegeven de **Type** in de **apparaatgegevens** metagegevens moet overeenkomen met het gegevenstype van de telemetrie-waarden. Bijvoorbeeld, als de metagegevens geeft aan dat de **Type** van vochtigheid gegevens is **int** en een **dubbele** is gevonden in de telemetriestroom en vervolgens de telemetrie vochtigheid niet wordt weergegeven in de grafiek. Echter, de **vochtigheid** waarden zijn nog steeds opgeslagen en beschikbaar gesteld voor de verwerking van de back-end.
+Voor een gegevensstroom om weer te geven in het diagram, de **Type** in de **apparaatgegevens** metagegevens moet overeenkomen met het gegevenstype van de telemetriewaarden. Bijvoorbeeld, als de metagegevens van de geeft aan dat de **Type** vochtigheid gegevens is **int** en een **dubbele** is gevonden in de telemetriestroom en vervolgens de vochtigheidstelemetrie niet wordt weergegeven op de grafiek. Echter, de **vochtigheid** waarden nog steeds worden opgeslagen en beschikbaar gesteld voor de verwerking van een back-end.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt gezien hoe u dynamische telemetrie gebruikt, kunt u meer informatie over hoe de gegevens van een apparaat voor het gebruiken van de vooraf geconfigureerde oplossingen: [metagegevens van apparaten informatie in de externe controle vooraf geconfigureerde oplossing][lnk-devinfo].
+Nu dat u hebt gezien hoe u dynamische telemetrie gebruiken, kunt u meer informatie over hoe de gegevens van een apparaat voor het gebruik van de vooraf geconfigureerde oplossingen: [Apparaatmetagegevens de informatie in de externe controle vooraf geconfigureerde oplossing] [ lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-v1-remote-monitoring-device-info.md
 

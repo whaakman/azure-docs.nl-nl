@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub apparaat horende (.NET/.NET) | Microsoft Docs
-description: Het gebruik van Azure IoT Hub apparaat horende labels toevoegen en vervolgens met de query voor een IoT Hub. U het apparaat met Azure IoT SDK voor .NET gebruiken voor het implementeren van de gesimuleerde apparaattoepassing en de Azure IoT service SDK voor .NET voor het implementeren van een service-app die de labels worden toegevoegd en de IoT Hub-query wordt uitgevoerd.
+title: Aan de slag met Azure IoT Hub-apparaatdubbels (.NET/.NET) | Microsoft Docs
+description: Het gebruik van Azure IoT Hub-apparaatdubbels tags toevoegen en vervolgens een IoT Hub-query. U de Azure IoT-device-SDK voor .NET gebruiken voor het implementeren van het gesimuleerde apparaat-app en de Azure IoT service SDK voor .NET voor het implementeren van een service-app die wordt toegevoegd de labels en de IoT Hub-query wordt uitgevoerd.
 author: dsk-2015
 manager: timlt
 ms.service: iot-hub
@@ -9,24 +9,24 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: dkshir
-ms.openlocfilehash: 9419f15f2876a36769bdea84cc28537435148cac
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ce1a3983ad34882236b175d6b8eec5e538c736b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634852"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723901"
 ---
-# <a name="get-started-with-device-twins-netnet"></a>Aan de slag met apparaat horende (.NET/.NET)
+# <a name="get-started-with-device-twins-netnet"></a>Aan de slag met apparaatdubbels (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-Aan het einde van deze zelfstudie hebt u deze apps van .NET-console:
+Aan het einde van deze zelfstudie hebt u deze .NET-consoletoepassingen:
 
-* **CreateDeviceIdentity**, een .NET-app die u maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw gesimuleerde apparaat app verbinden.
-* **AddTagsAndQuery**, een .NET-back-end-app die labels toegevoegd en wordt opgevraagd horende apparaten.
-* **ReportConnectivity**, een .NET-apparaattoepassing dat een apparaat simuleert dat verbinding met uw IoT-hub aan de apparaat-id eerder hebt gemaakt maakt, en rapporteert de voorwaarde van de verbinding.
+* **CreateDeviceIdentity**, een .NET-app die u maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw gesimuleerde apparaat-app.
+* **AddTagsAndQuery**, een .NET-back-end-app die wordt toegevoegd tags en apparaatdubbels-query's.
+* **ReportConnectivity**, een .NET-apparaat-app die een apparaat simuleert dat verbinding met uw IoT-hub aan de apparaat-id die eerder hebt gemaakt maakt, en rapporten van de voorwaarde van de verbinding.
 
 > [!NOTE]
-> Het artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over de Azure IoT SDK's dat u gebruiken kunt om zowel apparaatgegevens als back-end-apps te bouwen.
+> Het artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over de Azure IoT SDK's die u gebruiken kunt om apparaat- en back-end-apps te bouwen.
 > 
 > 
 
@@ -40,13 +40,13 @@ Voor deze zelfstudie hebt u het volgende nodig:
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 ## <a name="create-the-service-app"></a>De service-app maken
-In deze sectie maakt u een .NET-consoletoepassing maken (met C#) waarmee de metagegevens van de locatie wordt toegevoegd aan de apparaat-twin gekoppeld **myDeviceId**. Deze vervolgens het apparaat horende opgeslagen in de IoT-hub te selecteren van de apparaten die zich in de Verenigde Staten en de waarden die gerapporteerd van een mobiele verbinding een query.
+In deze sectie maakt u een .NET-consoletoepassing maken (met behulp van C#) waarmee metagegevens van de locatie worden toegevoegd aan het dubbele apparaat dat is gekoppeld aan **myDeviceId**. Deze vervolgens de dubbele apparaten die zijn opgeslagen in de IoT-hub selecteren van de apparaten die zich in de Verenigde Staten, en vervolgens de virtuele machines die gerapporteerd van een mobiele verbinding een query.
 
 1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console Application**. Noem het project **AddTagsAndQuery**.
    
     ![Nieuw Windows Classic Desktop-project in Visual C#][img-createapp]
 1. Klik in Solution Explorer met de rechtermuisknop op de **AddTagsAndQuery** project en klik vervolgens op **NuGet-pakketten beheren...** .
-1. In de **NuGet Package Manager** Selecteer **Bladeren** en zoek naar **microsoft.azure.devices**. Selecteer **installeren** voor het installeren van de **Microsoft.Azure.Devices** Inpakken en accepteer de gebruiksvoorwaarden. Met deze procedure worden de [Azure IoT-service-SDK][lnk-nuget-service-sdk], het NuGet-pakket en de bijbehorende afhankelijkheden gedownload en geïnstalleerd. Ook worden verwijzingen hiernaar toegevoegd.
+1. In de **NuGet Package Manager** venster **Bladeren** en zoek naar de **microsoft.azure.devices**. Selecteer **installeren** voor het installeren van de **Microsoft.Azure.Devices** verpakt en accepteer de gebruiksvoorwaarden. Met deze procedure worden de [Azure IoT-service-SDK][lnk-nuget-service-sdk], het NuGet-pakket en de bijbehorende afhankelijkheden gedownload en geïnstalleerd. Ook worden verwijzingen hiernaar toegevoegd.
    
     ![Sluit het venster Nuget Package Manager.][img-servicenuget]
 1. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
@@ -81,11 +81,11 @@ In deze sectie maakt u een .NET-consoletoepassing maken (met C#) waarmee de meta
             Console.WriteLine("Devices in Redmond43 using cellular network: {0}", string.Join(", ", twinsInRedmond43UsingCellular.Select(t => t.DeviceId)));
         }
    
-    De **RegistryManager** klasse bevat alle methoden die zijn vereist voor interactie met horende apparaten van de service. De vorige code eerst initialiseert de **registryManager** object en vervolgens haalt de apparaat-twin voor **myDeviceId**, en ten slotte de labels bijgewerkt met informatie over de gewenste locatie.
+    De **RegistryManager** klasse beschrijft de methoden die zijn vereist om te communiceren met de dubbele apparaten uit de service. De vorige code eerst initialiseert de **registryManager** object en vervolgens haalt de apparaatdubbel voor **myDeviceId**, en ten slotte de tags bijgewerkt met informatie over de gewenste locatie.
    
-    Na het bijwerken, deze twee query's uitvoert: de eerste selecteert alleen de apparaat-horende apparaten zich in de **Redmond43** plant en de tweede verfijning de query voor het selecteren van alleen de apparaten die ook via het mobiele netwerk zijn verbonden.
+    Na het bijwerken van, het uitvoeren van twee query's: de eerste selecteert alleen de apparaatdubbels van apparaten die zich in de **Redmond43** plant en het tweede verfijning van de query voor het selecteren van alleen de apparaten die ook zijn verbonden via mobiel netwerk.
    
-    Houd er rekening mee dat de vorige code bij het maken van de **query** object, geeft u een maximum aantal geretourneerde documenten. De **query** object bevat een **HasMoreResults** Boole-eigenschap die u gebruiken kunt om aan te roepen de **GetNextAsTwinAsync** methoden meerdere keren voor het ophalen van alle resultaten. Een methode aangeroepen **GetNextAsJson** is beschikbaar voor de resultaten die bijvoorbeeld niet apparaat horende zijn resultaten van query's voor aggregatie.
+    Houd er rekening mee dat de vorige code bij het maken van de **query** object, geeft u een maximum aantal geretourneerde documenten. De **query** -object bevat een **HasMoreResults** Booleaanse eigenschap die u gebruiken kunt om aan te roepen de **GetNextAsTwinAsync** methoden meerdere keren om op te halen van alle resultaten. Een methode aangeroepen **GetNextAsJson** is beschikbaar voor de resultaten die niet de dubbele apparaten, bijvoorbeeld: resultaten van aggregatie-query's.
 1. Voeg tot slot de volgende regels toe aan de methode **Main**:
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
@@ -94,21 +94,21 @@ In deze sectie maakt u een .NET-consoletoepassing maken (met C#) waarmee de meta
         Console.ReadLine();
 
 1. Open in Solution Explorer de **opstartprojecten instellen...**  en zorg ervoor dat de **actie** voor **AddTagsAndQuery** project **Start**. Bouw de oplossing.
-1. Deze toepassing uitvoeren door met de rechtermuisknop op de **AddTagsAndQuery** project en selecteer **Debug**, gevolgd door **nieuw exemplaar gestart**. U ziet één apparaat in de resultaten van de query wordt gevraagd voor alle apparaten vinden in **Redmond43** en er is geen voor de query die de resultaten beperkt tot apparaten die gebruikmaken van een mobiel netwerk.
+1. Voer deze toepassing uit met de rechtermuisknop op de **AddTagsAndQuery** project en selecteer **Debug**, gevolgd door **nieuwe instantie starten**. U ziet één apparaat in de resultaten voor het stellen van de query voor alle apparaten in **Redmond43** en niets in de query die de resultaten beperkt tot apparaten die gebruikmaken van een mobiel netwerk.
    
-    ![De resultaten van de query-venster][img-addtagapp]
+    ![De resultaten van de query in het venster][img-addtagapp]
 
-In de volgende sectie maakt u een apparaat-app die rapporten de informatie over de connectiviteit en het resultaat van de query in de vorige sectie wordt gewijzigd.
+In de volgende sectie maakt u een apparaat-app die de gegevens van hostconnectiviteit rapporten en het resultaat van de query in de vorige sectie wordt gewijzigd.
 
 ## <a name="create-the-device-app"></a>De apparaat-app maken
-In deze sectie maakt u een .NET-consoletoepassing die is verbonden met uw hub als **myDeviceId**, en werkt vervolgens de gerapporteerde eigenschappen bevatten informatie die is verbonden met een mobiel netwerk.
+In deze sectie maakt u een .NET-consoletoepassing die verbinding met uw hub als maakt **myDeviceId**, en werkt vervolgens de gerapporteerde eigenschappen om de informatie die is verbonden met een mobiel netwerk.
 
 1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console Application**. Noem het project **ReportConnectivity**.
    
-    ![Nieuwe Visual C# klassieke Windows-apparaat-app][img-createdeviceapp]
+    ![Nieuwe Visual C# Windows klassieke apparaat-app][img-createdeviceapp]
     
 1. Klik in Solution Explorer met de rechtermuisknop op de **ReportConnectivity** project en klik vervolgens op **NuGet-pakketten beheren...** .
-1. In de **NuGet Package Manager** Selecteer **Bladeren** en zoek naar **microsoft.azure.devices.client**. Selecteer **installeren** voor het installeren van de **Microsoft.Azure.Devices.Client** Inpakken en accepteer de gebruiksvoorwaarden. Deze procedure downloadt, installeert en voegt u een verwijzing naar de [Azure IoT-device SDK] [ lnk-nuget-client-sdk] NuGet-pakket en de bijbehorende afhankelijkheden.
+1. In de **NuGet Package Manager** venster **Bladeren** en zoek naar de **microsoft.azure.devices.client**. Selecteer **installeren** voor het installeren van de **Microsoft.Azure.Devices.Client** verpakt en accepteer de gebruiksvoorwaarden. Deze procedure downloadt, installeert en voegt u een verwijzing naar de [Azure IoT device-SDK] [ lnk-nuget-client-sdk] NuGet-pakket en de bijbehorende afhankelijkheden.
    
     ![NuGet-Pakketbeheer venster Client-app][img-clientnuget]
 1. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
@@ -117,7 +117,7 @@ In deze sectie maakt u een .NET-consoletoepassing die is verbonden met uw hub al
         using Microsoft.Azure.Devices.Shared;
         using Newtonsoft.Json;
 
-1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingswaarde met de verbindingsreeks voor apparaten die u in de vorige sectie hebt genoteerd.
+1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingswaarde met de apparaatverbindingsreeks die u in de vorige sectie hebt genoteerd.
    
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
@@ -140,7 +140,7 @@ In deze sectie maakt u een .NET-consoletoepassing die is verbonden met uw hub al
             }
         }
 
-    De **Client** object bevat de methoden die u nodig hebt om te communiceren met horende apparaten van het apparaat. De hierboven weergegeven code initialiseert de **Client** object, en vervolgens haalt de apparaat-twin voor **myDeviceId**.
+    De **Client** object bevat de methoden die u nodig hebt om te communiceren met de dubbele apparaten van het apparaat. De code die hierboven, initialiseert de **Client** object, en vervolgens haalt de apparaatdubbel voor **myDeviceId**.
 
 1. Voeg de volgende methode toe aan de klasse **Program**:
    
@@ -164,7 +164,7 @@ In deze sectie maakt u een .NET-consoletoepassing die is verbonden met uw hub al
             }
         }
 
-   De bovenstaande updates code **myDeviceId**de eigenschap met de connectiviteit-informatie gerapporteerd.
+   De bovenstaande updates code **myDeviceId**de eigenschap met de gegevens van hostconnectiviteit gerapporteerd.
 
 1. Voeg tot slot de volgende regels toe aan de methode **Main**:
    
@@ -182,23 +182,23 @@ In deze sectie maakt u een .NET-consoletoepassing die is verbonden met uw hub al
        Console.ReadLine();
 
 1. Open in Solution Explorer de **opstartprojecten instellen...**  en zorg ervoor dat de **actie** voor **ReportConnectivity** project **Start**. Bouw de oplossing.
-1. Deze toepassing uitvoeren door met de rechtermuisknop op de **ReportConnectivity** project en selecteer **Debug**, gevolgd door **nieuw exemplaar gestart**. U ziet het ophalen van de informatie twin, en vervolgens verzenden connectiviteit heeft als een *gerapporteerd eigenschap*.
+1. Voer deze toepassing uit met de rechtermuisknop op de **ReportConnectivity** project en selecteer **Debug**, gevolgd door **nieuwe instantie starten**. Ziet u deze het ophalen van de dubbele gegevens, en vervolgens te verzenden connectiviteit heeft als een *gerapporteerde eigenschap*.
    
     ![Apparaat-app verbinding rapport uitvoeren][img-rundeviceapp]
     
     
-1. Nu dat het apparaat heeft gemeld dat de gegevens over de connectiviteit, moet deze worden weergegeven in beide query's. Uitvoeren van de .NET **AddTagsAndQuery** app opnieuw uit te voeren de query's. Deze tijd **myDeviceId** moet worden weergegeven in beide queryresultaten.
+1. Nu dat het apparaat heeft gemeld dat de gegevens over de connectiviteit, wordt deze weergegeven in beide query's. Uitvoeren van de .NET **AddTagsAndQuery** app opnieuw uit te voeren de query's. Deze keer **myDeviceId** moet worden weergegeven in de resultaten van beide query.
    
     ![Connectiviteit van apparaten is gerapporteerd][img-tagappsuccess]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U metagegevens van apparaten als labels toegevoegd vanuit een back-end-app en een gesimuleerde apparaattoepassing geschreven naar apparaten connectiviteit rapportgegevens in de apparaat-twin. Ook hebt u geleerd hoe deze gegevens met behulp van de SQL-achtige IoT Hub-querytaal opvragen.
+In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U metagegevens van apparaten als labels toegevoegd vanuit een back-end-app en een gesimuleerde apparaat-app geschreven naar apparaatgegevens met connectiviteit van rapport in de apparaatdubbel. U hebt ook geleerd hoe u query's van deze informatie met behulp van de SQL-achtige IoT Hub-querytaal.
 
-Gebruik de volgende bronnen voor meer informatie over hoe:
+Gebruik de volgende bronnen voor meer informatie over het:
 
-* verzenden van telemetrie vanaf apparaten met de [aan de slag met IoT Hub] [ lnk-iothub-getstarted] zelfstudie
-* apparaten configureren met de gewenste eigenschappen van apparaat twin met de [gebruik gewenst eigenschappen voor het configureren van apparaten] [ lnk-twin-how-to-configure] zelfstudie
-* beheren van apparaten interactief (zoals het inschakelen van een ventilator van een gebruiker beheerde app) met de [direct methoden gebruiken] [ lnk-methods-tutorial] zelfstudie.
+* verzenden van telemetrie van apparaten met de [aan de slag met IoT Hub] [ lnk-iothub-getstarted] zelfstudie
+* apparaten configureren met de gewenste eigenschappen van het dubbele apparaat met de [gebruik gewenste eigenschappen om apparaten te configureren] [ lnk-twin-how-to-configure] zelfstudie
+* beheren van apparaten interactief (zoals het inschakelen van een fan, van een gebruiker beheerde app) met de [directe methoden gebruiken] [ lnk-methods-tutorial] zelfstudie.
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-csharp-twin-getstarted/servicesdknuget.png
@@ -224,7 +224,7 @@ Gebruik de volgende bronnen voor meer informatie over hoe:
 
 [lnk-iothub-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
-[lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: iot-hub-csharp-csharp-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 

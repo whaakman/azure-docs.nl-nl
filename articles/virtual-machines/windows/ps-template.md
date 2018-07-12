@@ -1,6 +1,6 @@
 ---
-title: Een virtuele Windows-machine maken van een sjabloon in Azure | Microsoft Docs
-description: Gebruik een Resource Manager-sjabloon en PowerShell eenvoudig een nieuwe Windows VM te maken.
+title: Een Windows-VM maken van een sjabloon in Azure | Microsoft Docs
+description: Een Resource Manager-sjabloon en PowerShell gebruiken om eenvoudig een nieuwe Windows-VM.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -17,19 +17,19 @@ ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c911d7500b61218323dd736aa51f50980d702cc
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "31601835"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720075"
 ---
-# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Een virtuele Windows-machine maken van een Resource Manager-sjabloon
+# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Een Windows virtuele machine maken van een Resource Manager-sjabloon
 
-In dit artikel laat zien hoe een Azure Resource Manager-sjabloon met behulp van PowerShell implementeren. De sjabloon die u maakt implementeert een enkele virtuele machine met Windows Server in een nieuw virtueel netwerk met één subnet.
+Dit artikel laat u over het implementeren van een Azure Resource Manager-sjabloon met behulp van PowerShell. De sjabloon die u maakt implementeert een enkele virtuele machine met Windows Server in een nieuw virtueel netwerk met één subnet.
 
-Zie voor een gedetailleerde beschrijving van de bron van de virtuele machine, [virtuele machines in een Azure Resource Manager-sjabloon](template-description.md). Zie voor meer informatie over de resources in een sjabloon [overzicht van Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Zie voor een gedetailleerde beschrijving van de bron van de virtuele machine, [virtuele machines in een Azure Resource Manager-sjabloon](template-description.md). Zie voor meer informatie over alle resources in een sjabloon, [overzicht Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Het moet ongeveer vijf minuten duren voordat de stappen in dit artikel doen.
+Het duurt ongeveer vijf minuten aan de stappen in dit artikel.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -37,7 +37,7 @@ Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie m
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Alle bronnen moeten worden geïmplementeerd in een [resourcegroep](../../azure-resource-manager/resource-group-overview.md).
+Alle resources moeten worden geïmplementeerd in een [resourcegroep](../../azure-resource-manager/resource-group-overview.md).
 
 1. Haal een lijst op met beschikbare locaties waar resources kunnen worden gemaakt.
    
@@ -45,7 +45,7 @@ Alle bronnen moeten worden geïmplementeerd in een [resourcegroep](../../azure-r
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
-2. De resourcegroep maken in de locatie die u selecteert. In dit voorbeeld toont het maken van een resourcegroep met de naam **myResourceGroup** in de **VS-West** locatie:
+2. Maak de resourcegroep op de locatie die u selecteert. In dit voorbeeld toont het maken van een resourcegroep met de naam **myResourceGroup** in de **VS-West** locatie:
 
     ```powershell   
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
@@ -53,7 +53,7 @@ Alle bronnen moeten worden geïmplementeerd in een [resourcegroep](../../azure-r
 
 ## <a name="create-the-files"></a>De bestanden maken
 
-In deze stap maakt u een sjabloonbestand dat de bronnen implementeert en een parameterbestand dat parameterwaarden voor de sjabloon. U wordt ook een bestand met autorisatieregels die wordt gebruikt voor het Azure Resource Manager-bewerkingen uitvoeren.
+In deze stap maakt u een sjabloon voor bestanden die worden geïmplementeerd en een parameterbestand waarmee de parameterwaarden voor de sjabloon. U maakt ook een bestand met autorisatieregels die wordt gebruikt voor het Azure Resource Manager-bewerkingen uitvoeren.
 
 1. Maak een bestand met de naam *CreateVMTemplate.json* en voeg deze JSON-code toe:
 
@@ -190,11 +190,11 @@ In deze stap maakt u een sjabloonbestand dat de bronnen implementeert en een par
     Set-AzureStorageBlobContent -File "C:\templates\Parameters.json" -Context $context -Container templates
     ```
 
-    Wijzig de - paden naar de locatie waar u de bestanden opgeslagen.
+    Wijzig de - paden naar de locatie waar u de bestanden hebt opgeslagen.
 
 ## <a name="create-the-resources"></a>De resources maken
 
-De sjabloon met de parameters implementeren:
+Implementeer de sjabloon met behulp van de parameters:
 
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
@@ -203,10 +203,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> U kunt ook de parameters van lokale bestanden en sjablonen implementeren. Zie voor meer informatie, [Azure PowerShell gebruiken met Azure Storage](../../storage/common/storage-powershell-guide-full.md).
+> U kunt ook parameters van lokale bestanden en sjablonen implementeren. Zie voor meer informatie, [Azure PowerShell gebruiken met Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als er problemen met de implementatie, kunt u eens kijken [oplossen van veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Als er problemen met de implementatie zijn, kunt u Kijk eens [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 - Meer informatie over het maken en beheren van een virtuele machine in [maken en beheren van Windows-VM's met de Azure PowerShell-module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

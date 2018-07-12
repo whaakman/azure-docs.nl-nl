@@ -1,7 +1,7 @@
 ---
-title: Bing-analyse voor Bing Web zoeken-API's | Microsoft Docs
+title: Bing-analyse voor Bing Web Search API's | Microsoft Docs
 titleSuffix: Cognitive Services
-description: Beschrijft hoe analytics ophalen voor Automatische suggestie van Bing-API.
+description: Beschrijft hoe u analyses verkrijgen voor Automatische suggestie-API.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
 ms.openlocfilehash: 03482ce94efe5f5db11f242384d620d401528ccf
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345442"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237682"
 ---
-# <a name="how-to-get-analytics-for-bing-autosuggest-api"></a>Het ophalen van analytics voor Automatische suggestie van Bing-API
+# <a name="how-to-get-analytics-for-bing-autosuggest-api"></a>Over het verkrijgen van analytics voor Automatische suggestie-API
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

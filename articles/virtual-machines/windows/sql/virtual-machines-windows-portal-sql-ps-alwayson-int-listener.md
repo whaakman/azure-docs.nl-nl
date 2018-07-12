@@ -1,6 +1,6 @@
 ---
-title: Configureer altijd op beschikbaarheidsgroep-Listeners – Microsoft Azure | Microsoft Docs
-description: Beschikbaarheid van groep Listeners configureren op het Azure Resource Manager-model, met behulp van een interne load balancer met een of meer IP-adressen.
+title: Always On Availability Group Listeners – Microsoft Azure configureren | Microsoft Docs
+description: Beschikbaarheid van groep Listeners op het Azure Resource Manager-model, met behulp van een interne load balancer met een of meer IP-adressen configureren.
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,41 +15,41 @@ ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
 ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600288"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307983"
 ---
-# <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Een of meer altijd op beschikbaarheid beschikbaarheidsgroeplisteners - Resource Manager configureren
-Dit onderwerp wordt beschreven hoe:
+# <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Een of meer Always On availability group listeners - Resource Manager configureren
+Dit onderwerp wordt beschreven hoe u:
 
-* Maak een interne load balancer voor SQL Server-beschikbaarheidsgroepen met PowerShell-cmdlets.
-* Extra IP-adressen toevoegen aan een load balancer voor meer dan één beschikbaarheidsgroep. 
+* Maak een interne load balancer voor SQL Server-beschikbaarheidsgroepen met behulp van PowerShell-cmdlets.
+* Voeg extra IP-adressen toe aan een load balancer voor de meer dan één beschikbaarheidsgroep. 
 
-Een beschikbaarheidsgroep-listener is de naam van een virtueel netwerk waarmee clients zijn verbonden voor toegang tot de database. Op virtuele machines in Azure bevat een load balancer het IP-adres voor de listener. De load balancer wordt verkeer gerouteerd naar het exemplaar van SQL Server die op de testpoort luistert. Een beschikbaarheidsgroep maakt meestal gebruik van een interne load balancer. Een Azure interne load balancer kan één of meerdere IP-adressen te hosten. Elk IP-adres gebruikt een specifieke testpoort. Dit document wordt beschreven hoe PowerShell gebruiken voor het maken van een load balancer, of IP-adressen toevoegen aan een bestaande load balancer voor SQL Server-beschikbaarheidsgroepen. 
+Een beschikbaarheidsgroeplistener is een virtuele-netwerknaam waarmee clients verbinding om toegang tot de database maken. Op Azure virtual machines bevat een load balancer het IP-adres voor de listener. De load balancer routeert verkeer naar het exemplaar van SQL Server die op de testpoort luistert. Meestal een interne load balancer maakt gebruik van een beschikbaarheidsgroep. Een interne Azure load balancer kan een of meer IP-adressen te hosten. Elk IP-adres maakt gebruik van een specifieke testpoort. Dit document laat zien hoe u PowerShell gebruikt voor het maken van een load balancer of IP-adressen toevoegen aan een bestaande load balancer voor SQL Server-beschikbaarheidsgroepen. 
 
-De mogelijkheid meerdere IP-adressen toewijzen aan een interne load balancer is nieuw in Azure en is alleen beschikbaar in het Resource Manager-model. Voor het voltooien van deze taak moet u een SQL Server-beschikbaarheidsgroep geïmplementeerd op Azure virtuele machines in de Resource Manager-model hebben. Beide virtuele machines van SQL Server moet behoren tot dezelfde beschikbaarheidsset. U kunt de [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) automatisch maken van de beschikbaarheidsgroep in Azure Resource Manager. Deze sjabloon wordt automatisch de beschikbaarheidsgroep, met inbegrip van de interne load balancer voor u gemaakt. Als u liever, kunt u [handmatig configureren van een AlwaysOn-beschikbaarheidsgroep](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
+De mogelijkheid meerdere IP-adressen toewijzen aan een interne load balancer is bekend bent met Azure en is alleen beschikbaar in Resource Manager-model. Als u wilt deze taak hebt voltooid, moet u een SQL Server-beschikbaarheidsgroep geïmplementeerd op Azure virtual machines in Resource Manager-model heeft. Beide virtuele machines met SQL Server moet behoren tot dezelfde beschikbaarheidsset. U kunt de [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) om automatisch te maken de beschikbaarheidsgroep in Azure Resource Manager. Deze sjabloon maakt automatisch de van beschikbaarheidsgroep, met inbegrip van de interne load balancer voor u. Als u liever, kunt u [handmatig configureren van een AlwaysOn-beschikbaarheidsgroep](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
-In dit onderwerp is vereist dat uw beschikbaarheidsgroepen al zijn geconfigureerd.  
+Dit onderwerp gebruikmaken van de beschikbaarheidsgroepen zijn al geconfigureerd.  
 
-Verwante onderwerpen zijn:
+Verwante onderwerpen zijn onder andere:
 
-* [AlwaysOn-beschikbaarheidsgroepen configureren in Azure virtuele machine (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
+* [AlwaysOn-beschikbaarheidsgroepen in Azure VM (GUI) configureren](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Een VNet-naar-VNet-verbinding configureren met behulp van Azure Resource Manager en PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## <a name="configure-the-windows-firewall"></a>De Windows Firewall configureren
-De Windows Firewall configureren voor toegang tot SQL Server. De firewall-regels toestaan TCP-verbindingen met de poorten gebruikt door SQL Server-exemplaar en de listener-test. Zie voor gedetailleerde instructies [Windows Firewall configureren voor toegang tot de Database-Engine](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Maak een inkomende regel voor de SQL Server-poort en voor de testpoort.
+De Windows Firewall voor SQL Server-toegang configureren. De firewall-regels toestaan TCP-verbindingen met de poorten gebruikt door de SQL Server-exemplaar en de listener-test. Zie voor gedetailleerde instructies [configureren van een Windows-Firewall for Database Engine Access](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Maak een inkomende regel voor de SQL Server-poort en de testpoort.
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Voorbeeldscript: Een interne load balancer maken met PowerShell
 > [!NOTE]
-> Als u de beschikbaarheidsgroep met gemaakt de [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), de interne load balancer al is gemaakt. 
+> Als u hebt gemaakt met de beschikbaarheidsgroep met de [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), de interne load balancer is al gemaakt. 
 > 
 > 
 
-De volgende PowerShell-script maakt een interne load balancer, configureert u de load-balancingregels en stelt een IP-adres voor de load balancer. Het script wordt uitgevoerd, opent u Windows PowerShell ISE en plak het script in de Script-veld. Gebruik `Connect-AzureRmAccount` aan te melden PowerShell. Als u meerdere Azure-abonnementen hebt, gebruikt u `Select-AzureRmSubscription ` instellen van het abonnement. 
+De volgende PowerShell-script maakt u een interne load balancer, configureert u de load balancer-regels en stelt een IP-adres voor de load balancer. Voer het script, opent u Windows PowerShell ISE en plak het script in het scriptvenster. Gebruik `Connect-AzureRmAccount` aanmelden bij PowerShell. Als u meerdere Azure-abonnementen hebt, gebruikt u `Select-AzureRmSubscription ` om in te stellen van het abonnement. 
 
 ```powershell
 # Connect-AzureRmAccount
@@ -100,17 +100,17 @@ foreach($VMName in $VMNames)
 ```
 
 ## <a name="Add-IP"></a> Voorbeeldscript: een IP-adres toevoegen aan een bestaande load balancer met PowerShell
-Toevoegen voor het gebruik van meer dan één beschikbaarheidsgroep een extra IP-adres aan de load balancer. Elk IP-adres vereist een eigen taakverdeling regel, testpoort en front-poort.
+Toevoegen voor het gebruik van meer dan één beschikbaarheidsgroep, een extra IP-adres aan de load balancer. Elk IP-adres vereist een eigen regel testpoort en front-poort te verdelen.
 
-De front-endpoort is de poort die toepassingen gebruiken voor verbinding met de SQL Server-exemplaar. IP-adressen voor verschillende beschikbaarheidsgroepen kunnen gebruiken dezelfde front-poort.
+De front-endpoort is de poort die toepassingen gebruiken om verbinding maken met de SQL Server-exemplaar. IP-adressen voor verschillende beschikbaarheidsgroepen kunnen gebruiken dezelfde front-poort.
 
 > [!NOTE]
-> Elk IP-adres vereist voor beschikbaarheidsgroepen van SQL Server, een specifieke testpoort. Als u één IP-adres voor een load balancer testpoort 59999 gebruikt, kunnen geen andere IP-adressen op die load balancer testpoort 59999 gebruiken.
+> Elk IP-adres vereist voor SQL Server-beschikbaarheidsgroepen, een specifieke testpoort. Als u één IP-adres op een load balancer testpoort 59999 gebruikt, kunnen geen andere IP-adressen op die load balancer testpoort 59999 gebruiken.
 
-* Zie voor meer informatie over de load balancer limieten **persoonlijke front-end-IP per load balancer** onder [Networking limieten - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
-* Zie voor meer informatie over de beschikbaarheid van groep limieten [beperkingen (beschikbaarheidsgroepen)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
+* Zie voor meer informatie over de load balancer limieten **privé-front-end-IP per load balancer** onder [Netwerklimieten - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+* Zie voor meer informatie over de beschikbaarheid van groep limieten [beperkingen (Availability Groups)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
-Het volgende script voegt een nieuwe IP-adres toe aan een bestaande load balancer. De ILB maakt gebruik van de listener-poort voor de front-endpoort voor taakverdeling. Deze poort kan de poort die SQL Server naar luistert zijn. Standaard-exemplaren van SQL Server is de poort 1433. De taakverdelingsregel voor een beschikbaarheidsgroep vereist een zwevend IP (direct server return) zodat de back-end-poort hetzelfde als de front-endpoort is. De variabelen voor uw omgeving bijwerken. 
+Het volgende script wordt een nieuw IP-adres toegevoegd aan een bestaande load balancer. De ILB maakt gebruik van de listener-poort voor de load balancer-front-endpoort. Deze poort kan niet de poort op die SQL Server luistert. Voor standaardexemplaren van SQL Server is de poort 1433. De load balancer-regel voor een beschikbaarheidsgroep vereist een zwevend IP (direct server return) zodat de back-end-poort hetzelfde als de front-endpoort is. Werk de variabelen voor uw omgeving. 
 
 ```powershell
 # Connect-AzureRmAccount
@@ -151,7 +151,7 @@ $BEConfig = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAd
 $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzureRmLoadBalancer   
 ```
 
-## <a name="configure-the-listener"></a>De listener configureren
+## <a name="configure-the-listener"></a>Configureer de listener
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
@@ -159,52 +159,52 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
 
 1. Start SQL Server Management Studio en maak verbinding met de primaire replica.
 
-1. Navigeer naar **AlwaysOn hoge beschikbaarheid** | **beschikbaarheidsgroepen** | **beschikbaarheidsgroep-Listeners**. 
+1. Navigeer naar **AlwaysOn hoge beschikbaarheid** | **beschikbaarheidsgroepen** | **beschikbaarheidsgroep Listeners**. 
 
-1. U ziet nu de naam van de listener die u hebt gemaakt in Failoverclusterbeheer. Met de rechtermuisknop op de naam van de listener en klik op **eigenschappen**.
+1. U ziet nu de listener met de naam die u hebt gemaakt in Failoverclusterbeheer. Met de rechtermuisknop op de listenernaam van de en klikt u op **eigenschappen**.
 
-1. In de **poort** vak het poortnummer opgeven voor de beschikbaarheidsgroep-listener met behulp van de $EndpointPort u eerder hebt gebruikt (1433 is de standaardinstelling), klikt u vervolgens op **OK**.
+1. In de **poort** vak, geef het poortnummer voor de beschikbaarheidsgroep-listener met behulp van de $EndpointPort u eerder hebt gebruikt (1433 is de standaardinstelling), klikt u vervolgens op **OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Test de verbinding met de listener
 
-De verbinding testen:
+De verbinding wilt testen:
 
 1. RDP naar een SQL-Server die zich in hetzelfde virtuele netwerk, maar is geen eigenaar van de replica. Dit kan zijn dat de andere SQL-Server in het cluster.
 
-1. Gebruik **sqlcmd** hulpprogramma om de verbinding te testen. Bijvoorbeeld, het volgende script stelt een **sqlcmd** verbinding met de primaire replica via de listener met de Windows-verificatie:
+1. Gebruik **sqlcmd** hulpprogramma om de verbinding te testen. Bijvoorbeeld, het volgende script maakt een **sqlcmd** verbinding met de primaire replica met de listener met de Windows-verificatie:
    
     ```
     sqlmd -S <listenerName> -E
     ```
    
-    Als de listener met behulp van een andere poort dan de standaard poort (1433), de poort in de verbindingsreeks opgeven. Bijvoorbeeld de volgende sqlcmd-opdracht is verbonden met een listener op poort 1435: 
+    Als de listener met behulp van een andere poort dan de standaardwaarde standaardpoort (1433), de poort in de verbindingsreeks opgeven. Bijvoorbeeld, de volgende sqlcmd-opdracht is verbonden met een listener op poort 1435: 
    
     ```
     sqlcmd -S <listenerName>,1435 -E
     ```
 
-De SQLCMD-verbinding wordt automatisch verbinding met elk ander exemplaar van SQL Server als host fungeert voor de primaire replica. 
+De SQLCMD-verbinding wordt automatisch verbinding met elk exemplaar van SQL Server als host fungeert voor de primaire replica. 
 
 > [!NOTE]
-> Zorg ervoor dat de poort die u opgeeft geopend op de firewall van beide SQL-Servers is. Beide servers vereisen een inkomende regel voor de TCP-poort die u gebruikt. Zie [toevoegen of bewerken firewallregel](http://technet.microsoft.com/library/cc753558.aspx) voor meer informatie. 
+> Zorg ervoor dat de poort die u opgeeft geopend op de firewall van beide SQL-Servers is. Beide servers vereist een inkomende regel voor de TCP-poort die u gebruikt. Zie [toevoegen of bewerken firewallregel](http://technet.microsoft.com/library/cc753558.aspx) voor meer informatie. 
 > 
 > 
 
 ## <a name="guidelines-and-limitations"></a>Richtlijnen en beperkingen
-Houd rekening met de volgende richtlijnen op beschikbaarheidsgroep-listener in Azure met interne load balancer:
+Houd rekening met de volgende richtlijnen op beschikbaarheidsgroep-listener in Azure met behulp van interne load balancer:
 
-* Met een interne load balancer u alleen toegang tot de listener uit binnen hetzelfde virtuele netwerk.
+* Met een interne load balancer, u alleen toegang tot de listener uit binnen hetzelfde virtuele netwerk.
 
 
 ## <a name="for-more-information"></a>Voor meer informatie
-Zie voor meer informatie [configureren altijd op de beschikbaarheidsgroep in Azure VM handmatig](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
+Zie voor meer informatie, [configureren altijd op beschikbaarheidsgroep in Azure VM handmatig](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>PowerShell-cmdlets
-Gebruik de volgende PowerShell-cmdlets voor het maken van een interne load balancer voor virtuele machines in Azure.
+De volgende PowerShell-cmdlets gebruiken om te maken van een interne load balancer voor virtuele machines van Azure.
 
-* [Nieuwe AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) maakt u een load balancer. 
+* [Nieuwe-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) wordt een load balancer. 
 * [Nieuwe AzureRMLoadBalancerFrontendIpConfig](http://msdn.microsoft.com/library/mt603510.aspx) maakt een front-end-IP-configuratie voor een load balancer. 
-* [Nieuwe AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) maakt u de regelconfiguratie van een voor een load balancer. 
-* [Nieuwe AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) maakt een back-end-pool-adresconfiguratie voor een load balancer. 
-* [Nieuwe AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) maakt u een test-configuratie voor een load balancer.
-* [Verwijder AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) Hiermee verwijdert u een load balancer van een Azure-resourcegroep.
+* [Nieuwe-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) maakt de regelconfiguratie van een voor een load balancer. 
+* [Nieuwe-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) maakt u een back-end-pool-adresconfiguratie voor een load balancer. 
+* [Nieuwe-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) maakt u een Testconfiguratie voor een load balancer.
+* [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) Hiermee verwijdert u een load balancer uit een Azure-resourcegroep.

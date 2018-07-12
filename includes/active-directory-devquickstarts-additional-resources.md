@@ -1,4 +1,4 @@
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [Ontwikkelaarshandleiding voor Azure Active Directory](../articles/active-directory/develop/active-directory-developers-guide.md)
 * [Azure AD-voorbeelden op GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=active-directory)
 * [CloudIdentity.com](http://cloudidentity.com)

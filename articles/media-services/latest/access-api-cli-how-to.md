@@ -1,5 +1,5 @@
 ---
-title: Toegang tot de API van Azure Media Services - CLI 2.0 | Microsoft Docs
+title: Toegang tot de Azure Media Services-API - Azure CLI | Microsoft Docs
 description: Volg de stappen van deze instructies voor toegang tot de API van Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,27 +12,27 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639772"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38724027"
 ---
-# <a name="access-azure-media-services-api-with-cli-20"></a>Toegang tot Azure mediaservices API met CLI 2.0
+# <a name="access-azure-media-services-api-with-the-azure-cli"></a>Toegang tot Azure mediaservices API met de Azure CLI
  
-Verbinding maken met de API van Azure Media Services, moet u de verificatie van Azure AD-service-principal gebruiken. Uw toepassing moet om aan te vragen van een Azure AD-token met de volgende parameters:
+U moet de verificatie van Azure AD-service-principal gebruiken om verbinding maken met de API van Azure Media Services. De toepassing nodig heeft om aan te vragen van een Azure AD-token met de volgende parameters:
 
 * Azure AD-tenant-eindpunt
-* Media Services resource-URI
-* Resource-URI voor de REST mediaservices
+* Media Services-resource-URI
+* Resource-URI voor de REST-mediaservices
 * Waarden van Azure AD-toepassing: de client-ID en clientgeheim
 
-In dit artikel leest u hoe CLI 2.0 gebruiken als u wilt een Azure AD-toepassing en service principal te maken en de waarden die nodig zijn voor toegang tot resources met Azure Media Services.
+In dit artikel leest u hoe de Azure CLI gebruiken voor een Azure AD-toepassing en service-principal maken en ophalen van de waarden die nodig zijn voor toegang tot resources van Azure Media Services.
 
 ## <a name="prerequisites"></a>Vereisten 
 
-Maak een nieuw Azure Media Services-account, zoals beschreven in [deze snelstartgids](create-account-cli-quickstart.md).
+Maak een nieuwe Azure Media Services-account, zoals beschreven in [in deze Quick Start](create-account-cli-quickstart.md).
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -40,7 +40,7 @@ Meld u aan bij [Azure Portal](http://portal.azure.com) en start **CloudShell** o
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u wilt installeren of upgraden, Zie [Azure CLI installeren](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -51,4 +51,4 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="see-also"></a>Zie ook
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure-CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

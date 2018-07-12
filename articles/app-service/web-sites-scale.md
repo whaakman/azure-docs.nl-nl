@@ -1,6 +1,6 @@
 ---
-title: Een app in Azure opschalen | Microsoft Docs
-description: Informatie over het schalen van een app in Azure App Service-capaciteit en functies toevoegen.
+title: Een app in Azure omhoog schalen | Microsoft Docs
+description: Leer hoe u een app in Azure App Service voor capaciteit en onderdelen toevoegen kunt schalen.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f8478a0aef52f8e573fa300a0b1328ea9ce5129f
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 01c20e7f43c11a077d3870ee32c1d8be98a95696
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030995"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306430"
 ---
-# <a name="scale-up-an-app-in-azure"></a>Een app in Azure opschalen
+# <a name="scale-up-an-app-in-azure"></a>Een app in Azure omhoog schalen
 
 > [!NOTE]
-> De nieuwe **PremiumV2** laag krijgt u snellere CPU's, SSD-opslag, en wordt de geheugen-core-verhouding van de bestaande Prijscategorieën verdubbeld. Met het voordeel prestaties kan u geld besparen door te voeren van uw apps op minder exemplaren. Maximaal schalen **PremiumV2** categorie [PremiumV2 configureren-laag voor App Service](app-service-configure-premium-tier.md).
+> De nieuwe **PremiumV2** laag kunt u snellere CPU's, SSD-opslag, en de geheugen-kernverhouding van de bestaande Prijscategorieën verdubbeld. Met het voordeel van prestaties, kan u geld besparen door te voeren van uw apps op minder exemplaren. Om te schalen tot **PremiumV2** categorie [configureren PremiumV2-laag voor App Service](app-service-configure-premium-tier.md).
 >
 
-In dit artikel laat zien hoe uw app schalen in Azure App Service. Er zijn twee werkstromen voor vergroten/verkleinen, scale-en scale-out en in dit artikel wordt uitgelegd de schaal van een workflow.
+Dit artikel leest u hoe uw app schalen in Azure App Service. Er zijn twee werkstromen voor vergroten/verkleinen, scale-en scale-out, en in dit artikel wordt uitgelegd de schaal van de werkstroom.
 
-* [Omhoog schalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): ophalen van meer CPU, geheugen, schijfruimte en extra functies, zoals toegewezen virtuele machines (VM's), aangepaste domeinen en certificaten, sleuven, automatisch schalen en meer. U opschalen door het wijzigen van de prijscategorie van de App Service-plan waartoe uw app behoort.
-* [Uitschalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): verhoog het aantal VM-exemplaren die uw app uitvoeren.
-  U kunt uitschalen naar maximaal 20 instanties, afhankelijk van uw prijscategorie. [App Service-omgevingen](environment/intro.md) in **geïsoleerd** laag verdere verhoogt uw aantal scale-out op 100 exemplaren. Zie voor meer informatie over het uitbreiden van [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md). U informatie over het gebruik van automatisch schalen, die is het aantal exemplaren automatisch op basis van vooraf gedefinieerde regels en schema's.
+* [Omhoog schalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): ophalen van meer CPU, geheugen, schijfruimte en extra functies, zoals toegewezen virtuele machines (VM's), aangepaste domeinen en certificaten, faseringssleuven, automatisch schalen en meer. U schalen omhoog door de prijscategorie van de App Service-plan waartoe uw app behoort te wijzigen.
+* [Uitschalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): verhoog het aantal VM-exemplaren waarop uw app wordt uitgevoerd.
+  U kunt uitschalen naar maximaal 20 exemplaren, afhankelijk van uw prijscategorie. [App Service-omgevingen](environment/intro.md) in **geïsoleerd** laag verder verhoogt het aantal scale-out naar 100 instanties. Zie voor meer informatie over het uitbreiden [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md). Daar vindt u informatie over het gebruik van automatisch schalen, dat is het aantal exemplaren automatisch op basis van vooraf gedefinieerde regels en schema's schalen.
 
-De scale-instellingen worden alleen seconden toe te passen en gelden voor alle apps in uw [App Service-abonnement](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-Ze nodig niet dat u uw code wijzigen of uw toepassing opnieuw distribueren.
+De schaalinstellingen worden alleen de seconden toe te passen en gelden voor alle apps in uw [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Ze dat niet u uw code te wijzigen of opnieuw implementeren van uw toepassing.
 
-Zie voor meer informatie over de prijzen en -functies van afzonderlijke App Service-abonnementen [App Service-prijsinformatie](https://azure.microsoft.com/pricing/details/web-sites/).  
+Zie voor meer informatie over de prijzen en functies van afzonderlijke App Service-plannen [prijsinformatie voor App Service](https://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [!NOTE]
-> Voordat u overschakelt van een App Service-abonnement van de **vrije** laag, moet u eerst verwijderen de [bestedingslimieten](https://azure.microsoft.com/pricing/spending-limits/) voor uw Azure-abonnement. Als u wilt weergeven of wijzigen van opties voor uw Microsoft Azure App Service-abonnement, Zie [Microsoft Azure-abonnementen][azuresubscriptions].
+> Voordat u een App Service-plan uit schakelt de **gratis** laag, moet u eerst verwijderen de [bestedingslimieten](https://azure.microsoft.com/pricing/spending-limits/) aanwezig is voor uw Azure-abonnement. Als u wilt weergeven of wijzigen van opties voor uw Microsoft Azure App Service-abonnement, Zie [Microsoft Azure-abonnementen][azuresubscriptions].
 > 
 > 
 
@@ -48,40 +48,40 @@ Zie voor meer informatie over de prijzen en -functies van afzonderlijke App Serv
 
 ## <a name="scale-up-your-pricing-tier"></a>Uw prijscategorie opschalen
 1. Open in uw browser de [Azure-portal][portal].
-2. Klik in de pagina van uw App Service-app op **alle instellingen**, en klik vervolgens op **omhoog schalen**.
+2. Klik in uw App Service-app-pagina op **alle instellingen**, en klik vervolgens op **omhoog schalen**.
    
-    ![Navigeer om te schalen van uw app in Azure.][ChooseWHP]
-3. Kies uw laag en klik vervolgens op **toepassen**.
+    ![Ga voor het schalen van uw Azure-app.][ChooseWHP]
+3. De laag, en klik vervolgens op **toepassen**.
    
-    De **meldingen** tabblad knippert een groene **geslaagd** nadat de bewerking voltooid is.
+    De **meldingen** tabblad wordt een groen flash **SUCCES** nadat de bewerking voltooid is.
 
 <a name="ScalingSQLServer"></a>
 
-## <a name="scale-related-resources"></a>Verwante bronnen schalen
-Als uw app, is afhankelijk van andere services, zoals Azure SQL Database- of Azure Storage, kunt u deze resources afzonderlijk opschalen. Deze resources worden niet beheerd door de App Service-abonnement.
+## <a name="scale-related-resources"></a>Verwante resources schalen
+Als uw app, is afhankelijk van andere services, zoals Azure SQL Database of Azure Storage, kunt u deze resources afzonderlijk opschalen. Deze resources niet worden beheerd door de App Service-plan.
 
 1. In **Essentials**, klikt u op de **resourcegroep** koppeling.
    
     ![Verwante bronnen van uw Azure-app opschalen](./media/web-sites-scale/RGEssentialsLink.png)
-2. In de **samenvatting** deel uit van de **resourcegroep** pagina, klikt u op een resource die u wilt schalen. De volgende schermafbeelding ziet u een resource van de SQL-Database en een Azure Storage-resource.
+2. In de **samenvatting** deel uitmaakt van de **resourcegroep** pagina, klikt u op een resource die u wilt schalen. De volgende schermafbeelding ziet u een SQL-Database-resource en een Azure Storage-resource.
    
-    ![Navigeer naar de pagina van de resource-group schalen van uw app in Azure](./media/web-sites-scale/ResourceGroup.png)
-3. Voor een SQL-Database-resource, klikt u op **instellingen** > **prijscategorie** de prijscategorie schalen.
+    ![Navigeer naar de pagina voor een resourcegroep voor het schalen van uw Azure-app](./media/web-sites-scale/ResourceGroup.png)
+3. Voor de resource van een SQL-Database, klikt u op **instellingen** > **prijscategorie** voor het schalen van de prijscategorie.
    
-    ![De SQL-Database-back-end voor uw app in Azure opschalen](./media/web-sites-scale/ScaleDatabase.png)
+    ![De SQL-Database back-end voor uw Azure-app opschalen](./media/web-sites-scale/ScaleDatabase.png)
    
-    Kunt u ook inschakelen [geo-replicatie](../sql-database/sql-database-geo-replication-overview.md) voor uw exemplaar van SQL-Database.
+    U kunt ook inschakelen [geo-replicatie](../sql-database/sql-database-geo-replication-overview.md) voor uw exemplaar van SQL-Database.
    
-    Voor een Azure Storage-resource, klikt u op **instellingen** > **configuratie** schalen van uw opties voor opslag.
+    Voor een Azure Storage-resource, klikt u op **instellingen** > **configuratie** uw opties voor opslag kan worden uitgebreid.
    
-    ![De Azure Storage-account die wordt gebruikt door uw app in Azure opschalen](./media/web-sites-scale/ScaleStorage.png)
+    ![De Azure Storage-account die worden gebruikt door uw Azure-app opschalen](./media/web-sites-scale/ScaleStorage.png)
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
 
 ## <a name="compare-pricing-tiers"></a>Prijscategorieën vergelijken
-Zie voor gedetailleerde informatie, zoals VM-grootten voor elke prijscategorie [App Service-prijsinformatie](https://azure.microsoft.com/pricing/details/web-sites/).
-Zie voor een tabel van de Servicelimieten, quota's en -beperkingen en ondersteunde functies in elke laag [App Service-beperkingen](../azure-subscription-service-limits.md#app-service-limits).
+Zie voor gedetailleerde informatie, zoals VM-grootten voor elke prijscategorie [prijsinformatie voor App Service](https://azure.microsoft.com/pricing/details/web-sites/).
+Zie voor een tabel van Servicelimieten, quotums en beperkingen en ondersteunde functies in elke laag [limieten voor App Service](../azure-subscription-service-limits.md#app-service-limits).
 
 <a name="Next Steps"></a>
 
@@ -90,25 +90,25 @@ Zie voor een tabel van de Servicelimieten, quota's en -beperkingen en ondersteun
   
     [Prijsinformatie voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/)
   
-    [Microsoft Azure-ondersteuningsplannen](https://azure.microsoft.com/support/plans/)
+    [Ondersteuningsabonnementen voor Microsoft Azure](https://azure.microsoft.com/support/plans/)
   
     [Serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/)
   
-    [Prijsinformatie voor SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/)
+    [Prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)
   
-    [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
+    [Virtuele Machine en Cloud Service Sizes for Microsoft Azure][vmsizes]
   
-* Zie voor meer informatie over Azure App Service aanbevolen procedures voor het bouwen van een schaalbare en flexibele architectuur, inclusief [Best Practices: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
+* Zie voor meer informatie over Azure App Service aanbevolen procedures, met inbegrip van het bouwen van een schaalbare en flexibele architectuur, [aanbevolen procedures: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Zie de volgende bronnen voor video's over het schalen van App Service-apps:
   
   * [Wanneer Azure Websites - met Stefan Schackow schalen](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
-  * [Automatische schaling van Azure Websites, CPU of geplande - met Stefan Schackow](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
-  * [Hoe Azure Websites schaal - met Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
+  * [Functie voor automatisch schalen van Azure Websites, CPU of geplande - met Stefan Schackow](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
+  * [Hoe Azure Websites schalen - met Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
 
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 
 <!-- IMAGES -->

@@ -1,6 +1,6 @@
 ---
-title: Service Bus-berichtenservice naamruimte met behulp van Azure Resource Manager-sjabloon maken | Microsoft Docs
-description: Gebruik Azure Resource Manager-sjabloon te maken van een Service Bus-berichtenservice-naamruimte
+title: Service Bus Messaging-naamruimte maken met Azure Resource Manager-sjabloon | Microsoft Docs
+description: Gebruik Azure Resource Manager-sjabloon voor het maken van een Service Bus Messaging-naamruimte
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -15,27 +15,27 @@ ms.workload: na
 ms.date: 04/11/2018
 ms.author: sethm
 ms.openlocfilehash: e7e811b86d1ea0454b964fb297cb05b6a4734abd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411831"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232417"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte met een Azure Resource Manager-sjabloon maken
 
-In dit artikel wordt beschreven hoe u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte van het type **Messaging** met een standaard SKU. Het artikel definieert ook de parameters die zijn opgegeven voor de uitvoering van de implementatie. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
+In dit artikel wordt beschreven hoe u een Azure Resource Manager-sjabloon maakt u een Service Bus-naamruimte van het type **Messaging** met een standaard-SKU. Het artikel definieert ook de parameters die zijn opgegeven voor het uitvoeren van de implementatie. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
 
 Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen.
 
-Zie voor de volledige sjabloon, het [Service Bus-naamruimte sjabloon] [ Service Bus namespace template] op GitHub.
+Zie voor de volledige sjabloon, de [Service Bus-naamruimte sjabloon] [ Service Bus namespace template] op GitHub.
 
 > [!NOTE]
-> De volgende Azure Resource Manager-sjablonen zijn beschikbaar voor download- en implementatie. 
+> De volgende Azure Resource Manager-sjablonen zijn beschikbaar voor downloaden en implementeren. 
 > 
-> * [Een Service Bus-naamruimte maken met de wachtrij](service-bus-resource-manager-namespace-queue.md)
-> * [Een Service Bus-naamruimte met onderwerp en een abonnement maken](service-bus-resource-manager-namespace-topic.md)
-> * [Een Service Bus-naamruimte met een wachtrij en autorisatie regel maken](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Een Service Bus-naamruimte maken met onderwerp, abonnement en regel](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Een Service Bus-naamruimte met een wachtrij maken](service-bus-resource-manager-namespace-queue.md)
+> * [Een Service Bus-naamruimte maken met een onderwerp en abonnement](service-bus-resource-manager-namespace-topic.md)
+> * [Een Service Bus-naamruimte maken met de wachtrij en de autorisatie-regel](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Een Service Bus-naamruimte maken met een onderwerp, abonnement en regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar Service Bus.
 > 
@@ -43,7 +43,7 @@ Zie voor de volledige sjabloon, het [Service Bus-naamruimte sjabloon] [ Service 
 
 ## <a name="what-will-you-deploy"></a>Wat wilt u implementeren?
 
-Met deze sjabloon die u implementeert een Service Bus-naamruimte met een [Standard of Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
+Met deze sjabloon implementeert u een Service Bus-naamruimte met een [Standard of Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
@@ -51,13 +51,13 @@ Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
 ## <a name="parameters"></a>Parameters
 
-Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die de parameterwaarden bevat. U moet een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waarin u gaat implementeren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
+Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die alle parameterwaarden bevat. U moet een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waarin u gaat implementeren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
 
 Deze sjabloon definieert de volgende parameters:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 
-De naam van de Service Bus-naamruimte maken.
+De naam van de Service Bus-naamruimte te maken.
 
 ```json
 "serviceBusNamespaceName": {
@@ -70,7 +70,7 @@ De naam van de Service Bus-naamruimte maken.
 
 ### <a name="servicebussku"></a>serviceBusSKU
 
-De naam van de Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) maken.
+De naam van de Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) te maken.
 
 ```json
 "serviceBusSku": { 
@@ -86,9 +86,9 @@ De naam van de Service Bus [SKU](https://azure.microsoft.com/pricing/details/ser
 
 ```
 
-De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (Standard of Premium). Als geen waarde opgeeft, wijst de resourcemanager een standaardwaarde (standaard).
+De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (Standard of Premium). Als er geen waarde is opgegeven, wijst de resourcemanager een standaardwaarde (standaard).
 
-Zie voor meer informatie over prijzen voor Service Bus [Service Bus-prijzen en facturering][Service Bus pricing and billing].
+Zie voor meer informatie over de prijzen van Service Bus [Service Bus prijzen en facturering][Service Bus pricing and billing].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 
@@ -107,7 +107,7 @@ De Service Bus-API-versie van de sjabloon.
 
 ### <a name="service-bus-namespace"></a>Service Bus-naamruimte
 
-Maakt een standaard Service Bus-naamruimte van het type **Messaging**.
+Hiermee maakt u een standard Service Bus-naamruimte van het type **Messaging**.
 
 ```json
 "resources": [
@@ -145,10 +145,10 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt gemaakt en geïmplementeerd met Azure Resource Manager bronnen, meer informatie over deze resources beheren door te lezen van deze artikelen:
+Nu dat u hebt gemaakt en geïmplementeerd resources met behulp van Azure Resource Manager, meer informatie over het beheren van deze resources door te lezen van deze artikelen:
 
 * [Servicebus met PowerShell beheren](service-bus-manage-with-ps.md)
-* [Service Bus-resources beheren met de Service Bus-Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Service Bus-resources beheren met de Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/

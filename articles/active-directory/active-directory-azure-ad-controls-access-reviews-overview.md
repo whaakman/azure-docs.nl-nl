@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 0180968d85fffcaf1ee5e224e72864d2ab0511ca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d2e0f1ecea84398f9e4d43af07b9871f36e8dd48
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446042"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295006"
 ---
 # <a name="azure-ad-access-reviews"></a>Azure AD-toegangsbeoordelingen
 
@@ -43,4 +43,4 @@ Met Azure AD-toegangsbeoordelingen (Azure Active Directory) kunnen organisaties 
 - [Gasttoegang beheren met Azure AD-toegangsbeoordelingen](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Programma's en controles voor Azure AD-toegangsbeoordelingen beheren](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Een toegangsbeoordeling maken voor leden van een groep of toegang tot een toepassing](active-directory-azure-ad-controls-create-access-review.md)
-- [Een toegangsbeoordeling maken van gebruikers met een Azure AD-beheerderrol](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Een toegangsbeoordeling maken van gebruikers met een Azure AD-beheerderrol](privileged-identity-management/pim-how-to-start-security-review.md)

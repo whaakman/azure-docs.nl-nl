@@ -1,6 +1,6 @@
 ---
-title: Een Azure Event Hubs-naamruimte en de consumer-groep met een sjabloon maken | Microsoft Docs
-description: Een Event Hubs-naamruimte maken met een event hub en een consumergroep met behulp van Azure Resource Manager-sjablonen
+title: Maak een Azure Event Hubs-naamruimte en consumenten-groep met behulp van een sjabloon | Microsoft Docs
+description: Een Event Hubs-naamruimte maken met een event hub en een consumentengroep met behulp van Azure Resource Manager-sjablonen
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 04/30/2018
 ms.author: sethm
 ms.openlocfilehash: 4b4dc5be9697bb96aec658fccbdf13b299e79e9e
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311257"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309848"
 ---
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Een naamruimte Event Hubs met event hub- en groep met een Azure Resource Manager-sjabloon maken
+# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Een Event Hubs-naamruimte maken met event hub en consumenten met een Azure Resource Manager-sjabloon
 
-Dit artikel laat zien hoe u met een Azure Resource Manager-sjabloon maken van een naamruimte van het type [Event Hubs](event-hubs-what-is-event-hubs.md), met een event hub en een consumergroep. Het artikel ziet u hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
+Dit artikel wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruiken om te maken van een naamruimte van het type [Event Hubs](event-hubs-what-is-event-hubs.md), met één gebeurtenishub, en een consumentengroep beperkt. Het artikel wordt beschreven hoe om te definiëren welke resources worden geïmplementeerd en over het definiëren van parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
 
-Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates].
+Zie voor meer informatie over het maken van sjablonen [Authoring Azure Resource Manager-sjablonen][Authoring Azure Resource Manager templates].
 
-Zie voor de volledige sjabloon, het [Event hub- en groep sjabloon] [ Event Hub and consumer group template] op GitHub.
+Zie voor de volledige sjabloon, de [Event hub- en klanttoepassingen groep sjabloon] [ Event Hub and consumer group template] op GitHub.
 
 > [!NOTE]
 > Om te controleren op de meest recente sjablonen, gaat u naar de galerie [Azure-snelstartsjablonen][Azure Quickstart Templates] en zoekt u naar Event Hubs.
@@ -36,7 +36,7 @@ Zie voor de volledige sjabloon, het [Event hub- en groep sjabloon] [ Event Hub a
 
 ## <a name="what-will-you-deploy"></a>Wat wilt u implementeren?
 
-Met deze sjabloon kunt u een Event Hubs-naamruimte met een event hub en een consumergroep implementeren.
+Met deze sjabloon implementeert u een Event Hubs-naamruimte met een event hub en een consumergroep.
 
 Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
@@ -44,7 +44,7 @@ Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
 ## <a name="parameters"></a>Parameters
 
-Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die alle parameterwaarden bevat. Een parameter voor waarden die variëren, op basis van het project dat u wilt implementeren of op basis van de omgeving waarnaar u implementeert, moet u definiëren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De parameterwaarde van elke in de sjabloon definieert de resources die zijn geïmplementeerd.
+Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die alle parameterwaarden bevat. U moet een parameter definiëren voor waarden die variëren, gebaseerd op het project dat u wilt implementeren of op basis van de omgeving waarnaar u implementeert. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter in de sjabloon definieert de resources die zijn geïmplementeerd.
 
 De sjabloon definieert de volgende parameters:
 
@@ -70,7 +70,7 @@ De naam van de gebeurtenishub die in de Event Hubs-naamruimte wordt gemaakt.
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
 
-De naam van de consumergroep gemaakt voor de event hub.
+De naam van de consumergroep hebt gemaakt voor de event hub.
 
 ```json
 "eventHubConsumerGroupName": {

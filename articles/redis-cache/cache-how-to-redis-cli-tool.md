@@ -1,6 +1,6 @@
 ---
-title: Redis cli gebruiken met Azure Redis-Cache | Microsoft Docs
-description: Informatie over het gebruik van redis cli met Azure Redis-Cache.
+title: Het gebruik van redis cli met Azure Redis Cache | Microsoft Docs
+description: Informatie over het gebruik van redis cli met Azure Redis Cache.
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -14,48 +14,48 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: wesmc
 ms.openlocfilehash: facc3e2079c8f5e19266f5379762d71754a6ed84
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182589"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299088"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-redis-cache"></a>Het opdrachtregelprogramma Redis gebruiken met Azure Redis-Cache
 
-*redis cli.exe* is een populair opdrachtregelprogramma voor interactie met een Redis-Cache als een client. Dit hulpprogramma is ook beschikbaar voor gebruik met Azure Redis-Cache.
+*redis-cli.exe* is een populaire opdrachtregelprogramma voor interactie met een Redis-Cache als een client. Dit hulpprogramma is ook beschikbaar voor gebruik met Azure Redis Cache.
 
-Het hulpprogramma is beschikbaar voor Windows-platforms downloaden de [Redis-opdrachtregelprogramma's voor Windows](https://github.com/MSOpenTech/redis/releases/). 
+Het hulpprogramma is beschikbaar voor Windows-platforms door het downloaden van de [Redis-opdrachtregelprogramma's voor Windows](https://github.com/MSOpenTech/redis/releases/). 
 
 Als u het opdrachtregelprogramma uitvoeren op een ander platform wilt, downloadt u Redis-Cache van [ http://redis.io/download ](https://redis.io/download).
 
-## <a name="gather-cache-access-information"></a>Cache toegangsinformatie verzamelen
+## <a name="gather-cache-access-information"></a>Toegang tot de cache-informatie verzamelen
 
 U kunt de informatie die nodig is voor toegang tot de cache met behulp van drie methoden verzamelen:
 
-1. Met behulp van Azure CLI [az redis lijst-sleutels](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+1. Met behulp van Azure CLI [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
 2. Met behulp van Azure PowerShell [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-4.4.1)
 3. Met behulp van de Azure-portal.
 
-In deze sectie haalt u de sleutels uit de Azure-portal.
+In deze sectie haalt u de sleutels van de Azure-portal.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 
-## <a name="enable-access-for-redis-cliexe"></a>Toegang voor redis-cli.exe
+## <a name="enable-access-for-redis-cliexe"></a>Toegang inschakelen voor redis-cli.exe
 
-Met Azure Redis-Cache, alleen de SSL-poort (6380) is standaard ingeschakeld. De `redis-cli.exe` opdrachtregelprogramma biedt geen ondersteuning voor SSL. Hebt u twee configuratieopties om deze te gebruiken:
+Met Azure Redis Cache, alleen de SSL-poort (6380 zijn) is standaard ingeschakeld. De `redis-cli.exe` opdrachtregel-hulpprogramma biedt geen ondersteuning voor SSL. Hebt u twee configuratieopties om deze te gebruiken:
 
-1. [Schakel de niet-SSL-poort (6379)](cache-configure.md#access-ports) - **deze configuratie wordt niet aanbevolen** omdat in deze configuratie de sneltoetsen worden verzonden via TCP in ongecodeerde tekst. Deze wijziging kan toegang tot uw cache vormen. Het enige scenario waarin u kunt overwegen om deze configuratie is wanneer u alleen toegang een test-cache tot.
+1. [Schakel de niet-SSL-poort (6379)](cache-configure.md#access-ports) - **deze configuratie wordt niet aanbevolen** omdat in deze configuratie worden de toegangssleutels worden verzonden via TCP in niet-versleutelde tekst. Deze wijziging kan toegang tot uw cache in gevaar komen. Het enige scenario waarin u kunt overwegen om deze configuratie is als u alleen toegang een test-cache tot.
 
-2. Download en installeer [stunnel](https://www.stunnel.org/downloads.html).
+2. Download en installeer [verbinden met stunnel](https://www.stunnel.org/downloads.html).
 
-    Voer **stunnel GUI Start** starten van de server.
+    Voer **verbinden met stunnel GUI Start** om de server te starten.
 
-    Met de rechtermuisknop op het pictogram voor de server stunnel in de taakbalk en klikt u op **logboek-venster weergeven**.
+    Met de rechtermuisknop op het pictogram voor het verbinden met stunnelserver op de taakbalk en klikt u op **venster Logboek weergeven**.
 
-    Klik op het menu venster Logboek stunnel **configuratie** > **-configuratie bewerken** om de huidige configuratiebestand te openen.
+    Klik op het menu van het logboekvenster verbinden met stunnel **configuratie** > **-configuratie bewerken** om de huidige configuratiebestand te openen.
 
-    Voeg de volgende vermelding voor *redis cli.exe* onder de **Service definities** sectie. Invoegen in plaats van de Cachenaam van uw werkelijke `yourcachename`. 
+    Voeg de volgende vermelding voor *redis-cli.exe* onder de **Service definities** sectie. Voeg de Cachenaam van uw werkelijke in plaats van `yourcachename`. 
 
     ```
     [redis-cli]
@@ -66,26 +66,26 @@ Met Azure Redis-Cache, alleen de SSL-poort (6380) is standaard ingeschakeld. De 
 
     Opslaan en sluiten van het configuratiebestand. 
   
-    Klik op het menu venster Logboek stunnel **configuratie** > **opnieuw laden configuratie**.
+    Klik op het menu van het logboekvenster verbinden met stunnel **configuratie** > **opnieuw laden configuratie**.
 
 
-## <a name="connect-using-the-redis-command-line-tool"></a>Verbinding maken met het opdrachtregelprogramma Redis.
+## <a name="connect-using-the-redis-command-line-tool"></a>Verbinding maken met het opdrachtregelprogramma van Redis.
 
-Als u stunnel, *redis cli.exe*, en geef alleen uw *poort*, en *toegangssleutel* (primair of secundair) verbinding maken met de cache.
+Als u beveiligde tunnel, *redis-cli.exe*, en geef alleen uw *poort*, en *toegangssleutel* (primair of secundair) verbinding maken met de cache.
 
 ```
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![stunnel met redis cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![beveiligde tunnel met redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Als u een test-cache met de **onbeveiligde** niet-SSL-poort, voer `redis-cli.exe` en geef uw *hostnaam*, *poort*, en *toegangssleutel*(primair of secundair) verbinding maken met de test-cache.
+Als u een test-cache met de **onbeveiligde** niet-SSL-poort, voer `redis-cli.exe` en door te geven uw *hostnaam*, *poort*, en *toegangssleutel*(primair of secundair) verbinding maken met de cache testen.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ```
 
-![stunnel met redis cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-non-ssl.png)
+![beveiligde tunnel met redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-non-ssl.png)
 
 
 

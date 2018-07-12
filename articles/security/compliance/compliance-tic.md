@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 7b813500eecba3aa1902c28b9b7c56da6c4516b7
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: MT
+ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967531"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969942"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Richtlijnen voor vertrouwde CA-verbinding
 
@@ -199,7 +199,7 @@ Het volgende voorbeeld-beleidsregels zijn mogelijk nuttig zijn voor boter nalevi
 |Toegestane locaties | Zorg ervoor dat alle resources worden geïmplementeerd in de regio's met compatibele vnet's en netwerk-Watcher-configuratie  | https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs |
 |Niet toegestane resourcetypen, zoals PublicIPs  | De implementatie van de resourcetypen die nog geen een plan naleving verbieden. Als voorbeeld, kan dit beleid worden gebruikt om te voorkomen dat de implementatie van resources voor openbaar IP-adres. Terwijl de NSG-regels kunnen worden gebruikt voor het effectief geblokkeerd binnenkomend verkeer van Internet, vermindert zo wordt voorkomen dat het gebruik van openbare IP-adressen verder de kwetsbaarheid voor aanvallen.    | https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type  |
 
-### <a name="azure-traffic-analytics"></a>Azure Traffic Analytics
+### <a name="azure-traffic-analyticshttpsazuremicrosoftcomen-inblogtraffic-analytics-in-preview"></a>Azure [Traffic Analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)
 
 Azure Network Watcher van Traffic Analytics verbruikt stroom logboekgegevens en andere logboeken voor een overzicht op hoog niveau van het netwerkverkeer. Deze gegevens kan nuttig zijn voor boter naleving controleren en het identificeren van knelpunten. Een dashboard op hoog niveau kan worden gebruikt om snel virtuele machines met het internet, die vervolgens een gerichte lijst communiceren voor de routering van boter opgeven wilt scherm.
 

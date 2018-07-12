@@ -1,54 +1,56 @@
 ---
-title: Aangepaste kenmerken van Azure Active Directory B2C | Microsoft Docs
-description: Het gebruik van aangepaste kenmerken in Azure Active Directory B2C voor het verzamelen van informatie over uw consumenten.
+title: Aangepaste kenmerken definiëren in Azure Active Directory B2C | Microsoft Docs
+description: Definieer aangepaste kenmerken voor uw toepassing in Azure Active Directory B2C voor het verzamelen van informatie over uw klanten.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 07/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 893dfbae96d2cfea01b1f281f888e9281bf582f9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d5ef77ab0bbf00d4ddbb05b7a38516e3c3e7d800
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441913"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968771"
 ---
-# <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: Aangepaste kenmerken gebruiken voor het verzamelen van informatie over uw consumenten
-Uw Azure Active Directory (Azure AD) B2C-directory wordt geleverd met een ingebouwde set met informatie over (kenmerken): voornaam, achternaam, plaats, postcode en andere kenmerken. Elke consumentgerichte toepassing heeft echter unieke vereisten op welke kenmerken voor het verzamelen van consumenten. Met Azure AD B2C, kunt u de set kenmerken die zijn opgeslagen op elke consumentenaccount uitbreiden. U kunt aangepaste kenmerken maken op de [Azure-portal](https://portal.azure.com/) en deze gebruiken in uw registratiebeleid, zoals hieronder wordt weergegeven. U kunt ook lezen en schrijven van deze kenmerken met behulp van de [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
+# <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Aangepaste kenmerken definiëren in Azure Active Directory B2C
 
-> [!NOTE]
-> Aangepaste kenmerken gebruiken [Azure AD Graph API Directory-Schemauitbreidingen](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
-> 
-> 
+ Elke toepassing klantgerichte heeft unieke vereisten van de gegevens die moeten worden opgehaald. Uw Azure Active Directory (Azure AD) B2C-tenant wordt geleverd met een ingebouwde groep die zijn opgeslagen in kenmerken, zoals de voornaam, achternaam, plaats en postcode. Met Azure AD B2C, kunt u de set kenmerken die zijn opgeslagen op elke klantaccount uitbreiden. 
+ 
+ Kunt u aangepaste kenmerken in de [Azure-portal](https://portal.azure.com/) en deze gebruiken in uw registratiebeleid, het beleid voor registreren of aanmelden of het beleid voor profielbewerking. U kunt ook lezen en schrijven van deze kenmerken met behulp van de [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Aangepaste kenmerken in Azure AD B2C gebruikt [Azure AD Graph API Directory-Schemauitbreidingen](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 ## <a name="create-a-custom-attribute"></a>Een aangepast kenmerk maken
-1. [Volg deze stappen om te navigeren naar de blade B2C-functies in Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Klik op **gebruikerskenmerken**.
-3. Klik op **+Toevoegen** boven aan de blade.
-4. Geef een **naam** voor het aangepaste kenmerk (bijvoorbeeld ' ShoeSize') en eventueel een **beschrijving**. Klik op **Create**.
-   
-   > [!NOTE]
-   > Alleen de 'Tekenreeks', de 'Booleaanse waarde' en 'Integer' **gegevenstypen** op dit moment beschikbaar zijn.
-   > 
-   > 
 
-Het aangepaste kenmerk is nu beschikbaar in de lijst met **gebruikerskenmerken**, en voor gebruik in uw registratiebeleid.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant gebruikt door hiernaar over te schakelen rechtsboven in de Azure Portal. Selecteer de abonnementsgegevens en selecteer vervolgens **Schakelen tussen mappen**. 
 
-## <a name="use-a-custom-attribute-in-your-sign-up-policy"></a>Een aangepast kenmerk in het registratiebeleid gebruiken
-1. [Volg deze stappen om te navigeren naar de blade B2C-functies in Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Klik op **Registratiebeleid**.
-3. Klik op het registratiebeleid (bijvoorbeeld ' B2C_1_SiUp') om deze te openen. Klik op **bewerken** aan de bovenkant van de blade.
-4. Klik op **registratiekenmerken** en selecteert u het aangepaste kenmerk (bijvoorbeeld ' ShoeSize'). Klik op **OK**.
-5. Klik op **toepassingsclaims** en selecteert u het aangepaste kenmerk. Klik op **OK**.
-6. Klik op **opslaan** aan de bovenkant van de blade.
+    ![Overschakelen naar de Azure AD B2C-tenant](./media/active-directory-b2c-reference-custom-attr/switch-directories.png)
 
-U kunt de functie 'Nu uitvoeren' van het beleid gebruiken om te controleren of de ervaring van consumenten. U moet nu Zie "ShoeSize" in de lijst met kenmerken die zijn verzameld tijdens de consumer Meld u aan en weergegeven in het token verzonden naar de toepassing.
+    Kies de map met uw tenant.
 
-## <a name="notes"></a>Opmerkingen
-* Samen met registratiebeleid, kunnen ook aangepaste kenmerken worden gebruikt in het beleid voor registreren of aanmelden en beleid voor profielbewerking.
-* Er is een bekende beperking van aangepaste kenmerken. Het is alleen de eerste keer dat deze wordt gebruikt in een beleid gemaakt, en niet wanneer u deze toevoegen aan de lijst met **gebruikerskenmerken**.
+    ![Map selecteren](./media/active-directory-b2c-reference-custom-attr/select-directory.png)
+
+3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+4. Selecteer **gebruikerskenmerken**, en selecteer vervolgens **toevoegen**.
+5. Geef een **naam** voor het aangepaste kenmerk (bijvoorbeeld ' ShoeSize")
+6. Kies een **gegevenstype**. Alleen **tekenreeks**, **Booleaanse**, en **Int** beschikbaar zijn.
+7. Geef eventueel een **beschrijving** ter informatie bedoeld. 
+8. Klik op **Create**.
+
+Het aangepaste kenmerk is nu beschikbaar in de lijst met **gebruikerskenmerken** en voor gebruik in uw beleid. Een aangepast kenmerk wordt alleen de eerste keer dat deze wordt gebruikt in een beleid gemaakt, en niet wanneer u deze toevoegen aan de lijst met **gebruikerskenmerken**.
+
+## <a name="use-a-custom-attribute-in-your-policy"></a>Gebruik een aangepast kenmerk in het beleid
+
+1. Selecteer in uw Azure AD B2C-tenant, **beleid voor registreren of aanmelden**.
+2. Selecteer het beleid (bijvoorbeeld ' B2C_1_SignupSignin') om dit te openen. 
+3. Klik op **Bewerken**.
+4. Selecteer **registratiekenmerken** en selecteer vervolgens het aangepaste kenmerk (bijvoorbeeld ' ShoeSize'). Klik op **OK**.
+5. Selecteer **toepassingsclaims** en selecteer vervolgens het aangepaste kenmerk. Klik op **OK**.
+6. Klik op **Opslaan**.
+
+U kunt de **nu uitvoeren** functie op het beleid om te controleren of de ervaring van de klant. U ziet nu **ShoeSize** in de lijst met kenmerken die zijn verzameld tijdens de registratie reis, en het in het token verzonden naar de toepassing te zien.
 

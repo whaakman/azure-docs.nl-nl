@@ -1,6 +1,6 @@
 ---
-title: Hoe Queue storage gebruiken met Ruby | Microsoft Docs
-description: Informatie over het gebruik van de Azure Queue-service maken en verwijderen van wachtrijen, en invoegen, ophalen en verwijderen van berichten. De voorbeelden in Ruby geschreven.
+title: Hoe u Queue storage gebruiken met Ruby | Microsoft Docs
+description: Informatie over het gebruik van de Azure Queue-service maken en verwijderen van wachtrijen, en invoegen, ophalen en verwijderen van berichten. Voorbeelden die is geschreven Ruby.
 services: storage
 documentationcenter: ruby
 author: tamram
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.openlocfilehash: 0d7624d47a6924a5c8dec66b47ac0887ff493879
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27993633"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719070"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Queue Storage gebruiken met Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -27,48 +27,48 @@ ms.locfileid: "27993633"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met de Microsoft Azure Queue Storage-service uitvoeren. De voorbeelden zijn geschreven met de Azure-API voor Ruby.
-De scenario's worden behandeld: **invoegen**, **inspecteren**, **ophalen**, en **verwijderen** wachtrij berichten, evenals **maken en verwijderen van wachtrijen**.
+Deze handleiding wordt beschreven hoe u algemene scenario's met behulp van de Microsoft Azure Queue Storage-service uitvoert. De voorbeelden zijn geschreven met behulp van de Ruby-API van Azure.
+De behandelde scenario's zijn **invoegen**, **inspecteren**, **aan**, en **verwijderen** berichten in de wachtrij, evenals  **het maken en verwijderen van wachtrijen**.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Een Ruby-toepassing maken
-Maak een Ruby toepassing. Zie voor instructies [een Ruby-App maken in App Service op Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
+Een Ruby-toepassing maken. Zie voor instructies [een Ruby-App maken in App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
 
-## <a name="configure-your-application-to-access-storage"></a>Uw toepassing configureren voor toegang tot opslag
-Voor het gebruik van Azure-opslag die u wilt downloaden en gebruiken van het Ruby azure pakket bevat een set met gemak bibliotheken die met de storage REST-services communiceren.
+## <a name="configure-your-application-to-access-storage"></a>Uw toepassing configureren voor opslag met leestoegang
+Voor het gebruik van Azure storage, die u wilt downloaden en gebruiken van het Ruby azure pakket bevat een set met gemak bibliotheken die met de storage REST-services communiceren.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems gebruiken om het pakket te verkrijgen
-1. Een opdrachtregelinterface gebruiken zoals **PowerShell** (Windows), **Terminal** (Mac) of **Bash** (Unix).
-2. Typ 'azure gem installeren' in het opdrachtvenster voor het installeren van de gem en afhankelijkheden.
+1. Gebruik een opdrachtregelinterface zoals **PowerShell** (Windows), **Terminal** (Mac) of **Bash** (Unix).
+2. Typ 'azure gem installeren' in het opdrachtvenster om de gem en de afhankelijkheden te installeren.
 
 ### <a name="import-the-package"></a>Het pakket importeren
-Uw favoriete teksteditor gebruiken, Voeg het volgende toe aan het begin van de Ruby bestand waarop u wilt opslag gebruiken:
+Uw favoriete teksteditor gebruiken, het volgende toevoegen aan de bovenkant van het Ruby-bestand waarin u van plan bent opslag gebruiken:
 
 ```ruby
 require "azure"
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Een Azure-opslag-verbinding instellen
-De azure-module leest de omgevingsvariabelen **AZURE\_opslag\_ACCOUNT** en **AZURE\_opslag\_ACCESS_KEY** voor meer informatie verbinding maken met uw Azure storage-account vereist. Als deze omgevingsvariabelen zijn niet ingesteld, moet u de accountgegevens voordat u **Azure::QueueService** met de volgende code:
+## <a name="setup-an-azure-storage-connection"></a>Een Azure Storage-verbinding instellen
+De azure-module leest de omgevingsvariabelen **AZURE\_opslag\_ACCOUNT** en **AZURE\_opslag\_ACCESS_KEY** voor meer informatie verbinding maken met uw Azure storage-account vereist. Als deze omgevingsvariabelen zijn niet ingesteld, moet u de accountgegevens voordat u **Azure::QueueService** door de volgende code:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your Azure storage access key>"
 ```
 
-Als u deze waarden van een klassiek of Resource Manager-opslagaccount in de Azure-portal:
+U verkrijgt deze waarden als volgt van een klassiek of Resource Manager-opslagaccount op Azure Portal:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Ga naar het opslagaccount dat u wilt gebruiken.
-3. Klik op de blade instellingen aan de rechterkant **toegangstoetsen**.
-4. In de blade van de toegang tot sleutels die wordt weergegeven, ziet u de toegangssleutel 1 en toegangssleutel 2. U kunt een van beide gebruiken. 
-5. Klik op het pictogram kopiëren om de sleutel naar het Klembord kopiëren. 
+2. Navigeer naar het opslagaccount dat u wilt gebruiken.
+3. Klik in de blade Instellingen aan de rechterkant op **Toegangssleutels**.
+4. In de blade Toegang die wordt weergegeven, ziet u toegangssleutel 1 en toegangssleutel 2. U kunt een van beide gebruiken. 
+5. Klik op het kopieerpictogram om de sleutel naar het klembord kopiëren. 
 
 ## <a name="how-to-create-a-queue"></a>Procedure: Een wachtrij maken
-De volgende code maakt een **Azure::QueueService** object, waarmee u werkt met wachtrijen.
+De volgende code maakt een **Azure::QueueService** object, dat u kunt werken met wachtrijen.
 
 ```ruby
 azure_queue_service = Azure::QueueService.new
@@ -85,27 +85,27 @@ end
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Procedure: Een bericht in een wachtrij invoegen
-Voor het invoegen van een bericht in een wachtrij, gebruikt u de **create_message()** methode voor het maken van een nieuw bericht en voeg deze toe aan de wachtrij.
+Voor het invoegen van een bericht in een wachtrij wordt geplaatst, gebruikt u de **create_message()** methode voor het maken van een nieuw bericht en toe te voegen aan de wachtrij.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procedure: Bekijken van het volgende bericht
-U kunt het bericht vooraan in een wachtrij bekijken zonder het te verwijderen uit de wachtrij door het aanroepen van de **peek\_messages()** methode. Standaard **peek\_messages()** peeks op één bericht. U kunt ook opgeven hoeveel berichten die u wilt bekijken.
+## <a name="how-to-peek-at-the-next-message"></a>Procedure: Het volgende bericht bekijken
+U kunt het bericht vooraan in een wachtrij bekijken zonder deze te verwijderen uit de wachtrij door het aanroepen van de **peek\_messages()** methode. Standaard **peek\_messages()** peeks op één bericht. U kunt ook opgeven hoeveel berichten die u wilt bekijken.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Procedure: Het volgende bericht uit de wachtrij halen
+## <a name="how-to-dequeue-the-next-message"></a>Procedure: Het volgende bericht uit de wachtrij verwijderen
 U kunt een bericht verwijderen uit een wachtrij in twee stappen.
 
-1. Als u aanroept **lijst\_messages()**, krijgt u het volgende bericht in een wachtrij standaard. U kunt ook opgeven hoeveel berichten die u wilt ophalen. De berichten die zijn geretourneerd door **lijst\_messages()** wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. U doorgeven de zichtbaarheid time-out in seconden als parameter.
-2. Voor het voltooien van het bericht uit de wachtrij te verwijderen, moet u ook aanroepen **delete_message()**.
+1. Als u aanroept **lijst\_messages()**, krijgt u het volgende bericht in een wachtrij standaard. U kunt ook opgeven hoeveel berichten die u wilt ophalen. De berichten geretourneerd door **lijst\_messages()** wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. U doorgeven de time-out voor zichtbaarheid in een paar seconden als een parameter.
+2. Voor het voltooien van het bericht uit de wachtrij verwijderen, moet u ook aanroepen **delete_message()**.
 
-Dit proces in twee stappen van het verwijderen van een bericht zorgt ervoor dat wanneer uw code niet kan een bericht vanwege problemen met hardware of software te verwerken, een ander exemplaar van uw code kunt het bericht verschijnt en probeer het opnieuw. Uw code haalt **verwijderen\_message()** direct nadat het bericht is verwerkt.
+Dit proces in twee stappen van het verwijderen van een bericht zorgt ervoor dat wanneer uw code niet kan verwerken van een bericht vanwege fout bij de hardware of software, een ander exemplaar van uw code kunt hetzelfde bericht en probeer het opnieuw. Uw code roept **verwijderen\_message()** direct nadat het bericht is verwerkt.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)
@@ -114,7 +114,7 @@ azure_queue_service.delete_message("test-queue",
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedure: De inhoud van een bericht in de wachtrij wijzigen
-U kunt de inhoud van een bericht in de wachtrij wijzigen. De code hieronder maakt gebruik van de **update_message()** methode voor het bijwerken van een bericht. De methode retourneert een tuple waarin de pop ontvangst van het bericht uit de wachtrij en een UTC date tijd-waarde die aangeeft wanneer het bericht zichtbaar in de wachtrij zijn.
+U kunt de inhoud van een bericht in de wachtrij wijzigen. De code hieronder wordt de **update_message()** methode voor het bijwerken van een bericht. De methode retourneert een tuple met het pop-ontvangstbericht van het bericht uit de wachtrij en een UTC datum tijd-waarde die aangeeft wanneer het bericht zichtbaar in de wachtrij zijn.
 
 ```ruby
 message = azure_queue_service.list_messages("test-queue", 30)
@@ -123,13 +123,13 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Procedure: Aanvullende opties voor waarbij berichten
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Het: Aanvullende opties voor eruit worden verwijderd voor berichten
 Er zijn twee manieren waarop u het ophalen van berichten uit een wachtrij kunt aanpassen.
 
 1. U kunt een batch van bericht ophalen.
-2. U kunt een time-out langer of korter onzichtbaarheid instellen zodat uw code meer of minder tijd voor het volledig verwerken van elk bericht.
+2. U kunt een time-out langer of korter onzichtbaarheid instellen zodat uw code meer of minder tijd aan het volledig verwerken van elk bericht.
 
-Het volgende codevoorbeeld wordt de **lijst\_messages()** methode 15 berichten in één aanroep ophalen. Vervolgens wordt afgedrukt en elk bericht wordt verwijderd. De time-out voor onzichtbaarheid wordt ingesteld op vijf minuten voor elk bericht.
+Het volgende codevoorbeeld wordt de **lijst\_messages()** methode voor het ophalen van 15 berichten in één aanroep. Vervolgens wordt afgedrukt en elk bericht wordt verwijderd. De time-out voor onzichtbaarheid wordt ingesteld op vijf minuten voor elk bericht.
 
 ```ruby
 azure_queue_service.list_messages("test-queue", 300
@@ -139,7 +139,7 @@ azure_queue_service.list_messages("test-queue", 300
 end
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Procedure: De lengte van de wachtrij ophalen
+## <a name="how-to-get-the-queue-length"></a>Procedure: Lengte van de wachtrij ophalen
 U kunt een schatting van het aantal berichten in de wachtrij ophalen. De **ophalen\_wachtrij\_metadata()** methode vraagt de queue-service om het aantal berichten bij benadering en metagegevens over de wachtrij te retourneren.
 
 ```ruby
@@ -148,7 +148,7 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
 ```
 
 ## <a name="how-to-delete-a-queue"></a>Procedure: Een wachtrij verwijderen
-Aanroepen voor het verwijderen van een wachtrij en alle berichten hierin de **verwijderen\_queue()** methode voor het object in de wachtrij.
+Als wilt verwijderen van een wachtrij en alle berichten die erin zijn opgenomen, roept de **verwijderen\_queue()** methode voor het object in de wachtrij.
 
 ```ruby
 azure_queue_service.delete_queue("test-queue")
@@ -158,6 +158,6 @@ azure_queue_service.delete_queue("test-queue")
 Nu dat u de basisprincipes van queue storage hebt geleerd, volgt u deze koppelingen voor meer informatie over complexere opslagtaken.
 
 * Ga naar de [Blog Azure Storage-Team](http://blogs.msdn.com/b/windowsazurestorage/)
-* Ga naar de [Azure SDK voor Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) opslagplaats op GitHub
+* Ga naar de [Azure SDK voor Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) -bibliotheek op GitHub
 
-Voor een vergelijking tussen de Azure Queue-Service die wordt besproken in dit artikel en de Azure Service Bus-wachtrijen beschreven in de [het gebruik van Service Bus-wachtrijen](/develop/ruby/how-to-guides/service-bus-queues/) artikel, Zie [Azure wachtrijen en Service Bus-wachtrijen - vergeleken en Tegenstelling tot](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Voor een vergelijking tussen de Azure Queue-Service die in dit artikel worden besproken en Azure Service Bus-wachtrijen beschreven in de [over het gebruik van Service Bus-wachtrijen](/develop/ruby/how-to-guides/service-bus-queues/) artikel, Zie [Azure Queues en Service Bus-wachtrijen: vergeleken en Verschillen](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

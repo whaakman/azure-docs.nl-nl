@@ -1,6 +1,6 @@
 ---
-title: Toegang tot het netwerk beperken tot bronnen in PaaS - Azure CLI | Microsoft Docs
-description: In dit artikel leert u hoe u en beperken van toegang tot het netwerk voor Azure-resources, zoals Azure Storage en Azure SQL Database met de service-eindpunten van een virtueel netwerk met de Azure CLI.
+title: Beperken van netwerktoegang tot PaaS-resources - Azure CLI | Microsoft Docs
+description: In dit artikel leert u hoe u begrenzen en beperken van toegang tot het netwerk naar Azure-resources, zoals Azure Storage en Azure SQL Database, met virtual network-service-eindpunten met behulp van de Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -18,32 +18,32 @@ ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841976"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232738"
 ---
-# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Toegang tot het netwerk beperken tot PaaS-resources met de service-eindpunten van een virtueel netwerk met de Azure CLI
+# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Netwerktoegang tot PaaS-resources beperken met service-eindpunten van een virtueel netwerk met de Azure CLI
 
-Service-eindpunten voor virtueel netwerk kunnen u de netwerktoegang tot bepaalde bronnen Azure-service naar een virtueel netwerksubnet beperken. U kunt ook internettoegang tot de resources verwijderen. Service-eindpunten bieden rechtstreekse verbinding met uw virtuele netwerk met de ondersteunde Azure-services, zodat u kunt persoonlijke adresruimte van het virtuele netwerk gebruiken voor toegang tot de Azure-services. Verkeer dat is bestemd voor Azure-resources via de service-eindpunten altijd blijft op de Microsoft Azure-backbone-netwerk. In dit artikel leert u hoe:
+Met service-eindpunten voor virtuele netwerken kunt u de netwerktoegang tot sommige Azure-servicebronnen beperken tot een subnet van een virtueel netwerk. U kunt ook internettoegang tot de resources verwijderen. Service-eindpunten zorgen voor een rechtstreekse verbinding van uw virtuele netwerk met ondersteunde Azure-services, zodat u de privéadresruimte van uw virtuele netwerk kunt gebruiken voor toegang tot de Azure-services. Verkeer dat bestemd is voor Azure-resources via de service-eindpunten blijft altijd op het Microsoft Azure-backbone-netwerk. In dit artikel leert u het volgende:
 
 * Een virtueel netwerk maken met één subnet
-* Toevoegen van een subnet en een service-eindpunt inschakelen
-* Een Azure-resource maken en toegang tot het netwerk laat van alleen een subnet
-* Een virtuele machine (VM) implementeren voor elk subnet
-* Toegang tot een resource van een subnet bevestigen
-* Controleer de toegang is geweigerd tot een bron van een subnet en het internet
+* Een subnet toevoegen en een service-eindpunt inschakelen
+* Een Azure-resource maken en alleen toegang ertoe toestaan vanaf een subnet
+* Een virtuele machine (VM) implementeren op elk subnet
+* Toegang tot een resource vanaf een subnet bevestigen
+* Bevestigen dat toegang wordt geweigerd aan een resource vanaf een subnet en internet
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, is deze snelstartgids vereist dat u de Azure CLI versie 2.0.28 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstart de Azure CLI versie 2.0.28 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Voordat u een virtueel netwerk maakt, moet u maken van een resourcegroep voor het virtuele netwerk en andere resources die zijn gemaakt in dit artikel. Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+Voordat u een virtueel netwerk maakt, moet u maken van een resourcegroep voor het virtuele netwerk en alle andere resources in dit artikel hebt gemaakt. Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
 ```azurecli-interactive
 az group create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Een service-eindpunt inschakelen 
 
-U kunt de service-eindpunten die alleen voor services die ondersteuning bieden voor service-eindpunten inschakelen. Service-eindpunt diensten beschikbaar weergeven in een Azure-locatie met [az network vnet lijst-eindpunt-services](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). Het volgende voorbeeld wordt een lijst met services-service-eindpunt-functionaliteit beschikbaar zijn in de *eastus* regio. Naar meer Azure-services service-eindpunt is ingeschakeld worden, wordt de lijst met services die worden geretourneerd gedurende een periode, uitgebreid.
+U kunt de service-eindpunten alleen voor services die ondersteuning bieden voor service-eindpunten inschakelen. Service-eindpunt ingeschakeld services beschikbaar weergeven in een Azure-locatie met [az network vnet--eindpuntservices](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). Het volgende voorbeeld retourneert een lijst van service-eindpunt ingeschakeld services beschikbaar in de *eastus* regio. De lijst met services die zijn geretourneerd zal na verloop van tijd toenemen naarmate er meer Azure-services worden service-eindpunt ingeschakeld.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -83,9 +83,9 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## <a name="restrict-network-access-for-a-subnet"></a>Beperken van toegang tot het netwerk voor een subnet
+## <a name="restrict-network-access-for-a-subnet"></a>Netwerktoegang voor een subnet beperken
 
-Maken van een netwerkbeveiligingsgroep met [az netwerk nsg maken](/cli/azure/network/nsg#az_network_nsg_create). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNsgPrivate*.
+Maak een netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg#az_network_nsg_create). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNsgPrivate*.
 
 ```azurecli-interactive
 az network nsg create \
@@ -93,7 +93,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-Koppelen van de netwerkbeveiligingsgroep voor de *persoonlijke* subnet met [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). Het volgende voorbeeld wordt de *myNsgPrivate* netwerkbeveiligingsgroep voor de *persoonlijke* subnet:
+Koppelen van de netwerkbeveiligingsgroep voor de *persoonlijke* subnet met de [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). Het volgende voorbeeld wordt de *myNsgPrivate* netwerkbeveiligingsgroep naar de *persoonlijke* subnet:
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -103,7 +103,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Maken van de beveiligingsregels voor verbindingen met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). De regel die volgt kunt uitgaande toegang tot het openbare IP-adressen toegewezen aan de Azure Storage-service: 
+Maken van de beveiligingsregels voor verbindingen met [az network nsg-regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). De regel die volgt toestaat uitgaande toegang tot het openbare IP-adressen toegewezen aan de Azure Storage-service: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -150,13 +150,13 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-## <a name="restrict-network-access-to-a-resource"></a>Beperken van toegang tot het netwerk aan een resource
+## <a name="restrict-network-access-to-a-resource"></a>Netwerktoegang tot een resource beperken
 
-Stapsgewijze instructies voor het beperken van toegang tot het netwerk naar bronnen die zijn gemaakt via de Azure-services ingeschakeld voor service-eindpunten varieert op services. Zie de documentatie voor afzonderlijke services voor specifieke stappen voor elke service. De rest van dit artikel bevat stappen voor het beperken van toegang tot het netwerk voor een Azure Storage-account als voorbeeld.
+De stappen die nodig zijn om netwerktoegang te beperken tot resources die zijn gemaakt met Azure-services waarvoor service-eindpunten zijn ingeschakeld, verschillen per service. Zie de documentatie voor afzonderlijke services voor specifieke stappen voor elke service. De rest van dit artikel bevat stappen voor het beperken van toegang tot het netwerk voor een Azure Storage-account, als voorbeeld.
 
 ### <a name="create-a-storage-account"></a>Create a storage account
 
-Maken van een Azure storage-account met [az storage-account maken](/cli/azure/storage/account#az_storage_account_create). Vervang `<replace-with-your-unique-storage-account-name>` met een naam die is uniek voor alle Azure locaties tussen 3 tot 24 tekens lang zijn, met behulp van alleen cijfers en kleine letters.
+Maak een Azure storage-account met [az storage-account maken](/cli/azure/storage/account#az_storage_account_create). Vervang `<replace-with-your-unique-storage-account-name>` met een naam die uniek is voor alle Azure locaties, tussen 3 en 24 tekens lang, met behulp van alleen cijfers en kleine letters.
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -168,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-Nadat het opslagaccount is gemaakt, het ophalen van de verbindingsreeks voor de storage-account in een variabele met [az storage-account weergeven verbindingsreeks](/cli/azure/storage/account#az_storage_account_show_connection_string). De verbindingsreeks wordt gebruikt voor het maken van een bestandsshare in een latere stap.
+Nadat het opslagaccount is gemaakt, de verbindingsreeks voor het opslagaccount ophalen in een variabele met [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). De verbindingsreeks wordt gebruikt om een bestandsshare maken in een latere stap.
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -178,15 +178,15 @@ saConnectionString=$(az storage account show-connection-string \
   --out tsv)
 ```
 
-<a name="account-key"></a>De inhoud van de variabele bekijken en noteer de waarde voor **AccountKey** geretourneerd in de uitvoer, omdat deze wordt gebruikt in een later stadium.
+<a name="account-key"></a>De inhoud van de variabele bekijken en noteer de waarde voor **AccountKey** geretourneerd in de uitvoer, omdat deze wordt gebruikt in een latere stap.
 
 ```azurecli-interactive
 echo $saConnectionString
 ```
 
-### <a name="create-a-file-share-in-the-storage-account"></a>Een bestandsshare in de storage-account maken
+### <a name="create-a-file-share-in-the-storage-account"></a>Een bestandsshare maken in het opslagaccount
 
-Een bestandsshare maken in het opslagaccount met [az storage-share maken](/cli/azure/storage/share#az_storage_share_create). Deze bestandsshare is een latere stap gekoppeld voor toegang tot het netwerk te bevestigen.
+Een bestandsshare maken in de storage-account met [az storage share maken](/cli/azure/storage/share#az_storage_share_create). In een latere stap, is deze bestandsshare gekoppeld voor toegang tot het netwerk te bevestigen.
 
 ```azurecli-interactive
 az storage share create \
@@ -197,7 +197,7 @@ az storage share create \
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Alle toegang tot het netwerk naar een opslagaccount weigeren
 
-Storage-accounts accepteren standaard netwerkverbindingen van clients in een netwerk. Om te beperken van toegang tot geselecteerde netwerken, wijzigt u de standaardactie voor *weigeren* met [az storage account bijwerken](/cli/azure/storage/account#az_storage_account_update). Het opslagaccount is niet toegankelijk is vanaf een netwerk wanneer het netwerktoegang is geweigerd.
+Standaard accepteren opslagaccounts netwerkverbindingen van clients in ieder netwerk. Om te beperken de toegang tot geselecteerde netwerken, wijzigt u de standaardactie voor *weigeren* met [az storage account update](/cli/azure/storage/account#az_storage_account_update). Zodra het netwerktoegang is geweigerd, is de storage-account niet toegankelijk is vanaf een netwerk.
 
 ```azurecli-interactive
 az storage account update \
@@ -206,9 +206,9 @@ az storage account update \
   --default-action Deny
 ```
 
-### <a name="enable-network-access-from-a-subnet"></a>Toegang tot het netwerk van een subnet inschakelen
+### <a name="enable-network-access-from-a-subnet"></a>Netwerktoegang vanuit een subnet inschakelen
 
-Toestaan van toegang tot het netwerk naar de storage-account van de *persoonlijke* subnet met [az storage account netwerk-regel toevoegen](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add).
+Toestaan van toegang tot het netwerk naar het opslagaccount van de *persoonlijke* subnet met de [az storage account network-regel toevoegen](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add).
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -219,11 +219,11 @@ az storage account network-rule add \
 ```
 ## <a name="create-virtual-machines"></a>Virtuele machines maken
 
-Als u wilt testen toegang tot het netwerk naar een opslagaccount, moet u een virtuele machine implementeren met elk subnet.
+Implementeer een VM in elk subnet om de netwerktoegang tot een opslagaccount te testen.
 
 ### <a name="create-the-first-virtual-machine"></a>De eerste virtuele machine maken
 
-Maak een VM in de *openbare* subnet met [az vm maken](/cli/azure/vm#az_vm_create). Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, wordt deze de opdracht maken. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
+Maken van een virtuele machine in de *openbare* subnet met de [az vm maken](/cli/azure/vm#az_vm_create). Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, worden ze met deze opdracht gemaakt. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -235,7 +235,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-De virtuele machine duurt een paar minuten maken. Nadat de virtuele machine is gemaakt, toont de Azure CLI informatie vergelijkbaar met het volgende voorbeeld: 
+Het maken van de virtuele machine duurt een paar minuten. Nadat de virtuele machine is gemaakt, toont de Azure CLI informatie die vergelijkbaar is met het volgende voorbeeld: 
 
 ```azurecli 
 {
@@ -250,9 +250,9 @@ De virtuele machine duurt een paar minuten maken. Nadat de virtuele machine is g
 }
 ```
 
-Noteer de **publicIpAddress** in de resulterende uitvoer. Dit adres wordt gebruikt voor toegang tot de virtuele machine vanaf het internet in een later stadium.
+Noteer de **publicIpAddress** in de resulterende uitvoer. Dit adres wordt gebruikt voor toegang tot de virtuele machine via internet in een latere stap.
 
-### <a name="create-the-second-virtual-machine"></a>Het tweede virtuele machine maken
+### <a name="create-the-second-virtual-machine"></a>De tweede virtuele machine maken
 
 ```azurecli-interactive
 az vm create \
@@ -264,9 +264,9 @@ az vm create \
   --generate-ssh-keys
 ```
 
-De virtuele machine duurt een paar minuten maken. Na het maken, dient u de **publicIpAddress** in de uitvoer die wordt geretourneerd. Dit adres wordt gebruikt voor toegang tot de virtuele machine vanaf het internet in een later stadium.
+Het maken van de virtuele machine duurt een paar minuten. Na het maken, noteer de **publicIpAddress** in de uitvoer die wordt geretourneerd. Dit adres wordt gebruikt voor toegang tot de virtuele machine via internet in een latere stap.
 
-## <a name="confirm-access-to-storage-account"></a>Toegang tot de storage-account bevestigen
+## <a name="confirm-access-to-storage-account"></a>Toegang tot opslagaccount bevestigen
 
 Voeg SSH toe aan de *myVmPrivate* VM. Vervang *<publicIpAddress>* met het openbare IP-adres van uw *myVmPrivate* VM.
 
@@ -280,27 +280,27 @@ Maak een map voor een koppelpunt:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Koppel de Azure-bestandsshare naar de map die u hebt gemaakt. Voordat u de volgende opdracht uitvoert, vervangt `<storage-account-name>` met de accountnaam en `<storage-account-key>` met de sleutel die u hebt opgehaald in [een opslagaccount maken](#create-a-storage-account).
+Koppel de Azure-bestandsshare naar de map die u hebt gemaakt. Voordat u de volgende opdracht uitvoert, Vervang `<storage-account-name>` met de accountnaam en `<storage-account-key>` met de sleutel die u hebt opgehaald in [een opslagaccount maken](#create-a-storage-account).
 
 ```bash
 sudo mount --types cifs //<storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-U ontvangt de `user@myVmPrivate:~$` prompt. De Azure-bestandsshare is gelukt aan */mnt/MyAzureFileShare*.
+U ontvangt de `user@myVmPrivate:~$` prompt. De Azure-bestandsshare is gekoppeld aan */mnt/MyAzureFileShare*.
 
-Bevestig dat de virtuele machine geen uitgaande verbinding heeft met andere openbare IP-adressen heeft:
+Bevestig dat de virtuele machine geen uitgaande verbinding naar een andere openbare IP-adressen heeft:
 
 ```bash
 ping bing.com -c 4
 ```
 
-U ontvangt geen antwoorden, omdat de netwerkbeveiligingsgroep die is gekoppeld aan de *persoonlijke* subnet kan geen uitgaande toegang tot de openbare IP-adressen dan de adressen die zijn toegewezen aan de Azure Storage-service.
+U krijgt geen antwoorden, omdat de netwerkbeveiligingsgroep die is gekoppeld aan het *Privé*-subnet geen uitgaande toegang toestaat aan andere openbare IP-adressen dan de adressen die zijn toegewezen aan de Azure Storage-service.
 
-Afsluiten van de SSH-sessie op de *myVmPrivate* VM.
+Sluit de SSH-sessie met de *myVmPrivate* VM.
 
-## <a name="confirm-access-is-denied-to-storage-account"></a>Toegang is geweigerd voor storage-account bevestigen
+## <a name="confirm-access-is-denied-to-storage-account"></a>Bevestigen dat toegang tot opslagaccount wordt geweigerd
 
-Gebruik de volgende opdracht voor het maken van een SSH-sessie met de *myVmPublic* VM. Vervang `<publicIpAddress>` met het openbare IP-adres van uw *myVmPublic* VM: 
+Gebruik de volgende opdracht om te maken van een SSH-sessie met de *myVmPublic* VM. Vervang `<publicIpAddress>` met het openbare IP-adres van uw *myVmPublic* VM: 
 
 ```bash 
 ssh <publicIpAddress>
@@ -312,17 +312,17 @@ Maak een map voor een koppelpunt:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Poging tot het koppelen van de Azure-bestandsshare naar de map die u hebt gemaakt. In dit artikel wordt ervan uitgegaan dat u de nieuwste versie van Ubuntu geïmplementeerd. Als u van eerdere versies van Ubuntu gebruikmaakt, Zie [koppelen op Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor aanvullende instructies over het koppelen van bestandsshares. Voordat u de volgende opdracht uitvoert, vervangt `<storage-account-name>` met de accountnaam en `<storage-account-key>` met de sleutel die u hebt opgehaald in [een opslagaccount maken](#create-a-storage-account):
+Poging tot het koppelen van de Azure-bestandsshare naar de map die u hebt gemaakt. In dit artikel wordt ervan uitgegaan dat u de nieuwste versie van Ubuntu geïmplementeerd. Als u van eerdere versies van Ubuntu gebruikmaakt, Zie [koppelen in Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor aanvullende instructies over het koppelen van bestandsshares. Voordat u de volgende opdracht uitvoert, Vervang `<storage-account-name>` met de accountnaam en `<storage-account-key>` met de sleutel die u hebt opgehaald in [een opslagaccount maken](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Toegang is geweigerd en u ontvangt een `mount error(13): Permission denied` fout, omdat de *myVmPublic* VM is geïmplementeerd in de *openbare* subnet. De *openbare* subnet beschikt niet over een service-eindpunt dat is ingeschakeld voor Azure Storage en het opslagaccount kunt u alleen toegang tot het netwerk van de *persoonlijke* subnet, niet de *openbare*subnet.
+De toegang is geweigerd en u ontvangt een `mount error(13): Permission denied` fout, omdat de *myVmPublic* virtuele machine wordt geïmplementeerd binnen de *openbare* subnet. Het *Openbare* subnet heeft geen service-eindpunt ingeschakeld voor Azure Storage en het opslagaccount staat alleen netwerktoegang toe van het *Privé*-subnet, en niet van het *Openbare*subnet.
 
-Afsluiten van de SSH-sessie op de *myVmPublic* VM.
+Sluit de SSH-sessie met de *myVmPublic* VM.
 
-Van uw computer wilt weergeven die de shares in uw opslagaccount met [az storage-share lijst](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Vervang `<account-name>` en `<account-key>` met de naam van het opslagaccount en de sleutel uit [een opslagaccount maken](#create-a-storage-account):
+Vanaf uw computer, probeert de shares weergeven in uw opslagaccount met [az storage share list](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Vervang `<account-name>` en `<account-key>` met de naam van het opslagaccount en sleutel van [een opslagaccount maken](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \
@@ -330,11 +330,11 @@ az storage share list \
   --account-key <account-key>
 ```
 
-Toegang is geweigerd en u ontvangt een *deze aanvraag is niet geautoriseerd voor het uitvoeren van deze bewerking* fout, omdat de computer zich niet in de *persoonlijke* subnet van de *MyVirtualNetwork* virtueel netwerk.
+De toegang is geweigerd en u ontvangt een *deze aanvraag is niet gemachtigd voor deze bewerking* fout, omdat de computer zich niet in de *persoonlijke* subnet van de *MyVirtualNetwork* virtueel netwerk.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer deze niet langer nodig is, gebruik [az groep verwijderen](/cli/azure#az_group_delete) verwijderen van de resourcegroep en alle resources bevat.
+Wanneer u niet meer nodig hebt, gebruikt u [az group delete](/cli/azure#az_group_delete) om de resourcegroep en alle resources die deze bevat te verwijderen.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -342,6 +342,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een service-eindpunt voor een virtueel netwerksubnet ingeschakeld. Hebt u geleerd dat de service-eindpunten kunnen worden ingeschakeld voor resources met meerdere Azure-services worden geïmplementeerd. U hebt een Azure Storage-account en een beperkte netwerktoegang tot het opslagaccount alleen bronnen binnen een virtueel netwerksubnet gemaakt. Zie voor meer informatie over service-eindpunten, [overzicht van de Service-eindpunten](virtual-network-service-endpoints-overview.md) en [subnetten beheren](virtual-network-manage-subnet.md).
+In dit artikel hebt u een service-eindpunt voor een subnet van een virtueel netwerk ingeschakeld. U hebt geleerd dat service-eindpunten kunnen worden ingeschakeld voor met meerdere Azure-services geïmplementeerde resources. U hebt een Azure Storage-account gemaakt en netwerktoegang tot het opslagaccount beperkt tot alleen resources binnen een subnet van een virtueel netwerk. Zie voor meer informatie over service-eindpunten [Overzicht voor service-eindpunten](virtual-network-service-endpoints-overview.md) en [Subnetten beheren](virtual-network-manage-subnet.md).
 
-Als u meerdere virtuele netwerken in uw account hebt, kunt u twee virtuele netwerken met elkaar verbinden zodat de resources in elk virtueel netwerk met elkaar kunnen communiceren. Voor meer informatie Zie [verbinding maken met virtuele netwerken](tutorial-connect-virtual-networks-cli.md).
+Als u meerdere virtuele netwerken in uw account hebt, kunt u twee virtuele netwerken met elkaar verbinden zodat de resources in beide virtuele netwerken met elkaar kunnen communiceren. Voor meer informatie Zie [virtuele netwerken verbinden](tutorial-connect-virtual-networks-cli.md).

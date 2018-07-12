@@ -1,6 +1,6 @@
 ---
-title: Back-up en herstel voor SQL Server in de virtuele machines in Azure | Microsoft Docs
-description: Beschrijft de overwegingen voor back-up en herstel voor SQL Server-databases die zijn uitgevoerd op Azure Virtual Machines.
+title: Back-up en herstel voor SQL Server in virtuele machines in Azure | Microsoft Docs
+description: Beschrijft de overwegingen voor back-up en herstel voor SQL Server-databases op Azure Virtual Machines worden uitgevoerd.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,99 +15,99 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 4b90d1b9b2ee64722d3c92bcbd8fa205c9b59ebd
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809604"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968983"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Back-up en herstel voor SQL Server in Azure Virtual Machines
 
-In dit artikel biedt richtlijnen voor de back-up en herstel beschikbare opties voor SQL Server in Windows Azure virtuele Machines worden uitgevoerd. Azure-opslag onderhoudt drie kopieën van elke virtuele machine van Azure-schijf om bescherming te bieden bescherming tegen gegevensverlies of fysieke gegevensbeschadiging. Dus in tegenstelling tot on-premises kunt hoeft u niet te concentreren op hardwarefouten. U moet echter nog steeds back-SQL Server-databases als bescherming tegen toepassings- of -fouten, zoals onbedoeld gegevens invoegingen of verwijderingen. In dit geval is het belangrijk om te kunnen herstellen naar een bepaald punt in tijd.
+In dit artikel bevat richtlijnen voor de back-up en herstel beschikbare opties voor SQL Server uitgevoerd in Windows Azure Virtual Machines. Azure-opslag onderhoudt drie kopieën van elke Azure-VM-schijf naar de bescherming tegen gegevensverlies of beschadiging van gegevens van fysieke garanderen. In tegenstelling tot on-premises hoeft u dus te richten op problemen met de hardware. U moet echter nog steeds back-uw SQL Server-databases om te beveiligen tegen toepassings- of fouten, zoals onbedoeld gegevens invoegingen of verwijderingen. In dit geval is het belangrijk om te kunnen herstellen naar een bepaald punt in tijd.
 
-Het eerste deel van dit artikel biedt een overzicht van de beschikbare back-up en opties voor terugzetten. Dit wordt gevolgd door de volgende secties meer informatie over elke strategie bevatten.
+Het eerste deel van dit artikel biedt een overzicht van de beschikbare back-up en opties voor het herstellen. Dit wordt gevolgd door de volgende secties meer informatie over elke strategie bevatten.
 
 ## <a name="backup-and-restore-options"></a>Opties voor back-up en herstel
 
-De volgende tabel bevat informatie over verschillende opties voor de back-up en herstel voor SQL Server op Azure VM's uitgevoerd:
+De volgende tabel bevat informatie over verschillende opties voor back-up en herstel voor SQL Server die wordt uitgevoerd op virtuele Azure-machines:
 
-| Een strategie voor | SQL-versies | Beschrijving |
+| Strategie | SQL-versies | Beschrijving |
 |---|---|---|---|
-| [Automatische back-up](#automated) | 2014<br/> 2016<br/> 2017 | Automatische back-up kunt u regelmatig back-ups voor alle databases op een virtuele machine van SQL Server. Back-ups worden opgeslagen in Azure storage tot maximaal 30 dagen. Beginnend met SQL Server 2016, biedt automatische back-up v2 aanvullende opties zoals handmatig te plannen en de frequentie van volledige en logboekback-ups configureren. |
-| [Azure Backup voor virtuele SQL-machines](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup biedt een back-upfunctionaliteit voor Enterprise-klasse voor SQL Server dat wordt uitgevoerd in Azure Virtual machines. Met deze service kunt u back-ups voor meerdere servers en duizenden databases centraal beheren. Databases kunnen worden hersteld naar een bepaald punt in tijd in de portal. Biedt een aanpasbare bewaarbeleid die back-ups voor jaar kunt onderhouden. Deze functie is momenteel in de openbare preview. |
-| [Handmatige back-up](#manual) | Alle | Afhankelijk van uw versie van SQL Server zijn er verschillende manieren handmatig back-up en herstellen van SQL Server wordt uitgevoerd op een Azure VM. In dit scenario bent u verantwoordelijk voor hoe de databases zijn back-up en de locatie voor de opslag en beheer van deze back-ups. |
+| [Automatische back-up](#automated) | 2014<br/> 2016<br/> 2017 | Automatische back-up kunt u plannen van regelmatige back-ups voor alle databases op een virtuele machine van SQL Server. Back-ups worden opgeslagen in Azure storage voor 30 dagen. U begint met SQL Server 2016, biedt automatische back-up v2 extra opties zoals het configureren van handmatig te plannen en de frequentie van volledige en logboekback-ups. |
+| [Azure Backup voor SQL-VM 's](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup biedt een back-upfunctionaliteit voor Enterprise-klasse voor SQL Server die wordt uitgevoerd in virtuele Azure-machines. Met deze service kunt u back-ups voor meerdere servers en schaling van duizenden databases centraal beheren. Databases kunnen worden hersteld naar een bepaald punt in tijd in de portal. Het biedt een aanpasbare bewaarbeleid dat back-ups voor jaar kunt onderhouden. Deze functie is momenteel in openbare preview. |
+| [Handmatige back-up](#manual) | Alle | Afhankelijk van uw versie van SQL Server zijn er verschillende manieren handmatig back-up en herstellen van SQL Server op een Azure-VM wordt uitgevoerd. In dit scenario bent u verantwoordelijk voor hoe uw databases back-ups en de locatie voor de opslag en beheer van deze back-ups. |
 
-De volgende secties wordt elke optie in meer detail beschreven. Het laatste gedeelte van dit artikel bevat een samenvatting in de vorm van een Functiematrix.
+De volgende secties wordt elke optie in meer detail beschreven. De laatste sectie van dit artikel bevat een samenvatting in de vorm van een Functiematrix.
 
 ## <a id="autoamted"></a> Automatische back-up
 
-Automatische back-up biedt een automatische back-service voor SQL Server Standard en Enterprise-edities uitgevoerd in een Windows Azure VM. Deze service wordt geboden door de [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md), dat automatisch is geïnstalleerd op de installatiekopieën van de SQL Server Windows virtuele machines in de Azure portal.
+Automatische back-up biedt een automatische back-upservice voor SQL Server Standard en Enterprise-edities die worden uitgevoerd in een Windows Azure-VM. Deze service wordt geleverd door de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md), die automatisch is geïnstalleerd op SQL Server Windows-installatiekopieën voor virtuele machines in Azure portal.
 
-Alle databases worden back-up naar Azure storage-account die u configureert. Back-ups kunnen worden versleuteld en maximaal 30 dagen bewaard.
+Alle databases worden back-ups op een Azure storage-account die u configureert. Back-ups kunnen worden versleuteld en maximaal 30 dagen bewaard.
 
-SQL Server 2016 en hogere VM's bieden meer aanpassingsopties met v2 voor automatische back-up. Deze verbeteringen zijn onder andere:
+SQL Server 2016 en hoger VM's bieden meer opties voor het aanpassen met geautomatiseerde back-ups v2. Deze verbeteringen zijn onder andere:
 
 - Back-ups van de database
 - Handmatige back-upschema en tijdvenster
-- Volledige en log-bestand back-upfrequentie
+- Volledige en logboek-back-upfrequentie
 
-Als u een database herstellen, moet u de vereiste back-bestanden niet vinden in het opslagaccount en een herstel uitvoeren op uw SQL-VM met SQL Server Management Studio (SSMS) of de Transact-SQL-opdrachten.
+Als u een database herstellen, moet u de vereiste bestanden voor back-up niet vinden in het opslagaccount en een herstel uitvoeren op de SQL-VM met behulp van SQL Server Management Studio (SSMS) of de Transact-SQL-opdrachten.
 
-Zie een van de volgende artikelen voor meer informatie over het configureren van automatische back-up voor virtuele SQL-machines:
+Zie een van de volgende artikelen voor meer informatie over het configureren van automatische back-up voor SQL-VM's:
 
-- **SQL Server 2016/2017**: [automatische back-v2 voor virtuele Machines in Azure ](virtual-machines-windows-sql-automated-backup-v2.md)
+- **SQL Server 2016/2017**: [automatische back-up v2 voor virtuele Machines van Azure ](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**: [automatische back-up voor virtuele Machines van SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> Azure Backup voor virtuele SQL-machines (openbare Preview)
+## <a id="azbackup"></a> Azure Backup voor SQL-VM's (Preview-versie)
 
-[Azure Backup](/azure/backup/) biedt u een back-upfunctionaliteit voor Enterprise-klasse voor SQL Server wordt uitgevoerd in Azure VM's. Alle back-ups worden opgeslagen en beheerd in een Recovery Services-kluis. Er zijn verschillende voordelen, met deze oplossing, met name voor ondernemingen biedt:
+[Azure Backup](/azure/backup/) biedt u een back-upfunctionaliteit voor Enterprise-klasse voor SQL Server wordt uitgevoerd in Azure VM's. Alle back-ups worden opgeslagen en beheerd in een Recovery Services-kluis. Er zijn diverse voordelen die deze oplossing, met name voor ondernemingen biedt:
 
-- **Back-up nul infrastructuur**: U hoeft niet te beheren van back-upservers of opslaglocaties.
-- **Schaal**: veel SQL-VM's en duizenden databases beveiligen.
-- **Betalen naar gebruik**: deze mogelijkheid is een afzonderlijke service van Azure Backup maar net als bij alle Azure-services, betaalt u alleen voor wat u gebruikt.
-- **Centraal beheer en controle**: centraal beheren van al uw back-ups, met inbegrip van andere werkbelastingen die Azure Backup, vanaf één dashboard in Azure ondersteunt.
-- **Beleid gebaseerde back-up en retentie**: standaard back-upbeleid voor regelmatige back-ups maken. Tot stand brengen bewaarbeleid voor het onderhouden van back-ups voor jaar.
-- **Ondersteuning voor SQL Always On**: detecteren en de configuratie van een SQL Server Always On beveiligen en voldoen aan de back-beschikbaarheidsgroep back-up voorkeur.
-- **15 minuten Recovery Point Objective (RPO)**: configureren SQL-transactielogboeken tot elke 15 minuten.
-- **Punt in tijd terugzetten**: de portal gebruiken om databases te herstellen naar een bepaald punt in tijd zonder handmatig herstellen in meerdere volledig, differentiële, en logboekback-ups.
-- **E-mailwaarschuwingen voor mislukte geconsolideerd**: configureren geconsolideerd e-mailmeldingen op fouten.
-- **Toegangsbeheer op basis van rollen**: bepalen wie kunt beheren van back-up en herstelbewerkingen via de portal.
+- **Back-up van nul infrastructuur**: U hebt niet om back-upservers of opslaglocaties te beheren.
+- **Schaal**: veel SQL-VM's en schaling van duizenden databases beveiligen.
+- **Betalen per gebruik**: deze mogelijkheid is een afzonderlijke service die is geleverd door Azure Backup, maar net als bij alle Azure-services, betaalt u alleen voor wat u gebruikt.
+- **Centraal beheer en controle**: Centraal beheer al uw back-ups, met inbegrip van andere werkbelastingen die Azure Backup, vanaf één dashboard in Azure ondersteunt.
+- **Beleid voor back-up en retentie gestuurde**: standaard back-upbeleid voor regelmatige back-ups maken. Tot stand brengen voor het bewaren van voor het onderhouden van back-ups voor jaar.
+- **Ondersteuning voor SQL Always On**: detecteren en beschermen van de configuratie van een SQL Server Always On en de back-up beschikbaarheidsgroep back-upvoorkeur in acht neemt.
+- **15 minuten Recovery Point Objective (RPO)**: configureren van SQL-transactielogboeken maximaal elke 15 minuten.
+- **Punt in tijd herstel**: de portal gebruiken om databases te herstellen naar een bepaald punt in tijd zonder handmatig herstellen meerdere volledige, differentiële, en logboekback-ups.
+- **E-mailwaarschuwingen voor fouten geconsolideerd**: configureren geconsolideerd e-mailmeldingen voor fouten.
+- **Op rollen gebaseerd toegangsbeheer**: bepalen wie kan beheren van back-up en herstelbewerkingen via de portal.
 
-Bekijk de volgende video voor een snel overzicht van hoe het werkt samen met een demo's:
+Bekijk de volgende video voor een snel overzicht van hoe het werkt samen met een demo:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2dNbw]
 
-Deze oplossing Azure Backup voor SQL-VM's is momenteel in de openbare preview. Zie voor meer informatie [maakt u een Back-up van SQL Server-database naar Azure](../../../backup/backup-azure-sql-database.md).
+Deze oplossing Azure back-up voor SQL-VM's is momenteel in openbare preview. Zie voor meer informatie, [maakt u een Back-up van SQL Server-database naar Azure](../../../backup/backup-azure-sql-database.md).
 
 ## <a id="manual"></a> Handmatige back-up
 
-Als u wilt handmatig beheren van back-up en herstelbewerkingen op uw virtuele SQL-machines, zijn er verschillende opties, afhankelijk van de versie van SQL Server die u gebruikt. Zie een van de volgende artikelen op basis van uw versie van SQL Server voor een overzicht van back-up en herstel:
+Als u wilt handmatig beheren van back-up en herstellen van bewerkingen op uw SQL-VM's, zijn er verschillende opties, afhankelijk van de versie van SQL Server die u gebruikt. Zie voor een overzicht van back-up en herstel, een van de volgende artikelen op basis van uw versie van SQL Server:
 
-- [Back-up en herstel voor SQL Server 2016 of hoger](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- [Back-up en herstel voor SQL Server 2014](https://msdn.microsoft.com/en-us/library/ms187048%28v=sql.120%29.aspx)
+- [Back-up en herstel voor SQL Server 2016 en hoger](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
+- [Back-up en herstel voor SQL Server 2014](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
 - [Back-up en herstel voor SQL Server 2012](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
 - [Back-up en herstel voor SQL Server SQL Server 2008 R2](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
 - [Back-up en herstel voor SQL Server 2008](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
 
-De volgende secties beschrijven verschillende handmatige back-up en herstel van de opties in meer detail.
+In de volgende secties beschrijven enkele handmatige back-up en herstellen van de opties in meer detail.
 
 ### <a name="backup-to-attached-disks"></a>Back-up naar de gekoppelde schijven
 
-U kunt voor SQL Server wordt uitgevoerd in Azure Virtual machines, met systeemeigen back-up en herstellen met behulp van gekoppelde schijven op de virtuele machine voor het doel van de back-upbestanden technieken. Er is echter een limiet aan het aantal schijven die u aan een virtuele machine van Azure koppelen kunt, op basis van de [grootte van de virtuele machine](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Er is ook de overhead van Schijfbeheer in overweging moet nemen.
+U kunt voor SQL Server die wordt uitgevoerd in virtuele Azure-machines, met systeemeigen back-up en herstellen met behulp van gekoppelde schijven op de virtuele machine voor de bestemming van de back-upbestanden technieken. Er is echter een limiet aan het aantal schijven die u aan een Azure-machine koppelen kunt, op basis van de [grootte van de virtuele machine](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Er is ook de overhead van het Schijfbeheer om te overwegen.
 
-Zie voor een voorbeeld van het handmatig maken van een volledige databaseback-up met behulp van SQL Server Management Studio (SSMS) of de Transact-SQL, [een volledige Database back-up maken](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
+Zie voor een voorbeeld van hoe u handmatig maakt een volledige databaseback-up met behulp van SQL Server Management Studio (SSMS) of de Transact-SQL, [een volledige Database back-up](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 
 ### <a name="backup-to-url"></a>Back-up naar URL
 
-Beginnend met SQL Server 2012 SP1 CU2, kunt u back-up en herstellen rechtstreeks naar Microsoft Azure Blob-opslag is ook bekend als back-up naar URL. SQL Server 2016 geïntroduceerd ook de volgende verbeteringen voor deze functie:
+Beginnen met SQL Server 2012 SP1 CU2, kunt u back-up en herstellen rechtstreeks naar Microsoft Azure Blob-opslag, die ook bekend als back-up naar URL. SQL Server 2016 wordt tevens de volgende verbeteringen voor deze functie geïntroduceerd:
 
-| Verbetering van de 2016 | Details |
+| Uitbreiding van 2016 | Details |
 | --- | --- |
-| **Striping** |Wanneer een back-up naar Microsoft Azure blob storage, SQL Server 2016 biedt ondersteuning voor back-ups op meerdere blobs zodat back-ups van grote databases maximaal 12,8 TB. |
-| **Back-up van de momentopname** |Door het gebruik van Azure momentopnamen biedt back-up van SQL Server-bestand momentopname bijna onmiddellijk uitgevoerde back-ups en snelle herstelbewerkingen voor databasebestanden opgeslagen met behulp van de Azure Blob storage-service. Deze mogelijkheid kunt u uw back-up vereenvoudigen en beleid herstellen. Back-up van de momentopname van de bestanden ondersteunt ook punt in tijd terugzetten. Zie voor meer informatie [Momentopnameback-ups voor databasebestanden in Azure](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
+| **Striping** |Wanneer de back-up naar Microsoft Azure blob storage, SQL Server 2016 biedt ondersteuning voor back-ups op meerdere blobs om in te schakelen back-ups van grote databases, tot een maximum van 12,8 TB. |
+| **Momentopnameback-up** |Door het gebruik van Azure-momentopnamen biedt SQL Server-bestand Momentopnameback-up nagenoeg onmiddellijke back-ups en snelle herstelbewerkingen voor databasebestanden die zijn opgeslagen met behulp van de Azure Blob storage-service. Deze manier kunt u het vereenvoudigen van de back-up en herstellen van beleid. Bestand-momentopnameback-up ondersteunt ook punt in tijd herstel. Zie voor meer informatie, [Momentopnameback-ups van databasebestanden in Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
 
-Zie een van de volgende artikelen op basis van uw versie van SQL Server voor meer informatie:
+Zie voor meer informatie, een van de volgende artikelen op basis van uw versie van SQL Server:
 
 - **SQL Server 2016/2017**: [SQL Server back-up naar URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
 - **SQL Server 2014**: [SQL Server 2014 back-up naar URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
@@ -115,41 +115,41 @@ Zie een van de volgende artikelen op basis van uw versie van SQL Server voor mee
 
 ### <a name="managed-backup"></a>Beheerde back-up
 
-Beginnend met SQL Server 2014, automatiseert Managed Backup het maken van back-ups naar Azure-opslag. Achter de schermen worden maakt beheerd back-up gebruik van de back-up naar URL-functie die wordt beschreven in de vorige sectie van dit artikel. Beheerde back-up is ook de onderliggende functie die de SQL Server VM automatische back-up-service ondersteunt.
+Beginnen met SQL Server 2014, automatiseert Managed Backup het maken van back-ups naar Azure storage. Achter de schermen maakt Managed Backup gebruik van de back-up naar URL-functie die wordt beschreven in de vorige sectie van dit artikel. Beheerde back-up is ook de onderliggende functie die ondersteuning biedt voor de SQL Server VM automatische back-up-service.
 
-U begint in SQL Server 2016, is beheerde back-up aanvullende opties voor het plannen van systeemdatabase back-up en volledige en back-upfrequentie logboek.
+Beheerde back-up hebt vanaf SQL Server 2016, u extra opties voor het plannen, systeemdatabase back-up en volledige en back-upfrequentie log.
 
 Zie een van de volgende artikelen op basis van uw versie van SQL Server voor meer informatie:
 
-- [Beheerde back-up naar Microsoft Azure voor SQL Server 2016 of hoger](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
-- [Beheerde back-up naar Microsoft Azure voor SQL Server 2014](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)
+- [Beheerde back-up naar Microsoft Azure voor SQL Server 2016 en hoger](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
+- [Managed Backup in Microsoft Azure voor SQL Server 2014](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)
 
 ## <a name="decision-matrix"></a>Besluit matrix
 
-De volgende tabel geeft een overzicht van de mogelijkheden van elke optie back-up en herstel voor SQL Server virtuele machines in Azure.
+De volgende tabel geeft een overzicht van de mogelijkheden van elke optie back-up en herstel voor SQL Server-machines in Azure.
 
 || **Automatische back-up** | **Azure Backup voor SQL** | **Handmatige back-up** |
 |---|---|---|---|
 | Vereist extra Azure-service |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Back-upbeleid in Azure-portal configureren | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| In Azure-portal-databases herstellen |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Back-upbeleid configureren in Azure portal | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Herstellen van databases in Azure portal |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Meerdere servers in één dashboard beheren |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Terugzetten naar eerder tijdstip | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| 15 minuten beoogd herstelpunt (RPO) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Korte termijn back-up bewaarbeleid (dagen) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Op lange termijn back-up bewaarbeleid (maanden, jaar) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 15 minuten Recovery Point Objective (RPO) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Op korte termijn back-upbewaarbeleid (dagen) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Back-beleid met een langetermijnbewaarperiode (maanden, jaar) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Ingebouwde ondersteuning voor SQL Server Always On |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Back-up naar Azure Storage-accounts | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatisch) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatisch) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(de klant beheerd) |
-| Beheer van opslag- en back-up-bestanden | | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
+| Back-up naar Azure-Opslagaccount (s) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatisch) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatisch) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(beheerd door de klant) |
+| Beheer van opslag en back-up-bestanden | | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
 | Back-up naar de gekoppelde schijven op de virtuele machine |   |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Centrale aanpasbare back-rapporten |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Centrale aanpasbare Backup-rapporten |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Geconsolideerde e-mailwaarschuwingen voor fouten |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Bewaking op basis van OMS aanpassen |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Monitor voor back-uptaken met SSMS of Transact-SQL-scripts | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Herstellen van databases met SSMS of Transact-SQL-scripts | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Back-uptaken controleren met behulp van SSMS of Transact-SQL-scripts | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Terugzetten met behulp van SSMS of Transact-SQL-scripts | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u van plan bent uw implementatie van SQL Server in een virtuele machine in Azure, kunt u inrichting richtlijnen vinden in de volgende handleiding: [inrichten van een virtuele machine van Windows SQL Server in de Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
+Als u van plan bent uw implementatie van SQL Server in een Azure-VM, kunt u inrichting hulp vinden in de volgende handleiding: [hoe u een Windows SQL Server-machine inrichten in Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
 
-Hoewel back-up en herstel kunnen worden gebruikt om uw gegevens te migreren, zijn er mogelijk eenvoudiger migratiepaden van gegevens met SQL Server op een virtuele machine in Azure. Zie voor een volledige beschrijving van de opties en aanbevelingen [een Database migreren naar SQL Server op een virtuele machine van Azure](virtual-machines-windows-migrate-sql.md).
+Hoewel back-up en herstel kunnen worden gebruikt om uw gegevens te migreren, zijn er mogelijk eenvoudiger migratiepaden van gegevens naar SQL Server op een Azure-VM. Zie voor een volledige beschrijving van de opties voor de migratie en aanbevelingen, [een Database migreren naar SQL Server op een Azure-VM](virtual-machines-windows-migrate-sql.md).

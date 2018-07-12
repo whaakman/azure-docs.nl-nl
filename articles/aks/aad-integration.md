@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 6/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7ae3818795cddf5dfbb93ca6cc8dfff9d1c44c03
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: e75577ae917cbe14a123ff5e2d44da2edc8062ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341231"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307310"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>Azure Active Directory integreren met AKS - Preview
 
 Azure Kubernetes Service (AKS) kunnen worden geconfigureerd voor het gebruik van Azure Active Directory voor gebruikersverificatie. In deze configuratie kunt u zich aanmelden bij een Azure Kubernetes Service-cluster met behulp van uw Azure Active Directory-verificatietoken. Bovendien, clusterbeheerders kunnen Kubernetes op rollen gebaseerd toegangsbeheer configureren op basis van lidmaatschap van een gebruikers-id of de map.
 
-In dit document worden het maken van alle benodigde vereisten voor AKS en Azure AD, het implementeren van een Azure AD-functionaliteit-cluster en het maken van een eenvoudige RBAC-rol in het AKS-cluster.
+In dit document worden het maken van alle benodigde vereisten voor AKS en Azure AD, het implementeren van een Azure AD-functionaliteit-cluster en het maken van een eenvoudige RBAC-rol in het AKS-cluster. Houd er rekening mee dat bestaande RBAC ingeschakeld AKS-clusters op dit moment kunnen niet worden bijgewerkt voor RBAC gebruiken.
 
 > [!IMPORTANT]
 > Azure Kubernetes Service (AKS) RBAC en Azure AD-integratie is momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.

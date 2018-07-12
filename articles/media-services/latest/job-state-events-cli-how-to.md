@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services-gebeurtenissen te routeren naar een aangepaste website-eindpunt | Microsoft Docs
-description: Gebruik Azure gebeurtenis raster abonneren op Media Services taak statuswijzigingsgebeurtenis.
+title: Azure Media Services-gebeurtenissen routeren naar een aangepaste web-eindpunt | Microsoft Docs
+description: Gebruik Azure Event Grid abonneren op de statuswijzigingsgebeurtenis van Media Services-taak.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6a098f43819bb6581b2c5978fbcc4a378a8514c1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9df0cd24ef890765b78c25a073d671889be10a7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638497"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38724062"
 ---
-# <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Azure Media Services-gebeurtenissen te routeren naar een aangepaste website-eindpunt met CLI
+# <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Azure Media Services-gebeurtenissen routeren naar een aangepaste web-eindpunt met behulp van CLI
 
-Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel kunt u de Azure CLI gebruiken voor een abonnement op Azure Media Services taak statuswijzigingsgebeurtenissen en gebeurtenis om het resultaat weer te geven. 
+Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel kunt u de Azure CLI gebruiken om u te abonneren op Azure Media Services-taak statuswijzigingsgebeurtenissen en activeren van de gebeurtenis om het resultaat weer te geven. 
 
-Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Deze zelfstudie laat zien hoe maken en een webhook instellen.
+Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. In deze zelfstudie laat zien hoe maken en instellen van een webhook.
 
 Als u de stappen in dit artikel hebt voltooid, ziet u dat de gegevens van gebeurtenissen naar een eindpunt zijn verzonden.
 
@@ -32,15 +32,15 @@ Meld u aan bij [Azure Portal](http://portal.azure.com) en start **CloudShell** o
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u wilt installeren of upgraden, Zie [Azure CLI installeren](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
-Zorg ervoor dat de waarden die u voor Opslagnaam van de naam van de Media Services-account, en resourcenaam gebruikt onthouden.
+Zorg ervoor dat u vergeet niet de waarden die u voor Opslagnaam van de Media Services-accountnaam, en de resourcenaam van de gebruikt.
 
-## <a name="enable-event-grid-resource-provider"></a>Gebeurtenis raster resourceprovider ingeschakeld
+## <a name="enable-event-grid-resource-provider"></a>Event Grid-resourceprovicer inschakelen
 
-Eerste wat die u moet doen is Zorg ervoor dat u de gebeurtenis raster resourceprovider is ingeschakeld op uw abonnement hebt. 
+Eerste wat die u moet doen is Zorg ervoor dat u Event Grid-resourceprovider is ingeschakeld op uw abonnement. 
 
 In de **Azure** portal het volgende doen:
 
@@ -48,25 +48,25 @@ In de **Azure** portal het volgende doen:
 2. Selecteer uw abonnement.
 3. Selecteer onder instellingen Resourceproviders.
 4. Zoek naar 'EventGrid'.
-5. Zorg ervoor dat gebeurtenis raster is geregistreerd. Als dit niet het geval is, drukt u op de **registreren** knop.  
+5. Zorg ervoor dat Event Grid is geregistreerd. Als dit niet het geval is, drukt u op de **registreren** knop.  
 
 ## <a name="create-a-generic-azure-function-webhook"></a>Een algemene webhook van de Azure-functie maken 
 
 ### <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
 
-Voordat u abonneren op artikel van het raster gebeurtenis, maakt u een eindpunt dat de berichten worden verzameld zodat u ze kunt weergeven.
+Voordat u zich abonneert op de Event Grid-artikel, maakt u een eindpunt dat de berichten worden verzameld, zodat u ze kunt bekijken.
 
-Maak een functie die wordt geactiveerd door een algemene webhook, zoals beschreven in de [generic webhook](https://docs.microsoft.com/azure/azure-functions/functions-create-generic-webhook-triggered-function) artikel. In deze zelfstudie de **C#** code wordt gebruikt.
+Maak een functie geactiveerd door een algemene webhook, zoals beschreven in de [generieke webhook](https://docs.microsoft.com/azure/azure-functions/functions-create-generic-webhook-triggered-function) artikel. In deze zelfstudie de **C#** code wordt gebruikt.
 
-Nadat de webhook is gemaakt, kopieert u de URL door te klikken op de *ophalen van de functie URL* koppeling aan de bovenkant van de **Azure** portal venster. U hoeft niet het laatste deel van de URL (*& clientID = standaard*).
+Nadat de webhook is gemaakt, kopieert u de URL door te klikken op de *functie-URL ophalen* koppelen aan de bovenkant van de **Azure** portalvenster. U hoeft niet het laatste deel van de URL (*& clientID = standaard*).
 
-![Maken van een webhook](./media/job-state-events-cli-how-to/generic_webhook_files.png)
+![Een webhook maken](./media/job-state-events-cli-how-to/generic_webhook_files.png)
 
 ### <a name="validate-the-webhook"></a>Valideren van de webhook
 
-Wanneer u uw eigen webhook-eindpunt met raster gebeurtenis registreert, stuurt u een POST-aanvraag met een eenvoudige validatiecode om te bewijzen eindpunt eigendom. Uw app moet reageren door echo terug code voor de validatie. Gebeurtenis raster leveren niet gebeurtenissen aan webHook-eindpunten die nog niet gevalideerd. Zie voor meer informatie [gebeurtenis raster beveiligings- en verificatie](https://docs.microsoft.com/azure/event-grid/security-authentication). Deze sectie definieert twee onderdelen die moeten worden gedefinieerd voor de validatie slaagt.
+Wanneer u uw eigen webhook-eindpunt met Event Grid registreren, stuurt u een POST-aanvraag met een eenvoudige validatie-code voor het eindpunt eigendom bewijzen. Uw app nodig heeft om te reageren door deze echo terug code voor de validatie. Event Grid leveren niet van gebeurtenissen naar webHook-eindpunten die nog niet gevalideerd is. Zie voor meer informatie, [Event Grid-beveiliging en verificatie](https://docs.microsoft.com/azure/event-grid/security-authentication). In dit gedeelte definieert twee onderdelen die moeten worden gedefinieerd voor de validatie om door te geven.
 
-#### <a name="update-the-source-code"></a>Werk de broncode
+#### <a name="update-the-source-code"></a>De broncode bijwerken
 
 Nadat u uw webhook gemaakt de **run.csx** bestand wordt weergegeven in de browser. De standaardcode vervangen door de volgende code. 
 
@@ -106,9 +106,9 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 }
 ```
 
-#### <a name="update-test-request-body"></a>De aanvraagtekst test bijwerken
+#### <a name="update-test-request-body"></a>Test-aanvraagtekst bijwerken
 
-Aan de rechterkant van de **Azure** portal venster ziet u twee tabbladen: **bestanden bekijken** en **Test**. Selecteer het tabblad **Testen**. In de **aanvraagtekst**, plak de volgende json. U kunt deze plakken, zoals is, niet nodig om alle waarden te wijzigen.
+Aan de rechterkant van de **Azure** portal venster ziet u twee tabbladen: **bestanden bekijken** en **Test**. Selecteer het tabblad **Testen**. In de **aanvraagtekst**, plak de volgende json. U kunt deze plakken is, hoeft niet te wijzigen van alle waarden.
 
 ```json
 [{
@@ -128,11 +128,11 @@ Druk op **opslaan en uitvoeren** aan de bovenkant van het venster.
 
 ![Aanvraagtekst](./media/job-state-events-cli-how-to/generic_webhook_test.png)
 
-## <a name="register-for-the-event-grid-subscription"></a>Registreren voor het abonnement gebeurtenis raster 
+## <a name="register-for-the-event-grid-subscription"></a>Meld u aan voor de Event Grid-abonnement 
 
-U zich abonneert op een artikel gebeurtenis raster zien welke gebeurtenissen u wilt traceren. Het volgende voorbeeld is lid van het Media Services-account hebt gemaakt de URL van de Azure-functie webhook die u hebt gemaakt als het eindpunt voor gebeurtenismelding doorgegeven. 
+U zich abonneert op een artikel Event Grid zien welke gebeurtenissen u wilt bijhouden. Het volgende voorbeeld is geabonneerd op de Media Services-account u gemaakt en hoe de URL van de Azure-functie webhook die u hebt gemaakt als het eindpunt voor de gebeurtenismelding. 
 
-Vervang `<event_subscription_name>` met een unieke naam voor uw gebeurtenisabonnement. Gebruik voor `<resource_group_name>` en `<ams_account_name>` de waarden die u eerder hebt gemaakt.  Voor de `<endpoint_URL>` plak uw eindpunt-URL. Verwijder *& clientID = standaard* van de URL. Door een eindpunt op te geven wanneer u zich abonneert, wordt via Event Grid de routering van gebeurtenissen naar dit eindpunt verwerkt. 
+Vervang `<event_subscription_name>` met een unieke naam voor het gebeurtenisabonnement. Gebruik voor `<resource_group_name>` en `<ams_account_name>` de waarden die u eerder hebt gemaakt.  Voor de `<endpoint_URL>` uw eindpunt-URL plakken. Verwijder *& clientID = standaard* van de URL. Door een eindpunt op te geven wanneer u zich abonneert, wordt via Event Grid de routering van gebeurtenissen naar dit eindpunt verwerkt. 
 
 ```cli
 amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -147,11 +147,11 @@ De waarde van de Media Services-account resource id ziet er ongeveer als volgt u
 
 /Subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
 
-## <a name="test-the-events"></a>De gebeurtenissen te testen
+## <a name="test-the-events"></a>Testen van de gebeurtenissen
 
-Voer een codering. Bijvoorbeeld, zoals beschreven in de [Stream videobestanden](stream-files-dotnet-quickstart.md) Quick Start.
+Een coderingstaak wordt uitgevoerd. Bijvoorbeeld, zoals is beschreven in de [Stream videobestanden](stream-files-dotnet-quickstart.md) Quick Start.
 
-U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Blader naar de webhook die u eerder hebt gemaakt. Klik op **Monitor** en **vernieuwen**. U ziet de status van de taak verandert gebeurtenissen: 'In de wachtrij', 'Gepland', 'Verwerking', 'Voltooid', 'Fout', 'Geannuleerd', 'Annuleren'.  Zie voor meer informatie [Media Services-schema's voor gebeurtenis](media-services-event-schemas.md).
+U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Blader naar de webhook die u eerder hebt gemaakt. Klik op **Monitor** en **vernieuwen**. U ziet de taakstatus verandert gebeurtenissen: 'In de wachtrij', 'Gepland', "Verwerking", "Voltooid", "Error", "Geannuleerd", "Annuleren".  Zie voor meer informatie, [Media Services-gebeurtenisschema](media-services-event-schemas.md).
 
 Bijvoorbeeld:
 
@@ -185,8 +185,8 @@ az group delete --name <resource_group_name>
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Reageren op gebeurtenissen](reacting-to-media-services-events.md)## Zie ook
+[Reageren op gebeurtenissen](reacting-to-media-services-events.md)
 
 ## <a name="see-also"></a>Zie ook
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure-CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

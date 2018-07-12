@@ -1,6 +1,6 @@
 ---
-title: Beheren van Azure-oplossingen met PowerShell | Microsoft Docs
-description: Azure PowerShell en Resource Manager gebruiken voor het beheren van uw resources.
+title: Beheren Azure-oplossingen met PowerShell | Microsoft Docs
+description: Gebruik Azure PowerShell en Resource Manager om uw resources te beheren.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 02616ef566dd576c3f406d4b9f3059dab27bf3e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603410"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723859"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Resources beheren met Azure PowerShell
 
@@ -33,7 +33,7 @@ Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) 
 
 [!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
-In dit artikel leert u alle management instellingen toepassen op een resourcegroep zodat u deze instellingen wanneer u klaar bent eenvoudig kunt verwijderen.
+In dit artikel hebt toepassen u alle management instellingen op een resourcegroep, zodat u zich eenvoudig deze instellingen wanneer u klaar bent.
 
 Laten we de resourcegroep maken.
 
@@ -50,15 +50,15 @@ De resourcegroep is momenteel leeg.
 
 ### <a name="assign-a-role"></a>Een rol toewijzen
 
-In dit artikel door een virtuele machine en de bijbehorende virtuele netwerk op te implementeren. Voor het beheren van virtuele machine-oplossingen zijn er drie resourcespecifieke rollen die toegang bieden die gewoonlijk nodig is:
+In dit artikel implementeert u een virtuele machine en de bijbehorende virtuele netwerk. Voor het beheren van virtuele machine-oplossingen zijn er drie resourcespecifieke rollen die toegang bieden die gewoonlijk nodig is:
 
 * [Inzender voor virtuele machines](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Inzender voor opslagaccounts](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-In plaats van de rollen toe te wijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep te maken](../active-directory/active-directory-groups-create-azure-portal.md) voor gebruikers die vergelijkbare acties moeten ondernemen. U wijst dan de juiste rol aan die groep toe. Ter vereenvoudiging van dit artikel maakt u een Azure Active Directory-groep zonder leden. U kunt aan deze groep wel een rol voor een bereik toewijzen. 
+In plaats van de rollen toe te wijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep te maken](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) voor gebruikers die vergelijkbare acties moeten ondernemen. U wijst dan de juiste rol aan die groep toe. Ter vereenvoudiging van dit artikel maakt u een Azure Active Directory-groep zonder leden. U kunt aan deze groep wel een rol voor een bereik toewijzen. 
 
-Het volgende voorbeeld wordt een groep gemaakt en toegewezen aan de rol Inzender van de virtuele Machine voor de resourcegroep. Om uit te voeren de `New-AzureAdGroup` opdracht gebruiken, moet u de [Azure Cloud Shell](/azure/cloud-shell/overview) of [downloaden van de Azure AD PowerShell-module](https://www.powershellgallery.com/packages/AzureAD/).
+Het volgende voorbeeld wordt een groep gemaakt en wijst deze toe aan de rol Inzender voor virtuele machines voor de resourcegroep. Om uit te voeren de `New-AzureAdGroup` opdracht, moet u een van beide gebruikt de [Azure Cloud Shell](/azure/cloud-shell/overview) of [downloaden van de Azure AD PowerShell-module](https://www.powershellgallery.com/packages/AzureAD/).
 
 ```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
@@ -78,7 +78,7 @@ Normaal gesproken herhaalt u het proces voor **Inzender voor netwerken** en **In
 
 ### <a name="apply-policies"></a>Beleid toepassen
 
-Uw abonnement heeft al meerdere beleidsdefinities. Als de beleidsdefinities beschikbaar weergeven, gebruikt u het:
+Uw abonnement heeft al meerdere beleidsdefinities. Als u wilt zien van de beschikbare beleidsdefinities, gebruikt u:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -86,9 +86,9 @@ Uw abonnement heeft al meerdere beleidsdefinities. Als de beleidsdefinities besc
 
 U ziet de bestaande beleidsdefinities. Het type beleid is **Ingebouwd** of **Aangepast**. Bekijk de definities voor beleid waarin een voorwaarde wordt beschreven die u wilt toewijzen. In dit artikel wijst u beleid toe waarmee:
 
-* beperken van de locaties voor alle resources
-* de SKU's voor virtuele machines te beperken
-* virtuele machines die geen van beheerde schijven gebruikmaken controleren
+* de locaties voor alle resources beperken
+* de SKU's voor virtuele machines beperken
+* controle uitvoeren op virtuele machines die geen beheerde schijven gebruiken
 
 ```azurepowershell-interactive
 $locations ="eastus", "eastus2"
@@ -134,9 +134,9 @@ Nadat de implementatie is voltooid, kunt u meer beheerinstellingen toepassen op 
 
 [!INCLUDE [Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
 
-### <a name="lock-a-resource"></a>Vergrendelen van een resource
+### <a name="lock-a-resource"></a>Een resource vergrendelen
 
-Als u wilt vergrendelen op de virtuele machine en de netwerkbeveiligingsgroep, gebruiken:
+Als u wilt vergrendelen op de virtuele machine en de netwerkbeveiligingsgroep, gebruikt u:
 
 ```azurepowershell-interactive
 New-AzureRmResourceLock -LockLevel CanNotDelete `
@@ -151,7 +151,7 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
   -ResourceGroupName myResourceGroup
 ```
 
-De virtuele machine kan alleen worden verwijderd als u de vergrendeling specifiek verwijdert. Deze stap wordt weergegeven in [Resources opschonen](#clean-up-resources).
+De virtuele machine kan alleen worden verwijderd als u een specifiek Verwijder de vergrendeling. Deze stap wordt weergegeven in [Resources opschonen](#clean-up-resources).
 
 ## <a name="tag-resources"></a>Resources taggen
 
@@ -161,7 +161,7 @@ De virtuele machine kan alleen worden verwijderd als u de vergrendeling specifie
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
-Als u wilt tags toepassen op een virtuele machine, gebruiken:
+U kunt tags toepassen op een virtuele machine, gebruikt:
 
 ```azurepowershell-interactive
 $r = Get-AzureRmResource -ResourceName myVM `
@@ -172,7 +172,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>Resources zoeken op tag
 
-Om resources te zoeken met een naam en waarde, gebruiken:
+Als u resources met een naam van de tag en waarde zoekt, gebruikt:
 
 ```azurepowershell-interactive
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
@@ -186,21 +186,21 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Kosten weergeven op tagwaarden
 
-Na het toepassen van tags aan resources, kunt u de kosten voor bronnen met deze labels weergeven. Het duurt even voor kostenanalyse om weer te geven van de meest recente informatie over het gebruik, zodat u wel de kosten niet nog eens. Wanneer de kosten beschikbaar zijn, kunt u de kosten voor resources weergeven over resourcegroepen in uw abonnement. Gebruikers moeten beschikken over [abonnement niveau toegang tot factureringsgegevens](../billing/billing-manage-access.md) om te zien van de kosten.
+Na het toepassen van tags aan resources, kunt u kosten voor resources met deze tags weergeven. Het duurt even voor kostenanalyse om weer te geven van de meest recente informatie, zodat u de kosten nog niet kan zien. Wanneer de kosten beschikbaar zijn, kunt u de kosten voor resources in resourcegroepen weergeven in uw abonnement. Gebruikers moeten beschikken over [abonnement niveau toegang tot factureringsgegevens](../billing/billing-manage-access.md) om te zien van de kosten.
 
-Als u wilt weergeven kosten per tag in de portal, selecteer uw abonnement en selecteer **kosten Analysis**.
+Als u kosten door-tag in de portal, selecteer uw abonnement en selecteer **Cost Analysis**.
 
 ![Kostenanalyse](./media/powershell-azure-resource-manager/select-cost-analysis.png)
 
 Vervolgens filteren op de waarde van het label en selecteer **toepassen**.
 
-![Weergave kosten per tag](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+![Weergave-kosten per tag](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
 
-U kunt ook de [Azure Billing-API's](../billing/billing-usage-rate-card-overview.md) programmatisch kosten weergeven.
+U kunt ook de [Azure facturerings-API's](../billing/billing-usage-rate-card-overview.md) om programmatisch kosten weer te geven.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-De vergrendelde netwerkbeveiligingsgroep kan pas worden verwijderd nadat de vergrendeling is verwijderd. Gebruik voor het verwijderen van de vergrendeling:
+De vergrendelde netwerkbeveiligingsgroep kan pas worden verwijderd nadat de vergrendeling is verwijderd. Als u wilt de vergrendeling verwijderen, gebruikt u:
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceLock -LockName LockVM `
@@ -220,7 +220,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het bewaken van uw virtuele machines, [controleren en bijwerken van een virtuele Windows-Machine met Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
-* Voor meer informatie over het gebruik van Azure Security Center voor het implementeren van de aanbevolen beveiligingsprocedures [bewaken van de beveiliging van de virtuele machine met behulp van Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
-* U kunt bestaande resources verplaatsen naar een nieuwe resourcegroep. Zie voor voorbeelden [Resources verplaatsen naar de nieuwe resourcegroep of abonnement](resource-group-move-resources.md).
+* Zie voor meer informatie over het controleren van uw virtuele machines, [controleren en bijwerken van een Windows-Machine met Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
+* Voor meer informatie over het gebruik van Azure Security Center voor het implementeren van de aanbevolen beveiligingsprocedures, [beveiliging van virtuele machines bewaken met behulp van Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
+* U kunt bestaande resources verplaatsen naar een nieuwe resourcegroep. Zie voor voorbeelden van [verplaatsen van Resources aan de nieuwe resourcegroep of abonnement](resource-group-move-resources.md).
 * Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).

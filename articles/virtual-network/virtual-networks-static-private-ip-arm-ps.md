@@ -1,5 +1,5 @@
 ---
-title: Configureren van privé IP-adressen voor virtuele machines - Azure PowerShell | Microsoft Docs
+title: Privé-IP-adressen voor VM's - Azure PowerShell configureren | Microsoft Docs
 description: Informatie over het configureren van privé IP-adressen voor virtuele machines met behulp van PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -17,11 +17,11 @@ ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b0e8153f1d0cecd4efe66dc7cce64addd6ed62aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424054"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307666"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Configureer persoonlijke IP-adressen voor een virtuele machine met behulp van PowerShell
 
@@ -33,12 +33,12 @@ Azure heeft twee implementatiemodellen: Azure Resource Manager en klassiek. Micr
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Het voorbeeld PowerShell onderstaande opdrachten een eenvoudige omgeving al gemaakt verwacht op basis van de bovenstaande scenario. Als u wilt de opdrachten uitvoeren zoals ze worden weergegeven in dit document, eerst de testomgeving wordt beschreven in bouwen [een virtueel netwerk maken](quick-create-powershell.md).
+Het voorbeeld PowerShell onderstaande opdrachten kunt verwachten van een eenvoudige omgeving hebt gemaakt, is afhankelijk van het bovenstaande scenario. Als u wilt dat de opdrachten uitvoeren zoals ze worden weergegeven in dit document, eerst samenstellen van de testomgeving die wordt beschreven [maken van een virtueel netwerk](quick-create-powershell.md).
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>Een virtuele machine met een statisch privé-IP-adres maken
-Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van een VNet met de naam *TestVNet* met een statisch privé IP-adres van *192.168.1.101*, voer de volgende stappen uit:
+Het maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van een VNet met de naam *TestVNet* met een statisch privé IP-adres van *192.168.1.101*, gaat u als volgt de onderstaande stappen:
 
-1. Stel de variabelen voor de storage-account, locatie, resourcegroep en referenties moet worden gebruikt. U moet een gebruikersnaam en wachtwoord invoeren voor de virtuele machine. De storage-account en resource group moet al bestaan.
+1. Stel de variabelen voor de storage-account, locatie, resourcegroep en de referenties op die moet worden gebruikt. U moet een gebruikersnaam en wachtwoord invoeren voor de virtuele machine. De opslaggroep voor account- en moet al bestaan.
 
     ```powershell
     $stName  = "vnetstorage"
@@ -54,14 +54,14 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
     $subnet = $vnet.Subnets[0].Id
     ```
 
-3. Maak indien nodig een openbaar IP-adres voor toegang tot de virtuele machine via het Internet.
+3. Indien nodig, maakt u een openbaar IP-adres voor toegang tot de virtuele machine via Internet.
 
     ```powershell
     $pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName `
     -Location $locName -AllocationMethod Dynamic
     ```
 
-4. Maak een NIC met behulp van het statische privé IP-adres dat u wilt toewijzen aan de virtuele machine. Zorg ervoor dat het IP-adres uit het subnetbereik dat u de virtuele machine wilt toevoegen. Dit is de belangrijkste stap voor dit artikel, waarin het instellen van het particuliere IP-adres naar statisch.
+4. Maak een NIC met behulp van het statische privé IP-adres dat u wilt toewijzen aan de virtuele machine. Zorg ervoor dat het IP-adres uit het subnetbereik dat u de virtuele machine wilt toevoegen. Dit is de belangrijkste stap voor dit artikel, waarin u het particuliere IP-adres niet statisch instellen.
 
     ```powershell
     $nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName `
@@ -84,10 +84,10 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
     New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
     ```
 
-Het raadzaam dat u geen statisch het privé IP-adres toegewezen aan de virtuele machine van Azure binnen het besturingssysteem van een VM, toewijst tenzij nodig, zoals wanneer [meerdere IP-adressen toewijzen aan een Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Als u de privé IP-adres in het besturingssysteem handmatig instelt, moet u zorgen dat het hetzelfde adres als de privé IP-adres is toegewezen aan de Azure [netwerkinterface](virtual-network-network-interface-addresses.md#change-ip-address-settings), of u verbinding met de virtuele machine kunt verliezen. Meer informatie over [privé IP-adres](virtual-network-network-interface-addresses.md#private) instellingen. U moet het openbare IP-adres is toegewezen aan een virtuele machine van Azure in het besturingssysteem van de virtuele machine nooit handmatig toewijzen.
+Het verdient aanbeveling dat u geen statisch het privé IP-adres toegewezen aan de virtuele machine van Azure binnen het besturingssysteem van een virtuele machine, toewijst tenzij die nodig zijn, bijvoorbeeld wanneer [meerdere IP-adressen toewijzen aan een Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Als u het particuliere IP-adres binnen het besturingssysteem handmatig instellen wilt, controleert u of deze hetzelfde adres als de privé IP-adres toegewezen aan de Azure [netwerkinterface](virtual-network-network-interface-addresses.md#change-ip-address-settings), of het verlies van connectiviteit met de virtuele machine. Meer informatie over [privé IP-adres](virtual-network-network-interface-addresses.md#private) instellingen. U moet het openbare IP-adres toegewezen aan een virtuele machine van Azure binnen het besturingssysteem van de virtuele machine nooit handmatig toewijzen.
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Statische privé IP-adresgegevens voor een netwerkinterface ophalen
-Voer de volgende PowerShell-opdracht om weer te geven het statische privé IP-adresgegevens voor de virtuele machine met het bovenstaande script gemaakt, en houd rekening met de waarden voor *PrivateIpAddress* en *PrivateIpAllocationMethod*:
+Voer de volgende PowerShell-opdracht om de weergave met het statische privé IP-adresgegevens voor de virtuele machine met het bovenstaande script gemaakt, en houd rekening met de waarden voor *PrivateIpAddress* en *PrivateIpAllocationMethod*:
 
 ```powershell
 Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -133,8 +133,8 @@ Verwachte uitvoer:
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="remove-a-static-private-ip-address-from-a-network-interface"></a>Een statisch privé IP-adres verwijderen uit een netwerkinterface
-Verwijderen van het statische privé IP-adres toegevoegd aan de virtuele machine in het bovenstaande script Voer de volgende PowerShell-opdrachten:
+## <a name="remove-a-static-private-ip-address-from-a-network-interface"></a>Een statisch privé IP-adres uit een netwerkinterface verwijderen
+Toegevoegd aan de virtuele machine in het bovenstaande script de volgende PowerShell-opdrachten uitvoeren om te verwijderen van het statische privé IP-adres:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -182,8 +182,8 @@ Verwachte uitvoer:
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>Een statisch privé IP-adres toevoegen aan een netwerkinterface
-Als u wilt een statisch privé IP-adres toevoegen aan de virtuele machine gemaakt met behulp van het bovenstaande script, voer de volgende opdrachten:
+## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>Een statisch privé IP-adres aan een netwerkinterface toevoegen
+Een statisch privé IP-adres toevoegen aan de virtuele machine gemaakt met behulp van het bovenstaande script, voer de volgende opdrachten:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -192,11 +192,11 @@ $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 
-Het raadzaam dat u geen statisch het privé IP-adres toegewezen aan de virtuele machine van Azure binnen het besturingssysteem van een VM, toewijst tenzij nodig, zoals wanneer [meerdere IP-adressen toewijzen aan een Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Als u de privé IP-adres in het besturingssysteem handmatig instelt, moet u zorgen dat het hetzelfde adres als de privé IP-adres is toegewezen aan de Azure [netwerkinterface](virtual-network-network-interface-addresses.md#change-ip-address-settings), of u verbinding met de virtuele machine kunt verliezen. Meer informatie over [privé IP-adres](virtual-network-network-interface-addresses.md#private) instellingen. U moet het openbare IP-adres is toegewezen aan een virtuele machine van Azure in het besturingssysteem van de virtuele machine nooit handmatig toewijzen.
+Het verdient aanbeveling dat u geen statisch het privé IP-adres toegewezen aan de virtuele machine van Azure binnen het besturingssysteem van een virtuele machine, toewijst tenzij die nodig zijn, bijvoorbeeld wanneer [meerdere IP-adressen toewijzen aan een Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Als u het particuliere IP-adres binnen het besturingssysteem handmatig instellen wilt, controleert u of deze hetzelfde adres als de privé IP-adres toegewezen aan de Azure [netwerkinterface](virtual-network-network-interface-addresses.md#change-ip-address-settings), of het verlies van connectiviteit met de virtuele machine. Meer informatie over [privé IP-adres](virtual-network-network-interface-addresses.md#private) instellingen. U moet het openbare IP-adres toegewezen aan een virtuele machine van Azure binnen het besturingssysteem van de virtuele machine nooit handmatig toewijzen.
 
-## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>De toewijzingsmethode voor een particuliere IP-adres is toegewezen aan een netwerkinterface wijzigen
+## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>De toewijzingsmethode voor een privé IP-adres toegewezen aan een netwerkinterface wijzigen
 
-Een persoonlijke IP-adres is toegewezen aan een NIC met de statische of dynamische toewijzingsmethode. Dynamische IP-adressen kunnen wijzigen na het starten van een virtuele machine die eerder gestopt (toewijzing ongedaan gemaakt is). Dit kan problemen veroorzaken als de virtuele machine host fungeert voor een service die hetzelfde IP-adres zelfs na opnieuw opstarten van gestopt (toewijzing ongedaan gemaakt vereist). Statische IP-adressen worden bewaard totdat de virtuele machine wordt verwijderd. Als u wilt wijzigen van de toewijzingsmethode van een IP-adres, voer het volgende script, waardoor de toewijzingsmethode van dynamisch in statisch is gewijzigd. Als de toewijzingsmethode voor de huidige privé IP-adres statisch is, wijzigt u *statische* naar *dynamische* voordat het script wordt uitgevoerd.
+Een privé IP-adres is toegewezen aan een NIC met de statische of dynamische toewijzingsmethode. Dynamische IP-adressen kunnen wijzigen na het starten van een virtuele machine die eerder gestopt (toewijzing opgeheven is). Dit kan problemen veroorzaken als de virtuele machine als host fungeert voor een service die hetzelfde IP-adres, zelfs na het opnieuw opstarten van gestopt (toewijzing opgeheven) vereist. Statische IP-adressen worden bewaard totdat de virtuele machine wordt verwijderd. Als u wilt wijzigen van de toewijzingsmethode van een IP-adres, voer het volgende script, die de toewijzingsmethode van dynamisch in statisch wijzigt. Als de toewijzingsmethode voor het huidige privé IP-adres statisch wordt, wijzigt u *statische* naar *dynamische* voordat het script wordt uitgevoerd.
 
 ```powershell
 $RG = "TestRG"

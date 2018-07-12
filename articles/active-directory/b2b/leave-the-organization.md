@@ -1,51 +1,51 @@
 ---
 title: Laat een organisatie als gastgebruiker - Azure Active Directory | Microsoft Docs
-description: Toont hoe een Azure AD B2B-gastgebruiker laat een organisatie met behulp van het toegangsvenster.
+description: Laat zien hoe een Azure AD B2B-gastgebruiker laat een organisatie met behulp van het toegangsvenster.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 3415989cb6cec68f95e7d317671c31ba9bd231e9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 17b34b173a10a355817fee0f5928b7fb478125e3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267403"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38590420"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Een organisatie als gastgebruiker verlaten
 
-Een Azure Active Directory (Azure AD) B2B gastgebruiker kunt bepalen te verlaten van een organisatie op elk gewenst moment als ze niet meer nodig hebt voor het gebruik van apps van die organisatie of gekoppeld. Een gebruiker kunt een organisatie laten op hun eigen, zonder dat een beheerder.
+Een gastgebruiker van Azure Active Directory (Azure AD) B2B kunt bepalen voor een organisatie op elk gewenst moment verlaten als ze niet meer nodig hebt voor apps van die organisatie gebruiken of een koppeling onderhouden. Een gebruiker kan een organisatie verlaten op hun eigen, zonder dat een beheerder vragen.
 
 ## <a name="leave-an-organization"></a>Een organisatie verlaten
 
-Te verlaten van een organisatie, als een gebruiker aangemeld bij de [Toegangspaneel](https://myapps.microsoft.com), het volgende doen:
+Laat een organisatie, als een gebruiker aangemeld bij de [Toegangsvenster](https://myapps.microsoft.com), doet u het volgende:
 
-1. Als u nog niet bent aangemeld bij de organisatie die u wilt verlaten, selecteer uw naam in de rechterbovenhoek en klik op de organisatie die u wilt verlaten.
+1. Als u nog niet bent aangemeld bij de organisatie die u wilt laten staan, selecteert u uw naam in de rechterbovenhoek en klik op de organisatie die u wilt laten staan.
 2. Selecteer uw naam in de rechterbovenhoek.
-3. Naast **organisaties**, selecteer het Instellingenpictogram (tandwielpictogram).
+3. Naast **organisaties**, selecteer het Instellingenpictogram (tandwiel).
  
-   ![Schermopname van gebruikersinstellingen in het deelvenster toegang](media/leave-the-organization/UserSettings.png) 
+   ![Schermopname van gebruikersinstellingen in Toegangsvenster](media/leave-the-organization/UserSettings.png) 
 
-3. Onder **organisaties**, vinden de organisatie die u wilt laten en selecteer **organisatie verlaten**.
+3. Onder **organisaties**, de organisatie die u wilt verlaten, en selecteer zoeken **organisatie verlaten**.
 
-   ![Schermopname van laat organisatie optie in de gebruikersinterface](media/leave-the-organization/LeaveOrg.png)
+   ![Schermopname die laat zien laat organisatie optie in de gebruikersinterface](media/leave-the-organization/LeaveOrg.png)
 
 4. Wanneer u wordt gevraagd om te bevestigen, selecteer **laat**. 
 
 ## <a name="account-removal"></a>Account is verwijderd
 
-Wanneer een gebruiker een organisatie verlaat, het gebruikersaccount 'soft verwijderd' in de map. Standaard wordt het gebruikersobject verplaatst naar de **gebruikers verwijderd** gebied in Azure AD, maar is niet permanent verwijderd voor 30 dagen. Deze zachte verwijdering kan de beheerder om te herstellen van het gebruikersaccount (met inbegrip van groepen en machtigingen), als de gebruiker een aanvraag voor het herstellen van het account binnen de periode van 30 dagen.
+Wanneer een gebruiker een organisatie verlaat, het gebruikersaccount dat is 'soft verwijderd' in de map. Standaard wordt het gebruikersobject verplaatst naar de **verwijderde gebruikers** gebied in Azure AD, maar is niet permanent verwijderd voor 30 dagen. Deze voorlopig verwijderen kan de beheerder om te herstellen van het gebruikersaccount (met inbegrip van groepen en machtigingen), als de gebruiker een aanvraag voor het herstellen van het account binnen de periode van 30 dagen.
 
-Indien gewenst, kan een tenantbeheerder definitief verwijderen van het account op elk gewenst moment tijdens de periode van 30 dagen. Om dit te doen:
+Indien gewenst, kunt een tenantbeheerder permanent verwijderen van het account op elk gewenst moment tijdens de periode van 30 dagen. Om dit te doen:
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer **Azure Active Directory**.
 2. Onder **beheren**, selecteer **gebruikers**.
-3. Selecteer **gebruikers verwijderd**.
+3. Selecteer **verwijderde gebruikers**.
 4. Schakel het selectievakje in naast een verwijderde gebruiker en selecteer vervolgens **definitief verwijderen**.
 
 Als u een gebruiker permanent verwijdert, kan deze actie is onherroepelijk.

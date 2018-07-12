@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 JS SPA begeleide setup | Microsoft Docs
-description: Hoe een API waarvoor toegangstokens door Azure Active Directory-v2-eindpunt kunnen aanroepen in JavaScript SPA-toepassingen
+title: Azure AD v2 JS SPA begeleide installatie | Microsoft Docs
+description: Beveiligd-WACHTWOORDVERIFICATIE JavaScript-toepassingen kunnen hoe een API waarvoor toegangstokens door Azure Active Directory v2-eindpunt aanroepen
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -16,14 +16,10 @@ ms.date: 04/09/2018
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: b08907f15411483b57854708e809835860910a72
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32148608"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38443444"
 ---
-[!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-introduction.md)]
-[!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-setup.md)]
-[!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-use.md)]
-[!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-configure.md)]
-[!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-test.md)]
+[[1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-introduction.md)] [!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-setup.md)] [!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-use.md)] [!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-configure.md)] [!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-test.md)]

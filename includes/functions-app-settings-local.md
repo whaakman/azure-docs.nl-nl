@@ -1,1 +1,1 @@
-Wanneer u lokaal ontwikkelt, app-instellingen gaan in de [local.settings.json bestand](../articles/azure-functions/functions-run-local.md#local-settings-file).
+Als u lokaal ontwikkelt, app-instellingen gaat u naar de [bestand local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file).

@@ -15,96 +15,96 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 193b66cf8bdaaefed5f073bec3ecb9050d076f19
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787589"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299071"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Koppelen of ontkoppelen van een gegevensschijf aan een virtuele machine in Azure DevTest Labs
-[Azure-beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) beheert de storage-accounts die zijn gekoppeld aan de gegevensschijven van de virtuele machine. Een gebruiker wordt een nieuwe gegevens schijf aan een VM, geeft u het type en de grootte van de schijf die nodig is en Azure maakt en beheert de schijf automatisch. De gegevensschijf kan vervolgens worden losgekoppeld van de virtuele machine en een vervolgens opnieuw later dezelfde virtuele machine, of zijn gekoppeld aan een andere virtuele machine die tot dezelfde gebruiker behoort.
+[Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) beheert de storage-accounts die zijn gekoppeld aan de gegevensschijven van de virtuele machine. Een gebruiker wordt een nieuwe gegevensschijf aan een virtuele machine, Hiermee geeft u het type en de hoeveelheid schijfruimte die nodig is, en Azure maakt en beheert de schijf automatisch. De gegevensschijf kan vervolgens worden losgekoppeld van de virtuele machine en een hoger op dezelfde virtuele machine, of zijn gekoppeld aan een andere virtuele machine die deel uitmaakt van dezelfde gebruiker opnieuw gekoppeld.
 
-Deze functionaliteit is handig voor het beheren van opslag- of software buiten elke afzonderlijke virtuele machine. Als de software of de opslag al in een gegevensschijf bestaat, kan deze worden eenvoudig gekoppeld, losgekoppeld en opnieuw worden gekoppeld aan een VM dat eigendom is van de gebruiker die eigenaar is van die gegevensschijf.
+Deze functionaliteit is handig voor het beheren van opslag- of software buiten elke afzonderlijke virtuele machine. Als de opslag of de software al in een gegevensschijf bestaat, kan worden eenvoudig die zijn gekoppeld, losgekoppeld, en opnieuw gekoppeld aan elke virtuele machine die eigendom is van de gebruiker die eigenaar is van die gegevensschijf.
 
 ## <a name="attach-a-data-disk"></a>Een gegevensschijf koppelen
-Voordat u een gegevensschijf aan een VM koppelen, controleert u de volgende tips:
+Voordat u een gegevensschijf aan een virtuele machine koppelen, controleert u de volgende tips:
 
-- De omvang van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie [grootten voor virtuele machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
-- U kunt alleen een gegevensschijf koppelen aan een virtuele machine die wordt uitgevoerd. Zorg ervoor dat de VM wordt uitgevoerd voordat u probeert een gegevensschijf koppelen.
+- De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie, [grootten voor virtuele machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+- U kunt alleen een gegevensschijf koppelen aan een virtuele machine die wordt uitgevoerd. Zorg ervoor dat de virtuele machine wordt uitgevoerd voordat u probeert een gegevensschijf koppelen.
 
 ### <a name="attach-a-new-disk"></a>Een nieuwe schijf koppelen
 Volg deze stappen voor het maken en een nieuwe beheerde gegevensschijf koppelen aan een virtuele machine in Azure DevTest Labs.
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
-1. Selecteer de gewenste testomgeving uit de lijst van labs. 
-1. In de lijst met **mijn virtuele machines**, selecteert u een actieve virtuele machine.
-1. Selecteer in het menu aan de linkerkant **schijven**.
+1. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
+1. Selecteer de gewenste lab in de lijst met labs. 
+1. In de lijst van **mijn virtuele machines**, selecteert u een actieve virtuele machine.
+1. Selecteer in het menu aan de linkerkant, **schijven**.
 
-    ![Selecteer gegevensschijven die voor een virtuele machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-data-disk.png)
-1. Kies **Attach nieuwe** naar een nieuwe gegevensschijf maken en deze te koppelen aan de virtuele machine.
+    ![Selecteer de gegevensschijven voor een virtuele machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-data-disk.png)
+1. Kies **koppelen nieuwe** te maken van een nieuwe gegevensschijf koppelen aan de virtuele machine.
 
     ![Nieuwe gegevensschijf koppelen aan een virtuele machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new.png)
-1. Voltooi de **nieuwe schijf koppelen** deelvenster door te voeren van een naam voor de schijf, het type en de grootte.
+1. Voltooi de **nieuwe schijf koppelen** deelvenster door in te voeren van een naam-gegevensschijf, type en grootte.
 
-    ![Vul het formulier 'koppelen van de nieuwe schijf'](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new-form.png)
+    ![Vul het formulier "nieuwe schijf koppelen"](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new-form.png)
 1. Selecteer **OK**.
 
-Na enkele ogenblikken de nieuwe gegevensschijf wordt gemaakt en gekoppeld aan de virtuele machine en wordt weergegeven in de lijst met **GEGEVENSSCHIJVEN** voor die VM.
+Na enkele ogenblikken wordt de nieuwe gegevensschijf wordt gemaakt en gekoppeld aan de virtuele machine en wordt weergegeven in de lijst met **GEGEVENSSCHIJVEN** voor die VM.
 
 ### <a name="attach-an-existing-disk"></a>Een bestaande schijf koppelen
-Volg deze stappen voor het opnieuw koppelen van een bestaande schijf van de beschikbare gegevens naar een actieve virtuele machine. 
+Volg deze stappen voor het koppelen van een bestaande schijf van de beschikbare gegevens aan een actieve VM. 
 
-1. Selecteer een actieve virtuele machine waarvoor u wilt een gegevensschijf opnieuw koppelen.
-1. Selecteer in het menu aan de linkerkant **schijven**.
-1. Selecteer **koppelen bestaande** een beschikbare gegevensschijf koppelen aan de virtuele machine.
+1. Selecteer een actieve virtuele machine waarvoor u een gegevensschijf wilt maken.
+1. Selecteer in het menu aan de linkerkant, **schijven**.
+1. Selecteer **bestaande koppelen** een beschikbare gegevensschijf koppelen aan de virtuele machine.
 
     ![Bestaande gegevensschijf koppelen aan een virtuele machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing2.png)
 
-1. Van de **bestaande schijf koppelen** deelvenster, klik op OK.
+1. Uit de **bestaande schijf koppelen** deelvenster, klik op OK.
 
     ![Bestaande gegevensschijf koppelen aan een virtuele machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing.png)
 
 Na enkele ogenblikken de gegevensschijf is gekoppeld aan de virtuele machine en wordt weergegeven in de lijst met **GEGEVENSSCHIJVEN** voor die VM.
 
 ## <a name="detach-a-data-disk"></a>Een gegevensschijf ontkoppelen
-Wanneer u een gegevensschijf die gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Loskoppelen van de schijf van de virtuele machine verwijderd, maar blijft in de opslag voor later gebruik.
+Wanneer u een gegevensschijf die gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Bezig met ontkoppelen wordt de schijf van de virtuele machine verwijderd, maar blijft in de opslag voor later gebruik.
 
-Als u wilt de bestaande gegevens op de schijf opnieuw gebruiken, kunt u het opnieuw op dezelfde virtuele machine of op een andere naam.
+Als u de bestaande gegevens op de schijf opnieuw gebruiken wilt, kunt u het koppelen aan dezelfde virtuele machine of aan een andere naam.
 
-### <a name="detach-from-the-vms-management-pane"></a>Loskoppelen van de VM management deelvenster
-1. Selecteer een virtuele machine met een gegevensschijf gekoppeld in uw lijst met virtuele machines.
-1. Selecteer in het menu aan de linkerkant **schijven**.
+### <a name="detach-from-the-vms-management-pane"></a>Loskoppelen van het deelvenster van de VM-management
+1. Selecteer in de lijst van virtuele machines een virtuele machine waarvoor een gegevensschijf die is gekoppeld.
+1. Selecteer in het menu aan de linkerkant, **schijven**.
 
-    ![Selecteer gegevensschijven die voor een virtuele machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-data-disk.png) 
-1. In de lijst met **GEGEVENSSCHIJVEN**, selecteer de gegevensschijf die u wilt loskoppelen.
-1. Selecteer **Detach** vanaf de bovenkant van het detailvenster van de schijf.
+    ![Selecteer de gegevensschijven voor een virtuele machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-data-disk.png) 
+1. In de lijst van **GEGEVENSSCHIJVEN**, selecteert u de gegevensschijf die u wilt loskoppelen.
+1. Selecteer **loskoppelen** vanaf de bovenkant van deelvenster met details van de schijf.
 
     ![Een gegevensschijf ontkoppelen](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk2.png)
 1. Selecteer **Ja** om te bevestigen dat u wilt loskoppelen van de gegevensschijf.
 
 De schijf is losgekoppeld en is beschikbaar om te koppelen aan een andere virtuele machine. 
-### <a name="detach-from-the-labs-main-pane"></a>Los te koppelen van het hoofdvenster de testomgeving
-1. Selecteer in het hoofdvenster van uw lab **mijn gegevensschijven**.
+### <a name="detach-from-the-labs-main-pane"></a>Loskoppelen van het hoofdvenster van de testomgeving
+1. Selecteer in het hoofdvenster van uw lab, **Moje datové disky**.
 
-    ![Toegang tot het lab gegevensschijven](./media/devtest-lab-attach-detach-data-disk/devtest-lab-my-data-disks.png)
-1. Met de rechtermuisknop op de gegevensschijf die u wilt loskoppelen – of Selecteer het weglatingsteken (...) – Kies **Detach**.
+    ![Toegang tot de gegevensschijven van de testomgeving](./media/devtest-lab-attach-detach-data-disk/devtest-lab-my-data-disks.png)
+1. Met de rechtermuisknop op de gegevensschijf die u wilt loskoppelen – of Selecteer het weglatingsteken (...) – en kies **loskoppelen**.
 
     ![Een gegevensschijf ontkoppelen](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk.png)
 1. Selecteer **Ja** om te bevestigen dat u wilt loskoppelen.
 
    > [!NOTE]
-   > Als een gegevensschijf al is ontkoppeld, kunt u kiezen uit de lijst met beschikbare gegevensschijven verwijderen door te selecteren **verwijderen**.
+   > Als een gegevensschijf al is losgekoppeld, kunt u kiezen om deze te verwijderen uit de lijst met beschikbare gegevensschijven hiervoor **verwijderen**.
    >
    >
 
 ## <a name="upgrade-an-unmanaged-data-disk"></a>Upgrade van een niet-beheerde gegevensschijf
-Als u een bestaande virtuele machine die gebruikmaakt van niet-beheerde gegevensschijven hebt, kunt u eenvoudig de virtuele machine voor het gebruik van beheerde schijven converteren. Dit proces converteert zowel schijf met het besturingssysteem en eventuele aangesloten gegevensschijven.
+Als u een bestaande virtuele machine die gebruikmaakt van niet-beheerde gegevensschijven hebt, kunt u eenvoudig de virtuele machine voor het gebruik van beheerde schijven converteren. Dit proces converteert zowel schijf met het besturingssysteem en eventuele gekoppelde gegevensschijven.
 
-Upgrade van een niet-beheerde gegevensschijf moet u de stappen in dit artikel voor [loskoppelen van de gegevensschijf](#detach-a-data-disk) van een niet-beheerde virtuele machine. Vervolgens [koppelt u de schijf opnieuw](#attach-an-existing-disk) aan een beheerde VM automatisch bijwerken van de gegevens schijf van niet-begeleid naar beheerd.
+Als u een niet-beheerde gegevensschijf bijwerken, volg de stappen in dit artikel voor [loskoppelen van de gegevensschijf](#detach-a-data-disk) van een niet-beheerde virtuele machine. Vervolgens [de schijf opnieuw koppelen](#attach-an-existing-disk) naar een beheerde virtuele machine automatisch bijwerken van de gegevens schijf van niet-beheerde beheerd.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Informatie over het beheren van gegevensschijven voor [claimable virtuele machines](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
+Informatie over het beheren van gegevensschijven voor [claimbare virtuele machines](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
 

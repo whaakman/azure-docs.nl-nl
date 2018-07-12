@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 13a17eb3d78e70a09864bf218f1027d6e98486a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23883507"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720047"
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Overzicht van BGP met Azure VPN-gateways
 Dit artikel bevat een overzicht van BGP-ondersteuning (Border Gateway Protocol) in Azure VPN-gateways.
@@ -35,9 +35,9 @@ Het gebruik van BGP heeft een aantal voordelen en nieuwe mogelijkheden:
 ### <a name="prefix"></a>Ondersteuning voor automatische en flexibele voorvoegselupdates
 Met BGP hoeft u alleen via de IPSec S2S VPN-tunnel een minimaal voorvoegsel te declareren op een specifieke BGP-peer. Dit hoeft niet groter te zijn dan een hostvoorvoegsel (/32) van het IP-adres van de BGP-peer van uw on-premises VPN-apparaat. U bepaalt zelf welke on-premises netwerkvoorvoegsels u wilt adverteren naar Azure opdat uw Azure Virtual Network toegang heeft.
 
-U kunt ook grotere voorvoegsels met enkele van uw VNet-adresvoorvoegsels, zoals een grote privé IP-adresruimte (bijvoorbeeld 10.0.0.0/8) adverteren. Houd er rekening mee dat de voorvoegsels mogen niet identiek zijn met een van uw VNet-voorvoegsels. Routes die identiek zijn aan uw VNet-voorvoegsels worden geweigerd.
+U kunt ook grotere voorvoegsels die bijvoorbeeld enkele van uw VNet-adresvoorvoegsels, zoals een grote privé IP-adresruimte (bijvoorbeeld 10.0.0.0/8) bevatten adverteren. Houd er rekening mee dat de voorvoegsels kunnen niet identiek zijn met een van uw VNet-voorvoegsels. Routes die identiek zijn aan uw VNet-voorvoegsels worden geweigerd.
 
-### <a name="multitunnel"></a>Ondersteuning voor meerdere tunnels tussen een VNet en een on-premises site met automatische failover op basis van BGP
+### <a name="multitunnel"></a>Ondersteuning van meerdere tunnels tussen een VNet en een on-premises site met automatische failover op basis van BGP
 U kunt meerdere verbindingen maken tussen uw Azure VNet en uw on-premises VPN-apparaten op dezelfde locatie. Deze mogelijkheid biedt meerdere tunnels (paden) tussen de twee netwerken in een actief/actief-configuratie. Als een van de tunnels wordt verbroken, wordt de bijbehorende routes ingetrokken via BGP en wordt het verkeer automatisch verplaatst naar de resterende tunnels.
 
 In het volgende diagram ziet u een eenvoudig voorbeeld van deze configuratie voor hoge beschikbaarheid:

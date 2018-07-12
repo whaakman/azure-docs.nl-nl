@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa309abecdf0fb0c0acaf18e53bde4600c101a44
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34654922"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968444"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps ondersteunde categorieën
 
-Bij het uitvoeren van een [categorie zoeken](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoicategory) voor punten van belang zijn, zijn er meer dan honderd ondersteunde categorieën. Hieronder volgt een lijst van de categoriecodes voor ondersteunde namen. Categoriecodes worden gegenereerd voor de hoogste niveau categorieën. Alle categorieën subsleutels delen dezelfde categoriecode. Houd er rekening mee dat deze lijst met categorieën kan worden gewijzigd in releases van nieuwe gegevens.
+Bij het uitvoeren van een [categorie zoeken](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) voor punten van belang zijn, zijn er meer dan honderd ondersteunde categorieën. Hieronder volgt een lijst van de categoriecodes voor ondersteunde namen. Categoriecodes worden gegenereerd voor de hoogste niveau categorieën. Alle categorieën subsleutels delen dezelfde categoriecode. Houd er rekening mee dat deze lijst met categorieën kan worden gewijzigd in releases van nieuwe gegevens.
 
 <br/>
 

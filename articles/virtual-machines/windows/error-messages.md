@@ -1,6 +1,6 @@
 ---
-title: Algemene Windows virtuele machine foutcodes in Azure | Microsoft Docs
-description: Sommige van de algemene foutcodes aangetroffen wanneer u inrichten en beheren van Windows virtuele machines in Azure begrijpen
+title: Algemene Windows virtuele machine-foutcodes in Azure | Microsoft Docs
+description: Enkele van de algemene foutcodes aangetroffen bij het inrichten en beheren van Windows-machines in Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing-ms
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: xujing;genli
-ms.openlocfilehash: 365fdcc8c7bf4ae8ec68b98734971d324032797f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4addf714ca18a7b5428025473111d96537ff4c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913212"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723789"
 ---
-# <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>Begrijpen van foutberichten van de algemene bij het beheren van Windows virtuele machines in Azure
+# <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>Informatie over veelvoorkomende foutberichten bij het beheren van Windows virtuele machines in Azure
 
-Dit artikel worden enkele van de meest voorkomende foutcodes en de berichten die optreden kunnen bij het maken of beheren van virtuele machines (VM's) in Azure.
+In dit artikel worden enkele van de meest voorkomende foutcodes en berichten die optreden kunnen bij het maken of beheren van Windows-machines (VM's) in Azure beschreven.
 
 [!INCLUDE [virtual-machines-common-error-messages](../../../includes/virtual-machines-common-error-messages.md)]

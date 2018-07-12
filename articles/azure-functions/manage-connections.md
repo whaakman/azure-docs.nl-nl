@@ -1,6 +1,6 @@
 ---
-title: Het beheren van de verbindingen in de Azure Functions
-description: Informatie over het prestatieproblemen in Azure Functions vermijden met behulp van verbinding met statische-clients.
+title: Over het beheren van verbindingen in Azure Functions
+description: Leer hoe u om te voorkomen dat problemen met de prestaties in Azure Functions met behulp van statische verbinding-clients.
 services: functions
 documentationcenter: ''
 author: tdykstra
@@ -12,36 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tdykstra
-ms.openlocfilehash: 4ea2b033d8d67dd3c921fb833462605ba0aeb687
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c0af8f6f7e1d4aea8880a7af311aaa21f474f7e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654918"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969001"
 ---
-# <a name="how-to-manage-connections-in-azure-functions"></a>Het beheren van de verbindingen in de Azure Functions
+# <a name="how-to-manage-connections-in-azure-functions"></a>Over het beheren van verbindingen in Azure Functions
 
-Functies in een functie-app resources delen en tussen deze gedeelde bronnen zijn verbindingen &mdash; HTTP-verbindingen, databaseverbindingen en verbindingen met de Azure-services zoals opslag. Het is mogelijk te weinig beschikbare verbindingen wanneer er veel functies gelijktijdig worden uitgevoerd. In dit artikel wordt uitgelegd hoe uw functies om te voorkomen dat meer verbindingen dan ze daadwerkelijk nodig met een code.
+Functies in een functie-app-resources delen en tussen deze gedeelde resources zijn verbindingen &mdash; HTTP-verbindingen, databaseverbindingen en verbindingen met Azure-services zoals opslag. Het is mogelijk te weinig beschikbare verbindingen wanneer er veel functies gelijktijdig worden uitgevoerd. In dit artikel wordt uitgelegd hoe u code van uw functies om te voorkomen met behulp van meer verbindingen dan ze echt nodig hebt.
 
-## <a name="connections-limit"></a>Verbindingen beperken
+## <a name="connections-limit"></a>Limiet voor verbindingen
 
-Het aantal beschikbare verbindingen is beperkt, deels omdat een functie-app wordt uitgevoerd in de [Azure App Service sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Een van de beperkingen die de sandbox opgelegd, uw code is een [initiaal van het aantal verbindingen, momenteel 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). Wanneer u deze limiet bereikt, de runtime van functions wordt een logboekbestand gemaakt met het volgende bericht: `Host thresholds exceeded: Connections`.
+Het aantal beschikbare verbindingen is beperkt, deels omdat een functie-app wordt uitgevoerd in de [Azure App Service-sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Een van de beperkingen die de sandbox opgelegd, uw code is een [bovengrens voor het aantal verbindingen, momenteel 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). Wanneer u deze limiet is bereikt, de functions-runtime wordt een logboekbestand gemaakt met het volgende bericht: `Host thresholds exceeded: Connections`.
 
-Kans om de limiet overschreden vergroot wanneer de [scale controller voegt de functie app-exemplaren](functions-scale.md#how-the-consumption-plan-works). Elke functie app-exemplaar kan worden aangeroepen functies vaak tegelijk, en al deze functies verbindingen die voor de limiet van 300 meetellen gebruikt.
+Kans op meer dan de limiet verhogen als de [schaal controller voegt de functie-app-instanties](functions-scale.md#how-the-consumption-plan-works). Elke functie-app-exemplaar kan worden aanroepen van functies vaak in één keer, en al deze functies mee voor de limiet van 300 tellen verbindingen gebruikt.
 
-## <a name="use-static-clients"></a>Statische clients gebruiken
+## <a name="use-static-clients"></a>Gebruik statische clients
 
-Om te voorkomen dat bevat meer verbindingen dan nodig, opnieuw gebruiken exemplaren van de client in plaats van door nieuwe te maken met elke functie-aanroep. .NET-clients, zoals de `HttpClient`, `DocumentClient`, en Azure Storage-clients verbindingen kunnen beheren als u een enkele, statische client gebruiken.
+Om te voorkomen dat bevat meer verbindingen dan nodig, opnieuw gebruiken clientexemplaren in plaats van het maken van nieuwe kennis met elke functieaanroep. .NET-clients, zoals de `HttpClient`, `DocumentClient`, en Azure Storage-clients verbindingen kunnen beheren als u een enkele, statische-client gebruiken.
 
-Hier volgen enkele richtlijnen te volgen wanneer u een specifieke client in een Azure Functions-toepassing:
+Hier vindt u enkele richtlijnen te volgen bij het gebruik van een client servicespecifieke in een Azure Functions-toepassing:
 
 - **GEEN** maken van een nieuwe client met elke functie-aanroep.
-- **Voer** maken van een enkele, statische client die kan worden gebruikt door elke functie-aanroep.
-- **Houd rekening met** maken van een enkele, statische client in een gedeelde helperklasse als verschillende functies dezelfde service gebruiken.
+- **Voer** maken van een enkele, statische-client die kan worden gebruikt door elke functie-aanroep.
+- **Houd rekening met** het maken van een enkele, statische-client in een gedeelde helperklasse als dezelfde service verschillende functies gebruiken.
 
-## <a name="httpclient-code-example"></a>HttpClient codevoorbeeld
+## <a name="httpclient-code-example"></a>Codevoorbeeld httpclient maakt
 
-Hier volgt een voorbeeld van functiecode die wordt gemaakt van een statische `HttpClient`:
+Hier volgt een voorbeeld van de functiecode die wordt gemaakt van een statische `HttpClient`:
 
 ```cs
 // Create a single, static HttpClient
@@ -54,11 +54,11 @@ public static async Task Run(string input)
 }
 ```
 
-Een algemene vraag over de .NET `HttpClient` is 'Moet ik worden verwijdering mijn client?' In het algemeen, het verwijderen van objecten die implementeren `IDisposable` wanneer u klaar bent met deze. Maar u een statische client niet verwijderen omdat u niet worden uitgevoerd met behulp van deze wanneer de functie wordt beëindigd. U wilt de statische client live voor de duur van uw toepassing.
+Een algemene vraag over de .NET `HttpClient` is "Moet ik worden verwijdering mijn client?" In het algemeen is het verwijderen van objecten die worden geïmplementeerd `IDisposable` wanneer u klaar bent met behulp van deze. Maar u een statische client niet verwijderen omdat u niet worden uitgevoerd met behulp van deze wanneer de functie wordt beëindigd. U wilt dat de statische client live voor de duur van uw toepassing.
 
-## <a name="documentclient-code-example"></a>DocumentClient codevoorbeeld
+## <a name="documentclient-code-example"></a>Voorbeeld van de DocumentClient-code
 
-`DocumentClient` maakt verbinding met een Cosmos-DB-exemplaar. De documentatie van de Cosmos-DB adviseert u [een singleton Azure DB die Cosmos-client gebruiken voor de levensduur van uw toepassing](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips#sdk-usage). Het volgende voorbeeld ziet een patroon voor het uitvoeren van die in een functie.
+`DocumentClient` maakt verbinding met een Cosmos DB-exemplaar. De Cosmos DB-documentatie wordt aanbevolen dat u [een singleton-Azure Cosmos DB-client gebruiken voor de levensduur van uw toepassing](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). Het volgende voorbeeld ziet een patroon voor het uitvoeren van die in een functie.
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
@@ -88,6 +88,6 @@ public static async Task Run(string input)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over de reden waarom statische clients worden aanbevolen, Zie [onjuiste instantiëring antipattern](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
+Voor meer informatie over de reden waarom statische clients worden aanbevolen, Zie [antipatroon onjuiste instantiëring](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
 
-Zie voor meer tips voor Azure Functions-prestaties, [optimaliseren van de prestaties en betrouwbaarheid van Azure Functions](functions-best-practices.md).
+Zie voor meer tips voor Azure Functions-prestaties, [optimaliseren de prestaties en betrouwbaarheid van Azure Functions](functions-best-practices.md).

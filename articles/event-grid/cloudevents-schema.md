@@ -1,35 +1,35 @@
 ---
-title: Gebruik van Azure Event raster met gebeurtenissen in CloudEvents schema
-description: Hierin wordt beschreven hoe het schema CloudEvents voor gebeurtenissen in Azure gebeurtenis raster.
+title: Gebruik Azure Event Grid met gebeurtenissen in een CloudEvents-schema
+description: Beschrijft hoe u het instellen van een CloudEvents-schema voor gebeurtenissen in Azure Event Grid.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/14/2018
 ms.author: babanisa
-ms.openlocfilehash: a2cccbb4feaa7b6f3f51ac7204af4a3e1efc6349
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f3541fb3dbca6243f6c10611aa968603745f97a1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625590"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38314432"
 ---
-# <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik CloudEvents schema met gebeurtenis raster
+# <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik een CloudEvents-schema met Event Grid
 
-Naast de [gebeurtenis standaardschema](event-schema.md), Azure gebeurtenis raster ondersteunt gebeurtenissen in de [CloudEvents JSON-schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) is een [open standaard specificatie](https://github.com/cloudevents/spec/blob/master/spec.md) voor het beschrijven van gegevens van gebeurtenissen in een veelgebruikte manier.
+Naast de [gebeurtenisschema in het standaard](event-schema.md), gebeurtenissen in systeemeigen ondersteuning biedt voor Azure Event Grid de [CloudEvents JSON-schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [Een CloudEvents](http://cloudevents.io/) is een [open standaard-specificatie](https://github.com/cloudevents/spec/blob/master/spec.md) voor het beschrijven van gebeurtenisgegevens in een veelgebruikte manier.
 
-CloudEvents interoperabiliteit vereenvoudigt door te geven van een algemene gebeurtenis-schema voor publicatie en gebruiken van de cloud op basis van gebeurtenissen. Dit schema staat uniform tooling, standaard manieren van Routering en verwerking van gebeurtenissen en universele manieren om bij het deserialiseren van het buitenste gebeurtenis schema. Met een gemeenschappelijk schema, kunt u gemakkelijker werk integreren in verschillende platforms.
+Een CloudEvents vereenvoudigt interoperabiliteit door te geven van een gemeenschappelijk gebeurtenisschema voor het publiceren en gebruiken van cloud op basis van gebeurtenissen. Dit schema kunt u uniform tooling standard manieren van Routering en verwerken van gebeurtenissen en universele manieren om bij het deserialiseren van de buitenste gebeurtenisschema. U kunt werken eenvoudiger verschillende platforms integreren met een gemeenschappelijk schema.
 
-CloudEvents wordt build door verschillende [deelnemers](https://github.com/cloudevents/spec/blob/master/community/contributors.md), met inbegrip van Microsoft, via de [Cloud systeemeigen Compute Foundation](https://www.cncf.io/). Het is momenteel beschikbaar als versie 0,1.
+Een CloudEvents wordt build door verschillende [samenwerkers](https://github.com/cloudevents/spec/blob/master/community/contributors.md), waaronder Microsoft, via de [Cloud Native Compute Foundation](https://www.cncf.io/). Het is momenteel beschikbaar als versie 0.1.
 
-Dit artikel wordt beschreven hoe u het schema CloudEvents met gebeurtenis raster.
+In dit artikel wordt beschreven hoe u een CloudEvents-schema met Event Grid gebruiken.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="cloudevent-schema"></a>CloudEvent schema
 
-Hier volgt een voorbeeld van een Azure Blob Storage-gebeurtenis in de indeling CloudEvents:
+Hier volgt een voorbeeld van een Azure Blob Storage-gebeurtenis in een CloudEvents-indeling:
 
 ``` JSON
 {
@@ -56,44 +56,44 @@ Hier volgt een voorbeeld van een Azure Blob Storage-gebeurtenis in de indeling C
 }
 ```
 
-CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
+Een CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 
-| CloudEvents        | Type     | Voorbeeld van de JSON-waarde             | Beschrijving                                                        | Gebeurtenis raster toewijzing
+| Een CloudEvents        | Type     | Voorbeeld van JSON-waarde             | Beschrijving                                                        | Event Grid-toewijzing
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| EventType          | Reeks   | 'com.example.someevent'          | Type gebeurtenis die hebben plaatsgevonden                                   | EventType
-| eventTypeVersion   | Reeks   | "1.0"                            | De versie van de eventType (optioneel)                            | dataVersion
-| cloudEventsVersion | Reeks   | '0,1'                            | De versie van de CloudEvents-specificatie die gebruikmaakt van de gebeurtenis        | *doorgegeven*
-| source             | URI      | ' / mycontext '                     | Beschrijft de producent gebeurtenis                                       | onderwerp #subject
-| Gebeurtenis-id            | Reeks   | '1234-1234-1234'                 | ID van de gebeurtenis                                                    | id
-| eventTime          | Timestamp| ' 2018-04-05T17:31:00Z '           | Tijdstempel van wanneer de gebeurtenis heeft plaatsgevonden (optioneel)                    | eventTime
-| schemaURL          | URI      | "https://myschema.com"           | Een koppeling naar het schema dat het kenmerk overeenstemming is met (optioneel) | *niet gebruikt*
-| ContentType        | Reeks   | 'application/json'               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
-| Uitbreidingen         | Kaart      | {{'extA': 'vA', 'extB', "vB"}  | Alle aanvullende metagegevens (optioneel)                                 | *niet gebruikt*
-| gegevens               | Object   | {{'objA': 'vA', 'objB', "vB"}  | De nettolading (optioneel)                                       | gegevens
+| type gebeurtenis          | Reeks   | "com.example.someevent"          | Type gebeurtenis die heeft plaatsgevonden                                   | type gebeurtenis
+| eventTypeVersion   | Reeks   | "1.0"                            | De versie van het type gebeurtenis (optioneel)                            | dataVersion
+| cloudEventsVersion | Reeks   | "0.1"                            | De versie van de specificatie van een CloudEvents die maakt gebruik van de gebeurtenis        | *doorgegeven*
+| source             | URI      | "/ mycontext"                     | Beschrijving van de gebeurtenisproducent                                       | onderwerp #subject
+| gebeurtenis-id            | Reeks   | '1234-1234-1234'                 | ID van de gebeurtenis                                                    | id
+| eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | Timestamp van wanneer de gebeurtenis heeft plaatsgevonden (optioneel)                    | eventTime
+| schemaURL          | URI      | "https://myschema.com"           | Een koppeling naar het schema dat het kenmerk heeft (optioneel) | *niet gebruikt*
+| contentType        | Reeks   | 'application/json'               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
+| Extensies         | Kaart      | {"extra": "vA", "extB", "vB"}  | Alle aanvullende metagegevens (optioneel)                                 | *niet gebruikt*
+| gegevens               | Object   | {"objA": "vA", "objB", "vB"}  | De nettolading van de gebeurtenis (optioneel)                                       | gegevens
 
-Zie voor meer informatie de [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
+Zie voor meer informatie de [een CloudEvents-specificatie](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
-## <a name="configure-event-grid-for-cloudevents"></a>Gebeurtenis raster voor CloudEvents configureren
+## <a name="configure-event-grid-for-cloudevents"></a>Event Grid voor een CloudEvents configureren
 
-Op dit moment Azure gebeurtenis raster preview ondersteuning voor CloudEvents JSON-indeling-invoer en uitvoer in heeft **West-Centraal VS**, **VS-midden**, en **Noord-Europa**.
+Azure Event Grid heeft momenteel, voorbeeld van ondersteuning voor CloudEvents JSON-indeling-invoer en uitvoer in **West-Centraal VS**, **VS-midden**, en **Noord-Europa**.
 
-U kunt gebeurtenis raster gebruiken voor zowel invoer en uitvoer van gebeurtenissen in CloudEvents schema. U kunt CloudEvents gebruiken voor systeemgebeurtenissen, zoals gebeurtenissen voor Blob Storage en IoT Hub en aangepaste gebeurtenissen. Het kan ook gebeurtenissen op de kabel heen en weer worden getransformeerd.
+U kunt Event Grid gebruiken voor zowel invoer en uitvoer van gebeurtenissen in een CloudEvents-schema. U kunt een CloudEvents gebruiken voor systeemgebeurtenissen, zoals gebeurtenissen van Blob Storage en IoT Hub-gebeurtenissen en aangepaste gebeurtenissen. Het kunt ook gebeurtenissen op de kabel heen en weer transformeren.
 
 
 | Invoer schema       | Uitvoerschema
 |--------------------|---------------------
-| CloudEvents-indeling | CloudEvents-indeling
-| Gebeurtenis raster  | CloudEvents-indeling
-| CloudEvents-indeling | Gebeurtenis raster
-| Gebeurtenis raster  | Gebeurtenis raster
+| Een CloudEvents-indeling | Een CloudEvents-indeling
+| Event Grid-indeling  | Een CloudEvents-indeling
+| Een CloudEvents-indeling | Event Grid-indeling
+| Event Grid-indeling  | Event Grid-indeling
 
-Voor alle gebeurtenis schema's gebeurtenis raster validatie is vereist bij het publiceren van een gebeurtenis raster onderwerp en bij het maken van een gebeurtenisabonnement. Zie voor meer informatie [gebeurtenis raster beveiligings- en verificatie](security-authentication.md).
+Voor alle gebeurtenis schema's, wordt in Event Grid validatie vereist bij het publiceren naar een event grid-onderwerp en bij het maken van een gebeurtenisabonnement. Zie voor meer informatie, [Event Grid-beveiliging en verificatie](security-authentication.md).
 
 ### <a name="input-schema"></a>Invoer schema
 
-Gebruik de volgende parameter om het invoerschema ingesteld op een aangepaste onderwerp aan CloudEvents, in de Azure CLI bij het maken van uw onderwerp `--input-schema cloudeventv01schema`. Het aangepaste onderwerp verwacht nu binnenkomende gebeurtenissen in CloudEvents v0.1 indeling.
+Om het invoerschema op een aangepast onderwerp op een CloudEvents, gebruikt u de volgende parameter in de Azure CLI bij het maken van uw onderwerp `--input-schema cloudeventv01schema`. Het aangepaste onderwerp dat nu wordt verwacht dat binnenkomende gebeurtenissen in een CloudEvents v0.1-indeling.
 
-Gebruik het volgende voor het maken van een gebeurtenis raster onderwerp:
+Gebruik het volgende voor het maken van een event grid-onderwerp:
 
 ```azurecli
 # if you have not already installed the extension, do it now.
@@ -107,13 +107,13 @@ az eventgrid topic create \
   --input-schema cloudeventv01schema
 ```
 
-De huidige versie van CloudEvents biedt geen ondersteuning voor batchverwerking van gebeurtenissen. Voor het publiceren van gebeurtenissen met CloudEvent schema naar een onderwerp, elke gebeurtenis afzonderlijk te publiceren.
+De huidige versie van een CloudEvents biedt geen ondersteuning voor batchverwerking van gebeurtenissen. Voor het publiceren van gebeurtenissen met CloudEvent schema naar een onderwerp, elke gebeurtenis afzonderlijk te publiceren.
 
 ### <a name="output-schema"></a>Uitvoerschema
 
-Gebruik de volgende parameter om in te stellen het uitvoerschema op een gebeurtenisabonnement op CloudEvents, in Azure CLI bij het maken van uw abonnement gebeurtenis `--event-delivery-schema cloudeventv01schema`. Gebeurtenissen voor dit abonnement op gebeurtenissen worden nu CloudEvents v0.1 indeling worden geleverd.
+Om in te stellen het uitvoerschema op een gebeurtenisabonnement op een CloudEvents, gebruikt u de volgende parameter in de Azure CLI bij het maken van het gebeurtenisabonnement `--event-delivery-schema cloudeventv01schema`. Gebeurtenissen voor dit gebeurtenisabonnement worden nu in een CloudEvents v0.1 indeling worden geleverd.
 
-Voor een gebeurtenisabonnement gebruiken:
+Gebruik het volgende voor het maken van een gebeurtenisabonnement:
 
 ```azurecli
 az eventgrid event-subscription create \
@@ -124,10 +124,10 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-De huidige versie van de CloudEvents biedt geen ondersteuning voor batchverwerking van gebeurtenissen. Een abonnement op gebeurtenissen die geconfigureerd voor CloudEvent schema ontvangt afzonderlijk elke gebeurtenis. Op dit moment kunt u een gebeurtenis raster-trigger voor een Azure Functions-app wanneer de gebeurtenis in het schema CloudEvents wordt geleverd. U moet een HTTP-trigger.
+De huidige versie van de een CloudEvents biedt geen ondersteuning voor batchverwerking van gebeurtenissen. Een gebeurtenisabonnement die geconfigureerd voor het schema CloudEvent ontvangt afzonderlijk elke gebeurtenis. Op dit moment kunt u een Event Grid-trigger voor een Azure Functions-app wanneer de gebeurtenis wordt geleverd in de een CloudEvents-schema. U moet een HTTP-trigger. Zie voor meer voorbeelden van de implementatie van een HTTP-trigger die ontvangt gebeurtenissen in het schema een CloudEvents [een HTTP-trigger gebruiken als een trigger Gebeurtenisraster](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het controleren van de gebeurtenis leveringen [Monitor gebeurtenis raster berichtbezorging](monitor-event-delivery.md).
-* We raden u aan het testen, opmerkingen, en [bijdragen](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) naar CloudEvents.
-* Zie voor meer informatie over het maken van een abonnement op Azure gebeurtenis raster [gebeurtenis raster abonnement schema](subscription-creation-schema.md).
+* Zie voor meer informatie over het controleren van de gebeurtenis leveringen [Monitor Event Grid berichtbezorging](monitor-event-delivery.md).
+* We raden u aan te testen, opmerking, en [bijdragen](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) naar een CloudEvents.
+* Zie voor meer informatie over het maken van een Azure Event Grid-abonnement [Event Grid-abonnementsschema](subscription-creation-schema.md).

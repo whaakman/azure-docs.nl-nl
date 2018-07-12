@@ -1,6 +1,6 @@
 ---
-title: Raspberry Pi voor externe controle in Node.js - Azure inrichten | Microsoft Docs
-description: Beschrijft hoe een frambozen Pi apparaat aansluit op de externe controle oplossingsverbetering met behulp van een toepassing die is geschreven in Node.js.
+title: Inrichten van Raspberry Pi tot externe controle in Node.js - Azure | Microsoft Docs
+description: Beschrijft hoe u een Raspberry Pi-apparaat verbinden met de oplossingsversnellers bewaking op afstand met behulp van een toepassing die is geschreven in Node.js.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,49 +9,49 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: 78647612fc747ec328279536d82fb31bb4858688
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626867"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309773"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Sluit uw apparaat frambozen Pi aan externe controle oplossingsverbetering (Node.js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Uw Raspberry Pi-apparaat verbinden met de Remote Monitoring solution accelerator (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de oplossingsverbetering externe controle. In deze zelfstudie gebruikt u Node.js, dit is een goede optie voor omgevingen met minimale resourcebeperkingen.
+Deze zelfstudie leert u hoe u een fysiek apparaat verbinden met de oplossingsverbetering voor externe controle. In deze zelfstudie gebruikt u Node.js, dit is een goede optie voor omgevingen met minimale resourcebeperkingen.
 
 ### <a name="required-hardware"></a>Vereiste hardware
 
-Een desktopcomputer zodat u kunt extern verbinding maken met de opdrachtregel op de frambozen Pi.
+Een desktopcomputer waarmee u kunt extern verbinding maken met de opdrachtregel op de Raspberry Pi.
 
-[Microsoft IoT Starter Kit voor frambozen Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) of gelijkwaardige onderdelen. Deze zelfstudie maakt gebruik van de volgende items van de kit:
+[Microsoft IoT Starter Kit voor Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) of equivalente onderdelen. In deze zelfstudie wordt de volgende items uit de kit:
 
 - Raspberry Pi 3
 - MicroSD-kaart (met NOOBS)
 - Een Mini USB-kabel
 - Een Ethernet-kabel
 
-### <a name="required-desktop-software"></a>Vereiste bureaublad software
+### <a name="required-desktop-software"></a>Vereiste bureaublad-software
 
-SSH-client moet u op de computer waarmee u kunt extern toegang tot de opdrachtregel op de frambozen Pi.
+SSH-client moet u op de computer waarmee u kunt voor externe toegang tot de opdrachtregel op de Raspberry Pi.
 
 - Windows bevat geen een SSH-client. Wordt u aangeraden [PuTTY](http://www.putty.org/).
-- De meeste Linux-distributies en Mac OS omvatten het SSH-opdrachtregelprogramma. Zie voor meer informatie [SSH met behulp van Linux- of Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- De meeste Linux-distributies en Mac OS omvatten het SSH-opdrachtregelprogramma. Zie voor meer informatie, [SSH met behulp van Linux- of Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
-### <a name="required-raspberry-pi-software"></a>Vereiste frambozen Pi software
+### <a name="required-raspberry-pi-software"></a>Vereiste software voor Raspberry Pi
 
-Als u dit nog niet hebt gedaan, Node.js-versie 4.0.0 of hoger installeren op uw frambozen Pi. De volgende stappen ziet u hoe Node.js v6 installeren op uw Pi frambozen:
+Als u dit nog niet hebt gedaan, installeert u Node.js versie 4.0.0 of hoger op uw Raspberry Pi. De volgende stappen laten zien hoe u Node.js v6 installeren op uw Raspberry Pi:
 
-1. Verbinding maken met uw frambozen Pi met `ssh`. Zie voor meer informatie [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) op de [frambozen Pi website](https://www.raspberrypi.org/).
+1. Verbinding maken met uw Raspberry Pi met `ssh`. Zie voor meer informatie, [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) op de [Raspberry Pi website](https://www.raspberrypi.org/).
 
-1. Gebruik de volgende opdracht om bij te werken uw Pi frambozen:
+1. Gebruik de volgende opdracht uit om bij te werken uw Raspberry Pi:
 
     ```sh
     sudo apt-get update
     ```
 
-1. Gebruik de volgende opdrachten in een bestaande installatie van Node.js verwijderen uit uw Pi frambozen:
+1. Gebruik de volgende opdrachten om te verwijderen van een bestaande installatie van Node.js uit uw Raspberry Pi:
 
     ```sh
     sudo apt-get remove nodered -y
@@ -59,14 +59,14 @@ Als u dit nog niet hebt gedaan, Node.js-versie 4.0.0 of hoger installeren op uw 
     sudo apt-get remove npm  -y
     ```
 
-1. Gebruik de volgende opdracht om te downloaden en installeren van Node.js v6 op uw Pi frambozen:
+1. Gebruik de volgende opdracht om te downloaden en Node.js v6 installeren op uw Raspberry Pi:
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     sudo apt-get install nodejs -y
     ```
 
-1. Gebruik de volgende opdracht om te controleren of dat u hebt de Node.js-v6.11.4 is geïnstalleerd:
+1. Gebruik de volgende opdracht om te controleren of dat u hebt Node.js v6.11.4 is geïnstalleerd:
 
     ```sh
     node --version
@@ -74,9 +74,9 @@ Als u dit nog niet hebt gedaan, Node.js-versie 4.0.0 of hoger installeren op uw 
 
 ## <a name="create-a-nodejs-solution"></a>Een Node.js-oplossing maken
 
-De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
+De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
-1. Maak een map `remotemonitoring` in uw basismap op de frambozen Pi. Navigeer naar deze map op de opdrachtregel:
+1. Maak een map genaamd `remotemonitoring` in de basismap van de Raspberry Pi. Navigeer naar deze map op uw opdrachtregel:
 
     ```sh
     cd ~
@@ -84,14 +84,14 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     cd remotemonitoring
     ```
 
-1. Als u wilt downloaden en installeren van de pakketten die u moet voltooien van de voorbeeld-app, voer de volgende opdrachten:
+1. Als u wilt downloaden en installeren van de pakketten die u nodig hebt voor de voorbeeld-app, voer de volgende opdrachten:
 
     ```sh
     npm init
     npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. In de `remotemonitoring` map maken van een bestand met de naam **remote_monitoring.js**. Open dit bestand in een teksteditor. Op de Pi frambozen, kunt u de `nano` of `vi` teksteditors.
+1. In de `remotemonitoring` map, maakt u een bestand met de naam **remote_monitoring.js**. Open dit bestand in een teksteditor. Aan de Raspberry Pi, kunt u de `nano` of `vi` teksteditors.
 
 1. In de **remote_monitoring.js** bestand, voeg de volgende `require` instructies:
 
@@ -121,7 +121,7 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     var pressureUnit = 'psig';
     ```
 
-1. Bepaalde eigenschapswaarden definiëren, voeg de volgende variabelen:
+1. Voor het definiëren van sommige eigenschapswaarden, voeg de volgende variabelen:
 
     ```nodejs
     var temperatureSchema = 'chiller-temperature;v1';
@@ -137,7 +137,7 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     var deviceOnline = true;
     ```
 
-1. Voeg de volgende variabele om de gemelde eigenschappen om te verzenden naar de oplossing te geven. Deze eigenschappen zijn metagegevens om te beschrijven van de methoden en telemetrie van het apparaat wordt gebruikt:
+1. Voeg de volgende variabele voor het definiëren van de gerapporteerde eigenschappen om te verzenden naar de oplossing. Deze eigenschappen omvatten metagegevens om te beschrijven van de methoden en telemetrie van het apparaat wordt gebruikt:
 
     ```nodejs
     var reportedProperties = {
@@ -191,7 +191,7 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     }
     ```
 
-1. Voeg de volgende Help-functie Bewerkingsresultaten om af te drukken:
+1. Voeg de volgende Help-functie resultaten van de bewerking om af te drukken:
 
     ```nodejs
     function printErrorFor(op) {
@@ -201,7 +201,7 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     }
     ```
 
-1. De volgende Help-functie wilt willekeurige de telemetrie-waarden toevoegen:
+1. Voeg de volgende helperfunctie te gebruiken op een willekeurige kleur geven de telemetriewaarden:
 
     ```nodejs
     function generateRandomIncrement() {
@@ -209,7 +209,7 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     }
     ```
 
-1. Voeg de volgende algemene functie voor het afhandelen van directe methodeaanroepen van de oplossing. De functie geeft informatie weer over de directe methode die is aangeroepen, maar in dit voorbeeld het apparaat op een manier niet wijzigen. De oplossing maakt gebruik van rechtstreekse methoden om te reageren op apparaten:
+1. Voeg de volgende algemene functie voor het afhandelen van rechtstreekse methodeaanroepen van de oplossing. De functie geeft informatie weer over de directe methode die is aangeroepen, maar in dit voorbeeld het apparaat op geen enkele manier niet wijzigen. De oplossing maakt gebruik van directe methoden om te reageren op apparaten:
 
     ```nodejs
     function onDirectMethod(request, response) {
@@ -224,7 +224,7 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     }
     ```
 
-1. Voeg de volgende functie voor het afhandelen van de **FirmwareUpdate** directe methodeaanroepen van de oplossing. De functie controleert of de parameters die worden doorgegeven in de nettolading van de directe methode en vervolgens wordt de simulatie van een firmware-update asynchroon uitgevoerd:
+1. Voeg de volgende functie voor het afhandelen van de **FirmwareUpdate** rechtstreekse methodeaanroepen van de oplossing. De functie controleert of de parameters die worden doorgegeven in de nettolading van directe methode en de simulatie van een firmware-update wordt asynchroon uitgevoerd:
 
     ```node.js
     function onFirmwareUpdate(request, response) {
@@ -253,7 +253,7 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     }
     ```
 
-1. De volgende functie om te simuleren een langlopende firmware-update-stroom die voortgang aan de oplossing doorgegeven toevoegen:
+1. Voeg de volgende functie voor het simuleren van een stroom langlopende firmware bijwerken die wordt uitgevoerd aan de oplossing doorgegeven:
 
     ```node.js
     // Simulated firmwareUpdate flow
@@ -331,7 +331,7 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     }
     ```
 
-1. Voeg de volgende code voor het verzenden van telemetriegegevens naar de oplossing. De client-app worden eigenschappen toegevoegd aan het bericht voor het identificeren van het berichtschema:
+1. Voeg de volgende code voor het verzenden van telemetriegegevens naar de oplossing. Eigenschappen van de client-app toegevoegd aan het bericht om te identificeren van het berichtschema:
 
     ```node.js
     function sendTelemetry(data, schema) {
@@ -359,10 +359,10 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
 
 1. Voeg de volgende code toe:
 
-    * De verbinding openen.
-    * Een handler voor de gewenste eigenschappen instellen.
-    * Eigenschappen van de gerapporteerde verzenden.
-    * Registreer de handlers voor de rechtstreekse methoden. Het voorbeeld maakt gebruik van een afzonderlijke handler voor de directe methode voor firmware-update.
+    * Open de verbinding.
+    * Instellen van een handler voor de gewenste eigenschappen.
+    * Gerapporteerde eigenschappen verzenden.
+    * Registreer handlers voor de directe methoden. Het voorbeeld wordt een afzonderlijke handler voor de directe methode die firmware-update.
     * Beginnen met het verzenden van telemetrie.
 
     ```nodejs
@@ -437,9 +437,9 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     });
     ```
 
-1. Sla de wijzigingen in de **remote_monitoring.js** bestand.
+1. Sla de wijzigingen aan de **remote_monitoring.js** bestand.
 
-1. Start de voorbeeldtoepassing, voeren de volgende opdracht achter de opdrachtprompt op de Pi frambozen:
+1. Voer de volgende opdracht achter de opdrachtprompt op de Raspberry Pi voor het starten van de voorbeeldtoepassing:
 
     ```sh
     node remote_monitoring.js
