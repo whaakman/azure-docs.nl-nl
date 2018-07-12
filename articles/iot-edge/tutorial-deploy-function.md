@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 0445817f9ff403156025e38a1e14a3892a9a292b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031189"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38667019"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules---preview"></a>Zelfstudie: Azure Functions implementeren als IoT Edge-modules (preview)
 
@@ -239,7 +239,7 @@ Verwijder de containers die op uw apparaat zijn gemaakt.
 sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction")
 ```
 
-De container-runtime verwijderen.
+Verwijder de container-runtime.
 
 ```bash
 sudo apt-get remove --purge moby

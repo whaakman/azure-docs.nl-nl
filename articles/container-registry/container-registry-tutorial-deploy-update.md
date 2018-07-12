@@ -3,17 +3,18 @@ title: 'Zelfstudie voor Azure Container Registry: een bijgewerkte installatiekop
 description: Push een aangepaste Docker-installatiekopie naar uw geo-gerepliceerde Azure-containerregister. Vervolgens worden de wijzigingen automatisch geïmplementeerd in web-apps die in meerdere regio's worden uitgevoerd. Deel drie van een serie van drie.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634084"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Zelfstudie: een bijgewerkte installatiekopie naar regionale implementaties pushen
 
@@ -70,7 +71,7 @@ De aangepaste `Index.cshtml` moet er ongeveer zo uitzien:
 
 ## <a name="rebuild-the-image"></a>De installatiekopie herbouwen
 
-Nu u de web-app hebt bijgewerkt, moet u de bijbehorende containerinstallatiekopie herbouwen. Gebruik net als eerder de naam van de volledig gekwalificeerde installatiekopie, met inbegrip van de URL voor de aanmeldingsserver, voor de tag:
+Nu u de web-app hebt bijgewerkt, moet u de bijbehorende containerinstallatiekopie herbouwen. Gebruik net als eerder de volledig gekwalificeerde installatiekopienaam, met inbegrip van de FQDN (Fully Qualified Domain Name) voor de aanmeldingsserver, voor de tag:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -78,15 +79,16 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 ## <a name="push-image-to-azure-container-registry"></a>Installatiekopie pushen naar Azure Container Registry
 
-Push nu de bijgewerkte containerinstallatiekopie *acr-helloworld* naar uw geo-gerepliceerde register. Hier voert u een enkele `docker push`-opdracht uit om de bijgewerkte installatiekopie naar de registerreplica's in de regio's *VS West* en *VS Oost* te implementeren.
+Push hierna de bijgewerkte containerinstallatiekopie *acr-helloworld* naar het geo-gerepliceerde register. Hier voert u een enkele `docker push`-opdracht uit om de bijgewerkte installatiekopie naar de registerreplica's in de regio's *VS West* en *VS Oost* te implementeren.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-De uitvoer ziet er ongeveer als volgt uit:
+De `docker push`-uitvoer moet er ongeveer als volgt uitzien:
 
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 5b9454e91555: Pushed
 d6803756744a: Layer already exists
@@ -126,19 +128,17 @@ Controleer of de bijgewerkte containerinstallatiekopie ook is geïmplementeerd n
 
 ![Browserweergave van gewijzigde web-app die wordt uitgevoerd in de regio VS Oost][deployed-app-eastus-modified]
 
-Met één `docker push` hebt u beide regionale web-app-implementaties bijgewerkt, en Azure Container Registry heeft de containerinstallatiekopieën vanuit opslagplaatsen dicht bij het netwerk geleverd.
+Met één `docker push` hebt u automatisch de webtoepassing bijgewerkt die wordt uitgevoerd in beide regionale web-app-implementaties. En Azure Container Registry leverde de containerinstallatiekopieën uit de opslagplaatsen het dichtst bij elke implementatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een nieuwe versie van de web-app-container bijgewerkt en naar het geo-gerepliceerde register gepusht. Webhooks in Azure Container Registry gaven de update door aan Web App for Containers, waardoor een lokale pull vanuit de registerreplica's werd geactiveerd.
+In deze zelfstudie hebt u een nieuwe versie van de web-app-container bijgewerkt en naar het geo-gerepliceerde register gepusht. Webhooks in Azure Container Registry gaven de update door aan Web App for Containers, waardoor een lokale pull vanuit de dichtstbijzijnde registerreplica's werd geactiveerd.
 
-In deze zelfstudie, de laatste in deze serie, hebt u het volgende gedaan:
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: geautomatiseerde build en patch voor de installatiekopie
 
-> [!div class="checklist"]
-> * U hebt de web-app-HTML gewijzigd
-> * U hebt de Docker-installatiekopie gemaakt en getagd
-> * U hebt de wijziging naar Azure Container Registry gepusht
-> * U hebt de bijgewerkte app in twee verschillende regio's weergegeven
+Naast geo-replicatie is ACR Build nog een functie van Azure Container Registry waarmee u de implementatiepijplijn van uw container kunt optimaliseren. Bekijk eerst het ACR Build-overzicht om een idee te krijgen van de mogelijkheden:
+
+[OS- en frameworkpatching automatiseren met ACR Build](container-registry-build-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

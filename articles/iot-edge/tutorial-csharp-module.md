@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8cd4f87e690d64e1f69ef39f3422ebc73d79974a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 73b6397ecc97b9e289749aabddfdc4c6161375d4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053089"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38667341"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Zelfstudie: Een C# IoT Edge-module ontwikkelen en implementeren op een gesimuleerd apparaat
 
@@ -34,10 +34,10 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Het Azure IoT Edge-apparaat dat u hebt gemaakt in de quickstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
+* Het Azure IoT Edge-apparaat dat u hebt gemaakt in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
 * De verbindingsreeks van de primaire sleutel voor het IoT Edge-apparaat.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [C#-extensie voor Visual Studio Code (van OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) voor Visual Studio Code.
+* [De extensie C# voor Visual Studio Code (van OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [Azure IoT Edge-extensie](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) voor Visual Studio Code. 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/) op de ontwikkelcomputer. 
@@ -248,7 +248,7 @@ U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, z
 ## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
 
 1. Configureer de Azure IoT Toolkit-extensie met de verbindingsreeks voor uw IoT Hub: 
-    1. Open VS Code Explorer door **Verkenner** > **bekijken** te selecteren. 
+    1. Open de VS Code Explorer door **Verkenner** > **bekijken** te selecteren. 
     2. Klik in Explorer op **AZURE IOT HUB EXPLORER** en klik vervolgens op **...**. Klik op **IoT Hub selecteren**. Volg de instructies om u aan te melden bij uw Azure-account en kies uw IoT-hub. 
        Let op: u kunt dit ook instellen door te klikken op **IoT Hub-verbindingsreeks instellen**. Voer in het pop-upvenster de verbindingsreeks voor de IoT-hub in waarmee het IoT Edge-apparaat verbinding maakt.
 
