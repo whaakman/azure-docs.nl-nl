@@ -1,6 +1,6 @@
 ---
-title: SQL Server-beschikbaarheidsgroepen - virtuele Machines in Azure - zelfstudie | Microsoft Docs
-description: Deze zelfstudie laat zien hoe een SQL Server altijd op beschikbaarheidsgroep maken op Azure Virtual Machines.
+title: SQL Server-beschikbaarheidsgroepen - virtuele Machines van Azure - zelfstudie | Microsoft Docs
+description: Deze zelfstudie laat zien hoe u een SQL Server AlwaysOn-beschikbaarheidsgroep maken op Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -17,40 +17,40 @@ ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
 ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114606"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531576"
 ---
-# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configureren AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
+# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
-Deze zelfstudie laat zien hoe een SQL Server altijd op beschikbaarheidsgroep maken op Azure Virtual Machines. De volledige zelfstudie maakt een beschikbaarheidsgroep met een databasereplica op twee SQL-Servers.
+Deze zelfstudie laat zien hoe u een SQL Server AlwaysOn-beschikbaarheidsgroep maken op Azure Virtual Machines. De volledige zelfstudie maakt u een beschikbaarheidsgroep toevoegen met een databasereplica op twee SQL-Servers.
 
-**Tijd schatting**: duurt ongeveer 30 minuten voltooid als aan de vereisten is voldaan.
+**Geschatte tijd**: duurt ongeveer 30 minuten om te voltooien als aan de vereisten is voldaan.
 
-Het diagram ziet u wat u in de zelfstudie bouwen.
+Het diagram ziet wat u in de zelfstudie maken.
 
 ![Beschikbaarheidsgroep](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-De zelfstudie wordt ervan uitgegaan dat u basiskennis van SQL Server altijd op beschikbaarheidsgroepen. Als u meer informatie, Zie [overzicht van AlwaysOn-beschikbaarheidsgroepen (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+De zelfstudie wordt ervan uitgegaan dat u een basiskennis hebben van SQL Server Always On Availability Groups. Als u meer informatie, Zie [overzicht van de Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
-De volgende tabel bevat de vereisten die u nodig hebt voltooid voordat u deze zelfstudie:
+De volgende tabel bevat de vereisten die u nodig hebt om te voltooien voordat u deze zelfstudie begint:
 
 |  |Vereiste |Beschrijving |
 |----- |----- |----- |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Twee SQL-Servers | -In een Azure beschikbaarheidsset <br/> -In één domein <br/> -Met de functie Failover Clustering is geïnstalleerd |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Bestandsshare voor cluster-witness |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Twee SQL-Servers | -In een Azure-beschikbaarheidsset <br/> -In één domein <br/> -Met de functie Failover Clustering geïnstalleerd |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | File share voor een cluster witness |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server-serviceaccount | Domeinaccount |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent-serviceaccount | Domeinaccount |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall-poorten | -SQL Server: **1433** voor het standaardexemplaar <br/> -Eindpunt voor databasespiegeling: **5022** of een beschikbare poort <br/> -Azure load balancer-test: **59999** of een beschikbare poort |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall-poorten openen | -SQL Server: **1433** voor standaardexemplaar <br/> -Eindpunt voor databasespiegeling: **5022** of een beschikbare poort <br/> -Azure load balancer-test: **59999** of een beschikbare poort |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Toevoegen van de functie Failoverclustering | Deze functie nodig hebben voor zowel SQL-Servers |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Installatieaccount van het domein | -Lokale beheerder zijn op elke SQL Server <br/> -Lid is van SQL Server vaste serverrol sysadmin voor elk exemplaar van SQL Server  |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Domeinaccount voor installatie | -Lokale beheerder zijn op elke SQL-Server <br/> -Lid is van SQL Server vaste serverrol sysadmin voor elk exemplaar van SQL Server  |
 
 
-Voordat u de zelfstudie begint, moet u [voldoen aan vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen in Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Als deze vereiste onderdelen zijn al voltooid, kunt u springen naar [Cluster maken](#CreateCluster).
+Voordat u met de zelfstudie begint, moet u [voldoen aan vereisten voor het maken van Always On Availability Groups in Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Als u deze vereisten zijn al voltooid, kunt u springen naar [Cluster maken](#CreateCluster).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -58,84 +58,84 @@ Voordat u de zelfstudie begint, moet u [voldoen aan vereisten voor het maken van
 <a name="CreateCluster"></a>
 ## <a name="create-the-cluster"></a>Het cluster maken
 
-Nadat de vereiste onderdelen zijn voltooid, wordt de eerste stap is om een Windows Server-failovercluster met twee SQL-servers en een witness-server te maken.
+Nadat de vereiste onderdelen zijn voltooid, wordt de eerste stap is het maken van een Windows Server-failovercluster met twee SQL-servers en een witness-server.
 
-1. RDP naar de eerste SQL-Server met behulp van een domeinaccount met een Administrator op SQL-Servers en de witness-server.
+1. RDP-verbinding de eerste SQL-Server met behulp van een domeinaccount dat een beheerder is op zowel SQL-Servers en de witness-server.
 
    >[!TIP]
-   >Als u hebt gevolgd de [vereisten document](virtual-machines-windows-portal-sql-availability-group-prereq.md), u hebt gemaakt met een account met de naam **CORP\Install**. Dit account gebruiken.
+   >Als u hebt gevolgd de [document met vereiste onderdelen](virtual-machines-windows-portal-sql-availability-group-prereq.md), u hebt gemaakt met een account met de naam **CORP\Install**. Dit account gebruiken.
 
 2. In de **Serverbeheer** dashboard, selecteer **extra**, en klik vervolgens op **Failoverclusterbeheer**.
 3. In het linkerdeelvenster met de rechtermuisknop op **Failoverclusterbeheer**, en klik vervolgens op **maken van een Cluster**.
    ![Cluster maken](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
-4. Maak een cluster met één knooppunt door door de pagina's met de instellingen in de volgende tabel in de Wizard Cluster maken:
+4. Maak een cluster met één knooppunt te doorlopen via de pagina's met de instellingen in de volgende tabel in de Wizard Cluster maken:
 
    | Pagina | Instellingen |
    | --- | --- |
    | Voordat u begint |Standaardinstellingen gebruiken |
-   | Servers selecteren |Typ de naam van de eerste SQL Server in **Enter servernaam** en klik op **toevoegen**. |
-   | Van validatiewaarschuwing |Selecteer **nr. ik geen ondersteuning van Microsoft nodig hebt voor dit cluster, en daarom niet wilt de validatietests uit te voeren. Als ik op Volgende klikt, doorgaan met het maken van het cluster**. |
+   | Selecteer Servers |Typ de naam van de eerste SQL-Server in **Enter servernaam** en klikt u op **toevoegen**. |
+   | Van validatiewaarschuwing |Selecteer **Nee. ik niet ondersteuning van Microsoft nodig hebt voor dit cluster, en daarom niet wilt de validatietests uit te voeren. Wanneer ik op Volgende klikt, gaat u door het maken van het cluster**. |
    | Toegangspunt voor beheer van het Cluster |Typ de naam van een cluster, zoals **SQLAGCluster1** in **clusternaam**.|
-   | Bevestiging |Gebruik de standaardwaarden tenzij u van opslagruimten gebruikmaakt. Zie de opmerking onder deze tabel. |
+   | Bevestiging |Gebruik de standaardinstellingen, tenzij u van opslagruimten gebruikmaakt. Zie de opmerking onder deze tabel. |
 
 ### <a name="set-the-cluster-ip-address"></a>De cluster-IP-adres instellen
 
-1. In **Failoverclusterbeheer**, schuif omlaag naar **Clusterkernresources** en vouwt u de clusterdetails van de. Ziet u zowel de **naam** en de **IP-adres** bronnen in de **mislukt** status. De bron van het IP-adres kan niet online worden gebracht omdat het cluster is toegewezen aan hetzelfde IP-adres als de machine zelf, daarom is een dubbel adres.
+1. In **Failoverclusterbeheer**, schuif omlaag naar **Clusterkernresources** en vouwt u de clusterdetails van de. Ziet u zowel de **naam** en de **IP-adres** bronnen in de **mislukt** staat. De resource van het IP-adres kan niet online worden gebracht omdat het cluster is toegewezen hetzelfde IP-adres als de machine zelf, daarom is het een dubbel adres.
 
-2. Met de rechtermuisknop op de mislukte **IP-adres** bron en klik vervolgens op **eigenschappen**.
+2. Met de rechtermuisknop op de mislukte **IP-adres** resource en klik vervolgens op **eigenschappen**.
 
    ![Eigenschappen van cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Selecteer **statisch IP-adres** en geeft u een beschikbaar adres uit hetzelfde subnet als uw virtuele machines.
+3. Selecteer **statisch IP-adres** en geeft u een beschikbaar adres uit hetzelfde subnet bevinden als uw virtuele machines.
 
-4. In de **Clusterkernresources** sectie, met de rechtermuisknop op de clusternaam van het en klik op **Online brengen**. Vervolgens wacht u totdat beide bronnen online zijn. Wanneer de clusterbron met de naam van online wordt gezet, de DC-server wordt bijgewerkt met een nieuw AD-account. Gebruik deze AD-account later uit te voeren de beschikbaarheidsgroep geclusterde service.
+4. In de **Clusterkernresources** sectie, met de rechtermuisknop op de naam van cluster en klikt u op **Online brengen**. Klik, wacht u totdat beide bronnen online zijn. Wanneer de naam van clusterresource online gaat, wordt de DC-server met een nieuwe AD-account bijgewerkt. Deze AD-account voor de beschikbaarheidsgroep geclusterde service later gebruiken.
 
-### <a name="addNode"></a>De SQL-Server toevoegen aan cluster
+### <a name="addNode"></a>De andere SQL-Server toevoegen aan cluster
 
-De SQL-Server toevoegen aan het cluster.
+De andere SQL-Server toevoegen aan het cluster.
 
-1. In de boomstructuur van de browser, met de rechtermuisknop op het cluster en klikt u op **knooppunt toevoegen**.
+1. In de browserstructuur van de met de rechtermuisknop op het cluster en klikt u op **knooppunt toevoegen**.
 
     ![Knooppunt toevoegen aan het Cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/44-addnode.png)
 
-1. In de **Wizard knooppunt toevoegen**, klikt u op **volgende**. In de **Servers selecteren** pagina, de tweede SQL-Server toevoegen. Typ de servernaam in **Enter servernaam** en klik vervolgens op **toevoegen**. Wanneer u klaar bent, klikt u op **volgende**.
+1. In de **Wizard knooppunt toevoegen**, klikt u op **volgende**. In de **Servers selecteren** pagina, de tweede SQL-Server toevoegen. Typ de naam van de server in **Enter servernaam** en klik vervolgens op **toevoegen**. Wanneer u klaar bent, klikt u op **volgende**.
 
-1. In de **Validation Warning** pagina, klikt u op **Nee** (in een productiescenario u moet de validatietests uitgevoerd). Klik op **Volgende**.
+1. In de **Validation Warning** pagina, klikt u op **Nee** (in een productiescenario moet u uitvoeren de validatietests). Klik op **Volgende**.
 
-8. In de **bevestiging** pagina als u gebruikmaakt van opslagruimten, schakelt u het selectievakje **alle in aanmerking komende opslag toevoegen aan het cluster.**
+8. In de **bevestiging** pagina als u gebruikmaakt van opslagruimten, schakel het selectievakje met het label **alle in aanmerking komende opslag toevoegen aan het cluster.**
 
-   ![Knooppunt bevestiging toevoegen](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/46-addnodeconfirmation.png)
+   ![Bevestiging van het knooppunt toevoegen](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/46-addnodeconfirmation.png)
 
     >[!WARNING]
-   >Als u met behulp van opslagruimten en niet doen schakelt **alle in aanmerking komende opslag toevoegen aan het cluster**, Windows wordt losgekoppeld van de virtuele schijven tijdens het clusterproces. Als gevolg hiervan worden niet weergegeven in Schijfbeheer of Explorer totdat de opslagruimten zijn verwijderd uit het cluster en opnieuw gekoppeld met behulp van PowerShell. Opslagruimten gegroepeerd op meerdere schijven in aan opslaggroepen. Zie voor meer informatie [opslagruimten](https://technet.microsoft.com/library/hh831739).
+   >Als u van opslagruimten gebruikmaakt en niet doen Schakel **alle in aanmerking komende opslag toevoegen aan het cluster**, Windows losgekoppeld van de virtuele schijven tijdens het clusterproces. Als gevolg hiervan worden niet weergegeven in Schijfbeheer of Explorer totdat de opslagruimten zijn verwijderd uit het cluster en opnieuw gekoppeld met behulp van PowerShell. Storage Spaces gegroepeerd meerdere schijven in opslaggroepen. Zie voor meer informatie, [opslagruimten](https://technet.microsoft.com/library/hh831739).
 
 1. Klik op **Volgende**.
 
 1. Klik op **Voltooien**.
 
-   Failover Cluster Manager blijkt dat het cluster een nieuw knooppunt is en wordt weergegeven in de **knooppunten** container.
+   Failover Cluster Manager laat zien dat het cluster een nieuw knooppunt heeft en wordt weergegeven in de **knooppunten** container.
 
 10. Meld u af bij van de extern bureaublad-sessiehost.
 
-### <a name="add-a-cluster-quorum-file-share"></a>Toevoegen van een clusterquorum-bestandsshare
+### <a name="add-a-cluster-quorum-file-share"></a>Een clusterquorum-bestandsshare toevoegen
 
-In dit voorbeeld gebruikt de Windows-cluster een bestandsshare te maken van een clusterquorum. Deze zelfstudie maakt gebruik van een knooppunt en bestandssharemeerderheid quorum. Zie voor meer informatie [Quorumconfiguraties in een failovercluster](http://technet.microsoft.com/library/cc731739.aspx).
+In dit voorbeeld gebruikt de Windows-cluster een bestandsshare te maken van een clusterquorum. In deze zelfstudie maakt gebruik van een knooppunt en bestandssharemeerderheid quorum. Zie voor meer informatie, [Quorumconfiguraties in een failovercluster](http://technet.microsoft.com/library/cc731739.aspx).
 
-1. Verbinding maken met de share witness lid bestandsserver met een extern bureaublad-sessiehost.
+1. Verbinding maken met de file share witness lidserver met een extern bureaublad-sessiehost.
 
 1. Op **Serverbeheer**, klikt u op **extra**. Open **Computerbeheer**.
 
 1. Klik op **gedeelde mappen**.
 
-1. Met de rechtermuisknop op **Shares**, en klik op **nieuwe Share...** .
+1. Met de rechtermuisknop op **Shares**, en klikt u op **nieuwe Share...** .
 
    ![Nieuwe Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
-   Gebruik **Wizard gedeelde map maken** voor het maken van een share.
+   Gebruik **maken van een Wizard gedeelde map** om een bestandsshare te maken.
 
-1. Op **mappad**, klikt u op **Bladeren** en niet vinden of een pad voor de gedeelde map maken. Klik op **Volgende**.
+1. Op **mappad**, klikt u op **Bladeren** en zoekt of maakt u een pad voor de gedeelde map. Klik op **Volgende**.
 
-1. In **naam, beschrijving en instellingen** Controleer of de sharenaam en het pad. Klik op **Volgende**.
+1. In **naam, beschrijving en instellingen** controleren of de sharenaam en het pad. Klik op **Volgende**.
 
 1. Op **machtigingen voor gedeelde mappen** ingesteld **machtigingen aanpassen**. Klik op **aangepaste...** .
 
@@ -157,18 +157,18 @@ Vervolgens stelt u het clusterquorum.
 
 1. Verbinding maken met het eerste clusterknooppunt met extern bureaublad.
 
-1. In **Failoverclusterbeheer**, met de rechtermuisknop op het cluster, wijs **meer acties**, en klik op **Clusterquoruminstellingen configureren...** .
+1. In **Failoverclusterbeheer**, met de rechtermuisknop op het cluster, wijs **meer acties**, en klikt u op **Clusterquoruminstellingen configureren...** .
 
    ![Nieuwe Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/52-configurequorum.png)
 
 1. In **Wizard clusterquorum configureren**, klikt u op **volgende**.
 
-1. In **optie voor quorumconfiguratie**, kies **selecteert u de quorumwitness**, en klik op **volgende**.
+1. In **optie voor quorumconfiguratie**, kiest u **selecteert u de quorumwitness**, en klikt u op **volgende**.
 
-1. Op **Quorumwitness selecteren**, klikt u op **een bestandssharewitness configureren**.
+1. Op **Quorumwitness selecteren**, klikt u op **een bestandsshare-witness configureren**.
 
    >[!TIP]
-   >Windows Server 2016 biedt ondersteuning voor een cloud-witness. Als u dit soort witness kiest, hoeft u niet een bestand witness delen. Zie voor meer informatie [een witness cloud voor een failover-Cluster implementeren](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Deze zelfstudie maakt gebruik van een bestandssharewitness wordt ondersteund door eerdere besturingssystemen.
+   >Windows Server 2016 biedt ondersteuning voor een cloud-witness. Als u dit type witness kiest, u hoeft niet een bestand witness delen. Zie voor meer informatie, [een cloudwitness voor een Failover-Cluster implementeren](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). In deze zelfstudie maakt gebruik van een bestandssharewitness wordt ondersteund door eerdere besturingssystemen.
 
 1. Op **bestandssharewitness configureren**, typt u het pad voor de share die u hebt gemaakt. Klik op **Volgende**.
 
@@ -176,19 +176,19 @@ Vervolgens stelt u het clusterquorum.
 
 1. Klik op **Voltooien**.
 
-De clusterkernresources zijn geconfigureerd met een bestandssharewitness.
+De clusterkernresources zijn geconfigureerd met een bestandsshare-witness.
 
 ## <a name="enable-availability-groups"></a>Beschikbaarheidsgroepen inschakelen
 
 Schakel vervolgens de **AlwaysOn Availability Groups** functie. Voer deze stappen uit op beide SQL-Servers.
 
-1. Van de **Start** scherm, starten **SQL Server Configuration Manager**.
-2. Klik in de structuur van de browser op **SQL Server-Services**, klik met de rechtermuisknop op de **SQL Server (MSSQLSERVER)** service en klik op **eigenschappen**.
-3. Klik op de **AlwaysOn hoge beschikbaarheid** tabblad en selecteer vervolgens **Schakel AlwaysOn Availability Groups**als volgt:
+1. Uit de **Start** scherm, start u **SQL Server Configuration Manager**.
+2. Klik in de browserstructuur van de op **SQL Server-Services**, klik met de rechtermuisknop op de **SQL Server (MSSQLSERVER)** service en klikt u op **eigenschappen**.
+3. Klik op de **AlwaysOn High Availability** tabblad, en selecteer vervolgens **Schakel AlwaysOn Availability Groups**, als volgt:
 
     ![AlwaysOn-beschikbaarheidsgroepen inschakelen](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
-4. Klik op **Toepassen**. Klik op **OK** in het pop-upvenster.
+4. Klik op **Toepassen**. Klik op **OK** in het pop-updialoogvenster.
 
 5. Start de SQL Server-service opnieuw.
 
@@ -216,28 +216,28 @@ On both SQL Servers, open the firewall for the TCP port for the database mirrori
 Repeat these steps on the second SQL Server.
 -------------------------->
 
-## <a name="create-a-database-on-the-first-sql-server"></a>Een database maken op de eerste SQL-Server
+## <a name="create-a-database-on-the-first-sql-server"></a>Maak een database in de eerste SQL-Server
 
-1. Start het RDP-bestand naar de eerste SQL-Server met een domeinaccount dat lid is van de vaste serverrol sysadmin.
+1. Start het RDP-bestand met de eerste SQL-Server met een domeinaccount dat lid is van de vaste serverrol sysadmin.
 1. Open SQL Server Management Studio en maak verbinding met de eerste SQL-Server.
-7. In **Objectverkenner**, met de rechtermuisknop op **Databases** en klik op **nieuwe Database**.
+7. In **Objectverkenner**, met de rechtermuisknop op **Databases** en klikt u op **nieuwe Database**.
 8. In **databasenaam**, type **MyDB1**, klikt u vervolgens op **OK**.
 
-### <a name="backupshare"></a> Maak een back-share
+### <a name="backupshare"></a> Maak een back-upshare
 
 1. Op de eerste SQL-Server in **Serverbeheer**, klikt u op **extra**. Open **Computerbeheer**.
 
 1. Klik op **gedeelde mappen**.
 
-1. Met de rechtermuisknop op **Shares**, en klik op **nieuwe Share...** .
+1. Met de rechtermuisknop op **Shares**, en klikt u op **nieuwe Share...** .
 
    ![Nieuwe Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
-   Gebruik **Wizard gedeelde map maken** voor het maken van een share.
+   Gebruik **maken van een Wizard gedeelde map** om een bestandsshare te maken.
 
-1. Op **mappad**, klikt u op **Bladeren** en niet vinden of een pad voor de database een back-gedeelde map maken. Klik op **Volgende**.
+1. Op **mappad**, klikt u op **Bladeren** en zoekt of maakt u een pad voor de database een back-up gedeelde map. Klik op **Volgende**.
 
-1. In **naam, beschrijving en instellingen** Controleer of de sharenaam en het pad. Klik op **Volgende**.
+1. In **naam, beschrijving en instellingen** controleren of de sharenaam en het pad. Klik op **Volgende**.
 
 1. Op **machtigingen voor gedeelde mappen** ingesteld **machtigingen aanpassen**. Klik op **aangepaste...** .
 
@@ -253,97 +253,97 @@ Repeat these steps on the second SQL Server.
 
 ### <a name="take-a-full-backup-of-the-database"></a>Een volledige back-up van de database uitvoeren
 
-U moet back-up van de nieuwe database in de logboekketen initialiseren. Als u een back-up van de nieuwe database pas van kracht worden, kan deze kan niet worden opgenomen in een beschikbaarheidsgroep.
+U moet back-up van de nieuwe database de logboekback-upketen initialiseren. Als u een back-up van de nieuwe database niet uitvoert, kan deze kan niet worden opgenomen in een beschikbaarheidsgroep.
 
 1. In **Objectverkenner**, met de rechtermuisknop op de database, wijs **taken...** , klikt u op **Back-Up**.
 
-1. Klik op **OK** te laten een volledige back-up op de standaardlocatie van de back-up.
+1. Klik op **OK** een volledige back-up uitvoeren op de standaardlocatie van de back-up.
 
-## <a name="create-the-availability-group"></a>Maken van de beschikbaarheidsgroep.
-U bent nu klaar om te configureren van een beschikbaarheidsgroep met behulp van de volgende stappen uit:
+## <a name="create-the-availability-group"></a>De beschikbaarheidsgroep maken
+U bent nu klaar om te configureren van een beschikbaarheidsgroep toevoegen met behulp van de volgende stappen uit:
 
-* Een database maken op de eerste SQL-Server.
-* Neem een volledige back-up en de een transactielogboek van de database
-* Herstellen van de volledige en logboekback-ups naar het tweede SQL Server met de **NORECOVERY** optie
-* Maken van de beschikbaarheidsgroep (**AG1**) met synchrone doorvoer en automatische failover leesbare secundaire replica's
+* Maak een database op de eerste SQL-Server.
+* Een volledige back-up-en een transactielogboekback-up van de database
+* Herstellen van de volledige en logboekback-ups met de tweede SQL Server met de **NORECOVERY** optie
+* De beschikbaarheidsgroep maken (**AG1**) met synchrone doorvoer, automatische failover en leesbare secundaire replica's
 
 ### <a name="create-the-availability-group"></a>De beschikbaarheidsgroep maken:
 
-1. Op de extern-bureaubladsessie naar de eerste SQL-Server. In **Objectverkenner** SSMS, met de rechtermuisknop op **AlwaysOn hoge beschikbaarheid** en klik op **nieuwe Wizard beschikbaarheidsgroep**.
+1. Op de externe bureaubladsessie naar de eerste SQL-Server. In **Objectverkenner** in SSMS, met de rechtermuisknop op **AlwaysOn High Availability** en klikt u op **Wizard Nieuwe beschikbaarheidsgroep**.
 
-    ![De Wizard Nieuwe beschikbaarheidsgroep starten](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
+    ![Wizard Nieuwe beschikbaarheidsgroep starten](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
 2. In de **inleiding** pagina, klikt u op **volgende**. In de **naam van de beschikbaarheidsgroep opgeven** pagina, typ een naam voor de beschikbaarheidsgroep, bijvoorbeeld **AG1**in **naam van de beschikbaarheidsgroep**. Klik op **Volgende**.
 
-    ![Wizard Nieuwe AG AG-naam opgeven](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
+    ![Wizard Nieuwe AG, AG-naam opgeven](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
 3. In de **Databases selecteren** pagina, selecteer uw database en klik op **volgende**.
 
    >[!NOTE]
-   >De database voldoet aan de vereisten voor een beschikbaarheidsgroep, omdat u ten minste één volledige back-up hebt uitgevoerd op de beoogde primaire replica.
+   >De database aan de vereisten voldoet voor een beschikbaarheidsgroep omdat u hebt ten minste één volledige back-up uitgevoerd op de beoogde primaire replica.
 
-   ![Wizard Nieuwe AG Databases selecteren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/60-newagselectdatabase.png)
+   ![Wizard Nieuwe AG, selecteert u Databases](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/60-newagselectdatabase.png)
 4. In de **replica's opgeven** pagina, klikt u op **Replica toevoegen**.
 
-   ![Wizard Nieuwe AG replica's opgeven](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
-5. De **verbinding maken met Server** dialoogvenster verschijnt. Typ de naam van de tweede server in **servernaam**. Klik op **Verbinden**.
+   ![Wizard Nieuwe AG, replica's opgeven](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
+5. De **verbinding maken met Server** dialoogvenster wordt weergegeven. Typ de naam van de tweede server in **servernaam**. Klik op **Verbinden**.
 
-   Terug in de **replica's opgeven** pagina u ziet nu de tweede server die worden vermeld in **Beschikbaarheidsreplica**. De replica's als volgt configureren.
+   Klik in de **replica's opgeven** pagina u ziet nu de tweede server die worden vermeld in **Beschikbaarheidsreplica**. Als volgt te werk om de replica's te configureren.
 
-   ![Wizard Nieuwe AG replica's (voltooid) opgeven](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)
+   ![Wizard Nieuwe AG, geef replica's (voltooid)](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)
 
-6. Klik op **eindpunten** om te zien van het eindpunt voor databasespiegeling voor deze beschikbaarheidsgroep. Gebruik dezelfde poort die u hebt gebruikt bij het instellen van de [firewallregel voor databasespiegeling eindpunten](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
+6. Klik op **eindpunten** om te zien van het eindpunt voor databasespiegeling voor deze beschikbaarheidsgroep. Gebruik dezelfde poort die u hebt gebruikt bij het instellen van de [firewall-regel voor eindpunten voor databasespiegeling](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
-    ![Wizard Nieuwe AG eerste gegevenssynchronisatie selecteren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
+    ![Wizard Nieuwe AG, eerste gegevenssynchronisatie selecteren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. In de **eerste gegevenssynchronisatie selecteren** pagina **volledige** en geef een gedeelde netwerklocatie. Gebruik voor de locatie, de [back-upshare die u hebt gemaakt](#backupshare). In het voorbeeld was, **\\\\\<eerste SQL-Server\>\Backup\**. Klik op **Volgende**.
+8. In de **eerste gegevenssynchronisatie selecteren** pagina, selecteert u **volledige** en geef een gedeelde netwerklocatie. Voor de locatie, gebruikt u de [back-upshare die u hebt gemaakt](#backupshare). In het voorbeeld het geval is, **\\\\\<eerst SQL Server\>\Backup\**. Klik op **Volgende**.
 
    >[!NOTE]
-   >Volledige synchronisatie duurt een volledige back-up van de database op het eerste exemplaar van SQL Server en te herstellen op de tweede instantie. Voor grote databases worden volledige synchronisatie wordt niet aanbevolen omdat het kan lang duren. U kunt deze tijd verkorten door handmatig een back-up van de database maken en terugzetten met `NO RECOVERY`. Als de database al is teruggezet met `NO RECOVERY` op de tweede SQL Server voordat u de beschikbaarheidsgroep configureert, kiest u **alleen deelnemen**. Als u wilt de back-up uitvoeren na het configureren van de beschikbaarheidsgroep, kiest u **eerste gegevenssynchronisatie overslaan**.
+   >Volledige synchronisatie duurt een volledige back-up van de database op het eerste exemplaar van SQL Server en aan het tweede exemplaar te herstellen. Volledige synchronisatie wordt voor grote databases, niet aanbevolen omdat het lang duurt. U kunt dit moment beperken door handmatig een back-up maken van de database en het herstellen van met `NO RECOVERY`. Als de database is al hersteld met `NO RECOVERY` op de tweede SQL Server voordat u de beschikbaarheidsgroep configureert, kiest u **alleen deelnemen**. Als u wilt een back-up na de configuratie van de beschikbaarheidsgroep, kiest u **eerste gegevenssynchronisatie overslaan**.
 
-    ![Wizard Nieuwe AG eerste gegevenssynchronisatie selecteren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/70-datasynchronization.png)
+    ![Wizard Nieuwe AG, eerste gegevenssynchronisatie selecteren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/70-datasynchronization.png)
 
-9. In de **validatie** pagina, klikt u op **volgende**. Deze pagina moet er ongeveer als de volgende afbeelding:
+9. In de **validatie** pagina, klikt u op **volgende**. Deze pagina ziet die vergelijkbaar is met de volgende afbeelding:
 
     ![Wizard Nieuwe AG, validatie](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/72-validation.png)
 
     >[!NOTE]
-    >Er is een waarschuwing voor de listenerconfiguratie van de omdat u een beschikbaarheidsgroep-listener niet hebt geconfigureerd. U kunt deze waarschuwing negeren omdat op virtuele machines in Azure maakt u de listener na het maken van de Azure load balancer.
+    >Er is een waarschuwing voor de listenerconfiguratie van de omdat u niet een listener voor beschikbaarheidsgroep hebt geconfigureerd. U kunt deze waarschuwing negeren omdat op Azure virtual machines u de listener maken na het maken van de Azure load balancer.
 
-10. In de **samenvatting** pagina, klikt u op **voltooien**, wacht u totdat de wizard configureert u de nieuwe beschikbaarheidsgroep. In de **voortgang** pagina, klikt u op **meer details** om de voortgang van de gedetailleerde weer te geven. Zodra de wizard voltooid is, controleert de **resultaten** pagina om te controleren of de beschikbaarheidsgroep is gemaakt.
+10. In de **samenvatting** pagina, klikt u op **voltooien**, wacht u totdat de wizard configureert u de nieuwe beschikbaarheidsgroep. In de **voortgang** pagina, klikt u op **meer details** om de voortgang van de gedetailleerde weer te geven. Nadat de wizard voltooid is, Controleer de **resultaten** pagina om te controleren of de beschikbaarheidsgroep is gemaakt.
 
-     ![Wizard Nieuwe AG resulteert](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
-11. Klik op **sluiten** de wizard wilt afsluiten.
+     ![Resultaten van de Wizard Nieuwe AG](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
+11. Klik op **sluiten** om de wizard af te sluiten.
 
 ### <a name="check-the-availability-group"></a>Controleer de beschikbaarheidsgroep.
 
-1. In **Objectverkenner**, vouw **AlwaysOn hoge beschikbaarheid**, vouw vervolgens **beschikbaarheidsgroepen**. U ziet nu de nieuwe beschikbaarheidsgroep in deze container. Met de rechtermuisknop op de beschikbaarheidsgroep en klik op **Dashboard weergeven**.
+1. In **Objectverkenner**, vouw **AlwaysOn High Availability**, vouw vervolgens **Availability Groups**. U ziet nu de nieuwe beschikbaarheidsgroep in deze container. Met de rechtermuisknop op de beschikbaarheidsgroep en klikt u op **Dashboard weergeven**.
 
    ![AG-Dashboard weergeven](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/76-showdashboard.png)
 
-   Uw **AlwaysOn Dashboard** ziet er ongeveer als volgt.
+   Uw **AlwaysOn Dashboard** ziet er ongeveer als volgt uit.
 
    ![AG-Dashboard](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/78-agdashboard.png)
 
    U ziet de replica's, de failover-modus van elke replica en de synchronisatiestatus.
 
-2. In **Failoverclusterbeheer**, klikt u op het cluster. Selecteer **rollen**. De naam van de beschikbaarheidsgroep die u gebruikt, is een rol op het cluster. Deze beschikbaarheidsgroep heeft geen een IP-adres voor clientverbindingen, omdat u niet een listener hebt geconfigureerd. U configureert de listener nadat u een Azure load balancer maken.
+2. In **Failoverclusterbeheer**, klikt u op het cluster. Selecteer **rollen**. De naam van de beschikbaarheidsgroep die u gebruikt, is een rol op het cluster. Deze beschikbaarheidsgroep heeft geen een IP-adres voor clientverbindingen, omdat u niet een listener hebt geconfigureerd. U configureert de listener nadat u een Azure load balancer gemaakt.
 
    ![AG in Failoverclusterbeheer](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > Probeer geen failover van de beschikbaarheidsgroep vanuit Failoverclusterbeheer. Alle failover-bewerkingen moeten worden uitgevoerd vanuit **AlwaysOn Dashboard** in SSMS. Zie voor meer informatie [beperkingen op met behulp van de Failover-clusterbeheer met beschikbaarheidsgroepen](https://msdn.microsoft.com/library/ff929171.aspx).
+   > Probeer geen failover uitvoeren voor de beschikbaarheidsgroep van de Failover Cluster Manager. Alle failover-bewerkingen moeten worden uitgevoerd vanuit **AlwaysOn Dashboard** in SSMS. Zie voor meer informatie, [beperkingen op met behulp van de Failover-clusterbeheer met Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
     >
 
-U hebt op dit moment een beschikbaarheidsgroep met replica's op twee exemplaren van SQL Server. U kunt de beschikbaarheidsgroep verplaatsen tussen exemplaren. U kan geen verbinding met de beschikbaarheidsgroep nog omdat u niet over een listener. In Azure virtuele machines moet de listener voor een load balancer. De volgende stap is het maken van de load balancer in Azure.
+Op dit moment hebt u een beschikbaarheidsgroep met replica's op twee exemplaren van SQL Server. U kunt de beschikbaarheidsgroep verplaatsen tussen exemplaren. U kan geen verbinding maken met de beschikbaarheidsgroep nog omdat u geen een listener. In Azure virtuele machines moet de listener van een load balancer. De volgende stap is het maken van de load balancer in Azure.
 
 <a name="configure-internal-load-balancer"></a>
 
 ## <a name="create-an-azure-load-balancer"></a>Een Azure-load balancer maken
 
-Op virtuele machines in Azure vereist een SQL Server-beschikbaarheidsgroep een load balancer. De load balancer bevat de IP-adressen voor de beschikbaarheidsgroep-listeners en de Windows Server-failovercluster. Deze sectie bevat een overzicht van de load balancer maken in de Azure-portal.
+Een beschikbaarheidsgroep van SQL Server vereist op Azure virtual machines, een load balancer. De load balancer bevat de IP-adressen voor de beschikbaarheidsgroep-listeners en de Windows Server-failovercluster. In deze sectie bevat een overzicht van de load balancer maken in Azure portal.
 
-1. In de Azure portal, gaat u naar de resourcegroep waar uw SQL-Servers zijn en klik op **+ toevoegen**.
+1. In de Azure-portal, gaat u naar de resourcegroep waar uw SQL-Servers zijn en klik op **+ toevoegen**.
 2. Zoeken naar **Load Balancer**. Kies de load balancer gepubliceerd door Microsoft.
 
    ![AG in Failoverclusterbeheer](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
@@ -353,34 +353,34 @@ Op virtuele machines in Azure vereist een SQL Server-beschikbaarheidsgroep een l
 
    | Instelling | Veld |
    | --- | --- |
-   | **Naam** |Gebruik een naam in voor de load balancer, zoals **sqlLB**. |
+   | **Naam** |Gebruik een naam in voor de load balancer, bijvoorbeeld **sqlLB**. |
    | **Type** |Intern |
-   | **Virtueel netwerk** |Gebruik de naam van de virtuele Azure-netwerk. |
-   | **Subnet** |De naam van het subnet dat de virtuele machine is in gebruik.  |
+   | **Virtueel netwerk** |Gebruik de naam van de Azure-netwerk. |
+   | **Subnet** |Gebruik de naam van het subnet waarin de virtuele machine zich bevindt.  |
    | **IP-adrestoewijzing** |Statisch |
-   | **IP-adres** |Gebruik een beschikbaar adres van subnet. Houd er rekening mee dat dit van het IP-adres van uw cluster verschilt |
+   | **IP-adres** |Gebruik een beschikbaar adres uit het subnet. Houd er rekening mee dat dit af van uw cluster-IP-adres wijkt |
    | **Abonnement** |Gebruik hetzelfde abonnement als de virtuele machine. |
-   | **Locatie** |Gebruik dezelfde locatie als de virtuele machine. |
+   | **Locatie** |Gebruik de dezelfde locatie als de virtuele machine. |
 
-   De Azure portal blade ziet er als volgt:
+   De blade in Azure portal ziet er als volgt:
 
    ![Load Balancer maken](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/84-createloadbalancer.png)
 
-1. Klik op **maken**wilt maken van de load balancer.
+1. Klik op **maken**om te maken van de load balancer.
 
-Voor het configureren van de load balancer, moet u een back-endpool een test maken en de load-balancingregels. Voer deze in de Azure-portal.
+Voor het configureren van de load balancer, moet u een back-endadresgroep, een test maken en instellen van de load balancer-regels. Voer deze in de Azure-portal.
 
-### <a name="add-backend-pool-for-the-availability-group-listener"></a>Back-endpool toevoegen voor de beschikbaarheidsgroep-listener
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>Back-endgroep toevoegen voor de beschikbaarheidsgroep-listener
 
-1. Ga in de Azure-portal aan de beschikbaarheidsgroep. Mogelijk moet u de weergave voor de zojuist gemaakte load balancer vernieuwen.
+1. In de Azure-portal, gaat u naar de beschikbaarheidsgroep. Mogelijk moet u de weergave om te zien van de zojuist gemaakte load balancer vernieuwen.
 
    ![Load Balancer niet vinden in de resourcegroep](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Klik op de load balancer, **back-endpools**, en klik op **+ toevoegen**. 
+1. Klik op de load balancer, **back-endpools**, en klikt u op **+ toevoegen**. 
 
-1. De back-endpool koppelen aan de beschikbaarheidsset waarin de virtuele machines.
+1. Back-end-pool koppelen aan de beschikbaarheidsset met de virtuele machines.
 
-1. Onder **doel-IP-netwerkconfiguraties**, Controleer **virtuele MACHINE** en kiest u beide van de virtuele machines die als host voor replica's van beschikbaarheidsgroepen fungeert. De bestandsserver van de bestandsshare-witness niet opnemen.
+1. Onder **doel-IP-configuraties van**, Controleer **virtuele MACHINE** en kies beide van de virtuele machines die als voor replica's van beschikbaarheidsgroepen host. Neem niet de file share witness-server.
 
    >[!NOTE]
    >Als beide virtuele machines niet opgegeven zijn, wordt alleen verbindingen met de primaire replica mislukt.
@@ -389,9 +389,9 @@ Voor het configureren van de load balancer, moet u een back-endpool een test mak
 
 ### <a name="set-the-probe"></a>Instellen van de test
 
-1. Klik op de load balancer, **statuscontroles**, en klik op **+ toevoegen**.
+1. Klik op de load balancer, **statuscontroles**, en klikt u op **+ toevoegen**.
 
-1. De health test als volgt instellen:
+1. De statustest als volgt instellen:
 
    | Instelling | Beschrijving | Voorbeeld
    | --- | --- |---
@@ -399,41 +399,41 @@ Voor het configureren van de load balancer, moet u een back-endpool een test mak
    | **Protocol** | Kies TCP | TCP |
    | **Poort** | Een niet-gebruikte poort | 59999 |
    | **Interval**  | De tijdsduur tussen testpogingen in seconden |5 |
-   | **Drempelwaarde voor onjuiste status** | Het aantal opeenvolgende testfouten dat moet optreden voor een virtuele machine moet worden beschouwd als niet in orde  | 2 |
+   | **Drempelwaarde voor onjuiste status** | Het aantal opeenvolgende testfouten dat moet optreden voor een virtuele machine om te worden beschouwd als niet in orde  | 2 |
 
-1. Klik op **OK** om in te stellen van de health-test.
+1. Klik op **OK** om in te stellen de statustest.
 
-### <a name="set-the-load-balancing-rules"></a>De load-balancingregels instellen
+### <a name="set-the-load-balancing-rules"></a>Instellen van de load balancer-regels
 
-1. Klik op de load balancer, **Taakverdelingsregels**, en klik op **+ toevoegen**.
+1. Klik op de load balancer, **Taakverdelingsregels**, en klikt u op **+ toevoegen**.
 
-1. De load-balancingregels als volgt instellen.
+1. De load balancer-regels als volgt instellen.
    | Instelling | Beschrijving | Voorbeeld
    | --- | --- |---
    | **Naam** | Tekst | SQLAlwaysOnEndPointListener |
-   | **Frontend IP-adres** | Kies een adres |Gebruik het adres dat u hebt gemaakt tijdens het maken van de load balancer. |
+   | **Frontend-IP-adres** | Kies een adres |Gebruik het adres dat u hebt gemaakt tijdens het maken van de load balancer. |
    | **Protocol** | Kies TCP |TCP |
    | **Poort** | Gebruik de poort voor de beschikbaarheidsgroep-listener | 1435 |
    | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 1435 |
    | **Test** |De naam die u hebt opgegeven voor de test | SQLAlwaysOnEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
-   | **Time-out voor inactiviteit** | Minuten geopend te houden die een TCP-verbinding | 4 |
+   | **Time-out voor inactiviteit** | Minuten dat een TCP-verbinding openen | 4 |
    | **Zwevend IP (direct server return)** | |Ingeschakeld |
 
    > [!WARNING]
    > Direct server return is ingesteld tijdens het maken van. De naam kan niet worden gewijzigd.
 
-1. Klik op **OK** om in te stellen van de load-balancingregels.
+1. Klik op **OK** om in te stellen van de load balancer-regels.
 
 ### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Het front-end-IP-adres voor de WSFC toevoegen
 
-Het WSFC IP-adres moet ook op de load balancer. 
+Het WSFC-IP-adres moet ook worden op de load balancer. 
 
-1. Voeg een nieuwe Frontend-IP-adresconfiguratie voor de WSFC in de portal. Gebruik het IP-adres dat u hebt geconfigureerd voor de WSFC in de clusterkernresources. Het IP-adres instellen als statisch. 
+1. In de portal voor de WSFC met toevoegen van een nieuwe Frontend-IP-configuratie. U hebt geconfigureerd voor het WSFC in de clusterkernresources IP-adres gebruiken. Het IP-adres instellen als statisch. 
 
-1. Klik op de load balancer, **statuscontroles**, en klik op **+ toevoegen**.
+1. Klik op de load balancer, **statuscontroles**, en klikt u op **+ toevoegen**.
 
-1. De health test als volgt instellen:
+1. De statustest als volgt instellen:
 
    | Instelling | Beschrijving | Voorbeeld
    | --- | --- |---
@@ -441,77 +441,77 @@ Het WSFC IP-adres moet ook op de load balancer.
    | **Protocol** | Kies TCP | TCP |
    | **Poort** | Een niet-gebruikte poort | 58888 |
    | **Interval**  | De tijdsduur tussen testpogingen in seconden |5 |
-   | **Drempelwaarde voor onjuiste status** | Het aantal opeenvolgende testfouten dat moet optreden voor een virtuele machine moet worden beschouwd als niet in orde  | 2 |
+   | **Drempelwaarde voor onjuiste status** | Het aantal opeenvolgende testfouten dat moet optreden voor een virtuele machine om te worden beschouwd als niet in orde  | 2 |
 
-1. Klik op **OK** om in te stellen van de health-test.
+1. Klik op **OK** om in te stellen de statustest.
 
-1. De load-balancingregels ingesteld. Klik op **Taakverdelingsregels**, en klik op **+ toevoegen**.
+1. Stel de load balancer-regels. Klik op **Taakverdelingsregels**, en klikt u op **+ toevoegen**.
 
-1. De load-balancingregels als volgt instellen.
+1. De load balancer-regels als volgt instellen.
    | Instelling | Beschrijving | Voorbeeld
    | --- | --- |---
    | **Naam** | Tekst | WSFCPointListener |
-   | **Frontend IP-adres** | Kies een adres |Gebruik het adres dat u hebt gemaakt toen u het WSFC IP-adres geconfigureerd. |
+   | **Frontend-IP-adres** | Kies een adres |Het adres dat u hebt gemaakt tijdens het configureren van het WSFC-IP-adres gebruiken. |
    | **Protocol** | Kies TCP |TCP |
    | **Poort** | Gebruik de poort voor de beschikbaarheidsgroep-listener | 58888 |
    | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 58888 |
    | **Test** |De naam die u hebt opgegeven voor de test | WSFCEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
-   | **Time-out voor inactiviteit** | Minuten geopend te houden die een TCP-verbinding | 4 |
+   | **Time-out voor inactiviteit** | Minuten dat een TCP-verbinding openen | 4 |
    | **Zwevend IP (direct server return)** | |Ingeschakeld |
 
    > [!WARNING]
    > Direct server return is ingesteld tijdens het maken van. De naam kan niet worden gewijzigd.
 
-1. Klik op **OK** om in te stellen van de load-balancingregels.
+1. Klik op **OK** om in te stellen van de load balancer-regels.
 
-## <a name="configure-listener"></a> De listener configureren
+## <a name="configure-listener"></a> Configureer de listener
 
-De volgende wat te doen is voor het configureren van een beschikbaarheidsgroep-listener op het failovercluster.
+Het volgende wat te doen is het configureren van een beschikbaarheidsgroep-listener op het failovercluster.
 
 > [!NOTE]
-> Deze zelfstudie laat zien hoe u een één listener - maakt met een ILB IP-adres. Zie het maken van een of meer listeners met behulp van een of meer IP-adressen [Create Availability Group-listener en load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Deze zelfstudie laat zien hoe u één listener - met een ILB IP-adres maakt. Zie voor het maken van een of meer listeners met behulp van een of meer IP-adressen, [Create Availability Group-listener en load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-## <a name="set-listener-port"></a>Set-listener-poort
+## <a name="set-listener-port"></a>-Listener-poort instellen
 
 Stel de listener-poort in SQL Server Management Studio.
 
 1. Start SQL Server Management Studio en maak verbinding met de primaire replica.
 
-1. Navigeer naar **AlwaysOn hoge beschikbaarheid** | **beschikbaarheidsgroepen** | **beschikbaarheidsgroep-Listeners**.
+1. Navigeer naar **AlwaysOn hoge beschikbaarheid** | **beschikbaarheidsgroepen** | **beschikbaarheidsgroep Listeners**.
 
-1. U ziet nu de naam van de listener die u hebt gemaakt in Failoverclusterbeheer. Met de rechtermuisknop op de naam van de listener en klik op **eigenschappen**.
+1. U ziet nu de listener met de naam die u hebt gemaakt in Failoverclusterbeheer. Met de rechtermuisknop op de listenernaam van de en klikt u op **eigenschappen**.
 
-1. In de **poort** vak het poortnummer opgeven voor de beschikbaarheidsgroep-listener met behulp van de $EndpointPort u eerder hebt gebruikt (1433 is de standaardinstelling), klikt u vervolgens op **OK**.
+1. In de **poort** vak, geef het poortnummer voor de beschikbaarheidsgroep-listener met behulp van de $EndpointPort u eerder hebt gebruikt (1433 is de standaardinstelling), klikt u vervolgens op **OK**.
 
-U hebt nu een SQL Server-beschikbaarheidsgroep in Azure virtuele machines die worden uitgevoerd in de modus Resource Manager.
+U hebt nu een SQL Server-beschikbaarheidsgroep in Azure virtuele machines die in Resource Manager-modus uitgevoerd.
 
-## <a name="test-connection-to-listener"></a>De testverbinding met listener
+## <a name="test-connection-to-listener"></a>Testen van verbinding met de listener
 
-De verbinding testen:
+De verbinding wilt testen:
 
-1. RDP naar een SQL-Server die zich in hetzelfde virtuele netwerk, maar is geen eigenaar van de replica. U kunt de SQL-Server in het cluster.
+1. RDP naar een SQL-Server die zich in hetzelfde virtuele netwerk, maar is geen eigenaar van de replica. U kunt de SQL-Server gebruiken in het cluster.
 
-1. Gebruik **sqlcmd** hulpprogramma om de verbinding te testen. Bijvoorbeeld, het volgende script stelt een **sqlcmd** verbinding met de primaire replica via de listener met de Windows-verificatie:
+1. Gebruik **sqlcmd** hulpprogramma om de verbinding te testen. Bijvoorbeeld, het volgende script maakt een **sqlcmd** verbinding met de primaire replica met de listener met de Windows-verificatie:
 
     ```
     sqlcmd -S <listenerName> -E
     ```
 
-    Als de listener met behulp van een andere poort dan de standaard poort (1433), de poort in de verbindingsreeks opgeven. Bijvoorbeeld de volgende sqlcmd-opdracht is verbonden met een listener op poort 1435:
+    Als de listener met behulp van een andere poort dan de standaardwaarde standaardpoort (1433), de poort in de verbindingsreeks opgeven. Bijvoorbeeld, de volgende sqlcmd-opdracht is verbonden met een listener op poort 1435:
 
     ```
     sqlcmd -S <listenerName>,1435 -E
     ```
 
-De SQLCMD-verbinding wordt automatisch verbinding met elk ander exemplaar van SQL Server als host fungeert voor de primaire replica.
+De SQLCMD-verbinding wordt automatisch verbinding met elk exemplaar van SQL Server als host fungeert voor de primaire replica.
 
 > [!TIP]
-> Zorg ervoor dat de poort die u opgeeft geopend op de firewall van beide SQL-Servers is. Beide servers vereisen een inkomende regel voor de TCP-poort die u gebruikt. Zie voor meer informatie [toevoegen of bewerken firewallregel](http://technet.microsoft.com/library/cc753558.aspx).
+> Zorg ervoor dat de poort die u opgeeft geopend op de firewall van beide SQL-Servers is. Beide servers vereist een inkomende regel voor de TCP-poort die u gebruikt. Zie voor meer informatie, [toevoegen of bewerken firewallregel](http://technet.microsoft.com/library/cc753558.aspx).
 >
 >
 

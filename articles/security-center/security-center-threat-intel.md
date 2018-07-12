@@ -3,23 +3,23 @@ title: Bedreigingsinformatie in Azure Security Center | Microsoft Docs
 description: In dit document wordt uitgelegd hoe u de mogelijkheden van bedreigingsinformatie in Azure Security Center gebruikt voor het identificeren van mogelijke bedreigingen op uw virtuele machines en computers.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 07/10/2018
+ms.author: terrylan
+ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774570"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561361"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Bedreigingsinformatie in Azure Security Center
 In dit artikel wordt uitgelegd hoe u bedreigingsinformatie van Azure Security Center gebruikt voor het aanpakken van beveiligingsproblemen.
@@ -43,20 +43,24 @@ Een van de stappen van de [procedure om te reageren op een beveiligingsincident]
 - Stel vast welke systemen zijn aangevallen.
 - Stel vast welke bestanden zijn geopend en bepaal de gevoeligheid van die bestanden.
 
-U kunt bedreigingsinformatie in Security Center gebruiken om te helpen bij deze taken. 
+U kunt bedreigingsinformatie in Security Center gebruiken om te helpen bij deze taken.
 
 ## <a name="access-the-threat-intelligence"></a>Hoe open ik de bedreigingsinformatie?
 Als u de huidige bedreigingsinformatie voor uw omgeving wilt visualiseren, moet u eerst de werkruimte selecteren waarin uw gegevens zich bevinden. Als u maar één werkruimte hebt, wordt de werkruimteselector niet weergegeven en gaat u rechtstreeks naar het dashboard **Bedreigingsinformatie**. Het dashboard openen:
 
 1. Open het dashboard van **Security Center**.
 
-2. Selecteer **Bedreigingsinformatie** in het linkerdeelvenster onder **Detectie**. Het dashboard **Bedreigingsinformatie** wordt weergegeven.
+2. In het linkerdeelvenster onder **Threat Protection** Selecteer **Bedreigingsinformatie**. Een kaart wordt geopend.
+
+    ![Bedreigingsinformatiekaart](./media/security-center-threat-intel/security-center-threat-intel.png)
+
+3. Selecteer aan de bovenkant van de kaart **klassieke bedreigingsinformatie weer**. De **Bedreigingsinformatie** dashboard wordt geopend.
 
     ![Het dashboard Bedreigingsinformatie](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > Als in de meest rechtse kolom de tekst **UPGRADE ABONNEMENT** staat, is deze werkruimte gekoppeld aan het gratis abonnement. Voer een upgrade naar de Standard-versie uit om deze functie te gebruiken. Als in de meest rechtse kolom **VEREIST UPDATE** staat, moet u [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bijwerken om deze functie te gebruiken. Lees Prijzen van Azure Security Center voor meer informatie over de prijzen. 
-    > 
+    > Als in de meest rechtse kolom de tekst **UPGRADE ABONNEMENT** staat, is deze werkruimte gekoppeld aan het gratis abonnement. Voer een upgrade naar de Standard-versie uit om deze functie te gebruiken. Als in de meest rechtse kolom **VEREIST UPDATE** staat, moet u [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bijwerken om deze functie te gebruiken. Lees Prijzen van Azure Security Center voor meer informatie over de prijzen.
+    >
 3. Als er meer dan één werkruimte is om te onderzoeken, bepaalt u de prioriteit van het onderzoek via de kolom **Schadelijk IP**. Hier ziet u het huidige aantal schadelijke IP-adressen in deze werkruimte. Selecteer de werkruimte die u wilt gebruiken. Het dashboard **Bedreigingsinformatie** wordt nu weergegeven.
 
     ![Bedreigingsinformatie](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
@@ -97,7 +101,6 @@ In dit artikel hebt u geleerd hoe u bedreigingsinformatie in Security Center geb
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informatie over het beheren van waarschuwingen en het reageren op beveiligingsincidenten in Security Center.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md). Meer informatie over het controleren van de status van uw Azure-resources.
 * [Beveiligingswaarschuwingen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Meer informatie over de verschillende typen beveiligingswaarschuwingen.
-* [Handleiding voor het oplossen van problemen met Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informatie over het oplossen van veelvoorkomende problemen met Security Center. 
+* [Handleiding voor het oplossen van problemen met Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informatie over het oplossen van veelvoorkomende problemen met Security Center.
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md). Zoek antwoorden op veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/). Raadpleeg de blogberichten over beveiliging en naleving in Azure.
-

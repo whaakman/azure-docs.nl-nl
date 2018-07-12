@@ -1,6 +1,6 @@
 ---
-title: Verificatie met Azure AD van een Azure VM beheerde Service-identiteit (Preview) | Microsoft Docs
-description: Verificatie met Azure AD van een Azure VM beheerde Service-identiteit (Preview).
+title: Verifiëren met Azure AD vanuit een Azure-VM beheerde Service-identiteit (Preview) | Microsoft Docs
+description: Verifiëren met Azure AD vanuit een Azure-VM beheerde Service-identiteit (Preview).
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,47 +8,47 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
-ms.openlocfilehash: 83d3a2d973604e3b8a709b24cabcb3abba1e304c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 080cb3ee536227e5ddce3fac856de79b2b061dcf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660801"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970765"
 ---
-# <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Verifiëren met Azure AD vanaf een beheerde Azure-Service-identiteit (Preview)
+# <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Verifiëren met Azure AD vanuit een Azure beheerde Service-identiteit (Preview)
 
-Azure Storage ondersteunt verificatie met Azure Active Directory (Azure AD) [beheerde Service-identiteit](../../active-directory/managed-service-identity/overview.md). Beheerde Service-identiteit (MSI) biedt een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt MSI gebruiken om te verifiëren naar Azure Storage van toepassingen in een andere virtuele machines in Azure, functie apps en virtuele-machineschaalsets. Door MSI en gebruik van de mogelijkheden van Azure AD-verificatie, kunt u voorkomen dat opslaan van referenties met uw toepassingen die worden uitgevoerd in de cloud.  
+Azure Storage biedt ondersteuning voor verificatie met Azure Active Directory (Azure AD) [beheerde Service-identiteit](../../active-directory/managed-service-identity/overview.md). Beheerde Service Identity (MSI) biedt een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt MSI gebruiken voor verificatie op Azure Storage vanuit toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen. Met behulp van MSI en gebruik te maken van de kracht van Azure AD-verificatie, kunt u voorkomen dat opslaan van referenties op met uw toepassingen die worden uitgevoerd in de cloud.  
 
-Om machtigingen te verlenen aan een beheerde service-identiteit voor storage-containers of wachtrijen, moet u een opslagmachtigingen voor het MSI-bestand dat omvat RBAC-rol toewijzen. Zie voor meer informatie over RBAC-rollen in de opslag [beheren rechten voor het storage-gegevens met RBAC (Preview)](storage-auth-aad-rbac.md). 
+Om machtigingen te verlenen aan een beheerde service-identiteit voor storage-containers of wachtrijen, kunt u een opslagmachtigingen voor het MSI-bestand dat RBAC-rol toewijzen. Zie voor meer informatie over RBAC-rollen in de opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md). 
 
 > [!IMPORTANT]
-> Deze preview is bedoeld voor gebruik van niet-productieve alleen. Productie service level agreements (Sla's) worden pas beschikbaar Azure AD-integratie voor Azure Storage is gedeclareerd in het algemeen beschikbaar. Als u Azure AD-integratie is nog niet ondersteund voor uw scenario, blijven de gedeelde sleutel autorisatie of SAS-tokens gebruiken in uw toepassingen. Zie voor meer informatie over de evaluatieversie [verifiëren van toegang tot Azure Storage met Azure Active Directory (Preview)](storage-auth-aad.md).
+> In dit voorbeeld is bedoeld voor gebruik in niet-productieomgevingen alleen. Productie service level agreements (Sla's) worden pas beschikbaar als Azure AD-integratie voor Azure Storage algemeen beschikbaar is gedeclareerd. Als Azure AD-integratie wordt nog niet ondersteund voor uw scenario, echter ook doorgaan met de gedeelde sleutel autorisatie of SAS-tokens in uw toepassingen. Zie voor meer informatie over de Preview-versie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).
 >
-> Tijdens de preview kunnen de RBAC-roltoewijzingen doorgeven maximaal vijf minuten duren.
+> Tijdens de Preview-versie duurt RBAC-roltoewijzingen tot vijf minuten worden doorgegeven.
 
-In dit artikel laat zien hoe te verifiëren bij Azure Storage met MSI van een virtuele machine in Azure.  
+In dit artikel laat zien hoe om te verifiëren met Azure Storage met MSI-bestand van een Azure-VM.  
 
-## <a name="enable-msi-on-the-vm"></a>MSI op de virtuele machine inschakelen
+## <a name="enable-msi-on-the-vm"></a>MSI-bestand op de virtuele machine inschakelen
 
-Voordat u MSI gebruiken kunt om te verifiëren naar Azure Storage van de virtuele machine, moet u eerst MSI op de virtuele machine inschakelen. Zie voor meer informatie over het inschakelen van MSI, een van deze artikelen:
+Voordat u MSI gebruiken kunt voor verificatie op Azure Storage vanuit uw virtuele machine, moet u eerst de MSI-bestand op de virtuele machine inschakelen. Zie voor informatie over het inschakelen van MSI-bestand, een van de volgende artikelen:
 
-- [Azure Portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
 - [Azure-CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-sjabloon](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
-- [Azure-SDK 's](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
+- [Azure SDK 's](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
 
-## <a name="get-an-msi-access-token"></a>De toegang van een MSI-token ophalen
+## <a name="get-an-msi-access-token"></a>Een MSI toegang-token ophalen
 
-Om te verifiëren met MSI, moet uw toepassing of het script een MSI-toegangstoken verkrijgen. Zie voor meer informatie over het verkrijgen van een toegangstoken, [het gebruik van een Azure VM beheerde Service identiteit (MSI) voor de aanschaf van token](../../active-directory/managed-service-identity/how-to-use-vm-token.md).
+Als u wilt verifiëren met MSI-bestand, moet uw toepassing of script een MSI-toegangstoken verkrijgen. Zie voor meer informatie over hoe u een toegangstoken verkrijgen, [over het gebruik van een Azure VM Managed Service Identity (MSI) voor het ophalen van tokens](../../active-directory/managed-service-identity/how-to-use-vm-token.md).
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET-codevoorbeeld: maken van een blok-blob
 
-In het voorbeeld wordt ervan uitgegaan dat u een MSI-toegangstoken hebt. Het toegangstoken wordt gebruikt voor het autoriseren van de identiteit van de beheerde service voor het maken van een blok-blob.
+De voorbeeldcode wordt ervan uitgegaan dat u een MSI-toegangstoken hebt. Het toegangstoken wordt gebruikt voor de autorisatie van de beheerde service-identiteit voor het maken van een blok-blob.
 
-### <a name="add-references-and-using-statements"></a>Voeg verwijzingen toe en using-instructies  
+### <a name="add-references-and-using-statements"></a>Verwijzingen toevoegen en met behulp van instructies  
 
-In Visual Studio, installeert u de preview-versie van de Azure Storage-clientbibliotheek. Van de **extra** selecteert u **Nuget Package Manager**, klikt u vervolgens **Package Manager Console**. Typ de volgende opdracht in de console:
+In Visual Studio, installeert u de preview-versie van de Azure Storage-clientbibliotheek. Uit de **extra** in het menu **Nuget Package Manager**, klikt u vervolgens **Package Manager Console**. Typ de volgende opdracht uit in de console:
 
 ```
 Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
@@ -60,9 +60,9 @@ Voeg de volgende using-instructies toe aan uw code:
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
-### <a name="create-credentials-from-the-msi-access-token"></a>Referenties van het MSI-toegangstoken maken
+### <a name="create-credentials-from-the-msi-access-token"></a>Maken van referenties uit het MSI-toegangstoken
 
-Voor het maken van het blok-blob gebruikt de **TokenCredentials** class van de preview-pakket. Maken van een nieuw exemplaar van **TokenCredentials**doorgegeven in het MSI-toegangstoken die u eerder hebt verkregen:
+Gebruik voor het maken van de blok-blob het **TokenCredentials** klasse geleverd door de preview-pakket. Maken van een nieuw exemplaar van **TokenCredentials**aan te in het MSI-toegangstoken die u eerder hebt verkregen:
 
 ```dotnet
 // Create storage credentials from your MSI access token.
@@ -74,11 +74,11 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 ``` 
 
 > [!NOTE]
-> Azure AD-integratie met Azure Storage vereist het gebruik van HTTPS voor Azure Storage-bewerkingen.
+> Azure AD-integratie met Azure Storage is vereist dat u HTTPS voor Azure Storage-bewerkingen gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over de rollen RBAC voor Azure-opslag, [beheren rechten voor het storage-gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
-- Zie voor meer informatie over hoe u toegang verlenen aan containers en wachtrijen van binnen uw toepassingen moeten worden opgeslagen, [gebruik Azure AD met opslagtoepassingen](storage-auth-aad-app.md).
-- Zie voor meer informatie over hoe u aan te melden bij Azure CLI en PowerShell met een Azure AD-identiteit, [gebruiken van een Azure AD-identiteit voor toegang tot Azure Storage met CLI of PowerShell (Preview)](storage-auth-aad-script.md).
-- Zie voor meer informatie over Azure AD-integratie voor Azure Blobs en wachtrijen, het Azure Storage-team blogbericht, [aankondigen van de Preview van Azure AD-verificatie voor Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
+- Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
+- Zie voor informatie over het toestaan van toegang tot containers en wachtrijen van binnen uw storage-toepassingen, [gebruik Azure AD met opslagtoepassingen](storage-auth-aad-app.md).
+- Als u wilt weten hoe u zich aanmeldt bij Azure CLI en PowerShell met een Azure AD-identiteit, Zie [gebruiken van een Azure AD-identiteit voor toegang tot Azure Storage met CLI of PowerShell (Preview)](storage-auth-aad-script.md).
+- Zie voor meer informatie over Azure AD-integratie voor Azure-Blobs en wachtrijen, de blog van het Azure Storage-team plaatst, [aankondiging van de Preview-versie van Azure AD-verificatie voor Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

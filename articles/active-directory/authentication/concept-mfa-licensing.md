@@ -1,5 +1,5 @@
 ---
-title: Azure MFA-versies en verbruik plannen | Microsoft Docs
+title: Azure MFA-versies en verbruiksabonnementen | Microsoft Docs
 description: Informatie over de multi-factor Authentication-client en de verschillende methoden en versies die beschikbaar zijn.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,45 +11,45 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
 ms.openlocfilehash: ec1a3e7e3e8969e161854a9f386d4b2e767ee48a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866929"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970410"
 ---
-# <a name="how-to-get-azure-multi-factor-authentication"></a>Het ophalen van Azure multi-factor Authentication
+# <a name="how-to-get-azure-multi-factor-authentication"></a>Over het verkrijgen van Azure multi-factor Authentication
 
-Bij het beveiligen van uw accounts, moet verificatie in twee stappen standaard in uw organisatie. Deze functie is vooral belangrijk voor beheerdersaccounts met toegang tot bronnen uitgebreide. Om deze reden biedt Microsoft basic in twee stappen verificatie functies op Office 365 en Azure beheerders voor geen extra kosten verbonden. Als u wilt upgraden van de functies voor uw beheerders of uitbreiden verificatie in twee stappen voor de rest van uw gebruikers, kunt u Azure multi-factor Authentication kunt aanschaffen. 
+Als het gaat om het beveiligen van uw accounts, moet verificatie in twee stappen standaard in uw organisatie. Deze functie is vooral belangrijk voor beheerdersaccounts met toegang tot bronnen uitgebreide. Microsoft biedt eenvoudige verificatie in twee stappen verificatie functies aan Office 365 en Azure-beheerders voor zonder extra kosten om deze reden. Als u wilt upgraden van de functies voor uw beheerders of uitbreiden van verificatie in twee stappen voor de rest van uw gebruikers, kunt u Azure multi-factor Authentication aanschaffen. 
 
-Dit artikel wordt uitgelegd dat het verschil tussen de versies die worden aangeboden aan administrators en de volledige versie van Azure MFA. Als u klaar bent voor het implementeren van de volledige Azure MFA biedt, wordt de volgende sectie behandelt implementatie-opties en hoe Microsoft verbruik berekent.
+In dit artikel wordt uitgelegd dat het verschil tussen de versies die worden aangeboden aan administrators en de volledige versie van de Azure MFA. Als u klaar bent om de volledige Azure MFA-aanbieding implementeren, vindt u de volgende sectie opties voor de implementatie en hoe Microsoft verbruik berekent.
 
 
 >[!IMPORTANT]
->In dit artikel is bedoeld als een handleiding voor inzicht in de verschillende manieren voor het kopen van Azure multi-factor Authentication. Voor specifieke informatie over prijzen en facturering u altijd moet verwijzen naar de [multi-factor Authentication-pagina met prijzen](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+>In dit artikel is bedoeld als richtlijn om te begrijpen van de verschillende manieren voor het kopen van Azure multi-factor Authentication. Voor specifieke informatie over prijzen en facturering, u moet altijd verwijzen naar de [multi-factor Authentication-pagina met prijzen](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>Beschikbare versies van Azure multi-factor Authentication
 
-De volgende tabel beschrijft de verschillen tussen de drie versies van multi-factor authentication-server:
+De volgende tabel beschrijft de verschillen tussen de drie versies van multi-factor authentication:
 
 | Versie | Beschrijving |
 | --- | --- |
-| Multi-factor Authentication voor Office 365 |Deze versie werkt alleen met Office 365-toepassingen en wordt beheerd via de Office 365-portal. Beheerders kunnen [Office 365-resources met verificatie in twee stappen beveiligen](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Deze versie is onderdeel van een Office 365-abonnement. |
-| Multi-factor Authentication voor Azure AD-beheerders | De rol globale beheerder in Azure AD-tenants toegewezen gebruikers kunnen inschakelen verificatie in twee stappen voor de globale beheerder van Azure AD-accounts zonder extra kosten.|
-| Azure Multi-Factor Authentication | Azure multi-factor Authentication is vaak de 'volledige' versie genoemd, biedt de allerbeste set mogelijkheden. Biedt extra configuratieopties via de [Azure-portal](https://portal.azure.com)geavanceerde rapportage en ondersteuning voor een bereik van lokale en cloudtoepassingen. Azure multi-factor Authentication is opgenomen in [Azure Active Directory Premium-abonnementen](https://www.microsoft.com/cloud-platform/azure-active-directory-features) en [Enterprise Mobility + Beveiligingsplannen](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing), en kan worden geïmplementeerd in de cloud of on-premises. |
+| Multi-factor Authentication voor Office 365 |Deze versie werkt met Office 365-toepassingen en wordt beheerd via de Office 365-portal. Beheerders kunnen [beveiligen van Office 365-resources met verificatie in twee stappen](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Deze versie is onderdeel van Office 365-abonnement. |
+| Multi-factor Authentication voor Azure AD-beheerders | Gebruikers die zijn toegewezen de rol globale beheerder in Azure AD-tenants kunt verificatie in twee stappen voor de globale beheerder van Azure AD-accounts zonder extra kosten.|
+| Azure Multi-Factor Authentication | Azure multi-factor Authentication is vaak aangeduid als de 'volledige' versie, biedt de uitgebreidste set mogelijkheden. Het biedt aanvullende configuratie-opties via de [Azure-portal](https://portal.azure.com), geavanceerde rapportage en ondersteuning voor een bereik van on-premises en cloudtoepassingen. Azure multi-factor Authentication is opgenomen in [Azure Active Directory Premium-abonnementen](https://www.microsoft.com/cloud-platform/azure-active-directory-features) en [Enterprise Mobility + Security plannen](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing), en kan worden geïmplementeerd in de cloud of on-premises. |
 
-## <a name="feature-comparison-of-versions"></a>Vergelijking van functies van versies
-De volgende tabel bevat een lijst van de functies die beschikbaar in de verschillende versies van Azure multi-factor Authentication zijn.
+## <a name="feature-comparison-of-versions"></a>Vergelijking van versies
+De volgende tabel geeft een lijst van de functies die beschikbaar in de verschillende versies van Azure multi-factor Authentication zijn.
 
 > [!NOTE]
-> Deze Vergelijkingstabel worden de functies die deel van elke versie van multi-factor Authentication uitmaken besproken. Als u de volledige Azure multi-factor Authentication-service hebt, sommige functies mogelijk niet beschikbaar, afhankelijk van of u gebruiken [MFA in de cloud of MFA lokale](concept-mfa-whichversion.md).
+> Deze van de vergelijkingstabel worden de functies die deel van elke versie van multi-factor Authentication uitmaken besproken. Als u de volledige Azure multi-factor Authentication-service hebt, sommige functies mogelijk niet beschikbaar, afhankelijk van of u gebruiken [MFA in de cloud of MFA on-premises](concept-mfa-whichversion.md).
 
 
 | Functie | Multi-factor Authentication voor Office 365 | Multi-factor Authentication voor Azure AD-beheerders | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
-| Beveiligen van Azure AD-beheerdersaccounts met MFA |● |● (alleen globale beheerder van Azure AD-accounts) |● |
+| Beveiligen van Azure AD-beheerdersaccounts met MFA |● |● (alleen in een globale beheerder van Azure AD-accounts) |● |
 | Mobiele app als een tweede factor |● |● |● |
 | Telefoonoproep als tweede factor |● |● |● |
-| SMS als tweede factor |● |● |● |
+| SMS als een tweede factor |● |● |● |
 | App-wachtwoorden voor clients die geen ondersteuning voor MFA bieden |● |● |● |
 | Beheerdercontrole over verificatiemethoden |● |● |● |
 | Beveiligen van niet-beheerdersaccounts met MFA |● (alleen voor Office 365-toepassingen) | |● |
@@ -64,46 +64,46 @@ De volgende tabel bevat een lijst van de functies die beschikbaar in de verschil
 | MFA SDK | | |● (afgeschaft) | 
 | MFA voor on-premises toepassingen | | |● |
 
-## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Het inschakelen van Azure multi-factor Authentication voor Azure AD-beheerders
-De rol globale beheerder in Azure AD-tenants toegewezen gebruikers kunnen inschakelen verificatie in twee stappen voor de globale beheerder van Azure AD-accounts zonder extra kosten. Als u een Microsoft-Account gebruikt, kunt u registreren voor meervoudige verificatie [hier](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Als u een Microsoft-Account niet gebruikt, schakelt u multi-factor authentication voor globale beheerders [hier](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
+## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Het inschakelen van Azure multi-factor Authentication voor beheerders van Azure AD
+Gebruikers die zijn toegewezen de rol globale beheerder in Azure AD-tenants kunt verificatie in twee stappen voor de globale beheerder van Azure AD-accounts zonder extra kosten. Als u van een Microsoft-Account gebruikmaakt, kunt u registreren voor meervoudige verificatie [hier](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Als u een Microsoft-Account niet gebruikt, schakelt u multi-factor authentication voor globale beheerders [hier](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 
-## <a name="how-to-get-azure-multi-factor-authentication"></a>Het ophalen van Azure multi-factor Authentication
-Als u de volledige functionaliteit van Azure multi-factor Authentication dat wilt, zijn er verschillende opties:
+## <a name="how-to-get-azure-multi-factor-authentication"></a>Over het verkrijgen van Azure multi-factor Authentication
+Als u de volledige functionaliteit van Azure multi-factor Authentication, zijn er verschillende opties:
 
-### <a name="option-1---mfa-licenses"></a>Optie 1: MFA licenties
+### <a name="option-1---mfa-licenses"></a>Optie 1 - licenties voor MFA
 
-Azure multi-factor Authentication-licenties koopt en deze toewijzen aan uw gebruikers in Azure Active Directory. 
+Azure multi-factor Authentication-licenties aan te schaffen en deze toewijzen aan uw gebruikers in Azure Active Directory. 
 
-Als u deze optie gebruikt, alleen maken een Azure multi-factor Authentication-Provider als u moet de verificatie in twee stappen voor gebruikers die geen licenties opgeven. Anders wordt u mogelijk worden gefactureerd twee keer.
+Als u deze optie gebruikt, maakt alleen een Azure multi-factor Authentication-Provider als u nodig hebt voor de verificatie in twee stappen voor gebruikers die geen licenties. Anders wordt u mogelijk worden kosten in rekening gebracht twee keer.
 
-### <a name="option-2---bundled-licenses-that-include-mfa"></a>Optie 2 - gebundeld licenties met MFA
+### <a name="option-2---bundled-licenses-that-include-mfa"></a>Optie 2 - gebundeld-licenties met MFA
 
-Licenties die deze toewijzen aan uw gebruikers in Azure Active Directory en Azure multi-factor Authentication, zoals Azure Active Directory Premium of Enterprise Mobility + Security, bevatten. 
+Licenties die Azure multi-factor Authentication, zoals Azure Active Directory Premium of Enterprise Mobility + Security, en deze toewijzen aan uw gebruikers in Azure Active Directory. 
 
-Als u deze optie gebruikt, moet u een Azure multi-factor Authentication-Provider maken alleen als u moet ook de verificatie in twee stappen voor gebruikers die geen licenties. Anders wordt u mogelijk worden gefactureerd twee keer. 
+Als u deze optie gebruikt, moet u een Azure multi-factor Authentication-Provider maken alleen als u moet ook de verificatie in twee stappen voor gebruikers die geen licenties opgeven. Anders wordt u mogelijk worden kosten in rekening gebracht twee keer. 
 
-### <a name="option-3---mfa-consumption-based-model"></a>Optie 3: MFA-model op basis van verbruik
+### <a name="option-3---mfa-consumption-based-model"></a>Optie 3: MFA consumptie gebaseerd model
 
-Een Azure multi-factor Authentication-Provider binnen een Azure-abonnement maken. Azure MFA-Providers zijn Azure-resources worden gefactureerd op basis van uw Enterprise Agreement, Azure maandbedrag of creditcard net als alle andere Azure-resources. Deze providers kunnen alleen worden gemaakt in de volledige Azure-abonnementen niet beperkt Azure-abonnementen waarvoor een $-0 uitgavenlimiet. Beperkte abonnementen worden gemaakt wanneer u licenties, zoals in opties 1 en 2 activeert. 
+Maak een Azure multi-factor Authentication-Provider in een Azure-abonnement. Azure MFA-Providers zijn Azure-resources die in rekening op basis van uw Enterprise Agreement, monetaire toezegging voor Azure of creditcard is geregistreerd, zoals alle andere Azure-resources gebracht worden. Deze providers kunnen alleen worden gemaakt in de volledige Azure-abonnementen, niet beperkt Azure-abonnementen waarvoor een bestedingslimiet van $0 uitzetten. Beperkte abonnementen worden gemaakt wanneer u licenties, zoals in de opties voor 1 en 2 activeren. 
 
-Wanneer u een Azure multi-factor Authentication-Provider gebruikt, zijn er twee modellen beschikbaar die via uw Azure-abonnement worden gefactureerd:  
+Wanneer u een Azure multi-factor Authentication-Provider gebruikt, zijn er twee gebruiksmodellen beschikbaar die worden in rekening gebracht via uw Azure-abonnement:  
 
-1. **Per ingeschakelde gebruiker** - voor ondernemingen die in staat wilt stellen verificatie in twee stappen voor een vast aantal werknemers die regelmatig dienen te worden geverifieerd. Facturering per gebruiker is gebaseerd op het aantal gebruikers dat is ingeschakeld voor MFA in uw Azure AD-tenant en uw Azure MFA-Server. Als gebruikers zijn ingeschakeld voor MFA in beide Azure AD en Azure MFA-Server en domein sync (Azure AD Connect) is ingeschakeld, moet we de grotere set van gebruikers tellen. Als synchronisatie van domein is niet ingeschakeld, wordt er de som van alle gebruikers die zijn ingeschakeld voor MFA in Azure AD tellen en Azure MFA-Server. Facturering is naar rato en gemeld aan het systeem Commerce dagelijks. 
+1. **Per ingeschakelde gebruiker** - voor ondernemingen die verificatie in twee stappen voor een vast aantal werknemers die regelmatig verificatie moeten inschakelen. Facturering per gebruiker is gebaseerd op het aantal gebruikers dat is ingeschakeld voor MFA in uw Azure AD-tenant en uw Azure MFA-Server. Als gebruikers zijn ingeschakeld voor MFA in zowel Azure AD en Azure MFA-Server en domein synchroniseren (Azure AD Connect) is ingeschakeld, en we tellen het grotere set van gebruikers. Als synchronisatie van domein is niet ingeschakeld, wordt dat we de som van alle gebruikers die zijn ingeschakeld voor MFA in Azure AD tellen en Azure MFA-Server. Facturering is Pro rata berekend en dagelijks gerapporteerd aan de Commerce-systeem. 
 
   > [!NOTE]
-  > Facturering voorbeeld 1: U hebt 5000 gebruikers die zijn ingeschakeld voor MFA vandaag. Het MFA-systeem wordt dit nummer gedeeld door 31 en 161.29 gebruikers rapporten voor die dag. In de toekomst u 15 meer gebruikers, schakelt zodat het systeem MFA 161.77 gebruikers voor die dag rapporten. Aan het einde van de factureringscyclus voegt het totale aantal gebruikers kosten in rekening gebracht op basis van uw Azure-abonnement maximaal rond 5.000. 
+  > Facturering-voorbeeld 1: U 5000 gebruikers momenteel ingeschakeld voor MFA hebt. Het systeem MFA deelt dit getal door 31 en 161.29 gebruikers van rapporten voor die dag. Morgen dat u 15 meer gebruikers, zodat het systeem MFA 161.77 gebruikers voor die dag rapporten. Aan het einde van de factureringscyclus, wordt het totale aantal gebruikers in rekening gebracht op basis van uw Azure-abonnement maximaal toegevoegd rond 5000. 
   >
-  > Facturering voorbeeld 2: U hebt een mengeling van gebruikers met licenties en gebruikers zonder, zodat u een per gebruiker Azure MFA-Provider om het verschil hebt. Er zijn 4.500 Enterprise Mobility + Security-licenties op uw tenant, maar 5000 gebruikers die zijn ingeschakeld voor MFA. Uw Azure-abonnement wordt gefactureerd voor 500 gebruikers, naar rato en dagelijks gerapporteerd als 16.13 gebruikers. 
+  > Facturering-voorbeeld 2: U hebt een combinatie van gebruikers met licenties en gebruikers zonder, zodat u beschikt over een per gebruiker Azure MFA-Provider om het verschil. Er zijn 4500 Enterprise Mobility + Security-licenties in uw tenant, maar 5000 gebruikers dat is ingeschakeld voor MFA. Uw Azure-abonnement wordt gefactureerd voor 500 gebruikers, pro rata berekend en dagelijks gerapporteerd als 16.13 gebruikers. 
 
-2. **Per verificatie** - voor ondernemingen die verificatie in twee stappen voor een grote groep met gebruikers hoeven minder vaak verificatie inschakelen. Facturering is gebaseerd op het aantal aanvragen verificatie in twee stappen, ongeacht of deze verificaties slagen of geweigerd. Deze facturering wordt weergegeven op uw van Azure-gebruiksinstructie in de packs van 10 verificaties en dagelijks wordt gerapporteerd. 
+2. **Per verificatie** - voor ondernemingen die verificatie in twee stappen voor een grote groep met gebruikers die niet vaak nodig verificatie inschakelen. Facturering is gebaseerd op het aantal aanvragen verificatie in twee stappen, ongeacht of deze verificaties slagen of wordt geweigerd. Deze factureringsmethode wordt weergegeven op uw gebruik van Azure-instructie in de packs van 10 verificaties en elke dag wordt gerapporteerd. 
 
   > [!NOTE]
-  > Facturering voorbeeld 3: vandaag de dag 3,105 aanvragen voor de verificatie in twee stappen in de Azure MFA-service heeft ontvangen. Uw Azure-abonnement wordt gefactureerd voor 310.5 verificatie packs. 
+  > Facturering-voorbeeld 3: vandaag, de 3,105 aanvragen voor de verificatie in twee stappen voor het ontvangen van de Azure MFA-service. Uw Azure-abonnement, wordt in rekening gebracht voor 310.5 packs voor verificatie. 
 
-Het is belangrijk te weten dat u kunt Azure MFA-licenties hebt, maar nog steeds in rekening voor de configuratie op basis van verbruik gebracht ophalen. Als u een per authenticatie Azure MFA-Provider hebt ingesteld, wordt u gefactureerd voor elke aanvraag van de verificatie in twee stappen ook als deze door gebruikers die licenties hebt gedaan. Als u een Azure MFA-Provider per gebruiker ingesteld op een domein dat niet is gekoppeld aan uw Azure AD-tenant, wordt u gefactureerd per ingeschakelde gebruiker zelfs als de gebruikers met licenties in Azure AD. 
+Het is belangrijk te weten dat u licenties voor Azure MFA kan hebben, maar nog steeds wordt gefactureerd voor de configuratie op basis van verbruik. Als u een per authenticatie Azure MFA-Provider hebt ingesteld, wordt u gefactureerd voor elke aanvraag van de verificatie in twee stappen ook die door gebruikers die licenties hebben uitgevoerd. Als u een per gebruiker Azure MFA-Provider hebt ingesteld op een domein dat niet is gekoppeld aan uw Azure AD-tenant, wordt u gefactureerd per ingeschakelde gebruiker, zelfs als uw gebruikers licenties in Azure AD hebben. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer prijsinformatie [prijzen van Azure MFA](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+- Zie voor meer prijsinformatie [prijzen voor Azure MFA](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
-- Kies of u voor het implementeren van Azure MFA [in de cloud of on-premises](concept-mfa-whichversion.md)
+- Kies of u wilt implementeren, Azure MFA [in de cloud of on-premises](concept-mfa-whichversion.md)

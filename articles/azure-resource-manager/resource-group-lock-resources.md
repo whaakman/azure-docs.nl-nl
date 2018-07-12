@@ -15,37 +15,37 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: tomfitz
 ms.openlocfilehash: 1a0f813e1857d2f1c1cc36b34b6339d26fa91c13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602683"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488598"
 ---
-# <a name="lock-resources-to-prevent-unexpected-changes"></a>Resources om te voorkomen dat onverwachte wijzigingen vergrendelen 
+# <a name="lock-resources-to-prevent-unexpected-changes"></a>Resources vergrendelen om onverwachte wijzigingen te voorkomen 
 
-Als beheerder, moet u wellicht een abonnement, resourcegroep of resource om te voorkomen dat andere gebruikers in uw organisatie per ongeluk verwijderen of wijzigen van kritieke bronnen vergrendelen. U kunt de vergrendeling instellen op **CanNotDelete** of **ReadOnly**. In de portal de vergrendelingen worden genoemd **verwijderen** en **alleen-lezen** respectievelijk.
+Als beheerder moet u mogelijk een abonnement, resourcegroep of resource om te voorkomen dat andere gebruikers in uw organisatie per ongeluk verwijderen of aanpassen van kritieke resources vergrendelen. U kunt de vergrendeling instellen op **CanNotDelete** of **ReadOnly**. In de portal, de vergrendelingen worden genoemd **verwijderen** en **alleen-lezen** respectievelijk.
 
-* **CanNotDelete** betekent geautoriseerde gebruikers kunnen nog steeds lezen en wijzigen van een resource, maar de resource kan niet worden verwijderd. 
-* **Alleen-lezen** betekent geautoriseerde gebruikers kunnen een resource lezen, maar ze niet verwijderen of bijwerken van de resource. Toepassen van deze vergrendeling is vergelijkbaar met alle gemachtigde gebruikers beperken tot de machtigingen verleend door de **lezer** rol. 
+* **CanNotDelete** betekent geautoriseerde gebruikers kunnen nog steeds lezen en wijzigen van een resource, maar ze kunnen de resource niet verwijderen. 
+* **Alleen-lezen** betekent geautoriseerde gebruikers kunnen een resource lezen, maar ze niet verwijderen of bijwerken van de resource. Toepassen van deze vergrendeling is vergelijkbaar met alle gemachtigde gebruikers beperken tot de machtigingen die zijn verleend door de **lezer** rol. 
 
 ## <a name="how-locks-are-applied"></a>Hoe vergrendelingen worden toegepast
 
-Wanneer u een vergrendeling op een bovenliggend bereik toepast, nemen alle resources binnen dat bereik de dezelfde vergrendeling. Zelfs resources die u later toevoegen overnemen de vergrendeling van het bovenliggende item. De meest beperkende vergrendeling in de overname voorrang.
+Wanneer u een vergrendeling op een overkoepelend bereik toepast, nemen alle resources binnen dat bereik de dezelfde vergrendeling. Zelfs resources die u later toevoegen overnemen de vergrendeling van het bovenliggende item. De meest beperkende vergrendeling in de overname voorrang.
 
-In tegenstelling tot rollen gebaseerd toegangsbeheer kunt u management vergrendelingen toepassen van een beperking voor alle gebruikers en rollen. Zie voor meer informatie over het instellen van machtigingen voor gebruikers en rollen [toegangsbeheer op basis van rollen in Azure](../role-based-access-control/role-assignments-portal.md).
+In tegenstelling tot de op rollen gebaseerd toegangsbeheer gebruikt u beheervergrendelingen voor het toepassen van een beperking voor alle gebruikers en rollen. Zie voor meer informatie over het instellen van machtigingen voor gebruikers en rollen, [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
 
-Vergrendelingen van Resource Manager alleen van toepassing op bewerkingen die in de vlak management, die uit de bewerkingen die worden verzonden optreden bestaat naar `https://management.azure.com`. De vergrendelingen beperken niet hoe resources hun eigen functies uitvoeren. Wijzigingen in de resourcedefinitie zijn beperkt, maar de bewerkingen van resources zijn niet beperkt. Bijvoorbeeld, een vergrendeling van het kenmerk alleen-lezen voor een SQL-Database wordt voorkomen dat u de database wijzigen of verwijderen, maar dit voorkomt niet dat u maken, bijwerken of verwijderen van gegevens in de database. Gegevenstransacties worden toegestaan, omdat deze bewerkingen niet worden verzonden naar `https://management.azure.com`.
+Resource Manager-vergrendelingen gelden alleen voor bewerkingen die in de beheerlaag, die uit bewerkingen die worden verzonden optreden bestaat naar `https://management.azure.com`. De vergrendelingen beperken niet hoe resources hun eigen functies uitvoeren. Wijzigingen van resources zijn beperkt, maar de bewerkingen van resources zijn niet beperkt. Bijvoorbeeld, een alleen-lezenvergrendeling op een SQL-Database wordt voorkomen dat u verwijderen of aanpassen van de database, maar voorkomt niet dat u uit het maken, bijwerken of verwijderen van gegevens in de database. Gegevenstransacties zijn toegestaan, omdat deze bewerkingen niet naar verzonden worden `https://management.azure.com`.
 
-Toepassen van **ReadOnly** kan leiden tot onverwachte resultaten optreden omdat bepaalde bewerkingen die lijkt lezen bewerkingen daadwerkelijk extra acties vereist. Bijvoorbeeld, als een **ReadOnly** vergrendeling van een opslagaccount wordt voorkomen dat alle gebruikers weergeven van de sleutels. De lijst met sleutels opnieuw wordt verwerkt door een POST-aanvraag omdat de geretourneerde sleutels zijn beschikbaar voor schrijfbewerkingen. Voor een ander voorbeeld plaatsen van een **ReadOnly** vergrendelen op een App Service-bron wordt voorkomen dat Visual Studio Server Explorer-bestanden voor de resource worden weergegeven omdat die interactie voor toegang voor schrijven vereist.
+Toepassen van **ReadOnly** kan leiden tot onverwachte resultaten omdat bepaalde bewerkingen die kunnen worden gelezen bewerkingen daadwerkelijk extra acties vereist. Bijvoorbeeld, als u plaatst een **ReadOnly** vergrendeling op een storage-account wordt voorkomen dat alle gebruikers van de aanbieding van de sleutels. De lijst met sleutels bewerking via een POST-aanvraag wordt verwerkt, omdat de geretourneerde sleutels zijn beschikbaar voor schrijfbewerkingen. Voor een ander voorbeeld: als u plaatst een **alleen-lezen** vergrendeling op een App Service-resource voorkomt dat Visual Studio Server Explorer weergeven van bestanden voor de resource omdat die interactie schrijftoegang is vereist.
 
 ## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Wie kunt maken of verwijderen van vergrendelingen in uw organisatie
-Als u wilt maken of verwijderen van management vergrendelingen, u moet toegang hebben tot `Microsoft.Authorization/*` of `Microsoft.Authorization/locks/*` acties. Van de ingebouwde rollen worden deze acties alleen toegekend aan **Eigenaar** en **Administrator voor gebruikerstoegang**.
+Als u wilt maken of verwijderen van beheervergrendelingen, u moet toegang hebben tot `Microsoft.Authorization/*` of `Microsoft.Authorization/locks/*` acties. Van de ingebouwde rollen worden deze acties alleen toegekend aan **Eigenaar** en **Administrator voor gebruikerstoegang**.
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Template
-Het volgende voorbeeld ziet een sjabloon die wordt gemaakt van een app service-plan, een website en een vergrendeling op de website. Het brontype van de vergrendeling is het brontype van de resource te vergrendelen en **providers/vergrendelingen**. De naam van de vergrendeling wordt gemaakt door de naam van de resource met cookievalidatie **/Microsoft.Authorization/** en de naam van de vergrendeling.
+Het volgende voorbeeld ziet een sjabloon die wordt gemaakt van een app service-plan, een website en een vergrendeling op de website. Het brontype van de vergrendeling is het brontype van de resource moet worden vergrendeld en **/providers/vergrendelingen**. De naam van de vergrendeling is gemaakt door de resourcenaam van de met **/Microsoft.Authorization/** en de naam van de vergrendeling.
 
 ```json
 {
@@ -102,14 +102,14 @@ Het volgende voorbeeld ziet een sjabloon die wordt gemaakt van een app service-p
 }
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
 New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli
 az group create --name sitegroup --location southcentralus
@@ -117,9 +117,9 @@ az group deployment create --resource-group sitegroup --template-uri https://raw
 ```
 
 ## <a name="powershell"></a>PowerShell
-U vergrendeling resources met Azure PowerShell geïmplementeerd met behulp van de [nieuw AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) opdracht.
+U vergrendeling geïmplementeerde resources met Azure PowerShell met behulp van de [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) opdracht.
 
-Als u wilt vergrendelen van een resource, geef de naam van de bron, het resourcetype en de naam van de resourcegroep.
+Als u wilt vergrendelen van een resource, geef de naam van de resource, het resourcetype en de naam van de resourcegroep.
 
 ```powershell
 New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
@@ -131,25 +131,25 @@ Als u wilt vergrendelen van een resourcegroep, geef de naam van de resourcegroep
 New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-Als u informatie over een vergrendeling, gebruikt [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock). Als u alle vergrendelingen in uw abonnement, gebruikt u:
+Voor informatie over een vergrendeling gebruikt [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock). Voor alle vergrendelingen in uw abonnement, gebruikt u:
 
 ```powershell
 Get-AzureRmResourceLock
 ```
 
-Als u alle vergrendelingen voor een resource, gebruikt u:
+Voor alle vergrendelingen voor een resource, gebruikt u:
 
 ```powershell
 Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
-Als u alle vergrendelingen voor een resourcegroep, gebruikt u:
+Voor alle vergrendelingen voor een resourcegroep, gebruikt u:
 
 ```powershell
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-Gebruik voor het verwijderen van een vergrendeling:
+Als u wilt een vergrendeling voor verwijderen, gebruikt u:
 
 ```powershell
 $lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
@@ -158,9 +158,9 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure-CLI
 
-U vergrendeling resources met Azure CLI geïmplementeerd met behulp van de [az vergrendeling maken](/cli/azure/lock#az_lock_create) opdracht.
+U vergrendeling geïmplementeerde resources met Azure CLI met behulp van de [az lock maken](/cli/azure/lock#az_lock_create) opdracht.
 
-Als u wilt vergrendelen van een resource, geef de naam van de bron, het resourcetype en de naam van de resourcegroep.
+Als u wilt vergrendelen van een resource, geef de naam van de resource, het resourcetype en de naam van de resourcegroep.
 
 ```azurecli
 az lock create --name LockSite --lock-type CanNotDelete --resource-group exampleresourcegroup --resource-name examplesite --resource-type Microsoft.Web/sites
@@ -172,25 +172,25 @@ Als u wilt vergrendelen van een resourcegroep, geef de naam van de resourcegroep
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Als u informatie over een vergrendeling, gebruikt [az vergrendeling lijst](/cli/azure/lock#az_lock_list). Als u alle vergrendelingen in uw abonnement, gebruikt u:
+Voor informatie over een vergrendeling gebruikt [az lock list](/cli/azure/lock#az_lock_list). Voor alle vergrendelingen in uw abonnement, gebruikt u:
 
 ```azurecli
 az lock list
 ```
 
-Als u alle vergrendelingen voor een resource, gebruikt u:
+Voor alle vergrendelingen voor een resource, gebruikt u:
 
 ```azurecli
 az lock list --resource-group exampleresourcegroup --resource-name examplesite --namespace Microsoft.Web --resource-type sites --parent ""
 ```
 
-Als u alle vergrendelingen voor een resourcegroep, gebruikt u:
+Voor alle vergrendelingen voor een resourcegroep, gebruikt u:
 
 ```azurecli
 az lock list --resource-group exampleresourcegroup
 ```
 
-Gebruik voor het verwijderen van een vergrendeling:
+Als u wilt een vergrendeling voor verwijderen, gebruikt u:
 
 ```azurecli
 lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
@@ -198,15 +198,15 @@ az lock delete --ids $lockid
 ```
 
 ## <a name="rest-api"></a>REST-API
-U kunt vergrendelen geïmplementeerde resources met de [REST-API voor beheer van vergrendelingen](https://docs.microsoft.com/rest/api/resources/managementlocks). De REST-API kunt u maken en verwijderen van vergrendelingen en informatie ophalen over bestaande vergrendelingen.
+U kunt vergrendelen, geïmplementeerde resources met de [REST-API voor beheervergrendelingen](https://docs.microsoft.com/rest/api/resources/managementlocks). De REST-API kunt u maken en verwijderen van de vergrendelingen en gegevens worden opgehaald over bestaande vergrendelingen.
 
-Voer voor het maken van een vergrendeling:
+Voer het volgende voor het maken van een vergrendeling:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-Het bereik kan worden voor een abonnement, resourcegroep of resource. De naam van de vergrendeling is wat u wilt aanroepen van de vergrendeling. Gebruik voor de api-versie **01-01-2015**.
+Het bereik wordt mogelijk een abonnement, resourcegroep of resource. De naam van de vergrendeling is wat u wilt aanroepen van de vergrendeling. Gebruik voor api-versie, **01-01-2015**.
 
-Opnemen in de aanvraag een JSON-object waarmee de eigenschappen voor de vergrendeling.
+Opnemen in de aanvraag, een JSON-object dat Hiermee geeft u de eigenschappen van de vergrendeling.
 
     {
       "properties": {
@@ -216,8 +216,8 @@ Opnemen in de aanvraag een JSON-object waarmee de eigenschappen voor de vergrend
     } 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het logisch ordenen van uw resources [met labels om uw resources te organiseren](resource-group-using-tags.md)
-* Als u wilt wijzigen welke resourcegroep een resource bevindt zich in, Zie [resources verplaatsen naar een nieuwe resourcegroep](resource-group-move-resources.md)
+* Zie voor meer informatie over het organiseren van uw resources logisch, [tags gebruiken om uw resources te organiseren](resource-group-using-tags.md)
+* Als u wilt wijzigen welke resource bevindt zich in resourcegroep, Zie [resources verplaatsen naar een nieuwe resourcegroep](resource-group-move-resources.md)
 * U kunt beperkingen en conventies toepassen voor uw abonnement met aangepast beleid. Zie [Wat is Azure Policy?](../azure-policy/azure-policy-introduction.md) voor meer informatie.
 * Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 9d254fa17ae2b45a5771777bc7cedf9fa90d9815
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790760"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477638"
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-cli"></a>Een virtueel netwerk (klassiek) maken met behulp van de Azure CLI
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "31790760"
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Dit document bevat informatie over het maken van een VNet met het klassieke implementatiemodel. U kunt ook [een virtueel netwerk maken in het Resource Manager-implementatiemodel met behulp van de Azure CLI](quick-create-cli.md).
+In dit document bevat informatie over het maken van een VNet met behulp van het klassieke implementatiemodel. U kunt ook [een virtueel netwerk maken in het Resource Manager-implementatiemodel met behulp van de Azure CLI](quick-create-cli.md).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 

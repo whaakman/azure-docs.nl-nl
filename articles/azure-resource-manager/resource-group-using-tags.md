@@ -1,6 +1,6 @@
 ---
 title: Azure-resources voor logische organisatie tag | Microsoft Docs
-description: Laat zien hoe de labels te organiseren Azure-resources voor facturerings- en beheren van toepassing.
+description: Laat zien hoe tags om in te delen, facturering en het beheren van Azure-resources wilt toepassen.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: tomfitz
 ms.openlocfilehash: 8c828bb49548adfdb02ed6fb1611eb405ebf4ff2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602921"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38466257"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Tags gebruiken om uw Azure-resources te organiseren
 
@@ -29,7 +29,7 @@ ms.locfileid: "34602921"
 
 ## <a name="powershell"></a>PowerShell
 
-De voorbeelden in dit artikel moet versie 6.0 of hoger van Azure PowerShell. Als u nog geen versie 6.0 of hoger, [werk uw versie](/powershell/azure/install-azurerm-ps).
+Voor de voorbeelden in dit artikel hebt u versie 6.0 of hoger van Azure PowerShell nodig. Als u geen versie 6.0 of hoger, [werk uw versie bij](/powershell/azure/install-azurerm-ps).
 
 Gebruik het volgende om de bestaande tags van een *resourcegroep* te bekijken:
 
@@ -70,7 +70,7 @@ Gebruik het volgende om de *resources met een specifieke tag* op te halen:
 (Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
 ```
 
-Ophalen van *resources met naam van een specifieke tag een*, gebruiken:
+Om op te halen *resources met een naam van een specifieke tag*, gebruiken:
 
 ```powershell
 (Get-AzureRmResource -TagName Dept).Name
@@ -168,25 +168,25 @@ Dat script retourneert de volgende indeling:
 }
 ```
 
-Of, voor een overzicht van de bestaande codes voor een *resource met een opgegeven groep met de naam, type en resource*, gebruiken:
+Of, om te zien van de bestaande tags voor een *resource met een specifieke naam, type en resource-groep*, gebruiken:
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-Als u een verzameling resources lussen, kunt u weergeven van de resource van resource-ID. Een voorbeeld van een volledige wordt verderop in dit artikel weergegeven. Gebruik het volgende om de bestaande tags te bekijken van een *resource met een opgegeven bron-id*:
+Als u een verzameling resources lussen, wilt u weergeven van de resource van resource-ID. Verderop in dit artikel ziet u een volledig voorbeeld. Gebruik het volgende om de bestaande tags te bekijken van een *resource met een opgegeven bron-id*:
 
 ```azurecli
 az resource show --id <resource-id> --query tags
 ```
 
-Als u de brongroepen die beschikken over een specifiek label, gebruikt `az group list`:
+Als u de resourcegroepen die een specifieke tag, gebruikt `az group list`:
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-Als u alle resources die een bepaalde tag-waarde en, gebruikt `az resource list`:
+Als u alle resources die beschikt over een bepaalde tag en waarde, gebruikt `az resource list`:
 
 ```azurecli
 az resource list --tag Dept=Finance
@@ -206,7 +206,7 @@ Gebruik het volgende om tags toe te voegen aan een *resource zonder bestaande ta
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Om labels toevoegen aan een resource die al labels is, ophalen van de bestaande labels, die waarde opnieuw indelen en pas de labels voor bestaande en nieuwe: 
+Tags toevoegen aan een resource die al tags heeft, ophalen van de bestaande tags, opnieuw opmaken van die waarde en de bestaande en nieuwe labels toepassen: 
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
@@ -230,7 +230,7 @@ do
 done
 ```
 
-Alle tags toepassen van een resourcegroep tot de bronnen en *bestaande tags voor bronnen behouden*, gebruikt u het volgende script:
+Alle tags wilt toepassen vanuit een resourcegroep op de bijbehorende resources en *behouden de bestaande tags voor de resources*, gebruik het volgende script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -258,22 +258,22 @@ done
 
 ## <a name="rest-api"></a>REST-API
 
-De Azure portal en PowerShell maken beide gebruik van de [REST-API van Resource Manager](https://docs.microsoft.com/rest/api/resources/) achter de schermen. Als u integreren in een andere omgeving-tagging wilt, kunt u de labels krijgen met behulp van **ophalen** op de resource-ID en werk de set van labels met behulp van een **PATCH** aanroepen.
+De Azure portal en PowerShell gebruik van de [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) achter de schermen. Als u integreren in een andere omgeving-tagging wilt, kunt u labels krijgen met behulp van **ophalen** op de resource-ID en werk de set van labels met behulp van een **PATCH** aanroepen.
 
-## <a name="tags-and-billing"></a>Labels en facturering
+## <a name="tags-and-billing"></a>Tags en facturering
 
-Labels kunt u uw factureringsgegevens groep. Bijvoorbeeld, als u meerdere virtuele machines voor verschillende organisaties uitvoert, gebruiken de codes voor een groep gebruik door kostenplaats. U kunt ook tags gebruiken om kosten te categoriseren door de runtimeomgeving, zoals het gebruik van facturering voor VM's worden uitgevoerd in de productieomgeving.
+U kunt tags gebruiken voor het groeperen van uw factureringsgegevens. Bijvoorbeeld als u meerdere VM's voor verschillende organisaties zijn uitgevoerd, gebruikt u de tags aan het gebruik van de groep door kostenplaats. U kunt ook tags gebruiken voor het categoriseren van kosten door de runtimeomgeving, zoals het gebruik van de facturering voor virtuele machines die worden uitgevoerd in de productie-omgeving.
 
-Vindt u informatie over tags via de [Azure brongebruik en RateCard APIs](../billing/billing-usage-rate-card-overview.md) of het gebruik door komma's gescheiden waarden (CSV)-bestand. Downloaden van het bestand informatie over het gebruik van de [Azure accountportal](https://account.windowsazure.com/) of [EA portal](https://ea.azure.com). Zie voor meer informatie over de programmatische toegang tot factureringsgegevens [inzicht in uw Microsoft Azure-brongebruik](../billing/billing-usage-rate-card-overview.md). Zie voor REST-API-bewerkingen, [Azure Billing REST API-verwijzing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+U kunt informatie over tags via ophalen de [gebruik van Azure-resources en RateCard APIs](../billing/billing-usage-rate-card-overview.md) of het gebruik door komma's gescheiden waarden (CSV)-bestand. Downloaden van het gebruiksbestand van de [Azure accountportal](https://account.windowsazure.com/) of [EA-portal](https://ea.azure.com). Zie voor meer informatie over programmatische toegang tot factureringsgegevens [inzicht in het gebruik van de Microsoft Azure-resources](../billing/billing-usage-rate-card-overview.md). Zie voor REST API-bewerkingen, [Azure Billing REST API-verwijzing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
-Wanneer u het gebruik van CSV voor services die ondersteuning bieden voor tags met facturering downloadt, de labels worden weergegeven in de **labels** kolom. Zie voor meer informatie [inzicht in uw factuur voor Microsoft Azure](../billing/billing-understand-your-bill.md).
+Wanneer u het gebruik van CSV voor services die ondersteuning bieden voor tags met facturering downloadt, de labels worden weergegeven in de **Tags** kolom. Zie voor meer informatie, [meer informatie over uw factuur voor Microsoft Azure](../billing/billing-understand-your-bill.md).
 
-![Zie de labels in facturering](./media/resource-group-using-tags/billing_csv.png)
+![Zie tags facturering](./media/resource-group-using-tags/billing_csv.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* U kunt beperkingen en conventies met behulp van aangepaste beleidsregels toepassen voor uw abonnement. Een beleid dat u definieert mogelijk dat alle resources voor een bepaald label een waarde hebben. Zie voor meer informatie [wat is Azure beleid?](../azure-policy/azure-policy-introduction.md)
-* Zie voor een inleiding tot Azure PowerShell gebruiken wanneer u resources implementeert, [Azure PowerShell gebruiken met Azure Resource Manager](powershell-azure-resource-manager.md).
-* Zie voor een inleiding tot de Azure CLI gebruiken wanneer u resources implementeert, [met de Azure CLI voor Mac, Linux en Windows Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-* Zie voor een inleiding tot de portal, [met behulp van de Azure-portal voor het beheren van uw Azure-resources](resource-group-portal.md).  
+* U kunt beperkingen en conventies met behulp van aangepaste beleidsregels toepassen voor uw abonnement. Een beleid dat u definieert mogelijk dat alle resources een waarde hebben voor een bepaalde tag. Zie voor meer informatie, [wat is Azure Policy?](../azure-policy/azure-policy-introduction.md)
+* Zie voor een inleiding tot het gebruik van Azure PowerShell wanneer u resources implementeert, [met behulp van Azure PowerShell met Azure Resource Manager](powershell-azure-resource-manager.md).
+* Zie voor een inleiding tot de Azure CLI gebruiken wanneer u resources implementeert, [met de Azure CLI voor Mac, Linux en Windows met Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+* Zie voor een inleiding tot het gebruik van de portal, [met behulp van de Azure-portal voor het beheren van uw Azure-resources](resource-group-portal.md).  
 * Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).

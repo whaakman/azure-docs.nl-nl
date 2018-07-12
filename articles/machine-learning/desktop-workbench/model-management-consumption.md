@@ -1,82 +1,83 @@
 ---
-title: Azure Machine Learning-Model Management web service-verbruik | Microsoft Docs
-description: Dit document beschrijft de stappen en -concepten betrokken bij geïmplementeerd met behulp van de model-management in Azure Machine Learning-webservices verbruiken.
+title: Azure Machine Learning Modelbeheer web service-verbruik | Microsoft Docs
+description: Dit document beschrijft de stappen en concepten die betrokken zijn bij het gebruik van webservices die zijn geïmplementeerd met behulp van Modelbeheer in Azure Machine Learning.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: f87f865ef6d2c3403903a1bdcc402c01c3e9f939
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831986"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972633"
 ---
-# <a name="consuming-web-services"></a>Webservices verbruiken
-Wanneer u een model als een realtime-webservice implementeert, kunt u gegevens verzenden en voorspellingen ophalen vanaf verschillende platforms en toepassingen. De realtime-webservice wordt een REST-API voor het ophalen van voorspellingen. U kunt gegevens verzenden naar de webservice in de indeling van één of meerdere rij ophalen van een of meer voorspellingen tegelijk.
+# <a name="consuming-web-services"></a>Webservices gebruiken
+Wanneer u een model als een realtime webservice implementeert, kunt u gegevens verzenden en voorspellingen ophalen uit een verscheidenheid aan platforms en toepassingen. De realtime webservice wordt aangegeven dat een REST-API voor het ophalen van voorspellingen. U kunt gegevens verzenden naar de webservice in de indeling één of meerdere rijen aan een of meer voorspellingen op een tijdstip.
 
-Met de [Azure Machine Learning-webservice](model-management-service-deploy.md), een externe toepassing communiceert synchroon met een Voorspellend model door het maken van HTTP POST-aanroep naar de service-URL. Als u een webservice aanroepen, moet de clienttoepassing specificeren van de API-sleutel die wordt gemaakt wanneer u een voorspelling te implementeren en de gegevens van aanvragen in de aanvraagtekst POST geplaatst.
+Met de [Azure Machine Learning-webservice](model-management-service-deploy.md), een externe toepassing communiceert synchroon met een Voorspellend model dat door HTTP POST-aanroep naar de service-URL. Als u een webservice aanroepen, moet de clienttoepassing om op te geven van de API-sleutel die wordt gemaakt wanneer u een voorspelling te implementeren en de gegevens van aanvragen in de hoofdtekst van de POST-aanvraag geplaatst.
 
-Houd er rekening mee API-sleutels zijn alleen beschikbaar in de cluster-implementatie-modus. Lokale webservices hoeft geen sleutels.
+> [!NOTE]
+> Houd er rekening mee API-sleutels zijn alleen beschikbaar in de clustermodus voor implementatie. Lokale web-services hebben geen sleutels.
 
-## <a name="service-deployment-options"></a>Opties voor service-implementatie
-Azure Machine Learning-webservices kunnen worden geïmplementeerd voor de cloud-gebaseerde clusters voor zowel productie- en Testscenario's en voor het lokale werkstations met behulp van docker-engine. De functionaliteit van het voorspellende model in beide gevallen blijft hetzelfde. Implementatie op basis van een cluster biedt schaalbare en zodat oplossing op basis van Azure Container Services, terwijl de lokale implementatie kan worden gebruikt voor foutopsporing. 
+## <a name="service-deployment-options"></a>Service-implementatie-opties
+Azure Machine Learning-webservices kunnen worden geïmplementeerd naar de cloud gebaseerde clusters voor productie- en Testscenario's en lokale werkstations met behulp van docker-engine. De functionaliteit van het voorspellende model in beide gevallen blijft hetzelfde. Implementatie op basis van een cluster biedt schaalbare en goed presterende oplossing op basis van Azure Container Services, terwijl de lokale implementatie kan worden gebruikt voor het opsporen van fouten. 
 
-De Azure Machine Learning CLI en API biedt een handige opdrachten voor het maken en beheren van compute omgevingen voor service-implementaties met behulp van de ```az ml env``` optie. 
+De Azure Machine Learning CLI en de API biedt handige opdrachten voor het maken en beheren van compute-omgevingen voor service-implementaties met behulp van de ```az ml env``` optie. 
 
-## <a name="list-deployed-services-and-images"></a>Lijst met geïmplementeerde services en installatiekopieën
-U kunt weergeven van de momenteel geïmplementeerde services en de Docker-installatiekopieën met CLI opdracht ```az ml service list realtime -o table```. Houd er rekening mee dat deze opdracht altijd in de context van de huidige compute-omgeving werkt. Het zou niet services die zijn geïmplementeerd in een omgeving die niet is ingesteld op de huidige worden weergegeven. Het gebruik van de omgeving instellen ```az ml env set```. 
+## <a name="list-deployed-services-and-images"></a>Lijst met services en -afbeeldingen geïmplementeerd
+U kunt een lijst de momenteel geïmplementeerde services en de Docker-installatiekopieën met behulp van CLI-opdracht ```az ml service list realtime -o table```. Houd er rekening mee dat met deze opdracht altijd in de context van de huidige compute-omgeving werkt. Deze weergegeven services die zijn geïmplementeerd in een omgeving die niet is ingesteld op de huidige worden niet. Het instellen van het gebruik van de omgeving ```az ml env set```. 
 
 ## <a name="get-service-information"></a>Service-informatie ophalen
-Nadat de web-service is geïmplementeerd, moet u de volgende opdracht gebruiken om op te halen van de service-URL en andere details voor het aanroepen van het service-eindpunt. 
+Nadat de web-service is geïmplementeerd, gebruikt u de volgende opdracht uit om op te halen van de service-URL en andere details voor het aanroepen van het service-eindpunt. 
 
 ```
 az ml service usage realtime -i <web service id>
 ```
 
-Met deze opdracht wordt de service-URL, vereist aanvraagheaders, swagger-URL en voorbeeldgegevens om de service aan te roepen als de service API-schema is opgegeven op het moment van implementatie afgedrukt.
+Met deze opdracht wordt de service-URL, vereist aanvraagheaders, swagger-URL en voorbeeldgegevens voor het aanroepen van de service als de service-API-schema is opgegeven op het moment van implementatie afgedrukt.
 
-U kunt de service rechtstreeks vanuit de CLI testen zonder het samenstellen van een HTTP-aanvraag met de opdracht van de CLI voorbeeld met de invoergegevens:
+U kunt de service rechtstreeks vanuit de CLI kunt testen zonder het samenstellen van een HTTP-aanvraag door te voeren van de voorbeeld-CLI-opdracht met de ingevoerde gegevens:
 
 ```
 az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
-## <a name="get-the-service-api-key"></a>De service API-sleutel ophalen
-Als u de sleutel voor de webservice, gebruikt u de volgende opdracht:
+## <a name="get-the-service-api-key"></a>De service-API-sleutel ophalen
+Als u de sleutel voor de webservice, gebruikt u de volgende opdracht uit:
 
 ```
 az ml service keys realtime -i <web service id>
 ```
-Gebruik de sleutel bij het maken van HTTP-aanvraag in de autorisatie-header: "Autorisatie": "Bearer <key>'
+Bij het maken van HTTP-aanvraag, gebruikt u de sleutel in de autorisatie-header: "Autorisatie": "Bearer <key>"
 
-## <a name="get-the-service-swagger-description"></a>De beschrijving van de service Swagger ophalen
-Als de service API-schema is opgegeven, het service-eindpunt een Swagger-document op zou zichtbaar ```http://<ip>/api/v1/service/<service name>/swagger.json```. Het Swagger-document kan worden gebruikt om automatisch te genereren van de client-service en Verken de verwachte invoergegevens en andere details over de service.
+## <a name="get-the-service-swagger-description"></a>De beschrijving van de Swagger service ophalen
+Als het schema van de service-API is opgegeven, het service-eindpunt beschikbaar zou maken van een Swagger-document op ```http://<ip>/api/v1/service/<service name>/swagger.json```. De Swagger-document kan worden gebruikt om automatisch genereren van de service-client en de verwachte invoer- en andere details over de service te verkennen.
 
 ## <a name="get-service-logs"></a>Servicelogboeken ophalen
-Als u wilt meer inzicht in het servicegedrag en analyseren van problemen, zijn er verschillende manieren voor het ophalen van de servicelogboeken:
-- CLI-opdracht ```az ml service logs realtime -i <service id>```. Met deze opdracht werkt in zowel als lokale modi.
-- Als de service logboekregistratie op de implementatie is ingeschakeld, wordt de service worden ook worden verzonden naar AppInsight. De opdracht CLI ```az ml service usage realtime -i <service id>``` ziet u de URL AppInsight. Houd er rekening mee dat de logboeken AppInsight mogelijk een vertraging door 2-5 minuten.
-- Cluster-logboeken kunnen worden bekeken via Kubernetes-console die verbonden is bij het instellen van de huidige clusteromgeving met ```az ml env set```
-- Lokale docker-logboeken zijn beschikbaar via de docker-enginelogboeken wanneer de service lokaal wordt uitgevoerd.
+Begrijp het servicegedrag van de en problemen diagnosticeren, zijn er verschillende manieren om op te halen van de servicelogboeken:
+- CLI-opdracht ```az ml service logs realtime -i <service id>```. Met deze opdracht werkt in het cluster en de lokale modus.
+- Als de service logboekregistratie is ingeschakeld tijdens de implementatie, is de servicelogboeken worden ook verzonden naar AppInsight. De CLI-opdracht ```az ml service usage realtime -i <service id>``` ziet u de AppInsight-URL. Houd er rekening mee dat de logboeken AppInsight kunnen worden vertraagd door 2-5 minuten.
+- Clusterlogboeken kunnen worden weergegeven in het Kubernetes-console die verbonden is bij het instellen van de huidige clusteromgeving met ```az ml env set```
+- Lokale docker-logboeken zijn beschikbaar via de logboeken van docker-engine als de service lokaal wordt uitgevoerd.
 
-## <a name="call-the-service-using-c"></a>De service met C# aanroepen
-Gebruik de URL een aanvraag te verzenden vanuit een C#-consoletoepassing. 
+## <a name="call-the-service-using-c"></a>Roept de service met behulp van C#
+De service-URL gebruiken voor het verzenden van een aanvraag van een C#-consoletoepassing. 
 
-1. Maak een nieuwe consoletoepassing in Visual Studio: 
-    * Klik in het menu, File -> Nieuw Project ->
-    * In Visual Studio C#, klikt u op Windows-bureaublad van klasse en selecteer vervolgens Console-App.
-2. Voer _MyFirstService_ als de naam van het project, klik vervolgens op OK.
-3. Stel in projectverwijzingen, verwijzingen naar _System.Net_, en _System.Net.Http_.
-4. Klik op Extra -> NuGet Package Manager -> Package Manager-Console en vervolgens het pakket Microsoft.AspNet.WebApi.Client installeren.
-5. Open het bestand Program.cs en vervang de code door de volgende code:
-6. Update de _SERVICE_URL_ en _API_KEY_ parameters met de gegevens van uw web-service.
+1. Maak een nieuwe Console-App in Visual Studio: 
+    * In het menu, klikt u op, File -> Nieuw Project ->
+    * In Visual Studio C#, klikt u op Windows-klasse bureaublad, en selecteer vervolgens Console-App.
+2. Voer `MyFirstService` als de naam van het project en klik vervolgens op OK.
+3. In de projectverwijzingen, stelt u verwijzingen naar `System.Net`, en `System.Net.Http`.
+4. Klik op hulpprogramma's-NuGet Package Manager > Package Manager Console -> en vervolgens installeren de **Microsoft.AspNet.WebApi.Client** pakket.
+5. Open **Program.cs** bestand en vervang de code door de volgende code:
+6. Update de `SERVICE_URL` en `API_KEY` parameters met de gegevens van uw webservice.
 7. Voer het project.
 
 ```csharp
@@ -147,11 +148,11 @@ namespace MyFirstService
 ```
 
 ## <a name="call-the-web-service-using-python"></a>Roep de webservice met behulp van Python
-Python gebruiken een aanvraag te verzenden naar uw realtime-webservice. 
+Python gebruiken om te verzenden van een aanvraag naar de realtime webservice. 
 
 1. Kopieer het volgende codevoorbeeld naar een nieuwe Python-bestand.
-2. Werk de gegevens, url en api_key parameters. Verwijder de verificatieheader voor lokale webservices.
-3. Voer de code. 
+2. Werk de gegevens, de url en de api_key parameters. Voor lokale webservices, verwijdert u de autorisatieheader.
+3. Voer de code uit. 
 
 ```python
 import requests

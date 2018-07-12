@@ -1,6 +1,6 @@
 ---
 title: Wat is Team Data Science Process? | Microsoft Docs
-description: Biedt een gegevens wetenschappelijke methodologie voor het leveren van predictive analytics-oplossingen en intelligente toepassingen.
+description: Een data science-methodologie voor het leveren van predictive analytics-oplossingen en intelligente toepassingen biedt.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,97 +15,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 8479b23f49402962acbf50016226ea0f2eb67b68
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 474efbf3a9255e4699c27c6b0bfcc30ff54c4b45
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839075"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971448"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Wat is Team Data Science Process?
 
-Het Team gegevens wetenschap proces (TDSP) is een flexibele, herhalende gegevens wetenschappelijke methodologie predictive analytics-oplossingen en intelligente toepassingen efficiënt te leveren. TDSP helpt om de teamsamenwerking en het leerproces te verbeteren. Het bevat een distillatie van de best practices en structuren van Microsoft en andere bedrijven in deze branche die willen helpen om de implementatie van initiatieven op het gebied van data science te laten slagen. Het doel is bedrijven te helpen om de voordelen van hun analyseprogramma volledig te kunnen benutten.
+Het Team Data Science Process (TDSP) is een flexibele, iteratieve data science-methodologie predictive analytics-oplossingen en intelligente toepassingen efficiënt leveren. TDSP helpt om de teamsamenwerking en het leerproces te verbeteren. Het bevat een distillatie van de best practices en structuren van Microsoft en andere bedrijven in deze branche die willen helpen om de implementatie van initiatieven op het gebied van data science te laten slagen. Het doel is bedrijven te helpen om de voordelen van hun analyseprogramma volledig te kunnen benutten.
 
-Dit artikel bevat een overzicht van TDSP en de belangrijkste onderdelen. We bieden een algemene beschrijving van het proces dat kan worden geïmplementeerd met tal van hulpprogramma's. Een gedetailleerde beschrijving van de projecttaken en functies die zijn betrokken bij de levenscyclus van het proces is beschikbaar in extra gekoppelde onderwerpen. Richtlijnen voor het implementeren van de TDSP met behulp van een specifieke set Microsoft-programma's en infrastructuur die we gebruiken voor het implementeren van de TDSP in onze teams is ook beschikbaar.
+Dit artikel bevat een overzicht van TDSP en de belangrijkste onderdelen. Wij bieden een algemene beschrijving van het proces dat kan worden geïmplementeerd met tal van hulpprogramma's. Een gedetailleerde beschrijving van de rollen die betrokken zijn bij de levenscyclus van het proces van de project-taken en is beschikbaar in extra gekoppelde onderwerpen. Richtlijnen voor het implementeren van de TDSP met behulp van een specifieke set Microsoft-programma's en infrastructuur die we gebruiken voor het implementeren van de TDSP in onze teams is ook beschikbaar.
 
 ## <a name="key-components-of-the-tdsp"></a>Belangrijke onderdelen van de TDSP
 
-TDSP bestaat uit de volgende hoofdonderdelen:
+TDSP bestaat uit de volgende belangrijke onderdelen:
 
-- Een **gegevens wetenschappelijke lifecycle** definitie
+- Een **levenscyclus van wetenschappelijke gegevens** definitie
 - Een **gestandaardiseerd projectstructuur**
-- **Infrastructuur en resources** voor gegevens wetenschappelijke projecten
+- **Infrastructuur en resources** voor data science-projecten
 - **Hulpprogramma's** voor de projectuitvoering van
 
 
 ## <a name="data-science-lifecycle"></a>Levenscyclus van wetenschappelijke gegevens
 
-Het Team gegevens wetenschap proces (TDSP) biedt een levenscyclus voor het ontwikkelen van projecten wetenschappelijke gegevens structuur. De levenscyclus van bevat de stappen, van begin tot eind, projecten meestal volgen wanneer ze worden uitgevoerd.
+Het Team Data Science Process (TDSP) biedt een levenscyclus voor de ontwikkeling van uw data science-projecten structureren. De levenscyclus van geeft een overzicht van de stappen van begin tot eind, projecten gewoonlijk volgen wanneer ze worden uitgevoerd.
 
-Als u een andere gegevens wetenschappelijke levensduur, zoals gebruikt [heldere DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) of uw organisatie eigen aangepaste proces, kunt u de TDSP op basis van een taak in de context van de levenscycli van de ontwikkeling. Op een hoog niveau hebben deze verschillende methoden veel gemeen. 
+Als u een andere volledige wetenschappelijke levensduur, zoals gebruikt [heldere-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) of uw organisatie eigen aangepaste proces, u kunt nog steeds de TDSP op basis van een taak in de context van de levenscycli van de ontwikkeling. Op hoog niveau hebben deze verschillende methoden veel gemeen. 
 
-Deze levenscyclus beheren is ontworpen voor wetenschap-projecten voor gegevens die worden geleverd als onderdeel van intelligente toepassingen. Deze toepassingen implementeren machine learning of kunstmatige intelligence modellen voor predictive analytics. Experimentele gegevens wetenschap of ad-hoc analytics projecten kunnen ook profiteren van dit proces. Maar in dergelijke gevallen enkele van de beschreven stappen mogelijk niet nodig.    
+Deze levenscyclus beheren, is ontworpen voor data science-projecten die worden geleverd als onderdeel van intelligente toepassingen. Deze toepassingen machine learning of kunstmatige intelligentie modellen voor voorspellende analyses te implementeren. Verkennende data science of ad-hoc analytics-projecten kunnen ook profiteren van dit proces. Maar in dergelijke gevallen enkele van de stappen mogelijk niet nodig.    
 
-De levenscyclus geeft een overzicht van de belangrijke fasen die projecten doorgaans worden uitgevoerd, vaak iteratief:
+De levenscyclus van geeft een overzicht van de belangrijke fasen die projecten doorgaans worden uitgevoerd, vaak iteratief:
 
-* **Wat voor bedrijven**
-* **Gegevensverzameling en begrijpen**
+* **Inzicht in het bedrijf**
+* **Gegevens verzamelen en begrijpen**
 * **Modeling**
 * **Implementatie**
-* **Acceptatie van de klant**
+* **Aanvaarding van de klant**
 
-Hier volgt een visuele representatie van het **Team gegevens wetenschap proces lifecycle**. 
+Hier volgt een visuele representatie van het **Team Data Science Process lifecycle**. 
 
 ![TDSP-Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
 
-De doelstellingen, taken en documentatie artefacten voor elke fase van de levenscyclus in TDSP worden beschreven in de [Team gegevens wetenschap proces lifecycle](lifecycle.md) onderwerp. Deze taken en de artefacten zijn gekoppeld aan Projectrollen:
+De doelen, taken en documentatie artefacten voor elke fase van de TDSP-levenscyclus worden beschreven in de [Team Data Science Process lifecycle](lifecycle.md) onderwerp. Deze taken en artefacten zijn gekoppeld aan het Projectrollen:
 
-- Oplossing architect
+- Oplossingsarchitect
 - Projectmanager
 - Gegevenswetenschapper
 - Projectleider 
 
-Het volgende diagram biedt een rasterweergave van de taken (in blauw) en de artefacten (in groen) die zijn gekoppeld aan elke fase van de levenscyclus (op de horizontale as) voor deze rollen (op de verticale as). 
+Het volgende diagram biedt een rasterweergave van de taken (in het blauw) en de artefacten (in het groen) die zijn gekoppeld aan elke fase van de levenscyclus (op de horizontale as) voor deze rollen (op de verticale as). 
 
-![TDSP-functies-en-taken](./media/overview/tdsp-tasks-by-roles.png)
+![TDSP-rollen-en-taken](./media/overview/tdsp-tasks-by-roles.png)
 
-## <a name="standardized-project-structure"></a>De structuur gestandaardiseerde project
+## <a name="standardized-project-structure"></a>Gestandaardiseerde projectstructuur
 
-Met alle projecten een mapstructuur delen en het gebruik van sjablonen voor de project-documenten, kunt u gemakkelijk de teamleden voor meer informatie over hun projecten. Alle code en documenten worden opgeslagen in een versiebeheersysteem (VCS) zoals Git, TFS of Subversion teamsamenwerking inschakelen. Bijhouden van taken en functies in een flexibele project traceringssysteem zoals Jira Rally, Visual Studio Team Services Hiermee kan dichter bij het bijhouden van de code voor de afzonderlijke onderdelen. Dergelijke bijhouden kan ook teams verkrijgen beter geschatte kosten. TDSP raadt aan om te maken van een afzonderlijke opslagplaats voor elk project in de VCS voor versiebeheer, informatiebeveiliging en samenwerking. De gestandaardiseerde structuur voor alle projecten helpt institutionele kennis bouwen in de hele organisatie.
+Met alle projecten delen van een mapstructuur en sjablonen gebruiken voor de project-documenten, kunt eenvoudig de teamleden voor informatie over hun projecten. Alle code en documenten worden opgeslagen in een versiebeheersysteem (Circuits), zoals Git, TFS of Subversion om in te schakelen samenwerking voor teams. Bijhouden van taken en -functies in een flexibel bijhouden van systeem zoals Jira projecten, Rally, Visual Studio Team Services van kunt is dichter bijhouden van de code voor afzonderlijke functies. Dergelijke bijhouden kan ook teams om op te halen beter kostenramingen. TDSP raadt aan om het maken van een aparte opslagplaats voor elk project in de Circuits voor versiebeheer, informatiebeveiliging en samenwerking. De gestandaardiseerde structuur voor alle projecten helpt met het bouwen van institutionele kennis in de hele organisatie.
 
-We bieden sjablonen voor de mapstructuur en de vereiste documenten op standaardlocaties. Deze mapstructuur organiseert de bestanden die code voor gegevensverkenning en uitpakken van de functie bevatten en die model iteraties opnemen. Deze sjablonen eenvoudiger teamleden om te begrijpen werk dat door anderen en nieuwe leden toevoegen aan teams. Het is gemakkelijk weergeven en bijwerken van de documentsjablonen in markdown-indeling. Sjablonen gebruiken om te voorzien van belangrijke vragen voor elk project om ervoor te zorgen dat het probleem goed gedefinieerde is en dat de kwaliteit verwacht voldoen aan de producten controlelijsten. Voorbeelden zijn:
+We bieden sjablonen voor de mapstructuur en de vereiste documenten in standaardlocaties. Deze mapstructuur organiseert de bestanden die code voor gegevensverkenning en het ophalen van functies bevatten en dat model iteraties opnemen. Deze sjablonen wordt het eenvoudiger voor teamleden om te begrijpen werk van anderen en nieuwe leden toevoegen aan teams. Het is gemakkelijk om te bekijken en bijwerken van sjablonen in markdown-indeling. Gebruik sjablonen om controlelijsten voorzien van belangrijke vragen voor elk project om ervoor te zorgen dat het probleem duidelijk gedefinieerd is en producten te voldoen aan de kwaliteit verwacht. Voorbeelden zijn:
 
-- een freelance project te maken voor het zakelijke probleem en het bereik van het project
+- een project Handvest vastleggen van de zakelijke probleem en het bereik van het project
 - rapporten met gegevens naar het document de structuur en statistieken van de onbewerkte gegevens
-- model rapporten om vast te leggen van de afgeleide functies
-- model maatstaven voor prestaties zoals ROC curven of muis
+- model-rapporten naar de afgeleide functies
+- model maatstaven voor prestaties zoals ROC-curve of MSE
 
 
 ![TDSP-directories](./media/overview/tdsp-dir-structure.png)
 
-De mapstructuur uit kan worden gekloond [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
+De mapstructuur kan worden gekloond van [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
-## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infrastructuur en resources voor gegevens wetenschappelijke projecten  
+## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infrastructuur en resources voor data science-projecten  
 
-TDSP bevat aanbevelingen voor het beheren van gedeelde analytics en opslaginfrastructuur zoals:
+TDSP bevat aanbevelingen voor het beheren van gedeelde analyse- en opslaginfrastructuur, zoals:
 
-- cloud-bestandssystemen voor het opslaan van gegevenssets 
+- cloud-bestandssystemen voor het opslaan van gegevenssets, 
 - databases
-- BIG data (Hadoop of Spark) clusters 
+- de clusters (Hadoop- of Apache Spark) big data 
 - machine learning-services. 
 
-De infrastructuur van de analyses en opslag kan zich in de cloud of on-premises. Dit is waar de onbewerkte gegevens en verwerkte gegevenssets worden opgeslagen. Deze infrastructuur kunt reproduceerbare analyse. Ook voorkomt u dubbele, wat tot inconsistenties en onnodige infrastructuurkosten leiden kan. Hulpprogramma's worden geleverd om te leveren van de gedeelde resources, ze bijhouden, zodat elk teamlid veilig verbinding kunnen maken met deze bronnen. Het is ook een goede gewoonte projectleden die u maakt een consistente compute-omgeving hebben. Andere teamleden kunnen repliceren en experimenten te valideren.
+De analyse- en opslaginfrastructuur kan zich in de cloud of on-premises. Dit is waar de onbewerkte gegevens en verwerkte gegevenssets worden opgeslagen. Deze infrastructuur kunt reproduceerbare analyse. Ook voorkomt u dubbele, wat tot inconsistenties en onnodige infrastructuurkosten leiden kan. Hulpprogramma's worden aan de gedeelde resources inrichten, traceren en zorgen dat elk teamlid veilig verbinding maken met deze resources verstrekt. Het is ook een goede gewoonte om het project leden maken van een consistente compute-omgeving. Andere teamleden kunnen vervolgens worden gerepliceerd en experimenten valideren.
 
-Hier volgt een voorbeeld van een team werkt aan meerdere projecten en delen van de verschillende onderdelen van de cloud analytics infrastructuur.
+Hier volgt een voorbeeld van een team werkt aan meerdere projecten en het delen van verschillende onderdelen van de cloud analytics infrastructuur.
 
 ![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Hulpprogramma's voor de projectuitvoering van
 
-Inleiding tot processen in de meeste organisaties is lastig. Hulpprogramma's te implementeren de gegevens wetenschap proces en de levenscyclus van help lager de belemmering voor het verhogen van de consistentie van de vaststelling. TDSP biedt een eerste set hulpprogramma's en scripts te acceptatie van TDSP binnen een team. Het helpt tevens een gedeelte van de algemene taken in de levenscyclus van de wetenschap zoals gegevensverkenning en basislijn modellering automatiseren. Er is een goed gedefinieerde structuur opgegeven voor personen om bij te dragen gedeelde hulpprogramma's in hun team gedeelde code opslagplaats. Deze resources kunnen vervolgens worden gebruikt door andere projecten binnen het team dat of de organisatie. TDSP wil ook bijdragen van hulpprogramma's en hulpprogramma's voor de hele community inschakelen. De hulpprogramma's voor TDSP kunnen worden gekloond van [Github](https://github.com/Azure/Azure-TDSP-Utilities).
+Maak kennis met de processen in de meeste organisaties uitdagingen met zich mee. Hulpprogramma's te implementeren de data science-proces en de levenscyclus help lager de barrières voor vergroten van de consistentie van hun goedkeuring. TDSP biedt een eerste set met hulpprogramma's en scripts aan de acceptatie van TDSP binnen een team snel aan de slag. Ook helpt u bij automatiseren van de algemene taken in de levenscyclus van wetenschappelijke gegevens, zoals gegevens verkennen en modelleren van de basislijn. Er is een goed gedefinieerde structuur die is opgegeven voor personen om bij te dragen gedeelde functies en hulpprogramma's in gedeelde code-opslagplaats van hun team. Deze resources kunnen vervolgens worden gebruikt door andere projecten in het team of de organisatie. TDSP is ook van plan om in te schakelen van de bijdragen van de hulpprogramma's voor de gehele community. De TDSP-hulpprogramma's kunnen worden gekloond van [Github](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Team gegevens wetenschappelijke processen: De rollen en taken](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) geeft een overzicht van de belangrijkste personeel-rollen en de bijbehorende taken voor een wetenschappelijke-team voor gegevens die op dit proces standaardiseert. 
+[Team Data Science Process: Rollen en taken](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) geeft een overzicht van de functies key personeel en de bijbehorende taken voor een team van gegevenswetenschappers die over dit proces standaardiseert. 

@@ -1,6 +1,6 @@
 ---
 title: Een Azure-functie aanroepen vanuit Microsoft Flow | Microsoft Docs
-description: Een aangepaste connector maken en vervolgens een functie met die connector aanroept.
+description: Een aangepaste connector maken en vervolgens een functie met behulp van deze connector aanroepen.
 services: functions
 keywords: cloud-apps, cloud services, Microsoft Flow, bedrijfsprocessen, business-toepassing
 documentationcenter: ''
@@ -18,118 +18,118 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234798"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467741"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Een functie van Microsoft Flow aanroepen
 
-[Microsoft-Flow](https://flow.microsoft.com/) kunt u gemakkelijk om werkstromen en bedrijfsprocessen tussen uw favoriete apps en services te automatiseren. Professionele ontwikkelaars kunnen Azure Functions gebruiken om de mogelijkheden van Microsoft-Flow tijdens afscherming stroom opbouwfuncties van technische informatie.
+[Microsoft Flow](https://flow.microsoft.com/) kunt u eenvoudig voor het automatiseren van werkstromen en bedrijfsprocessen tussen uw favoriete apps en services. Professionele ontwikkelaars kunnen Azure Functions gebruiken voor het uitbreiden van de mogelijkheden van Microsoft Flow, terwijl het afschermen van flow builders van de technische details.
 
-U maakt een stroom in dit onderwerp op basis van een scenario voor Windturbines voor onderhoud. Dit onderwerp leest u hoe de functie die u hebt gedefinieerd in [maken voor een functie een definitie van een OpenAPI](functions-openapi-definition.md). De functie bepaalt of een noodherstelproces op een turbine o rendabele. Als het rendabele, verzendt de stroom een e-mail aan te bevelen het herstel.
+Maakt u een stroom in dit onderwerp op basis van een scenario voor wind maar voor onderhoud. Dit onderwerp leest u over het aanroepen van de functie die u hebt gedefinieerd in [OpenAPI-definitie voor een functie maken](functions-openapi-definition.md). De functie bepaalt of een noodherstelproces op een windturbine rendabel is. Als dit kosteneffectief is, wordt de stroom verzendt een e-mail om aan te bevelen de herstelbewerking.
 
-Zie voor meer informatie over het aanroepen van dezelfde functie uit PowerApps [aanroepen van een functie van PowerApps](functions-powerapps-scenario.md).
+Zie voor meer informatie over het aanroepen van dezelfde functie uit PowerApps [een functie van PowerApps aanroepen](functions-powerapps-scenario.md).
 
-In dit onderwerp leert u hoe:
+In dit onderwerp leert u hoe u:
 
 > [!div class="checklist"]
-> * Een lijst maken in SharePoint.
-> * Exporteren van een API-definitie.
+> * Maak een lijst in SharePoint.
+> * Een API-definitie exporteren.
 > * Een verbinding toevoegen aan de API.
-> * Maak een stroom voor het verzenden van e-mailadres als een reparatie rendabele is.
-> * De stroom worden uitgevoerd.
+> * Maak een stroom om e-mail te verzenden als een reparatie rendabel is.
+> * De stroom uitvoeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ Een actieve [Microsoft Flow rekening](https://flow.microsoft.com/documentation/sign-up-sign-in/) met hetzelfde teken in referenties als uw Azure-account. 
-+ SharePoint u als gegevensbron voor deze stroom gebruiken. Aanmelden voor [een proefversie van Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) als u SharePoint nog geen hebt.
-+ Voltooi de zelfstudie [maken voor een functie een definitie van een OpenAPI](functions-openapi-definition.md).
++ Een actief [Microsoft Flow-account](https://flow.microsoft.com/documentation/sign-up-sign-in/) met hetzelfde teken in referenties als uw Azure-account. 
++ SharePoint, die u als een gegevensbron voor deze stroom gebruiken. Zich aanmelden voor [een proefversie van Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) als u SharePoint nog niet hebt.
++ Voltooi de zelfstudie [OpenAPI-definitie voor een functie maken](functions-openapi-definition.md).
 
-## <a name="create-a-sharepoint-list"></a>Maken van een SharePoint-lijst
-U beginnen met het maken van een lijst die u als gegevensbron voor de stroom gebruikt. De lijst bevat de volgende kolommen.
+## <a name="create-a-sharepoint-list"></a>Een SharePoint-lijst maken
+U beginnen met het maken van een lijst die u als een gegevensbron voor de stroom gebruikt. De lijst met bevat de volgende kolommen.
 
 | Lijstkolom     | Gegevenstype           | Opmerkingen                                    |
 |-----------------|---------------------|------------------------------------------|
-| **Titel**           | Enkele regel tekst | Naam van de turbine                      |
+| **Titel**           | Eén tekstregel | Naam van de turbine                      |
 | **LastServiceDate** | Date                |                                          |
-| **MaxOutput**       | Aantal              | Uitvoer turbine in KwH            |
+| **MaxOutput**       | Aantal              | Uitvoer van de turbine, in KwH            |
 | **ServiceRequired** | Ja/Nee              |                                          |
 | **EstimatedEffort** | Aantal              | Geschatte tijd voor het herstel in uren |
 
-1. Tik of klik in de SharePoint-site **nieuw**, klikt u vervolgens **lijst**.
+1. Klik of tik in de SharePoint-site **nieuw**, klikt u vervolgens **lijst**.
 
     ![Maak een nieuwe SharePoint-lijst](./media/functions-flow-scenario/new-list.png)
 
-2. Voer de naam `Turbines`, klik of tik **maken**.
+2. Voer de naam `Turbines`en klik of tik op **maken**.
 
     ![Geef een naam op voor de nieuwe lijst](./media/functions-flow-scenario/create-list.png)
 
-    De **Turbines** lijst wordt gemaakt met het standaard **titel** veld.
+    De **maar** lijst wordt gemaakt met de standaard **titel** veld.
 
-    ![Turbines lijst](./media/functions-flow-scenario/initial-list.png)
+    ![Maar lijst](./media/functions-flow-scenario/initial-list.png)
 
-3. Klik of tik ![itempictogram nieuw](./media/functions-flow-scenario/icon-new.png) vervolgens **datum**.
+3. Klik of tik op ![pictogram Nieuw item](./media/functions-flow-scenario/icon-new.png) vervolgens **datum**.
 
     ![Voeg één regel tekst toe](./media/functions-flow-scenario/add-column.png)
 
-4. Voer de naam `LastServiceDate`, klik of tik **maken**.
+4. Voer de naam `LastServiceDate`en klik of tik op **maken**.
 
-    ![De kolom LastServiceDate maken](./media/functions-flow-scenario/date-column.png)
+    ![LastServiceDate kolom maken](./media/functions-flow-scenario/date-column.png)
 
-5. Herhaal de laatste twee stappen voor de drie kolommen in de lijst:
+5. Herhaal de laatste twee stappen voor de andere drie kolommen in de lijst:
 
-    1. **Aantal** > 'MaxOutput'
+    1. **Aantal** > "MaxOutput"
 
-    2. **Ja/Nee** > 'ServiceRequired'
+    2. **Ja/Nee** > "ServiceRequired"
 
-    3. **Aantal** > 'EstimatedEffort'
+    3. **Aantal** > "EstimatedEffort"
 
-Dat is alles nu - er is een lege lijst dat op de volgende afbeelding lijkt. U kunt gegevens aan de lijst toevoegen nadat u de stroom maken.
+Dat is alles voorlopig: u hebt een lege lijst dat lijkt op de volgende afbeelding. U kunt gegevens aan de lijst toevoegen nadat u de stroom maken.
 
 ![Lege lijst](media/functions-flow-scenario/empty-list.png)
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
 ## <a name="add-a-connection-to-the-api"></a>Een verbinding toevoegen aan de API
-De aangepaste API (ook wel bekend als een aangepaste connector) is beschikbaar in de Microsoft-Flow, maar u moet maakt een verbinding met de API voordat u deze in een stroom gebruiken kunt.
+De aangepaste API (ook wel bekend als een aangepaste connector) is beschikbaar in Microsoft Flow, maar u moet verbinding maken met de API voordat u deze in een stroom gebruiken kunt.
 
-1. In [flow.microsoft.com](https://flow.microsoft.com), klik op het pictogram tandwielpictogram (in de rechterbovenhoek) en klik vervolgens op **verbindingen**.
+1. In [flow.microsoft.com](https://flow.microsoft.com), klik op het tandwielpictogram (in de rechterbovenhoek) en klik vervolgens op **verbindingen**.
 
-    ![Stroom-verbindingen](media/functions-flow-scenario/flow-connections.png)
+    ![Stroomverbindingen](media/functions-flow-scenario/flow-connections.png)
 
-1. Klik op **verbinding maken**, schuif omlaag naar de **Turbine reparatie** connector, en klik erop.
+1. Klik op **verbinding maken**, schuif omlaag naar de **Turbine herstellen** -connector, en klik erop.
 
     ![Verbinding maken](media/functions-flow-scenario/create-connection.png)
 
-1. Voer de API-sleutel in en klik op **verbinding maken**.
+1. Voer de API-sleutel en klikt u op **verbinding maken**.
 
-    ![Voer API-sleutel en maken](media/functions-flow-scenario/api-key.png)
+    ![API-sleutel invoeren en maken](media/functions-flow-scenario/api-key.png)
 
 > [!NOTE]
-> Als u uw flow met anderen deelt, moet elke persoon die werkt op of de stroom gebruikt ook de API-sleutel verbinding maken met de API invoeren. Dit gedrag in de toekomst kan worden gewijzigd en dit onderwerp om te geven die wordt bijgewerkt.
+> Als u de stroom met anderen deelt, moet elke persoon die werkt op of de stroom gebruikt ook de API-sleutel verbinding maken met de API invoeren. Dit gedrag veranderen in de toekomst en we in dit onderwerp om te geven die wordt bijgewerkt.
 
 
-## <a name="create-a-flow"></a>Maken van een stroom
+## <a name="create-a-flow"></a>Stroom maken
 
-U kunt nu gereed voor het maken van een stroom die gebruikmaakt van de aangepaste connector en de SharePoint-lijst die u hebt gemaakt.
+U bent nu klaar om te maken van een stroom die gebruikmaakt van de aangepaste connector en de SharePoint-lijst die u hebt gemaakt.
 
 ### <a name="add-a-trigger-and-specify-a-condition"></a>Een trigger toevoegen en geef een voorwaarde
 
-U maakt eerst een stroom van leeg (zonder een sjabloon) en voeg een *trigger* die wordt geactiveerd wanneer een item in de SharePoint-lijst wordt gemaakt. U voegt een *voorwaarde* om te bepalen wat gebeurt er nu.
+U eerst een stroom maken met een leeg (zonder een sjabloon) en voegt een *trigger* die wordt geactiveerd wanneer een item in de SharePoint-lijst wordt gemaakt. U voegt een *voorwaarde* om te bepalen wat er daarna gebeurt.
 
-1. In [flow.microsoft.com](https://flow.microsoft.com), klikt u op **mijn loopt**, klikt u vervolgens **maken van leeg**.
+1. In [flow.microsoft.com](https://flow.microsoft.com), klikt u op **mijn stromen**, klikt u vervolgens **leeg item maken**.
 
-    ![maken van leeg](media/functions-flow-scenario/create-from-blank.png)
+    ![Leeg item maken](media/functions-flow-scenario/create-from-blank.png)
 
 2. Klik op de SharePoint-trigger **wanneer een item wordt gemaakt**.
 
     ![Kies een trigger](media/functions-flow-scenario/choose-trigger.png)
 
-    Als u nog niet bent aangemeld bij SharePoint, wordt u gevraagd om dit te doen.
+    Als u niet al bent aangemeld bij SharePoint, wordt u gevraagd om dit te doen.
 
-3. Voor **siteadres**, voer de naam van uw SharePoint-site en voor **naam**, voert u de lijst die de turbine gegevens bevat.
+3. Voor **siteadres**, voer de naam van uw SharePoint-site, en voor **lijstnaam**, voert u de lijst die de turbine gegevens bevat.
 
     ![Kies een trigger](media/functions-flow-scenario/site-list.png)
 
@@ -137,93 +137,93 @@ U maakt eerst een stroom van leeg (zonder een sjabloon) en voeg een *trigger* di
 
     ![Een voorwaarde toevoegen](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft-Flow voegt twee vertakkingen tot de stroom: **zo Ja** en **als er geen**. U toevoegen stappen aan een of beide vertakkingen na het definiëren van de voorwaarde die u wilt vergelijken.
+    Microsoft Flow voegt twee vertakkingen toe aan de stroom: **als Ja** en **als er geen**. U toevoegen stappen aan een of beide vertakkingen na het definiëren van de voorwaarde die u wilt vergelijken.
 
     ![Voorwaarde vertakkingen](media/functions-flow-scenario/condition-branches.png)
 
-5. Op de **voorwaarde** kaart, klikt u op het eerste vak en selecteer **ServiceRequired** van de **dynamische inhoud** in het dialoogvenster.
+5. Op de **voorwaarde** -kaart, klik op het eerste vak en selecteer vervolgens **ServiceRequired** uit de **dynamische inhoud** in het dialoogvenster.
 
     ![Veld voor de voorwaarde selecteren](media/functions-flow-scenario/condition1-field.png)
 
 6. Voer een waarde van `True` voor de voorwaarde.
 
-    ![Voer waar voor voorwaarde](media/functions-flow-scenario/condition1-yes.png)
+    ![Geef true voor voorwaarde](media/functions-flow-scenario/condition1-yes.png)
 
-    De waarde wordt weergegeven als `Yes` of `No` in de SharePoint lijst, maar het wordt opgeslagen als een *Booleaanse*komt ofwel `True` of `False`. 
+    De waarde wordt weergegeven als `Yes` of `No` in de SharePoint-lijst, maar deze wordt opgeslagen als een *Booleaanse*, een van beide `True` of `False`. 
 
-7. Klik op **stroom maken** boven aan de pagina. Klik op **Update stromen** regelmatig.
+7. Klik op **stroom maken** aan de bovenkant van de pagina. Klik op **Update Flow** periodiek.
 
-Voor alle items in de lijst hebt gemaakt, controleert de stroom of de **ServiceRequired** veld is ingesteld op `Yes`, gaat u naar de **zo Ja** vertakking of de **als er geen** vertakking als van toepassing. Tijd te besparen, in dit onderwerp dat u alleen acties opgeven voor de **zo Ja** vertakking.
+Voor alle items in de lijst hebt gemaakt, wordt de stroom gecontroleerd of de **ServiceRequired** veld is ingesteld op `Yes`, gaat u naar de **als Ja** vertakking of het **als er geen** vertakking als van toepassing. Om tijd te besparen, in dit onderwerp dat u alleen acties voor de **als Ja** vertakking.
 
 ### <a name="add-the-custom-connector"></a>De aangepaste connector toevoegen
 
-U toevoegen de aangepaste connector die de functie in Azure aanroept. U toevoegen de aangepaste connector aan de stroom net als een standaard-connector. 
+U nu toevoegen de aangepaste connector die de functie in Azure aanroept. U kunt de aangepaste connector toevoegen aan de stroom net als een standaard-connector. 
 
-1. In de **zo Ja** vertakking, klikt u op **een actie toevoegen**.
+1. In de **als Ja** vertakking, klikt u op **een actie toevoegen**.
 
     ![Een actie toevoegen](media/functions-flow-scenario/condition1-yes-add-action.png)
 
-2. In de **kiest u een actie** in het dialoogvenster, zoekt u `Turbine Repair`, selecteert u de actie **Turbine reparatie - kosten berekend**.
+2. In de **een actie kiezen** in het dialoogvenster, zoekt u `Turbine Repair`, selecteert u de actie **Turbine reparatie - kosten berekend**.
 
     ![Kies een actie](media/functions-flow-scenario/choose-turbine-repair.png)
 
-    De volgende afbeelding toont de kaart die wordt toegevoegd aan de stroom. De velden en beschrijvingen zijn afkomstig van de OpenAPI definitie voor de connector.
+    De volgende afbeelding ziet u de kaart die wordt toegevoegd aan de stroom. De velden en beschrijvingen zijn afkomstig van de OpenAPI-definitie voor de connector.
 
-    ![Berekent de standaardwaarden van de kosten](media/functions-flow-scenario/calculates-costs-default.png)
+    ![Standaardinstellingen van de kosten worden berekend](media/functions-flow-scenario/calculates-costs-default.png)
 
-3. Op de **kosten berekend** kaart, gebruikt u de **dynamische inhoud** in het dialoogvenster om te selecteren van de invoer voor de functie. Microsoft-Flow toont numerieke velden, maar niet het datumveld, omdat de definitie van de OpenAPI geeft aan dat **uren** en **capaciteit** numeriek zijn.
+3. Op de **kosten worden berekend** -kaart, gebruikt u de **dynamische inhoud** in het dialoogvenster voor het selecteren van invoer voor de functie. Microsoft Flow wordt numerieke velden, maar niet het datumveld, omdat de OpenAPI-definitie Hiermee wordt aangegeven dat **uur** en **capaciteit** numeriek zijn.
 
-    Voor **uren**, selecteer **EstimatedEffort**, en voor **capaciteit**, selecteer **MaxOutput**.
+    Voor **uur**, selecteer **EstimatedEffort**, en voor **capaciteit**, selecteer **MaxOutput**.
 
     ![Kies een actie](media/functions-flow-scenario/calculates-costs-fields.png)
 
-     Nu toevoegen u een ander probleem op basis van de uitvoer van de functie.
+     Nu toevoegen u een andere voorwaarde op basis van de uitvoer van de functie.
 
-4. Aan de onderkant van de **zo Ja** vertakking, klikt u op **meer**, klikt u vervolgens **een voorwaarde toevoegen**.
+4. Aan de onderkant van de **als Ja** vertakking, klikt u op **meer**, klikt u vervolgens **een voorwaarde toevoegen**.
 
     ![Een voorwaarde toevoegen](media/functions-flow-scenario/condition2-add.png)
 
-5. Op de **voorwaarde 2** kaart, klikt u op het eerste vak en selecteer **bericht** van de **dynamische inhoud** in het dialoogvenster.
+5. Op de **voorwaarde 2** -kaart, klik op het eerste vak en selecteer vervolgens **bericht** uit de **dynamische inhoud** in het dialoogvenster.
 
     ![Veld voor de voorwaarde selecteren](media/functions-flow-scenario/condition2-field.png)
 
-6. Voer een waarde van `Yes`. De stroom gaat naar de volgende **zo Ja** vertakking of **als er geen** vertakking op basis van het of het bericht dat wordt geretourneerd door de functie (Zorg de reparatie) Ja of Nee is (het herstel niet maken). 
+6. Voer een waarde van `Yes`. De stroom gaat u naar de volgende **als Ja** vertakking of **als er geen** vertakking gebaseerd op of het bericht dat wordt geretourneerd door de functie (Controleer het herstel) Ja of Nee is (niet de reparatie maken). 
 
-    ![Voer Ja voor voorwaarde](media/functions-flow-scenario/condition2-yes.png)
+    ![Typ Ja voor voorwaarde](media/functions-flow-scenario/condition2-yes.png)
 
-De stroom moet nu eruitzien als in de volgende afbeelding.
+De stroom moet er nu uitzien zoals in de volgende afbeelding.
 
-![Voer Ja voor voorwaarde](media/functions-flow-scenario/flow-checkpoint1.png)
+![Typ Ja voor voorwaarde](media/functions-flow-scenario/flow-checkpoint1.png)
 
-### <a name="send-email-based-on-function-results"></a>Op basis van functie resultaten e-mail verzenden
+### <a name="send-email-based-on-function-results"></a>Verzenden van e-mail op basis van functie resultaten
 
-Op dit moment de functie heeft geretourneerd in de stroom een **bericht** waarde van `Yes` of `No` van de functie, evenals andere gegevens over de kosten en potentiële ontvangsten. In de **zo Ja** vertakking van de tweede voorwaarde wordt een e-mail te sturen, maar u kunt een willekeurig aantal items, zoals terugschrijven naar de SharePoint-lijst of start kan doen een [goedkeuringsproces](https://flow.microsoft.com/documentation/modern-approvals/).
+Op dit moment de functie heeft geretourneerd in de stroom een **bericht** waarde van `Yes` of `No` van de functie, evenals andere informatie over de kosten en potentiële omzet. In de **als Ja** vertakking van de tweede voorwaarde, ontvangt u een e-mailbericht, maar u kunt een willekeurig aantal items, zoals terugschrijven naar de SharePoint-lijst of bij het starten een [goedkeuringsproces](https://flow.microsoft.com/documentation/modern-approvals/).
 
-1. In de **zo Ja** vertakking van de tweede voorwaarde, klikt u op **een actie toevoegen**.
+1. In de **als Ja** vertakking van de tweede voorwaarde, klikt u op **een actie toevoegen**.
 
     ![Een actie toevoegen](media/functions-flow-scenario/condition2-yes-add-action.png)
 
-2. In de **kiest u een actie** in het dialoogvenster, zoekt u `email`, selecteert u vervolgens een verzonden e-actie op basis van het e-mailsysteem u (in dit geval Outlook) gebruiken.
+2. In de **een actie kiezen** in het dialoogvenster, zoekt u `email`, selecteer vervolgens een e-mailactie verzenden op basis van het e-mailsysteem u (in dit geval Outlook) gebruiken.
 
-    ![Outlook verzenden een e-mailbericht](media/functions-flow-scenario/outlook-send-email.png)
+    ![Verzenden met Outlook een e-mailbericht](media/functions-flow-scenario/outlook-send-email.png)
 
-3. Op de **e-mailbericht verzenden** kaart, het opstellen van een e-mailbericht. Geef een geldige naam in uw organisatie voor de **naar** veld. In de onderstaande afbeelding ziet u de andere velden zijn een combinatie van tekst en tokens van de **dynamische inhoud** in het dialoogvenster. 
+3. Op de **een e-mailbericht verzenden** kaart, een e-mailbericht opstellen. Geef een geldige naam in uw organisatie voor de **naar** veld. In de onderstaande afbeelding ziet u de andere velden zijn een combinatie van tekst en tokens van de **dynamische inhoud** in het dialoogvenster. 
 
-    ![E-velden](media/functions-flow-scenario/email-fields.png)
+    ![E-mailvelden](media/functions-flow-scenario/email-fields.png)
 
-    De **titel** token afkomstig is van de SharePoint-lijst, en **CostToFix** en **RevenueOpportunity** zijn geretourneerd door de functie.
+    De **titel** token afkomstig is van de SharePoint-lijst en **CostToFix** en **RevenueOpportunity** zijn geretourneerd door de functie.
 
-    De voltooide stroom moet eruitzien als in de volgende afbeelding (we weggelaten de eerste **als er geen** vertakking om ruimte te besparen).
+    De voltooide stroom ziet er als de volgende afbeelding (we links van de eerste **als er geen** vertakking om ruimte te besparen).
 
     ![Volledige stroom](media/functions-flow-scenario/complete-flow.png)
 
-4. Klik op **Update stromen** boven aan de pagina, klikt u vervolgens op **gedaan**.
+4. Klik op **Update Flow** aan de bovenkant van de pagina, klikt u vervolgens op **gedaan**.
 
 ## <a name="run-the-flow"></a>De stroom uitvoeren
 
-Nu dat de stroom is voltooid, kunt u een rij toevoegen aan de SharePoint-lijst en Zie hoe de stroom reageert.
+Nu dat de stroom is voltooid, kunt u een rij toevoegt aan de SharePoint-lijst en Zie hoe de stroom reageert.
 
-1. Ga terug naar de SharePoint-lijst en klikt u op **snelle bewerken**.
+1. Ga terug naar de SharePoint-lijst en klikt u op **snel bewerken**.
 
     ![Snel bewerken](media/functions-flow-scenario/quick-edit.png)
 
@@ -241,38 +241,38 @@ Nu dat de stroom is voltooid, kunt u een rij toevoegen aan de SharePoint-lijst e
 
     ![Snel bewerken gereed](media/functions-flow-scenario/quick-edit-done.png)
 
-    Wanneer u het item toevoegt, wordt de stroom, waarmee u rekening houden met een overzicht van de volgende geactiveerd.
+    Wanneer u het item toevoegt, wordt de stroom, waarmee u eens volgende geactiveerd.
 
-4. In [flow.microsoft.com](https://flow.microsoft.com), klikt u op **mijn loopt**, klikt u vervolgens op de stroom die u hebt gemaakt.
+4. In [flow.microsoft.com](https://flow.microsoft.com), klikt u op **mijn stromen**, klikt u vervolgens op de stroom die u hebt gemaakt.
 
     ![Mijn stromen](media/functions-flow-scenario/my-flows.png)
 
-5. Onder **geschiedenis uitvoeren**, klikt u op de stroom die wordt uitgevoerd.
+5. Onder **RUN HISTORY**, klikt u op de stroom is uitgevoerd.
 
     ![Uitvoer.gesch](media/functions-flow-scenario/run-history.png)
 
-    Als de uitvoering voltooid is, kunt u de stroom-bewerkingen op de volgende pagina te bekijken. Als de uitvoering is mislukt voor een bepaalde reden, biedt de volgende pagina informatie over probleemoplossing.
+    Als de uitvoering voltooid is, kunt u de flow-bewerkingen op de volgende pagina bekijken. Als de uitvoering is mislukt voor een bepaalde reden, biedt de volgende pagina informatie over probleemoplossing.
 
-6. Vouw de kaarten om te zien wat er is opgetreden tijdens de stroom. Vouw bijvoorbeeld de **kosten berekend** kaart om te zien van de invoer voor- en uitvoer van de functie. 
+6. Vouw de kaarten om te zien wat er is opgetreden tijdens de stroom. Vouw bijvoorbeeld de **kosten worden berekend** kaart om te zien van de invoer en uitvoer van de functie. 
 
-    ![Berekent de kosten en uitgangen](media/functions-flow-scenario/calculates-costs-outputs.png)
+    ![Berekent de kosten voor invoer en uitvoer](media/functions-flow-scenario/calculates-costs-outputs.png)
 
-7. Controleer het e-mailaccount voor de persoon die u hebt opgegeven in de **naar** veld van de **e-mailbericht verzenden** kaart. Het e-mailbericht verzonden vanuit de stroom moet eruitzien als in de volgende afbeelding.
+7. Controleer het e-mailaccount voor de persoon die u hebt opgegeven in de **naar** veld van de **een e-mailbericht verzenden** kaart. Het e-mailbericht verzonden vanuit de stroom moet lijken op de volgende afbeelding.
 
-    ![Stroom e](media/functions-flow-scenario/flow-email.png)
+    ![E-mailadres van Flow](media/functions-flow-scenario/flow-email.png)
 
     U kunt zien hoe de tokens zijn vervangen door de juiste waarden uit de SharePoint-lijst en de functie.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit onderwerp, hebt u geleerd hoe:
+In dit onderwerp hebt u geleerd hoe u:
 
 > [!div class="checklist"]
-> * Een lijst maken in SharePoint.
-> * Exporteren van een API-definitie.
+> * Maak een lijst in SharePoint.
+> * Een API-definitie exporteren.
 > * Een verbinding toevoegen aan de API.
-> * Maak een stroom voor het verzenden van e-mailadres als een reparatie rendabele is.
-> * De stroom worden uitgevoerd.
+> * Maak een stroom om e-mail te verzenden als een reparatie rendabel is.
+> * De stroom uitvoeren.
 
-Zie voor meer informatie over Microsoft-Flow, [aan de slag met Microsoft-Flow](https://flow.microsoft.com/documentation/getting-started/).
+Zie voor meer informatie over Microsoft Flow, [aan de slag met Microsoft Flow](https://flow.microsoft.com/documentation/getting-started/).
 
-Zie voor meer informatie over andere interessante scenario's die gebruikmaken van Azure Functions [aanroepen van een functie van PowerApps](functions-powerapps-scenario.md) en [maken van een functie die kan worden geïntegreerd met Azure Logic Apps](functions-twitter-email.md).
+Zie voor meer informatie over andere interessante scenario's die gebruikmaken van Azure Functions, [een functie van PowerApps aanroepen](functions-powerapps-scenario.md) en [een functie maken die kan worden geïntegreerd met Azure Logic Apps](functions-twitter-email.md).

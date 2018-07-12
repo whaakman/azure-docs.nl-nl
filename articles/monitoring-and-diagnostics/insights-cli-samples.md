@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Monitor snel starten-voorbeelden
-description: CLI 2.0 Voorbeeldopdrachten voor Monitor van de Azure-functies. Monitor voor Azure is een Microsoft Azure-service zodat u kunt het verzenden van meldingen van waarschuwingen, aanroepen van web-URL's op basis van waarden van de geconfigureerde telemetriegegevens, en voor automatisch schalen Cloudservices, virtuele Machines en Web-Apps.
+title: Voorbeelden om snel aan de slag met Azure Monitor CLI
+description: Voorbeeld-CLI 2.0-opdrachten voor Azure Monitor-functies. Azure Monitor is een Microsoft Azure-service zodat u kunt het verzenden van meldingen van waarschuwingen, aanroepen van web-URL's op basis van waarden van geconfigureerde telemetriegegevens, en voor automatisch schalen, Cloudservices, virtuele Machines en Web-Apps.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: 0b98cc29325310cfc0c7a62de693c309b6731447
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 571e4707cd89f1d159928845eca955801ffb9209
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262399"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971642"
 ---
-# <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure CLI-2.0 Monitor snel starten-voorbeelden
-Dit artikel ziet u voorbeelden opdrachtregelinterface (CLI)-opdrachten kunt u toegang tot Azure Monitor functies. Monitor voor Azure kunt u voor automatisch schalen Cloud Services, virtuele Machines en Web-Apps en voor het verzenden van meldingen van waarschuwingen of web-URL's op basis van waarden van de geconfigureerde telemetriegegevens aanroepen.
+# <a name="azure-monitor-cli-20-quick-start-samples"></a>Voorbeelden om snel aan de slag met Azure Monitor CLI 2.0
+Dit artikel laat u voorbeelden opdrachtregelinterface (CLI)-opdrachten kunt u toegang tot de functies van Azure Monitor. Azure Monitor kunt u om de Cloudservices voor automatisch schalen, virtuele Machines en Web-Apps te verzenden van meldingen van waarschuwingen of aanroepen van web-URL's op basis van waarden van de geconfigureerde telemetrische gegevens.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u nog niet hebt geïnstalleerd op de Azure CLI, volg de instructies voor [2.0 Azure CLI installeren](/cli/azure/install-azure-cli). U kunt ook [Azure Cloud Shell](/azure/cloud-shell) uit te voeren van de CLI als een interactieve ervaring in uw browser. Zie een volledige beschrijving van alle beschikbare beschikbare opdrachten in de [Azure Monitor CLI verwijzing](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest). 
+Als u de Azure CLI nog niet hebt geïnstalleerd, volgt u de instructies voor het [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). U kunt ook [Azure Cloud Shell](/azure/cloud-shell) uit te voeren van de CLI als een interactieve ervaring opdoen in uw browser. Zie een volledige verwijzing van alle beschikbare beschikbare opdrachten in de [naslaginformatie over de CLI van Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 De eerste stap is het aanmelden bij uw Azure-account.
@@ -29,29 +29,29 @@ De eerste stap is het aanmelden bij uw Azure-account.
 az login
 ```
 
-Wanneer u deze opdracht uitvoert, beschikt u over aanmelden via de instructies op het scherm. Alle opdrachten werkt in de context van uw standaardabonnement.
+Na deze opdracht uitvoert, moet u zich aanmelden via de instructies op het scherm. Alle opdrachten werkt in de context van uw standaardabonnement.
 
-U kunt de details van uw huidige abonnement gebruiken de volgende opdracht.
+Als u de details van uw huidige abonnement, de volgende opdracht te gebruiken.
 
 ```azurecli
 az account show
 ```
 
-Gebruik de volgende opdracht om te werken context wijzigen naar een ander abonnement.
+Als u wilt werken context wijzigen naar een ander abonnement, gebruik de volgende opdracht.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-Een lijst met alle ondersteunde Azure-Monitor opdrachten wilt weergeven, door het volgende te doen.
+Een lijst met alle ondersteunde Azure Monitor-opdrachten wilt weergeven, door het volgende te doen.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>Activiteitenlogboek weergeven voor een abonnement
+## <a name="view-activity-log-for-a-subscription"></a>Het activiteitenlogboek weergeven voor een abonnement
 
-Een lijst van de activiteit logboekgebeurtenissen wilt weergeven, door het volgende te doen.
+Een lijst van gebeurtenissen in het activiteitenlogboek wilt weergeven, door het volgende te doen.
 
 ```azurecli
 az monitor activity-log list
@@ -63,19 +63,19 @@ Probeer de volgende stappen om alle beschikbare opties weer te geven.
 az monitor activity-log list -h
 ```
 
-Hier volgt een voorbeeld in de logboeken van de lijst door een resourceGroup
+Hier volgt een voorbeeld in lijst Logboeken door een resourceGroup
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Voorbeeld van Logboeken van de lijst door de oproepende functie
+Voorbeeld van de logboeken van de lijst met door de oproepende functie
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Voorbeeld van Logboeken van de lijst door de oproepende functie op een resourcetype binnen een bepaald datumbereik
+Voorbeeld van de logboeken van de lijst met door de oproepende functie op een resourcetype binnen een bepaalde periode
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \
@@ -86,16 +86,16 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 
 ## <a name="work-with-alerts"></a>Werken met waarschuwingen 
 > [!NOTE]
-> Alleen waarschuwingen (klassiek) wordt ondersteund in de CLI op dit moment. 
+> Alleen waarschuwingen (klassiek) wordt ondersteund in CLI op dit moment. 
 
-### <a name="get-alert-classic-rules-in-a-resource-group"></a>Waarschuwingsregels (klassiek) in een resourcegroep ophalen
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>Regels voor waarschuwingen (klassiek) in een resourcegroep ophalen
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-metric-alert-classic-rule"></a>Een metriek (klassiek) waarschuwingsregel maken
+### <a name="create-a-metric-alert-classic-rule"></a>Maak een regel voor metrische gegevens waarschuwingen (klassiek)
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -105,24 +105,24 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-an-alert-classic-rule"></a>Verwijderen van een waarschuwingsregel (klassiek)
+### <a name="delete-an-alert-classic-rule"></a>Verwijderen van een regel voor waarschuwingen (klassiek)
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
-## <a name="log-profiles"></a>Logboek-profielen
+## <a name="log-profiles"></a>Logboekprofielen
 
-Gebruik de informatie in deze sectie om te werken met profielen voor logboekbestanden.
+Gebruik de informatie in deze sectie om te werken met logboekprofielen.
 
-### <a name="get-a-log-profile"></a>Een profiel voor een logboek ophalen
+### <a name="get-a-log-profile"></a>Ophalen van een logboekprofiel
 
 ```azurecli
 az monitor log-profiles list
 az monitor log-profiles show --name <profile name>
 ```
 
-### <a name="add-a-log-profile-with-retention"></a>Een profiel van het logboek met bewaren toevoegen
+### <a name="add-a-log-profile-with-retention"></a>Een logboekprofiel met een bewaarperiode toevoegen
 
 ```azurecli
 az monitor log-profiles create --name <profile name> --location <location of profile> \
@@ -133,7 +133,7 @@ az monitor log-profiles create --name <profile name> --location <location of pro
     --storage-account-id <storage account ID to store the logs in>
 ```
 
-### <a name="add-a-log-profile-with-retention-and-eventhub"></a>Een profiel van het logboek met bewaren en EventHub toevoegen
+### <a name="add-a-log-profile-with-retention-and-eventhub"></a>Een logboekprofiel met retentie en het Event hub toevoegen
 
 ```azurecli
 az monitor log-profiles create --name <profile name> --location <location of profile> \
@@ -145,7 +145,7 @@ az monitor log-profiles create --name <profile name> --location <location of pro
     --service-bus-rule-id <service bus rule ID to stream to>
 ```
 
-### <a name="remove-a-log-profile"></a>Een logboek-profiel verwijderen
+### <a name="remove-a-log-profile"></a>Een logboekprofiel verwijderen
 
 ```azurecli
 az monitor log-profiles delete --name <profile name>
@@ -153,7 +153,7 @@ az monitor log-profiles delete --name <profile name>
 
 ## <a name="diagnostics"></a>Diagnostiek
 
-Gebruik de informatie in deze sectie om te werken met diagnostische instellingen.
+Gebruik de informatie in deze sectie om te werken met de diagnostische instellingen.
 
 ### <a name="get-a-diagnostic-setting"></a>Een diagnostische instelling ophalen
 
@@ -161,7 +161,7 @@ Gebruik de informatie in deze sectie om te werken met diagnostische instellingen
 az monitor diagnostic-settings list --resource <target resource ID>
 ```
 
-### <a name="create-a-diagnostic-log-setting"></a>Een instelling diagnostische logboeken maken 
+### <a name="create-a-diagnostic-log-setting"></a>Maken van een instelling voor diagnostische logboeken 
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -178,7 +178,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-### <a name="delete-a-diagnostic-setting"></a>Een diagnostische instelling niet verwijderen
+### <a name="delete-a-diagnostic-setting"></a>Een diagnostische instelling verwijderen
 
 ```azurecli
 az monitor diagnostic-settings delete --name <diagnostic name> \
@@ -187,21 +187,21 @@ az monitor diagnostic-settings delete --name <diagnostic name> \
 
 ## <a name="autoscale"></a>Automatisch schalen
 
-Gebruik de informatie in deze sectie om te werken met instellingen voor automatisch schalen. U moet deze voorbeelden wijzigen.
+Gebruik de informatie in deze sectie om te werken met instellingen voor automatisch schalen. U moet deze voorbeelden te wijzigen.
 
-### <a name="get-autoscale-settings-for-a-resource-group"></a>Instellingen voor automatisch schalen voor een resourcegroep
+### <a name="get-autoscale-settings-for-a-resource-group"></a>Instellingen voor automatisch schalen voor een resourcegroep ophalen
 
 ```azurecli
 az monitor autoscale list --resource-group <group name>
 ```
 
-### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Instellingen voor automatisch schalen die u op naam in een resourcegroep
+### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Instellingen voor automatisch schalen met de naam in een resourcegroep ophalen
 
 ```azurecli
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-autoscale-settings"></a>Instellingen voor automatisch schalen
+### <a name="set-autoscale-settings"></a>Instellingen voor automatisch schalen instellen
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

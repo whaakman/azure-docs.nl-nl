@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8892f9a2699d18fbaf9161ffb01906a071ab2243
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856753"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971071"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -78,7 +78,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |50012| Dit is een algemene foutmelding die aangeeft dat de verificatie is mislukt. Dit kan gebeuren om redenen als de ontbrekende of ongeldige referenties of claims in de aanvraag. Zorg ervoor dat de aanvraag is verzonden met de juiste referenties en claims. |
 |50013|Verklaring is ongeldig vanwege verschillende oorzaken: de uitgever van het token komt niet overeen met de api-versie binnen het geldige bereik - verlopen - onjuist gevormd - Vernieuwingstoken in de verklaring is niet een primair vernieuwingstoken.|
 |50017|Validatie van certificaat is mislukt om de volgende redenen:<ul><li>Kan uitgiftecertificaat niet vinden in de lijst met vertrouwde certificaten</li><li>Verwacht CrlSegment kan niet worden gevonden</li><li>Kan uitgiftecertificaat niet vinden in de lijst met vertrouwde certificaten</li><li>Delta CRL-distributiepunt is geconfigureerd zonder een bijbehorend CRL-distributiepunt</li><li>Kan geen geldige CRL-segmenten ophalen als gevolg van time-outprobleem</li><li>Kan CRL niet downloaden</li></ul>Neem contact op met de beheerder van de tenant.|
-|50020|Gebruiker is niet geautoriseerd, kan geen tokens uitgeven vanwege versieprobleem: naam van verlener is niet opgegeven, problemen met de naam van certificaatverlener (nul - max. lengte). Neem contact op met de eigenaar van de app|
+|50020|De gebruiker is niet gemachtigd voor een van de volgende oorzaken hebben.<ul><li>De gebruiker zich probeert aan te melden met een MSA-account met de v1-eindpunt</li><li>De gebruiker bestaat niet in de tenant.</li></ul> Neem contact op met de eigenaar van de toepassing.|
 |50027|Ongeldig JWT-token om de volgende redenen:<ul><li>bevat geen nonceclaim, subclaim</li><li>onderwerp-id komt niet overeen</li><li>duplicaatclaim in idToken-claims</li><li>onverwachte certificaatverlener</li><li>onverwachte doelgroep</li><li>niet binnen geldig tijdsbereik </li><li>indeling van het token is niet juist</li><li>Handtekeningverificatie van extern ID-token van de verlener is mislukt.</li></ul>Neem contact op met de eigenaar van de toepassing|
 |50029|Ongeldige URI: domeinnaam bevat ongeldige tekens. Neem contact op met de beheerder van de tenant.|
 |50034|De gebruiker bestaat niet in de lijst. Neem contact op met de beheerder van de tenant.|
@@ -100,7 +100,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |50089|Stroomtoken verlopen, verificatie is mislukt. Laat gebruikers proberen zich opnieuw aan te melden met gebruikersnaam en wachtwoord|
 |50097|Verificatie van apparaten nodig, DeviceId-, DeviceAltSecId-claims zijn null of er bestaat geen apparaat dat overeenkomt met de apparaat-id|
 |50099|JWT-handtekening is ongeldig. Neem contact op met de eigenaar van de toepassing.|
-|50105|De aangemelde gebruiker is niet toegewezen aan een rol voor de aangemelde toepassing. Wijs de gebruiker toe aan de toepassing. Voor meer informatie: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|De aangemelde gebruiker is niet toegewezen aan een rol voor de aangemelde toepassing. Wijs de gebruiker toe aan de toepassing. Voor meer informatie: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|Aangevraagde federation realm-object bestaat niet. Neem contact op met de beheerder van de tenant.|
 |50120|Probleem met de JWT-header. Neem contact op met de beheerder van de tenant.|
 |50124|Claimtransformatie bevat een ongeldige invoerparameter. Neem contact op met de tenantbeheerder om het beleid bij te werken.|
@@ -174,9 +174,10 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |81001|Kerberos-ticket van de gebruiker is te groot. Dit kan gebeuren als de gebruiker te veel groepen heeft en het Kerberos-ticket dus te veel groepslidmaatschappen bevat. Reduceer het aantal groepslidmaatschappen van de gebruiker en probeer het opnieuw.|
 |81005|Verificatiepakket wordt niet ondersteund|
 |81007|Tenant is niet ingeschakeld voor naadloze eenmalige aanmelding|
-|90014| Er ontbreekt een vereist veld voor een protocolbericht, neem contact op met de eigenaar van de toepassing. Als u eigenaar van de toepassing bent, zorgt u ervoor dat u de vereiste parameters voor de aanmeldingsaanvraag hebt. 
+|90010|De aanvraag wordt niet ondersteund om verschillende redenen. Bijvoorbeeld, de aanvraag wordt gedaan met behulp van een niet-ondersteunde aanvraag-methode (alleen POST-methode wordt ondersteund) of het token-ondertekening algoritme dat is aangevraagd, wordt niet ondersteund. Neem contact op met de ontwikkelaar van de toepassing.|
+|90014| Er ontbreekt een vereist veld voor een protocolbericht, neem contact op met de eigenaar van de toepassing. Als u eigenaar van de toepassing bent, zorgt u ervoor dat u de vereiste parameters voor de aanmeldingsaanvraag hebt. |
 |90072| Het account moet eerst worden toegevoegd als een externe gebruiker in de tenant. Afmelden en aanmelden met een andere Azure AD account.|
-|90094| De toekenning zijn beheerdersrechten vereist. Vraag de beheerder van de tenant voor toestemming voor deze toepassing.
+|90094| De toekenning zijn beheerdersrechten vereist. Vraag de beheerder van de tenant voor toestemming voor deze toepassing.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

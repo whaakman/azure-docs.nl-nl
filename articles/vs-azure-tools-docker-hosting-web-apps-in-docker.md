@@ -1,6 +1,6 @@
 ---
-title: Een ASP.NET-Docker-container implementeren naar Azure Container register (ACR) | Microsoft Docs
-description: Informatie over het gebruik van Visual Studio Tools voor Docker voor het implementeren van een ASP.NET Core web-app met een container-register
+title: Een ASP.NET-Docker-container implementeren naar Azure Container Registry (ACR) | Microsoft Docs
+description: Informatie over het gebruik van Visual Studio Tools voor Docker een ASP.NET Core web-app implementeren naar een containerregister
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/21/2018
 ms.author: mlearned
-ms.openlocfilehash: 4442c1d763f4ed21a5efeedbe957727254e2a0b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 58df17b17de1d93683875b68dd7c6c087bc6d16d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658468"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972305"
 ---
-# <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>Een ASP.NET-container implementeren in een container register met Visual Studio
+# <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>Een ASP.NET-container implementeren naar een containerregister met behulp van Visual Studio
 ## <a name="overview"></a>Overzicht
-Docker is een lichtgewicht container-engine, qua enkele manieren voor een virtuele machine, kunt u hosttoepassingen en services.
-Deze zelfstudie leert u uw beperkte toepassing publiceren met behulp van Visual Studio een [Azure Container register](https://azure.microsoft.com/en-us/services/container-registry).
+Docker is een lichtgewicht container-engine, vergelijkbare enkele manieren om een virtuele machine, kunt u hosting van toepassingen en services.
+Deze zelfstudie leert u hoe u via uw containertoepassing te publiceren met behulp van Visual Studio een [Azure Container Registry](https://azure.microsoft.com/services/container-registry).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Installeer de nieuwste versie van [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/) met de werkbelasting 'ASP.NET en web-ontwikkeling'
+* Installeer de nieuwste versie van [Visual Studio 2017](https://azure.microsoft.com/downloads/) met de workload 'ASP.NET en web-ontwikkeling'
 * Installeer [Docker voor Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1. Een ASP.NET Core-web-app maken
@@ -39,22 +39,22 @@ De volgende stappen helpen u bij het maken van een eenvoudige ASP.NET Core-app d
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-publish-your-container-to-azure-container-registry"></a>2. De container in Azure Container register publiceren
-1. Met de rechtermuisknop op het project in **Solution Explorer** en kies **publiceren**.
-2. Selecteer in het dialoogvenster publish-doel de **Container register** tabblad.
-3. Kies **nieuwe Azure-Container register** en klik op **publiceren**.
-4. Vul in de gewenste waarden in de **maken van een nieuwe Azure-Container register**.
+## <a name="2-publish-your-container-to-azure-container-registry"></a>2. Publiceren van de container naar Azure Container Registry
+1. Met de rechtermuisknop op uw project in **Solution Explorer** en kies **publiceren**.
+2. Selecteer in het dialoogvenster publiceren doel de **Container Registry** tabblad.
+3. Kies **nieuwe Azure Container Registry** en klikt u op **publiceren**.
+4. Vul de gewenste waarden in de **maken van een nieuwe Azure Container Registry**.
 
     | Instelling      | Voorgestelde waarde  | Beschrijving                                |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **DNS-voorvoegsel** | Wereldwijd unieke naam | De naam die een unieke identificatie van het register van de container. |
+    | **DNS-voorvoegsel** | Wereldwijd unieke naam | De naam die een unieke identificatie van uw containerregister. |
     | **Abonnement** | Kies uw abonnement | Het te gebruiken Azure-abonnement. |
-    | **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Naam van de resourcegroep waarin u het register van de container maken. Kies **nieuw** om een nieuwe resourcegroep te maken.|
-    | **[SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus)** | Standard | Servicelaag of het register van de container  |
-    | **Registerlocatie** | Een locatie dicht bij u | Kies een locatie in een [regio](https://azure.microsoft.com/regions/) in de buurt of in de buurt van andere services die door het register van de container wordt gebruikt. |
-    ![Visual Studio maken Azure Container register dialoogvenster][0]
+    | **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  De naam van de resourcegroep waarin u wilt maken van uw containerregister. Kies **Nieuw** om een nieuwe resourcegroep te maken.|
+    | **[SKU](https://docs.microsoft.com/azure/container-registry/container-registry-skus)** | Standard | De servicelaag van het containerregister  |
+    | **Registerlocatie** | Een locatie dicht bij u | Kies een locatie in een [regio](https://azure.microsoft.com/regions/) buurt of in de buurt van andere services die uw container registry gebruikt. |
+    ![Visual Studio maken Azure Container Registry-dialoogvenster][0]
 5. Klik op **Maken**.
 
-U kunt nu ophalen van de container uit het register op een willekeurige host Docker-installatiekopieën, bijvoorbeeld uitgevoerd [Azure Containerexemplaren](./container-instances/container-instances-tutorial-deploy-app.md).
+U kunt nu ophalen van de container uit het register op een willekeurige host staat van het uitvoeren van Docker-installatiekopieën, bijvoorbeeld [Azure Container Instances](./container-instances/container-instances-tutorial-deploy-app.md).
 
 [0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/vs-acr-provisioning-dialog.png

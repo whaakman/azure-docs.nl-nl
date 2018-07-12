@@ -1,6 +1,6 @@
 ---
 title: Azure Networking Analytics-oplossing in Log Analytics | Microsoft Docs
-description: U kunt de Azure-netwerken Analytics-oplossing in Log Analytics gebruiken om te controleren van de groep beveiligingslogboeken Azure-netwerk en Azure Application Gateway-Logboeken.
+description: U kunt de oplossing Azure Networking Analytics in Log Analytics gebruiken om Logboeken van netwerkbeveiligingsgroepen Azure-netwerk en Azure Application Gateway-logboeken te controleren.
 services: log-analytics
 documentationcenter: ''
 author: richrundmsft
@@ -16,97 +16,97 @@ ms.date: 06/21/2018
 ms.author: richrund
 ms.component: na
 ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127889"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481987"
 ---
-# <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure netwerken bewakingsoplossingen in Log Analytics
+# <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure-netwerken bewakingsoplossingen in Log Analytics
 
 Log Analytics biedt de volgende oplossingen voor het bewaken van uw netwerken:
-* Netwerk Prestatiemeter (NPM)
- * De status van uw netwerk
+* Netwerkprestatiemeter (NPM) voor
+ * Controleer de status van uw netwerk
 * Azure Application Gateway analytics om te controleren
  * Azure Application Gateway-Logboeken
- * Azure Application Gateway metrische gegevens
-* Oplossingen voor het bewaken en controleren netwerkactiviteit in uw netwerk cloud
-* [Verkeer Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+ * Metrische gegevens van Azure Application Gateway
+* Netwerkactiviteit van oplossingen bewaken en analyseren in uw cloudnetwerk
+* [Traffic Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
 * Analyse van Azure-netwerkbeveiligingsgroep
 
-## <a name="network-performance-monitor-npm"></a>Netwerk-Prestatiemeter (NPM)
+## <a name="network-performance-monitor-npm"></a>Netwerkprestatiemeter (NPM)
 
-De [netwerk Prestatiemeter](https://docs.microsoft.com/azure/networking/network-monitoring-overview) management-oplossing is een netwerk bewakingsoplossing die de status, beschikbaarheid en bereikbaarheid van netwerken bewaakt.  Het wordt gebruikt voor het bewaken van de verbinding tussen:
+De [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) management-oplossing is een Netwerkcontrole-oplossing, die de status, beschikbaarheid en bereikbaarheid van netwerken controleert.  Het wordt gebruikt voor het bewaken van verbinding tussen:
 
-* openbare cloud en on-premises
-* datacenters en gebruikerslocaties (filialen)
-* de subnetten die als host fungeert voor verschillende lagen van een toepassing met meerdere lagen.
+* Openbare cloud en on-premises
+* -Datacenters en locaties van de gebruiker (filialen)
+* Subnetten die als host fungeert voor verschillende lagen van een toepassing met meerdere lagen.
 
-Zie voor meer informatie [netwerk Prestatiemeter](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
+Zie voor meer informatie, [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
-## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway en de Netwerkbeveiligingsgroep analyses
+## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway en Network Security Group analytics
 De oplossingen gebruiken:
-1. Toevoegen van de oplossing voor beheer met Log Analytics en
-2. Diagnostische gegevens om te leiden van de diagnostische gegevens naar een werkruimte voor logboekanalyse inschakelen. Het is niet nodig zijn voor het schrijven van de logboeken naar Azure Blob-opslag.
+1. De oplossing toevoegen aan Log Analytics, en
+2. Schakel diagnostische gegevens om te leiden van de diagnostische gegevens naar Log Analytics-werkruimte. Het is niet die nodig zijn voor het schrijven van de logboeken naar Azure Blob storage.
 
-U kunt diagnostische gegevens en de bijbehorende oplossing inschakelen voor een of beide van de toepassingsgateway en beveiligingsgroepen netwerken.
+U kunt diagnostische gegevens en de bijbehorende oplossing inschakelen voor een of beide van Application Gateway en netwerken-beveiligingsgroepen.
 
-Als u Diagnostische logboekregistratie voor een bepaald brontype niet is ingeschakeld, maar de oplossing te installeren, wordt de blades dashboard voor die bron leeg zijn en een foutbericht weergegeven.
+Als u Diagnostische logboekregistratie voor een bepaald brontype niet is ingeschakeld, maar de oplossing installeren, wordt de dashboard-blades voor die bron leeg zijn en een foutbericht weergegeven.
 
 > [!NOTE]
-> In januari 2017, de ondersteunde manier van het verzenden van Logboeken vanaf Toepassingsgateways en Netwerkbeveiligingsgroepen met logboekanalyse gewijzigd. Als u ziet de **Azure Networking Analytics (afgeschaft)** oplossing Raadpleeg [migreren van de oude Networking Analytics-oplossing](#migrating-from-the-old-networking-analytics-solution) voor stappen die u moet volgen.
+> In januari 2017, de ondersteunde manier Logboeken uit Application Gateways en Netwerkbeveiligingsgroepen te verzenden naar Log Analytics gewijzigd. Als u ziet de **Azure Networking Analytics (afgeschaft)** oplossing, verwijzen naar [migreren van de oude netwerken analyseoplossing](#migrating-from-the-old-networking-analytics-solution) voor stappen die u moet volgen.
 >
 >
 
-## <a name="review-azure-networking-data-collection-details"></a>Azure verzameling Gegevensdetails toegang controleren
-De Azure Application Gateway-analyses en het beheer van Netwerkbeveiligingsgroep analyseoplossingen verzamelen van diagnostische gegevens logboeken rechtstreeks vanuit Azure Toepassingsgateways en Netwerkbeveiligingsgroepen. Het is niet nodig om te schrijven van de logboeken naar Azure Blob-opslag en geen agent is vereist voor het verzamelen van gegevens.
+## <a name="review-azure-networking-data-collection-details"></a>Azure networking details van de verzameling gegevens bekijken
+De Azure Application Gateway-analyse- en Network Security Group analytics-beheeroplossingen verzamelen van logboeken met diagnostische gegevens rechtstreeks vanuit Azure Toepassingsgateways en Netwerkbeveiligingsgroepen. Het is niet nodig om te schrijven van de logboeken naar Azure Blob storage en geen agent is vereist voor het verzamelen van gegevens.
 
-De volgende tabel bevat gegevens verzameling methoden en andere informatie over hoe gegevens worden verzameld voor de analyse van Azure Application Gateway en de Netwerkbeveiligingsgroep analytics.
+De volgende tabel ziet u gegevens verzameling methoden en andere informatie over hoe gegevens worden verzameld voor Azure Application Gateway analytics en de Network Security Group analytics.
 
-| Platform | Directe agent | Systems Center Operations Manager-agent | Azure | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
+| Platform | Agent toewijzen | Systems Center Operations Manager-agent | Azure | Operations Manager vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |  |  |&#8226; |  |  |Wanneer het logboek geregistreerd |
+| Azure |  |  |&#8226; |  |  |Wanneer u bent aangemeld |
 
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Azure Application Gateway analytics-oplossing in Log Analytics
 
 ![Azure Application Gateway Analytics symbool](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
 
-De volgende logboeken worden ondersteund voor Toepassingsgateways:
+De volgende logboeken worden voor Toepassingsgateways ondersteund:
 
 * ApplicationGatewayAccessLog
 * ApplicationGatewayPerformanceLog
 * ApplicationGatewayFirewallLog
 
-De volgende metrische gegevens worden ondersteund voor Toepassingsgateways: opnieuw
+De volgende metrische gegevens worden ondersteund voor Application Gateways: opnieuw
 
 
 * doorvoer van 5 minuten
 
 ### <a name="install-and-configure-the-solution"></a>Installeren en configureren van de oplossing
-Gebruik de volgende instructies voor het installeren en configureren van de Azure Application Gateway analytics-oplossing:
+Gebruik de volgende instructies om te installeren en configureren van de oplossing Azure Application Gateway analytics:
 
-1. Inschakelen van de Azure Application Gateway analytics-oplossing van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
-2. Registratie voor diagnostische gegevens inschakelen de [Toepassingsgateways](../application-gateway/application-gateway-diagnostics.md) u wilt bewaken.
+1. Inschakelen van de Azure Application Gateway analytics-oplossing van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](log-analytics-add-solutions.md).
+2. Diagnostische gegevens voor logboekregistratie inschakelen de [Toepassingsgateways](../application-gateway/application-gateway-diagnostics.md) u wilt bewaken.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Azure Application Gateway diagnostische gegevens in de portal inschakelen
 
-1. Navigeer in de Azure-portal aan de toepassingsgateway resource bewaken
-2. Selecteer *diagnostische logboeken* om de volgende pagina te openen
+1. In de Azure-portal, gaat u naar de Application Gateway-resource om te controleren
+2. Selecteer *diagnoselogboeken* om de volgende pagina te openen
 
-   ![afbeelding van Azure Application Gateway resource](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics01.png)
+   ![afbeelding van Azure Application Gateway-resource](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics01.png)
 3. Klik op *diagnostische gegevens inschakelen* om de volgende pagina te openen
 
-   ![afbeelding van Azure Application Gateway resource](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics02.png)
-4. Om diagnostische gegevens inschakelen, klikt u op *op* onder *Status*
-5. Klik op het selectievakje voor *verzenden met Log Analytics*
-6. Selecteer een bestaande werkruimte voor logboekanalyse of een werkruimte maken
-7. Klik op het selectievakje onder **logboek** voor elk van de typen logboekbestanden te verzamelen
-8. Klik op *opslaan* waarmee de logboekregistratie van diagnostische gegevens met Log Analytics
+   ![afbeelding van Azure Application Gateway-resource](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics02.png)
+4. Voor diagnostische gegevens inschakelen, klikt u op *op* onder *Status*
+5. Klik op het selectievakje voor *verzenden naar Log Analytics*
+6. Selecteer een bestaande Log Analytics-werkruimte of maak een werkruimte
+7. Klik op het selectievakje onder **Log** voor elk van de typen logboeken te verzamelen
+8. Klik op *opslaan* om in te schakelen van de logboekregistratie van diagnostische gegevens naar Log Analytics
 
-#### <a name="enable-azure-network-diagnostics-using-powershell"></a>Schakel Azure netwerkdiagnose met PowerShell
+#### <a name="enable-azure-network-diagnostics-using-powershell"></a>Diagnostische gegevens over Azure-netwerk met behulp van PowerShell inschakelen
 
-De volgende PowerShell-script bevat een voorbeeld van hoe diagnostische logboekregistratie voor Toepassingsgateways inschakelen.
+De volgende PowerShell-script geeft een voorbeeld van hoe u Diagnostische logboekregistratie voor application gateways inschakelt.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -119,65 +119,65 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 ### <a name="use-azure-application-gateway-analytics"></a>Azure Application Gateway analytics gebruiken
 ![afbeelding van Azure Application Gateway analytics tegel](./media/log-analytics-azure-networking/log-analytics-appgateway-tile.png)
 
-Nadat u op de **Azure Application Gateway analytics** tegel in het overzicht kunt u samenvattingen van uw logboeken weergeven en ga vervolgens omlaag de gedetailleerde informatie voor de volgende categorieën:
+Nadat u op de **Azure Application Gateway analytics** tegel in het overzicht kunt u samenvattingen van uw logboeken weergeven en vervolgens inzoomen op details voor de volgende categorieën:
 
 * Toegang tot toepassingen Gateway-Logboeken
-  * Client en server-fouten voor Application Gateway-Logboeken
+  * Client- en fouten voor Application Gateway-Logboeken
   * Aanvragen per uur voor elke Application Gateway
   * Mislukte aanvragen per uur voor elke Application Gateway
-  * Fouten door gebruikersagent voor Toepassingsgateways
-* Gateway-toepassingsprestaties
+  * Fouten per gebruikersagent voor Application Gateways
+* Prestaties van toepassingsgateway
   * Status van de host voor Application Gateway
   * Maximum- en 95e percentiel voor Application Gateway mislukte aanvragen
 
-![afbeelding van een dashboard met analytische Azure Application Gateway](./media/log-analytics-azure-networking/log-analytics-appgateway01.png)
+![afbeelding van Azure Application Gateway analytics-dashboard](./media/log-analytics-azure-networking/log-analytics-appgateway01.png)
 
-![afbeelding van een dashboard met analytische Azure Application Gateway](./media/log-analytics-azure-networking/log-analytics-appgateway02.png)
+![afbeelding van Azure Application Gateway analytics-dashboard](./media/log-analytics-azure-networking/log-analytics-appgateway02.png)
 
-Op de **Azure Application Gateway analytics** dashboard, Controleer de overzichtsgegevens in een van de blades en klik op eentje om gedetailleerde informatie weergeven over de zoekpagina logboek.
+Op de **Azure Application Gateway analytics** dashboard, Controleer de samenvattingsinformatie in een van de blades, en klik op een om gedetailleerde informatie op de zoekpagina logboek weer te geven.
 
-U kunt op elk van de zoekpagina logboek kunt resultaten weergeven door de tijd, gedetailleerde resultaten en uw Logboekgeschiedenis zoeken. U kunt ook filteren op facetten om de resultaten te beperken.
+Op een van de log search pagina's, kunt u resultaten weergeven door de tijd, gedetailleerde resultaten en uw Logboekgeschiedenis zoeken. U kunt ook filteren op facetten om de resultaten te beperken.
 
 
-## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Netwerkbeveiligingsgroep Azure analytics-oplossing in Log Analytics
+## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Azure Network Security Group analytics solution in Log Analytics
 
-![Netwerkbeveiligingsgroep Azure Analytics symbool](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Azure Network Security Group Analytics symbool](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
 
 > [!NOTE]
-> De Netwerkbeveiligingsgroep analytics-oplossing wordt naar communityondersteuning verplaatst, omdat de functionaliteit is vervangen door [Traffic Analytics](../network-watcher/traffic-analytics.md).
-> - De oplossing is nu beschikbaar in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) en zal spoedig niet langer beschikbaar in Azure Marketplace.
-> - Voor bestaande klanten die de oplossing al is toegevoegd aan hun werkplek, wordt voortgezet zonder wijzigingen werken.
-> - Microsoft blijft voor de ondersteuning van de verzendende NSG diagnostische logboeken naar de werkruimte op basis van de diagnostische instellingen.
+> De oplossing Network Security Group analytics wordt verplaatst naar ondersteuning van de community, omdat de functionaliteit is vervangen door [Traffic Analytics](../network-watcher/traffic-analytics.md).
+> - De oplossing is nu beschikbaar in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) en wordt binnenkort niet langer beschikbaar in de Azure Marketplace.
+> - Voor bestaande klanten die de oplossing al toegevoegd aan de werkruimte, blijft het functioneren zonder te wijzigen.
+> - Microsoft blijft voor de ondersteuning van verzonden diagnostische logboeken van de NSG aan uw werkruimte met behulp van de diagnostische instellingen.
 
-De volgende logboeken worden ondersteund voor netwerkbeveiligingsgroepen:
+De volgende logboeken worden voor netwerkbeveiligingsgroepen ondersteund:
 
 * NetworkSecurityGroupEvent
 * NetworkSecurityGroupRuleCounter
 
 ### <a name="install-and-configure-the-solution"></a>Installeren en configureren van de oplossing
-Gebruik de volgende instructies voor het installeren en configureren van de Azure-netwerken Analytics-oplossing:
+Gebruik de volgende instructies om te installeren en configureren van de oplossing Azure Networking Analytics:
 
-1. Inschakelen van de Netwerkbeveiligingsgroep Azure analytics-oplossing van [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
-2. Registratie voor diagnostische gegevens inschakelen de [Netwerkbeveiligingsgroep](../virtual-network/virtual-network-nsg-manage-log.md) resources die u wilt bewaken.
+1. Inschakelen van de oplossing Azure Network Security Group analytics van [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](log-analytics-add-solutions.md).
+2. Diagnostische gegevens voor logboekregistratie inschakelen de [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md) resources die u wilt bewaken.
 
-### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Azure-netwerk beveiliging groep diagnostische gegevens in de portal inschakelen
+### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Azure network security group diagnostische gegevens in de portal inschakelen
 
-1. Navigeer in de Azure-portal naar de bron van de Netwerkbeveiligingsgroep voor het bewaken van
-2. Selecteer *diagnostische logboeken* om de volgende pagina te openen
+1. In de Azure-portal, gaat u naar de resource van de Netwerkbeveiligingsgroep voor het bewaken van
+2. Selecteer *diagnoselogboeken* om de volgende pagina te openen
 
-   ![afbeelding van de Netwerkbeveiligingsgroep voor Azure resource](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics01.png)
+   ![afbeelding van Azure Network Security Group-resource](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics01.png)
 3. Klik op *diagnostische gegevens inschakelen* om de volgende pagina te openen
 
-   ![afbeelding van de Netwerkbeveiligingsgroep voor Azure resource](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics02.png)
-4. Om diagnostische gegevens inschakelen, klikt u op *op* onder *Status*
-5. Klik op het selectievakje voor *verzenden met Log Analytics*
-6. Selecteer een bestaande werkruimte voor logboekanalyse of een werkruimte maken
-7. Klik op het selectievakje onder **logboek** voor elk van de typen logboekbestanden te verzamelen
-8. Klik op *opslaan* waarmee de logboekregistratie van diagnostische gegevens met Log Analytics
+   ![afbeelding van Azure Network Security Group-resource](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics02.png)
+4. Voor diagnostische gegevens inschakelen, klikt u op *op* onder *Status*
+5. Klik op het selectievakje voor *verzenden naar Log Analytics*
+6. Selecteer een bestaande Log Analytics-werkruimte of maak een werkruimte
+7. Klik op het selectievakje onder **Log** voor elk van de typen logboeken te verzamelen
+8. Klik op *opslaan* om in te schakelen van de logboekregistratie van diagnostische gegevens naar Log Analytics
 
-### <a name="enable-azure-network-diagnostics-using-powershell"></a>Schakel Azure netwerkdiagnose met PowerShell
+### <a name="enable-azure-network-diagnostics-using-powershell"></a>Diagnostische gegevens over Azure-netwerk met behulp van PowerShell inschakelen
 
-De volgende PowerShell-script bevat een voorbeeld van het inschakelen van diagnostische logboekregistratie voor netwerkbeveiligingsgroepen
+De volgende PowerShell-script geeft een voorbeeld van hoe u Diagnostische logboekregistratie voor netwerkbeveiligingsgroepen inschakelen
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -186,43 +186,43 @@ $nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
 Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
-### <a name="use-azure-network-security-group-analytics"></a>Gebruik Azure Netwerkbeveiligingsgroep analytics
-Nadat u op de **Netwerkbeveiligingsgroep Azure analytics** tegel in het overzicht kunt u samenvattingen van uw logboeken weergeven en ga vervolgens omlaag de gedetailleerde informatie voor de volgende categorieën:
+### <a name="use-azure-network-security-group-analytics"></a>Gebruik Azure Network Security Group analytics
+Nadat u op de **Azure Network Security Group analytics** tegel in het overzicht kunt u samenvattingen van uw logboeken weergeven en vervolgens inzoomen op details voor de volgende categorieën:
 
-* Netwerkbeveiligingsgroep geblokkeerd stromen
-  * Netwerkbeveiligingsgroepen met geblokkeerde stromen
+* Netwerkbeveiligingsgroep geblokkeerde stromen
+  * Regels voor netwerkbeveiligingsgroepen met geblokkeerde stromen
   * MAC-adressen met geblokkeerde stromen
-* Netwerkbeveiligingsgroep stromen toegestaan
-  * Netwerkbeveiligingsgroepen met toegestane stromen
+* Netwerkbeveiligingsgroep toegestane stromen
+  * Regels voor netwerkbeveiligingsgroepen met toegestane stromen
   * MAC-adressen met toegestane stromen
 
-![afbeelding van een dashboard met analytische Azure Netwerkbeveiligingsgroep](./media/log-analytics-azure-networking/log-analytics-nsg01.png)
+![afbeelding van Azure Network Security Group analytics-dashboard](./media/log-analytics-azure-networking/log-analytics-nsg01.png)
 
-![afbeelding van een dashboard met analytische Azure Netwerkbeveiligingsgroep](./media/log-analytics-azure-networking/log-analytics-nsg02.png)
+![afbeelding van Azure Network Security Group analytics-dashboard](./media/log-analytics-azure-networking/log-analytics-nsg02.png)
 
-Op de **Netwerkbeveiligingsgroep Azure analytics** dashboard, Controleer de overzichtsgegevens in een van de blades en klik op eentje om gedetailleerde informatie weergeven over de zoekpagina logboek.
+Op de **Azure Network Security Group analytics** dashboard, Controleer de samenvattingsinformatie in een van de blades, en klik op een om gedetailleerde informatie op de zoekpagina logboek weer te geven.
 
-U kunt op elk van de zoekpagina logboek kunt resultaten weergeven door de tijd, gedetailleerde resultaten en uw Logboekgeschiedenis zoeken. U kunt ook filteren op facetten om de resultaten te beperken.
+Op een van de log search pagina's, kunt u resultaten weergeven door de tijd, gedetailleerde resultaten en uw Logboekgeschiedenis zoeken. U kunt ook filteren op facetten om de resultaten te beperken.
 
 ## <a name="migrating-from-the-old-networking-analytics-solution"></a>Migreren van de oude Networking Analytics-oplossing
-In januari 2017, de ondersteunde manier van het verzenden van Logboeken vanaf Azure Toepassingsgateways en beveiligingsgroepen voor Azure-netwerk met logboekanalyse gewijzigd. Deze wijzigingen bieden de volgende voordelen:
-+ Logboeken geschreven rechtstreeks met logboekanalyse zonder te hoeven gebruiken van een opslagaccount
-+ Minder latentie vanaf het moment wanneer logboeken worden gegenereerd voor hen beschikbaar worden gesteld in Log Analytics
-+ Minder configuratiestappen
+In januari 2017, de ondersteunde manier van het verzenden van Logboeken van Azure-toepassing en Azure Network Security Groups naar Log Analytics gewijzigd. Deze wijzigingen bieden de volgende voordelen:
++ Logboeken worden geschreven rechtstreeks naar Log Analytics zonder de noodzaak voor het gebruik van een storage-account
++ Minder latentie vanaf het moment waarop de logboeken worden gegenereerd voor hen beschikbaar worden gesteld in Log Analytics
++ Zijn minder configuratiestappen
 + Een algemene indeling voor alle typen Azure diagnostics
 
-De bijgewerkte oplossingen gebruiken:
+Bijgewerkte oplossingen gebruiken:
 
-1. [Diagnostische gegevens worden verzonden met logboekanalyse rechtstreeks vanuit Azure Toepassingsgateways configureren](#enable-azure-application-gateway-diagnostics-in-the-portal)
-2. [Diagnostische gegevens rechtstreeks met logboekanalyse worden verzonden vanuit Azure Network-beveiligingsgroepen configureren](#enable-azure-network-security-group-diagnostics-in-the-portal)
-2. Schakel de *Azure Application Gateway Analytics* en de *Azure Network Security groep Analytics* oplossing met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de Galerie met oplossingen](log-analytics-add-solutions.md)
-3. Bijwerken van een opgeslagen query's, dashboards of waarschuwingen te gebruiken van het nieuwe gegevenstype
-  + Type is het AzureDiagnostics. Het ResourceType kunt u filteren op Azure VPN-Logboeken.
+1. [Diagnostische gegevens rechtstreeks naar Log Analytics worden verzonden vanuit Azure Application Gateways configureren](#enable-azure-application-gateway-diagnostics-in-the-portal)
+2. [Diagnostische gegevens worden verzonden naar Log Analytics rechtstreeks vanuit Azure Network Security Groups configureren](#enable-azure-network-security-group-diagnostics-in-the-portal)
+2. Schakel de *Azure Application Gateway Analytics* en de *Azure Network Security Group Analytics* oplossing met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de Galerie van oplossingen](log-analytics-add-solutions.md)
+3. Bijwerken van een opgeslagen query's, dashboards of waarschuwingen gebruik van het nieuwe gegevenstype
+  + Type is het AzureDiagnostics. Het ResourceType kunt u filteren op Azure-netwerklogboeken.
 
-    | In plaats van: | Gebruik: |
+    | In plaats van: | U kunt gebruiken: |
     | --- | --- |
-    | NetworkApplicationgateways &#124; waar OperationName == "ApplicationGatewayAccess" | AzureDiagnostics &#124; waar ResourceType = 'APPLICATIONGATEWAYS' en OperationName == "ApplicationGatewayAccess" |
-    | NetworkApplicationgateways &#124; waar OperationName == "ApplicationGatewayPerformance" | AzureDiagnostics &#124; waar ResourceType == 'APPLICATIONGATEWAYS' en OperationName = ApplicationGatewayPerformance |
+    | NetworkApplicationgateways &#124; waar OperationName == "ApplicationGatewayAccess" | AzureDiagnostics &#124; waar ResourceType = "APPLICATIONGATEWAYS" en OperationName == "ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; waar OperationName == "ApplicationGatewayPerformance" | AzureDiagnostics &#124; waar ResourceType == "APPLICATIONGATEWAYS" en OperationName ApplicationGatewayPerformance = |
     | NetworkSecuritygroups | AzureDiagnostics &#124; waar ResourceType == "NETWORKSECURITYGROUPS" |
 
    + Voor elk veld dat een achtervoegsel van \_s, \_d, of \_g in de naam wijzigen van het eerste teken in kleine letters
@@ -230,10 +230,10 @@ De bijgewerkte oplossingen gebruiken:
 4. Verwijder de *Azure Networking Analytics (afgeschaft)* oplossing.
   + Als u met behulp van PowerShell, gebruikt u `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
-Gegevens verzameld voordat de wijziging niet zichtbaar in de nieuwe oplossing is. U kunt blijven opvragen voor deze gegevens met behulp van de oude Type en de veldnamen.
+Gegevens die worden verzameld voordat de wijziging niet zichtbaar in de nieuwe oplossing is. U kunt zoeken naar deze gegevens met behulp van de oude Type en de veldnamen.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten aanmelden met logboekanalyse](log-analytics-log-searches.md) gedetailleerde Azure diagnostics-gegevens om weer te geven.
+* Gebruik [zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-searches.md) om weer te geven gedetailleerde gegevens van Azure diagnostics.

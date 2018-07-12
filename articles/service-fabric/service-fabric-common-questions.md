@@ -1,6 +1,6 @@
 ---
 title: Veelgestelde vragen over Microsoft Azure Service Fabric | Microsoft Docs
-description: Veelgestelde vragen over Service Fabric en hun antwoorden
+description: Veelgestelde vragen over Service Fabric en antwoorden
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,97 +14,97 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: a40432aa1d9a466706b4a3ebbcbd56cd8e5b768e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205559"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971533"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
-Er zijn veel Veelgestelde vragen over wat Service Fabric kan doen en hoe moet worden gebruikt. Dit document bevat informatie over veel van deze Veelgestelde vragen en antwoorden.
+Er zijn veel Veelgestelde vragen over Service Fabric kunt doen en hoe deze moet worden gebruikt. In dit document bevat informatie over veel van deze Veelgestelde vragen en antwoorden.
 
 ## <a name="cluster-setup-and-management"></a>Installatie en beheer
 
-### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Hoe maak ik een rollback mijn certificaat Service Fabric-cluster?
+### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Hoe kan ik terugdraaien van mijn certificaat Service Fabric-cluster?
 
-Terugdraaien van vereist een upgrade voor uw toepassing health foutdetectie voorafgaand aan uw Service Fabric-clusterquorum doorvoeren van de wijziging; doorgevoerde wijzigingen kunnen alleen worden doorgevoerd. Escalation engineer via Customer Support Services mogelijk vereist zijn voor het herstellen van uw cluster als een certificaat niet-bewaakte belangrijke wijziging is geïntroduceerd.  [Upgrade van de service-Fabric-toepassing](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master) geldt [parameters voor het bijwerken van toepassing](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), en levert nul upgrade belofte uitvaltijd.  Na de aanbevolen toepassing bewaakte upgrademodus, automatische voortgang in domeinen van de update is gebaseerd op statuscontroles doorgegeven, rolling back automatisch als een standaardservice bijwerken is mislukt.
+Een upgrade voor uw toepassing vereist het terugdraaien van een health foutdetectie voorafgaand aan uw Service Fabric-clusterquorum doorvoeren van de wijziging; doorgevoerde wijzigingen kunnen alleen worden doorgevoerd. Escalation engineer via Customer Support Services mogelijk vereist voor het herstellen van uw cluster als een niet-bewaakte belangrijke wijziging van het certificaat is geïntroduceerd.  [De service Fabric-toepassingsupgrade](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) is van toepassing [parameters toepassingsupgrade](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), en levert nul downtime upgrade belofte.  Na onze aanbevolen toepassing upgraden bewaakte modus, automatisch wordt uitgevoerd via updatedomeinen is gebaseerd op statuscontroles aan te, rolling back automatisch als het bijwerken van een standaardservice is mislukt.
  
-Als uw cluster is nog steeds gebruik van de klassieke certificaatvingerafdruk-eigenschap in het Resource Manager-sjabloon, het is raadzaam u [wijziging cluster van de vingerafdruk van certificaat de algemene naam](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), gebruikmaken van moderne geheimen beheerfuncties.
+Als uw cluster maakt nog steeds gebruik van de klassieke eigenschap vingerafdruk van het certificaat in het Resource Manager-sjabloon, het is raadzaam u [wijzigen-cluster op basis van de vingerafdruk van certificaat in een algemene naam](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), gebruikmaken van moderne geheimen beheerfuncties.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Kan ik een cluster die meerdere Azure-regio's of mijn eigen datacenters omvat maken?
 
 Ja. 
 
-De kern van het Service Fabric-clustertechnologie kunt combineren van computers waarop een overal ter wereld, zolang ze netwerk verbonden met elkaar zijn worden gebruikt. Bouwen en uitvoeren van deze clusters kunnen echter wel ingewikkeld.
+De kern van het Service Fabric-clusters technologie kan worden gebruikt op computers met een willekeurige plaats in de hele wereld, combineren, zolang ze verbinding met het netwerk aan elkaar hebben. Echter, het bouwen en uitvoeren van deze clusters kunnen ingewikkeld zijn.
 
-Als u geïnteresseerd in dit scenario bent, raden we u aan ofwel in contact ophalen via de [Service Fabric Github lijst](https://github.com/azure/service-fabric-issues) of via uw ondersteuningsmedewerker ter verkrijging van aanvullende richtlijnen. Het Service Fabric-team werkt om extra informatie, richtlijnen en aanbevelingen in dit scenario. 
+Als u geïnteresseerd in dit scenario bent, raden we u aan in Neem contact op met ofwel ophalen via de [lijst van Service Fabric Github-problemen](https://github.com/azure/service-fabric-issues) of via uw ondersteuningsmedewerker om te verkrijgen van aanvullende richtlijnen. De Service Fabric-team werkt aan meer duidelijkheid, richtlijnen en aanbevelingen voor dit scenario. 
 
 Een aantal punten die u daarbij in overweging moet nemen: 
 
-1. De Service Fabric-cluster-bron in Azure is vandaag de dag regionale aangezien dat de schaal van de virtuele machine wordt ingesteld dat het cluster is gebouwd op. Dit betekent dat bij een storing regionale kunnen verloren gaan de mogelijkheid voor het beheren van het cluster via de Azure Resource Manager of de Azure-portal. Dit kan gebeuren zelfs als het cluster actief blijft en u zou kunnen rechtstreeks mee. Bovendien biedt Azure vandaag niet de mogelijkheid om één virtueel netwerk dat kan worden gebruikt tussen regio's. Dit betekent dat een cluster met meerdere regio in Azure een vereist [openbare IP-adressen voor elke virtuele machine in de VM-Schaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) of [Azure VPN-Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md). Deze netwerken keuzes verschillende gevolgen hebben voor de kosten, prestaties, en bepaalde mate toepassing ontwerpen en dus een zorgvuldige analyse en planning voordat permanente van een dergelijke omgeving is vereist.
-2. Onderhoud, beheer, bewaking van deze virtuele machines kan worden ingewikkeld, vooral wanneer spanned over verschillende _typen_ omgevingen, zoals tussen verschillende cloudproviders of tussen lokale bronnen en Azure. Moet nauwkeurig om ervoor te zorgen dat upgrades, bewaking, management en diagnostische gegevens voor het cluster en de toepassingen zijn begrepen voordat productieworkloads wordt uitgevoerd in een dergelijke omgeving. Als u al ervaring voor het oplossen van deze problemen in Azure of in uw eigen datacenters, is het waarschijnlijk dat deze dezelfde oplossingen kunnen worden toegepast als samenstellen uit of uw Service Fabric-cluster wordt uitgevoerd. 
+1. De resource van de Service Fabric-cluster in Azure is vandaag de dag regionale als dat de virtuele-machineschaalsets dat het cluster is gebouwd op. Dit betekent dat er een regionale storing optreedt u de mogelijkheid verliest voor het beheren van het cluster via Azure Resource Manager of de Azure-portal. Dit kan gebeuren zelfs als het cluster actief blijft en u zou kunnen communiceren met het rechtstreeks. Bovendien biedt Azure vandaag de mogelijkheid om één virtueel netwerk dat kan worden gebruikt in regio's. Dit betekent dat een cluster met meerdere regio's in Azure een vereist [openbare IP-adressen voor elke virtuele machine in de VM-Schaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) of [Azure VPN-Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md). Deze netwerken keuzes verschillende gevolgen hebben voor de kosten, prestaties, en aan bepaalde mate toepassingsontwerp, dus een zorgvuldige analyse en planning voor het handhaven van dergelijke omgeving is vereist.
+2. Het onderhoud, beheer en bewaking van deze virtuele machines kan ingewikkeld worden, met name wanneer liep over _typen_ van omgevingen, zoals tussen verschillende cloudproviders of tussen on-premises bronnen en Azure. Wees voorzichtig om ervoor te zorgen dat upgrades, bewaking, beheer en diagnostische gegevens voor het uitvoeren van productieworkloads in een dergelijke omgeving voor het cluster en de toepassingen worden begrepen. Als u al ervaring voor het oplossen van deze problemen in Azure of in uw eigen datacenters, is het waarschijnlijk dat deze dezelfde oplossingen kunnen worden toegepast wanneer het bouwen van of uw Service Fabric-cluster uitgevoerd. 
 
-### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Ontvang Service Fabric-knooppunten automatisch updates voor het besturingssysteem?
+### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Ontvang Service Fabric-knooppunten automatisch updates van het besturingssysteem?
 
-Geen vandaag, maar dit is een algemene aanvraag die Azure wil leveren.
+Niet vandaag, maar dit is ook een algemene aanvraag die Azure wil leveren.
 
-We hebben in de tussentijd [opgegeven van een toepassing](service-fabric-patch-orchestration-application.md) dat de besturingssystemen onder uw Service Fabric-knooppunten patches en up-to-date blijven.
+We hebben in de tussentijd [opgegeven van een toepassing](service-fabric-patch-orchestration-application.md) dat de besturingssystemen worden uitgevoerd onder uw Service Fabric-knooppunten patches en up-to-date blijven.
 
-De uitdaging met updates voor het besturingssysteem is dat ze moeten doorgaans de computer, wat tot verlies van beschikbaarheid van tijdelijke leidt opnieuw worden opgestart. Zelfstandig gebruikt, die is geen probleem, omdat de Service Fabric worden verkeer voor deze services automatisch omgeleid naar andere knooppunten. Als de OS-updates niet in het cluster worden gecoördineerd, is er echter de kans dat veel knooppunten tegelijk uitvallen. Dergelijke gelijktijdige herstarts kunnen leiden tot volledige beschikbaarheid verlies voor een service of op minimaal gedurende een specifieke partitie (voor een stateful service).
+De uitdaging met updates van het besturingssysteem is dat ze moeten doorgaans de computer, wat tot verlies van beschikbaarheid van tijdelijke leidt opnieuw worden opgestart. Zelfstandig gebruikt, die is geen probleem, omdat de Service Fabric wordt automatisch omleiden van verkeer voor de services die naar andere knooppunten. Echter, als updates van het besturingssysteem niet worden gecoördineerd in het cluster, is er kans dat veel knooppunten tegelijk uitvallen. Deze gelijktijdige opnieuw wordt opgestart kunnen leiden tot verlies van volledige beschikbaarheid voor een service of op minimaal voor een specifieke partitie (voor een stateful service).
 
-In de toekomst zullen we ter ondersteuning van een update-beleid voor het besturingssysteem dat is volledig geautomatiseerd en gecoördineerd in meerdere domeinen, update, waarbij u ervoor zorgt dat beschikbaarheid behouden ondanks opnieuw wordt opgestart en andere onverwachte fouten blijft.
+In de toekomst, willen we ondersteuning voor een update-beleid voor het besturingssysteem die volledig is geautomatiseerd en gecoördineerd in meerdere updatedomeinen, ervoor te zorgen dat de beschikbaarheid wordt gehandhaafd ondanks opnieuw wordt opgestart en andere onverwachte fouten.
 
-### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Kan ik grote virtuele-machineschaalsets in mijn SF-cluster gebruiken? 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>We hebben open-source-onderdelen van Service Fabric (reliable services-framework, betrouwbare actoren framework, ASP.NET Core-integratie-bibliotheken,  Service Fabric Explorer, en Service Fabric-CLI) op GitHub en bijdragen aan projecten van de community accepteren. 
 
-**Korte antwoord** : Nee. 
+**We **onlangs aangekondigd** dat wij van plan te open-source de Service Fabric-runtime bent. 
 
-**Lang antwoord** : hoewel de grote virtuele machine-schaalsets kunnen u een virtuele machine schalen schalen set maximaal 1000 VM-instanties, dit gebeurt door het gebruik van groepen plaatsing (PGs). Domeinen met fouten (FDs) en upgradedomeinen (UDs) zijn alleen binnen een plaatsing groep Service fabric gebruikt FDs en UDs beslissingen voor de plaatsing van de replica's / Service-exemplaren van uw service consistent. Aangezien de FDs en UDs alleen binnen een groep plaatsing worden vergeleken zijn, gebruik SF geen van maken. Bijvoorbeeld, als VM1 in PG1 een topologie van FD heeft = 0 en VM9 in PG2 heeft een topologie van FD = 4, het betekent niet dat VM1 en VM2 zich op twee verschillende Hardware rekken kunnen daarom SF niet de waarden FD in dit geval om plaatsing beslissingen te nemen.
+**Op dit moment hebben we de **Service Fabric-opslagplaats** maximaal op GitHub met Linux bouwen en testen van hulpprogramma's, wat betekent dat u kunt kloon de opslagplaats, het bouwen van Service Fabric voor Linux, eenvoudige tests uitvoeren, problemen melden en pull-aanvragen indienen. We werken hard aan de Windows-opbouwomgeving de migratie gespreid over, samen met een volledige CI-omgeving. Ga als volgt de Service Fabric-blog voor meer informatie, zoals ze zijn aangekondigd. Meer informatie over de basisconcepten van Service Fabric en best practices
 
-Momenteel andere problemen met een grote virtuele machine-schaalsets, zoals het ontbreken van niveau 4 Load balancing ondersteuning. Raadpleeg voor [details op grote schaal sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+Er momenteel andere problemen met grote virtuele-machineschaalsets, zoals het ontbreken van een niveau-4 taakverdeling ondersteuning niet laden. Raadpleeg voor [meer informatie over grote schaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Wat is de minimale grootte van een Service Fabric-cluster? Waarom kan deze niet kleiner zijn?
 
-De minimale ondersteunde grootte voor een productie-workloads met Service Fabric-cluster is vijf knooppunten. Wij ondersteunen drie clusters met knooppunten voor scenario's met ontwikkelen en testen.
+De minimale ondersteunde grootte voor een Service Fabric-cluster uitvoeren van productieworkloads is vijf knooppunten. We ondersteuning voor dev/test-scenario's voor clusters met drie knooppunten.
 
-Deze alle minimumwaarden bestaan omdat de Service Fabric-cluster een reeks stateful systeemservices voert, waaronder de naming service en de failover manager. Deze services die afhankelijk zijn van sterke consistentie bijhouden welke services zijn geïmplementeerd op het cluster en waar deze momenteel wordt gehost. De mogelijkheid om toegang te verkrijgen die sterke consistentie op zijn beurt afhankelijk een *quorum* voor een bepaalde update naar de status van deze services, waarbij een quorum vertegenwoordigt een strikte meerderheid van de replica's (N/2 + 1) voor een bepaalde service.
+Deze minimum bestaan omdat de Service Fabric-cluster wordt een set van stateful systeemservices, waaronder de naming-service en de failover manager uitgevoerd. Deze services, bijhouden welke services zijn geïmplementeerd op het cluster en waar ze momenteel wordt gehost, zijn afhankelijk van sterke consistentie. De mogelijkheid om te verkrijgen die sterke consistentie op zijn beurt afhankelijk een *quorum* voor een bepaalde update naar de status van deze services, waarbij een quorum vertegenwoordigt een strikte meerderheid van de replica's (N/2 + 1) voor een bepaalde service.
 
-Met deze achtergrond behandeld sommige clusterconfiguraties mogelijk:
+Die gedachte, we gaan sommige clusterconfiguraties mogelijk:
 
-**Eén knooppunt**: deze optie biedt geen hoge beschikbaarheid sinds het verlies van één knooppunt voor een bepaalde reden het verlies van het hele cluster betekent.
+**Een knooppunt**: deze optie biedt geen hoge beschikbaarheid na het verlies van één knooppunt voor een bepaalde reden het verlies van gegevens van het hele cluster betekent.
 
-**Twee knooppunten**: een quorum voor een service die is geïmplementeerd op twee knooppunten (N = 2) 2 (2/2 + 1 = 2). Als een enkele replica verbroken is, is het onmogelijk maken van een quorum. Omdat u een service-upgrade uitvoert tijdelijk duurt omlaag een replica vereist, maar dit is geen configuratie van een handig.
+**Twee knooppunten**: een quorum van een service die is geïmplementeerd op twee knooppunten (N = 2) is 2 (2/2 + 1 = 2). Wanneer een enkele replica verbroken is, is het niet mogelijk om te maken van een quorum. Omdat het uitvoeren van een service-upgrade tijdelijk waarbij u een replica vereist, maar dit is geen een handig configuratie.
 
-**Drie knooppunten**: met drie knooppunten (N = 3), de vereiste voor het maken van een quorum is nog steeds twee knooppunten (3/2 + 1 = 2). Dit betekent dat u kunt een afzonderlijke knooppunten verliezen en nog steeds quorum onderhouden.
+**Drie knooppunten**: met drie knooppunten (N = 3), de vereiste voor het maken van een quorum is nog steeds twee knooppunten (3/2 + 1 = 2). Dit betekent dat u kunt een afzonderlijke knooppunt kwijtraakt en nog steeds quorum onderhouden.
 
-De configuratie van het cluster drie knooppunt wordt ondersteund voor ontwikkelen en testen omdat kunt u veilig uitvoeren van upgrades en fouten voor afzonderlijke knooppunten, overleven, zolang ze niet tegelijkertijd uitgevoerd. Voor productieworkloads moet u voor een gelijktijdige storingen, robuuste zodat vijf knooppunten vereist zijn.
+De configuratie van het cluster drie knooppunten wordt ondersteund voor ontwikkelen en testen omdat kunt u veilig upgrades uitvoeren en storingen in afzonderlijke knooppunten overleven, zolang ze niet tegelijkertijd optreden. Voor werkbelastingen voor productie moet u tegen een gelijktijdige storing, dus vijf knooppunten vereist zijn.
 
-### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Kan ik mijn cluster op nacht/weekends om kosten te besparen uitschakelen?
+### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Kan ik mijn cluster op 's nachts/weekends om kosten te besparen uitschakelen?
 
-In het algemeen niet. Service Fabric opgeslagen status op lokale tijdelijke schijven, wat betekent dat als de virtuele machine wordt verplaatst naar een andere host, de gegevens verplaatst geen aan. In de normale werking die is niet een probleem als het nieuwe knooppunt wordt bijgewerkt door andere knooppunten. Als u alle knooppunten stoppen en deze later opnieuw opstarten, is er echter aanzienlijke kans dat de meeste van de knooppunten starten op de nieuwe hosts en controleer het systeem niet kan herstellen.
+In het algemeen niet. Service Fabric worden status opgeslagen op lokale tijdelijke schijven, wat betekent dat als de virtuele machine wordt verplaatst naar een andere host, de gegevens geen ermee verplaatst. In de normale werking, dat is niet een probleem als het nieuwe knooppunt wordt bijgewerkt door andere knooppunten. Als u alle knooppunten stopt en start u deze later opnieuw, is er echter een aanzienlijke mogelijkheid dat de meeste van de knooppunten starten op de nieuwe hosts en controleer het systeem kan niet worden hersteld.
 
-Als u maken van clusters wilt voor uw toepassing testen voordat deze is geïmplementeerd, raden wij aan dat u deze clusters dynamisch als onderdeel van maken uw [continue integratie/continue implementatie pijplijn](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
+Als u wilt maken van clusters om uw toepassing testen voordat deze is geïmplementeerd, wordt aangeraden deze clusters dynamisch te maken als onderdeel van uw [pijplijn voor continue integratie/continue implementatie](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>Hoe voer ik een upgrade het besturingssysteem (bijvoorbeeld van Windows Server 2012 naar Windows Server 2016)?
 
-Terwijl we op een betere ervaring vandaag werkt, bent u verantwoordelijk voor de upgrade. U moet de upgrade de installatiekopie van het besturingssysteem op de virtuele machines van het cluster een virtuele machine op een tijdstip. 
+Terwijl er wordt gewerkt aan een betere ervaring vandaag de dag bent u verantwoordelijk voor de upgrade. U moet de installatiekopie van het besturingssysteem op de virtuele machines van het cluster een upgrade virtuele machine op een tijdstip. 
 
-### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan ik coderen bijgesloten gegevensschijven in het type in een cluster-knooppunt (virtuele-machineschaalset)?
-Ja.  Zie voor meer informatie [maken van een cluster met gekoppelde gegevensschijven](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [versleutelen schijven (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), en [versleutelen schijven (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan ik gekoppelde gegevensschijven in een clusterknooppunttype (virtuele-machineschaalset) coderen?
+Ja.  Zie voor meer informatie, [een cluster maken met gekoppelde gegevensschijven](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [schijven (PowerShell) versleutelen](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), en [schijven (CLI) coderen](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Wat zijn de mappen en de processen die ik uitsluiten moet wanneer er een antivirusprogramma in mijn cluster wordt uitgevoerd?
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Wat zijn de mappen en processen die ik wil uitgesloten wanneer er een antivirusprogramma wordt uitgevoerd in mijn cluster?
 
-| **Antivirussoftware uitgesloten mappen** |
+| **Antivirus uitgesloten mappen** |
 | --- |
 | Program Files\Microsoft Service Fabric |
 | FabricDataRoot (van de configuratie van het cluster) |
 | FabricLogRoot (van de configuratie van het cluster) |
 
-| **Antivirussoftware uitgesloten processen** |
+| **Antivirus uitgesloten processen** |
 | --- |
 | Fabric.exe |
 | FabricHost.exe |
@@ -121,56 +121,56 @@ Ja.  Zie voor meer informatie [maken van een cluster met gekoppelde gegevensschi
  
 ## <a name="application-design"></a>Het ontwerp van toepassing
 
-### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Wat is de beste manier om querygegevens meerdere partities van een betrouwbare verzameling?
+### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Wat is de beste manier om gegevens te doorzoeken over meerdere partities van een betrouwbare verzameling?
 
-Betrouwbare verzamelingen zijn meestal [gepartitioneerde](service-fabric-concepts-partitioning.md) scale-out voor betere prestaties en doorvoer inschakelen. Dat betekent dat de status voor een bepaalde service kan worden verdeeld over tientallen of honderden computers. Als u wilt bewerkingen uitvoert via dat volledige gegevensset, hebt u een aantal opties:
+Betrouwbare verzamelingen zijn doorgaans [gepartitioneerde](service-fabric-concepts-partitioning.md) om in te schakelen van scale-out voor betere prestaties en doorvoer. Dit betekent dat dat de status voor een bepaalde service kan worden verdeeld over tientallen of honderden computers. Om uit te voeren bewerkingen ten opzichte van die set met volledige gegevens, hebt u enkele opties:
 
-- Maken van een service waarmee een query op alle partities van een andere service ophalen van de vereiste gegevens.
-- Maken van een service die u gegevens van alle partities van een andere service ontvangen kunt.
-- Gegevens van elke service periodiek pushen naar een externe winkel. Deze aanpak is alleen van toepassing als de query's die u uitvoert geen deel uitmaken van uw bedrijfslogica core.
+- Maken van een service die in alle partities van een andere service om op te halen in de vereiste gegevens zoekt.
+- Maken van een service waarmee gegevens kan worden ontvangen van alle partities van een andere service.
+- Gegevens van elke service regelmatig pushen naar een externe opslag. Deze methode is alleen van toepassing als het uitvoeren van query's geen deel uit van uw belangrijkste zakelijke logica maken.
 
 
-### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>Wat is de beste manier om gegevens opvragen via Mijn actoren?
+### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>Wat is de beste manier om gegevens te doorzoeken op mijn actoren?
 
-Actors zijn bedoeld als onafhankelijke eenheden van de status en de compute-, zodat het niet aangeraden wordt voor het uitvoeren van algemene query's van de actorstatus tijdens runtime. Als u een query moet op de volledige set actorstatus hebt, moet u overwegen een:
+Actoren zijn ontworpen om onafhankelijke eenheden van de status en rekenkracht, dus deze niet aanbevolen wordt om uit te voeren van uitgebreide query's van de actorstatus tijdens runtime. Hebt u behoefte aan een query op de volledige set van de actorstatus, moet u overwegen een:
 
-- Vervangen door uw actorservices stateful betrouwbare services, zodat het aantal netwerk aanvragen voor het verzamelen van alle gegevens van het aantal actoren aan het aantal partities in uw service.
-- Het ontwerpen van uw actoren voor de push-regelmatig hun status naar een externe store eenvoudiger query's. Als is hierboven, deze benadering alleen uitvoerbaar als de query's die u uitvoert, niet vereist voor uw runtimegedrag zijn.
+- Vervangen door uw actorservices stateful reliable services, zodat het aantal aanvragen voor het verzamelen van alle gegevens van het aantal actoren op het aantal partities in uw service.
+- Het ontwerpen van uw actoren regelmatig hun status naar een externe opslag voor eenvoudiger query's te pushen. Als is hierboven, deze benadering alleen mogelijk als het uitvoeren van query's niet vereist voor de runtimegedrag zijn.
 
 ### <a name="how-much-data-can-i-store-in-a-reliable-collection"></a>Hoeveel gegevens kan ik opslaan in een betrouwbare verzameling?
 
-Betrouwbare services worden doorgaans gepartitioneerd, de hoeveelheid die u kunt opslaan, wordt alleen beperkt door het aantal machines hebt u in het cluster en de hoeveelheid geheugen die beschikbaar is op deze computers.
+Betrouwbare services zijn meestal gepartitioneerd, zodat de hoeveelheid die u kunt opslaan wordt alleen beperkt door het aantal machines dat u in het cluster hebt en de hoeveelheid geheugen die beschikbaar is op deze computers.
 
-Stel bijvoorbeeld dat u hebt een betrouwbare verzameling in een service met 100 partities en 3 replica's voor het opslaan van objecten die 1 kb groot gemiddelde. Stel nu dat u een machinecluster 10 met 16gb geheugen per computer hebt. Verbruiken 6gb aan dat het verlaten van 10gb beschikbare per computer of 100 gb voor het cluster voor eenvoud en te vermijden, wordt ervan uitgegaan dat het besturingssysteem en systeemservices, de Service Fabric-runtime en uw services.
+Een voorbeeld: Stel dat u hebt een betrouwbare verzameling in een service met 100 partities en 3 replica's voor het opslaan van objecten die een gemiddelde van 1 kb groot. Stel nu dat u een machinecluster met 10 met 16gb geheugen per machine hebt. Voor het gemak te vermijden, wordt ervan uitgegaan dat het besturingssysteem en systeemservices, de Service Fabric-runtime en uw services gebruikmaken van 6gb aan dat het verlaten van 10gb per machine beschikbaar, of 100 gb voor het cluster.
 
-Houd in gedachten dat elk object moet worden opgeslagen drie tijden (een primaire en twee replica's), hebt u voldoende geheugen voor ongeveer 35 miljoen objecten in uw verzameling indien de volledige capaciteit. We raden echter aan het gelijktijdige verlies van een domein is mislukt en een upgradedomein, die ongeveer 1/3 capaciteit vertegenwoordigt, en het aantal zou beperken tot ongeveer 23 miljoen wordt.
+Houd er rekening mee dat elk object moet worden opgeslagen drie keer (één primair knooppunt en twee replica's), zou u voldoende geheugen voor ongeveer 35 miljoen objecten in uw verzameling hebben als het wordt uitgevoerd op volledige capaciteit. We raden echter aan dat aan de gelijktijdige verlies van een domein mislukt en een upgradedomein, die ongeveer 1/3 van de capaciteit aangeeft, en wordt minder tot ongeveer 23 miljoen.
 
-Houd er rekening mee dat deze berekening ook wordt ervan uitgegaan dat:
+Houd er rekening mee dat voor deze berekening ook wordt ervan uitgegaan dat:
 
-- Dat de distributie van gegevens over de partities min of meer uniform is of dat u bent reporting metrische gegevens laden in het Cluster Resource Manager. Standaard wordt Service Fabric geladen op basis van het aantal replica's verdelen. In het voorgaande voorbeeld plaatst die 10 primaire replica's en 20 secundaire replica's op elk knooppunt in het cluster. Die geschikt is voor belasting die evenredig verdeeld over de partities. Als er geen load zelfs is, moet u load melden zodat de Resource Manager kunt pack kleinere replica's samen en grotere replica's verbruikt meer geheugen op een afzonderlijke knooppunten.
+- Dat de verdeling van gegevens over de partities ongeveer uniform is of dat u meetwaarden voor het Cluster Resource Manager rapporteert bent. Standaard wordt Service Fabric geladen verdelen op basis van aantal replica's. In het voorgaande voorbeeld, zou dat 10 primaire replica's en 20 secundaire replica's op elk knooppunt in het cluster plaatsen. Dat werkt goed voor de belasting gelijkmatig wordt verdeeld over de partities. Als de belasting wordt nog niet, moet u load melden dat de Resource Manager kunt pack kleinere replica's samen en grotere replica's verbruikt meer geheugen op een afzonderlijke knooppunt.
 
-- De betrouwbare service in kwestie is de status van de slechts één opslaan in het cluster. Omdat u meerdere services naar een cluster implementeren kunt, moet u zijn toegewezen resources dat elk moet uitvoeren en beheren van de status.
+- Dat de betreffende betrouwbare service de status voor slechts één opslaan in het cluster is. Aangezien u meerdere services in een cluster implementeren kunt, moet u zich ervan bewust van de resources worden dat beide projecten moeten uitvoeren en beheren van de status.
 
-- Dat is niet het cluster zelf groeiende of verkleinen. Als u meer machines toevoegt, wordt de Service Fabric opnieuw verdelen replica's voor het gebruik van de extra capaciteit totdat het aantal machines het aantal partities in uw service, overschrijdt omdat de replica van een afzonderlijke niet meerdere machines omvatten. Daarentegen als u de grootte van het cluster verminderen door het verwijderen van computers, replica's veiliger worden verpakt en hebben volledige algehele capaciteit.
+- Dat is niet het cluster zelf groeien of krimpen. Als u meer machines toevoegt, Service Fabric wordt uw partitiereplica's opnieuw indelen voor het gebruik van de extra capaciteit totdat het aantal machines het aantal partities in uw service, overschrijdt omdat een afzonderlijke replica niet meerdere machines omvatten. Daarentegen, als u de grootte van het cluster verminderen door het verwijderen van computers, uw replica's dichter worden verpakt en hebben minder totale capaciteit.
 
-### <a name="how-much-data-can-i-store-in-an-actor"></a>Hoeveel gegevens kan ik opslaan in een actor
+### <a name="how-much-data-can-i-store-in-an-actor"></a>Hoeveel gegevens kan ik opslaan in een actor?
 
-Net als bij betrouwbare services, wordt de hoeveelheid gegevens die u kunt opslaan in een actor-service alleen beperkt door de totale schijfruimte en het beschikbaar geheugen op de knooppunten in het cluster. Afzonderlijke actoren zijn echter meest effectief wanneer ze worden gebruikt voor een kleine hoeveelheid status en de bijbehorende bedrijfslogica inkapselen. Als in het algemeen moet een afzonderlijke actor staat dat wordt gemeten in kilobytes hebben.
+Net als bij betrouwbare services, wordt de hoeveelheid gegevens die u kunt opslaan in een actor-service alleen beperkt door de totale schijfruimte en het geheugen beschikbaar op de knooppunten in uw cluster. Afzonderlijke actors zijn echter meest effectief wanneer deze worden gebruikt om in te kapselen een kleine hoeveelheid status en de bijbehorende bedrijfslogica. Als in het algemeen moet een afzonderlijke actor status die wordt gemeten in kilobytes hebben.
 
 ## <a name="other-questions"></a>Andere vragen
 
-### <a name="how-does-service-fabric-relate-to-containers"></a>Hoe Service Fabric relateren aan containers?
+### <a name="how-does-service-fabric-relate-to-containers"></a>Hoe Service Fabric in verband met containers?
 
-Containers bieden een eenvoudige manier om het pakketservices en de bijbehorende afhankelijkheden zodanig zijn dat ze consistent worden uitgevoerd in alle omgevingen en kunnen worden uitgevoerd in een geïsoleerde wijze op een enkele computer. Service Fabric biedt een manier om te implementeren en beheren van services, waaronder [services die in een container verpakt zijn](service-fabric-containers-overview.md).
+Containers bieden een eenvoudige manier om pakketservices en de bijbehorende afhankelijkheden, zodat ze consistent in alle omgevingen worden uitgevoerd en kunnen worden uitgevoerd in een geïsoleerde manier worden geactiveerd op een enkele computer. Service Fabric biedt een manier om te implementeren en beheren van services, waaronder [services die zijn ingepakt in een container](service-fabric-containers-overview.md).
 
-### <a name="are-you-planning-to-open-source-service-fabric"></a>Bent u van plan voor open-source Service Fabric?
+### <a name="are-you-planning-to-open-source-service-fabric"></a>Bent u van plan zijn open source Service fabric?
 
-We hebben open source-onderdelen van Service Fabric ([betrouwbare serviceframework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [betrouwbare actoren framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core integratie bibliotheken](https://github.com/Azure/service-fabric-aspnetcore), [ Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), en [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)) op GitHub en bijdragen vanuit de community om projecten te accepteren. 
+We hebben open-source-onderdelen van Service Fabric ([reliable services-framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [betrouwbare actoren framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core-integratie-bibliotheken](https://github.com/Azure/service-fabric-aspnetcore), [ Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), en [Service Fabric-CLI](https://github.com/Azure/service-fabric-cli)) op GitHub en bijdragen aan projecten van de community accepteren. 
 
-We [onlangs aangekondigd](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) die we open source de Service Fabric-runtime willen. Op dit moment hebben we de [Service Fabric-opslagplaats](https://github.com/Microsoft/service-fabric/) maximaal op GitHub met Linux bouwen en testen van hulpprogramma's, wat betekent dat u kunt kloon de opslagplaats, Service Fabric bouwen voor Linux, basic tests uitvoeren, opent u problemen en pull-aanvragen indienen. We er alles aan de Windows-opbouwomgeving gemigreerd, samen met een volledige CI-omgeving.
+We [onlangs aangekondigd](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) dat wij van plan te open-source de Service Fabric-runtime bent. Op dit moment hebben we de [Service Fabric-opslagplaats](https://github.com/Microsoft/service-fabric/) maximaal op GitHub met Linux bouwen en testen van hulpprogramma's, wat betekent dat u kunt kloon de opslagplaats, het bouwen van Service Fabric voor Linux, eenvoudige tests uitvoeren, problemen melden en pull-aanvragen indienen. We werken hard aan de Windows-opbouwomgeving de migratie gespreid over, samen met een volledige CI-omgeving.
 
-Ga als volgt de [Service Fabric-blog](https://blogs.msdn.microsoft.com/azureservicefabric/) voor meer informatie, zoals deze wordt vermeld.
+Ga als volgt de [Service Fabric-blog](https://blogs.msdn.microsoft.com/azureservicefabric/) voor meer informatie, zoals ze zijn aangekondigd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie over Service Fabric-kernconcepten en best practices](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+- [Meer informatie over de basisconcepten van Service Fabric en best practices](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)

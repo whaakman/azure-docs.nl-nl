@@ -1,6 +1,6 @@
 ---
 title: .NET-traceerlogboeken in Application Insights verkennen
-description: Zoeken naar Logboeken die worden gegenereerd met Trace, NLog en Log4Net.
+description: Zoeken in logboeken gegenereerd met Trace, NLog en Log4Net.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -14,22 +14,22 @@ ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
 ms.openlocfilehash: 5ffb758fe5fa42be6323de06afbfb38068ae1926
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296166"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969167"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET-traceerlogboeken in Application Insights verkennen
-Als u NLog, log4Net of System.Diagnostics.Trace voor diagnostische tracering in uw ASP.NET-toepassing kunt u uw verzonden naar Logboeken hebben [Azure Application Insights][start], waar u kunt verkennen en ze te zoeken. Uw logboeken worden samengevoegd met de andere telemetrie die afkomstig zijn van uw toepassing, zodat de traceringen die zijn gekoppeld aan het onderhoud van de aanvraag van elke gebruiker te identificeren en ze met andere gebeurtenissen en de uitzonderingenrapporten correleren.
+Als u NLog, log4Net of System.Diagnostics.Trace voor diagnostische tracering in uw ASP.NET-toepassing, kunt u uw logboeken zijn verzonden naar hebben [Azure Application Insights][start], waar u kunt verkennen en zoeken ze. Uw logboeken wordt samengevoegd met de andere telemetrie die afkomstig zijn van uw toepassing, zodat u kunt de traces die zijn gekoppeld aan het onderhoud van elke gebruikersaanvraag identificeren en correlaties met andere gebeurtenissen en uitzonderingenrapporten.
 
 > [!NOTE]
-> Moet u de module toepassingslogboek vastleggen? Het is een nuttig adapter voor 3rd derden voorkomen, maar als u niet al gebruikt NLog, log4Net of System.Diagnostics.Trace, kunt u alleen aanroepen [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) rechtstreeks.
+> Moet u de module toepassingslogboek vastleggen? Het is een handig adapter voor 3rd derden kunt, maar als u niet al gebruikt NLog, log4Net of System.Diagnostics.trace werkt, kunt u overwegen alleen aanroepende [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) rechtstreeks.
 >
 >
 
-## <a name="install-logging-on-your-app"></a>Aanmelden met uw app installeren
-Uw framework voor logboekregistratie gekozen installeren in uw project. Dit moet resulteren in een vermelding in het app.config- of web.config.
+## <a name="install-logging-on-your-app"></a>Logboekregistratie op uw app installeren
+Installeer het framework voor uw gekozen logboekregistratie in uw project. Dit moet resulteren in een vermelding in het app.config- of web.config.
 
 Als u van System.Diagnostics.Trace gebruikmaakt, moet u een vermelding toevoegen aan web.config:
 
@@ -48,23 +48,23 @@ Als u van System.Diagnostics.Trace gebruikmaakt, moet u een vermelding toevoegen
      </system.diagnostics>
    </configuration>
 ```
-## <a name="configure-application-insights-to-collect-logs"></a>Application Insights voor het verzamelen van logboeken configureren
-**[Application Insights toevoegen aan uw project](app-insights-asp-net.md)**  als u die nog niet hebt gedaan. Hier ziet u een optie om op te nemen van de logboekverzamelaar.
+## <a name="configure-application-insights-to-collect-logs"></a>Application Insights configureren voor het verzamelen van Logboeken
+**[Application Insights toevoegen aan uw project](app-insights-asp-net.md)**  als u dat nog niet hebt gedaan. Hier ziet u een optie om op te nemen van de logboekverzamelaar.
 
-Of **Configure Application Insights** met de rechtermuisknop op het project in Solution Explorer. Selecteer de optie voor **trace verzamelen configureren**.
+Of **Application Insights configureren** met de rechtermuisknop op uw project in Solution Explorer. Selecteer de optie voor **tracering verzamelen configureren**.
 
-*Er zijn geen menu- of logboekbestand collector de optie Application Insights?* Probeer [probleemoplossing](#troubleshooting).
+*Geen Application Insights menu of het logboek collector optie?* Probeer [probleemoplossing](#troubleshooting).
 
 ## <a name="manual-installation"></a>Handmatige installatie
 Gebruik deze methode als uw projecttype wordt niet ondersteund door de Application Insights-installatieprogramma (bijvoorbeeld een Windows desktop-project).
 
-1. Als u van plan bent om log4Net of NLog te gebruiken, kunt u deze in uw project installeren.
+1. Als u van plan bent om log4Net of NLog te gebruiken, installeert u deze in uw project.
 2. Klik in Solution Explorer met de rechtermuisknop op uw project en kies **NuGet-pakketten beheren**.
 3. Naar Application Insights zoeken
 4. Selecteer het juiste pakket - een van:
 
-   * Microsoft.ApplicationInsights.TraceListener (om vast te leggen System.Diagnostics.Trace aanroepen)
-   * Microsoft.ApplicationInsights.EventSourceListener (vast te leggen EventSource gebeurtenissen)
+   * Microsoft.ApplicationInsights.TraceListener (om vast te leggen aanroepen van System.Diagnostics.Trace)
+   * Microsoft.ApplicationInsights.EventSourceListener (om vast te leggen EventSource gebeurtenissen)
    * Microsoft.ApplicationInsights.EtwListener (om vast te leggen ETW-gebeurtenissen)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
@@ -72,7 +72,7 @@ Gebruik deze methode als uw projecttype wordt niet ondersteund door de Applicati
 Het NuGet-pakket installeert de benodigde assembly's en past tevens web.config of app.config.
 
 ## <a name="insert-diagnostic-log-calls"></a>Diagnostische logboeken aanroepen invoegen
-Als u System.Diagnostics.Trace gebruikt, wordt een aanroep van typische zou zijn:
+Als u gebruikmaakt van System.Diagnostics.Trace, zou een typische aanroep:
 
     System.Diagnostics.Trace.TraceWarning("Slow response - database01");
 
@@ -80,8 +80,8 @@ Als u liever log4net of NLog:
 
     logger.Warn("Slow response - database01");
 
-## <a name="using-eventsource-events"></a>Het gebruik van EventSource gebeurtenissen
-U kunt configureren [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen naar Application Insights als traceringen worden verzonden. Installeer eerst de `Microsoft.ApplicationInsights.EventSourceListener` NuGet-pakket. Bewerk vervolgens `TelemetryModules` sectie van de [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
+## <a name="using-eventsource-events"></a>Gebeurtenisbron gebeurtenissen gebruiken
+U kunt configureren [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen worden verzonden naar Application Insights als traceringen. Installeer eerst de `Microsoft.ApplicationInsights.EventSourceListener` NuGet-pakket. Bewerk vervolgens `TelemetryModules` sectie van de [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -92,12 +92,12 @@ U kunt configureren [System.Diagnostics.Tracing.EventSource](https://msdn.micros
 ```
 
 Voor elke bron, kunt u de volgende parameters instellen:
- * `Name` Hiermee geeft u de naam van de EventSource te verzamelen.
- * `Level` Hiermee geeft u het logboekregistratieniveau te verzamelen. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords` (Optioneel) Hiermee geeft u de gehele waarde van combinaties van trefwoorden te gebruiken.
+ * `Name` Hiermee geeft u de naam van de gebeurtenisbron te verzamelen.
+ * `Level` Hiermee geeft u het niveau van logboekregistratie voor het verzamelen van. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (Optioneel) Hiermee geeft u de integerwaarde van combinaties van trefwoorden te gebruiken.
 
-## <a name="using-diagnosticsource-events"></a>Het gebruik van DiagnosticSource gebeurtenissen
-U kunt configureren [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) gebeurtenissen naar Application Insights als traceringen worden verzonden. Installeer eerst de [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet-pakket. Bewerk vervolgens de `TelemetryModules` sectie van de [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
+## <a name="using-diagnosticsource-events"></a>Met behulp van DiagnosticSource gebeurtenissen
+U kunt configureren [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) gebeurtenissen worden verzonden naar Application Insights als traceringen. Installeer eerst de [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet-pakket. Bewerk vervolgens de `TelemetryModules` sectie van de [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -107,13 +107,13 @@ U kunt configureren [System.Diagnostics.DiagnosticSource](https://github.com/dot
     </Add>
 ```
 
-Voor elke DiagnosticSource die u traceren wilt, Voeg een vermelding met de `Name` -kenmerk ingesteld op de naam van uw DiagnosticSource.
+Voor elke DiagnosticSource die u traceren wilt, Voeg een vermelding met de `Name` kenmerk ingesteld op de naam van uw DiagnosticSource.
 
 ## <a name="using-etw-events"></a>Met behulp van ETW-gebeurtenissen
-U kunt configureren ETW-gebeurtenissen naar Application Insights als traceringen worden verzonden. Installeer eerst de `Microsoft.ApplicationInsights.EtwCollector` NuGet-pakket. Bewerk vervolgens `TelemetryModules` sectie van de [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
+U kunt de ETW-gebeurtenissen worden verzonden naar Application Insights als traceringen configureren. Installeer eerst de `Microsoft.ApplicationInsights.EtwCollector` NuGet-pakket. Bewerk vervolgens `TelemetryModules` sectie van de [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
 
 > [!NOTE] 
-> ETW-gebeurtenissen kunnen alleen worden verzameld als het proces voor het hosten van de SDK wordt uitgevoerd onder een identiteit die lid is van 'Gebruikers prestatielogboek' of de groep Administrators.
+> ETW-gebeurtenissen kunnen alleen worden verzameld als het proces voor het hosten van de SDK wordt uitgevoerd onder een identiteit die deel uitmaakt van 'Prestatielogboekgebruikers' of de groep Administrators.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
@@ -124,44 +124,44 @@ U kunt configureren ETW-gebeurtenissen naar Application Insights als traceringen
 ```
 
 Voor elke bron, kunt u de volgende parameters instellen:
- * `ProviderName` is de naam van de ETW-provider te verzamelen.
- * `ProviderGuid` Geeft de GUID van de ETW-provider moet worden verzameld, kunnen worden gebruikt in plaats van `ProviderName`.
- * `Level` Hiermee stelt u het logboekregistratieniveau te verzamelen. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords` (Optioneel) stelt de integerwaarde van combinaties van trefwoorden te gebruiken.
+ * `ProviderName` is de naam van de ETW-provider om te verzamelen.
+ * `ProviderGuid` Hiermee geeft u de GUID van de ETW-provider voor het verzamelen, kunnen worden gebruikt in plaats van `ProviderName`.
+ * `Level` Hiermee stelt u het niveau van logboekregistratie voor het verzamelen van. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (Optioneel) Hiermee stelt u de integerwaarde van combinaties van trefwoorden te gebruiken.
 
-## <a name="using-the-trace-api-directly"></a>De tracering API direct gebruik te maken
-U kunt rechtstreeks de Application Insights trace API aanroepen. De adapters logboekregistratie gebruiken deze API.
+## <a name="using-the-trace-api-directly"></a>Rechtstreeks met behulp van de API-tracering
+U kunt de Application Insights-tracering API rechtstreeks aanroepen. De logboekregistratie adapters gebruik deze API.
 
 Bijvoorbeeld:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
-U kunt relatief lange gegevens plaatsen in het bericht heeft als voordeel van TrackTrace. U kan bijvoorbeeld er postgegevens coderen.
+Een voordeel van TrackTrace is u kunt relatief veel gegevens in het bericht te plaatsen. U kunt bijvoorbeeld postgegevens er coderen.
 
-U kunt bovendien een urgentieniveau toevoegen aan het bericht. En net als andere telemetrie u eigenschapswaarden die u gebruiken kunt om te filteren of zoeken naar verschillende sets van traceringen kunt toevoegen. Bijvoorbeeld:
+Bovendien kunt u een ernstniveau toevoegen aan uw bericht. En net als andere telemetrie, kunt u eigenschapswaarden die u gebruiken kunt om te filteren of zoeken naar verschillende sets van traceringen toevoegen. Bijvoorbeeld:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-Hiermee kunt u, zou [zoeken][diagnostic], gemakkelijk kunt uitfilteren alle berichten van een bepaalde ernstniveau met betrekking tot een bepaalde database.
+Hiermee kunt u, zou [zoeken][diagnostic], voor het filteren eenvoudig de berichten van een bepaalde ernstniveau met betrekking tot een bepaalde database.
 
 ## <a name="explore-your-logs"></a>Verken uw logboeken
-Uitvoeren van uw app ofwel in de foutopsporingsmodus of live implementeren.
+Uw app, hetzij in de foutopsporingsmodus uitvoeren of deze live te implementeren.
 
-In de overzichtsblade van uw app in [de Application Insights-portal][portal], kies [Search][diagnostic].
+In de overzichtsblade van uw app in [de Application Insights-portal][portal], kiest u [zoeken][diagnostic].
 
-![Kies in de Application Insights zoeken](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
+![Kies in de Application Insights, zoeken](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
 ![Search](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
-U kunt, bijvoorbeeld:
+U kunt doen, bijvoorbeeld:
 
-* Filteren op logboektraceringen of op items met specifieke eigenschappen
-* Een specifiek item in detail te controleren.
-* Andere telemetrie met betrekking tot de dezelfde gebruikersaanvraag vinden (dat wil zeggen, met de dezelfde OperationId)
+* Filteren op logboektraceringen of items met specifieke eigenschappen
+* Een specifiek item in detail bekijken.
+* Andere telemetrie die betrekking hebben op dezelfde gebruikersaanvraag vinden (dat wil zeggen, met dezelfde bewerkings-ID)
 * De configuratie van deze pagina als favoriet opslaan
 
 > [!NOTE]
@@ -170,33 +170,33 @@ U kunt, bijvoorbeeld:
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-[Onderzoeken fouten en uitzonderingen in ASP.NET][exceptions]
+[Diagnosefouten en uitzonderingen in ASP.NET][exceptions]
 
-[Meer informatie over zoekopdracht][diagnostic].
+[Meer informatie over Search][diagnostic].
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-### <a name="how-do-i-do-this-for-java"></a>Hoe kan ik deze voor Java?
-Gebruik de [Java logboek adapters](app-insights-java-trace-logs.md).
+### <a name="how-do-i-do-this-for-java"></a>Hoe moet ik dit doen voor Java?
+Gebruik de [Java log adapters](app-insights-java-trace-logs.md).
 
-### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Er is geen optie Application Insights in het contextmenu van project
-* Controle van Application Insights-hulpprogramma's zijn geïnstalleerd op deze machine ontwikkeling. In Visual Studio-menu Extra Zoek uitbreidingen en Updates, naar Application Insights Tools. Als deze niet in het tabblad geïnstalleerd, opent u het tabblad Online en installeer deze.
-* Dit wordt mogelijk een type project niet wordt ondersteund door de Application Insights-hulpprogramma's. Gebruik [handmatige installatie](#manual-installation).
+### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Er bestaat geen optie Application Insights in het contextmenu project
+* Controleer Application Insights-hulpprogramma's is geïnstalleerd op deze machine ontwikkeling. In Visual Studio menu Extra Zoek extensies en Updates, naar Application Insights-hulpprogramma's. Als deze niet in het tabblad geïnstalleerd, opent u het tabblad Online en installeer deze.
+* Dit wordt mogelijk een type project dat niet wordt ondersteund door Application Insights-hulpprogramma's. Gebruik [handmatige installatie](#manual-installation).
 
-### <a name="no-log-adapter-option-in-the-configuration-tool"></a>Er is geen optie logboek adapter in het configuratiehulpprogramma
+### <a name="no-log-adapter-option-in-the-configuration-tool"></a>Er is geen adapteroptie log in het configuratieprogramma
 * U moet eerst installeren van het framework voor logboekregistratie.
-* Als u van System.Diagnostics.Trace gebruikmaakt, controleert u of u [geconfigureerd in `web.config` ](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* Hebt u de nieuwste versie van Application Insights hebt? In Visual Studio **extra** menu kiezen **uitbreidingen en Updates**, en open de **Updates** tabblad. Als u hulpprogramma's voor ontwikkelaars webanalyse aanwezig is, klikt u op om bij te werken.
+* Als u van System.Diagnostics.Trace gebruikmaakt, zorg ervoor dat u [die zijn geconfigureerd, in `web.config` ](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* Hebt u hebt de nieuwste versie van Application Insights? In Visual Studio **extra** menu, kiest u **extensies en Updates**, en open de **Updates** tabblad. Als Developer Analytics tools aanwezig is, klikt u op om bij te werken.
 
-### <a name="emptykey"></a>Een fout ophalen 'instrumentatiesleutel mag niet leeg zijn'
-Lijkt erop dat u de logboekregistratie adapter Nuget-pakket geïnstalleerd zonder Application Insights te installeren.
+### <a name="emptykey"></a>Ik krijg de foutmelding 'instrumentatiesleutel mag niet leeg zijn'
+Hebt u de logboekregistratie adapter Nuget-pakket geïnstalleerd zonder de installatie van Application Insights.
 
-Klik in Solution Explorer met de rechtermuisknop op `ApplicationInsights.config` en kies **Update Application Insights**. U krijgt een dialoogvenster met een uitnodiging aan te melden bij Azure en maak een Application Insights-resource opnieuw of gebruik een bestaande. Die het probleem moet oplossen.
+Klik in Solution Explorer met de rechtermuisknop op `ApplicationInsights.config` en kies **Update Application Insights**. U krijgt een dialoogvenster waarin u zich aanmeldt bij Azure uitnodigt en maak een Application Insights-resource, of gebruik een bestaande resourcegroep. Dat het probleem moet oplossen.
 
-### <a name="i-can-see-traces-in-diagnostic-search-but-not-the-other-events"></a>Zie ik traceringen in diagnostische gegevens doorzoeken, maar niet de andere gebeurtenissen
-Het kan duren voor de gebeurtenissen en aanvragen voor ophalen via de pipeline.
+### <a name="i-can-see-traces-in-diagnostic-search-but-not-the-other-events"></a>Ik kan zien traceringen in het doorzoeken van diagnostische gegevens, maar niet de andere gebeurtenissen
+Soms duurt het even voor alle gebeurtenissen en aanvragen voor het ophalen via de pijplijn.
 
-### <a name="limits"></a>Hoeveel gegevens behouden blijven?
-Verschillende factoren van invloed op de hoeveelheid gegevens behouden. Zie de [limieten](app-insights-api-custom-events-metrics.md#limits) sectie van de pagina klant gebeurtenis metrische gegevens voor meer informatie. 
+### <a name="limits"></a>Hoeveel gegevens worden bewaard?
+Diverse factoren van invloed zijn op de hoeveelheid gegevens die worden bewaard. Zie de [limieten](app-insights-api-custom-events-metrics.md#limits) sectie van de metrische gegevens klantpagina voor meer informatie. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Ik zie niet sommige van de logboekvermeldingen die ik verwacht
 Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger gebruikt, stuurt de functie voor adaptieve steekproeven mogelijk slechts een percentage van uw telemetrie. [Meer informatie over steekproeven.](app-insights-sampling.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d2a63a1a9b335b7765c5eaf8c90e1d755b2ce9c9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867117"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38451696"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -468,24 +468,24 @@ Geschatte tijd om te voltooien: 15 minuten
 
 | Vereiste | Resources |
 | --- | --- |
-| Identificeren van de globale beheerder, die deel van de POC voor PIM uitmaken | [Start met behulp van Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) |
-| De globale beheerder die de beheerder van de beveiliging identificeren | [Start met behulp van Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)<br/> [Andere beheerdersrollen in Azure Active Directory PIM](active-directory-privileged-identity-management-roles.md) |
-| Optioneel: Als de globale beheerders toegang tot e-mail hebben bij de uitoefening van e-mailmeldingen in PIM bevestigen | [Wat is Azure AD Privileged Identity Management?: Configureer de instellingen voor rolactivering](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
+| Identificeren van de globale beheerder, die deel van de POC voor PIM uitmaken | [Start met behulp van Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md) |
+| De globale beheerder die de beheerder van de beveiliging identificeren | [Start met behulp van Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md)<br/> [Andere beheerdersrollen in Azure Active Directory PIM](privileged-identity-management/pim-roles.md) |
+| Optioneel: Als de globale beheerders toegang tot e-mail hebben bij de uitoefening van e-mailmeldingen in PIM bevestigen | [Wat is Azure AD Privileged Identity Management?: Configureer de instellingen voor rolactivering](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)
 
 
 ### <a name="steps"></a>Stappen
 
 | Stap | Resources |
 | --- | --- |
-| Meld u aan bij https://portal.azure.com als een globale beheerder (GA) en een bootstrap de PIM-blade. De globale beheerder, waarmee u deze stap is gemaakt als de beveiligingsbeheerder van de.  Noemen we deze actor GA1 | [Met behulp van de beveiligingswizard in Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
-| Identificeren van de globale beheerder en ze verplaatsen van permanente naar in aanmerking komt. Dit moet een afzonderlijke admin van de die werd gebruikt in stap 1 voor de duidelijkheid zijn. Noemen we deze actor GA2 | [Azure AD Privileged Identity Management: Het toevoegen of verwijderen van een gebruikersrol](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Wat is Azure AD Privileged Identity Management?: Configureer de instellingen voor rolactivering](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| Meld u aan bij https://portal.azure.com als een globale beheerder (GA) en een bootstrap de PIM-blade. De globale beheerder, waarmee u deze stap is gemaakt als de beveiligingsbeheerder van de.  Noemen we deze actor GA1 | [Met behulp van de beveiligingswizard in Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
+| Identificeren van de globale beheerder en ze verplaatsen van permanente naar in aanmerking komt. Dit moet een afzonderlijke admin van de die werd gebruikt in stap 1 voor de duidelijkheid zijn. Noemen we deze actor GA2 | [Azure AD Privileged Identity Management: Het toevoegen of verwijderen van een gebruikersrol](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Wat is Azure AD Privileged Identity Management?: Configureer de instellingen voor rolactivering](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Nu aanmelden als GA2 naar https://portal.azure.com en wijzig 'gebruikersinstellingen'. U ziet een aantal opties zijn niet beschikbaar. | |
-| In een nieuw tabblad en in dezelfde sessie als stap 3, gaat u nu naar https://portal.azure.com en de PIM-blade toevoegen aan het dashboard. | [Activeren of deactiveren van rollen in Azure AD Privileged Identity Management: de Privileged Identity Management-toepassing toevoegen](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
-| Activering van de aanvraag aan de rol globale beheerder | [Activeren of deactiveren van rollen in Azure AD Privileged Identity Management: een rol activeren](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
+| In een nieuw tabblad en in dezelfde sessie als stap 3, gaat u nu naar https://portal.azure.com en de PIM-blade toevoegen aan het dashboard. | [Activeren of deactiveren van rollen in Azure AD Privileged Identity Management: de Privileged Identity Management-toepassing toevoegen](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Activering van de aanvraag aan de rol globale beheerder | [Activeren of deactiveren van rollen in Azure AD Privileged Identity Management: een rol activeren](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Houd er rekening mee dat als GA2 nooit geregistreerd voor MFA, registratie voor Azure MFA niet nodig |  |
 | Ga terug naar het oorspronkelijke tabblad in stap 3 en klik op de vernieuwknop in de browser. Houd er rekening mee dat u nu toegang hebt tot het wijzigen van "Gebruikersinstellingen" | |
 | (Optioneel) als uw globale beheerders waarvoor e-mail is ingeschakeld hebben, kunt u GA1 en GA2 van postvak in en de melding van de rol wordt geactiveerd |  |
-| 8 controleren van de controlegeschiedenis en bekijk het rapport om te bevestigen van de uitbreiding van GA2 wordt weergegeven. | [Wat is Azure AD Privileged Identity Management?: rol activiteiten controleren](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 controleren van de controlegeschiedenis en bekijk het rapport om te bevestigen van de uitbreiding van GA2 wordt weergegeven. | [Wat is Azure AD Privileged Identity Management?: rol activiteiten controleren](privileged-identity-management/pim-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>Overwegingen
 

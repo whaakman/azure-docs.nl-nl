@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c9249de56979d47a29fc9d7c12b99e41b3ada0fd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465834"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970548"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers voor de SQL-resourceprovider toevoegen
 
@@ -66,7 +66,7 @@ De volgende informatie geeft richtlijnen voor extra beveiliging:
 
 * Alle Azure Stack-opslag is versleuteld met BitLocker, zodat een SQL-exemplaar in Azure Stack wordt versleutelde blob-opslag gebruiken.
 * De SQL-Resourceprovider biedt volledige ondersteuning voor TLS 1.2. Zorg ervoor dat alle SQL-Server die wordt beheerd via de RP SQL is geconfigureerd voor TLS 1.2 _alleen_ en de relying Party die standaard. Alle ondersteunde versies van SQL Server ondersteuning voor TLS 1.2, Zie [TLS 1.2-ondersteuning voor Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* SQL Server Configuration Manager gebruiken om in te stellen de **ForceEncryption** optie om te controleren of alle communicatie met de SQL server worden altijd versleuteld. Zie [configureren van de server om af te dwingen versleutelde verbindingen](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
+* SQL Server Configuration Manager gebruiken om in te stellen de **ForceEncryption** optie om te controleren of alle communicatie met de SQL server worden altijd versleuteld. Zie [configureren van de server om af te dwingen versleutelde verbindingen](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
 * Zorg ervoor dat elke clienttoepassing ook communiceert via een gecodeerde verbinding.
 * De relying Party is geconfigureerd voor het vertrouwen van de certificaten die worden gebruikt door de SQL Server-exemplaren.
 
@@ -106,8 +106,8 @@ Als u wilt toevoegen van een zelfstandige host-server die al ingesteld, de volge
 
 Exemplaren van SQL Always On configureren zijn extra stappen vereist en moet drie VM's (of fysieke machines.) In dit artikel wordt ervan uitgegaan dat u al een goed begrip van AlwaysOn-beschikbaarheidsgroepen. Raadpleeg voor meer informatie de volgende artikelen:
 
-* [Maak kennis met SQL Server Always On-beschikbaarheidsgroepen op Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Always On Availability Groups (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Maak kennis met SQL Server Always On-beschikbaarheidsgroepen op Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Always On Availability Groups (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > De resourceprovider van de SQL-adapter _alleen_ biedt ondersteuning voor SQL 2016 SP1 Enterprise of hoger voor Always On Availability Groups-exemplaren. Deze adapterconfiguratie moet de nieuwe SQL-functies, zoals automatische seeding.

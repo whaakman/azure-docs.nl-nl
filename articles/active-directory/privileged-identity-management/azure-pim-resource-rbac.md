@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 7cf628495a79fe775528080ae6ec31df8e9a0f37
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447574"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38528617"
 ---
 # <a name="pim-for-azure-resources"></a>PIM voor Azure-resources
 
@@ -59,7 +59,7 @@ Mijn rollen bevatten een lijst van uw actieve en in aanmerking komende roltoewij
 
 ## <a name="activate-roles"></a>Rollen activeren
 
-Rollen voor Azure-Resources activeren introduceert een nieuwe ervaring biedt waarmee leden van een in aanmerking komende rol voor het plannen van activering voor een toekomstige datum/tijd en selecteer een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders). Meer informatie over [hier Azure AD-rollen activeren](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Rollen voor Azure-Resources activeren introduceert een nieuwe ervaring biedt waarmee leden van een in aanmerking komende rol voor het plannen van activering voor een toekomstige datum/tijd en selecteer een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders). Meer informatie over [hier Azure AD-rollen activeren](pim-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -156,7 +156,7 @@ Controleer in de actiebalk bestaande toegangsbeoordelingen weergeven en selectee
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[Meer informatie over toegangsbeoordelingen](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[Meer informatie over toegangsbeoordelingen](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 Beoordelingen worden alleen ondersteund voor resourcetypen abonnement op dit moment.
@@ -196,5 +196,5 @@ Mijn rollen selecteren in het navigatiemenu links en kies de juiste rol te activ
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Ingebouwde rollen voor Azure-resources](../../role-based-access-control/built-in-roles.md)
-- Meer informatie over [hier Azure AD-rollen activeren](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- Meer informatie over [hier Azure AD-rollen activeren](pim-how-to-activate-role.md)
 - [Goedkeuringswerkstromen voor PIM](azure-ad-pim-approval-workflow.md)

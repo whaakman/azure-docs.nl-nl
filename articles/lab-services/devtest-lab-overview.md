@@ -1,6 +1,6 @@
 ---
 title: Over Azure DevTest Labs | Microsoft Docs
-description: Meer informatie over hoe DevTest Labs kunt u gemakkelijk kunt maken, beheren en bewaken van virtuele machines in Azure
+description: Informatie over hoe DevTest Labs kunt gemakkelijk te maken, beheren en controleren van virtuele machines van Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,35 +15,35 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: bf9e83a1dfed0aac7f48cd47dc12bf56c7cb1b64
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787435"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481699"
 ---
 # <a name="about-azure-devtest-labs"></a>Over Azure DevTest Labs
 ## <a name="overview"></a>Overzicht
-Ontwikkelaars en testers zoekt om op te lossen de vertragingen in het maken en beheren van hun omgeving door te gaan naar de cloud.  Azure lost het probleem van vertragingen omgeving en kunt u selfservice binnen een nieuwe kosten efficiënte structuur.  Ontwikkelaars en testers moeten echter nog steeds te besteden veel tijd in hun omgeving zelf aangeboden configureren. Er zijn ook besluitvormers twijfels hebt over het gebruik van de cloud om hun kostenbesparingen maximaliseren zonder de overhead van te veel proces toe te voegen.
+Ontwikkelaars en testers zoekt om op te lossen de vertragingen bij het maken en beheren van hun omgevingen door te gaan naar de cloud.  Azure lost het probleem van vertragingen van de omgeving en kunt selfservice binnen een nieuwe kosten efficiënte structuur.  Ontwikkelaars en testers moeten echter wel aanzienlijke hoeveelheid tijd configureren hun zelf aangeboden omgevingen. Besluitvormers zijn ook niet zeker weet hoe u de cloud benutten als het maximaliseren van hun kosten te besparen zonder de overhead van te veel proces toe te voegen.
 
-Azure DevTest Labs is een service waarmee ontwikkelaars en testers snel maken omgevingen in Azure tijdens het minimaliseren van verspilling en kosten beheren. U kunt de nieuwste versie van uw toepassing testen door Windows- en Linux-omgevingen snel in te richten met herbruikbare sjablonen en artefacten. Uw implementatie pijplijn eenvoudig worden geïntegreerd met DevTest Labs om in te richten op aanvraag omgevingen. Uw load testen door meerdere agents van de test provisioning opschalen en vooraf is ingericht omgevingen voor training en demo's maken.
+Azure DevTest Labs is een service waarmee ontwikkelaars en testers snel omgevingen maken in Azure zonder verspilling en beheerkosten. U kunt de nieuwste versie van uw toepassing testen door Windows- en Linux-omgevingen snel in te richten met herbruikbare sjablonen en artefacten. Integreer uw implementatiepijplijn eenvoudig met DevTest Labs om in te richten op aanvraag omgevingen. Schaal uw belastingtests door in te richten van meerdere testagents en maak vooraf ingerichte omgevingen voor training en demo's.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Azure-DevTest-Labs/player]
 > 
 > 
 
-DevTest Labs biedt de volgende voordelen bij het maken, configureren en beheren van ontwikkelaars en testomgevingen in de cloud
+DevTest Labs biedt de volgende voordelen bij het maken, configureren en beheren van de developer- en testomgevingen in de cloud
 
-## <a name="worry-free-self-service"></a>Self-service probleemloos
-DevTest Labs vergemakkelijkt het beheer van kosten doordat u beleidsregels instellen op uw lab - zoals het aantal virtuele machines (VM) per gebruiker en het aantal virtuele machines per lab. DevTest Labs kunt u beleid maken om automatisch afgesloten en virtuele machines te starten.
+## <a name="worry-free-self-service"></a>Zorgeloze selfservice
+DevTest Labs wordt het beheersen van kosten gemakkelijker doordat u beleidsregels instellen op uw lab - zoals aantal virtuele machines (VM) per gebruiker en aantal VM's per lab. DevTest Labs kunt u beleid voor automatisch afsluiten en starten van virtuele machines maken.
 
-## <a name="quickly-get-to-ready-to-test"></a>Snelle toegang tot gereed om te testen
-DevTest Labs kunt u vooraf is ingericht om omgevingen te maken met alles wat die uw team nodig heeft om te beginnen met het ontwikkelen en testen van toepassingen. Gewoon de claim de omgevingen waarop de laatste goede build van uw toepassing is geïnstalleerd en u meteen werkt. Of containers te gebruiken voor het maken van de omgeving zelfs sneller en minder complex.
+## <a name="quickly-get-to-ready-to-test"></a>Snel toegang verkrijgen tot gereed om te testen
+DevTest Labs kunt u vooraf ingerichte omgevingen maken met alles wat die uw team nodig heeft om te beginnen met het ontwikkelen en testen van toepassingen. Gewoon claim de omgevingen waarop de laatste goede versie van uw toepassing is geïnstalleerd en aan de slag meteen. Of gebruik containers om nog sneller en slanker zijn.
 
 ## <a name="create-once-use-everywhere"></a>Eenmaal maken, overal gebruiken
-Vastleggen en omgeving sjablonen en artefacten binnen uw team of organisatie - allemaal in Bronbeheer - ontwikkelaars maken en testen omgevingen eenvoudig delen.
+Vastleggen en omgevingssjablonen en artefacten binnen uw team of organisatie - alles in Bronbeheer - als u wilt maken van de developer- en testomgevingen eenvoudig delen.
 
 ## <a name="integrates-with-your-existing-toolchain"></a>Integratie met uw bestaande hulpprogrammaketen
-Gebruikmaken van vooraf gemaakte invoegtoepassingen of onze API om in te richten ontwikkelen en testen omgevingen rechtstreeks vanuit uw voorkeur continue integratie (CI)-hulpprogramma integrated development environment (IDE), of geautomatiseerde release pijplijn. U kunt ook ons uitgebreide opdrachtregelprogramma gebruiken.
+Maak gebruik van vooraf gemaakte invoegtoepassingen of onze API om in te richten Dev/Test-omgevingen rechtstreeks vanuit uw gewenste tool continue integratie (CI), geïntegreerde ontwikkelingsomgeving (IDE) of pijplijn voor geautomatiseerde release. U kunt ook ons uitgebreide opdrachtregelprogramma gebruiken.
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

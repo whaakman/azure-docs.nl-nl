@@ -1,6 +1,6 @@
 ---
-title: OS- en framework patchen met Azure Container register bouwen (ACR Build) automatiseren
-description: Een inleiding tot ACR bouwen, een reeks functies in Azure Container register veilige, waarmee automatisch maken van de container image en patchen in de cloud.
+title: OS- en framework patchen met Azure Container Registry Build (ACR Build) automatiseren
+description: Een Kennismaking met ACR Build, een reeks functies in Azure Container Registry beveiligde biedt, geautomatiseerde build van container-installatiekopie en patching uit handen in de cloud.
 services: container-registry
 author: mmacy
 manager: jeconnoc
@@ -9,63 +9,63 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: marsma
 ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057771"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582627"
 ---
-# <a name="automate-os-and-framework-patching-with-acr-build"></a>OS- en framework patchen met ACR bouwen automatiseren
+# <a name="automate-os-and-framework-patching-with-acr-build"></a>OS- en framework patchen met ACR Build automatiseren
 
-Containers bieden nieuwe niveaus van virtualisatie, toepassing en ontwikkelaars afhankelijkheden van infrastructuur- en operationele vereisten isoleren. Wat blijft, is echter de noodzaak voor het oplossen van hoe deze toepassingsvirtualisatie is hersteld.
+Containers bieden nieuwe niveaus voor virtualisatie, isoleren van toepassings- en developer-afhankelijkheden van infrastructuur en operationele vereisten. Wat resteert, is echter de noodzaak om de manier waarop deze toepassingsvirtualisatie is gevuld.
 
-**ACR bouwen**, een reeks functies in Azure Container register, biedt niet alleen systeemeigen container image build mogelijkheid, maar ook automatiseert [OS en framework patchen](#automate-os-and-framework-patching) voor uw Docker-containers.
+**ACR Build**, een reeks functies in Azure Container Registry biedt niet alleen systeemeigen container-installatiekopie bouwen mogelijkheid, maar ook worden geautomatiseerd [OS en framework patching uit handen](#automate-os-and-framework-patching) voor uw Docker-containers.
 
 [!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
-## <a name="what-is-acr-build"></a>Wat is ACR bouwen?
+## <a name="what-is-acr-build"></a>Wat is ACR Build?
 
-Azure Container register bouwen is een Azure-systeemeigen container image build-service. Kan interne lus ontwikkeling ACR bouwen in de cloud met de installatiekopie van de container op aanvraag gebaseerd en geautomatiseerde bouwt voort op code doorvoeren en base broninstallatiekopie bijwerken.
+Build van Azure Container Registry is een Azure-eigen container image build-service. Hiermee inner loop-ontwikkeling ACR Build in de cloud met on-demand-containerinstallatiekopie bouwt en geautomatiseerde builds op code doorvoeren en base broninstallatiekopie bijwerken.
 
-De installatiekopie van de trigger-container bouwt automatisch als code is doorgevoerd naar een Git-opslagplaats, of wanneer de basisinstallatiekopie van een container wordt bijgewerkt. Met basisinstallatiekopie update triggers, kunt u uw besturingssysteem automatiseren en application framework-werkstroom, beveiligde omgevingen terwijl ze voldoen aan de principals van niet-wijzigbaar containers onderhouden patchen.
+Trigger-containerinstallatiekopie maakt automatisch als de code wordt doorgevoerd aan een Git-opslagplaats, of wanneer de basisinstallatiekopie van de container wordt bijgewerkt. Met de basisinstallatiekopie update wordt geactiveerd, kunt u uw besturingssysteem automatiseren en application framework-werkstroom, beveiligde omgevingen beheren terwijl ze voldoen aan de beveiligings-principals van onveranderbare containers patches.
 
-## <a name="quick-build-inner-loop-extended-to-the-cloud"></a>Snelle Build: interne-lus uitgebreid naar de cloud
+## <a name="quick-build-inner-loop-extended-to-the-cloud"></a>Snelle Build: binnenste-lus uitgebreid naar de cloud
 
-Het begin van het levenscyclusbeheer wordt gestart voordat de ontwikkelaars hun eerste coderegels doorvoeren. De ACR bouwen [snelle bouwen](container-registry-tutorial-quick-build.md) functie kunt u een geïntegreerde lokale interne lus ontwikkeling-ervaring, offloading builds naar Azure. Met snelle wordt gemaakt, kunt u uw geautomatiseerde build-definities voordat het doorvoeren van uw code te controleren.
+Het begin van het beheer van de levenscyclus start voordat ontwikkelaars hun eerste coderegels doorvoeren. De ACR Build [snel bouwen](container-registry-tutorial-quick-build.md) functie kunnen een ervaring met geïntegreerde lokale inner loop-ontwikkeling, offloading builds naar Azure. Met snelle wordt gemaakt, kunt u uw geautomatiseerde builddefinities voordat het doorvoeren van uw code controleren.
 
-Met behulp van de vertrouwde `docker build` indeling, de [az acr build] [ az-acr-build] opdracht in de Azure CLI duurt een lokale context, verzendt het naar de service ACR bouwen en pushes standaard installatiekopie van het ingebouwde in het register op voltooiing. ACR bouwen volgt de registers geogerepliceerde verspreid ontwikkelteams gebruikmaken van het dichtstbijzijnde gerepliceerde register inschakelen. Tijdens de preview, ACR build is al beschikbaar in de regio's VS-Oost en West-Europa.
+Met behulp van de vertrouwde `docker build` indeling, de [az acr build] [ az-acr-build] opdracht in de Azure CLI wordt een lokale context, verzonden naar de ACR Build-service en standaard de gemaakte installatiekopie naar het register bij gepusht is voltooid. ACR Build volgt de registers met geo-replicatie inschakelen van verspreide development-teams gebruikmaken van het dichtstbijzijnde gerepliceerde register. Tijdens de preview is de ACR build beschikbaar in de regio's VS-Oost en West-Europa.
 
-ACR bouwen is bedoeld als een container van primitieve levenscyclus. Bijvoorbeeld, integreren ACR bouwen in uw oplossing CI/CD. Door het uitvoeren van [az aanmelding] [ az-login] met een [service-principal][az-login-service-principal], uw oplossing CI/CD kan vervolgens uitgeven [az acrbouwen] [ az-acr-build] installatiekopie builds van opdrachten uit om te starten.
+ACR Build is bedoeld als een container van primitieve levenscyclus. Bijvoorbeeld, integreren met ACR Build uw CI/CD-oplossing. Door het uitvoeren van [az login] [ az-login] met een [service-principal][az-login-service-principal], uw CI/CD-oplossing kan verlenen [az acrbouwen] [ az-acr-build] opdrachten uit om te worden gehouden, trappen af met installatiekopieën builds.
 
-Informatie over het gebruik van snelle Builds in de eerste ACR bouwen zelfstudie [maken van installatiekopieën van de container in de cloud met Azure Container register bouwen](container-registry-tutorial-quick-build.md).
+Informatie over het gebruik van snelle Builds in de eerste ACR Build zelfstudie [containerinstallatiekopieën in de cloud bouwen met Azure Container Registry Build](container-registry-tutorial-quick-build.md).
 
 ## <a name="automatic-build-on-source-code-commit"></a>Automatische build op bron code doorvoeren
 
-Gebruik ACR bouwen voor het automatisch starten van een installatiekopie van een container maken als code is doorgevoerd naar een Git-opslagplaats. Buildtaken, kunnen worden geconfigureerd met de Azure CLI-opdracht [az acr opbouwtaak][az-acr-build-task], kunt u een Git-opslagplaats en eventueel een vertakking en Dockerfile opgeven. Als uw team doorgevoerd code aan de opslagplaats, activeert een webhook ACR bouwen gemaakt een build van de installatiekopie van de container gedefinieerd in de opslagplaats.
+Gebruik ACR Build om automatisch een containerinstallatiekopie bouwen wanneer code wordt doorgevoerd aan een Git-opslagplaats. Buildtaken, kunnen worden geconfigureerd met de Azure CLI-opdracht [az acr build-taak][az-acr-build-task], kunt u een Git-opslagplaats en eventueel een vertakking en docker-bestand op te geven. Als uw team code naar de opslagplaats doorvoeringen, wordt een build van de containerinstallatiekopie die is gedefinieerd in de opslagplaats geactiveerd door een webhook ACR Build-gemaakt.
 
-Meer informatie over het activeren van builds op bron code doorvoeren in de tweede ACR bouwen zelfstudie [automatiseren container image te maken met het register van Container in Azure bouwen](container-registry-tutorial-build-task.md).
+Meer informatie over het activeren van builds op bron code doorvoeren in de tweede ACR Build zelfstudie [automatiseren containerinstallatiekopie maakt met Azure Container Registry Build](container-registry-tutorial-build-task.md).
 
-## <a name="automate-os-and-framework-patching"></a>OS- en framework patchen automatiseren
+## <a name="automate-os-and-framework-patching"></a>OS- en framework patching uit handen automatiseren
 
-De kracht van ACR bouwen voor het verbeteren van de container build-pipeline echt zijn afkomstig van de mogelijkheid voor het detecteren van een update aan voor een basisinstallatiekopie. Wanneer de bijgewerkte installatiekopie toe aan het register wordt doorgeschoven, kan ACR bouwen automatisch samenstellen op basis van deze toepassing afbeeldingen.
+De kracht van de ACR Build voor het verbeteren van uw container build-pijplijn echt zijn afkomstig uit de mogelijkheid voor het detecteren van een update naar een basisinstallatiekopie. Wanneer de bijgewerkte installatiekopie naar het register is gepusht, bouwen ACR Build automatisch op basis van deze toepassing afbeeldingen.
 
-Container afbeeldingen kunnen ruwweg worden onderverdeeld in *base* installatiekopieën en *toepassing* installatiekopieën. Uw basisinstallatiekopieën omvatten het besturingssysteem en App-frameworks waarop uw toepassing is gebouwd, samen met andere aanpassingen. Deze basisinstallatiekopieën zijn zelf meestal gebaseerd op openbare upstream-installatiekopieën, bijvoorbeeld [Alpine Linux] [ base-alpine] of [Node.js][base-node]. Enkele van uw toepassing afbeeldingen mogelijk een algemene basisinstallatiekopie delen.
+Containerinstallatiekopieën kunnen grotendeels worden onderverdeeld in *basis* afbeeldingen en *toepassing* afbeeldingen. De basisinstallatiekopieën bevatten doorgaans het besturingssysteem en toepassingsframeworks waarop uw toepassing is gemaakt, samen met andere aanpassingen. Deze basisinstallatiekopieën zijn doorgaans gebaseerd op openbare upstream afbeeldingen, bijvoorbeeld [Alpine Linux] [ base-alpine] of [Node.js][base-node]. Verschillende van uw toepassingsinstallatiekopieën mogelijk delen een gemeenschappelijke basisinstallatiekopie.
 
-Wanneer de installatiekopie van een besturingssysteem of app-framework wordt bijgewerkt door de upstream maintainer, moet bijvoorbeeld met een kritieke OS beveiligingspatch, u ook bijwerken uw basisinstallatiekopieën met de kritieke correctie. De installatiekopie van elke toepassing moet vervolgens ook opnieuw worden opgebouwd zodanig dat deze upstream oplossingen nu opgenomen in uw basisinstallatiekopie.
+Wanneer de installatiekopie van een besturingssysteem of app-framework wordt bijgewerkt door de upstream maintainer, moet bijvoorbeeld met een kritieke OS-beveiligingspatch, u ook bijwerken de basisinstallatiekopieën om op te nemen van de kritieke oplossing. De installatiekopie van elke toepassing moet vervolgens ook opnieuw worden opgebouwd zodanig dat deze upstream oplossingen nu opgenomen in de basisinstallatiekopie.
 
-Omdat ACR bouwen basisinstallatiekopie afhankelijkheden dynamisch ontdekt bij het samenstellen van een installatiekopie van een container, kunnen worden gedetecteerd wanneer de basisinstallatiekopie van de toepassingsinstallatiekopie van een wordt bijgewerkt. Met een vooraf geconfigureerde [bouwen taak](container-registry-tutorial-base-image-update.md#create-build-task), ACR bouwen vervolgens **automatisch wordt de installatiekopie van elke toepassing** voor u. Met deze automatische detectie en opnieuw opbouwen, ACR bouwen bespaart u tijd en moeite normaal gesproken nodig om handmatig te volgen en elke toepassing bijwerken die verwijzen naar uw bijgewerkte basisinstallatiekopie een installatiekopie.
+Omdat de basisinstallatiekopie afhankelijkheden ACR Build dynamisch worden gedetecteerd bij het samenstellen van een containerinstallatiekopie, kan detecteren wanneer de basisinstallatiekopie van de toepassingsinstallatiekopie van een wordt bijgewerkt. Met een vooraf geconfigureerde [taak bouwen](container-registry-tutorial-base-image-update.md#create-build-task), ACR Build vervolgens **automatisch wordt de installatiekopie van elke toepassing** voor u. Met deze automatische detectie en opnieuw opbouwen, ACR Build bespaart u tijd en energie normaal gesproken moeten handmatig bijhouden en bijwerken van elke toepassing een installatiekopie van die verwijzen naar uw bijgewerkte basisinstallatiekopie.
 
-Meer informatie over het besturingssysteem en framework patchen in de zelfstudie derde ACR bouwen [automatiseren installatiekopie is gebaseerd op update basisinstallatiekopie met Azure Container register bouwen](container-registry-tutorial-base-image-update.md).
+Meer informatie over het besturingssysteem en framework patching uit handen in de zelfstudie derde ACR Build [automatiseren installatiekopie is gebaseerd op updates van basisinstallatiekopieën met Azure Container Registry Build](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Voor de eerste preview bouwt basisinstallatiekopie updates trigger alleen wanneer de basis- en toepassingsproblemen afbeeldingen zich in het register met dezelfde Azure-container bevinden.
+> Basisinstallatiekopie updates trigger bouwt voor de eerste Preview-versie, alleen wanneer de basis- en de toepassingsdatabase afbeeldingen bevinden zich in dezelfde Azure container registry.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Wanneer u klaar bent om OS en framework patchen door het maken van installatiekopieën container in de cloud te automatiseren, controleert u uit de drie delen ACR bouwen zelfstudie reeks.
+Wanneer u klaar om OS en framework patchen bent met het bouwen van uw containerinstallatiekopieën in de cloud te automatiseren, bekijk de driedelige ACR Build zelfstudie serie.
 
 > [!div class="nextstepaction"]
-> [Maken van installatiekopieën van de container in de cloud met Azure Container register bouwen](container-registry-tutorial-quick-build.md)
+> [Zelfstudie: Containerinstallatiekopieën bouwen in de cloud met Azure Container Registry Build](container-registry-tutorial-quick-build.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Cloud Foundry op Microsoft Azure | Microsoft Docs
-description: OSS of belangrijke Cloud Foundry uitvoeren in Microsoft Azure
+description: OSS of Pivotal Cloud Foundry uitvoeren op Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
@@ -17,54 +17,54 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
 ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187756"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972288"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry op Azure
 
-Cloud Foundry is een open source platform-as-a-service (PaaS) voor het bouwen, te implementeren en gebruiken van 12-factor-toepassingen die in verschillende talen en frameworks ontwikkeld. Dit document beschrijft de opties die u hebt voor het uitvoeren van de Cloud Foundry op Azure en hoe u kunt aan de slag.
+Cloud Foundry is een open-source platform-as-a-service (PaaS) voor het bouwen, implementeren en gebruiken van 12-factor toepassingen die in verschillende talen en frameworks zijn ontwikkeld. Dit document beschrijft de opties die u hebt voor het uitvoeren van de Cloud Foundry op Azure en hoe u kunt aan de slag.
 
-## <a name="cloud-foundry-offerings"></a>De offerings Foundry cloud
+## <a name="cloud-foundry-offerings"></a>Cloud Foundry-aanbiedingen
 
-Er zijn twee soorten Cloud Foundry beschikbaar voor uitvoeren op Azure: open source Cloud Foundry (OSS CF) en belangrijke Cloud Foundry (PCF). OSS CF is een volledig [open source](https://github.com/cloudfoundry) versie van Cloud Foundry beheerd door de Cloud Foundry Foundation. Belangrijke Cloud Foundry is een enterprise-distributie van Cloud Foundry van belangrijke Software, Inc. Kijken we enkele van de verschillen tussen de twee aanbiedingen.
+Er zijn twee soorten Cloud Foundry beschikbaar om uit te voeren op Azure: open-source Cloud Foundry (OSS CF) en Pivotal Cloud Foundry (PCF). OSS CF is een volledig [open-source](https://github.com/cloudfoundry) versie van de Cloud Foundry beheerd door de Cloud Foundry Foundation. Pivotal Cloud Foundry is een enterprise-distributie van de Cloud Foundry van Pivotal Software Inc. We kijken naar enkele van de verschillen tussen de twee aanbiedingen.
 
 ### <a name="open-source-cloud-foundry"></a>Open-source Cloud Foundry
 
-U kunt OSS Cloud Foundry in Azure door eerst een directeur BOSH implementeren en het implementeren van Cloud-Foundry implementeren met behulp van de [-instructies op GitHub](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md). Zie voor meer informatie over het gebruik van OSS CF, de [documentatie](https://docs.cloudfoundry.org/) geleverd door de Cloud Foundry Foundation.
+U kunt OSS Cloud Foundry op Azure implementeren met de eerste implementatie van een directeur BOSH en het implementeren van Cloud Foundry, met behulp van de [instructies hiervoor vindt u op GitHub](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md). Zie voor meer informatie over het gebruik van OSS-CF, de [documentatie](https://docs.cloudfoundry.org/) geleverd door de Cloud Foundry Foundation.
 
-Microsoft biedt ondersteuning voor het best-effort voor OSS CF via de volgende kanalen van de community:
+Microsoft biedt ondersteuning voor het best-effort voor OSS CF via de volgende community-kanalen:
 
 - #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slackhttpsslackcloudfoundryorg"></a>bosh-azure-KPI-kanaal op [Cloud Foundry Slack](https://slack.cloudfoundry.org/)
-- [CF bosh mailinglijst](https://lists.cloudfoundry.org/pipermail/cf-bosh)
-- GitHub problemen voor de [KPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) en [service broker](https://github.com/Azure/meta-azure-service-broker/issues)
+- [CF-bosh-adressenlijst](https://lists.cloudfoundry.org/pipermail/cf-bosh)
+- GitHub-problemen voor de [KPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) en [service broker](https://github.com/Azure/meta-azure-service-broker/issues)
 
 >[!NOTE]
-> Het niveau van ondersteuning voor uw Azure-resources, zoals de virtuele machines waarop u Cloud-Foundry uitvoert is gebaseerd op de ondersteuning van Azure-overeenkomst. Communityondersteuning best effort is alleen van toepassing op de Cloud Foundry-specifieke onderdelen.
+> Het niveau van ondersteuning voor Azure-resources, zoals de virtuele machines waarop u Cloud Foundry, uitvoert, is gebaseerd op de overeenkomst van uw Azure-ondersteuning. Ondersteuning van de community van best-effort is alleen van toepassing op de Cloud Foundry-specifieke onderdelen.
 
-### <a name="pivotal-cloud-foundry"></a>Belangrijke Cloud Foundry
+### <a name="pivotal-cloud-foundry"></a>Pivotal Cloud Foundry
 
-Belangrijke Cloud Foundry bevat hetzelfde core platform als het distributiepunt OSS samen met een reeks bedrijfseigen beheerhulpprogramma's en enterprise-ondersteuning. PCF op Azure uitgevoerd, moet u een licentie van Pivotal. De aanbieding PCF vanuit Azure marketplace bevat proeflicentie is 90 dagen.
+Pivotal Cloud Foundry omvat het dezelfde kernplatform als het OSS-distributie, samen met een set eigen beheerhulpprogramma's en enterprise-ondersteuning. PCF uitvoeren op Azure, moet u een licentie van Pivotal. De aanbieding PCF in Azure marketplace bevat een 90-daagse Evaluatielicentie.
 
-De hulpprogramma's zijn [belangrijke Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), een webtoepassing die vereenvoudigt de implementatie en beheer van een basis Cloud Foundry en [belangrijke Apps Manager](https://docs.pivotal.io/pivotalcf/console/), een webtoepassing voor het beheren van gebruikers en toepassingen.
+De hulpprogramma's omvatten [Pivotal Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), een webtoepassing die vereenvoudigt de implementatie en beheer van een Cloud Foundry foundation en [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), een webtoepassing voor het beheren van gebruikers en toepassingen.
 
-Naast de ondersteuningskanalen voor OSS CF hierboven vermeld, kunt u Pivotal voor ondersteuning contact op met een licentie PCF. Microsoft en Pivotal hebben ingeschakeld ondersteuning werkstromen waarmee u beide partijen voor hulp contact op met uw vraag op de juiste wijze worden doorgestuurd, afhankelijk van waar het probleem wordt veroorzaakt.
+Naast de ondersteuningskanalen voor OSS CF hierboven vermeld, kunt een licentie PCF u contact op met Pivotal voor ondersteuning. Microsoft en Pivotal is ook voorzien van ondersteuning voor werkstromen waarmee u kunt voor hulp contact op met beide partijen en hebben uw aanvraag op de juiste wijze worden doorgestuurd, afhankelijk van waar het probleem wordt veroorzaakt.
 
 ## <a name="azure-service-broker"></a>Azure Service Broker
 
-Cloud Foundry moedigt het ['twaalf factor app'](https://12factor.net/) methodologie die bijdraagt aan een schone scheiding van toepassingsprocessen staatloze en stateful services back-ups. [Service beleggingsmakelaars](https://docs.cloudfoundry.org/services/api.html) bieden een consistente manier te richten en te binden van services voor back-ups maken van toepassingen. De [Azure service broker](https://github.com/Azure/meta-azure-service-broker) biedt enkele van de belangrijkste Azure-services via dit kanaal, met inbegrip van Azure storage en Azure SQL.
+Cloud Foundry moedigt het ['12-factor app'](https://12factor.net/) methodologie die bevordert een duidelijke scheiding van toepassingsprocessen staatloze en stateful services een back-up. [Service-brokers](https://docs.cloudfoundry.org/services/api.html) bieden een consistente manier worden ingericht en ondersteunende services binden aan toepassingen. De [Azure service broker](https://github.com/Azure/meta-azure-service-broker) biedt enkele van de belangrijkste Azure-services via dit kanaal, met inbegrip van Azure storage en Azure SQL.
 
-Als u van belangrijke Cloud Foundry gebruikmaakt, de service broker is ook [beschikbaar als een tegel](https://docs.pivotal.io/azure-sb/installing.html) vanaf het centrale netwerk.
+Als u van Pivotal Cloud Foundry gebruikmaakt, de service broker is ook [beschikbaar als een tegel](https://docs.pivotal.io/azure-sb/installing.html) vanaf het centrale netwerk.
 
 ## <a name="related-resources"></a>Gerelateerde resources
 
 ### <a name="visual-studio-team-services-plugin"></a>Visual Studio Team Services-invoegtoepassing
 
-Cloud Foundry is zeer geschikt voor ontwikkeling van flexibele software, waaronder het gebruik van continue integratie (CI) en continue levering (CD). Als u Visual Studio Team Services (VSTS) gebruiken voor het beheren van uw projecten en wilt instellen van een CI/CD pipeline die gericht is op Cloud Foundry, kunt u de [VSTS Cloud Foundry-opbouwextensie](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). De invoegtoepassing kunt u eenvoudig configureren en implementaties voor Cloud-Foundry automatiseren of uitgevoerd in Azure of een andere omgeving.
+Cloud Foundry is geschikt voor het ontwikkelen van flexibele software, waaronder het gebruik van continue integratie (CI) en continue levering (CD). Als u Visual Studio Team Services (VSTS) gebruiken voor het beheren van uw projecten en wilt instellen van een CI/CD-pijplijn die gericht is op Cloud Foundry, kunt u de [VSTS Cloud Foundry Maak extensie](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). De invoegtoepassing maakt het eenvoudig te configureren en het automatiseren van implementaties voor Cloud Foundry, of die worden uitgevoerd in Azure of een andere omgeving.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Foundry vanuit Azure Marketplace belangrijke Cloud implementeren](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
-- [Een app Foundry in Azure cloud implementeren](./cloudfoundry-deploy-your-first-app.md)
+- [Implementeren van Pivotal Cloud Foundry op Azure Marketplace](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
+- [Een app voor Cloud Foundry in Azure implementeren](./cloudfoundry-deploy-your-first-app.md)

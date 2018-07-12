@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 9decab5c35cda03e8532c48654203be7d95a5801
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: c1bf5ba68d8242a0ef0831987ac6fd041c62ace9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858840"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969364"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Zelfstudie: Azure Active Directory-integratie met publiceren boog - eenmalige aanmelding
 
@@ -149,7 +149,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     1. Klik op **Ok**
 
     > [!NOTE]
-    > Hier de **groepen** kenmerk wordt toegewezen met **user.assignedroles**. Dit zijn aangepaste rollen in Azure AD om toe te wijzen de groepsnamen terug in de toepassing hebt gemaakt. U vindt meer richtlijnen [hier](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) voor het maken van aangepaste rollen in Azure AD. 
+    > Hier de **groepen** kenmerk wordt toegewezen met **user.assignedroles**. Dit zijn aangepaste rollen in Azure AD om toe te wijzen de groepsnamen terug in de toepassing hebt gemaakt. U vindt meer richtlijnen [hier](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) voor het maken van aangepaste rollen in Azure AD. 
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 

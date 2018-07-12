@@ -1,19 +1,19 @@
 ---
 title: Overzicht van de oplossingsversneller Voorspeld onderhoud - Azure | Microsoft Docs
-description: Een overzicht van de oplossingsverbetering Azure IoT voor voorspeld onderhoud.
+description: Een overzicht van de oplossingsversneller voor Predictief onderhoud van Azure IoT.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/14/2017
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: 6bd61f301fa4468ef1d308d4da275c760ee09dc0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: ed87b3c935fe4032460f8e524f963355fb3157d9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088623"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970298"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Overzicht van de oplossingsversneller Voorspeld onderhoud
 
@@ -29,7 +29,17 @@ De blauwe items zijn Azure-services die zijn ingericht in de regio waar u de opl
 
 Het groene item is een gesimuleerd apparaat dat een vliegtuigmotor vertegenwoordigt. Meer informatie over deze gesimuleerde apparaten vindt u in het gedeelte [Gesimuleerde apparaten](#simulated-devices).
 
-De grijze items vertegenwoordigen onderdelen waarmee mogelijkheden voor *apparaatbeheer* worden geïmplementeerd. In de huidige release van de oplossingsversneller Voorspeld onderhoud worden deze resources niet ingericht. Raadpleeg voor meer informatie over het beheer van apparaten, de [oplossingsverbetering externe controle][lnk-remote-monitoring].
+De grijze items vertegenwoordigen onderdelen waarmee mogelijkheden voor *apparaatbeheer* worden geïmplementeerd. In de huidige release van de oplossingsversneller Voorspeld onderhoud worden deze resources niet ingericht. Raadpleeg voor meer informatie over het beheer van apparaten, de [oplossingsverbetering voor externe controle][lnk-remote-monitoring].
+
+## <a name="azure-resources"></a>Azure-resources
+
+Navigeer in Azure Portal naar de resourcegroep met de naam van de oplossing die u hebt gekozen om de ingerichte resources weer te geven.
+
+![][img-resource-group]
+
+Wanneer u de oplossingsversneller inricht, krijgt u een e-mailbericht met een koppeling naar de Machine Learning-werkruimte. U kunt ook navigeren naar de Machine Learning-werkruimte van de [azureiotsolutions.com] [ lnk-azureiotsuite] pagina voor de ingerichte oplossing. Op deze pagina is een tegel beschikbaar wanneer de oplossing de status **Gereed** heeft.
+
+![][img-machine-learning]
 
 ## <a name="simulated-devices"></a>Gesimuleerde apparaten
 
@@ -61,6 +71,11 @@ De **gebeurtenisprocessorhost** wordt uitgevoerd in een Azure-webtaak. De **gebe
 ## <a name="machine-learning"></a>Machine Learning
 Het Machine Learning-onderdeel maakt gebruikt van een model dat is afgeleid van gegevens die zijn verzameld bij echte vliegtuigmotoren. U kunt naar de Machine Learning-werkruimte navigeren vanaf de tegel van de oplossing op de pagina [azureiotsuite.com][lnk-azureiotsuite]. De tegel is beschikbaar wanneer de oplossing de status **Gereed** heeft.
 
+De Azure Machine Learning-model is beschikbaar als een sjabloon om deze mogelijkheden werken op basis van telemetriegegevens die zijn verzameld via IoT-oplossing accelerators services weer te geven. Microsoft heeft ontwikkeld een [regressiemodel] [ lnk_regression_model] van een vliegtuigmotor op basis van de openbaar beschikbare gegevens<sup>\[1\]</sup>, en stapsgewijze instructies over het gebruik van het model.
+
+De Azure IoT-oplossingsversneller Voorspeld onderhoud maakt gebruik van het regressiemodel dat op basis van deze sjabloon is gemaakt. Het model is geïmplementeerd in uw Azure-abonnement en is toegankelijk via een automatisch gegenereerde API. De oplossing omvat een subset met de testgegevens voor 4 (van in totaal 100) motoren en de 4 (van in totaal 21) gegevensstromen van sensoren. Deze gegevens leveren een accuraat resultaat op van het getrainde model.
+
+*\[1\] A. Saxena en K. Goebel (2008). 'Turbofan Engine Degradation Simulation Data Set', NASA Ames Prognostics Data Repository (https://c3.nasa.gov/dashlink/resources/139/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u de belangrijke onderdelen van de oplossingsversneller Voorspeld onderhoud hebt gezien, wilt u deze misschien aanpassen.
@@ -71,10 +86,13 @@ U kunt ook enkele van de andere functies en mogelijkheden van de IoT-oplossingsv
 * [Fundamentele IoT-beveiliging][lnk-security-groundup]
 
 [img-architecture]: media/iot-accelerators-predictive-walkthrough/architecture.png
+[img-resource-group]: media/iot-accelerators-predictive-walkthrough/resource-group.png
+[img-machine-learning]: media/iot-accelerators-predictive-walkthrough/machine-learning.png
 
-[lnk-remote-monitoring]: iot-accelerators-remote-monitoring-explore.md
+[lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
+[lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3

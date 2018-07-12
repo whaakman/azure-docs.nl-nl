@@ -13,26 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.author: jeedes
-ms.openlocfilehash: fbdb6d052dc3c79eeb7fefcd57f36a48ba88722f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e1788de7c2372797b2034eb1753ab435c1299889
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224732"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548271"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Zelfstudie: Azure Active Directory-integratie met Adobe Creative Cloud
 
-In deze zelfstudie leert u hoe Adobe Creative Cloud integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u over het integreren van Adobe Creative Cloud met Azure Active Directory (Azure AD).
 
-Adobe Creative Cloud integreren met Azure AD biedt de volgende voordelen:
+Integratie van Adobe Creative Cloud met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Adobe Creative Cloud heeft.
+- U kunt beheren in Azure AD die toegang tot de Adobe Creative Cloud heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Adobe Creative Cloud (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,27 +40,30 @@ Voor het configureren van Azure AD-integratie met Adobe Creative Cloud, moet u d
 
 - Een Azure AD-abonnement
 - Een Adobe Creative Cloud eenmalige aanmelding ingeschakeld abonnement
+- Een Adobe Creative Cloud Enterprise-versie vereist
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Adobe Creative Cloud uit de galerie toevoegen
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+
+1. Adobe Creative Cloud uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Adobe Creative Cloud uit de galerie toevoegen
-Voor het configureren van de integratie van Adobe Creative Cloud met Azure AD, moet u Adobe Creative Cloud uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Adobe Creative Cloud uit de galerie toe te voegen
+
+Voor het configureren van de integratie van Adobe Creative Cloud in Azure AD, moet u Adobe Creative Cloud uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Adobe Creative Cloud uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,109 +71,109 @@ Voor het configureren van de integratie van Adobe Creative Cloud met Azure AD, m
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Adobe Creative Cloud**, selecteer **Adobe Creative Cloud** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Adobe Creative Cloud in de lijst met resultaten](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met Adobe Creative Cloud op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Adobe Creative Cloud op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Adobe Creative Cloud is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Adobe Creative Cloud worden gemaakt.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Adobe Creative Cloud is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Adobe Creative Cloud tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Adobe Creative Cloud, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker Adobe Creative Cloud](#create-an-adobe-creative-cloud-test-user)**  - hebben een equivalent van Britta Simon in Adobe Creative Cloud die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Adobe Creative Cloud](#create-an-adobe-creative-cloud-test-user)**  : als u wilt een equivalent van Britta Simon in Adobe Creative Cloud die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing Adobe Creative Cloud.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Adobe Creative Cloud.
 
-**Om eenmalige aanmelding Azure AD met Adobe Creative Cloud configureert, moet u de volgende stappen uitvoeren:**
+**Voor het configureren van Azure AD eenmalige aanmelding met Adobe Creative Cloud, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **Adobe Creative Cloud** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Adobe Creative Cloud** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
-    ![Dialoogvenster voor eenmalige aanmelding](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_samlbase.png)
 
-3. Op de **Adobe Creative Cloud-domein en de URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in de IDP geïnitieerd modus:
+3. Op de **Adobe Creative Cloud domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in de modus voor IDP gestart:
 
-    ![Adobe Creative Cloud-domein en de URL's van eenmalige aanmelding informatie](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url.png)
+    ![Adobe Creative Cloud domein en URL's, eenmalige aanmelding informatie](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://www.okta.com/saml2/service-provider/<token>`
+    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://www.okta.com/saml2/service-provider/<token>`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Adobe Creative Cloud Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) ophalen van deze waarden.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [Adobe Creative Cloud Enterprise](https://www.adobe.com/au/creativecloud/business/teams/plans.html) om deze waarden te verkrijgen.
 
-4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
-    ![Adobe Creative Cloud-domein en de URL's van eenmalige aanmelding informatie](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url2.png)
+    ![Adobe Creative Cloud domein en URL's, eenmalige aanmelding informatie](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url2.png)
 
-    In de **aanmeldings-URL** textbox, typ de waarde als: `https://adobe.com`
+    In de **aanmeldings-URL** tekstvak typt u de waarde als: `https://adobe.com`
 
-5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_certificate.png)
      
-6. De SAML-asserties verwacht Adobe Creative cloudtoepassing in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken van beheren de **gebruikerskenmerk** tabblad van de toepassing. De volgende Schermafbeelding toont een voorbeeld voor deze.
+6. Adobe Creative Cloud-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerk** tabblad van de toepassing. De volgende Schermafbeelding toont een voorbeeld voor deze.
 
     ![Eenmalige aanmelding configureren](./media/adobe-creative-cloud-tutorial/tutorial_attribute.png)
 
-7. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit:
+7. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
 
     | Naam kenmerk | Waarde kenmerk |
     | ---------------| ----------------|
-    | Voornaam |User.givenName |
+    | FirstName |User.givenName |
     | LastName |User.surname |
     | Email |User.mail |
 
-    a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
+    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
 
     ![Eenmalige aanmelding configureren](./media/adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
 
     ![Eenmalige aanmelding configureren](./media/adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
 
-    b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
+    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
 
-    c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
 
     d. Klik op **OK**.
 
     > [!NOTE]
-    > Gebruikers moeten beschikken over een geldig licentie aan Office 365 ExO voor e-mail claimwaarde worden ingevuld in het SAML-antwoord.
+    > Gebruikers moeten beschikken over een geldige licentie aan Office 365 ExO voor e-mailbericht claimwaarde te worden gevuld in het SAML-antwoord.
 
 8. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/adobe-creative-cloud-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/adobe-creative-cloud-tutorial/tutorial_general_400.png)
 
-9. Op de **Adobe Creative Cloudconfiguratie** sectie, klikt u op **Adobe Creative Cloud configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt**.
+9. Op de **Adobe Creative Cloudconfiguratie** sectie, klikt u op **Adobe Creative Cloud configureren** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie**.
 
-    ![Adobe Creative Cloud-configuratie](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
+    ![Configuratie van Adobe Creative Cloud](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
 
-10. In een ander browservenster aanmelding bij [Adobe-beheerconsole](https://adminconsole.adobe.com) als beheerder.
+10. In een ander browservenster aanmelden bij [Adobe-beheerconsole](https://adminconsole.adobe.com) als beheerder.
 
-11. Ga naar **instellingen** op de bovenste navigatiebalk balk en kies vervolgens **identiteit**. De lijst met domeinen wordt geopend. Klik op **configureren** koppeling op basis van uw domein. Voer de volgende stappen uit op **eenmalige aanmelding op configuratie vereist** sectie. Zie voor meer informatie [instellen van een domein](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+11. Ga naar **instellingen** in de bovenste navigatiebalk van de balk en kies vervolgens **identiteit**. De lijst met domeinen wordt geopend. Klik op **configureren** koppeling op basis van uw domein. Voer de volgende stappen uit op **eenmalige aanmelding op configuratie vereist** sectie. Zie voor meer informatie, [instellen van een domein](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
-    ![Instellingen](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "instellingen")
+    ![Instellingen voor](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "instellingen")
 
-    a. Klik op **Bladeren** voor het uploaden van het gedownloade certificaat uit Azure AD **IDP certificaat**.
+    a. Klik op **Bladeren** voor het uploaden van het gedownloade certificaat uit Azure AD naar **IDP certificaat**.
 
-    b. In de **IDP verlener** textbox, plaatst u de waarde van **SAML entiteit-Id** die u hebt gekopieerd uit **eenmalige aanmelding configureren** sectie in Azure-portal.
+    b. In de **IDP verlener** tekstvak plaatst de waarde van **SAML entiteit-Id** die u hebt gekopieerd uit **aanmelding configureren** sectie in Azure portal.
 
-    c. In de **IDP aanmeldings-URL** textbox, plaatst u de waarde van **SAML SSO Service URL** die u hebt gekopieerd uit **eenmalige aanmelding configureren** sectie in Azure-portal.
+    c. In de **IDP aanmeldings-URL** tekstvak plaatst de waarde van **SAML SSO Service URL** die u hebt gekopieerd uit **aanmelding configureren** sectie in Azure portal.
 
     d. Selecteer **HTTP - omleiding** als **IDP Binding**.
 
@@ -178,23 +181,23 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     f. Klik op **opslaan** knop.
 
-12. Het dashboard biedt nu de XML **'Metagegevens downloaden'** bestand. Het bevat van Adobe EntityDescriptor URL's en AssertionConsumerService. Open het bestand en configureer deze in de Azure AD-toepassing.
+12. Het dashboard wordt nu het XML-bestand aanwezig **"Metagegevens downloaden"** bestand. Het bevat van Adobe EntityDescriptor URL en AssertionConsumerService URL. Open het bestand en ze configureren in de Azure AD-toepassing.
 
-    ![App-zijde eenmalige aanmelding configureren](./media/adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
+    ![Single Sign-On aan App configureren](./media/adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
     a. Gebruik de waarde van de EntityDescriptor Adobe geleverd, kunt u voor **id** op de **App-instellingen configureren** dialoogvenster.
 
     b. Gebruik de waarde van de AssertionConsumerService Adobe geleverd, kunt u voor **antwoord-URL** op de **App-instellingen configureren** dialoogvenster.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/adobe-creative-cloud-tutorial/create_aaduser_01.png)
 
@@ -202,11 +205,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/adobe-creative-cloud-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/adobe-creative-cloud-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/adobe-creative-cloud-tutorial/create_aaduser_04.png)
 
@@ -214,40 +217,40 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
-### <a name="create-an-adobe-creative-cloud-test-user"></a>Een testgebruiker Adobe Creative Cloud maken
+### <a name="create-an-adobe-creative-cloud-test-user"></a>Maak een testgebruiker Adobe Creative Cloud
 
-Om in te schakelen gebruikers van Azure AD aan te melden bij Adobe Creative Cloud, moeten ze worden ingericht in Adobe Creative Cloud. In het geval van Adobe Creative Cloud is inrichting een handmatige taak.
+Om in te schakelen in Azure AD-gebruikers zich aanmelden bij Adobe Creative Cloud, moeten ze worden ingericht voor Adobe Creative Cloud. In het geval van Adobe Creative Cloud, met de inrichting is een handmatige taak.
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:
 
 1. Aanmelden bij [Adobe-beheerconsole](https://adminconsole.adobe.com) site als beheerder.
 
-2. De gebruiker binnen de console van Adobe als federatieve ID toevoegen en toewijzen aan een profiel voor een Product. Zie voor gedetailleerde informatie over het toevoegen van gebruikers [gebruikers toevoegen in Adobe-beheerconsole](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
+2. De gebruiker binnen de console van Adobe toevoegen als federatieve-ID en deze toewijzen aan een Product-profiel. Zie voor gedetailleerde informatie over het toevoegen van gebruikers [gebruikers toevoegen in Adobe-beheerconsole](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
-3. Op dit moment Typ uw e-mailadres/upn in het formulier in Adobe aanmelding, druk op tab en u moet gefedereerd terug naar Azure AD:
+3. Op dit moment, typ uw e-mailadres/upn in de vorm van Adobe aanmelding, druk op tab en u moet worden gefedereerd terug naar Azure AD:
     * Webtoegang: www.adobe.com > aanmelden
-    * In het hulpprogramma bureaublad-app > aanmelden
+    * In het hulpprogramma voor desktop-app > aanmelden
     * In de toepassing > help > aanmelden
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Adobe Creative Cloud.
+In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Adobe Creative Cloud.
 
-![Toewijzen van de gebruikersrol][200] 
+![De de gebruikersrol toewijzen][200] 
 
-**Britta Simon om aan te wijzen Adobe Creative Cloud, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon in Adobe Creative Cloud, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **Adobe Creative Cloud**.
+2. Selecteer in de lijst met toepassingen, **Adobe Creative Cloud**.
 
-    ![De koppeling Adobe Creative Cloud in de lijst met toepassingen](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_app.png)  
+    ![De Adobe Creative Cloud-koppeling in de lijst met toepassingen](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_app.png)  
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
@@ -257,24 +260,24 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u op de tegel Adobe Creative Cloud in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Adobe Creative Cloud.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel Adobe Creative Cloud in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Adobe Creative Cloud.
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Stel een domein (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Instellen van een domein (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 * [Azure configureren voor gebruik met Adobe eenmalige aanmelding (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->

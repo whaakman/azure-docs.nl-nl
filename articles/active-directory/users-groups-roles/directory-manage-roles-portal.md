@@ -1,5 +1,5 @@
 ---
-title: De leden van een beheerdersrol weergeven in Azure Active Directory | Microsoft Docs
+title: Leden van een rol voor beheerders en rolmachtigingen weergeven in Azure Active Directory | Microsoft Docs
 description: U kunt nu zien en beheren van leden van de rol van een Azure AD-beheerder in de portal. Voor diegenen die vaak roltoewijzingen beheren.
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 588e475a451ea00e52dd995edc3f1bf0e284044f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 5a42f48e85eea95211b36e0c08dcb0edb4928a20
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871907"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38489919"
 ---
-# <a name="view-all-members-of-an-administrator-role-in-azure-active-directory"></a>Alle leden van een beheerdersrol weergeven in Azure Active Directory
+# <a name="view-members-and-descriptions-of-administrator-roles-in-azure-active-directory"></a>Leden weergeven en beschrijvingen van beheerdersrollen in Azure Active Directory
 
 U kunt nu zien en beheren van alle leden van de beheerdersrollen in de Azure Active Directory-portal. Als u vaak roltoewijzingen beheren, kunt u deze ervaring wordt waarschijnlijk liever. En als u zich ooit afgevraagd "Wat de heid moeten deze rollen echt doen?", ziet u een gedetailleerde lijst met machtigingen voor elk van de Azure AD-beheerdersrollen.
 
@@ -35,7 +35,7 @@ Selecteer de hele rij om de lijst met toegewezen leden weer te geven. U kunt sel
 
 Als u een globale beheerder of een beheerder met bevoorrechte rol bent, kunt u eenvoudig toevoegen of verwijderen leden, de lijst filteren, of Selecteer een lid gaat u naar de pagina van de gebruiker om te zien van hun actieve rollen toegewezen. 
 
-## <a name="role-details-in-the-portal"></a>Details van de rol in de portal
+## <a name="detailed-role-permissions-in-the-portal"></a>Gedetailleerde machtigingen in de portal
 
 Wanneer u de leden van een rol bekijkt, selecteert u **beschrijving** om te zien van de volledige lijst met machtigingen die zijn verleend door de roltoewijzing. De pagina bevat koppelingen naar relevante documentatie aan u te helpen bij het beheren van directory-rollen.
 

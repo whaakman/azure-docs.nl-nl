@@ -1,6 +1,6 @@
 ---
 title: Back-up en herstel na noodgevallen voor IaaS-schijven op virtuele Linux-machines in Azure | Microsoft Docs
-description: In dit artikel wordt uitgelegd hoe om te plannen voor back-up en herstel na noodgevallen van IaaS virtuele machines en de schijven in Azure. Dit document bevat informatie over beheerde en onbeheerde schijven.
+description: In dit artikel wordt uitgelegd hoe u van plan bent voor back-up en herstel na noodgevallen van IaaS virtuele machines en schijven in Azure. In dit document bevat informatie over zowel beheerde als niet-beheerde schijven.
 services: virtual-machines-linux
 cloud: Azure
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: luywang
 ms.openlocfilehash: 4decb75b8548f6b1b3ebf232c882f0c190871bac
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
-ms.locfileid: "23949200"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452379"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md)]

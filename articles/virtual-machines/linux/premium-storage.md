@@ -1,6 +1,6 @@
 ---
-title: De Premium-opslag en Azure krachtige schijven die worden beheerd voor virtuele Linux-machines | Microsoft Docs
-description: Meer informatie over hoge prestaties Premium-opslag- en beheerde schijven voor virtuele Azure-machines. Azure Active Directory-serie, DSv2-serie GS-serie en Fs-serie VMs ondersteuning voor Premium-opslag.
+title: High-performance Premium Storage en Azure beheerde schijven voor virtuele Linux-machines | Microsoft Docs
+description: Meer informatie over high-performance Premium Storage en beheerde schijven voor virtuele Azure-machines. Azure Active Directory-serie, DSv2-serie GS-serie en Fs-serie VM's die ondersteuning voor Premium Storage.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ramankumarlive
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
 ms.openlocfilehash: fa64f1f1b25646eeaaf701bb98b1a9bfd7b2166d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30318337"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38478083"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 
-### <a name="design-and-implement-with-premium-storage"></a>Ontwerpen en implementeren met Premium-opslag
-* [Ontwerpen voor prestaties voor Premium-opslag](premium-storage-performance.md)
-* [BLOB storage-bewerkingen met Premium-opslag](http://go.microsoft.com/fwlink/?LinkId=521969)
+### <a name="design-and-implement-with-premium-storage"></a>Ontwerpen en implementeren met Premium Storage
+* [Ontwerpen voor prestaties met Premium Storage](premium-storage-performance.md)
+* [BLOB-opslagbewerkingen met Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
 
 ### <a name="operational-guidance"></a>Gebruiksaanwijzing
-* [Migreren naar Azure Premium-opslag](../../storage/common/storage-migration-to-premium-storage.md)
+* [Migreren naar Azure Premium Storage](../../storage/common/storage-migration-to-premium-storage.md)
 
 ### <a name="blog-posts"></a>Blogberichten
-* [Algemeen beschikbaar Azure Premium-opslag](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
+* [Azure Premium Storage algemeen verkrijgbaar](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Aankondiging van de GS-serie: ondersteuning voor Premium-opslag toe te voegen aan de grootste virtuele machines in de openbare cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

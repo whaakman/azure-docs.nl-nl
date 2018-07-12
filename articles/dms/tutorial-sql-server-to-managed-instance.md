@@ -1,6 +1,6 @@
 ---
-title: DMS gebruiken om te migreren naar Azure SQL Database-beheerd instantie | Microsoft Docs
-description: Informatie over het migreren van SQL Server on-premises naar Azure SQL Database-beheerde exemplaar met behulp van de Service Azure Database migratie.
+title: DMS gebruiken om te migreren naar Azure SQL Database Managed Instance | Microsoft Docs
+description: Meer informatie over het migreren van on-premises SQL Server naar Azure SQL Database Managed Instance met behulp van de Azure Database Migration Service.
 services: dms
 author: edmacauley
 ms.author: edmaca
@@ -11,100 +11,100 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 05/07/2018
-ms.openlocfilehash: 86af0101d84fe9cd44211a931567a85d7b5166e0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
-ms.translationtype: MT
+ms.openlocfilehash: be007fe06f7b3354dc88e319a76715d2e94eb3fb
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261607"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971485"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>SQL-Server migreren naar Azure SQL Database beheerd exemplaar met gebruikmaking van DMS
-U kunt de Azure-Service voor het migreren van Database voor het migreren van de databases van een lokale SQL Server-exemplaar naar een [Azure SQL Database-beheerd instantie](../sql-database/sql-database-managed-instance.md). Voor extra methoden waarvoor handmatige moeite, Zie het artikel [SQL Server-exemplaar migratie naar Azure SQL Database-beheerd instantie](../sql-database/sql-database-managed-instance-migrate.md).
+# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>SQL Server migreren naar Azure SQL Database Managed Instance met behulp van DMS
+U kunt de Azure Database Migration Service gebruiken voor het migreren van de databases van een on-premises SQL Server-exemplaar naar een [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md). Voor extra methoden waarvoor handmatige moeite, Zie het artikel [SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md).
 
 > [!IMPORTANT]
-> Migratie-projecten uit SQL Server naar Azure SQL Database-beheerde exemplaar zijn Preview-versie en zijn onderworpen aan de [aanvullende gebruiksvoorwaarden voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Migratieprojecten van SQL Server naar Azure SQL Database Managed Instance zijn in preview en zijn onderworpen aan de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In deze zelfstudie maakt u de migratie de **Adventureworks2012** -database van een lokaal exemplaar van SQL Server naar een Azure SQL Database beheerd-exemplaar met behulp van de Service Azure Database migratie.
+In deze zelfstudie, migreert u de **Adventureworks2012** database uit een on-premises exemplaar van SQL Server naar een Azure SQL Database Managed Instance met behulp van de Azure Database Migration Service.
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
-> * Geen exemplaar maken van de Service Azure Database migratie.
-> * Maak een migratieproject met behulp van de Service Azure Database migratie.
-> * Voer de migratie uit.
-> * De migratie bewaken.
-> * Download een rapport voor de migratie.
+> * Maak een instantie van de Azure Database Migration Service.
+> * Een migratieproject maken met behulp van de Azure Database Migration Service.
+> * De migratie uitvoert.
+> * De migratie te bewaken.
+> * Een migratierapport downloaden.
 
 ## <a name="prerequisites"></a>Vereisten
-Voor deze zelfstudie hebt voltooid, moet u:
+Voor deze zelfstudie, moet u naar:
 
-- Een VNET maken voor de Azure-Service voor het migreren van Database met behulp van het Azure Resource Manager-implementatiemodel, waardoor site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Meer informatie over netwerktopologieën voor Azure SQL DB-beheerde exemplaar migraties met behulp van de migratie van Azure databaseservice](https://aka.ms/dmsnetworkformi).
-- Zorg ervoor dat uw Azure Virtual Network (VNET) Netwerkbeveiligingsgroep regels komen de volgende communicatie niet blokkeren 443, 53, 9354 poort, 445, 12000. Zie het artikel voor meer informatie over het Azure VNET NSG wordt verkeer gefilterd [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-- Configureer uw [Windows Firewall voor toegang tot de gegevensbron database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Open Windows Firewall zodat de Service Azure Database migratie voor toegang tot de bron van SQL Server, die standaard TCP-poort 1433.
-- Als u meerdere benoemde exemplaren van SQL Server met behulp van dynamische poorten worden uitgevoerd, kunt u desgewenst de SQL Browser-Service inschakelen en toegang tot de UDP-poort 1434 via uw firewalls toestaan, zodat de migratie van Azure databaseservice verbinding met een benoemd exemplaar op de bron maken kan -Server.
-- Als u van een firewallapparaat voor uw brondatabases gebruikmaakt, moet u mogelijk firewallregels zodat de Service Azure Database migratie voor toegang tot de bron-databases voor migratie, evenals bestanden via het SMB-poort 445 toevoegen.
-- Maken van een Azure SQL Database beheerd-instantie aan de hand van de details in het artikel [maken van een Azure SQL Database beheerd-exemplaar in de Azure portal](https://aka.ms/sqldbmi).
-- Zorg ervoor dat de aanmeldingen gebruikt voor het verbinding maken met de bron van SQL Server en de doelinstantie van beheerde leden van de serverrol sysadmin.
-- Maak een netwerkshare die de migratie van Azure databaseservice gebruiken kunt voor back-up van de brondatabase.
-- Zorg ervoor dat het serviceaccount dat de bron met SQL Server-exemplaar heeft schrijfrechten op de netwerkshare die u hebt gemaakt en dat het computeraccount voor de bronserver lees-/ schrijftoegang tot dezelfde share heeft.
-- Maak een notitie van een Windows-gebruiker (en wachtwoord) die de machtiging Volledig beheer heeft op de netwerkshare die u eerder hebt gemaakt. De migratie van Azure databaseservice imiteert de gebruikersreferenties voor het uploaden van de back-upbestanden naar Azure storage-container voor restore-bewerking.
-- Maken van een blob-container en de SAS URI ophalen met behulp van de stappen in het artikel [beheren Azure Blob Storage-resources met Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), moet u alle machtigingen (lezen, schrijven, verwijderen, lijst) in het venster beleid tijdens selecteren maken van de SAS-URI. Dit is de Azure migratie databaseservice met toegang tot uw storage-account-container voor het uploaden van de back-upbestanden gebruikt voor het migreren van databases naar Azure SQL Database beheerd exemplaar
+- Een VNET maken voor de Azure Database Migration Service met behulp van het Azure Resource Manager-implementatiemodel, waarmee u site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Netwerktopologieën voor migraties van Azure SQL database Managed Instance met behulp van de Azure Database Migration Service meer](https://aka.ms/dmsnetworkformi).
+- Zorg ervoor dat uw Azure Virtual Network (VNET) Network Security Group regels Doe het volgende communicatie niet blokkeren 443, 53, 9354 poort, 445, 12000. Zie het artikel voor meer informatie over Azure VNET NSG wordt verkeer gefilterd, [netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Configureer uw [Windows Firewall voor toegang tot de bron database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- Open uw Windows-Firewall voor de Azure Database Migration Service voor toegang tot de bron-SQL-Server, die standaard TCP-poort 1433.
+- Als u meerdere benoemde SQL Server-exemplaren met behulp van dynamische poorten uitvoert, kunt u desgewenst de SQL Browser-Service inschakelen en toegang tot de UDP-poort 1434 via uw firewalls toestaan, zodat de Azure Database Migration Service verbinding met een benoemd exemplaar op de bron maken kan de server.
+- Als u van een firewallapparaat vóór de brondatabases gebruikmaakt, moet u mogelijk om toe te voegen firewallregels om toe te staan de Azure Database Migration Service voor toegang tot de brondatabase (s) voor migratie, evenals de bestanden via SMB-poort 445.
+- Een Azure SQL Database Managed Instance maken door het volgen van de details in het artikel [maken van een Azure SQL Database Managed Instance in de Azure portal](https://aka.ms/sqldbmi).
+- Zorg ervoor dat de aanmeldingen dat is gebruikt voor het verbinding maken met de bron-SQL Server en de doelinstantie van beheerde leden van de serverrol sysadmin.
+- Maak een netwerkshare die de Azure Database Migration Service gebruiken kunt om back-up van de brondatabase.
+- Zorg ervoor dat de serviceaccount met de bron SQL Server-exemplaar heeft schrijfbevoegdheid op de netwerkshare die u hebt gemaakt en dat het computeraccount voor de bronserver voor lezen/schrijven toegang tot de dezelfde share heeft.
+- Maak een notitie van een Windows-gebruiker (en wachtwoord) die het volledige beheer heeft op de netwerkshare die u eerder hebt gemaakt. Azure Database Migration Service imiteert de gebruikersreferenties voor het uploaden van de back-upbestanden naar Azure storage-container voor de herstelbewerking.
+- Een blob-container maken en de SAS-URI ophalen met behulp van de stappen in het artikel [beheren Azure Blob Storage-resources met Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), zorg ervoor dat u alle machtigingen (lezen, schrijven, verwijderen, lijst) in het venster terwijl voor beleid selecteren het maken van de SAS-URI. Deze details biedt de Azure Database Migration Service toegang tot de container van het opslagaccount voor het uploaden van de back-upbestanden die wordt gebruikt voor het migreren van databases naar Azure SQL Database Managed Instance
 
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>De registerbronprovider is Microsoft.DataMigration
+## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registreer de Microsoft.DataMigration-resourceprovider
 
-1. Aanmelden bij de Azure portal, selecteer **alle services**, en selecteer vervolgens **abonnementen**.
+1. Meld u aan bij de Azure portal, selecteer **alle services**, en selecteer vervolgens **abonnementen**.
 
-    ![Portal abonnementen weergeven](media\tutorial-sql-server-to-managed-instance\portal-select-subscriptions.png)        
+    ![Portal-abonnementen weergeven](media\tutorial-sql-server-to-managed-instance\portal-select-subscriptions.png)        
 
 2. Selecteer het abonnement waarin u het Azure Database Migration Service-exemplaar wilt maken en selecteer vervolgens **Resourceproviders**.
 
-    ![resourceproviders weergeven](media\tutorial-sql-server-to-managed-instance\portal-select-resource-provider.png)
+    ![Resourceproviders weergeven](media\tutorial-sql-server-to-managed-instance\portal-select-resource-provider.png)
 
-3. Zoekcriteria voor de migratie en rechts van **Microsoft.DataMigration**, selecteer **registreren**.
+3. Zoekactie voor migratie en klikt u vervolgens aan de rechterkant van **Microsoft.DataMigration**, selecteer **registreren**.
 
     ![Resourceprovider registreren](media\tutorial-sql-server-to-managed-instance\portal-register-resource-provider.png)   
 
-## <a name="create-an-azure-database-migration-service-instance"></a>Azure-Database migratieservice-exemplaar maken
+## <a name="create-an-azure-database-migration-service-instance"></a>Azure Database Migration Service-exemplaar maken
 
-1. Selecteer in de Azure-portal + **maken van een resource**, zoeken naar **Azure migratie databaseservice**, en selecteer vervolgens **Migratieservice voor Azure-Database** in de vervolgkeuzelijst een lijst.
+1. Selecteer in de Azure portal + **een resource maken**, zoeken naar **Azure Database Migration Service**, en selecteer vervolgens **Azure Database Migration Service** in de vervolgkeuzelijst de lijst.
 
      ![Azure Marketplace](media\tutorial-sql-server-to-managed-instance\portal-marketplace.png)
 
-2. Op de **Azure migratie databaseservice** Schakel in het scherm **maken**.
+2. Op de **Azure Database Migration Service** scherm, selecteer **maken**.
 
-    ![Azure-Database migratieservice-exemplaar maken](media\tutorial-sql-server-to-managed-instance\dms-create1.png)
+    ![Azure Database Migration Service-exemplaar maken](media\tutorial-sql-server-to-managed-instance\dms-create1.png)
 
 3. Op de **migratieservice maken** scherm, Geef een naam voor de service, het abonnement en een nieuwe of bestaande resourcegroep.
 
-4. Selecteer een bestaand virtueel netwerk (VNET) of een maken.
+4. Selecteer een bestaand virtueel netwerk (VNET) of maak een.
  
-    Het VNET biedt de Service Azure Database migratie met toegang tot de SQL Server-bron en doel beheerde exemplaar van Azure SQL Database.
+    Het VNET biedt de Azure Database Migration Service toegang tot de bron-SQL Server en het doel-Azure SQL Database Managed Instance.
 
-    Raadpleeg het artikel voor meer informatie over het maken van een VNET in Azure portal [een virtueel netwerk maken met de Azure-portal](https://aka.ms/DMSVnet).
+    Zie het artikel voor meer informatie over het maken van een VNET in Azure portal [een virtueel netwerk maken met de Azure-portal](https://aka.ms/DMSVnet).
 
-    Zie voor aanvullende details over het artikel [netwerk topologieën voor Azure SQL DB-beheerde exemplaar migraties met behulp van de migratie van Azure databaseservice](https://aka.ms/dmsnetworkformi).
+    Voor aanvullende informatie, Zie het artikel [netwerktopologieën voor migraties van Azure SQL database Managed Instance met behulp van de Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
 5. Selecteer een prijscategorie.
 
-    Zie voor meer informatie over de kosten en Prijscategorieën de [pagina met prijzen](https://aka.ms/dms-pricing).
+    Zie voor meer informatie over de kosten en Prijscategorieën, de [pagina met prijzen](https://aka.ms/dms-pricing).
    
     ![DMS-Service maken](media\tutorial-sql-server-to-managed-instance\dms-create-service1.png)
 
-6.  Selecteer **maken** de service te maken.
+6.  Selecteer **maken** om de service te maken.
 
 ## <a name="create-a-migration-project"></a>Een migratieproject maken
 
-Nadat de service is gemaakt, zoeken binnen de Azure-portal, opent u het en maak vervolgens een nieuw migratieproject.
+Nadat de service is gemaakt, zoeken in Azure portal, opent u het en maak vervolgens een nieuw migratieproject voor.
 
-1. Selecteer in de Azure-portal **alle services**, zoeken naar Azure Database migratie-Service en selecteer vervolgens **Azure migratie databaseservices**.
+1. Selecteer in de Azure portal, **alle services**, zoeken naar Azure Database Migration Service, en selecteer vervolgens **Azure Database Migration service**.
 
-    ![Alle exemplaren van de Azure-Service voor het migreren van Database vinden](media\tutorial-sql-server-to-azure-sql\dms-search.png)
+    ![Zoeken naar alle exemplaren van de Azure Database Migration Service](media\tutorial-sql-server-to-azure-sql\dms-search.png)
 
-2. Op de **Azure migratie databaseservice scherm**, zoekt u de naam van het exemplaar gemaakt en selecteer vervolgens het exemplaar.
+2. Op de **Azure Database Migration Service scherm**, zoekt u de naam van het exemplaar dat u hebt gemaakt en selecteer vervolgens het exemplaar.
  
 3. Selecteer + **nieuw migratieproject**.
 
-4. Op de **nieuw migratieproject** scherm, Geef een naam voor het project in de **server gegevensbrontype** in het tekstvak, selecteer **SQL Server**, en klik vervolgens in de **doel servertype** in het tekstvak, selecteer **Azure SQL Database-beheerd instantie**.
+4. Op de **nieuw migratieproject** scherm, Geef een naam voor het project in de **bronservertype** tekstvak, selecteer **SQL Server**, en klik vervolgens in de **doel servertype** tekstvak, selecteer **Azure SQL Database Managed Instance**.
 
    ![DMS-Project maken](media\tutorial-sql-server-to-managed-instance\dms-create-project1.png)
 
@@ -112,88 +112,96 @@ Nadat de service is gemaakt, zoeken binnen de Azure-portal, opent u het en maak 
 
 ## <a name="specify-source-details"></a>Geef details van gegevensbron
 
-1. Op de **bron details** scherm, geeft u de verbindingsgegevens voor de bron van SQL Server.
+1. Op de **details van de gegevensbron** scherm, geef de details van de verbinding voor de bron-SQL Server.
 
-2. Als u een vertrouwd certificaat niet op uw server hebt geïnstalleerd, selecteert u de **vertrouwensrelatie servercertificaat** selectievakje.
+2. Als u een vertrouwd certificaat niet op uw server hebt geïnstalleerd, selecteert u de **servercertificaat vertrouwen** selectievakje.
 
-    Wanneer een vertrouwd certificaat niet is geïnstalleerd, wordt door SQL Server een zelfondertekend certificaat gegenereerd wanneer het exemplaar wordt gestart. Dit certificaat wordt gebruikt voor het versleutelen van de referenties voor clientverbindingen.
+    Wanneer een vertrouwd certificaat niet is geïnstalleerd, wordt SQL Server een zelfondertekend certificaat gegenereerd wanneer het exemplaar wordt gestart. Dit certificaat wordt gebruikt voor het versleutelen van de referenties voor clientverbindingen.
 
     > [!CAUTION]
-    > SSL-verbindingen die zijn versleuteld met behulp van een zelfondertekend certificaat heeft geen sterke beveiliging bieden. Ze zijn vatbaar voor man-in-the-middle-aanvallen. Vertrouw niet op SSL zelfondertekende certificaten in een productieomgeving of op servers die zijn verbonden met internet.
+    > SSL-verbindingen die zijn versleuteld met behulp van een zelfondertekend certificaat zorgt niet voor sterke beveiliging. Ze zijn vatbaar voor man-in-the-middle-aanvallen. U moet niet vertrouwen op SSL met behulp van zelfondertekende certificaten in een productieomgeving of op servers die zijn verbonden met internet.
 
    ![Details van gegevensbron](media\tutorial-sql-server-to-managed-instance\dms-source-details1.png)
 
 3. Selecteer **Opslaan**.
 
-4. Op de **brondatabases selecteren** scherm, selecteert u de **Adventureworks2012** database voor de migratie.
+4. Op de **de brondatabases selecteren** scherm, selecteert u de **Adventureworks2012** database voor migratie.
 
-   ![Selecteer de brondatabases](media\tutorial-sql-server-to-managed-instance\dms-source-database1.png)
+   ![De brondatabases selecteren](media\tutorial-sql-server-to-managed-instance\dms-source-database1.png)
 
 5. Selecteer **Opslaan**.
 
 ## <a name="specify-target-details"></a>Geef Doeldetails op
 
-1.  Op de **doel details** scherm, geeft u de verbindingsgegevens voor het doel, het vooraf is ingericht Azure SQL Database beheerd exemplaar waarnaar is de **AdventureWorks2012** database gemigreerd.
+1.  Op de **gericht op details** scherm, geef de details van de verbinding voor het doel is van de vooraf ingerichte Azure SQL Database Managed Instance waarop de **AdventureWorks2012** database moet worden gemigreerd.
 
-    Als u de Azure SQL Database beheerd exemplaar nog niet hebt ingericht, selecteert u **Nee** voor een koppeling voor hulp bij het inrichten van het exemplaar. U kunt nog steeds verdergaan met het maken van het project en vervolgens, wanneer het Azure SQL Database beheerd-exemplaar gereed is, terug naar dit specifieke project uit te voeren van de migratie.   
+    Als u de Azure SQL Database Managed Instance nog niet hebt ingericht, selecteert u **geen** voor een koppeling bij het inrichten van het exemplaar. U kunt nog steeds doorgaan met het maken van het project en vervolgens, wanneer de Azure SQL Database Managed Instance klaar bent is, Ga terug naar dit specifieke project voor het uitvoeren van de migratie.   
  
        ![Doel selecteren](media\tutorial-sql-server-to-managed-instance\dms-target-details1.png)
 
 2.  Selecteer **Opslaan**.
 
-3.  Op de **Projectsamenvatting** scherm bekijken en controleer de gegevens die zijn gekoppeld aan het migratieproject.
+3.  Op de **projectoverzicht** scherm, controleren en verifiëren van de gegevens die zijn gekoppeld aan het migratieproject.
  
-    ![Overzicht migratieproject](media\tutorial-sql-server-to-managed-instance\dms-project-summary1.png)
+    ![Migratieproject samenvatting](media\tutorial-sql-server-to-managed-instance\dms-project-summary1.png)
 
 4.  Selecteer **Opslaan**.   
 
 ## <a name="run-the-migration"></a>De migratie uitvoeren
 
-1.  De laatst opgeslagen project selecteert, selecteert u + **nieuwe activiteit**, en selecteer vervolgens **migratie uitvoeren**.
+1.  Selecteer de laatst opgeslagen project, selecteer + **nieuwe activiteit**, en selecteer vervolgens **migratie uitvoeren**.
 
     ![Nieuwe activiteit maken](media\tutorial-sql-server-to-managed-instance\dms-create-new-activity1.png)
 
-2.  Wanneer u wordt gevraagd, voer de referenties van de bron- en doelservers en selecteer vervolgens **opslaan**.
+2.  Wanneer u hierom wordt gevraagd, voert u de referenties van de bron- en doelservers en selecteer vervolgens **opslaan**.
 
-3.  Op de **brondatabases selecteren** scherm, selecteert u de database die u wilt migreren.
+3.  Op de **de brondatabases selecteren** scherm, selecteert u de brondatabase (s) die u wilt migreren.
 
-    ![Selecteer de brondatabases](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases1.png)
+    ![De brondatabases selecteren](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases2.png)
 
-4.  Selecteer **opslaan**, en klik vervolgens op de **migratie-instellingen configureren** scherm, bieden de volgende details:
+4.  Selecteer **opslaan**, en klik vervolgens op de **aanmeldingen selecteren** scherm, selecteert u de aanmeldingen die u wilt migreren.
+
+    De huidige versie ondersteunt alleen migreren SQL-aanmeldingen.
+
+    ![Aanmeldingen selecteren](media\tutorial-sql-server-to-managed-instance\dms-select-logins.png)
+
+5. Selecteer **opslaan**, en klik vervolgens op de **migratie-instellingen configureren** scherm, vindt u de volgende informatie:
 
     | | |
     |--------|---------|
-    |**Locatie netwerkshare** | Het lokale netwerk delen dat de Service Azure Database migratie kan duren voordat de bron databaseback-ups op. Het serviceaccount met een exemplaar van SQL Server bron moet schrijfmachtigingen hebben op deze netwerkshare. Geef een FQDN-naam of IP-adressen van de server in de netwerkshare, bijvoorbeeld '\\\servername.domainname.com\backupfolder' of '\\\IP address\backupfolder'.|
-    |**Gebruikersnaam** | De windows-gebruikersnaam dat de migratie van Azure databaseservice kan imiteren en de back-upbestanden naar Azure storage-container voor restore-bewerking uploaden. |
+    |**Netwerklocatieshare** | Het lokale netwerk delen dat de Azure Database Migration Service kan duren voordat de bron databaseback-ups op. Het serviceaccount waarop SQL Server-bronexemplaar wordt uitgevoerd moet schrijfmachtigingen hebben op deze netwerkshare. Geef een FQDN-naam of IP-adressen van de server in de netwerkshare, bijvoorbeeld '\\\servername.domainname.com\backupfolder' of '\\\IP address\backupfolder'.|
+    |**Gebruikersnaam** | De windows-gebruikersnaam die de Azure Database Migration Service kan imiteren en de back-bestanden naar Azure storage-container voor de herstelbewerking uploaden. |
     |**Wachtwoord** | Wachtwoord voor de gebruiker. |
-    |**Instellingen voor de opslag** | De SAS-URI waarmee de Service Azure Database migratie met toegang tot uw storage-account-container waarnaar de service de back-up van bestanden en die uploadt wordt gebruikt voor het migreren van databases naar Azure SQL Database-beheerde exemplaar. [Meer informatie over het ophalen van de SAS-URI voor blob-container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
+    |**Opslagaccountinstellingen** | De SAS-URI die de Azure Database Migration Service toegang tot de container van het opslagaccount waarnaar de service wordt geüpload de back-up maken van bestanden en die wordt gebruikt voor het migreren van databases naar Azure SQL Database Managed Instance. [Informatie over het verkrijgen van de SAS-URI voor de blob-container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
     
-    ![Migratie-instellingen configureren](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings1.png)
+    ![Migratie-instellingen configureren](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings2.png)
 
-5.  Selecteer **opslaan**, en klik vervolgens op de **migratie samenvatting** scherm in de **activiteitsnaam** tekst, geeft u een naam voor de migratieactiviteit.
+5.  Selecteer **opslaan**, en klik vervolgens op de **overzicht Objectmigratie** scherm, in de **activiteitnaam** tekst, geeft u een naam voor de migratieactiviteit.
 
-6. Vouw de **validatieoptie** sectie om weer te geven de **validatie optie** scherm, Geef op of de gemigreerde database query juist valideren, en selecteer vervolgens **opslaan** .  
+    ![Overzicht van migratie](media\tutorial-sql-server-to-managed-instance\dms-migration-summary2.png)
 
-    ![Samenvatting van de migratie](media\tutorial-sql-server-to-managed-instance\dms-migration-summary1.png)
+6. Vouw de **validatieoptie** sectie om weer te geven de **validatieoptie kiezen** scherm, Geef op of de gemigreerde database voor de juistheid van query valideren, en selecteer vervolgens **opslaan** .  
 
 7. Selecteer **migratie uitvoeren**.
 
-    Het venster van de activiteit migratie wordt weergegeven en de status van de activiteit **in behandeling**.
+    Het venster van de activiteit migratie wordt weergegeven, en de status van de activiteit **in behandeling**.
 
-   ![Migratieactiviteiten in behandeling](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-pending.png)
+## <a name="monitor-the-migration"></a>De migratie controleren
 
-## <a name="monitor-the-migration"></a>De migratie bewaken
-
-1. Selecteer op het scherm van de activiteit migratie **vernieuwen** om de weergave bijwerken totdat u ziet dat de status van de migratie wordt weergegeven als **voltooid**.
+1. Selecteer op het scherm van de activiteit migratie **vernieuwen** naar de weergave bijwerken.
  
-   ![De migratieactiviteit is voltooid](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-finished.png)
+   ![Migratieactiviteit wordt uitgevoerd](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-in-progress.png)
 
-2. Nadat de migratie is voltooid, selecteert u **Download rapport** ophalen van een rapport met gegevens die zijn gekoppeld aan het migratieproces.
+2. U kunt de databases en aanmeldingen categorieën voor het controleren van de migratiestatus van de respectieve serverobjecten verder uitbreiden.
+
+   ![Migratieactiviteit wordt uitgevoerd](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-monitor.png)
+
+3. Nadat de migratie is voltooid, selecteert u **rapport downloaden** om op te halen van een rapport met gegevens die zijn gekoppeld aan het migratieproces.
  
-3. Controleren of de doeldatabase op de Azure SQL Database-beheerd instantie doelomgeving.
+4. Controleren of de doeldatabase op de doel-Azure SQL Database Managed Instance-omgeving.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een zelfstudie waarin u een database migreren naar een beheerde-exemplaar met de opdracht RESTORE T-SQL, [een back-up herstellen naar een exemplaar beheerd met behulp van de opdracht restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- Zie voor meer informatie over beheerde exemplaar [wat is er een exemplaar beheerd](../sql-database/sql-database-managed-instance.md).
-- Zie voor meer informatie over het aansluiten van apps op een beheerde exemplaar [verbinding maken met toepassingen](../sql-database/sql-database-managed-instance-connect-app.md).
+- Zie voor een zelfstudie wordt uitgelegd hoe u een database migreren naar een beheerd exemplaar met de T-SQL terugzetten opdracht u [een back-up herstellen naar een beheerd exemplaar met behulp van de opdracht restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- Zie voor meer informatie over Managed Instance [wat is een beheerd exemplaar](../sql-database/sql-database-managed-instance.md).
+- Zie voor meer informatie over het verbinden van apps naar een beheerd exemplaar [toepassingen verbinden met](../sql-database/sql-database-managed-instance-connect-app.md).

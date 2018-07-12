@@ -14,20 +14,20 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: tdykstra
-ms.openlocfilehash: 0179a48b74ef0e37d3ac2e7fd18d43e488a89823
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 020a775c45ef3c46f9dfc5da7d4a7e470def4705
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341379"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969908"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Duurzame functies publiceren naar Azure Event Grid (preview)
 
-In dit artikel laat zien hoe het instellen van duurzame functies van Azure voor het publiceren van gebeurtenissen in de orchestration levensduur (zoals gemaakt, voltooide en mislukte) op een aangepast [Azure Event Grid-onderwerp](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
+In dit artikel laat zien hoe het instellen van duurzame functies van Azure voor het publiceren van gebeurtenissen in de orchestration levensduur (zoals gemaakt, voltooide en mislukte) op een aangepast [Azure Event Grid-onderwerp](https://docs.microsoft.com/azure/event-grid/overview). 
 
 Hier volgen enkele scenario's waarin deze functie handig is:
 
-* **DevOps-scenario's, zoals blue/green implementaties**: U wilt weten of er taken worden uitgevoerd voordat u implementeert de [side-by-side-implementatiestrategie](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
+* **DevOps-scenario's, zoals blue/green implementaties**: U wilt weten of er taken worden uitgevoerd voordat u implementeert de [side-by-side-implementatiestrategie](https://docs.microsoft.com/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
 
 * **Geavanceerde ondersteuning voor controle en diagnose**: U kunt bijhouden van orchestration statusinformatie in een externe opslag die is geoptimaliseerd voor query's, zoals SQL-database of cosmos DB.
 
@@ -36,19 +36,19 @@ Hier volgen enkele scenario's waarin deze functie handig is:
 ## <a name="prerequisites"></a>Vereisten
 
 * Installeer [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc of later in uw project duurzame functies.
-* Installeer [Azure-Opslagemulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator).
-* Installeer [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) of gebruik [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+* Installeer [Azure-Opslagemulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
+* Installeer [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) of gebruik [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Een aangepast Event Grid-onderwerp maken
 
 Maak een Event Grid-onderwerp voor het verzenden van gebeurtenissen van duurzame functies. De volgende instructies laten zien hoe u een onderwerp maakt met behulp van Azure CLI. Raadpleeg de volgende artikelen voor meer informatie over hoe u doet dit met behulp van PowerShell of Azure portal:
 
-* [EventGrid Quickstarts: Aangepaste een gebeurtenis maken - PowerShell](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-powershell)
-* [EventGrid Quickstarts: Een aangepaste gebeurtenis - Azure portal maken](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal)
+* [EventGrid Quickstarts: Aangepaste een gebeurtenis maken - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
+* [EventGrid Quickstarts: Een aangepaste gebeurtenis - Azure portal maken](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de `az group create` opdracht. Event Grid ondersteunt op dit moment niet alle regio's. Zie voor meer informatie over welke regio's worden ondersteund, de [overzicht van Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
+Maak een resourcegroep met de `az group create` opdracht. Event Grid ondersteunt op dit moment niet alle regio's. Zie voor meer informatie over welke regio's worden ondersteund, de [overzicht van Event Grid](https://docs.microsoft.com/azure/event-grid/overview). 
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -115,7 +115,7 @@ De app-instelling voor de sleutel voor onderwerp instellen in de functie-App en 
 }
 ```
 
-Zorg ervoor dat [Opslagemulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) werkt. Is het een goed idee om uit te voeren de `AzureStorageEmulator.exe clear all` opdracht voordat u uitvoert.
+Zorg ervoor dat [Opslagemulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator) werkt. Is het een goed idee om uit te voeren de `AzureStorageEmulator.exe clear all` opdracht voordat u uitvoert.
 
 ## <a name="create-functions-that-listen-for-events"></a>Functies maken die naar gebeurtenissen luisteren
 
@@ -147,7 +147,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-Selecteer `Add Event Grid Subscription`. Met deze bewerking wordt een Event Grid-abonnement voor het Event Grid-onderwerp dat u hebt gemaakt. Zie voor meer informatie, [concepten in Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/concepts)
+Selecteer `Add Event Grid Subscription`. Met deze bewerking wordt een Event Grid-abonnement voor het Event Grid-onderwerp dat u hebt gemaakt. Zie voor meer informatie, [concepten in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
 
 ![Selecteer de Trigger Gebeurtenisraster-koppeling.](media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
@@ -262,10 +262,10 @@ De volgende lijst wordt het schema van de levenscyclus van gebeurtenissen beschr
 * **id**: de unieke id voor de Event Grid-gebeurtenis.
 * **onderwerp**: pad naar het onderwerp van de gebeurtenis. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` worden `Running`, `Completed`, `Failed`, en `Terminated`.  
 * **gegevens**: duurzame functies specifieke Parameters.
-    * **hubName**: [TaskHub](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs) naam.
+    * **hubName**: [TaskHub](https://docs.microsoft.com/azure/azure-functions/durable-functions-task-hubs) naam.
     * **Functienaam**: de naam van de Orchestrator-functie.
     * **instanceId**: instanceId duurzame functies.
-    * **reden**: aanvullende gegevens die zijn gekoppeld aan de traceringsgebeurtenis. Zie voor meer informatie, [diagnostische gegevens in duurzame functies (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
+    * **reden**: aanvullende gegevens die zijn gekoppeld aan de traceringsgebeurtenis. Zie voor meer informatie, [diagnostische gegevens in duurzame functies (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-diagnostics)
     * **runtimeStatus**: Status van de Orchestration-Runtime. Actieve, voltooid, is mislukt, geannuleerd. 
 * **type gebeurtenis**: "orchestratorEvent"
 * **eventTime**: tijd van de gebeurtenis (UTC).

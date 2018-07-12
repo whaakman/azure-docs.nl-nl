@@ -1,6 +1,6 @@
 ---
-title: Migratie van de metrische gegevens Azure Storage | Microsoft Docs
-description: Informatie over het oude metrische gegevens migreren naar nieuwe metrische gegevens die worden beheerd door de Azure-Monitor.
+title: Azure Storage metrics-migratie | Microsoft Docs
+description: Informatie over het oude metrische gegevens migreren naar nieuwe metrische gegevens die worden beheerd door Azure Monitor.
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: c64061aee94e8c08a3f6bcae78cffca0b4172d97
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9586d0c2b61fe97106378ec684c28be9143b5194
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650669"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969381"
 ---
-# <a name="azure-storage-metrics-migration"></a>Migratie van Azure Storage metrische gegevens
+# <a name="azure-storage-metrics-migration"></a>Azure Storage-metrische gegevens over migratie
 
-Azure Storage wordt uitgelijnd met de strategie van de werking van de monitor in Azure, geïntegreerd metrische gegevens voor het bewaken van de Azure-platform. De service van de oude metrische gegevens worden in de toekomst eindigen met een vroegtijdig op basis van beleid voor Azure. Als u gebruik maakt van de oude opslag metrische gegevens, moet u voorafgaand aan de einddatum van de service om op peil uw metrische gegevens te migreren.
+Uitgelijnd met de strategie van de werking van de monitor in Azure, Azure Storage kan worden geïntegreerd metrische gegevens voor het bewaken van de Azure-platform. De service van de oude metrische gegevens worden in de toekomst, eindigen met een vroegtijdig op basis van Azure policy. Als u zich op oude opslag metrische gegevens baseert, die u wilt migreren vóór de einddatum van de service om toegang te houden van uw metrische gegevens.
 
-In dit artikel leest u hoe van de oude metrische gegevens naar de nieuwe metrische gegevens te migreren.
+Dit artikel leest u hoe het migreren van de oude metrische gegevens naar de nieuwe metrische gegevens.
 
-## <a name="understand-old-metrics-that-are-managed-by-azure-storage"></a>Oude metrische gegevens die worden beheerd door Azure Storage begrijpen
+## <a name="understand-old-metrics-that-are-managed-by-azure-storage"></a>Inzicht in de oude metrische gegevens die worden beheerd door Azure Storage
 
-Azure Storage oude metrische waarden, verzamelt en samenvoegt en slaat ze op in de tabellen $Metric binnen hetzelfde opslagaccount. De Azure-portal kunt u een controle grafiek instellen. U kunt ook de Azure-opslag-SDK's gebruiken de gegevens lezen uit $Metric tabellen die zijn gebaseerd op het schema. Zie voor meer informatie [Opslaganalyse](./storage-analytics.md).
+Azure Storage oude metrische waarden, verzamelt en maakt een aggregatie en slaat ze op in tabellen $Metric binnen hetzelfde opslagaccount. U kunt de Azure-portal gebruiken voor het instellen van een controle grafiek. U kunt ook de Azure Storage-SDK's gebruiken om te lezen van de gegevens uit $Metric tabellen die zijn gebaseerd op het schema. Zie voor meer informatie, [Opslaganalyse](./storage-analytics.md).
 
-Oude metrische gegevens bieden capaciteitsmetrieken alleen op Azure Blob-opslag. Oude metrische gegevens verstrekken transactie metrische gegevens over Blob storage, Table storage, Azure-bestanden en Queue storage. 
+Metrische gegevens over capaciteit bieden oude metrische gegevens alleen op Azure Blob-opslag. Oude metrische gegevens bieden transactie metrische gegevens over Blob storage, Table storage, Azure Files en Queue storage. 
 
-Oude metrische gegevens zijn ontworpen in een platte schema. Het ontwerp resulteert in de waarde van nul metrische wanneer u de activering van de metriek verkeerspatronen geen hebt. Bijvoorbeeld, de **ServerTimeoutError** waarde is ingesteld op 0 in $Metric tabellen, zelfs wanneer u niet alle server-time-outfouten van het live verkeer naar een opslagaccount ontvangt.
+Oude metrische gegevens zijn in een vast schema ontworpen. Het ontwerp resulteert in de metrische waarde nul wanneer u niet over de verkeerspatronen van de metrische gegevens wordt geactiveerd. Bijvoorbeeld, de **ServerTimeoutError** waarde is ingesteld op 0 in $Metric tabellen, zelfs wanneer u geen serverfouten voor time-out voor van de live-verkeer naar een storage-account ontvangen.
 
-## <a name="understand-new-metrics-managed-by-azure-monitor"></a>Nieuwe metrische gegevens die worden beheerd door Azure Monitor begrijpen
+## <a name="understand-new-metrics-managed-by-azure-monitor"></a>Informatie over nieuwe metrische gegevens die worden beheerd door Azure Monitor
 
-Voor de nieuwe opslag metrische gegevens verzendt Azure Storage de metrische gegevens naar de back-end van Azure-Monitor. Azure biedt een geïntegreerde bewakingservaring, met inbegrip van gegevens vanuit de portal en gegevensopname. Voor meer informatie raadpleegt u dit [artikel](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Voor nieuwe metrische opslaggegevens verzendt Azure Storage de metrische gegevens naar de back-end van Azure Monitor. Azure Monitor biedt een uniforme bewakingservaring, met inbegrip van gegevens vanuit de portal en de opname van gegevens. Voor meer informatie kunt u verwijzen naar dit [artikel](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Nieuwe metrische gegevens bieden capaciteitsmetrieken en transactie metrische gegevens over Blob, Table, bestand, wachtrij en premium-opslag.
+Nieuwe metrische gegevens bieden metrische gegevens over capaciteit en metrische gegevens die transactie op Blob-, tabel-, bestands-, wachtrij- en premium-opslag.
 
-Meerdere dimensie is een van de functies die Azure biedt. Azure Storage neemt het ontwerp voor het definiëren van nieuwe metrische schema. Voor ondersteunde dimensies op metrische gegevens vindt u informatie in [Azure Storage metrische gegevens in Azure Monitor](./storage-metrics-in-azure-monitor.md). Meerdere dimensie ontwerp biedt rentabiliteit voor beide bandbreedte opname en capaciteit van de metrische gegevens opslaan. Dus als uw verkeer is niet geactiveerd voor verwante metrische gegevens, wordt de verwante metrische gegevens niet gegenereerd. Bijvoorbeeld als verkeer is niet geactiveerd voor elke server time-outfouten, Azure Monitor geen gegevens geretourneerd als u de waarde van metrische gegevens van een query **transacties** met dimensie **ResponseType** gelijk aan **ServerTimeoutError**.
+Multidimensionale is een van de functies van Azure Monitor. Azure Storage neemt het ontwerp op een nieuwe metrische schema definiëren. Voor ondersteunde dimensies over metrische gegevens, vindt u informatie in [metrische gegevens van Azure Storage in Azure Monitor](./storage-metrics-in-azure-monitor.md). Multidimensionale ontwerp biedt kostenefficiëntie die op beide bandbreedte van gegevensopname en -capaciteit kunnen geen metrische gegevens opslaan. Als gevolg hiervan als uw verkeer is niet geactiveerd voor verwante metrische gegevens, wordt de verwante metrische gegevens niet gegenereerd. Bijvoorbeeld, als uw verkeer heeft serverfouten time-out niet geactiveerd, Azure Monitor biedt geen gegevens geretourneerd wanneer u de waarde van metrische gegevens van een query **transacties** met dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError**.
 
-## <a name="metrics-mapping-between-old-metrics-and-new-metrics"></a>Toewijzing van de metrische gegevens tussen oude metrische gegevens en nieuwe metrische gegevens
+## <a name="metrics-mapping-between-old-metrics-and-new-metrics"></a>Metrische gegevens toewijzing tussen de oude metrische gegevens en nieuwe metrische gegevens
 
-Als u programmatisch metrische gegevens lezen, moet u vaststellen van het nieuwe metrische schema in uw programma's. Voor meer informatie over de wijzigingen, raadpleegt u de toewijzing in de volgende tabel weergegeven:
+Als u metrische gegevens via een programma hebt gelezen, moet u vaststellen van het schema voor nieuwe metrische gegevens in uw programma's. Voor meer informatie over de wijzigingen, kunt u verwijzen naar de toewijzing die worden vermeld in de volgende tabel:
 
 **Capaciteit metrische gegevens**
 
@@ -55,7 +55,7 @@ Als u programmatisch metrische gegevens lezen, moet u vaststellen van het nieuwe
 | **ObjectCount**        | **BlobCount** met de dimensie **BlobType** gelijk zijn aan **BlockBlob** of **PageBlob** |
 | **ContainerCount**      | **ContainerCount** |
 
-De volgende metrische gegevens zijn nieuwe aanbiedingen die niet, de oude metrische gegevens ondersteunen:
+De volgende metrische gegevens zijn nieuwe aanbiedingen, bieden geen ondersteuning voor de oude metrische gegevens:
 * **TableCapacity**
 * **TableCount**
 * **TableEntityCount**
@@ -67,7 +67,7 @@ De volgende metrische gegevens zijn nieuwe aanbiedingen die niet, de oude metris
 * **FileShareCount**
 * **UsedCapacity**
 
-**Transactie metrische gegevens**
+**Metrische gegevens de transactie**
 
 | Oude metrische gegevens | Nieuwe metrische gegevens |
 | ------------------- | ----------------- |
@@ -82,17 +82,17 @@ De volgende metrische gegevens zijn nieuwe aanbiedingen die niet, de oude metris
 | **AuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** |
 | **Beschikbaarheid** | **Beschikbaarheid** |
 | **AverageE2ELatency** | **SuccessE2ELatency** |
-| **AverageServerLatency** | **SuccessServerLatency** |
+| **Averageserverlatency aan** | **SuccessServerLatency** |
 | **ClientOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientOtherError** |
 | **ClientTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientTimeoutError** |
 | **NetworkError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **NetworkError** |
 | **PercentAuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** |
 | **PercentClientOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientOtherError** |
-| **PercentNetworkError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **NetworkError** |
+| **Percentnetworkerror aan** | Transacties met de dimensie **ResponseType** gelijk zijn aan **NetworkError** |
 | **PercentServerOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerOtherError** |
 | **PercentSuccess** | Transacties met de dimensie **ResponseType** gelijk zijn aan **geslaagd** |
-| **PercentThrottlingError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientThrottlingError** of **ServerBusyError** |
-| **PercentTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError** of **ResponseType** gelijk zijn aan **ClientTimeoutError** |
+| **Percentthrottlingerror aan** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientThrottlingError** of **ServerBusyError** |
+| **Percenttimeouterror aan** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError** of **ResponseType** gelijk zijn aan **ClientTimeoutError** |
 | **SASAuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** |
 | **SASClientOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientOtherError** |
 | **SASClientTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientTimeoutError** |
@@ -114,13 +114,13 @@ De volgende metrische gegevens zijn nieuwe aanbiedingen die niet, de oude metris
 
 ### <a name="how-should-i-migrate-existing-alert-rules"></a>Hoe moet ik bestaande waarschuwingsregels migreren?
 
-Als u regels voor klassieke waarschuwingen op basis van de oude opslag metrische gegevens hebt gemaakt, moet u de nieuwe waarschuwing regels op basis van het nieuwe metrische schema maken.
+Als u regels voor klassieke waarschuwingen op basis van metrische gegevens van oude storage hebt gemaakt, moet u de nieuwe waarschuwing regels op basis van het schema voor nieuwe metrische gegevens maken.
 
-### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>Nieuwe metrische gegevens worden opgeslagen in hetzelfde opslagaccount standaard?
+### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>Nieuwe metrische gegevens in hetzelfde opslagaccount standaard opgeslagen?
 
-Nee. Als u wilt archiveren van de metrische gegevens naar een opslagaccount, gebruiken de [Azure Monitor diagnostische instelling API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate).
+Nee. Als u wilt de metrische gegevens naar een opslagaccount archiveren, gebruikt u de [diagnostische instelling API van Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Metrische gegevens in de Monitor van Azure Storage](./storage-metrics-in-azure-monitor.md)
+* [Metrische gegevens van Storage in Azure Monitor](./storage-metrics-in-azure-monitor.md)

@@ -1,6 +1,6 @@
 ---
 title: Firmware-update van het apparaat met Azure IoT Hub (Python) | Microsoft Docs
-description: Klik hier voor meer informatie over het beheer van apparaten op Azure IoT Hub gebruiken om te zetten van een apparaat firmware-update. U kunt Azure IoT SDK's voor Python gebruiken voor het implementeren van een gesimuleerde apparaattoepassing en een service-app waarmee de firmware-update wordt geactiveerd.
+description: Het beheer van apparaten op Azure IoT Hub gebruiken om een firmware-update van het apparaat. U de Azure IoT SDK's voor Python gebruiken om een gesimuleerde apparaat-app en een service-app die wordt geactiveerd de firmware-update te implementeren.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -10,29 +10,29 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: kgremban
 ms.openlocfilehash: d2ebdf54e595c2f02464c0c2446a6e5f5feefb9c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634638"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38482017"
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-pythonpython"></a>Gebruik Apparaatbeheer initiëren van een apparaatfirmware bijwerken (Python/Python)
+# <a name="use-device-management-to-initiate-a-device-firmware-update-pythonpython"></a>Apparaatbeheer gebruiken om te starten van een apparaatfirmware bijwerken (Python/Python)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-In de [aan de slag met Apparaatbeheer] [ lnk-dm-getstarted] zelfstudie, hebt u gezien hoe u de [apparaat twin] [ lnk-devtwin] en [methoden directe] [ lnk-c2dmethod] primitieven op afstand opnieuw opstarten van een apparaat. Deze zelfstudie maakt gebruik van de dezelfde IoT Hub primitieven en biedt richtlijnen en ziet u hoe u een end-to-end gesimuleerde firmware-update.  Dit patroon wordt gebruikt in de firmware-update-implementatie voor de Intel Edison apparaat.
+In de [aan de slag met Apparaatbeheer] [ lnk-dm-getstarted] zelfstudie, hebt u gezien hoe u de [apparaatdubbel] [ lnk-devtwin] en [directe methoden ] [ lnk-c2dmethod] primitieven aan een apparaat op afstand opnieuw opstarten. In deze zelfstudie maakt gebruik van de dezelfde IoT Hub-primitieven en bevat richtlijnen en ziet u hoe u een end-to-end gesimuleerde firmware-update doet.  Dit patroon wordt gebruikt in de firmware-update-implementatie voor de Intel Edison-apparaat maakt.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 In deze handleiding ontdekt u hoe u:
 
-* Een Python consoletoepassing maken die de directe methode firmwareUpdate in de gesimuleerde apparaattoepassing via uw IoT-hub aanroepen.
-* Maakt een gesimuleerd apparaat-app die u implementeert een **firmwareUpdate** directe methode. Deze methode initieert een meerdere fasen die wacht de firmware-installatiekopie te downloaden, de installatiekopie van het firmware downloaden en ten slotte is de installatiekopie van de firmware van toepassing. In elke fase van de update wordt het apparaat de gerapporteerde eigenschappen gebruikt om te rapporteren over de voortgang.
+* Een Python-console-app die de directe methode die firmwareUpdate in de gesimuleerde apparaattoepassing via uw IoT-hub aanroept maken.
+* Maakt een gesimuleerde apparaat-app die u implementeert een **firmwareUpdate** directe methode. Deze methode initieert een proces met meerdere fasen dat wacht om te downloaden van de firmware-installatiekopie, wordt de firmware-installatiekopie gedownload en ten slotte past de firmware-installatiekopie. Tijdens elke fase van de update wordt het apparaat gebruikt van de gerapporteerde eigenschappen om te rapporteren over hun voortgang.
 
-Aan het einde van deze zelfstudie hebt u twee Python console apps:
+Aan het einde van deze zelfstudie, beschikt u over twee Python-consoletoepassingen:
 
-**dmpatterns_fwupdate_service.PY**, wordt de reactie die een directe methode wordt aangeroepen in de gesimuleerde apparaattoepassing weergegeven, en regelmatig (elke 500ms) geeft de bijgewerkte gerapporteerde eigenschappen.
+**dmpatterns_fwupdate_service.PY**, die een rechtstreekse methode aanroepen in het gesimuleerde apparaat-app, wordt het antwoord weergegeven en periodiek (elke 500ms) geeft de bijgewerkte gerapporteerde eigenschappen.
 
-**dmpatterns_fwupdate_device.PY**, die verbinding maakt met uw IoT-hub aan de apparaat-id eerder hebt gemaakt, ontvangen een directe methode firmwareUpdate, wordt uitgevoerd via een proces met meerdere status om te simuleren een firmware-update inclusief: wacht tot de installatiekopie download downloaden van de nieuwe installatiekopie en ten slotte de installatiekopie toe te passen.
+**dmpatterns_fwupdate_device.PY**, deze toepassing koppelt uw IoT-hub aan de apparaat-id die eerder hebt gemaakt, ontvangt u een rechtstreekse methode firmwareUpdate, wordt uitgevoerd via een proces met meerdere staat voor het simuleren van een firmware-update inclusief: wachten op de installatiekopie Download de nieuwe installatiekopie te downloaden en ten slotte de installatiekopie toe te passen.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -44,18 +44,18 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Activeren van een externe firmware-update op het apparaat met een directe methode
-In deze sectie maakt u een Python consoletoepassing maken die een externe firmware-update op een apparaat initieert. De app gebruikmaakt van een directe methode om de update te initiëren en apparaat twin query's gebruikt om het periodiek de status van de actieve firmware-update niet ophalen.
+## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Activeren van een externe firmware-update op het apparaat met een rechtstreekse methode
+In deze sectie maakt u een Python-consoletoepassing die een externe firmware-update op een apparaat initieert. De app maakt gebruik van een rechtstreekse methode om de update te initiëren en apparaatdubbel-query's gebruikt om periodiek de status van de actieve firmware-update.
 
-1. Voer bij de opdrachtprompt de volgende opdracht voor het installeren van de **azure-iothub-service-client** pakket:
+1. Bij de opdrachtprompt, voer de volgende opdracht voor het installeren van de **azure-iothub-service-client** pakket:
    
     ```cmd/sh
     pip install azure-iothub-service-client
     ```
 
-1. Maak met een teksteditor, in uw werkmap, een **dmpatterns_getstarted_service.py** bestand.
+1. Maak met een teksteditor in uw werkmap een **dmpatterns_getstarted_service.py** bestand.
 
-1. De volgende importinstructies en variabelen toevoegen aan het begin van de **dmpatterns_getstarted_service.py** bestand. Vervang `IoTHubConnectionString` en `deviceId` door de waarden die eerder is aangegeven:
+1. De volgende importinstructie toe en variabelen toevoegen aan het begin van de **dmpatterns_getstarted_service.py** bestand. Vervang `IoTHubConnectionString` en `deviceId` met de waarden die u eerder hebt genoteerd:
    
     ```python
     import sys
@@ -73,7 +73,7 @@ In deze sectie maakt u een Python consoletoepassing maken die een externe firmwa
     MESSAGE_COUNT = 5
     ```
 
-1. Voeg de volgende functie aanroepen van de directe methode en de waarde van de firmwareUpdate weergeven eigenschap gerapporteerd. Voeg ook de `main` routine:
+1. Voeg de volgende functie aanroepen van de directe methode en de waarde van de firmwareUpdate weergeven gerapporteerde eigenschap. Voeg ook de `main` routine:
    
     ```python
     def iothub_firmware_sample_run():
@@ -128,25 +128,25 @@ In deze sectie maakt u een Python consoletoepassing maken die een externe firmwa
         iothub_firmware_sample_run()
     ```
 
-1. Sla op en sluit de **dmpatterns_fwupdate_service.py** bestand.
+1. Opslaan en sluiten de **dmpatterns_fwupdate_service.py** bestand.
 
 
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 In deze sectie doet u het volgende:
 
-* Een Python-consoletoepassing dat met een directe methode is aangeroepen door de cloud overeenkomt maken
+* Maakt een Python-console-app die op een rechtstreekse methode aangeroepen door de cloud reageert
 * U activeert een gesimuleerde firmware-update.
 * U gebruikt de gerapporteerde eigenschappen om apparaatdubbelquery's in te schakelen die de apparaten identificeren en vaststellen wanneer er voor het laatst een firmware-update op deze apparaten is uitgevoerd.
 
-1. Voer bij de opdrachtprompt de volgende opdracht voor het installeren van de **azure-iothub-apparaat-client** pakket:
+1. Bij de opdrachtprompt, voer de volgende opdracht voor het installeren van de **azure-iothub-apparaat-client** pakket:
    
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-1. Maak met een teksteditor, een **dmpatterns_fwupdate_device.py** bestand.
+1. Maak met een teksteditor een **dmpatterns_fwupdate_device.py** bestand.
 
-1. De volgende importinstructies en variabelen toevoegen aan het begin van de **dmpatterns_fwupdate_device.py** bestand. Vervang `deviceConnectionString` met de apparaat-verbindingsreeks uit uw IoT-hub:
+1. De volgende importinstructie toe en variabelen toevoegen aan het begin van de **dmpatterns_fwupdate_device.py** bestand. Vervang `deviceConnectionString` met de verbindingsreeks van uw IoT-hub:
    
     ```python
     import time, datetime
@@ -167,7 +167,7 @@ In deze sectie doet u het volgende:
     CLIENT = IoTHubClient(CONNECTION_STRING, PROTOCOL)
     ```
 
-1. Voeg de volgende functies die worden gebruikt voor het leveren gerapporteerde eigenschappen updates en implementeren van de directe methode toe:
+1. Voeg de volgende functies die worden gebruikt voor een gerapporteerde eigenschappen van updates en implementatie van de directe methode toe:
    
     ```python
     def send_reported_state_callback(status_code, user_context):
@@ -215,7 +215,7 @@ In deze sectie doet u het volgende:
         CLIENT.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
     ```
 
-8. Voeg de volgende functie die de apparaat-twin initialiseert gerapporteerd eigenschappen en wacht tot de directe methode moet worden aangeroepen. Voeg ook de `main` routine:
+8. Voeg de volgende functie toe de apparaatdubbel initialiseert-gerapporteerde eigenschappen en wacht tot de directe methode die moet worden aangeroepen. Voeg ook de `main` routine:
    
     ```python
     def iothub_firmware_sample_run():
@@ -248,34 +248,34 @@ In deze sectie doet u het volgende:
     ```
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. In productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals voorgesteld in het MSDN-artikel implementeren [afhandeling van tijdelijke fout](https://msdn.microsoft.com/library/hh675232.aspx).
+> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel implementeren [afhandeling van tijdelijke fouten](https://msdn.microsoft.com/library/hh675232.aspx).
 > 
 
 
 ## <a name="run-the-apps"></a>De apps uitvoeren
 U kunt nu de apps uitvoeren.
 
-1. Bij de opdrachtprompt de volgende opdracht uitvoeren om te beginnen met luisteren naar de directe methode voor opnieuw opstarten.
+1. Bij de opdrachtprompt de volgende opdracht uit om te luisteren naar de directe methode die opnieuw worden opgestart.
    
     ```cmd/sh
     python dmpatterns_fwupdate_device.py
     ```
 
-1. Voer bij een andere opdrachtprompt de volgende opdracht de extern opnieuw opstarten en de query voor het apparaat vinden van de laatste keer opnieuw activeren.
+1. Bij een andere opdrachtprompt, voer de volgende opdracht de extern opnieuw opstarten en de query voor het dubbele apparaat vinden van de laatste keer opnieuw activeren.
    
     ```cmd/sh
     python dmpatterns_fwupdate_service.py
     ```
 
-1. U ziet de reactie van het apparaat aan de directe methode in de console. Noteer de wijziging in de eigenschappen van gemeld in de firmware-update.
+1. U ziet dat de reactie van het apparaat naar de directe methode die in de console. Noteer de wijziging in de gerapporteerde eigenschappen in de firmware-update.
 
-    ![Programma-uitvoer][1]
+    ![programma-uitvoer][1]
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie maakt u een directe methode gebruikt voor het activeren van een externe firmware-update op een apparaat en de gerapporteerde eigenschappen gebruikt voor het bijhouden van de voortgang van de firmware-update.
+In deze zelfstudie maakt u een rechtstreekse methode gebruikt voor het activeren van een externe firmware-update op een apparaat en gebruikt de gerapporteerde eigenschappen om te volgen van de voortgang van de firmware-update.
 
-Zie voor meer informatie over het uitbreiden van uw IoT-oplossing en schema-methode op meerdere apparaten aanroepen, de [planning en broadcast taken] [ lnk-tutorial-jobs] zelfstudie.
+Zie voor informatie over het uitbreiden van uw IoT-oplossing en schema-methode op meerdere apparaten roept, de [taken plannen en uitzenden] [ lnk-tutorial-jobs] zelfstudie.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

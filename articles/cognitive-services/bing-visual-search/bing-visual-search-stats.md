@@ -1,7 +1,7 @@
 ---
-title: Bing-analyse voor Bing Web zoeken-API's | Microsoft Docs
+title: Bing-analyse voor Bing Web Search API's | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Beschrijft hoe analytics ophalen voor Bing Visual Searach-API.
+description: Beschrijft hoe u analyses verkrijgen voor de Bing Visual Searach API.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: scottwhi
 ms.openlocfilehash: 11fe30d6918fa713db83aafbff233c26283f36af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345298"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582940"
 ---
-# <a name="how-to-get-analytics-for-bing-visual-search-api"></a>Het ophalen van analytics voor Visual zoeken-API van Bing
+# <a name="how-to-get-analytics-for-bing-visual-search-api"></a>Over het verkrijgen van analytics voor Bing visuele zoekopdrachten-API
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

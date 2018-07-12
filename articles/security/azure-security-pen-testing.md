@@ -1,6 +1,6 @@
 ---
 title: Pen testen | Microsoft Docs
-description: Het artikel biedt een overzicht van het binnendringen testproces (pentest) en hoe uitvoeren pentest vergelijken met uw apps uitgevoerd in de Azure-infrastructuur.
+description: Het artikel bevat een overzicht van de indringingstests (pentest)-proces en hoe uitvoeren pentest op basis van uw toepassingen die worden uitgevoerd in Azure-infrastructuur.
 services: security
 documentationcenter: na
 author: terrylan
@@ -15,36 +15,36 @@ ms.workload: na
 ms.date: 03/13/2018
 ms.author: barclayn
 ms.openlocfilehash: a64316eda25bd02f89b5afdd7b98c0193381d023
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893364"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970816"
 ---
 # <a name="pen-testing"></a>Pen testen
-Een van de voordelen van het gebruik van Azure voor de implementatie en het testen van toepassingen is dat u snel omgevingen gemaakt kunt krijgen.  U hoeft te hoeven maken over aanschaf, ophalen, en ' bekabeld en stapelen ' uw eigen lokale hardware.
+Een van de voordelen van het gebruik van Azure voor het testen van toepassingen en -implementatie, is dat u snel omgevingen die zijn gemaakt.  U hoeft te breken over de aanschaf, ophalen, en "gestapel en stapelen ' uw eigen on-premises hardware.
 
-Dit is fantastisch uit, maar u toch wilt controleren of u de beveiliging van uw normale uitvoeren innen. Een van de dingen die u moet doen binnendringen is het testen van de toepassingen die u implementeert in Azure.
+Dit is fantastisch uit, maar u nog steeds nodig om ervoor te zorgen dat u de beveiliging van uw normale uitvoeren vanwege de zorgvuldigheid. Een van de dingen die u moet doen is indringingstests testen van de toepassingen die u implementeert in Azure.
 
-Kent u mogelijk al die Microsoft uitvoert [binnendringen testen van ons Azure-omgeving](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Dit helpt station verbeteringen in Azure. 
+U al kent die Microsoft uitvoert [indringingstests van onze Azure-omgeving](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Dit helpt het station verbeteringen in Azure. 
 
-We niet pen testen van uw toepassing, maar we begrijpen dat u wilt en moet pen testen op uw eigen toepassingen uitvoeren. Dat is goed, omdat het als u de beveiliging van uw toepassingen verbeteren, u helpen bij het beter beveiligen van de volledige Azure-ecosysteem.
+We geen pen testen van uw toepassing, maar we begrijpen dat u wilt en hoeft uit te voeren pen testen op uw eigen toepassingen. Dat is een goed, omdat wanneer u de beveiliging van uw toepassingen verbeteren, u helpen u de volledige Azure-ecosysteem beter te beveiligen.
 
 Hoe pakt u dit aan?
 
-Op 15 juni 2017 Microsoft niet langer vooraf is goedkeuring vereist voor het uitvoeren van een binnendringen tests met Azure-resources. Klanten die willen formeel document toekomstige binnendringen testen betrokkenheid tegen Microsoft Azure, wordt aangeraden om in te vullen de [formulier Azure Service binnendringen testen aanmelding](https://portal.msrc.microsoft.com/en-us/engage/pentest). Dit proces alleen betrekking heeft op Microsoft Azure en niet van toepassing op een andere Microsoft-Cloudservice. 
+Vanaf 15 juni 2017, Microsoft vereist niet langer voorafgaande goedkeuring voor het uitvoeren van een indringing tests bij Azure-resources. Klanten die willen formeel document toekomstige indringingstests engagements op basis van Microsoft Azure worden uitgevers aangemoedigd om in te vullen de [testen-melding van Azure Service Indringingstests formulier](https://portal.msrc.microsoft.com/en-us/engage/pentest). Dit proces heeft alleen betrekking op Microsoft Azure en niet van toepassing op een andere Microsoft-Cloudservice. 
 
 >[!IMPORTANT] 
->Tijdens het verwittigen van Microsoft van pen activiteiten testen is niet langer vereist klanten nog steeds moeten voldoen aan de [Microsoft Cloud Unified binnendringen testen regels van Engagement](https://technet.microsoft.com/mt784683). 
+>Terwijl de hoogte te brengen Microsoft van activiteiten voor pentests niet langer vereist is klanten nog steeds moeten voldoen aan de [Microsoft Cloud Unified Indringingstests testen regels van Engagement](https://technet.microsoft.com/mt784683). 
 
 Standaard tests uit die u kunt uitvoeren, zijn onder andere:
 
-* Tests op uw eindpunten om leeg te onthullen de [Open Web Application Security Project (OWASP) top 10 beveiligingsproblemen](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
+* Testen op uw eindpunten om de [Open Web Application Security Project (OWASP) top 10 beveiligingsproblemen](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
 * [Fuzzy testen](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) van uw eindpunten
 * [Scannen van poorten](https://en.wikipedia.org/wiki/Port_scanner) van uw eindpunten
 
-Een type van test die u niet uitvoeren, is een soort [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) aanval. Dit omvat een DoS-aanval zelf te initiëren of het uitvoeren van de bijbehorende tests die mogelijk bepalen, laten zien of simuleren van elk type DoS-aanval.
+Een type van de test die u niet kunt uitvoeren is een soort [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) aanval. Dit omvat een DoS-aanval zelf te initiëren of het uitvoeren van de bijbehorende tests die mogelijk te bepalen, laten zien of simuleren van elk type DoS-aanval.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Test u gereed om te beginnen met pen uw toepassingen die worden gehost in Microsoft Azure? Als er in dat geval, head op boven aan de [binnendringen Test overzicht](https://technet.microsoft.com/library/mt784683.aspx) pagina (en klik op de knop testen aanvragen aan de onderkant van de pagina maken. 
+- U kunt aan de slag met pen Test uw toepassingen die worden gehost in Microsoft Azure Als dit het geval is, gaat u op naar de [Indringingstests Test overzicht](https://technet.microsoft.com/library/mt784683.aspx) pagina (en klik op de knop testen aanvragen aan de onderkant van de pagina maken. 

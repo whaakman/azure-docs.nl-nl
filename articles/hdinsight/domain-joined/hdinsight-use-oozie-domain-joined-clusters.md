@@ -12,12 +12,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: omidm
-ms.openlocfilehash: 9e5b7303830f2064f764d2de023b4a3ff9b0ea9f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 928f6adbb348683a110f7da9b20efaae998290ca
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449998"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972210"
 ---
 #<a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>Apache Oozie in domein gekoppeld HDInsight Hadoop-clusters uitvoeren
 Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden beheerd. Oozie is geïntegreerd met de Hadoop-stack en ondersteunt de volgende taken:
@@ -206,7 +206,7 @@ De werkstroom is onderverdeeld in twee delen:
         examplesRoot=examples
         oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
         hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
-        hiveScript2=${nameNode}/user/${user.name}/countrowshive1.hql
+        hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
         oozie.use.system.libpath=true
         user.name=[domainuser]
         jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
@@ -229,7 +229,7 @@ De 2 hive-scripts voor hive-server 1 en hive server 2 kunnen worden gemaakt als 
 -   Hive Server 1 bestand:
 1.  Gebruik de volgende instructie maken en bewerken van een bestand voor de hive-server 1 actie:
     ```bash
-    nano countrowshive1.xml
+    nano countrowshive1.hql
     ```
 
 2.  Het script maken
@@ -247,7 +247,7 @@ De 2 hive-scripts voor hive-server 1 en hive server 2 kunnen worden gemaakt als 
 -   Hive Server 2-bestand:
 1.  Gebruik de volgende instructie maakt en bewerkt een veld voor hive server 2 actie:
     ```bash
-    nano countrowshive2.xml
+    nano countrowshive2.hql
     ```
 
 2.  Het script maken

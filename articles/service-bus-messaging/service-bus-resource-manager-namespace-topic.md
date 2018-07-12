@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus-naamruimte onderwerpabonnement met Azure Resource Manager-sjabloon maken | Microsoft Docs
-description: Een Service Bus-naamruimte maken met het onderwerp en een abonnement met Azure Resource Manager-sjabloon
+title: Azure Service Bus-naamruimte-onderwerpabonnement met behulp van Azure Resource Manager-sjabloon maken | Microsoft Docs
+description: Een Service Bus-naamruimte maken met een onderwerp en abonnement met behulp van Azure Resource Manager-sjabloon
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -15,27 +15,27 @@ ms.workload: na
 ms.date: 04/11/2018
 ms.author: sethm
 ms.openlocfilehash: ee9990cb9a112dffe1a7c2980315146c2a1d7ca5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415602"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452345"
 ---
-# <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte maken met het onderwerp en een abonnement met een Azure Resource Manager-sjabloon
+# <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte maken met een onderwerp en abonnement met behulp van een Azure Resource Manager-sjabloon
 
-Dit artikel laat zien hoe u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte en een onderwerp en een abonnement binnen deze naamruimte. Het artikel wordt uitgelegd hoe om op te geven welke resources worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen
+In dit artikel laat zien hoe u een Azure Resource Manager-sjabloon waarmee u een Service Bus-naamruimte en een onderwerp en abonnement binnen deze naamruimte maakt. Het artikel wordt uitgelegd hoe om op te geven welke resources worden geïmplementeerd en over het definiëren van parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen
 
-Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates].
+Zie voor meer informatie over het maken van sjablonen, [Authoring Azure Resource Manager-sjablonen][Authoring Azure Resource Manager templates].
 
-Zie voor de volledige sjabloon, het [Service Bus-naamruimte met onderwerp en een abonnement] [ Service Bus namespace with topic and subscription] sjabloon.
+Zie voor de volledige sjabloon, de [Service Bus-naamruimte met een onderwerp en abonnement] [ Service Bus namespace with topic and subscription] sjabloon.
 
 > [!NOTE]
-> De volgende Azure Resource Manager-sjablonen zijn beschikbaar voor download- en implementatie.
+> De volgende Azure Resource Manager-sjablonen zijn beschikbaar voor downloaden en implementeren.
 > 
 > * [Een Service Bus-naamruimte maken](service-bus-resource-manager-namespace.md)
-> * [Een Service Bus-naamruimte maken met de wachtrij](service-bus-resource-manager-namespace-queue.md)
-> * [Een Service Bus-naamruimte met een wachtrij en autorisatie regel maken](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Een Service Bus-naamruimte maken met onderwerp, abonnement en regel](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Een Service Bus-naamruimte met een wachtrij maken](service-bus-resource-manager-namespace-queue.md)
+> * [Een Service Bus-naamruimte maken met de wachtrij en de autorisatie-regel](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Een Service Bus-naamruimte maken met een onderwerp, abonnement en regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar **Service Bus**.
 > 
@@ -43,9 +43,9 @@ Zie voor de volledige sjabloon, het [Service Bus-naamruimte met onderwerp en een
 
 ## <a name="what-will-you-deploy"></a>Wat wilt u implementeren?
 
-Met deze sjabloon kunt u een Service Bus-naamruimte met onderwerp en een abonnement implementeren.
+Met deze sjabloon kunt implementeren u een Service Bus-naamruimte met een onderwerp en abonnement.
 
-[Service Bus-onderwerpen en abonnementen](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) biedt een een-op-veel-vorm van communicatie, in een *publiceren/abonneren* patroon.
+[Service Bus-onderwerpen en abonnementen](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) voorzien in de vorm van een een-op-veel communicatie, in een *publiceren/abonneren* patroon.
 
 Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
@@ -53,12 +53,12 @@ Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
 ## <a name="parameters"></a>Parameters
 
-Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die de parameterwaarden bevat. U moet een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waarin u gaat implementeren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
+Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die alle parameterwaarden bevat. U moet een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waarin u gaat implementeren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
 
 De sjabloon definieert de volgende parameters.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-De naam van de Service Bus-naamruimte maken.
+De naam van de Service Bus-naamruimte te maken.
 
 ```json
 "serviceBusNamespaceName": {
@@ -76,7 +76,7 @@ De naam van het onderwerp in de Service Bus-naamruimte gemaakt.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
-De naam van het abonnement in de Service Bus-naamruimte gemaakt.
+De naam van het abonnement in de Service Bus-naamruimte hebt gemaakt.
 
 ```json
 "serviceBusSubscriptionName": {
@@ -96,7 +96,7 @@ De Service Bus-API-versie van de sjabloon.
        }
 ```
 ## <a name="resources-to-deploy"></a>Resources om te implementeren
-Maakt een standaard Service Bus-naamruimte van het type **Messaging**, met het onderwerp en een abonnement.
+Hiermee maakt u een standard Service Bus-naamruimte van het type **Messaging**, met een onderwerp en abonnement.
 
 ```json
 "resources ": [{
@@ -147,10 +147,10 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt gemaakt en geïmplementeerd met Azure Resource Manager bronnen, meer informatie over deze resources beheren door deze artikelen te bekijken:
+Nu dat u hebt gemaakt en geïmplementeerd resources met behulp van Azure Resource Manager, meer informatie over het beheren van deze bronnen hiervoor deze artikelen:
 
 * [Servicebus met PowerShell beheren](service-bus-manage-with-ps.md)
-* [Service Bus-resources beheren met de Service Bus-Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Service Bus-resources beheren met de Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus

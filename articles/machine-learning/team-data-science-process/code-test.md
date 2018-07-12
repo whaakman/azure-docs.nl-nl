@@ -1,6 +1,6 @@
 ---
-title: Gegevens wetenschappelijke code testen in Azure met UCI volwassenen inkomsten voorspelling gegevensset - Team gegevens wetenschap proces en Visual Studio Team Services
-description: Gegevens wetenschappelijke code testen met UCI volwassenen inkomsten voorspelling gegevens
+title: Data science code testen op Azure met UCI volwassenen inkomsten voorspelling gegevensset - Team Data Science Process en Visual Studio Team Services
+description: Data science code testen met UCI volwassenen inkomsten voorspellingsgegevens
 services: machine-learning, team-data-science-process
 documentationcenter: ''
 author: weig
@@ -15,151 +15,151 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: de1ed0b85957413a254503fc72375866dfd1bea1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837154"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970856"
 ---
-# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Gegevens wetenschappelijke code testen met de UCI volwassenen inkomsten voorspelling gegevensset
-Dit artikel bevat voorlopige richtlijnen voor het testen van de code in een wetenschappelijke werkstroom. De tests biedt gegevenswetenschappers een systematische en efficiënte manier om de kwaliteit en het verwachte resultaat van de code. We gebruiken een Team gegevens wetenschap proces (TDSP) [project die gebruikmaakt van de gegevensset UCI volwassenen inkomsten](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) die we eerder gepubliceerd om weer te geven hoe het testen van code kan worden gedaan. 
+# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Data science code testen met de gegevensset UCI volwassenen inkomsten voorspelling
+Dit artikel bevat voorlopige richtlijnen voor het testen van code in een werkstroom voor datatechnologie. Dergelijke test biedt gegevenswetenschappers een systematische en efficiënte manier om te controleren of de kwaliteit en de verwachte resultaten van hun code. We gebruiken een Team Data Science Process (TDSP) [project die gebruikmaakt van de gegevensset UCI volwassenen inkomsten](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) die we eerder gepubliceerd om weer te geven hoe het testen van code kan worden gedaan. 
 
-## <a name="introduction-on-code-testing"></a>Inleiding op code testen
-'Eenheid testen' is een zet procedure voor het ontwikkelen van de software. Maar voor gegevenswetenschap, is het vaak niet duidelijk welk die middelen en hoe moet u testen code voor verschillende fasen van een levensduur van het wetenschappelijke gegevens, zoals:
+## <a name="introduction-on-code-testing"></a>Inleiding over het testen van code
+'Eenheidstesten' is een zich al geruime tijd procedure voor het ontwikkelen van software. Maar voor datatechnologie, is het vaak niet duidelijk welke die middelen en hoe u moet testen van code voor verschillende fasen van een volledige wetenschappelijke levensduur, zoals:
 
 * Gegevensvoorbereiding
 * Data quality onderzoek
 * Modelleren
-* Model-implementatie 
+* Modelimplementatie 
 
-Dit artikel vervangt de term 'eenheid testen' met "code testen." Het verwijst naar het testen van de functies die kunnen beoordelen als code voor een bepaalde stap van de levenscyclus van een wetenschappelijke gegevens levert resultaten 'zoals verwacht." De persoon die dat de test definieert wat schrijft 'zoals verwacht,' is afhankelijk van de uitkomst van de functie--bijvoorbeeld kwaliteit van gegevens controleren of model.
+In dit artikel vervangt de term 'eenheid testen"met"code testen." Deze gegevensset verwijst naar testen als de functies die u helpen te beoordelen als code voor een bepaalde stap van een volledige wetenschappelijke levensduur levert resultaten 'zoals verwacht." De persoon die dat de test definieert wat schrijft 'zoals verwacht,"is afhankelijk van het resultaat van de functie--bijvoorbeeld kwaliteitscontrole van de gegevens of modellen.
 
-Dit artikel bevat verwijzingen als nuttige informatiebronnen.
+Dit artikel bevat verwijzingen naar als handige resources.
 
-## <a name="visual-studio-team-services-for-the-testing-framework"></a>Visual Studio Team Services voor het testen-framework
-Dit artikel wordt beschreven hoe u en automatiseren met behulp van Visual Studio Team Services (VSTS) testen. U kunt besluiten alternatieve hulpprogramma's gebruiken. Ook laten we zien hoe een automatische build instellen met behulp van VSTS en bouwen van agents. Voor agents build gebruiken we wetenschappelijke virtuele Machines van Azure Data (DSVMs).
+## <a name="visual-studio-team-services-for-the-testing-framework"></a>Visual Studio Team Services voor het testen framework
+In dit artikel wordt beschreven hoe u uitvoeren en testen met behulp van Visual Studio Team Services (VSTS) te automatiseren. U kunt andere hulpprogramma's gebruiken. We laten ook zien hoe u een automatische build instellen met behulp van VSTS en build-agents. Voor de build-agents gebruiken we Azure Data Science Virtual Machines (Dsvm).
 
-## <a name="flow-of-code-testing"></a>Stroom van de code testen
-De algemene werkstroom testen code in een wetenschappelijke gegevensproject ziet er als volgt: 
+## <a name="flow-of-code-testing"></a>Stroom van het testen van code
+De algemene werkstroom testen in een data science-project de code ziet er als volgt: 
 
-![Stroomdiagram van de code testen](./media/code-test/test-flow-chart.PNG)
+![Stroomdiagram van het testen van code](./media/code-test/test-flow-chart.PNG)
 
     
 ## <a name="detailed-steps"></a>Gedetailleerde stappen
 
-Gebruik de volgende stappen voor het instellen en testen van code en een geautomatiseerde build uitvoeren met behulp van een agent build en VSTS:
+Gebruik de volgende stappen uit om te testen van code en een geautomatiseerde build op te zetten met behulp van een build-agent en VSTS en:
 
-1. Maak een project in de Visual Studio-bureaubladtoepassing:
+1. Een project maken in de Visual Studio-bureaubladtoepassing:
 
     ![Scherm 'Nieuw project maken' in Visual Studio](./media/code-test/create_project.PNG)
 
-   Nadat u uw project hebt gemaakt, vindt u dat in Solution Explorer in het rechterdeelvenster:
+   Nadat u uw project maakt, moet u deze vinden in Solution Explorer in het rechterdeelvenster:
     
     ![Stappen voor het maken van een project](./media/code-test/create_python_project_in_vs.PNG)
 
     ![Solution Explorer](./media/code-test/solution_explorer_in_vs.PNG)
 
-3. De projectcode van uw in de opslagplaats VSTS project code-feed: 
+3. De projectcode van uw-feed in de codeopslagplaats van de VSTS-project: 
 
-    ![Project code opslagplaats](./media/code-test/create_repo.PNG)
+    ![Codeopslagplaats project](./media/code-test/create_repo.PNG)
 
-4. Stel dat u eerder hebt gedaan met sommige gegevens voorbereiding werk, zoals gegevensopname functie-engineering en label kolommen maken. U wilt controleren of dat uw code genereert de resultaten die u verwacht. Hier volgt een code die u gebruiken kunt om te controleren of de code voor de verwerking van gegevens goed werkt:
+4. Stel dat u sommige gegevensvoorbereidingswerkzaamheden, zoals gegevensopname, feature-engineering en het maken van label kolommen hebben gedaan. U wilt controleren of dat uw code genereert de resultaten die u verwacht. Dit is wat code die u gebruiken kunt om te testen of de code van de gegevensverwerking correct werkt:
 
-    * Controleer of de kolomnamen rechts zijn:
+    * Controleer of de namen van kolommen rechts zijn:
     
-      ![Code voor het afstemmen van kolomnamen](./media/code-test/check_column_names.PNG)
+      ![Code voor het afstemmen van de namen van kolommen](./media/code-test/check_column_names.PNG)
 
     * Controleer of responsniveaus rechts zijn:
 
-      ![Code voor de overeenkomende niveaus](./media/code-test/check_response_levels.PNG)
+      ![Code voor die overeenkomen met niveaus](./media/code-test/check_response_levels.PNG)
 
-    * Controleer of de reactie percentage redelijke is:
+    * Controleer of de antwoord-percentage redelijke is:
 
-      ![Code voor het percentage van de reactie](./media/code-test/check_response_percentage.PNG)
+      ![Code voor het percentage van de reactie voor](./media/code-test/check_response_percentage.PNG)
 
-    * Controleer de ontbrekende frequentie van elke kolom in de gegevens:
+    * Controleer de ontbrekende snelheid van elke kolom in de gegevens:
     
       ![Code voor een ontbrekende snelheid](./media/code-test/check_missing_rate.PNG)
 
 
-5. Nadat u hebt het verwerken van gegevens en de functie engineering werk gedaan en u een goede model hebben getraind, zorg er dan voor dat het model dat u getraind nieuwe gegevenssets kunt beoordelen correct. U kunt de volgende twee tests gebruiken om te controleren van de voorspelling niveaus en distributie van labelwaarden:
+5. Nadat u hebt de gegevensverwerking en functie-engineering werk gedaan en u een goed model hebt getraind, zorg ervoor dat het model dat u getraind correct nieuwe gegevenssets kunt beoordelen. U kunt de volgende twee tests uit om te controleren of de voorspelling niveaus en distributie van de labelwaarden:
 
     * Controleer de voorspelling niveaus:
     
-      ![Code voor het controleren van de voorspelling niveaus](./media/code-test/check_prediction_levels.PNG)
+      ![Code voor het controleren van voorspelling niveaus](./media/code-test/check_prediction_levels.PNG)
 
-    * Controleer de distributie van de voorspelling waarden:
+    * Controleer de distributie van voorspelling waarden:
 
-      ![Code voor het controleren van de voorspelling waarden](./media/code-test/check_prediction_values.PNG)
+      ![Code voor het controleren van de waarden voor voorspelling](./media/code-test/check_prediction_values.PNG)
 
-6. Alle functies samen in een pythonscript aangeroepen testen put **test_funcs.py**:
+6. Alle functies samen in een pythonscript met de naam test put **test_funcs.py**:
 
     ![Python-script voor test-functies](./media/code-test/create_file_test_func.PNG)
 
 
-7. Nadat de test-codes zijn voorbereid, kunt u de testomgeving in Visual Studio kunt instellen.
+7. Nadat de test-codes zijn voorbereid, kunt u de testomgeving in Visual Studio instellen.
 
-   Maak een Python-bestand aangeroepen **test1.py**. In dit bestand maakt u een klasse die bevat alle tests die u wilt doen. Het volgende voorbeeld ziet u zes tests voorbereid:
+   Maak een Python-bestand met de naam **test1.py**. In dit bestand, maakt u een klasse met alle tests die u wilt doen. Het volgende voorbeeld ziet u zes tests voorbereid:
     
-    ![Python-bestand met een lijst met testen in een klasse](./media/code-test/create_file_test1_class.PNG)
+    ![Python-bestand met een lijst met tests in een klasse](./media/code-test/create_file_test1_class.PNG)
 
-8. Deze tests kunnen automatisch worden gedetecteerd als u **codetest.testCase** achter de klassenaam van de. Test Explorer openen in het rechter deelvenster en selecteer **alles uitvoeren**. Alle tests sequentieel worden uitgevoerd en zien als de test geslaagd is.
+8. Deze tests kunnen automatisch worden gedetecteerd als u **codetest.testCase** achter de klassenaam. Test Explorer openen in het rechterdeelvenster en selecteer **alles uitvoeren**. Alle tests achter elkaar wordt uitgevoerd en zien als de test geslaagd of niet is.
 
     ![De tests worden uitgevoerd](./media/code-test/run_tests.PNG)
 
-9. Controleer in uw code in de project-opslagplaats met behulp van de Git-opdrachten. Uw meest recente werk wordt binnenkort in VSTS vermeld.
+9. Controleer in uw code in de projectopslagplaats met behulp van Git-opdrachten. Uw meest recente werk worden binnenkort in VSTS weergegeven.
 
-    ![GIT-opdrachten voor het inchecken van code](./media/code-test/git_check_in.PNG)
+    ![GIT-opdrachten voor het controleren van in de code](./media/code-test/git_check_in.PNG)
 
     ![Meest recente werk in VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
 
 10. Instellen van automatische bouwen en testen in VSTS:
 
-    a. Selecteer in de opslagplaats project **bouwen en de vrijgave van**, en selecteer vervolgens **+ nieuw** voor het maken van een nieuwe buildproces.
+    a. Selecteer in de projectopslagplaats **Build and Release**, en selecteer vervolgens **+ nieuw** om een nieuwe buildproces te maken.
 
        ![Selecties voor het starten van een nieuwe buildproces](./media/code-test/create_new_build.PNG)
 
-    b. Volg de aanwijzingen om uw code bronlocatie, projectnaam, opslagplaats en vertakking informatie te selecteren.
+    b. Volg de aanwijzingen om uw code bronlocatie, naam van het project, opslagplaats en vertakking informatie te selecteren.
     
-       ![Bron, name, -opslagplaats en vertakking informatie](./media/code-test/fill_in_build_info.PNG)
+       ![Bron, de naam van-opslagplaats en vertakking informatie](./media/code-test/fill_in_build_info.PNG)
 
-    c. Selecteer een sjabloon. Omdat er geen Python-projectsjabloon, beginnen met het selecteren **leeg proces**. 
+    c. Selecteer een sjabloon. Omdat er geen Python projectsjabloon, maken, starten door het selecteren van **leeg proces**. 
 
-       ![Lijst met sjablonen en een knop 'Leeg proces'](./media/code-test/start_empty_process_template.PNG)
+       ![Lijst met sjablonen en knop "Proces leeg"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Naam van de build en selecteer de agent. U kunt hier de standaardwaarde als u een DSVM gebruiken wilt voor het voltooien van de buildproces. Zie voor meer informatie over de instelling agents [bouwen en de vrijgave van agents](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/agents?view=vsts).
+    d. De naam van de build en selecteer de agent. U kunt hier de standaardwaarde als u een DSVM gebruiken wilt voor het voltooien van het bouwproces. Zie voor meer informatie over de instelling agents [bouwen en uitbrengen agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
     
-       ![Build en agent selecties](./media/code-test/select_agent.PNG)
+       ![Build- en agent-instellingen](./media/code-test/select_agent.PNG)
 
-    e. Selecteer **+** in het linkerdeelvenster, een taak toevoegen voor deze fase build. Omdat we gaan het Python-script uitvoeren **test1.py** voor het voltooien van alle controles uitgevoerd met deze taak is met behulp van een PowerShell-opdracht Python-code uit te voeren.
+    e. Selecteer **+** in het linkerdeelvenster, een taak wordt toegevoegd voor deze build-fase. Omdat we gaan de Python-script uit te voeren **test1.py** voor het voltooien van alle controles, deze taak een PowerShell-opdracht gebruikt om het Python-code uitvoeren.
     
-       ![Deelvenster 'Taken toevoegen' met PowerShell geselecteerd](./media/code-test/add_task_powershell.PNG)
+       ![Deelvenster 'Toevoegen taken' met PowerShell geselecteerd](./media/code-test/add_task_powershell.PNG)
 
-    f. In de details van PowerShell, vult u de vereiste informatie, zoals de naam en versie van PowerShell. Kies **Inline-Script** als het type. 
+    f. In de details van PowerShell, vult u de vereiste gegevens, zoals de naam en versie van PowerShell. Kies **Inline Script** als het type. 
     
-       In het vak onder **Inline-Script**, typt u **python test1.py**. Controleer of dat de omgevingsvariabele juist is ingesteld voor Python. Als u een andere versie of kernel van Python nodig hebt, kunt u expliciet het pad opgeven zoals weergegeven in de afbeelding: 
+       In het vak onder **Inline Script**, typt u **python test1.py**. Zorg ervoor dat de omgevingsvariabele juist is ingesteld voor Python. Als u een andere versie of de kernel van Python, kunt u het pad kunt expliciet opgeven zoals wordt weergegeven in de afbeelding: 
     
-       ![PowerShell-details](./media/code-test/powershell_scripts.PNG)
+       ![Details van PowerShell](./media/code-test/powershell_scripts.PNG)
 
-    g. Selecteer **opslaan en wachtrij** voor het voltooien van de procedure voor het maken van definitie.
+    g. Selecteer **opslaan en in de wachtrij** naar het build-definitie-proces te voltooien.
 
-       ![Knop "Opslaan & wachtrij"](./media/code-test/save_and_queue_build_definition.PNG)
+       ![De knop "Opslaan en in de wachtrij"](./media/code-test/save_and_queue_build_definition.PNG)
 
-Nu telkens wanneer een nieuwe doorvoer wordt doorgegeven voor de opslagplaats code, wordt het buildproces automatisch gestart. (Hier gebruiken we master als de opslagplaats, maar u kunt elke vertakking definiëren.) Het proces wordt uitgevoerd de **test1.py** bestand in de agentcomputer om ervoor te zorgen dat alles gedefinieerd in de code correct wordt uitgevoerd. 
+Nu telkens wanneer een nieuwe doorvoer wordt doorgestuurd naar de opslagplaats, wordt het bouwproces automatisch gestart. (Hier gebruiken we master als de opslagplaats, maar u kunt een vertakking definiëren.) Het proces wordt uitgevoerd de **test1.py** bestand in de agentcomputer om ervoor te zorgen dat alles gedefinieerd in de code correct wordt uitgevoerd. 
 
-Als er waarschuwingen zijn correct ingesteld, wordt u geïnformeerd in e-mailbericht wanneer de build is voltooid. U kunt ook de status van de build in VSTS controleren. Als dit mislukt, kunt u Controleer de details van de build en weten welke stuk verbroken is.
+Als meldingen correct zijn ingesteld, u krijgt een bericht in e-mailbericht wanneer de build is voltooid. U kunt ook de status van de build in VSTS controleren. Als dit mislukt, kunt u de details van de build en weten welk stuk verbroken is.
 
-![E-mailmeldingen van build-geslaagd](./media/code-test/email_build_succeed.PNG)
+![E-mailmelding van de build-geslaagd](./media/code-test/email_build_succeed.PNG)
 
-![VSTS melding van build-geslaagd](./media/code-test/vs_online_build_succeed.PNG)
+![VSTS-melding van slagen van de build](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie de [UCI inkomsten voorspelling opslagplaats](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) voor concrete voorbeelden van de eenheidstests voor wetenschap gegevensscenario.
-* Volg de voorgaande overzicht en voorbeelden van het scenario UCI inkomsten voorspelling in uw eigen gegevens wetenschap-projecten.
+* Zie de [UCI inkomsten voorspelling opslagplaats](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) voor concrete voorbeelden van eenheidstests voor data science-scenario's.
+* Volg de voorgaande overzicht en voorbeelden van het scenario UCI inkomsten voorspelling in uw eigen data science-projecten.
 
 ## <a name="references"></a>Verwijzingen
 * [Team Data Science Process](https://aka.ms/tdsp)
 * [Hulpprogramma's voor Visual Studio testen](https://www.visualstudio.com/vs/features/testing-tools/)
-* [VSTS testen Resources](https://www.visualstudio.com/team-services/)
-* [Gegevens wetenschappelijke virtuele Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+* [Resources voor VSTS testen](https://www.visualstudio.com/team-services/)
+* [Virtuele Machines voor Datatechnologie](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

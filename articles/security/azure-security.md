@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: bda8f72de16d1d8d95823de98aab8ec209908e63
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437787"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971003"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -113,7 +113,7 @@ De sectie biedt meer informatie over de belangrijkste functies in de toepassing 
 Een van de eenvoudigste manieren om aan de slag met testen op beveiligingsproblemen op uw [App Service-app](https://docs.microsoft.com/azure/app-service/app-service-web-overview) is het gebruik van de [integratie met Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) beveiligingslek in één klik scannen op uw app uitvoeren. U kunt de resultaten van de weergeven in een rapport eenvoudig te begrijpen, en informatie over het oplossen van elk beveiligingsprobleem met stapsgewijze instructies.
 
 ### <a name="penetration-testing"></a>Indringingstests
-Als u liever uw eigen indringingstests uit te voeren of een andere scanner suite of provider wilt gebruiken, volgt u de [Azure goedkeuringsproces voor indringingstests](https://docs.microsoft.com/en-us/azure/security/azure-security-pen-testing ) en verkrijgen van voorafgaande goedkeuring om de gewenste indringingstests uit te voeren.
+Als u liever uw eigen indringingstests uit te voeren of een andere scanner suite of provider wilt gebruiken, volgt u de [Azure goedkeuringsproces voor indringingstests](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) en verkrijgen van voorafgaande goedkeuring om de gewenste indringingstests uit te voeren.
 
 ### <a name="web-application-firewall"></a>Web Application firewall
 De web application firewall (WAF) in [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) beschermt webtoepassingen tegen veelvoorkomende webgebaseerde aanvallen, zoals SQL-injectie, aanvallen via cross-site scripting en sessiehijacking. Dit is vooraf geconfigureerd met beveiliging tegen bedreigingen die door de [Open Web Application Security Project (OWASP) als de top 10 belangrijkste kwetsbaarheden](https://msdn.microsoft.com/library/).

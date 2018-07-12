@@ -1,6 +1,6 @@
 ---
 title: Veelvoorkomende querypatronen in Azure Stream Analytics
-description: In dit artikel beschrijft een aantal veelvoorkomende querypatronen en ontwerpen die nuttig in Azure Stream Analytics-taken zijn.
+description: Dit artikel beschrijft een aantal veelvoorkomende querypatronen en modellen die nuttig in Azure Stream Analytics-taken zijn.
 services: stream-analytics
 author: jseb225
 manager: kfile
@@ -9,25 +9,25 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: f63ccd62136fe8d556a4cfb591e3294f3751dfb3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652243"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971778"
 ---
-# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene gebruikspatronen van de Stream Analytics query
+# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene patronen voor het gebruik van Stream Analytics query
 
 ## <a name="introduction"></a>Inleiding
-Query's in Azure Stream Analytics worden uitgedrukt in een SQL-achtige querytaal. De taalconstructs worden beschreven in de [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) handleiding. 
+Query's in Azure Stream Analytics worden uitgedrukt in een SQL-achtige querytaal. De taalconstructies worden beschreven in de [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) handleiding. 
 
-Ontwerp van de query kunt snelle eenvoudige Pass Through-logica voor het verplaatsen van gegevens van gebeurtenissen van één invoerstroom in een ander gegevensarchief van de uitvoer. Of het uitgebreide patroon overeenkomende en tijdelijke analyse voor het berekenen van statistische functies via verschillende tijdvensters zoals in het voorbeeld TollApp kunt doen. U kunt deelnemen aan gegevens uit meerdere invoer om te combineren met het streaming-gebeurtenissen en zoekacties tegen statische referentiegegevens zodat de gebeurtenis-waarden aanvullen. U kunt ook gegevens naar meerdere uitgangen schrijven.
+Ontwerp van de query kan eenvoudige Pass Through-logica voor het verplaatsen van gebeurtenisgegevens uit één invoerstroom in een andere uitvoer gegevensarchief express. Of het patroon voor uitgebreide overeenkomende en tijdelijke analyse voor het berekenen van statistische functies via verschillende tijdvensters zoals in het voorbeeld TollApp kunt doen. U kunt deelnemen aan gegevens van meerdere invoergegevens te combineren met streaming-gebeurtenissen en lookups op basis van statische referentiegegevens te verrijken van de waarden van de gebeurtenis. U kunt ook gegevens schrijven naar meerdere uitvoer.
 
-In dit artikel bevat een overzicht van oplossingen voor enkele veelvoorkomende querypatronen, op basis van praktijkscenario's. Het is een onderhanden werk en met nieuwe patronen voortdurend wordt bijgewerkt.
+In dit artikel bevat een overzicht van oplossingen voor enkele veelvoorkomende querypatronen, op basis van echte scenario's. Het mee bezig is en moet worden bijgewerkt met nieuwe patronen regelmatig blijft.
 
-## <a name="query-example-convert-data-types"></a>Query-voorbeeld: gegevenstypen converteren
-**Beschrijving**: het definiëren van de typen eigenschappen voor de invoerstroom.
-Bijvoorbeeld: het gewicht auto is afkomstig uit de invoerstroom als tekenreeksen en moet worden geconverteerd naar **INT** om uit te voeren **som** het.
+## <a name="query-example-convert-data-types"></a>Voorbeeld: gegevenstypen converteren
+**Beschrijving**: definieert de typen eigenschappen voor de invoerstroom.
+Bijvoorbeeld: het gewicht auto is afkomstig uit de invoerstroom als tekenreeksen en moet worden geconverteerd naar **INT** om uit te voeren **som** , dat deze.
 
 **Invoer**:
 
@@ -53,11 +53,11 @@ Bijvoorbeeld: het gewicht auto is afkomstig uit de invoerstroom als tekenreeksen
         Make,
         TumblingWindow(second, 10)
 
-**Uitleg**: gebruik een **CAST** -instructie in de **gewicht** aan te geven van het gegevenstype. Zie de lijst met ondersteunde gegevenstypen in [gegevenstypen (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
+**Uitleg bij**: gebruik een **CAST** -instructie in de **gewicht** veld naar het gegevenstype opgeven. Zie de lijst met ondersteunde gegevenstypen in [gegevenstypen (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Query-voorbeeld: gebruik achtige/niet wilt patroon die overeenkomt met
-**Beschrijving**: controleert of de waarde van een veld van de gebeurtenis overeenkomt met een bepaald patroon.
-Bijvoorbeeld, Controleer het resultaat overschrijven die beginnen met A en eindigen met 9.
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Voorbeeld: gebruik zoals/niet wilt patroon die overeenkomt met
+**Beschrijving**: Controleer of de waarde van een veld van de gebeurtenis overeenkomt met een bepaalde patroon.
+Bijvoorbeeld, Controleer het resultaat licentie platen die beginnen met A en eindigen met 9.
 
 **Invoer**:
 
@@ -83,11 +83,11 @@ Bijvoorbeeld, Controleer het resultaat overschrijven die beginnen met A en eindi
     WHERE
         LicensePlate LIKE 'A%9'
 
-**Uitleg**: Gebruik de **zoals** instructie om te controleren de **LicensePlate** veld waarde. Deze moet beginnen met een A, en vervolgens hebt een willekeurige tekenreeks van nul of meer tekens en vervolgens eindigen met een 9. 
+**Uitleg bij**: Gebruik de **zoals** instructie om te controleren of de **LicensePlate** veld waarde. Beginnen met een A, moet en vervolgens hebt een willekeurige tekenreeks van nul of meer tekens, en vervolgens eindigen met een 9. 
 
-## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Query-voorbeeld: Geef de logica voor andere gevallen en-waarden (CASE-instructies)
-**Beschrijving**: Geef een andere berekeningen voor het veld, op basis van een bepaald criterium.
-Geef bijvoorbeeld een beschrijving van de tekenreeks voor het maken van het aantal auto's van dezelfde doorgegeven met een speciaal geval voor 1.
+## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Voorbeeld: Geef de logica voor verschillende aanvragen/waarden (CASE-instructies)
+**Beschrijving**: Geef een andere berekening voor een veld, op basis van een bepaald criterium.
+Bijvoorbeeld, Geef een beschrijving voor het aantal auto's van dezelfde maken die is doorgegeven, met een speciaal geval voor 1.
 
 **Invoer**:
 
@@ -118,11 +118,11 @@ Geef bijvoorbeeld een beschrijving van de tekenreeks voor het maken van het aant
         Make,
         TumblingWindow(second, 10)
 
-**Uitleg**: de **geval** expressie een expressie aan een set van eenvoudige expressies om te bepalen van het resultaat wordt vergeleken. In dit voorbeeld maakt vehicle met een telling van 1 heeft een andere tekenreeks beschrijving geretourneerd dan vehicle met een telling dan 1 maakt. 
+**Uitleg bij**: de **geval** expressie vergelijkt een expressie naar een set eenvoudige expressies om te bepalen van het resultaat. In dit voorbeeld maakt vehicle met een telling van 1, de beschrijving van een andere tekenreeks geretourneerd dan vehicle met een telling dan 1 maakt. 
 
-## <a name="query-example-send-data-to-multiple-outputs"></a>Query-voorbeeld: gegevens verzenden naar meerdere uitgangen
-**Beschrijving**: gegevens verzenden naar meerdere doelen van de uitvoer van een enkele taak.
-Bijvoorbeeld, analyseren van gegevens voor een waarschuwing op basis van drempelwaarden en alle gebeurtenissen naar blob-opslag te archiveren.
+## <a name="query-example-send-data-to-multiple-outputs"></a>Voorbeeld van de query: gegevens verzenden naar meerdere uitvoer
+**Beschrijving**: gegevens verzenden naar meerdere doelen van de uitvoer van een eenmalige taak.
+Bijvoorbeeld: analyseren van gegevens voor een waarschuwing op basis van een drempelwaarde en alle gebeurtenissen naar blob-opslag te archiveren.
 
 **Invoer**:
 
@@ -173,11 +173,11 @@ Bijvoorbeeld, analyseren van gegevens voor een waarschuwing op basis van drempel
     HAVING
         [Count] >= 3
 
-**Uitleg**: de **INTO** component Stream Analytics wordt uitgelegd welke van de uitvoer schrijven van de gegevens uit deze instructie.
-Is het doorgeven van de gegevens die zijn ontvangen op een uitvoer die met de naam van de eerste query **ArchiveOutput**.
-De tweede query biedt een aantal eenvoudige aggregatie en filteren en deze stuurt de resultaten naar een downstream waarschuwingsmethoden systeem.
+**Uitleg bij**: de **INTO** component Stream Analytics wordt uitgelegd welke van de uitvoer naar het schrijven van de gegevens uit deze instructie.
+De eerste query een pass-through van de gegevens ontvangen op een uitvoer die met de naam is **ArchiveOutput**.
+De tweede query biedt een eenvoudige aggregatie en filteren en deze stuurt de resultaten naar een downstream waarschuwingssysteem.
 
-Opmerking u kunt ook opnieuw gebruiken de resultaten van de algemene tabelexpressies (CTE's) (zoals **WITH** instructies) in meerdere uitvoer-instructies. Deze optie heeft het voordeel van het openen van de invoerbron minder lezers.
+Houd er rekening mee dat u de resultaten van de algemene tabelexpressies (CTE's) ook opnieuw kunt gebruiken (zoals **WITH** instructies) in meerdere uitvoer-instructies. Deze optie heeft het voordeel van het openen van de invoerbron minder lezers.
 Bijvoorbeeld: 
 
     WITH AllRedCars AS (
@@ -191,9 +191,9 @@ Bijvoorbeeld:
     SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
-## <a name="query-example-count-unique-values"></a>Voorbeeld van de query: de unieke waarden tellen
-**Beschrijving**: het aantal unieke waarden die worden weergegeven in de stroom binnen een tijdvenster tellen.
-Bijvoorbeeld hoeveel unieke wordt doorgegeven aan de stand tolstation in een venster 2 seconden auto's?
+## <a name="query-example-count-unique-values"></a>Voorbeeld: de unieke waarden tellen
+**Beschrijving**: het aantal unieke waarden die worden weergegeven in de stroom binnen een periode.
+Bijvoorbeeld, het aantal unieke maakt van auto's doorgegeven aan de stand nummer in een venster 2 seconden?
 
 **Invoer**:
 
@@ -205,7 +205,7 @@ Bijvoorbeeld hoeveel unieke wordt doorgegeven aan de stand tolstation in een ven
 | Toyota |2015-01-01T00:00:02.0000000Z |
 | Toyota |2015-01-01T00:00:03.0000000Z |
 
-**Uitvoer:**
+**De uitvoer:**
 
 | CountMake | Time |
 | --- | --- |
@@ -225,11 +225,11 @@ GROUP BY
 
 
 **Uitleg:**
-**COUNT (afzonderlijke zorg)** retourneert het aantal afzonderlijke waarden in de **zorg** kolom binnen een periode.
+**aantal (uniek zorg)** retourneert het aantal distinctieve waarden in de **maken** kolom binnen een periode.
 
-## <a name="query-example-determine-if-a-value-has-changed"></a>Query-voorbeeld: bepalen of een waarde is gewijzigd
-**Beschrijving**: kijken naar een vorige waarde om te bepalen of anders is dan de huidige waarde.
-Bijvoorbeeld, is de vorige auto tolstation onderweg de dezelfde maken als de huidige auto?
+## <a name="query-example-determine-if-a-value-has-changed"></a>Voorbeeld: bepalen of een waarde is gewijzigd
+**Beschrijving**: kijken naar een vorige waarde om te bepalen of deze anders is dan de huidige waarde.
+Bijvoorbeeld, is de vorige auto nummer onderweg de dezelfde maken als de huidige auto?
 
 **Invoer**:
 
@@ -254,10 +254,10 @@ Bijvoorbeeld, is de vorige auto tolstation onderweg de dezelfde maken als de hui
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
-**Uitleg**: Gebruik **LAG** als u wilt bekijken in de invoerstroom één gebeurtenis terug en de **zorg** waarde. Vergelijk deze naar de **zorg** -waarde op de huidige gebeurtenis en de uitvoer van de gebeurtenis als deze verschillen.
+**Uitleg bij**: Gebruik **LAG** bekijken in de invoerstroom één gebeurtenis weer, waarna de **maken** waarde. Vergelijk deze naar de **maken** -waarde op de huidige gebeurtenis en de uitvoer van de gebeurtenis als deze verschillend zijn.
 
-## <a name="query-example-find-the-first-event-in-a-window"></a>Voorbeeld van de query: de eerste gebeurtenis niet vinden in een venster
-**Beschrijving**: de eerste auto niet vinden in het interval van elke 10 minuten.
+## <a name="query-example-find-the-first-event-in-a-window"></a>Voorbeeld: zoek de eerste gebeurtenis in een venster
+**Beschrijving**: de eerste auto niet vinden in de interval van elke 10 minuten.
 
 **Invoer**:
 
@@ -289,7 +289,7 @@ Bijvoorbeeld, is de vorige auto tolstation onderweg de dezelfde maken als de hui
     WHERE 
         IsFirst(minute, 10) = 1
 
-Nu gaan we het probleem wijzigen en de eerste auto van een bepaalde merk niet vinden in het interval van elke 10 minuten.
+Nu gaan we het probleem wijzigen en de eerste auto van een bepaalde versie zoeken in een interval van elke 10 minuten.
 
 | LicensePlate | Maken | Time |
 | --- | --- | --- |
@@ -310,8 +310,8 @@ Nu gaan we het probleem wijzigen en de eerste auto van een bepaalde merk niet vi
     WHERE 
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## <a name="query-example-find-the-last-event-in-a-window"></a>Voorbeeld van de query: de laatste gebeurtenis niet vinden in een venster
-**Beschrijving**: de laatste auto niet vinden in het interval van elke 10 minuten.
+## <a name="query-example-find-the-last-event-in-a-window"></a>Voorbeeld: zoek de laatste gebeurtenis in een venster
+**Beschrijving**: de laatste auto niet vinden in de interval van elke 10 minuten.
 
 **Invoer**:
 
@@ -353,11 +353,11 @@ Nu gaan we het probleem wijzigen en de eerste auto van een bepaalde merk niet vi
         ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
         AND Input.Time = LastInWindow.LastEventTime
 
-**Uitleg**: Er zijn twee stappen in de query. Het eerste beheerpunt vindt de meest recente tijdstempel in windows 10 minuten. De tweede stap koppelt de resultaten van de eerste query met de oorspronkelijke stroom vinden van de gebeurtenissen die overeenkomen met de laatste tijdstempels in elk venster. 
+**Uitleg bij**: Er zijn twee stappen in de query. Het eerste item vindt de meest recente tijdstempel in windows 10 minuten. De tweede stap koppelt de resultaten van de eerste query met de oorspronkelijke stroom om de gebeurtenissen die overeenkomen met de laatste tijdstempels in elk venster te zoeken. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>Voorbeeld van de query: de afwezigheid van gebeurtenissen detecteren
-**Beschrijving**: Controleer of er een stroom geen waarde die overeenkomt met een bepaald criterium.
-Bijvoorbeeld: hebt 2 opeenvolgende auto's uit hetzelfde merk onderweg tolstation ingevoerd gedurende de laatste 90 seconden
+## <a name="query-example-detect-the-absence-of-events"></a>Voorbeeld van de query: detecteren van de afwezigheid van gebeurtenissen
+**Beschrijving**: Controleer of een stroom heeft geen waarde die overeenkomt met een bepaald criterium.
+Bijvoorbeeld, hebt 2 opeenvolgende auto's uit het hetzelfde merk mobiel nummer ingevoerd in de afgelopen 90 seconden
 
 **Invoer**:
 
@@ -387,10 +387,10 @@ Bijvoorbeeld: hebt 2 opeenvolgende auto's uit hetzelfde merk onderweg tolstation
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**Uitleg**: Gebruik **LAG** als u wilt bekijken in de invoerstroom één gebeurtenis terug en de **zorg** waarde. Vergelijk deze met de **zorg** waarde in de huidige gebeurtenis en de gebeurtenis vervolgens uitvoer als ze hetzelfde zijn. U kunt ook **LAG** ophalen van gegevens over de vorige auto.
+**Uitleg bij**: Gebruik **LAG** bekijken in de invoerstroom één gebeurtenis weer, waarna de **maken** waarde. Vergelijk deze met de **maken** waarde in de huidige gebeurtenis, en vervolgens de gebeurtenis uitvoer als ze hetzelfde zijn. U kunt ook **LAG** ophalen van gegevens over de vorige auto.
 
-## <a name="query-example-detect-the-duration-between-events"></a>Voorbeeld van de query: de tijd tussen gebeurtenissen detecteren
-**Beschrijving**: de duur van een bepaalde gebeurtenis vinden. Bijvoorbeeld: een web-clickstream gezien, bepalen de tijd die op een functie.
+## <a name="query-example-detect-the-duration-between-events"></a>Voorbeeld: de duur tussen gebeurtenissen te detecteren
+**Beschrijving**: de duur van een bepaalde gebeurtenis te vinden. Bijvoorbeeld, een web-clickstream worden gegeven, bepalen de tijd die op een functie.
 
 **Invoer**:  
 
@@ -415,10 +415,10 @@ Bijvoorbeeld: hebt 2 opeenvolgende auto's uit hetzelfde merk onderweg tolstation
         Event = 'end'
 ````
 
-**Uitleg**: Gebruik de **laatste** functie voor het ophalen van de laatste **tijd** waarde wanneer het gebeurtenistype is **Start**. De **laatste** functie maakt gebruik van **PARTITION BY [gebruiker]** om aan te geven dat het resultaat wordt berekend per unieke gebruiker. De query heeft een 1 uur maximale drempelwaarde voor het tijdsverschil tussen **Start** en **stoppen** gebeurtenissen, maar is configureerbaar naar behoefte **(LIMIET DURATION(hour, 1)**.
+**Uitleg bij**: Gebruik de **laatste** functie voor het ophalen van de laatste **tijd** waarde wanneer het gebeurtenistype is **Start**. De **laatste** functie maakt gebruik **PARTITION BY [user]** om aan te geven dat het resultaat wordt berekend per unieke gebruiker. De query heeft een maximale drempelwaarde van 1 uur voor het tijdsverschil tussen **Start** en **stoppen** gebeurtenissen, maar kan worden geconfigureerd naar behoefte **(LIMIET DURATION(hour, 1)**.
 
-## <a name="query-example-detect-the-duration-of-a-condition"></a>Voorbeeld van de query: de duur van een voorwaarde detecteren
-**Beschrijving**: vinden out hoe lang een voorwaarde is opgetreden.
+## <a name="query-example-detect-the-duration-of-a-condition"></a>Voorbeeld van de query: detecteren van de duur van een voorwaarde
+**Beschrijving**: zoek uit hoe lang een voorwaarde is opgetreden.
 Stel bijvoorbeeld dat een fout heeft geresulteerd in alle auto's met een onjuiste gewicht (meer dan 20.000 pond) en de duur van die fout moet worden berekend.
 
 **Invoer**:
@@ -461,11 +461,11 @@ Stel bijvoorbeeld dat een fout heeft geresulteerd in alle auto's met een onjuist
         AND previousWeight > 20000
 ````
 
-**Uitleg**: Gebruik **LAG** weergeven van de invoerstroom 24 uur en zoek naar waar u exemplaren **StartFault** en **StopFault** zijn omspannen door het gewicht < 20000.
+**Uitleg bij**: Gebruik **LAG** voor het weergeven van de invoerstroom 24 uur en zoek naar waar u exemplaren **StartFault** en **StopFault** wordt omspannen door het gewicht < 20000.
 
-## <a name="query-example-fill-missing-values"></a>Query-voorbeeld: Vul ontbrekende waarden
-**Beschrijving**: voor de stroom van gebeurtenissen met ontbrekende waarden produceren van een stream van gebeurtenissen met regelmatige tussenpozen.
-Bijvoorbeeld, een gebeurtenis om de vijf seconden die het meest recent waargenomen gegevenspunt rapporten genereren.
+## <a name="query-example-fill-missing-values"></a>Voorbeeld: ontbrekende waarden invullen
+**Beschrijving**: voor het streamen van gebeurtenissen met ontbrekende waarden produceren van een stroom gebeurtenissen met regelmatige intervallen.
+Bijvoorbeeld, Genereer een gebeurtenis om de vijf seconden die het meest recent gezien gegevenspunt rapporteert.
 
 **Invoer**:
 
@@ -503,41 +503,41 @@ Bijvoorbeeld, een gebeurtenis om de vijf seconden die het meest recent waargenom
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Uitleg**: deze query gebeurtenissen genereert elke vijf seconden en levert de laatste gebeurtenis dat u eerder hebt ontvangen. De [Hopping venster](https://msdn.microsoft.com/library/dn835041.aspx "Hopping venster--Azure Stream Analytics") duur bepaalt hoe ver terug de query ziet er als u wilt zoeken naar de nieuwste gebeurtenis (300 seconden in dit voorbeeld).
+**Uitleg bij**: deze query gebeurtenissen worden gegenereerd om de vijf seconden en levert de laatste gebeurtenis die eerder is ontvangen. De [Hopping venster](https://msdn.microsoft.com/library/dn835041.aspx "Hopping venster--Azure Stream Analytics") duur bepaalt hoe ver terug de query ziet er uit als u wilt zoeken van de meest recente gebeurtenis (300 seconden in dit voorbeeld).
 
 
-## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Query-voorbeeld: twee typen gebeurtenissen binnen dezelfde stream correleren
-**Beschrijving**: soms waarschuwingen moeten worden gegenereerd op basis van meerdere gebeurtenistypen dat is opgetreden in een bepaalde periode.
-Bijvoorbeeld in een IoT-scenario voor thuis weerstaan, moet een waarschuwing worden gegenereerd wanneer de temperatuur ventilator korter dan 40 is en de maximale kracht gedurende de laatste 3 minuten kleiner dan 10 is.
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Voorbeeld: twee typen gebeurtenissen binnen dezelfde stream correleren
+**Beschrijving**: soms waarschuwingen moeten worden gegenereerd op basis van meerdere typen van gebeurtenissen die zijn opgetreden in een bepaalde periode.
+Bijvoorbeeld in een IoT-scenario voor thuis weerstaan, een waarschuwing moet worden gegenereerd wanneer de temperatuur ventilator lager dan 40 is en de maximale kracht gedurende de laatste 3 minuten minder dan 10 is.
 
 **Invoer**:
 
 | tijd | deviceId | sensorName | waarde |
 | --- | --- | --- | --- |
-| "2018-01-01T16:01:00" | 'Oven1' | 'temp' |120 |
-| "2018-01-01T16:01:00" | 'Oven1' | "power" |15 |
-| "2018-01-01T16:02:00" | 'Oven1' | 'temp' |100 |
-| "2018-01-01T16:02:00" | 'Oven1' | "power" |15 |
-| "2018-01-01T16:03:00" | 'Oven1' | 'temp' |70 |
-| "2018-01-01T16:03:00" | 'Oven1' | "power" |15 |
-| "2018-01-01T16:04:00" | 'Oven1' | 'temp' |50 |
-| "2018-01-01T16:04:00" | 'Oven1' | "power" |15 |
-| "2018-01-01T16:05:00" | 'Oven1' | 'temp' |30 |
-| "2018-01-01T16:05:00" | 'Oven1' | "power" |8 |
-| "2018-01-01T16:06:00" | 'Oven1' | 'temp' |20 |
-| "2018-01-01T16:06:00" | 'Oven1' | "power" |8 |
-| "2018-01-01T16:07:00" | 'Oven1' | 'temp' |20 |
-| "2018-01-01T16:07:00" | 'Oven1' | "power" |8 |
-| "2018-01-01T16:08:00" | 'Oven1' | 'temp' |20 |
-| "2018-01-01T16:08:00" | 'Oven1' | "power" |8 |
+| "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
+| "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:02:00" | "Oven1" | "temp" |100 |
+| "2018-01-01T16:02:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:03:00" | "Oven1" | "temp" |70 |
+| "2018-01-01T16:03:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:04:00" | "Oven1" | "temp" |50 |
+| "2018-01-01T16:04:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
+| "2018-01-01T16:05:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:06:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:07:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:08:00" | "Oven1" | "power" |8 |
 
 **Uitvoer**:
 
 | eventTime | deviceId | TEMP | alertMessage | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
-| "2018-01-01T16:05:00" | 'Oven1' |30 | 'Kortsluitingsoperator verwarming elementen' |15 |
-| "2018-01-01T16:06:00" | 'Oven1' |20 | 'Kortsluitingsoperator verwarming elementen' |15 |
-| "2018-01-01T16:07:00" | 'Oven1' |20 | 'Kortsluitingsoperator verwarming elementen' |15 |
+| "2018-01-01T16:05:00" | "Oven1" |30 | "Korte circuit verwarming elementen" |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 | "Korte circuit verwarming elementen" |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 | "Korte circuit verwarming elementen" |15 |
 
 **Oplossing**:
 
@@ -577,10 +577,10 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**Uitleg**: de eerste query `max_power_during_last_3_mins`, gebruikt de [schuifregelaar venster](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) naar de maximale waarde van de sensor power voor elk apparaat tijdens de afgelopen 3 minuten. De tweede query is gekoppeld aan de eerste query om de energie-waarde in het venster van de meest recente relevant vinden voor de huidige gebeurtenis. En vervolgens, mits de voorwaarden wordt voldaan, wordt een waarschuwing gegenereerd voor het apparaat.
+**Uitleg bij**: de eerste query `max_power_during_last_3_mins`, maakt gebruik van de [schuifregelaar venster](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) gezocht naar de maximale waarde van de sensor power voor elk apparaat tijdens de laatste 3 minuten. De tweede query is gekoppeld aan de eerste query gezocht naar de power waarde in het venster van de meest recente relevant zijn voor de huidige gebeurtenis. En vervolgens, mits de voorwaarden wordt voldaan, wordt een waarschuwing gegenereerd voor het apparaat.
 
-## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Query-voorbeeld: gebeurtenissen onafhankelijk van het apparaat klok leiden tot onjuiste (substreams)
-**Beschrijving**: gebeurtenissen kunnen laat plaatsvinden of volgorde vanwege klok laat tussen producenten gebeurtenis de klok die zijn hellen tussen partities of netwerklatentie. In het volgende voorbeeld wordt de apparaatklok voor TollID 2 is tien seconden achter TollID 1 en de apparaatklok voor TollID 3 is vijf seconden achter TollID 1. 
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Voorbeeld: verwerken van gebeurtenissen die onafhankelijk van het apparaat klok scheeftrekken (substreams)
+**Beschrijving**: gebeurtenissen kunnen worden gemeld of andere volgorde gevolg van tijdsverschillen tussen gebeurtenisproducers klok Hiermee laat overhellen tussen partities of netwerklatentie. In het volgende voorbeeld wordt de apparaatklok van uw voor TollID 2 is tien seconden achter TollID 1 en de apparaatklok van uw voor TollID 3 is vijf seconden na TollID 1. 
 
 
 **Invoer**:
@@ -617,11 +617,11 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 ````
 
-**Uitleg**: de [TIMESTAMP-door via](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) component kijkt naar de tijdlijn van elk apparaat afzonderlijk met substreams. De uitvoergebeurtenissen voor elke TollID zijn gegenereerd als ze worden berekend, wat betekent dat de gebeurtenissen in volgorde ten opzichte van elke TollID in plaats van de volgorde van worden alsof alle apparaten op de dezelfde klok wordt gewijzigd.
+**Uitleg bij**: de [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) component kijkt naar de tijdlijn van elk apparaat afzonderlijk met substreams. De uitvoergebeurtenissen voor elke TollID worden gegenereerd als ze worden berekend, wat betekent dat de gebeurtenissen in volgorde met betrekking tot elke TollID in plaats van de volgorde van worden alsof alle apparaten op de dezelfde klok wordt gewijzigd.
 
 
 ## <a name="get-help"></a>Help opvragen
-Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

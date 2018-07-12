@@ -16,12 +16,12 @@ ms.component: protection
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b4322ab5c90b04cf4eb0591e97e5e026664a2769
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 681169fc3db69c2dfb8aa36d6e2896e0ddba8b56
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442369"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548125"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Vereisten voor het abonnement van Azure Active Directory Privileged Identity Management
 
@@ -38,7 +38,7 @@ Als u niet zeker weet of uw organisatie heeft een proefversie of een abonnement 
 2. Voer `Connect-MsolService` zich kan voordoen als een gebruiker in uw tenant.
 3. Voer `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
 
-Met deze opdracht haalt een lijst van de abonnementen in uw tenant. Als er geen regels die zijn geretourneerd, moet u een aankoop van Azure AD Premium P2-proefversie, ophalen, een Azure AD Premium P2-abonnement of EMS E5-abonnement op Azure AD Privileged Identity Management gebruiken.  Als u een proef- en start met behulp van Azure AD Privileged Identity Management, lezen [aan de slag met Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+Met deze opdracht haalt een lijst van de abonnementen in uw tenant. Als er geen regels die zijn geretourneerd, moet u een aankoop van Azure AD Premium P2-proefversie, ophalen, een Azure AD Premium P2-abonnement of EMS E5-abonnement op Azure AD Privileged Identity Management gebruiken.  Als u een proef- en start met behulp van Azure AD Privileged Identity Management, lezen [aan de slag met Azure AD Privileged Identity Management](pim-getting-started.md).
 
 Als deze opdracht retourneert een regel in welke SkuPartNumber is 'AAD_PREMIUM_P2' of 'EMSPREMIUM' en IsTrial 'True' is, dit geeft aan dat een Azure AD Premium P2-proefversie is aanwezig in de tenant.  Als de status van het abonnement is niet ingeschakeld en u hebt geen een Azure AD Premium P2- of EMS E5-abonnement kopen, moet klikt u vervolgens u een Azure AD Premium P2-abonnement of aanschaffen EMS E5-abonnement om door te gaan met behulp van Azure AD Privileged Identity Management.
 
@@ -61,5 +61,5 @@ Wanneer een Azure AD Premium P2-abonnement of EMS E5-abonnement is verlopen, of 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aan de slag met Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
-- [Rollen in Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-roles.md)
+- [Aan de slag met Azure AD Privileged Identity Management](pim-getting-started.md)
+- [Rollen in Azure AD Privileged Identity Management](pim-roles.md)

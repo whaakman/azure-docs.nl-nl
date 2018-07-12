@@ -1,6 +1,6 @@
 ---
-title: Het label van een virtuele machine van Windows-resource in Azure | Microsoft Docs
-description: Meer informatie over virtuele Windows-machine gemaakt in Azure met het implementatiemodel van Resource Manager-tagging
+title: Informatie over het taggen van een Windows VM-resource in Azure | Microsoft Docs
+description: Meer informatie over het taggen van een Windows-machine hebt gemaakt in Azure met behulp van de Resource Manager-implementatiemodel
 services: virtual-machines-windows
 documentationcenter: ''
 author: mmccrory
@@ -16,25 +16,25 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 ms.openlocfilehash: 5044bda855b6ac88eb5784f257686bf8a1838222
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30917496"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531316"
 ---
-# <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Het label van een virtuele Windows-machine in Azure
-In dit artikel beschrijft de verschillende manieren voor het taggen van een virtuele Windows-machine in Azure via het Resource Manager-implementatiemodel. Labels zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of een resourcegroep kunnen worden geplaatst. Azure ondersteunt momenteel maximaal 15 tags per resource en resourcegroep. Labels kunnen worden geplaatst op een bron op het moment van maken of toegevoegd aan een bestaande resource. Houd er rekening mee dat de labels voor resources die zijn gemaakt via het Resource Manager-implementatiemodel alleen worden ondersteund. Als u wilt voor het taggen van een virtuele Linux-machine, Zie [hoe het labelen van een virtuele Linux-machine in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Informatie over het taggen van een Windows-machine in Azure
+Dit artikel beschrijft de verschillende manieren voor het taggen van een Windows-machine in Azure via het Resource Manager-implementatiemodel. Tags zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of resourcegroep kunnen worden geplaatst. Azure biedt momenteel ondersteuning voor maximaal 15 tags per resource en resourcegroep. Labels kunnen worden geplaatst op een resource op het moment dat wordt gemaakt of toegevoegd aan een bestaande resource. Houd er rekening mee dat de labels voor resources die zijn gemaakt via het Resource Manager-implementatiemodel alleen worden ondersteund. Als u wilt voor het taggen van een virtuele Linux-machine, Zie [informatie over het taggen van een virtuele Linux-machine in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
-## <a name="tagging-with-powershell"></a>Labels met PowerShell
-Als u wilt maken, toevoegen en verwijderen van de labels via PowerShell, moet u eerst voor het instellen van uw [PowerShell-omgeving met Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Nadat u de installatie hebt voltooid, kunt u labels kunt plaatsen op Compute, netwerk en opslag bronnen bij het maken of nadat de resource is gemaakt via PowerShell. In dit artikel zal zich concentreren op weergeven/bewerken labels geplaatst op virtuele Machines.
+## <a name="tagging-with-powershell"></a>Labelen met PowerShell
+Als u wilt maken, toevoegen en verwijderen van tags via PowerShell, moet u eerst het instellen van uw [PowerShell-omgeving met Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Nadat u de installatie hebt voltooid, kunt u labels kunt plaatsen op Reken-, netwerk- en -resources bij het maken of nadat de resource is gemaakt via PowerShell. In dit artikel zal zich concentreren op weergeven/bewerken tags geplaatst op virtuele Machines.
 
-Eerst, gaat u naar een virtuele Machine via de `Get-AzureRmVM` cmdlet.
+Navigeer naar een virtuele Machine via de `Get-AzureRmVM` cmdlet.
 
         PS C:\> Get-AzureRmVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
 
-Als uw virtuele Machine al labels bevat, klikt u vervolgens ziet u de labels van uw resources:
+Als uw virtuele Machine al labels bevat, klikt u vervolgens ziet u alle tags voor uw resource:
 
         Tags : {
                 "Application": "MyApp1",
@@ -43,13 +43,13 @@ Als uw virtuele Machine al labels bevat, klikt u vervolgens ziet u de labels van
                 "Environment": "Production"
                }
 
-Als u toevoegen labels via PowerShell wilt, kunt u de `Set-AzureRmResource` opdracht. Houd er rekening mee bij het bijwerken van labels via PowerShell, tags worden bijgewerkt als geheel. Dus als u één label aan een resource die al labels toevoegt is, moet u om op te nemen van de labels die u wilt worden geplaatst op de bron. Hieronder volgt een voorbeeld van andere labels toevoegen aan een resource via PowerShell-Cmdlets.
+Als u toevoegen van tags via PowerShell wilt, kunt u de `Set-AzureRmResource` opdracht. Houd er rekening mee bij het bijwerken van tags via PowerShell, tags worden bijgewerkt als geheel. Dus als u een tag wilt aan een resource die al tags toevoegen heeft, moet u om op te nemen van de labels die u wilt worden geplaatst op de resource. Hieronder volgt een voorbeeld van het toevoegen van extra labels aan een resource via PowerShell-Cmdlets.
 
-Deze eerste cmdlet stelt alle labels op geplaatst *MyTestVM* naar de *$tags* variabele, met behulp van de `Get-AzureRmResource` en `Tags` eigenschap.
+Deze eerste cmdlet worden alle van de labels op geplaatst *MyTestVM* naar de *$tags* variabele, met behulp van de `Get-AzureRmResource` en `Tags` eigenschap.
 
         PS C:\> $tags = (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-De tweede opdracht geeft de labels voor de opgegeven variabele.
+De tweede opdracht geeft u de tags voor de opgegeven variabele.
 
         PS C:\> $tags
 
@@ -64,15 +64,15 @@ De tweede opdracht geeft de labels voor de opgegeven variabele.
         Value        Production
         Name        Environment
 
-De derde opdracht voegt een extra tag voor de *$tags* variabele. Let op het gebruik van de **+=** toe te voegen van de nieuwe sleutel-waardepaar voor de *$tags* lijst.
+De derde opdracht voegt een extra code aan de *$tags* variabele. Let op het gebruik van de **+=** toe te voegen van de nieuwe sleutel/waarde-paar aan de *$tags* lijst.
 
         PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
-De vierde opdracht stelt alle labels gedefinieerd in de *$tags* variabele met de opgegeven bron. In dit geval is het MyTestVM.
+De vierde opdracht stelt u alle labels gedefinieerd in de *$tags* variabele aan de opgegeven resource. In dit geval is het MyTestVM.
 
         PS C:\> Set-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
-De vijfde opdracht geeft alle labels op de bron. Zoals u ziet, *locatie* is nu gedefinieerd als een label met *MyLocation* als de waarde.
+De vijfde opdracht geeft alle labels op de resource. Zoals u ziet, *locatie* is nu gedefinieerd als een label met *MyLocation* als de waarde.
 
         PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -89,13 +89,13 @@ De vijfde opdracht geeft alle labels op de bron. Zoals u ziet, *locatie* is nu g
         Value        MyLocation
         Name        Location
 
-Bekijk voor meer informatie over labels via PowerShell, de [Azure Resource Cmdlets][Azure Resource Cmdlets].
+Bekijk voor meer informatie over het taggen via PowerShell, de [Azure Resource-Cmdlets][Azure Resource Cmdlets].
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over uw Azure-resources te labelen, [overzicht van Azure Resource Manager] [ Azure Resource Manager Overview] en [Tags gebruiken om uw Azure-Resources te organiseren][Using Tags to organize your Azure Resources].
-* Zie hoe labels kunnen u helpen uw gebruik van Azure-resources beheren [inzicht in uw Azure-factuur] [ Understanding your Azure Bill] en [inzicht in uw Microsoft Azure-brongebruik][Gain insights into your Microsoft Azure resource consumption].
+* Zie voor meer informatie over het taggen van uw Azure-resources, [overzicht van Azure Resource Manager] [ Azure Resource Manager Overview] en [Tags gebruiken om uw Azure-Resources te organiseren] [ Using Tags to organize your Azure Resources].
+* Als u wilt zien hoe labels kunnen u helpen uw gebruik van Azure-resources beheren, Zie [informatie over uw Azure-factuur] [ Understanding your Azure Bill] en [inzicht in het gebruik van de Microsoft Azure-resources] [Gain insights into your Microsoft Azure resource consumption].
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md
 [Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx

@@ -1,80 +1,79 @@
 ---
-title: De schijf van Azure gebruiken met AKS
-description: Azure-schijven met AKS gebruiken
+title: Permanente volumes maken met Azure Kubernetes Service
+description: Informatie over het gebruik van Azure-schijven permanente om volumes te maken voor de schillen in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/10/2018
 ms.author: iainfou
-ms.openlocfilehash: ddac68b2a47fc830055b9dd5bd705802cc29c52f
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 14617b57f59c068aa015c9bfea9b4d18520b4152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095923"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473679"
 ---
-# <a name="persistent-volumes-with-azure-disks"></a>Permanente volumes met Azure-schijven
+# <a name="create-persistent-volumes-with-azure-disks-for-azure-kubernetes-service-aks"></a>Permanente volumes maken met Azure-schijven voor Azure Kubernetes Service (AKS)
 
-Een permanente volume vertegenwoordigt een onderdeel van de opslag die is ingericht voor gebruik met Kubernetes gehele product. Een permanente volume kan worden gebruikt door een of meer gehele product en worden dynamisch of statisch ingericht. Zie voor meer informatie over Kubernetes permanente volumes [Kubernetes permanente volumes][kubernetes-volumes].
-
-Dit Documentdetails permanente volumes gebruiken met Azure-schijven in een Azure Kubernetes Service (AKS)-cluster.
+Een permanent volume vertegenwoordigt een stukje opslag die is ingericht voor gebruik met Kubernetes-schillen. Een permanent volume kan worden gebruikt door een of meer schillen en kan worden dynamisch of statisch ingericht. Zie voor meer informatie over Kubernetes permanente volumes [Kubernetes permanente volumes][kubernetes-volumes]. In dit artikel leest u hoe het gebruik van permanente volumes met Azure-schijven in een cluster Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Een Azure-schijf kan alleen worden gekoppeld met de modus toegangstype ReadWriteOnce waardoor beschikbaar is op slechts één AKS knooppunt. Als dat een permanente volume delen op meerdere knooppunten, overweeg dan [Azure Files][azure-files-pvc].
+> Een Azure-schijf kan alleen worden gekoppeld met *toegangsmodus* type *ReadWriteOnce*, waardoor het beschikbaar voor slechts één AKS-knooppunt. Als dat het delen van een permanent volume op meerdere knooppunten, kunt u overwegen [Azure Files][azure-files-pvc].
 
 ## <a name="built-in-storage-classes"></a>Ingebouwde Opslagklassen
 
-Een opslagklasse wordt gebruikt om te definiëren hoe een opslageenheid dynamisch wordt gemaakt met een permanente volume. Zie voor meer informatie over Kubernetes Opslagklassen [Kubernetes Opslagklassen][kubernetes-storage-classes].
+Een opslagklasse wordt gebruikt om te definiëren hoe een opslageenheid dynamisch wordt gemaakt met een permanent volume. Zie voor meer informatie over Kubernetes-Opslagklassen [Kubernetes Opslagklassen][kubernetes-storage-classes].
 
-Elk cluster AKS bevat twee vooraf gemaakte Opslagklassen, beide geconfigureerd om te werken met Azure-schijven. De `default` opslagklasse voorziet in een standard-Azure schijven. De `managed-premium` opslagklasse voorziet in een premium Azure-schijf. Als de knooppunten AKS in uw cluster premium-opslag gebruikt, selecteert de `managed-premium` klasse.
+Een AKS-cluster bevat twee vooraf gemaakte Opslagklassen, beide geconfigureerd om te werken met Azure-schijven. De *standaard* opslagklasse richt een standaardschijf in Azure. De *beheerde premium* opslagklasse richt een premium Azure-schijf. Als de AKS-knooppunten in uw cluster premiumopslag gebruikt, selecteert u de *beheerde premium* klasse.
 
-Gebruik de [kubectl ophalen sc] [ kubectl-get] opdracht om te zien van de vooraf gemaakte Opslagklassen.
+Gebruik de [kubectl ophalen sc] [ kubectl-get] opdracht om te zien van de vooraf gemaakte Opslagklassen. Het volgende voorbeeld wordt de Opslagklassen die beschikbaar zijn in een AKS-cluster vooraf te maken:
 
-```console
+```
+$ kubectl get sc
+
 NAME                PROVISIONER                AGE
 default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Permanente volume claims zijn opgegeven in GiB maar Azure beheerd schijven wordt gefactureerd per SKU voor een specifieke grootte. Deze SKU's bereik van 32GiB voor S4 of P4 schijven 4TiB voor aanbeveling S50 of P50 schijven. Bovendien de doorvoer en prestaties van de IOPS van een Premium beheerd schijf afhankelijk is van zowel de SKU en de exemplaargrootte van de knooppunten in het cluster AKS. Zie [prijzen en prestaties van beheerde schijven][managed-disk-pricing-performance].
+> Permanent volume claims zijn opgegeven in GiB maar Azure managed disks worden gefactureerd op basis van de SKU voor een specifieke grootte. Deze SKU's variëren van 32GiB voor S4 of P4 schijven tot 4TiB voor S50 of P50 schijven. Bovendien de doorvoer en IOPS-prestaties van een Premium-beheerde schijf is afhankelijk van zowel de SKU en de exemplaargrootte van de knooppunten in het AKS-cluster. Zie voor meer informatie, [prijs en prestaties van Managed Disks][managed-disk-pricing-performance].
 
-## <a name="create-persistent-volume-claim"></a>Permanente volume claim maken
+## <a name="create-a-persistent-volume-claim"></a>Maken van een claim permanent volume
 
-Een claim permanente volume (PVC) wordt gebruikt voor het automatisch inrichten van opslag op basis van een opslagklasse. In dit geval een PVC kunt een van de vooraf gemaakte Opslagklassen maken een standard- of premium Azure beheerde schijven.
+Een claim permanent volume (PVC) wordt gebruikt voor het automatisch inrichten van opslag op basis van een storage-klasse. In dit geval een PVC kunt een van de vooraf gemaakte Opslagklassen te maken van een Azure standard- of premium beheerde schijven.
 
-Maak een bestand met de naam `azure-premium.yaml`, en kopieer het volgende manifest.
+Maak een bestand met de naam `azure-premium.yaml`, en kopieer de volgende manifest.
 
-Let op dat de `managed-premium` opslagklasse is opgegeven in de aantekening en de claim vraagt een schijf `5GB` aan de grootte van `ReadWriteOnce` toegang.
+Houd er rekening mee houden dat de *beheerde premium* opslagklasse is opgegeven in de aantekening en de claim vraagt een schijf *5GB* in grootte met *ReadWriteOnce* toegang.
 
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: azure-managed-disk
-  annotations:
-    volume.beta.kubernetes.io/storage-class: managed-premium
 spec:
   accessModes:
   - ReadWriteOnce
+  storageClassName: managed-premium
   resources:
     requests:
       storage: 5Gi
 ```
 
-Maken van de claim permanente volume met de [kubectl toepassen] [ kubectl-apply] opdracht.
+Maken van de claim permanent volume met de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u uw *azure premium.yaml* bestand:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-premium.yaml
 ```
 
-## <a name="using-the-persistent-volume"></a>Met behulp van de permanente volume
+## <a name="use-the-persistent-volume"></a>Gebruik de permanent volume
 
-Nadat de claim permanente volume is gemaakt en de schijf is ingericht, een schil kan worden gemaakt met toegang tot de schijf. Het volgende manifest maakt een schil die gebruikmaakt van de claim permanente volume `azure-managed-disk` koppelen van de Azure-schijf op de `/mnt/azure` pad.
+Als de claim permanent volume is gemaakt en de schijf is ingericht, een schil kan worden gemaakt met toegang tot de schijf. De volgende manifest maakt een schil die gebruikmaakt van de claim permanent volume *azure-beheerde schijf* te koppelen van de Azure-schijf op de `/mnt/azure` pad.
 
-Maak een bestand met de naam `azure-pvc-disk.yaml`, en kopieer het volgende manifest.
+Maak een bestand met de naam `azure-pvc-disk.yaml`, en kopieer de volgende manifest.
 
 ```yaml
 kind: Pod
@@ -96,11 +95,11 @@ spec:
 
 Maken van de schil met de [kubectl toepassen] [ kubectl-apply] opdracht.
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-pvc-disk.yaml
 ```
 
-U hebt nu een actieve schil met uw Azure-schijf gekoppeld in de `/mnt/azure` directory. Deze configuratie kan worden weergegeven bij de inspectie van uw schil via `kubectl describe pod mypod`.
+U hebt nu een pod uitgevoerd met uw Azure-schijf is gekoppeld in de `/mnt/azure` directory. Deze configuratie kan worden weergegeven bij de inspectie van uw schil via `kubectl describe pod mypod`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

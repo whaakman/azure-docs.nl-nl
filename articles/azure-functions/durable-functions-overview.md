@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4f09fa7b3f2aff38a016626af2d538f1eab3f5e8
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0bc88a510c05e88351b4ac7d69839a37c0e4fdd8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856620"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970486"
 ---
 # <a name="durable-functions-overview"></a>Overzicht van duurzame functies
 
 *Duurzame functies* is een uitbreiding van [Azure Functions](functions-overview.md) en [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) waarmee u het schrijven van stateful functies in een serverloze omgeving. De extensie beheert staat, controlepunten en het opnieuw opstarten voor u.
 
-De extensie kunt u definiëren stateful werkstromen in een nieuw type van de aangeroepen functie een *orchestrator-functie*. Hier volgen enkele van de voordelen van orchestrator-functies:
+De extensie kunt u definiëren stateful werkstromen in een nieuw type van de aangeroepen functie een [ *orchestrator-functie*](durable-functions-types-features-overview.md#orchestrator-functions). Hier volgen enkele van de voordelen van orchestrator-functies:
 
 * Deze definiëren werkstromen in code. Er is geen JSON-schema's of ontwerpers nodig zijn.
 * Ze kunnen andere functies aanroepen synchroon en asynchroon uitgevoerd. Uitvoer van de aangeroepen functies kan worden opgeslagen op lokale variabelen.
@@ -340,7 +340,7 @@ Orchestrator-functies de status van de scriptuitvoering met behulp van een cloud
 
 Het gebruik van ' Event sourcing ' door deze uitbreiding is transparant. Op de achtergrond de `await` operator in een orchestrator-functie controle van de orchestrator-thread terug naar het verdeelprogramma duurzame taak Framework levert. De functie voor berichtverzending doorvoeringen vervolgens nieuwe maatregelen die tegen de orchestrator-functie gepland (zoals een of meer onderliggende functies aanroepen of een duurzame timer plannen) naar de opslag. Deze actie transparante doorvoeren wordt toegevoegd aan de *uitvoeringsgeschiedenis* van de orchestration-instantie. De geschiedenis wordt opgeslagen in een opslagtabel. De commit-actie vervolgens een bericht toevoegt aan een wachtrij voor het plannen van het echte werk. De orchestrator-functie kan op dit moment worden verwijderd uit het geheugen. Facturering voor deze stopt als u de Azure Functions-Verbruiksabonnement.  Wanneer er meer werk te doen, wordt de functie opnieuw is opgestart en wordt de status is opnieuw opgebouwd.
 
-Zodra een orchestration-functie meer werk te doen is opgegeven (bijvoorbeeld een antwoordbericht wordt ontvangen of een duurzame timer verloopt), de orchestrator ontwaakt opnieuw en voert u de gehele functie vanaf het begin opnieuw om de status van de lokale opnieuw. Als u tijdens deze herhaling probeert de code voor het aanroepen van een functie (of een andere asynchrone werk), het duurzame taak Framework consults met de *uitvoeringsgeschiedenis* van de huidige indeling. Als deze wordt gevonden dat de activiteit-functie al is uitgevoerd en hebben enkele resultaat opgeleverd, het resultaat van deze functie opnieuw weergegeven en de orchestrator-code verder uitgevoerd wordt. Dit blijft plaatsvinden totdat de functiecode op een punt waar deze is voltooid of geplande nieuwe tot het asynchrone werk heeft opgehaald.
+Zodra een orchestration-functie meer werk te doen is opgegeven (bijvoorbeeld een antwoordbericht wordt ontvangen of een duurzame timer verloopt), de orchestrator ontwaakt opnieuw en voert u de gehele functie vanaf het begin opnieuw om de status van de lokale opnieuw. Als u tijdens deze herhaling probeert de code voor het aanroepen van een functie (of een andere asynchrone werk), het duurzame taak Framework consults met de *uitvoeringsgeschiedenis* van de huidige indeling. Als deze wordt gevonden die de [activiteit functie](durable-functions-types-features-overview.md#activity-functions) is al uitgevoerd en i/o sommige resultaat, het resultaat van deze functie opnieuw weergegeven en de orchestrator-code verder wordt uitgevoerd. Dit blijft plaatsvinden totdat de functiecode op een punt waar deze is voltooid of geplande nieuwe tot het asynchrone werk heeft opgehaald.
 
 ### <a name="orchestrator-code-constraints"></a>Beperkingen voor orchestrator-code
 
@@ -384,7 +384,7 @@ Alle bekende problemen moeten worden bijgehouden in de [GitHub issues](https://g
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Lees ook documentatie duurzame functies](durable-functions-bindings.md)
+> [Lees ook documentatie duurzame functies](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [Installeer de extensie duurzame functies en -voorbeelden](durable-functions-install.md)

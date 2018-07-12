@@ -1,52 +1,56 @@
 ---
-title: Vooraf gedefinieerde LUIS entiteiten referentie - Azure | Microsoft Docs
+title: LUIS vooraf gemaakte entiteiten referentie - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Dit artikel bevat een lijst met de vooraf gedefinieerde entiteiten die zijn opgenomen in het Language Understanding (LUIS).
+description: In dit artikel bevat een lijst met de vooraf gemaakte entiteiten die zijn opgenomen in Language Understanding (LUIS).
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/11/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7ce50e4c0be605e1700a2c18533cb087384f524c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 680acb5ed808750312da46b6bf4ebf3afca1bea5
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316881"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969973"
 ---
 # <a name="entities-per-culture"></a>Entiteiten per cultuur
 
-Language Understanding (LUIS) biedt vooraf gedefinieerde entiteiten. Wanneer een vooraf gedefinieerde entiteit is opgenomen in uw toepassing, omvat LUIS de overeenkomstige entiteit voorspelling in het antwoord van het eindpunt. Alle voorbeeld utterances zijn ook voorzien van de entiteit. Het gedrag van vooraf gedefinieerde entiteiten **kan niet** worden gewijzigd. Tenzij anders vermeld, is vooraf gemaakte entiteiten zijn beschikbaar in alle LUIS toepassing landinstellingen (culturen). De volgende tabel toont de vooraf gedefinieerde entiteiten die worden ondersteund voor elke cultuur.
+Language Understanding (LUIS) biedt vooraf gemaakte entiteiten. Wanneer een vooraf gedefinieerde entiteit is opgenomen in uw toepassing, bevat LUIS de bijbehorende voorspelling van de entiteit in het antwoord van het eindpunt. Alle uitingen van voorbeeld zijn ook met de entiteit gelabeld. Het gedrag van vooraf gemaakte entiteiten **kan geen** worden gewijzigd. Tenzij anders vermeld, is vooraf gemaakte entiteiten zijn beschikbaar in alle LUIS toepassing landinstellingen (culturen). De volgende tabel ziet u de vooraf gemaakte entiteiten die worden ondersteund voor elke cultuur.
 
-Vooraf gedefinieerde entiteit   |   Engels (Verenigde Staten)<br>```En-us```   |   Frans (Frankrijk)<br>```fr-FR```   |   Italiaans (Italië)<br>```it-IT```   |   Spaans (Spanje)<br>```es-ES```   |   Chinees<br>```zh-CN```   |   Duits<br>```de-DE```   |   Portugees (Brazilië)<br>```pt-BR```   |   Japans (Japan)<br>```ja-JP```   |   Koreaans (Korea)<br>```ko-kr```   | Frans (Canada)<br>```fr-CA```   |   Spaans (Mexico)<br>```es-MX```   |   Nederlands (Nederland)<br>```nl-NL```   |
+Vooraf gemaakte entiteiten   |   Engels (Verenigde Staten)<br>```En-us```   |   Frans (Frankrijk)<br>```fr-FR```   |   Italiaans (Italië)<br>```it-IT```   |   Spaans (Spanje)<br>```es-ES```   |   Chinees<br>```zh-CN```   |   Duits<br>```de-DE```   |   Portugees (Brazilië)<br>```pt-BR```   |   Japans (Japan)<br>```ja-JP```   |   Koreaans (Korea)<br>```ko-kr```   | Frans (Canada)<br>```fr-CA```   |   Spaans (Mexico)<br>```es-MX```   |   Nederlands (Nederland)<br>```nl-NL```   |
 ------|:------:|------|------|------|------|------|------|------|------|------|------|------|
 [Leeftijd](luis-reference-prebuilt-age.md):<br>jaar<br>maand<br>week<br>dag   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
-[Valuta](luis-reference-prebuilt-currency.md):<br>dollar<br>breukdeel unit (ex: cent)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+[Valuta](luis-reference-prebuilt-currency.md):<br>dollar<br>decimale eenheid (ex: afronding)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>DateRange<br>tijd<br>timerange   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   -   |   ✔   |   -   |   -   |   -   |   -   |   -   |
-[Dimensie](luis-reference-prebuilt-dimension.md):<br>volume<br>gebied<br>gewicht<br>informatie (ex: bits/byte)<br>lengte (ex: meter)<br>snelheid (ex: mijl per uur)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+[Dimensie](luis-reference-prebuilt-dimension.md):<br>volume<br>gebied<br>gewicht<br>informatie (ex: bits/byte)<br>de lengte (ex: meter)<br>snelheid (ex: mijl per uur)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   |   ✔   |   ✔   |   ✔   |   -   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |
 [Aantal](luis-reference-prebuilt-number.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
-[Rangtelwoord](luis-reference-prebuilt-ordinal.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+[Volgnummer](luis-reference-prebuilt-ordinal.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Telefoonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-[Temperatuur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>rankine<br>delisle<br>c   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+[Temperatuur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>rankine<br>delisle<br>Celsius   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 
-Zie de opmerkingen op [afgeschaft vooraf gemaakte entiteiten](luis-reference-prebuilt-deprecated.md)
+Zie Opmerkingen op [afgeschaft vooraf gemaakte entiteiten](luis-reference-prebuilt-deprecated.md)
 
-## <a name="examples-of-prebuilt-entities-in-en-us-culture"></a>Voorbeelden van vooraf gedefinieerde entiteiten in de norm en-us cultuur
-De volgende tabel bevat vooraf gedefinieerde entiteiten met voorbeeldgegevens en de retourwaarden.
+KeyPhrase is niet beschikbaar in alle subquery culturen Portugees (Brazilië) - ```pt-BR```.
 
-Vooraf gedefinieerde entiteit   |   Voorbeeld utterance   |   JSON
+<!--
+## Examples of prebuilt entities in en-us culture
+The following table lists prebuilt entities with example data and the return values.
+
+Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
  ```builtin.age```   |   ```100 year old```   |```{ "type": "builtin.age", "entity": "100 year old" }```|  
  ```builtin.age```   |   ```19 years old```   |```{ "type": "builtin.age", "entity": "19 years old" }```|
  ```builtin.currency```     |   ```1000.00 US dollars```   |```{ "type": "builtin.currency", "entity": "1000.00 us dollars" }```
  ```builtin.currency```     |   ```$ 67.5 B```   |```{ "type": "builtin.currency", "entity": "$ 67.5" }```|
- ```builtin.datetimeV2``` | Zie [builtin.datetimeV2](luis-reference-prebuilt-datetimev2.md) | Zie [builtin.datetimeV2](luis-reference-prebuilt-datetimev2.md) |
+ ```builtin.datetimeV2``` | See [builtin.datetimeV2](luis-reference-prebuilt-datetimev2.md) | See [builtin.datetimeV2](luis-reference-prebuilt-datetimev2.md) |
  ```builtin.dimension```     |   ```2 miles```   |```{ "type": "builtin.dimension", "entity": "2 miles" }```|
  ```builtin.dimension```     |  ```650 square kilometers```   |```{ "type": "builtin.dimension", "entity": "650 square kilometers" }```|
  ```builtin.email```     |  ```patti.owens@microsoft.com```   |```{ "type": "builtin.email", "entity": "patti.owens@microsoft.com" }```|
@@ -59,10 +63,10 @@ Vooraf gedefinieerde entiteit   |   Voorbeeld utterance   |   JSON
  ```builtin.temperature```     |   ```10 degrees celsius```   | ```{ "type": "builtin.temperature", "entity": "10 degrees celcius" }```|   
  ```builtin.temperature```     |   ```78 F```   |```{ "type": "builtin.temperature", "entity": "78 f" }```|
  ```builtin.url```     |   ```http://www.luis.ai is a great cognitive service```   |```{ "type": "builtin.url", "entity": "http://www.luis.ai" }```|
+-->
 
-
-## <a name="contribute-to-prebuilt-entity-cultures"></a>Bijdragen aan vooraf gedefinieerde entiteit culturen
-De vooraf gedefinieerde entiteiten worden ontwikkeld in de kenmerken tekst open source-project. Neem [bijdragen](https://github.com/Microsoft/Recognizers-Text) aan het project. Dit project bevat voorbeelden van valuta per cultuur. 
+## <a name="contribute-to-prebuilt-entity-cultures"></a>Bijdragen aan de vooraf gedefinieerde entiteit culturen
+De vooraf gemaakte entiteiten zijn ontwikkeld in de tekst van de kenmerken die zijn open source-project. Neem [bijdragen](https://github.com/Microsoft/Recognizers-Text) aan het project. Dit project bevat voorbeelden van valuta per cultuur. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

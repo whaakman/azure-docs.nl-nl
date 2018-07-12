@@ -1,6 +1,6 @@
 ---
-title: Infrastructuur Backup-Service aanbevolen procedures voor het Azure-Stack | Microsoft Docs
-description: Wanneer u implementeren en beheren van Azure-Stack in uw datacenter te verminderen gegevens verloren gaan als er een onherstelbare fout kunt u de set met aanbevolen procedures volgen.
+title: Infrastructuur voor Backup-Service aanbevolen procedures voor Azure Stack | Microsoft Docs
+description: Als u implementeert en Azure Stack in uw datacenter beheert om te beperken gegevens verloren gaan als er een onherstelbare fout, kunt u set met aanbevolen procedures volgen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,55 +15,53 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: ec30832e6863ad92eff8f5c2e613adc503c73af5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 06a2d4ab12d2a7e03a538a98f5232a417fb39e4f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075745"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969466"
 ---
-# <a name="infrastructure-backup-service-best-practices"></a>Aanbevolen procedures voor infrastructuur-Backup-Service
+# <a name="infrastructure-backup-service-best-practices"></a>Aanbevolen procedures voor infrastructuur voor Backup-Service
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Wanneer u implementeren en beheren van Azure-Stack in uw datacenter om te beperken van gegevensverlies in geval van een onherstelbare fout kunt u de aanbevolen procedures volgen.
+Als u implementeert en Azure Stack in uw datacenter beheert om te beperken verlies van gegevens in het geval van een onherstelbare fout, kunt u aanbevolen procedures volgen.
 
-U wordt aangeraden de aanbevolen procedures met een regelmatig interval om te controleren of de installatie nog steeds in acht genomen wanneer wijzigingen worden aangebracht in de stroom van de bewerking. Moet er problemen optreden tijdens de uitvoering van deze best practices, neem contact op met Microsoft Support voor hulp.
+U moet de aanbevolen procedures bekijken met een regelmatig interval om te controleren of de installatie nog steeds in acht genomen wanneer wijzigingen worden aangebracht in de stroom van de bewerking. Moet u problemen tegenkomt tijdens het implementeren van deze aanbevolen procedures, neem contact op met Microsoft Support voor hulp.
 
 ## <a name="configuration-best-practices"></a>Aanbevolen procedures voor configuratie
 
 ### <a name="deployment"></a>Implementatie
 
-Infrastructuur voor back-up inschakelen na implementatie van elke Azure-Cloud-Stack. Gebruik AzureStack-hulpprogramma's die u kunt back-ups plannen vanaf elke client/server met toegang tot het eindpunt van de operator management-API.
+Infrastructuur voor back-up inschakelen na de implementatie van elke Azure Stack-Cloud. Met behulp van AzureStack-hulpprogramma's die u kunt back-ups plannen vanaf een client/server met toegang tot de operator management API-eindpunt.
 
 ### <a name="networking"></a>Netwerken
 
-De tekenreeks Universal Naming Convention (UNC) voor het pad moet een volledig gekwalificeerde domeinnaam (FQDN) gebruiken. IP-adres is mogelijk als naamomzetting niet mogelijk is. Een UNC-tekenreeks bevat de locatie van resources, zoals gedeelde bestanden of apparaten.
+De Universal Naming Convention (UNC)-tekenreeks voor het pad moet een volledig gekwalificeerde domeinnaam (FQDN) gebruiken. IP-adres is mogelijk als naamomzetting niet mogelijk is. Een UNC-tekenreeks geeft de locatie van bronnen zoals gedeelde bestanden of apparaten.
 
 ### <a name="encryption"></a>Versleuteling
 
-De versleutelingssleutel wordt gebruikt voor het versleutelen van back-upgegevens die wordt geëxporteerd naar een externe opslag. De sleutel kan worden gegenereerd met AzureStack-hulpprogramma's. 
+De versleutelingssleutel wordt gebruikt voor het versleutelen van back-upgegevens die wordt geëxporteerd naar een externe opslag. De sleutel wordt gegenereerd als onderdeel van [back-up inschakelen voor Azure Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
-![AzureStack-hulpprogramma 's](media\azure-stack-backup\azure-stack-backup-encryption1.png)
+De sleutel moet worden opgeslagen op een veilige locatie (bijvoorbeeld: openbare Azure Key Vault-geheim). Deze sleutel moet worden gebruikt tijdens het opnieuw implementeren van Azure Stack. 
 
-De sleutel moet worden opgeslagen op een veilige locatie (bijvoorbeeld: openbare Azure Key Vault geheim). Deze sleutel moet worden gebruikt tijdens het opnieuw distribueren van Azure-Stack. 
-
-![De sleutel op een veilige locatie opgeslagen.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![De sleutel een veilige locatie opgeslagen.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
 
 ## <a name="operational-best-practices"></a>Aanbevolen operationele procedures
 
 ### <a name="backups"></a>Back-ups
 
- - Infrastructuurbeheerder back-up moet worden geactiveerd op verzoek. U wordt aangeraden aan back-up ten minste twee keer per dag.
- - Back-uptaken uitgevoerd terwijl het systeem wordt uitgevoerd, zodat er geen uitvaltijd voor de ervaringen of de gebruikerstoepassingen. Verwacht dat de back-uptaken op 20-40 minuten duren voordat een oplossing die redelijkerwijs wordt belast.
- - Met de OEM opgegeven instructie, moeten handmatig back-netwerkswitches en de hardware-lifecycle-host (HLH) worden opgeslagen op dezelfde back-share waarop de back-Controller infrastructuur winkels besturingselement vlak voor back-upgegevens. U kunt de switch en HLH configuraties opslaan in de map regio. Als u meerdere exemplaren van de Azure-Stack in dezelfde regio hebt, kunt u overwegen een id voor elke configuratie die deel uitmaakt van een schaaleenheid.
+ - Infrastructuur voor moet back-up worden geactiveerd op verzoek. De aanbeveling is het back-up ten minste twee keer per dag.
+ - Back-uptaken uitgevoerd terwijl het systeem wordt uitgevoerd, zodat er geen downtime naar de ervaringen voor of toepassingen is. Verwacht dat de back-uptaken 20-40 minuten voor een oplossing die is redelijk belast.
+ - Met behulp van OEM geleverd instructiebestand, moeten handmatig back-netwerkswitches en de hardware-lifecycle-host (HLH) worden opgeslagen op de dezelfde back-upshare waar de infrastructuur voor back-Controller winkels besturingselement vlak voor back-upgegevens. Houd rekening met opslaan van de switch en HLH configuraties in de regio-map. Als u meerdere exemplaren van Azure Stack in dezelfde regio hebt, kunt u overwegen een id voor elke configuratie die deel uitmaakt van een schaaleenheid.
 
-### <a name="folder-names"></a>Mapnamen
+### <a name="folder-names"></a>Namen van mappen
 
- - MASBACKUP map wordt automatisch gemaakt door de infrastructuur. Dit is een share door Microsoft beheerd. U kunt shares op hetzelfde niveau als MASBACKUP maken. Het is niet raadzaam maken van mappen of van opslaggegevens binnen MASBACKUP die geen Azure-Stack maakt. 
- -  Gebruiker FQDN en regio in de mapnaam te onderscheiden van de back-upgegevens uit andere clouds. De volledig gekwalificeerde domeinnaam (FQDN) van uw Azure-Stack-implementatie en de eindpunten is de combinatie van de parameter regio en de externe Domain Name-parameter. Zie voor meer informatie [Stack Azure datacenter integratie - DNS-](azure-stack-integrate-dns.md).
+ - MASBACKUP map wordt automatisch gemaakt door de infrastructuur. Dit is een beheerd door Microsoft share. U kunt bestandsshares maken op hetzelfde niveau als MASBACKUP. Het is niet raadzaam om het maken van mappen of opslag van gegevens binnen MASBACKUP die Azure Stack geen maakt. 
+ -  Gebruiker FQDN-naam en -regio's in de mapnaam van uw te onderscheiden van de back-upgegevens van verschillende clouds. De volledig gekwalificeerde domeinnaam (FQDN) van uw Azure Stack-implementatie en eindpunten is de combinatie van de parameters regio en het externe domeinnaam. Zie voor meer informatie, [integratie van Azure Stack datacenter - DNS-](azure-stack-integrate-dns.md).
 
-Bijvoorbeeld, is de back-upshare AzSBackups gehost op fileserver01.contoso.com. In deze bestandsshare worden een map per Azure-Stack-implementatie met behulp van de externe domeinnaam en een submap met de regionaam. 
+Bijvoorbeeld, is de back-upshare die worden gehost op fileserver01.contoso.com AzSBackups. In deze bestandsshare worden een map per Azure Stack-implementatie met behulp van de naam van het externe domein en een submap die gebruikmaakt van de regionaam van de. 
 
 FQDN-naam: contoso.com  
 Regio: nyc
@@ -74,9 +72,9 @@ Regio: nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup
 
-MASBackup map is waar de back-upgegevens worden opgeslagen in Azure-Stack. U moet deze map niet gebruiken voor het opslaan van uw eigen gegevens. OEM moet deze map niet gebruiken voor het opslaan van een back-upgegevens ofwel. 
+MASBackup map is waar de back-upgegevens worden opgeslagen in Azure Stack. U moet deze map niet gebruiken voor het opslaan van uw eigen gegevens. OEM moet deze map niet gebruiken voor het opslaan van een back-upgegevens ofwel. 
 
-Is het raadzaam voor het opslaan van back-upgegevens voor hun onderdelen onder de map regio. Elke netwerkswitches host van de levenscyclus van hardware (HLH), en kunnen worden opgeslagen in een eigen submap. Bijvoorbeeld:
+OEM's wordt aangeraden voor het opslaan van back-upgegevens van de bijbehorende onderdelen onder de map regio. Elke netwerkswitches, host van de levenscyclus van hardware (HLH), enzovoort kunnen worden opgeslagen in een eigen submap. Bijvoorbeeld:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -89,13 +87,13 @@ De volgende waarschuwingen worden ondersteund door het systeem:
 
 | Waarschuwing                                                   | Beschrijving                                                                                     | Herstel                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Back-up is mislukt, omdat de bestandsshare capaciteit | Bestandsshare heeft onvoldoende capaciteit en back-controller kan back-upbestanden naar de locatie niet exporteren. | Voeg meer opslagcapaciteit toe en probeer opnieuw een back-up. Verwijder de bestaande back-ups (vanaf oudste eerst) om ruimte vrij.                    |
-| Back-up is mislukt vanwege problemen met de netwerkconnectiviteit.             | Netwerk tussen Azure-Stack en het bestand share problemen ondervindt.                          | Los het netwerkprobleem en probeer het back-up opnieuw.                                                                                            |
-| Back-up is mislukt vanwege een fout in het pad                | Het pad naar bestandsshare kan niet worden omgezet                                                          | Wijs de share vanaf een andere computer om te controleren of dat de share is toegankelijk. Mogelijk moet u het pad bijwerken als deze niet langer geldig.       |
-| Back-up is mislukt vanwege een verificatiefout               | Er zijn mogelijk een probleem met de referenties of een netwerkprobleem die van invloed is op verificatie.    | Wijs de share vanaf een andere computer om te controleren of dat de share is toegankelijk. Mogelijk moet u referenties bijwerken als ze niet langer geldig zijn. |
-| Back-up is mislukt vanwege een algemene fout                    | De mislukte aanvragen kan worden veroorzaakt door een tijdelijk probleem. Probeer opnieuw een back-up.                    | oproep-ondersteuning                                                                                                                               |
+| Back-up is mislukt omdat de bestandsshare beperkt is | De bestandsshare is beperkt en back-controller kan back-upbestanden naar de locatie niet exporteren. | Voeg meer opslagcapaciteit toe en probeer opnieuw een back-up. Bestaande back-ups (vanaf van de oudste eerst) verwijderen om ruimte vrij te maken.                    |
+| Back-up is mislukt vanwege problemen met de netwerkverbinding.             | Netwerk tussen de Azure Stack en de share problemen ondervindt.                          | De netwerkprobleem op te lossen en probeer het back-up opnieuw.                                                                                            |
+| Back-up is mislukt vanwege een fout in het pad                | Het pad naar bestandsshare kan niet worden omgezet                                                          | De share op een andere computer om te controleren of dat de share toegankelijk is toegewezen. Mogelijk moet u het pad bijwerken als deze niet meer geldig is.       |
+| Back-up is mislukt vanwege een verificatieprobleem               | Er zijn mogelijk een probleem met de referenties of een netwerkprobleem gevolgen heeft voor verificatie.    | De share op een andere computer om te controleren of dat de share toegankelijk is toegewezen. Mogelijk moet u referenties bijwerken als ze niet langer geldig zijn. |
+| Back-up is mislukt vanwege een algemene fout                    | De mislukte aanvraag kan worden veroorzaakt door een tijdelijk probleem. Probeer het opnieuw een back-up.                    | Contact opnemen met ondersteuning                                                                                                                               |
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - Raadpleeg het referentiemateriaal voor de [infrastructuur Backup-Service](azure-stack-backup-reference.md).  
- - Schakel de [infrastructuur Backup-Service](azure-stack-backup-enable-backup-console.md).
+ - Bekijk het referentiemateriaal voor de [infrastructuur Backup-Service](azure-stack-backup-reference.md).  
+ - Schakel de [infrastructuur back-upservice](azure-stack-backup-enable-backup-console.md).

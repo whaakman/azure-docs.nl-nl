@@ -1,6 +1,6 @@
 ---
-title: Maak een back-up van Azure-Stack | Microsoft Docs
-description: Een op aanvraag back-up uitvoeren op Azure-Stack met back-up in plaats.
+title: Maak een back-up van Azure Stack | Microsoft Docs
+description: Een on-demand back-up uitvoeren op Azure Stack met back-up op locatie.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,43 +15,60 @@ ms.topic: article
 ms.date: 5/08/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: c2a6727692a7a74b3e5fe32de8800722a9ed91b5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2570423a3cae2a15f0cfd294f1d91e6730748f68
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075184"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972605"
 ---
-# <a name="back-up-azure-stack"></a>Back-up van Azure-Stack
+# <a name="back-up-azure-stack"></a>Back-up van Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Een op aanvraag back-up uitvoeren op Azure-Stack met back-up in plaats. Als u moet de infrastructuur back-up-Service wilt inschakelen, Zie [back-up inschakelen voor Azure-Stack van de beheerportal](azure-stack-backup-enable-backup-console.md).
+Een on-demand back-up uitvoeren op Azure Stack met back-up op locatie. Zie voor instructies over het configureren van de PowerShell-omgeving [PowerShell installeren voor Azure Stack ](azure-stack-powershell-install.md). Als u wilt aanmelden bij Azure Stack, Zie [configureert u de operator-omgeving en aanmelden bij Azure Stack](azure-stack-powershell-configure-admin.md).
 
-> [!Note]  
->  Zie voor instructies over het configureren van de PowerShell-omgeving [Installeer PowerShell voor Azure-Stack ](azure-stack-powershell-install.md).
+## <a name="start-azure-stack-backup"></a>Start Azure Stack-back-up
 
-## <a name="start-azure-stack-backup"></a>Azure-Stack back-up starten
-
-Open Windows PowerShell met een opdrachtprompt in de operator-omgeving en voer de volgende opdrachten:
+Start AzSBackup gebruiken om te starten van een nieuwe back-up met de variabele is - AsJob voortgang bijhouden. 
 
 ```powershell
-    Start-AzSBackup -Location $location.Name
+    $backupjob = Start-AzsBackup -Force -AsJob
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
 ```
+
+## <a name="confirm-backup-completed-via-powershell"></a>Controleer of de back-up voltooid via PowerShell
+
+```powershell
+    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+```
+
+- Het resultaat ziet er als de volgende uitvoer:
+
+  ```powershell
+      BackupDataVersion : 1.0.1
+      BackupId          : <backup ID>
+      RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+      Status            : Succeeded
+      CreatedDateTime   : 7/6/2018 6:46:24 AM
+      TimeTakenToCreate : PT20M32.364138S
+      DeploymentID      : <deployment ID>
+      StampVersion      : 1.1807.0.41
+      OemVersion        : 
+      Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+      Name              : local/<local name>
+      Type              : Microsoft.Backup.Admin/backupLocations/backups
+      Location          : local
+      Tags              : {}
+  ```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Back-up is voltooid in de beheerportal bevestigen
 
-1. Open de Stack van Azure-beheerportal op [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. Open de Azure Stack-beheerportal bij [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
 2. Selecteer **meer services** > **infrastructuur back-up**. Kies **configuratie** in de **infrastructuur back-up** blade.
 3. Zoek de **naam** en **datum voltooid** van de back-up in **beschikbare back-ups** lijst.
 4. Controleer of de **status** is **geslaagd**.
 
-<!-- You can also confirm the backup completed from the administration portal. Navigate to `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
-
-In ‘Confirm backup completed’ section, the path at the end doesn’t make sense (ie relative to what, datetime format, etc?)
-\MASBackup\<datetime>\<backupid>\BackupInfo.xml -->
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de werkstroom voor het herstellen van het gegevensverlies. Zie [herstellen vanaf onherstelbaar gegevensverlies](azure-stack-backup-recover-data.md).
+- Meer informatie over de werkstroom voor het herstellen van het gegevensverlies. Zie [herstel na onherstelbare gegevensverlies](azure-stack-backup-recover-data.md).

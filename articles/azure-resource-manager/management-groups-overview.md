@@ -1,6 +1,6 @@
 ---
-title: Uw resources te organiseren met Azure-beheergroepen | Microsoft Docs
-description: Meer informatie over de beheergroepen en hoe ze te gebruiken.
+title: Resources organiseren met beheergroepen Azure | Microsoft Docs
+description: Meer informatie over de beheergroepen en het gebruik ervan.
 author: rthorn17
 manager: rithorn
 editor: ''
@@ -10,90 +10,90 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/28/2018
+ms.date: 7/09/2018
 ms.author: rithorn
-ms.openlocfilehash: 611faef7e4b94b1734896fb64ca29540b12bc057
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c8152a6c12c776806d9a17c5e434d825d6c91165
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102343"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38466640"
 ---
-# <a name="organize-your-resources-with-azure-management-groups"></a>Uw resources te organiseren met Azure-beheergroepen
+# <a name="organize-your-resources-with-azure-management-groups"></a>Resources organiseren met beheergroepen voor Azure
 
-Als uw organisatie veel abonnementen heeft, moet u mogelijk een manier voor het efficiënt beheren van toegang, beleid en naleving voor deze abonnementen. Azure-beheergroepen bieden een scope hierboven abonnementen. U abonnementen in containers 'beheergroepen' aangeroepen organiseren en uw voorwaarden governance toepassen op de beheergroepen. De voorwaarden die aan de beheergroep wordt automatisch overgenomen door alle abonnementen binnen een beheergroep. Beheergroepen krijgt u bedrijfsniveau management op grote schaal ongeacht welk soort abonnementen die u mogelijk hebt.
+Als uw organisatie veel abonnementen heeft, moet u de toegang, beleidsregels en naleving voor deze abonnementen op een efficiënte manier kunnen beheren. Een niveau van bereik bovenstaande abonnementen bieden dat Azure-beheergroepen. U abonnementen in containers met de naam "beheergroepen" ordenen en de voorwaarden van uw beheeracties toepassen op de beheergroepen. Alle abonnementen in een beheergroep overnemen automatisch de voorwaarden die aan de beheergroep. Van beheergroepen bieden u zakelijke management op grote schaal, ongeacht welk type abonnementen die u mogelijk hebt.
 
-De functie management group is beschikbaar in een openbare preview. Om te beheergroepen gebruiken, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com) en zoek naar **beheergroepen** in de **alle Services** sectie.
+De functie management group is beschikbaar in een openbare preview. Als u wilt gaan met behulp van van beheergroepen, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com) en zoek naar de **beheergroepen** in de **alle Services** sectie.
 
-U kunt bijvoorbeeld beleidsregels toepassen op een beheergroep met beperkingen voor de regio's beschikbaar zijn voor het maken van de virtuele machine (VM). Dit beleid zou worden toegepast op alle beheergroepen, abonnementen en resources onder beheergroep door alleen virtuele machines in deze regio worden gemaakt.
+U kunt bijvoorbeeld beleid toepassen op een beheergroep die de regio's beschikbaar voor het maken van virtuele machine (VM beperkt). Dit beleid zou worden toegepast op alle beheergroepen, abonnementen en resources van die groep management door toe te staan alleen virtuele machines in deze regio worden gemaakt.
 
-## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hiërarchie van beheergroepen en abonnementen
+## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hiërarchie van beheergroepen en -abonnementen
 
-U kunt een flexibele structuur van beheergroepen en abonnementen uw om resources te organiseren in een hiërarchie van unified beleid en beheer van toegang op te bouwen.
-Het volgende diagram toont een voorbeeld van de hiërarchie die uit de beheergroepen en -abonnementen die zijn geordend op afdelingen bestaat.
+U kunt een flexibele structuur van beheergroepen en abonnementen voor het organiseren van uw resources in een hiërarchie voor geïntegreerde policy and access management kunt bouwen.
+Het volgende diagram toont een voorbeeld van de hiërarchie die uit de beheergroepen en abonnementen die zijn geordend op afdelingen bestaat.
 
-![Structuur](media/management-groups/MG_overview.png)
+![structuur](media/management-groups/MG_overview.png)
 
-Als u een hiërarchie die worden gegroepeerd per afdelingen maakt, kunt u toewijzen [gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) rollen die *overnemen* aan de diensten onder de beheergroep. Met behulp van beheergroepen inkorten uw werkbelasting en vermindert het risico van fouten door slechts één keer de rol toewijzen.
+Als u een hiërarchie die zijn gegroepeerd op afdelingsniveau mogelijk maakt, kunt u [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) rollen die *overnemen* naar de afdelingen die beheergroep. Met behulp van van beheergroepen, moet u uw workload kunt beperken en vermindert het risico van fouten door slechts één keer de rol toewijzen.
 
-### <a name="important-facts-about-management-groups"></a>Belangrijke informatie over beheergroepen
+### <a name="important-facts-about-management-groups"></a>Belangrijke informatie over de beheergroepen
 
-- 10.000 beheergroepen kunnen worden ondersteund in een enkele map.
+- 10.000 beheergroepen kunnen in één map worden ondersteund.
 - Een boomstructuur van de groep management kan maximaal zes niveaus van diepte ondersteunen.
-  - Deze limiet bevatten niet het hoogste niveau of het abonnementsniveau.
-- Elke beheergroep en het abonnement kan alleen ondersteuning voor één bovenliggend.
-- Elke beheergroep kan meerdere onderliggende elementen hebben.
-- Alle abonnementen en beheergroepen bevinden zich in een enkele hiërarchie in elke map. Zie [belangrijke feiten over de Root management-groep](#important-facts-about-the-root-management-group) voor uitzonderingen tijdens de Preview.
+  - Deze limiet bevatten niet het hoogste niveau doen of het abonnementsniveau.
+- Elke beheergroep en het abonnement kan alleen ondersteuning voor één bovenliggend object.
+- Elke beheergroep kan meerdere onderliggende items hebben.
+- Alle abonnementen en beheergroepen bevinden zich in een enkele hiërarchie in elke map. Zie [belangrijke informatie over de Root management-groep](#important-facts-about-the-root-management-group) voor uitzonderingen tijdens de Preview-versie.
 
-### <a name="preview-subscription-visibility-limitation"></a>Preview abonnement zichtbaarheid beperking
+### <a name="preview-subscription-visibility-limitation"></a>Preview-abonnement zichtbaarheid beperking
 
-Er is een beperking in de Preview-versie waarin u kunt abonnementen die u hebt toegang tot overgenomen weergeven niet. De toegang tot het abonnement wordt overgenomen, maar de Azure Resource Manager niet kan voldoen nog aan de overname-toegang.  
+Er is op dit moment een beperking in de Preview-versie waarin u niet-abonnementen die u hebt toegang tot overgenomen bekijken. De toegang tot het abonnement wordt overgenomen, maar de Azure Resource Manager kan geen tot de overname-toegang nog in acht neemt.  
 
-Retourneert de gegevens met de REST API voor informatie over het abonnement als u toegang hebt, maar binnen de Azure-portal en Azure Powershell de abonnementen niet weergeven.
+Retourneert de gegevens met behulp van de REST-API voor informatie over het abonnement als u toegang hebt, maar in de Azure portal en Azure Powershell de abonnementen niet weergeven.
 
-Dit item wordt gewerkt en worden opgelost voordat er management groepen worden vermeld als 'Algemene beschikbaarheid'.  
+Dit item wordt gewerkt en worden opgelost voordat er management groepen zijn aangekondigd als 'Algemene beschikbaarheid'.  
 
-### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Cloud Solution Provider (CSP) beperking tijdens de Preview
+### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Cloud Solution Provider (CSP) beperking tijdens de Preview-versie
 
-Er is een beperking voor Cloud Solution Provider (CSP)-Partners waar ze kunnen maken of beheren van de beheergroepen zijn klant in de directory van de klant niet.  
-Dit item wordt gewerkt en worden opgelost voordat er management groepen worden vermeld als 'Algemene beschikbaarheid'.
+Er is een beperking voor Cloud Solution Provider (CSP)-Partners waar ze niet maken of beheren van hun klant-beheergroepen in de directory van de klant.  
+Dit item wordt gewerkt en worden opgelost voordat er management groepen zijn aangekondigd als 'Algemene beschikbaarheid'.
 
-## <a name="root-management-group-for-each-directory"></a>De beheergroep hoofdmap voor elke map
+## <a name="root-management-group-for-each-directory"></a>Root management-groep voor elke map
 
-Elke directory is een enkel op het hoogste niveau beheergroep met de naam van de beheergroep 'Root' opgegeven. Deze hoofdmap beheergroep is ingebouwd in de hiërarchie hebben alle beheergroepen en abonnementen vouw aan. Deze hoofdmap beheergroep kan globaal beleid en RBAC-toewijzingen moeten worden toegepast op het niveau van de directory. De [Directory-beheerder moet zelf de bevoegdheden](../role-based-access-control/elevate-access-global-admin.md) in eerste instantie moet de eigenaar van deze groep hoofdmap. Nadat de beheerder de eigenaar van de groep is, kunnen ze RBAC-rol toewijzen aan andere directory-gebruikers of groepen voor het beheren van de hiërarchie.  
+Elke directory is een enkel op het hoogste niveau beheergroep met de naam van de beheergroep "Root" gegeven. Deze hoofdbeheergroep is zo in de hiërarchie ingebouwd dat alle beheergroepen en abonnementen hierin zijn opgevouwen. Deze hoofdmap beheergroep kan globaal beleid en RBAC-toewijzingen moet worden toegepast op het niveau van de map. De [Directory-beheerder moet verhogen zelf](../role-based-access-control/elevate-access-global-admin.md) in eerste instantie moet de eigenaar van deze groep hoofdmap. Zodra de beheerder de eigenaar van de groep is, kunnen ze RBAC-rol toewijzen aan andere directory: gebruikers of groepen voor het beheren van de hiërarchie.  
 
 ### <a name="important-facts-about-the-root-management-group"></a>Belangrijke informatie over de Root management-groep
 
-- De naam en de ID van de root management-groep zijn standaard toegekend. De weergavenaam op die kan worden bijgewerkt op elk gewenst moment inschakelen andere binnen de Azure-portal.
-  - De naam is 'Hoofdgroep Tenant'.
+- De naam en ID van de root management-groep krijgen standaard. De weergavenaam kan worden bijgewerkt op elk gewenst moment om verschillende in Azure portal weer te geven.
+  - De naam is 'Tenant hoofdgroep'.
   - De ID is de Azure Active Directory-ID.
 - De root management-groep kan niet worden verplaatst of verwijderd, in tegenstelling tot andere beheergroepen.  
-- Alle abonnementen en beheergroepen Vouw met de beheergroep met één hoofdmap binnen de map.
-  - Alle resources in de map worden gesloten met de beheergroep hoofdmap voor algemeen beheer.
-  - Nieuwe abonnementen worden standaard automatisch behandeld als de beheergroep hoofdmap wanneer gemaakt.
-- Alle Azure-klanten de root management-groep kunnen zien, maar niet alle klanten hebben toegang tot het beheer van basis-beheergroep.
-  - Iedereen die toegang tot een abonnement heeft ziet de context van het waar dat abonnement bevindt zich in de hiërarchie.  
-  - Niemand standaardtoegang krijgt tot de root management-groep. Globale directorybeheerders zijn de alleen gebruikers die kunnen worden de bevoegdheden zelf om toegang te krijgen.  Nadat ze toegang hebben, kunnen de directory-beheerders RBAC-rol toewijzen aan andere gebruikers om te beheren.  
+- Alle abonnementen en beheergroepen fold om aan de beheergroep met één hoofdmap in de map.
+  - Alle resources in de directory Vouw tot de root management-groep voor het beheer van globale.
+  - Nieuwe abonnementen worden standaard automatisch ingesteld op de root management-groep wanneer gemaakt.
+- Alle Azure-klanten kunnen de root management-groep zien, maar niet alle klanten hebben toegang tot het beheer van die root management-groep.
+  - Iedereen die toegang tot een abonnement heeft kunt de context van het waar dat aan het abonnement in de hiërarchie is zien.  
+  - Er wordt standaardtoegang krijgen tot de root management-groep. Hoofdbeheerders van Active Directory zijn de enige gebruikers die u kunnen zelf om toegang te krijgen met verhoogde bevoegdheden.  Nadat ze toegang hebben, kunnen de directory-beheerders RBAC-rol toewijzen aan andere gebruikers te beheren.  
 
 >[!NOTE]
->Als uw directory met de beheerservice groepen voordat 25/6/2018 gestart, kan uw directory niet worden ingesteld met alle abonnementen in de hiërarchie. Het managementteam van de groep wordt elke map die de slag met beheergroepen in de openbare Preview voordat deze datum in juli 2018 met terugwerkende kracht bijgewerkt. Alle abonnementen in de mappen komen onderliggende items onder de hoofdmap beheergroep voorafgaande.  
+>Als uw directory wordt gestart met behulp van de beheerservice voor groepen voordat 25-6-2018, kan uw directory niet worden ingesteld met alle abonnementen in de hiërarchie. Het managementteam van de groep wordt met terugwerkende kracht bijgewerkt voor elke map die aan de slag met beheergroepen in de openbare preview-versie voor deze datum in juli 2018. Alle abonnementen in de mappen gemaakt op onderliggende items onder de root management-groep voorafgaande.  
 >
 >Als u vragen over dit proces met terugwerkende kracht hebt, contact op met: managementgroups@microsoft.com  
   
 ## <a name="initial-setup-of-management-groups"></a>Eerste installatie van beheergroepen
 
-Wanneer een gebruiker wordt gestart met behulp van de beheergroepen, wordt er een eerste installatieproces dat plaatsvindt. De eerste stap is dat de root management-groep is gemaakt in de map. Zodra deze groep is gemaakt, worden alle bestaande abonnementen die zijn opgenomen in de map onderliggende elementen van de root management-groep gemaakt.  De reden voor dit proces is om te controleren of er is slechts één management-groep is een hiërarchie in een map.  De enkele hiërarchie in de directory kan administratieve klanten globale toegang en beleidsregels die van andere klanten in de map niet overslaan toe te passen. Alles toegewezen in de hoofdmap toegepast op alle beheergroepen, abonnementen resourcegroepen en resources in de map wanneer er een hiërarchie in de map.  
+Wanneer een gebruiker wordt gestart met behulp van van beheergroepen, is er een eerste configuratie-proces dat plaatsvindt. De eerste stap is dat de root management-groep is gemaakt in de map. Zodra deze groep is gemaakt, worden alle bestaande abonnementen die zijn opgenomen in de map onderliggende items van de root management-groep gemaakt.  De reden voor dit proces is om te controleren of er is slechts één management-groep is een hiërarchie in een map.  De één hiërarchie in de map kan administratieve klanten wereldwijde toegang en beleidsregels die van andere klanten in de map niet overslaan toe te passen. In de hoofdmap van de toegewezen geldt in alle beheergroepen, abonnementen, resourcegroepen en resources in de map door een hiërarchie in de map.  
 
 > [!IMPORTANT]
-> Een toewijzing van de gebruiker toegang of beleid toewijzing van de root management-groep **geldt voor alle resources in de map**. Als gevolg hiervan moeten alle klanten nadenken over hoeft te zijn van de items die zijn gedefinieerd in dit bereik.  Toegang en beleid gebruikerstoewijzingen moet 'Moet' alleen aan dit bereik.  
+> Een toewijzing van toegang of beleid toewijzen van gebruikers op de root management-groep **is van toepassing op alle resources in de map**. Alle klanten dienen als gevolg hiervan hoeft te zijn van de items die zijn gedefinieerd in dit bereik te evalueren.  Toegang en beleid-toewijzingen van gebruikers moet 'Moet' alleen op dit bereik.  
   
-## <a name="management-group-access"></a>Groepstoegang Management
+## <a name="management-group-access"></a>Toegang tot de beheergroep
 
-Azure-ondersteuning beheergroepen [gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) voor alle toegang tot een resource en roldefinities. Deze machtigingen worden overgenomen voor de onderliggende resources die zijn opgenomen in de hiërarchie. Een ingebouwde RBAC-rol kan worden toegewezen aan een beheergroep die in de hiërarchie tot de bronnen worden overgenomen.  De RBAC-rol VM medewerker kan bijvoorbeeld worden toegewezen aan een beheergroep. Deze rol heeft geen actie op de beheergroep, maar worden overgenomen door alle VM's onder de beheergroep.  
+Azure-ondersteuning voor beheergroepen [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) voor alle toegang tot een resource en roldefinities. Deze machtigingen worden overgenomen op onderliggende resources die zijn opgenomen in de hiërarchie. Een ingebouwde RBAC-rol kan worden toegewezen aan een beheergroep die worden overgenomen door omlaag in de hiërarchie tot de resources.  De VM-Inzender van RBAC-rol kan bijvoorbeeld worden toegewezen aan een beheergroep. Deze rol heeft geen actie van de beheergroep, maar geldt voor alle VM's in de beheergroep.  
 
 Het volgende diagram ziet u de lijst met functies en de ondersteunde bewerkingen op beheergroepen.
 
-| De rolnaam RBAC             | Maken | Naam wijzigen | Verplaatsen | Verwijderen | Toegang toewijzen | Beleid toewijzen | Lezen  |
+| De naam van de RBAC-rol             | Maken | Naam wijzigen | Verplaatsen | Verwijderen | Toegang toewijzen | Beleid toewijzen | Lezen  |
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
 |Eigenaar                       | X      | X      | X    | X      | X             |               | X     |
 |Inzender                 | X      | X      | X    | X      |               |               | X     |
@@ -101,16 +101,16 @@ Het volgende diagram ziet u de lijst met functies en de ondersteunde bewerkingen
 |Inzender voor resourcebeleid |        |        |      |        |               | X             |       |
 |Beheerder van gebruikerstoegang   |        |        |      |        | X             |               |       |
 
-### <a name="custom-rbac-role-definition-and-assignment"></a>Aangepaste RBAC roldefinitie en toewijzing
+### <a name="custom-rbac-role-definition-and-assignment"></a>De definitie van de aangepaste RBAC-rol en de toewijzing
 
-Aangepaste RBAC-rollen worden niet ondersteund op beheergroepen op dit moment.  Zie de [management groep Feedbackforum](https://aka.ms/mgfeedback) om de status van dit object weer te geven.
+Aangepaste RBAC-rollen worden niet ondersteund op beheergroepen op dit moment.  Zie de [forum met feedback van management groep](https://aka.ms/mgfeedback) om de status van dit item weer te geven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over beheergroepen:
+Zie voor meer informatie over de beheergroepen:
 
-- [Beheergroepen te organiseren Azure-resources maken](management-groups-create.md)
-- [Wijzigen, verwijderen of beheren van uw beheergroepen](management-groups-manage.md)
-- [Installeer de Azure PowerShell-module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
-- [Bekijk de REST-API-specificaties](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [De uitbreiding voor de Azure CLI installeren](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Beheergroepen voor het ordenen van Azure-resources maken](management-groups-create.md)
+- [Wijzigen, verwijderen of uw beheergroepen beheren](management-groups-manage.md)
+- [De Azure PowerShell-module installeren](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
+- [Controleer de REST API-specificatie](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
+- [De Azure CLI-extensie installeren](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)

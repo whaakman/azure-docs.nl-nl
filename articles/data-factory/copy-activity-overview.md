@@ -1,6 +1,6 @@
 ---
 title: Kopieeractiviteit in Azure Data Factory | Microsoft Docs
-description: Meer informatie over de kopieeractiviteit in Azure Data Factory waarmee u kunt gegevens van een ondersteunde brongegevensarchief kopiëren naar een ondersteunde sink-gegevensopslag.
+description: Meer informatie over de kopieeractiviteit in Azure Data Factory die u gebruiken kunt om gegevens te kopiëren van een ondersteund brongegevensarchief naar een ondersteunde sink-gegevensarchief.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -14,36 +14,36 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
 ms.openlocfilehash: 8e34b0823b7f10455ac0b66fb0614d3946f2382e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37058957"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38542700"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
 ## <a name="overview"></a>Overzicht
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-data-movement-activities.md)
+> * [Versie 1:](v1/data-factory-data-movement-activities.md)
 > * [Huidige versie](copy-activity-overview.md)
 
-U kunt in Azure Data Factory Kopieeractiviteit gebruiken om gegevens tussen gegevens winkels zich lokaal en in de cloud te kopiëren. Nadat de gegevens worden gekopieerd, worden deze verder getransformeerd en geanalyseerd. U kunt ook Kopieeractiviteit gebruiken om de transformatie en analyseresultaten voor business intelligence (BI) en het verbruik van de toepassing te publiceren.
+In Azure Data Factory, kunt u Kopieeractiviteit om gegevens tussen gegevens winkels zich on-premises en in de cloud te kopiëren. Nadat de gegevens worden gekopieerd, kan worden verder verwerkt en geanalyseerd. U kunt ook een Kopieeractiviteit gebruiken om transformatie en analyseresultaten voor business intelligence (BI) en het verbruik van de toepassing te publiceren.
 
-![Rol van kopieerbewerking](media/copy-activity-overview/copy-activity.png)
+![Rol van Kopieeractiviteit](media/copy-activity-overview/copy-activity.png)
 
-Kopieeractiviteit wordt uitgevoerd op een [integratie Runtime](concepts-integration-runtime.md). Voor het scenario voor het kopiëren van gegevens op verschillende kan andere versie van de Runtime-integratie worden gebruikt:
+Kopieeractiviteit wordt uitgevoerd op een [Integration Runtime](concepts-integration-runtime.md). Verschillende gegevens kopiëren scenario voor een kan andere versie van Integration Runtime worden gebruikt:
 
-* Bij het kopiëren van gegevens tussen gegevens opslaat in beide openbaar toegankelijk zijn, kopieeractiviteit kan worden gemachtigd door **Azure integratie Runtime**, die is beveiligd, betrouwbaar, schaalbare en [wereldwijd beschikbare](concepts-integration-runtime.md#integration-runtime-location).
-* Wanneer lokale kopiëren van gegevens van/naar gegevensarchieven bevindt of in een netwerk met toegangsbeheer (bijvoorbeeld Azure Virtual Network), moet u voor het instellen van een **zelf gehost geïntegreerde Runtime** zorgen dat gegevens opnieuw te kopiëren.
+* Bij het kopiëren van gegevens tussen de gegevens worden opgeslagen dat beide openbaar toegankelijk zijn, kopieeractiviteit gemachtigd zijn door **Azure Integration Runtime**, die is beveiligd, betrouwbaar, schaalbare en [wereldwijd beschikbaar](concepts-integration-runtime.md#integration-runtime-location).
+* Wanneer gegevens kopiëren van/naar de opgeslagen gegevens zich on-premises of in een netwerk met toegangsbeheer (bijvoorbeeld Azure Virtual Network), moet u voor het instellen van een **geïntegreerde Runtime zelf-hostend** om te kopiëren van gegevens.
 
-Integratie Runtime moet worden gekoppeld aan elke bron- en sink-gegevensarchief. Meer informatie over het kopieeractiviteit [bepaalt welke IR gebruiken](concepts-integration-runtime.md#determining-which-ir-to-use).
+Integratieruntime moet worden gekoppeld aan elke bron en sink-gegevensopslag. Meer informatie over hoe u kopieeractiviteit [bepaalt welke IR u moet gebruiken](concepts-integration-runtime.md#determining-which-ir-to-use).
 
-Kopieeractiviteit gaat via de volgende fasen gegevens kopiëren van een bron naar een sink. De service die ook door de Kopieeractiviteit:
+Kopieeractiviteit verloopt via de volgende fasen om gegevens te kopiëren van een bron naar een sink. De service die wordt gebruikt door de Kopieeractiviteit:
 
-1. Leest de gegevens uit een bron-gegevensarchief.
-2. Voert serialisatie/deserialisatie, compressie/decompressie, kolomtoewijzing, enzovoort. Deze bewerkingen op basis van de configuraties van de invoergegevensset, uitvoergegevensset en Kopieeractiviteit gebeurt.
-3. Schrijft gegevens naar het gegevensarchief sink/het doel.
+1. Leest gegevens uit een bron-gegevensopslag.
+2. Voert serialisatie/deserialisatie, compressie/decompressie, kolomtoewijzing, enzovoort. Dit gebeurt deze bewerkingen op basis van de configuraties van de invoergegevensset, de uitvoergegevensset en de Kopieeractiviteit.
+3. Schrijft gegevens naar het sink/doelgegevensarchief.
 
 ![Overzicht kopieeractiviteit](media/copy-activity-overview/copy-activity-overview.png)
 
@@ -53,32 +53,32 @@ Kopieeractiviteit gaat via de volgende fasen gegevens kopiëren van een bron naa
 
 ### <a name="supported-file-formats"></a>Ondersteunde bestandsindelingen
 
-U kunt een Kopieeractiviteit om te **kopiëren van bestanden als-is** tussen twee bestandsgebaseerde gegevensarchieven, in dat geval de gegevens is gekopieerd efficiënt zonder een serialisatie/deserialisatie.
+U kunt Copy-activiteit naar **bestanden als kopiëren-is** tussen twee bestanden zijn gebaseerd, in dat geval de gegevens worden gekopieerd efficiënt zonder een serialisatie/deserialisatie.
 
-Kopieeractiviteit biedt ook ondersteuning voor lezen van en schrijven naar de bestanden in de opgegeven indelingen: **tekst, JSON Avro, ORC en parketvloeren**, en compressiecodec **GZip, Deflate, BZip2 en ZipDeflate** worden ondersteund. Zie [ondersteunde indelingen voor bestands- en compressie](supported-file-formats-and-compression-codecs.md) met details.
+Copy Activity biedt ook ondersteuning voor lezen van en schrijven naar bestanden in een opgegeven indeling: **tekst, JSON, Avro, ORC en Parquet**, en compressiecodec **GZip, Deflate, BZip2 en ZipDeflate** worden ondersteund. Zie [ondersteunde indelingen voor bestanden en compressie](supported-file-formats-and-compression-codecs.md) met details.
 
-U kunt bijvoorbeeld de volgende kopie activiteiten doen:
+U kunt bijvoorbeeld de volgende kopieeractiviteiten doen:
 
-* Gegevens kopiëren in on-premises SQL-Server en schrijven naar Azure Data Lake Store ORC-indeling.
-* Kopieer de bestanden in tekstindeling (CSV) van de on-premises bestandssysteem en schrijven naar Azure Blob Avro-indeling.
-* ZIP-bestanden kopiëren van on-premises bestandssysteem en decomprimeren vervolgens land naar Azure Data Lake Store.
-* Kopiëren van gegevens in de GZip gecomprimeerde tekst (CSV)-indeling van Azure Blob en schrijven naar Azure SQL Database.
+* Kopiëren van gegevens in on-premises SQL Server en schrijven naar Azure Data Lake Store in ORC-indeling.
+* Bestanden kopiëren in tekstindeling (CSV) van on-premises bestandssysteem en naar Azure-Blob in Avro-indeling wilt schrijven.
+* ZIP-bestanden kopiëren van on-premises bestandssysteem en decomprimeren vervolgens land Azure Data Lake Store.
+* Kopiëren van gegevens in de indeling van GZip gecomprimeerde tekstbestand (CSV) van Azure Blob en schrijven naar Azure SQL Database.
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-De service die ook door de kopieerbewerking is beschikbaar globaal in de regio's en locaties die worden vermeld in [Azure integratie Runtime locaties](concepts-integration-runtime.md#integration-runtime-location). De topologie wereldwijd beschikbare zorgt ervoor dat efficiënt gegevensverplaatsing die meestal regio-overschrijdende hops voorkomt. Zie [-Services per regio](https://azure.microsoft.com/regions/#services) voor beschikbaarheid van de Gegevensfactory en de verplaatsing van gegevens in een regio.
+De service die wordt gebruikt door de Kopieeractiviteit is wereldwijd beschikbaar in de regio's en regio's die worden vermeld in [Azure Integration Runtime locaties](concepts-integration-runtime.md#integration-runtime-location). De algemeen beschikbare topologie zorgt u ervoor efficiënt gegevensverplaatsing die meestal regio-overschrijdende hops voorkomt. Zie [-Services per regio](https://azure.microsoft.com/regions/#services) voor beschikbaarheid van Data Factory en de verplaatsing van gegevens in een regio.
 
 ## <a name="configuration"></a>Configuratie
 
-Als u de kopieeractiviteit in Azure Data Factory, moet u:
+Voor het gebruik van kopieeractiviteit in Azure Data Factory, moet u naar:
 
-1. **Gekoppelde services voor gegevensopslag van de bron en sink-gegevensarchief maken.** Raadpleeg de connector-artikel 'Gekoppelde service-eigenschappen' gedeelte van het configureren en de ondersteunde eigenschappen. U vindt de lijst met ondersteunde connector in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats) sectie.
-2. **Gegevenssets voor de bron- en sink maken.** Raadpleeg de bron en sink van connector-artikelen 'Eigenschappen van gegevensset' sectie voor het configureren en de ondersteunde eigenschappen.
-3. **Een pijplijn maken met de kopieeractiviteit.** De volgende sectie biedt een voorbeeld.  
+1. **Maak gekoppelde services voor gegevensopslag van de bron en sink-gegevensopslag.** Raadpleeg het connector-artikel 'Gekoppelde service-eigenschappen' gedeelte over het configureren en de ondersteunde eigenschappen. U vindt de lijst met ondersteunde connector in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats) sectie.
+2. **Gegevenssets voor de bron en sink maken.** Raadpleeg de bron en sink van de sectie 'Dependencies voor gegevensset' connector-artikelen over het configureren en de ondersteunde eigenschappen.
+3. **Een pijplijn maken met de kopieeractiviteit.** De volgende sectie bevat een voorbeeld.  
 
 ### <a name="syntax"></a>Syntaxis
 
-De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met ondersteunde eigenschappen. Geef de waarden die uw scenario past.
+De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met ondersteunde eigenschappen. Geef de waarden die geschikt zijn voor uw scenario.
 
 ```json
 "activities":[
@@ -126,66 +126,66 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
 ]
 ```
 
-### <a name="syntax-details"></a>Details van de syntaxis
+### <a name="syntax-details"></a>Syntaxis van de details
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van een kopieeractiviteit moet worden ingesteld op: **kopiëren** | Ja |
-| invoer | Geef de gegevensset die u hebt gemaakt die verwijst naar de brongegevens. Kopieeractiviteit ondersteunt alleen een één invoer. | Ja |
-| uitvoer | Geef de gegevensset die u hebt gemaakt die verwijst naar de sink-gegevens. Kopieeractiviteit ondersteunt slechts één uitvoer. | Ja |
-| typeProperties | Een groep met eigenschappen voor het configureren van de kopieeractiviteit. | Ja |
-| source | Het brontype van het exemplaar en de bijbehorende eigenschappen opgeven voor het ophalen van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
-| Sink | Geef het exemplaar sink-type en de bijbehorende eigenschappen op het schrijven van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
-| Translator | Geef expliciete kolomtoewijzingen van bron opvangen. Wanneer u het standaardgedrag voor het exemplaar kan niet voldoen aan uw behoeften past.<br/><br/>Meer informatie over de details van [Schema en de gegevens Typetoewijzing](copy-activity-schema-and-type-mapping.md). | Nee |
-| dataIntegrationUnits | Geef de powerfulness van [Azure integratie Runtime](concepts-integration-runtime.md) zorgen dat gegevens opnieuw te kopiëren. Voorheen bekend als cloud Data Movement eenheden (DMU). <br/><br/>Meer informatie over de details van [Data integratie Units](copy-activity-performance.md#data-integration-units). | Nee |
-| ParallelCopies | Geef de parallelle uitvoering die u wilt dat de Kopieeractiviteit sink gebruikt bij het lezen van gegevens van de bron- en schrijven van gegevens.<br/><br/>Meer informatie over de details van [kopie parallelle](copy-activity-performance.md#parallel-copy). | Nee |
-| enableStaging<br/>stagingSettings | Kies fase van de tijdelijke gegevens in aa blob storage in plaats van rechtstreeks gegevens kopiëren van bron opvangen.<br/><br/>Informatie over de nuttig scenario's en de configuratiedetails van [kopie gefaseerde](copy-activity-performance.md#staged-copy). | Nee |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Kies hoe niet-compatibele rijen verwerkt bij het kopiëren van gegevens van bron opvangen.<br/><br/>Meer informatie over de details van [fouttolerantie](copy-activity-fault-tolerance.md). | Nee |
+| invoer | Geef op de gegevensset die u hebt gemaakt die verwijst naar de brongegevens. Kopieeractiviteit ondersteunt alleen een één invoer. | Ja |
+| uitvoer | Geef op de gegevensset die u hebt gemaakt die verwijst naar de sink-gegevens. Kopieeractiviteit ondersteunt slechts één uitvoer. | Ja |
+| typeProperties | Een groep met eigenschappen te configureren van de kopieeractiviteit. | Ja |
+| source | Het brontype voor kopiëren en de bijbehorende eigenschappen opgeven over het ophalen van gegevens.<br/><br/>Meer details in de sectie 'Eigenschappen van de Kopieeractiviteit' connector-artikel die worden vermeld in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
+| sink | Geef de sink-type voor kopiëren en de bijbehorende eigenschappen voor het schrijven van gegevens.<br/><br/>Meer details in de sectie 'Eigenschappen van de Kopieeractiviteit' connector-artikel die worden vermeld in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
+| Translator | Geef expliciete kolomtoewijzingen van bron naar een sink. Is van toepassing wanneer het standaardgedrag van het exemplaar kan niet voldoen aan uw behoeften.<br/><br/>Informatie over de details van [toewijzing van het type Schema en gegevens](copy-activity-schema-and-type-mapping.md). | Nee |
+| dataIntegrationUnits | Geef de powerfulness van [Azure Integration Runtime](concepts-integration-runtime.md) om te kopiëren van gegevens. Voorheen bekend als cloud Data Movement eenheden (DMU). <br/><br/>Informatie over de details van [integratie gegevenseenheden](copy-activity-performance.md#data-integration-units). | Nee |
+| parallelCopies | Geef de parallelle uitvoering die u wilt dat Copy-activiteit naar het sink-wordt gebruikt bij het lezen van gegevens uit de bron en het schrijven van gegevens.<br/><br/>Informatie over de details van [kopie parallelle](copy-activity-performance.md#parallel-copy). | Nee |
+| enableStaging<br/>stagingSettings | Wilt u de tussentijdse gegevens in aa blob-opslag in plaats van rechtstreeks gegevens kopiëren van bron naar het sink-fase.<br/><br/>Meer informatie over de handige scenario's en de configuratiedetails van de van [gefaseerd kopiëren](copy-activity-performance.md#staged-copy). | Nee |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Kiezen hoe u voor het afhandelen van incompatibele rijen tijdens het kopiëren van gegevens van bron naar een sink.<br/><br/>Informatie over de details van [fouttolerantie](copy-activity-fault-tolerance.md). | Nee |
 
 ## <a name="monitoring"></a>Bewaking
 
-U kunt controleren met de kopieerbewerking op Azure Data Factory 'Auteur & Monitor' gebruikersinterface of via een programma uitvoeren. U kunt vervolgens vergelijken de prestaties en de configuratie van uw scenario om door te kopiëren van de activiteit [prestaties verwijzing](copy-activity-performance.md#performance-reference) van het intern testen.
+U kunt controleren met de kopieeractiviteit in Azure Data Factory 'Maken en controleren' gebruikersinterface of via een programma uitvoeren. U kunt vervolgens vergelijken de prestaties en configuratie van uw scenario aan Copy-activiteit [prestaties verwijzing](copy-activity-performance.md#performance-reference) van interne testen.
 
 ### <a name="monitor-visually"></a>Visueel bewaken
 
-Als u wilt bewaken visueel met de kopieerbewerking uitvoeren, Ga naar uw data factory -> **auteur & Monitor** -> **tabblad Monitor**, ziet u een lijst van de pijplijn wordt uitgevoerd met een koppeling 'Weergave activiteit wordt uitgevoerd' in de  **Acties** kolom. 
+Als u wilt de copy-activiteit uitvoeren visueel te controleren, Ga naar uw data factory -> **Author & Monitor** -> **controletabblad**, ziet u een lijst van de pijplijn wordt uitgevoerd met een koppeling 'Uitvoeringen van activiteit weergeven' in de  **Acties** kolom. 
 
 ![Pijplijnuitvoeringen controleren](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
-Klik op de lijst van activiteiten in deze pijplijn. In de **acties** kolom, hebt u koppelingen naar de kopie activiteit invoer, uitvoer, fouten (als kopieeractiviteit uitvoeren is mislukt) en meer informatie.
+Klik om te zien van de lijst met activiteiten in deze pijplijn-run. In de **acties** kolom, hebt u koppelingen naar de kopie activiteit invoer, uitvoer, fouten (als de uitvoering van activiteit kopiëren mislukt) en details.
 
 ![Uitvoering van activiteiten controleren](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Klik op de '**Details**' koppeling onder **acties** om details van de uitvoering van de activiteit van het exemplaar en de prestatiekenmerken te zien. Hier ziet u informatie inclusief volume/rijen/bestanden van de gegevens gekopieerd van de bron opvangen, doorvoer, stappen het doorloopt met bijbehorende duur en configuraties voor uw scenario kopiëren gebruikt.
+Klik op de '**Details**' koppeling onder **acties** om te zien van de kopieeractiviteit uitvoeringsdetails en prestatiekenmerken. Hier ziet u informatie, inclusief volume/rijen/bestanden van de gegevens opgehaald uit de bron om op te vangen, doorvoer, stappen gaat door met de bijbehorende tijdsduur en gebruikt als deze configuraties voor uw scenario kopiëren.
 
-**Voorbeeld: kopiëren vanaf Amazon S3 met Azure Data Lake Store**
-![details uitvoering van activiteit van de Monitor](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+**Voorbeeld: kopiëren van Amazon S3 naar Azure Data Lake Store**
+![details uitvoering van activiteiten controleren](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
 
-**Voorbeeld: het kopiëren van Azure SQL Database voor het gebruik van Azure SQL Data Warehouse gefaseerde kopiëren**
-![details uitvoering van activiteit van de Monitor](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+**Voorbeeld: kopiëren uit een Azure SQL Database naar Azure SQL Data Warehouse met behulp van gefaseerd kopiëren**
+![details uitvoering van activiteiten controleren](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
 
-### <a name="monitor-programmatically"></a>Programmatisch bewaken
+### <a name="monitor-programmatically"></a>Controleren via een programma
 
-De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken zijn ook geretourneerd als resultaat van uitgevoerde Kopieeractiviteit -> sectie uitvoer. Hieronder volgt een uitputtende lijst. alleen de van toepassing door op uw scenario kopie wordt weergegeven. Informatie over het bewaken van de activiteit die wordt uitgevoerd van [Quick Start sectie bewaking](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
+Details van uitvoering van activiteit kopiëren en prestatiekenmerken worden ook geretourneerd in de Kopieeractiviteit uitvoering uitvoer sectie ->. Hieronder vindt u een volledige lijst. alleen van toepassing die op uw scenario kopiëren worden weergegeven. Informatie over het bewaken van de uitvoering van activiteiten [snelstartgids sectie bewaking](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Naam van eigenschap  | Beschrijving | Eenheid |
 |:--- |:--- |:--- |
-| dataRead | Gegevensgrootte van het lezen van bron | Waarde voor Int64 in **bytes** |
-| dataWritten | Gegevensgrootte opvangen geschreven | Waarde voor Int64 in **bytes** |
+| DataRead | Grootte van de gegevens lezen van bron | Waarde voor Int64 in **bytes** |
+| Datawritten door | Grootte van gegevens naar een sink geschreven | Waarde voor Int64 in **bytes** |
 | filesRead | Het aantal bestanden die bij het kopiëren van gegevens uit de opslag van bestanden worden gekopieerd. | Waarde voor Int64 (geen unit) |
-| filesWritten | Het aantal bestanden die bij het kopiëren van gegevens naar de opslag van bestanden worden gekopieerd. | Waarde voor Int64 (geen unit) |
+| filesWritten | Het aantal bestanden die bij het kopiëren van gegevens met file storage worden gekopieerd. | Waarde voor Int64 (geen unit) |
 | rowsCopied | Het aantal rijen (niet van toepassing voor binaire kopie) wordt gekopieerd. | Waarde voor Int64 (geen unit) |
-| rowsSkipped | Aantal niet-compatibele rijen wordt overgeslagen. U kunt de functie inschakelen door de set 'enableSkipIncompatibleRow' op true. | Waarde voor Int64 (geen unit) |
+| rowsSkipped | Het aantal niet-compatibele rijen wordt overgeslagen. U kunt de functie inschakelen door de set 'enableSkipIncompatibleRow' op ' True '. | Waarde voor Int64 (geen unit) |
 | Doorvoer | Verhouding waarmee gegevens worden overgedragen | Drijvendekommagetal in **KB/s** |
-| copyDuration | De duur van de kopie | Waarde voor Int32 (in seconden) |
-| sqlDwPolyBase | Als bij het kopiëren van gegevens in SQL Data Warehouse PolyBase gebruikt. | Boole-waarde |
-| redshiftUnload | Als uit het geheugen laden wordt gebruikt bij het kopiëren van gegevens van Redshift. | Boole-waarde |
-| hdfsDistcp | Als DistCp wordt gebruikt bij het kopiëren van gegevens uit HDFS. | Boole-waarde |
-| effectiveIntegrationRuntime | Kunt u zien welk integratie Runtime(s) wordt gebruikt om te zorgen dat de activiteit die wordt uitgevoerd in de indeling van `<IR name> (<region if it's Azure IR>)`. | Tekst (tekenreeks) |
+| copyDuration | De duur van de kopie | Int32-waarde in seconden |
+| sqlDwPolyBase | Als u PolyBase is gebruikt bij het kopiëren van gegevens in SQL Data Warehouse. | Booleaans |
+| redshiftUnload | Als uit het geheugen laden wordt gebruikt bij het kopiëren van gegevens van Redshift. | Booleaans |
+| hdfsDistcp | Als DistCp wordt gebruikt bij het kopiëren van gegevens uit HDFS. | Booleaans |
+| effectiveIntegrationRuntime | Laten zien welke integratie Runtime(s) wordt gebruikt voor het maken van de activiteit die wordt uitgevoerd, in de indeling van `<IR name> (<region if it's Azure IR>)`. | Tekst (tekenreeks) |
 | usedDataIntegrationUnits | De effectieve gegevens integratie eenheden tijdens het kopiëren. | Int32-waarde |
 | usedParallelCopies | De effectieve parallelCopies tijdens het kopiëren. | Int32-waarde|
-| redirectRowPath | Pad naar het logboek van overgeslagen incompatibel rijen in de blobopslag die u onder 'redirectIncompatibleRowSettings configureert'. Zie onderstaand voorbeeld. | Tekst (tekenreeks) |
-| executionDetails | Meer informatie over de kopieeractiviteit doorloopt, fasen en de bijbehorende stappen, duur, gebruikte configuraties, enzovoort. Het is niet raadzaam deze sectie parseren aangezien kunnen worden gewijzigd. | Matrix |
+| redirectRowPath | Pad naar het logboek van overgeslagen incompatibele rijen in de blob-opslag die u onder "redirectIncompatibleRowSettings" configureren. Zie onderstaande voorbeeld. | Tekst (tekenreeks) |
+| executionDetails | Meer informatie over de fasen copy-activiteit doorloopt, en de bijbehorende stappen, duur, gebruikte configuraties, enzovoort. Het is niet raadzaam deze sectie parseren als kan worden gewijzigd. | Matrix |
 
 ```json
 "output": {
@@ -221,27 +221,27 @@ De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken zijn ook geret
 }
 ```
 
-## <a name="schema-and-data-type-mapping"></a>Schema- en gegevenstypetoewijzing
+## <a name="schema-and-data-type-mapping"></a>Schema en de toewijzing van het type gegevens
 
-Zie de [Schema en de gegevens Typetoewijzing](copy-activity-schema-and-type-mapping.md), waarin wordt beschreven hoe de kopieerbewerking de brongegevens opvangen toegewezen.
+Zie de [toewijzing van het type Schema en gegevens](copy-activity-schema-and-type-mapping.md), waarin wordt beschreven hoe copy activity in uw brongegevens naar het sink-kaarten.
 
 ## <a name="fault-tolerance"></a>Fouttolerantie
 
-Standaard kopieeractiviteit stopt met het kopiëren van gegevens en retourneert fout zodra het niet-compatibele gegevens tussen de bron- en sink. U kunt expliciet configureren voor overslaan en meld u de niet-compatibele rijen en alleen kopiëren die compatibel gegevens om te kopiëren is voltooid. Zie de [Kopieeractiviteit fouttolerantie](copy-activity-fault-tolerance.md) op meer informatie.
+Standaard kopieeractiviteit kopiëren van gegevens gestopt en fout retourneert wanneer er niet-compatibele gegevens tussen de bron en sink. U kunt expliciet configureren als u wilt overslaan en meld u de niet-compatibele rijen en alleen deze compatibel gegevens kopiëren naar de kopie is voltooid. Zie de [Kopieeractiviteit fouttolerantie](copy-activity-fault-tolerance.md) op meer informatie.
 
 ## <a name="performance-and-tuning"></a>Prestaties en afstemmen
 
-Zie de [Kopieeractiviteit prestaties en prestatieafstemming handleiding](copy-activity-performance.md), waarin belangrijke factoren die van invloed op de prestaties van de verplaatsing van gegevens (Kopieeractiviteit) in Azure Data Factory wordt beschreven. Ook hier worden de waargenomen prestaties tijdens interne tests en worden verschillende manieren om te optimaliseren van de prestaties van de Kopieeractiviteit besproken.
+Zie de [Kopieeractiviteit prestatie- en afstemmingshandleiding](copy-activity-performance.md), waarin belangrijke factoren die invloed hebben op de prestaties van de verplaatsing van gegevens (Kopieeractiviteit) in Azure Data Factory wordt beschreven. Ook geeft een lijst van de waargenomen prestaties tijdens interne tests van en worden verschillende manieren om te optimaliseren de prestaties van Kopieeractiviteit besproken.
 
 ## <a name="incremental-copy"></a>Incrementele kopie 
-Data Factory ondersteunt scenario's voor het kopiëren van deltagegevens stapsgewijs uit een gegevensopslag van bron naar een doelgegevensopslagplaats. Zie [zelfstudie: gegevens stapsgewijs kopiëren](tutorial-incremental-copy-overview.md). 
+Data Factory biedt ondersteuning voor scenario's voor het incrementeel kopiëren van delta-gegevens van een brongegevensarchief naar een doelgegevensarchief. Zie [zelfstudie: gegevens stapsgewijs kopiëren](tutorial-incremental-copy-overview.md). 
 
 ## <a name="read-and-write-partitioned-data"></a>Gepartitioneerde gegevens lezen en schrijven
-Azure Data Factory ondersteund in versie 1, lezen of schrijven van gepartitioneerde gegevens met behulp van de SliceStart/SliceEnd/WindowStart/WindowEnd systeemvariabelen. U kunt dit gedrag met behulp van een pipeline-parameter en van de trigger geplande tijd/begintijd als een waarde van de parameter bereiken in de huidige versie. Zie voor meer informatie [het lezen of schrijven gepartitioneerd gegevens](how-to-read-write-partitioned-data.md).
+Azure Data Factory ondersteund in versie 1, lezen of schrijven van gepartitioneerde gegevens met behulp van de slicestart-waarde/SliceEnd/WindowStart/WindowEnd systeemvariabelen. In de huidige versie, kunt u dit gedrag bewerkstelligen met behulp van een pijplijnparameter en de tijd/geplande begintijd van trigger als een waarde van de parameter. Zie voor meer informatie, [lezen of schrijven gegevens gepartitioneerd](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende snelstartgidsen, zelfstudies en voorbeelden:
 
-- [Gegevens kopiëren van de ene locatie naar een andere locatie in de dezelfde Azure-blobopslag](quickstart-create-data-factory-dot-net.md)
-- [Gegevens kopiëren van Azure Blob-opslag naar Azure SQL Database](tutorial-copy-data-dot-net.md)
-- [Gegevens kopiëren van on-premises SQL-Server naar Azure](tutorial-hybrid-copy-powershell.md)
+- [Gegevens van de ene locatie naar een andere locatie in dezelfde Azure Blob Storage kopiëren](quickstart-create-data-factory-dot-net.md)
+- [Gegevens kopiëren van Azure Blob Storage naar Azure SQL Database](tutorial-copy-data-dot-net.md)
+- [Gegevens kopiëren van on-premises SQL Server naar Azure](tutorial-hybrid-copy-powershell.md)
