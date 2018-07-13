@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de JavaScript-SDK voor Azure Mobile Apps
-description: Hoe gebruik v voor Azure Mobile Apps
+title: Over het gebruik van de JavaScript-SDK voor Azure Mobile Apps
+description: Over het gebruik v voor Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: ba2eb5a7f888e4cffcd798259afa8194b4021025
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151073"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488889"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Het gebruik van de JavaScript-clientbibliotheek voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Deze handleiding leert u veelvoorkomende scenario's met behulp van de meest recente uitvoeren [JavaScript SDK voor Azure Mobile Apps]. Als u niet bekend met Azure Mobile Apps bent, eerst voltooien [Azure Mobile Apps Quick Start] voor het maken van een back-end en een tabel maken. In deze handleiding richten we op het gebruik van de mobiele back-end in de HTML/JavaScript-webtoepassingen.
+Deze handleiding leert u hoe u algemene scenario's met behulp van de meest recente uitvoert [JavaScript-SDK voor Azure Mobile Apps]. Als u niet bekend bent met Azure Mobile Apps, voltooi eerst [Azure Mobile Apps snel starten] om te maken van een back-end en een tabel maken. In deze handleiding richten we over het gebruik van de mobiele back-end in HTML/JavaScript-Web-Apps.
 
 ## <a name="supported-platforms"></a>Ondersteunde platforms
-We beperken browserondersteuning van de huidige en de laatste versie van de belangrijke browsers: Google Chrome, Microsoft Edge Microsoft Internet Explorer en Mozilla Firefox.  We verwachten dat de SDK met de functie met relatief moderne browsers.
+We beperken browserondersteuning naar de huidige en de laatste versie van de belangrijke browsers: Google Chrome, Microsoft Edge, Microsoft Internet Explorer en Mozilla Firefox.  We verwachten dat de SDK aan de functie met een relatief moderne browser.
 
-Het pakket wordt gedistribueerd als een universeel JavaScript-Module, zodat deze globale variabelen, AMD, ondersteunt en CommonJS indelingen.
+Het pakket wordt gedistribueerd als een universeel JavaScript-Module, zodat het globals, AMD, ondersteunt en CommonJS indelingen.
 
-## <a name="Setup"></a>Het installatieprogramma en vereisten
-Deze handleiding wordt ervan uitgegaan dat u een back-end hebt gemaakt met een tabel. Deze handleiding wordt ervan uitgegaan dat de tabel heeft van hetzelfde schema als de tabellen in deze zelfstudies.
+## <a name="Setup"></a>Installatie en vereisten
+Deze handleiding wordt ervan uitgegaan dat u een back-end hebt gemaakt met een tabel. Deze handleiding wordt ervan uitgegaan dat de tabel hetzelfde schema als de tabellen in deze zelfstudies heeft.
 
-Installeren van de Azure Mobile Apps JavaScript SDK kan worden uitgevoerd via de `npm` opdracht:
+Installatie van de Azure Mobile Apps JavaScript SDK kan worden gedaan de `npm` opdracht:
 
 ```
 npm install azure-mobile-apps-client --save
@@ -49,7 +49,7 @@ var WindowsAzure = require('azure-mobile-apps-client');
 import * as WindowsAzure from 'azure-mobile-apps-client';
 ```
 
-U kunt ook een vooraf samengestelde versie van de SDK door rechtstreeks uit onze CDN te downloaden:
+U kunt ook een vooraf gemaakte versie van de SDK door het downloaden van rechtstreeks vanuit het CDN:
 
 ```html
 <script src="https://zumo.blob.core.windows.net/sdk/azure-mobile-apps-client.min.js"></script>
@@ -57,53 +57,53 @@ U kunt ook een vooraf samengestelde versie van de SDK door rechtstreeks uit onze
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Procedure: verificatie van gebruikers
-Azure App Service biedt ondersteuning voor verificatie en autorisatie van app-gebruikers met behulp van verschillende externe id-providers: Facebook, Google, Microsoft-Account en Twitter. U kunt machtigingen instellen voor tabellen toegang voor specifieke bewerkingen voor alleen geverifieerde gebruikers te beperken. U kunt ook de identiteit van de geverifieerde gebruikers gebruiken voor het implementeren van autorisatieregels in server-scripts. Zie voor meer informatie de [aan de slag met verificatie] zelfstudie.
+## <a name="auth"></a>Hoe: verificatie van gebruikers
+Azure App Service ondersteunt verificatie en autorisatie van app-gebruikers met behulp van verschillende externe id-providers: Facebook, Google, Microsoft-Account en Twitter. U kunt machtigingen instellen voor tabellen toegang voor specifieke bewerkingen alleen geverifieerde gebruikers te beperken. U kunt ook de identiteit van de geverifieerde gebruikers gebruiken voor het implementeren van autorisatieregels in server-scripts. Zie voor meer informatie de [aan de slag met verificatie] zelfstudie.
 
-Twee verificatie stromen worden ondersteund: de stroom van een server en een client-stroom.  De stroom van de server biedt de eenvoudigste verificatie-ervaring, is afhankelijk van de webinterface voor verificatie van de provider. De stroom kunt u betere integratie met apparaatspecifieke mogelijkheden, zoals single-sign-on zoals is afhankelijk van de provider-specifieke SDK's.
+Twee verificatiestromen worden ondersteund: de stroom van een server en een clientstroom.  De stroom van de server bevat de meest eenvoudige verificatie-ervaring, afhankelijk van de provider de webinterface voor verificatie. De stroom kunt diepere integratie met de apparaat-specifieke mogelijkheden zoals single-sign-on, afhankelijk van provider-specifieke SDK's.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Procedure: het configureren van uw mobiele App Service voor externe Omleidings-URL's.
-Verschillende soorten toepassingen van JavaScript gebruiken een loopback-functie voor het OAuth UI stromen.  Deze mogelijkheden zijn:
+### <a name="configure-external-redirect-urls"></a>Hoe: configureren van uw mobiele App-Service voor externe Omleidings-URL's.
+Verschillende typen van JavaScript-toepassingen gebruiken een loopback-mogelijkheid voor het afhandelen van OAuth UI stromen.  Deze mogelijkheden omvatten:
 
-* Uw service lokaal uitgevoerd
-* Met behulp van Live opnieuw laden met ionische Framework
+* Uw service lokaal worden uitgevoerd
+* Met behulp van Live opnieuw laden met de ionische Framework
 * Omleiden naar App Service voor verificatie.
 
-Die lokaal wordt uitgevoerd kan problemen veroorzaken omdat App Service-verificatie is standaard alleen geconfigureerd voor toegang vanuit uw back-end voor de mobiele App. Gebruik de volgende stappen uit om te wijzigen van instellingen van de App Service-verificatie inschakelen wanneer de server lokaal wordt uitgevoerd:
+Lokaal wordt uitgevoerd kan problemen veroorzaken omdat App Service-verificatie is standaard alleen geconfigureerd voor toegang vanuit uw mobiele back-end. Gebruik de volgende stappen uit om te wijzigen van de App Service-instellingen voor verificatie wanneer de server lokaal wordt uitgevoerd:
 
-1. Meld u aan bij [Azure-portal].
-2. Navigeer naar uw mobiele App back-end.
-3. Selecteer **resourceverkenner** in de **ONTWIKKELINGSPROGRAMMA's** menu.
-4. Klik op **gaat** resource explorer voor back-end van uw mobiele App in een nieuw tabblad of het venster te openen.
+1. Meld u aan bij [Azure Portal].
+2. Navigeer naar de back-end van uw mobiele App.
+3. Selecteer **Resource explorer** in de **ONTWIKKELTOOLS** menu.
+4. Klik op **gaat** resource explorer voor de back-end van uw mobiele App in een nieuw tabblad of venster te openen.
 5. Vouw de **config** > **authsettings** knooppunt voor uw app.
-6. Klik op de **bewerken** knop bewerken van de resource inschakelen.
-7. Zoek de **allowedExternalRedirectUrls** -element moet null zijn. De URL's in een matrix toevoegen:
+6. Klik op de **bewerken** knop om in te schakelen de bron te bewerken.
+7. Zoek de **allowedExternalRedirectUrls** -element mag niet null zijn. De URL's in een matrix toevoegen:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
 
-    Vervang de URL's in de matrix door de URL's van uw service, die in dit voorbeeld is `http://localhost:3000` voor de lokale service van de Node.js-voorbeeld. U kunt ook `http://localhost:4400` voor de service Rimpel of een andere URL, afhankelijk van hoe uw app is geconfigureerd.
-8. Klik boven aan de pagina op **lezen/schrijven**, klikt u vervolgens op **plaatsen** om op te slaan van de updates.
+    Vervang de URL's in de matrix door de URL's van uw service, die in dit voorbeeld is `http://localhost:3000` voor de lokale Node.js-voorbeeld-service. U kunt ook `http://localhost:4400` voor de Ripple-service of een andere URL, afhankelijk van hoe uw app is geconfigureerd.
+8. Aan de bovenkant van de pagina, klikt u op **lezen/schrijven**, klikt u vervolgens op **plaatsen** om op te slaan van de updates.
 
-U moet ook de dezelfde loopback-URL's toevoegen aan de CORS-instellingen voor goedgekeurde IP-adressen:
+Ook moet u dezelfde loopback-URL's toevoegen aan de lijst met toegestane adressen CORS-instellingen:
 
-1. Ga terug naar de [Azure-portal].
-2. Navigeer naar uw mobiele App back-end.
+1. Ga terug naar de [Azure Portal].
+2. Navigeer naar de back-end van uw mobiele App.
 3. Klik op **CORS** in de **API** menu.
-4. Elke URL opgeven in de lege **toegestane oorsprongen** in het tekstvak.  Een nieuw tekstvak wordt gemaakt.
+4. Elke URL opgeven in de lege **oorsprongen toegestaan** in het tekstvak.  Een nieuwe tekstvak wordt gemaakt.
 5. Klik op **opslaan**
 
-Na de back-end-updates, kunt u zich de loopback-URL's in uw app gebruiken.
+Nadat de back-end is bijgewerkt, kunt u zich aan de nieuwe loopback-URL's in uw app gebruiken.
 
 <!-- URLs. -->
-[Azure Mobile Apps Quick Start]: app-service-mobile-cordova-get-started.md
-[aan de slag met verificatie]: app-service-mobile-cordova-get-started-users.md
+[Azure Mobile Apps snel starten]: app-service-mobile-cordova-get-started.md
+[Aan de slag met verificatie]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Azure-portal]: https://portal.azure.com/
-[JavaScript SDK voor Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
+[Azure Portal]: https://portal.azure.com/
+[JavaScript-SDK voor Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx
