@@ -4,7 +4,7 @@
   href: index.yml
 - name: Overzicht
   items:
-    - name: Over Azure Maps
+    - name: Wat is Azure Maps?
       href: about-azure-maps.md
 - name: Snelstartgidsen
   items:
@@ -22,22 +22,10 @@
   items:
     - name: Zoomniveaus en tegelraster
       href: zoom-levels-and-tile-grid.md
-    - name: Dekking voor geocodering
-      href: geocoding-coverage.md
-    - name: Dekking voor verkeer
-      href: traffic-coverage.md
-    - name: Dekking voor weergave
-      href: render-coverage.md
-    - name: Dekking voor routering
-      href: routing-coverage.md
     - name: Ondersteunde zoekcategorieën
       href: supported-search-categories.md
     - name: Ondersteunde talen
       href: supported-languages.md
-    - name: Verbruiksmodel
-      href: consumption-model.md
-    - name: GeoJSON uitbreiden
-      href: extend-geojson.md
 - name: Handleidingen
   items:
     - name: Maps-accounts beheren
@@ -76,6 +64,22 @@
           href: map-accessibility.md
 - name: Naslaginformatie
   items:
+    - name: Servicedekking
+      items:
+        - name: Geocodering
+          href: geocoding-coverage.md
+        - name: Verkeer
+          href: traffic-coverage.md
+        - name: Renderen
+          href: render-coverage.md
+        - name: Routering
+          href: routing-coverage.md
+    - name: API- en parameterextensies
+      items:
+        - name: Verbruiksmodel voor voertuig
+          href: consumption-model.md
+        - name: Uitgebreide GeoJSON-indeling
+          href: extend-geojson.md
     - name: REST
       items:
         - name: Service voor rendering
@@ -139,4 +143,4 @@
     - name: Technische casestudy's
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Video's
-      href: 'https://azure.microsoft.com/documentation/videos'
+      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'

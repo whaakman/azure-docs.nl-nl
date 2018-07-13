@@ -28,7 +28,7 @@
 - name: Voorbeelden
   items:
     - name: Azure-codevoorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
     - name: Azure-CLI
       href: cli-samples.md
 - name: Concepten
@@ -95,12 +95,14 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Gebeurtenisschema's
       href: media-services-event-schemas.md
-    - name: DRM-licentieschema’s
+    - name: DRM-licenties
       items:
         - name: PlayReady-licentiesjabloon
           href: playready-license-template-overview.md
         - name: Widevine-licentiesjabloon
           href: widevine-license-template-overview.md
+        - name: FairPlay-licentievereisten
+          href: fairplay-license-overview.md
 - name: Resources
   items:
     - name: Azure-roadmap

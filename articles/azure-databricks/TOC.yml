@@ -31,6 +31,9 @@
       href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
     - name: Verbinding maken met gegevensbronnen
       href: databricks-connect-to-data-sources.md
+    - name: Gebruiken met Azure Data Factory
+      href: ../data-factory/transform-data-using-databricks-notebook.md
+      maintainContext: true
     - name: 'Verbinding maken met Excel, R en Python'
       href: connect-databricks-excel-python-r.md
     - name: Databricks CLI van Azure Cloud Shell gebruiken

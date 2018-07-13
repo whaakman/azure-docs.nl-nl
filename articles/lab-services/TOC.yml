@@ -63,6 +63,8 @@
           href: devtest-lab-create-first-vm.md
         - name: Beleid instellen voor het lab
           href: devtest-lab-get-started-with-lab-policies.md
+        - name: Geheimen opslaan in Azure Key Vault
+          href: devtest-lab-store-secrets-in-key-vault.md
         - name: Virtuele machines gebruiken in een lab
           items:
             - name: Virtuele machines maken

@@ -87,8 +87,6 @@
           href: batch-job-prep-release.md
         - name: Gelijktijdige knooppunttaken
           href: batch-parallel-node-tasks.md
-        - name: Taken tellen aan de hand van de status
-          href: batch-get-task-counts.md
         - name: Taakafhankelijkheden
           href: batch-task-dependencies.md
         - name: Gebruikersaccounts voor het uitvoeren van taken
@@ -119,7 +117,9 @@
           href: batch-diagnostics.md
         - name: Controleren met behulp van Application Insights
           href: monitor-application-insights.md
-        - name: Efficiënte lijstquery's
+        - name: Resources per status tellen
+          href: batch-get-resource-counts.md
+        - name: Efficiënt query's uitvoeren op resources
           href: batch-efficient-list-queries.md
     - name: Hulpprogramma's voor ontwikkelaars gebruiken
       items:
