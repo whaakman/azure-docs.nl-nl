@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/03/2018
 ms.author: sethm
 ms.openlocfilehash: 8916ccb430da6bea66de3894201a11a70bb45df9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447197"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38298959"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Aan de slag met Service Bus-onderwerpen
 
@@ -35,7 +35,7 @@ Deze zelfstudie bestaat uit de volgende stappen:
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. [Visual Studio 2017 update 3 (versie 15.3, 26730.01)](http://www.visualstudio.com/vs) of later.
+1. [Visual Studio 2017 update 3 (versie 15.3, 26730.01)](http://www.visualstudio.com/vs) of hoger.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versie 2.0 of later.
 2. Een Azure-abonnement.
 
@@ -425,7 +425,7 @@ Als u berichten wilt ontvangen die u zojuist hebt verzonden, maakt u een andere 
    
     ![Lengte van het onderwerp][topic-message-receive]
 
-Gefeliciteerd. Met de standaard .NET-bibliotheek, hebt u nu een onderwerp en abonnement gemaakt, 10 berichten verzonden en die berichten ontvangen.
+Gefeliciteerd! Met de standaard .NET-bibliotheek, hebt u nu een onderwerp en abonnement gemaakt, 10 berichten verzonden en die berichten ontvangen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

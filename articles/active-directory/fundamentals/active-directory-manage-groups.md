@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: ae97a41835c61155fe3fc7174fd93be00eb22873
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce3b4f15acbcc6ce78ea0623c6b9f3c23941cb0
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767387"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859622"
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Toegang tot resources beheren met Azure Active Directory-groepen
 Azure Active Directory (AD) is een uitgebreide oplossing voor identiteits- en toegangsbeheer die een robuuste set mogelijkheden biedt voor het beheren van de toegang tot toepassingen en resources die on-premises of in de cloud zijn opgeslagen, waaronder onlineservices van Microsoft zoals Office 365 en een breed scala van SaaS-toepassingen van derden. In dit artikel vindt u algemene informatie, maar als u meteen aan de slag wilt met Azure AD groepen, volgt u de instructies in [Beveiligingsgroepen beheren in Azure AD](active-directory-groups-create-azure-portal.md). Als u zien hoe u PowerShell kunt gebruiken voor het beheren van groepen in Azure Active Directory, leest u [Azure Active Directory-cmdlets voor groepsbeheer](../users-groups-roles/groups-settings-v2-cmdlets.md).
@@ -74,7 +74,7 @@ Klaar om te beginnen? Het is verstandig om eerst een paar van de basistaken te p
 ## <a name="next-steps"></a>Volgende stappen
 U bent nu bekend met de basisprincipes van toegangsbeheer en dus is het tijd voor enkele meer geavanceerde mogelijkheden die in Azure Active Directory beschikbaar zijn voor het beheren van toegang tot uw toepassingen en resources.
 
-* [Kenmerken gebruiken om geavanceerde regels te maken](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Kenmerken gebruiken om geavanceerde regels te maken](../users-groups-roles/groups-dynamic-membership.md)
 * [Beveiligingsgroepen beheren in Azure AD](active-directory-groups-create-azure-portal.md)
 * [Graph API-naslag voor groepen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) (Azure Active Directory-cmdlets voor het configureren van groepsinstellingen)

@@ -16,17 +16,17 @@ ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
 ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778239"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452410"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Zelfstudie: Meldingen verzenden naar specifieke gebruikers met behulp van Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>Overzicht
-In deze zelfstudie wordt uitgelegd hoe u met Azure Notification Hubs pushmeldingen kunt verzenden naar een specifieke appgebruiker op een specifiek apparaat. Er wordt een ASP.NET WebAPI-back-end gebruikt om clients te verifiëren. Wanneer de back-end de gebruiker van een clienttoepassing verifieert, wordt er automatisch een tag aan de registratie van de melding toegevoegd. De back-end gebruikt deze tag om meldingen te verzenden naar de specifieke gebruiker. 
+In deze zelfstudie wordt uitgelegd hoe u met Azure Notification Hubs pushmeldingen kunt verzenden naar een specifieke app-gebruiker op een specifiek apparaat. Er wordt een ASP.NET WebAPI-back-end gebruikt om clients te verifiëren. Wanneer de back-end de gebruiker van een clienttoepassing verifieert, wordt er automatisch een tag aan de registratie van de melding toegevoegd. De back-end gebruikt deze tag om meldingen te verzenden naar de specifieke gebruiker. 
 
 > [!NOTE]
 > De volledige code voor deze zelfstudie vindt u op [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). 

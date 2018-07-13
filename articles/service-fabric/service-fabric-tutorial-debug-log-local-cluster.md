@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a0a50c4315540fba014c4f152f108a61b328a936
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109423"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652699"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Zelfstudie: Fouten opsporen in een Java-toepassing die is geïmplementeerd op een lokale Service Fabric-cluster
 
@@ -66,7 +66,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 4. Werk entryPoint.sh bij van de service waar u fouten wilt opsporen, zodat dit het Java-proces met de parameters voor foutopsporing op afstand begint. Voor deze zelfstudie wordt de staatloze front-end gebruikt: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Poort 8001 is in dit voorbeeld voor foutopsporing ingesteld.
 
     ```bash
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
     ```
 
 5. Werk het Manifest van de toepassing bij door het op één instellen van het aantal instanties of het aantal replica's voor de service, waarop de foutopsporing wordt uitgevoerd. Deze instelling voorkomt conflicten voor de poort die wordt gebruikt voor het opsporen van fouten. Stel bijvoorbeeld voor stateless services ``InstanceCount="1"`` in en stel voor stateful services de doel- en min-replicasetgrootten als volgt in op 1: ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
@@ -116,7 +116,7 @@ De volgende stappen doorlopen het omleiden van de toepassingslogboeken van de st
     In het volgende voorbeeld wordt een voorbeeld van een uitvoerbewerking weergegeven:
 
     ```bash
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
     ```
 
 In dit stadium hebt u geleerd hoe fouten kunt opsporen en toegang kunt krijgen tot uw toepassingslogboeken tijdens het ontwikkelen van uw Service Fabric Java-toepassingen.

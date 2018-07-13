@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 42af2b5ec6b591929f37afebe6546d61b8a3a02a
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082845"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38633300"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Zelfstudie: een Python IoT Edge-module maken en implementeren op een gesimuleerd apparaat
 
@@ -249,7 +249,7 @@ az iot hub delete --name MyIoTHub --resource-group TestResources
 
 Ga als volgt te werk om de hele resourcegroep te verwijderen op naam:
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
 2. Typ in het tekstvak **Filteren op naam...** de naam van de resourcegroep die uw IoT Hub bevat. 
 

@@ -17,12 +17,12 @@ ms.date: 08/22/2017
 ms.author: lizross
 ms.reviewer: jeffgilb
 custom: it-pro
-ms.openlocfilehash: 738e96bf631833b8d35847114ee08fc3f5bec2a4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767388"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856086"
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Snelstartgids: Licentie geven aan gebruikers in Azure Active Directory
 Azure AD-services op basis van een licentie zijn alleen toegankelijk na het activeren van een Azure AD-abonnement (Azure Active Directory) in uw Azure-tenant. Als het abonnement actief is, worden servicevoorzieningen beheerd door Azure AD-beheerders en gebruikt door gebruikers met een licentie. Wanneer u Enterprise Mobility + Security, Azure AD Premium of Azure AD Basic koopt, wordt uw tenant bijgewerkt met het abonnement, met inbegrip van de geldigheidsperiode en vooraf betaalde licenties. De abonnementsgegevens, waaronder het aantal toegewezen of beschikbare licenties, is beschikbaar via Azure Portal, door eerst **Azure Active Directory** te kiezen en dan de tegel **Licenties**. De tegel of blade **Licenties** is ook de beste plek voor het beheren van uw licentietoewijzingen.
@@ -35,7 +35,7 @@ U kunt [licentietoewijzing voor groepen](active-directory-licensing-whatis-azure
 * U kunt de beslissing delegeren aan andere managers in de organisatie (met behulp van [selfservicegroepen](../users-groups-roles/groups-self-service-management.md))
 
 > [!TIP]
-> Zie [Licenties toewijzen aan gebruikers door groepslidmaatschappen in Azure Active Directory](../active-directory-licensing-group-assignment-azure-portal.md) voor een gedetailleerde beschrijving van licentietoewijzing aan groepen, inclusief geavanceerde scenario's en licentiescenario's voor Office 365.
+> Zie [Licenties toewijzen aan gebruikers door groepslidmaatschappen in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) voor een gedetailleerde beschrijving van licentietoewijzing aan groepen, inclusief geavanceerde scenario's en licentiescenario's voor Office 365.
 
 ## <a name="assign-licenses-to-users-and-groups"></a>Licenties toewijzen aan gebruikers en groepen
 Met behulp van een actief abonnement moet u eerst een licentie aan uzelf toewijzen en uw browser vernieuwen om ervoor te zorgen dat u alle verwachte functies van uw abonnement ziet. De volgende stap is het toewijzen van licenties aan de gebruikers die toegang nodig hebben tot betaalde functies van Azure AD. Een eenvoudige manier om licenties toe te wijzen, is het toewijzen van licenties aan groepen gebruikers in plaats van aan individuele gebruikers. Als u licenties toewijst aan een groep, krijgen alle groepsleden een licentie. Als de groep wordt aangepast door het toevoegen of verwijderen van gebruikers, wordt er automatisch een licentie toegewezen of verwijderd. 

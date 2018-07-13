@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
 ms.openlocfilehash: 8b3735380105bca8421e3f1d654425eea465918e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767396"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308197"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Python
 
@@ -22,7 +22,7 @@ In deze zelfstudie leert u hoe u Python kunt gebruiken om blok-bobs te uploaden,
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart: 
+Dit zijn de vereisten voor het voltooien van deze snelstart: 
 * [Python](https://www.python.org/downloads/) installeren
 * Download en installeer [Azure Storage-SDK voor Python](https://github.com/Azure/azure-sdk-for-python). 
 

@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 11b2fccf3c02555f50f48252f2cd9968c9ec90d7
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436086"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38632881"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstart: Uw eerste IoT Edge-module van Azure Portal naar een Windows-apparaat implementeren - preview
 
@@ -43,8 +43,8 @@ Deze snelstart verandert uw Windows-computer of virtuele machine in een IoT Edge
 Zorg dat de volgende vereisten klaarstaan op de computer die u gebruikt voor een IoT Edge-apparaat:
 
 1. Zorg ervoor dat u een ondersteunde versie van Windows gebruikt:
-   * Windows 10 of later
-   * Windows Server 2016 of later
+   * Windows 10 of hoger
+   * Windows Server 2016 of hoger
 2. Installeer [Docker voor Windows][lnk-docker] en contoleer of deze wordt uitgevoerd.
 3. Configureer Docker voor het gebruiken van [Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
@@ -189,7 +189,7 @@ Configureer de runtime met uw IoT Edge-apparaatverbindingsreeks die u hebt gekop
   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
   ```
   
-  Zorg dat de omgevingsvariabele blijft behouden tijdens het opnieuw opstarten.
+  Zorg dat de omgevingsvariabele blijft behouden tijdens alle pogingen om opnieuw op te starten.
 
   ```powershell
   SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
@@ -300,7 +300,7 @@ Wanneer u de gemaakte Azure-resources niet meer nodig hebt, kunt u de gemaakte r
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een nieuw IoT Edge-apparaat gemaakt en de Azure IoT Edge-cloudinterface gebruikt om code te implementeren op het apparaat. U hebt nu een testapparaat waarmee ruwe gegevens over de omgeving worden gegenereerd. 
+In deze snelstart hebt u een nieuw IoT Edge-apparaat gemaakt en de Azure IoT Edge-cloudinterface gebruikt om code te implementeren op het apparaat. U hebt nu een testapparaat waarmee ruwe gegevens over de omgeving worden gegenereerd. 
 
 U kunt nu doorgaan met elke andere zelfstudie om te leren hoe Azure IoT Edge u verder kan helpen bij het omzetten van uw gegevens in bedrijfsinzichten.
 
