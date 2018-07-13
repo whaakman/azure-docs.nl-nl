@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 40c30958c5e0e24f2b35475848c1828df4a40d0c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: b7a68f545f60829e5da83f0734c57a4d210cb843
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "33787610"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001478"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs formules beheren
 
@@ -61,7 +61,7 @@ De volgende stappen begeleiden u bij het proces voor het maken van een formule v
     * **Naam van formule** -Voer een naam in voor uw formule. Deze waarde wordt weergegeven in de lijst met basisinstallatiekopieën bij het maken van een virtuele machine. De naam wordt gevalideerd als u deze typen en als dat niet geldig is, een bericht geeft aan de vereisten voor een geldige naam.
     * **Beschrijving** -Voer een duidelijke beschrijving voor de formule. Deze waarde is beschikbaar in het contextmenu van de formule bij het maken van een virtuele machine.
     * **Gebruikersnaam** -Voer een gebruikersnaam die wordt verleend beheerdersbevoegdheden.
-    * **Wachtwoord** - Voer - of Selecteer in de vervolgkeuzelijst - u op een waarde die is gekoppeld aan de geheime sleutel (wachtwoord) die u wilt gebruiken voor de opgegeven gebruiker. Zie voor meer informatie over de geheimen [Azure DevTest Labs: persoonlijke archief van de geheime](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
+    * **Wachtwoord** - Voer - of Selecteer in de vervolgkeuzelijst - u op een waarde die is gekoppeld aan de geheime sleutel (wachtwoord) die u wilt gebruiken voor de opgegeven gebruiker. Zie voor meer informatie over het opslaan van geheimen in een key vault en het gebruik ervan bij het maken van de labresources, [Store geheimen in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
     * **VM-schijftype** – Geef een van beide harde schijf (harde schijf) of SSD (solid-state drive) om aan te geven welk opslagtype voor de schijf is toegestaan voor de virtuele machines zijn ingericht met behulp van deze basisinstallatiekopie.
     * ** Virtuele machine grootte ** - Selecteer een van de vooraf gedefinieerde items die u opgeeft de processor-cores, RAM-geheugen en de grootte van de vaste schijf van de virtuele machine te maken. 
     * **Artefacten** : Selecteer om te openen de **artefacten toevoegen** blade waarin selecteert en configureert u de artefacten die u wilt toevoegen aan de basisinstallatiekopie. Zie voor meer informatie over artefacten [maken van aangepaste artefacten voor uw virtuele machine van Azure DevTest Labs](devtest-lab-artifact-author.md).

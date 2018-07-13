@@ -1,10 +1,10 @@
 ---
-title: Certificeringsinstanties toegestaan voor het aangepaste HTTPS op Azure CDN inschakelen | Microsoft Docs
-description: Als u uw eigen certificaat gebruikt voor HTTPS op een aangepast domein inschakelen, moet u een toegestane certificeringsinstantie (CA) gebruiken om deze te maken.
+title: Certificeringsinstanties toegestaan voor het inschakelen van de aangepaste HTTPS voor Azure CDN | Microsoft Docs
+description: Als u uw eigen certificaat gebruikt voor het inschakelen van HTTPS op een aangepast domein, moet u een toegestane certificeringsinstantie (CA) gebruiken om deze te maken.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: KumudD
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,79 +12,86 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
-ms.author: v-deasim
+ms.date: 07/12/2018
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c41ca7e375324ff784bf7bee347bb56400ddfbd
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 28d6d24266c11b1295c57c8ec46c2bd5ec690b28
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35238268"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005914"
 ---
-# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Certificeringsinstanties toegestaan voor het aangepaste HTTPS op Azure CDN inschakelen
+# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Certificeringsinstanties toegestaan voor het inschakelen van de aangepaste HTTPS voor Azure CDN
 
-Voor een aangepast domein Azure Content Delivery Network (CDN) op een **Azure CDN Standard van Microsoft** eindpunt, wanneer u [de HTTPS-functie inschakelen met behulp van uw eigen certificaat](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates), moet u een toegestane certificeringsinstantie (CA) voor het maken van uw SSL-certificaat. Als u een niet-toegestane CA of een zelfondertekend certificaat gebruikt, kunnen uw aanvraag anders zal worden geweigerd.
+Voor een aangepaste domein in Azure Content Delivery Network (CDN) op een **Azure CDN Standard van Microsoft** eindpunt, wanneer u [de HTTPS-functie inschakelen met behulp van uw eigen certificaat](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates), moet u een toegestane certificeringsinstantie (CA) voor het maken van uw SSL-certificaat. Als u een niet-toegestane CA of een zelfondertekend certificaat gebruikt, kunnen uw aanvraag anders zal worden geweigerd.
 
 > [!NOTE]
-> De optie van uw eigen certificaat gebruikt om aangepaste HTTPS inschakelen is alleen beschikbaar bij **Azure CDN Standard van Microsoft** profielen. 
+> De mogelijkheid om uw eigen certificaat gebruikt om aangepaste HTTPS inschakelen is alleen beschikbaar bij **Azure CDN Standard van Microsoft** profielen. 
 >
 
 De volgende CA's zijn toegestaan bij het maken van uw eigen certificaat:
 
 - AddTrust externe CA-basiscertificaat
-- Azië basis-CA
-- Azië hoofdcertificeringsinstantie 2013
-- Azië hoofdcertificeringsinstantie 2014
+- Azië en Stille Oceaan basis-CA
+- Azië en Stille Oceaan basiscertificeringsinstantie 2013
+- Azië en Stille Oceaan basiscertificeringsinstantie 2014
 - APCA DM3P
-- Automatische piloot basis-CA
+- AutoPilot-basis-CA
 - Baltimore CyberTrust Root
 - Klasse 3 openbare primaire certificeringsinstantie
-- COMODO RSA-certificeringsinstantie
+- Certificeringsinstantie (CA) COMODO RSA
 - COMODO RSA domein validatie beveiligde Server CA
 - D VERTROUWDE basis-CA van klasse 3 2 2009
 - DigiCert Cloud Services-CA-1
 - DigiCert globale basis-CA
 - DigiCert hoge zekerheid CA-3
-- DigiCert hoge zekerheid EV basis-CA
+- DigiCert hoge zekerheid VW basis-CA
 - DigiCert SHA2 hoge zekerheid Server CA
 - DigiCert SHA2 beveiligde Server CA
+- Globale CA GeoTrust
+- Certificeringsinstantie (CA) GeoTrust primaire
+- Primaire GeoTrust certificeringsinstantie - G2
 - GlobalSign
-- Validatie van CA - SHA256 - G2 uitgebreid GlobalSign
+- Uitgebreide validatie van CA - SHA256 - G2 GlobalSign
 - Validatie van de organisatie GlobalSign CA - G2
 - GlobalSign basis-CA
-- Microsoft Authenticode (TM) basisinstantie
+- Go Daddy-basiscertificeringsinstantie - G2
+- Microsoft Authenticode (TM) basis-CA
 - Microsoft Exchange-Services CA 2015
 - Microsoft interne zakelijke basis
-- Microsoft IT KREGEL SSL CA 1
+- Microsoft IT Tevredenheid SSL CA 1
 - Microsoft IT SSL SHA1
 - Microsoft IT SSL SHA2
 - Microsoft IT TLS CA 1
 - Microsoft IT TLS CA 2
 - Microsoft IT TLS CA 4
 - Microsoft IT TLS CA 5
-- Microsoft basisinstantie
+- Microsoft-basis-CA
 - Microsoft basiscertificeringsinstantie
-- Microsoft hoofdcertificeringsinstantie 2010
-- Microsoft hoofdcertificeringsinstantie 2011
-- Microsoft beveiligde Server 2011 CA
-- Microsoft-Services Partner hoofdmap
-- Microsoft Time Stamping Service Root
-- Compatibiliteit van hardwareapparaten voor Microsoft Windows
+- Microsoft Root Certificate Authority 2010
+- Microsoft Root Certificate Authority 2011
+- Microsoft-beveiligde Server CA 2011
+- Hoofdmap voor Services van Microsoft-Partner
+- Microsoft Time tijdstempel Service hoofdmap
+- Microsoft Windows hardwarecompatibiliteit
 - MSIT CA Z2
-- MSIT ondernemings-CA 1
-- MSIT ondernemings-CA 3
-- Hoofdmap Agency
-- Symantec klasse 3 EV SSL-CA - G3
-- Symantec klasse 3 beveiligde Server CA - G4
+- MSIT CA voor ondernemingen 1
+- MSIT CA voor ondernemingen 3
+- Basis-instantie
+- Symantec-klasse 3 VW SSL CA - G3
+- Symantec-klasse 3 beveiligde Server CA - G4
 - Symantec Enterprise Mobile Root voor Microsoft
+- Primaire Thawte basis-CA
+- Primaire Thawte basis-CA - G2
+- Primaire Thawte basis-CA - G3
 - Thawte Timestamping CA
 - UTN-USERFirst-Object
-- VeriSign klasse 3 uitgebreide validatie SSL-Certificeringsinstantie
+- VeriSign klasse 3 uitgebreide validatie SSL CA
 - VeriSign klasse 3 uitgebreide validatie SSL SGC CA
 - VeriSign klasse 3 openbare primaire certificeringsinstantie - G5
 - VeriSign International Server CA - klasse 3
-- VeriSign Time Stamping Service Root
+- VeriSign tijd tijdstempel Service hoofdmap
 - VeriSign Universal basiscertificeringsinstantie
 - WMSvc-SHA2-DALEDGE1008
 

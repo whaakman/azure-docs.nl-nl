@@ -1,9 +1,9 @@
 ---
-title: Cloud Services-rol config XPath-referentieoverzicht | Microsoft Docs
-description: De verschillende XPath-instellingen kunt u in de cloud van de rol serviceconfiguratie instellingen weergeven als een omgevingsvariabele.
+title: Overzichtskaart van XPath voor configuratie van cloud Services-rol | Microsoft Docs
+description: De verschillende XPath-instellingen kunt u in de configuratie van cloud service rol instellingen doorgeven als een omgevingsvariabele.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
@@ -13,28 +13,28 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: e71adbca34390bda3a7d4067742ffb3a28201449
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: jeconnoc
+ms.openlocfilehash: 2db63be6c6997840f7409a3ca79f1845f30e4ceb
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24860365"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008056"
 ---
-# <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Configuratie-rolinstellingen weergeven als een omgevingsvariabele met XPath
-In de cloud service worker of web rol servicedefinitiebestand kan configuratiewaarden runtime worden blootgesteld als omgevingsvariabelen. De volgende waarden voor XPath worden ondersteund (die overeenkomen met de API-waarden).
+# <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Configuratie-rolinstellingen beschikbaar als een omgevingsvariabele met XPath
+U kunt in de cloud service werknemer of web rol servicedefinitiebestand runtime-configuratiewaarden weergeven als omgevingsvariabelen. De volgende waarden voor XPath worden ondersteund (die overeenkomen met de API-waarden).
 
 Deze XPath-waarden zijn ook beschikbaar via de [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) bibliotheek. 
 
-## <a name="app-running-in-emulator"></a>App uitgevoerd in de emulator
-Hiermee wordt aangegeven dat de app wordt uitgevoerd in de emulator.
+## <a name="app-running-in-emulator"></a>App die wordt uitgevoerd in de emulator
+Geeft aan dat de app wordt uitgevoerd in de emulator.
 
 | Type | Voorbeeld |
 | --- | --- |
 | XPath |XPath = "/RoleEnvironment/Deployment/@emulated" |
 | Code |var x = RoleEnvironment.IsEmulated; |
 
-## <a name="deployment-id"></a>Implementatie-ID
+## <a name="deployment-id"></a>Implementatie-id
 Hiermee haalt u de implementatie-ID voor het exemplaar.
 
 | Type | Voorbeeld |
@@ -42,7 +42,7 @@ Hiermee haalt u de implementatie-ID voor het exemplaar.
 | XPath |XPath = "/RoleEnvironment/Deployment/@id" |
 | Code |var deploymentId = RoleEnvironment.DeploymentId; |
 
-## <a name="role-id"></a>Rol-ID
+## <a name="role-id"></a>Rol-id
 Hiermee haalt u de huidige rol-ID voor het exemplaar.
 
 | Type | Voorbeeld |
@@ -50,7 +50,7 @@ Hiermee haalt u de huidige rol-ID voor het exemplaar.
 | XPath |XPath = "/RoleEnvironment/CurrentInstance/@id" |
 | Code |var-id = RoleEnvironment.CurrentRoleInstance.Id; |
 
-## <a name="update-domain"></a>Bijwerken van domein
+## <a name="update-domain"></a>Domein bijwerken
 Hiermee haalt u het updatedomein van het exemplaar.
 
 | Type | Voorbeeld |
@@ -59,7 +59,7 @@ Hiermee haalt u het updatedomein van het exemplaar.
 | Code |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
 
 ## <a name="fault-domain"></a>Foutdomein
-Het foutdomein van het exemplaar wordt opgehaald.
+Hiermee haalt u het foutdomein van het exemplaar.
 
 | Type | Voorbeeld |
 | --- | --- |
@@ -67,7 +67,7 @@ Het foutdomein van het exemplaar wordt opgehaald.
 | Code |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
 
 ## <a name="role-name"></a>Rolnaam
-Haalt de naam van de rol van de exemplaren.
+Hiermee haalt u de naam van de rol van de exemplaren.
 
 | Type | Voorbeeld |
 | --- | --- |
@@ -75,55 +75,55 @@ Haalt de naam van de rol van de exemplaren.
 | Code |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
 
 ## <a name="config-setting"></a>Configuratie-instelling
-Haalt de waarde van de opgegeven configuratie-instelling.
+Hiermee haalt de waarde van de opgegeven configuratie-instelling.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting [@name= 'Setting1']/@value' |
+| XPath |XPath = "/ RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting [@name= 'Setting1']/@value" |
 | Code |de instelling var = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
 
-## <a name="local-storage-path"></a>Pad voor lokale opslag
-Het pad voor lokale opslag voor het exemplaar wordt opgehaald.
+## <a name="local-storage-path"></a>Pad van de lokale opslag
+Hiermee haalt u het pad van de lokale opslag voor het exemplaar.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/LocalResources/LocalResource [@name= 'LocalStore1']/@path' |
+| XPath |XPath = "/ RoleEnvironment/CurrentInstance/LocalResources/LocalResource [@name= 'LocalStore1']/@path" |
 | Code |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1"). RootPath; |
 
-## <a name="local-storage-size"></a>De grootte van de lokale opslag
-Haalt de grootte van de lokale opslag voor het exemplaar.
+## <a name="local-storage-size"></a>Grootte van de lokale opslag
+Hiermee haalt u de grootte van de lokale opslag voor het exemplaar.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/LocalResources/LocalResource [@name= 'LocalStore1']/@sizeInMB' |
+| XPath |XPath = "/ RoleEnvironment/CurrentInstance/LocalResources/LocalResource [@name= 'LocalStore1']/@sizeInMB" |
 | Code |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1"). MaximumSizeInMegabytes; |
 
-## <a name="endpoint-protocol"></a>Protocol voor eindpunt
-Haalt de eindpunt-protocol voor het exemplaar.
+## <a name="endpoint-protocol"></a>Eindpunt-protocol
+Hiermee haalt u de eindpunt-protocol voor het exemplaar.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/eindpunten/het eindpunt [@name= '1']/@protocol' |
-| Code |var b RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 = ']. Protocol; |
+| XPath |XPath = "/ RoleEnvironment/CurrentInstance/eindpunten/eindpunt [@name= '1']/@protocol" |
+| Code |var b RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. Protocol. |
 
 ## <a name="endpoint-ip"></a>Eindpunt IP
-Het opgegeven eindpunt IP-adres opgehaald.
+Hiermee haalt u de IP-adres van het opgegeven eindpunt.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/eindpunten/het eindpunt [@name= '1']/@address' |
-| Code |adres var RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 = ']. IPEndpoint.Address |
+| XPath |XPath = "/ RoleEnvironment/CurrentInstance/eindpunten/eindpunt [@name= '1']/@address" |
+| Code |var adres RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Address |
 
-## <a name="endpoint-port"></a>Eindpuntpoort
-Haalt de eindpuntpoort voor het exemplaar.
+## <a name="endpoint-port"></a>Poort van het eindpunt
+Hiermee haalt u de poort van het eindpunt voor het exemplaar.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/eindpunten/het eindpunt [@name= '1']/@port' |
-| Code |poort var RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 = ']. IPEndpoint.Port; |
+| XPath |XPath = "/ RoleEnvironment/CurrentInstance/eindpunten/eindpunt [@name= '1']/@port" |
+| Code |var poort RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Port; |
 
 ## <a name="example"></a>Voorbeeld
-Hier volgt een voorbeeld van een werkrol die u een taak starten met een omgevingsvariabele maakt `TestIsEmulated` ingesteld op de [ @emulated xpath-waarde](#app-running-in-emulator). 
+Hier volgt een voorbeeld van een werkrol die een opstarttaak met een omgevingsvariabele met de naam maakt `TestIsEmulated` ingesteld op de [ @emulated xpath-waarde](#app-running-in-emulator). 
 
 ```xml
 <WorkerRole name="Role1">

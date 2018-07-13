@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e401508fc5ffc1de666f727ffbb7790005384fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857198"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003794"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Gegevens laden in Azure Data Lake Storage Gen1 met behulp van Azure Data Factory
 
@@ -35,6 +35,7 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
 
 > [!NOTE]
 > Zie voor meer informatie, [gegevens kopiëren naar of van Azure Data Lake Store met behulp van Azure Data Factory](connector-azure-data-lake-store.md).
+
 ## <a name="prerequisites"></a>Vereisten
 
 * Azure-abonnement: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -109,7 +110,7 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
    3. Selecteer **Volgende**.
    
    > [!IMPORTANT]
-   > In dit scenario maakt u een _beheerde service-identiteit_ om te verifiëren van uw Data Lake Store. Zorg ervoor dat de service-principal de juiste om machtigingen te verlenen in Azure Data Lake Store door [deze instructies](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > In dit scenario maakt u een _beheerde service-identiteit_ om te verifiëren van uw Data Lake Store. Zorg ervoor dat u het MSI-bestand van de juiste machtigingen in Azure Data Lake Store door verlenen [deze instructies](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Azure Data Lake Store-account opgeven](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. In de **uitvoerbestand of uitvoermap kiezen** pagina **copyfroms3** als de naam van de uitvoer-map en selecteer **volgende**: 

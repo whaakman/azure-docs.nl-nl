@@ -1,4 +1,4 @@
-De Azure-Service voor het migreren van Database is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime.  
+Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure Data platforms met minimale downtime.  
 
 | **Resource** | **Standaardlimiet** | **Opmerkingen** |
 | --- | --- | --- |

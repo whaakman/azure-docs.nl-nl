@@ -1,6 +1,6 @@
 ---
 title: Virtueel netwerk voor Azure-services | Microsoft Docs
-description: Meer informatie over de voordelen van het implementeren van resources in een virtueel netwerk. Resources in virtuele netwerken met elkaar kunnen communiceren, en on-premises resources, zonder verkeer vastgelegd dat het Internet.
+description: Meer informatie over de voordelen van het implementeren van resources in een virtueel netwerk. Resources in virtuele netwerken met elkaar kunnen communiceren, en on-premises resources, zonder dat verkeer via Internet worden verzonden.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,63 +15,63 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 3e31dbce7bd24b3c3bb0f24561464e6303f3908e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802558"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990593"
 ---
-# <a name="virtual-network-integration-for-azure-services"></a>Integratie van virtueel netwerk voor Azure-services
+# <a name="virtual-network-integration-for-azure-services"></a>Integratie van virtuele netwerken voor Azure-services
 
-Integratie van Azure-services tot een virtuele Azure-netwerk, kunt persoonlijke toegang van exemplaren van een service die is geïmplementeerd in het virtuele netwerk.
+Integratie van Azure-services met een Azure-netwerk kan persoonlijke toegang van exemplaren van een service die is geïmplementeerd in het virtuele netwerk.
 
-U kunt Azure-services integreren met het virtuele netwerk met de volgende opties:
-- Specifieke exemplaren van de service in een virtueel netwerk rechtstreeks worden geïmplementeerd. De specifieke exemplaren van deze services kunnen afzonderlijk worden benaderd binnen het virtuele netwerk en van on-premises netwerken.
-- Door het uitbreiden van een virtueel netwerk met de service via de service-eindpunten. Service-eindpunten kunnen afzonderlijke servicebronnen worden beveiligd met het virtuele netwerk.
+U kunt Azure-services integreren met uw virtuele netwerk met de volgende opties:
+- Rechtstreeks implementeren van specifieke exemplaren van de service in een virtueel netwerk. De specifieke exemplaren van deze services zijn privé toegankelijk vanuit het virtuele netwerk en on-premises netwerken.
+- Door het uitbreiden van een virtueel netwerk naar de service, via service-eindpunten. Service-eindpunten kunt afzonderlijke-serviceresources worden beveiligd met het virtuele netwerk.
  
 ## <a name="deploy-azure-services-into-virtual-networks"></a>Azure-services implementeren in virtuele netwerken
 
-U kunt communiceren met de meeste Azure-resources via het Internet en openbare IP-adressen. Wanneer u Azure-services in implementeert een [virtueel netwerk](virtual-networks-overview.md), kunt u communiceren met de serviceresources privé, via privé IP-adressen.
+U kunt met de meeste Azure-resources communiceren via het Internet en openbare IP-adressen. Bij het implementeren van Azure-services in een [virtueel netwerk](virtual-networks-overview.md), kunt u communiceren met de service-resources privé, via privé-IP-adressen.
 
 ![Services die zijn geïmplementeerd in een virtueel netwerk](./media/virtual-network-for-azure-services/deploy-service-into-vnet.png)
 
-De implementatie van services in een virtueel netwerk biedt de volgende mogelijkheden:
+Implementeren van services binnen een virtueel netwerk biedt de volgende mogelijkheden:
 
-- Resources binnen het virtuele netwerk kunnen communiceren met elkaar privé, via privé IP-adressen. Bijvoorbeeld rechtstreeks gegevensoverdracht tussen HDInsight en SQL Server wordt uitgevoerd op een virtuele machine, in het virtuele netwerk.
-- Lokale bronnen kunnen krijgen tot bronnen in een virtueel netwerk met particuliere IP-adressen via een [Site-naar-Site-VPN (VPN-Gateway)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti) of [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Virtuele netwerken kunnen zich [brengen](virtual-network-peering-overview.md) zodat bronnen in de virtuele netwerken met elkaar communiceren met particuliere IP-adressen.
-- Service-exemplaren in een virtueel netwerk worden volledig beheerd door de Azure-service voor het bewaken van status van de exemplaren en vereiste schaal, op basis van load bieden.
-- Service-exemplaren worden geïmplementeerd in een specifieke subnet in een virtueel netwerk. Binnenkomende en uitgaande toegang moet worden geopend via [netwerkbeveiligingsgroepen](security-overview.md#network-security-groups) voor het subnet van de basis van de richtlijnen die worden geleverd door de services.
+- Resources binnen het virtuele netwerk kunnen communiceren met elkaar privé, via privé-IP-adressen. Bijvoorbeeld rechtstreeks gegevensoverdracht tussen HDInsight en SQL Server wordt uitgevoerd op een virtuele machine, in het virtuele netwerk.
+- On-premises resources toegang hebben tot resources in een virtueel netwerk met behulp van privé-IP-adressen via een [Site-naar-Site-VPN (VPN-Gateway)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti) of [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Virtuele netwerken kunnen zich [gekoppeld](virtual-network-peering-overview.md) zodat resources in de virtuele netwerken om te communiceren met elkaar met behulp van privé-IP-adressen.
+- Service-exemplaren in een virtueel netwerk zijn volledig wordt beheerd door de Azure-service, om te controleren van status van de instanties en vereiste schalen, op basis van belasting.
+- Service-exemplaren zijn geïmplementeerd in een toegewezen subnet in een virtueel netwerk. Inkomend en uitgaand netwerkverkeer toegang moet worden geopend via [netwerkbeveiligingsgroepen](security-overview.md#network-security-groups) voor het subnet op basis van de richtlijnen die worden geleverd door de services.
 
 ### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>Services die kunnen worden geïmplementeerd in een virtueel netwerk
 
-Elke service rechtstreeks worden geïmplementeerd in virtueel netwerk heeft specifieke vereisten voor Routering en de soorten netwerkverkeer naar en van subnetten moet worden toegestaan. Zie voor meer informatie: 
+Elke service die rechtstreeks zijn geïmplementeerd in virtuele netwerk heeft specifieke vereisten voor de Routering en de soorten netwerkverkeer naar en van subnetten moeten worden toegestaan. Zie voor meer informatie: 
  
 - Virtuele machines: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Het service fabric](../service-fabric/service-fabric-patterns-networking.md?toc=%2fazure%2fvirtual-network%2ftoc.json#existingvnet)
+- [Service fabric](../service-fabric/service-fabric-patterns-networking.md?toc=%2fazure%2fvirtual-network%2ftoc.json#existingvnet)
 - [Virtuele-machineschaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [App Service-omgeving](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [RedisCache](../redis-cache/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Toepassingsgateway (intern)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Kubernetes-Service (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Container Service-Engine](https://github.com/Azure/acs-engine) met de Azure Virtual Network CNI [invoegtoepassing](https://github.com/Azure/acs-engine/tree/master/examples/vnet)
-- [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): virtuele alleen dit netwerk (klassiek)
+- [Application Gateway (intern)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Kubernetes Service (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Container Service Engine](https://github.com/Azure/acs-engine) met de Azure Virtual Network CNI [invoegtoepassing](https://github.com/Azure/acs-engine/tree/master/examples/vnet)
+- [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Cloudservices](https://msdn.microsoft.com/library/azure/jj156091): virtuele alleen dit netwerk (klassiek)
 
-U kunt een [interne Azure load balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) laden saldo veel van de resources in de vorige lijst. In sommige gevallen kan de service automatisch maakt en implementeert een load balancer, wanneer u een resource maakt.
+U kunt implementeren een [interne Azure load balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) laden saldo veel van de resources in de vorige lijst. In sommige gevallen kan de service automatisch maakt en implementeert een load balancer, wanneer u een resource maken.
 
 ## <a name="service-endpoints-for-azure-services"></a>Service-eindpunten voor Azure-services
 
-Sommige Azure-services kunnen niet worden geïmplementeerd in virtuele netwerken. U kunt de toegang beperken tot een aantal van de serviceresources met subnetten van alleen specifieke virtueel netwerk, als u kiest, doordat de service-eindpunt van een virtueel netwerk. Meer informatie over [virtueel netwerk service-eindpunten](virtual-network-service-endpoints-overview.md), en de services die eindpunten kunnen worden ingeschakeld voor.
+Sommige Azure-services kunnen niet worden geïmplementeerd in virtuele netwerken. U kunt de toegang beperken tot een aantal van de service-resources naar subnetten van alleen specifieke virtueel netwerk, als u kiest, door in te schakelen van een service-eindpunt voor virtueel netwerk. Meer informatie over [virtual network-service-eindpunten](virtual-network-service-endpoints-overview.md), en de services die eindpunten kunnen worden ingeschakeld voor.
 
-## <a name="virtual-network-integration-across-multiple-azure-services"></a>Integratie van virtueel netwerk op meerdere Azure-services
+## <a name="virtual-network-integration-across-multiple-azure-services"></a>Integratie van virtuele netwerken tussen meerdere Azure-services
 
-U kunt een Azure-service implementeren in een subnet in een virtueel netwerk en beveiligde kritieke serviceresources op dat subnet. U kunt bijvoorbeeld HDInsight implementeren in uw virtueel netwerk en beveiligen van een opslagaccount met het HDInsight-subnet.
+U kunt een Azure-service implementeren in een subnet in een virtueel netwerk en beveiligde voor kritieke serviceresources op dat subnet. U kunt bijvoorbeeld HDInsight implementeren in uw virtuele netwerk en een opslagaccount naar het HDInsight-subnet beveiligen.
 
 
 

@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: marsma
 ms.custom: include file
-ms.openlocfilehash: 942b9bdf0201acaefe3333bcf928772899b9bdc2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92a5d162e7a0b2c752a2f8e9c5941edf43e539e3
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34665049"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991072"
 ---
 | Resource | Basic | Standard | Premium |
 |---|---|---|---|---|
 | Storage | 10 GiB | 100 GiB| 500 GiB |
-| Maximumgrootte van de installatiekopie van laag | 20 giB | 20 giB | 50 giB |
-| ReadOps per minuut<sup>1, 2</sup> | 1000 | 3000 | 10.000 |
-| WriteOps per minuut<sup>1, 3</sup> | 100 | 500 | 2000 |
-| Download MBps bandbreedte<sup>1</sup> | 30 | 60 | 100 |
+| Maximumgrootte van installatiekopie-laag | 20 giB | 20 giB | 50 giB |
+| ReadOps per minuut<sup>1, 2</sup> | 1000 | 3.000 | 10.000 |
+| WriteOps per minuut<sup>1, 3</sup> | 100 | 500 | 2,000 |
+| Downloaden van bandbreedte MBps<sup>1</sup> | 30 | 60 | 100 |
 | Uploaden van bandbreedte MBps<sup>1</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 100 |
 | Geo-replicatie | N/A | N/A | [Ondersteund](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication) |
 
-<sup>1</sup> *ReadOps*, *WriteOps*, en *bandbreedte* zijn minimale schattingen. ACR wil de prestaties verbeteren als gebruik vereist.
+<sup>1</sup> *ReadOps*, *WriteOps*, en *bandbreedte* minimale schattingen zijn. ACR streeft ernaar om prestaties te verbeteren als gebruik vereist.
 
-<sup>2</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) kan aan meerdere leesbewerkingen op basis van het aantal lagen in de afbeelding, plus het manifest ophalen.
+<sup>2</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) wordt omgezet in meerdere leesbewerkingen op basis van het aantal lagen in de afbeelding, plus het manifest ophalen.
 
-<sup>3</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) kan aan meerdere schrijfbewerkingen, op basis van het aantal lagen die moet worden geactiveerd. Een `docker push` bevat *ReadOps* voor het ophalen van een manifest voor een bestaande installatiekopie.
+<sup>3</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) wordt omgezet in meerdere schrijfbewerkingen, op basis van het aantal lagen die moet worden gepusht. Een `docker push` bevat *ReadOps* om op te halen van een manifest voor een bestaande installatiekopie.

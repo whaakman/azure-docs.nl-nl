@@ -3,7 +3,7 @@ title: Aanbevelingen voor beveiliging in Azure Security Center beheren | Microso
 description: Dit document helpt u bij hoe aanbevelingen in Azure Security Center helpen u bij het beveiligen van uw Azure-resources en blijven in overeenstemming met beveiligingsbeleid.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: TerryLan
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2018
-ms.author: rkarlin
-ms.openlocfilehash: 7bb7f36338fe117a3e31834570b3ee5c3ae1b83b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.date: 07/12/2018
+ms.author: terrylan
+ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856430"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006611"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center beheren
 Dit document helpt u bij het gebruik van de aanbevelingen in Azure Security Center kunt u uw Azure-resources beveiligen.
@@ -76,7 +76,7 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 | [Gegevensverzameling voor abonnementen inschakelen](security-center-enable-data-collection.md) |Hiermee wordt aanbevolen dat u gegevensverzameling in het beveiligingsbeleid voor elk van uw abonnementen en alle virtuele Azure-machines (VM's) en niet-Azure-computers inschakelen. |
 | [Beveiligingsconfiguraties herstellen](security-center-remediate-os-vulnerabilities.md) |Hiermee wordt aanbevolen dat u de configuraties voor het besturingssysteem met de aanbevolen configuratie van beveiligingsregels, bijvoorbeeld uitlijnen, niet toestaan dat wachtwoorden worden opgeslagen. |
 | [Systeemupdates toepassen](security-center-apply-system-updates.md) |Hiermee wordt aanbevolen dat u ontbrekende systeembeveiliging en essentiële updates op uw Windows en Linux-VM's en computers implementeren. |
-| [Toepassen van een Just-In-Time netwerktoegangsbeheer](security-center-just-in-time.md) | Hiermee wordt aanbevolen dat u van toepassing just-in-time-VM-toegang zijn. Het gewoon in-time-functie beschikbaar als preview is en beschikbaar zijn op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center. |
+| [Toepassen van een Just-In-Time netwerktoegangsbeheer](security-center-just-in-time.md) | Hiermee wordt aanbevolen dat u van toepassing just-in-time-VM-toegang zijn. De just in time functie is beschikbaar op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center. |
 | [Opnieuw opstarten na systeemupdates](security-center-apply-system-updates.md#reboot-after-system-updates) |Hiermee wordt aanbevolen om een VM opnieuw op te starten om het proces van het toepassen van systeemupdates te voltooien. |
 | [Een firewall voor webtoepassingen toevoegen](security-center-add-web-application-firewall.md) |Hiermee wordt aanbevolen dat u een web application firewall (WAF) voor web-eindpunten te implementeren. Een WAF-aanbeveling wordt voor een openbaar IP-adres (Instance Level IP of Load Balanced IP) met een gekoppelde netwerkbeveiligingsgroep met open binnenkomende webpoorten (80,443) weergegeven. </br>Security Center raadt aan dat u een WAF om te helpen beschermen tegen aanvallen die gericht is op uw webtoepassingen op virtuele machines en op App Service-omgeving inrichten. Een App Service Environment (ASE) is een [Premium](https://azure.microsoft.com/pricing/details/app-service/) service-plan-optie van Azure App Service waarmee u een volledig geïsoleerde en toegewezen omgeving voor Azure App Service-apps veilig kunnen worden uitgevoerd. Zie voor meer informatie over het as-omgeving, de [documentatie over App Service-omgeving](../app-service/environment/intro.md).</br>U kunt meerdere webtoepassingen in Security Center beveiligen door toe te voegen deze toepassingen aan uw bestaande WAF-implementaties. |
 | [Toepassingsbeveiliging voltooien](security-center-add-web-application-firewall.md#finalize-application-protection) |Voor het voltooien van de configuratie van een WAF, moet verkeer worden omgeleid naar de WAF-apparaat. Deze aanbeveling te volgen, wordt de wijzigingen in de vereiste installatie voltooid. |
@@ -95,6 +95,7 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 | [Evaluatie van beveiligingsproblemen is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md) |Hiermee wordt aanbevolen dat een oplossing voor de beoordeling van beveiligingslekken wordt geïnstalleerd op de VM. |
 | [Beveiligingsproblemen herstellen](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Hiermee ziet u beveiligingsproblemen in het systeem en in de toepassing die zijn gedetecteerd met de oplossing voor beveiligingslekken die op de VM is geïnstalleerd. |
 | [Versleuteling inschakelen voor Azure Storage-Account](security-center-enable-encryption-for-storage-account.md) | Hiermee wordt aanbevolen dat u Azure Storage Service Encryption voor data-at-rest inschakelen. Storage Service Encryption (SSE) werkt door het versleutelen van de gegevens wanneer deze worden geschreven naar Azure storage en voordat ophalen ontsleutelt. SSE is momenteel alleen beschikbaar voor de Azure Blob-service en kan worden gebruikt voor blok-blobs, pagina-blobs en toevoeg-blobs. Zie voor meer informatie, [Storage Service Encryption voor data-at-rest](../storage/common/storage-service-encryption.md).</br>SSE wordt alleen ondersteund op Resource Manager-opslagaccounts. |
+| [Besturingselementen voor adaptieve toepassingen inschakelen](security-center-adaptive-application.md) | Hiermee wordt aanbevolen dat u besturingselementen voor adaptieve toepassingen op uw Windows-VM's van toepassing zijn. Deze functie is in preview en beschikbaar zijn op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center. |
 | App Service mag alleen toegankelijk zijn via HTTPS | Hiermee wordt aanbevolen dat u de toegang van App Service via HTTPS alleen beperken. |
 | Websockets moeten worden uitgeschakeld voor Web-App| Hiermee wordt aanbevolen dat u zorgvuldig door het gebruik van Websockets in webtoepassingen.  Het websocketsprotocol is kwetsbaar voor verschillende soorten beveiligingsrisico's. |
 | Aangepaste domeinen gebruiken voor uw Web-App | Hiermee wordt aanbevolen dat u aangepaste domeinen gebruiken voor een webtoepassing beveiligen tegen algemene aanvallen zoals phishing en andere aanvallen met betrekking tot DNS. |

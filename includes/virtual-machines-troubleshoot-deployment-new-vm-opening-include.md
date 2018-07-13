@@ -1,5 +1,5 @@
-Wanneer u probeert te maken van een nieuwe Azure virtuele Machine (VM), worden de algemene fouten die optreden inrichting fouten of toewijzingsfouten.
+Wanneer u probeert te maken van een nieuwe Azure Virtual Machine (VM), worden de algemene fouten die optreden inrichten fouten of toewijzingsfouten.
 
-* Een inrichting fout gebeurt wanneer de installatiekopie van het besturingssysteem niet wordt geladen als gevolg van onjuiste voorbereidende stappen of vanwege de verkeerde instellingen selecteren tijdens de installatiekopie vast te leggen van de portal.
-* Een toewijzingsfout resulteert wanneer het cluster of de regio geen bronnen beschikbaar heeft of het aangevraagde VM-grootte kan niet worden ondersteund.
+* Een inrichting fout doet zich voor wanneer de installatiekopie van het besturingssysteem niet kan worden geladen vanwege een onjuiste voorbereidende stappen of vanwege het selecteren van de verkeerde instellingen tijdens het vastleggen van een installatiekopie van de portal.
+* Een toewijzingsfout treedt op wanneer het cluster of de regio heeft geen beschikbare bronnen of kan de aangevraagde VM-grootte niet ondersteunen.
 

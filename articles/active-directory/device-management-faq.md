@@ -15,16 +15,18 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 928bd4dcc51391e3832b5fea26ff8c665f768cdb
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901133"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005669"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
+**V: kan ik Android of iOS BYOD-apparaten registreren?**
 
+**A:** Ja, maar alleen bij Azure device registratieservice en voor hybride klanten. Het wordt niet ondersteund met on-premises device registratieservice in AD FS.
 
 **V: hoe kan ik een macOS-apparaat registreren?**
 

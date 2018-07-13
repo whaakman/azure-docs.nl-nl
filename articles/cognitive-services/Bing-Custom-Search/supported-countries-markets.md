@@ -1,6 +1,6 @@
 ---
-title: Ondersteunde landen en talen voor Bing aangepaste API van zoekservice in Azure | Microsoft Docs
-description: Ontdek welke landen en talen worden ondersteund door de API van Bing aangepaste zoeken.
+title: Ondersteunde landen/regio's en talen voor Bing Custom Search-API op Azure | Microsoft Docs
+description: Ontdek welke landen/regio's en talen worden ondersteund door de Bing Custom Search-API.
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
@@ -9,32 +9,32 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: v-gedod
-ms.openlocfilehash: 7ff309f9b789662c4ebd791dffaa2bc2e440763e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7009991ddd0bc8fd9fc68eaab57585b752db1fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344910"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006492"
 ---
-# <a name="bing-custom-search-countries-and-languages"></a>Bing aangepaste zoekactie landen en talen
+# <a name="bing-custom-search-countriesregions-and-languages"></a>Bing Custom Search landen/regio's en talen
 
-De Bing aangepaste zoeken-API ondersteunt meer dan drie dozijn landen kunnen veel met meer dan één taal. 
+De Bing Custom Search-API biedt ondersteuning voor meer dan drie tientallen landen/regio's, veel met meer dan één taal. 
 
-Hoewel dit optioneel, de aanvraag moet opgeven, de [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) queryparameter waarmee de markt waar u de resultaten uit te komen. Zie voor een lijst van optionele queryparameters [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)
+Hoewel dit optioneel is, de aanvraag moet opgeven de [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) queryparameter, waarmee de markt waar u de resultaten afkomstig zijn van uniek wordt geïdentificeerd. Zie voor een lijst van optionele queryparameters [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)
 
-U kunt opgeven van een land via de `cc` queryparameter. Als u een land opgeeft, moet u ook een of meer taalcodes met opgeven de `Accept-Language` header. De ondersteunde talen verschillen per land; ze zijn opgegeven voor elk land in de **markten** tabel.
+U kunt geeft u een land/regio met de `cc` queryparameter. Als u een land/regio opgeeft, moet u ook opgeven een of meer taalcodes die met behulp van de `Accept-Language` header. De ondersteunde talen variëren per land/regio; ze worden gegeven voor elk land/regio in de **markten** tabel.
 
-De `Accept-Language` header en het `setLang` queryparameter sluiten elkaar wederzijds uit, niet beide opgeeft. Zie voor meer informatie [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
+De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar wederzijds uit, niet beide opgeeft. Zie voor meer informatie, [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## <a name="countries"></a>Landen
 
-|Land|Code|
+|Land/regio|Code|
 |-------|----|
 |Argentinië|AR|
 |Australië|AUSTRALIË|
 |Oostenrijk|AT|
 |België|WORDEN|
-|Brazilië|BRAZILIË|
+|Brazilië|BR|
 |Canada|CA|
 |Chili|CL|
 |Denemarken|DK|
@@ -60,9 +60,9 @@ De `Accept-Language` header en het `setLang` queryparameter sluiten elkaar weder
 |Saoedi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
-|Zweden|SE|
+|Zweden|TWEEDE EDITIE|
 |Zwitserland|CH|
-|Taiwan|TW|
+|Taiwan|TWEE|
 |Turkije|TR|
 |Verenigd Koninkrijk|GB|
 |Verenigde Staten|VS|
@@ -70,11 +70,11 @@ De `Accept-Language` header en het `setLang` queryparameter sluiten elkaar weder
 
 ## <a name="markets"></a>Markten
 
-|Land|Taal|Markt Code|
+|Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
 |Argentinië|Spaans|ES-AR|
 |Australië|Nederlands|en-AU|
-|Oostenrijk|Duits|de AT|
+|Oostenrijk|Duits|de-AT|
 |België|Nederlands|NL-worden|
 |België|Frans|FR-worden|
 |Brazilië|Portugees|pt-BR|
@@ -91,10 +91,10 @@ De `Accept-Language` header en het `setLang` queryparameter sluiten elkaar weder
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
 |Korea|Koreaans|ko-KR|
-|Maleisië|Nederlands|NL mijn|
+|Maleisië|Nederlands|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Nederlands|NL NZ|
+|Nieuw-Zeeland|Nederlands|NL-NZ|
 |Noorwegen|Noors|uit den boze|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
@@ -105,10 +105,10 @@ De `Accept-Language` header en het `setLang` queryparameter sluiten elkaar weder
 |Zuid-Afrika|Nederlands|NL-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
-|Zwitserland|Frans|FR CH|
+|Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
-|Taiwan|Traditioneel Chinees|zh-TW.|
+|Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Nederlands|NL GB|
+|Verenigd Koninkrijk|Nederlands|en-GB|
 |Verenigde Staten|Nederlands|nl-NL|
-|Verenigde Staten|Spaans|ES VS|
+|Verenigde Staten|Spaans|ES-US|

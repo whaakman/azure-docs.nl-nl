@@ -9,27 +9,27 @@ ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: include file
 ms.openlocfilehash: e54813896eee8a58ae456f14f76151318ac1b9fc
-ms.sourcegitcommit: ff1896b01bfcc26df3b202011bb8ec8cfdb014fa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35620523"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38766963"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regio's en beschikbaarheid voor virtuele machines in Azure
 Azure werkt vanuit diverse datacentra, op locaties overal wereld. Deze datacenters worden gegroepeerd in geografische regio's, waardoor u flexibiliteit heeft bij het kiezen waar u uw toepassingen ontwikkelt. Het is belangrijk om inzicht te hebben in hoe en waar uw virtuele machines (VM's) in Azure werken, evenals in wat uw mogelijkheden zijn om de prestaties, beschikbaarheid en redundantie te maximaliseren. Dit artikel biedt een overzicht van de mogelijkheden van Azure op het gebied van beschikbaarheid en redundantie.
 
 ## <a name="what-are-azure-regions"></a>Wat zijn Azure-regio's?
-U kunt Azure-resources maken in gedefinieerde geografische regio's zoals 'VS-West', 'Noord-Europa' of Zuidoost-Azië. U kunt zelf de [lijst met regio's en bijbehorende locaties](https://azure.microsoft.com/regions/) bekijken. In elke regio bevinden zich meerdere datacenters, om te zorgen voor voldoende redundantie en beschikbaarheid. Deze aanpak biedt u flexibiliteit bij het ontwerpen van toepassingen voor virtuele machines die het dichtst bij uw gebruikers maken en voor het voldoen aan een juridisch, compatibiliteit of BTW-doeleinden.
+U kunt Azure-resources maken in afgebakende geografische regio's, zoals 'VS-West', 'Noord Europa' of 'Zuidoost-Azië'. U kunt zelf de [lijst met regio's en bijbehorende locaties](https://azure.microsoft.com/regions/) bekijken. In elke regio bevinden zich meerdere datacenters, om te zorgen voor voldoende redundantie en beschikbaarheid. Deze aanpak biedt u flexibiliteit bij het ontwerpen van toepassingen om het maken van virtuele machines die het dichtst bij uw gebruikers te voldoen aan eventuele juridische, nalevings of fiscale doeleinden.
 
 ## <a name="special-azure-regions"></a>Speciale Azure-regio's
-Azure heeft bepaalde speciale gebieden die u gebruiken wilt mogelijk bij het bouwen van uw toepassingen voor juridische redenen of compatibiliteit. Voorbeelden van dergelijke speciale regio's zijn:
+Azure heeft een speciale regio's die u gebruiken wilt bij het bouwen van uw toepassingen voor naleving of om juridische redenen. Voorbeelden van dergelijke speciale regio's zijn:
 
 * **VS (overheid) - Virginia** en **VS (overheid) - Iowa**
   * Een fysiek en logisch van netwerken afgeschermd exemplaar van Azure voor de Amerikaanse overheid en zijn partners, bediend door gecontroleerde Amerikaanse staatsburgers. Dit exemplaar beschikt over aanvullende nalevingscertificeringen, zoals [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) en [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Meer informatie over [Azure Government](https://azure.microsoft.com/features/gov/).
 * **China - noord** en **China - oost**
   * Deze regio's zijn beschikbaar via een unieke samenwerking tussen Microsoft en 21Vianet, waarbij Microsoft niet rechtstreeks de datacentra onderhoudt. Zie meer informatie over [Microsoft Azure in China](http://www.windowsazure.cn/).
 * **Duitsland - centraal** en **Duitsland - noordoost**
-  * Deze gebieden zijn beschikbaar via een gegevensmodel beheerder waarbij klantgegevens in Duitsland onder het beheer van T-systemen, een bedrijf Deutsche Telekom blijft, fungeert als de beheerder van de Duitse gegevens.
+  * Deze regio's zijn beschikbaar via een nieuw model voor Gegevensbeheerders, waarin klantgegevens in Duitsland onder controle van T-Systems, een bedrijf van Deutsche Telekom verblijven, dat als de Duitse Gegevensbeheerder.
 
 ## <a name="region-pairs"></a>Regioparen
 Elke Azure-regio is gekoppeld aan een andere regio binnen hetzelfde geografische gebied (zoals VS, Europa of Azië). Hierdoor kunnen resources, zoals VM-opslag, worden gerepliceerd op een andere locatie binnen hetzelfde geografische gebied, zodat de kans wordt beperkt dat beide regio’s tegelijkertijd worden beïnvloed door natuurrampen, onrusten, stroomstoringen of fysieke netwerkuitval. Het gebruik van regioparen biedt meer voordelen:
@@ -49,7 +49,7 @@ Voorbeelden van regioparen zijn:
 U vindt de volledige [lijst met regioparen hier](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
 ## <a name="feature-availability"></a>Beschikbaarheid van functies
-Sommige services of VM-functies zijn alleen beschikbaar in bepaalde regio's, zoals specifieke VM-grootten of opslagtypen. Er zijn ook een aantal algemene Azure-services waarvoor u geen specifieke regio hoeft te kiezen, zoals [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) en [Azure DNS](../articles/dns/dns-overview.md). Als hulp bij het ontwerpen van de omgeving van uw toepassing, kunt u de [beschikbaarheid van Azure-services per regio](https://azure.microsoft.com/regions/#services) raadplegen. U kunt ook [programmatisch query uitvoeren op de ondersteunde VM-grootten en -beperkingen in elke regio](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md).
+Sommige services of VM-functies zijn alleen beschikbaar in bepaalde regio's, zoals specifieke VM-grootten of opslagtypen. Er zijn ook een aantal algemene Azure-services waarvoor u geen specifieke regio hoeft te kiezen, zoals [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) en [Azure DNS](../articles/dns/dns-overview.md). Als hulp bij het ontwerpen van de omgeving van uw toepassing, kunt u de [beschikbaarheid van Azure-services per regio](https://azure.microsoft.com/regions/#services) raadplegen. U kunt ook [programmatisch opvragen van de ondersteunde VM-grootten en -beperkingen in elke regio](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md).
 
 ## <a name="storage-availability"></a>Opslagbeschikbaarheid
 Inzicht in Azure-regio's en geografische locaties wordt belangrijk wanneer u gaat kijken naar de verschillende opties voor opslagreplicatie. U hebt verschillende replicatieopties, afhankelijk van het opslagtype.
@@ -82,19 +82,19 @@ Meer informatie over [Azure Storage-replicatieopties vindt u hier](../articles/s
 De kosten zijn afhankelijk van het opslagtype en de beschikbaarheid die u selecteert.
 
 **Azure Managed Disks**
-* Premium-beheerde schijven zijn Solid-State stations (SSD's) en beheerd standaardschijven worden ondersteund door reguliere draaiende schijven. Voor zowel Premium als Standard Managed Disks worden kosten in rekening gebracht op basis van de ingerichte capaciteit van de schijf.
+* Premium Managed Disks worden ondersteund door (Solid-State Drives) en Standard Managed Disks worden ondersteund door traditionele draaiende schijven. Voor zowel Premium als Standard Managed Disks worden kosten in rekening gebracht op basis van de ingerichte capaciteit van de schijf.
 
 **Niet-beheerde schijven**
-* Premium-opslag wordt ondersteund door Solid-State stations (SSD's) en wordt in rekening gebracht op basis van de capaciteit van de schijf.
+* Premium-opslag wordt ondersteund door (Solid-State Drives) en wordt in rekening gebracht op basis van de capaciteit van de schijf.
 * Standaard opslag wordt ondersteund door traditionele draaiende schijven en wordt in rekening gebracht op basis van de gebruikte capaciteit en de gewenste opslagbeschikbaarheid.
   * Voor RA-GRS wordt een toeslag in rekening gebracht voor de gegevensoverdracht voor geo-replicatie, voor de bandbreedtekosten van het repliceren van gegevens naar een andere Azure-regio.
 
 Zie [prijzen van Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor informatie over prijzen van de verschillende opslagtypen en beschikbaarheidsopties.
 
 ## <a name="availability-sets"></a>Beschikbaarheidssets
-Een beschikbaarheidsset is een logische groepering van virtuele machines binnen een datacenter waarmee Azure om te begrijpen hoe uw toepassing is ontworpen om te voorzien in redundantie en beschikbaarheid. Het is raadzaam dat twee of meer virtuele machines worden gemaakt binnen een beschikbaarheidsset te voorzien van een maximaal beschikbare toepassing en om te voldoen aan de [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Er bestaat geen kosten voor de Beschikbaarheidsset zelf, u betaalt alleen voor elke VM-instantie die u maakt. Wanneer een enkele virtuele machine gebruikmaakt van [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md), is de Azure SLA van toepassing op niet-gepland onderhoud. 
+Een beschikbaarheidsset is een logische groepering van virtuele machines in een datacenter die Azure kan begrijpen hoe uw toepassing is gebouwd om te voorzien in redundantie en beschikbaarheid. Het wordt aangeraden dat twee of meer virtuele machines worden gemaakt binnen een beschikbaarheidsset te voorzien in een maximaal beschikbare toepassing en om te voldoen aan de [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Er zijn geen kosten verbonden voor de Beschikbaarheidsset zelf, u betaalt alleen voor elke VM-instantie die u maakt. Wanneer een enkele virtuele machine gebruikmaakt van [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md), is de Azure SLA van toepassing op niet-gepland onderhoud. 
 
-Een beschikbaarheidsset bestaat uit twee extra groeperingen die beveiligen tegen hardwarestoringen en toestaan dat updates veilig worden toegepast: fault-domeinen (FDs) en update-domeinen (UDs). Lees meer over het beheren van de beschikbaarheid van [Linux-VM's](../articles/virtual-machines/linux/manage-availability.md) of [Windows VM's](../articles/virtual-machines/windows/manage-availability.md).
+Een beschikbaarheidsset bestaat uit twee extra groepen die bescherming tegen hardwarestoringen en om updates voor veilig kunnen toepassen: foutdomeinen (FD's) en update-domeinen (ud's). Lees meer over het beheren van de beschikbaarheid van [Linux-VM's](../articles/virtual-machines/linux/manage-availability.md) of [Windows VM's](../articles/virtual-machines/windows/manage-availability.md).
 
 ### <a name="fault-domains"></a>Foutdomeinen
 Een foutdomein is een logische groep onderliggende hardware met een gemeenschappelijke voeding en netwerkswitch, vergelijkbaar met een rack in een on-premises datacenter. Wanneer u virtuele machines in een beschikbaarheidsset maakt, verdeelt het Azure-platform uw virtuele machines automatisch tussen deze foutdomeinen. Deze aanpak beperkt de gevolgen van mogelijke problemen met de fysieke hardware, netwerkstoringen of stroomonderbrekingen.
@@ -102,16 +102,16 @@ Een foutdomein is een logische groep onderliggende hardware met een gemeenschapp
 ### <a name="update-domains"></a>Updatedomeinen
 Een updatedomein is een logische groep onderliggende hardware die op hetzelfde moment onderhoud kan ondergaan of opnieuw kan worden opgestart. Wanneer u virtuele machines in een beschikbaarheidsset maakt, verdeelt het Azure-platform uw virtuele machines automatisch tussen deze updatedomeinen. Deze aanpak zorgt ervoor dat altijd ten minste één exemplaar van uw toepassing beschikbaar blijft wanneer er periodiek onderhoud wordt uitgevoerd aan het Azure-platform. De volgorde waarin updatedomeinen opnieuw worden opgestart, verloopt tijdens gepland onderhoud niet altijd sequentieel, maar er wordt slechts één updatedomein tegelijk opnieuw opgestart.
 
-### <a name="managed-disk-fault-domains"></a>Domeinen met fouten schijf beheerd
-Voor virtuele machines die gebruikmaken van [Azure Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md) en deel uitmaken van een beheerde beschikbaarheidsset, worden de virtuele machines afgestemd op Managed Disk-foutdomeinen. Deze afstemming zorgt ervoor dat alle beheerde schijven die zijn gekoppeld aan een virtuele machine, zich binnen hetzelfde Managed Disk-foutdomein bevinden. In een beheerde beschikbaarheidsset kunnen alleen virtuele machines met beheerde schijven worden gemaakt. Het aantal Managed Disk-foutdomeinen verschilt per regio: er zijn twee of drie Managed Disk-foutdomeinen per regio. Meer informatie over dit beheerde domeinen met fouten voor schijf [virtuele Linux-machines](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) of [VM's van Windows](../articles/virtual-machines/windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+### <a name="managed-disk-fault-domains"></a>Managed Disk-foutdomeinen
+Voor virtuele machines die gebruikmaken van [Azure Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md) en deel uitmaken van een beheerde beschikbaarheidsset, worden de virtuele machines afgestemd op Managed Disk-foutdomeinen. Deze afstemming zorgt ervoor dat alle beheerde schijven die zijn gekoppeld aan een virtuele machine, zich binnen hetzelfde Managed Disk-foutdomein bevinden. In een beheerde beschikbaarheidsset kunnen alleen virtuele machines met beheerde schijven worden gemaakt. Het aantal Managed Disk-foutdomeinen verschilt per regio: er zijn twee of drie Managed Disk-foutdomeinen per regio. U kunt meer lezen over deze managed disk-foutdomeinen voor [virtuele Linux-machines](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) of [Windows VM's](../articles/virtual-machines/windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
 
 ## <a name="availability-zones"></a>Beschikbaarheidszones
 
-[Beschikbaarheid zones](../articles/availability-zones/az-overview.md)Hiermee stelt u een alternatief voor beschikbaarheid, vouw de mate van controle die u hebt om de beschikbaarheid van de toepassingen en gegevens op uw virtuele machines te houden. Een beschikbaarheidszone is een fysiek afgescheiden zone binnen een Azure-regio. Er zijn drie beschikbaarheid Zones per ondersteunde Azure-regio. Elke beschikbaarheidszone heeft een afzonderlijke voedingsbron en koeling, en een afzonderlijk netwerk. Door uw oplossingen voor het gebruik van de gerepliceerde virtuele machines in zones worden veranderd, kunt u uw apps en gegevens beschermen tegen het verlies van een datacenter. Als één zone is geknoeid, waarna zijn gerepliceerde apps en gegevens onmiddellijk beschikbaar in een andere zone. 
+[Beschikbaarheidszones](../articles/availability-zones/az-overview.md)Hiermee stelt u een alternatief voor beschikbaarheid, vouw de mate van controle die u hebt voor de beschikbaarheid van de toepassingen en gegevens op uw virtuele machines. Een beschikbaarheidszone is een fysiek afgescheiden zone binnen een Azure-regio. Er zijn drie Beschikbaarheidszones per ondersteunde Azure-regio. Elke beschikbaarheidszone heeft een afzonderlijke voedingsbron en koeling, en een afzonderlijk netwerk. Door het ontwikkelen van uw oplossingen voor het gebruik van gerepliceerde VM's in zones, kunt u uw apps en gegevens beschermen tegen het verlies van een datacenter. Als één zone is geknoeid, klikt u vervolgens zijn gerepliceerde apps en gegevens onmiddellijk beschikbaar in een andere zone. 
 
 ![Beschikbaarheidszones](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
-Meer informatie over het implementeren van een [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) of [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) virtuele machine in een Zone beschikbaarheid.
+Meer informatie over het implementeren van een [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) of [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) virtuele machine in een Beschikbaarheidszone.
 
 ## <a name="next-steps"></a>Volgende stappen
 U kunt nu deze functies voor beschikbaarheid en redundantie gaan gebruiken om uw eigen Azure-omgeving te bouwen. Zie voor informatie over aanbevolen procedures de [aanbevolen procedures voor Azure-beschikbaarheid](../articles/best-practices-availability-checklist.md).

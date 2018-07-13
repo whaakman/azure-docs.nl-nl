@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: bde7a7788fd01bcbcc63296c0513af8eb4196021
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2308419ba79f6b482df6f68e865aafd0152ae090
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970176"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001885"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -195,11 +195,13 @@ Elke binding heeft een eigen ondersteunde typen; bijvoorbeeld, een blob-trigger-
 
 ## <a name="binding-to-method-return-value"></a>Binding met de geretourneerde waarde methode
 
-U kunt de geretourneerde waarde van een methode voor een Uitvoerbinding gebruiken door het kenmerk toe te passen op de geretourneerde waarde van de methode. Zie voor voorbeelden van [Triggers en bindingen](functions-triggers-bindings.md#using-the-function-return-value).
+U kunt de geretourneerde waarde van een methode voor een Uitvoerbinding gebruiken door het kenmerk toe te passen op de geretourneerde waarde van de methode. Zie voor voorbeelden van [Triggers en bindingen](functions-triggers-bindings.md#using-the-function-return-value). 
+
+De geretourneerde waarde alleen gebruiken als een geslaagde uitvoering van een functie altijd in een retourwaarde resulteert doorgeven aan de Uitvoerbinding. Gebruik anders `ICollector` of `IAsyncCollector`, zoals wordt weergegeven in de volgende sectie.
 
 ## <a name="writing-multiple-output-values"></a>Meerdere uitvoerwaarden schrijven
 
-Als u meerdere waarden opslaan op een Uitvoerbinding, gebruikt u de [ `ICollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) of [ `IAsyncCollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) typen. Deze typen zijn alleen-schrijven verzamelingen die zijn geschreven naar de Uitvoerbinding wanneer de methode is voltooid.
+Meerdere waarden naar een Uitvoerbinding schrijven, of als een geslaagde functieaanroepen kan niet leiden tot iets moet worden doorgegeven aan de Uitvoerbinding, gebruikt u de [ `ICollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) of [ `IAsyncCollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) typen. Deze typen zijn alleen-schrijven verzamelingen die zijn geschreven naar de Uitvoerbinding wanneer de methode is voltooid.
 
 In dit voorbeeld schrijft u meerdere berichten in wachtrij plaatsen in de dezelfde wachtrij met behulp van `ICollector`:
 
@@ -209,12 +211,12 @@ public static class ICollectorExample
     [FunctionName("CopyQueueMessageICollector")]
     public static void Run(
         [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
-        [Queue("myqueue-items-destination")] ICollector<string> myQueueItemCopy,
+        [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
         TraceWriter log)
     {
         log.Info($"C# function processed: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 1: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 2: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 1: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 2: {myQueueItem}");
     }
 }
 ```

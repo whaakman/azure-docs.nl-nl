@@ -1,37 +1,37 @@
 ---
-title: Het gebruik van het Kaartbesturingselement van Azure Maps | Microsoft Docs
-description: Informatie over het gebruik van de Azure Maps Kaartbesturingselement clientzijde Javascript-bibliotheek.
-author: kgremban
-ms.author: kgremban
+title: Het gebruik van Azure Maps Map Control | Microsoft Docs
+description: Informatie over het gebruik van de Map Control van Azure Maps-client-side Javascript-bibliotheek.
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 0b0549e7a7ea6389597e483f239a75743a96fef1
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 228d2d3331b510a0f07dbd3ca278715466d747af
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317961"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988888"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Het gebruik van het Kaartbesturingselement van Azure Maps
-Het Kaartbesturingselement clientzijde Javascript-bibliotheek kunt u het weergeven van maps en ingesloten toegewezen Azure-functionaliteit in uw web- of mobiele toepassing. 
+De Map Control-client-side Javascript-bibliotheek kunt u voor rendering van kaarten en ingesloten Azure kaarten-functionaliteit in uw web- of mobiele toepassing. 
 
 ## <a name="create-a-new-map-in-a-web-page"></a>Een nieuwe map maken in een webpagina
 
-U kunt een kaart insluiten in een webpagina met behulp van het Kaartbesturingselement clientzijde Javascript-bibliotheek.
+U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-side Javascript-bibliotheek.
 
-1. Maak een nieuw bestand en noem deze MapSearch.html.
+1. Maak een nieuw bestand en geef deze de naam MapSearch.html.
 
-2. Toevoegen van de Azure-kaarten opmaakmodel en het script bron verwijzingen naar de `<head>` element van het bestand:
+2. Toevoegen van de Azure-kaarten stylesheet en script bron verwijzingen naar de `<head>` element van het bestand:
 
     ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
     ```
     
-3. Om een nieuwe kaart in uw browser renderen, Voeg een **#map** verwijzing in de `<style>` element.
+3. Toevoegen als u wilt weergeven van een nieuwe kaart in uw browser, een **#map** verwijzing in de `<style>` element.
 
     ```html
     #map {
@@ -40,7 +40,7 @@ U kunt een kaart insluiten in een webpagina met behulp van het Kaartbesturingsel
             }
     ``` 
     
-4. Als u wilt initialiseren van het kaartbesturingselement, het definiëren van een nieuwe sectie in de hoofdtekst html en maakt u een script. Gebruik de sleutel van uw eigen Azure Maps-account in het script. Als u wilt maken van een account of het vinden van uw sleutel, Zie [uw Azure-Maps-account en de sleutels beheren](how-to-manage-account-keys.md)
+4. Als u wilt het kaartbesturingselement initialiseren, definieert u een nieuwe sectie in de HTML-tekst en een script maken. Gebruik de accountsleutel van uw eigen Azure-kaarten in het script. Als u nodig hebt voor het maken van een account of het vinden van uw sleutel, Zie [hoe u uw Azure kaarten-account en sleutels beheren](how-to-manage-account-keys.md)
 
     ```html
     <div id="map">
@@ -55,11 +55,11 @@ U kunt een kaart insluiten in een webpagina met behulp van het Kaartbesturingsel
     </div>
     ```
     
-5. Open het bestand in uw webbrowser en bekijk de gerenderde kaart.
+5. Open het bestand in uw webbrowser en de gerenderde kaart weergeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd u een eenvoudige kaart maken met de sleutel van uw Azure-kaarten. Zie de volgende artikelen voor meer voorbeelden van programmacode toevoegen aan uw maps: 
+In dit artikel laat zien hoe u een eenvoudige kaart maken met uw Azure-kaarten-sleutel. Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten: 
 
-* [Een map maken](map-create.md)
+* [Een kaart maken](map-create.md)
 * [Toevoegen van een pincode](map-add-pin.md)

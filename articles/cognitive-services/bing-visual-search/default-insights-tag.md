@@ -10,16 +10,16 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: c0bf51ab86e2ba99aeb859ea415e1afd355a86f2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a0ced7076c566c819f9e3f7abc5e2fa3930fa0b3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345322"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004298"
 ---
-# <a name="default-insights-tag"></a>Het standaardlabel insights
+# <a name="default-insights-tag"></a>Standaard insights tag
 
-Het standaardlabel insights is het bestand met de `displayName` veld ingesteld op een lege tekenreeks. Het volgende voorbeeld toont de mogelijke lijst met standaard insights (acties).
+De code van de inzichten die standaard is de categorie met de `displayName` veld ingesteld op een lege tekenreeks. Het volgende voorbeeld ziet mogelijk de lijst met standaard insights (acties). De lijst met acties die het antwoord bevat, is afhankelijk van de installatiekopie. En voor elke actie, de lijst met eigenschappen kunnen variëren per afbeelding, dus controleer of de eigenschap bestaat voordat u probeert te gebruiken.
 
 ```json
 {
@@ -100,7 +100,7 @@ Het standaardlabel insights is het bestand met de `displayName` veld ingesteld o
 
 ## <a name="pagesincluding-insight"></a>PagesIncluding inzicht
 
-Het inzicht PagesIncluding bevat een lijst van webpagina's die deze installatiekopie bevatten. Dit is een lijst van objecten van de installatiekopie en de `hostPageUrl` veld bevat de URL naar de webpagina die de installatiekopie bevat. Zie voor een voorbeeld van syntaxis, [PagesIncluding voorbeeld](./bing-insights-usage.md#pagesincluding-insight-example). 
+Het inzicht PagesIncluding bevat een lijst van webpagina's die deze installatiekopie bevatten. Er is een lijst van objecten van de installatiekopie en de `hostPageUrl` veld bevat de URL naar de webpagina die de installatiekopie bevat. Zie voor een voorbeeld van gebruik, [PagesIncluding voorbeeld](./bing-insights-usage.md#pagesincluding-insight-example). 
 
 ```json
       {
@@ -139,7 +139,7 @@ Het inzicht PagesIncluding bevat een lijst van webpagina's die deze installatiek
 
 ## <a name="shoppingsources-insight"></a>ShoppingSources inzicht
 
-Het inzicht ShoppingSources bevat een lijst met websites waar de gebruiker het item weergegeven in de installatiekopie kunt kopen. De lijst met aanbiedingen zijn de URL van de webpagina waar de gebruiker het item kan kopen, de prijs van het artikel en de classificatie of Bekijk meer informatie. Zie voor een voorbeeld van syntaxis, [ShoppingSources voorbeeld](./bing-insights-usage.md#shoppingsources-insight-example).
+Het inzicht ShoppingSources bevat een lijst van websites waar de gebruiker het item wordt weergegeven in de afbeelding kunt kopen. De lijst met aanbiedingen van zijn de URL van de webpagina waar de gebruiker het item kan kopen, de prijs van het artikel en de classificatie of lees meer informatie. Zie voor een voorbeeld van gebruik, [ShoppingSources voorbeeld](./bing-insights-usage.md#shoppingsources-insight-example).
 
 ```json
       {
@@ -169,7 +169,7 @@ Het inzicht ShoppingSources bevat een lijst met websites waar de gebruiker het i
 
 ## <a name="moresizes-insight"></a>MoreSizes inzicht
 
-Het inzicht MoreSizes geeft het aantal grootten (grotere of kleinere) van de afbeelding die Bing op het Internet gevonden (Zie de `availableSizesCount` veld).
+Het inzicht MoreSizes geeft het aantal grootten (grotere of kleinere) van de installatiekopie die Bing op het Internet gevonden (Zie de `availableSizesCount` veld).
 
 ```json
       {
@@ -204,7 +204,7 @@ Het inzicht MoreSizes geeft het aantal grootten (grotere of kleinere) van de afb
 
 ## <a name="visualsearch-insight"></a>VisualSearch inzicht
 
-Het inzicht VisualSearch bevat een lijst van installatiekopieën die visueel vergelijkbaar met de originele installatiekopie zijn (bevat inhoud die vergelijkbaar is met de inhoud wordt weergegeven in de originele installatiekopie). Zie voor een voorbeeld van syntaxis, [VisualSearch voorbeeld](./bing-insights-usage.md#visualsearch-insight-example).
+Het inzicht VisualSearch bevat een lijst van installatiekopieën die visueel vergelijkbaar met de oorspronkelijke afbeelding zijn (bevat inhoud die vergelijkbaar is met de inhoud wordt weergegeven in de oorspronkelijke afbeelding). Zie voor een voorbeeld van gebruik, [VisualSearch voorbeeld](./bing-insights-usage.md#visualsearch-insight-example).
 
 ```json
       {
@@ -244,7 +244,7 @@ Het inzicht VisualSearch bevat een lijst van installatiekopieën die visueel ver
 
 ## <a name="recipes-insight"></a>Recepten inzicht
 
-Het inzicht recepten bevat een lijst van webpagina's met een recept voor het maken van de voeding die wordt weergegeven in de afbeelding. Zie voor een voorbeeld van syntaxis, [recepten voorbeeld](./bing-insights-usage.md#recipes-insight-example).
+Het inzicht recepten bevat een lijst van webpagina's die een recept voor het maken van de voedselvoorzieningsketen weergegeven in de afbeelding bevatten. Zie voor een voorbeeld van gebruik, [recepten voorbeeld](./bing-insights-usage.md#recipes-insight-example).
 
 ```json
       {
@@ -279,7 +279,7 @@ Het inzicht recepten bevat een lijst van webpagina's met een recept voor het mak
 
 ## <a name="imagebyid-insight"></a>ImageById inzicht
 
-Het ImageById inzicht biedt een `Image` object van de installatiekopie die u hebt aangevraagd insights van.
+Het inzicht ImageById biedt een `Image` object van de installatiekopie die u hebt aangevraagd inzicht van.
 
 ```json
       {
@@ -315,7 +315,7 @@ Het ImageById inzicht biedt een `Image` object van de installatiekopie die u heb
 
 ## <a name="productvisualsearch-insight"></a>ProductVisualSearch inzicht
 
-Het ProductVisualSearch inzicht biedt een lijst met afbeeldingen van producten die visueel vergelijkbaar met producten weergegeven in de originele installatiekopie zijn. De `insightsMetadata` veld bevat informatie over aanbiedingen waar u het product en de prijs van het product kunt kopen. 
+Het inzicht ProductVisualSearch bevat een lijst met installatiekopieën van producten die visueel vergelijkbare producten weergegeven in de oorspronkelijke afbeelding. De `insightsMetadata` veld kan bevatten informatie over aanbiedingen waar u het product en de prijs van het product kunt kopen. 
 
 ```json
       {
@@ -344,6 +344,9 @@ Het ProductVisualSearch inzicht biedt een lijst met afbeeldingen van producten d
                 "shoppingSourcesCount" : 1,
                 "recipeSourcesCount" : 0,
                 "aggregateOffer" : {
+                  "name":"4-Piece Kitchen Package with...",
+                  "priceCurrency":"USD",
+                  "lowPrice":2756,
                   "offers" : [
                     {
                       "name" : "4-Piece Kitchen Package with...",
@@ -360,7 +363,8 @@ Het ProductVisualSearch inzicht biedt een lijst met afbeeldingen van producten d
                       "availability" : "InStock",
                       "lastUpdated" : "2018-02-20T00:00:00.0000000"
                     }
-                  ]
+                  ],
+                  "offerCount":1
                 },
                 "pagesIncludingCount" : 4,
                 "availableSizesCount" : 2
@@ -376,7 +380,7 @@ Het ProductVisualSearch inzicht biedt een lijst met afbeeldingen van producten d
 
 ## <a name="relatedsearches-insight"></a>RelatedSearches inzicht
 
-Het RelatedSearches inzicht biedt een lijst met verwante zoekopdrachten die zijn aangebracht door andere (op basis van andere gebruikers zoektermen). Zie voor een voorbeeld van syntaxis, [RelatedSearches voorbeeld](./bing-insights-usage.md#relatedsearches-insight-example).
+Het inzicht RelatedSearches geeft een lijst van gerelateerde zoekopdrachten anderen (op basis van andere gebruikers zoektermen). Zie voor een voorbeeld van gebruik, [RelatedSearches voorbeeld](./bing-insights-usage.md#relatedsearches-insight-example).
 
 
 ```json
@@ -401,7 +405,7 @@ Het RelatedSearches inzicht biedt een lijst met verwante zoekopdrachten die zijn
 
 ## <a name="documentlevelsuggestions-insight"></a>DocumentLevelSuggestions inzicht
 
-Het inzicht DocumentLevelSuggestions bevat een lijst met voorgestelde zoektermen op basis van de inhoud van de installatiekopie. 
+Het inzicht DocumentLevelSuggestions biedt een lijst met voorgestelde zoektermen op basis van de inhoud van de installatiekopie. 
 
 ```json
       {
@@ -426,6 +430,6 @@ Het inzicht DocumentLevelSuggestions bevat een lijst met voorgestelde zoektermen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voorbeelden van hoe Bing mogelijk weergave van de visual inzichten uitchecken (Zie [voorbeelden van Bing insights gebruik](bing-insights-usage.md)).
+Bekijk voorbeelden van hoe de visual inzichten door Bing mogelijk worden weergegeven (Zie [voorbeelden van Bing insights gebruik](bing-insights-usage.md)).
 
-Om snel aan de slag met de eerste aanvraag, Zie de snelstartgidsen: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).
+Als u wilt snel aan de slag met uw eerste aanvraag, Zie de Quick starts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).

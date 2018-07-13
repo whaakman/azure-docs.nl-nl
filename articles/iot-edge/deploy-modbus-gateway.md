@@ -8,14 +8,14 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 9e69faf1b07af0e60cfd21cd6eb9f00e211ab91e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 7c0ef019536d527775e4f5b959a155db3eacebbf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031750"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006095"
 ---
-# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Modbus TCP apparaten verbinden via een gateway aan de rand van de IoT-apparaat
+# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Modbus TCP-apparaten verbinden via de gateway van een IoT Edge-apparaat
 
 Als u IoT-apparaten die gebruikmaken van Modbus TCP- of RTU-protocollen wilt verbinden met een Azure IoT-hub, gebruik dan een IoT Edge-apparaat als een gateway. Het gatewayapparaat leest de gegevens van uw Modbus-apparaten en geeft deze gegevens met behulp van een ondersteund protocol door aan de cloud. 
 
@@ -43,10 +43,10 @@ Als u uw eigen module wilt maken en deze wilt aanpassen voor uw omgeving, bestaa
 
 ## <a name="run-the-solution"></a>De oplossing uitvoeren
 1. Ga in de [Azure-portal](https://portal.azure.com/) naar uw IoT-hub.
-2. Ga naar **IoT rand** en klik op het apparaat aan uw IoT-rand.
+2. Ga naar **IoT Edge** en klikt u op uw IoT Edge-apparaat.
 3. Selecteer **Modules instellen**.
 4. Voeg als volgt de Modbus-module toe:
-   1. Klik op **toevoegen** en selecteer **IoT rand module**.
+   1. Klik op **toevoegen** en selecteer **IoT Edge-module**.
    2. Typ 'modbus' in het veld **Naam**.
    3. Voer in het veld **Installatiekopie** de URI in naar de installatiekopie van de voorbeeldcontainer: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
    4. Schakel het selectievakje **Inschakelen** in om de gewenst eigenschappen van de moduledubbel bij te werken.
@@ -87,8 +87,8 @@ Als u uw eigen module wilt maken en deze wilt aanpassen voor uw omgeving, bestaa
    ```
 
 8. Selecteer **Volgende**. 
-9. In de **revisie implementatie** stap, selecteer **indienen**. 
-10. Ga terug naar de detailpagina van het apparaat en selecteer **Vernieuwen**. U ziet nu de nieuwe **modbus** module uitgevoerd samen met de rand van de IoT-runtime.
+9. Selecteer in de stap **Implementatie beoordelen** de optie **Verzenden**. 
+10. Ga terug naar de detailpagina van het apparaat en selecteer **Vernieuwen**. U ziet nu de nieuwe **modbus** module samen met de IoT Edge-runtime wordt uitgevoerd.
 
 ## <a name="view-data"></a>Gegevens weergeven
 U bekijkt als volgt de gegevens die via de modbus-module lopen:
@@ -96,11 +96,11 @@ U bekijkt als volgt de gegevens die via de modbus-module lopen:
 docker logs -f modbus
 ```
 
-Met behulp van de [IoT Hub-verkenner](https://github.com/azure/iothub-explorer) kunt u ook de telemetrie bekijken die het apparaat verzendt. 
+U kunt ook de telemetrie met behulp van het apparaat verzendt bekijken de [IoT Hub-Verkenner](https://github.com/azure/iothub-explorer) of de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over hoe de rand van de IoT-apparaten als gateways fungeren kunnen, [een IoT-randapparaat die als een transparante gateway fungeert maken][lnk-transparent-gateway-linux]
+- Zie voor meer informatie over hoe IoT Edge-apparaten als gateways kunnen fungeren, [een IoT Edge-apparaat die als een transparante gateway fungeert maken][lnk-transparent-gateway-linux]
 - Voor meer informatie over de werking van IoT Edge-modules raadpleegt u [Azure IoT Edge-modules](iot-edge-modules.md)
 
 <!-- Links -->

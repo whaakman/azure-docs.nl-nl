@@ -1,9 +1,9 @@
 ---
-title: Algemene starten van de taken voor Cloudservices | Microsoft Docs
-description: Enkele voorbeelden van algemene starten van de taken die u wilt uitvoeren in uw cloud services-web-rol of functie worker biedt.
+title: Veelvoorkomende opstarttaken voor Cloud Services | Microsoft Docs
+description: Bevat enkele voorbeelden van veelvoorkomende opstarttaken die u wilt uitvoeren in uw cloud services-Webrol of werkrol.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: cee23da5b089b02bfc0ef10afd60f0f2272585b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeconnoc
+ms.openlocfilehash: 0737738bfd0ab27898631263f57302d15ee11d53
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23843698"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006543"
 ---
-# <a name="common-cloud-service-startup-tasks"></a>Algemene taken voor Cloud-Service starten
-Dit artikel vindt enkele voorbeelden van algemene starten van de taken die u wilt uitvoeren in uw cloudservice. Starten van de taken kunt u bewerkingen uitvoeren voordat een rol wordt gestart. Bewerkingen die u wilt uitvoeren bevatten voor het installeren van een onderdeel, registreren van COM-onderdelen, registersleutels instellen of starten van een langdurige proces. 
+# <a name="common-cloud-service-startup-tasks"></a>Veelvoorkomende opstarttaken voor Cloud-Service
+Dit artikel bevat enkele voorbeelden van veelvoorkomende opstarttaken die u wilt uitvoeren in uw cloudservice. U kunt opstarttaken gebruiken bewerkingen uit te voeren voordat een rol wordt gestart. Bewerkingen die u wilt uitvoeren zijn onder meer een onderdeel installeren, het registreren van COM-onderdelen, registersleutels instellen of starten van een langlopende proces. 
 
-Zie [in dit artikel](cloud-services-startup-tasks.md) over de werking van starten van de taken en specifiek het maken van de vermeldingen die een taak starten definiëren.
+Zie [in dit artikel](cloud-services-startup-tasks.md) om te begrijpen hoe opstarttaken werken en informatie over het maken van de items die een opstarttaak definiëren.
 
 > [!NOTE]
-> Starten van de taken zijn niet van toepassing op virtuele Machines, alleen op Cloud Service-Web- en werkrollen.
+> Opstarttaken zijn niet van toepassing op virtuele Machines, alleen op Cloud Service-Web- en werkrollen.
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Omgevingsvariabelen definiëren voordat een rol wordt gestart
-Als u omgevingsvariabelen die zijn gedefinieerd voor een specifieke taak nodig hebt, gebruikt de [omgeving] -element in de [taak] element.
+Als u omgevingsvariabelen gedefinieerd voor een bepaalde taak nodig hebt, gebruikt u de [omgeving] -element in de [taak] element.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -57,23 +57,23 @@ Variabelen kunt ook een [geldige Azure XPath-waarde](cloud-services-role-config-
 ```
 
 
-## <a name="configure-iis-startup-with-appcmdexe"></a>Starten van IIS met AppCmd.exe configureren
-De [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) opdrachtregelprogramma kan worden gebruikt voor het beheren van IIS-instellingen bij het opstarten op Azure. *AppCmd.exe* handige, opdrachtregel toegang biedt tot configuratie-instellingen voor gebruik in het starten van de taken in Azure. Met behulp van *AppCmd.exe*, Website-instellingen kunnen worden toegevoegd, gewijzigd of verwijderd voor toepassingen en sites.
+## <a name="configure-iis-startup-with-appcmdexe"></a>Opstarten van IIS configureren met AppCmd.exe
+De [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) opdrachtregel-hulpprogramma kan worden gebruikt voor het beheren van IIS-instellingen bij het opstarten op Azure. *AppCmd.exe* handige, opdrachtregel toegang biedt tot configuratie-instellingen voor gebruik in opstarttaken op Azure. Met behulp van *AppCmd.exe*, Website-instellingen kunnen worden toegevoegd, gewijzigd of verwijderd voor toepassingen en websites.
 
-Er zijn echter enkele dingen die u moet letten in het gebruik van *AppCmd.exe* als een taak starten:
+Er zijn echter enkele dingen Kijk uit voor het gebruik van *AppCmd.exe* als een opstarttaak:
 
-* Starten van de taken kunnen meer dan één keer worden uitgevoerd tussen opnieuw wordt opgestart. Bijvoorbeeld, wanneer een rol wordt gerecycled.
-* Als een *AppCmd.exe* actie meer dan één keer wordt uitgevoerd, kan er een fout gegenereerd. Wilt u bijvoorbeeld een sectie toevoegen *Web.config* tweemaal genereren een fout.
-* Starten van de taken mislukken als ze een afsluitcode dan nul retourneren of **errorlevel**. Bijvoorbeeld, wanneer *AppCmd.exe* wordt een fout gegenereerd.
+* Opstarttaken kunnen meer dan één keer worden uitgevoerd tussen het opnieuw opstarten. Bijvoorbeeld, wanneer een rol wordt gerecycled.
+* Als een *AppCmd.exe* actie meer dan één keer wordt uitgevoerd, kan er een fout gegenereerd. Bijvoorbeeld, er wordt geprobeerd om toe te voegen een sectie *Web.config* tweemaal kan een fout gegenereerd.
+* Opstarttaken mislukken als ze afsluitcode dan nul retourneert of **errorlevel**. Bijvoorbeeld, wanneer *AppCmd.exe* genereert een fout.
 
-Het is raadzaam om te controleren de **errorlevel** na het aanroepen *AppCmd.exe*, dit is eenvoudig te doen als u de aanroep van inpakt *AppCmd.exe* met een *.cmd* bestand. Als u een bekende detecteren **errorlevel** antwoord, u kunt deze negeren of terug doorgeven.
+Het is raadzaam om te controleren of de **errorlevel** na het aanroepen *AppCmd.exe*, dit is eenvoudig te doen als u de aanroep van Inpakken *AppCmd.exe* met een *.cmd* bestand. Als u een bekende detecteren **errorlevel** antwoord, u kunt deze negeren of terug doorgeven.
 
-De waarde voor errorlevel geretourneerd door *AppCmd.exe* worden weergegeven in het bestand winerror.h en kunnen ook worden weergegeven op [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+De errorlevel geretourneerd door *AppCmd.exe* worden weergegeven in het bestand winerror.h en kunnen ook worden weergegeven op [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
 
 ### <a name="example-of-managing-the-error-level"></a>Voorbeeld van het beheer van het foutniveau van de
-In dit voorbeeld voegt u een sectie compressie en een compressie-vermelding voor JSON voor de *Web.config* bestand met de foutafhandeling en logboekregistratie.
+In dit voorbeeld voegt u een sectie compressie en een vermelding compressie voor JSON naar de *Web.config* bestand met de foutafhandeling en logboekregistratie.
 
-De relevante secties van de [ServiceDefinition.csdef] bestand hier worden weergegeven, zoals instelling de [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) kenmerk `elevated` geven *AppCmd.exe* voldoende machtigingen om te wijzigen van de instellingen in de *Web.config* bestand:
+De relevante secties van de [ServiceDefinition.csdef] bestand hier worden weergegeven, waaronder instelling de [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) kenmerk `elevated` geven *AppCmd.exe* voldoende machtigingen om te wijzigen van de instellingen in de *Web.config* bestand:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -86,7 +86,7 @@ De relevante secties van de [ServiceDefinition.csdef] bestand hier worden weerge
 </ServiceDefinition>
 ```
 
-De *Startup.cmd* batch-bestand gebruikt *AppCmd.exe* toevoegen van een sectie compressie en een compressie-vermelding voor JSON naar de *Web.config* bestand. De verwachte **errorlevel** van 183 is ingesteld op nul met behulp van de CONTROLEER. EXE-opdrachtregelprogramma. Onverwachte errorlevels zijn StartupErrorLog.txt aangemeld.
+De *Startup.cmd* batch-bestand gebruikt *AppCmd.exe* om toe te voegen een sectie compressie en een vermelding compressie voor JSON naar de *Web.config* bestand. De verwachte **errorlevel** van 183 is ingesteld op nul met behulp van de controleren. EXE-opdrachtregelprogramma. Onverwachte errorlevels worden geregistreerd in StartupErrorLog.txt.
 
 ```cmd
 REM   *** Add a compression section to the Web.config file. ***
@@ -127,11 +127,11 @@ EXIT %ERRORLEVEL%
 ## <a name="add-firewall-rules"></a>Firewallregels toevoegen
 In Azure zijn er effectief twee firewalls. De eerste firewall bepaalt verbindingen tussen de virtuele machine en de buitenwereld. Deze firewall wordt bepaald door de [eindpunten] -element in de [ServiceDefinition.csdef] bestand.
 
-De tweede firewall bepaalt verbindingen tussen de virtuele machine en de processen op dat de virtuele machine. Deze firewall kan worden beheerd door de `netsh advfirewall firewall` opdrachtregelprogramma.
+De tweede firewall bepaalt verbindingen tussen de virtuele machine en de processen binnen die virtuele machine. Deze firewall kan worden beheerd door de `netsh advfirewall firewall` opdrachtregel-hulpprogramma.
 
-Azure maakt firewallregels voor de processen binnen uw rollen gestart. Bijvoorbeeld, wanneer u een service of programma start, maakt Azure automatisch de benodigde firewallregels om toe te staan of de service te communiceren met Internet. Als u een service die wordt gestart door een proces buiten uw rol (zoals een COM +-service of een Windows-taak plannen) maakt, moet u handmatig een firewallregel voor toegang tot deze service te maken. Deze firewall-regels kunnen worden gemaakt met behulp van een taak starten.
+Azure maakt een firewall-regels voor de processen die binnen uw rollen aan de slag. Bijvoorbeeld, wanneer u een service of het programma start, maakt Azure automatisch de vereiste firewallregels zodat deze kan communiceren met Internet. Als u een service die is gestart door een proces buiten uw rol (zoals een COM +-service of een geplande taak voor Windows) maakt, moet u handmatig een firewallregel voor toegang tot deze service te maken. Deze firewallregels kunnen worden gemaakt met behulp van een opstarttaak.
 
-Een starten van de taak die wordt gemaakt van een firewallregel moet hebben een [executionContext][taak] van **verhoogde**. Voeg de volgende opstarttaak naar de [ServiceDefinition.csdef] bestand.
+Een taak gestart die wordt een firewallregel gemaakt moet hebben een [executionContext][taak] van **verhoogde**. Voeg de volgende opstarttaak naar de [ServiceDefinition.csdef] bestand.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -144,7 +144,7 @@ Een starten van de taak die wordt gemaakt van een firewallregel moet hebben een 
 </ServiceDefinition>
 ```
 
-Als u wilt de firewallregel toevoegen, moet u de juiste `netsh advfirewall firewall` opdrachten in het batchbestand opstarten. In dit voorbeeld vereist de taak starten van de beveiliging en versleuteling voor TCP-poort 80.
+Als u wilt de firewallregel toevoegen, moet u de juiste `netsh advfirewall firewall` opdrachten in uw batch-bestand van het opstarten. In dit voorbeeld vereist opstarttaak van de beveiliging en versleuteling voor TCP-poort 80.
 
 ```cmd
 REM   Add a firewall rule in a startup task.
@@ -157,9 +157,9 @@ EXIT /B %errorlevel%
 ```
 
 ## <a name="block-a-specific-ip-address"></a>Een specifiek IP-adres blokkeren
-U kunt de toegang van een Azure-web-rol op een reeks opgegeven IP-adressen beperken door het wijzigen van de IIS **web.config** bestand. U moet ook een opdrachtbestand waarmee wordt ontgrendeld gebruiken de **ipSecurity** sectie van de **ApplicationHost.config** bestand.
+U kunt de toegang van een Azure-web-rol op een set opgegeven IP-adressen beperken door het wijzigen van de IIS **web.config** bestand. U moet ook een opdrachtbestand dat wordt ontgrendeld gebruiken de **ipSecurity** sectie van de **ApplicationHost.config** bestand.
 
-Voor het ontgrendelen van de **ipSecurity** sectie van de **ApplicationHost.config** bestand, een opdrachtbestand maken dat wordt uitgevoerd op de rol is gestart. Maak een map op het hoofdniveau van de Webrol aangeroepen **opstarten** en maak in deze map een batchbestand aangeroepen **startup.cmd**. Dit bestand toevoegen aan uw Visual Studio-project en de eigenschappen instellen op **kopie altijd** om ervoor te zorgen dat is opgenomen in het pakket.
+Voor het ontgrendelen van de **ipSecurity** sectie van de **ApplicationHost.config** bestand, maakt u een opdrachtbestand dat wordt uitgevoerd aan begin van de rol. Maak een map op het hoogste niveau van uw Webrol met de naam **opstarten** en maak een batchbestand met de naam in deze map **startup.cmd**. Dit bestand toevoegen aan uw Visual Studio-project en de eigenschappen instellen op **kopie altijd** om ervoor te zorgen dat het is opgenomen in het pakket.
 
 Voeg de volgende opstarttaak naar de [ServiceDefinition.csdef] bestand.
 
@@ -174,7 +174,7 @@ Voeg de volgende opstarttaak naar de [ServiceDefinition.csdef] bestand.
 </ServiceDefinition>
 ```
 
-Deze opdracht kunt toevoegen de **startup.cmd** bestand:
+Toevoegen van deze opdracht om de **startup.cmd** bestand:
 
 ```cmd
 @echo off
@@ -184,11 +184,11 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 ```
 
-Met deze taak wordt de **startup.cmd** batchbestand worden uitgevoerd telkens als de Webrol is geïnitialiseerd, zorgt u ervoor dat de vereiste **ipSecurity** sectie is opgeheven.
+Met deze taak wordt de **startup.cmd** batch-bestand om te worden uitgevoerd telkens als de Webrol is geïnitialiseerd, ervoor zorgen dat de vereiste **ipSecurity** sectie is ontgrendeld.
 
-Wijzig tot slot de [system.webServer sectie](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) uw Webrol **web.config** bestand toevoegen van een lijst met IP-adressen die toegang, zoals wordt weergegeven in het volgende voorbeeld:
+Wijzig tot slot de [system.webServer sectie](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) uw Webrol **web.config** bestand om toe te voegen een lijst met IP-adressen die toegang, zoals wordt weergegeven in het volgende voorbeeld:
 
-De configuratie van dit voorbeeld **kunt** alle IP-adressen voor toegang tot de server met uitzondering van de twee gedefinieerd
+Deze voorbeeld-configuratie **kunt** alle IP-adressen voor toegang tot de server met uitzondering van de twee gedefinieerd
 
 ```xml
 <system.webServer>
@@ -203,7 +203,7 @@ De configuratie van dit voorbeeld **kunt** alle IP-adressen voor toegang tot de 
 </system.webServer>
 ```
 
-De configuratie van dit voorbeeld **weigert** alle IP-adressen van de toegang tot de server, met uitzondering van de twee gedefinieerd.
+Deze voorbeeld-configuratie **weigert** alle IP-adressen van de toegang tot de server, met uitzondering van de twee gedefinieerd.
 
 ```xml
 <system.webServer>
@@ -218,10 +218,10 @@ De configuratie van dit voorbeeld **weigert** alle IP-adressen van de toegang to
 </system.webServer>
 ```
 
-## <a name="create-a-powershell-startup-task"></a>Een PowerShell starten van de taak maken
-Windows PowerShell-scripts, kunnen niet worden aangeroepen rechtstreeks vanuit de [ServiceDefinition.csdef] bestand, maar ze kunnen worden aangeroepen vanuit een batchbestand opstarten.
+## <a name="create-a-powershell-startup-task"></a>Een opstarttaak PowerShell maken
+Windows PowerShell-scripts kunnen niet worden aangeroepen rechtstreeks vanuit de [ServiceDefinition.csdef] bestand, maar ze kunnen worden aangeroepen vanuit binnen een batch-bestand van het opstarten.
 
-Niet-ondertekende scripts niet wordt uitgevoerd in PowerShell (standaard). Tenzij u uw script ondertekent, moet u PowerShell als u wilt uitvoeren van niet-ondertekende scripts configureren. Niet-ondertekende scripts uitvoeren de **ExecutionPolicy** moet worden ingesteld op **onbeperkt**. De **ExecutionPolicy** instelt dat u gebruik is op basis van de versie van Windows PowerShell.
+PowerShell (standaard) wordt niet uitgevoerd voor niet-ondertekende scripts. Tenzij u het script zich aanmeldt, moet u PowerShell configureren voor het uitvoeren van niet-ondertekende scripts. Niet-ondertekende scripts uit te voeren de **ExecutionPolicy** moet worden ingesteld op **onbeperkt**. De **ExecutionPolicy** instelling die u hebt gebruik is gebaseerd op de versie van Windows PowerShell.
 
 ```cmd
 REM   Run an unsigned PowerShell script and log the output
@@ -231,7 +231,7 @@ REM   If an error occurred, return the errorlevel.
 EXIT /B %errorlevel%
 ```
 
-Als u een Gastbesturingssysteem dat wordt uitgevoerd, PowerShell 2.0 of 1.0 die u kunt afdwingen dat versie 2 om uit te voeren, en als niet beschikbaar is, wordt versie 1 gebruiken.
+Als u een Gastbesturingssysteem dat wordt uitgevoerd, PowerShell 2.0 of 1.0 die u kunt afdwingen dat versie 2 om uit te voeren, en als niet beschikbaar is, moet u versie 1 gebruiken.
 
 ```cmd
 REM   Attempt to set the execution policy by using PowerShell version 2.0 syntax.
@@ -247,14 +247,14 @@ REM   If an error occurred, return the errorlevel.
 EXIT /B %errorlevel%
 ```
 
-## <a name="create-files-in-local-storage-from-a-startup-task"></a>Maken van bestanden in lokale opslag van een taak starten
-U kunt een resource voor lokale opslag gebruiken voor het opslaan van bestanden die zijn gemaakt met het starten van de taak die later worden geopend door uw toepassing.
+## <a name="create-files-in-local-storage-from-a-startup-task"></a>Bestanden maken in de lokale opslag van een opstarttaak
+U kunt een resource van de lokale opslag gebruiken voor het opslaan van bestanden die zijn gemaakt door de opstarttaak die later worden geopend door uw toepassing.
 
-Toevoegen voor het maken van de bron van de lokale opslag, een [LocalResources] sectie aan de [ServiceDefinition.csdef] -bestand en voeg vervolgens de [LocalStorage] onderliggend element. Geeft de bron van de lokale opslag een unieke naam en de juiste grootte voor het starten van de taak.
+Voor het maken van de lokale opslag-resource toevoegen een [LocalResources] sectie aan de [ServiceDefinition.csdef] -bestand en voeg de [LocalStorage] onderliggend element. Geef de lokale opslag-resource een unieke naam en een geschikte grootte voor uw opstarttaak.
 
-Als u een resource voor lokale opslag in uw taak starten, moet u een omgevingsvariabele om te verwijzen naar de lokale resource opslaglocatie maken. Vervolgens kunnen de taak starten en de toepassing bestanden lezen en schrijven naar de bron van de lokale opslag.
+Voor het gebruik van een lokale opslag-resource in uw taak starten, moet u een omgevingsvariabele om te verwijzen naar de locatie van de resource lokale opslag maken. De taak starten en de toepassing worden vervolgens kan lezen en schrijven van bestanden naar de lokale opslag-resource.
 
-De relevante secties van de **ServiceDefinition.csdef** bestand worden hier weergegeven:
+De relevante secties van de **ServiceDefinition.csdef** bestand hier worden weergegeven:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -278,7 +278,7 @@ De relevante secties van de **ServiceDefinition.csdef** bestand worden hier weer
 </ServiceDefinition>
 ```
 
-Als u bijvoorbeeld dit **Startup.cmd** batch-bestand gebruikt de **PathToStartupStorage** omgevingsvariabele voor het maken van het bestand **MyTest.txt** op de locatie van lokale opslag.
+Een voorbeeld: dit **Startup.cmd** batch-bestand gebruikt de **PathToStartupStorage** omgevingsvariabele maken van het bestand **MyTest.txt** op de locatie van de lokale opslag.
 
 ```cmd
 REM   Create a simple text file.
@@ -293,7 +293,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-U kunt lokale opslagmap openen vanaf de Azure SDK met behulp van de [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) methode.
+U kunt toegang tot lokale opslagmap van de Azure-SDK met behulp van de [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) methode.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -301,12 +301,12 @@ string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.
 string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStoragePath, "MyTestFile.txt"));
 ```
 
-## <a name="run-in-the-emulator-or-cloud"></a>Uitgevoerd in de emulator of de cloud
-U kunt uw opstarttaak verschillende stappen uitvoeren wanneer deze wordt uitgevoerd in de cloud in vergelijking met wanneer het zich in de rekenemulator hebben. U wilt bijvoorbeeld een nieuw exemplaar van uw SQL-gegevens gebruiken alleen bij het uitvoeren in de emulator. Of u kunt doen prestatieoptimalisatie voor de cloud die u niet hoeft te doen wanneer uitgevoerd in de emulator.
+## <a name="run-in-the-emulator-or-cloud"></a>In de emulator of cloud worden uitgevoerd
+U kunt de verschillende stappen uitvoeren wanneer deze wordt uitgevoerd in de cloud ten opzichte van wanneer deze zich in de rekenemulator opstarttaak hebben. U wilt bijvoorbeeld een nieuwe kopie van uw SQL-gegevens gebruiken alleen bij het uitvoeren in de emulator. Of u wilt doen prestatieoptimalisatie voor de cloud die u niet hoeft te doen wanneer in de emulator wordt uitgevoerd.
 
-Dit kunnen verschillende acties uitvoeren op de rekenemulator en de cloud kunt u doen met het maken van een omgevingsvariabele in de [ServiceDefinition.csdef] bestand. U test die omgevingsvariabele voor een waarde in uw taak starten.
+Dit kunnen verschillende acties uitvoeren op de rekenemulator en de cloud kan worden bereikt door het maken van een omgevingsvariabele in de [ServiceDefinition.csdef] bestand. U test deze omgevingsvariabele voor een waarde in de opstarttaak.
 
-Voor het maken van de omgevingsvariabele toevoegen de [variabele]/[RoleInstanceValue] element en het maken van een XPath-waarde van `/RoleEnvironment/Deployment/@emulated`. De waarde van de **% ComputeEmulatorRunning %** omgevingsvariabele is `true` wanneer u gebruikmaakt van de rekenemulator en `false` wanneer u gebruikmaakt van de cloud.
+Voor het maken van de omgevingsvariabele toevoegen de [variabele]/[RoleInstanceValue] element en het maken van een XPath-waarde van `/RoleEnvironment/Deployment/@emulated`. De waarde van de **ComputeEmulatorRunning %** omgevingsvariabele is `true` wanneer u gebruikmaakt van de rekenemulator en `false` wanneer u gebruikmaakt van de cloud.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -328,7 +328,7 @@ Voor het maken van de omgevingsvariabele toevoegen de [variabele]/[RoleInstanceV
 </ServiceDefinition>
 ```
 
-Controleer de taak kan nu de **% ComputeEmulatorRunning %** omgevingsvariabele andere acties uit te voeren op basis van de vraag of de rol wordt uitgevoerd in de cloud of de emulator. Hier volgt een cmd-shell-script waarmee wordt gecontroleerd of deze omgevingsvariabele.
+Controleer de taak kan nu de **ComputeEmulatorRunning %** omgevingsvariabele verschillende acties uit te voeren op basis van op of de rol in de cloud of in de emulator wordt uitgevoerd. Hier volgt een .cmd shell-script waarmee wordt gecontroleerd of voor deze omgevingsvariabele.
 
 ```cmd
 REM   Check if this task is running on the compute emulator.
@@ -341,10 +341,10 @@ IF "%ComputeEmulatorRunning%" == "true" (
 ```
 
 
-## <a name="detect-that-your-task-has-already-run"></a>Detecteren of de taak al is uitgevoerd
-De rol kan niet opnieuw starten van de taken opnieuw uit te voeren waardoor start recyclen. Er is geen vlag die aangeeft dat een taak al is uitgevoerd op de host VM. Mogelijk hebt u een aantal taken waarbij het maakt niet uit dat ze meerdere keren worden uitgevoerd. U kunt echter uitvoeren in een situatie waarin u wilt voorkomen dat een taak meerdere keren wordt uitgevoerd.
+## <a name="detect-that-your-task-has-already-run"></a>Detecteert dat de taak al uitgevoerd
+De rollen kan opnieuw gebruiken zonder opnieuw opstarten waardoor uw opstarttaken opnieuw uit te voeren. Er is geen markering om aan te geven dat een taak al is uitgevoerd op de host virtuele machine. Mogelijk hebt u enkele taken waarbij het maakt niet uit dat ze meerdere keren worden uitgevoerd. U kunt echter uitvoeren in een situatie waarin u wilt voorkomen dat een taak meerdere keren wordt uitgevoerd.
 
-De eenvoudigste manier om te detecteren of er al een taak is uitgevoerd, is voor het maken van een bestand in de **% TEMP %** map wanneer de taak geslaagd is en zoeken naar deze aan het begin van de taak. Hier volgt een voorbeeld cmd shell-script dat die voor u uitvoert.
+De eenvoudigste manier om te detecteren dat een taak al is uitgevoerd, is het maken van een bestand in de **% TEMP %** map wanneer de taak voltooid is en zoeken naar deze aan het begin van de taak. Hier volgt een voorbeeld cmd shell-script dat dit voor u doet.
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
@@ -379,19 +379,19 @@ REM   Exit normally.
 EXIT /B 0
 ```
 
-## <a name="task-best-practices"></a>Aanbevolen procedures van taak
-Hier volgen enkele aanbevolen procedures die u volgen moet wanneer de taak voor uw web- of worker-rol configureert.
+## <a name="task-best-practices"></a>Aanbevolen procedures voor taak
+Hier volgen enkele aanbevolen procedures die u volgen moet bij het configureren van de taak voor de rol van uw web- of werkrollen.
 
-### <a name="always-log-startup-activities"></a>Meld u altijd starten van activiteiten
-Visual Studio biedt geen een foutopsporingsprogramma stap batchbestanden, dus is het raadzaam om zo veel mogelijk gegevens ophalen over de werking van de batch-bestanden mogelijk wilt uitvoeren. Logboekregistratie van de uitvoer van de batch-bestanden, beide **stdout** en **stderr**, krijgt u belangrijke informatie bij het opsporen en oplossen van batch-bestanden. Aan te melden beide **stdout** en **stderr** naar de StartupLog.txt bestand in de map waarnaar wordt verwezen door de **% TEMP %** omgevingsvariabele, Voeg tekst toe `>>  "%TEMP%\\StartupLog.txt" 2>&1` aan het einde van specifieke regels die u wilt registreren. Bijvoorbeeld, om het uitvoeren van setup.exe in de **% PathToApp1Install** directory:
+### <a name="always-log-startup-activities"></a>Meld u altijd opstarten activiteiten
+Visual Studio biedt een foutopsporingsprogramma om batch-bestanden, dus is het raadzaam om zo veel gegevens ophalen over de werking van de batch-bestanden mogelijk niet. Logboekregistratie van de uitvoer van de batch-bestanden, zowel **stdout** en **stderr**, krijgt u belangrijke informatie bij het opsporen en oplossen van batch-bestanden. Om aan te melden beide **stdout** en **stderr** naar de StartupLog.txt bestand in de map waarnaar wordt verwezen door de **% TEMP %** omgevingsvariabele, Voeg tekst toe `>>  "%TEMP%\\StartupLog.txt" 2>&1` aan het einde van specifieke regels die u wilt registreren. Bijvoorbeeld, voor het uitvoeren van setup.exe in de **% PathToApp1Install** directory:
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
-Als u wilt uw XML-vereenvoudigen, kunt u een wrapper *cmd* bestand die alle uw opstarten aanroept taken samen met de logboekregistratie en zorgt ervoor dat elke onderliggende-taak deelt de dezelfde omgevingsvariabelen.
+Ter vereenvoudiging van uw XML-gegevens, kunt u een wrapper *cmd* -bestand dat al uw Starter-aanroepen, samen met logboekregistratie taken en zorgt ervoor dat elke onderliggende taak deelt de dezelfde omgevingsvariabelen.
 
-Wellicht vindt u het vervelend dat moet worden gebruikt `>> "%TEMP%\StartupLog.txt" 2>&1` aan het einde van elke taak starten. U kunt de taak logboekregistratie afdwingen door het maken van een wrapper die verantwoordelijk is voor logboekregistratie voor u. Deze wrapper roept het echte batchbestand dat u wilt uitvoeren. Elke uitvoer van het doelbestand voor de batch wordt omgeleid naar de *Startuplog.txt* bestand.
+Wellicht vindt u het irritant zijn al te gebruiken `>> "%TEMP%\StartupLog.txt" 2>&1` aan het einde van elke taak starten. U kunt de taak logboekregistratie afdwingen door het maken van een wrapper die verantwoordelijk is voor logboekregistratie voor u. Deze wrapper roept de echte batch-bestand dat u wilt uitvoeren. Elke uitvoer van het doelbestand voor de batch wordt omgeleid naar de *Startuplog.txt* bestand.
 
-Het volgende voorbeeld laat zien hoe alle uitvoer omleiden van een starten van de batch-bestand. In dit voorbeeld wordt het ServerDefinition.csdef maakt een taak gestart die aanroept *logwrap.cmd*. *logwrap.cmd* aanroepen *Startup2.cmd*, alle uitvoer naar omleiden **% TEMP %\\StartupLog.txt**.
+Het volgende voorbeeld laat zien hoe alle uitvoer omleiden van een batch-bestand van het opstarten. In dit voorbeeld maakt u het bestand ServerDefinition.csdef een opstarttaak die worden aangeroepen *logwrap.cmd*. *logwrap.cmd* aanroepen *Startup2.cmd*, alle uitvoer omleiden **% TEMP %\\StartupLog.txt**.
 
 ServiceDefinition.cmd:
 
@@ -469,49 +469,49 @@ Voorbeeld van uitvoer in de **StartupLog.txt** bestand:
 > 
 > 
 
-### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Set executionContext op de juiste wijze voor opstarttaken
-Bevoegdheden voor het starten van de taak op de juiste wijze ingesteld. Soms moeten taken starten met verhoogde bevoegdheden uitvoeren, ondanks dat de rol wordt uitgevoerd met normale bevoegdheden.
+### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Set-executionContext op de juiste wijze voor opstarttaken
+Bevoegdheden op de juiste wijze voor de opstarttaak instellen. Soms moeten opstarttaken met verhoogde bevoegdheden uitvoeren, zelfs als de rol wordt uitgevoerd met normale bevoegdheden.
 
-De [executionContext][taak] kenmerk Hiermee stelt u de bevoegdheden van de taak starten. Met behulp van `executionContext="limited"` betekent dat het starten van de taak heeft dezelfde toegangsrechten als de rol. Met behulp van `executionContext="elevated"` betekent dat de taak starten van de administrator-bevoegdheden heeft, waardoor de opstarttaak beheerderstaken uitvoeren zonder dat de administrator-bevoegdheden voor uw rol.
+De [executionContext][taak] kenmerk Hiermee stelt u de bevoegdheden van de opstarttaak. Met behulp van `executionContext="limited"` betekent dat de opstarttaak heeft de dezelfde bevoegdheden als de rol. Met behulp van `executionContext="elevated"` betekent dat de opstarttaak heeft beheerdersbevoegdheden, waarmee de opstarttaak beheerderstaken uitvoert zonder administrator-bevoegdheden voor uw rol.
 
-Een voorbeeld van een taak gestart die zijn verhoogde bevoegdheden vereist is een taak gestart die gebruikmaakt van **AppCmd.exe** om IIS te configureren. **AppCmd.exe** vereist `executionContext="elevated"`.
+Een voorbeeld van een opstarttaak waarvoor verhoogde bevoegdheden is een opstarttaak die gebruikmaakt van **AppCmd.exe** om IIS te configureren. **AppCmd.exe** vereist `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Gebruik de juiste taskType
-De [taskType][taak] kenmerk bepaalt de manier waarop het starten van de taak wordt uitgevoerd. Er zijn drie waarden: **eenvoudige**, **achtergrond**, en **voorgrond**. De taken en achtergrond asynchroon worden gestart en vervolgens de eenvoudige taken synchroon uitgevoerd één tegelijk.
+De [taskType][taak] kenmerk bepaalt de manier waarop de opstarttaak wordt uitgevoerd. Er zijn drie waarden: **eenvoudige**, **achtergrond**, en **voorgrond**. De taken en achtergrond asynchroon worden gestart en vervolgens de eenvoudige taken synchroon worden uitgevoerd op een tijdstip.
 
-Met **eenvoudige** starten van de taken, kunt u de volgorde waarin de taken worden uitgevoerd door de volgorde waarin de taken worden weergegeven in het bestand ServiceDefinition.csdef instellen. Als een **eenvoudige** taak eindigt met een afsluitcode dan nul en vervolgens de procedure opstarten stopt en de rol wordt niet gestart.
+Met **eenvoudige** opstarttaken, kunt u de volgorde waarin de taken worden uitgevoerd door de volgorde waarin de taken worden weergegeven in het bestand ServiceDefinition.csdef instellen. Als een **eenvoudige** taak wordt beëindigd met een afsluitcode dan nul en vervolgens de procedure opstarten stopt en de rol niet wordt gestart.
 
-Het verschil tussen **achtergrond** starten van de taken en **voorgrond** starten van de taken is dat **voorgrond** taken houden de functie die wordt uitgevoerd totdat de  **voorgrond** taak is geëindigd. Dit betekent ook dat wanneer de **voorgrond** taak vastloopt of crasht, de functie niet gerecycled totdat de **voorgrond** taak wordt geforceerd gesloten. Om deze reden **achtergrond** taken worden aanbevolen voor het starten van de asynchrone taken alleen u deze functie van moet de **voorgrond** taak.
+Het verschil tussen **achtergrond** opstarttaken en **voorgrond** opstarttaken is dat **voorgrond** taken houden de functie die wordt uitgevoerd totdat de  **voorgrond** taak is geëindigd. Dit betekent ook dat als de **voorgrond** taak vastloopt of crasht, de rol niet gerecycled totdat de **voorgrond** taak wordt geforceerd gesloten. Om deze reden **achtergrond** taken worden aanbevolen voor opstarten van asynchrone taken, tenzij u deze functie van moet de **voorgrond** taak.
 
-### <a name="end-batch-files-with-exit-b-0"></a>Einde batch-bestanden met de AFSLUITCODE /B 0
-De rol wordt alleen gestart als de **errorlevel** van elk van uw eenvoudige starten van de taak is aan nul. Niet alle programma's instellen de **errorlevel** (afsluitcode) correct, dus het batchbestand moet eindigen met een `EXIT /B 0` als alles goed is uitgevoerd.
+### <a name="end-batch-files-with-exit-b-0"></a>Einde batch-bestanden met afsluiten /B 0
+De rol wordt alleen gestart als de **errorlevel** van elk van de eenvoudige opstarten taak nul is. Niet alle programma's stellen de **errorlevel** (afsluitcode) correct, zodat de batch-bestand moet eindigen met een `EXIT /B 0` als alles goed is uitgevoerd.
 
-Een ontbrekende `EXIT /B 0` aan het einde van een starten van de batch-bestand is een veelvoorkomende oorzaak van de functies die niet worden gestart.
+Een ontbrekende `EXIT /B 0` aan het einde van een opstart-batch-bestand is een veelvoorkomende oorzaak van de rollen die niet worden gestart.
 
 > [!NOTE]
-> Ik opgevallen dat geneste batch bestanden soms vastlopen wanneer u de `/B` parameter. U kunt om ervoor te zorgen dat dit probleem blijft hangen niet gebeurt als een ander batchbestand het huidige batchbestand roept, zoals als u de [logboek wrapper](#always-log-startup-activities). U kunt weglaten de `/B` parameter in dit geval.
+> Ik opgevallen dat geneste batch bestanden soms loopt vast bij het gebruik van de `/B` parameter. Om ervoor te zorgen dat dit probleem vast te lopen niet gebeurt als een andere batchbestand uw huidige batch-bestand aanroept, zoals als u gebruik kunt u de [log-wrapper](#always-log-startup-activities). U kunt weglaten de `/B` parameter in dit geval.
 > 
 > 
 
-### <a name="expect-startup-tasks-to-run-more-than-once"></a>Starten van de taken uitvoeren meer dan één keer verwacht
-Niet alle rol recyclet zijn opnieuw worden opgestart, maar alle rol recyclet omvatten alle starten van de taken uitgevoerd. Dit betekent dat starten van de taken kunnen moet worden meerdere keren opnieuw wordt gestart zonder problemen uitgevoerd. Dit wordt besproken de [voorgaande sectie](#detect-that-your-task-has-already-run).
+### <a name="expect-startup-tasks-to-run-more-than-once"></a>Verwacht opstarttaken meer dan eenmaal wordt uitgevoerd
+Niet alle rolrecycling bevatten een opnieuw opstarten, maar alle rolrecycling bevatten alle opstarttaken uitvoeren. Dit betekent dat opstarttaken moeten kunnen meerdere keren worden uitgevoerd tussen het opnieuw opstarten zonder problemen. Dit wordt beschreven in de [voorgaande sectie](#detect-that-your-task-has-already-run).
 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Lokale opslag gebruiken voor het opslaan van bestanden die moeten worden geopend in de rol
-Als u wilt kopiëren of een bestand maken tijdens het starten van de taak die vervolgens toegankelijk is voor uw rol, moet dit bestand in de lokale opslag worden geplaatst. Zie de [voorgaande sectie](#create-files-in-local-storage-from-a-startup-task).
+Als u wilt kopiëren, of maak een bestand tijdens de opstarttaak die vervolgens toegankelijk is voor uw rol, moet dit bestand in de lokale opslag worden geplaatst. Zie de [voorgaande sectie](#create-files-in-local-storage-from-a-startup-task).
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk de cloud [service model- en -pakket](cloud-services-model-and-package.md)
+Bekijk de cloud [service model en -pakket](cloud-services-model-and-package.md)
 
-Meer informatie over het [taken](cloud-services-startup-tasks.md) werken.
+Meer informatie over hoe u [taken](cloud-services-startup-tasks.md) werken.
 
-[Maken en implementeren van](cloud-services-how-to-create-deploy-portal.md) uw cloud-pakket.
+[Maken en implementeren van](cloud-services-how-to-create-deploy-portal.md) uw cloud service-pakket.
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[taak]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Taak]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[omgeving]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[variabele]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Omgeving]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Variabele]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 [Eindpunten]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints

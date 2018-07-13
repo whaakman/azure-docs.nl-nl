@@ -2,7 +2,7 @@ Azure-klanten kunnen iedere maand 25.000 gratis e-mails ontgrendelen. Deze 25.00
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Aanmelden voor een SendGrid-account
 1. Meld u aan bij [Azure Portal][Azure portal].
-2. Klik in het menu aan de linkerkant op **maken van een resource**.
+2. Klik in het menu aan de linkerkant op **een resource maken**.
 
     ![opdracht-balk-nieuw][command-bar-new]
 3. Klik op **Invoegtoepassingen** en vervolgens op **SendGrid e-maillevering**.
@@ -59,7 +59,7 @@ Azure-klanten kunnen iedere maand 25.000 gratis e-mails ontgrendelen. Deze 25.00
     ![sleutel][key]
 2. Het wachtwoord is door u gekozen tijdens de installatie. Als u wijzigingen wilt aanbrengen, selecteert u **Wachtwoord wijzigen** of **Wachtwoord opnieuw instellen**.
 
-Als u uw instellingen voor de bezorging van e-mail wilt beheren, klikt u op de knop **Beheren**. Hiermee wordt een omleiding naar uw SendGrid-dashboard.
+Als u uw instellingen voor de bezorging van e-mail wilt beheren, klikt u op de knop **Beheren**. Hiermee wordt u doorgestuurd naar uw SendGrid-dashboard.
 
 ![beheren][manage]
 

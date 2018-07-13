@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 5db1e7b9c97a0c19ef5ec0a41ea675c33c4d46fc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f73a08d14d02b4e4b441b6ac85c6ceb97b9f173
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950913"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004979"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Gegevens verplaatsen naar of van Azure Blob Storage met behulp van SSIS-connectors
 De [SQL Server Integration Services Feature Pack voor Azure](https://msdn.microsoft.com/library/mt146770.aspx) onderdelen verbinding maken met Azure, gegevens overdragen tussen Azure en on-premises gegevensbronnen en gegevens verwerken die zijn opgeslagen in Azure biedt.
@@ -83,7 +83,7 @@ De parameters die gebruikmaakt van de taak worden hier beschreven:
 > 
 
 ## <a name="download-data-from-azure-blob-storage"></a>Gegevens uit Azure blob-opslag downloaden
-Als u wilt downloaden van gegevens uit Azure blob storage naar on-premises opslag met SSIS, gebruikt u een exemplaar van de [Azure Blob uploaden taak](https://msdn.microsoft.com/library/mt146779.aspx).
+Als u wilt downloaden van gegevens uit Azure blob storage naar on-premises opslag met SSIS, gebruikt u een exemplaar van de [Azure Blob downloaden taak](https://msdn.microsoft.com/library/mt146779.aspx).
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>Meer geavanceerde SSIS-Azure-scenario 's
 Het SSIS featurepack kunt u complexere stromen moet worden verwerkt door taken voor pakketten samen. Bijvoorbeeld, kan de blob-gegevens rechtstreeks in een HDInsight-cluster, waarvan de uitvoer kan worden gedownload naar een blob en vervolgens naar on-premises opslag-feed. SSIS uitvoeren Hive en Pig-taken op een HDInsight-cluster met behulp van aanvullende SSIS-connectors:

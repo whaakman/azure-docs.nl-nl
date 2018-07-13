@@ -1,6 +1,6 @@
 ---
-title: Structuur van Azure Resource Manager-sjabloon en syntaxis | Microsoft Docs
-description: Beschrijft de structuur en eigenschappen van Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis.
+title: Sjabloonstructuur van Azure Resource Manager-en de syntaxis | Microsoft Docs
+description: Beschrijft de structuur en de eigenschappen van Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 826dcf13a6e29fd4631e1078dd2ac0fa65b14e14
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334795"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001681"
 ---
-# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Overzicht van de structuur en de syntaxis van Azure Resource Manager-sjablonen
-In dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Dit geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
+# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
+Dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Deze geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).
 
-## <a name="template-format"></a>Sjabloon
+## <a name="template-format"></a>Sjabloonindeling
 In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 
 ```json
@@ -39,17 +39,17 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 }
 ```
 
-| Elementnaam | Vereist | Beschrijving |
+| De naam van element | Vereist | Beschrijving |
 |:--- |:--- |:--- |
 | $schema |Ja |Locatie van het JSON-schema-bestand dat de versie van de taal van de sjabloon beschrijft. Gebruik de URL die wordt weergegeven in het voorgaande voorbeeld. |
-| contentVersion |Ja |De versie van de sjabloon (zoals 1.0.0.0). U kunt een waarde opgeven voor dit element. Deze waarde om belangrijke wijzigingen in het document te gebruiken in uw sjabloon. Bij het implementeren van resources met behulp van de sjabloon, kan deze waarde kan worden gebruikt om ervoor te zorgen dat de juiste sjabloon wordt gebruikt. |
-| parameters |Nee |De waarden die beschikbaar zijn wanneer de implementatie wordt uitgevoerd voor het aanpassen van de resource-implementatie. |
-| variabelen |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor sjabloontaalexpressies vereenvoudigen. |
-| functies |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
-| resources |Ja |Brontypen die worden geïmplementeerd of bijgewerkt in een resourcegroep. |
-| uitvoer |Nee |De waarden die na de implementatie worden geretourneerd. |
+| Sjablooneigenschap |Ja |De versie van de sjabloon (bijvoorbeeld 1.0.0.0). U kunt een waarde opgeven voor dit element. Gebruik deze waarde aan aanzienlijke wijzigingen in het document in de sjabloon. Bij het implementeren van resources met behulp van de sjabloon, kan deze waarde kan worden gebruikt om ervoor te zorgen dat de juiste sjabloon wordt gebruikt. |
+| parameters |Nee |De waarden die zijn opgegeven wanneer de implementatie wordt uitgevoerd om aan te passen van de resource-implementatie. |
+| Variabelen |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies. |
+| functions |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
+| bronnen |Ja |De resourcetypen die worden geïmplementeerd of bijgewerkt in een resourcegroep. |
+| uitvoer |Nee |De waarden die zijn geretourneerd na de implementatie. |
 
-Elk element heeft de eigenschappen die u kunt instellen. Het volgende voorbeeld ziet u de volledige syntaxis voor een sjabloon:
+Elk element heeft eigenschappen die u kunt instellen. Het volgende voorbeeld ziet u de volledige syntaxis voor een sjabloon:
 
 ```json
 {
@@ -162,11 +162,11 @@ Elk element heeft de eigenschappen die u kunt instellen. Het volgende voorbeeld 
 Dit artikel wordt beschreven in de secties van de sjabloon in meer detail.
 
 ## <a name="syntax"></a>Syntaxis
-De syntaxis van de basis van de sjabloon is JSON. Expressies en functies echter uitbreiden de JSON-waarden die beschikbaar zijn in de sjabloon.  Expressies zijn geschreven in JSON-letterlijke waarvan de eerste en laatste tekens zijn de vierkante haken: `[` en `]`respectievelijk. De waarde van de expressie wordt geëvalueerd wanneer de sjabloon wordt geïmplementeerd. Hoewel geschreven als een letterlijke tekenreeks, zijn het resultaat van evaluatie van de expressie van een ander JSON-type, zoals een matrix of een geheel getal, afhankelijk van de werkelijke expressie.  Een letterlijke tekenreeks beginnen met een haakje hebben `[`, maar dit wordt geïnterpreteerd als een expressie niet, Voeg een extra haakje voor het starten van de tekenreeks met `[[`.
+De algemene syntaxis van de sjabloon is JSON. Expressies en functies echter uitbreiden de JSON-waarden die beschikbaar zijn in de sjabloon.  Expressies zijn geschreven in JSON-letterlijke waarvan de eerste en laatste tekens zijn de vierkante haken: `[` en `]`, respectievelijk. De waarde van de expressie wordt geëvalueerd wanneer de sjabloon wordt geïmplementeerd. Terwijl geschreven als een letterlijke tekenreeks, kan het resultaat van evaluatie van de expressie van een ander JSON-type, zoals een matrix of een geheel getal, afhankelijk van de werkelijke expressie zijn.  Moet een letterlijke tekenreeks begint met een haakje `[`, maar niet het geïnterpreteerd als een expressie, toevoegen van een extra haakje voor het starten van de tekenreeks met `[[`.
 
-Normaal gesproken u expressies gebruiken met functies bewerkingen voor het configureren van de implementatie uit te voeren. Net zoals in JavaScript-functieaanroepen die zijn opgemaakt als `functionName(arg1,arg2,arg3)`. U verwijzen naar eigenschappen met behulp van de punt en [index] operators.
+Meestal gebruikt u expressies met functions bewerkingen voor het configureren van de implementatie uit te voeren. Net zoals in JavaScript-functieaanroepen die zijn opgemaakt als `functionName(arg1,arg2,arg3)`. U verwijzen naar eigenschappen met behulp van de operators stip en [index].
 
-Het volgende voorbeeld ziet u hoe u verschillende functies gebruikt bij het maken van een waarde:
+Het volgende voorbeeld laat zien hoe u verschillende functies bij het maken van een waarde:
 
 ```json
 "variables": {
@@ -174,10 +174,10 @@ Het volgende voorbeeld ziet u hoe u verschillende functies gebruikt bij het make
 }
 ```
 
-Zie voor een volledige lijst van sjabloonfuncties [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md). 
+Zie voor de volledige lijst van de sjabloonvariabelen [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parameters
-U opgeven welke waarden u invoeren kunt bij het implementeren van de resources in het gedeelte parameters van de sjabloon. De parameterwaarden van deze kunnen u de implementatie aanpassen door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hoeft te bieden parameters in de sjabloon, maar zonder parameters uw sjabloon altijd dezelfde resources met dezelfde namen, locaties en eigenschappen zou implementeren.
+U opgeven welke waarden u invoeren kunt bij het implementeren van de resources in de parametersectie van de sjabloon. De parameterwaarden van deze kunnen u de implementatie aanpassen door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hoeft te bieden van parameters in de sjabloon, maar zonder parameters de sjabloon altijd dezelfde resources met dezelfde namen, locaties en eigenschappen wilt implementeren.
 
 Het volgende voorbeeld ziet u een eenvoudige parameterdefinitie:
 
@@ -195,9 +195,9 @@ Het volgende voorbeeld ziet u een eenvoudige parameterdefinitie:
 Zie voor meer informatie over het definiëren van parameters [sectie opdrachtregelparameters van Azure Resource Manager-sjablonen](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Variabelen
-In het gedeelte variabelen kunt u waarden die kunnen worden gebruikt in uw sjabloon opstellen. U hoeft niet te definiëren, variabelen, maar ze vaak uw sjabloon vereenvoudigen doordat complexe expressies.
+In het gedeelte variabelen kunt u waarden die kunnen worden gebruikt in uw sjabloon maken. U hoeft niet te definiëren, variabelen, maar ze vaak de sjabloon vereenvoudigen door te verminderen van complexe expressies.
 
-Het volgende voorbeeld ziet u een eenvoudige variabele-definitie:
+Het volgende voorbeeld ziet u een eenvoudige definitie van de variabele:
 
 ```json
 "variables": {
@@ -205,20 +205,21 @@ Het volgende voorbeeld ziet u een eenvoudige variabele-definitie:
 },
 ```
 
-Zie voor meer informatie over het definiëren van variabelen [gedeelte variabelen van Azure Resource Manager-sjablonen](resource-manager-templates-variables.md).
+Zie voor meer informatie over het definiëren van variabelen [sectie met variabelen van Azure Resource Manager-sjablonen](resource-manager-templates-variables.md).
 
 ## <a name="functions"></a>Functions
 
-U kunt uw eigen functies maken in uw sjabloon. Deze functies zijn beschikbaar voor gebruik in uw sjabloon. Normaal gesproken definieert u een complexe expressie die u niet wilt herhalen in uw sjabloon. Maken van de gebruiker gedefinieerde functies van expressies en [functies](resource-group-template-functions.md) die worden ondersteund in sjablonen.
+U kunt uw eigen functies maken in uw sjabloon. Deze functies zijn beschikbaar voor gebruik in uw sjabloon. Normaal gesproken definieert u een complexe expressie die u niet wilt herhalen in uw sjabloon. U maakt de gebruiker gedefinieerde functies van expressies en [functies](resource-group-template-functions.md) die worden ondersteund in de sjablonen.
 
-Er zijn enkele beperkingen bij het definiëren van een gebruikersfunctie:
+Bij het definiëren van de functie van een gebruiker, zijn er enkele beperkingen:
 
 * De functie heeft geen toegang tot variabelen.
+* De functie heeft geen toegang tot Sjabloonparameters. Dat wil zeggen, de [parameters functie](resource-group-template-functions-deployment.md#parameters) is beperkt tot functieparameters.
 * De functie kan geen andere door de gebruiker gedefinieerde functies aanroepen.
-* De functie niet gebruiken de [verwijst naar functie](resource-group-template-functions-resource.md#reference).
+* De functie niet gebruiken de [verwijzen naar de functie](resource-group-template-functions-resource.md#reference).
 * Parameters voor de functie kunnen geen standaardwaarden hebben.
 
-Uw functies vereisen een naamruimtewaarde naamconflicten met sjabloonfuncties worden voorkomen. Het volgende voorbeeld ziet u een functie die resulteert in een opslagaccountnaam:
+Uw functies vereisen een naamruimtewaarde naamconflicten met sjabloonfuncties worden voorkomen. Het volgende voorbeeld ziet u een functie die resulteert in een storage-accountnaam:
 
 ```json
 "functions": [
@@ -261,8 +262,8 @@ U kunt de functie met aanroepen:
 ]
 ```
 
-## <a name="resources"></a>Bronnen
-In de bronnensectie definieert u de resources die worden geïmplementeerd of bijgewerkt. Deze sectie kunt krijgen ingewikkeld omdat de typen die u implementeert om de juiste waarden opgeven dat u begrijpt.
+## <a name="resources"></a>Resources
+In de sectie resources definieert u de resources die worden geïmplementeerd of bijgewerkt. In deze sectie krijgt ingewikkeld omdat u de typen die u implementeert zodat de juiste waarden moet begrijpen.
 
 ```json
 "resources": [
@@ -278,10 +279,10 @@ In de bronnensectie definieert u de resources die worden geïmplementeerd of bij
 ],
 ```
 
-Zie voor meer informatie [bronnensectie van Azure Resource Manager-sjablonen](resource-manager-templates-resources.md).
+Zie voor meer informatie, [bronnensectie van Azure Resource Manager-sjablonen](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Uitvoer
-In de sectie uitvoer geeft u de waarden die worden geretourneerd van de implementatie. U kan bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource geretourneerd.
+In de sectie uitvoer geeft u waarden die zijn geretourneerd na de implementatie. U kunt bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource retourneren.
 
 ```json
 "outputs": {
@@ -292,24 +293,24 @@ In de sectie uitvoer geeft u de waarden die worden geretourneerd van de implemen
 }
 ```
 
-Zie voor meer informatie [levert sectie van Azure Resource Manager-sjablonen](resource-manager-templates-outputs.md).
+Zie voor meer informatie, [gedeelte van Azure Resource Manager-sjablonen levert](resource-manager-templates-outputs.md).
 
 ## <a name="template-limits"></a>Limieten voor sjabloon
 
-Beperkt de omvang van uw sjabloon 1 MB en elk parameterbestand 64 kB. De limiet van 1 MB geldt voor de definitieve status van de sjabloon nadat deze is uitgebreid met iteratieve resourcedefinities en waarden voor parameters en variabelen. 
+Beperkt de grootte van uw sjabloon 1 MB en elk parameterbestand aan 64 KB. De limiet van 1 MB is van toepassing op de laatste status van de sjabloon nadat deze is uitgebreid met iteratieve resourcedefinities en waarden voor parameters en variabelen. 
 
-U kunt ook beperkt tot:
+U bent ook beperkt tot:
 
-* 256 parameters
+* 256-parameters
 * 256 variabelen
 * 800 bronnen (zoals aantal kopieën)
 * 64 uitvoerwaarden
-* 24.576 tekens in een sjabloonexpressie
+* 24.576 tekens in een sjabloonexpressie voor een
 
-U kunt sommige limieten sjabloon met een geneste sjabloon overschrijdt. Zie voor meer informatie [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](resource-group-linked-templates.md). Als u het aantal parameters en variabelen en uitvoer, kunt u verschillende waarden combineren in een object. Zie voor meer informatie [objecten als parameters](resource-manager-objects-as-parameters.md).
+U kunt sommige limieten sjabloon met behulp van een geneste sjabloon overschrijdt. Zie voor meer informatie, [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](resource-group-linked-templates.md). Als u wilt verkleinen het aantal parameters, variabelen of uitvoer, kunt u verschillende waarden combineren in een object. Zie voor meer informatie, [objecten als parameters](resource-manager-objects-as-parameters.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
-* Zie voor meer informatie over de functies die u van binnen een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
+* Zie voor meer informatie over de functies die u uit in een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
 * Als u wilt combineren meerdere sjablonen tijdens de implementatie, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Wellicht moet u bronnen gebruiken die zijn opgeslagen in een andere resourcegroep. Dit scenario is gebruikelijk dat wanneer u werkt met opslagaccounts of virtuele netwerken die worden gedeeld door meerdere resourcegroepen. Zie voor meer informatie de [resourceId functie](resource-group-template-functions-resource.md#resourceid).
+* Mogelijk moet u de resources die zijn opgeslagen in een andere resourcegroep gebruiken. In dit scenario is gebruikelijk bij het werken met opslagaccounts of virtuele netwerken die zijn verdeeld over meerdere resourcegroepen. Zie voor meer informatie de [resourceId functie](resource-group-template-functions-resource.md#resourceid).

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a7960ab4aee80c7d15ea0f031790dd089424565d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 089835d9c60780fb90f5c19c75c185ee0a908a25
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610254"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007272"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Een Windows VM Managed Service Identity (MSI) gebruiken voor toegang tot Resource Manager
 
@@ -52,7 +52,7 @@ Voor deze zelfstudie maken we een nieuwe Windows-VM.  U kunt ook de MSI-bestand 
 5.  Selecteer een nieuwe **resourcegroep** waarin u kunt uw virtuele machine maakt, kiest **nieuw**. Na het voltooien klikt u op **OK**.
 6.  Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Behoud de standaardinstellingen op de pagina instellingen en klik op **OK**.
 
-    ![De installatiekopie van de ALT-tekst](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![De installatiekopie van de ALT-tekst](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>MSI-bestand op de virtuele machine inschakelen 
 
@@ -62,11 +62,11 @@ Een VM MSI kunt u tokens voor toegang van Azure AD ophalen zonder dat u om refer
 2.  Klik op de linker navigatiebalk op **configuratie**. 
 3.  U ziet **beheerde Service-identiteit**. Als u wilt registreren en inschakelen van het MSI-bestand, selecteer **Ja**, als u wilt uitschakelen, kiest u Nee. 
 4.  Controleer of u klikken op **opslaan** aan de configuratie op te slaan.  
-    ![De installatiekopie van de ALT-tekst](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![De installatiekopie van de ALT-tekst](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Als u wilt controleren en nagaan welke uitbreidingen zijn op deze virtuele machine, klikt u op **extensies**. Als het MSI-bestand is ingeschakeld, klikt u vervolgens **ManagedIdentityExtensionforWindows** wordt weergegeven in de lijst.
 
-    ![De installatiekopie van de ALT-tekst](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+    ![De installatiekopie van de ALT-tekst](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Uw VM-toegang verlenen tot een resourcegroep in Resource Manager
 Met behulp van MSI krijgt uw code toegangstokens voor verificatie bij de resources die ondersteuning bieden voor Azure AD-verificatie.  De Azure Resource Manager biedt ondersteuning voor Azure AD-verificatie.  Eerst moet van deze virtuele machine identiteit om toegang te verlenen aan een resource in Resource Manager, in dit geval de resourcegroep waarin de virtuele machine is opgenomen.  
@@ -79,7 +79,7 @@ Met behulp van MSI krijgt uw code toegangstokens voor verificatie bij de resourc
 6.  Controleer vervolgens of het juiste abonnement wordt weergegeven in de **abonnement** vervolgkeuzelijst. En voor **resourcegroep**, selecteer **alle resourcegroepen**. 
 7.  Ten slotte in **Selecteer** kiest u uw Windows-VM in de vervolgkeuzelijst en klik op **opslaan**.
 
-    ![De installatiekopie van de ALT-tekst](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+    ![De installatiekopie van de ALT-tekst](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>Een toegangstoken met behulp van de identiteit van de virtuele machine en gebruiken voor het aanroepen van Azure Resource Manager 
 

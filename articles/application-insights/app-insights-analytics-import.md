@@ -1,6 +1,6 @@
 ---
-title: Uw gegevens importeren in analyses in Azure Application Insights | Microsoft Docs
-description: Statische gegevens samen te voegen met de app telemetrie importeren of een afzonderlijke gegevensstroom query met Analytics importeren.
+title: Gegevens importeren met Analytics maken in Azure Application Insights | Microsoft Docs
+description: Statische gegevens samen te voegen met app-telemetrie importeren, of importeren van een afzonderlijke gegevensstroom query's uitvoeren met Analytics.
 services: application-insights
 keywords: Open-schema, gegevens importeren
 documentationcenter: ''
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293618"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989750"
 ---
 # <a name="import-data-into-analytics"></a>Gegevens importeren in Analytics
 
-Importeer tabellaire gegevens in [Analytics](app-insights-analytics.md)om toe te voegen met een [Application Insights](app-insights-overview.md) telemetrie van uw app of dat u deze als een afzonderlijke stream kunt analyseren. Analytics is een krachtige querytaal die geschikt is voor het analyseren van grote hoeveelheden voorzien van een tijdstempel streams telemetrie.
+Importeren van alle tabelgegevens in [Analytics](app-insights-analytics.md)om toe te voegen met een [Application Insights](app-insights-overview.md) telemetrie van uw app of zodat u ze als een afzonderlijke stroom kunt analyseren. Analytics is een krachtige querytaal die geschikt zijn voor het analyseren van grote volumes voorzien van een tijdstempel streams van telemetrie.
 
-U kunt gegevens importeren in Analytics met uw eigen schema. Heeft geen gebruik van de standaard Application Insights-schema's zoals aanvraag of trace.
+U kunt gegevens importeren in Analytics met behulp van uw eigen schema. Dit hoeft niet te gebruiken de standaard Application Insights-schema's, zoals aanvraag of trace.
 
-U kunt importeren JSON of DSV (scheidingsteken gescheiden waarden - komma, puntkomma of tab) bestanden.
+U kunt importeren JSON of DSV (scheidingsteken gescheiden - komma, puntkomma of tabblad) bestanden.
 
-Er zijn drie situaties waarin u importeert in Analytics handig is:
+Er zijn drie situaties waarin importeren naar Analytics handig is:
 
-* **Voeg met app telemetrie.** U kunt bijvoorbeeld een tabel met URL's van uw website wordt toegewezen aan beter leesbaar pagina's importeren. In Analytics, kunt u een dashboard grafiekrapport de tien meest populaire pagina's in uw website. Nu kunt deze pagina's in plaats van de URL's weergeven.
-* **Telemetrie van uw toepassing correleren** met andere bronnen zoals netwerkverkeer, server-gegevens of CDN logboekbestanden.
-* **Analyse van toepassing op een afzonderlijke gegevensstroom.** Application Insights Analytics is een krachtig hulpprogramma dat goed samen met sparse, voorzien van een tijdstempel streams - veel beter dan SQL in veel gevallen werkt. Als u een dergelijke stroom van een andere bron hebt, kunt u deze kunt analyseren met Analytics.
+* **Neem deel aan met app-telemetrie.** U kunt bijvoorbeeld een tabel met URL's van uw website wordt toegewezen aan beter leesbare paginatitels importeren. In Analytics kunt kunt u een dashboard-grafiek-rapport waarin de tien meest populaire pagina's in uw website maken. Nu kunt het de paginatitels in plaats van de URL's weergeven.
+* **Correleren van telemetriegegevens van uw toepassing** met andere bronnen, zoals het netwerkverkeer, server-gegevens of CDN logboekbestanden.
+* **Analyse van toepassing op een afzonderlijke gegevensstroom.** Application Insights Analytics is een krachtig hulpprogramma, dat goed met sparse, voorzien van een tijdstempel streams - veel beter dan SQL in veel gevallen werkt. Hebt u een dergelijke stroom van een andere bron, kunt u ze kunt analyseren met Analytics.
 
-Verzenden van gegevens naar de gegevensbron is eenvoudig. 
+Het is eenvoudig om gegevens te verzenden naar uw gegevensbron. 
 
-1. (Eenmaal) Definieer de planning van uw gegevens in een gegevensbron.
-2. (Periodiek) Uw gegevens uploaden naar Azure storage en de REST-API om contact met ons opnemen die nieuwe gegevens opname wacht aanroepen. De gegevens zijn beschikbaar voor de query in Analytics binnen een paar minuten.
+1. (Één keer) Het schema van uw gegevens in een gegevensbron definiëren.
+2. (Tijd tot tijd) Uw gegevens uploaden naar Azure storage en de REST-API om te waarschuwen dat de nieuwe gegevens opname wacht aanroepen. De gegevens zijn binnen een paar minuten beschikbaar voor query's in Analytics.
 
-De frequentie van het uploaden wordt gedefinieerd door u en hoe snel wilt u uw gegevens beschikbaar voor query's. Het is efficiënter uploaden van gegevens in grotere segmenten, maar niet groter zijn dan 1GB.
+De frequentie van het uploaden wordt gedefinieerd door u en hoe snel wilt u uw gegevens beschikbaar voor query's. Het is efficiënter om gegevens in grotere segmenten, maar niet groter zijn dan 1GB te uploaden.
 
 > [!NOTE]
-> *Hebt u veel gegevensbronnen analyseren?* [*Overweeg het gebruik van* logstash *voor het verzenden van uw gegevens naar Application Insights.*](https://github.com/Microsoft/logstash-output-application-insights)
+> *Hebt u veel gegevensbronnen voor het analyseren van?* [*Overweeg het gebruik van* logstash *voor het verzenden van uw gegevens naar Application Insights.*](https://github.com/Microsoft/logstash-output-application-insights)
 > 
 
 ## <a name="before-you-start"></a>Voordat u begint
@@ -51,54 +51,54 @@ U hebt de volgende zaken nodig:
 
 1. Een Application Insights-resource in Microsoft Azure.
 
- * Als u wilt analyseren van uw gegevens afzonderlijk van andere telemetrie [Maak een nieuwe Application Insights-resource](app-insights-create-new-resource.md).
- * Als u lid worden van of uw gegevens met de telemetrie van een app die al is ingesteld met Application Insights vergelijken, kunt u de bron voor die app gebruiken.
- * Inzender of eigenaar toegang tot deze resource.
+ * Als u wilt analyseren van uw gegevens onafhankelijk van andere telemetrie [Maak een nieuwe Application Insights-resource](app-insights-create-new-resource.md).
+ * Als u lid worden van of uw gegevens met de telemetrie van een app die al is ingesteld met Application Insights vergelijken, kunt u de resource voor die app gebruiken.
+ * Inzender of eigenaar de toegang tot die resource.
  
-2. Azure-opslag. U kunt uploaden naar Azure storage en Analytics uw gegevens ontvangt van daaruit. 
+2. Azure-opslag. U kunt uploaden naar Azure storage en Analytics uw gegevens worden opgehaald van daaruit. 
 
- * U wordt aangeraden dat u een speciale storage-account maken voor uw blobs. Als uw blobs worden gedeeld met andere processen, duurt het langer voor onze processen uw blobs te lezen.
+ * U wordt aangeraden dat u een speciale storage-account maken voor uw blobs. Als uw blobs kunnen worden gedeeld met andere processen, duurt het langer om ze in onze processen te lezen van uw blobs.
 
 
 ## <a name="define-your-schema"></a>Uw schema definiëren
 
-Voordat u gegevens importeren kunt, moet u een *gegevensbron* waarmee het schema van uw gegevens.
-U kunt maximaal 50 gegevensbronnen in een enkele Application Insights-bron hebben
+Voordat u gegevens importeren kunt, moet u een *gegevensbron,* dat aangeeft dat het schema van uw gegevens.
+U kunt maximaal 50 gegevensbronnen in een enkele Application Insights-resource hebben
 
-1. Start de wizard gegevensbron. Gebruik de knop 'Een nieuwe gegevensbron toevoegen'. U kunt ook - klikt u op de knop instellingen in rechts bovenhoek en kies 'Gegevensbronnen' in het vervolgkeuzemenu.
+1. Start de wizard gegevensbron. Gebruik de knop 'Nieuwe gegevensbron toevoegen'. Ook - Klik op de knop instellingen in de linkerbovenhoek rechts en kies 'Gegevensbronnen' in in het vervolgkeuzemenu.
 
     ![Nieuwe gegevensbron toevoegen](./media/app-insights-analytics-import/add-new-data-source.png)
 
-    Geef een naam voor de nieuwe gegevensbron.
+    Geef een naam voor uw nieuwe gegevensbron.
 
-2. Definieer de indeling van de bestanden die u zult uploaden.
+2. Indeling van de bestanden die u uploadt definiëren.
 
-    U kunt de indeling handmatig definiëren of u een voorbeeld-bestand uploaden.
+    U kunt de indeling handmatig definiëren of upload een voorbeeldbestand.
 
-    Als de gegevens zich in de CSV-indeling, zijn de eerste rij van de voorbeeld-kolomkoppen. U kunt de veldnamen in de volgende stap.
+    Als de gegevens zich bevinden in CSV-indeling, kan de eerste rij van het voorbeeld van kolomkoppen zijn. U kunt de veldnamen in de volgende stap wijzigen.
 
     Het voorbeeld moet ten minste 10 rijen of records van de gegevens bevatten.
 
-    Kolom- of veldnamen moeten alfanumeriek namen (zonder spaties of leestekens) hebben.
+    Veld of kolom namen moeten alfanumerieke namen (zonder spaties of leestekens) hebben.
 
-    ![Een voorbeeld-bestand uploaden](./media/app-insights-analytics-import/sample-data-file.png)
+    ![Upload een voorbeeldbestand](./media/app-insights-analytics-import/sample-data-file.png)
 
 
-3. Controleer het schema die is verkregen met de wizard. Als deze de typen van een voorbeeld van een afgeleid, moet u mogelijk de afgeleide typen van de kolommen aanpassen.
+3. Controleer het schema dat je kunt de wizard. Als deze de typen van een voorbeeld van een afgeleid, moet u mogelijk de afgeleide typen van de kolommen aanpassen.
 
-    ![Bekijk de afgeleid schema](./media/app-insights-analytics-import/data-source-review-schema.png)
+    ![Het afgeleide schema controleren](./media/app-insights-analytics-import/data-source-review-schema.png)
 
- * (Optioneel.) Upload een schemadefinitie. Zie de onderstaande notatie.
+ * (Optioneel.) Upload de schemadefinitie van een. Zie de onderstaande indeling.
 
- * Selecteer een tijdstempel. Alle gegevens in Analytics moet beschikken over een tijdstempelveld. Type moet hebben `datetime`, maar heeft geen naam 'tijdstempel'. Als uw gegevens een kolom met een datum en tijd in de ISO-indeling heeft, kies deze optie als de timestamp-kolom. Kies anders 'als gegevens ontvangen' en het importproces een timestamp-veld wilt toevoegen.
+ * Selecteer een tijdstempel. Alle gegevens in Analytics moet beschikken over een tijdstempelveld. Type moet hebben `datetime`, maar dit hoeft te worden met de naam 'tijdstempel'. Als uw gegevens een kolom met een datum en tijd in de ISO-indeling heeft, kies deze optie als de timestamp-kolom. Kies anders 'als gegevens ontvangen' en het importproces een tijdstempelveld wordt toegevoegd.
 
-5. De gegevensbron maken.
+5. Maak de gegevensbron.
 
 ### <a name="schema-definition-file-format"></a>Bestandsindeling van pakketdefinities schema
 
-In plaats van het schema in de gebruikersinterface bewerkt, kunt u de schemadefinitie laden uit een bestand. De indeling van de definitie schema is als volgt: 
+In plaats van het schema in de gebruikersinterface bewerken, kunt u de schemadefinitie laden uit een bestand. De indeling van de definitie van schema is als volgt: 
 
-Gescheiden indeling 
+Indeling met scheidingstekens 
 ```
 [ 
     {"location": "0", "name": "RequestName", "type": "string"}, 
@@ -116,34 +116,35 @@ JSON-indeling
 ]
 ```
  
-Elke kolom wordt geïdentificeerd door de locatie, de naam en het type. 
+Elke kolom wordt geïdentificeerd door de locatie, de naam en het type.
 
-* Locatie – is voor het bestand met scheidingstekens hiervan de positie van de toegewezen waarde. Voor JSON-indeling is de jpath van de toegewezen sleutel.
+* Locatie: gescheiden bestand deze indeling is de positie van de toegewezen waarde. Voor JSON-indeling is de jpath van de toegewezen sleutel.
 * Naam: de naam van de kolom die wordt weergegeven.
 * Type: het gegevenstype van die kolom.
  
-Als een voorbeeldgegevens gebruikt en bestandsindeling worden gescheiden, moet de schemadefinitie alle kolommen toewijzen en nieuwe kolommen toevoegen aan het einde. 
-
-JSON staat gedeeltelijke toewijzing van de gegevens, dus de schemadefinitie van JSON-indeling heeft geen elke sleutel die is gevonden in een voorbeeldgegevens toewijzen. Deze kolommen die geen deel uitmaken van de voorbeeldgegevens kan ook worden toegewezen. 
+> [!NOTE]
+> Voorbeeldgegevens is gebruikt en de bestandsindeling worden van elkaar gescheiden, moet de schemadefinitie alle kolommen toewijzen en nieuwe kolommen toevoegen aan het einde.
+> 
+> JSON staat gedeeltelijke toewijzing van de gegevens, dus de schemadefinitie met een JSON-indeling heeft geen om toe te wijzen van elke sleutel die is gevonden in de voorbeeldgegevens. Deze kunt kolommen die geen deel uitmaken van de voorbeeldgegevens ook toewijzen. 
 
 ## <a name="import-data"></a>Gegevens importeren
 
-Om gegevens te importeren, uploaden naar Azure storage, een toegangssleutel voor het maken en breng een REST-API-aanroep.
+Voor het importeren van gegevens te uploaden naar Azure storage, een toegangssleutel voor het maken en breng een REST-API-aanroep.
 
 ![Nieuwe gegevensbron toevoegen](./media/app-insights-analytics-import/analytics-upload-process.png)
 
-U kunt het volgende proces handmatig uitvoeren of een geautomatiseerde systeem instellen om dat te doen met regelmatige tussenpozen. U moet als volgt te werk voor elk blok van gegevens die u wilt importeren.
+U kunt de volgende stappen handmatig uitvoeren of instellen van een geautomatiseerd systeem om dat te doen met regelmatige intervallen. U moet als volgt te werk voor elk gegevensblok dat u wilt importeren.
 
-1. De gegevens te uploaden [Azure blob-opslag](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. De gegevens naar uploaden [Azure blob-opslag](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
- * BLOBs kunnen worden elke maximaal 1GB ongecomprimeerde omvang. Grote blobs honderden MB zijn ideaal vanuit het oogpunt van prestaties van.
- * U kunt het comprimeren met Gzip uploadtijd en de latentie voor de gegevens beschikbaar zijn voor de query te verbeteren. Gebruik de `.gz` bestandsnaamextensie.
- * Het is raadzaam een afzonderlijke opslagaccount voor dit doel gebruiken om te voorkomen dat verzoeken van andere services prestaties te vertragen.
- * Tijdens het verzenden van gegevens met hoge frequentie, om de paar seconden het verdient aanbeveling gebruik van meer dan één opslagaccount, voor betere prestaties.
+ * Bobs kunnen bestaan uit een grootte van maximaal 1GB niet gecomprimeerd. Grote blobs van honderden MB zijn ideaal vanuit het oogpunt van prestaties.
+ * U kunt deze gecomprimeerd met Gzip om tijd en latentie voor de gegevens zijn beschikbaar voor query's te verbeteren. Gebruik de `.gz` bestandsnaamextensie.
+ * Het is raadzaam een afzonderlijk opslagaccount voor dit doel gebruiken om te voorkomen dat aanroepen vanuit verschillende services vertraagde prestaties.
+ * Bij het verzenden van gegevens in hoge frequentie, om de paar seconden, het verdient aanbeveling gebruik van meer dan één storage-account, voor betere prestaties.
 
  
-2. [Maak een Shared Access Signature-sleutel voor de blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). De sleutel moet een vervalperiode van één dag hebben en leestoegang te bieden.
-3. Een REST-aanroep op de hoogte van Application Insights die wacht op de gegevens wilt maken.
+2. [Maak een Shared Access Signature-sleutel voor de blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). De sleutel moet een vervalperiode van één dag hebben en leestoegang bieden.
+3. Een REST-aanroep naar een melding van Application Insights die is in afwachting van gegevens maken.
 
  * Eindpunt: `https://dc.services.visualstudio.com/v2/track`
  * HTTP-methode: POST
@@ -170,25 +171,25 @@ U kunt het volgende proces handmatig uitvoeren of een geautomatiseerde systeem i
 
 De tijdelijke aanduidingen zijn:
 
-* `Blob URI with Shared Access Key`: U krijgt deze van de procedure voor het maken van een sleutel. Het is specifiek voor de blob.
-* `Schema ID`: De schema-ID gegenereerd voor uw gedefinieerd schema. De gegevens in deze blob moeten voldoen aan het schema.
-* `DateTime`: De UTC-tijd waarop de aanvraag is verzonden. We accepteren van deze indelingen: ISO8601 (zoals ' 01-01-2016 13:45:01 '); RFC822 (' Wed, 14 december 16 14:57:01 + 0000 '); RFC850 ("woensdag, 14-december-16 14:57:00 UTC"); RFC1123 (' Wed 14 december 2016 14:57:00 + 0000 ').
+* `Blob URI with Shared Access Key`: U krijgt deze van de procedure voor het maken van een sleutel. Dit is specifiek voor de blob.
+* `Schema ID`: De schema-ID die is gegenereerd voor uw schema opgegeven. De gegevens in deze blob moet voldoen aan het schema.
+* `DateTime`: De tijd waarop de aanvraag is verzonden, UTC. We accepteren van deze indelingen: ISO8601 (zoals "01-01-2016 13:45:01"); RFC822 ("WO, 14 december 16 14:57:01 + 0000"); RFC850 ("woensdag, 14-december-16 14:57:00 UTC"); RFC1123 ("WO 14 december 2016 14:57:00 + 0000 ').
 * `Instrumentation key` van uw Application Insights-resource.
 
 De gegevens zijn beschikbaar in Analytics na een paar minuten.
 
 ## <a name="error-responses"></a>Foutberichten
 
-* **400 onjuiste aanvraag**: geeft aan dat de nettolading van de aanvraag ongeldig is. Controleren:
+* **400 Ongeldige aanvraag**: geeft aan dat de nettolading van de aanvraag ongeldig is. Controleren:
  * Juiste instrumentatiesleutel.
- * Geldige tijd-waarde. Deze moet de tijd nu in UTC.
+ * Geldige tijd-waarde. Dit moet de tijd in UTC nu.
  * De JSON van de gebeurtenis voldoet aan het schema.
 * **403-verboden**: de blob die u hebt verzonden, is niet toegankelijk. Zorg ervoor dat de gedeelde toegangssleutel geldig is en niet is verlopen.
 * **404 niet gevonden**:
  * De blob bestaat niet.
  * De bron-id is onjuist.
 
-Meer gedetailleerde informatie is beschikbaar in het antwoordbericht van de fout.
+Meer gedetailleerde informatie vindt u in het antwoordbericht fout.
 
 
 ## <a name="sample-code"></a>Voorbeeldcode
@@ -354,7 +355,7 @@ namespace IngestionClient
 
 ### <a name="ingest-data"></a>Gegevens opnemen
 
-Deze code gebruiken voor elke blob. 
+Gebruik deze code voor elke blob. 
 
 ```csharp
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
@@ -366,5 +367,5 @@ Deze code gebruiken voor elke blob.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Rondleiding van de querytaal Log Analytics](app-insights-analytics-tour.md)
-* Als u Logstash, gebruikt u de [Logstash invoegtoepassing om gegevens te verzenden naar Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
+* [Rondleiding door de Log Analytics-querytaal](app-insights-analytics-tour.md)
+* Als u Logstash, gebruikt u de [Logstash-invoegtoepassing voor het verzenden van gegevens naar Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Services-rol Schema | Microsoft Docs
+title: Azure Cloud Services-Rolschema | Microsoft Docs
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -10,23 +10,23 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 2f5c657bb80ad0788bcc3dd19d962b3f21afa4a8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20f4186426152d2dc9b445981a69881c35587eb6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358996"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005778"
 ---
-# <a name="azure-cloud-services-config-role-schema"></a>Azure Cloud Services-Schema van de rol van de configuratie
+# <a name="azure-cloud-services-config-role-schema"></a>Azure Cloud Services-rol Config-Schema
 
-De `Role` element in het configuratiebestand geeft het aantal rolinstanties implementeren voor elke rol in de service, de waarden van configuratie-instellingen en de vingerafdrukken instellen voor alle certificaten die zijn gekoppeld aan een rol.
+De `Role` element van het configuratiebestand geeft het aantal rolinstanties implementeren voor elke rol in de service, de waarden van alle configuratie-instellingen, en de vingerafdrukken instellen voor alle certificaten die zijn gekoppeld aan een rol.
 
-Zie voor meer informatie over het configuratieschema van Azure Service [Cloudservice (klassiek) configuratieschema](schema-cscfg-file.md). Zie voor meer informatie over het Schema van Azure Service definitie [Cloudservice (klassiek) definitie Schema](schema-csdef-file.md).
+Zie voor meer informatie over het configuratieschema van de Azure-Service, [configuratieschema voor Cloud-Service (klassiek)](schema-cscfg-file.md). Zie voor meer informatie over de definitie van Schema van de Azure-Service, [Definitieschema voor Cloud-Service (klassiek)](schema-csdef-file.md).
 
-##  <a name="Role"></a> Element Role
+##  <a name="Role"></a> Rol-Element
 Het volgende voorbeeld wordt de `Role` -element en de onderliggende elementen.
 
 ```xml 
@@ -55,8 +55,8 @@ De volgende tabel beschrijft de onderliggende elementen van de `Role` element.
 | Element | Beschrijving |
 | ------- | ----------- |
 | Exemplaren | Vereist. Hiermee geeft u het aantal exemplaren moeten worden geïmplementeerd voor de rol. Het aantal exemplaren wordt gedefinieerd door een geheel getal voor de `count` kenmerk.|
-| Instelling   | Optioneel. Hiermee geeft u een naam van de instelling en waarde in een verzameling instellingen voor een rol. Naam van de instelling wordt gedefinieerd door een tekenreeks op voor de `name` -kenmerk en de waarde van de instelling wordt gedefinieerd door een tekenreeks op voor de `value` kenmerk.|
-| Certificaat | Optioneel. Hiermee geeft u de naam, de vingerafdruk en het algoritme van een certificaat dat moet worden gekoppeld aan de rol. Naam van het certificaat wordt gedefinieerd door een tekenreeks op voor de `name` kenmerk. Vingerafdruk van het certificaat wordt gedefinieerd door een reeks hexadecimale cijfers zonder spaties voor de `thumbprint` kenmerk. De hexadecimale cijfers moet worden weergegeven met cijfers en alfanumerieke tekens in hoofdletters. De algoritme van het certificaat wordt gedefinieerd door een tekenreeks op voor de `thumbprintAlgorithm` kenmerk.|
+| Instelling   | Optioneel. Hiermee geeft u een naam van de instelling en waarde in een verzameling instellingen voor een rol. Naam van de instelling wordt gedefinieerd door een tekenreeks op voor de `name` kenmerk en de waarde van de instelling wordt gedefinieerd door een tekenreeks op voor de `value` kenmerk.|
+| Certificaat | Optioneel. Hiermee geeft u de naam, de vingerafdruk en het algoritme van het certificaat van een service die moet worden gekoppeld aan de rol. Naam van het certificaat wordt gedefinieerd door een tekenreeks op voor de `name` kenmerk. Vingerafdruk van het certificaat wordt gedefinieerd door een reeks hexadecimale cijfers die bevat geen spaties bevatten voor de `thumbprint` kenmerk. De hexadecimale cijfers moet worden weergegeven met cijfers en alfanumerieke tekens in hoofdletters. De certificaat-algoritme wordt gedefinieerd door een tekenreeks op voor de `thumbprintAlgorithm` kenmerk.|
 
 ## <a name="see-also"></a>Zie ook
-[Cloud Service (klassiek) configuratieschema](schema-cscfg-file.md)
+[Schema van de cloud Service (klassiek)-configuratie](schema-cscfg-file.md)

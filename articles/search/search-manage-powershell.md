@@ -1,6 +1,6 @@
 ---
-title: Azure Search met behulp van Powershell-scripts beheren | Microsoft Docs
-description: Uw Azure Search-service met de PowerShell-scripts beheren. Maken of bijwerken van een Azure Search-service en Azure Search administratorsleutels beheren
+title: Azure Search beheren met Powershell-scripts | Microsoft Docs
+description: Beheer uw Azure Search-service met behulp van PowerShell-scripts. Maken of bijwerken van een Azure Search-service en Azure Search-beheerder sleutels beheren
 author: HeidiSteen
 manager: cgronlun
 tags: azure-resource-manager
@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181984"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39000987"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Uw Azure Search-service met PowerShell beheren
 > [!div class="op_single_selector"]
@@ -24,18 +24,18 @@ ms.locfileid: "32181984"
 > 
 > 
 
-Dit onderwerp beschrijft de PowerShell-opdrachten uit te voeren veel van de beheertaken voor Azure Search-services. U kunt zien bij het maken van een service voor zoeken, schalen en het beheren van de API-sleutels.
-Deze opdrachten parallel de beheeropties beschikbaar in de [Azure Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement).
+Dit onderwerp beschrijft de PowerShell-opdrachten uit te voeren veel van de beheertaken voor Azure Search-services. We helpen bij het maken van een search-service, schalen en beheren van de API-sleutels.
+Deze opdrachten parallel lopen aan het van beschikbare beheeropties in de [Management REST API van Azure Search](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## <a name="prerequisites"></a>Vereisten
 * U moet Azure PowerShell 1.0 of hoger hebben. Zie voor instructies [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
-* U moet zijn aangemeld met uw Azure-abonnement in PowerShell zoals hieronder wordt beschreven.
+* U moet zijn aangemeld met uw Azure-abonnement in PowerShell, zoals hieronder wordt beschreven.
 
-Eerst moet u aanmelden bij Azure met deze opdracht:
+Eerst moet u aanmelden bij Azure met de volgende opdracht:
 
     Connect-AzureRmAccount
 
-Geef het e-mailadres van uw Azure-account en het bijbehorende wachtwoord in het dialoogvenster voor Microsoft Azure-aanmelding.
+Geef het e-mailadres van uw Azure-account en het bijbehorende wachtwoord in het dialoogvenster voor aanmelding van Microsoft Azure.
 
 U kunt ook [Meld u aan niet-interactief met een service-principal](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
@@ -43,7 +43,7 @@ Als u meerdere Azure-abonnementen hebt, moet u uw Azure-abonnement instellen. Ee
 
     Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
 
-Geef het abonnement door de volgende opdracht uitvoeren. In het volgende voorbeeld wordt de naam van het abonnement is `ContosoSubscription`.
+Als u het abonnement, moet u de volgende opdracht uitvoeren. In het volgende voorbeeld wordt de naam van het abonnement is `ContosoSubscription`.
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
@@ -126,11 +126,11 @@ Geef het abonnement door de volgende opdracht uitvoeren. In het volgende voorbee
     $resource | Remove-AzureRmResource
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat uw service hebt gemaakt, kunt u de volgende stappen uitvoeren: bouwen een [index](search-what-is-an-index.md), [query uitvoeren in een index](search-query-overview.md), en ten slotte maken en beheren van uw eigen-zoektoepassing die gebruikmaakt van Azure Search.
+Nu dat uw service is gemaakt, kunt u de volgende stappen uitvoeren: bouw een [index](search-what-is-an-index.md), [query uitvoeren in een index](search-query-overview.md), en ten slotte maken en beheren van uw eigen-zoektoepassing die gebruikmaakt van Azure Search.
 
-* [Een Azure Search-index maken in de Azure portal](search-create-index-portal.md)
-* [Query uitvoeren op een Azure Search-index met behulp van de Search Explorer in de Azure portal](search-explorer.md)
-* [Stel een indexeerfunctie om gegevens te laden van andere services](search-indexer-overview.md)
+* [Een Azure Search-index maken in Azure portal](search-create-index-portal.md)
+* [Query uitvoeren op een Azure Search-index met behulp van Search explorer in Azure portal](search-explorer.md)
+* [Stel een indexeerfunctie voor het laden van gegevens uit andere services](search-indexer-overview.md)
 * [Azure Search in .NET gebruiken.](search-howto-dotnet-sdk.md)
 * [Analyseer het verkeer van uw Azure Search](search-traffic-analytics.md)
 

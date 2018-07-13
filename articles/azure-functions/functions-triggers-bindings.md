@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887467"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004894"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -32,7 +32,7 @@ Een *trigger* definieert hoe een functie is aangeroepen. Een functie moet exact 
 
 Invoer en uitvoer *bindingen* bieden een declaratieve manier om verbinding maken met gegevens vanuit uw code. Bindingen zijn optioneel en een functie verschillende invoer beschikken en uitvoerbindingen. 
 
-Triggers en bindingen kunnen u voorkomen hardcoderen de details van de services waarmee u werkt. De functie ontvangt gegevens (bijvoorbeeld de inhoud van een wachtrijbericht) in de parameters van de functie. Verzenden van gegevens (bijvoorbeeld om een wachtrijbericht te maken) met behulp van de geretourneerde waarde van de functie een `out` parameter, of een [object collector](functions-reference-csharp.md#writing-multiple-output-values).
+Triggers en bindingen kunnen u voorkomen hardcoderen de details van de services waarmee u werkt. De functie ontvangt gegevens (bijvoorbeeld de inhoud van een wachtrijbericht) in de parameters van de functie. U kunt gegevens (bijvoorbeeld om een wachtrijbericht te maken) verzenden met behulp van de geretourneerde waarde van de functie. In C# en C#-script, andere manieren om gegevens te verzenden zijn `out` parameters en [collector objecten](functions-reference-csharp.md#writing-multiple-output-values).
 
 Bij het ontwikkelen van functies met behulp van Azure portal, triggers en bindingen zijn geconfigureerd in een *function.json* bestand. De portal biedt een gebruikersinterface voor deze configuratie, maar u kunt het bestand bewerken rechtstreeks door te wijzigen in de **geavanceerde editor**.
 
@@ -224,9 +224,11 @@ In de talen waarvoor de geretourneerde waarde, kunt u een Uitvoerbinding binden 
 * In een C#-klassenbibliotheek vormt, het kenmerk van de binding uitvoer van toepassing op de geretourneerde waarde van de methode.
 * In andere talen, stelt u de `name` eigenschap in *function.json* naar `$return`.
 
-Als u meer dan één item schrijven wilt, gebruikt u een [object collector](functions-reference-csharp.md#writing-multiple-output-values) in plaats van de geretourneerde waarde. Als er meerdere uitvoerbindingen, gebruikt u de geretourneerde waarde voor slechts één provider.
+Als er meerdere uitvoerbindingen, gebruikt u de geretourneerde waarde voor slechts één provider.
 
-Zie het voorbeeld taalspecifieke:
+In C# en C#-script, andere manieren om gegevens te verzenden naar een Uitvoerbinding zijn `out` parameters en [collector objecten](functions-reference-csharp.md#writing-multiple-output-values).
+
+Zie het gebruik van de geretourneerde waarde van taalspecifieke-voorbeeld:
 
 * [C#](#c-example)
 * [C# script (.csx)](#c-script-example)

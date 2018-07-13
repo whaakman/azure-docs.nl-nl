@@ -1,6 +1,6 @@
 ---
-title: 'De procedure van wetenschappelijke gegevens Team in actie: met behulp van SQL Data Warehouse | Microsoft Docs'
-description: Geavanceerde analyses proces en de technologie in actie
+title: 'Het Team Data Science Process in actie: met behulp van SQL Data Warehouse | Microsoft Docs'
+description: Geavanceerde analyse-proces en de technologie in actie
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: 12eb182c859617139fce6553496c6aa6e9bcdc98
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 205c62246210373333c1315d5f3a9b3ec8571e59
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839058"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004367"
 ---
-# <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>De procedure van wetenschappelijke gegevens Team in actie: met behulp van SQL Data Warehouse
-In deze zelfstudie wordt beschreven hoe u maken en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar dataset--de [NYC Taxi reizen](http://www.andresmh.com/nyctaxitrips/) gegevensset. Het binaire classificatie model samengesteld voorspelt al dan niet een tip voor een zakenreis is betaald, en modellen voor multiklassen classificatie en regressie worden ook besproken die het distributiepunt voor de tip bedragen betaald voorspellen.
+# <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Het Team Data Science Process in actie: met behulp van SQL Data Warehouse
+In deze zelfstudie, we begeleidt u bij het bouwen en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar beschikbare gegevensset--de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De binaire classificeringsmodel samengesteld voorspelt al dan niet een tip wordt betaald voor een reis, en modellen voor multiklassen classificatie- en regressiemodellen worden ook besproken die het distributiepunt voor de betaalde bedragen tip voorspellen.
 
-De procedure volgt de [Team gegevens wetenschap proces (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) werkstroom. Laten we zien hoe een wetenschappelijke gegevensomgeving kunt instellen hoe de gegevens in SQL DW laden en hoe SQL DW of een laptop IPython gebruiken om te verkennen van de gegevens en de engineer functies model. Vervolgens laten we zien hoe bouwen en implementeren van een model met Azure Machine Learning.
+De procedure volgt de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) werkstroom. Laten we zien over het instellen van een data science-omgeving, hoe u de gegevens laden in SQL DW en hoe SQL DW of een IPython Notebook gebruiken voor het verkennen van de gegevens en engineer functies model. Vervolgens laten we zien hoe u kunt bouwen en implementeren van een model met Azure Machine Learning.
 
-## <a name="dataset"></a>De gegevensset NYC Taxi reizen
-De gegevens van de NYC Taxi reis bestaat uit ongeveer 20GB gecomprimeerde CSV-bestanden (~ 48GB ongecomprimeerde), vastleggen van meer dan 173 miljoen afzonderlijke reizen en de tarieven voor elke reis betaald. Elke record reis omvat de locaties ophalen en inleverbibliotheek en tijden, geanonimiseerde hack (van stuurprogramma) licentienummer en het aantal straten (taxi van unieke id). De gegevens bevat informatie over alle reizen in het jaar 2013 en is beschikbaar in de volgende twee gegevenssets voor elke maand:
+## <a name="dataset"></a>De gegevensset NYC Taxi Trips
+De reisgegevens NYC Taxi bestaat uit ongeveer 20GB gecomprimeerde CSV-bestanden (~ 48GB niet-gecomprimeerd), voor elke reis vastleggen van meer dan 173 miljoen afzonderlijke trips en de tarieven betalen. Elke record van de fietstocht bevat de locaties ophalen en inleverbibliotheek en tijden, geanonimiseerde hack (van het stuurprogramma) licentienummer en het nummer van de straten (taxi van de unieke id). De gegevens bevat informatie over alle gegevens in het jaar 2013 en is beschikbaar in de volgende twee gegevenssets voor elke maand:
 
-1. De **trip_data.csv** bestand reis details, zoals het aantal passagiers, ophalen en dropoff punten reis duur en duur van reis bevat. Hier volgen enkele voorbeeldrecords:
+1. De **trip_data.csv** bestand reis details, zoals het aantal personen, ophalen en dropoff punten duur van de tocht en lengte van de fietstocht bevat. Hier volgen enkele voorbeeldrecords:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -38,7 +38,7 @@ De gegevens van de NYC Taxi reis bestaat uit ongeveer 20GB gecomprimeerde CSV-be
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-2. De **trip_fare.csv** bestand bevat de details van het tarief dat betaald voor elke reis, zoals betalingstype, tarief bedrag, extra kosten en belastingen, tips en tolgelden, en de totale hoeveelheid betaald. Hier volgen enkele voorbeeldrecords:
+2. De **trip_fare.csv** -bestand bevat informatie over het tarief voor elke reis, zoals betalingstype, fare bedrag, toeslag en belastingen, tips en tolwegen, betaald en de totale hoeveelheid betaald. Hier volgen enkele voorbeeldrecords:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -47,17 +47,17 @@ De gegevens van de NYC Taxi reis bestaat uit ongeveer 20GB gecomprimeerde CSV-be
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-De **unieke sleutel** gebruikt om lid reis\_gegevens en reis\_tarief dat bestaat uit de volgende drie velden:
+De **unieke sleutel** gebruikt om lid van de fietstocht\_gegevens en reis\_fare bestaat uit de volgende drie velden:
 
 * straten,
-* inbreken\_licentie en
-* ophalen\_datetime.
+* hack\_licentie en
+* ophalen\_datum/tijd.
 
-## <a name="mltasks"></a>Adres van de drie typen taken voorspelling
-We formuleren drie voorspelling problemen op basis van de *tip\_bedrag* ter illustratie van de drie soorten taken modelleren:
+## <a name="mltasks"></a>Adres van de drie typen taken voor voorspelling
+We bij het formuleren van drie voorspelling problemen op basis van de *tip\_bedrag* ter illustratie van de drie typen van het modelleren van taken:
 
-1. **Binaire classificatie**: te voorspellen of een tip betaald is voor een reis, dat wil zeggen een *tip\_bedrag* die groter is dan $0 een voorbeeld van een positieve is, terwijl een *tip\_bedrag* van $0 is een voorbeeld van een negatief.
-2. **Multiklassen classificatie**: om te voorspellen van het bereik van een tip voor de reis betaald. We delen de *tip\_bedrag* in vijf opslaglocaties of klassen:
+1. **Binaire classificatie**: om te voorspellen of een tip betaald is voor een reis, dat wil zeggen een *tip\_bedrag* die groter is dan $0 een voorbeeld van een positieve is, terwijl een *tip\_bedrag* van $0 is een voorbeeld van een negatief zijn.
+2. **Multiklassen classificatie**: om te voorspellen van het bereik van de tip betaald voor de reis. We delen de *tip\_bedrag* in vijf opslaglocaties of klassen:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -66,32 +66,32 @@ We formuleren drie voorspelling problemen op basis van de *tip\_bedrag* ter illu
         Class 4 : tip_amount > $20
 3. **Regressie taak**: om te voorspellen van de hoeveelheid tip voor een reis betaald.  
 
-## <a name="setup"></a>Instellen van de Azure data wetenschappelijke omgeving voor geavanceerde analyses
-Voer de volgende stappen uit voordat u uw omgeving voor Gegevenswetenschap Azure kunt instellen.
+## <a name="setup"></a>Instellen van de Azure data science-omgeving voor geavanceerde analyses
+Volg deze stappen voor het instellen van uw Azure Data Science-omgeving.
 
 **Uw eigen Azure blob storage-account maken**
 
-* Wanneer u uw eigen Azure-blobopslag inricht, kiest u een geografische locatie voor uw Azure blob storage in of zo dicht mogelijk bij **Zuid-centraal VS**, dit is waar de gegevens van de NYC Taxi worden opgeslagen. De gegevens worden gekopieerd met behulp van AzCopy van de openbare blob storage-container naar een container in uw eigen opslagaccount. Hoe dichter de Azure blob-opslag Zuid-centraal VS, hoe sneller de (stap 4) van deze taak wordt voltooid.
-* Voor het maken van uw eigen Azure storage-account, volg de stappen op [over Azure storage-accounts](../../storage/common/storage-create-storage-account.md). Zorg ervoor dat notities over de waarden voor de volgende opslagaccountreferenties maken als ze later in dit scenario worden vereist.
+* Wanneer u uw eigen Azure-blobopslag inricht, kiest u een geo-locatie voor uw Azure blob-opslag in of zo dicht mogelijk bij **Zuid-centraal VS**, dit is waar de gegevens over taxi's NYC worden opgeslagen. De gegevens worden gekopieerd met behulp van AzCopy in de openbare blob-opslagcontainer naar een container in uw eigen opslagaccount. Hoe dichter de Azure blob-opslag Zuid-centraal VS, hoe sneller de (stap 4) van deze taak wordt voltooid.
+* Voor het maken van uw eigen Azure storage-account, volg de stappen op [over Azure storage-accounts](../../storage/common/storage-create-storage-account.md). Zorg ervoor dat notities maken op basis van de waarden voor de volgende opslagaccountreferenties als ze verderop in dit scenario's vereist.
   
-  * **Naam van het opslagaccount**
-  * **De sleutel van opslagaccount**
+  * **De naam van opslagaccount**
+  * **Opslagaccountsleutel**
   * **Containernaam** (die u wilt dat de gegevens worden opgeslagen in Azure blob storage)
 
 **Inrichten van uw Azure SQL DW-exemplaar.**
-Volg de documentatie op [maken van een SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) voor het inrichten van een exemplaar van SQL Data Warehouse. Zorg ervoor dat u notaties op de volgende SQL Data Warehouse-referenties die worden gebruikt in latere stappen.
+Volg de documentatie op [maken van een SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) voor het inrichten van een exemplaar van SQL Data Warehouse. Zorg ervoor dat u notities maken op de volgende SQL Data Warehouse-referenties die worden gebruikt in latere stappen.
 
-* **Servernaam**: <server Name>. database.windows.net
-* **De naam van de SQLDW (Database)**
+* **De naam van server**: <server Name>. database.windows.net
+* **De naam van de RESOURCEKLASSE (Database)**
 * **Gebruikersnaam**
 * **Wachtwoord**
 
 **Installeer Visual Studio en SQL Server Data Tools.** Zie voor instructies [Visual Studio 2015 installeren en/of SSDT (SQL Server Data Tools) voor SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Verbinding maken met uw Azure SQL DW met Visual Studio.** Voor instructies raadpleegt u de stappen 1 en 2 in [verbinding maken met Azure SQL Data Warehouse met Visual Studio](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Verbinding maken met uw Azure SQL DW met Visual Studio.** Zie voor instructies, de stappen 1 en 2 in [verbinding maken met Azure SQL Data Warehouse met Visual Studio](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 > [!NOTE]
-> De volgende SQL-query worden uitgevoerd op de database die u hebt gemaakt in uw SQL Data Warehouse (in plaats van de query is opgegeven in stap 3 van het onderwerp connect) tot **een hoofdsleutel**.
+> De volgende SQL-query uitvoeren op de database die u hebt gemaakt in uw SQL Data Warehouse (in plaats van de query die is opgegeven in stap 3 van het onderwerp connect) **Maak een hoofdsleutel**.
 > 
 > 
 
@@ -106,10 +106,10 @@ Volg de documentatie op [maken van een SQL Data Warehouse](../../sql-data-wareho
 **Een Azure Machine Learning-werkruimte onder uw Azure-abonnement maken.** Zie voor instructies [maken van een Azure Machine Learning-werkruimte](../studio/create-workspace.md).
 
 ## <a name="getdata"></a>De gegevens in SQL Data Warehouse laden
-Open een Windows PowerShell-opdracht-console. Voer de volgende PowerShell-opdrachten voor het downloaden van het voorbeeld SQL scriptbestanden die we delen met u op GitHub naar een lokale map die u met de parameter opgeeft *- DestDir*. U kunt de waarde van parameter wijzigen *- DestDir* naar een lokale map. Als *- DestDir* niet bestaat, wordt deze gemaakt door het PowerShell-script.
+Open een Windows PowerShell-opdracht-console. Voer de volgende PowerShell script opdrachten voor het downloaden van het voorbeeld van de SQL-bestanden die we delen met u op GitHub naar een lokale map die u met de parameter opgeeft *- DestDir*. U kunt de waarde van parameter wijzigen *- DestDir* naar een lokale map. Als *- DestDir* niet bestaat, wordt deze gemaakt door de PowerShell-script.
 
 > [!NOTE]
-> Mogelijk moet u **als Administrator uitvoeren** bij het uitvoeren van de volgende PowerShell-script als uw *DestDir* directory moet Administrator-bevoegdheden voor het maken of om ernaar te schrijven.
+> U moet mogelijk **als Administrator uitvoeren** bij het uitvoeren van de volgende PowerShell-script als uw *DestDir* directory moet Administrator-bevoegdheden om te maken of om ernaar te schrijven.
 > 
 > 
 
@@ -119,24 +119,24 @@ Open een Windows PowerShell-opdracht-console. Voer de volgende PowerShell-opdrac
     $wc.DownloadFile($source, $ps1_dest)
     .\Download_Scripts_SQLDW_Walkthrough.ps1 –DestDir 'C:\tempSQLDW'
 
-Na voltooiing van uitvoering, de huidige werkmap wijzigingen in *- DestDir*. U moet kunnen scherm wordt weergegeven zoals hieronder:
+De uitvoering is geslaagd, wordt uw huidige werkmap gewijzigd in *- DestDir*. U moet kunnen zijn op het scherm wordt weergegeven zoals hieronder:
 
 ![][19]
 
-In uw *- DestDir*, het volgende PowerShell-script uitvoeren in de beheerdersmodus:
+In uw *- DestDir*, voer het volgende PowerShell-script in de beheerdersmodus:
 
     ./SQLDW_Data_Import.ps1
 
-Wanneer het PowerShell-script wordt uitgevoerd voor de eerste keer, wordt u gevraagd voor het invoeren van de gegevens van uw Azure SQL DW en uw Azure blob storage-account. Wanneer dit PowerShell-script is voltooid wordt voor het eerst uitvoert, de referenties u invoer zijn geschreven in een configuratiebestand SQLDW.conf in de huidige werkmap. De toekomstige uitvoeren van dit bestand PowerShell-script heeft de optie voor het lezen van dat alle parameters van dit configuratiebestand nodig. Als u enkele parameters veranderen moet, kunt u kiezen voor het invoeren van de parameters op het scherm na de prompt dit configuratiebestand verwijderd en de parameterwaarden invoeren als u wordt gevraagd of de parameterwaarden met het bewerken van het bestand SQLDW.conf in uw wijzigen *- DestDir* directory.
+Wanneer het PowerShell-script wordt uitgevoerd voor de eerste keer, wordt u gevraagd voor het invoeren van de informatie uit uw Azure SQL DW en uw Azure blob storage-account. Wanneer dit PowerShell-script is voltooid wordt voor de eerste keer de referenties u invoer zijn geschreven naar een configuratiebestand SQLDW.conf in de huidige werkmap. De toekomstige uitvoering van deze PowerShell-scriptbestand bevat de optie voor het lezen van dat alle benodigde parameters van dit configuratie-item. Als u nodig hebt om bepaalde parameters te wijzigen, kunt u kiezen voor het invoeren van de parameters op het scherm na de prompt door dit configuratie-item verwijderen en de parameterwaarden invoeren als u hierom wordt gevraagd of te wijzigen van de parameterwaarden door het bestand SQLDW.conf in uw tebewerken *- DestDir* directory.
 
 > [!NOTE]
-> Om te voorkomen dat schema naam een conflict veroorzaakt met degenen die al aanwezig zijn in uw Azure SQL DW bij het lezen van parameters rechtstreeks vanuit het bestand SQLDW.conf, wordt een willekeurig getal 3-cijferige toegevoegd aan de schemanaam uit het bestand SQLDW.conf als de naam van het standaard schema voor elke uitvoering. Het PowerShell-script wordt u mogelijk gevraagd voor de naam van een schema: de naam van de gebruiker goeddunken worden opgegeven.
+> Om te voorkomen dat schema naam conflicteert met die al aanwezig zijn in uw Azure SQL DW, rechtstreeks vanuit het bestand SQLDW.conf parameters worden gelezen, wordt een willekeurig getal 3 cijfers toegevoegd aan de naam van het schema van het bestand SQLDW.conf als de naam van het standaard schema voor elke uitvoering. Het PowerShell-script u mogelijk gevraagd om de naam van een schema: de naam van de gebruiker goeddunken worden opgegeven.
 > 
 > 
 
-Dit **PowerShell-script** bestand is voltooid de volgende taken:
+Dit **PowerShell-script** bestand bestaat uit de volgende taken:
 
-* **Downloadt en installeert AzCopy**als AzCopy nog niet is geïnstalleerd
+* **Downloadt en installeert u AzCopy**, als AzCopy niet al is geïnstalleerd
   
         $AzCopy_path = SearchAzCopy
         if ($AzCopy_path -eq $null){
@@ -157,7 +157,7 @@ Dit **PowerShell-script** bestand is voltooid de volgende taken:
                     $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
                     $env_path = $env:Path
                 }
-* **Gegevens worden gekopieerd naar uw persoonlijke blob storage-account** van de openbare blob met AzCopy
+* **Gegevens worden gekopieerd naar uw persoonlijke blob storage-account** vanuit de openbare blob met AzCopy
   
         Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
         $start_time = Get-Date
@@ -167,12 +167,12 @@ Dit **PowerShell-script** bestand is voltooid de volgende taken:
         $total_seconds = [math]::Round($time_span.TotalSeconds,2)
         Write-Host "AzCopy finished copying data. Please check your storage account to verify." -ForegroundColor "Yellow"
         Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
-* **Laden van gegevens met Polybase (door het uitvoeren van LoadDataToSQLDW.sql) naar uw Azure SQL DW** van uw persoonlijke blob storage-account met de volgende opdrachten.
+* **Laden van gegevens met behulp van Polybase (door uit te voeren LoadDataToSQLDW.sql) naar uw Azure SQL DW** vanuit uw persoonlijke blob storage-account met de volgende opdrachten.
   
-  * Een schema maken
+  * Maak een schema
     
           EXEC (''CREATE SCHEMA {schemaname};'');
-  * Een-scoped databasereferentie maken
+  * Een database-scoped referentie maken
     
           CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
           WITH IDENTITY = ''asbkey'' ,
@@ -196,7 +196,7 @@ Dit **PowerShell-script** bestand is voltooid de volgende taken:
               CREDENTIAL = {KeyAlias}
           )
           ;
-  * Maak een externe bestandsindeling voor een csv-bestand. Gegevens zijn niet-gecomprimeerde en velden worden gescheiden met het sluisteken.
+  * Maak een externe bestandsindeling voor een csv-bestand. Gegevens zijn niet-gecomprimeerde en velden worden gescheiden door het pipe-teken.
     
           CREATE EXTERNAL FILE FORMAT {csv_file_format}
           WITH
@@ -209,7 +209,7 @@ Dit **PowerShell-script** bestand is voltooid de volgende taken:
               )
           )
           ;
-  * Externe tarief en tabellen voor NYC taxi gegevensset reis maken in Azure blob-opslag.
+  * Externe fare en reis tabellen voor NYC taxi gegevensset maken in Azure blob-opslag.
     
           CREATE EXTERNAL TABLE {external_nyctaxi_fare}
           (
@@ -282,7 +282,7 @@ Dit **PowerShell-script** bestand is voltooid de volgende taken:
             FROM   {external_nyctaxi_trip}
             ;
 
-    - Een tabel met voorbeeld (NYCTaxi_Sample) maken en gegevens voor het invoegen van het selecteren van de SQL-query's op de tabellen reis en tarief. (Een aantal stappen van dit scenario moet deze voorbeeldtabel gebruikt.)
+    - Een tabel met voorbeeld (NYCTaxi_Sample) maken en gegevens invoegen op het SQL-query's op de reis- en fare tabellen selecteren. (Sommige stappen van dit scenario moet deze voorbeeldtabel te gebruiken.)
 
             CREATE TABLE {schemaname}.{nyctaxi_sample}
             WITH
@@ -314,52 +314,52 @@ Dit **PowerShell-script** bestand is voltooid de volgende taken:
 Laadtijden van invloed op de geografische locatie van uw storage-accounts.
 
 > [!NOTE]
-> Afhankelijk van de geografische locatie van uw persoonlijke blob storage-account, het kopiëren van gegevens uit een openbare blob naar uw persoonlijke opslagaccount kan duren ongeveer 15 minuten of zelfs nog langer, en het proces van het laden van gegevens uit uw storage-account aan uw Azure SQL DW kan duurt ongeveer 20 minuten of langer.  
+> Afhankelijk van de geografische locatie van uw persoonlijke blob storage-account, het proces van het kopiëren van gegevens uit een openbare blob naar uw persoonlijke opslagaccount ongeveer 15 minuten kan duren of zelfs nog langer, en het proces van het laden van gegevens uit uw storage-account naar uw Azure SQL DW kan duurt ongeveer 20 minuten of langer.  
 > 
 > 
 
-U moet beslissen welke komen als er dubbele bron en doel-bestanden.
+U moet bepalen welke doen als er dubbele bron en doel-bestanden.
 
 > [!NOTE]
-> Als de CSV-bestanden worden gekopieerd van de openbare blob-opslag naar uw persoonlijke blob storage-account bestaat al in uw persoonlijke blob storage-account, AzCopy u wordt gevraagd of u wilt overschrijven. Als u niet overschrijven wilt, invoer **n** wanneer u wordt gevraagd. Als u wilt overschrijven **alle** , invoer **een** wanneer u wordt gevraagd. U kunt ook invoer **y** afzonderlijk .csv-bestanden overschrijven.
+> Als de CSV-bestanden worden gekopieerd van de openbare blob-opslag naar uw persoonlijke blob storage-account bestaat al in uw persoonlijke blob storage-account, AzCopy u wordt gevraagd of u wilt overschrijven. Als u niet overschrijven wilt, invoer **n** wanneer hierom wordt gevraagd. Als u wilt overschrijven **alle** hiervan, invoer **een** wanneer hierom wordt gevraagd. U kunt ook de invoer **y** CSV-bestanden afzonderlijk te overschrijven.
 > 
 > 
 
 ![#21 tekenen][21]
 
-U kunt uw eigen gegevens. Als uw gegevens in uw on-premises machine in uw toepassing praktijk is, kunt u AzCopy on-premises gegevens uploaden naar uw persoonlijke Azure-blobopslag. U hoeft alleen te wijzigen de **bron** locatie, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, in de AzCopy-opdracht van het PowerShell-scriptbestand naar een lokale map met uw gegevens.
+U kunt uw eigen gegevens. Als uw gegevens zich in uw on-premises computer in uw toepassing echte leven, kunt u nog steeds AzCopy on-premises gegevens uploaden naar uw persoonlijke Azure blob-opslag gebruiken. U hoeft alleen te wijzigen de **bron** locatie, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, in de AzCopy-opdracht van het PowerShell-script-bestand naar de lokale map waarin uw gegevens bevat.
 
 > [!TIP]
-> Als uw gegevens in uw toepassing praktijk al in uw persoonlijke Azure-blobopslag is, kunt u het overslaan van AzCopy in het PowerShell-script en de gegevens rechtstreeks te uploaden naar Azure SQL DW. Hiervoor moet de aanvullende bewerkingen van het script aan te passen deze naar de indeling van uw gegevens.
+> Als uw gegevens zich al in uw persoonlijke Azure-blobopslag in uw toepassing echte leven, kunt u het overslaan van AzCopy in het PowerShell-script en de gegevens rechtstreeks te uploaden naar Azure SQL DW. Hiervoor moet aanvullende bewerkingen van het script voor het aanpassen aan de indeling van uw gegevens.
 > 
 > 
 
-Deze Powershell-script ook wordt in de Azure SQL DW-informatie in de gegevensbestanden van de exploratie-voorbeeld SQLDW_Explorations.sql SQLDW_Explorations.ipynb en SQLDW_Explorations_Scripts.py zodat deze drie bestanden gereed om te worden uitgevoerd zijn uit onmiddellijk na het PowerShell-script is voltooid.
+Dit Powershell-script ook de gegevens in Azure SQL DW sluit aan bij Microsofts de gegevensbestanden voor verkenning voorbeeld SQLDW_Explorations.sql SQLDW_Explorations.ipynb en SQLDW_Explorations_Scripts.py zodat deze drie bestanden klaar om te worden geprobeerd zijn om direct na het PowerShell-script is voltooid.
 
-Na een geslaagde uitvoering, ziet u scherm, zoals hieronder:
+Een uitvoering is geslaagd, ziet u scherm zoals hieronder:
 
 ![][20]
 
-## <a name="dbexplore"></a>Gegevensverkenning en functie-engineering in Azure SQL Data Warehouse
-In deze sectie we gegevens te verkennen en functie generatie uitvoeren door met het SQL-query's uitvoeren in Azure SQL DW direct met **Visual Studio Data Tools**. Alle SQL-query's gebruikt in deze sectie vindt u in het voorbeeld van een script met de naam *SQLDW_Explorations.sql*. Dit bestand is al gedownload naar uw lokale directory door het PowerShell-script. U kunt ook ophalen via [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Maar het bestand in GitHub beschikt niet over de Azure SQL DW-informatie die is aangesloten.
+## <a name="dbexplore"></a>Gegevens verkennen en feature-engineering in Azure SQL Data Warehouse
+In deze sectie we gegevens verkennen en functie genereren uitvoeren door met het SQL-query's uitvoeren in Azure SQL DW rechtstreeks met **gegevens met Visual Studio Tools**. Alle SQL-query's die worden gebruikt in deze sectie vindt u in het voorbeeld van een script met de naam *SQLDW_Explorations.sql*. Dit bestand is al gedownload naar uw lokale directory door de PowerShell-script. U kunt ook ophalen via [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Maar het bestand in GitHub heeft niet de Azure SQL DW-informatie die is aangesloten.
 
-Verbinding maken met uw Azure SQL DW met Visual Studio met SQL DW-aanmeldingsnaam en wachtwoord en opent u de **SQL Object Explorer** om te bevestigen dat de database en tabellen zijn geïmporteerd. Ophalen van de *SQLDW_Explorations.sql* bestand.
+Verbinding maken met uw Azure SQL DW met Visual Studio met de SQL DW-aanmeldingsnaam en wachtwoord en opent u de **SQL-Objectverkenner** om te bevestigen van de database en tabellen zijn geïmporteerd. Ophalen van de *SQLDW_Explorations.sql* bestand.
 
 > [!NOTE]
-> U kunt een Parallel Data Warehouse (PDW) query-editor te openen met de **nieuwe Query** opdracht terwijl uw PDW is geselecteerd de **SQL Object Explorer**. De standaard SQL-query-editor wordt niet ondersteund door PDW.
+> Gebruiken voor het openen van een query-editor Parallel Data Warehouse (PDW), de **nieuwe Query** opdracht terwijl uw PDW is geselecteerd de **SQL-Objectverkenner**. De standaard SQL query-editor wordt niet ondersteund door PDW.
 > 
 > 
 
-Hier vindt u het type gegevens te verkennen en functie generatie uitgevoerd in deze sectie:
+Hier vindt u het type gegevens verkennen en functie generation-taken worden uitgevoerd in deze sectie:
 
-* Verken de gegevens distributies van enkele velden in verschillende tijdvensters.
-* Onderzoek de kwaliteit van de gegevens van de breedtegraad -velden.
+* Verken gegevens distributies van enkele velden in verschillende tijdvensters.
+* Onderzoek de kwaliteit van de gegevens van de velden breedtegraad en lengtegraad.
 * Genereren van binaire en multiklassen classificatielabels op basis van de **tip\_bedrag**.
-* Genereren van functies en reis afstanden compute/vergelijken.
-* Voeg de twee tabellen en uitpakken van een steekproef die worden gebruikt voor het bouwen van modellen.
+* Functies genereren en reis afstanden compute/vergelijken.
+* Voeg de twee tabellen en ophalen van een steekproef die worden gebruikt om modellen te bouwen.
 
-### <a name="data-import-verification"></a>Gegevens importeren verificatie
-Deze query's bieden een snelle controle van het aantal rijen en kolommen in de tabellen ingevuld met oudere versies van Polybase parallelle bulksgewijs importeert,
+### <a name="data-import-verification"></a>Controle van de gegevens importeren
+Deze query's bieden een snelle controle van het aantal rijen en kolommen in de tabellen ingevuld eerder met Polybase van parallelle bulksgewijs importeren,
 
     -- Report number of rows in table <nyctaxi_trip> without table scan
     SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
@@ -367,10 +367,10 @@ Deze query's bieden een snelle controle van het aantal rijen en kolommen in de t
     -- Report number of columns in table <nyctaxi_trip>
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-**Uitvoer:** krijgt u 173,179,759 rijen en 14 kolommen.
+**De uitvoer:** krijgt u 173,179,759 rijen en 14 kolommen.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>Exploratie: Reis distributie door straten
-Deze voorbeeldquery identificeert de medallions (taxi getallen) die meer dan 100 reizen voltooid binnen een opgegeven periode. De query zou gebruikmaken van de gepartitioneerde tabel omdat deze zijn afhankelijk van het partitieschema van **ophalen\_datetime**. Opvragen van de volledige gegevensset maakt ook gebruik van de gepartitioneerde tabel en/of index van de scan.
+### <a name="exploration-trip-distribution-by-medallion"></a>Verkennen: Verdeling reis straten
+In dit voorbeeld van een query identificeert de medallions (nummers over taxi's) die meer dan 100 trips voltooid binnen een opgegeven periode. De query veel voordeel hebben van de toegang tot de gepartitioneerde tabel nadat deze zijn afhankelijk van het partitieschema van **ophalen\_datum-/**. Uitvoeren van query's de volledige gegevensset maakt ook gebruik van de gepartitioneerde tabel en/of index-scan.
 
     SELECT medallion, COUNT(*)
     FROM <schemaname>.<nyctaxi_fare>
@@ -378,10 +378,10 @@ Deze voorbeeldquery identificeert de medallions (taxi getallen) die meer dan 100
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-**Uitvoer:** de query een tabel met rijen geven de 13,369 medallions (taxi's) en het aantal reis voltooid door ze in 2013 moet retourneren. De laatste kolom bevat het aantal reizen voltooid.
+**De uitvoer:** de query moet retourneren een tabel met rijen op te geven de 13,369 medallions (taxi's) en het aantal reis door ze in 2013 voltooid. De laatste kolom bevat de telling van het aantal trips voltooid.
 
-### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploratie: Reis distributie door straten en hack_license
-In dit voorbeeld identificeert de medallions (taxi getallen) en hack_license getallen (stuurprogramma's) die voltooid zijn meer dan 100 reizen binnen een opgegeven periode.
+### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Verkennen: Reis distributie per straten en hack_license
+In dit voorbeeld identificeert de medallions (taxi getallen) en hack_license getallen (stuurprogramma's) die voltooid van meer dan 100 trips binnen een opgegeven periode.
 
     SELECT medallion, hack_license, COUNT(*)
     FROM <schemaname>.<nyctaxi_fare>
@@ -389,10 +389,10 @@ In dit voorbeeld identificeert de medallions (taxi getallen) en hack_license get
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-**Uitvoer:** de query moet een tabel geretourneerd met 13,369 rijen geven de 13,369 auto/stuurprogramma-id's die meer voltooid dat 100 in 2013 reizen. De laatste kolom bevat het aantal reizen voltooid.
+**De uitvoer:** de query moet een tabel geretourneerd met 13,369 rijen op te geven de 13,369 auto/stuurprogramma-id's die meer hebt voltooid die 100 in 2013 foutdrempelwaarde. De laatste kolom bevat de telling van het aantal trips voltooid.
 
-### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Gegevens beoordeling: Controleer of records met onjuiste lengtegraad en/of breedtegraad
-In dit voorbeeld onderzoekt als een van de velden lengtegraad en/of breedtegraad een ongeldige waarde bevatten (radiaal graden moet tussen-90 en 90), of (0, 0) coördinaten.
+### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Evaluatie van kwaliteit: Controleer of records met onjuiste lengtegraad en/of breedtegraad
+In dit voorbeeld onderzoekt het probleem als een van de velden breedtegraad en/of breedtegraad een ongeldige waarde bevatten (radiaal graden moet tussen-90 en 90), of (0, 0) coördinaten.
 
     SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
     WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
@@ -403,10 +403,10 @@ In dit voorbeeld onderzoekt als een van de velden lengtegraad en/of breedtegraad
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-**Uitvoer:** de query retourneert 837,467 reizen die ongeldige lengtegraad en/of breedtegraad velden hebben.
+**De uitvoer:** de query retourneert 837,467 trips die ongeldige lengtegraad en/of breedtegraad bevatten.
 
-### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploratie: Punt versus niet Gekantelde reizen distributie
-Dit voorbeeld wordt het aantal reizen zijn vergeleken met het nummer van de punt wanneer geen punt zijn in een opgegeven periode (of in de volledige gegevensset als die betrekking hebben op het volledige jaar als u deze hier is ingesteld). Deze verdeling weerspiegelt de distributie van de binaire label moet later worden gebruikt voor binaire classificatie modelleren.
+### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Verkennen: Punt versus niet Gekantelde trips distributie
+In dit voorbeeld wordt gezocht naar het nummer van de gegevens die zijn vergeleken met het nummer van de punt die niet zijn punt in een opgegeven periode (of in de volledige gegevensset als die betrekking hebben op het gehele jaar als u deze hier is ingesteld). Deze verdeling weerspiegelt de binaire labeldistributie moet later worden gebruikt voor binaire classificatie-modellen.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
       SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -414,10 +414,10 @@ Dit voorbeeld wordt het aantal reizen zijn vergeleken met het nummer van de punt
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-**Uitvoer:** retourneert de query moet de volgende frequenties van tip voor het jaar 2013: 90,447,622 punt en 82,264,709 niet punt.
+**De uitvoer:** de query moet de volgende tip-frequenties voor het jaar 2013: 90,447,622 punt en 82,264,709 retourneren geen punt.
 
-### <a name="exploration-tip-classrange-distribution"></a>Exploratie: Verdeling Tip klasse/bereik
-In dit voorbeeld berekent de verdeling van tip bereiken in een bepaalde periode (of in de volledige gegevensset als die betrekking hebben op het volledige jaar). Dit is de distributie van de label-klassen die later wordt gebruikt voor multiklassen classificatie modelleren.
+### <a name="exploration-tip-classrange-distribution"></a>Verkennen: Verdeling van klasse/bereik voor Tip
+In dit voorbeeld berekent de verdeling van de tip bereiken in een bepaalde periode (of in de volledige gegevensset als die betrekking hebben op het gehele jaar). Dit is de distributie van de label-klassen die later worden gebruikt voor multiklassen classificatie modelleren.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
         SELECT CASE
@@ -431,7 +431,7 @@ In dit voorbeeld berekent de verdeling van tip bereiken in een bepaalde periode 
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-**Uitvoer:**
+**De uitvoer:**
 
 | tip_class | tip_freq |
 | --- | --- |
@@ -441,8 +441,8 @@ In dit voorbeeld berekent de verdeling van tip bereiken in een bepaalde periode 
 | 0 |82264625 |
 | 4 |85765 |
 
-### <a name="exploration-compute-and-compare-trip-distance"></a>Exploratie: Berekenen en reis afstand vergelijken
-In dit voorbeeld wordt de lengtegraad ophalen en inleverbibliotheek en breedtegraad naar SQL Geografie verwijst, berekent de reis afstand met behulp van SQL Geografie punten verschil en retourneert een steekproef van de resultaten voor vergelijking. In het voorbeeld de resultaten beperkt tot geldig coördinaten alleen met behulp van de kwaliteit assessment gegevensquery eerder besproken.
+### <a name="exploration-compute-and-compare-trip-distance"></a>Verkennen: Berekenen en vergelijken van de fietstocht afstand
+In dit voorbeeld zet de ophalen en inleverbibliotheek lengtegraad en breedtegraad in SQL-geo verwijst, de reis afstand met behulp van SQL Geografie punten verschil berekent en retourneert een steekproef van de resultaten voor vergelijking. Het voorbeeld de resultaten beperkt tot geldig coördinaten alleen met behulp van de kwaliteit evaluatie van de query die eerder besproken.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
     SET ANSI_NULLS ON
@@ -486,10 +486,10 @@ In dit voorbeeld wordt de lengtegraad ophalen en inleverbibliotheek en breedtegr
     AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-### <a name="feature-engineering-using-sql-functions"></a>Functie-engineering met behulp van SQL-functies
-SQL-functies kunnen soms een efficiënte optie voor functie-engineering zijn. In dit overzicht hebben we een SQL-functie voor het berekenen van de directe afstand tussen de locaties ophalen en dropoff gedefinieerd. U kunt de volgende SQL-scripts uitvoeren in **Visual Studio Data Tools**.
+### <a name="feature-engineering-using-sql-functions"></a>Feature-engineering met behulp van SQL-functies
+SQL-functies kunnen soms een efficiënte optie voor feature-engineering zijn. In dit scenario hebben we een SQL-functie voor het berekenen van de directe afstand tussen de locaties ophalen en dropoff gedefinieerd. U kunt de volgende SQL-scripts uitvoeren in **gegevens met Visual Studio Tools**.
 
-Hier volgt het SQL-script waarmee wordt gedefinieerd met de functie distance.
+Dit is de SQL-script dat de afstand-functie bepaalt.
 
     SET ANSI_NULLS ON
     GO
@@ -524,7 +524,7 @@ Hier volgt het SQL-script waarmee wordt gedefinieerd met de functie distance.
     END
     GO
 
-Hier volgt een voorbeeld van de functie voor het genereren van functies in uw SQL-query:
+Hier volgt een voorbeeld voor het aanroepen van deze functie voor het genereren van functies in uw SQL-query:
 
     -- Sample query to call the function to create features
     SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
@@ -535,7 +535,7 @@ Hier volgt een voorbeeld van de functie voor het genereren van functies in uw SQ
     AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-**Uitvoer:** deze query wordt een tabel (met 2,803,538 rijen) gegenereerd met ophalen en dropoff Latitude en lengten en de bijbehorende directe afstanden in mijl. Hier volgen de resultaten voor de eerste 3 rijen:
+**De uitvoer:** deze query wordt een tabel (met 2,803,538 rijen) gegenereerd met ophalen en dropoff Latitude en lengten en de bijbehorende directe afstanden in mijl. Hier volgen de resultaten voor de eerste 3 rijen:
 
 |  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
@@ -544,7 +544,7 @@ Hier volgt een voorbeeld van de functie voor het genereren van functies in uw SQ
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Gegevens voorbereiden voor het model bouwen
-De volgende query joins de **nyctaxi\_reis** en **nyctaxi\_tarief** tabellen, genereert een label binaire classificatie **punt**, een meerdere klasse classificatie label **tip\_klasse**, en een voorbeeld van een geëxtraheerd uit de volledige gegevensset lid. De steekproeven wordt uitgevoerd door bij het ophalen van een subset van de reizen op basis van tijd ophalen.  Deze query kan worden gekopieerd en geplakt rechtstreeks in de [Azure Machine Learning Studio](https://studio.azureml.net) [importgegevens] [ import-data] -module voor directe gegevensopname van het SQL-database-exemplaar in Azure. De query worden records met onjuiste uitgesloten (0, 0) coördinaten.
+De volgende query wordt de **nyctaxi\_reis** en **nyctaxi\_fare** tabellen, genereert u een label binaire classificatie **punt**, een meerdere klasse-classificatielabel **tip\_klasse**, en een voorbeeld wordt geëxtraheerd uit de volledige gegevensset voor een domein. De meting wordt uitgevoerd door bij het ophalen van een subset van de gegevens op basis van tijd ophalen.  Deze query kan worden gekopieerd en geplakt rechtstreeks in de [Azure Machine Learning Studio](https://studio.azureml.net) [importgegevens] [ import-data] -module voor opname van de SQL database-instantie in directe gegevens mogelijk Azure. De query niet van toepassing op records met onjuiste (0, 0) coördinaten.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -561,32 +561,32 @@ De volgende query joins de **nyctaxi\_reis** en **nyctaxi\_tarief** tabellen, ge
     AND   t.pickup_datetime = f.pickup_datetime
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
-Wanneer u klaar om door te gaan naar Azure Machine Learning bent, mag u ofwel:  
+Wanneer u klaar om door te gaan met Azure Machine Learning bent, kunt u een van:  
 
-1. Opslaan van de laatste SQL-query voor het uitpakken en de voorbeeldgegevens en kopiëren en plakken van de query rechtstreeks in een [importgegevens] [ import-data] -module in Azure Machine Learning, of
-2. Behouden van de steekproef en engineering-gegevens die u wilt gebruiken voor model bouwen in een nieuwe SQL DW-tabel en het gebruik van de nieuwe tabel in de [importgegevens] [ import-data] -module in Azure Machine Learning. Het PowerShell-script in een eerdere stap heeft dit voor u gedaan. U kunt lezen rechtstreeks uit deze tabel in de module gegevens importeren.
+1. Sla de laatste SQL-query om te halen en de voorbeeldgegevens en kopiëren en plakken van de query rechtstreeks in een [importgegevens] [ import-data] module in Azure Machine Learning, of
+2. De sample en dat gegevens die u van plan bent te gebruiken voor het bouwen van in een nieuwe tabel met SQL DW-model en gebruik de nieuwe tabel in de [importgegevens] [ import-data] module in Azure Machine Learning. Het PowerShell-script in de vorige stap heeft dit voor u uitgevoerd. U kunt lezen rechtstreeks uit deze tabel in de module gegevens importeren.
 
-## <a name="ipnb"></a>Gegevensverkenning en functie-engineering in IPython notebook
-In deze sectie wordt uitgevoerd, er gegevensverkenning en functie genereren met behulp van beide Python en SQL-query's op de SQL DW eerder hebt gemaakt. Een voorbeeld IPython notebook met de naam **SQLDW_Explorations.ipynb** en een scriptbestand Python **SQLDW_Explorations_Scripts.py** naar uw lokale directory zijn gedownload. Ze zijn ook beschikbaar is op [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Deze twee bestanden zijn identiek in Python-scripts. Het Python-scriptbestand wordt geleverd aan u, als er geen een IPython laptop-server. Deze twee bestanden zijn ontworpen onder Python steekproef **Python 2.7**.
+## <a name="ipnb"></a>Gegevens verkennen en feature-engineering in IPython notebook
+In deze sectie gaat uitvoeren en gegevens verkennen en functie te genereren met behulp van zowel Python en SQL-query's op basis van het SQL DW eerder hebt gemaakt. Een voorbeeld IPython notebook met de naam **SQLDW_Explorations.ipynb** en een Python-scriptbestand **SQLDW_Explorations_Scripts.py** zijn gedownload naar uw lokale map. Ze zijn ook beschikbaar op [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Deze twee bestanden zijn identiek in Python-scripts. Het Python-script-bestand wordt geleverd aan u in het geval u geen IPython Notebook-server. Voorbeeld van deze twee Python-bestanden zijn ontworpen onder **Python 2.7**.
 
-De benodigde gegevens aan Azure SQL DW in de steekproef IPython Notebook en het scriptbestand Python gedownload naar uw lokale computer is aangesloten door het PowerShell-script eerder. Ze zijn uitvoerbare zonder dat aanpassingen.
+De benodigde gegevens aan Azure SQL DW in het voorbeeld IPython Notebook en het Python-script-bestand gedownload naar uw lokale computer is aangesloten door het PowerShell-script eerder. Ze zijn uitvoerbare zonder enige wijziging.
 
-Als u al een AzureML-werkruimte hebt ingesteld, kunt u rechtstreeks de steekproef IPython Notebook uploaden naar de AzureML IPython laptop-service en start het uitvoert. Hier volgen de stappen voor het uploaden naar AzureML IPython laptop-service:
+Als u al een AzureML-werkruimte hebt ingesteld, kunt u rechtstreeks in het voorbeeld IPython Notebook uploaden naar de AzureML IPython Notebook-service en start waarop deze wordt uitgevoerd. Hier volgen de stappen voor het uploaden naar AzureML IPython Notebook-service:
 
-1. Aanmelden bij uw AzureML-werkruimte, klikt u boven 'Studio' en 'NOTITIEBLOKKEN' aan de linkerkant van de webpagina op.
+1. Meld u aan bij uw AzureML-werkruimte, klikt u op 'Studio' aan de bovenkant en klikt u op 'NOTITIEBLOKKEN' aan de linkerkant van de webpagina wordt weergegeven.
    
     ![#22 tekenen][22]
-2. Klik op 'Nieuw' op de links benedenhoek van de webpagina en selecteer ' Python 2". Vervolgens, Geef een naam op voor de notebook en klik op het vinkje om de nieuwe, lege IPython-Notebook maken.
+2. Klik op 'Nieuw' in de hoek linksonder van de webpagina wordt weergegeven, en selecteer ' Python 2'. Klik, Geef een naam op voor de notebook en klik op het vinkje voor het maken van de nieuwe, lege IPython Notebook.
    
     ![#23 tekenen][23]
-3. Klik op het symbool 'Jupyter' in de bovenste linkerhoek van het nieuwe IPython laptop.
+3. Klik op het symbool 'Jupyter' in de bovenste linkerhoek van het nieuwe IPython Notebook.
    
     ![#24 tekenen][24]
-4. Slepen en neerzetten van de steekproef IPython Notebook naar de **structuur** pagina van uw service van AzureML IPython Notebook en klik op **uploaden**. Het voorbeeld IPython Notebook wordt vervolgens geüpload naar de service voor met AzureML IPython Notebook.
+4. Slepen en neerzetten van het voorbeeld IPython Notebook op de **structuur** pagina van uw AzureML IPython Notebook-service, en klik op **uploaden**. Vervolgens wordt het voorbeeld IPython Notebook worden geüpload naar de AzureML IPython Notebook-service.
    
     ![#25 tekenen][25]
 
-Om te kunnen uitvoeren van de steekproef script IPython laptop of de Python-bestand, de volgende Python pakketten zijn vereist. Als u de service voor met AzureML IPython laptop gebruikt, zijn deze pakketten vooraf worden geïnstalleerd.
+Om uit te voeren van het voorbeeld IPython Notebook of het Python-scriptbestand, de volgende Python pakketten zijn vereist. Als u van de AzureML IPython Notebook-service gebruikmaakt, zijn deze pakketten vooraf geïnstalleerd.
 
     - pandas
     - numpy
@@ -594,18 +594,18 @@ Om te kunnen uitvoeren van de steekproef script IPython laptop of de Python-best
     - pyodbc
     - PyTables
 
-De aanbevolen volgorde wanneer geavanceerde analytische oplossingen bouwen op AzureML met grote hoeveelheden gegevens is het volgende:
+De aanbevolen volgorde bij het bouwen van geavanceerde analytische oplossingen in AzureML met grote hoeveelheden gegevens is het volgende:
 
-* Gelezen in een kort voorbeeld van de gegevens in een kader gegevens in het geheugen.
-* Sommige visualisaties en explorations met behulp van de steekproefgegevens uitvoeren.
-* Experimenteer met de functie-engineering met behulp van de steekproefgegevens.
-* Voor grotere gegevensverkenning, gegevensmanipulatie en functie-engineering, Python uitgeven rechtstreeks met de SQL DW SQL-query's te gebruiken.
+* Lees in een voorbeeld van de gegevens in het kader van een in-memory-gegevens.
+* Sommige visualisaties en explorations met behulp van de samplinggegevens uitvoeren.
+* Experimenteer met feature-engineering met behulp van de samplinggegevens.
+* Voor grotere gegevensverkenning, gegevens manipuleren en feature-engineering, Python te gebruiken om uit te geven van de SQL-query's rechtstreeks op het SQL DW.
 * Bepaal de grootte van de steekproef geschikt is voor het bouwen van Azure Machine Learning-model.
 
-De volgende elementen zijn een paar gegevensverkenning, gegevensvisualisatie en voorbeelden engineering-functie. Meer gegevens explorations vindt u in het voorbeeld IPython Notebook en het voorbeeldbestand Python-script.
+De volgende elementen zijn een paar gegevensverkenning, gegevensvisualisatie en functie-engineering-voorbeelden. Meer gegevens explorations vindt u in het voorbeeld IPython Notebook en het voorbeeldbestand van de Python-script.
 
 ### <a name="initialize-database-credentials"></a>Databasereferenties initialiseren
-Initialiseren van de verbindingsinstellingen voor database in de volgende variabelen:
+Initialiseren van de instellingen van uw database-verbinding in de volgende variabelen:
 
     SERVER_NAME=<server name>
     DATABASE_NAME=<database name>
@@ -613,8 +613,8 @@ Initialiseren van de verbindingsinstellingen voor database in de volgende variab
     PASSWORD=<password>
     DB_DRIVER = <database driver>
 
-### <a name="create-database-connection"></a>Databaseverbinding maken
-Hier volgt de verbindingsreeks die de verbinding met de database worden gemaakt.
+### <a name="create-database-connection"></a>Maak verbinding met database
+Hier volgt de verbindingsreeks die wordt gemaakt van de verbinding met de database.
 
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
@@ -655,7 +655,7 @@ Hier volgt de verbindingsreeks die de verbinding met de database worden gemaakt.
 * Totale aantal rijen 173179759 =  
 * Totale aantal kolommen = 11
 
-### <a name="read-in-a-small-data-sample-from-the-sql-data-warehouse-database"></a>Lees in een steekproef kleine hoeveelheden gegevens uit de SQL Data Warehouse-Database
+### <a name="read-in-a-small-data-sample-from-the-sql-data-warehouse-database"></a>Lees in een kleine steekproef van de SQL Data Warehouse-Database
     t0 = time.time()
 
     query = '''
@@ -675,23 +675,23 @@ Hier volgt de verbindingsreeks die de verbinding met de database worden gemaakt.
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Tijd voor het lezen van dat de voorbeeldtabel is 14.096495 seconden.  
+Tijd om te lezen van dat de tabel is 14.096495 seconden.  
 Aantal rijen en kolommen opgehaald = (1000, 21).
 
-### <a name="descriptive-statistics"></a>Beschrijvende statistiek
-U bent nu klaar om te verkennen de steekproefgegevens. We beginnen met het kijken sommige beschrijvende statistieken voor de **reis\_afstand** (of andere velden die u kiest om op te geven).
+### <a name="descriptive-statistics"></a>Beschrijvende statistieken
+U bent nu klaar om de sample gegevens te verkennen. We beginnen met kijken naar enkele beschrijvende statistieken voor de **reis\_afstand** (of andere velden die u kiest om op te geven).
 
     df1['trip_distance'].describe()
 
-### <a name="visualization-box-plot-example"></a>Visualisatie: Voorbeeld van grafiek
-Vervolgens kijken we de BoxPlot voor de afstand reis de quantiles visualiseren.
+### <a name="visualization-box-plot-example"></a>Visualisatie: Voorbeeld van plot
+Vervolgens kijken we de BoxPlot voor de reis-afstand tot de quantiles visualiseren.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Tekenen van #1][1]
 
-### <a name="visualization-distribution-plot-example"></a>Visualisatie: Distributie tekent voorbeeld
-Waarnemingspunten die de distributie en een histogram voor de steekproef reis afstanden visualiseren.
+### <a name="visualization-distribution-plot-example"></a>Visualisatie: Voorbeeld van de distributie tekengebied
+Plots die de distributie en een histogram voor de afstand sample reis visualiseren.
 
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
@@ -701,15 +701,15 @@ Waarnemingspunten die de distributie en een histogram voor de steekproef reis af
 
 ![Tekenen van #2][2]
 
-### <a name="visualization-bar-and-line-plots"></a>Visualisatie: Staaf- en tekent de regel
-In dit voorbeeld we de afstand reis in vijf opslaglocaties bin en visualiseren van de binning resultaten.
+### <a name="visualization-bar-and-line-plots"></a>Visualisatie: Staaf- en grafieken
+In dit voorbeeld we de afstand reis naar vijf opslaglocaties bin en het binning resultaten te visualiseren.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
     df1['trip_distance']
     trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
     trip_dist_bin_id
 
-We kunnen de bovenstaande bin verdeling in een balk wordt getekend of tekent met regel:
+We kunnen tekenen van de bovenstaande bin distributie in een staaf of lijn plot met:
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
@@ -719,32 +719,32 @@ en
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![Tekenen van #4][4]
+![#4 tekenen][4]
 
-### <a name="visualization-scatterplot-examples"></a>Visualisatie: Scatterplot voorbeelden
-Laten we zien spreidingsgrafiek tekent tussen **reis\_tijd\_in\_sec** en **reis\_afstand** om te zien of er een correlatie
+### <a name="visualization-scatterplot-examples"></a>Visualisatie: Teststappen voorbeelden
+Laten we zien spreidingsdiagram tussen **reis\_tijd\_in\_seconden** en **reis\_afstand** om te zien of er een correlatie
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![#6 tekenen][6]
 
-We kunnen op dezelfde manier controleren of de relatie tussen **snelheid\_code** en **reis\_afstand**.
+We op dezelfde manier kunt controleren of de relatie tussen **tarief\_code** en **reis\_afstand**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
 ![#8 tekenen][8]
 
-### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Gegevensverkenning op steekproefgegevens met SQL-query's in IPython notebook
-In deze sectie besproken distributies van gegevens met behulp van de steekproefgegevens die wordt bewaard in de nieuwe tabel die eerder is gemaakt. Houd er rekening mee dat vergelijkbare explorations kunnen worden uitgevoerd met behulp van de oorspronkelijke tabellen.
+### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Gegevens verkennen op steekproefgegevens met behulp van SQL-query's in IPython notebook
+In deze sectie wordt toegelicht gegevens-distributies die gebruikmaken van de samplinggegevens die is opgeslagen in de nieuwe tabel die eerder is gemaakt. Houd er rekening mee dat vergelijkbare explorations kunnen worden uitgevoerd met behulp van de oorspronkelijke tabellen.
 
-#### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>Exploratie: Rapport aantal rijen en kolommen in de steekproef tabel
+#### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>Verkennen: Nummer van rijen en kolommen in de sample tabel
     nrows = pd.read_sql('''SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_sample>')''', conn)
     print 'Number of rows in sample = %d' % nrows.iloc[0,0]
 
     ncols = pd.read_sql('''SELECT count(*) FROM information_schema.columns WHERE table_name = ('<nyctaxi_sample>') AND table_schema = '<schemaname>'''', conn)
     print 'Number of columns in sample = %d' % ncols.iloc[0,0]
 
-#### <a name="exploration-tippednot-tripped-distribution"></a>Exploratie: Punt/niet omzeild distributie
+#### <a name="exploration-tippednot-tripped-distribution"></a>Verkennen: Punt/niet meteen distributie
     query = '''
         SELECT tipped, count(*) AS tip_freq
         FROM <schemaname>.<nyctaxi_sample>
@@ -753,7 +753,7 @@ In deze sectie besproken distributies van gegevens met behulp van de steekproefg
 
     pd.read_sql(query, conn)
 
-#### <a name="exploration-tip-class-distribution"></a>Exploratie: Tip klasse distributie
+#### <a name="exploration-tip-class-distribution"></a>Verkennen: Distributie Tip
     query = '''
         SELECT tip_class, count(*) AS tip_freq
         FROM <schemaname>.<nyctaxi_sample>
@@ -762,12 +762,12 @@ In deze sectie besproken distributies van gegevens met behulp van de steekproefg
 
     tip_class_dist = pd.read_sql(query, conn)
 
-#### <a name="exploration-plot-the-tip-distribution-by-class"></a>Exploratie: De tip distributie door klasse tekenen
+#### <a name="exploration-plot-the-tip-distribution-by-class"></a>Verkennen: De tip-distributie tekenen door klasse
     tip_class_dist['tip_freq'].plot(kind='bar')
 
 ![#26 tekenen][26]
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Exploratie: Dagelijkse distributie van reizen
+#### <a name="exploration-daily-distribution-of-trips"></a>Verkennen: Dagelijkse distributie van trips
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -776,7 +776,7 @@ In deze sectie besproken distributies van gegevens met behulp van de steekproefg
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Exploratie: Reis distributie per straten
+#### <a name="exploration-trip-distribution-per-medallion"></a>Verkennen: Reis-distributie per straten
     query = '''
         SELECT medallion,count(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -785,109 +785,109 @@ In deze sectie besproken distributies van gegevens met behulp van de steekproefg
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploratie: Reis distributie door straten en hack licentie
+#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Verkennen: Reis distributie per licentie straten en hack
     query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
     pd.read_sql(query,conn)
 
 
-#### <a name="exploration-trip-time-distribution"></a>Exploratie: Verdeling reis
+#### <a name="exploration-trip-time-distribution"></a>Verkennen: Verdeling reis
     query = '''select trip_time_in_secs, count(*) from <schemaname>.<nyctaxi_sample> group by trip_time_in_secs order by count(*) desc'''
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distance-distribution"></a>Exploratie: Reis afstand distributie
+#### <a name="exploration-trip-distance-distribution"></a>Verkennen: Reis afstand distributie
     query = '''select floor(trip_distance/5)*5 as tripbin, count(*) from <schemaname>.<nyctaxi_sample> group by floor(trip_distance/5)*5 order by count(*) desc'''
     pd.read_sql(query,conn)
 
-#### <a name="exploration-payment-type-distribution"></a>Exploratie: Betaling type distributiepunt
+#### <a name="exploration-payment-type-distribution"></a>Verkennen: Betaling type distributiepunt
     query = '''select payment_type,count(*) from <schemaname>.<nyctaxi_sample> group by payment_type'''
     pd.read_sql(query,conn)
 
-#### <a name="verify-the-final-form-of-the-featurized-table"></a>Controleer of de uiteindelijke vorm van de tabel featurized
+#### <a name="verify-the-final-form-of-the-featurized-table"></a>Controleer of de laatste vorm van de tabel boommodel
     query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
     pd.read_sql(query,conn)
 
-## <a name="mlmodel"></a>Bouwen van modellen in Azure Machine Learning
-Er zijn nu gereed om door te gaan model bouwen en implementeren van modellen in [Azure Machine Learning](https://studio.azureml.net). De gegevens is gereed om te worden gebruikt in een van de eerder vastgestelde namelijk voorspelling-problemen:
+## <a name="mlmodel"></a>Azure Machine Learning-modellen bouwen
+We zijn nu klaar om door te gaan naar modellen bouwen en implementeren van modellen in [Azure Machine Learning](https://studio.azureml.net). De gegevens zijn gereed om te worden gebruikt in een van de voorspelling problemen geïdentificeerd lager, namelijk:
 
-1. **Binaire classificatie**: om te voorspellen of een tip betaald is voor een reis.
-2. **Multiklassen classificatie**: om te voorspellen van het bereik van een tip betaald, volgens de eerder gedefinieerde klassen.
+1. **Binaire classificatie**: om te voorspellen of een tip is betaald voor een reis.
+2. **Multiklassen classificatie**: om te voorspellen van het bereik van de tip betaald, op basis van de eerder gedefinieerde klassen.
 3. **Regressie taak**: om te voorspellen van de hoeveelheid tip voor een reis betaald.  
 
-Om te beginnen met de oefening modellering, meld u aan bij uw **Azure Machine Learning** werkruimte. Als u nog geen een machine learning-werkruimte hebt gemaakt, raadpleegt u [maken van een Azure ML-werkruimte](../studio/create-workspace.md).
+Om te beginnen met de uitoefening van het maken van modellering, meld u aan bij uw **Azure Machine Learning** werkruimte. Als u nog geen een machine learning-werkruimte hebt gemaakt, raadpleegt u [maken van een Azure ML-workspace](../studio/create-workspace.md).
 
-1. Aan de slag met Azure Machine Learning Zie [wat is Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+1. Als u wilt aan de slag met Azure Machine Learning, Zie [wat is Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
 2. Meld u aan bij [Azure Machine Learning Studio](https://studio.azureml.net).
-3. De startpagina van Studio biedt een schat aan informatie, video's, zelfstudies, koppelingen naar de referentie-Modules en andere bronnen. Raadpleeg voor meer informatie over Azure Machine Learning, de [Azure Machine Learning-documentatiecentrum](https://azure.microsoft.com/documentation/services/machine-learning/).
+3. De startpagina van Studio biedt een schat aan informatie, video's, zelfstudies en koppelingen naar de Modules-verwijzing en andere bronnen. Raadpleeg voor meer informatie over Azure Machine Learning, de [Azure Machine Learning-documentatiecentrum](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Een typische trainingsexperiment bestaat uit de volgende stappen uit:
 
 1. Maak een **+ nieuw** experimenteren.
-2. De gegevens in Azure ML ophalen.
-3. Vooraf verwerken, transformeren en het bewerken van de gegevens zo nodig.
-4. Genereren onderdelen naar behoefte.
-5. De gegevens splitsen in training/testen/validatie gegevenssets (of afzonderlijke gegevenssets hebben voor elk).
-6. Selecteer een of meer machine learning-algoritmen, afhankelijk van het probleem learning om op te lossen. Bijvoorbeeld binaire classificatie, multiklassen classificatie, regressie.
+2. De gegevens in Azure ML kunt ophalen.
+3. Vooraf verwerken en transformeren en manipuleren van de gegevens zo nodig.
+4. Functies genereren indien nodig.
+5. De gegevens splitsen in gegevenssets training/validatie/testen (of afzonderlijke gegevenssets hebben voor elk).
+6. Selecteer een of meer machine learning-algoritmen, afhankelijk van het leerprobleem om op te lossen. Bijvoorbeeld, binaire classificatie, multiklassen classificatie, regressie.
 7. Een of meer modellen met behulp van de gegevensset training trainen.
-8. De validatie van gegevensset met behulp van de trained modellen beoordelen.
-9. De modellen voor het berekenen van de relevante metrische gegevens voor het probleem learning evalueren.
-10. Fijnmazig afstemmen van de modellen en selecteert u het beste model om te implementeren.
+8. De validatie-gegevensset met behulp van het getrainde modellen te beoordelen.
+9. De modellen voor het berekenen van de relevante metrische gegevens voor het leerprobleem evalueren.
+10. Fijn afstemmen van de modellen en het beste model selecteren om te implementeren.
 
-In deze oefening hebben we al verkend en de gegevens in SQL Data Warehouse engineering en besloten op de grootte van de steekproef om op te nemen in de Azure ML. Hier volgt de procedure voor het bouwen van een of meer van de voorspellende modellen:
+In deze oefening hebben we al verkend en ontworpen van de gegevens in SQL Data Warehouse en besloten op de grootte van de steekproef om op te nemen in Azure ML. Hier volgt de procedure voor het bouwen van een of meer van de voorspellende modellen:
 
-1. De gegevens ophalen met behulp van Azure ML de [importgegevens] [ import-data] module beschikbaar in de **gegevensinvoer en uitvoer** sectie. Zie voor meer informatie de [importgegevens] [ import-data] verwijzingspagina module.
+1. De gegevens ophalen met behulp van Azure ML de [gegevens importeren] [ import-data] -module, beschikbaar in de **gegevensinvoer en uitvoer** sectie. Zie voor meer informatie de [importgegevens] [ import-data] referentiepagina van de module.
    
-    ![Gegevens importeren voor Azure ML][17]
-2. Selecteer **Azure SQL Database** als de **gegevensbron** in de **eigenschappen** Configuratiescherm.
+    ![Gegevens importeren van Azure ML][17]
+2. Selecteer **Azure SQL Database** als de **gegevensbron** in de **eigenschappen** deelvenster.
 3. Voer de naam van de DNS-database in de **databaseservernaam** veld. Indeling: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Voer de **databasenaam** in het bijbehorende veld.
-5. Voer de *SQL-gebruikersnaam* in de **Server gebruikersaccountnaam**, en de *wachtwoord* in de **Server het wachtwoord voor gebruikersaccount**.
-7. In de **databasequery** bewerken van tekst, plakt u de query waarmee de benodigde databasevelden (inclusief eventuele berekende velden, zoals de labels) worden opgehaald en omlaag de gegevens naar de gewenste samplegrootte voorbeelden.
+5. Voer de *SQL-gebruikersnaam* in de **accountnaam Server**, en de *wachtwoord* in de **Server het wachtwoord voor gebruikersaccount**.
+7. In de **databasequery** tekstgebied bewerken, plakt u de query die de benodigde velden (met inbegrip van berekende velden, zoals de labels) worden geëxtraheerd en naar beneden voorbeelden van de gegevens naar de gewenste steekproefgrootte.
 
-Een voorbeeld van een binaire indeling experiment lezen van gegevens rechtstreeks vanuit de SQL Data Warehouse-database is in de afbeelding hieronder (Vergeet niet de tabel namen nyctaxi_trip en nyctaxi_fare vervangt door de naam van het schema en de tabelnamen van de die u in uw scenario gebruikt). Vergelijkbare experimenten kunnen worden samengesteld voor multiklassen classificatie en regressie problemen.
+Een voorbeeld van een binaire classificatie-experiment lezen van gegevens rechtstreeks vanuit de SQL Data Warehouse-database is in de afbeelding hieronder (Houd er rekening mee aan de tabel namen nyctaxi_trip en nyctaxi_fare vervangen door de naam van het schema en de tabelnamen die u hebt gebruikt in uw scenario). Vergelijkbare experimenten kunnen worden samengesteld voor multiklassen classificatie en regressie problemen.
 
 ![Azure ML Train][10]
 
 > [!IMPORTANT]
-> In de gegevens modellering extractie en voorbeelden van de query wordt opgegeven in de vorige secties **alle labels voor de drie modellering oefeningen zijn opgenomen in de query**. Een belangrijke (vereist) stap in elk van de oefeningen modellering is het **uitsluiten** de onnodige labels voor de andere twee problemen en andere **doel lekken**. Bijvoorbeeld: bij gebruik van binaire classificatie gebruiken het label **punt** en wilt uitsluiten van de velden **tip\_klasse**, **tip\_bedrag**, en **totale\_bedrag**. De laatste zijn doel lekken omdat ze de tip impliceren betaald.
+> In de modellering van gegevens ophalen en voorbeelden van steekproeven opgegeven in de vorige secties **alle labels voor de drie modellen oefeningen zijn opgenomen in de query**. Een belangrijke (vereist) stap in elk van de oefeningen modellering is het **uitsluiten** de overbodige labels voor de andere twee problemen en andere **doel lekken**. Bijvoorbeeld, wanneer u binaire classificatie, wordt gebruikgemaakt van het label **punt** en uitsluiten van de velden **tip\_klasse**, **tip\_bedrag**, en **totale\_bedrag**. De laatste zijn doel lekken omdat ze de tip impliceren betaald.
 > 
-> Als u eventuele overbodige kolommen uitsluiten of lekken zijn gericht, mag u de [Select Columns in Dataset] [ select-columns] module of de [metagegevens bewerken][edit-metadata]. Zie voor meer informatie [Select Columns in Dataset] [ select-columns] en [metagegevens bewerken] [ edit-metadata] verwijzen naar pagina's.
+> Als u wilt uitsluiten van alle overbodige kolommen of richt u op lekken, mag u de [Select Columns in Dataset] [ select-columns] module of de [metagegevens bewerken][edit-metadata]. Zie voor meer informatie, [Select Columns in Dataset] [ select-columns] en [metagegevens bewerken] [ edit-metadata] verwijzen naar pagina's.
 > 
 > 
 
-## <a name="mldeploy"></a>Modellen in Azure Machine Learning implementeren
-Wanneer uw model klaar is, kunt u het eenvoudig implementeren als een webservice rechtstreeks vanuit het experiment. Zie voor meer informatie over het implementeren van Azure ML webservices [Azure Machine Learning-webservice implementeren](../studio/publish-a-machine-learning-web-service.md).
+## <a name="mldeploy"></a>Azure Machine Learning-modellen implementeren
+Als uw model klaar is, kunt u deze eenvoudig implementeren als een webservice rechtstreeks vanuit het experiment. Zie voor meer informatie over het implementeren van Azure ML-webservices [een Azure Machine Learning-webservice implementeren](../studio/publish-a-machine-learning-web-service.md).
 
-Voor het implementeren van een nieuwe webservice, moet u:
+Als u wilt een nieuwe webservice implementeert, moet u naar:
 
-1. Een score experiment maken.
+1. Een scoring-experiment maken.
 2. De webservice implementeren.
 
-Maken van een experiment score van een **voltooid** training experiment, klikt u op **maken score berekenen EXPERIMENTEREN** in de onderste actiebalk.
+Maken van een scoring-experiment uit een **voltooid** training experiment, klikt u op **maken SCOREN EXPERIMENTEREN** in de onderste actiebalk.
 
-![Score berekenen voor Azure][18]
+![Azure scoren][18]
 
-Azure Machine Learning probeert te maken van een score experiment op basis van de onderdelen van het trainingsexperiment. In het bijzonder wordt:
+Azure Machine Learning wordt geprobeerd te maken van een scoring-experiment op basis van de onderdelen van het trainingsexperiment. In het bijzonder wordt:
 
-1. Sla het getrainde model en het model trainingsmodules verwijderen.
-2. Een logische identificeren **poort invoer** vertegenwoordigt het verwachte invoergegevens schema.
-3. Een logische identificeren **uitvoerpoort** vertegenwoordigt de uitvoerschema verwachte web service.
+1. Opslaan van het getrainde model en het verwijderen van de training model modules.
+2. Een logische identificeren **invoer poort** om weer te geven van een schema voor de verwachte invoergegevens.
+3. Een logische identificeren **uitvoerpoort** om weer te geven van de verwachte web service-uitvoerschema.
 
-Wanneer het experiment scoreprofiel is gemaakt, controleren en maken indien nodig aanpassen. Een typische aanpassing is invoergegevensset en/of queryparameters vervangen door een exclusief label velden, zoals deze is alleen beschikbaar wanneer de service wordt aangeroepen. Het is ook raadzaam de grootte van de invoergegevensset en/of de query beperken tot een aantal records net voldoende is om aan te geven van de invoer schema. Voor de uitvoerpoort wordt meestal alleen opnemen en uitsluiten van alle invoervelden de **Scored Labels** en **berekend kansen** in het uitvoer met de [Select Columns in Dataset] [ select-columns] module.
+Als u het scoring experiment maakt, beoordelen en maken naar wens aanpassen. Een typische aanpassing wordt vervangen door de invoergegevensset en/of de query met een met uitsluiting van labelvelden, als deze niet meer beschikbaar wanneer de service wordt aangeroepen. Het is ook een goede gewoonte om de grootte van de invoergegevensset en/of de query beperken tot een paar records, net voldoende zijn om aan te geven van de invoer-schema. Voor de uitvoerpoort, is het gebruikelijk dat alleen opnemen en uitsluiten van alle invoervelden de **Scored Labels** en **beoordeeld kansen** in de uitvoer met de [Select Columns in Dataset] [ select-columns] module.
 
-Een voorbeeld van een experiment score berekenen is opgegeven in de afbeelding hieronder. Wanneer u klaar bent om te implementeren, klikt u op de **WEBSERVICE PUBLICEERT** knop in de onderste actiebalk.
+Een voorbeeld van een experiment scoren is opgegeven in de afbeelding hieronder. Wanneer u klaar bent om te implementeren, klikt u op de **WEBSERVICE publiceren** knop in de onderste actiebalk.
 
 ![Azure ML publiceren][11]
 
 ## <a name="summary"></a>Samenvatting
-Als u samenvatting wat we hebben gedaan in deze zelfstudie scenario, wilt u hebt gemaakt een Azure data wetenschap-omgeving hebt gewerkt met een grote openbare gegevensset duurt het door het proces Team gegevens wetenschap, helemaal uit gegevens overname naar model training, en vervolgens naar de implementatie van een Azure Machine Learning-webservice.
+Voor samenvatting van wat we hebben gedaan in deze zelfstudie scenario, u hebt gemaakt een Azure data science-omgeving, met een grote openbare gegevensset gewerkt deze te zetten door het Team Data Science Process, helemaal uit gegevens ophalen voor modeltraining en vervolgens naar de implementatie van een Azure Machine Learning-webservice.
 
 ### <a name="license-information"></a>Licentie-informatie
-In dit voorbeeld scenario en de bijbehorende scripts en IPython notebook(s) worden gedeeld door Microsoft onder de MIT-licentie. Controleer of u het bestand LICENSE.txt in in de map van de voorbeeldcode op GitHub voor meer informatie.
+In dit voorbeeld scenario en de bijbehorende scripts en IPython notebook(s) worden gedeeld door Microsoft onder de MIT-licentie. Controleer of het bestand LICENSE.txt in in de map van de voorbeeldcode op GitHub voor meer informatie.
 
 ## <a name="references"></a>Verwijzingen
-• [Andrés Monroy NYC Taxi reizen downloadpagina](http://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC Taxi reis gegevens door Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC Taxi en Limousine Commissie onderzoek en statistieken](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC Taxi Trips downloadpagina](http://www.andresmh.com/nyctaxitrips/)  
+• [FOILing NYC Taxi reisgegevens door Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [NYC Taxi en Limousine Commissie onderzoek en statistieken](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

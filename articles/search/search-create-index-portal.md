@@ -1,48 +1,46 @@
 ---
-title: Een index maken (portal - Azure Search) | Microsoft Docs
-description: Een index maken met Azure Portal.
+title: Een Azure Search-index in de portal maken | Microsoft Docs
+description: Informatie over het maken van een index voor Azure Search met behulp van ingebouwde portal index ontwerpfuncties.
 manager: cgronlun
 author: heidisteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: quickstart
-ms.date: 06/20/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 722f1eb989fb8c160def4024b1aa967a47b87697
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203866"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990843"
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Een Azure Search-index maken met Azure Portal
+# <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Over het maken van een Azure Search-index met behulp van de Azure portal
 
-Gebruik de ingebouwde indexdesigner in Azure Portal om een prototype van een zoekindex of een echte [zoekindex](search-what-is-an-index.md) te maken die in uw Azure Search-service kan worden uitgevoerd. 
+Azure Search bevat een ingebouwde index designer in de portal handig voor prototypen of maken een [search-index](search-what-is-an-index.md) die worden gehost op uw Azure Search-service. Het hulpprogramma wordt gebruikt voor de bouw schema. Wanneer u de definitie van de opslaat, wordt een lege index wordt volledig uitgedrukt in Azure Search. Hoe u deze laden met doorzoekbare gegevens is aan u.
 
-U kunt ook een index maken met behulp van de API's [.NET](search-create-index-dotnet.md) of [REST](search-create-index-rest-api.md).
+De indexdesigner is slechts één methode voor het maken van een index. Via een programma, kunt u een index met behulp van de [.NET](search-create-index-dotnet.md) of [REST](search-create-index-rest-api.md) API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-In dit artikel wordt ervan uitgegaan dat u beschikt over een [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) en [Azure Search-service](search-create-service-portal.md).  
+In dit artikel wordt ervan uitgegaan dat u beschikt over een [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) en [Azure Search-service](search-create-service-portal.md).
 
-## <a name="find-your-search-service"></a>Uw zoekservice vinden
-1. Meld u aan bij de pagina van Azure Portal en controleer de [zoekservices voor uw abonnement](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Selecteer uw Azure Search-service.
+## <a name="open-index-designer-and-name-an-index"></a>Indexdesigner openen en de naam van een index
 
-## <a name="name-the-index"></a>De index een naam geven
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) en open het servicedashboard. Klik in de koppelingsbalk op **Alle services** als u in het huidige abonnement naar bestaande 'zoekservices' wilt zoeken. 
 
-1. Klik op de knop **Index toevoegen** in de opdrachtbalk bovenaan de pagina.
-2. Geef uw Azure Search-index een naam. 
+2.  Klik op de knop **Index toevoegen** in de opdrachtbalk bovenaan de pagina.
+
+3. Geef uw Azure Search-index een naam. Namen van de index wordt verwezen in indexeren en query-bewerkingen. De naam van de index wordt een onderdeel van de eindpunt-URL die wordt gebruikt om verbinding te maken met de index en om HTTP-aanvragen in de REST API voor Azure Search te verzenden.
+
    * Begin met een letter.
    * Gebruik alleen kleine letters, cijfers of streepjes (-).
    * Zorg ervoor dat de naam maximaal 60 tekens bevat.
 
-  De naam van de index wordt een onderdeel van de eindpunt-URL die wordt gebruikt om verbinding te maken met de index en om HTTP-aanvragen in de REST API voor Azure Search te verzenden.
-
 ## <a name="define-the-fields-of-your-index"></a>De velden van uw index definiëren
 
-De index bevat onder andere een *Veldenverzameling* die de doorzoekbare gegevens in uw index definieert. Om precies te zijn, geeft deze de structuur aan van de documenten die u afzonderlijk uploadt. De verzameling Velden bevat de vereiste en optionele velden, met een naam en type en met indexkenmerken, zodat u kunt bepalen hoe het veld kan worden gebruikt.
+De index bevat onder andere een *Veldenverzameling* die de doorzoekbare gegevens in uw index definieert. De Veldenverzameling helemaal, Hiermee geeft u de structuur van documenten die u afzonderlijk uploadt. Een Veldenverzameling bevat de vereiste en optionele velden, met de naam en type en met indexkenmerken die bepalen hoe het veld kan worden gebruikt.
 
 1. Op de blade **Index toevoegen** klikt u op **Velden >** om de blade voor velddefinities open te schuiven. 
 
@@ -63,6 +61,7 @@ Voor het maken van een index in de portal moet u uw toetsenbord veel gebruiken. 
 2. Daarna gebruikt u de selectievakjes boven elk kenmerk om de instelling voor alle velden bulkgewijs in te schakelen en schakelt u de vakjes uit voor de paar velden waarvoor u de instelling niet wilt inschakelen. Tekenreeksvelden zijn bijvoorbeeld meestal doorzoekbaar. Zo kunt u klikken op **Ophalen mogelijk** en **Doorzoekbaar** om zowel de waarden van het veld in de zoekresultaten te retourneren als het zoeken in de volledige tekst van het veld toe te staan. 
 
 <a name="design"></a>
+
 ## <a name="design-guidance-for-setting-attributes"></a>Ontwerprichtlijnen voor het instellen van kenmerken
 
 Hoewel u op elk gewenst moment nieuwe velden kunt toevoegen, worden bestaande velddefinities voor de hele levensduur van de index vergrendeld. Daarom gebruiken ontwikkelaars de portal doorgaans om eenvoudige indexen te maken, om ideeën uit te testen of om een instelling op te zoeken met behulp van de portalpagina's. Een frequente iteratie van een index-ontwerp is efficiënter als u een op code gebaseerde benadering hanteert, zodat u uw index eenvoudig kunt herbouwen.

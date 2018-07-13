@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: cb01e71ae45ae8a7e37e8ab5cdf60e3b3fcb9983
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eecf608a712e6a29180b797bbef491501653dfd6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919757"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006475"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Ondersteuningsmatrix voor VMware en fysieke servers repliceren naar Azure
 
@@ -24,13 +24,13 @@ In dit artikel bevat een overzicht van ondersteunde onderdelen en -instellingen 
 **Scenario** | **Details**
 --- | ---
 Virtuele VMware-machines | Replicatie van on-premises VMware-machines naar Azure. U kunt dit scenario in Azure portal of met behulp van implementeren [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Fysieke servers | Replicatie van on-premises Windows/Linux fysieke serversto Azure. U kunt dit scenario in Azure portal implementeren.
+Fysieke servers | Replicatie van on-premises Windows/Linux-fysieke servers naar Azure. U kunt dit scenario in Azure portal implementeren.
 
 ## <a name="on-premises-virtualization-servers"></a>On-premises virtualisatieservers
 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 of 5.5 of vSphere 6.5, 6.0 of 5.5 | U wordt aangeraden dat u een vCenter-server.<br/><br/> Het is raadzaam dat vSphere-hosts en vCenter-servers bevinden zich in hetzelfde netwerk bevinden als de processerver. Wordt standaard de serveronderdelen proces uitgevoerd op de configuratieserver, dus dit is het netwerk waarin u de configuratieserver hebt ingesteld, tenzij u een speciaal toegewezen proces-server instellen.
+VMware | vCenter Server 6.7, 6.5, 6.0 of 5.5 of vSphere 6.7, 6.5, 6.0 of 5.5 | U wordt aangeraden dat u een vCenter-server.<br/><br/> Het is raadzaam dat vSphere-hosts en vCenter-servers bevinden zich in hetzelfde netwerk bevinden als de processerver. Wordt standaard de serveronderdelen proces uitgevoerd op de configuratieserver, dus dit is het netwerk waarin u de configuratieserver hebt ingesteld, tenzij u een speciaal toegewezen proces-server instellen.
 Fysiek | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery-configuratieserver
@@ -61,7 +61,7 @@ Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wor
 **Onderdeel** | **Details**
 --- | ---
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
-Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. Windows 2016 Nano Server wordt niet ondersteund.
+Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1.</br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> * *Windows 2016 Nano Server wordt niet ondersteund.*
 Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>CentOS: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Gerepliceerde machines SP3 bijwerken naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.
 
 >[!NOTE]
@@ -70,6 +70,7 @@ Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9,
 >
 > - Beveiligde machines upgraden in belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.
 >
+> - Servers met Red Hat Enterprise Linux 5.2 5,11 of CentOS 5.2 naar 5,11 moeten de Linux Integration Services(LIS) componenten zijn geïnstalleerd in de volgorde voor de machines om op te starten in Azure.
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu-kernel-versies
 

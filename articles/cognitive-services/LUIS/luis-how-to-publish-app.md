@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 0f6ba76ede48502e4f3308b11d41bf141f0188fb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 43a26f9e81b788c2a110c24bf2e02c56c0714f1e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927771"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988833"
 ---
 # <a name="publish-your-trained-app"></a>Uw getrainde app publiceren
 Wanneer u klaar bent met het bouwen en testen van uw LUIS-app, publiceren. Nadat de app is gepubliceerd, wordt de pagina publiceren weergegeven alle bijbehorende HTTP [eindpunten](luis-glossary.md#endpoint). Deze eindpunten per [regio](luis-reference-regions.md) en per [sleutel](luis-how-to-manage-keys.md), klikt u vervolgens zijn geïntegreerd in elke client, chatbot of back-end-toepassing. 
@@ -91,9 +91,9 @@ De intenties en hun scores zijn ook opgenomen van de eindpunt-Logboeken. U kunt 
 ```
 
 ### <a name="enable-bing-spell-checker"></a>Inschakelen van de spellingcontrole van Bing 
-In de **eindpunt-url-instellingen**, wordt de **inschakelen Bing spellingcontrole** selectievakje kunt LUIS te corrigeren van verkeerd gespelde woorden voordat voorspelling. Hiervoor moet u maakt een  **[sleutel Bing spellingcontrole](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. Nadat de sleutel is gemaakt, worden twee querystring-parameters worden toegevoegd aan de eindpunt-URL op de pagina publiceren. 
+In de **eindpunt-url-instellingen**, wordt de **inschakelen Bing spellingcontrole** selectievakje kunt LUIS te corrigeren van verkeerd gespelde woorden voordat voorspelling. Maak een  **[sleutel Bing spellingcontrole](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. Nadat de sleutel is gemaakt, worden twee querystring-parameters worden toegevoegd aan de eindpunt-URL op de pagina publiceren. 
 
-Als u uw eigen URL's zijn maken voor uw toepassing LUIS-aanroepen, controleert u of de **spellingcontrole = true** querystring-parameter en de **bing-spellingcontrole-controle-subscription-key = {YOUR_BING_KEY_HERE}**. Vervang de `{YOUR_BING_KEY_HERE}` met de Bing spell checker sleutel.
+Voeg de **spellingcontrole = true** querystring-parameter en de **bing-spellingcontrole-controle-subscription-key = {YOUR_BING_KEY_HERE}** . Vervang de `{YOUR_BING_KEY_HERE}` met de Bing spell checker sleutel.
 
 ```JSON
 {

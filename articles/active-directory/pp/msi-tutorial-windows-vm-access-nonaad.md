@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f135d8560db8fc81c50bd63380751ac9d22580e9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b3d334edd770ac381a7e0ae6aaa1a9db8c91b961
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610234"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002936"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Een Windows VM Managed Service Identity (MSI) gebruiken voor toegang tot Azure Key Vault 
 
@@ -56,7 +56,7 @@ Voor deze zelfstudie maken we een nieuwe Windows-VM. U kunt ook de MSI-bestand o
 5.  Selecteer een nieuwe **resourcegroep** u graag aan virtuele machine moet worden gemaakt in, kies **nieuw**. Na het voltooien klikt u op **OK**.
 6.  Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
 
-    ![De installatiekopie van de ALT-tekst](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![De installatiekopie van de ALT-tekst](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>MSI-bestand op de virtuele machine inschakelen 
 
@@ -67,11 +67,11 @@ Een MSI-bestand voor de virtuele Machine kunt u tokens voor toegang van Azure AD
 3.  U ziet **beheerde Service-identiteit**. Als u wilt registreren en inschakelen van het MSI-bestand, selecteer **Ja**, als u wilt uitschakelen, kiest u Nee. 
 4.  Controleer of u klikken op **opslaan** aan de configuratie op te slaan.  
 
-    ![De installatiekopie van de ALT-tekst](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![De installatiekopie van de ALT-tekst](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Als u wilt controleren en nagaan welke uitbreidingen zijn op deze virtuele machine, klikt u op **extensies**. Als het MSI-bestand is ingeschakeld, klikt u vervolgens **ManagedIdentityExtensionforWindows** wordt weergegeven in de lijst.
 
-    ![De installatiekopie van de ALT-tekst](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+    ![De installatiekopie van de ALT-tekst](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Uw VM-toegang verlenen tot een geheim opgeslagen in een Key Vault 
  

@@ -1,27 +1,27 @@
 ---
-title: Geocodering dekking van Azure Maps | Microsoft Docs
-description: Meer informatie over Geocodering dekking van Azure Maps
-author: kgremban
-ms.author: kgremban
+title: Dekking voor geocodering van Azure Maps | Microsoft Docs
+description: Meer informatie over de dekking voor Geocodering van Azure Maps
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6602453abd02bf91b135980b4d2c7f99ba60c236
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600286"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989874"
 ---
-# <a name="azure-maps-geocoding-coverage"></a>Azure Maps geocodering dekking
+# <a name="azure-maps-geocoding-coverage"></a>Azure Maps-dekking voor geocodering
 
-Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft van de zoektermen en retourneert de breedtegraad en lengtegraad coördinaten, een proces genaamd geocodering. Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor alle regio's en andere landen. Gebruik dit artikel om te bepalen wat voor soort locaties u betrouwbaar zoekt in elke regio. 
+Wanneer u een locatie met Azure Maps zoekt, wordt de search-service neemt van uw zoektermen en retourneert de breedtegraad en lengtegraad coördinaten, een proces dat geocodering wordt genoemd. Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de gegevens voor alle regio's en andere landen. Gebruik dit artikel om te bepalen wat voor soort locaties kunt u op betrouwbare wijze zoeken naar in elke regio. 
 
 ## <a name="americas"></a>Noord- en Zuid-Amerika
 
-| Regio             | Adres verwijst | Huis cijfers | Straat niveau | Niveau plaats | Wetenswaardigheden |
+| Regio             | Adres verwijst | Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarctica                                          |                 |                |              |      ✓     |          ✓         |
@@ -77,12 +77,12 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 | Verenigde Staten van Amerika                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Maagdeneilanden - Brits                            |                 |                |              |      ✓     |          ✓         |
-| Maagdeneilanden - Verenigde Staten                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Britse Maagdeneilanden - Groot-Brittannië                            |                 |                |              |      ✓     |          ✓         |
+| Britse Maagdeneilanden - Verenigde Staten                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Azië en Stille Oceaan
 
-| Regio             | Adres verwijst |Huis cijfers | Straat niveau | Niveau plaats | Wetenswaardigheden |
+| Regio             | Adres verwijst |Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Amerikaans-Samoa                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australië                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -142,7 +142,7 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 
 ## <a name="europe"></a>Europa
 
-| Regio             | Adres verwijst |Huis cijfers | Straat niveau | Niveau plaats | Wetenswaardigheden |
+| Regio             | Adres verwijst |Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albanië                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -211,7 +211,7 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 
 ## <a name="middle-east-and-africa"></a>Midden-Oosten en Afrika
 
-| Regio             | Adres verwijst |Huis cijfers | Straat niveau | Niveau plaats | Wetenswaardigheden |
+| Regio             | Adres verwijst |Huis cijfers | Naam van de straat niveau | Niveau plaats | Punten van belang zijn |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algerije                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -231,7 +231,7 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 | Congo-Kinshasa                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Djibouti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egypte                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Equatoriaal-Guinea Republiek                      |                 |                |       ✓      |      ✓     |          ✓         |
+| Equatoriaal-Guinea, Republiek                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritrea                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Ethiopië                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Franse Zuidelijke Gebieden|                 |                |              |      ✓     |          ✓         |
@@ -285,7 +285,7 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 | Tunesië                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Uganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Verenigde Arabische Emiraten                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| West Bank                                           |                 |                |              |      ✓     |          ✓         |
+| Westelijke Jordaanoever                                           |                 |                |              |      ✓     |          ✓         |
 | Jemen                                               |                 |                |              |      ✓     |          ✓         |
 | Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |          ✓         |
@@ -294,7 +294,7 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure Maps geocodering de [Search](https://docs.microsoft.com/rest/api/maps/search) verwijzen naar pagina's.
+Zie voor meer informatie over Azure Maps geocodering, de [zoeken](https://docs.microsoft.com/rest/api/maps/search) verwijzen naar pagina's.
 
-Meer informatie over de [dekking gebieden voor de toewijzingen verkeer service](traffic-coverage.md). 
+Meer informatie over de [dekking gebieden voor de toewijzingen van het verkeer service](traffic-coverage.md). 
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: df4c60be8a29ab397424e9e5f9de7050f64d87c2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b7fd880683eed9e742007d6e595e1f275467b664
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859770"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990112"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
 Dit document is bedoeld om specifieke informatie van de Azure Log Analytics ter aanvulling van de gegevens op te geven [Azure Trust Center](../security/security-microsoft-trust-center.md).  
@@ -29,16 +29,34 @@ In dit artikel wordt uitgelegd hoe data wordt verzameld, verwerkt en beveiligd d
 
 De service Log Analytics beheert uw cloud-gebaseerde gegevens veilig met behulp van de volgende methoden:
 
-* Scheiding van gegevens
+* scheiding van gegevens
 * Bewaartijd van gegevens
 * Fysieke beveiliging
-* Incidentbeheer
+* incidentbeheer
 * Naleving
-* Standaardcertificeringen van beveiliging
+* standaardcertificeringen van beveiliging
 
 Neem contact met ons vragen, suggesties, of problemen met betrekking tot een van de volgende informatie, met inbegrip van onze beveiligingsbeleid op [ondersteuningsopties voor Azure](http://azure.microsoft.com/support/options/).
 
-## <a name="data-segregation"></a>Scheiding van gegevens
+## <a name="sending-data-securely-using-tls-12"></a>Verzenden van gegevens veilig gebruik TLS 1.2 
+
+Als u wilt controleren of de beveiliging van gegevens die onderweg zijn naar Log Analytics, we raden u aan de agent configureren voor het gebruik van ten minste Transport Layer Security (TLS) 1.2. Oudere versies van TLS/Secure Sockets Layer (SSL) kwetsbaar zijn gevonden en hoewel ze op dit moment nog steeds werken om toe te staan achterwaartse compatibiliteit, zijn ze onderling **niet aanbevolen**, en de branche is snel veranderende te breken ondersteuning voor deze oudere protocollen. 
+
+De [PCI Security Standards Council heeft onlangs](https://www.pcisecuritystandards.org/) heeft een [deadline van 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) om uit te schakelen van oudere versies van TLS/SSL en upgrade voor de protocollen beter kunt beveiligen. Nadat Azure ondersteuning voor oudere, komt als uw agents niet kunnen via ten minste communiceren TLS 1.2 u niet mogelijk zou zijn om gegevens te verzenden naar Log Analytics. 
+
+We raden niet expliciet de agent alleen gebruik van TLS 1.2, tenzij dit echt nodig als dit platform op rijniveau functies waarmee u automatisch detecteren en te profiteren van de nieuwere veiliger kunt verbreken zodra ze beschikbaar komen zoals protocollen instellen Als TLS 1.3. 
+
+### <a name="platform-specific-guidance"></a>Platform-specifieke richtlijnen
+
+|Platform/taal | Ondersteuning | Meer informatie |
+| --- | --- | --- |
+|Linux | Linux-distributies meestal afhankelijk zijn van [OpenSSL](https://www.openssl.org) voor ondersteuning van TLS 1.2.  | Controleer de [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) om te bevestigen van uw versie van OpenSSL wordt ondersteund.|
+| Windows 8.0-10 | Ondersteund en standaard ingeschakeld. | Om te bevestigen dat u nog steeds gebruikt de [standaardinstellingen](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
+| WindowsServer 2012-2016 | Ondersteund en standaard ingeschakeld. | Om te bevestigen dat u nog steeds gebruikt de [standaardinstellingen](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 en Windows Server 2008 R2 SP1 | Ondersteund, maar niet standaard ingeschakeld. | Zie de [registerinstellingen voor Transport Layer Security (TLS)](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) pagina voor meer informatie over het inschakelen.  |
+| Windows Server 2008 SP2 | Ondersteuning voor TLS 1.2 is een update vereist. | Zie [Update voor het toevoegen van ondersteuning voor TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2. |
+
+## <a name="data-segregation"></a>scheiding van gegevens
 Nadat uw gegevens worden opgenomen door de Log Analytics-service, worden de gegevens bewaard logische manier apart op elk onderdeel van de service. Alle gegevens worden gemarkeerd per werkruimte. Deze markering blijft aanwezig gedurende de levenscyclus van de gegevens en deze wordt afgedwongen op elke laag van de service. Uw gegevens worden opgeslagen in een specifieke database in het opslagcluster in de regio die u hebt geselecteerd.
 
 ## <a name="data-retention"></a>Bewaartijd van gegevens
@@ -70,7 +88,7 @@ De volgende tabel ziet u voorbeelden van gegevenstypen:
 ## <a name="physical-security"></a>Fysieke beveiliging
 De Log Analytics-service wordt beheerd door Microsoft-personeel en alle activiteiten worden vastgelegd en kunnen worden gecontroleerd. Log Analytics wordt gebruikt als een Azure-Service en voldoet aan alle vereisten voor Azure-naleving en beveiliging. U vindt meer informatie over de fysieke beveiliging van Azure-assets op 18 pagina van de [beveiligingsoverzicht van Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysieke toegangsrechten voor het beveiligen van gebieden worden gewijzigd binnen één werkdag voor iedereen die heeft niet langer verantwoordelijk is voor de Log Analytics-service, inclusief overdracht en beëindiging. U kunt meer informatie over de algemene fysieke infrastructuur, gebruiken we op [Microsoft-Datacenters](https://azure.microsoft.com/en-us/global-infrastructure/).
 
-## <a name="incident-management"></a>Incidentbeheer
+## <a name="incident-management"></a>incidentbeheer
 Log Analytics heeft een incidentbeheerproces die voor alle Microsoft-services worden aangehouden. Om samen te vatten, we:
 
 * Gebruikt een model met gedeelde verantwoordelijkheid waar een deel van de verantwoordelijkheid van de beveiliging is van Microsoft en een gedeelte behoort tot de klant

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: SQL Async Java API, SDK en resources | Microsoft Docs'
-description: Meer informatie over de SQL Async Java API en de SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB SQL Async Java SDK.
+title: 'Azure Cosmos DB: SQL Async Java-API, SDK en resources | Microsoft Docs'
+description: Meer informatie over de SQL Async Java-API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB SQL Async Java SDK.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,17 +10,17 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 97c7051252ecc8a29cf487f74a68055cd2b3e163
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300676"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990273"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET-Feed van wijzigen](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -32,68 +32,68 @@ ms.locfileid: "36300676"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-De SQL-API asynchrone Java SDK verschilt van de SQL-API Java SDK dankzij de asynchrone bewerkingen met ondersteuning van de [Netty bibliotheek](http://netty.io/). De vooraf bestaande [SQL API Java SDK](sql-api-sdk-java.md) biedt geen ondersteuning voor asynchrone bewerkingen. 
+De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door te geven van asynchrone bewerkingen met ondersteuning van de [Netty bibliotheek](http://netty.io/). De vooraf bestaande [SQL API Java SDK](sql-api-sdk-java.md) biedt geen ondersteuning voor asynchrone bewerkingen. 
 
 <table>
 
 <tr><td>**SDK downloaden**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API-documentatie**</td><td>[Java-API-naslagdocumentatie](https://azure.github.io/azure-cosmosdb-java/)</td></tr>
+<tr><td>**API-documentatie**</td><td>[Java API-referentiedocumentatie](https://docs.microsoft.com/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
 
 <tr><td>**Bijdragen aan de SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
-<tr><td>**Aan de slag**</td><td>[Aan de slag met de asynchrone Java SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
+<tr><td>**Aan de slag**</td><td>[Aan de slag met de Async Java-SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
 <tr><td>**Voorbeeld van code**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 
 <tr><td>**Tips voor prestaties**</td><td>[Github Leesmij-bestand](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
-<tr><td>**Minimale ondersteunde runtime**</td><td>[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)</td></tr>
+<tr><td>**Minimaal ondersteunde runtime**</td><td>[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* Org.json afhankelijkheid vervangen door jackson vanwege Prestatieoverwegingen en licentieverlening ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
-* Afgeschafte OfferV2 klasse verwijderd.
-* Toegevoegde accessor-methode aan klasse van de aanbieding voor doorvoer inhoud.
-* Elke methode in een Document of systeembronnen org.json typen gewijzigd om te retourneren van een jackson objecttype retourneren.
-* methode getObject(.) van klassen uitbreiden JsonSerializable gewijzigd om te retourneren van een ObjectNode jackson typt.
-* de methode getCollection(.) gewijzigd om te retourneren van de verzameling van ObjectNode.
+* Org.json afhankelijkheid vervangen door jackson vanwege prestatieredenen en licentieverlening ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Afgeschafte OfferV2 klasse is verwijderd.
+* Toegevoegde accessor-methode voor het aanbod klasse voor de inhoud van de doorvoer.
+* Een methode in Document/Resource org.json typen gewijzigd om terug te keren een jackson objecttype retourneren.
+* methode getObject(.) van klassen uitbreiden JsonSerializable gewijzigd om terug te keren een ObjectNode jackson typt.
+* getCollection(.) methode om te retourneren van de verzameling van ObjectNode gewijzigd.
 * Verwijderde JsonSerializable subklassen constructors met org.json.JSONObject arg.
-* JsonSerializable.toJson (SerializationFormattingPolicy.Indented) gebruikt nu twee spaties voor inspringing.
+* JsonSerializable.toJson (SerializationFormattingPolicy.Indented) maakt nu gebruik van twee spaties voor inspringen.
   
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
-* Ondersteuning toegevoegd voor unieke Index beleid.
-* Ondersteuning toegevoegd voor het beperken van de reactie voortzetting token grootte in de feed opties.
-* Ondersteuning toegevoegd voor de partitie splitsen in Partitiequery Cross.
-* Een bug in Json-serialisatie voor tijdstempel vaste ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
-* Heeft een fout in de Json-serialisatie voor enum.
-* Een fout bij het beheren van documenten met een grootte van 2MB vaste ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Er is ondersteuning toegevoegd voor de unieke Index beleid.
+* Ondersteuning toegevoegd voor het beperken van de reactie voortzetting van token grootte in de opties voor invoer.
+* Ondersteuning toegevoegd voor partitie splitsen in meerdere Partitiequery.
+* Een probleem opgelost in Json-serialisatie voor tijdstempel ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Een bug opgelost in Json-serialisatie voor enum.
+* Een probleem opgelost bij het beheren van documenten van de grootte van 2MB ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
 * Afhankelijkheid com.fasterxml.jackson.core:jackson-databind bijgewerkt naar 2.9.5 vanwege een fout ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
-* Afhankelijkheid van een upgrade uitgevoerd naar 0.8.0.17 vanwege een fout rxjava-extra's ([rxjava-extra's: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
-* De beschrijving van de metagegevens in pom bestand bijgewerkt om te worden inline met de rest van de documentatie.
+* Afhankelijkheid van een upgrade uitgevoerd naar 0.8.0.17 vanwege een bug rxjava-extra's ([rxjava extra: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* De beschrijving van de metagegevens in het pom-bestand bijgewerkt in verband met inline met de rest van documentatie zijn.
 * Syntaxis van de gebruikerservaring ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Toegevoegde ondersteuning voor back-druk in de query.
-* Ondersteuning toegevoegd voor de partitie-id sleutel bereik in de query.
+* Ondersteuning toegevoegd voor partitie-id sleutelbereik in de query.
 * Oplossing voor het toestaan van grotere vervolgtoken in de aanvraagheader (bugfix github #24).
-* netty afhankelijkheid bijgewerkt naar 4.1.22.Final om ervoor te zorgen JVM afgesloten nadat de hoofdthread is voltooid.
-* Los om te voorkomen dat sessietoken doorgeven bij het lezen van de master-resources.
+* Een upgrade uitgevoerd naar 4.1.22.Final om ervoor te zorgen JVM-netty afhankelijkheid afgesloten nadat de hoofdthread is voltooid.
+* Om te voorkomen dat sessietoken wordt doorgegeven bij het lezen van de master-resources oplossen.
 * Meer voorbeelden toegevoegd.
-* Meer benchmarking scenario's toegevoegd.
-* Header-bestanden van de vaste Java voor het genereren van de juiste java-document.
+* Meer scenario's voor benchmarking toegevoegd.
+* Header-bestanden van de vaste Java voor het genereren van de juiste java doc-bestand.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA-SDK met end-to-end-ondersteuning voor niet-blokkerende i/o-gebruik de [Netty bibliotheek](http://netty.io/) in de modus van de gateway. 
+* GA-SDK met end-to-end-ondersteuning voor het gebruik van i/o-niet-blokkerende de [Netty bibliotheek](http://netty.io/) in de modus van de gateway. 
 
 ## <a name="release-and-retirement-dates"></a>Release-en buiten gebruik stellen
-Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik stellen van een SDK om de overgang naar een nieuwere/ondersteunde versie vloeiend.
+Microsoft biedt melding ten minste **12 maanden** voorafgaand aan buiten gebruik stellen van een SDK soepel te verwerken de overgang naar een nieuwere/ondersteunde versie.
 
-Nieuwe functies en functionaliteit en optimalisaties worden alleen toegevoegd aan de huidige SDK. Daarom wordt het aanbevolen dat u altijd een upgrade naar de nieuwste versie van de SDK zo spoedig mogelijk uitvoert.
+Nieuwe functies en functionaliteit en -optimalisatie worden alleen toegevoegd aan de huidige SDK. Daarom wordt het aanbevolen dat u altijd een upgrade naar de nieuwste versie van de SDK zo vroeg mogelijk uitvoert.
 
-Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
+Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
 
 <br/>
 
@@ -108,5 +108,5 @@ Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SD
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zie ook
-Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) pagina van de service.
+Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) servicepagina.
 

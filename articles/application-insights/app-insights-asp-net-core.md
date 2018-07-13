@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: f9ab9b9af81bf1827c2da646908e204bd051706b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 6635906b6aae418fa3754f1152fae3e0d8903ffc
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970931"
+ms.locfileid: "38989754"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights voor ASP.NET Core
 
@@ -188,7 +188,7 @@ Voor het automatiseren van aanvragen voor uw app met synthetische transacties.
 
 1. Uw app uitvoeren door te klikken op IIS Express ![Schermopname van Visual Studio IIS Express-pictogram](./media/app-insights-asp-net-core/004-iis-express.png)
 
-2. Kopieer de url van de adresbalk van de browser. Het is in de indeling http://localhost:{random poortnummer}
+2. Kopieer de url van de adresbalk van de browser. Het is in de indeling `http://localhost:{random port number}`
 
    ![Schermafbeelding van de adresbalk van de browser-url](./media/app-insights-asp-net-core/0013-copy-url.png)
 

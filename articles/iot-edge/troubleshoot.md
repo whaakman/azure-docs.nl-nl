@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4862e3aa976287512fd69fdfe9295e3f3328d5a7
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: ecd19acdeba57a29a28187d42783bbf146095190
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887773"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001902"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -107,19 +107,43 @@ Zodra de IoT Edge Security-Daemon wordt uitgevoerd, bekijkt u de logboeken van d
 
 ### <a name="view-the-messages-going-through-the-edge-hub"></a>Bekijk de berichten die via Edge hub gaan
 
-Bekijk de berichten die via Edge hub gaan en verzamel inzichten over updates van apparaateigenschappen met uitgebreide Logboeken uit de runtimecontainers edgeAgent en edgeHub. Als u wilt inschakelen op de uitgebreide logboeken op deze containers, stel de `RuntimeLogLevel` omgevingsvariabele: 
+Bekijk de berichten die via Edge hub gaan en verzamel inzichten over updates van apparaateigenschappen met uitgebreide Logboeken uit de runtimecontainers edgeAgent en edgeHub. Als u wilt inschakelen op de uitgebreide logboeken op deze containers, instellen `RuntimeLogLevel` in uw configuratiebestand yaml. Open het bestand:
 
 Op Linux:
-    
-   ```cmd
-   export RuntimeLogLevel="debug"
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
    ```
-    
+
 In Windows:
-    
-   ```powershell
-   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
+
+   ```cmd
+   notepad C:\ProgramData\iotedge\config.yaml
    ```
+
+Standaard de `agent` element ziet er ongeveer als volgt:
+
+   ```yaml
+   agent:
+     name: edgeAgent
+     type: docker
+     env: {}
+     config:
+       image: mcr.microsoft.com/azureiotedge-agent:1.0
+       auth: {}
+   ```
+
+Vervang `env: {}` met:
+
+> [!WARNING]
+> YAML-bestanden mag geen tabbladen als inspringing bevatten. Gebruik in plaats daarvan 2 spaties.
+
+   ```yaml
+   env:
+     RuntimeLogLevel: debug
+   ```
+
+Sla het bestand op en start de IoT Edge security manager opnieuw.
 
 U kunt ook de berichten controleren die worden verzonden tussen IoT Hub en de IoT Edge-apparaten. Bekijk deze berichten met behulp van de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)-extensie voor Visual Studio Code. Zie [Handig hulpprogramma bij het ontwikkelen met Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) voor meer richtlijnen.
 

@@ -1,6 +1,6 @@
 ---
-title: Alleen in tijd virtuele machine toegang heeft tot in Azure Security Center | Microsoft Docs
-description: Dit document wordt gedemonstreerd hoe alleen in de tijd toegang van de virtuele machine in Azure Security Center helpt u bij toegang tot uw virtuele machines in Azure beheren.
+title: Just-in-time-VM-toegang in Azure Security Center | Microsoft Docs
+description: Dit document laat zien hoe just-in-time-VM-toegang in Azure Security Center u helpt toegang tot uw Azure virtual machines beheren.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,184 +12,184 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2018
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 60a5de16f4146e112a85d74634c662e228a0854f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640554"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990575"
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time"></a>Virtuele machine toegang met behulp van in de tijd beheren
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Beheer van de virtuele machine toegang met just-in-tijd
 
-Alleen bij tijd virtuele machine (VM) kan toegang worden gebruikt vergrendelen binnenkomend verkeer naar uw Azure VM's, blootstelling aan aanvallen te verminderen terwijl er eenvoudig toegang krijgen tot het verbinding maken met virtuele machines wanneer deze nodig is.
+Just-in-time virtuele machine (VM) kan toegang worden gebruikt om binnenkomend verkeer naar uw Azure VM's, blootstelling aan aanvallen te verminderen terwijl eenvoudige toegang tot het verbinding maken met virtuele machines wanneer dat nodig is.
 
 > [!NOTE]
-> De NET tijdig functie is beschikbaar op de prijscategorie Standard van Security Center.  Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
+> De just in time functie is beschikbaar op de prijscategorie Standard van Security Center.  Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
 >
 >
 
 ## <a name="attack-scenario"></a>Aanval
 
-Brute force-aanvallen vaak doelpoorten management als een manier toegang te krijgen tot een virtuele machine. Als dit lukt, kan een aanvaller besturen van de virtuele machine en een voet achter de deur tot stand brengen in uw omgeving.
+Brute force-aanvallen vaak doelpoorten voor de management als een manier toegang te krijgen tot een virtuele machine. Als dit lukt, kan een aanvaller controle over de virtuele machine en tot stand brengen van een voet achter in uw omgeving.
 
-Een manier om te beperken van blootstelling aan een beveiligingsaanval is om te beperken van de hoeveelheid tijd die een poort geopend is. Beheerpoorten hoeven niet te allen tijde geopend te zijn. Ze hoeven alleen geopend te zijn wanneer u bent verbonden met de VM, bijvoorbeeld om beheer- of onderhoudstaken uit te voeren. Wanneer u in de tijd is ingeschakeld, wordt gebruikt door Security Center [netwerkbeveiligingsgroep](../virtual-network/security-overview.md#security-rules) (NSG) regels, die toegang tot beheerpoorten beperken zodat ze niet worden gericht door aanvallers.
+Een manier om te beperken van blootstelling aan een brute force-aanval is te beperken van de hoeveelheid tijd die een poort geopend is. Beheerpoorten hoeven niet te allen tijde geopend te zijn. Ze hoeven alleen geopend te zijn wanneer u bent verbonden met de VM, bijvoorbeeld om beheer- of onderhoudstaken uit te voeren. Wanneer just-in-time is ingeschakeld, Security Center maakt gebruik van [netwerkbeveiligingsgroep](../virtual-network/security-overview.md#security-rules) (NSG) regels, die toegang tot beheerpoorten beperken, zodat ze niet het doelwit van aanvallers.
 
-![Alleen bij tijd scenario][1]
+![Just-in-time-scenario][1]
 
-## <a name="how-does-just-in-time-access-work"></a>Hoe werkt alleen bij het toegang in uitvoeringstijd combinatie?
+## <a name="how-does-just-in-time-access-work"></a>Hoe just-in-time-toegang werkt?
 
-Wanneer JIT is ingeschakeld, wordt binnenkomend verkeer naar de Azure-VM's vergrendeld via Security Center door een NSG-regel te maken. Selecteert u de poorten op de virtuele machine waarmee binnenkomend verkeer wordt worden vergrendeld. Deze poorten worden beheerd door de zojuist in tijdoplossing.
+Wanneer JIT is ingeschakeld, wordt binnenkomend verkeer naar de Azure-VM's vergrendeld via Security Center door een NSG-regel te maken. U selecteert de poorten op de VM waarop binnenkomend verkeer wordt vergrendeld. Deze poorten worden beheerd door de just in time-oplossing.
 
-Wanneer een gebruiker toegang tot een virtuele machine aanvraagt, Security Center controleert of de gebruiker [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md) machtigingen die schrijftoegang voor de virtuele machine bieden. Als ze schrijftoegang hebben, de aanvraag is goedgekeurd en Security Center automatisch de Netwerkbeveiligingsgroepen (nsg's configureert) zodat binnenkomend verkeer op de geselecteerde poorten voor de hoeveelheid tijd die u hebt opgegeven. Nadat de respijtperiode is verlopen, wordt het nsg's door Security Center naar de vorige staat hersteld. Deze verbindingen die al zijn gemaakt niet wordt onderbroken, maar.
+Wanneer een gebruiker vraagt om toegang tot een virtuele machine, controleert Security Center of de gebruiker heeft [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) machtigingen die het verschaffen van toegang voor schrijven voor de virtuele machine. Als ze schrijfmachtigingen hebben, de aanvraag is goedgekeurd en Security Center automatisch de Netwerkbeveiligingsgroepen (nsg's configureert) om toe te staan van inkomend verkeer op de geselecteerde poorten voor de hoeveelheid tijd die u hebt opgegeven. Nadat de respijtperiode is verlopen, worden de nsg's door Security Center de eerdere status hersteld. Deze verbindingen die al zijn gemaakt niet wordt onderbroken, maar.
 
 > [!NOTE]
-> Security Center alleen bij het VM-time-toegang ondersteunt momenteel alleen virtuele machines die zijn geïmplementeerd via Azure Resource Manager. Voor meer informatie over het klassieke en het Resource Manager-implementatiemodel Zie [Azure Resource Manager versus klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).
+> Security Center just-in-time-VM-toegang ondersteunt momenteel alleen VM's die zijn geïmplementeerd via Azure Resource Manager. Voor meer informatie over de klassieke en Resource Manager-implementatiemodel zien [Azure Resource Manager en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).
 >
 >
 
-## <a name="using-just-in-time-access"></a>Met behulp van alleen bij het time-toegang
+## <a name="using-just-in-time-access"></a>Met behulp van just-in-time-toegang
 
 1. Open het dashboard van **Security Center**.
 
-2. Selecteer in het linkerdeelvenster **Just in time VM toegang**.
+2. Selecteer in het linkerdeelvenster **Just-in-time-VM-toegang**.
 
-![Alleen in de tijd VM toegang tegel][2]
+![Tegel Just-in-time-VM-toegang][2]
 
-De **Just in time VM toegang** venster wordt geopend.
+De **Just-in-time-VM-toegang** venster wordt geopend.
 
-![Alleen in de tijd VM toegang tegel][10]
+![Tegel Just-in-time-VM-toegang][10]
 
 **Just-In-Time-VM-toegang** biedt informatie over de status van uw VM's:
 
-- **Geconfigureerd**: VM's die zijn geconfigureerd om Just-In-Time-VM-toegang te ondersteunen. De gegevens weergegeven voor de afgelopen week en bevat voor elke VM die het aantal goedgekeurde aanvragen, de datum van laatste toegang en de tijd en de laatste gebruiker.
-- **Aanbevolen**: VM's die Just-In-Time-VM-toegang kunnen ondersteunen maar er niet voor zijn geconfigureerd. Het is raadzaam dat u alleen bij het VM-toegangsbeheer tijd voor deze virtuele machines inschakelt. Zie [een configureren in het toegangsbeleid tijd](#configuring-a-just-in-time-access-policy).
+- **Geconfigureerd**: VM's die zijn geconfigureerd om Just-In-Time-VM-toegang te ondersteunen. De gegevens die worden gepresenteerd is voor de afgelopen week en bevat voor elke virtuele machine van het aantal goedgekeurde aanvragen, de datum van laatste toegang en de tijd en de laatste gebruiker.
+- **Aanbevolen**: VM's die Just-In-Time-VM-toegang kunnen ondersteunen maar er niet voor zijn geconfigureerd. U wordt aangeraden dat u just-in-time VM-toegangsbeheer voor deze virtuele machines inschakelt. Zie [configureren van een just in time-toegangsbeleid](#configuring-a-just-in-time-access-policy).
 - **Geen aanbeveling**: redenen waarom een VM mogelijk niet wordt aanbevolen zijn:
   - NSG ontbreekt: de Just-In-Time-oplossing vereist dat er een NSG aanwezig is.
-  - Klassieke VM: Just-In-Time-VM-toegang van Security Center ondersteunt momenteel alleen VM's die zijn geïmplementeerd via Azure Resource Manager. Een klassieke implementatie wordt niet ondersteund door de zojuist in tijdoplossing.
+  - Klassieke VM: Just-In-Time-VM-toegang van Security Center ondersteunt momenteel alleen VM's die zijn geïmplementeerd via Azure Resource Manager. Een klassieke implementatie wordt niet ondersteund door de just in time-oplossing.
   - Overig: een VM valt in deze categorie als de Just-In-Time-oplossing is uitgeschakeld in het beveiligingsbeleid van het abonnement of de resourcegroep, of als de VM geen openbaar IP-adres heeft en geen NSG heeft.
 
-## <a name="configuring-a-just-in-time-access-policy"></a>Configureren van een in het toegangsbeleid tijd
+## <a name="configuring-a-just-in-time-access-policy"></a>Configureren van een just in time-beleid
 
 Selecteer de virtuele machines die u wilt inschakelen:
 
-1. Onder **Just in time VM toegang**, selecteer de **aanbevolen** tabblad.
+1. Onder **Just-in-time-VM-toegang**, selecteer de **aanbevolen** tabblad.
 
-  ![Time-toegang inschakelen][3]
+  ![Just-in-time-toegang inschakelen][3]
 
-2. Onder **virtuele MACHINE**, selecteert u de virtuele machines die u wilt inschakelen. Hiermee wordt het selectievakje naast een virtuele machine geplaatst.
-3. Selecteer **JIT op virtuele machines inschakelen**.
+2. Onder **virtuele MACHINE**, selecteert u de virtuele machines die u wilt inschakelen. Hiermee wordt een vinkje naast een virtuele machine geplaatst.
+3. Selecteer **JIT inschakelen op virtuele machines**.
 4. Selecteer **Opslaan**.
 
 ### <a name="default-ports"></a>Standaard-poorten
 
-Hier ziet u de standaard-poorten die door Security Center aanbevolen inschakelen in de tijd.
+Hier ziet u de standaard-poorten die door Security Center wordt aanbevolen just-in-time inschakelen.
 
-1. Onder **Just in time VM toegang**, selecteer de **aanbevolen** tabblad.
+1. Onder **Just-in-time-VM-toegang**, selecteer de **aanbevolen** tabblad.
 
-  ![Standaardpoorten weergeven][6]
+  ![Standaard-poorten worden weergegeven][6]
 
-2. Onder **VMs**, selecteert u een virtuele machine. Hiermee plaatst u het selectievakje naast de virtuele machine en Hiermee opent u **JIT VM-configuratie**. Deze blade geeft de standaardpoorten.
+2. Onder **VMs**, selecteert u een virtuele machine. Hiermee wordt een vinkje naast de virtuele machine wordt geplaatst en wordt geopend **JIT-VM-configuratie**. Deze blade wordt weergegeven de standaardpoorten.
 
 ### <a name="add-ports"></a>Poorten toevoegen
 
-Onder **JIT VM-configuratie**, kunt u ook toevoegen en configureren van een nieuwe poort waarop u wilt de zojuist inschakelen in tijdoplossing.
+Onder **JIT-VM-configuratie**, kunt u ook toevoegen en configureren van een nieuwe poort waarop u wilt inschakelen just in time-oplossing.
 
-1. Onder **JIT VM-configuratie**, selecteer **toevoegen**. Hiermee opent u **toevoegen poortconfiguratie**.
+1. Onder **JIT-VM-configuratie**, selecteer **toevoegen**. Hiermee opent u **poortconfiguratie toevoegen**.
 
   ![Poortconfiguratie][7]
 
-2. Onder **toevoegen poortconfiguratie**, u de poort, protocoltype, toegestane bron-IP-adressen en maximale aanvraagtijd identificeren.
+2. Onder **poortconfiguratie toevoegen**, u de poort, protocoltype, toegestane bron-IP-adressen en maximale aanvraagtijd identificeren.
 
-  Toegestane bron-IP-adressen zijn de IP-adresbereiken mag krijgen van toegang op een verzoek goedgekeurd.
+  Toegestane bron-IP's zijn de IP-adresbereik dat is toegestaan om te profiteren van een goedgekeurde aanvraag.
 
-  Maximale aanvraagtijd is de maximale tijdsduur dat een specifieke poort kan worden geopend.
+  Maximale aanvraagtijd is de maximale periode dat een specifieke poort kan worden geopend.
 
 3. Selecteer **OK**.
 
 ## <a name="requesting-access-to-a-vm"></a>Aanvragen van toegang tot een virtuele machine
 
-Om toegang te vragen voor een virtuele machine:
+Om aan te vragen tot een virtuele machine:
 
-1. Onder **Just in time VM toegang**, selecteer de **geconfigureerde** tabblad.
-2. Onder **VMs**, selecteert u de virtuele machines die u toegang wilt inschakelen. Hiermee wordt het selectievakje naast een virtuele machine geplaatst.
+1. Onder **Just-in-time-VM-toegang**, selecteer de **geconfigureerd** tabblad.
+2. Onder **VMs**, selecteert u de virtuele machines die u toegang wilt inschakelen. Hiermee wordt een vinkje naast een virtuele machine geplaatst.
 3. Selecteer **toegang aanvragen**. Hiermee opent u **toegang aanvragen**.
 
-  ![Toegang vragen tot een virtuele machine][4]
+  ![Aanvraag voor toegang tot een virtuele machine][4]
 
-4. Onder **toegang aanvragen**, u configureert voor elke virtuele machine de poorten te openen samen met de bron-IP die de poort is geopend en de periode waarvoor u de poort is geopend. U kunt alleen toegang tot de poorten die zijn geconfigureerd in de zojuist aanvragen in tijd beleid. Elke poort heeft de maximaal toegestane tijd die is afgeleid van de zojuist in tijd beleid.
+4. Onder **toegang aanvragen**, u voor elke virtuele machine configureren met de poorten te openen, samen met het IP-adres voor een bron die de poort is geopend en de periode waarvoor u de poort is geopend. U kunt aanvragen alleen toegang tot de poorten die zijn geconfigureerd in de just in time-beleid. Elke poort heeft de maximaal toegestane tijd die zijn afgeleid van de just in time-beleid.
 5. Selecteer **poorten openen**.
 
 > [!NOTE]
-> Wanneer een gebruiker toegang tot een virtuele machine aanvraagt, Security Center controleert of de gebruiker [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md) machtigingen die schrijftoegang voor de virtuele machine bieden. Als gebruikers schrijfmachtigingen hebben, wordt de aanvraag is goedgekeurd.
+> Wanneer een gebruiker vraagt om toegang tot een virtuele machine, controleert Security Center of de gebruiker heeft [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) machtigingen die het verschaffen van toegang voor schrijven voor de virtuele machine. Als ze over schrijfmachtigingen beschikt, wordt de aanvraag is goedgekeurd.
 >
 >
 
 > [!NOTE]
-> Als een gebruiker die toegang vraagt zich achter een proxy, werkt de "Mijn-IP-optie niet. Mogelijk zijn er nodig voor het definiëren van het volledige bereik van de organisatie.
+> Als een gebruiker die toegang aanvraagt zich achter een proxy, werkt de optie 'Mijn IP' mogelijk niet. Mogelijk zijn er een nodig voor het definiëren van het volledige bereik van de organisatie.
 >
 >
 
-## <a name="editing-a-just-in-time-access-policy"></a>Een bewerking in het toegangsbeleid tijd
+## <a name="editing-a-just-in-time-access-policy"></a>Bewerken van een just in time-beleid
 
-U kunt wijzigen van een virtuele machine bestaande net in tijd beleid door het toevoegen en configureren van een nieuwe poort voor die VM openen of door andere parameters die betrekking hebben op een al beveiligde poort wijzigen.
+U kunt wijzigen van een virtuele machine bestaande just-in-time-beleid door toe te voegen en een nieuwe poort te openen voor die VM te configureren, of door het veranderen van andere parameters met betrekking tot een al beveiligde poort.
 
-Om te bewerken van een bestaande alleen bij het beleid van de tijd van een VM de **geconfigureerde** tabblad wordt gebruikt:
+Als u wilt bewerken van een bestaande just-in-time-beleid van een virtuele machine, de **geconfigureerd** tabblad wordt gebruikt:
 
-1. Onder **VMs**, selecteert u een virtuele machine een poort toevoegen door te klikken op de drie puntjes binnen de rij voor die VM. Hiermee opent u een menu.
-2. Selecteer **bewerken** in het menu. Hiermee opent u **JIT VM-configuratie**.
+1. Onder **VMs**, selecteert u een virtuele machine naar een poort toevoegen door te klikken op de drie puntjes in de rij voor die VM. Hiermee opent u een menu.
+2. Selecteer **bewerken** in het menu. Hiermee opent u **JIT-VM-configuratie**.
 
   ![Beleid bewerken][8]
 
-3. Onder **JIT VM-configuratie**, u kunt de bestaande instellingen van een poort al beveiligde voor installatie zonder toezicht bewerken door te klikken op de poort of kunt u **toevoegen**. Hiermee opent u **toevoegen poortconfiguratie**.
+3. Onder **JIT-VM-configuratie**, u kunt de bestaande instellingen van een al beveiligde poort voor installatie zonder toezicht bewerken door te klikken op de poort of kunt u **toevoegen**. Hiermee opent u **poortconfiguratie toevoegen**.
 
   ![Een poort toevoegen][7]
 
-4. Onder **toevoegen poortconfiguratie**, de poort herkennen, protocoltype bron-IP-adressen en de maximale duur van aanvraag toegestaan.
+4. Onder **poortconfiguratie toevoegen**, identificeren van de poort en protocol-type, bron-IP's en de maximale aanvraagtijd toegestaan.
 5. Selecteer **OK**.
 6. Selecteer **Opslaan**.
 
-## <a name="auditing-just-in-time-access-activity"></a>Controleren in activiteit voor het openen
+## <a name="auditing-just-in-time-access-activity"></a>Controle van just-in-time toegangsactiviteit
 
-U kunt Verkrijg inzicht in de VM-activiteiten logboek zoekactie. Logboeken bekijken:
+U krijgt inzicht in VM-activiteiten met zoeken in Logboeken. Logboeken weergeven:
 
-1. Onder **Just in time VM toegang**, selecteer de **geconfigureerde** tabblad.
-2. Onder **VMs**, selecteert u een virtuele machine om informatie te bekijken over door te klikken op de drie puntjes binnen de rij voor die VM. Hiermee opent u een menu.
+1. Onder **Just-in-time-VM-toegang**, selecteer de **geconfigureerd** tabblad.
+2. Onder **VMs**, selecteert u een virtuele machine om informatie over door te klikken op de drie puntjes in de rij voor die virtuele machine weer te geven. Hiermee opent u een menu.
 3. Selecteer **activiteitenlogboek** in het menu. Hiermee opent u **activiteitenlogboek**.
 
   ![Activiteitenlogboek selecteren][9]
 
-  **Activiteitenlogboek** biedt een gefilterde weergave van de vorige bewerkingen voor die VM samen met de tijd, datum en -abonnement.
+  **Activiteitenlogboek** biedt een gefilterde weergave van de vorige bewerkingen voor die virtuele machine samen met de tijd, datum en -abonnement.
 
-  ![Logboek van de activiteit weergeven][5]
+  ![Het activiteitenlogboek weergeven][5]
 
-U kunt de informatie in het foutenlogboek downloaden door het selecteren van **Klik hier om alle items downloaden als CSV**.
+U kunt de logboekgegevens downloaden door te selecteren **Klik hier om alle items te downloaden als CSV-bestand**.
 
-Wijzigen van de filters en selecteer **toepassen** voor het maken van een zoekopdracht en logboekbestanden.
+Wijzigen van de filters en selecteer **toepassen** een zoeken en het logboek te maken.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>Met behulp van alleen in de tijd VM toegang via PowerShell
+## <a name="using-just-in-time-vm-access-via-powershell"></a>Met behulp van just-in-time-VM-toegang via PowerShell
 
-Als u wilt gebruiken de zojuist in tijdoplossing via PowerShell, zorg ervoor dat u hebt de [nieuwste](/powershell/azure/install-azurerm-ps) Azure PowerShell-versie.
-Als u dit doet, moet u voor het installeren van de [nieuwste](https://aka.ms/asc-psgallery) Azure Security Center van de PowerShell gallery.
+Als u wilt gebruiken de just in time-oplossing via PowerShell, zorg ervoor dat u hebt de [nieuwste](/powershell/azure/install-azurerm-ps) Azure PowerShell-versie.
+Nadat u dit doet, moet u voor het installeren van de [nieuwste](https://aka.ms/asc-psgallery) Azure Security Center vanuit de PowerShell gallery.
 
-### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configureren van een in tijd beleid voor een virtuele machine
+### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configureren van een just in time-beleid voor een virtuele machine
 
-Voor het configureren van een in tijd beleid op een specifieke virtuele machine, moet u deze opdracht uitvoeren in uw PowerShell-sessie: Set-ASCJITAccessPolicy.
+Het configureren van een just in time-beleid op een specifieke virtuele machine, moet u deze opdracht uitvoert in uw PowerShell-sessie: Set-ASCJITAccessPolicy.
 Voer de cmdlet-documentatie voor meer informatie.
 
 ### <a name="requesting-access-to-a-vm"></a>Aanvragen van toegang tot een virtuele machine
 
-Voor toegang tot een specifieke virtuele machine die wordt beveiligd met de zojuist in tijdoplossing, moet u deze opdracht uitvoeren in uw PowerShell-sessie: aanroepen ASCJITAccess.
+Voor toegang tot een specifieke virtuele machine die is beveiligd met de just in time-oplossing, moet u deze opdracht uitvoert in uw PowerShell-sessie: aanroepen ASCJITAccess.
 Voer de cmdlet-documentatie voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe alleen in de tijd VM-toegang in Security Center helpt dat u toegang tot uw virtuele machines in Azure beheren.
+In dit artikel hebt u geleerd hoe just-in-time-VM-toegang in Security Center helpt dat u toegang tot uw Azure virtual machines beheren.
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-- [Beveiligingsbeleid instellen](security-center-policies.md) : informatie over het beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen configureren.
-- [Aanbevelingen voor beveiliging beheren](security-center-recommendations.md) : Leer hoe aanbevelingen u uw Azure-resources te beveiligen.
+- [Beveiligingsbeleid instellen](security-center-policies.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+- [Aanbevelingen voor beveiliging beheren](security-center-recommendations.md) : Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
 - [Beveiligingsstatus bewaken](security-center-monitoring.md) : informatie over het bewaken van de status van uw Azure-resources.
 - [Beheren en erop reageren op beveiligingswaarschuwingen](security-center-managing-and-responding-alerts.md) : informatie over het beheren van en reageren op beveiligingswaarschuwingen.
 - [Partneroplossingen bewaken](security-center-partner-solutions.md) : informatie over het bewaken van de status van uw partneroplossingen.

@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9eb7f74a365b51431aabd78de3c6d36c3c969bb6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 3a7d657a21b414d51375f912513ae045adec6d6e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991219"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Een SharePoint-site met Application Insights bewaken
 Azure Application Insights bewaakt de beschikbaarheid, de prestaties en het gebruik van uw apps. Hier wordt uitgelegd hoe u dit kunt instellen voor een SharePoint-site.
@@ -33,7 +34,7 @@ In het venster dat wordt geopend, ziet u prestatie- en gebruiksgegevens over uw 
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics tools about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -83,18 +84,6 @@ De eerste gebeurtenissen worden weergegeven bij Zoeken.
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Klik na een paar seconden op Vernieuwen als u meer gegevens verwacht.
-
-Klik vanuit de overzichtsblade op **Gebruiksanalyse** om grafieken van gebruikers, sessies en paginaweergaven te bekijken:
-
-![](./media/app-insights-sharepoint/06-usage.png)
-
-Klik op een grafiek om meer details te bekijken, bijvoorbeeld Paginaweergaven:
-
-![](./media/app-insights-sharepoint/07-pages.png)
-
-Of Gebruikers:
-
-![](./media/app-insights-sharepoint/08-users.png)
 
 ## <a name="capturing-user-id"></a>Gebruikers-id vastleggen
 Met het standaardcodefragment van de webpagina wordt niet de gebruikers-id van SharePoint vastgelegd, maar u kunt dit doen met een kleine wijziging.

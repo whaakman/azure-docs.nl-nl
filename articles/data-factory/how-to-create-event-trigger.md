@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969575"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005829"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Een trigger die een pijplijn in reactie op een gebeurtenis wordt uitgevoerd
 
@@ -51,6 +51,14 @@ Als u het bestand binnenkomt in de opslaglocatie van uw en de bijbehorende blob 
 
 ![Selecteer triggertype als gebeurtenis](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
+### <a name="map-trigger-properties-to-pipeline-parameters"></a>Trigger-eigenschappen toewijzen aan pijplijnparameters
+
+Wanneer een gebeurtenistrigger wordt geactiveerd voor een specifieke blob, de gebeurtenis worden vastgelegd voor de map pad en de naam van de blob in de eigenschappen `@triggerBody().folderPath` en `@triggerBody().fileName`. Als u de waarden van deze eigenschappen in een pijplijn, moet u de eigenschappen worden toegewezen aan de pijplijnparameters. Nadat u de eigenschappen toewijzen aan parameters, kunt u toegang tot de waarden die zijn vastgelegd door de trigger via de `@pipeline.parameters.parameterName` expressie in de pijplijn.
+
+![Toewijzing van eigenschappen aan pijplijnparameters](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Bijvoorbeeld, in de vorige schermafbeelding. de trigger is geconfigureerd om te worden geactiveerd wanneer een blobpad hebben die eindigt op `.csv` in het Opslagaccount dat wordt gemaakt. Als gevolg hiervan, wanneer een blob met de `.csv` extensie overal in het Opslagaccount is gemaakt de `folderPath` en `fileName` eigenschappen vastleggen van de locatie van de nieuwe blob. Bijvoorbeeld, `@triggerBody().folderPath` heeft een waarde, zoals `/containername/foldername/nestedfoldername` en `@triggerBody().fileName` heeft een waarde, zoals `filename.csv`. Deze waarden worden toegewezen in het voorbeeld in op de pijplijnparameters `sourceFolder` en `sourceFile`. U kunt deze gebruiken in de pijplijn als `@pipeline.parameters.sourceFolder` en `@pipeline.parameters.sourceFile` respectievelijk.
+
 ## <a name="json-schema"></a>JSON-schema
 
 De volgende tabel bevat een overzicht van de schema-elementen die betrekking op gebeurtenissen gebaseerde triggers hebben:
@@ -75,14 +83,6 @@ Deze sectie bevat voorbeelden van triggerinstellingen voor de op basis van gebeu
 
 > [!NOTE]
 > U moet nemen de `/blobs/` segment van het pad wanneer u de container en map, container bestand of de container, map en en bestand.
-
-## <a name="map-trigger-properties-to-pipeline-parameters"></a>Trigger-eigenschappen toewijzen aan pijplijnparameters
-
-Wanneer een gebeurtenistrigger wordt geactiveerd voor een specifieke blob, de gebeurtenis worden vastgelegd voor de map pad en de naam van de blob in de eigenschappen `@triggerBody().folderPath` en `@triggerBody().fileName`. Als u de waarden van deze eigenschappen in een pijplijn, moet u de eigenschappen worden toegewezen aan de pijplijnparameters. Nadat u de eigenschappen toewijzen aan parameters, kunt u toegang tot de waarden die zijn vastgelegd door de trigger via de `@pipeline.parameters.parameterName` expressie in de pijplijn.
-
-![Toewijzing van eigenschappen aan pijplijnparameters](media/how-to-create-event-trigger/event-based-trigger-image4.png)
-
-Bijvoorbeeld, in de vorige schermafbeelding. de trigger is geconfigureerd om te worden geactiveerd wanneer een blobpad hebben die eindigt op `.csv` in het Opslagaccount dat wordt gemaakt. Als gevolg hiervan, wanneer een blob met de `.csv` extensie overal in het Opslagaccount is gemaakt de `folderPath` en `fileName` eigenschappen vastleggen van de locatie van de nieuwe blob. Bijvoorbeeld, `@triggerBody().folderPath` heeft een waarde, zoals `/containername/foldername/nestedfoldername` en `@triggerBody().fileName` heeft een waarde, zoals `filename.csv`. Deze waarden worden toegewezen in het voorbeeld in op de pijplijnparameters `sourceFolder` en `sourceFile`. U kunt deze gebruiken in de pijplijn als `@pipeline.parameters.sourceFolder` en `@pipeline.parameters.sourceFile` respectievelijk.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over triggers [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md#triggers).

@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 789958874784f19169e79a177beb0d811d9f60d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346056"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005703"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Een Linux IoT Edge-apparaat die als een transparante gateway fungeert maken
 
@@ -117,7 +117,7 @@ Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules vo
 2. Ga naar **IoT Edge** en selecteert u uw IoT Edge-apparaat dat u wilt gebruiken als een gateway.
 3. Selecteer **Modules instellen**.
 4. Selecteer **Volgende**.
-5. In de **routes opgeven** stap, hebt u een standaardroute dat alle berichten van alle modules naar IoT Hub verzendt. Als dit niet het geval is, voeg de volgende code toe en selecteer vervolgens **volgende**.
+5. In de stap **Routes opgeven** moet u beschikken over een standaardroute waarmee alle berichten van alle modules naar IoT Hub worden verzonden. Voeg anders de volgende code toe en selecteer **Volgende**.
    ```JSON
    {
        "routes": {
@@ -181,7 +181,7 @@ IoT Edge-runtime kunt versturen berichten worden verzonden van downstream appara
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-Raadpleeg het [module samenstelling artikel] [lnk-module-samenstelling] voor meer informatie over het routeren van berichten.
+Raadpleeg de [module samenstelling artikel] [ lnk-module-composition] voor meer informatie over het routeren van berichten.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules][lnk-module-dev].
@@ -192,6 +192,7 @@ Raadpleeg het [module samenstelling artikel] [lnk-module-samenstelling] voor mee
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

@@ -4,14 +4,14 @@ description: Informatie over hoe Contoso on-premises Linux app promotiebewerking
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/04/2018
+ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 585076b3fef56fe0e59828137674d7eb14528540
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 5981c708abdaa12a662075cc5bf5aae14ccc35c2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872004"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002157"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-the-azure-app-service-and-azure-mysql"></a>Migratie van Contoso: een Contoso Linux helpdesk-app naar de Azure App Service en Azure MySQL herstructureren
 
@@ -25,13 +25,15 @@ Dit document is de tiende in een reeks artikelen die laten zien hoe het fictieve
 [Artikel 2: Een Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. Dezelfde infrastructuur wordt gebruikt voor alle Contoso migratiescenario's. | Beschikbaar
 [Artikel 3: On-premises resources evalueren](contoso-migration-assessment.md)  | Laat zien hoe een evaluatie van hun on-premises twee lagen SmartHotel app waarop VMware wordt uitgevoerd in Contoso. Beoordeling van de virtuele machines van een app met de [Azure Migrate](migrate-overview.md) -service en de SQL Server-database van de app met de [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
 [Artikel 4: Hosten op Azure VM's en een beheerd exemplaar van SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Ziet u hoe Contoso de SmartHotel-app naar Azure migreert. Migreren van de app web virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database via de [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, om te migreren naar een SQL beheerd exemplaar. | Beschikbaar
-[Artikel 5: Opnieuw hosten naar virtuele Azure-machines](contoso-migration-rehost-vm.md) | Ziet u hoe Contoso hun SmartHotel migreren naar Azure IaaS-VM's, met behulp van de Site Recovery-service.
-[Artikel 6: Opnieuw hosten naar virtuele machines in Azure en SQL Server-beschikbaarheidsgroepen](contoso-migration-rehost-vm-sql-ag.md) | Laat zien hoe de app SmartHotel door Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van de VM's van de app en de Database Migration service de app-database migreren naar een SQL Server-beschikbaarheidsgroep. | Beschikbaar
+[Artikel 5: Opnieuw hosten op Azure VM 's](contoso-migration-rehost-vm.md) | Ziet u hoe Contoso hun SmartHotel migreren naar Azure IaaS-VM's, met behulp van de Site Recovery-service.
+[Artikel 6: Opnieuw hosten op Azure VM's en SQL Server-beschikbaarheidsgroepen](contoso-migration-rehost-vm-sql-ag.md) | Laat zien hoe de app SmartHotel door Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van de VM's van de app en de Database Migration service de app-database migreren naar een SQL Server-beschikbaarheidsgroep. | Beschikbaar
 [Artikel 7: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Ziet u hoe Contoso hun osTicket Linux-app naar Azure IaaS-VM's met Azure Site Recovery migreert.
 [Artikel 8: Een Linux-app op Azure VM's en Azure MySQL-Server opnieuw hosten](contoso-migration-rehost-linux-vm-mysql.md) | Ziet u hoe Contoso de osTicket Linux app migreert. Deze Site Recovery voor migratie van virtuele machine en MySQL Workbench gebruiken om te migreren naar een Azure MySQL-Server-exemplaar. | Beschikbaar
-Artikel 9: Een app naar een Azure-Web-app en Azure SQL Database herstructureren | Ziet u hoe Contoso de app SmartHotel migreert naar een Azure-container gebaseerde web-app en de app-database migreert naar Azure SQL-Server. | Beschikbaar
-Artikel 10: Een Linux-app met Azure App Service en de Azure MySQL-Server herstructureren | Ziet u hoe Contoso de osTicket Linux app migreert naar Azure App Service met behulp van PHP 7.0 Docker-container. De codebasis voor de implementatie is gemigreerd naar GitHub. De app-database wordt gemigreerd naar Azure MySQL. | In dit artikel.
-
+[Artikel 9: Een app op Azure-Web-Apps en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Ziet u hoe Contoso de app SmartHotel migreert naar een Azure-container gebaseerde web-app en de app-database migreert naar Azure SQL-Server. | Beschikbaar
+Artikel 10: Een Linux-app op Azure WebApps en Azure MySQL-Server herstructureren | Ziet u hoe Contoso de osTicket Linux app migreert naar Azure App Service met behulp van PHP 7.0 Docker-container. De codebasis voor de implementatie is gemigreerd naar GitHub. De app-database wordt gemigreerd naar Azure MySQL. | In dit artikel.
+[Artikel 11: Herstructureren TFS op VSTS](contoso-migration-tfs-vsts.md) | Ziet u hoe Contoso hun Team Foundation Server (TFS) on-premises implementatie door te migreren migreert het naar Visual Studio Team Services (VSTS) in Azure. | Beschikbaar
+[Artikel 12: Opnieuw ontwerpen van een app op Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Ziet u hoe Contoso migreert en rearchitects hun SmartHotel app naar Azure. Ze opnieuw ontwerpen voor de laag van de web-app als een Windows-container en de app-database in een Azure SQL Database. | Beschikbaar
+[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Ziet u hoe Contoso hun SmartHotel-app met een scala aan mogelijkheden van Azure en -services, waaronder App Services, Azure Kubernetes, Azure Functions, Cognitive services en Cosmos DB opnieuw. | Beschikbaar
 
 In dit artikel migreert Contoso een app met twee lagen Linux Apache MySQL PHP (LAMP) servicedesk (osTicket) naar Azure. Als u wilt deze open-source-app wilt gebruiken, kunt u het downloaden van [GitHub](https://github.com/osTicket/osTicket).
 

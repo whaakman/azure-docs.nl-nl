@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 2d16d1dc7a53ca388b00ba02b6447e178a9f6edb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989234"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003610"
 ---
 # <a name="network-connectivity"></a>Verbinding met het netwerk
 Dit artikel bevat informatie over de infrastructuur Azure Stack-netwerk om te bepalen hoe u het beste Azure Stack integreren met uw bestaande netwerkomgeving. 
@@ -29,7 +29,7 @@ Dit artikel bevat informatie over de infrastructuur Azure Stack-netwerk om te be
 > Om op te lossen externe DNS-namen van Azure Stack (bijvoorbeeld www.bing.com), moet u DNS-servers voor het doorsturen van DNS-aanvragen opgeven. Zie voor meer informatie over de vereisten voor Azure Stack DNS [integratie van Azure Stack datacenter - DNS-](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Het fysieke netwerk ontwerpen
-De oplossing Azure Stack is een robuuste en maximaal beschikbare fysieke infrastructuur ter ondersteuning van de werking en -services vereist. Uplinks vanaf ToR naar rand switches zijn beperkt tot SFP + media en snelheid van 1 GB of 10 GB. Neem contact op met uw hardwareleverancier oorspronkelijke leveranciers (OEM) voor beschikbaarheid. Het volgende diagram staat voor onze aanbevolen ontwerp:
+De oplossing Azure Stack is een robuuste en maximaal beschikbare fysieke infrastructuur ter ondersteuning van de werking en -services vereist. Uplinks vanaf ToR naar rand switches zijn beperkt tot SFP + of SFP28 media en 1 GB, 10 GB of 25 GB snelheden worden bereikt. Neem contact op met uw hardwareleverancier oorspronkelijke leveranciers (OEM) voor beschikbaarheid. Het volgende diagram toont onze aanbevolen ontwerp:
 
 ![Aanbevolen ontwerp voor Azure Stack-netwerk](media/azure-stack-network/recommended-design.png)
 

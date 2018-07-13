@@ -21,6 +21,6 @@
 
 | Resource | Standaardlimiet |
 | --- | --- |
-| Max. aantal IOP's per VM |80.000 IOPS met GS5 VM |
-| Max. doorvoer per VM |2.000 MB/s met GS5 VM |
+| Max. aantal IOP's per VM |80.000 IOP's met GS5-VM 's |
+| Max. doorvoer per VM |2000 MB/s met GS5-VM 's |
 

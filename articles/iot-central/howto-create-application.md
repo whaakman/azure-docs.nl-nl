@@ -1,55 +1,55 @@
 ---
-title: Maken van een Azure IoT centrale toepassing | Microsoft Docs
-description: Als een beheerder, het maken van een Azure IoT centrale toepassing.
+title: Een Azure IoT Central-toepassing maken | Microsoft Docs
+description: Als een beheerder over het maken van een Azure IoT Central-toepassing.
+services: iot-central
+ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 03/20/2018
+ms.date: 07/09/2018
 ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39992a1cc36d00a64ee6430cad5f24af3e1e1157
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1fbe3ea142e1dd738cd341f57d2b8f48b539ac75
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629283"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003763"
 ---
-# <a name="create-your-azure-iot-central-application"></a>Uw Azure IoT centraal-toepassing maken
+# <a name="create-your-azure-iot-central-application"></a>Uw Azure IoT Central-toepassing maken
 
-Maken van uw Microsoft Azure IoT centrale toepassing van de [toepassing maken](https://apps.microsoftiotcentral.com/create) pagina. Een Azure IoT centrale toepassing maken, moet u Vul de velden op deze pagina en kies vervolgens **maken**. In dit artikel bevat meer informatie over elk van de velden.
+Maken van uw Microsoft Azure IoT Central-toepassing vanuit de [toepassing maken](https://apps.microsoftiotcentral.com/create) pagina. Voor het maken van een Azure IoT Central-toepassing, moet u Vul de velden op deze pagina en kies vervolgens **maken**. U vindt meer informatie over elk van de onderstaande velden heeft.
 
 ![Toepassingspagina maken](media\howto-create-application\image1.png)
 
-## <a name="payment-plan"></a>Betaling plannen
+## <a name="payment-plan"></a>Betalingsschema
 
-U kunt een proefabonnement of een betaald toepassing maken. Meer informatie over proefabonnementen en betaalde toepassingen op deze pagina.
+U kunt een proefversie of een betaalde toepassing maken. Meer informatie over proefabonnementen en betaalde toepassingen op [Azure IoT Central pagina met prijzen](https://azure.microsoft.com/pricing/details/iot-central/)...
 
 ## <a name="application-name"></a>Toepassingsnaam
 
-De naam van uw toepassing wordt weergegeven op de **Toepassingsbeheer** pagina en in elke Azure IoT centrale toepassing. U kunt een naam voor uw Azure IoT centrale toepassing. Kies een naam die zinvol voor u en anderen in uw organisatie.
+De naam van uw toepassing wordt weergegeven op de **Toepassingsbeheer** pagina en in elke Azure IoT Central-toepassing. U kunt een willekeurige naam voor uw Azure IoT Central-toepassing. Kies een naam die zinvol voor u en anderen in uw organisatie.
 
 ## <a name="application-url"></a>Toepassings-URL
 
-De URL van de toepassing is de koppeling naar uw toepassing. U kunt een bladwijzer aan opslaan in uw browser of met anderen delen.
+De URL van de toepassing is de koppeling naar uw toepassing. U kunt een bladwijzer toe opslaan in uw browser of met anderen delen.
 
-Wanneer u de naam voor uw toepassing invoert, wordt de URL van uw toepassing is automatisch gegenereerd. Als u liever, kunt u een andere URL voor uw toepassing. Elke centrale Azure IoT-URL moet uniek zijn. U ziet een foutbericht weergegeven als de URL die u kiest is al in gebruik.
+Wanneer u de naam voor uw toepassing invoert, wordt de URL van uw toepassing wordt automatisch gegenereerd. Als u liever, kunt u een andere URL voor uw toepassing. Elke Azure IoT Central-URL moet uniek zijn binnen Azure IoT Central. U ziet een foutbericht weergegeven als de URL die u kiest, wordt al gebruikt.
 
 ## <a name="directory"></a>Directory
 
 Alleen in betaalde toepassingen.
 
-Kies een Azure Active Directory-tenant maken van een Azure IoT centrale toepassing. Een Azure Active Directory-tenant bevat de gebruikers-id's, referenties en andere organisatiegegevens. Meerdere Azure-abonnementen kunnen worden gekoppeld aan één Azure Active Directory-tenant.
+Kies een Azure Active Directory-tenant te maken van een Azure IoT Central-toepassing. Een Azure Active Directory-tenant bevat gebruikers-id's, referenties en andere gegevens van de organisatie. Meerdere Azure-abonnementen kunnen worden gekoppeld aan één Azure Active Directory-tenant.
 
-Als u een Azure Active Directory-tenant hebt, is een gemaakt voor u wanneer u een Azure-abonnement maakt.
+Als u een Azure Active Directory-tenant hebt, is een gemaakt voor u bij het maken van een Azure-abonnement.
 
 Zie voor meer informatie, [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
 
 ## <a name="azure-subscription"></a>Azure-abonnement
 
-Een Azure-abonnement kunt u exemplaren van Azure-services maken. Azure IoT centraal automatisch zoeken naar alle Azure-abonnementen die u toegang tot hebt en weergegeven in een vervolgkeuzelijst op de **toepassing maken** pagina. Kies een Azure-abonnement maken van een nieuwe Azure IoT centrale toepassing.
+Een Azure-abonnement kunt u exemplaren maken van Azure-services. Azure IoT Central automatisch alle Azure-abonnementen die u toegang tot hebt vindt, en geeft deze weer in een vervolgkeuzelijst op de **toepassing maken** pagina. Kies een Azure-abonnement te maken van een nieuwe Azure IoT Central-toepassing.
 
-Als u geen Azure-abonnement hebt, kunt u een op deze pagina kunt maken. Nadat u het Azure-abonnement hebt gemaakt, gaat u terug naar de **toepassing maken** pagina. Het nieuwe abonnement wordt weergegeven in de **Azure-abonnement** vervolgkeuzelijst.
+Als u geen Azure-abonnement hebt, kunt u er een maken op de [Azure registratiepagina](https://aka.ms/createazuresubscription). Nadat u het Azure-abonnement maakt, gaat u terug naar de **toepassing maken** pagina. Uw nieuwe abonnement wordt weergegeven in de **Azure-abonnement** vervolgkeuzelijst.
 
 Zie voor meer informatie, [Azure-abonnementen](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
@@ -57,28 +57,28 @@ Zie voor meer informatie, [Azure-abonnementen](https://docs.microsoft.com/azure/
 
 Alleen in betaalde toepassingen.
 
-Kies de regio waarin u wilt uw centrale Azure IoT-toepassing maken. Normaal gesproken moet u de regio die het dichtst fysiek op uw apparaten om optimale prestaties te behalen.
+Kies de regio waar u wilt maken van uw Azure IoT Central-toepassing. Normaal gesproken kiest u de regio die zich het dichtst bij uw apparaten om de optimale prestaties fysiek.
 
-Zie voor meer informatie, [Azure-regio's](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#azure-regions).
+Zie voor meer informatie, [Azure-regio's](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
 
-U ziet de regio's waarin Azure IoT centrale beschikbaar is op de [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/services/) pagina.
+Ziet u de regio's waar Azure IoT Central is beschikbaar op de [producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) pagina.
 
 > [!Note]
-> Wanneer u een regio kiest, kunt u uw toepassing in andere regio niet later verplaatsen.
+> Als u een regio hebt gekozen, kunt u uw toepassing naar een andere regio niet later verplaatsen.
 
-## <a name="application-template"></a>Sjabloon voor toepassingen
+## <a name="application-template"></a>De sjabloon voor toepassingen
 
-U kunt een van de beschikbare toepassingsaanvragen sjablonen voor uw nieuwe Azure IoT centrale toepassing. Een toepassingssjabloon vooraf gedefinieerde items zoals apparaat sjablonen kan bevatten en dashboards om u te helpen aan de slag:
+U kunt een van de beschikbare sjablonen voor uw nieuwe Azure IoT Central-toepassing. Een toepassingssjabloon mag vooraf gedefinieerde items zoals apparaatsjablonen en dashboards om u te helpen aan de slag.
 
-| Sjabloon voor toepassingen | Beschrijving |
+| De sjabloon voor toepassingen | Beschrijving |
 | -------------------- | ----------- |
-| Aangepaste toepassing   | Maakt een lege toepassing voor u te vullen met uw eigen apparaat sjablonen en apparaten. |
-| Voorbeeld Contoso       | Maakt een toepassing die gebruikmaakt van een apparaat-sjabloon voor een eenvoudige aangesloten apparaat. Met deze sjabloon kunt u aan de slag met Azure IoT centrale. |
-| Voorbeeld Devkits       | Maakt een toepassing met sjablonen apparaat gereed voor een MXChip of frambozen Pi apparaat verbinding kunt maken. Deze sjabloon gebruiken als u een apparaat-ontwikkelaar experimenteren met code op een van deze apparaten. |
+| Aangepaste toepassing   | Hiermee maakt u een lege toepassing voor u om in te vullen met uw eigen apparaatsjablonen en apparaten. |
+| Voorbeeld van Contoso       | Hiermee maakt u een toepassing die gebruikmaakt van een apparaat-sjabloon voor een eenvoudige aangesloten apparaat. Gebruik deze sjabloon om te beginnen met het verkennen van Azure IoT Central. |
+| Voorbeeld Devkits       | Hiermee maakt een toepassing met apparaatsjablonen kunt u verbinding maken met een MXChip of Raspberry Pi-apparaat. Gebruik deze sjabloon als u een ontwikkelaar van het apparaat te experimenteren met code op een van deze apparaten. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u een Azure IoT centrale toepassing maakt, wordt hier de voorgestelde volgende stap:
+Nu dat u hebt geleerd hoe een Azure IoT Central-toepassing maken, volgt de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Beheren van uw toepassing](howto-administer.md)
+> [Uw toepassing beheren](howto-administer.md)

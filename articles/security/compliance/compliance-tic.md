@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969942"
+ms.locfileid: "38990826"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Richtlijnen voor vertrouwde CA-verbinding
 
@@ -30,7 +30,7 @@ Eenvoudig gezegd, is het doel van boter voor overheidsinstellingen weten:
 
 Vandaag die alle Bureau externe verbindingen moeten worden gerouteerd via een boter OMB goedgekeurd. Federale instanties zijn vereist om deel te nemen aan het boter-programma dat als een boter Access Provider (TICAP) of door het contracteren van services met een van de belangrijkste laag 1-internetproviders aangeduid als beheerd vertrouwde Internet Protocol Service (MTIPS)-providers.  TIC bevat verplichte essentiële mogelijkheden die vandaag zijn uitgevoerd door het Bureau en MTIPS-provider. In de huidige versie van TIC, de EINSTEIN versie 2 inbraakdetectie en EINSTEIN versie 3 versnelde (3A) inbraakdetectiehandtekeningen preventie apparaten worden geïmplementeerd op elke TICAP en MTIPS en het Bureau brengt een Memo van overeenstemming met de afdeling van Binnenlandse beveiliging (DHS) om te implementeren EINSTEIN mogelijkheden voor federale systemen.
 
-Als onderdeel van haar verantwoordelijkheid om de .gov-netwerk te beveiligen, vereist DHS onbewerkte gegevensfeeds van Bureau Netflow gegevens te correleren van incidenten in de onderneming federale en uitvoeren van analyses met behulp van speciale hulpprogramma's. DHS routers bieden de mogelijkheid voor het verzamelen van IP-netwerkverkeer als deze binnengaat of een interface verlaat. De net door stroomgegevens te analyseren, kan een netwerkbeheerder bepalen, zoals de bron en het doel van verkeer, klasse van de service, enzovoort. NET stroomgegevens wordt beschouwd als 'gegevens niet-inhoud' (bijvoorbeeld koptekst, bron-IP, doel-IP, enzovoort) en kunnen DHS over informatie over de inhoud; dat wil zeggen, die werd uitgevoerd op wat en hoe lang.
+Als onderdeel van haar verantwoordelijkheid om de .gov-netwerk te beveiligen, vereist DHS onbewerkte gegevensfeeds van Bureau Netflow gegevens te correleren van incidenten in de onderneming federale en uitvoeren van analyses met behulp van speciale hulpprogramma's. DHS routers bieden de mogelijkheid voor het verzamelen van IP-netwerkverkeer als deze binnengaat of een interface verlaat. Door het analyseren van de stroomgegevens net een netwerk kan beheerder bepalen op, zoals de bron en het doel van verkeer, klasse van de service, enzovoort. NET stroomgegevens wordt beschouwd als 'gegevens niet-inhoud' (bijvoorbeeld koptekst, bron-IP, doel-IP, enzovoort) en kunnen DHS over informatie over de inhoud; dat wil zeggen, die werd uitgevoerd op wat en hoe lang.
 
 Het initiatief omvat ook beleidsregels voor veiligheid, richtlijnen en frameworks die wordt ervan uitgegaan on-premises infrastructuur dat. Zoals overheidsinstanties naar de cloud verplaatsen om kosten te besparen, operationele efficiëntie en innovatie te realiseren, zijn de vereisten van de implementatie van TIC in sommige gevallen trager netwerkverkeer en de snelheid en flexibiliteit met welke government gebruikers kunnen te beperken toegang tot hun cloud-gebaseerde gegevens.
 
@@ -225,7 +225,7 @@ Toegang tot Microsoft Azure, Office 365 en Dynamics 365 kan eenvoudig worden gec
 
 ## <a name="appendix-tic-patterns-for-common-workloads"></a>Bijlage: TIC patronen voor veelvoorkomende Workloads
 
-| Category | Workload | IaaS | Toegewezen PaaS / VNet-injectie  | Service-eindpunten  |
+| Categorie | Workload | IaaS | Toegewezen PaaS / VNet-injectie  | Service-eindpunten  |
 |---------|---------|---------|---------|--------|
 | Compute | Linux Virtual Machines | Ja | | |
 | Compute | Windows Virtual Machines | Ja | | |
@@ -250,4 +250,3 @@ Toegang tot Microsoft Azure, Office 365 en Dynamics 365 kan eenvoudig worden gec
 
 *: Openbare Preview in Azure Government vanaf mei 2018  
 **: Beperkte Preview-versie in Azure Government vanaf mei 2018
-

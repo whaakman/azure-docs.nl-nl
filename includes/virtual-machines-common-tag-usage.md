@@ -1,20 +1,20 @@
 
 
 
-## <a name="viewing-your-tags-in-the-usage-details"></a>Bekijken van de labels in de details van gebruik
-Labels op Compute, netwerk, geplaatst en opslagbronnen in het Resource Manager-implementatiemodel worden ingevuld in de details van uw gebruik in de [facturering portal](https://account.windowsazure.com/).
+## <a name="viewing-your-tags-in-the-usage-details"></a>De labels weergeven in de informatie over het gebruik
+Tags op Compute, netwerk, geplaatst en Storage-resources in het Resource Manager-implementatiemodel wordt ingevuld in de informatie over het gebruik in de [factureringsportal](https://account.windowsazure.com/).
 
-Klik op **downloaden van informatie over het gebruik** om de details van gebruik in uw abonnement weer te geven.
+Klik op **gebruiksgegevens downloaden** om de informatie over het gebruik in uw abonnement weer te geven.
 
-![Details van gebruik in Azure-portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Informatie over het gebruik in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Selecteer uw Factureringsoverzicht en de **versie 2** informatie over het gebruik:
+Uw factuuroverzicht selecteren en de **versie 2** informatie over het gebruik:
 
-![Details van versie 2 Preview gebruik in Azure-portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Versie 2 Preview informatie over het gebruik in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-In de details van het gebruik, ziet u alle labels in de **labels** kolom:
+In de informatie over het gebruik, ziet u alle labels in de **Tags** kolom:
 
-![Labels-kolom in de Azure-portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![De kolom labels in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-Door deze labels samen met informatie over het gebruik analyseren, organisaties kan worden nieuwe inzicht in hun gegevens over het verbruik.
+Door het analyseren van deze tags, samen met gebruik van organisaties worden nieuwe inzichten in hun gegevens krijgen.
 

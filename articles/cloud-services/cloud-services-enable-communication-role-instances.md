@@ -1,9 +1,9 @@
 ---
 title: Communicatie voor rollen in Cloudservices | Microsoft Docs
-description: Rolinstanties in de Cloud Services kunnen eindpunten (http, https, tcp, udp) gedefinieerd die met de buitenkant of tussen andere rolinstanties communiceren hebben.
+description: Rolinstanties in Cloud Services kunnen eindpunten (http, https, tcp, udp) gedefinieerd voor deze die met de buitenwereld of tussen andere rolinstanties communiceren hebben.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
-ms.author: adegeo
-ms.openlocfilehash: 96ca9bb2d7a9f30a7d6492be43bfb44edc02fd93
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.author: jeconnoc
+ms.openlocfilehash: 9d6cc542b6af0b508529c1392e16df93e1ba084d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
-ms.locfileid: "27701887"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005941"
 ---
-# <a name="enable-communication-for-role-instances-in-azure"></a>Communicatie inschakelen voor rolinstanties in azure
-Cloud service-rollen communiceren via de interne en externe verbindingen. Externe verbindingen worden genoemd **invoer eindpunten** terwijl interne verbindingen heten **interne eindpunten**. Dit onderwerp wordt beschreven hoe u wijzigt de [definitie](cloud-services-model-and-package.md#csdef) om eindpunten te maken.
+# <a name="enable-communication-for-role-instances-in-azure"></a>Inschakelen van de communicatie voor rolinstanties in azure
+Cloud service-rollen communiceren via de interne en externe verbindingen. Externe verbindingen worden genoemd **invoer eindpunten** tijdens interne verbindingen heten **interne eindpunten**. Dit onderwerp wordt beschreven hoe u wijzigt de [servicedefinition](cloud-services-model-and-package.md#csdef) om eindpunten te maken.
 
 ## <a name="input-endpoint"></a>Invoereindpunt
-Het invoereindpunt wordt gebruikt wanneer u wilt weergeven van een poort voor de buitenwereld. U geeft het protocoltype en de poort van het eindpunt dat voor de interne en externe poorten voor het eindpunt geldt. Als u wilt, kunt u een andere interne poort voor het eindpunt met de [LokalePoort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) kenmerk.
+Het eindpunt van de invoer wordt gebruikt als u wilt om een poort voor de buitenwereld zichtbaar te maken. U geeft het protocoltype en de poort van het eindpunt dat wordt toegepast voor de interne en externe poorten voor het eindpunt. Als u wilt, kunt u een andere interne poort voor het eindpunt met de [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) kenmerk.
 
 Het invoereindpunt kunt de volgende protocollen: **http, https, tcp, udp**.
 
-Voor het maken van een invoereindpunt toevoegen de **Invoereindpunt** onderliggende element op de **eindpunten** element van een web- of worker-rol.
+Voor het maken van een invoereindpunt toevoegen de **Invoereindpunt** onderliggend element aan de **eindpunten** element van een web-of werkrol.
 
 ```xml
 <Endpoints>
@@ -37,12 +37,12 @@ Voor het maken van een invoereindpunt toevoegen de **Invoereindpunt** onderligge
 </Endpoints> 
 ```
 
-## <a name="instance-input-endpoint"></a>Het invoereindpunt exemplaar
-Invoereindpunten exemplaar zijn vergelijkbaar met het invoer-eindpunten, maar kunt u specifieke openbare poorten voor elke afzonderlijke rolinstantie toewijzen met behulp van poort doorsturen op de load balancer. U kunt één openbare poort of een poortbereik opgeven.
+## <a name="instance-input-endpoint"></a>Invoereindpunt exemplaar
+Invoereindpunten exemplaar zijn vergelijkbaar met het invoeren van eindpunten, maar kunt u bepaalde openbare poorten voor elke afzonderlijke rolinstantie toewijzen met behulp van doorsturen via poort op de load balancer. U kunt één openbare poort of een poortbereik opgeven.
 
-Het invoereindpunt exemplaar kan alleen worden gebruikt **tcp** of **udp** als protocol.
+De exemplaar-invoereindpunt kan alleen worden gebruikt **tcp** of **udp** als het protocol.
 
-Voor het maken van een invoereindpunt exemplaar toevoegen de **InstanceInputEndpoint** onderliggende element op de **eindpunten** element van een web- of worker-rol.
+Voor het maken van een invoereindpunt exemplaar toevoegen de **InstanceInputEndpoint** onderliggend element aan de **eindpunten** element van een web-of werkrol.
 
 ```xml
 <Endpoints>
@@ -55,11 +55,11 @@ Voor het maken van een invoereindpunt exemplaar toevoegen de **InstanceInputEndp
 ```
 
 ## <a name="internal-endpoint"></a>Interne eindpunt
-Interne eindpunten zijn beschikbaar voor het exemplaar op exemplaar communicatie. De poort is optioneel en als u dit weglaat, een dynamische poort is toegewezen aan het eindpunt. Een poortbereik kan worden gebruikt. Er is een limiet van vijf interne eindpunten per rol.
+Interne eindpunten zijn beschikbaar voor exemplaar-naar-instance-communicatie. De poort is optioneel en als u dit weglaat, een dynamische poort is toegewezen aan het eindpunt. Een poortbereik kan worden gebruikt. Er is een limiet van vijf interne eindpunten per rol.
 
 Het interne eindpunt kunt de volgende protocollen: **http, tcp, udp, eventuele**.
 
-Voor het maken van een interne invoereindpunt toevoegen de **InternalEndpoint** onderliggende element op de **eindpunten** element van een web- of worker-rol.
+Voor het maken van een intern eindpunt dat invoer toevoegen de **InternalEndpoint** onderliggend element aan de **eindpunten** element van een web-of werkrol.
 
 ```xml
 <Endpoints>
@@ -78,8 +78,8 @@ U kunt ook een poortbereik gebruiken.
 ```
 
 
-## <a name="worker-roles-vs-web-roles"></a>Vs worker-rollen. Web-rollen
-Er is een klein verschil met eindpunten bij het werken met zowel worker en webservice rollen. De functie web moet er op een enkele invoereindpunt met de **HTTP** protocol.
+## <a name="worker-roles-vs-web-roles"></a>Worker-rollen vs. Webrollen
+Er is een klein verschil met eindpunten bij het werken met zowel werknemers als webrollen. De Webrol moet er op een enkele invoereindpunt met de **HTTP** protocol.
 
 ```xml
 <Endpoints>
@@ -88,32 +88,32 @@ Er is een klein verschil met eindpunten bij het werken met zowel worker en webse
 </Endpoints>
 ```
 
-## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Voor toegang tot een eindpunt met behulp van de .NET SDK
-De beheerde Azure-bibliotheek biedt methoden voor rolinstanties om te communiceren tijdens runtime. Van de code die wordt uitgevoerd binnen een rolinstantie, kunt u informatie over de aanwezigheid van andere rolinstanties en hun eindpunten, evenals informatie over het huidige rolexemplaar van ophalen.
+## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Met behulp van de .NET SDK voor toegang tot een eindpunt
+De beheerde bibliotheek van Azure biedt methoden voor rolinstanties om te communiceren tijdens runtime. In de code die wordt uitgevoerd binnen een rolinstantie, kunt u informatie over de aanwezigheid van andere rolinstanties en de bijbehorende eindpunten, evenals informatie over de huidige rolinstantie ophalen.
 
 > [!NOTE]
-> U kunt alleen informatie over rolexemplaren die in uw cloudservice worden uitgevoerd en dat ten minste één interne eindpunt definiëren ophalen. U kunt gegevens over rolinstanties uitgevoerd in een andere service kan niet verkrijgen.
+> U kunt alleen informatie over rolexemplaren die in uw cloudservice worden uitgevoerd en die ten minste één interne eindpunt definiëren ophalen. U kunt gegevens over instanties die worden uitgevoerd in een andere service kan niet verkrijgen.
 > 
 > 
 
-U kunt de [exemplaren](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) eigenschap voor het ophalen van exemplaren van een rol. Voor het eerst gebruiken de [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) een verwijzing retourneren naar de huidige instantie en gebruik daarna de [rol](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) eigenschap in op een verwijzing retourneren naar de rol zelf.
+U kunt de [exemplaren](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) eigenschap voor het ophalen van exemplaren van een rol. Voor het eerst gebruiken de [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) retourneert een verwijzing naar het huidige exemplaar en gebruik daarna de [rol](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) eigenschap als resultaat een verwijzing naar de rol zelf.
 
-Wanneer u verbinding met een rolinstantie programmatisch via de .NET SDK maakt, is het betrekkelijk eenvoudig toegang tot de eindpuntinformatie. Nadat u al met een specifieke rol-omgeving verbonden hebt, kunt u bijvoorbeeld de poort van een specifieke eindpunt met deze code opvragen:
+Wanneer u verbinding met een rolinstantie programmatisch via de .NET SDK maakt, is het relatief eenvoudig toegang krijgen tot informatie over het eindpunt. Nadat u al hebt verbonden met een specifieke rol-omgeving, kunt u bijvoorbeeld de poort van een bepaald eindpunt met deze code krijgen:
 
 ```csharp
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-De **exemplaren** eigenschap retourneert een verzameling **RoleInstance** objecten. Deze verzameling bevat altijd de huidige sessie. Als u de rol geen een intern eindpunt gedefinieerd, wordt de verzameling bevat het huidige exemplaar, maar er zijn geen andere exemplaren. Het aantal rolinstanties in de verzameling is altijd 1 in het geval waarbij geen interne eindpunt voor de rol is gedefinieerd. Als de functie wordt een intern eindpunt gedefinieerd, de exemplaren kunnen worden gevonden tijdens runtime en het aantal exemplaren in de verzameling komt overeen met het aantal exemplaren dat is opgegeven voor de rol in het configuratiebestand van de service.
+De **exemplaren** eigenschap retourneert een verzameling **RoleInstance** objecten. Deze verzameling bevat altijd de huidige sessie. Als u de rol geen een intern eindpunt gedefinieerd, wordt de verzameling bevat het huidige exemplaar, maar er zijn geen andere exemplaren. Het aantal rolinstanties in de verzameling is altijd 1 in het geval waarbij er geen interne eindpunt voor de rol is gedefinieerd. Als de rol van een intern eindpunt dat is gedefinieerd, kunnen worden gedetecteerd tijdens runtime versies ervan permanent en het aantal exemplaren in de verzameling komt overeen met het aantal exemplaren dat is opgegeven voor de rol in het configuratiebestand van de service.
 
 > [!NOTE]
-> De beheerde Azure-bibliotheek biedt geen een methode voor het bepalen van de status van andere rolinstanties, maar u kunt implementeren deze beoordeling health uzelf als de service deze functionaliteit moet. U kunt [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) verkrijgen van informatie over het uitvoeren van de rolinstanties.
+> De beheerde bibliotheek van Azure biedt geen een manier voor het bepalen van de status van andere rolinstanties, maar u kunt implementeren om deze health-evaluaties zelf als uw service nodig heeft voor deze functionaliteit. U kunt [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) om informatie over het uitvoeren van de rolinstanties te verkrijgen.
 > 
 > 
 
-Om te bepalen het poortnummer voor een intern eindpunt op een rolexemplaar, kunt u de [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) eigenschap retourneren een Dictionary-object met de namen van eindpunten en hun bijbehorende IP-adressen en poorten. De [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) eigenschap retourneert de IP-adres en poort voor een opgegeven eindpunt. De **PublicIPEndpoint** eigenschap retourneert de poort voor een eindpunt met taakverdeling. Het gedeelte van de IP-adres van de **PublicIPEndpoint** eigenschap wordt niet gebruikt.
+Om te bepalen het poortnummer voor een intern eindpunt op een rolinstantie, kunt u de [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) eigenschap om terug te keren een Dictionary-object met namen van eindpunten en hun bijbehorende IP-adressen en poorten. De [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) eigenschap retourneert de IP-adres en poort voor een opgegeven eindpunt. De **PublicIPEndpoint** eigenschap retourneert de poort voor een eindpunt met gelijke. Het gedeelte van de IP-adres van de **PublicIPEndpoint** eigenschap wordt niet gebruikt.
 
-Hier volgt een voorbeeld waarin rolinstanties doorloopt.
+Hier volgt een voorbeeld van gegevensbrontabellen, rolinstanties loopt.
 
 ```csharp
 foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Instances)
@@ -126,10 +126,10 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 }
 ```
 
-Hier volgt een voorbeeld van een werkrol die het eindpunt beschikbaar gesteld via de servicedefinitie opgehaald en begint met luisteren naar verbindingen.
+Hier volgt een voorbeeld van een werkrol die de opgehaald van het eindpunt beschikbaar gemaakt via de definitie van de service en start luistert voor verbindingen.
 
 > [!WARNING]
-> Deze code werkt alleen voor een geïmplementeerde service. Wanneer in de Azure Compute-Emulator wordt uitgevoerd, service-configuratie-elementen die directe poort eindpunten maken (**InstanceInputEndpoint** elementen) worden genegeerd.
+> Deze code werkt alleen voor een geïmplementeerde service. Bij uitvoering in de Rekenemulator van Azure, service-configuratie-elementen die directe poort eindpunten maken (**InstanceInputEndpoint** elementen), worden genegeerd.
 > 
 > 
 
@@ -217,12 +217,12 @@ namespace WorkerRole1
 }
 ```
 
-## <a name="network-traffic-rules-to-control-role-communication"></a>Regels voor netwerkverkeer rollen beheren
-Nadat u interne eindpunten definieert, kunt u regels voor netwerkverkeer (op basis van de eindpunten die u hebt gemaakt) toevoegen om te bepalen hoe rolinstanties met elkaar kunnen communiceren. Het volgende diagram ziet u enkele algemene scenario's voor het beheren van rollen:
+## <a name="network-traffic-rules-to-control-role-communication"></a>Regels voor netwerkverkeer voor het beheren van communicatie rollen
+Nadat u interne eindpunten hebt gedefinieerd, kunt u regels voor netwerkverkeer (op basis van de eindpunten die u hebt gemaakt) toevoegen om te bepalen hoe rolinstanties met elkaar kunnen communiceren. Het volgende diagram ziet u enkele algemene scenario's voor het beheren van communicatie rollen:
 
-![Netwerk-verkeer regels scenario's](./media/cloud-services-enable-communication-role-instances/scenarios.png "netwerk verkeer regels scenario's")
+![Verkeer regels scenario's](./media/cloud-services-enable-communication-role-instances/scenarios.png "verkeer regels scenario's")
 
-Het volgende codevoorbeeld toont roldefinities voor de rollen weergegeven in het vorige diagram. Elke roldefinitie bevat ten minste één interne eindpunt gedefinieerd:
+Het volgende codevoorbeeld toont roldefinities voor de rollen weergegeven in het vorige diagram. De roldefinitie bevat ten minste één interne eindpunt dat is gedefinieerd:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -254,11 +254,11 @@ Het volgende codevoorbeeld toont roldefinities voor de rollen weergegeven in het
 ```
 
 > [!NOTE]
-> Beperking van de communicatie tussen rollen kan worden uitgevoerd met interne eindpunten van beide vast en automatisch toegewezen poorten.
+> Beperking van de communicatie tussen rollen kan optreden met interne eindpunten van zowel vaste als automatisch toegewezen poorten.
 > 
 > 
 
-Standaard nadat er is een interne eindpunt gedefinieerd, kan communicatie stromen van alle functies met het interne eindpunt van een rol zonder beperkingen. Als u wilt beperken communicatie, moet u toevoegen een **NetworkTrafficRules** element op de **ServiceDefinition** -element in het servicedefinitiebestand.
+Standaard nadat een intern eindpunt dat is gedefinieerd, kan communicatie stromen van alle rollen naar het interne eindpunt van een rol zonder beperkingen. Als u wilt beperken de communicatie, moet u toevoegen een **NetworkTrafficRules** element op de **ServiceDefinition** -element in het servicedefinitiebestand.
 
 ### <a name="scenario-1"></a>Scenario 1
 Alleen toestaan netwerkverkeer van **WebRole1** naar **WorkerRole1**.
@@ -328,7 +328,7 @@ Kunt u alleen netwerkverkeer van **WebRole1** naar **WorkerRole1**, en **WorkerR
 ```
 
 ### <a name="scenario-4"></a>Scenario 4
-Kunt u alleen netwerkverkeer van **WebRole1** naar **WorkerRole1**, **WebRole1** naar **WorkerRole2**, en **WorkerRole1** naar **WorkerRole2**.
+Kunt u alleen netwerkverkeer van **WebRole1** naar **WorkerRole1**, **WebRole1** naar **WorkerRole2**, en **WorkerRole1**  naar **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -368,7 +368,7 @@ Kunt u alleen netwerkverkeer van **WebRole1** naar **WorkerRole1**, **WebRole1**
 </ServiceDefinition>
 ```
 
-Een XML-schema-referentie voor de boven-elementen kan worden gevonden [hier](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Een XML-schema-referentie voor de elementen die hierboven hebt gebruikt, kan worden gevonden [hier](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over de Cloudservice [model](cloud-services-model-and-package.md).

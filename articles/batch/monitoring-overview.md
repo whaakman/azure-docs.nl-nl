@@ -1,6 +1,6 @@
 ---
-title: Azure Batch bewaken | Microsoft Docs
-description: Meer informatie over Azure services voor bewaking, metrische gegevens, logboeken met diagnostische gegevens en andere bewakingsfuncties voor Azure Batch.
+title: Bewaken met Azure Batch | Microsoft Docs
+description: Meer informatie over Azure-bewakingsservices, metrische gegevens, logboeken met diagnostische gegevens en andere bewakingsfuncties voor Azure Batch.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -11,62 +11,62 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 29ac86ed5c744d37150b0f1b2db17f60306fe77e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789950"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001827"
 ---
 # <a name="monitor-batch-solutions"></a>Batch-oplossingen controleren
 
-Azure en de Batch-service bieden een aantal services, hulpprogramma's en API's voor het bewaken van uw Batch-oplossingen. In dit overzichtsartikel kunt u kiezen voor een controle methode die past bij uw behoeften.
+Azure en de Batch-service bieden een scala aan services, hulpprogramma's en API's voor het bewaken van uw Batch-oplossingen. In dit overzichtsartikel kunt u kiezen voor een controle methode die past bij uw behoeften.
 
-Zie voor een overzicht van de Azure-onderdelen en services die beschikbaar zijn voor het bewaken van de Azure-resources [bewaking Azure-toepassingen en bronnen](../monitoring-and-diagnostics/monitoring-overview.md).
+Zie voor een overzicht van de Azure-onderdelen en services die beschikbaar zijn voor het bewaken van Azure-resources, [bewaking van Azure-toepassingen en bronnen](../monitoring-and-diagnostics/monitoring-overview.md).
 
 ## <a name="subscription-level-monitoring"></a>Abonnement bewaking
 
-Op het abonnementsniveau, waaronder Batch-accounts, het [Azure activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) verzamelt gegevens van de operationele gebeurtenissen in [verscheidene categorieën](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log).
+Op het abonnementsniveau, waaronder Batch-accounts, het [Azure-activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) verzamelt gegevens van operationele gebeurtenissen in [verschillende categorieën](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log).
 
-Voor Batch-accounts in het bijzonder het activiteitenlogboek worden verzameld gebeurtenissen met betrekking tot accountbeheer maken en verwijderen en de sleutel.
+Voor Batch-accounts verzamelt het activiteitenlogboek specifiek, gebeurtenissen met betrekking tot het maken en verwijderen en de sleutel accountbeheer.
 
-Een manier om het ophalen van gebeurtenissen van uw activiteitenlogboek is het gebruik van de Azure-portal. Klik op **alle services** > **activiteitenlogboek**. Of de query voor gebeurtenissen met de Azure CLI, PowerShell-cmdlets of de Monitor REST-API van Azure. U kunt ook het activiteitenlogboek exporteren of configureren [activiteit logboek waarschuwingen](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+Een manier om op te halen van gebeurtenissen uit uw activiteitenlogboek is het gebruik van Azure portal. Klik op **alle services** > **activiteitenlogboek**. Of de query voor gebeurtenissen met de Azure CLI, PowerShell-cmdlets of de Azure Monitor REST API. U kunt ook het activiteitenlogboek exporteren of configureert [waarschuwingen voor activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
 
-## <a name="batch-account-level-monitoring"></a>Batch-account niveau bewaking
+## <a name="batch-account-level-monitoring"></a>Bewaking van de batch-account op
 
-Controleer elke Batch-account gebruikt functies van [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Monitor voor Azure verzamelt [metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) en optioneel [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) voor resources binnen het bereik op het niveau van een Batch-account, zoals pools, jobs en taken. Verzamelen en deze gegevens handmatig of programmatisch gebruiken om te controleren van activiteiten in uw Batch-account en om problemen te diagnosticeren. Zie voor meer informatie [Batch metrische gegevens, meldingen en logboeken voor de bewaking en evaluatie van diagnostische](batch-diagnostics.md).
+Controleer elke Batch-account met behulp van functies van [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor verzamelt [metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) en eventueel [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) voor resources binnen het bereik op het niveau van een Batch-account, zoals pools, jobs en taken. Verzamelen en gebruiken van deze gegevens handmatig of via een programma voor het bewaken van activiteiten in uw Batch-account en om problemen te diagnosticeren. Zie voor meer informatie, [Batch-metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking](batch-diagnostics.md).
  
 > [!NOTE]
-> Metrische gegevens zijn standaard beschikbaar in uw Batch-account zonder aanvullende configuratie en ze hebben een rolling geschiedenis van 30 dagen. U moet Diagnostische logboekregistratie voor een Batch-account inschakelen en u mogelijk extra kosten wordt opgeslagen of diagnostische logboekgegevens te verwerken. 
+> Metrische gegevens in uw Batch-account zonder aanvullende configuratie standaard beschikbaar zijn en ze beschikken over een 30-daagse rolling-overzicht. U moet Diagnostische logboekregistratie inschakelen voor een Batch-account en u mogelijk extra kosten als u wilt opslaan of diagnostische logboekgegevens te verwerken. 
 
-## <a name="batch-resource-monitoring"></a>Broncontrole voor batch
+## <a name="batch-resource-monitoring"></a>Controle van de batch-bronnen
 
-Gebruik de Batch-API's om te controleren of de status van uw resources inclusief jobs, taken, knooppunten en groepen opvragen in uw Batch-toepassingen. Bijvoorbeeld:
+In uw Batch-toepassingen, gebruikt u de Batch-API's om te controleren of de status van uw resources inclusief jobs, taken, knooppunten en pools opvragen. Bijvoorbeeld:
 
-* [Taken tellen aan de hand van de status](batch-get-task-counts.md)
-* [Query's op de lijst met Batch-resources efficiënt maken](batch-efficient-list-queries.md)
+* [Aantal taken en rekenknooppunten per staat](batch-get-resource-counts.md)
+* [Efficiënt query's naar de lijst met Batch-resources maken](batch-efficient-list-queries.md)
 * [Taakafhankelijkheden maken](batch-task-dependencies.md)
 * Gebruik een [jobbeheertaak](/rest/api/batchservice/job/add#jobmanagertask)
-* Monitor voor de [status van de taak](/rest/api/batchservice/task/list#taskstate)
-* Monitor voor de [status van knooppunt](/rest/api/batchservice/computenode/list#computenodestate)
-* Monitor voor de [status groep](/rest/api/batchservice/pool/get#poolstate)
+* Monitor de [taak status](/rest/api/batchservice/task/list#taskstate)
+* Monitor de [status clusterknooppunt](/rest/api/batchservice/computenode/list#computenodestate)
+* Monitor de [status van toepassingen](/rest/api/batchservice/pool/get#poolstate)
 * Monitor [gebruik in het account van toepassingen](/rest/api/batchservice/pool/listusagemetrics)
-* [Aantal toepassingen knooppunten op basis van status](/rest/api/batchservice/account/listpoolnodecounts)
+* [Het aantal pool-knooppunten per staat](/rest/api/batchservice/account/listpoolnodecounts)
 
-## <a name="vm-performance-counters-and-application-monitoring"></a>VM-prestatiemeteritems en toepassingsbewaking
+## <a name="vm-performance-counters-and-application-monitoring"></a>Prestatiemeteritems voor virtuele machine en de bewaking van toepassingen
 
-* [Application Insights](../application-insights/app-insights-overview.md) is een Azure-service kunt u programmatisch bewaken van de beschikbaarheid, prestaties en gebruik van uw Batch-jobs en taken. Get-prestatiemeteritems van rekenknooppunten eenvoudig (VM's) en aangepaste gegevens voor taken op de virtuele machines. 
+* [Application Insights](../application-insights/app-insights-overview.md) is een Azure-service kunt u voor het programmatisch bewaken van de beschikbaarheid, prestaties en gebruik van uw Batch-taken en taken. Eenvoudig compute get-prestatiemeteritems van-knooppunten (VM's) en aangepaste gegevens voor taken af bij de virtuele machines. 
 
-  Zie voor een voorbeeld [Monitor en foutopsporing een Batch .NET-toepassing met Application Insights](monitor-application-insights.md) en de bijbehorende [codevoorbeeld](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
+  Zie voor een voorbeeld [bewaken en fouten opsporen een Batch .NET-toepassing met Application Insights](monitor-application-insights.md) en de bijbehorende [codevoorbeeld](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
 
   > [!NOTE]
-  > U mogelijk extra kosten voor het gebruik van Application Insights. Zie de [prijzen opties](https://azure.microsoft.com/pricing/details/application-insights/). 
+  > Er worden mogelijk extra kosten voor het gebruik van Application Insights. Zie de [prijsopties](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [BatchLabs](https://github.com/Azure/BatchLabs) is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. Download een [installatiepakket](https://azure.github.io/BatchLabs/) voor Mac, Linux of Windows. Configureer desgewenst uw Batch-oplossing [Application Insights-gegevens weer](https://github.com/Azure/batch-insights) zoals VM-prestatiemeters in BatchLabs.
+* [BatchLabs](https://github.com/Azure/BatchLabs) is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. Download een [installatiepakket](https://azure.github.io/BatchLabs/) voor Mac, Linux of Windows. Configureer desgewenst uw Batch-oplossing [Application Insights-gegevens weergeven](https://github.com/Azure/batch-insights) zoals VM-prestatiemeteritems in BatchLabs.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over de [Batch-API's en -hulpprogramma's](batch-apis-tools.md) die beschikbaar zijn voor het bouwen van Batch-oplossingen.
-* Meer informatie over [Diagnostische logboekregistratie](batch-diagnostics.md) met Batch.
+* Meer informatie over [registratie in diagnoselogboek](batch-diagnostics.md) met Batch.

@@ -1,12 +1,12 @@
 | Resource | Doel | Vaste limiet |
 |----------|--------------|------------|
-| Synchronisatie van opslagservices per abonnement | Synchronisatie van 15 opslagservices | Nee |
-| Synchronisatiegroepen per opslag Sync-Service | 30 synchronisatiegroepen | Ja |
-| Geregistreerde servers per opslag Sync-Service | 99 servers | Ja |
-| Cloud-eindpunten per groep voor synchronisatie | 1 cloudeindpunt | Ja |
-| Server-eindpunten per groep voor synchronisatie | 50 server-eindpunten | Nee |
-| Server-eindpunten per server | server-eindpunten in 33 en 99 liggen | Ja, maar is afhankelijk van de configuratie |
-| De grootte van het eindpunt | 4 TiB | Nee |
-| Bestandssysteemobjecten (mappen en bestanden) per groep voor synchronisatie | 6 miljoen objecten | Nee |
+| Opslagsynchronisatieservices per abonnement | 15 Opslagsynchronisatieservices | Nee |
+| Synchronisatiegroepen per Opslagsynchronisatieservice | 30 synchronisatiegroepen | Ja |
+| Geregistreerde servers per Opslagsynchronisatieservice | 99 servers | Ja |
+| Cloudeindpunten per groep voor synchronisatie | 1 cloudeindpunt | Ja |
+| Servereindpunten per groep voor synchronisatie | 50 servereindpunten | Nee |
+| Servereindpunten per server | servereindpunten 33 99 | Ja, maar is afhankelijk van configuratie |
+| Grootte van eindpunt | 4 TiB | Nee |
+| -Bestandssysteem (mappen en bestanden) per groep voor synchronisatie | 6 miljoen objecten | Nee |
 | Bestandsgrootte | 100 GiB | Nee |
-| De minimale grootte voor een bestand dat moet worden lagen | 64 KiB | Ja |
+| Minimale bestandsgrootte voor een bestand in tiers worden verdeeld | 64 KiB | Ja |

@@ -1,30 +1,23 @@
 ---
-title: Een query uitvoeren voor een index (Portal - Azure Search) | Microsoft Docs
-description: Een zoekopdracht in de Search Explorer van Azure Portal uitvoeren.
+title: Search explorer voor het uitvoeren van query's indexen in Azure Search | Microsoft Docs
+description: Leer hoe u Search explorer gebruiken voor het uitvoeren van query's indexen in Azure Search.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 07/10/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: a3592bd0c304dfb78374eeba432c0d28203980c9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790505"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004130"
 ---
-# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Een query uitvoeren voor een Azure Search-index met behulp van Search Explorer van Azure Portal
-> [!div class="op_single_selector"]
-> * [Overzicht](search-query-overview.md)
-> * [Portal](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
-> 
-> 
+# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Over het gebruik Search explorer in query-indexen in Azure Search 
 
-In dit artikel ziet u hoe u een query kunt uitvoeren voor een Azure Search-index met behulp van **Search Explorer** van Azure Portal. U kunt Search Explorer gebruiken om eenvoudige of volledige Lucene-queryreeksen te verzenden naar elke bestaande index in uw service.
+Dit artikel leest u hoe u query's een bestaande Azure Search index met **Search explorer** in Azure portal. U kunt Search explorer gebruiken om in te dienen eenvoudige of volledige Lucene-queryreeksen naar elke bestaande index in uw service.
 
 ## <a name="open-the-service-dashboard"></a>De servicedashboard openen
 1. Klik in de snelbalk aan de linkerkant van [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) op **Alle resources**.
@@ -36,15 +29,15 @@ Selecteer via de tegel **Indexen** de index waarin u wilt zoeken.
 
    ![](./media/search-explorer/pick-index.png)
 
-## <a name="open-search-explorer"></a>Search Explorer openen
+## <a name="open-search-explorer"></a>Search explorer openen
 
-Klik op de tegel Search Explorer om de zoekbalk en het resultatenvenster te openen.
+Klik op de tegel Search explorer te openen de zoekbalk en het deelvenster met resultaten.
 
    ![](./media/search-explorer/search-explorer-tile.png)
 
 ## <a name="start-searching"></a>Beginnen met zoeken
 
-Wanneer u Search Explorer gebruikt, kunt u [queryparameters](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) opgeven om de query te formuleren.
+Wanneer u Search explorer gebruikt, kunt u opgeven [queryparameters](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) te formuleren van de query.
 
 1. Typ in **Queryreeks** een query en druk vervolgens op **Zoeken**. 
 

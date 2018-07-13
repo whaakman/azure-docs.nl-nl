@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: 9e66bffe1a547e72143201f4afb8e5ae99065df9
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: be94a508a10fdbbed194fb71e28fd7c3b72a080c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341695"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989475"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
 
@@ -126,6 +126,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |indexingPreset|De definitie die wordt gebruikt om te indexeren van de video.|
 |streamingPreset|De vooraf gedefinieerde instellingen gebruikt voor het publiceren van de video.|
 |linguisticModelId|Het CRI model gebruikt de video te transcriberen.|
+|statistieken | Zie voor meer informatie, [statistieken](#statistics).|
 
 ```json
 {

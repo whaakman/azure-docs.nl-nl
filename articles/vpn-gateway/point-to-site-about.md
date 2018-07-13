@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721425"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003356"
 ---
 # <a name="about-point-to-site-vpn"></a>Over punt-naar-Site-VPN
 
@@ -58,7 +58,7 @@ Verificatie van AD-domeinen kan gebruikers verbinding maken met Azure met de dom
 
 Een RADIUS-server kan ook worden geïntegreerd met andere systemen externe id. Hiermee opent u tal van verificatieopties voor P2S VPN, met inbegrip van opties voor meervoudige.
 
-! [punt-naar-site]] (./media/point-to-site-about/p2s.png "Punt-naar-Site")
+![punt-naar-site](./media/point-to-site-about/p2s.png "punt-naar-Site")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>Wat zijn de vereisten van de configuratie van client?
 

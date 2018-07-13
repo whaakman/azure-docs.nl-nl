@@ -1,6 +1,6 @@
 ---
 title: Web-app-analyse voor ASP.NET instellen met Azure Application Insights | Microsoft Docs
-description: Configureer prestaties, beschikbaarheid en gebruiksanalyse voor uw ASP.NET-website die on-premises of in Azure wordt gehost.
+description: Configureer prestaties, beschikbaarheid en gebruiker gedrag analysehulpprogramma's voor uw ASP.NET-website, on-premises gehost of in Azure.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4fea71509b2dec897a3dafef627e243ae25447ad
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 73bb1e3d06066c422614bc9d6d3431b49be9c6de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991217"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Application Insights instellen voor uw ASP.NET-website
 
@@ -115,7 +116,7 @@ U kunt uw telemetrie ook blijven analyseren in [Visual Studio](app-insights-visu
 
 ## <a name="land"></a> U bent nu klaar
 
-Gefeliciteerd. U hebt het pakket Application Insights geïnstalleerd in uw app en dit zo geconfigureerd dat telemetrie wordt verzonden naar de Application Insights-service in Azure.
+Gefeliciteerd! U hebt het pakket Application Insights geïnstalleerd in uw app en dit zo geconfigureerd dat telemetrie wordt verzonden naar de Application Insights-service in Azure.
 
 ![Diagram van verplaatsing van telemetrie](./media/app-insights-asp-net/01-scheme.png)
 
@@ -157,6 +158,6 @@ Er zijn ook andere onderwerpen die u kunt bekijken als u geïnteresseerd bent in
 * [Slimme diagnostische gegevens](app-insights-proactive-diagnostics.md): deze tests worden automatisch uitgevoerd, zodat u niets hoeft te doen om ze in te stellen. Deze geeft aan of een app een ongebruikelijk aantal mislukte aanvragen heeft.
 * [Metrische waarschuwingen](app-insights-alerts.md): stel deze in om u te waarschuwen als een metriek een drempelwaarde overschrijdt. U kunt deze instellen op aangepaste metrische gegevens die u in uw app codeert.
 
-### <a name="automation"></a>Automatisering
+### <a name="automation"></a>Automation
 
 * [Het maken van een Application Insights-resource automatiseren](app-insights-powershell.md)

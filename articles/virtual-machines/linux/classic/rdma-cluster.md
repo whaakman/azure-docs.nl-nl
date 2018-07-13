@@ -1,6 +1,6 @@
 ---
-title: Instellen van een cluster Linux RDMA MPI-toepassingen uitvoeren | Microsoft Docs
-description: Maak een Linux-cluster met een grootte van H16r, H16mr, A8 of A9-VM's met het netwerk van Azure RDMA MPI-apps uitvoeren
+title: Een Linux RDMA-cluster instellen voor het uitvoeren van MPI-toepassingen | Microsoft Docs
+description: Een Linux-cluster van de grootte H16r, H16mr, A8 of A9-VM's naar het Azure RDMA-netwerk gebruiken voor het uitvoeren van MPI-apps maken
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
@@ -13,45 +13,47 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 07/11/2018
 ms.author: danlep
-ms.openlocfilehash: d53305aae3b12c0de983dced85a9626cf98c6309
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 471fd4095fe45e76f94df8c61a07eeb9bbc1c120
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210372"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990724"
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Een Linux RDMA-cluster instellen voor het uitvoeren van MPI-toepassingen
-Meer informatie over het instellen van een Linux RDMA-cluster in Azure met [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) parallelle Message Passing Interface (MPI)-toepassingen uit te voeren. Dit artikel bevat stappen voor het voorbereiden van een installatiekopie Linux HPC Intel MPI uitvoeren op een cluster. Nadat de voorbereiding, moet u een cluster van virtuele machines met behulp van deze installatiekopie en een van de RDMA-compatibele Azure VM-grootten (H16mr momenteel H16r A8 of A9) implementeert. De cluster gebruiken voor het uitvoeren van MPI-toepassingen die efficiënt via een lage latentie, een hoge gegevensdoorvoer netwerk op basis van remote direct memory access (RDMA)-technologie communiceren.
+
+Meer informatie over het instellen van een Linux RDMA-cluster in Azure met [High performance computing-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) parallelle Message Passing Interface (MPI)-toepassingen uit te voeren. In dit artikel bevat stappen voor het voorbereiden van een installatiekopie van Linux HPC Intel MPI uitvoeren op een cluster. Nadat de voorbereiding, implementeert u een cluster met virtuele machines met behulp van deze installatiekopie en een van de [RDMA-compatibele Azure-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#rdma-capable-instances). Het cluster gebruiken voor het uitvoeren van MPI-toepassingen die efficiënt via een lage latentie en hoge doorvoer netwerk op basis van technologie voor remote direct memory access (RDMA communiceren).
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) en klassieke. Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Azure Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md) en klassiek. Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
 
 ## <a name="cluster-deployment-options"></a>Cluster-implementatieopties
-Hieronder vindt u een Linux RDMA-cluster maken met of zonder een Taakplanner kunt u methoden.
+Hieronder vindt u verschillende methoden kunt u een Linux RDMA-cluster maken met of zonder een Taakplanner.
 
-* **Azure CLI-scripts**: Zie verderop in dit artikel, gebruiken de [Azure-opdrachtregelinterface](../../../cli-install-nodejs.md) (CLI) script voor de implementatie van een cluster met RDMA-compatibele virtuele machines. De CLI in Service Management-modus maakt de clusterknooppunten opeenvolgend in het klassieke implementatiemodel, dus veel rekenknooppunten implementeren kan enkele minuten duren. Om de RDMA-netwerkverbinding wanneer u het klassieke implementatiemodel gebruikt, implementeert u de virtuele machines in dezelfde cloudservice.
-* **Azure Resource Manager-sjablonen**: U kunt ook het implementatiemodel van Resource Manager gebruiken voor het implementeren van een cluster met RDMA-compatibele virtuele machines die is verbonden met het netwerk RDMA. U kunt [uw eigen sjabloon maken](../../../resource-group-authoring-templates.md), of Raadpleeg de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor sjablonen die is bijgedragen door Microsoft of de community van de oplossing die u wilt implementeren. Resource Manager-sjablonen kunnen bieden een snelle en betrouwbare manier voor het implementeren van een Linux-cluster. Om de RDMA-netwerkverbinding wanneer u het implementatiemodel van Resource Manager gebruikt, implementeert u de virtuele machines in dezelfde beschikbaarheidsset.
-* **HPC Pack**: een Microsoft HPC Pack-cluster in Azure maken en toevoegen van RDMA-compatibele rekenknooppunten waarop een ondersteunde Linux-distributie voor toegang tot de RDMA-netwerk wordt uitgevoerd. Zie voor meer informatie [aan de slag met Linux-rekenknooppunten in een cluster HPC Pack Azure](hpcpack-cluster.md).
+* **Azure CLI-scripts**: Zie verderop in dit artikel, gebruikt u de [Azure-opdrachtregelinterface](../../../cli-install-nodejs.md) (CLI) om een script van de implementatie van een cluster met RDMA-compatibele virtuele machines. De CLI in Service Management-modus maakt de clusterknooppunten opeenvolgend in het klassieke implementatiemodel, dus veel compute-knooppunten te implementeren kan enkele minuten duren. Implementeer de virtuele machines in dezelfde cloudservice zodat de RDMA-netwerkverbinding wanneer u het klassieke implementatiemodel.
+* **Azure Resource Manager-sjablonen**: U kunt ook het implementatiemodel van Resource Manager gebruiken om een cluster van RDMA-compatibele virtuele machines die verbinding met de RDMA-netwerk maakt te implementeren. U kunt [uw eigen sjabloon maken](../../../resource-group-authoring-templates.md), of Controleer de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor sjablonen bijgedragen door Microsoft of de community van de oplossing die u wilt implementeren. Resource Manager-sjablonen kunnen bieden een snelle en betrouwbare manier om een Linux-cluster te implementeren. Als u wilt de RDMA-netwerkverbinding inschakelen wanneer u de Resource Manager-implementatiemodel, de virtuele machines in de dezelfde beschikbaarheidsset of virtuele-machineschaalset te implementeren.
+* **HPC Pack**: een Microsoft HPC Pack-cluster maken in Azure en het toevoegen van RDMA-compatibele rekenknooppunten waarop een ondersteunde Linux-distributie voor toegang tot de RDMA-netwerk wordt uitgevoerd. Zie voor meer informatie, [aan de slag met Linux-rekenknooppunten in een HPC Pack-cluster in Azure](hpcpack-cluster.md).
 
 ## <a name="sample-deployment-steps-in-the-classic-model"></a>Voorbeeld van implementatie van de stappen in het klassieke model
-De volgende stappen laten zien hoe de Azure CLI gebruiken een SUSE Linux Enterprise Server (SLES) 12 SP1 HPC VM implementeren vanaf Azure Marketplace, aanpassen en het maken van een aangepaste VM-installatiekopie. Vervolgens kunt u de installatiekopie van het script voor de implementatie van een cluster met RDMA-compatibele virtuele machines.
+De volgende stappen laten zien hoe de Azure CLI gebruiken voor een SUSE Linux Enterprise Server (SLES) 12 HPC VM implementeren vanaf de Azure Marketplace, aanpassen en een aangepaste VM-installatiekopie te maken. Vervolgens gebruikt u de installatiekopie van het script voor de implementatie van een cluster met RDMA-compatibele virtuele machines.
 
 > [!TIP]
-> Gebruik van gelijksoortige stappen voor het implementeren van een cluster met RDMA-compatibele virtuele machines op basis van installatiekopieën op basis van CentOS HPC in Azure Marketplace. Een aantal stappen verschillen, zoals aangegeven. 
->
+> Gebruik dezelfde stappen voor het implementeren van een cluster met RDMA-compatibele virtuele machines gebaseerd op CentOS gebaseerde HPC-installatiekopieën in de Azure Marketplace. Sommige stappen verschillen enigszins die u hebt genoteerd.
 >
 
 ### <a name="prerequisites"></a>Vereisten
 * **Clientcomputer**: U moet een Mac, Linux of Windows-clientcomputer om te communiceren met Azure. Deze stappen wordt ervan uitgegaan dat u een Linux-client.
-* **Azure-abonnement**: als u geen een abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) binnen een paar minuten. Voor grotere clusters kunt u een abonnement op gebruiksbasis of andere Aankoopopties.
-* **Beschikbaarheid van de VM-grootte**: de volgende exemplaar grootten zijn RDMA-compatibele: H16r, H16mr A8 en A9. Controleer [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/services/) voor beschikbaarheid in een Azure-regio's.
-* **Quotum voor kernen**: mogelijk moet u het quotum van kernen voor het implementeren van een cluster van virtuele machines rekenintensieve verhogen. Bijvoorbeeld, moet u ten minste 128 kernen als u implementeren 8 A9-VM's wilt, zoals in dit artikel. Uw abonnement mogelijk ook beperken het aantal kernen dat u in de grootte van families van bepaalde VM, waaronder de H-reeks kunt implementeren. Om aan te vragen een verhoging van het quotum [opent u een ondersteuningsaanvraag online klant](../../../azure-supportability/how-to-create-azure-support-request.md) zonder kosten.
+* **Azure-abonnement**: als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) binnen een paar minuten. Voor grotere clusters, kunt u een abonnement op gebruiksbasis of andere Aankoopopties.
+* **Beschikbaarheid van VM-grootte**: Controleer [producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor beschikbaarheid van de H-serie of andere RDMA-compatibele VM-grootten in Azure-regio's.
+* **Quotum voor kerngeheugens**: mogelijk moet u vergroot het quotum voor kernen om een cluster van rekenintensieve VM's te implementeren. Bijvoorbeeld, moet u ten minste 128 kernen als u implementeren 8 A9-VM's wilt, zoals wordt weergegeven in dit artikel. Uw abonnement kan het aantal kernen dat u in een bepaalde groottefamilie VM implementeren kunt, met inbegrip van de H-serie ook beperken. Om aan te vragen een quotaverhoging [opent u een ondersteuningsaanvraag online klant](../../../azure-supportability/how-to-create-azure-support-request.md) gratis.
 * **Azure CLI**: [installeren](../../../cli-install-nodejs.md) de Azure CLI en [verbinding maken met uw Azure-abonnement](/cli/azure/authenticate-azure-cli) vanaf de clientcomputer.
 
-### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Een VM SLES 12 SP1 HPC inrichten
-Na het aanmelden bij Azure met Azure CLI, voert `azure config list` om te bevestigen dat de uitvoer ziet u Service Management-modus. Als dit niet het geval is, stelt u de modus met deze opdracht:
+Bekijk ook overwegingen voor de implementatie de [RDMA-compatibele Azure-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#rdma-capable-instances).
+
+### <a name="provision-an-sles-12-hpc-vm"></a>Een SLES 12 HPC VM inrichten
+Na het aanmelden bij Azure met de Azure CLI, voert `azure config list` om te bevestigen dat de uitvoer ziet u Service Management-modus. Als dit niet het geval is, moet u de modus instellen door het uitvoeren van deze opdracht:
 
     azure config mode asm
 
@@ -60,87 +62,90 @@ Typ het volgende als u wilt weergeven van alle abonnementen die u gemachtigd ben
 
     azure account list
 
-Het huidige actieve abonnement wordt geïdentificeerd met `Current` ingesteld op `true`. Als dit abonnement niet degene die u wilt gebruiken om de cluster te maken, stelt u de juiste abonnements-ID als het actief abonnement:
+Het huidige actieve abonnement wordt geïdentificeerd met `Current` ingesteld op `true`. Als dit abonnement is niet de versie die u wilt gebruiken om het cluster te maken, stelt u de juiste abonnements-ID als het actieve abonnement:
 
     azure account set <subscription-Id>
 
-Overzicht van de openbaar SLES 12 SP1 HPC-afbeeldingen in Azure, voert u een opdracht als volgt, ervan uitgaande dat uw omgeving shell ondersteunt **grep**:
+Als u wilt zien van de openbaar beschikbare installatiekopieën voor SLES 12 HPC in Azure, voert u een opdracht als volgt, ervan uitgaande dat uw shell-omgeving ondersteunt **grep**:
 
     azure vm image list | grep "suse.*hpc"
 
-Richt een RDMA-compatibele virtuele machine met een installatiekopie SLES 12 SP1 HPC door het uitvoeren van een opdracht als volgt:
+Richt een RDMA-compatibele virtuele machine met een SLES 12 SP3 HPC-installatiekopie door het uitvoeren van een opdracht als volgt uit:
 
-    azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824
+    azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp3-hpc-v20170913
 
 Waar:
 
-* De grootte (A9 in dit voorbeeld) is een van de RDMA-compatibele VM-grootte.
-* De externe SSH-poortnummer (22 in dit voorbeeld de standaardinstelling SSH is) is een geldig poortnummer. Het interne SSH-poortnummer is ingesteld op 22.
-* Een nieuwe cloudservice wordt gemaakt in de Azure-regio opgegeven door de locatie. Geef een locatie waarin de VM-grootte die u beschikbaar is.
-* Voor ondersteuning van prioriteit SUSE (die extra kosten in rekening worden gebracht), de naam van de SLES 12 SP1-installatiekopie op dit moment mag een van deze twee opties: 
+* De grootte (A9 in dit voorbeeld) is een van de RDMA-compatibele VM-grootten.
+* De externe SSH-poortnummer (22 in dit voorbeeld de standaardinstelling voor SSH is) is een geldig poortnummer. De interne SSH-poortnummer is ingesteld op 22.
+* Een nieuwe cloudservice wordt gemaakt in de Azure-regio opgegeven door de locatie. Geef een locatie op waarin de VM-grootte die u kiest beschikbaar, zoals 'VS-West is.
+* Voor ondersteuning met prioriteit SUSE (die leidt tot extra kosten), de naam van de SLES 12-installatiekopie op dit moment mag een van de opties met `priority` in de naam, zoals: 
 
- `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824`
-
-  `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-priority-v20160824`
-
+ `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp3-hpc-priority-v20170913`
 
 ### <a name="customize-the-vm"></a>De virtuele machine aanpassen
-Nadat de virtuele machine is voltooid met het inrichten van SSH met de virtuele machine met behulp van de VM externe IP-adres (of DNS-naam) en de externe poort nummer dat u hebt geconfigureerd, en vervolgens aan te passen. Zie voor meer informatie verbinding [aanmelden met een virtuele machine met Linux](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Opdrachten uitvoeren als de gebruiker die u hebt geconfigureerd op de virtuele machine, tenzij de toegang tot de hoofdmap is vereist om een stap te voltooien.
+Nadat de virtuele machine is voltooid wanneer het inrichten, SSH naar de virtuele machine met behulp van de virtuele machine externe IP-adres (of DNS-naam) en de externe poort nummer dat u hebt geconfigureerd en vervolgens aan te passen. Zie voor de verbindingsgegevens, [Meld u aan een virtuele machine waarop Linux wordt uitgevoerd bij het](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Opdrachten uitvoeren als de gebruiker die u hebt geconfigureerd op de virtuele machine, tenzij de toegang tot de hoofdmap is vereist om een stap te voltooien.
 
 > [!IMPORTANT]
-> Microsoft Azure biedt geen toegang tot de hoofdmap voor virtuele Linux-machines. Beheerdersrechten om toegang te krijgen wanneer verbonden als een gebruiker voor de virtuele machine, kunt u opdrachten uitvoeren met behulp van `sudo`.
+> Microsoft Azure biedt geen toegang tot de hoofdmap virtuele Linux-machines. Met beheerdersrechten om toegang te krijgen als verbonden als een gebruiker met de virtuele machine, kunt u opdrachten uitvoeren met behulp van `sudo`.
 >
 >
 
-* **Updates**: Installeer updates met behulp van zypper. U kunt ook hulpprogramma's voor NFS te installeren.
+* **Updates**: updates installeren met zypper. U kunt ook voor het installeren van hulpprogramma's voor NFS.
 
   > [!IMPORTANT]
-  > U wordt aangeraden dat u kernel-updates, die de oorzaak van problemen met het Linux-RDMA stuurprogramma's niet toe te passen in een VM SLES 12 SP1 HPC.
+  > In een SLES 12 HPC VM, is het raadzaam dat u kernelupdates, die leiden problemen met de Linux RDMA stuurprogramma's tot kunnen niet van toepassing.
   >
   >
-* **Intel MPI**: de installatie van Intel MPI op de virtuele machine SLES 12 SP1 HPC voltooid met de volgende opdracht:
+* **Intel MPI**: voltooit de installatie van Intel MPI op de virtuele machine met de volgende opdracht:
 
-        sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-* **Vergrendelen van geheugen**: voor MPI-codes vergrendelen van het beschikbare geheugen voor RDMA, toevoegen of wijzigen van de volgende instellingen in het bestand /etc/security/limits.conf. U moet toegang tot de hoofdmap om dit bestand te bewerken.
-
+    ```bash
+    sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
     ```
+
+* **Geheugen vergrendelen**: voor MPI-codes voor het vergrendelen van het beschikbare geheugen voor RDMA, toevoegen of wijzigen van de volgende instellingen in het bestand /etc/security/limits.conf. U moet toegang tot de hoofdmap om dit bestand te bewerken.
+
+    ```bash
     <User or group name> hard    memlock <memory required for your application in KB>
 
     <User or group name> soft    memlock <memory required for your application in KB>
     ```
 
   > [!NOTE]
-  > Voor testdoeleinden kunt u ook memlock instellen op onbeperkt. Bijvoorbeeld: `<User or group name>    hard    memlock unlimited`. Zie voor meer informatie [aanbevolen bekende methoden voor instelling vergrendeld geheugengrootte](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
+  > Voor testdoeleinden kunt u ook memlock instellen op onbeperkt. Bijvoorbeeld: `* hard memlock unlimited`. Zie voor meer informatie, [meest bekende methoden voor instelling vergrendeld geheugengrootte](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
   >
   >
-* **SSH-sleutels voor virtuele machines SLES**: genereren SSH-sleutels vertrouwensrelatie voor uw gebruikersaccount tussen de rekenknooppunten in de SLES cluster bij het uitvoeren van MPI-taken. Als u een VM op basis van CentOS HPC hebt geïmplementeerd, niet volgt u deze stap. Zie de instructies verderop in dit artikel voor het instellen van passwordless SSH-vertrouwensrelatie tussen de clusterknooppunten, nadat u de installatiekopie vastlegt en implementeert het cluster.
+* **SSH-sleutels voor SLES virtuele machines**: genereren van SSH-sleutels vertrouwensrelatie voor uw gebruikersaccount tussen de rekenknooppunten in de SLES cluster bij het uitvoeren van MPI-opdrachten. Als u een VM op basis van CentOS HPC hebt geïmplementeerd, niet volgt u deze stap. Zie de instructies verderop in dit artikel voor het instellen van de configuratie SSH-vertrouwensrelatie tussen de clusterknooppunten nadat u de installatiekopie maken en implementeren van het cluster.
 
-    Voer de volgende opdracht voor het maken van SSH-sleutels. Wanneer u wordt gevraagd om invoer, selecteert u **Enter** voor het genereren van de sleutels in de standaardlocatie zonder een wachtwoord wordt ingesteld.
+  Voer voor het maken van SSH-sleutels de `ssh-keygen` opdracht. Wanneer u wordt gevraagd voor invoer, selecteert u **Enter** voor het genereren van de sleutels in de standaardlocatie zonder het instellen van een wachtwoord.
 
-        ssh-keygen
+  De openbare sleutel toevoegen aan het bestand authorized_keys voor bekende openbare sleutels.
 
-    De openbare sleutel toevoegen aan het bestand authorized_keys voor bekende openbare sleutels.
+  ```bash
+  cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+  ```
 
-        cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+  In de map ~/.ssh bewerken of maken van de `config` bestand. Geef het IP-adresbereik van het particuliere netwerk die u wilt gebruiken in Azure (10.32.0.0/16 in dit voorbeeld):
 
-    In de map ~/.ssh bewerken of maken van het configuratiebestand. Geef het IP-adresbereik van het particuliere netwerk die u wilt gebruiken in Azure (10.32.0.0/16 in dit voorbeeld):
+  ```bash
+  host 10.32.0.*
+  StrictHostKeyChecking no
+  ```
 
-        host 10.32.0.*
-        StrictHostKeyChecking no
+  Vermeld het particuliere netwerk-IP-adres van elke virtuele machine in uw cluster ook als volgt:
 
-    U kunt ook een overzicht van het particuliere netwerk-IP-adres van elke virtuele machine in uw cluster als volgt:
-
-    ```
-    host 10.32.0.1
-     StrictHostKeyChecking no
-    host 10.32.0.2
-     StrictHostKeyChecking no
-    host 10.32.0.3
-     StrictHostKeyChecking no
-    ```
+  ```bash
+  host 10.32.0.1
+  StrictHostKeyChecking no
+  host 10.32.0.2
+  StrictHostKeyChecking no
+  host 10.32.0.3
+  StrictHostKeyChecking no
+  ...
+  ```
 
   > [!NOTE]
-  > Configureren van `StrictHostKeyChecking no` een beveiligingsrisico met zich mee kunt maken wanneer er een specifiek IP-adres of -bereik is opgegeven.
+  > Configureren van `StrictHostKeyChecking no` een mogelijk beveiligingsrisico kunt maken als een specifiek IP-adres of adresbereik niet is opgegeven.
   >
   >
 * **Toepassingen**: installeert u alle toepassingen die u nodig hebt of andere aanpassingen uitvoeren voordat u de installatiekopie vastlegt.
@@ -148,11 +153,11 @@ Nadat de virtuele machine is voltooid met het inrichten van SSH met de virtuele 
 ### <a name="capture-the-image"></a>De installatiekopie vastleggen
 Als u wilt de installatiekopie vastlegt, moet u eerst de volgende opdracht uitvoeren op de Linux-VM. Met deze opdracht deprovisions van de virtuele machine, maar behoudt gebruikersaccounts en SSH-sleutels die u hebt ingesteld.
 
-```
+```bash
 sudo waagent -deprovision
 ```
 
-Voer de volgende Azure CLI-opdrachten voor het vastleggen van de afbeelding vanaf de clientcomputer. Zie voor meer informatie [klassieke virtuele Linux-machine als afbeelding vastleggen](capture-image-classic.md).  
+Voer de volgende Azure CLI-opdrachten om vast te leggen van de installatiekopie van het vanaf uw clientcomputer. Zie voor meer informatie, [een klassieke virtuele Linux-machine als afbeelding vastleggen](capture-image-classic.md).  
 
 ```
 azure vm shutdown <vm-name>
@@ -161,14 +166,14 @@ azure vm capture -t <vm-name> <image-name>
 
 ```
 
-Nadat u deze opdrachten uitvoeren, de VM-installatiekopie wordt vastgelegd voor het gebruik en de virtuele machine is verwijderd. U hebt nu uw aangepaste installatiekopie gereed is voor het implementeren van een cluster.
+Nadat u deze opdrachten uitvoeren, de VM-installatiekopie wordt vastgelegd voor het gebruik en de virtuele machine is verwijderd. U hebt nu uw aangepaste installatiekopie die gereed is om een cluster te implementeren.
 
 ### <a name="deploy-a-cluster-with-the-image"></a>Een cluster met de installatiekopie implementeren
-Wijzig het volgende Bash-script met de juiste waarden voor uw omgeving en voer dit vanaf de clientcomputer. Omdat Azure de VM's in het klassieke implementatiemodel opeenvolgend implementeert, duurt het enkele minuten voor het implementeren van de acht A9-VM's in dit script wordt voorgesteld.
+Wijzig het volgende Bash-script met de juiste waarden voor uw omgeving en deze uitvoeren vanaf uw clientcomputer. Omdat Azure de virtuele machines worden in het klassieke implementatiemodel implementeert, duurt het enkele minuten de acht A9-virtuele machines voorgesteld in dit script te implementeren.
 
-```
+```bash
 #!/bin/bash -x
-# Script to create a compute cluster without a scheduler in a VNet in Azure
+# Script to create a compute cluster without a scheduler in a classic VNet in Azure
 # Create a custom private network in Azure
 # Replace 10.32.0.0 with your virtual network address space
 # Replace <network-name> with your network identifier
@@ -193,93 +198,97 @@ portnumber=101
 # In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>. Specify the username and password you used when creating the SSH keys.
 
 for (( i=11; i<19; i++ )); do
-        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
+        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>;
 done
 
 # Save this script with a name like makecluster.sh and run it in your shell environment to provision your cluster
 ```
 
 ## <a name="considerations-for-a-centos-hpc-cluster"></a>Overwegingen voor een CentOS HPC-cluster
-Als u een op basis van een van de installatiekopieën op basis van CentOS HPC in Azure Marketplace in plaats van SLES 12 voor HPC-cluster instellen wilt, volgt u de algemene stappen in de vorige sectie. Let op de volgende verschillen wanneer u inrichten en de virtuele machine configureren:
+Als u een op basis van een van de HPC op basis van CentOS-installatiekopieën in de Azure Marketplace in plaats van SLES 12 voor HPC-cluster instellen wilt, volgt u de algemene stappen in de voorgaande sectie. Houd rekening met de volgende verschillen bij het inrichten en de virtuele machine configureren:
 
-- Intel MPI is al geïnstalleerd op een virtuele machine vanaf een installatiekopie van een HPC op basis van CentOS wordt ingericht.
-- Vergrendeling geheugeninstellingen zijn al toegevoegd in de VM /etc/security/limits.conf-bestand.
-- Genereren geen SSH-sleutels op de virtuele machine die u inricht voor vastleggen. In plaats daarvan wordt aangeraden verificatie op basis van een gebruiker instellen nadat u het cluster hebt geïmplementeerd. Zie de volgende sectie voor meer informatie.  
+- Intel MPI is al geïnstalleerd op een virtuele machine ingericht vanuit een HPC op basis van CentOS-installatiekopie.
+- Instellingen voor het geheugen vergrendelen zijn al toegevoegd aan de /etc/security/limits.conf-bestand van de virtuele machine.
+- Geen SSH-sleutels op de virtuele machine die u inricht voor het vastleggen van worden gegenereerd. In plaats daarvan wordt aangeraden het instellen van verificatie op basis van gebruikers nadat u het cluster hebt geïmplementeerd. Zie de volgende sectie voor meer informatie.  
 
-### <a name="set-up-passwordless-ssh-trust-on-the-cluster"></a>Passwordless SSH vertrouwen op het cluster instellen
-Op een op basis van CentOS HPC-cluster, er zijn twee methoden voor het instellen van een vertrouwensrelatie tussen de rekenknooppunten: verificatie op basis van de host en verificatie op basis van gebruiker. Verificatie op basis van de host is buiten het bereik van dit artikel en over het algemeen moet worden uitgevoerd via een script extensie tijdens de implementatie. Verificatie op basis van een gebruiker is handig voor het instellen van een vertrouwensrelatie na de implementatie en het genereren en delen van SSH-sleutels tussen de rekenknooppunten in het cluster is vereist. Deze methode staat bekend als passwordless SSH-aanmelding en is vereist bij het uitvoeren van MPI-taken.
+### <a name="set-up-passwordless-ssh-trust-on-the-cluster"></a>Instellen van de configuratie van SSH-vertrouwensrelatie op het cluster
+Op een CentOS gebaseerde HPC-cluster, er zijn twee methoden voor het instellen van een vertrouwensrelatie tussen de rekenknooppunten: verificatie op basis van de host en verificatie op basis van gebruiker. Verificatie op basis van een host is buiten het bereik van dit artikel en over het algemeen moet worden uitgevoerd via een script-extensies tijdens de implementatie. Verificatie op basis van een gebruiker is handig voor het instellen van een vertrouwensrelatie na de implementatie en vereist het genereren en het delen van SSH-sleutels tussen de compute-knooppunten in het cluster. Deze methode staat bekend als de configuratie SSH-aanmelding en is vereist bij het uitvoeren van MPI-opdrachten.
 
-Een voorbeeld van een script van de community bijgedragen is beschikbaar op [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) eenvoudig verificatie op een op basis van CentOS HPC-cluster in te schakelen. Download en gebruik dit script met behulp van de volgende stappen uit. U kunt ook dit script wijzigen of een andere methode gebruiken om passwordless SSH-verificatie tussen de clusterknooppunten compute stand te brengen.
+Een voorbeeld van een script `user_authentication.sh` om in te schakelen van verificatie op basis van een gebruiker op een CentOS gebaseerde HPC cluster volgt:
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
+```bash
+#!/bin/bash
+# For CentOS user must first install epel-release, sshpass, and nmap (sshpass and nmap are available from epel-release for CentOS)
 
-Het script wordt uitgevoerd, moet u weten van het voorvoegsel voor uw subnet IP-adressen. Haal het voorvoegsel door de volgende opdracht in een van de clusterknooppunten worden uitgevoerd. De uitvoer ziet er ongeveer als 10.1.3.5 en het voorvoegsel zijn de/m 10.1.3 gedeelte.
+# usage ./user_authentication.sh [username] [password] [internalIP prefix]
+# ./user_authentication.sh azureuser Azure@123 10.32.0
+USER=$1
+PASS=$2
+IPPRE=$3
+HEADNODE=`hostname`
 
-    ifconfig eth0 | grep -w inet | awk '{print $2}'
+mkdir -p .ssh
+echo -e  'y\n' | ssh-keygen -f .ssh/id_rsa -t rsa -N ''
 
-Voer nu het script met behulp van drie parameters: de algemene gebruikersnaam op de rekenknooppunten, de algemene wachtwoord voor de gebruiker op de rekenknooppunten en het subnetvoorvoegsel die is geretourneerd van de vorige opdracht.
+echo 'Host *' >> .ssh/config
+echo 'StrictHostKeyChecking no' >> .ssh/config
+chmod 400 .ssh/config
+chown azureuser:azureuser /home/azureuser/.ssh/config
 
-    ./user_authentication.sh <myusername> <mypassword> 10.1.3
+nmap -sn $IPPRE.* | grep $IPPRE. | awk '{print $5}' > nodeips.txt
+for NAME in `cat nodeips.txt`; do sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'hostname' >> nodenames.txt;done
+
+NAMES=`cat nodenames.txt` #names from names.txt file
+for NAME in $NAMES; do
+    sshpass -p $PASS scp -o "StrictHostKeyChecking no" -o ConnectTimeout=2 /home/$USER/nodenames.txt $USER@$NAME:/home/$USER/
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME "mkdir .ssh && chmod 700 .ssh"
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME "echo -e  'y\n' | ssh-keygen -f .ssh/id_rsa -t rsa -N ''"
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'touch /home/'$USER'/.ssh/config'
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'echo "Host *" >  /home/'$USER'/.ssh/config'
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'echo StrictHostKeyChecking no >> /home/'$USER'/.ssh/config'
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'chmod 400 /home/'$USER'/.ssh/config'
+    cat .ssh/id_rsa.pub | sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'cat >> .ssh/authorized_keys'
+    sshpass -p $PASS scp -o "StrictHostKeyChecking no" -o ConnectTimeout=2 $USER@$NAME:/home/$USER/.ssh/id_rsa.pub .ssh/sub_node.pub
+
+    for SUBNODE in `cat nodeips.txt`; do
+         sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$SUBNODE 'mkdir -p .ssh'
+         cat .ssh/sub_node.pub | sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$SUBNODE 'cat >> .ssh/authorized_keys'
+    done
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'chmod 700 .ssh/'
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'chmod 640 .ssh/authorized_keys'
+done
+```
+
+Voer dit script uit met behulp van de volgende stappen uit. U kunt ook wijzigen met dit script of een andere methode gebruiken om de configuratie van SSH-verificatie tussen de knooppunten van het compute stand te brengen.
+
+Het script wordt uitgevoerd, moet u het voorvoegsel voor uw subnet IP-adressen weten. Het voorvoegsel ophalen door het uitvoeren van de volgende opdracht uit op een van de clusterknooppunten. De uitvoer ziet er ongeveer als 10.1.3.5 en het voorvoegsel is de/m 10.1.3 gedeelte.
+
+```bash
+ifconfig eth0 | grep -w inet | awk '{print $2}'
+```
+
+Voer nu het script uit met behulp van drie parameters: de algemene gebruikersnaam op de rekenknooppunten, de algemene wachtwoord voor de gebruiker op de rekenknooppunten en het subnetvoorvoegsel die is geretourneerd met de vorige opdracht.
+
+```bash
+./user_authentication.sh <myusername> <mypassword> 10.1.3
+```
 
 Dit script doet het volgende:
 
-* Maakt een map op de hostknooppunt met SSH, de naam die is vereist voor passwordless aanmelding.
-* Maakt een configuratiebestand in de SSH-map zodat passwordless aanmelden bij de aanmelding vanaf elk knooppunt in het cluster toestaan.
-* Maakt bestanden die de knooppuntnamen en het knooppunt IP-adressen voor alle knooppunten in het cluster. Deze bestanden blijven nadat het script wordt uitgevoerd voor naslagdoeleinden.
-* Hiermee maakt u een persoonlijke en openbare sleutelpaar voor elk clusterknooppunt (inclusief het hostknooppunt) en vermeldingen in het bestand authorized_keys maakt.
+* Hiermee maakt u een map op de hostknooppunt met de naam .ssh, die is vereist voor aanmelding zonder wachtwoord uitproberen.
+* Hiermee maakt u een configuratiebestand in de map .SSH geeft u de configuratie Meld u aan bij aanmelding vanaf elk knooppunt in het cluster toestaan.
+* Bestanden met de knooppuntnamen van en het knooppunt IP-adressen voor alle knooppunten in het cluster maakt. Deze bestanden zijn gebleven nadat het script wordt uitgevoerd voor later gebruik.
+* Hiermee maakt u een persoonlijke en openbare sleutelpaar voor elk clusterknooppunt (met inbegrip van het hostknooppunt) en vermeldingen in het bestand authorized_keys maakt.
 
 > [!WARNING]
-> Dit script uitvoert, kan een beveiligingsrisico met zich mee maken. Zorg ervoor dat de gegevens van de openbare sleutel in ~/.ssh niet is gedistribueerd.
+> Uitvoeren van dit script kunt maken van een mogelijk beveiligingsrisico. Zorg ervoor dat de gegevens van de openbare sleutel in ~/.ssh niet wordt gedistribueerd.
 >
->
 
-## <a name="configure-intel-mpi"></a>Intel MPI configureren
-MPI-toepassingen op Azure Linux RDMA uitgevoerd, moet u bepaalde omgevingsvariabelen die specifiek zijn voor Intel MPI configureren. Hier volgt een voorbeeld Bash-script voor het configureren van de variabelen die nodig zijn voor het uitvoeren van een toepassing. Wijzig het pad in mpivars.sh zo nodig voor de installatie van Intel MPI.
+## <a name="run-mpi-on-a-basic-two-node-cluster"></a>MPI worden uitgevoerd op een eenvoudige cluster met twee knooppunten
+Als u dit nog niet hebt gedaan, eerst stelt u de omgeving voor Intel MPI.
 
-```
-#!/bin/bash -x
-
-# For a SLES 12 SP1 HPC cluster
-
-source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
-
-# For a CentOS-based HPC cluster
-
-# source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
-
-export I_MPI_FABRICS=shm:dapl
-
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
-# Setting the variable to shm:dapl gives best performance for some applications
-# If your application doesn’t take advantage of shared memory and MPI together, then set only dapl
-
-export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
-
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
-
-export I_MPI_DYNAMIC_CONNECTION=0
-
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
-
-# Command line to run the job
-
-mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path <path to the application exe> <arguments specific to the application>
-
-#end
-```
-
-De indeling van de hostbestand is als volgt. Een regel voor elk knooppunt in het cluster toevoegen. Geef de privé IP-adressen van het virtuele netwerk eerder hebt gedefinieerd, niet de DNS-namen. Voor twee hosts met IP-adressen 10.32.0.1 en 10.32.0.2 bevat het bestand bijvoorbeeld het volgende:
-
-```
-10.32.0.1:16
-10.32.0.2:16
-```
-
-## <a name="run-mpi-on-a-basic-two-node-cluster"></a>MPI worden uitgevoerd op een basic cluster met twee knooppunten
-Als u dit nog niet hebt gedaan, eerst de omgeving instellen voor Intel MPI.
-
-```
-# For a SLES 12 SP1 HPC cluster
+```bash
+# For a SLES 12 HPC cluster
 
 source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 
@@ -288,33 +297,33 @@ source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 # source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
 ```
 
-### <a name="run-an-mpi-command"></a>Voer een MPI-opdracht
-Een MPI-opdracht uitvoeren op een van de rekenknooppunten om weer te geven dat MPI juist is geïnstalleerd en communiceren kan tussen ten minste dat twee rekenknooppunten. De volgende **mpirun** opdracht wordt uitgevoerd de **hostnaam** opdracht op twee knooppunten.
+### <a name="run-an-mpi-command"></a>Een MPI-opdracht uitvoeren
+Een MPI-opdracht uitvoeren op een van de rekenknooppunten om weer te geven dat MPI correct is geïnstalleerd en communiceren kan tussen ten minste dat twee rekenknooppunten. De volgende **mpirun** opdracht wordt uitgevoerd de **hostnaam** opdracht op twee knooppunten. Voor de `-hosts` parameter, de IP-adressen van twee knooppunten in het Azure VNet (bijvoorbeeld 10.32.0.4,10.32.0.5) doorgeven.
 
-```
+```bash
 mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
 ```
-De uitvoer moet bevatten de namen van alle knooppunten die u hebt doorgegeven als invoer voor `-hosts`. Bijvoorbeeld, een **mpirun** opdracht met twee knooppunten retourneert de volgende uitvoer:
+Uw uitvoer moet de namen van alle knooppunten die u hebt doorgegeven als invoer voor de lijst `-hosts`. Bijvoorbeeld, een **mpirun** opdracht met twee knooppunten retourneert uitvoer als volgt:
 
 ```
 cluster11
 cluster12
 ```
 
-### <a name="run-an-mpi-benchmark"></a>Voer een benchmark MPI
-De volgende Intel MPI-opdracht wordt uitgevoerd een benchmark pingpong om te controleren of de configuratie van het cluster en de verbinding met het netwerk RDMA.
+### <a name="run-an-mpi-benchmark"></a>Voer een MPI-benchmark
+De volgende Intel MPI-opdracht wordt uitgevoerd een benchmark pingpong om te controleren of de configuratie van het cluster en de verbinding met de RDMA-netwerk.
 
-```
+```bash
 mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
-Op een werkende-cluster met twee knooppunten, moet u de volgende uitvoer weergegeven. Op het netwerk Azure RDMA verwachten latentie op of onder 3 microseconden voor het bericht de grootte van maximaal 512 bytes.
+Op een cluster werken met twee knooppunten ziet u de volgende uitvoer. Op het netwerk van Azure RDMA, verwachte latentie op of onder 3 microseconden voor het bericht het formaat van maximaal 512 bytes.
 
 ```
 #------------------------------------------------------------
 #    Intel (R) MPI Benchmarks 4.0 Update 1, MPI-1 part
 #------------------------------------------------------------
-# Date                  : Fri Jul 17 23:16:46 2015
+# Date                  : Fri Jul 6 17:16:46 2018
 # Machine               : x86_64
 # System                : Linux
 # Release               : 3.12.39-44-default
@@ -373,10 +382,50 @@ Op een werkende-cluster met twee knooppunten, moet u de volgende uitvoer weergeg
 # All processes entering MPI_Finalize
 
 ```
+### <a name="sample-mpi-run-script"></a>Voorbeeld van MPI-script uitvoeren
+Hier volgt een Bash-voorbeeldscript voor het configureren van de variabelen die nodig zijn voor het uitvoeren van een MPI-toepassing. Wijzig het pad naar `mpivars.sh` zo nodig voor de installatie van Intel MPI.
 
+```bash
+#!/bin/bash -x
+
+# For a SLES 12 HPC cluster
+
+source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
+
+# For a CentOS-based HPC cluster
+
+# source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
+
+export I_MPI_FABRICS=shm:dapl
+
+# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+# Setting the variable to shm:dapl gives best performance for some applications
+# If your application doesn’t take advantage of shared memory and MPI together, then set only dapl
+
+export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+
+# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+
+export I_MPI_DYNAMIC_CONNECTION=0
+
+# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+
+# Command line to run the MPI job. Substitute with values appropriate for your application.
+
+mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path <path to the application exe> <arguments specific to the application>
+
+#end
+```
+
+De indeling van het bestand met de host is als volgt. Een regel voor elk knooppunt in het cluster toevoegen. Geef het particuliere IP-adressen van het virtuele netwerk eerder hebt gedefinieerd, niet de DNS-namen. Bijvoorbeeld, bevat het bestand voor twee hosts met IP-adressen 10.32.0.4 en 10.32.0.4 het volgende:
+
+```bash
+10.32.0.4:16
+10.32.0.5:16
+```
 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Implementeren en uw Linux MPI-toepassingen uitvoeren op uw Linux-cluster.
-* Zie de [Intel MPI-bibliotheek documentatie](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) voor hulp bij het Intel MPI.
-* Probeer een [snelstartsjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) voor het maken van een cluster Intel Lustre met behulp van een installatiekopie op basis van CentOS HPC. Zie voor meer informatie [Intel Cloud Edition implementeren voor Lustre in Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).
+* Zie de [bibliotheekdocumentatie van Intel MPI](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) voor hulp bij Intel MPI.
+* Probeer een [quickstart-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) voor het maken van een Intel Lustre-cluster met behulp van een HPC op basis van CentOS-installatiekopie. 

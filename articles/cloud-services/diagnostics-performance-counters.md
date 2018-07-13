@@ -1,9 +1,9 @@
 ---
-title: Verzamelen van prestatiemeteritems in Azure-Cloudservices | Microsoft Docs
-description: Informatie over het detecteren, gebruiken en prestatie-items maken in Cloud Services met Azure Diagnostics en Application Insights.
+title: Verzamelen van prestatiemeteritems in Azure Cloudservices | Microsoft Docs
+description: Informatie over het detecteren, gebruiken en prestatiemeteritems maken in Cloud Services met Azure Diagnostics en Application Insights.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
-ms.author: adegeo
-ms.openlocfilehash: 3e0af48c172fa912f0ac9e05b7b761dd7eaad795
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: d3aeb930dcb325aebc8c6b0a9dfde3602312618b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29134349"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001460"
 ---
-# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Prestatiemeteritems voor uw Azure Cloud Service verzamelen
+# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Verzamelen van prestatiemeteritems voor uw Azure-Cloudservice
 
-Prestatiemeteritems kunnen u bijhouden hoe goed uw toepassing en de host worden uitgevoerd. Windows Server biedt veel verschillende prestatiemeteritems die betrekking hebben op hardware, toepassingen en het besturingssysteem. Verzamelen en verzenden van prestatiemeteritems naar Azure, kunt u deze informatie om u te helpen betere beslissingen analyseren. 
+Prestatiemeteritems bieden een manier om bij te houden hoe goed uw toepassing en de host worden uitgevoerd. Windows Server biedt veel verschillende prestatiemeters, die betrekking hebben op hardware, toepassingen en het besturingssysteem. Te verzamelen en prestatiemeteritems te verzenden naar Azure, kunt u deze informatie om u te helpen betere beslissingen kunt analyseren. 
 
-## <a name="discover-available-counters"></a>Detecteren van beschikbare items
+## <a name="discover-available-counters"></a>Beschikbare items detecteren
 
-Een prestatiemeteritem bestaat uit twee onderdelen: de setnaam van een (categorie) en een of meer items. U kunt PowerShell gebruiken om een lijst van beschikbare prestatiemeteritems:
+Een prestatiemeteritem bestaat uit twee onderdelen: een naam (ook wel bekend als een categorie) en een of meer items. U kunt PowerShell gebruiken voor een lijst van beschikbare prestatiemeteritems:
 
 ```PowerShell
 Get-Counter -ListSet * | Select-Object CounterSetName, Paths | Sort-Object CounterSetName
@@ -76,7 +76,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-Deze afzonderlijke teller paden kunnen worden toegevoegd aan het framework diagnostische gegevens van uw cloudservice wordt gebruikt. Zie voor meer informatie over hoe een pad voor prestatiemeteritems is samengesteld, [geven een itempad](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
+Deze afzonderlijke teller paden kunnen worden toegevoegd aan het framework van diagnostische gegevens over uw cloudservice gebruikt. Zie voor meer informatie over hoe u een pad voor prestatiemeteritems is samengesteld, [op te geven een itempad](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
 
 ## <a name="collect-a-performance-counter"></a>Een prestatiemeteritem verzamelen
 
@@ -84,9 +84,9 @@ Een prestatiemeteritem kan worden toegevoegd aan uw cloudservice voor Azure Diag
 
 ### <a name="application-insights"></a>Application Insights
 
-Azure Application Insights voor Cloud-Services kunt dat u opgeven welke prestatiemeteritems die u wilt verzamelen. Nadat u [Application Insights toevoegen aan uw project](../application-insights/app-insights-cloudservices.md#sdk), een configuratiebestand met de naam **ApplicationInsights.config** wordt toegevoegd aan uw Visual Studio-project. Dit configuratiebestand definieert wat voor soort informatie Application Insights verzamelt en verstuurt naar Azure.
+Azure Application Insights voor Cloud Services kunt dat u opgeven welke prestatiemeteritems die u wenst te verzamelen. Nadat u [Application Insights toevoegen aan uw project](../application-insights/app-insights-cloudservices.md#sdk), een configuratiebestand met de naam **ApplicationInsights.config** wordt toegevoegd aan uw Visual Studio-project. Dit configuratiebestand wordt gedefinieerd welk type informatie Application Insights worden verzameld en verzonden naar Azure.
 
-Open de **ApplicationInsights.config** bestand en zoek de **ApplicationInsights** > **TelemetryModules** element. Elke `<Add>` onderliggend element definieert een type telemetriegegevens te verzamelen, samen met de configuratie ervan. Het moduletype prestaties teller telemetrie is `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Als dit element is al gedefinieerd, voeg deze niet een tweede keer. Elk prestatiemeteritem voor het verzamelen van wordt gedefinieerd in een knooppunt met de naam `<Counters>`. Hier volgt een voorbeeld waarin station prestatiemeteritems worden verzameld:
+Open de **ApplicationInsights.config** -bestand en zoek de **ApplicationInsights** > **TelemetryModules** element. Elke `<Add>` onderliggend element definieert een type telemetrie te verzamelen, samen met de configuratie ervan. Het moduletype prestaties teller telemetrie is `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Als dit element is al gedefinieerd, voeg er een tweede keer. Elk prestatiemeteritem voor het verzamelen van wordt gedefinieerd in een knooppunt met de naam `<Counters>`. Hier volgt een voorbeeld waarin station prestatiemeteritems worden verzameld:
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -105,7 +105,7 @@ Open de **ApplicationInsights.config** bestand en zoek de **ApplicationInsights*
 <!-- ... cut to save space ... -->
 ```
 
-Elk prestatiemeteritem wordt weergegeven als een `<Add>` element onder `<Counters>`. De `PerformanceCounter` kenmerk bepaalt welke prestatiemeteritem verzamelen. De `ReportAs` kenmerk is de titel moet worden weergegeven in de Azure-portal voor het prestatiemeteritem. Elk prestatiemeteritem dat u hebt verzameld wordt geplaatst in een categorie met de naam **aangepaste** in de portal. In tegenstelling tot Azure Diagnostics, kunt u het interval dat met deze prestatiemeteritems worden verzameld en verzonden naar Azure niet instellen. Met Application Insights-prestatiemeteritems verzameld en verzonden elke minuut. 
+Elk prestatiemeteritem wordt weergegeven als een `<Add>` element onder `<Counters>`. De `PerformanceCounter` kenmerk bepaalt welke prestatiemeteritem voor het verzamelen van. De `ReportAs` kenmerk is de titel moet worden weergegeven in de Azure-portal voor het prestatiemeteritem. Een prestatiemeteritem dat u hebt verzameld wordt geplaatst in een categorie met de naam **aangepaste** in de portal. In tegenstelling tot diagnostische gegevens van Azure, kunt u het interval voor deze prestatiemeteritems zijn verzameld en verzonden naar Azure niet instellen. Met Application Insights, prestatiemeteritems die worden verzameld en verzonden per minuut. 
 
 Application Insights verzamelt automatisch de volgende prestatiemeteritems:
 
@@ -116,22 +116,22 @@ Application Insights verzamelt automatisch de volgende prestatiemeteritems:
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-Zie voor meer informatie [systeemprestatiemeteritems in Application Insights](../application-insights/app-insights-performance-counters.md) en [Application Insights voor Azure Cloud Services](../application-insights/app-insights-cloudservices.md#performance-counters).
+Zie voor meer informatie, [systeemprestatiemeteritems in Application Insights](../application-insights/app-insights-performance-counters.md) en [Application Insights voor Azure Cloud Services](../application-insights/app-insights-cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
 > [!IMPORTANT]
-> Hoewel al deze gegevens worden samengevoegd in de storage-account, de portal biedt **niet** bieden een systeemeigen manier om de grafiekgegevens. Het is raadzaam dat u een andere service van de diagnostische gegevens, zoals Application Insights in uw toepassing integreren.
+> Hoewel al deze gegevens worden samengevoegd in de storage-account, de portal biedt **niet** bieden een systeemeigen manier om de gegevens van grafiek. Het is raadzaam dat u een andere service van de diagnostische gegevens, zoals Application Insights in uw toepassing integreren.
 
-De extensie Azure Diagnostics voor Cloud-Services kunt dat u opgeven welke prestatiemeteritems die u wilt verzamelen. Als u Azure Diagnostics instelt, Zie [Cloud Service Bewakingsoverzicht](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
+De Azure Diagnostics-extensie voor Cloud Services kunt dat u opgeven welke prestatiemeteritems die u wenst te verzamelen. Als u Azure Diagnostics instelt, Zie [Cloud Service Bewakingsoverzicht](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
-De prestatiemeteritems die u wilt verzamelen zijn gedefinieerd in de **diagnostics.wadcfgx** bestand. Open dit bestand (dit is gedefinieerd per rol) in Visual Studio en zoek de **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Voeg een nieuwe **PerformanceCounterConfiguration** element als een onderliggend element. Dit element heeft twee kenmerken: `counterSpecifier` en `sampleRate`. De `counterSpecifier` kenmerk bepaalt welke meteritem ingesteld (beschreven in de vorige sectie) voor het verzamelen van prestaties van het systeem. De `sampleRate` waarde geeft aan hoe vaak dat de waarde moet worden doorzocht. Als een geheel alle prestatiemeteritems worden overgedragen naar Azure volgens de bovenliggende `PerformanceCounters` van element `scheduledTransferPeriod` kenmerkwaarde.
+De prestatiemeteritems die u wenst te verzamelen die zijn gedefinieerd in de **diagnostics.wadcfgx** bestand. Open dit bestand (dit is gedefinieerd per rol) in Visual Studio en zoek de **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Toevoegen van een nieuwe **PerformanceCounterConfiguration** element als een onderliggend element. Dit element heeft twee kenmerken: `counterSpecifier` en `sampleRate`. De `counterSpecifier` kenmerk bepaalt welke meteritem instellen (beschreven in de vorige sectie) voor het verzamelen van prestaties van het systeem. De `sampleRate` waarde geeft aan hoe vaak deze waarde moet worden doorzocht. Als geheel, alle prestatiemeteritems worden overgedragen naar Azure op basis van de bovenliggende `PerformanceCounters` van element `scheduledTransferPeriod` waarde van het kenmerk.
 
-Voor meer informatie over de `PerformanceCounters` schema-element, Zie de [Azure Diagnostics Schema](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element).
+Voor meer informatie over de `PerformanceCounters` schema-element, Zie de [Azure Diagnostics-Schema](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element).
 
-De periode die is gedefinieerd door de `sampleRate` kenmerkgebruiken typt u de duur van de XML-gegevens om aan te geven hoe vaak het prestatiemeteritem moet worden doorzocht. In het onderstaande voorbeeld is de snelheid wordt ingesteld op `PT3M`, wat betekent dat `[P]eriod[T]ime[3][M]inutes`: elke drie minuten.
+De periode die is gedefinieerd door de `sampleRate` kenmerk gebruikt, typt u de duur van de XML-gegevens om aan te geven hoe vaak het prestatiemeteritem moet worden doorzocht. In het volgende voorbeeld wordt de snelheid wordt ingesteld op `PT3M`, wat betekent dat `[P]eriod[T]ime[3][M]inutes`: om de drie minuten.
 
-Voor meer informatie over hoe de `sampleRate` en `scheduledTransferPeriod` zijn gedefinieerd, Zie de **gegevenstype duur** sectie het [W3 XML-datum en tijd datum typen](https://www.w3schools.com/XML/schema_dtypes_date.asp) zelfstudie.
+Voor meer informatie over hoe de `sampleRate` en `scheduledTransferPeriod` zijn gedefinieerd, Zie de **gegevenstype duur** sectie de [W3 XML-datum en tijd datum typen](https://www.w3schools.com/XML/schema_dtypes_date.asp) zelfstudie.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,11 +165,11 @@ Voor meer informatie over hoe de `sampleRate` en `scheduledTransferPeriod` zijn 
 </DiagnosticsConfiguration>
 ```
 
-## <a name="create-a-new-perf-counter"></a>Maak een nieuwe-prestatiemeteritem
+## <a name="create-a-new-perf-counter"></a>Een nieuw perf-item maken
 
-Een nieuwe prestatiemeteritem kan worden gemaakt en gebruikt door uw code. Uw code die u een nieuwe prestatiemeteritem maakt moet worden uitgevoerd met verhoogde bevoegdheden, dat anders zal mislukken. Uw cloudservice `OnStart` starten van de code kunt maken van het prestatiemeteritem dat u de rol uitvoeren met verhoogde bevoegdheden vereist. Of u kunt een starten van de taak die wordt uitgevoerd met verhoogde bevoegdheden en maakt het prestatiemeteritem maken. Zie voor meer informatie over het starten van de taken [configureren en starten van de taken voor een cloudservice uitvoeren](cloud-services-startup-tasks.md).
+Een nieuwe prestatiemeteritem kan worden gemaakt en die worden gebruikt door uw code. De code die wordt gemaakt van een nieuwe prestatiemeteritem moet worden uitgevoerd met verhoogde bevoegdheid, dat anders mislukt dit. Uw cloudservice `OnStart` opstartcode kunt maken het prestatiemeteritem dat u de rol uitvoeren met verhoogde bevoegdheden vereist. Of u een opstarttaak die wordt uitgevoerd met verhoogde bevoegdheid en maakt het prestatiemeteritem kunt maken. Zie voor meer informatie over opstarttaken [over het configureren en uitvoeren van opstarttaken voor een cloudservice](cloud-services-startup-tasks.md).
 
-Voor het configureren van uw rol om uit te voeren met verhoogde bevoegdheden, Voeg een `<Runtime>` element op de [csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) bestand.
+Voor het configureren van uw rol om uit te voeren met verhoogde bevoegdheid, Voeg een `<Runtime>` element op de [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) bestand.
 
 ```xml
 <ServiceDefinition name="CloudServiceLoadTesting" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -187,7 +187,7 @@ Voor het configureren van uw rol om uit te voeren met verhoogde bevoegdheden, Vo
 </ServiceDefinition>
 ```
 
-U kunt maken en registreren van een nieuwe prestatiemeteritem met een paar regels code. Gebruik de `System.Diagnostics.PerformanceCounterCategory.Create` methode-overload die de categorie en de teller maakt. De volgende code wordt eerst gecontroleerd of de categorie bestaat, en indien deze ontbreken, de categorie en de teller maakt.
+U kunt maken en registreren van een nieuwe prestatiemeteritem met een paar regels code. Gebruik de `System.Diagnostics.PerformanceCounterCategory.Create` methode overbelasting waarmee u zowel de categorie en de teller maakt. De volgende code controleert u eerst of de categorie bestaat, indien ontbrekend, maakt de categorie en de teller.
 
 ```csharp
 using System.Diagnostics;
@@ -237,12 +237,12 @@ Wanneer u gebruiken van de teller wilt, roept de `Increment` of `IncrementBy` me
 counterServiceUsed.Increment();
 ```
 
-Nu uw toepassing gebruikmaakt van uw aangepaste teller, moet u voor het configureren van Azure Diagnostics of Application Insights om bij te houden van de teller.
+Nu uw toepassing gebruikmaakt van uw aangepaste tellernr., moet u Azure Diagnostics of Application Insights voor het volgen van de teller configureren.
 
 
 ### <a name="application-insights"></a>Application Insights
 
-Zoals eerder vermeld, de prestatiemeteritems voor Application Insights zijn gedefinieerd in de **ApplicationInsights.config** bestand. Open **ApplicationInsights.config** en zoek de **ApplicationInsights** > **TelemetryModules** > **toevoegen**  >  **Tellers** element. Maak een `<Add>` onderliggend element en stel de `PerformanceCounter` kenmerk voor de categorie en de naam van het prestatiemeteritem dat u hebt gemaakt in uw code. Stel de `ReportAs` kenmerk een beschrijvende naam die u wilt zien in de portal.
+Zoals eerder vermeld, de prestatiemeteritems voor Application Insights zijn gedefinieerd in de **ApplicationInsights.config** bestand. Open **ApplicationInsights.config** en zoek de **ApplicationInsights** > **TelemetryModules** > **toevoegen**  >  **Tellers** element. Maak een `<Add>` onderliggend element en stel de `PerformanceCounter` kenmerk in de categorie en de naam van het prestatiemeteritem dat u hebt gemaakt in uw code. Stel de `ReportAs` kenmerk aan een beschrijvende naam die u wilt zien in de portal.
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -265,7 +265,7 @@ Zoals eerder vermeld, de prestatiemeteritems voor Application Insights zijn gede
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-Zoals eerder is vermeld, worden de prestatiemeteritems die u wilt verzamelen gedefinieerd in de **diagnostics.wadcfgx** bestand. Open dit bestand (dit is gedefinieerd per rol) in Visual Studio en zoek de **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Voeg een nieuwe **PerformanceCounterConfiguration** element als een onderliggend element. Stel de `counterSpecifier` kenmerk voor de categorie en de naam van het prestatiemeteritem dat u hebt gemaakt in uw code. 
+Zoals eerder is vermeld, de prestatiemeteritems die u wenst te verzamelen zijn gedefinieerd in de **diagnostics.wadcfgx** bestand. Open dit bestand (dit is gedefinieerd per rol) in Visual Studio en zoek de **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Toevoegen van een nieuwe **PerformanceCounterConfiguration** element als een onderliggend element. Stel de `counterSpecifier` kenmerk in de categorie en de naam van het prestatiemeteritem dat u hebt gemaakt in uw code. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -294,7 +294,7 @@ Zoals eerder is vermeld, worden de prestatiemeteritems die u wilt verzamelen ged
 
 ## <a name="more-information"></a>Meer informatie
 
-- [Application Insights voor Azure-Cloudservices](../application-insights/app-insights-cloudservices.md#performance-counters)
+- [Application Insights voor Azure Cloudservices](../application-insights/app-insights-cloudservices.md#performance-counters)
 - [Systeemprestatiemeteritems in Application Insights](../application-insights/app-insights-performance-counters.md)
-- [Een itempad opgeven](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Azure Diagnostics Schema - prestatiemeteritems](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)
+- [Een pad voor prestatiemeteritems op te geven](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
+- [Azure Diagnostics-Schema - prestatiemeteritems](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)

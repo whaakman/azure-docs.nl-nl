@@ -10,25 +10,25 @@ ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
 ms.openlocfilehash: b40e2ba448236bcef72ffe501b4b14fa0dd64e1c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31434936"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755605"
 ---
 | Resource | Limiet |
 | --- | --- |
 | Eenheden van de schaal | 10 per regio<sup>1</sup> |
 | Cache | 5 GB per eenheid<sup>1</sup> |
-| Back-end voor gelijktijdige verbindingen<sup>2</sup> per HTTP-instantie | 2048 per eenheid<sup>3</sup> |
-| Maximumgrootte van in cache opgeslagen antwoorden | 10MB |
-| Grootte van het document maximale beleid | 256KB |
-| Maximum aantal aangepaste gateway domeinen | 20 per service-exemplaar<sup>4</sup> |
+| Gelijktijdige back-end verbindingen<sup>2</sup> per HTTP-instantie | 2048 per eenheid<sup>3</sup> |
+| Maximumgrootte van antwoorden in de cache | 10MB |
+| Beleid voor maximale documentgrootte | 256KB |
+| Gateway voor maximum aantal aangepaste domeinen | 20 per service-exemplaar<sup>4</sup> |
 
 
-<sup>1</sup>limieten van API Management zijn verschillend voor elke prijscategorie. Voor de prijzen lagen en de schaal ervan gaat u naar [API Management-prijzen](https://azure.microsoft.com/pricing/details/api-management/).
-<sup>2</sup> verbindingen zijn gegroepeerd en opnieuw te gebruiken, tenzij expliciet afgesloten door de back-end.
-<sup>3</sup> per eenheid van categorieën Basic, Standard en Premium. Categorie Developer is beperkt tot 1024.
+<sup>1</sup>API Management-limieten zijn verschillend voor elke prijscategorie. Voor het Prijsoverzicht-lagen en hun limieten voor schalen gaat u naar [API Management-prijzen](https://azure.microsoft.com/pricing/details/api-management/).
+<sup>2</sup> verbindingen zijn gegroepeerd en opnieuw gebruikt, tenzij expliciet gesloten door de back-end.
+<sup>3</sup> per eenheid van de lagen Basic, Standard en Premium. Developer-laag is beperkt tot 1024.
 <sup>4</sup> beschikbaar in Premium-laag.
 
 

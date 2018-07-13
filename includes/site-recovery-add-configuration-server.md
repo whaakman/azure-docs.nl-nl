@@ -1,5 +1,5 @@
 1. Voer het installatiebestand voor de geïntegreerde Setup uit.
-2. In **voordat u begint**, selecteer **installeren van de configuratieserver en de processerver**.
+2. In **voordat u begint**, selecteer **de configuratieserver en processerver installeren**.
 
     ![Voordat u begint](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 
@@ -9,11 +9,11 @@
 4. Selecteer bij **Registratie** de registratiesleutel die u hebt gedownload uit de kluis.
 
     ![Registratie](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. Geef bij **Internetinstellingen** op hoe de provider die op de configuratieserver wordt uitgevoerd, via internet verbinding moet maken met Azure Site Recovery. Zorg ervoor dat u hebt de gewenste URL's toegestaan.
+5. Geef bij **Internetinstellingen** op hoe de provider die op de configuratieserver wordt uitgevoerd, via internet verbinding moet maken met Azure Site Recovery. Zorg ervoor dat u hebt de vereiste URL's toegestaan.
 
-    - Als u verbinding wilt maken met de proxy die momenteel is ingesteld op de computer, selecteer **verbinding maken met Azure Site Recovery via een proxyserver**.
+    - Als u wilt verbinding maken met de proxy die momenteel ingesteld op de machine, selecteer **verbinding maken met Azure Site Recovery via een proxyserver**.
     - Als u wilt dat de Provider rechtstreeks verbinding maakt, selecteert u **rechtstreeks verbinding maken met Azure Site Recovery zonder proxyserver**.
-    - Als de bestaande proxy verificatie vereist is of als u wilt een aangepaste proxy gebruikt voor de providerverbinding, selecteer **verbinding maken met aangepaste proxyinstellingen**, en het adres, poort en referenties opgeven.
+    - Als de bestaande proxy verificatie is vereist of als u wilt een aangepaste proxy gebruikt voor verbinding met de Provider, selecteer **verbinding maken met aangepaste proxyinstellingen**, en geeft u het adres, poort en referenties.
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. Tijdens Setup wordt in **Controle op vereisten** gecontroleerd of de installatie kan worden uitgevoerd. Als er een waarschuwing wordt weergegeven over **Synchronisatiecontrole voor algemene tijd**, moet u controleren of de tijd op de systeemklok (instellingen voor **datum en tijd**) overeenkomt met de tijdzone.
 
@@ -28,7 +28,7 @@
 9. Selecteer bij **Installatielocatie** waar u de binaire bestanden wilt installeren en de cache wilt opslaan. Het station dat u selecteert, moet ten minste 5 GB vrije schijfruimte bevatten, maar wij raden u aan een cachestation te gebruiken met minstens 600 GB vrije ruimte.
 
     ![Installatielocatie](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. Geef bij **Netwerk selecteren** de listener op (netwerkadapter en SSL-poort) met behulp waarvan de configuratieserver replicatiegegevens verzendt en ontvangt. Poort 9443 is de standaardpoort voor het verzenden en ontvangen van replicatieverkeer, maar u kunt dit poortnummer aanpassen aan de vereisten van de omgeving. Naast poort 9443 wordt ook poort 443 geopend. Deze wordt door een webserver gebruikt om replicatiebewerkingen in te delen. Gebruik geen poort 443 voor het verzenden of ontvangen van replicatieverkeer.
+10. Geef bij **Netwerk selecteren** de listener op (netwerkadapter en SSL-poort) met behulp waarvan de configuratieserver replicatiegegevens verzendt en ontvangt. Poort 9443 is de standaardpoort voor het verzenden en ontvangen van replicatieverkeer, maar u kunt dit poortnummer aanpassen aan de vereisten van de omgeving. Naast poort 9443 wordt ook poort 443 geopend. Deze wordt door een webserver gebruikt om replicatiebewerkingen in te delen. Gebruik poort 443 niet voor het verzenden of ontvangen van replicatieverkeer.
 
     ![Netwerk selecteren](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 

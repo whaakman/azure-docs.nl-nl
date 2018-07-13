@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 88bd895cb3a384f1ada0394fe2da206aca86b981
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a5a6a43c41760e22a7aeb0e97aacc145c69957ff
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670927"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006393"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>MySQL op een a virtuele machine met OpenSUSE Linux installeren in Azure
 
@@ -33,13 +33,13 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, hebt u Azure
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Een virtuele machine met OpenSUSE Linux maken
 
-Maak eerst een resourcegroep. In dit voorbeeld zijn we naamgeving van de resourcegroep *mySQSUSEResourceGroup* en te maken in de *VS-Oost* regio.
+Maak eerst een resourcegroep. In dit voorbeeld wordt de resourcegroep de naam *mySQSUSEResourceGroup* en deze is gemaakt de *VS-Oost* regio.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-De virtuele machine maken. In dit voorbeeld zijn we naamgeving van de virtuele machine *myVM*. We gaan ook gebruik van een VM-grootte *Standard_D2s_v3*, maar u moet de [VM-grootte](sizes.md) u denkt dat het meest geschikt is voor uw workload.
+De virtuele machine maken. In dit voorbeeld wordt de virtuele machine met de naam *myVM* en de VM-grootte is *Standard_D2s_v3*, maar u moet de [VM-grootte](sizes.md) u denkt dat het meest geschikt is voor uw workload.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -96,19 +96,32 @@ systemctl is-enabled mysql
 
 Dit moet worden geretourneerd: ingeschakeld.
 
+De server opnieuw opstarten.
+
+```bash
+sudo reboot
+```
+
 
 ## <a name="mysql-password"></a>MySQL-wachtwoord
 
-Na de installatie is de MySQL-hoofdwachtwoord standaard leeg. Voer de **mysql\_beveiligde\_installatie** script voor het beveiligen van MySQL. Het script vraagt u om te wijzigen van de MySQL-hoofdwachtwoord, anonieme gebruiker-accounts verwijderen, uitschakelen van externe hoofdmap aanmeldingen, test-databases verwijderen en opnieuw laden van de tabel bevoegdheden. 
+Na de installatie is de MySQL-hoofdwachtwoord standaard leeg. Voer de **mysql\_beveiligde\_installatie** script voor het beveiligen van MySQL. Het script vraagt u om te wijzigen van de MySQL-hoofdwachtwoord, anonieme gebruiker-accounts verwijderen, uitschakelen van externe hoofdmap aanmelden, test databases verwijderen en opnieuw laden van de tabel bevoegdheden. 
+
+Zodra de server opnieuw is opgestart, ssh met de virtuele machine opnieuw.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
 mysql_secure_installation
 ```
 
-## <a name="log-in-to-mysql"></a>Meld u aan bij MySQL
+## <a name="sign-in-to-mysql"></a>Meld u aan met MySQL
 
-Nu kunt u zich aanmeldt en voer de MySQL-prompt.
+Nu kunt u zich aanmelden en voer de MySQL-prompt.
 
 ```bash  
 mysql -u root -p
@@ -136,7 +149,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 Database-gebruikersnamen en wachtwoorden worden alleen gebruikt door verbinding te maken met de database-scripts.  De namen van gebruikersaccounts database noodzakelijkerwijs niet werkelijke gebruikersaccounts op het systeem.
 
-Schakel aanmelden vanaf een andere computer. In dit voorbeeld wordt het IP-adres van de computer die we aanmelden willen vanaf is *10.112.113.114*.
+Schakel aanmelden vanaf een andere computer. In dit voorbeeld wordt het IP-adres van de computer waarmee aanmelden vanaf is *10.112.113.114*.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

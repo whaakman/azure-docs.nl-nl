@@ -8,12 +8,12 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/13/2017
-ms.openlocfilehash: 50e27cbc485259ea5ce744ba71feee5e90293bcb
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a7b32bad8a9f1d039b17fe0f1be167cffbc86547
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792906"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006202"
 ---
 # <a name="queries-in-azure-search"></a>Query's in Azure Search
 > [!div class="op_single_selector"]
@@ -60,6 +60,6 @@ U kunt in Azure Search eenvoudig het exacte aantal zoekresultaten weergeven met 
 
 De beste manier om syntaxisverschillen te begrijpen, is door query's uit te voeren en de resultaten te bekijken.
 
-+ Gebruik [Search Explorer](search-explorer.md) in Azure Portal. Door het implementeren van [de voorbeeldindex](search-get-started-portal.md) kunt u de index binnen een paar bevragen met hulpprogramma's in de portal.
++ Gebruik [Search explorer](search-explorer.md) in Azure portal. Door het implementeren van [de voorbeeldindex](search-get-started-portal.md) kunt u de index binnen een paar bevragen met hulpprogramma's in de portal.
 
 + Gebruik Telerik Fiddler of Chrome Postman om query's te verzenden naar een index die u hebt geüpload naar uw zoekservice. Beide hulpprogramma's ondersteunen REST-aanroepen naar een HTTP-eindpunt. 

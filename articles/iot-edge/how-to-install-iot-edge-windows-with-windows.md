@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 3d34628a5a47788bca8cdafcb6e199a0c2cb3bcc
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 18a1481b72904b0ac9c27e100271dc0fd0666baf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437838"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001759"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Azure IoT Edge-runtime installeren op Windows voor gebruik met Windows-containers
 
@@ -52,8 +52,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 Installeer de vcruntime gebruiken (u kunt deze stap overslaan op een IoT core Edge-apparaat):
@@ -142,7 +143,7 @@ Als u wilt ophalen van uw ip-adres, voer `ipconfig` in uw PowerShell-venster en 
 
 ![nat][img-nat]
 
-Update de **workload_uri** en **management_uri** in de **verbinding:** gedeelte van het configuratiebestand. Vervang **\<GATEWAY_ADDRESS\>** met het IP-adres dat u hebt gekopieerd. 
+Update de **workload_uri** en **management_uri** in de **verbinding:** gedeelte van het configuratiebestand. Vervang **\<GATEWAY_ADDRESS\>** met vEthernet IP-adres dat u hebt gekopieerd.
 
 ```yaml
 connect:
@@ -150,7 +151,7 @@ connect:
   workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Geef de dezelfde adressen in de **luisteren:** sectie van de configuratie, met behulp van uw IP-adres als de gateway-adres.
+Geef de dezelfde adressen in de **luisteren:** sectie.
 
 ```yaml
 listen:
@@ -164,7 +165,7 @@ In het PowerShell-venster, maakt u een omgevingsvariabele **IOTEDGE_HOST** met d
 [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
 ```
 
-De omgevingsvariabele behouden tijdens opnieuw opstarten.
+Zorg dat de omgevingsvariabele blijft behouden tijdens het opnieuw opstarten.
 
 ```powershell
 SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6544503353f085a9dd9b0fe7207bbf8d4e0bc9d0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: aaa36d850516ff4d8e40b62c588347468da5c6d2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435614"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008158"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Toegang beheren met RBAC en Azure Portal
 
@@ -88,7 +88,9 @@ Toegang kan alleen efficiënt worden beheerd als u weet wie er toegang heeft, wa
 
    ![Azure resources van Azure Active Directory-gebruiker](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   Op de blade Azure-resources kunt u de roltoewijzingen voor de geselecteerde gebruiker zien. Deze lijst bevat alleen roltoewijzingen voor resources die u gemachtigd bent om te lezen. Als de gebruiker bijvoorbeeld ook roltoewijzingen in een ander abonnement heeft die u niet mag lezen, worden die roltoewijzingen niet opgenomen in de lijst.
+   Op de blade Azure-resources ziet u de roltoewijzingen voor de geselecteerde gebruiker en het geselecteerde abonnement. Deze lijst bevat alleen roltoewijzingen voor resources die u gemachtigd bent om te lezen. Bijvoorbeeld, als de gebruiker ook roltoewijzingen die u niet kan worden gelezen heeft, weergegeven deze roltoewijzingen niet in de lijst.
+
+1. Als u meerdere abonnementen hebt, kunt u de **abonnement** vervolgkeuzelijst om te zien van de roltoewijzingen in een ander abonnement.
 
 ## <a name="grant-access"></a>Toegang verlenen
 
@@ -162,16 +164,8 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 
 Overgenomen toewijzingen kunnen niet worden verwijderd. Als u een overgenomen roltoewijzing wilt verwijderen, moet u dit te doen voor het bereik waarvoor de roltoewijzing is gemaakt. In de kolom **Bereik**, naast **Overgenomen**, vindt u een koppeling waarmee u naar de resources gaat waaraan deze rol is toegewezen. Ga naar het bereik dat hier wordt weergegeven om de roltoewijzing te verwijderen.
 
-## <a name="other-tools-to-manage-access"></a>Andere hulpprogramma's om toegang te beheren
-
-U kunt rollen toewijzen en toegang beheren met Azure RBAC-opdrachten met andere hulpprogramma's dan de Azure Portal. Zie de volgende koppelingen voor meer informatie:
-
-* [Azure PowerShell](role-assignments-powershell.md)
-* [Azure-CLI](role-assignments-cli.md)
-* [REST API](role-assignments-rest.md)
-
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md) (Snelstartgids: Toegang verlenen aan een gebruiker met RBAC en Azure Portal)
+* [Snelstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md) (Snelstart: Toegang verlenen aan een gebruiker met op rollen gebaseerd toegangsbeheer en Azure Portal)
 * [Quickstart: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md) (Snelstartgids: Toegang verlenen aan een gebruiker met RBAC en Azure PowerShell)
 * [Ingebouwde rollen](built-in-roles.md)

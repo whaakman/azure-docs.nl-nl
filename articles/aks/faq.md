@@ -1,57 +1,47 @@
 ---
 title: Veelgestelde vragen over Azure Kubernetes Service
-description: Hier vindt u antwoorden op enkele van de veelgestelde vragen over Azure Kubernetes Service.
+description: Vindt u antwoorden op enkele veelgestelde vragen over Azure Kubernetes Service.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/25/2018
+ms.date: 07/11/2018
 ms.author: iainfou
-ms.openlocfilehash: ffd81835de82cc5a00b3f6705a7607a51bb3bfa0
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 915f74df69596b1677a0e03770e076ae50efc609
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096448"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001242"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Veelgestelde vragen over Azure Kubernetes Service (AKS)
 
-Dit artikel adressen regelmatige vragen over Azure Kubernetes Service (AKS).
+In dit artikel adressen regelmatig vragen over Azure Kubernetes Service (AKS).
 
-## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Welke Azure-regio's bieden vandaag de dag van de Azure Kubernetes Service (AKS)?
+## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Welke Azure-regio's bieden vandaag nog Azure Kubernetes Service (AKS)?
 
-- Australië - oost
-- Canada - midden
-- Canada - oost
-- VS - midden
-- VS - oost
-- Oost-US2
-- Noord-Europa
-- Verenigd Koninkrijk Zuid
-- West-Europa
-- VS - west
-- VS - west 2
+Zie de Azure Kubernetes Service [regio's en beschikbaarheid] [ aks-regions] documentatie voor een volledige lijst.
 
-## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Gelden er beveiligingsupdates voor AKS agent knooppunten?
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Gelden er beveiligingsupdates voor AKS agentknooppunten?
 
-Beveiligingspatches Azure automatisch toegepast op de knooppunten in uw cluster volgens een schema 's nachts. Echter, bent u verantwoordelijk voor gezorgd dat de knooppunten worden opgestart zoals vereist is. U hebt verschillende mogelijkheden voor het uitvoeren van knooppunt opnieuw wordt opgestart:
+Beveiligingspatches Azure automatisch toegepast op de knooppunten in uw cluster volgens een schema 's nachts. Echter, u bent verantwoordelijk om ervoor te zorgen dat de knooppunten opnieuw zijn opgestart zoals vereist. U hebt verschillende mogelijkheden voor het uitvoeren van knooppunt opnieuw wordt opgestart:
 
-- Handmatig via de Azure-portal of Azure CLI.
-- Door het upgraden van uw cluster AKS. Cluster-upgrades automatisch [cordon en leegmaken van knooppunten](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), vervolgens een back-up brengen met de meest recente Ubuntu-installatiekopie. Bijwerken van de installatiekopie van het besturingssysteem op uw knooppunten zonder Kubernetes versies wijzigen door op te geven van de huidige versie van het cluster in `az aks upgrade`.
-- Met behulp van [Kured](https://github.com/weaveworks/kured), een open source opnieuw opstarten-daemon Kubernetes. Kured wordt uitgevoerd als een [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) en controleert u elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Het vervolgens opnieuw wordt opgestart ingedeeld in het cluster, de dezelfde cordon en leegmaken proces, zoals eerder beschreven.
+- Handmatig via de Azure portal of de Azure CLI.
+- Voer een upgrade uw AKS-cluster. Cluster-upgrades automatisch [cordon en leegmaken van knooppunten](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), vervolgens een back-up brengen met de meest recente Ubuntu-installatiekopie. De installatiekopie van het besturingssysteem op uw knooppunten bijwerken zonder dat Kubernetes-versies worden gewijzigd door de huidige clusterversie in op te geven `az aks upgrade`.
+- Met behulp van [Kured](https://github.com/weaveworks/kured), een open-source opnieuw opstarten-daemon voor Kubernetes. Kured wordt uitgevoerd als een [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Vervolgens deelt deze opnieuw wordt opgestart in de cluster, volgens de dezelfde cordon en drain proces die eerder zijn beschreven.
 
-## <a name="does-aks-support-node-autoscaling"></a>Ondersteunt AKS knooppunt automatisch schalen?
+## <a name="does-aks-support-node-autoscaling"></a>Biedt ondersteuning voor AKS knooppunt automatisch schalen?
 
-Ja, automatisch schalen is beschikbaar via de [Kubernetes autoscaler] [ auto-scaler] vanaf Kubernetes 1.10.
+Ja, automatisch schalen is beschikbaar via de [Kubernetes automatisch schalen] [ auto-scaler] vanaf Kubernetes 1.10.
 
-## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>Ondersteunt AKS Kubernetes rollen gebaseerd toegangsbeheer (RBAC)?
+## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>Biedt ondersteuning voor AKS Kubernetes-op rollen gebaseerd toegangsbeheer (RBAC)?
 
-Ja, RBAC kan worden ingeschakeld bij het implementeren van een cluster AKS van de Azure CLI of Azure Resource Manager-sjabloon. Deze functionaliteit wordt binnenkort worden geleverd bij de Azure portal.
+Ja, RBAC kan worden ingeschakeld wanneer u een AKS-cluster op basis van de Azure CLI of Azure Resource Manager-sjabloon implementeert. Deze functionaliteit wordt binnenkort komen bij Azure portal.
 
-## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Welke Kubernetes toelating domeincontrollers ondersteunt AKS? Kan dit worden geconfigureerd?
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Welke Kubernetes toelating controllers biedt ondersteuning voor AKS? Kan dit worden geconfigureerd?
 
-AKS ondersteunt de volgende [toelating domeincontrollers][admission-controllers]:
+AKS ondersteunt de volgende [toelating controllers][admission-controllers]:
 
 * NamespaceLifecycle
 * LimitRanger
@@ -64,29 +54,34 @@ AKS ondersteunt de volgende [toelating domeincontrollers][admission-controllers]
 * DenyEscalatingExec
 * AlwaysPullImages
 
-Het is niet op dit moment mogelijk aan de lijst met domeincontrollers in AKS toelating wijzigen.
+Het is momenteel niet mogelijk om te wijzigen van de lijst met domeincontrollers voor toegangsbeheer in AKS.
 
-## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Kan ik AKS implementeren in mijn bestaande virtuele netwerk?
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Kan ik AKS implementeren in mijn bestaand virtueel netwerk?
 
-Ja, kunt u een cluster AKS naar een bestaand virtueel netwerk met behulp implementeren de [geavanceerde netwerken functie](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
+Ja, u kunt implementeren met een AKS-cluster in een bestaand virtueel netwerk met behulp van de [geavanceerde netwerken functie](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
-## <a name="is-azure-key-vault-integrated-with-aks"></a>Is Azure Sleutelkluis geïntegreerd met AKS?
+## <a name="is-azure-key-vault-integrated-with-aks"></a>Is Azure Key Vault geïntegreerd met AKS?
 
-AKS niet systeemeigen geïntegreerd met Azure Key Vault op dit moment. Er zijn echter community oplossingen zoals [de acs-keyvault-agent van Hexadite][hexadite].
+AKS is niet geïntegreerd met Azure Key Vault op dit moment. Er zijn echter community-oplossingen, zoals [de acs-keyvault-agent vanuit Hexadite][hexadite].
 
-## <a name="can-i-run-windows-server-containers-on-aks"></a>Kan ik Windows Server-containers op AKS uitvoeren?
+## <a name="can-i-run-windows-server-containers-on-aks"></a>Kan ik Windows Server-containers in AKS uitvoeren?
 
-Windows Server-containers, hebt u nodig om uit te voeren op basis van Windows Server-knooppunten. Windows Server gebaseerde knooppunten zijn niet beschikbaar in AKS op dit moment. Als u uitvoeren van Windows Server-containers op Kubernetes in Azure wilt, raadpleegt u de [documentatie voor acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Als u wilt uitvoeren in Windows Server-containers, die u wilt uitvoeren op basis van Windows Server-knooppunten. Windows Server-gebaseerde knooppunten zijn op dit moment niet beschikbaar in AKS. U kunt echter Virtual Kubelet gebruiken voor het plannen van Windows-containers in Azure Container Instances en ze als onderdeel van uw AKS-cluster te beheren. Zie voor meer informatie, [Virtual Kubelet gebruiken met AKS][virtual-kubelet].
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>Waarom worden twee resourcegroepen met AKS gemaakt?
+## <a name="why-are-two-resource-groups-created-with-aks"></a>Waarom zijn er twee resourcegroepen gemaakt met AKS?
 
-Elke implementatie AKS omvat twee resourcegroepen. De eerste door u is gemaakt en alleen resource voor de service Kubernetes bevat. De tweede overgebracht tijdens de implementatie van de resourceprovider AKS automatisch maakt met een naam zoals *MC_myResourceGroup_myAKSCluster_eastus*. De tweede resourcegroep bevat alle van de infrastructuurresources die zijn gekoppeld aan het cluster, zoals virtuele machines, netwerken en opslag. Het is gemaakt voor het opruimen van de resource te vereenvoudigen.
+Elke AKS-implementatie omvat twee resourcegroepen. De eerste door u is gemaakt en bevat alleen de bron van de Kubernetes-service. De tweede waarde tijdens de implementatie van de resourceprovider AKS automatisch gemaakt met een naam, zoals *MC_myResourceGroup_myAKSCluster_eastus*. De tweede resourcegroep bevat al de infrastructuurresources die zijn gekoppeld aan het cluster, zoals virtuele machines, netwerken en opslag. Ter vereenvoudiging van opruimen van de resource wordt gemaakt.
 
-Als u bij het maken van resources die worden gebruikt met uw cluster AKS zoals storage-accounts of gereserveerde openbare IP-adres, moet u in de automatisch gegenereerde resourcegroep plaatst.
+Als u het maken van resources die worden gebruikt met uw AKS-cluster, zoals storage-accounts of gereserveerde openbare IP-adres, moet u deze in de automatisch gegenereerde resourcegroep plaatsen.
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Biedt AKS een service level agreement?
 
-In een serviceovereenkomst (SLA) stemt de provider in met het betalen van de klant voor de kosten van de service moet het gepubliceerde serviceniveau niet worden opgehaald. Aangezien AKS zelf gratis is, is er gratis beschikbaar voor het betalen en dus geen formele SLA. Echter, zoeken we beschikbaarheid van minimaal 99.5% voor de Kubernetes API-server onderhouden.
+In een serviceovereenkomst (SLA) stemt de provider in met het betalen van de klant voor de kosten van de service moet het niveau van de gepubliceerde service niet worden voldaan. Omdat AKS zelf gratis is, en is er geen kosten beschikbaar om te betalen en dus geen formeel SLA. Maar wij voor beschikbaarheid van ten minste bij minder dan 99,5% voor de Kubernetes API-server.
+
+<!-- LINKS - internal -->
+
+[aks-regions]: ./container-service-quotas.md
+[virtual-kubelet]: virtual-kubelet.md
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

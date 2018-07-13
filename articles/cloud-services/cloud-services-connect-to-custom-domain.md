@@ -1,9 +1,9 @@
 ---
-title: Verbinding maken met een Cloudservice met een aangepaste domeincontroller | Microsoft Docs
-description: Informatie over het verbinden van uw web/worker rollen aan een aangepast AD-domein met behulp van PowerShell en uitbreiding van AD-domein
+title: Een Cloudservice verbinden met een aangepaste domeincontroller | Microsoft Docs
+description: Leer hoe u uw web-/ werkrollen verbinden met een aangepaste AD-domein met behulp van PowerShell en AD-domein-extensie
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 4a50ae5e19ff9bf79b7f5361e5a274a2aba350f5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: jeconnoc
+ms.openlocfilehash: b05e20b5c99c6f1b5b1bf93ca781ec97284fba79
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29845652"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004912"
 ---
-# <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Verbinding maken met Azure Cloud Services-functies van een aangepaste gehost in Azure AD Domain-Controller
-Er wordt eerst een virtueel netwerk (VNet) instellen in Azure. Er wordt een Active Directory-domeincontroller (gehost op een virtuele Machine van Azure) toegevoegd aan het VNet. Er wordt vervolgens bestaande cloud service rollen toevoegen aan de vooraf gemaakte VNet en verbind ze met de domeincontroller.
+# <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services-rollen verbinding te maken met een aangepaste AD-domeincontroller die wordt gehost in Azure
+Er wordt eerst een Virtueelnetwerk (VNet) instellen in Azure. Er wordt een Active Directory-domeincontroller (die worden gehost op een Azure-Machine) toevoegen aan het VNet. Vervolgens wordt er bestaande cloudservicerollen toevoegen aan de vooraf gemaakte VNet en verbind deze met de domeincontroller.
 
-Voordat we aan de slag, enkele dingen rekening moet houden:
+Voordat we aan de slag, enkele van de zaken waarmee u rekening moet houden:
 
-1. Deze zelfstudie maakt gebruik van PowerShell, dus zorg ervoor dat u hebt Azure PowerShell is geïnstalleerd en klaar voor gebruik. Zie voor hulp bij het instellen van Azure PowerShell, [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
-2. Uw AD-domeincontroller en de functie Web/Worker-exemplaren moeten in het VNet.
+1. In deze zelfstudie maakt gebruik van PowerShell, dus zorg ervoor dat u hebt Azure PowerShell is geïnstalleerd en klaar voor gebruik. Zie voor hulp bij het instellen van Azure PowerShell, [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
+2. De AD-domeincontroller en Web-/ Werkrol-instanties moeten zich in het VNet.
 
-Volg deze stapsgewijze handleiding en als u problemen ondervindt uitvoert, laat ons een opmerking aan het einde van het artikel. Iemand anders wordt u zo snel (Ja, we opmerkingen lezen).
+Volg deze stapsgewijze handleiding en als u problemen ondervindt, laat u ons een opmerking aan het einde van het artikel. Iemand anders wordt teruggaan naar u (Ja, doen we opmerkingen lezen).
 
 Het netwerk waarnaar wordt verwezen door de cloudservice moet een **klassiek virtueel netwerk**.
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
-U kunt een virtueel netwerk maken in Azure met behulp van de Azure-portal of PowerShell. Voor deze zelfstudie, wordt PowerShell gebruikt. Zie het maken van een virtueel netwerk met de Azure-portal [een virtueel netwerk maken](../virtual-network/quick-create-portal.md). Het artikel bevat informatie over het maken van een virtueel netwerk (Resource Manager), maar u moet een virtueel netwerk (klassiek) voor cloudservices maken. Hiertoe klikt u in de portal, selecteer **maken van een resource**, type *virtueel netwerk* in de **Search** vak en druk vervolgens op **Enter**. In de zoekresultaten onder **Alles**, selecteer **virtueel netwerk**. Onder **een implementatiemodel selecteren**, selecteer **klassieke**, selecteer daarna **maken**. U kunt vervolgens de stappen in het artikel.
+U kunt een Virtueelnetwerk maken in Azure met behulp van de Azure portal of PowerShell. Voor deze zelfstudie, wordt PowerShell gebruikt. Zie voor het maken van een virtueel netwerk met behulp van de Azure portal, [maken van een virtueel netwerk](../virtual-network/quick-create-portal.md). Het artikel bevat informatie over het maken van een virtueel netwerk (Resource Manager), maar moet u een virtueel netwerk (klassiek) voor cloudservices maken. Om dit te doen, in de portal, selecteert u **een resource maken**, type *virtueel netwerk* in de **zoeken** vak en druk vervolgens op **Enter**. In de lijst met zoekresultaten onder **Alles**, selecteer **virtueel netwerk**. Onder **een implementatiemodel selecteren**, selecteer **klassieke**en selecteer vervolgens **maken**. U kunt vervolgens de stappen in het artikel.
 
 ```powershell
 #Create Virtual Network
@@ -64,7 +64,7 @@ Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 ```
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
-Als u klaar bent met het instellen van het virtuele netwerk, moet u een AD-domeincontroller maken. Voor deze zelfstudie stellen we van een AD-domeincontroller op een virtuele Machine van Azure.
+Nadat u het instellen van het Virtueelnetwerk hebt voltooid, moet u een AD-domeincontroller maken. Voor deze zelfstudie instellen we van een AD-domeincontroller op een Azure-Machine.
 
 Om dit te doen, maakt u een virtuele machine via PowerShell met de volgende opdrachten:
 
@@ -85,20 +85,20 @@ $affgrp = '<your- affgrp>'
 New-AzureQuickVM -Windows -ServiceName $vmsvc1 -Name $vm1 -ImageName $imgname -AdminUsername $username -Password $password -AffinityGroup $affgrp -SubnetNames $subnetname -VNetName $vnetname
 ```
 
-## <a name="promote-your-virtual-machine-to-a-domain-controller"></a>De virtuele Machine naar een domeincontroller promoveren
-Voor het configureren van de virtuele Machine als een AD-domeincontroller, moet u aanmelden bij de virtuele machine en configureert.
+## <a name="promote-your-virtual-machine-to-a-domain-controller"></a>Uw virtuele Machine naar een domeincontroller promoveren
+Voor het configureren van de virtuele Machine als een AD-domeincontroller, moet u zich aanmeldt bij de virtuele machine en configureer deze.
 
-Meld u bij naar de virtuele machine, kunt u het RDP-bestand downloaden via PowerShell, gebruikt u de volgende opdrachten:
+Als u wilt zich aanmeldt bij de virtuele machine, kunt u de RDP-bestand ophalen via PowerShell, gebruikt u de volgende opdrachten:
 
 ```powershell
 # Get RDP file
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-Nadat u bent aangemeld bij de virtuele machine, instellen van uw virtuele Machine als AD-domeincontroller door de stapsgewijze handleiding volgen op [het instellen van uw klant AD-domeincontroller](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+Nadat u bent aangemeld bij de virtuele machine, instellen van uw virtuele Machine als een AD-domeincontroller door de stapsgewijze handleiding volgen op [over het instellen van uw klant AD-domeincontroller](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## <a name="add-your-cloud-service-to-the-virtual-network"></a>Uw Cloudservice toevoegen aan het virtuele netwerk
-Vervolgens moet u uw cloud service-implementatie toevoegen aan de nieuwe VNet. U doet dit door uw cscfg cloud-service te wijzigen door de relevante secties toe te voegen aan uw cscfg met Visual Studio of de editor van uw keuze.
+Vervolgens moet u uw cloud service-implementatie toevoegen aan de nieuwe VNet. U doet dit door uw cloud service cscfg te wijzigen door de relevante secties toe te voegen aan uw cscfg met behulp van Visual Studio of de editor van uw keuze.
 
 ```xml
 <ServiceConfiguration serviceName="[hosted-service-name]" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="[os-family]" osVersion="*">
@@ -129,10 +129,10 @@ Vervolgens moet u uw cloud service-implementatie toevoegen aan de nieuwe VNet. U
 </ServiceConfiguration>
 ```
 
-Naast uw cloud services-project te bouwen en deze implementeren in Azure. Als u hulp bij het implementeren van uw cloud services-pakket naar Azure, Zie [maken en implementeren van een Cloud-Service](cloud-services-how-to-create-deploy-portal.md)
+Vervolgens uw cloud services-project te bouwen en implementeren in Azure. Zie voor hulp bij de implementatie van uw cloud services-pakket naar Azure, [maken en implementeren van een Service in de Cloud](cloud-services-how-to-create-deploy-portal.md)
 
-## <a name="connect-your-webworker-roles-to-the-domain"></a>Uw web-/ werkrollen verbindt met het domein
-Zodra uw cloudserviceproject is geïmplementeerd in Azure, moet u uw rolinstanties verbinding met het aangepaste AD-domein met de extensie van de AD-domein. Voor de uitbreiding van AD-domein toevoegen aan uw bestaande implementatie van de cloud-services en deelnemen aan het aangepaste domein, voert u de volgende opdrachten uit in PowerShell:
+## <a name="connect-your-webworker-roles-to-the-domain"></a>Verbinding maken met uw web-/ werkrollen aan het domein
+Zodra uw cloudserviceproject is geïmplementeerd op Azure, verbinding maken met uw rolinstanties aan de aangepaste AD-domein met de extensie van de AD-domein. Als u wilt de AD-domein-extensie toevoegen aan uw bestaande implementatie van cloud services en deelnemen aan het aangepaste domein, voert u de volgende opdrachten in PowerShell:
 
 ```powershell
 # Initialize domain variables
@@ -150,7 +150,7 @@ Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-na
 
 En dat is alles.
 
-Uw cloudservices moeten worden toegevoegd aan uw aangepaste domeincontroller. Als u meer informatie over de verschillende opties voor het configureren van de uitbreiding van AD-domein wilt, gebruikt u de PowerShell-help. Een aantal voorbeelden volgt:
+Uw cloudservices moeten worden toegevoegd aan uw aangepaste domein-controller. Als u meer informatie over de verschillende opties voor het configureren van de extensie van de AD-domein wilt, gebruikt u de PowerShell-help. Een aantal voorbeelden volgt:
 
 ```powershell
 help Set-AzureServiceADDomainExtension

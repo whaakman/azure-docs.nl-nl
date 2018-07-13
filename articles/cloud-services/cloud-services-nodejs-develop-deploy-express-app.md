@@ -1,9 +1,9 @@
 ---
-title: Bouwen en implementeren van een Node.js Express-app met Azure Cloud-Services
-description: Bouwen en implementeren van een toepassing Express.js in Node.js voor Azure Cloud Services
+title: Bouw en implementeer een Node.js Express-app in Azure Cloud Services
+description: Ontwikkel en implementeer een toepassing Express.js in Node.js op Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
@@ -13,54 +13,55 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: adegeo
-ms.openlocfilehash: 8bb78330591b0557b036a161eb83e47b41a8fd43
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: jeconnoc
+ms.openlocfilehash: ac62baae2ececf257d22f8220d472c1bcb5ee082
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39009341"
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Bouw en implementeer een Node.js-webtoepassing met een snelle op een Azure-Cloud-Services
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Bouw en implementeer een Node.js-webtoepassing met Express op een Azure Cloud Services
 
-Node.js bevat een minimale set van de functionaliteit in de runtime core.
-Ontwikkelaars gebruiken vaak 3e partij modules aanvullende functionaliteit kan bieden bij het ontwikkelen van een Node.js-toepassing. In deze zelfstudie maakt u een nieuwe toepassing met de [Express](https://github.com/expressjs/express) module waarmee een MVC-framework biedt voor het maken van Node.js-webtoepassingen.
+Node.js bevat een minimale set functionaliteit in de core-runtime.
+Ontwikkelaars gebruiken vaak 3e partij modules bieden extra functionaliteit bij het ontwikkelen van een Node.js-toepassing. In deze zelfstudie maakt u een nieuwe toepassing met de [Express](https://github.com/expressjs/express) module waarmee een MVC-framework voor het maken van Node.js-webtoepassingen.
 
-Een schermopname van de voltooide toepassing lager is dan:
+Een schermafbeelding van de voltooide toepassing lager is dan:
 
 ![Een webbrowser waarin Welkom in Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="create-a-cloud-service-project"></a>Een Cloud Service-Project maken
 [!INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-Voer de volgende stappen voor het maken van een nieuw cloudserviceproject met de naam 'expressapp':
+Voer de volgende stappen uit voor het maken van een nieuwe cloud service-project met de naam 'expressapp':
 
-1. Van de **startmenu** of **startscherm**, zoeken naar **Windows PowerShell**. Ten slotte de met de rechtermuisknop op **Windows PowerShell** en selecteer **als Administrator uitvoeren**.
+1. Uit de **startmenu** of **startscherm**, zoeken naar **Windows PowerShell**. Ten slotte, met de rechtermuisknop op **Windows PowerShell** en selecteer **als Administrator uitvoeren**.
    
     ![Azure PowerShell-pictogram](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
-2. Wijzig de mappen op de **c:\\knooppunt** directory en voer de volgende opdrachten voor het maken van een nieuwe oplossing met de naam **expressapp** en een Webrol met de naam **WebRole1**:
+2. Wijzig de mappen op de **c:\\knooppunt** directory en voer de volgende opdrachten voor het maken van een nieuwe oplossing met de naam **expressapp** en een Webrol die met de naam **WebRole1**:
    
         PS C:\node> New-AzureServiceProject expressapp
         PS C:\Node\expressapp> Add-AzureNodeWebRole
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
    
     > [!NOTE]
-    > Standaard **Add-AzureNodeWebRole** maakt gebruik van een oudere versie van Node.js. De **Set AzureServiceProjectRole** instructie hiervoor Hiermee geeft u Azure v0.10.21 van knooppunt gebruiken.  Noteer dat de parameters zijn hoofdlettergevoelig.  U kunt controleren of de juiste versie van Node.js is geselecteerd door het controleren van de **engines** eigenschap in **WebRole1\package.json**.
+    > Standaard **Add-AzureNodeWebRole** maakt gebruik van een oudere versie van Node.js. De **Set AzureServiceProjectRole** instructie hiervoor wordt gebruikt door Azure te gebruiken v0.10.21 van knooppunt.  Houd er rekening mee dat de parameters zijn hoofdlettergevoelig.  U kunt controleren of de juiste versie van Node.js is geselecteerd door het controleren van de **engines** eigenschap in **WebRole1\package.json**.
     > 
     > 
 
 ## <a name="install-express"></a>Express installeren
-1. De Express-generator installeren door de volgende opdracht:
+1. Installeer de Express-generator met behulp van de volgende opdracht uit:
    
         PS C:\node\expressapp> npm install express-generator -g
    
-    De uitvoer van de npm-opdracht zijn vergelijkbaar met het onderstaande resultaat. 
+    De uitvoer van de npm-opdracht moet naar het volgende resultaat als volgt uitzien. 
    
-    ![Windows PowerShell weergeven van de uitvoer van de npm installeren snelle opdracht.](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
-2. Wijzig de mappen op de **WebRole1** directory en gebruik de express-opdracht voor het genereren van een nieuwe toepassing:
+    ![Snelle opdracht installeren Windows PowerShell voor het weergeven van de uitvoer van de npm](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
+2. Wijzig de mappen op de **WebRole1** directory en gebruikt u de snelle opdracht voor het genereren van een nieuwe toepassing:
    
         PS C:\node\expressapp\WebRole1> express
    
-    U wordt gevraagd uw eerdere toepassing overschrijven. Voer **y** of **Ja** om door te gaan. Snelle genereert het bestand app.js en de mappenstructuur van een voor het bouwen van uw toepassing.
+    U wordt gevraagd naar uw oudere toepassing worden overschreven. Voer **y** of **Ja** om door te gaan. Snelle genereert het app.js-bestand en de mappenstructuur van een voor het bouwen van uw toepassing.
    
     ![De uitvoer van de snelle opdracht](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
 3. Voer de volgende opdracht voor het installeren van extra afhankelijkheden die zijn gedefinieerd in het package.json-bestand:
@@ -68,20 +69,20 @@ Voer de volgende stappen voor het maken van een nieuw cloudserviceproject met de
        PS C:\node\expressapp\WebRole1> npm install
    
    ![De uitvoer van de npm-installatieopdracht](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
-4. Gebruik de volgende opdracht om te kopiëren de **bin/www** van het bestand in **server.js**. Dit is de service in de cloud vindt het toegangspunt dat voor deze toepassing.
+4. Gebruik de volgende opdracht uit om te kopiëren de **bin/www** van het bestand in **server.js**. Dit is de service in de cloud vindt het beginpunt voor deze toepassing.
    
        PS C:\node\expressapp\WebRole1> copy bin/www server.js
    
-   Nadat u deze opdracht is voltooid, hebt u een **server.js** bestand in de map WebRole1.
+   Nadat u deze opdracht is voltooid, hebt u een **server.js** bestand in de WebRole1-map.
 5. Wijzig de **server.js** verwijderen van een van de '.' tekens uit de volgende regel.
    
        var app = require('../app');
    
-   Na deze wijziging, de regel moet worden weergegeven als volgt.
+   Na deze wijziging, moet de regel er als volgt uitzien.
    
        var app = require('./app');
    
-   Deze wijziging is vereist omdat het bestand is verplaatst (voorheen **bin/www**,) in dezelfde map als het appbestand dat vereist is. Nadat u deze wijziging, sla de **server.js** bestand.
+   Deze wijziging is vereist omdat we het bestand verplaatst (voorheen **bin/www**,) naar dezelfde map als het appbestand dat is vereist. Nadat u deze wijziging, sla de **server.js** bestand.
 6. Gebruik de volgende opdracht voor het uitvoeren van de toepassing in de Azure-emulator:
    
        PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
@@ -89,36 +90,36 @@ Voer de volgende stappen voor het maken van een nieuw cloudserviceproject met de
     ![Een webpagina met Welkom om uit te drukken.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
 
 ## <a name="modifying-the-view"></a>De weergave wijzigen
-Wijzig nu de weergave om het bericht 'Welkom naar Express in Azure' weer te geven.
+Wijzig nu de weergave om het bericht 'Welkom aan Express in Azure' weer te geven.
 
 1. Voer de volgende opdracht om de index.jade-bestand te openen:
    
        PS C:\node\expressapp\WebRole1> notepad views/index.jade
    
-   ![De inhoud van het bestand index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
+   ![De inhoud van de index.jade-bestand.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade is de standaard weergave-engine wordt gebruikt door toepassingen van Express. Zie voor meer informatie over Jade weergave-engine [ http://jade-lang.com ] [ http://jade-lang.com].
+   Jade is de standaard-weergave-engine wordt gebruikt door toepassingen van Express. Zie voor meer informatie over Jade weergave-engine [ http://jade-lang.com ] [ http://jade-lang.com].
 2. De laatste regel van tekst wijzigen door toe te voegen **in Azure**.
    
-   ![Het bestand index.jade de laatste regel leest: p Welkom bij de \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
+   ![Index.jade-bestand, de laatste regel leest: p Welkom bij \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
 3. Sla het bestand op en sluit u Kladblok af.
-4. Vernieuw de browser en ziet u uw wijzigingen.
+4. Vernieuw uw browser en ziet u uw wijzigingen.
    
-   ![Een browservenster met de pagina bevat Welkom bij de snelle in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
+   ![Een browservenster bevat de pagina Welkom bij Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
 
-Na de toepassing testen, gebruiken de **Stop AzureEmulator** cmdlet om te stoppen van de emulator.
+Nadat de toepassing testen, gebruikt u de **Stop-AzureEmulator** cmdlet voor het stoppen van de emulator.
 
 ## <a name="publishing-the-application-to-azure"></a>Publiceren van de toepassing in Azure
-In het venster Azure PowerShell gebruiken de **Publish-AzureServiceProject** cmdlet voor het implementeren van de toepassing naar een cloudservice
+In de Azure PowerShell-venster, gebruikt u de **Publish-AzureServiceProject** cmdlet om de toepassing naar een cloudservice te implementeren
 
     PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpressapp -Location "East US" -Launch
 
-Zodra de implementatiebewerking is voltooid, wordt uw browser openen en de webpagina weergegeven.
+Nadat de implementatiebewerking is voltooid, wordt uw browser openen en weergeven van de webpagina wordt weergegeven.
 
-![Een webbrowser om de Express-pagina weer te geven. De URL geeft aan dat het nu wordt gehost op Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
+![Een webbrowser waarin de Express wordt weergegeven. De URL geeft aan dat het nu wordt gehost op Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het [Node.js Developer Center](/develop/nodejs/) voor meer informatie.
+Zie het [Node.js Developer Center](https://docs.microsoft.com/en-us/javascript/azure/?view=azure-node-latest) voor meer informatie.
 
 [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/
