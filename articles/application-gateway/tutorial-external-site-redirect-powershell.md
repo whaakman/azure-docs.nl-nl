@@ -1,6 +1,6 @@
 ---
-title: Een toepassingsgateway maken met de externe omleiding - Azure PowerShell | Microsoft Docs
-description: Informatie over het maken van een toepassingsgateway die enterpriseenrollment.contoso.com webverkeer naar een externe site met Azure Powershell.
+title: Een toepassingsgateway maken met externe omleiding - Azure PowerShell | Microsoft Docs
+description: Informatie over het maken van een toepassingsgateway die internetverkeer omleidt naar een externe site met behulp van Azure Powershell.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -11,19 +11,20 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
 ms.openlocfilehash: 6e2f0dadcb1158863282090bf6f81b0ae368416f
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317805"
 ---
-# <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Een toepassingsgateway maken met de externe omleiding met Azure PowerShell
+# <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Een toepassingsgateway maken met de externe omleiding met behulp van Azure PowerShell
 
-U kunt Azure Powershell gebruiken voor het configureren van [web verkeer omleiden](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie configureert u een listener en de regel die wordt omgeleid webverkeer dat op de toepassingsgateway met een externe site binnenkomt.
+U kunt Azure Powershell gebruiken om te configureren [web verkeer omleiden](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie configureert u een listener en een regel waarmee webverkeer dat bij de application gateway naar een externe site binnenkomt.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * Instellen van het netwerk
+> * Het netwerk instellen
 > * Maak een regel listener en -omleiding
 > * Een toepassingsgateway maken
 
@@ -31,11 +32,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudie moduleversie 3.6 of hoger van Azure PowerShell vereist. Ga voor de versie uitvoeren ` Get-Module -ListAvailable AzureRM` . Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudie moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een Azure-resource groep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een Azure-resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
@@ -43,7 +44,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken
 
-Maken van de configuratie van subnetten *myAGSubnet* met [nieuw AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Maken van het virtuele netwerk met de naam *myVNet* met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) met de subnetconfiguratie. En maak ten slotte het openbare IP-adres met [nieuw AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Deze resources worden gebruikt om de netwerkverbinding met de toepassingsgateway en de bijbehorende bronnen opgeven.
+Maak de subnetconfiguratie *myAGSubnet* met behulp van [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Maken van het virtuele netwerk met de naam *myVNet* met behulp van [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) met de subnetconfiguratie. En maak ten slotte het openbare IP-adres met [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Deze resources worden gebruikt om de netwerkverbinding naar de toepassingsgateway en de bijbehorende bronnen te leveren.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -64,9 +65,9 @@ $pip = New-AzureRmPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-### <a name="create-the-ip-configurations-and-frontend-port"></a>De IP-configuraties en de front-endpoort maken
+### <a name="create-the-ip-configurations-and-frontend-port"></a>IP-configuraties en front-endpoort maken
 
-Koppelen *myAGSubnet* die u eerder hebt gemaakt met de application gateway via [nieuw AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Het openbare IP-adres toewijzen aan het wordt gebruikt door de toepassing gateway [nieuw AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig). Vervolgens kunt u het gebruik van HTTP-poort [nieuw AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport).
+Koppel *myAGSubnet* dat u eerder hebt gemaakt aan de toepassingsgateway met behulp van [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Wijs het openbare IP-adres toe aan de toepassingsgateway met [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig). Vervolgens kunt u de HTTP-poort maken met behulp van [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport).
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -84,9 +85,9 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
   -Port 80
 ```
 
-### <a name="create-the-backend-pool-and-settings"></a>Maak de back-endpool en -instellingen
+### <a name="create-the-backend-pool-and-settings"></a>Back-endpool en instellingen maken
 
-Maken van de back-endpool met de naam *defaultPool* voor de application gateway met [nieuw AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Configureer de instellingen voor de groep van toepassingen met [nieuw AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+Maak de back-endadresgroep met de naam *defaultPool* voor de application gateway met [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Configureer de instellingen voor de pool met [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
 ```azurepowershell-interactive
 $defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
@@ -99,11 +100,11 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
   -RequestTimeout 120
 ```
 
-### <a name="create-the-listener-and-rule"></a>De listener en regel maken
+### <a name="create-the-listener-and-rule"></a>De listener en een regel maken
 
-Een listener is vereist voor het inschakelen van de toepassingsgateway verkeer op de juiste wijze te routeren. Maken van de listener met [nieuw AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) met de frontend-configuratie en de frontend-poort die u eerder hebt gemaakt. U omleiden verkeer door het maken van een configuratie voor de omleiding die kan worden toegevoegd aan de regel voor het doorsturen die u maakt.
+Een listener is vereist voor het inschakelen van de toepassingsgateway het routeren van verkeer op de juiste wijze. Maken van de listener met behulp van [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) met de front-end-configuratie en de frontend-poort die u eerder hebt gemaakt. Omleiden van verkeer door te maken van een configuratie van omleiding die kan worden toegevoegd aan de regel voor doorsturen die u maakt.
 
-Een regel voor doorsturen is vereist voor de listener weet waar binnenkomende verkeer te verzenden. Maken van een eenvoudige regel met naam *redirectRule* met [nieuw AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) met de omleiding-configuratie.
+Een regel voor doorsturen is vereist voor de listener weten waar ze om binnenkomend verkeer te verzenden. Maak een eenvoudige regel met de naam *redirectRule* met behulp van [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) met de configuratie van omleiding.
 
 ```azurepowershell-interactive
 $defaultListener = New-AzureRmApplicationGatewayHttpListener `
@@ -124,7 +125,7 @@ $redirectRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-Nu dat u de benodigde ondersteunende resources hebt gemaakt, Geef parameters op voor de toepassingsgateway met de naam *myAppGateway* met [nieuw AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku), en maak vervolgens met behulp van [ Nieuwe-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
+Nu u de benodigde ondersteunende resources hebt gemaakt, geeft u parameters op voor de toepassingsgateway met de naam *myAppGateway* met behulp van [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku). U maakt de gateway vervolgens met behulp van [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzureRmApplicationGatewaySku `
@@ -146,9 +147,9 @@ $appgw = New-AzureRmApplicationGateway `
   -Sku $sku
 ```
 
-## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
+## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-U kunt [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ophalen van het openbare IP-adres van de toepassingsgateway. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
+U kunt [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) gebruiken om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -158,12 +159,12 @@ U ziet *bing.com* worden weergegeven in uw browser.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe:
+In dit artikel hebt u geleerd hoe u:
 
 > [!div class="checklist"]
-> * Instellen van het netwerk
+> * Het netwerk instellen
 > * Maak een regel listener en -omleiding
 > * Een toepassingsgateway maken
 
 > [!div class="nextstepaction"]
-> [Meer informatie over wat u met application gateway doen kunt](./application-gateway-introduction.md)
+> [Meer informatie over wat u kunt doen met de toepassingsgateway](./application-gateway-introduction.md)

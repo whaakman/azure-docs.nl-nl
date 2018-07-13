@@ -1,6 +1,6 @@
 ---
 title: Pushmeldingen toevoegen aan iOS-App met Azure Mobile Apps
-description: Informatie over hoe u pushmeldingen verzendt naar uw iOS-app met Azure Mobile Apps.
+description: Informatie over het gebruik van Azure Mobile Apps voor het verzenden van pushmeldingen aan uw iOS-app.
 services: app-service\mobile
 documentationcenter: ios
 manager: crdun
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: crdun
 ms.openlocfilehash: 1fd90df3b6935d35834e1f571e80b945716b55ff
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29116667"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307252"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Pushmeldingen toevoegen aan uw iOS-App
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Overzicht
-In deze zelfstudie hebt u pushmeldingen toevoegen de [iOS Quick Start] project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
+In deze zelfstudie voegt u pushmeldingen kunt verzenden naar de [Snelstartgids voor iOS] project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
 
-Als u het gedownloade Quick Start-serverproject niet gebruikt, moet u het push notification-uitbreidingspakket. Zie voor meer informatie [werken met de .NET-back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) handleiding.
+Als u het gedownloade Quick Start-serverproject niet gebruikt, moet u de push notification-uitbreidingspakket. Zie voor meer informatie, [werken met de .NET back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) handleiding.
 
-De [iOS-simulator biedt geen ondersteuning voor pushmeldingen](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). U moet een fysiek iOS-apparaat en een [Apple Developer Program-lidmaatschap](https://developer.apple.com/programs/ios/).
+De [pushmeldingen biedt geen ondersteuning voor iOS-simulator](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). U moet een fysiek iOS-apparaat en een [Apple Developer Program-lidmaatschap](https://developer.apple.com/programs/ios/).
 
 ## <a name="configure-hub"></a>Notification Hub configureren
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -37,7 +37,7 @@ De [iOS-simulator biedt geen ondersteuning voor pushmeldingen](https://developer
 ## <a id="register"></a>App voor pushmeldingen registreren
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-azure-to-send-push-notifications"></a>Configureren van Azure om pushmeldingen te verzenden
+## <a name="configure-azure-to-send-push-notifications"></a>Azure voor het verzenden van pushmeldingen configureren
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 ## <a id="update-server"></a>Bijwerken van de back-end om pushmeldingen te verzenden
@@ -46,15 +46,15 @@ De [iOS-simulator biedt geen ondersteuning voor pushmeldingen](https://developer
 ## <a id="add-push"></a>Pushmeldingen toevoegen aan de app
 [!INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
-## <a id="test"></a>Pushmeldingen testen
+## <a id="test"></a>Testpushmeldingen
 [!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
 ## <a id="more"></a>Meer
-* Sjablonen bieden u de flexibiliteit om platformoverschrijdende pushes en gelokaliseerde pushes te verzenden. [Hoe gebruik iOS-clientbibliotheek voor Azure Mobile Apps](app-service-mobile-ios-how-to-use-client-library.md#templates) ziet u hoe u sjablonen registreren.
+* Sjablonen beschikt u over flexibiliteit voor het verzenden van platformonafhankelijke pushes en gelokaliseerde pushes. [Over het gebruik iOS-clientbibliotheek voor Azure Mobile Apps](app-service-mobile-ios-how-to-use-client-library.md#templates) ziet u informatie over het registreren van sjablonen.
 
 <!-- Anchors.  -->
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[iOS Quick Start]: app-service-mobile-ios-get-started.md
+[Snelstartgids voor iOS]: app-service-mobile-ios-get-started.md

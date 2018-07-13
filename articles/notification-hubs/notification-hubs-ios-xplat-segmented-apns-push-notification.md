@@ -1,6 +1,6 @@
 ---
-title: Pushmeldingen naar specifieke iOS-apparaten met Azure Notification Hubs | Microsoft Docs
-description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushmeldingen verzendt naar specifieke iOS-apparaten.
+title: Pushmeldingen verzenden naar specifieke iOS-apparaten met Azure Notification Hubs | Microsoft Docs
+description: In deze zelfstudie leert u hoe u Azure Notification Hubs gebruiken om pushmeldingen te verzenden naar specifieke iOS-apparaten.
 services: notification-hubs
 documentationcenter: ios
 author: dimazaid
@@ -15,45 +15,46 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: f6096238deb2186edfac2eb9d1c9a9e76db07553
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308516"
 ---
-# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Zelfstudie: Aan de specifieke iOS-apparaten met Azure Notification Hubs Pushmeldingen
+# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar specifieke iOS-apparaten met Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie ziet u het gebruik van Azure Notification Hubs voor belangrijk nieuws meldingen naar een iOS-app-broadcast. Als u klaar u kunnen registreren voor nieuwscategorieën die u geïnteresseerd bent in op te splitsen en pushmeldingen voor deze categorieën ontvangen. Dit scenario is een algemene patroon voor veel apps waarbij moeten meldingen worden verzonden naar groepen van gebruikers die eerder zijn gedeclareerd interesse in, bijvoorbeeld, RSS-lezer, apps voor muziek ventilatoren, enzovoort.
+Deze zelfstudie leert u hoe u Azure Notification Hubs gebruiken om te zenden van belangrijke nieuwsfeiten naar een iOS-app. Als u klaar bent, u kunt registreren voor het belangrijke nieuwscategorieën waarin u geïnteresseerd bent, en ontvangen van pushmeldingen voor deze categorieën. Dit scenario is een algemeen patroon voor veel apps die meldingen moeten verzenden naar groepen gebruikers die eerder hebben aangegeven in bepaalde onderwerpen geïnteresseerd te zijn, zoals een RSS-lezer, apps voor muziekfans, enzovoort.
 
-Broadcast-scenario's zijn ingeschakeld door een of meer *labels* bij het maken van een registratie in de notification hub. Wanneer meldingen worden verzonden naar een label, ontvangen apparaten die zijn geregistreerd voor het label de melding. Omdat tags gewoon tekenreeksen zijn, hoeven niet vooraf zijn ingericht. Zie voor meer informatie over tags [Notification Hubs-Routering en code-expressies](notification-hubs-tags-segment-push-message.md).
+Broadcast-scenario's zijn mogelijk door een of meer *tags* (of labels) toe te voegen wanneer u een registratie maakt in Notifications Hub. Wanneer meldingen worden verzonden naar een label, ontvangen apparaten die zijn geregistreerd voor het label de melding. Omdat tags niet meer dan tekenreeksen zijn, hoeven ze niet vooraf te worden opgesteld. Zie [Notification Hubs-routering en tagexpressies](notification-hubs-tags-segment-push-message.md) voor meer informatie over tags.
 
-In deze zelfstudie maakt uitvoeren u de volgende stappen:
+In deze zelfstudie voert u de volgende stappen uit:
 
 > [!div class="checklist"]
-> * De categorieselectie van een toevoegen aan de app.
-> * Met tags meldingen verzenden
+> * Een categorieselectie toevoegen aan de app
+> * Getagde meldingen verzenden
 > * Meldingen verzenden vanuit het apparaat
-> * Voer de app en meldingen genereren
+> * De app uitvoeren en meldingen genereren
 
 ## <a name="prerequisites"></a>Vereisten
-In dit onderwerp is gebaseerd op de app die u hebt gemaakt in [zelfstudie: Pushmeldingen voor iOS-apps met Azure Notification Hubs][get-started]. Voordat u deze zelfstudie begint, u moet al hebt voltooid [zelfstudie: Pushmeldingen voor iOS-apps met Azure Notification Hubs][get-started].
+In dit onderwerp bouwt voort op de app die u hebt gemaakt in [zelfstudie: Pushmeldingen naar iOS-apps met behulp van Azure Notification Hubs][get-started]. Voordat u deze zelfstudie begint, u moet al hebt voltooid [zelfstudie: Pushmeldingen naar iOS-apps met behulp van Azure Notification Hubs][get-started].
 
-## <a name="add-category-selection-to-the-app"></a>Categorieselectie toevoegen aan de app.
-De eerste stap is het toevoegen van de UI-elementen naar uw bestaande storyboard waarmee de gebruiker kan de categorieën selecteren om te registreren. De categorieën die door een gebruiker is geselecteerd worden op het apparaat opgeslagen. Wanneer de app wordt gestart, wordt de apparaatregistratie van een in uw notification hub met de geselecteerde categorieën gemaakt als labels.
+## <a name="add-category-selection-to-the-app"></a>Categorieselectie toevoegen aan de app
+De eerste stap is de UI-elementen toevoegen aan uw bestaande storyboard waarmee de gebruiker selecteert categorieën om u te registreren. De geselecteerde categorieën worden op het apparaat opgeslagen. Wanneer de app wordt gestart, wordt er een apparaatregistratie gemaakt in uw meldingshub, met de geselecteerde categorieën als tags.
 
 1. Voeg de volgende onderdelen van de objectbibliotheek in uw MainStoryboard_iPhone.storyboard:
    
-   * Een label met 'Op te splitsen nieuws'-tekst
-   * Labels met Categorieteksten "Wereld", 'Politiek', 'Business', 'Technologie', 'Wetenschappelijke', 'Sport'
-   * Zes switches, één per categorie instellen elke switch **status** worden **uit** standaard.
-   * Een knop met het label 'Abonneren'
+   * Een label met de tekst "Belangrijke nieuws",
+   * Labels met Categorieteksten "Wereld", 'Politiek', 'Zakelijke', "-technologie", "Wetenschap", 'Sport'
+   * Zes switches, één per categorie, stelt elke switch **status** moet **uit** standaard.
+   * Een knop met het label "Subscribe"
      
-     Een storyboard ziet er als volgt:
+     Uw storyboard moet er als volgt uitzien:
      
      ![][3]
-2. In de editor assistent aansluitingen voor alle schakelopties maken en het aanroepen van 'WorldSwitch', 'PoliticsSwitch', 'BusinessSwitch', 'TechnologySwitch', 'ScienceSwitch', 'SportsSwitch'
-3. Een actie maken voor de knop met de naam **abonneren**. Uw ViewController.h, moeten de volgende code bevatten:
+2. In de editor assistent verkooppunten voor alle schakelopties maken en het aanroepen van "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
+3. Maak een actie voor de knop met de naam **abonneren**. Uw ViewController.h mag de volgende code:
    
     ```obj-c
         @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
@@ -65,7 +66,7 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande storyboard
    
         - (IBAction)subscribe:(id)sender;
     ```
-4. Maak een nieuwe **Cocoa Touch klasse** aangeroepen `Notifications`. Kopieer de volgende code in de sectie interface van het bestand Notifications.h:
+4. Maak een nieuwe **Cocoa Touch klasse** met de naam `Notifications`. Kopieer de volgende code in de interface-sectie van het bestand Notifications.h:
    
     ```obj-c
         @property NSData* deviceToken;
@@ -79,7 +80,7 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande storyboard
    
         - (void)subscribeWithCategories:(NSSet*)categories completion:(void (^)(NSError *))completion;
     ```
-5. De volgende importinstructie aan Notifications.m toevoegen:
+5. Voeg de volgende importinstructie toe Notifications.m:
    
     ```obj-c
         #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
@@ -124,31 +125,31 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande storyboard
         }
     ```
 
-    Deze klasse maakt gebruik van lokale opslag op te slaan en het ophalen van de categorieën van nieuws die dit apparaat ontvangt. Het bevat ook, een methode om te registreren voor deze categorieën met behulp van een [sjabloon](notification-hubs-templates-cross-platform-push-messages.md) registratie.
+    Deze klasse maakt gebruik van lokale opslag voor het opslaan en ophalen van de categorieën van nieuws die dit apparaat ontvangt. Het bevat ook, een methode om u te registreren voor deze categorieën met behulp van een [sjabloon](notification-hubs-templates-cross-platform-push-messages.md) registratie.
 
-1. In het bestand AppDelegate.h een importinstructie voor Notifications.h toevoegen en een eigenschap voor een exemplaar van de klasse meldingen toevoegen:
+1. Toevoegen van een instructie importeren voor Notifications.h en voegt u de eigenschap voor een exemplaar van de klasse meldingen in het bestand AppDelegate.h:
    
     ```obj-c
         #import "Notifications.h"
    
         @property (nonatomic) Notifications* notifications;
     ```
-2. In de **didFinishLaunchingWithOptions** methode in AppDelegate.m, voeg de code voor het initialiseren van het exemplaar van de meldingen aan het begin van de methode.  
+2. In de **didFinishLaunchingWithOptions** methode in AppDelegate.m, voeg de code aan het initialiseren van de meldingen instantie aan het begin van de methode.  
    
-    `HUBNAME` en `HUBLISTENACCESS` (gedefinieerd in hubinfo.h) al de `<hub name>` en `<connection string with listen access>` tijdelijke aanduidingen vervangen door de naam van uw notification hub en de verbindingsreeks voor *DefaultListenSharedAccessSignature* die u eerder hebt verkregen
+    `HUBNAME` en `HUBLISTENACCESS` (gedefinieerd in hubinfo.h) moet al hebben de `<hub name>` en `<connection string with listen access>` tijdelijke aanduidingen vervangen door de naam van uw notification hub en de verbindingsreeks voor *DefaultListenSharedAccessSignature* die u eerder hebt verkregen
    
     ```obj-c
         self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
     ```
    
    > [!NOTE]
-   > Omdat de referenties die worden gedistribueerd met een client-app niet over het algemeen veilig, moet u de sleutel voor listen toegang alleen distribueren met uw clientapp. Luisteren toegang kunnen uw app registreren voor meldingen, maar bestaande registraties kan niet worden gewijzigd en kunnen niet worden meldingen verzonden. De volledige toegang tot de sleutel wordt gebruikt in een beveiligde back-endservice voor het verzenden van meldingen en bestaande registraties wijzigen.
+   > Omdat referenties die worden gedistribueerd met een client-app meestal niet beveiligd zijn, moet u met uw client-app alleen de sleutel voor listen-toegang distribueren. Uw app kan dan worden geregistreerd voor meldingen, maar bestaande registraties kunnen niet worden gewijzigd, en er kunnen geen meldingen worden verzonden. De sleutel voor volledige toegang wordt gebruikt in een beveiligde back-endservice voor het verzenden van meldingen en het wijzigen van bestaande registraties.
    > 
    > 
-3. In de **didRegisterForRemoteNotificationsWithDeviceToken** methode in AppDelegate.m, vervang de code in de methode met de volgende code naar het apparaattoken doorgeven aan de klasse meldingen. De klasse meldingen voert de registreren voor meldingen met de categorieën. Als de gebruiker categorieselecties wijzigt, roept de `subscribeWithCategories` methode in reactie op de **abonneren** knop bijwerken.
+3. In de **didRegisterForRemoteNotificationsWithDeviceToken** methode in AppDelegate.m, vervang de code in de methode met de volgende code om door te geven van het apparaattoken aan de klasse meldingen. De klasse meldingen voert de registreren voor meldingen met de categorieën. Als de gebruiker categorieselecties wijzigt, roept de `subscribeWithCategories` methode in reactie op de **abonneren** knop deze kunnen worden bijgewerkt.
    
    > [!NOTE]
-   > Omdat het apparaattoken toegewezen door de Apple Push Notification Service (APNS) kan op elk gewenst moment kans, kunt u moet registreren voor meldingen vaak ter voorkoming van fouten van de melding. In dit voorbeeld registreert voor melding van elke keer dat de app wordt gestart. Voor apps die vaak worden uitgevoerd, kunt meer dan één keer per dag, u waarschijnlijk overslaan registratie om bandbreedte te besparen als minder dan een dag is verstreken sinds de vorige registratie.
+   > Omdat het apparaattoken dat is toegewezen door de Apple Push Notification Service (APNS) kan kans op elk gewenst moment, dient u te registreren voor meldingen vaak ter voorkoming van fouten van de melding. In dit voorbeeld wordt er elke keer dat de app wordt gestart een registratie voor meldingen vastgelegd. Voor apps die u regelmatig uitvoert (meer dan één keer per dag), kunt u de registratie waarschijnlijk overslaan om bandbreedte te besparen als er minder dan een dag is verstreken sinds de vorige registratie.
    > 
    > 
    
@@ -166,9 +167,9 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande storyboard
         }];
     ```
 
-    Op dit moment moet er geen andere code in de **didRegisterForRemoteNotificationsWithDeviceToken** methode.
+    Op dit moment, mogen er geen andere code in de **didRegisterForRemoteNotificationsWithDeviceToken** methode.
 
-1. De volgende methoden moeten al aanwezig zijn in AppDelegate.m voltooid de [aan de slag met Notification Hubs] [ get-started] zelfstudie. Als dat niet het geval is, toe te voegen.
+1. De volgende methoden al moet aanwezig zijn in AppDelegate.m van het voltooien van de [aan de slag met Notification Hubs] [ get-started] zelfstudie. Als dat niet het geval is, toe te voegen.
    
     ```obj-c    
     -(void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -186,8 +187,8 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande storyboard
      }
     ```
    
-   Deze methode meldingen ontvangen wanneer de app wordt uitgevoerd door een eenvoudige weer te geven afhandelt **UIAlert**.
-2. Voeg een importinstructie voor AppDelegate.h in ViewController.m, en kopieer de volgende code in XCode gegenereerde **abonneren** methode. Deze code werkt de registratie voor het gebruik van de nieuwe categorielabels die de gebruiker heeft gekozen in de gebruikersinterface.
+   Deze methode verwerkt meldingen ontvangen wanneer de app wordt uitgevoerd door een eenvoudige weer te geven **UIAlert**.
+2. Voeg een instructie importeren voor AppDelegate.h in ViewController.m, en kopieer de volgende code in de XCode-gegenereerd **abonneren** methode. Deze code werkt de registratie voor het gebruik van de nieuwe categorielabels die de gebruiker ervoor in de gebruikersinterface gekozen heeft.
    
     ```obj-c
        #import "Notifications.h"
@@ -212,8 +213,8 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande storyboard
        }];
     ```
 
-   Deze methode maakt u een **NSMutableArray** van de categorieën en gebruikt de **meldingen** klasse voor het opslaan van de lijst in de lokale opslag en registreert de bijbehorende tags voor uw notification hub. Wanneer categorieën worden gewijzigd, wordt de registratie opnieuw gemaakt met de nieuwe categorieën.
-3. In ViewController.m, voeg de volgende code in de **viewDidLoad** methode de gebruikersinterface instellen op basis van de eerder opgeslagen categorieën.
+   Deze methode maakt u een **NSMutableArray** van de categorieën en maakt gebruik van de **meldingen** klasse voor het opslaan van de lijst in de lokale opslag, maar wordt geregistreerd met de notification hub de bijbehorende labels. Wanneer categorieën worden gewijzigd, wordt de registratie opnieuw gemaakt met de nieuwe categorieën.
+3. ViewController.m, voeg de volgende code toe in de **viewDidLoad** methode om in te stellen van de gebruikersinterface op basis van de eerder opgeslagen categorieën.
 
     ```obj-c    
         // This updates the UI on startup based on the status of previously saved categories.
@@ -231,17 +232,17 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande storyboard
     ```
 
 
-De app kan nu een set van categorieën worden opgeslagen in de lokale opslag van apparaat wordt gebruikt om u te registreren bij de notification hub wanneer de app wordt gestart. De gebruiker kan de selectie van categorieën op runtime en klik op wijzigen de **abonneren** methode voor het bijwerken van de registratie voor het apparaat. Werk vervolgens de app het laatste nieuws om meldingen te verzenden rechtstreeks in de app zelf.
+De app kan nu een set categorieën opslaan in de lokale opslag van apparaat wordt gebruikt om te registreren bij de notification hub wanneer de app wordt gestart. De gebruiker kan de selectie van categorieën op runtime en klikt u op wijzigen de **abonneren** methode voor het bijwerken van de registratie van het apparaat. Vervolgens maakt bijwerken u de app voor het verzenden van het laatste nieuws te verzenden rechtstreeks in de app zelf.
 
 ## <a name="optional-send-tagged-notifications"></a>(optioneel) Met tags meldingen verzenden
-Als u geen toegang tot Visual Studio hebt, kunt u met de volgende sectie overslaan en meldingen verzenden vanuit de app zelf. U kunt ook de juiste sjabloon melding verzenden de [Azure-portal] met behulp van het foutopsporingstabblad voor uw notification hub. 
+Als u geen toegang tot Visual Studio, kunt u direct doorgaan naar de volgende sectie en meldingen verzenden vanuit de app zelf. U kunt ook de juiste sjabloon melding verzenden de [Azure Portal] met behulp van het foutopsporingstabblad voor uw notification hub. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(optioneel) Meldingen verzenden vanuit het apparaat
-Normaal gesproken meldingen moeten worden verzonden door een back-endservice maar belangrijk nieuws om meldingen te verzenden rechtstreeks vanuit de app. Om dit te doen, het bijwerken de `SendNotificationRESTAPI` methode die u hebt gedefinieerd in de [aan de slag met Notification Hubs] [ get-started] zelfstudie.
+Normaal gesproken meldingen moeten worden verzonden door een back-endservice, maar u kunt belangrijke nieuwsfeiten rechtstreeks vanuit de app verzenden. Om dit te doen, die u bijwerkt de `SendNotificationRESTAPI` methode die u hebt gedefinieerd in de [aan de slag met Notification Hubs] [ get-started] zelfstudie.
 
-1. In `ViewController.m`, werken de `SendNotificationRESTAPI` methode als volgt zodat het accepteert de parameter voor het label categorie en verzendt de juiste [sjabloon](notification-hubs-templates-cross-platform-push-messages.md) melding.
+1. In `ViewController.m`, werken de `SendNotificationRESTAPI` methode als volgt zodat deze accepteert een parameter voor de categorie-tag en verzendt de juiste [sjabloon](notification-hubs-templates-cross-platform-push-messages.md) melding.
    
     ```obj-c
         - (void)SendNotificationRESTAPI:(NSString*)categoryTag
@@ -301,7 +302,7 @@ Normaal gesproken meldingen moeten worden verzonden door een back-endservice maa
             [dataTask resume];
         }
     ```
-2. In `ViewController.m`, werken de **melding verzenden** actie, zoals wordt weergegeven in de volgende code. Zodat deze de elke tag afzonderlijk met meldingen worden verzonden en naar meerdere platforms stuurt.
+2. In `ViewController.m`, werken de **melding verzenden** actie zoals weergegeven in de code die volgt. Zodat deze de meldingen met behulp van elke tag afzonderlijk worden verzonden en naar meerdere platforms stuurt.
 
     ```obj-c
         - (IBAction)SendNotificationMessage:(id)sender
@@ -321,24 +322,24 @@ Normaal gesproken meldingen moeten worden verzonden door een back-endservice maa
     ```
 
 
-1. Bouw het project opnieuw op en controleer of er geen fouten in de build.
+1. Bouw uw project opnieuw op en zorg ervoor dat u hebt geen fouten in de build.
 
-## <a name="run-the-app-and-generate-notifications"></a>Voer de app en meldingen genereren
-1. Druk op de knop uitvoeren op het project bouwen en de app te starten. Sommige belangrijk nieuws opties selecteren om te abonneren op en druk vervolgens op de **abonneren** knop. U ziet een dialoogvenster waarmee wordt aangegeven in dat de meldingen bent geabonneerd op.
+## <a name="run-the-app-and-generate-notifications"></a>De app uitvoeren en meldingen genereren
+1. Druk op de knop uitvoeren op het project bouwen en de app te starten. Selecteer enkele belangrijke nieuws opties om u te abonneren op en druk vervolgens op de **abonneren** knop. U ziet een dialoogvenster die wijzen op dat de meldingen hebt geabonneerd op.
    
     ![][1]
    
-    Wanneer u de optie **abonneren**, de app de geselecteerde categorieën converteert naar labels en een nieuwe apparaatregistratie voor de geselecteerde codes aanvragen van de notification hub.
-2. Voer een bericht wordt verzonden als belangrijk nieuws druk de **melding verzenden** knop. Ook uitvoeren van de .NET-consoletoepassing om meldingen te genereren.
+    Als u ervoor kiest **abonneren**, de app converteert u de geselecteerde categorieën naar tags en vraagt u een nieuwe device Registration service voor de geselecteerde tags van de notification hub.
+2. Voer een bericht wordt verzonden als belangrijk nieuws druk vervolgens op de **melding verzenden** knop. U kunt ook uitvoeren de .NET-consoletoepassing om meldingen te genereren.
    
     ![][2]
-3. Elk apparaat geabonneerd op belangrijk nieuws ontvangt de belangrijk nieuws-meldingen die u zojuist hebt verzonden.
+3. Elk apparaat geabonneerd op het laatste nieuws, ontvangt de belangrijke nieuwsfeiten die u zojuist hebt verzonden.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u meldingen uitgezonden naar specifieke iOS-apparaten die zijn geregistreerd voor de categorieën. Als u wilt weten hoe gelokaliseerde pushmeldingen, gaan naar de volgende zelfstudie: 
+In deze zelfstudie, kunt u meldingen uitgezonden naar specifieke iOS-apparaten die zijn geregistreerd voor de categorieën verzonden. Als u wilt weten hoe u gelokaliseerde pushmeldingen, Ga naar de volgende zelfstudie: 
 
 > [!div class="nextstepaction"]
->[Gelokaliseerde pushmeldingen](notification-hubs-ios-xplat-localized-apns-push-notification.md)
+>[Gelokaliseerde pushmeldingen verzenden](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 
 <!-- Images. -->
@@ -361,4 +362,4 @@ In deze zelfstudie hebt u meldingen uitgezonden naar specifieke iOS-apparaten di
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

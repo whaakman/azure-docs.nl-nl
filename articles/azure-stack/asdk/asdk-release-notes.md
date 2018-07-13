@@ -1,5 +1,5 @@
 ---
-title: Opmerkingen bij de release van Microsoft Azure-Stack Development Kit | Microsoft Docs
+title: Opmerkingen bij de release van Microsoft Azure Stack Development Kit | Microsoft Docs
 description: Verbeteringen, correcties en bekende problemen voor Azure Stack Development Kit.
 services: azure-stack
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: bbd9bb0d56dd61fd0a32531ac425a1dbc1aa8923
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 86ac1f1b5433104faa89e1f107fa36fc1da5f70e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295787"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989891"
 ---
-# <a name="azure-stack-development-kit-release-notes"></a>Azure-Stack Development Kit release-opmerkingen  
+# <a name="azure-stack-development-kit-release-notes"></a>Releaseopmerkingen voor Azure Stack Development Kit  
 Deze releaseopmerkingen bevatten informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit. Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > De hoogte blijven van wat is er nieuw in de ASDK Abonneer u op de [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
@@ -29,28 +29,28 @@ Deze releaseopmerkingen bevatten informatie over verbeteringen, correcties en be
 ## <a name="build-11805147"></a>Build 1.1805.1.47
 
 > [!TIP]  
-> Op basis van feedback van klanten, wordt er een update van het schema van de versie voor Microsoft Azure-Stack in gebruik is. Beginnen met deze update 1805, het nieuwe schema beter vertegenwoordigt voor de huidige cloudversie.  
+> Op basis van feedback van klanten, wordt er een update voor de versie-schema voor Microsoft Azure Stack in gebruik is. Beginnen met deze update 1805, geeft het nieuwe schema beter de huidige cloudversie.  
 > 
-> Het schema versie is nu *Version.YearYearMonthMonth.MinorVersion.BuildNumber* waar de tweede en derde sets geven de versie en release. Bijvoorbeeld: 1805.1 vertegenwoordigt de *release RTM* (RTM) versie van 1805.  
+> De versie-schema is nu *Version.YearYearMonthMonth.MinorVersion.BuildNumber* waar de tweede en derde sets geven de versie en release. Bijvoorbeeld, 1805.1 vertegenwoordigt de *RTM release* (RTM)-versie van 1805.  
 
 
 ### <a name="new-features"></a>Nieuwe functies 
-Deze versie bevat de volgende verbeteringen en oplossingen voor Azure-Stack.  
+Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.  
 
-- <!-- 2297790 - IS, ASDK --> **Azure Stack bevat nu een *Syslog* client** als een *preview-functie*. Deze client kunt het doorsturen van controle en beveiliging logboeken die betrekking hebben op de Stack van Azure-infrastructuur naar een Syslog-server of beveiligingsgroep informatie en gebeurtenis management (SIEM) software die zich buiten de Azure-Stack. De Syslog-client ondersteunt momenteel alleen niet-geverifieerde UDP-verbindingen via de standaardpoort 514. De nettolading van elk Syslog-bericht is ingedeeld in algemene gebeurtenis-indeling (CEF). 
+- <!-- 2297790 - IS, ASDK --> **Azure Stack bevat nu een *Syslog* client** als een *preview-functie*. Deze client kunt het doorsturen van Logboeken voor controle en beveiliging met betrekking tot de Azure Stack-infrastructuur naar een Syslog-server of security information en event management (SIEM) software die zich buiten Azure Stack. De Syslog-client ondersteunt momenteel alleen niet-geverifieerde UDP-verbindingen via standaardpoort 514. De nettolading van elk Syslog-bericht is opgemaakt in Common Event Format (CEF). 
 
-  Voor de configuratie van de Syslog-client gebruikt de **Set SyslogServer** cmdlet worden weergegeven in het bevoegde eindpunt. 
+  Gebruik voor het configureren van de Syslog-client de **Set SyslogServer** cmdlet die beschikbaar zijn in het Privileged eindpunt. 
 
-  Met dit voorbeeld ziet u mogelijk de volgende drie waarschuwingen. Wanneer door Azure Stack wordt ingediend, neemt u deze waarschuwingen *beschrijvingen* en *herstel* richtlijnen. 
+  Met deze Preview-versie ziet u mogelijk de volgende drie waarschuwingen. Wanneer wordt aangeboden door Azure Stack, deze waarschuwingen bevatten *beschrijvingen* en *herstel* richtlijnen. 
   - TITEL: Code-integriteit uitschakelen  
   - TITEL: Code-integriteit in de controlemodus 
   - TITEL: Gebruikersaccount die is gemaakt
 
-  Hoewel deze functie in de preview, moet deze niet worden aangehaald in productieomgevingen.   
+  Hoewel deze functie nog in preview, moet deze niet wordt vertrouwd in een productieomgeving.   
 
 
 ### <a name="fixed-issues"></a>Opgeloste problemen
-- We het probleem opgelost dat geblokkeerd [openen van een nieuw ondersteuningsverzoek uit de vervolgkeuzelijst](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) uit in de beheerportal. Deze optie nu werkt zoals bedoeld. 
+- We het probleem opgelost dat geblokkeerd [een nieuwe ondersteuningsaanvraag te openen in de vervolgkeuzelijst](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) uit in de beheerportal. Nu deze optie werkt zoals bedoeld. 
 
 - **Verschillende oplossingen** voor prestaties, stabiliteit, beveiliging en het besturingssysteem dat wordt gebruikt door Azure Stack
 
@@ -64,55 +64,61 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 ### <a name="known-issues"></a>Bekende problemen
  
 #### <a name="portal"></a>Portal
-- <!-- 2551834 - IS, ASDK --> Wanneer u selecteert **overzicht** voor een opslagaccount in de beheerder of de gebruiker-portals, de gegevens van de *Essentials* deelvenster wordt niet weergegeven.  Het deelvenster Essentials geeft informatie weer over het account zoals de *resourcegroep*, *locatie*, en *abonnements-ID*.  Andere opties voor overzicht zijn toegankelijk zijn, zoals *Services* en *bewaking*, ook als opties voor *openen in Verkenner* of *opslagaccount verwijderen* .  
+- <!-- 2551834 - IS, ASDK --> Wanneer u selecteert **overzicht** voor een opslagaccount in de beheerder of de gebruiker-portals, de gegevens uit de *Essentials* deelvenster niet wordt weergegeven.  Het deelvenster Essentials geeft informatie weer over het account, zoals de *resourcegroep*, *locatie*, en *abonnements-ID*.  Andere opties voor overzicht zijn beschikbaar zijn, zoals *Services* en *bewaking*, ook als opties voor *openen in Explorer* of *storage-account verwijderen* .  
 
-  Als u de informatie niet beschikbaar is, gebruikt u de [Get azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell-cmdlet. 
+  Als u de informatie niet beschikbaar is, gebruikt u de [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell-cmdlet. 
 
-- <!-- 2551834 - IS, ASDK --> Wanneer u selecteert **labels** voor een opslagaccount in portals van de beheerder of de gebruiker de gegevens niet kan worden geladen en niet wordt weergegeven.  
+- <!-- 2551834 - IS, ASDK --> Wanneer u selecteert **Tags** voor een opslagaccount in de beheerder of de gebruiker-portals, de gegevens te laden is mislukt en niet wordt weergegeven.  
 
   Als u de informatie niet beschikbaar is, gebruikt u de [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0) PowerShell-cmdlet.
 
-- <!-- TBD - IS ASDK --> Gebruik niet de nieuwe beheerdersrechten abonnement typen *softwarelicentiecontrole abonnement*, en *verbruik abonnement*. Deze nieuwe abonnement typen zijn geïntroduceerd in versie 1804 maar nog niet klaar voor gebruik. U moet blijven gebruiken de *Provider standaard* abonnementstype.  
+- <!-- TBD - IS ASDK --> Gebruik niet de nieuwe administratieve abonnementstypen van *softwarelicentiecontrole abonnement*, en *verbruik abonnement*. Deze nieuwe abonnementstypen zijn geïntroduceerd in versie 1804 maar nog niet klaar voor gebruik. U moet echter ook doorgaan met de *Provider standaard* abonnementstype.  
 
-- <!-- 2403291 - IS ASDK --> Hebt u mogelijk geen gebruik van de horizontale schuifbalk langs de onderkant van de portals beheerder en gebruiker. Als u geen toegang de horizontale schuifbalk tot, links gebruik de breadcrumbs om te navigeren naar een vorige blade in de portal voor u de naam van de blade selecteert u wilt weergeven in de lijst van de breadcrumb gevonden aan de bovenkant van de portal.
+- <!-- 2403291 - IS ASDK --> Hebt u mogelijk geen gebruik van de horizontale schuifbalk langs de onderkant van de beheerder en gebruiker portals. Als u geen toegang de horizontale schuifbalk tot, blijven gebruiken de breadcrumbs om naar een vorige blade in de portal navigeren zijn door de naam van de blade te selecteren dat u wilt weergeven in de breadcrumb-lijst gevonden aan de bovenkant van de portal.
   ![Breadcrumb](media/asdk-release-notes/breadcrumb.png)
 
-- <!-- TBD -  IS ASDK --> Gebruiker abonnementen resulteert in een zwevende resources te verwijderen. Als tijdelijke oplossing Gebruikersbronnen of de hele resourcegroep eerst te verwijderen en verwijder vervolgens de gebruikersabonnementen.
+- <!-- TBD -  IS ASDK --> Verwijderen van zwevende resources leidt van gebruiker-abonnementen. Als tijdelijke oplossing, eerst Gebruikersbronnen of de hele resourcegroep verwijderen en verwijder vervolgens gebruikersabonnementen.
 
-- <!-- TBD -  IS ASDK --> U kunt machtigingen aan uw abonnement met behulp van de portals Azure Stack niet weergeven. Als tijdelijke oplossing PowerShell te gebruiken om machtigingen te controleren.
+- <!-- TBD -  IS ASDK --> U kunt machtigingen aan uw abonnement met behulp van de Azure Stack-portals niet weergeven. Als tijdelijke oplossing, moet u PowerShell gebruiken om machtigingen te controleren.
 
 
 #### <a name="health-and-monitoring"></a>Status en bewaking
-- <!-- 1264761 - IS ASDK -->  Mogelijk ziet u waarschuwingen voor de *Health-domeincontroller* onderdeel dat u hebt de volgende details:  
+- <!-- 1264761 - IS ASDK -->  Mogelijk ziet u waarschuwingen voor de *Health controller* onderdeel waarvoor u de volgende gegevens:  
 
    Waarschuwing #1:
-   - NAAM: De functie van de infrastructuur is slecht
+   - NAAM: De functie van de infrastructuur is niet in orde
    - ERNST: waarschuwing
-   - ONDERDEEL: Health-domeincontroller
-   - Beschrijving: De health-domeincontroller Heartbeat-Scanner is niet beschikbaar. Dit kan beïnvloeden statusrapporten en metrische gegevens.  
+   - ONDERDEEL: De gezondheid van controller
+   - Beschrijving: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
 
   Waarschuwing #2:
-   - NAAM: De functie van de infrastructuur is slecht
+   - NAAM: De functie van de infrastructuur is niet in orde
    - ERNST: waarschuwing
-   - ONDERDEEL: Health-domeincontroller
-   - Beschrijving: De health-domeincontroller veroorzaakt Scanner is niet beschikbaar. Dit kan beïnvloeden statusrapporten en metrische gegevens.
+   - ONDERDEEL: De gezondheid van controller
+   - Beschrijving: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
 
-  Beide waarschuwingen kunnen worden genegeerd en wordt automatisch gesloten na verloop van tijd.  
+  Beide waarschuwingen #1 en 2 # kunnen veilig worden genegeerd en wordt automatisch gesloten na verloop van tijd. 
 
-- <!-- 2392907 – ASDK -->   U ziet mogelijk een *kritieke* waarschuwing voor **geheugencapaciteit geringe**. Deze waarschuwing heeft de volgende beschrijving: *de regio is meer dan 95,00% van het beschikbare geheugen gebruikt. Maken van virtuele machines met grote hoeveelheden geheugen kan mislukken.*
+  U ziet ook de volgende waarschuwing voor *capaciteit*. Voor deze waarschuwing kan verschillen van het percentage beschikbaar geheugen is geïdentificeerd in de beschrijving:  
 
-  Deze waarschuwing kan worden gegenereerd als Azure-Stack onjuist-accounts voor geheugengebruik op de Azure-Stack development kit.  
+  Waarschuwing #3:
+   - NAAM: Onvoldoende geheugen beschikbaar capaciteit
+   - ERNST: kritiek
+   - COMPONENT: capaciteit
+   - Beschrijving: De regio heeft meer dan 80,00% van het beschikbare geheugen verbruikt. Het maken van virtuele machines met grote hoeveelheden geheugen kan mislukken.  
 
-  U kunt deze waarschuwing negeren en het probleem heeft geen invloed op de plaatsing van virtuele machines. 
+  In deze versie van Azure Stack, kan deze waarschuwing niet correct gestart. Als virtuele machines van tenants succesvol zijn geïmplementeerd blijft, kunt u veilig deze waarschuwing negeren. 
+  
+  Waarschuwing #3 wordt niet automatisch gesloten. Als u deze waarschuwing sluiten maakt Azure Stack dezelfde waarschuwing binnen 15 minuten.  
 
-- <!-- 2368581 - IS. ASDK --> Een Azure-Stack-operator, als u een waarschuwing weinig geheugen ontvangt en virtuele machines van tenants niet te implementeren met een *fout bij het maken van de Fabric VM*, is het mogelijk dat de Azure-Stack stempel heeft te weinig geheugen beschikbaar. Gebruik de [Azure Stack capaciteit Planne](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) beste leert de beschikbare capaciteit voor uw werkbelastingen. 
+- <!-- 2368581 - IS ASDK --> Azure Stack-operators, als u een waarschuwing voor een beperkte hoeveelheid geheugen ontvangt en virtuele machines van tenants niet te implementeren met een *fout bij het maken van infrastructuur-VM*, is het mogelijk dat de Azure Stack-stempel heeft te weinig geheugen beschikbaar. Gebruik de [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) naar het beste informatie over de beschikbare capaciteit voor uw workloads. 
 
 
 #### <a name="compute"></a>Compute
-- <!-- TBD - IS, ASDK --> Als u de grootte van een virtuele machine voor de implementatie van een virtuele machine, sommige F-serie VM-grootten zijn niet zichtbaar als onderdeel van de selector grootte wanneer u een virtuele machine maken. De volgende VM-grootten worden niet weergegeven in de selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, en *F64s_v2*.  
-  Als tijdelijke oplossing een van de volgende methoden te gebruiken voor het implementeren van een virtuele machine. In elke methode moet u opgeven van de VM-grootte die u wilt gebruiken.
+- <!-- TBD - IS, ASDK --> Bij het selecteren van een VM-grootte voor de implementatie van een virtuele machine, sommige F-serie VM-grootten zijn niet zichtbaar als onderdeel van de grootte selector bij het maken van een virtuele machine. De volgende VM-grootten worden niet weergegeven in de kiezer: *F8s_v2*, *F16s_v2*, *F32s_v2*, en *F64s_v2*.  
+  Als tijdelijke oplossing, gebruikt u een van de volgende methoden om een VM te implementeren. In elke methode moet u om op te geven van de VM-grootte die u wilt gebruiken.
 
-  - **Azure Resource Manager-sjabloon:** als u een sjabloon gebruikt, stelt de *vmSize* in de sjabloon zodat deze overeenkomt met de VM-grootte die u wilt gebruiken. Bijvoorbeeld de volgende vermelding wordt gebruikt voor het implementeren van een virtuele machine die gebruikmaakt van de *F32s_v2* grootte:  
+  - **Azure Resource Manager-sjabloon:** wanneer u een sjabloon gebruikt, stelt de *vmSize* in de sjabloon zodat deze overeenkomt met de VM-grootte die u wilt gebruiken. Bijvoorbeeld, de volgende vermelding wordt gebruikt voor het implementeren van een virtuele machine die gebruikmaakt van de *F32s_v2* grootte:  
 
     ```
         "properties": {
@@ -120,65 +126,65 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:** kunt u de [az vm maken](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) opdracht en de VM-grootte opgeven als een parameter, vergelijkbaar met `--size "Standard_F32s_v2"`.
+  - **Azure CLI:** kunt u de [az vm maken](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) opdracht en geeft u de VM-grootte als een parameter, die vergelijkbaar is met `--size "Standard_F32s_v2"`.
 
-  - **PowerShell:** met PowerShell kunt u [nieuw AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) met de parameter waarmee de VM-grootte, vergelijkbaar met `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell:** met PowerShell kunt u [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) met de parameter die aangeeft van de VM-grootte, die vergelijkbaar is met `-VMSize "Standard_F32s_v2"`.
 
 
-- <!-- TBD -  IS ASDK --> Instellingen voor virtuele-machineschaalsets schalen zijn niet beschikbaar in de portal. Als tijdelijke oplossing kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
+- <!-- TBD -  IS ASDK --> Instellingen voor vergroten/verkleinen voor schaalsets voor virtuele machines zijn niet beschikbaar in de portal. Als tijdelijke oplossing, kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege de verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
 
-- <!-- TBD -  IS ASDK --> Wanneer u virtuele machines op de gebruikersportal van Azure-Stack maakt, wordt een onjuist aantal gegevensschijven dat een virtuele machine van de D-reeks kunt toevoegen in de portal weergegeven. Alle ondersteunde D-reeks VMs aankan zo veel gegevensschijven als de configuratie van de Azure.
+- <!-- TBD -  IS ASDK --> Wanneer u virtuele machines op de gebruikersportal van Azure Stack maakt, wordt een onjuist aantal gegevensschijven dat een virtuele machine uit de D-serie kunt koppelen door de portal weergegeven. Alle ondersteunde D-serie VM's kan zo veel gegevensschijven bevatten als de Azure-configuratie.
 
-- <!-- TBD -  IS ASDK --> Wanneer een installatiekopie van een virtuele machine niet kan worden gemaakt, kan een mislukte item dat u niet verwijderen, worden toegevoegd aan de VM-installatiekopieën compute-blade.
+- <!-- TBD -  IS ASDK --> Wanneer een VM-installatiekopie niet kan worden gemaakt, kan een mislukte-item dat u niet verwijderen worden toegevoegd aan de VM-installatiekopieën compute-blade.
 
-  Als tijdelijke oplossing door een nieuwe VM-installatiekopie te maken met een dummy VHD die kan worden gemaakt via de Hyper-V (New-VHD-pad C:\dummy.vhd-vaste - SizeBytes 1 GB). Dit proces los het probleem dat verhindert dat het mislukte item wordt verwijderd. Vervolgens kunt 15 minuten na het maken van de installatiekopie van het dummy, u met succes verwijderen.
+  Als tijdelijke oplossing, kunt u een nieuwe VM-installatiekopie maken met een dummy VHD dat kan worden gemaakt via Hyper-V (New-VHD-pad C:\dummy.vhd-vaste - SizeBytes 1 GB). Dit proces los het probleem dat verhindert dat het mislukte item wordt verwijderd. Vervolgens, 15 minuten na het maken van de installatiekopie van het pop, u kunt met succes verwijderen.
 
   U kunt vervolgens redownload van de VM-installatiekopie die eerder is mislukt.
 
-- <!-- TBD -  IS ASDK --> Als u een uitbreiding op de implementatie van een VM-inrichting te lang duurt, door gebruikers laten de inrichting time-outwaarde in plaats van bij het stoppen van het proces voor de toewijzing ongedaan maken of verwijderen van de virtuele machine.  
+- <!-- TBD -  IS ASDK --> Als een uitbreiding op een VM-implementatie de inrichting te lang duurt, laat gebruikers de time-out van de inrichting in plaats van bij stoppen van de procedure voor de toewijzing ongedaan of verwijder de virtuele machine.  
 
-- <!-- 1662991 - IS ASDK --> Diagnostische gegevens van Linux-VM wordt niet ondersteund in Azure-Stack. Wanneer u een Linux-VM met diagnostische gegevens van virtuele machine is ingeschakeld implementeert, mislukt de implementatie. De implementatie mislukt ook als u de Linux-VM basismetrieken via de instellingen voor diagnostische inschakelt. 
+- <!-- 1662991 - IS ASDK --> Diagnostische gegevens over Linux-VM wordt niet ondersteund in Azure Stack. Wanneer u een Linux-VM met VM diagnostics is ingeschakeld implementeren, wordt de implementatie mislukt. De implementatie mislukt ook als u de Linux-VM eenvoudige metrische gegevens via diagnostische instellingen inschakelen. 
 
 #### <a name="networking"></a>Netwerken
-- <!-- TBD - IS ASDK --> U kan geen gebruiker gedefinieerde routes maken in de portal-beheerder of gebruiker. Gebruik als tijdelijke oplossing [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
+- <!-- TBD - IS ASDK --> U kan geen gebruiker gedefinieerde routes maken in de portal-beheerder of gebruiker. Als tijdelijke oplossing gebruiken [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
 
-- <!-- 1766332 - IS, ASDK --> Onder **Networking**, als u op **VPN-Gateway maken** voor het instellen van een VPN-verbinding, **op basis van beleid** wordt vermeld als een VPN-type. Selecteer deze optie niet. Alleen de **Route gebaseerd** optie wordt ondersteund in Azure-Stack.
+- <!-- 1766332 - IS, ASDK --> Onder **netwerken**, als u klikt op **VPN-Gateway maken** voor het instellen van een VPN-verbinding, **op basis van beleid** wordt vermeld als een VPN-type. Selecteer deze optie niet. Alleen de **Route op basis van** optie wordt ondersteund in Azure Stack.
 
-- <!-- 2388980 -  IS ASDK --> Nadat een virtuele machine is gemaakt en gekoppeld aan een openbaar IP-adres, kunt u die virtuele machine uit dat IP-adres kan niet loskoppelen. Disassociation lijkt te werken, maar de eerder toegewezen openbaar IP-adres blijft gekoppeld aan de oorspronkelijke virtuele machine.
+- <!-- 2388980 -  IS ASDK --> Nadat een virtuele machine is gemaakt en die zijn gekoppeld aan een openbaar IP-adres, kunt u deze VM op basis van IP-adres kan niet loskoppelen. Ontkoppeling lijkt te werken, maar het eerder toegewezen openbare IP-adres blijft gekoppeld aan de oorspronkelijke virtuele machine.
 
-  Op dit moment moet u alleen nieuwe openbare IP-adressen voor de nieuwe virtuele machines die u maakt.
+  Op dit moment moet u alleen nieuwe openbare IP-adressen voor nieuwe virtuele machines die u maakt.
 
-  Dit gebeurt zelfs als u een nieuwe virtuele machine het IP-adres toewijzen (gewoonlijk aangeduid als een *VIP's wisselen*). Alle toekomstige verbinding probeert te maken via dit resultaat van de IP-adres in van een verbinding met de oorspronkelijke virtuele machine en niet naar het nieuwe bericht.
-
-
-- <!-- 2292271 - IS ASDK --> Als u een quotumlimiet voor een netwerkbron die deel uitmaakt van een aanbieding en het Plan dat is gekoppeld aan een tenantabonnement verhoogt, wordt de nieuwe limiet niet toegepast op dat abonnement. De nieuwe limiet is echter van toepassing op nieuwe abonnementen die zijn gemaakt nadat het quotum wordt verhoogd. 
-
-  Gebruik een invoegtoepassing plan quotum te verhogen een netwerk wanneer het abonnement al gekoppeld aan een abonnement is om dit probleem omzeilen. Zie voor meer informatie hoe [beschikbaar maken van een plan voor de invoegtoepassing](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
-
-- <!-- 2304134 IS ASDK --> U kunt een abonnement met DNS-Zone-bronnen of routetabel resources zijn gekoppeld niet verwijderen. Om het abonnement is verwijderd, moet u eerst een DNS-Zone en routetabel resources verwijderen uit het tenantabonnement. 
+  Dit gebeurt zelfs als u het IP-adres aan een nieuwe virtuele machine opnieuw toewijzen (vaak aangeduid als een *wisselen van VIP*). Alle toekomstige probeert verbinding maken via dit resultaat van de IP-adres in een verbinding met de oorspronkelijke virtuele machine en niet naar de nieuwe vertakking.
 
 
-- <!-- 1902460 -  IS ASDK --> Azure-Stack ondersteunt één *lokale netwerkgateway* per IP-adres. Dit geldt voor alle abonnementen van de tenant. Nadat het maken van de eerste lokale gateway netwerkverbinding, daaropvolgende pogingen tot het maken van een lokale gateway netwerkbron met hetzelfde IP-adres worden geblokkeerd.
+- <!-- 2292271 - IS ASDK --> Als u een quotumlimiet voor een netwerkbron die deel uitmaakt van een aanbieding en een Plan dat is gekoppeld aan een tenantabonnement verhoogt, wordt de nieuwe limiet niet toegepast op dat aan het abonnement. De nieuwe limiet is echter van toepassing op nieuwe abonnementen die zijn gemaakt nadat het quotum is verhoogd. 
 
-- <!-- 16309153 -  IS ASDK --> Op een virtueel netwerk dat is gemaakt met een DNS-Server-instelling van *automatische*, wijzigen voor een aangepaste DNS-Server mislukt. De bijgewerkte instellingen zijn niet doorgevoerd in de virtuele machines in dit Vnet.
+  U kunt dit probleem omzeilen, door een aanvullende plan te gebruiken voor het verhogen van een quotum op het netwerk wanneer het abonnement al gekoppeld aan een abonnement is. Zie voor meer informatie over het [beschikbaar maken voor een aanvullende plan](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+
+- <!-- 2304134 IS ASDK --> U kunt een abonnement met DNS-Zone resources of de routetabel-resources die zijn gekoppeld aan het niet verwijderen. Als u wilt het abonnement is verwijderd, moet u eerst de DNS-Zone en routetabel resources uit het tenantabonnement verwijderen. 
+
+
+- <!-- 1902460 -  IS ASDK --> Azure Stack biedt ondersteuning voor een enkel *lokale netwerkgateway* per IP-adres. Dit geldt voor alle tenant-abonnementen. Nadat het maken van de eerste lokale gateway netwerkverbinding, volgende pogingen tot het maken van een resource van een lokale netwerkgateway met hetzelfde IP-adres worden geblokkeerd.
+
+- <!-- 16309153 -  IS ASDK --> In een Virtueelnetwerk dat is gemaakt met een DNS-Server-instelling van *automatische*, wijzigen naar een aangepaste DNS-Server mislukt. De bijgewerkte instellingen worden niet gepusht naar virtuele machines in dit Vnet.
  
-- <!-- TBD -  IS ASDK --> Azure-Stack biedt geen ondersteuning voor extra netwerkinterfaces toevoegen aan een VM-instantie nadat de virtuele machine is geïmplementeerd. Als de virtuele machine meer dan één netwerkinterface vereist, moeten ze tijdens de implementatie worden gedefinieerd.
+- <!-- TBD -  IS ASDK --> Azure Stack biedt geen ondersteuning voor extra netwerkinterfaces toevoegen aan een VM-exemplaar, nadat de virtuele machine is geïmplementeerd. Als de virtuele machine meer dan één netwerkinterface vereist, moeten ze worden gedefinieerd tijdens de implementatie.
 
 
 #### <a name="sql-and-mysql"></a>SQL- en MySQL 
-- <!-- TBD - ASDK --> De database die als host fungeert voor servers moet worden toegewezen voor gebruik door de resource provider en werkbelastingen. U kunt een exemplaar dat wordt gebruikt door andere verbruiker, met inbegrip van App-Services niet gebruiken.
+- <!-- TBD - ASDK --> De database die als host fungeert servers moet worden toegewezen voor gebruik door de resource-provider en gebruiker werkbelastingen. U kunt een exemplaar dat wordt gebruikt door andere consumenten, met inbegrip van App Services niet gebruiken.
 
-- <!-- IS, ASDK --> Speciale tekens, inclusief spaties en perioden, worden niet ondersteund in de **familie** naam bij het maken van een SKU voor de resourceproviders SQL en MySQL. 
+- <!-- IS, ASDK --> Speciale tekens, inclusief spaties en perioden, worden niet ondersteund in de **familie** naam wanneer u een SKU voor de SQL- en MySQL-resourceproviders. 
 
 #### <a name="app-service"></a>App Service
 - <!-- 2352906 - IS ASDK --> Gebruikers moeten de storage resourceprovider registreren voordat ze hun eerste Azure-functie in het abonnement maken.
 
-- <!-- TBD - IS ASDK --> Om de infrastructuur (werknemers, beheer, front-rollen) uitbreiden, moet u PowerShell gebruiken, zoals beschreven in de release-opmerkingen voor Compute.  
+- <!-- TBD - IS ASDK --> Als u wilt de infrastructuur (werknemers, beheer, front-rollen) uitbreiden, moet u PowerShell gebruiken, zoals beschreven in de opmerkingen bij de release voor Compute.  
 
-- <!-- TBD - IS ASDK --> App Service kan alleen worden geïmplementeerd in de *standaard Provider-abonnement* op dit moment. In een toekomstige update App Service implementeert in de nieuwe *softwarelicentiecontrole abonnement* die is geïntroduceerd in Azure Stack 1804. Wanneer de meting wordt ondersteund voor gebruik, worden alle bestaande implementaties worden gemigreerd naar dit nieuwe abonnementstype.
+- <!-- TBD - IS ASDK --> App Service kan alleen worden geïmplementeerd in de *standaard providerabonnement* op dit moment. In een toekomstige update App Service wordt geïmplementeerd in de nieuwe *softwarelicentiecontrole abonnement* die is geïntroduceerd in Azure Stack 1804. Wanneer de meting wordt ondersteund voor gebruik, worden alle bestaande implementaties worden gemigreerd naar dit nieuwe abonnementstype.
 
 #### <a name="usage"></a>Gebruik  
-- <!-- TBD -  IS ASDK --> Gebruik van openbare IP-adres-gebruiksgegevens meter toont dezelfde *datum/tijd gebeurtenis* waarde voor elke record in plaats van de *TimeDate* tijdstempel die wordt aangegeven wanneer de record is gemaakt. U niet op dit moment kunnen deze gegevens gebruiken om uit te voeren nauwkeurige registratie van het gebruik van openbare IP-adres.
+- <!-- TBD -  IS ASDK --> Gebruik openbare IP-adres-gebruiksgegevens meter toont dezelfde *datum/tijd evenement* waarde voor elke record in plaats van de *TimeDate* stempel waarin wordt weergegeven wanneer de record is gemaakt. U kunt deze gegevens op dit moment niet gebruiken om uit te voeren nauwkeurige accounting van gebruik van openbare IP-adres.
 
 <!-- #### Identity -->
 
@@ -187,125 +193,125 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 ## <a name="build-201805131"></a>Build 20180513.1
 
 ### <a name="new-features"></a>Nieuwe functies 
-Deze versie bevat de volgende verbeteringen en oplossingen voor Azure-Stack.  
+Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.  
 
-- <!-- 1759172 - IS, ASDK --> **Nieuwe beheerdersrechten abonnementen**. Met 1804 zijn twee nieuwe typen van abonnementen beschikbaar in de portal. Deze nieuwe abonnement-typen worden naast de standaard Provider-abonnement en zichtbaar met de nieuwe Azure-Stack installaties vanaf versie 1804. *Deze nieuwe typen abonnementen niet gebruiken voor deze versie van Azure-Stack*. We zullen bekendmaken voor het gebruik van deze typen abonnement aan met een toekomstige update. 
+- <!-- 1759172 - IS, ASDK --> **Nieuwe administratieve abonnementen**. Met 1804 zijn twee typen voor nieuwe abonnementen beschikbaar in de portal. Deze nieuwe abonnementstypen zijn naast de standaard providerabonnement en zichtbaar met nieuwe Azure Stack-installaties vanaf versie 1804. *Gebruik deze nieuwe abonnementstypen niet met deze versie van Azure Stack*. We kondigen de beschikbaarheid voor het gebruik van deze abonnementstypen aan met een toekomstige update. 
 
-  Deze nieuwe abonnement typen worden weergegeven maar kan deel uitmaken van een grotere wijziging voor het beveiligen van de standaard Provider-abonnement en gemakkelijker gedeelde bronnen, zoals het hosten van de SQL-servers implementeren. 
+  Deze nieuwe abonnementstypen zijn zichtbaar, maar deel uitmaakt van een grotere wijziging voor het beveiligen van de Provider standaard-abonnement en zodat u gemakkelijk gedeelde bronnen, zoals het hosten van de SQL-servers implementeren. 
 
-  De drie abonnement typen die nu beschikbaar zijn:  
-  - Standaard Provider-abonnement: blijven gebruiken van dit abonnementstype. 
-  - Softwarelicentiecontrole abonnement: *dit abonnementstype niet gebruiken.*
-  - Abonnement voor verbruik: *gebruik geen dit abonnementstype*
+  De abonnementstypen drie nu beschikbaar zijn:  
+  - Standaard providerabonnement: echter ook doorgaan met dit abonnementstype. 
+  - Betaling van abonnement: *gebruik niet het type van dit abonnement.*
+  - Gebruik-abonnement: *gebruik geen dit abonnementstype*
 
 ### <a name="fixed-issues"></a>Opgeloste problemen
-- <!-- IS, ASDK -->  In het beheerportal hoeft u niet langer de tegel Update vernieuwen voordat deze informatie wordt weergegeven. 
+- <!-- IS, ASDK -->  In de beheerportal hebt niet meer tot de tegel Update vernieuwen voordat wordt informatie weergegeven. 
 
-- <!-- 2050709 - IS, ASDK -->  U kunt nu het beheerportal opslag metrische gegevens voor Blob-service, service Table en Queue-service bewerken.
+- <!-- 2050709 - IS, ASDK -->  U kunt nu de admin-portal gebruiken om te bewerken van metrische opslaggegevens voor Blob-service, tabelservice en Queue-service.
 
-- <!-- IS, ASDK --> Onder **Networking**, wanneer u klikt op **verbinding** voor het instellen van een VPN-verbinding, **Site-naar-site (IPsec)** is nu de enige beschikbare optie. 
+- <!-- IS, ASDK --> Onder **netwerken**, wanneer u klikt op **verbinding** voor het instellen van een VPN-verbinding, **Site-naar-site (IPsec)** is nu de enige beschikbare optie. 
 
 - **Verschillende oplossingen** voor prestaties, stabiliteit, beveiliging en het besturingssysteem dat wordt gebruikt door Azure Stack
 
 <!-- ### Changes  --> 
-### <a name="additional-releases-timed-with-this-update"></a>Aanvullende versies is een time-out opgetreden met deze update  
-De volgende zijn nu beschikbaar, maar geen Azure-Stack update 1804 vereist.
-- **Bijwerken naar de Microsoft Azure-Stack System Center Operations Manager-Bewakingspakket**. Een nieuwe versie (1.0.3.0) van de Microsoft System Center Operations Manager Monitoring Pack voor Azure-Stack is beschikbaar voor [downloaden](https://www.microsoft.com/download/details.aspx?id=55184). Met deze versie kunt u de Service-Principals wanneer u een gekoppelde Azure-Stack-implementatie toevoegen. Deze versie biedt ook een updatebeheer ervaring die kunt u de herstelactie rechtstreeks vanuit binnen Operations Manager. Er zijn ook nieuwe dashboards die resourceproviders weergeven, schaaleenheden en schalen eenheid knooppunten.
+### <a name="additional-releases-timed-with-this-update"></a>Als u meer versies is een time-out opgetreden met deze update  
+De volgende zijn nu beschikbaar, maar geen Azure Stack update 1804 vereist.
+- **Bijwerken naar de Microsoft Azure Stack System Center Operations Manager-Bewakingspakket**. Een nieuwe versie (1.0.3.0) van de Microsoft System Center Operations Manager Monitoring Pack for Azure Stack is beschikbaar voor [downloaden](https://www.microsoft.com/download/details.aspx?id=55184). U kunt met deze versie, Service-Principals gebruiken wanneer u een verbonden Azure Stack-implementatie toevoegen. Deze versie biedt ook een Update Management-ervaring waarmee u de herstelactie rechtstreeks vanuit in Operations Manager. Er zijn ook nieuwe dashboards die weergeven van resourceproviders, schaaleenheden en schalen van knooppunten van de eenheid.
 
-- **Nieuwe Azure stapelen Admin PowerShell-versie 1.3.0**.  Azure-Stack PowerShell 1.3.0 is nu beschikbaar voor installatie. Deze versie bevat opdrachten voor alle resourceproviders van beheerder voor het beheren van Azure-Stack.  Sommige inhoud in deze versie wordt afgeschaft vanuit de Azure-Stack extra GitHub [opslagplaats](https://github.com/Azure/AzureStack-Tools). 
+- **Nieuwe Azure Stack-Admin PowerShell-versie 1.3.0**.  PowerShell voor Azure Stack 1.3.0 is nu beschikbaar voor installatie. Deze versie bevat opdrachten voor alle beheer-resourceproviders voor het beheren van Azure Stack.  Met deze release deel van de inhoud van de Azure Stack-hulpprogramma's GitHub wordt afgeschaft [opslagplaats](https://github.com/Azure/AzureStack-Tools). 
 
-   Ga als volgt voor details over de installatie, de [instructies](.\.\azure-stack-powershell-install.md) of de [help](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) voor Azure Stack Module 1.3.0 inhoud. 
+   Voor installatie-informatie, volgt u de [instructies](.\.\azure-stack-powershell-install.md) of de [help](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) inhoud voor Azure Stack-Module 1.3.0. 
 
-- **Initiële release van Azure Rest Stack API-verwijzing**. De [API-referentiemateriaal voor alle Azure-Stack Admin resourceproviders](https://docs.microsoft.com/rest/api/azure-stack/) nu is gepubliceerd. 
+- **Voor de eerste release van Azure Stack API-verwijzing voor Rest**. De [API-naslaginformatie voor alle resourceproviders op Azure Stack Admin](https://docs.microsoft.com/rest/api/azure-stack/) nu wordt gepubliceerd. 
 
 ### <a name="known-issues"></a>Bekende problemen
  
 #### <a name="portal"></a>Portal
-- <!-- TBD - IS ASDK --> De mogelijkheid [een nieuwe ondersteuningsaanvraag openen vanuit de vervolgkeuzelijst](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) uit binnen de beheerder van de portal is niet beschikbaar. Gebruik in plaats daarvan de volgende koppeling:     
+- <!-- TBD - IS ASDK --> De mogelijkheid [een nieuwe ondersteuningsaanvraag openen in de vervolgkeuzelijst](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) uit binnen de beheerder van de portal is niet beschikbaar. In plaats daarvan gebruikt u de volgende koppeling:     
     - Gebruik voor Azure Stack Development Kit https://aka.ms/azurestackforum.    
 
-- <!-- 2403291 - IS ASDK --> Hebt u mogelijk geen gebruik van de horizontale schuifbalk langs de onderkant van de portals beheerder en gebruiker. Als u geen toegang de horizontale schuifbalk tot, links gebruik de breadcrumbs om te navigeren naar een vorige blade in de portal voor u de naam van de blade selecteert u wilt weergeven in de lijst van de breadcrumb gevonden aan de bovenkant van de portal.
+- <!-- 2403291 - IS ASDK --> Hebt u mogelijk geen gebruik van de horizontale schuifbalk langs de onderkant van de beheerder en gebruiker portals. Als u geen toegang de horizontale schuifbalk tot, blijven gebruiken de breadcrumbs om naar een vorige blade in de portal navigeren zijn door de naam van de blade te selecteren dat u wilt weergeven in de breadcrumb-lijst gevonden aan de bovenkant van de portal.
   ![Breadcrumb](media/asdk-release-notes/breadcrumb.png)
 
-- <!-- TBD -  IS ASDK --> Gebruiker abonnementen resulteert in een zwevende resources te verwijderen. Als tijdelijke oplossing Gebruikersbronnen of de hele resourcegroep eerst te verwijderen en verwijder vervolgens de gebruikersabonnementen.
+- <!-- TBD -  IS ASDK --> Verwijderen van zwevende resources leidt van gebruiker-abonnementen. Als tijdelijke oplossing, eerst Gebruikersbronnen of de hele resourcegroep verwijderen en verwijder vervolgens gebruikersabonnementen.
 
-- <!-- TBD -  IS ASDK --> U kunt machtigingen aan uw abonnement met behulp van de portals Azure Stack niet weergeven. Als tijdelijke oplossing PowerShell te gebruiken om machtigingen te controleren.
+- <!-- TBD -  IS ASDK --> U kunt machtigingen aan uw abonnement met behulp van de Azure Stack-portals niet weergeven. Als tijdelijke oplossing, moet u PowerShell gebruiken om machtigingen te controleren.
 
--   <!-- TBD -  IS ASDK --> In het beheerportal ziet u mogelijk een kritieke waarschuwing voor het onderdeel Microsoft.Update.Admin. De naam van waarschuwing, beschrijving en herstel alle als weergegeven:  
+-   <!-- TBD -  IS ASDK --> In de beheerportal ziet u mogelijk een kritieke waarschuwing voor het onderdeel Microsoft.Update.Admin. De naam van de waarschuwing, beschrijving en herstel alle als weergegeven:  
     - *Fout - sjabloon voor FaultType ResourceProviderTimeout ontbreekt.*
 
-    Deze waarschuwing kan worden genegeerd. 
+    Deze waarschuwing kan veilig worden genegeerd. 
 
 #### <a name="health-and-monitoring"></a>Status en bewaking
-- <!-- 1264761 - IS ASDK -->  Mogelijk ziet u waarschuwingen voor de *Health-domeincontroller* onderdeel dat u hebt de volgende details:  
+- <!-- 1264761 - IS ASDK -->  Mogelijk ziet u waarschuwingen voor de *Health controller* onderdeel waarvoor u de volgende gegevens:  
 
    Waarschuwing #1:
-   - NAAM: De functie van de infrastructuur is slecht
+   - NAAM: De functie van de infrastructuur is niet in orde
    - ERNST: waarschuwing
-   - ONDERDEEL: Health-domeincontroller
-   - Beschrijving: De health-domeincontroller Heartbeat-Scanner is niet beschikbaar. Dit kan beïnvloeden statusrapporten en metrische gegevens.  
+   - ONDERDEEL: De gezondheid van controller
+   - Beschrijving: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
 
   Waarschuwing #2:
-   - NAAM: De functie van de infrastructuur is slecht
+   - NAAM: De functie van de infrastructuur is niet in orde
    - ERNST: waarschuwing
-   - ONDERDEEL: Health-domeincontroller
-   - Beschrijving: De health-domeincontroller veroorzaakt Scanner is niet beschikbaar. Dit kan beïnvloeden statusrapporten en metrische gegevens.
+   - ONDERDEEL: De gezondheid van controller
+   - Beschrijving: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
 
   Beide waarschuwingen kunnen worden genegeerd. Ze worden automatisch gesloten na verloop van tijd.  
 
 #### <a name="marketplace"></a>Marketplace
-- Gebruikers de volledige marketplace zonder een abonnement kunnen bladeren en beheeritems zoals plannen en aanbiedingen kunnen zien. Deze items zijn niet-functioneel voor gebruikers.
+- Gebruikers de volledige marketplace zonder abonnement kunnen zoeken en met beheerdersrechten objecten, zoals plannen en aanbiedingen kunnen zien. Deze items zijn niet functioneel voor gebruikers.
  
 #### <a name="compute"></a>Compute
-- <!-- TBD -  IS ASDK --> Instellingen voor virtuele-machineschaalsets schalen zijn niet beschikbaar in de portal. Als tijdelijke oplossing kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
+- <!-- TBD -  IS ASDK --> Instellingen voor vergroten/verkleinen voor schaalsets voor virtuele machines zijn niet beschikbaar in de portal. Als tijdelijke oplossing, kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege de verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
 
-- <!-- TBD -  IS ASDK --> Wanneer u virtuele machines op de gebruikersportal van Azure-Stack maakt, wordt een onjuist aantal gegevensschijven dat aan een DS-serie VM koppelen kunt in de portal weergegeven. DS-serie VMs aankan zo veel gegevensschijven als de configuratie van de Azure.
+- <!-- TBD -  IS ASDK --> Wanneer u virtuele machines op de gebruikersportal van Azure Stack maakt, wordt een onjuist aantal gegevensschijven die aan een virtuele machine uit de DS-serie kunt koppelen door de portal weergegeven. DS-serie VM's kan zo veel gegevensschijven bevatten als de Azure-configuratie.
 
-- <!-- TBD -  IS ASDK --> Wanneer een installatiekopie van een virtuele machine niet kan worden gemaakt, kan een mislukte item dat u niet verwijderen, worden toegevoegd aan de VM-installatiekopieën compute-blade.
+- <!-- TBD -  IS ASDK --> Wanneer een VM-installatiekopie niet kan worden gemaakt, kan een mislukte-item dat u niet verwijderen worden toegevoegd aan de VM-installatiekopieën compute-blade.
 
-  Als tijdelijke oplossing door een nieuwe VM-installatiekopie te maken met een dummy VHD die kan worden gemaakt via de Hyper-V (New-VHD-pad C:\dummy.vhd-vaste - SizeBytes 1 GB). Dit proces los het probleem dat verhindert dat het mislukte item wordt verwijderd. Vervolgens kunt 15 minuten na het maken van de installatiekopie van het dummy, u met succes verwijderen.
+  Als tijdelijke oplossing, kunt u een nieuwe VM-installatiekopie maken met een dummy VHD dat kan worden gemaakt via Hyper-V (New-VHD-pad C:\dummy.vhd-vaste - SizeBytes 1 GB). Dit proces los het probleem dat verhindert dat het mislukte item wordt verwijderd. Vervolgens, 15 minuten na het maken van de installatiekopie van het pop, u kunt met succes verwijderen.
 
   U kunt vervolgens redownload van de VM-installatiekopie die eerder is mislukt.
 
-- <!-- TBD -  IS ASDK --> Als u een uitbreiding op de implementatie van een VM-inrichting te lang duurt, door gebruikers laten de inrichting time-outwaarde in plaats van bij het stoppen van het proces voor de toewijzing ongedaan maken of verwijderen van de virtuele machine.  
+- <!-- TBD -  IS ASDK --> Als een uitbreiding op een VM-implementatie de inrichting te lang duurt, laat gebruikers de time-out van de inrichting in plaats van bij stoppen van de procedure voor de toewijzing ongedaan of verwijder de virtuele machine.  
 
-- <!-- 1662991 - IS ASDK --> Diagnostische gegevens van Linux-VM wordt niet ondersteund in Azure-Stack. Wanneer u een Linux-VM met diagnostische gegevens van virtuele machine is ingeschakeld implementeert, mislukt de implementatie. De implementatie mislukt ook als u de Linux-VM basismetrieken via de instellingen voor diagnostische inschakelt. 
+- <!-- 1662991 - IS ASDK --> Diagnostische gegevens over Linux-VM wordt niet ondersteund in Azure Stack. Wanneer u een Linux-VM met VM diagnostics is ingeschakeld implementeren, wordt de implementatie mislukt. De implementatie mislukt ook als u de Linux-VM eenvoudige metrische gegevens via diagnostische instellingen inschakelen. 
 
 #### <a name="networking"></a>Netwerken
-- <!-- 1766332 - IS, ASDK --> Onder **Networking**, als u op **VPN-Gateway maken** voor het instellen van een VPN-verbinding, **op basis van beleid** wordt vermeld als een VPN-type. Selecteer deze optie niet. Alleen de **Route gebaseerd** optie wordt ondersteund in Azure-Stack.
+- <!-- 1766332 - IS, ASDK --> Onder **netwerken**, als u klikt op **VPN-Gateway maken** voor het instellen van een VPN-verbinding, **op basis van beleid** wordt vermeld als een VPN-type. Selecteer deze optie niet. Alleen de **Route op basis van** optie wordt ondersteund in Azure Stack.
 
-- <!-- 2388980 -  IS ASDK --> Nadat een virtuele machine is gemaakt en gekoppeld aan een openbaar IP-adres, kunt u die virtuele machine uit dat IP-adres kan niet loskoppelen. Disassociation lijkt te werken, maar de eerder toegewezen openbaar IP-adres blijft gekoppeld aan de oorspronkelijke virtuele machine.
+- <!-- 2388980 -  IS ASDK --> Nadat een virtuele machine is gemaakt en die zijn gekoppeld aan een openbaar IP-adres, kunt u deze VM op basis van IP-adres kan niet loskoppelen. Ontkoppeling lijkt te werken, maar het eerder toegewezen openbare IP-adres blijft gekoppeld aan de oorspronkelijke virtuele machine.
 
-  Op dit moment moet u alleen nieuwe openbare IP-adressen voor de nieuwe virtuele machines die u maakt.
+  Op dit moment moet u alleen nieuwe openbare IP-adressen voor nieuwe virtuele machines die u maakt.
 
-  Dit gebeurt zelfs als u een nieuwe virtuele machine het IP-adres toewijzen (gewoonlijk aangeduid als een *VIP's wisselen*). Alle toekomstige verbinding probeert te maken via dit resultaat van de IP-adres in van een verbinding met de oorspronkelijke virtuele machine en niet naar het nieuwe bericht.
+  Dit gebeurt zelfs als u het IP-adres aan een nieuwe virtuele machine opnieuw toewijzen (vaak aangeduid als een *wisselen van VIP*). Alle toekomstige probeert verbinding maken via dit resultaat van de IP-adres in een verbinding met de oorspronkelijke virtuele machine en niet naar de nieuwe vertakking.
 
-- <!-- 2292271 - IS ASDK --> Als u een quotumlimiet voor een netwerkbron die deel uitmaakt van een aanbieding en het Plan dat is gekoppeld aan een tenantabonnement verhoogt, wordt de nieuwe limiet niet toegepast op dat abonnement. De nieuwe limiet is echter van toepassing op nieuwe abonnementen die zijn gemaakt nadat het quotum wordt verhoogd. 
+- <!-- 2292271 - IS ASDK --> Als u een quotumlimiet voor een netwerkbron die deel uitmaakt van een aanbieding en een Plan dat is gekoppeld aan een tenantabonnement verhoogt, wordt de nieuwe limiet niet toegepast op dat aan het abonnement. De nieuwe limiet is echter van toepassing op nieuwe abonnementen die zijn gemaakt nadat het quotum is verhoogd. 
 
-  Gebruik een invoegtoepassing plan quotum te verhogen een netwerk wanneer het abonnement al gekoppeld aan een abonnement is om dit probleem omzeilen. Zie voor meer informatie hoe [beschikbaar maken van een plan voor de invoegtoepassing](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+  U kunt dit probleem omzeilen, door een aanvullende plan te gebruiken voor het verhogen van een quotum op het netwerk wanneer het abonnement al gekoppeld aan een abonnement is. Zie voor meer informatie over het [beschikbaar maken voor een aanvullende plan](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
-- <!-- 2304134 IS ASDK --> U kunt een abonnement met DNS-Zone-bronnen of routetabel resources zijn gekoppeld niet verwijderen. Om het abonnement is verwijderd, moet u eerst een DNS-Zone en routetabel resources verwijderen uit het tenantabonnement. 
+- <!-- 2304134 IS ASDK --> U kunt een abonnement met DNS-Zone resources of de routetabel-resources die zijn gekoppeld aan het niet verwijderen. Als u wilt het abonnement is verwijderd, moet u eerst de DNS-Zone en routetabel resources uit het tenantabonnement verwijderen. 
 
 
-- <!-- 1902460 -  IS ASDK --> Azure-Stack ondersteunt één *lokale netwerkgateway* per IP-adres. Dit geldt voor alle abonnementen van de tenant. Nadat het maken van de eerste lokale gateway netwerkverbinding, daaropvolgende pogingen tot het maken van een lokale gateway netwerkbron met hetzelfde IP-adres worden geblokkeerd.
+- <!-- 1902460 -  IS ASDK --> Azure Stack biedt ondersteuning voor een enkel *lokale netwerkgateway* per IP-adres. Dit geldt voor alle tenant-abonnementen. Nadat het maken van de eerste lokale gateway netwerkverbinding, volgende pogingen tot het maken van een resource van een lokale netwerkgateway met hetzelfde IP-adres worden geblokkeerd.
 
-- <!-- 16309153 -  IS ASDK --> Op een virtueel netwerk dat is gemaakt met een DNS-Server-instelling van *automatische*, wijzigen voor een aangepaste DNS-Server mislukt. De bijgewerkte instellingen zijn niet doorgevoerd in de virtuele machines in dit Vnet.
+- <!-- 16309153 -  IS ASDK --> In een Virtueelnetwerk dat is gemaakt met een DNS-Server-instelling van *automatische*, wijzigen naar een aangepaste DNS-Server mislukt. De bijgewerkte instellingen worden niet gepusht naar virtuele machines in dit Vnet.
  
-- <!-- TBD -  IS ASDK --> Azure-Stack biedt geen ondersteuning voor extra netwerkinterfaces toevoegen aan een VM-instantie nadat de virtuele machine is geïmplementeerd. Als de virtuele machine meer dan één netwerkinterface vereist, moeten ze tijdens de implementatie worden gedefinieerd.
+- <!-- TBD -  IS ASDK --> Azure Stack biedt geen ondersteuning voor extra netwerkinterfaces toevoegen aan een VM-exemplaar, nadat de virtuele machine is geïmplementeerd. Als de virtuele machine meer dan één netwerkinterface vereist, moeten ze worden gedefinieerd tijdens de implementatie.
 
 
 #### <a name="sql-and-mysql"></a>SQL- en MySQL 
-- <!-- TBD - ASDK --> De database die als host fungeert voor servers moet worden toegewezen voor gebruik door de resource provider en werkbelastingen. U kunt een exemplaar dat wordt gebruikt door andere verbruiker, met inbegrip van App-Services niet gebruiken.
+- <!-- TBD - ASDK --> De database die als host fungeert servers moet worden toegewezen voor gebruik door de resource-provider en gebruiker werkbelastingen. U kunt een exemplaar dat wordt gebruikt door andere consumenten, met inbegrip van App Services niet gebruiken.
 
-- <!-- IS, ASDK --> Speciale tekens, inclusief spaties en perioden, worden niet ondersteund in de **familie** naam bij het maken van een SKU voor de resourceproviders SQL en MySQL. 
+- <!-- IS, ASDK --> Speciale tekens, inclusief spaties en perioden, worden niet ondersteund in de **familie** naam wanneer u een SKU voor de SQL- en MySQL-resourceproviders. 
 
 #### <a name="app-service"></a>App Service
 - <!-- TBD -  IS ASDK --> Gebruikers moeten de storage resourceprovider registreren voordat ze hun eerste Azure-functie in het abonnement maken.
 
-- <!-- TBD -  IS ASDK --> Om de infrastructuur (werknemers, beheer, front-rollen) uitbreiden, moet u PowerShell gebruiken, zoals beschreven in de release-opmerkingen voor Compute.
+- <!-- TBD -  IS ASDK --> Als u wilt de infrastructuur (werknemers, beheer, front-rollen) uitbreiden, moet u PowerShell gebruiken, zoals beschreven in de opmerkingen bij de release voor Compute.
  
 #### <a name="usage"></a>Gebruik  
-- <!-- TBD -  IS ASDK --> Gebruik van openbare IP-adres-gebruiksgegevens meter toont dezelfde *datum/tijd gebeurtenis* waarde voor elke record in plaats van de *TimeDate* tijdstempel die wordt aangegeven wanneer de record is gemaakt. U niet op dit moment kunnen deze gegevens gebruiken om uit te voeren nauwkeurige registratie van het gebruik van openbare IP-adres.
+- <!-- TBD -  IS ASDK --> Gebruik openbare IP-adres-gebruiksgegevens meter toont dezelfde *datum/tijd evenement* waarde voor elke record in plaats van de *TimeDate* stempel waarin wordt weergegeven wanneer de record is gemaakt. U kunt deze gegevens op dit moment niet gebruiken om uit te voeren nauwkeurige accounting van gebruik van openbare IP-adres.
 
 <!--
 #### Identity
@@ -314,10 +320,10 @@ De volgende zijn nu beschikbaar, maar geen Azure-Stack update 1804 vereist.
 
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Hulpprogramma's voor Azure Stack downloaden vanuit GitHub
-- Wanneer u de *aanroepen webrequest* PowerShell-cmdlet voor het downloaden van de Azure-Stack van hulpprogramma's voor vanuit Github, er een foutbericht:     
-    -  *aanroepen webrequest: de aanvraag is afgebroken: kan het beveiligde SSL/TLS-kanaal niet maken.*     
+- Wanneer u de *invoke-webrequest* PowerShell-cmdlet voor het downloaden van de Azure Stack-hulpprogramma's vanuit Github, wordt er een fout opgetreden:     
+    -  *Invoke-webrequest: de aanvraag is afgebroken: kan geen beveiligde SSL/TLS-kanaal maken.*     
 
-  Deze fout treedt op omdat een recente GitHub ondersteuning afschaffing van de cryptografische standaarden Tlsv1 en Tlsv1.1 (de standaardinstelling voor PowerShell). Zie voor meer informatie [zwakke cryptografische standaarden verwijdering kennisgeving](https://githubengineering.com/crypto-removal-notice/).
+  Deze fout treedt op vanwege een recente GitHub ondersteuning afschaffing van de cryptografische standaarden Tlsv1 en Tlsv1.1 (de standaardinstelling voor PowerShell). Zie voor meer informatie, [zwakke cryptografische standaarden verwijdering kennisgeving](https://githubengineering.com/crypto-removal-notice/).
 
 <!-- #### Identity -->
 
@@ -326,125 +332,125 @@ De volgende zijn nu beschikbaar, maar geen Azure-Stack update 1804 vereist.
 ## <a name="build-201803021"></a>Build 20180302.1
 
 ### <a name="new-features-and-fixes"></a>Nieuwe functies en oplossingen
-De nieuwe functies en oplossingen die zijn vrijgegeven voor Azure-Stack geïntegreerde systemen versie 1803 van toepassing op de Azure-Stack Development Kit. Zie de [nieuwe functies](.\.\azure-stack-update-1803.md#new-features) en [problemen opgelost](.\.\azure-stack-update-1803.md#fixed-issues) secties van de Azure-Stack 1803 bijwerken releaseopmerkingen voor meer informatie.  
+De nieuwe functies en oplossingen die zijn uitgebracht voor Azure Stack-geïntegreerde systemen, versie 1803 van toepassing op de Azure Stack Development Kit. Zie de [nieuwe functies](.\.\azure-stack-update-1803.md#new-features) en [problemen opgelost](.\.\azure-stack-update-1803.md#fixed-issues) secties van de Azure Stack-1803 bijwerken opmerkingen bij de release voor meer informatie.  
 > [!IMPORTANT]    
-> Sommige van de items in de **nieuwe functies** en **problemen opgelost** secties alleen relevant zijn voor Azure-Stack geïntegreerd systemen.
+> Enkele van de items die worden vermeld in de **nieuwe functies** en **problemen opgelost** secties alleen relevant zijn voor geïntegreerde Azure Stack-systemen.
 
 ### <a name="changes"></a>Wijzigingen
-- De manier wijzigen van de status van een nieuwe aanbieding van *persoonlijke* naar *openbare* of *buiten gebruik gestelde* is gewijzigd. Zie voor meer informatie [maken van een aanbieding](.\.\azure-stack-create-offer.md). 
+- De manier om te wijzigen van de status van een nieuwe aanbieding van *persoonlijke* naar *openbare* of *uit bedrijf genomen* is gewijzigd. Zie voor meer informatie, [maken van een aanbieding](.\.\azure-stack-create-offer.md). 
 
 
 ### <a name="known-issues"></a>Bekende problemen
  
 #### <a name="portal"></a>Portal
-- De mogelijkheid [een nieuwe ondersteuningsaanvraag openen vanuit de vervolgkeuzelijst](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) uit binnen de beheerder van de portal is niet beschikbaar. Gebruik in plaats daarvan de volgende koppeling:     
+- De mogelijkheid [een nieuwe ondersteuningsaanvraag openen in de vervolgkeuzelijst](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) uit binnen de beheerder van de portal is niet beschikbaar. In plaats daarvan gebruikt u de volgende koppeling:     
     - Gebruik voor Azure Stack Development Kit https://aka.ms/azurestackforum.    
 
-- <!-- 2050709 --> In het beheerportal is het niet mogelijk te bewerken opslag metrische gegevens voor Blob-service, service tabel of Queue-service. Wanneer u gaat u naar de opslag en selecteer vervolgens de blob, table of wachtrij service tegel klikt, wordt een nieuwe blade geopend met een grafiek metrische gegevens voor de service. Als u vervolgens bewerken vanaf de bovenkant van de metrische gegevens grafiek tegel selecteert, wordt de blade grafiek bewerken wordt geopend maar geen opties voor het bewerken van metrische gegevens weer.  
+- <!-- 2050709 --> In de beheerportal is het niet mogelijk om te bewerken van metrische opslaggegevens voor Blob-service, tabelservice of Queue-service. Wanneer u gaat u naar de opslag, en selecteer vervolgens de blob-, tabel- of tegel voor queue-service, wordt er een nieuwe blade geopend waarin u een grafiek met metrische gegevens voor die service. Als u vervolgens bewerken vanaf de bovenkant van de metrische gegevens grafiek tegel selecteert, wordt de grafiek bewerken-blade geopend maar geen opties voor het bewerken van metrische gegevens weer.  
 
-- U ziet een **activering vereist** waarschuwingsmelding dat aangeeft dat het registreren van uw Azure-Stack Development Kit noodzakelijk. Dit is verwacht gedrag.
+- U ziet een **activering vereist** waarschuwing die aangeeft voor het registreren van uw Azure Stack Development Kit. Dit gedrag is verwacht.
 
-- Gebruiker abonnementen resulteert in een zwevende resources te verwijderen. Als tijdelijke oplossing Gebruikersbronnen of de hele resourcegroep eerst te verwijderen en verwijder vervolgens de gebruikersabonnementen.
+- Verwijderen van zwevende resources leidt van gebruiker-abonnementen. Als tijdelijke oplossing, eerst Gebruikersbronnen of de hele resourcegroep verwijderen en verwijder vervolgens gebruikersabonnementen.
 
-- U kunt machtigingen aan uw abonnement met behulp van de portals Azure Stack niet weergeven. Als tijdelijke oplossing PowerShell te gebruiken om machtigingen te controleren.
+- U kunt machtigingen aan uw abonnement met behulp van de Azure Stack-portals niet weergeven. Als tijdelijke oplossing, moet u PowerShell gebruiken om machtigingen te controleren.
 
-- In het dashboard van de beheerportal mislukt de Update-tegel om meer informatie over updates weer te geven. U lost dit probleem, klikt u op de tegel te vernieuwen.
+- In het dashboard van de beheerportal, wordt de tegel Update mislukt om meer informatie over updates weer te geven. U lost dit probleem, klikt u op de tegel te vernieuwen.
 
--   In het beheerportal ziet u mogelijk een kritieke waarschuwing voor het onderdeel Microsoft.Update.Admin. De naam van waarschuwing, beschrijving en herstel alle als weergegeven:  
+-   In de beheerportal ziet u mogelijk een kritieke waarschuwing voor het onderdeel Microsoft.Update.Admin. De naam van de waarschuwing, beschrijving en herstel alle als weergegeven:  
     - *Fout - sjabloon voor FaultType ResourceProviderTimeout ontbreekt.*
 
-    Deze waarschuwing kan worden genegeerd. 
+    Deze waarschuwing kan veilig worden genegeerd. 
 
-- In de beheerportal en gebruikersportal, de overzichtsblade niet kan worden geladen bij het selecteren van de blade overzicht van de storage-accounts die zijn gemaakt met een oudere versie van de API (voorbeeld: 2015-06-15). 
+- In de beheerportal en de gebruikersportal, wordt de blade overzicht mislukt laden wanneer u de blade overzicht van storage-accounts die zijn gemaakt met een oudere API-versie selecteert (voorbeeld: 15-06-2015). 
 
-  Als tijdelijke oplossing kunt u PowerShell gebruiken om uit te voeren de **Start ResourceSynchronization.ps1** script toegang om de accountdetails van de opslag te herstellen. [Het script is beschikbaar via GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), en moet worden uitgevoerd met service-beheerdersreferenties op de host van development kit als u de ASDK gebruikt.  
+  Als tijdelijke oplossing, kunt u PowerShell gebruiken om uit te voeren de **Start ResourceSynchronization.ps1** script toegang herstellen naar details van het opslagaccount. [Het script is beschikbaar via GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), en met service-beheerdersreferenties op de host van development kit moet uitvoeren als u de ASDK gebruikt.  
 
-- De **servicestatus** blade niet kan worden geladen. Wanneer u de status van de Service-blade opent in de beheerder of de gebruiker-portal, Azure-Stack een fout wordt weergegeven en wordt de informatie niet geladen. Dit is verwacht gedrag. Hoewel u kunt selecteren en servicestatus opent, wordt deze functie is nog niet beschikbaar maar zullen worden uitgevoerd in een toekomstige versie van Azure-Stack.
+- De **servicestatus** blade niet wordt geladen. Wanneer u de Service Health-blade opent in de beheerder of de gebruiker-portal, Azure Stack, een fout wordt weergegeven en informatie niet kan worden geladen. Dit is normaal. Hoewel u kunt selecteren en opent u de Health-Service, wordt deze functie is nog niet beschikbaar maar geïmplementeerd in een toekomstige versie van Azure Stack.
 
 
 #### <a name="health-and-monitoring"></a>Status en bewaking
-- <!-- 1264761 - IS ASDK -->  Mogelijk ziet u waarschuwingen voor de *Health-domeincontroller* onderdeel dat u hebt de volgende details:  
+- <!-- 1264761 - IS ASDK -->  Mogelijk ziet u waarschuwingen voor de *Health controller* onderdeel waarvoor u de volgende gegevens:  
 
    Waarschuwing #1:
-   - NAAM: De functie van de infrastructuur is slecht
+   - NAAM: De functie van de infrastructuur is niet in orde
    - ERNST: waarschuwing
-   - ONDERDEEL: Health-domeincontroller
-   - Beschrijving: De health-domeincontroller Heartbeat-Scanner is niet beschikbaar. Dit kan beïnvloeden statusrapporten en metrische gegevens.  
+   - ONDERDEEL: De gezondheid van controller
+   - Beschrijving: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
 
   Waarschuwing #2:
-   - NAAM: De functie van de infrastructuur is slecht
+   - NAAM: De functie van de infrastructuur is niet in orde
    - ERNST: waarschuwing
-   - ONDERDEEL: Health-domeincontroller
-   - Beschrijving: De health-domeincontroller veroorzaakt Scanner is niet beschikbaar. Dit kan beïnvloeden statusrapporten en metrische gegevens.
+   - ONDERDEEL: De gezondheid van controller
+   - Beschrijving: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
 
   Beide waarschuwingen kunnen worden genegeerd. Ze worden automatisch gesloten na verloop van tijd.  
 
-- In de Stack van Azure-beheerportal, ziet u mogelijk een kritieke waarschuwing met de naam **in behandeling zijnde vervaldatum van het externe certificaat**.  Deze waarschuwing kan worden genegeerd en heeft invloed op de bewerkingen van de Azure-Stack Development Kit. 
+- In de Azure Stack-beheerportal, ziet u mogelijk een kritieke waarschuwing met de naam van de **in afwachting van extern certificaat verlopen**.  Deze waarschuwing kan veilig worden genegeerd en is van invloed op bewerkingen van de Azure Stack Development Kit. 
 
 
 #### <a name="marketplace"></a>Marketplace
-- Gebruikers de volledige marketplace zonder een abonnement kunnen bladeren en beheeritems zoals plannen en aanbiedingen kunnen zien. Deze items zijn niet-functioneel voor gebruikers.
+- Gebruikers de volledige marketplace zonder abonnement kunnen zoeken en met beheerdersrechten objecten, zoals plannen en aanbiedingen kunnen zien. Deze items zijn niet functioneel voor gebruikers.
  
 #### <a name="compute"></a>Compute
-- Instellingen voor virtuele-machineschaalsets schalen zijn niet beschikbaar in de portal. Als tijdelijke oplossing kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
+- Instellingen voor vergroten/verkleinen voor schaalsets voor virtuele machines zijn niet beschikbaar in de portal. Als tijdelijke oplossing, kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege de verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
 
-- Wanneer u virtuele machines op de gebruikersportal van Azure-Stack maakt, wordt een onjuist aantal gegevensschijven dat aan een DS-serie VM koppelen kunt in de portal weergegeven. DS-serie VMs aankan zo veel gegevensschijven als de configuratie van de Azure.
+- Wanneer u virtuele machines op de gebruikersportal van Azure Stack maakt, wordt een onjuist aantal gegevensschijven die aan een virtuele machine uit de DS-serie kunt koppelen door de portal weergegeven. DS-serie VM's kan zo veel gegevensschijven bevatten als de Azure-configuratie.
 
-- Wanneer een installatiekopie van een virtuele machine niet kan worden gemaakt, kan een mislukte item dat u niet verwijderen, worden toegevoegd aan de VM-installatiekopieën compute-blade.
+- Wanneer een VM-installatiekopie niet kan worden gemaakt, kan een mislukte-item dat u niet verwijderen worden toegevoegd aan de VM-installatiekopieën compute-blade.
 
-  Als tijdelijke oplossing door een nieuwe VM-installatiekopie te maken met een dummy VHD die kan worden gemaakt via de Hyper-V (New-VHD-pad C:\dummy.vhd-vaste - SizeBytes 1 GB). Dit proces los het probleem dat verhindert dat het mislukte item wordt verwijderd. Vervolgens kunt 15 minuten na het maken van de installatiekopie van het dummy, u met succes verwijderen.
+  Als tijdelijke oplossing, kunt u een nieuwe VM-installatiekopie maken met een dummy VHD dat kan worden gemaakt via Hyper-V (New-VHD-pad C:\dummy.vhd-vaste - SizeBytes 1 GB). Dit proces los het probleem dat verhindert dat het mislukte item wordt verwijderd. Vervolgens, 15 minuten na het maken van de installatiekopie van het pop, u kunt met succes verwijderen.
 
   U kunt vervolgens redownload van de VM-installatiekopie die eerder is mislukt.
 
--  Als u een uitbreiding op de implementatie van een VM-inrichting te lang duurt, door gebruikers laten de inrichting time-outwaarde in plaats van bij het stoppen van het proces voor de toewijzing ongedaan maken of verwijderen van de virtuele machine.  
+-  Als een uitbreiding op een VM-implementatie de inrichting te lang duurt, laat gebruikers de time-out van de inrichting in plaats van bij stoppen van de procedure voor de toewijzing ongedaan of verwijder de virtuele machine.  
 
-- <!-- 1662991 --> Diagnostische gegevens van Linux-VM wordt niet ondersteund in Azure-Stack. Wanneer u een Linux-VM met diagnostische gegevens van virtuele machine is ingeschakeld implementeert, mislukt de implementatie. De implementatie mislukt ook als u de Linux-VM basismetrieken via de instellingen voor diagnostische inschakelt. 
+- <!-- 1662991 --> Diagnostische gegevens over Linux-VM wordt niet ondersteund in Azure Stack. Wanneer u een Linux-VM met VM diagnostics is ingeschakeld implementeren, wordt de implementatie mislukt. De implementatie mislukt ook als u de Linux-VM eenvoudige metrische gegevens via diagnostische instellingen inschakelen. 
 
 
 #### <a name="networking"></a>Netwerken
-- Onder **Networking**, als u op **verbinding** voor het instellen van een VPN-verbinding, **VNet-naar-VNet** wordt vermeld als een mogelijke verbindingstype. Selecteer deze optie niet. Op dit moment wordt alleen de **Site-naar-site (IPsec)** optie wordt ondersteund.
+- Onder **netwerken**, als u klikt op **verbinding** voor het instellen van een VPN-verbinding, **VNet-naar-VNet** wordt vermeld als een mogelijke verbindingstype. Selecteer deze optie niet. Op dit moment alleen de **Site-naar-site (IPsec)** optie wordt ondersteund.
 
-- Nadat een virtuele machine is gemaakt en gekoppeld aan een openbaar IP-adres, kunt u die virtuele machine uit dat IP-adres kan niet loskoppelen. Disassociation lijkt te werken, maar de eerder toegewezen openbaar IP-adres blijft gekoppeld aan de oorspronkelijke virtuele machine.
+- Nadat een virtuele machine is gemaakt en die zijn gekoppeld aan een openbaar IP-adres, kunt u deze VM op basis van IP-adres kan niet loskoppelen. Ontkoppeling lijkt te werken, maar het eerder toegewezen openbare IP-adres blijft gekoppeld aan de oorspronkelijke virtuele machine.
 
-  Op dit moment moet u alleen nieuwe openbare IP-adressen voor de nieuwe virtuele machines die u maakt.
+  Op dit moment moet u alleen nieuwe openbare IP-adressen voor nieuwe virtuele machines die u maakt.
 
-  Dit gebeurt zelfs als u een nieuwe virtuele machine het IP-adres toewijzen (gewoonlijk aangeduid als een *VIP's wisselen*). Alle toekomstige verbinding probeert te maken via dit resultaat van de IP-adres in van een verbinding met de oorspronkelijke virtuele machine en niet naar het nieuwe bericht.
+  Dit gebeurt zelfs als u het IP-adres aan een nieuwe virtuele machine opnieuw toewijzen (vaak aangeduid als een *wisselen van VIP*). Alle toekomstige probeert verbinding maken via dit resultaat van de IP-adres in een verbinding met de oorspronkelijke virtuele machine en niet naar de nieuwe vertakking.
 
 
 
-- Azure-Stack ondersteunt één *lokale netwerkgateway* per IP-adres. Dit geldt voor alle abonnementen van de tenant. Nadat het maken van de eerste lokale gateway netwerkverbinding, daaropvolgende pogingen tot het maken van een lokale gateway netwerkbron met hetzelfde IP-adres worden geblokkeerd.
+- Azure Stack biedt ondersteuning voor een enkel *lokale netwerkgateway* per IP-adres. Dit geldt voor alle tenant-abonnementen. Nadat het maken van de eerste lokale gateway netwerkverbinding, volgende pogingen tot het maken van een resource van een lokale netwerkgateway met hetzelfde IP-adres worden geblokkeerd.
 
-- Op een virtueel netwerk dat is gemaakt met een DNS-Server-instelling van *automatische*, wijzigen voor een aangepaste DNS-Server mislukt. De bijgewerkte instellingen zijn niet doorgevoerd in de virtuele machines in dit Vnet.
+- In een Virtueelnetwerk dat is gemaakt met een DNS-Server-instelling van *automatische*, wijzigen naar een aangepaste DNS-Server mislukt. De bijgewerkte instellingen worden niet gepusht naar virtuele machines in dit Vnet.
  
-- Azure-Stack biedt geen ondersteuning voor extra netwerkinterfaces toevoegen aan een VM-instantie nadat de virtuele machine is geïmplementeerd. Als de virtuele machine meer dan één netwerkinterface vereist, moeten ze tijdens de implementatie worden gedefinieerd.
+- Azure Stack biedt geen ondersteuning voor extra netwerkinterfaces toevoegen aan een VM-exemplaar, nadat de virtuele machine is geïmplementeerd. Als de virtuele machine meer dan één netwerkinterface vereist, moeten ze worden gedefinieerd tijdens de implementatie.
 
 
 
 #### <a name="sql-and-mysql"></a>SQL- en MySQL 
-- Het kan maximaal één uur voordat gebruikers databases in een nieuwe SQL- of MySQL SKU maken kunnen duren.
+- Duurt maximaal één uur voordat gebruikers databases in een nieuwe SQL- of MySQL SKU kunnen maken.
 
-- De database die als host fungeert voor servers moet worden toegewezen voor gebruik door de resource provider en werkbelastingen. U kunt een exemplaar dat wordt gebruikt door andere verbruiker, met inbegrip van App-Services niet gebruiken.
+- De database die als host fungeert servers moet worden toegewezen voor gebruik door de resource-provider en gebruiker werkbelastingen. U kunt een exemplaar dat wordt gebruikt door andere consumenten, met inbegrip van App Services niet gebruiken.
 
-- <!-- IS, ASDK --> Speciale tekens, inclusief spaties en perioden, worden niet ondersteund in de **familie** of **laag** namen bij het maken van een SKU voor de resourceproviders SQL en MySQL.
+- <!-- IS, ASDK --> Speciale tekens, inclusief spaties en perioden, worden niet ondersteund in de **familie** of **laag** namen wanneer u een SKU voor de SQL- en MySQL-resourceproviders.
 
 #### <a name="app-service"></a>App Service
 - Gebruikers moeten de storage resourceprovider registreren voordat ze hun eerste Azure-functie in het abonnement maken.
 
-- Om de infrastructuur (werknemers, beheer, front-rollen) uitbreiden, moet u PowerShell gebruiken, zoals beschreven in de release-opmerkingen voor Compute.
+- Als u wilt de infrastructuur (werknemers, beheer, front-rollen) uitbreiden, moet u PowerShell gebruiken, zoals beschreven in de opmerkingen bij de release voor Compute.
  
 #### <a name="usage"></a>Gebruik  
-- Gebruik van openbare IP-adres-gebruiksgegevens meter toont dezelfde *datum/tijd gebeurtenis* waarde voor elke record in plaats van de *TimeDate* tijdstempel die wordt aangegeven wanneer de record is gemaakt. U niet op dit moment kunnen deze gegevens gebruiken om uit te voeren nauwkeurige registratie van het gebruik van openbare IP-adres.
+- Gebruik openbare IP-adres-gebruiksgegevens meter toont dezelfde *datum/tijd evenement* waarde voor elke record in plaats van de *TimeDate* stempel waarin wordt weergegeven wanneer de record is gemaakt. U kunt deze gegevens op dit moment niet gebruiken om uit te voeren nauwkeurige accounting van gebruik van openbare IP-adres.
 <!--
 #### Identity
 -->
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Hulpprogramma's voor Azure Stack downloaden vanuit GitHub
-- Wanneer u de *aanroepen webrequest* PowerShell-cmdlet voor het downloaden van de Azure-Stack van hulpprogramma's voor vanuit Github, er een foutbericht:     
-    -  *aanroepen webrequest: de aanvraag is afgebroken: kan het beveiligde SSL/TLS-kanaal niet maken.*     
+- Wanneer u de *invoke-webrequest* PowerShell-cmdlet voor het downloaden van de Azure Stack-hulpprogramma's vanuit Github, wordt er een fout opgetreden:     
+    -  *Invoke-webrequest: de aanvraag is afgebroken: kan geen beveiligde SSL/TLS-kanaal maken.*     
 
-  Deze fout treedt op omdat een recente GitHub ondersteuning afschaffing van de cryptografische standaarden Tlsv1 en Tlsv1.1 (de standaardinstelling voor PowerShell). Zie voor meer informatie [zwakke cryptografische standaarden verwijdering kennisgeving](https://githubengineering.com/crypto-removal-notice/).
+  Deze fout treedt op vanwege een recente GitHub ondersteuning afschaffing van de cryptografische standaarden Tlsv1 en Tlsv1.1 (de standaardinstelling voor PowerShell). Zie voor meer informatie, [zwakke cryptografische standaarden verwijdering kennisgeving](https://githubengineering.com/crypto-removal-notice/).
 
-  U lost dit probleem, toevoegen `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` boven aan het script om af te dwingen de PowerShell-console TLSv1.2 gebruiken bij het downloaden van de GitHub-opslagplaatsen.
+  U lost dit probleem, toevoegen `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` naar de bovenkant van het script om af te dwingen de PowerShell-console ondersteuning voor TLSv1.2 gebruik bij het downloaden van GitHub-opslagplaatsen.
 
 
 
