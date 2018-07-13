@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: eec54e0074cbc00fb8c51cf28ba477ef75f99a3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42f7d767162f2f403b2cf921e31a38b711a3c773
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657237"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438227"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Zelfstudie: Meer informatie over het beheren van virtuele Windows-machines met Azure PowerShell
 
@@ -29,7 +29,7 @@ ms.locfileid: "34657237"
 
 Voor de voorbeelden in dit artikel hebt u versie 6.0 of hoger van Azure PowerShell nodig. Als u PowerShell lokaal uitvoert en niet met versie 6.0 of hoger werkt, [werk dan uw versie bij](/powershell/azure/install-azurerm-ps). U moet ook `Connect-AzureRmAccount` uitvoeren om een verbinding met Azure tot stand te brengen. Voor lokale installaties moet u ook [de Azure AD PowerShell-module downloaden](https://www.powershellgallery.com/packages/AzureAD/) om een nieuwe Azure Active Directory-groep te maken.
 
-## <a name="understand-scope"></a>Reikwijdte
+## <a name="understand-scope"></a>Bereik
 
 [!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
@@ -55,7 +55,7 @@ Voor het beheren van virtuele machine-oplossingen zijn er drie resourcespecifiek
 * [Inzender voor netwerken](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Inzender voor opslagaccounts](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-In plaats van de rollen toe te wijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep te maken](../../active-directory/active-directory-groups-create-azure-portal.md) voor gebruikers die vergelijkbare acties moeten ondernemen. U wijst dan de juiste rol aan die groep toe. Ter vereenvoudiging van dit artikel maakt u een Azure Active Directory-groep zonder leden. U kunt aan deze groep wel een rol voor een bereik toewijzen. 
+In plaats van de rollen toe te wijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep te maken](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) voor gebruikers die vergelijkbare acties moeten ondernemen. U wijst dan de juiste rol aan die groep toe. Ter vereenvoudiging van dit artikel maakt u een Azure Active Directory-groep zonder leden. U kunt aan deze groep wel een rol voor een bereik toewijzen. 
 
 In het volgende voorbeeld wordt een Azure Active Directory-groep met de naam *VMDemoContributors* gemaakt met de e-mailbijnaam *vmDemoGroup*. De e-mailbijnaam fungeert als een alias voor de groep.
 
@@ -194,7 +194,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>Resources zoeken op tag
 
-Als u naar resources met een tagnaam en -waarde wilt zoeken, gebruikt u de opdracht [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource):
+Als u naar resources met een tagnaam en -waarde wilt zoeken, gebruikt u de opdracht [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource):
 
 ```azurepowershell-interactive
 (Get-AzureRmResource -Tag @{ Environment="Test"}).Name

@@ -1,30 +1,30 @@
 ---
 title: Een app met meerdere containers (preview) maken in Web App for Containers
 description: Lees hoe u meerdere containers in Azure met configuratiebestanden van Docker Compose en Kubernetes kunt gebruiken met een WordPress- en MySQL-app.
-keywords: azure app service, web-app, linux, docker, compose, meerdere containers, container, kubernetes
+keywords: azure-appservice, web-app, linux, docker, compose, multicontainer, meerdere containers, web-app voor containers, meerdere containers, container, kubernetes, wordpress, azure db voor mysql, productiedatabase met containers
 services: app-service
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: dcda4e25932a74313674e91afc7382ea19724613
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751911"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129947"
 ---
-# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>Zelfstudie: Een app met meerdere containers (preview) maken in Web App for Containers
+# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Zelfstudie: Een app met meerdere containers (preview) maken in Web App for Containers
 
-Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. In deze zelfstudie leert u hoe u een app met meerdere containers maakt met behulp van WordPress en MySQL.
+Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. In deze zelfstudie leert u hoe u een app met meerdere containers maakt met behulp van WordPress en MySQL. U gaat deze snelstart in Cloud Shell doen, maar u kunt deze opdrachten ook lokaal uitvoeren met [Cloud ShellI](/cli/azure/install-azure-cli) (2.0.32 of hoger).
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
@@ -40,35 +40,35 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie hebt u het volgende nodig:
+Voor deze zelfstudie, moet u ervaring met [Docker Compose](https://docs.docker.com/compose/) of [Kubernetes](https://kubernetes.io/) hebben.
 
-* [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 of hoger) installeren.
-* Ervaring met [Docker Compose](https://docs.docker.com/compose/) of [Kubernetes](https://kubernetes.io/).
+## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-## <a name="create-a-deployment-user"></a>Een implementatiegebruiker maken
+Voor deze zelfstudie gebruikt u het samenstellingsbestand van [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), maar bewerkt u dit zo dat hierin Azure Database for MySQL, permanente opslag en Redis worden opgenomen. U vindt het configuratiebestanden in [Azure-voorbeelden](https://github.com/Azure-Samples/multicontainerwordpress).
 
-Maak via de lokale opdrachtprompt implementatiereferenties met de opdracht [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set). Deze implementatiegebruiker is vereist voor FTP- en lokale Git-implementatie naar een webtoepassing. De gebruikersnaam en het wachtwoord staan op accountniveau. _Deze verschillen van de referenties van uw Azure-abonnement._
+[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
-Vervang in het volgende voorbeeld *\<username>* en *\<password>* (inclusief punthaken) door een nieuwe gebruikersnaam en een nieuw wachtwoord. De gebruikersnaam moet binnen Azure uniek zijn. Het wachtwoord moet ten minste acht tekens lang zijn en minimaal twee van de volgende drie typen elementen bevatten: letters, cijfers, symbolen.
+Maak een map voor de zelfstudie in de Cloud Shell en ga er vervolgens naartoe.
 
-```azurecli-interactive
-az webapp deployment user set --user-name <username> --password <password>
+```bash
+mkdir tutorial
+
+cd tutorial
 ```
 
-U zou een JSON-uitvoer moeten krijgen waarin het wachtwoord wordt weergegeven als `null`. Als er een `'Conflict'. Details: 409`-fout optreedt, wijzigt u de gebruikersnaam. Als er een `'Bad Request'. Details: 400`-fout optreedt, kiest u een sterker wachtwoord.
+Voer vervolgens de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen naar de map voor de zelfstudie. Ga vervolgens maar de map `multicontainerwordpress`.
 
-U hoeft deze implementatiegebruiker maar één keer te maken. Vervolgens kunt u deze voor al uw Azure-implementaties gebruiken.
+```bash
+git clone https://github.com/Azure-Samples/multicontainerwordpress
 
-> [!NOTE]
-> Leg de gebruikersnaam en het wachtwoord vast. U gebruikt deze later bij het implementeren van de web-app.
->
->
+cd multicontainerwordpress
+```
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-Maak via de lokale opdrachtprompt een resourcegroep met de opdracht [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *US - zuid-centraal*. Als u alle ondersteunde locaties voor App Service op Linux in prijscategorie **Standard** wilt zien, voert u de opdracht [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) uit.
+Maak een resourcegroep in Cloud Shell met de opdracht [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *US - zuid-centraal*. Als u alle ondersteunde locaties voor App Service op Linux in prijscategorie **Standard** wilt zien, voert u de opdracht [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) uit.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -80,7 +80,7 @@ Wanneer de opdracht is voltooid, laat een JSON-uitvoer u de eigenschappen van de
 
 ## <a name="create-an-azure-app-service-plan"></a>Een Azure App Service-plan maken
 
-Maak via de lokale opdrachtprompt een App Service-plan in de resourcegroep met de opdracht [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
+Maak in Cloud Shell een App Service-plan in de resourcegroep met de opdracht [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
@@ -90,7 +90,7 @@ In het volgende voorbeeld wordt een App Service-plan gemaakt met de naam `myAppS
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
 
-Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informatie als in het volgende voorbeeld:
+Wanneer het App Service-plan is gemaakt, toont Cloud Shell soortgelijke informatie als in het volgende voorbeeld:
 
 ```json
 {
@@ -118,12 +118,12 @@ De volgende lijsten bevatten de ondersteunde en niet-ondersteunde Docker Compose
 
 ### <a name="supported-options"></a>Ondersteunde opties
 
-* opdracht
-* ingangspunt
-* omgeving
-* installatiekopie
-* poorten
-* opnieuw opstarten
+* command
+* entrypoint
+* environment
+* image
+* ports
+* restart
 * services
 * volumes
 
@@ -131,27 +131,23 @@ De volgende lijsten bevatten de ondersteunde en niet-ondersteunde Docker Compose
 
 * build (niet toegestaan)
 * depends_on (genegeerd)
-* netwerken (genegeerd)
-* geheimen (genegeerd)
+* networks (genegeerd)
+* secrets (genegeerd)
 
 > [!NOTE]
 > Andere opties die niet expliciet worden genoemd, worden ook genegeerd in de openbare preview.
 
 ### <a name="docker-compose-with-wordpress-and-mysql-containers"></a>Docker Compose met WordPress- en MySQL-containers
 
-Kopieer en plak de volgende YAML lokaal naar het bestand `compose-wordpress.yml`.
-
-[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
-
 ## <a name="create-a-docker-compose-app"></a>Een Docker Compose-app maken
 
-Maak in de lokale opdrachtpromptterminal een [web-app](app-service-linux-intro.md) met meerdere containers in het `myAppServicePlan` App Service-plan met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
+Maak in Cloud Shell een [web-app](app-service-linux-intro.md) met meerdere containers in het `myAppServicePlan` App Service-plan met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
 
 ```bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
-Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in het volgende voorbeeld:
+Wanneer de web-app is gemaakt, toont Cloud Shell soortgelijke uitvoer als in het volgende voorbeeld:
 
 ```json
 {
@@ -172,7 +168,7 @@ Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in he
 
 Blader naar de geïmplementeerde app in (`http://<app_name>.azurewebsites.net`). Het laden van de app kan een paar minuten duren. Als u een foutbericht ontvangt, wacht u een paar minuten en vernieuwt u de browser. Lees [containerlogboeken](#find-docker-container-logs) als u problemen ondervindt en deze wilt oplossen.
 
-![Voorbeeld van app met meerdere containers in Web App for Containers][1]
+![Voorbeeld-app met meerdere containers in Web App for Containers][1]
 
 **Gefeliciteerd**, u hebt een app met meerdere containers gemaakt in Web App for Containers. Vervolgens configureert u uw app voor gebruik met Azure Database for MySQL. Installeer WordPress nu nog niet.
 
@@ -184,13 +180,13 @@ Het wordt niet aanbevolen databasecontainers te gebruiken in een productieomgevi
 
 Maak een Azure Database for MySQL-server met de opdracht [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
-Vervang in de volgende opdracht de naam van uw MySQL-server waarin u de tijdelijke aanduiding _&lt;mysql_server_name>_ ziet (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de hostnaam van de MySQL-server (`<mysql_server_name>.database.windows.net`), hij moet globaal uniek zijn.
+Vervang in de volgende opdracht de naam van uw MySQL-server waarin u de tijdelijke aanduiding _&lt;mysql_server_name>_ ziet (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de hostnaam van de MySQL-server (`<mysql_server_name>.database.windows.net`) en moet globaal uniek zijn.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
-Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld:
+Het kan enkele minuten duren voordat de server is gemaakt. Wanneer de MySQL-server is gemaakt, toont Cloud Shell informatie die lijkt op de informatie in het volgende voorbeeld:
 
 ```json
 {
@@ -223,7 +219,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 az mysql db create --resource-group myResourceGroup --server-name <mysql_server_name> --name wordpress
 ```
 
-Wanneer de database is gemaakt, wordt in Azure CLI informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
+Wanneer de database is gemaakt, wordt in Cloud Shell informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
 
 ```json
 {
@@ -241,13 +237,13 @@ Wanneer de database is gemaakt, wordt in Azure CLI informatie weergegeven die ve
 
 Als u de WordPress-app wilt verbinden met deze nieuwe MySQL-server, configureert u een aantal specifieke WordPress-omgevingsvariabelen, inclusief het SSL CA-pad dat is gedefinieerd door `MYSQL_SSL_CA`. Hieronder vindt u [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) van [DigiCert](http://www.digicert.com/) in de [aangepaste installatiekopie](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations).
 
-Als u deze wijzigingen wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in de lokale opdrachtpromptterminal. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
+Als u deze wijzigingen wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
-Wanneer de app-instelling is gemaakt, wordt in Azure CLI informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
+Wanneer de app-instelling is gemaakt, toont Cloud Shell soortgelijke informatie als in het volgende voorbeeld:
 
 ```json
 [
@@ -296,7 +292,7 @@ De volgende wijzigingen zijn aangebracht voor Redis (die worden gebruikt in een 
 * [Hiermee wordt de WordPress-invoegtoepassing Redis Object Cache 1.3.8 toegevoegd.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Hiermee wordt de app-instelling voor de Redis-hostnaam gebruikt in wp-config.php van WordPress.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Als u de aangepaste installatiekopie wilt gebruiken, werkt u het bestand compose-wordpress.yml bij. Wijzig de `image: wordpress` om `image: microsoft/multicontainerwordpress` te gebruiken. U hebt de databasecontainer niet meer nodig. Verwijder de sectie `db`, `environment`, `depends_on`, en `volumes` uit het configuratiebestand. Uw bestand moet eruitzien als de volgende code:
+Als u de aangepaste installatiekopie wilt gebruiken, werkt u het bestand docker-compose-wordpress.yml bij. Typ `nano docker-compose-wordpress.yml` in Cloud Shell om de nano-teksteditor te openen. Wijzig de `image: wordpress` om `image: microsoft/multicontainerwordpress` te gebruiken. U hebt de databasecontainer niet meer nodig. Verwijder de sectie `db`, `environment`, `depends_on`, en `volumes` uit het configuratiebestand. Uw bestand moet eruitzien als de volgende code:
 
 ```yaml
 version: '3.3'
@@ -309,15 +305,17 @@ services:
      restart: always
 ```
 
+Sla uw wijzigingen op en sluit nano af. Sla op met de opdracht `^O` en sluit af met `^X`.
+
 ### <a name="update-app-with-new-configuration"></a>De app bijwerken met de nieuwe configuratie
 
-Configureer in de lokale opdrachtpromptterminal uw [web-app](app-service-linux-intro.md) met meerdere containers opnieuw met de opdracht [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Vergeet niet om _\<app_naam>_ te vervangen door de naam van de web-app die u eerder hebt gemaakt.
+Configureer in Cloud Shell uw [web-app](app-service-linux-intro.md) met meerdere containers opnieuw met de opdracht [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Vergeet niet om _\<app_naam>_ te vervangen door de naam van de web-app die u eerder hebt gemaakt.
 
 ```bash
-az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
-Wanneer de app opnieuw is geconfigureerd, wordt in Azure CLI informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
+Wanneer de app opnieuw is geconfigureerd, wordt in Cloud Shell informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
 
 ```json
 [
@@ -340,13 +338,13 @@ Uw app met meerdere containers wordt nu uitgevoerd in Web App for Containers. Al
 
 ### <a name="configure-environment-variables"></a>Omgevingsvariabelen configureren
 
-Schakel deze instelling in App Service in als u permanente opslag wilt gebruiken. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in de lokale opdrachtpromptterminal. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
+Schakel deze instelling in App Service in als u permanente opslag wilt gebruiken. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-Wanneer de app-instelling is gemaakt, wordt in Azure CLI informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
+Wanneer de app-instelling is gemaakt, toont Cloud Shell soortgelijke informatie als in het volgende voorbeeld:
 
 ```json
 [
@@ -366,7 +364,7 @@ Wanneer de app-instelling is gemaakt, wordt in Azure CLI informatie weergegeven 
 
 ### <a name="modify-configuration-file"></a>Configuratiebestand wijzigen
 
-Open *compose-wordpress.yml* opnieuw.
+Typ `nano docker-compose-wordpress.yml` in Cloud Shell om de nano-teksteditor te openen.
 
 Met de optie `volumes` wordt het bestandssysteem toegewezen aan een map in de container. `${WEBAPP_STORAGE_HOME}` is een omgevingsvariabele in App Service die is toegewezen aan de permanente opslag voor uw app. U gebruikt deze omgevingsvariabele in de volumeoptie zodat de WordPress-bestanden worden geïnstalleerd in de permanente opslag in plaats van de container. Breng de volgende wijzigingen aan in het bestand:
 
@@ -387,10 +385,10 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>De app bijwerken met de nieuwe configuratie
 
-Configureer in de lokale opdrachtpromptterminal uw [web-app](app-service-linux-intro.md) met meerdere containers opnieuw met de opdracht [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
+Configureer in Cloud Shell uw [web-app](app-service-linux-intro.md) met meerdere containers opnieuw met de opdracht [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
 
 ```bash
-az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
 Nadat uw opdracht wordt uitgevoerd, wordt er uitvoer weergegeven die vergelijkbaar is met de uitvoer in het volgende voorbeeld:
@@ -432,13 +430,13 @@ Voeg de Redis-container toe onderaan het configuratiebestand, zoals in het volge
 
 ### <a name="configure-environment-variables"></a>Omgevingsvariabelen configureren
 
-Schakel deze instelling, `WP_REDIS_HOST`, in App Service in als u Redis wilt gebruiken. Dit is een *vereiste instelling* voor WordPress om te communiceren met de Redis-host. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in de lokale opdrachtpromptterminal. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
+Schakel deze instelling, `WP_REDIS_HOST`, in App Service in als u Redis wilt gebruiken. Dit is een *vereiste instelling* voor WordPress om te communiceren met de Redis-host. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WP_REDIS_HOST="redis"
 ```
 
-Wanneer de app-instelling is gemaakt, wordt in Azure CLI informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
+Wanneer de app-instelling is gemaakt, toont Cloud Shell soortgelijke informatie als in het volgende voorbeeld:
 
 ```json
 [
@@ -458,7 +456,7 @@ Wanneer de app-instelling is gemaakt, wordt in Azure CLI informatie weergegeven 
 
 ### <a name="update-app-with-new-configuration"></a>De app bijwerken met de nieuwe configuratie
 
-Configureer in de lokale opdrachtpromptterminal uw [web-app](app-service-linux-intro.md) met meerdere containers opnieuw met de opdracht [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
+Configureer in Cloud Shell uw [web-app](app-service-linux-intro.md) met meerdere containers opnieuw met de opdracht [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -511,23 +509,23 @@ WordPress wordt verbonden met de Redis-server. De **status** van de verbinding w
 
 In deze sectie leert u hoe u een Kubernetes-configuratie gebruikt om meerdere containers te implementeren. Zorg ervoor dat u de eerdere stappen voor het maken van een [resourcegroep](#create-a-resource-group) en een [App Service-plan](#create-an-azure-app-service-plan) hebt uitgevoerd. Aangezien het merendeel van de stappen vergelijkbaar is met de stappen van de Compose-sectie, is het configuratiebestand voor u gecombineerd.
 
-### <a name="supported-kubernetes-options-for-multicontainer"></a>Ondersteunde Kubernetes-opties voor meerdere containers
+### <a name="supported-kubernetes-options-for-multi-container"></a>Ondersteunde Kubernetes-opties voor meerdere containers
 
 * argumenten
-* opdracht
+* command
 * containers
-* installatiekopie
-* naam
-* poorten
-* specificatie
+* image
+* name
+* ports
+* spec
 
 > [!NOTE]
 >Andere Kubernetes-opties die niet expliciet worden genoemd, worden niet ondersteund in de openbare preview.
 >
 
-### <a name="create-configuration-file"></a>Een configuratiebestand maken
+### <a name="kubernetes-configuration-file"></a>Configuratie-instellingen voor Kubernetes
 
-Sla de volgende YAML op naar het bestand *kubernetes-wordpress.yml*.
+U gaat *kubernetes-wordpress.yml* gebruiken voor dit gedeelte van de zelfstudie. Deze wordt hier weergegeven ter referentie:
 
 [!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
 
@@ -535,13 +533,13 @@ Sla de volgende YAML op naar het bestand *kubernetes-wordpress.yml*.
 
 Een server in Azure Database for MySQL (Preview) maken met de opdracht [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
-Vervang in de volgende opdracht de naam van uw MySQL-server waarin u de tijdelijke aanduiding _&lt;mysql_server_name>_ ziet (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de hostnaam van de MySQL-server (`<mysql_server_name>.database.windows.net`), hij moet globaal uniek zijn.
+Vervang in de volgende opdracht de naam van uw MySQL-server waarin u de tijdelijke aanduiding _&lt;mysql_server_name>_ ziet (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de hostnaam van de MySQL-server (`<mysql_server_name>.database.windows.net`) en moet globaal uniek zijn.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
-Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld:
+Wanneer de MySQL-server is gemaakt, toont Cloud Shell informatie die lijkt op de informatie in het volgende voorbeeld:
 
 ```json
 {
@@ -576,7 +574,7 @@ Maak een [Azure Database for MySQL-server](#create-an-azure-database-for-mysql-s
 az mysql db create --resource-group myResourceGroup --server-name <mysql_server_name> --name wordpress
 ```
 
-Wanneer de database is gemaakt, wordt in Azure CLI informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
+Wanneer de database is gemaakt, wordt in Cloud Shell informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
 
 ```json
 {
@@ -592,13 +590,13 @@ Wanneer de database is gemaakt, wordt in Azure CLI informatie weergegeven die ve
 
 ### <a name="configure-database-variables-in-wordpress"></a>Databasevariabelen in WordPress configureren
 
-Als u de WordPress-app wilt verbinden met deze nieuwe MySQL-server, configureert u een aantal specifieke WordPress-omgevingsvariabelen. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in de lokale opdrachtpromptterminal. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
+Als u de WordPress-app wilt verbinden met deze nieuwe MySQL-server, configureert u een aantal specifieke WordPress-omgevingsvariabelen. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
-Wanneer de app-instelling is gemaakt, wordt in Azure CLI informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
+Wanneer de app-instelling is gemaakt, toont Cloud Shell soortgelijke informatie als in het volgende voorbeeld:
 
 ```json
 [
@@ -631,13 +629,13 @@ Uw app met meerdere containers wordt nu uitgevoerd in Web App for Containers. De
 
 ### <a name="configure-environment-variables"></a>Omgevingsvariabelen configureren
 
-Schakel deze instelling in App Service in als u permanente opslag wilt gebruiken. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in de lokale opdrachtpromptterminal. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
+Schakel deze instelling in App Service in als u permanente opslag wilt gebruiken. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-Wanneer de app-instelling is gemaakt, wordt in Azure CLI informatie weergegeven die vergelijkbaar is met de informatie in het volgende voorbeeld:
+Wanneer de app-instelling is gemaakt, toont Cloud Shell soortgelijke informatie als in het volgende voorbeeld:
 
 ```json
 [
@@ -649,15 +647,15 @@ Wanneer de app-instelling is gemaakt, wordt in Azure CLI informatie weergegeven 
 ]
 ```
 
-### <a name="create-a-multicontainer-app-kubernetes"></a>Een app met meerdere containers maken (Kubernetes)
+### <a name="create-a-multi-container-app-kubernetes"></a>Een app met meerdere containers maken (Kubernetes)
 
-Maak in de lokale opdrachtpromptterminal een [web-app](app-service-linux-intro.md) met meerdere containers in de `myResourceGroup` resourcegroep en het `myAppServicePlan` App Service-plan met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
+Maak in Cloud Shell een [web-app](app-service-linux-intro.md) met meerdere containers in de resourcegroep `myResourceGroup` en in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
 ```
 
-Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in het volgende voorbeeld:
+Wanneer de web-app is gemaakt, toont Cloud Shell soortgelijke uitvoer als in het volgende voorbeeld:
 
 ```json
 {

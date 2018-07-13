@@ -10,11 +10,11 @@ ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
 ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075540"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453563"
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snelstart: Uw eerste container maken in Azure Container Instances
 
@@ -92,7 +92,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbare Docker Hub-opslagplaats. Als u zelf een container wilt bouwen en deze wilt implementeren in Azure Container Instances met behulp van Azure Container Registry, gaat u verder met de zelfstudie voor Azure Container Instances.
+In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbare Docker Hub-opslagplaats. Als u zelf een containerinstallatiekopie wilt bouwen en deze wilt implementeren in Azure Container Instances met behulp van privé Azure Container Registry, gaat u verder met de zelfstudie voor Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)

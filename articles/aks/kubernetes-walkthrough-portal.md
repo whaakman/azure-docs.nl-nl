@@ -1,38 +1,36 @@
 ---
-title: quickstart - portal-quickstart voor Azure Kubernetes-cluster
-description: Leer snel hoe u een Kubernetes-cluster voor Linux-containers in AKS maakt met behulp van Azure CLI.
+title: Snelstart - portal-snelstart voor Azure Kubernetes-cluster
+description: Leer snel hoe u een Kubernetes-cluster voor Linux-containers in AKS maakt met behulp van Azure Portal.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 90d01ed7cc2483c8467d646ebf9ad056ea1a4baf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286593"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344471"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snelstart: Een AKS-cluster (Azure Kubernetes Service) implementeren
 
-In deze quickstart implementeert u een AKS-cluster met behulp van Azure Portal. Vervolgens wordt een toepassing met meerdere containers op het cluster uitgevoerd die bestaat uit een web-front-end en een Redis-exemplaar. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
+In deze snelstart implementeert u een AKS-cluster met behulp van Azure Portal. Vervolgens wordt een toepassing met meerdere containers op het cluster uitgevoerd die bestaat uit een web-front-end en een Redis-exemplaar. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
 
 ![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-In deze quickstart wordt ervan uitgegaan dat u een basisbegrip hebt van Kubernetes-concepten. Raadpleeg de [Kubernetes-documentatie][kubernetes-documentation] voor gedetailleerde informatie over Kubernetes.
+In deze snelstart wordt ervan uitgegaan dat u een basisbegrip hebt van Kubernetes-concepten. Raadpleeg de [Kubernetes-documentatie][kubernetes-documentation] voor gedetailleerde informatie over Kubernetes.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Meld u aan bij Azure Portal op http://portal.azure.com.
 
-
-
 ## <a name="create-aks-cluster"></a>AKS-cluster maken
 
-Kies **Een resource maken** > selecteer **Kubernetes-service** > **Maken**.
+Kies **Een resource maken** > selecteer **Kubernetes-service**.
 
 Voer de volgende stappen uit onder elke kop van het formulier AKS-cluster maken.
 
@@ -228,7 +226,7 @@ az aks delete --resource-group myAKSCluster --name myAKSCluster --no-wait
 
 ## <a name="get-the-code"></a>Code ophalen
 
-In deze quickstart zijn vooraf gemaakte containerinstallatiekopieën gebruikt om een Kubernetes-implementatie te maken. De gerelateerde toepassingscode, Dockerfile en het Kubernetes-manifestbestand zijn beschikbaar op GitHub.
+In deze snelstart zijn vooraf gemaakte containerinstallatiekopieën gebruikt om een Kubernetes-implementatie te maken. De gerelateerde toepassingscode, Dockerfile en het Kubernetes-manifestbestand zijn beschikbaar op GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 

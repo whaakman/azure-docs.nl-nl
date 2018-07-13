@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 824235cfdae6df9d852875281346e35a18277f74
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651472"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531657"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Zelfstudie: voorraad bijwerken met behulp van PowerShell en onderwerpen/abonnementen
 
@@ -117,12 +117,12 @@ Ga als volgt te werk om de code uit te voeren:
    dotnet build
    ```
 6.  Navigeer naar de map `\bin\Debug\netcoreapp2.0`.
-7.  Typ de volgende opdracht om het programma uit te voeren. Zorg dat u `myConnectionString` vervangt door de waarde die u eerder hebt verkregen en vervang `myQueueName` door de naam van de wachtrij die u hebt gemaakt:
+7.  Typ de volgende opdracht om het programma uit te voeren. Zorg ervoor dat u `myConnectionString` vervangt door de waarde die u eerder hebt verkregen, en vervang `myQueueName` door de naam van de wachtrij die u hebt gemaakt:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
    ``` 
-8. U ziet dat er tien berichten naar de wachtrij worden verzonden en dat deze vervolgens van de wachtrij worden ontvangen:
+8. Bekijk tien berichten die naar de wachtrij zijn verzonden en vervolgens van de wachtrij zijn ontvangen:
 
    ![programma-uitvoer](./media/service-bus-quickstart-powershell/dotnet.png)
 
@@ -225,7 +225,7 @@ static void RegisterOnMessageHandlerAndReceiveMessages()
 
 ### <a name="send-messages"></a>Berichten verzenden
 
-De bewerkingen voor maken en verzenden van berichten vinden in de methode `SendMessagesAsync()` plaats:
+De bewerkingen voor het maken en verzenden van berichten vinden in de methode `SendMessagesAsync()` plaats:
 
 ```csharp
 static async Task SendMessagesAsync(int numberOfMessagesToSend)

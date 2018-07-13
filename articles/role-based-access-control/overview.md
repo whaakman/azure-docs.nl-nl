@@ -1,6 +1,6 @@
 ---
-title: Beheren van toegang en machtigingen met RBAC - Azure RBAC | Microsoft Docs
-description: In het beheer van toegang aan de slag met op rollen gebaseerde toegangsbeheer van Azure in de Azure Portal. Gebruik roltoewijzingen om machtigingen in uw directory toe te wijzen.
+title: Wat is toegangsbeheer op basis van rollen in Azure? | Microsoft Docs
+description: Bekijk een overzicht van toegangsbeheer op basis van rollen in Azure. Gebruik roltoewijzingen om toegang tot resources in Azure te beheren.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,62 +8,92 @@ manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2018
+ms.date: 07/02/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
-ms.openlocfilehash: 4a964d127d4d45d10a1f9d39b585b8c59e30ae90
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.reviewer: bagovind
+ms.openlocfilehash: 4dcfb71e0adb05922603715e4dbcbdb243305927
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438193"
 ---
-# <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Aan de slag met toegangsbeheer op basis van rollen in de Azure-portal
-Beveiliging gerichte bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen kunnen een account dat kwaadwillende personen worden blootgesteld. Te weinig machtigingen betekent dat werknemers hun werk efficiënt kunnen niet ophalen. Azure op rollen gebaseerde toegangsbeheer (RBAC) kunt u dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure.
+# <a name="what-is-role-based-access-control-rbac"></a>Wat is toegangsbeheer op basis van rollen?
 
-Met RBAC kunt u taken scheiden binnen uw team en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken. In plaats van iedereen geven onbeperkte machtigingen in uw Azure-abonnement of de bronnen, kunt u alleen bepaalde acties. Bijvoorbeeld, gebruikmaken van RBAC te laten een werknemer virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren.
+Toegangsbeheer voor cloudresources is een uiterst belangrijke functie voor elke organisatie die van de cloud gebruikmaakt. Het gebruik van op rollen gebaseerd toegangsbeheer helpt u bij het beheren van wie er toegang heeft tot Azure-resources, wat ze kunnen doen met die resources en tot welke gebieden ze toegang hebben.
 
-## <a name="basics-of-access-management-in-azure"></a>Basisprincipes van toegangsbeheer in Azure
-Elk Azure-abonnement is gekoppeld aan één map op Azure Active Directory (AD). Gebruikers, groepen en toepassingen van die directory kunnen resources in het Azure-abonnement te beheren. Deze toegangsrechten met behulp van de Azure-portal, Azure-opdrachtregelprogramma's en Azure Management-API's toewijzen.
+Op rollen gebaseerd toegangsbeheer is een machtigingssysteem dat is gebouwd op [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) dat een geavanceerd toegangsbeheer van resources in Azure biedt. Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren. In plaats van iedereen onbeperkte machtigingen te verlenen in uw Azure-abonnement of -resources, kunt u zelf bepalen welke acties er met een bepaalde bereik zijn toegestaan.
 
-Toegang verlenen door de juiste RBAC-rol toewijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Het bereik van een roltoewijzing kan dit een abonnement, resourcegroep of één resource. Een rol die is toegewezen aan een bovenliggend bereik verleent toegang ook naar de onderliggende elementen erin opgenomen. Een gebruiker met toegang tot een resourcegroep kan bijvoorbeeld alle resources, zoals websites, virtuele machines en subnetten bevat te beheren.
+## <a name="what-can-i-do-with-rbac"></a>Wat kan ik doen met op rollen gebaseerd toegangsbeheer?
 
-![Relatie tussen de elementen van de Azure Active Directory - diagram](./media/overview/rbac_aad.png)
+Hier volgen enkele voorbeelden van wat u met op rollen gebaseerd toegangsbeheer kunt doen:
 
-De RBAC-rol die u toewijst, bepaalt welke bronnen de gebruiker, groep of toepassing binnen dat bereik kunt beheren.
+- Toestaan dat één gebruiker de virtuele machines in een abonnement kan beheren en een andere gebruiker de virtuele netwerken kan beheren.
+- Een DBA-groep toestaan de SQL-databases in een abonnement te beheren.
+- Toestaan dat een gebruiker alle resources in een resourcegroep kan beheren, zoals virtuele machines, websites en subnetten.
+- Toestaan dat een toepassing toegang heeft tot alle resources in een resourcegroep.
 
-## <a name="built-in-roles"></a>Ingebouwde rollen
-Azure RBAC heeft drie elementaire functies die van toepassing op alle brontypen:
+## <a name="how-rbac-works"></a>Hoe op rollen gebaseerd toegangsbeheer werkt
 
-* **Eigenaar** heeft volledige toegang tot alle bronnen, waaronder het recht op toegang aan anderen delegeren.
-* **Inzender** kunt maken en beheren van alle soorten Azure-resources, maar kan geen toegang tot de overige verlenen.
-* **Lezer** bestaande Azure-resources kunt weergeven.
+De manier waarop u de toegang tot resources beheert met behulp van op rollen gebaseerd toegangsbeheer is door roltoewijzingen te maken. Dit is een belangrijke concept om te weten: het is de manier waarop machtigingen worden afgedwongen. Een roltoewijzing bestaat uit drie elementen: beveiligings-principal, roldefinitie en bereik (ook wel scope of niveau genoemd).
 
-De rest van de RBAC-rollen in Azure toestaan van beheer van specifieke Azure-resources. De rol Inzender van de virtuele Machine kan bijvoorbeeld de gebruiker te maken en beheren van virtuele machines. Het biedt ze geen toegang geven tot het virtuele netwerk of het subnet dat de virtuele machine verbinding met maakt. 
+### <a name="security-principal"></a>Beveiligings-principal
 
-[Ingebouwde RBAC-rollen](built-in-roles.md) vindt u de rollen die beschikbaar zijn in Azure. De Hiermee geeft u de bewerkingen en het bereik dat elke ingebouwde rol aan gebruikers verleent. Als u op zoek bent om te definiëren van uw eigen rollen voor nog meer informatie over het bouwen [aangepaste rollen in Azure RBAC](custom-roles.md).
+Een *beveiligings-principal* is een object dat een gebruiker, groep of service-principal vertegenwoordigt die toegang tot Azure-resources aanvraagt.
 
-## <a name="resource-hierarchy-and-access-inheritance"></a>Resource-hiërarchie en de toegang overname
-* Elke **abonnement** behoort tot slechts één map in Azure. (Maar elke directory kan meer dan één abonnement hebt.)
-* Elke **resourcegroep** behoort tot slechts één abonnement.
-* Elke **resource** behoort tot slechts één resourcegroep.
+![Beveiligings-principal voor een roltoewijzing](./media/overview/rbac-security-principal.png)
 
-Toegang waarmee u op de bovenliggende scopes wordt verleend wordt op een onderliggend bereik overgenomen. Bijvoorbeeld:
+- Gebruiker: een persoon een profiel heeft in Azure Active Directory. U kunt ook rollen toewijzen aan gebruikers in andere tenants. Zie [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) voor meer informatie over gebruikers in andere organisaties.
+- Groep: een aantal gebruikers dat in Azure Active Directory is gemaakt. Wanneer u een rol aan een groep toewijst, hebben alle gebruikers binnen die groep die rol. 
+- Service-principal: een beveiligings-id die wordt gebruikt door toepassingen of services om toegang tot specifieke Azure-resources te krijgen. U kunt het zien als een *gebruikersidentiteit* (gebruikersnaam en wachtwoord of certificaat) voor een toepassing.
 
-* U toewijzen de rol lezer aan een Azure AD-groep in het abonnementsbereik. De leden van die groep kunnen elk van de resourcegroep en bron weergeven in het abonnement.
-* U toewijzen de rol van Inzender aan een toepassing op het groepsbereik resource. Deze kunt resources van alle typen in die resourcegroep, maar geen andere resourcegroepen in het abonnement beheren.
+### <a name="role-definition"></a>Roldefinitie
 
-## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC versus klassieke abonnementbeheerders
-[Klassieke abonnementsbeheerders mensen en co-beheerders](../billing/billing-add-change-azure-subscription-administrator.md) hebben volledige toegang tot het Azure-abonnement. Ze kunnen resources met behulp van de [Azure-portal](https://portal.azure.com), Azure Resource Manager-API's en het klassieke implementatiemodel API's. In het model RBAC klassieke administrators de rol van eigenaar bij het abonnementsbereik toegewezen.
+Een *roldefinitie* is een verzameling machtigingen. Dit wordt soms gewoon een *rol* genoemd. Een roldefinitie beschijft de bewerkingen die kunnen worden uitgevoerd, zoals lezen, schrijven en verwijderen. Rollen kunnen op algemeen zijn, zoals eigenaar, of specifiek, zoals de lezer van de virtuele machine.
 
-Alleen de Azure portal en de nieuwe Azure Resource Manager-API's ondersteunen Azure RBAC. Gebruikers en toepassingen die zijn toegewezen RBAC-rollen niet gebruiken voor het Azure klassieke implementatiemodel API's.
+![Roldefinitie voor een roltoewijzing](./media/overview/rbac-role-definition.png)
 
-## <a name="authorization-for-management-vs-data-operations"></a>Autorisatie voor het beheer van versus gegevensbewerkingen
-Azure RBAC ondersteunt alleen beheerbewerkingen van de Azure-resources in de Azure-portal en Azure Resource Manager-API's. Deze kan niet toestaan dat alle gegevens niveau bewerkingen voor Azure-resources. Bijvoorbeeld, kunt u autoriseren iemand om de Storage-Accounts beheren, maar niet naar de BLOB's of tabellen binnen een Opslagaccount. Op deze manier kan een SQL-database worden beheerd, maar niet de tabellen in het.
+Azure bevat diverse [ingebouwde rollen](built-in-roles.md) die u kunt gebruiken. Hier volgen vier fundamentele ingebouwde rollen. De eerste drie zijn op alle resourcetypen van toepassing.
+
+- [Eigenaar](built-in-roles.md#owner): heeft volledige toegang tot alle resources, waaronder het recht om toegang aan anderen te delegeren.
+- [Inzender](built-in-roles.md#contributor): kan alle typen Azure-resources maken en beheren, maar kan anderen geen toegang verlenen.
+- [Lezer](built-in-roles.md#reader): kan bestaande Azure-resources bekijken.
+- [Beheerder gebruikerstoegang](built-in-roles.md#user-access-administrator): kan gebruikerstoegang tot Azure-resources beheren.
+
+Met de overige ingebouwde rollen kunnen specifieke Azure-resources worden beheerd. Met de rol [Inzender voor virtuele machines](built-in-roles.md#virtual-machine-contributor) kan een gebruiker bijvoorbeeld virtuele machines maken en beheren. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
+
+Azure heeft gegevensbewerkingen (momenteel in Preview-versie) geïntroduceerd waarmee u toegang tot gegevens in een object kunt verlenen. Als een gebruiker bijvoorbeeld toegang heeft tot gegevens in een opslagaccount, kan deze de blobs of berichten in dat opslagaccount lezen. Zie [Roldefinities begrijpen](role-definitions.md) voor meer informatie.
+
+### <a name="scope"></a>Bereik
+
+*Bereik* is de grens die waarop de toegang van toepassing is. Wanneer u een rol toewijst, kunt u de acties die zijn toegestaan verder beperken door een bereik te definiëren. Dit is handig als u van iemand een [Inzender voor websites](built-in-roles.md#website-contributor) wilt maken, maar slechts voor één resourcegroep.
+
+In Azure, kunt u een bereik op meerdere niveaus opgeven: abonnement, resourcegroep of resource. Bereiken zijn gestructureerd volgens een bovenliggende/onderliggende relatie waar elk onderliggend bereik slechts één bovenliggend bereik heeft.
+
+![Bereik voor een roltoewijzing](./media/overview/rbac-scope.png)
+
+De toegang die u aan een bovenliggend bereik toewijst, wordt door het onderliggende bereik overgenomen. Bijvoorbeeld:
+
+- Als u de rol van [lezer](built-in-roles.md#reader) toewijst aan een groep in het bereik van het abonnement, kunnen de leden van die groep elke resourcegroep en de resource in het abonnement bekijken.
+- Als u de rol van [inzender](built-in-roles.md#contributor) toewijst aan een toepassing in het bereik van de resource, kunnen hiermee resources van alle typen in die resourcegroep worden beheerd, maar geen andere resourcegroepen in het abonnement.
+
+Azure bevat ook een bereik hoger dan het niveau van abonnementen met de naam [beheergroepen](../azure-resource-manager/management-groups-overview.md), deze bevindt zich in preview. Beheergroepen zijn een manier om meerdere abonnementen te beheren. Wanneer u een bereik voor op rollen gebaseerd toegangsbeheer opgeeft, kunt u een hiërarchie op het niveau van beheergroep opgeven of op het niveau van abonnement, resourcegroep of resource.
+
+### <a name="role-assignment"></a>Roltoewijzing
+
+Een *roltoewijzing* is het proces waarmee voor een bepaald bereik een roldefinitie aan een gebruiker, groep of service-principal wordt gekoppeld, met het doel om toegang te verlenen. Toegang wordt verleend door een roltoewijzing te maken en toegang kan worden ingetrokken door een roltoewijzing te verwijderen.
+
+Het volgende diagram toont een voorbeeld van een roltoewijzing. In dit voorbeeld wordt aan de groep Marketing de rol van [inzender](built-in-roles.md#contributor) toegewezen voor de resourcegroep pharma-sales. Dit betekent dat gebruikers in de groep Marketing een Azure-resource in de resourcegroep pharma-sales kunnen maken of beheren. Gebruikers in de groep Marketing hebben geen toegang tot resources buiten de resourcegroep pharma-sales, tenzij ze deel uitmaken van een andere roltoewijzing.
+
+![Roltoewijzing om toegang te beheren](./media/overview/rbac-overview.png)
+
+U kunt roltoewijzingen maken met behulp van Azure Portal, Azure CLI, Azure PowerShell, Azure-SDK's of REST-API's. U kunt maximaal 2000 roltoewijzingen in elk abonnement hebben. Om roltoewijzingen te maken en te verwijderen, moet u een `Microsoft.Authorization/roleAssignments/*`-machtiging hebben. Deze machtiging wordt verleend via de rol van [eigenaar](built-in-roles.md#owner) of [administrator](built-in-roles.md#user-access-administrator).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Aan de slag met [toegangsbeheer op basis van rollen in Azure portal](role-assignments-portal.md).
-* Zie de [Ingebouwde RBAC-rollen](built-in-roles.md)
-* Definieer uw eigen [Aangepaste rollen in Azure RBAC](custom-roles.md)
+
+- [Snelstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md) (Snelstart: Toegang verlenen aan een gebruiker met op rollen gebaseerd toegangsbeheer en Azure Portal)
+- [Toegang beheren met op rollen gebaseerd toegangsbeheer en Azure Portal](role-assignments-portal.md)
+- [Inzicht in de verschillende rollen](rbac-and-directory-admin-roles.md)

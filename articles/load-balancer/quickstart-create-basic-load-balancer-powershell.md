@@ -17,11 +17,11 @@ ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
 ms.openlocfilehash: bc9883ee64f2d682a6b7b69bd1fb168cddd60001
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304562"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38539988"
 ---
 # <a name="get-started"></a>Snelstart: Een openbare load balancer maken met behulp van Azure PowerShell
 In deze snelstart vindt u meer informatie over het maken van een Basic Load Balancer met behulp Azure PowerShell. U test de load balancer door twee virtuele machines (VM's) te implementeren waarop een Windows-server wordt uitgevoerd en waarbij de taken van een webapp gelijkelijk over de VM's worden verdeeld.

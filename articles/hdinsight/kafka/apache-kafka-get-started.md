@@ -1,11 +1,10 @@
 ---
-title: Aan de slag met Apache Kafka - Snelstart voor Azure HDInsight | Microsoft Docs
-description: In deze snelstart leert u hoe u met Azure Portal een Apache Kafka-cluster maakt in Azure HDInsight. Er wordt ook aandacht besteed aan Kafka-onderwerpen, -abonnees en -consumenten.
+title: 'Aan de slag met Apache Kafka: snelstart voor Azure HDInsight | Microsoft Docs'
+description: In deze quickstart leert u hoe u met Azure Portal een Apache Kafka-cluster maakt in Azure HDInsight. Er wordt ook aandacht besteed aan Kafka-onderwerpen, -abonnees en -consumenten.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: dhgoelmsft
 manager: jhubbard
-editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: mvc,hdinsightactive
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 17f7bc4d9325dd8040036e218c43e418f3c51b68
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 776705281a1909cbeee657f7915d4c83ec8bbabe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021205"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342150"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Snelstart: Een Kafka-cluster maken in HDInsight
 
@@ -56,7 +55,7 @@ In deze snelstart leert u hoe u met Azure Portal een [Apache Kafka](https://kafk
 
 Gebruik de volgende stappen om een Kafka te maken in een HDInsight-cluster:
 
-1. In de [Azure Portal](https://portal.azure.com) selecteert u **+ Een resource maken**, **Gegevens en analyses** en vervolgens **HDInsight**.
+1. In [Azure Portal](https://portal.azure.com) selecteert u **+ Een resource maken**, **Gegevens en analyses** en vervolgens **HDInsight**.
    
     ![Een HDInsight-cluster maken](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -101,7 +100,7 @@ Gebruik de volgende stappen om een Kafka te maken in een HDInsight-cluster:
 
     Gebruik de knop __Volgende__ om de basisconfiguratie te voltooien.
 
-5. Selecteer of maak bij **Opslag** een opslagaccount. Voor de stappen in dit document laat u de andere velden op de standaardwaarden ingesteld. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan.
+5. Selecteer of maak bij **Opslag** een opslagaccount. Voor de stappen in dit document laat u de andere velden op de standaardwaarden ingesteld. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan. Zie [Snelstart: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) voor meer informatie over het gebruik van Data Lake Storage Gen2.
 
     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/apache-kafka-get-started/storage-configuration.png)
 
@@ -134,7 +133,7 @@ Gebruik de volgende stappen om een Kafka te maken in een HDInsight-cluster:
     ssh sshuser@mykafka-ssh.azurehdinsight.net
     ```
 
-2. Wanneer u voor het eerst verbinding maakt met het cluster, wordt in de SSH-client mogelijk de waarschuwing weergegeven dat de authenticiteit van de host kan niet worden vastgesteld. Wanneer u wordt gevraagd de host te bevestigen, typt u __yes__ en drukt u vervolgens op __Enter__ om de host toe te voegen aan de lijst met vertrouwde servers van uw SSH-client.
+2. Wanneer u voor het eerst verbinding maakt met het cluster, wordt in de SSH-client mogelijk de waarschuwing weergegeven dat de authenticiteit van de host niet kan worden vastgesteld. Wanneer u wordt gevraagd de host te bevestigen, typt u __yes__ en drukt u vervolgens op __Enter__ om de host toe te voegen aan de lijst met vertrouwde servers van uw SSH-client.
 
 3. Voer het wachtwoord voor de SSH-gebruiker in wanneer hierom wordt gevraagd.
 
@@ -226,7 +225,7 @@ In deze sectie gaat u de hostgegevens opvragen met de Ambari REST-API in het clu
 
 ## <a name="manage-kafka-topics"></a>Kafka-onderwerpen beheren
 
-Kafka slaat gegevensstromen op in zogenaamde *onderwerpen (topics)*. You can use the `kafka-topics.sh` utility to manage topics.
+Kafka slaat gegevensstromen op in zogenaamde *onderwerpen (topics)*. U kunt het hulpprogramma `kafka-topics.sh` gebruiken om onderwerpen te beheren.
 
 * **Als u een onderwerp wilt maken**, gebruikt u de volgende opdracht in de SSH-verbinding:
 
@@ -297,7 +296,7 @@ Gebruik de volgende stappen om records op te slaan in het testonderwerp dat u ee
    
     Na deze opdracht komt u aan bij een lege regel.
 
-2. Typ een tekstbericht op de lege regel en druk op Enter. Voer op deze manier enkele berichten in en gebruik vervolgens **Ctrl + C** om terug te keren naar de normale prompt. Elke regel wordt als afzonderlijke record naar het Kafka-onderwerp verzonden.
+2. Typ een tekstbericht op de lege regel en druk op Enter. Voer op deze manier enkele berichten in en gebruik vervolgens **Ctrl+C** om terug te keren naar de normale prompt. Elke regel wordt als afzonderlijke record naar het Kafka-onderwerp verzonden.
 
 3. Als u records wilt lezen uit het onderwerp, gebruikt u het hulpprogramma `kafka-console-consumer.sh` vanuit de SSH-verbinding:
    
@@ -310,7 +309,7 @@ Gebruik de volgende stappen om records op te slaan in het testonderwerp dat u ee
     > [!NOTE]
     > Vervang `--bootstrap-server $KAFKABROKERS` door `--zookeeper $KAFKAZKHOSTS` als u een oudere versie van Kafka gebruikt.
 
-4. Gebruik __Ctrl + C__ om de consument te stoppen.
+4. Gebruik __Ctrl+C__ om de consument te stoppen.
 
 U kunt ook programmatisch producenten en consumenten maken. Zie het document [Producer and Consumer API van Kafka met HDInsight](apache-kafka-producer-consumer-api.md) voor een voorbeeld van het gebruik van deze API.
 

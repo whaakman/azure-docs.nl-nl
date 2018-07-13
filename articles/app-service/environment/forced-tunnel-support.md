@@ -1,5 +1,5 @@
 ---
-title: De Azure App Service Environment configureren voor het gebruik van geforceerde tunnels
+title: Azure App Service Environment configureren voor het gebruik van geforceerde tunnels
 description: Instellen dat App Service Environment werkt wanneer uitgaand verkeer gebruikmaakt van geforceerde tunnels
 services: app-service
 documentationcenter: na
@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114958"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>De Azure App Service-omgeving configureren met geforceerde tunnels
 
@@ -37,6 +38,7 @@ Lees [User-defined routes and IP forwarding][routes] (Door de gebruiker opgegeve
 Als u uw uitgaande ASE-verkeer wilt omleiden zodat het niet meer direct naar het internet gaat, hebt u de volgende opties:
 
 * Instellen dat uw ASE directe toegang heeft tot internet
+* Uw ASE-subnet configureren om BGP-routes te negeren
 * Uw ASE-subnet configureren voor het gebruik van service-eindpunten naar Azure SQL en Azure Storage
 * Uw eigen IP-adressen toevoegen aan de Azure SQL-firewall van ASE
 
@@ -58,12 +60,26 @@ Als het netwerk al verkeersrouting on-premises uitvoert, moet u het subnet maken
 
 ![Directe internettoegang][1]
 
+## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Uw ASE-subnet configureren om BGP-routes te negeren ## 
+
+U kunt uw ASE-subnet configureren om alle BGP-routes te negeren.  Wanneer dit zo is geconfigureerd heeft de ASE zonder problemen toegang tot de bijbehorende afhankelijkheden.  U moet echter UDR's maken waarmee uw apps toegang krijgen tot on-premises resources.
+
+Uw ASE-subnet configureren om BGP-routes te negeren:
+
+* Maak een UDR en wijs deze toe aan uw ASE-subnet, als u dit nog niet hebt gedaan.
+* Open in Azure Portal de gebruikersinterface voor de routetabel die aan uw ASE-subnet is toegewezen.  Selecteer Configuratie.  Stel de doorgifte van de BGP-route in op Uitgeschakeld.  Klik op Opslaan. Documentatie over hoe u dit kunt uitschakelen, vindt u in het document [Een routetabel maken][routetable].
+
+Nadat u dat hebt gedaan, zijn uw apps niet langer on-premises bereikbaar. Als u dit wilt oplossen, bewerkt u de UDR die is toegewezen aan uw ASE-subnet en voegt u routes toe voor uw on-premises adresbereiken. Het type van de volgende hop moet worden ingesteld op Virtueel-netwerkgateway. 
+
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Uw ASE configureren met service-eindpunten ##
 
+ > [!NOTE]
+   > Service-eindpunten met SQL werken niet met ASE in de regio's van de Amerikaanse overheid.  De volgende informatie is alleen geldig in de openbare Azure-regio's.  
+
 Voer de volgende stappen uit als u al het uitgaande verkeer vanuit uw ASE, behalve het verkeer naar Azure SQL en Azure Storage, wilt omleiden:
 
-1. Maak een routetabel maken en wijs deze toe aan uw ASE-subnet. Zoek in [App Service Environment management addresses][management] (Beheeradressen van App Service Environment) de adressen bij uw regio. Maak routes voor deze adressen met Internet als de volgende hop. Dit is nodig omdat het inkomend managementverkeer van ASE moet beantwoorden vanaf hetzelfde adres als waarnaar het is verzonden.   
+1. Maak een routetabel en wijs deze toe aan uw ASE-subnet. Zoek in [App Service Environment management addresses][management] (Beheeradressen van App Service Environment) de adressen bij uw regio. Maak routes voor deze adressen met Internet als de volgende hop. Dit is nodig omdat het inkomend managementverkeer van ASE moet beantwoorden vanaf hetzelfde adres als waarnaar het is verzonden.   
 
 2. Service-eindpunten met Azure SQL en Azure Storage instellen met uw ASE-subnet.  Nadat deze stap is voltooid, kunt u uw VNet configureren met geforceerde tunneling.
 
@@ -83,7 +99,7 @@ Als u geforceerd tunneling configureert met een netwerkfilterapparaat, houd er d
 
 Voer de volgende stappen uit als u al het uitgaande verkeer vanuit uw ASE, behalve het verkeer naar Azure SQL en Azure Storage, wilt omleiden:
 
-1. Maak een routetabel maken en wijs deze toe aan uw ASE-subnet. Zoek in [App Service Environment management addresses][management] (Beheeradressen van App Service Environment) de adressen bij uw regio. Maak routes voor deze adressen met Internet als de volgende hop. Dit is nodig omdat het inkomend managementverkeer van ASE moet beantwoorden vanaf hetzelfde adres als waarnaar het is verzonden. 
+1. Maak een routetabel en wijs deze toe aan uw ASE-subnet. Zoek in [App Service Environment management addresses][management] (Beheeradressen van App Service Environment) de adressen bij uw regio. Maak routes voor deze adressen met Internet als de volgende hop. Dit is nodig omdat het inkomend managementverkeer van ASE moet beantwoorden vanaf hetzelfde adres als waarnaar het is verzonden. 
 
 2. Service-eindpunten met Azure Storage instellen met uw ASE-subnet
 
@@ -141,3 +157,4 @@ Niet alleen een onderbroken communicatie kan een nadelige invloed hebben op een 
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table

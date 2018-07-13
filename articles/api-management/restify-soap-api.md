@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: 940756917c8f377e7d134818409e6287a4031e15
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935567"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38239805"
 ---
-# <a name="import-a-soap-api-and-convert-to-rest"></a>Een SOAP API importeren en deze converteren naar REST
+# <a name="import-a-soap-api-and-convert-to-rest"></a>Een SOAP-API importeren en deze converteren naar REST
 
 Dit artikel laat zien hoe u een SOAP API importeert en converteert naar REST. In het artikel wordt ook uitgelegd hoe u de APIM-API kunt testen.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * Een SOAP API importeren en deze converteren naar REST
+> * Een SOAP-API importeren en deze converteren naar REST
 > * De API testen in Azure Portal
 > * De API testen in de ontwikkelaarsportal
 

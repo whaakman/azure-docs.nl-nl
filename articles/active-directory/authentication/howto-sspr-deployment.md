@@ -55,7 +55,7 @@ Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, 
 
 ## <a name="create-your-own-password-portal"></a>Uw eigen wachtwoordportal maken
 
-Veel klanten kiezen ervoor een webpagina te hosten en een DNS-basisvermelding te maken, zoalshttps://passwords.contoso.com. Ze vullen deze pagina met koppelingen naar de volgende informatie:
+Veel klanten kiezen ervoor een webpagina te hosten en een DNS-basisvermelding te maken, zoals https://passwords.contoso.com . Ze vullen deze pagina met koppelingen naar de volgende informatie:
 
 * [Azure AD-portal voor wachtwoordherstel - https://aka.ms/sspr](https://aka.ms/sspr)
 * [Azure AD-registratieportal voor wachtwoordherstel https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)

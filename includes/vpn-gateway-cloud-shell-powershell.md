@@ -9,11 +9,11 @@ ms.date: 05/14/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f034b1e97ec88125dac0964de2e3be884795a690
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34685064"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38765892"
 ---
 Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Klik op **Kopiëren** om de code te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren. U kunt Cloud Shell op verschillende manieren starten:
 

@@ -3,7 +3,7 @@ title: 'Zelfstudie: Een virtuele-machineschaalset maken voor Linux in Azure | Mi
 description: In deze zelfstudie leert u hoe u Azure CLI 2.0 gebruikt om een maximaal beschikbare toepassing te maken en implementeren op virtuele Linux-machines met behulp van een virtuele-machineschaalset
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/01/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 305c8b46f82409257061e1cb0ab79b3bf958384d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b8e25934dfd1bfa9d94d3452044443e7a5002534
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839602"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932667"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>Zelfstudie: Een virtuele-machineschaalset maken en een toepassing met hoge beschikbaarheid implementeren in Linux met Azure CLI 2.0
 

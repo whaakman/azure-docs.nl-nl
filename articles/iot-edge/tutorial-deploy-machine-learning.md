@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afc9e7c0635f9920aa3ec7c9e6012aa4e41edb9d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062038"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345488"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning als een IoT Edge-module implementeren - preview
 
@@ -35,7 +35,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een IoT Edge-apparaat nodig om de Machine Learning-module te testen die u in deze zelfstudie bouwt. U kunt het apparaat gebruiken dat u hebt geconfigureerd in de quickstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md). 
+U hebt een IoT Edge-apparaat nodig om de Machine Learning-module te testen die u in deze zelfstudie bouwt. U kunt het apparaat gebruiken dat u hebt geconfigureerd in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md). 
 
 De Azure Machine Learning-module ondersteunt geen ARM-processoren.
 
@@ -60,7 +60,7 @@ Bewerk het configuratiebestand voor de IoT Edge-daemon:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Werk de sectie **verbinding maken** van de configuratie bij. Bijvoorbeeld:
+Werk de sectie **verbinding maken** van de configuratie bij met uw IP-adres. Bijvoorbeeld:
 ```yaml
 connect:
   management_uri: "http://172.17.0.1.1:15580"
@@ -102,7 +102,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 
 Controleer of de containerinstallatiekopie is gemaakt en opgeslagen in het Azure-containerregister dat is gekoppeld aan de machine learning-omgeving.
 
-1. Ga op het [Azure Portal](https://portal.azure.com) naar **Alle services** en selecteer **Containerregisters**.
+1. Ga in [Azure Portal](https://portal.azure.com) naar **Alle services** en selecteer **Containerregisters**.
 2. Selecteer uw register. De naam moet beginnen met **mlcr** en behoren tot de resourcegroep en locatie die, en het abonnement dat u hebt gebruikt om Module-beheer in te stellen.
 3. Selecteer **Toegangssleutels**
 4. Kopieer **Aanmeldingsserver**, **Gebruikersnaam** en **Wachtwoord**.  Deze hebt u nodig om het register van uw Edge-apparaten te openen.
@@ -125,20 +125,20 @@ Controleer of de containerinstallatiekopie is gemaakt en opgeslagen in het Azure
 1. Als u de tempSensor-module eerder op uw IoT Edge-apparaat hebt geïmplementeerd, wordt het mogelijk automatisch ingevuld. Als die nog niet in uw lijst met modules staat, voeg deze dan toe.
 
     1. Klik op **Toevoegen** en selecteer **IoT Edge-module**.
-    2. Voer in het veld **Naam** `tempsensor` in.
+    2. Voer in het veld **Naam** `tempSensor` in.
     3. Voer in het veld **URI installatiekopie** `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` in.
     4. Selecteer **Opslaan**.
 
 1. Voeg de machine learning-module toe die u hebt gemaakt.
 
     1. Klik op **Toevoegen** en selecteer **Azure Machine Learning-module**.
-    1. Voer in het veld **Naam** `machinelearningmodule` in
+    1. Voer in het veld **Naam** `machinelearningmodule` in.
     1. Voer in het veld **Installatiekopie** het adres van uw installatiekopie in, bijvoorbeeld `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Selecteer **Opslaan**.
 
 1. Terug in de stap **Modules toevoegen** selecteert u **Volgende**.
 
-1. Kopieer in de stap **Routes opgeven** de onderstaande JSON in het tekstvak. De eerste route transporteert berichten van de temperatuursensor naar de machine learning-module via het ‘amlInput’-eindpunt. Dit is het eindpunt dat alle Azure Machine Learning-modules gebruiken. De tweede route transporteert berichten van de filtermodule naar IoT Hub. In deze route is ‘amlOutput’ het eindpunt dat alle Azure Machine Learning-modules gebruiken voor gegevens en ‘$upstream’ beschrijft IoT Hub.
+1. Kopieer in de stap **Routes opgeven** de onderstaande JSON in het tekstvak. De eerste route transporteert berichten van de temperatuursensor naar de machine learning-module via het ‘amlInput’-eindpunt. Dit is het eindpunt dat alle Azure Machine Learning-modules gebruiken. De tweede route transporteert berichten van de Machine Learning- module naar IoT Hub. In deze route is ‘amlOutput’ het eindpunt dat alle Azure Machine Learning-modules gebruiken voor gegevens en ‘$upstream’ beschrijft IoT Hub.
 
     ```json
     {
@@ -218,7 +218,7 @@ az iot hub delete --name MyIoTHub --resource-group TestResources
 
 Ga als volgt te werk om de hele resourcegroep te verwijderen op naam:
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
 2. Typ in het tekstvak **Filteren op naam...** de naam van de resourcegroep die uw IoT Hub bevat. 
 

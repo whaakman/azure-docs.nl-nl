@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie voor het maken van een LUIS-app die een sentimentanalyse als resultaat geeft - Azure geeft | Microsoft Docs
+title: Zelfstudie voor het maken van een LUIS-app die een sentimentanalyse als resultaat geeft - Azure | Microsoft Docs
 description: In deze zelfstudie leert u hoe u sentimentanalyse toevoegt aan uw LUIS-app om utterances te analyseren op positieve, negatieve en neutrale gevoelens.
 services: cognitive-services
 author: v-geberr
@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 1a48810287c1639910db8e39af2da61d836b2988
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958426"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340930"
 ---
-# <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>Zelfstudie: app maken die gevoel retourneert samen met voorspelling van intentie
+# <a name="tutorial-8--add-sentiment-analysis"></a>Zelfstudie: 8.  Sentimentanalyse toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt extraheren uit utterances.
 
 <!-- green checkmark -->
@@ -24,32 +24,32 @@ In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en n
 > * Sentimentanalyse begrijpen
 > * De LUIS-app in HR-domein (Human Resources) gebruiken 
 > * Sentimentanalyse toevoegen
-> * App inleren en publiceren
+> * App trainen en publiceren
 > * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien 
 
-Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u geen Human Resources-app uit de zelfstudie over [keyPhrase-entiteiten](luis-quickstart-intent-and-key-phrase.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+Als u geen Human Resources-app uit de zelfstudie over vooraf gemaakte [keyPhrase-entiteit](luis-quickstart-intent-and-key-phrase.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
 
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `sentiment`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `sentiment`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
 ## <a name="sentiment-analysis"></a>Sentimentanalyse
 Sentimentanalyse is de mogelijkheid om te bepalen of de uiting (utterance) van een gebruiker positief, negatief of neutraal is. 
 
 De volgende utterances zijn voorbeelden van gevoelens:
 
-|Stemming|Score|Utterance|
+|Sentiment|Score|Utterance|
 |:--|:--|:--|
 |positief|0,91 |John W. Smith heeft een geweldige presentatie gegeven in Parijs.|
 |positief|0,84 |jill-jones@mycompany.com heeft het fantastisch gedaan om Parker als klant binnen te halen.|
 
 Sentimentanalyse is een app-instelling die voor elke utterance geldt. U hoeft niet op zoek te gaan naar woorden om in de utterance een sentiment aan te duiden en deze van een label te voorzien, omdat sentimentanalyse voor de hele utterance geldt. 
 
-## <a name="add-employeefeedback-intent"></a>Intentie EmployeeFeedback toevoegen 
+## <a name="add-employeefeedback-intent"></a>Intent EmployeeFeedback toevoegen 
 Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf behoren, vast te leggen. 
 
-1. Zorg ervoor dat uw Human Resources-app zich bevindt in de sectie **Build** van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
     [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
@@ -76,18 +76,18 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
     |Jill Jones deed het fantastisch tijdens haar verkooppraatje voor Harvard.|
     |John W. Smith heeft een geweldige presentatie gegeven voor Stanford.|
 
-    [ ![Schermopname van de LUIS-app met voorbeelden van utterances in de EmployeeFeedback-intentie](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
+    [ ![Schermopname van de LUIS-app met voorbeelden van utterances in de intentie EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## <a name="train-the-luis-app"></a>LUIS-app inleren
-LUIS is pas op de hoogte van de nieuwe intentie en de voorbeelden van utterances na te zijn ingeleerd. 
+## <a name="train-the-luis-app"></a>LUIS-app trainen
+LUIS is pas op de hoogte van de nieuwe intentie en de voorbeelden van utterances na te zijn getraind. 
 
 1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
 
     ![Schermopname met knop Train gemarkeerd](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
-2. Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
+2. Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
 
-    ![Schermopname van melding dat het inleren is gelukt ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
+    ![Schermopname van melding dat het trainen is gelukt ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>App configureren voor gebruik van sentimentanalyse
 Configureer sentimentanalyse op de pagina **Publish**. 
@@ -104,11 +104,11 @@ Configureer sentimentanalyse op de pagina **Publish**.
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Eindpunt opvragen met een utterance
 
-1. Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
+1. Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
 
-    ![Schermopname van de pagina Publish met eindpunt-URL gemarkeerd](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
+    !["Schermopname van de pagina Publish met eindpunt-URL gemarkeerd](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
 
-2. Ga naar het einde van de URL in het adres en voer `Jill Jones work with the media team on the public portal was amazing` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intent `EmployeeFeedback` als resultaat moet geven met de sentimentanalyse geëxtraheerd.
+2. Ga naar het einde van de URL in het adres en voer `Jill Jones work with the media team on the public portal was amazing` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `EmployeeFeedback` als resultaat moet geven met de sentimentanalyse geëxtraheerd.
 
 ```
 {
@@ -212,13 +212,10 @@ Uw chatbot heeft nu voldoende gegevens om de volgende stap in het gesprek te bep
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de sentimentgegevens uit de utterance om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer hiervoor het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het bovenste menu links. Selecteer het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"] 
 > [API op LUIS-eindpunt aanroepen met C#](luis-get-started-cs-get-intent.md) 
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

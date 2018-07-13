@@ -3,7 +3,7 @@ title: 'Snelstart: Een virtuele Linux-machine maken met Azure PowerShell | Micro
 description: In deze snelstart leert u hoe u Azure PowerShell gebruikt om een virtuele Linux-machine te maken
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,18 +14,18 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/24/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e910ced35738fcba27a8a1d7f2f010b2cd42e55d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 45b1597d3b61a9386fc015b5a7272d948fa5772b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188987"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930943"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Snelstart: Een virtuele Linux-machine maken in Azure met PowerShell
 
-De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze snelstart wordt beschreven hoe u de Azure PowerShell-module gebruikt voor het implementeren van een virtuele Linux-machine (VM) in Azure waarop Ubuntu wordt uitgevoerd. Om uw virtuele machine in actie te zien, voert u SSH voor de virtuele machine uit en installeert u de NGINX-webserver.
+De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze snelstart wordt beschreven hoe u de Azure PowerShell-module gebruikt voor het implementeren van een virtuele Linux-machine (VM) in Azure waarop Ubuntu wordt uitgevoerd. Wanner u uw virtuele machine in actie wilt zien, voert u SSH voor de virtuele machine uit en installeert u de NGINX-webserver.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -132,7 +132,7 @@ Als u hierom wordt gevraagd, is de gebruikersnaam voor het aanmelden *azureuser*
 
 ## <a name="install-web-server"></a>Webserver installeren
 
-Als u uw virtuele machine in actie wilt zien, installeert u de NGINX-webserver. Gebruik de volgende opdrachten vanuit uw SSH-sessie om pakketbronnen bij te werken en het meest recente NGINX-pakket te installeren:
+Als u uw VM in actie wilt zien, installeert u de NGINX-webserver. Gebruik de volgende opdrachten vanuit uw SSH-sessie om pakketbronnen bij te werken en het meest recente NGINX-pakket te installeren:
 
 ```bash
 # update packages

@@ -16,11 +16,11 @@ ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29932742"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38472948"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Een Node.js-app en een MongoDB-web-app maken in Azure App Service onder Linux
 
@@ -28,11 +28,11 @@ ms.locfileid: "29932742"
 > In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een Node.js- en een MongoDB-web-app in Azure maken](../app-service-web-tutorial-nodejs-mongodb-app.md) als u App Service onder _Windows_ wilt implementeren.
 >
 
-[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt beschreven hoe u een Node.js-web-app maakt, lokaal verbindt met een MongoDB-database en vervolgens implementeert in Azure, dat is gekoppeld aan een CosmosDB-database met behulp van de MongoDB-API. Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, AngularJS en Node.js) die wordt uitgevoerd in App Service onder Linux. In het voorbeeld wordt ter vereenvoudiging gebruikgemaakt van het [MEAN.js-webframework](http://meanjs.org/).
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt beschreven hoe u een Node.js-web-app maakt, lokaal verbindt met een MongoDB-database en vervolgens implementeert in Azure, dat is gekoppeld aan een CosmosDB-database met behulp van de MongoDB-API. Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, AngularJS en Node.js) die wordt uitgevoerd in App Service onder Linux. In het voorbeeld wordt ter vereenvoudiging gebruikgemaakt van het [MEAN.js-webframework](http://meanjs.org/).
 
 ![MEAN.js-app uitgevoerd in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-U leer het volgende:
+U leert het volgende:
 
 > [!div class="checklist"]
 > * Een CosmosDB-database maken met behulp van de MongoDB-API in Azure
@@ -73,7 +73,7 @@ In deze stap stelt u het lokale Node.js-project in.
 
 ### <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-In het terminalvenster, `cd` in een werkmap.
+Voer in het terminalvenster de opdracht `cd` naar een werkmap uit.
 
 Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.
 

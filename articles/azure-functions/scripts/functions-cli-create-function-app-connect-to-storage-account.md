@@ -17,11 +17,11 @@ ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: cbe7bf95574ca7a77d666981691da05357ce9a0d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843575"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467823"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Een functie-app maken die verbinding maakt met een Azure Storage-account
 
@@ -56,7 +56,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 |---|---|
 | [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Aanmelden bij Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Een resourcegroep maken met locatie |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Een opslagaccount maken |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Create a storage account |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Een nieuwe functie-app maken |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Opruimen |
 

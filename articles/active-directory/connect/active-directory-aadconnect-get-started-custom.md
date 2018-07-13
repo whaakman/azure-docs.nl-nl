@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d58418b45192a6c1e31b4c3c918a27fe253d8c34
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849988"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473983"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](active-directory-aadconnect-get-started-express.md) niet aan uw implementatie of topologie voldoet.
@@ -67,7 +67,7 @@ Dit account wordt alleen gebruikt om een serviceaccount in Azure AD aan te maken
 Als MFA voor het account van de globale beheerder is ingeschakeld, dan moet u het wachtwoord opnieuw in het aanmeldpopupvenster invoeren en de MFA-controle voltooien. De controle kan bestaan uit het invoeren van een verificatiecode of uit een telefonische oproep.  
 ![Aanmelding door een gebruiker bij MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
-Voor het account van de globale beheerder kan ook [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md) zijn ingeschakeld.
+Voor het account van de globale beheerder kan ook [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) zijn ingeschakeld.
 
 Zie [Connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot-connectivity.md) als u een foutbericht krijgt en u problemen hebt met de connectiviteit.
 

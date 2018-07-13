@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7254e9336fca14daee2021d5bde4c5538509fe35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 81478ace72a538f4970e114cd704fd64ceb94aa6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842319"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344887"
 ---
-# <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Zelfstudie: netwerkverkeer routeren met een routetabel met behulp van Azure Portal
+# <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Zelfstudie: Netwerkverkeer routeren met een routetabel met behulp van Azure Portal
 
 Azure routeert standaard automatisch verkeer tussen alle subnetten in een virtueel netwerk. U kunt uw eigen routes maken om de standaardroutering van Azure te overschrijven. De mogelijkheid voor het maken van aangepaste routes is handig als u bijvoorbeeld verkeer tussen subnetten wilt routeren via een NVA (virtueel netwerkapparaat). In deze zelfstudie leert u het volgende:
 
@@ -91,7 +91,7 @@ Voordat u een routetabel aan een subnet kunt koppelen, moet u een virtueel netwe
     |Abonnement | Selecteer uw abonnement.|
     |Resourcegroep|Selecteer **Bestaande gebruiken** en selecteer **myResourceGroup**.|
     |Locatie|Selecteer *VS Oost*|
-    |Subnetnaam|Openbaar|
+    |Subnetnaam|Public|
     |Adresbereik|10.0.0.0/24|
     
 4. Begin in het vak *Resources, services en documenten zoeken* bovenaan de portal **myVirtualNetwork** te typen. Wanneer **myVirtualNetwork** wordt weergegeven in de zoekresultaten, selecteert u dit.
@@ -159,7 +159,7 @@ Maak twee VM's in het virtuele netwerk, zodat u in een latere stap kunt validere
 
 |Naam van de virtuele machine      |Subnet      | Openbaar IP-adres     |
 |--------- | -----------|---------              |
-| myVmPublic  | Openbaar     | Accepteer de standaardportal |
+| myVmPublic  | Public     | Accepteer de standaardportal |
 | myVmPrivate | Privé    | Accepteer de standaardportal |
 
 U kunt de VM *myVmPrivate* maken terwijl Azure de VM *myVmPublic* maakt. Ga niet verder met de volgende stappen voordat Azure klaar is met het maken van beide VM's.

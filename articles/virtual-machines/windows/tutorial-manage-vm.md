@@ -3,7 +3,7 @@ title: "Zelfstudie: Windows-VM's maken en beheren met de Azure PowerShell | Micr
 description: In deze zelfstudie leert u hoe u Azure PowerShell gebruikt voor het maken en beheren van virtuele Windows-machines in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/23/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2a1d89b1e1b7c398ae05fef5577bb1631409631b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d47981042fc13a96bdf5cb9690e4dc83a6aa0162
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211103"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932548"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Zelfstudie: Windows-VM's maken en beheren met Azure PowerShell
 
@@ -147,7 +147,7 @@ Deze informatie kan worden gebruikt om een virtuele machine met een specifieke i
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM2" `
-    -Location "East US" `
+    -Location "EastUS" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `

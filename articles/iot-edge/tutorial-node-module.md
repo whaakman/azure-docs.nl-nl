@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: cdcd30ea29c5c7066a6ae05f64b5bf0720572599
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061261"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299203"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Zelfstudie: een Node.js IoT Edge-module maken en implementeren op een gesimuleerd apparaat
 
@@ -33,7 +33,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Het Azure IoT Edge-apparaat dat u hebt gemaakt in de quickstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
+* Het Azure IoT Edge-apparaat dat u hebt gemaakt in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Docker](https://docs.docker.com/engine/installation/) op dezelfde computer met Visual Studio Code. De Community Edition (CE) is voldoende voor deze zelfstudie. 

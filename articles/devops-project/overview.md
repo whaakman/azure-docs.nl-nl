@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: b87cb14fc707d14638c2d6a52af6f295276a2279
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 992b469803b26a11e7ca26142beba7d238e25452
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779137"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952208"
 ---
 # <a name="overview-of-azure-devops-project"></a>Overzicht van Azure DevOps Project
 
@@ -69,7 +69,7 @@ Nadat het DevOps-project is gemaakt, kunt u het volgende doen:
 
 ## <a name="how-do-i-start-using-the-azure-devops-project"></a>Hoe ga ik aan de slag met Azure DevOps Project?
 
-* [Aan de slag met Azure DevOps Project](https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github) (Engelstalig)
+* [Aan de slag met Azure DevOps Project](https://docs.microsoft.com/azure/azure-devops-project-github) (Engelstalig)
 
 ## <a name="azure-devops-project-videos"></a>Video's over Azure DevOps Project
 

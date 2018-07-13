@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4603131c31ab3792efc1df504eb95dfde2eccb17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30191378"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452631"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Een point-to-site-verbinding naar een VNet configureren met behulp van systeemeigen Azure-certificaatverificatie: Azure Portal
 

@@ -1,22 +1,22 @@
 ---
-title: Zelfstudie - LUIS-app maken voor het extraheren van gegevens - Azure | Microsoft Docs
-description: In deze zelfstudie leert u hoe u een eenvoudige LUIS-app maakt met behulp van 'intents' en de entiteit Simple om via machine learning verkregen gegevens te extraheren.
+title: 'Zelfstudie: LUIS-app maken voor het extraheren van gegevens - Azure | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u een eenvoudige LUIS-app maakt met behulp van 'intenties' en de entiteit Simple om via machine learning verkregen gegevens te extraheren.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/26/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061244"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130888"
 ---
-# <a name="tutorial-create-app-that-uses-simple-entity"></a>Zelfstudie: App maken die de entiteit Simple gebruikt
+# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Zelfstudie: 6. De entiteit Simple en een woordgroepenlijst toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u met behulp van de entiteit **Simple** via machine learning verkregen gegevens extraheert uit een 'utterance'.
 
 <!-- green checkmark -->
@@ -24,17 +24,17 @@ In deze zelfstudie maakt u een app die laat zien hoe u met behulp van de entitei
 > * Algemene informatie over entiteiten van het type Simple 
 > * Nieuwe LUIS-app maken voor het domein Human Resources (HR) 
 > * Een entiteit Simple maken om taken te extraheren uit een app
-> * App inleren en publiceren
+> * App trainen en publiceren
 > * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
 > * Woordgroepenlijst toevoegen om signalering van taakwoorden te verbeteren
-> * Een app inleren, publiceren en opnieuw een query uitvoeren op een eindpunt
+> * Een app trainen, publiceren en opnieuw een eindpunt opvragen
 
-Voor dit artikel hebt u een gratis [LUIS-account](luis-reference-regions.md#luis-website) nodig om uw LUIS-toepassing te creëren.
+Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u geen Human Resources-app uit de zelfstudie over de [entiteit Hierarchical](luis-quickstart-intent-and-hier-entity.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
 
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `simple`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd.  
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `simple`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd.  
 
 ## <a name="purpose-of-the-app"></a>Doel van de app
 Deze app laat zien hoe u gegevens extraheert uit een utterance. Laten we de volgende utterances uit een chatbot als voorbeeld nemen:
@@ -45,10 +45,10 @@ Deze app laat zien hoe u gegevens extraheert uit een utterance. Laten we de volg
 |Verzend mijn CV voor de functie als technicus.|technicus|
 |Sollicitatieformulier invullen voor vacature 123456|123456|
 
-Tijdens deze zelfstudie wordt een nieuwe entiteit toegevoegd waarmee de functienaam kan worden geëxtraheerd. De mogelijkheid om een specifieke functienaam te extraheren wordt in de [zelfstudie](luis-quickstart-intents-regex-entity.md) over reguliere expressies getoond. 
+Tijdens deze zelfstudie wordt een nieuwe entiteit toegevoegd waarmee de functienaam kan worden geëxtraheerd. 
 
 ## <a name="purpose-of-the-simple-entity"></a>Doel van de entiteit Simple
-Het doel van de entiteit Simple in deze LUIS-app is om LUIS te leren wat een functienaam is en waar dit kan worden gevonden in een utterance. Het deel van de utterance dat de functie vormt, kan per utterance verschillen afhankelijk van woordkeuze en lengte van de utterance. LUIS heeft voorbeelden nodig van functies in utterances voor alle intents.  
+Het doel van de entiteit Simple in deze LUIS-app is om LUIS te leren wat een functienaam is en waar dit kan worden gevonden in een utterance. Het deel van de utterance dat de functie vormt, kan per utterance verschillen afhankelijk van woordkeuze en lengte van de utterance. LUIS heeft voorbeelden nodig van functies in utterances voor alle intenties.  
 
 Het is moeilijk om te bepalen wat de functienaam is omdat dit een zelfstandig naamwoord, werkwoord of een woordgroep van meerdere woorden kan zijn. Bijvoorbeeld:
 
@@ -65,27 +65,27 @@ Het is moeilijk om te bepalen wat de functienaam is omdat dit een zelfstandig na
 |onderhoudsmonteur|
 |monteur voor draaiende machineonderdelen|
 
-In deze LUIS-app komen functienamen in verschillende intents voor. Door deze woorden in alle utterances binnen intents van een label te voorzien, leert LUIS meer over wat elke functie is en waar deze kan worden gevonden in utterances.
+In deze LUIS-app komen functienamen in verschillende intenties voor. Door deze woorden in alle utterances binnen intenties van een label te voorzien, leert LUIS meer over wat elke functie is en waar deze kan worden gevonden in utterances.
 
 ## <a name="create-job-simple-entity"></a>Entiteit Simple voor functie maken
 
-1. Zorg ervoor dat uw Human Resources-app zich bevindt in de sectie **Build** van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
     [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
-2. Selecteer op de pagina **Intent** de intent **ApplyForJob**. 
+2. Selecteer op de pagina **Intent** de intentie **ApplyForJob**. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Schermopname van LUIS met de intent 'ApplyForJob' gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Schermopname van LUIS met de intentie ApplyForJob gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
-3. In de utterance `I want to apply for the new accounting job` selecteert u `accounting`, voert u `Job` in het bovenste veld van het pop-upmenu in en selecteert u **Create new entity** in het pop-upmenu. 
+3. In de utterance `I want to apply for the new accounting job` selecteert u `accounting`, voert u `Job` in het bovenste veld van het snelmenu in en selecteert u **Create new entity** in het snelmenu. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Schermopname van LUIS met de intent 'ApplyForJob' en de stappen voor het creëren van een entiteit gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Schermopname van LUIS met de intentie ApplyForJob en de stappen voor het creëren van een entiteit gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 4. Controleer de naam en het type van de entiteit in het pop-upvenster en selecteer **Done**.
 
     ![Een modaal pop-updialoogvenster voor een entiteit Simple creëren met de naam van de functie en het type Simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. In de utterance `Submit resume for engineering position` labelt u het woord 'technicus' als een entiteit Job. Selecteer het woord 'technicus' en selecteer Job in het pop-upmenu. 
+5. In de utterance `Submit resume for engineering position` labelt u het woord `engineering` als een entiteit Job. Selecteer het woord `engineering` en selecteer **Job** in het snelmenu. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Schermopname van LUIS waarin het labelen van de entiteit Job is gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -112,10 +112,10 @@ In deze LUIS-app komen functienamen in verschillende intents voor. Door deze woo
     |Mijn cv voor de functie als biologiedocent is bijgesloten.|biologiedocent|
     |Ik wil graag solliciteren naar een functie binnen het vakgebied fotografie.|fotografie|git 
 
-## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>Entiteit labelen in voorbeelden van utterances voor de intent GetJobInformation
+## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>Entiteit labelen in voorbeelden van utterances voor de intentie GetJobInformation
 1. Selecteer **Intents** in het linkermenu.
 
-2. Selecteer **GetJobInformation** in de lijst met intents. 
+2. Selecteer **GetJobInformation** in de lijst met intenties. 
 
 3. Label de functies in de voorbeelden van utterances:
 
@@ -127,16 +127,16 @@ In deze LUIS-app komen functienamen in verschillende intents voor. Door deze woo
 
     Er zijn nog meer voorbeelden van utterances maar die bevatten geen woorden met betrekking tot functies.
 
-## <a name="train-the-luis-app"></a>LUIS-app inleren
-LUIS niet weet dat de intents en entiteiten (het model) zijn gewijzigd, totdat u de app hebt ingeleerd. 
+## <a name="train-the-luis-app"></a>LUIS-app trainen
+LUIS niet weet dat de intenties en entiteiten (het model) zijn gewijzigd, totdat u de app hebt ingeleerd. 
 
 1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
 
     ![De knop Train selecteren](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
 
-2. Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
+2. Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
 
-    ![Melding dat inleren is gelukt](./media/luis-quickstart-primary-and-secondary-data/trained.png)
+    ![Melding dat trainen is gelukt](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
 Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing, moet u de app publiceren. 
@@ -150,7 +150,7 @@ Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing,
 3. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Eindpunt opvragen met een andere utterance
-Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. 
+Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. 
 
 [![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Schermopname van de pagina Publish met eindpunt gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
 
@@ -218,9 +218,9 @@ Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbal
 ```
 
 ## <a name="names-are-tricky"></a>Namen zijn verraderlijk
-De LUIS-app heeft weliswaar de juiste intent gevonden met een hoge betrouwbaarheidsfactor en heeft de functienaam geëxtraheerd, maar namen zijn verraderlijk. Probeer het met utterance `This is the lead welder paperwork`.  
+De LUIS-app heeft weliswaar de juiste intentie gevonden met een hoge betrouwbaarheidsfactor en heeft de functienaam geëxtraheerd, maar namen zijn verraderlijk. Probeer het met utterance `This is the lead welder paperwork`.  
 
-In de volgende JSON antwoordt LUIS met de juiste intent, `ApplyForJob`, maar is de functienaam `lead welder` niet geëxtraheerd. 
+In de volgende JSON antwoordt LUIS met de juiste intentie, `ApplyForJob`, maar is de functienaam `lead welder` niet geëxtraheerd. 
 
 ```JSON
 {
@@ -292,13 +292,13 @@ Open [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/maste
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Schermopname van het pop-updialoogvenster voor het maken van een nieuwe woordgroepenlijst")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Als u meer woorden aan de woordgroepenlijst wilt toevoegen, bekijkt u de aanbevolen woorden en voegt u de woorden toe die relevant voor u zijn. 
+    Als u meer woorden aan de woordgroepenlijst wilt toevoegen, bekijkt u de **Gerelateerde waarden** en voegt u de woorden toe die relevant voor u zijn. 
 
 4. Selecteer **Save** om de woordgroepenlijst te activeren.
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Schermopname van het pop-updialoogvenster met woorden in het vak voor waarden")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. U moet de app opnieuw [inleren](#train-the-luis-app) en [publiceren](#publish-the-app-to-get-the-endpoint-URL) om de woordgroepenlijst te kunnen gebruiken.
+5. U moet de app opnieuw [trainen](#train-the-luis-app) en [publiceren](#publish-the-app-to-get-the-endpoint-URL) om de woordgroepenlijst te kunnen gebruiken.
 
 6. Een eindpunt opnieuw opvragen met de dezelfde utterance: `This is the lead welder paperwork.`
 
@@ -365,11 +365,11 @@ Open [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/maste
     }
     ```
 
-## <a name="phrase-lists"></a>Frasenlijsten
-Door de woordgroepenlijst toe te voegen, wordt de signalering van woorden die in de lijst voorkomen versterkt, maar worden deze woorden **niet** als exacte overeenkomst gebruikt. De woordgroepenlijst bevat diverse functies met `lead` als eerste woord. Ze bevat ook de functie `welder` maar niet de functie `lead welder`. Deze woordgroepenlijst voor functies is mogelijk niet volledig. Omdat u regelmatig [utterances van eindpunten zult bekijken ](label-suggested-utterances.md) en daaronder andere woorden met betrekking tot functies zult tegenkomen, kunt u deze aan uw woordgroepenlijst toevoegen. Vervolgens moet u de app opnieuw inleren en publiceren.
+## <a name="phrase-lists"></a>Woordgroepenlijsten
+Door de woordgroepenlijst toe te voegen, wordt de signalering van woorden die in de lijst voorkomen versterkt, maar worden deze woorden **niet** als exacte overeenkomst gebruikt. De woordgroepenlijst bevat diverse functies met `lead` als eerste woord. Ze bevat ook de functie `welder` maar niet de functie `lead welder`. Deze woordgroepenlijst voor functies is mogelijk niet volledig. Omdat u regelmatig [utterances van eindpunten zult bekijken ](label-suggested-utterances.md) en daaronder andere woorden met betrekking tot functies zult tegenkomen, kunt u deze aan uw woordgroepenlijst toevoegen. Vervolgens moet u de app opnieuw trainen en publiceren.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
-Met deze app, een intent Simple en een woordgroepenlijst met woorden, kan nu een intentie van een query in natuurlijke taal worden geïdentificeerd en kunnen de berichtgegevens worden geretourneerd. 
+Met deze app, een entiteit Simple en een woordgroepenlijst met woorden, kan nu een intentie van een query in natuurlijke taal worden geïdentificeerd en kunnen de functiegegevens worden geretourneerd. 
 
 Uw chatbot beschikt nu over voldoende informatie om vast te stellen wat de primaire actie is die ondernomen moet worden om naar een functie te solliciteren en om een parameter toe te passen die naar deze functie verwijst. 
 
@@ -377,9 +377,9 @@ Uw chatbot beschikt nu over voldoende informatie om vast te stellen wat de prima
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om vervolgens met behulp van een API van een derde partij de functiegegevens naar een HR-medewerker te verzenden. Als er andere programmatische opties bestaan voor de bot of de aanroepende toepassing, wordt die taak niet uitgevoerd door LUIS. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer hiervoor het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het menu linksboven. Selecteer het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Informatie over het toevoegen van een vooraf gedefinieerde entiteit KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
+> [Een vooraf gemaakte entiteit KeyPhrase toevoegen](luis-quickstart-intent-and-key-phrase.md)

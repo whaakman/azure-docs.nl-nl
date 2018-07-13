@@ -1,5 +1,5 @@
 ---
-title: CI/CD instellen voor Azure Service Fabric Java-toepassing | Microsoft Docs
+title: Jenkins voor een Java-app voor Service Fabric in Azure configureren | Microsoft Docs
 description: Deze zelfstudie geeft u informatie over het instellen van continue integratie met Jenkins voor het implementeren van een Java Service Fabric-toepassing.
 services: service-fabric
 documentationcenter: java
@@ -15,15 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: bd986b8741b55a10018f7400c9415e7aedfbf119
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 59e36a2c8b719f2e8e3fd6aec20b91605221d8b2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29949834"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109440"
 ---
-# <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>Zelfstudie: Een Jenkins-omgeving met Service Fabric instellen
-Deze zelfstudie is deel vijf van een serie. De zelfstudie laat zien hoe u Jenkins moet gebruiken voor het implementeren van upgrades voor uw toepassing. In deze zelfstudie wordt de Service Fabric Jenkins-invoegtoepassing gebruikt in combinatie met een Github-opslagplaats die als host fungeert voor de stemtoepassing, voor het implementeren van de toepassing naar een cluster. 
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Zelfstudie: Een Jenkins-omgeving configureren om CI/CD in te schakelen voor een Java-toepassing voor Service Fabric
+
+Deze zelfstudie is deel vijf van een serie. De zelfstudie laat zien hoe u Jenkins moet gebruiken voor het implementeren van upgrades voor uw toepassing. In deze zelfstudie wordt de Service Fabric Jenkins-invoegtoepassing gebruikt in combinatie met een Github-opslagplaats die als host fungeert voor de stemtoepassing, voor het implementeren van de toepassing naar een cluster.
 
 In deel vijf van de serie leert u het volgende:
 > [!div class="checklist"]
@@ -39,15 +40,16 @@ In deze zelfstudiereeks leert u het volgende:
 > * [Controle en diagnostische gegevens voor de toepassing instellen](service-fabric-tutorial-java-elk.md)
 > * CI/CD instellen
 
-
 ## <a name="prerequisites"></a>Vereisten
-- Installeer Git op uw lokale computer vanuit [de Git-pagina met downloads](https://git-scm.com/downloads). Lees voor meer informatie over Git de [Git-documentatie](https://git-scm.com/docs).
-- Enige basiskennis van [Jenkins](https://jenkins.io/) is nodig.
-- Maak een [GitHub](https://github.com/)-account en weet hoe u GitHub moet gebruiken.
-- Installeer [Docker](https://www.docker.com/community-edition) op uw computer.
+
+* Installeer Git op uw lokale computer vanuit [de Git-pagina met downloads](https://git-scm.com/downloads). Lees voor meer informatie over Git de [Git-documentatie](https://git-scm.com/docs).
+* Enige basiskennis van [Jenkins](https://jenkins.io/) is nodig.
+* Maak een [GitHub](https://github.com/)-account en weet hoe u GitHub moet gebruiken.
+* Installeer [Docker](https://www.docker.com/community-edition) op uw computer.
 
 ## <a name="pull-and-deploy-service-fabric-jenkins-container-image"></a>Haal de Service Fabric Jenkins container-installatiekopie op en implementeer deze
-U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgende instructies laten zien hoe dit buiten een cluster in te stellen met een opgegeven Docker-installatiekopie. Een vooraf geconfigureerde Jenkins build-omgeving kan echter ook worden gebruikt. De volgende afbeelding van de container is geïnstalleerd met de Service Fabric-invoegtoepassing en is onmiddellijk gereed voor gebruik met Service Fabric. 
+
+U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgende instructies laten zien hoe dit buiten een cluster in te stellen met een opgegeven Docker-installatiekopie. Een vooraf geconfigureerde Jenkins build-omgeving kan echter ook worden gebruikt. De volgende afbeelding van de container is geïnstalleerd met de Service Fabric-invoegtoepassing en is onmiddellijk gereed voor gebruik met Service Fabric.
 
 1. Haal de Service Fabric Jenkins container-installatiekopie op: ``docker pull rapatchi/jenkins:v10``. Deze installatiekopie wordt geleverd met de Service Fabric Jenkins-invoegtoepassing die vooraf is geïnstalleerd.
 
@@ -68,8 +70,8 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     Als de container-id 2d24a73b5964 is, gebruikt u 2d24.
     * Dit wachtwoord is vereist om u via de portal (``http://<HOST-IP>:8080``) aan te melden bij het Jenkins-dashboard
     * Nadat u zich voor de eerste keer hebt aangemeld, kunt u uw eigen gebruikersaccount maken of het beheerdersaccount gebruiken.
-    
-5. Stel GitHub in voor Jenkins door de stappen uit te voeren die genoemd zijn in [Een nieuwe SSH-sleutel genereren en toevoegen aan de SSH-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). Omdat de opdrachten worden uitgevoerd vanuit de Docker-container, volgt u de instructies voor de Linux-omgeving. 
+
+5. Stel GitHub in voor Jenkins door de stappen uit te voeren die genoemd zijn in [Een nieuwe SSH-sleutel genereren en toevoegen aan de SSH-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). Omdat de opdrachten worden uitgevoerd vanuit de Docker-container, volgt u de instructies voor de Linux-omgeving.
     * Gebruik de instructies van GitHub om de SSH-sleutel te genereren. Voeg vervolgens de SSH-sleutel aan het GitHub-account toe dat als host voor de opslagplaats fungeert.
     * Voer de opdrachten die in de vorige koppeling zijn genoemd, uit in de Jenkins Docker-shell (en niet op uw host).
     * Gebruik de volgende opdrachten om u vanaf uw host aan te melden bij de Jenkins-shell:
@@ -78,7 +80,7 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
     ```
 
-    Zorg ervoor dat het cluster waarin of de computer waarop de installatiekopie van de Jenkins-container wordt gehost, een openbaar IP-adres heeft. Met een openbaar IP-adres kan de instantie van Jenkins meldingen ontvangen uit GitHub.    
+    Zorg ervoor dat het cluster waarin of de computer waarop de installatiekopie van de Jenkins-container wordt gehost, een openbaar IP-adres heeft. Met een openbaar IP-adres kan de instantie van Jenkins meldingen ontvangen uit GitHub.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Een Jenkins-taak maken en configureren
 
@@ -110,23 +112,23 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
 
 7. Ga naar de sectie **Build** en selecteer in de vervolgkeuzelijst **Add build step** de optie **Invoke Gradle Script**. Geef in de volgende widget het pad op naar het **hoofdscript** van uw toepassing. Het haalt build.gradle op uit het opgegeven pad en werkt dienovereenkomstig.
 
-    ![Service Fabric-bouwactie voor Jenkins](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
-  
-8. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. Hier moet u clustergegevens opgeven, zoals waar de via Jenkins gecompileerde Service Fabric-toepassing wordt geïmplementeerd. Het pad naar het certificaat is waar het volume was gekoppeld (/ tmp/myCerts). 
-   
+    ![Service Fabric Jenkins Build action](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
+
+8. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. Hier moet u clustergegevens opgeven, zoals waar de via Jenkins gecompileerde Service Fabric-toepassing wordt geïmplementeerd. Het pad naar het certificaat is waar het volume is gekoppeld (/tmp/myCerts).
+
     U kunt ook aanvullende toepassingsgegevens opgeven. Deze worden gebruikt om de toepassing te implementeren. Bekijk de volgende schermafbeelding voor een voorbeeld van de details van de toepassing:
 
-    ![Service Fabric-bouwactie voor Jenkins](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
+    ![Service Fabric Jenkins Build-actie](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
     > [!NOTE]
     > Het cluster dat u hier gebruikt, moet het cluster zijn waarin de Jenkins-containertoepassing wordt gehost als u Service Fabric gebruikt om de installatiekopie van de Jenkins-containerinstallatiekopie te implementeren.
     >
 
-## <a name="update-your-existing-application"></a>De bestaande toepassing bijwerken 
+## <a name="update-your-existing-application"></a>De bestaande toepassing bijwerken
 
-1. Werk de titel bij van de HTML-code in het bestand *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* met **Service Fabric Voting Sample V2**. 
+1. Werk de titel bij van de HTML-code in het bestand *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* met **Service Fabric Voting Sample V2**.
 
-    ```html 
+    ```html
     <div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
         <div class="container-fluid">
             <div class="row">
@@ -138,7 +140,7 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     </div>
     ```
 
-2. Update de versie **ApplicationTypeVersion** en **ServiceManifestVersion** naar **2.0.0** in het bestand *Voting/VotingApplication / ApplicationManifest.xml*. 
+2. Update de versie **ApplicationTypeVersion** en **ServiceManifestVersion** naar **2.0.0** in het bestand *Voting/VotingApplication / ApplicationManifest.xml*.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -155,13 +157,13 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
              <StatelessService InstanceCount="1" ServiceTypeName="VotingWebType">
                 <SingletonPartition/>
              </StatelessService>
-          </Service>      
+          </Service>
        <Service Name="VotingDataService">
                 <StatefulService MinReplicaSetSize="3" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="3">
                     <UniformInt64Partition HighKey="9223372036854775807" LowKey="-9223372036854775808" PartitionCount="1"/>
                 </StatefulService>
             </Service>
-        </DefaultServices>      
+        </DefaultServices>
     </ApplicationManifest>
     ```
 
@@ -177,18 +179,19 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     </CodePackage>
     ```
 
-4. Voor het initialiseren van een Jenkins-taak die een upgrade van de toepassing uitvoert, moet u uw nieuwe wijzigingen naar uw Github-opslagplaats forceren. 
+4. Voor het initialiseren van een Jenkins-taak die een upgrade van de toepassing uitvoert, moet u uw nieuwe wijzigingen naar uw Github-opslagplaats forceren.
 
 5. Klik in Service Fabric Explorer op de vervolgkeuzelijst **Toepassingen**. Klik op het tabblad **Upgrades in uitvoering** om de status van de upgrade te zien.
 
     ![Upgrade wordt uitgevoerd](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-6. Als u **http://\<Host-IP->: 8080** bezoekt is de stemtoepassing met volledige functionaliteit nu actief en werkend. 
+6. Als u **http://\<Host-IP->: 8080** bezoekt is de stemtoepassing met volledige functionaliteit nu actief en werkend.
 
     ![Lokale stem-app](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u het volgende geleerd:
+
+In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Service Fabric Jenkins-container implementeren op uw machine

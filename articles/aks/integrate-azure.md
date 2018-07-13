@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 471b53be4200ff728214876dd187c3c4e427c947
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342873"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integreren met de door Azure beheerde services met behulp van Open Service Broker for Azure (OSBA)
 
@@ -21,13 +22,13 @@ Net als [Kubernetes Service Catalog][kubernetes-service-catalog] stelt Open Serv
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement
 
-* Azure CLI 2.0: [installeer deze lokaal ][azure-cli-install] of gebruik deze in [Azure Cloud Shell][azure-cloud-shell].
+* Azure CLI: [installeer deze lokaal ][azure-cli-install] of gebruik deze in [Azure Cloud Shell][azure-cloud-shell].
 
 * Helm CLI 2.7+: [installeer deze lokaal ][helm-cli-install] of gebruik deze in [Azure Cloud Shell][azure-cloud-shell].
 
 * Machtigingen voor het maken van een service-principal met de rol Inzender in uw Azure-abonnement
 
-* Een bestaand AKS-cluster (Azure Kubernetes Service). Als u een cluster AKS nodig hebt, volgt u de snelstartgids [Een AKS-cluster maken][create-aks-cluster].
+* Een bestaand AKS-cluster (Azure Kubernetes Service). Als u een cluster AKS nodig hebt, volgt u de snelstart [Een AKS-cluster maken][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Service Catalog installeren
 
@@ -43,10 +44,16 @@ Voeg nu het Service Catalog-diagram toe aan de Helm-opslagplaats:
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
-Installeer tot slot Service Catalog met het Helm-diagram:
+Installeer tot slot Service Catalog met het Helm-diagram. Als in uw cluster RBAC is ingeschakeld, moet u deze opdracht uitvoeren.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
+```
+
+Als in uw cluster RBAC niet is ingeschakeld, moet u deze opdracht uitvoeren.
+
+```azurecli-interactive
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.auth.enabled=false --set controllerManager.healthcheck.enabled=false
 ```
 
 Nadat het Helm-diagram is uitgevoerd, controleert u of `servicecatalog` in de uitvoer van de volgende opdracht wordt weergegeven:
@@ -68,7 +75,7 @@ v1beta1.storage.k8s.io               10
 
 ## <a name="install-open-service-broker-for-azure"></a>Open Service Broker for Azure installeren
 
-De volgende stap bestaat uit het installeren van [Open Service Broker for Azure][open-service-broker-azure], waar ook de catalogus voor de door Azure beheerde services deel van uitmaakt. Voorbeelden van beschikbare Azure-services zijn onder andere Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB en Azure SQL Database.
+De volgende stap bestaat uit het installeren van [Open Service Broker for Azure][open-service-broker-azure], waar ook de catalogus voor de door Azure beheerde services deel van uitmaakt. Voorbeelden van beschikbare Azure-services zijn onder andere Azure Database for PostgreSQL, Azure Database for MySQL en Azure SQL Database.
 
 Begin met het toevoegen van de Helm-opslagplaats van Open Service Broker voor Azure:
 

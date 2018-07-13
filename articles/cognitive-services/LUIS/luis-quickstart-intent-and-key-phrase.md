@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie voor het maken van een LUIS-app die sleuteltermen retourneert - Azure geeft | Microsoft Docs
+title: Zelfstudie voor het maken van een LUIS-app die sleuteltermen retourneert - Azure | Microsoft Docs
 description: In deze zelfstudie leert u hoe u de entiteit keyPhrase toevoegt aan een LUIS-app en hieruit opvraagt om utterances te analyseren op belangrijke informatie.
 services: cognitive-services
 author: v-geberr
@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063405"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340947"
 ---
-# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>Zelfstudie: Meer informatie over het retourneren van gegevens van de entiteit keyPhrase 
+# <a name="tutorial-7-add-keyphrase-entity"></a>Zelfstudie: 7. KeyPhrase-entiteit toevoegen 
 In deze zelfstudie gebruikt u een app die laat zien hoe u belangrijke informatie kunt extraheren uit utterances.
 
 <!-- green checkmark -->
@@ -24,7 +24,7 @@ In deze zelfstudie gebruikt u een app die laat zien hoe u belangrijke informatie
 > * Algemene informatie over keyPhrase 
 > * De LUIS-app in HR-domein (Human Resources) gebruiken 
 > * Entiteit keyPhrase toevoegen om inhoud te extraheren uit utterance
-> * App inleren en publiceren
+> * App trainen en publiceren
 > * Eindpunt van de app opvragen om LUIS JSON-antwoord te zien inclusief sleuteltermen
 
 Voor dit artikel kunt u het gratis [LUIS](luis-reference-regions.md#publishing-regions)-account gebruiken om de LUIS-toepassing te maken.
@@ -32,7 +32,7 @@ Voor dit artikel kunt u het gratis [LUIS](luis-reference-regions.md#publishing-r
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u geen Human Resources-app uit de zelfstudie over de [entiteit Simple](luis-quickstart-primary-and-secondary-data.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
 
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `keyphrase`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `keyphrase`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
 ## <a name="keyphrase-entity-extraction"></a>Belangrijke gegevens extraheren met keyPhrase
 Belangrijke informatie wordt aangeleverd door de vooraf gedefinieerde entiteit **keyPhrase**. Deze entiteit retourneert sleuteltermen in de utterance.
@@ -49,7 +49,7 @@ Uw clienttoepassing kan deze waarden gebruiken, samen met andere geëxtraheerde 
 ## <a name="add-keyphrase-entity"></a>KeyPhrase-entiteit toevoegen 
 Voeg de vooraf gedefinieerde entiteit keyPhrase toe om belangrijke informatie op te halen uit utterances.
 
-1. Zorg ervoor dat uw Human Resources-app zich bevindt in de sectie **Build** van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
     [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
 
@@ -59,45 +59,45 @@ Voeg de vooraf gedefinieerde entiteit keyPhrase toe om belangrijke informatie op
 
 3. Selecteer **Manage prebuilt entities**.
 
-    [ ![Schermopname van het pop-upvenster Entities](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png#lightbox)
+    [ ![Schermopname van het pop-updialoogvenster Entities](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png#lightbox)
 
-4. Selecteer **keyPhrase** in het pop-upvenster en selecteer vervolgens **Done**. 
+4. Selecteer **keyPhrase** in het pop-updialoogvenster en selecteer vervolgens **Done**. 
 
-    [ ![Schermopname van het pop-upvenster Entities](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png#lightbox)
+    [ ![Schermopname van het pop-updialoogvenster Entities](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png#lightbox)
 
     <!-- TBD: asking Carol
     You won't see these entities labeled in utterances on the intents pages. 
     -->
-5. Selecteer **Intents** in het menu links, selecteer vervolgens de intent **Utilities.Confirm**. De entiteit keyPhrase is in verschillende utterances gelabeld. 
+5. Selecteer **Intents** in het menu links, selecteer vervolgens de intentie **Utilities.Confirm**. De entiteit keyPhrase is in verschillende utterances gelabeld. 
 
-    [ ![Schermopname van de intent Utilities.Confirm met gelabelde keyPhrases in utterances](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
+    [ ![Schermopname van de intentie Utilities.Confirm met gelabelde keyPhrases in utterances](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
-## <a name="train-the-luis-app"></a>LUIS-app inleren
-De nieuwe versie van `keyphrase` van de app moet worden ingeleerd.  
+## <a name="train-the-luis-app"></a>LUIS-app trainen
+De nieuwe versie `keyphrase` van de app moet worden getraind.  
 
 1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
 
-    ![App inleren](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
+    ![De app trainen](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
 
-2. Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
+2. Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
 
-    ![Inleren is voltooid](./media/luis-quickstart-intent-and-key-phrase/trained.png)
+    ![Trainen is voltooid](./media/luis-quickstart-intent-and-key-phrase/trained.png)
 
 ## <a name="publish-app-to-endpoint"></a>App publiceren naar eindpunt
 
 1. Selecteer **Publish** in de navigatiebalk rechtsboven.
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Schermopname van de pagina Publish app met de knop Publish gemarkeerd")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Schermopname van de pagina Publish met de knop Publish to production slot gemarkeerd")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
 
 2. Selecteer de slot Production en vervolgens de knop **Publish**.
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Schermopname van de pagina Publish app met de knop Publish gemarkeerd")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Schermopname van de pagina Publish met de knop Publish to production slot gemarkeerd")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
 
 3. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Eindpunt opvragen met een utterance
 
-1. Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
+1. Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
 
     ![Schermopname van de pagina Publish met eindpunt-URL gemarkeerd](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
 
@@ -201,10 +201,10 @@ Uw chatbot heeft nu voldoende gegevens om de volgende stap in het gesprek te bep
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de sleuteltermen uit de utterance om de volgende stap te nemen. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer hiervoor het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het menu linksboven. Selecteer het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [App maken die gevoel retourneert samen met voorspelling van intentie](luis-quickstart-intent-and-sentiment-analysis.md)
+> [Sentimentanalyse aan app toevoegen](luis-quickstart-intent-and-sentiment-analysis.md)
 

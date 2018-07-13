@@ -1,19 +1,20 @@
 ---
-title: "Failover- en failback-overschakeling uitvoeren van met Site Recovery naar Azure gerepliceerde VMware-VM’s en fysieke servers | Microsoft Docs"
-description: "Leer een failover-overschakeling uitvoeren van VMware-VM’s en fysieke servers naar Azure, en een failback naar de on-premises site, met Azure Site Recovery"
+title: Failover- en failback-overschakeling uitvoeren van met Site Recovery naar Azure gerepliceerde VMware-VM’s en fysieke servers | Microsoft Docs
+description: Leer een failover-overschakeling uitvoeren van VMware-VM’s en fysieke servers naar Azure, en een failback naar de on-premises site, met Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/05/2018
+ms.date: 06/13/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57be12e3d203ba88cf7900598a09abdd206e1495
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115072"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover- en failback-overschakeling uitvoeren van naar Azure gerepliceerde VMware-VM’s en fysieke servers
 
@@ -92,7 +93,7 @@ De processerver ontvangt gegevens van de Azure VM en verzendt deze naar de on-pr
 
 ## <a name="configure-the-master-target-server"></a>De hoofddoelserver configureren
 
-De hoofddoelserver wordt standaard uitgevoerd op de on-premises configuratieserver. In deze zelfstudie gebruiken we de standaardserver. De hoofddoelserver ontvangt failbackgegevens.
+De master target-server wordt standaard uitgevoegd op de on-premises configuratieserver. In deze zelfstudie gebruiken we de standaardserver. De hoofddoelserver ontvangt failbackgegevens.
 
 Als de VM op een ESXi host staat die door een vCenter-server wordt beheerd, moet de hoofddoelserver toegang hebben tot de gegevensopslag van de VM (VMDK) om gerepliceerde gegevens naar de VM-schijven te schrijven. Zorg ervoor dat de VM-gegevensopslag is gekoppeld op de host van het hoofddoel, met lees-/schrijftoegang.
 
