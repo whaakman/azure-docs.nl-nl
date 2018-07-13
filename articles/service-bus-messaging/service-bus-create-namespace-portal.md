@@ -1,6 +1,6 @@
 ---
-title: Een Service Bus-naamruimte maken met de Azure-portal | Microsoft Docs
-description: Een Service Bus-naamruimte maken met de Azure-portal.
+title: Een Service Bus-naamruimte maken met Azure Portal | Microsoft Docs
+description: Een Service Bus-naamruimte maken met Azure Portal.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 06/29/2018
 ms.author: sethm
-ms.openlocfilehash: a24fa21848005d9768d26ae865680a4851e1dd81
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2763e401454cdb6145067a3ac415c3a252d7c494
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29556397"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131664"
 ---
-# <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Een Service Bus-naamruimte maken met de Azure-portal
+# <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Een Service Bus-naamruimte maken met Azure Portal
 
 Een naamruimte is een scoping container voor alle berichtenonderdelen. Er kunnen zich meerdere wachtrijen en onderwerpen in één naamruimte bevinden, en naamruimten fungeren vaak als toepassingscontainers. Er zijn twee manieren om een Service Bus-naamruimte te maken:
 
-1. Azure-portal (dit artikel)
+1. Azure Portal (dit artikel)
 2. [Resource Manager-sjablonen][create-namespace-using-arm]
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Een naamruimte in Azure Portal maken
@@ -36,7 +36,7 @@ Gefeliciteerd. U hebt nu een naamruimte voor Service Bus-berichten gemaakt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk onze [GitHub-voorbeelden][github-samples], die een aantal geavanceerdere functies van de Azure Service Bus Messaging-service tonen.
+Bekijk de [GitHub-voorbeelden][github-samples] van Service Bus, die een aantal geavanceerdere functies van de Azure Service Bus Messaging-service tonen.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples

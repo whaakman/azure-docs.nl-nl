@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 39683c89db57dbeefd190a51415c783d012785e0
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 163763bf1203a045326c7163b5f6da9aa417d8cf
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303772"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081853"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Zelfstudie: Een leslokaallab instellen 
 In deze zelfstudie stelt u een leslokaallab in met virtuele machines die worden gebruikt door studenten in het leslokaal.  
@@ -61,7 +61,7 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 
 
 ## <a name="set-up-the-template"></a>De sjabloon instellen 
-Een sjabloon in een lab is een basiskopie van de virtuele machine waarvan de virtuele machines van alle gebruikers worden gemaakt. Stel de sjabloon voor de virtuele machine zo in dat deze is geconfigureerd met precies wat u de labgebruikers wilt bieden. U kunt een naam en een beschrijving opgeven voor de sjabloon die de gebruikers van het lab kunnen zien. Publiceer de sjabloon (maak deze openbaar) om exemplaren van de sjabloon-VM voor de gebruikers van uw lab beschikbaar te maken. 
+Een sjabloon in een lab is een basiskopie van de virtuele machine waarvan de virtuele machines van alle gebruikers worden gemaakt. Stel de sjabloon voor de virtuele machine zo in dat deze is geconfigureerd met precies wat u de labgebruikers wilt bieden. U kunt een naam en een beschrijving opgeven voor de sjabloon die de gebruikers van het lab kunnen zien. Publiceer de sjabloon om exemplaren van de sjabloon-VM beschikbaar te maken voor de labgebruikers. 
 
 ### <a name="set-title-and-description"></a>Titel en beschrijving instellen
 1. Selecteer in de sectie **Sjabloon** de optie **Bewerken** (potloodpictogram) voor de sjabloon. 
@@ -96,8 +96,8 @@ Wanneer u een sjabloon publiceert, maakt Azure Lab Services virtuele machines in
 2. Selecteer nu de knop **Publiceren**. Dit proces kan enige tijd duren, afhankelijk van het aantal virtuele machines dat wordt gemaakt. Het aantal VM’s dat wordt gemaakt, is gelijk aan het aantal gebruikers dat is toegestaan in het lab.
     
     > [!IMPORTANT]
-    > Wanneer een sjabloon openbaar beschikbaar is, kan de toegang kan niet worden gewijzigd naar privé. 
-4. Ga naar de pagina **Virtuele machines** en controleer of u vijf virtuele machines ziet met de status **Niet-toegewezen**. Deze virtuele machines zijn nog niet toegewezen aan studenten. 
+    > Zodra een sjabloon is gepubliceerd, kan dit niet meer ongedaan worden gemaakt. 
+4. Ga naar de pagina **Virtuele machines** en controleer of u virtuele machines ziet met de status **Niet-toegewezen**. Deze virtuele machines zijn nog niet toegewezen aan studenten. 
 
     ![Virtuele machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Wacht totdat de virtuele machines zijn gemaakt. Deze horen de status **Gestopt** te hebben. Op deze pagina kunt u een student-VM starten, verbinding maken met de virtuele machine, de virtuele machine stoppen en de virtuele machine verwijderen. U kunt de virtuele machines zelf starten vanaf deze pagina of ze laten starten door de studenten. 

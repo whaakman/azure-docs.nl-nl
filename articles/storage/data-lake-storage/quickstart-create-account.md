@@ -10,12 +10,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: aafb86e7ebc99ea48e09b34b58682c983fe9f293
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cf98d3097128a0f8934fc114bc37a517df118234
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063102"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085385"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2 Preview-opslagaccount maken
 
@@ -50,7 +50,7 @@ Met de knop start u een interactieve shell waarmee u alle stappen in deze snelst
 
 ### <a name="install-the-cli-locally"></a>De CLI lokaal installeren
 
-U kunt Azure CLI ook lokaal installeren en gebruiken. Voor deze snelstartgids moet u de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
+U kunt Azure CLI ook lokaal installeren en gebruiken. Voor deze snelstart moet u versie 2.0.38 of later van Azure CLI uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
 
 ## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Overzicht van het maken van een Azure Data Lake Storage Gen2-account
 
@@ -115,6 +115,15 @@ Ga als volgt te werk om een resourcegroep te verwijderen in Azure Portal:
 2. Zoek de resourcegroep die u wilt verwijderen, en klik met de rechtermuisknop op de knop **Meer** (**...** ) aan de rechterkant van de lijst.
 3. Selecteer **Resourcegroep verwijderen** en bevestig dit.
 
+
+## <a name="upgrade-your-powershell-module"></a>De PowerShell-module upgraden
+
+Als u via PowerShell wilt communiceren met Data Lake Storage Gen2, moet u de module bijwerken naar de preview-versie.
+
+Hiervoor opent u een verhoogde PowerShell en voert u de volgende opdracht in: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Start vervolgens de shell opnieuw.
+
 ## <a name="create-an-account-using-powershell"></a>Een account maken met PowerShell
 
 Meld u aan bij uw Azure-abonnement met de opdracht `Login-AzureRmAccount` en volg de instructies op het scherm.
@@ -151,7 +160,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind StorageV2 
-  -HierarchialNamespace $True
+  -EnableHierarchicalNamespace $True
 ```
 
 ### <a name="clean-up-resources"></a>Resources opschonen
@@ -162,6 +171,12 @@ Gebruik de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.res
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
+## <a name="upgrade-your-cli-module"></a>De CLI-module upgraden
+
+Als u via CLI wilt communiceren met Data Lake Storage Gen2, moet u de extensie toevoegen aan de shell.
+
+Dit doet u als volgt: voer met behulp van Cloud Shell of een lokale shell de volgende opdracht in: `az extension add --name storage-preview`
+
 ## <a name="create-an-account-using-azure-cli"></a>Een account maken met Azure CLI 
 
 Meld u aan bij [Azure Portal](https://portal.azure.com) om Azure Cloud Shell te starten.
@@ -171,6 +186,7 @@ Als u zich wilt aanmelden bij de lokale installatie van de CLI, voert u de opdra
 ```cli
 az login
 ```
+
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Gebruik de opdracht [az group create](/cli/azure/group#az_group_create) om een nieuwe resourcegroep te maken met Azure CLI. 
@@ -195,7 +211,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --hierarchical-namespace true
+    --Enable-hierarchical-namespace true
 ```
 
 ### <a name="clean-up-resources"></a>Resources opschonen

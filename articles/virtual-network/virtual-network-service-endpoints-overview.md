@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e7e79d51b59d82ebf91d68f0714b8eb7bcaafbe6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824683"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443627"
 ---
 # <a name="virtual-network-service-endpoints"></a>Service-eindpunten voor virtueel netwerk
 
@@ -28,11 +28,13 @@ Met service-eindpunten van Virtual Network (VNet) kunt u de privé-adresruimte v
 
 Deze functie is beschikbaar voor de volgende Azure-services en regio's:
 
-- **Azure Storage**: algemeen verkrijgbaar in alle Azure-regio's
-- **Azure SQL Database**: algemeen verkrijgbaar in alle Azure-regio's
-- **Azure Cosmos DB**: algemeen verkrijgbaar in alle Azure-regio's voor openbare cloud 
-- **Azure SQL Data Warehouse**: preview in alle Azure-regio's voor openbare cloud
+- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: algemeen verkrijgbaar in alle Azure-regio's.
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: algemeen verkrijgbaar in alle Azure-regio's.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: algemeen verkrijgbaar in alle Azure-regio's voor openbare cloud. 
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: preview in alle Azure-regio's voor openbare cloud.
 - **Azure-databaseservices voor PostgreSQL en MySQL**: voorbeeld in de Azure-regio's waar de database-service beschikbaar is.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: beschikbaar in preview.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: beschikbaar in preview.
 
 Voor recente updates kijkt u op de pagina [Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network) (Updates voor Azure Virtual Network).
 
@@ -68,7 +70,7 @@ Service-eindpunten bieden de volgende voordelen:
 
 - Service-eindpunten worden geconfigureerd in een subnet van een virtueel netwerk. Eindpunten werken met alle soorten rekenprocessen die worden uitgevoerd in dat subnet.
 - U kunt meerdere service-eindpunten voor alle ondersteunde Azure-services (bijvoorbeeld Azure Storage of Azure SQL Database) in een subnet configureren.
-- Voor Azure SQL moeten virtuele netwerken zich in dezelfde regio bevinden als de Azure-serviceresource. Als u Azure Storage-accounts voor GRS en RA-GRS gebruikt, moet het hoofdaccount zich in dezelfde regio bevinden als het virtuele netwerk. Voor alle andere services kunnen Azure-serviceresources aan een virtueel netwerk in elke regio worden gekoppeld. 
+- Voor Azure SQL Database moeten virtuele netwerken zich in dezelfde regio bevinden als de Azure-serviceresource. Als u Azure Storage-accounts voor GRS en RA-GRS gebruikt, moet het hoofdaccount zich in dezelfde regio bevinden als het virtuele netwerk. Voor alle andere services kunnen Azure-serviceresources aan een virtueel netwerk in elke regio worden gekoppeld. 
 - Het virtuele netwerk waar het eindpunt is geconfigureerd, kan zich in hetzelfde abonnement bevinden als de Azure-serviceresource, maar ook in een ander abonnement. Zie [Inrichten](#Provisioning) voor meer informatie over de benodigde machtigingen voor het instellen van eindpunten en het koppelen van Azure-services.
 - Voor ondersteunde services kunt u nieuwe of bestaande resources koppelen aan virtuele netwerken met behulp van service-eindpunten.
 
@@ -80,7 +82,7 @@ Service-eindpunten bieden de volgende voordelen:
 - Voor service-eindpunten blijven DNS-vermeldingen voor Azure-services ongewijzigd en worden deze nog steeds omgezet in openbare IP-adressen die zijn toegewezen aan de Azure-service.
 - Netwerkbeveiligingsgroepen (NSG's) met de service-eindpunten:
   - NSG's laten standaard uitgaand internetverkeer toe en dus ook verkeer vanaf uw VNet naar Azure-services. Dit functioneert hetzelfde met service-eindpunten. 
-  - Als u al het uitgaande internetverkeer wilt weigeren en alleen het verkeer naar specifieke Azure-services wilt toestaan, kunt u doen met behulp van __Azure-servicelabels__ in uw NSG's. U kunt ondersteunde Azure-services opgeven als bestemming in uw NSG-regels en het onderhoud van het IP-adres bij elk label wordt geregeld door Azure. Zie [Azure-servicelabels voor NSG's](https://aka.ms/servicetags) voor meer informatie. 
+  - Als u al het uitgaande internetverkeer wilt weigeren en alleen het verkeer naar specifieke Azure-services wilt toestaan, kunt u dat doen met behulp van [servicelabels](security-overview.md#service-tags) in uw NSG's. U kunt ondersteunde Azure-services opgeven als bestemming in uw NSG-regels en het onderhoud van het IP-adres bij elk label wordt geregeld door Azure. Zie [Azure-servicelabels voor NSG's](security-overview.md#service-tags) voor meer informatie. 
 
 ### <a name="scenarios"></a>Scenario's
 
@@ -124,5 +126,5 @@ Voor een Azure-serviceresource (zoals een Azure Storage-account) kunnen services
 - Zie [Secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Een Azure Storage-account aan een virtueel netwerk koppelen) voor meer informatie
 - Zie [Secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Een Azure SQL Database aan een virtueel netwerk koppelen) voor meer informatie
 - Zie [Azure service integration in virtual networks](virtual-network-for-azure-services.md) (Integratie van Azure-services in virtuele netwerken) voor meer informatie
--  Snel starten: [Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) als u een service-eindpunt wilt instellen op het subnet van een VNet en het Azure Storage-account op dat subnet wilt beveiligen.
+-  Snelstartgids: [Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) als u een service-eindpunt wilt instellen op het subnet van een VNet en een Azure Storage-account op dat subnet wilt beveiligen.
 

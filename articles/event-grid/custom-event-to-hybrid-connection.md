@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 31c8dd520079046808b32dad0d338415bed71c58
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302974"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127710"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Aangepaste gebeurtenissen naar Azure Relay Hybrid Connections routeren met behulp van Azure CLI en Event Grid
 
@@ -55,7 +55,7 @@ U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-Met het volgende script wordt de resource-id van de relay-naamruimte opgehaald. Het script maakt de id voor de hybride verbinding en neemt vervolgens een abonnement op een onderwerp van Event Grid. Het type eindpunt wordt ingesteld op `hybridconnection` en de id van de hybride verbinding wordt gebruikt voor het eindpunt.
+Met het volgende script wordt de resource-id van de relay-naamruimte opgehaald. Het script maakt de id voor de hybride verbinding en neemt vervolgens een abonnement op een onderwerp van Event Grid. Het script stelt het type eindpunt in op `hybridconnection` en de id van de hybride verbinding wordt gebruikt voor het eindpunt.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -73,9 +73,25 @@ az eventgrid event-subscription create \
   --endpoint $hybridid
 ```
 
+## <a name="create-application-to-process-events"></a>Toepassing maken om gebeurtenissen te verwerken
+
+U hebt een toepassing nodig die gebeurtenissen uit de hybride verbinding kan ophalen. Het [voorbeeld van een hybride verbindingsconsumer voor C# van Microsoft Azure Event Grid](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) voert die bewerking uit. U hebt de vereiste stappen al uitgevoerd.
+
+1. Zorg ervoor dat u Visual Studio 2017 versie 15.5 of hoger hebt.
+
+1. Kloon de opslagplaats naar uw lokale computer.
+
+1. Laad het project HybridConnectionConsumer in Visual Studio.
+
+1. Vervang in Program.cs `<relayConnectionString>` en `<hybridConnectionName>` door de relaytekenreeks en de naam van de hybride verbinding die u hebt gemaakt.
+
+1. Compileer de toepassing en voer deze uit vanuit Visual Studio.
+
 ## <a name="send-an-event-to-your-topic"></a>Een gebeurtenis verzenden naar het onderwerp
 
-We activeren een gebeurtenis om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Eerst gaan we de URL en de sleutel voor het aangepaste onderwerp ophalen. Gebruik opnieuw de onderwerpnaam voor `<topic_name>`.
+We activeren een gebeurtenis om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. In dit artikel wordt beschreven hoe u Azure CLI kunt gebruiken om de gebeurtenis te activeren. U kunt ook [de uitgeverstoepassing van Event Grid](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher) gebruiken.
+
+Eerst gaan we de URL en de sleutel voor het aangepaste onderwerp ophalen. Gebruik opnieuw de onderwerpnaam voor `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)

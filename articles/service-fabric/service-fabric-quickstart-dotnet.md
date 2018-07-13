@@ -1,6 +1,6 @@
 ---
-title: Een .NET-Service Fabric-toepassing maken in Azure | Microsoft Docs
-description: In deze quickstart maakt u een .NET-toepassing voor Azure met behulp van de voorbeeldtoepassing van de betrouwbare Service Fabric-services.
+title: Een .NET-Linux-toepassing maken voor Service Fabric in Azure | Microsoft Docs
+description: In deze snelstartgids maakt u een .NET-toepassing voor Azure met behulp van de voorbeeldtoepassing van de betrouwbare Service Fabric-services.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -15,17 +15,18 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e6e6464bd8c8174978eded1ed626ca32029b7fbc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f04af62dc555c6c05313b9d0cd7b0231aac7d3aa
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643148"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110079"
 ---
-# <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Quickstart: een .NET-Service Fabric-toepassing maken in Azure
-Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snelstart: Een .NET Reliable Services-toepassing maken voor Service Fabric
 
-Deze Quick Start laat zien hoe u uw eerste .NET-toepassing in Service Fabric implementeert. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster.
+Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert.
+
+Deze snelstartgids laat zien hoe u uw eerste .NET-toepassing in Service Fabric implementeert. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster.
 
 ![Schermafbeelding van de toepassing](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
@@ -40,7 +41,9 @@ Met behulp van deze toepassing leert u hoe u:
 * Een rolling upgrade op een toepassingen uitvoeren
 
 ## <a name="prerequisites"></a>Vereisten
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+
+Dit zijn de vereisten voor het voltooien van deze snelstartgids:
+
 1. [Visual Studio 2017 installeren](https://www.visualstudio.com/) met de **Azure-ontwikkelworkload** en de **ASP.NET-ontwikkeling- en webontwikkelingworkloads**.
 2. [Git installeren](https://git-scm.com/)
 3. [Microsoft Azure Service Fabric SDK installeren](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
@@ -54,15 +57,18 @@ Dit zijn de vereisten voor het voltooien van deze Quickstart:
 >
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
+
 Voer in een opdrachtvenster de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen op de lokale computer.
-```
+
+```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
+
 Klik met de rechtermuisknop op het pictogram van Visual Studio in het menu Start en kies **Als administrator uitvoeren**. U moet Visual Studio als administrator uitvoeren als u het foutopsporingsprogramma aan uw services wilt koppelen.
 
-Open de oplossing **Voting.sln** van Visual Studio vanuit de opslagplaats die u hebt gekloond.  
+Open de oplossing **Voting.sln** van Visual Studio vanuit de opslagplaats die u hebt gekloond.
 
 De toepassing Voting is standaard ingesteld om te luisteren op poort 8080.  De poort van de toepassing is ingesteld in het bestand */VotingWeb/PackageRoot/ServiceManifest.xml*.  U kunt de poort van de toepassing wijzigen door het kenmerk**Port** van het element **Endpoint** bij te werken.  Als u de toepassing lokaal wilt implementeren en uitvoeren, moet de poort van de toepassing open zijn en beschikbaar zijn op uw computer.  Als u de poort van de toepassing wijzigt, moet u de waarde '8080' in dit artikel vervangen door de nieuwe waarde voor de poort van de toepassing.
 
@@ -78,64 +84,69 @@ Wanneer de implementatie is voltooid, start u een browser en opent u deze pagina
 U kunt nu een reeks stemmingsopties toevoegen en beginnen met het verzamelen van stemmen. De toepassing wordt uitgevoerd en alle gegevens worden in uw Service Fabric-cluster opgeslagen, zonder dat daarvoor een aparte database nodig is.
 
 ## <a name="walk-through-the-voting-sample-application"></a>Stapsgewijs door de voorbeeldstemtoepassing gaan
+
 De stemtoepassing bestaat uit twee services:
-- Web-front-endservice (VotingWeb): een ASP.NET Core web-front-endservice die de webpagina ondersteunt en web-API's beschikbaar stelt om te communiceren met de back-endservice.
-- Back-endservice (VotingData): een ASP.NET Core-webservice, die een API beschikbaar stelt om de stemresultaten in een betrouwbare dictionary op schijf op te slaan.
+
+* Web-front-endservice (VotingWeb): een ASP.NET Core web-front-endservice die de webpagina ondersteunt en web-API's beschikbaar stelt om te communiceren met de back-endservice.
+* Back-endservice (VotingData): een ASP.NET Core-webservice, die een API beschikbaar stelt om de stemresultaten in een betrouwbare woordenlijst op schijf op te slaan.
 
 ![Diagram van de toepassing](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
 Wanneer u in de toepassing stemt, vinden de volgende gebeurtenissen plaats:
+
 1. Een JavaScript verzendt de stemaanvraag als een HTTP PUT-aanvraag naar de web-API in de web-front-endservice.
 
 2. De web-front-endservice gebruikt een proxyserver om een HTTP PUT-aanvraag te vinden en door te sturen naar de back-endservice.
 
-3. De back-endservice neemt de binnenkomende aanvraag aan en slaat het bijgewerkte resultaat op in een betrouwbare dictionary die wordt gerepliceerd naar meerdere knooppunten binnen het cluster en opgeslagen op schijf. Gegevens van de toepassing worden opgeslagen in het cluster, zodat er geen database nodig is.
+3. De back-endservice neemt de binnenkomende aanvraag aan en slaat het bijgewerkte resultaat op in een betrouwbare woordenlijst die wordt gerepliceerd naar meerdere knooppunten binnen het cluster en wordt opgeslagen op schijf. Gegevens van de toepassing worden opgeslagen in het cluster, zodat er geen database nodig is.
 
 ## <a name="debug-in-visual-studio"></a>Fouten opsporen met Visual Studio
 
-De toepassing zou zonder problemen moeten worden uitgevoerd, maar u kunt het foutopsporingsprogramma gebruiken om te zien hoe belangrijke onderdelen van de toepassing werken. Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor een lokaal ontwikkelingscluster van Service Fabric. U hebt de mogelijkheid om uw foutopsporingservaring aan uw specifieke scenario aan te passen. In deze toepassing worden gegevens met behulp van een betrouwbare dictionary opgeslagen in de back-endservice. Visual Studio verwijdert standaard de toepassing wanneer u het foutopsporingsprogramma stopt. Door de toepassing te verwijderen, worden de gegevens in de back-endservice ook verwijderd. Als u de gegevens tussen de foutopsporingssessies wilt kunnen behouden, kunt u de **foutopsporingsmodus van de toepassing** als eigenschap op het **Voting**-project in Visual Studio wijzigen.
+De toepassing zou zonder problemen moeten worden uitgevoerd, maar u kunt het foutopsporingsprogramma gebruiken om te zien hoe belangrijke onderdelen van de toepassing werken. Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor een lokaal ontwikkelingscluster van Service Fabric. U hebt de mogelijkheid om uw foutopsporingservaring aan uw specifieke scenario aan te passen. In deze toepassing worden gegevens met behulp van een betrouwbare woordenlijst opgeslagen in de back-endservice. Visual Studio verwijdert standaard de toepassing wanneer u het foutopsporingsprogramma stopt. Door de toepassing te verwijderen, worden de gegevens in de back-endservice ook verwijderd. Als u de gegevens tussen de foutopsporingssessies wilt kunnen behouden, kunt u de **foutopsporingsmodus van de toepassing** als eigenschap op het **Voting**-project in Visual Studio wijzigen.
 
 Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
+
 1. Open het bestand **/VotingWeb/Controllers/VotesController.cs** en stel een onderbrekingspunt in de methode **Put** van de web-API (regel 69) in. U kunt in Solution Explorer in Visual Studio naar het bestand zoeken.
 
 2. Open het bestand **/VotingData/Controllers/VoteDataController.cs** en stel een onderbrekingspunt in de methode **Put** van deze web-API (regel 54) in.
 
 3. Ga terug naar de browser en klik op een stemoptie of voeg een nieuwe stemoptie toe. U komt uit bij het eerste onderbrekingspunt in de API-controller van de web-front-end.
-    - Dit is het punt waarop door JavaScript in de browser een aanvraag wordt verzonden naar de web-API-controller in de front-endservice.
-    
+    * Dit is het punt waarop door JavaScript in de browser een aanvraag wordt verzonden naar de web-API-controller in de front-endservice.
+
     ![Front-endservice van Vote toevoegen](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - Stel eerst de URL van de ReverseProxy samen voor onze back-endservice **(1)**.
-    - Verzend vervolgens de HTTP PUT-aanvraag naar de ReverseProxy **(2)**.
-    - Tot slot wordt het antwoord van de back-endservice naar de client geretourneerd **(3)**.
+    * Stel eerst de URL van de ReverseProxy samen voor onze back-endservice **(1)**.
+    * Verzend vervolgens de HTTP PUT-aanvraag naar de ReverseProxy **(2)**.
+    * Tot slot wordt het antwoord van de back-endservice naar de client geretourneerd **(3)**.
 
 4. Druk op **F5** om door te gaan
     - Als u hierom wordt gevraagd door de browser, verleent u ServiceFabricAllowedUsers rechten voor het lezen en uitvoeren van groepen voor de foutopsporingsmodus.
     - U bent nu op het onderbrekingspunt in de back-endservice aanbeland.
-    
+
     ![Back-endservice Vote toevoegen](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    - In de eerste regel in de methode **(1)** wordt door de `StateManager` een betrouwbare dictionary met de naam `counts` aangeroepen of toegevoegd.
-    - Alle interacties met waarden in een betrouwbare dictionary vereisen een transactie, met deze instructie **(2)** wordt die transactie gemaakt.
-    - Werk in de transactie de waarde bij van de relevante sleutel voor de stemoptie en voer de bewerking **(3)** door. Zodra de doorvoermethode resultaten retourneert, worden de gegevens bijgewerkt in de dictionary en gerepliceerd naar andere knooppunten in het cluster. De gegevens worden nu veilig opgeslagen in het cluster en de back-endservice kan een failover-overschakeling uitvoeren naar andere knooppunten, waarbij de gegevens beschikbaar blijven.
+    * In de eerste regel in de methode **(1)** wordt door de `StateManager` een betrouwbare woordenlijst met de naam `counts` aangeroepen of toegevoegd.
+    * Alle interacties met waarden in een betrouwbare woordenlijst vereisen een transactie, met deze instructie **(2)** wordt die transactie gemaakt.
+    * Werk in de transactie de waarde bij van de relevante sleutel voor de stemoptie en voer de bewerking **(3)** door. Zodra de doorvoermethode resultaten retourneert, worden de gegevens bijgewerkt in de dictionary en gerepliceerd naar andere knooppunten in het cluster. De gegevens worden nu veilig opgeslagen in het cluster en de back-endservice kan een failover-overschakeling uitvoeren naar andere knooppunten, waarbij de gegevens beschikbaar blijven.
 5. Druk op **F5** om door te gaan
 
 Als u de foutopsporingssessie wilt stoppen, drukt u op **Shift+F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
-Voor het implementeren van de toepassing in Azure, hebt u een Service Fabric-cluster nodig waarop de toepassing wordt uitgevoerd. 
 
-### <a name="join-a-party-cluster"></a>Deelnemen aan een cluster van derden
-Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt. 
+Voor het implementeren van de toepassing in Azure, hebt u een Service Fabric-cluster nodig waarop de toepassing wordt uitgevoerd.
+
+### <a name="join-a-party-cluster"></a>Deelnemen aan een Party-cluster
+
+Party-clusters zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt.
 
 Meld u aan en [neem deel aan een Windows-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Klik op de koppeling **Hoe kan ik verbinding maken met een beveiligd Party-cluster?** en kopieer het certificaatwachtwoord. Het certificaat, het certificaatwachtwoord en de waarde van het **verbindingseindpunt** worden in volgende stappen gebruikt.
 
 ![PFX en verbindingseindpunt](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
 > [!Note]
-> Er zijn per uur een beperkt aantal Party-clusters beschikbaar. Als er een fout optreedt wanneer u zich probeert aan te melden voor een Party-cluster, kunt u een bepaalde tijd wachten en het opnieuw proberen, of kunt u deze stappen in de zelfstudie [Een .NET-app implementeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) volgen om een Service Fabric-cluster in uw Azure-abonnement te maken en daarin de toepassing te implementeren. Als u nog geen abonnement op Azure hebt, kunt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maken. Nadat u de toepassing in uw cluster hebt geïmplementeerd en geverifieerd, kunt u verdergaan naar [Toepassingen en services voor schalen in een cluster](#scale-applications-and-services-in-a-cluster) in deze quickstart.
+> Er zijn per uur een beperkt aantal Party-clusters beschikbaar. Als er een fout optreedt wanneer u zich probeert aan te melden voor een Party-cluster, kunt u een bepaalde tijd wachten en het opnieuw proberen, of kunt u deze stappen in de zelfstudie [Een .NET-app implementeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) volgen om een Service Fabric-cluster in uw Azure-abonnement te maken en daarin de toepassing te implementeren. Als u nog geen abonnement op Azure hebt, kunt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maken. Nadat u de toepassing in uw cluster hebt geïmplementeerd en geverifieerd, kunt u verdergaan naar [Toepassingen en services voor schalen in een cluster](#scale-applications-and-services-in-a-cluster) in deze snelstartgids.
 >
-
 
 Installeer de PFX op uw Windows-computer in het certificaatarchief *CurrentUser\My*.
 
@@ -157,12 +168,12 @@ Onthoud de vingerafdruk voor de volgende stap.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>De toepassing implementeren met Visual Studio
+
 Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar een cluster.
 
 1. Klik met de rechtermuisknop op **Voting** in Solution Explorer en kies **Publiceren**. Het dialoogvenster Publiceren wordt weergegeven.
 
-
-2. Kopieer het **verbindingseindpunt** van het cluster van derden naar het veld **Verbindingseindpunt**. Bijvoorbeeld `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klik op **Geavanceerde verbindingsparamaters** en controleer of de waarden *FindValue* en *ServerCertThumbprint* overeenkomen met de vingerafdruk van het certificaat dat in een vorige stap is geïnstalleerd. 
+2. Kopieer het **verbindingseindpunt** van het cluster van derden naar het veld **Verbindingseindpunt**. Bijvoorbeeld `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klik op **Geavanceerde verbindingsparameters** en controleer of de waarden *FindValue* en *ServerCertThumbprint* overeenkomen met de vingerafdruk van het certificaat dat in een vorige stap is geïnstalleerd.
 
     ![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
@@ -175,9 +186,10 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
     ![Front-end van toepassing](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Toepassingen en services voor schalen in een cluster
-Service Fabric-services kunnen eenvoudig worden geschaald in een cluster om een wijziging in de belasting voor de services aan te kunnen. U schaalt een service door het aantal exemplaren te wijzigen dat wordt uitgevoerd in het cluster. Er zijn meerdere manieren waarop u uw services kunt schalen. U kunt daarvoor scripts of opdrachten van PowerShell of Service Fabric-CLI (sfctl) gebruiken. In dit voorbeeld wordt Service Fabric Explorer gebruikt.
 
-Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en is toegankelijk door vanuit een browser naar de HTTP-beheerpoort (19080) te bladeren, bijvoorbeeld `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+Service Fabric-services kunnen eenvoudig worden geschaald in een cluster om een wijziging in de belasting voor de services aan te kunnen. U schaalt een service door het aantal exemplaren te wijzigen dat wordt uitgevoerd in het cluster. Er zijn meerdere manieren waarop u uw services kunt schalen. U kunt daarvoor scripts of opdrachten van PowerShell of Service Fabric-CLI (sfctl) gebruiken. Gebruik voor dit voorbeeld Service Fabric Explorer.
+
+Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en is toegankelijk door vanuit een browser naar de HTTP-beheerpoort (19080) te bladeren, bijvoorbeeld `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 
 U kunt een waarschuwing van de browser krijgen dat de locatie niet wordt vertrouwd. Dat komt omdat het certificaat zelfondertekend is. U kunt de waarschuwing negeren en doorgaan.
 1. Selecteer het geïnstalleerde certificaat om verbinding te maken indien u daarom wordt gevraagd. Het certificaat van het cluster van derden dat u in de lijst selecteert, moet overeenkomen met het cluster van derden dat u probeert te openen. Bijvoorbeeld: win243uja6w62r.westus.cloudapp.azure.com.
@@ -185,7 +197,8 @@ U kunt een waarschuwing van de browser krijgen dat de locatie niet wordt vertrou
 
 Voer de volgende stappen uit om de web-front-endservice te schalen:
 
-1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
+
 2. In de structuurweergave vouwt u **Toepassingen**->**VotingType**->**fabric:/Voting** uit. Klik op het beletselteken (drie punten) naast het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en kies **Service schalen**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -202,6 +215,7 @@ Voer de volgende stappen uit om de web-front-endservice te schalen:
 Met deze eenvoudige beheertaak is het aantal beschikbare resources voor het verwerken van gebruikersbelasting voor de front-endservice verdubbeld. Het is belangrijk te weten dat u niet meerdere exemplaren van een service nodig hebt om ervoor te zorgen dat deze op betrouwbare wijze wordt uitgevoerd. Als de service mislukt, wordt in Service Fabric een nieuw exemplaar van de service uitgevoerd in het cluster.
 
 ## <a name="perform-a-rolling-application-upgrade"></a>Een rolling upgrade op een toepassingen uitvoeren
+
 Service Fabric voert de implementatie van nieuwe updates voor uw toepassing op een veilige manier uit. Rolling upgrades zorgen dat er geen downtime is als de upgrades worden bijgewerkt of als deze worden teruggedraaid omdat er zich fouten hebben voorgedaan.
 
 Als u de toepassing wilt upgraden, gaat u als volgt te werk:
@@ -226,11 +240,11 @@ Als u de toepassing wilt upgraden, gaat u als volgt te werk:
 
     Service Fabric voert upgrades veilig uit door na het bijwerken van de service op elk knooppunt in het cluster twee minuten te wachten. Houd er rekening mee dat de volledige update ongeveer acht minuten kan duren.
 
-
 ## <a name="next-steps"></a>Volgende stappen
+
 In deze snelstartgids hebt u de volgende zaken geleerd:
 
-* een toepassing maken met .NET en Service Fabric
+* een toepassing kunt maken met .Net en Service Fabric
 * ASP.NET Core gebruiken als een webfront-end
 * Toepassingsgegevens in een stateful service opslaan
 * Lokaal problemen met uw toepassing oplossen

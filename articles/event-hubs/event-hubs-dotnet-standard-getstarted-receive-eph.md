@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fd74405c8ca95ca1a5880ab26bf87705bde217de
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29389832"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127530"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Aan de slag met het ontvangen van berichten met de Event Processor Host in .NET Standard
 
@@ -33,7 +33,7 @@ In deze zelfstudie ziet u hoe u een .NET Core-consoletoepassing schrijft die met
 * [Microsoft Visual Studio 2015 of 2017](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt gebruikgemaakt van Visual Studio 2017, maar Visual Studio 2015 wordt ook ondersteund.
 * [.NET core Visual Studio 2015- of 2017-hulpprogramma's](http://www.microsoft.com/net/core).
 * Een Azure-abonnement.
-* Een Azure Event Hubs-naamruimte.
+* Een Azure Event Hubs-naamruimte en een Event Hub.
 * Een Azure Storage-account.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken  
@@ -48,7 +48,7 @@ In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naa
 
     ![Een opslagaccount maken][1]
 
-4. Als u het bericht **Implementaties voltooid** ziet, klikt u op de naam van de nieuwe opslagaccount. Klik in het venster **Essentials** op **Blobs**. Wanneer het dialoogvenster **Blob service** wordt geopend, klikt u op **+ Container** bovenaan. Geef een naam op voor de container en sluit **Blob-service**.  
+4. Als u het bericht **Implementaties voltooid** ziet, klikt u op de naam van de nieuwe opslagaccount. Klik in het venster **Essentials** op **Blobs**. Wanneer het dialoogvenster **Blob service** wordt geopend, klikt u op **+ Container** bovenaan. Geef een naam op voor de container en sluit **Blob service**.  
 5. Klik op **Toegangssleutels** in het venster links en kopieer de naam van de opslagcontainer, de opslagaccount en de waarde van **key1**. Plak deze waarde in Kladblok of een andere tijdelijke locatie.  
 
 ## <a name="create-a-console-application"></a>Een consoletoepassing maken
@@ -123,11 +123,11 @@ Voeg de NuGet-pakketten voor [ **Microsoft.Azure.EventHubs** ](https://www.nuget
     using System.Threading.Tasks;
     ```
 
-2. Voeg constanten toe aan de `Program`-klasse voor de verbindingsreeks van de event hub, naam van de event hub, naam van opslagaccountcontainer, opslagaccountnaam en opslagaccountsleutel. Voeg de volgende code toe, waardoor de tijdelijke aanduidingen door de bijbehorende waarden worden vervangen.
+2. Voeg constanten toe aan de `Program`-klasse voor de verbindingsreeks van de event hub, naam van de event hub, naam van opslagaccountcontainer, opslagaccountnaam en opslagaccountsleutel. Voeg de volgende code toe, waarbij u de tijdelijke aanduidingen vervangt door de bijbehorende waarden:
 
     ```csharp
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
     private const string StorageAccountName = "{Storage account name}";
     private const string StorageAccountKey = "{Storage account key}";
@@ -143,9 +143,9 @@ Voeg de NuGet-pakketten voor [ **Microsoft.Azure.EventHubs** ](https://www.nuget
         Console.WriteLine("Registering EventProcessor...");
 
         var eventProcessorHost = new EventProcessorHost(
-            EhEntityPath,
+            EventHubName,
             PartitionReceiver.DefaultConsumerGroupName,
-            EhConnectionString,
+            EventHubConnectionString,
             StorageConnectionString,
             StorageContainerName);
 
@@ -174,8 +174,8 @@ Voeg de NuGet-pakketten voor [ **Microsoft.Azure.EventHubs** ](https://www.nuget
 
         public class Program
         {
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
             private const string StorageContainerName = "{Storage account container name}";
             private const string StorageAccountName = "{Storage account name}";
             private const string StorageAccountKey = "{Storage account key}";
@@ -223,4 +223,4 @@ U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 * [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
-[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
+[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

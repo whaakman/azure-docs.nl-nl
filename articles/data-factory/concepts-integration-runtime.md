@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: cd2964d0a579b903ddebfd19c90d2ce38d2374bc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1e44c6eb4294cfb0e150d6dd1c20b9f4805ca84c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050417"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112949"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
-De Integratie Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
+De Integration Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
 
 - **Gegevensverplaatsing**: gegevens verplaatsen tussen gegevensarchieven in openbare netwerken en gegevensopslag in een particulier netwerk (on-premises of virtueel particulier netwerk). Deze optie biedt ondersteuning voor ingebouwde connectors, indelingsconversie, kolomtoewijzing en hoogwaardige en schaalbare gegevensoverdracht.
 - **Activiteitverzending**: transformatieactiviteiten die worden uitgevoerd op verschillende rekenservices zoals Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server en meer verzenden en controleren.
@@ -75,7 +75,7 @@ Een zelf-hostende IR is geschikt voor:
 > [!NOTE] 
 > Gebruik zelf-gehoste Integration Runtime om gegevensarchieven te ondersteunen waarvoor een eigen stuurprogramma zoals SAP Hana, MySQL, enz. is vereist.  Zie voor meer informatie [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
 
-### <a name="self-hosted-ir-network-environment"></a>Zelf-hostende Azure IR-netwerkomgeving
+### <a name="self-hosted-ir-network-environment"></a>Zelf-hostende IR-netwerkomgeving
 Als u gegevensintegratie veilig wilt uitvoeren in een privénetwerkomgeving zonder rechtstreekse zichtbaarheid vanuit de openbare cloudomgeving, kunt u een zelf-hostende on-premises IR installeren achter de firewall van het bedrijf of in een virtueel privénetwerk.  De zelf-hostende Integration Runtime maakt alleen uitgaande HTTP-gebaseerde verbindingen met het openbare internet.
 
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>Zelf-hostende IR-rekenresource en -schalen
@@ -105,7 +105,7 @@ Zie de volgende artikelen voor meer informatie over Azure-SSIS Runtime:
 ## <a name="integration-runtime-location"></a>Locatie van Integration Runtime
 De Data Factory-locatie is waar de metagegevens van de data factory worden opgeslagen en waar van het activeren van de pijplijn wordt gestart. Ondertussen heeft een data factory wel toegang tot gegevensarchieven en Compute Services in andere Azure-regio’s om gegevens te verplaatsen tussen gegevensarchieven of om gegevens te verwerken middels Compute Services. Dit gedrag wordt gerealiseerd via de [IR die algemeen beschikbaar](https://azure.microsoft.com/global-infrastructure/services/) is om de gegevensnaleving, efficiëntie en verminderde kosten voor uitgaand netwerkverkeer te realiseren.
 
-De locatie van de IR definieert de locatie van de back-end rekenkracht en in wezen de locatie waar de verplaatsing van gegevens, het verzenden van activiteit en de uitvoering van het SSIS-pakket worden uitgevoerd. De locatie van de IR kan afwijken van de locatie van de data factory waar hij bij hoort. 
+De locatie van de IR definieert de locatie van de back-endrekenkracht en in wezen de locatie waar de gegevensverplaatsing, het verzenden van activiteit en de uitvoering van het SSIS-pakket worden uitgevoerd. De locatie van de IR kan afwijken van de locatie van de data factory waar hij bij hoort. 
 
 ### <a name="azure-ir-location"></a>Locatie van Azure IR
 U kunt een bepaalde locatie van een Azure IR instellen, in welk geval de gegevensverplaatsing of verzendactiviteit in die specifieke regio plaatsvindt. 
@@ -129,7 +129,7 @@ Wanneer de zelf-hostende IR wordt gebruikt voor het uitvoeren van de gegevensver
 Het selecteren van de juiste locatie voor uw Azure-SSIS IR is essentieel voor het bereiken van hoge prestaties in uw ETL-werkstromen (extract-transform-load).
 
 - De locatie van uw Azure-SSIS IR hoeft niet gelijk te zijn aan de locatie van uw data factory, maar moet wel gelijk zijn aan de locatie van uw eigen Azure SQL Database-/MI-server (preview) waarop SSISDB wordt gehost. Op deze manier heeft uw Azure-SSIS Integration Runtime eenvoudig toegang tot SSISDB, zonder overmatig verkeer tussen verschillende locaties.
-- Als u geen bestaande Azure SQL Database-/MI-server (preview) hebt om SSISDB op te hosten, maar u on-premises gegevensbronnen/bestemmingen hebt, moet u een nieuwe Azure SQL Database-/MI-server (preview) maken op de locatie van een virtueel netwerk dat is verbonden met uw on-premises netwerk.  Op deze manier kunt u uw Azure-SSIS IR maken met behulp van de nieuwe Azure SQL Database-/MI-server (preview) en deze koppelen aan het virtueel netwerk op dezelfde locatie. Zo minimaliseert u het aantal verplaatsingen van gegevens op verschillende locaties.
+- Als u geen bestaande Azure SQL Database-/MI-server (preview) hebt om SSISDB op te hosten, maar u on-premises gegevensbronnen/bestemmingen hebt, moet u een nieuwe Azure SQL Database-/MI-server (preview) maken op de locatie van een virtueel netwerk dat is verbonden met uw on-premises netwerk.  Op deze manier kunt u uw Azure-SSIS IR maken met behulp van de nieuwe Azure SQL Database-/MI-server (preview) en deze koppelen aan het virtueel netwerk op dezelfde locatie. Zo minimaliseert u het aantal gegevensverplaatsingen op verschillende locaties.
 - Als de locatie van de bestaande Azure SQL Database-/MI-server (preview) waarop de SSISDB wordt gehost niet hetzelfde is als de locatie van een virtueel netwerk dat is verbonden met uw on-premises netwerk, moet u eerst uw Azure-SSIS IR maken met een bestaande Azure SQL Database-/MI-server (preview) en deze toevoegen aan een ander virtueel netwerk op dezelfde locatie. Vervolgens configureert u een virtueel netwerk-naar-virtueel netwerkverbinding tussen de verschillende locaties.
 
 Het volgende diagram toont de locatie-instellingen van Data Factory en het aantal keren dat de integratie wordt uitgevoerd:

@@ -1,5 +1,5 @@
 ---
-title: Een Azure Service Fabric-toepassing implementeren in een cluster | Microsoft Docs
+title: Een Service Fabric-toepassing implementeren in een cluster in Azure | Microsoft Docs
 description: Lees hoe u vanuit Visual Studio een toepassing implementeert naar een cluster.
 services: service-fabric
 documentationcenter: .net
@@ -12,17 +12,18 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2018
+ms.date: 06/28/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4716cacf840dcf7a372923e29f758dbdc82fbf51
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f83ebcce68a7abe53d7b8eaeff5913a907e3df9a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208876"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344186"
 ---
-# <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Zelfstudie: een toepassing implementeren naar een Service Fabric-cluster in Azure
+# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Zelfstudie: Een Service Fabric-toepassing implementeren naar een cluster in Azure
+
 Deze zelfstudie is deel twee van een reeks en laat zien hoe u direct vanuit Visual Studio een Azure Service Fabric-toepassing implementeert naar een nieuw cluster in Azure.
 
 In deze zelfstudie leert u het volgende:
@@ -30,42 +31,46 @@ In deze zelfstudie leert u het volgende:
 > * Een cluster maken vanuit Visual Studio
 > * Een toepassing implementeren in een extern cluster met behulp van Visual Studio
 
-
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * [Een .NET Service Fabric-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md)
 > * De toepassing implementeren in een extern cluster
-> * [Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
+> * [Een HTTPS-eindpunt toevoegen aan een front-endservice van ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [CI/CD configureren met behulp van Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Controle en diagnostische gegevens voor de toepassing instellen](service-fabric-tutorial-monitoring-aspnet.md)
 
-
 ## <a name="prerequisites"></a>Vereisten
+
 Voor u met deze zelfstudie begint:
-- Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer de workloads **Azure-ontwikkeling** en **ASP.NET-ontwikkeling en webontwikkeling**.
-- [Installeer de Service Fabric-SDK](service-fabric-get-started.md)
+
+* Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer de workloads **Azure-ontwikkeling** en **ASP.NET-ontwikkeling en webontwikkeling**.
+* [Installeer de Service Fabric-SDK](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>De voorbeeldtoepassing om te stemmen downloaden
+
 Als u in [deel één van deze zelfstudiereeks](service-fabric-tutorial-create-dotnet-app.md) niet de voorbeeldtoepassing om te stemmen hebt gemaakt, kunt u deze downloaden. Voer in een opdrachtvenster de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen op de lokale computer.
 
-```
+```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="create-a-service-fabric-cluster"></a>Een Service Fabric-cluster maken
+
 Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar een cluster. Een [Service Fabric-cluster](/service-fabric/service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd
 
 U hebt twee opties voor implementatie binnen Visual Studio:
-- Een cluster maken in Azure vanuit Visual Studio. Met deze optie kunt u een beveiligd cluster rechtstreeks vanuit Visual Studio met de configuraties van uw voorkeur maken. Dit type cluster is ideaal voor testscenario's, waar u het cluster kunt maken en er vervolgens direct naar kunt publiceren binnen Visual Studio.
-- Publiceren naar een bestaand cluster in uw abonnement.  U kunt Service Fabric-clusters maken via [Azure Portal](https://portal.azure.com), met behulp van [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)- of [Azure CLI](./scripts/cli-create-cluster.md)-scripts, of vanuit een [Azure Resource Manager-sjabloon](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+
+* Een cluster maken in Azure vanuit Visual Studio. Met deze optie kunt u een beveiligd cluster rechtstreeks vanuit Visual Studio met de configuraties van uw voorkeur maken. Dit type cluster is ideaal voor testscenario's, waar u het cluster kunt maken en er vervolgens direct naar kunt publiceren binnen Visual Studio.
+* Publiceren naar een bestaand cluster in uw abonnement.  U kunt Service Fabric-clusters maken via [Azure Portal](https://portal.azure.com), met behulp van [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)- of [Azure CLI](./scripts/cli-create-cluster.md)-scripts, of vanuit een [Azure Resource Manager-sjabloon](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 In deze zelfstudie maakt u een cluster vanuit Visual Studio. Als u al een cluster hebt geïmplementeerd, kunt u uw verbindingseindpunt kopiëren en plakken, of kunt u het kiezen vanuit uw abonnement.
 > [!NOTE]
 > Veel services gebruiken de omgekeerde proxy om met elkaar te communiceren. Clusters die zijn gemaakt vanuit Visual Studio en clusters van derden hebben omgekeerde proxy standaard ingeschakeld.  Als u een bestaand cluster gebruikt, moet u [de omgekeerde proxy in het cluster inschakelen](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### <a name="find-the-votingweb-service-endpoint"></a>Het service-eindpunt van VotingWeb vinden
-Zoek eerst het eindpunt van de front-end webservice op.  De front-end webservice luistert op een specifieke poort.  Wanneer de toepassing in een cluster in Azure wordt geïmplementeerd, worden zowel het cluster als de toepassing achter een load balancer van Azure uitgevoerd.  De poort van de toepassing moet open zijn in de load balancer van Azure zodat binnenkomend verkeer de webservice kan bereiken.  De poort (bijvoorbeeld 8080) wordt gevonden in het bestand *VotingWeb/PackageRoot/ServiceManifest.xml* in het element **Eindpunt**:
+
+Zoek eerst het eindpunt van de front-endwebservice op.  De front-endwebservice luistert op een specifieke poort.  Wanneer de toepassing in een cluster in Azure wordt geïmplementeerd, worden zowel het cluster als de toepassing achter een load balancer van Azure uitgevoerd.  De poort van de toepassing moet open zijn in de load balancer van Azure zodat binnenkomend verkeer de webservice kan bereiken.  De poort (bijvoorbeeld 8080) wordt gevonden in het bestand *VotingWeb/PackageRoot/ServiceManifest.xml* in het element **Eindpunt**:
 
 ```xml
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
@@ -74,14 +79,15 @@ Zoek eerst het eindpunt van de front-end webservice op.  De front-end webservice
 In de volgende stap geeft u deze poort op het tabblad **Geavanceerd** van het dialoogventer **Cluster maken** op.  Als u de toepassing in een bestaand cluster implementeert, kunt u deze poort openen in de load balancer van Azure met een [PowerShell-script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) of in [Azure Portal](https://portal.azure.com).
 
 ### <a name="create-a-cluster-in-azure-through-visual-studio"></a>Een cluster maken in Azure via Visual Studio
+
 Klik met de rechtermuisknop op het toepassingsproject in Solution Explorer en kies **Publiceren**.
 
 Meld u aan met behulp van uw Azure-account, zodat u toegang hebt tot uw abonnement(en). Deze stap is optioneel als u een cluster van derden gebruikt.
 
 Selecteer de vervolgkeuzelijst voor het **verbindingseindpunt** en selecteer de optie **<Create New Cluster...>**.
-    
+
 ![Het dialoogvenster Publiceren](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
-    
+
 Wijzig de volgende instellingen in het dialoogvenster **Cluster maken**:
 
 1. Geef de naam van het cluster op in het veld **Clusternaam**, evenals het abonnement en de locatie die u wilt gebruiken.
@@ -94,6 +100,7 @@ Wijzig de volgende instellingen in het dialoogvenster **Cluster maken**:
 ![Dialoogvenster Cluster maken](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
 ## <a name="deploy-the-sample-application"></a>De voorbeeldtoepassing implementeren
+
 Zodra het cluster dat u wilt gebruiken gereed is, klikt u met de rechtermuisknop op het toepassingsproject en kiest u **Publiceren**.
 
 Nadat het publiceren is voltooid, moet u via een browser een aanvraag kunnen verzenden naar de toepassing.
@@ -105,6 +112,7 @@ U moet nu hetzelfde resultaat zien als bij het lokaal uitvoeren van de toepassin
 ![API-reactie van cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]

@@ -1,4 +1,21 @@
-Zorg ervoor dat u al een Service Bus-naamruimte hebt gemaakt, zoals [hier][namespace-how-to] wordt weergegeven.
+---
+title: bestand opnemen
+description: bestand opnemen
+services: service-bus-messaging
+author: sethmanheim
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 06/29/2018
+ms.author: sethm
+ms.custom: include file
+ms.openlocfilehash: bad7e87cb194fb7d8846e7e675881658a1d33b1e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138157"
+---
+Zorg dat u al een Service Bus-naamruimte hebt gemaakt, zoals [hier][namespace-how-to] wordt weergegeven.
 
 1. Meld u aan bij [Azure Portal][azure-portal].
 2. Klik in het navigatiedeelvenster links in de portal op **Service Bus** (als u geen **Service Bus** ziet, klik dan op **Alle services**).

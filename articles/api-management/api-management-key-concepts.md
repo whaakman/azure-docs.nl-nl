@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0410e0176d5c853e1110fe3460c7d9314e7fd397
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29712369"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435997"
 ---
 # <a name="what-is-api-management"></a>Wat is API Management?
 
@@ -32,7 +32,7 @@ Dit artikel bevat een overzicht van veelvoorkomende scenario's met APIM.  Het be
 Beheerders maken API's om API Management te gebruiken. Elke API bestaat uit een of meer bewerkingen en elke API kan aan een of meer producten worden toegevoegd. Als ontwikkelaars een API willen gebruiken, abonneren ze zich op een product dat die API bevat en vervolgens kunnen ze de bewerking van de API aanroepen. Deze is onderworpen aan gebruiksbeleidsregels die mogelijk van kracht zijn. Algemene scenario's omvatten de volgende:
 
 * **Mobiele infrastructuur beveiligen** door het beperken van toegang met API-sleutels, het voorkomen van DOS-aanvallen door middel van beperking, of het gebruiken van geavanceerd beveiligingsbeleid zoals validatie van JWT-tokens.
-* **ISV-partnerecosystemen inschakelen** door snelle onboarding van partners aan te bieden via de ontwikkelaarsportal en een API-façade te bouwen om los te koppelen van interne implementaties die niet gereed zijn voor gebruik door partners.
+* **Ecosystemen van ISV-partners beschikbaar stellen** door snelle onboarding van partners via de portal voor ontwikkelaars en het bouwen van een API-facade voor het loskoppelen van interne implementaties die niet geschikt zijn voor gebruik door partners.
 * **Een intern API-programma uitvoeren** door het aanbieden van een centrale locatie voor de organisatie om te communiceren over de beschikbaarheid en de meest recente wijzigingen in API's, toegang te beperken op basis van organisatieaccounts. Dit alles is op basis van een veilig kanaal tussen de API-gateway en de back-end.
 
 Het systeem bestaat uit de volgende onderdelen:
@@ -62,7 +62,7 @@ Het systeem bestaat uit de volgende onderdelen:
 Zie voor meer informatie het technische PDF-document [Cloud-based API Management: Harnessing the Power of APIs](http://j.mp/ms-apim-whitepaper) (API Management in de cloud: de kracht van API's aanwenden). In dit inleidende technische document over API Management door CITO Research wordt het volgende besproken: 
  
  * Algemene API-vereisten en -uitdagingen
- * API's loskoppelen en façades presenteren
+ * Loskoppelen van API's en presenteren van facades
  * Ontwikkelaars snel aan de slag helpen
  * Toegang beveiligen
  * Analytische en metrische gegevens

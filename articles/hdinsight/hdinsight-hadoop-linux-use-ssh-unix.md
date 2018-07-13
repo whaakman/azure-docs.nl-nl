@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046775"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446602"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Verbinding maken met HDInsight (Hadoop) via SSH
 
@@ -137,7 +137,19 @@ Zie het gedeelte __Wachtwoorden wijzigen__ van het document [HDInsight beheren](
 
 ## <a id="domainjoined"></a>Verificatie: HDInsight, gekoppeld aan een domein
 
-Als u een __HDInsight-cluster gebruikt dat is gekoppeld aan een domein__, moet u de opdracht `kinit` gebruiken na het verbinden met SSH. Met deze opdracht wordt u om een domeingebruiker en een wachtwoord gevraagd. Uw sessie wordt geverifieerd bij het Azure Active Directory-domein dat is gekoppeld aan het cluster.
+Als u een __HDInsight-cluster gebruikt dat is gekoppeld aan een domein__, moet u de opdracht `kinit` gebruiken na het verbinden met SSH local user. Met deze opdracht wordt u om een domeingebruiker en een wachtwoord gevraagd. Uw sessie wordt geverifieerd bij het Azure Active Directory-domein dat is gekoppeld aan het cluster.
+
+U kunt ook Kerberos-verificatie inschakelen op elk knooppunt in een domein (bijvoorbeeld hoofdknooppunt, edge-knooppunt) om ssh te kunnen uitvoeren met behulp van het domeinaccount. Hiervoor moet u het bestand sshd config bewerken:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+verwijder het commentaarteken en wijzig `KerberosAuthentication` in `yes`
+
+```bash
+sudo service sshd restart
+```
+
+U kunt op ieder moment controleren of de Kerberos-verificatie is gelukt door de opdracht `klist` te gebruiken.
 
 Zie [Aan een domein gekoppelde HDInsight-clusters configureren](./domain-joined/apache-domain-joined-configure.md) voor meer informatie.
 

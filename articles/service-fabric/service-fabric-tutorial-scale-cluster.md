@@ -1,6 +1,6 @@
 ---
-title: Een Azure Service Fabric-cluster schalen | Microsoft Docs
-description: In deze zelfstudie leert u hoe u snel een Service Fabric-cluster kunt schalen.
+title: Een Service Fabric-cluster schalen in Azure | Microsoft Docs
+description: In deze zelfstudie leert u hoe u snel een Service Fabric-cluster kunt schalen in Azure.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83f7a03744e7e8819d71eae81ed8e497797bef62
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642696"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109406"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster"></a>Zelfstudie: een Service Fabric-cluster schalen
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Zelfstudie: Een Service Fabric-cluster schalen
 
 Deze zelfstudie is deel twee van een serie. Hier ziet u hoe u een bestaand cluster kunt in- en uitschalen. Aan het einde van deze zelfstudie weet u hoe u een cluster kunt schalen en eventuele resterende resources kunt opschonen.
 
@@ -41,14 +41,17 @@ In deze zelfstudiereeks leert u het volgende:
 > * [API Management implementeren met Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voor u met deze zelfstudie begint:
-- Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) of [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Maak een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) in Azure
-- Als u een Windows-cluster implementeert, richt u een Windows-ontwikkelomgeving in. Installeer [Visual Studio 2017](http://www.visualstudio.com) en de workloads voor **Azure-ontwikkeling**, **ASP.NET-ontwikkeling en webontwikkeling** en **.NET Core platformoverschrijdende ontwikkeling**.  Richt vervolgens een [.NET-ontwikkelomgeving in](service-fabric-get-started.md).
-- Als u een Linux-cluster implementeert, richt u een Java-ontwikkelomgeving in voor [Linux](service-fabric-get-started-linux.md) of [Mac OS](service-fabric-get-started-mac.md).  Installeer de [Service Fabric CLI](service-fabric-cli.md). 
+
+* Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) of [Azure CLI 2.0](/cli/azure/install-azure-cli).
+* Maak een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) in Azure
+* Als u een Windows-cluster implementeert, richt u een Windows-ontwikkelomgeving in. Installeer [Visual Studio 2017](http://www.visualstudio.com) en de workloads voor **Azure-ontwikkeling**, **ASP.NET-ontwikkeling en webontwikkeling** en **.NET Core platformoverschrijdende ontwikkeling**.  Richt vervolgens een [.NET-ontwikkelomgeving in](service-fabric-get-started.md).
+* Als u een Linux-cluster implementeert, richt u een Java-ontwikkelomgeving in voor [Linux](service-fabric-get-started-linux.md) of [Mac OS](service-fabric-get-started-mac.md).  Installeer de [Service Fabric CLI](service-fabric-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+
 Meld u aan bij uw Azure-account en selecteer uw abonnement voordat u Azure-opdrachten gaat uitvoeren.
 
 ```powershell
@@ -111,14 +114,14 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 
 ## <a name="scale-in"></a>Inschalen
 
-Inschalen is hetzelfde als uitschalen; u gebruikt alleen een lagere waarde voor de **capaciteit**. Wanneer u de schaalset inschaalt, verwijdert u instanties van de virtuele machine uit de schaalset. Normaal gesproken merkt Service Fabric niets van wat is er gebeurd en lijkt het alsof er een knooppunt verloren is gegaan. Service Fabric rapport daarom een onjuiste status voor het cluster. Om deze onjuiste status te voorkomen, moet u aan Service Fabric doorgeven dat u verwacht dat het knooppunt verdwijnt.
+Inschalen is hetzelfde als uitschalen; u gebruikt alleen een lagere waarde voor de **capaciteit**. Wanneer u de schaalset inschaalt, verwijdert u instanties van de virtuele machine uit de schaalset. Normaal gesproken merkt Service Fabric niets van wat is er gebeurd en lijkt het alsof er een knooppunt verloren is gegaan. Service Fabric rapporteert daarom een onjuiste status voor het cluster. Om deze onjuiste status te voorkomen, moet u aan Service Fabric doorgeven dat u verwacht dat het knooppunt verdwijnt.
 
 ### <a name="remove-the-service-fabric-node"></a>Het Service Fabric-knooppunt verwijderen
 
 > [!NOTE]
 > Dit gedeelte is alleen van toepassing op de *Bronzen* duurzaamheidslaag. Voor meer informatie over duurzaamheid raadpleegt u [Service Fabric cluster capacity planning][durability] (Capaciteitsplanning voor Service Fabric-clusters).
 
-Wanneer u een virtuele-machineschaalset inschaalt, verwijdert de schaalset (in de meeste gevallen) de instantie van de virtuele machine die het laatst is gemaakt. Daarom moet u het overeenkomende, laatst gemaakte, Service Fabric-knooppunt vinden. U vindt dit laatste knooppunt door de hoogste waarde van eigenschap `NodeInstanceId` op de Service Fabric-knooppunten te controleren. In onderstaande codevoorbeelden worden de knooppuntinstanties gesorteerd en worden de details van de instantie met de hoogste id-waarde geretourneerd. 
+Wanneer u een virtuele-machineschaalset inschaalt, verwijdert de schaalset (in de meeste gevallen) de instantie van de virtuele machine die het laatst is gemaakt. Daarom moet u het overeenkomende, laatst gemaakte, Service Fabric-knooppunt vinden. U vindt dit laatste knooppunt door de hoogste waarde van eigenschap `NodeInstanceId` op de Service Fabric-knooppunten te controleren. In onderstaande codevoorbeelden worden de knooppuntinstanties gesorteerd en worden de details van de instantie met de hoogste id-waarde geretourneerd.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -180,7 +183,7 @@ else
     # Stop node
     $stopid = New-Guid
     Start-ServiceFabricNodeTransition -Stop -OperationId $stopid -NodeName $nodename -NodeInstanceId $nodeid -StopDurationInSeconds 300
-    
+
     $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
     $loopTimeout = 10
 
@@ -191,7 +194,7 @@ else
         $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
         Write-Host "Checking state... $state found"
     }
-    
+
     if ($state -ne [System.Fabric.TestCommandProgressState]::Completed)
     {
         Write-Error "Stop transaction failed with $state"
@@ -220,13 +223,12 @@ sfctl node remove-state --node-name _nt1vm_5
 > [!TIP]
 > Gebruik de volgende **sfctl**-query's om de status van elke stap te controleren
 >
-> **Deactiveringsstatus controleren**  
+> **Deactiveringsstatus controleren**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Stopstatus controleren**  
+> **Stopstatus controleren**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
-
 
 ### <a name="scale-in-the-scale-set"></a>De schaalset inschalen
 
@@ -249,7 +251,6 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
-
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
@@ -258,7 +259,6 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Het aantal clusterknooppunten lezen
 > * Clusterknooppunten toevoegen (uitschalen)
 > * Clusterknooppunten verwijderen (inschalen)
-
 
 Daarna gaat u verder met de volgende zelfstudie, waarin u leert hoe u een upgrade uitvoert van de runtime van een cluster.
 > [!div class="nextstepaction"]

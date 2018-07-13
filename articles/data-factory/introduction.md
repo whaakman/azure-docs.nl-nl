@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ae0247df0bbde07e755bd910bca08b8703969cec
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e4e90082f483720699fb029db33bc8110173c0aa
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047272"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082951"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-introduction.md)
+> * [Versie 1:](v1/data-factory-introduction.md)
 > * [Huidige versie](introduction.md)
 
 In de wereld van big data worden onbewerkte, ongeordende gegevens vaak opgeslagen in relationele, niet-relationele en andere opslagsystemen. Op zichzelf staande, onbewerkte gegevens hebben echter niet de juiste context of betekenis om nuttige inzichten te kunnen bieden aan analisten, gegevenswetenschappers en besluitvormers. 
@@ -113,11 +113,11 @@ Zie de volgende artikelen voor meer informatie over Data Factory-concepten:
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-U kunt op dit moment gegevensfactory’s maken in de regio's VS - oost, VS - oost 2 en West-Europa. Een gegevensfactory heeft echter wel toegang tot gegevensarchieven en Compute Services in andere Azure-regio’s om gegevens te verplaatsen tussen gegevensarchieven of om gegevens te verwerken middels Compute Services.
+Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). Een gegevensfactory heeft echter wel toegang tot gegevensarchieven en Compute Services in andere Azure-regio’s om gegevens te verplaatsen tussen gegevensarchieven of om gegevens te verwerken middels Compute Services.
 
 Azure Data Factory zelf slaat geen gegevens op. U kunt er gegevensgestuurde werkstromen mee maken om de verplaatsing van gegevens te beheren tussen ondersteunde gegevensarchieven en om er gegevens mee te verwerken middels Compute Services in andere regio's of in een on-premises omgeving. U kunt er ook werkstromen mee bewaken en beheren met zowel programmatische als gebruikersinterfacemechanismen.
 
-Hoewel Data Factory alleen beschikbaar is in VS - oost, VS - oost 2 en West-Europa, is de service die gegevensverplaatsing in Data Factory mogelijk maakt, wereldwijd beschikbaar in meerdere regio's. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een Integration Runtime (zelf-hostend) die is geïnstalleerd in uw on-premises omgeving.
+Hoewel Data Factory alleen beschikbaar is in bepaalde regio’s, is de service die gegevensverplaatsing in Data Factory mogelijk maakt, wereldwijd beschikbaar in meerdere regio’s. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een Integration Runtime (zelf-hostend) die is geïnstalleerd in uw on-premises omgeving.
 
 Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio West-Europa. U kunt een Azure Data Factory-exemplaar maken en gebruiken in VS Oost of VS Oost 2 en dit gebruiken om taken te plannen in uw berekeningsomgevingen in West-Europa. Het duurt enkele milliseconden voordat Data Factory de taak in uw rekenomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw rekenomgeving.
 

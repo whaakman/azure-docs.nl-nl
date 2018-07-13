@@ -1,6 +1,6 @@
 ---
-title: Bewaking en diagnose voor Windows Containers in Azure Service Fabric | Microsoft Docs
-description: In deze zelfstudie stelt u bewaking en diagnose in voor Windows Container, georganiseerd in Azure Service Fabric.
+title: Bewaking en diagnose van Windows -containers voor Service Fabric in Azure | Microsoft Docs
+description: In deze zelfstudie configureert u Log Analytics voor bewaking en diagnose van Windows-containers voor Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: f839b05a1d97ce78601697469c982839358d6b06
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b013627c5a0dc596c9897d7fa2c5bf2b2a79ee40
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300853"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114003"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Zelfstudie: Windows-containers in Service Fabric bewaken met behulp van Log Analytics
 
@@ -34,13 +34,16 @@ In deze zelfstudie leert u het volgende:
 > * De Log Analytics-agent configureren om metrische gegevens uit containers en knooppunten te halen
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voordat u aan deze zelfstudie begint, dient u eerst:
-- Een cluster op Azure te hebben of [er een maken met behulp van deze zelfstudie](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-- [Een containertoepassing erin te implementeren](service-fabric-host-app-in-a-container.md)
+
+* Een cluster op Azure te hebben of [er een maken met behulp van deze zelfstudie](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* [Een containertoepassing erin te implementeren](service-fabric-host-app-in-a-container.md)
 
 ## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>Log Analytics voor uw cluster instellen in de Resource Manager-sjabloon
 
 Als u in het eerste deel van deze zelfstudie de [opgegeven sjabloon](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) hebt gebruikt, dient deze de volgende aanvullingen voor een generieke Service Fabric Azure Resource Manager-sjabloon te bevatten. Als u over een eigen cluster beschikt die u voor het bewaken van containers met Log Analytics wilt instellen, gaat u als volgt te werk:
+
 * Breng de volgende wijzigingen in de Resource Manager-sjabloon aan.
 * Implementeer de sjabloon met PowerShell om uw cluster bij te werken door [de sjabloon te implementeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager weet dat de resource bestaat, zodat de resource als een upgrade wordt uitgebracht.
 
@@ -49,7 +52,7 @@ Als u in het eerste deel van deze zelfstudie de [opgegeven sjabloon](https://git
 Breng de volgende wijzigingen in *template.json* aan:
 
 1. Voeg de locatie en de naam van de Log Analytics-werkruimte toe aan de sectie *parameters*:
-    
+
     ```json
     "omsWorkspacename": {
       "type": "string",
@@ -74,8 +77,8 @@ Breng de volgende wijzigingen in *template.json* aan:
 
     Als u de waarde die voor een van beide is gebruikt, wilt wijzigen, voegt u dezelfde parameters toe aan *template.parameters.json* en wijzigt u de waarden die u daar hebt gebruikt.
 
-2. Voeg de naam van de oplossing en de oplossing toe aan *variables*: 
-    
+2. Voeg de naam van de oplossing en de oplossing toe aan *variables*:
+
     ```json
     "omsSolutionName": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
     "omsSolution": "ServiceFabric"
@@ -102,7 +105,7 @@ Breng de volgende wijzigingen in *template.json* aan:
     ```
 
 4. Voeg de Log Analytics-werkruimte toe als afzonderlijke resource. Voeg in *resources*, na de resource voor de virtuele-machineschaalsets, het volgende toe:
-    
+
     ```json
     {
         "apiVersion": "2015-11-01-preview",
@@ -187,27 +190,27 @@ Implementeer de sjabloon met de nieuwe wijzigingen om het huidige cluster bij te
 
 ## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Container Monitoring Solution toevoegen aan de Log Analytics-werkruimte
 
-Als u de Container-oplossing in uw werkruimte wilt instellen, zoekt u naar *Container Monitoring Solution* en maakt u een Containers-resource (onder de categorie Bewaking + Management).
+Als u de Container-oplossing in uw werkruimte wilt instellen, zoekt u naar *Container Monitoring Solution* en maakt u een Containers-resource (onder de categorie Controle en beheer).
 
 ![Containers-oplossing toevoegen](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
 Als u er door de *Log Analytics-werkruimte* om wordt gevraagd, selecteert u de werkruimte die in uw resourcegroep is gemaakt en klikt u op **Maken**. Hierdoor wordt een *Container Monitoring Solution* aan de werkruimte toegevoegd en wordt automatisch het verzamelen van docker-logboeken en -statistieken met de Log Analytics-agent gestart. 
 
-Ga terug naar uw *resourcegroep*, waar u nu de pas toegevoegde bewakingsoplossing moet kunnen zien. Als u erin klikt, moet op de startpagina het aantal containerinstallatiekopieën dat wordt uitgevoerd, worden weergegeven. 
+Ga terug naar uw *resourcegroep*, waar u nu de pas toegevoegde bewakingsoplossing moet kunnen zien. Als u erin klikt, moet op de startpagina het aantal containerinstallatiekopieën dat wordt uitgevoerd, worden weergegeven.
 
 *Houd er rekening mee dat er 5 exemplaren van de fabrikam-container uit [deel 2](service-fabric-host-app-in-a-container.md) van de zelfstudie zijn uitgevoerd*
 
 ![Startpagina containeroplossing](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-Als u op **Container Monitor Solution** klikt, komt u terecht op een dashboard met meer details. Hier kunt u door meerdere panelen schuiven en query's in Log Analytics uitvoeren. 
+Als u op **Container Monitor Solution** klikt, komt u terecht op een dashboard met meer details. Hier kunt u door meerdere panelen schuiven en query's in Log Analytics uitvoeren.
 
 *Vanaf september 2017 wordt de oplossing af en toe bijgewerkt. Negeer eventuele foutmeldingen over Kubernetes-gebeurtenissen, terwijl meerdere orchestrators in dezelfde oplossing worden geïntegreerd.*
 
-Aangezien de agent docker-logboeken ophaalt, worden *stdout* en *stderr* standaard weergegeven. Als u naar rechts schuift, ziet u de voorraad, de status en de metrische gegevens met betrekking tot containerinstallatiekopieën. Ook ziet u query's die u kunt uitvoeren voor meer nuttige gegevens. 
+Aangezien de agent docker-logboeken ophaalt, worden *stdout* en *stderr* standaard weergegeven. Als u naar rechts schuift, ziet u de voorraad, de status en de metrische gegevens met betrekking tot containerinstallatiekopieën. Ook ziet u query's die u kunt uitvoeren voor meer nuttige gegevens.
 
 ![Dashboard Containeroplossing](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
-Als u op een van deze panelen klikt, komt u terecht bij de Log Analytics-query die de weergegeven waarde genereert. Wijzig de query in *\** om alle verschillende soorten logboeken te bekijken die worden opgehaald. Hier kunt u query's uitvoeren of filteren op de prestaties en logboeken van de container, of Service Fabric-platformgebeurtenissen bekijken. De agenten zenden ook continu een heartbeat van elk knooppunt uit. Hieraan kunt u zien dat er nog steeds gegevens worden verzameld van alle computers als de clusterconfiguratie wordt gewijzigd.   
+Als u op een van deze panelen klikt, komt u terecht bij de Log Analytics-query die de weergegeven waarde genereert. Wijzig de query in *\** om alle verschillende soorten logboeken te bekijken die worden opgehaald. Hier kunt u query's uitvoeren of filteren op de prestaties en logboeken van de container, of Service Fabric-platformgebeurtenissen bekijken. De agenten zenden ook continu een heartbeat van elk knooppunt uit. Hieraan kunt u zien dat er nog steeds gegevens worden verzameld van alle computers als de clusterconfiguratie wordt gewijzigd.
 
 ![Containerquery](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
@@ -222,10 +225,9 @@ Hierna komt u terecht in de Log Analytics-werkruimte, waar u uw oplossingen kunt
 
 **vernieuwt** u binnen enkele minuten de Container Monitoring-oplossing en komen de gegevens van *Computerprestaties* binnen. Hierdoor krijgt u inzicht in het gebruik van uw resources. U kunt deze metrische gegevens ook gebruiken om de juiste beslissingen te maken over het schalen van het cluster of om te bevestigen dat een cluster de belasting op de juiste wijze verdeelt.
 
-*Opmerking: controleer of de tijdfilters goed zijn ingesteld voor deze metrische gegevens.* 
+*Opmerking: controleer of de tijdfilters goed zijn ingesteld voor deze metrische gegevens.*
 
 ![Prestatiemeteritems 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

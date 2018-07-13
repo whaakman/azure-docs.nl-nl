@@ -1,59 +1,59 @@
 ---
-title: Maakt een groep voor gebruikers in Azure Active Directory | Microsoft Docs
-description: Het maken van een groep in Azure Active Directory en leden toevoegen aan de groep
+title: Een groep voor gebruikers maken in Azure AD | Microsoft Docs
+description: Lees hoe u een groep maakt in Azure Active Directory en leden toevoegt aan de groep
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/04/2017
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 0a757ff93531e95da632086c2526dd36406f94c2
-ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
-ms.translationtype: MT
+ms.openlocfilehash: 82d475e5adadb4e7670f24a6193348c9e1b37a16
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35664569"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37767420"
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Een groep maken en leden toevoegen in Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-groups-create-azure-portal.md)
-> * [PowerShell](../active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+> * [PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
-In dit artikel wordt uitgelegd hoe u maakt en vult een nieuwe groep in Azure Active Directory. Een groep gebruiken voor beheertaken uitvoert zoals het toewijzen van licenties of machtigingen voor een aantal gebruikers of apparaten in één keer.
+In dit artikel wordt uitgelegd hoe u een nieuwe groep maakt en vult in Azure Active Directory. U gebruikt een groep om beheertaken uit te voeren zoals het toewijzen van licenties of machtigingen aan een aantal gebruikers of apparaten tegelijk.
 
 ## <a name="how-do-i-create-a-group"></a>Hoe maak ik een groep?
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **alle services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) met een account van een globale beheerder voor de directory.
+2. Selecteer **Alle services**, typ **Gebruikers en groepen** in het tekstvak en druk op **Enter**
 
    ![Gebruikersbeheer openen](./media/active-directory-groups-create-azure-portal/search-user-management.png)
-3. Op de **gebruikers en groepen** blade Selecteer **alle groepen**.
+3. Selecteer **Alle groepen** op de blade **Gebruikers en groepen**.
 
-   ![De blade groepen openen](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
-4. Op de **gebruikers en groepen - alle groepen** blade, selecteer de **toevoegen** opdracht.
+   ![De blade Groepen openen](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
+4. Selecteer de opdracht **Toevoegen** op de blade **Gebruikers en groepen - alle groepen**.
 
-   ![De opdracht Add selecteren](./media/active-directory-groups-create-azure-portal/add-group-command.png)
-5. Op de **groep** blade een naam en beschrijving voor de groep toevoegen.
-6. Als u wilt leden toevoegen aan de groep selecteert, selecteert u **toegewezen** in de **lidmaatschapstype** vak en selecteer vervolgens **leden**. Zie voor meer informatie over het beheren van het lidmaatschap van een groep dynamisch [kenmerken gebruiken voor het maken van geavanceerde regels voor lidmaatschap](../active-directory-groups-dynamic-membership-azure-portal.md).
+   ![De opdracht Toevoegen selecteren](./media/active-directory-groups-create-azure-portal/add-group-command.png)
+5. Voeg op de blade **Groep** een naam en beschrijving toe voor de groep.
+6. U kunt de leden selecteren die u wilt toevoegen aan de groep door **Toegewezen** te selecteren in de lijst **Type lidmaatschap** en vervolgens **Leden** te selecteren. Zie [Op kenmerken gebaseerde regels voor dynamisch groepslidmaatschap maken in Azure Active Directory](../active-directory-groups-dynamic-membership-azure-portal.md) voor meer informatie over het dynamisch beheren van het lidmaatschap van een groep.
 
-   ![Leden toevoegen selecteren](./media/active-directory-groups-create-azure-portal/select-members.png)
-7. Op de **leden** blade, selecteer een of meer gebruikers of apparaten aan de groep wilt toevoegen en selecteer de **Selecteer** knop aan de onderkant van de blade aan toe te voegen aan de groep. De **gebruiker** vak gefilterd op basis van overeenkomst van uw invoer voor een deel van de naam van een gebruiker of het apparaat weergegeven. Er is geen jokertekens worden in dit vak geaccepteerd.
-8. Wanneer u klaar bent met het toevoegen van leden aan de groep, selecteert u **maken** op de **groep** blade.    
+   ![Leden selecteren om toe te voegen](./media/active-directory-groups-create-azure-portal/select-members.png)
+7. Selecteer op de blade **Leden** een of meer gebruikers of apparaten die u wilt toevoegen aan de groep en selecteer vervolgens de knop **Selecteren** onderaan de blade om ze aan de groep toe te voegen. De lijst **Gebruiker** wordt gefilterd op basis van de overeenkomst van uw invoer met de volledige of gedeeltelijke naam van een gebruiker of apparaat. U kunt geen jokertekens gebruiken in de lijst.
+8. Wanneer u klaar bent met het toevoegen van leden aan de groep, selecteert u **Maken** op de blade **Groep**.    
 
-   ![Bevestiging van de groep maken](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
+   ![Bevestiging van maken van groep](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
-* [Zie de bestaande groepen](active-directory-groups-view-azure-portal.md)
+* [Bestaande groepen weergeven](active-directory-groups-view-azure-portal.md)
 * [Instellingen van een groep beheren](active-directory-groups-settings-azure-portal.md)
 * [Leden van een groep beheren](active-directory-groups-members-azure-portal.md)
-* [Lidmaatschap van een groep beheren](active-directory-groups-membership-azure-portal.md)
+* [Lidmaatschappen van een groep beheren](active-directory-groups-membership-azure-portal.md)
 * [Dynamische regels voor gebruikers in een groep beheren](../active-directory-groups-dynamic-membership-azure-portal.md)

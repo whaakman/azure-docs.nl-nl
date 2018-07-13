@@ -1,5 +1,5 @@
 ---
-title: Een Java-toepassing maken voor Service Fabric | Microsoft Docs
+title: Een Java app maken voor Service Fabric in Azure | Microsoft Docs
 description: In deze zelfstudie leert u hoe u een betrouwbare Java-servicetoepassing met een front-end en een betrouwbare stateful back-endservice maakt en de toepassing in een cluster implementeert.
 services: service-fabric
 documentationcenter: java
@@ -15,14 +15,15 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b512ba91d1df7ec0432bdf9048268714e570fe6b
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: a8522dbe20f302a1819b89eaea92562a2dcf43a5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958673"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114122"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: een toepassing met een Java web-API front-endservice en een stateful back-endservice maken en implementeren
+# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Zelfstudie: Een toepassing met een Java web-API front-endservice en een stateful back-endservice maken voor Service Fabric
+
 Deze zelfstudie is deel één van een serie. Wanneer u klaar bent, hebt u een stemtoepassing met een web-front-end in Java die stemresultaten opslaat in een stateful back-endservice in het cluster. Voor deze zelfstudie hebt u een werkende Mac OSX- of Linux-ontwikkelaarsmachine nodig. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-java-quickstart) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
 
 ![Lokale stem-app](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
@@ -37,18 +38,21 @@ In deel 1 van de reeks leert u het volgende:
 
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> *  Een Java Service Fabric Reliable Services-toepassing maken
+> * Een Java Service Fabric Reliable Services-toepassing maken
 > * [De toepassing implementeren en er foutopsporing op toepassen in een lokaal cluster](service-fabric-tutorial-debug-log-local-cluster.md)
 > * [De toepassing implementeren in een Azure-cluster](service-fabric-tutorial-java-deploy-azure.md)
 > * [Controle en diagnostische gegevens voor de toepassing instellen](service-fabric-tutorial-java-elk.md)
 > * [CI/CD instellen](service-fabric-tutorial-java-jenkins.md)
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voor u met deze zelfstudie begint:
-- Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan.
-- Stel uw ontwikkelomgeving in voor [Mac](service-fabric-get-started-mac.md) of [Linux](service-fabric-get-started-linux.md). Volg de instructies voor het installeren van de Eclipse-invoegtoepassing, Gradle, de Service Fabric SDK en de Service Fabric CLI (sfctl).
+
+* Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan.
+* Stel uw ontwikkelomgeving in voor [Mac](service-fabric-get-started-mac.md) of [Linux](service-fabric-get-started-linux.md). Volg de instructies voor het installeren van de Eclipse-invoegtoepassing, Gradle, de Service Fabric SDK en de Service Fabric CLI (sfctl).
 
 ## <a name="create-the-front-end-java-stateless-service"></a>De front-end stateless Java-service maken
+
 Maak eerst de webfront-end van de stemtoepassing. De stateless Java-service draait op een lichtgewicht HTTP-server die een webgebruikersinterface host die wordt aangedreven door AngularJS. Aanvragen van een gebruiker worden door deze stateless service verwerkt en als een externe procedureaanroep naar de stateful service verzonden om de stemmen op te slaan. 
 
 1. Eclipse starten
@@ -62,7 +66,7 @@ Maak eerst de webfront-end van de stemtoepassing. De stateless Java-service draa
     ![Stateless Java-service kiezen in het dialoogvenster voor een nieuwe service](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
 
 4. Kies op de pagina **Add Service** de optie **Stateless Service** en noem uw service **VotingWeb**. Klik op **Finish** om het project te voltooien.
-   
+
     ![Stateless service maken]( ./media/service-fabric-tutorial-create-java-app/createvotingweb.png)
 
     Eclipse maakt een toepassing en een serviceproject en geeft deze weer in Package Explorer.
@@ -80,13 +84,14 @@ De tabel bevat een korte beschrijving van elk item in de Package Explorer van de
 | settings.gradle | Bevat de namen van Gradle-projecten in deze map. |
 
 ### <a name="add-html-and-javascript-to-the-votingweb-service"></a>HTML en Javascript toevoegen aan de VotingWeb-service
-Om een gebruikersinterface toe te voegen die kan worden weergegeven door de stateless service, voegt u een HTML-bestand toe aan *VotingApplication/VotingWebPkg/Code*. Dit HTML-bestand wordt vervolgens weergegeven door de lichtgewicht HTTP-server die is ingesloten in de stateless Java-service. 
 
-1. Vouw de map *VotingApplication* uit en ga naar de map *VotingWebPkg-VotingApplication-Code*. 
+Om een gebruikersinterface toe te voegen die kan worden weergegeven door de stateless service, voegt u een HTML-bestand toe aan *VotingApplication/VotingWebPkg/Code*. Dit HTML-bestand wordt vervolgens weergegeven door de lichtgewicht HTTP-server die is ingesloten in de stateless Java-service.
 
-2. Klik met de rechtermuisknop op de map *Code* en klik op **New**->**Other**
+1. Vouw de map *VotingApplication* uit en ga naar de map *VotingWebPkg-VotingApplication-Code*.
 
-3. Maak een map met de naam *wwwroot* en klik op **Finish**
+2. Klik met de rechtermuisknop op de map *Code* en klik op **New**->**Other**.
+
+3. Maak een map met de naam *wwwroot* en klik op **Finish**.
 
     ![Een wwwroot-map maken voor Eclipse](./media/service-fabric-tutorial-create-java-app/create-wwwroot-folder.png)
 
@@ -201,7 +206,8 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### <a name="update-the-votingwebservicejava-file"></a>Het bestand VotingWebService.java bijwerken
-Open in het subproject **VotingWeb** het bestand *VotingWeb/src/statelessservice/VotingWebService.java*. De **VotingWebService** is de gateway naar de stateless service en is verantwoordelijk voor het instellen van de communicatielistener voor de front-end-API. 
+
+Open in het subproject **VotingWeb** het bestand *VotingWeb/src/statelessservice/VotingWebService.java*. De **VotingWebService** is de gateway naar de stateless service en is verantwoordelijk voor het instellen van de communicatielistener voor de front-end-API.
 
 Vervang de inhoud van de methode **createServiceInstanceListeners** in het bestand door de volgende en sla de wijzigingen op.
 
@@ -219,7 +225,8 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 ```
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Het bestand HTTPCommunicationListener.java toevoegen
-De HTTP-communicatielistener fungeert als een domeincontroller die de HTTP-server instelt en de API's die stemacties definiëren weergeeft. Klik met de rechtermuisknop op het pakket *statelessservice* in de map *VotingWeb/src/statelessservice*, selecteer **New->Other...->General->File** en klik op **Next**.  Noem het bestand *HttpCommunicationListener.java* en klik op **Finish**.  
+
+De HTTP-communicatielistener fungeert als een domeincontroller die de HTTP-server instelt en de API's die stemacties definiëren weergeeft. Klik met de rechtermuisknop op het pakket *statelessservice* in de map *VotingWeb/src/statelessservice*, selecteer **New->Other...->General->File** en klik op **Next**.  Noem het bestand *HttpCommunicationListener.java* en klik op **Finish**.
 
 Vervang de bestandsinhoud door het volgende en sla uw wijzigingen op.  Verderop, in [Het bestand HttpCommunicationListener.java bijwerken](#updatelistener_anchor), wordt dit bestand gewijzigd voor het weergeven, lezen en schrijven van stemgegevens vanaf de back-endservice.  Op dit moment retourneert de listener eenvoudigweg de statische HTML-code voor de stem-app.
 
@@ -259,7 +266,7 @@ import system.fabric.CancellationToken;
 public class HttpCommunicationListener implements CommunicationListener {
 
     private static final Logger logger = Logger.getLogger(HttpCommunicationListener.class.getName());
-    
+
     private static final String HEADER_CONTENT_TYPE = "Content-Type";
     private static final int STATUS_OK = 200;
     private static final int STATUS_NOT_FOUND = 404; 
@@ -267,7 +274,7 @@ public class HttpCommunicationListener implements CommunicationListener {
     private static final String RESPONSE_NOT_FOUND = "404 (Not Found) \n";
     private static final String MIME = "text/html";  
     private static final String ENCODING = "UTF-8";
-    
+
     private static final String ROOT = "wwwroot/";
     private static final String FILE_NAME = "index.html";
     private StatelessServiceContext context;
@@ -290,7 +297,7 @@ public class HttpCommunicationListener implements CommunicationListener {
             logger.log(Level.SEVERE, null, ex);
             throw new RuntimeException(ex);
         }
-        
+
         // Responsible for rendering the HTML layout described in the previous step
         server.createContext("/", new HttpHandler() {
             @Override
@@ -307,7 +314,7 @@ public class HttpCommunicationListener implements CommunicationListener {
                     } else {    
                       Headers h = t.getResponseHeaders();
                       h.set(HEADER_CONTENT_TYPE, MIME);
-                      t.sendResponseHeaders(STATUS_OK, 0);              
+                      t.sendResponseHeaders(STATUS_OK, 0);
     
                       OutputStream os = t.getResponseBody();
                       FileInputStream fs = new FileInputStream(file);
@@ -316,7 +323,7 @@ public class HttpCommunicationListener implements CommunicationListener {
                       while ((count = fs.read(buffer)) >= 0) {
                         os.write(buffer,0,count);
                       }
-                      
+
                       fs.close();
                       os.close();
                     }  
@@ -329,11 +336,11 @@ public class HttpCommunicationListener implements CommunicationListener {
         /*
         [Replace this entire comment block in the 'Connect the services' section]
         */
-        
+
         server.setExecutor(null);
         server.start();
     }
-    
+
     //Helper method to parse raw HTTP requests
     private Map<String, String> queryToMap(String query){
         Map<String, String> result = new HashMap<String, String>();
@@ -379,6 +386,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 ```
 
 ### <a name="configure-the-listening-port"></a>De luisterpoort configureren
+
 Wanneer de front-end VotingWeb-service is gemaakt, selecteert Service Fabric willekeurig een poort voor de service om op te luisteren.  De VotingWeb-service fungeert als de front-end voor deze toepassing en accepteert extern verkeer, dus gaan we die service met een vaste en bekende poort verbinden. Open in Package Explorer *VotingWebService/VotingWebServicePkg/ServiceManifest.xml*.  Zoek de resource **Endpoint** op in de sectie **Resources** en wijzig de waarde van **Port** in 8080 of een andere poort. Als u de toepassing lokaal wilt implementeren en uitvoeren, moet de luisterende poort van de toepassing open zijn en beschikbaar zijn op uw computer. Plak het volgende codefragment onder de tag **ServiceManifest**.
 
 ```xml
@@ -390,16 +398,17 @@ Wanneer de front-end VotingWeb-service is gemaakt, selecteert Service Fabric wil
         <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
     </Endpoints>
   </Resources>
-```  
+```
 
 ## <a name="add-a-stateful-back-end-service-to-your-application"></a>Een stateful back-endservice toevoegen aan de toepassing
+
 Nu de basis van de Java web-API-service is voltooid, gaan we de stateful back-endservice voltooien.
 
 Service Fabric biedt u de mogelijkheid om uw gegevens consistent en betrouwbaar rechtstreeks in uw service op te slaan met behulp van betrouwbare verzamelingen. Betrouwbare verzamelingen zijn een set maximaal beschikbare en betrouwbare verzamelingsklassen. Het gebruik van deze klassen is bekend bij iedereen die Java-verzamelingen gebruikt.
 
 1. Klik in Package Explorer met de rechtermuisknop op **Voting** binnen het toepassingsproject en kies **Service Fabric > Add Service Fabric Service**.
-   
-2. Kies in het dialoogvenster **Add Service** de optie **Stateful Service**, geef de service de naam **VotingData** en klik op **Add Service**. 
+
+2. Kies in het dialoogvenster **Add Service** de optie **Stateful Service**, geef de service de naam **VotingData** en klik op **Add Service**.
 
     ![Een nieuwe service toevoegen aan een bestaande toepassing](./media/service-fabric-tutorial-create-java-app/addstatefuljava.png)
 
@@ -540,8 +549,9 @@ class VotingDataService extends StatefulService implements VotingRPC {
 }
 ```
 
-## <a name="create-the-communication-interface-to-your-application"></a>De communicatie-interface naar uw toepassing maken 
-De basis voor de front-end stateless service en de back-endservice is nu gemaakt. De volgende stap bestaat uit het verbinden van de twee services. De front-end- en back-endservices maken beide gebruik van een interface met de naam VotingRPC die de bewerkingen van de stemtoepassing definieert. Deze interface is geïmplementeerd door de front-end- en back-endservice om externe procedureaanroepen (RPC) tussen de twee services in te schakelen. Omdat Eclipse geen ondersteuning biedt voor het toevoegen van Gradle-subprojecten, moet het pakket met deze interface handmatig worden toegevoegd. 
+## <a name="create-the-communication-interface-to-your-application"></a>De communicatie-interface naar uw toepassing maken
+
+De basis voor de front-end stateless service en de back-endservice is nu gemaakt. De volgende stap bestaat uit het verbinden van de twee services. De front-end- en back-endservices maken beide gebruik van een interface met de naam VotingRPC die de bewerkingen van de stemtoepassing definieert. Deze interface is geïmplementeerd door de front-end- en back-endservice om externe procedureaanroepen (RPC) tussen de twee services in te schakelen. Omdat Eclipse geen ondersteuning biedt voor het toevoegen van Gradle-subprojecten, moet het pakket met deze interface handmatig worden toegevoegd.
 
 1. Klik met de rechtermuisknop op het **Voting**-project in the Package Explorer en klik op **New -> Other ...**
 
@@ -552,7 +562,7 @@ De basis voor de front-end stateless service en de back-endservice is nu gemaakt
 3. Maak onder *Voting/VotingRPC/src/rpcmethods* een bestand met de naam *VotingRPC.java* en plak het volgende in het bestand **VotingRPC.java**. 
 
     ```java
-    package rpcmethods; 
+    package rpcmethods;
     
     import java.util.ArrayList;
     import java.util.concurrent.CompletableFuture;
@@ -878,6 +888,7 @@ In deze sectie worden de Gradle-scripts voor het project geconfigureerd.
     ```
 
 ## <a name="deploy-application-to-local-cluster"></a>De toepassing implementeren in het lokale cluster
+
 De toepassing is nu gereed om te worden geïmplementeerd in een lokaal Service Fabric-cluster.
 
 1. Klik met de rechtermuisknop op het project **Voting** in de Package Explorer en klik op **Service Fabric -> Build Application** om uw toepassing te bouwen.
@@ -901,6 +912,7 @@ De toepassing is nu gereed om te worden geïmplementeerd in een lokaal Service F
 6. Ga naar uw webbrowser en open **http://localhost:8080** om uw toepassing weer te geven die wordt uitgevoerd in het lokale Service Fabric-cluster. 
 
 ## <a name="next-steps"></a>Volgende stappen
+
 In dit deel van de zelfstudie hebt u het volgende geleerd:
 
 > [!div class="checklist"]

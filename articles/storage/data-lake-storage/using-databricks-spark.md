@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 013369c84ca7f2ec232f542549c22260eca46980
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062531"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096913"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Zelfstudie: toegang tot Azure Data Lake Storage Gen2 Preview-gegevens met DataBricks met behulp van Spark
 
@@ -61,7 +61,7 @@ De volgende stap is het maken van een [DataBricks-cluster](https://docs.azuredat
 8. Klik boven aan de pagina op **Cluster maken**. (Het duurt maximaal 5 minuten om dit proces te voltooien.)
 9. Zodra het proces is voltooid, selecteert u linksboven in de navigatiebalk de optie **Azure Databricks**.
 10. Selecteer in de sectie **Nieuw** op de onderste helft van de pagina de optie **Notitieblok**.
-11. Voer een naam naar keuze in het veld **Naam** in.
+11. Voer een naam in van uw keuze in het veld **Naam** en selecteer **Python** als taal.
 12. U kunt in alle andere velden de standaardwaarden laten staan.
 13. Selecteer **Maken**.
 14. Plak de volgende code in de cel **Cmd 1**, vervang de waarden door de waarden die u hebt bewaard uit het opslagaccount.
@@ -96,7 +96,7 @@ Open DataBricks opnieuw in de browser en voer de volgende stappen uit:
 5. Selecteer **Maken**.
 6. Plak de volgende code in de cel **Cmd 1**. (Deze code wordt automatisch opgeslagen in de editor.)
 
-    ```
+    ```python
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  

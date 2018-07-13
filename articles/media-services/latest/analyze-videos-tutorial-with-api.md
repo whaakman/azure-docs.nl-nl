@@ -10,29 +10,32 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e81544d263bea3f367eaf2100ddb36a2835034c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637909"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114221"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Zelfstudie: Video's analyseren met Azure Media Services 
 
-In deze zelfstudie ziet u hoe u video’s kunt analyseren met Azure Media Services. Er zijn veel scenario's waarin u misschien inzicht wilt krijgen in opgenomen video's of audio-inhoud. Voor het bereiken van een hogere klanttevredenheid kunnen organisaties bijvoorbeeld spraak-naar-tekstverwerking uitvoeren om opnamen van de klantenondersteuning om te zetten in een catalogus van zoekmachines, met indexen en dashboards. Vervolgens kunnen zij inzicht verkrijgen in hun bedrijf, zoals een lijst met veelvoorkomende klachten, bronnen van dergelijke klachten, enzovoort.
+In deze zelfstudie ziet u hoe u video's kunt analyseren met Azure Media Services. Er zijn veel scenario's waarin u misschien inzicht wilt krijgen in opgenomen video's of audio-inhoud. Voor het bereiken van een hogere klanttevredenheid kunnen organisaties bijvoorbeeld spraak-naar-tekstverwerking uitvoeren om opnamen van de klantenondersteuning om te zetten in een catalogus van zoekmachines, met indexen en dashboards. Vervolgens kunnen zij inzicht verkrijgen in hun bedrijf, zoals een lijst met veelvoorkomende klachten, bronnen van dergelijke klachten, enzovoort.
 
-In deze handleiding ontdekt u hoe u:    
+In deze zelfstudie ontdekt u hoe u:    
 
 > [!div class="checklist"]
-> * Een Media Services-account maken
-> * Toegang krijgen tot de Media Services API
-> * De voorbeeld-app configureren
-> * De code onderzoeken die de opgegeven video analyseert
-> * De app uitvoeren
-> * De uitvoer controleren
+> * Een Media Services-account kunt maken
+> * Toegang kunt krijgen tot de Media Services API
+> * De voorbeeld-app kunt configureren
+> * De code kunt onderzoeken die de opgegeven video analyseert
+> * De app kunt uitvoeren
+> * De uitvoer kunt controleren
 > * Resources opschonen
+
+> [!Note]
+> Gebruik Azure Portal, zoals beschreven in [Mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md), om uw Media Services-account in te stellen op 10 S3 door media gereserveerd eenheden.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,7 +45,7 @@ Als u niet beschikt over Visual Studio, kunt u [Visual Studio Community 2017](ht
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-Klonen van een GitHub-opslagplaats met het .NET-voorbeeld op de computer met de volgende opdracht:  
+Kloon met de volgende opdracht een GitHub-opslagplaats met het .NET-voorbeeld op de computer:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
@@ -97,7 +100,7 @@ In de [uitvoerasset](https://docs.microsoft.com/rest/api/media/assets) wordt het
 
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>Een transformatie en een taak maken die video's analyseert
 
-Bij het coderen of verwerken van inhoud in Media Services is het een gangbaar patroon om de coderingsinstellingen als recept in te stellen. U dient vervolgens een **taak** in te dienen om het recept toe te passen op een video. Door het indienen van nieuwe taken voor elke nieuwe video past u het recept toe op alle video's in de bibliotheek. Een recept in Media Services wordt aangeroepen als een **transformatie**. Zie voor meer informatie [transformaties en taken](transform-concept.md). Met het voorbeeld dat wordt beschreven in deze zelfstudie wordt een recept gedefinieerd waarmee de opgegeven video wordt geanalyseerd. 
+Bij het coderen of verwerken van inhoud in Media Services is het een gangbaar patroon om de coderingsinstellingen als recept in te stellen. U dient vervolgens een **taak** in te dienen om het recept toe te passen op een video. Door het indienen van nieuwe taken voor elke nieuwe video past u het recept toe op alle video's in de bibliotheek. Een recept in Media Services wordt aangeroepen als een **transformatie**. Zie voor meer informatie [Transformaties en taken](transform-concept.md). Met het voorbeeld dat wordt beschreven in deze zelfstudie wordt een recept gedefinieerd waarmee de opgegeven video wordt geanalyseerd. 
 
 #### <a name="transform"></a>Transformeren
 
@@ -107,7 +110,7 @@ Bij het maken van een **transformatie** moet u controleren of er al een bestaat 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#EnsureTransformExists)]
 
-#### <a name="job"></a>Job
+#### <a name="job"></a>Taak
 
 Zoals eerder vermeld, is het [transformatie](https://docs.microsoft.com/rest/api/media/transforms)-object het recept en is de [taak](https://docs.microsoft.com/en-us/rest/api/media/jobs) de werkelijke aanvraag bij Media Services om deze **transformatie** toe te passen op een bepaalde invoervideo of audio-inhoud. De **taak** bevat informatie zoals de locatie van de invoervideo en de locatie voor de uitvoer. U kunt de locatie van uw video opgeven met: HTTPS-URL's, SAS-URL's of assets die zich in uw Media Service-account bevinden. 
 
@@ -117,13 +120,13 @@ In dit voorbeeld is de taakinvoer een lokale video.
 
 ### <a name="wait-for-the-job-to-complete"></a>Wacht tot de taak is voltooid
 
-De taak neemt enige tijd in beslag en wanneer dit het geval is, wordt u hiervan op de hoogte gesteld. U kunt op verschillende manieren een melding ontvangen over de voltooiing van de [taak](https://docs.microsoft.com/en-us/rest/api/media/jobs). De eenvoudigste optie (die hier wordt getoond) is het gebruik van polling. 
+De taak neemt enige tijd in beslag en wanneer deze is voltooid, wordt u hiervan op de hoogte gesteld. U kunt op verschillende manieren een melding ontvangen over de voltooiing van de [taak](https://docs.microsoft.com/en-us/rest/api/media/jobs). De eenvoudigste optie (die hier wordt getoond) is het gebruik van polling. 
 
 Polling is geen aanbevolen best practice voor productietoepassingen vanwege mogelijke latentie. Polling kan worden beperkt bij een te intensief gebruik op een account. Ontwikkelaars moeten in plaats daarvan Event Grid gebruiken.
 
-Event Grid is ontworpen voor hoge beschikbaarheid, consistente prestaties en dynamische schaal. Met Event Grid kunnen uw apps luisteren naar en reageren op gebeurtenissen uit vrijwel alle Azure-services, evenals aangepaste bronnen. Eenvoudige, op HTTP gebaseerde reactieve gebeurtenisafhandeling maakt het mogelijk om efficiënte oplossingen te bouwen met intelligente filtering en routering van gebeurtenissen. Zie [Gebeurtenissen routeren naar een aangepast eindpunt](job-state-events-cli-how-to.md).
+Event Grid is ontworpen voor hoge beschikbaarheid, consistente prestaties en dynamisch schalen. Met Event Grid kunnen uw apps luisteren naar en reageren op gebeurtenissen uit vrijwel alle Azure-services, evenals aangepaste bronnen. Eenvoudige, op HTTP gebaseerde reactieve gebeurtenisafhandeling maakt het mogelijk om efficiënte oplossingen te bouwen met intelligente filtering en routering van gebeurtenissen. Zie [Gebeurtenissen routeren naar een aangepast eindpunt](job-state-events-cli-how-to.md).
 
-De **taak** doorloopt meestal de volgende statussen: **gepland**, **in wachtrij**, **wordt verwerkt**, **voltooid** (definitieve status). Als bij de taak een fout is opgetreden is, krijgt u de status **fout**. Als de taak momenteel wordt geannuleerd, krijgt u de melding **wordt geannuleerd** en **geannuleerd** wanneer het annuleren is voltooid.
+De **taak** doorloopt meestal de volgende statussen: **gepland**, **in wachtrij**, **wordt verwerkt**, **voltooid** (definitieve status). Als bij de taak een fout is opgetreden is, krijgt u de status **Fout**. Als de taak momenteel wordt geannuleerd, krijgt u de melding **Wordt geannuleerd** en **Geannuleerd** wanneer het annuleren is voltooid.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
 
@@ -153,7 +156,7 @@ Het uitvoerbestand van het analyseren van video's heet insights.json. Dit bestan
 
 Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van de Media Services en opslagaccounts die u hebt gemaakt voor deze zelfstudie, verwijdert u de resourcegroep die u eerder hebt gemaakt. U kunt het hulpprogramma **CloudShell** gebruiken.
 
-Voer in de **CloudShell** de volgende opdracht uit:
+Voer in **CloudShell** de volgende opdracht uit:
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup

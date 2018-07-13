@@ -3,7 +3,7 @@ title: 'Snelstart: Een virtuele Linux-machine maken op de Azure Portal | Microso
 description: In deze snelstartgids leert u hoe u de Azure Portal  gebruikt om een virtuele Linux-machine te maken
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
-ms.author: iainfou
+ms.date: 07/03/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012880"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447955"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snelstart: Een virtuele Linux-machine maken op de Azure Portal
 
@@ -63,7 +63,7 @@ Aanmelden bij Azure Portal op http://portal.azure.com
 
     ![Schermopname van VM-grootten](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. Laat onder **Instellingen** alle standaardwaarden staan en selecteer **OK**.
+5. Ga op de pagina **Instellingen** naar **Netwerk** > **Netwerkbeveiligingsgroep** > **Openbare binnenkomende poorten selecteren**, en selecteer **HTTP** en **SSH (22)** in de vervolgkeuzelijst. Laat de overige standaardwaarden staan en selecteer **OK**.
 
 6. Selecteer **Maken** op de overzichtspagina om de implementatie van de VM te starten.
 
@@ -99,14 +99,6 @@ sudo apt-get -y install nginx
 
 Wanneer u klaar bent, `exit`sluit u de SSH-sessie af en geeft u de VM-eigenschappen op in de Azure Portal.
 
-## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer
-
-Een netwerkbeveiligingsgroep (NSG) beveiligt binnenkomend en uitgaand verkeer. Wanneer een VM wordt gemaakt in de Azure Portal, wordt een inkomende regel gemaakt op poort 22 voor SSH-verbindingen. Omdat deze VM fungeert als host voor een webserver, moet een NSG-regel worden gemaakt voor poort 80.
-
-1. Selecteer **Netwerken** op de overzichtspagina van de VM.
-2. De lijst met bestaande regels voor binnenkomend en uitgaand verkeer worden weergegeven. Kies **Regel voor binnenkomende poort toevoegen**.
-3. Selecteer de optie **Basic** bovenaan en kies vervolgens *HTTP* in de lijst met beschikbare services. Poort 80, een prioriteit en een naam worden voor u ingevuld.
-4. Selecteer **Toevoegen** om de regel te maken.
 
 ## <a name="view-the-web-server-in-action"></a>De webserver in actie zien
 

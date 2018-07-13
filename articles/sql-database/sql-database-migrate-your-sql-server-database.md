@@ -2,19 +2,19 @@
 title: SQL Server DB migreren naar Azure SQL Database met behulp van DMA | Microsoft Docs
 description: Meer informatie over het migreren van SQL Server DB naar Azure SQL Database met behulp van DMA.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: d0954627978c7725059e0b678783c8c6ffb9e827
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ceab627d98149774a3eb767ee56d688f9c11ff99
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308880"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346838"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Uw SQL Server-database migreren naar Azure SQL Database met behulp van DMA
 
@@ -88,7 +88,7 @@ Volg deze stappen om een lege SQL-database te maken.
 8. Accepteer de gebruiksvoorwaarden voor de preview om de optie **Extra opslag** te gebruiken. 
 
    > [!IMPORTANT]
-   > In de Premium-laag is momenteel meer dan 1 TB aan opslag beschikbaar in alle regio's met uitzondering van UK - noord, US - west-centraal, UK - zuid2, China - oost, US DoD - centraal, Duitsland - centraal, US DoD - oost, US Gov - zuid-centraal, US Gov zuid-centraal, Duitsland - noordoost, China - noord, US Gov - oost. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > In de Premium-laag is momenteel meer dan 1 TB aan opslag beschikbaar in alle regio's met uitzondering van VS - west-centraal, China - oost, USDoDCentral, USGov Iowa, Duitsland - centraal, USDoDEast, US Gov Southwest, Duitsland - noordoost, China - noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 9. Als u de servicelaag, het aantal DTU's en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.  
 
@@ -110,7 +110,7 @@ De service SQL Database maakt een firewall op serverniveau die voorkomt dat exte
 
 1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op **mySampleDatabase**. De overzichtspagina voor uw database wordt geopend, met de volledig gekwalificeerde servernaam (zoals **mynewserver20170824.database.windows.net**) en opties voor verdere configuratie. 
 
-2. Kopieer deze volledig gekwalificeerde servernaam om in volgende snelstarts verbinding te maken met de server en de bijbehorende databases. 
+2. Kopieer deze volledig gekwalificeerde servernaam om in volgende snelstartgidsen verbinding te maken met de server en de bijbehorende databases. 
 
    ![servernaam](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -216,7 +216,7 @@ Volg deze stappen om gebruik te maken van **[Data Migration Assistant](https://w
 
      ![proces gegevensmigratie nieuwe gegevensmigratie](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration-process.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database via SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database via SQL Server Management Studio
 
 Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) om verbinding te maken met uw Azure SQL Database-server.
 
@@ -238,7 +238,7 @@ Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
    ![verbinding maken met database op server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Klik op **Verbinden**. Het venster Objectverkenner wordt geopend in SSMS. 
+4. Klik op **Verbinden**. Het venster Objectverkenner wordt geopend in SQL Server Management Studio. 
 
 5. In Objectverkenner vouwt u **Databases** en daarna **mySampleDatabase** uit om de objecten in de voorbeelddatabase weer te geven.
 
@@ -246,7 +246,7 @@ Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
 ## <a name="change-database-properties"></a>Eigenschappen van de database wijzigen
 
-U kunt de servicelaag, het prestatieniveau en het compatibiliteitsniveau wijzigen met behulp van SQL Server Management Studio. Voor de beste prestaties wordt u tijdens de importeerfase aangeraden naar een database met een hogere prestatielaag te importeren. Schaal echter omlaag nadat het importeren is voltooid om geld te besparen, totdat u klaar bent om de geïmporteerde database actief te gaan gebruiken. Het wijzigen van het compatibiliteitsniveau kan betere prestaties opleveren en toegang tot de nieuwste mogelijkheden van de Azure SQL Database-service. Wanneer u een oudere database migreert, wordt het compatibiliteitsniveau van de database gehandhaafd op het laagste ondersteunde niveau dat nog compatibel is met de database die wordt geïmporteerd. Zie [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md) (Verbeterde prestaties bij het uitvoeren van query's met compatibiliteitsniveau 130 in Azure SQL Database) voor meer informatie.
+U kunt de servicelaag, het prestatieniveau en het compatibiliteitsniveau wijzigen met behulp van SQL Server Management Studio. Voor de beste prestaties wordt u tijdens de importfase aangeraden naar een database met een hogere prestatielaag te importeren. Schaal echter omlaag nadat het importeren is voltooid om geld te besparen, totdat u klaar bent om de geïmporteerde database actief te gaan gebruiken. Het wijzigen van het compatibiliteitsniveau kan betere prestaties opleveren en toegang tot de nieuwste mogelijkheden van de Azure SQL Database-service. Wanneer u een oudere database migreert, wordt het compatibiliteitsniveau van de database gehandhaafd op het laagste ondersteunde niveau dat nog compatibel is met de database die wordt geïmporteerd. Zie [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md) (Verbeterde prestaties bij het uitvoeren van query's met compatibiliteitsniveau 130 in Azure SQL Database) voor meer informatie.
 
 1. Klik in Objectverkenner met de rechtermuisknop op **mySampleDatabase** en klik vervolgens op **Nieuwe query**. Er wordt een queryvenster geopend dat is verbonden met uw database.
 

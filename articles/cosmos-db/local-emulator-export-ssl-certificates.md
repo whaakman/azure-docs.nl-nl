@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fce6553ce7407f892ed1de1f71bc812798f91c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 237ab0ed99793f54574c4b81e883acb8c2bc57a9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611803"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082098"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>De Azure Cosmos DB Emulator-certificaten exporteren voor gebruik met Java, Python en Node.js
 
@@ -99,7 +99,7 @@ In deze zelfstudie hebt u het volgende gedaan:
 > * Het SSL-certificaat geëxporteerd
 > * Geleerd over het gebruik van het certificaat in Java, Python en Node.js
 
-U kunt nu doorgaan met de zelfstudie Een Azure Functions HTTP-trigger maken met een Azure Cosmos DB-invoerbinding.
+U kunt nu doorgaan naar de sectie Concepten voor meer informatie over Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Een Azure-functie met invoer van Azure Cosmos DB maken](tutorial-functions-http-trigger.md) 
+>[Instelbare gegevensconsistentieniveaus in Azure Cosmos DB](../cosmos-db/consistency-levels.md)

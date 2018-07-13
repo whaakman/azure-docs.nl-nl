@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 46c80f326c8210ac3282cf128058cee91ff3836c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1abc0a8ed9aec1082a4710647f6c03c87e1fd1d2
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770834"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098226"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Zelfstudie: Gegevens uitpakken, transformeren en laden met Apache Hive in Azure HDInsight
 
@@ -320,6 +320,7 @@ In deze zelfstudie hebt u geleerd hoe u gegevens kunt extraheren, transformeren 
 
 Zie de volgende artikelen voor andere manieren om te werken met gegevens in HDInsight:
 
+* [Zelfstudie: Gegevens uitpakken, transformeren en laden met Apache Hive in Azure HDInsight](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [Hive gebruiken met HDInsight][hdinsight-use-hive]
 * [Pig gebruiken met HDInsight][hdinsight-use-pig]
 * [Java MapReduce-programma's ontwikkelen voor Hadoop in HDInsight][hdinsight-develop-mapreduce]

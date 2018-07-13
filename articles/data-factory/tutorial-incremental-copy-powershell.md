@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: d9b1666c1543e16fe5433e05645c232d01e7260c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5610a4ec726b296f54beca65a58d6c0e63a5b375
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054565"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084865"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit een Azure SQL-database laden in Azure Blob Storage
 In deze zelfstudie maakt u een Azure-gegevensfactory met een pijplijn waarmee deltagegevens uit een tabel in een Azure SQL-database worden geladen naar Azure Blob Storage. 
@@ -188,7 +188,7 @@ Houd rekening met de volgende punten:
     ```
 
 * Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen Inzender of Eigenaar, of moet dit een beheerder van het Azure-abonnement zijn.
-* Momenteel kunt u in Data Factory alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Storage, SQL Database, enzovoort) en berekeningen (Azure HDInsight, enzovoort) die worden gebruikt door de data factory, kunnen zich in andere regio's bevinden.
+* Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Storage, SQL Database, enzovoort) en berekeningen (Azure HDInsight, enzovoort) die worden gebruikt door de data factory, kunnen zich in andere regio's bevinden.
 
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken

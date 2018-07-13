@@ -2,30 +2,30 @@
 title: 'Zelfstudie voor Kubernetes in Azure: toepassing implementeren'
 description: 'Zelfstudie voor AKS: toepassing implementeren'
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e992d7ca455ad4d95d0f10a94c6c9ce8055f8286
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e0e349361afaac9aec816d7f5d158322d6f4e691
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067670"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100975"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Zelfstudie: Toepassingen uitvoeren in AKS (Azure Kubernetes Service)
 
-In deze zelfstudie, deel vier van acht, wordt een voorbeeldtoepassing geïmplementeerd in een Kubernetes-cluster. Dit zijn de uitgevoerde stappen:
+In deze zelfstudie, deel vier van zeven, wordt een voorbeeldtoepassing geïmplementeerd in een Kubernetes-cluster. Dit zijn de uitgevoerde stappen:
 
 > [!div class="checklist"]
 > * Kubernetes-manifestbestanden bijwerken
 > * Toepassing uitvoeren in Kubernetes
 > * De toepassing testen
 
-In de volgende zelfstudies wordt deze toepassing opgeschaald en bijgewerkt, en wordt Log Analytics geconfigureerd om het Kubernetes-cluster te controleren.
+In opeenvolgende zelfstudies wordt deze toepassing geschaald en bijgewerkt.
 
 In deze zelfstudie wordt ervan uitgegaan dat u over basiskennis van Kubernetes-concepten beschikt. Raadpleeg de [Kubernetes-documentatie][kubernetes-documentation] voor gedetailleerde informatie over Kubernetes.
 

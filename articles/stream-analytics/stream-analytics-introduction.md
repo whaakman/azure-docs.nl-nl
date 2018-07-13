@@ -11,12 +11,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: mvc
 ms.date: 03/27/2018
-ms.openlocfilehash: 4d68ee7f38c317b4ee42f5b40cc4c4196114e159
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7b38548ce3266d74ffd51ce75ffa92bdb4ac24b9
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525645"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437617"
 ---
 # <a name="what-is-stream-analytics"></a>Wat is een Stream Analytics?
 
@@ -62,7 +62,7 @@ Azure Stream Analytics maakt gebruik van een eenvoudige, op SQL gebaseerde query
 
 De querytaal van Stream Analytics biedt een breed spectrum aan functies voor het analyseren en verwerken van streaming gegevens. Deze querytaal ondersteunt eenvoudige gegevensmanipulatie, van aggregatiefuncties tot complexe, georuimtelijke functies. U kunt query’s in de portal bewerken en ze testen met voorbeeldgegevens die uit de live stream worden geëxtraheerd.
 
-U kunt de mogelijkheden van de querytaal uitbreiden door extra functies te definiëren en aan te roepen. In de Azure Machine Learning-service kunt u functieaanroepen definiëren om gebruik te kunnen maken van Azure Machine Learning-oplossingen en door gebruikers gedefinieerde JavaScript-functies (UDF’s) of door gebruikers gedefinieerde aggregaten te integreren voor het uitvoeren van complexe berekeningen als onderdeel van een Stream Analytics-query.
+U kunt de mogelijkheden van de querytaal uitbreiden door extra functie te definiëren en aan te roepen. In de Azure Machine Learning-service kunt u functieaanroepen definiëren om gebruik te kunnen maken van Azure Machine Learning-oplossingen en door gebruikers gedefinieerde JavaScript-functies (UDF’s) of door gebruikers gedefinieerde aggregaten te integreren voor het uitvoeren van complexe berekeningen als onderdeel van een Stream Analytics-query.
 
 ## <a name="fully-managed"></a>Volledig beheerd 
 
@@ -70,7 +70,7 @@ Azure Stream Analytics is een volledige beheerde (PaaS) aanbieding in Azure. Dit
 
 ## <a name="low-total-cost-of-ownership"></a>Lage total cost of ownership
 
-Als cloudservice is Stream Analytics kostenefficiënt. Er is geen sprake van opstartkosten; u betaalt slechts voor de [streaming-eenheden die u verbruikt](stream-analytics-streaming-unit-consumption.md) en de hoeveelheid gegevens die wordt verwerkt. Er is geen verplichting en het inrichten van clusters is niet nodig. U kunt de streaming taken omhoog of omlaag schalen, afhankelijk van de bedrijfsbehoeften. 
+Als cloudservice is Stream Analytics kostenefficiënt. Er is geen sprake van opstartkosten; u betaalt slechts voor de [streaming-eenheden die u verbruikt](stream-analytics-streaming-unit-consumption.md) en de hoeveelheid verwerkte gegevens. Er is geen verplichting en het inrichten van clusters is niet nodig. U kunt de streaming taken omhoog of omlaag schalen, afhankelijk van de bedrijfsbehoeften. 
 
 ## <a name="reliability"></a>Betrouwbaarheid 
 

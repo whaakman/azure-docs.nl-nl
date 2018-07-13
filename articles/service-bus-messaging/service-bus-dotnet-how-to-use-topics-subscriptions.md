@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/6/2017
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8916ccb430da6bea66de3894201a11a70bb45df9
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29396938"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447197"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Aan de slag met Service Bus-onderwerpen
 
@@ -429,7 +429,7 @@ Gefeliciteerd. Met de standaard .NET-bibliotheek, hebt u nu een onderwerp en abo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure/azure-service-bus/tree/master/samples) die enkele van de meer geavanceerde functies van Service Bus Messaging laten zien.
+Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure/azure-service-bus/tree/master/samples) voor Service Bus die enkele van de meer geavanceerde functies van Service Bus Messaging laten zien.
 
 <!--Image references-->
 

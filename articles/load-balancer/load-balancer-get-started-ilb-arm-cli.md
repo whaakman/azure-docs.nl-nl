@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: a4093926ea2ea2bb0e477372a1ceb2dfbf22e8f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 92e464aa4e0dcb7199b6db44d2c28db5b6d1673c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330965"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097951"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Een interne load balancer maken met Azure CLI 2.0 om taken te verdelen over VM's
 
@@ -108,36 +108,9 @@ Een load balancer-regel definieert de front-end-IP-configuratie voor het binnenk
 
 Voordat u enkele VM's implementeert en uw load balancer test, maakt u de ondersteunende virtuele-netwerkbronnen.
 
-###  <a name="create-a-network-security-group"></a>Een netwerkbeveiligingsgroep maken
-Maak een netwerkbeveiligingsgroep om binnenkomende verbindingen met uw virtuele netwerk te definiëren.
-
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroupILB \
-    --name myNetworkSecurityGroup
-```
-
-### <a name="create-a-network-security-group-rule"></a>Regel voor netwerkbeveiligingsgroep maken
-
-Maak een regel voor de netwerkbeveiligingsgroep om binnenkomende verbindingen via poort 80 toe te staan.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroupILB \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 80 \
-    --access allow \
-    --priority 300
-```
 ### <a name="create-nics"></a>NIC's maken
 
-Maak met [az network nic create](/cli/azure/network/nic#az_network_nic_create) twee netwerkinterfaces en koppel deze aan het privé-IP-adres en de netwerkbeveiligingsgroep. 
+Maak met [az network nic create](/cli/azure/network/nic#az_network_nic_create) twee netwerkinterfaces en koppel deze aan het privé-IP-adres. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -146,7 +119,6 @@ for i in `seq 1 2`; do
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
 done

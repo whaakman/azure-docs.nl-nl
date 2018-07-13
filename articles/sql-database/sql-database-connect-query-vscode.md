@@ -10,12 +10,12 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 7250b2578db86fdb4cbd591a605256424cb0be55
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e1294b8f83da2ad6748f051925219cdc7683d032
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794936"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441094"
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: Visual Studio Code gebruiken om verbinding te maken en query's uit te voeren voor gegevens
 
@@ -34,7 +34,7 @@ Voordat u begint, zorgt u ervoor dat u de nieuwste versie van [Visual Studio Cod
 ## <a name="configure-vs-code"></a>VS-code configureren 
 
 ### <a name="mac-os"></a>**Mac OS**
-Voor Mac OS moet u OpenSSL installeren. Dit is een vereiste voor DotNet Core waarvan de mssql-extensie gebruikmaakt. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL** te installeren. 
+Voor macOS moet u OpenSSL installeren. Dit is een vereiste voor .Net Core waarvan de mssql-extensie gebruikmaakt. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL** te installeren. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

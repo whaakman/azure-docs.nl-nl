@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 85e6efcc4e213da4d6c650f7543403dd52e8337c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248432"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344152"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Zelfstudie: Service Fabric-cluster installeren en maken
 
@@ -61,13 +61,7 @@ Als u hiermee klaar bent, zien de knooppunten er als volgt uit:
         }
 ```
 
-Vervolgens moet u enkele eigenschappen bijwerken.  Op regel 34 moet u de verbindingsreeks voor de DiagnosticsStore aanpassen. De reeks moet er als volgt uitzien na de wijziging, waarbij u uw IP-adres hebt vervangen in `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`.
-
-Als u de verbindingsreeks hebt bijgewerkt, moet u niet vergeten om de map te maken.  Gebruik hiervoor de volgende opdracht. Vervang het onderstaande IP-adres door het IP-adres dat u in de verbindingsreeks hebt ingevoegd:
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
+Vervolgens moet u enkele eigenschappen bijwerken.  Op regel 34 moet u de verbindingsreeks voor de DiagnosticsStore aanpassen. De reeks moet er als volgt uitzien na de wijziging: `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`.
 
 Voeg ten slotte in de sectie `nodeTypes` van de configuratie een nieuwe sectie toe om de tijdelijke poorten toe te wijzen die door Windows worden gebruikt.  Het configuratiebestand moet er nu als volgt uitzien:
 
@@ -92,7 +86,7 @@ cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
-De uitvoer ziet er uit zoals hieronder. Als voor het veld 'Passed' de waarde `True` wordt geretourneerd, zijn de controles uitgevoerd en kan het cluster worden geïmplementeerd op basis van de ingevoerde configuratie.
+De uitvoer ziet er uit zoals hieronder. Als voor het veld Passed de waarde `True` wordt geretourneerd, zijn de controles uitgevoerd en kan het cluster worden geïmplementeerd op basis van de ingevoerde configuratie.
 
 ```powershell
 Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 26731d80f5917f9d21aacafb5f8a79cfb02855af
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 73c9f1fc26f5cb36cc475a66b67705c6177bebf8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795071"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095669"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Cassandra-gegevens importeren
 
@@ -57,7 +57,7 @@ Als u Cassandra-gegevens wilt importeren in Azure Cosmos DB voor gebruik met de 
 1. Maak van tevoren de tabel en schaal deze:
     * Standaard wordt met Azure Cosmos DB een nieuwe Cassandra-API-tabel ingericht met 1000 aanvraageenheden per seconde (RU/s) (bij gebruik van CQL wordt de tabel ingericht met 400 RU/s). Voordat u de migratie start met cqlsh, maakt u vooraf alle tabellen vanuit [Azure Portal](https://portal.azure.com) of cqlsh. 
 
-    * Verhoog de doorvoer van de tabellen vanuit [Azure Portal](https://portal.azure.com) van de standaarddoorvoer (400 of 1000 RU/s) naar 10.000 RU/s voor de duur van de migratie. Met een hogere doorvoer voorkomt u beperkingen voor de migratie en kost deze minder tijd. Met uurlijkse facturering in Azure Cosmos DB kunt u de doorvoer onmiddellijk na de migratie verminderen om kosten te besparen.
+    * Verhoog de doorvoer van de tabellen vanuit [Azure Portal](https://portal.azure.com) van de standaarddoorvoer (400 of 1000 RU/s) naar 10.000 RU/s voor de duur van de migratie. Met een hogere doorvoer voorkomt u frequentielimieten en kost migreren minder tijd. Met facturering per uur in Azure Cosmos DB kunt u de doorvoer onmiddellijk na de migratie verminderen om kosten te besparen.
 
 2. Bepaal de RU-kosten voor een bewerking. U kunt dit doen met de Azure Cosmos DB Cassandra-API SDK van uw keuze. In dit voorbeeld ziet u de .NET-versie van het ophalen van RU-kosten. 
 

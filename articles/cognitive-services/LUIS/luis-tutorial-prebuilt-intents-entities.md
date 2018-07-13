@@ -1,92 +1,95 @@
 ---
-title: Vooraf gedefinieerde intents en entiteiten om op te halen van algemene gegevens in het Language Understanding - Azure toevoegen | Microsoft Docs
-description: Informatie over het uitpakken van verschillende soorten entiteitsgegevens met vooraf gedefinieerde intents en entiteiten.
+title: Vooraf gemaakte intenties en entiteiten toevoegen om algemene gegevens te extraheren uit Language Understanding - Azure | Microsoft Docs
+description: Leer hoe u verschillende soorten entiteitsgegevens kunt extraheren met behulp van vooraf gemaakte intenties en entiteiten.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: tutorial
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 37d67bef7712012a95543041744706b240b16e2d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 075cb270641ca995eec95aa6aa8986c90077148a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085494"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112185"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Zelfstudie: 2. Vooraf gemaakte intenties en entiteiten toevoegen
-Vooraf gedefinieerde intents en entiteiten toevoegen aan de Human Resources Quick Start-app snel krijgen opzet voorspelling en gegevens uitpakken. 
+Voeg vooraf gemaakte intenties en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. 
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-* Vooraf gedefinieerde intents toevoegen 
-* Vooraf gedefinieerde entiteiten datetimeV2 en nummer toevoegen
+* Vooraf gemaakte intenties toevoegen 
+* Vooraf gemaakte entiteiten van datetimeV2 en nummer toevoegen
 * Trainen en publiceren
-* LUIS opvragen en voorspelling reactie ontvangen
+* Een query uitvoeren met LUIS en een voorspelling als antwoord ontvangen
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u nog geen de [Human Resources](luis-quickstart-intents-only.md) -app uit de vorige zelfstudie [importeren](create-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS](luis-reference-regions.md#luis-website) website van de [LUIS-voorbeelden ](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github-opslagplaats.
+Als u niet beschikt over de [Human Resources](luis-quickstart-intents-only.md)-app uit de vorige zelfstudie, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de website van [LUIS](luis-reference-regions.md#luis-website). Dit kan vanuit de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
 
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `prebuilts`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `prebuilts`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
-## <a name="add-prebuilt-intents"></a>Vooraf gedefinieerde intents toevoegen
-LUIS biedt verschillende vooraf gedefinieerde intents om te helpen bij algemene bedoelingen van de gebruiker.  
+## <a name="add-prebuilt-intents"></a>Vooraf gemaakte intenties toevoegen
+LUIS biedt verschillende vooraf gemaakte intenties om u te helpen met algemene gebruikersintenties.  
 
-1. Zorg ervoor dat uw app wordt de **bouwen** sectie van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+1. Zorg ervoor dat uw app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
     [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
-2. Selecteer **intentie van de vooraf gedefinieerde domein toevoegen**. 
+2. Selecteer **Add prebuilt domain intent**. 
 
-    [ ![Schermopname van Intents pagina met vooraf gedefinieerde domein opzet knop toevoegen gemarkeerd](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
+    [ ![Schermopname van pagina Intents met de knop Add prebuilt domain intent gemarkeerd](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
 
 3. Zoeken naar `Utilities`. 
 
-    [ ![Schermafbeelding van dialoogvenster vooraf gedefinieerde intents met hulpprogramma's in het zoekvak](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+    [ ![Schermopname van dialoogvenster met vooraf gemaakte intenties met Utilities in het zoekvak](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-4. Selecteer de volgende intents en selecteer **gedaan**: 
+4. Selecteer de volgende intenties en selecteer **Done**: 
 
     * Utilities.Cancel
     * Utilities.Confirm
     * Utilities.Help
-    * Utilities.Stop
     * Utilities.StartOver
+    * Utilities.Help
 
-## <a name="add-prebuilt-entities"></a>Vooraf gedefinieerde entiteiten toevoegen
-LUIS biedt verschillende vooraf gedefinieerde entiteiten voor het ophalen van algemene gegevens. 
 
-1. Selecteer **entiteiten** in het linkernavigatievenster-menu.
+## <a name="add-prebuilt-entities"></a>Vooraf gemaakte entiteiten toevoegen
+LUIS biedt verschillende vooraf gemaakte entiteiten voor het ophalen van algemene gegevens. 
 
-    [ ![Schermopname van Intents lijst met entiteiten die zijn gemarkeerd in het linkernavigatievenster](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
+1. Selecteer **Entities** in het navigatiemenu aan de linkerkant.
 
-2. Selecteer **vooraf gemaakte entiteiten beheren** knop.
+    [ ![Schermopname van de lijst met intenties met Entities gemarkeerd in het linkernavigatiegedeelte](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
 
-    [ ![Schermopname van entiteiten lijst met vooraf gedefinieerde entiteiten gemarkeerd beheren](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
+2. Selecteer de knop **Manage prebuilt entities**.
 
-3. Selecteer **getal** en **datetimeV2** uit de lijst met vooraf gedefinieerde entiteiten Selecteer **gedaan**.
+    [ ![Schermopname van de entiteitenlijst met Manage prebuilt entities gemarkeerd](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
 
-    ![Schermopname van nummer is geselecteerd in het dialoogvenster van de vooraf gedefinieerde entiteiten](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+3. Selecteer het **nummer** en **datetimeV2** uit de lijst met vooraf gedefinieerde entiteiten en selecteer vervolgens **Done**.
 
-## <a name="train-and-publish-the-app"></a>Trainen en publiceer de app
+    ![Schermopname van het selecteren van een nummer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+
+## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
 1. Selecteer rechtsboven op de website van LUIS de knop **Train**. 
 
-    ![Knop Train](./media/luis-quickstart-intents-only/train-button.png)
+    ![De knop Train](./media/luis-quickstart-intents-only/train-button.png)
 
-    Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
+    Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
 
-    ![Getraind statusbalk](./media/luis-quickstart-intents-only/trained.png)
+    ![Getrainde statusbalk](./media/luis-quickstart-intents-only/trained.png)
 
-2. Selecteer in de rechterbovenhoek, rechts van de website LUIS de **publiceren** te openen van de pagina publiceren. De productiesite is standaard geselecteerd. Selecteer de **publiceren** knop door de keuze van de sleuf productie. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
+2. Selecteer rechtsboven in de website van LUIS de knop **Publish** om de pagina Publish te openen. 
 
-    U beschikt niet over een sleutel LUIS in de Azure portal maken voordat u publiceren of de eindpunt-URL te testen. Elke app LUIS heeft een gratis starter-sleutel voor het ontwerpen. Dit biedt u onbeperkte ontwerpen en een [enkele eindpunt treffers](luis-boundaries.md#key-limits). 
+3. De productiesite is standaard geselecteerd. Selecteer de knop **Publish** door de productiesite te kiezen. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
-## <a name="query-endpoint-with-an-utterance"></a>Query-eindpunt met een utterance
-Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. Ga naar het einde van de URL in het adres en voer `I want to cancel on March 3` in. De laatste parameter van de query-tekenreeks is `q`, de utterance **query**. 
+    U hoeft niet geen LUIS-eindpuntsleutel in Azure Portal te maken voordat u publiceert of voordat u de eindpunt-URL test. Elke LUIS-app bestaat uit een gratis startersleutel voor ontwerpen. Dit biedt u onbeperkte ontwerpmogelijkheden en [enkele eindpunttreffers](luis-boundaries.md#key-limits). 
 
-Het resultaat de bedoeling Utilities.Cancel voorspeld en de datum van 3 maart en het getal 3 hebt uitgepakt. 
+## <a name="query-endpoint-with-an-utterance"></a>Eindpunt opvragen met een utterance
+Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. Ga naar het einde van de URL in het adres en voer `I want to cancel on March 3` in. De laatste parameter van de queryreeks is `q`, de utterance**query**. 
+
+Het resultaat voorspelde de intentie Utilities.Cancel en extraheerde 3 maart als datum en 3 als nummer. 
 
     ```
     {
@@ -163,10 +166,15 @@ Het resultaat de bedoeling Utilities.Cancel voorspeld en de datum van 3 maart en
     }
     ```
 
-Door eenvoudig en snel toe te voegen vooraf gedefinieerde intents en entiteiten, de clienttoepassing conversatie management toevoegen en uitpakken van veelvoorkomende gegevenstypen. 
+Er zijn twee waarden voor 3 maart omdat de utterance niet vermeldt of 3 maart in het verleden of in de toekomst ligt. Het is aan de toepassing die LUIS aanroept, om een aanname te doen of om opheldering te vragen als dat nodig is. 
+
+Door snel en eenvoudig vooraf gemaakte intenties en entiteiten toe te voegen, kan de clienttoepassing conversatiebeheer toevoegen en algemene gegevenstypen extraheren. 
+
+## <a name="clean-up-resources"></a>Resources opschonen
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Daarvoor selecteert u **My apps** in het menu linksboven. Selecteer het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een reguliere expressie entiteit toevoegen aan de app.](luis-quickstart-intents-regex-entity.md)
+> [Een entiteit in de vorm van een reguliere expressie aan de app toevoegen](luis-quickstart-intents-regex-entity.md)
 

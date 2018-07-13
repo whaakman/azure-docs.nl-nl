@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3dba92467dfaf377236a25f48899a8a53c587a82
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28985201"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130962"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Aan de slag met het verzenden van berichten naar Azure Event Hubs in .NET Standard
 
@@ -33,13 +33,13 @@ Deze zelfstudie laat zien hoe u een .NET Core-consoletoepassing schrijft die een
 * [Microsoft Visual Studio 2015 of 2017](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt gebruikgemaakt van Visual Studio 2017, maar Visual Studio 2015 wordt ook ondersteund.
 * [.NET core Visual Studio 2015- of 2017-hulpprogramma's](http://www.microsoft.com/net/core).
 * Een Azure-abonnement.
-* Een Event Hub-naamruimte.
+* [Een Event Hub-naamruimte en Event Hub](event-hubs-quickstart-portal.md).
 
 In deze zelfstudie wordt Visual Studio gebruikt voor het schrijven van een C#-consoletoepassing om berichten naar een event hub te verzenden.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
 
-In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte oor het type event hub te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de event hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en een event hub te maken en ga daarna verder met de volgende stappen.
+Volg de procedure in [dit artikel](event-hubs-quickstart-portal.md) en ga daarna verder met deze zelfstudie om een naamruimte en een Event Hub te maken en ga daarna verder met de volgende stappen.
 
 ## <a name="create-a-console-application"></a>Een consoletoepassing maken
 
@@ -141,8 +141,8 @@ Voeg de [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
         public class Program
         {
             private static EventHubClient eventHubClient;
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
 
             public static void Main(string[] args)
             {
@@ -152,11 +152,11 @@ Voeg de [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but this simple scenario
-                // uses the connection string from the namespace.
-                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
+                // we are using the connection string from the namespace.
+                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EventHubConnectionString)
                 {
-                    EntityPath = EhEntityPath
+                    EntityPath = EventHubName
                 };
 
                 eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
@@ -206,4 +206,4 @@ U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 * [Een Event Hub maken](event-hubs-create.md)
 * [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
 
-[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png
+[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png

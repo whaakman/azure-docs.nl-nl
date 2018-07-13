@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061842"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097475"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Zelfstudie: Intern verkeer met Basic Load Balancer verdelen over virtuele machines met Azure Portal
 
@@ -75,10 +75,10 @@ In deze sectie maakt u twee virtuele machines voor de back-endpool van de Basic 
     - *myAvailabilitySet* als naam van de nieuwe beschikbaarheidsset die u maakt.
     -  *myVNet*: controleer of dit als virtueel netwerk is geselecteerd.
     - *myBackendSubnet*: controleer of dit als subnet is geselecteerd.
-    - *myNetworkSecurityGroup* als naam van de nieuwe netwerkbeveiligingsgroep (firewall) die u moet maken.
+5. Onder **Netwerkbeveiligingsgroep** selecteert u **Geavanceerd**. Vervolgens selecteert u bij **Netwerkbeveiligingsgroep (firewall)** de optie **Geen**.
 5. Klik op **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
 6. Klik op **OK**, controleer de instellingen op de overzichtspagina en klik op **Maken**.
-7. Volg stap 1 t/m 6 om een tweede VM met de naam *VM2* te maken, met *myAvailibilityset* als beschikbaarheidsset, *myVnet* als het virtuele netwerk, *myBackendSubnet* als het subnet en *myNetworkSecurityGroup* als de netwerkbeveiligingsgroep. 
+7. Volg stap 1 t/m 6 om een tweede VM met de naam *VM2* te maken, met *myAvailibilityset* als beschikbaarheidsset, *myVnet* als het virtuele netwerk, *myBackendSubnet* als het subnet en selecteer **Geen** als **Netwerkbeveiligingsgroep (firewall)**. 
 
 ### <a name="install-iis-and-customize-the-default-web-page"></a>IIS installeren en de standaardwebpagina aanpassen
 
@@ -100,33 +100,6 @@ In deze sectie maakt u twee virtuele machines voor de back-endpool van de Basic 
 5. Sluit de RDP-verbinding met *myVM1*.
 6. Herhaal stap 1-5 met *myVM2* om IIS te installeren en de standaardwebpagina aan te passen.
 
-## <a name="create-nsg-rules"></a>NSG-regels maken
-
-In deze sectie maakt u NSG-regels om inkomende verbindingen via HTTP en RDP toe te staan.
-
-1. Klik in het linkermenu op **Alle resources** en klik in de lijst met resources op **myNetworkSecurityGroup**, die zich in de resourcegroep **myResourceGroupLB** bevindt.
-2. Klik onder **Instellingen** op **Inkomende beveiligingsregels** en vervolgens op **Toevoegen**.
-3. Voer deze waarden in voor de inkomende beveiligingsregel met de naam *myHTTPRule* om een binnenkomende HTTP-verbinding via poort 80 toe te staan:
-    - *Service Tag* bij **Bron**.
-    - *Internet* bij **Bronservicetag**
-    - *80* bij **Poortbereiken van doel**
-    - *TCP* bij **Protocol**
-    - *Allow* bij **Actie**
-    - *100* bij **Prioriteit**
-    - *myHTTPRule* als naam
-    - *Allow HTTP* als beschrijving
-4. Klik op **OK**.
- 
-5. Herhaal stap 2 t/m 4 om nog een regel te maken (*myRDPRule*) om een binnenkomende RDP-verbinding toe te staan via poort 3389 met de volgende waarden:
-    - *Service Tag* bij **Bron**.
-    - *Internet* bij **Bronservicetag**
-    - *3389* bij **Poortbereiken van doel**
-    - *TCP* bij **Protocol**
-    - *Allow* bij **Actie**
-    - *200* bij **Prioriteit**
-    - *myRDPRule* als naam
-    - *Allow RDP* als beschrijving
-
 ## <a name="create-basic-load-balancer-resources"></a>Resources voor Basic load balancer maken
 
 In deze sectie configureert u de instellingen voor de load balancer voor een back-endadresgroep en een statustest en geeft u regels voor de load balancer en NAT-regels op.
@@ -139,7 +112,7 @@ Om verkeer te distribueren naar de VM's bevat een back-end-adresgroep de IP-adre
 1. Klik in het linkermenu op **Alle resources** en vervolgens in de lijst met resources op **myLoadBalancer**.
 2. Klik onder **Instellingen** op **Back-endpools** en vervolgens op **Toevoegen**.
 3. Ga als volgt te werk op de pagina **Een back-endpool toevoegen**:
-    - Typ *myBackEndPool voor de naam van uw back-endpool.
+    - Typ *myBackEndPool* als de naam van uw back-endpool.
     - Klik voor **Gekoppeld aan** in de vervolgkeuzelijst op **Beschikbaarheidsset**
     - Klik voor **Beschikbaarheidsset** op **myAvailabilitySet**.
     - Klik op **Een doelnetwerk-IP-configuratie toevoegen** om elke virtuele machine die u hebt gemaakt (*myVM1* & *myVM2*), toe te voegen aan de back-endpool.

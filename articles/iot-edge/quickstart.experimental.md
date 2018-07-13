@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5863a8edbb20b2b0c231834259f1bb7b0423a8f6
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5bde54a65160c58d8bfba2f6c4c3b6a4317e46ed
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033630"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436439"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstart: Uw eerste IoT Edge-module van Azure Portal naar een Windows-apparaat implementeren - preview
 
@@ -30,7 +30,7 @@ In deze snelstart leert u de volgende zaken:
 
 ![Zelfstudiearchitectuur][2]
 
-De module die u in deze zelfstudie implementeert, is een gesimuleerde sensor waarmee temperatuur-, luchtvochtigheids- en drukgegevens worden gegenereerd. De andere Azure IoT Edge-zelfstudies bouwen voort op het werk dat u hier doet door modules te implementeren waarmee de gesimuleerde gegevens worden geanalyseerd voor zakelijke inzichten. 
+De module die u in deze snelstart implementeert, is een gesimuleerde sensor waarmee temperatuur-, luchtvochtigheids- en drukgegevens worden gegenereerd. De andere Azure IoT Edge-zelfstudies bouwen voort op het werk dat u hier doet door modules te implementeren waarmee de gesimuleerde gegevens worden geanalyseerd voor zakelijke inzichten. 
 
 >[!NOTE]
 >De IoT Edge-runtime op Windows bevindt zich in [openbare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -44,14 +44,14 @@ Voor deze snelstart wordt ervan uitgegaan dat u een computer of virtuele machine
 Zorg dat de volgende vereisten klaarstaan op de computer die u gebruikt voor een IoT Edge-apparaat:
 
 1. Zorg ervoor dat u een ondersteunde versie van Windows gebruikt:
-   * Windows 10 of later
-   * Windows Server 2016 of later
-2. Installeer [Docker voor Windows][lnk-docker] en contoleer of het wordt uitgevoerd.
+   * Windows 10 of hoger
+   * Windows Server 2016 of hoger
+2. Installeer [Docker voor Windows][lnk-docker] en contoleer of deze wordt uitgevoerd.
 3. Configureer Docker voor het gebruiken van [Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-Begin met de snelstart door uw IoT Hub in de Azure-portal te maken.
+Begin met de snelstart door uw IoT Hub in Azure Portal te maken.
 ![IoT Hub maken][3]
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
@@ -81,29 +81,38 @@ Met de instructies in dit gedeelte wordt de IoT Edge-runtime met Linux-container
 
 2. Download het IoT Edge-servicepakket.
 
-   ```powershell
-   Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedge.zip -o .\iotedge.zip
-   Expand-Archive .\iotedge.zip C:\ProgramData\iotedge -f
-   $env:Path += ";C:\ProgramData\iotedge"
-   SETX /M PATH "$env:Path"
-   ```
+  ```powershell
+  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+  rmdir C:\ProgramData\iotedge\iotedged-windows
+  $env:Path += ";C:\ProgramData\iotedge"
+  SETX /M PATH "$env:Path"
+  ```
 
-3. Maak en start de IoT Edge-service.
+3. Installeer de vcruntime.
+
+  ```powershell
+  Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
+  .\vc_redist.exe /quiet /norestart
+  ```
+
+4. Maak en start de IoT Edge-service.
 
    ```powershell
    New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
    Start-Service iotedge
    ```
 
-4. Voeg firewall-uitzonderingen toe voor de poorten die door de IoT Edge-service worden gebruikt.
+5. Voeg firewall-uitzonderingen toe voor de poorten die door de IoT Edge-service worden gebruikt.
 
    ```powershell
    New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
    ```
 
-5. Maak een nieuw bestand met de naam **iotedge.reg** en open het met een teksteditor. 
+6. Maak een nieuw bestand met de naam **iotedge.reg** en open het met een teksteditor. 
 
-6. Voeg de volgende inhoud toe aan het bestand en sla het op. 
+7. Voeg de volgende inhoud toe aan het bestand en sla het op. 
 
    ```input
    Windows Registry Editor Version 5.00
@@ -113,7 +122,7 @@ Met de instructies in dit gedeelte wordt de IoT Edge-runtime met Linux-container
    "TypesSupported"=dword:00000007
    ```
 
-7. Navigeer naar uw bestand in Verkenner en dubbelklik erop om de wijzigingen in het Windows-register te importeren. 
+8. Navigeer naar uw bestand in Verkenner en dubbelklik erop om de wijzigingen in het Windows-register te importeren. 
 
 ### <a name="configure-the-iot-edge-runtime"></a>De IoT Edge-runtime configureren 
 
@@ -131,21 +140,27 @@ Configureer de runtime met uw IoT Edge-apparaatverbindingsreeks die u hebt gekop
 
 4. Zoek in het configuratiebestand de sectie **Edge device hostname** op. Werk de waarde van **hostname** bij met de hostnaam die u hebt gekopieerd vanuit PowerShell.
 
-5. Haal in het PowerShell-venster van de beheerder het IP-adres voor uw IoT Edge-apparaat op. 
+3. Haal in het PowerShell-venster van de beheerder het IP-adres voor uw IoT Edge-apparaat op. 
 
    ```powershell
    ipconfig
    ```
 
-6. Kopieer de waarde voor **IPv4 Address** in de sectie **vEthernet (DockerNAT)** van de uitvoer. 
+4. Kopieer de waarde voor **IPv4 Address** in de sectie **vEthernet (DockerNAT)** van de uitvoer. 
 
-7. Maak een omgevingsvariabele genaamd **IOTEDGE_HOST** en vervang *\<ip_address\>* door het IP-adres voor uw IoT Edge-apparaat. 
+5. Maak een omgevingsvariabele genaamd **IOTEDGE_HOST** en vervang *\<ip_address\>* door het IP-adres voor uw IoT Edge-apparaat. 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
 
-8. Zoek in het bestand `config.yaml` het gedeelte **Connect settings** op. Werk de waarden **management_uri** en **workload_uri** bij met uw IP-adres in plaats van het **\<GATEWAY_ADDRESS\>** en de poorten die u in het vorige gedeelte hebt geopend. 
+  Zorg dat de omgevingsvariabele blijft behouden tijdens alle pogingen om opnieuw op te starten.
+
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+6. Zoek in het bestand `config.yaml` het gedeelte **Connect settings** op. Werk de waarden **management_uri** en **workload_uri** bij met uw IP-adres en de poorten die u in het vorige gedeelte hebt geopend. Vervang **\<GATEWAY_ADDRESS\>** door uw IP-adres. 
 
    ```yaml
    connect: 
@@ -153,7 +168,7 @@ Configureer de runtime met uw IoT Edge-apparaatverbindingsreeks die u hebt gekop
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-9. Zoek de sectie **Listen settings** op en voeg dezelfde waarden toe voor **management_uri** en **workload_uri**. 
+7. Zoek de sectie **Listen settings** op en voeg dezelfde waarden toe voor **management_uri** en **workload_uri**. 
 
    ```yaml
    listen:
@@ -161,20 +176,15 @@ Configureer de runtime met uw IoT Edge-apparaatverbindingsreeks die u hebt gekop
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-10. Zoek de sectie **Moby Container Runtime-instellingen** op. Verwijder de commentaartekens van de regel **​​network** en controleer of de waarde is ingesteld op `nat`.
+8. Zoek de sectie **Moby Container Runtime-instellingen**op en controleer of de waarde voor **netwerk** is ingesteld op `nat`.
 
-   ```yaml
-   moby_runtime:
-     uri: "npipe://./pipe/docker_engine"
-     network: "nat"
-   ```
+9. Sla het configuratiebestand op. 
 
-11. Sla het configuratiebestand op. 
-
-12. Start de IoT Edge-service opnieuw in PowerShell.
+10. Start de IoT Edge-service opnieuw in PowerShell.
 
    ```powershell
-   Stop-Service iotedge
+   Stop-Service iotedge -NoWait
+   sleep 5
    Start-Service iotedge
    ```
 
@@ -194,9 +204,10 @@ Controleer of de runtime goed is geïnstalleerd en geconfigureerd.
    # Displays logs from today, newest at the bottom.
 
    Get-WinEvent -ea SilentlyContinue `
-  -FilterHashtable @{ProviderName= "iotedged";
-    LogName = "application"; StartTime = [datetime]::Today} |
-  select TimeCreated, Message | Sort-Object -Descending
+    -FilterHashtable @{ProviderName= "iotedged";
+      LogName = "application"; StartTime = [datetime]::Today} |
+    select TimeCreated, Message |
+    sort-object @{Expression="TimeCreated";Descending=$false}
    ```
 
 3. Bekijk alle modules die op uw IoT Edge-apparaat worden uitgevoerd. Aangezien de service net voor het eerst is gestart, zou u moeten zien dat alleen de **edgeAgent**-module actief is. De edgeAgent-module wordt standaard uitgevoerd en helpt bij het installeren en starten van aanvullende modules die u op uw apparaat implementeert. 
@@ -249,7 +260,7 @@ Als u de IoT-hub die u hebt gemaakt niet meer nodig hebt, kunt u de Azure-portal
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een nieuw IoT Edge-apparaat gemaakt en de Azure IoT Edge-cloudinterface gebruikt om code te implementeren op het apparaat. U hebt nu een testapparaat waarmee ruwe gegevens over de omgeving worden gegenereerd. 
+In deze snelstart hebt u een nieuw IoT Edge-apparaat gemaakt en de Azure IoT Edge-cloudinterface gebruikt om code te implementeren op het apparaat. U hebt nu een testapparaat waarmee ruwe gegevens over de omgeving worden gegenereerd. 
 
 U kunt nu doorgaan met elke andere zelfstudie om te leren hoe Azure IoT Edge u verder kan helpen bij het omzetten van uw gegevens in bedrijfsinzichten.
 

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 3f0ba3034c1ba9e68f83caaaf9aacb96134ca74b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235495"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342222"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Zelfstudie: HTTPS op een aangepast Azure CDN-domein configureren
 
@@ -49,7 +49,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u de stappen in deze zelfstudie kunt voltooien, moet u eerst een CDN-profiel en ten minste één CDN-eindpunt maken. Zie voor meer informatie [Snelstart: Een Azure CDN-profiel en een eindpunt maken](cdn-create-new-endpoint.md).
+Voordat u de stappen in deze zelfstudie kunt voltooien, moet u eerst een CDN-profiel en ten minste één CDN-eindpunt maken. Zie voor meer informatie [Snelstartgids: Een Azure CDN-profiel en een eindpunt maken](cdn-create-new-endpoint.md).
 
 Daarnaast moet u een aangepast Azure CDN-domein koppelen aan uw CDN-eindpunt. Zie [Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt](cdn-map-content-to-custom-domain.md) voor meer informatie
 
@@ -177,7 +177,7 @@ Uw CNAME-record moet de volgende indeling hebben, waarbij *Naam* de naam van het
 
 Zie [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records) (De CNAME DNS-record maken) voor meer informatie over CNAME-records.
 
-Als de CNAME-record de juiste indeling heeft, wordt de naam van het aangepaste domein automatisch geverifieerd met DigiCert en toegevoegd aan het SAN-certificaat (alternatieve namen voor onderwerpen). U ontvangt via DigiCert geen verificatie-e-mail en u hoeft uw aanvraag niet goed te keuren. Het certificaat is één jaar geldig en wordt, vóórdat het verloopt, automatisch vernieuwd. Ga verder met [Wachten op doorgifte](#wait-for-propagation). 
+Als de CNAME-record de juiste indeling heeft, wordt de naam van het aangepaste domein automatisch geverifieerd met DigiCert en wordt er een toegewezen certificaat voor uw domeinnaam gemaakt. U ontvangt via DigiCert geen verificatie-e-mail en u hoeft uw aanvraag niet goed te keuren. Het certificaat is één jaar geldig en wordt, vóórdat het verloopt, automatisch vernieuwd. Ga verder met [Wachten op doorgifte](#wait-for-propagation). 
 
 Automatische validatie duurt meestal een paar minuten. Als het domein na een uur nog niet is gevalideerd, opent u een ondersteuningsticket.
 
@@ -214,7 +214,7 @@ Volg de instructies op het formulier. U hebt twee verificatieopties:
 
 - U kunt alleen de specifieke hostnaam goedkeuren die wordt gebruikt in deze aanvraag. Voor volgende aanvragen is extra goedkeuring is vereist.
 
-Na de goedkeuring wordt het aangepaste domein via DigiCert toegevoegd aan het SAN-certificaat. Het certificaat is één jaar geldig en wordt, vóórdat het verloopt, automatisch vernieuwd.
+Na goedkeuring wordt het certificaat voor de naam van het aangepaste domein met DigiCert voltooid. Het certificaat is één jaar geldig en wordt, vóórdat het verloopt, automatisch vernieuwd.
 
 ## <a name="wait-for-propagation"></a>Wachten op doorgifte
 
@@ -288,11 +288,11 @@ In de volgende tabel wordt de bewerkingsvoortgang weergegeven die plaatsvindt na
 
 1. *Wie is de certificaatprovider en welk type certificaat is gebruikt?*
 
-    Bij **Azure CDN van Verizon** wordt een SAN-certificaat (alternatieve naam voor onderwerp) gebruikt dat via DigiCert is geleverd. Met een SAN-certificaat kunnen meerdere volledig gekwalificeerde domeinnamen worden beveiligd met één certificaat. Bij **Azure CDN Standard van Microsoft**  wordt één enkel via DigiCert geleverd certificaat gebruikt.
+    Voor zowel **Azure CDN van Verizon** als **Azure CDN van Microsoft** wordt er voor uw aangepaste domein één door Digicert geleverd toegewezen certificaat gebruikt. 
 
-2. Gebruikt u IP of SNI TLS/SSL?
+2. *Gebruikt u IP of SNI TLS/SSL?*
 
-    **Azure CDN van Verizon** maakt gebruik van TLS/SSL op basis van IP. **Azure CDN Standard van Microsoft** maakt gebruik van SNI TLS/SSL.
+    Zowel **Azure CDN van Verizon** als **Azure CDN Standard van Microsoft** gebruikt SNI TLS/SSL.
 
 3. *Wat moet ik doen als ik geen verificatie-e-mail voor het domein heb ontvangen van DigiCert?*
 
@@ -309,6 +309,10 @@ In de volgende tabel wordt de bewerkingsvoortgang weergegeven die plaatsvindt na
 6. *Heb ik een CAA-record nodig bij mijn DNS-provider?*
 
     Nee, een CAA-record is momenteel niet vereist. Als u er echter wel een hebt, moet deze DigiCert bevatten als een geldige CA.
+
+7. *Vanaf 20 juni 2018 gebruikt Azure CDN van Verizon standaard een toegewezen certificaat met SNI TLS/SSL. Wat gebeurt er met mijn bestaande aangepaste domeinen die gebruik maken van een SAN-certificaat (Subject Alternative Names) en TLS/SSL op basis van IP?*
+
+    Uw bestaande domeinen worden de komende maanden geleidelijk gemigreerd naar één certificaat, als Microsoft analyseert dat alleen SNI-clientaanvragen aan uw toepassing worden gericht. Als Microsoft detecteert dat er nog niet-SNI client-aanvragen aan uw toepassing worden gericht, behouden uw domeinen het SAN-certificaat met TLS/SSL op basis van IP. In elk geval is er geen onderbreking van uw service of ondersteuning van uw clientaanvragen, ongeacht of het SNI- of niet-SNI-aanvragen zijn.
 
 
 ## <a name="next-steps"></a>Volgende stappen

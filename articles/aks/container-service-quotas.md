@@ -2,17 +2,18 @@
 title: Quota en beschikbaarheid in regio’s van Azure Kubernetes Service (AKS)
 description: De standaardquota en beschikbaarheid in regio's van Azure Kubernetes Service (AKS).
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 04/26/2018
-ms.author: nepeters
-ms.openlocfilehash: adf2d57961df9a4e8d03f2b3fe43ca0603685eb2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 06/13/2018
+ms.author: iainfou
+ms.openlocfilehash: 6d4fa9a06f3baeb51505c3e6060e9689428f8386
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100678"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Quota en beschikbaarheid in regio's van Azure Kubernetes Service (AKS).
 
@@ -28,12 +29,18 @@ Alle andere beperkingen voor netwerk, berekening en opslag zijn van toepassing o
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
-Azure Kubernetes Service (AKS) is beschikbaar voor preview in de volgende regio’s:
-- VS - oost
-- West-Europa
-- VS - midden
+Azure Kubernetes Service (AKS) is beschikbaar in de volgende regio’s:
+
+- Australië - oost
 - Canada - midden
 - Canada - oost
+- VS - midden
+- VS - oost
+- Noord-Europa
+- Verenigd Koninkrijk Zuid
+- West-Europa
+- VS - west
+- VS - west 2
 
 ## <a name="next-steps"></a>Volgende stappen
 

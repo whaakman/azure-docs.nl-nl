@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 06/20/2018
-ms.author: carlrab
-ms.openlocfilehash: 5592a22a5e9dad8b0b0aa2e9c9f704db9a31c914
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 07/02/2018
+ms.author: sachinp
+ms.openlocfilehash: 264397fee8ea37321841a4130cb5977219861053
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308221"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345420"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Een Azure SQL-database maken in Azure Portal
 
-In deze snelstart leert u hoe u een SQL-database maakt in Azure met het [op DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md). Azure SQL Database is een Database-as-a-Service-oplossing waarmee u maximaal beschikbare SQL Server-databases kunt uitvoeren en schalen in de cloud. In deze snelstart ziet u hoe u aan de slag gaat door een SQL-database te maken met behulp van het Azure Portal.
+In deze snelstartgids leert u hoe u een SQL-database maakt in Azure met het [op DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md). Azure SQL Database is een Database-as-a-Service-oplossing waarmee u maximaal beschikbare SQL Server-databases kunt uitvoeren en schalen in de cloud. In deze snelstartgids ziet u hoe u aan de slag gaat door een SQL-database te maken met behulp van het Azure Portal.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -48,11 +48,11 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Databasenaam** | mySampleDatabase | Zie [Database-id's](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. |
    | **Abonnement** | Uw abonnement  | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
-   | **Resourcegroep**  | myResourceGroup | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
+   | **Resourcegroep**  | myResourceGroup | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen van resourcegroepen. |
    | **Bron selecteren** | Sample (AdventureWorksLT) | Hiermee worden het schema en de gegevens van AdventureWorksLT in de nieuwe database geladen. |
 
    > [!IMPORTANT]
-   > U moet de voorbeelddatabase op dit formulier selecteren. Deze wordt namelijk in de rest van deze snelstart gebruikt.
+   > U moet de voorbeelddatabase op dit formulier selecteren. Deze wordt namelijk in de rest van deze snelstartgids gebruikt.
    >
 
 4. Klik onder **Server** op **Vereiste instellingen configureren** en vul het formulier SQL-server (logische server) in met de volgende informatie, zoals in de volgende afbeelding wordt weergegeven:   
@@ -63,11 +63,11 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
    | **Aanmeldgegevens van serverbeheerder** | Een geldige naam | Zie [Database-id's](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) voor geldige aanmeldingsnamen. |
    | **Wachtwoord** | Een geldig wachtwoord | Uw wachtwoord moet uit ten minste 8 tekens bestaan en moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens. |
    | **Abonnement** | Uw abonnement | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
-   | **Resourcegroep** | myResourceGroup | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
+   | **Resourcegroep** | myResourceGroup | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen van resourcegroepen. |
    | **Locatie** | Een geldige locatie | Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's. |
 
    > [!IMPORTANT]
-   > De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze quickstart. Onthoud of noteer deze informatie voor later gebruik.
+   > De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze snelstartgids. Onthoud of noteer deze informatie voor later gebruik.
    >  
 
    ![database-server maken](./media/sql-database-get-started-portal/create-database-server.png)
@@ -79,14 +79,14 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
    > [!IMPORTANT]
    > In de Premium-laag is momenteel meer dan 1 TB aan opslag beschikbaar in alle regio's met uitzondering van UK - noord, US - west-centraal, UK - zuid2, China - oost, US DoD - centraal, Duitsland - centraal, US DoD - oost, US Gov - zuid-centraal, US Gov zuid-centraal, Duitsland - noordoost, China - noord, US Gov - oost. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
-7. Voor deze snelstart selecteert u de servicelaag **Standard** en gebruikt u vervolgens de schuifregelaar om **10 DTU's (S0)** en **1** GB aan opslagruimte te selecteren.
+7. Voor deze snelstartgids selecteert u de servicelaag **Standard** en gebruikt u vervolgens de schuifregelaar om **10 DTU's (S0)** en **1** GB aan opslagruimte te selecteren.
 
    ![database-s1 maken](./media/sql-database-get-started-portal/create-database-s1.png)
 
 8. Accepteer de gebruiksvoorwaarden voor de preview om de optie **Extra opslag** te gebruiken.
 
    > [!IMPORTANT]
-   > In de Premium-laag is momenteel meer dan 1 TB aan opslag beschikbaar in alle regio's met uitzondering van UK - noord, US - west-centraal, UK - zuid2, China - oost, US DoD - centraal, Duitsland - centraal, US DoD - oost, US Gov - zuid-centraal, US Gov zuid-centraal, Duitsland - noordoost, China - noord, US Gov - oost. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > In de Premium-laag is momenteel meer dan 1 TB aan opslag beschikbaar in alle regio's met uitzondering van VS - west-centraal, China - oost, USDoDCentral, USGov Iowa, Duitsland - centraal, USDoDEast, US Gov Southwest, Duitsland - noordoost, China - noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 9. Als u de servicelaag, het aantal DTU's en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.  
 
@@ -106,7 +106,7 @@ De service SQL Database maakt een firewall op serverniveau die voorkomt dat exte
 
 1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op **mySampleDatabase**. De overzichtspagina voor uw database wordt geopend, met de volledig gekwalificeerde servernaam (zoals **mynewserver20170824.database.windows.net**) en opties voor verdere configuratie.
 
-2. Kopieer deze volledig gekwalificeerde servernaam om in volgende snelstarts verbinding te maken met de server en de bijbehorende databases.
+2. Kopieer deze volledig gekwalificeerde servernaam om in volgende snelstartgidsen verbinding te maken met de server en de bijbehorende databases.
 
    ![servernaam](./media/sql-database-get-started-portal/server-name.png)
 
@@ -136,7 +136,7 @@ Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hu
 
 2. Selecteer de SQL Server-verificatie, geef de vereiste aanmeldingsgegevens op en klik op **OK** om u aan te melden.
 
-3. Wanneer u bent geverifieerd als **ServerAdmin**, typt u de volgende query in het deelvenster van de query-editor:
+3. Wanneer u bent geverifieerd als **ServerAdmin**, typt u de volgende query in het deelvenster van de query-editor.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -153,7 +153,7 @@ Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hu
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Sla deze resources op als u verder wilt gaan met [Volgende stappen](#next-steps) en wilt leren hoe u op verschillende manieren verbinding kunt maken met uw database en deze kunt bevragen. Als u echter de resources wilt verwijderen die u hebt gemaakt in deze snelstart, voert u de volgende stappen uit.
+Sla deze resources op als u verder wilt gaan met [Volgende stappen](#next-steps) en wilt leren hoe u op verschillende manieren verbinding kunt maken met uw database en deze kunt bevragen. Als u echter de resources wilt verwijderen die u hebt gemaakt in deze snelstartgids, voert u de volgende stappen uit.
 
 
 1. Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myResourceGroup**.
@@ -163,5 +163,5 @@ Sla deze resources op als u verder wilt gaan met [Volgende stappen](#next-steps)
 
 - Nu u een database hebt, kunt u [verbinding maken met een hulpprogramma of taal naar keuze en daarmee query's uitvoeren](sql-database-connect-query.md). 
 - Voor informatie over het ontwerpen van uw eerste database, het maken van tabellen en het invoegen van gegevens kunt u een van deze zelfstudies gebruiken:
- - [Uw eerste Azure SQL-database ontwerpen met SSMS](sql-database-design-first-database.md)
+ - [Uw eerste Azure SQL-database ontwerpen met SQL Server Management Studio](sql-database-design-first-database.md)
   - [Een Azure SQL-database ontwerpen en verbinding maken met C# en ADO.NET](sql-database-design-first-database-csharp.md)

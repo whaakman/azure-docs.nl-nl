@@ -1,23 +1,23 @@
 ---
-title: Quick Start - instellen aanmelden voor een single-page-app met Azure Active Directory B2C | Microsoft Docs
-description: Voer één pagina met een voorbeeldtoepassing die gebruikmaakt van Azure Active Directory B2C om account aanmelden.
+title: 'Snelstartgids: aanmelden instellen voor een app met één pagina met Azure Active Directory B2C | Microsoft Docs'
+description: Lees hoe u een voorbeeld van een toepassing met één pagina uitvoert die gebruikmaakt van Azure Active Directory B2C voor aanmelden bij een account.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: quickstart
 ms.date: 2/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ad9153b9b8d0235ad2cdc71b56f7b6179e98afdb
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
-ms.translationtype: MT
+ms.openlocfilehash: 7e600f55b9eeb2682b005b8c84c74ec25e054c36
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293278"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447248"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snelstartgids: Instellen aanmelden voor een single-page-app met Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snelstartgids: aanmelden instellen voor een app met één pagina met Azure Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C bevat functionaliteit voor identiteitsbeheer in de cloud ter bescherming van uw toepassing, bedrijf en klanten. Met Azure AD B2C zijn uw apps in staat om zich met behulp van open-standaardprotocollen te verifiëren bij sociaalnetwerk- en Enterprise-accounts.
 

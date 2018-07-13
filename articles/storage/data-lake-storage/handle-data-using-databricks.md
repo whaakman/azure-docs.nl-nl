@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: d9720377beb1973b8ae4e9423fc991aa82646924
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061593"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344693"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met behulp van Azure Databricks
 
@@ -44,7 +44,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 Vereisten voor het voltooien van deze zelfstudie:
 
 * Maak een Azure SQL Data Warehouse, maak een firewallregel op serverniveau en maak verbinding met de server als serverbeheerder. Volg de instructies bij [Snelstart: Een Azure SQL-datawarehouse maken](../../sql-data-warehouse/create-data-warehouse-portal.md)
-* Maak een databasehoofdsleutel voor Azure SQL Data Warehouse. Volg de instructies voor [Een databasehoofdsleutel maken](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+* Maak een databasehoofdsleutel voor Azure SQL Data Warehouse. Volg de instructies bij [Een databasehoofdsleutel maken](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 * [Een Azure Data Lake Storage Gen2-account maken](quickstart-create-account.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
@@ -81,7 +81,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Een Spark-cluster maken in Databricks
 
-1. Ga in de Azure Portal naar de Databricks-werkruimte die u hebt gemaakt en selecteer **Werkruimte starten**.
+1. Ga in Azure Portal naar de Databricks-werkruimte die u hebt gemaakt en selecteer **Werkruimte starten**.
 
 2. U wordt omgeleid naar de Azure Databricks-portal. Klik in de portal op **Cluster**.
 
@@ -117,14 +117,14 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
 
 4. Voer de volgende code in de eerste cel in en voer de code uit:
 
-    ```python
+    ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
     ```
 
-    Druk op **SHIFT + ENTER** om de codecel uit te voeren.
+    Druk op **SHIFT+ENTER** om de codecel uit te voeren.
 
     Nu is het bestandssysteem voor het opslagaccount gemaakt.
 
@@ -132,11 +132,14 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
 
 De volgende stap is het uploaden van een voorbeeldbestand naar het opslagaccount om later te transformeren in Azure Databricks. 
 
-1. Volg de stappen in de quickstart voor het maken van een Data Lake Storage Gen2-account als u een dergelijk account nog niet hebt.
-2. De voorbeeldgegevens (**small_radio_json.json**) zijn beschikbaar in de opslagplaats [U-SQL-voorbeelden en problemen bijhouden](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). Download het JSON-bestand en noteer het pad waar u het bestand opslaat.
-3. Upload de gegevens naar het opslagaccount. De methode die u gebruikt om gegevens te uploaden naar het opslagaccount, verschilt afhankelijk van of u HNS (Hierarchical Namespace Service) hebt ingeschakeld.
+> [!NOTE]
+> Als u nog geen account hebt dat geschikt is voor Azure Data Lake Storage Gen2, volgt u de [snelstart om er een te maken](./quickstart-create-account.md).
 
-    Als Hierarchical Namespace Service is ingeschakeld in uw ADLS Gen2-account, kunt u Azure Data Factory, distp of AzCopy (versie 10) gebruiken om de upload te verwerken. AzCopy-versie 10 is alleen beschikbaar voor klanten van de preview-versie. AzCopy gebruiken vanuit Cloud Shell:
+1. Download (**small_radio_json.json**) van de opslagplaatsen [U-SQL-voorbeelden en problemen bijhouden](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) en noteer het pad waar u het bestand opslaat.
+
+2. Upload de voorbeeldgegevens vervolgens naar het opslagaccount. De methode die u gebruikt om gegevens te uploaden naar het opslagaccount, verschilt afhankelijk van of u de hiërarchische naamruimte hebt ingeschakeld.
+
+    Als de hiërarchische naamruimte is ingeschakeld in het Azure Storage-account dat voor het Gen2-account is gemaakt, kunt u Azure Data Factory, distp of AzCopy (versie 10) gebruiken om de upload te verwerken. AzCopy-versie 10 is alleen beschikbaar voor klanten van de preview-versie. AzCopy pase gebruiken in de volgende code in een opdrachtvenster:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -150,22 +153,22 @@ Ga terug naar DataBricks Notebook en voer de volgende code in een nieuwe cel in:
 
 1. Voeg het volgende fragment toe aan een lege codecel en vervang de tijdelijke aanduidingen door de waarden uit het opslagaccount die u eerder hebt opgeslagen.
 
-    ```python
+    ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
 
-    Druk op **SHIFT + ENTER** om de codecel uit te voeren.
+    Druk op **SHIFT+ENTER** om de codecel uit te voeren.
 
-2. U kunt nu het JSON-voorbeeldbestand laden als een dataframe in Azure Databricks. Plak de volgende code in een nieuwe cel en druk vervolgens op **SHIFT + ENTER** (zorg ervoor dat u de tijdelijke aanduidingen hebt vervangen):
+2. U kunt nu het JSON-voorbeeldbestand laden als een dataframe in Azure Databricks. Plak de volgende code in een nieuwe cel en druk vervolgens op **SHIFT+ENTER** (zorg ervoor dat u de tijdelijke aanduidingen hebt vervangen):
 
-    ```python
+    ```scala
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
 3. Voer de volgende code uit om de inhoud van het dataframe weer te geven.
 
-    ```python
+    ```scala
     df.show()
     ```
 
@@ -190,7 +193,7 @@ De onbewerkte voorbeeldgegevensset **small_radio_json.json** legt de doelgroep v
 
 1. Begin met het ophalen van alleen de kolommen *firstName*, *lastName*, *gender*, *location* en *level* uit het dataframe dat u al hebt gemaakt.
 
-    ```python
+    ```scala
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
@@ -225,7 +228,7 @@ De onbewerkte voorbeeldgegevensset **small_radio_json.json** legt de doelgroep v
 
 2.  U kunt deze gegevens nog verder transformeren door de naam van de kolom **level** te wijzigen in **subscription_type**.
 
-    ```python
+    ```scala
     val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
     renamedColumnsDF.show()
     ```
@@ -267,28 +270,28 @@ Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Bl
 
 1. Geef de configuratie op voor toegang tot het Azure Storage-account vanuit Azure Databricks.
 
-    ```python
+    ```scala
     val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NJAME>"
+    val fileSystemName = "<FILE_SYSTEM_NAME>"
     val accessKey =  "<ACCESS_KEY>"
     ```
 
 2. Geef een tijdelijke map op die wordt gebruikt tijdens het verplaatsen van gegevens tussen Azure Databricks en Azure SQL Data Warehouse.
 
-    ```python
+    ```scala
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
 3. Voer het volgende codefragment uit om toegangssleutels voor Azure Blob-opslag op te slaan in de configuratie. Daardoor hoeft u de toegangssleutel niet als gewone tekst in het notitieblok te bewaren.
 
-    ```python
+    ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
     sc.hadoopConfiguration.set(acntInfo, accessKey)
     ```
 
 4. Geef de waarden op om verbinding te maken met de Azure SQL Data Warehouse-instantie. U moet een SQL-datawarehouse hebben gemaakt als onderdeel van de vereisten.
 
-    ```python
+    ```scala
     //SQL Data Warehouse related settings
     val dwDatabase = "<DATABASE NAME>"
     val dwServer = "<DATABASE SERVER NAME>" 
@@ -300,9 +303,9 @@ Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Bl
     val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
     ```
 
-5. Voer het volgende codefragment uit om de getransformeerde dataframe, **renamedColumnsDF**, als tabel te laden in SQL Data Warehouse. Dit fragment maakt een tabel met de naam **SampleTable** in de SQL-database.
+5. Voer het volgende codefragment uit om het getransformeerde dataframe, **renamedColumnsDF**, als tabel te laden in SQL Data Warehouse. Met dit fragment wordt een tabel met de naam **SampleTable** gemaakt in de SQL-database.
 
-    ```python
+    ```scala
     spark.conf.set(
         "spark.sql.parquet.writeLegacyFormat",
         "true")

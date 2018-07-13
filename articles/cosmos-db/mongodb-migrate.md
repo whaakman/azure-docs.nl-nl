@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: cacda277082f62c9d98a7459cb5dbf74375bfd87
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795343"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100293"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: MongoDB-gegevens importeren 
 
@@ -82,7 +82,7 @@ Voorbeeld:
         
     * Azure Cosmos DB levert standaard een nieuwe MongoDB-verzameling met 1000 aanvraageenheden per seconde. Maak voordat u de migratie start met mongoimport, mongorestore of mongomirror van tevoren alle verzamelingen in [Azure Portal](https://portal.azure.com) of uit de MongoDB-stuurprogramma's en -hulpprogramma's. Als uw verzameling groter is dan 10 GB is, moet u een [shardverzameling/gepartitioneerde verzameling](partition-data.md) met de betreffende shardsleutel maken.
 
-    * Verhoog vlak voor de migratie in [Azure Portal](https://portal.azure.com) de doorvoer voor uw verzamelingen van 1000 aanvraageenheden per seconde voor één gepartitioneerde verzameling en 2500 aanvraageenheden per seconde voor een gedeelde verzameling. Met een hogere doorvoer voorkomt u beperkingen voor de migratie en kost deze minder tijd. Met facturering per uur in Azure Cosmos DB kunt u de doorvoer onmiddellijk na de migratie verminderen om kosten te besparen.
+    * Verhoog vlak voor de migratie in [Azure Portal](https://portal.azure.com) de doorvoer voor uw verzamelingen van 1000 aanvraageenheden per seconde voor één gepartitioneerde verzameling en 2500 aanvraageenheden per seconde voor een gedeelde verzameling. Met een hogere doorvoer voorkomt u frequentielimieten en kunt u sneller een migratie doorvoeren. Met facturering per uur in Azure Cosmos DB kunt u de doorvoer onmiddellijk na de migratie verminderen om kosten te besparen.
 
     * Naast het leveren van aanvraageenheden per seconde op het verzamelingsniveau kunt u ook aanvraageenheden per seconde leveren voor een reeks verzamelingen op het bovenliggende databaseniveau. In dat geval moet u van tevoren de database en verzamelingen maken. Daarnaast moet u voor elke verzameling een shardsleutel definiëren.
 

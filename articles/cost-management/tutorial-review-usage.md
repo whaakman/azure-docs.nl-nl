@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 79857f05505a59de94d7a6926afe38cceeac34f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35628122"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -27,6 +28,7 @@ Azure Cost Management geeft gebruik en kosten weer, zodat u trends kunt bijhoude
 > * Gebruiks- en kostentrends bijhouden
 > * Inefficiënt gebruik detecteren
 > * Waarschuwingen maken voor ongebruikelijke uitgaven of te hoge uitgaven
+> * Gegevens exporteren
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
@@ -37,11 +39,11 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="open-the-cloudyn-portal"></a>De Cloudyn-portal openen
 
-U bekijkt het gebruik en de kosten in de Cloudyn-portal. Open het Cloudyn-portal vanuit Azure Portal of ga naar https://azure.cloudyn.com en meld u aan.
+U bekijkt het gebruik en de kosten in de Cloudyn-portal. Open de Cloudyn-portal vanuit Azure Portal of ga naar https://azure.cloudyn.com en meld u aan.
 
 ## <a name="track-usage-and-cost-trends"></a>Gebruiks- en kostentrends bijhouden
 
-U houdt de werkelijke uitgaven voor gebruik en kosten bij met rapporten om trends in de loop van de tijd te identificeren. Als u trends wilt bekijken, gebruikt u het rapport Actual Cost Over Time (Werkelijke kosten in de loop van de tijd). Klik op het menu bovenaan in de portal en klik op **Costs** > **Cost Analysis** > **Actual Cost Over Time**. Wanneer u het rapport voor het eerst opent, zijn er geen groepen of filters op toegepast.
+U houdt de werkelijke uitgaven voor gebruik en kosten bij met rapporten om trends in de loop van de tijd te identificeren. Als u trends wilt bekijken, gebruikt u het rapport Actual Cost Over Time (Werkelijke kosten in de loop van de tijd). Klik linksboven in de portal op **Costs** > **Cost Analysis** > **Actual Cost Over Time**. Wanneer u het rapport voor het eerst opent, zijn er geen groepen of filters op toegepast.
 
 Hier volgt een voorbeeldrapport:
 
@@ -89,12 +91,15 @@ U kunt belanghebbenden automatisch waarschuwen als er sprake is van afwijkende b
 
 U maakt een waarschuwing voor elke uitgave met behulp van een kostenrapport. In dit voorbeeld gebruikt u het rapport Actual Cost Over Time (Werkelijke kosten in de loop van de tijd) om u te waarschuwen wanneer de uitgaven voor een Azure-VM het totale budget naderen. De volgende stappen zijn nodig voor het maken van de waarschuwing. Klik op het menu bovenaan in de portal en klik op **Costs** > **Cost Analysis** > **Actual Cost Over Time**. Stel **Groups** in op **Service** en stel **Filter on the service** in op **Azure/VM**. Klik rechtsboven in het rapport op **Actions** en selecteer **Schedule report**.
 
-Gebruik het tabblad **Scheduling** om uzelf een e-mail met het rapport te sturen met de gewenste frequentie. Selecteer **Send via email**. Eventuele labels, groepen en filters die u gebruikt, worden toegepast op het rapport dat u per e-mail wordt toegezonden. Klik op het tabblad **Theshold** en selecteer **Actual Cost vs. Threshold**. Als u had een totaal budget van $ 500.000 hebt en een melding wilt ontvangen wanneer de kosten in de buurt van de helft komen, maakt u een **rode waarschuwing** op $ 250.000 en een **gele waarschuwing** op $ 240.000. Gebruik geen komma's in waarden die u invoert. Kies vervolgens het aantal achtereenvolgende waarschuwingen. Wanneer u het totaal aantal waarschuwingen hebt ontvangen dat u hebt opgegeven, worden er geen extra waarschuwingen meer verzonden. Sla het geplande rapport op.
+Gebruik in het vak Save or Schedule this report het tabblad **Scheduling** om uzelf een e-mail met het rapport te sturen met de gewenste frequentie. Selecteer **Send via email**. Eventuele labels, groepen en filters die u gebruikt, worden toegepast op het rapport dat u per e-mail wordt toegezonden. Klik op het tabblad **Theshold** en selecteer **Actual Cost vs. Threshold**. Als u had een totaal budget van $ 500.000 hebt en een melding wilt ontvangen wanneer de kosten in de buurt van de helft komen, maakt u een **rode waarschuwing** op $ 250.000 en een **gele waarschuwing** op $ 240.000. Gebruik geen komma's in waarden die u invoert. Kies vervolgens het aantal achtereenvolgende waarschuwingen. Wanneer u het totaal aantal waarschuwingen hebt ontvangen dat u hebt opgegeven, worden er geen extra waarschuwingen meer verzonden. Sla het geplande rapport op.
 
 ![voorbeeldrapport](./media/tutorial-review-usage/schedule-alert01.png)
 
 U kunt ook de drempeloptie Cost Percentage vs. Budget kiezen om waarschuwingen te maken. Als u deze optie kiest, kunt u budgetpercentages in plaats van bedragen gebruiken.
 
+## <a name="export-data"></a>Gegevens exporteren
+
+U kunt vanuit elk rapport gegevens exporteren op dezelfde manier waarop u waarschuwingen voor rapporten maakt. Misschien wilt u, bijvoorbeeld, een lijst met Cloudyn-accounts of andere gebruikersgegevens exporteren. Als u een rapport wilt exporteren, opent u het rapport en klikt u vervolgens in de rechterbovenhoek van het rapport op **Actions**. Mogelijk wilt u **Export all report data** uitvoeren zodat u de gegevens kunt downloaden of afdrukken. Of u kunt **Schedule report** selecteren om te plannen dat het rapport per e-mail wordt verzonden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -104,6 +109,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Gebruiks- en kostentrends bijhouden
 > * Inefficiënt gebruik detecteren
 > * Waarschuwingen maken voor ongebruikelijke uitgaven of te hoge uitgaven
+> * Gegevens exporteren
 
 
 Ga naar de volgende zelfstudie als u wilt weten hoe u uitgaven kunt voorspellen aan de hand van historische gegevens.

@@ -1,6 +1,6 @@
 ---
-title: Azure Sleutelkluis in een webtoepassing gebruiken | Microsoft Docs
-description: Met deze zelfstudie kunt u informatie over het gebruik van Azure Sleutelkluis in een webtoepassing.
+title: 'Zelfstudie: Azure Key Vault gebruiken vanuit een webtoepassing | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u Azure Key Vault gebruikt vanuit een webtoepassing.
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -8,80 +8,75 @@ tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: tutorial
+ms.date: 06/29/2018
 ms.author: adhurwit
-ms.openlocfilehash: 3a191c3ee7eea641aab81008a6da801b609fb4c5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
-ms.translationtype: MT
+ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802099"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115061"
 ---
-# <a name="use-azure-key-vault-from-a-web-application"></a>Azure Sleutelkluis in een webtoepassing gebruiken
+# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Zelfstudie: Azure Key Vault gebruiken vanuit een webtoepassing
+In deze zelfstudie leert u hoe u Azure Key Vault gebruikt vanuit een webtoepassing in Azure. U ziet hoe u vanuit een Azure Key Vault toegang krijgt tot een geheim voor gebruik in een webtoepassing. De zelfstudie bouwt vervolgens voort op dit proces en gebruikt een certificaat in plaats van een clientgeheim. Deze zelfstudie is ontworpen voor webontwikkelaars die bekend zijn met de basisbeginselen van het maken van webtoepassingen in Azure. 
 
-## <a name="introduction"></a>Inleiding
+In deze zelfstudie leert u het volgende: 
 
-Met deze zelfstudie kunt u informatie over het gebruik van Azure Sleutelkluis in een webtoepassing in Azure. Dit helpt u bij het proces voor het openen van een geheim van een Azure Sleutelkluis, zodat deze kan worden gebruikt in uw webtoepassing.
+> [!div class="checklist"]
+> * Toepassingsinstellingen toevoegen aan het bestand web.config
+> * Een methode toevoegen om een toegangstoken te verkrijgen
+> * Het token ophalen in de gebeurtenis Toepassing starten
+> * Verifiëren met een certificaat 
 
-**Geschatte duur:** 15 minuten
-
-Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie over Azure Sleutelkluis.
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt het volgende nodig om deze zelfstudie te voltooien:
+U hebt de volgende items nodig om deze zelfstudie te voltooien:
 
-* Een URI naar een geheim in een Azure Sleutelkluis
-* Een Client-ID en een Clientgeheim voor een webtoepassing die zijn geregistreerd bij Azure Active Directory die toegang tot uw Sleutelkluis heeft
-* Een webtoepassing. We worden de stappen voor een ASP.NET MVC-toepassing geïmplementeerd in Azure als een Web-App weergegeven.
+* Een URI naar een geheim in een Azure Key Vault
+* Een client-id en een clientgeheim voor een webtoepassing die is geregistreerd bij Azure Active Directory die toegang heeft tot uw Key Vault
+* Een webtoepassing. Deze zelfstudie toont de stappen voor een ASP.NET MVC-toepassing die als een webtoepassing is geïmplementeerd in Azure.
 
->[!IMPORTANT]
->* Dit voorbeeld is afhankelijk van een oudere manier voor het leveren van AAD-identiteiten handmatig. Er is momenteel een nieuwe functie in preview aangeroepen [beheerde Service identiteit (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), die automatisch AAD identiteiten kunt inrichten. Raadpleeg het volgende voorbeeld over [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) voor meer informatie.
+Voer de stappen uit in [Aan de slag met Azure Key Vault](key-vault-get-started.md) om de URI naar een geheim, de client-id en het clientgeheim op te halen en om de toepassing te registreren. De webtoepassing opent de kluis en moet worden geregistreerd in Azure Active Directory. De toepassing moet ook toegangsrechten hebben voor Key Vault. Als dat niet het geval is, gaat u terug naar Een toepassing registreren in de zelfstudie Aan de slag en herhaalt u de weergegeven stappen. Zie [Overzicht van Web Apps](../app-service/app-service-web-overview.md) voor meer informatie over Azure Web Apps.
 
-> [!NOTE]
->* Het is essentieel dat u de stappen in hebt voltooid [aan de slag met Azure Key Vault](key-vault-get-started.md) voor deze zelfstudie zodat u de URI moet een geheim en de Client-ID en Clientgeheim voor een webtoepassing hebt.
+Dit voorbeeld is afhankelijk van een handmatige inrichting van Azure Active Directory-identiteiten. Er is momenteel een nieuwe functie in preview, [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), waarmee Azure AD-identiteiten automatisch kunnen worden ingericht. Zie voor meer informatie het voorbeeld op [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) en de verwante [MSI with App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) (Zelfstudie: MSI met Azure App Service en Azure Functions). 
 
-
-De webtoepassing die toegang krijgen de Sleutelkluis tot is het adres dat is geregistreerd in Azure Active Directory en toegang heeft gekregen tot uw Sleutelkluis. Als dit niet het geval is, gaat u terug naar Register een toepassing in de zelfstudie aan de slag en Herhaal de stappen die worden vermeld.
-
-Deze zelfstudie is ontworpen voor webontwikkelaars die de basisbeginselen van het maken van webtoepassingen in Azure. Zie [Overzicht van Web Apps](../app-service/app-service-web-overview.md) voor meer informatie over Azure Web Apps.
 
 ## <a id="packages"></a>NuGet-pakketten toevoegen
 
-Er zijn twee pakketten die u moet uw webtoepassing hebt geïnstalleerd.
+Er zijn twee pakketten die moeten zijn geïnstalleerd voor uw webtoepassing.
 
-* Active Directory Authentication Library - bevat methoden voor interactie met Azure Active Directory en het beheer van gebruikersidentiteiten
-* Azure Key Vault Library - bevat methoden voor interactie met Azure Key Vault
+* Active Directory Authentication Library: bevat methoden voor interactie met Azure Active Directory en het beheer van gebruikers-id's
+* Azure Key Vault-bibliotheek: bevat methoden voor interactie met Azure Key Vault
 
-Beide van deze pakketten kunnen worden geïnstalleerd met behulp van de Package Manager-Console met de opdracht Install-Package.
+Deze pakketten kunnen beide worden geïnstalleerd met de opdracht Install-Package van de Package Manager Console.
 
-```
-// this is currently the latest stable version of ADAL
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+```powershell
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory 
 Install-Package Microsoft.Azure.KeyVault
 ```
 
-## <a id="webconfig"></a>Modify Web.Config
+## <a id="webconfig"></a>Web.config wijzigen
 
-Er zijn drie toepassingsinstellingen die moeten worden toegevoegd aan het bestand web.config als volgt.
+Er zijn drie toepassingsinstellingen die als volgt moeten worden toegevoegd aan het bestand web.config. We voegen de werkelijke waarden in Azure Portal toe voor een extra beveiligingsniveau.
 
-```
+```xml
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
     <add key="ClientId" value="clientid" />
     <add key="ClientSecret" value="clientsecret" />
 
     <!-- SecretUri is the URI for the secret in Azure Key Vault -->
     <add key="SecretUri" value="secreturi" />
+    <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
 
-Als u geen randvoorwaarden voor het hosten van uw toepassing als een Azure-Web-App, moet u de werkelijke waarden van ClientId, Clientgeheim en Secret URI toevoegen aan het bestand web.config. Laat deze dummy-waarden anders omdat we de werkelijke waarden in de Azure-portal voor een extra beveiligingsniveau toevoegen.
 
-## <a id="gettoken"></a>Methode voor een toegangstoken ophalen toevoegen
 
-Als u wilt gebruikmaken van de kluis-API-sleutel moet u een toegangstoken. De Sleutelkluis Client aanroepen naar de kluis-API-sleutel verwerkt, maar moet u deze met een functie die het toegangstoken ontvangt uit opgeven.  
+## <a id="gettoken"></a>Een methode toevoegen om een toegangstoken te verkrijgen
 
-Hieronder volgt de code voor een toegangstoken ophalen uit Azure Active Directory. Deze code overal in uw toepassing. Ik wil graag een klasse Utils of EncryptionHelper toevoegen.  
+Om de API van Key Vault te gebruiken, hebt u een toegangstoken nodig. De Key Vault-client handelt aanroepen naar de API van Key Vault af, maar u moet deze voorzien van een functie om het toegangstoken op te halen. Hier volgt een voorbeeld van code om een toegangstoken op te halen uit Azure Active Directory. U kunt deze code overal in uw toepassing invoegen. Ik wil een Utils- of EncryptionHelper-klasse toevoegen.  
 
 ```cs
 //add these using statements
@@ -105,15 +100,15 @@ public static async Task<string> GetToken(string authority, string resource, str
 
     return result.AccessToken;
 }
+// Using Client ID and Client Secret is a way to authenticate an Azure AD application.
+// Using it in your web application allows for a separation of duties and more control over your key management. 
+// However, it does rely on putting the Client Secret in your configuration settings.
+// For some people, this can be as risky as putting the secret in your configuration settings.
 ```
 
-> [!NOTE]
->* Momenteel is de nieuwe MSI-functie (beheerde service-identiteit) de eenvoudigste manier om te verifiëren. Klik op de volgende koppeling naar het voorbeeld met [Key Vault met MSI in een toepassing in .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) en de gerelateerde [zelfstudie voor MSI met App Service en Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) voor meer informatie. 
->* Client-ID en Clientgeheim is een andere manier om te verifiëren van een Azure AD-toepassing. En u deze in uw webtoepassing kunt u een scheiding van taken en meer controle over uw Sleutelbeheer. Maar deze maakt gebruik van de Client-Secret als in uw configuratie-instellingen die voor bepaalde als riskant als het plaatsen van het geheim dat u wilt beveiligen in uw configuratie-instellingen kunnen worden. Zie de volgende voor informatie over het gebruik van een Client-ID en het certificaat in plaats van de Client-ID en Clientgeheim om te verifiëren van de Azure AD-toepassing.
+## <a id="appstart"></a>Het geheim ophalen in de gebeurtenis Toepassing starten
 
-## <a id="appstart"></a>Ophalen van het geheim op toepassing starten
-
-Er moet nu code roept u de kluis-API-sleutel en het geheim ophalen. De volgende code kan overal worden geplaatst, zolang deze wordt aangeroepen voordat u wilt gebruiken. Ik hebben deze code in de toepassing gestart gebeurtenis in het bestand Global.asax plaatsen, zodat er wordt één keer worden uitgevoerd op start en het geheim voor de toepassing beschikbaar wordt.
+Nu hebben we de code nodig om de API van Key Vault aan te roepen en de geheime sleutel op te halen. De volgende code kan overal worden ingevoegd, zolang deze wordt aangeroepen voordat u deze moet gebruiken. Ik heb deze code in de gebeurtenis Toepassing starten in Global.asax geplaatst, zodat deze eenmaal wordt uitgevoerd bij het starten en het geheim beschikbaar is voor de toepassing.
 
 ```cs
 //add these using statements
@@ -124,43 +119,47 @@ using System.Web.Configuration;
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
-//I put a variable in a Utils class to hold the secret for general  application use.
+//I put a variable in a Utils class to hold the secret for general application use.
 Utils.EncryptSecret = sec.Value;
 ```
 
-## <a id="portalsettings"></a>App-instellingen toevoegen in de Azure portal (optioneel)
+## <a id="portalsettings"></a>App-instellingen toevoegen in Azure Portal
 
-Als u een Azure-Web-App hebt, kunt u nu de werkelijke waarden toevoegen voor de AppSettings in de Azure portal. Op deze manier worden de werkelijke waarden worden niet in de web.config maar beveiligd via de Portal waar u afzonderlijke access control mogelijkheden hebt. Deze waarden wordt vervangen voor de waarden die u hebt ingevoerd in de web.config. Zorg ervoor dat de namen hetzelfde zijn.
+In de Azure Web App kunt u nu de werkelijke waarden voor de AppSettings toevoegen in Azure Portal. Door deze stap uit te voeren, staan de werkelijke waarden niet in het bestand web.config, maar worden ze beveiligd via de Portal, waar u afzonderlijke mogelijkheden hebt voor toegangsbeheer. Deze waarden worden vervangen worden door de waarden die u hebt ingevoerd in web.config. Controleer of de namen hetzelfde zijn.
 
-![Toepassingsinstellingen weergegeven in de Azure-portal][1]
+![Toepassingsinstellingen weergegeven in Azure Portal][1]
 
-## <a name="authenticate-with-a-certificate-instead-of-a-client-secret"></a>Verifiëren met een certificaat in plaats van een Clientgeheim
+## <a name="authenticate-with-a-certificate-instead-of-a-client-secret"></a>Verifiëren met een certificaat in plaats van een clientgeheim
 
-Er is een andere manier om te verifiëren van een Azure AD-toepassing met behulp van een Client-ID en een certificaat in plaats van een Client-ID en Clientgeheim. Hieronder volgen de stappen voor het gebruik van een certificaat in een Azure-Web-App:
+Nu u weet hoe u een Azure AD-app verifieert met behulp van een client-id en een clientgeheim, gaat u een client-id en een certificaat gebruiken. Gebruik de volgende stappen om een certificaat te gebruiken in een Azure Web App:
 
-1. Maken of een certificaat maken
+1. Een certificaat verkrijgen of maken
 2. Het certificaat koppelen aan een Azure AD-toepassing
-3. Voeg code toe aan uw Web-App om het certificaat te gebruiken
-4. Een certificaat toevoegen aan uw Web-App
+3. Code aan uw webtoepassing toevoegen om het certificaat te gebruiken
+4. Een certificaat toevoegen aan uw webtoepassing
 
-### <a name="get-or-create-a-certificate"></a>Maken of een certificaat maken
+### <a name="get-or-create-a-certificate"></a>Een certificaat verkrijgen of maken
 
-Voor onze toepassing maken we een testcertificaat. Hier volgen een aantal opdrachten die u in een opdrachtprompt voor ontwikkelaars kunt gebruiken om een certificaat te maken. Wijzig de directory aan waar u het certificaat dat bestanden die zijn gemaakt.  Gebruik ook, voor het begin- en einddatum van het certificaat, de huidige datum plus 1 jaar.
+ Voor deze zelfstudie maken we een testcertificaat. Hier volgt een script voor het maken van een zelfondertekend certificaat. Wijzig de map in de map waarin u de certificaatbestanden wilt maken.  Voor de begin- en einddatum van het certificaat kunt u de huidige datum plus één jaar gebruiken.
 
+```powershell
+#Create self-signed certificate and export pfx and cer files 
+$PfxFilePath = "c:\data\KVWebApp.pfx" 
+$CerFilePath = "c:\data\KVWebApp.cer" 
+$DNSName = "MyComputer.Contoso.com" 
+$Password ="MyPassword" 
+$SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
+Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $cert -FilePath $CerFilePath 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
-pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
-```
 
-Noteer de einddatum en het wachtwoord voor de .pfx (in dit voorbeeld: 07/31/2018 en test123). U moet ze hieronder.
-
-Zie voor meer informatie over het maken van een testcertificaat [hoe: uw eigen testen certificaat maken](https://msdn.microsoft.com/library/ff699202.aspx)
-
+Noteer de einddatum en het wachtwoord voor het PFX-bestand (in dit voorbeeld: 15 mei 2019 en mijnwachtwoord). U hebt deze nodig voor het onderstaande script. 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Het certificaat koppelen aan een Azure AD-toepassing
 
-Nu u een certificaat hebt, moet u deze koppelen aan een Azure AD-toepassing. De Azure-portal ondersteunt momenteel kan niet in deze werkstroom; Dit kan worden uitgevoerd via PowerShell. Voer de volgende opdrachten om te koppelen van het certificaat met de Azure AD-toepassing:
+Nu u een certificaat hebt, moet u dit koppelen aan een Azure AD-toepassing. De koppeling kan worden uitgevoerd via PowerShell. Voer de volgende opdrachten uit om het certificaat te koppelen aan de Azure AD-toepassing:
 
-```ps
+```powershell
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $x509.Import("C:\data\KVWebApp.cer")
 $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
@@ -178,17 +177,18 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "ht
 $x509.Thumbprint
 ```
 
-Nadat u deze opdrachten hebt uitgevoerd, ziet u de toepassing in Azure AD. Wanneer u zoekt, zorg ervoor dat u selecteert u 'Toepassingen mijn bedrijf eigenaar is van' in plaats van 'Toepassingen mijn bedrijf gebruikt' in het Zoekdialoogvenster.
+Nadat u deze opdrachten hebt uitgevoerd, ziet u de toepassing in Azure AD. Zorg er bij het zoeken naar de toepassingsregistraties voor dat u in het zoekvenster **Mijn apps** selecteert in plaats van 'Alle apps'. 
 
-Zie voor meer informatie over Azure AD-toepassing en ServicePrincipal-objecten, [toepassingsobjecten en Service-Principal objecten](../active-directory/active-directory-application-objects.md).
+### <a name="add-code-to-your-web-app-to-use-the-certificate"></a>Code aan uw webtoepassing toevoegen om het certificaat te gebruiken
 
-### <a name="add-code-to-your-web-app-to-use-the-certificate"></a>Voeg code toe aan uw Web-App om het certificaat te gebruiken
+Nu gaat u code aan uw webtoepassing toevoegen om toegang te krijgen tot het certificaat en dit te gebruiken voor verificatie. 
 
-Er wordt nu code toevoegen aan uw Web-App voor toegang tot het certificaat en deze gebruiken voor verificatie.
-
-Er is eerst code voor toegang tot het certificaat.
+Hier volgt eerst de code voor toegang tot het certificaat. StoreLocation is CurrentUser in plaats van LocalMachine. We hebben bovendien 'false' aan de methode Find toegevoegd omdat we een testcertificaat gebruiken.
 
 ```cs
+//Add this using statement
+using System.Security.Cryptography.X509Certificates;  
+
 public static class CertificateHelper
 {
     public static X509Certificate2 FindCertificateByThumbprint(string findValue)
@@ -211,9 +211,9 @@ public static class CertificateHelper
 }
 ```
 
-Houd er rekening mee dat de StoreLocation CurrentUser in plaats van de hoofdmap van LocalMachine is. En dat we 'false' aan de methode vinden levert als u een test-certificaat.
 
-Hierna volgt code die gebruikmaakt van de CertificateHelper en maakt een ClientAssertionCertificate die nodig is voor verificatie.
+
+Hieronder volgt code die gebruikmaakt van de CertificateHelper en die een ClientAssertionCertificate maakt dat nodig is voor verificatie.
 
 ```cs
 public static ClientAssertionCertificate AssertionCert { get; set; }
@@ -225,7 +225,7 @@ public static void GetCert()
 }
 ```
 
-Hier wordt de nieuwe code voor het ophalen van het toegangstoken. Hiermee vervangt u de methode GetToken in het voorgaande voorbeeld. Deze hebt ik op een andere naam voor het gemak gegeven.
+Hier is de nieuwe code voor het ophalen van het toegangstoken. Deze code vervangt de methode GetToken in het voorgaande voorbeeld. Ik heb deze voor de duidelijkheid een andere naam gegeven. Ik heb alle code voor het gemak in de Utils-klasse van mijn Web App-project geplaatst.
 
 ```cs
 public static async Task<string> GetAccessToken(string authority, string resource, string scope)
@@ -236,33 +236,34 @@ public static async Task<string> GetAccessToken(string authority, string resourc
 }
 ```
 
-Alle deze code hebt ik geplaatst in mijn Web-App-project Utils-klasse voor eenvoudig te gebruiken.
 
-De laatste codewijziging is in de methode Application_Start. Eerst moet de GetCert() methode aanroepen om de ClientAssertionCertificate laden. En wijzig vervolgens we de retouraanroepmethode die we bij het maken van een nieuwe KeyVaultClient leveren. Houd er rekening mee dat Hiermee vervangt u de code die we hebben als in het voorgaande voorbeeld.
+
+De laatste codewijziging is in de methode Application_Start. Eerst moet u de methode GetCert() aanroepen om het ClientAssertionCertificate aan te roepen. Daarna moet u de callback-methode wijzigen die we hebben opgegeven bij het maken van een nieuwe KeyVaultClient. Deze code vervangt de code in het voorgaande voorbeeld.
 
 ```cs
 Utils.GetCert();
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 ```
 
-### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Een certificaat toevoegen aan uw Web-App via de Azure portal
+### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Een certificaat aan uw webtoepassing toevoegen via Azure Portal
 
-Een certificaat toevoegen aan uw Web-App is een eenvoudig proces. Eerst, gaat u naar de Azure-portal en navigeer naar uw Web-App. Klik op de vermelding voor 'aangepaste domeinen en SSL' in de blade instellingen voor uw Web-App. Op de blade dat openen dat u zich voor het uploaden van het certificaat dat u hebt gemaakt in het voorgaande voorbeeld, KVWebApp.pfx, zorg ervoor dat onthouden u het wachtwoord voor de pfx.
+Het toevoegen van een certificaat aan uw webtoepassing is een eenvoudig proces van twee stappen. Ga eerst naar Azure Portal en navigeer naar uw webtoepassing. Klik in Instellingen voor uw webtoepassing en klik op de vermelding voor **SSL-instellingen**. Wanneer dit onderdeel wordt geopend, uploadt u het certificaat dat u in het voorgaande voorbeeld hebt gemaakt, KVWebApp.pfx. Zorg dat u het wachtwoord voor de pfx onthoudt.
 
-![Een certificaat toevoegen aan een Web-App in de Azure portal][2]
+![Een certificaat aan een webtoepassing toevoegen in Azure Portal][2]
 
-De laatste stap die u moet doen is een toepassingsinstelling toevoegen aan uw Web-App met de naam WEBSITE\_LOAD\_certificaten en een waarde van *. Dit zorgt ervoor dat alle certificaten zijn geladen. Als u laden, alleen de certificaten die u hebt geüpload wilt, kunt u een door komma's gescheiden lijst met de vingerafdrukken invoeren.
+Tot slot moet u een toepassingsinstelling met de naam WEBSITE\_LOAD\_CERTIFICATES en de waarde * aan uw webtoepassing toevoegen. Met deze stap zorgt u ervoor dat alle certificaten worden geladen. Als u alleen de certificaten wilt laden die u hebt geüpload, kunt u een door komma's gescheiden lijst van hun vingerafdrukken invoeren.
 
-Zie voor meer informatie over het toevoegen van een certificaat aan een Web-App, [met behulp van certificaten in toepassingen met Azure Websites](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
 
-### <a name="add-a-certificate-to-key-vault-as-a-secret"></a>Een certificaat als een geheim aan Sleutelkluis toevoegen
+## <a name="clean-up-resources"></a>Resources opschonen
+Wanneer u deze resources niet meer nodig hebt, verwijdert u de toepassingsservice, sleutelkluis en Azure AD-toepassing die u voor de zelfstudie hebt gebruikt.  
 
-U kunt in plaats van uw certificaat rechtstreeks naar de service-Web-App geüpload, opslaan in de Sleutelkluis als een geheim en het implementeren van daaruit. Dit is een proces in twee stappen die wordt beschreven in het volgende blogbericht [Azure Web App certificaat implementeren via Sleutelkluis](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
 ## <a id="next"></a>Volgende stappen
+> [!div class="nextstepaction"]
+>[API-naslag voor Azure Key Vault Management](/dotnet/api/overview/azure/keyvault/management).
 
-Zie voor het programmeren van verwijzingen [Azure Key Vault C#-Client API Reference](https://msdn.microsoft.com/en-us/library/azure/mt430941.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
+ 

@@ -1,39 +1,35 @@
 ---
-title: 'Overzicht: Bedrijfsintegratie met Azure Logic Apps | Microsoft Docs'
-description: Maak geautomatiseerde werkstromen en bedrijfsprocessen voor het integreren van gegevens, services, apps en systemen in ondernemingen en organisaties. Maak oplossingen voor gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en indelingsscenario's.
-keywords: automatiseren, werkstromen, enterprise application integration, EAI, systeemintegratie, gegevensintegratie, indeling, integratieservices, iPaaS
+title: Oplossingen voor bedrijfsintegratie met Azure Logic Apps | Microsoft Docs
+description: Meer informatie over hoe Logic Apps u kan helpen om geautomatiseerde werkstromen en bedrijfsprocessen te maken voor het integreren van gegevens, services, apps en systemen in ondernemingen en organisaties. Maak oplossingen voor gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en indelingsscenario's.
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: c575ae1f9c801072fb1f6f32a13f111b9edd18ce
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 6/29/2018
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: d3640710b3ba209c8e701cf5e340103c1d3d6fa7
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299236"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082213"
 ---
 # <a name="what-is-azure-logic-apps"></a>Wat is Azure Logic Apps?
 
-Met [Logic Apps](https://azure.microsoft.com/services/logic-apps) kunt u processen maken, plannen en automatiseren als [werkstromen](#logic-app-concepts) zodat u apps, gegevens, systemen en services kunt integreren in ondernemingen of organisaties. Logic Apps vereenvoudigt het ontwerpen en maken van schaalbare oplossingen voor app-integratie, gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en communicatie voor business-to-business (B2B), in de cloud, lokaal of beide.
+Met [Logic Apps](https://azure.microsoft.com/services/logic-apps) kunt u oplossingen bouwen die apps, gegevens, systemen en services in ondernemingen en organisaties integreren door taken en bedrijfsprocessen te automatiseren als [werkstromen](#logic-app-concepts). Logic Apps is een cloudservice in Azure die het ontwerpen en maken van schaalbare oplossingen voor app-integratie, gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en communicatie voor business-to-business (B2B), vereenvoudigt, in de cloud, lokaal of beide.
 
 Dit zijn enkele voorbeelden van workloads die u met logische apps kunt automatiseren:
 
 * Orders verwerken en rondsturen in cloudservices en on-premises systemen.
-* Geüploade bestanden verplaatsen van een FTP-server naar Azure Storage. 
+* Geüploade bestanden verplaatsen van een SFTP- of FTP-server naar Azure Storage. 
+* E-mailmeldingen verzenden met Office 365 wanneer gebeurtenissen plaatsvinden in verschillende systemen, apps en services.
 * Tweets bewaken voor een bepaald onderwerp, de feel analyseren en waarschuwingen of taken maken voor items die nagekeken moeten worden.
 
-Als u integratieoplossingen met logische apps wilt bouwen, kunt u uw keuze maken in een steeds groter wordende galerie met [~200 ingebouwde connectors](../connectors/apis-list.md), zoals SQL Database, Azure-services, Office 365, Salesforce, Google en meer. Deze [connectors](#logic-app-concepts) bieden [triggers](#logic-app-concepts), [acties](#logic-app-concepts) of beide om logische apps te maken voor veilige toegang en verwerking van gegevens in realtime.
+U kunt kiezen uit een steeds groter wordende verzameling met [200+ connectors](../connectors/apis-list.md) voor het bouwen van integratieoplossingen met logische apps, waaronder andere Azure-services zoals Service Bus, Functions, Storage; SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, bestandsshares, en nog veel meer. Deze [connectors](#logic-app-concepts) bieden [triggers](#logic-app-concepts), [acties](#logic-app-concepts) of beide om logische apps te maken voor veilige toegang en verwerking van gegevens in realtime.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
@@ -59,56 +55,59 @@ Lees deze [klantervaringen](https://aka.ms/logic-apps-customer-stories) als u wi
 
 Hier vindt u meer informatie over de mogelijkheden en voordelen van Logic Apps:
 
-* **Werkstromen visueel samenstellen met eenvoudig te gebruiken hulpprogramma's**
+### <a name="visually-build-workflows-with-easy-to-use-tools"></a>Werkstromen visueel samenstellen met eenvoudig te gebruiken hulpprogramma's
 
-  Bespaar tijd en vereenvoudig complexe processen met hulpprogramma's voor visueel ontwerp. 
-  Maak logische apps van begin tot eind met behulp van Ontwerper van logische apps via uw browser in Azure Portal of in Visual Studio. Begin uw werkstroom met een trigger en voeg een willekeurig aantal acties toe vanuit de [galerie met connectors](../connectors/apis-list.md).
+Bespaar tijd en vereenvoudig complexe processen met hulpprogramma's voor visueel ontwerp. Maak logische apps van begin tot eind met behulp van Ontwerper van logische apps via uw browser in Azure Portal of in Visual Studio. Begin uw werkstroom met een trigger en voeg een willekeurig aantal acties toe vanuit de [galerie met connectors](../connectors/apis-list.md).
 
-* **Sneller aan de slag met sjablonen voor logische apps**
+### <a name="get-started-faster-with-logic-app-templates"></a>Sneller aan de slag met sjablonen voor logische apps
 
-  Stel veelgebruikte oplossingen sneller samen met vooraf gedefinieerde werkstromen uit de [sjablonengalerie](../logic-apps/logic-apps-create-logic-apps-from-templates.md). 
-  Sjablonen variëren van eenvoudige connectiviteit voor SaaS-apps (software as a service) tot geavanceerde B2B-oplossingen. Maar daarnaast zijn er ook sjablonen gewoon voor het plezier. Informatie over [het maken van logische apps met vooraf gedefinieerde sjablonen](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
+Stel veelgebruikte oplossingen sneller samen met vooraf gedefinieerde werkstromen uit de [sjablonengalerie](../logic-apps/logic-apps-create-logic-apps-from-templates.md). Sjablonen variëren van eenvoudige connectiviteit voor SaaS-apps (software as a service) tot geavanceerde B2B-oplossingen. Maar daarnaast zijn er ook sjablonen gewoon voor het plezier. Informatie over [het maken van logische apps met vooraf gedefinieerde sjablonen](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-* **Ongelijksoortige systemen in verschillende omgevingen met elkaar verbinden**
+### <a name="connect-disparate-systems-across-different-environments"></a>Ongelijksoortige systemen in verschillende omgevingen met elkaar verbinden
 
-  Sommige patronen en werkstromen zijn gemakkelijk te beschrijven, maar moeilijk in code te implementeren. 
-  Met logische apps kunt u naadloos verbinding maken met ongelijksoortige systemen in on-premises en cloud-omgevingen. U kunt bijvoorbeeld een marketingoplossing in de cloud verbinden met een on-premises factureringssysteem of een berichtenservice via API's en systemen met een Enterprise Service Bus centraliseren. Logische apps bieden een snelle, betrouwbare en consistente manier om herbruikbare en herconfigureerbare oplossingen voor deze scenario's te leveren.
+Sommige patronen en werkstromen zijn gemakkelijk te beschrijven, maar moeilijk in code te implementeren. Met logische apps kunt u naadloos verbinding maken met ongelijksoortige systemen in on-premises en cloud-omgevingen. U kunt bijvoorbeeld een marketingoplossing in de cloud verbinden met een on-premises factureringssysteem of een berichtenservice via API's en systemen met een Enterprise Service Bus centraliseren. Logische apps bieden een snelle, betrouwbare en consistente manier om herbruikbare en herconfigureerbare oplossingen voor deze scenario's te leveren.
 
-* **Eersteklas ondersteuning voor bedrijfsintegratie en B2B-scenario's**
+### <a name="first-class-support-for-enterprise-integration-and-b2b-scenarios"></a>Eersteklas ondersteuning voor bedrijfsintegratie en B2B-scenario's
 
-  Bedrijven en organisaties communiceren elektronisch met elkaar met behulp van gestandaardiseerde maar verschillende berichtprotocollen en -indelingen, zoals EDIFACT, AS2 en X12. 
-  Met de functies in het [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md) kunt u logische apps bouwen voor het omzetten van berichtindelingen in gebruik bij uw partners naar indelingen die de systemen van uw organisatie kunnen interpreteren en verwerken. Logische apps verwerken deze uitwisselingen soepel en veilig met versleuteling en digitale handtekeningen.
+Bedrijven en organisaties communiceren elektronisch met elkaar met behulp van gestandaardiseerde maar verschillende berichtprotocollen en -indelingen, zoals EDIFACT, AS2 en X12. Met de functies in het [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md) kunt u logische apps bouwen voor het omzetten van berichtindelingen in gebruik bij uw partners naar indelingen die de systemen van uw organisatie kunnen interpreteren en verwerken. Met Logic Apps worden deze uitwisselingen soepel en veilig verwerkt met versleuteling en digitale handtekeningen.
 
-  Begin klein met uw huidige systemen en services en breid dan in uw eigen tempo verder uit. Wanneer u klaar bent, helpen Logic Apps en de EIP u bij het implementeren van en omhoog schalen naar meer volwassen integratiescenario's door onder andere de volgende mogelijkheden te bieden:
+Begin klein met uw huidige systemen en services en breid dan in uw eigen tempo verder uit. Wanneer u klaar bent, helpen Logic Apps en de EIP u bij het implementeren van en omhoog schalen naar meer volwassen integratiescenario's door onder andere de volgende mogelijkheden te bieden:
 
-  * Ga uit van deze producten en services: 
-    * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server) 
-    * [API Management](../api-management/api-management-key-concepts.md) 
-    * [Azure Functions](../azure-functions/functions-overview.md) 
-    * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
-  * [XML-berichten](../logic-apps/logic-apps-enterprise-integration-xml.md) verwerken
-  * [platte bestanden](../logic-apps/logic-apps-enterprise-integration-flatfile.md) verwerken
-  * Berichten uitwisselen met [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)-, [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md)- en [X12](../logic-apps/logic-apps-enterprise-integration-x12.md)-protocollen
-  * Gebruik [integratieaccounts](../logic-apps/logic-apps-enterprise-integration-accounts.md) om deze B2B-artefacten en meer in één locatie op te slaan en te beheren:
-    * [Partners](../logic-apps/logic-apps-enterprise-integration-partners.md)
-    * [Overeenkomsten](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
-    * [Toewijzingen voor XML-transformatie](../logic-apps/logic-apps-enterprise-integration-maps.md)
-    * [Schema's voor XML-validatie](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+* Ga uit van deze producten en services:
 
-* **Eenmaal schrijven, vaak opnieuw gebruiken**
+  * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Azure Functions](../azure-functions/functions-overview.md)
+  * [Azure API Management](../api-management/api-management-key-concepts.md)
+  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-  Maak uw logische apps in de vorm van sjablonen zodat u [uw apps kunt implementeren en configureren](../logic-apps/logic-apps-create-deploy-template.md) in meerdere omgevingen en regio's.
+* [XML-berichten](../logic-apps/logic-apps-enterprise-integration-xml.md) verwerken
+* [platte bestanden](../logic-apps/logic-apps-enterprise-integration-flatfile.md) verwerken
+* Berichten uitwisselen met [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)-, [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md)- en [X12](../logic-apps/logic-apps-enterprise-integration-x12.md)-protocollen
+* Gebruik [integratieaccounts](../logic-apps/logic-apps-enterprise-integration-accounts.md) om deze B2B-artefacten en meer in één locatie op te slaan en te beheren:
 
-* **Ingebouwde uitbreidbaarheid**
+  * [Partners](../logic-apps/logic-apps-enterprise-integration-partners.md)
+  * [Overeenkomsten](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
+  * [Toewijzingen voor XML-transformatie](../logic-apps/logic-apps-enterprise-integration-maps.md)
+  * [XML-validatieschema’s](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+   
+Als u bijvoorbeeld Microsoft BizTalk Server gebruikt, kunnen logische apps verbinding maken en communiceren met de BizTalk-server met behulp van de [BizTalk Server-connector](../connectors/apis-list.md#on-premises-connectors). U kunt vervolgens BizTalk-gerelateerde bewerkingen uitbreiden of uitvoeren in uw logische apps door [integratieaccountconnectors](../connectors/apis-list.md#integration-account-connectors) op te nemen. Deze zijn beschikbaar in het Enterprise Integration Pack. 
 
-  Als u de connector om de aangepaste code uit te voeren niet kunt vinden, kunt u logische apps uitbreiden door uw eigen codefragmenten op aanvraag te maken en aan te roepen via [Azure Functions](../azure-functions/functions-overview.md). 
-  Maak uw eigen [API's](../logic-apps/logic-apps-create-api-app.md) en [aangepaste connectors](../logic-apps/custom-connector-overview.md) die u kunt aanroepen vanuit logic apps.
+Andersom kan BizTalk Server ook verbinding maken en communiceren met logische apps met behulp van de [Microsoft BizTalk Server-adapter voor Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Meer informatie over het [instellen en gebruiken van de BizTalk Server-adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) in BizTalk Server.
 
-* **U betaalt uitsluitend voor wat u gebruikt**
+### <a name="write-once-reuse-often"></a>Eenmaal schrijven, vaak opnieuw gebruiken
+
+Maak uw logische apps in de vorm van sjablonen zodat u [uw apps kunt implementeren en configureren](../logic-apps/logic-apps-create-deploy-template.md) in meerdere omgevingen en regio's.
+
+### <a name="built-in-extensibility"></a>Ingebouwde uitbreidbaarheid
+
+Als u de connector om de aangepaste code uit te voeren niet kunt vinden, kunt u logische apps uitbreiden door uw eigen codefragmenten op aanvraag te maken en aan te roepen via [Azure Functions](../azure-functions/functions-overview.md). Maak uw eigen [API's](../logic-apps/logic-apps-create-api-app.md) en [aangepaste connectors](../logic-apps/custom-connector-overview.md) die u kunt aanroepen vanuit logic apps.
+
+### <a name="pay-only-for-what-you-use"></a>Alleen betalen voor wat u gebruikt
   
-  Logic Apps gebruikt [prijzen en metingen](../logic-apps/logic-apps-pricing.md) op basis van verbruik tenzij u eerder logische apps hebt gemaakt met App Service-plannen.
+Logic Apps gebruikt [prijzen en metingen](../logic-apps/logic-apps-pricing.md) op basis van verbruik tenzij u eerder logische apps hebt gemaakt met App Service-plannen.
 
 Meer informatie over Logic Apps vindt u in deze inleidende video's:
+
 * [Integratie met Logic Apps - Van beginner tot expert](https://channel9.msdn.com/Events/Build/2017/C9R17)
 * [Bedrijfsintegratie met Microsoft Azure Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2188)
 * [Geavanceerde bedrijfsprocessen samenstellen Met Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179)

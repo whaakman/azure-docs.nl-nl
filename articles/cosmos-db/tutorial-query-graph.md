@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: dfaf3fe1427c9069939f5421c6a87efb584ebe48
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ad38976f439c399d839d6c5ee9dcd6ade7726c71
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763201"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081904"
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Zelfstudie: Azure Cosmos DB Graph API opvragen met Gremlin
 
@@ -31,7 +31,7 @@ Dit artikel behandelt de volgende taken:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze query's werken alleen als u een Azure DB Cosmos DB-account hebt en een container met grafiekgegevens. Hebt u geen van beide? Voltooi de [Quickstart van 5 minuten](create-graph-dotnet.md) of de [zelfstudie voor ontwikkelaars](tutorial-query-graph.md) om een account te maken en uw database te vullen. U kunt de volgende query's uitvoeren met behulp van de [bibliotheek met Azure Cosmos DB .NET-grafieken](graph-sdk-dotnet.md), [Gremlin-console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) of uw favoriete Gremlin-stuurprogramma.
+Deze query's werken alleen als u een Azure DB Cosmos DB-account hebt en een container met grafiekgegevens. Hebt u geen van beide? Voltooi de [Quickstart van 5 minuten](create-graph-dotnet.md) of de [zelfstudie voor ontwikkelaars](tutorial-query-graph.md) om een account te maken en uw database te vullen. U kunt de volgende query's uitvoeren met behulp van de [Gremlin-console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) of uw favoriete Gremlin-stuurprogramma.
 
 ## <a name="count-vertices-in-the-graph"></a>Hoekpunten in de grafiek tellen
 
@@ -80,7 +80,8 @@ In deze zelfstudie hebt u het volgende gedaan:
 > [!div class="checklist"]
 > * U hebt geleerd hoe u een query uitvoert met behulp van Graph 
 
-U kunt nu doorgaan met de volgende zelfstudie, waarin u leert hoe u uw gegevens globaal distribueert.
+U kunt nu doorgaan naar de sectie Concepten voor meer informatie over Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Uw gegevens globaal distribueren](tutorial-global-distribution-graph.md)
+> [Wereldwijde distributie](distribute-data-globally.md) 
+

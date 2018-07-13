@@ -1,95 +1,89 @@
 ---
-title: Apparaten in de oplossing voor externe controle - Azure oplossen | Microsoft Docs
-description: Deze zelfstudie laat zien hoe u oplossen en het oplossen van problemen met apparaten in de oplossing voor externe controle.
+title: Waarschuwingen gebruiken en problemen met apparaten verhelpen met de oplossing voor externe controle - Azure | Microsoft Docs
+description: In deze zelfstudie ziet u hoe u waarschuwingen kunt gebruiken om problemen te identificeren en op te lossen met apparaten die zijn verbonden met de oplossingsverbetering voor externe controle.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 05/01/2018
-ms.topic: conceptual
-ms.openlocfilehash: 9a620d91238393ba0bde89f521f790b58ab35baf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.date: 06/18/2018
+ms.topic: tutorial
+ms.custom: mvc
+ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628069"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081785"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>Problemen oplossen en het oplossen van problemen met apparaat
+# <a name="troubleshoot-and-remediate-device-issues"></a>Problemen met apparaten oplossen en herstellen
 
-Deze zelfstudie leert u hoe u de **onderhoud** pagina in de oplossing voor het oplossen van apparaat-problemen oplossen. De zelfstudie maakt ter introductie van het volgen van deze mogelijkheden gebruik van een scenario in de Contoso IoT-toepassing.
+In deze zelfstudie gebruikt u de oplossingsverbetering voor externe controle om problemen met verbonden IoT-apparaten te identificeren en te herstellen. U gebruikt waarschuwingen op het dashboard van de oplossingsverbetering om problemen te identificeren. Vervolgens voert u externe taken uit om deze problemen op te lossen.
 
-Contoso is het testen van een nieuwe **Prototype** apparaat in het veld. Als een Contoso-operator, merkt u tijdens de tests die de **Prototype** apparaat is onverwacht activering van een waarschuwing temperatuur op het dashboard. U moet nu het gedrag van dit defecte onderzoeken **Prototype** apparaat.
+Contoso test momenteel in de praktijk een nieuw **Prototypeapparaat**. Als Contoso-operator merkt u, tijdens het testen, dat voor het **Prototypeapparaat** onverwacht een temperatuurwaarschuwing wordt geactiveerd op het dashboard. U moet nu het gedrag onderzoeken van het **Prototypeapparaat** waarvoor de waarschuwing wordt weergegeven, en het probleem oplossen.
 
-In deze zelfstudie leert u het volgende:
+In deze zelfstudie hebt u:
 
 >[!div class="checklist"]
-> * Gebruik de **onderhoud** pagina voor het onderzoeken van de waarschuwing
-> * Een apparaat methode aanroepen om het probleem oplossen
+> * Een waarschuwing voor een apparaat onderzocht
+> * Het probleem met het apparaat opgelost
 
 ## <a name="prerequisites"></a>Vereisten
 
-Volg deze zelfstudie, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
+Voor deze zelfstudie hebt u een geïmplementeerd exemplaar van de oplossingsverbetering voor externe controle in uw Azure-abonnement nodig.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossingsverbetering voor externe controle nog niet hebt geïmplementeerd, voltooit u eerst de snelstart [Een cloudoplossing voor externe controle implementeren](quickstart-remote-monitoring-deploy.md).
 
-## <a name="use-the-maintenance-dashboard"></a>Gebruik het dashboard onderhoud
+## <a name="investigate-an-alert"></a>Een waarschuwing onderzoeken
 
-Op de **Dashboard** pagina u er zijn onverwachte temperatuur waarschuwingen afkomstig is van de regel die is gekoppeld ziet aan de **Prototype** apparaten:
+Op de **Dashboardpagina** ziet u dat onverwachte temperatuurwaarschuwingen zijn geactiveerd op basis van de regel die is gekoppeld aan de **Prototypeapparaten**:
 
-![Waarschuwingen op het dashboard wordt weergegeven](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm.png)
+[![Waarschuwingen worden weergegeven op het dashboard](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-expanded.png#lightbox)
 
-Voor het onderzoeken van het probleem verder kiest de **waarschuwing verkennen** optie naast de waarschuwing:
+Als u het probleem nader wilt onderzoeken, kiest u de optie **Waarschuwing verkennen** naast de waarschuwing:
 
-![Waarschuwing vanuit het dashboard verkennen](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm.png)
+[![Waarschuwing verkennen vanaf het dashboard](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
 
-De detailweergave van de waarschuwing wordt weergegeven:
+In de detailweergave van de waarschuwing wordt het volgende weergegeven:
 
 * Wanneer de waarschuwing is geactiveerd
-* Statusinformatie over de apparaten die zijn gekoppeld aan de waarschuwing
-* Telemetrie van de apparaten die zijn gekoppeld aan de waarschuwing
+* Statusinformatie over de apparaten waarvoor de waarschuwing is afgegeven
+* Telemetrie van de apparaten waarvoor de waarschuwing is afgegeven
 
-![Waarschuwingsdetails](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail.png)
+[![Waarschuwingsdetails](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
 
-Om te bevestigen op de waarschuwing, selecteer de **waarschuwing voorvallen** en kies **bevestigings**. Deze actie kan andere operators om te zien dat u al de waarschuwing gezien hebt en wordt gewerkt.
+Als u de waarschuwing wilt accepteren, selecteert u alle **Voorvallen van de waarschuwing** en kiest u **Accepteren**. Door deze actie weten andere operators dat u de waarschuwing hebt gezien en ermee bezig bent:
 
-![Bevestig de waarschuwingen](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge.png)
+[![De waarschuwingen accepteren](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-expanded.png#lightbox)
 
-Als u de waarschuwing bevestigt, verandert de status van de instantie in **bevestigd**.
+Als u de waarschuwing hebt geaccepteerd, wordt de status van het voorval gewijzigd in **Geaccepteerd**.
 
-In de lijst ziet u de **Prototype** verantwoordelijk voor het starten van de waarschuwing temperatuur apparaat:
+In de lijst ziet u welk **Prototypeapparaat** verantwoordelijk is voor het activeren van de temperatuurwaarschuwing:
 
-![Lijst van de apparaten waardoor de waarschuwing](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice.png)
+[![Een lijst maken met de apparaten waardoor de waarschuwing is veroorzaakt](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
-## <a name="remediate-the-issue"></a>Het probleem oplossen
+## <a name="resolve-the-issue"></a>Het probleem oplossen
 
-Oplossen van het probleem met de **Prototype** apparaat gebruikt, moet u aan te roepen de **DecreaseTemperature** methode op het apparaat.
+Als u het probleem met het **Prototypeapparaat** wilt oplossen, moet u de methode **DecreaseTemperature** aanroepen op het apparaat.
 
-Als u wilt uitvoeren op een apparaat, selecteert u deze in de lijst met apparaten en kies vervolgens **taken**. De **Prototype** Apparaatmodel bevat zes methoden die een apparaat moet ondersteunen:
+Als u actie wilt ondernemen voor een apparaat, selecteert u het apparaat in de lijst en kiest u vervolgens **Taken**. Voor het **Prototypeapparaatmodel** zijn zes methoden opgegeven waarvoor een apparaat ondersteuning moet bieden:
 
-![Bekijk de methoden die ondersteuning biedt voor het apparaat](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods.png)
+[![De methoden weergeven die worden ondersteund op het apparaat](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Kies **DecreaseTemperature** en stel de taaknaam op **DecreaseTemperature**. Kies vervolgens **toepassen**:
+Kies **DecreaseTemperature** en stel de taaknaam in op **DecreaseTemperature**. Kies vervolgens **Toepassen**:
 
-![De taak voor het verkleinen van de temperatuur maken](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob.png)
+[![De taak maken om de temperatuur te verlagen](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
-De status van de taak volgen op de **onderhoud** pagina **taken**. Gebruik de **taken** om bij te houden van alle taken weergeven en methode-aanroepen in de oplossing:
+Als u de status van de taak wilt bijhouden, klikt u op **Taakstatus bekijken**. Gebruik de weergave **Taken** om alle aanroepen voor taken en methoden in de oplossing bij te houden:
 
-![De taak voor het verkleinen van de temperatuur bewaken](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob.png)
+[![De taak controleren om de temperatuur te verlagen](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
-Als u wilt weergeven in de details van een bepaalde taak of methodeaanroep, kies in de lijst in de **taken** weergeven:
+U kunt controleren of de temperatuur van het apparaat is afgenomen door de telemetrie te bekijken op de **Dashboardpagina**:
 
-![Taakdetails weergeven](./media/iot-accelerators-remote-monitoring-maintain/maintenancejobdetail.png)
+[![De verlaging van de temperatuur weergeven](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u gezien hoe:
+In deze zelfstudie hebt u gezien hoe u waarschuwingen kunt gebruiken om problemen met apparaten te identificeren en welke acties u kunt ondernemen om de problemen op deze apparaten op te lossen. Ga verder met de praktische artikelen voor informatie over het verbinden van een fysiek apparaat met de oplossingsverbetering.
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * Gebruik de **onderhoud** pagina voor het onderzoeken van de waarschuwing
-> * Een apparaat methode aanroepen om het probleem oplossen
-
-Nu u hebt geleerd hoe problemen van apparaten te beheren, de voorgestelde volgende stap is te leren hoe u [testen van uw oplossing met gesimuleerde apparaten](iot-accelerators-remote-monitoring-test.md).
-
-<!-- Next tutorials in the sequence -->
+Nu u hebt geleerd hoe u problemen met apparaten aanpakt, is de volgende stap die we willen voorstellen het [verbinden van uw apparaat met de oplossingsverbetering voor externe controle](iot-accelerators-connecting-devices.md).

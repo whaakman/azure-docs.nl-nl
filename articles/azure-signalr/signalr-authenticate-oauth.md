@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c24e3045640471ed6ee7052f877850acd8e8cf00
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101015"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Zelfstudie: Verificatie van Azure SignalR-service
 
@@ -87,9 +88,10 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 ### <a name="update-the-startup-class-to-support-github-authentication"></a>De Startup-klasse bijwerken om ondersteuning voor GitHub-verificatie te bieden
 
-1. Voeg een verwijzing toe naar het meest recente pakket *Microsoft.AspNetCore.Authentication.Cookies* en zet alle pakketten terug.
+1. Voeg een verwijzing toe naar de meest recente pakketten van *Microsoft.AspNetCore.Authentication.Cookies* en *AspNet.Security.OAuth.GitHub* en zet alle pakketten terug.
 
         dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
         dotnet restore
 
 1. Open *Startup.cs* en voeg `using`-instructies toe voor de volgende naamruimten:
@@ -477,7 +479,7 @@ connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 #Add an app setting to the web app for the SignalR connection
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "Azure:SignalR:ConnectionString=$connstring" 
+    --settings "Azure__SignalR__ConnectionString=$connstring" 
 
 #Add the app settings to use with GitHub authentication
 az webapp config appsettings set --name $WebAppName \
@@ -587,7 +589,7 @@ Als u verder wilt gaan met de volgende zelfstudie, kunt u de resources die in de
 Als u niet verder wilt met de snelstart, kunt u de Azure-resources verwijderen die in deze snelstart zijn gemaakt om kosten te voorkomen. 
 
 > [!IMPORTANT]
-> Houd er rekening mee dat het verwijderen van een resourcegroep niet ongedaan kan worden gemaakt, en dat de resourcegroep en alle bijbehorende resources permanent worden verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blades.
+> Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. De resourcegroep en alle bijbehorende resources worden permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blade.
 > 
 > 
 
@@ -599,7 +601,7 @@ Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de 
 ![Verwijderen](./media/signalr-authenticate-oauth/signalr-delete-resource-group.png)
 
 
-U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep en klik op **Verwijderen**.
+U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep om te bevestigen en klik op **Verwijderen**.
    
 Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
 

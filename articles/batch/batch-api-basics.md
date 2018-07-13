@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 182d65ea955cfa2cac611080c30e145c26284369
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 3fe0d3836046ad143e746503210099ee5c640a08
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751476"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129095"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
@@ -46,7 +46,7 @@ De volgende werkstroom op hoog niveau is gangbaar voor bijna alle toepassingen e
 In de volgende secties worden deze en andere resources van Batch besproken waarmee u uw gedistribueerde rekenkundige scenario kunt uitvoeren.
 
 > [!NOTE]
-> U hebt een [Batch-account](#account) nodig om de Batch-service te kunnen gebruiken. Voor de meeste Batch-oplossingen wordt ook een gekoppeld [Azure-opslagaccount][azure_storage] gebruikt om bestanden op te slaan en op te halen. 
+> U hebt een [Batch-account](#account) nodig om de Batch-service te kunnen gebruiken. Voor de meeste Batch-oplossingen wordt ook een gekoppeld [Azure Storage][azure_storage]-account gebruikt om bestanden op te slaan en op te halen. 
 >
 >
 
@@ -75,7 +75,7 @@ U kunt in één Batch-account meerdere Batch-workloads uitvoeren of uw workloads
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-## <a name="azure-storage-account"></a>Azure-opslagaccount
+## <a name="azure-storage-account"></a>Azure Storage-account
 
 Bij de meeste Batch-oplossingen wordt gebruikgemaakt van Azure Storage om resourcebestanden en uitvoerbestanden op te slaan. Uw Batch-taken (inclusief standaardtaken, begintaken, jobvoorbereidingstaken en jobvrijgevingstaken) geven bijvoorbeeld gewoonlijk bronbestanden op die zich in een opslagaccount bevinden.
 
@@ -421,7 +421,7 @@ Zie [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-s
 >
 
 ## <a name="security-with-certificates"></a>Beveiliging met certificaten
-Certificaten gebruikt u doorgaans bij het versleutelen of ontsleutelen van gevoelige gegevens voor taken, zoals de sleutel voor een [Azure-opslagaccount][azure_storage]. Ter ondersteuning hiervan installeert u certificaten op knooppunten. Versleutelde geheimen worden via opdrachtregelparameters doorgegeven aan taken of worden ingesloten in een van de taakresources. De geïnstalleerde certificaten kunnen dan worden gebruikt om ze te ontsleutelen.
+Certificaten gebruikt u doorgaans bij het versleutelen of ontsleutelen van gevoelige gegevens voor taken, zoals de sleutel voor een [Azure Storage-account][azure_storage]. Ter ondersteuning hiervan installeert u certificaten op knooppunten. Versleutelde geheimen worden via opdrachtregelparameters doorgegeven aan taken of worden ingesloten in een van de taakresources. De geïnstalleerde certificaten kunnen dan worden gebruikt om ze te ontsleutelen.
 
 U gebruikt de bewerking [Certificaat toevoegen][rest_add_cert] (Batch REST) of de methode [CertificateOperations.CreateCertificate][net_create_cert] (Batch .NET) om een certificaat aan een Batch-account toe te voegen. Daarna kunt u het certificaat aan een nieuwe of bestaande pool koppelen. Wanneer een certificaat aan een pool is gekoppeld, wordt het door de Batch-service in elk knooppunt in de pool geïnstalleerd. De Batch-service installeert de juiste certificaten wanneer het knooppunt wordt gestart, voordat er een taak wordt gestart (met inbegrip van begintaken en jobbeheertaken).
 
@@ -437,7 +437,7 @@ Taakfouten kunnen worden onderverdeeld in deze categorieën:
 
     Als een taak niet kan worden gestart, wordt een voorverwerkingsfout voor de taak ingesteld.  
 
-    Voorwerkingsfouten kunnen optreden doordat bestanden zijn verplaatst, doordat het opslagaccount niet langer beschikbaar is of doordat een ander probleem ertoe heeft geleid dat bestanden niet naar het knooppunt kunnen worden gekopieerd.
+    Voorverwerkingsfouten kunnen optreden doordat bestanden zijn verplaatst, doordat het opslagaccount niet langer beschikbaar is of doordat een ander probleem ertoe heeft geleid dat bestanden niet naar het knooppunt kunnen worden gekopieerd.
 
 * **Fouten bij uploaden van bestand**
 
@@ -506,8 +506,7 @@ In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of
 * Meer informatie over de [Batch-API's en -hulpprogramma's](batch-apis-tools.md) die beschikbaar zijn voor het bouwen van Batch-oplossingen.
 * Stapsgewijs een Batch-voorbeeld-app doorlopen in [Aan de slag met de Azure Batch-bibliotheek voor .NET](batch-dotnet-get-started.md). Er is ook een [Python-versie](batch-python-tutorial.md) van de zelfstudie waarin een workload in Linux-rekenknooppunten wordt uitgevoerd.
 * Download en installeer [BatchLabs][batch_labs] voor gebruik bij het ontwikkelen van uw Batch-oplossingen. Gebruik BatchLabs bij het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. 
-* Leren hoe u [pools kunt maken van Linux-rekenknooppunten](batch-linux-nodes.md).
-* Een bezoek brengen aan het [Azure Batch-forum][batch_forum] op MSDN. Het forum is een goede plaats om vragen te stellen, of u nu net begint met Batch of een expert bent in het gebruik hiervan.
+* Zie de bronnen van de community met inbegrip van [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), de [Batch Community-opslagplaats](https://github.com/Azure/Batch) en het [Azure Batch-forum][batch_forum] op MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

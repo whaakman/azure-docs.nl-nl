@@ -1,7 +1,7 @@
 ---
 title: Een app met meerdere containers (preview) maken in Azure-Web App for Containers met behulp van een configuratie van Docker Compose
 description: Uw eerste app met meerdere containers binnen enkele minuten implementeren in Azure Web-App for Containers
-keywords: azure app service, web-app, linux, docker, compose, multicontainer, container, kubernetes
+keywords: azure-appservice, web-app, linux, docker, compose, multicontainer, meerdere containers, web-app voor containers, meerdere containers, container, kubernetes, wordpress, azure db voor mysql, productiedatabase met containers
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,20 +15,20 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ec5c92415668c925fe360c0c8887fd792a121842
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: bf567402a66f9152c7eb9b97925fec2a159ffe56
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753710"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127417"
 ---
-# <a name="create-a-multicontainer-preview-app-using-web-app-for-containers"></a>Een app met meerdere containers (preview) maken in Web App for Containers
+# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Een app met meerdere containers (preview) maken in Web App for Containers
 
-Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. Deze snelstartgids laat zien hoe u een app met meerdere containers implementeert in Web App for Containers in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) met behulp van een configuratie van Docker Compose. Volg voor Kubernetes de stappen in de [zelfstudie voor meerdere containers](tutorial-multi-container-app.md).
+Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. Deze snelstart laat zien hoe u een app met meerdere containers implementeert in Web App for Containers in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) met behulp van een configuratie van Docker Compose. Voor Kubernetes en een volledige end-to-end-oplossing met behulp van Azure DB voor MySQL, volgt u de [meerdere containers zelfstudie](tutorial-multi-container-app.md).
 
-U gaat deze Quickstart in Cloud Shell doen, maar u kunt deze opdrachten ook lokaal uitvoeren met [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 of hoger). In deze snelstartgids wordt een configuratiebestand voor Docker Compose gebruikt.
+U gaat deze snelstart in Cloud Shell doen, maar u kunt deze opdrachten ook lokaal uitvoeren met [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 of hoger). 
 
-![Voorbeeld van app met meerdere containers in Web App for Containers][1]
+![Voorbeeld-app met meerdere containers in Web App for Containers][1]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,11 +36,11 @@ U gaat deze Quickstart in Cloud Shell doen, maar u kunt deze opdrachten ook loka
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-Voor deze snelstartgids gebruikt u het samenstellingsbestand van [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), maar bewerkt u dit zo dat hierin Azure Database for MySQL, permanente opslag en Redis worden opgenomen. U vindt het configuratiebestanden in [Azure-voorbeelden](https://github.com/Azure-Samples/multicontainerwordpress).
+Voor deze snelstart gebruikt u het Opstellen-bestand van [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). U vindt het configuratiebestand in [Azure-voorbeelden](https://github.com/Azure-Samples/multicontainerwordpress).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
-Maak een map 'quickstart' in de Cloud Shell en ga er vervolgens naartoe.
+Maak een map 'snelstart' in de Cloud Shell en ga er vervolgens naartoe.
 
 ```bash
 mkdir quickstart
@@ -48,10 +48,12 @@ mkdir quickstart
 cd quickstart
 ```
 
-Voer vervolgens de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen naar de map 'quickstart'.
+Voer vervolgens de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen naar de map 'snelstart'. Ga vervolgens maar de map `multicontainerwordpress`.
 
 ```bash
 git clone https://github.com/Azure-Samples/multicontainerwordpress
+
+cd multicontainerwordpress
 ```
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
@@ -100,11 +102,9 @@ Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informa
 
 ## <a name="create-a-docker-compose-app"></a>Een Docker Compose-app maken
 
-Ga in Cloud Shell naar de map `multicontainerwordpress`. Maak een [web-app](app-service-linux-intro.md) met meerdere containers in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
+Maak in de Cloud Shell-terminal een [web-app](app-service-linux-intro.md) met meerdere containers in het `myAppServicePlan` App Service-plan met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
 
 ```bash
-cd multicontainerwordpress
-
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 
@@ -129,7 +129,7 @@ Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in he
 
 Blader naar de geïmplementeerde app in (`http://<app_name>.azurewebsites.net`). Het laden van de app kan een paar minuten duren. Als u een foutbericht ontvangt, wacht u een paar minuten en vernieuwt u de browser.
 
-![Voorbeeld van app met meerdere containers in Web App for Containers][1]
+![Voorbeeld-app met meerdere containers in Web App for Containers][1]
 
 **Gefeliciteerd**, u hebt een app met meerdere containers gemaakt in Web App for Containers.
 

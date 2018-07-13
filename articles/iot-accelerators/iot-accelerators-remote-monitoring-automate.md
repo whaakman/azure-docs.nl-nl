@@ -1,155 +1,154 @@
 ---
-title: Problemen met apparaat detecteren in Azure-externe controle oplossing - | Microsoft Docs
-description: Deze zelfstudie laat zien hoe u regels en acties automatisch detecteren op basis van drempelwaarden apparaat problemen in de oplossing voor externe controle.
+title: Problemen met apparaten detecteren in een Azure-oplossing voor externe bewaking | Microsoft Docs
+description: In deze zelfstudie leert u hoe u regels en acties kunt gebruiken voor het automatisch detecteren van problemen met apparaten op basis van een drempelwaarde in de oplossing voor externe bewaking.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
-services: iot-suite
-ms.date: 05/01/2018
-ms.topic: conceptual
-ms.openlocfilehash: df1ba7909c64e8ccc24bcf3584bd28b2629f49ff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+services: iot-accelerators
+ms.date: 06/08/2018
+ms.topic: tutorial
+ms.custom: mvc
+ms.openlocfilehash: 1e3eaeec1d2eae3c36f285a3e4c536657504cbb8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627310"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098478"
 ---
-# <a name="detect-issues-using-threshold-based-rules"></a>Problemen met behulp van regels op basis van drempelwaarden detecteren
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Problemen detecteren met apparaten die zijn verbonden met uw bewakingsoplossing
 
-Deze zelfstudie ziet de mogelijkheden van de motor regels in de oplossing voor externe controle. De zelfstudie maakt ter introductie van het volgen van deze mogelijkheden gebruik van een scenario in de Contoso IoT-toepassing.
+In deze zelfstudie configureert u de oplossingsversneller voor externe bewaking om problemen met verbonden IoT-apparaten te detecteren. Voor het detecteren van problemen met uw apparaten voegt u regels toe waarmee meldingen in het dashboard van de oplossing worden gegenereerd.
 
-Contoso heeft een regel die een kritieke waarschuwing wordt gegenereerd wanneer de druk gemeld door een **Koelunit** apparaat is groter dan 250 PSI. Als operator die u wilt identificeren **Koelunit** apparaten waarvoor problematisch sensoren door te zoeken naar eerste Druk pieken. Deze om apparaten te identificeren, moet u een regel voor het genereren van een waarschuwing wanneer de druk groter is dan 150 PSI maken.
+Om u kennis te laten maken met regels en meldingen, maakt de zelfstudie gebruik van een gesimuleerde koeler (chiller). De chiller wordt beheerd door een organisatie met de naam Contoso en is verbonden met de oplossingsversneller voor externe bewaking. Contoso heeft al een regel waarmee een kritieke melding wordt gegenereerd wanneer de druk in een chiller 298 PSI overschrijdt. Als operator bij Contoso wilt u chillers met problematische sensoren identificeren door te zoeken naar initiële drukpieken. U kunt dergelijke apparaten identificeren door een regel toe te voegen waarmee een melding wordt gegenereerd wanneer de druk in de chiller hoger wordt dan 150 PSI.
 
-U hebt ook is gemeld dat een kritieke waarschuwing moet worden geactiveerd wanneer de gemiddelde vochtigheid van de **Koelunit** apparaat in de afgelopen vijf minuten is groter dan 80% en de temperatuur van de **Koelunit** apparaat in de afgelopen vijf minuten is groter dan 75 graden fahrenheit.
+U bent ook gevraagd een kritieke melding voor een chiller te maken wanneer in de laatste vijf minuten de gemiddelde vochtigheid in het apparaat hoger was dan 80% en de temperatuur van het apparaat hoger dan 75 graden Fahrenheit.
 
 In deze zelfstudie leert u het volgende:
 
 >[!div class="checklist"]
 > * De regels in uw oplossing weergeven
-> * Een nieuwe regel maken
-> * Een nieuwe regel maken met meerdere voorwaarden
-> * Een bestaande regel bewerken
-> * Een regel verwijderen
+> * Een regel maken
+> * Een regel met meerdere voorwaarden maken
+> * Een bestaande rol bewerken
+> * Regels in- en uitschakelen
 
 ## <a name="prerequisites"></a>Vereisten
 
-Volg deze zelfstudie, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
+Voor deze zelfstudie hebt u een geïmplementeerd exemplaar van de oplossingsversneller voor externe bewaking in uw Azure-abonnement nodig.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossingsverbetering voor externe controle nog niet hebt geïmplementeerd, voltooit u eerst de snelstart [Een cloudoplossing voor externe controle implementeren](quickstart-remote-monitoring-deploy.md).
 
-## <a name="view-the-rules-in-your-solution"></a>De regels in uw oplossing weergeven
+## <a name="view-the-existing-rules"></a>De bestaande regels weergeven
 
-De **regels** pagina in de oplossing geeft een lijst met de huidige regels:
+De pagina **Regels** in de oplossingsversneller geeft een lijst van de huidige regels weer:
 
-![Regels en acties pagina](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2.png)
+[![Pagina Regels](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-Om weer te geven alleen de regels die betrekking hebben op **Koelunit** apparaten, een filter toepassen:
+Als u alleen de regels wilt zien die betrekking hebben op chillers, moet u een filter toepassen:
 
-![De lijst met regels filteren](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2.png)
+[![De lijst met regels filteren](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
 
-U kunt meer informatie over een regel bekijken en bewerken wanneer u deze in de lijst selecteert:
+U kunt meer informatie over een regel bekijken en deze bewerken wanneer u de regel in de lijst selecteert:
 
-![Details van de regel weergeven](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2.png)
+[![Regeldetails weergeven](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
 
-Als u wilt uitschakelen, inschakelen of verwijderen van een of meer regels, selecteert u meerdere regels in de lijst:
+Als u een of meer regels wilt in- of uitschakelen, selecteert u een of meer regels in de lijst:
 
-![Meerdere regels selecteren](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2.png)
+[![Meerdere regels selecteren](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
-## <a name="create-a-new-rule"></a>Een nieuwe regel maken
+## <a name="create-a-rule"></a>Een regel maken
 
-Toevoegen van een nieuwe regel waarvoor wordt een waarschuwing gegenereerd wanneer de druk in een **Koelunit** apparaat groter is dan 150 PSI, kiest u **nieuwe regel**:
-
-![Regel maken](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2.png)
-
-De volgende waarden gebruiken om de regel te maken:
+Als u een regel wilt maken waarmee een waarschuwing wordt gegenereerd wanneer de druk in een chiller hoger wordt dan 150 PSI, klikt u op **Nieuwe regel**. Gebruik de volgende waarden om de regel te maken:
 
 | Instelling          | Waarde                                 |
 | ---------------- | ------------------------------------- |
-| Regelnaam        | Koelunit waarschuwing                       |
-| Beschrijving      | Druk Koelunit heeft 150 PSI overschreden |
-| Apparaatgroep     | **Chillers** apparaatgroep             |
-| Berekening      | Chatberichten                               |
-| Veld voorwaarde 1| pressure                              |
-| 1-voorwaardeoperator | Groter dan                      |
-| Waarde van 1 voorwaarde    | 150                               |
-| Serverity niveau  | Waarschuwing                               |
+| Regelnaam        | Waarschuwing voor chiller                       |
+| Beschrijving      | De druk in de chiller heeft 150 PSI overschreden |
+| Apparaatgroep     | **Chillers**-apparaatgroep             |
+| Berekening      | Direct                               |
+| Veld Voorwaarde 1| pressure                              |
+| Operator Voorwaarde 1 | Groter dan                      |
+| Waarde Voorwaarde 1    | 150                               |
+| Ernstniveau  | Waarschuwing                               |
 
-Kies voor het opslaan van de nieuwe regel **toepassen**.
+[![Waarschuwingsregel maken](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-expanded.png#lightbox)
 
-U kunt weergeven wanneer de regel wordt geactiveerd op de **regels** pagina of op de **Dashboard** pagina.
+Als u wilt de nieuwe regel wilt opslaan, klikt u op **Toepassen**.
 
-## <a name="create-a-new-rule-with-multiple-conditions"></a>Een nieuwe regel maken met meerdere voorwaarden
+U kunt zien wanneer de regel wordt geactiveerd op de pagina **Regels** of op de pagina **Dashboard**:
 
-Een nieuwe regel maken met meerdere voorwaarden die een kritieke genereert een waarschuwing wanneer de gemiddelde vochtigheid van de **Koelunit** apparaat in de afgelopen vijf minuten is groter dan 80% en de temperatuur van de **Koelunit** apparaat in de afgelopen vijf minuten is groter dan 75 graden fahrenheit, kiest u **nieuwe regel**:
+[![De waarschuwingsregel geactiveerd](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-![Mult-regel maken](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2.png)
+## <a name="create-a-rule-with-multiple-conditions"></a>Een regel met meerdere voorwaarden maken
 
-De volgende waarden gebruiken om de regel te maken:
+Klik op **Nieuwe regel**  als u een regel met meerdere voorwaarden wilt maken die een kritieke melding genereert wanneer in de laatste vijf minuten voor een chiller de gemiddelde vochtigheid hoger is dan 80% en de gemiddelde temperatuur hoger dan 75 graden Fahrenheit. Gebruik de volgende waarden om de regel te maken:
 
 | Instelling          | Waarde                                 |
 | ---------------- | ------------------------------------- |
-| Regelnaam        | Koelunit Vochtigheids- en kritieke temp    |
-| Beschrijving      | Vochtigheids- en temperatuurtelemetrie zijn essentieel |
-| Apparaatgroep     | **Chillers** apparaatgroep             |
-| Berekening      | Gemiddeld                               |
+| Regelnaam        | Kritieke vochtigheid en temp van chiller    |
+| Beschrijving      | Vochtigheid en temperatuur zijn kritiek |
+| Apparaatgroep     | **Chillers**-apparaatgroep             |
+| Berekening      | Average                               |
 | Periode      | 5                                     |
-| Veld voorwaarde 1| Vochtigheid                              |
-| 1-voorwaardeoperator | Groter dan                      |
-| Waarde van 1 voorwaarde    | 80                               |
-| Serverity niveau  | Kritiek                              |
+| Veld Voorwaarde 1| vochtigheid                              |
+| Operator Voorwaarde 1 | Groter dan                      |
+| Waarde Voorwaarde 1    | 80                                |
+| Ernstniveau  | Kritiek                              |
 
-De tweede als voorwaarde wilt toevoegen, klikt u op plusteken (+ voorwaarde toevoegen).
+[![Regel met meerdere voorwaarden maken - deel 1](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 
-![2-voorwaarde maken](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2.png)
-
-Gebruik de volgende waarden op de nieuwe voorwaarde:
+Als u wilt de tweede voorwaarde wilt toevoegen, klikt u op '+ Voorwaarde toevoegen'. Gebruik de volgende waarden voor de nieuwe voorwaarde:
 
 | Instelling          | Waarde                                 |
 | ---------------- | ------------------------------------- |
-| Veld voorwaarde 2| temperatuur                           |
-| Voorwaarde 2-operator | Groter dan                      |
-| Waarde van de voorwaarde 2    | 75                                |
+| Veld Voorwaarde 2| temperatuur                           |
+| Operator Voorwaarde 2 | Groter dan                      |
+| Waarde Voorwaarde 2    | 75                                |
 
-Kies voor het opslaan van de nieuwe regel **toepassen**.
+[![Regel met meerdere voorwaarden maken - deel 2](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
 
-U kunt weergeven wanneer de regel wordt geactiveerd op de **regels** pagina of op de **Dashboard** pagina.
+Als u wilt de nieuwe regel wilt opslaan, klikt u op **Toepassen**.
 
-## <a name="edit-an-existing-rule"></a>Een bestaande regel bewerken
+U kunt zien wanneer de regel wordt geactiveerd op de pagina **Regels** of op de pagina **Dashboard**:
 
-Als u wilt een wijziging aanbrengt aan een bestaande regel, selecteert u deze in de lijst met regels.
+[![Regel met meerdere voorwaarden geactiveerd](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-expanded.png#lightbox)
 
-![Regel voor het bewerken](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2.png)
+## <a name="edit-an-existing-rule"></a>Een bestaande rol bewerken
 
-<!--## Disable a rule
+Als u een bestaande regel wilt wijzigen, selecteert u de regel in de lijst met regels en klikt u op **Bewerken**:
 
-To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
+[![Regel bewerken](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-expanded.png#lightbox)
 
-![Disable rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable.png)
+## <a name="disable-a-rule"></a>Een regel uitschakelen
 
-You can enable and disable multiple rules at the same time if you select multiple rules in the list.-->
+Als u een regel tijdelijk wilt uitschakelen, kunt u dat doen in de lijst met regels. Selecteer de regel die u wilt uitschakelen en kies **Uitschakelen**. De **Status** van de regel in de lijst verandert om aan te geven dat de regel nu is uitgeschakeld. Een regel die u eerder hebt uitgeschakeld kunt u met behulp van dezelfde procedure weer inschakelen.
 
-<!--## Delete a rule
+[![Regel uitschakelen](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
+
+U kunt meerdere regels tegelijk in- en uitschakelen door meerdere regels in de lijst te selecteren.
+
+<!-- ## Delete a rule
 
 To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
 
 You can delete multiple rules at the same time if you select multiple rules in the list.-->
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Als u van plan bent verder te gaan naar de volgende zelfstudie, laat u de oplossingsversneller voor externe bewaking geïmplementeerd. Als u de kosten wilt verminderen voor het uitvoeren van de oplossingsversneller terwijl u deze niet gebruikt, kunt u de gesimuleerde apparaten in het deelvenster Instellingen stopzetten:
+
+[![Telemetrie onderbreken](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
+
+Wanneer u bent klaar om te beginnen met de volgende zelfstudie, kunt u de gesimuleerde apparaten opnieuw opstarten.
+
+Als u de oplossingsversneller niet meer nodig hebt, verwijdert u deze van de pagina [Ingerichte oplossingen](https://www.azureiotsolutions.com/Accelerators#dashboard):
+
+![Oplossing verwijderen](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Deze zelfstudie hebt u geleerd hoe naar:
+In deze zelfstudie hebt u geleerd hoe u de pagina **Regels** in de oplossingsversneller voor externe bewaking kunt gebruiken voor het maken en beheren van regels die meldingen in de oplossing activeren. Voor informatie over het gebruik van de oplossingsversneller voor het beheren en configureren van uw verbonden apparaten, gaat u verder met de volgende zelfstudie.
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * De regels in uw oplossing weergeven
-> * Een nieuwe regel maken
-> * Een bestaande regel bewerken
-> * Een regel verwijderen
-
-U hebt geleerd hoe u problemen met regels op basis van drempelwaarden detecteren, de voorgestelde volgende stappen zijn voor meer informatie over hoe:
-
-* [Uw apparaten beheren en configureren](iot-accelerators-remote-monitoring-manage.md).
-* [Problemen oplossen en het oplossen van problemen met apparaat](iot-accelerators-remote-monitoring-maintain.md).
-* [Testen van uw oplossing met gesimuleerde apparaten](iot-accelerators-remote-monitoring-test.md).
-
-<!-- Next tutorials in the sequence -->
+> [!div class="nextstepaction"]
+> [Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing](iot-accelerators-remote-monitoring-manage.md)

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2b9644b8cfdcca9c9ded7890e325fe9488c9511f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 89cf9c9034c03b6ca51aca4bd2c4cd6edb8bcc13
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061107"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084226"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>De Azure-SSIS-integratieruntime inrichten in Azure Data Factory
 Deze zelfstudie bevat de stappen voor het gebruik van Azure Portal om een Azure SSIS-integratieruntime (IR) in te richten in Azure Data Factory. U kunt SQL Server Data Tools of SQL Server Management Studio dan gebruiken om pakketten van SQL Server Integration Services (SSIS) te implementeren en uit te voeren in deze runtime van Azure. Zie [Overzicht van integratieruntime in Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime) voor algemene informatie over een Azure-SSIS IR.
@@ -39,8 +39,8 @@ In deze zelfstudie voert u de volgende stappen uit:
 - Controleer of uw Azure SQL Database-server geen SSIS-catalogus (SSISDB-database) heeft. Het inrichten van een Azure-SSIS-IR biedt geen ondersteuning voor het gebruik van een bestaande SSIS-catalogus. 
 
 > [!NOTE]
-> - U kunt een gegevensfactory maken in de volgende regio's: VS - oost, VS - oost 2, Zuidoost-Azië en West-Europa. 
-> - U kunt een Azure-SSIS-IR maken in de volgende regio's: VS - oost, VS - oost 2, VS - midden, VS - west 2, Noord-Europa, West-Europa, UK - zuid en Australië - oost. 
+> - Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). 
+> - Voor een lijst met Azure-regio’s waarin Azure-SSIS Integration Runtime momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent. Vervolgens vouwt u **Analytics** uit en gaat u naar **SSIS Integration Runtime**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). 
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 

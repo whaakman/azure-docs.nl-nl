@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 06/14/2018
 ms.author: srinia
-ms.openlocfilehash: a15a64c1ccf1e40179a46baf9815f669ac4adfde
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: b2cbf7501b3c5006c7504c7af7d70c14035cfc74
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751125"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113354"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Groepen van databases beheren met Taken voor Elastic Database
 
@@ -60,7 +60,7 @@ De volgende afbeelding toont hoe een taakagent taken uitvoert op verschillende s
 |[**Elastische-taakagent**](#elastic-job-agent) |  De Azure-resource die u maakt om taken uit te voeren en te beheren.   |
 |[**Taakdatabase**](#job-database)    |    Een Azure SQL-database die de taakagent gebruikt om taakgerelateerde gegevens, taakdefinities, enzovoort op te slaan.      |
 |[**Doelgroep**](#target-group)      |  De verzameling servers, pools, databases en shardkaarten waarvoor een taak moet worden uitgevoerd.       |
-|[**Job**](#job)  |  Een taak is een werkeenheid die uit een of meer [taakstappen](#job-step) bestaat. Taakstappen bepalen welk T-SQL-script moet worden uitgevoerd en andere details die nodig zijn voor het uitvoeren van het script.  |
+|[**Taak**](#job)  |  Een taak is een werkeenheid die uit een of meer [taakstappen](#job-step) bestaat. Taakstappen bepalen welk T-SQL-script moet worden uitgevoerd en andere details die nodig zijn voor het uitvoeren van het script.  |
 
 
 ### <a name="elastic-job-agent"></a>Elastische-taakagent
@@ -112,7 +112,7 @@ Pools en individuele databases kunnen worden opgegeven als ingesloten in of uitg
 Een doelgroep kan databases in meerdere abonnementen en uit meerdere regio's bevatten. Regio-overschrijdende uitvoeringen hebben echter wel een hogere latentie dan uitvoeringen binnen dezelfde regio.
 
 
-### <a name="job"></a>Job
+### <a name="job"></a>Taak
 
 Een *taak* is een werkeenheid die wordt uitgevoerd volgens een schema of als een eenmalige taak. Een taak bestaat uit een of meer *taakstappen*.
 
@@ -161,7 +161,7 @@ Het instellen van de juiste referenties voor het uitvoeren van een taak kan enig
 
 De volgende afbeelding is gemaakt als hulp bij het begrijpen en instellen van de juiste taakreferenties. **Denk eraan dat de gebruiker moet worden gemaakt in elke database (alle *doelgebruikersdatabases*) waarin de taak moet worden uitgevoerd**.
 
-![Referenties voor elastische taken](media/elastic-jobs-overview/job-credentials.png)
+![Referenties voor Elastic Jobs](media/elastic-jobs-overview/job-credentials.png)
 
 ## <a name="security-best-practices"></a>Aanbevolen procedures voor beveiliging
 

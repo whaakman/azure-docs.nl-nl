@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ad2895a457a20632823260f2429ac95fad82089c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060192"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081384"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Zelfstudie: Azure Stream Analytics implementeren als een IoT Edge-module (preview)
 
@@ -128,7 +128,7 @@ U bent nu klaar om de Azure Stream Analytics-taak te implementeren op uw IoT Edg
    Als u de tempSensor-module al eerder op dit apparaat hebt geïmplementeerd, wordt deze mogelijk automatisch ingevuld. Als dit niet het geval is, voegt u de module toe met behulp van de volgende stappen:
 
    1. Klik op **Toevoegen** en selecteer **IoT Edge-module**.
-   2. Typ **tempsensor** als de naam.
+   2. Typ **tempSensor** als de naam.
    3. Voer **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0** in als de URI voor de installatiekopie. 
    4. Laat de overige instellingen ongewijzigd.
    5. Selecteer **Opslaan**.

@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/22/2018
+ms.date: 07/03/2018
 ms.author: hux
-ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335768"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445418"
 ---
 # <a name="azure-storage-account-options"></a>Opties voor Azure Storage-account
 
@@ -46,7 +46,10 @@ GPv2-opslag-accounts geven het kenmerk **Toegangslaag** op accountniveau weer. D
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Een upgrade van een opslagaccount naar GPv2 uitvoeren
 
-Gebruikers kunnen op elk gewenst moment een GPv1- of Blob Storage-account upgraden naar een GPv2-account via PowerShell of Azure CLI. Deze wijziging kan niet ongedaan worden gemaakt en er zijn geen andere wijzigingen toegestaan.
+Gebruikers kunnen op ieder moment een GPv1- of Blob-opslagaccount upgraden naar een GPv2-account via Azure Portal, PowerShell of Azure CLI. Deze wijziging kan niet ongedaan worden gemaakt en er zijn geen andere wijzigingen toegestaan.
+
+#### <a name="upgrade-with-azure-portal"></a>Een upgrade uitvoeren in Azure Portal
+Als u een GPv1- of Blob-opslagaccount wilt upgraden naar een GPv2-account met behulp van Azure Portal, meldt u zich aan bij [Azure Portal](https://portal.azure.com) en selecteert u uw opslagaccount. Selecteer **Instellingen** > **Configuratie**. U ziet nu de knop **Upgrade uitvoeren**, samen met een opmerking over het upgradeproces.
 
 #### <a name="upgrade-with-powershell"></a>Een upgrade uitvoeren met PowerShell
 
@@ -262,9 +265,9 @@ De overdrachtskosten van geo-replicatiegegevens voor Blob Storage-accounts kan o
 
 ## <a name="migrating-existing-data"></a>Bestaande gegevens migreren
 
-Upgraden van een GPv1-account naar GPv2 kan gemakkelijk zonder uitvaltijd of API-wijzigingen en zonder de noodzaak om gegevens te migreren. Daarom wordt het ten zeerste aanbevolen GPv1-accounts naar GPv2-accounts te migreren in plaats van naar Blob Storage-accounts.
+Een GPv1- of Blob-opslagaccount kan gemakkelijk worden bijgewerkt naar GPv2, zonder uitvaltijd of API-wijzigingen en zonder de noodzaak om gegevens te migreren. Daarom wordt het ten zeerste aanbevolen GPv1-accounts naar GPv2-accounts te migreren in plaats van naar Blob Storage-accounts. Zie het Engelstalige artikel [Upgrade a storage account to GPv2](#upgrade-a-storage-account-to-gpv2) voor meer informatie over het bijwerken naar GPv2.
 
-Echter, als u naar een Blob Storage-account wilt migreren en geen GPv2-accounts kunt gebruiken, kunt u de volgende instructies volgen. 
+Als u echter een GPv1-account wilt migreren naar een Blob-opslagaccount en u geen GPv2-accounts kunt gebruiken, kunt u de volgende instructies volgen. 
 
 Een Blob Storage-account is speciaal bedoeld voor het opslaan van blok-blobs en toevoeg-blobs. Bestaande opslagaccounts voor algemeen gebruik, waarin u naast blobs ook tabellen, wachtrijen, bestanden en schijven kunt opslaan, kunnen niet worden geconverteerd naar Blob Storage-accounts. Als u gebruik wilt maken van de toegangslagen, maakt u nieuwe Blob Storage-accounts en migreert u de bestaande gegevens naar deze nieuwe accounts. 
 

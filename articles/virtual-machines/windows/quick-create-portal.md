@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c28686c3b6494a0cf8938d39ab9b8338de7aa0c1
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d5f44c634b953194ad4f112722d82f282d8c8f1a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444606"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Snelstart: Een virtuele Windows-machine maken op de Azure Portal
 
@@ -28,7 +29,7 @@ Virtuele Azure-machines (VM's)kunnen worden gemaakt via Azure Portal. Deze metho
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Meld u aan bij Azure Portal op https://portal.azure.com.
 
@@ -42,13 +43,13 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
     ![Voer basisinformatie over uw virtuele machine in op de portalblade](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. Kies voor het maken van een **nieuwe** resourcegroep en geef vervolgens een naam op, zoals *myResourceGroup*. Kies de gewenste **locatie** en selecteer dan **OK**.
+5. Kies voor het maken van een **nieuwe** resourcegroep en geef vervolgens een naam op, zoals *myResourceGroup*. Kies uw **locatie** en selecteer dan **OK**.
 
-4. Selecteer een grootte voor de VM. U kunt bijvoorbeeld filteren op *Rekentype* of *Schijftype*. Een voorgestelde VM-grootte is *D2s_v3*.
+4. Selecteer een grootte voor de VM. U kunt bijvoorbeeld filteren op *Rekentype* of *Schijftype*. Een voorgestelde VM-grootte is *D2s_v3*. Klik op **Selecteren** nadat u een grootte hebt gekozen.
 
     ![Schermopname van VM-grootten](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. Laat onder **Instellingen** alle standaardwaarden staan en selecteer **OK**.
+5. Ga op de pagina **Instellingen** naar **Netwerk** > **Netwerkbeveiligingsgroep** > **Openbare binnenkomende poorten selecteren**, en selecteer **HTTP** en **RDP (3389)** in de vervolgkeuzelijst. Laat de overige standaardwaarden staan en selecteer **OK**.
 
 6. Selecteer **Maken** op de overzichtspagina om de implementatie van de VM te starten.
 
@@ -66,9 +67,9 @@ Maak via een extern bureaublad verbinding met de virtuele machine. Deze instruct
 
 2. Open het gedownloade RDP-bestand en klik op **Verbinden** wanneer dit wordt gevraagd. 
 
-3. Selecteer in het venster **Windows-beveiliging** **Meer opties** en vervolgens **Een ander account gebruiken**. Typ de gebruikersnaam als  *vmname*\*username* en voer het wachtwoord in dat u hebt gemaakt voor de virtuele machine en klik vervolgens op **OK**.
+3. Selecteer in het venster **Windows-beveiliging** **Meer opties** en vervolgens **Een ander account gebruiken**. Typ de gebruikersnaam als *naamvanvm*\*gebruikersnaam*, voer het wachtwoord in dat u hebt gemaakt voor de virtuele machine en klik vervolgens op **OK**.
 
-4. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Klik op **Ja** of **Doorgaan** om door te gaan met de verbinding.
+4. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Klik op **Ja** of **Doorgaan** om de verbinding te maken.
 
 ## <a name="install-web-server"></a>Webserver installeren
 
@@ -80,18 +81,10 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 Wanneer u klaar bent, sluit u de externe-bureaubladverbinding met de virtuele machine.
 
-## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer
-
-Een netwerkbeveiligingsgroep (NSG) beveiligt binnenkomend en uitgaand verkeer. Wanneer een VM wordt gemaakt in de Azure Portal, wordt een inkomende regel gemaakt op poort 3389 voor RDP-verbindingen. Omdat deze VM fungeert als host voor een webserver, moet een NSG-regel worden gemaakt voor poort 80.
-
-1. Selecteer **Netwerken** op de overzichtspagina van de VM.
-2. De lijst met bestaande regels voor binnenkomend en uitgaand verkeer worden weergegeven. Kies **Regel voor binnenkomende poort toevoegen**.
-3. Selecteer de optie **Basic** bovenaan en kies vervolgens *HTTP* in de lijst met beschikbare services. Poort 80, een prioriteit en een naam worden voor u ingevuld.
-4. Selecteer **Toevoegen** om de regel te maken.
 
 ## <a name="view-the-iis-welcome-page"></a>De welkomstpagina van IIS weergeven
 
-Nu IIS is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van IIS weer te geven. Gebruik het openbare IP-adres van uw VM dat is verkregen in een vorige stap. In het volgende voorbeeld ziet u de IIS-standaardwebsite:
+Selecteer de VM in de portal en gebruik in het overzicht van de VM de knop **Klik om te kopiëren** rechts van het IP-adres om het adres te kopiëren. Plak het adres vervolgens in een tabblad van de browser. De standaardwelkomstpagina van IIS wordt geopend en deze ziet er als volgt uit:
 
 ![Standaardsite van IIS](./media/quick-create-powershell/default-iis-website.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: b9cf3ae3417b993cd721460484d6228daf7b283c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627344"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097893"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snelstartgids: Aan de slag met Hadoop en Hive in Azure HDInsight met behulp van Azure Portal
 
@@ -80,7 +80,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
     
     |Eigenschap  |Beschrijving  |
     |---------|---------|
-    |**Type van primaire opslag**     | Selecteer voor dit artikel **Azure Storage** om Azure Storage Blob te gebruiken als het standaardopslagaccount. U kunt ook Azure Data Lake Store gebruiken als standaardopslag. |
+    |**Type van primaire opslag**     | Selecteer voor dit artikel **Azure Storage** om Azure Storage Blob te gebruiken als het standaardopslagaccount. U kunt ook Azure Data Lake Storage gebruiken als standaardopslag. |
     |**Selectiemethode**     |  Selecteer voor dit artikel **Mijn abonnementen** om een opslagaccount uit uw Azure-abonnement te gebruiken. Als u een opslagaccount uit andere abonnementen wilt gebruiken, selecteert u **Toegangssleutel** en geeft u vervolgens de toegangssleutel voor dat account op. |
     |**Een nieuw opslagaccount maken**     | Geef een naam op voor het opslagaccount.|
 
@@ -177,6 +177,7 @@ In deze zelfstudie hebt u geleerd hoe u een HDInsight-cluster op basis van Linux
 Als u klaar bent om te gaan werken met uw eigen gegevens en meer wilt weten over hoe HDInsight gegevens opslaat of hoe u gegevens in HDInsight krijgt, raadpleegt u de volgende artikelen:
 
 * Zie [Azure Storage gebruiken met HDInsight](../hdinsight-hadoop-use-blob-storage.md) voor meer informatie over hoe HDInsight Azure Storage gebruikt.
+* Zie [Snelstart: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) voor meer informatie over het maken van een HDInsight-cluster met Data Lake Storage
 * Zie [Gegevens uploaden naar HDInsight](../hdinsight-upload-data.md) voor meer informatie over het uploaden van gegevens naar HDInsight.
 
 Zie de volgende artikelen voor meer informatie over het analyseren van gegevens met HDInsight:

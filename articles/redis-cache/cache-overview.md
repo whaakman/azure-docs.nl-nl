@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 5efb0087c8e1ea55051d8eb7b209059b3abd5c5c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 585dcd120c42562b1520d4454f9d04e445553101
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062756"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096189"
 ---
 # <a name="what-is-azure-redis-cache"></a>Wat is Azure Redis Cache?
 
@@ -27,7 +27,7 @@ Azure Redis Cache is gebaseerd op de populaire open-source [Redis Cache](https:/
 
 Azure Redis Cache kan ook worden gebruikt als een gegevensstructuuropslag in het geheugen, een gedistribueerde niet-relationele database en een message broker. De prestaties van toepassingen worden verbeterd door gebruik te maken van de snelle gegevensdoorvoer met lage latentie van de Redis-engine.
 
-Azure Redis Cache geeft u toegang tot een beveiligde, toegewezen Redis-cache die wordt beheerd door Microsoft, wordt gehost in Azure en toegankelijk is voor elke toepassing binnen Azure.
+Azure Redis Cache biedt toegang tot een beveiligde, toegewezen Redis-cache die wordt beheerd in Microsoft, wordt gehost in Azure en toegankelijk is voor elke toepassing binnen of buiten Azure.
 
 ## <a name="why-use-azure-redis-cache"></a>Waarom zou u Azure Redis Cache gebruiken?
 

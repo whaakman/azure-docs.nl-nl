@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: df22040de398810fd9250ef46da2f95b6915c4a9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 11b2fccf3c02555f50f48252f2cd9968c9ec90d7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030655"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436086"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstart: Uw eerste IoT Edge-module van Azure Portal naar een Windows-apparaat implementeren - preview
 
@@ -23,13 +23,13 @@ In deze snelstart gebruikt u de cloudinterface van Azure IoT Edge om vooraf gesc
 In deze snelstart leert u de volgende zaken:
 
 1. Een IoT Hub maken.
-2. Een IoT Edge-apparaat registreren in uw IoT Hub.
+2. Een IoT Edge-apparaat registreren in uw IoT-hub.
 3. De IoT Edge-runtime op uw apparaat installeren en starten.
 4. Op afstand een module op een IoT Edge-apparaat implementeren en telemetrie naar IoT Hub verzenden.
 
 ![Zelfstudiearchitectuur][2]
 
-De module die u in deze zelfstudie implementeert, is een gesimuleerde sensor waarmee temperatuur-, luchtvochtigheids- en drukgegevens worden gegenereerd. De andere Azure IoT Edge-zelfstudies bouwen voort op het werk dat u hier doet door modules te implementeren waarmee de gesimuleerde gegevens worden geanalyseerd voor zakelijke inzichten. 
+De module die u in deze snelstart implementeert, is een gesimuleerde sensor waarmee temperatuur-, luchtvochtigheids- en drukgegevens worden gegenereerd. De andere Azure IoT Edge-zelfstudies bouwen voort op het werk dat u hier doet door modules te implementeren waarmee de gesimuleerde gegevens worden geanalyseerd voor zakelijke inzichten. 
 
 >[!NOTE]
 >De IoT Edge-runtime op Windows bevindt zich in [openbare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -45,14 +45,14 @@ Zorg dat de volgende vereisten klaarstaan op de computer die u gebruikt voor een
 1. Zorg ervoor dat u een ondersteunde versie van Windows gebruikt:
    * Windows 10 of later
    * Windows Server 2016 of later
-2. Installeer [Docker voor Windows][lnk-docker] en contoleer of het wordt uitgevoerd.
+2. Installeer [Docker voor Windows][lnk-docker] en contoleer of deze wordt uitgevoerd.
 3. Configureer Docker voor het gebruiken van [Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 U gebruikt de Azure CLI om veel van de stappen in deze snelstart uit te voeren, en Azure IoT heeft een extensie om extra functionaliteit in te schakelen. 
 
-Voeg de Azure IoT-extensie toe aan de cloudshell-instantie.
+Voeg de Azure IoT-extensie toe aan het exemplaar van Cloud Shell.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
@@ -60,12 +60,12 @@ Voeg de Azure IoT-extensie toe aan de cloudshell-instantie.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-Begin met de snelstart door uw IoT Hub in de Azure-portal te maken.
+Begin met de snelstart door uw IoT Hub in Azure Portal te maken.
 ![IoT Hub maken][3]
 
 Het gratis niveau van IoT Hub werkt voor deze snelstart. Als u in het verleden IoT Hub hebt gebruikt en al een gratis hub hebt gemaakt, kunt u die IoT-hub gebruiken. Elk abonnement biedt toegang tot slechts één gratis IoT-hub. 
 
-1. Maak een resourcegroep in de Azure-cloudshell. In het volgende voorbeeld wordt een resourcegroep met de naam **TestResources** gemaakt in de regio **US - west**. Door alle resources voor de snelstarts en zelfstudies in een groep te plaatsen, kunt u ze samen beheren. 
+1. Maak een resourcegroep in Azure Cloud Shell. In het volgende voorbeeld wordt een resourcegroep met de naam **TestResources** gemaakt in de regio **US - west**. Door alle resources voor de snelstarts en zelfstudies in een groep te plaatsen, kunt u ze samen beheren. 
 
    ```azurecli-interactive
    az group create --name TestResources --location westus
@@ -82,9 +82,9 @@ Het gratis niveau van IoT Hub werkt voor deze snelstart. Als u in het verleden I
 Registreer een IoT Edge-apparaat bij uw net gemaakte IoT Hub.
 ![Een apparaat registreren][4]
 
-Maak een apparaat-id voor uw gesimuleerde apparaat, zodat het met uw IoT Hub kan communiceren. Aangezien IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd dan typische IoT-apparaten, geeft u vanaf het begin aan dat dit een IoT Edge-apparaat is. 
+Maak een apparaat-id voor uw gesimuleerde apparaat, zodat het met uw IoT-hub kan communiceren. Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd dan typische IoT-apparaten, geeft u vanaf het begin aan dat dit een IoT Edge-apparaat is. 
 
-1. Voer in de Azure-cloudshell de volgende opdracht in om een ​​apparaat met de naam **myEdgeDevice** in uw hub te maken.
+1. Voer in Azure Cloud Shell de volgende opdracht in om een ​​apparaat met de naam **myEdgeDevice** in uw hub te maken.
 
    ```azurecli-interactive
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
@@ -185,24 +185,31 @@ Configureer de runtime met uw IoT Edge-apparaatverbindingsreeks die u hebt gekop
 
 5. Maak een omgevingsvariabele genaamd **IOTEDGE_HOST** en vervang *\<ip_address\>* door het IP-adres voor uw IoT Edge-apparaat. 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
+  
+  Zorg dat de omgevingsvariabele blijft behouden tijdens het opnieuw opstarten.
 
-6. Zoek in het bestand `config.yaml` het gedeelte **Connect settings** op. Werk de waarden **management_uri** en **workload_uri** bij met uw IP-adres en de poorten die u in het vorige gedeelte hebt geopend. 
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+
+6. Zoek in het bestand `config.yaml` het gedeelte **Connect settings** op. Werk de waarden **management_uri** en **workload_uri** bij met uw IP-adres en de poorten die u in het vorige gedeelte hebt geopend. Vervang **\<GATEWAY_ADDRESS\>** door uw IP-adres. 
 
    ```yaml
    connect: 
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address>:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 7. Zoek de sectie **Listen settings** op en voeg dezelfde waarden toe voor **management_uri** en **workload_uri**. 
 
    ```yaml
    listen:
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 8. Zoek de sectie **Moby Container Runtime-instellingen**op en controleer of de waarde voor **netwerk** is ingesteld op `nat`.

@@ -1,5 +1,5 @@
 ---
-title: Containerinstallatiekopieën maken voor Azure Service Fabric | Microsoft Docs
+title: Containerinstallatiekopieën maken voor Service Fabric in Azure| Microsoft Docs
 description: In deze zelfstudie leert u hoe u containerinstallatiekopieën maakt voor een Service Fabric-toepassing met meerdere containers.
 services: service-fabric
 documentationcenter: ''
@@ -7,7 +7,7 @@ author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: Docker, containers, Microservices, Service Fabric, Azure
+keywords: Docker, Containers, Microservices, Service Fabric, Azure
 ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
@@ -16,25 +16,25 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 13cf13ce4a1456731d08f356ca405119ce1a6480
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a2814ff299d1bfb003b6133e2b75b47a312f8728
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29558182"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114037"
 ---
-# <a name="tutorial-create-container-images-for-service-fabric"></a>Zelfstudie: containerinstallatiekopieën maken voor Service Fabric
+# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Zelfstudie: Containerinstallatiekopieën maken in een Service Fabric-cluster in Linux
 
-Deze zelfstudie is het eerste deel van een reeks zelfstudies waarin wordt gedemonstreerd hoe u containers gebruikt in een Linux Service Fabric-cluster. In deze zelfstudie wordt een toepassing met meerdere containers voorbereid voor gebruik met Service Fabric. In volgende zelfstudies worden deze installatiekopieën gebruikt als onderdeel van een Service Fabric-toepassing. In deze zelfstudie leert u het volgende: 
+Deze zelfstudie is het eerste deel van een reeks zelfstudies waarin wordt gedemonstreerd hoe u containers gebruikt in een Linux Service Fabric-cluster. In deze zelfstudie wordt een toepassing met meerdere containers voorbereid voor gebruik met Service Fabric. In volgende zelfstudies worden deze installatiekopieën gebruikt als onderdeel van een Service Fabric-toepassing. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een toepassingsbron klonen vanuit GitHub  
+> * Een toepassingsbron klonen vanuit GitHub
 > * Een containerinstallatiekopie maken uit de toepassingsbron
 > * Een ACR-exemplaar (Azure Container Registry) implementeren
 > * Een containerinstallatiekopie voor ACR taggen
 > * De installatiekopie uploaden naar ACR
 
-In deze zelfstudie leert u het volgende: 
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Containerinstallatiekopieën maken voor Service Fabric
@@ -43,13 +43,13 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Er moet een Linux-ontwikkelomgeving zijn ingesteld voor Service Fabric. Volg [deze instructies](service-fabric-get-started-linux.md) voor het instellen van de Linux-omgeving. 
-- Voor deze zelfstudie moet u de versie Azure CLI 2.0.4 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
-- Bovendien moet u beschikken over een Azure-abonnement. Kijk [hier](https://azure.microsoft.com/free/) voor meer informatie over een gratis evaluatieversie.
+* Er moet een Linux-ontwikkelomgeving zijn ingesteld voor Service Fabric. Volg [deze instructies](service-fabric-get-started-linux.md) voor het instellen van de Linux-omgeving.
+* Voor deze zelfstudie moet u de versie Azure CLI 2.0.4 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+* Bovendien moet u beschikken over een Azure-abonnement. Kijk [hier](https://azure.microsoft.com/free/) voor meer informatie over een gratis evaluatieversie.
 
 ## <a name="get-application-code"></a>Toepassingscode ophalen
 
-De voorbeeldtoepassing die wordt gebruikt in deze zelfstudie, is een app om mee te stemmen. De toepassing bestaat uit een front-endwebonderdeel en een back-end-Redis-exemplaar. De onderdelen zijn verpakt in containerinstallatiekopieën. 
+De voorbeeldtoepassing die wordt gebruikt in deze zelfstudie, is een app om mee te stemmen. De toepassing bestaat uit een front-endwebonderdeel en een back-end-Redis-exemplaar. De onderdelen zijn verpakt in containerinstallatiekopieën.
 
 Gebruik git om een kopie van de toepassing te downloaden naar de ontwikkelomgeving.
 
@@ -59,11 +59,11 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-De oplossing bevat twee mappen en een bestand docker-compose.yml. De map azure-vote bevat de Python-front-endservice en ook het Dockerfile dat is gebruikt om de installatiekopie te bouwen. De map Voting bevat het Service Fabric-toepassingspakket dat is geïmplementeerd in het cluster. Deze mappen bevatten de benodigde activa voor deze zelfstudie.  
+De oplossing bevat twee mappen en een bestand docker-compose.yml. De map azure-vote bevat de Python-front-endservice en ook het Dockerfile dat is gebruikt om de installatiekopie te bouwen. De map Voting bevat het Service Fabric-toepassingspakket dat is geïmplementeerd in het cluster. Deze mappen bevatten de benodigde activa voor deze zelfstudie.
 
 ## <a name="create-container-images"></a>Containerinstallatiekopieën maken
 
-Voer in de map **azure-vote** de volgende opdracht uit om de installatiekopie voor het front-endwebonderdeel te bouwen. Deze opdracht maakt gebruik van het Dockerfile in deze map om de installatiekopie te bouwen. 
+Voer in de map **azure-vote** de volgende opdracht uit om de installatiekopie voor het front-endwebonderdeel te bouwen. Deze opdracht maakt gebruik van het Dockerfile in deze map om de installatiekopie te bouwen.
 
 ```bash
 docker build -t azure-vote-front .
@@ -86,13 +86,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry implementeren
 
-Voer eerst de opdracht **az login** uit om u aan te melden bij uw Azure-account. 
+Voer eerst de opdracht **az login** uit om u aan te melden bij uw Azure-account.
 
 ```bash
 az login
 ```
 
-Gebruik vervolgens de opdracht **az account** om het abonnement te kiezen waarin het Azure Container Registry moet worden gemaakt. U moet de abonnements-id van uw Azure-abonnement invoeren op de plek <abonnements-id>. 
+Gebruik vervolgens de opdracht **az account** om het abonnement te kiezen waarin het Azure Container Registry moet worden gemaakt. U moet de abonnements-id van uw Azure-abonnement invoeren op de plek <abonnements-id>.
 
 ```bash
 az account set --subscription <subscription_id>
@@ -106,13 +106,13 @@ Een resourcegroep maken met de opdracht **az group create**. In dit voorbeeld wo
 az group create --name <myResourceGroup> --location westus
 ```
 
-Maak een Azure Container Registry met de opdracht **az acr create**. Vervang \<acrName > door de naam van het containerregister dat u wilt maken in het abonnement. Deze naam moet alfanumeriek en uniek zijn. 
+Maak een Azure Container Registry met de opdracht **az acr create**. Vervang \<acrName > door de naam van het containerregister dat u wilt maken in het abonnement. Deze naam moet alfanumeriek en uniek zijn.
 
 ```bash
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-In de rest van deze zelfstudie wordt acrName gebruikt als tijdelijke aanduiding voor de naam van het gekozen containerregister. Noteer deze waarde. 
+In de rest van deze zelfstudie wordt acrName gebruikt als tijdelijke aanduiding voor de naam van het gekozen containerregister. Noteer deze waarde.
 
 ## <a name="log-in-to-your-container-registry"></a>Aanmelden bij het containerregister
 
@@ -164,7 +164,6 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 Voer na het taggen de opdracht docker images uit om de bewerking te controleren.
 
-
 Uitvoer:
 
 ```bash
@@ -210,13 +209,13 @@ Bij het voltooien van de zelfstudie is de containerinstallatiekopie opgeslagen i
 In deze zelfstudie is een toepassing opgehaald uit Github en zijn containerinstallatiekopieën gemaakt en naar een register gepusht. De volgende stappen zijn voltooid:
 
 > [!div class="checklist"]
-> * Een toepassingsbron klonen vanuit GitHub  
+> * Een toepassingsbron klonen vanuit GitHub
 > * Een containerinstallatiekopie maken uit de toepassingsbron
 > * Een ACR-exemplaar (Azure Container Registry) implementeren
 > * Een containerinstallatiekopie voor ACR taggen
 > * De installatiekopie uploaden naar ACR
 
-Ga naar de volgende zelfstudie voor informatie over het verpakken van containers in een Service Fabric-toepassing met behulp van Yeoman. 
+Ga naar de volgende zelfstudie voor informatie over het verpakken van containers in een Service Fabric-toepassing met behulp van Yeoman.
 
 > [!div class="nextstepaction"]
 > [Containers verpakken en implementeren als een Service Fabric-toepassing](service-fabric-tutorial-package-containers.md)
