@@ -1,34 +1,41 @@
 ---
-title: Sleutelkluis geheim met Azure Resource Manager-sjabloon | Microsoft Docs
-description: Laat zien hoe een geheim van een sleutelkluis als parameter doorgeven tijdens de implementatie.
+title: Key Vault-geheim met Azure Resource Manager-sjabloon | Microsoft Docs
+description: Laat zien hoe een geheim uit key vault als een parameter doorgeven tijdens implementatie.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a6c1f10b5a46633785d9c26a766df9334fe1cb0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3a29319a0d478537dfc4905ee77865b8fea64587
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359091"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598404"
 ---
-# <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Gebruik Azure Sleutelkluis beveiligde parameterwaarde worden doorgegeven tijdens de implementatie
+# <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault gebruiken voor veilige parameterwaarde doorgeven tijdens implementatie
 
-Wanneer u een beveiligde waarde (zoals een wachtwoord) als een parameter doorgeven tijdens de implementatie moet, kunt u de waarde van de ophalen een [Azure Key Vault](../key-vault/key-vault-whatis.md). De waarde wordt opgehaald door te verwijzen naar de sleutelkluis en geheim in de parameter-bestand. De waarde is nooit beschikbaar gemaakt, omdat u alleen verwijzen naar de sleutelkluis-ID. U hoeft niet de waarde handmatig invoeren voor het geheim telkens wanneer die u de resources implementeren. De sleutelkluis kan bestaan in een ander abonnement dan de resourcegroep die u implementeert. Wanneer u verwijst naar de sleutelkluis, omvatten u de abonnement-ID.
+Als u een veilige waarde (zoals een wachtwoord) als een parameter doorgeven tijdens de implementatie wilt, haalt u de waarde van een [Azure Key Vault](../key-vault/key-vault-whatis.md). Haalt u de waarde door te verwijzen naar de sleutelkluis en geheim in de parameter-bestand. De waarde is nooit beschikbaar gemaakt, omdat u alleen verwijzen naar de sleutelkluis-ID. De key vault kan bestaan in een ander abonnement dan de resourcegroep die u implementeert.
 
-Wanneer u de sleutelkluis maakt, stelt de *enabledForTemplateDeployment* eigenschap *true*. Deze waarde instelt op true, kunt u toegang van Resource Manager-sjablonen toestaan tijdens de implementatie.
+## <a name="enable-access-to-the-secret"></a>Toegang tot het geheim inschakelen
 
-## <a name="deploy-a-key-vault-and-secret"></a>Een sleutelkluis en geheim implementeren
+Er zijn twee belangrijke voorwaarden voor toegang tot een key vault tijdens de sjabloonimplementatie van de moeten bestaan:
 
-Maakt een sleutelkluis en een geheim, gebruikmaken van Azure CLI of PowerShell. U ziet dat de sleutelkluis is ingeschakeld voor de sjabloonimplementatie van de. 
+1. De eigenschap sleutelkluis `enabledForTemplateDeployment` moet `true`.
+2. De gebruiker voor het implementeren van de sjabloon moet toegang hebben tot de geheime sleutel. De gebruiker moet beschikken over de `Microsoft.KeyVault/vaults/deploy/action` machtiging voor de key vault. De [eigenaar](../role-based-access-control/built-in-roles.md#owner) en [Inzender](../role-based-access-control/built-in-roles.md#contributor) beide rollen deze toegang verlenen.
+
+Wanneer u een Key Vault met de sjabloon voor een [beheerde toepassingen](../managed-applications/overview.md), u moet toegang verlenen tot de **toestel Resource Provider** service-principal. Zie voor meer informatie, [toegang tot Key Vault-geheim bij het implementeren van Azure Managed Applications](../managed-applications/key-vault-access.md).
+
+
+## <a name="deploy-a-key-vault-and-secret"></a>Een sleutelkluis en een geheim implementeren
+
+Voor het maken van een sleutelkluis en een geheim, gebruikt u Azure CLI of PowerShell. U ziet dat de key vault is ingeschakeld voor sjabloonimplementatie. 
 
 Gebruik voor Azure CLI:
 
@@ -61,17 +68,13 @@ $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
 ```
 
-## <a name="enable-access-to-the-secret"></a>Toegang tot het geheim inschakelen
+## <a name="reference-a-secret-with-static-id"></a>Verwijzen naar een geheim met de statische-ID
 
-Of u een nieuwe sleutelkluis of een bestaande gebruikt, zorg ervoor dat de implementatie van de sjabloon gebruiker toegang het geheim tot. Het implementeren van een sjabloon die verwijst naar een geheim gebruiker moet beschikken over de `Microsoft.KeyVault/vaults/deploy/action` machtiging voor de sleutelkluis. De [eigenaar](../role-based-access-control/built-in-roles.md#owner) en [Inzender](../role-based-access-control/built-in-roles.md#contributor) beide rollen deze toegang verlenen.
-
-## <a name="reference-a-secret-with-static-id"></a>Verwijst naar een geheim met statische-ID
-
-De sjabloon die u een geheim sleutelkluis ontvangt is vergelijkbaar met een andere sjabloon. Dat komt doordat **u verwijzen naar de sleutelkluis in de parameter-bestand niet in de sjabloon.** De volgende afbeelding toont hoe de parameterbestand verwijst naar het geheim en wordt die waarde doorgegeven aan de sjabloon.
+De sjabloon die u een key vault-geheim ontvangt is vergelijkbaar met een andere sjabloon. Dat komt doordat **verwijst u naar de key vault in het parameterbestand, niet de sjabloon.** De volgende afbeelding ziet u hoe de parameterbestand verwijst naar het geheim en wordt die waarde doorgegeven aan de sjabloon.
 
 ![Statische-ID](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-Bijvoorbeeld, de [na sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) implementeert een SQL-database met een administrator-wachtwoord. De wachtwoordparameter is ingesteld op een veilige tekenreeks. Maar de sjabloon geeft geen waar die waarde worden opgehaald.
+Bijvoorbeeld, de [na sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) implementeert u een SQL-database met een administrator-wachtwoord. De parameter password is ingesteld op een beveiligde tekenreeks. Maar de sjabloon geeft geen waarop deze waarde is gebaseerd.
 
 ```json
 {
@@ -107,7 +110,7 @@ Bijvoorbeeld, de [na sjabloon](https://github.com/Azure/azure-docs-json-samples/
 }
 ```
 
-Maak nu een parameterbestand voor de voorgaande sjabloon. Geef in het parameterbestand een parameter die overeenkomt met de naam van de parameter in de sjabloon. De waarde van parameter verwijst naar het geheim van de sleutelkluis. U verwijzen naar het geheim door het doorgeven van de resource-id van de sleutelkluis en de naam van het geheim. In de [parameterbestand na](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json), het geheim sleutelkluis moet al bestaan en u een statische waarde opgeven voor de bron-ID. Kopieer dit bestand lokaal en stel de abonnements-ID, de kluisnaam en de naam van SQL server.
+Maak nu een parameterbestand voor de voorgaande sjabloon. Geef een parameter die overeenkomt met de naam van de parameter in de sjabloon in het parameterbestand. De waarde van parameter verwijst naar het geheim uit key vault. Het geheim verwijst u naar door door te geven van de resource-id van de key vault en de naam van de geheime sleutel. In de [volgende parameterbestand](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json), de key vault-geheim moet al bestaan en u een statische waarde opgeven voor de resource-ID. Kopieer dit bestand lokaal op en stel de abonnements-ID, de naam van de kluis en de naam van SQL server.
 
 ```json
 {
@@ -139,7 +142,7 @@ Als u moet een versie van het geheim dan de huidige versie te gebruiken, gebruik
 "secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
 ```
 
-Nu de sjabloon implementeert en in het parameterbestand. U kunt de voorbeeldsjabloon vanuit GitHub, maar u moet een lokale parameterbestand gebruiken met de waarden die zijn ingesteld op uw omgeving.
+Nu de sjabloon implementeren en in het parameterbestand doorgeven. U kunt de voorbeeldsjabloon gebruiken, maar moet u een lokale parameterbestand met de waarden die zijn ingesteld op uw omgeving.
 
 Gebruik voor Azure CLI:
 
@@ -163,17 +166,17 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
-## <a name="reference-a-secret-with-dynamic-id"></a>Verwijst naar een geheim met dynamische ID
+## <a name="reference-a-secret-with-dynamic-id"></a>Verwijzen naar een geheim met de dynamische-ID
 
-De vorige sectie hebt u geleerd hoe u een statisch resource-ID voor de sleutelkluis-geheim doorgeven. In sommige gevallen moet u echter verwijzen naar een sleutelkluis geheim dat varieert op basis van de huidige implementatie. In dit geval kunt u niet vastleggen de bron-ID in het parameterbestand. Helaas kan niet u dynamisch genereren de resource-ID in het parameterbestand Sjabloonexpressies zijn niet toegestaan in het parameterbestand.
+De vorige sectie hebt u geleerd hoe u een statische resource-ID voor de key vault-geheim doorgeven. In sommige scenario's moet u echter om te verwijzen naar een key vault-geheim varieert op basis van de huidige implementatie. In dit geval niet programmeren de resource-ID in het parameterbestand. Helaas, u kan niet dynamisch genereren de resource-ID in het parameterbestand Sjabloonexpressies zijn niet toegestaan in het parameterbestand.
 
-Als de resource-ID voor een geheim sleutelkluis dynamisch worden gegenereerd, moet u de resource die het geheim in een gekoppelde sjabloon moet verplaatsen. In de sjabloon bovenliggende u de gekoppelde sjabloon toevoegen en geeft u in een parameter die de dynamisch gegenereerde resource-id bevat. De volgende afbeelding toont hoe een parameter in de gekoppelde sjabloon verwijst naar het geheim.
+Voor het dynamisch genereren van de resource-ID voor een key vault-geheim, moet u de resource die de geheime sleutel in een gekoppelde sjabloon moet verplaatsen. In de bovenliggende sjabloon u de gekoppelde sjabloon toevoegen en doorgeven in een parameter die de dynamisch gegenereerde resource-id bevat. De volgende afbeelding ziet u hoe een parameter in de gekoppelde sjabloon verwijst naar de geheime sleutel.
 
 ![Dynamische-ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
 
-De sjabloon voor het gekoppelde moet beschikbaar zijn via een externe URI zijn. Uw sjabloon toevoegen aan een opslagaccount doorgaans te krijgen tot de URI zoals `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+De gekoppelde sjabloon moet beschikbaar zijn via een externe URI zijn. Normaal gesproken u uw sjabloon toevoegen aan een opslagaccount en toegang te verkrijgen via de URI zoals `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
 
-De [na sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) dynamisch maakt de sleutelkluis-ID en wordt doorgegeven als parameter. Het is gekoppeld aan een [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) in GitHub.
+De [na sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) dynamisch wordt gemaakt van de key vault-ID en wordt doorgegeven als parameter. Het is gekoppeld aan een [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) in GitHub.
 
 ```json
 {
@@ -225,7 +228,7 @@ De [na sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/az
 }
 ```
 
-Implementeer de voorgaande sjabloon en geef waarden op voor de parameters. U kunt de voorbeeldsjabloon vanuit GitHub, maar u moet de parameterwaarden opgeven voor uw omgeving.
+De voorgaande sjabloon implementeren, en geef waarden voor de parameters. Kunt u de voorbeeldsjabloon, maar u moet de parameterwaarden opgeven voor uw omgeving.
 
 Gebruik voor Azure CLI:
 
@@ -251,4 +254,4 @@ New-AzureRmResourceGroupDeployment `
 
 ## <a name="next-steps"></a>Volgende stappen
 * Raadpleeg voor algemene informatie over sleutelkluizen [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md).
-* Zie voor volledige voorbeelden voor het verwijzen naar de sleutel geheimen [Sleutelkluis voorbeelden](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+* Zie voor volledige voorbeelden van het verwijst naar een sleutel geheimen [Key Vault voorbeelden](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

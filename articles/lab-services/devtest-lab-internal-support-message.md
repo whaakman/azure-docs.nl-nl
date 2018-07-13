@@ -1,6 +1,6 @@
 ---
 title: Een interne ondersteuningsverklaring toevoegen aan een lab in Azure DevTest Labs | Microsoft Docs
-description: Meer informatie over het plaatsen van een interne ondersteuningsverklaring tot een lab in Azure DevTest Labs
+description: Informatie over het plaatsen van een interne ondersteuningsverklaring aan een lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,59 +15,59 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 2d12ca26fb2aa5abddcf44b2e634b2f08b1fb01b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787428"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696247"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Een interne ondersteuningsverklaring toevoegen aan een lab in Azure DevTest Labs
 
-Azure DevTest Labs kunt u uw testomgeving met een interne ondersteuningsverklaring waarmee gebruikers met voor ondersteuningsinformatie over het lab aanpassen. U kunt bijvoorbeeld contactgegevens opgeven zodat een gebruiker interne ondersteuning bereiken kent wanneer ze hulp nodig bij het oplossen van problemen of toegang krijgen tot bronnen in de testomgeving. U kunt ook koppelingen naar interne websites of Veelgestelde vragen die toegang heeft tot uw team voordat u contact op met ondersteuning opgeven.
+Azure DevTest Labs kunt u aanpassen van uw testomgeving met een interne ondersteuningsverklaring waarmee gebruikers met voor ondersteuningsinformatie over het lab. U kunt bijvoorbeeld contactgegevens opgeven zodat een gebruiker hoe u ondersteuning voor interne bereiken weet wanneer ze nodig hebben hulp bij het oplossen van problemen of toegang tot bronnen in het lab. U kunt ook koppelingen naar interne websites of Veelgestelde vragen over in uw team openen kunt voordat u contact opnemen met ondersteuning opgeven.
 
-Een interne ondersteuningsverklaring is bedoeld om te laten u lab-gegevens die doorgaans te vaak niet wijzigen. Zie naar gebruikers te informeren over lab info die meer tijdelijke aard – zoals recente updates voor labbeleidsregels – [Post aankondiging in een testomgeving](devtest-lab-announcements.md).
+Een interne ondersteuningsverklaring is bedoeld om te laten u lab-gegevens die te vaak doorgaans niet wijzigen. Aan de gebruikers te informeren over lab-informatie die wordt meer tijdelijke aard, zoals recente updates voor beleid voor lab maken: Zie [Post-aankondiging in een lab](devtest-lab-announcements.md).
 
 U kunt eenvoudig uitschakelen of een ondersteuningsverklaring bewerken nadat het is niet langer van toepassing.
 
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Stappen voor het toevoegen van een ondersteuningsverklaring aan een bestaande lab
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecteer indien nodig, **alle Services**, en selecteer vervolgens **DevTest Labs** uit de lijst. (Uw lab mogelijk al worden weergegeven op het Dashboard onder **alle Resources**).
-1. Selecteer in het lab waarin u wilt toevoegen van een ondersteuningsverklaring uit de lijst van labs.  
-1. Op de testomgeving **overzicht** gebied, selecteer **configuratie en het beleid**.  
+1. Selecteer indien nodig, **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst. (Uw lab mogelijk al worden weergegeven op het Dashboard onder **alle Resources**).
+1. Selecteer in het lab waarin u wilt toevoegen van een ondersteuningsverklaring uit de lijst met labs.  
+1. Op van het lab **overzicht** gedeelte **configuratie en het beleid**.  
 
     ![Knop voor configuratie en het beleid](./media/devtest-lab-internal-support-message/devtestlab-config-and-policies.png)
 
-1. Aan de linkerkant onder **instellingen**, selecteer **interne ondersteuning**.
+1. Aan de linkerkant onder **instellingen**, selecteer **ondersteuning voor interne**.
 
     ![Ondersteuning voor interne knop](./media/devtest-lab-internal-support-message/devtestlab-internal-support.png)
 
 1. Stel Enabled in op voor het maken van een bericht interne ondersteuning voor de gebruikers in dit lab, **Ja**.
 
-1. In de **ondersteuning bericht** en voer de interne ondersteuningsverklaring die u aan uw gebruikers lab wilt aanbieden. Het bericht ondersteuning accepteert Markdown. Als u de berichttekst invoert, ziet u de **Preview** gebied aan de onderkant van het scherm om te zien hoe het bericht wordt weergegeven aan gebruikers.
+1. In de **ondersteuning bericht** en voer de interne ondersteuningsverklaring die u voor uw labgebruikers wilt presenteren. Het bericht ondersteuning accepteert Markdown. Als u de tekst van het invoert, ziet u de **Preview** gebied aan de onderkant van het scherm om te zien hoe het bericht wordt weergegeven aan gebruikers.
 
-    ![Ondersteuning voor interne scherm voor het maken van het bericht.](./media/devtest-lab-internal-support-message/devtestlab-add-support-statement.png)
+    ![Ondersteuning voor interne scherm om het bericht te maken.](./media/devtest-lab-internal-support-message/devtestlab-add-support-statement.png)
 
 
-1. Selecteer **opslaan** zodra uw ondersteuningsverklaring is gereed om te plaatsen.
+1. Selecteer **opslaan** zodra uw ondersteuningsverklaring is klaar om te posten.
 
-Wanneer u niet meer weergeven van dit bericht ondersteuning voor lab gebruikers wilt, terug naar de **interne ondersteuning** pagina en stel **ingeschakeld** naar **Nee**.
+Als u niet meer weergeven van dit bericht ondersteuning voor labgebruikers wilt, Ga terug naar de **ondersteuning voor interne** pagina en stel **ingeschakeld** naar **Nee**.
 
 ## <a name="steps-for-users-to-view-the-support-message"></a>Stappen voor gebruikers om weer te geven van het bericht ondersteuning
 
-1. Van de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecteert u een testomgeving.
+1. Uit de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecteert u een lab.
 
-1. Op de testomgeving **overzicht** gebied, selecteer **interne ondersteuning**.  
+1. Op van het lab **overzicht** gedeelte **ondersteuning voor interne**.  
 
     ![Ondersteuning voor interne knop](./media/devtest-lab-internal-support-message/devtestlab-internal-support.png)
 
 
-1. Als een bericht ondersteuning wordt gepost, kan de gebruiker bekijken in het deelvenster interne ondersteuning.
+1. Als een bericht ondersteuning wordt geplaatst, kan de gebruiker bekijken in het deelvenster interne ondersteuning.
 
-    ![Ondersteuning voor interne deelvenster geposte ondersteuning bericht wordt weergegeven](./media/devtest-lab-internal-support-message/devtestlab-view-suport-statement.png)
+    ![Ondersteuning voor interne deelvenster met ondersteuning van bericht is geplaatst](./media/devtest-lab-internal-support-message/devtestlab-view-suport-statement.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Interne ondersteuningsverklaringen worden meestal gebruikt om informatie over ondersteuning die niet die regelmatig worden gewijzigd. U kunt ook meer te weten hoe [plaatsen van een aankondiging naar een lab](devtest-lab-announcements.md) om gebruikers tijdelijk wijzigingen en updates voor het lab te informeren.
-* [Beleidsregels en schema's instellen](devtest-lab-set-lab-policy.md) bevat informatie over hoe u toepassen kunt andere beperkingen en conventies voor uw abonnement met behulp van aangepaste beleid.
+* Interne ondersteuningsverklaringen worden meestal gebruikt om te bieden ondersteuning voor gegevens die niet die regelmatig worden gewijzigd. U leert ook hoe u [plaatsen van een aankondiging naar een lab](devtest-lab-announcements.md) gebruikers tijdelijk wijzigingen en updates voor de testomgeving moeten worden geïnformeerd.
+* [Beleid en planningen instellen](devtest-lab-set-lab-policy.md) vindt u informatie over hoe u toepassen kunt andere beperkingen en conventies voor uw abonnement met behulp van aangepast beleid.

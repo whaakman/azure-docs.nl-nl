@@ -1,35 +1,35 @@
 ---
-title: Geheugen en gelijktijdigheid limieten - Azure SQL Data Warehouse | Microsoft Docs
-description: Het geheugen weergeven en gelijktijdigheid van limieten die zijn toegewezen aan de verschillende prestatieniveaus en resource klassen in Azure SQL Data Warehouse.
+title: Geheugen en gelijktijdigheid beperkingen - Azure SQL Data Warehouse | Microsoft Docs
+description: Bekijk de limieten voor geheugen en gelijktijdigheid toegewezen aan de verschillende prestatieniveaus en resourceklassen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/07/2018
+ms.date: 07/10/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 46d41e3ee85deb20f189bc9c82a255178f3d7eee
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 802dbcdf797147d4f4dcf7835aea9c952127113e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942250"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652265"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Geheugen en gelijktijdigheid limieten voor Azure SQL Data Warehouse
-Het geheugen weergeven en gelijktijdigheid van limieten die zijn toegewezen aan de verschillende prestatieniveaus en resource klassen in Azure SQL Data Warehouse. Zie voor meer informatie en deze mogelijkheden toepassen op uw plan voor werkbelasting [Resource klassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). 
+# <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limieten voor geheugen en gelijktijdigheid voor Azure SQL Data Warehouse
+Bekijk de limieten voor geheugen en gelijktijdigheid toegewezen aan de verschillende prestatieniveaus en resourceklassen in Azure SQL Data Warehouse. Zie voor meer informatie en om toe te passen van deze mogelijkheden voor uw abonnement van de management workload [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). 
 
-Er zijn momenteel twee generaties beschikbaar met SQL Data Warehouse – Gen1 en Gen2. U wordt aangeraden gebruikmaken van Gen2 van SQL Data Warehouse om de beste prestaties voor uw datawarehouse-workload. Gen2 introduceert een nieuwe cache NVMe effen status schijf de meest gebruikte gegevens dicht bij de CPU's houdt. Hiermee verwijdert u de externe i/o's voor uw meest intensieve en veeleisende werkbelastingen. Naast de prestaties biedt Gen2 het hoogste niveau van de schaal zodat u kunt maximaal 30.000 Data Warehouse Units schalen en onbeperkte kolommen opslag bieden. We nog steeds ondersteuning biedt voor de vorige generatie (Gen1) van SQL Data Warehouse en de functies dezelfde; behouden echter, raden we u aan [upgrade naar Gen2](upgrade-to-latest-generation.md) zo snel mogelijk. 
+Er zijn momenteel twee generaties op verschillende manieren beschikbaar met SQL Data Warehouse: Gen1 en Gen2. U wordt aangeraden u gebruikmaken van Gen2 van SQL Data Warehouse voor de beste prestaties voor uw datawarehouse-workload. Gen2 introduceert een nieuwe NVMe Solid State Disk-cache, waardoor de meestgebruikte gegevens dicht bij de CPU's. Hiermee verwijdert u de externe i/o's voor uw meest intensieve en veeleisende workloads. Naast de prestaties biedt Gen2 het hoogste niveau van de schaal zodat u kunt maximaal 30.000 datawarehouse-eenheden schalen en het geven van de onbeperkte opslag in kolommen. We nog steeds ondersteuning biedt voor de vorige generatie (Gen1) van SQL Data Warehouse en de dezelfde functies; behouden maar we raden u aan [een upgrade uitvoeren naar Gen2](upgrade-to-latest-generation.md) zo snel mogelijk. 
 
-## <a name="data-warehouse-capacity-settings"></a>Capaciteitsinstellingen voor de datawarehouse
-De volgende tabellen geven de maximale capaciteit voor het datawarehouse op verschillende prestatieniveaus. Zie het wijzigen van het prestatieniveau [Scale compute - portal](quickstart-scale-compute-portal.md).
+## <a name="data-warehouse-capacity-settings"></a>Instellingen voor datawarehouse-capaciteit
+De volgende tabellen ziet u de maximale capaciteit voor het datawarehouse op verschillende prestatieniveaus. Zie het wijzigen van het prestatieniveau [Computing kunt schalen - portal](quickstart-scale-compute-portal.md).
 
 ### <a name="gen2"></a>Gen2
 
-Gen2 biedt 2,5 x meer geheugen per query dan de Gen1. Deze extra geheugen helpt de Gen2 zijn snelle prestaties leveren.  De prestaties voor het bereik Gen2 van DW1000c tot DW30000c. 
+Gen2 biedt 2,5 x meer geheugen per query dan de Gen1. Deze extra geheugen helpt bij het leveren van de snelle prestaties Gen2.  De prestaties voor het bereik Gen2 van DW1000c tot DW30000c. 
 
-| Prestatieniveau | Rekenknooppunten | Distributies per rekenknooppunt | Geheugen per datawarehouse (GB) |
+| Prestatieniveau | Rekenknooppunten | Distributies per knooppunt | Geheugen per datawarehouse (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
@@ -43,13 +43,13 @@ Gen2 biedt 2,5 x meer geheugen per query dan de Gen1. Deze extra geheugen helpt 
 | DW15000c          | 30            | 2                              |  9000                          |
 | DW30000c          | 60            | 1                              | 18000                          |
 
-De maximale Gen2 DWU is DW30000c met 60 rekenknooppunten en één distributiepunt per rekenknooppunt. Een datawarehouse 600 TB op DW30000c verwerkt bijvoorbeeld ongeveer 10 TB per rekenknooppunt.
+De maximale Gen2 DWU is DW30000c met 60 rekenknooppunten en één distributiepunt per knooppunt. Een datawarehouse 600 TB op DW30000c verwerkt bijvoorbeeld ongeveer 10 TB per knooppunt.
 
 ### <a name="gen1"></a>Gen1
 
 Het niveau van de service voor Gen1 tussen DW100 en DW6000. 
 
-| Prestatieniveau | Rekenknooppunten | Distributies per rekenknooppunt | Geheugen per datawarehouse (GB) |
+| Prestatieniveau | Rekenknooppunten | Distributies per knooppunt | Geheugen per datawarehouse (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
 | DW100             | 1             | 60                             |  24                            |
 | DW200             | 2             | 30                             |  48                            |
@@ -64,22 +64,22 @@ Het niveau van de service voor Gen1 tussen DW100 en DW6000.
 | DW3000            | 30            | 2                              | 720                            |
 | DW6000            | 60            | 1                              | 1440                           |
 
-## <a name="concurrency-maximums"></a>Maximumwaarden gelijktijdigheid van taken
-Zodat elke query bevat onvoldoende bronnen om uit te voeren efficiënt houdt SQL Data Warehouse Resourcegebruik door gelijktijdigheid sleuven toewijzen aan elke query. Het systeem worden query's in een wachtrij waar ze pas voldoende [gelijktijdigheid sleuven](resource-classes-for-workload-management.md#concurrency-slots) beschikbaar zijn. Gelijktijdigheid sleuven ook bepalen CPU prioriteitsaanduiding. Zie voor meer informatie [analyseren van uw werkbelasting](analyze-your-workload.md)
+## <a name="concurrency-maximums"></a>Maximumwaarden voor gelijktijdigheid
+Om ervoor te zorgen voor dat elke query heeft onvoldoende bronnen voor het efficiënt uitvoeren, houdt SQL Data Warehouse gebruik van resources door gelijktijdigheidssleuven toewijzen aan elke query. Het systeem worden query's geplaatst in een wachtrij waar ze wachten tot en met voldoende [gelijktijdigheidssleuven](resource-classes-for-workload-management.md#concurrency-slots) beschikbaar zijn. Gelijktijdigheidssleuven bepalen ook CPU-prioriteit. Zie voor meer informatie, [uw werkbelasting analyseren](analyze-your-workload.md)
 
 ### <a name="gen2"></a>Gen2
  
-**Statische resource klassen**
+**Statische resourceklassen**
 
-De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheid sleuven voor elk [statische bronklasse](resource-classes-for-workload-management.md).  
+De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheidssleuven voor elk [statische resourceklasse](resource-classes-for-workload-management.md).  
 
-| Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheid sleuven beschikbaar |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW2500c       | 48                         |  100                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW5000c       | 64                         |  200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW6000c       | 128                        |  240                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW7500c       | 128                        |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
@@ -87,16 +87,16 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 | DW15000c      | 128                        |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 128                        | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-**Dynamische Bronklassen**
+**Dynamische resourceklassen**
 
 > [!NOTE]
-> De bronklasse smallrc op Gen2 dynamisch geheugen wordt toegevoegd als het serviceniveau verhoogt en biedt alleen ondersteuning voor een maximale 32 gelijktijdige query's.  De sleuven gelijktijdigheid van taken en het geheugen gebruikt door smallrc toeneemt als de service wordt verhoogd. 
+> De resourceklasse smallrc in Gen2 dynamisch geheugen wordt toegevoegd als het serviceniveau van de wordt verhoogd en biedt alleen ondersteuning voor een maximaal 32 gelijktijdige query's.  De gelijktijdigheidssleuven en het geheugen dat wordt gebruikt door smallrc toeneemt als de service wordt verhoogd. 
 >
 >
 
-De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheid sleuven voor elk [dynamische bronklasse](resource-classes-for-workload-management.md). In tegenstelling tot Gen1 zijn dynamische Bronklassen op Gen2 echt dynamisch.  Gen2 gebruikt een percentage van 3-10-22-70 geheugentoewijzing voor klein-medium-grote-xlarge resource klassen op alle serviceniveaus.
+De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheidssleuven voor elk [dynamische resourceklasse](resource-classes-for-workload-management.md). In tegenstelling tot Gen1 zijn dynamische resourceklassen in Gen2 echt dynamisch.  Gen2 maakt gebruik van een hulpprogramma voor het percentage van de 3-10-22-70-geheugentoewijzing voor kleine-medium-groot-xlarge resourceklassen voor alle serviceniveaus.
 
-| Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheid sleuven beschikbaar | Gebruikt door smallrc sleuven | Gebruikt door mediumrc sleuven | Gebruikt door largerc sleuven | Gebruikt door xlargerc sleuven |
+| Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar | Sleuven die worden gebruikt door smallrc | Sleuven die worden gebruikt door mediumrc | Sleuven die worden gebruikt door largerc | Sleuven die worden gebruikt door xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
@@ -114,11 +114,11 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 
 #### <a name="gen1"></a>Gen1
 
-Statische resource klassen
+Statische resourceklassen
 
-De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheid sleuven voor elk [statische bronklasse](resource-classes-for-workload-management.md) op **Gen1**.
+De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheidssleuven voor elk [statische resourceklasse](resource-classes-for-workload-management.md) op **Gen1**.
 
-| Serviceniveau | Maximum aantal gelijktijdige query 's | Maximale gelijktijdigheid sleuven |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Serviceniveau | Maximum aantal gelijktijdige query 's | Maximum aantal gelijktijdige plekken gebruiken |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -133,15 +133,15 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 | DW3000        | 64                         | 120                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW6000        | 128                        | 240                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-Dynamische Bronklassen
+Dynamische resourceklassen
 > [!NOTE]
-> De bronklasse smallrc op Gen1 wijst een vaste hoeveelheid geheugen per query, lijkt op wijze op de klasse statische resource staticrc10.  Omdat smallrc statisch is, heeft de mogelijkheid om te worden uitgebreid naar 128 gelijktijdige query's. 
+> De resourceklasse smallrc op Gen1 wijst een vaste hoeveelheid geheugen per query, op dezelfde wijze aan de klasse statische resource staticrc10 toe.  Omdat smallrc statisch is, heeft de mogelijkheid om 128 gelijktijdige query's te schalen. 
 >
 >
 
-De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheid sleuven voor elk [dynamische bronklasse](resource-classes-for-workload-management.md) op **Gen1**.
+De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheidssleuven voor elk [dynamische resourceklasse](resource-classes-for-workload-management.md) op **Gen1**.
 
-| Serviceniveau | Maximum aantal gelijktijdige query 's | Gelijktijdigheid sleuven beschikbaar | smallrc | mediumrc | largerc | xlargerc |
+| Serviceniveau | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar | smallrc | mediumrc | largerc | xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |
@@ -157,11 +157,11 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 | DW6000        | 128                        | 240                         | 1       | 32       | 64      | 128      |
 
 
-Als een van deze drempels wordt voldaan, worden de nieuwe query's in de wachtrij en de eerste in, First-out ' op basis van een uitgevoerd.  Als een query's is voltooid en het aantal query's en sleuven onder de limieten valt, versies SQL Data Warehouse in de wachtrij query's. 
+Als een van deze drempelwaarden wordt voldaan, worden de nieuwe query's in de wachtrij geplaatst en de uitgevoerd op basis first-in, First out.  Als een query is voltooid en het aantal query's en -sleuven onder de limieten vallen, versies SQL Data Warehouse in de wachtrij query's. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over hoe u resource klassen voor het optimaliseren van uw werkbelasting verdere Lees de volgende artikelen:
-* [Resource-klassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md)
+Voor meer informatie over hoe u resource-klassen voor het optimaliseren van uw workload meer Lees de volgende artikelen:
+* [Resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md)
 * [Uw werkbelasting analyseren](analyze-your-workload.md)
 

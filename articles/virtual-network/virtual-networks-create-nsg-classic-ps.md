@@ -1,6 +1,6 @@
 ---
-title: Maken van een netwerkbeveiligingsgroep (klassiek) met behulp van PowerShell | Microsoft Docs
-description: Meer informatie over het maken en implementeren van een netwerkbeveiligingsgroep (klassiek) met behulp van PowerShell
+title: Maak een netwerkbeveiligingsgroep (klassiek) met behulp van PowerShell | Microsoft Docs
+description: Meer informatie over het maken en implementeren met behulp van PowerShell een netwerkbeveiligingsgroep (klassiek)
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.openlocfilehash: ecb977660ed99a3cea2a71a867f50822b23e568c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634193"
 ---
-# <a name="create-a-network-security-group-classic-using-powershell"></a>Maken van een netwerkbeveiligingsgroep (klassiek) met behulp van PowerShell
+# <a name="create-a-network-security-group-classic-using-powershell"></a>Maak een netwerkbeveiligingsgroep (klassiek) met behulp van PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -32,20 +33,20 @@ Dit artikel is van toepassing op het klassieke implementatiemodel. U kunt ook [n
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-Het voorbeeld PowerShell onderstaande opdrachten een eenvoudige omgeving al gemaakt verwacht op basis van de bovenstaande scenario. Als u wilt de opdrachten uitvoeren zoals ze worden weergegeven in dit document, eerst de testomgeving door bouwen [maken van een VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
+Het voorbeeld PowerShell onderstaande opdrachten kunt verwachten van een eenvoudige omgeving hebt gemaakt, is afhankelijk van het bovenstaande scenario. Als u wilt dat de opdrachten uitvoeren zoals ze worden weergegeven in dit document, eerst samenstellen van de testomgeving door [het maken van een VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
-## <a name="create-an-nsg-for-the-front-end-subnet"></a>Een NSG voor de front-end-subnet maken
+## <a name="create-an-nsg-for-the-front-end-subnet"></a>Een NSG voor het front-end-subnet maken
 
 1. Als u Azure PowerShell nog nooit hebt gebruikt, raadpleegt u [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
 
-2. Maken van een netwerkbeveiligingsgroep met de naam *NSG-FrontEnd*:
+2. Maak een netwerkbeveiligingsgroep met de naam *NSG-FrontEnd*:
 
     ```powershell   
     New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
       -Label "Front end subnet NSG"
    ```
 
-3. Maak een beveiligingsregel toegang vanaf het internet toe te staan op poort 3389:
+3. Maak een beveiligingsregel toegang vanaf internet toe te staan op poort 3389:
 
     ```powershell   
     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
@@ -55,7 +56,7 @@ Het voorbeeld PowerShell onderstaande opdrachten een eenvoudige omgeving al gema
       -DestinationAddressPrefix '*' -DestinationPortRange '3389'
    ```
 
-4. Maak een beveiligingsregel toegang vanaf het internet toe te staan op poort 80:
+4. Maak een beveiligingsregel toegang vanaf internet toe te staan op poort 80:
 
     ```powershell   
     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
@@ -67,14 +68,14 @@ Het voorbeeld PowerShell onderstaande opdrachten een eenvoudige omgeving al gema
 
 ## <a name="create-an-nsg-for-the-back-end-subnet"></a>Een NSG voor de back-end-subnet maken
 
-1. Maken van een netwerkbeveiligingsgroep met de naam *NSG-back-end*:
+1. Maak een netwerkbeveiligingsgroep met de naam *NSG-back-end*:
    
     ```powershell
     New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
       -Label "Back end subnet NSG"
     ```
 
-2. Maak een regel voor toestaan van toegang van de front-end-subnet-poort 1433 (standaardpoort die wordt gebruikt door SQL Server):
+2. Maak een beveiligingsregel toegang te verlenen vanaf de front-end-subnet op poort 1433 (standaardpoort die wordt gebruikt door SQL Server):
    
     ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
@@ -84,7 +85,7 @@ Het voorbeeld PowerShell onderstaande opdrachten een eenvoudige omgeving al gema
       -DestinationAddressPrefix '*' -DestinationPortRange '1433'
     ```
 
-3. Maak een regel voor het subnet toegang heeft tot internet blokkeren:
+3. Maak een beveiligingsregel blokkeert de toegang van het subnet met het internet:
    
     ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-BackEnd" `

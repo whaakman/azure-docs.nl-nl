@@ -1,6 +1,6 @@
 ---
-title: De Twilio-Connector in Azure Logic apps toevoegen | Microsoft Docs
-description: Overzicht van de Twilio Connector met parameters van de REST-API
+title: De Twilio-Connector in uw Azure Logic apps toevoegen | Microsoft Docs
+description: Overzicht van de Twilio-Connector met de REST-API-parameters
 services: logic-apps
 documentationcenter: ''
 author: ecfan
@@ -16,37 +16,37 @@ ms.workload: integration
 ms.date: 09/19/2016
 ms.author: estfan; ladocs
 ms.openlocfilehash: 8bcf69a7c8e04cb45d795fd0d6f20d477c15865d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296132"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652002"
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Aan de slag met de Twilio-connector
-Verbinding maken met Twilio globale SMS, MMS en IP-berichten te verzenden en ontvangen. Met Twilio, kunt u het volgende doen:
+Verbinding maken met Twilio naar globale SMS-, MMS- en IP-berichten verzenden en ontvangen. Met Twilio, kunt u het volgende doen:
 
-* Bouw uw zakelijke flow op basis van de gegevens die u van Twilio krijgt. 
-* Acties als er een bericht en lijst berichten gebruiken. Deze acties reageert en vervolgens de uitvoer beschikbaar maken voor andere acties. Bijvoorbeeld, wanneer u een nieuwe Twilio-bericht ontvangt, kunt u nemen dit bericht en een Service Bus-werkstroom. 
+* Bouw uw bedrijfswerkstroom op basis van de gegevens die u van Twilio krijgt. 
+* Acties die een bericht, berichten weergeven en meer gebruiken. Deze acties reageert, en vervolgens de uitvoer beschikbaar voor andere acties. Bijvoorbeeld wanneer u een nieuw Twilio-bericht ontvangt, kunt u dit bericht nemen en gebruikt een Service Bus-werkstroom. 
 
-Aan de slag door het maken van een logische app; Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Aan de slag met het maken van een logische app; Zie [maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-twilio"></a>Maak een verbinding met Twilio
-Wanneer u deze Connector aan uw logische apps toevoegen, typt u de volgende Twilio-waarden:
+## <a name="create-a-connection-to-twilio"></a>Een verbinding maken met Twilio
+Wanneer u deze Connector aan uw logische apps toevoegen, voert u de volgende Twilio-waarden:
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| Account-id |Ja |Voer uw Twilio-account-ID |
+| Account-id |Ja |Geef uw Twilio-account-ID |
 | Toegangstoken |Ja |Voer uw Twilio-toegangstoken |
 
 > [!INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)]
 > 
 > 
 
-Als u een toegangstoken Twilio hebt, raadpleegt u [gebruikersidentiteit & toegangstokens](https://www.twilio.com/docs/api/chat/guides/identity).
+Als u een Twilio-toegangstoken hebt, raadpleegt u [gebruiker Identity & Access Tokens](https://www.twilio.com/docs/api/chat/guides/identity).
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/twilio/).
+Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook eventuele beperkingen in de [connectorgegevens](/connectors/twilio/).
 
 ## <a name="more-connectors"></a>Meer connectors
-Ga terug naar de [API's lijst](apis-list.md).
+Ga terug naar de [lijst van API's](apis-list.md).

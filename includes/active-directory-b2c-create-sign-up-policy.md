@@ -1,4 +1,4 @@
-Als u wilt alleen in te schakelen aanmelden op uw toepassing, gebruikt u een **aanmelding** beleid. Dit beleid beschrijft de ervaringen die klanten door tijdens de registratie en de inhoud van de tokens die de toepassing op geslaagde aanmelding-ups ontvangt.
+Als u wilt alleen in te schakelen Meld u aan op uw toepassing, gebruikt u een **aanmelding** beleid. Dit beleid wordt de ervaring van klanten tijdens de registratie via gaan beschreven en de inhoud van tokens die de toepassing ontvangt nadat registraties zijn voltooid.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

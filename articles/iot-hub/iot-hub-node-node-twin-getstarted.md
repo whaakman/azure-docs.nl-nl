@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub apparaat horende (knooppunt) | Microsoft Docs
-description: Het gebruik van Azure IoT Hub apparaat horende labels toevoegen en vervolgens met de query voor een IoT Hub. U de Azure IoT SDK's voor Node.js gebruiken voor het implementeren van de gesimuleerde apparaattoepassing en een service-app die de labels worden toegevoegd en de IoT Hub-query wordt uitgevoerd.
+title: Aan de slag met Azure IoT Hub-apparaatdubbels (Node) | Microsoft Docs
+description: Het gebruik van Azure IoT Hub-apparaatdubbels tags toevoegen en vervolgens een IoT Hub-query. U kunt de Azure IoT SDK's voor Node.js gebruiken voor het implementeren van het gesimuleerde apparaat-app en een service-app die wordt toegevoegd de labels en de IoT Hub-query wordt uitgevoerd.
 author: fsautomata
 manager: ''
 ms.service: iot-hub
@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
 ms.openlocfilehash: dbb28d7df104887a4056489e9f693ce28ec406df
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635097"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619383"
 ---
-# <a name="get-started-with-device-twins-node"></a>Aan de slag met apparaat horende (knooppunt)
+# <a name="get-started-with-device-twins-node"></a>Aan de slag met apparaatdubbels (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-Aan het einde van deze zelfstudie hebt u twee console Node.js-apps:
+Aan het einde van deze zelfstudie hebt u twee Node.js-consoletoepassingen:
 
-* **AddTagsAndQuery.js**, een back-end-app van Node.js, dat labels toegevoegd en wordt opgevraagd horende apparaten.
-* **TwinSimulatedDevice.js**, een Node.js-app, dat een apparaat simuleert dat verbinding met uw IoT-hub aan de apparaat-id eerder hebt gemaakt maakt, en rapporteert de voorwaarde van de verbinding.
+* **AddTagsAndQuery.js**, een Node.js back-end-app, die wordt toegevoegd tags en apparaatdubbels-query's.
+* **TwinSimulatedDevice.js**, een Node.js-app, die een apparaat simuleert dat verbinding met uw IoT-hub aan de apparaat-id die eerder hebt gemaakt maakt, en rapporten van de voorwaarde van de verbinding.
 
 > [!NOTE]
-> Het artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over de Azure IoT SDK's dat u gebruiken kunt om zowel apparaatgegevens als back-end-apps te bouwen.
+> Het artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over de Azure IoT SDK's die u gebruiken kunt om apparaat- en back-end-apps te bouwen.
 > 
 > 
 
@@ -39,20 +39,20 @@ Voor deze zelfstudie hebt u het volgende nodig:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>De service-app maken
-In deze sectie maakt u een Node.js-consoletoepassing waarmee locatie metagegevens wordt toegevoegd aan de apparaat-twin gekoppeld **myDeviceId**. Deze vervolgens het apparaat horende opgeslagen in de IoT-hub te selecteren van de apparaten die zich in de Verenigde Staten en de waarden die rapporteren een mobiele verbinding een query.
+In deze sectie maakt u een Node.js-consoletoepassing die metagegevens van de locatie toegevoegd aan het dubbele apparaat dat is gekoppeld aan **myDeviceId**. Deze query vervolgens de dubbele apparaten die zijn opgeslagen in de IoT-hub selecteren van de apparaten die zich in de Verenigde Staten en die een mobiele verbinding wilt rapporteren.
 
-1. Maak een nieuwe lege map genaamd **addtagsandqueryapp**. In de **addtagsandqueryapp** map, maak een nieuw package.json-bestand met de volgende opdracht achter de opdrachtprompt. Accepteer alle standaardwaarden:
+1. Maak een nieuwe lege map genaamd **addtagsandqueryapp**. In de **addtagsandqueryapp** map, maak een nieuw package.json-bestand met de volgende opdracht in uw opdrachtvenster. Accepteer alle standaardwaarden:
    
     ```
     npm init
     ```
-2. Bij de opdrachtprompt in de **addtagsandqueryapp** map, voer de volgende opdracht voor het installeren van de **azure-iothub** pakket:
+2. In het opdrachtprompt in de **addtagsandqueryapp** map, voer de volgende opdracht voor het installeren van de **azure-iothub** pakket:
    
     ```
     npm install azure-iothub --save
     ```
-3. Start een teksteditor en maak een nieuwe **AddTagsAndQuery.js** bestand de **addtagsandqueryapp** map.
-4. Voeg de volgende code naar de **AddTagsAndQuery.js** -bestand en vervang de **{iot hub verbindingsreeks}** aanduiding voor items met de IoT Hub-verbindingsreeks die u tijdens het maken van uw hub hebt gekopieerd:
+3. Maak met een teksteditor een nieuw **AddTagsAndQuery.js** -bestand in de **addtagsandqueryapp** map.
+4. Voeg de volgende code aan de **AddTagsAndQuery.js** -bestand en vervang de **{iot hub-verbindingsreeks}** tijdelijke aanduiding door de IoT Hub-verbindingsreeks die u hebt gekopieerd tijdens het maken van uw hub:
    
         'use strict';
         var iothub = require('azure-iothub');
@@ -83,7 +83,7 @@ In deze sectie maakt u een Node.js-consoletoepassing waarmee locatie metagegeven
             }
         });
    
-    De **register** object bevat de methoden die zijn vereist voor interactie met horende apparaten van de service. De vorige code eerst initialiseert de **register** object en vervolgens haalt de apparaat-twin voor **myDeviceId**, en ten slotte de labels bijgewerkt met informatie over de gewenste locatie.
+    De **register** object bevat de methoden die zijn vereist om te communiceren met de dubbele apparaten uit de service. De vorige code eerst initialiseert de **register** object en vervolgens haalt de apparaatdubbel voor **myDeviceId**, en ten slotte de tags bijgewerkt met informatie over de gewenste locatie.
    
     Na het bijwerken van de code roept de **queryTwins** functie.
 5. Voeg de volgende code toe aan het einde van **AddTagsAndQuery.js** voor het implementeren van de **queryTwins** functie:
@@ -108,35 +108,35 @@ In deze sectie maakt u een Node.js-consoletoepassing waarmee locatie metagegeven
             });
         };
    
-    De vorige code twee query's uitvoert: de eerste selecteert alleen de apparaat-horende apparaten zich in de **Redmond43** plant en de tweede verfijning de query voor het selecteren van alleen de apparaten die ook via het mobiele netwerk zijn verbonden.
+    De vorige code twee query's uitvoert: de eerste selecteert alleen de apparaatdubbels van apparaten die zich in de **Redmond43** plant en het tweede verfijning van de query voor het selecteren van alleen de apparaten die ook zijn verbonden via mobiel netwerk.
    
-    De vorige code bij het maken van de **query** object, geeft u een maximum aantal geretourneerde documenten. De **query** object bevat een **hasMoreResults** Boole-eigenschap die u gebruiken kunt om aan te roepen de **nextAsTwin** methoden meerdere keren voor het ophalen van alle resultaten. Een methode aangeroepen **volgende** is beschikbaar voor de resultaten die bijvoorbeeld niet apparaat horende zijn resultaten van query's voor aggregatie.
+    De vorige code bij het maken van de **query** object, geeft u een maximum aantal geretourneerde documenten. De **query** -object bevat een **hasMoreResults** Booleaanse eigenschap die u gebruiken kunt om aan te roepen de **nextAsTwin** methoden meerdere keren om op te halen van alle resultaten. Een methode aangeroepen **volgende** is beschikbaar voor de resultaten die niet de dubbele apparaten, bijvoorbeeld: resultaten van aggregatie-query's.
 6. Voer de toepassing met:
    
         node AddTagsAndQuery.js
    
-    U ziet één apparaat in de resultaten van de query wordt gevraagd voor alle apparaten vinden in **Redmond43** en er is geen voor de query die de resultaten beperkt tot apparaten die gebruikmaken van een mobiel netwerk.
+    U ziet één apparaat in de resultaten voor het stellen van de query voor alle apparaten in **Redmond43** en niets in de query die de resultaten beperkt tot apparaten die gebruikmaken van een mobiel netwerk.
    
     ![][1]
 
-In de volgende sectie maakt u een apparaat-app die rapporten de informatie over de connectiviteit en het resultaat van de query in de vorige sectie wordt gewijzigd.
+In de volgende sectie maakt u een apparaat-app die de gegevens van hostconnectiviteit rapporten en het resultaat van de query in de vorige sectie wordt gewijzigd.
 
 ## <a name="create-the-device-app"></a>De apparaat-app maken
-In deze sectie maakt u een Node.js-consoletoepassing die is verbonden met uw hub als **myDeviceId**, en vervolgens de updates die de apparaat-twin de eigenschappen van de informatie dat is verbonden met een mobiel netwerk bevatten gerapporteerd.
+In deze sectie maakt u een Node.js-consoletoepassing die verbinding met uw hub als maakt **myDeviceId**, en vervolgens de updates die de apparaatdubbel de gerapporteerde eigenschappen bevat de informatie die is verbonden met een mobiel netwerk.
 
 
-1. Maak een nieuwe lege map genaamd **reportconnectivity**. In de **reportconnectivity** map, maak een nieuw package.json-bestand met de volgende opdracht achter de opdrachtprompt. Accepteer alle standaardwaarden:
+1. Maak een nieuwe lege map genaamd **reportconnectivity**. In de **reportconnectivity** map, maak een nieuw package.json-bestand met de volgende opdracht in uw opdrachtvenster. Accepteer alle standaardwaarden:
    
     ```
     npm init
     ```
-2. Bij de opdrachtprompt in de **reportconnectivity** map, voer de volgende opdracht voor het installeren van de **azure-iot-device**, en **azure-iot-device-mqtt** pakket:
+2. In het opdrachtprompt in de **reportconnectivity** map, voer de volgende opdracht voor het installeren van de **azure-iot-device**, en **azure-iot-device-mqtt** pakket:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Start een teksteditor en maak een nieuwe **ReportConnectivity.js** bestand de **reportconnectivity** map.
-4. Voeg de volgende code naar de **ReportConnectivity.js** -bestand en vervang de **{verbindingsreeks apparaat}** aanduiding voor items met de apparaat-verbindingsreeks die u tijdens het maken van de gekopieerd**myDeviceId** apparaat-id:
+3. Maak met een teksteditor een nieuw **ReportConnectivity.js** -bestand in de **reportconnectivity** map.
+4. Voeg de volgende code aan de **ReportConnectivity.js** -bestand en vervang de **{apparaatverbindingsreeks}** tijdelijke aanduiding door de verbindingsreeks die u hebt gekopieerd tijdens het maken van de **myDeviceId** apparaat-id:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -174,28 +174,28 @@ In deze sectie maakt u een Node.js-consoletoepassing die is verbonden met uw hub
         }
         });
    
-    De **Client** object bevat de methoden die u nodig hebt om te communiceren met horende apparaten van het apparaat. De vorige code nadat het initialiseren van de **Client** object, haalt de apparaat-twin voor **myDeviceId** en de bijbehorende eigenschap gerapporteerde verbindingsgegevens bijgewerkt door de.
+    De **Client** object bevat de methoden die u nodig hebt om te communiceren met de dubbele apparaten van het apparaat. De vorige code, nadat het initialiseren van de **Client** object, haalt de apparaatdubbel voor **myDeviceId** en updates van de gerapporteerde eigenschap met de gegevens van hostconnectiviteit.
 5. De apparaat-app uitvoeren
    
         node ReportConnectivity.js
    
     U ziet het bericht `twin state reported`.
-6. Nu dat het apparaat heeft gemeld dat de gegevens over de connectiviteit, moet deze worden weergegeven in beide query's. Ga terug in de **addtagsandqueryapp** map en voer de query opnieuw uit:
+6. Nu dat het apparaat heeft gemeld dat de gegevens over de connectiviteit, wordt deze weergegeven in beide query's. Ga terug in de **addtagsandqueryapp** map en voer de query opnieuw uit:
    
         node AddTagsAndQuery.js
    
-    Deze tijd **myDeviceId** moet worden weergegeven in beide queryresultaten.
+    Deze keer **myDeviceId** moet worden weergegeven in de resultaten van beide query.
    
     ![][3]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U metagegevens van apparaten als labels toegevoegd vanuit een back-end-app en een gesimuleerde apparaattoepassing geschreven naar apparaten connectiviteit rapportgegevens in de apparaat-twin. Ook hebt u geleerd hoe deze gegevens met behulp van de SQL-achtige IoT Hub-querytaal opvragen.
+In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U metagegevens van apparaten als labels toegevoegd vanuit een back-end-app en een gesimuleerde apparaat-app geschreven naar apparaatgegevens met connectiviteit van rapport in de apparaatdubbel. U hebt ook geleerd hoe u query's van deze informatie met behulp van de SQL-achtige IoT Hub-querytaal.
 
-Gebruik de volgende bronnen voor meer informatie over hoe:
+Gebruik de volgende bronnen voor meer informatie over het:
 
-* verzenden van telemetrie vanaf apparaten met de [aan de slag met IoT Hub] [ lnk-iothub-getstarted] zelfstudie
-* apparaten configureren met de gewenste eigenschappen van apparaat twin met de [gebruik gewenst eigenschappen voor het configureren van apparaten] [ lnk-twin-how-to-configure] zelfstudie
-* beheren van apparaten interactief (zoals het inschakelen van een ventilator van een gebruiker beheerde app), met de [direct methoden gebruiken] [ lnk-methods-tutorial] zelfstudie.
+* verzenden van telemetrie van apparaten met de [aan de slag met IoT Hub] [ lnk-iothub-getstarted] zelfstudie
+* apparaten configureren met de gewenste eigenschappen van het dubbele apparaat met de [gebruik gewenste eigenschappen om apparaten te configureren] [ lnk-twin-how-to-configure] zelfstudie
+* Beheren van apparaten interactief (zoals het inschakelen van een fan, van een gebruiker beheerde app), met de [directe methoden gebruiken] [ lnk-methods-tutorial] zelfstudie.
 
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png

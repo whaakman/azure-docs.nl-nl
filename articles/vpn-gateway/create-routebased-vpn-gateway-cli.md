@@ -1,6 +1,6 @@
 ---
-title: 'Maak een op route gebaseerde Azure VPN-gateway: CLI | Microsoft Docs'
-description: Snel informatie over het maken van een VPN-Gateway met CLI
+title: 'Maken van een op route gebaseerde Azure VPN-gateway: CLI | Microsoft Docs'
+description: Snel informatie over het maken van een VPN-Gateway met behulp van CLI
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,25 +16,25 @@ ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: cherylmc
 ms.openlocfilehash: d0f4e292c6f5a2725b4a9efe91e78c6e634ea64e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30840902"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38605974"
 ---
-# <a name="create-a-route-based-vpn-gateway-using-cli"></a>Een op route gebaseerde VPN-gateway maken met CLI
+# <a name="create-a-route-based-vpn-gateway-using-cli"></a>Een op route gebaseerde VPN-gateway maken met behulp van CLI
 
-In dit artikel helpt u snel een op route gebaseerde Azure VPN-gateway maken met de Azure CLI. Een VPN-gateway wordt gebruikt bij het maken van een VPN-verbinding met uw on-premises netwerk. U kunt ook een VPN-gateway gebruiken VNets verbinden.
+Dit artikel helpt u snel een op route gebaseerde Azure VPN-gateway met de Azure CLI kunt maken. Een VPN-gateway wordt gebruikt bij het maken van een VPN-verbinding met uw on-premises netwerk. U kunt ook een VPN-gateway gebruiken om VNets te verbinden.
 
-De stappen in dit artikel maakt u een VNet, een subnet, een gatewaysubnet en een op route gebaseerde VPN-gateway (virtuele netwerkgateway). Een virtuele netwerkgateway duurt 45 minuten of langer maken. Nadat het maken van de gateway is voltooid, kunt u vervolgens verbindingen maken. Deze stappen hebt u een Azure-abonnement nodig. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+De stappen in dit artikel maakt een VNet, een subnet, een gatewaysubnet en een op route gebaseerde VPN-gateway (virtuele netwerkgateway). Een virtuele netwerkgateway kan duren voordat 45 minuten of langer te maken. Als het maken van de gateway is voltooid, kunt u vervolgens verbindingen maken. Deze stappen hebt u een Azure-abonnement nodig. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in dit artikel is vereist dat u de Azure CLI versie 2.0.4 worden uitgevoerd of hoger. Ga voor de geïnstalleerde versie uitvoeren `az --version`. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om na te gaan welke versie er is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resource-groep met de [az groep maken](/cli/azure/group#az_group_create) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Maak een resource-groep met de [az-groep maken](/cli/azure/group#az_group_create) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 
 ```azurecli-interactive 
@@ -57,7 +57,7 @@ az network vnet create \
 
 ## <a name="gwsubnet"></a>Een gatewaysubnet toevoegen
 
-Het gatewaysubnet bevat de gereserveerde IP-adressen die gebruikmaken van de services van de gateway virtuele netwerk. Gebruik de volgende voorbeelden voor een gatewaysubnet toevoegen:
+Het gatewaysubnet bevat de gereserveerde IP-adressen die de virtuele-netwerkgatewayservices gebruik. Gebruik de volgende voorbeelden om toe te voegen een gateway-subnet:
 
 ```azurepowershell-interactive
 az network vnet subnet create \
@@ -67,7 +67,7 @@ az network vnet subnet create \
   --address-prefix 10.1.255.0/27 
 ```
 
-## <a name="PublicIP"></a>Een openbaar IP-adres aanvragen
+## <a name="PublicIP"></a>Vraag een openbaar IP-adres
 
 Een VPN-gateway moet een dynamisch toegewezen openbare IP-adres hebben. Het openbare IP-adres wordt toegewezen aan de VPN-gateway die u voor het virtuele netwerk maakt. Gebruik het volgende voorbeeld om aan te vragen van een openbaar IP-adres:
 
@@ -82,7 +82,7 @@ az network public-ip create \
 
 Maak de VPN Gateway met behulp van de opdracht [az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create).
 
-Als u deze opdracht met behulp van uitvoert de `--no-wait` parameter feedback of de uitvoer niet wordt weergegeven. De `--no-wait` parameter kan de gateway moet worden gemaakt op de achtergrond. Dit betekent niet dat de VPN-gateway wordt onmiddellijk gemaakt.
+Als u deze opdracht met behulp van uitvoert de `--no-wait` parameter, u kunt geen feedback of uitvoer niet ziet. De `--no-wait` parameter zorgt ervoor dat de gateway moet worden gemaakt op de achtergrond. Dit betekent niet dat de VPN-gateway onmiddellijk wordt gemaakt.
 
 ```azurecli-interactive
 az network vnet-gateway create \
@@ -97,7 +97,7 @@ az network vnet-gateway create \
   --no-wait
 ```
 
-Een VPN-gateway kan duren 45 minuten of langer maken.
+Het maken van een VPN-gateway kan tot 45 minuten of langer duren.
 
 ## <a name="viewgw"></a>De VPN-gateway weergeven
 
@@ -153,9 +153,9 @@ Het antwoord ziet er ongeveer als volgt uit:
 }
 ```
 
-### <a name="view-the-public-ip-address"></a>Het openbare IP-adressen weergeven
+### <a name="view-the-public-ip-address"></a>Het openbare IP-adres weergeven
 
-Als u wilt weergeven van het openbare IP-adres is toegewezen aan uw gateway, gebruikt u het volgende voorbeeld:
+Als u het openbare IP-adres toegewezen aan uw gateway, gebruik het volgende voorbeeld:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -165,7 +165,7 @@ az network public-ip show \
 
 De waarde die is gekoppeld aan de **ipAddress** veld is het openbare IP-adres van uw VPN-gateway.
 
-Voorbeeld van een antwoord:
+Voorbeeld van een reactie:
 
 ```
 {
@@ -180,7 +180,7 @@ Voorbeeld van een antwoord:
 ```
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u de resources die u hebt gemaakt niet meer nodig hebt, gebruik [az groep verwijderen](/cli/azure/group#az_group_delete) de resourcegroep verwijderen. Hiermee wordt de resourcegroep en alle resources daarin verwijderd.
+Wanneer u de resources die u hebt gemaakt niet meer nodig hebt, gebruikt u [az group delete](/cli/azure/group#az_group_delete) om de resourcegroep te verwijderen. Hiermee verwijdert u de resourcegroep en alle resources die deze bevat.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes
@@ -188,9 +188,9 @@ az group delete --name TestRG1 --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zodra de gateway is klaar met het maken, kunt u een verbinding tussen uw virtuele netwerk en een andere VNet. Of maak een verbinding tussen uw virtuele netwerk en een on-premises locatie.
+Zodra de gateway heeft gemaakt, kunt u een verbinding maken tussen uw virtuele netwerk en een ander VNet. Of maak een verbinding tussen uw virtuele netwerk en een on-premises locatie.
 
 > [!div class="nextstepaction"]
 > [Maak een site-naar-site-verbinding](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>
-> [Maak een punt-naar-site-verbinding](vpn-gateway-howto-point-to-site-rm-ps.md)<br><br>
-> [Maak een verbinding met een andere VNet](vpn-gateway-vnet-vnet-rm-ps.md)
+> [Een punt-naar-site-verbinding maken](vpn-gateway-howto-point-to-site-rm-ps.md)<br><br>
+> [Maak een verbinding met een ander VNet](vpn-gateway-vnet-vnet-rm-ps.md)

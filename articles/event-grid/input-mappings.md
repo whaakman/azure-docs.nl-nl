@@ -1,6 +1,6 @@
 ---
-title: Aangepaste veldnamen worden toegewezen aan Azure gebeurtenis raster schema
-description: Beschrijft hoe u uw aangepaste schema converteren naar het schema Azure gebeurtenis raster.
+title: Aangepast veld toegewezen aan Azure Event Grid-schema
+description: Beschrijft hoe u uw aangepaste schema converteren naar de Azure Event Grid-schema.
 services: event-grid
 author: tfitzmac
 manager: timlt
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: tomfitz
 ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301964"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38578914"
 ---
-# <a name="map-custom-fields-to-event-grid-schema"></a>Aangepaste velden worden toegewezen aan de gebeurtenis raster schema
+# <a name="map-custom-fields-to-event-grid-schema"></a>Aangepaste velden toewijzen aan Event Grid-schema
 
-Als uw gebeurtenisgegevens niet overeenkomt met de verwachte [gebeurtenis raster schema](event-schema.md), kunt u de gebeurtenis raster route gebeurtenis naar abonnees. Dit artikel wordt beschreven hoe u uw schema toegewezen aan het raster voor gebeurtenis-schema.
+Als uw gebeurtenisgegevens niet overeenkomt met de verwachte [Event Grid schema](event-schema.md), u kunt nog steeds Event Grid op route-gebeurtenis voor abonnees. In dit artikel wordt beschreven hoe u uw schema toegewezen aan het Event Grid-schema.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="original-event-schema"></a>Oorspronkelijke gebeurtenis schema
+## <a name="original-event-schema"></a>Gebeurtenisschema in het oorspronkelijke
 
-Stel dat u een toepassing die u gebeurtenissen in de volgende indeling verzendt hebben:
+Stel dat u hebt een toepassing die gebeurtenissen in de volgende indeling verzendt:
 
 ```json
 [
@@ -35,19 +35,19 @@ Stel dat u een toepassing die u gebeurtenissen in de volgende indeling verzendt 
 ]
 ```
 
-Hoewel deze indeling komt niet overeen met het vereiste schema, wordt gebeurtenis raster kunt u de velden toegewezen aan het schema. Of u kunt de waarden in het oorspronkelijke schema ontvangen.
+Hoewel deze indeling komt niet overeen met de vereiste schema, wordt er Event Grid kunt u uw velden toewijzen aan het schema. Of u kunt de waarden in het oorspronkelijke schema ontvangen.
 
-## <a name="create-custom-topic-with-mapped-fields"></a>Maken van aangepaste onderwerp met toegewezen velden
+## <a name="create-custom-topic-with-mapped-fields"></a>Aangepast onderwerp maken met toegewezen velden
 
-Wanneer u een aangepaste onderwerp maakt, Geef op hoe de velden van uw oorspronkelijke gebeurtenis aan het raster gebeurtenis schema toe te wijzen. Er zijn drie eigenschappen die u gebruikt voor het aanpassen van de toewijzing:
+Bij het maken van een aangepast onderwerp, Geef op hoe velden van uw oorspronkelijke gebeurtenis naar het event grid-schema toe te wijzen. Er zijn drie eigenschappen die u gebruiken om aan te passen van de toewijzing:
 
-* De `--input-schema` parameter geeft het type van het schema. De beschikbare opties zijn *cloudeventv01schema*, *customeventschema*, en *eventgridschema*. De standaardwaarde is eventgridschema. Gebruik customeventschema bij het maken van aangepaste toewijzing tussen uw schema en de gebeurtenis raster schema. Wanneer gebeurtenissen in het schema CloudEvents, gebruik cloudeventv01schema.
+* De `--input-schema` parameter geeft u het type van het schema. De beschikbare opties zijn *cloudeventv01schema*, *customeventschema*, en *eventgridschema*. De standaardwaarde is eventgridschema. Gebruik customeventschema bij het maken van aangepaste toewijzing tussen het schema en het event grid-schema. Wanneer gebeurtenissen zich in een CloudEvents-schema, gebruikt u cloudeventv01schema.
 
-* De `--input-mapping-default-values` parameter geeft de standaardwaarden voor velden in het schema van de gebeurtenis raster. U kunt standaardwaarden instellen voor *onderwerp*, *eventtype*, en *dataversion*. Normaal gesproken gebruik deze parameter wanneer uw aangepaste schema geen een veld dat overeenkomt met een van deze drie velden. U kunt bijvoorbeeld opgeven dat dataversion is altijd ingesteld op **1.0**.
+* De `--input-mapping-default-values` parameter bepaalt de standaardwaarden voor de velden in het schema voor Event Grid. U kunt standaardwaarden instellen voor *onderwerp*, *type gebeurtenis*, en *dataversion*. Meestal gebruikt u deze parameter wanneer uw aangepaste schema bevat geen een veld dat overeenkomt met een van deze drie velden. U kunt bijvoorbeeld opgeven dat dataversion is altijd ingesteld op **1.0**.
 
-* De `--input-mapping-fields` parameter velden uit uw schema aan het raster gebeurtenis schema wordt toegewezen. U kunt waarden opgeven in een door spaties gescheiden sleutel/waarde-paren. Gebruik de naam van de gebeurtenis raster veld voor de naam van de sleutel. Gebruik de naam van het veld voor de waarde. U kunt de namen van de sleutels voor *id*, *onderwerp*, *eventtime*, *onderwerp*, *eventtype*, en *dataversion*.
+* De `--input-mapping-fields` parameter toegewezen velden uit uw schema naar het event grid-schema. Geeft u waarden in een door spaties gescheiden sleutel/waarde-paren. Gebruik de naam van het event grid-veld voor de naam van de sleutel. Gebruik de naam van het veld voor de waarde. U kunt de namen van de sleutels voor *id*, *onderwerp*, *eventtime*, *onderwerp*, *type gebeurtenis*, en *dataversion*.
 
-Het volgende voorbeeld maakt een aangepaste onderwerp met enkele toegewezen en de standaardinstellingen van de velden:
+Het volgende voorbeeld maakt u een aangepast onderwerp met een aantal toegewezen en standaardvelden:
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -63,13 +63,13 @@ az eventgrid topic create \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
 
-## <a name="subscribe-to-event-grid-topic"></a>Abonneren op het raster onderwerp over de gebeurtenis
+## <a name="subscribe-to-event-grid-topic"></a>Abonneren op event grid-onderwerp
 
-Wanneer u zich abonneert op het aangepaste onderwerp, geeft u het schema dat u gebruiken wilt voor het ontvangen van de gebeurtenissen. U gebruikt de `--event-delivery-schema` parameter en wordt ingesteld op *cloudeventv01schema*, *eventgridschema*, of *inputeventschema*. De standaardwaarde is eventgridschema.
+Wanneer u zich abonneert op het aangepaste onderwerp, geeft u het schema dat u gebruiken wilt voor het ontvangen van de gebeurtenissen. U gebruikt de `--event-delivery-schema` parameter instelt op *cloudeventv01schema*, *eventgridschema*, of *inputeventschema*. De standaardwaarde is eventgridschema.
 
-De voorbeelden in deze sectie wordt een Queue storage gebruiken voor de gebeurtenis-handler. Zie voor meer informatie [aangepaste gebeurtenissen doorsturen naar Azure Queue storage](custom-event-to-queue-storage.md).
+De voorbeelden in deze sectie gebruiken een Queue storage voor de gebeurtenis-handler. Zie voor meer informatie, [aangepaste gebeurtenissen routeren naar Azure Queue storage](custom-event-to-queue-storage.md).
 
-Het volgende voorbeeld is lid van een gebeurtenis raster onderwerp en gebruikt het standaardschema voor het raster van gebeurtenis:
+Het volgende voorbeeld zich abonneert op een event grid-onderwerp en gebruikt het standaardschema voor event grid:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -80,7 +80,7 @@ az eventgrid event-subscription create \
   --endpoint <storage-queue-url>
 ```
 
-Het volgende voorbeeld wordt de invoer schema van de gebeurtenis:
+Het volgende voorbeeld wordt de invoer-schema van de gebeurtenis:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -94,7 +94,7 @@ az eventgrid event-subscription create \
 
 ## <a name="publish-event-to-topic"></a>Gebeurtenis publiceren naar onderwerp
 
-U bent nu klaar om te een gebeurtenis verzenden naar het aangepaste onderwerp en het resultaat van de toewijzing te bekijken. Het volgende script voor het plaatsen van een gebeurtenis in de [voorbeeldschema](#original-event-schema):
+U bent nu klaar voor een gebeurtenis verzenden naar het aangepaste onderwerp en het resultaat van de toewijzing te bekijken. Het volgende script voor het plaatsen van een gebeurtenis in de [voorbeeldschema](#original-event-schema):
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
@@ -105,9 +105,9 @@ body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-jso
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Bekijk nu uw Queue storage. De twee abonnementen bezorgd gebeurtenissen in verschillende schema's.
+Bekijk nu uw Queue storage. De twee abonnementen gebeurtenissen in verschillende schema's geleverd.
 
-Het eerste abonnement gebeurtenis raster schema gebruikt. De indeling van de geleverde gebeurtenis is:
+Het eerste abonnement gebruikt gebeurtenisschema in het raster. De indeling van de geleverde gebeurtenis is:
 
 ```json
 {
@@ -126,9 +126,9 @@ Het eerste abonnement gebeurtenis raster schema gebruikt. De indeling van de gel
 }
 ```
 
-Deze velden bevatten de toewijzingen van het aangepaste onderwerp. **myEventTypeField** is toegewezen aan **EventType**. De standaardwaarden voor **DataVersion** en **onderwerp** worden gebruikt. De **gegevens** object bevat de oorspronkelijke gebeurtenis schemavelden.
+Deze velden bevatten de toewijzingen van het aangepaste onderwerp. **myEventTypeField** is toegewezen aan **type gebeurtenis**. De standaardwaarden voor **DataVersion** en **onderwerp** worden gebruikt. De **gegevens** object bevat de oorspronkelijke gebeurtenis schemavelden.
 
-Het tweede abonnement gebruikt de invoergebeurtenis-schema. De indeling van de geleverde gebeurtenis is:
+Het tweede abonnement gebruikt de invoer-schema. De indeling van de geleverde gebeurtenis is:
 
 ```json
 {
@@ -142,6 +142,6 @@ U ziet dat de oorspronkelijke velden zijn geleverd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Voor informatie over de levering van de gebeurtenis en nieuwe pogingen, [gebeurtenis raster berichtbezorging en probeer het opnieuw](delivery-and-retry.md).
-* Zie voor een inleiding tot gebeurtenis raster, [over gebeurtenis raster](overview.md).
-* Zie om snel aan de slag met Event raster [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md).
+* Voor informatie over de bezorging van gebeurtenissen en nieuwe pogingen, [bezorging van berichten van Event Grid en probeer het opnieuw](delivery-and-retry.md).
+* Zie [Een inleiding tot Event Grid](overview.md) voor een inleiding tot Event Grid.
+* Als u wilt snel aan de slag met Event Grid, Zie [aangepaste gebeurtenissen maken en routeren met Azure Event Grid](custom-event-quickstart.md).

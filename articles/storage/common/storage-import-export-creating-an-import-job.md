@@ -1,6 +1,6 @@
 ---
-title: Maken van een Import-taak voor de Azure Import/Export | Microsoft Docs
-description: Informatie over het maken van een import voor de Microsoft Azure Import/Export-service.
+title: Een importtaak voor Azure Import/Export maken | Microsoft Docs
+description: Informatie over het maken van een invoer voor de Microsoft Azure Import/Export-service.
 author: muralikk
 manager: syadav
 editor: syadav
@@ -15,95 +15,95 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: a80d2169f346238f997c727f0e9d82666897b608
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365879"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697635"
 ---
-# <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Maken van een import-taak voor de service Azure Import/Export
+# <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Een importtaak voor de Azure Import/Export-service maken
 
-Maken van een import-taak voor de Microsoft Azure Import/Export-service met de REST API omvat de volgende stappen:
+Het maken van een import-taak voor de Microsoft Azure Import/Export-service met behulp van de REST-API omvat de volgende stappen:
 
--   Schijven met de Azure-hulpprogramma voor importeren/exporteren wordt voorbereid.
+-   Voorbereiden van harde schijven met de Azure Import/Export-hulpprogramma.
 
--   Het verkrijgen van de locatie op waarnaar u het station verzenden.
+-   Het ophalen van de locatie waarnaar u wilt het station verzenden.
 
--   De import-taak maken.
+-   Het maken van de import-taak.
 
--   Verzending van de stations met Microsoft via een ondersteunde Provider-service.
+-   Verzending van de schijven naar Microsoft via een ondersteunde Provider-service.
 
--   Bijwerken van de import-taak met de back-upfunctie voor details.
+-   De import-taak bijwerken met de verzendgegevens.
 
- Zie [via de Microsoft Azure Import/Export-service gegevens overdragen naar Blob Storage](storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie waarin wordt getoond hoe u de [Azure-portal](https://portal.azure.com/) te maken en beheren van importeren en exporteren van taken.
+ Zie [met behulp van de Microsoft Azure Import/Export-service gegevens overbrengen naar Blob-opslag](storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie waarin wordt gedemonstreerd hoe u de [Azure-portal](https://portal.azure.com/) maken en beheren van importeren en exporteren van taken.
 
-## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Stations met het hulpprogramma voor Azure Import/Export voorbereiden
+## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Schijven met het hulpprogramma Azure Import/Export voorbereiden
 
-De stappen voor het voorbereiden van stations voor een import-taak zijn hetzelfde, of u de jobvia de portal maakt of via de REST-API.
+De stappen voor het voorbereiden van schijven voor een importtaak zijn hetzelfde, of u nu de jobvia de portal maakt of via de REST-API.
 
-Hieronder vindt u een kort overzicht van de voorbereiding van het station. Raadpleeg de [Azure Import-ExportTool verwijzing](storage-import-export-tool-how-to-v1.md) voor volledige instructies. U kunt de Azure-hulpprogramma voor importeren/exporteren downloaden [hier](http://go.microsoft.com/fwlink/?LinkID=301900).
+Hieronder volgt een kort overzicht van de voorbereiding van station. Raadpleeg de [naslaginformatie voor Azure Import-ExportTool](storage-import-export-tool-how-to-v1.md) voor volledige instructies. U kunt het hulpprogramma Azure Import/Export downloaden [hier](http://go.microsoft.com/fwlink/?LinkID=301900).
 
-Voorbereiden van de schijf omvat:
+Voorbereiden van het station bestaat uit:
 
--   Identificeren van de gegevens moeten worden geïmporteerd.
+-   Identificeren van de gegevens worden geïmporteerd.
 
--   Identificeren van de bestemming blobs in Windows Azure Storage.
+-   Hoe identificeert u de blobs doel in Windows Azure Storage.
 
--   Gebruik de Azure-hulpprogramma voor importeren/exporteren van uw gegevens kopiëren naar een of meer harde schijven.
+-   Met behulp van de Azure Import/Export-hulpprogramma gegevens kopiëren naar een of meer harde schijven.
 
- De Azure-hulpprogramma voor importeren/exporteren wordt ook een manifestbestand genereren voor elk van de stations als deze wordt voorbereid. Een manifestbestand bevat:
+ De Azure Import/Export-hulpprogramma wordt ook een manifestbestand voor elk van de stations gegenereerd als deze wordt voorbereid. Een manifestbestand bevat:
 
--   Een opsomming van alle bestanden die zijn bedoeld voor het uploaden en de toewijzingen van deze bestanden in BLOB's.
+-   Een inventarisatie van alle bestanden die zijn bedoeld voor het uploaden en de toewijzingen van deze bestanden tot blobs.
 
 -   Controlesommen van de segmenten van elk bestand.
 
--   Informatie over de metagegevens en de eigenschappen die u wilt koppelen aan elke blob.
+-   Informatie over de metagegevens en eigenschappen om te koppelen aan elke blob.
 
--   Een lijst met de actie moet worden uitgevoerd als een blob die wordt geüpload dezelfde naam als een bestaande blob zijn in de container heeft. Mogelijke opties zijn: a) de blob wordt overschreven door het bestand, b) Houd de bestaande blob en het uploaden van het bestand overslaan, c) een achtervoegsel aan de naam toegevoegd zodat deze niet in strijd is met andere bestanden.
+-   Een overzicht van de actie moet worden uitgevoerd als een blob die wordt geüpload dezelfde naam als een bestaande blob in de container heeft. Mogelijke opties zijn: a) de blob wordt overschreven door het bestand, (b) het bewaren van de bestaande blob en het bestand te uploaden overslaan, c) een achtervoegsel aan de naam toegevoegd zodat deze niet in strijd met andere bestanden.
 
-## <a name="obtaining-your-shipping-location"></a>Het verkrijgen van de locatie van uw back-ups
+## <a name="obtaining-your-shipping-location"></a>Het ophalen van de locatie van uw verzending
 
-Voordat u een import-taak maakt, moet u een back-upfunctie locatienaam en adres ophalen door het aanroepen van de [lijst locaties](/rest/api/storageimportexport/listlocations) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en de harde schijven naar dit adres verzenden. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het adres van de back-upfunctie voor een specifieke locatie.
+Voordat u een import-taak maakt, moet u eerst een verzending locatienaam en adres door het aanroepen van de [lijst met locaties](/rest/api/storageimportexport/listlocations) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en verzending van uw harde schijven naar dat adres. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het verzendadres voor een specifieke locatie.
 
- Volg onderstaande stappen voor het verkrijgen van de locatie van de back-ups:
+ Volg de stappen hieronder om de locatie van de verzending verkrijgen:
 
--   Geef de naam van de locatie van uw opslagaccount. Deze waarde kan worden gevonden in de **locatie** op het opslagaccount **Dashboard** in de Azure portal of voor de query met de service management API-bewerking [eigenschappen van het Opslagaccount ophalen](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Geef de naam van de locatie van uw opslagaccount. Deze waarde kunt u vinden onder de **locatie** veld in de storage-account **Dashboard** in Azure portal of opgevraagde voor met behulp van de service management API-bewerking [Opslagaccount ophalen Eigenschappen van](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
--   Ophalen van de locatie die beschikbaar is voor het verwerken van dit opslagaccount door het aanroepen van de `Get Location` bewerking.
+-   Ophalen van de locatie die beschikbaar is voor het verwerken van dit opslagaccount wordt gebruikt door het aanroepen van de `Get Location` bewerking.
 
--   Als de `AlternateLocations` eigenschap van de locatie van de locatie zelf bevat, wordt dit klopt voor gebruik van deze locatie. Anders Roep de `Get Location` opnieuw met een van de alternatieve locaties. De oorspronkelijke locatie mogelijk tijdelijk worden gesloten voor onderhoud.
+-   Als de `AlternateLocations` eigenschap van de locatie van de locatie zelf bevat, wordt dit klopt om deze locatie te gebruiken. Anders aanroepen de `Get Location` bewerking opnieuw uit met een van de alternatieve locaties. De oorspronkelijke locatie mogelijk tijdelijk worden gesloten voor onderhoud.
 
-## <a name="creating-the-import-job"></a>De import-taak maken
-Aanroepen voor het maken van de import-taak, de [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking. U moet de volgende informatie:
+## <a name="creating-the-import-job"></a>Het maken van de import-taak
+Aanroepen voor het maken van de import-taak, de [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking. U moet de volgende informatie:
 
 -   Een naam voor de taak.
 
 -   De naam van het opslagaccount.
 
--   De back-upfunctie locatienaam, uit de vorige stap hebt verkregen.
+-   De verzending locatienaam, verkregen uit de vorige stap.
 
 -   Een taaktype (importeren).
 
--   Het retouradres waarin de schijven moeten worden verzonden nadat de import-taak is voltooid.
+-   Het retouradres waar de stations moeten worden verzonden nadat de import-taak is voltooid.
 
--   De lijst met stations in de taak. U moet de volgende informatie die is verkregen tijdens de voorbereiding van station stap bevat voor elk station.
+-   De lijst met stations in de taak. Voor elk station, moet u de volgende informatie die is verkregen tijdens de voorbereiding van het station opnemen:
 
-    -   De schijf-Id
+    -   Het station Id
 
     -   De BitLocker-sleutel
 
-    -   Het manifestbestand voor het relatieve pad op de harde schijf
+    -   Het relatieve pad van de manifest-bestand op de harde schijf
 
     -   De Base16 gecodeerd manifestbestand MD5-hash
 
-## <a name="shipping-your-drives"></a>Verzending van uw schijven
-U moet uw schijven naar het adres dat u hebt ontvangen van de vorige stap verzendt en u moet de Import/Export-service met het volgnummer van het pakket opgeven.
+## <a name="shipping-your-drives"></a>Verzend uw schijven
+U moet verzend uw schijven naar het adres dat u in de vorige stap hebt verkregen, en geeft u de Import/Export-service met het volgnummer van het pakket.
 
 > [!NOTE]
 >  U moet uw stations via een ondersteunde Provider-service, die het pakket van een volgnummer voorzien verzenden.
 
-## <a name="updating-the-import-job-with-your-shipping-information"></a>De import-taak wordt bijgewerkt met uw back-upfunctie informatie
-Nadat u het volgnummer hebt, roept u de [taakeigenschappen bijwerken](/api/storageimportexport/jobs#Jobs_Update) bewerking voor het bijwerken van de naam van de provider, het volgnummer voor de taak en nummer van de provider voor back-ups van return. Desgewenst kunt u het aantal stations en ook de datum van de back-upfunctie.
+## <a name="updating-the-import-job-with-your-shipping-information"></a>De import-taak bijwerken met uw verzendgegevens
+Nadat u uw traceringsnummer hebt, roept u de [taakeigenschappen bijwerken](/api/storageimportexport/jobs#Jobs_Update) bewerking voor het bijwerken van de naam van de vervoerder, het aantal voor de taak en de accountnummer van vervoerder voor retourneren verzending. U kunt het aantal stations en de datum van verzending ook optioneel opgeven.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

@@ -10,6 +10,8 @@
   items:
     - name: Een oplossing voor bewaking op afstand implementeren
       href: quickstart-remote-monitoring-deploy.md
+    - name: Een oplossing voor voorspellend onderhoud implementeren
+      href: quickstart-predictive-maintenance-deploy.md
     - name: Een apparaatsimulatieoplossing implementeren
       href: quickstart-device-simulation-deploy.md
 - name: Zelfstudies

@@ -1,6 +1,6 @@
 ---
-title: Inrichting handleiding voor SQL Server-VM's van Windows in de Azure portal | Microsoft Docs
-description: Deze instructies handleiding beschrijft uw opties voor het maken van Windows SQL Server 2017 virtuele machines in de Azure-portal.
+title: Inrichting-handleiding voor Windows SQL Server-VM's in Azure portal | Microsoft Docs
+description: In deze gebruiksaanwijzing wordt beschreven hoe u voor het maken van Windows SQL Server 2017 virtuele machines in Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -15,26 +15,26 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: jroth
 ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072314"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704535"
 ---
-# <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Het inrichten van een virtuele machine van Windows SQL Server in de Azure portal
+# <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hoe u een Windows SQL Server-machine inrichten in Azure portal
 
-Deze handleiding bevat informatie over de verschillende opties beschikbaar wanneer u een virtuele machine van Windows SQL Server in de Azure-portal maakt. In dit artikel bevat informatie over meer configuratieopties dan de [Quick Start SQL Server VM](quickstart-sql-vm-create-portal.md), die meer via een mogelijk inrichting taak gaat. 
+Deze handleiding bevat informatie over de verschillende opties beschikbaar wanneer u een Windows SQL Server-machine in Azure portal maakt. Dit artikel vindt u meer configuratieopties instellen dan de [SQL Server-VM-snelstartgids](quickstart-sql-vm-create-portal.md), die meer via één mogelijk inrichting taak gaat. 
 
-Gebruik deze handleiding voor het maken van uw eigen SQL Server-VM. Of gebruik het als referentie voor de beschikbare opties in de Azure portal.
+Deze handleiding gebruiken om uw eigen SQL Server-VM maken. Of gebruik het als referentie voor de beschikbare opties in Azure portal.
 
 > [!TIP]
 > Als u vragen hebt over virtuele machines met SQL Server, raadpleegt u [Veelgestelde vragen](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a id="select"></a> SQL Server-installatiekopieën voor virtuele machine-galerie
+## <a id="select"></a> Galerie met installatiekopieën van SQL Server virtuele machines
 
-Wanneer u een virtuele machine van SQL Server maakt, kunt u een van de verschillende vooraf geconfigureerde installatiekopieën uit de galerie met virtuele machine. De volgende stappen laten zien hoe u een van de installatiekopieën van het SQL Server 2017 selecteren.
+Als u een SQL Server-machine maakt, selecteert u een van verschillende vooraf geconfigureerde installatiekopieën uit de galerie met virtuele machines. De volgende stappen laten zien hoe u een van de SQL Server 2017-installatiekopieën selecteren.
 
 1. Meld u met uw account aan bij de [Azure Portal](https://portal.azure.com).
 
@@ -57,10 +57,10 @@ Wanneer u een virtuele machine van SQL Server maakt, kunt u een van de verschill
 1. Selecteer de installatiekopie met de naam **Gratis licentie voor SQL Server: SQL Server 2017 Developer op Windows Server 2016**.
 
    > [!TIP]
-   > De ontwikkelaarsversie wordt gebruikt in dit scenario, omdat het een complete, gratis editie van SQL Server voor het testen van ontwikkeling. U betaalt alleen voor de kosten van het uitvoeren van de virtuele machine. U bent echter gratis een van de afbeeldingen die u wilt gebruiken in dit scenario kiezen. Zie voor een beschrijving van de beschikbare installatiekopieën, de [Windows virtuele Machines van SQL Server-overzicht](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+   > De Developer edition wordt gebruikt in dit scenario, omdat het is een volledig functionele, gratis editie van SQL Server voor het testen van ontwikkeling. U betaalt alleen voor de kosten van het uitvoeren van de virtuele machine. Echter, bent u een van de afbeeldingen te gebruiken in dit scenario kiezen. Zie voor een beschrijving van de beschikbare installatiekopieën, de [overzicht van SQL Server Windows Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > Licentiekosten voor SQL Server zijn opgenomen in de prijzen voor de per seconde van de virtuele machine die u maakt en varieert met editie en kernen. De ontwikkelaarsversie van SQL Server is gratis voor ontwikkeling/tests (geen productie) en SQL Express is gratis voor lichte werkbelasting (minder dan 1 GB geheugen, kleiner is dan 10 GB aan opslagruimte). U kunt ook bring-your-eigenaar-license (BYOL) en betalen alleen voor de virtuele machine. De namen van de installatiekopieën worden voorafgegaan door {BYOL}. 
+   > Licentiekosten voor SQL Server zijn opgenomen in de prijzen per seconde van de virtuele machine die u maakt en varieert met edition en kernen. Editie van SQL Server Developer is gratis voor ontwikkeling/testen (niet voor productiedoeleinden) en SQL Express is gratis voor lichte werkbelasting (minder dan 1 GB geheugen, minder dan 10 GB aan opslagruimte). U kunt ook bring-your-own-license (BYOL) en betaal alleen voor de virtuele machine. De namen van de installatiekopieën worden voorafgegaan door {BYOL}. 
    >
    > Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie over deze opties.
 
@@ -100,7 +100,7 @@ Geef op de pagina **Basisbeginselen** de volgende gegevens op:
   > [!NOTE]
   > Het is een goed idee om een nieuwe resourcegroep te maken als u het gebruik van SQL Server in Azure alleen wilt testen of hier meer over te weten wilt komen. Als u klaar bent met testen, verwijdert u gewoon de resourcegroep. De virtuele machine en alle resources die aan de resourcegroep zijn gekoppeld, worden dan automatisch verwijderd. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
 
-* Selecteer een **locatie** voor de Azure-regio als host voor deze implementatie.
+* Selecteer een **locatie** voor de Azure-regio voor het hosten van deze implementatie.
 
 * Klik op **OK** om de instellingen op te slaan.
 
@@ -111,7 +111,7 @@ Geef op de pagina **Basisbeginselen** de volgende gegevens op:
 In de stap **Grootte** kiest u de grootte van uw virtuele machine. Dit doet u in het venster **Een grootte kiezen**. Het venster bevat in eerste instantie aanbevolen grootten voor de machine op basis van de geselecteerde installatiekopie.
 
 > [!IMPORTANT]
-> De geschatte maandelijkse kosten die worden weergegeven in het venster **Grootte kiezen**, zijn niet inclusief de kosten voor SQL Server-licentieverlening. Deze schatting is de kosten van de virtuele machine alleen. Deze schatting is voor de snelle en Developer-edities van SQL Server, de totale geschatte kosten. Zie de [pagina met prijzen voor virtuele Windows-machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en selecteer de gewenste editie van SQL server. Zie ook [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's).
+> De geschatte maandelijkse kosten die worden weergegeven in het venster **Grootte kiezen**, zijn niet inclusief de kosten voor SQL Server-licentieverlening. Deze schatting is de kosten van de virtuele machine alleen. Deze schatting is voor de Express- en Developer-edities van SQL Server, de totale geschatte kosten. Zie de [pagina met prijzen voor virtuele Windows-machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en selecteer de gewenste editie van SQL server. Zie ook [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's).
 
 ![Opties voor de grootte van uw virtuele SQL-machine](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -129,20 +129,20 @@ Configureer in het venster **Instellingen** de Azure-opslag, -netwerken en -bewa
 * Onder **Opslag** selecteert u **Ja** onder **Managed Disks**.
 
    > [!NOTE]
-   > Microsoft raadt Managed Disks aan voor SQL Server. Managed Disks verwerken de opslag achter de schermen. Bovendien distribueert Azure de opslagresources zodat voldoende redundantie wordt geboden wanneer virtuele machines met Managed Disks zich in dezelfde beschikbaarheidsset bevinden. Voor meer informatie Zie [Azure beheerd schijven Overview] [... -beheerde schijven overview.md.). Zie [Managed Disks gebruiken schijven voor virtuele machines in een beschikbaarheidsset](../manage-availability.md) voor meer informatie over Managed Disks in een beschikbaarheidsset.
+   > Microsoft raadt Managed Disks aan voor SQL Server. Managed Disks verwerken de opslag achter de schermen. Bovendien distribueert Azure de opslagresources zodat voldoende redundantie wordt geboden wanneer virtuele machines met Managed Disks zich in dezelfde beschikbaarheidsset bevinden. Voor meer informatie, Zie [Azure Managed Disks Overview] [.. / beheerde schijven overview.md.). Zie [Managed Disks gebruiken schijven voor virtuele machines in een beschikbaarheidsset](../manage-availability.md) voor meer informatie over Managed Disks in een beschikbaarheidsset.
 
-* Onder **netwerk**, selecteer alle binnenkomende poorten die in de **openbare poorten voor inkomend verkeer selecteren** lijst. Bijvoorbeeld, als u extern bureaublad in de virtuele machine wilt, schakelt u de **RDP (3389)** poort.
+* Onder **netwerk**, selecteer een binnenkomende poorten die in de **openbare binnenkomende poorten selecteren** lijst. Bijvoorbeeld, als u extern bureaublad in de virtuele machine wilt, selecteert u de **RDP (3389)** poort.
 
    ![Poorten voor inkomend verkeer](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
 
    > [!NOTE]
-   > U kunt selecteren de **MS SQL (1433)** extern toegang tot SQL Server-poort. Dit is echter niet nodig, omdat de **SQL Server-instellingen** stap voorziet deze optie ook. Als u poort 1433 bij deze stap selecteert, wordt het geopend irregardless of uw selecties in de **SQL Server-instellingen** stap.
+   > U kunt de poort **MS SQL (1433)** selecteren voor externe toegang tot SQL Server. Dit is echter niet nodig, omdat de **SQL Server-instellingen** stap vindt u deze optie ook. Als u poort 1433 bij deze stap selecteert, wordt deze geopend ongeacht uw selecties in de stap **SQL Server-instellingen**.
 
-   U kunt andere wijzigingen aanbrengen in de instellingen voor netwerken, of behoud de standaardwaarden.
+   U kunt andere wijzigingen aanbrengen in netwerkinstellingen, of behoud de standaardwaarden.
 
 * In Azure wordt **Bewaking** standaard ingeschakeld met hetzelfde opslagaccount als dat van de virtuele machine. U kunt deze instellingen hier wijzigen.
 
-* Onder **beschikbaarheidsset**, kunt u de standaardwaarde van laten **geen** voor dit scenario. Als u van plan bent de SQL AlwaysOn-beschikbaarheidsgroepen in te stellen, moet u de beschikbaarheid configureren om te voorkomen dat de virtuele machine opnieuw wordt gemaakt.  Zie voor meer informatie [De beschikbaarheid van virtuele machines beheren](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Onder **beschikbaarheidsset**, kunt u de standaardwaarde van **geen** voor dit scenario. Als u van plan bent de SQL AlwaysOn-beschikbaarheidsgroepen in te stellen, moet u de beschikbaarheid configureren om te voorkomen dat de virtuele machine opnieuw wordt gemaakt.  Zie voor meer informatie [De beschikbaarheid van virtuele machines beheren](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Klik op **OK** wanneer u klaar bent met het configureren van deze instellingen.
 
@@ -161,12 +161,12 @@ Configureer in het venster **SQL Server-instellingen** specifieke instellingen e
 
 ### <a name="connectivity"></a>Connectiviteit
 
-Geef onder **SQL-connectiviteit** het gewenste type toegang tot het SQL Server-exemplaar op deze virtuele machine op. Selecteer voor de doeleinden van deze rondleiding **openbaar (internet)** verbindingen naar SQL Server van de machines of services op internet toestaan. Als deze optie is geselecteerd, configureert Azure automatisch de firewall en de netwerkbeveiligingsgroep voor verkeer op poort 1433.
+Geef onder **SQL-connectiviteit** het gewenste type toegang tot het SQL Server-exemplaar op deze virtuele machine op. Selecteer voor het doel van dit scenario, **openbaar (internet)** verbindingen met SQL Server vanaf machines of services op internet is toegestaan. Als deze optie is geselecteerd, configureert Azure automatisch de firewall en de netwerkbeveiligingsgroep voor verkeer op poort 1433.
 
 ![SQL-connectiviteitsopties](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 
 > [!TIP]
-> Standaard gebruikt SQL Server een bekende poort, namelijk **1433**. Wijzig de poort in het vorige dialoogvenster om een andere poort, zoals 1401, te gebruiken voor betere beveiliging. Als u de poort wijzigt, moet u verbinding maken met behulp van deze poort van elke client-hulpprogramma's, zoals SSMS.
+> Standaard gebruikt SQL Server een bekende poort, namelijk **1433**. Wijzig de poort in het vorige dialoogvenster om een andere poort, zoals 1401, te gebruiken voor betere beveiliging. Als u de poort wijzigt, moet u verbinding maken met behulp van deze poort vanaf elk clienthulpprogramma, zoals SSMS.
 
 Voor verbinding met SQL Server via internet moet u ook SQL Server-verificatie inschakelen. Dit wordt beschreven in het volgende gedeelte.
 
@@ -184,7 +184,7 @@ Als u SQL Server-verificatie vereist, klikt u onder **SQL-verificatie** op **Ins
 ![SQL Server-verificatie](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
 
 > [!NOTE]
-> Als u van plan bent voor toegang tot SQL Server via internet (de optie voor het openbare-connectiviteit), moet u hier SQL-verificatie inschakelen. Voor openbare toegang tot de SQL Server is het gebruik van SQL-verificatie vereist.
+> Als u van plan bent voor toegang tot SQL Server via internet (de optie voor het openbare verbinding), moet u hier SQL-verificatie inschakelen. Voor openbare toegang tot de SQL Server is het gebruik van SQL-verificatie vereist.
 
 Als u SQL Server-verificatie inschakelt, geeft u een **Aanmeldingsnaam** en een **Wachtwoord** op. Deze gebruikersnaam is geconfigureerd als aanmeldingsnaam voor SQL Server-verificatie en lid van de vaste serverrol **sysadmin**. Zie [Een verificatiemodus kiezen](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) voor meer informatie over de verificatiemodi.
 
@@ -255,7 +255,7 @@ Zie voor meer informatie [Integratie van Azure Sleutelkluis configureren voor SQ
 
 ### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning-services
 
-U kunt gebruikmaken van de optie om [SQL Server Machine Learning-services](https://msdn.microsoft.com/library/mt604845.aspx) in te schakelen. Deze optie kunt u geavanceerde analyses met SQL Server 2017 gebruiken. Klik op **Inschakelen** in het venster **SQL Server-instellingen**.
+U kunt gebruikmaken van de optie om [SQL Server Machine Learning-services](https://msdn.microsoft.com/library/mt604845.aspx) in te schakelen. Deze optie kunt u geavanceerde analyses gebruiken met SQL Server 2017. Klik op **Inschakelen** in het venster **SQL Server-instellingen**.
 
 ![SQL Server Machine Learning-services inschakelen](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
@@ -287,7 +287,7 @@ In dit scenario hebt geselecteerd **openbare** toegang voor de virtuele machine 
 > [!NOTE]
 > Als u tijdens het inrichten niet de optie Openbaar hebt geselecteerd, kunt u de instellingen voor SQL-verbindingen achteraf wijzigen via de portal. Zie [Change your SQL connectivity settings](virtual-machines-windows-sql-connect.md#change) (SQL-verbindingsinstellingen wijzigen) voor meer informatie.
 
-De volgende secties laten zien hoe verbinding maken via internet aan uw virtuele machine van SQL Server-exemplaar.
+De volgende secties tonen hoe u verbinding maakt via internet met uw SQL Server-VM-exemplaar.
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 

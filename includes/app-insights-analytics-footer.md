@@ -1,5 +1,5 @@
 
-## <a name="analytics"></a>Analytische gegevens
+## <a name="analytics"></a>Analyse
 * [Overzicht](../articles/application-insights/app-insights-analytics.md)
 * [Rondleiding door analytische gegevens](../articles/application-insights/app-insights-analytics-tour.md)
   * Begin hier. Een zelfstudie over de belangrijkste functies.

@@ -1,5 +1,5 @@
 ---
-title: Een Azure DevTest Labs aangepaste installatiekopie maken van een VHD-bestand | Microsoft Docs
+title: Een aangepaste installatiekopie van Azure DevTest Labs maken van een VHD-bestand | Microsoft Docs
 description: Meer informatie over het maken van een aangepaste installatiekopie in Azure DevTest Labs van een VHD-bestand met de Azure portal
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: a961565815ca0d89dc98a8d6a3e14b338b649398
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787463"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687805"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Een aangepaste installatiekopie van een VHD-bestand maken
 
@@ -31,58 +31,58 @@ ms.locfileid: "33787463"
 
 ## <a name="step-by-step-instructions"></a>Stapsgewijze instructies
 
-De volgende stappen maakt u een aangepaste installatiekopie van een VHD-bestand met de Azure portal maken:
+De volgende stappen helpen u bij het maken van een aangepaste installatiekopie van een VHD-bestand met de Azure-portal:
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
+1. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 
-1. Selecteer de gewenste testomgeving uit de lijst van labs.  
+1. Selecteer de gewenste lab in de lijst met labs.  
 
-1. Selecteer in het lab hoofdvenster **configuratie en het beleid**. 
+1. Selecteer in het hoofdvenster van de testomgeving, **configuratie en het beleid**. 
 
-1. Op de **configuratie en het beleid** deelvenster **aangepaste installatiekopieën**.
+1. Op de **configuratie en het beleid** venster **aangepaste installatiekopieën**.
 
-1. Op de **aangepaste installatiekopieën** deelvenster **+ toevoegen**.
+1. Op de **aangepaste installatiekopieën** venster **+ toevoegen**.
 
-    ![Aangepaste installatiekopie toe te voegen](./media/devtest-lab-create-template/add-custom-image.png)
+    ![Aangepaste installatiekopie toevoegen](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Voer de naam van de aangepaste afbeelding. Deze naam wordt weergegeven in de lijst met basisinstallatiekopieën bij het maken van een virtuele machine.
+1. Voer de naam van de aangepaste installatiekopie. Deze naam wordt weergegeven in de lijst van basisinstallatiekopieën bij het maken van een virtuele machine.
 
-1. Geef de beschrijving van de aangepaste installatiekopie. Deze beschrijving wordt weergegeven in de lijst met basisinstallatiekopieën bij het maken van een virtuele machine.
+1. Voer de beschrijving van de aangepaste installatiekopie. Deze beschrijving wordt weergegeven in de lijst met basisinstallatiekopieën bij het maken van een virtuele machine.
 
-1. Voor **type besturingssysteem**, selecteert u **Windows** of **Linux**.
+1. Voor **besturingssysteemtype**, selecteert u **Windows** of **Linux**.
 
-    - Als u selecteert **Windows**, Geef via het selectievakje of *sysprep* is uitgevoerd op de machine. 
-    - Als u selecteert **Linux**, Geef via het selectievakje of *deprovision* is uitgevoerd op de machine. 
+    - Als u selecteert **Windows**, Geef via het selectievakje in of *sysprep* is uitgevoerd op de machine. 
+    - Als u selecteert **Linux**, Geef via het selectievakje in of *inrichting* is uitgevoerd op de machine. 
 
-1. Selecteer een **VHD** uit de vervolgkeuzelijst. Dit is de VHD die wordt gebruikt om de nieuwe aangepaste installatiekopie te maken. Selecteer indien nodig **een VHD uploaden met PowerShell**.
+1. Selecteer een **VHD** uit de vervolgkeuzelijst. Dit is de VHD die wordt gebruikt om de nieuwe aangepaste installatiekopie te maken. Selecteer indien nodig **uploaden van een VHD met behulp van PowerShell**.
 
-1. U kunt ook een naam, plan aanbieding en plan publisher invoeren als de installatiekopie die wordt gebruikt om de aangepaste installatiekopie te maken, geen licentie installatiekopie is (gepubliceerd door Microsoft).
+1. U kunt ook een naam, abonnement en plan publisher invoeren als de installatiekopie die wordt gebruikt voor het maken van de aangepaste installatiekopie niet een gelicentieerde installatiekopie is (gepubliceerd door Microsoft).
 
-   - **Naam van plan:** Voer de naam van de Marketplace-installatiekopie (SKU) van deze aangepaste installatiekopie wordt gemaakt 
-   - **Aanbieding plannen:** invoeren van het product (aanbieden) van de Marketplace-installatiekopie op basis waarvan deze aangepaste installatiekopie is gemaakt 
-   - **Plannen van de uitgever:** voert de uitgever van de Marketplace-installatiekopie op basis waarvan deze aangepaste installatiekopie is gemaakt
+   - **Naam van het plan:** Voer de naam van de Marketplace-installatiekopie (SKU) van deze aangepaste installatiekopie is gemaakt 
+   - **Plannen van aanbieding:** invoeren van het product (aanbieding) van de Marketplace-installatiekopie waaruit deze aangepaste installatiekopie is gemaakt 
+   - **Plannen van de uitgever:** invoeren van de uitgever van de Marketplace-installatiekopie waaruit deze aangepaste installatiekopie is gemaakt
 
    > [!NOTE]
-   > Als de installatiekopie die u gebruikt voor het maken van een aangepaste installatiekopie wordt **niet** een installatiekopie van een gelicentieerde en vervolgens deze velden zijn leeg en kan worden ingevuld als u kiest. Als de installatiekopie van het **is** een installatiekopie van een gelicentieerde en vervolgens de velden automatisch gevuld met de plangegevens zijn. Als u probeert te wijzigen in dit geval is, wordt er een waarschuwingsbericht weergegeven.
+   > Als de afbeelding die u gebruikt voor het maken van een aangepaste installatiekopie is **niet** een gelicentieerde installatiekopie en vervolgens deze velden leeg zijn en kunnen worden ingevuld indien gewenst. Als de afbeelding **is** een gelicentieerde installatiekopie en vervolgens de velden worden automatisch ingevuld met de planningsinformatie. Als u probeert te wijzigen in dit geval is, wordt er een waarschuwingsbericht weergegeven.
    >
    >
 
 1. Selecteer **OK** om de aangepaste installatiekopie te maken.
 
-Na een paar minuten de aangepaste installatiekopie wordt gemaakt en wordt opgeslagen in het lab-opslagaccount. Wanneer een lab-gebruiker wil een nieuwe virtuele machine maken, is de installatiekopie beschikbaar in de lijst met basisinstallatiekopieën.
+Na een paar minuten, wordt de aangepaste installatiekopie wordt gemaakt en wordt opgeslagen in het opslagaccount van het lab. Wanneer een gebruiker lab wil maken van een nieuwe virtuele machine, is de installatiekopie is beschikbaar in de lijst met basisinstallatiekopieën.
 
 ![Aangepaste installatiekopie beschikbaar in de lijst met basisinstallatiekopieën](./media/devtest-lab-create-template/custom-image-available-as-base.png)
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Verwante blogberichten
+## <a name="related-blog-posts"></a>Gerelateerde blogberichten
 
 - [Aangepaste installatiekopieën of formules?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Kopiëren van aangepaste installatiekopieën tussen Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een virtuele machine toevoegen aan uw testomgeving](./devtest-lab-add-vm.md)
+- [Een VM toevoegen aan uw testomgeving](./devtest-lab-add-vm.md)

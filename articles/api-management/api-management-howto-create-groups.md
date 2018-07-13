@@ -1,6 +1,6 @@
 ---
-title: Ontwikkelaarsaccounts met behulp van groepen in Azure API Management beheren | Microsoft Docs
-description: Informatie over het gebruik van groepen in Azure API Management ontwikkelaarsaccounts beheren
+title: Accounts voor ontwikkelaars met behulp van groepen in Azure API Management beheren | Microsoft Docs
+description: Informatie over het beheren van accounts voor ontwikkelaars met behulp van groepen in Azure API Management
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151056"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38603061"
 ---
-# <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Het maken en groepen gebruiken voor het beheren van de ontwikkelaarsaccounts in Azure API Management
-In API Management worden groepen gebruikt voor het beheren van de zichtbaarheid van producten voor ontwikkelaars. Producten voor het eerst zichtbaar aan groepen zijn gemaakt en vervolgens de ontwikkelaars van die groepen kunnen weergeven en zich abonneren op de producten die gekoppeld aan de groepen zijn. 
+# <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Hoe u groepen maken en gebruiken voor het beheren van accounts voor ontwikkelaars in Azure API Management
+In API Management worden groepen gebruikt voor het beheren van de zichtbaarheid van producten voor ontwikkelaars. Producten voor het eerst zichtbaar aan groepen zijn gemaakt, en vervolgens ontwikkelaars in deze groepen kunnen weergeven en zich abonneren op de producten die gekoppeld aan de groepen zijn. 
 
 API Management heeft de volgende onveranderbare systeemgroepen:
 
@@ -31,19 +31,19 @@ API Management heeft de volgende onveranderbare systeemgroepen:
 
 Naast deze systeemgroepen kunnen beheerders aangepaste groepen maken of [gebruikmaken van externe groepen in gekoppelde Azure Active Directory-tenants][leverage external groups in associated Azure Active Directory tenants]. Aangepaste en externe groepen kunnen naast systeemgroepen worden gebruikt om ontwikkelaars zichtbaarheid van en toegang tot API-producten te geven. U kunt bijvoorbeeld één aangepaste groep maken voor ontwikkelaars die zijn gekoppeld aan een specifieke partnerorganisatie en hen toegang geven tot de API's vanuit een product dat alleen relevante API's bevat. Een gebruiker kan lid zijn van meerdere groepen.
 
-Deze handleiding wordt getoond hoe beheerders van een exemplaar van API Management kunnen nieuwe groepen toevoegen en koppel deze aan de producten en -ontwikkelaars.
+Deze handleiding wordt beschreven hoe beheerders van een exemplaar van API Management kunnen nieuwe groepen toevoegen en deze koppelen aan producten en -ontwikkelaars.
 
-Naast het maken en beheren van groepen in de publicatieportal bevindt, kunt u maken en beheren van uw groepen met de REST-API van API Management [groep](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entiteit.
+Naast het maken en beheren van groepen in de publicatieportal bevindt, kunt u maken en beheren van uw groepen met behulp van de API Management REST API [groep](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entiteit.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Taken in dit artikel: [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
+Taken in dit artikel uit te voeren: [maken van een Azure API Management-exemplaar](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-group"> </a>Een groep maken
 
-Deze sectie wordt beschreven hoe u een nieuwe groep toevoegt aan uw API Management-account.
+Deze sectie wordt beschreven hoe u een nieuwe groep toevoegen aan uw API Management-account.
 
 1. Selecteer de **groepen** tabblad aan de linkerkant van het scherm.
 2. Klik op **+ toevoegen**.
@@ -52,30 +52,30 @@ Deze sectie wordt beschreven hoe u een nieuwe groep toevoegt aan uw API Manageme
 
     ![Een nieuwe groep toevoegen](./media/api-management-howto-create-groups/groups001.png)
 
-Zodra de groep is gemaakt, wordt deze toegevoegd aan de **groepen** lijst. <br/>Bewerken de **naam** of **beschrijving** van de groep, klikt u op de naam van de groep en **instellingen**.<br/>Als u wilt verwijderen van de groep, klikt u op de naam van de groep en druk op **verwijderen**.
+Nadat de groep is gemaakt, wordt deze toegevoegd aan de **groepen** lijst. <br/>Bewerken van de **naam** of **beschrijving** van de groep, klikt u op de naam van de groep en **instellingen**.<br/>Als u wilt verwijderen van de groep, klikt u op de naam van de groep en druk op **verwijderen**.
 
-Nu dat de groep is gemaakt, kan het worden gekoppeld aan de producten en -ontwikkelaars.
+Nu dat de groep is gemaakt, kan deze worden gekoppeld met producten en -ontwikkelaars.
 
-## <a name="associate-group-product"> </a>Een groep koppelen aan een product
+## <a name="associate-group-product"> </a>Een groep te koppelen aan een product
 
-1. Selecteer de **producten** tabblad naar links.
-2. Klik op de naam van de gewenste product.
+1. Selecteer de **producten** tabblad aan de linkerkant.
+2. Klik op de naam van het gewenste product.
 3. Druk op **toegangsbeheer**.
 4. Klik op **+ groep toevoegen**.
 
-    ![Een groep koppelen aan een product](./media/api-management-howto-create-groups/groups002.png)
+    ![Een groep te koppelen aan een product](./media/api-management-howto-create-groups/groups002.png)
 5. Selecteer de groep die u wilt toevoegen.
 
-    ![Een groep koppelen aan een product](./media/api-management-howto-create-groups/groups003.png)
+    ![Een groep te koppelen aan een product](./media/api-management-howto-create-groups/groups003.png)
 
     Als u wilt een groep verwijderen uit het product, klikt u op **verwijderen**.
 
     ![Een groep verwijderen](./media/api-management-howto-create-groups/groups004.png)
 
-Wanneer een product gekoppeld aan een groep is, kunnen ontwikkelaars in die groep weergeven en zich abonneren op het product.
+Zodra een product gekoppeld aan een groep is, kunnen ontwikkelaars in die groep weergeven en zich abonneren op het product.
 
 > [!NOTE]
-> Zie het toevoegen van Azure Active Directory-groepen [hoe autoriseren ontwikkelaarsaccounts met Azure Active Directory in Azure API Management](api-management-howto-aad.md).
+> Als u wilt toevoegen in Azure Active Directory-groepen, Zie [hoe ontwikkelaarsaccounts authoriseren met Azure Active Directory in Azure API Management](api-management-howto-aad.md).
 
 ## <a name="associate-group-developer"> </a>Groepen koppelen aan ontwikkelaars
 
@@ -90,12 +90,12 @@ Deze sectie wordt beschreven hoe u groepen koppelen aan leden.
     ![Een lid toevoegen](./media/api-management-howto-create-groups/groups006.png)
 4. Druk op **Selecteer**.
 
-Als de koppeling tussen de ontwikkelaar en de groep wordt toegevoegd, kunt u het bekijken in de **gebruikers** tabblad.
+Als de koppeling tussen de ontwikkelaar en de groep wordt toegevoegd, kunt u bekijken in de **gebruikers** tabblad.
 
 ## <a name="next-steps"> </a>Volgende stappen
 
-* Als een ontwikkelaar is toegevoegd aan een groep, kunnen ze bekijken en zich abonneren op de producten die zijn gekoppeld aan die groep. Zie voor meer informatie [maken en een product publiceren in Azure API Management][How create and publish a product in Azure API Management],
-* Naast het maken en beheren van groepen in de publicatieportal bevindt, kunt u maken en beheren van uw groepen met de REST-API van API Management [groep](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entiteit.
+* Nadat een ontwikkelaar is toegevoegd aan een groep, kunnen ze bekijken en zich abonneren op de producten die zijn gekoppeld aan die groep. Zie voor meer informatie, [maken en publiceren van een product in Azure API Management][How create and publish a product in Azure API Management],
+* Naast het maken en beheren van groepen in de publicatieportal bevindt, kunt u maken en beheren van uw groepen met behulp van de API Management REST API [groep](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entiteit.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

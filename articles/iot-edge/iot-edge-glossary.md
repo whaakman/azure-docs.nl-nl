@@ -1,6 +1,6 @@
 ---
-title: Azure IoT rand verklarende woordenlijst van termen | Microsoft Docs
-description: Concepten - een verklarende woordenlijst van algemene termen met betrekking tot Azure IoT rand.
+title: Azure IoT Edge-woordenlijst van termen | Microsoft Docs
+description: Concepten - een verklarende woordenlijst van termen met betrekking tot Azure IoT Edge.
 author: menchi
 manager: bzurcher
 ms.service: iot-edge
@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: menchi
 ms.openlocfilehash: 79864b765282f2efbf7016cba7138efa4e1d3dc4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630796"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597789"
 ---
-# <a name="glossary-of-iot-edge-terms"></a>Verklarende woordenlijst van IoT-rand
-In dit artikel vindt u enkele van de algemene termen die in de artikelen IoT Edge gebruikt.
+# <a name="glossary-of-iot-edge-terms"></a>Verklarende woordenlijst van IoT Edge
+In dit artikel worden enkele van de algemene termen gebruikt in de IoT Edge-artikelen.
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie [IoT Hub verklarende woordenlijst](../iot-hub/iot-hub-devguide-glossary.md)
-* Meer informatie over IoT rand [module-ontwikkeling](iot-edge-modules.md)
-* Meer informatie over IoT rand [implementatie](module-deployment-monitoring.md)
+* Zie [IoT-Hub verklarende woordenlijst](../iot-hub/iot-hub-devguide-glossary.md)
+* Informatie over IoT Edge [module-ontwikkeling](iot-edge-modules.md)
+* Informatie over IoT Edge [implementatie](module-deployment-monitoring.md)

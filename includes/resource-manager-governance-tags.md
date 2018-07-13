@@ -9,15 +9,15 @@ ms.date: 03/13/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 69c67f437d2f0b7bd6c1f5311eb5ba1d962d889a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29957309"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38738876"
 ---
 U past tags toe op uw Azure-resources om ze logisch te ordenen op categorieën. Elke tag bestaat uit een naam en een waarde. U kunt de naam Omgeving en de waarde Productie bijvoorbeeld toepassen op alle resources in de productie.
 
-Nadat u de tags hebt toegepast, kunt u alle resources in het abonnement ophalen met deze tagnaam en -waarde. Labels kunnen u verwante resources uit verschillende resourcegroepen ophalen. Deze aanpak is nuttig wanneer u resources moet ordenen voor facturering of beheer.
+Nadat u de tags hebt toegepast, kunt u alle resources in het abonnement ophalen met deze tagnaam en -waarde. Met tags kunt u verwante resources ophalen uit verschillende resourcegroepen bevinden. Deze aanpak is nuttig wanneer u resources moet ordenen voor facturering of beheer.
 
 Voor tags gelden de volgende beperkingen:
 
@@ -25,4 +25,4 @@ Voor tags gelden de volgende beperkingen:
 * De tagnaam is beperkt tot 512 tekens en de tagwaarde is beperkt tot 256 tekens. Voor opslagaccounts is de tagnaam beperkt tot 128 tekens en de tagwaarde beperkt tot 256 tekens.
 * Tags die zijn toegepast op de resourcegroep, worden niet overgenomen door de resources in deze resourcegroep.
 * Labels kunnen niet worden toegepast op klassieke resources zoals Cloudservices.
-* Labelnamen kunnen niet deze tekens niet bevatten: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+* Tag mogen niet deze tekens bevatten: `<`, `>`, `%`, `&`, `\`, `?`, `/`

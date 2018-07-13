@@ -1,6 +1,6 @@
 ---
 title: 'Genereren en exporteren van certificaten voor punt-naar-Site: PowerShell: Azure | Microsoft Docs'
-description: Maakt u een zelfondertekend basiscertificaat en exporteer de openbare sleutel genereren met behulp van PowerShell op Windows 10 of Windows Server 2016 clientcertificaten.
+description: Een zelfondertekend basiscertificaat maken, de openbare sleutel exporteren en clientcertificaten genereren via PowerShell in Windows 10 of Windows Server 2016.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,35 +16,35 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: cherylmc
 ms.openlocfilehash: 385b6ed2e8104fd2e15e6e55d46dcd12b963ec6b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423045"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696545"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Genereren en exporteren van certificaten voor punt-naar-Site met behulp van PowerShell
 
-Punt-naar-Site-verbindingen kunt u certificaten voor verificatie gebruiken. In dit artikel laat zien hoe een zelfondertekend basiscertificaat maken en met behulp van PowerShell op Windows 10 of Windows Server 2016 clientcertificaten te genereren. Als u zoekt de configuratiestappen punt-naar-Site, zoals het uploaden van basiscertificaten, selecteert u een van de artikelen ' configureren punt-naar-Site' in de volgende lijst:
+Punt-naar-Site-verbindingen gebruiken certificaten om te verifiëren. Dit artikel ziet u hoe u een zelfondertekend basiscertificaat maken en genereren van clientcertificaten met behulp van PowerShell in Windows 10 of Windows Server 2016. Als u zoekt de configuratiestappen punt-naar-Site, zoals over het uploaden van basiscertificaten, selecteert u een van de artikelen ' configureren punt-naar-Site' in de volgende lijst:
 
 > [!div class="op_single_selector"]
-> * [Zelfondertekende certificaten - PowerShell maken](vpn-gateway-certificates-point-to-site.md)
+> * [Zelfondertekende certificaten maken - PowerShell](vpn-gateway-certificates-point-to-site.md)
 > * [Zelfondertekende certificaten - MakeCert maken](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [Punt-naar-Site - Resource Manager - Azure-portal configureren](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Punt-naar-Site - Resource Manager - PowerShell configureren](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Punt-naar-Site - Classic - Azure-portal configureren](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Punt-naar-Site - klassiek - Azure portal configureren](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 
-In dit artikel op een computer met Windows 10 of Windows Server 2016, moet u de stappen uitvoeren. De PowerShell-cmdlets die u gebruikt voor het genereren van certificaten deel uitmaken van het besturingssysteem en werken niet op andere versies van Windows. De computer met Windows 10 of Windows Server 2016 is alleen nodig voor het genereren van de certificaten. Zodra de certificaten zijn gegenereerd, kunt u deze uploaden of installeren op een ondersteunde client-besturingssysteem. 
+In dit artikel op een computer met Windows 10 of Windows Server 2016 moet u de stappen uitvoeren. De PowerShell-cmdlets die u gebruikt voor het genereren van certificaten maken deel uit van het besturingssysteem en werken niet op andere versies van Windows. De computer met Windows 10 of Windows Server 2016 is alleen nodig voor het genereren van de certificaten. Zodra de certificaten zijn gegenereerd, kunt u deze uploaden of installeren op een ondersteunde client-besturingssysteem. 
 
-Als u geen toegang tot een computer met Windows 10 of Windows Server 2016, kunt u [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) voor het genereren van certificaten. De certificaten die u genereren met behulp van beide methoden kunnen worden geïnstalleerd op een [ondersteund](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) clientbesturingssysteem.
+Als u geen toegang tot een computer met Windows 10 of Windows Server 2016, kunt u [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) certificaten te genereren. De certificaten die u genereert met behulp van een van beide methoden kunnen worden geïnstalleerd op een [ondersteund](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) client-besturingssysteem.
 
 ## <a name="rootcert"></a>1. Een zelfondertekend basiscertificaat maken
 
-Gebruik de cmdlet New-SelfSignedCertificate voor het maken van een zelfondertekend basiscertificaat. Zie voor informatie over de extra parameters, [nieuw SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Gebruik de cmdlet New-SelfSignedCertificate om een zelfondertekend basiscertificaat te maken. Zie voor informatie over de extra parameters, [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Open vanaf een computer met Windows 10 of Windows Server 2016, een Windows PowerShell-console met verhoogde bevoegdheden.
-2. Gebruik het volgende voorbeeld voor het maken van het zelfondertekende basiscertificaat. Het volgende voorbeeld maakt een zelfondertekend basiscertificaat met de naam 'P2SRootCert', die automatisch wordt geïnstalleerd in 'Certificaten-Huidige gebruiker\Persoonlijk\Certificaten'. U kunt het certificaat weergeven door het openen van *certmgr.msc*, of *Gebruikerscertificaten beheren*.
+1. Vanaf een computer met Windows 10 of Windows Server 2016, opent u een Windows PowerShell-console met verhoogde bevoegdheden.
+2. Gebruik het volgende voorbeeld om het zelfondertekend basiscertificaat te maken. Het volgende voorbeeld wordt een zelfondertekend basiscertificaat 'P2SRootCert', die automatisch wordt geïnstalleerd in 'Certificaten-Huidige gebruiker\Persoonlijk\Certificaten' met de naam. U kunt het certificaat weergeven door het openen van *certmgr.msc*, of *Gebruikerscertificaten beheren*.
 
   ```powershell
   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -55,17 +55,17 @@ Gebruik de cmdlet New-SelfSignedCertificate voor het maken van een zelfonderteke
 
 ## <a name="clientcert"></a>2. Een clientcertificaat genereren
 
-Op elke clientcomputer die via punt-naar-site verbinding maakt met een VNet, moet een clientcertificaat zijn geïnstalleerd. U een clientcertificaat genereren uit het zelfondertekende basiscertificaat en vervolgens exporteren en installeren van het clientcertificaat. Als het clientcertificaat niet is geïnstalleerd, mislukt de verificatie. 
+Op elke clientcomputer die via punt-naar-site verbinding maakt met een VNet, moet een clientcertificaat zijn geïnstalleerd. U een clientcertificaat genereren uit het zelfondertekende basiscertificaat, en vervolgens exporteren en het clientcertificaat installeren. Als het clientcertificaat niet is geïnstalleerd, mislukt de verificatie. 
 
-De volgende stappen maakt u een clientcertificaat van een zelfondertekend basiscertificaat genereren. U kunt meerdere clientcertificaten uit hetzelfde basiscertificaat genereren. Als u clientcertificaten met de onderstaande stappen genereert, wordt het certificaat wordt automatisch geïnstalleerd op de computer die u gebruikt voor het genereren van het certificaat. Als u een clientcertificaat installeren op een andere clientcomputer wilt, kunt u het certificaat exporteren.
+De volgende stappen helpen u bij het genereren van een certificaat van een zelfondertekend basiscertificaat. U kunt meerdere clientcertificaten genereren uit het hetzelfde basiscertificaat. Wanneer u met behulp van de onderstaande stappen clientcertificaten genereert, wordt het certificaat wordt automatisch geïnstalleerd op de computer die u gebruikt voor het genereren van het certificaat. Als u een clientcertificaat installeren op een andere clientcomputer wilt, kunt u het certificaat exporteren.
 
-De voorbeelden gebruikt de cmdlet New-SelfSignedCertificate voor het genereren van een clientcertificaat dat na één jaar verloopt. Zie voor aanvullende parameterinformatie, zoals het instellen van een andere vervaldatum waarde voor het clientcertificaat [nieuw SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+De voorbeelden gebruiken de cmdlet New-SelfSignedCertificate voor het genereren van een clientcertificaat dat verloopt na één jaar. Zie voor meer informatie de extra parameter, zoals het instellen van een andere vervalwaarde voor het clientcertificaat [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 ### <a name="example-1"></a>Voorbeeld 1
 
-In dit voorbeeld wordt de gedeclareerde '$cert' variabele uit de vorige sectie. Als u de PowerShell-console gesloten na het maken van het zelfondertekende basiscertificaat of extra client certificaten in een nieuwe PowerShell-console-sessie maakt, gebruikt u de stappen in [voorbeeld 2](#ex2).
+Dit voorbeeld wordt de variabele gedeclareerde '$cert' uit de vorige sectie. Als u de PowerShell-console gesloten nadat het zelfondertekende basiscertificaat hebt gemaakt, of zijn het maken van aanvullende certificaten in een nieuwe PowerShell-console-sessie, gebruikt u de stappen in [voorbeeld 2](#ex2).
 
-Wijzigen en voer in het voorbeeld voor het genereren van een clientcertificaat. Als u het volgende voorbeeld uitvoert zonder het te wijzigen, is het resultaat een certificaat met de naam 'P2SChildCert'.  Als u wilt de naam van het certificaat van de onderliggende iets anders, wijzigt u de CN-waarde. Wijzig de TextExtension niet bij het uitvoeren van dit voorbeeld. Het clientcertificaat dat u genereren wordt automatisch geïnstalleerd in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten' op uw computer.
+Wijzigen en voer het voorbeeld voor het genereren van een clientcertificaat. Als u het volgende voorbeeld uitvoert zonder het te wijzigen, is het resultaat een clientcertificaat met de naam 'P2SChildCert'.  Als u wilt de naam van het certificaat van de onderliggende iets anders, wijzigt u de CN-waarde. Wijzig de TextExtension niet bij het uitvoeren van dit voorbeeld. Het clientcertificaat dat u wordt automatisch geïnstalleerd in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten' op uw computer.
 
 ```powershell
 New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
@@ -77,14 +77,14 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 
 ### <a name="ex2"></a>Voorbeeld 2
 
-Als u extra clientcertificaten maakt of dezelfde PowerShell-sessie die u gebruikt voor het maken van uw zelfondertekende basiscertificaat niet gebruikt, gebruikt u de volgende stappen uit:
+Als u het maken van aanvullende clientcertificaten of niet dezelfde PowerShell-sessie die u gebruikt voor het maken van uw zelfondertekend basiscertificaat gebruikt, gebruikt u de volgende stappen uit:
 
 1. Identificeer het zelfondertekende basiscertificaat dat is geïnstalleerd op de computer. Deze cmdlet retourneert een lijst met certificaten die zijn geïnstalleerd op uw computer.
 
   ```powershell
   Get-ChildItem -Path “Cert:\CurrentUser\My”
   ```
-2. Zoek de onderwerpnaam in de geretourneerde lijst en kopieer de vingerafdruk die ernaast bevindt zich in een tekstbestand. Er zijn twee certificaten in het volgende voorbeeld. De CN-naam is de naam van het zelfondertekende basiscertificaat van waaruit u wilt voor het genereren van een onderliggende-certificaat. In dit geval 'P2SRootCert'.
+2. Zoek de naam van het onderwerp in de geretourneerde lijst en kopieer de vingerafdruk die naast het bevindt zich in een tekstbestand. Er zijn twee certificaten in het volgende voorbeeld. De CN-naam is de naam van het zelfondertekende basiscertificaat van waaruit u wilt een onderliggende certificaat genereren. In dit geval 'P2SRootCert'.
 
   ```
   Thumbprint                                Subject
@@ -92,7 +92,7 @@ Als u extra clientcertificaten maakt of dezelfde PowerShell-sessie die u gebruik
   AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
   7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
   ```
-3. Een variabele voor het basiscertificaat met de vingerafdruk van de vorige stap declareren. Vervang de VINGERAFDRUK met de vingerafdruk van het basiscertificaat van waaruit u wilt voor het genereren van een onderliggende-certificaat.
+3. Declareer een variabele voor het basiscertificaat met behulp van de vingerafdruk van de vorige stap. VINGERAFDRUK vervangen door de vingerafdruk van het basiscertificaat van waaruit u wilt een onderliggende certificaat genereren.
 
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
@@ -103,7 +103,7 @@ Als u extra clientcertificaten maakt of dezelfde PowerShell-sessie die u gebruik
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
   ```
-4.  Wijzigen en voer in het voorbeeld voor het genereren van een clientcertificaat. Als u het volgende voorbeeld uitvoert zonder het te wijzigen, is het resultaat een certificaat met de naam 'P2SChildCert'. Als u wilt de naam van het certificaat van de onderliggende iets anders, wijzigt u de CN-waarde. Wijzig de TextExtension niet bij het uitvoeren van dit voorbeeld. Het clientcertificaat dat u genereren wordt automatisch geïnstalleerd in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten' op uw computer.
+4.  Wijzigen en voer het voorbeeld voor het genereren van een clientcertificaat. Als u het volgende voorbeeld uitvoert zonder het te wijzigen, is het resultaat een clientcertificaat met de naam 'P2SChildCert'. Als u wilt de naam van het certificaat van de onderliggende iets anders, wijzigt u de CN-waarde. Wijzig de TextExtension niet bij het uitvoeren van dit voorbeeld. Het clientcertificaat dat u wordt automatisch geïnstalleerd in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten' op uw computer.
 
   ```powershell
   New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
@@ -118,9 +118,9 @@ Als u extra clientcertificaten maakt of dezelfde PowerShell-sessie die u gebruik
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
 
-### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exporteer het zelfondertekende basiscertificaat en de persoonlijke sleutel voor het opslaan van het (optioneel)
+### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exporteer het zelfondertekende basiscertificaat en de persoonlijke sleutel om op te slaan (optioneel)
 
-U kunt naar de zelfondertekende basiscertificaat exporteren en op te slaan veilig als back. Indien nodig zijn, kunt u later kunt installeren op een andere computer en meer client certifiates genereren. Als u wilt het zelfondertekende basiscertificaat exporteren als een .pfx-bestand, selecteer het basiscertificaat en gebruik dezelfde stappen zoals beschreven in [exporteren van een clientcertificaat](#clientexport).
+Kunt u het zelfondertekend basiscertificaat exporteren en bewaar veilig als back-up. Als moet worden, kunt u later kunt installeren op een andere computer en meer client certifiates genereren. Als u wilt het zelfondertekend basiscertificaat exporteren als een pfx-bestand, selecteer het basiscertificaat en gebruik dezelfde stappen zoals beschreven in [een clientcertificaat exporteren](#clientexport).
 
 ## <a name="clientexport"></a>4. Het clientcertificaat exporteren
 
@@ -129,14 +129,14 @@ U kunt naar de zelfondertekende basiscertificaat exporteren en op te slaan veili
 
 ## <a name="install"></a>5. Een geëxporteerd clientcertificaat installeren
 
-Elke client die verbinding met het VNet via een P2S-verbinding maakt vereist een clientcertificaat lokaal zijn geïnstalleerd.
+Elke client die verbinding met het VNet via een P2S-verbinding maakt vereist een clientcertificaat dat moet lokaal worden geïnstalleerd.
 
-Als u wilt installeren een clientcertificaat, Zie [installeren van een clientcertificaat voor punt-naar-Site-verbindingen](point-to-site-how-to-vpn-client-install-azure-cert.md).
+Voor het installeren van een clientcertificaat, Zie [installeren van een certificaat voor punt-naar-Site-verbindingen](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
 ## <a name="install"></a>6. Ga door met de configuratiestappen voor P2S
 
 Ga door met de punt-naar-Site-configuratie.
 
-* Voor **Resource Manager** model implementatiestappen Zie [P2S configureren met behulp van systeemeigen Azure certificaatverificatie](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
-* Voor **klassieke** model implementatiestappen Zie [punt-naar-Site VPN-verbinding geconfigureerd met een VNet (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
-* Voor P2S probleemoplossingsinformatie, Zie [punt-naar-site-verbindingen voor probleemoplossing voor Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+* Voor **Resource Manager** implementatiestappen voor model, Zie [P2S configureren met behulp van systeemeigen Azure certificaatverificatie](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
+* Voor **klassieke** implementatiestappen voor model, Zie [configureren van een punt-naar-Site VPN-verbinding met een VNet (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+* Voor P2S probleemoplossingsinformatie, Zie [punt-naar-site-verbindingen van Azure voor het oplossen van](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

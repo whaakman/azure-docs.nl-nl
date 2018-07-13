@@ -1,10 +1,10 @@
-In deze sectie kunt u code bijwerken in uw bestaande Mobile Apps back-end-project voor het verzenden van een push-melding telkens wanneer een nieuw item wordt toegevoegd. Dit proces wordt mogelijk gemaakt door de [sjabloon](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) pushes functie van Azure Notification Hubs, waardoor cross-platform. De verschillende clients worden geregistreerd voor pushmeldingen met behulp van sjablonen en een enkele universal push toegang krijgen tot alle clientplatforms.
+In deze sectie kunt u code bijwerken in uw bestaande Mobile Apps-back-end project voor het verzenden van een pushmelding ontvangen wanneer een nieuw item wordt toegevoegd. Dit proces wordt aangestuurd door de [sjabloon](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) functie van Azure Notification Hubs, waarmee platformoverschrijdende pushes. De verschillende clients zijn geregistreerd voor pushmeldingen te verzenden met behulp van sjablonen en een enkele universal push toegang krijgen tot alle clientplatforms.
 
-Kies een van de volgende procedures die overeenkomt met uw back-end projecttype&mdash;beide [.NET back-end](#dotnet) of [Node.js-back-end](#nodejs).
+Kies een van de volgende procedures die overeenkomt met uw back-end-projecttype&mdash;beide [.NET-back-end](#dotnet) of [Node.js-back-end](#nodejs).
 
 ### <a name="dotnet"></a>.NET-back-end-project
 1. Met de rechtermuisknop op de serverproject in Visual Studio. Selecteer vervolgens **NuGet-pakketten beheren**. Zoeken naar `Microsoft.Azure.NotificationHubs`, en selecteer vervolgens **installeren**. Dit proces installeert de Notification Hubs-bibliotheek voor het verzenden van meldingen vanuit de back-end.
-2. Open in het serverproject **domeincontrollers** > **TodoItemController.cs**. Voeg vervolgens de volgende using-instructies:
+2. Open in het serverproject **Controllers** > **TodoItemController.cs**. Voeg vervolgens de volgende using-instructies toe:
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
@@ -45,7 +45,7 @@ Kies een van de volgende procedures die overeenkomt met uw back-end projecttype&
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    Dit proces verzendt de melding van een sjabloon die het item bevat. Tekst als er een nieuw item wordt toegevoegd.
+    Dit proces verzendt de melding van een sjabloon die het item bevat. Tekst wanneer een nieuw item wordt ingevoegd.
 4. Het serverproject publiceren.
 
 ### <a name="nodejs"></a>Node.js-back-end-project
@@ -91,5 +91,5 @@ Kies een van de volgende procedures die overeenkomt met uw back-end projecttype&
 
         module.exports = table;  
 
-    Dit proces stuurt de melding van een sjabloon met de item.text wanneer een nieuw item wordt ingevoegd.
-3. Wanneer u het bestand op uw lokale computer bewerkt, opnieuw publiceren het serverproject.
+    Dit proces verzendt de melding van een sjabloon met de item.text wanneer een nieuw item wordt ingevoegd.
+3. Wanneer u het bestand op uw lokale computer hebt bewerkt, publiceert u opnieuw het serverproject.

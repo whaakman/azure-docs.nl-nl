@@ -1,6 +1,6 @@
 ---
-title: Logische apps van Azure Resource Manager-sjablonen maken | Microsoft Docs
-description: Maken en implementeren van logic app werkstromen met Azure Resource Manager-sjablonen
+title: Logische apps maken met Azure Resource Manager-sjablonen | Microsoft Docs
+description: Maken en implementeren van werkstromen voor logische app met Azure Resource Manager-sjablonen
 services: logic-apps
 documentationcenter: ''
 author: ecfan
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; estfan
 ms.openlocfilehash: 0772ed0e6cca98c4e59b563a23549909636d55d0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298219"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38572617"
 ---
-# <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Logic apps met Azure Resource Manager-sjablonen maken en implementeren
+# <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Logische apps met Azure Resource Manager-sjablonen maken en implementeren
 
-Logische Apps van Azure biedt Azure Resource Manager-sjablonen die u gebruiken kunt, niet alleen voor het maken van logische apps voor het automatiseren van werkstromen, maar ook voor het definiëren van de resources en de parameters die worden gebruikt voor implementatie. U kunt deze sjabloon voor uw eigen zakelijke scenario's gebruiken of aanpassen van de sjabloon die moeten voldoen aan uw vereisten. Meer informatie over de [Resource Manager-sjabloon voor logische apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) en [structuur van Azure Resource Manager-sjabloon en de syntaxis](../azure-resource-manager/resource-group-authoring-templates.md).
+Met Azure Logic Apps biedt Azure Resource Manager-sjablonen die u gebruiken kunt, niet alleen om logische apps voor het automatiseren van werkstromen te maken, maar ook om de resources en parameters die worden gebruikt voor de implementatie te definiëren. U kunt deze sjabloon gebruiken voor uw eigen zakelijke scenario's of de sjabloon om te voldoen aan uw behoeften aanpassen. Meer informatie over de [Resource Manager-sjabloon voor logische apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) en [structuur van Azure Resource Manager-sjabloon en de syntaxis](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ## <a name="define-the-logic-app"></a>De logische app definiëren
 
-De definitie voor dit voorbeeld logic app eens per uur wordt uitgevoerd en pingt de locatie die is opgegeven in de `testUri` parameter.
-De sjabloon maakt gebruik van parameterwaarden voor de naam van de logic app (```logicAppName```) en de locatie op voor het testen van ping (```testUri```). Meer informatie over [voor het definiëren van deze parameters in de sjabloon](#define-parameters). De sjabloon wordt ook de locatie voor de logische app ingesteld op dezelfde locatie als de Azure-resourcegroep. 
+De definitie van dit voorbeeld van de logische app eenmaal per uur wordt uitgevoerd en pingt de locatie die is opgegeven de `testUri` parameter.
+De sjabloon maakt gebruik van parameterwaarden voor de naam van de logische app (```logicAppName```) en de locatie op voor het testen van de opdracht ping (```testUri```). Meer informatie over [definiëren van deze parameters in uw sjabloon](#define-parameters). De sjabloon wordt de locatie voor de logische app ook ingesteld op dezelfde locatie als de Azure-resourcegroep. 
 
 ``` json
 {
@@ -77,36 +77,36 @@ De sjabloon maakt gebruik van parameterwaarden voor de naam van de logic app (``
 
 <a name="define-parameters"></a>
 
-### <a name="define-parameters"></a>parameters definiëren
+### <a name="define-parameters"></a>De parameters definiëren
 
 [!INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 
-Hier volgen beschrijvingen van de parameters in de sjabloon:
+Hier volgen beschrijvingen voor de parameters in de sjabloon:
 
 | Parameter | Beschrijving | Voorbeeld van JSON-definitie | 
 | --------- | ----------- | ----------------------- | 
-| `logicAppName` | Hiermee definieert u de naam van de logische app dat de sjabloon wordt gemaakt. | "logicAppName": {'type': 'string', "metagegevens": {'beschrijving': 'myExampleLogicAppName'}} |
-| `testUri` | Hiermee definieert u de locatie op voor het testen van ping. | "testUri": {'type': 'string', "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `logicAppName` | Hiermee definieert u de naam van de logische app die sjabloon wordt gemaakt. | "logicAppName": {"type": "string", "metagegevens": {'description': "myExampleLogicAppName"}} |
+| `testUri` | Definieert de locatie voor het testen van ping. | "testUri": {"type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
 ||||
 
-Meer informatie over [REST-API voor werkstroomdefinitie van Logic Apps en eigenschappen](https://docs.microsoft.com/rest/api/logic/workflows) en [bouwen op logic app-definities met JSON](logic-apps-author-definitions.md).
+Meer informatie over [REST-API voor Logic Apps-werkstroom-definitie en eigenschappen](https://docs.microsoft.com/rest/api/logic/workflows) en [bouwen op definities voor logische Apps met JSON](logic-apps-author-definitions.md).
 
-## <a name="deploy-logic-apps-automatically"></a>Logische apps automatisch implementeren
+## <a name="deploy-logic-apps-automatically"></a>Automatisch implementeren met logische apps
 
-Als u wilt maken en implementeren automatisch een logische app in Azure, kies **implementeren in Azure** hier:
+Als u wilt maken en een logische app automatisch geïmplementeerd op Azure, kies **implementeren in Azure** hier:
 
 [![Implementeren in Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Deze actie zich aanmeldt bij de Azure portal kunt u uw bedrijfslogica Geef details op van de app en wijzigingen aanbrengen in de sjabloon of de parameters. Bijvoorbeeld, de Azure-portal wordt u gevraagd deze details:
+Deze actie zich aanmeldt bij Azure portal kunt u uw logische app details bieden en wijzigingen aanbrengen in de sjabloon of de parameters. Bijvoorbeeld, de Azure-portal wordt u gevraagd deze details:
 
 * De naam van de Azure-abonnement
 * Resourcegroep die u wilt gebruiken
-* Logic app locatie
+* Logic app-locatie
 * Een naam voor uw logische app
 * Een test-URI
-* Acceptatie van de opgegeven voorwaarden en bepalingen
+* Instemming met de opgegeven voorwaarden en bepalingen
 
-## <a name="deploy-logic-apps-with-commands"></a>Logic apps implementeren met opdrachten
+## <a name="deploy-logic-apps-with-commands"></a>Logische apps met opdrachten implementeren
 
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 

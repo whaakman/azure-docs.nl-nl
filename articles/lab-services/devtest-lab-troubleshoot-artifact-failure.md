@@ -1,6 +1,6 @@
 ---
-title: Artefacten mislukte diagnoses in een virtuele machine in Azure DevTest Labs | Microsoft Docs
-description: Informatie over het oplossen van artefacten fouten in Azure DevTest Labs.
+title: Met artefacten vaststellen in een virtuele machine van Azure DevTest Labs | Microsoft Docs
+description: Informatie over het oplossen van fouten in Azure DevTest Labs artefact.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,48 +15,48 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: ebc64215683989ce07f4dd88dc352ecaefe184cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788723"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697269"
 ---
-# <a name="diagnose-artifact-failures-in-the-lab"></a>Artefacten mislukte diagnoses in het lab 
-Nadat u een artefact hebt gemaakt, kunt u controleren om te zien of deze is geslaagd of mislukt. Artefacten Logboeken in Azure DevTest Labs bevatten informatie die u gebruiken kunt voor het vaststellen van een artefact-fout. U hebt een aantal opties voor het weergeven van de artefacten logboekgegevens voor een virtuele machine van Windows:
+# <a name="diagnose-artifact-failures-in-the-lab"></a>Met artefacten vaststellen in de testomgeving 
+Nadat u een artefact hebt gemaakt, kunt u controleren om te zien of deze is geslaagd of mislukt. Artefact Logboeken in Azure DevTest Labs bevatten informatie die u gebruiken kunt om een artefact fout vast te stellen. U hebt een aantal opties voor het weergeven van het artefact-logboekgegevens voor een Windows-VM:
 
-* In de Azure portal
+* In de Azure-portal
 * In de virtuele machine
 
 > [!NOTE]
-> Om ervoor te zorgen dat fouten correct worden geïdentificeerd en uitgelegd, is het belangrijk dat het artefact de juiste structuur heeft. Zie voor meer informatie over het correct maken een artefact [aangepaste artefacten maken](devtest-lab-artifact-author.md). Bekijk een voorbeeld van een goed gestructureerd artefact vindt de [testen parametertypen](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artefacten.
+> Om ervoor te zorgen dat de fouten correct worden geïdentificeerd en uitgelegd, is het belangrijk dat het artefact de juiste structuur heeft. Zie voor meer informatie over het maken van een artefact correct [maken van aangepaste artefacten](devtest-lab-artifact-author.md). Bekijk een voorbeeld van een goed gestructureerd artefact vindt de [testen parametertypen](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artefact.
 
-## <a name="troubleshoot-artifact-failures-by-using-the-azure-portal"></a>Problemen met artefacten met behulp van de Azure-portal
+## <a name="troubleshoot-artifact-failures-by-using-the-azure-portal"></a>Problemen met artefacten met behulp van Azure portal
 
-1. Selecteer in de Azure-portal in de lijst met bronnen, uw testomgeving.
-2. Kies de virtuele machine van Windows met de artefacten die u wilt onderzoeken.
-3. In het linkerdeelvenster onder **algemene**, selecteer **artefacten**. Een lijst van artefacten die zijn gekoppeld aan die VM wordt weergegeven. De naam van het artefact en de status van de artefacten zijn vermeld.
+1. Selecteer uw lab in Azure portal, in de lijst met resources.
+2. Kies de Windows-VM met de artefacten die u wilt onderzoeken.
+3. In het linkerdeelvenster onder **algemene**, selecteer **artefacten**. Er wordt een lijst weergegeven van de artefacten die zijn gekoppeld aan die virtuele machine. De naam van het artefact en de status van de artefacten worden aangegeven.
 
-   ![Status van artefacten](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
+   ![Status van het artefact](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
 
-4. Selecteer een artefact waarin een **mislukt** status. Hiermee opent u het artefact. Een extensie-bericht met meer informatie over de fout van het artefact wordt weergegeven.
+4. Selecteer een artefact waarin een **mislukt** status. Hiermee opent u het artefact. Een extensie-bericht met meer informatie over de fout van het artefact weergegeven.
 
    ![Foutbericht artefact](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
 
 
-## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>Problemen met artefacten uit vanuit de virtuele machine
+## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>Problemen oplossen met mislukte artefact uit vanuit de virtuele machine
 
-1. Meld u aan de virtuele machine met het artefact die u wilt onderzoeken.
-2. Ga naar C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1,9*\Status, waarbij *1,9* is het versienummer van de aangepaste Scriptextensie Azure.
+1. Meld u aan de virtuele machine met het artefact dat u wilt onderzoeken.
+2. Ga naar C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1.9*\Status, waar *1.9* is het versienummer van de aangepaste Scriptextensie van Azure.
 
-   ![Het statusbestand](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
+   ![De Status van bestand](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
 
 3. Open de **status** bestand.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Verwante blogberichten
-* [Een virtuele machine toevoegen aan een bestaand Active Directory-domein met behulp van een Resource Manager-sjabloon in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+## <a name="related-blog-posts"></a>Gerelateerde blogberichten
+* [Een VM toevoegen aan een bestaand Active Directory-domein met behulp van Resource Manager-sjabloon in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over hoe [een Git-opslagplaats toevoegen aan een lab](devtest-lab-add-artifact-repo.md).
+* Meer informatie over het [een Git-opslagplaats toevoegen aan een lab](devtest-lab-add-artifact-repo.md).
 

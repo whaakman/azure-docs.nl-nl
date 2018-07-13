@@ -1,4 +1,4 @@
-U gebruikt om fijnmazig wachtwoord opnieuw instellen op uw toepassing, een **wachtwoordherstel** beleid. Informatie over de optie voor het opnieuw instellen van het wachtwoord voor de tenant als geheel vindt u [hier](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Dit beleid beschrijft de ervaringen van de klanten doorlopen tijdens het wachtwoord opnieuw instellen en de inhoud van de tokens die de toepassing is gelukt ontvangt.
+Om in te schakelen fijnmazig wachtwoord opnieuw instellen van uw toepassing, gebruikt u een **wachtwoordherstel** beleid. Informatie over de optie voor het opnieuw instellen van het wachtwoord voor de tenant als geheel vindt u [hier](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Dit beleid beschrijft de ervaring van de klanten gaan voor wachtwoord opnieuw instellen en de inhoud van tokens die de toepassing bewerking is voltooid ontvangt.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

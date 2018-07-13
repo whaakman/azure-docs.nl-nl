@@ -1,7 +1,7 @@
-## <a name="repeatability-during-copy"></a>Herhaalbaarheid tijdens het kopiëren
-Bij het kopiëren van gegevens naar Azure SQL/SQL-Server van andere gegevens worden opgeslagen, moet één rekening moet houden herhaalbaarheid om te voorkomen dat ongewenste resultaten. 
+## <a name="repeatability-during-copy"></a>Herhaalbaarheid tijdens het kopiëren van
+Bij het kopiëren van gegevens naar Azure SQL/SQL-Server van andere gegevens worden opgeslagen moet een herhaalbaarheid Houd er rekening mee om te voorkomen dat ongewenste resultaten. 
 
-Bij het kopiëren van gegevens naar Azure SQL/SQL Server-Database, wordt de kopieerbewerking standaard APPEND de gegevensset naar de tabel sink standaard. Bijvoorbeeld, als u gegevens uit een CSV (door komma's gescheiden waarden) bestand gegevensbron met twee records met Azure SQL/SQL Server-Database, is dit de tabel ziet er als:
+Het kopiëren van gegevens met Azure SQL/SQL Server-Database, kopieeractiviteit, wordt standaard de gegevensset aan de sink-tabel toevoegen standaard. Bijvoorbeeld, het kopiëren van gegevens uit een CSV (door komma's gescheiden waarden) bestand gegevensbron met twee records met Azure SQL/SQL Server-Database, is dit de tabel eruit:
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -10,7 +10,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Stel dat u fouten gevonden in de bron-bestand en de hoeveelheid omlaag buis uit 2 tot 4 in het bronbestand bijgewerkt. Als u het gegevenssegment opnieuw voor deze periode uitvoeren, vindt u twee nieuwe records die zijn toegevoegd aan Azure SQL/SQL Server-Database. De hieronder wordt ervan uitgegaan dat geen van de kolommen in de tabel de primary key-beperking heeft.
+Stel dat u in het bronbestand zijn fouten gevonden en het aantal omlaag buis uit 2 tot 4 in het bronbestand bijgewerkt. Als u het gegevenssegment opnieuw voor deze periode uitvoeren, vindt u twee nieuwe records die zijn toegevoegd aan Azure SQL/SQL Server-Database. De hieronder wordt ervan uitgegaan dat geen van de kolommen in de tabel de primary key-beperking heeft.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -24,7 +24,7 @@ ID    Product        Quantity    ModifiedDate
 Om dit te voorkomen, moet u UPSERT semantiek opgeven door gebruik te maken van een van de onderstaande 2 mechanismen die hieronder vermeld.
 
 > [!NOTE]
-> Een segment kan automatisch worden opnieuw uitgevoerd in Azure Data Factory volgens het opgegeven beleid voor opnieuw proberen.
+> Een segment kan automatisch worden opnieuw uitgevoerd in Azure Data Factory aan de hand van het beleid dat is opgegeven.
 > 
 > 
 
@@ -39,7 +39,7 @@ U kunt gebruikmaken van **sqlWriterCleanupScript** eigenschap eerst opschonen ac
 }
 ```
 
-Het script voor opschoning zou worden uitgevoerd eerste tijdens het kopiëren van een bepaald segment dat de gegevens in de SQL-tabel overeenkomt met dat segment wilt verwijderen. De activiteit wordt vervolgens de gegevens in de SQL-tabel invoegen. 
+Het script voor opschoning zou worden uitgevoerd tijdens het kopiëren van een bepaald segment die de gegevens wilt verwijderen uit de SQL-tabel die overeenkomt met dat segment eerste. De activiteit wordt vervolgens de gegevens invoegen in de SQL-tabel. 
 
 Als het segment is nu opnieuw uitvoeren, dan hebt u dat de hoeveelheid wordt bijgewerkt vindt als gewenst.
 
@@ -50,24 +50,24 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Stel dat de platte was is verwijderd uit de oorspronkelijke csv. Het segment opnieuw uit te voeren, zou het volgende resultaat opleveren: 
+Stel dat de platte was-record wordt verwijderd uit de oorspronkelijke CSV-bestand. Het segment opnieuw uit te voeren, zou het volgende resultaat opleveren: 
 
 ```
 ID    Product        Quantity    ModifiedDate
 ...    ...            ...            ...
 7     Down Tube    4            2015-05-01 00:00:00
 ```
-Niets nieuwe moest worden uitgevoerd. Het script voor opschoning van voor het verwijderen van de bijbehorende gegevens voor dat segment hebt uitgevoerd met de kopieerbewerking. Vervolgens wordt de invoer uit de csv lezen (inhoudt vervolgens slechts 1 record) en het ingevoegd in de tabel. 
+Momenteel niks nieuws moest worden uitgevoerd. De kopieeractiviteit is het script voor opschoning als u wilt verwijderen van de bijbehorende gegevens voor dat segment. Vervolgens wordt de invoer uit het CSV-bestand lezen (die vervolgens bevat slechts 1 record) en in de tabel ingevoegd. 
 
 ### <a name="mechanism-2"></a>Mechanisme 2
 > [!IMPORTANT]
 > sliceIdentifierColumnName wordt niet ondersteund voor Azure SQL Data Warehouse op dit moment. 
 
-Een ander mechanisme herhaalbaarheid bereiken is door een specifieke kolom (**sliceIdentifierColumnName**) in de doel-tabel. In deze kolom zou worden gebruikt door Azure Data Factory om te controleren of dat de bron- en doelserver gesynchroniseerd blijven. Deze methode werkt wanneer er flexibiliteit bij het definiëren van het schema van de SQL-tabel doel of wijzigen. 
+Een ander mechanisme voor het bereiken van herhaalbaarheid is door een specifieke kolom (**sliceIdentifierColumnName**) in de doel-tabel. Deze kolom kan worden gebruikt door Azure Data Factory om te controleren of dat de bron- en gesynchroniseerd blijven. Deze methode werkt wanneer er flexibiliteit bij het wijzigen van of het doelschema van de SQL-tabel te definiëren. 
 
-In deze kolom wordt gebruikt door Azure Data Factory voor herhaalbaarheid doeleinden en in het proces Azure Data Factory wordt geen schemawijzigingen aanbrengen aan de tabel. Manier voor het gebruik van deze benadering:
+Deze kolom zou voor herhaalbaarheid doeleinden worden gebruikt door Azure Data Factory en in de Azure Data Factory wordt geen schemawijzigingen aanbrengen aan de tabel. Manier voor het gebruik van deze benadering:
 
-1. Definieer een kolom van het type binaire (32) in de doel-SQL-tabel. Er mag geen beperkingen voor deze kolom. Laten we in deze kolom als 'ColumnForADFuseOnly' naam voor dit voorbeeld.
+1. Een kolom van het type binaire (32) in de doel-SQL-tabel definieert. Er mag geen beperkingen voor deze kolom. We noemen deze kolom als 'ColumnForADFuseOnly' in dit voorbeeld.
 2. Gebruik deze als volgt in de kopieeractiviteit:
    
     ```json
@@ -79,7 +79,7 @@ In deze kolom wordt gebruikt door Azure Data Factory voor herhaalbaarheid doelei
     }
     ```
 
-Azure Data Factory wordt gevuld in deze kolom aan de hand van de noodzaak om te controleren of dat de bron- en doelserver gesynchroniseerd blijven. De waarden van deze kolom mag niet buiten deze context worden gebruikt door de gebruiker. 
+Azure Data Factory vult deze kolom aan de hand van de noodzaak om te controleren of dat de bron- en gesynchroniseerd blijven. De waarden van deze kolom mag niet buiten deze context worden gebruikt door de gebruiker. 
 
-Net als bij mechanisme 1, Kopieeractiviteit wordt automatisch opschonen eerst de gegevens voor het opgegeven segment van de doel-SQL-tabel en voer vervolgens de kopieeractiviteit om de normale invoegen van de gegevens van bron naar doel voor dat segment. 
+Net als bij mechanisme 1, Kopieeractiviteit wordt automatisch opschonen eerst de gegevens voor het opgegeven segment van de doel-SQL-tabel en voer vervolgens de kopieeractiviteit normaal gesproken voor het invoegen van de gegevens van bron naar bestemming voor dat segment. 
 

@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub apparaat horende (Python) | Microsoft Docs
-description: Het gebruik van Azure IoT Hub apparaat horende labels toevoegen en vervolgens met de query voor een IoT Hub. U kunt Azure IoT SDK's voor Python gebruiken voor het implementeren van de gesimuleerde apparaattoepassing en een service-app die de labels worden toegevoegd en de IoT Hub-query wordt uitgevoerd.
+title: Aan de slag met apparaatdubbels Azure IoT Hub (Python) | Microsoft Docs
+description: Het gebruik van Azure IoT Hub-apparaatdubbels tags toevoegen en vervolgens een IoT Hub-query. U kunt de Azure IoT SDK's voor Python gebruiken voor het implementeren van het gesimuleerde apparaat-app en een service-app die wordt toegevoegd de labels en de IoT Hub-query wordt uitgevoerd.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: kgremban
 ms.openlocfilehash: 08e457febaa7522cac86e63c0c187d1e8e49daff
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34634975"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619362"
 ---
-# <a name="get-started-with-device-twins-python"></a>Aan de slag met apparaat horende (Python)
+# <a name="get-started-with-device-twins-python"></a>Aan de slag met apparaatdubbels (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-Aan het einde van deze zelfstudie hebt u twee Python console apps:
+Aan het einde van deze zelfstudie hebt u twee Python-consoletoepassingen:
 
-* **AddTagsAndQuery.py**, een back-end-app van Python, die labels toegevoegd en wordt opgevraagd horende apparaten.
-* **ReportConnectivity.py**, een Python-app, die een apparaat simuleert dat verbinding met uw IoT-hub aan de apparaat-id eerder hebt gemaakt maakt en de voorwaarde connectiviteit rapporten.
+* **AddTagsAndQuery.py**, een Python back-end-app, die wordt toegevoegd tags en apparaatdubbels-query's.
+* **ReportConnectivity.py**, een Python-app, die een apparaat simuleert dat verbinding met uw IoT-hub aan de apparaat-id die eerder hebt gemaakt maakt, en rapporten van de voorwaarde van de verbinding.
 
 > [!NOTE]
-> Het artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over de Azure IoT SDK's dat u gebruiken kunt om zowel apparaatgegevens als back-end-apps te bouwen.
+> Het artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over de Azure IoT SDK's die u gebruiken kunt om apparaat- en back-end-apps te bouwen.
 > 
 > 
 
@@ -44,7 +44,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 ## <a name="create-the-service-app"></a>De service-app maken
-In deze sectie maakt u een Python consoletoepassing maken die locatie metagegevens toegevoegd aan de apparaat-twin die zijn gekoppeld aan uw **{apparaat-Id}**. Deze bevraagt vervolgens het apparaat horende opgeslagen in de IoT-hub te selecteren van de apparaten die zich in Redmond en degene die een mobiele verbinding rapporteren.
+In deze sectie maakt u een Python-consoletoepassing die metagegevens van de locatie toegevoegd aan het dubbele apparaat dat is gekoppeld aan uw **{apparaat-Id}**. Deze vervolgens de dubbele apparaten die zijn opgeslagen in de IoT-hub selecteren van de apparaten die zich in Redmond, en vervolgens de virtuele machines die zijn melden van een mobiele verbinding een query.
 
 1. Open een opdrachtprompt en installeer de **SDK voor de Azure IoT Hub-service voor Python**. Sluit de opdrachtprompt na de installatie van de SDK.
 
@@ -52,7 +52,7 @@ In deze sectie maakt u een Python consoletoepassing maken die locatie metagegeve
     pip install azure-iothub-service-client
     ```
 
-1. Start een teksteditor en maak een nieuwe **AddTagsAndQuery.py** bestand.
+1. Maak met een teksteditor een nieuw **AddTagsAndQuery.py** bestand.
 
 3. Voeg de volgende code toe om de vereiste modules uit de service-SDK te importeren:
 
@@ -62,7 +62,7 @@ In deze sectie maakt u een Python consoletoepassing maken die locatie metagegeve
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
     from iothub_service_client import IoTHubDeviceTwin, IoTHubError
     ```
-2. Voeg de volgende code, vervang de tijdelijke aanduiding voor `[IoTHub Connection String]` en `[Device Id]` met de verbindingsreeks voor de IoT-hub en de apparaat-id die u hebt gemaakt in de vorige secties.
+2. Voeg de volgende code, vervang de tijdelijke aanduiding voor `[IoTHub Connection String]` en `[Device Id]` door de verbindingsreeks voor de IoT-hub en de apparaat-id die u hebt gemaakt in de vorige secties.
    
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -74,7 +74,7 @@ In deze sectie maakt u een Python consoletoepassing maken die locatie metagegeve
     UPDATE_JSON_CLIENT_SEARCH = "\"connectivity\":\"cellular\""
     ```
 
-1. Voeg de volgende code naar de **AddTagsAndQuery.py** bestand:
+1. Voeg de volgende code aan de **AddTagsAndQuery.py** bestand:
    
      ```python
     def iothub_service_sample_run():
@@ -120,7 +120,7 @@ In deze sectie maakt u een Python consoletoepassing maken die locatie metagegeve
             print ( "IoTHub sample stopped" )
     ```
    
-    De **register** object bevat de methoden die zijn vereist voor interactie met horende apparaten van de service. De code eerst initialiseert de **register** object en vervolgens het apparaat twin voor updates **deviceId**, en ten slotte twee query's uitvoert. De eerste selecteert alleen de apparaat-horende apparaten zich in de **Redmond43** plant en de tweede verfijning de query voor het selecteren van alleen de apparaten die ook via het mobiele netwerk zijn verbonden.
+    De **register** object bevat de methoden die zijn vereist om te communiceren met de dubbele apparaten uit de service. De code voor het eerst wordt geïnitialiseerd de **register** object en vervolgens het apparaat twin voor updates **deviceId**, en ten slotte voert twee query's. De eerste selecteert alleen de apparaatdubbels van apparaten die zich in de **Redmond43** plant en het tweede verfijning van de query voor het selecteren van alleen de apparaten die ook zijn verbonden via mobiel netwerk.
    
 1. Voeg de volgende code toe aan het einde van **AddTagsAndQuery.py** voor het implementeren van de **iothub_service_sample_run** functie:
    
@@ -137,14 +137,14 @@ In deze sectie maakt u een Python consoletoepassing maken die locatie metagegeve
     python AddTagsAndQuery.py
     ```
    
-    U ziet één apparaat in de resultaten van de query wordt gevraagd voor alle apparaten vinden in **Redmond43** en er is geen voor de query die de resultaten beperkt tot apparaten die gebruikmaken van een mobiel netwerk.
+    U ziet één apparaat in de resultaten voor het stellen van de query voor alle apparaten in **Redmond43** en niets in de query die de resultaten beperkt tot apparaten die gebruikmaken van een mobiel netwerk.
    
     ![eerste query][1]
 
-In de volgende sectie maakt u een apparaat-app die rapporten de informatie over de connectiviteit en het resultaat van de query in de vorige sectie wordt gewijzigd.
+In de volgende sectie maakt u een apparaat-app die de gegevens van hostconnectiviteit rapporten en het resultaat van de query in de vorige sectie wordt gewijzigd.
 
 ## <a name="create-the-device-app"></a>De apparaat-app maken
-In deze sectie maakt u een Python consoletoepassing maken die verbinding met uw hub als maakt uw **{apparaat-Id}**, en vervolgens de updates die de apparaat-twin de eigenschappen van de informatie dat is verbonden met een mobiel netwerk bevatten gerapporteerd.
+In deze sectie maakt u een Python-console-app die is verbonden met uw hub als uw **{apparaat-Id}**, en vervolgens de updates die de apparaatdubbel de gerapporteerde eigenschappen bevat de informatie die is verbonden met een mobiel netwerk.
 
 1. Open een opdrachtprompt en installeer de **SDK voor de Azure IoT Hub-service voor Python**. Sluit de opdrachtprompt na de installatie van de SDK.
 
@@ -152,7 +152,7 @@ In deze sectie maakt u een Python consoletoepassing maken die verbinding met uw 
     pip install azure-iothub-device-client
     ```
 
-1. Start een teksteditor en maak een nieuwe **ReportConnectivity.py** bestand.
+1. Maak met een teksteditor een nieuw **ReportConnectivity.py** bestand.
 
 3. Voeg de volgende code toe om de vereiste modules uit de service-SDK te importeren:
 
@@ -162,7 +162,7 @@ In deze sectie maakt u een Python consoletoepassing maken die verbinding met uw 
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
     ```
 
-2. Voeg de volgende code, vervang de tijdelijke aanduiding voor `[IoTHub Device Connection String]` met de verbindingsreeks voor de IoT hub-apparaat die u hebt gemaakt in de vorige secties.
+2. Voeg de volgende code, vervang de tijdelijke aanduiding voor `[IoTHub Device Connection String]` door de verbindingsreeks voor de IoT hub-apparaat die u hebt gemaakt in de vorige secties.
    
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -175,7 +175,7 @@ In deze sectie maakt u een Python consoletoepassing maken die verbinding met uw 
     SEND_REPORTED_STATE_CONTEXT = 0
     ```
 
-1. Voeg de volgende code naar de **ReportConnectivity.py** bestand voor het implementeren van het apparaat horende functionaliteit:
+1. Voeg de volgende code aan de **ReportConnectivity.py** bestand voor het implementeren van het apparaat dubbels functionaliteit:
 
     ```python
     def device_twin_callback(update_state, payload, user_context):
@@ -224,7 +224,7 @@ In deze sectie maakt u een Python consoletoepassing maken die verbinding met uw 
             print ( "IoTHubClient sample stopped" )
     ```   
 
-    De **Client** object bevat de methoden die u nodig hebt om te communiceren met horende apparaten van het apparaat. De vorige code nadat het initialiseren van de **Client** object, haalt de apparaat-twin voor uw apparaat en de bijbehorende eigenschap gerapporteerde verbindingsgegevens bijgewerkt door de.
+    De **Client** object bevat de methoden die u nodig hebt om te communiceren met de dubbele apparaten van het apparaat. De vorige code, nadat het initialiseren van de **Client** object, haalt de apparaatdubbel voor uw apparaat en de gerapporteerde eigenschap updates met de gegevens van hostconnectiviteit.
 
 1. Voeg de volgende code toe aan het einde van **ReportConnectivity.py** voor het implementeren van de **iothub_client_sample_run** functie:
    
@@ -241,28 +241,28 @@ In deze sectie maakt u een Python consoletoepassing maken die verbinding met uw 
     python ReportConnectivity.py
     ```
    
-    U ziet de bevestiging van die het apparaat horende zijn bijgewerkt.
+    U ziet de bevestiging van die de dubbele apparaten zijn bijgewerkt.
 
-    ![horende bijwerken][2]
+    ![dubbele bijwerken][2]
 
-6. Nu dat het apparaat heeft gemeld dat de gegevens over de connectiviteit, moet deze worden weergegeven in beide query's. Ga terug en voer de query opnieuw uit:
+6. Nu dat het apparaat heeft gemeld dat de gegevens over de connectiviteit, wordt deze weergegeven in beide query's. Ga terug en voer de query opnieuw uit:
    
     ```cmd/sh
     python AddTagsAndQuery.py
     ```
    
-    Nu uw **{apparaat-Id}** moet worden weergegeven in beide queryresultaten.
+    Deze keer uw **{apparaat-Id}** moet worden weergegeven in de resultaten van beide query.
    
     ![tweede query][3]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U metagegevens van apparaten als labels toegevoegd vanuit een back-end-app en een gesimuleerde apparaattoepassing geschreven naar apparaten connectiviteit rapportgegevens in de apparaat-twin. U hebt ook geleerd hoe query uitvoeren op deze informatie met het register.
+In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U metagegevens van apparaten als labels toegevoegd vanuit een back-end-app en een gesimuleerde apparaat-app geschreven naar apparaatgegevens met connectiviteit van rapport in de apparaatdubbel. U hebt ook geleerd hoe u query's van deze informatie met behulp van het register.
 
-Gebruik de volgende bronnen voor meer informatie over hoe:
+Gebruik de volgende bronnen voor meer informatie over het:
 
-* Verzenden van telemetrie vanaf apparaten met de [aan de slag met IoT Hub] [ lnk-iothub-getstarted] zelfstudie
-* Apparaten configureren met de gewenste eigenschappen van apparaat twin met de [gebruik gewenst eigenschappen voor het configureren van apparaten] [ lnk-twin-how-to-configure] zelfstudie
-* Beheren van apparaten interactief (zoals het inschakelen van een ventilator van een gebruiker beheerde app), met de [direct methoden gebruiken] [ lnk-methods-tutorial] zelfstudie.
+* verzenden van telemetrie van apparaten met de [aan de slag met IoT Hub] [ lnk-iothub-getstarted] zelfstudie
+* apparaten configureren met de gewenste eigenschappen van het dubbele apparaat met de [gebruik gewenste eigenschappen om apparaten te configureren] [ lnk-twin-how-to-configure] zelfstudie
+* Beheren van apparaten interactief (zoals het inschakelen van een fan, van een gebruiker beheerde app), met de [directe methoden gebruiken] [ lnk-methods-tutorial] zelfstudie.
 
 <!-- images -->
 [1]: media/iot-hub-python-twin-getstarted/1.png

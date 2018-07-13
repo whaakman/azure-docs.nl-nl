@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/31/2018
 ms.author: cynthn
 ms.openlocfilehash: 75ec087536d6f833a9a2106b1fdf4ed1fd73ef8e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: HT
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932408"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634617"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Versleutelen van een virtuele Linux-machine in Azure
 Voor uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven en de virtuele machine zelf worden versleuteld. VM's zijn versleuteld met behulp van cryptografische sleutels die worden beveiligd in een Azure Key Vault. U bepaalt deze cryptografische sleutels en het gebruik ervan kunt controleren. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Linux-VM met de Azure CLI 2.0. 

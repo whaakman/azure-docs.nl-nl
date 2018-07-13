@@ -11,12 +11,12 @@
   items:
     - name: Functie maken - portal
       href: functions-create-first-azure-function.md
-    - name: Functie maken - Azure CLI
-      href: functions-create-first-azure-function-azure-cli.md
     - name: Functie maken - Visual Studio
       href: functions-create-your-first-function-visual-studio.md
     - name: Functie maken - Java/Maven
       href: functions-create-first-java-maven.md
+    - name: Functie maken - Azure CLI
+      href: functions-create-first-azure-function-azure-cli.md
     - name: Functie maken - Linux
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: Triggers
@@ -97,6 +97,8 @@
       items:
         - name: Overzicht
           href: durable-functions-overview.md
+        - name: Functietypen en functies
+          href: durable-functions-types-features-overview.md
         - name: Bindingen
           href: durable-functions-bindings.md
         - name: Controlepunt en herhaling

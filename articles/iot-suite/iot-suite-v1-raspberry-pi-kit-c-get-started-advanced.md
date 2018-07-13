@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met een frambozen Pi met C ter ondersteuning van de firmware-updates van Azure IoT Suite | Microsoft Docs
-description: Gebruik de Microsoft Azure IoT Starter Kit voor de Raspberry Pi 3 en Azure IoT Suite. Gebruik C verbinding maken met uw frambozen-Pi de oplossing voor externe controle verzenden van telemetrie van sensoren naar de cloud en uitvoeren van een externe firmware-update.
+title: Verbinding maken met een Raspberry Pi met c# voor de ondersteuning van firmware-updates van Azure IoT Suite | Microsoft Docs
+description: Gebruik de Microsoft Azure IoT Starter Kit voor de Raspberry Pi 3 en Azure IoT Suite. Gebruik C uw Raspberry Pi verbinden met de oplossing voor externe controle, telemetrie van sensors verzenden naar de cloud en voert u een externe firmware-update.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -15,143 +15,143 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 8160752b0116c3ef3e6b6ab7920bb35e471f180b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24012062"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687692"
 ---
-# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>Uw frambozen Pi 3 verbinding met de oplossing voor externe controle en externe firmware-updates met C inschakelen
+# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>Verbinding maken met uw Raspberry Pi 3 op de oplossing voor externe controle en inschakelen van externe firmware-updates met behulp van C
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-selector](../../includes/iot-suite-v1-raspberry-pi-kit-selector.md)]
 
-Deze zelfstudie laat zien hoe u de Microsoft Azure IoT Starter Kit voor frambozen Pi 3 te gebruiken:
+Deze zelfstudie leert u hoe de Microsoft Azure IoT Starter Kit voor Raspberry Pi 3 als u wilt gebruiken:
 
-* Ontwikkel een temperatuur en vochtigheid lezer die met de cloud communiceren kan.
-* Inschakelen en voer een externe firmware update bijwerken de clienttoepassing op de frambozen Pi.
+* Ontwikkel een temperatuur en vochtigheid-reader die met de cloud communiceren kan.
+* Inschakelen en uitvoeren van een externe firmware update bijwerken de clienttoepassing op de Raspberry Pi.
 
-De zelfstudie wordt gebruikt:
+De zelfstudie wordt gebruikgemaakt van:
 
-* Raspbian OS, de programmeertaal en Microsoft Azure IoT SDK voor C voor het implementeren van een voorbeeld-apparaat.
-* IoT Suite remote monitoring vooraf geconfigureerde oplossing als de cloud-gebaseerde back-end.
+* Raspbian OS-, de programmeertaal en de Microsoft Azure IoT SDK voor C voor het implementeren van een voorbeeld-apparaat.
+* Externe controle met IoT Suite vooraf geconfigureerde oplossing als de cloud-gebaseerde back-end.
 
 ## <a name="overview"></a>Overzicht
 
-In deze zelfstudie maakt uitvoeren u de volgende stappen:
+In deze zelfstudie voert u de volgende stappen uit:
 
-* Implementeer een exemplaar van de vooraf geconfigureerde oplossing voor externe controle op uw Azure-abonnement. Deze stap implementeert automatisch en meerdere Azure-services configureert.
-* Instellen van het apparaat en de sensoren om te communiceren met uw computer en de oplossing voor externe controle.
-* Werk de voorbeeldcode van de apparaten verbinding maken met de oplossing voor externe controle en verzenden van telemetrie die u op het dashboard van de oplossing weergeven kunt.
-* Met de voorbeeldcode van het apparaat kunt bijwerken van de clienttoepassing.
+* Implementeer een exemplaar van de vooraf geconfigureerde oplossing voor externe controle met uw Azure-abonnement. Deze stap automatisch implementeert en configureert u meerdere Azure-services.
+* Instellen van uw apparaten en sensoren te communiceren met uw computer en de oplossing voor externe controle.
+* Bijwerken van de voorbeeldcode van de apparaten verbinding maken met de oplossing voor externe controle en telemetrie die u op het dashboard van de oplossing weergeven kunt verzendt.
+* Gebruik de voorbeeldcode voor het apparaat bij te werken van de clienttoepassing.
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-prerequisites](../../includes/iot-suite-v1-raspberry-pi-kit-prerequisites.md)]
 
 [!INCLUDE [iot-suite-v1-provision-remote-monitoring](../../includes/iot-suite-v1-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> De oplossing voor externe controle levert een set van Azure-services in uw Azure-abonnement. De implementatie duidt op een echte enterprise-architectuur. Om te voorkomen dat een Azure-verbruik onnodige kosten, verwijdert u uw exemplaar van de vooraf geconfigureerde oplossing op azureiotsuite.com wanneer u klaar bent met het. Als u de vooraf geconfigureerde oplossing meer nodig hebt, kunt u het eenvoudig opnieuw. Zie voor meer informatie over het verbruik verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config].
+> De oplossing voor externe controle inricht een set Azure-services in uw Azure-abonnement. De implementatie is inclusief een echte bedrijfsarchitectuur. Onnodige Azure-verbruik om kosten te voorkomen, verwijdert u uw exemplaar van de vooraf geconfigureerde oplossing op azureiotsuite.com wanneer u klaar bent met het. Als u de vooraf geconfigureerde oplossing meer nodig hebt, kunt u deze eenvoudig opnieuw. Zie voor meer informatie over het verbruik te verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor deze demo][lnk-demo-config].
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-view-solution](../../includes/iot-suite-v1-raspberry-pi-kit-view-solution.md)]
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-prepare-pi](../../includes/iot-suite-v1-raspberry-pi-kit-prepare-pi.md)]
 
-## <a name="download-and-configure-the-sample"></a>Downloaden en configureren van de steekproef
+## <a name="download-and-configure-the-sample"></a>Downloaden en configureren van het voorbeeld
 
-U kunt nu downloaden en configureren van de externe clienttoepassing bewaking op uw frambozen Pi.
+U kunt nu downloaden en configureren van de externe clienttoepassing bewaking op uw Raspberry Pi.
 
-### <a name="clone-the-repositories"></a>De opslagplaatsen klonen
+### <a name="clone-the-repositories"></a>Klonen van de opslagplaatsen
 
-Als u dit nog niet hebt gedaan, moet u de vereiste opslagplaatsen klonen door de volgende opdrachten uitvoeren op uw Pi:
+Als u dit nog niet hebt gedaan, moet u de vereiste opslagplaatsen klonen door het uitvoeren van de volgende opdrachten op uw Pi:
 
 ```sh
 cd ~
 git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git
 ```
 
-### <a name="update-the-device-connection-string"></a>De verbindingsreeks apparaat bijwerken
+### <a name="update-the-device-connection-string"></a>De verbindingsreeks van het apparaat bijwerken
 
-Open het voorbeeldconfiguratiebestand in de **nano** editor met de volgende opdracht:
+Open het voorbeeld-configuratiebestand in de **nano** editor met behulp van de volgende opdracht uit:
 
 ```sh
 nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo
 ```
 
-Vervang de tijdelijke aanduiding voor waarden met de apparaat-ID en IoT-Hub u gemaakt en opgeslagen aan het begin van deze zelfstudie.
+Vervang de tijdelijke waarden met de apparaat-ID en IoT Hub informatie u hebt gemaakt en opgeslagen aan het begin van deze zelfstudie.
 
-Wanneer u klaar bent, wordt de inhoud van het bestand deviceinfo moeten eruitzien als in het volgende voorbeeld:
+Wanneer u klaar bent, wordt de inhoud van het bestand deviceinfo ziet als in het volgende voorbeeld:
 
 ```conf
 yourdeviceid
 HostName=youriothubname.azure-devices.net;DeviceId=yourdeviceid;SharedAccessKey=yourdevicekey
 ```
 
-Sla de wijzigingen (**Ctrl-O**, **Enter**) en sluit de editor af (**Ctrl X**).
+Sla de wijzigingen (**Ctrl-O**, **Enter**) en de editor af te sluiten (**Ctrl X**).
 
-## <a name="build-the-sample"></a>Het voorbeeld bouwen
+## <a name="build-the-sample"></a>Het voorbeeld maken
 
-Als u dit nog niet hebt gedaan, installeert u de vereiste pakketten voor de Microsoft Azure IoT-apparaat-SDK voor C met de volgende opdrachten in een terminal op de Pi frambozen:
+Als u hebt nog niet gedaan, installeert u de vereiste pakketten voor de Microsoft Azure IoT Device-SDK voor C door het uitvoeren van de volgende opdrachten in een terminal op de Raspberry Pi:
 
 ```sh
 sudo apt-get update
 sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-U kunt nu de Voorbeeldoplossing bouwen met de Pi frambozen:
+U kunt nu de Voorbeeldoplossing voortbouwen op de Raspberry Pi:
 
 ```sh
 chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
 ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
 ```
 
-U kunt nu het voorbeeldprogramma uitvoeren op de frambozen Pi. Voer de opdracht:
+U kunt nu het voorbeeldprogramma uitvoeren op de Raspberry Pi. Voer de opdracht:
 
   ```sh
   sudo ~/cmake/remote_monitoring/remote_monitoring
   ```
 
-De volgende voorbeelduitvoer volgt een voorbeeld van de uitvoer die u bij de opdrachtprompt op de Pi frambozen zien:
+De volgende voorbeelduitvoer wordt een voorbeeld van de uitvoer u bij de opdrachtprompt op de Raspberry Pi ziet:
 
-![De uitvoer van de app Raspberry Pi][img-raspberry-output]
+![Uitvoer van de app Raspberry Pi][img-raspberry-output]
 
-Druk op **Ctrl-C** om af te sluiten van het programma op elk gewenst moment.
+Druk op **Ctrl-C** om het programma op elk gewenst moment af te sluiten.
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-view-telemetry-advanced](../../includes/iot-suite-v1-raspberry-pi-kit-view-telemetry-advanced.md)]
 
-1. Klik in het dashboard van de oplossing op **apparaten** bezoeken de **apparaten** pagina. Selecteer uw Raspberry Pi in de **lijst met apparaten**. Kies vervolgens **methoden**:
+1. Klik in het dashboard van de oplossing op **apparaten** Bezoek de **apparaten** pagina. Selecteer uw Raspberry Pi in de **apparatenlijst**. Kies vervolgens **methoden**:
 
     ![Lijst met apparaten in het dashboard][img-list-devices]
 
-1. Op de **methode Invoke** pagina **InitiateFirmwareUpdate** in de **methode** vervolgkeuzelijst.
+1. Op de **aanroepmethode** pagina, kies **InitiateFirmwareUpdate** in de **methode** vervolgkeuzelijst.
 
-1. In de **FWPackageURI** veld **https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit/raw/master/advanced/2.0/package/remote_monitoring.zip**. Dit archief bevat de implementatie van versie 2.0 van de firmware.
+1. In de **FWPackageURI** veld **https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit/raw/master/advanced/2.0/package/remote_monitoring.zip**. Dit bestand bevat de implementatie van versie 2.0 van de firmware.
 
-1. Kies **InvokeMethod**. De app op de Pi frambozen stuurt een bevestiging terug naar het dashboard van de oplossing. Vervolgens wordt het updateproces firmware gestart door de nieuwe versie van de firmware te downloaden:
+1. Kies **InvokeMethod**. De app op de Raspberry Pi stuurt een bevestiging terug naar het dashboard van de oplossing. Vervolgens wordt de firmware-updateproces gestart door het downloaden van de nieuwe versie van de firmware:
 
-    ![Overzicht van de methode weergeven][img-method-history]
+    ![Geschiedenis van methoden weergeven][img-method-history]
 
-## <a name="observe-the-firmware-update-process"></a>Houd rekening met de firmware proces niet bijwerken
+## <a name="observe-the-firmware-update-process"></a>Bekijk de firmware bijwerken van proces
 
-U kunt zien dat de firmware proces niet bijwerken omdat deze wordt uitgevoerd op het apparaat en de gerapporteerde door eigenschappen te bekijken in het dashboard van oplossing:
+Hier ziet u de firmware updateproces terwijl deze wordt uitgevoerd op het apparaat en door de gerapporteerde eigenschappen op het dashboard van de oplossing weer te geven:
 
-1. U kunt de voortgang op van het updateproces bekijken op de Pi frambozen:
+1. U kunt de voortgang in van het updateproces bekijken op de Raspberry Pi:
 
-    ![Voortgang van bijwerken weergeven][img-update-progress]
+    ![Voortgang van de update weergeven][img-update-progress]
 
     > [!NOTE]
-    > De externe controle app achtergrond opnieuw opgestart wanneer de update is voltooid. Gebruik de opdracht `ps -ef` om te controleren of deze wordt uitgevoerd. Als u het proces is beëindigd wilt, gebruikt u de `kill` opdracht met de proces-id.
+    > De externe controle-app wordt opnieuw gestart op de achtergrond wanneer de update is voltooid. Gebruik de opdracht `ps -ef` om te controleren of deze wordt uitgevoerd. Als u het proces is beëindigd wilt, gebruikt u de `kill` opdracht met de proces-id.
 
-1. U kunt de status van de firmware-update weergeven, zoals gemeld door het apparaat, in de portal van de oplossing. De volgende schermafbeelding ziet u de status en de duur van elke fase van het updateproces kan controleren en de nieuwe firmwareversie:
+1. U ziet de status van de firmware-update, zoals gemeld door het apparaat, in de portal van de oplossing. De volgende schermafbeelding ziet u de status en de duur van elke fase van het updateproces en de nieuwe firmwareversie:
 
-    ![De status van de taak weergeven][img-job-status]
+    ![Taakstatus weergeven][img-job-status]
 
-    Als u terug naar het dashboard navigeert, kunt u controleren of dat het apparaat is nog steeds verzenden van telemetrie na de firmware-update.
+    Als u terug naar het dashboard gaat, kunt u controleren of dat het apparaat wordt nog steeds verzenden van telemetrie volgen van de firmware-update.
 
 > [!WARNING]
-> Als u de oplossing voor externe controle uitgevoerd in uw Azure-account laat, wordt u gefactureerd voor de tijd die wordt uitgevoerd. Zie voor meer informatie over het verbruik verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config]. De vooraf geconfigureerde oplossing verwijderen uit uw Azure-account wanneer u klaar bent met het gebruik van maken.
+> Als u de oplossing voor externe controle die wordt uitgevoerd in uw Azure-account, worden in rekening gebracht voor de tijd dat deze wordt uitgevoerd. Zie voor meer informatie over het verbruik te verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor deze demo][lnk-demo-config]. De vooraf geconfigureerde oplossing verwijderen uit uw Azure-account wanneer u klaar bent met het gebruik ervan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar de [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) voor meer voorbeelden en documentatie over Azure IoT.
+Ga naar de [Azure IoT-ontwikkelaarscentrum](https://azure.microsoft.com/develop/iot/) voor meer voorbeelden en documentatie over Azure IoT.
 
 
 [img-raspberry-output]: ./media/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced/app-output.png

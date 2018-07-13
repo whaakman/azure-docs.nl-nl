@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 185f6730babe077332be9f054ba338ff48295eca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4f3772abc1cdbd3b35b8b1f16e7a47c0f1a17783
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449823"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38595651"
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Beheerdersaccounts voor EMS-toegang beheren in Azure AD 
 
@@ -82,6 +82,6 @@ Met het trainen van medewerkers toegang in noodgevallen accounts gebruiken, dien
 - [Aanmelden voor Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md), als u al dat nog niet hebt geregistreerd.
 - [Azure multi-factor Authentication vereisen voor afzonderlijke gebruikers toegewezen als beheerders](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 - [Configureer aanvullende bescherming voor globale beheerders in Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), als u Office 365.
-- [Een toegangscontrole van globale beheerders uitvoeren](../active-directory-privileged-identity-management-how-to-start-security-review.md) en [overgang van bestaande algemene beheerders meer specifieke beheerdersrollen](directory-assign-admin-roles.md).
+- [Een toegangscontrole van globale beheerders uitvoeren](../privileged-identity-management/pim-how-to-start-security-review.md) en [overgang van bestaande algemene beheerders meer specifieke beheerdersrollen](directory-assign-admin-roles.md).
 
 

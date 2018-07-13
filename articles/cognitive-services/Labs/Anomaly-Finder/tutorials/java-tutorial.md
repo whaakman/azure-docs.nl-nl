@@ -1,6 +1,6 @@
 ---
-title: Afwijkingsdetectie Java-app - cognitieve Services van Microsoft | Microsoft Docs
-description: Een Java-app die gebruikmaakt van de Afwijkingsdetectie Detection-API in Microsoft cognitieve Services verkennen. Oorspronkelijke gegevenspunten verzenden naar API en de verwachte waarde en afwijkingsdetectie punten.
+title: Detectie van afwijkingen Java-app - Microsoft Cognitive Services | Microsoft Docs
+description: Een Java-app die gebruikmaakt van de API voor Afwijkingsdetectie in Microsoft Cognitive Services verkennen. Oorspronkelijke gegevenspunten verzenden naar API en de verwachte waarde en anomaliedetectie punten.
 services: cognitive-services
 author: wenya
 manager: bix
@@ -10,39 +10,39 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: wenya
 ms.openlocfilehash: 228d440da358eba1322e2228c54f21e925e36ecd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345054"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597945"
 ---
-# <a name="anomaly-detection-java-application"></a>Detectie van Java-toepassing voor afwijkingsdetectie
+# <a name="anomaly-detection-java-application"></a>Detectie van Java-toepassing voor anomaliedetectie
 
-In dit artikel wordt gedemonstreerd met behulp van een eenvoudige Java-toepassing de Afwijkingsdetectie Detection-API aanroepen.  
-In het voorbeeld verzendt de gegevens van de reeks tijd voor de Afwijkingsdetectie Detection-API met de abonnementssleutel van uw en vervolgens alle punten afwijkingsdetectie en de verwachte waarde opgehaald voor elk gegevenspunt van de API.
+In dit artikel ziet u een eenvoudige Java-toepassing met de API voor Afwijkingsdetectie aanroepen.  
+Het voorbeeld verzendt de time series-gegevens naar de API voor Afwijkingsdetectie met uw abonnementssleutel en vervolgens worden de anomaliedetectie-punten en verwachte waarde opgehaald voor elk gegevenspunt van de API.
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="platform-requirements"></a>Platformvereisten
 
-Deze zelfstudie is ontwikkeld met behulp van [IntelliJ IDEA](https://www.jetbrains.com/idea). En u moet ook installeren [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) versie 1.8 +, en een recente [van Apache Maven](http://maven.apache.org/) hulpprogramma bouwen.
+In deze zelfstudie is ontwikkeld met behulp van [IntelliJ IDEA](https://www.jetbrains.com/idea). En u moet ook installeren [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) versie 1.8 +, en een recente [van Apache Maven](http://maven.apache.org/) hulpprogramma bouwen.
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op de Anomaliedetectie en een abonnementssleutel ophalen 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op de detectie van afwijkingen en de abonnementssleutel van een ophalen 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
  
 
-## <a name="download-the-tutorial-project"></a>De zelfstudie project downloaden
+## <a name="download-the-tutorial-project"></a>Het zelfstudieproject downloaden
 
-1. Ga naar de MicrosoftAnomalyDetection [Java-opslagplaats](https://github.com/MicrosoftAnomalyDetection/java-sample).
+1. Ga naar de MicrosoftAnomalyDetection [Java opslagplaats](https://github.com/MicrosoftAnomalyDetection/java-sample).
 2. Klik op de kloon of knop downloaden.
-3. Klik op voor het downloaden van een ZIP-bestand van de zelfstudie project ZIP downloaden.
+3. Klik op voor het downloaden van een ZIP-bestand van het zelfstudieproject ZIP downloaden.
 
 <a name="Step1"></a>
-### <a name="open-the-tutorial-project"></a>Open het project zelfstudie
+### <a name="open-the-tutorial-project"></a>Open het project voor een tabellair
 
-1. Pak het ZIP-bestand van de zelfstudie project.
-2. Klik in de IntelliJ IDEA op **bestand > openen**, Open bestand of dialoogvenster wordt weergegeven.
+1. Pak het ZIP-bestand van het project voor een tabellair.
+2. In IntelliJ IDEA gebruiken, klikt u op **bestand > openen**, in het dialoogvenster bestand openen of het Project wordt weergegeven.
 3. Selecteer het pad naar de hoofdmap van het uitgepakte project en klik op OK.
 4. Vouw in het deelvenster projecten **src > belangrijkste > java**.
 5. Dubbelklik op com.microsoft.cognitiveservice.anomalydetection.Main.java voor het laden van het bestand in de editor.
@@ -65,11 +65,11 @@ public static final String uriBase = "https://api.labs.cognitive.microsoft.com/a
 <a name="Step3"></a>
 ### <a name="build-and-run-the-tutorial-project"></a>Bouwen en uitvoeren van de zelfstudie project
 
-1. Online zetten van het menu met de rechtermuisknop op een willekeurige plaats in het tabblad com.microsoft.cognitiveservice.anomalydetection.Main.java bron-code. 
-2. Voer Main.main() selecteren
+1. Open het menu met de rechtermuisknop op een willekeurige plaats in het tabblad com.microsoft.cognitiveservice.anomalydetection.Main.java bron-code. 
+2. Selecteer 'Main.main()' uitvoeren
 3. Het resultaat van het voorbeeld van een aanvraag wordt geretourneerd en wordt weergegeven in de terminal.
 
-### <a name="result-of-the-tutorial-project"></a>Resultaat van de zelfstudie project
+### <a name="result-of-the-tutorial-project"></a>Resultaat van het zelfstudieproject
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 

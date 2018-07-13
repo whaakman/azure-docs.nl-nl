@@ -1,7 +1,7 @@
-Als u wilt alleen aanmelden bij uw toepassing inschakelen, gebruikt u een **aanmelden** beleid. Dit beleid worden de ervaringen die klanten doorlopen tijdens het aanmelden en de inhoud van de tokens die de toepassing wordt ontvangen op geslaagde aanmeldingen beschreven.
+Als u wilt zodat alleen aanmelden bij uw toepassing, gebruikt u een **aanmelden** beleid. Dit beleid wordt de ervaring van klanten gaan aanmelden en de inhoud van tokens die de toepassing ontvangt op geslaagde aanmeldingen beschreven.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
-Klik op **aanmelden beleid**.
+Klik op **aanmeldingsbeleid**.
 
 Klik op **+Toevoegen** boven aan de blade.
 

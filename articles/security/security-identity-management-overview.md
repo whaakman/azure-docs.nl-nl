@@ -1,6 +1,6 @@
 ---
-title: Azure-beveiliging waarmee met identity management-functies | Microsoft Docs
-description: " Dit artikel bevat een overzicht van de belangrijkste functies van Azure-beveiliging die u bij het identiteitsbeheer helpen. Microsoft identiteits- en toegangsbeheer management oplossingen zorgen ervoor dat IT beveiligen toegang tot toepassingen en bronnen in het zakelijke datacenter en in de cloud, extra niveaus validatie, zoals multi-factor Authentication en voorwaardelijke toegang inschakelen beleid. "
+title: Azure beveiligingsfuncties die helpen met identity management | Microsoft Docs
+description: " Dit artikel bevat een overzicht van de belangrijkste functies van Azure-beveiliging die u bij het identiteitsbeheer helpen. Identiteits- en toegangsbeheer management solutions Help bij Microsoft IT toegang beveiligen tot toepassingen en bronnen in het datacenter van de zakelijke en naar de cloud, extra niveaus van validatie, zoals meervoudige verificatie en voorwaardelijke toegang inschakelen beleidsregels. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,64 +14,64 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 8763f1dca110a43586619c09f5d25c340c177b09
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: cbf6ac736db9935f5ec52fa4507dab1e56bcde43
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300654"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611184"
 ---
 # <a name="azure-identity-management-security-overview"></a>Overzicht van Azure identity management-beveiliging
-Microsoft identiteits- en toegangsbeheer management oplossingen zorgen ervoor dat IT beveiligen van toegang tot toepassingen en bronnen in het zakelijke datacenter en in de cloud. Deze beveiliging kan extra niveaus validatie, zoals multi-factor Authentication en beleidsregels voor voorwaardelijke toegang. Bewaking verdachte activiteiten via geavanceerde beveiliging rapportage, controle en waarschuwingen helpt bij het verminderen mogelijke beveiligingsproblemen. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) biedt eenmalige aanmelding (SSO) tot duizenden cloudsoftware als een service (SaaS)-apps en toegang tot web-apps die u on-premises uitgevoerd.
+Identiteits- en toegangsbeheer management solutions Help bij Microsoft IT de toegang tot toepassingen en bronnen beveiligen via het zakelijke datacentrum en in de cloud. Deze beveiliging zorgt ervoor dat extra niveaus van validatie, zoals multi-factor Authentication en beleid voor voorwaardelijke toegang. Verdachte activiteiten controleren tot en met geavanceerde beveiliging voor rapportages, controle en waarschuwingen helpt bij het beperken mogelijke beveiligingsproblemen. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) biedt eenmalige aanmelding (SSO) voor duizenden cloudsoftware as a service (SaaS)-apps en de toegang tot web-apps die u on-premises uitvoert.
 
-Door gebruik te maken van de voordelen van de beveiliging van Azure Active Directory (Azure AD), kunt u het volgende doen:
+Door te profiteren van de voordelen van de beveiliging van Azure Active Directory (Azure AD), kunt u het volgende doen:
 
-* Maken en beheren van één identiteit voor elke gebruiker in uw onderneming hybride, gebruikers, groepen en apparaten synchroon te houden.
-* Eenmalige aanmeldingstoegang bieden tot toepassingen, inclusief duizenden vooraf geïntegreerde SaaS-apps.
-* Toepassingsbeveiliging toegang inschakelen door het afdwingen van multi-factor Authentication op basis van regels voor zowel on-premises en cloudtoepassingen.
-* Veilige externe toegang tot on-premises webtoepassingen via Azure AD-toepassingsproxy inrichten.
+* Maken en beheren van één identiteit voor elke gebruiker binnen uw onderneming hybride, synchroon houden van gebruikers, groepen en apparaten.
+* SSO-toegang bieden tot uw toepassingen, waaronder duizenden vooraf geïntegreerde SaaS-apps.
+* Inschakelen van beveiliging van de toegang tot toepassingen door het afdwingen van multi-factor Authentication op basis van regels voor zowel on-premises en cloudtoepassingen.
+* Veilige externe toegang tot on-premises webtoepassingen via Azure AD Application Proxy richt.
 
-Het doel van dit artikel is een overzicht van de kern van het Azure-beveiliging om functies te leveren die u bij het identiteitsbeheer helpen. We bieden ook koppelingen naar artikelen waarmee details van elk onderdeel, zodat u meer informatie.  
+Het doel van dit artikel is voor een overzicht van de belangrijkste functies van Azure-beveiliging die u bij het identiteitsbeheer helpen. We bieden ook koppelingen naar artikelen met details van elke functie, zodat u kunt meer informatie.  
 
-Het artikel is gericht op de volgende mogelijkheden voor core Azure Identity management:
+Het artikel richt zich op de volgende mogelijkheden van core Azure Identity management:
 
 * Eenmalige aanmelding
 * Omgekeerde proxy
 * Multi-Factor Authentication
-* Beveiligingsbewaking, waarschuwingen en machine learning gebaseerde rapporten
+* Beveiligingsbewaking, meldingen en machine learning gebaseerde rapporten
 * Identiteits- en toegangsbeheer van consumenten
 * Apparaatregistratie
-* Beschermde identiteitsbeheer
+* Privileged identity management
 * Identiteitsbeveiliging
 * Beheer van hybride identiteit
 
 ## <a name="single-sign-on"></a>Eenmalige aanmelding
-Eenmalige aanmelding betekent wordt toegang tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, wanneer u zich aanmeldt slechts één keer met behulp van één gebruikersaccount. Wanneer u bent aangemeld, kunt u alle toepassingen zonder verificatie openen (bijvoorbeeld: Typ een wachtwoord) een tweede keer.
+Eenmalige aanmelding betekent toegang te hebben tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, aanmeldt slechts eenmaal met behulp van één gebruikersaccount. Nadat u bent aangemeld, u toegang hebt tot alle van de toepassingen die u nodig hebt zonder vereist is om te verifiëren (bijvoorbeeld, typ een wachtwoord) een tweede keer.
 
-Veel organisaties zijn afhankelijk van de SaaS-toepassingen zoals Office 365, het selectievakje en Salesforce voor de productiviteit van de gebruiker. In het verleden hebben IT-personeel nodig afzonderlijk maken en bijwerken van gebruikersaccounts in elke SaaS-toepassing en moesten gebruikers een wachtwoord voor elke SaaS-toepassing.
+Er zijn veel organisaties afhankelijk van SaaS-toepassingen zoals Office 365, Box en Salesforce voor productiviteit van de gebruiker. In het verleden, IT-personeel die nodig zijn voor het afzonderlijk maken en bijwerken van gebruikersaccounts in elke SaaS-toepassing en moesten gebruikers een wachtwoord voor elke SaaS-toepassing.
 
-Azure AD breidt on-premises Active Directory-omgevingen in de cloud, zodat gebruikers hun primaire organisatie-account aan te melden niet alleen op hun apparaten domein en bedrijfsbronnen gebruiken, maar ook op het web en SaaS-toepassingen ze nodig hebben voor hun werk.
+Azure AD is een uitbreiding on-premises Active Directory-omgevingen in de cloud, zodat gebruikers hun primaire organisatie-account aan te melden bij niet alleen op hun domein apparaten en resources van het bedrijf gebruiken, maar ook voor alle web- en SaaS-toepassingen moeten voor hun werk.
 
-Niet alleen gebruikers hoeven niet te beheren van meerdere sets met gebruikersnamen en wachtwoorden, u kunt inrichten of ongedaan inrichten toegang tot toepassingen automatisch op basis van hun organisatie groepen en de status van de werknemer. Azure AD introduceert beveiligings- en toegangsbeheer van governance waarmee u de toegang van gebruikers centraal via de SaaS-toepassingen beheren kunt.
+Niet alleen gebruikers hoeven niet te beheren van meerdere sets met gebruikersnamen en wachtwoorden, kunt u inrichten of inrichting ongedaan maken toegang tot toepassingen automatisch op basis van hun groepen in de organisatie en de status van de werknemer. Azure AD bevat beveiligings- en toegangsbeheer voor governance waarmee u de toegang van gebruikers centraal voor SaaS-toepassingen beheren kunt.
 
 Meer informatie:
 
 * [Overzicht van eenmalige aanmelding](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Eenmalige aanmelding Azure Active Directory integreren met SaaS-apps](../active-directory/manage-apps/configure-single-sign-on-portal.md)
 
 ## <a name="reverse-proxy"></a>Omgekeerde proxy
-Azure AD-toepassingsproxy kunt u on-premises toepassingen, zoals publiceren [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), en [IIS](http://www.iis.net/)-gebaseerde apps binnen uw particuliere netwerk en veilig toegang verleent aan gebruikers buiten uw netwerk. Toepassingsproxy biedt externe toegang en web-SSO voor veel soorten lokale toepassingen met de duizenden SaaS-toepassingen die ondersteuning biedt voor Azure AD. Werknemers kunnen aanmelden bij uw apps op hun eigen apparaten home en verifiëren via deze cloud-gebaseerde proxy.
+Azure AD-toepassingsproxy, kunt u on-premises toepassingen, zoals publiceren [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), en [IIS](http://www.iis.net/)-gebaseerde apps binnen uw particuliere netwerk en veilige toegang verleent aan gebruikers buiten uw netwerk. Application Proxy biedt externe toegang en eenmalige aanmelding voor veel soorten on-premises webtoepassingen met de duizenden SaaS-toepassingen die ondersteuning biedt voor Azure AD. Werknemers kunnen zich aanmelden bij uw apps op hun eigen apparaten van herkomst en via deze proxy cloud-gebaseerde te verifiëren.
 
 Meer informatie:
 
 * [Azure AD-toepassingsproxy inschakelen](../active-directory/manage-apps/application-proxy-enable.md)
-* [Toepassingen publiceren met Azure AD-toepassingsproxy](../active-directory/active-directory-application-proxy-publish.md)
-* [Eenmalige aanmelding met toepassingsproxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](../active-directory/active-directory-application-proxy-publish.md)
+* [Eenmalige aanmelding met Application Proxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Werken met voorwaardelijke toegang](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
-Azure multi-factor Authentication is een authenticatiemethode die vereist het gebruik van meer dan één verificatiemethode en een kritieke tweede beveiligingslaag wordt toegevoegd aan de gebruikersaanmeldingen en transacties. Multi-factor Authentication helpt beveiliging toegang tot gegevens en toepassingen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden. Levert sterke verificatie via een aantal opties voor verificatie: telefoongesprekken, SMS-berichten of mobiele app-meldingen of verificatiecodes en OAuth-tokens van derde partij.
+Azure multi-factor Authentication is een verificatiemethode waarbij het gebruik van meer dan één verificatiemethode is vereist en wordt een essentiële tweede beveiligingslaag toegevoegd aan gebruikersaanmeldingen en transacties. Multi-factor Authentication helpt beschermen toegang tot gegevens en toepassingen aan de wensen van gebruikers voor een eenvoudige aanmeldprocedure. Het biedt een robuuste verificatie met een scala aan opties voor verificatie: telefonische oproepen, SMS-berichten of mobiele app-meldingen of verificatiecodes en OAuth-tokens van derde partij.
 
 Meer informatie:
 
@@ -79,16 +79,16 @@ Meer informatie:
 * [Wat is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
 * [De werking van Azure multi-factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)
 
-## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Beveiligingsbewaking, waarschuwingen en machine learning gebaseerde rapporten
-Beveiligingsbewaking, waarschuwingen en machine learning gebaseerde rapporten die inconsistente toegangspatronen aangeven kunt u uw bedrijf te beveiligen. U kunt toegang van Azure AD en gebruik rapporten naar meer inzicht verkrijgen in de integriteit en beveiliging van de directory van uw organisatie. Met deze informatie kunt kan directory-beheerder beter bepalen waar mogelijk beveiligingsrisico's mogelijk liggen zodat ze voldoende plannen kunnen die risico's te beperken.
+## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Beveiligingsbewaking, meldingen en machine learning gebaseerde rapporten
+Beveiligingsbewaking, meldingen en machine learning gebaseerde rapporten die inconsistente toegangspatronen identificeren kunt u uw bedrijf te beveiligen. U kunt Azure AD-toegang en gebruiksrapporten op inzicht in de integriteit en beveiliging van de adreslijst van uw organisatie. Met deze informatie bepalen de directorybeheerder van een beter waar mogelijke beveiligingsrisico mogelijk liggen zodat ze voldoende plannen maken kunnen die risico's te beperken.
 
-In de Azure portal rapporten kunnen worden onderverdeeld in de volgende categorieën:
+In de Azure-portal rapporten kunnen worden onderverdeeld in de volgende categorieën:
 
-* **Rapporten voor afwijkingsdetectie**: aanmelden gebeurtenissen die we afwijkende worden gevonden. Ons doel is u rekening houden met deze activiteit en kunt u bepalen of een gebeurtenis verdacht is.
-* **Rapporten van toepassingen geïntegreerde**: inzicht in hoe cloud-toepassingen in uw organisatie worden gebruikt. Azure AD biedt integratie met duizenden cloud-toepassingen.
-* **Foutenrapporten**: fouten die zich voordoen kunnen bij het inrichten van accounts kunnen externe toepassingen aangeven.
-* **Rapporten van de gebruiker gedefinieerde**: apparaat aanmeldingsactiviteiten gegevens weer voor een specifieke gebruiker.
-* **Activiteitenlogboeken**: bevatten een record van alle controlegebeurtenissen in de afgelopen 24 uur, afgelopen 7 dagen of afgelopen 30 dagen en wijzigingen activiteit en activiteit voor wachtwoord opnieuw instellen en registratie.
+* **Anomaliedetectie rapporten**: aanmeldingsgebeurtenissen waarop we gevonden worden afwijkende bevatten. Ons doel is het u op de hoogte van deze activiteit maken en kunt u bepalen of een gebeurtenis verdacht is.
+* **Geïntegreerde toepassing rapporten**: inzicht geven in hoe cloud-toepassingen in uw organisatie worden gebruikt. Azure AD biedt integratie met duizenden cloudtoepassingen.
+* **Foutenrapporten**: duiden op fouten die optreden bij het inrichten van accounts voor externe toepassingen.
+* **Rapporten voor specifieke gebruikers**: apparaat aanmeldingsactiviteiten gegevens voor een specifieke gebruiker worden weergegeven.
+* **Activiteitenlogboeken**: bevatten een record van alle gecontroleerde gebeurtenissen binnen de afgelopen 24 uur, afgelopen 7 dagen of afgelopen 30 dagen en groep is gewijzigd en het wachtwoord opnieuw instellen en registratie-activiteit.
 
 Meer informatie:
 
@@ -97,49 +97,49 @@ Meer informatie:
 * [Azure Active Directory-rapportagegids](../active-directory/active-directory-reporting-guide.md)
 
 ## <a name="consumer-identity-and-access-management"></a>Identiteits- en toegangsbeheer van consumenten
-Azure AD B2C is een maximaal beschikbare, wereldwijde, identity management-service voor consumententoepassingen voor honderden miljoenen identiteiten. De service kan worden geïntegreerd in zowel mobiele als webplatforms. Uw consumenten zich aanmelden bij uw toepassingen via aanpasbare met behulp van hun bestaande sociale accounts of maken van nieuwe referenties.
+Azure AD B2C is een maximaal beschikbare, wereldwijde, identiteitsbeheerservice voor consumentgerichte toepassingen die kan worden opgeschaald naar honderden miljoenen identiteiten. De service kan worden geïntegreerd in zowel mobiele als webplatforms. Uw consumenten kunnen al uw toepassingen aanpasbare manier aanmelden met hun bestaande sociale accounts of door nieuwe referenties te maken.
 
-In het verleden schreven toepassingsontwikkelaars die klanten aanmelden en aanmelden bij hun toepassingen wilden hun eigen code. Bovendien gebruikten ze on-premises databases of systemen om gebruikersnamen en wachtwoorden op te slaan. Azure AD B2C, biedt uw organisatie een betere manier identiteitsbeheer van consumenten integreren in toepassingen met behulp van een veilige, op standaarden gebaseerd platform en een grote set uitbreidbare beleidsregels.
+In het verleden zou ontwikkelaars van toepassingen die klanten registreren en aanmelden met hun toepassingen wilden hun eigen code hebt geschreven. Bovendien gebruikten ze on-premises databases of systemen om gebruikersnamen en wachtwoorden op te slaan. Azure AD B2C biedt uw organisatie een betere manier om identiteitsbeheer van consumenten integreren in toepassingen met behulp van een beveiligde, op standaarden gebaseerd platform en een grote set uitbreidbare beleidsregels.
 
-Wanneer u Azure AD B2C, uw consumenten zich registreren voor uw toepassingen met behulp van hun bestaande sociale accounts (Facebook, Google, Amazon, LinkedIn) of door het maken van nieuwe referenties (e-mailadres en wachtwoord of gebruikersnaam en wachtwoord).
+Wanneer u Azure AD B2C gebruikt, kunnen uw consumenten zich registreren voor uw toepassingen met behulp van hun bestaande sociale accounts (Facebook, Google, Amazon, LinkedIn) of door nieuwe referenties (e-mailadres en wachtwoord of gebruikersnaam en wachtwoord) te maken.
 
 Meer informatie:
 
 * [Wat is Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C preview: aanmelden en aanmelden van gebruikers in uw toepassingen](../active-directory-b2c/active-directory-b2c-overview.md)
-* [Azure Active Directory B2C Preview: Typen toepassingen](../active-directory-b2c/active-directory-b2c-apps.md)
+* [Azure Active Directory B2C preview: aanmelden en consumenten in uw toepassingen aanmelden](../active-directory-b2c/active-directory-b2c-overview.md)
+* [Azure Active Directory B2C Preview: Soorten toepassingen](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>Apparaatregistratie
-Azure AD-apparaatregistratie vormt de basis voor apparaatgebaseerde [voorwaardelijke toegang](../active-directory/active-directory-conditional-access-device-registration-overview.md) scenario's. Wanneer een apparaat is geregistreerd, biedt Azure AD-apparaatregistratie het apparaat met een identiteit die wordt gebruikt voor het verifiëren van het apparaat wanneer een gebruiker zich aanmeldt. Het geverifieerde apparaat en de kenmerken van het apparaat kunnen vervolgens worden gebruikt voor het afdwingen van beleid voor voorwaardelijke toegang voor toepassingen die worden gehost in de cloud en on-premises.
+Azure AD-apparaatregistratie vormt de basis voor apparaatgebaseerde [voorwaardelijke toegang](../active-directory/active-directory-conditional-access-device-registration-overview.md) scenario's. Wanneer een apparaat is geregistreerd, biedt Azure AD-apparaatregistratie het apparaat een identiteit die wordt gebruikt voor het verifiëren van het apparaat wanneer een gebruiker zich aanmeldt. Het geverifieerde apparaat en de kenmerken van het apparaat kunnen vervolgens worden gebruikt om het afdwingen van beleid voor voorwaardelijke toegang voor toepassingen die worden gehost in de cloud en on-premises.
 
-In combinatie met een beheersysteem voor mobiele apparaten zoals Intune, worden de apparaatkenmerken in Azure AD bijgewerkt met aanvullende informatie over het apparaat. Vervolgens kunt u regels voor voorwaardelijke toegang die toegang afdwingen van apparaten om te voldoen aan uw standaarden voor beveiliging en naleving.
+In combinatie met een oplossing voor het beheer van mobiele apparaten, zoals Intune, worden de apparaatkenmerken in Azure AD bijgewerkt met extra informatie over het apparaat. Vervolgens kunt u regels voor voorwaardelijke toegang die toegang van apparaten afdwingen om te voldoen aan uw normen voor beveiliging en naleving.
 
 Meer informatie:
 
 * [Aan de slag met Azure AD-apparaatregistratie](../active-directory/active-directory-conditional-access-device-registration-overview.md)
-* [Automatische apparaatregistratie met Azure AD voor Windows-domein-apparaten](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
-* [Instellen van automatische registratie van Windows-apparaten die lid zijn van een domein met Azure AD](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
+* [Automatische apparaatregistratie bij Azure AD voor Windows-domein gekoppelde apparaten](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
+* [Instellen van automatische inschrijving van Windows-domein gekoppelde apparaten met Azure AD](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
 
-## <a name="privileged-identity-management"></a>Beschermde identiteitsbeheer
-Met Azure AD Privileged Identity Management, kunt u, beheren en bewaken van bevoegde identiteiten en toegang tot bronnen in Azure AD, evenals andere Microsoft online services, zoals Office 365 en Microsoft Intune.
+## <a name="privileged-identity-management"></a>Privileged identity management
+Met Azure AD Privileged Identity Management, kunt u beheren, controleren en bewaken van uw bevoorrechte identiteiten en toegang tot resources in Azure AD, evenals andere Microsoft online services, zoals Office 365 en Microsoft Intune.
 
-Gebruikers moeten soms bij het uitvoeren van bevoorrechte bewerkingen in Azure of Office 365-bronnen, of in andere SaaS-apps. Deze behoefte betekent vaak dat organisaties hebben gebruikers permanente bevoegde om toegang te geven in Azure AD. Deze toegang is een groeiende beveiligingsrisico voor cloud-gebaseerde bronnen, omdat organisaties voldoende kunnen niet controleren wat gebruikers doen met de administrator-bevoegdheden. Bovendien, als een gebruikersaccount met uitgebreide toegang is geknoeid, kan die een inbreuk op de beveiliging beïnvloeden van de organisatie algehele cloud. Azure AD Privileged Identity Management helpt om dit risico te verkleinen.
+Soms moeten gebruikers bevoorrechte bewerkingen in Azure of Office 365-resources, of in andere SaaS-apps uitvoeren. In deze behoefte betekent vaak dat organisaties hebben gebruikers permanente bevoorrechte om toegang te geven in Azure AD. Deze toegang is een groeiende beveiligingsrisico voor cloud-gebaseerde bronnen, omdat organisaties voldoende kunnen niet controleren wat gebruikers doen met de administrator-bevoegdheden. Ook als een gebruikersaccount met bevoegde toegang is geknoeid, die een inbreuk invloed kan zijn op de algehele cloud-beveiliging van de organisatie. Azure AD Privileged Identity Management helpt om dit risico te beperken.
 
-U kunt met Azure AD Privileged Identity Management:
+Met Azure AD Privileged Identity Management, kunt u het volgende doen:
 
-* Zien welke gebruikers Azure AD-beheerders.
-* Op aanvraag, just in time (Just in time) beheerderstoegang toewijzen voor Microsoft-services zoals Office 365 en Intune inschakelen
-* Rapporten over beheerder toegang tot geschiedenis en wijzigingen in beheerderstoewijzingen ophalen.
+* Zie welke Azure AD-beheerders zijn.
+* Op aanvraag, just-in-time (JIT) met beheerdersrechten toegang tot Microsoft-services zoals Office 365 en Intune inschakelen.
+* Rapporten over beheerder beheerderstoeganggeschiedenis en wijzigingen in toewijzingen van beheerder ophalen.
 * Ontvang waarschuwingen over de toegang tot een bevoorrechte rol.
 
 Meer informatie:
 
-* [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [Rollen in Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-roles.md)
-* [Azure AD Privileged Identity Management: Het toevoegen of verwijderen van een gebruikersrol](../active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
+* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
+* [Rollen in Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-roles.md)
+* [Azure AD Privileged Identity Management: Het toevoegen of verwijderen van een gebruikersrol](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>Identiteitsbeveiliging
-Azure AD Identity Protection is een beveiligingsservice waarmee een geconsolideerde weergave risicogebeurtenissen en mogelijke beveiligingsproblemen die invloed hebben op de identiteiten van uw organisatie. Identity Protection maakt gebruik van de bestaande Azure AD-anomaliedetectie-mogelijkheden, die beschikbaar zijn via Azure AD afwijkende activiteit rapporten. Identity Protection introduceert bovendien nieuwe risico gebeurtenistypen die afwijkingen in realtime kunnen detecteren.
+Azure AD Identity Protection is een beveiligingsservice die een geconsolideerde weergave risicogebeurtenissen en mogelijke beveiligingsproblemen die invloed hebben op de identiteiten van uw organisatie biedt. Identity Protection maakt gebruik van bestaande Azure AD-anomaliedetectie-mogelijkheden, die beschikbaar zijn via Azure AD-afwijkende activiteit rapporten. Identity Protection introduceert ook nieuwe typen risicogebeurtenissen die in realtime afwijkingen kunnen.
 
 Meer informatie:
 
@@ -147,10 +147,10 @@ Meer informatie:
 * [Channel 9: Azure AD en Identity weergeven: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-management"></a>Beheer van hybride identiteit
-De aanpak van Microsoft identity omvat on-premises en de cloud, het maken van de identiteit van een enkele gebruiker voor verificatie en autorisatie voor alle netwerkbronnen, ongeacht de locatie.
+De Microsoft-benadering tot identiteit omvat on-premises en de cloud, het maken van een enkele gebruikers-id voor de verificatie en autorisatie voor alle netwerkbronnen, ongeacht de locatie.
 
 Meer informatie:
 
-* [Witboek van hybride identiteit](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
+* [Whitepaper voor hybride identiteit](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Azure AD-teamblog](https://blogs.technet.microsoft.com/ad/)

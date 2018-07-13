@@ -13,6 +13,7 @@
 ## [Resourceproviders en -typen](resource-manager-supported-services.md)
 ## [Beheergroepen](management-groups-overview.md)
 ## [Abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Sjablonen voor de consistentie van de cloud](templates-cloud-consistency.md)
 
 # Procedures
 ## Sjablonen maken

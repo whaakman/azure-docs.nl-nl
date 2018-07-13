@@ -1,9 +1,9 @@
 ---
-title: Een toepassing implementeert op een virtuele machine van Azure-schaalset | Microsoft Docs
-description: Meer informatie over het implementeren van toepassingen voor Linux en Windows virtuele machine-exemplaren in een schaalset
+title: Een toepassing implementeren in een schaalset voor virtuele Azure-machine | Microsoft Docs
+description: Meer informatie over het implementeren van toepassingen voor Linux en Windows VM-exemplaren in een schaalset
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: iainfou
-ms.openlocfilehash: ed43dc21c8b7c585abc0a2734a541f760ab3c487
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: cynthn
+ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111560"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718978"
 ---
-# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementeren van uw toepassing op virtuele-machineschaalsets
-Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. Dit artikel bevat manieren voor het maken van een aangepaste VM-installatiekopie voor de instanties in een schaal ingesteld of installatiescripts automatisch wordt uitgevoerd op een bestaande VM-exemplaren. U leert ook hoe voor het beheren van de toepassing of updates voor het besturingssysteem op een scale-set.
+# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementeer uw toepassing op virtuele-machineschaalsets
+Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. Dit artikel bevat manieren voor het maken van een aangepaste VM-installatiekopie voor exemplaren in een schaalset instellen of installatiescripts op bestaande VM-exemplaren automatisch wordt uitgevoerd. U leert ook hoe u voor het beheren van toepassingen of updates van het besturingssysteem in een schaalset.
 
 
 ## <a name="build-a-custom-vm-image"></a>Een aangepaste VM-installatiekopie bouwen
-Wanneer u een van de Azure-platform-installatiekopieën maken van de exemplaren in de schaalset gebruikt, is geen extra software geïnstalleerd of geconfigureerd. U kunt automatiseren de installatie van deze onderdelen echter die wordt toegevoegd aan de tijd die nodig zijn voor het inrichten van VM-exemplaren op uw scale-sets. Als u veel configuratiewijzigingen voor de VM-instanties toepassen, is het beheer van de overhead van die configuratiescripts en taken.
+Wanneer u een van de Azure-platform-installatiekopieën te maken van de exemplaren in uw schaalset gebruikt, is er geen aanvullende software geïnstalleerd of geconfigureerd. U kunt automatiseren de installatie van deze onderdelen, maar die wordt toegevoegd aan de tijd die nodig zijn voor het inrichten van VM-exemplaren in uw schaalsets. Als u veel wijzigingen in de configuratie op de VM-exemplaren toepassen, is de management overhead met deze configuratiescripts en taken.
 
-Als u het beheer van de configuratie en de tijd voor het inrichten van een virtuele machine, kunt u een aangepaste VM-installatiekopie dat gereed is voor uw toepassing uitvoeren zodra u een exemplaar is ingericht in de schaalset. Voor meer informatie over het maken en gebruiken van een aangepaste installatiekopie van de virtuele machine met een schaal, raadpleegt u de volgende zelfstudies:
+Om te beperken het beheer van de configuratie en de tijd voor het inrichten van een virtuele machine, kunt u een aangepaste VM-installatiekopie die klaar zijn voor het uitvoeren van uw toepassing als een exemplaar is ingericht in de schaalset. Voor meer informatie over het maken en gebruiken van een aangepaste VM-installatiekopie met een schaal, raadpleegt u de volgende zelfstudies:
 
 - [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
-## <a name="already-provisioned"></a>Een app installeren met de extensie voor aangepaste scripts
-Met de aangepaste scriptextensie kunnen scripts worden gedownload en uitgevoerd op virtuele machines in Azure. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Scripts kunnen worden gedownload uit Azure Storage of GitHub, of worden geleverd in Azure Portal tijdens de uitvoering van extensies. Voor meer informatie over het maken en gebruiken van een aangepaste installatiekopie van de virtuele machine met een schaal, raadpleegt u de volgende zelfstudies:
+## <a name="already-provisioned"></a>Een app installeren met de aangepaste Scriptextensie
+Met de aangepaste scriptextensie kunnen scripts worden gedownload en uitgevoerd op virtuele machines in Azure. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Scripts kunnen worden gedownload uit Azure Storage of GitHub, of worden geleverd in Azure Portal tijdens de uitvoering van extensies. Voor meer informatie over het maken en gebruiken van een aangepaste VM-installatiekopie met een schaal, raadpleegt u de volgende zelfstudies:
 
 - [Azure CLI 2.0](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Azure Resource Manager-sjabloon](tutorial-install-apps-template.md)
 
 
-## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Een app installeren op een Windows-VM met PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) is een beheerplatform voor het definiëren van de configuratie van de doelcomputers. DSC-configuraties definiëren wat u wilt installeren op een computer en het configureren van de host. Een lokale Configuration Manager (LCM)-engine wordt uitgevoerd op elk doelknooppunt waarmee aangevraagde acties op basis van pushed configuraties worden verwerkt.
+## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Een app installeren op een Windows VM maken met PowerShell DSC
+[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) is een beheerplatform voor het definiëren van de configuratie van doelmachines. DSC-configuraties definiëren wat u wilt installeren op een computer en het configureren van de host. Een engine voor de lokale Configuration Manager (LCM) wordt uitgevoerd op elk doelknooppunt waarmee aangevraagde acties op basis van gepushte configuraties worden verwerkt.
 
-De PowerShell DSC-uitbreiding kunt u VM-exemplaren in een instellen met PowerShell schaal aanpassen. Het volgende voorbeeld:
+De PowerShell DSC-extensie kunt u aanpassen van VM-exemplaren in een schaalset met PowerShell. Het volgende voorbeeld:
 
-- Hiermee geeft u de VM-exemplaren voor het downloaden van een DSC-pakket van GitHub: *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
-- Hiermee stelt u de uitbreiding voor het uitvoeren van een script voor installatie- `configure-http.ps1`
-- Hiermee haalt u informatie over een instellen met schaal [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
-- De extensie is van toepassing op de VM-instanties met [Update AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
+- Hiermee geeft u de VM-exemplaren een DSC-pakket downloaden vanuit GitHub- *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Hiermee stelt u de extensie voor het uitvoeren van een script voor installatie- `configure-http.ps1`
+- Hiermee haalt u informatie over een schaalset met [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
+- De extensie is van toepassing op de VM-exemplaren met [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
 
-De DSC-uitbreiding is toegepast op de *myScaleSet* VM-exemplaren in de resourcegroep met de naam *myResourceGroup*. Voer uw eigen namen:
+De DSC-extensie is toegepast op de *myScaleSet* VM-exemplaren in de resourcegroep met de naam *myResourceGroup*. Voer uw eigen namen als volgt in:
 
 ```powershell
 # Define the script for your Desired Configuration to download and run
@@ -87,17 +87,17 @@ Update-AzureRmVmss `
     -VirtualMachineScaleSet $vmss
 ```
 
-Als het Upgradebeleid op uw schaalset *handmatige*, bijwerken van uw VM-exemplaren met [Update AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Deze cmdlet geldt de configuratie van de bijgewerkte scale set voor VM-exemplaren en uw toepassing wordt geïnstalleerd.
+Als het Upgradebeleid op uw schaalset *handmatige*, bijwerken van uw VM-exemplaren met [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Deze cmdlet configuratie van de bijgewerkte schaalset is van toepassing op de VM-exemplaren en uw toepassing wordt geïnstalleerd.
 
 
-## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Een app installeren voor een Linux-VM met cloud-init
+## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Een app installeren met een Linux-VM met cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud-init wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of agents vereist om uw configuratie toe te passen.
 
 Cloud-init werkt ook in distributies. U gebruikt bijvoorbeeld niet **apt-get install** of **yum install** om een pakket te installeren. In plaats daarvan kunt u een lijst definiëren met te installeren pakketten. Cloud-init maakt automatisch gebruik van het hulpprogramma voor systeemeigen pakketbeheer voor de distro die u selecteert.
 
-Voor meer informatie, waaronder een voorbeeld *cloud init.txt* bestand, Zie [cloud init gebruiken voor het aanpassen van Azure Virtual machines](../virtual-machines/linux/using-cloud-init.md).
+Voor meer informatie, met inbegrip van een voorbeeld *cloud-init.txt* bestand, Zie [cloud-init gebruiken voor het aanpassen van virtuele Azure-machines](../virtual-machines/linux/using-cloud-init.md).
 
-Toevoegen als u wilt een schaalset maken en gebruiken van een cloud-init-bestand, de `--custom-data` -parameter voor de [az vmss maken](/cli/azure/vmss#az_vmss_create) opdracht in en geef de naam van een cloud-init-bestand. Het volgende voorbeeld wordt een set met de naam scale *myScaleSet* in *myResourceGroup* en VM-instanties configureert met een bestand met de naam *cloud init.txt*. Voer uw eigen namen:
+Een schaalset maken en gebruiken van een cloud-init-bestand, voeg de `--custom-data` parameter voor de [az vmss maken](/cli/azure/vmss#az_vmss_create) opdracht en geeft u de naam van een cloud-init-bestand. Het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* in *myResourceGroup* en VM-exemplaren configureert met een bestand met de naam *cloud-init.txt*. Voer uw eigen namen als volgt in:
 
 ```azurecli
 az vmss create \
@@ -111,11 +111,11 @@ az vmss create \
 ```
 
 
-### <a name="install-applications-with-os-updates"></a>Toepassingen met updates voor het besturingssysteem installeren
-Wanneer nieuwe OS-versies beschikbaar zijn, u kunt gebruiken of een nieuwe aangepaste installatiekopie bouwen en [upgrades voor het besturingssysteem implementeren](virtual-machine-scale-sets-upgrade-scale-set.md) ingesteld op een schaal. Elk exemplaar van de virtuele machine is bijgewerkt naar de meest recente installatiekopie die u opgeeft. U kunt een aangepaste installatiekopie met de toepassing vooraf is geïnstalleerd, de extensie voor aangepaste scripts of PowerShell DSC gebruiken om uw toepassing automatisch beschikbaar als u de upgrade uitvoert. Mogelijk moet u plannen voor het Toepassingonderhoud van de zoals u dit proces om ervoor te zorgen dat er geen versie compatibiliteitsproblemen zijn uitvoeren.
+### <a name="install-applications-with-os-updates"></a>Toepassingen met updates van het besturingssysteem installeren
+Wanneer er nieuwe OS releases beschikbaar zijn, u kunt gebruiken of een nieuwe aangepaste installatiekopie bouwen en [besturingssysteemupgrades implementeren](virtual-machine-scale-sets-upgrade-scale-set.md) ingesteld op een schaal. Elk VM-exemplaar is bijgewerkt naar de meest recente installatiekopie die u opgeeft. U kunt een aangepaste installatiekopie met de toepassing vooraf is geïnstalleerd, de aangepaste Scriptextensie of PowerShell DSC gebruiken om uw toepassing automatisch beschikbaar als u de upgrade uitvoert. Mogelijk moet u plannen voor het Toepassingonderhoud van als u dit proces om ervoor te zorgen dat er geen versie compatibiliteitsproblemen uitvoert.
 
-Als u een aangepaste installatiekopie van de virtuele machine met de toepassing vooraf is geïnstalleerd, kunt u de toepassingsupdates kan integreren met een pipeline implementatie kunnen de nieuwe afbeeldingen bouwen en implementeren van upgrades voor het besturingssysteem op de scale-set. Deze aanpak kunt de pijplijn voor de meest recente builds van toepassing kunnen worden opgepikt, maken en valideren van een VM-installatiekopie en vervolgens de upgrade van de VM-exemplaren in de schaalset. Voor het uitvoeren van een pijplijn implementatie dat bouwt en toepassingsupdates via aangepaste installatiekopieën voor virtuele machine implementeert, kunt u [een verpakker installatiekopie maken en implementeren met Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), of gebruik een ander platform, zoals [Spinnaker ](https://www.spinnaker.io/) of [Jenkins](https://jenkins.io/).
+Als u een aangepaste VM-installatiekopie met de toepassing vooraf is geïnstalleerd, kunt u de updates van toepassingen kunt integreren met een implementatiepijplijn naar de nieuwe afbeeldingen bouwen en implementeren van upgrades voor het besturingssysteem van de schaalset. Deze aanpak kunt u de pijplijn voor het kiezen van de meest recente builds van toepassing, maken en valideren van een VM-installatiekopie en vervolgens de upgrade van de VM-exemplaren in de schaalset. Als u wilt uitvoeren van een implementatiepijplijn die u bouwt en implementeert u updates van toepassingen via aangepaste VM-installatiekopieën, kunt u [een Packer-installatiekopie maken en implementeren met Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), of gebruik een ander platform, zoals [Spinnaker ](https://www.spinnaker.io/) of [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Bij het bouwen en implementeren van toepassingen voor uw schaalsets, kunt u controleren de [Scale ingesteld ontwerp overzicht](virtual-machine-scale-sets-design-overview.md). Zie voor meer informatie over het beheren van uw scale set [Gebruik PowerShell voor het beheren van uw scale set](virtual-machine-scale-sets-windows-manage.md).
+Als u bouwen en implementeren van toepassingen voor uw schaalsets, kunt u bekijken de [schaal ingesteld ontwerp overzicht](virtual-machine-scale-sets-design-overview.md). Zie voor meer informatie over het beheren van uw schaalset [PowerShell gebruiken voor het beheren van uw schaalset](virtual-machine-scale-sets-windows-manage.md).

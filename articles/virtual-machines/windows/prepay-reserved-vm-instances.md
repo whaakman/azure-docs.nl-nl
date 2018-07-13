@@ -1,6 +1,6 @@
 ---
-title: Vooruitbetalen voor Azure virtual machines geld besparen | Microsoft Docs
-description: Informatie over het kopen van Azure gereserveerde exemplaren op te slaan op de compute-kosten.
+title: Betaal vooruit voor Azure virtual machines om geld te besparen | Microsoft Docs
+description: Informatie over het kopen van gereserveerde instanties van Azure om op te slaan op uw rekenkosten.
 services: virtual-machines-windows
 documentationcenter: ''
 author: yashar
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 06/14/2018
 ms.author: yashar
 ms.openlocfilehash: 50cbd32f5bd64b276e8f58bff040e40d9e989cfe
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063861"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634231"
 ---
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]
 

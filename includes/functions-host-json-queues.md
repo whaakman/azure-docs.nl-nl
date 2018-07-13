@@ -12,11 +12,11 @@
 
 |Eigenschap  |Standaard | Beschrijving |
 |---------|---------|---------| 
-|maxPollingInterval|60000|Het maximale interval in milliseconden tussen polls van de wachtrij.| 
-|visibilityTimeout|0|Het interval tussen nieuwe pogingen bij het verwerken van een bericht is mislukt.| 
-|batchSize|16|Het aantal berichten in wachtrij plaatsen die de runtime van Functions tegelijkertijd opgehaald en parallel worden verwerkt. Wanneer het aantal verwerkte opgehaald omlaag naar de `newBatchThreshold`, de runtime opgehaald van een andere batch en start deze berichten worden verwerkt. Daarom het maximum aantal gelijktijdige berichten worden verwerkt per functie is `batchSize` plus `newBatchThreshold`. Deze beperking geldt afzonderlijk voor elke functie wachtrij geactiveerd. <br><br>Als u voorkomen dat parallelle uitvoering voor berichten ontvangen voor een wachtrij wilt, kunt u instellen `batchSize` op 1. Deze instelling voorkomt gelijktijdigheid echter alleen zolang de functie-app wordt uitgevoerd op een enkele virtuele machine (VM). Als de functie-app uitgeschaald naar meerdere virtuele machines, kan één exemplaar van elke functie wachtrij geactiveerd door elke virtuele machine uitvoeren.<br><br>De maximale `batchSize` is 32. | 
-|maxDequeueCount|5|Het aantal pogingen voor het verwerken van een bericht voordat u deze verplaatst naar de wachtrij verontreinigd.| 
-|newBatchThreshold|batchSize/2|Wanneer het aantal berichten dat gelijktijdig wordt verwerkt, mag dit nummer, wordt een andere batch in de runtime opgehaald.| 
+|maxPollingInterval|60000|Het maximale interval in milliseconden tussen de wachtrij worden opgevraagd.| 
+|visibilityTimeout|0|Het tijdsinterval tussen nieuwe pogingen bij het verwerken van een bericht is mislukt.| 
+|batchSize|16|Het aantal Wachtrijberichten waarmee de Functions-runtime gelijktijdig worden opgehaald en parallel worden verwerkt. Als het getal dat wordt verwerkt opgehaald omlaag naar de `newBatchThreshold`, de runtime opgehaald van een andere batch en start deze berichten worden verwerkt. Zodat het maximum aantal gelijktijdige berichten worden verwerkt per functie `batchSize` plus `newBatchThreshold`. Deze limiet geldt afzonderlijk voor elke wachtrij-geactiveerde functie. <br><br>Als u voorkomen dat de parallelle uitvoering voor berichten in een wachtrij ontvangen wilt, kunt u instellen `batchSize` op 1. Deze instelling elimineert echter gelijktijdigheid alleen zo lang uw functie-app wordt uitgevoerd op een enkele virtuele machine (VM). Als de functie-app wordt geschaald naar meerdere virtuele machines, kan één exemplaar van elke wachtrij-geactiveerde functie uitvoeren in elke virtuele machine.<br><br>De maximale `batchSize` is 32. | 
+|maxDequeueCount|5|Het aantal keren dat probeert een bericht verwerken voordat u deze verplaatst naar de wachtrij onverwerkbare.| 
+|newBatchThreshold|batchSize/2|Wanneer het aantal berichten gelijktijdig worden verwerkt met deze eigenschap omlaag naar het volgende nummer, wordt een andere batch in de runtime opgehaald.| 
 
 
 

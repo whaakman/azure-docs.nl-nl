@@ -1,24 +1,24 @@
-**1. Hoe klanten worden gewaarschuwd wanneer de retiring SDK?**
+**1. Hoe wordt klanten worden op de hoogte van de retiring SDK?**
 
-Microsoft biedt 12 maanden voorafgaande melding die aan het einde van de ondersteuning van de retiring SDK om te faciliteren een overgang naar een ondersteunde SDK. Verder kan een melding via verschillende communicatie kanalen – Azure Management Portal voor ontwikkelaars, blogbericht, klanten en rechtstreekse communicatie met servicebeheerders toegewezen.
+Microsoft biedt 12 maanden voorafgaande melding die aan het einde van ondersteuning van de retiring SDK om te faciliteren van een soepele overgang naar een ondersteunde SDK. Verder, klanten, worden geïnformeerd via verschillende communicatie kanalen: Azure-beheerportal, Developer Center, blogbericht, en rechtstreekse communicatie met toegewezen servicebeheerders.
 
-**2. Kunnen klanten toepassingen met behulp van een 'to-be' buiten gebruik gestelde Azure Cosmos DB SDK tijdens de periode van 12 maanden schrijven?** 
+**2. Kunnen klanten schrijven voor toepassingen die gebruikmaken van een 'die u wilt herstellen' buiten gebruik gestelde Azure Cosmos DB SDK tijdens de periode van 12 maanden?** 
 
-Ja, klanten hebben volledige toegang ontwerpen, implementeren en wijzig toepassingen die met behulp van de 'to-be' buiten gebruik gestelde Azure Cosmos DB SDK tijdens de respijtperiode voor twaalf maanden. Tijdens de respijtperiode 12 maanden wordt klanten aangeraden om te migreren naar een nieuwere ondersteunde versie van Azure Cosmos DB SDK naar gelang van toepassing.
+Ja, klanten hebben volledige toegang voor het ontwerpen, implementeren en wijzig toepassingen die met behulp van de 'die u wilt herstellen' buiten gebruik gestelde Azure Cosmos DB SDK tijdens de respijtperiode van 12 maanden. Tijdens de respijtperiode van 12 maanden wordt klanten aangeraden om te migreren naar een nieuwere ondersteunde versie van Azure Cosmos DB SDK waar nodig.
 
-**3. Kunnen klanten ontwerpen en wijzigen van toepassingen met behulp van een buiten gebruik gestelde Azure Cosmos DB SDK na de periode van 12 maanden melding?**
+**3. Kunnen klanten maken en wijzigen van toepassingen die gebruikmaken van een buiten gebruik gestelde Azure Cosmos DB SDK na de periode van 12 maanden melding?**
 
-Na de periode van 12 maanden melding de SDK wordt buiten gebruik worden gesteld. Toegang tot Azure Cosmos DB door een toepassingen met behulp van een buiten gebruik gestelde SDK wordt niet toegestaan door de Azure DB die Cosmos-platform. Verder kan biedt Microsoft geen klantenondersteuning op de buiten gebruik gestelde SDK.
+Na de periode van 12 maanden melding, wordt de SDK beëindigd. Geen toegang tot Azure Cosmos DB door een toepassing met behulp van een buiten gebruik gestelde SDK worden niet toegestaan door het Azure Cosmos DB-platform. Microsoft wordt bovendien niet om klantenondersteuning te bieden over het buiten gebruik gestelde SDK.
 
-**4. Wat gebeurt er met de klant de toepassingen die van niet-ondersteunde versie van Azure Cosmos DB SDK gebruikmaken wordt uitgevoerd?**
+**4. Wat gebeurt er aan de klant het uitvoeren van toepassingen die van niet-ondersteunde versie van Azure Cosmos DB SDK gebruikmaken?**
 
-Alle pogingen tot verbinding maken met de Azure DB die Cosmos-service met een verouderde versie van de SDK worden geweigerd. 
+Pogingen die verbinding maken met de Azure Cosmos DB-service met een verouderde versie van de SDK worden geweigerd. 
 
-**5. Nieuwe functies en functionaliteit gelden voor alle niet-verouderde SDK's?**
+**5. Nieuwe functies en functionaliteit worden toegepast op alle SDK's voor niet buiten gebruik worden gesteld?**
 
-Nieuwe functies en functionaliteit wordt alleen naar nieuwe versies worden toegevoegd. Als u een oude, niet-verouderde versie van de SDK uw aanvragen naar Azure Cosmos DB blijven werken als vorige, maar u geen toegang tot alle nieuwe mogelijkheden.  
+Nieuwe functies en functionaliteit wordt alleen op nieuwe versies worden toegevoegd. Als u een oude, niet buiten gebruik gesteld, versie van de SDK uw aanvragen voor Azure Cosmos DB wordt nog steeds als de vorige functie, maar geen toegang tot alle nieuwe mogelijkheden.  
 
-**6. Wat moet ik doen als ik mijn toepassing voordat u een datum kan niet worden bijgewerkt?**
+**6. Wat moet ik doen als ik mijn toepassing voordat u een datum kan niet bijwerken?**
 
-Het is raadzaam dat u een upgrade naar de nieuwste SDK zo spoedig mogelijk uitvoert. Nadat een SDK zijn gelabeld voor buiten gebruik stellen hebt u 12 maanden bijwerken van uw toepassing. Als om welke reden kan niet u het bijwerken van uw toepassing binnen deze periode te voltooien en neem contact op met de [Cosmos DB Team](mailto:askcosmosdb@microsoft.com) en aan te vragen hun hulp voordat de uiterste datum.
+Het is raadzaam dat u een naar de nieuwste SDK zo vroeg mogelijk upgrade. Nadat een SDK is gemarkeerd voor buiten gebruik stellen hebt u 12 maanden om bij te werken van uw toepassing. Als u om welke reden dan ook, u niet kunt voltooien van de update van uw toepassing binnen deze periode en vervolgens Neem contact op met de [Cosmos DB-Team](mailto:askcosmosdb@microsoft.com) en hun hulp voordat de afsluitdatum.
 

@@ -1,6 +1,6 @@
 ---
-title: API's met Azure API Management, Event Hubs en Runscope bewaken | Microsoft Docs
-description: Voorbeeld van een toepassing demonstreren van het logboek voor eventhub-beleid door het verbindende Azure API Management, Azure Event Hubs en Runscope voor HTTP-logboekregistratie en controle
+title: API's met Azure API Management, Eventhubs en Runscope bewaken | Microsoft Docs
+description: Voorbeeld van een toepassing demonstreren van het logboek naar Event hub-beleid door verbindende Azure API Management, Azure Event Hubs en Runscope voor HTTP-logboekregistratie en bewaking
 services: api-management
 documentationcenter: ''
 author: darrelmiller
@@ -14,40 +14,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 8ef8d64ba90960281faffc350821d7934e35749a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4c58be8f501e72027e1692ceb73552a3f252f92a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117065"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38603175"
 ---
-# <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Uw API's met Azure API Management, Event Hubs en Runscope bewaken
-De [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden voor het verbeteren van de verwerking van HTTP-aanvragen verzonden naar uw HTTP-API. Er is echter het bestaan van de aanvragen en antwoorden tijdelijke. De aanvraag wordt gedaan en wordt via de API Management-service naar uw back-end API gebruikt. De aanvraag wordt verwerkt door uw API en een antwoord doorloopt aan de verbruiker API. API Management-service houdt een aantal belangrijke statistieken over de API voor weergave in de Azure portal-dashboard, maar ook buiten dat de gegevens verwijderd zijn.
+# <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Uw API's met Azure API Management, Eventhubs en Runscope controleren
+De [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden voor het verbeteren van de verwerking van HTTP-aanvragen die worden verzonden op uw HTTP-API. Het bestaan van de aanvragen en antwoorden is echter tijdelijk. De aanvraag wordt gedaan en hiervandaan stroomt het via de API Management-service naar uw back-end-API. Uw API verwerkt de aanvraag en een antwoord doorloopt de consument API. De API Management-service houdt u enkele belangrijke statistische gegevens over de API's om weer te geven in de Azure portal-dashboard, maar ook buiten dat de gegevens verwijderd zijn.
 
-U kunt met behulp van het logboek voor eventhub-beleid in de API Management-service, details verzenden van de aanvraag en de reactie op een [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Er zijn diverse redenen waarom u mogelijk gebeurtenissen wilt van HTTP-berichten worden verzonden naar uw API's. Voorbeelden zijn audittrail van updates, gebruiksanalyse uitzondering waarschuwingen en integraties van derden.   
+Met behulp van het logboek naar Event hub-beleid in de API Management-service, kunt u alle details verzenden vanuit de aanvraag en reactie op een [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Er zijn diverse redenen waarom u mogelijk wilt genereren van gebeurtenissen uit de HTTP-berichten worden verzonden naar uw API's. Enkele voorbeelden zijn audittrail van updates, gebruiksanalyse, uitzondering waarschuwingen en integratie van derden.   
 
-In dit artikel laat zien hoe het gehele HTTP-aanvraag en -antwoord bericht vastleggen, verzenden naar een Event Hub en vervolgens relay-bericht naar een service van derden waarmee HTTP-logboekregistratie en controle van services.
+In dit artikel laat zien hoe u het hele HTTP-aanvraag en respons bericht vastleggen, verzenden naar een Event Hub en vervolgens doorsturen dat bericht met een service van derden waarmee HTTP-logboekregistratie en bewaking van services.
 
 ## <a name="why-send-from-api-management-service"></a>Waarom verzenden van API Management-Service?
-Het is mogelijk HTTP-middleware waarmee HTTP-API-frameworks vastleggen HTTP-aanvragen en antwoorden en ze in logboekregistratie en controle van systemen feed kunt aansluiten schrijven. Het nadeel hiervan is de HTTP-middleware moet worden geïntegreerd in de back-end API en moet overeenkomen met het platform van de API. Als er meerdere API's, moet elk criterium de middleware implementeren. Er zijn vaak redenen waarom de back-end voor API's kan niet worden bijgewerkt.
+Het is mogelijk het schrijven van HTTP-middleware die HTTP-API-frameworks voor HTTP-aanvragen en antwoorden vastleggen en ze in logboekregistratie en bewaking van systemen kan aansluiten. Het nadeel deze benadering is de HTTP-middleware moet worden geïntegreerd in de back-end-API en moet overeenkomen met het platform van de API. Als er meerdere API's, moet elk criterium de middleware implementeren. Er zijn vaak redenen waarom de back-end-API's kan niet worden bijgewerkt.
 
-De Azure API Management-service gebruikt om te integreren met infrastructuur voor logboekregistratie biedt een gecentraliseerd en platformonafhankelijk-oplossing. Het is ook schaalbare gedeeltelijk indienen bij de [geo-replicatie](api-management-howto-deploy-multi-region.md) mogelijkheden van Azure API Management.
+Met behulp van de Azure API Management-service voor integratie met infrastructuur voor logboekregistratie biedt een gecentraliseerd en platformonafhankelijke-oplossing. Het is ook schaalbaar zijn, gedeeltelijk indienen bij de [geo-replicatie](api-management-howto-deploy-multi-region.md) mogelijkheden van Azure API Management.
 
 ## <a name="why-send-to-an-azure-event-hub"></a>Waarom verzenden naar een Azure Event Hub?
-Het is een redelijk te vragen, waarom maakt u een beleid dat specifiek is voor Azure Event Hubs? Er zijn verschillende plaatsen waar mogelijk wil mijn aanvragen moeten worden geregistreerd. Alleen verzenden waarom niet de aanvragen rechtstreeks naar de uiteindelijke bestemming?  Dit is een optie. Wanneer u logboekregistratie van aanvragen van een API management-service, is het echter nodig zijn om te overwegen welke berichtregistratie gevolgen hebben voor de prestaties van de API. Geleidelijke toename in belasting kunnen worden verwerkt door het verhogen van de beschikbare exemplaren van de onderdelen van het systeem of door gebruik te maken van geo-replicatie. Korte pieken in het verkeer kunnen echter leiden tot aanvragen als aanvragen voor de infrastructuur voor logboekregistratie van beginnen met het vertragen belast wordt vertraagd.
+Het is een redelijk te vragen, waarom maakt u een beleid dat specifiek is voor Azure Event Hubs? Er zijn veel verschillende plaatsen waar ik wil mijn aanvragen vastleggen. Alleen verzenden waarom niet de aanvragen rechtstreeks naar de eindbestemming?  Dat kan worden gebruikt. Wanneer u logboekregistratie van aanvragen van een API management-service, is het echter nodig zijn om te overwegen hoe berichten van de logboekregistratie van invloed zijn op de prestaties van de API. Geleidelijke verhogingen in de belasting kunnen worden verwerkt door het verhogen van de beschikbare exemplaren van de onderdelen van het systeem of door te profiteren van geo-replicatie. Korte pieken in verkeer kunnen echter leiden tot aanvragen als aanvragen voor infrastructuur voor logboekregistratie wordt gestart tot trage onder belasting worden vertraagd.
 
-De Azure Event Hubs is ontworpen voor grote hoeveelheden gegevens, inkomend met capaciteit voor het omgaan met een veel hoger aantal gebeurtenissen dan het aantal HTTP-verwerken voor de meeste API's aanvragen. De Event Hub fungeert als een soort geavanceerde buffer tussen uw API management-service en de infrastructuur die worden opgeslagen en berichten worden verwerkt. Dit zorgt ervoor dat de prestaties van uw API niet als gevolg van de infrastructuur voor logboekregistratie afnemen.  
+De Azure Event Hubs is ontworpen voor inkomend verkeer zeer grote hoeveelheden gegevens, met een capaciteit voor het omgaan met een veel groter aantal gebeurtenissen dan het aantal HTTP-verwerken voor de meeste API's aanvragen. De Event Hub fungeert als een soort geavanceerde buffer tussen uw API management-service en de infrastructuur die worden opgeslagen en berichten worden verwerkt. Dit zorgt ervoor dat de prestaties van uw API niet vanwege de infrastructuur voor logboekregistratie afnemen.  
 
-Nadat de gegevens naar een Event Hub is verstreken, worden bewaard en wordt gewacht op Event Hub consumenten verwerken. De Event Hub niets uit hoe deze wordt verwerkt, het is net belangrijk ervoor te zorgen dat het bericht met succes worden geleverd.     
+Zodra de gegevens naar een Event Hub is verstreken, worden persistent gemaakt en wordt gewacht op Event Hub-consumenten te verwerken. De Event Hub maakt niet uit hoe deze wordt verwerkt, het zojuist hecht te zorgen dat het bericht met succes worden geleverd.     
 
-Event Hubs biedt de mogelijkheid stroom gebeurtenissen aan meerdere consumergroepen. Hiermee worden gebeurtenissen worden verwerkt door verschillende systemen. Hierdoor kunnen veel integratiescenario's ondersteunen zonder te plaatsen vertragingen bij het toevoegen van de verwerking van de API-aanvraag in de API Management-service als slechts één gebeurtenis moet worden gegenereerd.
+Eventhubs heeft de mogelijkheid om gebeurtenissen streamen naar meerdere consumentengroepen. Hierdoor kunnen worden verwerkt door verschillende systemen. Hierdoor kan de ondersteuning van veel scenario's voor gegevensintegratie zonder toevoeging vertragingen in de verwerking van de API-aanvraag in de API Management-service plaatsen als er slechts één gebeurtenis moet worden gegenereerd.
 
-## <a name="a-policy-to-send-applicationhttp-messages"></a>Een beleid voor het verzenden van de toepassing/HTTP-berichten
-Een Event Hub accepteert gebeurtenisgegevens worden opgeslagen als een eenvoudige tekenreeks. De inhoud van de reeks zijn bepaalt zelf. Als u een HTTP-aanvraag verpakken en dit uit te verzenden naar Event Hubs, moeten we de tekenreeks met de informatie van de aanvraag of antwoord voor opmaak. In dit soort situaties, als er een bestaande opmaak kan opnieuw worden gebruikt en we kunnen geen ons eigen bij het parseren van code schrijven. In eerste instantie als ik beschouwd met behulp van de [HAR](http://www.softwareishard.com/blog/har-12-spec/) voor het verzenden van HTTP-aanvragen en antwoorden. Deze indeling wordt echter wel geoptimaliseerd voor het opslaan van een reeks van HTTP-aanvragen in een JSON-indeling. Het bevat een aantal verplichte elementen die onnodige complexiteit voor het scenario van het HTTP-bericht wordt doorgegeven via de kabel toegevoegd.  
+## <a name="a-policy-to-send-applicationhttp-messages"></a>Een beleid voor het verzenden van de toepassing/http-berichten
+Een Event Hub accepteert gebeurtenisgegevens als een eenvoudige tekenreeks. De inhoud van die tekenreeks wordt aan u. Als u een HTTP-aanvraag verpakken en dit uit te verzenden naar Event Hubs, moeten we de tekenreeks met de aanvraag of antwoord informatie. In situaties als volgt, als er een bestaande indeling kan opnieuw worden gebruikt en we kunnen geen onze eigen parseren code schrijven. In eerste instantie als ik beschouwd met behulp van de [HAR](http://www.softwareishard.com/blog/har-12-spec/) voor het verzenden van HTTP-aanvragen en antwoorden. Deze indeling is echter wel geoptimaliseerd voor het opslaan van een reeks HTTP-aanvragen in een JSON-indeling. Het bevat een aantal verplichte elementen die onnodige complexiteit voor het scenario van het HTTP-bericht doorgegeven via de kabel toegevoegd.  
 
-Een alternatief is om te gebruiken de `application/http` mediatype zoals beschreven in de HTTP-specificatie [RFC 7230](http://tools.ietf.org/html/rfc7230). Dit mediumtype exact dezelfde indeling die wordt gebruikt voor het daadwerkelijk HTTP-berichten verzenden via de kabel gebruikt, maar het volledige bericht kan worden geplaatst in de hoofdtekst van een andere HTTP-aanvraag. In ons geval gaan we net gebruiken de hoofdtekst als ons bericht te verzenden naar Event Hubs. Gemakkelijk, is er een parser dat voorkomt in [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotheken die u kunnen deze indeling parseren en te converteren naar het native `HttpRequestMessage` en `HttpResponseMessage` objecten.
+Een alternatief is om te gebruiken de `application/http` mediatype zoals beschreven in de HTTP-specificatie [RFC 7230](http://tools.ietf.org/html/rfc7230). Dit mediatype exact dezelfde indeling die wordt gebruikt voor het verzenden van daadwerkelijk HTTP-berichten via de kabel gebruikt, maar het hele bericht te plaatsen in de hoofdtekst van een andere HTTP-aanvraag. In ons geval gaan alleen we de hoofdtekst als onze bericht gebruiken om te verzenden naar Event Hubs. Eenvoudig, is er een parser die deel uitmaakt van [2.2-Client voor Microsoft ASP.NET Web API](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotheken die u kunnen deze indeling parseren en te converteren naar de native `HttpRequestMessage` en `HttpResponseMessage` objecten.
 
-Als u dit bericht maken, moeten we om te profiteren van C# [beleidsexpressies](https://msdn.microsoft.com/library/azure/dn910913.aspx) in Azure API Management. Hier wordt het beleid, dat een aanvraag HTTP-bericht naar Azure Event Hubs verzendt.
+Als u dit bericht maken, moeten we om te profiteren van C# [beleidsexpressies](https://msdn.microsoft.com/library/azure/dn910913.aspx) in Azure API Management. Hier is het beleid, die vervolgens een HTTP-aanvraagbericht naar Azure Event Hubs doorsturen.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -75,28 +75,28 @@ Als u dit bericht maken, moeten we om te profiteren van C# [beleidsexpressies](h
 </log-to-eventhub>
 ```
 
-### <a name="policy-declaration"></a>De declaratie van het beleid
-Er enkele bepaalde zaken opgemerkt over dit beleidsexpressie. Het logboek voor eventhub-beleid heeft een kenmerk met de naam van logboek-id, die verwijst naar de naam van het logboek dat is gemaakt in de API Management-service. De details van het instellen van een Event Hub-logboek in de API Management-service vindt u in het document [vastleggen van gebeurtenissen voor Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md). Het tweede kenmerk is een optionele parameter zodat Event Hubs die partitie voor het opslaan van het bericht in. Event Hubs maakt gebruikt van partities voor schaalbaarheid en ten minste twee nodig hebben. De levering van berichten is alleen binnen een partitie gegarandeerd. Als we niet het Event Hub in welke partitie opdragen doen te plaatsen van het bericht een round robin-algoritme wordt gebruikt voor het distribueren van de belasting. Echter, die mogelijk enkele van onze berichten volgorde worden verwerkt.  
+### <a name="policy-declaration"></a>De declaratie van beleid
+Er een aantal bepaalde dingen opgemerkt over dit beleidsexpressie. Het logboek naar Event hub-beleid heeft een kenmerk met de naam van de logger-id, die verwijst naar de naam van de logger die is gemaakt in de API Management-service. De details van het instellen van een Event Hub-logboek in de API Management-service kunnen u vinden in het document [hoe u gebeurtenissen registreren bij Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md). Het tweede kenmerk is een optionele parameter waarmee u Event Hubs dat partitie voor het opslaan van het bericht in. Eventhubs maakt gebruik van partities schaalbaarheid inschakelen en moet ten minste twee. De geordende bezorging van berichten kan alleen worden gegarandeerd binnen een partitie. Als we de opdracht Event Hub in welke partitie te plaatsen van het bericht een round robin-algoritme wordt gebruikt voor het distribueren van de belasting niet geven. Echter, die mogelijk enkele van onze berichten niet de juiste volgorde worden verwerkt.  
 
 ### <a name="partitions"></a>Partities
-Ik heb gekozen onze berichten naar gebruikers in volgorde worden geleverd en te profiteren van de load-distributie-functionaliteit van partities te garanderen, HTTP-aanvraagberichten verzenden naar één partitie en HTTP-antwoordberichten naar een tweede partitie. Dit zorgt ervoor dat een gelijkmatige verdeling en we kunnen garanderen dat alle aanvragen worden gebruikt in volgorde en alle antwoorden in volgorde worden verbruikt. Is het mogelijk een reactie op voordat de bijbehorende aanvraag worden verbruikt, maar omdat die niet is een probleem zoals we hebben een ander mechanisme voor het correleren van aanvragen te antwoorden en we weten dat aanvragen altijd voordat antwoorden afkomstig zijn.
+Ik heb geselecteerd om te zorgen dat onze berichten voor consumenten in volgorde worden geleverd en te profiteren van de mogelijkheid van de distributie load van partities, HTTP-aanvraagberichten te verzenden naar één partitie en HTTP-antwoordberichten naar een tweede partitie. Dit zorgt ervoor dat de distributie van een evenredig worden belast en we kunnen garanderen dat alle aanvragen worden gebruikt in volgorde en alle antwoorden in volgorde worden verbruikt. Het is mogelijk een reactie op de bijbehorende aanvraag worden verbruikt, maar is dat geen probleem, zoals we hebben een ander mechanisme voor het correleren van aanvragen voor antwoorden en we weten dat aanvragen altijd eerder zijn dan de antwoorden.
 
 ### <a name="http-payloads"></a>HTTP-nettoladingen
-Na het gebouw de `requestLine`, we controleren om te zien als de hoofdtekst van de aanvraag moet worden afgekapt. De aanvraagtekst is afgekapt tot enige 1024. Dit kan worden verhoogd, maar afzonderlijke Event Hub berichten beperkt tot 256 KB zijn, dus is het waarschijnlijk dat bepaalde HTTP-bericht wordt niet in een enkel bericht passen instanties. Bij het uitvoeren van logboekregistratie en analyse kan een aanzienlijke hoeveelheid gegevens worden afgeleid van alleen de regel voor HTTP-aanvraag en -koppen. Ook veel API's alleen return kleine instanties aanvragen en dus het verlies van informatie waarde door af te kappen grote instanties vrij minimale in vergelijking met de beperking van overdracht, verwerking en kosten voor opslag te houden van alle inhoud. Een afsluitende opmerking over het verwerken van de hoofdtekst is dat we moet doorgeven `true` naar de As<string>()-methode omdat we bij het lezen van de inhoud van de instantie, maar is ook wilden van de back-end API om te kunnen worden gelezen van de hoofdtekst. Door door te geven waar deze methode we ervoor zorgen dat de hoofdtekst van de buffer worden opgeslagen zodat deze een tweede keer kan worden gelezen. Dit is belangrijk te weten als er een API die komt van grote bestanden uploaden of lange polling gebruikt. In deze gevallen zou worden aanbevolen om te voorkomen dat de hoofdtekst helemaal lezen.   
+Na het gebouw de `requestLine`, gecontroleerd om te zien als hoofdtekst van de aanvraag moet worden afgekapt. De aanvraagtekst is afgekapt tot enige 1024. Dit kan worden verhoogd, maar afzonderlijke Event Hub-berichten beperkt tot 256 KB zijn, dus is het waarschijnlijk dat bepaalde HTTP-bericht wordt niet in een enkel bericht passen instanties. Bij het uitvoeren van logboekregistratie en analyse kan een aanzienlijke hoeveelheid gegevens kan worden afgeleid van alleen de HTTP-aanvraagregel en -koppen. Ook allerlei API's alleen geretourneerde kleine instanties aanvragen en het verlies van gegevens waarde door af te breken grote organisaties is dus redelijk minimale in vergelijking met de vermindering van de overdracht, verwerking en kosten voor opslag te houden van alle inhoud. Een definitieve opmerking over het verwerken van de hoofdtekst is dat we nodig om door te geven `true` op de As<string>()-methode omdat we bij het lezen van de inhoud, maar is ook wilde de back-end-API om te kunnen lezen van de hoofdtekst. Door te geven waar deze methode we ervoor zorgen dat de instantie worden gebufferd zodat het een tweede keer kan worden gelezen. Dit is belangrijk rekening mee moet houden als u een API die geen grote bestanden worden geüpload of long polling gebruikt. In dergelijke gevallen zou het beste om te voorkomen dat de instantie op alle lezen zijn.   
 
 ### <a name="http-headers"></a>HTTP-headers
-HTTP-Headers kunnen worden overgedragen naar de berichtindeling in een eenvoudige sleutel/waarde-paar-indeling. We hebben ervoor gekozen het verwijderen van bepaalde beveiliging gevoelige velden, om te voorkomen dat onnodig lekken referentie-informatie. Het lijkt onwaarschijnlijk dat API-sleutels en andere referenties zou worden gebruikt voor andere doeleinden analytics. Als we willen analyse van de gebruiker en het product ze gebruiken, moet we die van ophalen kan de `context` object en voeg die toe aan het bericht.     
+HTTP-Headers kunnen worden overgedragen naar de berichtindeling in een paar eenvoudige sleutel/waarde-indeling. Het verwijderen van bepaalde gevoelige velden van beveiliging, om te voorkomen dat onnodig lekken referentie-informatie hebben we gekozen. Is het onwaarschijnlijk dat API-sleutels en andere referenties zouden worden gebruikt voor analyse. Als we willen analyse uitvoeren op de gebruiker en het product ze gebruiken, dan we vanuit krijgen kan de `context` object en voeg dat toe aan het bericht.     
 
 ### <a name="message-metadata"></a>De metagegevens van het bericht
-Wanneer u het volledige bericht te verzenden naar de event hub, de eerste regel is niet daadwerkelijk deel uit van de `application/http` bericht. De eerste regel zijn aanvullende metagegevens die bestaan uit of het bericht is een aanvraag of antwoordbericht en een bericht-ID, die wordt gebruikt om te relateren aan reacties aanvragen. De bericht-ID is gemaakt met behulp van een ander beleid dat op dit lijkt:
+Bij het bouwen van de volledige dat moet worden verzonden naar de event hub, de eerste regel is niet daadwerkelijk deel uitmaakt van de `application/http` bericht. De eerste regel is aanvullende metagegevens die bestaan uit of het bericht is een aanvraag of antwoordbericht en een bericht-ID, die wordt gebruikt voor het correleren van naar antwoorden aanvragen. De bericht-ID wordt gemaakt met behulp van een ander beleid er als volgt uitzien:
 
 ```xml
 <set-variable name="message-id" value="@(Guid.NewGuid())" />
 ```
 
-Er kan het aanvraagbericht gemaakt, die in een variabele opgeslagen totdat het antwoord is geretourneerd en verzend de aanvraag en -antwoord als één bericht. Echter, krijgen we verzenden onafhankelijk van de aanvraag en -antwoord en een bericht-id correlaties zichtbaar maken tussen de twee, iets meer flexibiliteit in de berichtgrootte, de mogelijkheid om te profiteren van meerdere partities terwijl het onderhouden van de volgorde van berichten en het verzoek wordt weergegeven in onze logboekregistratie dashboard sneller. Ook kan er een aantal scenario's waarbij een geldig antwoord nooit wordt verzonden naar de event hub, mogelijk vanwege een onherstelbare aanvraag-fout in de API Management-service, maar we kunnen je nog een record van de aanvraag.
+We kunnen hebben gemaakt van het aanvraagbericht, die in een variabele opgeslagen totdat de reactie is geretourneerd en verzend de aanvraag en respons als één bericht. Echter, krijgen we door het verzenden van de aanvraag en respons onafhankelijk van elkaar en met behulp van een bericht-id correlaties zichtbaar maken tussen de twee, iets meer flexibiliteit in de grootte van het bericht, de mogelijkheid om te profiteren van meerdere partities tijdens onderhoud van de volgorde van berichten en de aanvraag wordt weergegeven in onze logboekregistratie dashboard eerder. Ook mogelijk zijn er enkele scenario's waarin een geldige reactie wordt nooit verzonden naar de event hub, mogelijk vanwege een fatale fout in de API Management-service, maar hebben we nog een record van de aanvraag.
 
-Het beleid voor het verzenden van het HTTP-antwoordbericht lijkt op de aanvraag en dus de volledige beleidsconfiguratie uitziet:
+Het beleid voor het verzenden van het HTTP-antwoordbericht lijkt op de aanvraag en dus de configuratie van een volledige er als volgt uitzien:
 
 ```xml
 <policies>
@@ -159,13 +159,13 @@ Het beleid voor het verzenden van het HTTP-antwoordbericht lijkt op de aanvraag 
 De `set-variable` beleid maakt een waarde die toegankelijk is voor zowel de `log-to-eventhub` beleid in de `<inbound>` sectie en de `<outbound>` sectie.  
 
 ## <a name="receiving-events-from-event-hubs"></a>Ontvangen van gebeurtenissen van Event Hubs
-Gebeurtenissen van Azure Event Hub worden ontvangen met behulp van de [AMQP-protocol](http://www.amqp.org/). Het Microsoft Service Bus-team aangebracht client bibliotheken beschikbaar om de verbruikende gebeurtenissen te vereenvoudigen. Er zijn twee verschillende benaderingen ondersteund, een wordt een *directe Consumer* en de andere maakt gebruik van de `EventProcessorHost` klasse. Voorbeelden van deze twee methoden kunnen u vinden in de [Event Hubs-programmeergids](../event-hubs/event-hubs-programming-guide.md). Er is de beknopte versie van de verschillen, `Direct Consumer` hebt u volledige controle en de `EventProcessorHost` biedt u enkele van de Loodgieterswerk voor u maar kunt u bepaalde veronderstellingen over hoe u deze gebeurtenissen verwerken.  
+Gebeurtenissen van Azure Event Hub worden ontvangen met behulp van de [AMQP-protocol](http://www.amqp.org/). De Service Bus van Microsoft-team aangebracht client bibliotheken die beschikbaar zijn voor het vereenvoudigen van de gebeurtenissen in beslag nemen. Er zijn twee verschillende manieren worden ondersteund, een wordt een *directe Consumer* en de andere is met behulp van de `EventProcessorHost` klasse. Voorbeelden van deze twee methoden kunnen u vinden in de [Event Hubs-programmeergids](../event-hubs/event-hubs-programming-guide.md). De verkorte versie van de verschillen is, `Direct Consumer` hebt u volledige controle en de `EventProcessorHost` biedt enkele van de Loodgieterswerk voor u, maar kunt u bepaalde veronderstellingen over hoe u deze gebeurtenissen worden verwerkt.  
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-In dit voorbeeld gebruiken we de `EventProcessorHost` voor eenvoud, maar het kan niet de beste keuze voor dit scenario. `EventProcessorHost`de vaste werkt waarbij wordt gecontroleerd of er problemen binnen een bepaalde gebeurtenis Processorklasse threading bang geen. In ons scenario zijn we echter gewoon het bericht converteren naar een andere indeling en deze samen met een andere service door middel van een async-methode wordt doorgegeven. Er is niet nodig voor het bijwerken van de gedeelde status en daarom geen risico bestaat dat threading problemen. Voor de meeste scenario `EventProcessorHost` is waarschijnlijk de beste keuze en het is gewoon de gemakkelijker optie.     
+In dit voorbeeld gebruiken we de `EventProcessorHost` voor het gemak, maar wordt deze wellicht niet de beste keuze voor dit specifieke scenario. `EventProcessorHost` komt het harde werk van het te zorgen dat u hoeft te bekommeren threading problemen binnen een bepaalde gebeurtenis processor-klasse. In ons scenario, zijn we echter gewoon converteren van het bericht naar een andere indeling en deze samen met een andere service met behulp van een asynchrone methode door te geven. Er is niet nodig voor het bijwerken van gedeelde status en daarom geen risico threading problemen. Voor de meeste scenario's, `EventProcessorHost` is waarschijnlijk de beste keuze en het is zeker de gemakkelijker optie.     
 
 ### <a name="ieventprocessor"></a>IEventProcessor
-Het centrale concept bij gebruik van `EventProcessorHost` is het maken van een implementatie van de `IEventProcessor` interface, waardoor de methode bevat `ProcessEventAsync`. De essentie van deze methode wordt hier weergegeven:
+Het centrale concept bij het gebruik van `EventProcessorHost` is het maken van een implementatie van de `IEventProcessor` interface, welke de methode bevat `ProcessEventAsync`. De essentie van deze methode wordt hier weergegeven:
 
 ```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
@@ -189,7 +189,7 @@ async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumera
 }
 ```
 
-Een lijst met EventData objecten worden doorgegeven aan de methode en we doorlopen die lijst. Het aantal bytes van elke methode worden geparseerd naar een object HttpMessage en dat object wordt doorgegeven aan een exemplaar van IHttpMessageProcessor.
+Een lijst met objecten EventData worden doorgegeven aan de methode en we herhalen die lijst. Het aantal bytes van elke methode worden geparseerd in een object HttpMessage en dat object wordt doorgegeven aan een exemplaar van IHttpMessageProcessor.
 
 ### <a name="httpmessage"></a>HttpMessage
 De `HttpMessage` -exemplaar bevat drie soorten gegevens:
@@ -207,15 +207,15 @@ public class HttpMessage
 }
 ```
 
-De `HttpMessage` -exemplaar bevat een `MessageId` GUID die kan worden uitgevoerd op de verbinding met de HTTP-aanvragen in het bijbehorende HTTP-antwoord en een Boolean die aangeeft of het object een exemplaar van een HttpRequestMessage en HttpResponseMessage bevat. Met behulp van de ingebouwde HTTP-klassen vanuit `System.Net.Http`, kon ik om te profiteren van de `application/http` bij het parseren van code die is opgenomen in `System.Net.Http.Formatting`.  
+De `HttpMessage` -exemplaar bevat een `MessageId` GUID waarmee we verbinding maken van de HTTP-aanvraag met de bijbehorende HTTP-antwoord en een Booleaanse waarde die aangeeft of het object een exemplaar van een het HttpRequestMessage en HttpResponseMessage bevat. Met behulp van de ingebouwde HTTP-klassen vanuit `System.Net.Http`, was ik kunnen profiteren van de `application/http` parseren van code die is opgenomen in `System.Net.Http.Formatting`.  
 
 ### <a name="ihttpmessageprocessor"></a>IHttpMessageProcessor
-De `HttpMessage` exemplaar wordt vervolgens doorgestuurd naar de implementatie van `IHttpMessageProcessor`, dit is een interface die ik gemaakt voor het loskoppelen van de ontvangst en de interpretatie van de gebeurtenis van Azure Event Hub en de daadwerkelijke verwerking ervan.
+De `HttpMessage` exemplaar wordt vervolgens doorgestuurd naar de implementatie van `IHttpMessageProcessor`, die een interface die ik heb gemaakt als u wilt loskoppelen van de ontvangen en de interpretatie van de gebeurtenis van Azure Event Hub en de daadwerkelijke verwerking van is.
 
-## <a name="forwarding-the-http-message"></a>Het HTTP-bericht doorsturen
-Voor dit voorbeeld ik besloten deze zou van belang zijn voor de HTTP-aanvraag via push naar [Runscope](http://www.runscope.com). Runscope is een cloud-gebaseerde service die is gespecialiseerd in HTTP-foutopsporing, logboekregistratie en controle. Ze hebben een gratis laag, zodat het gemakkelijk om te proberen en kunt u ons om te zien van de HTTP-aanvragen in realtime tot onze API Management-service.
+## <a name="forwarding-the-http-message"></a>Doorsturen van de HTTP-bericht
+Voor dit voorbeeld, besloot het normaal zou zijn om de HTTP-aanvraag via het uiterste te interessante [Runscope](http://www.runscope.com). Runscope is een cloud-gebaseerde service die is gespecialiseerd in HTTP-foutopsporing, logboekregistratie en bewaking. Ze hebben een gratis laag, dus het is gemakkelijk om te proberen en deze maakt het mogelijk om te zien van de HTTP-aanvragen in realtime worden gebruikt met onze API Management-service.
 
-De `IHttpMessageProcessor` implementatie uitziet,
+De `IHttpMessageProcessor` implementatie er als volgt uitzien,
 
 ```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
@@ -260,19 +260,19 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-Ik heb om te profiteren van een [bestaande-clientbibliotheek voor Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) waarmee u gemakkelijk te pushen `HttpRequestMessage` en `HttpResponseMessage` up bij hun service-exemplaren. Als u de API Runscope opent, moet u een account en een API-sleutel. Instructies voor het ophalen van een API-sleutel kunnen worden gevonden in de [toepassingen maken voor toegang tot Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
+Ik kan profiteren van een [bestaande-clientbibliotheek voor Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) die kunt u eenvoudig pushmeldingen `HttpRequestMessage` en `HttpResponseMessage` omhoog in de service-exemplaren. Als u de API Runscope opent, moet u een account en een API-sleutel. Instructies voor het ophalen van een API-sleutel kunnen worden gevonden de [toepassingen maken voor toegang tot Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
 
-## <a name="complete-sample"></a>Compleet codevoorbeeld
+## <a name="complete-sample"></a>Compleet voorbeeld
 De [broncode](https://github.com/darrelmiller/ApimEventProcessor) en tests voor het voorbeeld op GitHub. U moet een [API Management-Service](get-started-create-service-instance.md), [een verbonden Event Hub](api-management-howto-log-event-hubs.md), en een [Opslagaccount](../storage/common/storage-create-storage-account.md) om uit te voeren van het voorbeeld voor uzelf.   
 
-Het voorbeeld is alleen een eenvoudige consoletoepassing die luistert naar gebeurtenissen die afkomstig zijn van de Event Hub, converteert u deze in een `HttpRequestMessage` en `HttpResponseMessage` objecten en stuurt deze door u aan bij de Runscope-API.
+Het voorbeeld is slechts een eenvoudige consoletoepassing die luistert naar gebeurtenissen die afkomstig zijn van de Event Hub, converteert deze naar een `HttpRequestMessage` en `HttpResponseMessage` objecten en stuurt ze door u aan bij de API Runscope.
 
-In de volgende animatie afbeelding ziet u een aanvraag wordt aan een API in de Portal voor ontwikkelaars, de consoletoepassing waarin het bericht wordt ontvangen, verwerkt en doorgestuurd en vervolgens de aanvraag en antwoord weergegeven in de inspector Runscope verkeer.
+In de volgende bewegende afbeelding ziet u een aanvraag aan een API in de Portal voor ontwikkelaars, de Console-toepassing met het bericht wordt ontvangen, verwerkt en doorgestuurd en vervolgens de aanvraag en antwoord weergegeven in de Runscope Traffic inspector gaan.
 
-![Demonstratie van de aanvraag doorgestuurd naar Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
+![Demonstratie van de aanvraag doorgestuurd naar de Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
 ## <a name="summary"></a>Samenvatting
-Azure API Management-service biedt een ideaal plaats voor het vastleggen van de HTTP-verkeer op reis naar en van uw API's. Azure Event Hubs is een zeer schaalbaar, voordelige oplossing voor dat verkeer vastleggen en dit in de van de secundaire-verwerkingssystemen voor logboekregistratie, bewaking en andere geavanceerde analyses. Verbinding maken met de derde partij verkeer bewaken Runscope is net zo eenvoudig als het een paar dozijn regels code.
+Azure API Management-service biedt een ideale locatie voor het vastleggen van de HTTP-verkeer naar en van uw API's onderweg. Azure Event Hubs is een zeer schaalbare, goedkope oplossing voor het vastleggen van dat verkeer en deze in de van secundaire verwerkingssystemen voor logboekregistratie, bewaking en andere geavanceerde analyses uit. Verbinding maken met externe verkeer bewakingssystemen Runscope is net zo eenvoudig als enkele tientallen regels code.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over Azure Event Hubs
@@ -280,6 +280,6 @@ Azure API Management-service biedt een ideaal plaats voor het vastleggen van de 
   * [Berichten ontvangen met EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Programmeerhandleiding voor Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * Meer informatie over de integratie van API Management en Event Hubs
-  * [Het registreren van gebeurtenissen voor Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
-  * [Entiteitsverwijzing berichtenlogboek](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-  * [documentatie voor logboek-eventhub-beleid](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [Hoe u gebeurtenissen registreren bij Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
+  * [Verwijzing naar de Logger-entiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
+  * [documentatie voor log Event hub beleid](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)

@@ -1,6 +1,6 @@
 ---
 title: Een VPN-Gateway-verbinding controleren | Microsoft Docs
-description: In dit artikel leest u hoe om te controleren of een virtueel netwerk-VPN-gatewayverbinding.
+description: In dit artikel wordt beschreven hoe u een virtueel netwerk VPN-gatewayverbinding controleren.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
 ms.openlocfilehash: 037c1c7dd73f668bd8ad95568743b223b1e11c79
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750194"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38705994"
 ---
-# <a name="verify-a-vpn-gateway-connection"></a>Een VPN-Gateway-verbinding controleren
+# <a name="verify-a-vpn-gateway-connection"></a>Een VPN-gatewayverbinding verifiëren
 
-In dit artikel leest u hoe om te controleren of een VPN-gatewayverbinding voor zowel het klassieke als Resource Manager-implementatiemodel.
+In dit artikel laat u zien hoe om te controleren of een VPN-gatewayverbinding voor zowel het klassieke en Resource Manager-implementatiemodel.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -32,24 +32,24 @@ In dit artikel leest u hoe om te controleren of een VPN-gatewayverbinding voor z
 
 ## <a name="powershell"></a>PowerShell
 
-Om te controleren of een VPN-gatewayverbinding voor het Resource Manager-implementatiemodel met behulp van PowerShell, installeer de nieuwste versie van de [Azure Resource Manager PowerShell-cmdlets](/powershell/azure/overview).
+Als u wilt controleren of een VPN-gatewayverbinding voor het Resource Manager-implementatiemodel met behulp van PowerShell, installeer de nieuwste versie van de [Azure Resource Manager PowerShell-cmdlets](/powershell/azure/overview).
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 
-Om te controleren of een VPN-gatewayverbinding voor het Resource Manager-implementatiemodel met Azure CLI, installeer de nieuwste versie van de [CLI-opdrachten](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 of hoger).
+Als u wilt controleren of een VPN-gatewayverbinding voor het Resource Manager-implementatiemodel met behulp van Azure CLI, installeer de nieuwste versie van de [CLI-opdrachten](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 of hoger).
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 
-## <a name="azure-portal-classic"></a>Azure-portal (klassiek)
+## <a name="azure-portal-classic"></a>Azure portal (klassiek)
 
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 ## <a name="powershell-classic"></a>PowerShell (klassiek)
 
-Om te controleren of uw VPN-gateway-verbinding voor het klassieke implementatiemodel met behulp van PowerShell, installeer de nieuwste versies van de Azure PowerShell-cmdlets. Zorg ervoor dat download en installeer de [Service Management](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) module. Gebruik de Add-AzureAccount aan te melden het klassieke implementatiemodel.
+Als u wilt controleren of uw VPN-gatewayverbinding voor het klassieke implementatiemodel met behulp van PowerShell, installeer de nieuwste versies van de Azure PowerShell-cmdlets. Zorg ervoor dat u downloadt en installeert de [servicebeheer](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) module. Add-AzureAccount gebruiken voor aanmelding bij het klassieke implementatiemodel.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 

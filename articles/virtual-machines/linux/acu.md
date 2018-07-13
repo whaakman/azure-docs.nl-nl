@@ -1,6 +1,6 @@
 ---
-title: Overzicht van de Azure Compute eenheid | Microsoft Docs
-description: Overzicht van het concept van de Azure compute eenheden voor Linux. De ACU biedt een manier om CPU-prestaties via Azure SKU's vergelijken.
+title: Overzicht van de Azure Compute Unit | Microsoft Docs
+description: Overzicht van het concept van het Azure compute-eenheden voor Linux. De ACU biedt een manier om te vergelijken van CPU-prestaties in Azure-SKU's.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: jonbeck
 ms.openlocfilehash: 387133bf0087d6e3fc3dc725749661235d438d27
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30833520"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606424"
 ---
 # <a name="azure-compute-unit-acu"></a>Azure compute-eenheid (ACU)
 
@@ -28,7 +28,7 @@ ms.locfileid: "30833520"
 
 
 Hier vindt u koppelingen naar meer informatie over de verschillende grootten:
-- [Voor algemene doeleinden](sizes-general.md)
+- [Voor algemeen gebruik](sizes-general.md)
 - [Geoptimaliseerd geheugen](sizes-memory.md)
 - [Geoptimaliseerde rekenkracht](sizes-compute.md)
 - [Geoptimaliseerde GPU](sizes-gpu.md)

@@ -1,6 +1,6 @@
 ---
-title: De beschikbaarheid van Windows virtuele machines in Azure beheren | Microsoft Docs
-description: Informatie over het gebruik van meerdere virtuele machines om ervoor te zorgen hoge beschikbaarheid voor uw Windows-toepassing in Azure
+title: De beschikbaarheid van Windows-VM's in Azure beheren | Microsoft Docs
+description: Informatie over het gebruik van meerdere virtuele machines om te hoge beschikbaarheid voor uw Windows-toepassing in Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -17,20 +17,20 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7631205943efc827edd80d3a89ea68804d94153d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323182"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688127"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>De beschikbaarheid van Windows virtuele machines in Azure beheren 
 
-Meer informatie over methoden voor instellen en beheren van meerdere virtuele machines om ervoor te zorgen hoge beschikbaarheid voor uw Windows-toepassing in Azure. U kunt ook [beheren van de beschikbaarheid van virtuele Linux-machines](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Meer informatie over manieren voor het instellen en beheren van meerdere virtuele machines voor hoge beschikbaarheid voor uw Windows-toepassing in Azure. U kunt ook [de beschikbaarheid van virtuele Linux-machines beheren](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Zie voor instructies over het maken en gebruik beschikbaarheidssets in combinatie met het klassieke implementatiemodel [het configureren van een Beschikbaarheidsset](classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Zie voor instructies over het maken en gebruiken van beschikbaarheidssets bij het gebruik van het klassieke implementatiemodel, [het configureren van een Beschikbaarheidsset](classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over taakverdeling van uw virtuele machines, [Load Balancing virtuele machines](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Zie voor meer informatie over uw virtuele machines voor taakverdeling, [Load Balancing virtuele machines](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

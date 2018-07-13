@@ -1,5 +1,5 @@
 ---
-title: Beveilig en beleidsregels gebruiken in uw virtuele Linux-machines in Azure | Microsoft Docs
+title: Beveilig en apps gebruiken op uw virtuele Linux-machines in Azure | Microsoft Docs
 description: Meer informatie over beveiliging en het beleid voor Linux en virtuele machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 08/14/2017
 ms.author: davidmu
 ms.openlocfilehash: 820a5860487c1d9eb112c4821281ba14ffe9264e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912451"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38705762"
 ---
-# <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Beveiligen en gebruiken van beleidsregels op virtuele machines in Azure
+# <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Beveilig en apps gebruiken op virtuele machines in Azure
 
 [!INCLUDE [virtual-machines-security-policy](../../../includes/virtual-machines-security-policy.md)]
 

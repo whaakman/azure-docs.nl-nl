@@ -17,7 +17,7 @@ Voer de volgende stappen in Azure Portal uit om de resourceprovider te registrer
 Nadat de *Microsoft.insights* resourceprovider is geregistreerd, configureert u Diagnostics opnieuw.
 
 
-Als u het volgende foutbericht ontvangt in PowerShell moet u werk uw versie van PowerShell:
+Als u het volgende foutbericht ontvangt in PowerShell moet u bijwerken van uw versie van PowerShell:
 
 `Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 

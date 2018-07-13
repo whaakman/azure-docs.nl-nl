@@ -1,6 +1,6 @@
 ---
-title: Frambozen Pi voor externe controle met C - Azure inrichten | Microsoft Docs
-description: Hierin wordt beschreven hoe een frambozen Pi apparaat aansluit op de externe controle oplossingsverbetering met behulp van een toepassing die is geschreven in c
+title: Inrichten van Raspberry Pi tot externe controle met c# - Azure | Microsoft Docs
+description: Hierin wordt beschreven hoe u een Raspberry Pi-apparaat verbinden met de oplossingsversnellers bewaking op afstand met behulp van een toepassing die is geschreven in C.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,57 +9,57 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
 ms.openlocfilehash: 23e84a8d577bb1c4950de3acd76b0f8528551ae0
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735491"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611438"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Sluit uw apparaat frambozen Pi aan externe controle oplossingsverbetering (C)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Uw Raspberry Pi-apparaat verbinden met de Remote Monitoring solution accelerator (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de oplossingsverbetering externe controle. Net als bij meest embedded-toepassingen die worden uitgevoerd op een beperkte apparaten, is de clientcode voor de toepassing frambozen Pi-apparaat geschreven in c In deze zelfstudie bouwt u de toepassing op een Pi frambozen het Raspbian-besturingssysteem.
+Deze zelfstudie leert u hoe u een fysiek apparaat verbinden met de oplossingsverbetering voor externe controle. Net als bij de meeste embedded-toepassingen die worden uitgevoerd op apparaten met beperkte, is de clientcode voor de toepassing Raspberry Pi-apparaat geschreven in C. In deze zelfstudie bouwt u de toepassing op een Raspberry Pi met de Raspbian OS.
 
 ### <a name="required-hardware"></a>Vereiste hardware
 
-Een desktopcomputer zodat u kunt extern verbinding maken met de opdrachtregel op de frambozen Pi.
+Een desktopcomputer waarmee u kunt extern verbinding maken met de opdrachtregel op de Raspberry Pi.
 
-[Microsoft IoT Starter Kit voor frambozen Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) of gelijkwaardige onderdelen. Deze zelfstudie maakt gebruik van de volgende items van de kit:
+[Microsoft IoT Starter Kit voor Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) of equivalente onderdelen. In deze zelfstudie wordt de volgende items uit de kit:
 
 - Raspberry Pi 3
 - MicroSD-kaart (met NOOBS)
 - Een Mini USB-kabel
 - Een Ethernet-kabel
 
-### <a name="required-desktop-software"></a>Vereiste bureaublad software
+### <a name="required-desktop-software"></a>Vereiste bureaublad-software
 
-SSH-client moet u op de computer waarmee u kunt extern toegang tot de opdrachtregel op de frambozen Pi.
+SSH-client moet u op de computer waarmee u kunt voor externe toegang tot de opdrachtregel op de Raspberry Pi.
 
 - Windows bevat geen een SSH-client. Wordt u aangeraden [PuTTY](http://www.putty.org/).
-- De meeste Linux-distributies en Mac OS omvatten het SSH-opdrachtregelprogramma. Zie voor meer informatie [SSH met behulp van Linux- of Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- De meeste Linux-distributies en Mac OS omvatten het SSH-opdrachtregelprogramma. Zie voor meer informatie, [SSH met behulp van Linux- of Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
-### <a name="required-raspberry-pi-software"></a>Vereiste frambozen Pi software
+### <a name="required-raspberry-pi-software"></a>Vereiste software voor Raspberry Pi
 
-In dit artikel wordt ervan uitgegaan dat u hebt geïnstalleerd dat de nieuwste versie van de [Raspbian OS op uw Pi frambozen](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+In dit artikel wordt ervan uitgegaan dat u hebt geïnstalleerd dat de nieuwste versie van de [Raspbian besturingssysteem op uw Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
 
-De volgende stappen ziet u hoe u uw Pi frambozen voorbereidt voor het bouwen van een toepassing C die verbinding met de oplossingsverbetering maakt:
+De volgende stappen laten zien hoe u uw Raspberry Pi voorbereiden voor het bouwen van een toepassing C die verbinding met de oplossingsversnellers maakt:
 
-1. Verbinding maken met uw frambozen Pi met **ssh**. Zie voor meer informatie [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) op de [frambozen Pi website](https://www.raspberrypi.org/).
+1. Verbinding maken met uw Raspberry Pi met **ssh**. Zie voor meer informatie, [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) op de [Raspberry Pi website](https://www.raspberrypi.org/).
 
-1. Gebruik de volgende opdracht om bij te werken uw Pi frambozen:
+1. Gebruik de volgende opdracht uit om bij te werken uw Raspberry Pi:
 
     ```sh
     sudo apt-get update
     ```
 
-1. Gebruik de volgende opdracht de vereiste ontwikkelingsprogramma's en -bibliotheken toevoegen aan uw Pi frambozen:
+1. Gebruik de volgende opdracht de vereiste ontwikkelprogramma's en bibliotheken toevoegen aan uw Raspberry Pi:
 
     ```sh
     sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. Gebruik de volgende opdrachten om te downloaden, bouwen en de clientbibliotheken IoT-Hub installeren op uw Pi frambozen:
+1. Gebruik de volgende opdrachten om te downloaden en installeren van de IoT Hub-clientbibliotheken op uw Raspberry Pi bouwen:
 
     ```sh
     cd ~
@@ -73,9 +73,9 @@ De volgende stappen ziet u hoe u uw Pi frambozen voorbereidt voor het bouwen van
 
 ## <a name="create-a-project"></a>Een project maken
 
-De volgende stappen uit met behulp van de **ssh** verbinding met uw Pi frambozen:
+De volgende stappen met behulp van de **ssh** verbinding met uw Raspberry Pi:
 
-1. Maak een map `remote_monitoring` in uw basismap op de frambozen Pi. Navigeer naar deze map in uw shell:
+1. Maak een map genaamd `remote_monitoring` in de basismap van de Raspberry Pi. Navigeer naar deze map in uw shell:
 
     ```sh
     cd ~
@@ -85,7 +85,7 @@ De volgende stappen uit met behulp van de **ssh** verbinding met uw Pi frambozen
 
 1. Maken van de vier bestanden **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, en **CMakeLists.txt** in de `remote_monitoring` de map.
 
-1. Open in een teksteditor, de **remote_monitoring.c** bestand. Op de Pi frambozen, kunt u ofwel de **nano** of **vi** teksteditor. Voeg de volgende `#include` instructies toe:
+1. Open in een teksteditor en de **remote_monitoring.c** bestand. Aan de Raspberry Pi, kunt u ofwel de **nano** of **vi** teksteditor. Voeg de volgende `#include` instructies toe:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -100,19 +100,19 @@ De volgende stappen uit met behulp van de **ssh** verbinding met uw Pi frambozen
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-Sla de **remote_monitoring.c** bestands- en sluit de editor af.
+Sla de **remote_monitoring.c** -bestand en de editor te sluiten.
 
 ## <a name="add-code-to-run-the-app"></a>Code voor het uitvoeren van de app toevoegen
 
-Open in een teksteditor, de **remote_monitoring.h** bestand. Voeg de volgende code toe:
+Open in een teksteditor en de **remote_monitoring.h** bestand. Voeg de volgende code toe:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-Sla de **remote_monitoring.h** bestands- en sluit de editor af.
+Sla de **remote_monitoring.h** -bestand en de editor te sluiten.
 
-Open in een teksteditor, de **main.c** bestand. Voeg de volgende code toe:
+Open in een teksteditor en de **main.c** bestand. Voeg de volgende code toe:
 
 ```c
 #include "remote_monitoring.h"
@@ -125,15 +125,15 @@ int main(void)
 }
 ```
 
-Sla de **main.c** bestands- en sluit de editor af.
+Sla de **main.c** -bestand en de editor te sluiten.
 
 ## <a name="build-and-run-the-application"></a>De toepassing bouwen en uitvoeren.
 
-De volgende stappen wordt beschreven hoe u *CMake* voor het bouwen van uw client-toepassing.
+De volgende stappen wordt beschreven hoe u *CMake* om uw clienttoepassing te bouwen.
 
-1. Open in een teksteditor, de **CMakeLists.txt** bestand de `remote_monitoring` map.
+1. Open in een teksteditor en de **CMakeLists.txt** -bestand in de `remote_monitoring` map.
 
-1. De volgende instructies voor het definiëren van het bouwen van uw client-toepassing toevoegen:
+1. Voeg de volgende instructies voor het definiëren van het bouwen van uw clienttoepassing:
 
     ```cmake
     macro(compileAsC99)
@@ -181,9 +181,9 @@ De volgende stappen wordt beschreven hoe u *CMake* voor het bouwen van uw client
     )
     ```
 
-1. Sla de **CMakeLists.txt** bestands- en sluit de editor af.
+1. Sla de **CMakeLists.txt** -bestand en de editor te sluiten.
 
-1. In de `remote_monitoring` map, maak een map voor het opslaan van de *zorg* bestanden die CMake genereert. Voer vervolgens de **cmake** en **zorg** opdrachten als volgt:
+1. In de `remote_monitoring` map, maakt u een map voor het opslaan van de *maken* bestanden die CMake genereert. Voer vervolgens de **cmake** en **maken** opdrachten als volgt:
 
     ```sh
     mkdir cmake

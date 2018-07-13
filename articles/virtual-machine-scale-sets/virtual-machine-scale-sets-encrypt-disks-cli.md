@@ -1,9 +1,9 @@
 ---
-title: Versleutelen van schijven voor Azure schaal wordt ingesteld met de Azure CLI | Microsoft Docs
-description: Informatie over het gebruik van de Azure CLI 2.0 voor het versleutelen van VM-exemplaren en de gekoppelde schijven in een Linux virtuele-machineschaalset
+title: Schijven voor schaalsets met Azure CLI Azure versleutelen | Microsoft Docs
+description: Informatie over het gebruik van de Azure CLI 2.0 voor het versleutelen van VM-instanties en de gekoppelde schijven in een Linux VM-schaalset
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: iainfou
-ms.openlocfilehash: 22d3c763317def137b4e0beb155f28585d7c6ae1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: cynthn
+ms.openlocfilehash: a01a0ae09b91b550af4617a46f7c0d8647a5f4be
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776411"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704552"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>Versleutelen OS en bijgesloten gegevensschijven in een virtuele-machineschaalset ingesteld met de Azure CLI 2.0 (Preview)
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>Versleutelen van OS- en gekoppelde gegevensschijven in een virtuele-machineschaalset met de Azure CLI 2.0 (Preview)
 
-Als u wilt beveiligen en bescherming van gegevens in rust met toonaangevende standaard versleuteling technologie, ondersteuning voor virtuele-machineschaalsets Azure schijf versleuteling (ADE). Versleuteling kan worden ingeschakeld voor Linux en Windows virtuele machine sets schalen. Zie voor meer informatie [Azure Disk Encryption voor Linux en Windows](../security/azure-security-disk-encryption.md).
+Als u wilt beschermen en beveiligen van data-at-rest met behulp van de bedrijfstak versleutelingstechnologie, ondersteuning virtuele-machineschaalsets voor Azure Disk Encryption (ADE). Versleuteling kan worden ingeschakeld voor Linux en Windows virtuele machine schaalsets. Zie voor meer informatie, [Azure Disk Encryption voor Linux en Windows](../security/azure-security-disk-encryption.md).
 
 > [!NOTE]
->  Versleuteling van de Azure-schijf voor virtuele-machineschaalsets is momenteel in de openbare preview beschikbaar in alle openbare Azure-regio.
+>  Azure disk encryption voor virtuele-machineschaalsets is momenteel in openbare preview beschikbaar in alle Azure openbare regio's.
 
-De schijf van Azure-versleuteling wordt ondersteund:
-- voor schaal sets met beheerde schijven gemaakt en niet ondersteund voor systeemeigen (of niet-beheerde) schijf-schaalsets.
-- voor OS- en gegevensvolumes in Windows-schaalsets. Schakel versleuteling wordt ondersteund voor OS- en gegevensvolumes voor Windows-schaalsets.
-- voor de gegevensvolumes in Linux-schaalsets. OS-schijfversleuteling wordt niet ondersteund in het huidige voorbeeld voor Linux-schaalsets.
+Azure disk encryption wordt ondersteund:
+- voor scale sets met beheerde schijven gemaakt en niet ondersteund voor systeemeigen (of niet-beheerde) schijf schaalsets.
+- voor het besturingssysteem en volumes in Windows-schaalsets. Schakel versleuteling wordt ondersteund voor besturingssysteem en volumes voor Windows-schaalsets.
+- voor de gegevensvolumes in Linux-schaalsets. OS-schijfversleuteling wordt niet ondersteund in de huidige Preview-versie voor Linux-schaalsets.
 
-Scale set VM terugzetten van de installatiekopie en upgrade-bewerkingen worden niet ondersteund in de huidige preview. De Azure disk encryption voor virtuele machine scale sets preview wordt aanbevolen in een testomgeving. In de preview schijfversleuteling in productieomgevingen waar mogelijk moet u een installatiekopie van het besturingssysteem in een versleutelde schaalset upgrade niet is ingeschakeld.
+Scale set VM terugzetten van een installatiekopie en upgrade-bewerkingen worden niet ondersteund in de huidige Preview-versie. De Azure disk encryption voor virtuele machine scale sets preview wordt aanbevolen alleen in een testomgeving. In de Preview-versie, schijfversleuteling in een productieomgeving waarin u wilt mogelijk bijwerken van een installatiekopie van het besturingssysteem in een versleutelde schaalset niet te schakelen.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.31 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, deze zelfstudie vereist dat u de Azure CLI versie 2.0.31 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
-## <a name="register-for-disk-encryption-preview"></a>Registreren voor schijf versleuteling preview
+## <a name="register-for-disk-encryption-preview"></a>Registreren voor de preview van schijf-versleuteling
 
-De Azure disk encryption voor virtuele-machineschaalsets preview, moet u uw abonnement met de zelfregistratie [az functie registreren](/cli/azure/feature#az_feature_register). U hoeft alleen de eerste keer dat u de schijf versleuteling preview-functie van de volgende stappen uitvoeren:
+De Azure disk encryption voor virtuele-machineschaalsets Preview-versie, moet u uw abonnement met zelf registreren [az functie registreren](/cli/azure/feature#az_feature_register). U hoeft alleen de eerste keer dat u de preview-functie van de schijf-codering van de volgende stappen uitvoeren:
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Het kan maximaal 10 minuten duren voordat de aanvraag voor functieregistratie worden doorgegeven. U kunt controleren op de status van de registratie met [az functie weergeven](/cli/azure/feature#az_feature_show). Wanneer de `State` rapporten *geregistreerde*, opnieuw te registreren de *Mirosoft.Compute* provider met [az provider registreren](/cli/azure/provider#az_provider_register):
+Het kan tot tien minuten voor de registratieaanvraag worden doorgegeven duren. U kunt controleren op de status van de apparaatregistratie met [az functie show](/cli/azure/feature#az_feature_show). Wanneer de `State` rapporten *geregistreerde*, Registreer opnieuw de *Mirosoft.Compute* provider met [az provider register](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -62,7 +62,7 @@ Voordat u een schaalset kunt maken, moet u eerst een resourcegroep maken met [az
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak nu een virtuele-machineschaalset met [az vmss create](/cli/azure/vmss#az_vmss_create). In het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* gemaakt die automatisch wordt bijgewerkt als er wijzigingen zijn. Daarnaast worden er SSH-sleutels gegenereerd als deze niet bestaan in *~/.ssh/id_rsa*. Een gegevensschijf 32Gb is gekoppeld aan elke VM-instantie en de Azure [aangepaste Scriptextensie](../virtual-machines/linux/extensions-customscript.md) wordt gebruikt voor het voorbereiden van de gegevensschijven met [az vmss extensie set](/cli/azure/vmss/extension#az_vmss_extension_set):
+Maak nu een virtuele-machineschaalset met [az vmss create](/cli/azure/vmss#az_vmss_create). In het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* gemaakt die automatisch wordt bijgewerkt als er wijzigingen zijn. Daarnaast worden er SSH-sleutels gegenereerd als deze niet bestaan in *~/.ssh/id_rsa*. Een gegevensschijf van 32Gb is gekoppeld aan elk VM-exemplaar en de Azure [Custom Script Extension](../virtual-machines/linux/extensions-customscript.md) wordt gebruikt voor het voorbereiden van de gegevensschijven met [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk
@@ -87,11 +87,11 @@ az vmss extension set \
 
 Het duurt enkele minuten om alle schaalsetresources en VM's te maken en te configureren.
 
-## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Maken van een Azure sleutelkluis is ingeschakeld voor schijfversleuteling
+## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Maken van een Azure-sleutelkluis ingeschakeld voor schijfversleuteling
 
-Azure Sleutelkluis kunt opslaan sleutels, geheimen of wachtwoorden waarmee u kunt ze veilig implementeert in uw toepassingen en services. Cryptografische sleutels worden opgeslagen in Azure Key Vault met software-beveiliging, of u kunt importeren of genereren van uw sleutels in Hardware Security Modules (HSM's) die is gecertificeerd voor FIPS 140-2 level 2-standaarden. Deze cryptografische sleutels worden gebruikt voor het versleutelen en ontsleutelen van virtuele schijven gekoppeld aan uw virtuele machine. U beheer behouden over deze cryptografische sleutels en het gebruik ervan kunt controleren.
+Azure Key Vault kunt opslaan, sleutels, geheimen of wachtwoorden waarmee u kunt ze veilig in uw toepassingen en services te implementeren. Cryptografische sleutels worden opgeslagen in Azure Key Vault met behulp van software-beveiliging, of u kunt importeren of genereer uw sleutels in Hardware Security Modules (HSM's) gecertificeerd voor FIPS 140-2 level 2 standaarden. Deze cryptografische sleutels worden gebruikt voor het versleutelen en ontsleutelen van virtuele schijven die zijn gekoppeld aan uw virtuele machine. U behoudt de controle van deze cryptografische sleutels en het gebruik ervan kunt controleren.
 
-Definieer uw eigen unieke *keyvault_name*. Vervolgens maakt u een KeyVault met [az keyvault maken](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) in hetzelfde abonnement en dezelfde regio bevinden als de schaal worden ingesteld en de *--ingeschakeld-voor--schijfversleuteling* toegangsbeleid.
+Definieer uw eigen unieke *keyvault_name*. Vervolgens maakt u een Sleutelkluis met [az keyvault maken](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) in hetzelfde abonnement en dezelfde regio bevinden als de schaal en de *--ingeschakeld-voor--schijfversleuteling* toegangsbeleid.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -101,11 +101,11 @@ keyvault_name=myuniquekeyvaultname
 az keyvault create --resource-group myResourceGroup --name $keyvault_name --enabled-for-disk-encryption
 ```
 
-### <a name="use-an-existing-key-vault"></a>Gebruik een bestaande Sleutelkluis
+### <a name="use-an-existing-key-vault"></a>Gebruik een bestaande Key Vault
 
-Deze stap is alleen vereist als u een bestaande Sleutelkluis die u wilt gebruiken met schijfversleuteling hebt. Deze stap overslaan als u een Sleutelkluis hebt gemaakt in de vorige sectie.
+Deze stap is alleen vereist als u een bestaande Key Vault hebt die u wilt gebruiken met schijfversleuteling. Deze stap overslaan als u een Key Vault in de vorige sectie hebt gemaakt.
 
-Definieer uw eigen unieke *keyvault_name*. Vervolgens bijgewerkt uw KeyVault met [az keyvault update](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) en stel de *--ingeschakeld-voor--schijfversleuteling* toegangsbeleid.
+Definieer uw eigen unieke *keyvault_name*. Vervolgens uw Key Vault met bijgewerkt [az keyvault update](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) en stel de *--ingeschakeld-voor--schijfversleuteling* toegangsbeleid.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -117,7 +117,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Versleuteling inschakelen
 
-Voor het versleutelen van de VM-exemplaren in een schaalset u eerst enkele gegevens op de resource-ID van de Sleutelkluis met [az keyvault weergeven](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Deze variabelen worden gebruikt voor start het versleutelingsproces met [az vmss versleuteling inschakelen](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
+Voor het versleutelen van VM-exemplaren in een schaalset, moet u eerst wat informatie over de resource-ID voor Key Vault met ontvangen [az keyvault show](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Deze variabelen worden gebruikt om te beginnen klikt u vervolgens het versleutelingsproces met [az vmss versleuteling inschakelen](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -131,19 +131,19 @@ az vmss encryption enable \
     --volume-type DATA
 ```
 
-Het duurt enkele minuten duren voor het versleutelingsproces te starten.
+Het duurt een minuut of twee voor het versleutelingsproces te starten.
 
-Omdat de schaalaanpassingsset Upgradebeleid op de schaal ingesteld worden gemaakt in een eerdere stap is ingesteld op *automatische*, VM-exemplaren automatisch het versleutelingsproces wordt gestart. Start op waar het Upgradebeleid handmatig wordt-schaalsets, het versleutelingsbeleid voor de VM-exemplaren met [az vmss update-exemplaren](/cli/azure/vmss#az-vmss-update-instances).
+Als de schaalset is Upgradebeleid in de schaalset worden gemaakt in een eerdere stap is ingesteld op *automatische*, de VM-exemplaren automatisch het versleutelingsproces starten. Op schaalsets waar het Upgradebeleid in handmatig is, start u de beleidsregels voor versleuteling op de VM-exemplaren met [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
 ## <a name="check-encryption-progress"></a>Versleuteling voortgang controleren
 
-Gebruiken om te controleren op de status van schijfversleuteling, [az vmss versleuteling weergeven](/cli/azure/vmss/encryption#az-vmss-encryption-show):
+Gebruiken om te controleren of de status van schijfversleuteling, [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 ```
 
-Tijdens het versleutelen van VM-exemplaren zijn de statuscode rapporten *EncryptionState/versleuteld*, zoals weergegeven in de volgende voorbeelduitvoer:
+Wanneer de VM-exemplaren zijn versleuteld, wordt de statuscode rapporten *EncryptionState/versleuteld*, zoals weergegeven in de volgende voorbeelduitvoer:
 
 ```bash
 [
@@ -170,9 +170,9 @@ Tijdens het versleutelen van VM-exemplaren zijn de statuscode rapporten *Encrypt
 ]
 ```
 
-## <a name="disable-encryption"></a>Versleuteling uitschakelen
+## <a name="disable-encryption"></a>Schakel versleuteling uit
 
-Als u niet langer wenst versleutelde VM-exemplaren schijven te gebruiken, kunt u uitschakelen versleuteling met [az vmss versleuteling uitschakelen](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) als volgt:
+Als u niet meer gebruiken van versleutelde VM-exemplaren schijven wilt, kunt u versleuteling met uitschakelen [az vmss-versleuteling uitschakelen](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) als volgt:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
@@ -180,6 +180,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel kunt u de Azure CLI 2.0 gebruikt voor het versleutelen van een virtuele-machineschaalset. U kunt ook [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) of sjablonen voor [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) of [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+In dit artikel gebruikt u de Azure CLI 2.0 voor het versleutelen van een virtuele-machineschaalset. U kunt ook [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) of sjablonen voor [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) of [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
-Een voorbeeld van een end-to-end batch voor Linux scale set-gegevensversleuteling schijf vindt [hier](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). In dit voorbeeld maakt u een resourcegroep, Linux-schaalset, koppelt een schijf 5 GB aan gegevens en versleutelt de virtuele-machineschaalset.
+Een voorbeeld van de end-to-end-batch-bestand voor schijfversleuteling van Linux scale set gegevens vindt [hier](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). In dit voorbeeld wordt een resourcegroep, het Linux-schaalset gemaakt, koppelt u een schijf van 5 GB aan gegevens en versleutelt de virtuele-machineschaalset.

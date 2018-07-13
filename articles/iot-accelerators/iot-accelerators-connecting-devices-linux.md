@@ -1,6 +1,6 @@
 ---
-title: Linux-apparaten voor externe controle in de C - Azure inrichten | Microsoft Docs
-description: Beschrijft hoe een apparaat aansluit op de externe controle oplossingsverbetering met behulp van een toepassing die is geschreven in C op Linux wordt uitgevoerd.
+title: Inrichten van Linux-apparaten voor externe controle in C - Azure | Microsoft Docs
+description: Beschrijft hoe u een apparaat verbinden met de oplossingsversnellers bewaking op afstand met behulp van een toepassing die is geschreven in C op Linux uitgevoerd.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,40 +9,40 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
 ms.openlocfilehash: 5d7d6522dc663f13ce40cc638ba90ac4043d435c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626374"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611409"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Uw apparaat aansluit op de externe controle oplossingsverbetering (Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Uw apparaat aansluiten op de oplossingsversnellers bewaking op afstand (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de oplossingsverbetering externe controle.
+Deze zelfstudie leert u hoe u een fysiek apparaat verbinden met de oplossingsverbetering voor externe controle.
 
-## <a name="create-a-c-client-project-on-linux"></a>Maken van een project C-client op Linux
+## <a name="create-a-c-client-project-on-linux"></a>Een client-C-project maken in Linux
 
-Net als bij meest embedded-toepassingen die worden uitgevoerd op een beperkte apparaten, is de clientcode voor de apparaattoepassing geschreven in c In deze zelfstudie bouwt u de toepassing op een machine met Ubuntu (Linux).
+Net als bij de meeste embedded-toepassingen die worden uitgevoerd op apparaten met beperkte, is de clientcode voor de apparaattoepassing geschreven in C. In deze zelfstudie bouwt u de toepassing op een machine met Ubuntu (Linux).
 
-Deze stappen uit te voeren, moet u een apparaat met Ubuntu versie 15.04 of hoger. Voordat u doorgaat, de vereiste pakketten te installeren op uw Ubuntu-apparaat met de volgende opdracht:
+Als u wilt deze stappen hebt voltooid, moet u een apparaat met Ubuntu versie 15.04 of hoger. Voordat u doorgaat, moet u de vereiste pakketten installeren op uw Ubuntu-apparaat met de volgende opdracht:
 
 ```sh
 sudo apt-get install cmake gcc g++
 ```
 
-### <a name="install-the-client-libraries-on-your-device"></a>De clientbibliotheken op uw apparaat installeert
+### <a name="install-the-client-libraries-on-your-device"></a>De clientbibliotheken installeren op uw apparaat
 
-De clientbibliotheken van Azure IoT Hub zijn beschikbaar als een pakket dat u op uw Ubuntu apparaten met installeren kunt de **apt get-** opdracht. De volgende stappen voor het installeren van het pakket met de IoT Hub-bibliotheek en header-clientbestanden op uw computer Ubuntu:
+De Azure IoT Hub-clientbibliotheken zijn beschikbaar als een pakket dat u op uw Ubuntu-apparaten met installeren kunt de **apt-get** opdracht. De volgende stappen voor het installeren van het pakket met de IoT Hub-client-bibliotheek en koptekst bestanden op uw computer Ubuntu:
 
-1. In een shell toevoegen de opslagplaats AzureIoT op uw computer:
+1. In een shell toevoegen de AzureIoT-opslagplaats naar uw computer:
 
     ```sh
     sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
     sudo apt-get update
     ```
 
-1. Installeer het azure-iot-sdk-c-dev-pakket
+1. Installeer de azure-iot-sdk-c-dev-pakket
 
     ```sh
     sudo apt-get install -y azure-iot-sdk-c-dev
@@ -50,7 +50,7 @@ De clientbibliotheken van Azure IoT Hub zijn beschikbaar als een pakket dat u op
 
 ### <a name="install-the-parson-json-parser"></a>Installeer de parser Parson JSON
 
-De clientbibliotheken IoT Hub gebruiken de parser Parson JSON bericht nettoladingen parseren. Kloon de Parson GitHub-opslagplaats met de volgende opdracht in een geschikte map op uw computer:
+De IoT Hub-clientbibliotheken gebruiken de parser Parson JSON parseren bericht nettoladingen. Kloon de Parson GitHub-opslagplaats met de volgende opdracht in een geschikte map op uw computer:
 
 ```sh
 git clone https://github.com/kgabis/parson.git
@@ -58,14 +58,14 @@ git clone https://github.com/kgabis/parson.git
 
 ### <a name="prepare-your-project"></a>Voorbereiden van uw project
 
-Maak een map op uw machine Ubuntu `remote_monitoring`. In de `remote_monitoring` map:
+Maak een map op uw computer Ubuntu `remote_monitoring`. In de `remote_monitoring` map:
 
 - Maken van de vier bestanden `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, en `CMakeLists.txt`.
 - Maken van de map met de naam `parson`.
 
 Kopieer de bestanden `parson.c` en `parson.h` uit het lokale exemplaar van de opslagplaats Parson in de `remote_monitoring/parson` map.
 
-Open in een teksteditor, de `remote_monitoring.c` bestand. Voeg de volgende `#include` instructies toe:
+Open in een teksteditor en de `remote_monitoring.c` bestand. Voeg de volgende `#include` instructies toe:
 
 ```c
 #include "iothubtransportmqtt.h"
@@ -82,13 +82,13 @@ Open in een teksteditor, de `remote_monitoring.c` bestand. Voeg de volgende `#in
 
 ## <a name="add-code-to-run-the-app"></a>Code voor het uitvoeren van de app toevoegen
 
-Open in een teksteditor, de `remote_monitoring.h` bestand. Voeg de volgende code toe:
+Open in een teksteditor en de `remote_monitoring.h` bestand. Voeg de volgende code toe:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-Open in een teksteditor, de `main.c` bestand. Voeg de volgende code toe:
+Open in een teksteditor en de `main.c` bestand. Voeg de volgende code toe:
 
 ```c
 #include "remote_monitoring.h"
@@ -103,11 +103,11 @@ int main(void)
 
 ## <a name="build-and-run-the-application"></a>De toepassing bouwen en uitvoeren.
 
-De volgende stappen wordt beschreven hoe u *CMake* voor het bouwen van uw client-toepassing.
+De volgende stappen wordt beschreven hoe u *CMake* om uw clienttoepassing te bouwen.
 
-1. Open in een teksteditor, de **CMakeLists.txt** bestand de `remote_monitoring` map.
+1. Open in een teksteditor en de **CMakeLists.txt** -bestand in de `remote_monitoring` map.
 
-1. De volgende instructies voor het definiëren van het bouwen van uw client-toepassing toevoegen:
+1. Voeg de volgende instructies voor het definiëren van het bouwen van uw clienttoepassing:
 
     ```cmake
     macro(compileAsC99)
@@ -156,7 +156,7 @@ De volgende stappen wordt beschreven hoe u *CMake* voor het bouwen van uw client
     )
     ```
 
-1. In de `remote_monitoring` map, maak een map voor het opslaan van de *zorg* bestanden die CMake genereert. Voer vervolgens de **cmake** en **zorg** opdrachten als volgt:
+1. In de `remote_monitoring` map, maakt u een map voor het opslaan van de *maken* bestanden die CMake genereert. Voer vervolgens de **cmake** en **maken** opdrachten als volgt:
 
     ```sh
     mkdir cmake
