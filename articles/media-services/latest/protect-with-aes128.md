@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: juliako
-ms.openlocfilehash: da2df60e3111055729bbae2c6684ccbb9671272e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b62c528716d9386b9da6ddee260fd1ec382fb4a5
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007860"
+ms.locfileid: "39036782"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice
 
 Media Services kunt u HTTP Live Streaming (HLS), MPEG-DASH en Smooth Streaming is versleuteld met de AES 128-bits versleutelingssleutels met leveren. Media Services biedt ook de sleutelleveringsservice die zorgt voor versleutelingssleutels gemachtigde gebruikers. Als u voor Media Services voor het versleutelen van een asset wilt, kunt u de versleutelingssleutel koppelen aan StreamingLocator en het beleid voor de inhoud van de sleutels ook configureren. Wanneer een stroom wordt aangevraagd door een speler, Media Services maakt gebruik van de opgegeven sleutel voor het versleutelen van uw inhoud dynamisch met behulp van AES-versleuteling. Voor het ontsleutelen van de stroom, vraagt de speler de sleutel van de sleutelleveringsservice. Om te bepalen dat of de gebruiker is gemachtigd om op te halen van de sleutel, de service beoordeelt wat het beleid voor het sleutels van inhoud die u hebt opgegeven voor de sleutel.
 
-Het artikel is gebaseerd op de [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) voorbeeld. Het voorbeeld over het maken van een codering transformatie die gebruikmaakt van een ingebouwde voorinstelling voor adaptieve bitrate codering en opnemen van een bestand rechtstreeks vanuit een [HTTPs bron-URL](job-input-from-http-how-to.md). De uitvoerasset wordt vervolgens gepubliceerd met de AES (ClearKey)-versleuteling. De uitvoer van het voorbeeld is een URL naar de Azure Media Player, met inbegrip van zowel de DASH-manifest en de AES-token die nodig zijn voor de inhoud afspelen. Het voorbeeld wordt de vervaldatum van de JWT-token naar één uur. U kunt een browser te openen en plakt u de resulterende URL om te starten van de Azure Media Player-demo-pagina met de URL en het token al ingevuld voor u (in de volgende indeling: ``` https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.)
+Het artikel is gebaseerd op de [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) voorbeeld. Het voorbeeld over het maken van een codering transformatie die gebruikmaakt van een ingebouwde voorinstelling voor adaptieve bitrate codering en opnemen van een bestand rechtstreeks vanuit een [HTTPs bron-URL](job-input-from-http-how-to.md). De uitvoerasset wordt vervolgens gepubliceerd met de AES (ClearKey)-versleuteling. De uitvoer van het voorbeeld is een URL naar de Azure Media Player, met inbegrip van zowel de DASH-manifest en de AES-token die nodig zijn voor de inhoud afspelen. Het voorbeeld wordt de vervaldatum van de JWT-token naar één uur. U kunt een browser te openen en plakt u de resulterende URL om te starten van de Azure Media Player-demo-pagina met de URL en het token gevuld voor u al in de volgende indeling: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
 
 > [!NOTE]
 > U kunt elke activa met meerdere versleutelingstypen (AES-128, PlayReady, Widevine, FairPlay) coderen. Zie [Streaming-protocollen en versleutelingstypen](content-protection-overview.md#streaming-protocols-and-encryption-types), om te zien wat zinvol om te combineren.

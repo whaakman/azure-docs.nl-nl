@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: a5ec7142fccb900a7095a0c67623d560d3bc00d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 90ea591137b306069c1a5c184aea07375c72ce5c
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009532"
+ms.locfileid: "39036537"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Zelfstudie: Afbreken van Bing visuele zoekopdrachten uploaden
 
@@ -24,7 +24,7 @@ In deze zelfstudie een uitsplitsing van het proces van het uploaden van een afbe
 In deze zelfstudie is bedoeld voor de ontwikkelaar die wil verkennen van de inhoud van het Bing-antwoord. Deze niet alle gebruik van toepassing en weergavevereisten (bijvoorbeeld, biedt geen een koppeling naar het privacybeleid van Microsoft). Zie voor de gebruiksvereisten voor alle [Bing gebruik en de vereisten van de weergave](./use-and-display-requirements.md).
 
 
-### <a name="where-to-start"></a>Waar wilt starten?
+## <a name="where-to-start"></a>Waar wilt starten?
 
 Laten we beginnen met een HTML-pagina die een afbeelding van Bing verzendt en wordt in inzichten en geeft deze weer. Maak een bestand met de naam van uploaddemo.html in uw favoriete editor. De volgende HTML-basisstructuur toevoegen aan het bestand.
 
@@ -50,7 +50,7 @@ Als u wilt starten, moet u gaan we de pagina onderverdelen in een aanvraag, waar
         <div id="responseSection"></div>
 ```
 
-### <a name="get-the-file-to-upload"></a>Ophalen van het bestand te uploaden
+## <a name="get-the-file-to-upload"></a>Ophalen van het bestand te uploaden
 
 Als u wilt dat de gebruiker selecteert u de afbeelding te uploaden, de demo maakt gebruik van de \<invoer\> tag met het typekenmerk is ingesteld op het bestand. De gebruikersinterface, moet u gemakkelijk wissen dat de demo Bing gebruikt om op te halen van de lijst met zoekresultaten. 
 
@@ -126,7 +126,7 @@ Hieronder ziet u de handler waarmee de geselecteerde installatiekopie wordt vast
 ```
 
 
-### <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Wat u nog meer nodig is voor de oproep naar Bing?
+## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Wat u nog meer nodig is voor de oproep naar Bing?
 
 De demo moet nog steeds een abonnementssleutel. U zult de abonnementssleutel van beveiligde opslag in de praktijk, maar voor het gemak van deze demo, moet u opgeven in de gebruikersinterface. Voeg de volgende \<invoer\> tag (met het typekenmerk is ingesteld op tekst) aan de \<hoofdtekst\> onder van het bestand \<uitvoer\> tag.
 
@@ -226,7 +226,7 @@ De demo Hiermee verbergt u de lijsten in een div-element samenvouwbare die wordt
 ```
 
 
-### <a name="making-the-call"></a>De oproep
+## <a name="making-the-call"></a>De oproep
 
 De volgende Get insights knop onder de opties div-element toevoegen in de hoofdtekst. De knop kan de gebruiker die de oproep te initiëren. Wanneer de gebruiker op de knop klikt, wordt de cursor is gewijzigd in de wacht zetten cursor en wordt de handler onclick wordt genoemd.
 
@@ -291,7 +291,7 @@ De functie sendRequest indelingen van de eindpunt-URL, wordt de kop Ocp-Apim-Sub
         }
 ```
 
-### <a name="handling-the-response"></a>Verwerken van het antwoord
+## <a name="handling-the-response"></a>Verwerken van het antwoord
 
 De functie handleResponse verwerkt het antwoord van de aanroep van Bing visuele zoekopdrachten. Als de aanroep slaagt, wordt het JSON-antwoord geparseerd in de afzonderlijke tags, waarin de inzichten. Vervolgens wordt er de tekenreeks, Bing, internet-zoekresultaten, toegevoegd aan de pagina en laat de gebruiker informatie over dat de gegevens afkomstig zijn van Bing.
 
@@ -676,7 +676,7 @@ Let op: Er is een minimale hoeveelheid gegevens die u moet weergeven, de rest is
 
 
 
-### <a name="adding-styles-to-make-the-page-display-correctly"></a>Toevoegen van aanvullende stijlen in de pagina correct weergegeven
+## <a name="adding-styles-to-make-the-page-display-correctly"></a>Toevoegen van aanvullende stijlen in de pagina correct weergegeven
 
 Voeg de volgende \<stijl\> sectie aan de \<head\> tag.
 
@@ -1328,3 +1328,7 @@ Hier is het complete voorbeeld voor HTML en JavaScript.
     </body>
 </html>      
 ```
+
+## <a name="next-steps"></a>Volgende stappen
+
+Om te zien hoe inzichten krijgen werkt met behulp van en inzichten token, Zie [Bing Visual Search SDK ImageInsightsToken zelfstudie](.\tutorial-visual-search-insights-token.md).

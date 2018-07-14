@@ -1,31 +1,31 @@
 ---
-title: Instellingen voor Azure Event raster abonnementen beheren
-description: Beschrijft hoe de Bezorgingsopties gebeurtenis voor gebeurtenis raster aanpassen.
+title: Bezorgingsinstellingen voor Azure Event Grid-abonnementen beheren
+description: Beschrijft hoe u event Bezorgingsopties voor Event Grid aanpassen.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 65e79f492e96c418502e096b60992ba992868dd7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e91ee640d18e2cf804be33fd130bf48737c9efb1
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035944"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035666"
 ---
-# <a name="manage-event-grid-delivery-settings"></a>Gebeurtenis raster bezorgingsinstellingen beheren
+# <a name="manage-event-grid-delivery-settings"></a>Event Grid bezorgingsinstellingen beheren
 
-U kunt de instellingen voor de levering van de gebeurtenis bij het maken van een gebeurtenisabonnement. U kunt instellen hoe lang gebeurtenis raster probeert het bericht te bezorgen. U kunt instellen dat een opslagaccount te gebruiken voor het opslaan van gebeurtenissen die naar een eindpunt kunnen niet worden bezorgd.
+Bij het maken van een gebeurtenisabonnement, kunt u de instellingen voor de bezorging van gebeurtenissen kunt aanpassen. U kunt instellen hoe lang Event Grid wordt geprobeerd het bericht te bezorgen. U kunt een storage-account te gebruiken voor het opslaan van gebeurtenissen die naar een eindpunt kunnen niet worden bezorgd instellen.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="set-retry-policy"></a>Set-beleid voor opnieuw proberen
 
-Bij het maken van een gebeurtenis raster-abonnement, kunt u waarden voor hoe lang gebeurtenis raster proberen moet te leveren van de gebeurtenis kunt instellen. Standaard gebeurtenis raster probeert 24 uur (1440 minuten) en maximaal 30 keer geprobeerd. U kunt een van beide waarden instellen voor uw abonnement op gebeurtenissen raster.
+Bij het maken van een Event Grid-abonnement, kunt u waarden voor hoe lang Event Grid proberen moet te leveren van de gebeurtenis instellen. Standaard Event Grid probeert 24 uur (1440 minuten) en probeert een maximum van 30 keer beter. U kunt een van deze waarden instellen voor uw event grid-abonnement.
 
-U stelt de gebeurtenis time to live naar een andere waarde dan 1440 minuten met:
+Om in te stellen de gebeurtenis time-to-live naar een andere waarde dan 1440 minuten, gebruikt u:
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -36,32 +36,32 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --event-ttl 720
 ```
 
-Als u het maximale aantal nieuwe pogingen ingesteld op een andere waarde dan 30, wilt gebruiken:
+Als u wilt het maximale aantal nieuwe pogingen ingesteld op een andere waarde dan 30, gebruiken:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --max-delivery-attempts 18
 ```
 
-Als u zowel `event-ttl` en `max-deliver-attempts`, gebeurtenis raster gebruikt de eerste om te laten verlopen voor het opnieuw probeert.
+Als u zowel `event-ttl` en `max-deliver-attempts`, Event Grid maakt gebruik van de eerste verlopen voor nieuwe pogingen.
 
-## <a name="set-dead-letter-location"></a>Onbestelbare locatie instellen
+## <a name="set-dead-letter-location"></a>Dead-letter uitvoeren voor locatie instellen
 
-Als gebeurtenis raster niet van een gebeurtenis afleveren, kan de niet-uitgevoerde gebeurtenis verzenden naar een opslagaccount. Dit proces staat bekend als de verwerking van onbestelbare berichten. Standaard inschakelen gebeurtenis raster verwerking van onbestelbare berichten niet. Als u wilt inschakelen, moet u een opslagaccount voor het opslaan van niet-uitgevoerde gebeurtenissen bij het maken van het gebeurtenisabonnement. Ophalen van gebeurtenissen van dit opslagaccount leveringen omzetten.
+Wanneer een gebeurtenis kan niet van Event Grid leveren, kan de niet-bezorgde gebeurtenis verzenden naar een opslagaccount. Dit proces staat bekend als onbestelbare. Standaard inschakelen Event Grid onbestelbare niet. Als u wilt inschakelen, moet u een opslagaccount voor niet-bezorgde gebeurtenissen bij het maken van het gebeurtenisabonnement. U gebeurtenissen van dit opslagaccount wordt gebruikt om op te lossen leveringen op te halen.
 
-Gebeurtenis raster verzendt een gebeurtenis naar de locatie van onbestelbare als alle van de nieuwe pogingen probeert, of als het ontvangt een foutbericht dat aangeeft dat levering nooit slaagt. Bijvoorbeeld, als raster gebeurtenis een onjuiste indelingsfout ontvangt bij het leveren van een gebeurtenis, onmiddellijk het die gebeurtenis naar de locatie van onbestelbare berichten.
+Als alle van de nieuwe pogingen is geprobeerd, of als er een foutbericht dat aangeeft dat levering nooit slaagt, Event Grid een gebeurtenis verzendt naar de dead-letter-locatie. Bijvoorbeeld, als Event Grid een onjuiste indelingsfout ontvangt bij het leveren van een gebeurtenis, verzendt het onmiddellijk dat de gebeurtenis naar de dead-letter-locatie.
 
-Voordat u de locatie van de wachtrij voor onbestelbare instelt, moet u een opslagaccount met een container hebben. U kunt het eindpunt voor deze container opgeven bij het maken van het gebeurtenisabonnement. Het eindpunt is in de indeling van: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Voordat u de locatie voor onbestelbare berichten, moet u een opslagaccount met een container hebt. U kunt het eindpunt voor deze container opgeven bij het maken van het gebeurtenisabonnement. Het eindpunt is in de indeling van: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Het volgende script opgehaald van de bron-ID van een bestaand opslagaccount en maakt een gebeurtenisabonnement die gebruikmaakt van een container in dit opslagaccount voor het eindpunt voor onbestelbare berichten.
+Het volgende script opgehaald van de resource-ID van een bestaand opslagaccount en maakt u een gebeurtenisabonnement die gebruikmaakt van een container in het storage-account voor het eindpunt dead-letter uitvoeren.
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -77,14 +77,16 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
 
-Gebeurtenis raster gebruiken om te reageren op niet-uitgevoerde gebeurtenissen [een gebeurtenisabonnement](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) voor de onbestelbare blobopslag. Wanneer uw blobopslag voor onbestelbare berichten ontvangt een niet-uitgevoerde gebeurtenis raster gebeurtenis ontvangt een melding van de handler. De handler reageert met de acties die u maken wilt voor het afhandelen van niet-uitgevoerde gebeurtenissen. 
+Event Grid gebruiken om te reageren op gebeurtenissen die door niet-bezorgde [een gebeurtenisabonnement maken](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) voor de dead-letter uitvoeren voor blob-opslag. Telkens wanneer de dead-letter uitvoeren voor blob-opslag een niet-bezorgde gebeurtenis ontvangt, meldt Event Grid de handler. De handler reageert met de acties die u wilt deelnemen aan voor het afhandelen van niet-bezorgde gebeurtenissen. 
+
+Als u wilt uitschakelen onbestelbare, opnieuw de opdracht om het gebeurtenisabonnement te maken, maar geen waarde opgeeft voor `deadletter-endpoint`. U hoeft niet te verwijderen van het gebeurtenisabonnement.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Voor informatie over de levering van de gebeurtenis en nieuwe pogingen, [gebeurtenis raster berichtbezorging en probeer het opnieuw](delivery-and-retry.md).
+* Voor informatie over de bezorging van gebeurtenissen en nieuwe pogingen, [bezorging van berichten van Event Grid en probeer het opnieuw](delivery-and-retry.md).
 * Zie [Een inleiding tot Event Grid](overview.md) voor een inleiding tot Event Grid.
-* Zie om snel aan de slag met Event raster [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md).
+* Als u wilt snel aan de slag met Event Grid, Zie [aangepaste gebeurtenissen maken en routeren met Azure Event Grid](custom-event-quickstart.md).

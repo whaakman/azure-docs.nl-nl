@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 83a56793d08632918a75f6580360a9dd148d7316
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2af83762fdcd3302f2af9b08585febab42387d79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611065"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035979"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Een beheerde Service-identiteit toegang tot een resource toewijzen met behulp van Azure portal
 
@@ -41,11 +41,11 @@ Nadat u MSI-bestand hebt ingeschakeld op een Azure-resource, [, zoals een Azure-
 
 3. Selecteer de **toegangsbeheer (IAM)** pagina van de resource en selecteer **+ toevoegen**. Geef vervolgens de **rol**, **toegang toewijzen aan virtuele Machine**, en geeft u de bijbehorende **abonnement** en **resourcegroep** waarin de resource zich bevindt. Onder het zoekgebied criteria ziet u de resource. Selecteer de resource en selecteer **opslaan**. 
 
-   ![Schermafbeelding van de Access control (IAM)](~/articles/active-directory/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Schermafbeelding van de Access control (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
 
 4. U keert terug naar de hoofdpagina **toegangsbeheer (IAM)** pagina, waar u een nieuwe vermelding voor de resource-MSI zien. In dit voorbeeld wordt de virtuele machine uit de resourcegroep van de Demo "SimpleWinVM" heeft **Inzender** toegang tot het opslagaccount.
 
-   ![Schermafbeelding van de Access control (IAM)](~/articles/active-directory/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Schermafbeelding van de Access control (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/09/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 232bea437b38335bdaa189e504d4e5fd9b080a05
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f091ba44a3170dcc4141829f2f4105d6e7993cdf
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724055"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035286"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Toegang tot Key Vault-geheim bij het implementeren van Azure Managed Applications
 
@@ -52,6 +52,37 @@ Als u een veilige waarde (zoals een wachtwoord) als een parameter doorgeven tijd
    ![Zoeken naar provider](./media/key-vault-access/search-provider.png)
 
 1. Selecteer **Opslaan**.
+
+## <a name="reference-key-vault-secret"></a>Naslaginformatie over Key Vault-geheim
+
+Een geheim vanuit een Key Vault doorgeven aan een sjabloon in uw toepassing worden beheerd, moet u een [gekoppelde sjabloon](../azure-resource-manager/resource-group-linked-templates.md) en verwijzen naar de Key Vault in de parameters voor de gekoppelde sjabloon. Geef de resource-ID van de Key Vault en de naam van het geheim.
+
+```json
+"resources": [{
+  "apiVersion": "2015-01-01",
+  "name": "linkedTemplate",
+  "type": "Microsoft.Resources/deployments",
+  "properties": {
+    "mode": "incremental",
+    "templateLink": {
+      "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "parameters": {
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"
+          },
+          "secretName": "<secret-name>"
+        }
+      },
+      "adminLogin": { "value": "[parameters('adminLogin')]" },
+      "sqlServerName": {"value": "[parameters('sqlServerName')]"}
+    }
+  }
+}],
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

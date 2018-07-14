@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e01e4c397e0d0a19280a32fc1e8341b57b47e4eb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1af9770fa899a03e6e3514c539c511ba26fdced4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610380"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036377"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Configureren van een gebruiker toegewezen Managed Service Identity (MSI) voor een VM met behulp van een Azure-sjabloon
 
@@ -52,7 +52,7 @@ Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijden
    > Dit voorbeeld wordt aangenomen variabelen zoals `vmName`, `storageAccountName`, en `nicName` zijn gedefinieerd in de sjabloon.
    >
 
-   ![Schermafbeelding van de sjabloon: zoek VM](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Schermafbeelding van de sjabloon: zoek VM](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. Voeg de `"identity"` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachines"` eigenschap. Gebruik de volgende syntaxis:
 
@@ -92,7 +92,7 @@ Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijden
 
 5. Wanneer u klaar bent, is de sjabloon ziet die vergelijkbaar is met het volgende:
 
-   ![Schermafbeelding van de sjabloon na-update](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-after.png) 
+   ![Schermafbeelding van de sjabloon na-update](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## <a name="remove-msi-from-an-azure-vm"></a>MSI-bestand verwijderen uit een Azure-VM
 

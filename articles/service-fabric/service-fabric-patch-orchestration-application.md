@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970713"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036935"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -148,7 +148,7 @@ Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoe
 |**Parameter**        |**Type**                          | **Details**|
 |:-|-|-|
 |MaxResultsToCache    |Lang                              | Maximum aantal resultaten van de Windows Update, die moet worden opgeslagen in de cache. <br>Standaardwaarde is 3000 ervan uitgaande dat de: <br> -Het aantal knooppunten is 20. <br> -Het aantal updates dat op een knooppunt per maand gebeurt is vijf. <br> -Het aantal resultaten dat per bewerking is 10. <br> -Resultaten voor de afgelopen drie maanden moeten worden opgeslagen. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy geeft aan dat het beleid dat moet worden gebruikt door de Coordinator-Service op Windows-updates installeren via de Service Fabric-clusterknooppunten.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Windows Update is geïnstalleerd één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is geïnstalleerd één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten die behoren tot een upgradedomein kunnen gaan voor Windows Update.)
+|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy geeft aan dat het beleid dat moet worden gebruikt door de Coordinator-Service op Windows-updates installeren via de Service Fabric-clusterknooppunten.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Windows Update is geïnstalleerd één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is geïnstalleerd één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten die behoren tot een upgradedomein kunnen gaan voor Windows Update.)<br> Raadpleeg [Veelgestelde vragen over](#frequently-asked-questions) sectie over het bepalen welke het beste geschikt beleid voor uw cluster.
 |LogsDiskQuotaInMB   |Lang  <br> (Standaard: 1024)               |Maximale grootte van de patch orchestration app registreert in MB, hetgeen kan lokaal worden opgeslagen op de knooppunten.
 | WUQuery               | tekenreeks<br>(Standaard: "IsInstalled = 0")                | Query voor het ophalen van Windows-updates. Zie voor meer informatie, [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Booleaans <br> (standaard: True)                 | Met deze markering kan updates voor Windows-besturingssysteem moet worden geïnstalleerd.            |
@@ -304,19 +304,36 @@ Q. **Wat moet ik doen als mijn cluster niet in orde is en ik wil een urgent best
 
 A. De patch orchestration-app heeft geen updates installeren, terwijl het cluster niet in orde is. Probeer uw cluster naar een goede status om de blokkering van de patch orchestration-app-werkstroom te brengen.
 
-Q. **Waarom patches in meerdere computerclusters duurt zo lang om uit te voeren?**
+Q. **Moet ik TaskApprovalPolicy als 'NodeWise' of 'UpgradeDomainWise' instellen voor mijn cluster?**
 
-A. De tijd die nodig zijn voor de patch orchestration-app is voornamelijk afhankelijk van de volgende factoren:
+A. 'UpgradeDomainWise' maakt de algehele cluster patchen sneller patches voor alle knooppunten die behoren tot een upgradedomein tegelijkertijd. Dit betekent dat knooppunten die behoren tot een volledige upgradedomein niet beschikbaar zijn zou (in [uitgeschakelde](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) staat) tijdens het toepassen van patches.
 
-- Het beleid van de Coordinator-Service. 
-  - Het standaardbeleid `NodeWise`, resulteert in het patchen van slechts één knooppunt tegelijk. Met name als er een grotere cluster, raden wij aan dat u de `UpgradeDomainWise` beleid voor een snellere patches tussen verschillende clusters.
-- Het aantal updates beschikbaar voor downloaden en installeren. 
-- De gemiddelde tijd die nodig zijn om te downloaden en installeren van een update die mag niet meer dan een paar uur.
-- De prestaties van de virtuele machine en netwerkbandbreedte.
+Daarentegen 'NodeWise' beleid slechts één knooppunt tegelijk patches, dit betekent dat het algehele cluster patchen zou langere tijd in beslag nemen. Op de limiet is bereikt, slechts één knooppunt zou zijn echter niet beschikbaar (in [uitgeschakelde](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) staat) tijdens het toepassen van patches.
+
+Als uw cluster uitgevoerd op het aantal upgradedomeinen N-1 tolereren kan tijdens het toepassen van patches cyclus (waarbij N staat voor het totale aantal upgradedomeinen in uw cluster), kunt u het beleid als 'UpgradeDomainWise' instellen, anders u dit instellen op 'NodeWise'.
+
+Q. **Hoeveel tijd doet het allemaal voor toets maken voor het vullen van een knooppunt?**
+
+A. Patch toepassen op een knooppunt kan duren (bijvoorbeeld: [definitie-updates voor Windows Defender](https://www.microsoft.com/wdsi/definitions)) uur (bijvoorbeeld: [Windows cumulatieve updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tijd die nodig is voor het vullen van een knooppunt is afhankelijk van voornamelijk op 
+ - De grootte van updates
+ - Aantal updates die moeten worden toegepast in een tijdvenster
+ - De tijd die nodig is de updates worden geïnstalleerd, het knooppunt (indien nodig) opnieuw opstarten en stappen na opnieuw opstarten-installatie te voltooien.
+ - Prestaties van virtuele machine/machine en netwerkomstandigheden.
+
+Q. **Hoe lang duurt het voor het vullen van een geheel cluster?**
+
+A. De tijd die nodig is voor het vullen van een geheel cluster is afhankelijk van de volgende factoren:
+
+- De tijd die nodig is voor het vullen van een knooppunt.
+- Het beleid van de Coordinator-Service. -Het standaardbeleid `NodeWise`, resulteert in het patchen van slechts één knooppunt tegelijk, die langzamer dan zijn `UpgradeDomainWise`. Bijvoorbeeld: als een knooppunt ~ 1 uur moet worden gevuld, voordat kan worden uitgevoerd voor het vullen van een 20-knooppunt (hetzelfde type knooppunten)-cluster met 5 upgradedomeinen, elk met 4 knooppunten.
+    - Het duurt ongeveer 20 uur voor het vullen van het hele cluster als het beleid is `NodeWise`
+    - Het duurt ongeveer 5 uur als beleid is `UpgradeDomainWise`
+- Belasting van de cluster - elke patch-bewerking moet de workload van een klant verplaatsen naar andere beschikbare knooppunten in het cluster. Knooppunt die een patch op zou zijn [Disabling](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) status gedurende deze tijd. Als het cluster wordt uitgevoerd in de buurt van piekbelasting, zou de uitschakelen proces langer duren. Daarom lijkt algehele patchproces langzaam in dergelijke extreme omstandigheden.
+- Elk cluster-statusfouten tijdens het toepassen van patches - [degradatie](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) in [status van het cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) het patchproces onderbroken. Dit zou toevoegen aan de totale tijd die nodig is voor het vullen van het hele cluster.
 
 Q. **Waarom zie ik bepaalde updates in de resultaten van de Windows Update is verkregen via de REST API, maar niet in de geschiedenis van Windows Update op de machine?**
 
-A. Sommige productupdates wordt alleen weergegeven in de geschiedenis van hun respectieve updates/patching. Bijvoorbeeld doen updates voor Windows Defender niet weergegeven in de geschiedenis van Windows Update op Windows Server 2016.
+A. Sommige productupdates wordt alleen weergegeven in de geschiedenis van hun respectieve updates/patching. Bijvoorbeeld updates voor Windows Defender kunnen of mogelijk niet weergegeven in de geschiedenis van Windows Update op Windows Server 2016.
 
 Q. **Kan Patch Orchestration-app worden gebruikt voor het vullen van mijn dev-cluster (cluster met één knooppunt)?**
 

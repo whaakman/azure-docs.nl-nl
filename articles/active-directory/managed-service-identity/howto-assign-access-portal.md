@@ -1,6 +1,6 @@
 ---
-title: Een MSI-toegang toewijzen aan een Azure-resource met de Azure portal
-description: Stapsgewijze instructies voor het toewijzen van een MSI-bestand op een toegang tot bronnen naar een andere bron met behulp van de Azure-portal.
+title: Een MSI toegang toewijzen aan een Azure-resource, met behulp van de Azure portal
+description: Stapsgewijze instructies voor het toewijzen van een MSI-bestand op een resource toegang naar een andere resource met behulp van de Azure-portal.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,61 +14,61 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 06f316a7c96ff266e9f4593fa3a9ac871b2979aa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf6df6dd87de56ca3c8180d5377e35d9be9bbd79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929769"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036442"
 ---
-# <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Een beheerde Service-identiteit toegang toewijzen aan een resource met behulp van de Azure-portal
+# <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Een beheerde Service-identiteit toegang tot een resource toewijzen met behulp van Azure portal
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Nadat u hebt een Azure-resource met een beheerde Service identiteit (MSI) geconfigureerd, kunt u de MSI-toegang geven tot een andere resource, net als elke beveiligings-principal. In dit artikel laat zien hoe Azure een virtuele machine of virtuele-machineschaalset van MSI toegang geven tot een Azure storage-account met behulp van de Azure-portal.
+Nadat u hebt een Azure-resource geconfigureerd met een Managed Service Identity (MSI), kunt u de MSI toegang verlenen naar een andere resource, net als bij elke beveiligings-principal. Dit artikel ziet u hoe u een virtuele Azure-machine of VM-schaalset van MSI toegang geven tot een Azure storage-account met behulp van de Azure-portal.
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Gebruikmaken van RBAC de MSI-toegang toewijzen aan een andere bron
+## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>RBAC gebruiken voor het toewijzen van de toegang tot de MSI-bestand naar een andere resource
 
-Nadat u hebt MSI ingeschakeld op een Azure-resource, zoals een [Azure VM](qs-configure-portal-windows-vm.md) of [Azure VMSS](qs-configure-portal-windows-vmss.md):
+Nadat u hebt MSI ingeschakeld op een Azure-resource, zoals een [virtuele Azure-machine](qs-configure-portal-windows-vm.md) of [Azure VMSS](qs-configure-portal-windows-vmss.md):
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account die is gekoppeld aan het Azure-abonnement waaronder u het MSI-bestand hebt geconfigureerd.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement waarin u het MSI-bestand hebt geconfigureerd.
 
-2. Navigeer naar de gewenste resource waarop u wilt wijzigen van toegangsbeheer. In dit voorbeeld geeft we Azure een virtuele machine en schaal van de virtuele machine van Azure toegang tot een opslagaccount instellen zodat we gaat u naar het opslagaccount.
+2. Navigeer naar de gewenste resource waarop u wilt wijzigen van toegangsbeheer. In dit voorbeeld zijn we een virtuele machine van Azure waardoor en Azure virtuele-machineschaalset toegang tot een opslagaccount, zodat we gaat u naar het opslagaccount.
 
-3. Voor een virtuele machine van Azure, selecteert u de **toegangsbeheer (IAM)** pagina van de resource en selecteer **+ toevoegen**. Geef vervolgens de **rol**, **toegang toewijzen aan de virtuele Machine**, en geeft u de bijbehorende **abonnement** en **resourcegroep** Wanneer de bron zich bevindt. U ziet onder het gebied van de criteria zoeken de resource. Selecteer de bron en selecteer **opslaan**. 
+3. Selecteer voor een Azure-machine, de **toegangsbeheer (IAM)** pagina van de resource en selecteer **+ toevoegen**. Geef vervolgens de **rol**, **toegang toewijzen aan virtuele Machine**, en geeft u de bijbehorende **abonnement** en **resourcegroep** waarin de resource zich bevindt. Onder het zoekgebied criteria ziet u de resource. Selecteer de resource en selecteer **opslaan**. 
 
-   ![Access control (IAM)-schermafbeelding](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
-   Voor een virtuele machine van Azure scale ingesteld, selecteert u de **toegangsbeheer (IAM)** pagina van de resource en selecteer **+ toevoegen**. Geef vervolgens de **rol**, **toewijzen van toegang tot**. Zoek uw virtuele-machineschaalset onder het gebied van de criteria zoeken. Selecteer de bron en selecteer **opslaan**.
+   ![Schermafbeelding van de Access control (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   Selecteer voor een schaalset voor virtuele Azure-machine, de **toegangsbeheer (IAM)** pagina van de resource en selecteer **+ toevoegen**. Geef vervolgens de **rol**, **toegang toewijzen aan**. Zoeken in het gebied van de criteria zoeken naar uw virtuele-machineschaalset. Selecteer de resource en selecteer **opslaan**.
    
-   ![Access control (IAM)-schermafbeelding](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+   ![Schermafbeelding van de Access control (IAM)](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
 
-4. U keert terug naar de belangrijkste **toegangsbeheer (IAM)** pagina waar u een nieuwe vermelding voor de resource MSI zien.
+4. U keert terug naar de hoofdpagina **toegangsbeheer (IAM)** pagina, waar u een nieuwe vermelding voor de resource-MSI zien.
 
     Virtuele machine van Azure:
 
-   ![Access control (IAM)-schermafbeelding](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Schermafbeelding van de Access control (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
-    Azure virtuele-machineschaalset:
+    Azure VM-schaalset:
 
-    ![Access control (IAM)-schermafbeelding](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
+    ![Schermafbeelding van de Access control (IAM)](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als het MSI-bestand voor de resource niet in de lijst met beschikbare identiteiten weergegeven wordt, moet u controleren of het MSI-bestand juist is ingeschakeld. In ons geval kunnen we terug te keren naar de virtuele machine van Azure en controleert u het volgende:
+Als het MSI-bestand voor de resource niet in de lijst met beschikbare identiteiten weergegeven wordt, controleert u of het MSI-bestand correct is ingeschakeld. In ons geval kunnen we gaat u terug naar de virtuele machine van Azure en controleert u het volgende:
 
-- Bekijk de **configuratie** pagina en zorg ervoor dat de waarde voor **MSI ingeschakeld** is **Ja**.
-- Bekijk de **extensies** pagina en zorg ervoor dat de MSI-extensie geïmplementeerd (**extensies** pagina is niet beschikbaar voor een Azure virtuele-machineschaalset).
+- Bekijk de **configuratie** pagina en zorg ervoor dat de waarde voor **ingeschakelde MSI** is **Ja**.
+- Bekijk de **extensies** pagina en zorg ervoor dat de MSI-extensie geïmplementeerd (**extensies** pagina is niet beschikbaar voor een schaalset voor virtuele machine van Azure).
 
-Als een onjuist is, moet u mogelijk de MSI van uw resources opnieuw te implementeren of problemen met de implementatie is mislukt.
+Als een onjuist is, moet u mogelijk het MSI-bestand voor uw resource opnieuw implementeren of problemen met de implementatie mislukt.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 
-- Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](overview.md).
-- Zie voor meer informatie over het inschakelen van MSI op een virtuele machine van Azure [configureren van een Azure VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md).
-- Zie voor meer informatie over het inschakelen van MSI op een virtuele machine van Azure scale set [een Azure virtuele Machine Scale ingesteld beheerde Service identiteit (MSI) met de Azure portal configureren](qs-configure-portal-windows-vmss.md)
+- Zie voor een overzicht van MSI [overzicht van de beheerde Service-identiteit](overview.md).
+- Zie voor meer informatie over het inschakelen van MSI-bestand op een Azure-machine [configureren van een Azure VM Managed Service Identity (MSI) met behulp van de Azure-portal](qs-configure-portal-windows-vm.md).
+- Zie voor meer informatie over het inschakelen van MSI in een schaalset voor virtuele Azure-machine [configureren van een Azure Virtual Machine Scale ingesteld Managed Service Identity (MSI) met behulp van de Azure portal](qs-configure-portal-windows-vmss.md)
 
 

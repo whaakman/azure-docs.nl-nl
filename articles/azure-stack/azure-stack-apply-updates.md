@@ -1,6 +1,6 @@
 ---
-title: Toepassen van updates in Azure-Stack | Microsoft Docs
-description: Informatie over het importeren en installeren van Microsoft update-pakketten voor een Azure-Stack geïntegreerd.
+title: Toepassen van updates in Azure Stack | Microsoft Docs
+description: Informatie over het importeren en installeer Microsoft update-pakketten voor een geïntegreerde Azure Stack-systeem.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29802648"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035330"
 ---
-# <a name="apply-updates-in-azure-stack"></a>Toepassen van updates in Azure-Stack
+# <a name="apply-updates-in-azure-stack"></a>In Azure Stack-updates toepassen
 
-*Van toepassing op: Azure Stack geïntegreerd systemen*
+*Is van toepassing op: Azure Stack-geïntegreerde systemen*
 
-Als een Azure-Stack-operator, kunt u Microsoft update-pakketten voor Azure-Stack met behulp van de Update-tegel in de beheerdersportal toepassen. U moet het pakket voor Microsoft update te downloaden, het pakketbestanden importeren naar Azure-Stack en installeer het updatepakket. 
+Als Azure Stack-operators, kunt u Microsoft toepassen of OEM-updatepakketten voor Azure Stack met behulp van de Update-tegel in de beheerdersportal. U moet het updatepakket downloaden, het pakketbestanden importeren in Azure Stack en vervolgens het updatepakket te installeren. 
 
 ## <a name="download-the-update-package"></a>Het updatepakket downloaden
 
-Wanneer een Microsoft update-pakket voor Azure-Stack beschikbaar is, het pakket downloaden naar een locatie die bereikbaar is vanaf de Azure-Stack en bekijkt u de pakketinhoud. Een updatepakket bestaat gewoonlijk uit de volgende bestanden:
+Als een Microsoft- of OEM-updatepakket voor Azure Stack beschikbaar is, het pakket downloaden naar een locatie die bereikbaar is vanaf de Azure Stack en de pakketinhoud controleren. Een updatepakket bestaat gewoonlijk uit de volgende bestanden:
 
-- Een zelfuitpakkende *PackageName*.exe-bestand. Dit bestand bevat de nettolading voor de update is bijvoorbeeld de meest recente cumulatieve update voor Windows Server.   
-- Bijbehorende *PackageName*.bin-bestanden. Deze bestanden vindt u compressie voor de nettolading dat gekoppeld aan de *PackageName*.exe-bestand. 
-- Een Metadata.xml-bestand. Dit bestand bevat essentiële informatie over de update, bijvoorbeeld de uitgever, de naam van vereiste, grootte en pad-URL voor ondersteuning.
+- Een zelfuitpakkende *PackageName*.exe-bestand. Dit bestand bevat de nettolading voor de update, bijvoorbeeld de meest recente cumulatieve update voor Windows Server.   
+- Bijbehorende *PackageName*.bin-bestanden. Deze bestanden vindt u compressie voor de nettolading die gekoppeld aan de *PackageName*.exe-bestand. 
+- Een Metadata.xml-bestand. Dit bestand bevat essentiële informatie over de update, bijvoorbeeld de uitgever, de naam, de vereiste, de grootte en het pad-URL voor ondersteuning.
 
 ## <a name="import-and-install-updates"></a>Importeren en updates installeren
 
-De volgende procedure laat zien hoe importeren en updatepakketten installeren in de beheerdersportal.
+De volgende procedure beschrijft het importeren en -updatepakketten installeren in de beheerdersportal.
 
 > [!IMPORTANT]
-> Wordt aangeraden dat u gebruikers van elke onderhoudsbewerkingen waarschuwen en dat u plant dat normale onderhoudsvensters tijdens buiten kantooruren zo veel mogelijk. Onderhoud kunnen zowel de werkbelastingen van de gebruiker en de portal bewerkingen beïnvloeden.
+> Wordt aangeraden dat u op de hoogte stellen gebruikers van elke onderhoudsbewerkingen, en dat u plant dat normale onderhoudsvensters tijdens de kantooruren zo veel mogelijk. Onderhoudsbewerkingen mogelijk van invloed op zowel de werkbelastingen van de gebruiker en de portal bewerkingen.
 
 1. Selecteer in de beheerdersportal **meer services**. Klik vervolgens onder de **gegevens en opslag** categorie, selecteer **opslagaccounts**. (Of begint te typen in het filtervak **opslagaccounts**, en selecteer deze.)
 
-    ![Waar vind ik storage-accounts in de portal bevat](media/azure-stack-apply-updates/ApplyUpdates1.png)
+    ![Laat zien waar u kunt storage-accounts vinden in de portal](media/azure-stack-apply-updates/ApplyUpdates1.png)
 
 2. Typ in het filtervak **bijwerken**, en selecteer de **updateadminaccount** storage-account.
 
-    ![Laat zien hoe om te zoeken naar updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
+    ![Laat zien hoe u om te zoeken naar updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
 
 3. In de opslag account details onder **Services**, selecteer **Blobs**.
  
-    ![Toont hoe u naar BLOB's voor het opslagaccount](media/azure-stack-apply-updates/ApplyUpdates3.png) 
+    ![Laat zien hoe u Blobs voor het opslagaccount ophalen](media/azure-stack-apply-updates/ApplyUpdates3.png) 
  
-4. Onder **Blob-service**, selecteer **+ Container** en een container te maken. Voer een naam (bijvoorbeeld *Update 1709*), en selecteer vervolgens **OK**.
+4. Onder **Blob-service**, selecteer **+ Container** om een container te maken. Voer een naam (bijvoorbeeld *Update 1709*), en selecteer vervolgens **OK**.
  
-     ![Laat zien hoe een container in de storage-account toevoegen](media/azure-stack-apply-updates/ApplyUpdates4.png)
+     ![Laat zien hoe u een container in de storage-account toevoegen](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
-5. Nadat de container is gemaakt, klikt u op de containernaam van de en klik vervolgens op **uploaden** het pakketbestanden uploaden naar de container.
+5. Nadat de container is gemaakt, klikt u op de containernaam van de en klik vervolgens op **uploaden** de pakketbestanden uploaden naar de container.
  
-    ![Laat zien hoe de pakketbestanden uploaden](media/azure-stack-apply-updates/ApplyUpdates5.png)
+    ![Laat zien hoe u de pakketbestanden uploaden](media/azure-stack-apply-updates/ApplyUpdates5.png)
 
-6. Onder **blob uploaden**, klik op het mappictogram, bladert u naar het updatepakket .exe-bestand en klik vervolgens op **Open** in het bestand explorer-venster.
+6. Onder **blob uploaden**, klik op het mappictogram, blader naar het updatepakket .exe-bestand en klik vervolgens op **Open** in het bestand explorer-venster.
   
 7. Onder **blob uploaden**, klikt u op **uploaden**. 
  
-    ![Laat zien waar elk pakketbestand uploaden](media/azure-stack-apply-updates/ApplyUpdates6.png)
+    ![Laat zien waar elke pakketbestand uploaden](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Herhaal stap 6 en 7 voor de *PackageName*.bin en Metadata.xml-bestanden. Importeer het bestand aanvullende Notice.txt niet als opgenomen.
-9. Wanneer u klaar bent, kunt u de meldingen (belpictogram in de rechterbovenhoek van de portal) bekijken. De meldingen zou moeten aangeven dat het uploaden is voltooid. 
-10. Ga terug naar de tegel Update op het dashboard. De tegel zou moeten aangeven dat er een update beschikbaar is. Klik op de tegel om te controleren van het zojuist toegevoegde updatepakket.
-11. De update wilt installeren, selecteer het pakket dat gemarkeerd als **gereed** en met de rechtermuisknop op het pakket en selecteert u **nu bijwerken**, of klik op de **nu bijwerken** actie boven .
-12. Als u op het updatepakket installeren, vindt u de status in de **Update-uitvoering details** gebied. Hier kunt u kunt ook klikken op **volledige logboeken downloaden** voor het downloaden van de logboekbestanden.
-13. Wanneer de update is voltooid, ziet u de Update-tegel de bijgewerkte versie van de Azure-Stack.
+8. Herhaal stap 6 en 7 dagen voor de *PackageName*.BIN-bestand en Metadata.xml-bestanden. Importeer het bestand aanvullende Notice.txt niet als opgenomen.
+9. Wanneer u klaar bent, kunt u de meldingen (belpictogram in de rechterbovenhoek van de portal) bekijken. De meldingen moeten aangeven dat het uploaden is voltooid. 
+10. Ga terug naar de tegel van de Update op het dashboard. De tegel aangeven dat een update beschikbaar is. Klik op de tegel om te controleren van het zojuist toegevoegde updatepakket.
+11. Als u wilt de update installeert, selecteert u het pakket dat gemarkeerd als **gereed** en met de rechtermuisknop op het pakket en selecteert u **nu bijwerken**, of klik op de **nu bijwerken** actie aan de bovenkant .
+12. Als u het updatepakket installeren klikt, ziet u de status in de **Update-uitvoering details** gebied. Hier kunt u kunt ook klikken op **volledige logboeken downloaden die u** voor het downloaden van de logboekbestanden.
+13. Wanneer de update is voltooid, wordt de tegel Update de bijgewerkte versie van Azure Stack.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Beheren van updates in de Azure-Stack-overzicht](azure-stack-updates.md)
-- [Azure Stack onderhoud van beleid](azure-stack-servicing-policy.md)
+- [Updates beheren in Azure Stack-overzicht](azure-stack-updates.md)
+- [Azure Stack servicebeleid](azure-stack-servicing-policy.md)

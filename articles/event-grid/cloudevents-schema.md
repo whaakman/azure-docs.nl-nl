@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: f3541fb3dbca6243f6c10611aa968603745f97a1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 41e7be80eb67deaf7a8189aa0d9f62c48b88799a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38314432"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036234"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik een CloudEvents-schema met Event Grid
 
@@ -74,8 +74,6 @@ Een CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 Zie voor meer informatie de [een CloudEvents-specificatie](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Event Grid voor een CloudEvents configureren
-
-Azure Event Grid heeft momenteel, voorbeeld van ondersteuning voor CloudEvents JSON-indeling-invoer en uitvoer in **West-Centraal VS**, **VS-midden**, en **Noord-Europa**.
 
 U kunt Event Grid gebruiken voor zowel invoer en uitvoer van gebeurtenissen in een CloudEvents-schema. U kunt een CloudEvents gebruiken voor systeemgebeurtenissen, zoals gebeurtenissen van Blob Storage en IoT Hub-gebeurtenissen en aangepaste gebeurtenissen. Het kunt ook gebeurtenissen op de kabel heen en weer transformeren.
 

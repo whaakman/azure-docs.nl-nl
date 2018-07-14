@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: liamca
-ms.openlocfilehash: a3baa17906e3bfede8a7fc5f8a0bfbde9d2a57ce
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 24fa427ad67a953020370a16b4d156c82a0a1cf6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951019"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036663"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene-queryvoorbeelden syntaxis voor het bouwen van query's in Azure Search
 Bij het maken van query's voor Azure Search, kunt u ofwel de standaard [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) of de alternatieve [Lucene-Queryparser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). De Lucene-Queryparser biedt ondersteuning voor complexere query-constructs, zoals veldgerelateerde query's, fuzzy zoeken, zoeken op nabijheid, termenverbetering en zoeken op reguliere expressies.
@@ -69,7 +69,7 @@ Het veld dat is opgegeven **fieldname:searchterm** moet een doorzoekbaar veld. Z
 ## <a name="fuzzy-search-example"></a>Een voorbeeld van fuzzy zoekopdracht
 Bij een fuzzy zoekopdracht overeenkomsten zoekt in termen die een dergelijke constructie hebben. Per [Lucene documentatie](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy zoekopdrachten zijn gebaseerd op [Damerau Levenshtein afstand](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-Om te doen bij een fuzzy zoekopdracht, toevoegen de tilde ' ~ ' symbool aan het einde van één woord met een optionele parameter, een waarde tussen 0 en 2, die de afstand bewerken geeft. Bijvoorbeeld: "blauw ~ ' of ' blue ~ 1" retourneerde blauw, blauwe en lijm.
+Om te doen bij een fuzzy zoekopdracht, toevoegen de tilde `~` symbool aan het einde van één woord met een optionele parameter, een waarde tussen 0 en 2, die de afstand bewerken geeft. Bijvoorbeeld, `blue~` of `blue~1` retourneerde blauw, blauwe en lijm.
 
 **Voorbeeld 3** --met de rechtermuisknop op het volgende codefragment in de query. Deze query zoekt voor taken met de term koppelen (indien deze is onjuist gespeld):
 

@@ -14,33 +14,41 @@ ms.topic: article
 ms.date: 07/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e2785b0beeab042d4b1ad9a9eb5f545dbb58b8b9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 09d5842f349917be0e5d94d919b0e9630347284b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487498"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035476"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell voor Azure Stack installeren
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Azure Stack compatibele Azure PowerShell-modules zijn vereist voor het werken met Azure Stack. In deze handleiding helpen we u bij de stappen die nodig zijn voor het installeren van PowerShell voor Azure Stack.
+Azure Stack compatibele Azure PowerShell-modules zijn vereist voor het werken met Azure Stack. In deze handleiding helpen we u bij de stappen die nodig zijn voor het installeren van PowerShell voor Azure Stack. De volgende stappen gelden voor internet zijn verbonden omgevingen. Ga naar de onderkant van de pagina voor niet-verbonden omgevingen.
 
 In dit artikel bevat gedetailleerde instructies voor het installeren van PowerShell voor Azure Stack.
 
 > [!Note]  
-> De volgende stappen moet PowerShell 5.0. Om te controleren of uw versie, $PSVersionTable.PSVersion uitvoeren en vergelijkt u de **belangrijke** versie.
+> De volgende stappen moet ten minste PowerShell 5.0. Om te controleren of uw versie, $PSVersionTable.PSVersion uitvoeren en vergelijkt u de **belangrijke** versie. Als u geen PowerShell 5.0 hebt, volgt u de [koppeling](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) om te upgraden naar PowerShell 5.0.
 
 PowerShell-opdrachten voor Azure Stack zijn geïnstalleerd via de PowerShell Gallery. U kunt de volgende procedure gebruiken om te valideren of PSGallery is geregistreerd als een opslagplaats, open een PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht uit:
 
-```PowerShell  
+```PowerShell
+#requires -Version 5
+#requires -RunAsAdministrator
+#requires -Module PowerShellGet
+
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop 
+
 Get-PSRepository -Name "PSGallery"
 ```
 
 Als de opslagplaats is niet geregistreerd, open een PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht uit:
 
-```PowerShell  
+```PowerShell
+Register-PsRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 > [!Note]  
@@ -97,24 +105,22 @@ In een niet-verbonden scenario, moet u eerst de PowerShell-modules downloaden op
 
 1. Meld u aan bij een computer waar u over een internetverbinding beschikt en gebruik het volgende script om te downloaden van de AzureRM en AzureStack pakketten naar uw lokale computer:
 
-   ```PowerShell  
+   ```PowerShell 
+  #requires -Version 5
+  #requires -RunAsAdministrator
+  #requires -Module PowerShellGet
+  #requires -Module PackageManagement
+  
+  Import-Module -Name PowerShellGet -ErrorAction Stop
+  Import-Module -Name PackageManagement -ErrorAction Stop
+
    $Path = "<Path that is used to save the packages>"
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureRM `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.11
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.3.0 
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0 
    ```
 
   > [!Important]  
@@ -127,19 +133,19 @@ In een niet-verbonden scenario, moet u eerst de PowerShell-modules downloaden op
 4. Nu moet u deze locatie als de standaard-opslagplaats registreren en de azurerm-module en AzureStack-modules installeren vanuit deze opslagplaats:
 
    ```PowerShell
+   #requires -Version 5
+   #requires -RunAsAdministrator
+   #requires -Module PowerShellGet
+   #requires -Module PackageManagement
+
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
    $RepoName = "MyNuGetSource"
 
-   Register-PSRepository `
-     -Name $RepoName `
-     -SourceLocation $SourceLocation `
-     -InstallationPolicy Trusted
+   Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation  -InstallationPolicy Trusted
 
-   Install-Module AzureRM `
-     -Repository $RepoName
+   Install-Module AzureRM -Repository $RepoName
 
-   Install-Module AzureStack `
-     -Repository $RepoName 
+   Install-Module AzureStack -Repository $RepoName 
    ```
 
 ## <a name="configure-powershell-to-use-a-proxy-server"></a>PowerShell voor het gebruik van een proxyserver configureren

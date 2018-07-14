@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 96a0443a66bb826496c6af42fe6479c0a53ac964
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344297"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036081"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Een Windows IoT Edge-apparaat die als een transparante gateway fungeert maken
 
@@ -22,8 +22,8 @@ In dit artikel vindt u gedetailleerde instructies voor het gebruik van een IoT E
 >[!NOTE]
 >Op dit moment:
 > * Als de gateway niet met IoT Hub verbonden is, kunnen niet downstream apparaten worden geverifieerd met de gateway.
-> * IoT Edge-apparaten kunnen geen verbinding maken met IoT Edge-gateways.
-> * Uploaden van het bestand kunnen niet worden gebruikt door downstream-apparaten.
+> * Edge-apparaten kunnen geen verbinding maken met IoT Edge-gateways. 
+> * Aangesloten apparaten niet uploaden van bestanden gebruiken.
 
 Het moeilijke gedeelte over het maken van een transparante gateway is de gateway naar downstream apparaten veilig verbinding wordt gemaakt. Azure IoT Edge kunt u gebruikmaken van PKI-infrastructuur voor het instellen van beveiligde TLS-verbindingen tussen deze apparaten. In dit geval toestemming we een downstream apparaat verbinding maakt met een IoT Edge-apparaat als een transparante gateway fungeert.  Redelijke om beveiliging te handhaven, moet het downstream apparaat de identiteit van het Edge-apparaat bevestigen omdat u wilt dat alleen de apparaten die verbinding maken met uw gateways en niet een mogelijk schadelijke gateway.
 
@@ -141,7 +141,7 @@ Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules vo
 2. Ga naar **IoT Edge** en selecteert u uw IoT Edge-apparaat dat u wilt gebruiken als een gateway.
 3. Selecteer **Modules instellen**.
 4. Selecteer **Volgende**.
-5. In de **routes opgeven** stap, hebt u een standaardroute dat alle berichten van alle modules naar IoT Hub verzendt. Als dit niet het geval is, voeg de volgende code toe en selecteer vervolgens **volgende**.
+5. In de stap **Routes opgeven** moet u beschikken over een standaardroute waarmee alle berichten van alle modules naar IoT Hub worden verzonden. Voeg anders de volgende code toe en selecteer **Volgende**.
    ```JSON
    {
        "routes": {

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c48d03b6e8a3d850d02d2c36c35915f8214b00e8
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908075"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035809"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met Managed Service Identity (MSI) voor Azure Active Directory
 
@@ -85,7 +85,7 @@ Waar:
 
 Als beheerde Service-identiteit is ingeschakeld op een virtuele machine, worden de volgende fout wordt weergegeven bij het gebruik van de functie 'Automatiseringsscript' voor de virtuele machine of de resourcegroep:
 
-![MSI automation scriptfout exporteren](../media/msi-known-issues/automation-script-export-error.png)
+![MSI automation scriptfout exporteren](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
 
 De beheerde Service-identiteit VM-extensie biedt momenteel geen ondersteuning voor de mogelijkheid waarvan het schema exporteren naar een resourcegroepsjabloon. Als gevolg hiervan weergegeven de gegenereerde sjabloon niet. configuratieparameters beheerde Service-identiteit inschakelen op de resource. Deze secties kunnen handmatig worden toegevoegd aan de hand van de voorbeelden in [configureren van een virtuele machine beheerde Service-identiteit met een sjabloon](qs-configure-template-windows-vm.md).
 

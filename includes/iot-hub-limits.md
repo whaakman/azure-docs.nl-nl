@@ -14,7 +14,7 @@ De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources
 
 | Resource | Limiet |
 | --- | --- |
-| Maximum aantal betaalde IoT-hubs per Azure-abonnement |10 |
+| Maximum aantal betaalde IoT-hubs per Azure-abonnement |50 |
 | Maximum aantal gratis IoT-hubs per Azure-abonnement |1 |
 | Maximum aantal tekens in een apparaat-Id | 128 |
 | Maximumaantal apparaat-id's<br/> dat in één aanroep wordt geretourneerd |1000 |
@@ -38,24 +38,24 @@ De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources
 
 
 > [!NOTE]
-> Neem contact op met Microsoft Ondersteuning als u meer dan 10 betaalde IoT-hubs in een Azure-abonnement nodig hebt.
+> Als u meer dan 50 betaalde IoT-hubs in een Azure-abonnement nodig hebt, neem dan contact op met Microsoft ondersteuning.
 
 
 > [!NOTE]
-> Het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt is momenteel 500.000. Als u deze limiet verhogen wilt, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Op dit moment is het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt 500.000. Als u wilt om deze limiet te verhogen, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 De IoT Hub-service vertraagt aanvragen wanneer de volgende quota worden overschreden:
 
 | Vertragen | Waarde per hub |
 | --- | --- |
-| Registerbewerkingen voor identiteit <br/> (maken, ophalen, weergeven, bijwerken, verwijderen), <br/> afzonderlijk of bulksgewijs importeren/exporteren |83.33/sec/Unit (min-5000/eenheid) (voor S3) <br/> 1.67/sec/Unit (min-100/eenheid) (voor S1 en S2). |
+| Registerbewerkingen voor identiteit <br/> (maken, ophalen, weergeven, bijwerken, verwijderen), <br/> afzonderlijk of bulksgewijs importeren/exporteren |83.33/sec/Unit (5000 per minuut per eenheid) (voor S3) <br/> 1.67/sec/Unit (100 per minuut per eenheid) (voor S1 en S2). |
 | Apparaatverbindingen |6000 per seconde per eenheid (voor S3), 120 per seconde per eenheid (voor S2), 12 per seconde per eenheid (voor S1). <br/>Minimaal 100 per seconde. |
 | Apparaat-naar-cloud verzendt |6000 per seconde per eenheid (voor S3), 120 per seconde per eenheid (voor S2), 12 per seconde per eenheid (voor S1). <br/>Minimaal 100 per seconde. |
-| Cloud-naar-apparaat verzendt | 83.33/sec/Unit (5000/min/eenheid) (voor S3) 1.67/sec/unit (min-100/eenheid) (voor S1 en S2). |
-| Cloud-naar-apparaat ontvangt |833.33/sec/Unit (50000/min/eenheid) (voor S3) 16.67/sec/unit (1000/min/eenheid) (voor S1 en S2). |
-| Bestandsuploadbewerkingen |83.33 bestand uploaden sec-meldingen-eenheid (5000/min/eenheid) (voor S3), 1,67 bestand uploaden meldingen/sec/eenheid (min-100/eenheid) (voor S1 en S2). <br/> Voor een Azure Storage-account kunnen 10.000 SAS URI's tegelijk zijn uitgeschakeld.<br/> Er kunnen 10 SAS URI's per apparaat tegelijk zijn uitgeschakeld. |
-| Directe methoden | 24MB/sec/eenheid (voor S3), 160KB/sec/eenheid van de 480KB/sec/eenheid (voor S2) (voor S1)<br/> Op basis van 8KB beperking van de grootte van de meter. |
+| Cloud-naar-apparaat verzendt | 83.33/sec/Unit (5000 per minuut per eenheid) (voor S3), 1.67/sec/unit (100 per minuut per eenheid) (voor S1 en S2). |
+| Cloud-naar-apparaat ontvangt |833.33/sec/Unit (50000 per minuut per eenheid) (voor S3), 16.67/sec/unit (1000 per minuut per eenheid) (voor S1 en S2). |
+| Bestandsuploadbewerkingen |83.33 bestand uploaden meldingen per seconde per eenheid (5000 per minuut per eenheid) (voor S3), 1,67 bestand uploaden meldingen per seconde per eenheid (100 per minuut per eenheid) (voor S1 en S2). <br/> Voor een Azure Storage-account kunnen 10.000 SAS URI's tegelijk zijn uitgeschakeld.<br/> Er kunnen 10 SAS URI's per apparaat tegelijk zijn uitgeschakeld. |
+| Directe methoden | 24MB per seconde per eenheid (voor S3), 480KB per seconde per eenheid (voor S2), 160KB per seconde per eenheid (voor S1)<br/> Op basis van 8KB meter formaat beperking. |
 | Apparaatdubbel leest | 50 per seconde per eenheid (voor S3), maximaal 10 per seconde of 1 per seconde per eenheid (voor S2), 10 per seconde (voor S1) |
 | Apparaatdubbel werkt bij | 50 per seconde per eenheid (voor S3), maximaal 10 per seconde of 1 per seconde per eenheid (voor S2), 10 per seconde (voor S1) |
-| Taakbewerkingen <br/> (maken, bijwerken, weergeven, verwijderen) | 83.33/sec/Unit (5000/min/eenheid) (voor S3) 1.67/sec/unit (min-100/eenheid) (voor S2), 1.67/sec/unit (min-100/eenheid) (voor S1) |
+| Taakbewerkingen <br/> (maken, bijwerken, weergeven, verwijderen) | 83.33/sec/Unit (5000 per minuut per eenheid) (voor S3), 1.67/sec/unit (100 per minuut per eenheid) (voor S2), 1.67/sec/unit (100 per minuut per eenheid) (voor S1) |
 | Doorvoer van taken per apparaat bewerkingen | 50 per seconde per eenheid (voor S3), maximaal 10 per seconde of 1 per seconde per eenheid (voor S2), 10 per seconde (voor S1) |

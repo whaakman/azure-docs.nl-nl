@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: ed87b3c935fe4032460f8e524f963355fb3157d9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e7c6c8d017e4371919088ec414d3108939ca4a19
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970298"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036251"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Overzicht van de oplossingsversneller Voorspeld onderhoud
 
@@ -35,11 +35,11 @@ De grijze items vertegenwoordigen onderdelen waarmee mogelijkheden voor *apparaa
 
 Navigeer in Azure Portal naar de resourcegroep met de naam van de oplossing die u hebt gekozen om de ingerichte resources weer te geven.
 
-![][img-resource-group]
+![Accelerator-resources][img-resource-group]
 
-Wanneer u de oplossingsversneller inricht, krijgt u een e-mailbericht met een koppeling naar de Machine Learning-werkruimte. U kunt ook navigeren naar de Machine Learning-werkruimte van de [azureiotsolutions.com] [ lnk-azureiotsuite] pagina voor de ingerichte oplossing. Op deze pagina is een tegel beschikbaar wanneer de oplossing de status **Gereed** heeft.
+Wanneer u de oplossingsversneller inricht, krijgt u een e-mailbericht met een koppeling naar de Machine Learning-werkruimte. U kunt ook navigeren naar de Machine Learning-werkruimte van de [Microsoft Azure IoT-oplossingsversnellers] [ lnk-azureiotsuite] pagina voor de ingerichte oplossing. Op deze pagina is een tegel beschikbaar wanneer de oplossing de status **Gereed** heeft.
 
-![][img-machine-learning]
+![Machine learning-model][img-machine-learning]
 
 ## <a name="simulated-devices"></a>Gesimuleerde apparaten
 
