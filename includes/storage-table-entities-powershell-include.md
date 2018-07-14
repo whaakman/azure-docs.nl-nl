@@ -3,18 +3,18 @@
 
 ## <a name="managing-table-entities"></a>Tabelentiteiten beheren
 
-Nu dat u een tabel hebt, gaan we kijken hoe voor het beheren van entiteiten of rijen in de tabel. 
+Nu u hebt een tabel, gaan we bekijken over het beheren van entiteiten of rijen in de tabel. 
 
-Een entiteit kan maximaal 255 eigenschappen, waaronder 3 eigenschappen hebben: **PartitionKey**, **RowKey**, en **tijdstempel**. U bent zelf verantwoordelijk voor het invoegen en het bijwerken van de waarden van **PartitionKey** en **RowKey**. De server beheert de waarde van **tijdstempel**, die niet worden gewijzigd. Samen de **PartitionKey** en **RowKey** unieke identificatie van elke entiteit in een tabel.
+Een entiteit kan maximaal 255 eigenschappen, met inbegrip van 3 eigenschappen hebben: **PartitionKey**, **RowKey**, en **Timestamp**. U bent verantwoordelijk voor het invoegen en bijwerken van de waarden van **PartitionKey** en **RowKey**. De server beheert de waarde van **tijdstempel**, die kan niet worden gewijzigd. Samen de **PartitionKey** en **RowKey** unieke identificatie van elke entiteit in een tabel.
 
-* **PartitionKey**: bepaalt de partitie die de entiteit is opgeslagen in.
-* **RowKey**: een unieke identificatie van de entiteit in de partitie.
+* **PartitionKey**: Hiermee bepaalt u de partitie die de entiteit is opgeslagen in.
+* **RowKey**: de entiteit in de partitie wordt aangeduid.
 
-U kunt maximaal 252 aangepaste eigenschappen voor een entiteit kan definiëren. 
+U kunt maximaal 252 aangepaste eigenschappen voor een entiteit kunt definiëren. 
 
 ### <a name="add-table-entities"></a>Tabelentiteiten toevoegen
 
-Entiteiten toevoegen aan een tabel met **toevoegen StorageTableRow**. Deze voorbeelden partitiesleutels met waarden 'Partitie1' en 'partition2' en rij sleutels gelijk zijn aan de afkortingen gebruiken. De eigenschappen in elke entiteit zijn gebruikersnaam en het gebruikers-id. 
+Entiteiten toevoegen aan een tabel met **toevoegen StorageTableRow**. Deze voorbeelden gebruiken de partitiesleutels van waarden "Partitie1" en "partition2" en recordsleutels die gelijk is aan de afkortingen van Staten. De eigenschappen in elke entiteit zijn gebruikersnaam en het gebruikers-id. 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -48,29 +48,29 @@ Er zijn verschillende manieren om op te vragen van de entiteiten in een tabel.
 
 #### <a name="retrieve-all-entities"></a>Alle entiteiten ophalen
 
-Gebruik voor het ophalen van alle entiteiten **Get-AzureStorageTableRowAll**.
+Als u wilt alle entiteiten ophalen, gebruikt u **Get-AzureStorageTableRowAll**.
 
 ```powershell
 Get-AzureStorageTableRowAll -table $storageTable | ft
 ```
 
-Met deze opdracht geeft de resultaten die vergelijkbaar is met de volgende tabel:
+Met deze opdracht levert resultaat is vergelijkbaar met de volgende tabel:
 
 | gebruikers-id | gebruikersnaam | partitie | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Partitie1 | CA |
 | 3 | Christine | Partitie1 | WA |
 | 2 | Jessie | partition2 | NM |
-| 4 | Chris | partition2 | TX |
+| 4 | Steven | partition2 | TX |
 
 #### <a name="retrieve-entities-for-a-specific-partition"></a>Entiteiten voor een specifieke partitie ophalen
 
-Gebruik voor het ophalen van alle entiteiten in een specifieke partitie **Get-AzureStorageTableRowByPartitionKey**.
+Gebruiken om op te halen van alle entiteiten in een specifieke partitie, **Get-AzureStorageTableRowByPartitionKey**.
 
 ```powershell
 Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $partitionKey1 | ft
 ```
-De resultaten ongeveer de volgende tabel:
+De resultaten in de volgende tabel als volgt uitzien:
 
 | gebruikers-id | gebruikersnaam | partitie | rowkey |
 |----|---------|---------------|----|
@@ -79,7 +79,7 @@ De resultaten ongeveer de volgende tabel:
 
 #### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Entiteiten voor een specifieke waarde in een specifieke kolom ophalen
 
-Gebruik voor het ophalen van entiteiten waarbij de waarde in een specifieke kolom gelijk is aan een bepaalde waarde **Get-AzureStorageTableRowByColumnName**.
+Gebruiken om op te halen waarbij de waarde in een specifieke kolom gelijk is aan een bepaalde waarde entiteiten, **Get-AzureStorageTableRowByColumnName**.
 
 ```powershell
 Get-AzureStorageTableRowByColumnName -table $storageTable `
@@ -88,7 +88,7 @@ Get-AzureStorageTableRowByColumnName -table $storageTable `
     -operator Equal
 ```
 
-Deze query haalt een record.
+Deze query wordt één record opgehaald.
 
 |Veld|waarde|
 |----|----|
@@ -97,9 +97,9 @@ Deze query haalt een record.
 | PartitionKey | Partitie1 |
 | RowKey      | CA |
 
-#### <a name="retrieve-entities-using-a-custom-filter"></a>Entiteiten met een aangepast filter ophalen 
+#### <a name="retrieve-entities-using-a-custom-filter"></a>Entiteiten met behulp van een aangepast filter ophalen 
 
-Gebruiken om op te halen met behulp van een aangepast filter entiteiten, **Get-AzureStorageTableRowByCustomFilter**.
+Gebruiken om op te halen entiteiten met behulp van een aangepast filter, **Get-AzureStorageTableRowByCustomFilter**.
 
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
@@ -107,7 +107,7 @@ Get-AzureStorageTableRowByCustomFilter `
     -customFilter "(userid eq 1)"
 ```
 
-Deze query haalt een record.
+Deze query wordt één record opgehaald.
 
 |Veld|waarde|
 |----|----|
@@ -118,9 +118,9 @@ Deze query haalt een record.
 
 ### <a name="updating-entities"></a>Entiteiten bijwerken 
 
-Er zijn drie stappen voor het bijwerken van entiteiten. Eerst ophalen van de entiteit te wijzigen. Controleer vervolgens de wijziging. Ten slotte doorvoeren de wijzigen met behulp van **Update AzureStorageTableRow**.
+Er zijn drie stappen voor het bijwerken van entiteiten. Eerst ophalen van de entiteit te wijzigen. Ten tweede moet u de wijziging. Derde doorvoeren de wijzigen met behulp van **Update AzureStorageTableRow**.
 
-Bijwerken van de entiteit met gebruikersnaam = 'Jessie' als u wilt dat de gebruikersnaam = 'Jessie2'. Dit voorbeeld toont ook een andere manier om te maken van een aangepast filter met behulp van .NET-typen. 
+De entiteit bijwerken met gebruikersnaam = 'Jessie' als u wilt dat de gebruikersnaam = 'Jessie2'. In dit voorbeeld ziet u ook een andere manier om te maken van een aangepast filter met behulp van .NET-typen. 
 
 ```powershell
 # Create a filter and get the entity to be updated.
@@ -142,7 +142,7 @@ Get-AzureStorageTableRowByCustomFilter -table $storageTable `
     -customFilter "(username eq 'Jessie2')"
 ```
 
-De resultaten blijkt de Jessie2-record.
+De resultaten weergegeven de record Jessie2.
 
 |Veld|waarde|
 |----|----|
@@ -155,9 +155,9 @@ De resultaten blijkt de Jessie2-record.
 
 U kunt één entiteit of alle entiteiten in de tabel verwijderen.
 
-#### <a name="deleting-one-entity"></a>Verwijderen van een entiteit
+#### <a name="deleting-one-entity"></a>Het verwijderen van een entiteit
 
-Als één entiteit verwijderen, geen verwijzing ophalen naar die entiteit en doorgeven in **verwijderen AzureStorageTableRow**.
+Als u wilt verwijderen van een enkele entiteit, geen verwijzing ophalen naar die entiteit en doorsluizen naar **Remove-AzureStorageTableRow**.
 
 ```powershell
 # Set filter.
@@ -177,7 +177,7 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Alle entiteiten in de tabel verwijderen 
 
-Voor het verwijderen van alle entiteiten in de tabel die u kunt ze ophalen en de resultaten doorsluizen naar de cmdlet remove. 
+Als u wilt verwijderen van alle entiteiten in de tabel, die u kunt ze ophalen en de resultaten doorsluizen naar de cmdlet remove. 
 
 ```powershell
 # Get all rows and pipe the result into the remove cmdlet.

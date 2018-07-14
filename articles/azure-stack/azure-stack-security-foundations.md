@@ -1,85 +1,89 @@
 ---
-title: Azure-Stack beveiligingsmechanismen begrijpen | Microsoft Docs
-description: Als servicebeheerder meer informatie over de beveiligingsbesturingselementen toegepast op Azure-Stack
+title: Informatie over Azure Stack-beveiligingsmechanismen | Microsoft Docs
+description: Als servicebeheerder meer informatie over de beveiligingsmaatregelen die is toegepast op Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a3bd314a1df3c45c76b2e3a5acb31c1474d0fdf5
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008830"
 ---
-# <a name="azure-stack-infrastructure-security-posture"></a>Azure beveiligingspostuur van Stack-infrastructuur
+# <a name="azure-stack-infrastructure-security-posture"></a>Azure-infrastructuur stack-beveiliging
 
-*Van toepassing op: Azure Stack geïntegreerd systemen*
+*Is van toepassing op: Azure Stack-geïntegreerde systemen*
 
-Beveiligingsoverwegingen en nalevingsreglementen zijn een van de belangrijkste stuurprogramma's voor het gebruik van hybride clouds. Azure-Stack is ontworpen voor deze scenario's en het is belangrijk te begrijpen van de controlemechanismen al zijn geïmplementeerd als overstap op Azure-Stack.
+Aandachtspunten voor de beveiliging en nalevingsvoorschriften zijn een van de belangrijkste stuurprogramma's voor het gebruik van hybride clouds. Azure Stack is ontworpen voor deze scenario's en het is belangrijk te begrijpen van de controlemechanismen al zijn geïmplementeerd als overstappen op Azure Stack.
 
-In Azure-Stack zijn er twee houding beveiligingslagen die naast elkaar bestaan. De eerste laag bestaat uit de Stack van Azure-infrastructuur, die u gaat van de hardwareonderdelen helemaal tot aan de Azure Resource Manager en bevat de beheerder en het Tenant-portals. De tweede laag bestaat uit de werkbelastingen die tenants maken, implementeren en beheren en bevat items zoals virtuele machines of Services van de App-websites.  
+Twee beveiligingslagen houding naast elkaar bestaan in Azure Stack. De eerste laag is de Azure Stack-infrastructuur, waaronder de hardwareonderdelen die tot de Azure Resource Manager. De eerste laag omvat de beheerder en de Tenant-portals. De tweede laag bestaat uit de werkbelastingen die zijn gemaakt, geïmplementeerd en beheerd door tenants. De tweede laag bevat items zoals virtual machines en websites App Services.
 
-## <a name="security-approach"></a>Beveiliging benadering
-Azure-Stack is ontworpen met een beveiligingspostuur als bescherming tegen actieve bedreigingen en is ontworpen om te voldoen aan de vereisten van de belangrijkste nalevingsstandaards. Als gevolg hiervan is de beveiligingsstatus van de Azure-Stack-infrastructuur gebaseerd op twee stijlen:
+## <a name="security-approach"></a>Benadering van beveiliging
 
- - **Stel dat inbreuk.**  
-Vanaf de veronderstelling dat het systeem al is geschonden, ligt de nadruk op *detecteren en het beperken van de gevolgen van inbreuk* versus alleen probeert om aanvallen te voorkomen. 
- - **Standaard gehard.**  
-Aangezien de infrastructuur worden uitgevoerd op een goed gedefinieerde hardware en software, we *inschakelen, configureren en valideren van de beveiligingsfuncties* standaard.
+De beveiligingsstatus voor Azure Stack is ontworpen om te zetten voor bescherming tegen moderne bedreigingen en is gebouwd om te voldoen aan de vereisten van de belangrijkste nalevingsstandaarden. Als gevolg hiervan is de beveiligingsstatus van de Azure Stack-infrastructuur gebaseerd op twee onderdelen:
 
+ - **Uitgaan van inbreuk**  
+Vanaf de veronderstelling dat het systeem al is geschonden, richt u op *detecteren en beperkt de gevolgen van schendingen* versus alleen probeert om aanvallen te voorkomen. 
+ - **Standaard beveiligd**  
+Omdat de infrastructuur wordt uitgevoerd op goed gedefinieerde hardware en software, Azure Stack *mogelijk maakt, configureert en valideert de beveiligingsfuncties* standaard.
 
-
-Omdat Azure-Stack is geleverd als een geïntegreerde systeem, wordt de beveiligingsstatus van de Azure-Stack-infrastructuur wordt gedefinieerd door Microsoft. Net als in Azure zijn tenants verantwoordelijk voor het definiëren van de beveiligingsstatus van de tenantwerkbelastingen. Dit document bevat fundamentele kennis over de beveiligingsstatus van de Azure-Stack-infrastructuur.
+Omdat Azure Stack wordt geleverd als een geïntegreerd systeem, wordt de beveiligingsstatus van de Azure Stack-infrastructuur wordt gedefinieerd door Microsoft. Net als in Azure zijn tenants verantwoordelijk voor het definiëren van de beveiligingsstatus van de tenant-workloads. Dit document bevat fundamentele kennis over de beveiligingsstatus van de Azure Stack-infrastructuur.
 
 ## <a name="data-at-rest-encryption"></a>Data-at-rest versleuteling
-Alle Azure-Stack-infrastructuur en tenant-gegevens in rust met Bitlocker is versleuteld. Deze versleuteling wordt beschermd tegen fysieke verlies of diefstal van Azure-Stack opslagonderdelen. 
+Alle gegevens in Azure Stack-infrastructuur en tenant is in rust versleuteld met Bitlocker. Deze versleuteling bescherming tegen fysiek verlies of diefstal van Azure Stack-opslagonderdelen. 
 
-## <a name="data-in-transit-encryption"></a>Gegevens in de doorvoer-versleuteling
-De onderdelen van de Azure-Stack-infrastructuur communiceren met kanalen die zijn versleuteld met TLS 1.2. Certificaten voor bestandsversleuteling worden automatisch beheerd door de infrastructuur. 
+## <a name="data-in-transit-encryption"></a>Gegevens in transit versleuteling
+De onderdelen van de Azure Stack-infrastructuur communiceren door middel van kanalen die zijn versleuteld met TLS 1.2. Certificaten voor bestandsversleuteling worden zelf beheerd door de infrastructuur. 
 
-Alle eindpunten van de externe infrastructuur, zoals de REST-eindpunten of de Stack van Azure-portal, TLS 1.2-ondersteuning voor beveiligde communicatie. Certificaten voor bestandsversleuteling, van een derde partij of van de certificeringsinstantie van uw bedrijf moeten worden opgegeven voor deze eindpunten. 
+Alle externe infrastructuur-eindpunten, zoals de REST-eindpunten of de Azure Stack-portal, ondersteuning voor TLS 1.2 voor beveiligde communicatie. Certificaten voor bestandsversleuteling, van een derde partij of van uw enterprise-CA, moeten worden opgegeven voor deze eindpunten. 
 
-Terwijl de zelfondertekende certificaten kunnen worden gebruikt voor deze externe eindpunten, raadt Microsoft tegen het gebruik ervan. 
+Hoewel zelfondertekende certificaten kunnen worden gebruikt voor deze externe eindpunten, raadt Microsoft op basis van het gebruik ervan. 
 
-## <a name="secret-management"></a>Geheime management
-Een groot aantal geheimen zoals wachtwoorden, Azure Stack-infrastructuur gebruikt om te functioneren. De meeste van deze worden automatisch gedraaid vaak, omdat ze groep beheerde serviceaccounts, die om de 24 uur draait.
+## <a name="secret-management"></a>Geheimenbeheer
+Azure Stack-infrastructuur maakt gebruik van een groot aantal geheimen zoals wachtwoorden, werken. De meeste van deze worden automatisch gedraaid vaak het geval is, omdat deze groep beheerde serviceaccounts, die om de 24 uur draait zijn.
 
-De resterende geheimen die niet zijn voorzien van een groep beheerde serviceaccounts kunnen handmatig worden gedraaid met een script in de beschermde eindpunt.
+De resterende geheimen die niet zijn Group Managed Service accounts met een script in het Privileged eindpunt handmatig kunnen worden gedraaid.
 
 ## <a name="code-integrity"></a>Code-integriteit
-Azure-Stack wordt gebruikgemaakt van de meest recente versie van Windows Server 2016 beveiligingsfuncties. Een van beide is Windows Defender Device Guard, die toepassing whitelisting biedt en zorgt ervoor dat alleen code wordt uitgevoerd binnen de Azure-Stack-infrastructuur gemachtigde. 
+Azure Stack wordt gebruik gemaakt van de meest recente versie van Windows Server 2016 beveiligingsfuncties. Een van beide is Windows Defender Device Guard, dit opname in de whitelist biedt en zorgt ervoor dat alleen code wordt uitgevoerd binnen de Azure Stack-infrastructuur gemachtigde. 
 
-Geautoriseerde code is ondertekend door Microsoft of de OEM-partner en het is opgenomen in de lijst met toegestane software die is opgegeven in een beleid is gedefinieerd door Microsoft. Met andere woorden, kan alleen de software die is goedgekeurd voor uitvoering in de Azure-Stack-infrastructuur worden uitgevoerd. Elke poging om uit te voeren niet-geautoriseerde code is geblokkeerd en wordt een controlestatusbericht gegenereerd.
+Geautoriseerde code is ondertekend door Microsoft of de OEM-partner en het is opgenomen in de lijst met toegestane software die is opgegeven in een beleid is gedefinieerd door Microsoft. Met andere woorden, kan alleen de software die is goedgekeurd om te worden uitgevoerd in de Azure Stack-infrastructuur worden uitgevoerd. Elke poging voor het uitvoeren van niet-geautoriseerde code geblokkeerd en wordt een controle wordt gegenereerd.
 
-Het beleid Device Guard voorkomt ook dat software of agenten van derden uitgevoerd in de Azure-Stack-infrastructuur.
+Het Device Guard-beleid voorkomt ook dat software of agenten van derden die worden uitgevoerd in de Azure Stack-infrastructuur.
 
-## <a name="credential-guard"></a>Referentie Guard
-Een andere Windows Server 2016 beveiligingsfunctie in Azure-Stack is Windows Defender referentie Guard, die wordt gebruikt voor het beveiligen van Azure-Stack infrastructuur referenties Pass-the-Hash en Pass-the-Ticket-aanvallen.
+## <a name="credential-guard"></a>Credential Guard
+Een andere Windows Server 2016 security-functie in Azure Stack is Windows Defender Credential Guard, die wordt gebruikt voor het beveiligen van referenties voor Azure Stack-infrastructuur van Pass-the-Hash en Pass-the-Ticket-aanvallen.
 
 ## <a name="antimalware"></a>Antimalware
-Elk onderdeel in Azure-Stack (Hyper-V-hosts en virtuele Machines) is met Windows Defender Antivirus beveiligd.
+Elk onderdeel in Azure Stack (Hyper-V-hosts en virtuele Machines) wordt beschermd met Windows Defender Antivirus.
+
+Antivirus-definitie en engine-updates worden meerdere keren per dag toegepast in verbonden scenario's. In niet-verbonden scenario's worden anti-malware-updates toegepast als onderdeel van de maandelijkse updates van Azure Stack. Zie [bijwerken van Windows Defender Antivirus op Azure Stack](azure-stack-security-av.md) voor meer informatie.
 
 ## <a name="constrained-administration-model"></a>Beperkte beheermodel
-Beheer in Azure-Stack wordt beheerd door het gebruik van drie toegangspunten, elk met een specifiek doel: 
-1. De [Beheerdersportal](azure-stack-manage-portals.md) biedt een point-and-click-ervaring voor dagelijkse beheertaken uit te voeren.
-2. Azure Resource Manager beschrijft de beheerbewerkingen van de Beheerdersportal via een REST-API die wordt gebruikt door PowerShell en Azure CLI. 
-3. Voor specifieke bewerkingen op laag niveau, bijvoorbeeld data center-integratie of ondersteuning voor scenario's, Azure Stack beschrijft een PowerShell-eindpunt aangeroepen [bevoegde eindpunt](azure-stack-privileged-endpoint.md). Dit eindpunt wordt alleen een goedgekeurde lijst set cmdlets en het wordt sterk gecontroleerd.
+Beheer in Azure Stack wordt beheerd door het gebruik van drie toegangspunten, elk met een specifiek doel: 
+1. De [Beheerdersportal](azure-stack-manage-portals.md) biedt een aanwijzen en klikken voor dagelijkse beheertaken uit te voeren.
+2. Azure Resource Manager wordt aangegeven dat alle beheerbewerkingen van de Beheerdersportal via een REST-API, die worden gebruikt door PowerShell en Azure CLI. 
+3. Voor bepaalde bewerkingen op laag niveau, bijvoorbeeld data center-integratie of ondersteuning van scenario's, Azure Stack wordt aangegeven dat een PowerShell-eindpunt met de naam [bevoegde eindpunt](azure-stack-privileged-endpoint.md). Dit eindpunt wordt alleen een goedgekeurde set cmdlets en het is sterk gecontroleerd.
 
-## <a name="network-controls"></a>Netwerk-besturingselementen
-Azure Stack-infrastructuur wordt geleverd met meerdere lagen van network Access Control List(ACL). De ACL's te voorkomen dat onbevoegde toegang tot de infrastructuuronderdelen en infrastructuur voor communicatie met alleen de paden die vereist voor de werking ervan zijn te beperken. 
+## <a name="network-controls"></a>Netwerkbeveiliging
+Azure Stack-infrastructuur wordt geleverd met meerdere lagen van network Access Control List(ACL). De ACL's voorkomt ongeoorloofde toegang tot de onderdelen van de infrastructuur en infrastructuur voor communicatie met alleen de paden die vereist voor de werking ervan zijn te beperken. 
 
 Netwerk-ACL's worden afgedwongen in drie lagen:
-1.  Bovenaan Rack-switches
-2.  Software-gedefinieerde netwerk
-3.  Host en de VM besturingssysteem firewalls 
+1.  Top van Rack-switches
+2.  Software Defined Network
+3.  Host en virtuele machine besturingssysteem-firewalls
 
+## <a name="next-steps"></a>Volgende stappen
 
+- [Meer informatie over het draaien van uw geheimen in Azure Stack](azure-stack-rotate-secrets.md)

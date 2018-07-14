@@ -1,28 +1,25 @@
 ---
-title: Afbeelding van de analyse cognitieve zoeken kwalificatie (Azure Search) | Microsoft Docs
-description: Haal de semantische tekst door de installatiekopie-analyse met behulp van de ImageAnalysis cognitieve kwalificatie in een Azure Search verrijking pijplijn.
+title: Afbeelding van analyse cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
+description: Haal de semantische tekst via analyse van de afbeelding met behulp van de ImageAnalysis cognitieve vaardigheden in een Azure Search verrijking-pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dd26dbe34cd04d1ad3184e2cd62afae5166ac914
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad1946436b2b5bab55ff53dcce09446ef1220829
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640503"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008872"
 ---
-#   <a name="image-analysis-cognitive-skill"></a>Afbeelding Analysis cognitieve kwalificatie
+#   <a name="image-analysis-cognitive-skill"></a>Afbeelding Analysis cognitieve vaardigheden
 
-De **installatiekopie Analysis** kwalificatie extraheert een groot aantal visual functies op basis van de inhoud van de afbeelding. U kunt bijvoorbeeld een bijschrift genereren van een installatiekopie, codes genereren of beroemdheden en monumenten identificeren.
+De **analyse van de afbeelding** vaardigheid extraheert een grote verscheidenheid aan visuele kenmerken op basis van de inhoud van de installatiekopie. U kunt bijvoorbeeld een bijschrift genereren van een installatiekopie, codes genereren of beroemdheden en oriëntatiepunten herkennen.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
@@ -33,24 +30,25 @@ Parameters zijn hoofdlettergevoelig.
 
 | Parameternaam     | Beschrijving |
 |--------------------|-------------|
-| defaultLanguageCode   |  Een tekenreeks dat aangeeft welke taal om terug te keren. De service retourneert resultaten in een bepaalde taal. Als deze parameter niet is opgegeven, is de standaardwaarde 'en'. <br/><br/>Ondersteunde talen zijn: <br/>*nl* -Engels (standaard) <br/> *zh* -vereenvoudigd Chinees|
-|visualFeatures |   Een matrix met tekenreeksen die aangeven welke typen visuele functie om terug te keren. Visuele functie geldige typen zijn:  <ul><li> *categorieën* -afbeeldingsinhoud op basis van een taxonomie gedefinieerd in de cognitieve Services categoriseert [documentatie](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *labels* -tags van de installatiekopie met een gedetailleerde lijst met woorden die betrekking hebben op de inhoud van de afbeelding.</li><li>*Beschrijving* -installatiekopie van de inhoud met een volledige Engelse zin.</li><li>*Vlakken* -detecteert als vlakken aanwezig zijn. Indien aanwezig, genereert coördinaten, geslacht en leeftijd.</li><li> *ImageType* -detecteert of de installatiekopie illustraties of de tekening van een regel is.</li><li>   *Kleur* -bepaalt de accentkleur, verwerkingsflexibiliteit kleur en of een installatiekopie van een zwarte is wit.</li><li>*Volwassenen* -detecteert of de afbeelding pornografische aard is (beschrijft bloot of een handeling geslacht). Seksuele suggestieve inhoud wordt ook gedetecteerd.</li></ul> Namen van visuele functies zijn hoofdlettergevoelig.|
-| details   | Een matrix met tekenreeksen die aangeven welke domeinspecifieke gegevens te retourneren. Visuele functie geldige typen zijn: <ul><li>*Beroemdheden* -beroemdheden identificeert als gedetecteerd in de installatiekopie.</li><li>*Monumenten* -monumenten identificeert als gedetecteerd in de installatiekopie.</li></ul>
+| defaultLanguageCode   |  Een tekenreeks die aangeeft welke taal moet worden geretourneerd. De service retourneert resultaten in een opgegeven taal. Als deze parameter niet is opgegeven, is de standaardwaarde 'en'. <br/><br/>Ondersteunde talen zijn: <br/>*nl* -Engels (standaard) <br/> *zh* -vereenvoudigd Chinees|
+|visualFeatures |   Een matrix met tekenreeksen die aangeeft welke visuele functie om terug te keren. Geldige visualfunctie typen zijn onder andere:  <ul><li> *categorieën* -categoriseert afbeeldingsinhoud op basis van een gedefinieerd in de Cognitive Services taxonomie [documentatie](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *tags* -tags van de installatiekopie met een gedetailleerde lijst met betrekking tot de inhoud van de woorden.</li><li>*Beschrijving* -beschrijving van de afbeelding die inhoud met een volledige Engelse zin.</li><li>*Gezichten* -detecteert of gezichten aanwezig zijn. Als deze aanwezig is, genereert coördinaten, geslacht en leeftijd.</li><li> *ImageType* -detecteert of de afbeelding clipart of een lijntekening is.</li><li>   *Kleur* -bepaalt de accentkleur, de overheersende kleur, en of een afbeelding is zwart- wit.</li><li>*Volwassenen* -detecteert of de installatiekopie is in de natuur (ziet u bloot of een geregistreerde seksuele act) is. Seksueel suggestieve inhoud wordt ook gedetecteerd.</li></ul> Namen van visuele kenmerken zijn hoofdlettergevoelig.|
+| details   | Een matrix met tekenreeksen die aangeeft welke domeinspecifieke gegevens moeten worden geretourneerd. Geldige visualfunctie typen zijn onder andere: <ul><li>*Beroemdheden* -beroemdheden wordt geïdentificeerd als gedetecteerd in de afbeelding.</li><li>*Oriëntatiepunten* -oriëntatiepunten wordt geïdentificeerd als gedetecteerd in de afbeelding.</li></ul>
  |
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Voer een naam      | Beschrijving                                          |
+| Voer een naam in      | Beschrijving                                          |
 |---------------|------------------------------------------------------|
-| Afbeelding         | Complex Type. Momenteel wordt alleen werkt met '/ document/normalized_images' veld, die wordt geproduceerd door de Azure Blob-indexeerfunctie wanneer ```imageAction``` is ingesteld op ```generateNormalizedImages```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
+| image         | Complexe Type. Momenteel wordt alleen werkt met "/ document/normalized_images"-veld, die worden geproduceerd door de indexeerfunctie Azure Blob als ```imageAction``` is ingesteld op ```generateNormalizedImages```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
 
 
 
-##  <a name="sample-definition"></a>Voorbeeld-definitie
+##  <a name="sample-definition"></a>Van voorbeelddefinitie
 
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+    "context": "/document/normalized_images/*",
     "visualFeatures": [
         "Tags",
         "Faces",
@@ -100,7 +98,7 @@ Parameters zijn hoofdlettergevoelig.
 }
 ```
 
-##  <a name="sample-input"></a>Voorbeeldinvoer
+##  <a name="sample-input"></a>Van Voorbeeldinvoer
 
 ```json
 {
@@ -233,20 +231,20 @@ Parameters zijn hoofdlettergevoelig.
 
 
 ## <a name="error-cases"></a>Foutgevallen
-In de volgende foutgevallen zijn geen elementen worden geëxtraheerd.
+In de volgende foutgevallen worden geen elementen geëxtraheerd.
 
 | Foutcode | Beschrijving |
 |------------|-------------|
 | NotSupportedLanguage | De opgegeven taal wordt niet ondersteund. |
 | InvalidImageUrl | Afbeeldings-URL is onjuist ingedeeld of niet toegankelijk.|
-| InvalidImageFormat | Invoergegevens is geen geldige installatiekopie. |
-| InvalidImageSize | De installatiekopie van de invoer is te groot. |
+| InvalidImageFormat | Invoergegevens is geen geldige afbeelding. |
+| InvalidImageSize | Afbeelding is te groot. |
 | NotSupportedVisualFeature  | Functietype van de opgegeven is niet geldig. |
-| NotSupportedImage | Niet-ondersteunde afbeelding, bijvoorbeeld kinderpornografie. |
+| NotSupportedImage | Niet-ondersteunde afbeelding, bijvoorbeeld, kinderporno. |
 | InvalidDetails | Niet-ondersteunde domeinspecifieke model. |
 
 ## <a name="see-also"></a>Zie ook
 
 + [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Het definiëren van een vaardigheden](cognitive-search-defining-skillset.md)
-+ [Maak indexeerfunctie (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
++ [Indexeerfunctie (REST) maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

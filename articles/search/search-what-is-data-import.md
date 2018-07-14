@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: e54b89d31042d43a14379dea6daffd3e7763a64a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6c3756e721847a8cb746f5dc755ccd90bfebe9f0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796945"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008271"
 ---
 # <a name="indexing-in-azure-search"></a>Indexeren in Azure Search
 > [!div class="op_single_selector"]
@@ -59,12 +59,12 @@ Functionaliteit van de indexeerfunctie wordt weergegeven in [Azure Portal](searc
 
 Een voordeel van het gebruik van de portal is dat Azure Search meestal een standaardindexschema voor u kan genereren door de metagegevens van de brongegevensset te lezen. U kunt de gegenereerde index wijzigen totdat de index wordt verwerkt. Daarna zijn alleen schemabewerkingen toegestaan waarvoor de index niet opnieuw gegenereerd hoeft te worden. Als de wijzigingen die u doorvoert, rechtstreeks invloed hebben op het schema, moet u de index opnieuw opbouwen. 
 
-## <a name="verify-data-import-with-search-explorer"></a>Gegevensimport met Search Explorer controleren
+## <a name="verify-data-import-with-search-explorer"></a>Gegevensimport met Search explorer controleren
 
-Met **Search Explorer** in de portal kunt u snel een eerste controle van de documentupload uitvoeren. Met de explorer kunt u gegevens uit een index opvragen zonder code te schrijven. De zoekervaring is gebaseerd op standaardinstellingen, zoals de [eenvoudige syntaxis](/rest/api/searchservice/simple-query-syntax-in-azure-search) en de standaard-queryparameter [searchMode](/rest/api/searchservice/search-documents). Resultaten worden geretourneerd in JSON, zodat u het hele document kunt inspecteren.
+Een snelle manier om uit te voeren van een voorlopige controle op het document uploaden, is met **Search explorer** in de portal. Met de explorer kunt u gegevens uit een index opvragen zonder code te schrijven. De zoekervaring is gebaseerd op standaardinstellingen, zoals de [eenvoudige syntaxis](/rest/api/searchservice/simple-query-syntax-in-azure-search) en de standaard-queryparameter [searchMode](/rest/api/searchservice/search-documents). Resultaten worden geretourneerd in JSON, zodat u het hele document kunt inspecteren.
 
 > [!TIP]
-> Tal van [Azure Search-codevoorbeelden](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) bevatten ingesloten of kant-en-klare gegevenssets, zodat u gemakkelijk aan de slag kunt gaan. De portal bevat ook een voorbeeldindexeerfunctie en een gegevensbron, bestaande uit een kleine vastgoedgegevensset ('realestate-us-sample'). Als u de vooraf geconfigureerde indexeerfunctie uitvoert met de voorbeeldgegevensbron, wordt er een index gemaakt. Deze wordt geladen met documenten waarvoor u query’s kunt uitvoeren via Search Explorer of met code die u schrijft.
+> Tal van [Azure Search-codevoorbeelden](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) bevatten ingesloten of kant-en-klare gegevenssets, zodat u gemakkelijk aan de slag kunt gaan. De portal bevat ook een voorbeeldindexeerfunctie en een gegevensbron, bestaande uit een kleine vastgoedgegevensset ('realestate-us-sample'). Wanneer u de vooraf geconfigureerde indexeerfunctie op de voorbeeld-gegevensbron uitvoert, wordt een index gemaakt en geladen met documenten die vervolgens kunnen worden doorzocht in Search explorer of met code die u schrijft.
 
 ## <a name="see-also"></a>Zie ook
 

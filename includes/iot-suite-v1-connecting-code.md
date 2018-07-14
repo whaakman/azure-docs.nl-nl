@@ -2,7 +2,7 @@
 
 De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een model om de opmaak op te geven van de berichten die het apparaat uitwisselt met IoT Hub.
 
-1. Voeg de volgende variabelendeclaraties achter de `#include`-instructies toe. Vervang de tijdelijke aanduiding voor waarden [apparaat-ID] en [apparaatsleutel] met waarden die u voor uw apparaat in het dashboard externe controle oplossing hebt genoteerd. Gebruik de hostnaam van de IoT Hub uit het oplossingsdashboard om [IoTHub-naam] te vervangen. Als uw IoT Hub-hostnaam bijvoorbeeld **contoso.azure devices.net** is, vervangt u [IoTHub-naam] door **contoso**:
+1. Voeg de volgende variabelendeclaraties achter de `#include`-instructies toe. Vervang de tijdelijke aanduiding voor waarden [apparaat-ID] en [apparaatsleutel] met waarden die u hebt genoteerd voor uw apparaat in het oplossingsdashboard externe controle. Gebruik de hostnaam van de IoT Hub uit het oplossingsdashboard om [IoTHub-naam] te vervangen. Als uw IoT Hub-hostnaam bijvoorbeeld **contoso.azure devices.net** is, vervangt u [IoTHub-naam] door **contoso**:
    
     ```c
     static const char* deviceId = "[Device Id]";
