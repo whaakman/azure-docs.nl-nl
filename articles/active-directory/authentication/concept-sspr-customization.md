@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: afcd39e6512ac7bcb46f56df157822efa463113e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 23a2897142f5cba90513e8b79e4cd461f1dd25b7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449931"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054587"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Aanpassen van de Azure AD-functionaliteit voor self-service voor wachtwoord opnieuw instellen
 
@@ -81,8 +81,8 @@ U kunt het kenmerk directory name onder wijzigen **Azure Active Directory** > **
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](howto-sspr-deployment.md)
-* [Uw wachtwoord opnieuw instellen of wijzigen](../active-directory-passwords-update-your-own-password.md)
-* [Registreren voor de selfservice voor wachtwoordherstel](../active-directory-passwords-reset-register.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registreren voor de selfservice voor wachtwoordherstel](../user-help/active-directory-passwords-reset-register.md)
 * [Hebt u een vraag over licenties?](concept-sspr-licensing.md)
 * [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](concept-sspr-howitworks.md#authentication-methods)

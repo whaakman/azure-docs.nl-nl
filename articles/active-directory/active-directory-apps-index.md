@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 76430fa5652e98cba86c41433f376e27dbb1639a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446857"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054876"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst van elk document geschreven over de verschillende functies van de toepassing in Azure Active Directory (Azure AD).
@@ -112,7 +112,7 @@ Als u een eenmalige aanmelding voor uw apps en resources hebt ingesteld, kunt u 
 | Het inschakelen van voorwaardelijke toegang voor de volgende typen resources |[Voorwaardelijke toegang voor SaaS-Apps](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Voorwaardelijke toegang voor Office 365-services](active-directory-conditional-access-device-policies.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen](active-directory-conditional-access-azure-portal.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen die zijn gepubliceerd via toepassingsproxy van Azure AD](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Informatie over het registreren van apparaten met Azure Active Directory om het beleid voor voorwaardelijke toegang op basis van apparaat inschakelen |[Overzicht van Azure Active Directory Device Registration service](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Automatische apparaatregistratie inschakelen voor domein gekoppelde Windows-apparaten](active-directory-conditional-access-automatic-device-registration.md)<br />— [Stappen voor Windows 8.1-apparaten](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Stappen voor Windows 7-apparaten](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| Over het gebruik van de Microsoft Authenticator-app voor verificatie in twee stappen | [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| Over het gebruik van de Microsoft Authenticator-app voor verificatie in twee stappen | [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 Voorwaardelijke toegang is een [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) functie.
 
@@ -180,7 +180,7 @@ De Azure AD-Toegangsvenster is waar eindgebruikers kunnen hun apps starten en to
 | Artikel-handleiding |  |
 |:---:| --- |
 | Een vergelijking van de verschillende opties die beschikbaar zijn voor het implementeren van apps voor eenmalige aanmelding voor gebruikers |[Implementatie van Azure AD geïntegreerde toepassingen voor gebruikers](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
-| Een overzicht van het toegangsvenster en de mobiele gelijkwaardige MyApps |[Inleiding tot het toegangsvenster en de MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| Een overzicht van het toegangsvenster en de mobiele gelijkwaardige MyApps |[Inleiding tot het toegangsvenster en de MyApps](user-help/active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Over toegang tot Azure AD-apps vanuit de Office 365-website |[Met behulp van het startprogramma voor Office 365](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Over toegang tot Azure AD-apps vanuit de mobiele app van Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Toegang tot Azure AD-apps met dieptekoppelingen initiëren eenmalige aanmelding |[Directe aanmelding koppelingen naar uw Apps ophalen](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |

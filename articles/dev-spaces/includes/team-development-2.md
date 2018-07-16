@@ -10,17 +10,17 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 85f8632aae8a70b1282155881dbca6b25734a6c5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 2f2177b289ba9d13ba635bddcd61748e1e8ab0d1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933201"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39062973"
 ---
 ### <a name="run-the-service"></a>De service uitvoeren
 
 1. Druk op F5 (of typ `azds up` in het Terminal-venster) om de service uit te voeren. De service wordt automatisch uitgevoerd in uw zojuist geselecteerde ruimte `default/scott`. 
-1. U kunt controleren of uw service in een eigen ruimte wordt uitgevoerd door nogmaals de opdracht `azds list` uit te voeren. Ten eerste ziet u nu dat er een exemplaar van `mywebapi` wordt uitgevoerd in de ruimte `default/scott` (de versie in de ruimte `default` wordt nog steeds uitgevoerd, maar wordt niet vermeld). Ten tweede heeft de URL van het toegangspunt voor `webfrontend` het voorvoegsel 'scott.s.'. Deze URL is uniek voor de ruimte `default/scott`. De speciale URL betekent dat aanvragen die worden verzonden naar de 'scott'-URL eerst naar de services in de ruimte `default/scott` worden gerouteerd. Als dit mislukt, worden ze alsnog naar services in de ruimte `default` geleid.
+1. U kunt controleren of uw service in een eigen ruimte wordt uitgevoerd door nogmaals de opdracht `azds list-up` uit te voeren. Ten eerste ziet u nu dat er een exemplaar van `mywebapi` wordt uitgevoerd in de ruimte `default/scott` (de versie in de ruimte `default` wordt nog steeds uitgevoerd, maar wordt niet vermeld). Ten tweede heeft de URL van het toegangspunt voor `webfrontend` het voorvoegsel 'scott.s.'. Deze URL is uniek voor de ruimte `default/scott`. De speciale URL betekent dat aanvragen die worden verzonden naar de 'scott'-URL eerst naar de services in de ruimte `default/scott` worden gerouteerd. Als dit mislukt, worden ze alsnog naar services in de ruimte `default` geleid.
 
 ```
 Name         Space          Chart              Ports   Updated     Access Points

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: c1bf5ba68d8242a0ef0831987ac6fd041c62ace9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eafd7998e5bc21a539b6709794fe3cd70d9e3179
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969364"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Zelfstudie: Azure Active Directory-integratie met publiceren boog - eenmalige aanmelding
 
@@ -239,7 +239,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u klikt op de boog Publishing - tegel in het toegangsvenster en SSO-u moet u automatisch aangemeld bij uw boog Publishing - SSO-toepassing.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

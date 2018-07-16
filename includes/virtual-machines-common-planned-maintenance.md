@@ -10,7 +10,7 @@ ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: abf10177f8ce86309043da92d1f2b690775b6d89
 ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/10/2018
 ms.locfileid: "37909980"
@@ -21,7 +21,7 @@ Van tijd tot tijd voert Azure updates uit om de betrouwbaarheid, prestaties en v
 
 - Als u onderhoud moet worden opgestart, krijgt u een kennisgeving van wanneer het onderhoud is gepland. In dergelijke gevallen u ook krijgt een bepaalde periode waar u kunt beginnen het onderhoud zelf op een tijdstip die bij u past.
 
-Deze pagina wordt beschreven hoe beide typen onderhoud wordt uitgevoerd in Microsoft Azure. Zie voor meer informatie over niet-geplande gebeurtenissen (uitval), de beschikbaarheid van virtuele machines beheren voor [Windows] (.. /articles/virtual-machines/windows/manage-availability.md) of [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Deze pagina wordt beschreven hoe beide typen onderhoud wordt uitgevoerd in Microsoft Azure. Zie voor meer informatie over niet-geplande gebeurtenissen (uitval), de beschikbaarheid van virtuele machines beheren voor [Windows ](.. /articles/virtual-machines/windows/manage-availability.md) of [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
 Toepassingen die worden uitgevoerd in een virtuele machine kunnen informatie verzamelen over toekomstige updates met behulp van de Azure Metadata-Service voor [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) of [Linux] (.. /articles/virtual-machines/linux/instance-metadata-service.md).
 

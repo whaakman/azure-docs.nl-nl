@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 95a9530c02bbf7b1cd9d137129f96ff4ee016966
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 95f54cf9cda2bf6dede6e7bfb72471b22707c1c2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007662"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056069"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Een Linux VM Managed Service Identity (MSI) gebruiken voor toegang tot Azure Key Vault 
 
@@ -88,7 +88,7 @@ Eerst moet er voor het maken van een Key Vault en van onze VM identiteit toegang
 7. Klik op **OK** naar de nieuw toegangsbeleid toevoegen is voltooid en **OK** voltooid toegang-beleid te selecteren. 
 8. Klik op **maken** te maken van de Key Vault voltooien. 
 
-    ![De installatiekopie van de ALT-tekst](~/articles/active-directory/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![De installatiekopie van de ALT-tekst](../managed-service-identity/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 Vervolgens een geheim toevoegen aan de Key Vault, zodat u later kunt u het geheim met behulp van code die wordt uitgevoerd in uw virtuele machine ophalen: 
 

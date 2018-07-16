@@ -14,50 +14,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fc8918ed2901d2f443b94bac8587e24c3f04eeec
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6362bcb701b444c8cd71b270222ce4f87b4cc2e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308744"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055855"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Zelfstudie: Azure Active Directory-integratie met vxMaintain
 
-In deze zelfstudie leert u hoe vxMaintain integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u vxMaintain integreren met Azure Active Directory (Azure AD).
 
-Deze integratie biedt een aantal belangrijke voordelen. U kunt:
+Deze integratie biedt verschillende belangrijke voordelen. U kunt:
 
 - Beheren in Azure AD die toegang tot vxMaintain heeft.
-- Kunnen uw gebruikers automatisch aanmelden bij vxMaintain met eenmalige aanmelding (SSO) via hun Azure AD-accounts.
-- Uw accounts op één locatie beheren: de Azure-portal.
+- Kunnen uw gebruikers automatisch aan te melden vxMaintain met eenmalige aanmelding (SSO) met behulp van hun Azure AD-accounts.
+- Uw accounts in één centrale locatie beheren: de Azure-portal.
 
-Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met vxMaintain, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een vxMaintain abonnement SSO-ingeschakeld
+- Een vxMaintain abonnement SSO is ingeschakeld
 
 > [!NOTE]
-> Wanneer u de stappen in deze zelfstudie test, wordt u aangeraden een productie-omgeving niet te gebruiken.
+> Wanneer u de stappen in deze zelfstudie hebt getest, wordt u aangeraden dat u niet een productie-omgeving gebruiken.
 
-Test de stappen in deze zelfstudie, volgt u deze aanbevelingen:
+Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. 
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. 
 
 Het scenario dat geeft een overzicht van deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-* VxMaintain uit de galerie toevoegen
+* VxMaintain uit de galerie toe te voegen
 * Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="add-vxmaintain-from-the-gallery"></a>VxMaintain uit de galerie toevoegen
-Voor het configureren van de integratie van vxMaintain met Azure AD, moet u vxMaintain uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+Voor het configureren van de integratie van vxMaintain met Azure AD, moet u vxMaintain uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 Als u wilt toevoegen vxMaintain uit de galerie, het volgende doen:
 
@@ -67,11 +67,11 @@ Als u wilt toevoegen vxMaintain uit de galerie, het volgende doen:
 
 2. Selecteer **bedrijfstoepassingen** > **alle toepassingen**.
 
-    ![Het deelvenster 'Bedrijfstoepassingen'][2]
+    ![Het deelvenster 'Enterprise Application'][2]
     
-3. Toevoegen van een toepassing in de **alle toepassingen** dialoogvenster, **nieuwe toepassing**.
+3. Toevoegen van een toepassing, in de **alle toepassingen** in het dialoogvenster, selecteer **nieuwe toepassing**.
 
-    !['Nieuwe application' knop][3]
+    ![De 'nieuwe toepassing"knop][3]
 
 4. Typ in het zoekvak **vxMaintain**.
 
@@ -81,28 +81,28 @@ Als u wilt toevoegen vxMaintain uit de galerie, het volgende doen:
 
     ![De koppeling vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
-In deze sectie u configureren en testen van Azure AD-SSO met behulp van vxMaintain, op basis van een testgebruiker genaamd "Britta Simon."
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+In deze sectie kunt u configureren en testen van Azure AD-eenmalige aanmelding met behulp van vxMaintain, op basis van een testgebruiker met de naam "Britta Simon."
 
-Azure AD moet weten de vxMaintain equivalent aan de Azure AD-gebruiker voor eenmalige aanmelding werkt. Dat wil zeggen, moet u een koppeling relatie tussen de Azure AD-gebruiker en de bijbehorende vxMaintain gebruiker instellen.
+Azure AD moet weten van de vxMaintain equivalent aan de Azure AD-gebruiker voor eenmalige aanmelding om te werken. Dat wil zeggen, moet u een koppeling relatie tussen de Azure AD-gebruiker en de bijbehorende vxMaintain-gebruiker maken.
 
-Toewijzen om vast te stellen op de koppeling relatie, de vxMaintain **gebruikersnaam** waarde als de Azure AD **gebruikersnaam** waarde.
+Voor het maken van de relatie van de koppeling, wijzen de vxMaintain **gebruikersnaam** waarde als de Azure AD **gebruikersnaam** waarde.
 
-Als u wilt configureren en testen van Azure AD-SSO met behulp van vxMaintain, voltooi de volgende elementen.
+Als u wilt configureren en Azure AD-eenmalige aanmelding testen met behulp van vxMaintain, voer de volgende bouwstenen.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD-eenmalige aanmelding configureren
 
-In deze sectie maakt kunt u zowel Azure AD-eenmalige aanmelding inschakelen in de Azure portal en SSO in uw toepassing vxMaintain als volgt configureren:
+In deze sectie kunt u zowel Azure AD-eenmalige aanmelding inschakelen in Azure portal en het configureren van eenmalige aanmelding in uw toepassing vxMaintain door het volgende te doen:
 
-1. In de Azure-portal op de **vxMaintain** toepassing Integratiepagina **eenmalige aanmelding**.
+1. In de Azure-portal op de **vxMaintain** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
     ![De opdracht "Single sign-on"][4]
 
-2. Voor het inschakelen van eenmalige aanmelding, in de **modus voor één aanmelding** vervolgkeuzelijst, selecteer **op basis van SAML aanmelding**.
+2. Voor het inschakelen van eenmalige aanmelding de **modus voor één aanmelding** vervolgkeuzelijst, selecteer **SAML gebaseerde aanmelding**.
  
-    ![De opdracht 'op basis van SAML aanmelding'](./media/vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
+    ![De opdracht 'SAML gebaseerde aanmelding'](./media/vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
-3. Onder **vxMaintain domein en de URL's**, het volgende doen:
+3. Onder **vxMaintain domein en URL's**, doet u het volgende:
 
     ![De vxMaintain sectie domein en URL 's](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
@@ -111,26 +111,26 @@ In deze sectie maakt kunt u zowel Azure AD-eenmalige aanmelding inschakelen in d
     b. In de **antwoord-URL** typt u een URL die heeft de volgende syntaxis: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
-    > De voorgaande waarden zijn niet echt. Deze bijwerken met de werkelijke-id en antwoord-URL. De waarden, neem contact op met de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact).
+    > De bovenstaande waarden zijn niet echt. Deze bijwerken met de werkelijke-id en antwoord-URL. De waarden, neem contact op met de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact).
  
-4. Onder **SAML-certificaat voor ondertekening van**, selecteer **Metadata XML**, en sla het bestand met metagegevens op uw computer.
+4. Onder **SAML-handtekeningcertificaat**, selecteer **Metadata XML**, en sla het bestand met metagegevens op uw computer.
 
-    ![De sectie 'SAML handtekeningcertificaat'](./media/vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
+    ![De sectie "SAML-handtekeningcertificaat"](./media/vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
 5. Selecteer **Opslaan**.
 
     ![De knop Opslaan](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. Voor het configureren van **vxMaintain** SSO, verzendt de gedownloade **Metadata XML** van het bestand in de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact).
+6. Het configureren van **vxMaintain** SSO, verzendt de gedownloade **Metadata XML** van het bestand in de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact).
 
 > [!TIP]
-> Bij het instellen van de app, vindt u een beknopte versie van de voorgaande instructies in de [Azure-portal](https://portal.azure.com). Na het toevoegen van de app vanuit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad en vervolgens naar de ingesloten documentatie van de **configuratie** sectie. 
+> Als u de app hebt ingesteld, vindt u een beknopte versie van de voorgaande instructies in de [Azure-portal](https://portal.azure.com). Nadat u de app vanuit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad, en vervolgens toegang tot de ingesloten documentatie van de **configuratie** sectie. 
 >
->Zie voor meer informatie over de functie embedded-documentatie, [het beheren van eenmalige aanmelding voor zakelijke apps](https://go.microsoft.com/fwlink/?linkid=845985).
+>Zie voor meer informatie over de documentatie voor embedded-functie, [beheren van eenmalige aanmelding voor zakelijke apps](https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-In deze sectie kunt u testgebruiker Britta Simon in de Azure portal maken door het volgende te doen:
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+In deze sectie maakt maken u testgebruiker Britta Simon in Azure portal door het volgende te doen:
 
 ![De Azure AD-testgebruiker][100]
 
@@ -138,12 +138,12 @@ In deze sectie kunt u testgebruiker Britta Simon in de Azure portal maken door h
 
     ![De knop 'Azure Active Directory'](./media/vxmaintain-tutorial/create_aaduser_01.png) 
 
-2. Lijst van gebruikers wilt weergeven, gaat u naar **gebruikers en groepen** > **alle gebruikers**.
+2. Voor een lijst van gebruikers, gaat u naar **gebruikers en groepen** > **alle gebruikers**.
     
     ![De koppeling 'Alle gebruikers'](./media/vxmaintain-tutorial/create_aaduser_02.png)  
-    De **alle gebruikers** dialoogvenster wordt geopend. 
+    De **alle gebruikers** in het dialoogvenster wordt geopend. 
 
-3. Openen van de **gebruiker** dialoogvenster, **toevoegen**.
+3. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen**.
  
     ![De knop toevoegen](./media/vxmaintain-tutorial/create_aaduser_03.png) 
 
@@ -155,25 +155,25 @@ In deze sectie kunt u testgebruiker Britta Simon in de Azure portal maken door h
 
     b. In de **gebruikersnaam** typt u het e-mailadres van de testgebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** uit en noteer de waarde die is gegenereerd in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die is gegenereerd in de **wachtwoord** vak.
 
     d. Selecteer **Maken**.
  
-### <a name="create-a-vxmaintain-test-user"></a>Een testgebruiker vxMaintain maken
+### <a name="create-a-vxmaintain-test-user"></a>Maak een testgebruiker vxMaintain
 
-In deze sectie maakt u testgebruiker Britta Simon in vxMaintain. Als gebruikers wilt toevoegen in het platform vxMaintain, werken met de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact). Voordat u eenmalige aanmelding gebruiken, maken en activeren van de gebruikers.
+In deze sectie maakt u testgebruiker Britta Simon vxMaintain. Als gebruikers wilt toevoegen in het platform vxMaintain, werken met de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact). Voordat u eenmalige aanmelding gebruiken, maken en activeren van de gebruikers.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u testgebruiker Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot vxMaintain. Ga als volgt te werk om dit te doen:
+In deze sectie maakt inschakelen u testgebruiker Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot vxMaintain. Om dit te doen, het volgende doen:
 
 ![Testgebruiker in de lijst weergavenaam][200] 
 
-1. In de Azure portal **toepassingen** weergeven, gaat u naar **Directory** weergave > **bedrijfstoepassingen** > **alle toepassingen**.
+1. In de Azure-portal **toepassingen** weergeven, gaat u naar **Directory** weergave > **bedrijfstoepassingen** > **alle toepassingen**.
 
-    ![De koppeling 'Alle toepassingen'][201] 
+    ![De koppeling 'Alle Application'][201] 
 
-2. In de **toepassingen** selecteert **vxMaintain**.
+2. In de **toepassingen** in de lijst met **vxMaintain**.
 
     ![De koppeling vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
@@ -181,26 +181,26 @@ In deze sectie maakt inschakelen u testgebruiker Britta Simon Azure eenmalige aa
 
     ![De koppeling 'Gebruikers en groepen'][202] 
 
-4. Selecteer **toevoegen** en klikt u op de **toevoegen toewijzing** deelvenster **gebruikers en groepen**.
+4. Selecteer **toevoegen** en klikt u op de **toevoegen toewijzing** venster **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][203]
 
-5. In de **gebruikers en groepen** het dialoogvenster de **gebruikers** selecteert **Britta Simon**, en selecteer vervolgens de **Selecteer** knop.
+5. In de **gebruikers en groepen** in het dialoogvenster de **gebruikers** in de lijst met **Britta Simon**, en selecteer vervolgens de **Selecteer** knop.
 
-7. In de **toevoegen toewijzing** dialoogvenster, **toewijzen**.
+7. In de **toevoegen toewijzing** in het dialoogvenster, selecteer **toewijzen**.
     
-### <a name="test-your-azure-ad-single-sign-on"></a>Test uw Azure AD eenmalige aanmelding
+### <a name="test-your-azure-ad-single-sign-on"></a>Uw Azure AD eenmalige aanmelding testen
 
-In deze sectie kunt u de configuratie van uw Azure AD SSO testen met behulp van het toegangsvenster.
+In deze sectie maakt testen u de configuratie van uw Azure AD-eenmalige aanmelding met behulp van het toegangsvenster.
 
-Als u de **vxMaintain** tegel in het deelvenster toegang moet aanmelden bij uw toepassing vxMaintain automatisch.
+Selecteren van de **vxMaintain** tegel in het toegangsvenster moet aanmelden bij uw toepassing vxMaintain automatisch.
 
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

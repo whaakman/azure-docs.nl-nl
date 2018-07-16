@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c173f4f224c7021c0a0db057cb65aa9c6f900528
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55fc1bf9d59c82abc76e40e834f67aa49942db44
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915568"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056695"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Testfailover naar Azure in Site Recovery
 
@@ -72,7 +72,7 @@ In de volgende scenario's vereist de failover een extra tussenstap die meestal o
     * storflt
     * Intelide
     * ATAPI
-* VMware-VM die geen DHCP ingeschakeld, hebben rrespective van of ze van DHCP- of statische IP-adressen gebruikmaakt.
+* VMware-VM die geen DHCP ingeschakeld hebben, ongeacht of ze zijn gebruikmaakt van DHCP- of statische IP-adressen.
 
 In alle andere gevallen, geen tussenstap is niet vereist en failover aanzienlijk minder tijd in beslag neemt.
 

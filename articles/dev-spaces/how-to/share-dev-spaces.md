@@ -11,12 +11,12 @@ ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 9345015a8732da02ea68711cd807556a543d8d01
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6fb50f985f6d4f3c5d8644498316fb6229e2eaee
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930141"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054675"
 ---
 # <a name="share-azure-dev-spaces"></a>Azure Dev spaties delen
 
@@ -25,7 +25,7 @@ Met Azure Dev spaties, kunt u de adresruimte van uw dev met anderen in uw team d
 ## <a name="set-up-a-dev-space-for-multiple-developers"></a>Instellen van een dev-ruimte voor meerdere ontwikkelaars
 
 1. Maak een spatie ontwikkelen in Azure. Kies [.NET Core- en VS Code](../get-started-netcore.md), [.NET Core en Visual Studio](../get-started-netcore-visualstudio.md), of [Node.js en VS Code](../get-started-nodejs.md). U moet eigenaar of bijdrager toegang hebben tot de geselecteerde Azure-abonnement.
-1. Configureren van de Azure Dev-ruimte **resourcegroep** naar [medewerker toegang verlenen](/azure/active-directory/role-based-access-control-configure) voor elk teamlid. Met deze opdracht kunt u de resourcegroep een dev-ruimte controleren: `azds list`
+1. Configureren van de Azure Dev-ruimte **resourcegroep** naar [medewerker toegang verlenen](/azure/active-directory/role-based-access-control-configure) voor elk teamlid. Met deze opdracht kunt u de resourcegroep een dev-ruimte controleren: `azds list-up`
 1. Vragen teamleden **selecteert u de ruimte dev** om te ontwikkelen in het.
      * **Vanaf de opdrachtregel of in VS Code**: om te zien van bestaande Azure Dev spaties die u hebt toegang tot: `azds space list`. Om te selecteren van een dev-ruimte: `azds space select`.
      * **Visual Studio IDE**: Open een project in Visual Studio, selecteer **Azure Dev spaties** in de starten instellingen vervolgkeuzelijst. In het dialoogvenster dat wordt geopend, selecteert u een bestaand cluster.

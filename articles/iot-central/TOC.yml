@@ -37,10 +37,12 @@
   items:
     - name: Beheerder
       items:
-        - name: Een app maken
-          href: howto-create-application.md
+        - name: Een toepassing maken en beheren als een CSP
+          href: howto-create-and-manage-applications-as-CSP.md
         - name: Uw toepassing beheren
           href: howto-administer.md
+        - name: Uw gegevens exporteren
+          href: howto-export-data.md
     - name: Opbouwfunctie
       items:
         - name: De sjabloon van het apparaat instellen
@@ -49,6 +51,10 @@
           href: howto-version-devicetemplate.md
         - name: Telemetrie-regel maken
           href: howto-create-telemetry-rules.md
+        - name: Een gebeurtenisregel maken
+          href: howto-create-event-rules.md
+        - name: Werkstromen bouwen in Microsoft Flow
+          href: howto-add-microsoft-flow.md
         - name: Startpagina configureren
           href: howto-configure-homepage.md
         - name: Installatiekopieën voorbereiden en uploaden

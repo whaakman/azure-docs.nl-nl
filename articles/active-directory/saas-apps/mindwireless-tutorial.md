@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 293a8921e64bae03d036f847d2f9138d88ebef4a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3898f64ebc32db2a512b04949e9b33a36694cdb6
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210255"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046482"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Zelfstudie: Azure Active Directory-integratie met mindWireless
 
-In deze zelfstudie leert u hoe mindWireless integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u mindWireless integreren met Azure Active Directory (Azure AD).
 
-MindWireless integreren met Azure AD biedt de volgende voordelen:
+MindWireless integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot mindWireless heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij mindWireless (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij mindWireless (Single Sign-On) met hun Azure AD-accounts inschakelen.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,25 +42,25 @@ Voor het configureren van Azure AD-integratie met mindWireless, moet u de volgen
 - Een mindWireless eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. MindWireless uit de galerie toevoegen
+1. MindWireless uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-mindwireless-from-the-gallery"></a>MindWireless uit de galerie toevoegen
-Voor het configureren van de integratie van mindWireless in Azure AD, moet u mindWireless uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-mindwireless-from-the-gallery"></a>MindWireless uit de galerie toe te voegen
+Voor het configureren van de integratie van mindWireless in Azure AD, moet u mindWireless uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen mindWireless uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,102 +68,102 @@ Voor het configureren van de integratie van mindWireless in Azure AD, moet u min
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
 4. Typ in het zoekvak **mindWireless**, selecteer **mindWireless** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![mindWireless in de lijst met resultaten](./media/mindwireless-tutorial/tutorial_mindwireless_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met mindWireless op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met mindWireless op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in mindWireless is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in mindWireless tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in mindWireless is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in mindWireless tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met mindWireless, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker mindWireless](#create-a-mindwireless-test-user)**  - hebben een equivalent van Britta Simon in mindWireless die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker mindWireless](#create-a-mindwireless-test-user)**  : als u wilt een equivalent van Britta Simon in mindWireless die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing mindWireless configureren.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing mindWireless.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met mindWireless, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **mindWireless** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **mindWireless** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
-    ![Dialoogvenster voor eenmalige aanmelding](./media/mindwireless-tutorial/tutorial_mindwireless_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/mindwireless-tutorial/tutorial_mindwireless_samlbase.png)
 
-3. Op de **mindWireless domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op de **mindWireless domein en URL's** sectie, voert u de volgende stappen uit:
 
-    ![mindWireless domein en de URL's eenmalige aanmelding informatie](./media/mindwireless-tutorial/tutorial_mindwireless_url.png)
+    ![mindWireless domein en URL's, eenmalige aanmelding informatie](./media/mindwireless-tutorial/tutorial_mindwireless_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.mwsmart.com/`
+    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.mwsmart.com/`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.mwsmart.com/SAML/AssertionConsumerService.aspx`
+    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.mwsmart.com/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [mindWireless ondersteuningsteam](mailto:sdulloor@mindwireless.com) ophalen van deze waarden.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [mindWireless ondersteuningsteam](mailto:sdulloor@mindwireless.com) om deze waarden te verkrijgen.
 
-4. De toepassing mindWireless verwacht de SAML-asserties in een specifieke indeling waarvoor u aangepaste kenmerktoewijzingen toevoegen aan uw configuratie van SAML-token kenmerken.
+4. De toepassing mindWireless wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken.
 
-5. De volgende Schermafbeelding toont een voorbeeld voor het. De claimnaam van de niet altijd **werknemer-ID** en de waarde die we hebben toegewezen aan user.employeeid waarin de werknemer-id van de gebruiker. Hier de gebruiker toewijzen van Azure AD aan mindWireless is uitgevoerd op de werknemer-id, maar u kunt deze toewijzen aan een andere waarde ook op basis van de toepassingsinstellingen van uw. U kunt werken met de [mindWireless ondersteuningsteam](mailto:sdulloor@mindwireless.com) eerst voor het gebruik van de juiste id van een gebruiker en wijs die waarde met de **werknemer-ID** claim.
+5. De volgende Schermafbeelding toont een voorbeeld voor deze. Naam van de claim worden altijd **werknemer-ID** en de waarde van die we hebben toegewezen aan user.employeeid, waarin de werknemer-id van de gebruiker. Hier de Gebruikerstoewijzing van Azure AD naar mindWireless is uitgevoerd op de id van de werknemer, maar kunt u deze toewijzen aan een andere waarde ook op basis van de toepassingsinstellingen van uw. U kunt werken met de [mindWireless ondersteuningsteam](mailto:sdulloor@mindwireless.com) eerst het gebruik van de juiste id van een gebruiker en wijs die waarde met de **werknemer-ID** claim.
 
     ![Eenmalige aanmelding configureren](./media/mindwireless-tutorial/tutorial_attribute.png)
 
-6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en de volgende stappen uitvoeren:
+6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en voer de volgende stappen uit:
     
     | Naam kenmerk | Waarde kenmerk | Namespace-waarde |
     | -------------- | --------------- | ----------------|
     | Werknemer-id | User.EmployeeID | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     
-    a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
+    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
 
     ![Eenmalige aanmelding configureren](./media/mindwireless-tutorial/tutorial_attribute_04.png)
 
     ![Eenmalige aanmelding configureren](./media/mindwireless-tutorial/tutorial_attribute_05.png)
 
-    b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
+    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
 
-    c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
 
-    d. In de **Namespace** textbox, typt u de naamruimtewaarde die wordt weergegeven voor die rij.
+    d. In de **Namespace** tekstvak typt u de naamruimtewaarde die wordt weergegeven voor die rij.
     
     e. Klik op **OK**.
     
-7. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/mindwireless-tutorial/tutorial_mindwireless_certificate.png) 
 
 8. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/mindwireless-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/mindwireless-tutorial/tutorial_general_400.png)
 
-9. Op de **mindWireless configuratie** sectie, klikt u op **configureren mindWireless** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+9. Op de **mindWireless configuratie** sectie, klikt u op **configureren mindWireless** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![mindWireless configuratie](./media/mindwireless-tutorial/tutorial_mindwireless_configure.png) 
 
-10. Eenmalige aanmelding configureren op **mindWireless** zijde, moet u de gedownloade verzenden **Certificate(Base64), SAML Single Sign-On Service-URL**, en **SAML entiteit-ID** naar [mindWireless ondersteuningsteam](mailto:sdulloor@mindwireless.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+10. Het configureren van eenmalige aanmelding op **mindWireless** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64), Single Sign-On Service URL voor SAML-**, en **SAML entiteit-ID** naar [mindWireless ondersteuningsteam](mailto:sdulloor@mindwireless.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/mindwireless-tutorial/create_aaduser_01.png)
 
@@ -171,11 +171,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/mindwireless-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/mindwireless-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/mindwireless-tutorial/create_aaduser_04.png)
 
@@ -183,27 +183,27 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
 
-### <a name="create-a-mindwireless-test-user"></a>Een testgebruiker mindWireless maken
+### <a name="create-a-mindwireless-test-user"></a>Maak een testgebruiker mindWireless
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in mindWireless maken. Werken met [mindWireless ondersteuningsteam](mailto:sdulloor@mindwireless.com) de gebruikers van het platform mindWireless toevoegen. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in mindWireless. Werken met [mindWireless ondersteuningsteam](mailto:sdulloor@mindwireless.com) om toe te voegen de gebruikers in het mindWireless-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot mindWireless.
+In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot mindWireless.
 
-![Toewijzen van de gebruikersrol][200] 
+![De de gebruikersrol toewijzen][200] 
 
-**Britta Simon om aan te wijzen mindWireless, moet u de volgende stappen uitvoeren:**
+**Als u wilt Britta Simon aan mindWireless toewijst, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **mindWireless**.
+2. Selecteer in de lijst met toepassingen, **mindWireless**.
 
     ![De koppeling mindWireless in de lijst met toepassingen](./media/mindwireless-tutorial/tutorial_mindwireless_app.png)  
 
@@ -215,23 +215,23 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u op de tegel mindWireless in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing mindWireless.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel mindWireless in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing mindWireless.
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

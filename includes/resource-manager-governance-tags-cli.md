@@ -9,25 +9,25 @@ ms.date: 02/20/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: b9484336add0719749e9f0af56bdd70fa3906ef5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29532343"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38752656"
 ---
-U kunt twee tags toevoegen aan een resourcegroep met de [az groep update](/cli/azure/group#az_group_update) opdracht:
+Gebruik de opdracht [az group update](/cli/azure/group#az_group_update) om twee tags toe te voegen aan een resourcegroep:
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-Stel dat u wilt toevoegen van een derde label. Voer de opdracht opnieuw uit met de nieuwe code. Deze wordt toegevoegd aan de bestaande labels.
+Stel dat u een derde tag wilt toevoegen. Voer de opdracht opnieuw uit met de nieuwe tag. Deze wordt toegevoegd aan de bestaande tags.
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.Project=Documentation
 ```
 
-Resources overnemen niet labels van de resourcegroep. Op dit moment uw resourcegroep heeft drie tags, maar de bronnen hebben geen labels. Als u alle tags toepassen vanuit een resourcegroep tot de bronnen en bestaande tags voor bronnen behouden, gebruikt u het volgende script:
+Resources nemen geen tags over van de resourcegroep. Op dit moment heeft uw resourcegroep drie tags, maar hebben de resources geen tags. Gebruik het volgende script als u alle tags van een resourcegroep op de bijbehorende resources wilt toepassen en daarbij ook de bestaande tags voor de resources wilt behouden:
 
 ```azurecli-interactive
 # Get the tags for the resource group
@@ -53,7 +53,7 @@ do
 done
 ```
 
-U kunt ook labels van de resourcegroep toepassen op de bronnen zonder de bestaande labels te houden:
+U kunt ook tags van de resourcegroep toepassen op de resources zonder de bestaande tags te houden:
 
 ```azurecli-interactive
 # Get the tags for the resource group
@@ -73,13 +73,13 @@ do
 done
 ```
 
-Gebruiken om te combineren meerdere waarden in een enkel label, een JSON-tekenreeks.
+Gebruik een JSON-tekenreeks om meerdere waarden met elkaar te combineren in een enkele tag.
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.CostCenter='{"Dept":"IT","Environment":"Test"}'
 ```
 
-Als u wilt verwijderen van alle codes voor een resourcegroep, gebruiken:
+Als u alle tags van een resourcegroep wilt verwijderen, gebruikt u:
 
 ```azurecli-interactive
 az group update -n myResourceGroup --remove tags

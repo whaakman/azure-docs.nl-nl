@@ -1,6 +1,6 @@
 ---
-title: Een toepassingsgateway maken met URL-pad gebaseerde routeringsregels - Azure-portal
-description: Informatie over het maken van de URL op basis van een pad routeringsregels voor een toepassingsgateway en virtuele-machineschaalset ingesteld met de Azure-portal.
+title: Een toepassingsgateway maken met URL-pad gebaseerde regels voor doorsturen - Azure portal
+description: Informatie over het maken van URL-pad op basis van routeringsregels voor een application gateway en de virtuele-machineschaalset met behulp van de Azure-portal.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,25 +10,25 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 3fcbcbe5d5f8dab956f40cde112f3536e1ae668c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5bec7be5f7ad744960d2602aaf24fec51d869267
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263989"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056246"
 ---
-# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Een toepassingsgateway maken met routering regels op basis van een pad met de Azure portal
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Een toepassingsgateway maken met pad gebaseerde routering regels met behulp van de Azure portal
 
-U kunt de Azure portal gebruiken voor het configureren van [routeringsregels voor URL-pad gebaseerde](application-gateway-url-route-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u back-endpools gebruik van virtuele machines. Vervolgens maakt u routeringsregels die zorg ervoor dat het webverkeer binnenkomt op de juiste servers van de groepen.
+U kunt de Azure-portal gebruiken om te configureren [routeringsregels voor URL-pad gebaseerde](application-gateway-url-route-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u back endpools met behulp van virtuele machines. Vervolgens maakt u regels voor doorsturen die zorg ervoor dat webverkeer aankomt op de juiste servers in de groepen.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Een toepassingsgateway maken
-> * Maken van virtuele machines voor back-endservers
+> * Virtuele machines voor back-endservers maken
 > * Back-endpools maken met de back-endservers
 > * Maak een back-end-listener
-> * Maken van een pad op basis van een regel voor doorsturen
+> * Een regel op pad gebaseerde routering maken
 
 ![Voorbeeld van URL-routering](./media/application-gateway-create-url-route-portal/scenario.png)
 
@@ -40,9 +40,9 @@ Aanmelden bij Azure Portal op [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-Een virtueel netwerk is vereist voor de communicatie tussen de bronnen die u maakt. In dit voorbeeld worden twee subnetten gemaakt: één voor de toepassingsgateway en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
+Een virtueel netwerk is vereist voor communicatie tussen de bronnen die u maakt. In dit voorbeeld worden twee subnetten gemaakt: één voor de toepassingsgateway en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
 
-1. Klik op **nieuw** gevonden in de linkerbovenhoek van de Azure portal.
+1. Klik op **nieuw** gevonden in de linkerbovenhoek van Azure portal.
 2. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst Aanbevolen.
 3. Voer deze waarden in voor de toepassingsgateway:
 
@@ -52,7 +52,7 @@ Een virtueel netwerk is vereist voor de communicatie tussen de bronnen die u maa
     ![Nieuwe toepassingsgateway maken](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
 4. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
-5. Klik op **Kies een virtueel netwerk**, klikt u op **nieuw**, en voer deze waarden voor het virtuele netwerk:
+5. Klik op **een virtueel netwerk kiezen**, klikt u op **nieuw**, en voer vervolgens deze waarden voor het virtuele netwerk:
 
     - *myVnet* als de naam van het virtuele netwerk.
     - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
@@ -62,9 +62,9 @@ Een virtueel netwerk is vereist voor de communicatie tussen de bronnen die u maa
     ![Virtueel netwerk maken](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Klik op **OK** om het virtuele netwerk en subnet te maken.
-7. Klik op **Kies een openbaar IP-adres**, klikt u op **nieuw**, en voer vervolgens de naam van het openbare IP-adres. In dit voorbeeld is de naam van het openbare IP-adres *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
+7. Klik op **een openbaar IP-adres kiezen**, klikt u op **nieuw**, en voer de naam van het openbare IP-adres. In dit voorbeeld is de naam van het openbare IP-adres *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
 8. Accepteer de standaardwaarden voor de configuratie van de Listener, laat u de Web application firewall is uitgeschakeld en klik vervolgens op **OK**.
-9. Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **OK** om de netwerkbronnen en de toepassingsgateway te maken. Duurt enkele minuten voor de toepassingsgateway worden gemaakt, wacht totdat de implementatie wordt voltooid voordat u doorgaat met de volgende sectie.
+9. Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **OK** om de netwerkbronnen en de application gateway te maken. Het duurt enkele minuten voor de toepassingsgateway worden gemaakt, wacht totdat de implementatie is voltooid voordat u doorgaat met de volgende sectie.
 
 ### <a name="add-a-subnet"></a>Een subnet toevoegen
 
@@ -77,7 +77,7 @@ Een virtueel netwerk is vereist voor de communicatie tussen de bronnen die u maa
 
 ## <a name="create-virtual-machines"></a>Virtuele machines maken
 
-In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-endservers voor de toepassingsgateway. U installeert ook IIS op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
+In dit voorbeeld maakt u drie virtuele machines die worden gebruikt als back-endservers voor application gateway. U installeert ook IIS op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
 
 1. Klik op **Nieuw**.
 2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst met aanbevolen.
@@ -103,7 +103,7 @@ In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-en
 2. Voer de volgende opdracht uit om IIS op de virtuele machine te installeren: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -115,7 +115,7 @@ In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-en
       -Settings $publicSettings
     ```
 
-3. Maak twee meer virtuele machines en IIS installeren met behulp van de stappen die u zojuist hebt voltooid. Typ de namen van *myVM2* en *myVM3* voor de namen en de waarden van VMName in Set AzureRmVMExtension.
+3. Maak twee meer virtuele machines en IIS installeren met behulp van de stappen die u zojuist hebt voltooid. Typ de namen van *myVM2* en *myVM3* voor de namen en de waarden van VMName in Set-AzureRmVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Back-endpools maken met de virtuele machines
 
@@ -127,24 +127,24 @@ In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-en
 
 4. Klik op **Opslaan**.
 5. Klik op **back-endpools** en klik vervolgens op **toevoegen**.
-6. Voer een naam in van *imagesBackendPool* en voeg *myVM2* met **toevoegen doel**.
+6. Voer een naam in van *imagesBackendPool* en toe te voegen *myVM2* met behulp van **toevoegen doel**.
 7. Klik op **OK**.
-8. Klik op **toevoegen** om opnieuw toe te voegen met een naam van een andere back-endpool *videoBackendPool* en voeg *myVM3* aan.
+8. Klik op **toevoegen** opnieuw toe te voegen een andere back-endpool met de naam *videoBackendPool* en toe te voegen *myVM3* toe.
 
 ## <a name="create-a-backend-listener"></a>Maak een back-end-listener
 
 1. Klik op **Listeners** en klik op **Basic**.
-2. Voer *myBackendListener* voor de naam *myFrontendPort* voor de naam van de frontend-poort, en vervolgens *8080* als de poort voor de listener.
+2. Voer *myBackendListener* voor de naam van de *myFrontendPort* voor de naam van de front-endpoort, en vervolgens *8080* als de poort voor de listener.
 3. Klik op **OK**.
 
-## <a name="create-a-path-based-routing-rule"></a>Maken van een pad op basis van een regel voor doorsturen
+## <a name="create-a-path-based-routing-rule"></a>Een regel op pad gebaseerde routering maken
 
-1. Klik op **regels** en klik vervolgens op **op basis van het pad**.
+1. Klik op **regels** en klik vervolgens op **op pad gebaseerde**.
 2. Voer *regel 2* voor de naam.
 3. Voer *installatiekopieën* voor de naam van het eerste pad. Voer */images/* \* voor het pad. Selecteer **imagesBackendPool** voor de back-endpool.
 4. Voer *Video* voor de naam van het tweede pad. Voer */video/* \* voor het pad. Selecteer **videoBackendPool** voor de back-endpool.
 
-    ![Maak een regel op basis van het pad](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+    ![Een pad gebaseerde regel maken](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 
 5. Klik op **OK**.
 
@@ -158,11 +158,11 @@ In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-en
 
     ![Basis-URL testen in de toepassingsgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Wijzig de URL naar http://&lt;IP-adres&gt;: 8080/images/test.htm, vervangen door &lt;IP-adres&gt; met uw IP-adres en u ziet ongeveer het volgende voorbeeld:
+3. Wijzig de URL naar http://&lt;ip-adres&gt;: 8080/images/test.htm, vervangen door &lt;ip-adres&gt; met uw IP-adres, en u ziet er ongeveer als volgt:
 
     ![Afbeeldingen-URL in toepassingsgateway testen](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
-4. Wijzig de URL naar http://&lt;IP-adres&gt;: 8080/video/test.htm, vervangen door &lt;IP-adres&gt; met uw IP-adres en u ziet ongeveer het volgende voorbeeld:
+4. Wijzig de URL naar http://&lt;ip-adres&gt;: 8080/video/test.htm, vervangen door &lt;ip-adres&gt; met uw IP-adres, en u ziet er ongeveer als volgt:
 
     ![Video-URL testen in de toepassingsgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
@@ -172,9 +172,9 @@ In dit artikel hebt u geleerd hoe u
 
 > [!div class="checklist"]
 > * Een toepassingsgateway maken
-> * Maken van virtuele machines voor back-endservers
+> * Virtuele machines voor back-endservers maken
 > * Back-endpools maken met de back-endservers
 > * Maak een back-end-listener
-> * Maken van een pad op basis van een regel voor doorsturen
+> * Een regel op pad gebaseerde routering maken
 
-Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.
+Voor meer informatie over Toepassingsgateways en de bijbehorende resources, gaat u naar de artikelen met procedures.

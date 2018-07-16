@@ -1,5 +1,5 @@
 ---
-title: Bash in Azure Cloud Shell-functies | Microsoft Docs
+title: Azure Cloud Shell-functies | Microsoft Docs
 description: Overzicht van de functies van Bash in Azure Cloud Shell
 services: Azure
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: f0be50a3e8328c26651e0db5c8fae708518a0ea1
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 09c3ca23aafc8519b9e3ad57d030f066bb153e26
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861699"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056188"
 ---
-# <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Functies en hulpprogramma's voor Bash in Azure Cloud Shell
+# <a name="features--tools-for-azure-cloud-shell"></a>Functies en hulpprogramma's voor Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
@@ -57,13 +57,13 @@ Cloudshell bevat vooraf geconfigureerde verificatie voor open-source hulpprogram
 
 ## <a name="tools"></a>Hulpprogramma's
 
-|Category   |Naam   |
+|Categorie   |Naam   |
 |---|---|
 |Hulpprogramma's voor Linux            |Bash<br> zsh<br> Sh<br> tmux<br> graven<br>               |
 |Azure-hulpprogramma 's            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) en [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric-CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Teksteditors           |VIM<br> nano<br> emacs       |
 |Broncodebeheer         |git                    |
-|Hulpprogramma's bouwen            |maken<br> maven<br> npm<br> PIP         |
+|Hulpprogramma's bouwen            |Maken<br> Maven<br> npm<br> PIP         |
 |Containers             |[Docker CLI](https://github.com/docker/cli)/[Docker-Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databases              |MySQL-client<br> PostgreSql-client<br> [Sqlcmd-hulpprogramma](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL-scripts](https://github.com/Microsoft/sql-xplat-cli) |
 |Overige                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef inspectie mogelijk](https://www.chef.io/inspec/)| 

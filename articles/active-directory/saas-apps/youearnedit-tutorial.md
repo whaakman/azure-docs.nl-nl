@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 5af3195f8543e5ef3763666b3a997ffb4cd25713
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 89370b6d861301e2452d7440dd7b950d6ed5f3f6
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213775"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Zelfstudie: Azure Active Directory-integratie met YouEarnedIt
 
-In deze zelfstudie leert u hoe YouEarnedIt integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u YouEarnedIt integreren met Azure Active Directory (Azure AD).
 
-YouEarnedIt integreren met Azure AD biedt de volgende voordelen:
+YouEarnedIt integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot YouEarnedIt heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij YouEarnedIt (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij YouEarnedIt (Single Sign-On) met hun Azure AD-accounts inschakelen.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,25 +42,25 @@ Voor het configureren van Azure AD-integratie met YouEarnedIt, moet u de volgend
 - Een YouEarnedIt eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. YouEarnedIt uit de galerie toevoegen
+1. YouEarnedIt uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-youearnedit-from-the-gallery"></a>YouEarnedIt uit de galerie toevoegen
-Voor het configureren van de integratie van YouEarnedIt in Azure AD, moet u YouEarnedIt uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-youearnedit-from-the-gallery"></a>YouEarnedIt uit de galerie toe te voegen
+Voor het configureren van de integratie van YouEarnedIt in Azure AD, moet u YouEarnedIt uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen YouEarnedIt uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,89 +68,89 @@ Voor het configureren van de integratie van YouEarnedIt in Azure AD, moet u YouE
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
 4. Typ in het zoekvak **YouEarnedt**, selecteer **YouEarnedt** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![YouEarnedIt in de lijst met resultaten](./media/youearnedit-tutorial/tutorial_youearnedit_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met YouEarnedIt op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met YouEarnedIt op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in YouEarnedIt is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in YouEarnedIt tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in YouEarnedIt is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in YouEarnedIt tot stand worden gebracht.
 
-Wijs in YouEarnedIt, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In YouEarnedIt, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met YouEarnedIt, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker YouEarnedIt](#create-a-youearnedit-test-user)**  - YouEarnedIt die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker YouEarnedIt](#create-a-youearnedit-test-user)**  : als u wilt een equivalent van Britta Simon in YouEarnedIt die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing YouEarnedIt configureren.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing YouEarnedIt.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met YouEarnedIt, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **YouEarnedIt** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **YouEarnedIt** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
-    ![Dialoogvenster voor eenmalige aanmelding](./media/youearnedit-tutorial/tutorial_youearnedit_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/youearnedit-tutorial/tutorial_youearnedit_samlbase.png)
 
-3. Op de **YouEarnedIt domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op de **YouEarnedIt domein en URL's** sectie, voert u de volgende stappen uit:
 
-    ![URL's en YouEarnedIt domein eenmalige aanmelding informatie](./media/youearnedit-tutorial/tutorial_youearnedit_url.png)
+    ![YouEarnedIt domein en URL's, eenmalige aanmelding informatie](./media/youearnedit-tutorial/tutorial_youearnedit_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met de volgende patronen: 
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van de volgende patronen: 
     | Omgeving  | Patroon  |
     |:--- |:--- |
     | Productie | `https://<company name>.youearnedit.com/users/sign_in` |
     | Sandbox  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
-    b. In de **id** textbox, typ een URL met de volgende patronen:
+    b. In de **id** tekstvak, een URL met behulp van de volgende patronen:
     | Omgeving  | Patroon  |
     |:--- |:--- |
     | Productie | `https://<company name>.youearnedit.com` |
     | Sandbox  |`https://<company name>.sandbox.youearnedit.com` |
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [YouEarnedIt Client ondersteuningsteam](https://youearnedit.freshdesk.com/support/tickets/new) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [YouEarnedIt Client ondersteuningsteam](https://youearnedit.freshdesk.com/support/tickets/new) om deze waarden te verkrijgen. 
  
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/youearnedit-tutorial/tutorial_youearnedit_certificate.png) 
 
 5. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/youearnedit-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/youearnedit-tutorial/tutorial_general_400.png)
 
-6. Op de **YouEarnedIt configuratie** sectie, klikt u op **configureren YouEarnedIt** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Op de **YouEarnedIt configuratie** sectie, klikt u op **configureren YouEarnedIt** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
 
     ![YouEarnedIt configuratie](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. Eenmalige aanmelding configureren op **YouEarnedIt** zijde, moet u de gedownloade verzenden **Certificate(Base64)** en **SAML Single Sign-On Service-URL** naar [YouEarnedIt ondersteuningsteam](https://youearnedit.freshdesk.com/support/tickets/new). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+7. Het configureren van eenmalige aanmelding op **YouEarnedIt** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)** en **Single Sign-On Service URL voor SAML** naar [ Het ondersteuningsteam YouEarnedIt](https://youearnedit.freshdesk.com/support/tickets/new). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/youearnedit-tutorial/create_aaduser_01.png)
 
@@ -158,11 +158,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/youearnedit-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/youearnedit-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/youearnedit-tutorial/create_aaduser_04.png)
 
@@ -170,30 +170,30 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
-### <a name="create-a-youearnedit-test-user"></a>Een testgebruiker YouEarnedIt maken
+### <a name="create-a-youearnedit-test-user"></a>Maak een testgebruiker YouEarnedIt
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in YouEarnedIt maken. Neem contact op met het ondersteuningsteam YouEarnedIt de gebruikers van het platform YouEarnedIt toevoegen.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in YouEarnedIt. Neem contact op met het ondersteuningsteam YouEarnedIt om toe te voegen de gebruikers in het YouEarnedIt-platform.
 
 >[!NOTE]
->YouEarnedIt verwachten dat de id-Provider op te geven van een EmailAddress of een gebruikersnaam in het kenmerk NameID. Verificatie mislukt als de overeenkomende gebruikersnaam of EmailAddress niet in de database gevonden is of komt niet exact overeen. Dit vereist dat de accounts worden geïmporteerd in het systeem YouEarnedIt voordat de SSO-integratie (doorgaans op via de API- of CSV-import).
+>YouEarnedIt verwachten dat de id-Provider op te geven van een EmailAddress of de gebruikersnaam in het kenmerk van NameID. Verificatie mislukt als er een overeenkomende gebruikersnaam of EmailAddress niet in de database gevonden is of komt niet exact overeen. Dit vereist dat de accounts worden geïmporteerd in het systeem YouEarnedIt voordat de integratie van eenmalige aanmelding (meestal ofwel via een API- of CSV-import).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan YouEarnedIt.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan YouEarnedIt.
 
-![Toewijzen van de gebruikersrol][200] 
+![De de gebruikersrol toewijzen][200] 
 
-**Britta Simon om aan te wijzen YouEarnedIt, moet u de volgende stappen uitvoeren:**
+**Als u wilt Britta Simon aan YouEarnedIt toewijst, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **YouEarnedIt**.
+2. Selecteer in de lijst met toepassingen, **YouEarnedIt**.
 
     ![De koppeling YouEarnedIt in de lijst met toepassingen](./media/youearnedit-tutorial/tutorial_youearnedit_app.png)  
 
@@ -205,23 +205,23 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u op de tegel YouEarnedIt in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing YouEarnedIt.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel YouEarnedIt in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing YouEarnedIt.
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

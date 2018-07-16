@@ -1,6 +1,6 @@
 ---
-title: Live web-apps in Azure met Application Insights Profiler profiel | Microsoft Docs
-description: Identificeer de hot pad in uw web server-code met een lage footprint profiler.
+title: Profileer live web-apps op Azure met Application Insights Profiler | Microsoft Docs
+description: Het dynamische pad in de code van de web-server met een lage footprint profiler identificeren.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,315 +9,307 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/08/2018
+ms.topic: conceptual
+ms.reviewer: cawa
+ms.date: 07/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e4712b94be94eb6d4cf363fc120b72c74f29f0a2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059660"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiel live Azure-web-apps met Application Insights
 
-*Deze functie van Azure Application Insights is algemeen beschikbaar is voor de functie Web Apps van Azure App Service en is Preview-versie voor Azure-rekenresources. Voor informatie met betrekking tot [lokale gebruik van de profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
+Deze functie van Azure Application Insights is algemeen beschikbaar voor de functie Web Apps van Azure App Service en is in Preview-versie van Azure compute-resources. Voor informatie met betrekking tot [on premises gebruik van profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
-In dit artikel worden de hoeveelheid tijd die nodig om in elke methode van uw live-webtoepassing wanneer u [Application Insights](app-insights-overview.md). Het hulpprogramma Application Insights Profiler geeft gedetailleerde profielen van live-aanvragen die door uw app zijn behandeld. Profiler markeert de *hot pad* die gebruikmaakt van de meeste tijd. Aanvragen met verschillende reactietijden zijn profiel op basis van steekproeven. Met behulp van tal van technieken minimaliseert u de overhead die is gekoppeld aan de toepassing.
+Dit artikel worden de hoeveelheid tijd die nodig om in elke methode van uw live webtoepassing wanneer u [Application Insights](app-insights-overview.md). Het hulpprogramma Application Insights Profiler geeft gedetailleerde profielen van live-aanvragen die door uw app zijn behandeld. Profiler markeert de *snelpad* die gebruikmaakt van de meeste tijd. Aanvragen met verschillende reactietijden worden geprofileerd op basis van steekproeven. Met behulp van verschillende technieken, kunt u de overhead die gepaard gaat met de toepassing minimaliseren.
 
-Profiler werkt momenteel voor ASP.NET- en ASP.NET Core web-apps die worden uitgevoerd op de Web-Apps. Het Basic servicelaag of hoger is vereist voor het gebruik van de Profiler.
+Profiler is op dit moment werkt voor ASP.NET en ASP.NET Core web-apps die worden uitgevoerd op Web-Apps. De basis-servicelaag of hoger is vereist voor het gebruik van Profiler.
 
-## <a id="installation"></a> Profiler voor uw web-app voor Web-Apps inschakelen
-Als u al hebben tot de toepassing naar een web-app gepubliceerd, maar in de broncode voor het gebruik van Application Insights niet hebt gedaan, het volgende doen:
+## <a id="installation"></a> Profiler voor uw Web-Apps inschakelen
+
+Wanneer u een Web-App hebt geïmplementeerd, ongeacht als u de App Insights-SDK in de broncode opgenomen, het volgende doen:
+
 1. Ga naar de **App Services** deelvenster in de Azure-portal.
-2. Onder **bewaking**, selecteer **Application Insights**, en vervolgens ofwel Volg de instructies in het deelvenster te maken van een nieuwe resource of een bestaande Application Insights-resource voor het bewaken van uw web-selecteren App.
+2. Navigeer naar **instellingen > controle** deelvenster.
 
-   ![App inzicht in de portal App Services inschakelen][appinsights-in-appservices]
+   ![App Insights inschakelen in App Services-portal](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-3. Als u toegang tot de broncode van uw project hebt [Installeer Application Insights-](app-insights-asp-net.md).  
-   Als deze al geïnstalleerd, zorg er dan voor dat u de meest recente versie hebt. Om te controleren of de nieuwste versie, klikt u in Solution Explorer met de rechtermuisknop op uw project en selecteer vervolgens **beheren NuGet-pakketten** > **Updates** > **alle bijwerken pakketten**. Vervolgens implementeert u uw app.
+3. Ofwel de instructies in het deelvenster te maken van een nieuwe resource of Selecteer een bestaande App Insights-resource voor het bewaken van uw web-app. Accepteer alle standaardopties. **Gegevens op codeniveau** is standaard ingeschakeld en kunt u Profiler.
 
-ASP.NET Core toepassingen moet de installatie van de 2.1.0-beta6 Microsoft.ApplicationInsights.AspNetCore NuGet-pakket of later om te werken met Profiler. Eerdere versies worden niet ondersteund vanaf 27 juni 2017.
+   ![App Insights-site-extensie toevoegen][Enablement UI]
 
-1. In [de Azure-portal](https://portal.azure.com), opent u de Application Insights-resource voor uw web-app. 
-2. Selecteer **prestaties** > **Application Insights Profiler inschakelen**.
+4. Profiler is nu geïnstalleerd met de App Insights-site-extensie en is ingeschakeld met behulp van een App-instelling van de App-Services.
 
-   ![Selecteer de banner van de profiler inschakelen][enable-profiler-banner]
-
-3. U kunt ook selecteren de **Profiler** configuratie van de status bekijken en in- of uitschakelen van profileringsfunctie.
-
-   ![Configuratie van de Profiler selecteren][performance-blade]
-
-   Web-apps die zijn geconfigureerd met Application Insights worden vermeld in de **Profiler** deelvenster configuratie. Als u de voorgaande stappen hebt gevolgd, kan de Profiler-agent moet worden geïnstalleerd. 
-
-4. In de **Profiler** deelvenster configuratie, selecteer **Profiler inschakelen**.
-
-5. Volg de instructies voor het installeren van de agent Profiler indien nodig. Als er geen web-apps zijn geconfigureerd met Application Insights, selecteert u **gekoppelde Apps toevoegen**.
-
-   ![Opties configureren][linked app services]
-
-In tegenstelling tot web-apps die worden gehost door middel van Web-Apps plannen, toepassingen die worden gehost in Azure-rekenresources (bijvoorbeeld Azure Virtual Machines, virtuele-machineschaalsets, Azure Service Fabric of Azure Cloud Services) niet rechtstreeks worden beheerd door Azure. Er is in dit geval geen web-app wilt koppelen. In plaats van koppelt aan een app, selecteer de **Profiler inschakelen** knop.
+    ![App-instelling voor Profiler][profiler-app-setting]
 
 ### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Profiler inschakelen voor Azure-rekenresources (preview)
 
-Zie voor meer informatie, de [preview-versie van de Profiler voor Azure-rekenresources](https://go.microsoft.com/fwlink/?linkid=848155).
+Zie voor meer informatie, de [preview-versie van Profiler voor Azure-rekenresources](https://go.microsoft.com/fwlink/?linkid=848155).
 
-## <a name="view-profiler-data"></a>Gegevens van de profiler weergeven
+## <a name="view-profiler-data"></a>Profiler-gegevens weergeven
 
-Zorg ervoor dat uw toepassing verkeer ontvangt. Als u een experiment doet, kunt u aanvragen genereren naar uw app met [Application Insights-prestatietests](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Als u hebt zojuist Profiler ingeschakeld, kunt u een korte belastingstest ongeveer 15 minuten, die moeten worden gegenereerd profiler traceringen uitvoeren. Als u al ingeschakeld voor een tijdje Profiler had, is Houd er rekening mee dat de Profiler wordt uitgevoerd willekeurig twee keer om het uur en gedurende een periode van twee minuten elke keer dat deze wordt uitgevoerd. Het is raadzaam om de eerste uitvoering van de load-test voor één uur om ervoor te zorgen dat u voorbeeld profiler traceringen.
+Zorg ervoor dat uw toepassing verkeer ontvangt. Als u een experiment uitvoert, kunt u aanvragen genereren voor uw web-app via [Application Insights-prestatietests](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Als u Profiler zojuist hebt ingeschakeld, kunt u een korte belastingstest ongeveer 15 minuten, die profiler-traceringen moeten genereren uitvoeren. Als u de Profiler is al ingeschakeld voor een tijdje hebt gehad, wordt Houd er rekening mee dat Profiler willekeurig twee keer per uur uitgevoerd en wordt gedurende een periode van twee minuten telkens wanneer deze wordt uitgevoerd. U wordt aangeraden de eerste uitvoering van de load-test voor één uur om er zeker van te zijn dat u een voorbeeld van profiler-traceringen.
 
-Nadat u uw toepassing verkeer ontvangt, gaat u naar de **prestaties** deelvenster **acties ondernemen** profiler traceringen weergeven en selecteer vervolgens de **Profiler traceringen** knop.
+Nadat uw toepassing heeft een deel van netwerkverkeer ontvangen, gaat u naar de **prestaties** venster **acties ondernemen** profiler-traceringen weergeven en selecteer vervolgens de **Profiler-traceringen** knop.
 
-![Application Insights-prestaties deelvenster preview Profiler wordt getraceerd][performance-blade-v2-examples]
+![Application Insights-prestaties deelvenster preview Profiler-traceringen][performance-blade-v2-examples]
 
-Selecteer een voorbeeld om weer te geven van een code-niveau verdeling van tijd besteed aan de aanvraag wordt uitgevoerd.
+Selecteer een voorbeeld om een uitsplitsing van de code-niveau van de tijd besteed aan het uitvoeren van de aanvraag weer te geven.
 
 ![Application Insights trace explorer][trace-explorer]
 
-De tracering explorer bevat de volgende informatie:
+De trace-explorer bevat de volgende informatie:
 
-* **Hot pad weergeven**: wordt geopend de grootste blad knooppunt of ten minste iets sluit. In de meeste gevallen is dit knooppunt naast het prestatieknelpunt.
-* **Label**: de naam van de functie of de gebeurtenis. Deze structuur ziet u een mengeling van code en gebeurtenissen die hebben plaatsgevonden (zoals SQL- en HTTP-gebeurtenissen). De eerste gebeurtenis vertegenwoordigt de totale duur van de aanvraag.
+* **Hot Path tonen**: wordt geopend de hoogste blad knooppunt, of ten minste iets sluiten. In de meeste gevallen is dit knooppunt naast een bottleneck in de prestaties.
+* **Label**: de naam van de functie of de gebeurtenis. De structuur wordt een combinatie van code en gebeurtenissen die hebben plaatsgevonden (zoals SQL- en HTTP-gebeurtenissen) weergegeven. De eerste gebeurtenis vertegenwoordigt de totale aanvraagduur.
 * **Verstreken**: het tijdsinterval tussen het begin van de bewerking en het einde van de bewerking.
-* **Wanneer**: de tijd waarop de functie of gebeurtenis werd uitgevoerd in de relatie aan andere functies.
+* **Wanneer**: de tijd waarop de functie of het evenement werd uitgevoerd ten opzichte van andere functies.
 
 ## <a name="how-to-read-performance-data"></a>Het lezen van prestatiegegevens
 
-De service Microsoft profiler wordt een combinatie van steekproeven methoden en instrumentation voor het analyseren van de prestaties van uw toepassing. Als gedetailleerde verzameling uitgevoerd wordt, voorbeelden de serviceprofiler voor de instructie aanwijzer van elke machine CPU elke milliseconde. Elk voorbeeld bevat de volledige aanroepstack van de thread die momenteel wordt uitgevoerd. Dit biedt gedetailleerde informatie over die thread werd uitgevoerd, zowel op hoog niveau en op een laag niveau van abstractie. De serviceprofiler verzamelt ook andere gebeurtenissen om correlatie van activiteit en oorzakelijk verband, inclusief de context overschakelen van gebeurtenissen, taak parallelle bibliotheek (TPL) gebeurtenissen en thread pool te houden.
+De service-profiler van Microsoft maakt gebruik van een combinatie van steekproeven methoden en instrumentation voor het analyseren van de prestaties van uw toepassing. Wanneer uitgebreide verzameling uitgevoerd wordt, voorbeelden de profiler service de aanwijzer instructie van de CPU van de machine elke milliseconde. Elk voorbeeld bevat de volledige aanroepstack van de thread die momenteel wordt uitgevoerd. Het biedt gedetailleerde informatie over deze thread is uitgevoerd, zowel op hoog niveau en op het niveau van een laag van abstractie. De service profiler verzamelt ook andere gebeurtenissen om correlatie van activiteit en oorzakelijke, inclusief de context schakelen tussen gebeurtenissen, taak parallelle bibliotheek (TPL) gebeurtenissen en thread pool te houden.
 
-De aanroepstack die wordt weergegeven in de tijdlijnweergave is het resultaat van de steekproef en instrumentation. Omdat elk voorbeeld de volledige aanroepstack van de thread bevat, bevat deze een code van Microsoft .NET Framework en van andere frameworks waarnaar u verwijst.
+De aanroepstack die wordt weergegeven in de tijdlijnweergave is het resultaat van de lijnen en -instrumentatie. Omdat elk voorbeeld de volledige aanroepstack van de thread bevat, bevat deze code van Microsoft .NET Framework en van andere frameworks waarnaar u verwijst.
 
 ### <a id="jitnewobj"></a>Object-toewijzing (clr! JIT\_nieuw of clr! JIT\_Newarr1)
-**CLR! JIT\_nieuw** en **clr! JIT\_Newarr1** hulpfuncties in .NET Framework die geheugen van een beheerde opslagruimte toewijzen zijn. **CLR! JIT\_nieuw** wordt aangeroepen wanneer een object wordt toegewezen. **CLR! JIT\_Newarr1** wordt aangeroepen wanneer een objectmatrix is toegewezen. Deze twee functies zijn meestal snel en relatief kleine hoeveelheden tijd duren. Als u ziet **clr! JIT\_nieuw** of **clr! JIT\_Newarr1** een aanzienlijke hoeveelheid tijd kosten in de tijdlijn, betekent dit dat de code kan worden veel objecten toewijzen en gebruiken van grote hoeveelheden geheugen.
 
-### <a id="theprestub"></a>Bij het laden van code (clr! ThePreStub)
-**CLR! ThePreStub** is een Help-functie in .NET Framework dat de code uit te voeren voor de eerste keer wordt voorbereid. Dit meestal omvat, maar is niet beperkt tot compilatie just in time (Just in time). Voor elke methode C# **clr! ThePreStub** mag maximaal één keer tijdens de levensduur van een proces worden aangeroepen.
+**CLR! JIT\_nieuw** en **clr! JIT\_Newarr1** Help-functies in .NET Framework die geheugen van een beheerde opslagruimte toewijzen zijn. **CLR! JIT\_nieuw** wordt aangeroepen wanneer een object wordt toegewezen. **CLR! JIT\_Newarr1** wordt aangeroepen wanneer een object array wordt toegewezen. Deze twee functies zijn meestal snel en relatief kleine hoeveelheden tijd duren. Als u ziet **clr! JIT\_nieuw** of **clr! JIT\_Newarr1** nemen van een aanzienlijke hoeveelheid tijd in de tijdlijn, betekent dit dat de code kan worden bij het toewijzen van veel objecten en gebruiken van grote hoeveelheden geheugen.
 
-Als **clr! ThePreStub** neemt veel tijd voor een aanvraag, betekent dit dat de aanvraag het eerste beheerpunt waarmee deze methode wordt uitgevoerd. De tijd voor de .NET Framework runtime laden van de eerste methode is van belang. U kunt met behulp van een opwarmtijd-proces dat gedeelte van de code wordt uitgevoerd voordat uw gebruikers toegang dit tot of overweeg Native Image Generator (ngen.exe) uitgevoerd op uw assembly's.
+### <a id="theprestub"></a>Het laden van code (clr! ThePreStub)
+
+**CLR! ThePreStub** is van een Help-functie in .NET Framework dat de code uit te voeren voor de eerste keer wordt voorbereid. Dit meestal bevat, maar is niet beperkt tot de compilatie van just-in-time (JIT). Voor elke C#-methode **clr! ThePreStub** maximaal één keer tijdens de levensduur van een proces moet worden aangeroepen.
+
+Als **clr! ThePreStub** duurt een aanzienlijke hoeveelheid tijd voor een aanvraag, betekent dit dat de aanvraag de eerste record die wordt uitgevoerd die methode. De tijd voor de .NET Framework runtime laden van de eerste methode is van belang. Kunt u overwegen een opwarmtijd-proces dat gedeelte van de code wordt uitgevoerd voordat uw gebruikers toegang tot, of breng Native Image Generator (ngen.exe) uitgevoerd op uw assembly's gebruiken.
 
 ### <a id="lockcontention"></a>Vergrendelingsconflicten (clr! JITutil\_MonContention of clr! JITutil\_MonEnterWorker)
-**CLR! JITutil\_MonContention** of **clr! JITutil\_MonEnterWorker** geeft aan dat de huidige thread wacht een vergrendeling worden vrijgegeven. Deze tekst wordt doorgaans weergegeven wanneer u een C# **vergrendeling** instructie bij het aanroepen van de **Monitor.Enter** methode, of bij het aanroepen van een methode met de **MethodImplOptions.Synchronized** kenmerk. Vergrendelingsconflicten treedt meestal op wanneer thread _A_ verkrijgt van een vergrendeling en thread _B_ probeert de dezelfde vergrendeling voordat thread _A_ vrijgegeven.
 
-### <a id="ngencold"></a>Bij het laden van code ([koude])
-Als de naam van de methode bevat **[koude]**, zoals **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, het uitvoeren van de .NET Framework runtime is code voor de eerste keer dat niet is geoptimaliseerd door <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">optimalisatie profiel begeleide</a>. Voor elke methode moet die worden weergegeven maximaal één keer tijdens de levensduur van het proces.
+**CLR! JITutil\_MonContention** of **clr! JITutil\_MonEnterWorker** geeft aan dat de huidige thread wordt gewacht tot een vergrendeling worden vrijgegeven. Deze tekst wordt vaak weergegeven wanneer u een C# **vergrendeling** instructie, bij het aanroepen van de **Monitor.Enter** methode, of bij het aanroepen van een methode met de **MethodImplOptions.Synchronized** kenmerk. Vergrendelingsconflicten treedt meestal op wanneer de thread _A_ verkrijgt een vergrendelen op afstand en thread _B_ probeert te verkrijgen van de dezelfde vergrendeling voordat thread _A_ vrijgegeven.
 
-Als een aanzienlijke hoeveelheid tijd voor een aanvraag in beslag tijdens het laden van code neemt, betekent dit dat de aanvraag de eerste is uit te voeren van het niet geoptimaliseerde gedeelte van de methode. Overweeg het gebruik van een opwarmtijd-proces dat wordt uitgevoerd dat deel van de code voordat uw gebruikers toegang krijgen deze tot.
+### <a id="ngencold"></a>Het laden van code ([KOUD])
+
+Als de methodenaam van de bevat **[koude]**, zoals **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, het uitvoeren van de .NET Framework runtime is code voor de eerste keer is dat niet is geoptimaliseerd door <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">profiel begeleide optimalisatie</a>. Voor elke methode moet die worden weergegeven maximaal één keer tijdens de levensduur van het proces.
+
+Als het laden van code nodig een aanzienlijke hoeveelheid tijd voor een aanvraag heeft, betekent dit dat de aanvraag voor het eerste item voor het uitvoeren van de niet-geoptimaliseerde gedeelte van de methode is. Overweeg het gebruik van een opwarmtijd-proces dat gedeelte van de code wordt uitgevoerd voordat uw gebruikers toegang krijgen deze tot.
 
 ### <a id="httpclientsend"></a>HTTP-aanvraag verzenden
-Methoden zoals **HttpClient.Send** aangeven dat de code nog een HTTP-aanvraag te voltooien.
 
-### <a id="sqlcommand"></a>Databasebewerking
-Methoden zoals **SqlCommand.Execute** aangeven dat de code wordt gewacht aan een databasebewerking te voltooien.
+-Methoden zoals **HttpClient.Send** aangeven dat de code wordt gewacht tot een HTTP-aanvraag moet worden voltooid.
+
+### <a id="sqlcommand"></a>Database-bewerking
+
+-Methoden zoals **SqlCommand.Execute** aangeven dat de code wordt gewacht tot een database-bewerking te voltooien.
 
 ### <a id="await"></a>Wachten op (AWAIT\_tijd)
-**AWAIT\_tijd** geeft aan dat de code nog een andere taak te voltooien. Dit gebeurt meestal met C# **AWAIT** instructie. Wanneer de code doet een C# **AWAIT**, de thread wordt afgewikkeld en wordt de besturing aan de threadgroep en er is geen thread die is geblokkeerd wachten op de **AWAIT** te voltooien. Echter, logisch, de thread die heeft de **AWAIT** 'geblokkeerd' en wacht tot de bewerking te voltooien. De **AWAIT\_tijd** instructie geeft de geblokkeerde tijd wachten op de taak te voltooien.
+
+**AWAIT\_tijd** geeft aan dat de code wordt gewacht tot een andere taak te voltooien. Dit gebeurt meestal met de C# **AWAIT** instructie. Wanneer de code doet een C# **AWAIT**, de thread afgewikkeld en retourneert het besturingselement naar de thread-groep, en er is geen thread geblokkeerd wachten op de **AWAIT** om te voltooien. Echter, logisch, de thread die heeft de **AWAIT** 'geblokkeerd', en wacht tot de bewerking is voltooid. De **AWAIT\_tijd** instructie geeft aan dat de geblokkeerde tijd wachten op de taak is voltooid.
 
 ### <a id="block"></a>Geblokkeerde tijd
-**BLOCKED_TIME** geeft aan dat de code door een andere bron beschikbaar wordt gewacht. Het kan bijvoorbeeld worden wachten voor een synchronisatieobject, een thread beschikbaar of een aanvraag te voltooien.
+
+**BLOCKED_TIME** geeft aan dat de code wordt gewacht tot een andere bron beschikbaar zijn. Het kan bijvoorbeeld worden wachten voor een synchronisatieobject, een thread beschikbaar zijn of een verzoek om te voltooien.
 
 ### <a id="cpu"></a>CPU-tijd
+
 De CPU is bezig met uitvoeren van de instructies.
 
 ### <a id="disk"></a>Schijftijd
+
 De toepassing uitvoert schijfbewerkingen.
 
-### <a id="network"></a>Netwerk tijd
-De toepassing met het uitvoeren van bewerkingen in het netwerk.
+### <a id="network"></a>Netwerktijd
 
-### <a id="when"></a>Wanneer kolom
-De **wanneer** kolom is een visualisatie van hoe de inclusief voorbeelden die worden verzameld voor een knooppunt gedurende een bepaalde periode variëren. Het totale bereik van de aanvraag is onderverdeeld in 32 tijd buckets. Inclusief voorbeelden voor dat knooppunt wordt in deze buckets 32 geteld. Elke bucket wordt weergegeven als een balk. De hoogte van de balk vertegenwoordigt een uitgebreid waarde. Voor knooppunten die zijn gemarkeerd **CPU_TIME** of **BLOCKED_TIME**, of wanneer er een duidelijke relatie voor de toepassingen van een bron (bijvoorbeeld een CPU, schijf of thread), de balk staat voor het verbruik van een van de bronnen die tijdens de periode die bucket. Voor deze metrische gegevens is het mogelijk dat een waarde van meer dan 100 procent door meerdere resources verbruikt. Als u, op gemiddelde twee CPU's tijdens een interval, krijgt u bijvoorbeeld 200 procent.
+De toepassing met het uitvoeren van bewerkingen op het netwerk.
+
+### <a id="when"></a>Als kolom
+
+De **wanneer** kolom is een visualisatie van hoe de inclusief voorbeelden die worden verzameld voor een knooppunt na verloop van tijd variëren. Het totale bereik van de aanvraag is onderverdeeld in 32 tijd buckets. De inclusief voorbeelden voor dat knooppunt zijn verzameld in deze 32 buckets. Elke bucket wordt weergegeven als een balk. De hoogte van de balk met vertegenwoordigt een schaal waarde. Voor de knooppunten die zijn gemarkeerd als **CPU_TIME** of **BLOCKED_TIME**, of wanneer er een duidelijke relatie met het gebruiken van een bron (bijvoorbeeld een CPU, schijf of thread), de balk staat voor het gebruik van een van de resources tijdens de periode van die bucket. Voor deze metrische gegevens is het mogelijk dat een waarde van meer dan 100 procent door meerdere bronnen verbruikt. Als u, Gemiddeld, twee CPU's tijdens een interval gebruikt, krijgt u bijvoorbeeld 200 procent.
 
 ## <a name="limitations"></a>Beperkingen
 
-De bewaartermijn voor gegevens is vijf dagen. De maximale gegevens die wordt ingenomen per dag is 10 GB.
+De bewaartermijn voor gegevens is vijf dagen. De maximale gegevens die per dag wordt opgenomen, is 10 GB.
 
-Er zijn geen kosten voor het gebruik van de Profiler-service. Voordat u kunt het gebruik van de Profiler-service, uw web-app moet worden gehost in ten minste de basisstaffel van Web-Apps.
+Er zijn geen kosten voor het gebruik van de Profiler-service. U kunt de Profiler-service gebruiken, uw web-app moet worden gehost in ten minste de basislaag van de Web-Apps.
 
-## <a name="overhead-and-sampling-algorithm"></a>Overhead en steekproeven algoritme
+## <a name="overhead-and-sampling-algorithm"></a>Overhead en densitysampling-algoritme
 
 Profiler wordt willekeurig twee minuten elk uur uitgevoerd op elke virtuele machine die als host fungeert voor de toepassing die ingeschakeld is voor het vastleggen van traces Profiler. Wanneer de Profiler wordt uitgevoerd, wordt deze toegevoegd van 5 procent aan 15 procent CPU-overhead op de server.
 
-De meer servers die zijn beschikbaar voor het hosten van de toepassing de minder invloed Profiler heeft op de algehele prestaties. Dit is omdat het algoritme steekproeven resulteert in slechts 5 procent van de servers waarop op elk gewenst moment Profiler. Meer servers zijn beschikbaar voor webaanvragen naar offset van de overhead van de server veroorzaakt door het uitvoeren van de Profiler fungeren.
+De meer servers die beschikbaar zijn voor het hosten van de toepassing de minder impact Profiler heeft op de algehele prestaties zijn. Dit komt doordat het samplingalgoritme Profiler alleen 5 procent van de servers waarop op elk gewenst moment leidt. Meer servers zijn beschikbaar voor de webaanvragen worden verwerkt om de overhead van de server veroorzaakt door het uitvoeren van Profiler compenseren.
 
 ## <a name="disable-profiler"></a>Profiler uitschakelen
-Profiler onder voor een afzonderlijke web apps-exemplaar starten of stoppen **webtaken**, gaat u naar de Web-Apps-resource. Als u wilt verwijderen Profiler, gaat u naar **extensies**.
 
-![Profiler voor een web-taak uitschakelen][disable-profiler-webjob]
+Profiler voor een afzonderlijke web-app-exemplaar, onder opnieuw te starten of stoppen **-webtaken**, gaat u naar de Web-Apps-resource. Als u wilt verwijderen van Profiler, gaat u naar **extensies**.
 
-Het is raadzaam dat u ingeschakeld op alle web-apps hebt voor het detecteren van eventuele prestatieproblemen zo spoedig mogelijk Profiler.
+![Profiler uitschakelen voor een webtaak][disable-profiler-webjob]
 
-Als u Web Deploy te implementeren wijzigingen aan uw webtoepassing hebt gebruikt, zorg ervoor dat u de map App_Data uitsluiten worden verwijderd tijdens de implementatie. De Profiler-extensie-bestanden verwijderd anders de volgende keer dat u de webtoepassing naar Azure implementeert.
+Het is raadzaam dat u hebt ingeschakeld op al uw WebApps voor het detecteren van eventuele prestatieproblemen zo vroeg mogelijk Profiler.
+
+Als u Web Deploy om te implementeren wijzigingen in uw web-App gebruikt, zorgt u ervoor dat u de map App_Data uitsluiten van wordt verwijderd tijdens de implementatie. De Profiler-extensie bestanden verwijderd anders de volgende keer dat u de web-App in Azure implementeren.
 
 
 ## <a id="troubleshooting"></a>Problemen oplossen
 
-### <a name="too-many-active-profiling-sessions"></a>Te veel sessies actief profilering
+### <a name="too-many-active-profiling-sessions"></a>Te veel actieve profilering sessies
 
-U kunt op dit moment Profiler inschakelen op maximaal vier Azure-web-apps en implementatiesites die worden uitgevoerd in dezelfde service-abonnement. Als de Profiler web-taak is te veel sessies actief profilering rapportage, verplaatst u een web-apps op een andere service-abonnement.
+U kunt op dit moment Profiler inschakelen op maximaal vier Azure-web-apps en implementatiesites gebruiken die worden uitgevoerd in de dezelfde service-plan. Als de webtaak Profiler te veel actieve profilering sessies rapporteren is, verplaatst u enkele web-apps naar een andere service-plan.
 
-### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Hoe bepaal of de Application Insights Profiler wordt uitgevoerd?
+### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Hoe bepaal ik of Application Insights Profiler wordt uitgevoerd?
 
-Profiler wordt uitgevoerd als een continue web taak in de web-app. U kunt openen de resource voor de web-app in de [Azure-portal](https://portal.azure.com). In de **WebJobs** deelvenster, Controleer de status van **ApplicationInsightsProfiler**. Als deze niet wordt uitgevoerd, opent u **logboeken** voor meer informatie.
+Profiler wordt uitgevoerd als een doorlopende webtaak in de web-app. U kunt openen de resource voor de web-app in de [Azure-portal](https://portal.azure.com). In de **WebJobs** deelvenster, Controleer de status van **ApplicationInsightsProfiler**. Als deze niet wordt uitgevoerd, opent u **logboeken** voor meer informatie.
 
-### <a name="why-cant-i-find-any-stack-examples-even-though-profiler-is-running"></a>Waarom kan ik geen voorbeelden stack vinden ook al Profiler wordt uitgevoerd?
+### <a name="why-cant-i-find-any-stack-examples-even-though-profiler-is-running"></a>Waarom kan ik niet vinden een stack-voorbeelden, hoewel Profiler wordt uitgevoerd?
 
 Hier volgen enkele dingen die u kunt controleren:
 
-* Zorg ervoor dat uw web-app service-abonnement basisstaffel of hoger.
+* Zorg ervoor dat uw web-app service-plan Basic-laag of hoger.
 * Zorg ervoor dat uw web-app Application Insights SDK 2.2 Beta heeft of later worden ingeschakeld.
-* Zorg ervoor dat uw web-app heeft de **APPINSIGHTS_INSTRUMENTATIONKEY** instelling geconfigureerd met dezelfde instrumentatiesleutel die wordt gebruikt door de Application Insights-SDK.
+* Zorg ervoor dat uw web-app heeft de **APPINSIGHTS_INSTRUMENTATIONKEY** instelling die is geconfigureerd met de dezelfde instrumentatiesleutel die wordt gebruikt door de Application Insights-SDK.
 * Zorg ervoor dat uw web-app wordt uitgevoerd op .NET Framework 4.6.
-* Als uw web-app een toepassing ASP.NET Core is, controleert u [de vereiste afhankelijkheden](#aspnetcore).
+* Als uw web-app een ASP.NET Core-toepassing is, controleert u [de vereiste afhankelijkheden](#aspnetcore).
 
-Nadat de Profiler wordt gestart, is er een korte opwarmtijd gedurende welke door Profiler actief verschillende prestaties traceringen worden verzameld. Daarna Profiler traceringen worden verzameld prestaties twee minuten om het uur.
+Nadat de Profiler is gestart, is er een korte opwarmtijd gedurende welke door Profiler actief verschillende prestaties traceringen worden verzameld. Hierna verzamelt Profiler prestatietraces voor twee minuten om het uur.
 
-### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Ik werd Azure Service profiler gebruikt. Wat is er gebeurd met het?
+### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Ik was met behulp van Azure Service profiler. Wat is er gebeurd met het?
 
-Wanneer u Application Insights Profiler inschakelt, wordt de agent van de profiler Azure Service uitgeschakeld.
+Wanneer u Application Insights Profiler inschakelt, wordt de Azure Service profiler-agent is uitgeschakeld.
 
 ### <a id="double-counting"></a>Dubbele parallelle threads tellen
 
 In sommige gevallen kan is de totale tijd metrische gegevens in de stack-viewer hoger dan de duur van de aanvraag.
 
-Deze situatie kan zich voordoen wanneer twee of meer threads gekoppeld aan een aanvraag zijn, en ze parallel werken. In dat geval wordt is de tijd van de totale thread hoger dan de verstreken tijd. Één thread kan worden wacht op de andere worden voltooid. De viewer wordt gezocht naar dit en de niet-interessante wachttijd wordt weggelaten, maar het errs aan de kant van te veel gegevens om weer te geven in plaats van weglaten mogelijk essentiële informatie.
+Deze situatie kan optreden wanneer twee of meer threads gekoppeld aan een aanvraag zijn, en ze parallel worden uitgevoerd. In dat geval wordt is de tijd van de totale thread hoger dan de verstreken tijd. Één thread kan worden wacht op de andere worden uitgevoerd. De viewer wordt gezocht naar dit en oninteressant wachten wordt weggelaten, maar deze oplossen aan de zijkant te veel informatie weergeven in plaats van wat mogelijk belangrijke informatie weglaten.
 
-Als u parallelle threads in uw traceringen zien, kunt u bepalen welke threads wachten zodat u het kritieke pad voor de aanvraag kunt gaan. In de meeste gevallen is gewoon de thread die probeert het snel de status van een wait wacht op de andere threads. Richten op de andere threads en de tijd in de wachtende threads te negeren.
+Wanneer u parallelle threads in uw traceringen zien, moet u bepalen welke threads wachten, zodat u kunt het kritieke pad voor de aanvraag bekijken. In de meeste gevallen is gewoon de thread die snel een wachtstatus krijgt wacht op de andere threads. Zich concentreren op de andere threads en de tijd in de wachtrij-threads te negeren.
 
-### <a id="issue-loading-trace-in-viewer"></a>Er is geen profileringsgegevens
+### <a id="issue-loading-trace-in-viewer"></a>Er zijn geen gegevens
 
 Hier volgen enkele dingen die u kunt controleren:
 
 * Als de gegevens die u probeert weer te geven ouder dan een paar weken is, kunt u uw tijdfilter beperken en probeer het opnieuw.
-* Zorg ervoor dat proxy of firewall niet hebben toegang tot geblokkeerd https://gateway.azureserviceprofiler.net.
-* Zorg ervoor dat de Application Insights-instrumentatiesleutel die u in uw app werkt hetzelfde als de Application Insights-resource die u voor ingeschakelde profilering gebruikt. De sleutel bevindt zich doorgaans in het bestand ApplicationInsights.config is, maar mogelijk ook in het bestand web.config of app.config.
+* Zorg ervoor dat proxy's of een firewall niet hebben toegang tot geblokkeerd https://gateway.azureserviceprofiler.net.
+* Zorg ervoor dat de Application Insights-instrumentatiesleutel die u in uw app gebruikt is hetzelfde als de Application Insights-resource die u hebt gebruikt om in te schakelen profilering. De sleutel bevindt zich doorgaans in het bestand ApplicationInsights.config, maar mogelijk ook in het bestand web.config of app.config.
 
-### <a name="error-report-in-the-profiling-viewer"></a>Foutrapport in de viewer voor profielservices gegeven
+### <a name="error-report-in-the-profiling-viewer"></a>Foutrapport kan worden opgenomen in de viewer voor profilering
 
-Dien een ondersteuningsticket in de portal. Zorg dat de correlatie-id van het foutbericht.
+Verzend een ondersteuningsticket in de portal. Moet u de correlatie-ID van het foutbericht opnemen.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Implementatiefout: Directory niet leeg ' D:\\thuis\\site\\wwwroot\\App_Data\\taken
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Implementatiefout: Directory niet leeg ' D:\\home\\site\\wwwroot\\App_Data\\taken
 
-Als u uw web-app aan een resource-Web-Apps met Profiler ingeschakeld zijn hostproblemen ziet u mogelijk een bericht als volgt:
+Als u opnieuw wilt uw web-app aan een Web-Apps-resource met de Profiler is ingeschakeld implementeren, ziet u mogelijk een bericht als volgt uit:
 
-*Directory niet leeg ' D:\\thuis\\site\\wwwroot\\App_Data\\taken*
+*Map niet leeg ' D:\\home\\site\\wwwroot\\App_Data\\taken*
 
-Deze fout treedt op als u Web Deploy van scripts of vanuit de Pipeline Visual Studio Team Services implementatie uitvoeren. De oplossing is de volgende extra implementatieparameters toevoegen aan de taak Web Deploy:
+Deze fout treedt op als u Web Deploy van scripts of van de pijplijn Visual Studio Team Services-implementatie uitvoeren. De oplossing is de volgende aanvullende implementatie-parameters toevoegen aan de Web Deploy-taak:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
 ```
 
-Deze parameters Verwijder de map die wordt gebruikt door de Application Insights Profiler en blokkering van het proces opnieuw distribueren. Ze hebben geen invloed op een exemplaar van de Profiler die momenteel wordt uitgevoerd.
-
+Deze parameters Verwijder de map die wordt gebruikt door Application Insights Profiler en blokkering van het proces opnieuw implementeren. Ze hebben geen invloed op de Profiler-exemplaar dat momenteel wordt uitgevoerd.
 
 ## <a name="manual-installation"></a>Handmatige installatie
 
-Wanneer u Profiler configureert, wordt bijgewerkt naar de web-app-instellingen. Als dit vereist is voor uw omgeving, kunt u de updates handmatig toepassen. Een voorbeeld is mogelijk dat uw toepassing wordt uitgevoerd in een omgeving met Web-Apps voor PowerApps.
+Als u Profiler configureert, zijn er updates naar de web-app-instellingen. U kunt de updates handmatig toepassen als uw omgeving vereist. Een voorbeeld is mogelijk dat uw toepassing wordt uitgevoerd in een omgeving met Web-Apps voor PowerApps.
 
-1. In de **Web App Control** deelvenster open **instellingen**.
-2. Stel **.Net Framework-versie** naar **4.6**.
+1. In de **Web App-beheer** geopend deelvenster **instellingen**.
+2. Stel **.Net Framework-versie** naar **v4.6**.
 3. Stel **AlwaysOn** naar **op**.
 4. Voeg de **APPINSIGHTS_INSTRUMENTATIONKEY** app instellen en stel de waarde in op de dezelfde instrumentatiesleutel die wordt gebruikt door de SDK.
-5. Open **geavanceerde Tools**.
-6. Selecteer **gaat** de Kudu-website openen.
-7. Selecteer op de website Kudu **Site-uitbreidingen**.
-8. Installeer **Application Insights** uit de galerie van Azure Web Apps.
+5. Open **geavanceerde hulpmiddelen**.
+6. Selecteer **gaat** openen van de Kudu-website.
+7. Selecteer op de website Kudu **Site-extensies**.
+8. Installeer **Application Insights** uit de galerie met Azure Web Apps.
 9. Start opnieuw op de web-app.
 
-## <a id="profileondemand"></a> Profiler handmatig opnieuw starten
-Wanneer we Profiler ontwikkeld, hebben we een opdrachtregelinterface toegevoegd zodat we Profiler op app-services testen kan. Met behulp van deze dezelfde interface, kunnen gebruikers ook aanpassen hoe Profiler wordt gestart. Op een hoog niveau Profiler Web Apps Kudu System gebruikt voor het beheren van profilering op de achtergrond. Wanneer u de Application Insights-extensie installeert, maken we een taak continu web die als host fungeert van de profileringsfunctie. We gebruiken deze dezelfde technologie voor het maken van een nieuwe web-taak die u aanpassen kunt aan uw behoeften.
+## <a id="profileondemand"></a> Profiler handmatig activeren
 
-Deze sectie wordt uitgelegd hoe:
+Profiler kan handmatig met één klik worden geactiveerd. Stel dat u een test voor de prestaties van webtoepassingen worden uitgevoerd. Moet u traceringen om te begrijpen hoe uw web-app wordt uitgevoerd onder belasting. Controle over wanneer traceringen worden vastgelegd met is cruciaal omdat u weet wanneer belastingstest wordt uitgevoerd, maar het interval van steekproeven mogelijk worden gemist.
+De volgende stappen laten zien hoe dit scenario werkt:
 
-* Een web-taak die Profiler twee minuten met de druk op de knop beginnen kunt maken.
-* Maak een web-taak, die u kunt plannen Profiler om uit te voeren.
-* Argumenten voor de Profiler instellen.
+### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Optioneel) Stap 1: Het verkeer naar uw web-app genereren op basis van een WebTest voor prestaties
 
+Als uw web-app is al het inkomende verkeer of als u alleen wilt handmatig genereren verkeer, deze sectie overslaan en doorgaan met stap 2.
 
-### <a name="set-up"></a>Instellen
-Lees eerst de van de taak van de web-dashboard. Onder **instellingen**, selecteer de **WebJobs** tabblad.
+Ga naar Application Insights-portal **configureren > prestatietests**. Klik op de knop Nieuw om een nieuwe prestatietest te starten.
+![maken van nieuwe prestatietest][create-performance-test]
 
-![blade webjobs](./media/app-insights-profiler/webjobs-blade.png)
+In de **nieuwe prestatietest** in het deelvenster voor het configureren van de test doel-URL. Accepteer alle standaardinstellingen en start de load-test uitvoert.
 
-Zoals u zien kunt, geeft dit dashboard weer alle webtaken die momenteel zijn geïnstalleerd op uw site. Hier ziet u de taak ApplicationInsightsProfiler2 web, waarvoor de Profiler-taak uitgevoerd. Dit is waar we een nieuwe webtaken maken voor handmatige en geplande profilering.
+![Configureren van load test][configure-performance-test]
 
-Ophalen van de binaire bestanden die u nodig hebt, doet u het volgende:
+U ziet dat de nieuwe test staat in de wachtrij eerst, gevolgd door de status wordt uitgevoerd.
 
-1.  Op de Kudu-site op het **ontwikkelingsprogramma's** tabblad de **geavanceerde hulpmiddelen** tabblad met het logo van Kudu en selecteer vervolgens **gaat**.  
-   Een nieuwe site wordt geopend en u automatisch bent aangemeld.
-2.  Voor het downloaden van de binaire bestanden voor de Profiler, gaat u naar Verkenner via **Console voor foutopsporing** > **CMD**, die aan de bovenkant van de pagina bevindt.
-3.  Selecteer **Site** > **wwwroot** > **App_Data** > **taken**  >   **Continue**.  
-   Er is een map met de naam *ApplicationInsightsProfiler2*. 
-4. Aan de linkerkant van de map, selecteert u de **downloaden** pictogram.  
-   Hierdoor downloadt de *ApplicationInsightsProfiler2.zip* bestand. U wordt aangeraden dat u een schone map voor het verplaatsen van deze zip-archief te maken.
+![belastingstest wordt verzonden en in de wachtrij geplaatst][load-test-queued]
 
-### <a name="setting-up-the-web-job-archive"></a>Instellen van de taak webarchief
-Wanneer u een nieuwe web-taak niet aan de Azure-website toevoegen, maakt u in feite een zip-archief met een *run.cmd* binnen het bestand. De *run.cmd* bestand geeft het systeem van de taak webpagina wat te doen wanneer u de web-taak uitvoert.
+![belastingstest wordt uitgevoerd in voortgang][load-test-in-progress]
 
-1.  Maak een nieuwe map (bijvoorbeeld *RunProfiler2Minutes*).
-2.  Kopieer de bestanden van de uitgepakte *ApplicationInsightProfiler2* map in deze nieuwe map.
-3.  Maak een nieuwe *run.cmd* bestand.  
-    Voor het gemak kunt u de werkmap openen in Visual Studio Code voordat u begint.
-4.  In het bestand, voegt u de opdracht `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`. De opdrachten worden als volgt beschreven:
+### <a name="step-2-start-profiler-on-demand"></a>Stap 2: Profiler op aanvraag starten
 
-    * `start`: Hiermee geeft u de Profiler om te starten.  
-    * `--engine-mode immediate`: Hiermee geeft u de Profiler om te beginnen met profilering onmiddellijk.  
-    * `--single`: Hiermee geeft u Profiler uitvoeren en vervolgens automatisch stoppen.  
-    * `--immediate-profiling-duration 120`: Hiermee geeft u Profiler 120 seconden of 2 minuten uit te voeren.
+Zodra de load-test wordt uitgevoerd, kunnen we beginnen profiler voor het vastleggen van traces op de web-app tijdens het laden wordt ontvangen.
+Navigeer naar het deelvenster Profiler configureren:
 
-5.  Sla uw wijzigingen op.
-6.  Archiveren van de map met de rechtermuisknop op en selecteert u **verzenden naar** > **gecomprimeerde ZIP-**.  
-   Deze actie wordt een ZIP-bestand met de naam van de map gemaakt.
+![profiler deelvenster vermelding configureren][configure-profiler-entry]
 
-![Profiler opdracht voor starten](./media/app-insights-profiler/start-profiler-command.png)
+Op de **Profiler configureren deelvenster**, er is een **profiel nu** knop voor het activeren van profiler op alle instanties van de gekoppelde web-apps. Bovendien zijn ingevoerde zichtbaarheid op wanneer profiler in het verleden werd uitgevoerd.
 
-U hebt nu een webpagina taak ZIP-bestand dat u gebruiken kunt voor het instellen van webtaken in uw site gemaakt.
+![Profiler op aanvraag][profiler-on-demand]
 
-### <a name="add-a-new-web-job"></a>Een nieuwe web-taak niet toevoegen
-In deze sectie voegt u een nieuwe web-taak op uw site. Het volgende voorbeeld laat zien hoe een taak handmatig triggered web toevoegen. Nadat u de taak handmatig triggered web hebt toegevoegd, wordt het proces is bijna hetzelfde voor een geplande web-taak.
+U ziet de melding en status op de profiler uitvoeringsstatus wijzigen.
 
-1.  Ga naar de **Web-taken** dashboard.
-2.  Selecteer op de werkbalk **toevoegen**.
-3.  Uw web-job een naam geven.  
-    Ter verduidelijking, kan helpen overeenkomen met de naam van uw archief en opent u het voor een groot aantal versies van de *run.cmd* bestand.
-4.  In de **uploaden bestand** gebied van het formulier, selecteer de **bestand openen** pictogram en zoek vervolgens naar het ZIP-bestand dat u in de voorgaande sectie hebt gemaakt.
+### <a name="step-3-view-traces"></a>Stap 3: Weergave traceringen
 
-    a.  In de **Type** de optie **Triggered**.  
-    b.  In de **Triggers** de optie **handmatige**.
+Nadat de profiler is voltooid, volg de instructies op de melding om naar de blade en bekijk prestatietraces te gaan.
 
-5.  Selecteer **OK**.
+### <a name="troubleshooting-on-demand-profiler"></a>Profiler voor het oplossen van problemen op aanvraag
 
-![Profiler opdracht voor starten](./media/app-insights-profiler/create-webjob.png)
+U ziet soms Profiler time-out foutbericht weergegeven na een sessie op aanvraag:
 
-### <a name="run-profiler"></a>Profiler uitvoeren
+![Profiler-time-outfout][profiler-timeout]
 
-Nu dat u een nieuwe web-taak die u handmatig activeren hebt kunt, kunt u proberen uit te voeren door de instructies in deze sectie.
+Er zijn twee redenen waarom u deze fout ziet:
 
-Standaard kunt u hebt slechts één *ApplicationInsightsProfiler.exe* proces dat wordt uitgevoerd op een computer op een bepaald moment. Dus voordat u begint, schakel de *doorlopend* web-taak uit dit dashboard. 
-1. Selecteer de rij met het nieuwe web-project en selecteer vervolgens **stoppen**. 
-2. Selecteer op de werkbalk **vernieuwen**, en controleer de status geeft aan dat de taak is gestopt.
-3. Selecteer de rij met het nieuwe web-project en selecteer vervolgens **uitvoeren**.
-4. Met de rij is geselecteerd, klikt u op de werkbalk, selecteer de **logboeken** opdracht.  
-    Hiermee een webdashboard taken voor het nieuwe web-project en geeft het de meest recente wordt uitgevoerd en de bijbehorende resultaten.
-5. Selecteer het exemplaar van de uitvoeren die u zojuist hebt gestart.  
-    Als u de nieuwe web-taak met succes hebt geactiveerd, ziet u enkele logboeken met diagnostische gegevens die afkomstig zijn van de Profiler die controleren of de profilering is gestart.
+1. De sessie op aanvraag profiler is voltooid, maar de Application Insights duurde langer om de verzamelde gegevens te verwerken. Als gegevens niet worden verwerkt in 15 minuten is voltooid, wordt een time-out-bericht weergegeven in de portal. Hoewel het na enige tijd, worden Profiler-traceringen weergegeven. Als dit het geval is, alleen kunt negeren het foutbericht voor nu. We werken actief aan een oplossing
 
-### <a name="things-to-consider"></a>Aandachtspunten
+2. Uw web-app heeft een oudere versie van Profiler-agent die beschikt niet over de functie op aanvraag. Als u Application Insights-profiel eerder ingeschakeld, is het waarschijnlijk moet u bijwerken van uw Profiler-agent te starten met behulp van de capaciteit op aanvraag.
+  
+Volg deze stappen om te controleren en installeren van de meest recente Profiler:
 
-Hoewel deze methode is betrekkelijk eenvoudig, overweeg dan het volgende:
+1. Ga naar App-instellingen voor App-Services en controleer of de volgende instellingen zijn geconfigureerd:
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: vervangen door de juiste instrumentatiesleutel voor Application Insights.
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 als een van deze instellingen niet zijn ingesteld, gaat u naar het deelvenster voor het inschakelen van Application Insights voor het installeren van de recentste site-extensie.
 
-* Omdat uw web-taak niet wordt beheerd door onze service, hebben we geen manier om bij te werken van de binaire bestanden van de agent voor uw web-taak. Er momenteel geen een stabiele downloadpagina voor onze binaire bestanden, dus de enige manier om de meest recente binaire bestanden op uw toestelnummer bijwerken en grabbing uit is de *doorlopend* map als u in de vorige stappen hebt.
+2. Ga naar Application Insights-venster in App Services-portal.
 
-* Omdat dit proces maakt gebruik van opdrachtregelargumenten op die oorspronkelijk zijn ontworpen voor ontwikkelaars in plaats van eindgebruikers, kunnen dat de argumenten in de toekomst worden gewijzigd. Wanneer u een upgrade, worden op de hoogte van mogelijke wijzigingen. Het mag niet veel van een probleem zijn omdat een web-taak niet toevoegen, uitvoeren en testen om ervoor te zorgen dat deze werkt. Uiteindelijk, maakt u een gebruikersinterface voor het afhandelen van dit zonder het handmatige proces.
+    ![Application Insights inschakelen vanuit de portal voor App Services][enable-app-insights]
 
-* De functie webtaken van Web-Apps is uniek. Wanneer deze de web-taak wordt uitgevoerd, zorgt u ervoor dat uw proces heeft de dezelfde omgevingsvariabelen en appinstellingen die uw website. Dit betekent dat u niet wilt de instrumentatiesleutel via de opdrachtregel doorgegeven aan Profiler. Profiler moet de instrumentatiesleutel uit de omgeving kunnen worden opgepikt. Als u wilt de Profiler uitgevoerd op de box dev of op een computer buiten de Web-Apps, moet u een instrumentatiesleutel opgeeft. U kunt dit doen door een argument wordt doorgegeven `--ikey <instrumentation-key>`. Deze waarde moet overeenkomen met de instrumentatiesleutel die uw toepassing wordt gebruikt. De uitvoer van de logboekbestanden van de Profiler leest u welke ikey Profiler met gestart en of er activiteit uit die instrumentatiesleutel gedetecteerd tijdens het we zijn profilering.
+3. Als u een knop 'Update' in de volgende pagina ziet, klikt u erop om bij te werken van Application Insights-extensie voor site die de meest recente Profiler-agent wordt geïnstalleerd.
+![Update-site-uitbreiding][update-site-extension]
 
-* Handmatig triggered webtaken kunnen worden geactiveerd via Web haakje. U kunt deze URL door met de rechtermuisknop op de web-taak op het dashboard en de eigenschappen weer te geven. Of u kunt selecteren in de werkbalk **eigenschappen** nadat u de web-taak hebt geselecteerd in de tabel. Deze aanpak wordt geopend oneindig veel mogelijkheden, zoals de Profiler activatie van uw pijplijn CI/CD (zoals VSTS) of iets zoals Microsoft Flow (https://flow.microsoft.com/en-us/). Uiteindelijk uw keuze is afhankelijk van hoe complexe dat u wilt maken uw *run.cmd* bestand (dit kan ook worden veroorzaakt een *run.ps1* bestand), maar is er de flexibiliteit.
+4. Klik vervolgens op **wijzigen** om te zorgen dat de Profiler is ingeschakeld en selecteer **OK** de wijzigingen op te slaan.
+
+    ![Wijzigen en opslaan van app insights][change-and-save-appinsights]
+
+5. Ga terug naar **App-instellingen** tabblad voor de App Service om te controleren van de volgende items voor de app-instellingen zijn ingesteld:
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: vervangen door de juiste instrumentatiesleutel voor application insights.
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
+
+    ![App-instellingen voor profiler][app-settings-for-profiler]
+
+6. (Optioneel) Controleer de versie van de extensie en ervoor te zorgen dat er is geen update beschikbaar.
+
+    ![selectievakje voor het bijwerken van de extensie][check-for-extension-update]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Met Application Insights werken in Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+* [Werken met Application Insights in Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
 [appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
+[Enablement UI]: ./media/app-insights-profiler/Enablement_UI.png
+[profiler-app-setting]:./media/app-insights-profiler/profiler-app-setting.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
@@ -328,3 +320,15 @@ Hoewel deze methode is betrekkelijk eenvoudig, overweeg dan het volgende:
 [enable-profiler-banner]: ./media/app-insights-profiler/enable-profiler-banner.png
 [disable-profiler-webjob]: ./media/app-insights-profiler/disable-profiler-webjob.png
 [linked app services]: ./media/app-insights-profiler/linked-app-services.png
+[create-performance-test]: ./media/app-insights-profiler/new-performance-test.png
+[configure-performance-test]: ./media/app-insights-profiler/configure-performance-test.png
+[load-test-queued]: ./media/app-insights-profiler/load-test-queued.png
+[load-test-in-progress]: ./media/app-insights-profiler/load-test-inprogress.png
+[profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
+[configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png
+[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade-01.png
+[update-site-extension]: ./media/app-insights-profiler/update-site-extension-01.png
+[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights-01.png
+[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler-01.png
+[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update-01.png
+[profiler-timeout]: ./media/app-insights-profiler/profiler-timeout.png

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a96e0948f652e49afb955eaf32f14cf14a10df34
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 95dac6a6593d8ded98a245005ae78ee50f75aeeb
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007397"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056144"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Een Windows VM beheerde Service-identiteit gebruiken voor toegang tot Azure Storage via SAS-referenties
 
@@ -84,7 +84,7 @@ Als u dit niet al hebt, maakt u nu een storage-account. Ook kunt u deze stap ove
 5. Zorg ervoor dat de **abonnement** en **resourcegroep** overeenkomen met de gegevenstypen die u hebt opgegeven tijdens het maken van uw virtuele machine in de vorige stap.
 6. Klik op **Create**.
 
-    ![Nieuw opslagaccount maken](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Nieuw opslagaccount maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Maak een blobcontainer in de storage-account
 
@@ -95,7 +95,7 @@ We zullen later uploaden en een bestand downloaden naar het nieuwe opslagaccount
 3. Klik op **+ Container** boven aan de pagina en een 'nieuwe 'container deelvenster schuift.
 4. Geef een naam op voor de container, selecteert u een toegangsniveau en klik op **OK**. De naam die u hebt opgegeven, wordt verderop in de zelfstudie worden gebruikt. 
 
-    ! [Container]~/articles/active-directory/(media/msi-tutorial-linux-vm-access-storage/create-blob-container.png) opslag maken
+    ![Opslagcontainer maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>Verlenen van de virtuele machine MSI toegang voor het gebruik van een SAS-opslag 
 
@@ -109,7 +109,7 @@ Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  
 6. Controleer vervolgens of het juiste abonnement wordt weergegeven in **abonnement** vervolgkeuzelijst, stel **resourcegroep** op 'Alle resourcegroepen'.  
 7. Ten slotte onder **Selecteer** kiest u uw Windows-Machine in de vervolgkeuzelijst en klik vervolgens op **opslaan**. 
 
-    ![De installatiekopie van de ALT-tekst](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![De installatiekopie van de ALT-tekst](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Een toegangstoken met behulp van de identiteit van de virtuele machine en gebruiken voor het aanroepen van Azure Resource Manager 
 

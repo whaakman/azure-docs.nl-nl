@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 8b0a591f84dd8ece0f6a8e2de19cddfee21b28e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e304242718478cae2670372a06abe07f926fbed2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449948"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054740"
 ---
 # <a name="azure-active-directory-faq"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
@@ -93,7 +93,7 @@ Zie [Integrating your on-premises identities with Azure Active Directory](../con
 
 **A:** Ja, Azure AD bevat een speciaal [toegangsvenster](http://myapps.microsoft.com). Dit dient als selfserviceportal voor gebruikers en geeft toegang tot toepassingen. Als u Office 365 gebruikt, vindt u veel van dezelfde mogelijkheden in de Office 365-portal.
 
-Zie [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie.
+Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie.
 
 - - -
 **V: Helpt Azure AD mij bij het beheren van mijn on-premises infrastructuur?**

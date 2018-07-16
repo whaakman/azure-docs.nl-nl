@@ -2,7 +2,7 @@
 
 In Azure DNS worden records opgegeven met behulp van relatieve namen. Een FQDN-domeinnaam (*Fully Qualified Domain Name*) bevat de zonenaam, terwijl een *relatieve* naam deze niet bevat. De relatieve recordnaam 'www' in de zone 'contoso.com' geeft bijvoorbeeld de volledig gekwalificeerde naam van de record 'www.contoso.com'.
 
-Een *apexrecord* is een DNS-record in de hoofdmap (of *apex*) van een DNS-zone. Een apexrecord heeft in de DNS-zone 'contoso.com' bijvoorbeeld ook de volledig gekwalificeerde naam 'contoso.com' (dit wordt soms een domein *zonder voorvoegsel* genoemd).  Volgens de conventies wordt de relatieve naam '@' gebruikt om apexrecords te representeren.
+Een *apexrecord* is een DNS-record in de hoofdmap (of *apex*) van een DNS-zone. Een apexrecord heeft in de DNS-zone 'contoso.com' bijvoorbeeld ook de volledig gekwalificeerde naam 'contoso.com' (dit wordt soms een domein *zonder voorvoegsel* genoemd).  Volgens de conventies wordt de relatieve naam '\@' wordt gebruikt om apexrecords te representeren.
 
 ### <a name="record-types"></a>Recordtypen
 

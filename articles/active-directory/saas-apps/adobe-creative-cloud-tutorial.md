@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: jeedes
-ms.openlocfilehash: e1788de7c2372797b2034eb1753ab435c1299889
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 506f52faf916aa0d5ca2e8587bdbcc16ab88e130
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548271"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054281"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Zelfstudie: Azure Active Directory-integratie met Adobe Creative Cloud
 
@@ -271,7 +271,7 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Adobe Creative Cloud in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Adobe Creative Cloud.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

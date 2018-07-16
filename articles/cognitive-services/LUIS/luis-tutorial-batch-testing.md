@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 962f33a178048c459e8c6c2948eb17f0e78904ae
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b695783c6d68876d39482ed5abec24f45087603d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930987"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054859"
 ---
 # <a name="improve-app-with-batch-test"></a>De app verbeteren met batch-test
 
@@ -36,7 +36,7 @@ Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u geen de Human Resources-app vanuit de [bekijken eindpunt uitingen](luis-tutorial-review-endpoint-utterances.md) zelfstudie [importeren](luis-how-to-start-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS](luis-reference-regions.md#luis-website) website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
 
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `batchtest`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `batchtest`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
 ## <a name="purpose-of-batch-testing"></a>Doel van het testen van batch
 Batch testen, kunt u de status van een model met een bekende set met test-uitingen valideren en entiteiten met het label. In de JSON-indeling batch-bestand, de utterances toevoegen en instellen van de entiteit-labels die u nodig hebt binnen de utterance voorspeld. 
@@ -52,7 +52,7 @@ Vereisten voor het testen van batch:
 * Entiteitstypen toegestaan: eenvoudig en samengesteld.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Maak een batchbestand met uitingen
-1. Maak `HumanResources-jobs-batch.json` in een teksteditor zoals [VSCode](https://code.visualstudio.com/). Of download [het bestand](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) vanuit de LUIS-Samples-Github-opslagplaats.
+1. Maak `HumanResources-jobs-batch.json` in een teksteditor zoals [VSCode](https://code.visualstudio.com/). 
 
 2. In het JSON-indeling batchbestand utterances met toevoegen de **bedoeling** gewenste voorspelde in de test. 
 
@@ -189,7 +189,7 @@ Om te controleren dat de uitingen in de batch-test correct worden voorspeld, moe
 Deze app nauwkeurigheid is nu verhoogd door fouten in de batch opsporen en corrigeren van het model door meer voorbeeld uitingen toe te voegen aan de juiste intentie en training. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **mijn apps** in het bovenste menu links. Selecteer het weglatingsteken **...**  aan de rechterkant van de naam van de app in de lijst met Apps, selecteer **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het menu linksboven. Selecteer het weglatingsteken **...**  aan de rechterkant van de naam van de app in de lijst met Apps, selecteer **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 
 ## <a name="next-steps"></a>Volgende stappen

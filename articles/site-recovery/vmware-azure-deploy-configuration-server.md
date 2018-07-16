@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 240f5270d083fa5f4742f3ed2cd61feee2b635ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718954"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056756"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -38,9 +38,9 @@ Vereisten voor de configuratieserver de grootte is afhankelijk van de mogelijke 
 
 | **CPU** | **Geheugen** | **Cachegrootte van de schijf** | **Veranderingssnelheid van gegevens** | **Beveiligde machines** |
 | --- | --- | --- | --- | --- |
-| 8 vcpu's (2-sockets * @ 2,5 GHz-4 kernen) |16 GB |300 GB |500 GB of minder |Minder dan 100 machines repliceren. |
-| 12 vcpu's (2-sockets * @ 2,5 GHz-6 kernen) |18 GB |600 GB |500 GB tot 1 TB |100-150-machines repliceren. |
-| 16 vcpu's (2-sockets * @ 2,5 GHz-8 kernen) |32 GB |1 TB |1 TB tot 2 TB |150 tot 200-machines repliceren. |
+| 8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz) |16 GB |300 GB |500 GB of minder |Minder dan 100 machines repliceren. |
+| 12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz) |18 GB |600 GB |500 GB tot 1 TB |100-150-machines repliceren. |
+| 16 vcpu's (2-sockets * 8 kernen \@ 2,5 GHz) |32 GB |1 TB |1 TB tot 2 TB |150 tot 200-machines repliceren. |
 
 Als u meer dan een VMware-VM repliceert, leest u [overwegingen voor capaciteitsplanning](/site-recovery-plan-capacity-vmware.md). Voer de [tool voor implementatieplanning](site-recovery-deployment-planner.md) voor VMWare-replicatie.
 

@@ -1,3 +1,3 @@
 > [!TIP]
-> De inhoud in dit artikel is van toepassing op de oorspronkelijke Azure Table-opslag. Er is nu echter een aanbieding voor tabelopslag, de Azure Cosmos DB tabel-API die tabellen geoptimaliseerd voor doorvoer, wereldwijde distributie en automatische secundaire indexen biedt premium. Voor meer informatie en de ervaring premium uitproberen, check [Azure Cosmos DB tabel API](https://aka.ms/premiumtables).
+> De inhoud in dit artikel is van toepassing op de oorspronkelijke versie van Azure Table Storage. Er is nu echter een Premium-versie voor tabelopslag, de tabel-API van Azure Cosmos DB, die voor doorvoer geoptimaliseerde tabellen, globale distributie en automatische secundaire indexen biedt. Bekijk [Azure Cosmos DB: tabel-API](https://aka.ms/premiumtables) voor meer informatie en om de premium versie uit te proberen.
 >

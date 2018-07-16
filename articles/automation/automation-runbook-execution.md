@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4b9bfc0df01dd8fc8a6a1b7aed5ade466164a82f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4c01a63867ca3df85b4e7203c93855b43e9cd04c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930049"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044846"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
 Wanneer u een runbook in Azure Automation starten, wordt een taak gemaakt. Een taak is één uitvoeringsinstantie van een runbook. Een Azure Automation worker is toegewezen aan elke taak uitvoeren. Werknemers kunnen worden gedeeld door meerdere Azure-accounts, zijn-taken vanaf andere Automation-accounts geïsoleerd van elkaar. U doet geen hebben controle over welke worker-services de aanvraag voor uw taak. Een enkele runbook kan meerdere taken die worden uitgevoerd in één keer hebben. De uitvoeringsomgeving voor taken van hetzelfde Automation-Account kan opnieuw worden gebruikt. Wanneer u de lijst met runbooks in Azure portal bekijkt, geeft de status van alle taken die zijn gestart voor elk runbook. U kunt de lijst met taken voor elk runbook weergeven om de status van elk bijhouden. Voor een beschrijving van de status van een andere taak [taakstatus](#job-statuses).
 
-[!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 Het volgende diagram toont de levenscyclus van een runbook-taak voor [grafische runbooks](automation-runbook-types.md#graphical-runbooks) en [PowerShell Workflow-runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
 
