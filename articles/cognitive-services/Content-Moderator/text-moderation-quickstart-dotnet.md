@@ -1,6 +1,6 @@
 ---
-title: Azure Content beheerder - gemiddeld tekst met .NET | Microsoft Docs
-description: Het gemiddelde van tekst met behulp van Azure Content beheerder SDK voor .NET
+title: Azure Content Moderator - matig tekst met behulp van .NET | Microsoft Docs
+description: Het gemiddelde van tekst met behulp van Azure Content Moderator-SDK voor .NET
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,49 +9,49 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 238d086e87b0e52f0887af5c4db58e8f72796b49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344844"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049878"
 ---
-# <a name="moderate-text-using-net"></a>Gemiddeld tekst met .NET
+# <a name="moderate-text-using-net"></a>Gemiddeld tekst met behulp van .NET
 
-Dit artikel bevat informatie en codevoorbeelden om u te helpen aan de slag met de inhoud beheerder SDK voor .NET aan:
-- Detecteren van mogelijke taalgebruik in de tekst filteren op basis van de termijn
-- Op basis van machine-learning-modellen te gebruiken [classificeren van de tekst](text-moderation-api.md#classification) in drie categorieën.
-- Persoonsgegevens (PII) zoals VS en VK telefoonnummers, e-mailadressen en VS postadressen detecteren.
-- Tekst- en AutoCorrectie typefouten normaliseren
+Dit artikel bevat informatie en voorbeelden van code om u te helpen aan de slag met de Content Moderator-SDK voor .NET tot:
+- Detecteren van potentieel grof taalgebruik in tekst met filteren op basis van een term
+- Gebruik op basis van machine-learning-modellen [classificeren van de tekst](text-moderation-api.md#classification) in drie categorieën.
+- Persoonlijk identificeerbare informatie (PII) zoals VS en UK telefoonnummers, e-mailadressen en VS postadressen detecteren.
+- Tekst en automatisch corrigeren typfouten normaliseren
 
 In dit artikel wordt ervan uitgegaan dat u al bekend met Visual Studio en C# bent.
 
-## <a name="sign-up-for-content-moderator-services"></a>Aanmelden voor inhoud beheerder services
+## <a name="sign-up-for-content-moderator-services"></a>Aanmelden voor Content Moderator-services
 
-Voordat u inhoud beheerder services via de REST-API of de SDK gebruiken kunt, moet u een abonnementssleutel.
-Raadpleeg de [Quick Start](quick-start.md) voor meer informatie over hoe u de sleutel kunt verkrijgen.
+Voordat u de Content Moderator-services via de REST-API of de SDK gebruiken kunt, moet u de abonnementssleutel van een.
+Raadpleeg de [snelstartgids](quick-start.md) voor meer informatie over hoe u de sleutel kunt verkrijgen.
 
 ## <a name="create-your-visual-studio-project"></a>Visual Studio-project maken
 
-1. Voeg een nieuwe **Console-app (.NET Framework)** project om uw oplossing.
+1. Toevoegen van een nieuwe **Console-app (.NET Framework)** project aan uw oplossing.
 
    Noem het project in de voorbeeldcode **TextModeration**.
 
 1. Selecteer dit project als opstartproject één voor de oplossing.
 
-1. Voeg een verwijzing naar de **ModeratorHelper** project assembly die u hebt gemaakt in de [inhoud beheerder client helper Quick Start](content-moderator-helper-quickstart-dotnet.md).
+1. Voeg een verwijzing naar de **ModeratorHelper** project assembly die u hebt gemaakt in de [Content Moderator client helper snelstartgids](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
 
-De volgende NuGet-pakketten installeren:
+Installeer de volgende NuGet-pakketten:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Update van het programma de using-instructies
+### <a name="update-the-programs-using-statements"></a>Update het programma de using-instructies
 
-Wijzig het programma de using-instructies.
+Wijzig het programma de using-instructies toe.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -80,18 +80,18 @@ De volgende statische velden toevoegen aan de **programma** klasse in Program.cs
     /// <remarks>Relative paths are ralative the execution directory.</remarks>
     private static string OutputFile = "TextModerationOutput.txt";
 
-We de volgende tekst gebruikt voor het genereren van de uitvoer voor deze snelstartgids:
+We de volgende tekst gebruikt voor het genereren van de uitvoer voor deze Quick Start:
 
 > [!NOTE]
-> Ongeldige sociaal-fiscaal nummer in de volgende voorbeeldtekst is opzettelijk. Het doel is de Voorbeeldinvoer overbrengen en uitvoernotatie opgeven.
+> Ongeldige sociaal-fiscaal nummer in het volgende voorbeeldtekst is opzettelijk. Het doel is het overbrengen van de Voorbeeldinvoer en indeling van uitvoer.
 
     Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
     These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 
     0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
 
-## <a name="add-code-to-load-and-evaluate-the-input-text"></a>Code toevoegen om te laden en voor het evalueren van de ingevoerde tekst
+## <a name="add-code-to-load-and-evaluate-the-input-text"></a>Code toevoegen om te laden en de invoertekst evalueren
 
-Voeg de volgende code naar de **Main** methode.
+Voeg de volgende code aan de **Main** methode.
 
     // Load the input text.
     string text = File.ReadAllText(TextFile);
@@ -117,13 +117,13 @@ Voeg de volgende code naar de **Main** methode.
     }
 
 > [!NOTE]
-> De sleutel van uw inhoud beheerder service heeft een aanvragen per frequentielimiet van tweede (RPS) en als u de limiet overschrijdt, de SDK er een uitzondering gegenereerd met een 429 foutcode.
+> De sleutel van uw Content Moderator-service heeft een aantal aanvragen per limiet voor tweede (RPS) en als u de limiet overschrijdt, de SDK een uitzondering met een foutcode 429 genereert.
 >
-> Een sleutel gratis laag heeft een limiet van de frequentie waarmee een RPS.
+> Wanneer u een gratis laag-sleutel gebruikt, is het aantal aanvragen is beperkt tot één aanvraag per seconde.
 
-## <a name="run-the-program-and-review-the-output"></a>Voer het programma en controleer de uitvoer
+## <a name="run-the-program-and-review-the-output"></a>Voer het programma uit en controleer de uitvoer
 
-De uitvoer voor het programma, zoals weggeschreven naar het logboekbestand is een voorbeeld:
+Het voorbeeld voor het programma-uitvoer geschreven naar het logboekbestand is:
 
     Autocorrect typos, check for matching terms, PII, and classify.
     {
@@ -211,4 +211,4 @@ De uitvoer voor het programma, zoals weggeschreven naar het logboekbestand is ee
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Downloaden van de Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere inhoud beheerder snelstartgidsen voor .NET, en op uw integratie aan de slag.
+[Downloaden van de Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET, en aan de slag met uw integratie.

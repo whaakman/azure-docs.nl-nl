@@ -1,6 +1,6 @@
 ---
 title: Claims toewijzen in Azure Active Directory (openbare preview) | Microsoft Docs
-description: Deze pagina beschrijft Azure Active Directory-claims toewijzen.
+description: Deze pagina wordt Azure Active Directory claimtoewijzing beschreven.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,46 +11,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e6d2d8dfd6f7a40158b098983bd34bbd5d8271f0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261200"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049310"
 ---
-# <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Claims toewijzen in Azure Active Directory (openbare preview)
+# <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Claimtoewijzing in Azure Active Directory (openbare preview)
 
 >[!NOTE]
->Deze functie vervangt en vervangt de [claims aanpassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) die tegenwoordig worden aangeboden via de portal. Als u claims op basis van de portal naast de grafiek/PowerShell-methode uiteengezet in dit document voor dezelfde toepassing aanpast, wordt tokens verleend voor de configuratie in de portal wordt genegeerd door toepassing.
-Configuraties die worden aangebracht via de methoden die in dit document wordt beschreven worden, niet weergegeven in de portal.
+>Deze functie vervangt en vervangt de [claims aanpassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) vandaag die wordt aangeboden via de portal. Als u claims met behulp van de portal naast de grafiek/PowerShell-methode die in dit document voor dezelfde toepassing aanpast, tokens die zijn uitgegeven voor de configuratie in de portal wordt genegeerd door toepassing.
+Configuraties die zijn gemaakt via de methoden die in dit document worden niet doorgevoerd in de portal.
 
-Deze functie wordt gebruikt door tenantbeheerders voor het aanpassen van de claims die wordt verzonden in tokens voor een bepaalde toepassing in de tenant. U kunt beleid voor het toewijzen van claims gebruiken:
+Deze functie wordt gebruikt door tenantbeheerders voor het aanpassen van de claims die worden weergegeven in tokens voor een bepaalde toepassing in hun tenant. U kunt claimtoewijzing beleid om te gebruiken:
 
-- Selecteer welke claims worden opgenomen in de tokens.
-- Claimtypen die al bestaan niet maken.
-- Kies of wijzig de bron van gegevens die in bepaalde claims.
+- Selecteer welke claims zijn opgenomen in de tokens.
+- Maak claimtypen die nog niet bestaan.
+- Kies of wijzigen van de bron van gegevens in specifieke claims verzonden.
 
 >[!NOTE]
->Deze mogelijkheid is momenteel in de openbare preview. Wees voorbereid om te herstellen of verwijderen van eventuele wijzigingen. De functie is beschikbaar in een abonnement voor Azure Active Directory (Azure AD) tijdens de openbare preview. Wanneer de functie algemeen beschikbaar wordt, kunnen sommige aspecten van de functie echter een Azure Active Directory premium-abonnement nodig. Deze functie ondersteunt configureren claim koppelen van beleidsregels voor WS-Fed, SAML, OAuth en OpenID Connect-protocollen.
+>Deze mogelijkheid is momenteel in openbare preview. Wees voorbereid om te herstellen of verwijderen van eventuele wijzigingen. De functie is beschikbaar in alle Azure Active Directory (Azure AD)-abonnement tijdens de openbare preview. Wanneer de functie algemeen beschikbaar komt, kunnen sommige aspecten van de functie echter een Azure Active Directory premium-abonnement nodig. Deze functie ondersteunt configureren claim toewijzing van beleid voor WS-Federation, SAML, OAuth en OpenID Connect-protocollen.
 
-## <a name="claims-mapping-policy-type"></a>Claims beleidstype toewijzing
-In Azure AD een **beleid** object vertegenwoordigt een reeks regels afgedwongen op afzonderlijke toepassingen of op alle toepassingen in een organisatie. Elk type beleid heeft een unieke structuur, met een set eigenschappen die vervolgens worden toegepast op objecten waarvoor ze worden toegewezen.
+## <a name="claims-mapping-policy-type"></a>Claimtoewijzing beleidstype
+In Azure AD een **beleid** object vertegenwoordigt een reeks regels afgedwongen op afzonderlijke toepassingen, of op alle toepassingen in een organisatie. Elk type beleid heeft een unieke structuur, met een set eigenschappen die vervolgens worden toegepast op objecten die ze zijn toegewezen.
 
-Claims van een toewijzing van beleid is een soort **beleid** object waarmee de claims die wordt verzonden in tokens die zijn uitgegeven voor specifieke toepassingen worden gewijzigd.
+Een claims toewijzen van beleid is een type **beleid** -object dat Hiermee wijzigt u de claims die worden weergegeven in tokens die zijn uitgegeven voor specifieke toepassingen.
 
-## <a name="claim-sets"></a>Claimsets
-Er zijn bepaalde sets van claims die definiëren hoe en wanneer ze worden gebruikt in tokens.
+## <a name="claim-sets"></a>Aanspraak op sets
+Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze worden gebruikt in tokens.
 
-### <a name="core-claim-set"></a>Claim kernset
-Claims in de claim kernset zijn aanwezig in elke token, ongeacht het beleid. Deze claims worden ook beschouwd als beperkt en kunnen niet worden gewijzigd.
+### <a name="core-claim-set"></a>Core claimset
+Claims in de core claimset zijn aanwezig in elke token, ongeacht het beleid. Deze claims worden ook beschouwd als beperkt, en kunnen niet worden gewijzigd.
 
 ### <a name="basic-claim-set"></a>Basic claimset
-De basic claim bestaan de claims die worden gegenereerd door de standaardwaarde voor tokens (in aanvulling op de claim kernset). Deze claims worden weggelaten of gewijzigd met behulp van de claims koppelen van beleidsregels.
+De set basic claim bevat de claims die worden gegenereerd door de standaardwaarde voor tokens (naast de core claimset). Deze claims kunnen worden weggelaten of gewijzigd met behulp van de claims toewijzen van beleid.
 
 ### <a name="restricted-claim-set"></a>Beperkte claimset
-Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan niet worden gewijzigd en er is geen transformatie wordt toegepast als deze claims worden gegenereerd.
+Beperkte claims kunnen niet worden gewijzigd met behulp van beleid. De gegevensbron kan niet worden gewijzigd en er is geen transformatie is toegepast bij het genereren van deze claims.
 
-#### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabel 1: JSON Web Token (JWT) beperkt claimset
+#### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabel 1: JSON Web Token (JWT) beperkte claimset
 |Claimtype (naam)|
 | ----- |
 |_claim_names|
@@ -58,19 +58,19 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |access_token|
 |account_type|
 |acr|
-|Actor|
+|actor|
 |actortoken|
 |AIO|
-|altsecid|
+|afkomstig|
 |AMR|
 |app_chain|
 |app_displayname|
 |app_res|
 |appctx|
 |appctxsender|
-|AppID|
+|toepassings-id|
 |appidacr|
-|Verklaring|
+|bevestiging|
 |at_hash|
 |AUD|
 |auth_data|
@@ -86,10 +86,10 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |cloud_graph_host_name|
 |cloud_instance_name|
 |CNF|
-|code|
+|Code|
 |besturingselementen|
 |credential_keys|
-|aanvraag voor Certificaatondertekening|
+|CSR|
 |csr_type|
 |apparaat-id|
 |dns_names|
@@ -116,8 +116,8 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
 |IAT|
-|identityprovider|
-|IDP|
+|id-provider|
+|id-provider|
 |in_corp|
 |exemplaar|
 |IpAddr|
@@ -148,7 +148,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |preferred_username|
 |previous_refresh_token|
 |primary_sid|
-|PUID|
+|de PUID|
 |pwd_exp|
 |pwd_url|
 |redirect_uri|
@@ -161,7 +161,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |scope|
 |SCP|
 |beveiligings-id|
-|Handtekening|
+|handtekening|
 |signin_state|
 |src1|
 |src2|
@@ -184,7 +184,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |wids|
 |win_ver|
 
-#### <a name="table-2-security-assertion-markup-language-saml-restricted-claim-set"></a>Tabel 2: Security Assertion Markup Language (SAML) beperkt claimset
+#### <a name="table-2-security-assertion-markup-language-saml-restricted-claim-set"></a>Tabel 2: Security Assertion Markup Language (SAML) beperkte claimset
 |Claimtype (URI)|
 | ----- |
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
@@ -234,22 +234,22 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
 |http://schemas.microsoft.com/identity/claims/scope|
 
-## <a name="claims-mapping-policy-properties"></a>Claims toewijzing van eigenschappen van beleid
-Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claims worden verzonden en waar de gegevens afkomstig is uit de claimprovider. Als er geen beleid is ingesteld, het systeem problemen tokens met de kern instelt, de basic claimset en een claim [optionele claims](develop/active-directory-optional-claims.md) die de toepassing heeft gekozen om te ontvangen.
+## <a name="claims-mapping-policy-properties"></a>Claimtoewijzing beleidseigenschappen
+De eigenschappen van een toewijzing van beleid om te bepalen welke claims worden uitgezonden en waarin de gegevens afkomstig is van claims gebruiken. Als er geen beleid is ingesteld, het systeem problemen tokens die de kern claim set, de basic claimset en eventuele [optionele claims](develop/active-directory-optional-claims.md) die de toepassing heeft gekozen om te ontvangen.
 
-### <a name="include-basic-claim-set"></a>Basic claimset opnemen
+### <a name="include-basic-claim-set"></a>Basic claimset bevatten
 
 **Tekenreeks:** IncludeBasicClaimSet
 
-**Gegevenstype:** Booleaans (True of False)
+**Gegevenstype:** Booleaanse waarde (waar of ONWAAR)
 
-**Overzicht:** deze eigenschap bepaalt of de basic claimset is opgenomen in de tokens die worden beïnvloed door dit beleid. 
+**Overzicht:** deze eigenschap bepaalt of de set basic claim is opgenomen in de tokens die worden beïnvloed door dit beleid. 
 
-- Indien ingesteld op True, alle claims in de basis claimset in het beleid van invloed op tokens worden gegenereerd. 
-- Als is ingesteld op False, claims in de claimset basic zich niet in de tokens, tenzij ze afzonderlijk in de claims schema-eigenschap van hetzelfde beleid zijn toegevoegd.
+- Indien ingesteld op True, alle claims in de set basic claim worden uitgezonden in tokens die door het beleid beïnvloed. 
+- Indien ingesteld op False, claims in de set basic claim niet in de tokens, zijn tenzij ze afzonderlijk worden toegevoegd in de claims-schema-eigenschap van hetzelfde beleid.
 
 >[!NOTE] 
->Claims in de claim kernset zijn aanwezig in elke token, ongeacht wat deze eigenschap is ingesteld op. 
+>Claims in de core claimset zijn aanwezig in elke token, ongeacht wat deze eigenschap is ingesteld op. 
 
 ### <a name="claims-schema"></a>Claims schema
 
@@ -257,39 +257,39 @@ Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claim
 
 **Gegevenstype:** JSON-blob met een of meer claim schema vermeldingen
 
-**Overzicht:** deze eigenschap wordt gedefinieerd welke claims aanwezig zijn in de tokens die van invloed op een door het beleid ook aan de basis claimset en de kern claim set.
-Bepaalde informatie is vereist voor elke claim schema vermelding gedefinieerd voor deze eigenschap. U moet opgeven waar de gegevens vandaan (**waarde** of **paar van de bron-ID**), en dat de gegevens claim wordt verzonden als (**Type Claim**).
+**Overzicht:** deze eigenschap wordt gedefinieerd welke claims aanwezig zijn in de tokens beïnvloed door het beleid ook aan de set basic claim en de belangrijkste invoerclaimset.
+Voor de invoer van elke claim schema is gedefinieerd in deze eigenschap, is bepaalde informatie vereist. U moet opgeven waar de gegevens vandaan (**waarde** of **bron/ID paar**), en dat de gegevens claim wordt verzonden als (**Claim Type**).
 
-### <a name="claim-schema-entry-elements"></a>Claim-vermelding schema-elementen
+### <a name="claim-schema-entry-elements"></a>Schema-elementen voor invoer claim
 
-**Waarde:** het element waarde definieert een statische waarde als de gegevens die moeten worden verzonden in de claim.
+**Waarde:** het waarde-element definieert een statische waarde als de gegevens die moeten worden verzonden in de claim.
 
 **De combinatie van de bron-ID:** elementen van de bron- en -ID definiëren waar de gegevens in de claim afkomstig is uit. 
 
-Het bronelement moet worden ingesteld op een van de volgende: 
+De bron-element moet worden ingesteld op een van de volgende: 
 
 
 - 'gebruiker': de gegevens in de claim is een eigenschap van het gebruikersobject. 
 - 'application': de gegevens in de claim is een eigenschap van de toepassing (client) service-principal. 
 - 'resource': de gegevens in de claim is een eigenschap van de resource-service-principal.
 - 'doelgroep': de gegevens in de claim is een eigenschap van de service-principal is de doelgroep van het token (de client of de resource service-principal).
-- 'bedrijf': de gegevens in de claim is een eigenschap op van de resource-tenant bedrijfs-object.
-- 'transformatie': de gegevens in de claim afkomstig is van claimtransformatie (Zie de sectie 'Claims transformatie' verderop in dit artikel). 
+- 'bedrijf': de gegevens in de claim is een eigenschap van de resource-tenant bedrijf object.
+- 'transformatie': de gegevens in de claim afkomstig is van de claimtransformatie (Zie de sectie 'Claims transformatie' verderop in dit artikel). 
 
-Als de bron is een transformatie verleent de **TransformationID** element moet worden opgenomen in deze claimdefinitie.
+Als de bron-transformatie, is de **TransformationID** element moet worden opgenomen in de claimdefinitie van deze ook.
 
-Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de claim. De volgende tabel bevat de waarden van geldige voor elke waarde van de bron-ID.
+De ID-element geeft aan welke eigenschap van de bron geeft de waarde voor de claim. De volgende tabel bevat de waarden van geldig is voor elke waarde van de bron-ID.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tabel 3: Geldige id-waarden per bron
+#### <a name="table-3-valid-id-values-per-source"></a>Tabel 3: Ongeldig id-waarden per bron
 |Bron|Id|Beschrijving|
 |-----|-----|-----|
 |Gebruiker|Achternaam|Familienaam|
-|Gebruiker|Voornaam|Voornaam|
-|Gebruiker|weergavenaam|Weergavenaam|
+|Gebruiker|givenName|Voornaam|
+|Gebruiker|DisplayName|Weergavenaam|
 |Gebruiker|object-id|ObjectID|
 |Gebruiker|mail|E-mailadres|
 |Gebruiker|userPrincipalName|User principal name|
-|Gebruiker|afdeling|Afdeling|
+|Gebruiker|Afdeling|Afdeling|
 |Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
 |Gebruiker|NetBIOS-naam|NetBios-naam|
 |Gebruiker|DNS-domeinnaam|DNS-domeinnaam|
@@ -298,7 +298,7 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 |Gebruiker|streetAddress|Adres|
 |Gebruiker|Postcode|Postcode|
 |Gebruiker|preferredlanguange|Voorkeurstaal|
-|Gebruiker|onpremisesuserprincipalname|lokale UPN|
+|Gebruiker|onpremisesuserprincipalname|on-premises UPN|
 |Gebruiker|mailnickname|E-mailbijnaam|
 |Gebruiker|extensionattribute1|Kenmerk toestelnummer 1|
 |Gebruiker|extensionattribute2|Kenmerk toestelnummer 2|
@@ -315,76 +315,76 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 |Gebruiker|extensionattribute13|Kenmerk toestelnummer 13|
 |Gebruiker|extensionattribute14|Kenmerk toestelnummer 14|
 |Gebruiker|extensionattribute15|Kenmerk toestelnummer 15|
-|Gebruiker|othermail|Andere Mail|
-|Gebruiker|Land|Land|
+|Gebruiker|othermail|Andere e-Mail|
+|Gebruiker|Land/regio|Land|
 |Gebruiker|city|Plaats|
 |Gebruiker|state|Status|
 |Gebruiker|functie|Functie|
-|Gebruiker|Werknemer-id|Werknemer-id|
-|Gebruiker|facsimiletelephonenumber|Faxbericht telefoonnummer|
-|toepassing, resource, doelgroep|weergavenaam|Weergavenaam|
+|Gebruiker|werknemer-id|Werknemer-id|
+|Gebruiker|facsimiletelephonenumber|Fax telefoonnummer|
+|toepassing, resource, doelgroep|DisplayName|Weergavenaam|
 |toepassing, resource, doelgroep|objecten|ObjectID|
-|toepassing, resource, doelgroep|tags|Service-Principal label|
-|Bedrijf|tenantcountry|Land van tenant|
+|toepassing, resource, doelgroep|tags|Service-Principal Tag|
+|Bedrijf|tenantcountry|Land van de tenant|
 
-**TransformationID:** TransformationID element alleen als het bronelement is ingesteld op 'transformatie' moet worden opgegeven.
+**TransformationID:** het element TransformationID alleen als de bron-element is ingesteld op 'transformatie' moet worden opgegeven.
 
-- Dit element moet overeenkomen met de ID-element van de transformatie-vermelding in de **ClaimsTransformation** eigenschap die definieert hoe de gegevens voor deze claim wordt gegenereerd.
+- Dit element moet overeenkomen met de ID-element van de transformatie-vermelding in de **ClaimsTransformation** eigenschap waarmee wordt gedefinieerd hoe de gegevens voor deze claim wordt gegenereerd.
 
-**Claimtype:** de **JwtClaimType** en **SamlClaimType** elementen definiëren die claim claim schema post verwijst.
+**Claimtype:** de **JwtClaimType** en **SamlClaimType** elementen definiëren die deze claim schema-item verwijst naar claim.
 
 - De JwtClaimType moet de naam van de claim te worden verzonden in JWTs bevatten.
-- De SamlClaimType moet de URI van de claim te worden verzonden in SAML-tokens bevatten.
+- De SamlClaimType mag de URI van de claim in SAML-tokens worden verzonden.
 
 >[!NOTE]
->Namen en URI's van claims in de beperkte claimset kan niet worden gebruikt voor het type claimelementen. Zie de sectie 'Uitzonderingen en beperkingen' verderop in dit artikel voor meer informatie.
+>Namen en URI's van claims in de beperkte claimset kan niet worden gebruikt voor de claim type-elementen. Zie de sectie 'Uitzonderingen en beperkingen' verderop in dit artikel voor meer informatie.
 
 ### <a name="claims-transformation"></a>Claimtransformatie
 
 **Tekenreeks:** ClaimsTransformation
 
-**Gegevenstype:** JSON-blob met een of meer vermeldingen voor transformatie 
+**Gegevenstype:** JSON-blob, met een of meer vermeldingen voor transformatie 
 
-**Overzicht:** gebruik van deze eigenschap algemene transformaties toepassen op de brongegevens voor het genereren van de uitvoergegevens voor claims die zijn opgegeven in het Schema van Claims.
+**Overzicht:** deze eigenschap gebruiken om algemene transformaties die van toepassing op de brongegevens voor het genereren van de uitvoergegevens voor de claims die zijn opgegeven in de Claims-Schema.
 
-**-ID:** met de ID-element verwijzen naar deze transformatie-vermelding in de vermelding TransformationID Claims Schema. Deze waarde moet uniek zijn voor elk item transformatie binnen dit beleid.
+**-ID:** de ID-element gebruiken om te verwijzen naar deze transformatie-vermelding in de vermelding TransformationID Claims Schema. Deze waarde moet uniek zijn voor elk item transformatie binnen dit beleid.
 
-**TransformationMethod:** TransformationMethod element identificeert welke bewerking wordt uitgevoerd voor het genereren van de gegevens voor de claim.
+**TransformationMethod:** het element TransformationMethod identificeert welke bewerking wordt uitgevoerd voor het genereren van de gegevens voor de claim.
 
-Op basis van de gekozen methode, wordt een reeks invoer en uitvoer verwacht. Deze worden gedefinieerd met behulp van de **InputClaims**, **invoerparameters** en **OutputClaims** elementen.
+Op basis van de gekozen methode, wordt een set van invoer en uitvoer verwacht. Deze worden gedefinieerd met behulp van de **InputClaims**, **invoerparameters** en **OutputClaims** elementen.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabel 4: Transformatie methoden en verwachte invoer en uitvoer
 |TransformationMethod|Verwachte invoer|Verwachte uitvoer|Beschrijving|
 |-----|-----|-----|-----|
-|Koppelen|tekenreeks1, tekenreeks2, scheidingselement|outputClaim|Joins invoer tekenreeksen met behulp van een scheidingsteken ertussen. Bijvoorbeeld: tekenreeks1: 'foo@bar.com', tekenreeks2: sandbox '-', scheidingsteken: '. ' resulteert in outputClaim: 'foo@bar.com.sandbox'|
-|ExtractMailPrefix|mail|outputClaim|Haalt het lokale gedeelte van een e-mailadres. Bijvoorbeeld: e-mail: 'foo@bar.com' resulteert in outputClaim: "foo". Wanneer dit niet het @ is aanmelding aanwezig is, wordt de bestaande invoerreeks is geretourneerd.|
+|Koppelen|tekenreeks1, tekenreeks2, scheidingsteken voor duizendtallen|outputClaim|Joins invoer tekenreeksen met behulp van een scheidingsteken tussen. Bijvoorbeeld: tekenreeks1: "foo@bar.com", tekenreeks2: "sandbox", scheidingsteken: '. ' resulteert in outputClaim: "foo@bar.com.sandbox"|
+|ExtractMailPrefix|mail|outputClaim|Extraheert het lokale gedeelte van een e-mailadres. Bijvoorbeeld: e-mail: "foo@bar.com" resulteert in outputClaim: "foo". Als er geen \@ aanmelding aanwezig is, wordt de bestaande invoerreeks worden geretourneerd, zoals is.|
 
 **InputClaims:** met een element InputClaims kunt u de gegevens van een claim schema vermelding doorgeven aan een transformatie. Deze twee kenmerken heeft: **ClaimTypeReferenceId** en **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** wordt samengevoegd met de ID-element van de claim schema vermelding vinden van de juiste invoerclaim wordt aangeduid. 
-- **TransformationClaimType** wordt gebruikt voor deze invoer een unieke naam geven. Deze naam moet overeenkomen met een van de verwachte invoer voor de transformatiemethode.
+- **ClaimTypeReferenceId** wordt samengevoegd met de ID-element van de vermelding van de claim schema vinden van de juiste invoer claim. 
+- **TransformationClaimType** bieden een unieke naam uit deze invoer wordt gebruikt. Deze naam moet overeenkomen met een van de verwachte invoer voor de transformatiemethode.
 
-**Invoerparameters:** gebruik van een element invoerparameters te geven van een constante waarde aan een transformatie. Deze twee kenmerken heeft: **waarde** en **ID**.
+**Invoerparameters:** met een element invoerparameters kunt u een constante waarde doorgeven aan een transformatie. Deze twee kenmerken heeft: **waarde** en **ID**.
 
-- **Waarde** de werkelijke constante waarde moet worden doorgegeven.
-- **ID** wordt gebruikt voor deze invoer een unieke naam geven. Deze naam moet overeenkomen met een van de verwachte invoer voor de transformatiemethode.
+- **Waarde** is van de werkelijke constante waarde die moet worden doorgegeven.
+- **ID** bieden een unieke naam uit deze invoer wordt gebruikt. Deze naam moet overeenkomen met een van de verwachte invoer voor de transformatiemethode.
 
-**OutputClaims:** met een element OutputClaims kunt u de gegevens die worden gegenereerd door een transformatie bevatten en deze koppelen aan een claim schema-item. Deze twee kenmerken heeft: **ClaimTypeReferenceId** en **TransformationClaimType**.
+**OutputClaims:** een element OutputClaims gebruiken voor het opslaan van de gegevens die worden gegenereerd door een transformatie, en deze koppelen aan een claim schema-item. Deze twee kenmerken heeft: **ClaimTypeReferenceId** en **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** wordt samengevoegd met de ID van de claim schema vermelding vinden van de juiste uitvoer claim.
-- **TransformationClaimType** wordt gebruikt om aan te geven van een unieke naam voor deze uitvoer. Deze naam moet overeenkomen met een van de verwachte uitvoer voor de transformatiemethode.
+- **ClaimTypeReferenceId** wordt samengevoegd met de ID van de claim schema-vermelding moet de juiste uitvoerclaim vinden.
+- **TransformationClaimType** deze uitvoer bieden een unieke naam wordt gebruikt. Deze naam moet overeenkomen met een van de verwachte uitvoer voor de transformatiemethode.
 
 ### <a name="exceptions-and-restrictions"></a>Uitzonderingen en beperkingen
 
-**SAML NameID en UPN:** de kenmerken van waaruit u de waarden NameID en UPN en de claimtransformaties die zijn toegestaan, bron zijn beperkt.
+**NameID van SAML en UPN:** de kenmerken van waaruit u de waarden NameID en UPN en de claimtransformaties die zijn toegestaan, de gegevensbron zijn beperkt.
 
-#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabel 5: Kenmerken die zijn toegestaan als een gegevensbron voor SAML-NameID
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabel 5: Kenmerken die zijn toegestaan als een gegevensbron voor de NameID van SAML
 |Bron|Id|Beschrijving|
 |-----|-----|-----|
 |Gebruiker|mail|E-mailadres|
 |Gebruiker|userPrincipalName|User principal name|
 |Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
-|Gebruiker|Werknemer-id|Werknemer-id|
+|Gebruiker|werknemer-id|Werknemer-id|
 |Gebruiker|extensionattribute1|Kenmerk toestelnummer 1|
 |Gebruiker|extensionattribute2|Kenmerk toestelnummer 2|
 |Gebruiker|extensionattribute3|Kenmerk toestelnummer 3|
@@ -401,107 +401,107 @@ Op basis van de gekozen methode, wordt een reeks invoer en uitvoer verwacht. Dez
 |Gebruiker|extensionattribute14|Kenmerk toestelnummer 14|
 |Gebruiker|extensionattribute15|Kenmerk toestelnummer 15|
 
-#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabel 6: Transformatie methoden zijn toegestaan voor SAML-NameID
+#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabel 6: Transformatie methoden is toegestaan voor NameID van SAML
 |TransformationMethod|Beperkingen|
 | ----- | ----- |
 |ExtractMailPrefix|Geen|
 |Koppelen|Het achtervoegsel wordt toegevoegd, moet een geverifieerd domein van de resource-tenant.|
 
 ### <a name="custom-signing-key"></a>Aangepaste ondertekeningssleutel
-Een aangepaste handtekeningsleutel moet worden toegewezen aan het service-principal-object voor een claimprovider toewijzing van beleid kracht te laten worden. Alle tokens uitgegeven hebben zijn beïnvloed door het beleid zijn ondertekend met deze sleutel. Toepassingen moeten worden geconfigureerd voor tokens accepteert ondertekend met deze sleutel. Dit zorgt ervoor bevestiging dat tokens zijn gewijzigd door de maker van de claims die toewijzing van beleid. Deze beschermt toepassingen tegen toewijzing van beleid dat is gemaakt door schadelijke actoren claims.
+Een aangepaste ondertekeningssleutel moet worden toegewezen aan het service-principal-object voor een claims toewijzen van beleid voor het van kracht. Alle tokens die zijn uitgegeven die mogelijk invloed hebben is door het beleid zijn ondertekend met deze sleutel. Toepassingen moeten worden geconfigureerd voor het accepteren van tokens ondertekend met deze sleutel. Dit zorgt ervoor bevestiging dat tokens zijn gewijzigd door de maker van de claims toewijzen van beleid. Deze beschermt toepassingen tegen claimtoewijzing beleidsregels zijn gemaakt door kwaadwillende actoren.
 
-### <a name="cross-tenant-scenarios"></a>Cross-tenantscenario 's
-Claims koppelen van beleidsregels zijn niet van toepassing op gastgebruikers. Als een gastgebruiker probeert te krijgen tot een toepassing met een beleid dat is toegewezen aan de service-principal toewijzing van de claimprovider, het standaardtoken is uitgegeven (het beleid heeft geen effect).
+### <a name="cross-tenant-scenarios"></a>Scenario's met meerdere tenants
+Claimtoewijzing beleid niet van toepassing op gastgebruikers. Als een gastgebruiker probeert te krijgen tot een toepassing met een beleid dat is toegewezen aan de service-principal voor claimtoewijzing, het standaardtoken wordt weergegeven (het beleid heeft geen effect).
 
-## <a name="claims-mapping-policy-assignment"></a>Claims beleidstoewijzing toewijzing
-Claims toewijzing van beleid kunnen alleen worden toegewezen aan de service-principals.
+## <a name="claims-mapping-policy-assignment"></a>Claimtoewijzing beleidstoewijzing
+Claimtoewijzing beleid kunnen alleen worden toegewezen aan service-principalobjecten.
 
 ### <a name="example-claims-mapping-policies"></a>Voorbeeld van claims toewijzing van beleid
 
-In Azure AD zijn veel scenario's mogelijk als u claims die worden verzonden in tokens voor een specifieke service-principals kunt aanpassen. In deze sectie doorlopen we enkele algemene scenario's kunt u het gebruik van de toewijzing van beleidstype claims te vatten.
+In Azure AD zijn veel scenario's mogelijk wanneer u claims die worden weergegeven in tokens voor specifieke service-principals kunt aanpassen. In deze sectie doorlopen we enkele algemene scenario's waarmee u het gebruik van het beleidstype voor claimtoewijzing rapportelementen kunnen.
 
 #### <a name="prerequisites"></a>Vereisten
-In de volgende voorbeelden u maken, bijwerken, koppelen en beleidsregels voor service-principals verwijderen. Als u niet bekend met Azure AD bent, raden wij u meer informatie over het ophalen van een Azure AD-tenant voordat u met deze voorbeelden doorgaat. 
+In de volgende voorbeelden u maken, bijwerken, koppelen en verwijderen van beleidsregels voor service-principals. Als u niet bekend bent met Azure AD, wordt u aangeraden dat u meer informatie over hoe u een Azure AD-tenant verkrijgen voordat u met deze voorbeelden doorgaat. 
 
-Voer de volgende stappen uit om te beginnen:
+Om te beginnen, voer de volgende stappen uit:
 
 
-1. Download de meest recente [public preview-versie van Azure AD PowerShell-Module](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
-2.  Voer de opdracht Connect aan te melden bij uw Azure AD-beheeraccount. Deze opdracht uitvoeren telkens wanneer starten u een nieuwe sessie.
+1. Download de meest recente [openbare preview-versie van Azure AD PowerShell-Module](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
+2.  Voer de opdracht Connect te melden bij uw Azure AD-beheerdersaccount. Deze opdracht uitvoeren telkens wanneer starten u een nieuwe sessie.
     
      ``` powershell
     Connect-AzureAD -Confirm
     
     ```
-3.  Overzicht van alle beleidsregels die zijn gemaakt in uw organisatie, moet u de volgende opdracht uitvoeren. Het is raadzaam dat u deze opdracht nadat de meeste bewerkingen in de volgende scenario's om te controleren uitvoeren dat de beleidsregels zijn gemaakt zoals verwacht.
+3.  Als u wilt zien van alle beleidsregels die zijn gemaakt in uw organisatie, moet u de volgende opdracht uitvoeren. Het is raadzaam dat u deze opdracht na de meeste bewerkingen in de volgende scenario's uitvoert, om te controleren dat de beleidsregels zijn gemaakt zoals verwacht.
    
     ``` powershell
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid voor de eenvoudige claims van tokens die zijn verleend aan een service-principal weglaten.
-In dit voorbeeld maakt u een beleid dat Hiermee verwijdert u de eenvoudige claim ingesteld van tokens die zijn uitgegeven aan de gekoppelde service-principals.
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid voor het overslaan van de basic claims van tokens die zijn uitgegeven aan een service-principal.
+In dit voorbeeld maakt u een beleid dat Hiermee verwijdert u de eenvoudige claim instellen van tokens die zijn uitgegeven aan de gekoppelde service-principals.
 
 
-1. Maak een van de claimprovider toewijzing van beleid. Dit beleid, gekoppeld aan specifieke service-principals, verwijdert de eenvoudige claim ingesteld op basis van tokens.
+1. Maak een beleid voor claimtoewijzing. Dit beleid, gekoppeld aan specifieke service-principals, Hiermee verwijdert u de eenvoudige claim ingesteld van tokens.
     1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
     
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
     ```
-    2. Voer de volgende opdracht om te zien van het nieuwe beleid en het beleid voor object-id ophalen:
+    2. Om te zien van het nieuwe beleid en het beleid voor object-id ophalen, voert u de volgende opdracht uit:
     
      ``` powershell
     Get-AzureADPolicy
     ```
-2.  Het beleid aan uw service-principal toewijzen. Ook moet u de object-id van uw service principal. 
-    1.  Overzicht van de service-principals van uw organisatie, kunt u Microsoft Graph opvragen. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
-    2.  Wanneer u de object-id van uw service-principal hebt, voer de volgende opdracht:  
+2.  Het beleid toewijzen aan uw service-principal. U moet ook de object-id van uw service principal ophalen. 
+    1.  Als u wilt zien van de service-principals van uw organisatie, kunt u een query Microsoft Graph. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
+    2.  Wanneer u de object-id van uw service-principal hebt, kunt u de volgende opdracht uitvoeren:  
      
      ``` powershell
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid voor het opnemen van de werknemer-id en TenantCountry als claims in tokens die zijn verleend aan een service-principal.
-In dit voorbeeld maakt u een beleid dat de werknemer-id en TenantCountry toegevoegd aan de tokens die zijn uitgegeven aan de gekoppelde service-principals. De werknemer-id is als het claimtype naam in SAML-tokens en JWTs verzonden. De TenantCountry wordt verzonden als het landclaimtype in SAML-tokens en JWTs. In dit voorbeeld gaan we bevatten de eenvoudige claims in de tokens instellen.
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid om op te nemen van de werknemer-id en TenantCountry als claims in de tokens die zijn uitgegeven aan een service-principal.
+In dit voorbeeld maakt u een beleid dat de werknemer-id en TenantCountry toegevoegd aan de tokens die zijn uitgegeven aan de gekoppelde service-principals. Id van de werknemer is verzonden als het claimtype naam in SAML-tokens en JWTs. De TenantCountry wordt verzonden als het type van de claim land/regio in zowel JWTs als SAML-tokens. In dit voorbeeld gaan we bevatten de eenvoudige claims in de tokens instellen.
 
-1. Maak een van de claimprovider toewijzing van beleid. Dit beleid is gekoppeld aan een specifieke service-principals, wordt de werknemer-id en TenantCountry claims voor tokens toegevoegd.
+1. Maak een beleid voor claimtoewijzing. Dit beleid, dat is gekoppeld aan een specifieke service-principals, wordt de werknemer-id en TenantCountry claims naar tokens toegevoegd.
     1. Voor het maken van het beleid, moet u deze opdracht uitvoeren:  
      
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
     ```
     
-    2. Voer de volgende opdracht om te zien van het nieuwe beleid en het beleid voor object-id ophalen:
+    2. Om te zien van het nieuwe beleid en het beleid voor object-id ophalen, voert u de volgende opdracht uit:
      
      ``` powershell  
     Get-AzureADPolicy
     ```
-2.  Het beleid aan uw service-principal toewijzen. Ook moet u de object-id van uw service principal. 
-    1.  Overzicht van de service-principals van uw organisatie, kunt u Microsoft Graph opvragen. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
-    2.  Wanneer u de object-id van uw service-principal hebt, voer de volgende opdracht:  
+2.  Het beleid toewijzen aan uw service-principal. U moet ook de object-id van uw service principal ophalen. 
+    1.  Als u wilt zien van de service-principals van uw organisatie, kunt u een query Microsoft Graph. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
+    2.  Wanneer u de object-id van uw service-principal hebt, kunt u de volgende opdracht uitvoeren:  
      
      ``` powershell
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid dat gebruikmaakt van een claimtransformatie in tokens die zijn verleend aan een service-principal.
-In dit voorbeeld maakt u een beleid dat u een aangepaste claim 'JoinedData' moet worden verleend aan de gekoppelde service-principals JWTs verzendt. Deze claim bevat een waarde die is gemaakt door de gegevens die zijn opgeslagen in het kenmerk extensionattribute1 van het gebruikersobject met '.sandbox'. In dit voorbeeld uitsluiten we de eenvoudige claims in de tokens instellen.
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid dat gebruikmaakt van een claimtransformatie in de tokens die zijn uitgegeven aan een service-principal.
+In dit voorbeeld maakt u een beleid dat een aangepaste claim "JoinedData" verleend aan de gekoppelde service-principals JWTs verzendt. Deze claim bevat een waarde die is gemaakt door de gegevens die zijn opgeslagen in het kenmerk extensionattribute1 van het gebruikersobject met '.sandbox'. In dit voorbeeld sluiten we de eenvoudige claims in de tokens instellen.
 
 
-1. Maak een van de claimprovider toewijzing van beleid. Dit beleid is gekoppeld aan een specifieke service-principals, wordt de werknemer-id en TenantCountry claims voor tokens toegevoegd.
+1. Maak een beleid voor claimtoewijzing. Dit beleid, dat is gekoppeld aan een specifieke service-principals, wordt de werknemer-id en TenantCountry claims naar tokens toegevoegd.
     1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
      
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
     ```
     
-    2. Voer de volgende opdracht om te zien van het nieuwe beleid en het beleid voor object-id ophalen: 
+    2. Om te zien van het nieuwe beleid en het beleid voor object-id ophalen, voert u de volgende opdracht uit: 
      
      ``` powershell
     Get-AzureADPolicy
     ```
-2.  Het beleid aan uw service-principal toewijzen. Ook moet u de object-id van uw service principal. 
-    1.  Overzicht van de service-principals van uw organisatie, kunt u Microsoft Graph opvragen. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
-    2.  Wanneer u de object-id van uw service-principal hebt, voer de volgende opdracht: 
+2.  Het beleid toewijzen aan uw service-principal. U moet ook de object-id van uw service principal ophalen. 
+    1.  Als u wilt zien van de service-principals van uw organisatie, kunt u een query Microsoft Graph. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
+    2.  Wanneer u de object-id van uw service-principal hebt, kunt u de volgende opdracht uitvoeren: 
      
      ``` powershell
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>

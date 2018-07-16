@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Workday | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en werkdag.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Workday.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: d3d85dd3ec074d01d597e34a45f27434214fc0ad
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 641f2e19791be48d014eeb61fb2848fc2a33a9cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212261"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Zelfstudie: Azure Active Directory-integratie met Workday
 
-In deze zelfstudie leert u hoe Workday integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Workday integreren met Azure Active Directory (Azure AD).
 
-Werkdag integreren met Azure AD biedt de volgende voordelen:
+Workday integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot Workday heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Workday (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Workday (Single Sign-On) met hun Azure AD-accounts inschakelen.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met werkdag, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Workday, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een werkdag eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Werkdag uit de galerie toevoegen
+1. Workday uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-workday-from-the-gallery"></a>Werkdag uit de galerie toevoegen
-Voor het configureren van de integratie van Workday in Azure AD, moet u Workday uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-workday-from-the-gallery"></a>Workday uit de galerie toe te voegen
+Voor het configureren van de integratie van Workday in Azure AD, moet u Workday uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Workday uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,119 +68,119 @@ Voor het configureren van de integratie van Workday in Azure AD, moet u Workday 
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Workday**, selecteer **Workday** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Werkdag in de lijst met resultaten](./media/workday-tutorial/tutorial_workday_addfromgallery.png)
+    ![WorkDay in de lijst met resultaten](./media/workday-tutorial/tutorial_workday_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met Workday op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Workday op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Workday is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Workday tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Workday is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Workday tot stand worden gebracht.
 
-In de werkdag, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In Workday, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met werkdag, moet u de volgende bouwstenen voltooien:
+Om te configureren en testen van Azure AD eenmalige aanmelding met Workday, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Workday](#create-a-workday-test-user)**  - Workday die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Workday](#create-a-workday-test-user)**  : als u wilt een equivalent van Britta Simon in Workday die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw Workday-toepassing.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw Workday-toepassing.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met werkdag, moet u de volgende stappen uitvoeren:**
+**Voor het configureren van Azure AD eenmalige aanmelding met Workday, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **Workday** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Workday** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
-    ![Dialoogvenster voor eenmalige aanmelding](./media/workday-tutorial/tutorial_workday_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/workday-tutorial/tutorial_workday_samlbase.png)
 
-3. Op de **Workday-domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op de **Workday domein en URL's** sectie, voert u de volgende stappen uit:
 
-    ![Werkdag domein en de URL's van eenmalige aanmelding informatie](./media/workday-tutorial/tutorial_workday_url.png)
+    ![WorkDay domein en URL's eenmalige aanmelding informatie](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. In de **id** textbox, typ een URL: `http://www.workday.com`
+    b. In de **id** tekstvak, een URL typen: `http://www.workday.com`
 
-4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap:
+4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap:
 
-    ![Werkdag domein en de URL's van eenmalige aanmelding informatie](./media/workday-tutorial/tutorial_workday_url1.png)
+    ![WorkDay domein en URL's eenmalige aanmelding informatie](./media/workday-tutorial/tutorial_workday_url1.png)
 
-    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://impl.workday.com/<tenant>/login-saml.htmld`
+    In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://impl.workday.com/<tenant>/login-saml.htmld`
      
     > [!NOTE] 
-    > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met de werkelijke aanmeldings-URL en de antwoord-URL. Uw antwoord-URL bijvoorbeeld een subdomein moet hebben: www, wd2, wd3, wd3 impl, wd5, wd5 impl). Met behulp van ongeveer '*http://www.myworkday.com*' werkt, maar '*http://myworkday.com*' niet. Neem contact op met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) ophalen van deze waarden.  
+    > Deze waarden zijn niet de werkelijke. Werk deze waarden met de werkelijke aanmeldings-URL en de antwoord-URL. Uw antwoord-URL bijvoorbeeld een subdomein moet hebben: www, wd2, wd3, wd3 impl, wd5, wd5 impl). Met behulp van bijvoorbeeld '*http://www.myworkday.com*"werkt, maar '*http://myworkday.com*" niet bestaat. Neem contact op met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) om deze waarden te verkrijgen.  
 
-5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/workday-tutorial/tutorial_workday_certificate.png) 
 
 6. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/workday-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/workday-tutorial/tutorial_general_400.png)
     
-7. Op de **Workday configuratie** sectie, klikt u op **configureren Workday** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+7. Op de **Workday configuratie** sectie, klikt u op **configureren Workday** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
-    ![Werkdag configuratie](./media/workday-tutorial/tutorial_workday_configure.png) 
+    ![Configuratie van WorkDay](./media/workday-tutorial/tutorial_workday_configure.png) 
 
-8. In een ander browservenster, meld u aan bij uw bedrijf Workday site als beheerder.
+8. In een ander browservenster aanmelden bij uw bedrijf Workday site als beheerder.
 
-9. In de **zoekvak** zoeken met de naam **Tenant-instellingen bewerken – beveiliging** bovenaan de linkerkant van de startpagina.
+9. In de **zoekvak** zoeken met de naam van de **Tenant-instellingen bewerken: beveiliging** bovenaan de linkerkant van de startpagina.
    
-    ![Beveiliging voor de Tenant bewerken](./media/workday-tutorial/IC782925.png "Tenant beveiliging bewerken")
+    ![Beveiliging voor de Tenant bewerken](./media/workday-tutorial/IC782925.png "beveiliging voor de Tenant bewerken")
 
-10. In de **Omleidings-URL's** sectie, voert u de volgende stappen uit:
+10. In de **omleiding van URL's** sectie, voert u de volgende stappen uit:
    
     ![Omleidings-URL's](./media/workday-tutorial/IC7829581.png "Omleidings-URL's")
    
     a. Klik op **rij toevoegen**.
    
-    b. In de **aanmeldings-URL omleiden** textbox en de **Omleidings-URL mobiele** textbox type de **aanmeldings-URL** u hebt opgegeven op de **Workday-domein en de URL's** sectie van de Azure-portal.
+    b. In de **aanmeldings-URL omleiden** tekstvak en de **Omleidings-URL mobiele** tekstvak, type de **aanmeldings-URL** u hebt opgegeven op de **Workday domein en URL's** sectie van de Azure portal.
    
-    c. In de Azure-portal op de **eenmalige aanmelding configureren** venster, Kopieer de **Sign-Out URL**, en plak deze in de **afmelding Omleidings-URL** textbox.
+    c. In de Azure-portal op de **aanmelding configureren** venster, Kopieer de **afmelding URL**, en plak deze in de **Omleidings-URL voor afmelden** tekstvak.
 
-    d. In **gebruikt voor omgevingen** textbox, selecteert u de omgevingsnaam.  
+    d. In **gebruikt voor omgevingen** textbox, selecteert u de omgevingsnaam van de.  
 
     >[!NOTE]
-    > De waarde van de omgeving-kenmerk is gekoppeld aan de waarde van de tenant-URL:  
+    > De waarde van het kenmerk van de omgeving is gekoppeld aan de waarde van de tenant-URL:  
     >-Als de domeinnaam van de tenant-URL voor Workday wordt gestart met impl bijvoorbeeld: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), wordt de **omgeving** kenmerk moet worden ingesteld op implementatie.  
-    >-Als de domeinnaam met iets anders begint, moet u contact opnemen met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) ophalen van het overeenkomende **omgeving** waarde.
+    >-Als de domeinnaam wordt gestart met iets anders, moet u contact opnemen met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) om op te halen van de overeenkomende **omgeving** waarde.
 
 11. In de **SAML Setup** sectie, voert u de volgende stappen uit:
    
-    ![Setup van SAML](./media/workday-tutorial/IC782926.png "SAML Setup")
+    ![SAML-Setup](./media/workday-tutorial/IC782926.png "SAML-instellingen")
    
     a.  Selecteer **SAML-verificatie inschakelen**.
    
     b.  Klik op **rij toevoegen**.
 
-12. In de **SAML identiteitsproviders** sectie, voert u de volgende stappen uit:
+12. In de **SAML-id-Providers** sectie, voert u de volgende stappen uit:
    
     ![SAML-id-Providers](./media/workday-tutorial/IC7829271.png "SAML-id-Providers")
    
-    a. In de **identiteit providernaam** textbox, typ een providernaam (bijvoorbeeld: *SPInitiatedSSO*).
+    a. In de **identiteit providernaam** tekstvak typt u de naam van een provider (bijvoorbeeld: *SPInitiatedSSO*).
    
-    b. In de Azure-portal op de **eenmalige aanmelding configureren** venster, Kopieer de **SAML entiteit-ID** waarde en plak deze in de **verlener** textbox.
+    b. In de Azure-portal op de **aanmelding configureren** venster, Kopieer de **SAML entiteit-ID** waarde en plak deze in de **verlener** tekstvak.
 
     ![SAML-id-Providers](./media/workday-tutorial/IC7829272.png "SAML-id-Providers")
    
-    c. In de Azure-portal op de **eenmalige aanmelding configureren** venster, Kopieer de **Sign-Out URL** waarde en plak deze in de **URL voor afmelden** textbox.
+    c. In de Azure-portal op de **aanmelding configureren** venster, Kopieer de **afmelding URL** waarde en plak deze in de **antwoord-URL voor afmelden** tekstvak.
 
-    d. In de Azure-portal op de **eenmalige aanmelding configureren** venster, Kopieer de **SAML Single Sign-On Service-URL** waarde en plak deze in de **IdP SSO Service URL** textbox.
+    d. In de Azure-portal op de **aanmelding configureren** venster, Kopieer de **Single Sign-On Service URL voor SAML** waarde en plak deze in de **IdP SSO Service URL** tekstvak.
 
-    e. In **gebruikt voor omgevingen** textbox, selecteert u de omgevingsnaam.
+    e. In **gebruikt voor omgevingen** textbox, selecteert u de omgevingsnaam van de.
 
     f. Klik op **openbare sleutel identiteitscertificaat-Provider**, en klik vervolgens op **maken**. 
 
@@ -194,48 +194,48 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
    
     ![De openbare sleutel weergave x509](./media/workday-tutorial/IC782930.png "weergave x509 openbare sleutel") 
    
-    a. In de **naam** textbox, typ een naam voor uw certificaat (bijvoorbeeld: *Beschermingsmiddel\_SP*).
+    a. In de **naam** tekstvak, typ een naam voor uw certificaat (bijvoorbeeld: *PPE\_SP*).
    
-    b. In de **geldig van** textbox, typt u de geldig vanaf-kenmerkwaarde van uw certificaat.
+    b. In de **geldig vanaf** tekstvak typt u de geldige van kenmerkwaarde van uw certificaat.
    
-    c.  In de **geldig tot** textbox, typt u de geldig tot-kenmerkwaarde van uw certificaat.
+    c.  In de **geldig tot** tekstvak typt u de geldig is voor het kenmerkwaarde van uw certificaat.
    
     > [!NOTE]
-    > U kunt het geldige ophalen uit de datum en het geldige datum in het gedownloade certificaat door erop te dubbelklikken.  De datums worden vermeld in de **Details** tabblad.
+    > U kunt de geldige ophalen uit de datum en de geldig tot nu toe uit het gedownloade certificaat door erop te dubbelklikken.  De datums worden vermeld in de **Details** tabblad.
     > 
     >
    
-    d.  Open uw base-64 gecodeerde certificaat in Kladblok en kopieer de inhoud ervan.
+    d.  Het base-64 gecodeerde certificaat openen in Kladblok en kopieer vervolgens de inhoud ervan.
    
-    e.  In de **certificaat** textbox, de inhoud van het Klembord plakken.
+    e.  In de **certificaat** tekstvak, plak de inhoud van het Klembord.
    
     f.  Klik op **OK**.
 
-14. De volgende stappen uitvoeren: 
+14. Voer de volgende stappen uit: 
    
-    ![Configuratie van de SSO-](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO-configuratie")
+    ![Configuratie van eenmalige aanmelding](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO-configuratie")
    
-    a.  In de **Provider-Service-ID** textbox type **http://www.workday.com**.
+    a.  In de **Service Provider-ID** tekstvak, type **http://www.workday.com**.
    
-    b. Selecteer **doen Serviceprovider geïnitieerde verificatieaanvraag niet verkleinen**.
+    b. Selecteer **niet nebo Deflate voor Serviceprovider geïnitieerde verificatieaanvraag**.
    
-    c. Als **aanvragen handtekening verificatiemethode**, selecteer **SHA256**. 
+    c. Als **handtekening-methode voor netwerkverificatie-aanvragen**, selecteer **SHA256**. 
    
-    ![Handtekening van de verificatiemethode aanvraag](./media/workday-tutorial/WorkdaySSOConfiguration.png "verificatiemethode aanvraag handtekening") 
+    ![Methode voor netwerkverificatie aanvraag handtekening](./media/workday-tutorial/WorkdaySSOConfiguration.png "verificatiemethode aanvraag handtekening") 
    
     d. Klik op **OK**. 
    
     ![OK](./media/workday-tutorial/IC782933.png "OK")
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/workday-tutorial/create_aaduser_01.png)
 
@@ -243,11 +243,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/workday-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/workday-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/workday-tutorial/create_aaduser_04.png)
 
@@ -255,27 +255,27 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
-### <a name="create-a-workday-test-user"></a>Een testgebruiker Workday maken
+### <a name="create-a-workday-test-user"></a>Maak een testgebruiker Workday
 
-In deze sectie maakt maken u een gebruiker Britta Simon aangeroepen in Workday. Werken met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) toevoegen van de gebruikers in de Workday-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Workday. Werken met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) om toe te voegen de gebruikers in de Workday-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Workday.
+In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding toegang verlenen tot Workday.
 
-![Toewijzen van de gebruikersrol][200] 
+![De de gebruikersrol toewijzen][200] 
 
-**Britta Simon om aan te wijzen werkdag, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon naar Workday, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **Workday**.
+2. Selecteer in de lijst met toepassingen, **Workday**.
 
     ![De Workday-koppeling in de lijst met toepassingen](./media/workday-tutorial/tutorial_workday_app.png)  
 
@@ -287,23 +287,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u de Workday-tegel in het deelvenster toegang op, u moet ophalen automatisch aangemeld bij uw Workday-toepassing.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Als u de Workday-tegel in het toegangsvenster klikt, u moet u automatisch aangemeld bij uw Workday-toepassing.
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

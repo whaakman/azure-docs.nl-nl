@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c2a7278f4ee6861a1e47610c06fdc6ffcec52247
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931079"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049449"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -34,7 +34,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 
 | Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
 | -------------- | ------ | ------- | ------- | -------------- |
-| luchtvochtigheid       | %      | 0       | 100     | 0              |
+| vochtigheid       | %      | 0       | 100     | 0              |
 | TEMP           | ° C     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 | magnetometerX  | mgauss | -1000   | 1000    | 0              |
@@ -128,7 +128,7 @@ Het apparaat DevKit voorbereiden:
     - het wachtwoord voor het Wi-Fi-netwerk 
     - PIN-CODE die wordt weergegeven op het apparaat LCD 
     - de verbindingsreeks van uw apparaat. 
-      U vindt de verbindingsreeks @ `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (in de rechterbovenhoek) 
+      U vindt de verbindingsreeks \@ `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (in de rechterbovenhoek) 
     - Selecteer alle beschikbare telemetrie metingen. 
 
 1. Nadat u hebt gekozen **apparaat configureren**, ziet u deze pagina:

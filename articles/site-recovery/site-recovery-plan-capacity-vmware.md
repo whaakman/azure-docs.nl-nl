@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 905798acd5836c31953714d7984cfb19f16cecab
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b615ffa3571730ef9607893882f509b2fa490f35
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920794"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056338"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Plannen van capaciteit en schaalbaarheid voor VMware-replicatie met Azure Site Recovery
 
@@ -34,9 +34,9 @@ Informatie verzamelen over uw replicatieomgeving door het uitvoeren van de [Azur
 
 **CPU** | **Geheugen** | **Cachegrootte van de schijf** | **Veranderingssnelheid van gegevens** | **Beveiligde machines**
 --- | --- | --- | --- | ---
-8 vcpu's (2-sockets * @ 2,5 GHz [gigahertz]-4 kernen) | 16 GB | 300 GB | 500 GB of minder | Minder dan 100 machines repliceren.
-12 vcpu's (2-sockets * @ 2,5 GHz-6 kernen) | 18 GB | 600 GB | 500 GB tot 1 TB | 100-150-machines repliceren.
-16 vcpu's (2-sockets * @ 2,5 GHz-8 kernen) | 32 GB | 1 TB | 1 TB tot 2 TB | Repliceren tussen 150 tot 200-machines.
+8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz [gigahertz]) | 16 GB | 300 GB | 500 GB of minder | Minder dan 100 machines repliceren.
+12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz) | 18 GB | 600 GB | 500 GB tot 1 TB | 100-150-machines repliceren.
+16 vcpu's (2-sockets * 8 kernen \@ 2,5 GHz) | 32 GB | 1 TB | 1 TB tot 2 TB | Repliceren tussen 150 tot 200-machines.
 Een andere processerver implementeren | | | > 2 TB | Extra processervers implementeren als u meer dan 200 machines repliceert, of als de dagelijkse gegevens wijzigt tarief is groter dan 2 TB.
 
 Waar:
@@ -60,9 +60,9 @@ De volgende tabel beschrijft een scenario waarin:
 
 **Configuratieserver** | **Aanvullende processerver** | **Cachegrootte van de schijf** | **Veranderingssnelheid van gegevens** | **Beveiligde machines**
 --- | --- | --- | --- | ---
-8 vcpu's (2-sockets * @ 2,5 GHz-4 kernen), 16 GB geheugen | 4 vcpu's (2-sockets * 2 kernen @ 2,5 GHz), 8 GB geheugen | 300 GB | 250 GB of minder | 85 of minder machines repliceren.
-8 vcpu's (2-sockets * @ 2,5 GHz-4 kernen), 16 GB geheugen | 8 vcpu's (2-sockets * @ 2,5 GHz-4 kernen), 12 GB geheugen | 600 GB | 250 GB tot 1 TB | 85-150-machines repliceren.
-12 vcpu's (2-sockets * @ 2,5 GHz-6 kernen), 18 GB geheugen | 12 vcpu's (2-sockets * @ 2,5 GHz-6 kernen) 24 GB geheugen | 1 TB | 1 TB tot 2 TB | Repliceren tussen 150 225 machines.
+8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz), 16 GB geheugen | 4 vcpu's (2-sockets * 2 kernen \@ 2,5 GHz), 8 GB geheugen | 300 GB | 250 GB of minder | 85 of minder machines repliceren.
+8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz), 16 GB geheugen | 8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz), 12 GB geheugen | 600 GB | 250 GB tot 1 TB | 85-150-machines repliceren.
+12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz), 18 GB geheugen | 12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz) 24 GB geheugen | 1 TB | 1 TB tot 2 TB | Repliceren tussen 150 225 machines.
 
 De manier waarop u uw servers schalen, is afhankelijk van uw voorkeur voor een scale-up- of scale-out-model.  U door het implementeren van een paar geavanceerde configuratie en processervers omhoog schalen of uitschalen door meer servers met minder resources implementeren. Bijvoorbeeld, als u beveiligen 220 machines wilt, kan u doen het volgende:
 

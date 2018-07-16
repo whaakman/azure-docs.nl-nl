@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e4af3dc8aa7a656fd0020285c3f73ce414ba039c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 645fa89bede1311215f1d67c64a2388e4de5c1b1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38305893"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044880"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>De resourceprovider van MySQL in Azure Stack implementeren
 
@@ -30,23 +30,30 @@ De resourceprovider van MySQL-Server gebruiken om MySQL-databases als een Azure 
 Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure Stack-MySQL-resourceprovider implementeren. Om te voldoen aan deze vereisten, de stappen in dit artikel op een computer die toegang de beschermde VM-eindpunt tot.
 
 * Als u dit nog niet hebt gedaan, [registreren Azure Stack](.\azure-stack-registration.md) met Azure, zodat u kunt Azure marketplace-items downloaden.
-* U moet de Azure- en PowerShell voor Azure Stack-modules installeren op het systeem waarbij u deze installatie wordt uitgevoerd. Dat systeem moet een installatiekopie van Windows 10 of Windows Server 2016 met de meest recente versie van de .NET runtime. Zie [PowerShell voor Azure Stack installeren](.\azure-stack-powershell-install.md).
+* U moet de Azure- en PowerShell voor Azure Stack-modules installeren op het systeem waar u deze installatie wordt uitgevoerd. Dat systeem moet een installatiekopie van Windows 10 of Windows Server 2016 met de meest recente versie van de .NET runtime. Zie [PowerShell voor Azure Stack installeren](.\azure-stack-powershell-install.md).
 * De vereiste Windows Server-core VM toevoegen aan de Azure Stack marketplace door te downloaden de **Windows Server 2016 Datacenter - Server Core** installatiekopie.
-
-  >[!NOTE]
-  >Als u nodig hebt om een Windows-update te installeren, kunt u één kunt plaatsen. MSU-pakket in het afhankelijkheidspad van de lokale. Als meer dan één. MSU-bestand wordt gevonden, mislukt de installatie van MySQL resource provider.
 
 * De MySQL-resourceprovider binaire downloaden en voer vervolgens de zelfstandige extractor om de inhoud uitpakken naar een tijdelijke map.
 
   >[!NOTE]
   >Voor het implementeren van de MySQL-provider op een computer die geen toegang tot Internet, Kopieer de [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) bestand naar een lokaal pad. Geef het pad de naam met behulp de **DependencyFilesLocalPath** parameter.
 
-* De resourceprovider heeft een minimale bijbehorende Azure Stack bouwen. Zorg ervoor dat u het juiste binaire bestand voor de versie van Azure-Stack die u gebruikt downloaden.
+* De resourceprovider heeft een minimale bijbehorende Azure Stack bouwen. Zorg ervoor dat u het juiste binaire bestand voor de versie van Azure-Stack die u gebruikt downloaden:
 
     | Azure Stack-versie | MySQL RP-versie|
     | --- | --- |
     | Versie 1804 (1.0.180513.1)|[MySQL RP versie 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    | Versie 1802 (1.0.180302.1) | [MySQL RP versie 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
+    | Versie 1802 (1.0.180302.1) | [MySQL RP versie 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
+    |     |     |
+
+- Zorg ervoor dat de datacenter-integratie vereisten wordt voldaan:
+
+    |Vereiste|Referentie|
+    |-----|-----|
+    |Voorwaardelijk doorsturen van DNS is correct ingesteld.|[Datacenter-integratie Azure Stack - DNS](azure-stack-integrate-dns.md)|
+    |Poorten voor inkomend verkeer voor resourceproviders zijn geopend.|[Azure Stack-datacenter-integratie - eindpunten publiceren](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI-certificaatonderwerp en SAN zijn juist ingesteld.|[Azure Stack verplichte PKI vereisten voor implementatie](azure-stack-pki-certs.md#mandatory-certificates)<br>[De vereisten PaaS-certificaat voor Azure Stack-implementatie](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Certificaten
 
@@ -56,7 +63,7 @@ _Geïntegreerde systemen alleen voor installaties_. Moet u de SQL-PaaS-PKI-certi
 
 Nadat u alle vereisten die zijn geïnstalleerd hebt, voert u de **DeployMySqlProvider.ps1** script voor het implementeren van de MYSQL-resourceprovider. Het script DeployMySqlProvider.ps1 wordt opgehaald als onderdeel van de MySQL-resource provider binaire bestand dat u hebt gedownload voor uw versie van Azure Stack.
 
-Voor het implementeren van de MySQL-resourceprovider, open een nieuw verhoogde PowerShell-console-venster en Ga naar de map waar u de binaire bestanden voor MySQL resource provider hebt uitgepakt. We raden u aan met behulp van een nieuwe PowerShell-venster om te voorkomen van potentiële problemen veroorzaakt door een PowerShell-modules die al zijn geladen.
+Voor het implementeren van de MySQL-resourceprovider, open een nieuw verhoogde PowerShell-venster (niet PowerShell ISE) en Ga naar de map waar u de binaire bestanden voor MySQL resource provider hebt uitgepakt. We raden u aan met behulp van een nieuwe PowerShell-venster om te voorkomen van potentiële problemen veroorzaakt door een PowerShell-modules die al zijn geladen.
 
 Voer de **DeployMySqlProvider.ps1** script, dat bestaat uit de volgende taken:
 
@@ -65,8 +72,7 @@ Voer de **DeployMySqlProvider.ps1** script, dat bestaat uit de volgende taken:
 * Hiermee geeft u een galerijpakket voor het implementeren van hostingservers mogelijk.
 * Een virtuele machine met behulp van de Windows Server 2016 core u hebt gedownload en vervolgens installeert hij de MySQL-resourceprovider implementeert.
 * Hiermee wordt een lokale DNS-record die wordt toegewezen aan uw VM-resourceprovider geregistreerd.
-* Hiermee wordt de resourceprovider geregistreerd met de lokale Azure Resource Manager voor de operator- en gebruikersaccounts.
-* (Optioneel) een één Windows Server update is geïnstalleerd tijdens de installatie van de resource provider.
+* Hiermee wordt de resourceprovider geregistreerd met de lokale Azure Resource Manager voor de operator-account.
 
 > [!NOTE]
 > Wanneer de implementatie van MySQL resource provider wordt gestart, wordt de **system.local.mysqladapter** resourcegroep wordt gemaakt. Het duurt maximaal 75 minuten aan de implementaties die zijn vereist om deze resourcegroep te voltooien.

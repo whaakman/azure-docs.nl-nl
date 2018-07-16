@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 368625a325a1a36458491193315d67f139b53cb2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: add86c04cc43d9742576b5c733d18b7117be2c61
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223362"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053821"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Zelfstudie: Azure Active Directory-integratie met BitaBIZ
 
-In deze zelfstudie leert u hoe BitaBIZ integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u BitaBIZ integreren met Azure Active Directory (Azure AD).
 
-BitaBIZ integreren met Azure AD biedt de volgende voordelen:
+BitaBIZ integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot BitaBIZ heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij BitaBIZ (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij BitaBIZ (Single Sign-On) met hun Azure AD-accounts inschakelen.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,25 +42,25 @@ Voor het configureren van Azure AD-integratie met BitaBIZ, moet u de volgende it
 - Een BitaBIZ eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. BitaBIZ uit de galerie toevoegen
+1. BitaBIZ uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-bitabiz-from-the-gallery"></a>BitaBIZ uit de galerie toevoegen
-Voor het configureren van de integratie van BitaBIZ in Azure AD, moet u BitaBIZ uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-bitabiz-from-the-gallery"></a>BitaBIZ uit de galerie toe te voegen
+Voor het configureren van de integratie van BitaBIZ in Azure AD, moet u BitaBIZ uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen BitaBIZ uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,111 +68,111 @@ Voor het configureren van de integratie van BitaBIZ in Azure AD, moet u BitaBIZ 
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
 4. Typ in het zoekvak **BitaBIZ**, selecteer **BitaBIZ** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![BitaBIZ in de lijst met resultaten](./media/bitabiz-tutorial/tutorial_bitabiz_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met BitaBIZ op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met BitaBIZ op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in BitaBIZ is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in BitaBIZ tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in BitaBIZ is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in BitaBIZ tot stand worden gebracht.
 
-Wijs in BitaBIZ, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In BitaBIZ, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met BitaBIZ, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker BitaBIZ](#create-a-bitabiz-test-user)**  - BitaBIZ die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker BitaBIZ](#create-a-bitabiz-test-user)**  : als u wilt een equivalent van Britta Simon in BitaBIZ die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing BitaBIZ configureren.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing BitaBIZ.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met BitaBIZ, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **BitaBIZ** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **BitaBIZ** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
-    ![Dialoogvenster voor eenmalige aanmelding](./media/bitabiz-tutorial/tutorial_bitabiz_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/bitabiz-tutorial/tutorial_bitabiz_samlbase.png)
 
-3. Op de **BitaBIZ domein en de URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in de IDP geïnitieerd modus:
+3. Op de **BitaBIZ domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in de modus voor IDP gestart:
 
-    ![URL's en BitaBIZ domein eenmalige aanmelding informatie](./media/bitabiz-tutorial/tutorial_bitabiz_url.png)
+    ![BitaBIZ domein en URL's, eenmalige aanmelding informatie](./media/bitabiz-tutorial/tutorial_bitabiz_url.png)
 
-    In de **id** textbox, typ een URL met het volgende patroon volgen: `https://www.bitabiz.com/<instanceId>`
+    In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://www.bitabiz.com/<instanceId>`
 
     > [!NOTE] 
-    > De waarde in de bovenstaande URL is voor alleen demonstratie. Werk de waarde met de werkelijke id, die verderop in de zelfstudie wordt uitgelegd.
+    > De waarde in de bovenstaande URL is voor een demonstratie alleen. Werk de waarde bij met de werkelijke id, die later in de zelfstudie wordt uitgelegd.
 
-4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
-    ![URL's en BitaBIZ domein eenmalige aanmelding informatie](./media/bitabiz-tutorial/tutorial_bitabiz_url1.png)
+    ![BitaBIZ domein en URL's, eenmalige aanmelding informatie](./media/bitabiz-tutorial/tutorial_bitabiz_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ de URL: `https://www.bitabiz.com/dashboard`
+    In de **aanmeldings-URL** tekstvak typt u de URL: `https://www.bitabiz.com/dashboard`
 
-5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/bitabiz-tutorial/tutorial_bitabiz_certificate.png) 
 
 6. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/bitabiz-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/bitabiz-tutorial/tutorial_general_400.png)
     
-7. Op de **BitaBIZ configuratie** sectie, klikt u op **configureren BitaBIZ** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+7. Op de **BitaBIZ configuratie** sectie, klikt u op **configureren BitaBIZ** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![BitaBIZ configuratie](./media/bitabiz-tutorial/tutorial_bitabiz_configure.png) 
 
-8. In een ander browservenster aanmelding bij uw tenant BitaBIZ als beheerder.
+8. In een ander browservenster aanmelden voor uw tenant BitaBIZ als beheerder.
 
 9. Klik op **SETUP ADMIN**.
 
     ![BitaBIZ configuratie](./media/bitabiz-tutorial/settings1.png)
 
-10. Klik op **Microsoft integraties** onder **waarde toevoegen** sectie.
+10. Klik op **Microsoft integraties** onder **meerwaarde** sectie.
 
     ![BitaBIZ configuratie](./media/bitabiz-tutorial/settings2.png)
 
-11. Blader omlaag naar de sectie **Microsoft Azure AD (inschakelen voor eenmalige aanmelding)** en voert u de volgende stappen:
+11. Schuif omlaag naar het gedeelte **Microsoft Azure AD (inschakelen voor eenmalige aanmelding)** en voert u de volgende stappen uit:
 
     ![BitaBIZ configuratie](./media/bitabiz-tutorial/settings3.png)
 
-    a. Kopieer de waarde van de **entiteit-ID ('id' in Azure AD)** textbox en plak deze in de **id** textbox op de **BitaBIZ domein en de URL's** sectie in Azure-portal. 
+    a. Kopieer de waarde van de **entiteit-ID ('id' in Azure AD)** tekstvak en plak deze in de **id** tekstvak op de **BitaBIZ domein en URL's** sectie in Azure portal. 
     
-    b. In de **Azure AD Single Sign-On Service-URL** textbox plakken **SAML Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
+    b. In de **Azure AD-aanmelding Service-URL met eenmalige** tekstvak plakken **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
     
-    c. In de **entiteit-ID van Azure AD SAML** textbox plakken **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal.
+    c. In de **entiteit-ID voor Azure AD SAML** tekstvak plakken **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure portal.
 
-    d. Open uw gedownloade **Certificate(Base64)** bestand in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **Azure AD certificaat voor ondertekening (Base64-gecodeerd)** textbox.
+    d. Open uw gedownloade **Certificate(Base64)** -bestand in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **Azure AD-handtekeningcertificaat (Base64-gecodeerd)** tekstvak.
 
-    e. Toevoegen van uw zakelijke e-maildomein dat wil zeggen mycompany.com in naam **domeinnaam** textbox SSO toewijzen aan de gebruikers in uw bedrijf met dit e-maildomein (niet verplicht).
+    e. Toevoegen van uw zakelijke e-maildomein dat wil zeggen, mycompany.com in naam **domeinnaam** tekstvak SSO toewijzen aan de gebruikers in uw bedrijf met dit e-maildomein (niet verplicht).
     
-    f. Markeer **SSO ingeschakeld** de BitaBIZ-account.
+    f. Mark **eenmalige aanmelding ingeschakeld** de BitaBIZ-account.
     
     g. Klik op **Azure AD-configuratie op te slaan** opslaan en activeer de SSO-configuratie.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/bitabiz-tutorial/create_aaduser_01.png)
 
@@ -180,11 +180,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/bitabiz-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/bitabiz-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/bitabiz-tutorial/create_aaduser_04.png)
 
@@ -192,18 +192,18 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
-### <a name="create-a-bitabiz-test-user"></a>Een testgebruiker BitaBIZ maken
+### <a name="create-a-bitabiz-test-user"></a>Maak een testgebruiker BitaBIZ
 
-Om Azure AD-gebruikers zich aanmelden bij BitaBIZ, moeten ze worden ingericht in BitaBIZ.  
-In het geval van BitaBIZ is inrichting een handmatige taak.
+Als u wilt dat Azure AD-gebruikers zich aanmelden bij BitaBIZ, moeten ze worden ingericht voor BitaBIZ.  
+In het geval van BitaBIZ is inrichten een handmatige taak.
 
 **Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
-1. Meld u aan bij uw bedrijf BitaBIZ site als beheerder.
+1. Meld u aan bij uw bedrijf BitaBIZ site aan als beheerder.
 
 2. Klik op **SETUP ADMIN**.
 
@@ -217,38 +217,38 @@ In het geval van BitaBIZ is inrichting een handmatige taak.
 
     ![BitaBIZ gebruiker toevoegen](./media/bitabiz-tutorial/user2.png)
 
-5. Op de **'Nieuwe werknemer toevoegen'** dialoogvenster pagina, voert u de volgende stappen uit:
+5. Op de **'Een nieuwe werknemer toevoegen'** dialoogvenster pagina, voert u de volgende stappen uit:
 
     ![BitaBIZ gebruiker toevoegen](./media/bitabiz-tutorial/user3.png)
 
-    a. In de **voornaam** textbox, de eerste naam van gebruiker zoals Britta.
+    a. In de **voornaam** tekstvak, de eerste naam van gebruiker, zoals Julia.
 
-    b. In de **achternaam** textbox, typt u de achternaam van de gebruiker zoals Simon.
+    b. In de **achternaam** tekstvak typt u de achternaam van de gebruiker, zoals Simon.
 
-    c. In de **e** textbox, typ het e-mailadres van gebruiker, zoals Brittasimon@contoso.com.
+    c. In de **e** tekstvak, typ het e-mailadres van gebruiker, zoals Brittasimon@contoso.com.
 
-    d. Selecteer een datum in **datum van arbeid**.
+    d. Selecteer een datum in **datum dienst**.
 
     e. Er zijn andere niet-verplichte gebruikerskenmerken die kunnen worden ingesteld voor de gebruiker. Raadpleeg de [werknemer Setup Doc](https://help.bitabiz.dk/manage-or-set-up-your-account/on-boarding-employees/new-employee) voor meer informatie.    
     
     f. Klik op **opslaan werknemer**.
     
     > [!NOTE]
-    > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om hun account te bevestigen voordat deze geactiveerd wordt.
+    > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
     
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan BitaBIZ.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan BitaBIZ.
 
-![Toewijzen van de gebruikersrol][200] 
+![De de gebruikersrol toewijzen][200] 
 
-**Britta Simon om aan te wijzen BitaBIZ, moet u de volgende stappen uitvoeren:**
+**Als u wilt Britta Simon aan BitaBIZ toewijst, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **BitaBIZ**.
+2. Selecteer in de lijst met toepassingen, **BitaBIZ**.
 
     ![De koppeling BitaBIZ in de lijst met toepassingen](./media/bitabiz-tutorial/tutorial_bitabiz_app.png)  
 
@@ -260,23 +260,23 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u op de tegel BitaBIZ in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing BitaBIZ.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel BitaBIZ in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing BitaBIZ.
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van problemen met Azure Automatio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929346"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044863"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -94,6 +94,31 @@ Als u MFA op uw Azure-account hebt, kunt u een Azure Active Directory-gebruiker 
 Raadpleeg voor het gebruik van een certificaat met de klassieke Azure-implementatie-cmdlets voor model, [maken en toevoegen van een certificaat voor het beheren van Azure-services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Voor het gebruik van een service-principal met Azure Resource Manager-cmdlets, raadpleegt u [service-principal met behulp van Azure portal maken](../../azure-resource-manager/resource-group-create-service-principal-portal.md) en [verifiëren van een service-principal met Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Veelvoorkomende fouten bij het werken met runbooks
+
+### <a name="not-recognized-as-cmdlet"></a>Scenario: Het runbook is mislukt vanwege een ontbrekende cmdlet
+
+#### <a name="issue"></a>Probleem
+
+Uw runbook is mislukt met een fout die vergelijkbaar is met het volgende voorbeeld:
+
+```
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout kan worden veroorzaakt door de volgende redenen:
+
+1. De module met de cmdlet is niet geïmporteerd in het automation-account
+2. De module containg de cmdlet is geïmporteerd, maar is verouderd
+
+#### <a name="resolution"></a>Oplossing
+
+Deze fout kan worden opgelost door een van de volgende taken voltooien:
+
+Als de module een Azure-module is, Zie [het bijwerken van Azure PowerShell-modules in Azure Automation](../automation-update-azure-modules.md) voor informatie over het bijwerken van de modules in uw automation-account.
+
+Als een afzonderlijke module is, controleert u of de module in geïmporteerd in uw Automation-Account.
 
 ### <a name="job-attempted-3-times"></a>Scenario: Het begin van de runbook-taak drie keer is uitgevoerd, maar deze kan niet worden gestart elke keer
 

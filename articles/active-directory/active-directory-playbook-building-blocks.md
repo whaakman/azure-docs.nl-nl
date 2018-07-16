@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38451696"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049466"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -157,7 +157,7 @@ Geschatte tijd om te voltooien: 60 minuten
 | Volg de instructies voor het configureren van ServiceNow |  |
 | Op de blade 'Inrichten' van ServiceNow-App 'Automatisch' inrichting inschakelen | [Gebruikersaccount inrichten voor enterprise-apps in de nieuwe Azure-portal beheren](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Wacht een paar minuten tijdens het inrichten is voltooid.  In de tussentijd kunt kunt u de inrichtingsrapporten controleren |  |
-| Meld u aan bij https://myapps.microsoft.com/ als een testgebruiker die toegang heeft | [Wat is het toegangsvenster?](active-directory-saas-access-panel-introduction.md) |
+| Meld u aan bij https://myapps.microsoft.com/ als een testgebruiker die toegang heeft | [Wat is het toegangsvenster?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Klik op de tegel voor de toepassing die zojuist is gemaakt. Toegang bevestigen |  |
 | Eventueel kunt u de toepassing gebruiksrapporten controleren. Let op: Er is enige vertraging, daarom moet u wachten tot enige tijd om te zien van het verkeer in de rapporten. | [Rapporten van aanmeldingsactiviteiten in de Azure Active Directory-portal: gebruik van beheerde toepassingen](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) (Retentiebeleid voor Azure Active Directory-rapporten) |
 
@@ -188,8 +188,8 @@ Geschatte tijd om te voltooien: 15 minuten
 | Configureren van SSO-wachtwoord | [Beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: wachtwoord gebaseerde aanmelding](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | De app toewijzen aan de groep in de vereisten zijn geïdentificeerd | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Meld u aan bij https://myapps.microsoft.com/ als een testgebruiker die toegang heeft |  |
-| Klik op de tegel voor de toepassing die zojuist is gemaakt. | [Wat is het toegangsvenster?: wachtwoord gebaseerde SSO zonder in te richten van identiteit](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| Geef de referentie van toepassingen | [Wat is het toegangsvenster?: wachtwoord gebaseerde SSO zonder in te richten van identiteit](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Klik op de tegel voor de toepassing die zojuist is gemaakt. | [Wat is het toegangsvenster?: wachtwoord gebaseerde SSO zonder in te richten van identiteit](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Geef de referentie van toepassingen | [Wat is het toegangsvenster?: wachtwoord gebaseerde SSO zonder in te richten van identiteit](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Sluit de browser en herhaalt u de aanmelding. De gebruiker ziet dit keer ongeveer naadloze toegang tot de toepassing. |  |
 | Eventueel kunt u de toepassing gebruiksrapporten controleren. Let op: Er is enige vertraging, daarom moet u wachten tot enige tijd om te zien van het verkeer in de rapporten. | [Rapporten van aanmeldingsactiviteiten in de Azure Active Directory-portal: gebruik van beheerde toepassingen](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) (Retentiebeleid voor Azure Active Directory-rapporten) |
 
@@ -308,7 +308,7 @@ Geschatte tijd om te voltooien: 10 minuten
 | SaaS-toepassing (federatieve SSO of wachtwoord SSO) is al geconfigureerd | Bouwsteen: [SaaS federatieve SSO-configuratie](#saas-federated-sso-configuration) |
 | Cloud-groep die toegang is toegewezen aan de toepassing in #1 wordt geïdentificeerd | Bouwsteen: [SaaS federatieve SSO-configuratie](#saas-federated-sso-configuration) <br/>[Een groep maken en leden toevoegen in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Referenties voor de eigenaar van de groep zijn beschikbaar | [Toegang tot resources beheren met Azure Active Directory-groepen](fundamentals/active-directory-manage-groups.md) |
-| Referenties voor de Informatiemedewerker toegang tot de apps is geïdentificeerd | [Wat is het toegangsvenster?](active-directory-saas-access-panel-introduction.md) |
+| Referenties voor de Informatiemedewerker toegang tot de apps is geïdentificeerd | [Wat is het toegangsvenster?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Stappen
@@ -318,7 +318,7 @@ Geschatte tijd om te voltooien: 10 minuten
 | Identificeren van de groep die toegang tot de toepassing is verleend en configureer de eigenaar van de opgegeven groep| [De instellingen voor een groep in Azure Active Directory beheren ](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | Meld u aan als de Groepseigenaar van de, Zie het groepslidmaatschap op groepen-tabblad van het toegangsvenster | [Azure Active Directory-groepen Management-pagina](https://account.activedirectory.windowsazure.com/r#/groups) |
 | De Informatiemedewerker die u wilt testen toevoegen |  |
-| Meld u aan als de Informatiemedewerker, bevestigt u dat de tegel is beschikbaar | [Wat is het toegangsvenster?](active-directory-saas-access-panel-introduction.md) |
+| Meld u aan als de Informatiemedewerker, bevestigt u dat de tegel is beschikbaar | [Wat is het toegangsvenster?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 ### <a name="considerations"></a>Overwegingen
 
@@ -332,7 +332,7 @@ Als de toepassing heeft de inrichting ingeschakeld, moet u mogelijk Wacht een pa
 | --- | --- |
 | SaaS-toepassing (federatieve SSO of wachtwoord SSO) is al geconfigureerd | Bouwsteen: [SaaS federatieve SSO-configuratie](#saas-federated-sso-configuration) |
 | Cloud-groep die toegang is toegewezen aan de toepassing in #1 wordt geïdentificeerd | Bouwsteen: [SaaS federatieve SSO-configuratie](#saas-federated-sso-configuration) <br/>[Een groep maken en leden toevoegen in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Referenties voor de Informatiemedewerker toegang tot de apps is geïdentificeerd | [Wat is het toegangsvenster?](active-directory-saas-access-panel-introduction.md) |
+| Referenties voor de Informatiemedewerker toegang tot de apps is geïdentificeerd | [Wat is het toegangsvenster?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Stappen
@@ -380,7 +380,7 @@ Geschatte tijd om te voltooien: 15 minuten
 
 | Vereiste | Resources |
 | --- | --- |
-| Schakel het beheer van de self-service voor wachtwoord in uw tenant. | [Azure Active Directory-wachtwoord opnieuw instellen voor IT-beheerders](active-directory-passwords-update-your-own-password.md) |
+| Schakel het beheer van de self-service voor wachtwoord in uw tenant. | [Azure Active Directory-wachtwoord opnieuw instellen voor IT-beheerders](user-help/active-directory-passwords-update-your-own-password.md) |
 | Schakel het terugschrijven van wachtwoorden van on-premises beheren. Houd er rekening mee moet hiervoor specifieke Azure Active Directory Connect versies | [Vereisten voor het terugschrijven van wachtwoorden](authentication/howto-sspr-writeback.md) |
 | Identificeer de PoC-gebruikers die deze functionaliteit gebruiken en zorg ervoor dat ze lid zijn van een beveiligingsgroep. De gebruikers moeten niet-beheerders om te wijzen volledig waartoe de mogelijkheid | [Aanpassen: Azure AD-wachtwoordbeheer: toegang beperken tot wachtwoord opnieuw instellen](authentication/howto-sspr-writeback.md) |
 
@@ -395,7 +395,7 @@ Geschatte tijd om te voltooien: 15 minuten
 | Geef op de selfservice voor wachtwoordherstel-gegevens, zoals geconfigureerd per stap 2 | https://aka.ms/ssprsetup |
 | Sluit de browser |  |
 | De aanmeldingsprocedure beginnen als de Informatiemedewerker die u in stap 4 hebt gebruikt |  |
-| Het wachtwoord opnieuw instellen | [Uw eigen wachtwoord bijwerken: Mijn wachtwoord opnieuw instellen](active-directory-passwords-update-your-own-password.md) |
+| Het wachtwoord opnieuw instellen | [Uw eigen wachtwoord bijwerken: Mijn wachtwoord opnieuw instellen](user-help/active-directory-passwords-update-your-own-password.md) |
 | Probeer aan te melden met uw nieuwe wachtwoord naar Azure AD ook over on-premises bronnen |  |
 
 ### <a name="considerations"></a>Overwegingen
@@ -428,7 +428,7 @@ Geschatte tijd om te voltooien: 10 minuten
 ### <a name="considerations"></a>Overwegingen
 
 1. De PoC-stappen in deze bouwsteen expliciet MFA instellen voor een gebruiker op alle aanmeldingen. Er zijn andere hulpprogramma's, zoals voorwaardelijke toegang en Identity Protection die MFA op meer betrekken gerichte scenario's. Dit is iets te overwegen bij het verplaatsen van de POC naar productie.
-2. De PoC-stappen in deze bouwsteen expliciet telefoongesprekken gebruiken als de MFA-methode voor expedience. Als u van POC naar productie overstappen, wordt u aangeraden toepassingen, zoals de [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) als de tweede factor indien mogelijk.
+2. De PoC-stappen in deze bouwsteen expliciet telefoongesprekken gebruiken als de MFA-methode voor expedience. Als u van POC naar productie overstappen, wordt u aangeraden toepassingen, zoals de [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) als de tweede factor indien mogelijk.
 Meer informatie: [DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>MFA voor voorwaardelijke toegang voor SaaS-toepassingen
@@ -553,7 +553,7 @@ Geschatte tijd in beslag: 20 minuten
 | --- | --- |
 | Apparaat met gebruikerscertificaat ingericht (Windows, iOS of Android) van de Enterprise PKI | [Gebruikerscertificaten implementeren](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Azure AD-domein gefedereerd met behulp van AD FS | [Azure AD Connect en federatie](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Overzicht van Active Directory Certificate Services](https://technet.microsoft.com/library/hh831740.aspx)|
-| Voor iOS-apparaten Microsoft Authenticator-app hebt geïnstalleerd | [Aan de slag met de Microsoft Authenticator-app](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| Voor iOS-apparaten Microsoft Authenticator-app hebt geïnstalleerd | [Aan de slag met de Microsoft Authenticator-app](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Stappen
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 1a2b32e7e0e86608f879941485395ebe379a5c1e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970897"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048858"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Inleiding tot Apparaatbeheer in Azure Active Directory
 
@@ -181,8 +181,8 @@ Als een regel van een miniatuur, moet u het volgende gebruiken:
 - Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [configureren van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 - Instellen:
-    - Azure Active Directory ingeschreven Windows 10-apparaten, Zie [over het configureren van Azure Active Directory geregistreerde Windows 10-apparaten](device-management-azuread-registered-devices-windows10-setup.md)
-    - Azure Active Directory gekoppelde apparaten, Zie [over het configureren van Azure Active Directory gekoppelde apparaten](device-management-azuread-joined-devices-setup.md)
+    - Azure Active Directory ingeschreven Windows 10-apparaten, Zie [over het configureren van Azure Active Directory geregistreerde Windows 10-apparaten](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+    - Azure Active Directory gekoppelde apparaten, Zie [over het configureren van Azure Active Directory gekoppelde apparaten](user-help/device-management-azuread-joined-devices-setup.md)
     - Hybride Azure AD gekoppelde apparaten, Zie [hoe het configureren van hybride Azure Active Directory apparaten gekoppelde](device-management-hybrid-azuread-joined-devices-setup.md).
 
 

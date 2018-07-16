@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Apex Portal | Microsoft Docs'
+title: 'Zelfstudie: Azure Active Directory-integratie met Apex-Portal | Microsoft Docs'
 description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Apex-Portal.
 services: active-directory
 documentationCenter: na
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 27c10c2e08177b7987077de747482fc5ea620d91
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c267313e4851e621b57aa1d2bddc73118405776
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231675"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054230"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Zelfstudie: Azure Active Directory-integratie met Apex Portal
+# <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Zelfstudie: Azure Active Directory-integratie met het toppunt van Portal
 
-In deze zelfstudie leert u hoe het toppunt Portal integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u het toppunt van Portal integreren met Azure Active Directory (Azure AD).
 
-Apex Portal integreren met Azure AD biedt de volgende voordelen:
+Apex Portal integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot het toppunt-Portal heeft.
+- U kunt beheren in Azure AD die toegang tot de Apex-Portal heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij de Portal Apex (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Apex Portal, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Apex-Portal, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een Apex Portal eenmalige aanmelding ingeschakeld abonnement
+- Een Portal voor het toppunt van eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Toevoegen van de Portal Apex uit de galerie
+1. Apex Portal uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-apex-portal-from-the-gallery"></a>Toevoegen van de Portal Apex uit de galerie
-Voor het configureren van de integratie van Apex Portal in Azure AD, moet u het toppunt Portal uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-apex-portal-from-the-gallery"></a>Apex Portal uit de galerie toe te voegen
+Voor het configureren van de integratie van Apex Portal in Azure AD, moet u het toppunt van Portal vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Apex Portal uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen Apex Portal vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,60 +68,60 @@ Voor het configureren van de integratie van Apex Portal in Azure AD, moet u het 
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Apex Portal**, selecteer **Apex Portal** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![In de lijst met resultaten Apex-Portal](./media/apexportal-tutorial/tutorial_apexonline_addfromgallery.png)
+    ![APEX-Portal in de lijst met resultaten](./media/apexportal-tutorial/tutorial_apexonline_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met Apex Portal op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Apex-Portal op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in de Apex Portal is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in het toppunt Portal worden gemaakt.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in de Apex-Portal is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in het toppunt van Portal tot stand worden gebracht.
 
-Wijs in het toppunt-Portal, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+Wijs in het toppunt van Portal, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Apex Portal, moet u de volgende bouwstenen voltooien:
+Om te configureren en testen van Azure AD eenmalige aanmelding met Apex-Portal, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker Apex Portal](#create-an-apex-online-test-user)**  - hebben een equivalent van Britta Simon in het toppunt Portal die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Apex Portal](#create-an-apex-online-test-user)**  : als u wilt een equivalent van Britta Simon hebben in de Apex-Portal die is gekoppeld aan de Azure AD-weergave van de gebruiker.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing Apex Portal configureren.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Apex-Portal.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Apex Portal, moet u de volgende stappen uitvoeren:**
+**Voor het configureren van Azure AD eenmalige aanmelding met Apex-Portal, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **Apex Portal** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Apex Portal** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
-    ![Dialoogvenster voor eenmalige aanmelding](./media/apexportal-tutorial/tutorial_apexonline_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/apexportal-tutorial/tutorial_apexonline_samlbase.png)
 
-3. Op de **Apex Portal domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op de **Apex Portal domein en URL's** sectie, voert u de volgende stappen uit:
 
-    ![URL's en Apex Portal domein eenmalige aanmelding informatie](./media/apexportal-tutorial/tutorial_apexonline_url.png)
+    ![APEX Portal domein en URL's, eenmalige aanmelding informatie](./media/apexportal-tutorial/tutorial_apexonline_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Apex Portal ondersteuningsteam](mailto:support@apexanalytix.com) ophalen van deze waarden.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [Apex Portal ondersteuningsteam](mailto:support@apexanalytix.com) om deze waarden te verkrijgen.
  
-4. De toepassing Apex Portal verwacht de SAML-asserties in een specifieke indeling waarvoor u aangepaste kenmerktoewijzingen toevoegen aan uw configuratie van SAML-token kenmerken. Configureer de volgende claims voor deze toepassing. U kunt beheren de waarden van deze kenmerken van de '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie. 
+4. De toepassing Apex Portal wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. 
 
     ![Eenmalige aanmelding configureren](./media/apexportal-tutorial/attribute.png)
 
-5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en de volgende stappen uitvoeren:
+5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en voer de volgende stappen uit:
     
     | Naam kenmerk | Waarde kenmerk |
     | ------------------- | -------------------- |    
@@ -129,40 +129,40 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     | ACHTERNAAM | User.surname |
     | E-MAIL | User.mail |    
 
-    a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
+    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
 
     ![Eenmalige aanmelding configureren](./media/apexportal-tutorial/tutorial_attribute_04.png)
 
     ![Eenmalige aanmelding configureren](./media/apexportal-tutorial/tutorial_attribute_05.png)
 
-    b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
+    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
 
-    c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
     
     d. Klik op **OK**.
 
-6. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+6. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/apexportal-tutorial/tutorial_apexonline_certificate.png) 
 
 7. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/apexportal-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/apexportal-tutorial/tutorial_general_400.png)
 
-8. Eenmalige aanmelding configureren op **Apex Portal** zijde, moet u de gedownloade verzenden **Metadata XML** naar [Apex Portal ondersteuningsteam](mailto:support@apexanalytix.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+8. Het configureren van eenmalige aanmelding op **Apex Portal** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Apex Portal ondersteuningsteam](mailto:support@apexanalytix.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/apexportal-tutorial/create_aaduser_01.png)
 
@@ -170,11 +170,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/apexportal-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/apexportal-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/apexportal-tutorial/create_aaduser_04.png)
 
@@ -182,32 +182,32 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
   
-### <a name="create-an-apex-portal-test-user"></a>Een testgebruiker Apex Portal maken
+### <a name="create-an-apex-portal-test-user"></a>Maak een testgebruiker Apex-Portal
 
-Het doel van deze sectie is het maken van een gebruiker Britta Simon aangeroepen in het toppunt Portal. APEX Portal ondersteunt just-in-time-inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging toegang tot het toppunt Portal als deze nog niet bestaat.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in de Apex-Portal. APEX-Portal biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot het toppunt van Portal als deze nog niet bestaat.
  
 > [!NOTE]
-> Als u een gebruiker handmatig maken wilt, moet u contact op met de [Apex Portal ondersteuningsteam](mailto:support@apexanalytix.com).
+> Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Apex Portal ondersteuningsteam](mailto:support@apexanalytix.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding toegang verleent tot Apex Portal gebruiken.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot het toppunt van Portal.
 
-![Toewijzen van de gebruikersrol][200] 
+![De de gebruikersrol toewijzen][200] 
 
-**Britta Simon om aan te wijzen Apex Portal, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon Apex-Portal, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **Apex Portal**.
+2. Selecteer in de lijst met toepassingen, **Apex Portal**.
 
-    ![De Apex Portal-koppeling in de lijst met toepassingen](./media/apexportal-tutorial/tutorial_apexonline_app.png)  
+    ![De Apex-Portal-koppeling in de lijst met toepassingen](./media/apexportal-tutorial/tutorial_apexonline_app.png)  
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
@@ -217,23 +217,23 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding toegang verlee
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u op de tegel Apex Portal in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Apex-Portal.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel Apex Portal in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Apex-Portal.
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5ffb758fe5fa42be6323de06afbfb38068ae1926
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: b1cd2e8d7649de48f34efb0c7d839e17906a29bf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969167"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044982"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET-traceerlogboeken in Application Insights verkennen
 Als u NLog, log4Net of System.Diagnostics.Trace voor diagnostische tracering in uw ASP.NET-toepassing, kunt u uw logboeken zijn verzonden naar hebben [Azure Application Insights][start], waar u kunt verkennen en zoeken ze. Uw logboeken wordt samengevoegd met de andere telemetrie die afkomstig zijn van uw toepassing, zodat u kunt de traces die zijn gekoppeld aan het onderhoud van elke gebruikersaanvraag identificeren en correlaties met andere gebeurtenissen en uitzonderingenrapporten.
@@ -65,7 +65,7 @@ Gebruik deze methode als uw projecttype wordt niet ondersteund door de Applicati
 
    * Microsoft.ApplicationInsights.TraceListener (om vast te leggen aanroepen van System.Diagnostics.Trace)
    * Microsoft.ApplicationInsights.EventSourceListener (om vast te leggen EventSource gebeurtenissen)
-   * Microsoft.ApplicationInsights.EtwListener (om vast te leggen ETW-gebeurtenissen)
+   * Microsoft.ApplicationInsights.EtwCollector (om vast te leggen ETW-gebeurtenissen)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 

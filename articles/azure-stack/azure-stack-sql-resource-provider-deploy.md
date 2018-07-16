@@ -11,37 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b06f53b0169e3afd140be81d9d633844a5876c09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f53b1e08da1cb2d0dc02381bf47c27e8f84cb1d0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487644"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044829"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>De resourceprovider van SQL Server op Azure Stack implementeren
-
 De resourceprovider van Azure Stack SQL Server gebruiken om SQL-databases als een Azure Stack-service zichtbaar te maken. De SQL-resourceprovider wordt uitgevoerd als een service op een Windows Server 2016 Server Core-machine (VM).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure Stack-SQL-resourceprovider implementeren. Om te voldoen aan deze vereisten, voert u de volgende stappen uit op een computer die toegang de beschermde VM-eindpunt tot:
 
-- Als u dit nog niet hebt gedaan, [registreren Azure Stack](.\azure-stack-registration.md) met Azure, zodat u kunt Azure marketplace-items downloaden.
-- U moet de Azure- en PowerShell voor Azure Stack-modules installeren op het systeem waarbij u deze installatie wordt uitgevoerd. Dat systeem moet een installatiekopie van Windows 10 of Windows Server 2016 met de meest recente versie van de .NET runtime. Zie [PowerShell voor Azure Stack installeren](.\azure-stack-powershell-install.md).
+- Als u dit nog niet hebt gedaan, [registreren Azure Stack](azure-stack-registration.md) met Azure, zodat u kunt Azure marketplace-items downloaden.
+- U moet de Azure- en PowerShell voor Azure Stack-modules installeren op het systeem waar u deze installatie wordt uitgevoerd. Dat systeem moet een installatiekopie van Windows 10 of Windows Server 2016 met de meest recente versie van de .NET runtime. Zie [PowerShell voor Azure Stack installeren](.\azure-stack-powershell-install.md).
 - De vereiste Windows Server-core VM toevoegen aan de Azure Stack marketplace door te downloaden de **Windows Server 2016 Datacenter - Server Core** installatiekopie. 
-
-  >[!NOTE]
-  >Als u nodig hebt om een update te installeren, kunt u één MSU-pakket in het lokale afhankelijkheidspad plaatsen. Als meer dan één MSU-bestand wordt gevonden, mislukt de installatie van SQL-resource provider.
-
-- Downloaden van de SQL-resourceprovider binaire en voer vervolgens de zelfstandige extractor om de inhoud uitpakken naar een tijdelijke map. De resourceprovider heeft een minimale bijbehorende Azure Stack bouwen. Zorg ervoor dat u het juiste binaire bestand voor de versie van Azure-Stack die u gebruikt downloaden.
+- Downloaden van de SQL-resourceprovider binaire en voer vervolgens de zelfstandige extractor om de inhoud uitpakken naar een tijdelijke map. De resourceprovider heeft een minimale bijbehorende Azure Stack bouwen. Zorg ervoor dat u het juiste binaire bestand voor de versie van Azure-Stack die u gebruikt downloaden:
 
     |Azure Stack-versie|SQL RP-versie|
     |-----|-----|
     |Versie 1804 (1.0.180513.1)|[SQL RP versie 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
     |Versie 1802 (1.0.180302.1)|[SQL RP versie 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |     |     |
+
+- Zorg ervoor dat de datacenter-integratie vereisten wordt voldaan:
+
+    |Vereiste|Referentie|
+    |-----|-----|
+    |Voorwaardelijk doorsturen van DNS is correct ingesteld.|[Datacenter-integratie Azure Stack - DNS](azure-stack-integrate-dns.md)|
+    |Poorten voor inkomend verkeer voor resourceproviders zijn geopend.|[Azure Stack-datacenter-integratie - eindpunten publiceren](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI-certificaatonderwerp en SAN zijn juist ingesteld.|[Azure Stack verplichte PKI vereisten voor implementatie](azure-stack-pki-certs.md#mandatory-certificates)<br>[De vereisten PaaS-certificaat voor Azure Stack-implementatie](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Certificaten
 
@@ -51,7 +56,7 @@ _Geïntegreerde systemen alleen voor installaties_. Moet u de SQL-PaaS-PKI-certi
 
 Nadat u alle vereisten die zijn geïnstalleerd hebt, voert u de **DeploySqlProvider.ps1** script voor het implementeren van de SQL-resourceprovider. Het script DeploySqlProvider.ps1 wordt opgehaald als onderdeel van de SQL-resource provider binaire bestand dat u hebt gedownload voor uw versie van Azure Stack.
 
-Voor het implementeren van de SQL-resourceprovider, opent u een **nieuwe** verhoogde PowerShell consolevenster en Ga naar de map waar u de SQL-resource provider binaire bestanden hebt uitgepakt. We raden u aan met behulp van een nieuwe PowerShell-venster om te voorkomen van potentiële problemen veroorzaakt door een PowerShell-modules die al zijn geladen.
+Voor het implementeren van de SQL-resourceprovider, opent u een **nieuwe** verhoogde PowerShell-venster (niet PowerShell ISE) en de wijzigingen in de map waar u de SQL-resource provider binaire bestanden hebt uitgepakt. We raden u aan met behulp van een nieuwe PowerShell-venster om te voorkomen van potentiële problemen veroorzaakt door een PowerShell-modules die al zijn geladen.
 
 Voer het script DeploySqlProvider.ps1, die bestaat uit de volgende taken:
 
@@ -60,8 +65,7 @@ Voer het script DeploySqlProvider.ps1, die bestaat uit de volgende taken:
 - Hiermee geeft u een galerijpakket voor het implementeren van hostingservers mogelijk.
 - Een virtuele machine met behulp van de Windows Server 2016 core u hebt gedownload en vervolgens installeert hij de SQL-resourceprovider implementeert.
 - Hiermee wordt een lokale DNS-record die wordt toegewezen aan uw VM-resourceprovider geregistreerd.
-- Hiermee wordt de resourceprovider geregistreerd met de lokale Azure Resource Manager voor de operator- en gebruikersaccounts.
-- (Optioneel) een één Windows Server update is geïnstalleerd tijdens de installatie van de resource provider.
+- Hiermee wordt de resourceprovider geregistreerd met de lokale Azure Resource Manager voor de operator-account.
 
 > [!NOTE]
 > Wanneer de implementatie van SQL-resource provider wordt gestart, wordt de **system.local.sqladapter** resourcegroep wordt gemaakt. Het duurt maximaal 75 minuten voor het voltooien van de vereiste implementaties aan deze resourcegroep.

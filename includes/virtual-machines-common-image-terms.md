@@ -9,21 +9,21 @@ ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 47ef014f31c628fed9d7b2b005e67e8138d3e7e9
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29743360"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38941837"
 ---
 ## <a name="terminology"></a>Terminologie
 
 Een Marketplace-installatiekopie in Azure heeft de volgende kenmerken:
 
-* **Publisher** -de organisatie die de installatiekopie heeft gemaakt. Voorbeelden: Canonieke, legitieme Microsoft Windows Server
-* **Bieden** -naam van een groep verwante installatiekopieën die zijn gemaakt door een uitgever. Voorbeelden: Ubuntu Server, Windows Server
-* **SKU** : een exemplaar van een aanbieding, zoals een grote release van een distributiepunt. Voorbeelden: 16.04-TNS, 2016 Datacenter
-* **Versie** -het versienummer van een installatiekopie van het SKU. 
+* **Uitgever** -de organisatie die de installatiekopie gemaakt. Voorbeelden: Canonieke, MicrosoftWindowsServer
+* **Bieden** -naam van een groep gerelateerde afbeeldingen gemaakt door een uitgever. Voorbeelden: Ubuntu-Server, WindowsServer
+* **SKU** : een exemplaar van een aanbieding, zoals een grote release van een distributiepunt. Voorbeelden: 16.04-LTS, 2016-Datacenter
+* **Versie** -het versienummer van een installatiekopie-SKU. 
 
-Voor een Marketplace-installatiekopie identificeren wanneer u een virtuele machine programmatisch implementeren, deze waarden als parameters afzonderlijk opgeven of een aantal hulpprogramma's voor de installatiekopie van het accepteren *URN*. Deze waarden, gescheiden door het teken van de dubbele punt (:) worden gecombineerd voor de URN: *Publisher*:*bieden*:*Sku*:*versie*. In een URN kunt u vervangen het versienummer met 'nieuwste', die de meest recente versie van de afbeelding wordt geselecteerd. 
+Deze waarden afzonderlijk als parameters opgeven voor het identificeren van een Marketplace-installatiekopie wanneer u een virtuele machine via een programma implementeert, of sommige hulpprogramma's voor de installatiekopie van het accepteren *URN*. De URN combineert deze waarden, gescheiden door het teken dubbele punt (:): *Publisher*:*bieden*:*Sku*:*versie*. In een URN, kunt u vervangen het versienummer met 'nieuwste', de meest recente versie van de installatiekopie te selecteren. 
 
-Als de installatiekopie-uitgever aanvullende licentievoorwaarden en inkoop voorwaarden biedt, moet u deze voorwaarden akkoord gaan en programmatische implementatie inschakelen. Ook moet u opgeven *aanschaffen abonnement* parameters bij het implementeren van een virtuele machine via een programma. Zie [implementeren een installatiekopie met de voorwaarden van de Marketplace](#deploy-an-image-with-marketplace-terms).
+Als de installatiekopie-uitgever biedt een extra licentie en Aankoopvoorwaarden, moet u deze voorwaarden akkoord en programmatische implementatie inschakelen. U moet ook opgeven *abonnement aanschaffen* parameters bij het implementeren van een virtuele machine via een programma. Zie [een installatiekopie implementeren met de voorwaarden van Marketplace](#deploy-an-image-with-marketplace-terms).

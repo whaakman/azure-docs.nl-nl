@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: 41e7be80eb67deaf7a8189aa0d9f62c48b88799a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036234"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044546"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik een CloudEvents-schema met Event Grid
 
@@ -73,6 +73,8 @@ Een CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 
 Zie voor meer informatie de [een CloudEvents-specificatie](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
+De waarden van de headers voor gebeurtenissen die worden geleverd in de een CloudEvents-schema en het Event Grid-schema zijn hetzelfde, met uitzondering van `content-type`. Voor een CloudEvents-schema dat headerwaarde is `"content-type":"application/cloudevents+json; charset=utf-8"`. Voor Event Grid-schema, dat headerwaarde is `"content-type":"application/json; charset=utf-8"`.
+
 ## <a name="configure-event-grid-for-cloudevents"></a>Event Grid voor een CloudEvents configureren
 
 U kunt Event Grid gebruiken voor zowel invoer en uitvoer van gebeurtenissen in een CloudEvents-schema. U kunt een CloudEvents gebruiken voor systeemgebeurtenissen, zoals gebeurtenissen van Blob Storage en IoT Hub-gebeurtenissen en aangepaste gebeurtenissen. Het kunt ook gebeurtenissen op de kabel heen en weer transformeren.
@@ -89,7 +91,7 @@ Voor alle gebeurtenis schema's, wordt in Event Grid validatie vereist bij het pu
 
 ### <a name="input-schema"></a>Invoer schema
 
-Om het invoerschema op een aangepast onderwerp op een CloudEvents, gebruikt u de volgende parameter in de Azure CLI bij het maken van uw onderwerp `--input-schema cloudeventv01schema`. Het aangepaste onderwerp dat nu wordt verwacht dat binnenkomende gebeurtenissen in een CloudEvents v0.1-indeling.
+Om het invoerschema op een aangepast onderwerp op een CloudEvents, gebruikt u de volgende parameter in de Azure CLI bij het maken van uw aangepaste onderwerp `--input-schema cloudeventv01schema`. Het aangepaste onderwerp dat nu wordt verwacht dat binnenkomende gebeurtenissen in een CloudEvents v0.1-indeling.
 
 Gebruik het volgende voor het maken van een event grid-onderwerp:
 

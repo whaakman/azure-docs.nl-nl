@@ -10,24 +10,24 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 4eb91e37331a5af064d2af0e937eb071d805688f
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 146a86058adc73626e532f33e9fdbc83d9cf27e8
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097876"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048984"
 ---
-# <a name="reports-in-azure-multi-factor-authentication"></a>Rapporten in Azure multi-factor Authentication
+# <a name="reports-in-azure-multi-factor-authentication"></a>Rapporten in de Azure multi-factor Authentication
 
-Azure multi-factor Authentication bevat verschillende rapporten die kunnen worden gebruikt door u en uw organisatie die toegankelijk zijn via de Azure-portal. De volgende tabel bevat de beschikbare rapporten:
+Azure multi-factor Authentication biedt verschillende rapporten die kunnen worden gebruikt door u en uw organisatie die toegankelijk zijn via Azure portal. De volgende tabel bevat de beschikbare rapporten:
 
 | Rapport | Locatie | Beschrijving |
 |:--- |:--- |:--- |
-| Geschiedenis geblokkeerde gebruikers | Azure AD > MFA-Server > gebruikers blokkeren/blokkering opheffen | Toont de geschiedenis van aanvragen voor het blokkeren of deblokkeren van gebruikers. |
-| Gebruiks- en fraude waarschuwingen | Azure AD > aanmeldingen | Bevat informatie over algemene gebruik Gebruikersoverzicht en gebruikersdetails; Als een geschiedenis van Fraudewaarschuwingen die zijn ingediend in het opgegeven datumbereik. |
-| Gebruik voor on-premises onderdelen | Azure AD > MFA-Server > activiteitenrapport | Bevat informatie over algemene gebruik voor MFA via de uitbreiding NPS, AD FS, en de MFA-server. |
-| Geschiedenis overgeslagen gebruikers | Azure AD > MFA-Server > eenmalig overslaan | Geeft een geschiedenis van aanvragen voor het overslaan van multi-factor Authentication voor een gebruiker. |
-| Serverstatus | Azure AD > MFA-Server > status van de Server | Geeft de status van de multi-factor Authentication-Servers die zijn gekoppeld aan uw account. |
+| Geschiedenis geblokkeerde gebruikers | Azure AD > MFA-Server > gebruikers blokkeren/deblokkeren | Geeft de geschiedenis van aanvragen voor het blokkeren of deblokkeren van gebruikers. |
+| Gebruik en fraude waarschuwingen | Azure AD >-aanmeldingen | Bevat informatie over algemene gebruik, overzicht van gebruikers en de details van de gebruiker; Als een geschiedenis van Fraudewaarschuwingen die zijn ingediend in het opgegeven datumbereik. |
+| Gebruik voor on-premises onderdelen | Azure AD > MFA-Server > activiteitenrapport | Bevat informatie over algemene gebruik voor MFA via de NPS-extensie, ADFS, en de MFA-server. |
+| Geschiedenis overgeslagen gebruikers | Azure AD > MFA-Server > eenmalige bypass | Biedt een geschiedenis van aanvragen voor het overslaan van multi-factor Authentication voor een gebruiker. |
+| Serverstatus | Azure AD > MFA-Server > status van de Server | Hiermee wordt de status van multi-factor Authentication-Servers die zijn gekoppeld aan uw account. |
 
 ## <a name="view-reports"></a>Rapporten weergeven 
 
@@ -39,15 +39,15 @@ Azure multi-factor Authentication bevat verschillende rapporten die kunnen worde
 
 ## <a name="powershell-reporting"></a>Melden van PowerShell
 
-Gebruikers die zich hebben geregistreerd voor MFA met behulp van de volgende PowerShell identificeren.
+Identificeer gebruikers die zich hebben geregistreerd voor MFA met behulp van PowerShell die volgt.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Gebruikers identificeren die nog niet geregistreerd voor MFA met behulp van de volgende PowerShell.
+Gebruikers identificeren die niet hebt geregistreerd voor MFA met behulp van PowerShell die volgt.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Voor gebruikers](end-user/current/multi-factor-authentication-end-user.md)
+* [Voor gebruikers](../user-help/multi-factor-authentication-end-user.md)
 * [Waar u wilt implementeren](concept-mfa-whichversion.md)

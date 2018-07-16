@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 88d5eb22186248024a356610addab0d43f68a961
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: dd5bea791fed0c16195eadca03ba2f9a8c11da1b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887127"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044948"
 ---
 # <a name="prediction-score"></a>Voorspellingsscore
 Een voorspelling score geeft aan dat de mate van vertrouwen die LUIS voor voorspellingsresultaten heeft. 
@@ -57,6 +57,9 @@ Voorspelling scores kunt exponent notatie *weergegeven* boven de 0-1 bereik, zoa
 Wanneer u hetzelfde model in een andere app trainen en de scores niet hetzelfde zijn, is dit omdat er een element van de onzekerheid in de training. Ten tweede betekent een overlapping van een utterance aan meer dan één kunt u lezen wat dat het belangrijkste doel voor de dezelfde utterance kunt wijzigen op basis van de training.
 
 Als uw chatbot een specifieke LUIS score om aan te geven vertrouwen in opzet vereist, moet u in plaats daarvan de score verschil tussen de bovenste twee intents. Dit biedt flexibiliteit voor variaties in Trainingen. 
+
+## <a name="punctuation"></a>Leestekens
+Interpunctie is een afzonderlijke token in LUIS. Een utterance met een punt aan het einde ten opzichte van een utterance die niet zijn twee afzonderlijke uitingen en twee verschillende voorspellingen kunnen krijgen. Zorg ervoor dat het model interpunctie ofwel worden verwerkt in de [voorbeeld uitingen](luis-concept-utterance.md) (met en niet met leestekens) of in de [patterns}(luis-concept-patterns.md) waar is het eenvoudiger om interpunctie met de syntaxis van de speciale negeren: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Volgende stappen
 

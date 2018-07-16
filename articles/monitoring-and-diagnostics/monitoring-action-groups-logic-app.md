@@ -1,6 +1,6 @@
 ---
-title: Het activeren van complexe bewerkingen met Azure-waarschuwingen en actiegroepen
-description: Informatie over het maken van een logische app-actie voor het verwerken van de Azure-waarschuwingen.
+title: Het activeren van complexe bewerkingen met Azure Monitor-waarschuwingen en actiegroepen
+description: Informatie over het maken van een actie voor logische app voor het verwerken van Azure Monitor-waarschuwingen.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,55 +8,55 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 14e562234152d2f1f2f2d2b57b34cd5724d3dd14
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753090"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049184"
 ---
-# <a name="create-a-logic-app-action"></a>Maken van een logische app actie
+# <a name="create-a-logic-app-action"></a>Een actie voor logische app maken
 
-In dit artikel leest u hoe instellen en het activeren van een logische app voor het maken van een conversatie in Microsoft-Teams wanneer een waarschuwing wordt geactiveerd.
+Dit artikel leest u hoe u instelt en activeren van een logische app voor een discussie in Microsoft Teams maken wanneer een waarschuwing wordt geactiveerd.
 
 ## <a name="overview"></a>Overzicht
-Wanneer een waarschuwing Azure veroorzaakt, ontvangt een [actiegroep](monitoring-action-groups.md). Actiegroepen kunnen u voor het activeren van een of meer acties om anderen te informeren over een waarschuwing en wordt ook opgelost.
+Wanneer een Azure Monitor-waarschuwing wordt geactiveerd, wordt een [actiegroep](monitoring-action-groups.md). Actiegroepen kunnen u voor het activeren van een of meer acties om anderen te informeren over een waarschuwing en ook opgelost.
 
-De algemene procedure is:
+Het algemene proces is:
 
--   De logische app voor het betreffende Waarschuwingstype maken.
+-   Maak de logische app voor het betreffende Waarschuwingstype.
 
--   Het schema voor het betreffende Waarschuwingstype in de logische app importeren.
+-   Importeer het schema voor het desbetreffende Waarschuwingstype in de logische app.
 
--   Definieer het gedrag van de app logica.
+-   Definieer het gedrag van logische app.
 
--   Kopieer het HTTP-eindpunt van de logische app in een groep voor Azure in te grijpen.
+-   Kopieer de HTTP-eindpunt van de logische app in een Azure actiegroep.
 
-Het proces is vergelijkbaar zijn als u wilt dat de logische app in een andere actie uit te voeren.
+Het proces is vergelijkbaar als u wilt dat de logische app een andere actie uit te voeren.
 
-## <a name="create-an-activity-log-alert-administrative"></a>Maken van een activiteit logboek-waarschuwing: beheerdersrechten
+## <a name="create-an-activity-log-alert-administrative"></a>Een waarschuwing voor activiteitenlogboek maken: met beheerdersrechten
 
-1.  Selecteer in de Azure-portal **maken van een resource** in de linkerbovenhoek.
+1.  Selecteer in de Azure portal, **een resource maken** in de linkerbovenhoek.
 
-2.  Zoek en selecteer **logische App**, selecteer daarna **maken**.
+2.  Zoek en selecteer **logische App**en selecteer vervolgens **maken**.
 
-3.  Uw logische app geven een **naam**, kies een **resourcegroep**, enzovoort.
+3.  Geef uw logische app een **naam**, kiest u een **resourcegroep**, enzovoort.
 
-    ![Een logische app maken](media/monitoring-action-groups/create-logic-app-dialog.png "een logische app maken")
+    ![Maak een logische app](media/monitoring-action-groups/create-logic-app-dialog.png "een logische app maken")
 
-4.  Selecteer **maken** voor het maken van de logische app. Een pop-upbericht geeft aan dat de logische app is gemaakt. Selecteer **Resource starten** openen de **Logic Apps Designer**.
+4.  Selecteer **maken** te maken van de logische app. Een pop-upbericht geeft aan dat de logische app is gemaakt. Selecteer **start Resource** openen de **ontwerper van logische Apps**.
 
 5.  Selecteer de trigger: **wanneer een HTTP-aanvraag wordt ontvangen**.
 
-    ![App-triggers voor Logic](media/monitoring-action-groups/logic-app-triggers.png "Logic app-triggers")
+    ![Triggers voor logische app](media/monitoring-action-groups/logic-app-triggers.png "triggers voor logische app")
 
-6.  Selecteer **bewerken** wijzigen van de aanvraag HTTP-trigger.
+6.  Selecteer **bewerken** te wijzigen van de HTTP-aanvraag als trigger.
 
-    ![HTTP-aanvraag triggers](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP-aanvraag triggers")
+    ![HTTP-aanvraag triggers](media/monitoring-action-groups/http-request-trigger-shape.png "triggers voor HTTP-aanvragen")
 
 7.  Selecteer **Voorbeeldnettolading om een schema te genereren**.
 
-    ![Gebruik een voorbeeld-nettolading](media/monitoring-action-groups/use-sample-payload-button.png "gebruikt u een voorbeeld-nettolading")
+    ![Een voorbeeld van payload gebruiken](media/monitoring-action-groups/use-sample-payload-button.png "een voorbeeldnettolading gebruiken")
 
 8.  Kopieer en plak het volgende voorbeeldschema in het dialoogvenster:
 
@@ -97,19 +97,19 @@ Het proces is vergelijkbaar zijn als u wilt dat de logische app in een andere ac
         }
     ```
 
-9. De **Logic App-ontwerper** geeft een pop-upvenster om eraan te herinneren dat de aanvraag verzonden naar de logische app ingesteld moet de **Content-Type** koptekst tot **application/json**. Sluit het pop-upvenster. De Azure-monitorwaarschuwing stelt de header.
+9. De **Logic App Designer** wordt een pop-upvenster u eraan te herinneren dat de verzonden aanvraag naar de logische app moet instellen de **Content-Type** koptekst **application/json**. Sluit het pop-upvenster. De waarschuwing Azure Monitor stelt de header.
 
-    ![Instellen van de header Content-Type](media/monitoring-action-groups/content-type-header.png "de header Content-Type instellen")
+    ![De header Content-Type instellen](media/monitoring-action-groups/content-type-header.png "de header Content-Type instellen")
 
 10. Selecteer **+** **nieuwe stap** en kies vervolgens **een actie toevoegen**.
 
     ![Een actie toevoegen](media/monitoring-action-groups/add-action.png "een actie toevoegen")
 
-11. Zoek en selecteer de connector voor Microsoft-Teams. Kies de **Microsoft-Teams Post bericht** in te grijpen.
+11. Zoek en selecteer de Microsoft Teams-connector. Kies de **Microsoft Teams-bericht posten** actie.
 
-    ![Microsoft-Teams acties](media/monitoring-action-groups/microsoft-teams-actions.png "acties van de Microsoft-Teams")
+    ![Microsoft Teams-acties](media/monitoring-action-groups/microsoft-teams-actions.png "Microsoft Teams-acties")
 
-12. Configureer de actie van de Microsoft-Teams. De **Logic Apps Designer** vraagt u om uw Office 365-account te verifiëren. Kies de **Team-Id** en **kanaal-Id** aan het bericht wordt verzonden.
+12. Configureer de actie Microsoft Teams. De **ontwerper van logische Apps** vraagt u om uw Office 365-account te verifiëren. Kies de **Team-ID** en **kanaal-ID** het bericht moet worden verzonden.
 
 13. Het bericht configureren met behulp van een combinatie van statische tekst en verwijzingen naar de \<velden\> in de dynamische inhoud. Kopieer en plak de volgende tekst in de **bericht** veld:
 
@@ -120,27 +120,27 @@ Het proces is vergelijkbaar zijn als u wilt dat de logische app in een andere ac
       resourceId: <resourceId>
     ```
 
-    Zoek vervolgens naar en vervang de \<velden\> met dynamische inhoud labels met dezelfde naam.
+    Zoek en vervang de \<velden\> met dynamische inhoud tags met dezelfde naam.
 
     > [!NOTE]
-    > Er zijn twee dynamische velden die worden genoemd **status**. Toevoegen van deze velden aan het bericht. Gebruik het veld dat in de **activityLog** eigenschappenverzameling en verwijder de ander veld. Houd de cursor boven de **status** veld voor een overzicht van de volledig gekwalificeerde veldverwijzing, zoals wordt weergegeven in de volgende schermafbeelding:
+    > Er zijn twee dynamische velden die zijn benoemde **status**. Voeg beide van deze velden toe aan het bericht. Gebruik het veld dat in de **activityLog** eigenschappenverzameling en verwijder de andere velden. Beweeg de muisaanwijzer de cursor over de **status** veld voor een overzicht van de volledig gekwalificeerde veldverwijzing, zoals wordt weergegeven in de volgende schermafbeelding:
 
-    ![Microsoft-Teams actie: een bericht](media/monitoring-action-groups/teams-action-post-message.png "Microsoft-Teams actie: een bericht")
+    ![Microsoft Teams-actie: een bericht](media/monitoring-action-groups/teams-action-post-message.png "Microsoft Teams-actie: een bericht plaatsen")
 
-14. Aan de bovenkant van de **Logic Apps Designer**, selecteer **opslaan** opslaan van uw logische app.
+14. Aan de bovenkant van de **ontwerper van logische Apps**, selecteer **opslaan** om op te slaan, uw logische app.
 
-15. Open uw bestaande actiegroep en een actie om te verwijzen naar de logische app toevoegen. Als u een bestaande actiegroep niet hebt, raadpleegt u [maken en beheren van actiegroepen in de Azure portal](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) een maken. Vergeet niet uw wijzigingen op te slaan.
+15. Open uw bestaande actiegroep en een actie toevoegen om te verwijzen naar de logische app. Als u een bestaande actiegroep hebt, raadpleegt u [maken en beheren van actiegroepen in Azure portal](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) een te maken. Vergeet niet uw wijzigingen op te slaan.
 
-    ![De bewerking groep bijwerken](media/monitoring-action-groups/update-action-group.png "de bewerking groep bijwerken")
+    ![Bijwerken van de actiegroep](media/monitoring-action-groups/update-action-group.png "bijwerken van de actiegroep")
 
-Uw logische app in de volgende keer dat een waarschuwing wordt aangeroepen voor uw actiegroep wordt genoemd.
+De volgende keer dat een waarschuwing de actiegroep roept wordt uw logische app genoemd.
 
-## <a name="create-a-service-health-alert"></a>Een melding van de health service maken
+## <a name="create-a-service-health-alert"></a>Een statuswaarschuwing voor de service maken
 
-Azure servicestatus vermeldingen maken deel uit van het activiteitenlogboek. Het proces voor het maken van de waarschuwing is vergelijkbaar met [maken van een activiteit logboek waarschuwing](#create-an-activity-log-alert-administrative), maar met enkele wijzigingen:
+Azure Service Health-vermeldingen maken deel uit van het activiteitenlogboek. Het proces voor het maken van de waarschuwing is vergelijkbaar met [het maken van een waarschuwing voor activiteitenlogboek](#create-an-activity-log-alert-administrative), maar met een aantal wijzigingen:
 
 - Stap 1 tot en met 7 zijn hetzelfde.
-- Gebruik het volgende voorbeeldschema voor de aanvraag HTTP-trigger voor stap 8:
+- Gebruik het volgende voorbeeldschema voor de HTTP-aanvraag als trigger voor stap 8:
 
     ```json
     {
@@ -185,18 +185,18 @@ Azure servicestatus vermeldingen maken deel uit van het activiteitenlogboek. Het
     ```
 
 -  Stap 9 en 10 zijn hetzelfde.
--  Gebruik het volgende proces voor de stappen 11 tot en met 14:
+-  Voor de stappen 11 tot en met 14, gebruikt u het volgende proces:
 
-   1. Selecteer **+** **nieuwe stap** en kies vervolgens **een voorwaarde toevoegen**. De volgende voorwaarden om ervoor te zorgen dat de logische app wordt uitgevoerd alleen wanneer de invoergegevens overeenkomt met deze waarden instellen:
+   1. Selecteer **+** **nieuwe stap** en kies vervolgens **een voorwaarde toevoegen**. De volgende voorwaarden instellen, zodat de logische app wordt uitgevoerd alleen wanneer de invoergegevens komt overeen met de onderstaande waarden.  Wanneer u de waarde voor de versie in het tekstvak invoert, plaatst u aanhalingstekens rond het ('0.1.1') om ervoor te zorgen dat deze wordt geëvalueerd als een tekenreeks en niet een numeriek type.  Het systeem wordt niet weergegeven voor de aanhalingstekens als u terug naar de pagina, maar de onderliggende code nog steeds het tekenreekstype.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
-       - `version == 0.1.1`
+       - `version == "0.1.1"`
 
-      !['Servicestatus nettolading voorwaarde'](media/monitoring-action-groups/service-health-payload-condition.png "servicestatus nettolading voorwaarde")
+      !['Service Health nettolading voorwaarde'](media/monitoring-action-groups/service-health-payload-condition.png "servicestatus nettolading voorwaarde")
 
-   1. In de **als de waarde true** voorwaarde en volg de aanwijzingen in stappen 11 tot en met 13 in [maken van een activiteit logboek waarschuwing](#create-an-activity-log-alert-administrative) om toe te voegen van de Microsoft-Teams in te grijpen.
+   1. In de **als de waarde true** voorwaarde, volg de instructies in de stappen 11 tot en met 13 in [maken van een waarschuwing voor activiteitenlogboek](#create-an-activity-log-alert-administrative) om toe te voegen van de Microsoft Teams-actie.
 
-   1. Het bericht definiëren met behulp van een combinatie van HTML- en dynamische inhoud. Kopieer en plak de volgende inhoud in de **bericht** veld. Vervang de `[incidentType]`, `[trackingID]`, `[title]`, en `[communication]` velden met dynamische inhoud labels met dezelfde naam:
+   1. Het bericht definiëren met behulp van een combinatie van HTML- en dynamische inhoud. Kopieer en plak de volgende inhoud in de **bericht** veld. Vervang de `[incidentType]`, `[trackingID]`, `[title]`, en `[communication]` velden met dynamische inhoud tags met dezelfde naam:
 
        ```html
        <p>
@@ -209,9 +209,9 @@ Azure servicestatus vermeldingen maken deel uit van het activiteitenlogboek. Het
        <p>[communication]</p>
        ```
 
-       !['Actie servicestatus voorwaarde na'](media/monitoring-action-groups/service-health-true-condition-post-action.png "servicestatus voorwaarde post actie")
+       !["Service Health voorwaarde is voldaan post action"](media/monitoring-action-groups/service-health-true-condition-post-action.png "actie na de servicestatus voorwaarde is voldaan")
 
-   1. Voor de **indien false** voorwaarde, geeft u een nuttig bericht:
+   1. Voor de **indien onwaar** voorwaarde, geeft u een nuttig bericht:
 
        ```html
        <p><strong>Service Health Alert</strong></p>
@@ -219,16 +219,16 @@ Azure servicestatus vermeldingen maken deel uit van het activiteitenlogboek. Het
        <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
        ```
 
-       !['Actie servicestatus false voorwaarde na'](media/monitoring-action-groups/service-health-false-condition-post-action.png "servicestatus false voorwaarde post actie")
+       !["Service Health voorwaarde false post action"](media/monitoring-action-groups/service-health-false-condition-post-action.png "actie na de servicestatus voorwaarde false")
 
-- Stap 15 is hetzelfde. Volg de instructies voor het opslaan van uw logische app en uw actiegroep bijwerken.
+- Stap 15 is hetzelfde. Volg de instructies voor het opslaan van uw logische app en bijwerken van de actiegroep.
 
-## <a name="create-a-metric-alert"></a>Waarschuwing voor een metriek maken
+## <a name="create-a-metric-alert"></a>Een metrische waarschuwing maken
 
-Het proces voor het maken van een waarschuwing voor metrische is vergelijkbaar met [maken van een activiteit logboek waarschuwing](#create-an-activity-log-alert-administrative), maar met enkele wijzigingen:
+Het proces voor het maken van een waarschuwing voor metrische gegevens is vergelijkbaar met [het maken van een waarschuwing voor activiteitenlogboek](#create-an-activity-log-alert-administrative), maar met een aantal wijzigingen:
 
 - Stap 1 tot en met 7 zijn hetzelfde.
-- Gebruik het volgende voorbeeldschema voor de aanvraag HTTP-trigger voor stap 8:
+- Gebruik het volgende voorbeeldschema voor de HTTP-aanvraag als trigger voor stap 8:
 
     ```json
     {
@@ -273,25 +273,25 @@ Het proces voor het maken van een waarschuwing voor metrische is vergelijkbaar m
     ```
 
 - Stap 9 en 10 zijn hetzelfde.
-- Gebruik het volgende proces voor de stappen 11 tot en met 14:
+- Voor de stappen 11 tot en met 14, gebruikt u het volgende proces:
 
-   1. Selecteer **+** **nieuwe stap** en kies vervolgens **een voorwaarde toevoegen**. De volgende voorwaarden om ervoor te zorgen dat de logische app wordt uitgevoerd alleen wanneer de invoergegevens overeenkomt met deze waarden instellen:
+   1. Selecteer **+** **nieuwe stap** en kies vervolgens **een voorwaarde toevoegen**. De volgende voorwaarden instellen, zodat de logische app wordt uitgevoerd alleen wanneer de invoergegevens overeenkomt met deze onderstaande waarden. Wanneer de waarde voor de versie in te voeren in het tekstvak, aanhalingstekens rond het ("2.0") plaatsen op ervoor zorgt dat deze wordt geëvalueerd als een tekenreeks en niet een numeriek type.  Het systeem wordt niet weergegeven voor de aanhalingstekens als u terug naar de pagina, maar de onderliggende code nog steeds het tekenreekstype. 
        - `schemaId == AzureMonitorMetricAlert`
-       - `version == 2.0`
+       - `version == "2.0"`
+       
+       !['Metrische alert payload voorwaarde'](media/monitoring-action-groups/metric-alert-payload-condition.png "metrische alert payload voorwaarde")
 
-       !['Metrische waarschuwing nettolading voorwaarde'](media/monitoring-action-groups/metric-alert-payload-condition.png "metrische waarschuwing nettolading voorwaarde")
+   1. In de **als de waarde true** voorwaarde, voegt u een **voor elk** lus en de Microsoft Teams-actie. Het bericht definiëren met behulp van een combinatie van HTML- en dynamische inhoud.
 
-   1. In de **als de waarde true** voorwaarde, het toevoegen van een **voor elk** lus en de actie van de Microsoft-Teams. Het bericht definiëren met behulp van een combinatie van HTML- en dynamische inhoud.
+       !['Actie metrische waarschuwing voorwaarde na'](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "actie na de metrische waarschuwing voorwaarde is voldaan")
 
-       !["Action metrische waarschuwing voorwaarde post"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "metrische waarschuwing voorwaarde post actie")
+   1. In de **indien onwaar** voorwaarde, het definiëren van een Microsoft Teams-actie om te communiceren dat de waarschuwing voor metrische gegevens, komt niet overeen met de verwachtingen van de logische app. De JSON-nettolading opnemen. U ziet hoe om te verwijzen naar de `triggerBody` dynamische inhoud in de `json()` expressie.
 
-   1. In de **indien false** voorwaarde, het definiëren van een Microsoft-Teams actie om te communiceren dat de waarschuwing metrische komt niet overeen met de verwachtingen van de logische app. De JSON-nettolading bevatten. U ziet hoe om te verwijzen naar de `triggerBody` dynamische inhoud in de `json()` expressie.
+       !['Actie metrische waarschuwing false na'](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "actie na de waarschuwing false metrische gegevens")
 
-       !["Action metrische false meldingsvoorwaarde post"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "metrische false meldingsvoorwaarde post actie")
-
-- Stap 15 is hetzelfde. Volg de instructies voor het opslaan van uw logische app en uw actiegroep bijwerken.
+- Stap 15 is hetzelfde. Volg de instructies voor het opslaan van uw logische app en bijwerken van de actiegroep.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Ophalen van een [overzicht van Azure activiteit logboek waarschuwingen](monitoring-overview-alerts.md) en leer hoe u waarschuwingen ontvangt.  
-* Meer informatie over hoe [waarschuwingen configureren wanneer een melding van de status van Azure-Service wordt teruggepost](monitoring-activity-log-alerts-on-service-notifications.md).
+* Krijgen een [overzicht van waarschuwingen voor activiteitenlogboeken van Azure](monitoring-overview-alerts.md) en leer hoe u waarschuwingen ontvangt.  
+* Meer informatie over het [waarschuwingen configureren wanneer er een melding van Azure Service Health is geplaatst](monitoring-activity-log-alerts-on-service-notifications.md).
 * Meer informatie over [actiegroepen](monitoring-action-groups.md).

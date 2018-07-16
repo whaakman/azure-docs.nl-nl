@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met kunnen LMS | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en LMS opvangen.
+title: 'Zelfstudie: Azure Active Directory-integratie met absorberen LMS | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en absorberen LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,50 +15,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 4aa2a2f41bcdd78991184e026f22f8e04754eccb
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 066ae92056e4b80b6627b371d6ebeb3235b2781d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286110"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043775"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Zelfstudie: Azure Active Directory-integratie met LMS opnemen
+# <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Zelfstudie: Azure Active Directory-integratie met absorberen LMS
 
-In deze zelfstudie leert u hoe LMS kunnen integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u absorberen LMS integreren met Azure Active Directory (Azure AD).
 
-LMS kunnen integreren met Azure AD biedt de volgende voordelen:
+Absorberen LMS integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot LMS opvangen heeft.
-- U kunt uw gebruikers automatisch naar LMS (via eenmalige aanmelding) kunnen zich met hun Azure AD-accounts kunt inschakelen.
-- U kunt uw accounts op één centrale locatie, de Azure-portal beheren.
+- U kunt beheren in Azure AD die toegang tot absorberen LMS heeft.
+- U kunt uw gebruikers automatisch te absorberen LMS (via eenmalige aanmelding) aanmelden met hun Azure AD-accounts inschakelen.
+- U kunt uw accounts in één centrale locatie, de Azure-portal beheren.
 
-Als u meer weten over software als een dienst (SaaS)-app-integratie met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Als u meer weten over de software als een service (SaaS)-app-integratie met Azure AD wilt, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure AD-integratie met LMS kunnen configureren, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met absorberen LMS, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een LMS kunnen eenmalige aanmelding ingeschakeld abonnement
+- Een LMS absorberen eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> U wordt aangeraden een productie-omgeving voor deze zelfstudie niet gebruiken.
+> U wordt aangeraden niet met behulp van een productie-omgeving voor deze zelfstudie.
 
-Test de stappen in deze zelfstudie, volgt u deze aanbevelingen:
+Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-* LMS opnemen uit de galerie toevoegen
+* Absorberen LMS uit de galerie toe te voegen
 * Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="add-absorb-lms-from-the-gallery"></a>LMS opnemen uit de galerie toevoegen
-Voor het configureren van de integratie van LMS opnemen in Azure AD LMS kunnen uit de galerie te toevoegt aan de lijst met beheerde SaaS-apps.
+## <a name="add-absorb-lms-from-the-gallery"></a>Absorberen LMS uit de galerie toevoegen
+Voor het configureren van de integratie van absorberen LMS in Azure AD, absorberen LMS uit de galerie te toevoegt aan uw lijst met beheerde SaaS-apps.
 
-Als u wilt toevoegen LMS opnemen uit de galerie, het volgende doen:
+Als u wilt toevoegen absorberen LMS uit de galerie, het volgende doen:
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster de **Azure Active Directory** pictogram. 
 
@@ -66,117 +66,117 @@ Als u wilt toevoegen LMS opnemen uit de galerie, het volgende doen:
 
 2. Ga naar **bedrijfstoepassingen** > **alle toepassingen**.
 
-    ![Het deelvenster Enterprise-toepassingen][2]
+    ![Het deelvenster met Enterprise-toepassingen][2]
     
-3. Als u wilt een toepassing toevoegen, selecteert u de **nieuwe toepassing** knop.
+3. Als u wilt een toepassing hebt toegevoegd, selecteert u de **nieuwe toepassing** knop.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **kunnen LMS**, selecteer **LMS kunnen** in Configuratiescherm leiden, en selecteer vervolgens de **toevoegen** knop.
+4. Typ in het zoekvak **absorberen LMS**, selecteer **absorberen LMS** in deelvenster resulteren, en selecteer vervolgens de **toevoegen** knop.
 
     ![LMS opnemen in de lijst met resultaten](./media/absorblms-tutorial/tutorial_absorblms_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met kunnen LMS op basis van een testgebruiker Britta Simon aangeroepen.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met absorberen LMS op basis van een testgebruiker Britta Simon genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker van de bijbehorende equivalent kunnen LMS is in Azure AD. Met andere woorden, moet u een koppeling relatie tussen een gebruiker in Azure AD en de bijbehorende gebruiker in LMS kunnen maken.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker absorberen LMS-equivalent is in Azure AD. Met andere woorden, moet u een koppeling relatie tussen een gebruiker in Azure AD en de bijbehorende gebruiker in LMS kunnen maken.
 
-U de relatie van deze koppeling tot stand brengen door toe te wijzen de *gebruikersnaam* waarde in Azure AD als de *gebruikersnaam* waarde in LMS opvangen.
+U deze relatie koppeling tot stand brengen door toe te wijzen de *gebruikersnaam* waarde in Azure AD als de *gebruikersnaam* waarde in absorberen LMS.
 
-Configureren en testen van Azure AD eenmalige aanmelding met LMS vangen, de bouwstenen in de volgende vijf secties voltooien.
+Om te configureren en testen van Azure AD eenmalige aanmelding met absorberen LMS, voltooi de bouwstenen die u in de volgende vijf secties.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing LMS kunnen configureren.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw absorberen LMS-toepassing.
 
-Voor het configureren van Azure AD eenmalige aanmelding met LMS vangen, het volgende doen:
+Voor het configureren van Azure AD eenmalige aanmelding met absorberen LMS, het volgende doen:
 
-1. In de Azure-portal op de **kunnen LMS** toepassing Integratiepagina **eenmalige aanmelding**.
+1. In de Azure-portal op de **absorberen LMS** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. In de **eenmalige aanmelding** het dialoogvenster de **modus** de optie **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. In de **eenmalige aanmelding** In het dialoogvenster de **modus** Schakel **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
-    ![Dialoogvenster voor eenmalige aanmelding](./media/absorblms-tutorial/tutorial_absorblms_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/absorblms-tutorial/tutorial_absorblms_samlbase.png)
 
-3. In de **kunnen LMS domein en URL's** sectie, het volgende doen:
+3. In de **absorberen LMS-domein en URL's** sectie, doet u het volgende:
 
-    ![LMS domein en de URL's eenmalige aanmelding informatie opnemen](./media/absorblms-tutorial/tutorial_absorblms_url.png)
+    ![Absorberen LMS-domein en URL's één aanmeldings-informatie](./media/absorblms-tutorial/tutorial_absorblms_url.png)
 
-    a. In de **id** typt u een URL die u gebruikt de volgende syntaxis: `https://<subdomain>.myabsorb.com/Account/SAML`.
+    a. In de **id** typt u een URL die gebruikmaakt van de volgende syntaxis: `https://<subdomain>.myabsorb.com/Account/SAML`.
 
-    b. In de **antwoord-URL** typt u een URL die u gebruikt de volgende syntaxis: `https://<subdomain>.myabsorb.com/Account/SAML`.
+    b. In de **antwoord-URL** typt u een URL die gebruikmaakt van de volgende syntaxis: `https://<subdomain>.myabsorb.com/Account/SAML`.
      
     > [!NOTE] 
-    > Deze URL's zijn niet de werkelijke waarden. Deze bijwerken met de werkelijke id en de antwoord-URL's. Deze waarden, neem contact op met de [LMS kunnen client-ondersteuningsteam](https://www.absorblms.com/support). 
+    > Deze URL's zijn niet de werkelijke waarden. Deze bijwerken met de werkelijke id en de antwoord-URL's. Als u wilt deze waarden verkrijgt, neem contact op met de [absorberen LMS-client-ondersteuningsteam](https://www.absorblms.com/support). 
 
-4. In de **SAML-certificaat voor ondertekening van** sectie in het **downloaden** kolom, selecteer **Metadata XML**, en sla het bestand met metagegevens op uw computer.
+4. In de **SAML-handtekeningcertificaat** sectie in de **downloaden** kolom, selecteer **Metadata XML**, en sla het bestand met metagegevens op uw computer.
 
     ![De koppeling ondertekenen certificaat downloaden](./media/absorblms-tutorial/tutorial_absorblms_certificate.png) 
 
 5. Selecteer **Opslaan**.
 
-    ![Knop Single Sign-On opslaan configureren](./media/absorblms-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/absorblms-tutorial/tutorial_general_400.png)
     
-6. In de **LMS configuratie kunnen** sectie **kunnen LMS configureren** openen **eenmalige aanmelding configureren** venster en kopieer de **Sign-Out URL** in de **Naslaggids punt.**
+6. In de **LMS-configuratie absorberen** sectie, selecteer **absorberen LMS configureren** openen **aanmelding configureren** venster en kopieer de **afmelding URL** in de **Naslaggids sectie.**
 
-    ![Het deelvenster kunnen LMS configuratie](./media/absorblms-tutorial/tutorial_absorblms_configure.png) 
+    ![Het deelvenster absorberen LMS-configuratie](./media/absorblms-tutorial/tutorial_absorblms_configure.png) 
 
-7. In een nieuw browservenster aanmelden bij uw bedrijf kunnen LMS site als beheerder.
+7. In een nieuw browservenster aanmelden bij uw bedrijf absorberen LMS site als beheerder.
 
-8. Selecteer de **Account** knop in de rechterbovenhoek. 
+8. Selecteer de **Account** bovenaan op de knop rechts. 
 
     ![De knop Account](./media/absorblms-tutorial/1.png)
 
 9. Selecteer in het deelvenster Account **instellingen voor de Gebruikersportal**.
 
-    ![De instellingen voor Portal-koppeling](./media/absorblms-tutorial/2.png)
+    ![De instellingen voor de Gebruikersportal-koppeling](./media/absorblms-tutorial/2.png)
     
 10. Selecteer de tab **Gebruikers**.
 
     ![Het tabblad gebruikers](./media/absorblms-tutorial/3.png)
 
-11. Ga als volgt te werk op de configuratiepagina voor eenmalige aanmelding:
+11. Op de pagina configuratie voor eenmalige aanmelding in het volgende doen:
 
-    ![De configuratiepagina voor eenmalige aanmelding](./media/absorblms-tutorial/4.png)
+    ![De pagina configuratie voor eenmalige aanmelding](./media/absorblms-tutorial/4.png)
 
-    a. In de **modus** de optie **identiteit Provider geïnitieerd**.
+    a. In de **modus** Schakel **Identity Provider gestart**.
 
-    b. Open in Kladblok het certificaat dat u hebt gedownload van de Azure-portal. Verwijder de **---BEGIN CERTIFICATE---** en **---EINDCERTIFICAAT---** labels. Klik in de **sleutel** vak, plak de resterende inhoud.
+    b. Open in Kladblok het certificaat dat u hebt gedownload van de Azure-portal. Verwijder de **---BEGIN CERTIFICATE---** en **---END CERTIFICATE---** tags. Klik in de **sleutel** vak, plak de resterende inhoud.
     
-    c. In de **Id-eigenschap** Selecteer het kenmerk dat u hebt geconfigureerd als de gebruikers-id in Azure AD. Bijvoorbeeld, als *userPrincipalName* is geselecteerd in Azure AD, selecteer **gebruikersnaam**.
+    c. In de **Id-eigenschap** vak, selecteert u het kenmerk dat u hebt geconfigureerd als de gebruikers-id in Azure AD. Bijvoorbeeld, als *userPrincipalName* is geselecteerd in Azure AD, selecteer **gebruikersnaam**.
 
-    d. In de **aanmeldings-URL** vak, plak de **toegangs-URL van gebruiker** van de toepassing **eigenschappen** pagina van de Azure-portal.
+    d. In de **aanmeldings-URL** vak, plak de **URL van gebruikerstoegang** uit van de toepassing **eigenschappen** pagina van de Azure-portal.
 
-    e. In de **afmelding URL**, plak de **Sign-Out URL** waarde die u hebt gekopieerd uit de **eenmalige aanmelding configureren** venster van de Azure portal.
+    e. In de **afmeldings-URL van**, plak de **afmelding URL** waarde die u hebt gekopieerd uit de **aanmelding configureren** venster van de Azure-portal.
 
-12. Wisselknop **alleen toestaan SSO aanmelding** naar **op**.
+12. In-/ uitschakelen **ervoor zorgen dat alleen SSO aanmelding** naar **op**.
 
     ![De wisselknop alleen toestaan SSO-aanmelding](./media/absorblms-tutorial/5.png)
 
 13. Selecteer **opslaan.**
 
 > [!TIP]
-> Vindt u een beknopte versie van deze instructies in de [Azure-portal](https://portal.azure.com) tijdens het instellen van de app. Na het toevoegen van de app vanuit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. Zie voor meer informatie [documentatie van Azure AD ingesloten]( https://go.microsoft.com/fwlink/?linkid=845985).
+> U vindt een beknopte versie van deze instructies in de [Azure-portal](https://portal.azure.com) tijdens het instellen van de app. Nadat u de app vanuit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie aan de onderkant. Zie voor meer informatie, [documentatie over Azure AD embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-In deze sectie maakt u testgebruiker Britta Simon in de Azure portal.
+In deze sectie maakt u testgebruiker Britta Simon in Azure portal.
 
-![Een Azure AD-testgebruiker maken][100]
+![Maak een testgebruiker Azure AD][100]
 
 Als u wilt een testgebruiker maken in Azure AD, het volgende doen:
 
-1. Selecteer in de Azure-portal in het linkerdeelvenster **Azure Active Directory**.
+1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**.
 
     ![De Azure Active Directory-knop](./media/absorblms-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, selecteer **gebruikers en groepen** > **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, selecteert u **gebruikers en groepen** > **alle gebruikers**.
     
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/absorblms-tutorial/create_aaduser_02.png) 
 
-3. Selecteer aan de bovenkant van het dialoogvenster **toevoegen**.
+3. Aan de bovenkant van het dialoogvenster, selecteer **toevoegen**.
  
     ![De knop toevoegen](./media/absorblms-tutorial/create_aaduser_03.png) 
 
@@ -186,27 +186,27 @@ Als u wilt een testgebruiker maken in Azure AD, het volgende doen:
 
     a. In de **naam** in het vak **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox, typt u het e-mailadres Britta Simon.
+    b. In de **gebruikersnaam** tekstvak typt u het e-mailadres van Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** uit en noteer de waarde in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde in de **wachtwoord** vak.
 
     d. Selecteer **Maken**.
 
-### <a name="create-an-absorb-lms-test-user"></a>Een testgebruiker LMS kunnen maken
+### <a name="create-an-absorb-lms-test-user"></a>Maak een testgebruiker absorberen LMS
 
-Voor Azure AD-gebruikers aan te melden bij LMS opnemen, moeten ze worden ingesteld in LMS opvangen.  
+Voor Azure AD-gebruikers zich aanmelden bij absorberen LMS, moeten ze worden ingesteld in absorberen LMS.  
 
-Setup is voor LMS kunnen een handmatige taak.
+Setup is een handmatige taak voor absorberen LMS.
 
-Als u een gebruikersaccount instelt, het volgende doen:
+Als u een account instelt, het volgende doen:
 
-1. Meld u aan bij uw bedrijf kunnen LMS site als beheerder.
+1. Meld u aan uw bedrijf absorberen LMS site als een beheerder.
 
 2. Selecteer in het linkerdeelvenster **gebruikers**.
 
-    ![De koppeling kunnen LMS gebruikers](./media/absorblms-tutorial/absorblms_users.png)
+    ![De koppeling absorberen LMS-gebruikers](./media/absorblms-tutorial/absorblms_users.png)
 
-3. In de **gebruikers** deelvenster **gebruikers**.
+3. In de **gebruikers** venster **gebruikers**.
 
     ![De koppeling gebruikers](./media/absorblms-tutorial/absorblms_userssub.png)
 
@@ -218,60 +218,60 @@ Als u een gebruikersaccount instelt, het volgende doen:
 
     ![De pagina gebruiker toevoegen](./media/absorblms-tutorial/user.png)
 
-    a. In de **voornaam** , zoals de voornaam, typ **Britta**.
+    a. In de **voornaam** vak, typ de voornaam, zoals **Julia**.
 
-    b. In de **achternaam** typt u de achternaam, zoals **Simon**.
+    b. In de **achternaam** vak, typ de naam van de laatste, zoals **Simon**.
     
     c. In de **gebruikersnaam** typt u een volledige naam, zoals **Britta Simon**.
 
-    d. In de **wachtwoord** vak Britta Simon van wachtwoord.
+    d. In de **wachtwoord** Britta Simon van wachtwoord typt.
 
     e. In de **wachtwoord bevestigen** vak, typ nogmaals het wachtwoord.
     
-    f. Stel de **Is actief** in-of uitschakelen op **Active**.  
+    f. Stel de **Is actief** overzet naar **Active**.  
 
 6. Selecteer **opslaan.**
  
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u gebruiker Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan LMS kunnen.
+In deze sectie maakt inschakelen u gebruiker Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan absorberen LMS.
 
-![Toewijzen van de gebruikersrol][200]
+![De de gebruikersrol toewijzen][200]
 
-Gebruiker Britta Simon om aan te wijzen LMS vangen, het volgende doen:
+Gebruiker Britta Simon om aan te wijzen absorberen LMS, het volgende doen:
 
-1. In de Azure portal, opent u de weergave van toepassingen, Ga naar de directoryweergave en selecteer vervolgens **bedrijfstoepassingen** > **alle toepassingen**.
+1. In de Azure-portal, opent u de weergave van toepassingen, gaat u naar de directoryweergave en selecteer vervolgens **bedrijfstoepassingen** > **alle toepassingen**.
 
-    ![De koppeling 'Alle toepassingen'][201] 
+    ![De koppeling 'Alle Application'][201] 
 
-2. In de **toepassingen** selecteert **kunnen LMS**.
+2. In de **toepassingen** in de lijst met **absorberen LMS**.
 
-    ![De koppeling LMS opnemen in de lijst met toepassingen](./media/absorblms-tutorial/tutorial_absorblms_app.png) 
+    ![De absorberen LMS-koppeling in de lijst met toepassingen](./media/absorblms-tutorial/tutorial_absorblms_app.png) 
 
 3. Selecteer in het linkerdeelvenster **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202] 
 
-4. Selecteer **toevoegen** en klikt u op de **toevoegen toewijzing** deelvenster **gebruikers en groepen**.
+4. Selecteer **toevoegen** en klikt u op de **toevoegen toewijzing** venster **gebruikers en groepen**.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. In de **gebruikers en groepen** het dialoogvenster de **gebruikers** selecteert **Britta Simon**.
+5. In de **gebruikers en groepen** in het dialoogvenster de **gebruikers** in de lijst met **Britta Simon**.
 
-6. In de **gebruikers en groepen** selecteert u de **Selecteer** knop.
+6. In de **gebruikers en groepen** in het dialoogvenster, selecteer de **Selecteer** knop.
 
-7. In de **toevoegen toewijzing** selecteert u de **toewijzen** knop.
+7. In de **toevoegen toewijzing** in het dialoogvenster, selecteer de **toewijzen** knop.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
+In deze sectie kunt u uw configuratie Azure AD eenmalige aanmelding testen met behulp van het toegangsvenster.
 
-In het deelvenster toegang selecteren de **kunnen LMS** tegel automatisch aangemeld bij uw toepassing LMS opvangen. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
+In het toegangsvenster, selecteren de **absorberen LMS** tegel automatisch aangemeld bij uw absorberen LMS-toepassing. Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

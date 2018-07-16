@@ -1,6 +1,6 @@
 ---
-title: Azure identity & access aanbevolen beveiligingsprocedures | Microsoft Docs
-description: In dit artikel biedt een set met aanbevolen procedures voor het identiteitsbeheer en toegang beheren met ingebouwde mogelijkheden van Azure.
+title: Azure identity & access best practices voor beveiliging | Microsoft Docs
+description: In dit artikel biedt een set van aanbevolen procedures voor het identiteitsbeheer van en toegang beheren met ingebouwde mogelijkheden van Azure.
 services: security
 documentationcenter: na
 author: barclayn
@@ -14,134 +14,134 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 210781b36f6215afc925266e597031d772a94002
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365777"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39060556"
 ---
-# <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure voor identiteits- en toegang beheren best practices voor beveiliging
+# <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure-identiteitsbeheer en toegangsbeheer best practices voor beveiliging
 
-Veel Overweeg identiteit van de nieuwe grens laag voor beveiliging die rol van de traditionele netwerk gericht perspectief overneemt. Deze evolutie van het primaire pivot voor aandacht voor beveiliging en investeringen afkomstig zijn uit het feit dat netwerkverbindingen steeds poreuze zijn geworden, en dat perimeternetwerk kan niet zo effectief als ze eenmaal worden zijn voordat de explosie van [BYOD ](http://aka.ms/byodcg) apparaten en cloud-toepassingen.
+Veel Houd rekening met de identiteit van de nieuwe grens laag voor de beveiliging over die functie van het traditionele netwerk gerichte perspectief te nemen. Deze evolutie van het primaire pivot voor aandacht voor beveiliging en investeringen afkomstig zijn uit het feit dat netwerkverbindingen steeds poreuze zijn geworden en die defense perimeter mag niet zo effectief als ze eenmaal zijn voordat de explosie van [BYOD ](http://aka.ms/byodcg) apparaten en toepassingen.
 
-In dit artikel wordt besproken een verzameling Azure identiteits- en aanbevolen beveiligingsprocedures access control. Deze aanbevolen procedures zijn afgeleid van onze ervaring met [Azure AD](../active-directory/active-directory-whatis.md) en de ervaringen van klanten, zoals zelf.
+In dit artikel wordt besproken hoe een verzameling Azure-identiteitsbeheer en aanbevolen procedures voor de beveiliging van access control. Deze aanbevolen procedures zijn afgeleid van onze ervaring met [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) en de ervaringen van klanten, zoals zelf.
 
-Voor elke beste kunnen worden uitgelegd:
+Voor elke best practice wordt we het volgende uitgelegd:
 
-* Wat de beste handelswijze is
-* Waarom u wilt dat het beste inschakelen
-* Wat zijn het resultaat als u niet de aanbevolen procedure inschakelen
+* Wat de beste manier is
+* Waarom u deze wilt inschakelen, die best practices
+* Wat kan het resultaat zijn als u een failover naar de aanbevolen procedure inschakelen
 * Mogelijke alternatieven voor de aanbevolen procedure
-* Hoe u kunt informatie over het inschakelen van de aanbevolen procedure
+* Hoe u meer informatie kunt krijgen om in te schakelen van de aanbevolen procedure
 
-Deze Azure identiteits- en toegangsbeveiliging best practices artikel is gebaseerd op een advies consensus en mogelijkheden van Azure-platform en functiesets, zoals deze bestaan in de tijd in dit artikel is geschreven. Adviezen en technologieën op den duur veranderen en dit artikel wordt regelmatig gecontroleerd op basis van deze wijzigingen worden bijgewerkt.
+Deze Azure identiteits- en toegangsbeveiliging aanbevolen procedures voor is gebaseerd op een consensus advies en mogelijkheden van Azure-platform en functiesets, zoals deze bestaan in de tijd in dit artikel is geschreven. Adviezen en -technologieën na verloop van tijd worden gewijzigd en regelmatig op basis van deze wijzigingen in dit artikel wordt bijgewerkt.
 
-Azure identity management en toegang besturingselement aanbevolen beveiligingsprocedures besproken in dit artikel zijn onder andere:
+Azure-identiteit en besturingselement best practices voor beveiliging die in dit artikel worden besproken omvatten:
 
-* Uw identiteitsbeheer centraliseren
+* Centraliseer uw identiteitsbeheer
 * Eenmalige aanmelding (SSO) inschakelen
 * Wachtwoordbeheer implementeren
-* Afdwingen van multi-factor authentication (MFA) voor gebruikers
-* Op rollen gebaseerde toegangsbeheer (RBAC) gebruiken
-* Locaties waar resources worden gemaakt met Resource Manager beheren
-* Handleiding voor ontwikkelaars van bureaubladtoepassingen identiteitsmogelijkheden voor SaaS-apps
-* Actief bewaken voor verdachte activiteiten
+* Multi-factor authentication (MFA) voor gebruikers afdwingen
+* Op rollen gebaseerd toegangsbeheer (RBAC) gebruiken
+* Besturingselement locaties waar resources worden gemaakt met behulp van Resource Manager
+* Handleiding voor ontwikkelaars kunnen gebruikmaken van mogelijkheden voor identiteits voor SaaS-apps
+* Controleren voor verdachte activiteiten
 
-## <a name="centralize-your-identity-management"></a>Uw identiteitsbeheer centraliseren
+## <a name="centralize-your-identity-management"></a>Centraliseer uw identiteitsbeheer
 
-Een belangrijke stap voor het beveiligen van uw identiteit is om ervoor te zorgen dat kan IT accounts beheren vanaf één enkele locatie met betrekking tot waarop dit account is gemaakt. Terwijl het merendeel van de ondernemingen IT-organisaties hun primaire account directory on-premises hybride cloud-implementaties zijn toenemen en het is belangrijk dat u weet dat het integreren van lokale en cloudadreslijsten en bieden een naadloze ervaring voor de eindgebruiker.
+Een belangrijke stap voor het beveiligen van uw identiteit is om ervoor te zorgen dat kan IT-accounts beheren vanaf één locatie met betrekking tot waar dit account is gemaakt. Hoewel het merendeel van de bedrijven IT-organisaties hebben hun primaire account directory on-premises, hybride cloudimplementaties zijn gewerkt en het is belangrijk dat u hoe u begrijpt on-premises integreren en mappen in de cloud en bieden een naadloze ervaring voor de eindgebruiker.
 
-Om dit te bereiken [hybride identiteit](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md) scenario raadzaam twee opties:
+Om dit te doen [hybride identiteit](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md) scenario wordt aangeraden twee opties:
 
-* Uw on-premises directory worden gesynchroniseerd met uw clouddirectory via Azure AD Connect
-* Eenmalige aanmelding met inschakelen [synchronisatie van wachtwoordhash](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization), [Pass through-verificatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) of uw on-premises identiteits met uw cloud directory met federeren [Active Directory Federatieservices](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (AD FS)
+* Uw on-premises directory worden gesynchroniseerd met uw clouddirectory met Azure AD Connect
+* Schakel eenmalige aanmelding met [wachtwoord-hashsynchronisatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization), [Pass through-verificatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) of uw on-premises identiteit met uw cloud directory met federeren [Active Directory Federatieservices](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (AD FS)
 
-Organisaties die hun on-premises identiteits integreren in hun cloudidentiteit is mislukt-ervaring bieden hogere administratieve overhead bij het beheren van accounts, waardoor de kans op fouten en beveiligingsrisico's.
+Organisaties die niet voldoen aan hun on-premises identiteiten integreren in hun cloudidentiteit ervaren hogere administratieve overhead bij het beheren van accounts, waardoor de kans op fouten en schendingen van de beveiliging.
 
 Zie het artikel voor meer informatie over Azure AD-synchronisatie [uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/active-directory-aadconnect.md).
 
 ## <a name="enable-single-sign-on-sso"></a>Eenmalige aanmelding (SSO) inschakelen
 
-Wanneer u meerdere mappen voor het beheren van hebt, dit wordt een administratieve probleem niet alleen voor IT, maar ook voor eindgebruikers die meerdere wachtwoorden onthouden. Met behulp van [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) u uw gebruikers de mogelijkheid van dezelfde set referenties aanmelden en toegang tot de bronnen die ze nodig hebben, ongeacht waar deze resource zich lokaal is of in de cloud gebruiken bieden.
+Wanneer u meerdere mappen voor het beheren van hebt, wordt dit een probleem met beheerdersrechten niet alleen voor IT, maar ook voor eindgebruikers die meerdere wachtwoorden onthouden. Met behulp van [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) bieden van uw gebruikers de mogelijkheid van dezelfde set referenties gebruiken om te melden en toegang tot de bronnen die ze nodig hebben, ongeacht waar deze resource zich bevindt on-premises of in de cloud.
 
-Via eenmalige aanmelding waarmee gebruikers toegang krijgen tot hun [SaaS-toepassingen](../active-directory/manage-apps/what-is-single-sign-on.md) op basis van hun organisatieaccount in Azure AD. Dit geldt niet alleen voor Microsoft SaaS-apps, maar ook met andere apps, zoals [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) en [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Uw toepassing kan worden geconfigureerd voor het gebruik van Azure AD als een [SAML gebaseerde identiteit](../active-directory/fundamentals-identity.md) provider. Als een beveiligingscontrole geeft Azure AD geen token van een zodat ze zich aanmeldt bij de toepassing, tenzij ze gebruikmaken van Azure AD toegang hebben gekregen. U kunt toegang verlenen rechtstreeks of via een groep dat ze lid van zijn.
+Eenmalige aanmelding gebruiken waarmee gebruikers toegang krijgen tot hun [SaaS-toepassingen](../active-directory/manage-apps/what-is-single-sign-on.md) op basis van hun organisatie-account in Azure AD. Dit is van toepassing niet alleen voor Microsoft SaaS-apps, maar ook met andere apps, zoals [Google Apps](../active-directory/saas-apps/google-apps-tutorial.md) en [Salesforce](../active-directory/saas-apps/salesforce-tutorial.md). Uw toepassing kan worden geconfigureerd voor het gebruik van Azure AD als een [SAML gebaseerde identiteit](../active-directory/fundamentals-identity.md) provider. Als een besturingselement voor beveiliging geeft Azure AD een token zodat ze zich aanmelden bij de toepassing, tenzij toegang met behulp van Azure AD hebben gekregen. U kunt toegang verlenen rechtstreeks of via een groep dat ze lid van zijn.
 
 > [!NOTE]
-> de beslissing om te gebruiken van eenmalige aanmelding heeft invloed op hoe u uw on-premises directory integreren met uw clouddirectory. Als u wilt dat eenmalige aanmelding, moet u Federatie, gebruiken omdat adreslijstsynchronisatie alleen leveren [dezelfde ervaring voor eenmalige aanmelding](../active-directory/active-directory-aadconnect.md).
+> de beslissing om eenmalige aanmelding gebruiken is van invloed op hoe u uw on-premises directory's integreren met uw clouddirectory. Als u wilt dat eenmalige aanmelding, moet u Federatie, gebruiken omdat adreslijstsynchronisatie alleen leveren [dezelfde aanmelding](../active-directory/active-directory-aadconnect.md).
 >
 >
 
-Organisaties die eenmalige aanmelding niet voor hun gebruikers en toepassingen afdwingen worden meer blootgesteld aan scenario's waarbij gebruikers meerdere wachtwoorden, die rechtstreeks verhoogt de kans op gebruikers hergebruik van wachtwoorden of met behulp van zwakke wachtwoorden.
+Organisaties die eenmalige aanmelding niet voor hun gebruikers en toepassingen verplicht worden meer blootgesteld aan scenario's waarbij gebruikers meerdere wachtwoorden, die rechtstreeks verhoogt de kans dat gebruikers wachtwoorden opnieuw gebruiken of met behulp van zwakke wachtwoorden.
 
-U meer informatie over Azure AD SSO door te lezen van het artikel [AD FS-beheer en aanpassingen met Azure AD Connect](../active-directory/active-directory-aadconnect-federation-management.md).
+U kunt meer informatie over Azure AD-eenmalige aanmelding lezen van het artikel [AD FS-beheer en aanpassingen met Azure AD Connect](../active-directory/active-directory-aadconnect-federation-management.md).
 
 ## <a name="deploy-password-management"></a>Wachtwoordbeheer implementeren
 
-In scenario's waar hebt u meerdere tenants of u wilt dat gebruikers kunnen [hun eigen wachtwoord opnieuw instellen](../active-directory/active-directory-passwords-update-your-own-password.md), is het belangrijk dat u passende beveiligingsbeleid gebruiken om te voorkomen dat misbruik. In Azure, kunt u gebruikmaken van de mogelijkheid van zelf uw wachtwoord opnieuw instellen en aanpassen van de beveiligingsopties om te voldoen aan uw zakelijke vereisten.
+In scenario's waarin u meerdere tenants hebt, of u wilt dat gebruikers kunnen [hun eigen wachtwoord opnieuw instellen](../active-directory/user-help/active-directory-passwords-update-your-own-password.md), is het belangrijk dat u passende beveiligingsbeleidsregels gebruiken om misbruik te voorkomen. In Azure, kunt u gebruikmaken van de mogelijkheid van self-service voor wachtwoord opnieuw instellen en aanpassen van de beveiligingsopties om te voldoen aan uw zakelijke vereisten.
 
-Het is belangrijk om feedback te verzamelen van deze gebruikers en te leren van hun ervaringen als ze proberen deze stappen uit te voeren. Op basis van deze ervaring, een abonnement om het risico van potentiële problemen die tijdens de implementatie voor een grotere groep optreden kunnen te lichten. Het is ook raadzaam dat u de [activiteit voor wachtwoord opnieuw instellen registratie rapport](../active-directory/active-directory-passwords-get-insights.md) voor het bewaken van de gebruikers die zijn geregistreerd.
+Het is belangrijk om te verkrijgen van feedback van gebruikers en leer van hun ervaringen als ze proberen uit te voeren van deze stappen. Op basis van deze ervaringen, een plan voor het oplossen van mogelijke problemen die zich tijdens de implementatie voor een grotere groep voordoen kunnen uitwerken. Het is ook raadzaam dat u de [activiteitenrapport voor wachtwoord opnieuw instellen van inschrijving](../active-directory/active-directory-passwords-get-insights.md) voor het bewaken van de gebruikers die zijn geregistreerd.
 
-Organisaties die u wilt voorkomen dat wachtwoord wijzigen ondersteuningsoproepen maar schakel gebruikers hun eigen wachtwoorden opnieuw kunnen instellen zijn vatbaarder voor een hogere Belvolume naar de servicedesk vanwege wachtwoordproblemen met. In organisaties die meerdere tenants hebben, is het noodzakelijk dat u dit type mogelijkheid implementeren en gebruikers kunnen uitvoeren binnen de beveiligingsgrenzen van de die zijn vastgelegd in het beveiligingsbeleid voor wachtwoordherstel inschakelen.
+Organisaties die om te voorkomen dat wachtwoord wijzigen ondersteuningsaanvragen worden ingediend, maar schakel gebruikers hun eigen wachtwoorden opnieuw kunnen worden vatbaar voor een groter aanroepvolume naar de servicedesk vanwege problemen met wachtwoord. In organisaties die meerdere tenants hebt, is het dat u dit type functionaliteit implementeren en de gebruikers om uit te voeren binnen de beveiligingsgrenzen van de die zijn vastgelegd in het beveiligingsbeleid voor wachtwoordherstel inschakelen.
 
-U kunt meer informatie over wachtwoord opnieuw instellen door te lezen van het artikel [wachtwoordbeheer implementeren en gebruikers leren gebruiken](../active-directory/authentication/howto-sspr-deployment.md).
+U kunt meer informatie over wachtwoordherstel door het lezen van het artikel [wachtwoordbeheer implementeren en gebruikers trainen om deze te gebruiken](../active-directory/authentication/howto-sspr-deployment.md).
 
-## <a name="enforce-multi-factor-authentication-mfa-for-users"></a>Afdwingen van multi-factor authentication (MFA) voor gebruikers
+## <a name="enforce-multi-factor-authentication-mfa-for-users"></a>Multi-factor authentication (MFA) voor gebruikers afdwingen
 
-Voor organisaties die moeten zijn compatibel met de industriestandaarden, zoals [PCI DSS versie 3.2](http://blog.pcisecuritystandards.org/preparing-for-pci-dss-32), multi-factor authentication-server is een moet hebben de mogelijkheid voor het verifiëren van gebruikers. Afgezien van dat compatibel is met de industriestandaarden, afdwingen van MFA om gebruikers te verifiëren kan ook helpen organisaties te verhelpen credential theft type aanval, zoals [Pass-the-Hash (PtH)](http://aka.ms/PtHPaper).
+Voor organisaties die moeten voldoen aan industriële standaarden, zoals [PCI DSS versie 3.2](http://blog.pcisecuritystandards.org/preparing-for-pci-dss-32), meervoudige verificatie is een moet hebben de mogelijkheid voor het verifiëren van gebruikers. Buiten te voldoen aan industriële standaarden, het afdwingen van MFA om gebruikers te verifiëren ook-organisaties kan helpen om te beperken van referentie diefstal type aanval, zoals [Pass-the-Hash (PtH)](http://aka.ms/PtHPaper).
 
-Door Azure MFA inschakelen voor uw gebruikers, kunt u een tweede beveiligingslaag wilt toevoegen aan de gebruikersaanmeldingen en transacties. In dit geval een transactie kan toegang krijgen tot een document dat zich in een bestandsserver of op uw SharePoint Online. Azure MFA ook helpt IT verminderen de kans dat een verdachte referenties toegang tot gegevens van de organisatie heeft.
+Als u Azure MFA inschakelt voor uw gebruikers, toevoegen u een tweede beveiligingslaag aan gebruikersaanmeldingen en transacties. In dit geval een transactie kan worden toegang tot een document in een bestandsserver of in uw SharePoint Online. Azure MFA helpt ook bij IT te verminderen de kans dat een verdachte referenties toegang tot de gegevens van de organisatie heeft.
 
-Bijvoorbeeld: u Azure MFA afdwingen voor uw gebruikers en configureer het om een telefoongesprek of tekstbericht gebruiken als verificatie. Als de referenties van de gebruiker verdacht zijn, kan de aanvaller geen toegang tot alle bronnen omdat geen toegang tot het telefoonnummer van gebruiker hebben. Organisaties die Voeg geen extra beveiligingslagen identiteit zijn vatbaarder zijn voor de aanval diefstal van referenties, wat tot inbreuk op gegevens leiden kan.
+Bijvoorbeeld: u Azure MFA afdwingen voor uw gebruikers en configureer deze voor het gebruik van een telefoongesprek of SMS-bericht als verificatie. Als de referenties van de gebruiker worden geknoeid, kan de aanvaller geen toegang tot alle bronnen omdat ze geen toegang tot het telefoonnummer van gebruiker. Organisaties die geen extra lagen van identiteitsbeveiliging toevoegen zijn vatbaar voor referentie diefstal aanval, wat tot inbreuk op gegevens leiden kan.
 
-Een alternatief voor organisaties die u behouden van de gehele verificatie besturingselement wilt on-premises is [Azure multi-factor Authentication-Server](../active-directory/authentication/howto-mfaserver-deploy.md), ook wel MFA lokale. Met deze methode kunt zich u nog steeds multi-factor authentication, terwijl de MFA-server on-premises afdwingen.
+Een alternatief voor organisaties die de volledige verificatieset besturingselement willen on-premises houden is het gebruik van [Azure multi-factor Authentication-Server](../active-directory/authentication/howto-mfaserver-deploy.md), ook wel genoemd MFA on-premises. Met deze methode, zich kunt u nog steeds multi-factor authentication, terwijl de MFA server on-premises afdwingen.
 
 Zie het artikel voor meer informatie over Azure MFA [aan de slag met Azure multi-factor Authentication in de cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
-## <a name="use-role-based-access-control-rbac"></a>Op rollen gebaseerde toegangsbeheer (RBAC) gebruiken
+## <a name="use-role-based-access-control-rbac"></a>Op rollen gebaseerd toegangsbeheer (RBAC) gebruiken
 
-De toegang beperken op basis van de [moet weten](https://en.wikipedia.org/wiki/Need_to_know) en [minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) beveiligingsprincipes is van cruciaal belang voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens. Azure op rollen gebaseerde toegangsbeheer (RBAC) kan worden gebruikt om machtigingen te wijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Het bereik van een roltoewijzing kan dit een abonnement, resourcegroep of één resource.
+Toegang beperken op basis van de [moet weten](https://en.wikipedia.org/wiki/Need_to_know) en [minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) beveiligingsprincipes is van cruciaal belang voor organisaties die willen beveiligingsbeleid voor toegang tot gegevens afdwingen. Azure Role-Based Access Control (RBAC) kan worden gebruikt om machtigingen toewijzen aan gebruikers, groepen en toepassingen met een bepaald bereik. Het bereik van een roltoewijzing kan een abonnement, een resourcegroep of één resource zijn.
 
-U kunt gebruikmaken van [ingebouwde RBAC](../role-based-access-control/built-in-roles.md) rollen in Azure rechten toewijzen aan gebruikers. Overweeg het gebruik van *Storage Account Inzender* voor cloudoperators die nodig zijn voor het beheren van storage-accounts en *klassieke Storage Account Inzender* rol voor het beheren van klassieke opslagaccounts. Voor cloudoperators die nodig zijn voor het beheren van virtuele machines en storage-account, kunt toevoegen aan *Virtual Machine Contributor* rol.
+U kunt gebruikmaken van [ingebouwde RBAC](../role-based-access-control/built-in-roles.md) rollen in Azure machtigingen toewijzen aan gebruikers. Overweeg het gebruik van *Inzender voor Opslagaccounts* voor cloudoperators die nodig hebt om opslagaccounts te beheren en *Inzender voor klassieke Opslagaccounts* rol voor het beheren van klassieke opslagaccounts. Voor cloudoperators die nodig zijn voor het beheren van virtuele machines en storage-account, houd rekening met toe te voegen aan *Inzender voor virtuele machines* rol.
 
-Organisaties die niet afgedwongen door toegangsbeheer gegevens dankzij het gebruik van mogelijkheden, zoals RBAC mogelijk meer bevoegdheden beschikt dan nodig is om hun gebruikers geven. Dit kan leiden tot gegevens inbreuk door dat gebruikers toegang tot bepaalde typen gegevens (bijvoorbeeld invloedrijk) die ze in eerste instantie niet mogen hebben.
+Organisaties die gegevenstoegangsbeheer niet afdwingen door gebruik te maken van mogelijkheden zoals RBAC mogelijk meer bevoegdheden dan nodig is om hun gebruikers geven. Dit kan leiden tot gegevens inbreuk op door dat onbevoegde gebruikers toegang tot bepaalde typen gegevens (bijvoorbeeld hoge impact op bedrijf) die ze in de eerste plaats al dan niet mogen hebben.
 
-U kunt meer informatie over Azure RBAC lezen van het artikel [rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md).
+U kunt meer informatie over Azure RBAC lezen van het artikel [toegangsbeheer](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="control-locations-where-resources-are-created-using-resource-manager"></a>Locaties waar resources worden gemaakt met Resource Manager beheren
+## <a name="control-locations-where-resources-are-created-using-resource-manager"></a>Besturingselement locaties waar resources worden gemaakt met behulp van Resource Manager
 
-Het inschakelen van cloudoperators voor het uitvoeren van taken bij het voorkomen dat conventies die nodig zijn voor het beheren van bronnen van uw organisatie op te splitsen is belangrijk. Organisaties die willen bepalen van de locaties waar resources zijn gemaakt moeten harde code voor deze locaties.
+Het inschakelen van cloudoperators voor het uitvoeren van taken bij het voorkomen dat belangrijke conventies die nodig zijn om de resources van uw organisatie te beheren is belangrijk. Organisaties die willen bepalen de locaties waar resources zijn gemaakt moeten harde code voor deze locaties.
 
-Om dit te bereiken, kunnen organisaties maken van beleidsregels voor veiligheid zijn gedefinieerd met een beschrijving van de acties of resources die worden geweigerd. U toewijzen deze beleidsdefinities op het gewenste bereik, zoals het abonnement, resourcegroep of een afzonderlijke resource.
+Om dit te bereiken, kunnen organisaties maken van beveiligingsbeleid die zijn gedefinieerd die worden beschreven van de acties of resources die worden geweigerd. U toewijzen die beleidsdefinities op het gewenste bereik, zoals het abonnement, resourcegroep of een afzonderlijke resource.
 
 > [!NOTE]
-> Dit is niet hetzelfde zijn als RBAC, het daadwerkelijk maakt gebruik van RBAC om de gebruikers die over de bevoegdheid voor het maken van deze bronnen te verifiëren.
+> Dit is niet hetzelfde als RBAC, het daadwerkelijk maakt gebruik van RBAC voor het verifiëren van de gebruikers die beschikken over de bevoegdheid om deze resources te maken.
 >
 >
 
-Hefboomwerking [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) aangepaste beleidsregels maken ook voor scenario's waar de organisatie wil operations Sta alleen toe als de juiste kostenplaats gekoppeld is; anders wordt deze de aanvraag wordt geweigerd.
+Maak gebruik van [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) om aangepaste beleid ook voor scenario's waarin de organisatie wil kunnen bewerkingen alleen wanneer de juiste kostenplaats gekoppeld is; anders wordt deze de aanvraag weigeren te maken.
 
-Organisaties die niet zijn beheren hoe resources worden gemaakt zijn vatbaarder voor gebruikers die de service mogelijk misbruik door het maken van meer bronnen dan ze nodig hebben. Beperking van een proces voor het maken van de resource is een belangrijke stap voor het beveiligen van een scenario met meerdere tenants.
+Organisaties die niet zijn bepalen hoe resources worden gemaakt, zijn vatbaar voor gebruikers die misbruik van de service maken kunnen door het maken van meer resources dan ze nodig hebben. Beperking van het proces voor het maken van resources is een belangrijke stap voor het beveiligen van een scenario met meerdere tenants.
 
-U kunt meer informatie over het maken van beleid met Azure Resource Manager door te lezen van het artikel [wat is Azure beleid?](../azure-policy/azure-policy-introduction.md)
+U kunt meer informatie over het maken van beleid met Azure Resource Manager met het lezen van het artikel [wat is Azure Policy?](../azure-policy/azure-policy-introduction.md)
 
-## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>Handleiding voor ontwikkelaars van bureaubladtoepassingen identiteitsmogelijkheden voor SaaS-apps
+## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>Handleiding voor ontwikkelaars kunnen gebruikmaken van mogelijkheden voor identiteits voor SaaS-apps
 
-Gebruikers-id wordt gebruikt in veel scenario's als gebruikers toegang hebben tot [SaaS-apps](https://azure.microsoft.com/marketplace/active-directory/all/) die kunnen worden geïntegreerd met on-premises of clouddirectory. Allereerst omdat het is raadzaam dat ontwikkelaars een beveiligde methodologie gebruiken deze om apps te ontwikkelen, zoals [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD authentication vereenvoudigt voor ontwikkelaars dankzij de identiteit als een service met ondersteuning voor industriestandaard-protocollen, zoals [OAuth 2.0](http://oauth.net/2/) en [OpenID Connect](http://openid.net/connect/), ook als open source bibliotheken voor verschillende platforms.
+Gebruikers-id wordt gebruikt in veel scenario's wanneer gebruikers toegang krijgen tot [SaaS-apps](https://azure.microsoft.com/marketplace/active-directory/all/) die kunnen worden geïntegreerd met on-premises of in de cloud directory. Allereerst omdat het beste ontwikkelaars gebruiken een veilige methode voor het ontwikkelen van deze apps, zoals [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD authentication vereenvoudigt voor ontwikkelaars door op te geven van de identiteit als een service, met ondersteuning voor standaardprotocollen zoals [OAuth 2.0](http://oauth.net/2/) en [OpenID Connect](http://openid.net/connect/), ook als open source -bibliotheken voor verschillende platforms.
 
-Zorg ervoor dat alle toepassingen die verificatie met Azure AD heeft geregistreerd, is dit een verplichte procedure. De reden achter dit is omdat de Azure AD moet coördineren van de communicatie met de toepassing bij het verwerken van eenmalige aanmelding (SSO) of uitwisselen van tokens. De gebruikerssessie verloopt wanneer de levensduur van het token dat is uitgegeven door Azure AD is verlopen. Altijd geëvalueerd als uw toepassing deze tijd gebruikt of als u kunt deze tijd verkorten. Vermindering van de levensduur kan fungeren als veiligheidsmaatregel die gebruikers dwingen wordt om af te melden op basis van een periode van inactiviteit.
+Zorg ervoor dat u het registreren van alle toepassingen die Azure AD-verificatie heeft, is dit een verplichte procedure. De reden achter dit is omdat de Azure AD moet coördineren van de communicatie met de toepassing bij het verwerken van eenmalige aanmelding (SSO) of uitwisselen van tokens. Sessie van de gebruiker is verlopen wanneer de levensduur van het token dat is uitgegeven door Azure AD is verlopen. Altijd evalueren als deze tijd moet in uw toepassing gebruiken of als u dit moment kunt verminderen. Vermindering van de levensduur kan fungeren als veiligheidsmaatregel die afdwingen gebruikers dat wordt zich afmelden op basis van een periode van inactiviteit.
 
-Het is mogelijk dat organisaties die niet afgedwongen door beheer van de identiteit voor toegang tot apps en komen niet hun ontwikkelaars begeleiden voor het veilig apps integreren met hun identiteitsbeheersysteem vatbaar voor referentietype diefstal van een aanval, zoals [zwakke verificatie- en management beschreven in de toepassing van Open Web Project beveiliging (OWASP) Top 10](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet).
+Organisaties die niet afgedwongen door beheer van de identiteit voor toegang tot apps en kunnen niet de ontwikkelaars handleiding over hoe u apps veilig te integreren met hun identiteitsbeheersysteem mogelijk gevoeliger voor referentie diefstal type aanval, zoals [zwakke verificatie en sessie management wordt beschreven in Open Web Application Security Project (OWASP) Top 10](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet).
 
-U meer informatie over verificatie scenario's voor SaaS-apps door te lezen [verificatie scenario's voor Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+U kunt meer informatie over verificatiescenario's voor SaaS-apps lezen [Verificatiescenario's voor Azure AD](../active-directory/active-directory-authentication-scenarios.md).
 
-## <a name="actively-monitor-for-suspicious-activities"></a>Actief bewaken voor verdachte activiteiten
+## <a name="actively-monitor-for-suspicious-activities"></a>Controleren voor verdachte activiteiten
 
-Volgens [Verizon 2016 Data Breach rapport](http://www.verizonenterprise.com/verizon-insights-lab/dbir/2016/), referentiediefstal wordt nog steeds de stijging en hoe een van de meest winstgevend bedrijven cyberbeveiliging criminelen. Daarom is het belangrijk om te beschikken over een systeem van de monitor active identiteit dat snel kunt detecteren van de activiteit verdacht gedrag en activeren van een waarschuwing voor verder onderzoek. Azure AD heeft twee belangrijke mogelijkheden waarmee organisaties hun identiteit te controleren: Azure AD Premium [afwijkingsdetectie rapporten](../active-directory/active-directory-view-access-usage-reports.md) en Azure AD [identity protection](../active-directory/active-directory-identityprotection.md) mogelijkheid.
+Volgens [Verizon 2016 gegevens geschonden rapport](http://www.verizonenterprise.com/verizon-insights-lab/dbir/2016/), referentiediefstal is nog steeds in de groei en daardoor een van de meest winstgevende bedrijven cyber criminelen. Daarom is het belangrijk dat u hebt een actieve identiteitssysteem voor de monitor die snel kan activiteit verdacht gedrag detecteren en activeren van een waarschuwing voor verder onderzoek. Azure AD heeft twee belangrijke mogelijkheden waarmee organisaties hun identiteit te controleren: Azure AD Premium [anomaliedetectie rapporten](../active-directory/active-directory-view-access-usage-reports.md) en Azure AD [identiteitsbeveiliging](../active-directory/active-directory-identityprotection.md) mogelijkheid.
 
-Zorg ervoor dat de afwijkingsdetectie-rapporten gebruiken om u te identificeren probeert aan te melden [zonder wordt getraceerd](../active-directory/active-directory-reporting-sign-ins-from-unknown-sources.md), [beveiligingsaanvallen](../active-directory/active-directory-reporting-sign-ins-after-multiple-failures.md) aanvallen op basis van een bepaalde account, wil zich aanmelden vanaf meerdere locaties, zich aanmelden via [ geïnfecteerde apparaten, en verdachte IP-adressen. Houd er rekening mee dat deze rapporten. Met andere woorden, u moet beschikken over processen en procedures voor IT-beheerders voor het uitvoeren van deze rapporten op basis van de dagelijkse of op aanvraag (gewoonlijk in een respons op incidenten scenario).
+Zorg ervoor dat de anomaliedetectie-rapporten gebruiken om te identificeren van pogingen gedaan tot aanmelding [zonder worden getraceerd](../active-directory/active-directory-reporting-sign-ins-from-unknown-sources.md), [beveiligingsaanvallen](../active-directory/active-directory-reporting-sign-ins-after-multiple-failures.md) aanvallen op basis van een bepaald account, wil zich aanmelden vanaf meerdere locaties, zich aanmelden vanaf [ geïnfecteerde apparaten en verdachte IP-adressen. Houd er rekening mee dat dit rapporten zijn. U moet met andere woorden, processen en procedures voor IT-beheerders om uit te voeren van deze rapporten op het dagelijks uit te voeren of op aanvraag (meestal in een scenario voor respons op incidenten) hebben.
 
-Daarentegen, Azure AD identity protection is een actieve controlesysteem en de huidige risico's op een eigen dashboard worden gemarkeerd. Behalve dat ontvangt u ook dagelijkse samenvatting meldingen via e-mail. Het is raadzaam dat u het risiconiveau volgens de vereisten van uw bedrijf aanpassen. Het risiconiveau voor een risicogebeurtenis is een indicatie van de ernst van de risicogebeurtenis (hoog, Gemiddeld of laag). Het risiconiveau helpt Identity Protection gebruikers prioriteren van de acties die ze nemen moeten om het risico beperken tot hun organisatie.
+Daarentegen, Azure AD identity protection is een actieve bewakingssysteem en de huidige risico's op een eigen dashboard worden gemarkeerd. Behalve dat ontvangt u ook dagelijkse samenvatting meldingen via e-mail. Het is raadzaam dat u het risiconiveau op basis van uw zakelijke vereisten aanpassen. Het risiconiveau voor een risicogebeurtenis wordt aangegeven (hoog, Gemiddeld of laag) van de ernst van de risicogebeurtenis. Het risiconiveau helpt gebruikers bij Identity Protection prioriteit van de acties die ze uitvoeren moeten, vermindert het risico voor hun organisatie.
 
-Organisaties die niet actief bewaak hun identiteitssystemen, lopen risico dat de referenties van de gebruiker is geknoeid. Plaatsen met deze referenties zonder medeweten die verdachte activiteiten zijn genomen, organisaties niet mogelijk om het risico van dit type aanval te.
-U meer informatie over Azure Identity protection door te lezen [Azure Active Directory: Identity Protection](../active-directory/active-directory-identityprotection.md).
+Organisaties die hun identiteitssystemen actief niet kunnen controleren, zijn op risico's van de gebruiker referenties zijn aangetast. Plaatsen met deze referenties zonder kennis die verdachte activiteiten worden genomen, organisaties niet mogelijk om te beperken van dit type bedreiging.
+U kunt meer informatie over Azure Identity protection lezen [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md).

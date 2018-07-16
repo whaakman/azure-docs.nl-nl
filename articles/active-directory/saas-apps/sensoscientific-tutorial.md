@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met SensoScientific draadloze temperatuur Monitoring System | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SensoScientific draadloze temperatuur Monitoring System.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory- en bewakingssysteem voor SensoScientific draadloze temperatuur.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: ad3eed8886754c5785b7dfd19b36c9e18f1623ea
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: de46f3ded72b8f4444426b8754b1c1a14863321f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293010"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045876"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Zelfstudie: Azure Active Directory-integratie met SensoScientific draadloze temperatuur Monitoring System
+# <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Zelfstudie: Azure Active Directory-integratie met bewakingssysteem voor SensoScientific draadloze temperatuur
 
-In deze zelfstudie leert u hoe SensoScientific draadloze temperatuur Monitoring System integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u SensoScientific draadloze temperatuur-bewakingssysteem integreren met Azure Active Directory (Azure AD).
 
-SensoScientific draadloze temperatuur Monitoring System integreren met Azure AD biedt de volgende voordelen:
+SensoScientific draadloze temperatuur-bewakingssysteem integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot SensoScientific draadloze temperatuur Monitoring System heeft
+- U kunt beheren in Azure AD die toegang tot bewakingssysteem voor SensoScientific draadloze temperatuur heeft
 - U kunt uw gebruikers automatisch ophalen aangemeld bij SensoScientific draadloze temperatuur Monitoring System (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt uw accounts in één centrale locatie - Azure portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met SensoScientific draadloze temperatuur Monitoring System, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met bewakingssysteem voor SensoScientific draadloze temperatuur, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een SensoScientific draadloze temperatuur Monitoring System eenmalige aanmelding ingeschakeld abonnement
+- Een bewakingssysteem voor SensoScientific draadloze temperatuur eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. SensoScientific draadloze temperatuur Monitoring System uit de galerie toevoegen
+1. SensoScientific draadloze temperatuur Monitoring System uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-sensoscientific-wireless-temperature-monitoring-system-from-the-gallery"></a>SensoScientific draadloze temperatuur Monitoring System uit de galerie toevoegen
-Voor het configureren van de integratie van SensoScientific draadloze temperatuur-bewakingssysteem in Azure AD, moet u SensoScientific draadloze temperatuur Monitoring System uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-sensoscientific-wireless-temperature-monitoring-system-from-the-gallery"></a>SensoScientific draadloze temperatuur Monitoring System uit de galerie toe te voegen
+Voor het configureren van de integratie van bewakingssysteem voor SensoScientific draadloze temperatuur in Azure AD, moet u SensoScientific draadloze temperatuur Monitoring System uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen SensoScientific draadloze temperatuur Monitoring System uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -67,52 +67,52 @@ Voor het configureren van de integratie van SensoScientific draadloze temperatuu
 
     ![Toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **SensoScientific draadloze temperatuur Monitoring System**.
+4. Typ in het zoekvak **SensoScientific draadloze temperatuur-bewakingssysteem**.
 
-    ![Een Azure AD-testgebruiker maken](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_search.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_search.png)
 
-5. Selecteer in het deelvenster resultaten **SensoScientific draadloze temperatuur Monitoring System**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+5. Selecteer in het deelvenster resultaten **SensoScientific draadloze temperatuur-bewakingssysteem**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_addfromgallery.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met SensoScientific draadloze temperatuur Monitoring System op basis van een testgebruiker genaamd "Britta Simon."
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met SensoScientific draadloze temperatuur bewakingssysteem op basis van een testgebruiker met de naam "Britta Simon."
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in SensoScientific draadloze temperatuur Monitoring System is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in SensoScientific draadloze temperatuur Monitoring System tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in SensoScientific draadloze temperatuur Monitoring System is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in bewakingssysteem voor SensoScientific draadloze temperatuur tot stand worden gebracht.
 
-Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in SensoScientific draadloze temperatuur Monitoring System.
+Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in SensoScientific draadloze temperatuur-bewakingssysteem.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met SensoScientific draadloze temperatuur Monitoring System, moet u de volgende bouwstenen voltooien:
+Als u wilt configureren en testen van Azure AD eenmalige aanmelding met bewakingssysteem voor SensoScientific draadloze temperatuur, u nodig hebt voor de volgende bouwstenen:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker SensoScientific draadloze temperatuur Monitoring System](#creating-a-sensoscientific-wireless-temperature-monitoring-system-test-user)**  - SensoScientific draadloze temperatuur Monitoring System dat is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Het maken van een testgebruiker bewakingssysteem voor SensoScientific draadloze temperatuur](#creating-a-sensoscientific-wireless-temperature-monitoring-system-test-user)**  : als u wilt een equivalent van Britta Simon in SensoScientific draadloze temperatuur bewakingssysteem hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing SensoScientific draadloze temperatuur Monitoring System.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing SensoScientific draadloze temperatuur-bewakingssysteem.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met SensoScientific draadloze temperatuur Monitoring System, moet u de volgende stappen uitvoeren:**
+**Voor het configureren van Azure AD eenmalige aanmelding met bewakingssysteem voor SensoScientific draadloze temperatuur, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **SensoScientific draadloze temperatuur Monitoring System** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **SensoScientific draadloze temperatuur-bewakingssysteem** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_samlbase.png)
 
-3. Op de **SensoScientific draadloze temperatuur bewaking systeemdomein en URL's** sectie, u hoeft stappen uitvoeren als de app al vooraf geïntegreerde met Azure is:
+3. Op de **SensoScientific draadloze temperatuur bewaking systeemdomein en URL's** sectie, niet nodig om u te werk als de app al vooraf geïntegreerd in Azure is:
 
     ![Eenmalige aanmelding configureren](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_url.png)
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_certificate.png) 
 
@@ -120,35 +120,35 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/sensoscientific-tutorial/tutorial_general_400.png)
 
-6. Op de **SensoScientific draadloze temperatuur bewaking systeemconfiguratie** sectie, klikt u op **configureren SensoScientific draadloze temperatuur Monitoring System** openen **configureren eenmalige aanmelding** venster. Kopiëren de **Sign-Out-URL, de entiteit-ID SAML** en **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Op de **SensoScientific draadloze temperatuur bewaking systeemconfiguratie** sectie, klikt u op **configureren SensoScientific draadloze temperatuur bewakingssysteem** openen **configureren aanmeldings-** venster. Kopiëren de **URL van de afmelding, SAML-entiteit-ID** en **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_configure.png) 
 
-7. Meld u aan op uw toepassing SensoScientific draadloze temperatuur Monitoring System als beheerder.
+7. Meld u aan bij uw toepassing bewakingssysteem voor SensoScientific draadloze temperatuur als beheerder.
 
-8. Klik in het navigatiemenu aan de bovenkant op **configuratie** en Ga naar **configureren** onder **eenmalige aanmelding** om de eenmalige aanmelding op instellingen te openen.
+8. Klik in het navigatiemenu aan de bovenkant op **configuratie** en Ga naar **configureren** onder **Single Sign On** om de één teken op instellingen te openen.
 
     ![Eenmalige aanmelding configureren](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_admin.png) 
 
-9. In **eenmalige aanmelding op instellingen** formulier de volgende stappen uitvoeren:
+9. In **één teken op instellingen** formulier de volgende stappen uitvoeren:
  
-    a. Selecteer **certificaatverlener** als Azure AD.
+    a. Selecteer **Verlenernaam** als Azure AD.
     
-    b. Plak de **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure-portal in URL-verlener tekstvak.
+    b. Plak de **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure portal in het tekstvak URL-verlener.
     
-    c. Plak de **SAML Single Sign-On Service-URL** die u in één Service-URL aanmelding tekstvak vanuit Azure-portal hebt gekopieerd.
+    c. Plak de **Single Sign-On Service URL voor SAML** die u hebt gekopieerd vanuit Azure portal naar Single Sign-On Service URL-tekstvak.
 
-    d. Plak de **Sign-Out URL** die u in het tekstvak voor de Service-URL met eenmalige Sign-Out vanuit Azure-portal hebt gekopieerd.
+    d. Plak de **afmelding URL** die u hebt gekopieerd vanuit Azure portal in het tekstvak URL voor eenmalige afmelding-Service.
 
-    e. Blader in het certificaat dat u hebt gedownload vanuit Azure-portal en hier uploaden.
+    e. Blader door het certificaat dat u hebt gedownload vanuit Azure portal en upload het hier.
     
     f. Klik op **Opslaan**.
   
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD](https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD](https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -156,45 +156,45 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![Een Azure AD-testgebruiker maken](./media/sensoscientific-tutorial/create_aaduser_01.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/sensoscientific-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
-    ![Een Azure AD-testgebruiker maken](./media/sensoscientific-tutorial/create_aaduser_02.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/sensoscientific-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
-    ![Een Azure AD-testgebruiker maken](./media/sensoscientific-tutorial/create_aaduser_03.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/sensoscientific-tutorial/create_aaduser_03.png) 
 
 4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
-    ![Een Azure AD-testgebruiker maken](./media/sensoscientific-tutorial/create_aaduser_04.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/sensoscientific-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In de **naam** tekstvak, type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
 
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
-### <a name="creating-a-sensoscientific-wireless-temperature-monitoring-system-test-user"></a>Maken van een testgebruiker SensoScientific draadloze temperatuur Monitoring System
+### <a name="creating-a-sensoscientific-wireless-temperature-monitoring-system-test-user"></a>Het maken van een testgebruiker bewakingssysteem voor SensoScientific draadloze temperatuur
 
-Om Azure AD-gebruikers zich aanmelden bij SensoScientific draadloze temperatuur Monitoring System, moeten ze worden ingericht in SensoScientific draadloze temperatuur Monitoring System. Werken met [SensoScientific draadloze temperatuur Monitoring System ondersteuningsteam](https://www.sensoscientific.com/contact-us/) om toe te voegen de gebruikers van het platform SensoScientific draadloze temperatuur Monitoring System. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+Om in te schakelen in Azure AD-gebruikers zich aanmelden bij bewakingssysteem voor SensoScientific draadloze temperatuur, moeten ze worden ingericht voor SensoScientific draadloze temperatuur-bewakingssysteem. Werken met [SensoScientific draadloze temperatuur Monitoring System-ondersteuningsteam](https://www.sensoscientific.com/contact-us/) om toe te voegen de gebruikers in het bewakingssysteem voor SensoScientific draadloze temperatuur-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan SensoScientific draadloze temperatuur Monitoring System.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan SensoScientific draadloze temperatuur bewakingssysteem.
 
 ![Gebruiker toewijzen][200] 
 
-**Britta Simon om aan te wijzen SensoScientific draadloze temperatuur Monitoring System, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon SensoScientific draadloze temperatuur bewaking systeem, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **SensoScientific draadloze temperatuur Monitoring System**.
+2. Selecteer in de lijst met toepassingen, **SensoScientific draadloze temperatuur-bewakingssysteem**.
 
     ![Eenmalige aanmelding configureren](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_app.png) 
 
@@ -206,20 +206,20 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen. Klik op de tegel SensoScientific draadloze temperatuur Monitoring System in het deelvenster toegang, u zal worden automatisch aangemeld bij uw toepassing SensoScientific draadloze temperatuur Monitoring System. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster. Klik op de tegel bewakingssysteem voor SensoScientific draadloze temperatuur in het toegangsvenster, u zal worden automatisch aangemeld bij uw toepassing SensoScientific draadloze temperatuur-bewakingssysteem. Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

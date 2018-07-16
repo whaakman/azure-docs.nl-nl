@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 5a50c578bd2b8a0479365f1543b9db741080f19f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fdde8cbec7fc249eecfcc0c1682bb5eed94c1585
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228955"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050486"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Zelfstudie: Azure Active Directory-integratie met Ziflow
 
-In deze zelfstudie leert u hoe Ziflow integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Ziflow integreren met Azure Active Directory (Azure AD).
 
-Ziflow integreren met Azure AD biedt de volgende voordelen:
+Ziflow integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot Ziflow heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Ziflow (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Ziflow (Single Sign-On) met hun Azure AD-accounts inschakelen.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,25 +42,25 @@ Voor het configureren van Azure AD-integratie met Ziflow, moet u de volgende ite
 - Een Ziflow eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Ziflow uit de galerie toevoegen
+1. Ziflow uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-ziflow-from-the-gallery"></a>Ziflow uit de galerie toevoegen
-Voor het configureren van de integratie van Ziflow in Azure AD, moet u Ziflow uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-ziflow-from-the-gallery"></a>Ziflow uit de galerie toe te voegen
+Voor het configureren van de integratie van Ziflow in Azure AD, moet u Ziflow uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Ziflow uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,73 +68,73 @@ Voor het configureren van de integratie van Ziflow in Azure AD, moet u Ziflow ui
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Ziflow**, selecteer **Ziflow** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Ziflow in de lijst met resultaten](./media/ziflow-tutorial/tutorial_ziflow_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met Ziflow op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Ziflow op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Ziflow is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Ziflow tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Ziflow is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Ziflow tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Ziflow, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Ziflow](#create-a-ziflow-test-user)**  - Ziflow die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Ziflow](#create-a-ziflow-test-user)**  : als u wilt een equivalent van Britta Simon in Ziflow die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing Ziflow configureren.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Ziflow.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met Ziflow, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **Ziflow** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Ziflow** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
-    ![Dialoogvenster voor eenmalige aanmelding](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
 
-3. Op de **Ziflow domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op de **Ziflow domein en URL's** sectie, voert u de volgende stappen uit:
 
-    ![URL's en Ziflow domein eenmalige aanmelding informatie](./media/ziflow-tutorial/tutorial_ziflow_url.png)
+    ![Ziflow domein en URL's, eenmalige aanmelding informatie](./media/ziflow-tutorial/tutorial_ziflow_url.png)
 
-    a. In de **aanmelden URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.ziflow.io/#/login-sso/<Unique ID>`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.ziflow.io/#/login-sso/<Unique ID>`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `urn:auth0:ziflow-production:<Unique ID>`
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `urn:auth0:ziflow-production:<Unique ID>`
 
     > [!NOTE] 
-    > De voorgaande waarden zijn niet echt. U wordt de waarde van de unieke ID in de id en meld u op de URL voor bijwerken met de werkelijke waarde verderop in de zelfstudie wordt uitgelegd. Neem contact op met [Ziflow ondersteuningsteam](mailto:support@ziflow.com) voor het subdomeinwaarde in de aanmeldings-URL.
+    > De bovenstaande waarden zijn niet echt. U kunt de unieke id-waarde in de id en de aanmeldings-URL wordt bijgewerkt met de werkelijke waarde, die later in de zelfstudie wordt uitgelegd. Neem contact op met [Ziflow ondersteuningsteam](mailto:support@ziflow.com) voor de subdomeinwaarde in de aanmeldings-URL.
     
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
 
 5. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/ziflow-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/ziflow-tutorial/tutorial_general_400.png)
 
-6. Op de **Ziflow configuratie** sectie, klikt u op **configureren Ziflow** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out URL's en SAML Single Sign-On Service** van de **Naslaggids punt.**
+6. Op de **Ziflow configuratie** sectie, klikt u op **configureren Ziflow** openen **aanmelding configureren** venster. Kopiëren de **afmelding URL's en SAML Single Sign-On Service** uit de **Naslaggids sectie.**
 
     ![Ziflow configuratie](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
 
 7. In een ander browservenster, meld u aan bij Ziflow als een beveiligingsbeheerder.
 
 
-8. Klik op Avatar in de rechterbovenhoek en klik vervolgens op **-account beheren**.
+8. Klik op het Avatar in de rechterbovenhoek en klik vervolgens op **-account beheren**.
 
     ![Ziflow configuratie beheren](./media/ziflow-tutorial/tutorial_ziflow_manage.png)
 
-9. Klik linksboven, **Single Sign-On**.
+9. In de linkerbovenhoek, klikt u op **Single Sign-On**.
 
     ![Meld u Ziflow-configuratie](./media/ziflow-tutorial/tutorial_ziflow_signon.png)
 
@@ -144,23 +144,23 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. Selecteer **Type** als **SAML2.0**.
 
-    b.In de **aanmelding In URL** textbox, plak de waarde van **SAML Single Sign-On Service-URL**, die u hebt gekopieerd uit de Azure portal.
+    b.In de **Sign In URL** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
 
-    c. Upload het base-64 gecodeerde certificaat die u hebt gedownload vanuit de Azure-portal in de **X509 handtekeningcertificaat**.
+    c. Upload het base-64 gecodeerde certificaat dat u hebt gedownload vanuit Azure portal, in de **X509 certificaat voor ondertekening**.
 
-    d. In de **afmeldings-URL** textbox, plak de waarde van **Sign-Out URL**, die u hebt gekopieerd uit de Azure portal.
+    d. In de **afmeldings-URL** tekstvak, plak de waarde van **afmelding URL**, die u hebt gekopieerd vanuit Azure portal.
 
-    e. Van de **configuratie-instellingen voor uw id-Provider** sectie, kopieert u de gemarkeerde unieke ID-waarde en voegt u deze met de id en meld u op de URL in voor de **Ziflow domein en de URL's sectie** op Azure-portal.
+    e. Uit de **configuratie-instellingen voor uw id-Provider** sectie, kopieert u de gemarkeerde unieke id-waarde en voegt u deze met de id en de aanmeldings-URL in de **Ziflow domein en URL's sectie** op Azure-portal.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/ziflow-tutorial/create_aaduser_01.png)
 
@@ -168,11 +168,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/ziflow-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/ziflow-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/ziflow-tutorial/create_aaduser_04.png)
 
@@ -180,56 +180,56 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
   
-### <a name="create-a-ziflow-test-user"></a>Een testgebruiker Ziflow maken
+### <a name="create-a-ziflow-test-user"></a>Maak een testgebruiker Ziflow
 
-Om Azure AD-gebruikers zich aanmelden bij Ziflow, moeten ze worden ingericht in Ziflow. In Ziflow is inrichting een handmatige taak.
+Als u wilt dat Azure AD-gebruikers zich aanmelden bij Ziflow, moeten ze worden ingericht voor Ziflow. In Ziflow is inrichten een handmatige taak.
 
 Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:
 
-1. Meld u aan als een beveiligingsbeheerder Ziflow bij.
+1. Meld u aan bij Ziflow als een beveiligingsbeheerder.
 
-2. Navigeer naar **mensen** bovenaan.
+2. Navigeer naar **mensen** in de rechterbovenhoek.
 
-    ![Mensen Ziflow configuratie](./media/ziflow-tutorial/tutorial_ziflow_people.png)
+    ![Configuratie van Ziflow personen](./media/ziflow-tutorial/tutorial_ziflow_people.png)
 
 3. Klik op **toevoegen** en klik vervolgens op **gebruiker toevoegen**.
 
-    ![Toevoegen van de gebruiker Ziflow configuratie](./media/ziflow-tutorial/tutorial_ziflow_add.png)
+    ![Configuratie van Ziflow toevoegen van gebruiker](./media/ziflow-tutorial/tutorial_ziflow_add.png)
 
-4. Op de **toevoegen van een gebruiker** pop-up van de volgende stappen uitvoeren:
+4. Op de **toevoegen van een gebruiker** pop-upvenster de volgende stappen uitvoeren:
 
-    ![Toevoegen van de gebruiker Ziflow configuratie](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
+    ![Configuratie van Ziflow toevoegen van gebruiker](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
 
-    a. In **e** tekst en voer het e-mailadres van de gebruiker zoals brittasimon@contoso.com.
+    a. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals brittasimon@contoso.com.
 
-    b. In **voornaam** tekst en voer de voornaam van de gebruiker zoals Britta.
+    b. In **voornaam** tekst voert u de voornaam van de gebruiker, zoals Julia.
 
-    c. In **achternaam** tekst en voer de achternaam van de gebruiker zoals Simon.
+    c. In **achternaam** tekst voert u de achternaam van de gebruiker, zoals Simon.
 
     d. Selecteer uw rol Ziflow.
 
     e. Klik op **toevoegen 1 gebruiker**.
 
     > [!NOTE]
-    > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om hun account te bevestigen voordat deze geactiveerd wordt.
+    > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Ziflow.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Ziflow.
 
-![Toewijzen van de gebruikersrol][200] 
+![De de gebruikersrol toewijzen][200] 
 
-**Britta Simon om aan te wijzen Ziflow, moet u de volgende stappen uitvoeren:**
+**Als u wilt Britta Simon aan Ziflow toewijst, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **Ziflow**.
+2. Selecteer in de lijst met toepassingen, **Ziflow**.
 
     ![De koppeling Ziflow in de lijst met toepassingen](./media/ziflow-tutorial/tutorial_ziflow_app.png)  
 
@@ -241,23 +241,23 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u op de tegel Ziflow in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Ziflow.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u op de tegel Ziflow in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Ziflow.
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Secret Server (On-Premises) | Microsoft-documenten'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Secret-Server (On-Premises).
+title: 'Zelfstudie: Azure Active Directory-integratie met Secret Server (On-Premises) | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en geheim-Server (On-Premises).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: c9229afd7bd8ebad85ce9e329fb11f992236bce0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 37ae91743077a9cb9ef9b8f97747563a580fada9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220098"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051275"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Zelfstudie: Azure Active Directory-integratie met Secret Server (On-Premises)
 
-In deze zelfstudie leert u het geheim Server (On-Premises) integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u geheim Server (On-Premises) integreren met Azure Active Directory (Azure AD).
 
-Secret Server (On-Premises) integreren met Azure AD biedt de volgende voordelen:
+Geheim Server (On-Premises) integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Secret Server (On-Premises heeft).
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Secret Server (On-Premises) (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt beheren in Azure AD die toegang tot geheim Server (On-Premises heeft).
+- U kunt uw gebruikers automatisch ophalen aangemeld bij geheim Server (On-Premises) (Single Sign-On) met hun Azure AD-accounts inschakelen.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,25 +42,25 @@ Voor het configureren van Azure AD-integratie met Secret Server (On-Premises), m
 - Een geheim Server (On-Premises) eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Secret Server (On-Premises) uit de galerie toevoegen
+1. Geheim Server (On-Premises) uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Secret Server (On-Premises) uit de galerie toevoegen
-Voor het configureren van de integratie van geheim Server (On-Premises) met Azure AD, moet u geheim-Server (On-Premises) uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Geheim Server (On-Premises) uit de galerie toevoegen
+Als u wilt de integratie van geheim-Server (On-Premises) in Azure AD configureert, moet u geheim-Server (On-Premises) uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Secret Server (On-Premises) uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen geheim Server (On-Premises) uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,89 +68,89 @@ Voor het configureren van de integratie van geheim Server (On-Premises) met Azur
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **Secret Server (On-Premises)**, selecteer **Secret Server (On-Premises)** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **geheim Server (On-Premises)**, selecteer **geheim Server (On-Premises)** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Geheime Server (On-Premises) in de lijst met resultaten](./media/secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Secret Server (On-Premises) op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met geheim Server (On-Premises) op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Secret Server (On-Premises) is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Secret Server (On-Premises) tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in geheim Server (On-Premises) is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in geheim Server (On-Premises) tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Secret Server (On-Premises), moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Secret Server (On-Premises)](#create-a-secret-server-on-premises-test-user)**  - Secret Server (On-Premises) die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker geheim Server (On-Premises)](#create-a-secret-server-on-premises-test-user)**  : als u wilt een equivalent van Britta Simon hebt in een geheim Server (On-Premises) die is gekoppeld aan de Azure AD-weergave van de gebruiker.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing Secret Server (On-Premises).
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing geheim Server (On-Premises).
 
 **Voor het configureren van Azure AD eenmalige aanmelding met Secret Server (On-Premises), moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **Secret Server (On-Premises)** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **geheim Server (On-Premises)** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
-    ![Dialoogvenster voor eenmalige aanmelding](./media/secretserver-on-premises-tutorial/tutorial_secretserver_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/secretserver-on-premises-tutorial/tutorial_secretserver_samlbase.png)
 
-3. Op de **geheim Server (On-Premises)-domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren, de toepassing in **IDP** modus gestart:
+3. Op de **geheim Server (On-Premises)-domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
 
-    ![Geheime Server (On-Premises)-domein en URL's van eenmalige aanmelding informatie](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
+    ![Geheime Server (On-Premises)-domein en URL's eenmalige aanmelding informatie](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
-    a. In de **id** textbox, voert u de gebruiker gekozen waarde als een voorbeeld: `https://secretserveronpremises.azure`
+    a. In de **id** tekstvak, voert u de gebruiker gekozen waarde als een voorbeeld: `https://secretserveronpremises.azure`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
 
     > [!NOTE]
-    > De entiteit-ID die hierboven is slechts een voorbeeld en u gratis een unieke waarde die uw geheim Server-exemplaar in Azure AD te kiezen. U moet deze entiteit-ID te verzenden [geheim Server (On-Premises) Client ondersteuningsteam](https://thycotic.force.com/support/s/) en configureer ze deze op hun kant. Lees voor meer informatie [in dit artikel](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
+    > De entiteit-ID die hierboven is slechts een voorbeeld en u bent kiezen van een unieke waarde die uw geheim Server-exemplaar in Azure AD. U wilt verzenden van deze entiteit-ID aan [geheim Server (On-Premises)-Client-ondersteuningsteam](https://thycotic.force.com/support/s/) en configureer ze deze op hun kant. Lees voor meer informatie, [in dit artikel](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
 
-4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
-    ![Geheime Server (On-Premises)-domein en URL's van eenmalige aanmelding informatie](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
+    ![Geheime Server (On-Premises)-domein en URL's eenmalige aanmelding informatie](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<SecretServerURL>/login.aspx`
+    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SecretServerURL>/login.aspx`
      
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [geheim Server (On-Premises) Client ondersteuningsteam](https://thycotic.force.com/support/s/) ophalen van deze waarden.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [geheim Server (On-Premises)-Client-ondersteuningsteam](https://thycotic.force.com/support/s/) om deze waarden te verkrijgen.
 
-5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/secretserver-on-premises-tutorial/tutorial_secretserver_certificate.png)
 
-6. Controleer **weergeven geavanceerde instellingen voor het ondertekenen van certificaat** en selecteer **ondertekening optie** als **aanmelding SAML-reactie en assertion**.
+6. Controleer **geavanceerde instellingen voor het ondertekenen van certificaat weergeven** en selecteer **ondertekening optie** als **aanmelding SAML-antwoord en -bewering**.
 
     ![Opties voor ondertekening](./media/secretserver-on-premises-tutorial/signing.png)
 
 7. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
     
-8. Op de **geheim serverconfiguratie (On-Premises)** sectie, klikt u op **geheim Server configureren (On-Premises)** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+8. Op de **geheim-serverconfiguratie (On-Premises)** sectie, klikt u op **geheim Server (On-Premises) configureren** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
-    ![Configuratie van de geheime Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_configure.png)
+    ![Configuratie van geheime Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_configure.png)
 
-9. Eenmalige aanmelding configureren op **Secret Server (On-Premises)** zijde, moet u de gedownloade verzenden **Certificate(Base64), Sign-Out-URL, SAML Single Sign-On Service-URL**, en **SAML-entiteit ID** naar [Secret Server (On-Premises) ondersteuningsteam](https://thycotic.force.com/support/s/). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+9. Het configureren van eenmalige aanmelding op **geheim Server (On-Premises)** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64), URL zijn afmelding, Single Sign-On Service URL voor SAML**, en **SAML-entiteit ID** naar [geheim Server (On-Premises)-ondersteuningsteam](https://thycotic.force.com/support/s/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/secretserver-on-premises-tutorial/create_aaduser_01.png)
 
@@ -158,11 +158,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/secretserver-on-premises-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/secretserver-on-premises-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/secretserver-on-premises-tutorial/create_aaduser_04.png)
 
@@ -170,29 +170,29 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
-### <a name="create-a-secret-server-on-premises-test-user"></a>Maak een testgebruiker Secret Server (On-Premises)
+### <a name="create-a-secret-server-on-premises-test-user"></a>Maak een testgebruiker geheim Server (On-Premises)
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in Secret Server (On-Premises) maken. Werken met [Secret Server (On-Premises) ondersteuningsteam](https://thycotic.force.com/support/s/) om toe te voegen de gebruikers van het platform Secret Server (On-Premises). Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in geheim Server (On-Premises). Werken met [geheim Server (On-Premises)-ondersteuningsteam](https://thycotic.force.com/support/s/) om toe te voegen de gebruikers in het geheim Server (On-Premises)-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Secret Server (On-Premises).
+In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan geheim Server (On-Premises).
 
-![Toewijzen van de gebruikersrol][200]
+![De de gebruikersrol toewijzen][200]
 
-**Britta Simon om aan te wijzen Secret Server (On-Premises), moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon geheim server (On-Premises), moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201]
 
-2. Selecteer in de lijst met toepassingen **Secret Server (On-Premises)**.
+2. Selecteer in de lijst met toepassingen, **geheim Server (On-Premises)**.
 
-    ![De koppeling Secret Server (On-Premises) in de lijst met toepassingen](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
+    ![De koppeling geheim Server (On-Premises) in de lijst met toepassingen](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
@@ -202,23 +202,23 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u op de tegel Secret Server (On-Premises) in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Secret Server (On-Premises).
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
+Wanneer u op de tegel geheim Server (On-Premises) in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing geheim Server (On-Premises).
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

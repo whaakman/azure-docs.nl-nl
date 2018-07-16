@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ba4c4525899e82b4dd93fc46d9e9bbc1850500dc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: afa65cec0d00f2063be05a48085183da72af9048
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003033"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049391"
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Een gebruiker toegewezen Managed Service Identity (MSI) op een Linux-VM gebruiken voor toegang tot Azure Storage
 
@@ -114,7 +114,7 @@ Als u dit niet al hebt, moet u nu een storage-account maken. Ook kunt u deze sta
 5. Zorg ervoor dat de **abonnement** en **resourcegroep** overeenkomen met de gegevenstypen die u hebt opgegeven tijdens het maken van uw virtuele machine in de vorige stap.
 6. Klik op **Create**.
 
-    ![Nieuw opslagaccount maken](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Nieuw opslagaccount maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Maak een blobcontainer in de storage-account
 
@@ -125,11 +125,11 @@ Omdat bestanden blob-opslag vereist, die u wilt maken van een blob-container waa
 3. Klik op **+ Container** boven aan de pagina en een 'nieuwe 'container deelvenster schuift.
 4. Geef een naam op voor de container, selecteert u een toegangsniveau en klik op **OK**. De opgegeven naam wordt ook gebruikt later in de zelfstudie. 
 
-    ![Opslagcontainer maken](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Opslagcontainer maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Een bestand uploaden naar de zojuist gemaakte container door te klikken op de containernaam van de, klikt u vervolgens **uploaden**, vervolgens selecteert u een bestand en klik vervolgens op **uploaden**.
 
-    ![Tekstbestand uploaden](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Tekstbestand uploaden](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-user-assigned-msi-access-to-an-azure-storage-container"></a>De gebruiker toegewezen MSI toegang verlenen tot een Azure Storage-container
 

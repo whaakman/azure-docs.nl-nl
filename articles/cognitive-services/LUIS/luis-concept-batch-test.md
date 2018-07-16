@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 0e484a6cae1b56983c4854664088ada8aa504568
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a51fcc9c0729c18428b51cbdbdf0b6ff13ca1372
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918812"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39039993"
 ---
 # <a name="batch-testing-in-luis"></a>Batch testen in LUIS
 
@@ -43,9 +43,90 @@ Entiteiten zijn eenvoudige, hiërarchische ouders en samengesteld. Alle entiteit
 ## <a name="batch-file-format"></a>Batch-bestandsindeling
 De batch-bestand bestaat uit uitingen. Elke utterance ze beschikken over een verwachte intentie voorspelling samen met een [machine geleerde entiteiten](luis-concept-entity-types.md#types-of-entities) u verwacht te worden gedetecteerd. 
 
-Hier volgt een voorbeeld van de batch-bestand:
+Hier volgt een voorbeeld van een batch-bestand met de juiste syntaxis:
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## <a name="batch-syntax-template"></a>Batch syntaxis van de sjabloon
+
+Gebruik de volgende sjabloon om te starten van uw batch-bestand:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+De batch-bestand maakt gebruik van de **startPos** en **endPos** eigenschappen om te weten het begin en einde van een entiteit. De waarden mag op nul gebaseerde zijn en niet beginnen of eindigen op een spatie. 
+
+Dit wijkt af van de logboeken voor query's, die startIndex en endIndex eigenschappen gebruiken. 
 
 
 ## <a name="common-errors-importing-a-batch"></a>Veelvoorkomende fouten in een batch importeren

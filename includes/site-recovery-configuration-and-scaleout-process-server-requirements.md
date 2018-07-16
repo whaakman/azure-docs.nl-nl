@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: f6053c4ef1fe9ce7cc3f06804822afa98055a645
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 669966ce21c5c6c2d0653eb51c81fe78aa0b3a12
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967678"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057307"
 ---
 **Configuratieproces/server-vereisten**
 
@@ -48,7 +48,7 @@ MYSQL | MySQL moet worden geïnstalleerd. U kunt ook handmatig installeren of Si
 
 **CPU** | **Geheugen** | **Cacheschijf** | **Veranderingssnelheid van gegevens** | **Gerepliceerde machines**
 --- | --- | --- | --- | ---
-8 vcpu 's<br/><br/> 2-sockets * 4 kernen @ 2,5 GHz | 16GB | 300 GB | 500 GB of minder | < 100 machines
-12 vcpu 's<br/><br/> 2 socks * 6 kernen @ 2,5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | 100-150-machines
-16 vcpu 's<br/><br/> socks 2 * 8 kernen @ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200-machines
+8 vcpu 's<br/><br/> 2-sockets * 4 kernen \@ 2,5 GHz | 16GB | 300 GB | 500 GB of minder | < 100 machines
+12 vcpu 's<br/><br/> 2 socks * 6 kernen \@ 2,5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | 100-150-machines
+16 vcpu 's<br/><br/> socks 2 * 8 kernen \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200-machines
 
