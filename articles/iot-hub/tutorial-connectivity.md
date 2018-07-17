@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 47d52fa412adf3f8e7f0c3c4d4afaf9009b4783e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651337"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869573"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Zelfstudie: Een gesimuleerd apparaat gebruiken om connectiviteit met uw IoT-hub te testen
 
@@ -49,7 +49,7 @@ Gebruik de volgende opdracht om de huidige versie van Node.js op uw ontwikkelcom
 node --version
 ```
 
-Download het Node.js-voorbeeldapparaatsimulatieproject van https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip en pak het ZIP-archief uit.
+Download het Node.js-voorbeeldapparaatsimulatieproject van https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip en pak het ZIP-archief uit.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
@@ -123,6 +123,9 @@ Deze keer ziet u een verificatiefout wanneer de toepassing verbinding probeert t
 Als uw apparaat een van de SDK’s van de IoT Hub gebruikt, genereert de SDK-bibliotheekcode het SAS-toeken dat wordt gebruikt voor verificatie met de hub. Een SAS-token wordt gegenereerd uit de naam van uw hub, de naam van uw apparaat en de apparaatsleutel.
 
 In bepaalde scenario’s, zoals in een cloud-protocolgateway of als onderdeel van een aangepast verificatieschema, moet u mogelijk zelf het SAS-token genereren. Om problemen met uw SAS-generatiecode op te lossen, is het handig een bekend correct SAS-token te kunnen genereren om te gebruiken tijdens het testen.
+
+> [!NOTE]
+> Het voorbeeld SimulatedDevice-2.js omvat voorbeelden van het genereren van een SAS-token, zowel met als zonder de SDK.
 
 Om een bekend correct SAS-token te genereren met de CLI, voert u de volgende opdracht uit:
 

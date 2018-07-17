@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/10/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5cb1360731eeabe4963330210ba6fe090f0e088a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8c3f727c6154a0364f151d22000d2684c361676a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008823"
+ms.locfileid: "39037207"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Wat is het verschil tussen een gateway van een virtueel Azure-netwerk (VPN Gateway) en een Azure Virtual WAN-VPN-gateway?
 
@@ -78,4 +78,4 @@ UDR en routeringsfunctionaliteit zijn beschikbaar wanneer Virtual WAN algemeen b
 
 ### <a name="is-there-any-licensing-or-pricing-information-for-virtual-wan"></a>Is er informatie over licentieverlening of prijzen beschikbaar voor Virtual WAN?
  
-Er worden geen extra kosten berekend. De huidige [tarieven voor Azure VPN-verkeer en uitgaand verkeer](https://azure.microsoft.com/pricing/details/vpn-gateway/) blijven van kracht tijdens de Preview.
+Tijdens een preview worden er geen extra kosten berekend. De huidige [tarieven voor Azure VPN-verkeer en uitgaand verkeer](https://azure.microsoft.com/pricing/details/vpn-gateway/) blijven van kracht tijdens de Preview.

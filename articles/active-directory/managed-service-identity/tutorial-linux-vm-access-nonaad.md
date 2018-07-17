@@ -1,6 +1,6 @@
 ---
-title: Gebruik van een Linux-VM-MSI voor toegang tot Azure Sleutelkluis
-description: Een zelfstudie die u bij het proces helpt van het gebruik van een Linux VM beheerde Service identiteit (MSI) voor toegang tot Azure Resource Manager.
+title: Toegang krijgen tot Azure Key Vault met een MSI voor Linux-VM
+description: Een zelfstudie die u helpt bij het doorlopen van het proces voor het krijgen van toegang tot Azure Resource Manager met een Managed Service Identity (MSI) voor Linux-VM.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,30 +9,30 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 280b1340c094a89ad5980178947045b707128807
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595016"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901473"
 ---
-# <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Zelfstudie: Een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Sleutelkluis 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Zelfstudie: Toegang krijgen tot Azure Key Vault met een Managed Service Identity (MSI) voor Linux-VM 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen voor een virtuele Linux-Machine en vervolgens die identiteit gebruiken voor toegang tot Azure Sleutelkluis. Fungeren als een bootstrap, maakt Sleutelkluis het mogelijk voor de clienttoepassing vervolgens geheim voor toegang tot bronnen die niet beveiligd door Azure Active Directory (AD) gebruiken. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties invoegen in uw code. 
+Deze zelfstudie laat zien hoe u Managed Service Identity (MSI) kunt inschakelen voor een virtuele Linux-machine, en met die identiteit toegang kunt krijgen tot Azure Key Vault. Key Vault fungeert als een bootstrap en maakt het mogelijk voor uw clienttoepassing om met het geheim toegang te krijgen tot resources die niet zijn beveiligd met Azure Active Directory (AD). Managed Service Identity's worden automatisch beheerd in Azure en stellen u in staat om te verifiëren bij services die Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen. 
 
 In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * MSI op een virtuele Linux-Machine inschakelen 
-> * Uw VM toegang verlenen tot een geheim dat is opgeslagen in een Sleutelkluis 
-> * Ophalen van een toegangstoken met behulp van de identiteit van de VM en deze gebruiken voor het ophalen van het geheim uit de Sleutelkluis 
+> * MSI inschakelen op een virtuele Linux-machine 
+> * Uw virtuele machine toegang verlenen tot een geheim dat is opgeslagen in een sleutelkluis 
+> * Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en daarmee het geheim uit de sleutelkluis ophalen 
  
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,73 +43,73 @@ In deze zelfstudie leert u procedures om het volgende te doen:
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-Machine in een nieuwe resourcegroep maken
+## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine maken in een nieuwe resourcegroep
 
-Voor deze zelfstudie maken we een nieuwe Linux VM. U kunt ook MSI op een bestaande virtuele machine inschakelen.
+Voor deze zelfstudie maken we een nieuwe virtuele Linux-machine. U kunt MSI ook inschakelen op een bestaande virtuele machine.
 
 1. Klik op de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
-3. Geef de informatie van de virtuele machine op. Voor **verificatietype**, selecteer **openbare SSH-sleutel** of **wachtwoord**. De gemaakte referenties kunnen u zich aanmelden bij de virtuele machine.
+3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
 
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Kies een **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
-5. Selecteer een nieuwe **resourcegroep** u wilt dat de virtuele machine om te worden gemaakt in of kies **nieuw**. Na het voltooien klikt u op **OK**.
-6. Selecteer de grootte van de virtuele machine. Selecteer om te zien meer grootten, **weergeven van alle** of wijzigen van de ondersteunde schijf type filter. Behoud de standaardinstellingen op de instellingenpagina en klik op **OK**.
+5. Om een nieuwe **resourcegroep** te selecteren waarin u de virtuele machine wilt maken, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
+6. Selecteer de grootte voor de virtuele machine. Kies om meer grootten weer te geven de optie **Alle weergeven** of wijzig het filter Ondersteund schijftype. Handhaaf de standaardinstellingen op de pagina Instellingen en klik op **OK**.
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen
 
-De MSI van een virtuele Machine kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Inschakelen van de Service-identiteit beheerd op een virtuele machine, biedt twee dingen: registreert uw virtuele machine met Azure Active Directory voor het maken van de beheerde identiteit en configureert u de identiteit op de virtuele machine.
+Met een MSI op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder referenties in uw code te hoeven opnemen. Er gebeuren twee dingen als u Managed Service Identity inschakelt op een virtuele machine: de virtuele machine wordt bij Azure Active Directory geregistreerd om de beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.
 
-1. Selecteer de **virtuele Machine** dat u inschakelen van MSI wilt op.
-2. Klik op de linkernavigatiebalk **configuratie**.
-3. U ziet **beheerde Service-identiteit**. Als u wilt registreren en inschakelen van het MSI-bestand, selecteer **Ja**, als u wilt uitschakelen, kiest u Nee.
-4. Zorg ervoor dat u klikt op **opslaan** aan de configuratie op te slaan.
+1. Selecteer de **virtuele machine** waarop u MSI wilt inschakelen.
+2. Klik op de linkernavigatiebalk op **Configuratie**.
+3. U ziet **Managed Service Identity**. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee.
+4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.
 
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Uw VM-toegang verlenen aan een geheim dat is opgeslagen in een Sleutelkluis  
+## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Uw virtuele machine toegang verlenen tot een geheim dat is opgeslagen in een sleutelkluis  
 
-Met behulp van MSI Vind uw code toegangstokens voor verificatie naar bronnen die ondersteuning bieden voor Azure Active Directory-verificatie. Niet alle Azure-services ondersteunen echter Azure AD-verificatie. Opslaan van referenties voor de service in Azure Key Vault voor het gebruik van MSI aan deze services, en het gebruik van MSI voor toegang tot de Sleutelkluis voor het ophalen van de referenties. 
+Met behulp van MSI kan uw code toegangstokens ophalen voor verificatie bij resources die ondersteuning bieden voor Azure AD-verificatie. Niet alle Azure-services bieden echter ondersteuning voor Azure AD-verificatie. Als u MSI wilt gebruiken voor deze services, slaat u de referenties voor de service op in Azure Key Vault en haalt u de referenties op uit Key Vault met behulp van MSI. 
 
-Eerst moet er een Sleutelkluis maken en onze VM identiteit toegang verlenen aan de Sleutelkluis.   
+Eerst moeten we een sleutelkluis maken en de identiteit van onze virtuele machine toegang tot de sleutelkluis verlenen.   
 
-1. Selecteer boven de linkernavigatiebalk **maken van een resource** > **beveiliging en identiteit** > **Sleutelkluis**.  
-2. Geef een **naam** voor de nieuwe Sleutelkluis. 
-3. De Sleutelkluis niet vinden in de hetzelfde abonnement en de resource-groep als de virtuele machine die u eerder hebt gemaakt. 
-4. Selecteer **toegangsbeleid** en klik op **nieuwe toevoegen**. 
-5. Selecteer in het configureren van sjabloon **geheim Management**. 
-6. Kies **Principal selecteren**, en voer de naam van de virtuele machine die u eerder hebt gemaakt in het zoekveld.  Selecteer de virtuele machine in de lijst met resultaten en klik **Selecteer**. 
-7. Klik op **OK** naar het nieuwe toegangsbeleid toevoegen is voltooid en **OK** toegang beleid selectie te voltooien. 
-8. Klik op **maken** voltooid met het maken van de Sleutelkluis. 
+1. Selecteer boven aan de linkernavigatiebalk **Een resource maken** > **Beveiliging en identiteit** > **Key Vault**.  
+2. Geef een **naam** op voor de nieuwe sleutelkluis. 
+3. Zoek de sleutelkluis in hetzelfde abonnement en dezelfde resourcegroep als de virtuele machine die u eerder hebt gemaakt. 
+4. Selecteer **Toegangsbeleid** en klik op de knop **Nieuwe toevoegen**. 
+5. Selecteer **Geheimenbeheer** in Configureren met sjabloon. 
+6. Kies **Principal selecteren**, en voer in het zoekveld de naam in van de virtuele machine die u eerder hebt gemaakt.  Selecteer de virtuele machine in de lijst met resultaten en klik op **Selecteren**. 
+7. Klik op **OK** om het nieuwe toegangsbeleid toe te voegen en klik op **OK** om de selectie van het toegangsbeleid te voltooien. 
+8. Klik op **Maken** om het maken van de sleutelkluis te voltooien. 
 
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Alt-tekst voor afbeelding](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
-Vervolgens een geheim toevoegen aan de Sleutelkluis, zodat u later kunt u de code die wordt uitgevoerd in uw virtuele machine met geheim ophalen: 
+Voeg vervolgens een geheim toe aan de sleutelkluis, zodat u het geheim later kunt ophalen met behulp van code die wordt uitgevoerd op uw virtuele machine: 
 
-1. Selecteer **alle Resources**, en zoek en selecteer de Sleutelkluis die u hebt gemaakt. 
-2. Selecteer **geheimen**, en klik op **toevoegen**. 
-3. Selecteer **handmatige**, van **uploaden opties**. 
-4. Voer een naam en waarde voor het geheim.  De waarde kan elke gewenste zijn. 
-5. Laat de activering en vervaldatum wissen, en laat **ingeschakeld** als **Ja**. 
-6. Klik op **maken** voor het maken van het geheim. 
+1. Selecteer **Alle resources** en zoek en selecteer de sleutelkluis die u hebt gemaakt. 
+2. Selecteer **Geheimen** en klik op **Toevoegen**. 
+3. Selecteer **Handmatig** in **Opties uploaden**. 
+4. Voer een naam en een waarde in voor de geheime sleutel.  De waarde mag elke gewenste waarde zijn. 
+5. Laat de activeringsdatum en vervaldatum leeg en laat **Ingeschakeld** ingesteld staan op **Ja**. 
+6. Klik op **Maken** om het geheim te maken. 
  
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Ophalen van een toegangstoken die met de identiteit van de VM en deze gebruiken voor het ophalen van het geheim uit de Sleutelkluis  
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en daarmee het geheim uit de sleutelkluis ophalen  
 
-Deze stappen uit te voeren, moet u een SSH-client.  Als u van Windows gebruikmaakt, kunt u de SSH-client in de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about). Als u informatie over het configureren van de client van uw SSH-sleutels nodig hebt, raadpleegt u [het gebruik van SSH-sleutels met Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md), of [maken en de openbare en persoonlijke sleutelpaar voor een SSH gebruiken voor virtuele Linux-machines in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+U hebt een SSH-client nodig om deze stappen uit te voeren.  Als u Windows gebruikt, kunt u de SSH-client in het [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) gebruiken. Zie [De sleutels van uw SSH-client gebruiken onder Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) of [Een sleutelpaar met een openbare SSH-sleutel en een privé-sleutel maken en gebruiken voor virtuele Linux-machines in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md) als u hulp nodig hebt bij het configureren van de sleutels van uw SSH-client.
  
-1. Navigeer in de portal voor uw Linux-VM en in de **overzicht**, klikt u op **Connect**. 
-2. **Verbinding maken met** naar de virtuele machine met de SSH-client van uw keuze. 
-3. Het terminalvenster met CURL, zorg er in een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor Azure Sleutelkluis.  
+1. Navigeer in de portal naar de virtuele Linux-machine en klik in het **overzicht** op **Verbinden**. 
+2. **Maak verbinding** met de virtuele machine met de SSH-client van uw keuze. 
+3. Dien in het terminalvenster met behulp van CURL een aanvraag in op het lokale MSI-eindpunt om een toegangstoken voor Azure Key Vault Manager op te halen.  
  
-    De aanvraag CURL voor het toegangstoken is lager dan.  
+    Hieronder ziet u de CURL-aanvraag voor het toegangstoken.  
     
     ```bash
     curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true  
     ```
-    Het antwoord bevat het toegangstoken dat u nodig hebt voor toegang tot de Resource Manager. 
+    De reactie bevat het toegangstoken dat u nodig hebt voor toegang tot Resource Manager. 
     
-    Antwoord:  
+    Reactie:  
     
     ```bash
     {"access_token":"eyJ0eXAi...",
@@ -121,23 +121,23 @@ Deze stappen uit te voeren, moet u een SSH-client.  Als u van Windows gebruikmaa
     "token_type":"Bearer"} 
     ```
     
-    U kunt deze toegangstoken gebruiken om te verifiëren voor Azure Sleutelkluis.  De volgende CURL-aanvraag ziet u hoe een geheim van de Sleutelkluis met CURL en de Sleutelkluis REST-API.  U moet de URL van uw Sleutelkluis, dat zich bevindt in de **Essentials** sectie van de **overzicht** pagina van de Sleutelkluis.  U moet ook het toegangstoken dat u hebt verkregen in de vorige aanroep. 
+    U kunt dit toegangstoken gebruiken voor verificatie bij Azure Key Vault.  Met de volgende CURL-aanvraag wordt een geheim uit Key Vault gelezen met behulp van CURL en de REST-API van Key Vault.  U hebt de URL van uw sleutelkluis nodig. Deze vindt u in de sectie **Essentials** van de pagina **Overzicht** van de sleutelkluis.  U hebt ook het toegangstoken nodig dat u hebt verkregen in de vorige aanroep. 
         
     ```bash
     curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
-    Het antwoord ziet er als volgt: 
+    De reactie ziet er ongeveer als volgt uit: 
     
     ```bash
     {"value":"p@ssw0rd!","id":"https://mytestkeyvault.vault.azure.net/secrets/MyTestSecret/7c2204c6093c4d859bc5b9eff8f29050","attributes":{"enabled":true,"created":1505088747,"updated":1505088747,"recoveryLevel":"Purgeable"}} 
     ```
     
-Zodra u het geheim hebt opgehaald uit de Sleutelkluis, kunt u deze kunt gebruiken voor verificatie bij een service waarvoor een gebruikersnaam en wachtwoord.
+Zodra u het geheim hebt opgehaald uit de sleutelkluis, kunt u deze gebruiken om te verifiëren bij een service die een gebruikersnaam en wachtwoord vereist.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe op een beheerde Service-identiteit op een virtuele Linux-machine voor toegang tot Azure Sleutelkluis.  Zie voor meer informatie over Azure Sleutelkluis:
+In deze zelfstudie hebt u geleerd een Managed Service Identity op een virtuele Linux-machine te maken om toegang tot Azure Key Vault te krijgen.  Zie voor meer informatie over Azure Key Vault:
 
 > [!div class="nextstepaction"]
 >[Azure Key Vault](/azure/key-vault/key-vault-whatis)

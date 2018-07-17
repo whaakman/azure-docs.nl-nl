@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van een Windows VM beheerde Service identiteit (MSI) voor toegang tot Azure Data Lake Store
-description: Een zelfstudie waarin wordt getoond hoe u een Windows VM beheerde Service identiteit (MSI) wordt gebruikt voor toegang tot Azure Data Lake Store.
+title: Toegang krijgen tot Azure Data Lake Storage met een Managed Service Identity (MSI) voor Windows-VM
+description: Deze zelfstudie laat zien hoe u toegang krijgt tot Azure Data Lake Storage met een Managed Service Identity (MSI) voor Windows-VM.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,28 +9,28 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 31afe8579580ab392411aa8428f023fd52c4c4c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: afd35c963c2c1c4badb32f7e8f7dba1dce87481c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595288"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904285"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Zelfstudie: Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Data Lake Store
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Zelfstudie: Toegang krijgen tot Azure Data Lake Storage met een Managed Service Identity (MSI) voor Windows-VM
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u op een beheerde Service identiteit (MSI) voor een Windows virtuele machine (VM) voor toegang tot een Azure Data Lake Store. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties invoegen in uw code. In deze zelfstudie leert u procedures om het volgende te doen:
+Deze zelfstudie laat zien hoe u toegang krijgt tot Azure Data Lake Storage met behulp van een Managed Service Identity (MSI) voor een virtuele Windows-machine (VM). Managed Service Identity's worden automatisch beheerd in Azure en stellen u in staat om te verifiëren bij services die Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Inschakelen van MSI op een Windows VM 
-> * Uw VM-toegang verlenen aan een Azure Data Lake Store
-> * Ophalen van een toegangstoken met behulp van de identiteit van de VM en deze gebruiken voor toegang tot een Azure Data Lake Store
+> * MSI inschakelen op een Windows-VM 
+> * Uw virtuele machine toegang verlenen tot Azure Data Lake Storage
+> * Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en dat token gebruiken om toegang te krijgen tot Azure Data Lake Storage
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,90 +42,90 @@ Deze zelfstudie laat zien hoe u op een beheerde Service identiteit (MSI) voor ee
 
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine in een nieuwe resourcegroep maken
+## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine maken in een nieuwe resourcegroep
 
-Voor deze zelfstudie maken we een nieuwe Windows VM.  U kunt ook MSI op een bestaande virtuele machine inschakelen.
+Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt MSI ook inschakelen op een bestaande virtuele machine.
 
 1. Klik op de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
 2. Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
-3. Geef de informatie van de virtuele machine op. De **gebruikersnaam** en **wachtwoord** gemaakte Hier ziet u de referenties die u kunt aanmelden bij de virtuele machine.
-4. Kies de juiste **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
-5. Selecteer een nieuwe **resourcegroep** waarin u uw virtuele machine maakt, kiest u **nieuw**. Na het voltooien klikt u op **OK**.
-6. Selecteer de grootte van de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Behoud de standaardinstellingen op de pagina instellingen en klik op **OK**.
+3. Geef de informatie van de virtuele machine op. De referenties (combinatie van **Gebruikersnaam** en **Wachtwoord**) die u hier opgeeft, zijn de referenties waarmee u zich aanmeldt bij de virtuele machine.
+4. Kies het juiste **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
+5. Om een nieuwe **resourcegroep** te selecteren waarin de virtuele machine moet worden gemaakt, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
+6. Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf de standaardinstellingen op de pagina Instellingen en klik op **OK**.
 
-   ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Alt-tekst voor afbeelding](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen 
 
-Een VM MSI kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Inschakelen van MSI vertelt Azure maken van een beheerde identiteit voor uw virtuele machine. Achter de MSI inschakelen biedt twee dingen: registreert uw virtuele machine met Azure Active Directory voor het maken van de beheerde identiteit en configureert u de identiteit op de virtuele machine.
+Met een MSI op de VM kunt u toegangstokens uit Azure AD ophalen zonder referenties in uw code te hoeven opnemen. Het inschakelen van MSI vertelt Azure dat er een beheerde identiteit voor uw VM moet worden gemaakt. Er gebeuren twee dingen als u MSI inschakelt: de virtuele machine wordt bij Azure Active Directory geregistreerd om de beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.
 
-1. Selecteer de **virtuele Machine** dat u inschakelen van MSI wilt op.  
-2. Klik op de linkernavigatiebalk **configuratie**. 
-3. U ziet **beheerde Service-identiteit**. Als u wilt registreren en inschakelen van het MSI-bestand, selecteer **Ja**, als u wilt uitschakelen, kiest u Nee. 
-4. Zorg ervoor dat u klikt op **opslaan** aan de configuratie op te slaan.  
-   ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+1. Selecteer de **virtuele machine** waarop u MSI wilt inschakelen.  
+2. Klik op de linkernavigatiebalk op **Configuratie**. 
+3. U ziet **Managed Service Identity**. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee. 
+4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.  
+   ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Als u wilt controleren en nagaan welke uitbreidingen zijn op deze virtuele machine, klikt u op **extensies**. Als MSI is ingeschakeld, klikt u vervolgens **ManagedIdentityExtensionforWindows** wordt weergegeven in de lijst.
+5. Als u wilt controleren en nagaan welke extensies aanwezig zijn op deze virtuele machine, klikt u op **Extensies**. Als MSI is ingeschakeld, wordt **ManagedIdentityExtensionforWindows** weergegeven in de lijst.
 
-   ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+   ![Alt-tekst voor afbeelding](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Uw VM-toegang verlenen tot Azure Data Lake Store
+## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Uw virtuele machine toegang verlenen tot Azure Data Lake Storage
 
-U kunt nu uw VM-toegang tot bestanden en mappen in een Azure Data Lake Store verlenen.  U kunt voor deze stap maakt gebruik van een bestaande Data Lake Store of een nieuwe maken.  Voor het maken van een nieuwe Data Lake Store met de Azure portal, voert u [Azure Data Lake Store Quick Start](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Er zijn ook snelstartgidsen die gebruikmaken van de Azure CLI en Azure PowerShell in de [documentatie Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+U kunt nu uw virtuele machine toegang tot bestanden en mappen in Azure Data Lake Storage verlenen.  Voor deze stap kunt u een bestaande Data Lake Storage gebruiken, of een nieuwe maken.  Als u een nieuwe Data Lake Storage wilt maken met behulp van Azure Portal, volgt u deze [snelstart voor Azure Data Lake Storage](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Er zijn ook snelstarts in de [documentatie over Azure Data Lake Storage](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) voor het gebruik van Azure CLI en Azure Powershell.
 
-Maak een nieuwe map in uw Data Lake Store en uw VM MSI machtiging verlenen om te lezen, schrijven en uitvoeren van bestanden in de map:
+Maak een nieuwe map in uw Data Lake Storage, en verleen de MSI van uw VM toestemming voor het lezen, schrijven en uitvoeren van bestanden in die map:
 
-1. Klik in de Azure-portal op **Data Lake Store** in de linkernavigatiebalk.
-2. Klik op de Data Lake Store die u wilt gebruiken voor deze zelfstudie.
+1. Klik in Azure Portal op **Data Lake Storage** in het linkernavigatievenster.
+2. Klik op de Data Lake Storage die u wilt gebruiken voor deze zelfstudie.
 3. Klik op **Data Explorer** in de opdrachtbalk.
-4. De hoofdmap van de Data Lake Store is geselecteerd.  Klik op **toegang** in de opdrachtbalk.
-5. Klik op **Add**.  In de **Selecteer** en voer de naam van uw virtuele machine, bijvoorbeeld **DevTestVM**.  Selecteer uw virtuele machine in de zoekresultaten en klik vervolgens op **Selecteer**.
-6. Klik op **machtigingen selecteren**.  Selecteer **lezen** en **Execute**, toevoegen aan **deze map**, en toevoegen als **alleen een toegangsmachtiging**.  Klik op **OK**.  De machtiging moet worden toegevoegd.
-7. Sluit de **toegang** blade.
-8. Maak een nieuwe map voor deze zelfstudie.  Klik op **nieuwe map** in de opdrachtbalk en verleen de nieuwe map een naam, bijvoorbeeld **TestFolder**.  Klik op **OK**.
-9. Klik op de map die u hebt gemaakt en klik vervolgens op **toegang** in de opdrachtbalk.
-10. Vergelijkbaar is met stap 5, klikt u op **toevoegen**, in de **Selecteer** veld Geef de naam van uw virtuele machine, selecteert u deze en klikt u op **Selecteer**.
-11. Vergelijkbaar is met stap 6, klikt u op **Selecteer machtigingen**, selecteer **lezen**, **schrijven**, en **Execute**, toevoegen aan **deze map**, en toevoegen als **een machtigingsvermelding toegang en een standaard machtigingsvermelding**.  Klik op **OK**.  De machtiging moet worden toegevoegd.
+4. De hoofdmap van de Data Lake Storage is geselecteerd.  Klik op **Toegang** in de opdrachtbalk.
+5. Klik op **Add**.  Voer in het veld **Selecteren** de naam van uw virtuele machine in, bijvoorbeeld **DevTestVM**.  Klik op uw virtuele machine in de zoekresultaten om deze te selecteren, en klik vervolgens op **Selecteren**.
+6. Klik op **Machtigingen selecteren**.  Selecteer **Lezen** en **Uitvoeren**, voeg deze toe aan **Deze map** als **Alleen een toegangsmachtiging**.  Klik op **OK**.  De machtiging wordt toegevoegd.
+7. Sluit de blade **Toegang**.
+8. Voor deze zelfstudie maakt u een nieuwe map.  Klik op **Nieuwe map** in de opdrachtbalk en geef een naam voor de nieuwe map op, bijvoorbeeld **TestFolder**.  Klik op **OK**.
+9. Klik op de map die u hebt gemaakt en klik vervolgens op **Toegang** in de opdrachtbalk.
+10. Klik, net zoals bij stap 5, op **Toevoegen**, voer de naam van uw virtuele machine in het veld **Selecteren** in, selecteer deze, en klik op **Selecteren**.
+11. Klik, net zoals bij stap 6, op **Machtigingen selecteren**, selecteer **Lezen**, **Schrijven** en **Uitvoeren**, voeg deze toe aan **Deze map** als **Een vermelding van een toegangsmachtiging en een vermelding van een standaardmachtiging**.  Klik op **OK**.  De machtiging wordt toegevoegd.
 
-Uw VM MSI kunnen alle bewerkingen op bestanden nu uitvoeren in de map die u hebt gemaakt.  Lees voor meer informatie over het beheren van toegang tot Data Lake Store in dit artikel op [toegangsbeheer in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+De MSI van uw virtuele machine kan nu alle bewerkingen uitvoeren op bestanden in de map die u hebt gemaakt.  Lees dit artikel over [toegangsbeheer in Data Lake Storage](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control) voor meer informatie over het beheren van de toegang tot Data Lake Storage.
 
-## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Ophalen van een toegangstoken met behulp van de VM MSI en deze gebruiken om aan te roepen van het bestandssysteem van Azure Data Lake Store
+## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Een toegangstoken ophalen met behulp van de MSI van de virtuele machine en dat token gebruiken om toegang te krijgen tot het bestandssysteem van Azure Data Lake Storage
 
-Azure Data Lake Store systeemeigen ondersteunt Azure AD-verificatie, zodat deze kan rechtstreeks toegangstokens accepteren verkregen met behulp van MSI.  Om te verifiëren voor het verzenden van een toegangstoken dat is uitgegeven door Azure AD aan uw Data Lake Store filesystem-eindpunt in een autorisatie-header in de indeling 'Bearer < ACCESS_TOKEN_VALUE >' Data Lake Store-bestandssysteem.  Lees voor meer informatie over Data Lake Store-ondersteuning voor verificatie met Azure AD [verificatie met Data Lake Store met Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Storage biedt systeemeigen ondersteuning voor Azure AD-verificatie, zodat toegangstokens die zijn verkregen met behulp van een MSI direct kunnen worden geaccepteerd.  Om te verifiëren bij het bestandssysteem van Data Lake Storage verzendt u een toegangstoken dat door Azure AD is uitgegeven aan het eindpunt van uw Data Lake Storage-bestandssysteem, in een autorisatie-header in de indeling 'Bearer <WAARDE_VAN_TOEGANGSTOKEN>'.  Lees [Verificatie bij Data Lake Storage met Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory) voor meer informatie over ondersteuning voor Azure AD-verificatie in Data Lake Storage
 
 > [!NOTE]
-> De client-SDK's van de bestandssysteem in Data Lake Store-Service-identiteit beheerd niet ondersteunen.  Deze zelfstudie wordt bijgewerkt wanneer ondersteuning wordt toegevoegd aan de SDK.
+> Managed Service Identity wordt nog niet ondersteund voor de SDK's voor clients van het Data Lake Storage-bestandssysteem.  Deze zelfstudie wordt bijgewerkt zodra ondersteuning voor MSI wordt toegevoegd aan de SDK.
 
-In deze zelfstudie maakt verifiëren u voor het Data Lake Store-bestandssysteem REST-API met behulp van PowerShell om de REST-aanvragen. Voor het gebruik van de VM-MSI voor verificatie, moet u de aanvragen van de virtuele machine.
+In deze zelfstudie gebruikt u PowerShell voor het maken van REST-aanvragen om te verifiëren bij de REST-API van het Data Lake Storage-bestandssysteem. Als u de MSI van de virtuele machine wilt gebruiken voor verificatie, moet u de aanvragen verzenden vanaf de virtuele machine.
 
-1. Navigeer in de portal naar **virtuele Machines**, gaat u op uw Windows-VM en in de **overzicht** klikt u op **Connect**.
-2. Voer in uw **gebruikersnaam** en **wachtwoord** voor die u hebt toegevoegd tijdens het maken van de virtuele machine van Windows. 
-3. Nu dat u hebt gemaakt een **verbinding met extern bureaublad** openen met de virtuele machine, **PowerShell** in de externe sessie. 
-4. Met behulp van PowerShell `Invoke-WebRequest`, maak een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor Azure Data Lake Store.  De resource-id voor de Data Lake Store is 'https://datalake.azure.net/'.  Data Lake biedt een exacte overeenkomst op de bron-id en de afsluitende slash is belangrijk.
+1. Navigeer in Azure Portal naar **Virtuele machines**, ga naar uw virtuele Windows-machine, en klik op de pagina **Overzicht** op **Verbinden**.
+2. Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine. 
+3. Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u **PowerShell** in de externe sessie. 
+4. Verzend met `Invoke-WebRequest` van Powershell een aanvraag naar op het lokale MSI-eindpunt om een toegangstoken voor Azure Data Lake Storage op te halen.  De resource-id voor Data Lake Storage is ‘https://datalake.azure.net/’.  Voor Data Lake moet u een exact overeenkomende resource-id opgeven, met de schuine streep op het einde.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
    ```
     
-   Het antwoord van een JSON-object converteren naar een PowerShell-object. 
+   Converteer de reactie van een JSON-object naar een PowerShell-object. 
     
    ```powershell
    $content = $response.Content | ConvertFrom-Json
    ```
 
-   Haal het toegangstoken op uit het antwoord.
+   Extraheer het toegangstoken uit de reactie.
     
    ```powershell
    $AccessToken = $content.access_token
    ```
 
-5. Maak met behulp van PowerShell 'Invoke-WebRequest', een aanvraag naar uw Data Lake Store REST-eindpunt voor het weergeven van de mappen in de hoofdmap.  Dit is een eenvoudige manier om dat alles juist is geconfigureerd.  Het is belangrijk dat de tekenreeks 'Bearer' in de autorisatie-header is een hoofdletter "B".  U vindt de naam van uw Data Lake Store in de **overzicht** sectie van de blade Data Lake Store in de Azure portal.
+5. Gebruik in PowerShell de Invoke-WebRequest-opdracht om een aanvraag te verzenden naar het REST-eindpunt van Data Lake Storage om de mappen in de hoofdmap weer te geven.  Dit is een eenvoudige manier om te controleren of alles juist is geconfigureerd.  Het is belangrijk dat de tekenreeks 'Bearer' in de autorisatie-header begint met de hoofdletter 'B'.  U vindt de naam van uw Data Lake Storage in de sectie **Overzicht** van de Data Lake Storage-blade in Azure Portal.
 
    ```powershell
    Invoke-WebRequest -Uri https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -Headers @{Authorization="Bearer $AccessToken"}
    ```
 
-   Een geslaagde reactie ziet eruit als:
+   Een geslaagde reactie ziet er als volgt uit:
 
    ```powershell
    StatusCode        : 200
@@ -148,19 +148,19 @@ In deze zelfstudie maakt verifiëren u voor het Data Lake Store-bestandssysteem 
    RawContentLength  : 556
    ```
 
-6. Nu kunt u proberen een bestand te uploaden naar uw Data Lake Store.  Maak eerst een bestand te uploaden.
+6. Nu kunt u proberen een bestand te uploaden naar uw Data Lake Storage.  Maak eerst een bestand om te uploaden.
 
    ```powershell
    echo "Test file." > Test1.txt
    ```
 
-7. Met behulp van PowerShell `Invoke-WebRequest`, een aanvraag aanbrengen in uw Data Lake Store REST-eindpunt het bestand te uploaden naar de map die u eerder hebt gemaakt.  Deze aanvraag bestaat uit twee stappen.  In de eerste stap een indienen en ophalen van een omleiding naar waar het bestand moet worden geüpload.  In de tweede stap moet u daadwerkelijk het bestand uploaden.  Vergeet niet de naam van de map instellen en bestanden op de juiste wijze als u andere waarden dan in deze zelfstudie hebt gebruikt. 
+7. Verzend met behulp van `Invoke-WebRequest` in PowerShell een aanvraag naar het REST-eindpunt van uw Data Lake Storage voor het uploaden van het bestand naar de map die u eerder hebt gemaakt.  Deze aanvraag bestaat uit twee stappen.  In de eerste stap verzendt u een aanvraag haalt u omleidingsgegevens op zodat u weet waarnaar het bestand moet worden geüpload.  In de tweede stap uploadt u het bestand.  Vergeet niet de naam van de map en het bestand aan te passen als u andere waarden gebruikt dan die in deze zelfstudie. 
 
    ```powershell
    $HdfsRedirectResponse = Invoke-WebRequest -Uri https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/TestFolder/Test1.txt?op=CREATE -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
    ```
 
-   Als u de waarde van inspecteren `$HdfsRedirectResponse` het moet eruitzien als in het volgende antwoord:
+   Als u de waarde van `$HdfsRedirectResponse` inspecteert, ziet er ongeveer als volgt uit:
 
    ```powershell
    PS C:\> $HdfsRedirectResponse
@@ -180,13 +180,13 @@ In deze zelfstudie maakt verifiëren u voor het Data Lake Store-bestandssysteem 
    RawContentLength  : 0
    ```
 
-   Het uploaden is voltooid door een aanvraag verzonden naar de omleidings-eindpunt:
+   Voltooi het uploaden door een aanvraag te verzenden naar het omleidingseindpunt:
 
    ```powershell
    Invoke-WebRequest -Uri $HdfsRedirectResponse.Headers.Location -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
    ```
 
-   Een geslaagde reactie eruit:
+   Een geslaagde reactie ziet er ongeveer als volgt uit:
 
    ```powershell
    StatusCode        : 201
@@ -205,13 +205,13 @@ In deze zelfstudie maakt verifiëren u voor het Data Lake Store-bestandssysteem 
    RawContentLength  : 0
    ```
 
-Met andere bestandssysteem Data Lake Store downloaden API's die u kunt toevoegen aan bestanden, bestanden en meer.
+Met andere API's van het Data Lake Storage-bestandssysteem kunt u toevoegen aan bestanden, bestanden downloaden, en nog veel meer.
 
-Gefeliciteerd!  U hebt geverifieerd voor het Data Lake Store-bestandssysteem met behulp van een VM MSI.
+Gefeliciteerd.  U hebt geverifieerd bij het Data Lake Storage-bestandssysteem met behulp van een MSI voor een virtuele machine.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een Service-identiteit beheerd voor een virtuele machine van Windows gebruikt voor toegang tot een Azure Data Lake Store. Zie voor meer informatie over Azure Data Lake Store:
+In deze zelfstudie hebt u geleerd hoe u toegang krijgt tot Azure Data Lake Storage met behulp van een Managed Service Identity voor een virtuele Windows-machine. Zie voor meer informatie over Azure Data Lake Storage:
 
 > [!div class="nextstepaction"]
 >[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

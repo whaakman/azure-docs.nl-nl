@@ -12,19 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7a4391b436af4ffa303741397f0be7abf0186fb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722844"
 ---
 # <a name="import-and-publish-your-first-api"></a>Uw eerste API importeren en publiceren 
 
 In deze zelfstudie ziet u hoe u een back-end-API met de naam OpenAPI-specificatie kunt importeren die zich bevindt in http://conferenceapi.azurewebsites.net?format=json. Deze back-end-API wordt geleverd met Microsoft en gehost in Azure. 
 
-Zodra de back-end-API is geïmporteerd in APIM (API Management), wordt de APIM API een façade voor de back-end-API. Op het moment dat u de back-end-API importeert, zijn de bron-API en de APIM API identiek. Met APIM kunt u de façade aanpassen aan uw behoeften zonder dat de back-end-API wordt gewijzigd. Zie [Transform and protect your API](transform-api.md) (Uw API transformeren en beveiligen) voor meer informatie. 
+Zodra de back-end-API is geïmporteerd in API Management (APIM), wordt de APIM-API een facade voor de back-end-API. Op het moment dat u de back-end-API importeert, zijn de bron-API en de APIM API identiek. In APIM kunt u de facade naar wens aanpassen zonder de back-end-API te wijzigen. Zie [Transform and protect your API](transform-api.md) (Uw API transformeren en beveiligen) voor meer informatie. 
 
 In deze zelfstudie leert u het volgende:
 
@@ -52,6 +53,8 @@ In deze sectie ziet u hoe u een back-end-API met de naam OpenAPI-specificatie ku
 
     U kunt de API-waarden instellen tijdens het maken of later door naar het tabblad **Instellingen** te gaan. De rode ster naast een veld geeft aan dat het veld verplicht is.
 
+    Gebruik de waarden uit de onderstaande tabel om uw eerste API te maken.
+
     |Instelling|Waarde|Beschrijving|
     |---|---|---|
     |**OpenAPI-specificatie**|http://conferenceapi.azurewebsites.net?format=json|Verwijst naar de service waarmee de API wordt geïmplementeerd. API Management stuurt aanvragen door naar dit adres.|
@@ -74,19 +77,21 @@ Bewerkingen kunnen rechtstreeks vanuit Azure Portal worden aangeroepen. Dit is e
 1. Selecteer de API die u in de vorige stap hebt gemaakt (op het tabblad **API's**).
 2. Druk op het tabblad **Testen**.  ![API testen](./media/api-management-get-started/test-api.png)
 3. Klik op **GetSpeakers**.
-    Op de pagina worden velden weergegeven voor queryparameters, maar in dit geval zijn er geen queryparameters. Op de pagina worden ook velden weergegeven voor de headers. Een van de headers is Ocp-Apim-Subscription-Key voor de abonnementssleutel van het product dat is gekoppeld aan deze API. De sleutel wordt automatisch ingevuld.
+    Op de pagina worden velden weergegeven voor queryparameters (maar in dit geval zijn er geen queryparameters) en headers. Een van de headers is Ocp-Apim-Subscription-Key voor de abonnementssleutel van het product dat is gekoppeld aan deze API. De sleutel wordt automatisch ingevuld.
 4. Druk op **Verzenden**.
 
     Back-end reageert met **200 OK** en enkele gegevens.
 
 ## <a name="call-operation"> </a>Een bewerking aanroepen vanuit de ontwikkelaarsportal
 
-Bewerkingen kunnen ook worden aangeroepen vanuit de **ontwikkelaarsportal** om de API's te testen. 
+Bewerkingen kunnen ook worden aangeroepen vanuit de **ontwikkelaarsportal** om de API's te testen.
 
-1. Selecteer **Demo Conference API**.
-2. Klik op **GetSpeakers**.
+1. Navigeer naar de **ontwikkelaarsportal**.
+![ontwikkelaarsportal](./media/api-management-get-started/developer-portal.png)
+
+2. Selecteer **API's**, klik op **Demo Conference API** en vervolgens op **GetSpeakers**.
     
-    Op de pagina worden velden weergegeven voor queryparameters, maar in dit geval zijn er geen queryparameters. Op de pagina worden ook velden weergegeven voor de headers. Een van de headers is Ocp-Apim-Subscription-Key voor de abonnementssleutel van het product dat is gekoppeld aan deze API. Als u de APIM-instantie hebt gemaakt, bent u al een beheerder en wordt de sleutel automatisch ingevoerd.
+    Op de pagina worden velden weergegeven voor queryparameters (maar in dit geval zijn er geen queryparameters) en headers. Een van de headers is Ocp-Apim-Subscription-Key voor de abonnementssleutel van het product dat is gekoppeld aan deze API. Als u de APIM-instantie hebt gemaakt, bent u al een beheerder en wordt de sleutel automatisch ingevoerd.
 3. Druk op **Proberen**.
 4. Druk op **Verzenden**.
     

@@ -1,6 +1,6 @@
 ---
-title: Gebruik van een Linux-VM-MSI voor toegang tot Azure Resource Manager
-description: Een zelfstudie die u bij het proces helpt van het gebruik van een Linux VM beheerde Service identiteit (MSI) voor toegang tot Azure Resource Manager.
+title: Toegang krijgen tot Azure Resource Manager met een MSI voor Linux-VM
+description: Een zelfstudie die u helpt bij het doorlopen van het proces voor het krijgen van toegang tot Azure Resource Manager met een Managed Service Identity (MSI) voor Linux-VM.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,28 +9,28 @@ editor: bryanla
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 8f81e667ffd1e425527b383445f382d18233fef2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 690775bb2ff0d5ee16ec5d7f1869c4f23b3745ad
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594513"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900912"
 ---
-# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Resource Manager
+# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Toegang krijgen tot Azure Resource Manager met een Managed Service Identity (MSI) voor Linux-VM
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen voor een virtuele Linux-Machine en vervolgens die identiteit gebruiken voor toegang tot de Azure Resource Manager-API. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie zonder referenties invoegen in uw code. In deze zelfstudie leert u procedures om het volgende te doen:
+Deze zelfstudie laat zien hoe u Managed Service Identity (MSI) kunt inschakelen voor een virtuele Linux-machine, en daarmee toegang tot de Azure Resource Manager-API kunt krijgen. Managed Service Identity's worden automatisch beheerd in Azure en stellen u in staat om verificaties uit te voeren bij services die Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * MSI op een virtuele Linux-Machine inschakelen 
-> * Uw VM-toegang verlenen aan een resourcegroep in Azure Resource Manager 
-> * Ophalen van een toegangstoken met behulp van de identiteit van de virtuele machine en het aanroepen van Azure Resource Manager 
+> * MSI inschakelen op een virtuele Linux-machine 
+> * Uw virtuele machine toegang verlenen tot een resourcegroep in Azure Resource Manager 
+> * Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en daarmee Azure Resource Manager aanroepen 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,65 +42,65 @@ Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen vo
 
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-Machine in een nieuwe resourcegroep maken
+## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine maken in een nieuwe resourcegroep
 
-Voor deze zelfstudie maken we een nieuwe Linux VM. U kunt ook MSI op een bestaande virtuele machine inschakelen.
+Voor deze zelfstudie maken we een nieuwe virtuele Linux-machine. U kunt MSI ook inschakelen op een bestaande virtuele machine.
 
 1. Klik op de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
-3. Geef de informatie van de virtuele machine op. Voor **verificatietype**, selecteer **openbare SSH-sleutel** of **wachtwoord**. De gemaakte referenties kunnen u zich aanmelden bij de virtuele machine.
+3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
 
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Kies een **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
-5. Selecteer een nieuwe **resourcegroep** u wilt dat de virtuele machine om te worden gemaakt in of kies **nieuw**. Na het voltooien klikt u op **OK**.
-6. Selecteer de grootte van de virtuele machine. Selecteer om te zien meer grootten, **weergeven van alle** of wijzigen van de ondersteunde schijf type filter. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
+5. Om een nieuwe **resourcegroep** te selecteren waarin u de virtuele machine wilt maken, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
+6. Selecteer de grootte voor de virtuele machine. Kies om meer grootten weer te geven de optie **Alle weergeven** of wijzig het filter Ondersteund schijftype. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen
 
-De MSI van een virtuele Machine kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Inschakelen van de Service-identiteit beheerd op een virtuele machine, biedt twee dingen: registreert uw virtuele machine met Azure Active Directory voor het maken van de beheerde identiteit en configureert u de identiteit op de virtuele machine.
+Met een MSI op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder referenties in uw code te hoeven opnemen. Er gebeuren twee dingen als u Managed Service Identity inschakelt op een virtuele machine: de virtuele machine wordt bij Azure Active Directory geregistreerd om de beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.
 
-1. Selecteer de **virtuele Machine** dat u inschakelen van MSI wilt op.
-2. Klik op de linkernavigatiebalk **configuratie**.
-3. U ziet **beheerde Service-identiteit**. Als u wilt registreren en inschakelen van het MSI-bestand, selecteer **Ja**, als u wilt uitschakelen, kiest u Nee.
-4. Zorg ervoor dat u klikt op **opslaan** aan de configuratie op te slaan.
+1. Selecteer de **virtuele machine** waarop u MSI wilt inschakelen.
+2. Klik op de linkernavigatiebalk op **Configuratie**.
+3. U ziet **Managed Service Identity**. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee.
+4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.
 
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Uw VM-toegang verlenen aan een resourcegroep in Azure Resource Manager 
+## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Uw virtuele machine toegang verlenen tot een resourcegroep in Azure Resource Manager 
 
-Met behulp van MSI Vind uw code toegangstokens voor verificatie naar bronnen die ondersteuning bieden voor Azure AD-verificatie. De Azure Resource Manager-API ondersteunt Azure AD-verificatie. Eerst moet deze VM identiteit toegang verlenen tot een resource in Azure Resource Manager, in dit geval de resourcegroep waarin de virtuele machine is opgenomen.  
+Met behulp van MSI kan uw code toegangstokens ophalen voor verificatie bij resources die ondersteuning bieden voor Azure AD-verificatie. De Azure Resource Manager-API biedt ondersteuning voor Azure AD-verificatie. Eerst moeten we de identiteit van deze virtuele machine toegang verlenen tot een resource in Azure Resource Manager, in dit geval de resourcegroep waarin de virtuele machine is opgenomen.  
 
-1. Navigeer naar het tabblad voor **resourcegroepen**.
-2. Selecteer de specifieke **resourcegroep** u eerder hebt gemaakt.
-3. Ga naar **toegang tot control(IAM)** in het linkerdeelvenster.
-4. Klik om **toevoegen** een nieuwe roltoewijzing voor de virtuele machine. Kies **rol** als **lezer**.
-5. In de volgende vervolgkeuzelijst **toewijzen van toegang tot** de resource **virtuele Machine**.
-6. Controleer vervolgens het juiste abonnement wordt vermeld in de **abonnement** vervolgkeuzelijst. En voor **resourcegroep**, selecteer **alle resourcegroepen**.
-7. Ten slotte in **Selecteer** Kies uw virtuele Linux-Machine in de vervolgkeuzelijst en klik op **opslaan**.
+1. Navigeer naar het tabblad **Resourcegroepen**.
+2. Selecteer de specifieke **resourcegroep** die u eerder hebt gemaakt.
+3. Ga naar **Toegangsbeheer (IAM)** in het linkerpaneel.
+4. Klik op **Toevoegen** om een nieuwe roltoewijzing voor de virtuele machine toe te voegen. Kies **Rol** als **lezer**.
+5. Stel in de volgende vervolgkeuzelijst **Toegang toewijzen aan** de resource in op **Virtuele machine**.
+6. Controleer vervolgens of het juiste abonnement wordt weergegeven in de vervolgkeuzelijst **Abonnement**. Bij **Resourcegroep** selecteert u **Alle resourcegroepen**.
+7. Kies ten slotte bij **Selecteren** uw virtuele Linux-machine in de vervolgkeuzelijst en klik op **Opslaan**.
 
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
+    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Ophalen van een toegangstoken die met de identiteit van de VM en deze gebruiken om aan te roepen Resource Manager 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en daarmee Resource Manager aanroepen 
 
-Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaakt, kunt u de SSH-client in de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about). Als u informatie over het configureren van de client van uw SSH-sleutels nodig hebt, raadpleegt u [het gebruik van SSH-sleutels met Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md), of [maken en de openbare en persoonlijke sleutelpaar voor een SSH gebruiken voor virtuele Linux-machines in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+U hebt een SSH-client nodig om deze stappen uit te voeren. Als u Windows gebruikt, kunt u de SSH-client in het [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) gebruiken. Zie [De sleutels van uw SSH-client gebruiken onder Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) of [Een sleutelpaar met een openbare SSH-sleutel en een privé-sleutel maken en gebruiken voor virtuele Linux-machines in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md) als u hulp nodig hebt bij het configureren van de sleutels van uw SSH-client.
 
-1. Navigeer in de portal voor uw Linux-VM en in de **overzicht**, klikt u op **Connect**.  
-2. **Verbinding maken met** naar de virtuele machine met de SSH-client van uw keuze. 
-3. Het terminalvenster met CURL, zorg er in een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor Azure Resource Manager.  
+1. Navigeer in de portal naar de virtuele Linux-machine en klik in het **overzicht** op **Verbinden**.  
+2. **Maak verbinding** met de virtuele machine met de SSH-client van uw keuze. 
+3. Dien in het terminalvenster met behulp van CURL een aanvraag in op het lokale MSI-eindpunt om een toegangstoken voor Azure Resource Manager op te halen.  
  
-    De aanvraag CURL voor het toegangstoken is lager dan.  
+    Hieronder ziet u de CURL-aanvraag voor het toegangstoken.  
     
     ```bash
     curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
     
     > [!NOTE]
-    > De waarde van de resourceparameter '' moet een exacte overeenkomst voor door Azure AD wordt verwacht.  U moet de afsluitende slash op de URI opnemen in het geval van de resource-ID van het Resource Manager. 
+    > De waarde van de parameter 'resource' moet exact overeenkomen met wat er in Azure AD wordt verwacht.  Wanneer u de resource-id van Resource Manager gebruikt, moet de URI opgeven met een slash op het einde. 
     
     Het antwoord bevat het toegangstoken dat u nodig hebt voor toegang tot Azure Resource Manager. 
     
-    Antwoord:  
+    Reactie:  
 
     ```bash
     {"access_token":"eyJ0eXAiOi...",
@@ -112,16 +112,16 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
     "token_type":"Bearer"} 
     ```
     
-    U kunt deze toegangstoken gebruiken voor toegang tot Azure Resource Manager, bijvoorbeeld lezen van de details van de resourcegroep die u eerder deze VM-toegang verleend. Vervang de waarden van \<ABONNEMENTS-ID\>, \<RESOURCEGROEP\>, en \<ACCESS TOKEN\> met de referenties die u eerder hebt gemaakt. 
+    U kunt dit toegangstoken gebruiken voor toegang tot Azure Resource Manager, bijvoorbeeld om de details te bekijken van de resourcegroep waaraan u deze virtuele machine eerder toegang hebt verleend. Vervang de waarden van \<SUBSCRIPTION ID\> (abonnements-id), \<RESOURCE GROUP\> (resourcegroep) en \<ACCESS TOKEN\> (toegangstoken) door de waarden die u eerder hebt gemaakt. 
     
     > [!NOTE]
-    > De URL is hoofdlettergevoelig, dus Controleer als u de dezelfde hoofdletters gebruikt als u eerder gebruikt wanneer u de resourcegroep en de hoofdletters 'G' in 'resourceGroup' genoemd.  
+    > De URL is hoofdlettergevoelig, dus gebruik precies dezelfde naam van de resourcegroep als hiervoor, met inbegrip van de hoofdletter 'G' in 'resourceGroup'.  
     
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
-    Het antwoord terug met de specifieke informatie in de resourcegroep: 
+    De reactie met de specifieke resourcegroepsinformatie: 
      
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
@@ -129,7 +129,7 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe een gebruiker toegewezen identiteit maken en deze te koppelen aan een virtuele Machine van Azure voor toegang tot de Azure Resource Manager-API.  Zie voor meer informatie over Azure Resource Manager:
+In deze zelfstudie hebt u geleerd een door de gebruiker toegewezen identiteit te maken en deze te koppelen aan een virtuele machine in Azure voor toegang tot de Azure Resource Manager-API.  Zie voor meer informatie over Azure Resource Manager:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

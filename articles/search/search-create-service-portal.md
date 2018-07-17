@@ -6,13 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 11/07/2017
+ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 1837fc6511ac734766c55bd1c2a2a7a40219c31a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950669"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Een Azure Search-service maken in de portal
 
@@ -28,8 +29,8 @@ U kunt ook [voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/
 
 ## <a name="find-azure-search"></a>Azure Search vinden
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik op het plusteken (+) in de linkerbovenhoek.
-3. Selecteer **Web en mobiel** > **Azure Search**.
+2. Klik op het plusteken (+ Resource maken) in de linkerbovenhoek.
+3. Selecteer **Web** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
@@ -76,12 +77,14 @@ Het kan een paar minuten duren om een service te maken (15 minuten of meer, afha
 
 ***Replica's*** zorgen ervoor dat uw services meer zoekquery's kunnen verwerken.
 
+Als u resources toevoegt, wordt uw maandfactuur hoger. Met de [prijscalculator](https://azure.microsoft.com/pricing/calculator/) krijgt u inzicht in het effect van het toevoegen van resources op uw facturering. Onthoud dat u resources kunt aanpassen aan de benodigde capaciteit. Zo kunt u eerst resources toevoegen voor het maken van een volledige eerste index en later het aantal resources weer verlagen tot een niveau dat geschikt is voor incrementele indexering.
+
 > [!Important]
 > Een service moet [twee replica's hebben voor een alleen-lezen-SLA en drie replica's voor een lezen/schrijven-SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Ga naar de pagina van uw zoekservice in Azure Portal.
 2. Selecteer in het navigatiedeelvenster aan de linkerkant **Instellingen** > **Schalen**.
-3. Gebruik de schuifbalk om replica's of partities toe te voegen.
+3. Gebruik de schuifbalk om resources van een bepaald type toe te voegen.
 
 ![](./media/search-create-service-portal/settings-scale.png)
 
@@ -90,7 +93,7 @@ Het kan een paar minuten duren om een service te maken (15 minuten of meer, afha
 
 ## <a name="when-to-add-a-second-service"></a>Wanneer u een tweede service moet toevoegen
 
-Een grote meerderheid van de klanten gebruikt maar één service die geconfigureerd is voor de categorie die [de juiste balans voor resources](search-sku-tier.md) biedt. Eén service kan meerdere indexen hosten, afhankelijk van de [maximale limieten van de door u geselecteerde categorie](search-capacity-planning.md), en alle indexen zijn van elkaar geïsoleerd. In Azure Search kunnen aanvragen alleen worden gericht aan één index, waardoor de kans dat er per ongeluk of opzettelijk gegevens worden opgehaald uit andere indexen in dezelfde service, wordt geminimaliseerd.
+De meeste klanten gebruiken maar één service die geconfigureerd is voor de categorie die de [juiste balans voor resources](search-sku-tier.md). Eén service kan meerdere indexen hosten, afhankelijk van de [maximale limieten van de door u geselecteerde categorie](search-capacity-planning.md), en alle indexen zijn van elkaar geïsoleerd. In Azure Search kunnen aanvragen alleen worden gericht aan één index, waardoor de kans dat er per ongeluk of opzettelijk gegevens worden opgehaald uit andere indexen in dezelfde service, wordt geminimaliseerd.
 
 Hoewel de meeste klanten slechts één service gebruiken, kan serviceredundantie nodig zijn als de volgende operationele vereisten gelden:
 

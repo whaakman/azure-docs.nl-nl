@@ -1,3 +1,3 @@
 > [!NOTE]
-> Controleer voor meer informatie als specifieke functies worden ondersteund door het licentietype van uw, de [Azure Active Directory prijsinformatie](https://azure.microsoft.com/pricing/details/active-directory/) pagina. 
+> Raadpleeg de pagina [Prijzen voor Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) om na te gaan of bepaalde functies worden ondersteund in uw licentietype. 
 

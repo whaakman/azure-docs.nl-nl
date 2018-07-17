@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: babd6bff3cec38318cacc0d55394a7563f8e69a4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cebb73fedffe3b5f0a11c919ff39d1d2acd462d3
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776869"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969524"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar Xamarin.iOS-apps met Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -84,34 +84,46 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
 
     ![Visual Studio - iOS-app configureren][32]
 
-4. Voeg het Azure Messaging-pakket toe. Klik in de oplossingsweergave met de rechtermuisknop op het project en selecteer **Toevoegen** > **NuGet-pakketten toevoegen**. Zoek naar **Xamarin.Azure.NotificationHubs.iOS** en voeg het pakket toe aan uw project.
+4. Dubbelklik in de oplossingsweergave op *Entitlements.plist* en zorg ervoor dat er een vinkje staat bij Pushmeldingen inschakelen.
 
-5. Voeg een nieuw bestand toe aan de klasse, geef deze de naam **Constants.cs**, voeg de volgende variabelen toe en vervang de tijdelijke aanduidingen voor tekenreeksen door uw *hubnaam* en de *DefaultListenSharedAccessSignature* die u eerder hebt genoteerd.
+    ![Visual Studio - iOS-rechten configureren][33]
+
+5. Voeg het Azure Messaging-pakket toe. Klik in de oplossingsweergave met de rechtermuisknop op het project en selecteer **Toevoegen** > **NuGet-pakketten toevoegen**. Zoek naar **Xamarin.Azure.NotificationHubs.iOS** en voeg het pakket toe aan uw project.
+
+6. Voeg een nieuw bestand toe aan de klasse, geef deze de naam **Constants.cs**, voeg de volgende variabelen toe en vervang de tijdelijke aanduidingen voor tekenreeksen door uw *hubnaam* en de *DefaultListenSharedAccessSignature* die u eerder hebt genoteerd.
    
     ```csharp
         // Azure app-specific connection string and hub path
-        public const string ConnectionString = "<Azure connection string>";
-        public const string NotificationHubPath = "<Azure hub path>";
+        public const string ListenConnectionString = "<Azure connection string>";
+        public const string NotificationHubName = "<Azure hub path>";
     ```
 
-6. Voeg in **AppDelegate.cs** de volgende instructie toe:
+7. Voeg in **AppDelegate.cs** de volgende instructie toe:
    
     ```csharp
         using WindowsAzure.Messaging;
     ```
 
-7. Declareer een exemplaar van **SBNotificationHub**:
+8. Declareer een exemplaar van **SBNotificationHub**:
    
     ```csharp
         private SBNotificationHub Hub { get; set; }
     ```
 
-8. Werk in **AppDelegate.cs** het item **FinishedLaunching()** zo bij dat het overeenkomt met de volgende code:
-   
+9.  Werk in **AppDelegate.cs** het item **FinishedLaunching()** zo bij dat het overeenkomt met de volgende code:
+  
     ```csharp
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            {
+                UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+                                                                      (granted, error) =>
+                {
+                    if (granted)
+                        InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications);
+                });
+            } else if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
                 var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
                        UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
                        new NSSet ());
@@ -127,12 +139,12 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
         }
     ```
 
-9. Overschrijf de **RegisteredForRemoteNotifications()**-methode in **AppDelegate.cs**:
+10. Overschrijf de **RegisteredForRemoteNotifications()**-methode in **AppDelegate.cs**:
    
     ```csharp
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            Hub = new SBNotificationHub(Constants.ConnectionString, Constants.NotificationHubPath);
+            Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
    
             Hub.UnregisterAllAsync (deviceToken, (error) => {
                 if (error != null)
@@ -150,7 +162,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
         }
     ```
 
-10. Overschrijf de **ReceivedRemoteNotification()**-methode in **AppDelegate.cs**:
+11. Overschrijf de **ReceivedRemoteNotification()**-methode in **AppDelegate.cs**:
    
     ```csharp
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -159,7 +171,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
         }
     ```
 
-11. Maak de volgende **ProcessNotification()**-methode in **AppDelegate.cs**:
+12. Maak de volgende **ProcessNotification()**-methode in **AppDelegate.cs**:
    
     ```csharp
         void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -200,7 +212,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
    > U kunt ervoor kiezen **FailedToRegisterForRemoteNotifications()** te overschrijven om situaties zoals het ontbreken van een netwerkverbinding af te handelen. Dit is vooral belangrijk wanneer de gebruiker de toepassing in de offlinemodus start (bijvoorbeeld in een vliegtuig) en u scenario's voor het verzenden van pushberichten wilt afhandelen die specifiek zijn voor uw app.
   
 
-12. Voer de app uit op uw apparaat.
+13. Voer de app uit op uw apparaat.
 
 ## <a name="send-test-push-notifications"></a>Testpushmeldingen verzenden
 U kunt ontvangst van meldingen in uw app testen met de optie *Test verzenden* in [Azure Portal]. Er wordt dan een pushmelding als test naar uw apparaat verzonden.
@@ -226,6 +238,7 @@ In deze zelfstudie hebt u meldingen uitgezonden naar al uw iOS-apparaten die zij
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
+[33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
 
 

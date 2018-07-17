@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b0474ce532831e15738ec882dfdf451bc35d09cf
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737609"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922654"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -34,10 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="prerequisites"></a>Vereisten
 - Zorg ervoor dat de VM’s die u wilt migreren, worden uitgevoerd met een ondersteunde versie van het besturingssysteem. Ondersteunde versies zijn onder andere: 
     - Windows Server 2016
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - 64-bits versie van Windows Server 2008 R2 SP1 of later
-    - Red Hat Enterprise Linux 6.7 (alleen gevirtualiseerde HVM-instanties), met een Citrix Paravirtual-stuurprogramma of een AWS Paravirtual-stuurprogramma. Instanties waarop Red Hat Paravirtual-stuurprogramma’s worden uitgevoerd, worden *niet* ondersteund.
+    - Red Hat Enterprise Linux 6.7 (alleen gevirtualiseerde HVM-instanties), met alleen Citrix HW- of AWS HW-stuurprogramma's. Instanties waarop een Red Hat HW-stuurprogramma wordt uitgevoerd, worden **niet** ondersteund.
 
 - De Mobility-service moet worden geïnstalleerd op elke VM die u wilt repliceren. 
 

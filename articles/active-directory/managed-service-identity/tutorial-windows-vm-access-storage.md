@@ -1,6 +1,6 @@
 ---
-title: Gebruik van een Windows-VM-MSI voor toegang tot Azure Storage
-description: Een zelfstudie die u bij het proces helpt van het gebruik van een Windows VM beheerde Service identiteit (MSI) voor toegang tot Azure Storage.
+title: Toegang krijgen tot Azure Storage met een MSI voor Windows-VM
+description: Een zelfstudie die u helpt bij het doorlopen van het proces voor het krijgen van toegang tot Azure Storage met een Managed Service Identity (MSI) voor Windows-VM.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,29 +9,29 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 9bfaf7f4fa4b7778650638b3b4670e29906838a8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 823b647dbc171050f7b36cfc729b0d3529e1f296
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594778"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901225"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Zelfstudie: Een Windows VM beheerde Service-identiteit gebruiken voor toegang tot Azure Storage via toegangssleutel
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Zelfstudie: Toegang krijgen tot Azure Storage via toegangssleutel met een Managed Service Identity voor Windows-VM
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen voor een virtuele Windows-Machine en vervolgens die identiteit gebruiken voor het ophalen van de toegangssleutels voor opslag-account. U kunt gewoon bij het uitvoeren van opslagbewerkingen, bijvoorbeeld bij het gebruik van de opslag-SDK toegangssleutels voor opslag gebruiken. Voor deze zelfstudie we uploaden en downloaden van blobs met Azure Storage PowerShell. U leert hoe:
+Deze zelfstudie laat zien hoe u Managed Service Identity (MSI) kunt inschakelen voor een virtuele Windows-machine, en daarmee toegangssleutels voor opslagaccounts kunt ophalen. U kunt toegangssleutels voor opslag gebruiken zoals u gewend bent bij opslagbewerkingen, bijvoorbeeld bij het gebruik van de Storage-SDK. Voor deze zelfstudie uploaden en downloaden we blobs met behulp van PowerShell voor Azure Storage. U leert het volgende:
 
 
 > [!div class="checklist"]
-> * MSI op een virtuele Machine van Windows inschakelen 
-> * Uw VM toegang verlenen tot toegang toegangscodes voor opslag in Resource Manager 
-> * Ophalen van een toegangstoken die met de identiteit van de VM, en deze gebruiken voor het ophalen van de toegangssleutels voor opslag van Resource Manager 
+> * MSI inschakelen op een virtuele Windows-machine 
+> * Uw virtuele machine toegang verlenen tot toegangssleutels voor opslagaccounts in Resource Manager 
+> * Een toegangstoken ophalen met de identiteit van de virtuele machine, en daarmee de toegangssleutels voor opslag ophalen uit Resource Manager 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,126 +43,126 @@ Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen vo
 
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine in een nieuwe resourcegroep maken
+## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine maken in een nieuwe resourcegroep
 
-Voor deze zelfstudie maken we een nieuwe Windows VM. U kunt ook MSI op een bestaande virtuele machine inschakelen.
+Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine. U kunt MSI ook inschakelen op een bestaande virtuele machine.
 
-1.  Klik op de **+/ nieuwe service maken** knop gevonden in de linkerbovenhoek van de Azure portal.
+1.  Klik op de knop **+/Nieuwe service maken** in de linkerbovenhoek van Azure Portal.
 2.  Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
-3.  Geef de informatie van de virtuele machine op. De **gebruikersnaam** en **wachtwoord** gemaakte Hier ziet u de referenties die u kunt aanmelden bij de virtuele machine.
-4.  Kies de juiste **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
-5.  Selecteer een nieuwe **resourcegroep** u wilt virtuele machine om te worden gemaakt in of kies **nieuw**. Na het voltooien klikt u op **OK**.
-6.  Selecteer de grootte van de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
+3.  Geef de informatie van de virtuele machine op. De referenties (combinatie van **Gebruikersnaam** en **Wachtwoord**) die u hier opgeeft, zijn de referenties waarmee u zich aanmeldt bij de virtuele machine.
+4.  Kies het juiste **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
+5.  Om een nieuwe **resourcegroep** te selecteren waarin de virtuele machine moet worden gemaakt, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
+6.  Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
 
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alt-tekst voor afbeelding](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen
 
-De MSI van een virtuele Machine kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Achter de MSI inschakelen biedt twee dingen: registreert uw virtuele machine met Azure Active Directory voor het maken van de beheerde identiteit en configureert u de identiteit op de virtuele machine.
+Met een MSI op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder referenties in uw code te hoeven opnemen. Er gebeuren twee dingen als u MSI inschakelt: de virtuele machine wordt bij Azure Active Directory geregistreerd om de beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.
 
 1. Navigeer naar de resourcegroep van de nieuwe virtuele machine en selecteer de virtuele machine die u in de vorige stap hebt gemaakt.
-2. Klik in de virtuele machine 'Instellingen' aan de linkerkant op **configuratie**.
-3. Als u wilt registreren en inschakelen van het MSI-bestand, selecteer **Ja**, als u wilt uitschakelen, kiest u Nee.
-4. Zorg ervoor dat u klikt op **opslaan** aan de configuratie op te slaan.
+2. Klik onder de instellingen voor de VM aan de linkerkant op **Configuratie**.
+3. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee.
+4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.
 
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Create a storage account 
 
-Als u dit niet al hebt, maakt u nu een opslagaccount. Ook kunt u deze stap overslaan en uw VM MSI toegang verlenen tot de sleutels van een bestaand opslagaccount. 
+Als u nog geen opslagaccount hebt, maakt u er nu een. U kunt deze stap ook overslaan en uw VM-MSI toegang verlenen tot de sleutels van een bestaand opslagaccount. 
 
-1. Klik op de **+/ nieuwe service maken** knop gevonden in de linkerbovenhoek van de Azure portal.
-2. Klik op **opslag**, klikt u vervolgens **Opslagaccount**, en een nieuw deelvenster voor 'Storage-account maken' wordt weergegeven.
-3. Voer een naam voor de storage-account, gaat u later gebruiken.  
-4. **Implementatiemodel** en **Account kind** moet worden ingesteld op 'Resource manager' en 'Algemene', respectievelijk. 
-5. Zorg ervoor dat de **abonnement** en **resourcegroep** overeenkomen met de gegevenstypen die u hebt opgegeven toen u uw virtuele machine in de vorige stap hebt gemaakt.
+1. Klik op de knop **+/Nieuwe service maken** in de linkerbovenhoek van Azure Portal.
+2. Klik op **Opslag** en vervolgens op **Opslagaccount**. Het paneel Opslagaccount maken wordt weergegeven.
+3. Voer een naam voor het opslagaccount in. U gaat deze gegevens later gebruiken.  
+4. **Implementatiemodel** en **Soort account** moeten respectievelijk worden ingesteld op Resource Manager en Algemeen gebruik. 
+5. Zorg ervoor dat de waarden van **Abonnement** en **Resourcegroep** overeenkomen met de waarden die u hebt opgegeven bij het maken van de virtuele machine in de vorige stap.
 6. Klik op **Create**.
 
     ![Nieuw opslagaccount maken](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-in-the-storage-account"></a>Een blob-container in het opslagaccount maken
+## <a name="create-a-blob-container-in-the-storage-account"></a>Een blobcontainer in het opslagaccount maken
 
-Later wordt uploaden en downloaden van een bestand met de nieuwe opslagaccount. Omdat bestanden blob-opslag is vereist, moeten we maken van een blob-container waarin het bestand wilt opslaan.
+Later zullen we een bestand uploaden en downloaden naar het nieuwe opslagaccount. Omdat voor bestanden blobopslag nodig is, moeten we een blobcontainer maken waarin het bestand kan worden opgeslagen.
 
-1. Ga terug naar uw nieuwe opslagaccount.
-2. Klik op de **Containers** koppeling aan de linkerkant onder 'Blob-service'.
-3. Klik op **+ Container** boven aan de pagina en een 'nieuwe container' Configuratiescherm dia's uit.
-4. Geef een naam op voor de container, selecteer een toegangsniveau en klik op **OK**. De opgegeven naam wordt verderop in de zelfstudie gebruikt. 
+1. Navigeer terug naar het zojuist gemaakte opslagaccount.
+2. Klik op de koppeling **Containers** aan de linkerkant, onder Blob service.
+3. Klik op **+ Container** boven aan de pagina om het paneel Nieuwe container deelvenster uit te schuiven.
+4. Geef een naam voor de container op, selecteer een toegangsniveau en klik op **OK**. De naam die u hebt opgegeven, wordt verderop in de zelfstudie gebruikt. 
 
     ![Opslagcontainer maken](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Uw VM MSI-toegang voor het gebruik van sleutels van opslagaccount toegang verlenen 
+## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>MSI van de virtuele machine toegang verlenen voor het gebruik van toegangssleutels voor opslagaccounts 
 
-Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  U kunt echter een MSI-bestand gebruiken voor het ophalen van opslagtoegangssleutels-account van de Resource Manager en vervolgens een sleutel wordt gebruikt voor toegang tot opslag.  In deze stap maakt u uw VM MSI toegang verlenen tot de sleutels naar uw opslagaccount.   
+Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  U kunt echter een MSI gebruiken om toegangssleutels voor opslagaccounts op te halen uit Resource Manager, en vervolgens een sleutel gebruiken om toegang tot de opslag te krijgen.  In deze stap verleent u de MSI van de VM toegang tot de sleutels voor uw opslagaccount.   
 
-1. Ga terug naar uw nieuwe opslagaccount.  
-2. Klik op de **toegangsbeheer (IAM)** koppeling in het linkerdeelvenster.  
-3. Klik op **+ toevoegen** boven op de pagina om een nieuwe roltoewijzing voor de virtuele machine
-4. Stel **rol** naar 'Storage Account sleutel Operator Service rol', aan de rechterkant van de pagina. 
-5. Stel in de volgende dropdown **toewijzen van toegang tot** de resource 'Virtuele Machine'.  
-6. Controleer vervolgens het juiste abonnement wordt vermeld in **abonnement** vervolgkeuzelijst Stel **resourcegroep** aan 'Alle resourcegroepen'.  
-7. Ten slotte onder **Selecteer** kiest u uw Windows-Machine in de vervolgkeuzelijst en klik vervolgens op **opslaan**. 
+1. Navigeer terug naar het zojuist gemaakte opslagaccount.  
+2. Klik op de koppeling **Toegangsbeheer (IAM)** in het linkerpaneel.  
+3. Klik op **+ Toevoegen** boven aan de pagina om een nieuwe roltoewijzing voor de virtuele machine toe te voegen
+4. Stel **Rol** in op 'De servicerol Sleuteloperator voor opslagaccounts', aan de rechterkant van de pagina. 
+5. Stel in de volgende vervolgkeuzelijst **Toegang toewijzen aan** de resource in op Virtuele machine.  
+6. Controleer vervolgens of het juiste abonnement wordt weergegeven in de vervolgkeuzelijst **Abonnement**, en stel **Resourcegroep** in op Alle resourcegroepen.  
+7. Kies ten slotte onder **Selecteren** uw virtuele Windows-machine in de vervolgkeuzelijst en klik op **Opslaan**. 
 
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Ophalen van een toegangstoken die met de identiteit van de VM en deze gebruiken om aan te roepen Azure Resource Manager 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en daarmee Azure Resource Manager aanroepen 
 
-Voor het restant van de zelfstudie werken we van de virtuele machine die we eerder hebben gemaakt. 
+Voor de rest van de zelfstudie werken we op de virtuele machine die we eerder hebben gemaakt. 
 
-U moet de Azure Resource Manager PowerShell-cmdlets in dit gedeelte gebruiken.  Als u niet geïnstalleerd hebt, [de nieuwste versie downloaden](https://docs.microsoft.com/powershell/azure/overview) voordat u doorgaat.
+In dit gedeelte moet u de PowerShell-cmdlets voor Azure Resource Manager gebruiken.  Als u deze nog niet hebt geïnstalleerd, moet u [de nieuwste versie downloaden](https://docs.microsoft.com/powershell/azure/overview) voordat u doorgaat.
 
-1. Navigeer in de Azure-portal naar **virtuele Machines**, gaat u naar uw Windows-machine, klikt u vervolgens vanuit de **overzicht** pagina op **Connect** aan de bovenkant. 
-2. Voer in uw **gebruikersnaam** en **wachtwoord** voor die u hebt toegevoegd tijdens het maken van de virtuele machine van Windows. 
-3. Nu dat u hebt gemaakt een **verbinding met extern bureaublad** met de virtuele machine, opent u PowerShell in de externe sessie.
-4. Maak met behulp van Powershell Invoke-WebRequest, een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor Azure Resource Manager.
+1. In Azure Portal navigeert u naar **Virtuele machines**, gaat u naar uw virtuele Windows-machine, klikt u vervolgens boven aan de pagina **Overzicht** op **Verbinden**. 
+2. Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine. 
+3. Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u PowerShell in de externe sessie.
+4. Dien met behulp van Powershell een Invoke-WebRequest-aanvraag in op het lokale MSI-eindpunt om een toegangstoken voor Azure Resource Manager op te halen.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
-    > De waarde van de resourceparameter '' moet een exacte overeenkomst voor door Azure AD wordt verwacht. Wanneer u de resource-ID van Azure Resource Manager gebruikt, moet u de afsluitende slash op de URI opnemen.
+    > De waarde van de parameter 'resource' moet exact overeenkomen met wat er in Azure AD wordt verwacht. Wanneer u de resource-id van Azure Resource Manager gebruikt, moet u de URI opgeven met een slash op het einde.
     
-    Pak vervolgens het element 'Inhoud', dat wordt opgeslagen als een tekenreeks in JSON JavaScript Object Notation () geformatteerd in de $response-object. 
+    Extraheer vervolgens het element 'Content' (inhoud), dat is opgeslagen als een tekenreeks in JSON-indeling (JavaScript Object Notation) in het object $response. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json
     ```
-    Haal het toegangstoken vervolgens uit het antwoord.
+    Extraheer vervolgens het toegangstoken uit het antwoord.
     
     ```powershell
     $ArmToken = $content.access_token
     ```
  
-## <a name="get-storage-account-access-keys-from-azure-resource-manager-to-make-storage-calls"></a>Toegangssleutels voor opslag-account ophalen van Azure Resource Manager storage aanroepen  
+## <a name="get-storage-account-access-keys-from-azure-resource-manager-to-make-storage-calls"></a>Toegangssleutels voor opslagaccounts ophalen uit Azure Resource Manager om opslagaanroepen te maken  
 
-Nu PowerShell gebruiken om aan te roepen Resource Manager met behulp van het toegangstoken dat we opgehaald in de vorige sectie voor het ophalen van de toegangssleutel voor opslag. Wanneer we de toegangssleutel voor opslag hebt, noemen we opslagbewerkingen uploaden/downloaden.
+Gebruik nu PowerShell voor het aanroepen van Resource Manager met behulp van het toegangstoken dat we hebben opgehaald in de vorige sectie, om de toegangssleutel voor opslag op te halen. Als we de toegangssleutel voor opslag eenmaal hebben, kunnen we up- en downloadbewerkingen aanroepen.
 
 ```powershell
 $keysResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE-ACCOUNT>/listKeys/?api-version=2016-12-01 -Method POST -Headers @{Authorization="Bearer $ARMToken"}
 ```
 > [!NOTE] 
-> De URL is hoofdlettergevoelig, dus zorg ervoor dat u eerder gebruikt wanneer u de resourcegroep, met inbegrip van de hoofdletters 'G' in "resourceGroups." met de naam exact hetzelfde hoofdlettergebruik gebruiken 
+> De URL is hoofdlettergevoelig, dus gebruik precies dezelfde naam van de resourcegroep als hiervoor, met inbegrip van de hoofdletter 'G' in 'resourceGroups'. 
 
 ```powershell
 $keysContent = $keysResponse.Content | ConvertFrom-Json
 $key = $keysContent.keys[0].value
 ```
 
-Vervolgens maken we een bestand met de naam 'test.txt'. De toegangssleutel voor opslag vervolgens gebruiken voor verificatie met de `New-AzureStorageContent` cmdlet, upload het bestand naar de blob-container en vervolgens het bestand downloaden.
+Vervolgens maken we een bestand met de naam test.txt. Gebruik de toegangssleutel voor opslag om te verifiëren bij de `New-AzureStorageContent`-cmdlet, upload het bestand naar de blobcontainer, en download het bestand vervolgens.
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-Moet u eerst de Azure Storage-cmdlets installeren met behulp van `Install-Module Azure.Storage`. Upload de blob die u zojuist hebt gemaakt, met behulp van de `Set-AzureStorageBlobContent` PowerShell-cmdlet:
+Zorg ervoor dat u eerst de Azure Storage-cmdlets installeert met `Install-Module Azure.Storage`. Upload de blob die u zojuist hebt gemaakt, met behulp van de `Set-AzureStorageBlobContent` PowerShell-cmdlet:
 
 ```powershell
 $ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
 Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
-Antwoord:
+Reactie:
 
 ```powershell
 ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
@@ -176,13 +176,13 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-U kunt ook downloaden de blob die u zojuist hebt geüpload, met behulp van de `Get-AzureStorageBlobContent` PowerShell-cmdlet:
+U kunt de blob die u zojuist hebt geüpload, ook downloaden met de `Get-AzureStorageBlobContent` PowerShell-cmdlet:
 
 ```powershell
 Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
-Antwoord:
+Reactie:
 
 ```powershell
 ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
@@ -198,8 +198,8 @@ Name              : testblob
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd het maken van een Service-identiteit beheerd voor toegang tot Azure Storage met een toegangssleutel.  Zie voor meer informatie over Azure Storage toegangstoetsen:
+In deze zelfstudie hebt u geleerd een Managed Service Identity te maken om toegang tot Azure Storage te krijgen met behulp van een toegangssleutel.  Zie voor meer informatie over Azure Storage-toegangssleutels:
 
 > [!div class="nextstepaction"]
->[Beheren van uw toegangssleutels voor opslag](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[De toegangssleutels van uw opslagaccount beheren](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
 

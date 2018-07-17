@@ -1,6 +1,6 @@
 ---
-title: Gebruik van een MSI Linux VM gebruiker toegewezen voor toegang tot Azure Resource Manager
-description: Een zelfstudie die u bij het proces helpt van het gebruik van een User-Assigned beheerde Service identiteit (MSI) op een Linux-VM voor toegang tot Azure Resource Manager.
+title: Toegang krijgen tot Azure Resource Manager met een door de gebruiker toegewezen MSI voor Linux-VM
+description: Een zelfstudie die u helpt bij het doorlopen van het proces voor het krijgen van toegang tot Azure Resource Manager met een door de gebruiker toegewezen Managed Service Identity (MSI) op een Linux-VM.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,40 +9,40 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: arluca
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 542b2e434767711a6947a87c6995343d27e6dddd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: MT
+ms.openlocfilehash: 1195161a0c4045620447439bf9361b7c4c0189ae
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699112"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904387"
 ---
-# <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Zelfstudie: Een toegewezen gebruikers-id gebruiken op een Linux-VM voor toegang tot Azure Resource Manager
+# <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Zelfstudie: een door de gebruiker toegewezen identiteit gebruiken op een Linux-VM om toegang te krijgen tot Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Deze zelfstudie wordt uitgelegd hoe u een gebruiker toegewezen identiteit maken, toewijzen aan een Linux-virtuele Machine (VM) en die identiteit vervolgens gebruiken voor toegang tot de Azure Resource Manager-API. Beheerde Service-identiteiten worden automatisch beheerd door Azure. Hiermee kunt verificatie voor services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties insluiten in uw code. 
+In deze zelfstudie wordt uitgelegd hoe u een door de gebruiker toegewezen identiteit kunt maken, deze toewijzen aan een virtuele Linux-machine (VM) en die identiteit vervolgens gebruiken om toegang te krijgen tot de Azure Resource Manager-API. Beheerde service-identiteiten worden automatisch beheerd door Azure. Ze maken verificatie mogelijk voor services die Azure AD-verificatie ondersteunen, zonder dat er referenties in uw code hoeven te worden ingesloten. 
 
-Beheerde Service-identiteiten worden automatisch beheerd door Azure. Hiermee kunt verificatie voor services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties insluiten in uw code.
+Beheerde service-identiteiten worden automatisch beheerd door Azure. Ze maken verificatie mogelijk voor services die Azure AD-verificatie ondersteunen, zonder dat er referenties in uw code hoeven te worden ingesloten.
 
 In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Een gebruiker toegewezen identiteit maken
-> * Toewijzen van de gebruiker toegewezen identiteit voor een Linux-VM 
-> * De gebruiker toegewezen identiteit toegang verlenen aan een resourcegroep in Azure Resource Manager 
-> * Ophalen van een toegangstoken die door de gebruiker toegewezen identiteit en het aanroepen van Azure Resource Manager 
+> * Door de gebruiker toegewezen identiteit maken
+> * De door de gebruiker toegewezen identiteit toewijzen aan een Linux-VM 
+> * De door de gebruiker toegewezen identiteit toegang verlenen tot een resourcegroep in Azure Resource Manager 
+> * Een toegangstoken ophalen met behulp van de door de gebruiker toegewezen identiteit en daarmee Azure Resource Manager aanroepen 
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als uw weet niet bekend met de Service-identiteit beheerd Bekijk de [overzicht](overview.md) sectie. **Lees de [verschillen tussen systeem en de gebruiker toegewezen identiteiten](overview.md#how-does-it-work)**.
-- Als u al een Azure-account niet hebt [aanmelden voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
-- Als u wilt uitvoeren in de vereiste bron maken en de rol management stappen in deze zelfstudie, moet uw account 'Eigenaar'-machtigingen op het juiste bereik (uw abonnement of de resource-group). Als u hulp nodig hebt bij roltoewijzing, Zie [Use Role-Based toegangsbeheer voor het beheren van toegang tot de resources van uw Azure-abonnement](/azure/role-based-access-control/role-assignments-portal).
+- Als u niet bekend bent met Managed Service Identity, raadpleeg dan de [overzichtssectie](overview.md). **Zorg ervoor dat u de [verschillen tussen door het systeem en door de gebruiker toegewezen identiteiten](overview.md#how-does-it-work)** kent.
+- Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
+- Om de stappen voor het maken van de vereiste resources en het rolbeheer in deze zelfstudie uit te voeren, moet uw account 'Eigenaar'-machtigingen hebben voor het juiste bereik (uw abonnement of resourcegroep). Voor hulp bij roltoewijzing gaat u naar [Op rollen gebaseerd toegangsbeheer gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](/azure/role-based-access-control/role-assignments-portal).
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
@@ -50,29 +50,29 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-Machine in een nieuwe resourcegroep maken
+## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine maken in een nieuwe resourcegroep
 
-Voor deze zelfstudie maakt u eerst een nieuwe Linux VM. U kunt ook kiezen voor het gebruik van een bestaande virtuele machine.
+Voor deze zelfstudie maakt u eerst een nieuwe virtuele Linux-machine. U kunt ook een bestaande VM gebruiken.
 
-1. Klik op **maken van een resource** op de linkerbovenhoek van de Azure portal.
+1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
-3. Geef de informatie van de virtuele machine op. Voor **verificatietype**, selecteer **openbare SSH-sleutel** of **wachtwoord**. De gemaakte referenties kunnen u zich aanmelden bij de virtuele machine.
+3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
 
-    ![Virtuele Linux-machine maken](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Linux-VM maken](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Kies een **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
-5. Selecteer een nieuwe **resourcegroep** u wilt dat de virtuele machine om te worden gemaakt in of kies **nieuw**. Na het voltooien klikt u op **OK**.
-6. Selecteer de grootte van de virtuele machine. Selecteer om te zien meer grootten, **weergeven van alle** of wijzigen van de ondersteunde schijf type filter. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
+5. Om een nieuwe **resourcegroep** te selecteren waarin u de virtuele machine wilt maken, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
+6. Selecteer de grootte voor de virtuele machine. Kies om meer grootten weer te geven de optie **Alle weergeven** of wijzig het filter Ondersteund schijftype. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
 
-## <a name="create-a-user-assigned-identity"></a>Een gebruiker toegewezen identiteit maken
+## <a name="create-a-user-assigned-identity"></a>Door de gebruiker toegewezen identiteit maken
 
-1. Als u gebruikmaakt van de console CLI (in plaats van een Azure-Cloud-Shell-sessie), eerst aanmelden bij Azure. Gebruik een account dat is gekoppeld aan het Azure-abonnement waarmee u wilt maken van de nieuwe gebruiker toegewezen identiteit:
+1. Als u de CLI-console gebruikt (in plaats van een Azure Cloud Shell-sessie), begint u door u aan te melden bij Azure. Gebruik een account dat is gekoppeld aan het Azure-abonnement waaronder u nieuwe door de gebruiker toegewezen identiteit wilt implementeren:
 
     ```azurecli
     az login
     ```
 
-2. Maak een gebruiker toegewezen identiteit met [az identiteit maken](/cli/azure/identity#az_identity_create). De `-g` parameter geeft u de resourcegroep waar het MSI-bestand is gemaakt, en de `-n` parameter geeft u de naam ervan. Zorg ervoor dat u de `<RESOURCE GROUP>` en `<MSI NAME>` parameterwaarden met uw eigen waarden:
+2. Maak een door de gebruiker toegewezen identiteit met [az identity create](/cli/azure/identity#az_identity_create). De parameter `-g` geeft de resourcegroep aan waar de MSI wordt gemaakt, en de parameter `-n` geeft de naam aan. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<MSI NAME>` door uw eigen waarden:
     
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -81,7 +81,7 @@ Voor deze zelfstudie maakt u eerst een nieuwe Linux VM. U kunt ook kiezen voor h
 az identity create -g <RESOURCE GROUP> -n <MSI NAME>
 ```
 
-Het antwoord bevat de details voor de gebruiker toegewezen identiteit gemaakt, vergelijkbaar met het volgende voorbeeld. Opmerking de `id` waarde voor de identiteit van de gebruiker die is toegewezen, zoals deze wordt gebruikt in de volgende stap:
+Het antwoord bevat details voor de gemaakte door de gebruiker toegewezen identiteit, vergelijkbaar met het volgende voorbeeld. Noteer de `id`-waarde voor uw door de gebruiker toegewezen identiteit, omdat deze bij de volgende stap wordt gebruikt:
 
 ```json
 {
@@ -98,27 +98,27 @@ Het antwoord bevat de details voor de gebruiker toegewezen identiteit gemaakt, v
 }
 ```
 
-## <a name="assign-a-user-assigned-identity-to-your-linux-vm"></a>Een gebruiker toegewezen identiteit voor uw Linux-VM toewijzen
+## <a name="assign-a-user-assigned-identity-to-your-linux-vm"></a>Een door de gebruiker toegewezen identiteit toewijzen aan uw Linux-VM
 
-Een gebruiker toegewezen identiteit kan worden gebruikt door clients in meerdere Azure-resources. Gebruik de volgende opdrachten voor het toewijzen van de identiteit van de gebruiker toegewezen aan één VM. Gebruik de `Id` eigenschap geretourneerd in de vorige stap voor de `-IdentityID` parameter.
+Een door de gebruiker toegewezen identiteit kan worden gebruikt door clients op meerdere Azure-resources. Gebruik de volgende opdrachten om de door de gebruiker toegewezen identiteit toe te wijzen aan één VM. Gebruik de eigenschap `Id` die in de vorige stap is geretourneerd voor de parameter `-IdentityID`.
 
-De gebruiker toegewezen MSI toewijzen aan uw Linux-VM met [az vm toewijzen-identity](/cli/azure/vm#az_vm_assign_identity). Zorg ervoor dat u de `<RESOURCE GROUP>` en `<VM NAME>` parameterwaarden met uw eigen waarden. Gebruik de `id` eigenschap geretourneerd in de vorige stap voor de `--identities` parameterwaarde.
+Wijs de door de gebruiker toegewezen MSI toe aan uw Linux-VM met [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VM NAME>` door uw eigen waarden. Gebruik de eigenschap `id` die in de vorige stap is geretourneerd voor de waarde van de parameter `--identities`.
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
-## <a name="grant-your-user-assigned-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Uw identiteit toegewezen door gebruikerstoegang verlenen aan een resourcegroep in Azure Resource Manager 
+## <a name="grant-your-user-assigned-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Uw door de gebruiker toegewezen identiteit toegang verlenen tot een resourcegroep in Azure Resource Manager 
 
-Beheerde Service-identiteit (MSI) biedt identiteiten die uw code gebruiken kunt om aan te vragen van de toegangstokens voor verificatie bij resource API's die ondersteuning voor Azure AD-verificatie. In deze zelfstudie wordt uw code toegang tot de Azure Resource Manager-API.  
+Managed Service Identity (MSI) biedt identiteiten die uw code kan gebruiken om toegangstokens aan te vragen voor verificatie bij resource-API's die Azure AD-verificatie ondersteunen. In deze zelfstudie krijgt uw code toegang tot de Azure Resource Manager-API.  
 
-Voordat uw code toegang heeft tot de API, moet u de identiteit toegang verlenen tot een resource in Azure Resource Manager. In dit geval de resourcegroep waarin de virtuele machine is opgenomen. Werk de waarde voor `<SUBSCRIPTION ID>` en `<RESOURCE GROUP>` afhankelijk van wat geschikt is voor uw omgeving. Verder vervangen `<MSI PRINCIPALID>` met de `principalId` eigenschap die is geretourneerd door de `az identity create` opdracht in [maken van een gebruiker toegewezen MSI](#create-a-user-assigned-msi):
+Voordat uw code toegang tot de API kan krijgen, moet u de identiteit toegang geven tot een resource in Azure Resource Manager. In dit geval is dat de resourcegroep waarin de VM zich bevindt. Werk de waarde voor `<SUBSCRIPTION ID>` en `<RESOURCE GROUP>` bij overeenkomstig uw omgeving. Vervang bovendien `<MSI PRINCIPALID>` door de eigenschap `principalId` die wordt geretourneerd door de opdracht `az identity create` in [Door de gebruiker toegewezen MSI maken](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
-Het antwoord bevat de details voor de roltoewijzing gemaakt, vergelijkbaar met het volgende voorbeeld:
+Het antwoord bevat details voor de gemaakte roltoewijzing, vergelijkbaar met het volgende voorbeeld:
 
 ```json
 {
@@ -135,29 +135,29 @@ Het antwoord bevat de details voor de roltoewijzing gemaakt, vergelijkbaar met h
 
 ```
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Ophalen van een toegangstoken die met de identiteit van de VM en deze gebruiken om aan te roepen Resource Manager 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en daarmee Resource Manager aanroepen 
 
-Voor het restant van de zelfstudie werken we van de virtuele machine die we eerder hebben gemaakt.
+Voor de rest van de zelfstudie werken we op de virtuele machine die we eerder hebben gemaakt.
 
-Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaakt, kunt u de SSH-client in de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+U hebt een SSH-client nodig om deze stappen uit te voeren. Als u Windows gebruikt, kunt u de SSH-client in het [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) gebruiken. 
 
-1. Aanmelden bij de Azure [portal](https://portal.azure.com).
-2. Navigeer in de portal naar **virtuele Machines** en gaat u naar de virtuele Linux-machine en in de **overzicht**, klikt u op **Connect**. Kopieer de tekenreeks verbinding maken met uw virtuele machine.
-3. Verbinding maken met de virtuele machine met de SSH-client van uw keuze. Als u van Windows gebruikmaakt, kunt u de SSH-client in de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about). Als u informatie over het configureren van de client van uw SSH-sleutels nodig hebt, raadpleegt u [het gebruik van SSH-sleutels met Windows in Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), of [maken en de openbare en persoonlijke sleutelpaar voor een SSH gebruiken voor virtuele Linux-machines in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
-4. Het terminalvenster met CURL, zorg er in een aanvraag naar het eindpunt van de identiteit Azure exemplaar metagegevens Service (IMDS) naar een toegangstoken ophalen voor Azure Resource Manager.  
+1. Meld u aan bij de Azure [Portal](https://portal.azure.com).
+2. Navigeer in de portal naar **Virtuele machines**, ga naar de virtuele Windows-machine en klik op de pagina **Overzicht** op **Verbinden**. Kopieer de verbindingsreeks voor uw virtuele machine.
+3. Maak verbinding met de virtuele machine met de SSH-client van uw keuze. Als u Windows gebruikt, kunt u de SSH-client in het [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) gebruiken. Zie [De sleutels van uw SSH-client gebruiken onder Windows in Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) of [Een sleutelpaar met een openbare SSH-sleutel en een privé-sleutel maken en gebruiken voor virtuele Linux-machines in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) als u hulp nodig hebt bij het configureren van de sleutels van uw SSH-client.
+4. Dien in het terminalvenster met behulp van CURL een aanvraag in op het Azure IMDS-eindpunt (Instance Metadata Service) om een toegangstoken voor Azure Resource Manager op te halen.  
 
-   De aanvraag CURL te verkrijgen van een toegangstoken wordt weergegeven in het volgende voorbeeld. Zorg ervoor dat u `<CLIENT ID>` met de `clientId` eigenschap die is geretourneerd door de `az identity create` opdracht in [maken van de identiteit van een gebruiker toegewezen](#create-a-user-assigned-msi): 
+   De CURL-aanvraag voor het verkrijgen van een toegangstoken wordt in het volgende voorbeeld weergegeven. Vervang `<CLIENT ID>` door de eigenschap `clientId` die wordt geretourneerd door de opdracht `az identity create` in [Door de gebruiker toegewezen identiteit maken](#create-a-user-assigned-msi): 
     
    ```bash
    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > De waarde van de `resource` parameter moet een exacte overeenkomst voor door Azure AD wordt verwacht. Wanneer u de resource-ID van Resource Manager gebruikt, moet u de afsluitende slash op de URI opnemen. 
+    > De waarde van de parameter `resource` moet exact overeenkomen met wat er in Azure AD wordt verwacht. Wanneer u de resource-id van Resource Manager gebruikt, moet u de URI opgeven met een slash op het einde. 
     
     Het antwoord bevat het toegangstoken dat u nodig hebt voor toegang tot Azure Resource Manager. 
     
-    Voorbeeld van antwoord:  
+    Voorbeeldantwoord:  
 
     ```bash
     {
@@ -171,16 +171,16 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
     } 
     ```
 
-5. Het toegangstoken gebruiken voor toegang tot Azure Resource Manager en de eigenschappen van de resourcegroep die u eerder de gebruiker toegewezen identiteit toegang verleend gelezen. Zorg ervoor dat u `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` met de waarden die u eerder hebt opgegeven en `<ACCESS TOKEN>` aan het token geretourneerd in de vorige stap.
+5. Gebruik het toegangstoken om toegang te krijgen tot Azure Resource Manager en lees de eigenschappen van de resourcegroep waarvoor u eerder uw door de gebruiker toegewezen identiteit toegang hebt verleend. Vervang de waarden van `<SUBSCRIPTION ID>`, en `<RESOURCE GROUP>` door de waarden die u eerder hebt opgegeven, en `<ACCESS TOKEN>` door het token dat in de vorige stap is geretourneerd.
 
     > [!NOTE]
-    > De URL is hoofdlettergevoelig, dus zorg ervoor dat u eerder hebt gebruikt wanneer u met de resourcegroep en de hoofdletters 'G' in de naam exact hetzelfde geval u `resourceGroups`.  
+    > De URL is hoofdlettergevoelig, dus gebruik precies dezelfde naam die u eerder hebt gebruikt voor de naam van de resourcegroep, en de hoofdletter ‘G’ in `resourceGroups`.  
 
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    Het antwoord bevat de specifieke resourcegroep informatie vergelijkbaar met het volgende voorbeeld: 
+    Het antwoord bevat de gegevens van de specifieke resourcegroep, vergelijkbaar met het volgende voorbeeld: 
 
     ```bash
     {
@@ -193,7 +193,7 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
     
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe een gebruiker toegewezen identiteit maken en koppel deze aan een virtuele Linux-machine voor toegang tot de Azure Resource Manager-API.  Zie voor meer informatie over Azure Resource Manager:
+In deze zelfstudie hebt u geleerd een door de gebruiker toegewezen identiteit te maken en deze te koppelen aan een virtuele Linux-machine voor toegang tot de Azure Resource Manager-API.  Zie voor meer informatie over Azure Resource Manager:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

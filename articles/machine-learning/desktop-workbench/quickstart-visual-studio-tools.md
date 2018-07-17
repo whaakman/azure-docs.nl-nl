@@ -7,22 +7,24 @@ ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: bbcb2ea5a7ceeb976f590393608cc29c67d9a49e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 735bfd911a738d4e71974f5cdcd94afa50acc502
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932979"
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools voor AI
 Visual Studio Tools voor AI is een ontwikkelingsextensie voor het bouwen, testen en implementeren van deep learning- en AI-oplossingen. Het zorgt voor naadloze integratie met Azure Machine Learning, met name een uitvoeringsgeschiedenisweergave, met gedetailleerde informatie over de prestaties van vorige trainingen en aangepaste metrische gegevens. Het biedt een voorbeeldverkennerweergave waarmee ontwikkelaars door voorbeelden kunnen bladeren en snel nieuwe projecten opstarten met [Microsoft Cognitive Toolkit (vroeger bekend als CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) en andere deep learning-frameworks. Tot slot biedt het een verkenner voor compute-doelen, waarmee u taken kunt verzenden voor het trainen van modellen op externe omgevingen zoals Azure Virtual Machines of Linux-servers met GPU. Het programma biedt ook toegang tot [Azure Batch AI (preview-versie)](https://docs.microsoft.com/azure/batch-ai/).
  
 ## <a name="getting-started"></a>Aan de slag 
 U moet eerst [Visual Studio](https://www.visualstudio.com/downloads/) downloaden en installeren om aan de slag te kunnen gaan. Wanneer u Visual Studio hebt geopend, voert u de volgende stappen uit:
-1. Klik op de menubalk in Visual Studio en selecteer Uitbreidingen en updates...
+1. Klik op Hulpprogramma's op de menubalk in Visual Studio en selecteer Uitbreidingen en updates...
 2. Klik op het tabblad Online en selecteer Zoeken in Visual Studio Marketplace.
 3. Ga naar Visual Studio voor AI. 
 3. Klik op de knop **Downloaden**. 

@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 06/06/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 99508d6e4e6502fe4fd2a81ee7aaefdde7cd2e15
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: d0cb1c113724af5d07abf75e6d3a45b54e5202dc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945799"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950767"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Snelstart: Kubernetes-dev-ruimte maken met Azure Dev Spaces (Node.js)
 
@@ -32,9 +32,9 @@ In deze handleiding leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 - Een Azure-abonnement. Als u geen Azure-abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free) maken.
-- Een [Kubernetes-cluster](https://ms.portal.azure.com/#create/microsoft.aks) met Kubernetes 1.9.6, in de regio EastUS, WestEurope of CanadaEast met **Routering van HTTP-toepassing** ingeschakeld.
+- Een [Kubernetes-cluster](https://ms.portal.azure.com/#create/microsoft.aks) met Kubernetes 1.10.3 in de regio EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral of CanadaEast met **Routering van HTTP-toepassing** ingeschakeld.
 
-  ![Zorg ervoor dat routering van HTTP-toepassing is ingeschakeld.](media/common/Kubernetes-Create-Cluster-3.PNG)
+  ![Zorg dat routering van HTTP-toepassing is ingeschakeld.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
 - Visual Studio Code, die u [hier](https://code.visualstudio.com/download) kunt downloaden.
 
@@ -42,8 +42,7 @@ In deze handleiding leert u het volgende:
 
 1. Installeer [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (versie 2.0.38 of hoger).
 1. Dev Spaces instellen op uw AKS-cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download de extensie [Azure Dev Spaces ](https://aka.ms/get-azds-code) voor VS Code.
-1. De extensie installeren: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. Download de extensie [Azure Dev Spaces ](https://aka.ms/get-azds-code) voor VS Code. Klik eenmaal op Installeren op de Microsoft Azure Marketplace-pagina van de extensie en nog eens in VS Code.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Code schrijven en uitvoeren in Kubernetes
 
@@ -182,4 +181,4 @@ In deze configuratie is de container geconfigureerd voor het starten van *nodemo
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Werken met meerdere containers en teamontwikkeling](get-started-nodejs.md#call-a-service-running-in-a-separate-container)
+> [Werken met meerdere containers en teamontwikkeling](team-development-nodejs.md)

@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723184"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Zelfstudie: Geavanceerde gegevensvoorbereiding (BikeShare-gegevens) met Azure Machine Learning Workbench
 Azure Machine Learning (preview) is een geïntegreerde end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -149,8 +151,7 @@ U kunt Azure Blob-opslag gebruiken voor het hosten van uw gegevensbestanden.
    > * __Scheidingsteken__: komma [,]
    > * __Teken voor opmerkingenregel__: er is geen waarde ingesteld.
    > * __Modus voor regels overslaan__: niet overslaan
-   > * 
-  __Bestandscodering__: utf-8
+   > * __Bestandscodering__: utf-8
    > * __Modus voor kopteksten verhogen__: kopteksten van het eerste bestand gebruiken
 
    In de preview van de gegevens moeten de volgende kolommen worden weergegeven:
@@ -254,7 +255,7 @@ U hebt de kolom __REPORTTYPE__ niet meer nodig. Klik met de rechtermuisknop op d
    ![Optie Kolom verwijderen](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Gegevenstypen wijzigen en fouten verwijderen
-1. Als u op Ctrl (Command ⌘ op de Mac) drukt terwijl u kolomkoppen selecteert, kunt u meerdere kolommen tegelijk selecteren. Doe dit om de volgende kolomkoppen te selecteren:
+1. Selecteer Ctrl (Command ⌘ op de Mac) terwijl u kolomkoppen selecteert om meerdere kolommen tegelijk te selecteren. Doe dit om de volgende kolomkoppen te selecteren:
 
    * **HOURLYDRYBULBTEMPF**
 
@@ -453,7 +454,7 @@ Voor het voorbereiden van de gegevens zijn nuttige visualisaties (ook wel inspec
 1. Selecteer de kolommen **start station latitude** en **start station longitude**. Klik met de rechtermuisknop op een van de kolommen en selecteer vervolgens **Kaart**.
 
     > [!TIP]
-    > Om meerdere kolommen te selecteren, houdt u de Ctrl-toets (Command ⌘ op de Mac) ingedrukt en selecteert u de koptekst van elke kolom.
+    > Om meervoudige selectie in te schakelen, houdt u de Ctrl-toets (Command ⌘ op de Mac) ingedrukt en selecteert u de kop van elke kolom.
 
     ![Kaartvisualisatie](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -636,7 +637,7 @@ Om de weergegevens te koppelen met de gegevens van de fietstocht, voert u de vol
 
     ![Kolom Period](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Om de kolommen **Date Hour Range** en **r_Date Hour Range** te verwijderen, selecteert u Ctrl (Command ⌘ op de Mac) en selecteert u vervolgens elke kolomkop. Klik met de rechtermuisknop en selecteer **Kolom verwijderen**.
+3. Als u de kolommen **Date Hour Range** en **r_Date Hour Range** wilt verwijderen, selecteert u Ctrl (Command ⌘ op de Mac) en selecteert u vervolgens elk van de kolomkoppen. Klik met de rechtermuisknop en selecteer **Kolom verwijderen**.
 
 ## <a name="read-data-from-python"></a>Gegevens lezen van Python
 

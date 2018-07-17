@@ -12,20 +12,18 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 515c9917add27663e8d145fee3e1effc89291bc0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0c8734bec1ce14a3a9692efa3a1fcf975067953a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033684"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968899"
 ---
-<!-- **TODO** Update publish config with repo paths before publishing! -->
-
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Zelfstudie: een apparaatfirmware-updateproces implementeren
 
 Mogelijk moet u de firmware bijwerken op de apparaten die zijn aangesloten op uw IoT-hub. Bijvoorbeeld als u nieuwe functies aan de firmware wilt toevoegen of beveiligingspatches toepassen. In veel IoT-scenario's is het onpraktisch om apparaten fysiek te bezoeken en handmatig firmware-updates toe te passen. Deze zelfstudie laat zien hoe u het firmware-updateproces op afstand kunt starten en bewaken via een back-endtoepassing die is aangesloten op uw hub.
 
-Om het firmware-updateproces te maken en te controleren, maakt de back-endapplicatie in deze zelfstudie een _configuratie_ in uw IoT-hub. IoT Hub automatisch apparaatbeheer gebruikt deze configuratie om een ​​set _gewenste apparaatdubbeleigenschappen_ bij te werken op al uw koelinstallaties. De gewenste eigenschappen specificeren de details van de vereiste firmware-update. Terwijl de koelinstallaties het firmware-updateproces uitvoeren, melden ze hun status aan de back-endtoepassing met behulp van _gerapporteerde apparaatdubbeleigenschappen_. De back-endtoepassing kan de configuratie gebruiken om de gerapporteerde eigenschappen te controleren die vanaf het apparaat zijn verzonden en om het firmware-updateproces tot de voltooiing te volgen:
+Om het firmware-updateproces te maken en te controleren, maakt de back-endapplicatie in deze zelfstudie een _configuratie_ in uw IoT-hub. IoT Hub [automatisch apparaatbeheer](iot-hub-auto-device-config.md) gebruikt deze configuratie om een ​​set _gewenste apparaatdubbeleigenschappen_ bij te werken op al uw koelinstallaties. De gewenste eigenschappen specificeren de details van de vereiste firmware-update. Terwijl de koelinstallaties het firmware-updateproces uitvoeren, melden ze hun status aan de back-endtoepassing met behulp van _gerapporteerde apparaatdubbeleigenschappen_. De back-endtoepassing kan de configuratie gebruiken om de gerapporteerde eigenschappen te controleren die vanaf het apparaat zijn verzonden en om het firmware-updateproces tot de voltooiing te volgen:
 
 ![Firmware-updateproces](media/tutorial-firmware-update/Process.png)
 
@@ -101,7 +99,7 @@ Als u deze opdrachten uitvoert bij een Windows-opdrachtprompt of Powershell-prom
 
 ## <a name="start-the-firmware-update"></a>De firmware-update starten
 
-U maakt een automatische apparaatbeheerconfiguratie in de back-endtoepassing om het firmware-updateproces te starten op alle apparaten die zijn getagd met het **devicetype** koelinstallatie. In deze sectie kunt u zien hoe u:
+U maakt een [automatische apparaatbeheerconfiguratie](iot-hub-auto-device-config.md#create-a-configuration) in de back-endtoepassing om het firmware-updateproces te starten op alle apparaten die zijn getagd met het **devicetype** koelinstallatie. In deze sectie kunt u zien hoe u:
 
 * Een configuratie maakt vanuit een back-endtoepassing.
 * De taak bewaakt tot deze is uitgevoerd.

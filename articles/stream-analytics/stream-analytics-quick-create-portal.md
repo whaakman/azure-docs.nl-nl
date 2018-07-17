@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031427"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902901"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snelstart: Een Stream Analytics-taak maken via Azure Portal
 
@@ -48,7 +48,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
 
 4. Ga op de pagina **Alle resources** naar het opslagaccount dat u in de vorige stap hebt gemaakt. Open de pagina **Overzicht** en open vervolgens de tegel **Blobs**.  
 
-5. Selecteer op de pagina **Blob Service** de optie **Container**, geef de container een **Naam**, bijvoorbeeld *container1*, en wijzig **Openbaar toegangsniveau** in Blob (anonieme leestoegang voor alleen blobs) > selecteer **OK**.  
+5. Selecteer op de pagina **Blob Service** de optie **Container**, geef de container een **Naam**, bijvoorbeeld *container1*, en wijzig **Niveau openbare toegang** in Privé (geen anonieme leestoegang) > selecteer **OK**.  
 
    ![Een container maken](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 

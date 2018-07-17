@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867490"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972978"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
@@ -28,7 +28,7 @@ Als u wilt dat gebruikers hun Azure AD-wachtwoord opnieuw kunnen instellen via h
 * Windows-update van 10 april 2018 of nieuwere client die [lid is van Azure Active Directory](../device-management-azure-portal.md) of [die lid is van hybride Azure Active Directory](../device-management-hybrid-azuread-joined-devices-setup.md).
 * Self-service voor wachtwoordherstel voor Azure AD moet zijn ingeschakeld.
 * U kunt de instelling die de koppeling 'Wachtwoord opnieuw instellen' inschakelt, configureren en implementeren met een van de volgende methoden:
-   * [Intune-apparaatconfiguratieprofiel](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
+   * [Intune-apparaatconfiguratieprofiel](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Voor deze methode is een Intune-registratie van het apparaat vereist.
    * [Registersleutel](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>De koppeling Wachtwoord opnieuw instellen configureren met Intune
@@ -66,7 +66,7 @@ Als u wilt dat gebruikers hun Azure AD-wachtwoord opnieuw kunnen instellen via h
    * Klik op **Selecteren**.
 4. Klik op **Maken**.
 
-Meer informatie over het maken van groepen vindt u in het artikel [Toegang tot resources beheren met Azure Active Directory-groepen](../active-directory-manage-groups.md).
+Meer informatie over het maken van groepen vindt u in het artikel [Toegang tot resources beheren met Azure Active Directory-groepen](../fundamentals/active-directory-manage-groups.md).
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>Beleid voor apparaatconfiguratie toewijzen aan een apparaatgroep
 

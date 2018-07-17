@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 658588b29e65c9b1cd2f9d82c1c4528929875b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935568"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972995"
 ---
 # <a name="monitor-published-apis"></a>Gepubliceerde API's bewaken
 
@@ -58,10 +58,14 @@ API Management geeft elke minuut metrische gegevens vrij, waardoor u in vrijwel 
 Metrische gegevens openen:
 
 1. Selecteer **Metrische gegevens** in het menu onder aan de pagina.
-2. Selecteer in de vervolgkeuzelijst de gewenste metrische gegevens (u kunt meerdere gegevens toevoegen). 
 
+    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. Selecteer in de vervolgkeuzelijst de gewenste metrische gegevens (u kunt meerdere gegevens toevoegen).  
     Selecteer bijvoorbeeld **Totaal aantal gateway-aanvragen** en **Mislukte gateway-aanvragen** in de lijst met beschikbare metrische gegevens.
-3. De grafiek toont het totale aantal API-aanroepen. Ook het aantal mislukte API-aanroepen wordt getoond. 
+3. De grafiek toont het totale aantal API-aanroepen. Ook het aantal mislukte API-aanroepen wordt getoond.
+
+    ![grafiek met metrische gegevens](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Een waarschuwingsregel instellen voor een niet-gemachtigde aanvraag
 
@@ -73,7 +77,10 @@ U kunt instellen dat u waarschuwingen ontvangt op basis van metrische gegevens e
 
 Waarschuwingen configureren:
 
-1. Selecteer **Waarschuwingsregels** in de menubalk onder aan de pagina.
+1. Selecteer **Waarschuwingen (klassiek)** in de menubalk onder aan de pagina.
+
+    ![waarschuwingen](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+
 2. Selecteer **Waarschuwing voor metrische gegevens toevoegen**.
 3. Voer een **Naam** voor deze waarschuwing in.
 4. Selecteer **Niet-gemachtigde gateway-aanvragen** als het te controleren metrische gegeven.
@@ -100,6 +107,12 @@ Activiteitenlogboeken weergeven:
 1. Selecteer uw exemplaar van de APIM-service.
 2. Klik op **Activiteitenlogboek**.
 
+    ![activiteitenlogboek](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. Selecteer het gewenste filterbereik en klik op **Toepassen**.
+
+    ![activiteitenlogboeken](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
 Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die belangrijk zijn voor zowel controles als het oplossen van problemen. Diagnoselogboeken verschillen van activiteitenlogboeken. Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw Azure-resources. Diagnoselogboeken bieden inzicht in bewerkingen die door de resources zelf zijn uitgevoerd.
@@ -107,7 +120,10 @@ Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die b
 Diagnostische logboeken configureren:
 
 1. Selecteer uw exemplaar van de APIM-service.
-2. Klik op **Diagnoselogboek**.
+2. Klik op **Diagnostische logboeken**.
+
+    ![diagnostische logboeken](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+
 3. Klik op **Diagnostische gegevens inschakelen**. U kunt diagnostische logboeken samen met metrische gegevens naar een opslagaccount archiveren, ze naar een Event Hub streamen of ze naar Log Analytics verzenden. 
 
 API Management biedt momenteel diagnostische logboeken (ingedeeld in batches per uur) over afzonderlijke API-aanvragen waarbij elk item het volgende schema heeft:

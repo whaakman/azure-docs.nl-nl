@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 03/16/2018
+ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1437916e62e7c2987c0a1d8c3a5ac4a5f332134d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 69db32698951519c2630a0a8697e4ebe74f69b04
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303552"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930474"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Kiezen tussen Azure-services die berichten bezorgen
 
@@ -60,6 +60,7 @@ Het heeft de volgende kenmerken:
 * dynamisch schaalbaar
 * lage kosten
 * serverloos
+* minimaal één keer levering
 
 ### <a name="event-hubs"></a>Event Hubs
 
@@ -69,6 +70,7 @@ Het heeft de volgende kenmerken:
 
 * lage latentie
 * kan miljoenen gebeurtenissen per seconde ontvangen en verwerken
+* minimaal één keer levering
 
 ### <a name="service-bus"></a>Service Bus
 
@@ -80,6 +82,7 @@ Het heeft de volgende kenmerken:
 
 * betrouwbare asynchrone levering van berichten (enterprise messaging als een service) waarvoor polling is vereist
 * geavanceerde berichtfuncties, zoals FIFO, batchverwerking/sessies, transacties, verwerking van onbestelbare berichten, tijdelijke controle, doorsturen en filteren en detectie van duplicaten
+* exact één keer levering
 
 ## <a name="use-the-services-together"></a>De services samen gebruiken
 

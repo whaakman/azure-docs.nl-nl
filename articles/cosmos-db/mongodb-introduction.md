@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sngun
-ms.openlocfilehash: c10f1fdc7e373633298b083d1317f17cff3aa2b8
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 214dfe3e676d3b07cf688fa0f7dcaf11462edfe8
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796628"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930882"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Inleiding tot Azure Cosmos DB: MongoDB-API
 
@@ -26,7 +26,7 @@ ms.locfileid: "34796628"
 
 Azure Cosmos DB-databases kunnen worden gebruikt als gegevensopslag voor apps die zijn geschreven voor [MongoDB](https://docs.mongodb.com/manual/introduction/). Deze functionaliteit zorgt ervoor dat de toepassing die is geschreven voor MongoDB nu, door gebruik te maken van de bestaande [stuurprogramma’s](https://docs.mongodb.org/ecosystem/drivers/), kan communiceren met Azure Cosmos DB, en Azure Cosmos DB-databases kan gebruiken in plaats van MongoDB-databases. In veel gevallen hoeft u alleen een verbindingsreeks te wijzigen als u wilt overschakelen van MongoDB naar Azure Cosmos DB. Met deze functionaliteit kunt u eenvoudig MongoDB-databasetoepassingen bouwen die wereldwijd zijn gedistribueerd, en deze uitvoeren in de Azure-cloud met behulp van Azure Cosmos DB en de bijbehorende [uitgebreide toonaangevende SLA’s](https://azure.microsoft.com/support/legal/sla/cosmos-db), terwijl u gebruik blijft maken van vertrouwde vaardigheden en hulpprogramma’s voor MongoDB.
 
-**Compatibiliteit met MongoDB**: u kunt uw kennis van MongoDB aanwenden en gebruikmaken van de toepassingscode en hulpprogramma’s van MongoDB, omdat het MongoDB 3.4-wire-protocol (versie 5) is geïmplementeerd in Azure Cosmos DB en de [MongoDB-samenvoegingspijplijn](mongodb-feature-support.md#aggregation-pipeline) wordt ondersteund. U kunt toepassingen ontwikkelen met behulp van MongoDB en deze implementeren in productieomgevingen via de volledig beheerde en wereldwijd gedistribueerde Azure Cosmos DB-service.
+**Compatibiliteit met MongoDB**: u kunt uw kennis van MongoDB aanwenden en gebruikmaken van de toepassingscode en hulpprogramma's van MongoDB, omdat het MongoDB-wire-protocol is geïmplementeerd in Azure Cosmos DB. U kunt toepassingen ontwikkelen met behulp van MongoDB en deze implementeren in productieomgevingen via de volledig beheerde en wereldwijd gedistribueerde Azure Cosmos DB-service. Zie [Protocolondersteuning voor MongoDB](mongodb-feature-support.md#mongodb-protocol-support) voor meer informatie over ondersteunde versies.
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Wat is het voordeel van het gebruik van Azure Cosmos DB voor MongoDB-toepassingen?
 
@@ -36,7 +36,7 @@ Azure Cosmos DB-databases kunnen worden gebruikt als gegevensopslag voor apps di
 
 **Geen serverbeheer**: u hoeft de MongoDB-databases niet te beheren en te schalen. Azure Cosmos DB is een volledig beheerde service. Dit betekent dat u de infrastructuur en virtuele machines niet zelf hoeft te beheren. Azure Cosmos DB is beschikbaar in meer dan 30 [Azure-regio’s](https://azure.microsoft.com/regions/services/).
 
-**Instelbare consistentieniveaus:** in Azure Cosmos DB is momenteel MongoDB-versie 3.4 geïmplementeerd. Deze versie heeft twee consistentieniveaus: sterk en mogelijk. Omdat Azure Cosmos DB meerdere API’s heeft, zijn de consistentieniveaus van toepassing op het accountniveau, en het afdwingen van de consistentie wordt beheerd met elke API. Tot MongoDB 3.6 was er nog geen sprake van sessieconsistentie. Als u een MongoDB-API-account instelt voor gebruik van sessieconsistentie, wordt bij het gebruik van MongoDB-API’s een downgrade uitgevoerd naar het consistentieniveau: mogelijk. Als u een read-your-own-write-garantie nodig hebt voor een MongoDB-API-account, moet het standaardconsistentieniveau voor het account worden ingesteld op gebonden of gebonden-verouderd. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.
+**Instelbare consistentieniveaus:** omdat Azure Cosmos DB meerdere modellen API's heeft, zijn de consistentieniveaus van toepassing op het accountniveau, en het afdwingen van de consistentie wordt beheerd met elke API. Tot MongoDB 3.6 was er nog geen sprake van sessieconsistentie. Als u een MongoDB-API-account instelt voor gebruik van sessieconsistentie, wordt bij het gebruik van MongoDB-API’s een downgrade uitgevoerd naar het consistentieniveau: mogelijk. Als u een read-your-own-write-garantie nodig hebt voor een MongoDB-API-account, moet het standaardconsistentieniveau voor het account worden ingesteld op gebonden of gebonden-verouderd. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.
 
 | Standaardconsistentieniveau voor Azure Cosmos DB |   Mongo API (3.4) |
 |---|---|

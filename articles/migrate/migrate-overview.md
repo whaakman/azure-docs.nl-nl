@@ -4,15 +4,15 @@ description: Biedt een overzicht van de service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 753a21638745870941ac77e340b5e6aa713c7ffe
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285794"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920719"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -30,7 +30,11 @@ Azure Migrate helpt u bij het volgende:
 ## <a name="current-limitations"></a>Huidige beperkingen
 
 - Op dit moment kunt u alleen on-premises virtuele VMware-machines (VMware-VM's) beoordelen voor migratie naar virtuele Azure-machines. De VMware-VM's moeten worden beheerd door een vCenter Server (versie 5.5, 6.0 of 6.5).
-- Ondersteuning voor Hyper-V is opgenomen in de planning. Ondertussen raden we u aan [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) te gebruiken om de migratie van Hyper-V-werkbelastingen te plannen.
+
+> [!NOTE]
+> Ondersteuning voor Hyper-V en fysieke servers staat op onze de roadmap. Ondertussen raden we u aan [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) te gebruiken om de migratie van Hyper-V-werkbelastingen te plannen, en onze [partnertools](https://azure.microsoft.com/migration/partners/) om migratie van fysieke werkbelastingen te plannen.
+
+
 - U kunt maximaal 1500 VM's detecteren in een enkele detectieronde en maximaal 1500 VM's in een enkel project. Bovendien kunt u maximaal 1500 VM's beoordelen in een enkele beoordeling. Als u een grotere omgeving wilt detecteren, kunt u de detectie splitsen en meerdere projecten maken. [Lees hier meer informatie](how-to-scale-assessment.md). Azure Migrate ondersteunt maximaal 20 projecten per abonnement.
 - U kunt een Azure Migrate-project alleen maken in de regio West-centraal VS of Oost VS. Dit is echter niet van invloed op de mogelijkheid om uw migratie te plannen voor een andere Azure-doellocatie. De locatie van het migratieproject wordt alleen gebruikt om de gedetecteerde metagegevens uit de on-premises omgeving op te slaan.
 - Azure Migrate biedt voor migratiebeoordeling alleen ondersteuning voor beheerde schijven.

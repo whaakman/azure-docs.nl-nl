@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 808cfd1f4d47f49be60c3f45278d2334ba720c49
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033669"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865179"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -103,7 +103,7 @@ U gebruikt gewenste eigenschappen om statusgegevens vanuit een back-endsysteem n
 
 Om de voorbeeldcode van het gesimuleerd apparaat te zien die gewenste eigenschappen ophaalt, navigeert u naar de map **iot-hub/Tutorials/DeviceTwins** in het voorbeeldproject in Node.js dat uw hebt gedownload. Open vervolgens het bestand SimulatedDevice.js in een teksteditor.
 
-De volgende secties beschrijven de code die wordt uitgevoerd op het gesimuleerd apparaat dat reageert op wijzigingen in de gewenste eigenschappen die door de back-endtoepassing worden verzonden:
+In de volgende secties wordt de code beschreven die wordt uitgevoerd op het gesimuleerde apparaat dat reageert op wijzigingen in de gewenste eigenschappen die met de back-endtoepassing worden verzonden:
 
 ### <a name="retrieve-the-device-twin-object"></a>Haal het object apparaatdubbel op
 

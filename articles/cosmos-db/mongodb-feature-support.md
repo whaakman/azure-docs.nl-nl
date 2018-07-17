@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796352"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928683"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>API-ondersteuning voor MongoDB voor MongoDB-functies en -syntaxis
 
@@ -23,14 +23,19 @@ Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van 
 
 Door gebruik te maken van de Azure Cosmos DB MongoDB-API hebt u de beschikking over de voordelen van de vertrouwde MongoDB-API’s, met alle zakelijke mogelijkheden die Azure Cosmos DB biedt: [wereldwijde distributie](distribute-data-globally.md), [automatische sharding](partition-data.md), garanties voor beschikbaarheid en latentie, automatisch indexeren van alle velden, versleuteling van niet-actieve gegevens, het maken van back-ups, en meer.
 
+## <a name="mongodb-protocol-support"></a>Protocolondersteuning voor MongoDB
+
+De MongoDB-API voor Azure Cosmos DB is standaard compatibel met MongoDB-serverversie **3.2**. De ondersteunde operators en eventuele beperkingen of uitzonderingen worden hieronder vermeld. Toegevoegde functies of operators voor query's in MongoDB-versie **3.4** zijn momenteel beschikbaar als preview-functie. In elk clientstuurprogramma dat geschikt is voor deze protocollen kan verbinding worden gemaakt met Cosmos DB met behulp van de MongoDB-API.
+
+De [MongoDB-samenvoegingspijplijn](#aggregation-pipeline) is ook beschikbaar als een afzonderlijke preview-functie.
+
 ## <a name="mongodb-query-language-support"></a>Ondersteuning voor MongoDB-querytaal
 
 Azure Cosmos DB MongoDB-API biedt uitgebreide ondersteuning voor MongoDB-querytaalconstructs. Hieronder ziet u de gedetailleerde lijst met momenteel ondersteunde bewerkingen, operators, fasen, opdrachten en opties.
 
-
 ## <a name="database-commands"></a>Databaseopdrachten
 
-Azure Cosmos DB biedt ondersteuning voor de volgende databaseopdrachten op alle MongoDB-API-accounts. 
+Azure Cosmos DB biedt ondersteuning voor de volgende databaseopdrachten op alle MongoDB-API-accounts.
 
 ### <a name="query-and-write-operation-commands"></a>Opdrachten voor query- en schrijfbewerkingen
 - delete
@@ -287,7 +292,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Wordt niet ondersteund. Gebruik in plaats hiervan $regex 
+$text |  | Wordt niet ondersteund. Gebruik in plaats hiervan $regex.
+
+## <a name="unsupported-operators"></a>Niet-ondersteunde operators
+
+De operators ```$where``` en ```$eval``` worden niet ondersteund door Azure Cosmos DB.
 
 ### <a name="methods"></a>Methoden
 
@@ -316,6 +325,10 @@ Azure Cosmos DB biedt nog geen ondersteuning voor gebruikers en rollen. Azure Co
 ## <a name="replication"></a>Replicatie
 
 Azure Cosmos DB biedt ondersteuning voor automatische, systeemeigen replicatie op de laagste lagen. Deze logica is uitgebreid om tevens globale replicatie met een lage latentie te bereiken. Azure Cosmos DB biedt geen ondersteuning voor handmatige replicatieopdrachten.
+
+## <a name="write-concern"></a>Schrijfprobleem
+
+In bepaalde MongoDB-API's kan een [schrijfprobleem](https://docs.mongodb.com/manual/reference/write-concern/) met het aantal vereiste reacties tijdens een schrijfbewerking wordt opgegeven. Vanwege de manier waarop replicatie op de achtergrond in Cosmos DB wordt afgehandeld, zijn alle schrijfbewerkingen automatisch Quorum-bewerkingen. Alle schrijfproblemen die in clientcode zijn opgegeven, worden genegeerd. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.
 
 ## <a name="sharding"></a>Sharding
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 62967636a4d80f72f731a666947d5d4d5e47f7e5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7e71b279d6681696b8666846cfbd27007f464679
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163041"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37864856"
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Taken over containers verdelen in een DC/OS-cluster in Azure Container Service
 
@@ -95,7 +95,7 @@ Maak vervolgens een bestand met de naam *hello-web.json* en kopieer de volgende 
 }
 ```
 
-Gebruik de DC/OS CLI om de toepassing uit te voeren. Marathon implementeert de toepassing standaard in het persoonlijke cluster. Dit betekent dat de bovenstaande implementatie alleen toegankelijk is via de load balancer (dit is meestal het gewenste gedrag).
+Gebruik de DC/OS CLI om de toepassing uit te voeren. Met Marathon wordt de toepassing standaard geïmplementeerd in het persoonlijke cluster. Dit betekent dat de bovenstaande implementatie alleen toegankelijk is via de load balancer (dit is meestal het gewenste gedrag).
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json

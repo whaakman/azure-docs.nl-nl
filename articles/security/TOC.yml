@@ -218,11 +218,10 @@
           href: ./blueprints/uknhs-iaaswa-overview.md
         - name: PaaS-webtoepassing
           href: ./blueprints/uknhs-paaswa-overview.md
-    - name: UK-OFFICIAL
-      href: ./blueprints/uk-official-three-tier-applications-overview.md
+    - name: UK OFFICIAL
       items:
-        - name: Overzicht van de principes
-          href: ./blueprints/uk-official-three-tier-applications-principles-overview.md
+        - name: IaaS-webtoepassing
+          href: ./blueprints/ukofficial-iaaswa-overview.md
     - name: HIPAA-/HITRUST-statusgegevens en AI
       href: ./blueprints/azure-health.md
 - name: Technische documenten

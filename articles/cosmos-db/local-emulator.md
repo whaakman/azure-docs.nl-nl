@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 368caa063ea0487923af8a29f67aa73cae7ed75e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824091"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952889"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokaal ontwikkelen en testen
 
@@ -59,9 +59,10 @@ Het is raadzaam om eerst de volgende video te bekijken, waarin Kirill Gavrylyuk 
 > 
 
 ## <a name="how-the-emulator-works"></a>Hoe de Emulator werkt
+
 De Azure Cosmos DB Emulator biedt een hoogwaardige emulatie van de Azure Cosmos DB-service. Hij ondersteunt dezelfde functionaliteit als Azure Cosmos DB, inclusief het maken van en het uitvoeren van query's op JSON-documenten, het inrichten en schalen van verzamelingen en het uitvoeren van opgeslagen procedures en triggers. U kunt toepassingen ontwikkelen en testen met behulp van de Azure Cosmos DB Emulator en deze op globale schaal implementeren in Azure door slechts één wijziging aan te brengen in de configuratie van het verbindingseindpunt voor Azure Cosmos DB.
 
-Hoewel we een lokale emulatie van hoge kwaliteit hebben gemaakt van de werkelijke Azure Cosmos DB-service, is de implementatie van de Azure Cosmos DB Emulator is anders dan die van de service. De Azure Cosmos DB Emulator gebruikt bijvoorbeeld de standaard besturingssysteemonderdelen, zoals het lokale bestandssysteem voor persistentie en de HTTPS-protocolstack voor connectiviteit. Dit betekent dat bepaalde functies die afhankelijk zijn van de Azure-infrastructuur, zoals globale replicatie, vertragingen van milliseconden voor lezen/schrijven en instelbare consistentieniveaus, niet beschikbaar zijn via de Azure Cosmos DB Emulator.
+Emulatie van de Azure Cosmos DB-service is zeer betrouwbaar, maar de implementatie van de emulator is anders dan die van de service. De emulator gebruikt bijvoorbeeld standaardbesturingssysteemonderdelen, zoals het lokale bestandssysteem voor persistentie en de HTTPS-protocolstack voor connectiviteit. Hierdoor zijn bepaalde functies die afhankelijk zijn van de Azure-infrastructuur, zoals globale replicatie, vertragingen van milliseconden voor lezen/schrijven en instelbare consistentieniveaus, niet beschikbaar via de emulator.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Verschillen tussen de Emulator en de service 
 Omdat de Azure Cosmos DB Emulator een geëmuleerde omgeving op een lokaal ontwikkelaarswerkstation biedt, zijn er enkele verschillen in functionaliteit tussen de emulator en een Azure Cosmos DB-account in de cloud:
@@ -72,7 +73,7 @@ Omdat de Azure Cosmos DB Emulator een geëmuleerde omgeving op een lokaal ontwik
 * De Azure Cosmos DB Emulator simuleert niet verschillende [Azure Cosmos DB-consistentieniveaus](consistency-levels.md).
 * De Azure Cosmos DB Emulator simuleert niet [replicatie in meerdere regio's](distribute-data-globally.md).
 * De Azure Cosmos DB Emulator biedt geen ondersteuning voor overschrijdingen van het servicequotum die beschikbaar zijn in de Azure Cosmos DB-service (bijvoorbeeld de limieten voor documentgrootte, meer gepartitioneerde opslag van verzamelingen).
-* Aangezien uw exemplaar van de  Azure Cosmos DB Emulator mogelijk niet is bijgewerkt met de meest recente wijzigingen via de Azure Cosmos DB-service, gebruikt u de [Azure Cosmos DB-capaciteitsplanner](https://www.documentdb.com/capacityplanner) om de productiedoorvoerbehoefte van uw toepassing nauwkeurig te schatten.
+* Aangezien uw exemplaar van Azure Cosmos DB Emulator mogelijk niet is bijgewerkt met de meest recente wijzigingen via de Azure Cosmos DB-service, gebruikt u de [Azure Cosmos DB-capaciteitsplanner](https://www.documentdb.com/capacityplanner) om de productiedoorvoerbehoefte van uw toepassing nauwkeurig te schatten.
 
 ## <a name="system-requirements"></a>Systeemvereisten
 De Azure Cosmos DB Emulator heeft de volgende hardware- en software-vereisten:
@@ -99,7 +100,7 @@ Wanneer de emulator wordt gestart, ziet u een pictogram in het systeemvak op de 
 
 De Azure Cosmos DB Emulator wordt standaard uitgevoerd op de lokale computer ('localhost'), en luistert op poort 8081.
 
-De Azure Cosmos DB Emulator wordt standaard geïnstalleerd in de map `C:\Program Files\Azure Cosmos DB Emulator`. U kunt de emulator ook starten en stoppen vanaf de opdrachtregel. Zie de [informatie over het opdrachtregelprogramma](#command-line).
+De Azure Cosmos DB Emulator wordt standaard geïnstalleerd in `C:\Program Files\Azure Cosmos DB Emulator`. U kunt de emulator ook starten en stoppen vanaf de opdrachtregel. Zie de [informatie over het opdrachtregelprogramma](#command-line) voor meer informatie.
 
 ## <a name="start-data-explorer"></a>Data Explorer starten
 
@@ -395,13 +396,13 @@ Voer de volgende opdrachten uit om de installatiekopie te starten.
 Vanaf de opdrachtregel:
 ```cmd 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 Vanuit PowerShell:
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 De reactie ziet er ongeveer als volgt uit:

@@ -10,20 +10,20 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
 ms.author: sethm
-ms.openlocfilehash: b970fe1d9d705bd91e616f19a6ef133d6cfd7dd2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660508"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867202"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Snelstart: Berichten verzenden en ontvangen met behulp van Azure Portal en .NET
 
-Microsoft Azure Service Bus is een geïntegreerde berichtenbroker voor bedrijven die voor een beveiligde en absoluut betrouwbare berichtenuitwisseling zorgt. Een veelvoorkomend Service Bus-scenario omvat doorgaans een ontkoppeling van twee of meer toepassingen, services of processen en het overbrengen van wijzigingen in de status of gegevens. Dergelijke scenario's kunnen bestaan uit het plannen van meerdere batchtaken in andere toepassingen of services, of uit het activeren van de orderafhandeling. Een detailhandelsbedrijf kan bijvoorbeeld gegevens van het verkooppunt naar een back-office of regionaal distributiecentrum verzenden voor het aanvullen en bijwerken van de voorraad. In dit scenario verzendt en ontvangt de client-app berichten naar en van een Service Bus-wachtrij.  
+Microsoft Azure Service Bus is een geïntegreerde berichtenbroker voor bedrijven die voor een beveiligde en absoluut betrouwbare berichtenuitwisseling zorgt. In een typisch Service Bus-scenario hebt u gewoonlijk te maken met het van elkaar loskoppelen van twee of meer toepassingen, services of processen en het overbrengen van status- of gegevenswijzigingen. Dergelijke scenario's kunnen betrekking hebben op het plannen van meerdere batchtaken in andere toepassingen of services, of het activeren van de orderafhandeling. Een detailhandelsbedrijf kan bijvoorbeeld gegevens van het verkooppunt naar een back-office of regionaal distributiecentrum verzenden voor het aanvullen en bijwerken van de voorraad. In dit scenario verzendt en ontvangt de client-app berichten naar en van een Service Bus-wachtrij.  
 
 ![wachtrij](./media/service-bus-quickstart-portal/quick-start-queue.png)
 
-In deze snelstart wordt beschreven hoe u berichten naar een Service Bus-wachtrij kunt verzenden en ervan kunt ontvangen. U gebruikt daarbij [Azure Portal][Azure portal] om een berichtennaamruimte te maken en binnen deze naamruimte een wachtrij te maken. Ook wordt beschreven hoe u de autorisatiereferenties binnen die naamruimte kunt verkrijgen. De procedure laat vervolgens zien hoe u berichten naar deze wachtrij kunt verzenden en hoe u ze ervan kunt ontvangen met behulp van de [.NET Standard-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
+In deze snelstart wordt beschreven hoe u berichten naar een Service Bus-wachtrij kunt verzenden en ervan kunt ontvangen. U gebruikt daarbij [Azure Portal][Azure portal] om een berichtennaamruimte te maken en binnen deze naamruimte een wachtrij te maken. Ook wordt beschreven hoe u de autorisatiereferenties binnen die naamruimte kunt verkrijgen. De procedure laat vervolgens zien hoe u berichten naar deze wachtrij verzendt en van de wachtrij ontvangt met behulp van de [.NET Standard-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 Als u nog geen abonnement op Azure hebt, kunt u een [gratis account][] maken voordat u begint.
 
@@ -36,7 +36,7 @@ Het volgende moet zijn geïnstalleerd om deze zelfstudie te voltooien:
 
 ## <a name="log-on-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Ga naar [Azure Portal][Azure portal] en meld u aan met uw Azure-abonnement. De eerste stap bestaat uit het maken van een Service Bus-naamruimte van het type **Berichten**.
+Ga eerst naar [Azure Portal][Azure portal] en meld u aan met uw Azure-abonnement. De eerste stap bestaat uit het maken van een Service Bus-naamruimte van het type **Berichten**.
 
 ## <a name="create-a-service-bus-namespace"></a>Een Service Bus-naamruimte maken
 
@@ -54,7 +54,7 @@ Een Service Bus-berichtennaamruimte biedt een unieke scoping container, waarnaar
 
 ### <a name="obtain-the-management-credentials"></a>De beheerreferenties ophalen
 
-Bij het maken van een nieuwe naamruimte wordt automatisch een eerste Shared Access Signature-regel (SAS) gegenereerd met een bijbehorende primaire en secundaire sleutel die elk volledige controle over alle aspecten van de naamruimte bieden. Volg deze stappen om de eerste regel te kopiëren: 
+Bij het maken van een nieuwe naamruimte wordt automatisch een eerste SAS-regel (Shared Access Signature) gegenereerd met een bijbehorende primaire en secundaire sleutel die elk volledige controle over alle aspecten van de naamruimte bieden. Volg deze stappen om de eerste regel te kopiëren: 
 
 1.  Klik op **Alle resources** en klik vervolgens op de zojuist gemaakte naam voor de naamruimte.
 2. Klik in het venster van de naamruimte op **Beleid voor gedeelde toegang**.
@@ -62,7 +62,7 @@ Bij het maken van een nieuwe naamruimte wordt automatisch een eerste Shared Acce
 4. Klik in het scherm **Beleid: RootManageSharedAccessKey** op de knop **Kopiëren** naast **Primaire verbindingsreeks** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie. 
 
     ![connection-string][connection-string]
-5. Herhaal de vorige stap: het kopiëren en plakken van de waarde voor de **Primaire sleutel** naar een tijdelijke locatie zodat u deze later kunt gebruiken.
+5. Herhaal de vorige stap: het kopiëren en plakken van de waarde voor de **Primaire sleutel** voor een tijdelijke locatie zodat u deze later kunt gebruiken.
 
 ## <a name="create-a-queue"></a>Een wachtrij maken
 
@@ -89,7 +89,7 @@ Ga als volgt te werk om de code uit te voeren:
 
 3. Navigeer naar de voorbeeldmap `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. Kopieer de verbindingsreeks en de naam van de wachtrij die u hebt verkregen naar de sectie [De beheerreferenties ophalen](#obtain-the-management-credentials).
+4. Kopieer de verbindingsreeks en de naam van de wachtrij die u hebt verkregen in de sectie [De beheerreferenties ophalen](#obtain-the-management-credentials).
 
 5.  Typ de volgende opdracht bij een opdrachtprompt:
 
@@ -117,7 +117,7 @@ U kunt via de portal de resourcegroep, de naamruimte en de wachtrij verwijderen.
 
 Deze sectie bevat meer informatie over de werking van de voorbeeldcode. 
 
-### <a name="get-connection-string-and-queue"></a>De verbindingsreeks en de wachtrij ophalen
+### <a name="get-connection-string-and-queue"></a>Verbindingsreeks en wachtrij ophalen
 
 De verbindingsreeks en de naam van de wachtrij worden als opdrachtregelargumenten doorgegeven aan de methode `Main()`. `Main()` declareert twee tekenreeksvariabelen die deze waarden kunnen omvatten:
 

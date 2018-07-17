@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737201"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915966"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Azure-resources voorbereiden voor replicatie van lokale machines
 
@@ -54,11 +54,12 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. 
 1. Selecteer in het menu van [Azure Portal](https://portal.azure.com) achtereenvolgens **Een resource maken** > **Opslag** > **Opslagaccount - blob, bestand, tabel, wachtrij**.
 2. Voer in **Opslagaccount maken** een naam voor het account in. Voor deze zelfstudies gebruiken we **contosovmsacct1910171607**. De naam die u selecteert moet uniek zijn in Azure, tussen de 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
 3. Selecteer bij **implementatiemodel** **Resource Manager**.
-4. Selecteer bij **Soort account** de optie **Opslag (algemeen gebruik v1)**. Selecteer niet blob-opslag. Selecteer bij **Prestaties** **Standard**. 
+4. Selecteer bij **Soort account** de optie **Opslag (algemeen gebruik v1)**. Selecteer niet blob-opslag.
 5. Selecteer bij **Replicatie** de standaardoptie **Geografisch redundante opslag met leestoegang** voor opslagredundantie. **Veilige overdracht vereist** laten we **Uitgeschakeld**.
-6. Selecteer bij **Abonnement** het abonnement waarin u het nieuwe opslagaccount wilt maken. 
-2. Geef bij **Resourcegroep** een nieuwe resourcegroep op. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voor deze zelfstudies maken gebruiken we **ContosoRG**.
-3. Selecteer bij **Locatie** de geografische locatie voor het opslagaccount. 
+6. Selecteer in **Prestaties** **Standaard** en in **Toegangslaag** de standaardoptie **Dynamisch**.
+7. Selecteer bij **Abonnement** het abonnement waarin u het nieuwe opslagaccount wilt maken.
+8. Geef bij **Resourcegroep** een nieuwe resourcegroep op. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voor deze zelfstudies maken gebruiken we **ContosoRG**.
+9. Selecteer bij **Locatie** de geografische locatie voor het opslagaccount. 
 
    ![Create a storage account](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -98,7 +99,7 @@ Wanneer de Azure VM's zijn gemaakt vanuit de opslag na de failover, worden ze ge
 
 - [Meer informatie](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) over Azure-netwerken.
 - [Meer informatie](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) over typen Azure-opslag.
-- - [Meer informatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) over opslagredundantie en [veilige overdracht](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) voor opslag.
+- [Meer informatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) over opslagredundantie en [veilige overdracht](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) voor opslag.
 
 
 

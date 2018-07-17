@@ -42,9 +42,9 @@
 ### [Een toegangscontrole starten](pim-resource-roles-start-access-review.md)
 ### [Een toegangscontrole voltooien](pim-resource-roles-complete-access-review.md)
 
-# Veelgestelde vragen
-## PIM voor resource-rollen
-### [Toewijzingstypen](pim-resource-roles-eligible-visibility.md)
+# Concepten
+## [Toewijzingstypen](pim-resource-roles-eligible-visibility.md)
+## [E-mailmeldingen](pim-email-notifications.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory)

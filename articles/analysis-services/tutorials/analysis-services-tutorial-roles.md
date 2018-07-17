@@ -4,15 +4,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/09/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 72d980a683503374ed778dc57726114ebecd929f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443531"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929226"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Zelfstudie: Serverbeheerder- en gebruikersrollen configureren
 
@@ -124,7 +124,7 @@ In deze taak gebruikt u de opdracht [Maken](https://docs.microsoft.com/sql/analy
     }
     ```
 
-3. Wijziging **'memberName': \"globalsales@adventureworks.com\"** objectwaarde in een gebruikers- of groepsaccount in uw Azure AD.
+3. Wijzig de objectwaarde `"memberName": "globalsales@adventureworks.com"` in een gebruikers- of groepsaccount in uw Azure AD.
 4. Druk op **F5** om het script uit te voeren.
 
 ## <a name="verify-your-changes"></a>Uw wijzigingen verifiëren

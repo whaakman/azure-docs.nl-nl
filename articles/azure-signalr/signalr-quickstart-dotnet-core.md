@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: b742dc94b6f6bea76a0809114f300287633c2a67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674849"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Snelstart: Een chatruimte maken met de SignalR-service
 
@@ -86,18 +87,18 @@ In dit gedeelte voegt u het [hulpprogramma Secret Manager](https://docs.microsof
 
 1. Voeg een verwijzing naar het NuGet-pakket `Microsoft.Azure.SignalR` door de volgende opdracht uit te voeren:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
 
 2. Voer de volgende opdracht uit om pakketten voor uw project te herstellen.
 
         dotnet restore
 
-3. Voeg een geheim met de naam *Azure:SignalR:ConnectionString* toe aan Secret Manager. Dit geheim bevat straks de verbindingsreeks voor toegang tot de resource van de SignalR-service. *Azure:SignalR:ConnectionString* is de configuratiesleutel waarnaar SignalR standaard zoekt om een verbinding tot stand brengen. Vervang de waarde in de onderstaande opdracht door de verbindingsreeks voor de resource van de SignalR-service.
+3. Voeg een geheim met de naam *Azure__SignalR__ConnectionString* toe aan Secret Manager. Dit geheim is een hiërarchische configuratiewaarde en een dubbele punt (:) werkt mogelijk niet op alle platforms. Het dubbele onderstrepingsteken (__) dat in dit geheim wordt gebruikt, wordt ondersteund op alle platforms.  Dit geheim bevat straks de verbindingsreeks voor toegang tot de resource van de SignalR-service. *Azure__SignalR__ConnectionString* is de standaardconfiguratiesleutel waarnaar met SignalR wordt gezocht om een verbinding tot stand te brengen. Vervang de waarde in de onderstaande opdracht door de verbindingsreeks voor de resource van de SignalR-service.
 
     Deze opdracht moet worden uitgevoerd in de map met het bestand *.csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager wordt alleen gebruikt om de web-app te testen terwijl deze lokaal wordt gehost. In een latere zelfstudie gaat u de web-app voor de chatruimte implementeren in Azure. Als dat is gebeurd, gebruikt u een toepassingsinstelling in plaats van de verbindingsreeks op te slaan met Secret Manager.
@@ -112,7 +113,7 @@ In dit gedeelte voegt u het [hulpprogramma Secret Manager](https://docs.microsof
     }
     ```
 
-    Doordat er geen parameter wordt doorgegeven voor `AddAzureSignalR()`, wordt in deze code de standaardconfiguratiesleutel *Azure:SignalR:ConnectionString* gebruikt voor de verbindingsreeks voor de resource van de SignalR-service.
+    Omdat er geen parameter wordt doorgegeven aan `AddAzureSignalR()`, wordt in deze code de standaardconfiguratiesleutel *Azure__SignalR__ConnectionString* gebruikt voor de resourceverbindingsreeks van de SignalR-service.
 
 5. Verder moet u in *Startup.cs* de methode `Configure` bijwerken door de aanroep van `app.UseStaticFiles()` te vervangen door de onderstaande code. Sla het bestand vervolgens op.
 
@@ -182,7 +183,7 @@ connection.start()
     });
 ```    
 
-Met de code in *index.html* wordt `HubConnectionBuilder.build()` aangeroepen om een HTTP-verbinding op te zetten met de Azure SignalR-resource.
+Met de code in *index.html* wordt `HubConnectionBuilder.build()` aangeroepen om een HTTP-verbinding tot stand te brengen met de Azure SignalR-resource.
 
 Als de verbinding tot stand is gebracht, wordt de verbinding doorgegeven aan `bindConnectionMessage`. Deze functie voegt gebeurtenis-handlers toe om binnenkomende inhoud naar de client te pushen. 
 
@@ -246,7 +247,7 @@ Als u verder wilt gaan met de volgende zelfstudie, kunt u de resources die in de
 Als u niet verder wilt met de snelstart, kunt u de Azure-resources verwijderen die in deze snelstart zijn gemaakt om kosten te voorkomen. 
 
 > [!IMPORTANT]
-> Houd er rekening mee dat het verwijderen van een resourcegroep niet ongedaan kan worden gemaakt, en dat de resourcegroep en alle bijbehorende resources permanent worden verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blades.
+> Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. De resourcegroep en alle bijbehorende resources worden permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blade.
 > 
 > 
 
@@ -258,7 +259,7 @@ Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de 
 ![Verwijderen](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 
-U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep en klik op **Verwijderen**.
+U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep om te bevestigen en klik op **Verwijderen**.
    
 Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
 

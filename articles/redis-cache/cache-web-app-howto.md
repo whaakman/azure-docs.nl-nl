@@ -1,6 +1,6 @@
 ---
-title: Een ASP.NET-web-app maken met Redis Cache | Microsoft Docs
-description: In deze snelstart leert u hoe u een ASP.NET-web-app maakt met Redis Cache
+title: Een ASP.NET-web-app maken met Azure Redis Cache | Microsoft Docs
+description: In deze snelstart leert u hoe u een ASP.NET-web-app maakt met Azure Redis Cache
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -15,19 +15,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: baaa53b04f608e2cb3546fcac6a6eb4eda4d3c4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a92621d852ec60fb4773957d71dc6a55caaf991c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640751"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674883"
 ---
-# <a name="quickstart-create-a-aspnet-web-app-with-redis-cache"></a>Snelstart: Een ASP.NET-web-app maken met Redis Cache
-
+# <a name="quickstart-create-an-aspnet-web-app"></a>Snelstart: Een ASP.NET-web-app maken 
 
 ## <a name="introduction"></a>Inleiding
 
-In deze snelstart ziet u hoe u een ASP.NET-webtoepassing maakt en implementeert in Azure App Service met behulp van Visual Studio 2017. De voorbeeldtoepassing maakt verbinding met een Azure Redis Cache om gegevens uit de cache op te slaan en op te halen. Wanneer u de snelstart hebt voltooid, hebt u een actieve web-app die wordt gehost in Azure en leest en schrijft naar een Azure Redis Cache.
+In deze snelstart ziet u hoe u een ASP.NET-webtoepassing maakt en implementeert in Azure App Service met behulp van Visual Studio 2017. De voorbeeldtoepassing maakt verbinding met Azure Redis Cache om gegevens uit de cache op te slaan en op te halen. Nadat u de snelstart hebt voltooid, hebt u een actieve web-app die wordt gehost in Azure en waarmee lees- en schrijfbewerkingen naar Azure Redis Cache kunnen worden uitgevoerd.
 
 ![Eenvoudige test voltooid in Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -35,36 +34,35 @@ In deze snelstart ziet u hoe u een ASP.NET-webtoepassing maakt en implementeert 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt het volgende nodig om deze snelstart te voltooien:
-
-* Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
-    * ASP.NET-ontwikkeling en webontwikkeling
-    * Azure-ontwikkeling
+Om deze snelstart te kunnen voltooien moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) zijn geïnstalleerd met de volgende omgevingen:
+* ASP.NET-ontwikkeling en webontwikkeling
+* Azure-ontwikkeling
 
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 
-Open Visual Studio en klik op **File**, **New**, **Project**.
+1. Open Visual Studio en selecteer vervolgens **Bestand** >**Nieuw** > **Project**.
 
-![Project maken](./media/cache-web-app-howto/cache-create-project.png)
+2. Voer in het dialoogvenster **Nieuw project** de volgende stappen uit:
 
-Voer in het dialoogvenster Nieuw project de volgende stappen uit:
+    ![Project maken](./media/cache-web-app-howto/cache-create-project.png)
 
-1. Vouw het **Visual C#**-knooppunt uit in de lijst **Templates**
-1. Selecteer **Cloud**
-1. Klik op **ASP.NET Web Application**
-1. Zorg ervoor dat **.NET Framework 4.5.2** of hoger is geselecteerd
-1. Geef het project een naam in het tekstvak **Name**. Voor dit voorbeeld hebben we **ContosoTeamStats** gebruikt
-1. Klik op **OK**.
+    a. Vouw in de lijst **Sjablonen** het knooppunt **Visual C#** uit.
 
-U krijgt een scherm met de nieuwe ASP.NET-webtoepassing te zien:
+    b. Selecteer **Cloud**.
 
-![De projectsjabloon selecteren](./media/cache-web-app-howto/cache-select-template.png)
+    c. Selecteer **ASP.NET-webtoepassing**.
 
-Selecteer **MVC** als het projecttype.
+    d. Controleer of **.NET Framework 4.5.2** of hoger is geselecteerd.
 
-Zorg ervoor dat **Geen verificatie** is opgegeven voor de instellingen bij **Verificatie**. Afhankelijk van uw versie van Visual Studio kan de standaardwaarde op iets anders zijn ingesteld. Als u deze wilt wijzigen, klikt u op **Verificatie wijzigen** en selecteert u **Geen verificatie**.
+    e. Geef in het vak **Naam** een naam op voor het project. In dit voorbeeld wordt de naam **ContosoTeamStats** gebruikt.
 
-Klik op **OK** om het project aan te maken.
+    f. Selecteer **OK**.
+   
+3. Selecteer **MVC** als het projecttype.
+
+4. Zorg ervoor dat **Geen verificatie** is opgegeven voor de instellingen bij **Verificatie**. Afhankelijk van uw versie van Visual Studio wijkt de standaardinstelling voor **Verificatie** mogelijk af. Als u dit wilt wijzigen, selecteert u **Verificatie wijzigen** en vervolgens **Geen verificatie**.
+
+5. Selecteer **OK** om het project te maken.
 
 ## <a name="create-a-cache"></a>Een cache maken
 
@@ -74,29 +72,30 @@ Maak vervolgens de cache voor de app.
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Maak op uw computer een bestand met de naam *CacheSecrets.config*. Sla het op een locatie op waar het niet wordt ingecheckt met de broncode van uw voorbeeldtoepassing. Voor deze snelstart bevindt het bestand *CacheSecrets.config* zich hier: *C:\AppSecrets\CacheSecrets.config*.
+#### <a name="to-edit-the-cachesecretsconfig-file"></a>Het bestand *CacheSecrets.config* bewerken
 
-Bewerk het bestand *CacheSecrets.config* en voeg de volgende inhoud toe:
+3. Maak op de computer een bestand met de naam *CacheSecrets.config*. Sla dit bestand op een locatie op waar het niet wordt ingecheckt met de broncode van de voorbeeldtoepassing. Voor deze snelstart bevindt het bestand *CacheSecrets.config* zich op *C:\AppSecrets\CacheSecrets.config*.
 
-```xml
-<appSettings>
-    <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
-</appSettings>
-```
+4. Bewerk het bestand *CacheSecrets.config*. Voeg nu de volgende inhoud toe:
 
-Vervang `<cache-name>` door de hostnaam van uw cache.
+    ```xml
+    <appSettings>
+        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
+    </appSettings>
+    ```
 
-Vervang `<access-key>` door de primaire sleutel voor uw cache.
+5. Vervang `<cache-name>` door de hostnaam van uw cache.
 
-> [!TIP]
-> De secundaire toegangssleutel wordt tijdens sleutelroulatie als een alternatieve sleutel gebruikt terwijl u de primaire toegangssleutel opnieuw genereert.
+6. Vervang `<access-key>` door de primaire sleutel voor uw cache.
+
+    > [!TIP]
+    > U kunt de secundaire toegangssleutel tijdens sleutelroulatie gebruiken als een alternatieve sleutel terwijl u de primaire toegangssleutel opnieuw genereert.
 >
-
-Sla het bestand op.
+7. Sla het bestand op.
 
 ## <a name="update-the-mvc-application"></a>De MVC-toepassing bijwerken
 
-In deze sectie werkt u de toepassing bij voor de ondersteuning van een nieuwe weergave waarin een eenvoudige test op basis van een Azure Redis Cache wordt weergegeven.
+In deze sectie werkt u de toepassing bij voor de ondersteuning van een nieuwe weergave waarin een eenvoudige test wordt weergegeven op basis van Azure Redis Cache.
 
 * [Het web.config-bestand bijwerken met een app-instelling voor de cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * [De toepassing configureren voor gebruik van de StackExchange.Redis-client](#configure-the-application-to-use-stackexchangeredis)
@@ -105,228 +104,237 @@ In deze sectie werkt u de toepassing bij voor de ondersteuning van een nieuwe we
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>Het web.config-bestand bijwerken met een app-instelling voor de cache
 
-Als u de toepassing lokaal uitvoert, wordt de informatie in *CacheSecrets.config* gebruikt om verbinding te maken met uw exemplaar van Azure Redis Cache. Later implementeert u deze toepassing in Azure. Op dat moment configureert u een app-instelling in Azure die de toepassing gebruikt om de cacheverbindingsinformatie in plaats van dit bestand op te halen. Omdat *CacheSecrets.config* niet in Azure wordt geïmplementeerd met uw toepassing, gebruikt u dit alleen bij het lokaal testen van de toepassing. U wilt deze informatie zo veilig mogelijk houden om schadelijke toegang tot de gegevens in de cache te voorkomen.
+Als u de toepassing lokaal uitvoert, wordt de informatie in *CacheSecrets.config* gebruikt om verbinding te maken met uw exemplaar van Azure Redis Cache. Later implementeert u deze toepassing in Azure. Op dat moment configureert u een app-instelling in Azure die in de toepassing wordt gebruikt om de cacheverbindingsinformatie op te halen in plaats van dit bestand. 
 
-Dubbelklik in **Solution Explorer** op het bestand *web.config* om het te openen.
+Omdat het bestand *CacheSecrets.config* niet in Azure wordt geïmplementeerd met uw toepassing, gebruikt u het alleen tijdens het lokaal testen van de toepassing. Houd deze informatie zo veilig mogelijk om schadelijke toegang tot de gegevens in de cache te voorkomen.
 
-![Web.config](./media/cache-web-app-howto/cache-web-config.png)
+#### <a name="to-update-the-webconfig-file"></a>Het bestand *web.config* bijwerken
+1. Dubbelklik in **Solution Explorer** op het bestand *web.config* om het te openen.
 
-Zoek in het bestand *web.config* het `<appSetting>`-element op en voeg het volgende `file`-kenmerk toe. Als u een andere bestandsnaam of -locatie gebruikt, vervang deze waarden dan door de waarden die in het voorbeeld worden weergegeven.
+    ![Web.config](./media/cache-web-app-howto/cache-web-config.png)
+
+2. Ga in het bestand *web.config* naar het element `<appSetting>`. Voeg vervolgens het volgende `file`-kenmerk toe. Als u een andere bestandsnaam of -locatie gebruikt, vervangt u deze waarden door de waarden die in het voorbeeld worden weergegeven.
 
 * Voor: `<appSettings>`
 * Na: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
-De ASP.NET-runtime voegt de inhoud van het externe bestand samen met de opmaak van het element `<appSettings>`. Als het opgegeven bestand niet kan worden gevonden, negeert de runtime het bestandskenmerk. Uw geheimen (de verbindingsreeks naar uw cache) worden niet opgenomen in de broncode van de toepassing. Wanneer u uw web-app in Azure implementeert, wordt het bestand *CacheSecrests.config* niet geïmplementeerd.
+De ASP.NET-runtime voegt de inhoud van het externe bestand samen met de opmaak van het element `<appSettings>`. Als het opgegeven bestand niet kan worden gevonden, negeert de runtime het bestandskenmerk. Uw geheimen (de verbindingsreeks naar uw cache) worden niet opgenomen in de broncode van de toepassing. Wanneer u de web-app implementeert in Azure, wordt het bestand *CacheSecrests.config* niet geïmplementeerd.
 
-### <a name="configure-the-application-to-use-stackexchangeredis"></a>De toepassing configureren voor gebruik van StackExchange.Redis
+### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>De toepassing configureren voor het gebruik van StackExchange.Redis
 
-Als u de app wilt configureren voor gebruik van het NuGet-pakket [StackExchange.Redis voor Visual Studio ](https://github.com/StackExchange/StackExchange.Redis) klikt u op **Tools > NuGet Package Manager > Package Manager Console**.
+1. Als u de app wilt configureren voor gebruik van het NuGet-pakket [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) voor Visual Studio, selecteert u **Tools > NuGet Package Manager > Package Manager Console**.
 
-Voer de volgende opdracht uit vanuit het venster `Package Manager Console`:
+2. Voer de volgende opdracht uit vanuit het venster `Package Manager Console`:
 
-```powershell
-Install-Package StackExchange.Redis
-```
+    ```powershell
+    Install-Package StackExchange.Redis
+    ```
 
-Het NuGet-pakket downloadt de vereiste assembly-verwijzingen voor de clienttoepassing en voegt deze toe om met de cacheclient StackExchange.Redis toegang te krijgen tot de Azure Redis-cache. Als u een versie met een sterke naam van de `StackExchange.Redis`-clientbibliotheek verkiest, installeert u het `StackExchange.Redis.StrongName`-pakket.
+3. Het NuGet-pakket downloadt de vereiste assembly-verwijzingen voor de clienttoepassing en voegt deze toe om met de cacheclient StackExchange.Redis toegang te krijgen tot de Azure Redis-cache. Als u een versie met een sterke naam van de `StackExchange.Redis`-clientbibliotheek verkiest, installeert u het `StackExchange.Redis.StrongName`-pakket.
 
-### <a name="update-the-homecontroller-and-layout"></a>De HomeController en lay-out bijwerken
+### <a name="to-update-the-homecontroller-and-layout"></a>De HomeController en lay-out bijwerken
 
-Vouw in **Solution Explorer** de map **Controllers** uit en open het bestand *HomeController.cs*.
+1. Vouw in **Solution Explorer** de map **Controllers** uit en open vervolgens het bestand *HomeController.cs*.
 
-Voeg de volgende twee `using`-instructies boven aan het bestand toe ter ondersteuning van de cacheclient- en app-instellingen.
+2. Voeg de volgende twee `using`-instructies boven aan het bestand toe ter ondersteuning van de cacheclient- en app-instellingen.
 
-```csharp
-using System.Configuration;
-using StackExchange.Redis;
-```
+    ```csharp
+    using System.Configuration;
+    using StackExchange.Redis;
+    ```
 
-Voeg de volgende methode voor de `HomeController`-klasse toe ter ondersteuning van een nieuwe `RedisCache`-actie die bepaalde opdrachten voor de nieuwe cache uitvoert.
+3. Voeg de volgende methode voor de `HomeController`-klasse toe ter ondersteuning van een nieuwe `RedisCache`-actie waarmee bepaalde opdrachten voor de nieuwe cache worden uitgevoerd.
 
-```csharp
-    public ActionResult RedisCache()
-    {
-        ViewBag.Message = "A simple example with Azure Redis Cache on ASP.NET.";
-
-        var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    ```csharp
+        public ActionResult RedisCache()
         {
-            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-            return ConnectionMultiplexer.Connect(cacheConnection);
-        });
+            ViewBag.Message = "A simple example with Azure Redis Cache on ASP.NET.";
 
-        // Connection refers to a property that returns a ConnectionMultiplexer
-        // as shown in the previous example.
-        IDatabase cache = lazyConnection.Value.GetDatabase();
+            var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+            {
+                string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+                return ConnectionMultiplexer.Connect(cacheConnection);
+            });
 
-        // Perform cache operations using the cache object...
+            // Connection refers to a property that returns a ConnectionMultiplexer
+            // as shown in the previous example.
+            IDatabase cache = lazyConnection.Value.GetDatabase();
 
-        // Simple PING command
-        ViewBag.command1 = "PING";
-        ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
+            // Perform cache operations using the cache object...
 
-        // Simple get and put of integral data types into the cache
-        ViewBag.command2 = "GET Message";
-        ViewBag.command2Result = cache.StringGet("Message").ToString();
+            // Simple PING command
+            ViewBag.command1 = "PING";
+            ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
 
-        ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
-        ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
+            // Simple get and put of integral data types into the cache
+            ViewBag.command2 = "GET Message";
+            ViewBag.command2Result = cache.StringGet("Message").ToString();
 
-        // Demostrate "SET Message" executed as expected...
-        ViewBag.command4 = "GET Message";
-        ViewBag.command4Result = cache.StringGet("Message").ToString();
+            ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
+            ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
 
-        // Get the client list, useful to see if connection list is growing...
-        ViewBag.command5 = "CLIENT LIST";
-        ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
+            // Demostrate "SET Message" executed as expected...
+            ViewBag.command4 = "GET Message";
+            ViewBag.command4Result = cache.StringGet("Message").ToString();
 
-        lazyConnection.Value.Dispose();
+            // Get the client list, useful to see if connection list is growing...
+            ViewBag.command5 = "CLIENT LIST";
+            ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-        return View();
+            lazyConnection.Value.Dispose();
+
+            return View();
+        }
+    ```
+
+4. Vouw in **Solution Explorer** de map **Views** > **Shared** uit. Open vervolgens het bestand *_Layout.cshtml*.
+
+    Vervang:
+
+        ```csharp
+        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        ```
+
+    door:
+
+        ```csharp
+        @Html.ActionLink("Azure Redis Cache Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        ```
+
+### <a name="to-add-a-new-rediscache-view"></a>Een nieuwe RedisCache-weergave toevoegen
+
+1. Vouw in **Solution Explorer** de map **Views** uit en klik met de rechtermuisknop op de map **Home**. Kies **Add** > **View...**.
+
+2. Voer in het dialoogvenster **Add View** als weergavenaam in: **RedisCache**. Selecteer vervolgens **Toevoegen**.
+
+3. Vervang de code in het bestand *RedisCache.cshtml* door de volgende code:
+
+    ```csharp
+    @{
+        ViewBag.Title = "Azure Redis Cache Test";
     }
-```
 
-Vouw in **Solution Explorer** de map **Views**>**Shared** uit en open het bestand *_Layout.cshtml*.
-
-Vervang:
-
-```csharp
-@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-```
-
-Door:
-
-```csharp
-@Html.ActionLink("Azure Redis Cache Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
-```
-
-### <a name="add-a-new-rediscache-view"></a>Een nieuwe RedisCache-weergave toevoegen
-
-Vouw in **Solution Explorer** de map **Views** uit en klik met de rechtermuisknop op de map **Home**. Kies **Add** > **View...**.
-
-Voer in het dialoogvenster Add View **RedisCache** in voor de View Name en klik op **Add**.
-
-Vervang de code in het bestand *RedisCache.cshtml* door de volgende code:
-
-```csharp
-@{
-    ViewBag.Title = "Azure Redis Cache Test";
-}
-
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-<br /><br />
-<table border="1" cellpadding="10">
-    <tr>
-        <th>Command</th>
-        <th>Result</th>
-    </tr>
-    <tr>
-        <td>@ViewBag.command1</td>
-        <td><pre>@ViewBag.command1Result</pre></td>
-    </tr>
-    <tr>
-        <td>@ViewBag.command2</td>
-        <td><pre>@ViewBag.command2Result</pre></td>
-    </tr>
-    <tr>
-        <td>@ViewBag.command3</td>
-        <td><pre>@ViewBag.command3Result</pre></td>
-    </tr>
-    <tr>
-        <td>@ViewBag.command4</td>
-        <td><pre>@ViewBag.command4Result</pre></td>
-    </tr>
-    <tr>
-        <td>@ViewBag.command5</td>
-        <td><pre>@ViewBag.command5Result</pre></td>
-    </tr>
-</table>
-```
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+    <br /><br />
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Command</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>@ViewBag.command1</td>
+            <td><pre>@ViewBag.command1Result</pre></td>
+        </tr>
+        <tr>
+            <td>@ViewBag.command2</td>
+            <td><pre>@ViewBag.command2Result</pre></td>
+        </tr>
+        <tr>
+            <td>@ViewBag.command3</td>
+            <td><pre>@ViewBag.command3Result</pre></td>
+        </tr>
+        <tr>
+            <td>@ViewBag.command4</td>
+            <td><pre>@ViewBag.command4Result</pre></td>
+        </tr>
+        <tr>
+            <td>@ViewBag.command5</td>
+            <td><pre>@ViewBag.command5Result</pre></td>
+        </tr>
+    </table>
+    ```
 
 ## <a name="run-the-app-locally"></a>De app lokaal uitvoeren
 
 Het project is standaard geconfigureerd voor het lokaal hosten van de app in [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) voor testen en foutopsporing.
 
-Klik in Visual Studio in het menu op **Debug** > **Start Debugging** om de app lokaal te bouwen en te starten voor testen en foutopsporing.
+### <a name="to-run-the-app-locally"></a>De app lokaal uitvoeren
+1. Selecteer in Visual Studio **Debug** > **Start Debugging** om de app lokaal te bouwen en te starten voor testen en foutopsporing.
 
-Klik in de browser op **Azure Redis Cache Test** op de navigatiebalk.
+2. Selecteer in de browser **Azure Redis Cache Test** op de navigatiebalk.
 
-In het onderstaande voorbeeld ziet u dat de `Message`-sleutel eerder een waarde in de cache had, die was ingesteld met behulp van de Redis Console in de portal. De app heeft die waarde in de cache bijgewerkt. De app heeft ook de opdrachten `PING` en `CLIENT LIST` uitgevoerd.
+3. In het volgende voorbeeld ziet u dat de `Message`-sleutel eerder een waarde in de cache had, die was ingesteld met behulp van de Azure Redis Cache-console in de portal. De app heeft die waarde in de cache bijgewerkt. De app heeft ook de opdrachten `PING` en `CLIENT LIST` uitgevoerd.
 
-![Eenvoudige test lokaal voltooid](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
+    ![Eenvoudige test lokaal voltooid](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
 
 ## <a name="publish-and-run-in-azure"></a>Publiceren en uitvoeren in Azure
 
-Zodra u de app met succes lokaal hebt getest, implementeert u de app in Azure en voert u deze uit in de cloud.
+Nadat het lokaal testen van de app is geslaagd, implementeert u de app in Azure en voert u deze uit in de cloud.
 
-### <a name="publish-the-app-to-azure"></a>De app publiceren in Azure
+### <a name="to-publish-the-app-to-azure"></a>De app publiceren in Azure
 
-Klik in Solution Explorer met de rechtermuisknop op het projectknooppunt en kies **Publiceren**.
+1. Klik in Visual Studio met de rechtermuisknop op het projectknooppunt in Solution Explorer. Selecteer vervolgens **Publiceren**.
 
-![Publiceren](./media/cache-web-app-howto/cache-publish-app.png)
+    ![Publiceren](./media/cache-web-app-howto/cache-publish-app.png)
 
-Klik op **Microsoft Azure App Service**, kies **Nieuwe maken** en klik op **Publiceren**.
+2. Selecteer **Microsoft Azure App Service**, selecteer **Nieuwe maken** en selecteer vervolgens **Publiceren**.
 
-![Publiceren naar App Service](./media/cache-web-app-howto/cache-publish-to-app-service.png)
+    ![Publiceren naar App Service](./media/cache-web-app-howto/cache-publish-to-app-service.png)
 
-Breng de volgende wijzigingen aan in het dialoogvenster**App Service maken**:
+3. Breng in het dialoogvenster**App Service maken** de volgende wijzigingen aan:
 
-| Instelling | Aanbevolen waarde | Beschrijving |
-| ------- | :---------------: | ----------- |
-| **Naam van app** | Standaardwaarde gebruiken | De app-naam is de hostnaam voor de app wanneer deze is geïmplementeerd in Azure. Aan de naam is mogelijk een timestamp als achtervoegsel toegevoegd om deze indien nodig uniek te maken. |
-| **Abonnement** | Kies uw Azure-abonnement | Aan dit abonnement worden eventuele gerelateerde hostingkosten in rekening gebracht. Als u meerdere Azure-abonnementen hebt, controleert u of het gewenste abonnement is geselecteerd.|
-| **Resourcegroep** | Gebruik dezelfde resourcegroep waar u de cache hebt gemaakt. Bijvoorbeeld: *TestResourceGroup*. | Met een resourcegroep kunt u alle resources als een groep beheren. Later als u de app wilt verwijderen, kunt u gewoon de groep verwijderen. |
-| **App Service Plan** | Klik op **Nieuw** en maak een nieuw App Service-plan met de naam *TestingPlan*. <br />Gebruik dezelfde **locatie** die u hebt gebruikt bij het maken van uw cache. <br />Kies **Vrij** voor de grootte. | Een App Service-plan definieert een set van rekenresources waarmee een web-app wordt uitgevoerd. |
+    | Instelling | Aanbevolen waarde | Beschrijving |
+    | ------- | :---------------: | ----------- |
+    | **Naam van app** | Gebruik de standaard. | De app-naam is de hostnaam voor de app wanneer deze is geïmplementeerd in Azure. Aan de naam is mogelijk een tijdstempel als achtervoegsel toegevoegd om deze uniek te maken, indien nodig. |
+    | **Abonnement** | Kies uw Azure-abonnement. | Voor dit abonnement worden eventuele gerelateerde hostingkosten in rekening gebracht. Als u meerdere Azure-abonnementen hebt, controleert u of het gewenste abonnement is geselecteerd.|
+    | **Resourcegroep** | Gebruik dezelfde resourcegroep waar u de cache hebt gemaakt. (Bijvoorbeeld, *TestResourceGroup*.) | Met een resourcegroep kunt u alle resources als een groep beheren. Als u de app later wilt verwijderen, verwijdert u gewoon de groep. |
+    | **App Service-plan** | Selecteer **Nieuw** en maak vervolgens een nieuw App Service-plan met de naam *TestingPlan*. <br />Gebruik dezelfde **locatie** die u hebt gebruikt bij het maken van uw cache. <br />Kies **Vrij** voor de grootte. | Een App Service-plan definieert een set van rekenresources waarmee een web-app wordt uitgevoerd. |
 
-![Het dialoogvenster App Service](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
+    ![Dialoogvenster App Service](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
-Nadat u de hostinginstellingen voor de App Service hebt geconfigureerd, klikt u op **Maken** om een nieuwe App Service voor uw app te maken.
+4. Nadat u de instellingen voor App Service-hosting hebt geconfigureerd, selecteert u **Maken**.
 
-Controleer het venster **Uitvoer** in Visual Studio om de status van het publiceren naar Azure te bekijken. Als het publiceren is voltooid, wordt de URL voor de App Service geregistreerd zoals hieronder wordt weergegeven:
+5. Controleer het venster **Uitvoer** in Visual Studio om de publicatiestatus te zien. Nadat de app is gepubliceerd, wordt de URL voor de app geregistreerd:
 
-![Publicatie-uitvoer](./media/cache-web-app-howto/cache-publishing-output.png)
+    ![Publicatie-uitvoer](./media/cache-web-app-howto/cache-publishing-output.png)
 
 ### <a name="add-the-app-setting-for-the-cache"></a>De app-instelling voor de cache toevoegen
 
-Zodra het publiceren is voltooid voor de nieuwe App Service, voegt u een nieuwe app-instelling toe. Deze instelling wordt gebruikt voor het opslaan van de verbindingsgegevens van de cache. Typ de naam van de app in de zoekbalk boven aan Azure Portal om te zoeken naar de nieuwe App Service die u zojuist hebt gemaakt.
+Nadat de nieuwe app is gepubliceerd, voegt u een nieuwe app-instelling toe. Deze instelling wordt gebruikt om de verbindingsgegevens van de cache op te slaan. 
 
-![App Service zoeken](./media/cache-web-app-howto/cache-find-app-service.png)
+#### <a name="to-add-the-app-setting"></a>De app-instelling toevoegen 
 
-Voeg een nieuwe app instelling met de naam **CacheConnection** toe die de app kan gebruiken om verbinding te maken met de cache. Gebruik dezelfde waarde die u hebt geconfigureerd voor `CacheConnection` in het bestand *CacheSecrets.config*. De waarde bevat de hostnaam en toegangssleutel van de cache.
+1. Typ de app-naam in de zoekbalk boven aan Azure Portal om te zoeken naar de nieuwe app die u hebt gemaakt.
 
-![App-instelling toevoegen](./media/cache-web-app-howto/cache-add-app-setting.png)
+    ![App zoeken](./media/cache-web-app-howto/cache-find-app-service.png)
+
+2. Voeg een nieuwe app instelling met de naam **CacheConnection** toe die de app kan gebruiken om verbinding te maken met de cache. Gebruik dezelfde waarde die u hebt geconfigureerd voor `CacheConnection` in het bestand *CacheSecrets.config*. De waarde bevat de hostnaam en toegangssleutel van de cache.
+
+    ![App-instelling toevoegen](./media/cache-web-app-howto/cache-add-app-setting.png)
 
 ### <a name="run-the-app-in-azure"></a>De app in Azure uitvoeren
 
-Blader in uw browser naar de URL voor de App Service. De URL wordt weergegeven in de resultaten van de publicatiebewerking in het uitvoervenster in Visual Studio. Deze is ook beschikbaar in Azure Portal op de pagina Overzicht van de App Service die u hebt gemaakt.
+Ga in de browser naar de URL voor de app. De URL wordt weergegeven in de resultaten van de publicatiebewerking in het uitvoervenster van Visual Studio. Deze is ook beschikbaar in Azure Portal op de overzichtspagina van de app die u hebt gemaakt.
 
-Klik op **Azure Redis Cache Test** op de navigatiebalk om toegang tot de cache te testen.
+Selecteer op de navigatiebalk **Azure Redis Cache Test** om toegang tot de cache te testen.
 
 ![Eenvoudige test voltooid in Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u verder wilt gaan met de volgende zelfstudie, kunt u de resources die in deze snelstart zijn gemaakt behouden en opnieuw gebruiken.
+Als u verder wilt gaan met de volgende zelfstudie, kunt u de resources die u in deze snelstart hebt gemaakt, behouden en opnieuw gebruiken.
 
-Als u niet verder wilt met de voorbeeldtoepassing uit de snelstart, kunt u de Azure-resources verwijderen die in deze snelstart zijn gemaakt om kosten te voorkomen. 
+Als klaar bent met de voorbeeldtoepassing uit de snelstart, kunt u de Azure-resources die u in deze snelstart hebt gemaakt, verwijderen om kosten te voorkomen. 
 
 > [!IMPORTANT]
-> Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. De resourcegroep en alle bijbehorende resources worden permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blade.
->
+> Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. Wanneer u een resourcegroep verwijdert, worden alle resources in de groep definitief verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blade.
 
-Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+### <a name="to-delete-a-resource-group"></a>Een resourcegroep verwijderen
 
-Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) en selecteer vervolgens **Resourcegroepen**.
 
-![Verwijderen](./media/cache-web-app-howto/cache-delete-resource-group.png)
+2. Typ in het vak **Filteren op naam...** de naam van de resourcegroep. In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Selecteer in de resourcegroep, in de resultatenlijst, de optie **...**. Selecteer vervolgens **Resourcegroep verwijderen**.
 
-U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep om te bevestigen en klik op **Verwijderen**.
+    ![Verwijderen](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
-Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
+U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ ter bevestiging de naam van de resourcegroep. Selecteer vervolgens **Verwijderen**.
+
+Na enkele ogenblikken worden de resourcegroep en alle bijbehorende resources verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze volgende zelfstudie gebruikt u Azure Redis Cache in een praktijkscenario om de prestaties van een app te verbeteren. U werkt deze toepassing bij zodat leaderboardresultaten in de cache worden geplaatst met behulp van het 'cache-aside'-patroon met ASP.NET en een database.
+In de volgende zelfstudie gebruikt u Azure Redis Cache in een realistischer scenario om de prestaties van een app te verbeteren. U werkt deze toepassing bij zodat leaderboardresultaten in de cache worden geplaatst met behulp van het cache-aside-patroon met ASP.NET en een database.
 
 > [!div class="nextstepaction"]
 > [Een 'cache-aside' leaderboard maken in ASP.NET](cache-web-app-cache-aside-leaderboard.md)
