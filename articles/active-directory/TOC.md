@@ -143,9 +143,9 @@
 ## Wachtwoorden beheren
 ### [Overzicht met betrekking tot wachtwoorden](authentication/active-directory-passwords-overview.md)
 ### Gebruikersdocumenten
-#### [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
+#### [Uw wachtwoord opnieuw instellen of wijzigen](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Aanbevolen procedures voor wachtwoorden](active-directory-secure-passwords.md)
-#### [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
+#### [Registreren voor de selfservice voor wachtwoordherstel](user-help/active-directory-passwords-reset-register.md)
 ### [Hoe SSPR werkt](authentication/concept-sspr-howitworks.md)
 ### [SSPR-implementatiegids](authentication/howto-sspr-deployment.md)
 ### [SSPR en Windows 10](authentication/tutorial-sspr-windows.md)
@@ -174,8 +174,8 @@
 ### [Azure AD Join plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Veelgestelde vragen](device-management-faq.md)
 ### Taken
-#### [Bij Azure AD ingeschreven Windows 10-apparaten instellen](device-management-azuread-registered-devices-windows10-setup.md)
-#### [In Azure AD gekoppelde apparaten instellen](device-management-azuread-joined-devices-setup.md)
+#### [Bij Azure AD ingeschreven Windows 10-apparaten instellen](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [In Azure AD gekoppelde apparaten instellen](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Hybride, in Azure AD gekoppelde apparaten instellen](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
 #### [Koppelen aan Azure AD tijdens eerste sessie in Windows 10](device-management-azuread-joined-devices-frx.md)
