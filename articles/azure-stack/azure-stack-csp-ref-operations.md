@@ -1,6 +1,6 @@
 ---
-title: Registreren van tenants voor gebruik in Azure-Stack bijhouden | Microsoft Docs
-description: Gegevens over de bewerkingen die worden gebruikt voor het beheren van de tenant registraties en hoe het gebruik van de tenant wordt bijgehouden in Azure-Stack.
+title: Registreren van tenants voor het gebruik bijhouden in Azure Stack | Microsoft Docs
+description: Meer informatie over de bewerkingen die worden gebruikt voor het beheren van de tenant-registraties en het tenantgebruik wordt bijgehouden in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,44 +11,44 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mabrigg
+ms.date: 06/08/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159108"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093099"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>Registratie in Azure-Stack tenant beheren
+# <a name="manage-tenant-registration-in-azure-stack"></a>Tenant-registratie in Azure Stack beheren
 
-*Van toepassing op: Azure Stack geïntegreerd systemen*
+*Is van toepassing op: Azure Stack-geïntegreerde systemen*
 
-Dit artikel bevat informatie over de bewerkingen die u gebruiken kunt voor het beheren van uw tenant-registraties en hoe het gebruik van de tenant wordt bijgehouden. U vindt meer informatie over het toevoegen, lijst of verwijder toewijzingen van de tenant. U kunt PowerShell of de eindpunten facturering API gebruiken voor het beheren van uw gebruik bijhouden.
+In dit artikel bevat informatie over de bewerkingen die u gebruiken kunt voor het beheren van uw tenant-registraties en hoe tenantgebruik wordt bijgehouden. Hier vindt u meer informatie over het toevoegen, lijst of tenant toewijzingen verwijderen. U kunt PowerShell of de facturering API-eindpunten gebruiken voor het beheren van uw gebruik bijhouden.
 
-## <a name="add-tenant-to-registration"></a>Tenant toevoegen aan de registratie
+## <a name="add-tenant-to-registration"></a>Tenant registratie toevoegen
 
-Als u een nieuwe tenant toevoegen aan uw registratie, wilt zodat hun gebruik wordt gerapporteerd onder een Azure-abonnement verbonden met de tenant van Azure Active Directory (Azure AD) gebruikt u deze bewerking.
+Als u toevoegen van een nieuwe tenant aan uw registratie, wilt zodat hun gebruik wordt gerapporteerd bij een Azure-abonnement verbonden met de tenant Azure Active Directory (Azure AD) gebruikt u deze bewerking.
 
-U kunt deze bewerking ook gebruiken als u wilt wijzigen van het abonnement is gekoppeld aan een tenant, u kunt New-PUT-AzureRMResource opnieuw aanroepen. De oude toewijzing wordt overschreven.
+U kunt deze bewerking ook gebruiken als u wilt wijzigen van het abonnement dat is gekoppeld aan een tenant, kunt u New-PUT-AzureRMResource opnieuw aanroepen. De oude toewijzing wordt overschreven.
 
-Houd er rekening mee dat slechts één Azure-abonnement gekoppeld aan een tenant worden kan. Als u een tweede abonnement toevoegen aan een bestaande tenant probeert, is het eerste abonnement overschreven. 
+Houd er rekening mee dat slechts één Azure-abonnement gekoppeld aan een tenant worden kan. Als u probeert een tweede abonnement toevoegen aan een bestaande tenant, is het eerste abonnement overschreven. 
 
 
 | Parameter                  | Beschrijving |
 |---                         | --- |
-| registrationSubscriptionID | De Azure-abonnement dat is gebruikt voor de initiële registratie. |
-| customerSubscriptionID     | De Azure-abonnement (geen Azure-Stack) die horen bij de klant worden geregistreerd. Moet worden gemaakt in de aanbieding Cloud Service Provider (CSP). In de praktijk betekent dit via Partner Center. Als een klant meer dan één tenant heeft, kan dit abonnement moet worden gemaakt in de tenant die wordt gebruikt voor aanmelding bij Azure-Stack. |
-| resourceGroup              | De resourcegroep in Azure waarin uw registratie wordt opgeslagen. |
-| registrationName           | De naam van de registratie van uw Azure-Stack. Er is een object dat is opgeslagen in Azure. De naam van de bevindt zich doorgaans in de vorm azurestack-CloudID, waarbij CloudID is in de Cloud-ID van uw Azure-Stack-implementatie. |
+| registrationSubscriptionID | De Azure-abonnement dat is gebruikt voor de registratie. |
+| customerSubscriptionID     | De Azure-abonnement (niet Azure Stack) die horen bij de klant worden geregistreerd. Moet worden gemaakt van de aanbieding van Cloud Service Provider (CSP). Dit betekent via Partner Center in de praktijk. Als een klant meer dan één tenant heeft, kan dit abonnement moet worden gemaakt in de tenant die wordt gebruikt voor aanmelding bij Azure Stack. |
+| ResourceGroup              | De resourcegroep in Azure waarop uw registratie zijn opgeslagen. |
+| registrationName           | De naam van de registratie van uw Azure Stack. Er is een object dat is opgeslagen in Azure. De naam is meestal in de vorm azurestack-CloudID, waarbij CloudID is in de Cloud-ID van uw Azure Stack-implementatie. |
 
 > [!Note]  
-> Tenants moeten worden geregistreerd met elke Azure-Stack die ze gebruiken. Als een tenant maakt gebruik van meer dan één Azure-Stack, moet u de initiële registraties van elke implementatie bijwerken met de tenant-abonnement.
+> Tenants moeten worden geregistreerd met elke Azure-Stack die ze gebruiken. Als een tenant maakt gebruik van meer dan één Azure Stack, moet u de eerste registraties van elke implementatie bijwerken met de tenantabonnement.
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik de cmdlet New-AzureRmResource bijwerken van de bron van de registratie. Aanmelden bij Azure (`Add-AzureRmAccount`) met het account dat u voor de initiële registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
+Gebruik de cmdlet New-AzureRmResource om bij te werken van de registratie-resource. Aanmelden bij Azure (`Add-AzureRmAccount`) met behulp van het account dat u voor de registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -59,12 +59,12 @@ Gebruik de cmdlet New-AzureRmResource bijwerken van de bron van de registratie. 
 **Bewerking**: plaatsen  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Antwoord**: 201 gemaakt  
-**Antwoordtekst**: leeg  
+**Antwoord**: 201-gemaakt  
+**Antwoordtekst**: leeg zijn  
 
 ## <a name="list-all-registered-tenants"></a>Lijst van alle geregistreerde tenants
 
-Een lijst van alle tenants die zijn toegevoegd aan een registratie ophalen.
+Haal een lijst van alle tenants die zijn toegevoegd aan een registratie.
 
  > [!Note]  
  > Als u geen tenants zijn geregistreerd, ontvangt u geen antwoord.
@@ -73,13 +73,13 @@ Een lijst van alle tenants die zijn toegevoegd aan een registratie ophalen.
 
 | Parameter                  | Beschrijving          |
 |---                         | ---                  |
-| registrationSubscriptionId | De Azure-abonnement dat is gebruikt voor de initiële registratie.   |
-| resourceGroup              | De resourcegroep in Azure waarin uw registratie wordt opgeslagen.    |
-| registrationName           | De naam van de registratie van uw Azure-Stack. Er is een object dat is opgeslagen in Azure. De naam van de bevindt zich doorgaans in de vorm van **azurestack**-***CloudID***, waarbij ***CloudID*** is de Cloud-ID van uw Azure-Stack-implementatie.   |
+| registrationSubscriptionId | De Azure-abonnement dat is gebruikt voor de registratie.   |
+| ResourceGroup              | De resourcegroep in Azure waarop uw registratie zijn opgeslagen.    |
+| registrationName           | De naam van de registratie van uw Azure Stack. Er is een object dat is opgeslagen in Azure. De naam van de bevindt zich doorgaans in de vorm van **azurestack**-***CloudID***, waarbij ***CloudID*** is de Cloud-ID van uw Azure Stack-implementatie.   |
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik de cmdlet Get-AzureRmResovurce voor een lijst met alle geregistreerde tenants. Aanmelden bij Azure (`Add-AzureRmAccount`) met het account dat u voor de initiële registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
+Gebruik de cmdlet Get-AzureRmResovurce om alle geregistreerde tenants weer te geven. Aanmelden bij Azure (`Add-AzureRmAccount`) met behulp van het account dat u voor de registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -115,16 +115,16 @@ api-version=2017-06-01 HTTP/1.1`
 }
 ```
 
-## <a name="remove-a-tenant-mapping"></a>Verwijderen van een tenant toewijzen
+## <a name="remove-a-tenant-mapping"></a>Een tenanttoewijzing verwijderen
 
-U kunt een tenant die is toegevoegd aan een registratie verwijderen. Als deze tenant wordt steeds resources op Azure-Stack, wordt hun gebruik verrekend met het abonnement dat is gebruikt bij de eerste Azure-Stack-registratie.
+U kunt een tenant die is toegevoegd aan een registratie verwijderen. Als deze tenant is nog steeds resources in Azure Stack, worden hun gebruik wordt verrekend met het abonnement dat is gebruikt in de eerste registratie voor Azure Stack.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter                  | Beschrijving          |
 |---                         | ---                  |
-| registrationSubscriptionId | Abonnement-ID voor de registratie.   |
-| resourceGroup              | De resourcegroep voor de registratie.   |
+| registrationSubscriptionId | Abonnements-ID voor de registratie.   |
+| ResourceGroup              | De resourcegroep voor de registratie.   |
 | registrationName           | De naam van de registratie.  |
 | customerSubscriptionId     | De klant abonnements-ID.  |
 
@@ -136,15 +136,15 @@ U kunt een tenant die is toegevoegd aan een registratie verwijderen. Als deze te
 
 ### <a name="api-call"></a>API-aanroep
 
-U kunt de toewijzingen van tenant met behulp van de bewerking DELETE verwijderen.
+Toewijzingen van tenant met behulp van de bewerking verwijderen, kunt u verwijderen.
 
 **Bewerking**: verwijderen  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Antwoord**: 204 geen inhoud  
-**Antwoordtekst**: leeg
+**Antwoordtekst**: leeg zijn
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - Zie voor meer informatie over het ophalen van informatie over het gebruik van de bron van Azure-Stack, [gebruiks- en facturering in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Zie voor meer informatie over het ophalen van informatie over het gebruik van de resource van Azure Stack, [gebruik en facturering in Azure Stack](/azure-stack-billing-and-chargeback.md).

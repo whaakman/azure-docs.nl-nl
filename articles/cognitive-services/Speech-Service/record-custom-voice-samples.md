@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7b58dc6e9bbfbf69358b30d29d93da6f6d6dc899
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 11d96ce0c92916e1975e0cb403aabf057ab8b825
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922575"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036826"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Het opnemen van stem-voorbeelden voor een aangepaste spraak
 
@@ -23,7 +23,7 @@ Het maken van een aangepaste gesproken van hoge kwaliteit productie helemaal is 
 
 Voordat u kunt deze opnamen, dient u echter een script: de woorden die wordt gesproken worden door uw stem talent te maken van de audio-voorbeelden. Het script moet voor de beste resultaten hebben goede fonetische dekking en voldoende verscheidenheid aan het aangepaste spraak-model te trainen.
 
-Veel onderdelen gaat u naar een goede aangepaste spraak. Deze handleiding fungeert als een inleiding tot het proces, met nadruk op problemen die kunt u waarschijnlijk optreden.
+Veel kleine, maar belangrijke details gaat u naar het maken van een professionele spraakopname. Deze handleiding is een schema voor een proces waarmee u goed, consistente resultaten krijgt.
 
 > [!TIP]
 > Voor de kwaliteitsresultaten van de hoogste, kunt u Microsoft helpt bij het ontwikkelen van uw aangepaste gesproken benaderen. Microsoft heeft uitgebreide ervaring produceren van hoogwaardige stemmen voor een eigen-producten, met inbegrip van Cortana en Office.
@@ -70,7 +70,7 @@ Het beginpunt van een aangepaste spraakopname sessie is het script, waarin de ui
 
 De uitingen in het script kunnen afkomstig zijn vanaf elke locatie: fiction, niet-fiction en transcripties van toespraken, nieuws, rapporten en anders beschikbaar in de vorm afgedrukt. Als u wilt om te controleren of dat uw stem op specifieke typen van woorden (zoals medische terminologie of programming jargon) heeft, kunt u om op te nemen van zinnen vanaf wetenschappelijk documenten of technische documenten. (Zie [Legalities](#legalities) hieronder.) U kunt ook uw eigen tekst schrijven.
 
-Uw uitingen niet afkomstig moet zijn van dezelfde bron of hetzelfde type gegevensbron. Als u wilt maken van de opname zelf, in plaats van te gaan naar een opname-studio, hier is een korte inleiding tot. Dankzij de opkomst van home opnemen en podcasts is het eenvoudiger dan ooit om te zoeken naar goede opname advies en bronnen online. Uw tolloket"registratie" moet een kleine zaal plaatsen zonder merkbare echo of 'Toon ruimte' en als stille en soundproof mogelijk. Gordijnen aan de muur kunnen worden gebruikt te verminderen echo en neutraliseren of "deaden" het geluid van de ruimte bevindt.
+Uw uitingen niet afkomstig moet zijn van dezelfde bron of hetzelfde type gegevensbron. Als u wilt maken van de opname zelf, in plaats van te gaan naar een opname-studio, hier is een korte inleiding tot. Dankzij de opkomst van home opnemen en podcasts is het eenvoudiger dan ooit om te zoeken naar goede opname advies en bronnen online. Hierdoor krijgt een grotere kans van het uitspreken van deze zinnen en uw aangepaste spraak. Gordijnen aan de muur kunnen worden gebruikt te verminderen echo en neutraliseren of "deaden" het geluid van de ruimte bevindt.
 
 Gebruik een hoge kwaliteit studio koeler microfoon ('mic') die bestemd zijn voor het opnemen van spraak. Sennheiser AKG en zelfs nieuwere zoomen microfoons kunt goede resultaten opleveren. U kunt uw mic kopen of huurt van een lokale audiovisuele verhuur vast.* 
 
@@ -87,10 +87,13 @@ Als de talent liever bevinden zich, erop letten mic afstand bewaken en te voorko
 De persoon die daadwerkelijk de opname, de engineer, moeten zich in een afzonderlijk lokaal van de talent, met een manier om te communiceren met de talent in de opname tolloket (een "talkback-circuit').
 
 * De opname moet bevatten als weinig ruis mogelijk, met als doel van een 80 db signaal ruis verhouding of hoger. Luister goed naar een opname van stilte in uw "tolloket,' afbeelding waar elke ruis afkomstig is van en de oorzaak te elimineren. Meest voorkomende oorzaken van de ruis zijn ventilatoren, TL lichte ballasten, verkeer op in de buurt wegen en apparatuur fans (zelfs laptops hebben ventilatoren).
-* Microfoons en kabels pikken elektrische ruis uit in de buurt AC-bekabeling, meestal een verwijdert of buzz.
+* Een lege kolom waar u gaat schrijven in het getal of wanneer de code van elke utterance kunt u vinden in de registratie is voltooid.
 * In sommige gevallen is het mogelijk een equalizer of een invoegtoepassing ruis vermindering software gebruiken om u te helpen ruis verwijderen uit uw opnamen, maar het is altijd verstandig om te voorkomen dat deze bij de bron indien mogelijk.
 
 ![Voorbeeldscript](media/custom-voice/script.png)
+
+> [!NOTE]
+> De meeste studios vastleggen in een korte segmenten, aangeduid als 'neemt', elke doorgaans met tien tot 24 uitingen nemen. Alleen waarbij het getal is voldoende zijn voor het vinden van een bepaalde utterance later opnieuw. Sommige studios wellicht beter langer opnamen maken. In dit geval moet u de time-offset opmerking in het bestand (de tijdcode). De studio heeft een prominente tijd weer te geven.
 
 Niveaus moeten worden ingesteld, zodat die het beste van de beschikbare dynamisch bereik van digitale registratie zonder overdriving in vervorming wordt gebruikt. Dit betekent dat mogelijk, maar niet dus mogelijk dat de audio geen juist beeld geeft. Hieronder volgt een voorbeeld van de stroom van een goede opname.
 
@@ -100,19 +103,19 @@ goede opname golf U kunt zien dat de meeste van het bereik (hoogte) wordt gebrui
 
 U ziet ook dat de stilte in de registratie een thin horizontale lijn benadert die wijzen op een verdieping lage ruis. Deze registratie heeft acceptabele dynamisch bereik en signaal ruis verhouding. Neem rechtstreeks op de computer met een goede audio-interface of een USB-poort, afhankelijk van het soort mic u gebruikt. Houd de audio keten eenvoudig: mic, preamp, audio-interface, computer.
 
-Beide Avid Pro Tools en Adobe Audition maandelijks redelijke kosten kunnen worden gelicentieerd. Als uw budget zeer krachtige is, probeert u het gratis Audacity.
+Gelukkig is het mogelijk om volledig te voorkomen dat deze problemen. Als uw budget zeer krachtige is, probeert u het gratis Audacity.
 
-|||
+|Tekstbron|Beschrijving|
 |-|-|
 |[Vastleggen met een 44,1 KHz 16-bits mono (kwaliteit CD) of hoger.](http://festvox.org/cmu_arctic/)|Huidige status-of-the-art is 48 KHz 24-bits, als uw apparatuur wordt ondersteund. U wordt verkleinen tot 16 KHz 16-bits de audio voordat u deze bij de portal voor aangepaste spraak indient.|
 |Het loont nog steeds, hebben een hoge kwaliteit oorspronkelijke op te nemen in het geval van wijzigingen nodig zijn.<br>In het ideale geval hebben verschillende mensen in de rollen van director, engineering en talent vervullen.|Probeer niet om dit te doen alle zelf! In een knijpen, kunnen de directeur en engineer één persoon zijn. Voordat de sessie|
 |Om te voorkomen dat ze studio tijd heeft verspild, doorloopt u het script met uw stem talent voordat de opnamesessie.|Als de stem-talent bekend zijn met de tekst verandert, kan hij of zij de uitspraak van woorden die niet bekend verduidelijken.|
-|De meeste opname studios bieden elektronische weergave van scripts in de stand opnemen.|In dit geval, typ de opmerkingen bij de uitzending rechtstreeks in document van het script.|
-|U nog steeds wilt papier aantekeningen op tijdens de sessie, maar.|De meeste engineers wilt afdrukken, te. In deze fase, kunt u bewerken van kleine ongewenste geluiden die u tijdens de opname hebt gemist, zolang deze daadwerkelijke spraak niet overlappen. Als u een bestand niet kan oplossen, verwijderen van uw gegevensset volledig, waardoor een Houd er rekening mee dat u hebt gedaan.|
+|De meeste opname studios bieden elektronische weergave van scripts in de stand opnemen.|In dit geval, typ de opmerkingen bij de uitzending rechtstreeks in document van het script. (Het niet mogelijk om af te wijken copyright volledig in sommige rechtsgebieden.)|
+|U nog steeds wilt papier aantekeningen op tijdens de sessie, maar.|Werkt onder een licentie is gedistribueerd, zoals Creative Commons of de documentatie van GNU gratis licentie. In deze fase, kunt u bewerken van kleine ongewenste geluiden die u tijdens de opname hebt gemist, zolang deze daadwerkelijke spraak niet overlappen. Als u een bestand niet kan oplossen, verwijderen van uw gegevensset volledig, waardoor een Houd er rekening mee dat u hebt gedaan.|
 
 ## <a name="recording-your-script"></a>Verkleinen elk bestand naar 16 KHz en 16 bits voordat u opslaat en, als u hebt genoteerd in stereo, verwijdert u het tweede kanaal.
 
-Elk bestand opslaan in WAV-indeling. Archiveren van de oorspronkelijke opname in een veilige plaats als u wilt terugkeren naar het later opnieuw. Uw script en notities, te behouden.
+Bij voorkeur, moet u uw script aan een professionele opname-studio die gespecialiseerd is in voiceover werk vastleggen. Archiveren van de oorspronkelijke opname in een veilige plaats als u wilt terugkeren naar het later opnieuw. Uw script en notities, te behouden.
 
 U kunt nu uw opnamen uploaden en maken van uw aangepaste gesproken! De opname hebt weinig of geen dynamisch bereik compressie (maximaal 4:1). Het is essentieel dat de audio consistente volume en de verhouding van een hoge signaal ruis, terwijl deze gratis ongewenste geluiden hebben.
 
@@ -124,9 +127,9 @@ Uw tolloket"registratie" moet een kleine zaal plaatsen zonder merkbare echo of '
 
 Gebruik een hoge kwaliteit studio koeler microfoon ('mic') die bestemd zijn voor het opnemen van spraak. Sennheiser AKG en zelfs nieuwere zoomen microfoons kunt goede resultaten opleveren. U kunt uw mic kopen of huurt van een lokale audiovisuele verhuur vast. Zoek naar een met een USB-interface. Dit type mic gemakkelijk de microfoon element, preamp en analoog naar digitaal converter gecombineerd in één pakket, verbinden te vereenvoudigen.
 
-U kunt ook een analoge microfoon. Veel verhuur huizen bieden "Superieur" microfoons die gewend bent voor hun stem-teken zijn. Houd er rekening mee dat professionele analoog versnelling met gelijke taakverdeling XLR-connectors gebruikt, in plaats van de 1/4" plug-in consumentenapparatuur gebruikt. Wanneer u analoog gaat, moet u ook een preamp en een computer audio-interface met deze connectors.
+U kunt ook een analoge microfoon. Veel verhuur huizen bieden "Superieur" microfoons gerenommeerde voor hun stem-teken. Houd er rekening mee dat professionele analoog versnelling met gelijke taakverdeling XLR-connectors gebruikt, in plaats van de 1/4" plug-in consumentenapparatuur gebruikt. Wanneer u analoog gaat, moet u ook een preamp en een computer audio-interface met deze connectors.
 
-De microfoon installeren op een zelfstandige of tijdperk en gebruiken van een pop-filter in frot van de microfoon te elimineren ruis van "plosive" klinkt "p" en "b". Sommige microfoons worden geleverd met een onderbreking koppeling waarmee ze worden geïsoleerd van trillingen in de zelfstandige, wat nuttig is.
+De microfoon op een zelfstandige of tijdperk van installeren en gebruiken van een pop-filter voor de microfoon te elimineren ruis van "plosive" klinkt "p" en "b". Sommige microfoons worden geleverd met een onderbreking koppeling waarmee ze worden geïsoleerd van trillingen in de zelfstandige, wat nuttig is.
 
 De spraak-talent moet blijven op een consistente afstand van de microfoon. Tape markeren waar ze moeten staan op de verdieping gebruiken. Als de talent liever bevinden zich, erop letten mic afstand bewaken en te voorkomen dat stoel ruis.
 
@@ -141,7 +144,7 @@ Luister goed naar een opname van stilte in uw "tolloket,' afbeelding waar elke r
 > [!TIP]
 > In sommige gevallen is het mogelijk een equalizer of een invoegtoepassing ruis vermindering software gebruiken om u te helpen ruis verwijderen uit uw opnamen, maar het is altijd verstandig om te voorkomen dat deze bij de bron indien mogelijk.
 
-Niveaus moeten worden ingesteld, zodat die het beste van de beschikbare dynamisch bereik van digitale registratie zonder overdriving in vervorming wordt gebruikt. Dit betekent dat mogelijk, maar niet dus mogelijk dat de audio geen juist beeld geeft. Hieronder volgt een voorbeeld van de stroom van een goede opname.
+Niveaus moeten worden ingesteld, zodat die het beste van de beschikbare dynamisch bereik van digitale registratie zonder overdriving wordt gebruikt. Dit betekent dat mogelijk, maar niet dus mogelijk dat de audio geen juist beeld geeft. Hieronder volgt een voorbeeld van de stroom van een goede opname.
 
 ![goede opname golf](media/custom-voice/good-recording.png)
 
@@ -169,15 +172,17 @@ De talent moet worden uitgesproken woorden wachtwoorddelen afzonderlijk sturen. 
 |nooit gaan op te geven u|nooit gaan op te geven u|
 |Er zijn vier verlichting|Er zijn vier verlichting|
 |hoe wordt het weer vandaag|Wat is het e-weerbericht van vandaag|
-|Mijn weinig pony|Mijn lil' pony|
+|Maak kennis met mijn weinig vriend|zegt Hallo naar Mijn lil' vriend|
 
 Talent moet *niet* afzonderlijke pauzes tussen woorden toevoegen. De zin moet nog steeds op een natuurlijke manier, zelfs terwijl een beetje formele hoorbaar stromen. Dit goed onderscheid kan duren voordat sommige praktijk meteen.
 
 ### <a name="the-recording-session"></a>De opnamesessie
 
-Maakt u een verwijzing opnemen vroeg in de sessie van een typische utterance en deze af te spelen op de stem talent regelmatig om hen te helpen de prestaties consistent te houden. De engineer kunt gebruiken als uitgangspunt voor niveaus en algehele consistentie van geluid. Dit is vooral belangrijk bij het vastleggen van gegevens hervatten na een onderbreking of op een andere dag.
+Maak een verwijzing op te nemen, of *overeenkomst bestand* van een typische utterance aan het begin van de sessie. Vraag de talent deze regel herhalen elke pagina of pagina en een halve. Telkens wanneer de nieuwe opname Reference vergelijken. Deze techniek helpt de talent in volume, tempo, inspiratie en intonation consistent blijven. De engineer kunt het bestand overeenkomst in de tussentijd zorgen, gebruiken als uitgangspunt voor niveaus en algehele consistentie van geluid.
 
-Uw talent een grondige adem en wacht een ogenblik voordat elke utterance coachen. Een paar seconden stilte tussen uitingen opnemen. Pacing moet consistent zijn; een metronome gespeeld door middel van de talent hoofdtelefoon kan nuttig zijn als ze er problemen zijn. Woorden die moeten worden verergerd dezelfde manier telkens wanneer die ze worden weergegeven.
+Het bestand vergelijken is vooral belangrijk bij het vastleggen van gegevens hervatten na een onderbreking of op een andere dag. Moet u een paar keer voor de talent spelen en laten herhalen elke keer totdat ze zijn ook overeenkomen.
+
+Uw talent een grondige adem en wacht een ogenblik voordat elke utterance coachen. Een paar seconden stilte tussen uitingen opnemen. Woorden die moeten worden verergerd dezelfde manier telkens wanneer ze worden weergegeven, rekening houdend met context: 'record' als een bewerking anders van 'record' als een zelfstandig naamwoord uitgesproken is.
 
 Registreren van een goede vijf seconden stilte voordat de eerste registratie voor het vastleggen van de 'ruimte toon." Dit helpt de compenseren voor eventuele resterende ruis in de opnamen aangepaste spraak-portal.
 
@@ -187,9 +192,9 @@ Registreren van een goede vijf seconden stilte voordat de eerste registratie voo
 Luister goed, hoofdtelefoon, om de prestaties van de stem-talent te gebruiken. U zoekt naar goede maar natuurlijke diction, juiste uitspraak en een gebrek aan ongewenste geluiden. Kunt u vragen uw talent om vast te leggen opnieuw een utterance die niet voldoet aan deze standaarden. 
 
 > [!TIP] 
-> Bij het vastleggen van een groot aantal uitingen, verlies van een enkele utterance kan niet van invloed op de resulterende stem op een merkbare manier. Zo kan het zijn meer wenselijk is om te weten gewoon alle uitingen die problemen ondervindt bij en Zie hoe uw aangepaste gesproken blijkt uitsluiten uw gegevensset. U kunt altijd gaat u terug naar de studio en de gemiste voorbeelden later opnemen.
+> Bij het vastleggen van een groot aantal uitingen, verlies van een enkele utterance kan weinig invloed op de resulterende aangepaste spraak. Zo kan het zijn meer wenselijk is om te weten gewoon alle uitingen die problemen ondervindt bij en Zie hoe uw aangepaste gesproken blijkt uitsluiten uw gegevensset. U kunt altijd gaat u terug naar de studio en de gemiste voorbeelden later opnemen.
 
-De meeste studios hebben een groot scherm 'tijd code' die aangeeft van de huidige tijd in de opname. Noteer de tijd aan uw script voor elke utterance. Vraag de engineer als ze elke utterance in de opname van metagegevens of hint blad ook kunnen markeren.
+Noteer het getal of de code op uw script tijd voor elke utterance. Vraag de engineer als ze elke utterance in de opname van metagegevens of hint blad ook kunnen markeren.
 
 Reguliere onderbrekingen voor uw stem talent zijn of haar spraak in goede staat houden, kunnen nemen. Geeft het talent iets drank om te voorkomen dat hun keel droge aan.
 
@@ -197,13 +202,13 @@ Reguliere onderbrekingen voor uw stem talent zijn of haar spraak in goede staat 
 
 Moderne opname studios uitgevoerd op computers. Aan het einde van de sessie ontvangt, u een of meer audio bestanden, niet een tape. Deze bestanden wordt waarschijnlijk WAV of AIFF-indeling in het CD-kwaliteit (44,1 KHz 16-bits) of hoger. 48 kHz 24-bits is gemeenschappelijk en wenselijk is. Hogere sampling-frequenties, zoals 96 KHz zijn doorgaans niet nodig.
 
-De studio wordt waarschijnlijk een of meer audiobestanden met veel uitingen leveren. Als u wilt de opnamen uploaden naar de portal voor aangepaste spraak, moet elke utterance in een eigen bestand. De opname-technicus die mogelijk een markering in het bestand geplaatst (of een lijst met afzonderlijke hints opgegeven) om aan te geven waarbij elke utterance wordt gestart. Deze metagegevens kunnen worden gebruikt om op te halen van de uitingen.
+De studio levert een of meer audio bestanden met meerdere uitingen. Als u wilt de opnamen uploaden naar de portal voor aangepaste spraak, moet elke utterance in een eigen bestand. De opname-technicus die mogelijk een markering in het bestand geplaatst (of een lijst met afzonderlijke hints opgegeven) om aan te geven waarbij elke utterance wordt gestart.
 
-U moet de volledige opname doorlopen en een WAV-bestand voor elke utterance. Uw notities gebruiken om te vinden van de exacte uitingen die u wilt en gebruik een hulpprogramma zoals bewerken geluid [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), of de gratis [Audacity](https://www.audacityteam.org/) kopiëren naar een nieuw bestand.
+U moet de audio-opnamen doorlopen en een WAV-bestand voor elke utterance. Uw notities gebruiken om te vinden van de exacte uitingen die u wilt en gebruik een hulpprogramma zoals bewerken geluid [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), of de gratis [Audacity](https://www.audacityteam.org/) kopiëren naar een nieuw bestand.
 
 Laat u slechts circa 0,2 seconden stilte aan het begin en einde van elke clip, met uitzondering van de eerste. Dat bestand moet beginnen met een volledige vijf seconden stilte. Gebruik niet de audio-editor 'nul out' op de achtergrond delen van het bestand. Met inbegrip van de 'Toon ruimte', kunnen de aangepaste spraak algoritmen voor eventuele resterende achtergrondgeluiden compenseren.
 
-Luister naar elk bestand zorgvuldig. In deze fase, kunt u bewerken van kleine ongewenste geluiden die u tijdens de opname hebt gemist, zolang deze daadwerkelijke spraak niet overlappen. Als u een bestand niet kan oplossen, verwijderen van uw gegevensset volledig, waardoor een Houd er rekening mee dat u hebt gedaan.
+Luister naar elk bestand zorgvuldig. In deze fase, kunt u bewerken van kleine ongewenste geluiden die u tijdens het opnemen, zoals een lichte lip smack vóór een regel hebt gemist, zolang deze spraak niet overlappen. Als u een bestand niet kan oplossen, kunt u deze in uw gegevensset, waardoor een Houd er rekening mee dat u hebt gedaan, verwijderen.
 
 Verkleinen elk bestand naar 16 KHz en 16 bits voordat u opslaat en, als u hebt genoteerd in stereo, verwijdert u het tweede kanaal. Elk bestand opslaan in WAV-indeling.
 
