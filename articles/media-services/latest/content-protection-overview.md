@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 5ed98bb4c4f40b23988a4f73778e715bfbea2505
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fb8730e9074624ba1b0f0162ebf9156b758b59c2
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004931"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068781"
 ---
 # <a name="content-protection-overview"></a>Overzicht van de beveiliging van inhoud
 
@@ -54,9 +54,9 @@ Als u wilt uw systeem-/ toepassingsontwerp 'content protection' is voltooid, moe
   
     U kunt een speler maken met behulp van de [API van Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Gebruik de [API van Azure Media Player ProtectionInfo](http://amp.azure.net/libs/amp/latest/docs/) om op te geven welke DRM-technologie kunt gebruiken voor verschillende DRM-platforms.
 
-    Voor testen AES of CENC (Widevine + PlayReady) gecodeerde inhoud, kunt u [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Zorg ervoor dat u op 'Geavanceerde opties' en AES controleren en het token.
+    Voor testen AES of CENC (Widevine en/of PlayReady) gecodeerde inhoud, kunt u [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Zorg ervoor dat u op 'Geavanceerde opties' en de opties voor versleuteling.
 
-    Als u testen van FairPlay gecodeerde inhoud wilt, gebruikt u [deze test player](http://aka.ms/amtest). Windows media player ondersteunt Widevine, PlayReady, en FairPlay DRM's, evenals de AES-128 clear key-versleuteling. U moet de juiste browser voor het testen van verschillende DRM's kiezen: Chrome/Opera/Firefox voor Widevine, MS Edge/IE11 voor PlayReady, Safari op maOS voor FairPlay.
+    Als u testen van FairPlay gecodeerde inhoud wilt, gebruikt u [deze test player](http://aka.ms/amtest). Windows media player ondersteunt Widevine, PlayReady, en FairPlay DRM's, evenals de AES-128 clear key-versleuteling. U moet de juiste browser voor het testen van verschillende DRM's kiezen: Chrome/Opera/Firefox voor Widevine, MS Edge/IE11 voor PlayReady, Safari op macOS voor FairPlay.
 
 3. Secure Token Service (STS), geeft u JSON Web Token (JWT) als het toegangstoken voor toegang tot back-end. U kunt de AMS-services voor het leveren van licentie gebruiken als de back endresource. Een STS heeft voor het definiëren van het volgende:
 
@@ -122,18 +122,6 @@ Met een tokenbeperking content key-beleid, is de inhoudssleutel alleen verzonden
 
 Wanneer u beleid met de tokenbeperking configureert, moet u de primaire verificatiesleutel, uitgever en doelgroep parameters opgeven. De primaire verificatiesleutel bevat de sleutel die het token is ondertekend. De uitgever wordt de secure token service die de token uitgeeft. De doelgroep, ook wel genoemd bereik, het doel van het token wordt beschreven of de resource voor het token wordt toegang tot geautoriseerd. De Media Services-sleutelleveringsservice valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon.
 
-## <a name="streaming-urls"></a>Streaming-URL's
-
-Als uw asset is versleuteld met meer dan één DRM, gebruikt u een tag versleuteling in de streaming-URL: (format = 'm3u8-aapl' codering = 'xxx').
-
-De volgende overwegingen zijn van toepassing:
-
-* Versleutelingstype hoeft te worden opgegeven in de URL als er slechts één versleuteling is toegepast op de asset.
-* Coderingstype is niet hoofdlettergevoelig.
-* De volgende versleutelingstypen kunnen worden opgegeven:
-  * **cenc**: voor PlayReady of Widevine (common encryption)
-  * **cbcs aapl**: voor FairPlay (AES-CBC-codering)
-  * **CBC**: voor AES-codering van envelop
 
 ## <a name="next-steps"></a>Volgende stappen
 

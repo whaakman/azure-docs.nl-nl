@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 07/13/2018
 ms.author: marsma
-ms.openlocfilehash: ff94a250ca40aa546ebb07faa96563f49dea974a
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887688"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072072"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Gebruik Azure Container Instances als een Jenkins build-agent
 
@@ -92,31 +92,21 @@ Jenkins is nu geconfigureerd en gereed om te bouwen en implementeren van code. I
 
 ## <a name="create-a-build-job"></a>Een build-taak maken
 
-Wanneer u een containerinstallatiekopie als een Jenkins build doel, moet u een installatiekopie die omvat alle hulpmiddelen die nodig zijn voor een geslaagde build opgeven. De installatiekopie opgeven:
+Een Jenkins build-taak wordt nu gemaakt om te demonstreren dat jenkins bouwt voort op een Azure container-exemplaar.
 
-1. Selecteer **Manage Jenkins** > **Configure System** en schuif omlaag naar de **Cloud** sectie. Bijwerken voor dit voorbeeld wordt de waarde van de Docker-installatiekopie moet **microsoft/java-op-azure-jenkins-slave**.
-
-   Wanneer u klaar bent, selecteert u **opslaan** om terug te keren naar het dashboard van Jenkins.
-
-   ![Jenkins-configuratie voor cloud](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. Maak nu een Jenkins build-taak. Selecteer **Nieuw Item**, geef het build-project een naam zoals **aci-java-demo**, selecteer **Freestyle project**, en selecteer **OK**.
+1. Selecteer **Nieuw Item**, geef het build-project een naam zoals **aci-demo**, selecteer **Freestyle project**, en selecteer **OK**.
 
    ![Vak voor de naam van de build-taak en de lijst met projecttypen](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. Onder **algemene**, zorg ervoor dat **beperken waar dit project kan worden uitgevoerd** is geselecteerd. Voer **linux** voor de expressie label. Deze configuratie zorgt ervoor dat deze build-taak wordt uitgevoerd op de ACI-cloud.
+2. Onder **algemene**, zorg ervoor dat **beperken waar dit project kan worden uitgevoerd** is geselecteerd. Voer **linux** voor de expressie label. Deze configuratie zorgt ervoor dat deze build-taak wordt uitgevoerd op de ACI-cloud.
 
    ![Tabblad 'Algemeen' met informatie over de configuratie](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. Onder **Source Code Management**, selecteer **Git** en voer **https://github.com/spring-projects/spring-petclinic.git** voor de opslagplaats-URL. Deze GitHub-opslagplaats bevat de voorbeeldcode van de toepassing.
+3. Onder **bouwen**, selecteer **build-stap toevoegen** en selecteer **Shell uitvoeren**. Voer `echo "aci-demo"` als de opdracht.
 
-   ![Tabblad met informatie over code "in uw source Code Management'](./media/container-instances-jenkins/jenkins-job-02.png)
+   ![Tabblad 'Build' met de selecties voor de build-stap](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Onder **bouwen**, selecteer **build-stap toevoegen** en selecteer **aanroepen op het hoogste niveau Maven doelen**. Voer **pakket** als het doel van de stap build.
-
-   ![Tabblad 'Build' met de selecties voor de build-stap](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. Selecteer **Opslaan**.
+5. Selecteer **Opslaan**.
 
 ## <a name="run-the-build-job"></a>De build-taak uitvoeren
 

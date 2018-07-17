@@ -1,6 +1,6 @@
 ---
-title: Wat te doen in het geval van een storing Azure Storage | Microsoft Docs
-description: Wat te doen in het geval van een storing Azure Storage
+title: Wat te doen in het geval van een storing in de Azure-opslag | Microsoft Docs
+description: Wat te doen in het geval van een Azure Storage-storing
 services: storage
 documentationcenter: .net
 author: tamram
@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 07/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 160fe756458e067125b9d696fd0cdb929774446e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323148"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072031"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Wat te doen in het geval van een Azure Storage-storing
-Bij Microsoft werken we hard om ervoor te zorgen dat onze services altijd beschikbaar zijn. Soms dwingt afgezien van onze invloed ons op een manier die niet-geplande storingen in een of meer regio's veroorzaken. Als u deze zeldzame exemplaren verwerken, bieden we het volgende op hoog niveau richtlijnen voor Azure Storage-services.
+Bij Microsoft werken we er hard om ervoor te zorgen dat onze services altijd beschikbaar zijn. Soms zorgt ervoor dat meer dan onze invloed ons op een manier die niet-geplande storingen in een of meer regio's veroorzaken. Voor hulp bij het verwerken van deze zelden, bieden we de informatie te volgen op hoog niveau voor Azure Storage-services.
 
 ## <a name="how-to-prepare"></a>Voorbereiden
-Het is essentieel dat elke klant een eigen plan voor herstel na noodgevallen voorbereidt. De inspanning om te herstellen van een storing opslag doorgaans omvat zowel operations personeel en geautomatiseerde procedures om uw toepassingen met een werkende status opnieuw activeren. Raadpleeg de documentatie voor Azure voor het bouwen van uw eigen noodherstelplan hieronder:
+Het is essentieel dat elke klant een eigen plan voor herstel na noodgevallen voorbereidt. De inspanningen om te herstellen van een storing in de opslag normaal gesproken omvat zowel werknemers als geautomatiseerde procedures om te activeren van uw toepassingen in een werkende status hebben. Raadpleeg de documentatie voor Azure hieronder om uw eigen noodherstelplan bouwen:
 
 * [Beschikbaarheidscontrolelijst](https://docs.microsoft.com/azure/architecture/checklist/availability)
 * [Robuuste toepassingen ontwerpen voor Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
@@ -34,40 +34,39 @@ Het is essentieel dat elke klant een eigen plan voor herstel na noodgevallen voo
 * [Azure Backup-service](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Het vaststellen van
-De aanbevolen manier om te bepalen van de status van de Azure-service is zich abonneren op de [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
+De aanbevolen manier om te bepalen van de status van de Azure-service is om u te abonneren op de [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
-## <a name="what-to-do-if-a-storage-outage-occurs"></a>Wat te doen als er een storing opslag optreedt
-Als een of meer opslagservices tijdelijk niet beschikbaar op een of meer regio's zijn, zijn er twee opties voor u te overwegen. Als u directe toegang tot uw gegevens willen, overweeg dan optie 2.
+## <a name="what-to-do-if-a-storage-outage-occurs"></a>Wat te doen als een Storage-storing
+Als een of meer opslagservices tijdelijk niet beschikbaar op een of meer regio's zijn, zijn er twee opties voor u te overwegen. Als u directe toegang tot uw gegevens willen, houd rekening met optie 2.
 
-### <a name="option-1-wait-for-recovery"></a>Optie 1: Wacht voor herstel
-In dit geval is geen actie ondernemen vereist. We werken naar eer en geweten voor het herstellen van de beschikbaarheid van de Azure-service. U kunt de servicestatus bewaken op de [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
+### <a name="option-1-wait-for-recovery"></a>Optie 1: Wachten op herstel
+In dit geval is geen actie van uw kant vereist. Er wordt hard gewerkt om te herstellen van de beschikbaarheid van Azure Services. U kunt de servicestatus controleren op de [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
-### <a name="option-2-copy-data-from-secondary"></a>Optie 2: Gegevens kopiëren van secundaire
-Als u hebt gekozen [geografisch redundante opslag met leestoegang (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (aanbevolen) voor uw storage-accounts, hebt u alleen toegang tot uw gegevens van de secundaire regio. U kunt hulpprogramma's gebruiken zoals [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), en de [bibliotheek voor gegevensverplaatsing van Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) gegevens uit de secundaire regio kopiëren naar een ander opslagaccount in een unimpacted regio en wijst u uw toepassingen aan dit opslagaccount voor zowel lezen als beschikbaarheid schrijven.
+### <a name="option-2-copy-data-from-secondary"></a>Optie 2: Gegevens kopiëren uit de secundaire regio
+Als u ervoor hebt gekozen [geo-redundante opslag met leestoegang (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (aanbevolen) voor uw storage-accounts, hebt u alleen toegang tot uw gegevens van de secundaire regio. U kunt hulpprogramma's zoals [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), en de [-bibliotheek voor gegevensverplaatsing van Azure Data](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) gegevens te kopiëren van de secundaire regio naar een ander opslagaccount in een unimpacted regio en vervolgens verwijst u uw toepassingen die storage-account voor zowel lezen en schrijven van beschikbaarheid.
 
-## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Wat ze kunnen verwachten als een opslag-failover wordt uitgevoerd
-Als u hebt gekozen [geografisch redundante opslag (GRS)](storage-redundancy-grs.md) of [geografisch redundante opslag met leestoegang (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (aanbevolen), Azure Storage houdt uw gegevens duurzaam in twee gebieden (primair en secundair). In beide regio's houdt de Azure Storage voortdurend meerdere replica's van uw gegevens.
+## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Wat u kunt verwachten als een opslag-failover is uitgevoerd
+Als u ervoor hebt gekozen [geografisch redundante opslag (GRS)](storage-redundancy-grs.md) of [geo-redundante opslag met leestoegang (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (aanbevolen), Azure Storage blijven uw gegevens duurzaam in twee regio's (primaire en secundaire). In beide regio's houdt de Azure Storage voortdurend meerdere replica's van uw gegevens.
 
-Wanneer een regionale noodgeval is van invloed op uw primaire regio, wordt eerst geprobeerd om de service in deze regio te herstellen. Afhankelijk van de aard van de sitedatabase en de effecten, in sommige soms we niet mogelijk om terug te zetten van de primaire regio. Op dat moment wordt uitgevoerd, er een geo-failover. De regio-overschrijdende gegevensreplicatie is een asynchrone proces waarbij een vertraging kunt uitgevoerd, zodat het mogelijk dat de wijzigingen die nog niet is gerepliceerd naar de secundaire regio mogelijk verloren gegaan. U kunt een query de ['Tijd van laatste synchronisatie' van uw opslagaccount](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) voor meer informatie over de replicatiestatus.
+Wanneer een regionaal noodgeval is van invloed op de primaire regio, zullen we eerst proberen te herstellen van de service in die regio. Afhankelijk van de aard van de na noodgevallen en de effecten, in sommige zeldzame gevallen we niet mogelijk om terug te zetten van de primaire regio. Op dat moment gaat een geo-failover uitvoeren. De regio-overschrijdende gegevensreplicatie is een asynchroon proces waarbij een vertraging, zodat het mogelijk dat de wijzigingen die nog niet is gerepliceerd naar de secundaire regio mogelijk verloren kunt. U kunt een query de ['Laatste synchronisatietijd' van uw opslagaccount](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) voor meer informatie over de replicatiestatus.
 
-Een aantal punten met betrekking tot de geo-failover-ervaring van opslag:
+Een aantal punten met betrekking tot de opslagervaring voor geo-failover:
 
 * Opslag-geo-failover wordt alleen geactiveerd door het team van Azure Storage: Er is geen klant-actie vereist.
-* Uw bestaande service-eindpunten van opslag voor blobs, tabellen, wachtrijen en -bestanden blijven hetzelfde na het foutherstel. de Microsoft geleverde DNS-vermelding moet worden bijgewerkt om de primaire regio overschakelt naar de secundaire regio.  Microsoft kan deze update automatisch als onderdeel van het proces geo-failover wordt uitgevoerd.
-* Voor en tijdens de geo-failover, u hebt geen toegang voor schrijven naar uw opslagaccount als gevolg van de impact van de sitedatabase, maar u kunt nog steeds lezen vanaf de secundaire als uw storage-account is geconfigureerd als een RA-GRS.
-* Wanneer de geo-failover is voltooid en de wijzigingen van de DNS-doorgegeven, worden de lees- en schrijftoegang heeft tot uw storage-account hervat; Dit verwijst naar uw secundaire eindpunt wordt. 
-* Houd er rekening mee dat u schrijftoegang hebt als u GRS of RA-GRS geconfigureerd voor het opslagaccount. 
-* U kunt een query ['Laatste Geo Failover keer' van uw opslagaccount](https://msdn.microsoft.com/library/azure/ee460802.aspx) voor meer informatie.
-* Na de failover uw storage-account volledig functioneert, maar in een 'gedegradeerde' status, zoals deze wordt daadwerkelijk gehost in een zelfstandige regio met geen geo-replicatie mogelijk. Om dit risico te beperken, wordt de oorspronkelijke primaire regio herstellen en voert u een geo-failback voor het herstellen van de oorspronkelijke status. Als de oorspronkelijke primaire regio is een onherstelbare, wordt er een andere secundaire regio toewijzen.
-  Voor meer informatie over de infrastructuur van Azure Storage geo-replicatie, raadpleegt u het artikel op de blog van Storage-team over [opties voor redundantie en RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Uw bestaande storage service-eindpunten voor blobs, tabellen, wachtrijen en bestanden blijven hetzelfde na de failover; de Microsoft geleverde DNS-vermelding moet worden bijgewerkt als u wilt overschakelen van de primaire regio naar de secundaire regio.  Microsoft zal deze update automatisch als onderdeel van de geo-failover-proces uitvoeren.
+* Voorafgaand aan en tijdens de geo-failover, geen toegang voor schrijven naar uw opslagaccount vanwege de impact van de na noodgevallen, maar u kunt nog wel lezen vanaf de secundaire server als uw storage-account is geconfigureerd als RA-GRS.
+* Wanneer de geo-failover is voltooid en de DNS-wijzigingen doorgevoerd, worden lees- en schrijftoegang tot uw storage-account wordt hervat; Dit verwijst naar wat gebruikt om te worden van het secundaire eindpunt. 
+* Houd er rekening mee dat u schrijftoegang hebt als u GRS of RA-GRS is geconfigureerd voor het opslagaccount. 
+* U kunt een query ['Laatste Geo Failover Time' van uw opslagaccount](https://msdn.microsoft.com/library/azure/ee460802.aspx) voor meer informatie.
+* Na de failover, uw storage-account wordt volledig functioneren, maar in een 'slechter' status, zoals deze wordt daadwerkelijk gehost in een zelfstandige regio met geen geo-replicatie mogelijk. Om dit risico te beperken, we herstellen de oorspronkelijke primaire regio en voert u een geo-failback voor het herstellen van de oorspronkelijke staat. Als de oorspronkelijke primaire regio niet kan worden hersteld, wordt er een andere secundaire regio toewijzen.
+  Voor meer informatie over de infrastructuur van Azure Storage geo-replicatie, Raadpleeg het artikel op de blog van het Storage-team over [redundantieopties en RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Aanbevolen procedures voor het beveiligen van uw gegevens
-Er zijn enkele aanbevolen aanpak voor back-up van de gegevens van uw opslag op regelmatige basis.
+Er zijn enkele aanbevolen benaderingen voor het back-up van de gegevens van uw opslag op gezette tijden.
 
-* VM-schijven – gebruiken de [Azure Backup-service](https://azure.microsoft.com/services/backup/) back-up van de VM-schijven die worden gebruikt door uw virtuele machines in Azure.
-* Blok-blobs – maken een [momentopname](https://msdn.microsoft.com/library/azure/hh488361.aspx) van elk blok-blob of de blobs kopieert naar een ander opslagaccount in met behulp van een andere regio [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), of de [bibliotheek voor gegevensverplaatsing van Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* Gebruik tabellen – [AzCopy](storage-use-azcopy.md) gegevens in de tabel exporteren naar een ander opslagaccount in een andere regio.
-* Bestanden – gebruiken [AzCopy](storage-use-azcopy.md) of [Azure PowerShell](storage-powershell-guide-full.md) uw bestanden kopiëren naar een ander opslagaccount in een andere regio.
+* VM-schijven: Gebruik de [Azure Backup-service](https://azure.microsoft.com/services/backup/) back-up van de VM-schijven die worden gebruikt door uw Azure virtual machines.
+* Blok-blobs – Schakel [voorlopig verwijderen](../blobs/storage-blob-soft-delete.md) ter bescherming tegen op objectniveau verwijderingen worden overschreven, en de blobs kopieert naar een ander opslagaccount in met behulp van een andere regio [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), of de [-bibliotheek voor gegevensverplaatsing van Azure Data](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* Gebruik van tabellen: [AzCopy](storage-use-azcopy.md) voor het exporteren van gegevens in de tabel in een ander opslagaccount in een andere regio.
+* Bestanden – [AzCopy](storage-use-azcopy.md) of [Azure PowerShell](storage-powershell-guide-full.md) uw bestanden naar een ander opslagaccount in een andere regio te kopiëren.
 
-Voor informatie over het maken van toepassingen die volledig te van de functie voor RA-GRS profiteren check [ontwerpen van maximaal beschikbare toepassingen RA-GRS-opslag](../storage-designing-ha-apps-with-ragrs.md)
-
+Voor informatie over het maken van toepassingen die van de RA-GRS-functie profiteren, Bekijk [het ontwerpen van maximaal beschikbare toepassingen met RA-GRS-opslag](../storage-designing-ha-apps-with-ragrs.md)

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76b2b1983cc5a6cedfcff204871e0b0f985fef95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 897681cda31b2f187fca64e77621b7dc5ed4dfae
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900779"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072106"
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>In Azure Automation DSC-configuraties compileren
 
@@ -235,7 +235,7 @@ Asset verwijzingen zijn hetzelfde als in Azure Automation DSC-configuraties en r
 
 ### <a name="credential-assets"></a>Referentieassets
 
-Terwijl DSC-configuraties in Azure Automation kunnen verwijzen naar referentieassets met behulp van **Get-AutomationPSCredential**, referentieassets kunnen ook worden doorgegeven via parameters, indien gewenst. Als een parameter van het duurt een configuratie voordat **PSCredential** typt, moet u de naam van een Azure Automation-referentieasset doorgeven als waarde van de parameter in plaats van een PSCredential-object. De Azure Automation-referentieasset met die naam is achter de schermen, opgehaald en doorgegeven aan de configuratie.
+DSC-configuraties in Azure Automation kunnen verwijzen naar Automation referentieassets met behulp van `Get-AutomationPSCredential`. Als een configuratie heeft een parameter waarvoor een **PSCredential** typt, en vervolgens kunt u de `Get-AutomationPSCredential` cmdlet doordat de naam van een Azure Automation-referentieasset worden doorgegeven aan de cmdlet voor het ophalen van de referentie. U kunt vervolgens gebruikt u vervolgens dat object gebruiken voor het vereisen van de parameter de **PSCredential** object. De Azure Automation-referentieasset met die naam is achter de schermen, opgehaald en doorgegeven aan de configuratie. In het volgende voorbeeld ziet u dit in actie.
 
 Referenties te houden beveiligd in knooppuntconfiguraties (MOF configuratiedocumenten) is vereist voor het versleutelen van de referenties in het knooppunt van het MOF-configuratiebestand. Echter, momenteel u moet op de hoogte PowerShell DSC is goed om referenties als tekst zonder opmaak output tijdens het genereren van de configuratie MOF-knooppunt, omdat PowerShell DSC niet weten dat Azure Automation wordt worden versleutelen van het hele MOF-bestand nadat de generatie via een Compilatietaak.
 

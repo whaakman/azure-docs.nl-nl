@@ -10,72 +10,60 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 2a1850e6a4f3c8eebd1b947aabe1374bdaab3fc8
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5740586eca902fa63ca7b8590b07f4b276d21e4d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030247"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071365"
 ---
 # <a name="sample-for-speech-to-text"></a>Voorbeeld voor spraak-naar-tekst
 
-> [!NOTE]
-> Zie voor instructies voor het downloaden van dit voorbeeld en andere [voorbeelden voor spraak-SDK](samples.md).
+[!include[Get a Subscription Key](../../../includes/cognitive-services-speech-service-get-subscription-key.md)]
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+## <a name="top-level-declarations"></a>Op het hoogste niveau declaraties
 
-> [!NOTE]
-> Voor alle voorbeelden hieronder, moeten de volgende op het hoogste niveau declaraties zijn voldaan:
->
-> [!code-csharp[](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#toplevel)]
->
-> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#toplevel)]
->
-> - - -
+Voor alle voorbeelden hieronder, moeten het volgende op het hoogste niveau declaraties zijn voldaan:
+
+[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#toplevel)]
+
+[!code-cpp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#toplevel)]
+
+[!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#toplevel)]
 
 ## <a name="speech-recognition-using-the-microphone"></a>Spraakherkenning met behulp van de microfoon
 
-Het onderstaande codefragment ziet u hoe herkennen spraakinvoer van de microfoon in de standaardtaal (`en-US`).
+Het onderstaande codefragment laat zien hoe u voor het herkennen van spraakinvoer van de microfoon in de standaardtaal (`en-US`).
 
-[!code-csharp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionWithMicrophone)]
+[!code-csharp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionWithMicrophone)]
 
-[!code-cpp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
+[!code-cpp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
 
-- - -
+[!code-java[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionWithMicrophone)]
 
-## <a name="speech-recognition-from-a-file"></a>Spraakherkenning uit een bestand
+## <a name="speech-recognition-using-a-customized-model"></a>Met behulp van een aangepast model spraakherkenning
 
-Het volgende codefragment herkent spraakinvoer uit een audio-bestand in de standaardtaal (`en-US`), de ondersteunde indeling is één-kanaal (mono) WAV / PCM met een samplefrequentie van 16 KHz.
+De [Custom Speech Service (CRI)](https://www.cris.ai/) kunt u de aanpassing van de spraak-naar-tekst-engine van Microsoft voor uw toepassing. Het onderstaande codefragment laat zien hoe u voor het herkennen van spraak via een microfoon met behulp van uw model CRI; Vul uw abonnementssleutel CRI en uw eigen implementatie-id voordat het wordt uitgevoerd.
+
+[!code-csharp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionCustomized)]
+
+[!code-cpp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
+
+[!code-java[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionCustomized)]
+
+## <a name="continuous-speech-recognition-from-a-file"></a>Continue spraakherkenning uit een bestand
+
+Het volgende codefragment herkent continu spraakinvoer van een audio-bestand in de standaardtaal (`en-US`), de ondersteunde indeling is één-kanaal (mono) WAV / PCM met een samplefrequentie van 16 KHz.
 
 [!include[Sample Audio](includes/sample-audio.md)]
 
-[!code-csharp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs?name=recognitionFromFile)]
+[!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionContinuousWithFile)]
 
-[!code-cpp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp?name=SpeechRecognitionWithFile)]
+[!code-cpp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechContinuousRecognitionWithFile)]
 
-- - -
+[!code-java[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionContinuousWithFile)]
 
-## <a name="speech-recognition-using-a-customized-model"></a>Spraakherkenning gebruikmaken van een aangepaste model
-
-De [aangepaste spraak Service (cri's)](https://www.cris.ai/) kunt u de aanpassing van de Microsoft spraak-naar-tekst-engine voor uw toepassing. Het onderstaande codefragment toont het herkennen van spraak van een microfoon met behulp van uw model cri's; Vul uw abonnementssleutel cri's en uw eigen implementatie-id voordat het wordt uitgevoerd.
-
-[!code-csharp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionCustomized)]
-
-[!code-cpp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
-
-- - -
-
-## <a name="continuous-speech-recognition"></a>Continue spraakherkenning
-
-[!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionContinuous)]
-
-[!code-cpp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechContinuousRecognitionUsingEvents)]
-
-- - -
-
-## <a name="sample-source-code"></a>Voorbeeldcode
-
-De nieuwste versie van de voorbeelden en zelfs meer geavanceerde voorbeelden zijn in een speciaal [GitHub-opslagplaats](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

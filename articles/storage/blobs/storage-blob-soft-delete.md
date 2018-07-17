@@ -6,14 +6,14 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/15/2018
 ms.author: mihauss
-ms.openlocfilehash: fa933000ee08f16774c821e40d9a3c6fe5dbf353
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: a1c07350859d70b3ce6260b336419ddb2bd4aa66
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35644249"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069349"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Voorlopig verwijderen voor Azure Storage-blobs
 Azure Storage biedt nu voorlopig verwijderen voor blob-objecten, zodat u uw gegevens eenvoudig herstellen kunt wanneer deze per ongeluk wordt gewijzigd of verwijderd door een toepassing of de gebruiker van andere storage-account.
@@ -176,6 +176,11 @@ Om in te schakelen voorlopig verwijderen, bijwerken van de blobclient van een se
 Set-AzureRmContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
+```
+U kunt controleren of dat deze functie voor voorlopig verwijderen is ingeschakeld met behulp van de volgende opdracht uit:
+
+```powershell
+$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
 ```
 
 Als u wilt herstellen blobs die per ongeluk zijn verwijderd, verwijderen ongedaan maken van de blobs niet aanroepen. Houd er rekening mee dat aanroepen **verwijdering Blob**, zowel voor actieve en voorlopig verwijderde blobs herstellen door alle gekoppelde voorlopig verwijderde momentopnamen als actief. Verwijderen ongedaan maken in het volgende voorbeeld wordt op alle voorlopig verwijderde en actieve blobs in een container:

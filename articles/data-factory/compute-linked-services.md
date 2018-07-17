@@ -11,25 +11,26 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: ca5caa8c8d0e64fb3a63a1c49d08b949b0c9cf36
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 4a4ec63d41f013ebfef8a78eddc88a6131a960fc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903765"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070039"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE-omgevingen die worden ondersteund door Azure Data Factory
 In dit artikel vindt u verschillende rekenomgevingen die u kunt gebruiken voor gegevens verwerken en transformeren. Het biedt ook meer informatie over de verschillende configuraties (op aanvraag en voeg uw eigen) ondersteund door Data Factory bij het configureren van gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
 
 De volgende tabel bevat een lijst met compute-omgevingen wordt ondersteund door Data Factory en de activiteiten die kunnen worden uitgevoerd op deze. 
 
-| Compute-omgeving                      | activities                               |
-| ---------------------------------------- | ---------------------------------------- |
+| Compute-omgeving                                          | activities                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight-cluster](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop-Streaming](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service) | [Aangepaste](transform-data-using-dotnet-custom-activity.md) |
+| [Azure Batch](#azure-batch-linked-service)                   | [Aangepaste](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-activiteiten: batchuitvoering en resources bijwerken](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL datawarehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedure](transform-data-using-stored-procedure.md) |
+| [Azure Databricks](#azure-databricks-linked-service)         | [Laptop](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 
 >  
 

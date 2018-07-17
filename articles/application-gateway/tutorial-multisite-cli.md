@@ -1,6 +1,6 @@
 ---
-title: Een toepassingsgateway maken met meerdere hosting-site - Azure CLI | Microsoft Docs
-description: Informatie over het maken van een toepassingsgateway die als host fungeert voor meerdere sites met de Azure CLI.
+title: Een toepassingsgateway maken met meerdere sites hosten - Azure CLI | Microsoft Docs
+description: Informatie over het maken van een application gateway die als host fungeert voor meerdere sites met de Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,29 +10,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 7728ade5f84cd97f3ff0cebd0d5545d68d0ebd79
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2f78cfc9918222fd22c2894b5e920a5c07efe522
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355199"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069890"
 ---
-# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Een toepassingsgateway maken met meerdere hosting-site met de Azure CLI
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Een toepassingsgateway maken met het hosten van meerdere sites met de Azure CLI
 
-U kunt de Azure CLI gebruiken voor het configureren van [hosting van meerdere websites](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u back-endpools met behulp van virtuele machines-schaalsets. Configureert u listeners en regels op basis van domeinnamen waarvan u eigenaar om ervoor te zorgen dat het webverkeer binnenkomt op de juiste servers van de groepen. Deze zelfstudie wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar *www.contoso.com* en *www.fabrikam.com*.
+U kunt de Azure CLI gebruiken om te configureren [hosting van meerdere websites](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u back endpools met behulp van schaalsets voor virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In deze zelfstudie wordt ervan uitgegaan dat u eigenaar bent van meerdere domeinen en voorbeelden gebruikt van *www.contoso.com* en *www.fabrikam.com*.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * Instellen van het netwerk
+> * Het netwerk instellen
 > * Een toepassingsgateway maken
 > * Listeners en routeringsregels maken
-> * Virtuele-machineschaalsets met de back-end-adresgroepen maken
-> * Een CNAME-record maken in uw domein
+> * Schaalsets voor virtuele machines maken met de back-endpools
+> * Een CNAME-record in uw domein maken
 
-![Routering multi-site-voorbeeld](./media/tutorial-multisite-cli/scenario.png)
+![Voorbeeld van routeren voor meerdere sites](./media/tutorial-multisite-cli/scenario.png)
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -42,9 +42,9 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resource-groep met [az groep maken](/cli/azure/group#create).
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#create).
 
-Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAG* in de *eastus* locatie.
+In het volgende voorbeeld wordt de resourcegroep *myResourceGroupAG* gemaakt op de locatie *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -52,7 +52,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken 
 
-Maken van het virtuele netwerk met de naam *myVNet* en het subnet met de naam *myAGSubnet* met [az network vnet maken](/cli/azure/network/vnet#az_net). Vervolgens kunt u het subnet met de naam toevoegen *myBackendSubnet* die nodig is voor de back-endservers met [az network vnet subnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Maken van het openbare IP-adres met de naam *myAGPublicIPAddress* met [az netwerk openbare ip-maken](/cli/azure/public-ip#az_network_public_ip_create).
+Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet#az_net). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -74,7 +74,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-U kunt [az netwerk toepassingsgateway maken](/cli/azure/application-gateway#create) voor het maken van de toepassingsgateway met de naam *myAppGateway*. Wanneer u een toepassingsgateway met Azure CLI maakt, kunt u configuratie-informatie, zoals de capaciteit, sku en HTTP-instellingen opgeven. De toepassingsgateway is toegewezen aan *myAGSubnet* en *myAGPublicIPAddress* die u eerder hebt gemaakt. 
+U kunt [az network application-gateway create](/cli/azure/application-gateway#create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u zojuist hebt gemaakt. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -92,17 +92,17 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
-Duurt enkele minuten voor de toepassingsgateway moet worden gemaakt. Nadat de toepassingsgateway is gemaakt, kunt u deze nieuwe functies ervan zien:
+Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de toepassingsgateway is gemaakt, kunt u de volgende nieuwe functies ervan zien:
 
-- *appGatewayBackendPool* -een toepassingsgateway moet ten minste één back-endadresgroep hebben.
-- *appGatewayBackendHttpSettings* -Hiermee geeft u op poort 80 en een HTTP-protocol wordt gebruikt voor communicatie.
-- *appGatewayHttpListener* -de standaard-listener die zijn gekoppeld aan *appGatewayBackendPool*.
-- *appGatewayFrontendIP* -wijst *myAGPublicIPAddress* naar *appGatewayHttpListener*.
-- *Rule1* : de regel die is gekoppeld aan routering standaard *appGatewayHttpListener*.
+- *appGatewayBackendPool*: een toepassingsgateway moet ten minste één back-endadresgroep hebben.
+- *appGatewayBackendHttpSettings*: hiermee wordt aangegeven dat voor de communicatie poort 80 en een HTTP-protocol worden gebruikt.
+- *appGatewayHttpListener*: de standaard-listener die aan *appGatewayBackendPool* is gekoppeld.
+- *appGatewayFrontendIP*: hiermee wordt *myAGPublicIPAddress* aan *appGatewayHttpListener* toegewezen.
+- *rule1*: de standaardrouteringsregel die aan *appGatewayHttpListener* is gekoppeld.
 
-### <a name="add-the-backend-pools"></a>De back-endpools toevoegen
+### <a name="add-the-backend-pools"></a>Back-endpools toevoegen
 
-Toevoegen van de back-end-adresgroepen met de naam *contosoPool* en *fabrikamPool* die nodig zijn voor de back-endservers met bevatten [az netwerk toepassingsgateway adresgroep maken](/cli/azure/application-gateway#az_network_application_gateway_address_pool_create).
+Toevoegen van de back endadresgroepen met de naam *contosoPool* en *fabrikamPool* die nodig zijn voor de back-end-servers met behulp van [az network application-gateway address-pool maken](/cli/azure/application-gateway#az_network_application_gateway_address_pool_create).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -117,9 +117,9 @@ az network application-gateway address-pool create \
 
 ### <a name="add-listeners"></a>Listeners toevoegen
 
-Een listener is vereist voor het inschakelen van de toepassingsgateway voor het verkeer op de juiste wijze te routeren naar de back-endpool. In deze zelfstudie maakt u twee listeners voor de twee domeinen. In dit voorbeeld listeners worden gemaakt voor de domeinen van *www.contoso.com* en *www.fabrikam.com*. 
+Een listener is vereist om de toepassingsgateway in te schakelen om het verkeer op de juiste manier naar de back-endpool te routeren. In deze zelfstudie maakt u twee listeners voor de twee domeinen. In dit voorbeeld worden listeners gemaakt voor de domeinen van *www.contoso.com* en *www.fabrikam.com*. 
 
-Voeg de listeners met de naam *contosoListener* en *fabrikamListener* die nodig zijn voor het routeren van verkeer met behulp van [az netwerk toepassingsgateway http-listener maken](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+Toevoegen van de listeners met de naam *contosoListener* en *fabrikamListener* die nodig zijn voor het routeren van verkeer met behulp van [az network application-gateway http-listener maken](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -140,9 +140,9 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Routeringsregels toevoegen
 
-Regels worden verwerkt in de volgorde waarin ze zijn gemaakt en verkeer wordt omgeleid naar de toepassingsgateway met behulp van de eerste regel die overeenkomt met de URL verzonden. Bijvoorbeeld, als u een regel met behulp van een basic-listener en een regel met meerdere sites listener beide op dezelfde poort hebt, kan de regel met de listener voor meerdere locaties moet worden vermeld voordat u de regel met de basic-listener in volgorde voor de regel voor meerdere locaties werken zoals verwacht. 
+Regels worden verwerkt in de volgorde waarin ze zijn gemaakt en verkeer wordt omgeleid naar de application gateway met behulp van de eerste regel die overeenkomt met de URL verzonden. Als u bijvoorbeeld een regel hebt die van een basislistener gebruikmaakt en een regel die via dezelfde poort van een listener voor meerdere sites gebruikmaakt, moet de regel voor de listener voor meerdere sites vermeld worden vóór de regel met de basislistener, opdat de regel voor meerdere sites kan functioneren zoals het hoort. 
 
-In dit voorbeeld moet u twee nieuwe regels maken en verwijderen van de standaardregel die is gemaakt tijdens het maken van de toepassingsgateway. U kunt toevoegen met de regel met behulp van [az netwerk toepassingsgateway regel maken](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+In dit voorbeeld maakt u twee nieuwe regels en verwijdert u de standaardregel die is gemaakt toen u de toepassingsgateway maakte. U kunt de regel toevoegen met [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -165,9 +165,9 @@ az network application-gateway rule delete \
   --resource-group myResourceGroupAG
 ```
 
-## <a name="create-virtual-machine-scale-sets"></a>Maken van virtuele-machineschaalsets
+## <a name="create-virtual-machine-scale-sets"></a>Schaalsets voor virtuele machines maken
 
-In dit voorbeeld maakt u drie virtuele-machineschaalsets die ondersteuning bieden voor de drie back-endpools in de toepassingsgateway. De naam van de schaalsets die u maakt *myvmss1*, *myvmss2*, en *myvmss3*. Elke scale set bestaat uit twee virtuele machine-exemplaren op die u NGINX installeren.
+In dit voorbeeld maakt u drie schaalsets voor virtuele machines die ondersteuning bieden voor de drie back-end-pools in de toepassingsgateway. De schaalsets die u maakt, hebben de namen *myvmss1*, *myvmss2* en *myvmss3*. Elke schaalset bevat twee exemplaren van virtuele machines waarop u NGINX installeert.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -206,14 +206,14 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
     --settings '{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 
-## <a name="create-a-cname-record-in-your-domain"></a>Een CNAME-record maken in uw domein
+## <a name="create-a-cname-record-in-your-domain"></a>Een CNAME-record in uw domein maken
 
-Nadat de toepassingsgateway is gemaakt met het openbare IP-adres, kunt u ophalen van de DNS-serveradres en een CNAME-record maken in uw domein. U kunt [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show) ophalen van de DNS-serveradres van de toepassingsgateway. Kopieer de *fqdn* waarde van de DNSSettings en deze gebruiken als de waarde van de CNAME-record die u maakt. 
+Als de toepassingsgateway met het bijbehorende IP-adres is gemaakt, kunt u het DNS-adres ophalen en dit gebruiken om een CNAME-record in uw domein te maken. Gebruik [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) om het DNS-adres van de toepassingsgateway op te halen. Kopieer de waarde *fqdn* van DNSSettings en gebruik deze als de waarde van de CNAME-record die u maakt. 
 
 ```azurecli-interactive
 az network public-ip show \
@@ -223,28 +223,28 @@ az network public-ip show \
   --output tsv
 ```
 
-Het gebruik van A-records wordt niet aanbevolen omdat het VIP kan worden gewijzigd wanneer de toepassingsgateway opnieuw wordt opgestart.
+Het gebruik van A-records wordt niet aanbevolen, omdat de VIP kan veranderen wanneer de toepassingsgateway opnieuw wordt gestart.
 
-## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
+## <a name="test-the-application-gateway"></a>Toepassingsgateway testen
 
-Voer de domeinnaam van uw in de adresbalk van uw browser. Zoals http://www.contoso.com.
+Voer uw domeinnaam in de adresbalk van de browser in. Bijvoorbeeld http://www.contoso.com.
 
-![Testen van contoso-site in de toepassingsgateway](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
+![Contoso-site testen in toepassingsgateway](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 
-Wijzig het adres in het andere domein en u ziet ongeveer het volgende voorbeeld:
+Wijzig het adres in uw andere domein. U krijgt iets te zien zoals in het volgende voorbeeld:
 
-![Fabrikam site in de toepassingsgateway testen](./media/tutorial-multisite-cli/application-gateway-nginxtest2.png)
+![Fabrikam-site testen in toepassingsgateway](./media/tutorial-multisite-cli/application-gateway-nginxtest2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Instellen van het netwerk
+> * Het netwerk instellen
 > * Een toepassingsgateway maken
 > * Listeners en routeringsregels maken
-> * Virtuele-machineschaalsets met de back-end-adresgroepen maken
-> * Een CNAME-record maken in uw domein
+> * Schaalsets voor virtuele machines maken met de back-endpools
+> * Een CNAME-record in uw domein maken
 
 > [!div class="nextstepaction"]
-> [Meer informatie over wat u met application gateway doen kunt](application-gateway-introduction.md)
+> [Meer informatie over wat u kunt doen met de toepassingsgateway](application-gateway-introduction.md)

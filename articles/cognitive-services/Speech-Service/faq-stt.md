@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: db57e0bd0f7afcfa836ef6446cdfd74e5d61c440
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ad4b31fa7b4f4b062f01935c34f7cacf82f99106
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345257"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072123"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Veelgestelde vragen over Custom Speech Service
 
@@ -57,7 +57,7 @@ Wanneer de verwerking voltooid is, wordt de status worden 'geslaagd'.
 
 De oude en nieuwe gegevenssets moet worden gecombineerd in één Zip-(indien dit om akoestische gegevens is) of een txt-bestand als het language-gegevens. Aanpassing van woordenlijsten gebeurt nadat de nieuwe bijgewerkte model moet worden opgeheven geïmplementeerde verkrijgen van een nieuw eindpunt
 
-**Vraag**: Wat gebeurt er als ik hogere gelijktijdigheid nodig voor mijn model deloyed dan wat wordt aangeboden in de portal. 
+**Vraag**: Wat gebeurt er als ik hogere gelijktijdigheid nodig voor mijn geïmplementeerde model dan wat wordt aangeboden in de portal. 
 
 **Antwoord**: U kunt uw model in stappen van 20 gelijktijdige aanvragen opschalen. 
 
@@ -90,7 +90,7 @@ Als het overgrote deel van de uitingen in een akoestische of elke taal worden ge
 
 **Vraag**: hoeveel akoestische gegevens heb ik nodig?
 
-**Antwoord**: kunt het beste beginnen met 30 minuten tot een uur om akoestische gegevens
+**Antwoord**: kunt het beste beginnen met 30 minuten tot een uur om akoestische gegevens.
 
 **Vraag**: welke gegevens moet ik verzamelen?
 
@@ -116,18 +116,18 @@ U kunt ook een versie van uw toepassing die de audio gegevens geregistreerd en g
 
 **Antwoord**: Ja, selecteer de aangepast akoestisch model in de vervolgkeuzelijst bij het instellen van de offline-test.
 
-**Vraag**: Wat is de Foutfrequentie Word en hoe wordt het berekend?
+**Vraag**: Wat is er Word fout tarief (WER) en hoe wordt het berekend?
 
-**Antwoord**: Foutfrequentie Word de evaluatie van metrische gegevens voor spraakherkenning is. Als het totale aantal fouten, waaronder invoegingen, verwijderingen en vervangingen, gedeeld door het totale aantal woorden in de referentie-transcriptie wordt meegeteld. Details van de modus [hier](https://en.wikipedia.org/wiki/Word_error_rate)
+**Antwoord**: Word fout tarief (WER) is de evaluatie van metrische gegevens voor spraakherkenning. Als het totale aantal fouten, waaronder invoegingen, verwijderingen en vervangingen, gedeeld door het totale aantal woorden in de referentie-transcriptie wordt meegeteld. [Hier](https://en.wikipedia.org/wiki/Word_error_rate) vindt u meer informatie.
 
 **Vraag**: hoe bepaal ik als de resultaten van een test nauwkeurigheid is het verstandig?
 
 **Antwoord**: de resultaten staat dat een vergelijking tussen de basislijn-model en de versie die u hebt aangepast.
-U moet erop gericht zijn op maat van het model basislijn zodat aanpassing van de moeite waard maken
+U moet erop gericht zijn op maat van het model basislijn zodat aanpassing van de moeite waard.
 
-**Vraag**: hoe ik achterhalen de Windows Foutrapportage van de basis modellen, zodat ik zien kan als er verbetering is? 
+**Vraag**: hoe ik achterhalen de frequentie van de Word-fouten van de basis modellen, zodat ik zien kan als er verbetering is? 
 
-**Antwoord**: de resultaten van de offline nauwkeurigheid van de nauwkeurigheid van de basislijn van het aangepaste model en het verbeteren na verloop van basislijn weergeven
+**Antwoord**: de resultaten van de offline nauwkeurigheid van de nauwkeurigheid van de basislijn van het aangepaste model en het verbeteren na verloop van basislijn weergeven.
 
 ## <a name="creating-lm"></a>Het maken van LM
 

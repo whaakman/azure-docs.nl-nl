@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/03/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 056007ba9d28280a6055ca3312e2aa53e635d1d3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a88588497919d6cce17ced6d94de3bcbbb6a3019
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859796"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069634"
 ---
 Zone-redundante opslag (ZRS) repliceert uw gegevens synchroon tussen drie opslagclusters in één regio. Elke opslagcluster fysiek gescheiden van de andere en bevindt zich in een eigen binnen een beschikbaarheidszone (AZ). Elke beschikbaarheidszone en wordt het cluster ZRS locatiemogelijkheid is autonome met afzonderlijke hulpprogramma's en netwerkmogelijkheden.
 
@@ -24,7 +24,7 @@ Denk aan ZRS voor scenario's waarin grote consistentie, sterk duurzaamheid en ho
 Zie voor meer informatie over beschikbaarheidszones [overzicht van Beschikbaarheidszones](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 ## <a name="support-coverage-and-regional-availability"></a>Ondersteuning en regionale beschikbaarheid
-ZRS biedt momenteel ondersteuning voor standaard [voor algemeen gebruik v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2) -accounttypen. ZRS is beschikbaar voor blok-blobs, niet-schijf-pagina-blobs, bestanden, tabellen en wachtrijen. Daarnaast al uw [Opslaganalyse](../articles/storage/common/storage-analytics.md) logboeken en [metrische opslaggegevens](../articles/storage/common/storage-enable-and-view-metrics.md)
+ZRS biedt momenteel ondersteuning voor standaard [voor algemeen gebruik v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2-accounts) -accounttypen. ZRS is beschikbaar voor blok-blobs, niet-schijf-pagina-blobs, bestanden, tabellen en wachtrijen. Daarnaast al uw [Opslaganalyse](../articles/storage/common/storage-analytics.md) logboeken en [metrische opslaggegevens](../articles/storage/common/storage-enable-and-view-metrics.md)
 
 ZRS is algemeen beschikbaar in de volgende regio's:
 
@@ -85,7 +85,7 @@ Een ondersteuningsmedewerker worden vervolgens in contact met u. Deze persoon zi
 >[!NOTE]
 > Zodra ZRS is [algemeen beschikbaar](#support-coverage-and-regional-availability) in een regio en u wordt niet langer een klassiek ZRS-account maken vanuit de portal in die dezelfde regio. U kunt echter nog steeds maken een via andere middelen, zoals Microsoft PowerShell en de Azure CLI, dat wil zeggen, totdat ZRS Classic is afgeschaft.
 
-ZRS Classic worden gegevens asynchroon gerepliceerd tussen datacenters binnen één tot twee regio's. Een replica is mogelijk niet beschikbaar tenzij Microsoft failover naar de secundaire initieert. ZRS Classic is alleen beschikbaar voor **blok-blobs** in [voor algemeen gebruik V1 (GPv1)](../articles/storage/common/storage-account-options.md#general-purpose-v1) storage-accounts. Een klassiek ZRS-account kan niet worden geconverteerd naar of van LRS of GRS en heeft geen metrische gegevens of logboek-functionaliteit.
+ZRS Classic worden gegevens asynchroon gerepliceerd tussen datacenters binnen één tot twee regio's. Een replica is mogelijk niet beschikbaar tenzij Microsoft failover naar de secundaire initieert. ZRS Classic is alleen beschikbaar voor **blok-blobs** in [voor algemeen gebruik V1 (GPv1)](../articles/storage/common/storage-account-options.md#general-purpose-v1-accounts) storage-accounts. Een klassiek ZRS-account kan niet worden geconverteerd naar of van LRS of GRS en heeft geen metrische gegevens of logboek-functionaliteit.
 
 ZRS Classic-accounts kunnen niet worden geconverteerd naar of van LRS, GRS of RA-GRS. ZRS Classic-accounts ook ondersteunen geen metrische gegevens of logboekregistratie.
 

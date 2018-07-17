@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 69991a0b805b5502fc96fab4ce902b3d8bc77baf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 741b32f394ca2ce447826f7207f7fd9cbede9c51
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056355"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070849"
 ---
 # <a name="understand-load-balancer-probes"></a>Load Balancer-testen
 
@@ -28,7 +28,7 @@ Azure Load Balancer maakt gebruik van de gezondheid van tests om te bepalen welk
 
 Statuscontroles beheren of nieuwe stromen worden gemaakt met een goede back-end-exemplaren. Wanneer een statustest mislukt, stopt Load Balancer nieuwe stromen te verzenden naar het desbetreffende exemplaar niet in orde.  TCP-verbindingen tot stand gebrachte doorgaan na-fout health-test.  Bestaande UDP-stromen worden verplaatst de uit het niet in orde exemplaar naar een ander exemplaar in de back-endpool.
 
-Als alle tests voor een back-endpool mislukken, wordt Basic Load Balancers alle bestaande TCP-stromen naar de back-endpool beëindigd terwijl de standaardversie van Load balancer wordt tot stand gebrachte TCP stromen om door te gaan; toestaan geen nieuwe stromen worden worden verzonden naar de back-endpool.
+Als alle tests voor een back-endpool mislukken, wordt Basic Load Balancers alle bestaande TCP-stromen naar de back-endpool beëindigd terwijl de standaardversie van Load balancer wordt tot stand gebrachte TCP stromen om door te gaan; toestaan geen nieuwe stromen worden worden verzonden naar de back-endpool.  Alle bestaande UDP-stromen worden voor Basic en Standard Load Balancers beëindigd wanneer alle tests voor een back-end-groep is mislukt.
 
 Cloudservicerollen (werkrollen en webrollen) gebruiken een gastagent voor bewaking van de test. TCP- of HTTP aangepaste statustests moeten worden geconfigureerd wanneer u Cloud Services met IaaS-VM's achter Load Balancer gebruiken.
 

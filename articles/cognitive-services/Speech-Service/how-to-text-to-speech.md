@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 0ace89e04baf81776f82edd002b93b944c752051
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5eb0839cb973ba2f8bc56dc240fc60817b24b3b6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860129"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068859"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>'Tekst naar spraak' in de spraak-service gebruiken
 
@@ -95,5 +95,7 @@ Zie voor meer informatie over de tekst naar spraak REST-API, [REST-API's](rest-a
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Uw proefabonnement voor spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
-- [Water in C#](quickstart-csharp-windows.md)
+- [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
+- [Water in C++](quickstart-cpp-windows.md)
+- [Water in C#](quickstart-csharp-dotnet-windows.md)
+- [Water in Java](quickstart-java-android.md)

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
-ms.date: 05/07/2018
-ms.openlocfilehash: 44093dfde926b92d1617b85d27e362a8e40e5c56
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.date: 07/13/2018
+ms.openlocfilehash: 60eecf134f067d68326fc23ade8ed2a5a7ae7ac4
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888667"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070332"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Prognoses modellen met Azure Machine Learning bouwen en implementeren
 
@@ -36,7 +36,7 @@ Raadpleeg de [referentiedocumentatie voor het pakket](https://aka.ms/aml-package
    - Een Azure Machine Learning Modelbeheer-account
    - Azure Machine Learning Workbench moet zijn geïnstalleerd 
 
-    Als deze drie nog niet zijn gemaakt of is geïnstalleerd, volgt u de [installatie van Azure Machine Learning-Quickstart en Workbench](../service/quickstart-installation.md) artikel.
+ Als deze drie nog niet zijn gemaakt of is geïnstalleerd, volgt u de [installatie van Azure Machine Learning-Quickstart en Workbench](../service/quickstart-installation.md) artikel.
 
 1. De Azure Machine Learning-pakket voor Forecasting moet worden geïnstalleerd. Meer informatie over het [hier in dit pakket installeert](https://aka.ms/aml-packages/forecasting).
 
@@ -77,6 +77,7 @@ import pkg_resources
 from datetime import timedelta
 import matplotlib
 matplotlib.use('agg')
+%matplotlib inline
 from matplotlib import pyplot as plt
 
 from sklearn.linear_model import Lasso, ElasticNet
@@ -84,12 +85,12 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.neighbors import KNeighborsRegressor
 
 from ftk import TimeSeriesDataFrame, ForecastDataFrame, AzureMLForecastPipeline
-from ftk.tsutils import last_n_periods_split
+from ftk.ts_utils import last_n_periods_split
 
 from ftk.transforms import TimeSeriesImputer, TimeIndexFeaturizer, DropColumns
 from ftk.transforms.grain_index_featurizer import GrainIndexFeaturizer
-from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS
-from ftk.models.forecasterunion import ForecasterUnion
+from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS, BestOfForecaster
+from ftk.models.forecaster_union import ForecasterUnion
 from ftk.model_selection import TSGridSearchCV, RollingOriginValidator
 
 from azuremltkbase.deployment import AMLSettings
@@ -502,12 +503,11 @@ De [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/f
 
 
 ```python
-%matplotlib inline
 whole_tsdf.ts_report()
 ```
 
     --------------------------------  Data Overview  ---------------------------------
-    <class 'ftk.dataframets.TimeSeriesDataFrame'>
+    <class 'ftk.time_series_data_frame.TimeSeriesDataFrame'>
     MultiIndex: 28947 entries, (1990-06-20 23:59:59, 2, dominicks) to (1992-10-07 23:59:59, 137, tropicana)
     Data columns (total 17 columns):
     week            28947 non-null int64
@@ -662,12 +662,6 @@ whole_tsdf.ts_report()
 
 
 ![PNG](./media/how-to-build-deploy-forecast-models/output_15_6.png)
-
-![PNG](./media/how-to-build-deploy-forecast-models/output_59_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
- 
 
 
 ## <a name="integrate-with-external-data"></a>Integratie met externe gegevens
@@ -892,7 +886,7 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Gegevens voorverwerken en worden toegerekend ontbrekende waarden
 
-Starten door op te splitsen in trainingsset en een testen instellen met de [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) hulpprogrammafunctie. De resulterende set testen bevat de laatste 40 opmerkingen van de tijdreeks. 
+Starten door op te splitsen in trainingsset en een testen instellen met de [last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) hulpprogrammafunctie. De resulterende set testen bevat de laatste 40 opmerkingen van de tijdreeks. 
 
 
 ```python
@@ -974,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-U kunt zien dat de meeste van de serie (213 van 249) onregelmatig zijn. Een [toerekening transformatie](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) is vereist voor het aanvullen van ontbrekende verkoophoeveelheid waarden. Er zijn veel toerekening opties, de volgende voorbeeldcode maakt gebruik van een lineaire interpolatie.
+U kunt zien dat de meeste van de serie (213 van 249) onregelmatig zijn. Een [toerekening transformatie](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) is vereist voor het aanvullen van ontbrekende verkoophoeveelheid waarden. Er zijn veel toerekening opties, de volgende voorbeeldcode maakt gebruik van een lineaire interpolatie.
 
 
 ```python
@@ -1040,7 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combineren van meerdere modellen
 
-De [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) estimator kunt u meerdere loopt combineren en past/voorspellen op met behulp van één regel code.
+De [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator kunt u meerdere loopt combineren en past/voorspellen op met behulp van één regel code.
 
 
 ```python
@@ -1205,10 +1199,10 @@ test_feature_tsdf = pipeline_ml.transform(test_tsdf)
 print(train_feature_tsdf.head())
 ```
 
-    F1 2018-05-04 11:00:54,308 INFO azureml.timeseries - pipeline fit_transform started. 
-    F1 2018-05-04 11:01:02,545 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:08.237301
-    F1 2018-05-04 11:01:02,576 INFO azureml.timeseries - pipeline transforms started. 
-    F1 2018-05-04 11:01:19,048 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:16.471961
+    F1 2018-06-14 23:10:03,472 INFO azureml.timeseries - pipeline fit_transform started. 
+    F1 2018-06-14 23:10:07,317 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:03.845078
+    F1 2018-06-14 23:10:07,317 INFO azureml.timeseries - pipeline transforms started. 
+    F1 2018-06-14 23:10:16,499 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:09.182314
                                            feat  price  AGE60  EDUC  ETHNIC  \
     WeekLastDay         store brand                                           
     1990-06-20 23:59:59 2     dominicks    1.00   1.59   0.23  0.25    0.11   
@@ -1370,13 +1364,16 @@ all_errors.sort_values('MedianAPE')
 
 Sommige machine learning-modellen konden profiteren van de nieuwe functies en de overeenkomsten tussen reeksen om op te halen van betere nauwkeurigheid van de prognose.
 
-**Kruisvalidatie en Parameter Sweeping**    
+### <a name="cross-validation-parameter-and-model-sweeping"></a>Kruisvalidatie, Parameter en het Model Sweeping    
 
-Het pakket zich enkele traditionele machine learning-functies voor een prognose toepassing aanpast.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) kruisvalidatie tijdelijk, biedt wat zou en zou niet bekend zijn in een prognoses framework wordt gerespecteerd. 
+Het pakket zich enkele traditionele machine learning-functies voor een prognose toepassing aanpast.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator?view=azure-ml-py-latest) kruisvalidatie tijdelijk, biedt wat zou en zou niet bekend zijn in een prognoses framework wordt gerespecteerd. 
 
 In de afbeelding hieronder staat elke vierkant gegevens van een tijdstip. De blauwe kwadraten vertegenwoordigen training en oranje vierkanten weer in elke Vouw testen. Testgegevens moet afkomstig zijn van de tijdpunten na de grootste training-tijdstip. Gegevens uit de toekomst is anders in trainingsgegevens veroorzaakt door de model-evaluatie ongeldig wordt gelekt. 
-
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
+
+**Parameter Sweeping**  
+De [TSGridSearchCV](https://docs.microsoft.com/en-us/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) klasse uitgebreid zoeken via de opgegeven parameterwaarden en maakt gebruik van `RollingOriginValidator` parameter om prestaties te evalueren om te zoeken van de beste parameters.
+
 
 ```python
 # Set up the `RollingOriginValidator` to do 2 folds of rolling origin cross-validation
@@ -1395,6 +1392,102 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
 
     Best paramter: {'estimator__n_estimators': 100}
     
+
+**Model Sweeping**  
+De `BestOfForecaster` klasse selecteert u het model met de beste prestaties in een lijst met modellen gegeven. Vergelijkbaar met `TSGridSearchCV`, gebruikt ook RollingOriginValidator voor cross-validatie en prestaties te evalueren.  
+Hier wordt een lijst met twee modellen ter illustratie van het gebruik van doorgeven `BestOfForecaster`
+
+
+```python
+best_of_forecaster = BestOfForecaster(forecaster_list=[('naive', naive_model), 
+                                                       ('random_forest', random_forest_model)])
+best_of_forecaster_fitted = best_of_forecaster.fit(train_feature_tsdf,
+                                                   validator=RollingOriginValidator(n_step=20, max_horizon=40))
+best_of_forecaster_prediction = best_of_forecaster_fitted.predict(test_feature_tsdf)
+best_of_forecaster_prediction.head()
+```
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>PointForecast</th>
+      <th>DistributionForecast</th>
+      <th>Hoeveelheid</th>
+    </tr>
+    <tr>
+      <th>WeekLastDay</th>
+      <th>opslaan</th>
+      <th>merk</th>
+      <th>ForecastOriginTime</th>
+      <th>ModelName</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992-01-08 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>01-01-1992 23:59:59</th>
+      <th>random_forest</th>
+      <td>9299.20</td>
+      <td>&lt;o scipy.Stats._distn_infrastructure.rv_frozen...</td>
+      <td>11712.00</td>
+    </tr>
+    <tr>
+      <th>15-01-1992 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>01-01-1992 23:59:59</th>
+      <th>random_forest</th>
+      <td>10259.20</td>
+      <td>&lt;o scipy.Stats._distn_infrastructure.rv_frozen...</td>
+      <td>4032.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-22 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>01-01-1992 23:59:59</th>
+      <th>random_forest</th>
+      <td>6828.80</td>
+      <td>&lt;o scipy.Stats._distn_infrastructure.rv_frozen...</td>
+      <td>6336.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-29 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>01-01-1992 23:59:59</th>
+      <th>random_forest</th>
+      <td>16633.60</td>
+      <td>&lt;o scipy.Stats._distn_infrastructure.rv_frozen...</td>
+      <td>13632.00</td>
+    </tr>
+    <tr>
+      <th>1992-02-05 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>01-01-1992 23:59:59</th>
+      <th>random_forest</th>
+      <td>12774.40</td>
+      <td>&lt;o scipy.Stats._distn_infrastructure.rv_frozen...</td>
+      <td>45120.00</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 **De laatste pijplijn bouwen**   
 Nu dat u het beste model hebt geïdentificeerd, kunt u deze kunt bouwen en uw laatste pijplijn met alle transformatoren en het beste model passen. 
@@ -1416,9 +1509,62 @@ print('Median of APE of final pipeline: {0}'.format(final_median_ape))
     Median of APE of final pipeline: 42.54336821266968
     
 
-## <a name="operationalization-deploy-and-consume"></a>Uitoefening: implementeren en gebruiken
+## <a name="visualization"></a>Visualisatie
+De `ForecastDataFrame` klasse biedt plotting functies voor het visualiseren en analyseren van prognoses resultaten. Gebruik de meest gebruikte grafieken met uw gegevens. Raadpleeg de notebook voorbeeld hieronder op plotting-functies voor alle functies die beschikbaar zijn. 
 
-In deze sectie maakt u een pijplijn als Azure Machine Learning-webservice implementeren en deze gebruiken voor training en scoren. De geïmplementeerde webservice scoren retrains van het model en prognoses op nieuwe gegevens worden gegenereerd.
+De `show_error` functie die zichtbaar zijn samengevoegd door een willekeurige kolom maatstaven voor prestaties. Standaard de `show_error` functie worden samengevoegd door de `grain_colnames` van de `ForecastDataFrame`. Het is vaak handig voor het identificeren van de korrels/groepen met de beste en de slechtste prestaties, met name wanneer er een groot aantal tijdreeksen. De `performance_percent` argument van `show_error` kunt u opgeven voor een interval van de prestaties en de fout of een subset van korrels/groepen tekenen.
+
+Tekenen van de korrels met de prestaties van onder 5%, dat wil zeggen top 5% MedianAPE
+
+
+```python
+fig, ax = best_of_forecaster_prediction.show_error(err_name='MedianAPE', err_fun=calc_median_ape, performance_percent=(0.95, 1))
+```
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+
+
+Tekenen van de korrels met de top 5% van de prestaties, dat wil zeggen onderste 5% MedianAPE.
+
+
+```python
+fig, ax = best_of_forecaster_prediction.show_error(err_name='MedianAPE', err_fun=calc_median_ape, performance_percent=(0, 0.05))
+```
+
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+
+
+Zodra u een idee van de algehele prestaties hebt, kunt u afzonderlijke korrels, met name degenen die die niet goed uitgevoerd verkennen. De `plot_forecast_by_grain` methode worden uitgezet prognose versus werkelijk van opgegeven korrels. Hier wordt het tijdsinterval met de beste prestaties tekenen en het tijdsinterval met de slechtste prestaties gedetecteerd de `show_error` diagram.
+
+
+```python
+fig_ax = best_of_forecaster_prediction.plot_forecast_by_grain(grains=[(33, 'tropicana'), (128, 'minute.maid')])
+```
+
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+
+
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+
+
+
+## <a name="additional-notebooks"></a>Extra notitieblokken
+Raadpleeg voor meer informatie over op de belangrijkste functies van AMLPF, de volgende laptops met meer details en voorbeelden van elke functie:  
+[Notebook op TimeSeriesDataFrame](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Introduction_to_TimeSeriesDataFrames.ipynb)  
+[Notebook op Data Wrangling](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Data_Wrangling_Sample.ipynb)  
+[Notebook op transformatoren](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Forecast_Package_Transforms.ipynb)  
+[Notebook op modellen](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/AMLPF_models_sample_notebook.ipynb)  
+[Notebook op Cross-validatie](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Time_Series_Cross_Validation.ipynb)  
+[Notebook op Lag transformator en OriginTime](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Constructing_Lags_and_Explaining_Origin_Times.ipynb)  
+[Notebook op tekenen van functies](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Plotting_Functions_in_AMLPF.ipynb)
+
+## <a name="operationalization"></a>Operationaliseren
+
+In deze sectie maakt u een pijplijn als Azure Machine Learning-webservice implementeren en deze gebruiken voor training en scoren.
+Op dit moment alleen pijplijnen er niet zijn uitgerust worden ondersteund voor de implementatie. De geïmplementeerde webservice scoren retrains van het model en prognoses op nieuwe gegevens worden gegenereerd.
 
 ### <a name="set-model-deployment-parameters"></a>Model-implementatie instellen
 
@@ -1485,7 +1631,7 @@ aml_deployment = ForecastWebserviceFactory(deployment_name=deployment_name,
                                            aml_settings=aml_settings, 
                                            pipeline=pipeline_deploy,
                                            deployment_working_directory=deployment_working_directory,
-                                           ftk_wheel_loc='https://azuremlpackages.blob.core.windows.net/forecasting/azuremlftk-0.1.18055.3a1-py3-none-any.whl')
+                                           ftk_wheel_loc='https://azuremlftkrelease.blob.core.windows.net/dailyrelease/azuremlftk-0.1.18165.29a1-py3-none-any.whl')
 ```
 
 ### <a name="create-the-web-service"></a>De webservice maken

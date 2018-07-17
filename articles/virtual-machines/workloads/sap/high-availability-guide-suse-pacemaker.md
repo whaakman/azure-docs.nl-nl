@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1fa69cc09772b9f90e6de05820c823f0409d926e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921505"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070333"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -38,6 +38,11 @@ Het apparaat SBD moet één extra virtuele machine die fungeert als een iSCSI-do
 Als u niet investeren in één extra virtuele machine wilt, kunt u ook de omheining Azure-agent. Het nadeel is dat een failover tussen 10 tot 15 minuten duren kan als een resource stoppen is mislukt of als de clusterknooppunten kunnen niet worden gecommuniceerd die elkaar meer.
 
 ![Pacemaker op SLES-overzicht](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+
+>[!IMPORTANT]
+> Met behulp van een apparaat SBD voor uw cluster Pacemaker, is het essentieel is voor de algehele betrouwbaarheid van het volledige cluster dat de routering tussen de betrokken virtuele machines en de VM (s) die als host fungeert voor de apparaten SBD niet via een andere apparaten zoals doorgegeven wordt [NVA's](https://azure.microsoft.com/solutions/network-appliances/). Problemen met de NVA kunnen anders heeft een nadelige invloed op de stabiliteit en betrouwbaarheid van de algemene configuratie van het cluster. Onderzoeken om te voorkomen dat dergelijke obstakels, regels voor doorsturen van NVA's en [gebruiker gedefinieerde routeringsregels](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) bij het plannen en implementeren van SBD apparaten.
+>
+
 
 ## <a name="sbd-fencing"></a>De eerste optie SBD
 

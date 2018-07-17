@@ -1,6 +1,6 @@
 ---
-title: Maken van een toepassingsgateway met SSL-beëindiging - Azure CLI | Microsoft Docs
-description: Informatie over het maken van een toepassingsgateway en toevoegen van een certificaat voor SSL-beëindiging met de Azure CLI.
+title: Een toepassingsgateway met SSL-beëindiging - Azure CLI maken | Microsoft Docs
+description: Leer hoe u een toepassingsgateway maakt en een certificaat voor SSL-beëindiging toevoegt met behulp van de Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,26 +8,26 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/18/2018
+ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 03b5d0447ef732586fe2104690c609a3adec2b6c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5104b1ffa12e35f18ba0843718afb6d697df6c39
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356134"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068876"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Maken van een toepassingsgateway met SSL-beëindiging met de Azure CLI
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Een toepassingsgateway maken met SSL-beëindiging met de Azure CLI
 
-U kunt de Azure CLI gebruiken voor het maken een [toepassingsgateway](application-gateway-introduction.md) met een certificaat voor [SSL-beëindiging](application-gateway-backend-ssl.md) die gebruikmaakt van een [virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor back-endservers. In dit voorbeeld bevat de schaalaanpassingsset twee virtuele machine-exemplaren die zijn toegevoegd aan de standaardgroep voor back-end van de toepassingsgateway.
+U kunt de Azure CLI gebruiken om een ​​[toepassingsgateway](application-gateway-introduction.md) te maken met een certificaat voor [SSL-beëindiging](application-gateway-backend-ssl.md) die een [ virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) gebruikt voor back-endservers. In dit voorbeeld bevat de schaalset twee virtuele-machine-instanties die zijn toegevoegd aan de standaard back-endpool van de toepassingsgateway.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Een zelfondertekend certificaat maken
 > * Een netwerk instellen
-> * Een toepassingsgateway maken met het certificaat
-> * Een virtuele-machineschaalset ingesteld met het standaard back-end-adresgroep maken
+> * Een toepassingsgateway maken met behulp van het certificaat
+> * Een virtuele-machineschaalset maken met de standaard back-endpool
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -37,25 +37,25 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-self-signed-certificate"></a>Een zelfondertekend certificaat maken
 
-Voor gebruik in productieomgevingen, moet u een geldig certificaat dat is ondertekend door een vertrouwde provider importeren. Voor deze zelfstudie maakt u een zelfondertekend certificaat en het pfx-bestand met de opdracht openssl.
+Voor gebruik in de productie moet u een geldig certificaat importeren dat is ondertekend door een vertrouwde provider. U maakt voor deze zelfstudie een zelfondertekend certificaat en pfx-bestand via de openssl-opdracht.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
-Voer de waarden die geschikt zijn voor uw certificaat. U kunt de standaardwaarden accepteren.
+Voer waarden in die voor uw certificaat van belang zijn. U kunt de standaardwaarden accepteren.
 
 ```azurecli-interactive
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 
-Voer het wachtwoord voor het certificaat. In dit voorbeeld *Azure123456!* wordt gebruikt.
+Voer het wachtwoord voor het certificaat in. In dit voorbeeld wordt *Azure123456!* gebruikt.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resource-groep met [az groep maken](/cli/azure/group#create).
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#create).
 
-Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAG* in de *eastus* locatie.
+In het volgende voorbeeld wordt de resourcegroep *myResourceGroupAG* gemaakt op de locatie *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -63,7 +63,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken
 
-Maken van het virtuele netwerk met de naam *myVNet* en het subnet met de naam *myAGSubnet* met [az network vnet maken](/cli/azure/network/vnet#az_net). Vervolgens kunt u het subnet met de naam toevoegen *myBackendSubnet* die nodig is voor de back-endservers met [az network vnet subnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Maken van het openbare IP-adres met de naam *myAGPublicIPAddress* met [az netwerk openbare ip-maken](/cli/azure/public-ip#az_network_public_ip_create).
+Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet#az_net). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -85,9 +85,9 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-U kunt [az netwerk toepassingsgateway maken](/cli/azure/application-gateway#create) om de toepassingsgateway te maken. Wanneer u een toepassingsgateway met Azure CLI maakt, kunt u configuratie-informatie, zoals de capaciteit, sku en HTTP-instellingen opgeven. 
+U kunt [az network application-gateway create](/cli/azure/application-gateway#create) gebruiken om de toepassingsgateway te maken. Als u een toepassingsgateway met de Azure CLI maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. 
 
-De toepassingsgateway is toegewezen aan *myAGSubnet* en *myAGPublicIPAddress* die u eerder hebt gemaakt. In dit voorbeeld koppelen u het certificaat dat u hebt gemaakt en het bijbehorende wachtwoord wanneer u de toepassingsgateway maakt. 
+De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u eerder hebt gemaakt. In dit voorbeeld koppelt u het certificaat dat u hebt gemaakt aan het wachtwoord als u de toepassingsgateway maakt. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -108,17 +108,17 @@ az network application-gateway create \
 
 ```
 
- Duurt enkele minuten voor de toepassingsgateway moet worden gemaakt. Nadat de toepassingsgateway is gemaakt, kunt u deze nieuwe functies ervan zien:
+ Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de toepassingsgateway is gemaakt, kunt u de volgende nieuwe functies ervan zien:
 
-- *appGatewayBackendPool* -een toepassingsgateway moet ten minste één back-endadresgroep hebben.
-- *appGatewayBackendHttpSettings* -Hiermee geeft u op poort 80 en een HTTP-protocol wordt gebruikt voor communicatie.
-- *appGatewayHttpListener* -de standaard-listener die zijn gekoppeld aan *appGatewayBackendPool*.
-- *appGatewayFrontendIP* -wijst *myAGPublicIPAddress* naar *appGatewayHttpListener*.
-- *Rule1* : de regel die is gekoppeld aan routering standaard *appGatewayHttpListener*.
+- *appGatewayBackendPool*: een toepassingsgateway moet ten minste één back-endadresgroep hebben.
+- *appGatewayBackendHttpSettings*: hiermee wordt aangegeven dat voor de communicatie poort 80 en een HTTP-protocol worden gebruikt.
+- *appGatewayHttpListener*: de standaard-listener die aan *appGatewayBackendPool* is gekoppeld.
+- *appGatewayFrontendIP*: hiermee wordt *myAGPublicIPAddress* aan *appGatewayHttpListener* toegewezen.
+- *rule1*: de standaardrouteringsregel die aan *appGatewayHttpListener* is gekoppeld.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Een virtuele-machineschaalset maken
 
-In dit voorbeeld maakt u een virtuele-machineschaalset met servers voor de back-endpool van de standaard in de toepassingsgateway. De virtuele machines in de schaalset zijn gekoppeld aan *myBackendSubnet* en *appGatewayBackendPool*. Maken van de schaal ingesteld, kunt u [az vmss maken](/cli/azure/vmss#az_vmss_create).
+In dit voorbeeld maakt u een virtuele-machineschaalset die servers biedt voor de standaard back-endpool in de toepassingsgateway. De virtuele machines in de schaalset worden gekoppeld aan *myBackendSubnet* en *appGatewayBackendPool*. U kunt [az vmss create](/cli/azure/vmss#az_vmss_create) gebruiken om de schaalset te maken.
 
 ```azurecli-interactive
 az vmss create \
@@ -145,13 +145,13 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
-## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
+## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Als u het openbare IP-adres van de toepassingsgateway, kunt u [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show). Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
+Gebruik [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -161,11 +161,11 @@ az network public-ip show \
   --output tsv
 ```
 
-![Waarschuwing beveiligen](./media/application-gateway-ssl-cli/application-gateway-secure.png)
+![Beveiligingswaarschuwing](./media/application-gateway-ssl-cli/application-gateway-secure.png)
 
-Voor het accepteren van de beveiligingswaarschuwing als u een zelfondertekend certificaat gebruikt, selecteert u **Details** en vervolgens **gaat u naar de webpagina**. Uw beveiligde NGINX-site wordt vervolgens weergegeven zoals in het volgende voorbeeld:
+Voor het accepteren van de beveiligingswaarschuwing als u een zelfondertekend certificaat hebt gebruikt, selecteert u **Details** en vervolgens **Ga verder naar de webpagina**. Uw beveiligde NGINX-site wordt vervolgens weergegeven zoals in het volgende voorbeeld:
 
-![Basis-URL te testen in de toepassingsgateway](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
+![Basis-URL testen in de toepassingsgateway](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -174,7 +174,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
 > * Een zelfondertekend certificaat maken
 > * Een netwerk instellen
-> * Een toepassingsgateway maken met het certificaat
-> * Een virtuele-machineschaalset ingesteld met het standaard back-end-adresgroep maken
+> * Een toepassingsgateway maken met behulp van het certificaat
+> * Een virtuele-machineschaalset maken met de standaard back-endpool
 
-Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.
+Voor meer informatie over Toepassingsgateways en de bijbehorende resources, gaat u naar de artikelen met procedures.

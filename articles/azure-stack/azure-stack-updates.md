@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: e80c114b06390a72dcdcc614dffaa97b9761381e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 43ec962c91b354d8f07f1be8885b89424d00e452
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988905"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069856"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Updates beheren in Azure Stack-overzicht
 
 *Is van toepassing op: Azure Stack-geïntegreerde systemen*
 
-Nieuwe updatepakketten vrij voor Azure Stack-systemen doorgaans geïntegreerde rond de vierde dinsdag van elke maand. Stel uw OEM over hun specifieke melding om ervoor te zorgen updatemeldingen bereiken in uw organisatie. U kunt ook controleren in deze Documentatiebibliotheek onder onder **overzicht** > **opmerkingen bij de Release** voor informatie over de versies die in de actieve ondersteuning zijn. 
+Microsoft-updatepakketten vrij voor Azure Stack-systemen doorgaans geïntegreerde rond de vierde dinsdag van elke maand. Stel uw OEM over hun specifieke melding om ervoor te zorgen updatemeldingen bereiken in uw organisatie. U kunt ook controleren in deze Documentatiebibliotheek onder onder **overzicht** > **opmerkingen bij de Release** voor informatie over de versies die in de actieve ondersteuning zijn. 
 
 Elke versie van Microsoft-software-updates wordt geleverd als één update-pakket. Als Azure Stack-operators, u kunt importeren, installeren en de voortgang van installatie van de volgende pakketten uit de beheerdersportal bijwerken. 
 
-De leverancier van de oorspronkelijke leveranciers (OEM)-hardware brengt-updates, zoals stuurprogramma en firmware-updates ook. Deze updates als afzonderlijke pakketten worden geleverd door de leverancier van de OEM-hardware en afzonderlijk beheerd via Microsoft-updates.
+De leverancier van de oorspronkelijke leveranciers (OEM)-hardware brengt-updates, zoals stuurprogramma en firmware-updates ook. Terwijl deze updates worden geleverd als afzonderlijke pakketten door de leverancier van de OEM-hardware, ze worden geïmporteerd, geïnstalleerd en de dezelfde manier-updatepakketten beheerd van Microsoft-updatepakketten worden geïmporteerd, geïnstalleerd en beheerd.
 
 Om te voorkomen dat uw systeem onder ondersteuning, moet u Azure Stack is bijgewerkt naar een specifieke versie. Zorg ervoor dat u de [Azure Stack servicebeleid](azure-stack-servicing-policy.md).
 

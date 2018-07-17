@@ -1,6 +1,6 @@
 ---
-title: Over spraak vertaling | Microsoft Docs
-description: Een overzicht van de mogelijkheden van de vertaling van spraak
+title: Over Spraakomzetting | Microsoft Docs
+description: Een overzicht van de mogelijkheden van de vertaling van gesproken tekst
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,37 +10,37 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 43fcde887c21794989aa43540a214ef34893a630
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a569c968d444c36ceb3bce4779d2eca39c21f9bc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345819"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069192"
 ---
-# <a name="about-the-speech-translation-api"></a>Over de vertaling spraak API
+# <a name="about-the-speech-translation-api"></a>Over de Spraakomzettings-API
 
-De Microsoft Speech-API kunt u end-to-end-, realtime, meertalige vertaling van spraak toevoegen aan uw toepassingen, hulpprogramma's en apparaten. De dezelfde API kan worden gebruikt voor de vertaling van spraak-naar-spraak zowel spraak naar tekst.
+De Microsoft Speech-API kunt u end-to-end-, realtime, meerdere talen vertaling van spraak toevoegen aan uw toepassingen, hulpprogramma's en apparaten. Dezelfde API kan worden gebruikt voor zowel spraak-naar-spraak- en spraak naar tekst converteren.
 
-Met de Microsoft Translator Speech-API clienttoepassingen stream spraak geluid om de service en ontvangen van een stream met resultaten. Deze resultaten opnemen de herkende tekst in de taal van de bron en de vertaling in de doel-taal. Tussentijdse vertalingen kunnen worden opgegeven voordat een utterance voltooid is, op dat moment een definitieve vertaling is opgegeven.
+Met de Microsoft Translator Speech-API clienttoepassingen streamen gesproken audio naar de service en het ontvangen van een stream van resultaten. Deze resultaten opnemen de herkende tekst in de source-taal en de vertaling in de doel-taal. Tijdelijke vertalingen kunnen worden opgegeven voordat een utterance voltooid is, op dat moment een laatste omzetting wordt opgegeven.
 
-Eventueel een gesyntheseerde audio-versie van de laatste vertaling voor te bereiden, waar de vertaling van spraak-naar-spraak inschakelen.
+(Optioneel) een kunstmatige audioversie van de laatste vertaling voor te bereiden, waar spraak-naar-spraak-omzetting inschakelen.
 
-De vertaling Speech-API wordt een WebSockets-protocol gebruikt voor een kanaal full-duplex-communicatie tussen de client en de server. Maar u hoeft niet te bekommeren om WebSockets; de SDK spraak verwerkt die voor u.
+De Spraakomzettings-API gebruikt een WebSockets-protocol voor een kanaal full-duplex-communicatie tussen de client en de server. Maar u hoeft niet te bekommeren om WebSockets; de spraak-SDK verwerkt die voor u.
 
-De vertaling Speech-API maakt gebruik van dezelfde technologieën die ten grondslag diverse Microsoft-producten en services. Deze service wordt al gebruikt door duizenden bedrijven wereldwijd in hun toepassingen en werkstromen.
+De Spraakomzettings-API maakt gebruik van dezelfde technologieën die verschillende Microsoft-producten services en. Deze service wordt al gebruikt door duizenden bedrijven wereldwijd in hun toepassingen en werkstromen.
 
 ## <a name="about-the-technology"></a>Over de technologie
 
-Onderliggende vertaling-engine van Microsoft zijn twee verschillende benaderingen: statistische machinevertaling (SMT) en neural automatische vertaling (NMT). De laatste, een kunstmatige intelligence benadering die gebruikmaakt van neural networks moderne manier te vertalen. NMT biedt betere vertalingen, niet alleen nauwkeuriger, maar ook meer beheersen en natuurlijke. De belangrijkste reden voor deze soepele manier is dat NMT wordt gebruikt voor de volledige context van een zin om woorden.
+Onderliggende vertaling-engine van Microsoft zijn twee verschillende manieren: statistische machinevertalingen (SMT) en neurale machinevertalingen (NMT). De laatste, een benadering van kunstmatige intelligentie die gebruikmaakt van neurale netwerken, is de moderne aanpak van machinevertalingen. NMT biedt betere vertalingen, niet alleen meer nauwkeurige, maar ook meer gestroomlijnde en natuurlijke. De belangrijkste reden voor deze soepele manier is dat NMT maakt gebruik van de volledige context van een zin voor de omzetting van woorden.
 
-Vandaag de dag is Microsoft gemigreerd naar NMT voor de meest populaire talen die gebruikmaakt van SMT alleen voor minder vaak gebruikte talen. Alle [talen die beschikbaar zijn voor spraak-naar-spraak vertaling](supported-languages.md#speech-translation) door NMT zijn ingeschakeld. De vertaling van spraak naar tekst kan gebruikmaken van SMT of NMT, afhankelijk van de combinatie van taal. Als de doel-taal wordt ondersteund door NMT, is de volledige vertaling NMT ingeschakeld. Als de taal van het doel wordt niet ondersteund door NMT, is de omzetting een hybride van NMT en SMT, met Engels als een 'pivot' tussen de twee talen.
+Vandaag de dag is Microsoft gemigreerd naar NMT voor de meest populaire talen die gebruikmaakt van SMT alleen voor minder vaak gebruikte talen. Alle [beschikbare talen voor spraak-naar-spraak vertaling](supported-languages.md#speech-translation) worden aangestuurd door NMT. Spraak naar tekst converteren kan gebruikmaken van SMT of NMT, afhankelijk van de combinatie van taal. Als de doeltaal door NMT wordt ondersteund, is de volledige vertaling NMT aangestuurde. Als de doel-taal wordt niet ondersteund door NMT, is de omzetting van een hybride van NMT en SMT, met behulp van Engels als een "draaien" tussen de twee talen.
 
-De verschillen tussen modellen zijn intern voor de NAT-engine. Eindgebruikers ziet alleen de verbeterde vertaling kwaliteit, met name voor Chinees, Japans en Arabisch.
+De verschillen tussen modellen zijn intern voor de NAT-engine. Eindgebruikers kunnen u alleen de kwaliteit van de verbeterde vertaling met name voor Chinese, Japans en Arabisch ziet.
 
 > [!NOTE]
-> Wilt u meer leren over de technologie achter NAT-engine van Microsoft? Zie [machinevertaling](https://www.microsoft.com/en-us/translator/mt.aspx).
+> Wilt u meer informatie over de technologie achter NAT-engine van Microsoft? Zie [machinevertalingen](https://www.microsoft.com/en-us/translator/mt.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw proefabonnement spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
-* [Zie het herkennen van spraak in C#](quickstart-csharp-windows.md)
+* [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
+* [Zie voor het herkennen van gesproken tekst in C#](quickstart-csharp-dotnet-windows.md)

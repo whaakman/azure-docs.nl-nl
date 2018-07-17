@@ -1,74 +1,67 @@
 ---
-title: Voorbeeld voor opzet erkenning | Microsoft Docs
+title: Voorbeeld voor Intentieherkenning | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Hier volgt een voorbeeld voor opzet herkenning.
+description: Hier volgt een voorbeeld voor intentieherkenning.
 services: cognitive-services
 author: wolfma61
 manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 1c9c1e2d54ccb200ef009be3566f6da9ced01175
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4cf3bbfa24e102c544b0e3215a20b73d323f15df
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111164"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070957"
 ---
-# <a name="sample-for-intent-recognition"></a>Voorbeeld voor opzet opname
+# <a name="sample-for-intent-recognition"></a>Voorbeeld voor intentieherkenning
 
-> [!NOTE]
-> Zie voor instructies voor het downloaden van dit voorbeeld en andere [voorbeelden voor spraak-SDK](samples.md).
+Voer eerst een abonnementssleutel verkrijgen. In tegenstelling tot andere services wordt ondersteund door de SDK Cognitive Speech, vereist de herkenning van intentie de sleutel van een bepaald abonnement. [Hier](https://www.luis.ai) vindt u meer informatie over de intentieherkenning-technologie, evenals informatie over het verkrijgen van een abonnementssleutel. Vervang de sleutel van uw eigen Language Understanding-abonnement, de [regio van uw abonnement](regions.md), en de AppId van de intentie model op de juiste plaatsen in de voorbeelden.
 
-> [!NOTE]
-> Neem eerst een abonnementssleutel ophalen. In tegenstelling tot andere services wordt ondersteund door de SDK cognitieve spraak, vereist de bedoeling herkenning een specifiek abonnement-sleutel. [Hier](https://www.luis.ai) vindt u meer informatie over de opzet opname-technologie, evenals informatie over het verkrijgen van een abonnementssleutel. De abonnementssleutel van uw eigen, vervangen de [regio van uw abonnement](regions.md), en de AppId van uw opzet model op de juiste plaatsen in de voorbeelden.
+## <a name="top-level-declarations"></a>Op het hoogste niveau declaraties
 
-> [!NOTE]
-> Voor alle voorbeelden hieronder moeten de volgende op het hoogste niveau declaraties zijn voldaan:
->
-> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#toplevel)]
->
-> - - -
+Voor alle voorbeelden hieronder moeten het volgende op het hoogste niveau declaraties zijn voldaan:
 
-## <a name="intent-recognition-using-microphone"></a>Opzet erkenning met behulp van de microfoon
+[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-Het onderstaande codefragment toont het herkennen van de intentie van microfoon invoer in de standaardtaal (`en-US`).
+[!code-cpp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#toplevel)]
 
-[!code-cpp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithMicrophone)]
+[!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#toplevel)]
 
-- - -
+## <a name="intent-recognition-using-microphone"></a>Intentieherkenning met behulp van de microfoon
 
-## <a name="intent-recognition-using-microphone-in-a-specified-language"></a>Opzet erkenning met microfoon in een bepaalde taal
+Het onderstaande codefragment laat zien hoe u voor het herkennen van de intentie van de invoer van de microfoon in de standaardtaal (`en-US`).
 
-Het onderstaande codefragment ziet u het doel van de microfoon invoer in een bepaalde taal in dit geval herkennen in het Duits (`de-de`).
+[!code-csharp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
 
-[!code-cpp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithLanguage)]
+[!code-cpp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentRecognitionWithMicrophone)]
 
-- - -
+[!code-java[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentRecognitionWithMicrophone)]
 
-## <a name="intent-recognition-from-a-file"></a>Opzet herkenning van een bestand
+## <a name="intent-recognition-using-microphone-in-a-specified-language"></a>Met behulp van de microfoon in een opgegeven taal intentieherkenning
 
-Het volgende codefragment herkent doel van een audio-bestand in de standaardtaal (`en-US`), de ondersteunde indeling is één-kanaal (mono) WAV / PCM met een samplefrequentie van 16 KHz.
+Het onderstaande codefragment laat zien hoe u voor het herkennen van de intentie van de invoer van de microfoon in een opgegeven taal, in dit geval in het Duits (`de-de`).
 
-[!include[Sample Audio](includes/sample-audio.md)]
+[!code-csharp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithLanguage)]
 
-[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithFile)]
+[!code-cpp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentRecognitionWithLanguage)]
 
-- - -
+[!code-java[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentRecognitionWithLanguage)]
 
-## <a name="intent-recognition-using-events"></a>Opzet voor het gebruik van gebeurtenissen
+## <a name="intent-recognition-from-a-file-using-events"></a>Intentieherkenning uit een bestand, gebruik van gebeurtenissen
 
-Het codefragment laat zien hoe doel in een continue manier kan herkennen. Deze code geeft toegang tot aanvullende informatie, zoals tussenliggende resultaten. 
+Het codefragment laat zien hoe u voor het herkennen van intentie in de standaardtaal (`en-US`) in een continue manier. Deze code geeft toegang tot aanvullende informatie, zoals tussenliggende resultaten genereren. Invoer is afkomstig uit van een geluidsbestand, de ondersteunde indeling is één-kanaal (mono) WAV / PCM met een samplefrequentie van 16 KHz.
 
-[!code-cpp[Intent Recognition Using Events](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentContinuousRecognitionUsingEvents)]
+[!code-csharp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
-- - -
+[!code-cpp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentContinuousRecognitionWithFile)]
 
-## <a name="sample-source-code"></a>Voorbeeldcode
+[!code-java[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentContinuousRecognitionWithFile)]
 
-Zie voor de meest recente set steekproeven van het [cognitieve Services spraak SDK voorbeeld GitHub-opslagplaats](https://aka.ms/csspeech/samples).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

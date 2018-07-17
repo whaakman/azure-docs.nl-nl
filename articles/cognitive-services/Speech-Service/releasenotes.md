@@ -1,6 +1,6 @@
 ---
-title: Cognitieve Services spraak SDK-documentatie | Microsoft Docs
-description: Opmerkingen bij de release - wat is er gewijzigd in de meest recente versies
+title: Cognitive Services Speech SDK-documentatie | Microsoft Docs
+description: Opmerkingen bij de release - wat is gewijzigd in de meest recente versies
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
@@ -8,53 +8,83 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 0b1559d288380cf3d0c180a225278cc13d22a5d0
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 71a5edfbe388f2d4bfb48255b901cb0037665252
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35350017"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069427"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitieve Services spraak SDK 0.4.0: 2018 juni release
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: juli 2018-release
+
+**Nieuwe functies**
+
+* Ondersteuning voor Android-platform (API 23: Android 6.0 Marshmallow of hoger).
+  Bekijk de [Android snelstartgids](quickstart-java-android.md).
+* Ondersteuning voor .NET Standard 2.0 op Windows.
+  Bekijk de [.NET Core-snelstartgids](quickstart-csharp-dotnetcore-windows.md).
+* Experimentele: Ondersteuning voor UWP op Windows (versie 1709 of hoger)
+  * Bekijk onze [UWP-snelstartgids](quickstart-csharp-uwp.md).
+  * Opmerking: UWP-apps die zijn gebouwd met de spraak-SDK niet nog door de Windows App Certification Kit (WACK).
+* Ondersteuning voor langlopende herkenning met automatisch opnieuw verbinden.
+
+**Functionele wijzigingen**
+
+* `StartContinuousRecognitionAsync()` ondersteunt de uitvoering lang duurt erkenning
+* Het herkenningsresultaat bevat meer velden: verschoven ten opzichte van de audio begin en de duur (zowel in tikken) van de herkende tekst, aanvullende waarden voor herkenning van status, bijvoorbeeld `InitialSilenceTimeout`, `InitialBabbleTimeout`.
+* Ondersteuning voor AuthorizationToken voor het maken van factory-exemplaren.
+
+**Belangrijke wijzigingen**
+
+* Herkenning van gebeurtenissen: NoMatch gebeurtenistype is samengevoegd met de fout-gebeurtenis.
+* SpeechOutputFormat in C# is gewijzigd in de uitvoerindeling te houden met C++ uitgelijnd.
+
+**Oplossingen voor problemen**
+
+* Onjuiste retourwaarden, resultaat vast wanneer `RecognizeAsync()` een time-out optreedt.
+* De afhankelijkheid van media foundation-bibliotheken op Windows is verwijderd. De SDK maakt nu gebruik van Core Audio-API's.
+* Documentatie fix: een pagina regio om te beschrijven wat zijn de ondersteunde regio's toegevoegd.
+
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: release 2018-juni
 
 **Functionele wijzigingen**
 
 - AudioInputStream
 
-  Een herkenning kan nu een stroom gebruiken als bron voor de audio. Zie voor gedetailleerde informatie, de verwante [how-to handleiding](how-to-use-audio-input-streams.md).
+  Een kenmerk kan nu gebruikmaken van een gegevensstroom als bron voor de audio. Zie voor gedetailleerde informatie, de verwante [gebruiksaanwijzing](how-to-use-audio-input-streams.md).
 
-- Gedetailleerde uitvoer-indeling
+- De indeling van gedetailleerde uitvoer
 
-  Tijdens het maken van een `SpeechRecognizer`, kunt u vragen `Detailed` of `Simple` uitvoerindeling. De `DetailedSpeechRecognitionResult` bevat een score vertrouwen, herkende tekst onbewerkte lexicale formulier, genormaliseerde vorm en genormaliseerde vorm met gemaskeerde taalgebruik.
+  Tijdens het maken van een `SpeechRecognizer`, kunt u aanvragen `Detailed` of `Simple` uitvoerindeling. De `DetailedSpeechRecognitionResult` bevat een betrouwbaarheidsscore, herkende tekst, onbewerkte lexicale vorm, genormaliseerde formulier en genormaliseerde formulier met gemaskeerd grof taalgebruik.
 
-**Wijziging op te splitsen**
+**Belangrijke wijziging**
 
 - Wijzig in `SpeechRecognitionResult.Text` van `SpeechRecognitionResult.RecognizedText` in C#.
 
 **Oplossingen voor problemen**
 
-- Los het probleem van een mogelijke retouraanroep in USP laag tijdens het afsluiten.
+- Een mogelijke retouraanroep-probleem opgelost in USP laag tijdens het afsluiten.
 
-- Als een herkenner een audio-bestand voor invoer verbruikt, is het bedrijf op voor de bestandsingang is langer dan nodig.
+- Als een kenmerk een geluidsbestand invoer gebruikt, is het bedrijf op naar de bestandsingang die langer dan nodig.
 
-- Verschillende impassen tussen bericht pomp en herkenner verwijderd.
+- Verschillende impassen tussen bericht pomp en herkenning verwijderd.
 
-- Fire een `NoMatch` leiden wanneer het antwoord van de service is een time-out.
+- Fire een `NoMatch` leiden tot wanneer het antwoord van service is een time-out.
 
-- De media foundation-bibliotheken op Windows zijn vertraagd geladen. Deze bibliotheek is alleen vereist voor invoer van de microfoon.
+- De media foundation-bibliotheken op Windows zijn vertraagd geladen. Deze bibliotheek is alleen vereist voor de invoer van de microfoon.
 
-- De uploadsnelheid voor audiogegevens is beperkt tot over twee keer de oorspronkelijke audio snelheid.
+- De uploadsnelheid van audiogegevens is beperkt tot over twee keer de oorspronkelijke audio snelheid.
 
-- In Windows, worden C# .NET-assembly's nu sterke naam.
+- Op Windows, zijn C# .NET-assembly's nu sterke naam.
 
-- Documentatie fix: `Region` is vereiste informatie voor het maken van een herkenner.
+- Documentatie fix: `Region` is vereiste informatie om te maken van een kenmerk.
 
-Meer voorbeelden zijn toegevoegd en worden voortdurend bijgewerkt. Zie voor de meest recente set steekproeven van het [spraak SDK voorbeeld GitHub-opslagplaats](https://aka.ms/csspeech/samples).
+Meer voorbeelden zijn toegevoegd en worden voortdurend bijgewerkt. Zie voor de meest recente set voorbeelden, de [spraak SDK voorbeeld GitHub-opslagplaats](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitieve Services spraak SDK 0.2.12733: 2018 mei release
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services Speech SDK 0.2.12733: release 2018-mei
 
-De eerste openbare preview-versie van de SDK cognitieve Services spraak.
+De eerste openbare preview-versie van de Cognitive Services Speech SDK.

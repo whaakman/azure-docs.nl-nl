@@ -1,6 +1,6 @@
 ---
-title: Externe controle oplossingsverbetering Veelgestelde vragen | Microsoft Docs
-description: Veelgestelde vragen voor externe controle oplossingsverbetering
+title: Oplossingsverbetering voor externe bewaking Veelgestelde vragen over | Microsoft Docs
+description: Veelgestelde vragen over oplossingsverbetering voor externe controle
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,41 +8,41 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 094bb4b781bb554d340580377ec343f33579299e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21e02a9ae4679c1f9521cc188a6f72878276fb93
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627651"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39076155"
 ---
-# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Veelgestelde vragen voor externe controle oplossingsverbetering
+# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Veelgestelde vragen over oplossingsverbetering voor externe controle
 
 Zie ook de algemene [Veelgestelde vragen over](iot-accelerators-faq.md).
 
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Hoeveel kost het inrichten van de nieuwe oplossing voor externe controle
+### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Hoeveel kost het de nieuwe oplossing voor externe controle inrichten?
 
 De nieuwe oplossingsverbetering biedt twee opties voor implementatie:
 
-* Een *basic* optie ontworpen voor ontwikkelaars die op zoek naar de lagere kosten voor ontwikkeling of klanten die willen maken van een demo noch een bewijs van het concept.
-* Een *standaard* optie ontworpen voor ondernemingen willen implementeren van een infrastructuur gereed voor productie.
+* Een *basic* optie die is ontworpen voor ontwikkelaars die willen voor lagere kosten voor ontwikkeling of klanten wilt bouwen, een demo's of concepttest.
+* Een *standard* optie die is ontworpen voor ondernemingen willen implementeren van een infrastructuur gereed is voor productie.
 
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Hoe zorgt dat ik kostenbeperkend mijn tijdens het ontwikkelen van Mijn-oplossing?
+### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Hoe kan ik dat ik en houd de kosten laag terwijl ik mijn oplossing ontwikkelen?
 
-Naast het bieden van twee gedifferentieerde implementaties, heeft de nieuwe oplossing voor externe controle een instelling of de gesimuleerde apparaten op aanvraag uit te schakelen. Het uitschakelen van de simulatie, vermindert de gegevens in de oplossing en dus de totale kosten ingenomen.
+Naast het leveren van twee gedifferentieerde implementaties, heeft de nieuwe oplossing voor externe controle een instelling als u wilt in- of uitschakelen van de gesimuleerde apparaten op aanvraag. Uitschakelen van de simulatie van vermindert de gegevens die zijn opgenomen in de oplossing en dus de totale kosten.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Wat is het verschil tussen de basis en standaard implementatie-opties? Hoe bepaal ik tussen de twee implementatie-opties?
+### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Wat is het verschil tussen de basic en standard-implementatie-opties? Hoe bepaal ik tussen de twee implementatieopties?
 
-Elke Implementatieoptie reageert op verschillende behoeften. De eenvoudige implementatie is ontworpen om aan de slag en implementatiemodel en kleine testfases ontwikkelen. Het biedt een gestroomlijnde architectuur met de minimaal benodigde resources en lagere kosten. De standaardimplementatie is ontworpen om te bouwen en aanpassen van een oplossing gereed is voor productie en biedt een implementatie met de vereiste elementen mee die. Betrouwbaarheid en schaal application microservices als Docker-containers zijn gebouwd en geïmplementeerd met behulp van een orchestrator (Kubernetes standaard). De orchestrator is verantwoordelijk voor de implementatie, schaalbaarheid en beheer van de toepassing. Kies een optie op basis van uw huidige behoeften. U kunt een, de andere of een combinatie van beide, afhankelijk van uw projectfase gebruiken.
+Elke Implementatieoptie reageert op verschillende behoeften. De eenvoudige implementatie is ontworpen om aan de slag en ontwikkel PoC en kleine testfases. Het biedt een gestroomlijnde architectuur met de minimaal benodigde resources en lagere kosten. De standaardimplementatie is ontworpen om te ontwikkelen en aanpassen van een oplossing gereed is voor productie, en biedt een implementatie met de elementen die nodig zijn om te profiteren van die. Voor de betrouwbaarheid en schaal, microservices voor toepassingen worden gebouwd als Docker-containers en geïmplementeerd met behulp van een orchestrator (Kubernetes standaard). De orchestrator is verantwoordelijk voor de implementatie, schaling en beheer van de toepassing. U moet een optie op basis van uw huidige behoeften. U kunt een, de andere of een combinatie van beide, afhankelijk van de projectfase van uw.
 
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Hoe kan ik een dynamische kaart configureren op het dashboard?
+### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Hoe configureer ik een dynamische kaart op het dashboard?
 
-Zie voor meer informatie [Upgrade kaart sleutel apparaten wilt bekijken op een dynamische kaart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
+Zie voor meer informatie, [Upgrade kaart sleutel om te zien van apparaten op een dynamische kaart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
 ### <a name="next-steps"></a>Volgende stappen
 
 U kunt ook enkele van de andere functies en mogelijkheden van de IoT-oplossingsversnellers bekijken:
 
-* [De mogelijkheden van de oplossing voor externe controle accelerator verkennen](iot-accelerators-remote-monitoring-explore.md)
+* [Verken de mogelijkheden van de oplossingsverbetering voor externe controle](iot-accelerators-remote-monitoring-explore.md)
 * [Een overzicht van de oplossingsversneller voor Predictief onderhoud](iot-accelerators-predictive-overview.md)
-* [Overzicht van verbonden Factory oplossing accelerator](iot-accelerators-connected-factory-overview.md)
-* [Beveiliging van een compleet nieuwe IoT](securing-iot-ground-up.md)
+* [Verbonden Factory oplossingsversnellers implementeren](quickstart-connected-factory-deploy.md)
+* [Fundamentele IoT-beveiliging](/azure/iot-fundamentals/iot-security-ground-up)

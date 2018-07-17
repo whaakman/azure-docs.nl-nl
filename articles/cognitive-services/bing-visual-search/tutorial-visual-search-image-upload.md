@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 90ea591137b306069c1a5c184aea07375c72ce5c
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1352ccbcda35c693c5ac0b36156af199ae46bee9
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036537"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068665"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Zelfstudie: Afbreken van Bing visuele zoekopdrachten uploaden
 
 In deze zelfstudie een uitsplitsing van het proces van het uploaden van een afbeelding naar Bing en inzichten krijgen. Ook ziet u hoe om te openen en weergeven van de inzichten in de JSON-antwoord. Zie voor de volledige HTML en JavaScript-voorbeeld [code aanvullen](#complete-code).
 
-In deze zelfstudie is bedoeld voor de ontwikkelaar die wil verkennen van de inhoud van het Bing-antwoord. Deze niet alle gebruik van toepassing en weergavevereisten (bijvoorbeeld, biedt geen een koppeling naar het privacybeleid van Microsoft). Zie voor de gebruiksvereisten voor alle [Bing gebruik en de vereisten van de weergave](./use-and-display-requirements.md).
+In deze zelfstudie is bedoeld voor de ontwikkelaar die wil de inhoud van het antwoord van de Bing visuele zoekopdrachten verkennen. Deze niet alle gebruik van toepassing en weergavevereisten (bijvoorbeeld, biedt geen een koppeling naar het privacybeleid van Microsoft). Zie voor de gebruiksvereisten voor alle [Bing gebruik en de vereisten van de weergave](./use-and-display-requirements.md).
 
 
 ## <a name="where-to-start"></a>Waar wilt starten?

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 07/13/2018
 ms.author: raynew
-ms.openlocfilehash: eecf608a712e6a29180b797bbef491501653dfd6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a02218922a4d4238abf752190293a788504e0cfb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006475"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070906"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Ondersteuningsmatrix voor VMware en fysieke servers repliceren naar Azure
 
@@ -61,8 +61,9 @@ Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wor
 **Onderdeel** | **Details**
 --- | ---
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
-Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1.</br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> * *Windows 2016 Nano Server wordt niet ondersteund.*
-Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>CentOS: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Gerepliceerde machines SP3 bijwerken naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.
+Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. </br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> * *Windows 2016 Nano Server wordt niet ondersteund.*
+Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 naar 7.5 <br/><br/>CentOS: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 naar 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/></br>* *Gerepliceerde machines upgraden van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.*
+
 
 >[!NOTE]
 >
@@ -77,15 +78,15 @@ Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9,
 
 **Ondersteunde versie** | **Azure Site Recovery Mobility Service versie** | **Kernelversie** |
 --- | --- | --- |
+14.04 TNS | 9.18 | 3.13.0-24-Generic naar 3.13.0-153-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-130-generic |
 14.04 TNS | 9.17 | 3.13.0-24-Generic naar 3.13.0-149-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-127-generic |
 14.04 TNS | 9.16 | 3.13.0-24-Generic naar 3.13.0-144-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-119-generic |
 14.04 TNS | 9.15 | 3.13.0-24-Generic naar 3.13.0-144-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-119-generic |
-14.04 TNS | 9.14 | 3.13.0-24-Generic naar 3.13.0-142-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-116-generic |
 |||
+16.04 LTS | 9.18 | 4.4.0-21-Generic naar 4.4.0-130-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic |
 16.04 LTS | 9.17 | 4.4.0-21-Generic naar 4.4.0-127-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-43-generic |
 16.04 LTS | 9.16 | 4.4.0-21-Generic naar 4.4.0-119-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-38-generic |
 16.04 LTS | 9.15 | 4.4.0-21-Generic naar 4.4.0-119-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-38-generic |
-16.04 LTS | 9.14 | 4.4.0-21-Generic naar 4.4.0-116-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-36-generic |
 
 
 ### <a name="debian-kernel-versions"></a>Debian kernelversies
@@ -93,13 +94,18 @@ Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9,
 
 **Ondersteunde versie** | **Azure Site Recovery Mobility Service versie** | **Kernelversie** |
 --- | --- | --- |
-Debian 7 | 9.17 | 3.2.0-4-AMD64 naar 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.14, 9.15, 9.16 | 3.2.0-4-AMD64 naar 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17, 9.18 | 3.2.0-4-AMD64 naar 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.15, 9.16 | 3.2.0-4-AMD64 naar 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.17 | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.17, 9.18 | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9.16 | 3.16.0-4-AMD64 naar 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.14, 9.15 | 3.16.0-4-AMD64 naar 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.5-amd64 |
+Debian 8 | 9.15 | 3.16.0-4-AMD64 naar 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.5-amd64 |
 
+### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 ondersteunde versies van de kernel
+
+**Release** | **De versie van de Mobility-service** | **Kernelversie** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.18 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default naar 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux-systemen/Gast bestandsopslag
 

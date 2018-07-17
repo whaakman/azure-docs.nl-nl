@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: b9218600db8bd3e20528e61e411bb64c10dd9c84
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 011358e223db419f31e0181b05ce6f89479dba81
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917632"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070940"
 ---
 # <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
@@ -65,10 +65,10 @@ Audio-bestanden moeten als volgt worden voorbereid. Andere indelingen worden nie
 | ------------ | --------- |
 | Bestandsindeling  | RIFF (WAV)|
 | Samplefrequentie| ten minste 16.000 Hz |
-| Voorbeeldindeling| PCM, 16-bits |
+| Sample-indeling| PCM, 16-bits |
 | Bestandsnaam    | Numerieke met `.wav` extensie |
-| Indeling archiveren| Postcode      |
-| Grootte van maximaal archiveren|200 MB|
+| Archiefindeling| Zip      |
+| Maximale grootte archief|200 MB|
 
 Plaats de set audio-bestanden in een enkele map zonder de submappen en inpakken van de gehele set als een ZIP-archief voor één bestand.
 
@@ -235,5 +235,5 @@ Het eindpunt van de aangepaste is identiek aan de standaard-eindpunt gebruikt vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Uw proefabonnement voor spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
-- [Water in C#](quickstart-csharp-windows.md)
+- [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
+- [Water in C#](quickstart-csharp-dotnet-windows.md)

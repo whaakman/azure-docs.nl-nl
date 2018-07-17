@@ -1,7 +1,7 @@
 ---
-title: Java-Quick Start voor Bing Visual zoeken-API | Microsoft Docs
+title: Java-Quickstart voor Bing visuele zoekopdrachten-API | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Laat zien hoe u een installatiekopie uploaden naar Bing Visual zoeken-API en terughalen van inzicht in de afbeelding.
+description: Laat zien hoe u een installatiekopie uploaden naar de Bing visuele zoekopdrachten-API en weer toegang krijgen van inzicht in de afbeelding.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 8160302faa373d69b65afe6b68a8efb44442850d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41e0855b126ca6e54d0a487a88fe59a0be6f72f6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345658"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071992"
 ---
-# <a name="your-first-bing-visual-search-query-in-java"></a>Uw eerste Bing Visual zoekopdracht in Java
+# <a name="your-first-bing-visual-search-query-in-java"></a>Uw eerste Bing visuele zoekopdrachten-query in Java
 
-Bing Visual zoeken-API retourneert informatie over de installatiekopie die u opgeeft. Met behulp van de URL van de afbeelding, een insights token, of door een afbeelding te uploaden, kunt u de installatiekopie opgeven. Zie voor meer informatie over deze opties [wat Bing Visual zoeken-API is?](../overview.md) In dit artikel ziet u een afbeelding te uploaden. Een afbeelding te uploaden kan nuttig zijn in mobiele scenario's waarin u een afbeelding van een bekende kenmerkende en informatie over het terughalen. De insights kunnen bijvoorbeeld de algemene vragen over de kenmerkende bevatten. 
+Bing visuele zoekopdrachten-API retourneert informatie over een afbeelding die u opgeeft. U kunt de installatiekopie opgeven met behulp van de URL van de afbeelding, een insights token, of door een installatiekopie te uploaden. Zie voor meer informatie over deze opties [wat Bing visuele zoekopdrachten-API is?](../overview.md) In dit artikel ziet u een installatiekopie uploaden. Uploaden van een afbeelding kan nuttig zijn in mobiele scenario's waarbij u een afbeelding van een bekende oriëntatiepunt en informatie erover weer toegang krijgen. Bijvoorbeeld, kunnen de insights bevat ook algemene vragen over de oriëntatiepunt. 
 
-Als u een lokale installatiekopie uploadt, ziet hieronder u de gegevens dat moet u in de hoofdtekst van het bericht opnemen. De formuliergegevens moet de header Content-Disposition bevatten. De `name` parameter moet worden ingesteld op 'installatiekopie' en de `filename` parameter kan worden ingesteld op een willekeurige tekenreeks. De inhoud van het formulier is het binaire bestand van de afbeelding. De grootte van de maximale installatiekopie die u kan uploaden is 1 MB. 
+Als u een lokale installatiekopie uploadt, ziet hieronder u de gegevens dat moet u in de hoofdtekst van het bericht opnemen. De gegevens moet de header Content-Disposition bevatten. De `name` parameter moet worden ingesteld op 'afbeelding' en de `filename` parameter kan worden ingesteld op een willekeurige tekenreeks. De inhoud van het formulier is het binaire bestand van de installatiekopie. De grootte van de maximale installatiekopie die u kunt uploaden is 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -32,23 +32,23 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Dit artikel bevat een eenvoudige consoletoepassing die verzendt een aanvraag Bing Visual zoeken-API en de JSON-zoekresultaten worden weergegeven. Terwijl deze toepassing is geschreven in Java, is de API een compatibel is met elke programmeertaal die kunt maken van HTTP-aanvragen en parseren van JSON RESTful-Web-service. 
+Dit artikel bevat een eenvoudige consoletoepassing die een Bing visuele zoekopdrachten-API-aanvraag verzendt en de JSON-zoekresultaten worden weergegeven. Terwijl deze toepassing is geschreven in Java, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen te parseren van JSON. 
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U mag een IDE voor Java gebruiken als u een favoriet hebben, maar worden volstaan met een teksteditor.
+U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U kunt een Java-IDE gebruiken als u een favoriet hebt, maar worden volstaan met een teksteditor.
 
-U kunt gebruiken voor deze snelstartgids een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonnementssleutel of een betaald abonnement-sleutel.
+In deze Quick Start kunt u een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonnementssleutel of een betaald abonnement-sleutel.
 
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 
-Hieronder ziet u het uploaden van de installatiekopie via MultipartEntityBuilder in Java.
+Hieronder ziet u hoe u de installatiekopie uploaden via MultipartEntityBuilder in Java.
 
-Voor het uitvoeren van deze toepassing, de volgende stappen uit:
+Om uit te voeren deze toepassing, de volgende stappen uit:
 
-1. Downloaden en installeren de [gson bibliotheek](https://github.com/google/gson). U kunt deze ook ophalen via Maven.
-2. Maak een nieuwe Java-project in uw favoriete IDE of -editor.
+1. Downloaden en installeren de [gson bibliotheek](https://github.com/google/gson). U mag deze ook verkrijgen via Maven.
+2. Maak een nieuwe Java-project in uw favoriete IDE of editor.
 3. De opgegeven code toevoegen in een bestand met de naam `VisualSearch.java`.
 4. Vervang de `subscriptionKey` waarde met de abonnementssleutel van uw.
 4. Vervang de `imagePath` waarde met het pad van de afbeelding te uploaden.
@@ -147,9 +147,10 @@ public class UploadImage2 {
 ## <a name="next-steps"></a>Volgende stappen
 
 [Inzichten over een afbeelding met behulp van een token inzichten verkrijgen](../use-insights-token.md)  
-[Bing Visual Search één pagina app-zelfstudie](../tutorial-bing-visual-search-single-page-app.md)  
-[Overzicht van Bing Visual zoeken](../overview.md)  
-[Probeer deze](https://aka.ms/bingvisualsearchtryforfree)  
+[Bing visuele zoekopdrachten-installatiekopie uploaden zelfstudie](../tutorial-visual-search-image-upload.md)
+[Bing visuele zoekopdrachten-app met één pagina zelfstudie](../tutorial-bing-visual-search-single-page-app.md)  
+[Bing visuele zoekopdrachten-overzicht](../overview.md)  
+[Nu uitproberen](https://aka.ms/bingvisualsearchtryforfree)  
 [Een gratis proefversie toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API-verwijzingen](https://aka.ms/bingvisualsearchreferencedoc)
+[Bing visuele zoekopdrachten-API-verwijzing](https://aka.ms/bingvisualsearchreferencedoc)
 

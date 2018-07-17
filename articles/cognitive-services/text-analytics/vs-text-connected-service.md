@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: ghogen
-ms.openlocfilehash: c97f75e0a41a4bf314963dc26c6424a0b773822b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb9730f785b01a620e36a265216488c401eac63a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38665232"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068485"
 ---
 # <a name="connect-to-the-text-analytics-service-by-using-connected-services-in-visual-studio"></a>Verbinding maken met de Text Analytics-Service met behulp van Connected Services in Visual Studio
 
@@ -193,7 +193,7 @@ In dit artikel en de bijbehorende artikelen bieden details voor het gebruik van 
     }
     ```
 
-1. De weergave waarin de geanalyseerde tekst, de taal bepaald en de score die het niveau van betrouwbaarheid in de analyse is toegevoegd.
+1. Een weergave om weer te geven van de geanalyseerde tekst, de taal bepaald en de score die het niveau van betrouwbaarheid in de analyse is toegevoegd. U doet dit door met de rechtermuisknop op de **weergaven** map, kies **toevoegen**, klikt u vervolgens **weergave**. Geef een naam in het dialoogvenster dat wordt weergegeven, _TextAnalyzeResult_, accepteer de standaardwaarden voor het toevoegen van een nieuw bestand met de naam _TextAnalyzeResult.cshtml_ in de **weergaven** map en Kopieer de volgende inhoud naar het:
     
     ```cshtml
     @using System

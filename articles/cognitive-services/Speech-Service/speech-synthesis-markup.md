@@ -1,6 +1,6 @@
 ---
-title: Spraak synthese Markup Language | Microsoft Docs
-description: Met behulp van de spraak synthese Markup language beheren uitspraak en prosody in spraak.
+title: De spraak-synthese Markup Language | Microsoft Docs
+description: Met behulp van de spraakherkenning synthese Markup language voor het beheren van uitspraak en prosody in tekst naar spraak.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,22 +10,22 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d955e7fd7805688ba103897c0d900c44f16514f8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4074ba91f5029d6c132982d1d81a4888a5e42721
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345433"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071212"
 ---
 # <a name="speech-synthesis-markup-language"></a>Spraak synthese Markup Language
 
-Spraak synthese Markup Language (SSML) is een opmaaktaal op basis van een XML-die biedt een manier om te bepalen van de uitspraak en *prosody* van spraak. (Prosody verwijst naar het ritme en presentatie van spraak: de muziek, als u wordt). U kunt woorden Fonetisch opgeven, hints geven bij het interpreteren van getallen, invoegen wordt onderbroken, besturingselement presentatie volume, en snelheid en meer.
+Spraak synthese Markup Language (SSML) is een op XML gebaseerde opmaaktaal die een manier voor het beheren van de uitspraak biedt en *prosody* van tekst naar spraak. (Prosody verwijst naar het ritme en verkopen van spraak: de muziek, als u wordt). U kunt woorden Fonetisch opgeven, hints geven voor de interpretatie van getallen, invoegen wordt onderbroken, inspiratie besturingselement, volume, en snelheid en meer.
 
-Zie voor meer informatie [spraak synthese Markup Language (SSML) versie 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) op het W3C.
+Zie voor meer informatie, [spraak synthese Markup Language (SSML) versie 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) op de W3C.
 
-De volgende voorbeelden laten zien hoe SSML gebruiken voor algemene spraak synthese behoeften.
+De volgende voorbeelden ziet hoe u SSML voor algemene spraak synthese behoeften.
 
-## <a name="add-a-break"></a>Een pauze toevoegen
+## <a name="add-a-break"></a>Einde toevoegen
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
@@ -33,7 +33,7 @@ De volgende voorbeelden laten zien hoe SSML gebruiken voor algemene spraak synth
 </voice> </speak>
 ```
 
-## <a name="change-speaking-rate"></a>De snelheid van spreken wijzigen
+## <a name="change-speaking-rate"></a>Snelheid van spreken wijzigen
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -42,7 +42,7 @@ De volgende voorbeelden laten zien hoe SSML gebruiken voor algemene spraak synth
 </prosody></voice> </speak>
 ```
 
-## <a name="pronunciation"></a>Uitspraak
+## <a name="pronunciation"></a>Uitspraak van
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
@@ -59,7 +59,7 @@ De volgende voorbeelden laten zien hoe SSML gebruiken voor algemene spraak synth
 </prosody></voice> </speak>
 ```
 
-## <a name="change-pitch"></a>Presentatie wijzigen
+## <a name="change-pitch"></a>Breedte wijzigen
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
     <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -67,7 +67,7 @@ De volgende voorbeelden laten zien hoe SSML gebruiken voor algemene spraak synth
 </voice> </speak>
 ```
 
-## <a name="change-pitch-contour"></a>Wijziging presentatie werklast
+## <a name="change-pitch-contour"></a>Wijziging inspiratie contour
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
@@ -78,5 +78,5 @@ De volgende voorbeelden laten zien hoe SSML gebruiken voor algemene spraak synth
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw proefabonnement spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
-* [Zie het herkennen van spraak in C#](quickstart-csharp-windows.md)
+* [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
+* [Zie voor het herkennen van gesproken tekst in C#](quickstart-csharp-dotnet-windows.md)

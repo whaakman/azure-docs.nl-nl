@@ -1,26 +1,21 @@
 ---
-title: Azure-abonnementslimieten en quota | Microsoft Docs
+title: Azure-abonnementslimieten en quota
 description: Geeft een lijst van algemene Azure-abonnement en Servicelimieten, quotums en beperkingen. Dit omvat informatie over het limieten, samen met de maximumwaarden verhogen.
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 07/13/2018
 ms.author: byvinyal
-ms.openlocfilehash: aecb687ea2352b482a97226219e9a075070c50a6
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 8b023540f57cb69fc1d2773ef533364f64820359
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990672"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069536"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 In dit document vindt u enkele van de meest algemene Microsoft Azure-limieten, die soms ook wel quotums genoemd. Dit document niet op dit moment betrekking hebben op alle Azure-services. Na verloop van tijd, wordt de lijst worden uitgebreid en bijgewerkt in verband met betrekking hebben op meer van het platform.
@@ -52,6 +47,8 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 * [Application Insights](#application-insights-limits)
 * [Automatisering](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure Database for MySQL](#azure-database-for-mysql)
+* [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Redis-cache](#azure-redis-cache-limits)
@@ -219,6 +216,12 @@ De volgende tabel bevat de limieten voor Azure Biztalk Services.
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB-limieten
 Azure Cosmos DB is een wereldwijde schaal-database waarin doorvoer en opslag kunnen worden geschaald voor het afhandelen van wat er in uw toepassing vereist. Als u vragen hebt over de schaal Azure Cosmos DB biedt hebt, stuurt u e-mail naar askcosmosdb@microsoft.com.
+
+### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
+Zie voor Azure Database for MySQL-limieten, [beperkingen in Azure Database voor MySQL](mysql/concepts-limits.md).
+
+### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
+Zie voor Azure Database for PostgreSQL-limieten, [beperkingen in Azure Database for PostgreSQL](postgresql/concepts-limits.md).
 
 ### <a name="mobile-engagement-limits"></a>Mobile Engagement-limieten
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]

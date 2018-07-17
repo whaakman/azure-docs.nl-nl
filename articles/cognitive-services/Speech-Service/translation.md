@@ -1,56 +1,56 @@
 ---
 title: Voorbeeld voor vertaling | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Hier volgt een voorbeeld voor de vertaling van spraak.
+description: Hier volgt een voorbeeld voor spraakomzetting.
 services: cognitive-services
 author: wolfma61
 manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 1151628ed695e74e2196c20b08e33fa5eaf33282
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 66d26181334a71578f1a94000cb942a6a87398bc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028384"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070788"
 ---
 # <a name="sample-for-translation"></a>Voorbeeld voor vertaling
 
-> [!NOTE]
-> Zie voor instructies voor het downloaden van dit voorbeeld en andere [voorbeelden voor spraak-SDK](samples.md).
+[!include[Get a Subscription Key](../../../includes/cognitive-services-speech-service-get-subscription-key.md)]
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+## <a name="top-level-declarations"></a>Op het hoogste niveau declaraties
 
-> [!NOTE]
-> Voor alle voorbeelden hieronder moeten de volgende op het hoogste niveau declaraties zijn voldaan:
->
-> [!code-csharp [Using Statements](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#toplevel)]
->
-> - - -
+Voor alle voorbeelden hieronder moeten het volgende op het hoogste niveau declaraties zijn voldaan:
 
-## <a name="translation-using-the-microphone"></a>De vertaling van de microfoon gebruiken
+[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#toplevel)]
 
-Het onderstaande codefragment laat zien hoe Vertaal spraakinvoer van Engels, Duits, en ook de voice-uitvoer van de vertaalde tekst ophalen. De microfoon wordt gebruikt.
+[!code-cpp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/translation_samples.cpp#toplevel)]
 
-[!code-csharp[Translation Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#TranslationWithMicrophoneAsync)]
+[!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#toplevel)]
 
-- - -
+## <a name="translation-using-the-microphone"></a>Met behulp van de microfoon vertaling
 
-## <a name="translation-using-file-input"></a>De vertaling van bestandsinvoer met
+Het onderstaande codefragment laat zien hoe spraakinvoer van Engels Duits vertaald en krijgt ook de stem-uitvoer van de vertaalde tekst. Maakt gebruik van de microfoon.
 
-Het onderstaande codefragment laat zien hoe Vertaal spraakinvoer van Engels, Duits en Frans.
+[!code-csharp[Translation Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#TranslationWithMicrophoneAsync)]
+
+[!code-cpp[Translation Using Microphone](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/translation_samples.cpp#TranslationWithMicrophone)]
+
+[!code-java [Translation Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#TranslationWithMicrophoneAsync)]
+
+## <a name="translation-using-file-input"></a>Met behulp van bestandsinvoer vertaling
+
+Het onderstaande codefragment laat zien hoe spraakherkenning invoer van het Engels voor Duitse en Franse vertalen.
 Bestand wordt gebruikt als invoer.
 
-[!code-csharp[Translation Using File Input](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#TranslationWithFileAsync)]
+[!code-csharp[Translation Using File Input](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#TranslationWithFileAsync)]
 
-- - -
+[!code-java [Translation Using File Input](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#TranslationWithFileAsync)]
 
-## <a name="sample-source-code"></a>Voorbeeldcode
-
-De nieuwste versie van de voorbeelden en zelfs meer geavanceerde voorbeelden zijn in een speciaal [GitHub-opslagplaats](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

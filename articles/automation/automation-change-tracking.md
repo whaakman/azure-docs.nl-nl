@@ -10,18 +10,37 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867950"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069444"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
 Dit artikel helpt u de oplossing wijzigingen bijhouden gebruiken voor het herkennen van wijzigingen in uw omgeving. De oplossing houdt de wijzigingen in Windows en Linux-software, Windows en Linux-bestanden, Windows-registersleutels, Windows-services en Linux-daemons. Wijzigingen in de configuratie te identificeren, kunt u operationele problemen identificeren.
 
 Wijzigingen in de geïnstalleerde software, services voor Windows, Windows-register en bestanden en Linux-daemons op de bewaakte servers worden verzonden naar de Log Analytics-service in de cloud voor verwerking. Logica wordt toegepast op de ontvangen gegevens en de cloudservice registreert de gegevens. Met behulp van de informatie op het dashboard voor wijzigingen bijhouden, kunt u gemakkelijk zien van de wijzigingen die zijn aangebracht in uw serverinfrastructuur.
+
+## <a name="supported-windows-operating-systems"></a>Ondersteunde Windows-besturingssystemen
+
+De volgende versies van het Windows-besturingssysteem worden officieel ondersteund voor de Windows-agent:
+
+* Windows Server 2008 Service Pack 1 (SP1) of hoger
+* Windows 7 SP1 en hoger.
+
+## <a name="supported-linux-operating-systems"></a>Ondersteunde Linux-besturingssystemen
+
+De volgende Linux-distributies zijn officieel ondersteund. De Linux-agent kan echter ook uitvoeren in een andere distributie niet wordt vermeld. Tenzij anders vermeld, worden alle secundaire versies worden ondersteund voor elke primaire versie weergegeven.  
+
+* Amazon Linux 2012.09-2015.09 (x86/x64)
+* CentOS Linux 5, 6 en 7 (x86/x64)  
+* Oracle Linux 5, 6 en 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 en 7 (x86/x64)
+* Debian GNU/Linux 6, 7 en 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enterprise Server 11 en 12 (x86/x64)
 
 ## <a name="enable-change-tracking-and-inventory"></a>Wijzigingen bijhouden en Inventaris inschakelen
 

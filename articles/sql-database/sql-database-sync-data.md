@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/01/2018
+ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342654"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069367"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync
 
@@ -24,6 +24,16 @@ SQL Data Sync is een service die is gebouwd op Azure SQL Database waarmee u de g
 ## <a name="architecture-of-sql-data-sync"></a>Architectuur van SQL Data Sync
 
 Gegevenssynchronisatie is gebaseerd op het concept van een Synchronisatiegroep. Een groep voor synchronisatie is een groep databases die u wilt synchroniseren.
+
+Data Sync maakt gebruik van een hub en spoke-topologie om gegevens te synchroniseren. U definieert een van de databases in de groep voor synchronisatie als de Hubdatabase. De rest van de databases zijn lid databases. Synchronisatie plaatsvindt tussen de Hub en de afzonderlijke leden.
+-   De **Hubdatabase** moet een Azure SQL Database.
+-   De **lid databases** mag bestaan uit SQL-Databases, on-premises SQL Server-databases of SQL Server-exemplaren op Azure virtual machines.
+-   De **synchronisatiedatabase** bevat de metagegevens en het logboek voor Data Sync. De synchronisatiedatabase is dat een Azure SQL Database zich in dezelfde regio als de Hubdatabase. De synchronisatiedatabase is gemaakt van de klant en van klanten.
+
+> [!NOTE]
+> Als u een on-premises-database als een liddatabase gebruikt, hebt u [installeren en configureren van een lokale synchronisatieagent](sql-database-get-started-sql-data-sync.md#add-on-prem).
+
+![Gegevens tussen databases synchroniseren](media/sql-database-sync-data/sync-data-overview.png)
 
 Een groep voor synchronisatie heeft de volgende eigenschappen:
 
@@ -34,16 +44,6 @@ Een groep voor synchronisatie heeft de volgende eigenschappen:
 -   De **synchronisatie-Interval** wordt beschreven hoe vaak synchronisatie plaatsvindt.
 
 -   De **Conflict resolutie beleid** is een beleid op het niveau, die kan worden *Hub wins* of *lid wins*.
-
-Data Sync maakt gebruik van een hub en spoke-topologie om gegevens te synchroniseren. U definieert een van de databases in de groep als de Hubdatabase. De rest van de databases zijn lid databases. Synchronisatie plaatsvindt tussen de Hub en de afzonderlijke leden.
--   De **Hubdatabase** moet een Azure SQL Database.
--   De **lid databases** mag bestaan uit SQL-Databases, on-premises SQL Server-databases of SQL Server-exemplaren op Azure virtual machines.
--   De **synchronisatiedatabase** bevat de metagegevens en het logboek voor Data Sync. De synchronisatiedatabase is dat een Azure SQL Database zich in dezelfde regio als de Hubdatabase. De synchronisatiedatabase is gemaakt van de klant en van klanten.
-
-> [!NOTE]
-> Als u een on-premises-database als een liddatabase gebruikt, hebt u [installeren en configureren van een lokale synchronisatieagent](sql-database-get-started-sql-data-sync.md#add-on-prem).
-
-![Gegevens tussen databases synchroniseren](media/sql-database-sync-data/sync-data-overview.png)
 
 ## <a name="when-to-use-data-sync"></a>Wanneer u Data Sync
 

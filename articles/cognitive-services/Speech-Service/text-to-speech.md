@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d7ec8648a8428558264c9bfd4d923523b90cce07
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 227fae2f38189a5b8ed5b6eff359e09bedc8e628
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855937"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071127"
 ---
 # <a name="about-the-text-to-speech-api"></a>Over de Text to Speech-API
 
@@ -41,5 +41,5 @@ Als u een unieke stem voor uw toepassing wilt, kunt u [aangepaste spraakstijlen]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw proefabonnement voor spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
-* [Zie voor het herkennen van gesproken tekst in C#](quickstart-csharp-windows.md)
+* [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
+* [Zie voor het herkennen van gesproken tekst in C#](quickstart-csharp-dotnet-windows.md)

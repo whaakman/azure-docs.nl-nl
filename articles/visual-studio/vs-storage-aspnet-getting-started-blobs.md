@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fd13dc94e0199aac04ae86aaf003ea9a70fa50d5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696562"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070552"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (ASP.NET)
 
@@ -135,11 +135,11 @@ De volgende stappen laten zien hoe u een blob-container maken:
 
 1. In **Solution Explorer**, met de rechtermuisknop op de **weergaven** map.
 
-2. Selecteer in het contextmenu **toevoegen** > **nieuwe map**. Naam van de nieuwe map *Blobs*. 
+1. Als er geen een **Blobs** map, maakt u er een. Selecteer in het contextmenu **toevoegen** > **nieuwe map**. Naam van de nieuwe map *Blobs*. 
  
 1. In **Solution Explorer**, vouw de **weergaven** map en klik met de rechtermuisknop **Blobs**.
 
-4. Selecteer in het contextmenu **toevoegen** > **weergave**.
+1. Selecteer in het contextmenu **toevoegen** > **weergave**.
 
 1. In de **weergave toevoegen** dialoogvenster vak, voer **CreateBlobContainer** voor de weergavenaam en selecteer **toevoegen**.
 

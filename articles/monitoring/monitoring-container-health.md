@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2018
+ms.date: 07/16/2018
 ms.author: magoedte
-ms.openlocfilehash: a94f7289c75a4f4d466542c608d81cf5b954f4b1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1fd5ac0f9994a4dbf4365c21ac4f31ba0eccbb15
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37917325"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069148"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Containerstatus van Azure Kubernetes Service (AKS) (voorbeeld) bewaken
 
@@ -290,21 +290,41 @@ omsagent   2         2         2         2            2           beta.kubernete
 ```  
 
 ## <a name="view-performance-utilization"></a>Gebruik van de prestaties weergeven
-Wanneer u containerstatus opent, geeft de pagina onmiddellijk het gebruik van de prestaties van de clusterknooppunten.  Informatie bekijken over uw AKS-cluster is onderverdeeld in drie perspectieven:
+Wanneer u containerstatus opent, geeft de pagina onmiddellijk het gebruik van de prestaties van uw hele cluster.  Informatie bekijken over uw AKS-cluster is onderverdeeld in vier perspectieven:
 
+- Cluster
 - Knooppunten 
 - Controllers  
 - Containers
 
-De rij-hiërarchie volgt het Kubernetes-objectmodel beginnen met een knooppunt in het cluster.  Vouw het knooppunt en ziet u een of meer schillen die worden uitgevoerd op het knooppunt en als er meer dan één container gegroepeerd op een schil, worden deze weergegeven als de laatste rij in de hiërarchie.<br><br> ![Voorbeeld van de Kubernetes-knooppunt-hiërarchie in de weergave van agentprestaties](./media/monitoring-container-health/container-performance-and-health-view-03.png)
+De prestaties lijndiagrammen weergeven op het tabblad Cluster prestatie metrische gegevens van uw cluster.  
 
-U kunt domeincontrollers of containers selecteren vanaf de bovenkant van de pagina en het gebruik van de status en resource voor die objecten bekijken.  Gebruik de vervolgkeuzelijsten boven aan het scherm om te filteren op de naamruimte, service en knooppunt. Als in plaats daarvan u bekijken geheugengebruik wilt, uit de **Metric** vervolgkeuzelijst selecteren **geheugen RSS** of **geheugenwerkset**.  **Geheugen RSS** wordt alleen ondersteund voor Kubernetes versie 1.8 en hoger. Anders is, ziet u waarden voor **Gem. %** weergegeven als *NaN %*, die is een waarde van het numerieke gegevens die een niet-gedefinieerde of sjabloontaal waarde vertegenwoordigt. 
+![Voorbeeld van de prestatiegrafieken weergegeven op het tabblad Cluster](./media/monitoring-container-health/container-health-cluster-perfview.png)
 
-![Container prestaties knooppunten Prestatieweergave](./media/monitoring-container-health/container-performance-and-health-view-04.png)
+Hier volgt een uitsplitsing van de maatstaven voor prestaties weergegeven:
 
-Standaard prestatiegegevens is gebaseerd op de afgelopen zes uur, maar kunt u het venster met de **tijdsbereik** vervolgkeuzelijst gevonden in de rechterbovenhoek van de pagina. Op dit moment is de pagina wordt niet automatisch vernieuwen, dus u moet dit handmatig vernieuwen. 
+- CPU-gebruik van % - knooppunt in deze grafiek vertegenwoordigt een samengevoegde perspectief van de CPU-gebruik voor het hele cluster.  U kunt filteren dat de resultaten voor het tijdsbereik selecteren *Avg*, *Min*, *Max*, *50e*, *90e*, en *95th* van de percentielen kiezer boven de grafiek, ofwel afzonderlijk of gecombineerd. 
+- Knooppunt geheugen netwerkgebruik van % - in deze grafiek vertegenwoordigt een samengevoegde perspectief van geheugengebruik voor het hele cluster.  U kunt filteren dat de resultaten voor het tijdsbereik selecteren *Avg*, *Min*, *Max*, *50e*, *90e*, en *95th* van de percentielen kiezer boven de grafiek, ofwel afzonderlijk of gecombineerd. 
+- Aantal knooppunten: in deze grafiek vertegenwoordigt aantal knooppunten en de status van Kubernetes.  Status van de clusterknooppunten weergegeven zijn *alle*, *gereed*, en *niet gereed* en kunnen worden gefilterd, afzonderlijk of gecombineerd uit de kiezer boven de grafiek.    
+- Aantal activiteiten-pod - in deze grafiek vertegenwoordigt pod aantal en de status van Kubernetes.  Status van de vertegenwoordigd schillen zijn *alle*, *in behandeling*, *met*, en *onbekende* en kunnen worden gefilterd afzonderlijk of combinatie van de kiezer boven de grafiek.  
 
-In het volgende voorbeeld ziet u voor het knooppunt *aks-agentpool-3402399-0*, de waarde voor **Containers** is 10, die een samenvoeging van het totale aantal containers die zijn geïmplementeerd is.<br><br> ![Updatepakket van containers per knooppunt voorbeeld](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Het kan helpen u snel vaststellen of u geen een goede balans tussen containers tussen knooppunten in uw cluster hebt.  
+Overschakelen naar het tabblad knooppunten, volgt de rij-hiërarchie het Kubernetes-objectmodel beginnen met een knooppunt in het cluster.  Vouw het knooppunt en ziet u een of meer schillen die worden uitgevoerd op het knooppunt en als er meer dan één container gegroepeerd op een schil, worden deze weergegeven als de laatste rij in de hiërarchie. U zijn kunt ook zien hoeveel niet-schil gerelateerde workloads worden uitgevoerd op de host in het geval host processor of geheugen is.
+
+![Voorbeeld van de Kubernetes-knooppunt-hiërarchie in de weergave van agentprestaties](./media/monitoring-container-health/container-health-nodes-view.png)
+
+U kunt domeincontrollers of containers selecteren vanaf de bovenkant van de pagina en het gebruik van de status en resource voor die objecten bekijken.  Gebruik de vervolgkeuzelijsten boven aan het scherm om te filteren op de naamruimte, service en knooppunt. Als in plaats daarvan u bekijken geheugengebruik wilt, uit de **Metric** vervolgkeuzelijst selecteren **geheugen RSS** of **geheugenwerkset**.  **Geheugen RSS** wordt alleen ondersteund voor Kubernetes versie 1.8 en hoger. Anders is, ziet u waarden voor **MIN %** weergegeven als *NaN %*, die is een waarde van het numerieke gegevens die een niet-gedefinieerde of sjabloontaal waarde vertegenwoordigt. 
+
+![Prestatieweergave container-knooppunten](./media/monitoring-container-health/container-health-node-metric-dropdown.png)
+
+Standaard prestatiegegevens is gebaseerd op de afgelopen zes uur, maar kunt u het venster met de **tijdsbereik** vervolgkeuzelijst gevonden in de rechterbovenhoek van de pagina. Op dit moment is de pagina wordt niet automatisch vernieuwen, dus u moet dit handmatig vernieuwen. U kunt ook de resultaten in het tijdsbereik filteren door te selecteren *Avg*, *Min*, *Max*, *50e*, *90e*, en *95th* uit de lijst met percentiel. 
+
+![Percentiel selectie voor het filteren van gegevens](./media/monitoring-container-health/container-health-metric-percentile-filter.png)
+
+In het volgende voorbeeld ziet u voor het knooppunt *aks-nodepool-3977305*, de waarde voor **Containers** is 5, dit is een updatepakket van het totale aantal containers die zijn geïmplementeerd.
+
+![Updatepakket van containers per knooppunt voorbeeld](./media/monitoring-container-health/container-health-nodes-containerstotal.png)
+
+Het kan helpen u snel vaststellen of u geen een goede balans tussen containers tussen knooppunten in uw cluster hebt.  
 
 De volgende tabel beschrijft de informatie die wordt weergegeven wanneer u knooppunten weergeven.
 
@@ -312,54 +332,80 @@ De volgende tabel beschrijft de informatie die wordt weergegeven wanneer u knoop
 |--------|-------------|
 | Naam | De naam van de host |
 | Status | Kubernetes-weergave van de status van het knooppunt |
-| GEM. % | Gemiddelde knooppunt percentage op basis van de geselecteerde metrische gegevens voor de geselecteerde duur. |
-| GEMIDDELD | Gemiddelde werkelijke waarde van knooppunten op basis van de geselecteerde metrische gegevens voor de geselecteerde duur.  De gemiddelde waarde wordt gemeten vanuit de CPU/geheugen die is ingesteld voor een knooppunt. het is de avg-waarde die wordt gerapporteerd door de host voor schillen en containers. |
+| GEM. %, % MIN, MAX %, % 50E, 90E % | Gemiddelde knooppunt percentage op basis van percentiel gedurende deze tijdsduur geselecteerd. |
+| AVG, MIN, MAX, 50E, 90E | Gemiddelde knooppunten werkelijke waarde op basis van percentiel gedurende deze tijdsduur geselecteerd.  De gemiddelde waarde wordt gemeten vanuit de CPU/geheugen die is ingesteld voor een knooppunt. het is de avg-waarde die wordt gerapporteerd door de host voor schillen en containers. |
 | Containers | Het aantal containers. |
 | Actieve tijdsduur | Geeft de tijd sinds een knooppunt is gestart of opnieuw is opgestart. |
-| Pod | Alleen voor containers. Hier ziet u welke pods deze die zich bevindt. |
 | Controllers | Alleen voor containers en schillen. Hier ziet u welke domeincontroller dat deze zich bevindt. Niet alle schillen bevindt zich in een domeincontroller, zodat sommige N.V.T. kunnen weergeven. | 
-| Trend Gem. % | Staafdiagram trend op basis van de container en knooppunt avg metrische %. |
+| Gem. %, % MIN, MAX %, % 50e, 90e % trend | Staafdiagram trend percentiel metrische % van de controller wordt gepresenteerd. |
 
 
-Kies in de lijst met **Controllers**.<br><br> ![Selecteer controllers weergeven](./media/monitoring-container-health/container-performance-and-health-view-08.png)
+Kies in de lijst met **Controllers**.
 
-Hier ziet u de prestatiestatus van uw domeincontrollers.<br><br> ![< naam > controllers Prestatieweergave](./media/monitoring-container-health/container-performance-and-health-view-05.png)
+![Selecteer controllers weergeven](./media/monitoring-container-health/container-health-controllers-tab.png)
 
-De rij-hiërarchie begint met een domeincontroller en breidt de controller en ziet u een of meer schillen of een of meer containers.  Vouw een schil en de laatste rij weergeven in de container de schil gegroepeerd.  
+Hier ziet u de prestatiestatus van uw domeincontrollers.
+
+![< naam > controllers Prestatieweergave](./media/monitoring-container-health/container-health-controllers-view.png)
+
+De rij-hiërarchie begint met een domeincontroller en breidt de controller en ziet u één of een of meer containers.  Vouw een schil en de laatste rij weergeven in de container de schil gegroepeerd.  
 
 De volgende tabel beschrijft de informatie die wordt weergegeven wanneer u domeincontrollers weergeeft.
 
 | Kolom | Beschrijving | 
 |--------|-------------|
 | Naam | De naam van de controller|
-| Status | Status van de containers is voltooid met met de status, zoals *beëindigd*, *mislukt* *gestopt*, of *onderbroken*. Als de container wordt uitgevoerd, maar de status is niet correct weergegeven of niet is doorgevoerd door de agent als meer dan dertig minuten niet heeft gereageerd, de status is *onbekende*. |
-| GEM. % | Gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens getotaliseerd. |
-| GEMIDDELD | Samenvouwen van de gemiddelde CPU millicore of geheugen prestaties van de container.  De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
+| Status | Totalisering van status van de containers is voltooid met met de status, zoals *OK*, *beëindigd*, *mislukt* *gestopt*, of  *Onderbroken*. Als de container wordt uitgevoerd, maar de status is niet correct weergegeven of niet is doorgevoerd door de agent als meer dan dertig minuten niet heeft gereageerd, de status is *onbekende*. Aanvullende details van de statuspictogram zijn opgegeven in de onderstaande tabel.|
+| GEM. %, % MIN, MAX %, % 50E, 90E % | Gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens en percentiel getotaliseerd. |
+| AVG, MIN, MAX, 50E, 90E  | Samenvouwen van de gemiddelde CPU millicore of geheugen prestaties van de container voor het geselecteerde percentiel.  De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
 | Containers | Totaal aantal containers voor de controller of de schil. |
 | Opnieuw opstarten | Getotaliseerde u van het aantal opnieuw opstarten van containers. |
 | Actieve tijdsduur | Geeft de tijd sinds een container is gestart. |
-| Pod | Alleen voor containers. Hier ziet u welke pods deze die zich bevindt. |
 | Knooppunt | Alleen voor containers en schillen. Hier ziet u welke domeincontroller dat deze zich bevindt. | 
-| Trend Gem. % | Staafdiagram trend gemiddelde metrische % van de container wordt gepresenteerd. |
+| Gem. %, % MIN, MAX %, % 50e, 90e % trend| Staafdiagram trend voor percentiel metrische gegevens van de controller. |
 
-Kies in de lijst met **Containers**.<br><br> ![Selecteer containers weergeven](./media/monitoring-container-health/container-performance-and-health-view-09.png)
+De pictogrammen in het statusveld geven aan de onlinestatus van containers:
+ 
+| Pictogram | Status | 
+|--------|-------------|
+| ![Pictogram voor actieve status gereed](./media/monitoring-container-health/container-health-ready-icon.png) | Wordt uitgevoerd (klaar)|
+| ![In afwachting van ' of ' onderbroken statuspictogram](./media/monitoring-container-health/container-health-waiting-icon.png) | In afwachting van ' of ' onderbroken|
+| ![De laatste keer doorgegeven met statuspictogram](./media/monitoring-container-health/container-health-grey-icon.png) | Laatst gerapporteerd uitgevoerd maar meer dan 30 minuten nog niet is gereageerd|
+| ![Beëindigde statuspictogram](./media/monitoring-container-health/container-health-green-icon.png) | Is gestopt of niet stoppen|
 
-Hier ziet de prestatiestatus van uw containers.<br><br> ![< naam > controllers Prestatieweergave](./media/monitoring-container-health/container-performance-and-health-view-06.png)
+De van het statuspictogram bevat een aantal op basis van wat de schil biedt. Hier ziet u de slechter twee statussen en wanneer u de muisaanwijzer over de status, toont een implementatie van de status van alle schillen in de container.  Als er geen gereed is, de waarde van de status wordt weergegeven in een **(0)**.  
+
+Kies in de lijst met **Containers**.
+
+![Selecteer containers weergeven](./media/monitoring-container-health/container-health-containers-tab.png)
+
+Hier ziet de prestatiestatus van uw containers.
+
+![< naam > controllers Prestatieweergave](./media/monitoring-container-health/container-health-containers-view.png)
 
 De volgende tabel beschrijft de informatie die wordt weergegeven wanneer u Containers weergeven.
 
 | Kolom | Beschrijving | 
 |--------|-------------|
 | Naam | De naam van de controller|
-| Status | Getotaliseerde status van de containers, indien van toepassing. |
-| GEM. % | Gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens getotaliseerd. |
-| GEMIDDELD | Samenvouwen van de gemiddelde CPU millicore of geheugen prestaties van de container. De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
-| Containers | Totaal aantal containers voor de controller.|
+| Status | De status van de containers, indien van toepassing. Aanvullende details van de statuspictogram zijn opgegeven in de onderstaande tabel.|
+| GEM. %, % MIN, MAX %, % 50E, 90E % | Gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens en percentiel getotaliseerd. |
+| AVG, MIN, MAX, 50E, 90E  | Samenvouwen van de gemiddelde CPU millicore of geheugen prestaties van de container voor het geselecteerde percentiel.  De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
+| Pod | De container waarin de schil zich bevindt.| 
+| Knooppunt |  Het knooppunt waarin de container zich bevindt. | 
 | Opnieuw opstarten | Geeft de tijd sinds een container is gestart. |
 | Actieve tijdsduur | Geeft de tijd sinds een container is gestart of opnieuw opgestart. |
-| Pod | Pod gegevens waar deze zich bevindt. |
-| Knooppunt |  Het knooppunt waarin de container zich bevindt.  | 
-| Trend Gem. % | Staafdiagram trend gemiddelde metrische % van de container wordt gepresenteerd. |
+| Gem. %, % MIN, MAX %, % 50e, 90e % trend | Staafdiagram trend van gemiddelde metrische % van de container. |
+
+De pictogrammen in het statusveld geven aan de online status van schillen:
+ 
+| Pictogram | Status | 
+|--------|-------------|
+| ![Pictogram voor actieve status gereed](./media/monitoring-container-health/container-health-ready-icon.png) | Wordt uitgevoerd (klaar)|
+| ![In afwachting van ' of ' onderbroken statuspictogram](./media/monitoring-container-health/container-health-waiting-icon.png) | In afwachting van ' of ' onderbroken|
+| ![De laatste keer doorgegeven met statuspictogram](./media/monitoring-container-health/container-health-grey-icon.png) | Laatst gerapporteerd uitgevoerd maar meer dan 30 minuten nog niet is gereageerd|
+| ![Beëindigde statuspictogram](./media/monitoring-container-health/container-health-terminated-icon.png) | Is gestopt of niet stoppen|
+| ![Pictogram van de status mislukt](./media/monitoring-container-health/container-health-failed-icon.png) | Status mislukt |
 
 ## <a name="container-data-collection-details"></a>Details van container gegevens verzamelen
 Containerstatus verzamelt verschillende metrische gegevens en logboekbestanden prestatiegegevens van de hosts van de container en containers. Gegevens worden verzameld om de drie minuten.
@@ -387,7 +433,9 @@ De volgende tabel ziet u voorbeelden van records die zijn verzameld door de cont
 ## <a name="search-logs-to-analyze-data"></a>Zoeken in Logboeken om gegevens te analyseren
 Log Analytics kunt u zoeken naar bestedingstrends en een diagnose stellen van knelpunten, prognose, of het correleren gegevens die u kan helpen te bepalen of de huidige configuratie van het cluster optimaal presteert.  Vooraf gedefinieerde zoekopdrachten in Logboeken vindt u onmiddellijk kunt beginnen met of om aan te passen om de gegevens van de manier waarop die u wilt retourneren. 
 
-U kunt interactieve analyses van gegevens in de werkruimte uitvoeren door het selecteren van de **logboek weergeven** optie beschikbaar is op de helemaal rechts wanneer u een container.  **Zoeken in logboeken** pagina wordt weergegeven boven de pagina die u al had geopend in de portal.<br><br> ![Gegevens analyseren in Log Analytics](./media/monitoring-container-health/container-performance-and-health-view-logs-01.png)   
+U kunt interactieve analyses van gegevens in de werkruimte uitvoeren door het selecteren van de **logboek weergeven** optie beschikbaar is op de helemaal rechts wanneer u een domeincontroller of de container.  **Zoeken in logboeken** pagina wordt weergegeven boven de pagina die u al had geopend in de portal.
+
+![Gegevens analyseren in Log Analytics](./media/monitoring-container-health/container-health-view-logs.png)   
 
 De container logboeken uitvoer doorgestuurd naar Log Analytics zijn STDOUT en STDERR. Omdat de containerstatus wordt bewaakt door Azure beheerde Kubernetes (AKS), Kube-systeem niet vandaag verzameld vanwege de grote hoeveelheid gegevens die zijn gegenereerd.     
 
@@ -470,7 +518,9 @@ Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebru
     }
     ```
 
-4. Bewerk de waarde voor **aksResourceId** en **aksResourceLocation** met de waarden van het AKS-cluster dat u kunt vinden op de **eigenschappen** pagina voor het geselecteerde cluster.<br><br> ![De eigenschappenpagina van container](./media/monitoring-container-health/container-properties-page.png)<br>
+4. Bewerk de waarde voor **aksResourceId** en **aksResourceLocation** met de waarden van het AKS-cluster dat u kunt vinden op de **eigenschappen** pagina voor het geselecteerde cluster.
+
+    ![De eigenschappenpagina van container](./media/monitoring-container-health/container-properties-page.png)
 
     Als u zich op de **eigenschappen** pagina, kopieert u ook de **Resource-ID van werkruimte**.  Deze waarde is vereist als u besluit dat u wilt verwijderen van de Log Analytics-werkruimte later, dit wordt niet uitgevoerd als onderdeel van dit proces.  
 
@@ -549,7 +599,8 @@ Als de containerstatus is ingeschakeld en geconfigureerd, maar u bent niet ziet 
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-4. Raadpleeg de logboeken van de agent. Wanneer de agent in containers wordt geïmplementeerd, wordt een snelle controle uitgevoerd door het uitvoeren van OMI opdrachten en toont de versie van de agent en de Docker-provider. Als u wilt zien dat de agent opnieuw toegevoegd is, moet u de volgende opdracht uitvoeren: `kubectl logs omsagent-484hw --namespace=kube-system`
+4. Raadpleeg de logboeken van de agent. Wanneer de agent in containers wordt geïmplementeerd, een snelle controle wordt uitgevoerd door te voeren OMI-opdrachten en toont de versie van de agent en 
+5.  de provider. Als u wilt zien dat de agent opnieuw toegevoegd is, moet u de volgende opdracht uitvoeren: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     De status moet lijken op het volgende:
 

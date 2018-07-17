@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 3e31dbce7bd24b3c3bb0f24561464e6303f3908e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: c92a986d06deb9f7de10f0682fe46804e6ebb6e7
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990593"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069873"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integratie van virtuele netwerken voor Azure-services
 
@@ -61,6 +61,7 @@ Elke service die rechtstreeks zijn geïmplementeerd in virtuele netwerk heeft sp
 - [Azure Container Service Engine](https://github.com/Azure/acs-engine) met de Azure Virtual Network CNI [invoegtoepassing](https://github.com/Azure/acs-engine/tree/master/examples/vnet)
 - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
+- [Beheerd exemplaar voor Azure SQL Database](../sql-database/sql-database-managed-instance-vnet-configuration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Cloudservices](https://msdn.microsoft.com/library/azure/jj156091): virtuele alleen dit netwerk (klassiek)
 
 U kunt implementeren een [interne Azure load balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) laden saldo veel van de resources in de vorige lijst. In sommige gevallen kan de service automatisch maakt en implementeert een load balancer, wanneer u een resource maken.
