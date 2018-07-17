@@ -9,16 +9,16 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 4f5dbbd1da8a221fb5f8b9641e016829987db538
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29529959"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740550"
 ---
-Lees voordat u items maakt, laten we het concept van het bereik. Azure biedt vier niveaus van beheer: beheergroepen, abonnement, resourcegroep en resource. [Beheergroepen](../articles/billing/billing-enterprise-mgmt-group-overview.md) zich in een preview-versie. De volgende afbeelding toont een voorbeeld van deze lagen.
+Voordat u items gaat maken, gaan we het concept bereik bekijken. Azure biedt vier niveaus van beheer: beheergroepen, abonnement, resourcegroep en resources. [Beheergroepen](../articles/billing/billing-enterprise-mgmt-group-overview.md) zijn in een preview-versie. In de volgende afbeelding ziet u een voorbeeld van deze lagen.
 
 ![Bereik](./media/resource-manager-governance-scope/scope-levels.png)
 
-U toepassen beheerinstellingen op elk van deze niveaus van scope. Het niveau dat u kiest, bepaalt hoe ver de instelling wordt toegepast. Lagere niveaus overnemen-instellingen van hogere niveaus. Wanneer u een instelling op het abonnement toepast, wordt deze instelling wordt toegepast op alle resourcegroepen en resources in uw abonnement. Wanneer u een instelling toepast op toegepast de resourcegroep die instelling is de resourcegroep en alle bijbehorende resources. Een andere resourcegroep heeft echter geen die instelling.
+U past beheerinstellingen toe op een of meer bereikniveaus. Het niveau dat u kiest, bepaalt de reikwijdte van de instelling. Lagere niveaus nemen instellingen over van hogere niveaus. Wanneer u een instelling toepast op het abonnement, wordt die instelling toegepast op alle resourcegroepen en resources in uw abonnement. Wanneer u een instelling toepast op de resourcegroep, wordt die instelling toegepast op de resourcegroep en alle resources daarvan. Een andere resourcegroep heeft die instelling echter niet.
 
-Meestal is het handig om toe te passen kritieke instellingen op een hoger niveau en vereisten voor het project op lagere niveaus. U wilt controleren of dat alle resources voor uw organisatie zijn geïmplementeerd voor bepaalde gebieden. Om te bewerkstelligen, moet u een beleid toepassen op het abonnement waarmee de toegestane locaties. Terwijl andere gebruikers in uw organisatie nieuwe resourcegroepen en resources toevoegt, worden automatisch de toegestane locaties afgedwongen. 
+Meestal is het handig om belangrijke instellingen toe te passen op een hogere niveaus en projectspecifieke vereisten op lagere niveaus. Stel, u wilt ervoor zorgen dat alle resources voor uw organisatie worden geïmplementeerd in bepaalde regio's. U bereikt dit door een beleid toe te passen op het abonnement dat de toegestane locaties bepaalt. Als andere gebruikers in uw organisatie nieuwe resourcegroepen en resources toevoegen, worden toegestane locaties automatisch afgedwongen. 

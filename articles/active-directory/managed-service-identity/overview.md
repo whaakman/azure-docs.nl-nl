@@ -1,5 +1,5 @@
 ---
-title: Wat is Managed Service Identity (MSI) voor Azure-resources?
+title: Wat is Managed Service Identity voor Azure-resources?
 description: Een overzicht van Managed Service Identity (MSI) voor Azure-resources.
 services: active-directory
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3d6df04df8ceac1f868e64f0e8fbc7eb0fa317e3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724095"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38547970"
 ---
-#  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Wat is Managed Service Identity (MSI) voor Azure-resources?
+#  <a name="what-is-managed-service-identity-for-azure-resources"></a>Wat is Managed Service Identity voor Azure-resources?
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Een veelvoorkomende uitdaging bij het bouwen van cloud-apps is het beheren van de referenties die in uw code moeten worden opgenomen voor verificatie bij cloudservices. Het is belangrijk dat deze referenties veilig worden verwerkt. In het ideale geval worden ze nooit weergegeven op werkstations van ontwikkelaars of ingecheckt in broncodebeheer. Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Managed Service Identity (MSI) levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD), waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
+Een veelvoorkomende uitdaging bij het bouwen van cloud-apps is het beheren van de referenties die in uw code moeten worden opgenomen voor verificatie bij cloudservices. Het is belangrijk dat deze referenties veilig worden verwerkt. In het ideale geval worden ze nooit weergegeven op werkstations van ontwikkelaars of ingecheckt in broncodebeheer. Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Managed Service Identity levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD), waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
 
 Managed Service Identity wordt gratis geleverd bij Azure Active Directory. Dit is de standaardoptie voor Azure-abonnementen. Er zijn geen extra kosten voor Managed Service Identity.
 
@@ -40,20 +40,20 @@ Als gevolg hiervan kan uw code een door het systeem of door de gebruiker toegewe
 
 Hier volgt een voorbeeld van hoe door het systeem toegewezen identiteiten werken met Azure-VM's:
 
-![Voorbeeld van Virtual Machine MSI](overview/msi-vm-vmextension-imds-example.png)
+![Voorbeeld van beheerde identiteit van virtuele machine](overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager ontvangt een aanvraag voor het inschakelen van de door het systeem toegewezen identiteit op een VM.
 2. Azure Resource Manager maakt een Service-principal in Azure AD die de identiteit van de virtuele machine voorstelt. De Service-principal wordt gemaakt in de Azure AD-tenant die wordt vertrouwd door dit abonnement.
 3. Azure Resource Manager configureert de identiteit op de VM:
     - Het Azure Instance Metadata Service-eindpunt voor identiteit wordt bijgewerkt met de client-id en het certificaat van de Service-principal.
-    - De MSI VM-extensie wordt ingericht en de client-id en het certificaat van de Service-principal wordt toegevoegd. (Wordt afgeschaft.)
+    - De VM-extensie wordt ingericht en de client-id en het certificaat van de Service-principal wordt toegevoegd. (Wordt afgeschaft.)
 4. Nu de VM een identiteit heeft, gebruiken we de informatie van de Service-principal om de virtuele machine toegang te verlenen tot Azure-resources. Als uw code bijvoorbeeld Azure Resource Manager moet aanroepen, zou u de Service-principal van de VM de juiste rol toewijzen  met behulp van op rollen gebaseerd toegangsbeheer (RBAC) in Azure AD. Als uw code Key Vault moet aanroepen, zou u uw code toegang verlenen tot het specifieke geheim of de specifieke sleutel in Key Vault.
 5. De code die wordt uitgevoerd op de virtuele machine, kan een token aanvragen vanaf twee eindpunten die alleen toegankelijk zijn vanuit de virtuele machine:
 
     - IMDS-eindpunt voor identiteit (Azure Instance Metadata Service): http://169.254.169.254/metadata/identity/oauth2/token (aanbevolen)
         - De resourceparameter specificeert de service waarnaar het token wordt verzonden. Als u bijvoorbeeld wilt dat uw code wordt geverifieerd voor Azure Resource Manager, gebruikt u resource=https://management.azure.com/.
         - De API-versieparameter specificeert de IMDS-versie, gebruik api-version=2018-02-01 of hoger.
-    - Eindpunt voor MSI VM-extensie: http://localhost:50342/oauth2/token (wordt afgeschaft)
+    - Eindpunt voor VM-extensie: http://localhost:50342/oauth2/token (wordt afgeschaft)
         - De resourceparameter specificeert de service waarnaar het token wordt verzonden. Als u bijvoorbeeld wilt dat uw code wordt geverifieerd voor Azure Resource Manager, gebruikt u resource=https://management.azure.com/.
 
 6. Er wordt een aanroep uitgevoerd naar Azure AD om een toegangstoken aan te vragen zoals beschreven in stap 5, met behulp van de client-id en het certificaat geconfigureerd in stap 3. Azure AD retourneert een JWT-toegangstoken (JSON Web Token).
@@ -65,7 +65,7 @@ Hier is (met gebruikmaking van hetzelfde diagram) een voorbeeld van hoe een door
 2. Azure Resource Manager maakt een Service-principal in Azure AD die de identiteit van de door de gebruiker toegewezen identiteit voorstelt. De Service-principal wordt gemaakt in de Azure AD-tenant die wordt vertrouwd door dit abonnement.
 3. Azure Resource Manager ontvangt een aanvraag voor het configureren van de door de gebruiker toegewezen identiteit op een VM.
     - Het Azure Instance Metadata Service-eindpunt voor identiteit wordt bijgewerkt met de client-id en het certificaat van de Service-principal voor de door de gebruiker toegewezen identiteit.
-    - De MSI VM-extensie wordt ingericht en de client-id en het certificaat van de Service-principal voor de door de gebruiker toegewezen identiteit wordt toegevoegd (wordt afgeschaft).
+    - De VM-extensie wordt ingericht en de client-id en het certificaat van de Service-principal voor de door de gebruiker toegewezen identiteit worden toegevoegd (wordt afgeschaft).
 4. Nu de door de gebruiker toegewezen identiteit is gemaakt, gebruiken we de informatie van de Service-principal om de identiteit toegang te verlenen tot Azure-resources. Als uw code bijvoorbeeld Azure Resource Manager moet aanroepen, zou u de Service-principal van de door de gebruiker toegewezen identiteit de juiste rol toewijzen  met behulp van op rollen gebaseerd toegangsbeheer (RBAC) in Azure AD. Als uw code Key Vault moet aanroepen, zou u uw code toegang verlenen tot het specifieke geheim of de specifieke sleutel in Key Vault. Opmerking: deze stap kan ook vóór stap 3 worden uitgevoerd.
 5. De code die wordt uitgevoerd op de virtuele machine, kan een token aanvragen vanaf twee eindpunten die alleen toegankelijk zijn vanuit de virtuele machine:
 
@@ -74,7 +74,7 @@ Hier is (met gebruikmaking van hetzelfde diagram) een voorbeeld van hoe een door
         - Client-id-parameter bevat de identiteit waarvoor het token wordt aangevraagd. Dit is vereist om ambiguïteit op te heffen wanneer meer dan een door de gebruiker toegewezen identiteiten aanwezig is op een enkele virtuele machine.
         - De API-versieparameter specificeert de IMDS-versie, gebruik api-version=2018-02-01 of hoger.
 
-    - Eindpunt voor MSI VM-extensie: http://localhost:50342/oauth2/token (wordt afgeschaft)
+    - Eindpunt voor VM-extensie: http://localhost:50342/oauth2/token (wordt afgeschaft)
         - De resourceparameter specificeert de service waarnaar het token wordt verzonden. Als u bijvoorbeeld wilt dat uw code wordt geverifieerd voor Azure Resource Manager, gebruikt u resource=https://management.azure.com/.
         - Client-id-parameter bevat de identiteit waarvoor het token wordt aangevraagd. Dit is vereist om ambiguïteit op te heffen wanneer meer dan een door de gebruiker toegewezen identiteiten aanwezig is op een enkele virtuele machine.
 6. Er wordt een aanroep uitgevoerd naar Azure AD om een toegangstoken aan te vragen zoals beschreven in stap 5, met behulp van de client-id en het certificaat geconfigureerd in stap 3. Azure AD retourneert een JWT-toegangstoken (JSON Web Token).
@@ -84,7 +84,7 @@ Hier is (met gebruikmaking van hetzelfde diagram) een voorbeeld van hoe een door
 
 Volgt een zelfstudie over Managed Service Identity om complete scenario's te leren kennen voor het krijgen van toegang tot verschillende Azure-resources:
 <br><br>
-| Vanaf een voor MSI ingeschakelde resource | Leer hoe u het volgende doet: |
+| Vanuit een voor beheerde identiteit ingeschakelde resource | Leer hoe u het volgende doet: |
 | ------- | -------- |
 | Azure VM (Windows) | [Toegang krijgen tot Azure Data Lake Store met een Managed Service Identity voor Windows-VM](tutorial-windows-vm-access-datalake.md) |
 |                    | [Toegang krijgen tot Azure Resource Manager met een Managed Service Identity voor Windows-VM](tutorial-windows-vm-access-arm.md) |
@@ -111,5 +111,5 @@ Beheerde identiteiten kunnen worden gebruikt voor verificatie bij services die o
 
 Ga aan de slag met Azure Managed Service Identity met de volgende snelstartgidsen:
 
-* [Een Managed Service identiteit (MSI) voor Windows-VM gebruiken voor toegang tot Resource Manager - Windows-VM](tutorial-windows-vm-access-arm.md)
-* [Een Managed Service identiteit (MSI) voor Linux-VM gebruiken voor toegang tot Resource Manager - Linux-VM](tutorial-linux-vm-access-arm.md)
+* [Een Managed Service Identity voor Windows-VM gebruiken voor toegang tot Resource Manager - Windows-VM](tutorial-windows-vm-access-arm.md)
+* [Een Managed Service Identity voor Linux-VM gebruiken voor toegang tot Azure Resource Manager - Linux-VM](tutorial-linux-vm-access-arm.md)

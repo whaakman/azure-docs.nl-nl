@@ -9,25 +9,25 @@ ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 2c16e82ccf259a4cc5ae8fcf35b2dd6b5d50ee2d
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29528341"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740545"
 ---
-Bij het implementeren van resources in Azure, hebben grote flexibiliteit bij het bepalen van welke typen resources te implementeren en waar ze zich bevinden en hoe deze moeten worden ingesteld. Deze flexibiliteit kan echter meer opties dan u wilt toestaan dat in uw organisatie te openen. Als u rekening houden met het implementeren van resources in Azure, wellicht u:
+Bij het implementeren van resources naar Azure hebt u enorm veel flexibiliteit bij het bepalen welke typen resources u wilt implementeren, waar ze zich bevinden en hoe u ze instelt. Deze flexibiliteit biedt mogelijk echter meer opties dan u in uw organisatie wilt toestaan. Wanneer u de implementatie van resources naar Azure overweegt, vraagt u zich misschien het volgende af:
 
-* Hoe ik voldoen aan wettelijke vereisten voor onafhankelijkheid van de gegevens in bepaalde landen?
-* Hoe bepaal ik kosten
-* Hoe kan ik ervoor zorgen dat iemand niet per ongeluk een kritieke systeem wijzigt?
-* Hoe ik resourcekosten bijhouden en nauwkeurig factureren?
+* Hoe kan ik voldoen aan wettelijke vereisten voor de gegevenssoevereiniteit in bepaalde landen?
+* Hoe kan ik de kosten in de hand houden?
+* Hoe kan ik voorkomen dat iemand per ongeluk een kritisch systeem verandert?
+* Hoe kan ik resourcekosten bijhouden en deze nauwkeurig factureren?
 
-In dit artikel komen deze vragen. U in het bijzonder:
+In dit artikel worden deze vragen behandeld. U kunt met name:
 
 > [!div class="checklist"]
-* Gebruikers toewijzen aan rollen en de rollen toewijzen aan een bereik, zodat gebruikers hebben een machtiging verwachte acties, maar niet meer acties uitvoeren.
-* Beleidsregels die conventies voor resources in uw abonnement voorschrijven.
-* Resources die essentieel voor uw systeem zijn vergrendelen.
-* Resources taggen zodat u ze kunt bijhouden door waarden die geschikt zijn voor uw organisatie.
+* Gebruikers toewijzen aan rollen en de rollen toewijzen aan een bereik, zodat gebruikers gemachtigd zijn om verwachte acties uit te voeren, maar niet meer acties.
+* Beleidsregels toepassen die conventies voor resources in uw abonnement voorschrijven.
+* Resources vergrendelen die essentieel zijn voor uw systeem.
+* Tags toevoegen aan resources zodat u ze kunt bijhouden op basis van waarden die zinvol zijn voor uw organisatie.
 
-Dit artikel is gericht op de taken die u voor het implementeren van beheeracties uitvoeren. Zie voor een uitgebreidere bespreking van de concepten [Governance in Azure](../articles/security/governance-in-azure.md). 
+Dit artikel is gericht op de taken voor het implementeren van governance. Zie [Governance in Azure](../articles/security/governance-in-azure.md) voor een uitgebreidere bespreking van de concepten. 

@@ -1,11 +1,11 @@
-De doorvoer, opslag, beschikbaarheid, latentie en consistentie van de resources in uw account worden bewaakt in de Azure portal. U gaat nu een kort overzicht van deze metrische gegevens. 
+De doorvoer, opslag, beschikbaarheid, latentie en consistentie van de resources in uw account worden gecontroleerd in Azure Portal. We gaan deze metrische gegevens eens bekijken. 
 
-1. Klik op **metrische gegevens** in het navigatiemenu.
+1. Klik op **Metrische gegevens** in het navigatiemenu.
 
-   ![Metrische gegevens in de Azure portal](./media/cosmos-db-tutorial-review-slas/metrics.png)
+   ![Metrische gegevens in Azure Portal](./media/cosmos-db-tutorial-review-slas/metrics.png)
 
-2. Klik in de tabbladen zodat u op de hoogte van de metrische gegevens Azure Cosmos DB biedt. 
+2. Klik op de tabbladen, zodat u weet welke metrische gegevens Azure Cosmos DB allemaal biedt. 
 
-    Elke grafiek die gekoppeld aan de [Azure Cosmos DB Service Level Agreements (Sla's)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) biedt een regel die laat zien als een van de serviceovereenkomsten zijn overtreden. Azure Cosmos DB maakt bewaking van uw serviceovereenkomsten die transparant met dit pakket van metrische gegevens. 
+    Elke grafiek die is gekoppeld aan de [SLA's (Service Level Agreement) van Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) bevat een regel waarop wordt weergegeven of er SLA's worden overtreden. Azure Cosmos DB maakt de controle van uw SLA's transparant met dit pakket met metrische gegevens. 
 
-   ![Azure DB Cosmos metrische gegevens suite](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)
+   ![Azure Cosmos DB-pakket met metrische gegevens](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)

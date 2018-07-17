@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 06/14/2018
 ms.author: srinia
-ms.openlocfilehash: b2cbf7501b3c5006c7504c7af7d70c14035cfc74
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 65e920858b1c859dc9f8e911cdf59d4ab02da6d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113354"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972159"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Groepen van databases beheren met Taken voor Elastic Database
 
@@ -192,7 +192,7 @@ Hier volgen enkele noemenswaardige verschillen tussen SQL Server Agent (on-premi
 
 |  |Elastische taken  |SQL Server Agent |
 |---------|---------|---------|
-|Bereik     |  Een willekeurig aantal Azure SQL Databases en/of datawarehouses in dezelfde Azure-cloud als de taakagent. Doelen kunnen zich op verschillende logische servers en in verschillende abonnementen en/of regio's bevinden. <br><br>Doelgroepen kunnen bestaan uit afzonderlijke databases of datawarehouses of alle databases in een server, pool, shardkaart (dynamisch opgesomd tijdens runtime van taak). | Een individuele database in hetzelfde SQL Server-exemplaar als de SQL agent. |
+|Bereik     |  Een willekeurig aantal Azure SQL Databases en/of datawarehouses in dezelfde Azure-cloud als de taakagent. Doelen kunnen zich op verschillende logische servers en in verschillende abonnementen en/of regio's bevinden. <br><br>Doelgroepen kunnen bestaan uit afzonderlijke databases of datawarehouses of alle databases in een server, pool of shardkaart (dynamisch opgesomd tijdens het uitvoeren van een taak). | Een individuele database in hetzelfde SQL Server-exemplaar als de SQL agent. |
 |Ondersteunde API's en hulpprogramma's     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 

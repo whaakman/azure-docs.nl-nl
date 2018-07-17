@@ -1,3 +1,3 @@
 > [!NOTE]
-> De gratis App Service en gedeeld (preview) hostingplannen zijn base lagen die worden uitgevoerd op dezelfde Azure virtuele machine als andere App Service-apps. Bepaalde apps zijn het eigendom van andere klanten. Deze lagen zijn bedoeld om alleen te worden gebruikt voor ontwikkelen en testen.
+> De abonnementen voor app-hosting Gratis en Gedeeld (preview) zijn basislagen die worden uitgevoerd op dezelfde Azure-VM's als andere App Service-apps. Sommige apps zijn het eigendom van andere klanten. Deze lagen zijn bedoeld om alleen te worden gebruikt voor ontwikkelen en testen.
 >

@@ -1,5 +1,5 @@
 > [!NOTE]
-> Azure DNS kunt u een aangepaste DNS-naam voor uw Azure-Web-Apps configureren. Zie voor meer informatie [gebruik Azure DNS-instellingen van aangepast domein voor een Azure-service kan leveren](../articles/dns/dns-custom-domain.md#app-service-web-apps).
+> U kunt Azure DNS gebruiken om een aangepaste DNS-naam voor uw Azure Web Apps te configureren. Zie [Use Azure DNS to provide custom domain settings for an Azure service](../articles/dns/dns-custom-domain.md#app-service-web-apps) (Azure DNS gebruiken om aangepaste domeininstellingen te verstrekken voor een Azure-service) voor meer informatie.
 >
 >
 

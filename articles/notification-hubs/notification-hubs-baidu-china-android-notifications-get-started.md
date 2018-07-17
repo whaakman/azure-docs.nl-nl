@@ -15,11 +15,11 @@ ms.workload: mobile
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777573"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700897"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Aan de slag met Azure Notification Hubs die gebruikmaken van Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -32,7 +32,7 @@ Aangezien Google Play en FCM (Firebase Cloud Messaging) niet beschikbaar zijn in
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * Android SDK (ervan uitgaande dat u Android Studio gebruikt) die u kunt downloaden van de <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android-site</a>
-* [Baidu Push Android SDK]
+* [Android SDK Baidu Push]
 
 > [!NOTE]
 > U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F) voor meer informatie.
@@ -42,11 +42,11 @@ Voor deze zelfstudie hebt u het volgende nodig:
 ## <a name="create-a-baidu-account"></a>Een Baidu-account maken
 Voor het gebruik van Baidu moet u een Baidu-account hebben. Als u er al een hebt, meldt u zich aan bij de [Baidu Portal] en gaat u verder met de volgende stap. Als u nog geen account hebt, raadpleegt u de instructies hieronder voor het maken van een Baidu-account.  
 
-1. Ga naar de [Baidu Portal] en klik op de koppeling **登录** (**Aanmelden**). Klik op **立即注册** (**Nu registreren**) om de registratie van het account te starten.
+1. Ga naar de [Baidu Portal] en klik op de koppeling **登录** (**Aanmelden**). Klik op **立即注册** (**Nu registreren**) om het registratieproces voor accounts te starten.
    
     ![Registratie bij Baidu](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
 
-2. Voer de vereiste gegevens (telefoon, e-mailadres, wachtwoord en verificatiecode) in en klik vervolgens op 注册 (**Registreren**).
+2. Voer de vereiste gegevens in - telefoon, e-mailadres, wachtwoord en verificatiecode - en klik vervolgens op 注册 (**Registreren**).
    
     ![Invoer voor registratie bij Baidu](./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png)
 
@@ -63,19 +63,19 @@ Als uw Baidu-account is geactiveerd, meldt u zich aan bij de [Baidu Portal].
 ## <a name="create-a-baidu-cloud-push-project"></a>Een Baidu-cloudpushproject maken
 Als u een Baidu-cloudpushproject maakt, ontvangt u uw app-id, API-sleutel en een geheime sleutel.
 
-1. Nadat u zich hebt aangemeld bij de [Baidu Portal], klikt u op **更多 >>** (**meer**).
+1. Zodra u zich hebt aangemeld bij de [Baidu Portal], klikt u op **更多>>** (**meer**).
    
     ![Registratie - Meer](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 
-2. Schuif omlaag in het gedeelte **站长与开发者服务** (**Webmaster- en ontwikkelaarsservices)** en klik op **百度云推送** (**Baidu Cloud Push**).
+2. Schuif omlaag in de sectie **站长与开发者服务** (**Webmaster- en ontwikkelaarsservices**) en klik op **百度云推送** (**Baidu-cloudpush**).
    
     ![Baidu-cloudplatform openen](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
 
-3. Klik op de volgende pagina op **登录** (**Aanmelden**) in de rechterbovenhoek.
+3. Klik op de volgende pagina in de rechterbovenhoek op **登录** (**Aanmelden**).
    
     ![Aanmelden bij Baidu](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
 
-4. Klik vervolgens op **创建应用** (**Toepassing maken**) op deze pagina.
+4. Klik vervolgens op deze pagina op **创建应用** (**Toepassing maken**).
 
     ![Baidu: toepassing maken](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
 
@@ -91,7 +91,7 @@ Als u een Baidu-cloudpushproject maakt, ontvangt u uw app-id, API-sleutel en een
    
     ![Baidu: pushgeheimen](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
 
-8. Configureer het project voor pushmeldingen door te klikken op 创建通知 (**Melding maken**) in het linkerdeelvenster.
+8. Configureer het project voor pushmeldingen door in het linkerdeelvenster te klikken op 创建通知 (**Melding maken**).
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
 
@@ -117,7 +117,7 @@ Noteer de `DefaultListenSharedAccessSignature` en `DefaultFullSharedAccessSignat
 
     ![Azure Notification Hubs - Baidu: nieuw project](./media/notification-hubs-baidu-get-started/AndroidNewProject.png)
 
-2.  Voer een toepassingsnaam in en zorg ervoor dat de minimaal vereiste SDK-versie is ingesteld op API 16: Android 4.1. **Ook moet u ervoor zorgen dat de pakketnaam (应用包名) hetzelfde als in de Baidu Cloud Push-portal**
+2.  Voer een toepassingsnaam in en zorg ervoor dat de minimaal vereiste SDK-versie is ingesteld op API 16: Android 4.1. **Zorg er ook voor dat de pakketnaam (应用包名) hetzelfde is als in de Baidu-cloudpush-portal**
 
     ![Azure Notification Hubs - Baidu Min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png)
     ![Azure Notification Hubs - Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
@@ -160,7 +160,7 @@ Noteer de `DefaultListenSharedAccessSignature` en `DefaultFullSharedAccessSignat
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6.  Download [Baidu Push Android SDK] en pak deze uit. Kopieer het bestand `pushservice-x.y.z jar` in de map libs. Kopieer de `.so`-bestanden in de mappen in `src/main/jniLibs` (maak een nieuwe map) van uw Android-toepassing.
+6.  Download [Android SDK Baidu Push] en pak deze uit. Kopieer het bestand `pushservice-x.y.z jar` in de map libs. Kopieer de `.so`-bestanden in de mappen in `src/main/jniLibs` (maak een nieuwe map) van uw Android-toepassing.
 
     ![Azure Notification Hubs - Baidu SDK Libs](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -532,6 +532,6 @@ U kunt een testmelding verzenden vanaf het foutopsporingstabblad van [Azure Port
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Baidu Push Android SDK]: http://push.baidu.com/sdk/push_client_sdk_for_android
+[Android SDK Baidu Push]: http://push.baidu.com/sdk/push_client_sdk_for_android
 [Azure Portal]: https://portal.azure.com/
 [Baidu Portal]: http://www.baidu.com/

@@ -4,17 +4,17 @@ description: In deze snelstart leert u hoe u vooraf geschreven code op afstand i
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 07/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099182"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611924"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snelstart: uw eerste IoT Edge-module implementeren op een Linux x64-apparaat
 
@@ -31,7 +31,14 @@ In deze snelstart leert u de volgende zaken:
 
 In deze snelstart verandert u uw Linux-computer of virtuele machine in een IoT Edge-apparaat. Vervolgens implementeert u een module vanuit Azure Portal op uw apparaat. De module die u in deze snelstart implementeert, is een gesimuleerde sensor waarmee temperatuur-, luchtvochtigheids- en drukgegevens worden gegenereerd. De andere Azure IoT Edge-zelfstudies zijn een uitbreiding op het werk dat u hier doet. Hierin worden modules geïmplementeerd waarmee de gesimuleerde gegevens worden geanalyseerd voor zakelijke inzichten. 
 
-Als u nog geen actief abonnement op Azure hebt, maakt u een [gratis account][lnk-account] aan voordat u begint.
+Als u nog geen actief abonnement op Azure hebt, maakt u een [gratis Azure-account][lnk-account] aan voordat u begint.
+
+## <a name="prerequisites"></a>Vereisten
+
+In deze snelstart wordt een Linux-machine als een IoT Edge-apparaat gebruikt. Als die niet beschikbaar is om te testen, volg dan de instructies in [Een virtuele Linux-machine maken in Azure Portal](../virtual-machines/linux/quick-create-portal.md). 
+* U hoeft de stappen voor het installeren en uitvoeren van de webserver niet te volgen. Wanneer u verbinding hebt met uw virtuele machine, kunt u stoppen.  
+* Maak uw virtuele machine in een nieuwe resourcegroep en gebruik deze wanneer u de overige Azure-resources voor deze snelstart maakt. Geef deze een herkenbare naam, bijvoorbeeld *IoTEdgeResources*. 
+* U hoeft geen heel grote virtuele machine te maken om IoT Edge te testen. **B1ms** is voldoende. 
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
@@ -54,6 +61,8 @@ Installeer en start de Azure IoT Edge-runtime op uw apparaat.
 ![Een apparaat registreren][5]
 
 De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. Deze bevat drie onderdelen. De **IoT Edge-beveiligingsdaemon** wordt telkens gestart wanneer een Edge-apparaat wordt opgestart en start het apparaat op door de IoT Edge-agent te starten. De **IoT Edge-agent** faciliteert de implementatie en bewaking van modules op het IoT Edge-apparaat, inclusief de IoT Edge-hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd. 
+
+Voer de volgende stappen uit op de Linux-machine of virtuele machine die u voor deze snelstart hebt voorbereid. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Uw apparaat registreren voor gebruik van de softwareopslagplaats
 
@@ -85,11 +94,16 @@ Werk **apt get-** bij.
    sudo apt-get update
    ```
 
-Installeer Moby, een container-runtime, en de bijbehorende CLI-opdrachten. 
+Installeer **Moby**, een container-runtime.
 
    ```bash
    sudo apt-get install moby-engine
-   sudo apt-get install moby-cli   
+   ```
+
+Installeer de CLI-opdrachten voor Moby. 
+
+   ```bash
+   sudo apt-get install moby-cli
    ```
 
 ### <a name="install-and-configure-the-iot-edge-security-daemon"></a>De IoT Edge-beveiligingsdeamon installeren en configureren
@@ -109,15 +123,19 @@ De beveiligingsdeamon wordt geïnstalleerd als een systeemservice, zodat de IoT 
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Voeg de verbindingsreeks van het IoT Edge-apparaat toe die u bij de registratie van uw apparaat hebt gekopieerd. Vervang de waarde van de variabele **device_connection_string** die u eerder in deze snelstart hebt gekopieerd.
+3. Voeg de verbindingsreeks van het IoT Edge-apparaat toe. Zoek de variabele **device_connection_string** en werk de waarde bij met de tekenreeks die u hebt gekopieerd na de registratie van uw apparaat.
 
-4. Start de Edge-beveiligingsdeamon opnieuw op:
+4. Sla het bestand op en sluit het. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+4. Start de IoT Edge-beveiligingsdaemon opnieuw op.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Controleer of de Edge-beveiligingsdeamon wordt uitgevoerd als een systeemservice:
+5. Controleer of de Edge-beveiligingsdaemon wordt uitgevoerd als een systeemservice.
 
    ```bash
    sudo systemctl status iotedge
@@ -131,12 +149,14 @@ De beveiligingsdeamon wordt geïnstalleerd als een systeemservice, zodat de IoT 
    journalctl -u iotedge
    ```
 
-6. De modules bekijken die op uw apparaat worden uitgevoerd: 
+6. Bekijk de modules die op uw apparaat worden uitgevoerd. 
+
+   >[!TIP]
+   >U moet eerst *sudo* gebruiken om `iotedge`-opdrachten uit te voeren. Meld u af bij de computer en meld u weer aan om machtigingen bij te werken. Daarna kunt u `iotedge`-opdrachten zonder verhoogde bevoegdheden uitvoeren. 
 
    ```bash
    sudo iotedge list
    ```
-Na een af- en aanmelding is *sudo* niet vereist voor de bovenstaande opdracht.
 
    ![Eén module op uw apparaat bekijken](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -157,7 +177,6 @@ Open nogmaals de opdrachtprompt op de computer waarop het gesimuleerde apparaat 
    ```bash
    sudo iotedge list
    ```
-Na een af- en aanmelding is *sudo* niet vereist voor de bovenstaande opdracht.
 
    ![Drie modules op uw apparaat bekijken](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -177,27 +196,48 @@ U kunt ook de telemetriegegevens bekijken die het apparaat verzendt door de [IoT
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u wilt doorgaan met de IoT Edge-zelfstudies, kunt u het apparaat gebruiken dat u hebt geregistreerd en ingesteld in deze snelstart. Als u de installaties van uw apparaat wilt verwijderen, gebruikt u de volgende opdrachten.  
+Als u wilt doorgaan met de IoT Edge-zelfstudies, kunt u het apparaat gebruiken dat u hebt geregistreerd en ingesteld in deze snelstart. Anders kunt u de Azure-resources die u hebt gemaakt en de IoT Edge-runtime van uw apparaat verwijderen. 
 
-De IoT Edge-runtime verwijderen.
+### <a name="delete-azure-resources"></a>Azure-resources verwijderen
+
+Als u uw virtuele machine en IoT-hub in een nieuwe resourcegroep hebt gemaakt, kunt u die groep en alle bijbehorende resources verwijderen. Als er iets in die resourcegroep staat dat u wilt behouden, verwijder dan alleen de afzonderlijke resources die u wilt opschonen. 
+
+Voer de volgende stappen uit als u een resourcegroep wilt verwijderen: 
+
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+2. Typ in het tekstvak **Filteren op naam...** de naam van de resourcegroep die uw IoT Hub bevat. 
+3. Klik rechts van de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+4. U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep nogmaals om te bevestigen en klik op **Verwijderen**. Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
+
+### <a name="remove-the-iot-edge-runtime"></a>De IoT Edge-runtime verwijderen
+
+Als u de installaties van uw apparaat wilt verwijderen, gebruikt u de volgende opdrachten.  
+
+Verwijder de IoT Edge-runtime.
 
    ```bash
    sudo apt-get remove --purge iotedge
    ```
 
-Verwijder de containers die op uw apparaat zijn gemaakt. 
+Wanneer de IoT Edge-runtime is verwijderd, worden de containers die deze heeft gemaakt gestopt. Ze worden echter niet van uw apparaat verwijderd. Geef alle containers weer.
 
    ```bash
-   sudo docker rm -f $(sudo docker ps -aq)
+   sudo docker ps -a
    ```
 
-De container-runtime verwijderen.
+Verwijder de containers die door de IoT Edge-runtime op uw apparaat zijn gemaakt. Verander de naam van de container tempSensor als u die anders had genoemd. 
+
+   ```bash
+   sudo docker rm -f tempSensor
+   sudo docker rm -f edgeHub
+   sudo docker rm -f edgeAgent
+   ```
+
+Verwijder de container-runtime.
 
    ```bash
    sudo apt-get remove --purge moby
    ```
-
-Als u de Azure IoT Hub of het IoT Edge-apparaat dat u hebt gemaakt in deze snelstart niet langer nodig hebt, kunt u ze verwijderen in Azure Portal. Navigeer naar de overzichtspagina van uw IoT Hub en selecteer **Verwijderen**. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -221,5 +261,6 @@ Deze snelstart is vereist voor alle IoT Edge-zelfstudies. U kunt doorgaan met el
 [9]: ./media/tutorial-simulate-device-linux/sensor-data.png
 
 <!-- Links -->
+[lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

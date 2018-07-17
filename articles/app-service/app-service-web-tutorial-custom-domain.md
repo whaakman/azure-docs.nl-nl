@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714512"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461636"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps
 
@@ -35,12 +35,8 @@ In deze zelfstudie leert u het volgende:
 > * Een subdomein toewijzen (bijvoorbeeld `www.contoso.com`) met behulp van een CNAME-record
 > * Een hoofddomein toewijzen (bijvoorbeeld `contoso.com`) met behulp van een A-record
 > * Een wildcard-domein toewijzen (bijvoorbeeld `*.contoso.com`) met behulp van een CNAME-record
+> * Standaard-URL omleiden naar een aangepaste map
 > * Domeintoewijzing met scripts automatiseren
-
-U kunt ofwel een **CNAME-record** of een **A-record** gebruiken voor het toewijzen van een aangepaste DNS-naam aan App Service. 
-
-> [!NOTE]
-> Het is raadzaam dat u een CNAME voor alle aangepaste DNS-namen gebruikt, behalve een hoofddomein (bijvoorbeeld `contoso.com`).
 
 Zie voor het migreren van een live site en de DNS-domeinnaam naar App Service, [Een actieve DNS-naam migreren naar Azure App Service](app-service-custom-domain-name-migrate.md).
 
@@ -104,13 +100,26 @@ Wanneer u de volgende melding ziet, is de schaalbewerking voltooid.
 
 <a name="cname"></a>
 
-## <a name="map-a-cname-record"></a>Een CNAME-record toewijzen
+## <a name="map-your-domain"></a>Uw domein toewijzen
+
+U kunt ofwel een **CNAME-record** of een **A-record** gebruiken voor het toewijzen van een aangepaste DNS-naam aan App Service. Volg de bijbehorende stappen:
+
+- [Een CNAME-record toewijzen](#map-a-cname-record)
+- [Een A-record toewijzen](#map-an-a-record)
+- [Een wildcard-domein toewijzen (met behulp van een CNAME-record)](#map-a-wildcard-domain)
+
+> [!NOTE]
+> U moet CNAME-records gebruiken voor alle aangepaste DNS-namen, behalve voor het hoofddomein (bijvoorbeeld `contoso.com`). Voor hoofddomeinen gebruikt u A-records.
+
+### <a name="map-a-cname-record"></a>Een CNAME-record toewijzen
 
 In het voorbeeld van de zelfstudie voegt u toe een CNAME-record toe voor het subdomein `www` (bijvoorbeeld `www.contoso.com`).
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Toegang tot DNS-records via domeinprovider
 
-### <a name="create-the-cname-record"></a>De CNAME-record maken
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-cname-record"></a>Het CNAME-record maken
 
 Voeg een CNAME-record toe om een subdomein toe te wijzen aan de standaard hostnaam van de app (`<app_name>.azurewebsites.net`, waarbij `<app_name>` de naam is van uw app).
 
@@ -120,7 +129,7 @@ Nadat u de CNAME toevoegt, lijkt de pagina DNS-records op het volgende voorbeeld
 
 ![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-### <a name="enable-the-cname-record-mapping-in-azure"></a>De toewijzing van het CNAME-record in Azure inschakelen
+#### <a name="enable-the-cname-record-mapping-in-azure"></a>De toewijzing van het CNAME-record in Azure inschakelen
 
 Selecteer in het linkernavigatievenster van de app-pagina in de Azure portal **Aangepaste domeinen**. 
 
@@ -136,7 +145,7 @@ Typ de volledig gekwalificeerde domeinnaam in waarvoor u een CNAME-record zoals 
 
 Selecteer **Valideren**.
 
-De knop **Hostnaam toevoegen** wordt geactiveerd. 
+De pagina **Hostnaam toevoegen** wordt weergegeven. 
 
 Zorg ervoor dat **Hostnaam recordtype** is ingesteld op **CNAME (www.example.com of elk subdomein)**.
 
@@ -148,19 +157,22 @@ Het kan even duren voor de nieuwe hostnaam wordt weergegeven op de pagina **Aang
 
 ![CNAME-record toegevoegd](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
+> [!NOTE]
+> Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden](app-service-web-tutorial-custom-ssl.md).
+
 Als u een stap hebt gemist of eerder ergens een typefout hebt gemaakt, ziet u een verificatie-foutmelding aan de onderkant van de pagina.
 
 ![Verificatiefout](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a"></a>
 
-## <a name="map-an-a-record"></a>Toewijzen van een A-record
+### <a name="map-an-a-record"></a>Toewijzen van een A-record
 
 In het voorbeeld van de zelfstudie voegt u toe een A-record toe voor het hoofddomein (bijvoorbeeld `contoso.com`). 
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address"></a>Het IP-adres van de app kopiëren
+#### <a name="copy-the-apps-ip-address"></a>Het IP-adres van de app kopiëren
 
 Als u een A-record wilt toewijzen, heeft u het externe IP-adres van de app nodig. U vindt dit IP-adres op pagina **Aangepaste domeinen** van de app in de Azure-portal.
 
@@ -172,9 +184,11 @@ Op de pagina **Aangepaste domeinen** kopieert u het IP-adres van de app.
 
 ![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Toegang tot DNS-records via domeinprovider
 
-### <a name="create-the-a-record"></a>Een A-record maken
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-a-record"></a>Een A-record maken
 
 Als u een A-record wilt toewijzen aan een app, vereist App Service **twee** DNS-records:
 
@@ -194,7 +208,7 @@ Wanneer de records worden toegevoegd, lijkt de pagina met DNS-records op het vol
 
 <a name="enable-a"></a>
 
-### <a name="enable-the-a-record-mapping-in-the-app"></a>De toewijzing van de A-record in de app inschakelen
+#### <a name="enable-the-a-record-mapping-in-the-app"></a>De toewijzing van de A-record in de app inschakelen
 
 Voeg op de pagina **Aangepaste domeinen** van de app in de Azure portal de volledig gekwalificeerde aangepaste DNS-naam (bijvoorbeeld `contoso.com`) toe aan de lijst.
 
@@ -206,7 +220,7 @@ Typ de volledig gekwalificeerde domeinnaam in waarvoor u een A-record zoals `con
 
 Selecteer **Valideren**.
 
-De knop **Hostnaam toevoegen** wordt geactiveerd. 
+De pagina **Hostnaam toevoegen** wordt weergegeven. 
 
 Zorg ervoor dat **Hostnaam recordtype** is ingesteld op **A-record (voorbeeld.com)**.
 
@@ -218,19 +232,24 @@ Het kan even duren voor de nieuwe hostnaam wordt weergegeven op de pagina **Aang
 
 ![A-record toegevoegd](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
+> [!NOTE]
+> Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden](app-service-web-tutorial-custom-ssl.md).
+
 Als u een stap hebt gemist of eerder ergens een typefout hebt gemaakt, ziet u een verificatie-foutmelding aan de onderkant van de pagina.
 
 ![Verificatiefout](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
 <a name="wildcard"></a>
 
-## <a name="map-a-wildcard-domain"></a>Een wildcard-domein toewijzen
+### <a name="map-a-wildcard-domain"></a>Een wildcard-domein toewijzen
 
 In het voorbeeld van de zelfstudie, wijst u een [wildcard-DNS-naam](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (bijvoorbeeld `*.contoso.com`) toe aan de App Service-app door een CNAME-record toe te voegen. 
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Toegang tot DNS-records via domeinprovider
 
-### <a name="create-the-cname-record"></a>Het CNAME-record maken
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-cname-record"></a>Het CNAME-record maken
 
 Voeg een CNAME-record toe om een wildcard-naam toe te wijzen aan de standaard hostnaam van de app (`<app_name>.azurewebsites.net`).
 
@@ -240,7 +259,7 @@ Wanneer de CNAME wordt toegevoegd, lijkt de pagina met DNS-records op het volgen
 
 ![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
-### <a name="enable-the-cname-record-mapping-in-the-app"></a>De toewijzing van het CNAME-record in de app inschakelen
+#### <a name="enable-the-cname-record-mapping-in-the-app"></a>De toewijzing van het CNAME-record in de app inschakelen
 
 U kunt nu elk subdomein dat overeenkomt met de wildcard-naam aan de app toevoegen (bijvoorbeeld `sub1.contoso.com` en `sub2.contoso.com` komen overeen met `*.contoso.com`). 
 
@@ -268,13 +287,16 @@ Selecteer opnieuw het pictogram **+** om een andere hostnaam toe te voegen die o
 
 ![CNAME-record toegevoegd](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
+> [!NOTE]
+> Als u een SSL-binding wilt toevoegen, raadpleegt u [Een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden](app-service-web-tutorial-custom-ssl.md).
+
 ## <a name="test-in-browser"></a>Testen in browser
 
 Blader naar de DNS-namen die u eerder hebt geconfigureerd (bijvoorbeeld `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, en `sub2.contoso.com`).
 
 ![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-error-web-site-not-found"></a>404-fout "Website niet gevonden" oplossen
+## <a name="resolve-404-not-found"></a>404-fout 'Niet gevonden' oplossen
 
 Als u een HTTP 404 (niet gevonden)-fout ontvangt bij het bladeren naar de URL van uw aangepaste domein, moet u controleren of uw domein wordt omgezet naar uw app IP-adres met <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Als dit niet gebeurt, kan dit een van de volgende oorzaken hebben:
 
@@ -283,7 +305,7 @@ Als u een HTTP 404 (niet gevonden)-fout ontvangt bij het bladeren naar de URL va
 
 <a name="virtualdir"></a>
 
-## <a name="direct-default-url-to-a-custom-directory"></a>Standaard-URL naar een aangepaste map omleiden
+## <a name="redirect-to-a-custom-directory"></a>Een aangepaste map omleiden
 
 Standaard stuurt App Service webaanvragen naar de hoofdmap van uw app-code. Bepaalde web-frameworks starten echter niet in de hoofdmap. Bijvoorbeeld: [Laravel](https://laravel.com/) start in de submap `public`. Om door te gaan met het DNS-voorbeeld `contoso.com`, is een dergelijke app toegankelijk op `http://contoso.com/public`, maar u moet in plaats daarvan eigenlijk `http://contoso.com` naar de map `public` sturen. Deze stap heeft geen betrekking op DNS-omzetting, maar het aanpassen van de virtuele map.
 
@@ -333,6 +355,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een subdomein toewijzen met behulp van een CNAME-record
 > * Een subdomein toewijzen met behulp van een A-record
 > * Een wildcard-domein toewijzen met behulp van een CNAME-record
+> * Standaard-URL omleiden naar een aangepaste map
 > * Domeintoewijzing met scripts automatiseren
 
 Ga door naar de volgende zelfstudie om te leren hoe u een aangepast SSL-certificaat aan een web-app kunt toewijzen.

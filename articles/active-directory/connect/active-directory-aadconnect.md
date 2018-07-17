@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d866a6b068e9f6b8a46e53d60653d55e35a2ffd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f56ac74c62334ef64fca45a6430a539e3c4c372c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594020"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38442533"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Uw on-premises directory's integreren met Azure Active Directory
 Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. In dit onderwerp wordt de planning, implementatie en bewerking besproken. Het is een verzameling van koppelingen naar de onderwerpen die betrekking hebben op dit gebied.
@@ -33,8 +33,9 @@ Azure AD Connect integreert uw on-premises directory's met Azure Active Director
 
 > 
 > - Gebruikers synchroniseren met Azure AD is een **gratis functie** waarvoor klanten geen betaald abonnement nodig hebben.
->- Er worden aan gesynchroniseerde gebruikers **niet automatisch *licenties* verleend**. Beheerders hebben nog steeds het totale beheer van de licentietoewijzing. 
+> - Er worden aan gesynchroniseerde gebruikers **niet automatisch *licenties* verleend**. Beheerders hebben nog steeds het totale beheer van de licentietoewijzing. 
 > - Microsofts beveelt IT-beheerders aan om alle gebruikers te synchroniseren. Hierdoor krijgen gebruikers niet alleen toegang tot alle met Azure AD geïntegreerde resources, maar biedt IT-beheerders ook beter zicht op welke toepassingen worden gebruikt. 
+> - Microsoft raadt ten zeerste aan om gebruikers met beheerdersrollen in AAD niet te synchroniseren.
 
 ![Wat is Azure AD Connect?](media/active-directory-aadconnect/arch.png)
 
