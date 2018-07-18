@@ -1,20 +1,20 @@
 ---
 title: Azure SQL Database-service - vCore | Microsoft Docs
-description: De vCore gebaseerde aankoopmodel (preview) kunt u onafhankelijk van elkaar schalen reken- en opslagresources, overeenkomen met de on-premises prestaties en prijs te optimaliseren.
+description: Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk van elkaar schalen reken- en opslagresources, overeenkomen met de on-premises prestaties en prijs te optimaliseren.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/15/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: cc69d2f195006fa196491fe9bed53db499eed11f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069975"
+ms.locfileid: "39091489"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Een vCore-servicelaag kiezen, Reken-, geheugen, opslag- en i/o-resources
 
@@ -30,11 +30,9 @@ De volgende tabel kunt u weten wat de verschillen tussen deze twee lagen:
 |Storage|Premium externe opslag, 5 GB – 4 TB|Lokale SSD-opslag, 5 GB – 4 TB|
 |I/o-doorvoer (bij benadering)|500 IOP's per vCore met 7000 maximale IOPS|5000 IOP's per kern met 200000 maximale IOPS|
 |Beschikbaarheid|1 replica, geen lees-schaal|3 replica's, 1 [leesschaal](sql-database-read-scale-out.md), zone redundant HA|
-|Back-ups|RA-GRS, 7 en 35 dagen (7 dagen standaard)|RA-GRS, 7 en 35 dagen (7 dagen standaard) *|
+|Back-ups|RA-GRS, 7 en 35 dagen (7 dagen standaard)|RA-GRS, 7 en 35 dagen (7 dagen standaard)|
 |In het geheugen|N/A|Ondersteund|
 |||
-
-\* Tijdens de preview, is de bewaarperiode voor back-ups kan niet worden geconfigureerd en is vast ingesteld op 7 dagen.
 
 > [!IMPORTANT]
 > Als u minder dan één vCore rekencapaciteit nodig hebt, gebruikt u het op DTU gebaseerde aankoopmodel.
@@ -67,7 +65,7 @@ Opslag voor back-ups wordt ter ondersteuning van het punt in tijd herstellen (PI
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
-In het op vCore gebaseerde aankoopmodel (preview), kunt u uw bestaande licenties voor gereduceerde tarieven voor SQL-Database met behulp van exchange de [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Dit voordeel van Azure kunt u uw on-premises SQL Server-licenties gebruiken tot 30% besparen op Azure SQL Database met behulp van uw on-premises SQL Server-licenties met Software Assurance.
+In het op vCore gebaseerde aankoopmodel, kunt u uw bestaande licenties voor gereduceerde tarieven voor SQL-Database met behulp van exchange de [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Dit voordeel van Azure kunt u uw on-premises SQL Server-licenties gebruiken tot 30% besparen op Azure SQL Database met behulp van uw on-premises SQL Server-licenties met Software Assurance.
 
 ![prijzen](./media/sql-database-service-tiers/pricing.png)
 
@@ -79,7 +77,7 @@ Bij het gebruik van geo-replicatie tussen twee elastische pools, is het raadzaam
 
 De volgende tabel bevat richtlijnen voor de specifieke migratiescenario's: 
 
-|Huidige servicelaag|Gewenste servicelaag|Migratietype|Gebruikerssacties|
+|Huidige servicelaag|Gewenste servicelaag|Migratietype|Acties van de gebruiker|
 |---|---|---|---|
 |Standard|Algemeen doel|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat een juiste vCore sizing *|
 |Premium|Bedrijfskritiek|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat juiste vCore sizing *|

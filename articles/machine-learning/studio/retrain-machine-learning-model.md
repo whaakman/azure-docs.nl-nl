@@ -1,6 +1,6 @@
 ---
-title: Opnieuw een Machine Learning-Model te trainen | Microsoft Docs
-description: Informatie over het opnieuw een model te trainen en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
+title: Opnieuw trainen van een Machine Learning-Model | Microsoft Docs
+description: Informatie over het opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,87 +15,87 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: ca7ad5a46c1401a283879f8aba80c781a88fc089
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 46aa2c209f782706357f9a928ddbaa6321abdd77
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835426"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115524"
 ---
-# <a name="retrain-a-machine-learning-model"></a>Opnieuw een Machine Learning-Model te trainen
-Het model is getraind en opgeslagen als onderdeel van het proces van uitoefening van machine learning-modellen in Azure Machine Learning. U vervolgens worden gebruikt voor het maken van een predicative webservice. De webservice kan vervolgens worden gebruikt in websites, dashboards en mobiele apps. 
+# <a name="retrain-a-machine-learning-model"></a>Opnieuw trainen van een Machine Learning-Model
+Uw model is getraind en opgeslagen als onderdeel van het proces voor uitoefening van machine learning-modellen in Azure Machine Learning. U vervolgens worden gebruikt om een voorspellende webservice te maken. De webservice kan vervolgens worden gebruikt in web sites, dashboards en mobiele apps. 
 
-U maakt met behulp van Machine Learning modellen zijn meestal niet statisch. Zodra er nieuwe gegevens beschikbaar, of wanneer de gebruiker van de API hun eigen gegevens heeft moet het model worden retrained. 
+U maakt gebruik van Machine Learning modellen zijn doorgaans niet statisch. Zodra er nieuwe gegevens beschikbaar is of wanneer de gebruiker van de API hun eigen gegevens is moet het model opnieuw worden getraind. 
 
-Retraining kan vaak optreden. Met de functie programmatische Retraining API kunt u programmatisch opnieuw trainen van het model met behulp van de Retraining API's en de webservice bijwerken met het nieuwe getrainde model. 
+Opnieuw trainen kan vaak optreden. Met de functie programmatisch opnieuw trainen API kunt u programmatisch opnieuw trainen het model met behulp van de Retraining API's en de webservice bijwerken met het zojuist getrainde model. 
 
-Dit document worden de retraining beschreven en ziet u hoe de Retraining API's gebruiken.
+In dit document worden de retraining beschreven en ziet u hoe u kunt de Retraining API's gebruiken.
 
-## <a name="why-retrain-defining-the-problem"></a>Waarom retrain: het probleem definiëren
-Een model wordt getraind met een verzameling van gegevens als onderdeel van de machine learning trainingsproces. U maakt met behulp van Machine Learning modellen zijn meestal niet statisch. Zodra er nieuwe gegevens beschikbaar, of wanneer de gebruiker van de API hun eigen gegevens heeft moet het model worden retrained.
+## <a name="why-retrain-defining-the-problem"></a>Waarom opnieuw trainen: het probleem definiëren
+Een model is getraind met behulp van een set gegevens als onderdeel van de machine learning-cursussen proces. U maakt gebruik van Machine Learning modellen zijn doorgaans niet statisch. Zodra er nieuwe gegevens beschikbaar is of wanneer de gebruiker van de API hun eigen gegevens is moet het model opnieuw worden getraind.
 
-In deze scenario's biedt een programmatische API een handige manier waarmee u of de consument van uw API's voor het maken van een client die u kunt op eenmalige of regelmatige basis retrain het model met hun eigen gegevens. Vervolgens kunnen ze evalueren van de resultaten van de retraining en bijwerken van de Web service-API voor het gebruik van het zojuist getrainde model.
+In deze scenario's biedt een programmeer-API een handige manier om toe te staan u of de gebruiker van uw API's te maken van een client die u kunt op een eenmalige of regelmatige basis, opnieuw trainen het model met behulp van hun eigen gegevens. Ze kunnen vervolgens evalueren van de resultaten van het opnieuw trainen en bijwerken van de webservice-API voor het gebruik van het zojuist getrainde model.
 
 > [!NOTE]
-> Hebt u een bestaande Trainingsexperiment en een nieuwe webservice, wilt u mogelijk Retrain uitchecken met een bestaande voorspellende webservice in plaats van na de procedure beschreven in de volgende sectie.
+> Als u een bestaande Trainingsexperiment en een nieuwe webservice hebt, kunt u de Retrain uitchecken van een bestaande voorspellende webservice in plaats van de procedures die worden vermeld in het volgende gedeelte te volgen.
 > 
 > 
 
 ## <a name="end-to-end-workflow"></a>End-to-end werkstroom
-Het proces omvat de volgende onderdelen: een Trainingsexperiment en een Voorspellend Experiment gepubliceerd als een webservice. Om in te schakelen van een getraind model retraining, moet het Experiment Training als een webservice met de uitvoer van een getraind model worden gepubliceerd. Hierdoor kan API-toegang in het model voor retraining. 
+Het proces omvat de volgende onderdelen: een Trainingsexperiment en een Voorspellend Experiment die zijn gepubliceerd als een webservice. Om in te schakelen opnieuw trainen van een getraind model, moet het Trainingsexperiment worden gepubliceerd als een webservice met de uitvoer van een getraind model. Hierdoor kunnen de API-toegang tot het model voor het opnieuw trainen. 
 
-De volgende stappen van toepassing op zowel nieuwe als klassieke Web services:
+De volgende stappen gelden voor zowel nieuwe en klassieke webservices:
 
 De eerste voorspellende webservice maken:
 
-* Een trainingsexperiment maken
+* Een opleidingsexperiment maken
 * Een web Voorspellend experiment maken
-* Een predictive webservice implementeren
+* Een voorspellende webservice implementeren
 
-De webservice Retrain:
+De webservice opnieuw trainen:
 
-* Trainingsexperiment om toe te staan voor de retraining bijwerken
-* De retraining-webservice implementeren
-* De Batch-Service voor uitvoering van code gebruiken voor het model opnieuw trainen
+* Update-trainingsexperiment om toe te staan voor het opnieuw trainen
+* De retraining webservice implementeren
+* Gebruik van de code Batch-Service voor uitvoering van het model trainen
 
-Zie voor een overzicht van de voorgaande stappen, [Retrain Machine Learning-modellen programmatisch](retrain-models-programmatically.md).
+Zie voor een overzicht van de voorgaande stappen, [opnieuw trainen Machine Learning-modellen programmatisch](retrain-models-programmatically.md).
 
 > [!NOTE] 
-> Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waaraan u de webservice implementeren. Zie voor meer informatie, [beheren van een webservice via de portal voor Azure Machine Learning-webservices](manage-new-webservice.md). 
+> Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waarvoor u de webservice implementeert. Zie voor meer informatie, [beheren van een webservice met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md). 
 
 Als u een klassieke webservice geïmplementeerd:
 
 * Een nieuw eindpunt op de voorspellende webservice maken
 * De PATCH-URL en de code ophalen
-* De URL van de PATCH voor het nieuwe eindpunt het retrained model verwijzen gebruiken 
+* Gebruik van de PATCH-URL naar het nieuwe eindpunt voor het retrained model 
 
-Zie voor een overzicht van de voorgaande stappen, [opnieuw trainen een klassieke webservice](retrain-a-classic-web-service.md).
+Zie voor een overzicht van de voorgaande stappen, [een klassieke webservice opnieuw trainen](retrain-a-classic-web-service.md).
 
-Als u in een klassieke webservice retraining moeilijkheden uitvoert, Zie [probleemoplossing retraining van een Azure Machine Learning klassieke webservice](troubleshooting-retraining-models.md).
+Als u een klassieke webservice opnieuw trainen problemen ondervindt, raadpleegt u [het oplossen van het opnieuw trainen van een Azure Machine Learning klassieke Web service](troubleshooting-retraining-models.md).
 
 Als u een nieuwe webservice geïmplementeerd:
 
-* Aanmelden bij uw account voor Azure Resource Manager
-* Definitie van de webservice ophalen
-* Exporteren van de webservicedefinitie als JSON
+* Meld u aan bij uw Azure Resource Manager-account
+* De definitie van de Web service ophalen
+* De definitie van de Web Service exporteren als JSON
 * Bijwerken van de verwijzing naar de `ilearner` blob in de JSON
-* De JSON importeren in de definitie van een Web-Service
-* De webservice bijwerken met definitie van een nieuwe Web-Service
+* Het importeren van de JSON in de definitie van een Web-Service
+* De webservice bijwerken met nieuwe Web-servicedefinitie
 
-Zie voor een overzicht van de voorgaande stappen, [opnieuw trainen van de Machine Learning Management PowerShell-cmdlets met een nieuwe webservice](retrain-new-web-service-using-powershell.md).
+Zie voor een overzicht van de voorgaande stappen, [opnieuw trainen van een nieuwe webservice met behulp van de Machine Learning Management PowerShell-cmdlets](retrain-new-web-service-using-powershell.md).
 
-Het proces voor het instellen van de retraining voor een klassieke webservice omvat de volgende stappen:
+Het proces voor het instellen van het opnieuw trainen van een klassieke webservice omvat de volgende stappen uit:
 
-![Overzicht van het proces retraining][1]
+![Overzicht van het proces opnieuw trainen][1]
 
-Het proces voor het instellen van de retraining voor een nieuwe Web-service omvat de volgende stappen:
+Het proces voor het instellen van het opnieuw trainen van een nieuwe Web-service omvat de volgende stappen uit:
 
-![Overzicht van het proces retraining][7]
+![Overzicht van het proces opnieuw trainen][7]
 
 ## <a name="other-resources"></a>Meer informatie
-* [Retraining en bijwerken van Azure Machine Learning-modellen met Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
-* [Groot aantal Machine Learning-modellen en web service-eindpunten maken van een experiment met behulp van PowerShell](create-models-and-endpoints-with-powershell.md)
-* De [AML Retraining modellen met behulp van API's](https://www.youtube.com/watch?v=wwjglA8xllg) video ziet u hoe opnieuw trainen van Machine Learning-modellen in Azure Machine Learning gemaakt met behulp van de Retraining API's en PowerShell.
+* [Opnieuw trainen en bijwerken van Azure Machine Learning-modellen met Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
+* [Veel Machine Learning-modellen en web service-eindpunten maken van een experiment met PowerShell](create-models-and-endpoints-with-powershell.md)
+* De [AML Retraining modellen met behulp van API's](https://www.youtube.com/watch?v=wwjglA8xllg) video ziet u hoe u Machine Learning-modellen die zijn gemaakt in Azure Machine Learning te trainen met behulp van de Retraining API's en PowerShell.
 
 <!--image links-->
 [1]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png

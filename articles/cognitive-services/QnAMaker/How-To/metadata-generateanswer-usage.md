@@ -9,12 +9,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 8ad51edde1fc90329e908f8150aadcbf4f401126
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448217"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113348"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Met behulp van metagegevens en de GenerateAnswer-API
 
@@ -82,6 +82,7 @@ U aanroepen GenerateAnswer met een HTTP POST-aanvraag. Voorbeeld van code die la
     - **antwoorden** -een lijst met antwoorden voor de gebruikersquery, gesorteerd in aflopende volgorde van de volgorde van score.
         - **score**: een rangorde tussen 0 en 100 liggen.
         - **vragen over**: de opgegeven door de gebruiker vragen.
+        - **antwoord**: het antwoord op de vraag.
         - **bron**: de naam van de bron van waaruit het antwoord is uitgepakt of opgeslagen in het knowledge base.
         - **metagegevens**: de metagegevens die zijn gekoppeld aan het antwoord.
             - naam: naam voor de metagegevens. (string, maximumlengte: 100, vereist)

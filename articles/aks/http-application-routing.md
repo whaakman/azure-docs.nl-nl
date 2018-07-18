@@ -1,6 +1,6 @@
 ---
-title: HTTP-invoegtoepassing Routering van toepassing op Azure Container Service (AKS)
-description: Invoegtoepassing Routering van HTTP-toepassing in Azure Container Service (AKS) gebruiken
+title: HTTP-aanvraag routering invoegtoepassing in Azure Kubernetes Service (AKS)
+description: De invoegtoepassing van HTTP-toepassing-Routering in Azure Kubernetes Service (AKS) gebruiken.
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -8,45 +8,64 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 6e5a81742b4a6b21e5cfa28d8e772430f8ae30ba
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4484031b20e625f81ba8b3869110e90df189323e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117425"
 ---
 # <a name="http-application-routing"></a>Routering van HTTP-toepassing
 
-De oplossing routering van HTTP-toepassing kunt gemakkelijk toegang geïmplementeerde toepassingen op uw AKS-cluster. Wanneer dit is ingeschakeld, configureert de oplossing voor een domeincontroller inkomend in uw cluster AKS. Bovendien, als toepassingen worden geïmplementeerd, maakt de oplossing ook openbaar toegankelijk DNS-namen voor eindpunten van de toepassingen.
+De HTTP-routering oplossing kunt eenvoudig toegang krijgen tot toepassingen die zijn geïmplementeerd in uw cluster Azure Kubernetes Service (AKS). Wanneer u van de oplossing is ingeschakeld, configureert het een controller voor binnenkomend verkeer in uw AKS-cluster. Als toepassingen worden geïmplementeerd, maakt de oplossing ook openbaar toegankelijke DNS-namen voor eindpunten van de toepassingen.
 
-Inschakelen van deze invoegtoepassing wordt gemaakt van een DNS-Zone in uw abonnement. Zie voor meer informatie over DNS-kosten [DNS-prijzen][dns-pricing].
+Wanneer de invoegtoepassing is ingeschakeld, wordt een DNS-Zone gemaakt in uw abonnement. Zie voor meer informatie over DNS-kosten [DNS prijzen][dns-pricing].
 
-## <a name="http-routing-solution-overview"></a>Overzicht van de HTTP-routering oplossing
+## <a name="http-routing-solution-overview"></a>Oplossingenoverzicht van de HTTP-routering
 
-De invoegtoepassing twee onderdelen implementeert een [Kubernetes inkomend Controller] [ ingress] en een [externe DNS] [ external-dns] controller.
+De invoegtoepassing implementeert twee onderdelen: een [controller voor binnenkomend verkeer van Kubernetes] [ ingress] en een [externe DNS] [ external-dns] controller.
 
-- **Inkomend controller** -de ingress-controller wordt blootgesteld aan internet met behulp van een service Kubernetes van het type Load Balancer. De controller inkomend controleert en implementeert [Kubernetes inkomend resources][ingress-resource], routes naar de eindpunten van de toepassing gemaakt.
-- **Externe DNS-controller** - bestandswijzigingsmeldingscontrole Kubernetes inkomend bronnen en DNS A-records gemaakt in de cluster-specifieke DNS-Zone.
+- **Controller voor binnenkomend verkeer**: de ingangscontroller wordt blootgesteld aan internet met behulp van een Kubernetes-service van het type Load Balancer. De controller voor binnenkomend verkeer controleert en implementeert [inkomend verkeer van Kubernetes-resources][ingress-resource], waarmee routes naar de toepassingseindpunten wordt gemaakt.
+- **Externe DNS-controller**: controleert op Kubernetes inkomend resources en DNS A-records gemaakt in de cluster-specifieke DNS-zone.
 
-## <a name="deploy-http-routing"></a>HTTP-routering implementeren
+## <a name="deploy-http-routing-cli"></a>Implementeren van HTTP-routering: CLI
 
-De invoegtoepassing Routering van HTTP-toepassing kan worden ingeschakeld via de Azure portal bij het implementeren van een cluster AKS.
+De HTTP-aanvraag routering invoegtoepassing kan worden ingeschakeld met de Azure CLI bij het implementeren van een AKS-cluster. Om dit te doen, gebruikt u de [az aks maken] [ az-aks-create] opdracht met de `--enable-addons` argument.
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+```
+
+Nadat het cluster is geïmplementeerd, gebruikt u de [az aks show] [ az-aks-show] opdracht voor het ophalen van de naam van de DNS-zone. Deze naam is vereist voor het implementeren van toepassingen voor het AKS-cluster.
+
+```azurecli
+$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+
+Result
+-----------------------------------------------------
+9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+```
+
+## <a name="deploy-http-routing-portal"></a>Implementeren van HTTP-routering: Portal
+
+De HTTP-aanvraag routering invoegtoepassing kan worden ingeschakeld via de Azure-portal bij het implementeren van een AKS-cluster.
 
 ![De HTTP-routering inschakelen](media/http-routing/create.png)
 
-Zodra het cluster is geïmplementeerd, blader naar de resourcegroep AKS automatisch gemaakt en selecteert u de DNS-zone. Noteer de naam van de DNS-zone. Deze naam is vereist bij het implementeren van toepassingen naar het cluster AKS.
+Nadat het cluster is geïmplementeerd, blader naar de resourcegroep automatisch is gemaakt voor AKS en selecteert u de DNS-zone. Noteer de naam van de DNS-zone. Deze naam is vereist voor het implementeren van toepassingen voor het AKS-cluster.
 
 ![De naam van de DNS-zone ophalen](media/http-routing/dns.png)
 
-## <a name="use-http-routing"></a>Gebruik HTTP-routering
+## <a name="use-http-routing"></a>Gebruik van HTTP-routering
 
-De HTTP-toepassing Routering oplossing kan alleen worden geactiveerd op inkomend bronnen die zijn gemarkeerd als volgt:
+De oplossing voor het routering van HTTP-toepassingen kan alleen worden geactiveerd voor inkomend verkeer bronnen die zijn gemarkeerd als volgt:
 
 ```
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Maak een bestand met de naam `samples-http-application-routing.yaml` en kopieer de volgende YAML. Update op regel 43 `<CLUSTER_SPECIFIC_DNS_ZONE>` verzameld met de naam van de DNS-zone in de laatste stap van dit document.
+Maak een bestand met de naam **voorbeelden-http-aanvraag-routing.yaml** en kopieer de volgende YAML. Update op regel 43 `<CLUSTER_SPECIFIC_DNS_ZONE>` verzameld met de naam van de DNS-zone in de laatste stap van dit artikel.
 
 
 ```yaml
@@ -108,7 +127,7 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-Gebruik cURL of een browser om te navigeren naar de hostnaam die is opgegeven in de sectie van de host van de `samples-http-application-routing.yaml` bestand. De toepassing duurt maximaal één minuut voordat deze beschikbaar zijn via internet.
+CURL of een browser gebruiken om te navigeren naar de hostnaam die is opgegeven in de sectie host van de voorbeelden-http-aanvraag-routing.yaml-bestand. De toepassing duurt maximaal één minuut voordat deze beschikbaar zijn via internet.
 
 ```
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
@@ -131,9 +150,9 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshoot"></a>Problemen oplossen
 
-Gebruik de [kubectl logboeken] [ kubectl-logs] opdracht om de logboeken voor de externe DNS-toepassing weer te geven. De logboeken moeten bevestigen dat een A- en DNS TXT-record is gemaakt.
+Gebruik de [kubectl logboeken] [ kubectl-logs] opdracht om de toepassingslogboeken voor de externe DNS-toepassing weer te geven. De logboeken te bevestigen dat een A- en DNS TXT-record zijn gemaakt.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -142,11 +161,11 @@ time="2018-04-26T20:36:19Z" level=info msg="Updating A record named 'party-clipp
 time="2018-04-26T20:36:21Z" level=info msg="Updating TXT record named 'party-clippy' to '"heritage=external-dns,external-dns/owner=default"' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
 ```
 
-Deze records kunnen ook worden weergegeven op de bron van de DNS-zone in de Azure portal.
+Deze records kunnen ook worden weergegeven op de bron van de DNS-zone in Azure portal.
 
 ![De DNS-records ophalen](media/http-routing/clippy.png)
 
-Gebruik de [kubectl logboeken] [ kubectl-logs] opdracht om de logboeken voor de Controller Nginx-inkomend weer te geven. De logboeken te bevestigen, het maken van een resource inkomend en het opnieuw laden van de domeincontroller. Alle HTTP-activiteit worden geregistreerd.
+Gebruik de [kubectl logboeken] [ kubectl-logs] opdracht om de toepassingslogboeken voor de Nginx-ingangscontroller weer te geven. De logboeken te bevestigen de `CREATE` van een resource inkomend verkeer en het opnieuw laden van de controller. Alle HTTP-activiteit wordt geregistreerd.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
@@ -185,9 +204,9 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-party-clippy-80] 10.244.0.13:8080 234 0.004 200
 ```
 
-## <a name="cleanup"></a>Opschonen
+## <a name="clean-up"></a>Opruimen
 
-Verwijder de bijbehorende Kubernetes objecten in deze stap hebt gemaakt.
+Verwijder de gekoppelde Kubernetes-objecten in dit artikel hebt gemaakt.
 
 ```
 $ kubectl delete -f samples-http-application-routing.yaml
@@ -199,10 +218,13 @@ ingress "party-clippy" deleted
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor informatie over het installeren van een HTTPS beveiligd inkomend controller in AKS, [HTTPS, inkomend op Azure Container Service (AKS)][ingress-https]
+Zie voor meer informatie over het installeren van een HTTPS-beveiligde ingangscontroller in AKS [HTTPS inkomend verkeer op Azure Kubernetes Service (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/

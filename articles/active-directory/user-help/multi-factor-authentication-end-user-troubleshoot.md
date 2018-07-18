@@ -1,98 +1,64 @@
 ---
 title: Verificatie - Azure AD oplossen | Microsoft Docs
-description: Dit document bevatten gebruikers informatie over wat te doen als ze een probleem met Azure multi-factor Authentication ondervindt.
+description: Bevat instructies voor gebruikers over wat te doen als ze worden uitgevoerd in een probleem met Azure multi-factor Authentication en verificatie in twee stappen.
 services: multi-factor-authentication
-keywords: Multi-factor authentication-client, verificatieprobleem, correlatie-ID
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2017
+ms.date: 07/16/2018
 ms.author: lizross
-ms.reviewer: richagi
-ms.custom: end-user
-ms.openlocfilehash: deb75c2601fa55f7cdb1681d8f73e94d6b01310a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: kexia
+ms.openlocfilehash: ec79adcaf7cbef778b8c9e572ae932d5ceb47aa6
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060073"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090374"
 ---
 # <a name="get-help-with-two-step-verification"></a>Help-informatie weergeven bij verificatie in twee stappen
-In dit artikel vindt u antwoorden op de meest voorkomende vragen over verificatie in twee stappen.
 
-## <a name="why-do-i-have-to-perform-two-step-verification-can-i-turn-it-off"></a>Waarom heb ik om uit te voeren van verificatie in twee stappen? Kan ik deze uitschakelen inschakelen?
+Verificatie in twee stappen is een beveiligingsfunctie die uw organisatie worden gebruikt voor het beveiligen van uw accounts. Verificatie in twee stappen is veiliger dan alleen met een wachtwoord, omdat deze is gebaseerd op twee soorten verificatie: iets dat u weet en iets dat u hebt met u. De iets dat die u weet is uw wachtwoord, terwijl de iets dat die u bij u hebben uw telefoon of een apparaat is. Met behulp van verificatie in twee stappen kan helpen om te stoppen schadelijke hackers aanmelden als u, zelfs als ze uw wachtwoord.
 
-Verificatie in twee stappen is een beveiligingsfunctie die uw organisatie hebt gekozen voor het beveiligen van uw accounts. Het is veiliger dan alleen met een wachtwoord, omdat deze is gebaseerd op twee soorten verificatie: iets dat u weet en iets dat u hebt met u. Er is iets u weet dat uw wachtwoord. Iets met u is een telefoon of een apparaat dat u doorgaans bij u hebben. Wanneer uw account is beveiligd met verificatie in twee stappen, dit betekent dat dat een kwaadwillende persoon zich niet als u als ze uw wachtwoord op omdat ze geen toegang tot uw telefoon te hebben.
+Microsoft biedt verificatie in twee stappen, is uw organisatie die bepaalt of u de functie gebruiken. U kunt geen zich afmelden als uw organisatie vereist, net zoals u kunnen zich niet met een wachtwoord afmelden voor de beveiliging van uw account.
 
-Microsoft biedt verificatie in twee stappen, maar uw organisatie, kiest u de functie. U kunt geen zich afmelden als het ondersteuningsteam van uw bedrijf van u, vereist net zoals u kunnen zich niet met een wachtwoord afmelden voor de beveiliging van uw account.
+>[!Note]
+>Als u meer informatie over het gebruik van verificatie in twee stappen aan uw persoonlijke Microsoft-account zoekt, raadpleegt u de [over verificatie in twee stappen](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) artikel.
 
-Als u verificatie in twee stappen ingeschakeld voor uw persoonlijke Microsoft-account hebt en wilt de instellingen wijzigen, lezen [over verificatie in twee stappen](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) in plaats daarvan.
+## <a name="why-do-i-need-to-use-another-verification-method"></a>Waarom heb ik nodig om een andere verificatiemethode te gebruiken?
 
-## <a name="i-dont-have-my-phone-with-me-today"></a>Ik heb mijn telefoon met mij vandaag nog
+Er zijn diverse redenen waarom u moet mogelijk een andere verificatiemethode gebruiken met uw account. Bijvoorbeeld:
 
-Een aantal dagen dat u uw telefoon bij u thuis, maar nog steeds laat moeten zich aanmelden op het werk. Allereerst die moet u proberen is het aanmelden met een andere verificatiemethode. Bij de registratie voor verificatie in twee stappen, u meer dan één telefoonnummer instellen? Als u wilt proberen zich aanmeldt met een andere methode, de volgende stappen uit:
+- **U bent vergeten uw telefoon of het apparaat.** Een aantal dagen dat u uw telefoon bij u thuis, maar nog steeds laat moeten zich aanmelden op het werk. Eerst moet u proberen aanmelden met een andere methode die uw telefoon niet nodig.
 
-1. Meld u zoals u gewend bent.
-2. Wanneer de pagina van de verificatie in twee stappen wordt geopend, kiest u **gebruiken een andere verificatieoptie**.
+- **U uw telefoon verliest of hebt u een nieuw telefoonnummer.** Als u uw telefoon verloren bent of een nieuw getal verkregen, kunt u zich aanmeldt met een andere methode of vraag uw beheerder om uw instellingen te wissen. Het is raadzaam dat uw beheerder weten als uw telefoon is zoekgeraakt of gestolen, zodat de juiste updates kunnen worden gesteld aan uw account. Nadat u uw instellingen zijn uitgeschakeld, wordt u gevraagd naar [registreren voor verificatie in twee stappen](multi-factor-authentication-end-user-first-time.md) de volgende keer dat u zich aanmeldt.
 
-   ![Andere verificatie](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
+- **Niet ophalen van de tekst van de verificatie of automatische oproep.** Er zijn diverse redenen waarom u mogelijk niet aan de tekst of automatische oproep. Als u teksten of telefoongesprekken worden gevoerd met succes in het verleden geworden hebt, maar dit is waarschijnlijk een probleem met de provider van de telefoon, niet op uw account. Als u vaak vertragingen vanwege een ongeldige signaal hebt, raden wij aan u de [Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md) op uw mobiele apparaat. Deze app kunt willekeurige beveiligingscodes genereren voor aanmelden, zonder eventuele cel signaal of de verbinding met Internet.<br><br>Als u een SMS-bericht ontvangen probeert, vraagt u een vriend naar tekst u als een test om te controleren of u kunt een, en als u akkoord bent gegaan met verschillende berichten, zorg ervoor dat u de code van de meest recente versie gebruikt.
 
-3. Selecteer de verificatiemethode die u wilt gebruiken.
-4. Ga door met verificatie in twee stappen.
+- **Uw app-wachtwoorden werken niet.** App-wachtwoorden vervangen door uw normale wachtwoord voor oudere bureaubladtoepassingen die verificatie in twee stappen niet ondersteunen. Controleer eerst of dat u het wachtwoord correct hebt ingevoerd. Als dat het niet oplossen, probeert u aan te melden bij [maken van een nieuw app-wachtwoord](multi-factor-authentication-end-user-app-passwords.md) of contact opnemen met uw beheerder om [je bestaande app-wachtwoorden verwijderen](../authentication/howto-mfa-userdevicesettings.md) zodat u kunt een nieuwe maken.
 
-Als er geen de **gebruiken een andere verificatieoptie** koppelen, en dit betekent u geen alternatieve methoden instellen dat bij de eerste registratie voor verificatie in twee stappen. Neem contact op met de bedrijfsondersteuning voor hulp bij het aanmelden bij uw account. Nadat u bent aangemeld, zorg ervoor dat u [uw instellingen beheren](multi-factor-authentication-end-user-manage-settings.md) om toe te voegen extra verificatiemethoden voor later.
+## <a name="sign-in-using-another-verification-method"></a>Meld u aan met behulp van een andere verificatiemethode
 
-Als u ziet de **gebruiken een andere verificatieoptie** koppeling, maar u hebt geen toegang tot uw alternatieve methoden beide, neem contact op met de bedrijfsondersteuning voor hulp bij het aanmelden bij uw account.
+1. Meld u aan bij uw account normaal en kies de **Meld u aan een andere manier** koppelen op de **verificatie in twee stappen** pagina.
 
-## <a name="i-lost-my-phone-or-got-a-new-number"></a>Kan ik mijn telefoon verlies of hebt u een nieuw getal
-Er zijn twee manieren om terug te gaan op uw account. De eerste is aan te melden met uw telefoonnummer alternatieve verificatie als u een hebt ingesteld. De tweede is om te vragen van het ondersteuningsteam van uw bedrijf om uw instellingen te wissen.
+    ![Meld u in de verificatiemethode wijzigen](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
-Als uw telefoon is verloren of gestolen is, wordt ook aangeraden dat u instellen uw bedrijf ondersteuning dat, zodat ze kunnen uw appwachtwoorden opnieuw instellen en wis eventuele onthouden apparaten.
+    >[!Note]
+    >Als er geen de **Meld u aan een andere manier** koppeling, betekent dit dat u andere verificatiemethoden hebt ingesteld. Hebt u aan contact op met uw beheerder voor hulp bij het aanmelden bij uw account. Nadat u zich hebt aangemeld, zorg er dan voor dat u extra verificatiemethoden toevoegen. Zie voor meer informatie over het toevoegen van verificatiemethoden de [uw instellingen beheren voor verificatie in twee stappen](multi-factor-authentication-end-user-manage-settings.md) artikel.<br><br>Als u de koppeling wordt weergegeven, maar andere verificatiemethoden nog steeds niet ziet, hebt u contact op met uw beheerder voor hulp bij het aanmelden bij uw account.
 
-### <a name="use-an-alternate-phone-number"></a>Een alternatief telefoonnummer gebruiken
-Als u meerdere opties voor verificatie, met inbegrip van een tweede telefoonnummer of een verificator-app op een ander apparaat hebt ingesteld kunt u een van deze zich aanmeldt.
+2. Kies uw alternatieve verificatiemethode en doorgaan met het proces voor de verificatie in twee stappen.
 
-Om aan te melden met behulp van het alternatieve telefoonnummer, de volgende stappen uit:
+3. Nadat u weer terug in uw account bent, kunt u uw verificatiemethoden bijwerken (indien nodig). Voor meer informatie over toevoegen of wijzigen van de methoden, Zie de [uw instellingen beheren voor verificatie in twee stappen](multi-factor-authentication-end-user-manage-settings.md) artikel.
 
-1. Meld u zoals u gewend bent.
-2. Wanneer u hierom wordt gevraagd verder uw account te verifiëren, kiest u **gebruiken een andere verificatieoptie**.
+## <a name="i-didnt-find-an-answer-to-my-problem"></a>Kan ik vinden een antwoord op mijn probleem niet
 
-   ![Andere verificatie](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
-
-3. Selecteer het telefoonnummer of een apparaat dat u toegang tot hebt.
-4. Nadat u weer terug in uw account bent [uw instellingen beheren](multi-factor-authentication-end-user-manage-settings.md) om het telefoonnummer van uw verificatie te wijzigen.
-
-### <a name="clear-your-settings"></a>Uw instellingen wissen
-Als u een telefoonnummer voor secundaire verificatie niet hebt geconfigureerd, moet u contact op met uw bedrijf voor hulp. Ze duidelijk hebben de instellingen, zodat de volgende keer dat u zich aanmelden, wordt u gevraagd naar [registreren voor verificatie in twee stappen](multi-factor-authentication-end-user-first-time.md) opnieuw.
-
-## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Ik ben niet ontvangen van een SMS-bericht of neem contact op mijn telefoon
-Er zijn diverse redenen waarom u wilt mogelijk aanmelden, maar niet de tekst- of telefonische oproep te ontvangen. Als u met succes teksten of telefoontjes naar uw telefoon in het verleden ontvangen hebt, is dit waarschijnlijk een probleem met de provider van de telefoon, niet op uw account. Zorg ervoor dat u goed cel signaal hebt en als u probeert te ontvangen van een SMS-bericht Zorg ervoor dat u zich kunt SMS-berichten ontvangen. Vraag een vriend te bellen u of sturen u als een test.
-
-Als u enkele minuten een tekstbericht of telefoongesprek hebt gewacht, is de snelste manier om toegang te krijgen tot uw account om te proberen een andere optie.
-
-1. Selecteer **gebruiken een andere verificatieoptie** op de pagina waarop wordt gewacht tot de verificatie.
-
-    ![Andere verificatie](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
-2. Selecteer de telefoon-nummer of delivery-methode die u wilt gebruiken.
-
-    Als u meerdere verificatiecodes ontvangen, gebruikt u de nieuwste versie.
-
-Als u een andere methode geconfigureerd hebt, neem contact op met het ondersteuningsteam van uw bedrijf en vraag deze om uw instellingen te wissen. De volgende keer dat u zich aanmeldt, wordt u gevraagd naar [instellen van multi-factor authentication](multi-factor-authentication-end-user-first-time.md) opnieuw.
-
-Als u vaak vertragingen vanwege ongeldige cel signaal hebt, raden wij aan u de [Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md) op uw smartphone. De app kunt genereren willekeurige beveiligingscodes die u gebruikt om te melden en deze codes elke cel signaal of internet verbinding vereisen.
-
-## <a name="app-passwords-are-not-working"></a>App-wachtwoorden werken niet
-Controleer eerst of u het app-wachtwoord juist hebt ingevoerd. De gegenereerde app-wachtwoord wordt vervangen door uw normale wachtwoord, maar alleen voor oudere bureaubladtoepassingen die verificatie in twee stappen niet ondersteunen. Als deze nog steeds niet werkt, probeer het aanmelden en [maken van een nieuw app-wachtwoord](multi-factor-authentication-end-user-app-passwords.md).  Als dit nog steeds niet werkt, neem contact op met het ondersteuningsteam van uw bedrijf en deze [je bestaande app-wachtwoorden verwijderen](../authentication/howto-mfa-userdevicesettings.md) en vervolgens kunt u een nieuwe maken.
-
-## <a name="i-didnt-find-an-answer-to-my-problem"></a>Kan ik vinden een antwoord op mijn probleem niet.
-Als u deze stappen voor probleemoplossing hebt geprobeerd maar nog steeds actief in problemen met, neem dan contact op met het ondersteuningsteam van uw bedrijf. Ze zou het mogelijk om u te helpen.
+Als u deze stappen hebt geprobeerd maar nog steeds actief in problemen met, neem dan contact op met uw beheerder voor meer informatie.
 
 ## <a name="related-topics"></a>Verwante onderwerpen
-* [Uw instellingen beheren voor verificatie in twee stappen](multi-factor-authentication-end-user-manage-settings.md)  
+
+* [Uw instellingen beheren voor verificatie in twee stappen](multi-factor-authentication-end-user-manage-settings.md)
+
 * [Veelgestelde vragen over Microsoft Authenticator-toepassing](microsoft-authenticator-app-faq.md)

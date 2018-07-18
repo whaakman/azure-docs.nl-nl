@@ -1,6 +1,6 @@
 ---
-title: Azure integratieservices - eenvoudige Enterprise Integration
-description: Referentiearchitectuur waarin wordt getoond hoe een eenvoudige enterprise integration-patroon met Azure Logic Apps en Azure API Management implementeren
+title: Azure Integration Services eenvoudig enterprise integration-referentiearchitectuur
+description: Hierin wordt beschreven in de referentiearchitectuur die laat zien hoe u een eenvoudige enterprise integration-patroon met Azure Logic Apps en Azure API Management wilt implementeren.
 author: mattfarm
 manager: jonfan
 editor: ''
@@ -14,160 +14,157 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: df86ca5aed405ab5eda05c1dd207f0b6656bfd96
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 982a5eabf8c6c3012a9b3e8fdbe2ff32ba439972
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860194"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113589"
 ---
-# <a name="simple-enterprise-integration---reference-architecture"></a>Eenvoudige Enterprise Integration - referentiearchitectuur
+# <a name="reference-architecture-simple-enterprise-integration"></a>Referentie-architectuur: eenvoudige bedrijfsintegratie
 
-## <a name="overview"></a>Overzicht
+De volgende referentiearchitectuur toont een set bewezen procedures die u kunt toepassen op een integratietoepassing die gebruikmaakt van Azure Integration Services. De architectuur kan fungeren als basis voor veel verschillende toepassingspatronen waarvoor HTTP APIs, werkstromen en orchestration.
 
-Deze referentiearchitectuur toont een set bewezen procedures voor een integratietoepassing die gebruikmaakt van Azure Integration Services. Deze architectuur kan fungeren als deze basis van veel verschillende toepassingspatronen waarbij HTTP APIs, werkstroom en orchestration.
+![Architectuurdiagram - eenvoudige bedrijfsintegratie](./media/logic-apps-architectures-simple-enterprise-integration/simple_arch_diagram.png)
 
-*Er zijn veel mogelijke toepassingen van technologie voor integratie van de toepassing van een eenvoudige punt-naar-punt met een volledige enterprise servicebus. Deze reeks architectuur stelt de herbruikbare onderdelen die mogelijk van toepassing voor het bouwen van een integratietoepassing algemene-architecten moeten rekening houden met welke specifieke onderdelen, moeten ze worden geïmplementeerd voor de toepassingen en infrastructuur.*
-
-   ![Architectuurdiagram - eenvoudige bedrijfsintegratie](./media/logic-apps-architectures-simple-enterprise-integration/simple_arch_diagram.png)
+*Er zijn veel mogelijke toepassingen voor de integratie van technologie. Ze variëren van een eenvoudige point-to-point-toepassing naar een volledige enterprise Azure Service Bus-toepassing. De architectuur-serie beschrijft de herbruikbare onderdelen die van toepassing zijn mogelijk voor het bouwen van een algemene integratietoepassing. Architecten moeten rekening houden met welke onderdelen ze nodig hebben om te implementeren voor hun toepassingen en infrastructuur.*
 
 ## <a name="architecture"></a>Architectuur
 
 De architectuur heeft de volgende onderdelen:
 
-- Resourcegroep. Een [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) is een logische container voor Azure-resources.
-- Azure API Management. [Met Azure API Management](https://docs.microsoft.com/azure/api-management/) is een volledig beheerd platform voor het publiceren, beveiligen en HTTP APIs transformeren.
-- Portal voor ontwikkelaars van Azure API Management. Elk exemplaar van Azure API Management wordt geleverd met een [Ontwikkelaarsportal](https://docs.microsoft.com/azure/api-management/api-management-customize-styles), die toegang geeft tot documentatie, codevoorbeelden en de mogelijkheid voor het testen van een API.
-- Azure Logic Apps. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) is een serverloos platform voor het bouwen van enterprise-werkstroom en het integratieaccount.
-- Connectors. [Connectors](https://docs.microsoft.com/azure/connectors/apis-list) worden gebruikt door Logic Apps verbinding maken met de meest gebruikte services. Logic Apps heeft al honderden verschillende connectors, maar ze kunnen ook worden gemaakt met behulp van een aangepaste connector.
-- IP-adres. De Azure API Management-service heeft een vaste openbare [IP-adres](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) en de domeinnaam van een. De domeinnaam is een subdomein van azure-api.net, zoals contoso.azure-api.net. Logic Apps en Service Bus hebt ook een openbare IP-adres. in deze architectuur beperken we echter toegang voor het aanroepen van Logic apps-eindpunten aan alleen de IP-adres van API Management (voor beveiliging). Aanroepen naar Service Bus worden beveiligd door een shared access signature.
-- Azure DNS. [Azure DNS](https://docs.microsoft.com/azure/dns/) is een hostingservice voor DNS-domeinen die naamomzetting met behulp van Microsoft Azure-infrastructuur biedt. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services. Maak DNS-records die de aangepaste domeinnaam aan het IP-adres toewijzen voor het gebruik van een aangepaste domeinnaam (zoals contoso.com). Zie voor meer informatie, een aangepaste domeinnaam in Azure API Management configureren.
-- Azure Active Directory (Azure AD). Gebruik [Azure AD](https://docs.microsoft.com/azure/active-directory/) of een andere id-provider voor verificatie. Azure AD biedt verificatie voor toegang tot API-eindpunten (door door te geven een [JSON Web Token voor API Management](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) valideren) en toegang tot de API Management-Ontwikkelaarsportal (alleen Standard en Premium-lagen) kunt beveiligen.
+- **Resourcegroep**. Een [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) is een logische container voor Azure-resources.
+- **Azure API Management**. [API Management](https://docs.microsoft.com/azure/api-management/) is een volledig beheerd platform dat wordt gebruikt om te publiceren, te beveiligen en te transformeren HTTP APIs.
+- **Azure API Management-ontwikkelaarsportal**. Elk exemplaar van Azure API Management wordt geleverd met toegang tot de [ontwikkelaarsportal](https://docs.microsoft.com/azure/api-management/api-management-customize-styles). De ontwikkelaarsportal van API Management biedt u toegang tot documentatie en codevoorbeelden. U kunt API's testen in de portal voor ontwikkelaars.
+- **Azure Logic Apps**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) is een serverloos platform dat wordt gebruikt voor het bouwen van enterprise-werkstroom en het integratieaccount.
+- **Connectors**. Logic Apps gebruikt [connectors](https://docs.microsoft.com/azure/connectors/apis-list) verbinding maken met veel gebruikte services. Logic Apps is al honderden verschillende connectors, maar u kunt ook een aangepaste connector maken.
+- **IP-adres**. De Azure API Management-service heeft een vaste openbare [IP-adres](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) en de domeinnaam van een. De domeinnaam is een subdomein van azure-api.net, zoals contoso.azure-api.net. Logic Apps en Service Bus moet u ook een openbaar IP-adres hebben. In deze architectuur beperken we echter toegang voor het aanroepen van Logic Apps-eindpunten alleen het IP-adres van API Management (voor beveiliging). Aanroepen naar Service Bus worden beveiligd door een shared access signature (SAS).
+- **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/) is een hostingservice voor DNS-domeinen. Azure DNS biedt naamomzetting met behulp van de Microsoft Azure-infrastructuur. Door uw domeinen in Azure hosten, kunt u uw DNS-records beheren met behulp van dezelfde referenties, API's, hulpprogramma's en facturering, gebruikt u voor uw andere Azure-services. Maak DNS-records die de aangepaste domeinnaam aan het IP-adres toewijzen voor het gebruik van een aangepaste domeinnaam, zoals contoso.com. Zie voor meer informatie, [een aangepaste domeinnaam configureren in API Management](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
+- **Azure Active Directory (Azure AD)**. Gebruik [Azure AD](https://docs.microsoft.com/azure/active-directory/) of een andere id-provider voor verificatie. Azure AD-verificatie voor toegang tot API-eindpunten door door te geven biedt een [JSON Web Token voor API Management](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) om te valideren. Azure AD kan beveiligde toegang tot de API Management-ontwikkelaarsportal (alleen Standard en Premium-lagen).
 
-Deze architectuur heeft enkele fundamentele patronen op de werking ervan:
+De architectuur heeft enkele patronen die essentieel voor de werking ervan zijn:
 
-2. Samengestelde API's zijn gebouwd met behulp van Logic Apps; aanroepen van SAAS-systemen organiseren, Azure-services en API's gepubliceerd op API Management. De [Logic Apps worden ook gepubliceerd](https://docs.microsoft.com/azure/api-management/import-logic-app-as-api) via de API Management-Ontwikkelaarsportal.
-3. Toepassingen [verkrijgen van een OAuth 2.0-beveiligingstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) die nodig zijn voor het verkrijgen van toegang tot een API met behulp van Azure Active Directory.
-4. Met Azure API Management [valideert het beveiligingstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad), en wordt de aanvraag doorgegeven aan de back-end API/logische App.
+- Samengestelde API's zijn gebouwd met behulp van logic apps. Ze indelen aanroepen voor software als een service (SaaS)-systemen, Azure-services en API's die worden gepubliceerd naar API Management. [Logische apps worden ook gepubliceerd](https://docs.microsoft.com/azure/api-management/import-logic-app-as-api) via de API Management-ontwikkelaarsportal.
+- Toepassingen Azure AD gebruiken om [verkrijgen van een OAuth 2.0-beveiligingstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) die is vereist voor toegang tot een API.
+- Met Azure API Management [valideert het beveiligingstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) en geeft vervolgens de aanvraag door naar de back-end-API of de logische app.
 
 ## <a name="recommendations"></a>Aanbevelingen
 
-Uw specifieke vereisten kunnen afwijken van de algemene architectuur die hier worden beschreven. Gebruik de aanbevelingen in deze sectie als uitgangspunt.
+Uw specifieke vereisten kunnen afwijken van de algemene architectuur die worden beschreven in dit artikel. Gebruik de aanbevelingen in deze sectie als uitgangspunt.
 
 ### <a name="azure-api-management-tier"></a>Azure API Management-laag
 
-Gebruik de Basic, Standard of Premium-lagen omdat ze een productie-SLA bieden en ondersteuning voor scale-out in de Azure-regio (aantal eenheden verschilt per laag). Premium-laag biedt ook ondersteuning voor scale-out meerdere Azure-regio's. Baseer de laag die u hebt gekozen op het niveau van de vereiste doorvoer hebt en functie ingesteld. Zie voor meer informatie, [API Management-prijzen](https://azure.microsoft.com/pricing/details/api-management/).
+Gebruik de API Management Basic, Standard of Premium-lagen. De lagen bieden van een service level agreement (SLA) van productie en ondersteuning voor scale-out binnen de Azure-regio (het aantal eenheden verschilt per laag). De Premium-laag biedt ook ondersteuning voor scale-out meerdere Azure-regio's. Baseer de laag die u op het niveau van de vereiste doorvoer hebt kiest en de functie ingesteld. Zie voor meer informatie, [API Management-prijzen](https://azure.microsoft.com/pricing/details/api-management/).
 
-U betaalt voor alle exemplaren van API Management wanneer ze worden uitgevoerd. Als u hebt uitgebreid en hoeft dat niveau van de prestaties van de tijd, kunt u profiteren van de API Management van per uur facturering en schaal omlaag.
+U betaalt voor alle exemplaren van API Management wanneer ze worden uitgevoerd. Als u hebt uitgebreid en hoeft dat niveau van de prestaties van de tijd, kunt u profiteren van de API Management facturering per uur en omlaag schalen.
 
 ### <a name="logic-apps-pricing"></a>Prijzen voor Logic Apps
 
-Logische Apps werkt ook als een [serverloze](logic-apps-serverless-overview.md) -model, facturering wordt berekend op basis van de actie en connector kan worden uitgevoerd. Zie [prijzen voor Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) voor meer informatie. Er zijn momenteel geen laag overwegingen voor logische Apps.
+Logic Apps gebruikt een [serverloze](logic-apps-serverless-overview.md) model. Facturering wordt berekend op basis van de actie en connector kan worden uitgevoerd. Zie voor meer informatie, [prijzen voor Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Er zijn momenteel geen laag overwegingen voor logische Apps.
 
 ### <a name="logic-apps-for-asynchronous-api-calls"></a>Logic Apps voor asynchrone API-aanroepen
 
-Logische Apps werkt het beste in scenario's waarvoor lage latentie: bijvoorbeeld asynchrone niet of halfautomatische lange uitgevoerde API-aanroepen. Als met lage latentie vereist is (bijvoorbeeld een aanroep waarmee een gebruikersinterface wordt geblokkeerd) het beste uitvoering van die API of bewerking met een andere technologie, zoals Azure Functions of geïmplementeerd met behulp van App Service-Web-API. Nog steeds het beste deze API fronted met behulp van API Management API consumenten.
+Logische Apps werkt het beste in scenario's waarvoor geen lage latentie is vereist. Bijvoorbeeld, het beste werkt voor asynchrone of semi-langlopende API-aanroepen. Als met lage latentie is vereist (bijvoorbeeld een aanroep waarmee een gebruikersinterface wordt geblokkeerd), raden wij die API of bewerking implementeren met behulp van een andere technologie. Gebruik bijvoorbeeld Azure Functions of een Web-API die u implementeert met behulp van Azure App Service. Nog steeds wordt aangeraden dat u de consumenten API naar API front-met behulp van API Management.
 
 ### <a name="region"></a>Regio
 
-Richt API Management en logische Apps in dezelfde regio voor minimale netwerklatentie. In het algemeen kiest u de regio die het meest in de buurt van uw gebruikers is.
+Richt API Management en logische Apps in dezelfde regio voor minimale netwerklatentie. Over het algemeen kiest u de regio die zich het dichtst bij uw gebruikers.
 
-De resourcegroep heeft ook een regio, dat waar de metagegevens voor de implementatie is opgeslagen aangeeft, en waar de sjabloon voor de implementatie is uitgevoerd. Plaats de resourcegroep en de bijbehorende resources in dezelfde regio. Dit kan de beschikbaarheid verbeteren tijdens de implementatie.
+De resourcegroep heeft ook een regio. De regio geeft aan waar de metagegevens voor de implementatie worden opgeslagen en waar de sjabloon voor de implementatie van wordt uitgevoerd. Plaats de resourcegroep en de daarbij behorende bronnen in dezelfde regio beschikbaarheid verbeteren tijdens de implementatie.
 
-## <a name="scalability-considerations"></a>Schaalbaarheidsoverwegingen
+## <a name="scalability"></a>Schaalbaarheid
 
-API Management-beheerders toe te voegen [cachebeleidsregels](../api-management/api-management-howto-cache.md) indien van toepassing op de schaalbaarheid van de service vergroten en de belasting van hun back-endservices verminderen.
+API Management-beheerders toe te voegen [cachebeleidsregels](../api-management/api-management-howto-cache.md) eventueel verhogen van de schaalbaarheid van de service. Opslaan in cache helpt ook bij de belasting van back-endservices verminderen.
 
-Azure API Management Basic, Standard en Premium-lagen kunnen worden uitgebreid met in een Azure-regio te bieden grotere capaciteit. Beheerders kunnen de capaciteit metrische gegevens in het menu van de metrische gegevens gebruiken voor het analyseren van het gebruik van hun service en omhoog of omlaag schalen indien van toepassing.
+Azure API Management Basic, Standard en Premium-lagen kunnen worden uitgebreid in een Azure-regio te bieden grotere capaciteit. Beheerders kunnen gebruikmaken van de **capaciteit metriek** optie in de **metrische gegevens** menu om te analyseren van het gebruik van hun service en klikt u vervolgens omhoog of omlaag schalen indien van toepassing.
 
 Aanbevelingen voor het schalen van een API Management-service:
 
-- Schaalbehoeften rekening te houden met verkeerspatronen: klanten met meer vluchtige verkeerspatronen hebt groter verhoogde capaciteit nodig.
-- Consistente capaciteit dan 66% kan duiden op een nodig om omhoog te schalen.
-- Consistente capaciteit dan 20% kan duiden op een kans om omlaag te schalen.
-- Is het altijd beter om te laden uw API Management-service met een representatieve belasting testen voordat u inschakelt in de productieomgeving.
+- Schaalbehoeften rekening te houden met de patronen in het netwerkverkeer. Klanten met meer vluchtige verkeerspatronen hebben groter verhoogde capaciteit nodig.
+- Consistente capaciteit dan 66% kan wijzen op een nodig om omhoog te schalen.
+- Consistente capaciteit dan 20% kan wijzen op een kans om omlaag te schalen.
+- Het is altijd aanbevolen om load-test uw API Management-service met een representatieve workload voordat u de belasting in de productieomgeving inschakelt.
 
-Services voor Premium-laag kunnen worden uitgebreid over meerdere Azure-regio's. Klanten die op deze manier krijgt een hogere SLA (99,95% in plaats van 99,9%) en services buurt bevindt van gebruikers in meerdere regio's kunnen inrichten.
+Services voor Premium-laag kunnen worden uitgebreid over meerdere Azure-regio's. Klanten die implementeren door services schalen over meerdere Azure-regio's krijgen een hogere SLA (99,95% ten opzichte van 99,9%) en services in de buurt van gebruikers in meerdere regio's kunnen inrichten.
 
-Logic Apps serverloze model betekent dat beheerders hoeft niet te maken van extra aandacht voor schaalbaarheid van de service. de service automatisch wordt geschaald op basis van vraag.
+De Logic Apps serverloze model betekent beheerders dat hoeft te plannen voor schaalbaarheid van de service. De service wordt automatisch geschaald om te voldoen aan de vraag.
 
-## <a name="availability-considerations"></a>Beschikbaarheidsoverwegingen
+## <a name="availability"></a>Beschikbaarheid
 
-Op het moment van schrijven is de service level agreement (SLA) voor Azure API Management 99,9% voor de lagen Basic, Standard en Premium. Premium-laag configuraties met implementatie van ten minste één eenheid in twee of meer regio's hebben een SLA van 99,95%.
+De SLA voor Azure API Management is momenteel 99,9% voor de lagen Basic, Standard en Premium. Premium-laag configuraties met implementatie van ten minste één eenheid in twee of meer regio's hebben een SLA van 99,95%.
 
-Op het moment van schrijven is de service level agreement (SLA) voor Azure Logic Apps 99,9%.
+De SLA voor Azure Logic Apps is momenteel 99,9%.
 
 ### <a name="backups"></a>Back-ups
 
-De configuratie van Azure API Management moet [regelmatig back-ups van](../api-management/api-management-howto-disaster-recovery-backup-restore.md) (op de juiste wijze op basis van regelmaat van wijzigingen), en de back-upbestanden die zijn opgeslagen in een locatie of een Azure-regio is anders dan bij de waar de service zich bevindt. Klanten kunnen ervoor kiezen een van twee opties voor de DR-strategie:
+Uw Azure API Management-configuratie moet [regelmatig back-ups van](../api-management/api-management-howto-disaster-recovery-backup-restore.md) (op basis van regelmaat van wijzigen). Back-bestanden moeten worden opgeslagen in een locatie of een Azure-regio die wijkt af van waar de service zich bevindt. Klanten kunnen vervolgens een van twee opties voor hun strategie voor noodherstel kiezen:
 
-1. In een DR-gebeurtenis, een nieuw API Management-exemplaar is ingericht en de back-up wordt hersteld naar het DNS-records zijn repointed.
-2. Klanten behouden een passieve kopie van de service in een andere Azure-regio (aanvullende kosten) back-ups regelmatig worden teruggezet naar het. In een gebeurtenis voor herstel na Noodgevallen, moeten alleen de DNS-records worden repointed voor het herstellen van de service.
+- Een nieuw API Management-exemplaar is ingericht in een gebeurtenis van het herstel na noodgevallen, de back-up wordt hersteld naar het nieuwe exemplaar en DNS-records zijn repointed.
+- Klanten houden een passieve kopie van de service in een andere Azure-regio (aanvullende kosten). Back-ups worden regelmatig teruggezet naar de kopie. In een gebeurtenis van het herstel na noodgevallen moeten alleen de DNS-records worden repointed voor het herstellen van de service.
 
-Logic Apps kunnen zeer snel worden gemaakt en zijn zonder server, worden ze ondersteund door een kopie van de bijbehorende Azure Resource Manager-sjabloon opslaat. Deze kunnen worden opgeslagen naar bron besturingselement/geïntegreerd in een klanten continue integratie/continue implementatie (CI/CD)-proces.
+Omdat logic apps kunnen snel opnieuw worden gemaakt en zonder server worden, worden ze ondersteund door een kopie van de bijbehorende Azure Resource Manager-sjabloon opslaat. Sjablonen kunnen worden opgeslagen in broncodebeheer en deze kunnen worden geïntegreerd met het proces voor continue integratie/continue implementatie (CI/CD) van een klant.
 
-Logische Apps die zijn gepubliceerd via API Management moeten hun locaties bijgewerkt moeten ze worden verplaatst naar een ander datacenter. Dit kan worden bereikt via een eenvoudige PowerShell-script voor het bijwerken van de back-end-eigenschap van de API.
+Als een logische app die is gepubliceerd via API Management wordt verplaatst naar een ander datacenter, werkt u de locatie van de app. Voor het bijwerken van de app-locatie, gebruikt u een eenvoudige PowerShell-script om bij te werken de **back-end** eigenschap van de API.
 
-## <a name="manageability-considerations"></a>Beheerbaarheidsoverwegingen
+## <a name="manageability"></a>Beheerbaarheid
 
-Maak afzonderlijke resourcegroepen voor productie, ontwikkeling en testomgevingen. Hiermee kunt u eenvoudiger implementaties beheren, testimplementaties verwijderen en toegangsrechten verlenen.
-Wanneer u resources toewijst aan resourcegroepen, moet u het volgende overwegen:
+Maak afzonderlijke resourcegroepen voor productie, ontwikkeling en testomgevingen. Afzonderlijke resourcegroepen kunt u eenvoudiger implementaties beheren, testimplementaties verwijderen en toegangsrechten toewijzen.
 
-- Levenscyclus. In het algemeen kunt u resources met dezelfde levenscyclus het beste in dezelfde resourcegroep onderbrengen.
-- Toegang. U kunt [Role-Based Access Control](../role-based-access-control/overview.md) (RBAC) om toe te passen van beleidsregels voor toegang tot de resources in een groep.
-- Facturering. U kunt de samengevoegde kosten voor de resourcegroep bekijken.
-- Prijscategorie voor API Management – wordt u aangeraden Developer-laag voor ontwikkel- en testomgevingen. Voor Pre-productie, wordt aangeraden een replica van de productie-omgeving implementeren tests uitvoert en vervolgens naar de kosten minimaliseren wordt afgesloten.
+Wanneer u resources aan resourcegroepen toewijst, houd rekening met de volgende factoren:
 
-Zie voor meer informatie, [resourcegroep](../azure-resource-manager/resource-group-overview.md) overzicht.
+- **Levenscyclus**. In het algemeen plaats resources die dezelfde levenscyclus te in dezelfde resourcegroep bevinden hebben.
+- **Toegang tot**. U kunt [op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) (RBAC) om toe te passen van beleidsregels voor toegang tot de resources in een groep.
+- **Facturering**. U kunt updatepakket kosten voor de resourcegroep bekijken.
+- **Prijscategorie voor API Management**. We raden u aan de Developer-laag gebruiken voor ontwikkeling en testomgevingen. Voor Pre-productie, wordt aangeraden een replica van de productie-omgeving implementeren tests uitvoert en vervolgens naar de kosten minimaliseren wordt afgesloten.
+
+Zie voor meer informatie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="deployment"></a>Implementatie
 
-Het is raadzaam dat u [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) om zowel Azure API Management en Azure Logic Apps te implementeren. Sjablonen wordt het eenvoudiger implementaties automatiseren via PowerShell of de Azure-opdrachtregelinterface (CLI).
+Het is raadzaam dat u [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) API Management en logische Apps te implementeren. Sjablonen wordt het eenvoudiger implementaties automatiseren via PowerShell of Azure CLI.
 
-Het is raadzaam om de toevoeging van Azure API Management en een afzonderlijke logische Apps in hun eigen afzonderlijke Resource Manager-sjablonen. Hierdoor kunnen opslaat in bronbeheersystemen. Deze sjablonen kunnen vervolgens worden geïmplementeerd samen of afzonderlijk als onderdeel van een continue integratie/continue (CI/CD)-implementatieproces.
+Het is raadzaam om de toevoeging van Azure API Management en een afzonderlijke logische apps in hun eigen, afzonderlijke Resource Manager-sjablonen. Als u afzonderlijke sjablonen gebruikt, kunt u de resources in bronbeheersystemen kunt opslaan. U kunt ook de resources implementeren samen of afzonderlijk als onderdeel van een CI/CD-implementatieproces.
 
 ### <a name="versions"></a>Versies
 
-Telkens wanneer u een configuratie wijzigen in een logische App (of een update via Resource Manager-sjabloon implementeren), een kopie van deze versie wordt opgeslagen voor uw gemak (alle versies waarvoor een uitvoeringsgeschiedenis worden behouden). U kunt deze versies historische wijzigingen bijhouden en promoot het ook een versie om te worden van de huidige configuratie van de logische app; doen dit het geval is betekent dat u kunt effectief terugdraai-een logische App, bijvoorbeeld.
+Telkens wanneer u een configuratie wijzigen in een logische app (of een update via Resource Manager-sjabloon implementeren), een kopie van deze versie wordt opgeslagen voor uw gemak (alle versies waarvoor een uitvoeringsgeschiedenis bewaard). U kunt deze versies historische wijzigingen bijhouden en een versie om te worden van de huidige configuratie van de logische app promoten. Bijvoorbeeld, kunt u effectief terugdraaien een logische app.
 
 API Management heeft twee verschillende (maar gratis) [versiebeheer concepten](https://blogs.msdn.microsoft.com/apimanagement/2018/01/11/versions-revisions-general-availibility/):
 
-- Versies die worden gebruikt voor uw consumenten API met een keuze uit de API die ze in beslag kunnen nemen op basis van hun behoeften (bijv. v1, v2 of bèta, productie).
-- Revisies zodat de beheerder van de API veilig wijzigingen aanbrengen aan een API en implementeren voor gebruikers met optionele opmerkingen.
+- De versies die worden gebruikt voor uw consumenten API met een keuze uit de API die ze kunnen gebruiken op basis van hun behoeften (bijvoorbeeld v1, v2 of bèta, productie).
+- Wijzigingen die de API-beheerders kunnen veilig wijzigingen aanbrengen aan een API en vervolgens de wijzigingen implementeert voor gebruikers met optionele opmerkingen.
 
-In de context van implementatie – moeten API Management revisies worden beschouwd als een manier om veilig wijzigingen aanbrengen, een wijzigingen bijhouden en consumenten API op de hoogte van deze wijzigingen aanbrengen. Een revisie worden gemaakt in een ontwikkelingsomgeving en geïmplementeerd tussen omgevingen met behulp van Resource Manager-sjablonen.
+Het is een goed idee om te overwegen revisies in API Management als een manier om veilig wijzigingen aanbrengen, een wijzigingen bijhouden en consumenten API op de hoogte van deze wijzigingen aanbrengen in de context van de implementatie. Een revisie kan worden gemaakt in een ontwikkelingsomgeving en tussen omgevingen met behulp van Resource Manager-sjablonen worden geïmplementeerd.
 
-Hoewel revisies kunnen worden gebruikt voor het testen van een API voordat deze is gemaakt 'huidige' en toegankelijk worden gemaakt voor gebruikers, raden we niet via dit mechanisme voor belasting of het testen van de integratie: afzonderlijke test- of Pre-productie-omgevingen in plaats daarvan moeten worden gebruikt.
+Hoewel revisies kunt u een API testen voordat u het 'huidige' en toegankelijk is voor gebruikers, aanbevolen niet via dit mechanisme voor belasting of het testen van de integratie. Gebruik in plaats daarvan afzonderlijke test of omgevingen vóór productie.
 
 ### <a name="configuration"></a>Configuratie
 
-Nooit controleren wachtwoorden, toegangssleutels of verbindingsreeksen in om te bepalen van de bron. Als dat nodig is, gebruikt u de juiste methode te implementeren en te beveiligen van deze waarden. 
+Nooit controleren in de wachtwoorden, toegangssleutels of verbindingsreeksen naar broncodebeheer. Als deze waarden vereist zijn, moet u de juiste techniek gebruiken om te implementeren en beveiligen van deze waarden. 
 
-In Logic Apps, moeten alle gevoelige waarden die nodig zijn in de logische app (die in de vorm van een verbinding kan niet worden gemaakt) worden opgeslagen in Azure Key Vault en waarnaar wordt verwezen op basis van een Resource Manager-sjabloon. Raadzaam om ook met behulp van de sjabloonparameters implementatie samen met de parameterbestanden voor elke omgeving. Meer informatie over [beveiliging van de parameters en invoer binnen een werkstroom](logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
+In Logic Apps, moeten alle gevoelige waarden die nodig zijn in de logische app (die in de vorm van een verbinding kan niet worden gemaakt) worden opgeslagen in Azure Key Vault en waarnaar wordt verwezen op basis van een Resource Manager-sjabloon. Ook raadzaam implementatieparameters sjabloon en parameterbestanden gebruiken voor elke omgeving. Zie voor meer informatie, [beveiliging van de parameters en invoer binnen een werkstroom](logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
 
-Geheimen worden beheerd met behulp van objecten met de naam waarden/eigenschappen aangeroepen in API Management. Deze waarden die toegankelijk zijn voor het veilig opslaan in API Management-beleidsregels. Zie hoe u [geheimen in API Management beheren](../api-management/api-management-howto-properties.md).
+In API Management, geheimen worden beheerd met behulp van objecten met de naam *benoemde waarden* of *eigenschappen*. De objecten opslaan veilig van waarden die kunnen worden geopend in API Management-beleidsregels. Zie voor meer informatie, [geheimen in API Management beheren](../api-management/api-management-howto-properties.md).
 
 ### <a name="diagnostics-and-monitoring"></a>Diagnose en controle
 
-Beide [API Management](../api-management/api-management-howto-use-azure-monitor.md) en [Logic Apps](logic-apps-monitor-your-logic-apps.md) bieden ondersteuning voor operationele bewaking via [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor is standaard ingeschakeld en biedt informatie op basis van de verschillende metrische gegevens voor elke service is geconfigureerd.
+[API Management](../api-management/api-management-howto-use-azure-monitor.md) en [Logic Apps](logic-apps-monitor-your-logic-apps.md) ondersteunen beide operationele bewaking via [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor biedt informatie op basis van de metrische gegevens die zijn geconfigureerd voor elke service. Azure Monitor is standaard ingeschakeld.
 
-Er zijn bovendien nog meer opties voor elke service:
+Deze opties zijn ook beschikbaar voor elke service:
 
-- Logic Apps-logboeken kunnen worden verzonden naar [Log Analytics](logic-apps-monitor-your-logic-apps-oms.md) voor uitgebreidere analyse en dashboarding.
-- API Management biedt ondersteuning voor configuratie van Application Insights voor het bewaken van Dev Ops.
-- Biedt ondersteuning voor API Management de [Power BI-oplossingssjabloon voor aangepaste API analytics](http://aka.ms/apimpbi). Deze oplossingssjabloon kan klanten hun eigen aangepaste analyseoplossing maken met rapporten die beschikbaar zijn in Power BI voor zakelijke gebruikers.
+- Logic Apps-logboeken kunnen worden verzonden naar [Azure Log Analytics](logic-apps-monitor-your-logic-apps-oms.md) voor uitgebreidere analyse en dashboarding.
+- API Management biedt ondersteuning voor configureren van Azure Application Insights voor DevOps bewaking.
+- Biedt ondersteuning voor API Management de [Power BI-oplossingssjabloon voor aangepaste API analytics](http://aka.ms/apimpbi). Klanten kunnen de oplossingssjabloon gebruiken om hun eigen aangepaste analytics-oplossing te maken. Rapporten zijn beschikbaar in Power BI voor zakelijke gebruikers.
 
-## <a name="security-considerations"></a>Beveiligingsoverwegingen
+## <a name="security"></a>Beveiliging
 
-Deze sectie vindt u beveiligingsoverwegingen die specifiek voor de Azure-services die worden beschreven in dit artikel wordt geïmplementeerd in de architectuur zijn, zoals wordt beschreven. Het is geen volledige lijst met aanbevolen procedures voor beveiliging.
+Deze sectie vindt u beveiligingsoverwegingen die specifiek voor de Azure-services die in dit artikel worden beschreven zijn, en die zijn geïmplementeerd in de architectuur, zoals wordt beschreven. Het is geen volledige lijst met aanbevolen procedures voor beveiliging.
 
 - Op rollen gebaseerd toegangsbeheer (RBAC) gebruiken om te controleren of de juiste toegangsniveaus voor gebruikers.
-- Beveiligde openbare API-eindpunten in API Management met behulp van OAuth/Open IDConnect. Dit doen door een id-provider configureren en het toevoegen van een beleid voor JWT-validatie.
-- Verbinding maken met back-endservices van API Management met behulp van certificaten voor wederzijdse
-- HTTP-trigger op basis van logische Apps beveiligen met het maken van een IP-adres-whitelist die verwijst naar het IP-adres van de API Management. Dit voorkomt dat de logische app aanroepen vanuit het openbare internet zonder tussenkomst van eerste via API Management.
-
-Deze verwijzende architectuur hebt u geleerd over het bouwen van een eenvoudige enterprise integratieplatform met behulp van Azure Integration Services.
+- Beveilig openbare API-eindpunten in API Management met behulp van OAuth/OpenID Connect. Als u wilt beveiligen openbare API-eindpunten, configureren van een id-provider en het toevoegen van een beleid voor validatie van JSON Web Token (JWT).
+- Verbinding maken met back-end-services van API Management met behulp van wederzijdse certificaten.
+- HTTP-trigger op basis van logische apps beveiligen met het maken van een goedgekeurde IP-adres-adressen die naar de API Management-IP-adres verwijst. Een goedgekeurde IP-adres wordt voorkomen dat de logische app aanroepen vanuit het openbare internet zonder tussenkomst van eerste via API Management.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Bedrijfsintegratie met wachtrijen en -gebeurtenissen](logic-apps-architectures-enterprise-integration-with-queues-events.md)
+- Meer informatie over [bedrijfsintegratie met wachtrijen en -gebeurtenissen](logic-apps-architectures-enterprise-integration-with-queues-events.md).

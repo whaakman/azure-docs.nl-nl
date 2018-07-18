@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c0ef019536d527775e4f5b959a155db3eacebbf
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4fbcfe4198f2655f77b1a61c86092e3ac727ab31
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006095"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115718"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Modbus TCP-apparaten verbinden via de gateway van een IoT Edge-apparaat
 
@@ -35,7 +35,7 @@ In dit artikel wordt ervan uitgegaan dat u het Modbus-protocol TCP gebruikt. Voo
 Als u de functionaliteit van de Modbus-gateway wilt testen, heeft Microsoft een voorbeeldmodule die u kunt gebruiken. Als u de voorbeeldmodule wilt gebruiken, gaat u naar de sectie [De oplossing uitvoeren](#run-the-solution) en voert u de volgende URI van de installatiekopie in: 
 
 ```URL
-microsoft/azureiotedge-modbus-tcp:1.0-preview
+microsoft/azureiotedge-modbus-tcp:GA-preview-amd64
 ```
 
 Als u uw eigen module wilt maken en deze wilt aanpassen voor uw omgeving, bestaat er een open-source project [Azure IoT Edge Modbus-module](https://github.com/Azure/iot-edge-modbus) op Github. Volg de instructies in dit project om uw eigen containerinstallatiekopie te maken. Als u uw eigen containerinstallatiekopie hebt gemaakt, raadpleegt u [Develop and deploy a C# IoT Edge module](tutorial-csharp-module.md) (Een C# IoT Edge-module ontwikkelen en implementeren) voor instructies over hoe u containerinstallatiekopieën publiceert naar een register en een aangepaste module implementeert op uw apparaat. 
@@ -48,7 +48,7 @@ Als u uw eigen module wilt maken en deze wilt aanpassen voor uw omgeving, bestaa
 4. Voeg als volgt de Modbus-module toe:
    1. Klik op **toevoegen** en selecteer **IoT Edge-module**.
    2. Typ 'modbus' in het veld **Naam**.
-   3. Voer in het veld **Installatiekopie** de URI in naar de installatiekopie van de voorbeeldcontainer: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
+   3. Voer in het veld **Installatiekopie** de URI in naar de installatiekopie van de voorbeeldcontainer: `microsoft/azureiotedge-modbus-tcp:GA-preview-amd64`.
    4. Schakel het selectievakje **Inschakelen** in om de gewenst eigenschappen van de moduledubbel bij te werken.
    5. Kopieer de volgende JSON naar het tekstvak. Wijzig de waarde van **SlaveConnection** in het IPv4-adres van uw Modbus-apparaat.
 

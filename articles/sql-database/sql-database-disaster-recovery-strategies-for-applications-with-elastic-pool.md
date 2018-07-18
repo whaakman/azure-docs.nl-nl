@@ -1,173 +1,173 @@
 ---
-title: Ontwerp noodhersteloplossingen - Azure SQL Database | Microsoft Docs
-description: Informatie over het ontwerpen van uw cloudoplossing voor herstel na noodgevallen voor het kiezen van het juiste failover-patroon.
+title: Noodhersteloplossingen - Azure SQL-Database ontwerpen | Microsoft Docs
+description: Informatie over het ontwerpen van uw cloudoplossing voor herstel na noodgevallen door het kiezen van het juiste failover-patroon.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5de8aebb6ffc5763dd7f0b8852c31923914e4c55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6952e26898e4ff27dd7c2f6780dcb9b8b224460b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645528"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092542"
 ---
-# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Disaster recovery strategieën voor toepassingen met elastische pools SQL-Database
-In de afgelopen jaren hebt u geleerd dat cloudservices niet betrouwbare zijn en onherstelbare incidenten optreden. SQL-Database biedt verschillende mogelijkheden op te geven voor de bedrijfscontinuïteit van uw toepassing, wanneer deze incidenten optreden. [Elastische pools](sql-database-elastic-pool.md) en individuele databases ondersteunen dezelfde soort mogelijkheden voor herstel na noodgevallen. In dit artikel beschrijft enkele DR strategieën voor elastische pools die gebruikmaken van deze functies van SQL Database business continuity.
+# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategieën voor noodherstel voor toepassingen die gebruikmaken van SQL Database elastische pools
+In de afgelopen jaren hebben we geleerd dat cloudservices niet betrouwbare zijn en catastrofale incidenten optreden. SQL Database biedt verschillende mogelijkheden te geven voor de bedrijfscontinuïteit van uw toepassing wanneer deze incidenten optreden. [Elastische pools](sql-database-elastic-pool.md) en individuele databases ondersteunen dezelfde soort herstelfunctionaliteit bij noodgevallen. In dit artikel beschrijft verschillende strategieën voor herstel na Noodgevallen voor elastische pools die gebruikmaken van deze functies voor bedrijfscontinuïteit SQL-Database.
 
-In dit artikel maakt gebruik van patroon van de volgende canonieke ISV SaaS-toepassing:
+In dit artikel wordt het volgende patroon van canonical ISV-SaaS-toepassing:
 
-<i>Een moderne cloud-gebaseerde webtoepassing voorziet in een SQL-database voor elke gebruiker. De ISV veel klanten gebruikt, en daarom veel databases, tenant-databases genoemd. Omdat de tenant-databases doorgaans onvoorspelbare activiteit patronen hebben, gebruikt de ISV een elastische pool de database te maken kosten zeer voorspelbare gedurende langere perioden. De elastische groep vereenvoudigt u ook het prestatiebeheer wanneer de gebruikersactiviteit bereikt. Naast de tenant-databases gebruikt de toepassing ook verschillende databases beheren gebruikersprofielen, beveiliging, verzamelen gebruikspatronen enzovoort. Beschikbaarheid van de afzonderlijke tenants heeft geen gevolgen voor de beschikbaarheid van de toepassing als geheel. Echter, de beschikbaarheid en prestaties van databases management is essentieel voor een functie van de toepassing en als de databases management offline zijn de gehele toepassing offline is.</i>  
+<i>Een SQL-database inricht een moderne cloud-gebaseerde webtoepassing voor elke eindgebruiker. De ISV heeft veel klanten en daarom maakt gebruik van veel databases, bekend als de tenant-databases. Omdat de tenant-databases meestal onvoorspelbare activiteit hebben, de ISV maakt gebruik van een pool voor elastische database te maken de kosten zeer voorspelbare gedurende langere tijd. Beheer van de prestaties van vereenvoudigt de elastische pool ook wanneer de gebruikersactiviteit pieken. Naast de tenant-databases gebruikt de toepassing ook meerdere databases beheren gebruikersprofielen, beveiliging, verzamelen van gebruikspatronen enzovoort. Beschikbaarheid van de afzonderlijke tenants heeft geen invloed op de beschikbaarheid van de toepassing als geheel. Echter, de beschikbaarheid en prestaties van beheer van databases is van essentieel belang voor de functie van de toepassing en als de databases management offline zijn de gehele toepassing offline is.</i>  
 
-Dit artikel wordt beschreven DR strategieën die betrekking hebben op een aantal scenario's uit kosten gevoelige starten van toepassingen met strenge beschikbaarheidsvereisten.
+Dit artikel worden besproken die betrekking hebben op een scala aan scenario's van kosten gevoelige opstarttoepassingen te met strikte beschikbaarheidsvereisten strategieën voor herstel na Noodgevallen.
 
 > [!NOTE]
-> Als u Premium of Business-kritische (preview) databases en elastische pools, kunt u ze tegen regionale uitval door deze te converteren naar zone redundant implementatieconfiguratie (momenteel in preview). Zie [Zone-redundante databases](sql-database-high-availability.md).
+> Als u van Premium en bedrijfskritiek databases en elastische pools gebruikmaakt, kunt u ze flexibele bij regionale uitval door deze te converteren naar de configuratie van de zone-redundante implementatie. Zie [Zone-redundante databases](sql-database-high-availability.md).
 
-## <a name="scenario-1-cost-sensitive-startup"></a>Scenario 1. Kosten gevoelige opstarten
-<i>Ik ben een bedrijf opstarten en zeer gevoelige ben kosten.  Ik wil eenvoudiger implementatie en beheer van de toepassing en kan ik een SLA beperkt hebben voor individuele klanten. Maar ik wil zorgen voor de toepassing als geheel nooit offline is.</i>
+## <a name="scenario-1-cost-sensitive-startup"></a>Scenario 1. Kosten van gevoelige opstarten
+<i>Kan ik een eigen Start-up ben en ben zeer gevoelige kosten.  Ik wil Vereenvoudig de implementatie en beheer van de toepassing en ik kan een beperkte SLA voor individuele klanten. Maar ik wil zorgen voor de toepassing als geheel nooit offline is.</i>
 
-Om te voldoen aan de vereiste eenvoud, alle databases van de tenant implementeren in een elastische pool in de Azure-regio van uw keuze en beheer databases als individuele databases geogerepliceerde implementeren. Voor het herstel na noodgevallen van tenants, gebruikt u geo-herstel, wordt geleverd zonder extra kosten. Om te controleren of de beschikbaarheid van de management-databases, geo-replicatie ze naar een andere regio met behulp van een auto-failover groep (in-preview) (stap 1). De lopende kosten van de configuratie van het herstel na noodgevallen in dit scenario is gelijk aan de totale kosten van de secundaire databases. Deze configuratie wordt weergegeven in het volgende diagram.
+Om te voldoen aan de vereiste eenvoud, alle tenantdatabases implementeren in een elastische pool in Azure-regio van uw keuze en beheer van databases als individuele databases geo-replicatie implementeren. Voor het herstel na noodgeval voor tenants, gebruikt u geo-restore, dat wordt geleverd zonder extra kosten. Om te garanderen de beschikbaarheid van de management-databases, geo-replicatie ze naar een andere regio met behulp van een automatische failover groep (stap 1). De lopende kosten van de configuratie van het herstel na noodgevallen in dit scenario is gelijk aan de totale kosten van de secundaire databases. Deze configuratie wordt weergegeven in het volgende diagram.
 
 ![Afbeelding 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
-Als er een storing optreedt in de primaire regio, worden de herstelstappen te brengen van uw toepassing online geïllustreerd door het volgende diagram.
+Als er een storing optreedt in de primaire regio, worden de stappen om uw toepassing online aangegeven door het volgende diagram.
 
-* De groep failover initieert automatische failover van de management-database naar de DR-regio. De toepassing automatisch wordt hersteld naar de nieuwe primaire en alle nieuwe accounts en tenant-databases in de DR-regio worden gemaakt. De bestaande klanten hun eigen gegevens zien tijdelijk niet beschikbaar.
-* Maak de elastische groep met dezelfde configuratie als de oorspronkelijke groep (2).
-* Geo-restore kopieën te maken van de tenant databases (3) gebruiken. U kunt overwegen de activering van de afzonderlijke herstelacties door de eindgebruiker verbindingen of sommige andere toepassingsspecifieke prioriteit schema gebruiken.
+* De failovergroep initieert automatische failover van de database management naar de DR-regio. De toepassing automatisch wordt hersteld naar de nieuwe primaire en alle nieuwe accounts en tenant-databases zijn gemaakt in de DR-regio. De bestaande klanten hun eigen gegevens zien tijdelijk niet beschikbaar.
+* De elastische pool maken met dezelfde configuratie als de oorspronkelijke groep (2).
+* Gebruik geo-herstel kopieën van de tenant om databases te maken (3). U kunt overwegen de afzonderlijke herstelbewerkingen wordt geactiveerd door de eindgebruiker verbindingen of sommige andere toepassingsspecifieke prioriteit-schema worden gebruikt.
 
 
-Op dit moment uw toepassing in het gebied DR weer online is, maar sommige klanten krijgen met vertraging bij het openen van hun gegevens.
+Op dit moment uw toepassing in de DR-regio weer online is, maar sommige klanten vertraging ondervindt bij het openen van hun gegevens.
 
 ![Afbeelding 2](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-2.png)
 
-Als de storing tijdelijke is, is het mogelijk dat de primaire regio door Azure wordt hersteld voordat alle herstelbewerkingen voor de database in de regio DR voltooid zijn. In dit geval indelen verplaatsen van de toepassing terug naar de primaire regio. Het proces neemt de stappen in het volgende diagram wordt geïllustreerd.
+Als de storing tijdelijke is, is het mogelijk dat de primaire regio is hersteld door Azure voordat alle herstelbewerkingen voor de database voltooid in de DR-regio zijn. In dit geval indelen verplaatsen van de toepassing naar de primaire regio. Het proces duurt de stappen in het volgende diagram wordt geïllustreerd.
 
-* Annuleer alle openstaande geo-restore-aanvragen.   
-* Failover van de management-databases naar de primaire regio (5). De oude primaire na het herstel van de regio zijn automatisch secundaire replica's geworden. Nu overgeschakeld rollen opnieuw. 
-* Wijzig de verbindingsreeks van de toepassing om te verwijzen naar de primaire regio. Nu worden alle nieuwe accounts en tenant-databases gemaakt in de primaire regio. Sommige klanten hun eigen gegevens zien tijdelijk niet beschikbaar.   
-* Stel alle databases in de groep DR op alleen-lezen om te controleren of dat ze kunnen niet worden gewijzigd in de regio voor Noodherstel (6). 
+* Aanvragen voor alle openstaande geo-herstel annuleren.   
+* Failover van de management-databases naar de primaire regio (5). Na het herstel van de regio komen de oude primaire automatisch secundaire replica's. Schakel nu ze over rollen opnieuw. 
+* Wijzig de verbindingsreeks van de toepassing om te verwijzen naar de primaire regio. Nu worden alle nieuwe accounts en tenant-databases gemaakt in de primaire regio. Sommige bestaande klanten hun eigen gegevens zien tijdelijk niet beschikbaar.   
+* Stel alle databases in de DR-pool voor alleen-lezen om te controleren of dat ze kunnen niet worden gewijzigd in de DR-regio (6). 
 * Voor elke database in de DR-groep die is gewijzigd sinds het herstel, hernoemen of verwijderen van de bijbehorende databases in de primaire groep (7). 
 * Kopieer de bijgewerkte databases uit de DR-groep aan de primaire groep (8). 
-* DR-groep (9) verwijderen
+* Verwijderen van de DR-groep (9)
 
-De toepassing is op dit moment online in de primaire regio met alle tenant databases beschikbaar in de primaire groep.
+Uw toepassing is op dit moment online in de primaire regio met alle tenantdatabases beschikbaar zijn in de primaire groep.
 
 ![Afbeelding 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
-De sleutel **profiteren** is van deze strategie lage lopende kosten voor gegevensredundantie laag. Back-ups worden automatisch gemaakt door de service SQL Database met geen herschrijven van de toepassing en zonder extra kosten.  De kosten worden alleen wanneer de elastische databases zijn hersteld. De **nadeel** is dat het volledig herstel van alle databases van de tenant aanzienlijke tijd. De hoeveelheid tijd is afhankelijk van het totaal aantal herstelacties die u in de regio DR starten en de totale grootte van de tenant-databases. Zelfs als u bepaalde tenants herstelacties boven andere prioriteit, concurreren alle andere herstelacties die geïnitieerd zijn in dezelfde regio als de service arbitrates en beperkt om te beperken van de algehele impact op de bestaande klanten databases. Bovendien kan het herstel van de tenant-databases niet starten totdat de nieuwe elastische pool in de regio DR wordt gemaakt.
+De sleutel **profiteren** van deze strategie is lage constant doorlopende kosten voor de laag gegevensredundantie. Back-ups worden automatisch gemaakt door de service SQL Database met geen toepassing herschrijven en zonder extra kosten.  De kosten worden alleen wanneer de elastische databases worden hersteld. De **balans** is dat het volledig herstel van alle tenantdatabases aanzienlijke tijd. De hoeveelheid tijd is afhankelijk van het totale aantal herstelbewerkingen die u in de DR-regio starten en de totale grootte van de tenant-databases. Zelfs als u bepaalde tenants herstelbewerkingen boven andere prioriteit, wordt u concurrerende met alle andere herstelbewerkingen die geïnitieerd zijn in dezelfde regio bevinden als de service arbitrates servicequotum geldt en om te beperken de gevolgen zijn voor de bestaande klanten databases. Het herstel van de tenant-databases kan niet verder worden gestart totdat de nieuwe elastische groep in de DR-regio is gemaakt.
 
 ## <a name="scenario-2-mature-application-with-tiered-service"></a>Scenario 2. Volwassen toepassing met gelaagde service
-<i>Ik ben een goed ontwikkelde SaaS-toepassing met gelaagde service aanbiedingen en andere serviceovereenkomsten voor proefversie klanten en voor het betalen van klanten. Ik heb de zo veel mogelijk kosten voor de proefversie klanten. Proefversie klanten uitvaltijd kunnen duren, maar ik wil verminderen de kans op. Uitvaltijd is voor de betalende klanten vlucht risico. Klanten zijn altijd toegang tot hun gegevens dus ik wil ervoor zorgen dat betaalt.</i> 
+<i>Ik ben een goed ontwikkelde SaaS-toepassing met gelaagde service-aanbiedingen en verschillende Sla's voor de proefversie klanten en voor het betalen van klanten. Ik heb voor de proefversie klanten om de kosten zo veel mogelijk te beperken. Proefversie klanten downtime kunnen duren, maar ik wil de kans verkleinen. Voor de betalende klanten is geen uitvaltijd een risico vlucht. Dus ik om ervoor te zorgen dat betalende zijn klanten altijd toegang hebben tot hun gegevens.</i> 
 
-Ter ondersteuning van dit scenario, de proeftenants van betaald tenants worden gescheiden door ze in afzonderlijke elastische pools te plaatsen. De evaluatieversie klanten hebben lagere eDTU of vCores per tenant en lagere SLA met een langere periode voor herstel. De betalende klant zijn in een pool met hogere eDTU of vCores per tenant en een hogere SLA. Om te waarborgen de laagste hersteltijd, zijn de betalende klant tenant databases geo-replicatie. Deze configuratie wordt weergegeven in het volgende diagram. 
+Ter ondersteuning van dit scenario, de proeftenants van betaalde tenants worden gescheiden door ze in afzonderlijke elastische pools te plaatsen. De proefversie klanten hebben lagere edtu's of vCores per tenant en een lagere SLA met een langere hersteltijd. De betalende klanten zich in een groep met hogere edtu's of vCores per tenant en een hogere SLA. Om te garanderen de laagste hersteltijd, zijn de betalende klanten tenantdatabases geo-replicatie. Deze configuratie wordt weergegeven in het volgende diagram. 
 
 ![Afbeelding 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
-Zoals in het eerste scenario zijn de databases management behoorlijk actief, zodat u één geogerepliceerde database voor (1 gebruiken). Hierdoor worden de voorspelbare prestaties voor het nieuwe klantabonnementen profielupdates en andere beheerbewerkingen. De regio waarin de primaire van de management-databases zich bevinden, is de primaire regio en de regio waarin de secundaire replica's van de management-databases zich bevinden, is de DR-regio.
+Zoals in het eerste scenario is de management-databases zijn heel actief, zodat u een database met geo-replicatie voor het (1 gebruiken). Dit zorgt ervoor dat de voorspelbare prestaties voor nieuwe abonnementen, profielupdates en andere beheerbewerkingen. De regio waarin de voorverkiezingen uit te brengen van de management-databases zich bevinden, is de primaire regio en de regio waarin de secundaire replica's van de management-databases zich bevinden, is de DR-regio.
 
-De betalende klant tenant databases hebt active databases in de 'betaald' groep ingericht in de primaire regio. Een secundaire groep met dezelfde naam in de regio DR inrichten. Elke tenant is geo-replicatie naar de secundaire groep (2). Hierdoor kunnen snel herstel van de tenant-databases met behulp van failover. 
+De tenant-databases de betalende klanten hebben actieve databases in de 'betaalde' groep ingericht in de primaire regio. Richt een secundaire groep met dezelfde naam in de DR-regio. Elke tenant is geo-replicatie naar de secundaire groep (2). Hierdoor kunnen snel herstel van de tenantdatabases met behulp van failover. 
 
 Als er een storing optreedt in de primaire regio, worden de herstelstappen te brengen van uw toepassing online weergegeven in het volgende diagram:
 
 ![Afbeelding 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
-* Onmiddellijk een failover de beheer-databases naar de DR regio (3).
-* Wijzig de verbindingsreeks van de toepassing om te verwijzen naar de DR-regio. Nu worden alle nieuwe accounts en tenant-databases gemaakt in de regio Noodherstel. De bestaande proefversie klanten hun eigen gegevens zien tijdelijk niet beschikbaar.
-* Failover-overschakeling van de betaalde tenant databases in de groep in de regio DR direct herstellen hun beschikbaarheid (4). Nadat de failover een wijziging van de snelle metagegevens-niveau is, houd rekening met een optimalisatie waar de afzonderlijke failovers op aanvraag worden geïnitieerd door de eindgebruiker-verbindingen. 
-* Als uw secundaire pool-eDTU-grootte of vCore-waarde lager dan de primaire is omdat de secundaire databases worden alleen de capaciteit voor het verwerken van de logboeken wijzigen terwijl ze secundaire replica's zijn vereist, onmiddellijk vergroot de capaciteit van toepassingen nu voor de volledige werkbelasting van alle tenants (5). 
-* De nieuwe elastische pool maken met dezelfde naam en de dezelfde configuratie in de regio Noodherstel voor de proefversie klanten databases (6). 
-* Zodra de proefversie klanten groep is gemaakt, gebruikt u geo-herstel de afzonderlijke proeftenant databases herstellen naar de nieuwe toepassingen (7). Houd rekening met de afzonderlijke herstelacties door de eindgebruiker verbindingen activerende of sommige andere toepassingsspecifieke prioriteit schema gebruiken.
+* Onmiddellijk een failover de beheer-databases naar de DR-regio (3).
+* Wijzig de verbindingsreeks van de toepassing om te verwijzen naar de DR-regio. Nu worden alle nieuwe accounts en tenant-databases gemaakt in de DR-regio. De bestaande proefversie klanten hun eigen gegevens zien tijdelijk niet beschikbaar.
+* Failover van de betaalde tenant-databases aan de groep in de DR-regio naar onmiddellijk herstel hun beschikbaarheid (4). Nadat de failover een snelle metagegevens niveau wijzigen is, kunt u overwegen een optimalisatie waar de afzonderlijke failovers op aanvraag worden geactiveerd door de eindgebruiker-verbindingen. 
+* Als uw secundaire pool-eDTU grootte of vCore-waarde lager dan de primaire is omdat de secundaire databases de capaciteit voor het verwerken van de logboeken wijzigen terwijl ze secundaire replica's zijn alleen vereist, onmiddellijk de groepscapaciteit nu voor de volledige werkbelasting verhogen van alle tenants (5). 
+* De nieuwe elastische pool maken met dezelfde naam en de dezelfde configuratie in de DR-regio voor de proefversie klanten databases (6). 
+* Nadat de proefversie klanten groep is gemaakt, gebruikt u geo-herstel om terug te zetten van de afzonderlijke proefversie van uw tenant-databases naar de nieuwe pool (7). Houd rekening met de afzonderlijke herstelbewerkingen wordt geactiveerd door de eindgebruiker verbindingen of enige andere toepassingsspecifieke prioriteit-schema worden gebruikt.
 
-De toepassing is op dit moment weer online in DR regio. Alle betalende klanten hebben toegang tot hun gegevens tijdens de proefperiode klanten vertraging ondervinden bij het openen van hun gegevens.
+Uw toepassing is op dit moment weer online in de DR-regio. Alle betalende klanten hebben toegang tot hun gegevens tijdens de proefperiode klanten vertraging ondervinden bij het openen van hun gegevens.
 
-Wanneer de primaire regio worden hersteld door Azure *nadat* de toepassing in de DR-regio die u kunt doorgaan met het uitvoeren van de toepassing in deze regio is hersteld of u kunt een failback naar de primaire regio. Als de primaire regio is hersteld *voordat* het failoverproces is voltooid, kunt mislukt back meteen. De failback neemt de stappen die wordt weergegeven in het volgende diagram: 
+Wanneer de primaire regio is hersteld door Azure *nadat* u de toepassing in de DR-regio die u kunt doorgaan met het uitvoeren van de toepassing in die regio hebt teruggezet of u kunt een failback uitvoeren naar de primaire regio. Als de primaire regio is hersteld *voordat* het failoverproces is voltooid, kunt u failback meteen. De failback worden de stappen in het volgende diagram wordt geïllustreerd: 
 
 ![Afbeelding 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
-* Annuleer alle openstaande geo-restore-aanvragen.   
-* Failover van de management-databases (8). Wanneer de regio is hersteld worden de oude primaire automatisch de secundaire. Nu wordt de primaire opnieuw.  
-* Failover van de databases betaald tenant (9). Op deze manier na het herstel van de regio, de oude primaire automatisch worden de secundaire replica's. Nu worden de primaire opnieuw. 
-* Stel de herstelde proefversie databases die in de regio DR hebt gewijzigd in alleen-lezen (10).
-* Voor elke database in de proefversie klanten DR-toepassingen die gewijzigd sinds het herstel, hernoemen of verwijderen van de bijbehorende database in de proefversie klanten primaire groep (11). 
+* Aanvragen voor alle openstaande geo-herstel annuleren.   
+* Failover van de management-databases (8). Na het herstel van de regio worden de oude primaire automatisch de secundaire server. Nu wordt de primaire opnieuw.  
+* Failover van de betaalde tenant-databases (9). Op dezelfde manier, na het herstel van de regio, de oude primaire automatisch worden de secundaire replica's. Nu de primaire opnieuw worden. 
+* Stel de herstelde proefversie databases die zijn gewijzigd in de DR-regio naar alleen-lezen (10).
+* Wijzig of verwijder de bijbehorende database in de proefversie klanten primaire groep (11) voor elke database in de proefversie klanten DR-toepassingen die zijn gewijzigd sinds het herstel. 
 * Kopieer de bijgewerkte databases uit de DR-groep aan de primaire groep (12). 
-* DR-groep (13) verwijderen 
+* Verwijderen van de DR-groep (13) 
 
 > [!NOTE]
-> De failoverbewerking is asynchroon. De hersteltijd is het belangrijk dat u de tenant-databases failover-opdracht in batches van ten minste 20 databases uitvoeren minimaliseren. 
+> De failoverbewerking is asynchroon. Als u wilt minimaliseren, de hersteltijd is het belangrijk dat u de tenant-databases failover-opdracht in batches van ten minste 20 databases uitvoeren. 
 > 
 > 
 
-De sleutel **profiteren** van deze strategie is dat u de hoogste SLA voor de betalende klanten. Ook wordt hiermee gegarandeerd dat de nieuwe proefversies geblokkeerd zijn als de proef DR-adresgroep is gemaakt. De **nadeel** klanten is dat deze installatie verhoogt de totale kosten van de databases van de tenant door de kosten van de secundaire DR-toepassingen voor betaald. Bovendien, als de secundaire groep een andere grootte heeft, de betalende klanten ondervinden lagere prestaties na een failover totdat de upgrade van toepassingen in de regio DR is voltooid. 
+De sleutel **profiteren** van deze strategie is dat u de hoogste SLA voor de betalende klanten. Daarnaast garandeert u dat de nieuwe proefversies gedeblokkeerd zijn zodra de proefversie DR-groep is gemaakt. De **balans** is dat deze instelling zorgt voor de totale kosten van de tenant-databases met de kosten van de secundaire DR-groep voor klanten worden betaald. Bovendien als de secundaire groep een andere grootte heeft, de betalende klanten ondervinden lagere prestaties na een failover totdat de upgrade van toepassingen in de DR-regio is voltooid. 
 
-## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scenario 3. Geografisch verspreide toepassing met gelaagde service
-<i>Ik heb een goed ontwikkelde SaaS-toepassing met gelaagde service biedt. Ik wil een zeer agressief SLA aan mijn betaald klanten te bieden en het risico van impact minimaliseren wanneer er storingen optreden omdat zelfs korte onderbreking van de klant ergernis kan veroorzaken. Het is essentieel dat de betalende klant altijd toegang hun gegevens tot. De proefversies zijn gratis en een SLA niet tijdens de proefperiode wordt aangeboden. </i> 
+## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scenario 3. Geografisch gedistribueerde toepassing met gelaagde service
+<i>Ik heb een goed ontwikkelde SaaS-toepassing met de gelaagde service biedt. Ik wil bieden een zeer agressief SLA mijn betaalde klanten en het risico van impact minimaliseren wanneer er storingen optreden omdat zelfs korte onderbreking leiden ontevredenheid van de klant tot kan. Het is essentieel dat de betalende klanten altijd toegang hun gegevens tot. De experimenten zijn gratis en er een is geen Sla tijdens de proefperiode. </i> 
 
-Gebruik ter ondersteuning van dit scenario, drie afzonderlijke elastische pools. Voorzien in twee groepen van gelijke grootte met hoge edtu's of vCores per database in twee verschillende regio's voor de betaalde klanten tenant databases bevatten. De derde-groep met de proeftenants kan lagere edtu's of vCores per database en in een van de twee regio's worden ingericht.
+Gebruik ter ondersteuning van dit scenario, drie afzonderlijke elastische pools. Twee gelijke grootte van toepassingen met hoge edtu's of vCores per database in twee verschillende regio's bevatten de betaalde klanten tenant-databases inrichten. De derde groep met de proefversie tenants kan minder edtu's of vCores per database en worden ingericht in een van de twee regio's.
 
-Om te waarborgen de laagste hersteltijd tijdens uitval, zijn de betalende klant tenant databases geogerepliceerde met 50% van de primaire databases in elk van de twee regio's. Daarnaast heeft elke regio 50% van de secundaire databases. Op deze manier als een regio offline is, slechts 50% van de betaalde klanten databases worden beïnvloed en failover. De andere databases blijven behouden. Deze configuratie wordt weergegeven in het volgende diagram:
+Om te garanderen de laagste hersteltijd tijdens een onderbreking, worden de betalende klanten tenantdatabases geo-replicatie met 50% van de primaire databases in elk van de twee regio's. Elke regio heeft op dezelfde manier, 50% van de secundaire databases. Op deze manier als een regio offline is, is slechts 50% van de betaalde klanten databases worden beïnvloed en er een failover. De andere databases blijven intact. Deze configuratie wordt weergegeven in het volgende diagram:
 
 ![Afbeelding 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-Als in de vorige scenario's en de databases management behoorlijk actief zijn zodat ze configureren als individuele databases geogerepliceerde (1). Hierdoor wordt de voorspelbare prestaties van de klant nieuwe abonnementen, profielupdates en andere beheerbewerkingen. Regio A is de primaire regio voor de beheer-databases en de regio B wordt gebruikt voor herstel van de management-databases.
+Als in de vorige scenario's, de databases beheer van vrij actief zijn zodat ze configureren als individuele databases geo-replicatie (1). Hierdoor wordt de voorspelbare prestaties van de nieuwe klant abonnementen, profielupdates en andere beheerbewerkingen. Regio A is de primaire regio voor het beheer van databases en de regio B wordt gebruikt voor herstel van de management-databases.
 
-De betalende klant tenant databases zijn ook geogerepliceerde maar met primaire en secundaire servers verdeeld tussen regio A en B (2) de regio. Op deze manier de tenant primaire databases beïnvloed door de storing kunnen failover naar de andere regio en beschikbaar. De andere helft van de tenant-databases zijn niet van invloed op alle. 
+De betalende klanten tenant-databases zijn ook geo-replicatie, maar met primaire en secundaire replica's verdeeld over verschillende regio's A en B (2) de regio. Op deze manier de primaire tenant-databases beïnvloed door de storing kunnen fungeren als failover voor de andere regio en beschikbaar is. De andere helft van de tenant-databases zijn niet helemaal te worden beïnvloed. 
 
-Het volgende diagram illustreert de herstelstappen te nemen als er een storing optreedt in regio A.
+Het volgende diagram illustreert de herstelstappen als er een storing optreedt in de regio A.
 
 ![Afbeelding 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
 * Onmiddellijk een failover de beheer-databases naar regio B (3).
-* De verbindingstekenreeks van de toepassing verwijst naar de databases management in regio B. wijzigen van de management-databases te controleren of de nieuwe accounts en tenant-databases worden gemaakt in de regio B en de bestaande tenant databases vindt u er ook wijzigen. De bestaande proefversie klanten hun eigen gegevens zien tijdelijk niet beschikbaar.
-* Failover-overschakeling van de betaalde tenant databases aan groep 2 in regio B direct herstellen hun beschikbaarheid (4). Nadat de failover een wijziging van de snelle metagegevens-niveau is, kunt u overwegen een optimalisatie waar de afzonderlijke failovers op aanvraag worden geïnitieerd door de eindgebruiker-verbindingen. 
-* Omdat nu toepassingen 2 bevat alleen primaire databases, de totale werkbelasting in de groep van toepassingen wordt verhoogd en de onmiddellijk kunt vergroten de eDTU-grootte (5) of vCores. 
-* De nieuwe elastische pool maken met dezelfde naam en dezelfde configuratie in het gebied van B voor de proefversie klanten databases (6). 
-* Zodra de groep is gemaakt. Gebruik geo-herstel de afzonderlijke proeftenant-database herstellen in de groep (7). U kunt overwegen de activering van de afzonderlijke herstelacties door de eindgebruiker verbindingen of sommige andere toepassingsspecifieke prioriteit schema gebruiken.
+* De verbindingsreeks van de toepassing om te verwijzen naar de beheer-databases in de regio B. wijzigen de databases beheren om te controleren of de nieuwe accounts en tenant-databases worden gemaakt in de regio B en de bestaande tenant-databases zijn er gevonden ook wijzigen. De bestaande proefversie klanten hun eigen gegevens zien tijdelijk niet beschikbaar.
+* Failover van de betaalde tenant-databases in de groep 2 in regio B onmiddellijk herstellen hun beschikbaarheid (4). Nadat de failover een snelle metagegevens niveau wijzigen is, kunt u overwegen een optimalisatie waar de afzonderlijke failovers op aanvraag worden geactiveerd door de eindgebruiker-verbindingen. 
+* Sinds nu groep 2 bevat alleen primaire databases, de totale werkbelasting in de groep van toepassingen toeneemt en onmiddellijk kunt verhogen de eDTU-grootte (5) of het aantal vCores. 
+* De nieuwe elastische pool maken met dezelfde naam en de dezelfde configuratie in de regio B voor de proefversie klanten databases (6). 
+* Nadat de groep is gemaakt. Gebruik geo-herstel de afzonderlijke proefversie van uw tenant-database herstellen naar de pool (7). U kunt overwegen de afzonderlijke herstelbewerkingen wordt geactiveerd door de eindgebruiker verbindingen of sommige andere toepassingsspecifieke prioriteit-schema worden gebruikt.
 
 > [!NOTE]
 > De failoverbewerking is asynchroon. Om te beperken de hersteltijd, is het belangrijk dat u de tenant-databases failover-opdracht in batches van ten minste 20 databases uitvoeren. 
 > 
 
-Op dit moment is uw toepassing weer online in regio B. Alle betalende klanten hebben toegang tot hun gegevens tijdens de proefperiode klanten vertraging ondervinden bij het openen van hun gegevens.
+Op dit moment is uw toepassing in de regio B. weer online Alle betalende klanten hebben toegang tot hun gegevens tijdens de proefperiode klanten vertraging ondervinden bij het openen van hun gegevens.
 
-Wanneer een regio kunnen worden hersteld moet u bepalen of u wilt gebruiken gebied B voor proefversie klanten of failback gebruikmaken van de evaluatieversie klanten in regio A. Een criteria zijn de % van de proefversie van uw tenant-databases is gewijzigd sinds het herstel. Ongeacht deze beslissing moet u de betaalde tenants tussen twee groepen opnieuw verdelen. het volgende diagram illustreert het proces als de databases proeftenant failback naar regio A.  
+Wanneer een regio is hersteld moet u beslissen of u gebruiken gebied B voor proefversie klanten of failback wilt naar gebruikmaken van de proefversie klanten in de regio A. Één criterium wordt mogelijk de % van de proefversie van uw tenant-databases die zijn gewijzigd nadat het herstel. Ongeacht deze beslissing moet u opnieuw de betaalde tenants tussen twee pools te verdelen. het volgende diagram illustreert het proces als de proefversie van uw tenant-databases een failback naar regio A.  
 
 ![Afbeelding 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
-* Alle openstaande geo-restore aanvragen aan proefversie DR-groep annuleren.   
-* Failover van de management-database (8). Na het herstel van de regio is de oude primaire automatisch de secundaire geworden. Nu wordt de primaire opnieuw.  
-* Selecteer welke betaald tenant databases failback naar groep 1 en initiëren failover naar de secundaire replica's (9). Na het herstel van de regio werden alle databases in de groep 1 automatisch secundaire replica's. Nu 50% van deze primaire opnieuw worden. 
-* Reduceer de grootte van de groep 2 naar de oorspronkelijke eDTU (10) of het aantal vCores.
-* Alle hersteld proefversie databases in de regio B naar alleen-lezen (11).
-* Voor elke database in de proefversie DR-groep die is gewijzigd sinds het herstel, hernoemen of verwijderen van de bijbehorende database in de proefversie primaire groep (12). 
+* Aanvragen voor alle openstaande geo-herstel naar proefversie DR-groep annuleren.   
+* Failover van de database management (8). Na het herstel van de regio, is de oude primaire automatisch de secundaire geworden. Nu wordt de primaire opnieuw.  
+* Selecteer welke betaalde tenant databases een failback naar groep 1 en initiëren failover naar de secundaire replica's (9 uitvoeren). Na het herstel van de regio werden alle databases in 1 groep automatisch secundaire replica's. Nu weer 50% van deze voorverkiezingen uit te brengen. 
+* Verklein de groep 2 van de oorspronkelijke eDTU (10) of het aantal vCores.
+* Verzameling alle hersteld proefversie databases in de regio B naar alleen-lezen (11).
+* Wijzig of verwijder de bijbehorende database in de proefversie primaire groep (12) voor elke database in de proefversie DR-groep die is gewijzigd sinds het herstel. 
 * Kopieer de bijgewerkte databases uit de DR-groep aan de primaire groep (13). 
-* DR-groep (14) verwijderen 
+* Verwijderen van de DR-groep (14) 
 
 De sleutel **voordelen** van deze strategie zijn:
 
-* Het ondersteunt de agressief SLA voor de betalende klanten omdat Hiermee zorgt u ervoor dat een storing kan geen invloed heeft op meer dan 50% van de tenant-databases. 
-* Dit zorgt ervoor dat de nieuwe proefversies geblokkeerd zijn zodra de audittrail DR-groep is gemaakt tijdens het herstel. 
-* Kunt u efficiënter gebruikmaken van de groepscapaciteit als 50% van de secundaire databases in groep 1 en 2 van de toepassingen zijn gegarandeerd minder actieve dan de primaire-databases.
+* Ondersteunt de agressief SLA voor de betalende klanten omdat het ervoor zorgt dat een storing kan niet van invloed zijn op meer dan 50% van de tenant-databases. 
+* Dit zorgt ervoor dat de nieuwe proefversies gedeblokkeerd zijn zodra de audittrail DR-groep is gemaakt tijdens het herstel. 
+* Hierdoor efficiënter gebruik van de groepscapaciteit als 50% van de secundaire databases in de groep 1 en 2 van toepassingen worden gegarandeerd minder dan de primaire databases actief zijn.
 
-De belangrijkste **-en nadelen** zijn:
+De belangrijkste **wisselwerking** zijn:
 
-* De CRUD-bewerkingen op de management-databases hebben lagere latentie voor de eindgebruikers die is verbonden met een dan de regio voor de eindgebruikers verbonden regio B als ze worden uitgevoerd op basis van de primaire database management.
-* Complexere ontwerp van de management-database vereist. Elke record tenant heeft bijvoorbeeld een locatiecode die moet worden gewijzigd tijdens failover en failback.  
+* De CRUD-bewerkingen voor het beheer van databases hebben een lagere latentie voor de eindgebruikers die is verbonden met een dan de regio voor de eindgebruikers die is verbonden met de regio B als ze worden uitgevoerd op de primaire database management.
+* Complexere ontwerp van de database management is vereist. Elke record van de tenant heeft bijvoorbeeld een locatie-code die moet worden gewijzigd tijdens de failover en failback.  
 * De betalende klanten ondervinden lagere prestaties dan normaal totdat de upgrade van toepassingen in de regio B is voltooid. 
 
 ## <a name="summary"></a>Samenvatting
-Dit artikel is gericht op de strategieën voor het herstel na noodgevallen voor de databaselaag gebruikt door een multitenant SaaS ISV toepassing. De strategie die u kiest is gebaseerd op de behoeften van de toepassing, zoals het bedrijfsmodel, de SLA die u wenst te bieden aan uw klanten, budget beperking enzovoort. Een strategie voor elke beschreven licht de voordelen en een afweging zodat u een gefundeerde beslissing nemen kunt. Uw specifieke toepassing die waarschijnlijk is tevens andere Azure-onderdelen. Daarom vindt u de richtlijnen van hun zakelijke continuïteit en het herstel van de databaselaag met hen te organiseren. Raadpleeg voor meer informatie over het beheren van herstel van databasetoepassingen in Azure, [cloudoplossingen ontwerpen voor herstel na noodgevallen](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
+In dit artikel richt zich op de strategieën voor noodherstel voor de databaselaag die worden gebruikt door een ISV-SaaS-toepassing met meerdere tenants. De strategie die u kiest is gebaseerd op de behoeften van de toepassing, zoals het bedrijfsmodel, de SLA die u wilt aanbieden aan uw klanten en budgetstatus beperking enzovoort. Elke beschreven strategie geeft een overzicht van de voordelen en de verhouding, zodat u een gefundeerde beslissing nemen kunt. Uw specifieke toepassing waarschijnlijk bevat ook andere Azure-onderdelen. Zodat u de richtlijnen van hun zakelijke continuïteit controleren en het herstellen van de databaselaag met hen. Raadpleeg voor meer informatie over het beheren van herstel van database-toepassingen in Azure, [cloudoplossingen ontwerpen voor herstel na noodgevallen](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## <a name="next-steps"></a>Volgende stappen
 * Voor meer informatie over Azure SQL Database geautomatiseerde back-ups, Zie [geautomatiseerde back-ups van SQL-Database](sql-database-automated-backups.md).
-* Zie voor een overzicht van zakelijke continuïteit en scenario's [Business continuity overview](sql-database-business-continuity.md).
-* Zie voor meer informatie over het gebruik van automatische back-ups voor herstel, [een database herstellen vanuit back-ups service geïnitieerde](sql-database-recovery-using-backups.md).
+* Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md).
+* Zie voor meer informatie over het gebruik van geautomatiseerde back-ups voor herstel, [een database herstellen vanuit back-ups service geïnitieerde](sql-database-recovery-using-backups.md).
 * Zie voor meer informatie over opties voor sneller herstel, [actieve geo-replicatie](sql-database-geo-replication-overview.md).
-* Zie voor meer informatie over het gebruik van automatische back-ups voor archivering, [kopiëren van de database](sql-database-copy.md).
+* Zie voor meer informatie over het gebruik van geautomatiseerde back-ups voor archivering, [kopiëren van de database](sql-database-copy.md).
 

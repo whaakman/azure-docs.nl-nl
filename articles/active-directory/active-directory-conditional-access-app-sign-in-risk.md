@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 98e2f88c85d21cde2ecc7196f93d531a80b14d13
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f1a6a11f827248d098c018390e9ae5557d9c22d1
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449975"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113372"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snelstartgids: Toegang blokkeren als er een risico voor de sessie wordt gedetecteerd met voorwaardelijke toegang van Azure Active Directory  
 
@@ -62,7 +62,7 @@ Het doel van deze stap is om ervoor te zorgen dat uw testaccount toegang heeft t
 
 ## <a name="create-your-conditional-access-policy"></a>Uw beleid voor voorwaardelijke toegang maken 
 
-Het scenario in deze snelstartgids wordt een aanmelding vanuit een Tor-Browser gebruikt voor het genereren van een gedetecteerde **aanmeldingen vanaf anonieme IP-adressen** risicogebeurtenis. Het risiconiveau van deze risicogebeurtenis is normaal.   
+Het scenario in deze snelstartgids wordt een aanmelding vanuit een Tor-Browser gebruikt voor het genereren van een gedetecteerde **aanmeldingen vanaf anonieme IP-adressen** risicogebeurtenis. Het risiconiveau van deze risicogebeurtenis is normaal. Om te reageren op deze risicogebeurtenis, kunt u de voorwaarde voor aanmeldingsrisico instellen op Gemiddeld. In een productieomgeving, moet u de voorwaarde voor aanmeldingsrisico instellen op hoge of op Gemiddeld en hoog.     
 
 Deze sectie wordt beschreven hoe u de vereiste voorwaardelijk toegangsbeleid maken. Stel in het beleid:
 
@@ -70,10 +70,11 @@ Deze sectie wordt beschreven hoe u de vereiste voorwaardelijk toegangsbeleid mak
 |---     | --- |
 | Gebruikers en groepen | Alain Charon  |
 | Cloud-apps | Alle cloud-apps |
+| Aanmeldingsrisico | Middelgroot |
 | Verlenen | Toegang blokkeren |
  
 
-![Beleid maken](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![Beleid maken](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -125,6 +126,26 @@ Deze sectie wordt beschreven hoe u de vereiste voorwaardelijk toegangsbeleid mak
     a. Klik op **alle cloud-apps**.
 
     b. Klik op **Gereed**.
+
+10. Klik op **voorwaarden**. 
+
+    ![Besturingselementen voor toegang](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. Op de **voorwaarden** pagina:
+
+    ![Het niveau van aanmeldingsrisico](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. Klik op **aanmeldingsrisico**.
+ 
+    b. Als **configureren**, klikt u op **Ja**.
+
+    c. Niveau van aanmeldingsrisico selecteren **gemiddeld**.
+
+    d. Klik op **Selecteren**.
+
+    e. Op de **voorwaarden** pagina, klikt u op **gedaan**.
+
+
 
 10. In de **besturingselementen voor toegang** sectie, klikt u op **verlenen**.
 

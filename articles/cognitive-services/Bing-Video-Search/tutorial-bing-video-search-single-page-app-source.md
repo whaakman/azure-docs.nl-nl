@@ -1,6 +1,6 @@
 ---
-title: Bing Video zoeken één pagina Web-app (broncode) | Microsoft Docs
-description: De broncode voor de zelfstudie waarin wordt getoond hoe u de API van Bing Video zoeken gebruiken in een webtoepassing van één pagina.
+title: Bing video's zoeken Web-app met één pagina (broncode) | Microsoft Docs
+description: De broncode voor de zelfstudie waarin wordt getoond hoe het gebruik van de Bing video's zoeken-API in een Web-App van één pagina.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -9,18 +9,18 @@ ms.component: bing-video-search
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-gedod
-ms.openlocfilehash: c0842e53cbc297c1980a9d08733d838def073835
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344505"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112457"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Zelfstudie: Single-page Video zoeken app
+# <a name="tutorial-single-page-video-search-app"></a>Zelfstudie: Single-page-video's zoeken-app
 
-Dit is de volledige broncode besproken in de [één pagina app-zelfstudie](tutorial-bing-video-search-single-page-app.md) voor Bing Video zoeken. Uitvoeren van de app kopiëren van de broncode in Kladblok of een andere teksteditor en sla het bestand als `bing.html`. Open het bestand opgeslagen in Microsoft Edge of een andere populaire browser.
+Dit is de volledige broncode besproken in de [app met één pagina zelfstudie](tutorial-bing-video-search-single-page-app.md) voor Bing video's zoeken. Om uit te voeren de app, kopieert u de broncode in Kladblok of een andere teksteditor en sla het bestand als `bing.html`. Open vervolgens het bestand opgeslagen in Microsoft Edge of een andere populaire browser.
 
-````html
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <!-- the above Mark of the Web lets IE run this page in the Internet security zone,
@@ -615,3 +615,4 @@ function doPrevSearchPage() {
 
 </body>
 </html>
+```

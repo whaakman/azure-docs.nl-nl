@@ -1,48 +1,56 @@
 ---
-title: Met behulp van Azure Import/Export mag gegevens overdragen naar Azure-bestanden | Microsoft Docs
-description: Informatie over het importeren van taken in de Azure portal mag gegevens overdragen naar Azure-bestanden maken.
+title: Met behulp van Azure Import/Export gegevens overdraagt naar Azure Files | Microsoft Docs
+description: Informatie over het maken van taken van gegevensimport in Azure portal mag gegevens overdragen naar Azure Files.
 author: alkohli
 manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4349b471f960e7844511c473bffcd2177a34e055
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660809"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113474"
 ---
-# <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export-service gebruiken voor het importeren van gegevens naar Azure-bestanden
+# <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Files
 
-In dit artikel bevat stapsgewijze instructies over het gebruik van de service Azure Import/Export veilig grote hoeveelheden gegevens importeren in Azure-bestanden. Om gegevens te importeren, moet de service u ondersteunde harde schijven met uw gegevens om een Azure-datacenter worden geleverd.  
+In dit artikel bevat stapsgewijze instructies over het gebruik van de Azure Import/Export-service veilig grote hoeveelheden gegevens te importeren in Azure Files. Om gegevens te importeren, moet de service u voor het verzenden van ondersteunde harde schijven met uw gegevens naar een Azure-datacenter.  
 
-De Import/Export-service ondersteunt alleen importeren van Azure-bestanden in de Azure-opslag. Azure Files exporteren wordt niet ondersteund.
+De Import/Export-service ondersteunt alleen importeren van Azure Files naar Azure Storage. Het exporteren van Azure-bestanden wordt niet ondersteund.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorgvuldig controleren voordat u een import-taak, het overbrengen van gegevens naar Azure-bestanden maken, en voer de volgende lijst met vereisten. U moet doen:
+Voordat u een importtaak om over te dragen van gegevens naar Azure Files maakt, zorgvuldig controleren en voer de volgende lijst met vereisten. U moet:
 
 - Een actief Azure-abonnement voor gebruik met Import/Export-service hebben.
-- Ten minste één Azure Storage-account hebben. Overzicht van de [storage-accounts en opslagtypen ondersteund voor Import/Export-service](storage-import-export-requirements.md). Zie voor meer informatie over het maken van een nieuw opslagaccount [het maken van een Opslagaccount](storage-create-storage-account.md#create-a-storage-account).
-- Zorg voor voldoende schijven van [ondersteunde typen](storage-import-export-requirements.md#supported-disks). 
-- Hebt u een Windows-systeem waarop een [ondersteund besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems).
-- [Download de WAImportExport versie 2](https://www.microsoft.com/download/details.aspx?id=55280) op het Windows-systeem. Uitpakken naar de standaardmap `waimportexport`. Bijvoorbeeld `C:\WaImportExport`.
+- Ten minste één Azure Storage-account hebben. Overzicht van de [ondersteunde opslagaccounts en typen gegevensopslag voor Import/Export-service](storage-import-export-requirements.md). Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-create-storage-account.md#create-a-storage-account).
+- Schijven van voldoende [ondersteunde typen](storage-import-export-requirements.md#supported-disks). 
+- Een Windows-systeem met een [ondersteunde besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems).
+- [De WAImportExport versie 2 downloaden](https://www.microsoft.com/download/details.aspx?id=55280) op het Windows-systeem. Pak deze uit naar de standaardmap `waimportexport`. Bijvoorbeeld `C:\WaImportExport`.
+- Een FedEx/DHL-account hebben. 
+    - Het account moet geldig zijn, saldo moet hebben en moet return verzending mogelijkheden hebben.
+    - Een nummer voor de taak uitvoer gegenereerd.
+    - Elke taak moet een afzonderlijke traceringsnummer hebben. Meerdere taken met de dezelfde traceringsnummer worden niet ondersteund.
+    - Als u een provider-account hebt, gaat u naar:
+        - [Maak een account FedEX](https://www.fedex.com/en-us/create-account.html), of 
+        - [Maak een account DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+ 
 
 
-## <a name="step-1-prepare-the-drives"></a>Stap 1: Bereid de stations
+## <a name="step-1-prepare-the-drives"></a>Stap 1: Voorbereiden van de schijven
 
-Deze stap genereert een journal-bestand. Het journaalbestand slaat basisinformatie zoals serienummer van station versleutelingssleutel en de details van opslag.
+Deze stap wordt een logboekbestand gegenereerd. Het logboekbestand bevat basisinformatie zoals serienummer van station, versleutelingssleutel en details opslagaccount.
 
-Voer de volgende stappen voor het voorbereiden van de stations.
+Voer de volgende stappen voor het voorbereiden van de schijven.
 
-1. Onze schijfstations verbinding met het Windows-systeem via SATA-connectors.
-2. Maak één NTFS-volume op elk station. Een stationsletter toewijzen aan het volume. Stel de volgende parameter niet gebruikt.
-3. Wijzig de *dataset.csv* bestand in de hoofdmap waarin het hulpprogramma zich bevindt. Afhankelijk van of u importeren van een bestand of map, of beide wilt, toevoegen vermeldingen in de *dataset.csv* bestand vergelijkbaar met de volgende voorbeelden.  
+1. Onze schijfstations verbinden met het Windows-systeem via SATA-connectors.
+2. Maak een enkele NTFS-volume op elke schijf. Een stationsletter toewijzen aan het volume. Stel de volgende parameter niet gebruiken
+3. Wijzig de *dataset.csv* bestand in de hoofdmap waarin het hulpprogramma zich bevindt. Afhankelijk van of u importeren van een bestand of map of beide wilt, vermeldingen toe te voegen in de *dataset.csv* bestand die vergelijkbaar is met de volgende voorbeelden.  
 
-    - **Een bestand importeren**: In het volgende voorbeeld wordt de gegevens te kopiëren in het station C: zich bevindt. Uw bestand *MyFile1.txt* wordt gekopieerd naar de hoofdmap van de *MyAzureFileshare1*. Als de *MyAzureFileshare1* niet bestaat, deze wordt gemaakt in de Azure Storage-account. Mapstructuur wordt bijgehouden.
+    - **Een bestand importeren**: In het volgende voorbeeld wordt de gegevens te kopiëren bevindt zich in de C:-station. Het bestand *MyFile1.txt* wordt gekopieerd naar de hoofdmap van de *MyAzureFileshare1*. Als de *MyAzureFileshare1* niet bestaat, wordt deze gemaakt in de Azure Storage-account. Mapstructuur wordt bijgehouden.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -63,21 +71,21 @@ Voer de volgende stappen voor het voorbereiden van de stations.
             "F:\MyFolder3\MyFile3.txt","MyAzureFileshare2/",file,rename,"None",None 
             
         ```
-    Meer informatie over [voorbereiden van het CSV-bestand van gegevensset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+    Meer informatie over [voorbereiden van de gegevensset CSV-bestand](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
 
-4. Wijzig de *driveset.csv* bestand in de hoofdmap waarin het hulpprogramma zich bevindt. Toevoegen van items in de *driveset.csv* bestand vergelijkbaar met de volgende voorbeelden. Het bestand driveset heeft de lijst van schijven en de bijbehorende stationsletters zodat het hulpprogramma kan correct kiezen voor de lijst met schijven worden voorbereid.
+4. Wijzig de *driveset.csv* bestand in de hoofdmap waarin het hulpprogramma zich bevindt. Toevoegen van items in de *driveset.csv* bestand die vergelijkbaar is met de volgende voorbeelden. Het bestand driveset heeft de lijst van schijven en de bijbehorende stationsletters zodat het hulpprogramma kan de lijst met schijven worden voorbereid correct kiezen.
 
-    In dit voorbeeld wordt ervan uitgegaan dat twee schijven zijn gekoppeld en standaard NTFS-volumes G:\ en H:\ worden gemaakt. H:\is niet versleuteld wanneer G: al is versleuteld. Het hulpprogramma indelingen en de schijf waarop H:\ alleen versleuteld (en niet G:\).
+    In dit voorbeeld wordt ervan uitgegaan dat twee schijven zijn gekoppeld en eenvoudige NTFS-volumes G:\ en H:\ worden gemaakt. H:\is niet versleuteld wanneer G: al is versleuteld. Het hulpprogramma maakt en versleutelt de schijf die als host H:\ alleen fungeert (en niet G:\).
 
-    - **Voor een schijf die is niet versleuteld**: Geef *versleutelen* BitLocker-versleuteling op de schijf in te schakelen.
+    - **Voor een schijf die is niet versleuteld**: Geef *versleutelen* inschakelen van BitLocker-versleuteling op de schijf.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
         H,Format,SilentMode,Encrypt,
         ```
     
-    - **Voor een schijf die al is versleuteld**: Geef *AlreadyEncrypted* en de BitLocker-sleutel op te geven.
+    - **Voor een schijf die al is versleuteld**: Geef *AlreadyEncrypted* en de BitLocker-sleutel hebt opgegeven.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -86,106 +94,113 @@ Voer de volgende stappen voor het voorbereiden van de stations.
 
     Meerdere vermeldingen kunnen worden gemaakt in hetzelfde bestand overeenkomt met meerdere stations. Meer informatie over [voorbereiden van het CSV-bestand driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
 
-5.  Gebruik de `PrepImport` optie voor het kopiëren en voorbereiden van gegevens naar de schijf. Voer de volgende opdracht voor de eerste sessie kopiëren kopiëren mappen en/of bestanden met een nieuwe kopieersessie:
+5.  Gebruik de `PrepImport` optie om te kopiëren en voorbereiden van gegevens naar de schijf. Voor de eerste kopie-sessie om te kopiëren van mappen en/of bestanden met een nieuwe kopieersessie, kunt u de volgende opdracht uitvoeren:
 
         ```
         .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
         ```
 
-    Een voorbeeld van invoer worden hieronder weergegeven.
+    Hieronder ziet u een voorbeeld van invoer.
   
         ```
         .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
         ```
  
-6. Een journal-bestand met de naam u opgaf met `/j:` parameter is gemaakt voor elke run van de opdrachtregel. Elk station dat u bereid heeft een journal-bestand dat moet worden geüpload bij het maken van de import-taak. Stations zonder journaal bestanden niet zijn verwerkt.
+6. Een logboekbestand met de naam die u hebt opgegeven met `/j:` parameter is gemaakt voor elke uitvoering van de opdrachtregel. Elke schijf die u voorbereidt heeft een logboekbestand dat moet worden geüpload bij het maken van de import-taak. Stations zonder logboek bestanden niet worden verwerkt.
 
     > [!IMPORTANT]
-    > - De gegevens op de schijfstations of het journaalbestand mag niet worden gewijzigd na het voltooien van de schijfvoorbereiding van de.
+    > - De gegevens op de harde schijven of het logboekbestand mag niet worden gewijzigd na het voltooien van de schijfvoorbereiding van de.
 
-Voor aanvullende voorbeelden, gaat u naar [voorbeelden voor het wijzigingslogboek bestanden](#samples-for-journal-files).
+Voor meer voorbeelden, gaat u naar [-voorbeelden voor logboekbestanden](#samples-for-journal-files).
 
-## <a name="step-2-create-an-import-job"></a>Stap 2: Een import-taak maken 
+## <a name="step-2-create-an-import-job"></a>Stap 2: Een importtaak maken 
 
-Voer de volgende stappen uit voor het maken van een import-taak in de Azure portal.
+De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 1. Meld u aan bij https://portal.azure.com/.
-2. Ga naar **alle services > opslag > importeren/exporteren taken**. 
+2. Ga naar **alle services > opslag > Import/export-taken**. 
 
-    ![Ga naar voor importeren/exporteren](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Ga naar Import/export](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Klik op **maken voor importeren/exporteren taak**.
+3. Klik op **Import-/ exporttaak maken**.
 
-    ![Klik op taak van Import/export](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Klik op de taak Import/export](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
 4. In **basisbeginselen**:
 
     - Selecteer **importeren in Azure**.
-    - Voer een beschrijvende naam voor de import-taak. Gebruik deze naam voor het bijhouden van uw taken terwijl ze zijn uitgevoerd en wanneer ze zijn voltooid.
+    - Voer een beschrijvende naam voor de import-taak. Deze naam gebruiken voor het bijhouden van uw taken terwijl ze worden uitgevoerd en wanneer ze zijn voltooid.
         -  Deze naam mag alleen kleine letters, cijfers, afbreekstreepjes en onderstrepingstekens bevatten.
         -  De naam moet beginnen met een letter en mag geen spaties bevatten. 
     - Selecteer een abonnement.
     - Selecteer een resourcegroep. 
 
-        ![Import-taak - stap 1 maken](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+        ![Importeren van een taak maken - stap 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. In **taakgegevens**:
     
-    - Het wijzigingslogboek bestanden uploaden die u hebt gemaakt tijdens de voorgaande [stap 1: voorbereiden van de stations](#step-1-prepare-the-drives). 
+    - De logboekbestanden die u hebt gemaakt tijdens de voorgaande uploaden [stap 1: voorbereiden van de schijven](#step-1-prepare-the-drives). 
     - Selecteer het opslagaccount waarin de gegevens worden geïmporteerd. 
-    - De afgiftepunt wordt automatisch gevuld op basis van de regio van het geselecteerde opslagaccount.
+    - De afgiftelocatie wordt automatisch ingevuld op basis van de regio van het opslagaccount dat is geselecteerd.
    
-       ![Stap 2 voor import-taak - maken](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+       ![Importeren van een taak maken - stap 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-4. In **back-ups van gegevens retourneren**:
+4. In **verzendinfo retourneren**:
 
-    - Selecteer de provider in de vervolgkeuzelijst.
-    - Voer een geldige carrier account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor de schijven naar u verzenden zodra de import-taak is voltooid. 
-    - Geef een volledig en geldig contactpersoon, telefoon, e, adres, stad, zip, staat/provincie en land/regio.
+    - Selecteer de provider die in de vervolgkeuzelijst.
+    - Voer een geldige provider account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor de schijven terug naar u verzenden zodra uw import-taak voltooid is. 
+    - Geef een volledig en geldig contact op met de naam, telefoon, e-mailadres, adres, stad, postcode, staat/provincie en land/regio.
 
-       ![Stap 3 van importtaak - maken](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+        > [!TIP] 
+        > In plaats van op te geven in een e-mailadres voor één gebruiker, moet u een groep e-mailadres opgeven. Dit zorgt ervoor dat u meldingen ontvangt, zelfs als een beheerder verlaat.
+
+       ![Importeren van een taak maken - stap 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
    
 5. In de **samenvatting**:
 
-    - Geef de Azure-datacenter verzendadres voor het verzenden van schijven terug naar Azure. Zorg ervoor dat de taaknaam en het volledige adres worden vermeld op het label van de back-upfunctie.
-    - Klik op **OK** om uit te voeren van import-taak maken.
+    - Geef het Azure-datacenter verzendadres voor het verzenden van de schijven terug naar Azure. Zorg ervoor dat de taaknaam van de en het volledige adres worden vermeld op het verzendlabel.
+    - Klik op **OK** import-taak maken voltooid.
 
-        ![Stap 4 van importtaak - maken](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+        ![Importeren van een taak maken - stap 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Stap 3: De schijven naar het Azure datacenter verzenden 
+## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Stap 3: De schijven in de Azure-datacenter verzenden 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-4-update-the-job-with-tracking-information"></a>Stap 4: De taak met traceringsgegevens bijwerken
+## <a name="step-4-update-the-job-with-tracking-information"></a>Stap 4: De taak bijwerken met het bijhouden van informatie
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="samples-for-journal-files"></a>Voorbeelden voor het wijzigingslogboek bestanden
+## <a name="step-5-verify-data-upload-to-azure"></a>Stap 5: Controleer of het uploaden van gegevens naar Azure
 
-Naar **meer stations toevoegen**, maakt u een nieuw driveset-bestand en voer de opdracht zoals hieronder. 
+De taak volgen om te voltooien. Nadat de taak voltooid is, moet u controleren of uw gegevens daadwerkelijk is geüpload naar Azure. Verwijder de on-premises gegevens alleen nadat u hebt gecontroleerd dat het uploaden is voltooid.
 
-Voor latere kopie-sessies in de verschillende schijfstations dan is opgegeven in *InitialDriveset CSV* bestand, geeft u een nieuwe driveset *CSV* bestands- en opgeven als een waarde in de parameter `AdditionalDriveSet`. Gebruik de **hetzelfde journaalbestand** een naam en geef een **nieuwe sessie-ID**. De indeling van AdditionalDriveset CSV-bestand is hetzelfde als InitialDriveSet-indeling.
+## <a name="samples-for-journal-files"></a>Voorbeelden voor logboekbestanden
+
+Naar **meer stations toevoegen**, maak een nieuw driveset-bestand en voer de opdracht uit als hieronder. 
+
+Voor volgende kopie-sessies in de andere schijven dan is opgegeven in *InitialDriveset CSV* bestand, geeft u een nieuwe driveset *CSV* -bestand en geef deze als waarde aan de parameter `AdditionalDriveSet`. Gebruik de **hetzelfde logboekbestand** een naam en geef een **nieuwe sessie-ID**. De indeling van AdditionalDriveset CSV-bestand is hetzelfde als InitialDriveSet-indeling.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
     ```
 
-Een voorbeeld van invoer worden hieronder weergegeven.
+Hieronder ziet u een voorbeeld van invoer.
 
     ```
     WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
     ```
 
 
-Om aanvullende gegevens toevoegen aan de dezelfde driveset, door de opdracht PrepImport voor latere kopie sessies te gebruiken voor het kopiëren van de aanvullende bestanden en de map.
+Aanvullende gegevens toevoegen aan de dezelfde driveset, door de opdracht PrepImport voor latere kopie-sessies te gebruiken om te kopiëren van de aanvullende bestanden en de map.
 
-Voor latere kopie-sessies door naar de dezelfde harde schijven die is opgegeven in *InitialDriveset.csv* bestand, geeft de **hetzelfde journaalbestand** een naam en geef een **nieuwe sessie-ID**; Er is niet nodig om de sleutel van het opslagaccount.
+Voor volgende kopie-sessies in de dezelfde vaste-schijfstations die is opgegeven in *InitialDriveset.csv* bestand, geeft de **hetzelfde logboekbestand** een naam en geef een **nieuwe sessie-ID**; Er is geen hoeft op te geven van de opslagaccountsleutel.
 
     ```
     WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
     ```
 
-Een voorbeeld van invoer worden hieronder weergegeven.
+Hieronder ziet u een voorbeeld van invoer.
 
     ```
     WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
@@ -193,7 +208,7 @@ Een voorbeeld van invoer worden hieronder weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [De status van de taak en het station weergeven](storage-import-export-view-drive-status.md)
-* [Overzicht van de vereisten voor importeren/exporteren](storage-import-export-requirements.md)
+* [De taak en het station status bekijken](storage-import-export-view-drive-status.md)
+* [Bekijk de vereisten voor Import/Export](storage-import-export-requirements.md)
 
 

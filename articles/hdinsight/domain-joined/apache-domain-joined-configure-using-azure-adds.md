@@ -1,75 +1,77 @@
 ---
-title: Domein-HDInsight-clusters met AAD DS configureren
-description: Meer informatie over het instellen en domein HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
+title: Configureren van een domein gekoppeld HDInsight-cluster met behulp van Azure AD DS
+description: Meer informatie over het instellen en configureren van een domein gekoppeld HDInsight-cluster met behulp van Azure Active Directory Domain Services
 services: hdinsight
 author: omidm1
+ms.author: omidm
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: omidm
-ms.openlocfilehash: 8064940e0d0f035010a2521752d6f32f3f9ccd9f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.date: 07/17/2018
+ms.openlocfilehash: d38148181aa18404e45f6efc029117573570e6bc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849823"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115422"
 ---
-# <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
+# <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>Configureren van een domein gekoppeld HDInsight-cluster met behulp van Azure Active Directory Domain Services
 
-Domein-clusters bieden de toegang door meerdere gebruikers op HDInsight-clusters. HDInsight-clusters domein zijn verbonden met een domein, zodat gebruikers van een domein hun domeinreferenties gebruiken kunnen voor verificatie met de clusters en big data-taken uitvoeren. 
+Aan domein gekoppelde clusters bieden met meerdere gebruikers toegang op Azure HDInsight-clusters. Aan domein gekoppelde HDInsight-clusters zijn verbonden met een domein, zodat gebruikers van een domein hun domeinreferenties gebruiken kunnen om te verifiëren met de clusters en het uitvoeren van taken met big data. 
 
-In dit artikel leert u hoe een domein HDInsight-cluster met behulp van Azure Active Directory Domain Services configureren.
+In dit artikel leert u hoe u een domein gekoppeld HDInsight-cluster configureren met behulp van Azure Active Directory Domain Services (Azure AD DS).
 
-## <a name="create-azure-adds"></a>Azure ADDS maken
+## <a name="enable-azure-ad-ds"></a>Azure AD DS inschakelen
 
-Inschakelen van Azure AD Domain Services (AAD-DS) is een vereiste voordat u een domein HDInsight-cluster kunt maken. Zie voor het inschakelen van een exemplaar van de AAD-DS [het inschakelen van AAD-DS met behulp van de Azure-portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+Inschakelen van Azure AD DS is een vereiste voordat u een domein gekoppeld HDInsight-cluster kunt maken. Zie voor meer informatie, [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Alleen de pachterbeheerders hebben de bevoegdheden een AAD-DS-exemplaar te maken. Als u Azure Data Lake Storage (ADLS) als de standaard-opslag voor HDInsight, Controleer of dat de standaard Azure AD-tenant voor ADLS is hetzelfde als het domein voor het HDInsight-cluster. Sincde Hadoop is afhankelijk van de Kerberos- en basic Authentication, MFA moet worden uitgeschakeld voor gebruikers die toegang tot het cluster.
+> Alleen tenantbeheerders hebben de bevoegdheden voor het maken van een Azure AD DS-exemplaar. Als u Azure Data Lake Storage Gen1 als de standaardopslag voor HDInsight gebruikt, zorg ervoor dat de standaard Azure AD-tenant voor Data Lake Storage Gen1 hetzelfde als het domein voor het HDInsight-cluster is. Omdat Hadoop, is afhankelijk van Kerberos en basisverificatie wordt gebruikt, moet de multi-factor authentication voor gebruikers die toegang het cluster tot worden uitgeschakeld.
 
-Nadat het AAD-DS-exemplaar is ingericht, moet u een serviceaccount in AAD (die worden gesynchroniseerd naar AAD-DS) maken met de juiste machtigingen. Als deze serviceaccount al bestaat, moet u het wachtwoord opnieuw instellen en wacht totdat deze wordt gesynchroniseerd met AAD-DS (deze bewerking leidt ertoe dat het maken van het kerberos-wachtwoord-hash en het kan maximaal 30 min om te synchroniseren met AAD-DS duren). Deze serviceaccount mag de volgende bevoegdheden hebben:
+Nadat u de Azure AD DS-exemplaar inricht, moet u een serviceaccount in Azure Active Directory (Azure AD) maken met de juiste machtigingen. Als deze serviceaccount al bestaat, wordt het wachtwoord wijzigen en wacht totdat deze wordt gesynchroniseerd met Azure AD DS. Deze bewerking zal leiden tot het maken van de Kerberos-wachtwoord-hash en het duurt maximaal 30 minuten wilt synchroniseren met Azure AD DS. 
 
-- Computers toevoegen aan het domein en plaats machine principals binnen de organisatie-eenheid die u tijdens het maken van het cluster opgeeft.
+Het serviceaccount moet de volgende bevoegdheden hebben:
+
+- Machines toevoegen aan het domein en machine-principals binnen de organisatie-eenheid die u tijdens het maken van een cluster opgeeft plaatsen.
 - Service-principals binnen de organisatie-eenheid die u tijdens het maken van een cluster opgeeft maken.
 
 > [!NOTE]
-> Omdat de domeinnaam Apache Zeppelin gebruikt om de administrative-service-account te verifiëren, moet het serviceaccount dezelfde domeinnaam als de UPN-achtervoegsel voor Apache Zeppelin goed te laten functioneren hebben.
+> Omdat Apache Zeppelin maakt gebruik van de domeinnaam verifiëren van de administrative-service-account, het serviceaccount *moet* hebben dezelfde domeinnaam als de UPN-achtervoegsel voor Apache Zeppelin te laten functioneren.
 
-Zie voor meer informatie over de organisatie-eenheden en hoe deze te beheren, [een organisatie-eenheid maken op een AAD-DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md). 
+Zie voor meer informatie over de organisatie-eenheden en hoe deze te beheren, [maken een organisatie-eenheid op een beheerd domein van Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md). 
 
-Beveiligde LDAP voor AAD-DS beheerd domein is vereist. Zie voor het inschakelen van beveiligde LDAP [beveiligde LDAP (LDAPS) configureren voor een AAD-DS beheerd domein](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
+Secure LDAP is voor een beheerd domein van Azure AD DS. Zie voor meer informatie, [secure LDAP configureren voor een Azure AD DS beheerd domein](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
-## <a name="create-a-domain-joined-hdinsight-cluster"></a>Een domein HDInsight-cluster maken
+## <a name="create-a-domain-joined-hdinsight-cluster"></a>Een aan domein gekoppelde HDInsight-cluster maken
 
-De volgende stap is het maken van het HDInsight-cluster met behulp van de AAD-DS en het serviceaccount in de vorige sectie hebt gemaakt.
+De volgende stap is het maken van het HDInsight-cluster met behulp van Azure AD DS en het serviceaccount dat u in de vorige sectie hebt gemaakt.
 
-Het is gemakkelijker zowel de AAD-DS en het HDInsight-cluster in de dezelfde Azure virtuele network(VNet) plaatsen. Als u opslaan in verschillende VNets wilt, moet u deze VNets peer zodat HDI VM's een regel zicht naar de domeincontroller hebben voor het lidmaatschap van de virtuele machines. Zie voor meer informatie [virtuele netwerk peering](../../virtual-network/virtual-network-peering-overview.md).
+Het is eenvoudiger om zowel de Azure AD DS-exemplaar als het HDInsight-cluster in hetzelfde Azure virtual network. Als u ervoor kiest om ze in verschillende virtuele netwerken, moet u deze virtuele netwerken koppelen zodat HDInsight virtuele machines een verbinding met de domeincontroller hebben voor het lidmaatschap van de virtuele machines. Zie voor meer informatie, [peering van virtuele netwerken](../../virtual-network/virtual-network-peering-overview.md).
 
-Wanneer u een domein HDInsight-cluster maakt, moet u de volgende parameters opgeven:
+Wanneer u een domein gekoppeld HDInsight-cluster maakt, moet u de volgende parameters opgeven:
 
-- **Domeinnaam**: de domeinnaam die is gekoppeld aan de AAD-DS. Bijvoorbeeld: contoso.onmicrosoft.com
-- **Domeingebruikersnaam**: het serviceaccount in het beheerde domein dat is gemaakt in de vorige sectie. Bijvoorbeeld hdiadmin@contoso.onmicrosoft.com. Deze domeingebruiker worden de beheerder van deze HDInsight-cluster.
+- **Domeinnaam**: de naam van het domein dat is gekoppeld aan Azure AD DS. Een voorbeeld is contoso.onmicrosoft.com.
+- **Domeingebruikersnaam**: het serviceaccount in het beheerde domein dat u in de vorige sectie hebt gemaakt. Een voorbeeld is hdiadmin@contoso.onmicrosoft.com. In dit de domeingebruiker is de beheerder van dit HDInsight-cluster.
 - **Domeinwachtwoord**: het wachtwoord van het serviceaccount.
-- **Organisatie-eenheid**: de DN-naam van de organisatie-eenheid die u wilt gebruiken met HDInsight-cluster. Bijvoorbeeld: OU = HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com. Als deze organisatie-eenheid niet bestaat, probeert de HDInsight-cluster te maken van de organisatie-eenheid met de rechten die de serviceaccount heeft. (Bijvoorbeeld als het serviceaccount zich in de groep Administrators AAD-DS, hieraan de juiste machtigingen voor het maken van een organisatie-eenheid, anders moet u mogelijk eerst de organisatie-eenheid maken en de service account volledige controle over de organisatie-eenheid eerst geven - Zie [een organisatie-eenheid maken op een AAD-DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)).
+- **Organisatie-eenheid**: de DN-naam van de organisatie-eenheid die u wilt gebruiken voor het HDInsight-cluster. Een voorbeeld is de organisatie-eenheid = HDInsightOU, DC = contoso, DC = onmicrosoft gebruikt, DC = com. Als deze organisatie-eenheid niet bestaat, wordt het HDInsight-cluster probeert te maken van de organisatie-eenheid met behulp van de bevoegdheden die de serviceaccount heeft. Bijvoorbeeld, als het serviceaccount zich in de groep beheerders van Azure AD DS, heeft deze de juiste machtigingen voor het maken van een organisatie-eenheid. U wilt, maakt u eerst de organisatie-eenheid en geef de service-account van volledige controle over de organisatie-eenheid. Zie voor meer informatie, [maken een organisatie-eenheid op een beheerd domein van Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
     > [!IMPORTANT]
-    > Het is belangrijk om alle te nemen van de DC's sepearated door een komma na de organisatie-eenheid (bijvoorbeeld OE = HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com).
+    > Omvat alle DC's, gescheiden door komma's, na de organisatie-eenheid (bijvoorbeeld organisatie-eenheid HDInsightOU, DC = contoso, DC = = onmicrosoft gebruikt, DC = com).
 
-- **LDAPS URL**: bijvoorbeeld ldaps://contoso.onmicrosoft.com:636
+- **LDAPS-URL**: een voorbeeld is ldaps://contoso.onmicrosoft.com:636.
 
     > [!IMPORTANT]
-    > Voer de volledige url waaronder de ldaps: / / en het poortnummer (: 636)
+    > Voer de volledige URL, met inbegrip van ' ldaps: / / ' en het poortnummer (: 636).
 
-- **Gebruikersgroep toegang**: de beveiligingsgroepen waarvan gebruikers die u wilt synchroniseren met het cluster. Bijvoorbeeld: HiveUsers. Als u meerdere gebruikersgroepen opgeven wilt, gescheiden door komma's ','.
+- **Gebruikersgroep openen**: de beveiligingsgroepen waarvan gebruikers die u wilt synchroniseren met het cluster. Bijvoorbeeld: HiveUsers. Als u meerdere gebruikersgroepen opgeven wilt, gescheiden door puntkomma (;).
  
-De volgende schermafbeelding ziet de configuraties in de Azure portal:
+De volgende schermafbeelding ziet u de configuraties in Azure portal:
 
 ![Azure HDInsight domein Active Directory Domain Services-configuratie](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md) (Hive-beleid configureren voor aan een domein gekoppelde HDInsight-clusters) om Hive-beleid te configureren en Hive-query's uit te voeren.
-* Zie voor het gebruik van SSH verbinding maken met domein HDInsight-clusters [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Zie voor Hive-beleid configureren en uitvoeren van Hive-query's, [configureren Hive-beleid voor aan domein gekoppelde HDInsight-clusters](apache-domain-joined-run-hive.md).
+* Zie voor het gebruik van SSH verbinding maken met HDInsight-clusters domein [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

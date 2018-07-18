@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7313ea1ff26d9c732d04b02f8b88f14e2aa4dd2f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072048"
+ms.locfileid: "39091319"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager
 
@@ -61,7 +61,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten voor Azure-implementati
 | MissingRegistrationForLocation | Controleer de status van de registratie van resourceprovider en ondersteunde locaties. | [Registratie oplossen](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Uw abonnement met de resourceprovider registreren. | [Registratie oplossen](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Controleer de status van de registratie van resourceprovider. | [Registratie oplossen](resource-manager-register-provider-errors.md) |
-| Niet gevonden | Mogelijk probeert u een afhankelijke resource in combinatie met een bovenliggende resource implementeren. Controleer of u moet een afhankelijkheid toevoegen. | [Omzetten van afhankelijkheden](resource-manager-not-found-errors.md) |
+| NotFound | Mogelijk probeert u een afhankelijke resource in combinatie met een bovenliggende resource implementeren. Controleer of u moet een afhankelijkheid toevoegen. | [Omzetten van afhankelijkheden](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | De implementatie, is er wordt geprobeerd een bewerking die het quotum voor het abonnement, resourcegroep of regio overschrijdt. Wijzig, indien mogelijk, uw implementatie om binnen de quota te blijven. Overweeg anders aanvragen van een wijziging in uw quota's. | [Quota's oplossen](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Zorg ervoor dat een bovenliggende resource bestaat voor het maken van de onderliggende resources. | [Bovenliggende resource oplossen](resource-manager-parent-resource-errors.md) |
 | PrivateIPAddressInReservedRange | Het opgegeven IP-adres bevat een adresbereik dat is vereist voor Azure. IP-adres om te voorkomen dat gereserveerde bereik wijzigen. | [IP-adressen](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
@@ -104,7 +104,21 @@ Selecteer het bericht voor meer informatie. In de volgende afbeelding ziet u een
 
 ### <a name="deployment-errors"></a>Fouten bij de implementatie
 
-Wanneer de bewerking is gevalideerd, maar tijdens de implementatie is mislukt, ziet u de fout in de meldingen. Selecteer de melding.
+Als de bewerking is gevalideerd, maar niet tijdens de implementatie, krijgt u een implementatiefout opgetreden.
+
+Als u wilt zien van implementatie-foutcodes en berichten met PowerShell, gebruikt u:
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+Als u wilt zien van implementatie-foutcodes en berichten met Azure CLI, gebruikt u:
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+Selecteer de melding in de portal.
 
 ![Fout met melding](./media/resource-manager-common-deployment-errors/notification.png)
 

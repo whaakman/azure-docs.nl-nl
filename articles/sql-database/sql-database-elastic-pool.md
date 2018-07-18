@@ -1,43 +1,43 @@
 ---
 title: Beheer van meerdere SQL-databases met elastische pools-Azure | Microsoft Docs
-description: Beheren en schalen van meerdere SQL-databases - honderden en duizendtallen - met elastische pools. Één prijs voor resources die u distribueren kunt waar nodig.
-keywords: meerdere databases, databaseresources en prestaties van de database
+description: Beheer en schaal van meerdere SQL-databases - honderden en duizenden - met behulp van elastische pools. Een enkele prijs voor resources die u distribueren kunt waar nodig.
+keywords: meerdere databases, database-resources en prestaties van de database
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: 5ef32b231a77906a6840ad3550e81b631ddc0c13
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: a5d5c29b30f746c5507e45ecbee6c5ab9aff56f3
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309651"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091939"
 ---
-# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools helpen u te beheren en schalen van meerdere Azure SQL-databases
+# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases
 
-SQL-Database elastische pools zijn een eenvoudige, rendabele oplossing voor het beheren en schalen van meerdere databases die voldoen aan verschillende en onvoorspelbare veeleisende hebben. De databases in een elastische pool zijn op één Azure SQL Database-server en een aantal bronnen op een vaste prijs delen. Met elastische groepen in Azure SQL Database kunnen SaaS-ontwikkelaars de prijsprestaties voor een groep databases binnen een voorgeschreven budget optimaliseren en flexibele prestaties voor elke database leveren.
+SQL Database elastische pools zijn een eenvoudige en kosteneffectieve oplossing voor het beheren en schalen van meerdere databases met uiteenlopende en onvoorspelbare vraag voor gebruik. De databases in een elastische pool op een enkele Azure SQL Database-server en delen van een bepaald aantal resources in een vaste prijs. Met elastische groepen in Azure SQL Database kunnen SaaS-ontwikkelaars de prijsprestaties voor een groep databases binnen een voorgeschreven budget optimaliseren en flexibele prestaties voor elke database leveren.
 
-## <a name="what-are-sql-elastic-pools"></a>Wat zijn de elastische pools SQL?
+## <a name="what-are-sql-elastic-pools"></a>Wat zijn elastische SQL-groepen?
 
-SaaS-ontwikkelaars ontwikkelen toepassingen boven op grootschalige gegevenslagen die uit meerdere databases bestaan. Een algemeen patroon is de inrichting van een individuele database voor elke klant. Maar verschillende klanten hebben vaak verschillende en onvoorspelbare gebruikspatronen, en de resourcevereisten van elke gebruiker van een individuele database zijn moeilijk te voorspellen. Traditioneel moest u twee opties:
+SaaS-ontwikkelaars ontwikkelen toepassingen boven op grootschalige gegevenslagen die uit meerdere databases bestaan. Een algemeen patroon is de inrichting van een individuele database voor elke klant. Maar verschillende klanten hebben vaak verschillende en onvoorspelbare gebruikspatronen, en de resourcevereisten van elke gebruiker van een individuele database zijn moeilijk te voorspellen. Vroeger had u twee opties:
 
-- Te veel bronnen op basis van piekgebruik en via salaris, ter beschikking stellen of
-- Onder inrichten op te slaan kosten ten koste van de prestaties en klanttevredenheid tijdens pieken.
+- Te veel inrichten van resources op basis van piekgebruik en via betalen, of
+- Een te voorzichtige inrichting om kosten, ten koste van prestaties en klanttevredenheid tijdens pieken te besparen.
 
-Elastische pools oplossen dit probleem door ervoor te zorgen dat databases ophalen van de prestaties-bronnen die ze nodig hebben. Ze bieden een eenvoudig mechanisme voor het toewijzen van resources binnen een voorspelbaar budget. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
+Elastische groepen lossen dit probleem op door ervoor te zorgen dat databases de prestaties die ze nodig hebben krijgen wanneer ze deze nodig hebben. Ze bieden een eenvoudig mechanisme voor het toewijzen van resources binnen een voorspelbaar budget. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Elastische pools inschakelen kopen van resources voor een groep die wordt gedeeld door meerdere databases voor onvoorspelbare perioden van geheugengebruik door afzonderlijke databases van de ontwikkelaar. U kunt resources configureren voor de groep op op basis van de [aankoopmodel op basis van het DTU](sql-database-service-tiers-dtu.md) of de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md). De Resourcevereiste voor een pool wordt bepaald door het totale gebruik van de databases. De hoeveelheid resources beschikbaar voor de pool wordt bepaald door de ontwikkelaar budget. De ontwikkelaar gewoon databases toegevoegd aan de groep, stelt u de minimale en maximale resources voor de databases (minimum en maximum aantal dtu's of minimum of maximum vCores, afhankelijk van uw keuze op voor het model resourcing), en stelt u de resources van de groep op basis van hun budget. Met groepen kan een ontwikkelaar services naadloos met een alsmaar groeiende schaal uitbreiden van een kleine startende ondernemer tot een volwassen bedrijf.
+Elastische pools bieden de ontwikkelaar om aan te schaffen resources voor een groep die wordt gedeeld door meerdere databases aan onvoorspelbare perioden van gebruik door afzonderlijke databases. U kunt resources configureren voor de groep op basis van ofwel de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). De Resourcevereiste voor een groep wordt bepaald door de gezamenlijke gebruik van de bijbehorende databases. De hoeveelheid resources die beschikbaar is voor de groep wordt bepaald door het budget van de ontwikkelaar. De ontwikkelaar gewoon databases aan de groep toegevoegd, Hiermee stelt u de minimale en maximale beschikbare resources voor de databases (de minimale en maximale aantal dtu's of minimum of maximum aantal vCores, afhankelijk van uw keuze van het model resourcing), en stelt vervolgens de resources van de groep op basis van hun budget. Met groepen kan een ontwikkelaar services naadloos met een alsmaar groeiende schaal uitbreiden van een kleine startende ondernemer tot een volwassen bedrijf.
 
-Binnen de pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen ingestelde parameters. Een database kan meer bronnen om te voldoen aan de vraag gebruiken onder een zware belasting. Databases onder lichte lading verbruiken kleiner en databases onder geen load geen resources gebruiken. De inrichting van resources voor de hele pool in plaats van afzonderlijke databases vereenvoudigt uw beheertaken. Bovendien hebt u een voorspelbare budget voor de groep. Aanvullende resources kunnen worden toegevoegd aan een bestaande toepassingen zonder uitvaltijd database, behalve dat de databases moet mogelijk worden verplaatst naar de aanvullende rekenresources voor de nieuwe eDTU-reservering bieden. Op dezelfde manier als extra resources niet meer nodig zijn kunnen ze worden verwijderd uit een bestaande pool op elk gewenst moment in de tijd. Daarnaast kunt u databases aan de groep toevoegen of uit de groep verwijderen. Als een database naar verwachting minder resources nodig heeft, kunt u deze verwijderen.
+Binnen de pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen ingestelde parameters. Onder zware belasting kan verbruiken een database meer resources om te voldoen aan de vraag. Databases met een lichte belasting minder verbruiken en databases zonder enige belasting geen resources verbruiken. De inrichting van resources voor de hele pool in plaats van afzonderlijke databases vereenvoudigt uw beheertaken. Bovendien hebt u een voorspelbaar budget voor de pool. Aanvullende bronnen kunnen worden toegevoegd aan een bestaande pool met uitvaltijd, behalve dat de databases moeten mogelijk worden verplaatst om te voorzien van de extra rekenresources voor de nieuwe eDTU-reservering. Op dezelfde manier als extra resources niet meer nodig zijn kunnen ze worden verwijderd uit een bestaande pool op elk gewenst moment in-time. Daarnaast kunt u databases aan de groep toevoegen of uit de groep verwijderen. Als een database naar verwachting minder resources nodig heeft, kunt u deze verwijderen.
 
-## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Wanneer moet u rekening houden met een elastische pool in SQL-Database?
+## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Wanneer moet u rekening houden met een SQL Database elastische pool?
 
 Pools zijn geschikt voor een groot aantal databases met specifieke gebruikspatronen. Voor een bepaalde database wordt dit patroon gekenmerkt door een laag gemiddeld gebruik met relatief incidentele gebruikspieken.
 
@@ -55,7 +55,7 @@ Gedurende de geïllustreerde periode van vijf minuten piekt DB1 tot 90 DTU's, ma
 
 Met een groep kunnen deze ongebruikte DTU’s worden gedeeld met meerdere databases, wat de benodigde DTU's en de totale kosten vermindert.
 
-Stel dat er in het vorige voorbeeld meer databases zijn die een soortgelijk gebruikspatroon hebben als DB1. In de volgende twee onderstaande afbeeldingen, worden het gebruik van vier databases en 20 databases gelaagd naar dezelfde grafiek ter illustratie van de niet-overlappende aard van het-gebruik gedurende een periode met behulp van het DTU-aankoopmodel:
+Stel dat er in het vorige voorbeeld meer databases zijn die een soortgelijk gebruikspatroon hebben als DB1. In de volgende twee afbeeldingen, het gebruik van vier databases en 20 databases gelaagd over dezelfde grafiek ter illustratie van de niet-overlappende aard van het gebruik na verloop van tijd met behulp van het op DTU gebaseerde aankoopmodel:
 
    ![vier databases met een gebruikspatroon dat geschikt is voor een groep](./media/sql-database-elastic-pool/four-databases.png)
 
@@ -75,16 +75,16 @@ De volgende vuistregels voor databaseaantallen en databasegebruik helpen ervoor 
 
 ### <a name="minimum-number-of-databases"></a>Minimum aantal databases
 
-Als de totale hoeveelheid resources voor individuele databases meer dan 1,5 x de benodigde resources voor de groep, is wordt een elastische pool rendabeler is.
+Als de totale hoeveelheid resources voor individuele databases meer dan 1,5 keer de resources die nodig zijn voor de groep, en vervolgens een elastische pool rendabeler is.
 
-***Voorbeeld aankopen model op basis van DTU***<br>
+***Voorbeeld van aankopen model op basis van DTU***<br>
 Er zijn ten minste twee S3-databases of ten minste 15 S0-databases nodig wil een groep van 100 eDTU's rendabeler zijn dan het gebruik van de prestatieniveaus voor individuele databases.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Maximum aantal gelijktijdig piekende databases
 
-Door het delen van resources, kunnen niet alle databases in een groep resources tot maximaal de maximaal beschikbare tegelijkertijd gebruik voor individuele databases. De minder databases dat gelijktijdig piekuren, des te lager de resources van toepassingen kunnen worden ingesteld en wordt het meest efficiënt is de groep. In het algemeen moeten niet meer dan 2/3 (of 67%) van de databases in de groep tegelijkertijd pieksnelheden aan hun limiet resources.
+Resources worden gedeeld, niet alle databases in een groep gebruiken resources tot de limiet die beschikbaar voor individuele databases. Hoe minder databases gelijktijdig pieken, des te lager de resources van de groep kunnen worden ingesteld en des te rendabeler de groep wordt. In het algemeen zou moeten niet meer dan 2/3 (of 67%) van de databases in de pool tegelijkertijd pieken tot hun resources-limiet.
 
-***Voorbeeld aankopen model op basis van DTU***<br>
+***Voorbeeld van aankopen model op basis van DTU***<br>
 Om de kosten voor drie S3-databases in een groep van 200 eDTU's te verlagen, kunnen maximaal twee van deze databases tegelijkertijd pieken in hun gebruik. Of, als meer dan twee van deze vier S3-databases gelijktijdig pieken, zou de groep moeten worden uitgebreid tot meer dan 200 eDTU's. Als de groep wordt uitgebreid tot meer dan 200 eDTU's, moeten er meer S3-databases aan de groep worden toegevoegd om de kosten lager te houden dan bij prestatieniveaus voor individuele databases.
 
 In dit voorbeeld wordt geen rekening gehouden met het gebruik van andere databases in de groep. Als alle databases voortdurend in enige mate gebruik maken van eDTU's, kan minder dan 2/3 (of 67%) van de databases tegelijkertijd pieken.
@@ -92,36 +92,36 @@ In dit voorbeeld wordt geen rekening gehouden met het gebruik van andere databas
 ### <a name="resource-utilization-per-database"></a>Resourcegebruik per database
 Een groot verschil tussen het piek- en gemiddelde gebruik van een database geeft langere perioden van laag gebruik en korte perioden hoog gebruik aan. Dit gebruikspatroon is ideaal voor het delen van resources met meerdere databases. Een database zou een geschikte kandidaat voor een groep kunnen zijn als het piekgebruik ongeveer 1,5 keer groter is dan het gemiddelde gebruik.
 
-***Voorbeeld aankopen model op basis van DTU***<br>
+***Voorbeeld van aankopen model op basis van DTU***<br>
 Een S3-database die piekt tot 100 DTU's en gemiddeld 67 DTU's of minder gebruikt, is een goede kandidaat voor het delen van eDTU's in een groep. Ook een S1-database die piekt tot 20 DTU's en gemiddeld 13 DTU's of minder gebruikt, is een goede kandidaat voor een groep.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Hoe kies ik de juiste poolgrootte?
 
-De aanbevolen grootte voor een groep is afhankelijk van de totale benodigde resources voor alle databases in de groep. Dit omvat het volgende bepalen:
+De aanbevolen grootte voor een groep is afhankelijk van de cumulatieve resources die nodig zijn voor alle databases in de groep. Dit omvat het bepalen van het volgende:
 
-* Maximum aantal bronnen worden gebruikt door alle databases in de groep (maximum aantal dtu's of maximale vCores, afhankelijk van uw keuze op voor het model resourcing).
+* Maximum aantal bronnen die door alle databases in de groep (maximum aantal dtu's of maximale vCores, afhankelijk van uw keuze van het model resourcing) wordt gebruikt.
 * De maximum opslag in bytes die door alle databases in de groep wordt gebruikt.
 
-Zie voor beschikbare Servicelagen voor elk resourcemodel, de [aankoopmodel op basis van het DTU](sql-database-service-tiers-dtu.md) of de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md).
+Zie voor de beschikbare service-lagen voor elke resourcemodel, de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
 SQL Database evalueert automatisch het historisch resourcegebruik van databases in een bestaande SQL Database-server en op basis daarvan wordt de juiste poolconfiguratie in de Azure-portal aanbevolen. Naast de aanbevelingen wordt met een geïntegreerde functie het eDTU-gebruik voor een aangepaste groep databases op de server geschat. Hiermee kunt u een 'wat als'-analyse uitvoeren door interactief databases aan de groep toe te voegen of uit de groep te verwijderen, om zo een analyse van het resourcegebruik en formaatadvies te krijgen voordat u uw wijzigingen doorvoert. Zie [Monitor, manage, and size an elastic pool](#monitor-an-elastic-pool-and-its-databases) (Een elastische groep bewaken, beheren en van formaat wijzigen) voor instructies.
 
 Als u het hulpprogramma niet kunt gebruiken, kunnen de volgende stappen u helpen om te schatten of een groep rendabeler is dan individuele databases:
 
-1. Schat de edtu's of vCores die nodig zijn voor de groep als volgt:
+1. Maak een schatting van de edtu's of vCores die nodig zijn voor de groep als volgt:
 
-   Voor op basis van DTU aankoopmodel: MAX (<*totaal aantal databases* X *gemiddelde DTU-gebruik per DB*>,<br>
+   Voor DTU gebaseerde aankoopmodel: MAX (<*totaal aantal DB's* X *gemiddelde DTU-gebruik per DB*>,<br>
    <*aantal gelijktijdig piekende databases* X *piek-DTU-gebruik per DB*)
 
-   Voor op basis van vCore aankoopmodel (preview): MAX (<*totaal aantal databases* X *vCore gebruik per DB gemiddelde*>,<br>
-   <*Aantal gelijktijdig piek databases* X *piek vCore gebruik per DB*)
+   Voor vCore gebaseerde aankoopmodel: MAX (<*totaal aantal DB's* X *Gemiddeld gebruik per DB vCore*>,<br>
+   <*Aantal gelijktijdig piekende databases* X *vCore piekgebruik per DB*)
 
 2. Schat hoeveel opslagruimte de groep nodig heeft door het aantal bytes op te tellen dat nodig is voor alle databases in de groep. Bepaal daarna hoe groot de eDTU-groep moet zijn om aan deze hoeveelheid opslag te voldoen.
-3. Voor de DTU gebaseerde aankoopmodel, worden de grootste van de geschatte eDTU uit stap 1 en stap 2. Voor de vCore gebaseerde aankoopmodel (preview), nemen de schatting van het vCore uit stap 1.
-4. Zie de [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/) en zoeken naar de kleinste groep grootte die groter is dan de schatting van stap 3.
+3. Voor de DTU gebaseerde aankoopmodel, zet u de grootste waarde van de eDTU-schatting uit stap 1 en stap 2. Voor het op vCore gebaseerde aankoopmodel, nemen de vCore-schatting uit stap 1.
+4. Zie de [pagina met prijzen van SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/) en zoek de kleinste groepsomvang die groter is dan de schatting van stap 3.
 5. Vergelijk de prijs van de groep uit stap 5 met de prijs voor het gebruik van de juiste prestatieniveaus voor individuele databases.
 
-## <a name="using-other-sql-database-features-with-elastic-pools"></a>Gebruik van andere functies van de SQL-Database met elastische pools
+## <a name="using-other-sql-database-features-with-elastic-pools"></a>Met behulp van andere functies van SQL Database met elastische pools
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>Elastische taken en elastische pools
 
@@ -132,63 +132,63 @@ Zie [Scaling out with Azure SQL Database](sql-database-elastic-scale-introductio
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Opties voor bedrijfscontinuïteit voor databases in een elastische pool
 Gepoolde databases ondersteunen in het algemeen dezelfde [bedrijfscontinuïteitsfuncties](sql-database-business-continuity.md) die beschikbaar zijn voor individuele databases.
 
-- **Punt in tijd terugzetten**: punt in tijd terugzetten automatische databaseback-ups gebruikt voor het herstellen van een database in een groep naar een bepaald punt in tijd. Zie [Herstel naar een bepaald tijdstip](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **Point-in-time restore**: Point-in-time restore maakt gebruik van automatische databaseback-ups te herstellen van een database in een pool naar een bepaald punt in tijd. Zie [Herstel naar een bepaald tijdstip](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-- **Geo-restore**: Geo-herstel biedt de standaardoptie voor herstel wanneer een database is niet beschikbaar vanwege een incident in de regio waar de database wordt gehost. Zie [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) (Een Azure SQL Database of herstellen of een failover uitvoeren naar een secundaire server)
+- **Geo-herstel**: Geo-herstel biedt de standaardoptie voor herstel wanneer een database is niet beschikbaar vanwege een incident in de regio waar de database wordt gehost. Zie [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) (Een Azure SQL Database of herstellen of een failover uitvoeren naar een secundaire server)
 
-- **Actieve geo-replicatie**: configureren voor toepassingen met agressievere herstelvereisten dan geo-herstel te kan bieden, [actieve geo-replicatie](sql-database-geo-replication-overview.md).
+- **Actieve geo-replicatie**: voor toepassingen die zwaardere herstelvereisten dan geo-herstel kan bieden, configureert u [actieve geo-replicatie](sql-database-geo-replication-overview.md).
 
-## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Maken van een nieuwe SQL-Database elastische pool met de Azure portal
+## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Het maken van een nieuwe SQL Database elastische pool met behulp van de Azure portal
 
-Er zijn twee manieren waarop u een elastische pool in de Azure portal kunt maken.
-1. U kunt een elastische pool maken door te zoeken naar **elastische SQL-groep** in de **Marketplace** of klikken op **+ toevoegen** Blader op de SQL-elastische pools blade. U bent een nieuwe of bestaande server via deze werkstroom van toepassingen opgeven.
-2. Of u kunt een elastische pool maken door te navigeren naar een bestaande SQL server en op **groep maken** voor het maken van een groep rechtstreeks in die server. Hier het enige verschil is dat u de stap overslaan waar u de server tijdens de werkstroom van toepassingen opgeven.
+Er zijn twee manieren kunt u een elastische pool maken in Azure portal.
+1. U kunt een elastische pool maken door te zoeken naar **elastische SQL-groep** in de **Marketplace** of klikken op **+ toevoegen** blade voor browsen op de elastische SQL-pools. U zijn kunt opgeven van een nieuwe of bestaande server via de werkstroom voor het inrichten van deze toepassingen.
+2. Of u kunt een elastische pool maken door te klikken en te navigeren naar een bestaande SQL server **pool maken** te maken van een groep rechtstreeks naar die server. Het enige verschil is hier is dat u slaat u de stap waarin u de server opgeven tijdens de werkstroom voor het inrichten van toepassingen.
 
 > [!NOTE]
-> U kunt meerdere groepen maken op een server, maar u kunt geen databases van verschillende servers toevoegen aan dezelfde pool.
+> U kunt meerdere groepen maken op een server, maar u kunt geen databases van verschillende servers toevoegen aan dezelfde groep.
 
-De servicelaag van de pool bepaalt welke functies beschikbaar zijn voor de elastics in de groep en de maximale hoeveelheid resources beschikbaar voor elke database. Zie voor meer informatie, limieten voor elastische pools in de [DTU model](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). Zie voor vCore gebaseerde limieten voor elastische pools, [vCore gebaseerde limieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
+De servicelaag van de pool bepaalt welke functies beschikbaar zijn voor de elastic in de groep en de maximale hoeveelheid resources die beschikbaar zijn voor elke database. Zie voor meer informatie, Resource-limieten voor elastische pools in de [DTU-model](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). Zie voor vCore gebaseerde resourcelimieten voor elastische pools, [vCore gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Voor het configureren van de resources en prijzen van de groep, klikt u op **pool configureren**. Selecteer vervolgens een servicelaag, databases toevoegen aan de groep en configureren van de resource-limieten voor de groep en de databases.
+Configureer de bronnen en prijzen van de groep, klikt u op **groep configureren**. Selecteer vervolgens een servicelaag, databases aan de groep toevoegen en configureren van de resourcelimieten voor de groep en de bijbehorende databases.
 
-Wanneer u klaar bent met het configureren van de groep, kunt u Klik op toepassen, de naam van de groep, en klik op 'OK' om te maken van de groep.
+Wanneer u klaar bent met het configureren van de groep, kunt u 'Toepassen', de naam van de groep, klikt u op en klik op 'OK' voor het maken van de groep.
 
-## <a name="monitor-an-elastic-pool-and-its-databases"></a>Een elastische groep en de databases bewaken
+## <a name="monitor-an-elastic-pool-and-its-databases"></a>Een elastische pool en de bijbehorende databases bewaken
 
-U kunt het gebruik van een elastische groep en de databases binnen die groep bewaken in de Azure portal. U kunt ook een aantal wijzigingen aanbrengen in uw elastische groep en alle wijzigingen tegelijk verzenden. Deze wijzigingen omvatten toevoegen of verwijderen van databases, elastische pool-instellingen wijzigen of database-instellingen wijzigen.
+U kunt het gebruik van een elastische pool en de databases in die groep controleren in de Azure-portal. U kunt ook een set wijzigingen aanbrengen in de elastische groep en alle wijzigingen op hetzelfde moment te verzenden. Deze wijzigingen omvatten toevoegen of verwijderen van databases, elastische pool-instellingen wijzigen of uw database-instellingen wijzigen.
 
-Als u wilt bewaken van de elastische pool, zoeken en openen van een elastische pool in de portal. U ziet eerst een scherm weergegeven dat u een van de status van de elastische groep overzicht. Dit omvat:
+Voor het starten van de elastische pool bewaken, zoeken en openen van een elastische pool in de portal. Eerst ziet u een scherm dat u een van de status van de elastische pool overzicht. Dit omvat:
 
-* Bewaking van grafieken met gebruik van bronnen van de elastische groep
-* Recente waarschuwingen en aanbevelingen, indien beschikbaar, voor de elastische groep
+* Grafieken met Resourcegebruik van de elastische groep controleren
+* Recente waarschuwingen en aanbevelingen, indien beschikbaar, voor de elastische pool
 
-De volgende afbeelding toont een voorbeeld van de elastische groep:
+De volgende afbeelding toont een voorbeeld van de elastische pool:
 
 ![Toepassingen weergeven](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
-Als u meer informatie over de toepassingen op een van de beschikbare informatie in dit overzicht kunt u wilt. Te klikken op de **Resourcegebruik** grafiek gaat u naar de weergave Azure Monitoring waar u de metrische gegevens en het tijdstip venster weergegeven in het diagram kunt aanpassen. Op alle beschikbare meldingen te klikken, gaat u naar een blade die de volledige details van deze waarschuwing of de aanbeveling bevat.
+Als u meer informatie over de groep die u kunt klikken op een van de beschikbare informatie in dit overzicht wilt. Te klikken op de **Resourcegebruik** grafiek, gaat u naar de Azure Monitoring weergave waar u de metrische gegevens en het tijdstip venster wordt weergegeven in de grafiek kunt aanpassen. Op alle beschikbare meldingen te klikken, gaat u naar een blade ziet u de volledige details van deze waarschuwing of een aanbeveling.
 
-Als u bewaken van de databases binnen uw pool wilt, kunt u klikt u op **Resourcegebruik van de Database** in de **bewaking** gedeelte van de resource-menu aan de linkerkant.
+Als u controleren van de databases op uw pool wilt, kunt u klikken op **Database Resourcegebruik** in de **bewaking** sectie van de resourcemenu aan de linkerkant.
 
-![Database-gebruik bronpagina](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
+![Pagina database resource-gebruik](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
 ### <a name="to-customize-the-chart-display"></a>De grafiekweergave aanpassen
 
-U kunt de grafiek en weer te geven van andere metrische gegevens zoals CPU-percentage, gegevens-IO-percentage en logboek IO percentage gebruikt van de metrische pagina bewerken.
+U kunt de metrische pagina om weer te geven van andere metrische gegevens zoals CPU-percentage, gegevens-IO-percentage en logboek-IO-percentage gebruikt en de grafiek bewerken.
 
-Op de **grafiek bewerken** formulier, kunt u een vaste tijd liggen, of klik op **aangepaste** een 24-uurs venster in de afgelopen twee weken selecteren en selecteer vervolgens de bronnen om te controleren.
+Op de **grafiek bewerken** formulier, kunt u een vaste tijd bereik of klik op **aangepaste** een 24-uurs tijdvenster selecteren in de afgelopen twee weken en selecteer vervolgens de resources om te controleren.
 
-### <a name="to-select-databases-to-monitor"></a>Databases bewaken selecteren
+### <a name="to-select-databases-to-monitor"></a>Databases selecteren om te controleren
 
-Standaard wordt de grafiek in de **Database Resourcegebruik** blade ziet de databases top 5 DTU of CPU (afhankelijk van uw servicelaag). U kunt overschakelen van de databases in deze grafiek door te selecteren en de selectie opheffen van de databases uit de lijst onder de grafiek via de selectievakjes in aan de linkerkant.
+Standaard wordt de grafiek in de **databasebron** blade ziet u de databases van de top 5 DTU of CPU (afhankelijk van uw servicelaag). U kunt overschakelen van de databases in deze grafiek door te selecteren en op te heffen databases in de lijst onder de grafiek via de selectievakjes in aan de linkerkant.
 
-U kunt ook meer metrische gegevens naar de weergave naast elkaar in deze databasetabel een volledig overzicht van de prestaties van uw databases ophalen selecteren.
+U kunt ook meer metrische gegevens naar de weergave naast elkaar in deze database-tabel voor een volledig overzicht van de prestaties van uw databases selecteren.
 
-Zie voor meer informatie [waarschuwingen van de SQL-Database maken in Azure portal](sql-database-insights-alerts-portal.md).
+Zie voor meer informatie, [waarschuwingen van de SQL-Database maken in Azure portal](sql-database-insights-alerts-portal.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u wilt schalen elastische pools, Zie [schalen elastische pools](sql-database-elastic-pool.md) en [een elastische pool - voorbeeldcode schalen](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-* Zie voor een video [video loop van de Microsoft Virtual Academy op elastische mogelijkheden van Azure SQL Database](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
+- Als u wilt schalen elastische pools, Zie [schalen van elastische pools](sql-database-elastic-pool.md) en [schalen van een elastische pool - voorbeeldcode](scripts/sql-database-monitor-and-scale-pool-powershell.md)
+* Zie voor een video [videocursus van Microsoft Virtual Academy over elastische mogelijkheden van Azure SQL Database](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
 * Zie voor een SaaS-zelfstudie met elastische pools, [Inleiding tot de Wingtip SaaS-toepassing](sql-database-wtp-overview.md).

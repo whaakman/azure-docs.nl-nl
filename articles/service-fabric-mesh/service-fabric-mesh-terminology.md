@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: db7a89ffa4ff1a2eb271869c93b7beb088fd13b3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 672e27bf53679c52dab8d42a52378aa90eba33cb
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076156"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114307"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric-NET-terminologie
 
@@ -57,14 +57,14 @@ Service Fabric is een open-source platform-technologie die verschillende verschi
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Omgeving framework en implementatiemodel ondersteuningsmatrix
 Verschillende omgevingen hebben een ander niveau van ondersteuning van frameworks en -implementatiemodellen. De volgende tabel beschrijft de ondersteunde framework en combinaties van implementatie-model.
 
-|Frameworks\Deployment model |Resourcemodel |Manifest van model | Opstellen|
+|Frameworks\Deployment model |Resourcemodel |Systeemeigen model | Opstellen|
 |---|---|---|---|
 |Reliable Actors en betrouwbare Services |Niet ondersteund |Ondersteund |Niet ondersteund |
 |Elk andere willekeurig framework en taal |Ondersteund in containers |Ondersteund als processen en in containers |Ondersteund in containers |
 
 De volgende tabel beschrijft de ondersteunde omgeving en de implementatie model combinaties.
 
-|Environment\Deployment model |Resourcemodel |Manifest van model |Opstellen |
+|Environment\Deployment model |Resourcemodel |Systeemeigen model |Opstellen |
 |---|---|---|---|
 |Azure Service Fabric Mesh |Ondersteund |Niet ondersteund|Niet ondersteund |
 |Alle andere omgevingen |Ondersteunde (sommige resources zijn vereisten voor het werken in een omgeving) |Ondersteund |Beperkte ondersteuning |

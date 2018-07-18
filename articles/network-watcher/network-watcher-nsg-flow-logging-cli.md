@@ -1,6 +1,6 @@
 ---
-title: Beheren van Logboeken netwerk beveiliging groep overgebracht met Azure-netwerk-Watcher - Azure CLI | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u voor het beheren van Logboeken netwerk beveiliging groep overgebracht in Azure-netwerk-Watcher met Azure CLI
+title: Logboeken met Azure Network Watcher - CLI van Azure Network Security Group stromen beheren | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe u voor het beheren van Network Security Group Flow Logboeken in Azure Network Watcher met Azure CLI
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,37 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fa90d406313d756f3dd852305a6d61db29815192
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e4e3d331665ddb6c45e47ce8b2cf8170ca622690
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203406"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089788"
 ---
-# <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Netwerk beveiliging groep overgebracht logboeken configureren met Azure CLI
+# <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Network Security Group Flow logboeken configureren met Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
+> - [Azure-CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
-Netwerkbeveiligingsgroep stroom logboeken zijn een functie van netwerk-Watcher waarmee u informatie bekijken over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep. Deze stroom logboeken zijn geschreven in json-indeling en binnenkomende en uitgaande stromen weergeven op basis van een per regel, de NIC die de stroom van toepassing, 5-tuple informatie over de stroom (bron/het doel-IP, bron/het doel-poort, het Protocol) en als het verkeer is toegestaan of geweigerd.
+Stroomlogboeken van Netwerkbeveiligingsgroep zijn een functie van Network Watcher waarmee u informatie wilt weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep. Deze logboeken van de stroom zijn geschreven in json-indeling en weergeven van binnenkomende en uitgaande stromen op basis van per regel, de NIC die de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, poort van de bron-/ doel, Protocol), en als het verkeer is toegestaan of geweigerd.
 
-Dit artikel wordt de volgende generatie CLI gebruikt voor de resource management-implementatiemodel, Azure CLI 2.0, die beschikbaar is voor Windows, Mac en Linux.
+In dit artikel wordt onze CLI van de volgende generatie voor het implementatiemodel resource management, Azure CLI 2.0 die beschikbaar is voor Windows, Mac en Linux.
 
 Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
-## <a name="register-insights-provider"></a>Insights provider registreren
+## <a name="register-insights-provider"></a>Insights-provider registreren
 
-Stroom logboekregistratie om te werken, zodat de **Microsoft.Insights** provider moet worden geregistreerd. Als u niet zeker weet of de **Microsoft.Insights** provider is geregistreerd, voer het volgende script.
+Stroom logboekregistratie om te werken, zodat de **Microsoft.Insights** provider moet worden geregistreerd. Als u niet zeker weet als de **Microsoft.Insights** provider is geregistreerd, voer het volgende script.
 
 ```azurecli
 az provider register --namespace Microsoft.Insights
 ```
 
-## <a name="enable-network-security-group-flow-logs"></a>Netwerkbeveiligingsgroep inschakelen stroom Logboeken
+## <a name="enable-network-security-group-flow-logs"></a>Stroomlogboeken van Netwerkbeveiligingsgroep inschakelen
 
 De opdracht uit om Logboeken van de stroom wordt weergegeven in het volgende voorbeeld:
 
@@ -52,30 +51,30 @@ De opdracht uit om Logboeken van de stroom wordt weergegeven in het volgende voo
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-Het opslagaccount dat u opgeeft dat geen netwerk-regels geconfigureerd die toegang tot het netwerk te tot alleen Microsoft-services of specifieke virtuele netwerken beperken. Het opslagaccount kan zich in hetzelfde of een ander Azure-abonnement, dan het NSG waarmee het logboek van de stroom voor. Als u verschillende abonnementen gebruikt, moeten ze beide zijn gekoppeld aan dezelfde Azure Active Directory-tenant. Het account waarmee u voor elk abonnement moet hebben de [noodzakelijke machtigingen](required-rbac-permissions.md).
+Het opslagaccount dat u opgeeft kan niet zijn geconfigureerd voor het netwerkregels waarmee toegang tot het netwerk wordt beperkt tot alleen Microsoft-services of specifieke virtuele netwerken. Het opslagaccount kan zich in dezelfde of een ander Azure-abonnement, dan de NSG waarmee het stroomlogboek voor. Als u verschillende abonnementen vallen, moeten ze beide zijn gekoppeld aan dezelfde Azure Active Directory-tenant. Het account dat u voor elk abonnement gebruikt moet hebben de [benodigde machtigingen](required-rbac-permissions.md).
 
-## <a name="disable-network-security-group-flow-logs"></a>Netwerkbeveiligingsgroep uitschakelen stroom Logboeken
+## <a name="disable-network-security-group-flow-logs"></a>Stroomlogboeken van Netwerkbeveiligingsgroep uitschakelen
 
-Gebruik het volgende voorbeeld stroom Logboeken uitschakelen:
+Gebruik het volgende voorbeeld om uit te schakelen van Logboeken van de stroom:
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled false --nsg nsgName
 ```
 
-## <a name="download-a-flow-log"></a>Downloaden van een stroom-logboek
+## <a name="download-a-flow-log"></a>Een Flow-log Download
 
-De locatie voor de opslag van een stroom-logboek is gedefinieerd bij het maken. Een handig hulpmiddel voor toegang tot deze stroom logboeken opgeslagen naar een opslagaccount is Microsoft Azure Storage Explorer, die u kunt hier downloaden:  http://storageexplorer.com/
+De opslaglocatie van het stroomlogboek van een wordt gedefinieerd bij het maken ervan. Een handig hulpmiddel voor toegang tot deze stroomlogboeken die zijn opgeslagen op een storage-account is Microsoft Azure Storage Explorer, die u kunt hier downloaden:  http://storageexplorer.com/
 
-Als een opslagaccount is opgegeven, worden bestanden voor pakket worden opgeslagen in een opslagaccount op de volgende locatie:
+Als een storage-account is opgegeven, worden pakketten vastleggen van bestanden worden opgeslagen in een storage-account op de volgende locatie:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Ga naar voor informatie over de structuur van het logboek [netwerk beveiliging groep overgebracht logboek overzicht](network-watcher-nsg-flow-logging-overview.md)
+Ga voor informatie over de structuur van het logboek naar [Network Security Group Flow-log overzicht](network-watcher-nsg-flow-logging-overview.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over hoe [visualiseren van uw NSG stroom logboeken met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Meer informatie over het [visualiseren met Power BI uw NSG-stroomlogboeken](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
-Meer informatie over hoe [visualiseren van uw NSG stroom logboeken met open-source hulpprogramma's](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Meer informatie over het [visualiseren van uw NSG-stroomlogboeken met open-sourcehulpprogramma's](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

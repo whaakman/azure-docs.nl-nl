@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: marsma
-ms.openlocfilehash: da78d388c8e9fc9684942342f48902c2a248e3b1
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072296"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115792"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuratie van het netwerk in Azure Kubernetes Service (AKS)
 
@@ -27,8 +27,7 @@ Knooppunten in een AKS-cluster is geconfigureerd voor gebruik van eenvoudige net
 
 ## <a name="advanced-networking"></a>Geavanceerde netwerken
 
-**Geavanceerde** netwerken plaatst uw schillen in een Azure-netwerk (VNet) dat u configureert, zodat ze automatisch verbinding met de VNet-resources en integratie met de uitgebreide set mogelijkheden voor deze aanbieding VNets.
-Geavanceerde netwerken is beschikbaar bij het implementeren van AKS-clusters met de [Azure-portal][portal], Azure CLI, of met een Resource Manager-sjabloon.
+**Geavanceerde** netwerken plaatst uw schillen in een Azure-netwerk (VNet) dat u configureert, zodat ze automatisch verbinding met de VNet-resources en integratie met de uitgebreide set mogelijkheden voor deze aanbieding VNets. Geavanceerde netwerken is beschikbaar bij het implementeren van AKS-clusters met de [Azure-portal][portal], Azure CLI, of met een Resource Manager-sjabloon.
 
 Knooppunten in een AKS-cluster is geconfigureerd voor gebruik van geavanceerde netwerken de [Azure Container netwerken Interface (CNI)] [ cni-networking] Kubernetes-invoegtoepassing.
 
@@ -45,9 +44,6 @@ Geavanceerde netwerken biedt de volgende voordelen:
 * Schillen in een subnet waarvoor service-eindpunten ingeschakeld kunnen veilig verbinding maken met Azure-services, bijvoorbeeld Azure Storage en SQL-database.
 * Gebruik de gebruiker gedefinieerde routes (UDR) om verkeer te routeren van schillen naar een virtueel netwerkapparaat.
 * Schillen hebben toegang tot bronnen op het openbare Internet. Ook een functie van basisnetwerken.
-
-> [!IMPORTANT]
-> Elk knooppunt in een AKS-cluster is geconfigureerd voor geavanceerde netwerken kan maximaal hosten **30 schillen** wanneer geconfigureerd met behulp van de Azure-portal.  U kunt de maximale waarde wijzigen alleen door het wijzigen van de eigenschap maxPods bij het implementeren van een cluster met een Resource Manager-sjabloon. Elk VNet dat is ingericht voor gebruik met de invoegtoepassing Azure CNI beperkt tot is **4096 geconfigureerde IP-adressen**.
 
 ## <a name="advanced-networking-prerequisites"></a>Geavanceerde netwerken vereisten
 
@@ -67,19 +63,36 @@ Het abonnement van de IP-adres voor een AKS-cluster bestaat uit een VNet, ten mi
 
 | Adresbereik / Azure resource | Limieten en grootte |
 | --------- | ------------- |
-| Virtueel netwerk | Azure VNet kan even groot zijn als de/8 die maar mogelijk alleen 4096 geconfigureerd IP-adressen. |
-| Subnet | Moet groot genoeg is voor de knooppunten en schillen zijn. Voor het berekenen van de subnetgrootte van uw minimale: (aantal knooppunten) + (aantal knooppunten * schillen per knooppunt). Voor een cluster met 50 knooppunten: (50) + (50 * 30) = 1.550, uw subnet moet een /21 of groter. |
+| Virtueel netwerk | Azure VNet kan even groot zijn als de/8 die maar mogelijk alleen 16.000 geconfigureerd IP-adressen. |
+| Subnet | Moet groot genoeg is voor de knooppunten, schillen en alle Kubernetes en Azure-resources die kunnen worden ingericht in het cluster. Als u een interne Load Balancer in Azure implementeert, kunt u voor de front-end-IP-adressen, worden toegewezen uit het subnet van het cluster, geen openbare IP-adressen. <p/>Voor het berekenen van *minimale* subnetgrootte: `(number of nodes) + (number of nodes * pods per node)` <p/>Voorbeeld voor een cluster met 50 knooppunten: `(50) + (50 * 30) = 1,550` (/ 21 of hoger) |
 | Adresbereik van Kubernetes service | Dit bereik moet niet worden gebruikt door een willekeurig netwerkelement op of verbonden met dit VNet. Adres van service CIDR moet kleiner zijn dan /12. |
 | IP-adres van Kubernetes DNS-service | IP-adres binnen het Kubernetes-service-adresbereik dat wordt gebruikt door clusterservicedetectie (kube-dns). |
 | Docker bridge-adres | IP-adres (in CIDR-notatie) gebruikt als de Docker bridge-IP-adres op knooppunten. De standaardwaarde van 172.17.0.1/16. |
 
-Zoals gezegd, elk VNet dat is ingericht voor gebruik met de invoegtoepassing Azure CNI beperkt tot is **4096 geconfigureerde IP-adressen**. Elk knooppunt in een cluster is geconfigureerd voor geavanceerde netwerken kan maximaal hosten **30 schillen**.
+Elk VNet dat is ingericht voor gebruik met de invoegtoepassing Azure CNI beperkt tot is **16.000 geconfigureerde IP-adressen**.
+
+## <a name="maximum-pods-per-node"></a>Maximale schillen per knooppunt
+
+Het standaard maximum aantal schillen per knooppunt in een AKS-cluster varieert tussen basiseigenschappen en geavanceerde netwerken en de methode van implementatie van het cluster.
+
+### <a name="default-maximum"></a>Standaard maximale
+
+* Netwerkgebruik: **110 schillen per knooppunt**
+* Geavanceerde netwerken **30 schillen per knooppunt**
+
+### <a name="configure-maximum"></a>Maximale configureren
+
+Afhankelijk van de methode van implementatie, is het mogelijk om te wijzigen van het maximum aantal schillen per knooppunt in een AKS-cluster.
+
+* **Azure CLI**: Geef de `--max-pods` argument bij het implementeren van een cluster met de [az aks maken] [ az-aks-create] opdracht.
+* **Resource Manager-sjabloon**: Geef de `maxPods` eigenschap in de [ManagedClusterAgentPoolProfile] object wanneer u een cluster met een Resource Manager-sjabloon implementeert.
+* **Azure-portal**: U kunt het maximale aantal schillen per knooppunt niet wijzigen wanneer u een cluster met de Azure portal implementeert. Geavanceerde VPN-clusters zijn beperkt tot 30 schillen per knooppunt bij de implementatie in Azure portal.
 
 ## <a name="deployment-parameters"></a>Implementatieparameters
 
-Wanneer een AKS-cluster maakt, de volgende parameters kunnen worden geconfigureerd voor geavanceerde netwerken:
+Wanneer u een AKS-cluster maakt, kunnen de volgende parameters worden geconfigureerd voor geavanceerde netwerken:
 
-**Virtueel netwerk**: het VNet waarin u wilt de Kubernetes-cluster implementeren. Als u maken van een nieuw VNet voor uw cluster wilt, selecteert u *nieuw* en volg de stappen in de *virtueel netwerk maken* sectie.
+**Virtueel netwerk**: het VNet waarin u wilt de Kubernetes-cluster implementeren. Als u maken van een nieuw VNet voor uw cluster wilt, selecteert u *nieuw* en volg de stappen in de *virtueel netwerk maken* sectie. Het VNet is beperkt tot 16.000 geconfigureerde IP-adressen.
 
 **Subnet**: het subnet binnen het VNet waar u het cluster te implementeren. Als u een nieuw subnet in het VNet voor uw cluster te maken wilt, selecteert u *nieuw* en volg de stappen in de *subnet maken* sectie.
 
@@ -135,7 +148,7 @@ De volgende vragen en antwoorden van toepassing op de **Geavanceerd** netwerkcon
 
 * *Is het maximum aantal schillen kan worden geïmplementeerd naar een knooppunt kunnen worden geconfigureerd?*
 
-  Standaard kan elk knooppunt een maximum van 30 schillen hosten. U kunt de maximale waarde wijzigen door alleen aan te passen de `maxPods` eigenschap bij het implementeren van een cluster met een Resource Manager-sjabloon.
+  Ja, wanneer u een cluster met de Azure CLI of een Resource Manager-sjabloon implementeert. Zie [Maximum schillen per knooppunt](#maximum-pods-per-node).
 
 * *Hoe configureer ik extra eigenschappen voor het subnet dat ik heb tijdens het maken van de AKS-cluster gemaakt? Bijvoorbeeld, service-eindpunten.*
 
@@ -173,3 +186,4 @@ Kubernetes-clusters die zijn gemaakt met de ACS-Engine ondersteunen zowel de [ku
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md
+[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

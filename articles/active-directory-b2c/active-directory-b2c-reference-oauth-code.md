@@ -10,26 +10,26 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6baeba9cc7e631c6dbdf2284db484dc5f95adcce
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9fb2d2ccabf79a95a108d4ecf39a4957fc9ffff4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444198"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113671"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-autorisatiecodestroom
 U kunt de OAuth 2.0-autorisatiecode verlenen in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OAuth 2.0, kunt u registratie, aanmelding toevoegen en andere identiteitsbeheer taken naar uw mobiele en bureaublad-apps. In dit artikel is taalonafhankelijk. In het artikel wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een open source-bibliotheken.
 
 <!-- TODO: Need link to libraries -->
 
-De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). U kunt deze gebruiken voor verificatie en autorisatie in de meeste app-typen, met inbegrip van [web-apps](active-directory-b2c-apps.md#web-apps) en [systeemeigen geïnstalleerde apps](active-directory-b2c-apps.md#mobile-and-native-apps). U kunt de OAuth 2.0-autorisatiecodestroom gebruiken voor het veilig verkrijgen *toegangstokens* voor uw apps, die kan worden gebruikt voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md#the-basics).
+De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). U kunt deze gebruiken voor verificatie en autorisatie in de meeste [toepassingstypen](active-directory-b2c-apps.md), met inbegrip van webtoepassingen en systeemeigen geïnstalleerde toepassingen. U kunt de OAuth 2.0-autorisatiecodestroom gebruiken voor het veilig toegangstokens verkrijgen voor uw applicationss, die kan worden gebruikt voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md).
 
-In dit artikel is gericht op de **openbare clients** OAuth 2.0-autorisatiecodestroom. Een openbare client is elke clienttoepassing die niet kan vertrouwd worden voor de integriteit van een wachtwoord voor het toepassingsgeheim veilig te houden. Dit omvat mobiele apps, bureaublad-apps en in wezen elke toepassing die wordt uitgevoerd op een apparaat en moet toegangstokens te verkrijgen. 
+In dit artikel is gericht op de **openbare clients** OAuth 2.0-autorisatiecodestroom. Een openbare client is elke clienttoepassing die niet kan vertrouwd worden voor de integriteit van een wachtwoord voor het toepassingsgeheim veilig te houden. Dit omvat mobiele apps, bureaubladtoepassingen en in wezen elke toepassing die wordt uitgevoerd op een apparaat en moet toegangstokens te verkrijgen. 
 
 > [!NOTE]
 > Identiteitsbeheer toevoegen aan een web-app met behulp van Azure AD B2C, gebruikt u [OpenID Connect](active-directory-b2c-reference-oidc.md) in plaats van OAuth 2.0.
 
-Azure AD B2C breidt de standaard die OAuth 2.0 stromen hiervoor meer dan een eenvoudige verificatie en autorisatie. Het geeft de [Beleidsparameter](active-directory-b2c-reference-policies.md). Met ingebouwde beleidsregels, kunt u OAuth 2.0 gebruiken om toe te voegen van ervaringen van gebruikers aan uw app, zoals registratie, aanmelding en Profielbeheer. In dit artikel laten we zien u het gebruik van OAuth 2.0 en het beleid voor het implementeren van elk van deze ervaringen in uw systeemeigen toepassingen. We laten ook zien u hoe u aan de toegangstokens voor toegang tot web-API's.
+Azure AD B2C breidt de standaard die OAuth 2.0 stromen hiervoor meer dan een eenvoudige verificatie en autorisatie. Het geeft de [Beleidsparameter](active-directory-b2c-reference-policies.md). Met ingebouwde beleidsregels, kunt u OAuth 2.0 gebruiken om toe te voegen van gebruikerservaringen voor uw toepassing, zoals registratie, aanmelding en Profielbeheer. In dit artikel laten we zien u het gebruik van OAuth 2.0 en het beleid voor het implementeren van elk van deze ervaringen in uw systeemeigen toepassingen. We laten ook zien u hoe u aan de toegangstokens voor toegang tot web-API's.
 
 In het voorbeeld van de HTTP-aanvragen in dit artikel gebruiken we ons voorbeeld van Azure AD B2C-directory **fabrikamb2c.onmicrosoft.com**. We gebruiken ook onze voorbeeldtoepassing en het beleid. U kunt ook zelf de aanvragen proberen met behulp van deze waarden, of kunt u deze vervangen door uw eigen waarden.
 Meer informatie over het [ophalen van uw eigen Azure AD B2C-directory, toepassing en beleidsregels](#use-your-own-azure-ad-b2c-directory).
@@ -189,7 +189,7 @@ POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Parameter | Vereist? | Beschrijving |

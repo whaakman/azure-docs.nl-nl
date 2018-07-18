@@ -1,7 +1,7 @@
 ---
 title: Services voor schalen in een toepassing net van Azure Service Fabric | Microsoft Docs
 description: Leer hoe u onafhankelijk van elkaar schalen services binnen een toepassing die wordt uitgevoerd op Service Fabric net met Azure CLI.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/26/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0350b767b65aee0c4611bb8fa6f635a651d33dc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a4260fd808643971036ad87c01bd2fdec299ccc6
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076148"
+ms.locfileid: "39089740"
 ---
 # <a name="scale-services-within-an-application-running-on-service-fabric-mesh"></a>Schaalservices binnen een toepassing die wordt uitgevoerd op het net van Service Fabric
 
@@ -55,16 +55,16 @@ Uw toepassing maken in het resource-groep met de `deployment create` opdracht.
 az mesh deployment create --resource-group <resourceGroupName> --template-uri https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
   
 ```
-De voorgaande opdracht wordt geïmplementeerd op een Linux met [mesh_rp.base.linux.json sjabloon](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). Als u een Windows-toepassing implementeren wilt, gebruikt u [mesh_rp.base.windows.json sjabloon](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Windows-containerinstallatiekopieën groter zijn dan de Linux-containerinstallatiekopieën en kunnen langer duren om te implementeren.
+De voorgaande opdracht wordt geïmplementeerd op een Linux-toepassing met [mesh_rp.base.linux.json sjabloon](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). Als u een Windows-toepassing implementeren wilt, gebruikt u [mesh_rp.base.windows.json sjabloon](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Windows-containerinstallatiekopieën groter zijn dan de Linux-containerinstallatiekopieën en kunnen langer duren om te implementeren.
 
 In een paar minuten wordt weer uw opdracht met:
 
 `visualObjectsApp has been deployed successfully on visualObjectsNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Open de toepassing
-Zodra de toepassing met succes is geïmplementeerd, het openbare IP-adres voor het service-eindpunt ophalen en openen op een browser. Er moet een webpagina weergegeven met een driehoek verplaatsen via de ruimte.
+Zodra de toepassing met succes is geïmplementeerd, het openbare IP-adres voor het service-eindpunt ophalen en openen op een browser. Er wordt een webpagina weergegeven met een driehoek verplaatsen via de ruimte.
 
-De implementatieopdracht retourneert het openbare IP-adres van het service-eindpunt. U kunt ook een query de netwerkbron om het openbare IP-adres van het service-eindpunt.
+De implementatieopdracht retourneert het openbare IP-adres van het service-eindpunt. U kunt eventueel ook de netwerkbron om het openbare IP-adres van het service-eindpunt opvragen. 
  
 De naam van de netwerk-resource voor deze toepassing is `visualObjectsNetwork`, informatie over met behulp van de volgende opdracht ophalen. 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 80d06a6c40fa804c543a1cee9dc75b57b293beaf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 89544ea72a4356fb8d4f3a192e6fc546eb6b3cff
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446874"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092007"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server 
 
@@ -267,7 +267,7 @@ Externe tabellen verwijzen naar de bestanden in HDFS of Azure blob-opslag worden
 
 ### <a name="replication"></a>Replicatie 
  
-Replicatie wordt nog niet ondersteund. Zie voor meer informatie over replicatie [SQL Server-replicatie](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication).
+Replicatie wordt ondersteund op Managed Instance. Zie voor meer informatie over replicatie [SQL Server-replicatie](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>Instructie herstellen 
  
@@ -371,11 +371,11 @@ Zie voor meer informatie over SQL Server Agent [SQL Server Agent](https://docs.m
 Het volgende wordt niet ondersteund: 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 Zie voor meer informatie over het maken en wijzigen van tabellen [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) en [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
- 
+
 ## <a name="Changes"></a> Gedragswijzigingen 
  
 De volgende variabelen, taken en weergaven kunt u verschillende resultaten retourneren:  

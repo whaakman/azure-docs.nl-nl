@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 24d453dc705eb2d0ee7cb77f2ec247845247d0a8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969184"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113628"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Langetermijnretentie voor Azure SQL Database beheren
 
 U kunt configureren dat Azure SQL-database met een [langetermijnretentie](sql-database-long-term-retention.md) beleid (LTR) automatisch back-ups in Azure blob-opslag maximaal 10 jaar bewaren. U kunt vervolgens deze back-ups met behulp van de Azure portal of PowerShell met een database herstellen.
-
-> [!NOTE]
-> Als onderdeel van de eerste release van de Preview-versie van deze functie in oktober 2016, zijn back-ups opgeslagen in de Recovery-Service van Azure-Services-kluis. Deze update verwijdert deze afhankelijkheid, maar voor achterwaartse compatibiliteit de oorspronkelijke API tot en met 31 mei 2018 wordt ondersteund. Als u nodig hebt om te communiceren met back-ups in de Azure-Recovery Services-kluis, Zie [langetermijnretentie met behulp van Azure Services Recovery Services-kluis](sql-database-long-term-backup-retention-configure-vault.md). 
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>De Azure portal gebruiken om te configureren op de lange termijn voor het bewaren en herstellen van back-ups
 
@@ -32,29 +29,21 @@ De volgende secties laten zien hoe u de Azure portal gebruiken voor het configur
 
 U kunt SQL-Database te configureren [automatische back-ups](sql-database-long-term-retention.md) voor een periode die langer is dan de retentietermijn van uw servicecategorie. 
 
-1. In de Azure-portal, selecteert u uw SQL-server en klik vervolgens op **langetermijnretentie**.
+1. In de Azure-portal, selecteert u uw SQL-server en klik vervolgens op **back-ups beheren**. Op de **-beleid configureren** tabblad, selecteert u de database op die u wilt instellen of wijzigen op de lange termijn bewaarbeleid voor back-up.
 
-   ![koppeling langetermijnretentie](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
+   ![koppeling van de back-ups beheren](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. Op de **-beleid configureren** tabblad, selecteert u de database op die u wilt instellen of wijzigen op de lange termijn bewaarbeleid voor back-up.
-
-   ![database selecteren](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
-
-3. In de **-beleid configureren** deelvenster, selecteren als wilt behouden wekelijks, maandelijks of jaarlijks back-ups en geeft u de bewaarperiode voor elk. 
+2. In de **-beleid configureren** deelvenster, selecteren als wilt behouden wekelijks, maandelijks of jaarlijks back-ups en geeft u de bewaarperiode voor elk. 
 
    ![configureren van beleid](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-4. Als u klaar bent, klikt u op **toepassen**.
+3. Als u klaar bent, klikt u op **toepassen**.
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Weergeven van back-ups en herstellen vanuit een back-up met behulp van Azure portal
 
 Bekijk de back-ups die worden bewaard voor een specifieke database met een LTR-beleid en herstel van deze back-ups. 
 
-1. In de Azure-portal, selecteert u uw SQL-server en klik vervolgens op **langetermijnretentie**.
-
-   ![koppeling langetermijnretentie](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. Op de **beschikbare back-ups** tabblad, selecteert u de database waarvoor u wilt zien van beschikbare back-ups.
+1. In de Azure-portal, selecteert u uw SQL-server en klik vervolgens op **back-ups beheren**. Op de **beschikbare back-ups** tabblad, selecteert u de database waarvoor u wilt zien van beschikbare back-ups.
 
    ![database selecteren](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 

@@ -8,14 +8,14 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/17/2018
 ms.author: wolfma
-ms.openlocfilehash: 71a5edfbe388f2d4bfb48255b901cb0037665252
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 50a8c183bd7f2711847ce6d0acade4cb498ef2fc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069427"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116092"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 
@@ -42,12 +42,22 @@ ms.locfileid: "39069427"
 
 * Herkenning van gebeurtenissen: NoMatch gebeurtenistype is samengevoegd met de fout-gebeurtenis.
 * SpeechOutputFormat in C# is gewijzigd in de uitvoerindeling te houden met C++ uitgelijnd.
+* Het retourtype van sommige methoden van de `AudioInputStream` interface enigszins gewijzigd:
+   * In Java, de `read` methode nu retourneert `long` in plaats van `int`.
+   * In C#, de `Read` methode nu retourneert `uint` in plaats van `int`.
+   * In C++ kunt de `Read` en `GetFormat` methoden nu terug `size_t` in plaats van `int`.
+* C++: exemplaren van audio-invoer stromen kunnen nu alleen worden doorgegeven als een `shared_ptr`.
 
 **Oplossingen voor problemen**
 
 * Onjuiste retourwaarden, resultaat vast wanneer `RecognizeAsync()` een time-out optreedt.
 * De afhankelijkheid van media foundation-bibliotheken op Windows is verwijderd. De SDK maakt nu gebruik van Core Audio-API's.
 * Documentatie fix: een pagina regio om te beschrijven wat zijn de ondersteunde regio's toegevoegd.
+
+**Bekende problemen**
+
+* De spraak-SDK voor Android rapporteert niet spraak synthese resultaten voor de vertaling.
+  Dit wordt opgelost in de volgende release.
 
 ## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: release 2018-juni
 

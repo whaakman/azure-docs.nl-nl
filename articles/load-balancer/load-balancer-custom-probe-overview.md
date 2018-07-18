@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 741b32f394ca2ce447826f7207f7fd9cbede9c51
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070849"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112719"
 ---
 # <a name="understand-load-balancer-probes"></a>Load Balancer-testen
 
 Azure Load Balancer maakt gebruik van de gezondheid van tests om te bepalen welk exemplaar van de groep back-end ontvangt nieuwe stromen.   U kunt statuscontroles gebruiken voor het detecteren van het uitvallen van een toepassing op een back-end-instantie.  U kunt ook het antwoord van de test status van uw toepassing gebruiken om aan te geven aan de Load Balancer of u wilt doorgaan met het verzenden van nieuwe stromen of stoppen met het nieuwe stromen te verzenden naar een exemplaar van de back-end voor het beheren van de belasting of geplande uitvaltijd.
 
-Statuscontroles beheren of nieuwe stromen worden gemaakt met een goede back-end-exemplaren. Wanneer een statustest mislukt, stopt Load Balancer nieuwe stromen te verzenden naar het desbetreffende exemplaar niet in orde.  TCP-verbindingen tot stand gebrachte doorgaan na-fout health-test.  Bestaande UDP-stromen worden verplaatst de uit het niet in orde exemplaar naar een ander exemplaar in de back-endpool.
+Statuscontroles beheren of nieuwe stromen worden gemaakt met een goede back-end-exemplaren. Wanneer een statustest mislukt, stopt Load Balancer nieuwe stromen te verzenden naar het desbetreffende exemplaar niet in orde.  TCP-verbindingen tot stand gebrachte doorgaan na-fout health-test.  Bestaande UDP-stromen worden verplaatst van het niet in orde exemplaar naar een ander in orde exemplaar in de back-endpool.
 
 Als alle tests voor een back-endpool mislukken, wordt Basic Load Balancers alle bestaande TCP-stromen naar de back-endpool beëindigd terwijl de standaardversie van Load balancer wordt tot stand gebrachte TCP stromen om door te gaan; toestaan geen nieuwe stromen worden worden verzonden naar de back-endpool.  Alle bestaande UDP-stromen worden voor Basic en Standard Load Balancers beëindigd wanneer alle tests voor een back-end-groep is mislukt.
 

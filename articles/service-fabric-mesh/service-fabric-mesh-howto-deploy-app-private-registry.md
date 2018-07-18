@@ -1,7 +1,7 @@
 ---
 title: -App implementeren vanuit een persoonlijk register naar Azure Service Fabric NET | Microsoft Docs
 description: Informatie over het implementeren van een app die gebruikmaakt van een privécontainerregister voor Service Fabric net met Azure CLI.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: jeconnoc
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/16/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0a70cd1bd8cd7df099250ca59b3f00b1cab29e5c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: af92d3c6ea881d00ec687a5560bf4db35aa431c5
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076143"
+ms.locfileid: "39089483"
 ---
 # <a name="deploy-a-service-fabric-mesh-app-from-a-private-container-image-registry"></a>Een Service Fabric-NET-app implementeren vanuit een persoonlijk containerregister-installatiekopie
 
@@ -39,7 +39,7 @@ Docker ter ondersteuning van de beperkte Service Fabric-apps die worden gebruikt
 
 Download en installeer de nieuwste versie van [Docker Community Edition van Windows][download-docker]. 
 
-Tijdens de installatie, selecteert u **gebruik Windows-containers in plaats van Linux-containers** wanneer u wordt gevraagd. U moet vervolgens meldt u zich af en meld u opnieuw aan. Nadat u zich weer aanmeldt, als u Hyper-V, eerder niet hebt ingeschakeld u mogelijk gevraagd om in te schakelen van Hyper-V. U moet Hyper-V inschakelen en de computer opnieuw opstarten.
+Tijdens de installatie, selecteert u **gebruik Windows-containers in plaats van Linux-containers** wanneer u wordt gevraagd. U moet vervolgens meldt u zich af en meld u opnieuw aan. Nadat u zich weer aanmeldt, als u Hyper-V, eerder niet hebt ingeschakeld u mogelijk gevraagd om in te schakelen van Hyper-V. Hyper-V inschakelen en de computer opnieuw opstarten.
 
 Nadat de computer opnieuw is opgestart, Docker wordt u gevraagd om in te schakelen de **Containers** presenteren, inschakelen en op de computer opnieuw opstarten.
 
@@ -116,8 +116,7 @@ Result
 --------
 1.1-alpine
 ```
-
-Dit ziet u dat `azure-mesh-helloworld:1.1-alpine` installatiekopie aanwezig is in het persoonlijke container registry.
+De bovenstaande uitvoer bevestigt de aanwezigheid van `azure-mesh-helloworld:1.1-alpine` in het persoonlijke container registry.
 
 ## <a name="retrieve-credentials-for-the-registry"></a>Referenties voor het register worden opgehaald
 
@@ -137,6 +136,7 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 
 De waarden geleverd door de voorgaande opdrachten wordt verwezen als `<acrLoginServer>`, `<acrUserName>`, en `<acrPassword>` in de volgende opdracht.
 
+
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 
 Maken van de toepassing en de bijbehorende resources met behulp van de volgende opdracht uit en geef de referenties van de vorige stap.
@@ -144,7 +144,7 @@ Maken van de toepassing en de bijbehorende resources met behulp van de volgende 
 De `registry-password` parameter in de sjabloon is een `securestring`. Deze worden niet weergegeven in de status van de implementatie en `az mesh service show` opdrachten. Zorg ervoor dat deze correct is opgegeven in de volgende opdracht uit.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}" 
 ```
 
 In een paar minuten wordt weer uw opdracht met:
@@ -152,9 +152,9 @@ In een paar minuten wordt weer uw opdracht met:
 `helloWorldPrivateRegistryApp has been deployed successfully on helloWorldPrivateRegistryNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Open de toepassing
-Zodra de toepassing met succes is geïmplementeerd, het openbare IP-adres voor het service-eindpunt ophalen en openen op een browser. Een webpagina met Service Fabric-NET-logo moet worden weergegeven.
+Zodra de toepassing met succes is geïmplementeerd, het openbare IP-adres voor het service-eindpunt ophalen en openen op een browser. Er wordt een webpagina weergegeven met Service Fabric-NET-logo.
 
-De implementatieopdracht retourneert het openbare IP-adres van het service-eindpunt. U kunt ook een query de netwerkbron om het openbare IP-adres van het service-eindpunt.
+De implementatieopdracht retourneert het openbare IP-adres van het service-eindpunt. U kunt eventueel ook de netwerkbron om het openbare IP-adres van het service-eindpunt opvragen. 
  
 De naam van de netwerk-resource voor deze toepassing is `helloWorldPrivateRegistryNetwork`, informatie over met behulp van de volgende opdracht ophalen. 
 

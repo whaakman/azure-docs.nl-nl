@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: fb8730e9074624ba1b0f0162ebf9156b758b59c2
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068781"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115227"
 ---
 # <a name="content-protection-overview"></a>Overzicht van de beveiliging van inhoud
 
@@ -45,8 +45,11 @@ Als u wilt uw systeem-/ toepassingsontwerp 'content protection' is voltooid, moe
   > [!NOTE]
   > U kunt elke activa met meerdere versleutelingstypen (AES-128, PlayReady, Widevine, FairPlay) coderen. Zie [Streaming-protocollen en versleutelingstypen](#streaming-protocols-and-encryption-types), om te zien wat zinvol om te combineren.
   
-  Het volgende artikel stappen voor het versleutelen van inhoud met AES weergeven: [beveiligen met AES-versleuteling](protect-with-aes128.md)
- 
+  De volgende artikelen weergeven stappen voor het versleutelen van inhoud met AES en/of DRM: 
+  
+  * [Beveiligen met AES-versleuteling](protect-with-aes128.md)
+  * [Beveiligen met DRM](protect-with-drm.md)
+
 2. De speler met AES of DRM-client. Een videospeler-app op basis van een player SDK (systeemeigen of browsergebaseerde) moet voldoen aan de volgende vereisten:
   * Windows media player SDK biedt ondersteuning voor de benodigde DRM-clients
   * Windows media player SDK biedt ondersteuning voor de vereiste streamingprotocollen: Smooth, DASH of HLS
@@ -125,7 +128,10 @@ Wanneer u beleid met de tokenbeperking configureert, moet u de primaire verifica
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Beveiligen met AES-versleuteling in Media Services v3](protect-with-aes128.md)
+Raadpleeg de volgende artikelen:
+
+  * [Beveiligen met AES-versleuteling](protect-with-aes128.md)
+  * [Beveiligen met DRM](protect-with-drm.md)
 
 Als u meer informatie vindt u [DRM verwijzen naar ontwerpen en implementeren](../previous/media-services-cenc-with-multidrm-access-control.md)
 

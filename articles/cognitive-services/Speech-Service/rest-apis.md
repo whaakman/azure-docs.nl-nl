@@ -1,6 +1,6 @@
 ---
-title: Spraak service REST-API's | Microsoft Docs
-description: Documentatie voor REST-API's voor de service spraak.
+title: Spraakservice REST-API's | Microsoft Docs
+description: Naslaginformatie voor REST-API's voor de Speech-service.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -9,33 +9,33 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 53560fd4f8240c4446898f58992a9319e5177435
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 311d0cb7f208c0f720b8611510fb65efc65c12bc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085368"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112870"
 ---
-# <a name="speech-service-rest-apis"></a>Spraak service REST-API 's
+# <a name="speech-service-rest-apis"></a>Spraakservice REST-API 's
 
-De REST-API's van de geïntegreerde spraak-service zijn vergelijkbaar met de API's geleverd door de [Speech-API](https://docs.microsoft.com/azure/cognitive-services/Speech) (voorheen bekend als de Bing Speech-Service). De eindpunten verschillen van de eindpunten die wordt gebruikt door de vorige spraakherkenningsprogramma-service.
+De REST-API's van de uniforme spraakherkenning-service zijn vergelijkbaar met de API's uit de [Speech-API](https://docs.microsoft.com/azure/cognitive-services/Speech) (voorheen bekend als de Bing Speech-Service). De eindpunten afwijken van de eindpunten die worden gebruikt door de vorige Speech-service.
 
 ## <a name="speech-to-text"></a>Spraak naar tekst
 
-In de spraak tekst API verschillen alleen de eindpunten die gebruikt van de vorige spraak service erkenning Speech-API. De nieuwe eindpunten worden weergegeven in de onderstaande tabel. Gebruik de naam die overeenkomt met de regio van uw abonnement.
+In de Speech to Text-API, wordt alleen de eindpunten die worden gebruikt verschillen van de vorige spraakservice spraak Recognition-API. De nieuwe eindpunten worden weergegeven in de onderstaande tabel. Gebruik de naam die overeenkomt met de regio van uw abonnement.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
-De spraak tekst API anders is vergelijkbaar met de [REST-API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) voor de vorige Speech-API.
+De spraak-naar-tekst-API is anders is vergelijkbaar met de [REST-API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) voor de vorige Speech-API.
 
-De spraak tekst REST-API ondersteunt alleen korte utterances. Aanvragen kunnen maximaal 10 seconden audio bevatten en een maximum van 14 seconden algehele laatste. De REST-API retourneert alleen de laatste resultaten niet geheel of gedeeltelijk tussentijdse resultaten.
+De spraak-naar-tekst REST-API ondersteunt alleen korte uitingen. Aanvragen kunnen maximaal 10 seconden audio bevatten en een maximum van 14 seconden algehele laatste. De REST-API retourneert alleen de laatste resultaten, geen tijdelijke of gedeeltelijke resultaten.
 
 > [!NOTE]
-> Als u de akoestisch model of taalmodel of uitspraak hebt aangepast, kunt u uw aangepaste eindpunt gebruiken.
+> Als u het akoestisch model of de taalmodel of de uitspraak van aangepast, kunt u uw aangepast eindpunt gebruiken.
 
 ## <a name="text-to-speech"></a>Tekst naar spraak
 
-De nieuwe Text to Speech API biedt ondersteuning voor 24-KHz audio-uitvoer. De `X-Microsoft-OutputFormat` header kan nu de volgende waarden bevatten.
+De nieuwe Text to Speech-API biedt ondersteuning voor 24-KHz audio-uitvoer. De `X-Microsoft-OutputFormat` header kan nu de volgende waarden bevatten.
 
 |||
 |-|-|
@@ -46,32 +46,32 @@ De nieuwe Text to Speech API biedt ondersteuning voor 24-KHz audio-uitvoer. De `
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
-De service spraak biedt nu twee 24 KHz stemmen:
+De spraak-service biedt nu twee 24-KHz stemmen:
 
 Landinstelling | Taal   | Geslacht | De toewijzing van service
 -------|------------|--------|------------
-nl-NL  | Nederlands | Vrouw | 'Microsoft Server Speech tekst stem (en-US, Jessa24kRUS)' 
-nl-NL  | Nederlands | Man   | 'Microsoft Server Speech tekst stem (en-US, Guy24kRUS)'
+en-US  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" 
+en-US  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)"
 
-Hieronder vindt u de REST-eindpunten voor de geïntegreerde Speech service Text to Speech API. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
+Hieronder vindt u de REST-eindpunten voor de uniforme spraakherkenning service Text to Speech-API. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-Houd deze verschillen in rekening wanneer u naar verwijst de [REST API-documentatie](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) voor de vorige Speech-API.
+Deze verschillen in waarmee u rekening moet houden wanneer u naar verwijst de [REST API-documentatie](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) voor de vorige Speech-API.
 
 ## <a name="authentication"></a>Verificatie
 
-Verzenden van een aanvraag van de service spraak REST API vereist dat een toegangstoken. U een token verkrijgen door uw abonnementssleutel naar een regionaal spraak service `issueToken` eindpunt, weergegeven in de onderstaande tabel. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
+Een aanvraag verzenden naar de spraakservice REST-API vereist dat een toegangstoken. U een token verkrijgen door te geven van uw abonnementssleutel voor een regionale spraakservice `issueToken` eindpunt, wordt weergegeven in de onderstaande tabel. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
 
-[!include[](includes/endpoints-token-service.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-Elke toegangstoken is geldig voor 10 minuten. U kunt een nieuw token verkrijgen op elk gewenst moment, inclusief, indien gewenst, net voor elke aanvraag spraak REST-API. Om te beperken netwerkverkeer en de latentie, echter aangeraden hetzelfde token voor negen minuten.
+Elke toegangstoken is geldig voor 10 minuten. U kunt een nieuw token verkrijgen op elk gewenst moment, met inbegrip van, als u dat wilt, net voordat elk verzoek Speech REST-API. Om te beperken van netwerkverkeer en de latentie, maar wordt u aangeraden het dezelfde token negen minuten.
 
-De volgende secties laten zien hoe een token verkrijgen en het gebruik ervan in een aanvraag.
+De volgende secties laten zien hoe u een token verkrijgen en het gebruik ervan in een aanvraag.
 
 ### <a name="getting-a-token-http"></a>Ophalen van een token: HTTP
 
-Hieronder volgt een voorbeeld HTTP-aanvraag voor het verkrijgen van een token. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel voor spraak-service. Als uw abonnement niet in de regio VS-West is, vervangt u de `Host` header met de hostnaam van uw regio.
+Hieronder volgt een voorbeeld van een HTTP-aanvraag voor het verkrijgen van een token. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel voor spraak-service. Als uw abonnement niet in de regio VS-West is, vervangt u de `Host` header met de hostnaam van uw regio.
 
 ```
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -81,11 +81,11 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-De hoofdtekst van het antwoord op deze aanvraag is het toegangstoken in Java Web Token (JWT)-indeling.
+De hoofdtekst van het antwoord op deze aanvraag is het toegangstoken in de indeling van de Java Web Token (JWT).
 
 ### <a name="getting-a-token-powershell"></a>Ophalen van een token: PowerShell
 
-De onderstaande Windows PowerShell-script laat zien hoe een toegangstoken te verkrijgen. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel voor spraak-service. Als uw abonnement niet in de regio VS-West is, wijzigt u de hostnaam van de opgegeven URI dienovereenkomstig in.
+De onderstaande Windows PowerShell-script laat zien hoe een toegangstoken verkrijgen. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel voor spraak-service. Als uw abonnement niet in de regio VS-West is, kunt u de hostnaam van de opgegeven URI gewijzigd.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -104,7 +104,7 @@ $OAuthToken
 
 ### <a name="getting-a-token-curl"></a>Ophalen van een token: cURL
 
-cURL is een opdrachtregelprogramma beschikbaar in Linux (en in het Windows-subsysteem voor Linux). De volgende cURL-opdracht laat zien hoe een toegangstoken te verkrijgen. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel voor spraak-service. Als uw abonnement niet in de regio VS-West is, wijzigt u de hostnaam van de opgegeven URI dienovereenkomstig in.
+cURL is een opdrachtregelprogramma beschikbaar in Linux (en in de Windows-subsysteem voor Linux). De volgende cURL-opdracht laat zien hoe u kunt een toegangstoken verkrijgen. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel voor spraak-service. Als uw abonnement niet in de regio VS-West is, kunt u de hostnaam van de opgegeven URI gewijzigd.
 
 > [!NOTE]
 > De opdracht wordt weergegeven op meerdere regels voor de leesbaarheid, maar op één regel op een shell-prompt moet worden ingevoerd.
@@ -119,7 +119,7 @@ curl -v -X POST
 
 ### <a name="getting-a-token-c"></a>Ophalen van een token: C#
 
-De C#-klasse hieronder ziet u het verkrijgen van een toegangstoken. Uw spraak service-abonnementssleutel doorgeven bij het instantiëren van de klasse. Als uw abonnement niet in de regio VS-West is, wijzigt u de hostnaam van `FetchTokenUri` op de juiste wijze.
+De C#-klasse hieronder ziet u hoe u een toegangstoken verkrijgen. Geef uw abonnementssleutel voor spraak-service door bij het instantiëren van de klasse. Als uw abonnement niet in de regio VS-West is, wijzigt u de hostnaam van `FetchTokenUri` op de juiste wijze.
 
 ```cs
     /*
@@ -160,7 +160,7 @@ De C#-klasse hieronder ziet u het verkrijgen van een toegangstoken. Uw spraak se
 
 ### <a name="using-a-token"></a>Met behulp van een token
 
-Geef voor het gebruik van een token in een REST-API-aanvraag, in de `Authorization` -kop, volgen op het woord `Bearer`. Hier is bijvoorbeeld een steekproef tekst spraak REST-aanvraag met een token. Vervang uw werkelijke token voor `YOUR_ACCESS_TOKEN` en gebruik de juiste hostnaam in de `Host` header.
+Voor het gebruik van een token in een REST-API-aanvraag, bieden deze in de `Authorization` header, volgen op het woord `Bearer`. Bijvoorbeeld als volgt een voorbeeld van tekst naar spraak REST-aanvraag met een token. Vervangen door uw werkelijke token voor `YOUR_ACCESS_TOKEN` en gebruikt u de juiste hostnaam in de `Host` header.
 
 ```xml
 POST /cognitiveservices/v1 HTTP/1.1
@@ -176,16 +176,16 @@ Connection: Keep-Alive
 </voice></speak>
 ```
 
-### <a name="renewing-authorization"></a>Vernieuwen van autorisatie
+### <a name="renewing-authorization"></a>Autorisatie vernieuwen
 
-Het verificatietoken verloopt na 10 minuten. Vernieuwen van uw autorisatie door een nieuw token verkrijgen voordat het verloopt, bijvoorbeeld na negen minuten. 
+Het verificatietoken verloopt na tien minuten. Autorisatie vernieuwen door het verkrijgen van een nieuw token voordat het verloopt, bijvoorbeeld na 9 minuten. 
 
-De volgende C#-code is een onverwachte vervanging voor de klasse die eerder is weergegeven. De `Authentication` klasse automatisch verkrijgt een nieuw toegangstoken om negen minuten met behulp van een timer. Deze aanpak zorgt ervoor dat een geldig token altijd beschikbaar is terwijl het programma wordt uitgevoerd.
+De volgende C#-code is een vervanging drop-in voor de klasse die eerder is weergegeven. De `Authentication` klasse automatisch verkrijgt een nieuw toegangstoken om 9 minuten een timer te gebruiken. Deze aanpak zorgt ervoor dat een geldig token altijd beschikbaar is terwijl uw programma wordt uitgevoerd.
 
 > [!NOTE]
-> In plaats van een timer, kunt u een tijdstempel van wanneer token van de huidige is verkregen en vervolgens een nieuwe aanvraag alleen als het huidige token is bijna verloopt opslaan. Deze aanpak voorkomt nieuwe tokens onnodig aanvragen en is mogelijk beter geschikt voor programma's die incidentele spraak aanvragen indienen.
+> In plaats van een timer te gebruiken, kunt u een timestamp van wanneer het huidige token is verkregen, is een nieuwe sleutel aanvragen alleen als het huidige token is bijna verloopt opslaan. Deze aanpak voorkomt u onnodig aanvragen van de nieuwe tokens en is mogelijk beter geschikt voor programma's die incidentele spraak-aanvragen.
 
-Als voorheen, zorg ervoor dat de `FetchTokenUri` waarde komt overeen met de regio van uw abonnement. De abonnementssleutel van uw doorgeven bij het instantiëren van de klasse.
+Als voorheen, zorg ervoor dat de `FetchTokenUri` waarde komt overeen met de regio van uw abonnement. Uw abonnementssleutel doorgegeven bij het instantiëren van de klasse.
 
 ```cs
     /*
@@ -265,7 +265,7 @@ Als voorheen, zorg ervoor dat de `FetchTokenUri` waarde komt overeen met de regi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Uw proefabonnement spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
-- [Akoestisch modellen aanpassen](how-to-customize-acoustic-models.md)
-- [Taal modellen aanpassen](how-to-customize-language-model.md)
+- [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
+- [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
+- [Taalmodellen aanpassen](how-to-customize-language-model.md)
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: fc978c6ad9776271c790796f26912c63f9edcf74
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009383"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114341"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Virtuele WAN-automation - voor virtuele WAN-partners (Preview) configureren
 
-In dit artikel vindt u informatie over het instellen van het automation-envorionment verbinding maken en configureren van een vertakking-apparaat (een klant on-premises VPN-apparaat of SDWAN) voor Azure virtuele WAN. Als u een provider waarmee vertakking-apparaten die geschikt voor de VPN-verbinding via IPsec/IKEv2, wordt dit artikel is voor u.
+In dit artikel vindt u informatie over het instellen van de automatiseringsomgeving te koppelen en een vertakking-apparaat (een klant on-premises VPN-apparaat of SDWAN) te configureren voor Azure virtuele WAN. Als u een provider waarmee vertakking-apparaten die geschikt voor de VPN-verbinding via IPsec/IKEv2, wordt dit artikel is voor u.
 
 Met software gedefinieerde connectiviteitsoplossingen gebruiken doorgaans een domeincontroller of een apparaat inrichten center voor het beheren van hun apparaten vertakking. De controller kunt Azure-API's gebruiken voor het automatiseren van de verbinding met Azure virtuele WAN. Dit type verbinding vereist een SDWAN of VPN-apparaat on-premises met een extern gericht openbare IP-adres is toegewezen.
 

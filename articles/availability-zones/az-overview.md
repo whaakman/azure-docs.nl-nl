@@ -1,6 +1,6 @@
 ---
-title: Wat zijn Azure beschikbaarheid Zones? | Microsoft Docs
-description: Zones beschikbaarheid bieden voor het maken van maximaal beschikbare en robuuste toepassingen in Azure, fysiek gescheiden locaties die u gebruiken kunt om uit te voeren van uw resources.
+title: Wat zijn Azure-Beschikbaarheidszones? | Microsoft Docs
+description: Beschikbaarheidszones bieden hoge beschikbaarheid en robuuste om toepassingen te maken in Azure, fysiek gescheiden locaties die u gebruiken kunt om uit te voeren van uw resources.
 services: ''
 documentationcenter: ''
 author: iainfoulds
@@ -16,28 +16,28 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f2890338f69e8ad5e97077dbb227f557b34f1a4b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063660"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090282"
 ---
-# <a name="what-are-availability-zones-in-azure"></a>Wat zijn de beschikbaarheid van Zones in Azure?
-Beschikbaarheid van Zones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen van datacenter hoge beschikbaarheid. Beschikbaarheid Zones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters uitgerust met onafhankelijke stroom, koeling en netwerken. Tolerantie, zodat is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding van beschikbaarheid Zones binnen een regio beschermt toepassingen en gegevens tegen storingen datacenter. Zone-redundante services repliceren uw toepassingen en gegevens over beschikbaarheid Zones beschermen tegen één punten van storingen. Met Zones, beschikbaarheid biedt Azure bedrijfstak best 99,99% VM bedrijfstijd SLA. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
+# <a name="what-are-availability-zones-in-azure"></a>Wat zijn Beschikbaarheidszones in Azure?
+Beschikbaarheidszones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen in datacenters hoge beschikbaarheid. Beschikbaarheidszones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om ervoor te zorgen tolerantie, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding tussen Beschikbaarheidszones binnen een regio beschermt toepassingen en gegevens tegen storingen in datacenters. Zone-redundante services repliceren uw toepassingen en gegevens in meerdere Beschikbaarheidszones om te beschermen tegen enkele punten van de fout. Met Beschikbaarheidszones biedt Azure branche aanbevolen VM uptime SLA van 99,99%. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
 
-Een Zone beschikbaarheid in een Azure-regio is een combinatie van een domein met fouten en een updatedomein. Bijvoorbeeld, als u drie of meer virtuele machines over drie zones in een Azure-regio maakt, wordt uw virtuele machines worden effectief in drie domeinen met fouten en drie update domeinen gedistribueerd. De Azure-platform herkent deze verdeling tussen domeinen update om ervoor te zorgen dat virtuele machines in verschillende zones op hetzelfde moment niet worden bijgewerkt.
+Een Beschikbaarheidszone in een Azure-regio is een combinatie van een domein met fouten en een updatedomein. Bijvoorbeeld, als u drie of meer virtuele machines in drie zones in een Azure-regio maken, wordt uw virtuele machines worden effectief in drie foutdomeinen en updatedomeinen drie gedistribueerd. Het Azure-platform herkent deze distributie in meerdere domeinen bijwerken om ervoor te zorgen dat virtuele machines in verschillende zones niet op hetzelfde moment worden bijgewerkt.
 
-Hoge beschikbaarheid in de toepassingsarchitectuur van uw bouwen door CO-locatie op uw resources berekening, opslag, netwerken en gegevens binnen een zone en gerepliceerd in andere zones. Azure-services die ondersteuning bieden voor beschikbaarheid Zones onderverdeeld in twee categorieën:
+Hoge beschikbaarheid bouwen in uw toepassingsarchitectuur door het plaatsen van uw resources compute, opslag, netwerken en gegevens binnen een zone en gerepliceerd in andere zones. Azure-services die ondersteuning voor Beschikbaarheidszones worden onderverdeeld in twee categorieën:
 
-- **Zonal services** – vast van de resource toe aan een specifieke zone (bijvoorbeeld virtuele machines, beheerde schijven, IP-adressen), of
-- **Zone-redundante services** – platform repliceert automatisch diverse zones (bijvoorbeeld, zone-redundante opslag, SQL Database).
+- **Zonegebonden services** – u de resource vastmaken aan een specifieke zone (bijvoorbeeld virtuele machines, beheerde schijven, IP-adressen), of
+- **Zone-redundante services** – platform automatisch worden gerepliceerd in zones (bijvoorbeeld: zone-redundante opslag, SQL Database).
 
-Bouw de toepassingsarchitectuur van uw met behulp van de combinatie van beschikbaarheid Zones met Azure-regio paren zodat uitgebreide zakelijke continuïteit in Azure. U kunt uw toepassingen en gegevens met behulp van beschikbaarheid Zones binnen een Azure-regio voor hoge beschikbaarheid synchroon worden gerepliceerd en asynchroon repliceren naar Azure-regio's voor disaster recovery-beveiliging.
+Bouw uw toepassingsarchitectuur met behulp van de combinatie van de Beschikbaarheidszones met Azure-regioparen voor het bereiken van uitgebreide bedrijfscontinuïteit in Azure. U kunt uw toepassingen en gegevens met behulp van Beschikbaarheidszones binnen een Azure-regio voor hoge beschikbaarheid synchroon te repliceren en asynchroon repliceert tussen Azure-regio's voor disaster recovery-beveiliging.
  
-![Conceptueel overzicht van één zone tijdelijk niet beschikbaar in een regio](./media/az-overview/az-graphic-two.png)
+![Conceptueel overzicht van een zone in een regio uitvalt](./media/az-overview/az-graphic-two.png)
 
-## <a name="regions-that-support-availability-zones"></a>Regio's die ondersteuning bieden voor beschikbaarheid Zones
+## <a name="regions-that-support-availability-zones"></a>Regio's die ondersteuning voor Beschikbaarheidszones
 
 - VS - midden
 - Frankrijk - centraal
@@ -46,8 +46,8 @@ Bouw de toepassingsarchitectuur van uw met behulp van de combinatie van beschikb
 - Zuidoost-Azië (Preview)
 
 
-## <a name="services-that-support-availability-zones"></a>Services die ondersteuning bieden voor beschikbaarheid Zones
-De Azure-services die ondersteuning bieden voor beschikbaarheid Zones zijn:
+## <a name="services-that-support-availability-zones"></a>Services die ondersteuning voor Beschikbaarheidszones bieden
+De Azure-services die ondersteuning voor Beschikbaarheidszones zijn:
 
 - Linux Virtual Machines
 - Windows Virtual Machines
@@ -64,20 +64,20 @@ De Azure-services die ondersteuning bieden voor beschikbaarheid Zones zijn:
 
 
 ## <a name="pricing"></a>Prijzen
-Er is geen extra kosten voor virtuele machines die zijn geïmplementeerd in een Zone beschikbaarheid. Actieve tijdsduur van 99,99% VM SLA wordt aangeboden als twee of meer virtuele machines zijn geïmplementeerd op twee of meer beschikbaarheid Zones binnen een Azure-regio. Er zijn extra tussen beschikbaarheid Zone VM-VM gegevensoverdracht kosten. Raadpleeg voor meer informatie de [bandbreedte prijzen](https://azure.microsoft.com/pricing/details/bandwidth/) pagina.
+Er is geen extra kosten voor virtuele machines die in een Beschikbaarheidszone is geïmplementeerd. Virtuele machine een uptime van 99,99% SLA wordt aangeboden wanneer twee of meer virtuele machines in twee of meer Beschikbaarheidszones binnen een Azure-regio worden geïmplementeerd. Er zijn aanvullende tussen beschikbaarheid Zone VM naar VM kosten voor gegevensoverdracht. Raadpleeg voor meer informatie de [bandbreedte prijzen](https://azure.microsoft.com/pricing/details/bandwidth/) pagina.
 
 
-## <a name="get-started-with-availability-zones"></a>Aan de slag met beschikbaarheid Zones
+## <a name="get-started-with-availability-zones"></a>Aan de slag met Beschikbaarheidszones
 - [Een virtuele machine maken](../virtual-machines/windows/create-portal-availability-zone.md)
-- [Voeg een schijf worden beheerd met behulp van PowerShell toe](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
-- [Maak een zone redundant virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Taakverdeling van virtuele machines in zones met een standaard Load Balancer met een zone-redundante frontend.](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Taakverdeling van virtuele machines in een zone met een standaard Load Balancer met een zonal frontend.](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Toevoegen van een beheerde schijf maken met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
+- [Een schaalset voor zone-redundante virtuele-machine maken](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+- [Taakverdeling tussen VM's in zones met behulp van een Standard Load Balancer met een zone-redundante front](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Taakverdeling tussen VM's binnen een zone met behulp van een Standard Load Balancer met een zonegebonden frontend.](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Zone-redundante opslag](../storage/common/storage-redundancy-zrs.md)
-- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
-- [Event Hubs geo-noodherstel](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
-- [Service Bus-geo-noodherstel](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
-- [Maak een zone-redundante virtuele netwerkgateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [Geo-noodherstel Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+- [Geo-noodherstel Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+- [Een zone-redundante virtuele netwerkgateway maken](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 
 ## <a name="next-steps"></a>Volgende stappen

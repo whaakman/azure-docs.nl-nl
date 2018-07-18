@@ -1,66 +1,66 @@
 ---
-title: Bewaking en prestatieafstemming - Azure SQL Database | Microsoft Docs
+title: Bewaking en het afstemmen van prestaties - Azure SQL Database | Microsoft Docs
 description: Tips voor het afstemmen in Azure SQL Database via evaluatie en verbetering van de prestaties.
 services: sql-database
 author: v-shysun
 manager: craigg
 editor: ''
-keywords: prestaties van SQL databaseprestaties afstemmen, tips voor het afstemmen van de sql prestaties afstemmen prestatieafstemming voor sql-database
+keywords: SQL-prestaties afstemmen, prestaties van de database afstemmen, sql-prestaties afstemmen tips voor het afstemmen van prestaties van sql database
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: v-shysun
-ms.openlocfilehash: a20d198c64bfc6aeaa42f310ee533626c2b1409c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79f41ab133cba539e5f855b3ab8fa21723694acb
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649615"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092559"
 ---
-# <a name="monitoring-and-performance-tuning"></a>Bewaking en prestaties afstemmen
+# <a name="monitoring-and-performance-tuning"></a>Bewaking en prestatieafstemming
 
-Azure SQL-Database wordt automatisch beheerd en flexibele gegevensservice waarin u kunt eenvoudig gebruik controleren, toevoegen of verwijderen resources (CPU, geheugen, i/o) aanbevelingen die kunnen verbeteren de prestaties van de database of database aanpassen aan uw werkbelasting laten vinden en automatisch optimaliseren.
+Azure SQL-Database wordt automatisch beheerd en flexibele gegevensservice waar kunt u eenvoudig gebruik te bewaken, toevoegen of verwijderen van resources (CPU, geheugen, i/o-), aanbevelingen die kunnen verbeteren de prestaties van uw database of database aan te passen aan uw workload kunt vinden en automatisch optimaliseren.
 
-In dit artikel biedt een overzicht van controle en prestaties afstemmen van de opties die beschikbaar in Azure SQL Database zijn.
+In dit artikel bevat een overzicht van bewaking en afstemming van opties die beschikbaar in Azure SQL Database zijn.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="monitoring-and-troubleshooting-database-performance"></a>Bewaking en probleemoplossing van de prestaties van de database
 
-Azure SQL Database kunt u gemakkelijk het Databasegebruik van uw bewaken en identificeren van query's die prestatieproblemen kunnen veroorzaken. U kunt met behulp van Azure portal of het systeem weergaven databaseprestaties bewaken. U hebt de volgende opties voor bewaking en probleemoplossing van de prestaties van de database:
+Azure SQL Database kunt u eenvoudig uw Databasegebruik controleren en identificeren van query's die de prestatieproblemen kunnen veroorzaken. U kunt de databaseprestaties met behulp van Azure portal of het systeem weergaven bewaken. U hebt de volgende opties voor controle en probleemoplossing van de prestaties van de database:
 
-1. In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-databases**, selecteert u de database, en vervolgens de grafiek bewaking op zoek naar bronnen hun maximale nadert. DTU-verbruik wordt standaard weergegeven. Klik op **bewerken** wijzigen van het tijdsbereik en waarden die worden weergegeven.
-2. Gebruik [Query Performance Insight](sql-database-query-performance.md) voor het identificeren van de query's die het meest van resources hoeven te besteden aan.
-3. U kunt dynamische beheerweergaven (DMV's), Extended Events (`XEvents`), en de queryopslag in SSMS prestatieparameters in realtime ophalen.
+1. In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-databases**, selecteert u de database en gebruik vervolgens de controle grafiek om te zoeken naar resources hun maximale nadert. DTU-verbruik wordt standaard weergegeven. Klik op **bewerken** te wijzigen van het tijdsbereik en de waarden die worden weergegeven.
+2. Gebruik [Query Performance Insight](sql-database-query-performance.md) voor het identificeren van de query's die besteden aan het meest van resources.
+3. U kunt dynamische beheerweergave (DMV's), Extended Events (`XEvents`), en de Query Store in SSMS prestatieparameters in realtime ophalen.
 
-Zie de [prestaties richtlijnen onderwerp](sql-database-performance-guidance.md) technieken waarmee u de prestaties van Azure SQL Database verbeteren kunt als u een probleem met deze rapporten of weergaven identificeren vinden.
+Zie de [prestaties richtlijnen onderwerp](sql-database-performance-guidance.md) technieken die u gebruiken kunt om prestaties te verbeteren van Azure SQL Database als u een probleem opgetreden met behulp van deze rapporten of weergaven gevonden.
 
 > [!IMPORTANT] 
 > Het wordt aanbevolen om altijd de nieuwste versie van Management Studio te gebruiken, zodat uw versie gesynchroniseerd blijft met updates voor Microsoft Azure en SQL Database. [SQL Server Management Studio bijwerken](https://msdn.microsoft.com/library/mt238290.aspx).
 >
 
-## <a name="optimize-database-to-improve-performance"></a>Databases voor betere prestaties optimaliseren
+## <a name="optimize-database-to-improve-performance"></a>Database voor betere prestaties optimaliseren
 
-Azure SQL Database kunt u Identificeer mogelijkheden te verbeteren en prestaties van query's optimaliseren zonder resources aan de hand van [prestaties afstemmen aanbevelingen](sql-database-advisor.md). Ontbrekende indexen en onvoldoende geoptimaliseerde query's zijn veelvoorkomende redenen voor slechte databaseprestaties. U kunt deze afstemmen aanbevelingen voor het verbeteren van de prestaties van uw workload toepassen.
-U kunt ook laten Azure SQL database [automatisch de prestaties van uw query's optimaliseren](sql-database-automatic-tuning.md) door toe te passen alle aanbevelingen en verifiëren van de verbetering van prestaties van de database hebt geïdentificeerd. U kunt de volgende opties gebruiken om de prestaties van uw database te verbeteren:
+Azure SQL Database kunt u voor het identificeren van kansen te verbeteren en optimaliseren van prestaties van query's zonder te hoeven wijzigen van resources aan de hand [aanbevelingen voor afstemming](sql-database-advisor.md). Ontbrekende indexen en onvoldoende geoptimaliseerde query's zijn veelvoorkomende redenen voor slechte databaseprestaties. U kunt deze aanbevelingen voor afstemming voor het verbeteren van de prestaties van uw workload kunt toepassen.
+U kunt ook laat Azure SQL database tot [automatisch de prestaties van uw query's optimaliseren](sql-database-automatic-tuning.md) door het toepassen van alle aanbevelingen en te controleren dat ze betere databaseprestaties geïdentificeerd. U kunt de volgende opties gebruiken om de prestaties van uw database te verbeteren:
 
-1. Gebruik [SQL Database Advisor](sql-database-advisor-portal.md) om aanbevelingen voor het maken en verwijderen van indexen, parameters voorzien van query's en het oplossen van problemen met schema weer te geven.
-2. [Schakel automatische afstemming](sql-database-automatic-tuning-enable.md) en laat Azure SQL database automatisch prestatieproblemen fix geïdentificeerd.
+1. Gebruik [SQL Database Advisor](sql-database-advisor-portal.md) om aanbevelingen voor het maken en verwijderen van indexen, parametriseren query's en schema-problemen oplossen weer te geven.
+2. [Automatisch instellen inschakelen](sql-database-automatic-tuning-enable.md) en laat Azure SQL database automatisch correctie geïdentificeerd prestatieproblemen kunnen voordoen.
 
-## <a name="improving-database-performance-with-more-resources"></a>Verbeterde databaseprestaties met meer bronnen
+## <a name="improving-database-performance-with-more-resources"></a>Verbetering van de prestaties van de database met andere bronnen
 
-Ten slotte, als er geen bruikbare items die u de prestaties van uw database verbeteren zijn kunnen, kunt u de hoeveelheid beschikbare resources in Azure SQL Database. U kunt meer bronnen toewijzen door het wijzigen van de [DTU servicelaag](sql-database-service-tiers-dtu.md) van een zelfstandige database of vergroot de edtu's van een elastische pool op elk gewenst moment. U kunt ook als u de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md), kunt u de servicelaag of vergroot de resources die zijn toegewezen aan de database. 
-1. Voor zelfstandige databases, kunt u [Servicelagen wijzigen](sql-database-service-tiers-dtu.md) of [rekenresources](sql-database-service-tiers-vcore.md)op aanvraag voor het verbeteren van de prestaties van de database.
-2. Voor meerdere databases kunt u overwegen [elastische pools](sql-database-elastic-pool-guidance.md) automatisch schalen.
+Ten slotte, als er geen bruikbare items die de prestaties van uw database kunnen verbeteren, kunt u de hoeveelheid beschikbare resources in Azure SQL Database. U kunt meer resources toewijzen door het veranderen van de [DTU-servicelaag](sql-database-service-tiers-dtu.md) van een zelfstandige database of een toename van het aantal edtu's van een elastische pool op elk gewenst moment. U kunt ook als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), kunt u de servicelaag wijzigen of de resources die zijn toegewezen aan uw database te verhogen. 
+1. Voor zelfstandige databases, kunt u [Servicelagen](sql-database-service-tiers-dtu.md) of [rekenresources](sql-database-service-tiers-vcore.md)on-demand om betere databaseprestaties.
+2. Overweeg het gebruik van meerdere databases, [elastische pools](sql-database-elastic-pool-guidance.md) bronnen automatisch schalen.
 
-## <a name="tune-and-refactor-application-or-database-code"></a>Afstemmen en verander toepassing of databasecode
+## <a name="tune-and-refactor-application-or-database-code"></a>Afstemmen en herstructureren toepassing of databasecode
 
-U kunt de toepassingscode meer optimaal gebruik van de database, wijzigen van indexen, forceren plannen of hints gebruiken om aan te passen handmatig de database naar de werkbelasting van uw wijzigen. Vinden van sommige richtlijnen en tips voor handmatige afstemmen en herschrijven van de code in de [prestaties richtlijnen onderwerp](sql-database-performance-guidance.md) artikel.
+U kunt de code van de toepassing als u wilt meer optimaal gebruik van de database, wijzigen van indexen, geforceerd plannen of hints gebruiken om handmatig de database aan uw workload kunt wijzigen. Vindt u enkele richtlijnen en tips voor handmatige afstemmen en voor het herschrijven van de code in de [prestaties richtlijnen onderwerp](sql-database-performance-guidance.md) artikel.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u wilt inschakelen automatische afstemming in Azure SQL Database en laat functie voor automatisch afstemmen uw werkbelasting volledig te beheren, Zie [inschakelen automatische afstemming](sql-database-automatic-tuning-enable.md).
-- Als u wilt gebruiken voor handmatige afstemmen, kunt u bekijken [afstemmen aanbevelingen in Azure-portal](sql-database-advisor-portal.md) en de waarden die de prestaties van uw query's verbeteren handmatig toepassen.
-- Bronnen die beschikbaar in de database door te wijzigen zijn wijzigen [Azure SQL Database Servicelagen](sql-database-performance-guidance.md)
+- Als u wilt inschakelen automatisch afstemmen in Azure SQL Database en laat de functie voor automatisch afstemmen uw werkbelasting volledig te beheren, Zie [automatisch instellen inschakelen](sql-database-automatic-tuning-enable.md).
+- Voor het gebruik van handmatige afstemmen, kunt u bekijken [aanbevelingen in Azure-portal voor het afstemmen](sql-database-advisor-portal.md) en handmatig toe te passen degene die de prestaties van uw query's verbeteren.
+- Wijzigen van de resources die beschikbaar in uw database door het veranderen van zijn [Azure SQL Database-Servicelagen](sql-database-performance-guidance.md)

@@ -1,6 +1,6 @@
 ---
 title: Ingebouwde rollen in Azure | Microsoft Docs
-description: Beschrijving van de ingebouwde functies voor op rollen gebaseerd toegangsbeheer (RBAC) in Azure. De acties, notActions, dataActions en notDataActions bevat.
+description: Beschrijving van de ingebouwde functies voor op rollen gebaseerd toegangsbeheer (RBAC) in Azure. De acties, NotActions, DataActions en NotDataActions bevat.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,20 +15,20 @@ ms.date: 06/28/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c5624de13d5d31320beb85aff67c61addaffcbea
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 8152a9934d6a280abfc75fdc74e0864053d82f45
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437923"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116075"
 ---
 # <a name="built-in-roles-in-azure"></a>Ingebouwde rollen in Azure
-[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md).
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
 
 De ingebouwde rollen zijn altijd nog in ontwikkeling. Als u de meest recente definities van gebruikersrollen, gebruikt [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) of [az role definitielijst](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Beschrijvingen van de ingebouwde functies
-De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op de naam van de rol voor een overzicht van `actions`, `notActions`, `dataActions`, en `notDataActions` voor elke rol.
+De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op de naam van de rol voor een overzicht van `Actions`, `NotActions`, `DataActions`, en `NotDataActions` voor elke rol.
 
 
 | Ingebouwde rol | Beschrijving |

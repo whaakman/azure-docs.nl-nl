@@ -1,6 +1,6 @@
 ---
-title: Instellen en ophalen van metagegevens in Azure Storage en eigenschappen van het object | Microsoft Docs
-description: Aangepaste metagegevens voor objecten in Azure Storage, opslaan en instelt en ophaalt Systeemeigenschappen.
+title: Eigenschappen van het object en de metagegevens in Azure Storage instellen en ophalen | Microsoft Docs
+description: Aangepaste metagegevens voor objecten in Azure Storage, Store en instellen en ophalen van Systeemeigenschappen.
 services: storage
 documentationcenter: ''
 author: tamram
@@ -12,37 +12,37 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 07/16/2018
 ms.author: tamram
-ms.openlocfilehash: a3eb598b2dabd4986c72b8814926eb0944707050
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2c95139d42f42e43e2fa6e587d5b1b13afdf1e9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873028"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112440"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Eigenschappen en metagegevens instellen en ophalen
 
-Objecten in Azure Storage ondersteuning Systeemeigenschappen en de gebruiker gedefinieerde metagegevens, naast de gegevens die ze bevatten. Dit artikel worden de eigenschappen van het beheren en de gebruiker gedefinieerde metagegevens met de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
+Objecten in Azure Storage ondersteuning Systeemeigenschappen en door gebruiker gedefinieerde metagegevens, naast de gegevens die ze bevatten. Dit artikel worden de eigenschappen van het beheren en de gebruiker gedefinieerde metagegevens met de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-* **Systeemeigenschappen**: Systeemeigenschappen op elke opslagresource bestaan. Enkele van deze kunnen worden gelezen of ingesteld, terwijl andere alleen-lezen. Achter de correspondeert sommige Systeemeigenschappen met bepaalde standaard HTTP-headers. De Azure storage-clientbibliotheek houdt deze voor u.
+* **Systeemeigenschappen**: Systeemeigenschappen aanwezig zijn op elke resource voor opslag. Enkele van deze kunnen worden gelezen of ingesteld, terwijl andere alleen-lezen zijn. Op de achtergrond, sommige Systeemeigenschappen komen overeen met bepaalde standaard HTTP-headers. Azure Storage-clientbibliotheken onderhouden deze eigenschappen voor u.
 
-* **Gebruiker gedefinieerde metagegevens**: gebruiker gedefinieerde metagegevens zijn metagegevens die u op een bepaalde bron in de vorm van een naam / waarde-paar opgeeft. U kunt metagegevens voor het opslaan van aanvullende waarden met een opslagresource gebruiken. Deze aanvullende metagegevens-waarden zijn voor uw eigen doeleinden alleen en hebben geen invloed op de werking van de resource.
+* **Gebruiker gedefinieerde metagegevens**: gebruiker gedefinieerde metagegevens bestaat uit een of meer naam / waarde-paren die u voor een Azure Storage-resource opgeeft. U kunt de metagegevens voor het opslaan van aanvullende waarden met een resource. De metagegevens van waarden zijn voor alleen uw eigen doeleinden, en niet van invloed op het gedrag van de resource.
 
-Bij het ophalen van eigenschap en metagegevens waarden voor een opslagresource is een proces. Voordat u deze waarden lezen kunt, u moet expliciet halen ze door het aanroepen van de **FetchAttributesAsync** methode.
+Bij het ophalen van waarden van eigenschappen en metagegevens voor een opslagresource is een proces in twee stappen. Voordat u deze waarden lezen kunt, u moet expliciet ophalen ze door het aanroepen van de **FetchAttributes** of **FetchAttributesAsync** methode. De uitzondering hierop is als u verbinding maakt met de **Exists** of **ExistsAsync** methode op een resource. Wanneer u een van deze methoden aanroepen, Azure Storage roept de juiste **FetchAttributes** methode op de achtergrond als onderdeel van de aanroep naar de **Exists** methode.
 
 > [!IMPORTANT]
-> Eigenschap en metagegevens waarden voor een opslagresource zijn niet gevuld als u een van de **FetchAttributesAsync** methoden.
+> Als u merkt dat de eigenschap of metagegevens waarden voor een opslagresource niet zijn ingevuld, controleert u dat uw code roept de **FetchAttributes** of **FetchAttributesAsync** methode.
 >
-> U ontvangt een `400 Bad Request` als een naam/waarde-paren niet-ASCII-tekens bevatten. Naam/waarde-paren metagegevens geldig HTTP-headers zijn en dus moeten voldoen aan alle beperkingen voor HTTP-headers. Het is daarom raadzaam dat u URL-codering of Base64-codering voor namen en waarden die niet-ASCII-tekens bevat.
+> De metagegevens van de naam/waarde-paren mag alleen ASCII-tekens bevatten. De metagegevens van de naam/waarde-paren zijn geldige HTTP-headers en dus moeten voldoen aan alle beperkingen met betrekking tot HTTP-headers. Het verdient aanbeveling gebruik te maken van URL-codering of Base64-codering voor namen en waarden die niet-ASCII-tekens bevatten.
 >
 
-## <a name="setting-and-retrieving-properties"></a>Bijwerken en het ophalen van eigenschappen
-Aanroepen voor het ophalen van eigenschapswaarden, de **FetchAttributesAsync** methode op uw blob of een container voor het vullen van de eigenschappen, leest u de waarden.
+## <a name="setting-and-retrieving-properties"></a>Instellen en ophalen van eigenschappen
+Aanroepen om op te halen eigenschapswaarden, de **FetchAttributesAsync** methode voor uw blob of container voor het vullen van de eigenschappen, leest u de waarden.
 
-Eigenschappen worden ingesteld op een object, geef dan de eigenschap value, roep vervolgens de **SetProperties** methode.
+Eigenschappen worden ingesteld op een object, geeft u de eigenschap value en roep vervolgens de **SetProperties** methode.
 
-Het volgende codevoorbeeld maakt een container en sommige van de eigenschapswaarden schrijft naar een consolevenster.
+Het volgende codevoorbeeld wordt een container gemaakt, en sommige van de eigenschapswaarden schrijft naar een consolevenster.
 
 ```csharp
 //Parse the connection string for the storage account.
@@ -67,14 +67,14 @@ Console.WriteLine();
 ```
 
 ## <a name="setting-and-retrieving-metadata"></a>Instellen en ophalen van metagegevens
-U kunt metagegevens opgeven als een of meer naam / waarde-paren van een blob of container resource. Metagegevens stelt toevoegen naam-waardeparen voor de **metagegevens** verzameling voor de bron, roept u vervolgens de **SetMetadata** methode voor het opslaan van de waarden in de service.
+U kunt metagegevens opgeven als een of meer naam / waarde-paren van een blob of container-resource. Toevoegen om in te stellen metagegevens, naam / waarde-paren aan de **metagegevens** verzameling op de resource, roept u vervolgens de **SetMetadata** of **SetMetadataAsync** methode voor het opslaan van de waarden die de de service.
 
 > [!NOTE]
-> De naam van uw metagegevens moet voldoen aan de naamgeving van C#-id's.
+> De naam van de metagegevens moet voldoen aan de naamgevingsconventies voor C#-id's.
 >
 >
 
-Het volgende codevoorbeeld stelt metagegevens in een container. Een waarde is ingesteld met behulp van de verzameling **toevoegen** methode. De andere waarde is ingesteld met impliciete sleutel/waarde-syntaxis. Beide zijn geldig.
+Het volgende codevoorbeeld Hiermee stelt u de metagegevens voor een container. Een waarde is ingesteld met behulp van de verzameling **toevoegen** methode. De andere waarde is ingesteld met behulp van impliciete sleutel/waarde-syntaxis. Beide zijn geldig.
 
 ```csharp
 public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
@@ -88,7 +88,7 @@ public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 }
 ```
 
-Aanroepen voor het ophalen van metagegevens van de **FetchAttributes** methode op uw blob of een container voor het vullen van de **metagegevens** verzameling, lees de waarden, zoals wordt weergegeven in het onderstaande voorbeeld.
+Als u wilt ophalen van metagegevens, aanroepen de **FetchAttributes** of **FetchAttributesAsync** methode voor uw blob of container voor het vullen van de **metagegevens** verzameling, leest u de waarden, zoals wordt weergegeven in het onderstaande voorbeeld.
 
 ```csharp
 public static async Task ListContainerMetadataAsync(CloudBlobContainer container)
@@ -108,4 +108,4 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure Storage-clientbibliotheek voor .NET-verwijzing](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [Azure Storage-clientbibliotheek voor .NET-NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Storage-clientbibliotheek voor .NET NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.Storage/)

@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 05/25/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 558480d0e58a92277a0c56d0f197ee3b5c1c3f60
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fcc860daddbaa0b3275116027136bcde9dbcf256
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35644255"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092024"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -42,7 +42,7 @@ U kunt deze back-ups te gebruiken:
 > 
 
 ## <a name="how-long-are-backups-kept"></a>Hoe lang worden back-ups opgeslagen?
-Elke SQL-Database back-up is de bewaarperiode voor een standaard die is gebaseerd op de servicelaag van de database en een verschil oplevert tussen de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en de [op vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md). U kunt de bewaarperiode voor back-up voor een database bijwerken. Zie [bewaarperiode voor back-up wijzigen](#how-to-change-backup-retention-period) voor meer informatie.
+Elke SQL-Database back-up is de bewaarperiode voor een standaard die is gebaseerd op de servicelaag van de database en een verschil oplevert tussen de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). U kunt de bewaarperiode voor back-up voor een database bijwerken. Zie [bewaarperiode voor back-up wijzigen](#how-to-change-backup-retention-period) voor meer informatie.
 
 Als u een database verwijdert, blijven SQL-Database de back-ups op dezelfde manier als zou voor een online-database. Als u een Basic-database met een bewaarperiode van zeven dagen verwijdert, wordt bijvoorbeeld een back-up die vier dagen oud is drie dagen opgeslagen.
 
@@ -61,11 +61,6 @@ De bewaartermijn voor een database gemaakt met behulp van het op DTU gebaseerde 
 Als u de huidige PITR-bewaarperiode verkorten, wordt alle bestaande back-ups ouder is dan de nieuwe bewaarperiode niet meer beschikbaar zijn. 
 
 Als u de huidige PITR bewaarperiode verhoogt, wordt SQL Database de bestaande back-ups behouden totdat de langere bewaarperiode is bereikt.
-
-### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>PITR bewaarperiode voor het vCore-gebaseerde service-lagen (preview)
-
-Tijdens de preview, is de bewaarperiode PITR voor databases die zijn gemaakt met behulp van het op vCore gebaseerde aankoopmodel ingesteld op 7 dagen. De gekoppelde opslag is gratis inbegrepen.    
-
 
 ## <a name="how-often-do-backups-happen"></a>Hoe vaak gebeurt er back-ups?
 ### <a name="backups-for-point-in-time-restore"></a>Back-ups voor point-in-time restore

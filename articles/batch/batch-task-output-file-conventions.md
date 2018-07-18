@@ -1,6 +1,6 @@
 ---
-title: Taak en uitvoer naar Azure Storage met de bestand Conventions-bibliotheek voor .NET - Azure Batch behouden | Microsoft Docs
-description: Informatie over het bestand conventies van Azure Batch-bibliotheek voor .NET gebruiken voor het behouden van de Batch-taak en de taak uitvoer naar Azure Storage en de persistente uitvoer weergeven in de Azure portal.
+title: Taak en uitvoer behouden met Azure Storage met File Conventions-bibliotheek voor .NET - Azure Batch | Microsoft Docs
+description: Informatie over het gebruik van Azure Batch File Conventions-bibliotheek voor .NET voor Batch-taak en de taak uitvoer naar Azure Storage behouden en de persistente uitvoer weergeven in Azure portal.
 services: batch
 documentationcenter: .net
 author: dlepow
@@ -15,71 +15,71 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bbfb40b3740f9ea43df327a01ba6f4cf52d80457
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4d86a8fcd1dc85ccacea91afe36cb39dabe10464
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30314143"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117593"
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>Behouden van de taak en gegevens naar Azure Storage met de Batch-bestand Conventions-bibliotheek voor .NET voor het persistent maken 
+# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Behoud van de taak en gegevens naar Azure Storage met de Batch File Conventions-bibliotheek voor .NET 
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Een manier om taakgegevens is met de [bestand conventies van Azure Batch-bibliotheek voor .NET][nuget_package]. De bibliotheek bestand conventies vereenvoudigt het proces voor het opslaan van taak uitvoergegevens naar Azure Storage en het ophalen van het. U kunt de bibliotheek bestanden in de taak en de client &mdash; in taakcode voor persistent maken van bestanden en in clientcode weergeven en ophalen van deze. Uw taakcode kunt ook de bibliotheek gebruiken voor het ophalen van de uitvoer van de upstream-taken, zoals een [taakafhankelijkheden](batch-task-dependencies.md) scenario. 
+Een manier om vast te leggen van de taakgegevens is met de [Azure Batch File Conventions-bibliotheek voor .NET][nuget_package]. De File Conventions-bibliotheek vereenvoudigt het proces van het opslaan van gegevens van de taak uitvoer naar Azure Storage en het ophalen van het. U kunt de File Conventions-bibliotheek in de taak- en client code &mdash; in taakcode voor het behoud van bestanden en clientcode te lijst en deze op te halen. De taakcode van uw kunt ook de clientbibliotheek gebruiken om op te halen van de uitvoer van de upstream-taken, zoals een [taakafhankelijkheden](batch-task-dependencies.md) scenario. 
 
-Voor het ophalen van uitvoerbestanden met de bibliotheek bestand verdragen, kunt u de bestanden voor een bepaalde taak of de taak vinden door deze door de ID en het doel. U hoeft niet te weten de namen of locaties van de bestanden. U kunt bijvoorbeeld gebruikmaken van de tapewisselaar bestand conventies voor een lijst met alle tussenliggende bestanden voor een bepaalde taak of een preview-bestand voor een bepaalde taak ophalen.
+U kunt de bestanden voor een bepaalde taak of een taak om op te halen uitvoerbestanden met File Conventions-bibliotheek, vinden door ze door de ID en het doel weer te geven. U hoeft niet te weten wat de namen of locaties van de bestanden. U kunt bijvoorbeeld de File Conventions-bibliotheek gebruiken om alle tussenliggende bestanden voor een bepaalde taak weer te geven, of een preview-bestand voor een bepaalde taak.
 
 > [!TIP]
-> Vanaf versie 2017-05-01 ondersteunt de Batch-service-API persistent maken uitvoergegevens naar Azure Storage voor taken en jobbeheertaken die worden uitgevoerd op de groepen die zijn gemaakt met de configuratie van de virtuele machine. De API van Batch-service biedt een eenvoudige manier om vast te leggen van de uitvoer van de code die een taak maakt en fungeert als een alternatief voor het bestand Conventions-bibliotheek. Uw Batch-clienttoepassingen om vast te leggen uitvoer zonder bijwerken van de toepassing die de taak wordt uitgevoerd, kunt u wijzigen. Zie voor meer informatie [Persist taakgegevens naar Azure Storage met de Batch-service API](batch-task-output-files.md).
+> Vanaf versie 2017-05-01, ondersteunt de API voor Batch-service vastleggen van uitvoergegevens naar Azure Storage voor taken en taken van een job manager die worden uitgevoerd op pools die zijn gemaakt met de configuratie van de virtuele machine. De Batch-service-API biedt een eenvoudige manier om vast te leggen van de uitvoer van de code die een taak gemaakt en die fungeert als een alternatief voor de File Conventions-bibliotheek. Uw Batch-client-toepassingen om vast te leggen uitvoer zonder te hoeven bijwerken van de toepassing die de taak wordt uitgevoerd, kunt u wijzigen. Zie voor meer informatie, [Persist taakgegevens naar Azure Storage met de Batch-service API](batch-task-output-files.md).
 > 
 > 
 
-## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>Wanneer gebruik de bibliotheek bestand verdragen om vast te leggen van de uitvoer van de taak?
+## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>Wanneer gebruik ik de File Conventions-bibliotheek om vast te leggen van de uitvoer van de taak?
 
-Azure Batch biedt meer dan één manier om vast te leggen van de uitvoer van de taak. De conventies bestand is het meest geschikt is voor deze scenario's:
+Azure Batch biedt meer dan één manier om vast te leggen van de uitvoer van de taak. De File Conventions is het meest geschikt is voor deze scenario's:
 
-- U kunt de code voor de toepassing die de taak wordt uitgevoerd om te blijven behouden bestanden met behulp van de bibliotheek bestand conventies eenvoudig wijzigen.
-- Wilt u van stroomgegevens naar Azure Storage terwijl de taak nog actief.
-- Wilt u gegevens uit toepassingen die zijn gemaakt met de configuratie van de cloud-service of de configuratie van de virtuele machine persistent maken.
-- Uw clienttoepassing of andere taken in de taak moet om te zoeken en downloaden van de taak uitvoerbestanden ID of met het doel. 
-- U wilt weergeven van uitvoer van de taak in de Azure portal.
+- U kunt de code voor de toepassing die de taak wordt uitgevoerd om te blijven behouden bestanden met behulp van de File Conventions-bibliotheek eenvoudig wijzigen.
+- Wilt u streaminggegevens naar Azure Storage terwijl de taak is nog steeds uitgevoerd.
+- U wilt dat het behoud van gegevens van pools die zijn gemaakt met de cloudserviceconfiguratie of de configuratie van de virtuele machine.
+- Uw clienttoepassing of andere taken in de taak moet om te zoeken en downloaden van de uitvoerbestanden van taak-ID of doel. 
+- U wilt weergeven van uitvoer van de taak in Azure portal.
 
-Als uw scenario van die verschilt hierboven zijn vermeld, moet u wellicht een andere benadering overwegen. Zie voor meer informatie over andere opties voor het persistent maken van de taakuitvoer [behouden van de taak en uitvoer naar Azure Storage](batch-task-output.md). 
+Als uw scenario van die verschilt hierboven zijn vermeld, moet u mogelijk rekening houden met een andere benadering. Zie voor meer informatie over andere opties voor permanente taakuitvoer [behouden taken kunt uitvoeren naar Azure Storage](batch-task-output.md). 
 
-## <a name="what-is-the-batch-file-conventions-standard"></a>Wat is de standaard Batch bestand conventies?
+## <a name="what-is-the-batch-file-conventions-standard"></a>Wat is de standaard Batch File Conventions?
 
-De [Batch bestand conventies standaard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) biedt een schematische naam voor de bestemming containers en blobs paden waarnaar de uitvoerbestanden worden geschreven. Bestanden die zijn opgeslagen in Azure Storage die voldoen aan de bestanden standaard automatisch beschikbaar zijn voor weergave in de Azure portal. De portal is op de hoogte van de naamconventie en dus kan bestanden die aan deze voldoen worden weergegeven.
+De [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) biedt een schematische naam voor de doel-containers en de blob-paden waarnaar de uitvoerbestanden worden geschreven. Bestanden die zijn opgeslagen in een Azure-opslag die voldoen aan de standaard File Conventions zijn automatisch beschikbaar voor weergave in de Azure-portal. De portal op de hoogte van de naamconventie en bestanden die aan deze voldoen dus kunt weergeven.
 
-Het bestand Conventions-bibliotheek voor .NET worden automatisch weergegeven in de naam van een uw storage-containers en uitvoerbestanden taak volgens de conventies bestand standaard. De bibliotheek bestand conventies biedt ook methoden voor het opvragen van de uitvoerbestanden in Azure Storage volgens de taak-ID, taak-ID of doel.   
+De File Conventions-bibliotheek voor .NET worden automatisch weergegeven in de naam van een uw storage-containers en de taak uitvoerbestanden op basis van de standaard File Conventions. De File Conventions-bibliotheek biedt ook methoden om op te vragen van de uitvoerbestanden in Azure Storage op basis van taak-ID, taak-ID of doel.   
 
-Als u met een andere taal dan .NET ontwikkelt, kunt u implementeren de bestanden standaard uzelf in uw toepassing. Zie voor meer informatie [de conventies voor Batch-bestand standaard](batch-task-output.md#about-the-batch-file-conventions-standard).
+Als u met een andere taal dan .NET ontwikkelt, kunt u implementeren de standaard File Conventions zelf in uw toepassing. Zie voor meer informatie, [over de Batch File Conventions standard](batch-task-output.md#about-the-batch-file-conventions-standard).
 
-## <a name="link-an-azure-storage-account-to-your-batch-account"></a>Een Azure Storage-account koppelen aan uw Batch-account
+## <a name="link-an-azure-storage-account-to-your-batch-account"></a>Een Azure Storage-account koppelt aan uw Batch-account
 
-Om te blijven behouden uitvoergegevens naar Azure Storage met behulp van het bestand Conventions-bibliotheek, moet u eerst een Azure Storage-account koppelen aan uw Batch-account. Als u dit nog niet hebt gedaan, koppelt u een opslagaccount aan uw Batch-account met behulp van de [Azure-portal](https://portal.azure.com):
+Als u wilt zich blijven voordoen uitvoergegevens naar Azure Storage met behulp van de File Conventions-bibliotheek, moet u eerst een Azure Storage-account aan uw Batch-account koppelen. Als u dit nog niet hebt gedaan, koppelt u een opslagaccount aan uw Batch-account met behulp van de [Azure-portal](https://portal.azure.com):
 
 1. Ga in Azure Portal naar uw Batch-account. 
 2. Onder **instellingen**, selecteer **Opslagaccount**.
-3. Als u nog geen een opslagaccount die is gekoppeld aan uw Batch-account, klikt u op **Storage-Account (geen)**.
-4. Selecteer een opslagaccount in de lijst voor uw abonnement. Gebruik een Azure Storage-account dat zich in dezelfde regio bevinden als het Batch-account waarop uw taken worden uitgevoerd voor de beste prestaties.
+3. Als u nog geen een Storage-account dat is gekoppeld aan uw Batch-account, klikt u op **Storage-Account (geen)**.
+4. Selecteer een opslagaccount in de lijst voor uw abonnement. Gebruik een Azure Storage-account dat in dezelfde regio als het Batch-account waar uw taken worden uitgevoerd voor de beste prestaties.
 
-## <a name="persist-output-data"></a>Uitvoergegevens behouden
+## <a name="persist-output-data"></a>Uitvoergegevens die worden behouden
 
-Om te blijven behouden taak en uitvoergegevens met de bibliotheek bestand verdragen, een container maken in Azure Storage en sla vervolgens de uitvoer naar de container. Gebruik de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage) in uw taakcode voor het uploaden van de uitvoer van de taak voor de container. 
+Een container maken in Azure Storage voor het behoud van gegevens in de taak en de uitvoer met de File Conventions-bibliotheek, en sla de uitvoer naar de container. Gebruik de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage) in uw taakcode voor het uploaden van de uitvoer van de taak naar de container. 
 
 Zie voor meer informatie over het werken met containers en blobs in Azure Storage [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Alle uitvoerwaarden van taak en persistent is gemaakt met het bestand conventies bibliotheek worden opgeslagen in dezelfde container. Als een groot aantal taken voor het persistent maken van bestanden op hetzelfde moment probeert [opslag beperking limieten](../storage/common/storage-performance-checklist.md#blobs) kan worden afgedwongen.
+> Alle uitvoer van taken persistent gemaakt met de File Conventions bibliotheek worden opgeslagen in dezelfde container. Als een groot aantal taken probeert om vast te leggen van bestanden op hetzelfde moment, [opslag beperkingslimieten](../storage/common/storage-performance-checklist.md#blobs) kan worden afgedwongen.
 > 
 > 
 
 ### <a name="create-storage-container"></a>Opslagcontainer maken
 
-Om te blijven behouden taakuitvoer naar Azure Storage, eerst een container maken door het aanroepen van [CloudJob][net_cloudjob].[ PrepareOutputStorageAsync][net_prepareoutputasync]. Deze uitbreidingsmethode heeft een [CloudStorageAccount] [ net_cloudstorageaccount] -object als parameter. Wordt gemaakt van een container met de naam volgens de standaard bestand verdragen, zodat de inhoud ervan kunnen gevonden door de Azure-portal worden en de ophalen-methoden die later in dit artikel wordt besproken.
+Als u wilt zich blijven voordoen taakuitvoer naar Azure Storage, eerst een container maken door het aanroepen van [CloudJob][net_cloudjob].[ PrepareOutputStorageAsync][net_prepareoutputasync]. Deze methode extensie heeft een [CloudStorageAccount] [ net_cloudstorageaccount] object als parameter. Het maakt een container met de naam op basis van de standaard File Conventions zo in dat de inhoud ervan kunnen worden gedetecteerd door de Azure-portal en het ophalen van methoden die later in dit artikel worden besproken.
 
-U doorgaans de code voor het maken van een container in uw clienttoepassing plaatsen &mdash; de toepassing die wordt gemaakt van uw pools, jobs en taken.
+U plaatst u doorgaans de code voor het maken van een container in uw clienttoepassing &mdash; de toepassing die wordt gemaakt van uw pools, jobs en taken.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
@@ -94,11 +94,11 @@ CloudStorageAccount linkedStorageAccount =
 await job.PrepareOutputStorageAsync(linkedStorageAccount);
 ```
 
-### <a name="store-task-outputs"></a>Taakuitvoer Store
+### <a name="store-task-outputs"></a>Store-taakuitvoer
 
-Nu dat u een container in Azure Storage hebt voorbereid, taken uitvoer naar de container kunnen opslaan met behulp van de [TaskOutputStorage] [ net_taskoutputstorage] klasse gevonden in de bibliotheek bestand verdragen.
+Nu dat u een container in Azure Storage hebt voorbereid, taken uitvoer naar de container kunnen opslaan met behulp van de [TaskOutputStorage] [ net_taskoutputstorage] klasse gevonden in de File Conventions-bibliotheek.
 
-In uw taakcode maakt u eerst een [TaskOutputStorage] [ net_taskoutputstorage] object wanneer de taak is voltooid zijn werk, en roep vervolgens de [TaskOutputStorage] [ net_taskoutputstorage]. [SaveAsync] [ net_saveasync] methode voor het opslaan van de uitvoer naar Azure Storage.
+In de taakcode van uw, maakt u eerst een [TaskOutputStorage] [ net_taskoutputstorage] object en klik vervolgens wanneer de taak zijn werk heeft voltooid, roept de [TaskOutputStorage] [ net_taskoutputstorage]. [SaveAsync] [ net_saveasync] methode voor het opslaan van de uitvoer naar Azure Storage.
 
 ```csharp
 CloudStorageAccount linkedStorageAccount = new CloudStorageAccount(myCredentials);
@@ -114,20 +114,20 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-De `kind` parameter van de [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[ SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) methode categoriseert de persistente bestanden. Er zijn vier vooraf gedefinieerde [TaskOutputKind] [ net_taskoutputkind] typen: `TaskOutput`, `TaskPreview`, `TaskLog`, en `TaskIntermediate.` ook kunt u aangepaste categorieën van uitvoer.
+De `kind` parameter van de [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[ SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) methode de persistente bestanden worden gecategoriseerd. Er zijn vier vooraf gedefinieerde [TaskOutputKind] [ net_taskoutputkind] typen: `TaskOutput`, `TaskPreview`, `TaskLog`, en `TaskIntermediate.` ook kunt u aangepaste categorieën van uitvoer.
 
-Deze uitvoer-typen kunnen u opgeven welk type uitvoer om weer te geven als u later Batch een query voor het persistent gemaakte uitvoerwaarden van een bepaalde taak. Met andere woorden, wanneer u de uitvoer voor een taak wilt weergeven, kunt u de lijst op een van de typen uitvoer filteren. Bijvoorbeeld: ' Ik wil de *preview* uitvoer voor de taak *109*. " Meer informatie over het weergeven en ophalen van de uitvoer wordt weergegeven in [uitvoer ophalen](#retrieve-output) verderop in het artikel.
+Deze uitvoertypen kunnen u opgeven welk type uitvoer om wanneer u later Batch een query voor de persistente uitvoer van een bepaalde taak weer te geven. Wanneer u de uitvoer voor een taak, kunt u met andere woorden, de lijst op een van de uitvoertypen filteren. Bijvoorbeeld, "Ik wil de *preview* uitvoer voor de taak *109*." Meer informatie over de aanbieding en het ophalen van de uitvoer wordt weergegeven in [uitvoer ophalen](#retrieve-output) verderop in het artikel.
 
 > [!TIP]
-> Het type uitvoer bepaalt ook waar in de Azure portal een bepaald bestand wordt weergegeven: *TaskOutput*-gecategoriseerde bestanden worden weergegeven onder **taak uitvoerbestanden**, en *TaskLog* bestanden worden weergegeven onder **logboeken van de taak**.
+> Het type uitvoer bepaalt ook waar in de Azure-portal een bepaald bestand wordt weergegeven: *TaskOutput*-gecategoriseerde bestanden worden weergegeven onder **taak uitvoerbestanden**, en *TaskLog* bestanden worden weergegeven onder **taak logboeken**.
 > 
 > 
 
-### <a name="store-job-outputs"></a>Opslaan van de taak uitvoer
+### <a name="store-job-outputs"></a>Store-taakuitvoer
 
-Naast de uitvoer van de taak op te slaan, kunt u de uitvoer die zijn gekoppeld aan een volledige taak opslaan. In de taak samenvoegen van een taak van de rendering film, kunt u de volledig gerenderde film kan behouden als de taakuitvoer van een. Wanneer de taak is voltooid, uw clienttoepassing kunt weergeven en ophalen van de uitvoer voor de taak en heeft geen query uitvoeren op de afzonderlijke taken nodig.
+Naast de taak uitvoer op te slaan, kunt u de uitvoer die zijn gekoppeld aan een volledige taak opslaan. In de taak samenvoegen van een renderingtaak film, kunt u de volledig gerenderde film kan behouden als de taakuitvoer van een. Wanneer de taak is voltooid, uw clienttoepassing kunt weergeven en ophalen van de uitvoer voor de taak, en hoeft niet te query uitvoeren op de afzonderlijke taken.
 
-Taakuitvoer slaan door het aanroepen van de [JobOutputStorage][net_joboutputstorage].[ SaveAsync] [ net_joboutputstorage_saveasync] methode, en geef de [JobOutputKind] [ net_joboutputkind] en bestandsnaam:
+Taakuitvoer Store door het aanroepen van de [JobOutputStorage][net_joboutputstorage].[ SaveAsync] [ net_joboutputstorage_saveasync] methode, en geef de [JobOutputKind] [ net_joboutputkind] en de bestandsnaam:
 
 ```csharp
 CloudJob job = new JobOutputStorage(acct, jobId);
@@ -137,13 +137,13 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
 await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
 ```
 
-Net als bij de **TaskOutputKind** type voor de taak uitvoer, u de [JobOutputKind] [ net_joboutputkind] type om een taak te categoriseren de opgeslagen bestanden. Deze parameter kunt u later query voor (lijst) voor een specifiek type uitvoer. De **JobOutputKind** type bevat zowel uitvoer als preview-categorieën en biedt ondersteuning voor het maken van aangepaste categorieën.
+Net als bij de **TaskOutputKind** type voor de taak uitvoer, gebruikt u de [JobOutputKind] [ net_joboutputkind] type voor het categoriseren van een taak de opgeslagen bestanden. Deze parameter kunt u later query voor een specifiek type uitvoer-(lijst). De **JobOutputKind** type omvat zowel uitvoer als preview-categorieën en biedt ondersteuning voor het maken van aangepaste categorieën.
 
-### <a name="store-task-logs"></a>Taak logboeken worden opgeslagen
+### <a name="store-task-logs"></a>Logboeken voor Store-taak
 
-Naast het behouden blijven van een bestand naar een duurzame opslag wanneer een taak of de taak is voltooid, moet u mogelijk persistent maken van bestanden die zijn bijgewerkt tijdens het uitvoeren van een taak &mdash; logboekbestanden of `stdout.txt` en `stderr.txt`, bijvoorbeeld. Voor dit doel het bestand conventies van Azure Batch-bibliotheek biedt de [TaskOutputStorage][net_taskoutputstorage].[ SaveTrackedAsync] [ net_savetrackedasync] methode. Met [SaveTrackedAsync][net_savetrackedasync], kunt u updates naar een bestand op het knooppunt (met een interval dat u opgeeft) bijhouden en persistent maken die updates naar Azure Storage.
+Naast het opslaan van een bestand naar een duurzame opslag wanneer een taak of de taak is voltooid, moet u mogelijk behouden bestanden die zijn bijgewerkt tijdens het uitvoeren van een taak &mdash; logboekbestanden of `stdout.txt` en `stderr.txt`, bijvoorbeeld. Voor dit doel, de Azure Batch File Conventions-bibliotheek biedt de [TaskOutputStorage][net_taskoutputstorage].[ SaveTrackedAsync] [ net_savetrackedasync] methode. Met [SaveTrackedAsync][net_savetrackedasync], kunt u updates naar een bestand op het knooppunt (met een interval dat u opgeeft) bijhouden en behouden die updates naar Azure Storage.
 
-In het volgende codefragment gebruiken we [SaveTrackedAsync] [ net_savetrackedasync] bijwerken `stdout.txt` in Azure Storage elke 15 seconden tijdens de uitvoering van de taak:
+In het volgende codefragment gebruiken we [SaveTrackedAsync] [ net_savetrackedasync] om bij te werken `stdout.txt` in Azure Storage elke 15 seconden tijdens het uitvoeren van de taak:
 
 ```csharp
 TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
@@ -168,20 +168,20 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-De sectie met opmerkingen `Code to process data and produce output file(s)` is een tijdelijke aanduiding voor de code die uw taak normaal kunt uitvoeren. Bijvoorbeeld wellicht code die gegevens uit Azure Storage downloadt en transformatie of berekening op deze uitvoert. De belangrijk onderdeel van dit fragment is te demonstreren hoe u kunt laten teruglopen deze code in een `using` blok regelmatig bijwerken van een bestand met [SaveTrackedAsync][net_savetrackedasync].
+De sectie met opmerkingen `Code to process data and produce output file(s)` is een tijdelijke aanduiding voor de code die uw taak normaal kunt uitvoeren. Bijvoorbeeld, mogelijk code die gegevens uit Azure Storage downloadt en transformatie of berekening op deze uitvoert. De belangrijk onderdeel van dit fragment is om aan te tonen hoe u kunt laten lopen deze code in een `using` blok regelmatig bijwerken van een bestand met [SaveTrackedAsync][net_savetrackedasync].
 
-De knooppunt-agent is een programma dat wordt uitgevoerd op elk knooppunt in de groep en de opdracht en controle interface vormt tussen het knooppunt en de Batch-service. De `Task.Delay` aanroep is vereist bij het einde van dit `using` blok om ervoor te zorgen dat de agent knooppunt tijd de inhoud van de standard out naar het bestand stdout.txt op het knooppunt leegmaken. Zonder deze vertraging is het mogelijk de laatste paar seconden van uitvoer mogen worden. Deze vertraging is mogelijk niet vereist voor alle bestanden.
+De knooppuntagent is een programma dat wordt uitgevoerd op elk knooppunt in de groep van toepassingen en biedt de opdracht en controle-interface tussen het knooppunt en de Batch-service. De `Task.Delay` aanroep is vereist bij het einde van dit `using` blokkeren om ervoor te zorgen dat de knooppuntagent tijd leegmaken van de inhoud van de standard out naar het bestand stdout.txt op het knooppunt is. Zonder deze vertraging is het mogelijk is de afgelopen paar seconden van uitvoer missen. Deze vertraging is mogelijk niet vereist voor alle bestanden.
 
 > [!NOTE]
-> Wanneer het inschakelen van bestand bijhouden met **SaveTrackedAsync**, alleen *voegt* naar het bestand bijgehouden zijn opgeslagen in Azure Storage. Gebruik deze methode alleen voor het bijhouden van de logboekbestanden niet draaien of andere bestanden die moeten worden toegevoegd met bewerkingen aan het einde van het bestand worden geschreven.
+> Wanneer u een bestand met inschakelt **SaveTrackedAsync**, alleen *voegt* naar het bestand bijgehouden worden persistent gemaakt met Azure Storage. Gebruik deze methode alleen voor het bijhouden van logboekbestanden niet draaien of andere bestanden die zijn geschreven om toe te voegen met bewerkingen aan het einde van het bestand.
 > 
 > 
 
 ## <a name="retrieve-output-data"></a>Uitvoergegevens ophalen
 
-Wanneer u de persistente uitvoer met de Azure Batch-bestand conventies bibliotheek ophaalt, kunt u dat doen op een taak en taak-gericht manier. U kunt de uitvoer van de aanvragen voor de gegeven taak of taak zonder te weten het pad in Azure Storage of zelfs de naam van het bestand. U kunt in plaats daarvan uitvoerbestanden aanvragen door de taak of taak-ID.
+Bij het ophalen van de persistente uitvoer met behulp van de Azure Batch File Conventions-bibliotheek, kunt u dat doen op een taak - en taak-georiënteerde manier. U kunt de uitvoer aanvragen voor de opgegeven taak of taak zonder te hoeven te kennen van het pad in Azure Storage, of zelfs de naam van het bestand. U kunt in plaats daarvan uitvoerbestanden aanvragen door de taak of taak-ID.
 
-Het volgende codefragment taken van een taak doorloopt, wordt bepaalde informatie over de uitvoerbestanden voor de taak afgedrukt en downloadt u de bestanden uit de opslag.
+Het volgende codefragment doorloopt de taken van een job, worden enkele gegevens over de uitvoerbestanden van de taak afgedrukt en vervolgens de bestanden van Storage downloadt.
 
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
@@ -199,42 +199,42 @@ foreach (CloudTask task in myJob.ListTasks())
 }
 ```
 
-## <a name="view-output-files-in-the-azure-portal"></a>De uitvoerbestanden weergeven in de Azure portal
+## <a name="view-output-files-in-the-azure-portal"></a>De uitvoerbestanden weergeven in Azure portal
 
-De Azure-portal weergegeven taak uitvoerbestanden en logboeken die zijn opgeslagen in een gekoppelde Azure Storage-account met de [Batch bestand conventies standaard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). U kunt ook zelf deze conventies implementeren in de een taal van uw keuze of u kunt de bibliotheek bestanden in uw .NET-toepassingen gebruiken.
+De Azure-portal geeft uitvoerbestanden van de taak en logboeken die zijn opgeslagen op een gekoppelde Azure Storage-account met de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). U kunt ook zelf deze conventies implementeren de een taal van uw keuze, of u kunt de File Conventions-bibliotheek in uw .NET-toepassingen.
 
-Om de weergave van de uitvoerbestanden in de portal, moet u voldoen aan de volgende vereisten:
+Om in te schakelen in de weergave van de uitvoerbestanden in de portal, moet u de volgende vereisten voldoen:
 
-1. [Een Azure Storage-account koppelen](#requirement-linked-storage-account) aan uw Batch-account.
-2. Voldoen aan de vooraf gedefinieerde naamconventies voor Storage-containers en bestanden als uitvoer persistent maken. U kunt de definitie van deze overeenkomsten vinden in de bibliotheek bestand conventies [Leesmij][github_file_conventions_readme]. Als u de [Azure Batch-bestand conventies] [ nuget_package] bibliotheek om vast te leggen van de uitvoer uw bestanden blijven aanwezig op basis van de bestanden standaard.
+1. [Een Azure Storage-account koppelt](#requirement-linked-storage-account) aan uw Batch-account.
+2. Voldoen aan de vooraf gedefinieerde naamgevingsconventies voor Storage-containers en uitvoerbare bestanden bij het opslaan van de uitvoer. U kunt de definitie van deze overeenkomsten vinden in de File Conventions-bibliotheek [Leesmij-bestand][github_file_conventions_readme]. Als u de [Azure Batch File Conventions] [ nuget_package] bibliotheek om vast te leggen van de uitvoer van uw bestanden blijven aanwezig op basis van de File Conventions-standaard.
 
-Als u wilt weergeven logboeken en uitvoerbestanden taak in de Azure portal, gaat u naar de taak waarvan de uitvoer u geïnteresseerd bent in, klik dan ofwel **opgeslagen uitvoerbestanden** of **opgeslagen logboeken**. Deze afbeelding ziet u de **uitvoerbestanden opgeslagen** voor de taak met ID '007':
+Als u wilt weergeven en logboeken van de uitvoerbestanden taak in Azure portal, gaat u naar de taak waarvan uitvoer die u geïnteresseerd bent in, klik dan ofwel **opgeslagen uitvoerbestanden** of **opgeslagen logboeken**. Deze afbeelding ziet u de **opgeslagen uitvoerbestanden** voor de taak met ID '007':
 
-![Taakuitvoer blade in de Azure portal][2]
+![Taakuitvoer blade in Azure portal][2]
 
 ## <a name="code-sample"></a>Codevoorbeeld
 
-De [PersistOutputs] [ github_persistoutputs] voorbeeldproject is een van de [Azure Batch-codevoorbeelden] [ github_samples] op GitHub. Deze Visual Studio-oplossing laat zien hoe de Azure Batch-bestand conventies-bibliotheek gebruiken om vast te leggen van de uitvoer van de taak naar duurzame opslag. Als u wilt uitvoeren in het voorbeeld, de volgende stappen uit:
+De [PersistOutputs] [ github_persistoutputs] voorbeeldproject is een van de [Azure Batch-codevoorbeelden] [ github_samples] op GitHub. Deze Visual Studio-oplossing laat zien hoe u de Azure Batch File Conventions-bibliotheek om vast te leggen van de taakuitvoer naar duurzame opslag gebruiken. De als voorbeeld wilt uitvoeren, de volgende stappen uit:
 
-1. Open het project in **Visual Studio 2015 of hoger**.
+1. Open het project in **Visual Studio 2017**.
 2. Toevoegen van uw Batch- en Storage **accountreferenties** naar **AccountSettings.settings** in het project Microsoft.Azure.Batch.Samples.Common.
-3. **Bouwen** (maar niet worden uitgevoerd) de oplossing. Herstel alle NuGet-pakketten als daarom wordt gevraagd.
-4. De Azure portal gebruiken voor het uploaden van een [toepassingspakket](batch-application-packages.md) voor **PersistOutputsTask**. Bevatten de `PersistOutputsTask.exe` en afhankelijke assembly's in het ZIP-pakket, de toepassings-ID aan 'PersistOutputsTask' en de versie van het toepassingspakket naar "1.0".
+3. **Bouw** (maar niet wordt uitgevoerd) de oplossing. Alle NuGet-pakketten herstellen als u hierom wordt gevraagd.
+4. De Azure portal gebruiken voor het uploaden van een [toepassingspakket](batch-application-packages.md) voor **PersistOutputsTask**. Bevatten de `PersistOutputsTask.exe` en afhankelijke assembly's in het ZIP-pakket, stel de toepassings-ID aan 'PersistOutputsTask' en de versie van de toepassing-pakket naar "1.0".
 5. **Start** (uitvoeren) de **PersistOutputs** project.
-6. Als u wordt gevraagd om te kiezen de persistentie-technologie gebruiken voor het uitvoeren van de steekproef, geeft u **1** om uit te voeren van het voorbeeld met de bibliotheek bestand verdragen om vast te leggen van de uitvoer van de taak. 
+6. Wanneer u wordt gevraagd om te kiezen van de persistentie-technologie gebruiken voor het uitvoeren van het voorbeeld, vul dan **1** om uit te voeren van het voorbeeld met behulp van de File Conventions-bibliotheek om vast te leggen van de uitvoer van de taak. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-### <a name="get-the-batch-file-conventions-library-for-net"></a>Ophalen van de Batch-bestand Conventions-bibliotheek voor .NET
+### <a name="get-the-batch-file-conventions-library-for-net"></a>De Batch File Conventions-bibliotheek voor .NET ophalen
 
-De Batch-bestand Conventions-bibliotheek voor .NET is beschikbaar op [NuGet][nuget_package]. De bibliotheek breidt de [CloudJob] [ net_cloudjob] en [CloudTask] [ net_cloudtask] klassen met nieuwe methoden. Zie ook de [documentatie verwijst naar](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) voor de bibliotheek bestand verdragen.
+De Batch File Conventions-bibliotheek voor .NET is beschikbaar op [NuGet][nuget_package]. De bibliotheek breidt de [CloudJob] [ net_cloudjob] en [CloudTask] [ net_cloudtask] klassen met nieuwe methoden. Zie ook de [referentiedocumentatie](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) voor de File Conventions-bibliotheek.
 
-De [broncode] [ github_file_conventions] voor de conventies bestand bibliotheek is beschikbaar op GitHub in de Microsoft Azure SDK voor .NET-opslagplaats. 
+De [broncode] [ github_file_conventions] voor de File Conventions bibliotheek is beschikbaar op GitHub in de Microsoft Azure SDK voor .NET-opslagplaats. 
 
-### <a name="explore-other-approaches-for-persisting-output-data"></a>Andere benaderingen voor persistent maken uitvoergegevens verkennen
+### <a name="explore-other-approaches-for-persisting-output-data"></a>Andere methoden voor het vastleggen van uitvoergegevens verkennen
 
-- Zie [behouden van de taak en uitvoer naar Azure Storage](batch-task-output.md) voor een overzicht van de persistente gegevens van de taak en taak.
-- Zie [Persist taakgegevens naar Azure Storage met de Batch-service API](batch-task-output-files.md) voor informatie over het gebruik van de API van Batch-service om uitvoergegevens.
+- Zie [behouden taken kunt uitvoeren naar Azure Storage](batch-task-output.md) voor een overzicht van het vastleggen van gegevens taak en taakplanning.
+- Zie [Persist taakgegevens naar Azure Storage met de Batch-service API](batch-task-output-files.md) voor informatie over het gebruik van de Batch-service-API om vast te leggen van de uitvoergegevens.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
@@ -260,5 +260,5 @@ De [broncode] [ github_file_conventions] voor de conventies bestand bibliotheek 
 [portal]: https://portal.azure.com
 [storage_explorer]: http://storageexplorer.com/
 
-[1]: ./media/batch-task-output/task-output-01.png "De uitvoerbestanden opgeslagen en opgeslagen logboeken selectoren in portal"
-[2]: ./media/batch-task-output/task-output-02.png "Taakuitvoer blade in de Azure portal"
+[1]: ./media/batch-task-output/task-output-01.png "Opgeslagen uitvoerbestanden en opgeslagen logboeken selectors in portal"
+[2]: ./media/batch-task-output/task-output-02.png "Taakuitvoer blade in Azure portal"

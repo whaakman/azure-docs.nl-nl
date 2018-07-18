@@ -5,20 +5,25 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/17/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 49c95673b3cf2dc6b1a89b6a9fba5b1a63e4c6b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 94e9262d259bb2a4f46cc88c87d9c39137a84d2f
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34684524"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117304"
 ---
-Na de verzending van de schijven, terug naar de **voor importeren/exporteren** pagina op de Azure-portal. Als het volgnummer niet binnen twee weken bijgewerkt is van de taak wordt gemaakt, verloopt de taak. Voor het bijwerken van het volgnummer, moet u de volgende stappen uitvoeren.
+Na het verzenden van de schijven, gaat u terug naar de **Import/Export** pagina op de Azure-portal. 
+
+> [!IMPORTANT] 
+> Als het volgnummer niet binnen twee weken bijgewerkt is aan de taak wordt gemaakt, verloopt de taak. 
+
+Voor het bijwerken van het volgnummer, moet u de volgende stappen uitvoeren.
  
 1. Selecteer en klik op de taak.
-2. Klik op **bijwerken taakstatus en bij te houden info zodra stations worden verzonden**. 
-3. Schakel het selectievakje tegen **markeren als verzonden**.
-4. Geef de **Carrier** en **volgnummer**.
-5. De voortgang van de taak volgen op het portal-dashboard. Voor een beschrijving van elke taak die is, gaat u naar [weer te geven de status van uw taak](#viewing-your-job-status).
+2. Klik op **taakstatus en traceringsgegevens bij als schijven worden geleverd bijwerken**. 
+3. Het selectievakje voor **als verzonden markeren**.
+4. Geef de **Carrier** en **traceringsnummer**.
+5. De taakvoortgang volgen op het dashboard van de portal. Voor een beschrijving van de taakstatus van elke, gaat u naar [weer de status van uw taak](../articles/storage/common/storage-import-export-view-drive-status.md).

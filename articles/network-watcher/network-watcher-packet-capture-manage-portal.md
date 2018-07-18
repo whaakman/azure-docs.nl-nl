@@ -1,6 +1,6 @@
 ---
-title: Pakket opnamen met Azure-netwerk-Watcher - Azure-portal beheren | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u de functie voor het vastleggen van pakket van netwerk-Watcher met Azure portal beheren
+title: Pakketopname beheren met Azure Network Watcher - Azure portal | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe u voor het beheren van de functie voor het vastleggen van pakketten van Network Watcher met behulp van Azure portal
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,135 +14,135 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 508b9e7eef757277d4bc0e93a26f3a63045f31e4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18e5f8eda51f8834f6346eef3d7ad31bc556290a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090194"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Pakket opnamen beheren met Azure met behulp van de portal netwerk-Watcher
+# <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Pakketopname beheren met Azure Network Watcher met behulp van de portal
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [Azure-CLI](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST-API](network-watcher-packet-capture-manage-rest.md)
 
-Netwerk-Watcher pakketopname kunt u om sessies vastleggen om bij te houden van verkeer van en naar een virtuele machine te maken. Filters zijn beschikbaar voor de opnamesessie om te controleren of dat u alleen het verkeer die u wilt vastleggen. Pakketopname helpt op te sporen netwerk afwijkingen reactief en proactief. Andere toepassingen zijn onder andere het verzamelen van netwerkstatistieken, krijgt informatie over het netwerk beveiligingsrisico's voor foutopsporing van client-servercommunicaties en nog veel meer. Door op afstand activeren pakket opnamen, deze mogelijkheid kan vergemakkelijken de last van een pakketopname handmatig en op de gewenste machine, die kostbare tijd bespaart worden uitgevoerd.
+Network Watcher packet-capture kunt u capture-sessies voor het volgen van verkeer van en naar een virtuele machine maken. Filters zijn beschikbaar voor de opnamesessie om te controleren of dat u alleen het verkeer die u wilt vastleggen. Pakketopname helpt bij het opsporen van afwijkingen netwerk reactief en proactief. Andere toepassingen zijn onder andere de netwerkstatistieken, het verkrijgen van informatie over het netwerk indringers, fouten opsporen in client-servercommunicatie en nog veel meer verzamelen. Door vereenvoudigt deze mogelijkheid voor het extern activeren pakketopnamen, de belasting van het uitvoeren van een pakketopname handmatig en op de gewenste computer, wat kostbare tijd bespaart.
 
-In dit artikel leert u de verschillende beheertaken die momenteel beschikbaar voor pakketopname zijn.
+In dit artikel doorloopt u de verschillende beheertaken die momenteel beschikbaar voor de pakketopname zijn.
 
-- [**Start een pakketopname**](#start-a-packet-capture)
-- [**Stop de pakketopname van een**](#stop-a-packet-capture)
-- [**Het vastleggen van een pakket verwijderen**](#delete-a-packet-capture)
+- [**Een pakketopname starten**](#start-a-packet-capture)
+- [**Een pakketopname stoppen**](#stop-a-packet-capture)
+- [**Een pakketopname verwijderen**](#delete-a-packet-capture)
 - [**Een pakketopname downloaden**](#download-a-packet-capture)
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 In dit artikel wordt ervan uitgegaan dat u de volgende bronnen hebt:
 
-- Een exemplaar van netwerk-Watcher in de regio die u wilt maken van een pakketopname
-- Een virtuele machine met de pakket-capture-extensie is ingeschakeld.
+- Een exemplaar van Network Watcher in de regio die u wilt maken van een pakketopname
+- Een virtuele machine met de packet capture-uitbreiding is ingeschakeld.
 
 > [!IMPORTANT]
-> Pakketopname vereist dat de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
+> Pakketopname is vereist voor een VM-extensie `AzureNetworkWatcherExtension`. Ga voor het installeren van de extensie op een Windows-VM naar [Azure Network Watcher-Agent de extensie van de virtuele machine voor Windows](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure Network Watcher-Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
 
-### <a name="packet-capture-agent-extension-through-the-portal"></a>Pakket vastleggen agent uitbreiding via de portal
+### <a name="packet-capture-agent-extension-through-the-portal"></a>Packet Capture-agentextensie via de portal
 
-Voor het installeren van het pakket vastleggen VM-agent via de portal, gaat u naar de virtuele machine, klikt u op **extensies** > **toevoegen** en zoek naar **netwerk-Watcher-Agent voor Windows**
+Voor het installeren van de packet capture VM-agent via de portal, gaat u naar uw virtuele machine, klikt u op **extensies** > **toevoegen** en zoek naar de **Network Watcher-Agent voor Windows**
 
 ![Agent weergeven][agent]
 
-## <a name="packet-capture-overview"></a>Overzicht van pakket vastleggen
+## <a name="packet-capture-overview"></a>Overzicht van pakketopname
 
-Navigeer naar de [Azure-portal](https://portal.azure.com) en klik op **Networking** > **netwerk-Watcher** > **pakket vastleggen**
+Navigeer naar de [Azure-portal](https://portal.azure.com) en klikt u op **netwerken** > **Network Watcher** > **vastleggen van pakketten**
 
-De overzichtspagina ziet u een lijst met alle pakketten die bestaan ongeacht de status vastlegt.
+De overzichtspagina ziet u een lijst met alle pakketten die aanwezig zijn, ongeacht de status vastlegt.
 
 > [!NOTE]
-> Pakketopname vereist na connectiviteit.
-> * Uitgaande verbinding met de storage-account via poort 443.
-> * Binnenkomende en uitgaande verbindingen met 169.254.169.254
-> * Binnenkomende en uitgaande verbindingen met 168.63.129.16
+> Pakketopname is vereist na de connectiviteit.
+> * Uitgaande connectiviteit met de storage-account via poort 443.
+> * Binnenkomende en uitgaande connectiviteit met 169.254.169.254
+> * Binnenkomende en uitgaande connectiviteit met 168.63.129.16
 
-![scherm overzicht van pakket vastleggen][1]
+![scherm Packet capture-overzicht][1]
 
-## <a name="start-a-packet-capture"></a>Start een pakketopname
+## <a name="start-a-packet-capture"></a>Een pakketopname starten
 
-Klik op **toevoegen** een pakketopname maken.
+Klik op **toevoegen** te maken van een pakketopname.
 
 De eigenschappen die kunnen worden gedefinieerd op een pakketopname zijn:
 
 **Belangrijkste instellingen**
 
-- **Abonnement** -deze waarde is het abonnement dat wordt gebruikt, een exemplaar van netwerk-watcher nodig is in elk abonnement.
+- **Abonnement** -deze waarde is het abonnement dat wordt gebruikt, wordt een exemplaar van network watcher is vereist in elk abonnement.
 - **Resourcegroep** -de resourcegroep van de virtuele machine die wordt benaderd.
-- **Virtuele machine als doel** -de virtuele machine die wordt uitgevoerd de pakketopname
-- **Pakketnaam vastleggen** -deze waarde is de naam van het pakket vastleggen.
+- **Doel van de virtuele machine** -de virtuele machine die wordt uitgevoerd de pakketopname
+- **Naam van pakketopname** -deze waarde is de naam van de pakketopname.
 
 **Configuratie vastleggen**
 
-- **Lokale bestandspad** -lokaal pad op de virtuele machine waar pakketopname wordt opgeslagen (alleen geldig als **[bestand]** is ingeschakeld). U moet een geldig pad opgeven. Als u van een virtuele Linux-machine gebruikmaakt, het pad moet beginnen met / var / worden vastgelegd.
-- **Storage-Account** -bepaalt als pakketopname wordt opgeslagen in een opslagaccount.
+- **Lokaal bestandspad** -lokaal pad op de virtuele machine waar de pakketopname is opgeslagen (alleen geldig als **[bestand]** is geselecteerd). U moet een geldig pad opgeven. Als u van een virtuele Linux-machine gebruikmaakt, het pad moet beginnen met / var / worden vastgelegd.
+- **Storage-Account** -bepaalt als pakketopname is opgeslagen in een storage-account.
 - **Bestand** -bepaalt als een pakketopname lokaal wordt opgeslagen op de virtuele machine.
-- **Storage-Accounts** : de storage-account op te slaan van het pakket vastleggen in geselecteerd. Standaardlocatie is https://{storage-account-id name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription} /resourcegroups/ {name}/providers/microsoft.compute/virtualmachines/{virtual machine Resourcegroepnaam} / {jj} / {MM} / {DD} / {HH} packetcapture__{MM}_{SS} _ {XXX} Cap. (Alleen beschikbaar als **opslag** is geselecteerd)
-- **Lokale bestandspad** -het lokale pad op een virtuele machine op te slaan van het vastleggen van het pakket. (Alleen beschikbaar als **bestand** is ingeschakeld). Een geldig pad moet worden opgegeven. Voor een virtuele Linux-machine, het pad moet beginnen met */var/vastgelegd*.
-- **Maximum aantal bytes per pakket** - het aantal bytes van elk pakket die zijn vastgelegd, alle bytes zijn vastgelegd als leeg is.
-- **Maximum aantal bytes per sessie** - totaal aantal bytes die zijn vastgelegd, zodra het pakket vastleggen gestopt door de waarde is bereikt.
-- **Tijdslimiet (seconden)** -bepaalt de tijdslimiet voor de pakketopname te stoppen. Standaard is 18000 seconden.
+- **Storage-Accounts** : de storage-account om op te slaan van de pakketopname in geselecteerd. Standaardlocatie is https://{storage account name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription-id} /resourcegroups/ {name}/providers/microsoft.compute/virtualmachines/{virtual machine groepsnaam voor accountresources} / {jj} / {MM} / {yyyy} / {HH} packetcapture__{MM}_{SS} _ {XXX} .cap. (Alleen ingeschakeld als **opslag** is geselecteerd)
+- **Lokaal bestandspad** -het lokale pad op een virtuele machine op te slaan van de pakketopname. (Alleen ingeschakeld als **bestand** is geselecteerd). Een geldig pad moet worden opgegeven. Voor een virtuele Linux-machine, het pad moet beginnen met */var/vastgelegd*.
+- **Maximum aantal bytes per pakket** : het aantal bytes van elk pakket die zijn vastgelegd, alle bytes zijn vastgelegd als dit veld leeg blijft.
+- **Maximum aantal bytes per sessie** : het totale aantal bytes dat wordt vastgelegd, zodra het pakket vastleggen gestopt door de waarde is bereikt.
+- **Tijdslimiet (seconden)** -Hiermee stelt u een tijdslimiet voor de pakketopname stoppen. De standaardwaarde is 18000 seconden.
 
 > [!NOTE]
-> Premium storage-accounts worden momenteel niet ondersteund voor opslag van pakket worden vastgelegd.
+> Premium storage-accounts worden momenteel niet ondersteund voor het opslaan van pakket vastgelegd.
 
 **Filteren (optioneel)**
 
-- **Protocol** -het protocol voor het filteren van voor het vastleggen van het pakket. De beschikbare waarden zijn TCP, UDP en alle.
-- **Lokaal IP-adres** -deze waarde filtert de pakketopname voor de pakketten waar het lokale IP-adres overeenkomt met de filterwaarde van dit.
-- **Lokale poort** -deze waarde filtert de pakketopname om pakketten van de lokale poort overeenkomt met de filterwaarde van dit.
-- **Extern IP-adres** -deze waarde filtert de pakketopname voor de pakketten waar het externe IP-adres overeenkomt met de filterwaarde van dit.
-- **Externe poort** -deze waarde filtert de pakketopname pakketten waarbij de externe poort overeenkomt met de waarde voor dit filter.
+- **Protocol** -het-protocol om te filteren op de pakketopname. De beschikbare waarden zijn TCP, UDP en alle.
+- **Lokaal IP-adres** -deze waarde filtert de pakketopname pakketten waarvan het lokale IP-adres overeenkomt met de waarde voor dit filter.
+- **Lokale poort** -deze waarde filtert de pakketopname pakketten waar de lokale poort komt overeen met de waarde voor dit filter.
+- **Extern IP-adres** -deze waarde filtert de pakketopname pakketten waarvan het externe IP-adres overeenkomt met de waarde voor dit filter.
+- **Externe poort** -deze waarde filtert de pakketopname pakketten waar de externe poort komt overeen met de waarde voor dit filter.
 
 > [!NOTE]
-> Poort en IP-adres-waarden mag geen enkele waarde, bereik van waarden of een set. (dat wil zeggen, 80-1024 voor poort) U kunt filters die u wilt definiëren.
+> Poort- en IP-adres-waarden mag bestaan uit één waarde, bereik van waarden of een set. (dat wil zeggen, 80-1024 voor poort) U kunt zoveel filters als u wilt definiëren.
 
-Nadat u de waarden zijn ingevuld, klikt u op **OK** de pakketopname maken.
+Nadat u de waarden zijn ingevuld, klikt u op **OK** te maken van de pakketopname.
 
-![maken van een pakketopname][2]
+![een pakketopname maken][2]
 
-Nadat de tijdslimiet ingesteld voor het vastleggen van het pakket is verlopen, wordt de vastlegging van het pakket wordt gestopt en kan worden gecontroleerd. U kunt ook handmatig de opnamen pakket sessies stoppen.
+Nadat de tijdslimiet ingesteld voor de pakketopname is verlopen, kan de pakketopname stopt en kan worden gecontroleerd. U kunt ook handmatig de sessies van de opnamen pakket stoppen.
 
-## <a name="delete-a-packet-capture"></a>Het vastleggen van een pakket verwijderen
+## <a name="delete-a-packet-capture"></a>Een pakketopname verwijderen
 
-Klik in de weergave van de capture pakket op de **contextmenu** (...) of klik met de rechtermuisknop en klikt u op **verwijderen** de pakketopname stoppen
+Klik in de weergave van het vastleggen van pakketten op de **contextmenu** (...) of klik met de rechtermuisknop en klikt u op **verwijderen** de pakketopname stoppen
 
-![Het vastleggen van een pakket verwijderen][3]
+![Een pakketopname verwijderen][3]
 
 > [!NOTE]
-> Als u het vastleggen van een pakket verwijdert, verwijdert niet het bestand in het opslagaccount.
+> Een pakketopname verwijderen, wordt het bestand in het opslagaccount niet verwijderen.
 
-U wordt gevraagd om te bevestigen dat u wilt de pakketopname verwijderen, klikt u op **Ja**
+U wordt gevraagd te bevestigen dat u wilt de pakketopname verwijderen, klikt u op **Ja**
 
 ![Bevestiging][4]
 
-## <a name="stop-a-packet-capture"></a>Stop de pakketopname van een
+## <a name="stop-a-packet-capture"></a>Een pakketopname stoppen
 
-Klik in de weergave van de capture pakket op de **contextmenu** (...) of klik met de rechtermuisknop en klikt u op **stoppen** de pakketopname stoppen
+Klik in de weergave van het vastleggen van pakketten op de **contextmenu** (...) of klik met de rechtermuisknop en klikt u op **stoppen** de pakketopname stoppen
 
 ## <a name="download-a-packet-capture"></a>Een pakketopname downloaden
 
-Zodra de sessie van uw pakket vastleggen is voltooid, wordt de capture-bestand wordt geüpload naar blob-opslag of naar een lokaal bestand op de virtuele machine. De opslaglocatie van de pakketopname is gedefinieerd bij het maken van de sessie. Een handig hulpmiddel voor toegang tot deze capture-bestanden opgeslagen in een opslagaccount is Microsoft Azure Storage Explorer, die u kunt hier downloaden:  http://storageexplorer.com/
+Zodra uw pakket opnamesessie is voltooid, wordt de capture-bestand wordt geüpload naar blob-opslag of naar een lokaal bestand op de virtuele machine. De opslaglocatie van de pakketopname is gedefinieerd tijdens het maken van de sessie. Een handig hulpmiddel voor toegang tot deze bestanden opgeslagen in een storage-account is Microsoft Azure Storage Explorer, die hier kan worden gedownload:  http://storageexplorer.com/
 
-Als een opslagaccount is opgegeven, worden bestanden voor pakket worden opgeslagen in een opslagaccount op de volgende locatie:
+Als een storage-account is opgegeven, worden pakketten vastleggen van bestanden worden opgeslagen in een storage-account op de volgende locatie:
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het automatiseren van pakket opnamen met waarschuwingen van de virtuele machine met weer te geven [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
+Meer informatie over het automatiseren van pakketopnamen met waarschuwingen van de virtuele machine via [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
 
-Als bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via vinden [controleren IP-stroom controleren](diagnose-vm-network-traffic-filtering-problem.md)
+Zoeken of bepaalde verkeer is toegestaan in of buiten uw virtuele machine door naar de pagina [controleren IP-stroom controleren](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 [1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png

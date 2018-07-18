@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 9f9ae52c5dbdf655190caaceeaa03c444526e4f2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b7ea8a755f1f23c76bb0f7d8120970bb7795e95b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044618"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091830"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?
 Eenmalige aanmelding betekent toegang te hebben tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, aanmeldt slechts eenmaal met behulp van één gebruikersaccount. Nadat u bent aangemeld, u toegang hebt tot alle van de toepassingen die u nodig hebt zonder vereist is om te verifiëren (bijvoorbeeld, typ een wachtwoord) een tweede keer.
@@ -45,8 +45,7 @@ Wanneer gebruikers zich bij een toepassing aanmelden, ze via een verificatieproc
 Azure AD ondersteunt drie verschillende manieren aanmelden bij toepassingen:
 
 * **Federatieve eenmalige aanmelding** kunnen toepassingen om te leiden naar Azure AD voor verificatie van de gebruiker in plaats van dat u wordt gevraagd om een eigen wachtwoord. Federatieve eenmalige aanmelding wordt voor toepassingen die ondersteuning voor, zoals SAML 2.0, WS-Federation en OpenID Connect protocollen, en de uitgebreidste modus van eenmalige aanmelding is ondersteund.
-* **Wachtwoord gebaseerde eenmalige aanmelding** kunnen beveiligde toepassing wachtwoorden worden opgeslagen en herhalen met behulp van een uitbreiding van web browser of mobiele app. Wachtwoord gebaseerde eenmalige aanmelding gebruikt de bestaande 
-*  proces geleverd door de toepassing, maar kan een beheerder de wachtwoorden beheren en vereist niet de gebruiker het wachtwoord kennen.
+* **Wachtwoord gebaseerde eenmalige aanmelding** kunnen beveiligde toepassing wachtwoorden worden opgeslagen en herhalen met behulp van een uitbreiding van web browser of mobiele app. Wachtwoord gebaseerde eenmalige aanmelding maakt gebruik van de bestaande proces dat is opgegeven door de toepassing, maar kan een beheerder de wachtwoorden beheren en vereist niet de gebruiker het wachtwoord kennen.
 * **Bestaande eenmalige aanmelding** kan gebruikmaken van een bestaande eenmalige aanmelding die is ingesteld voor de toepassing, maar deze toepassingen worden gekoppeld aan de Office 365 of Azure AD access panel portals kan Azure AD en kunt u ook extra rapportage in Azure AD wanneer de toepassingen er worden gestart.
 
 Wanneer een gebruiker is geverifieerd met een toepassing, moeten ze ook een accountrecord die is ingericht op de toepassing die wordt gemeld dat de toepassing waarbij de machtigingen en het niveau van toegang in de toepassing zijn hebben. Het inrichten van een record voor dit account ofwel automatisch kan worden uitgevoerd kan, of wanneer deze handmatig door een beheerder voordat de gebruiker één aanmelding toegang ontvangt.
@@ -194,7 +193,7 @@ Deze koppelingen de mechanismen voor hetzelfde besturingselement gebruiken als h
 ## <a name="related-articles"></a>Verwante artikelen:
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Cloud Discovery instellen](/cloud-app/security/set-up-cloud-discovery)
+* [Cloud Discovery instellen](/cloud-app-security/set-up-cloud-discovery)
 * [Inleiding tot het beheren van toegang tot Apps](what-is-access-management.md)
 * [Vergelijking van mogelijkheden voor het beheer van externe identiteiten in Azure AD](../active-directory-b2b-compare-b2c.md)
 

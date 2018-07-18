@@ -1,6 +1,6 @@
 ---
-title: HDInsight - HDInsight-clusters domein - Azure
-description: Meer informatie...
+title: Een inleiding tot Hadoop-beveiliging met Azure HDInsight-clusters domein
+description: Informatie over hoe een domein-Azure HDInsight-clusters bieden ondersteuning voor de vier pijlers van beveiliging voor bedrijven.
 services: hdinsight
 author: omidm1
 manager: jhubbard
@@ -12,44 +12,59 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: omidm
-ms.openlocfilehash: 3fd3a4b8982fe2170726df03bdc884e658d0b0c2
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 6f2c41aff8aaa389a8f2288cbb445e1ba2e7fd14
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019485"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112533"
 ---
-# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Een inleiding tot Hadoop-beveiliging met HDInsight-clusters domein
+# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Een inleiding tot Hadoop-beveiliging met aan domein gekoppelde HDInsight-clusters
 
-Tot nu toe werd in Azure HDInsight alleen ondersteuning geboden voor één lokale beheerder voor gebruikers. Dit werkte heel goed voor kleinere toepassingsteams of afdelingen. Hadoop op basis van werkbelastingen die is opgedaan meer populariteit in de enterprise-sector, de noodzaak van enterprise hoogwaardige mogelijkheden, zoals active directory-verificatie, ondersteuning voor meerdere gebruikers en rollen gebaseerd toegangsbeheer is geworden steeds belangrijker. Als u gebruikmaakt van aan een domein gekoppelde HDInsight-clusters, kunt u een HDInsight-cluster maken dat is gekoppeld aan een Active Directory-domein, en een lijst met werknemers uit het bedrijf configureren die zich kunnen verifiëren via Azure Active Directory om zich aan te melden bij het HDInsight-cluster. Mensen van buiten het bedrijf kunnen zich niet aanmelden bij het HDInsight-cluster en hebben er geen toegang toe. Toegangsbeheer op basis van rollen voor het gebruik van Hive-beveiliging kunt configureren dat de ondernemingsbeheerder [Apache Zwerver](http://hortonworks.com/apache/ranger/), dus beperken van toegang tot gegevens alleen zoveel nodig. Daarnaast kan de beheerder de toegang tot gegevens controleren voor werknemers en zien wanneer er wijzigingen worden aangebracht aan het toegangscontrolebeleid. Dit zorgt voor een hoge mate van beheer van de bedrijfsresources.
+In het verleden, Azure HDInsight slechts één gebruiker ondersteund: lokale beheerder. Dit werkte heel goed voor kleinere toepassingsteams of afdelingen. Als de Hadoop-gebaseerde workloads opgedaan populairder in de enterprise-sector, de noodzaak voor ondersteuning van geavanceerde mogelijkheden, zoals verificatie op basis van Active Directory, met meerdere gebruikers, en op rollen gebaseerd toegangsbeheer steeds belangrijker. 
+
+U kunt een HDInsight-cluster dat gekoppeld aan een Active Directory-domein maken. U kunt vervolgens een lijst met werknemers van de onderneming die zich via Azure Active Directory verifiëren kunnen voor aanmelding bij het HDInsight-cluster configureren. Iemand buiten de onderneming kan niet aanmelden of toegang tot het HDInsight-cluster. 
+
+De enterprise-beheerder op rollen gebaseerd toegangsbeheer (RBAC) kunt configureren voor Hive-beveiliging met behulp van [Apache Ranger](http://hortonworks.com/apache/ranger/). RBAC configureren toegang wordt beperkt tot gegevens alleen wat u nodig hebt. De beheerder kan ten slotte de toegang tot de gegevens door werknemers en eventuele wijzigingen worden aangebracht aan het beleid voor toegangsbeheer controleren. De beheerder kan vervolgens een hoge mate van beheer van hun bedrijfsbronnen behalen.
 
 > [!NOTE]
-> De nieuwe functies beschreven in dit artikel zijn beschikbaar in preview alleen op de volgende clustertypen: Hadoop, Spark en interactieve Query. Oozie is nu ingeschakeld voor domein-clusters. Voor toegang tot de gebruikersinterface van webgebruikers moeten inschakelen Oozie [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md)
+> De nieuwe functies die beschreven worden in dit artikel zijn beschikbaar in Preview-versie van alleen de volgende clustertypen: Hadoop, Spark en interactieve query's. Oozie is nu ingeschakeld in aan domein gekoppelde clusters. Voor toegang tot de Oozie-webgebruikersinterface, gebruikers moeten inschakelen [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="benefits"></a>Voordelen
-Bedrijfsbeveiliging bevat vier belangrijke stijlen: beveiliging, verificatie, autorisatie en versleuteling.
+Bedrijfsbeveiliging bestaat uit vier belangrijke onderdelen: perimeterbeveiliging, verificatie, autorisatie en versleuteling.
 
-![De voordelen van HDInsight-clusters die zijn gekoppeld aan een domein](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
+![Voordelen van aan domein gekoppelde HDInsight-clusters in de vier pijlers van beveiliging voor bedrijven](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
-### <a name="perimeter-security"></a>Perimeterbeveiliging
-Perimeterbeveiliging in HDInsight wordt bereikt met virtuele netwerken en de Gateway-service. Vandaag de dag een ondernemingsadministrator een HDInsight-cluster in een virtueel netwerk maken en gebruiken van Netwerkbeveiligingsgroepen (firewall-regels) toegang tot het virtuele netwerk te beperken. Er kan alleen worden gecommuniceerd met het HDInsight-cluster via de IP-adressen die zijn gedefinieerd in de firewallregels voor binnenkomend verkeer. Op deze manier wordt perimeterbeveiliging geboden. Een andere perimeterbeveiligingslaag wordt tot stand gebracht via de Gateway-service. De Gateway wordt de service, die als de eerste regel verdediging voor elke inkomende aanvraag voor het HDInsight-cluster fungeert. Via de service worden aanvragen geaccepteerd en gevalideerd, en vervolgens pas doorgegeven aan de andere knooppunten in het cluster. Op deze manier wordt perimeterbeveiliging gewaarborgd voor andere naam- en gegevensknooppunten in het cluster.
+## <a name="perimeter-security"></a>Perimeterbeveiliging
+Perimeterbeveiliging in HDInsight wordt bereikt door middel van virtuele netwerken en de Azure VPN-Gateway-service. Een enterprise-beheerder kan een HDInsight-cluster in een virtueel netwerk maken en gebruiken van netwerkbeveiligingsgroepen (firewallregels) toegang te beperken tot het virtuele netwerk. Alleen de IP-adressen die zijn gedefinieerd in de firewallregels voor binnenkomend verkeer is mogelijk om te communiceren met het HDInsight-cluster. Deze configuratie biedt perimeterbeveiliging.
 
-### <a name="authentication"></a>Verificatie
-Een ondernemingsadministrator kunt maken van een domein HDInsight-cluster, in een [virtueel netwerk](https://azure.microsoft.com/services/virtual-network/). De knooppunten van het HDInsight-cluster worden gekoppeld aan het domein dat wordt beheerd via het bedrijf. Dit wordt bewerkstelligd via [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). Alle knooppunten in het cluster zijn gekoppeld aan een domein dat wordt beheerd via het bedrijf. Met deze instelling kunnen de werknemers van het bedrijf zich met hun domeinreferenties aanmelden bij de clusterknooppunten. Ze kunnen ook hun domeinreferenties gebruiken voor verificatie met andere goedgekeurde eindpunten zoals Ambari-weergaven, ODBC, JDBC, PowerShell en REST-API's om te communiceren met het cluster. De beheerder heeft de volledige controle over het beperken van het aantal gebruikers dat via deze eindpunten met het cluster communiceert.
+Een andere perimeterbeveiligingslaag wordt bereikt via de VPN-Gateway-service. De gateway fungeert als eerste verdedigingslinie voor elke inkomende aanvraag voor het HDInsight-cluster. Deze worden aanvragen geaccepteerd, wordt deze gevalideerd en alleen vervolgens kan de aanvraag worden doorgegeven aan de andere knooppunten in het cluster. De gateway biedt op deze manier perimeterbeveiliging naar een andere naam- en gegevensknooppunten in het cluster.
 
-### <a name="authorization"></a>Autorisatie
-De meeste bedrijven zorgen ervoor dat niet alle werknemers toegang hebben tot alle bedrijfsresources. Evenzo met deze release kunt definiëren de beheerder toegangscontrolebeleid voor de clusterresources op basis van rollen. De beheerder kan bijvoorbeeld [Apache Ranger](http://hortonworks.com/apache/ranger/) configureren om toegangscontrolebeleid in te stellen voor Hive. Deze functionaliteit zorgt ervoor dat werknemers alleen toegang hebben tot de gegevens die ze nodig hebben om hun werk goed te kunnen uitvoeren. SSH-toegang tot het cluster is ook beperkt tot alleen de beheerder.
+## <a name="authentication"></a>Verificatie
+Een enterprise-beheerder kan maken met een HDInsight-cluster domein in een [virtueel netwerk](https://azure.microsoft.com/services/virtual-network/). Alle knooppunten van het HDInsight-cluster zijn gekoppeld aan het domein dat wordt beheerd via het bedrijf. Dit wordt bereikt met behulp van [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-### <a name="auditing"></a>Controleren
-Het controleren van alle clusterresources en de gegevens is niet alleen nodig om de HDInsight-clusterresources te beveiligen tegen onbevoegde gebruikers en om de gegevens te beveiligen, maar ook om onbevoegde of onbedoelde toegang tot de resources bij te houden. De beheerder kan bekijken en alle toegang tot het HDInsight-cluster-resources en de gegevens te rapporteren. De beheerder kan ook alle wijzigingen in het toegangscontrolebeleid die worden aangebracht in met Apache Ranger ondersteunde eindpunten, bekijken en rapporteren. Een aan een domein gekoppeld HDInsight-cluster maakt gebruik van de vertrouwde Apache Ranger-gebruikersinterface om naar controlelogboeken te zoeken. Ranger gebruik [Apache Solr](http://hortonworks.com/apache/solr/) in de back-end voor het opslaan van en zoeken naar logboeken.
+Met deze instelling kunnen enterprise werknemers aanmelden bij de clusterknooppunten met behulp van hun domeinreferenties. Ze kunnen hun domeinreferenties ook gebruiken om te verifiëren bij andere goedgekeurde eindpunten, zoals Ambari-weergaven, ODBC, JDBC, PowerShell en REST-API's om te communiceren met het cluster. De beheerder heeft volledige controle over het beperken van het aantal gebruikers die met het cluster via deze eindpunten werken.
 
-### <a name="encryption"></a>Versleuteling
-Het beveiligen van gegevens is belangrijk om te voldoen aan de vereisten voor organisatiebeveiliging en -compliance. Daarom moeten deze gegevens, naast het beperken van toegang tot gegevens voor onbevoegde werknemers, ook worden beveiligd via versleuteling. De twee opties voor gegevensopslag voor HDInsight-clusters, Azure Storage-blobopslag en Azure Data Lake-opslag, bieden ondersteuning voor transparante [versleuteling van data-at-rest](../../storage/common/storage-service-encryption.md) aan de serverzijde. Beveiligde HDInsight-clusters werkt naadloos met deze server-side '-versleuteling van gegevens op de mogelijkheid van de rest.
+## <a name="authorization"></a>Autorisatie
+Een best practice die volgen op de meeste bedrijven is ervoor te zorgen dat niet alle werknemers toegang tot alle bedrijfsresources heeft. De beheerder kan ook op rollen gebaseerd beleid voor toegangsbeheer voor de clusterresources definiëren. 
+
+De beheerder kan bijvoorbeeld [Apache Ranger](http://hortonworks.com/apache/ranger/) configureren om toegangscontrolebeleid in te stellen voor Hive. Deze functionaliteit zorgt ervoor dat werknemers toegang heeft tot alleen gegevens die ze nodig hebben om succesvol in hun werk te zijn. SSH-toegang tot het cluster is ook beperkt tot alleen de beheerder.
+
+## <a name="auditing"></a>Controleren
+Controle van alle toegang tot de resources van het cluster en de gegevens is die nodig zijn om bij te houden van onbevoegde of onbedoelde toegang van de resources. Het is net zo belangrijk als de HDInsight-clusterresources te beveiligen tegen onbevoegde gebruikers en de gegevens te beveiligen. 
+
+De beheerder kan weergeven en rapporteren van alle toegang tot het HDInsight-clusterresources en gegevens. De beheerder kan ook weergeven en rapporteren van alle wijzigingen aan het beleid voor toegangsbeheer in Apache Ranger ondersteunde eindpunten hebt gemaakt. 
+
+Een domein gekoppeld HDInsight-cluster maakt gebruik van de vertrouwde Apache Ranger-gebruikersinterface om te zoeken naar de logboeken voor controle. Op de back-end, Ranger maakt gebruik van [Apache Solr](http://hortonworks.com/apache/solr/) voor het opslaan en zoeken naar Logboeken.
+
+## <a name="encryption"></a>Versleuteling
+Beveiligen van gegevens is belangrijk voor vergadering beveiligings- en vereisten van de organisatie. Naast het beperken van toegang tot gegevens onbevoegde werknemers, moet u het versleutelen. 
+
+Beide voor gegevensopslag voor HDInsight-clusters, Azure Blob storage en Azure Data Lake Storage Gen1--ondersteuning voor transparante serverzijde [versleuteling van gegevens](../../storage/common/storage-service-encryption.md) at-rest. Beveiligde HDInsight-clusters werken naadloos samen met deze mogelijkheid van server-side-versleuteling van data-at-rest.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Plannen voor domein-HDInsight-clusters](apache-domain-joined-architecture.md).
-* [Domein-HDInsight-clusters configureren](apache-domain-joined-configure.md).
-* [Domein-HDInsight-clusters beheren](apache-domain-joined-manage.md).
-* [Hive beleidsregels configureren voor domein-HDInsight-clusters](apache-domain-joined-run-hive.md).
-* [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* [Plan voor aan domein gekoppelde HDInsight-clusters](apache-domain-joined-architecture.md)
+* [Aan domein gekoppelde HDInsight-clusters configureren](apache-domain-joined-configure.md)
+* [Aan domein gekoppelde HDInsight-clusters beheren](apache-domain-joined-manage.md)
+* [Hive-beleidsregels voor aan domein gekoppelde HDInsight-clusters configureren](apache-domain-joined-run-hive.md)
+* [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
 

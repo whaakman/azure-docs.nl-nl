@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: fe9292459134972b44037a58235cdd817030a956
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eea7e2779a169fa9a64cc7a5695e91999f219277
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968929"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112828"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -24,12 +24,20 @@ In dit artikel bevat stapsgewijze instructies over het gebruik van de Azure Impo
 Voordat u een import-taak voor het overdragen van gegevens naar Azure Blob-opslag maakt, zorgvuldig controleren en voer de volgende lijst met vereisten voor deze service. U moet:
 
 - Een actief Azure-abonnement dat kan worden gebruikt voor de Import/Export-service hebben.
-- Ten minste één Azure Storage-account met een opslagcontainer hebben. Overzicht van de [ondersteunde opslagaccounts en typen gegevensopslag voor Import/Export-service](storage-import-export-requirements.md). Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-create-storage-account.md#create-a-storage-account). Voor informatie over de storage-container, gaat u naar [maken van een opslagcontainer](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
+- Ten minste één Azure Storage-account met een opslagcontainer hebben. Overzicht van de [ondersteunde opslagaccounts en typen gegevensopslag voor Import/Export-service](storage-import-export-requirements.md). 
+    - Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-create-storage-account.md#create-a-storage-account). 
+    - Voor informatie over de storage-container, gaat u naar [maken van een opslagcontainer](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Schijven van voldoende [ondersteunde typen](storage-import-export-requirements.md#supported-disks). 
 - Een Windows-systeem met een [ondersteunde besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems). 
 - Het inschakelen van BitLocker op het Windows-systeem. Zie [BitLocker inschakelen](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Download de WAImportExport versie 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) op het Windows-systeem. Pak deze uit naar de standaardmap `waimportexportv1`. Bijvoorbeeld `C:\WaImportExportV1`.
-
+- Een FedEx/DHL-account hebben.  
+    - Het account moet geldig zijn, saldo moet hebben en moet return verzending mogelijkheden hebben.
+    - Een nummer voor de taak uitvoer gegenereerd.
+    - Elke taak moet een afzonderlijke traceringsnummer hebben. Meerdere taken met de dezelfde traceringsnummer worden niet ondersteund.
+    - Als u een provider-account hebt, gaat u naar:
+        - [Maak een account FedEX](https://www.fedex.com/en-us/create-account.html), of 
+        - [Maak een account DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-prepare-the-drives"></a>Stap 1: Voorbereiden van de schijven
 
@@ -107,7 +115,10 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
     - Selecteer de provider die in de vervolgkeuzelijst.
     - Voer een geldige provider account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor de schijven terug naar u verzenden zodra uw import-taak voltooid is. Als u een accountnummer hebt, maakt u een [FedEx](http://www.fedex.com/us/oadr/) of [DHL](http://www.dhl.com/) doorberekend aan.
-    - Geef een volledig en geldig contact op met de naam, telefoon, e-mailadres, adres, stad, postcode, staat/provincie en land/regio.
+    - Geef een volledig en geldig contact op met de naam, telefoon, e-mailadres, adres, stad, postcode, staat/provincie en land/regio. 
+        
+        > [!TIP] 
+        > In plaats van op te geven in een e-mailadres voor één gebruiker, moet u een groep e-mailadres opgeven. Dit zorgt ervoor dat u meldingen ontvangt, zelfs als een beheerder verlaat.
 
     ![Importeren van een taak maken - stap 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
@@ -116,7 +127,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
     - Bekijk de taakinformatie in het overzicht. Noteer de taaknaam van de en de Azure-datacenter verzendadres voor het verzenden van de schijven terug naar Azure. Deze informatie wordt later gebruikt op het verzendlabel.
     - Klik op **OK** te maken van de import-taak.
 
-    ![Importeren van een taak maken - stap 4](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+    ![Importeren van een taak maken - stap 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>Stap 3: De schijven verzenden 
 
@@ -127,6 +138,9 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
+## <a name="step-5-verify-data-upload-to-azure"></a>Stap 5: Controleer of het uploaden van gegevens naar Azure
+
+De taak volgen om te voltooien. Nadat de taak voltooid is, moet u controleren of uw gegevens daadwerkelijk is geüpload naar Azure. Verwijder de on-premises gegevens alleen nadat u hebt gecontroleerd dat het uploaden is voltooid.
 
 ## <a name="next-steps"></a>Volgende stappen
 

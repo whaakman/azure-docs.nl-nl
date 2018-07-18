@@ -1,45 +1,48 @@
 ---
 title: Groepen van Azure SQL-databases beheren | Microsoft Docs
-description: Maken en beheren van een taak elastische doorlopen.
+description: Helpen bij het maken en beheren van een elastische taak.
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: 4a25543fd9cbcd0928f06419c6ddb9b5ed2e2488
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: b367ddafc659db4dc4b8d658ac9dc007c4671b8c
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645280"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093117"
 ---
-# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Maken en beheren van geschaalde uit Azure SQL-Databases met elastische taken (preview)
+# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Maken en beheren van schaal van Azure SQL-Databases met behulp van elastische taken (preview)
 
 
-**Elastische Database taken** vereenvoudigd beheer van groepen van databases door het uitvoeren van administratieve bewerkingen, zoals wijzigingen in het schema, Referentiebeheer, verwijzing Gegevensupdates, prestatiegegevens verzamelen of telemetrie van de tenant (klant) verzameling. Elastische taken van de Database is momenteel beschikbaar is via de Azure-portal en de PowerShell-cmdlets. Echter, de Azure portal vlakken verminderde functionaliteit beschikken beperkt tot uitvoering voor alle databases in een [elastische pool (preview)](sql-database-elastic-pool.md). Toegang tot extra functies en uitvoering van scripts in een groep van databases met inbegrip van een aangepaste verzameling of een shard ingesteld (gemaakt met behulp van [clientbibliotheek voor elastische Database](sql-database-elastic-scale-introduction.md)), Zie [maken en beheren taken met behulp van PowerShell](sql-database-elastic-jobs-powershell.md). Zie voor meer informatie over taken [elastische Database taken overzicht](sql-database-elastic-jobs-overview.md). 
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+**Taken voor elastic Database** Vereenvoudig het beheer van groepen van databases door het uitvoeren van administratieve bewerkingen, zoals wijzigingen in het schema, beheren van referenties, bijwerken van verwijzingsgegevens, verzamelen van prestatiegegevens of telemetrie van tenants (klanten) verzameling. Taken voor elastic Database is momenteel beschikbaar via Azure portal en PowerShell-cmdlets. Echter de Azure portal oppervlakken verminderde functionaliteit beperkt tot het uitvoeren van alle databases in een [elastische pool](sql-database-elastic-pool.md). Instellen voor toegang tot extra functies en uitvoering van scripts voor een groep databases met inbegrip van een aangepaste verzameling of een shard (gemaakt met behulp van [Elastic Database-clientbibliotheek](sql-database-elastic-scale-introduction.md)), Zie [maken en beheren taken met behulp van PowerShell](sql-database-elastic-jobs-powershell.md). Zie voor meer informatie over taken [overzicht van de taken van Elastic Database](sql-database-elastic-jobs-overview.md). 
 
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement. Zie voor een gratis proefversie [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 * Een elastische pool. Zie [over elastische pools](sql-database-elastic-pool.md).
-* Installatie van de onderdelen van de service taak elastische database. Zie [installeren van de service van de taak elastische database](sql-database-elastic-jobs-service-installation.md).
+* Installatie van de elastische taak serviceonderdelen. Zie [installatie van de elastische taak service](sql-database-elastic-jobs-service-installation.md).
 
-## <a name="creating-jobs"></a>Taken maken
+## <a name="creating-jobs"></a>Het maken van taken
 1. Met behulp van de [Azure-portal](https://portal.azure.com), van een bestaande taak pool voor elastische database, klikt u op **maken taak**.
-2. Typ de gebruikersnaam en wachtwoord van de beheerder van de database (gemaakt tijdens de installatie van taken) voor de database taken (metagegevensopslag voor taken).
+2. Typ de gebruikersnaam en het wachtwoord van de beheerder van de database (gemaakt bij de installatie van taken) voor de taken database (metagegevensopslag voor taken).
    
-    ![De taak een naam, typ of plak in de code en klik op uitvoeren][1]
+    ![Naam van de taak, typ of plak in de code en klik op uitvoeren][1]
 3. In de **taak maken** blade, typ een naam voor de taak.
-4. Typ de gebruikersnaam en wachtwoord verbinding maken met de doeldatabases op met voldoende machtigingen voor het uitvoeren van scripts.
-5. Plakken of typ in het T-SQL-script.
+4. Typ de gebruikersnaam en wachtwoord voor het verbinding maken met de doeldatabases op met voldoende machtigingen voor de uitvoering van het script te voltooien.
+5. Plak of typ in de T-SQL-script.
 6. Klik op **opslaan** en klik vervolgens op **uitvoeren**.
    
     ![Taken maken en uitvoeren][5]
 
-## <a name="run-idempotent-jobs"></a>De idempotent-taken uitvoeren
-Wanneer u een script op een set databases uitvoeren, moet u ervoor dat het script idempotent zijn. Dat wil zeggen, moet het script mogelijk meerdere keren uitvoeren, zelfs als deze is mislukt voordat een onvoltooide status. Bijvoorbeeld, een script is mislukt, de taak wordt automatisch herhaald totdat dit is gelukt (binnen de limieten, als de nieuwe poging logica uiteindelijk stopt het opnieuw proberen). De manier om dit te doen is met het een component 'IF bestaat' en een willekeurig exemplaar gevonden verwijderen voordat u een nieuw object maakt. Hier ziet u een voorbeeld:
+## <a name="run-idempotent-jobs"></a>Idempotent-taken uitvoeren
+Als u een script in een set van databases uitvoert, moet u ervoor dat het script idempotent is zijn. Dat wil zeggen, moet het script worden meerdere keren uitvoeren, zelfs als deze is mislukt voordat een onvoltooide status. Bijvoorbeeld, wanneer u een script is mislukt, de taak wordt automatisch opnieuw geprobeerd totdat het is gelukt (binnen de grenzen, als de nieuwe poging logica wordt uiteindelijk niet meer het opnieuw proberen). De manier om dit te doen is met het een component 'IF bestaat' en alle gevonden instantie verwijderen voordat u een nieuw object maakt. Hier ziet u een voorbeeld:
 
     IF EXISTS (SELECT name FROM sys.indexes
             WHERE name = N'IX_ProductVendor_VendorID')
@@ -48,7 +51,7 @@ Wanneer u een script op een set databases uitvoeren, moet u ervoor dat het scrip
     CREATE INDEX IX_ProductVendor_VendorID
     ON Purchasing.ProductVendor (VendorID);
 
-Voordat u een nieuw exemplaar in plaats daarvan een 'Bestaat niet als'-component gebruiken:
+Of gebruik een component 'Bestaat niet als' voordat u een nieuwe instantie:
 
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
     BEGIN
@@ -62,7 +65,7 @@ Voordat u een nieuw exemplaar in plaats daarvan een 'Bestaat niet als'-component
     INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime());
     GO
 
-Dit script werkt vervolgens de tabel die eerder is gemaakt.
+Met dit script werkt vervolgens de tabel die u eerder hebt gemaakt.
 
     IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation')
     BEGIN
@@ -80,15 +83,15 @@ Dit script werkt vervolgens de tabel die eerder is gemaakt.
 ## <a name="checking-job-status"></a>Taakstatus controleren
 Nadat een taak is gestart, kunt u de voortgang controleren.
 
-1. Klik op de pagina elastische pool **beheren van taken**.
+1. Klik op de pagina elastische pool **taken beheren**.
    
-    ![Klik op 'Taken beheren'][2]
-2. Klik op de naam (a) van een taak. De **STATUS** mag 'Voltooid' of 'Mislukt'. Details van de taak weergegeven (b) met de datum en tijd van het maken en uitvoeren. De onderstaande lijst met (c) dat geeft de voortgang van het script dat op elke database in de groep, geeft de details van de datum en tijd.
+    ![Klik op "Beheren taken"][2]
+2. Klik op de naam (a) van een taak. De **STATUS** mag "Voltooid" of "Mislukt". (B) weergegeven de details van de taak met de datum en tijd van maken en uitvoeren. De lijst (c) onder de die toont de voortgang van het script voor elke database in de pool, geeft de details van datum en tijd.
    
     ![Een voltooide taak controleren][3]
 
-## <a name="checking-failed-jobs"></a>Controleren van de mislukte taken
-Als een taak mislukt, kan een logboek van de uitvoering ervan kan worden gevonden. Klik op de naam van de mislukte taak om de details te bekijken.
+## <a name="checking-failed-jobs"></a>Controleren op mislukte taken
+Als een taak mislukt, wordt een logboek van de uitvoering ervan te vinden. Klik op de naam van de mislukte taak om de details te bekijken.
 
 ![Een mislukte taak controleren][4]
 

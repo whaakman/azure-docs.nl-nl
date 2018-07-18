@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e197a251df3f34e5416bafacfd54a3fc7f51d503
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928213"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091135"
 ---
 # <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Toegang tot het Kubernetes-dashboard met Azure Kubernetes Service (AKS)
 
@@ -38,41 +38,18 @@ Met deze opdracht maakt een proxy tussen uw systeem voor de ontwikkeling en het 
 
 ### <a name="for-rbac-enabled-clusters"></a>Voor clusters met RBAC-ingeschakeld
 
-Als uw AKS-cluster maakt gebruik van RBAC, een *ClusterRoleBinding* moet worden gemaakt voordat u krijgt het dashboard tot toegang. Zonder een binding van de rol foutmelding de Azure CLI een die vergelijkbaar is met het volgende voorbeeld:
+Als uw AKS-cluster maakt gebruik van RBAC, een *ClusterRoleBinding* moet worden gemaakt voordat u het dashboard correct kan openen. U kunt een binding maken met de [kubectl maken clusterrolebinding] [ kubectl-create-clusterrolebinding] opdracht zoals wordt weergegeven in het volgende voorbeeld. 
 
-```
-error: unable to forward port because pod is not running. Current status=Pending
-```
+> [!WARNING]
+> Deze voorbeeld-binding is niet van toepassing op alle onderdelen van de aanvullende verificatie en kan leiden tot onveilig gebruiken. Het Kubernetes-dashboard is geopend voor iedereen met toegang tot de URL. Het Kubernetes-dashboard niet openbaar beschikbaar.
+>
+> Kunt u mechanismen zoals bearer-tokens of een gebruikersnaam en wachtwoord om te bepalen wie toegang heeft tot het dashboard en welke machtigingen zij hebben. Hierdoor beter beveiligd gebruik van het dashboard. Zie voor meer informatie over het gebruik van de verschillende verificatiemethoden, de Kubernetes-dashboard-wiki op [besturingselementen voor toegang][dashboard-authentication].
 
-Maak een bestand met de naam voor het maken van een binding *dashboard admin.yaml* en plak het volgende voorbeeld. Deze binding voorbeeld onderdelen aanvullende verificatie is niet van toepassing. Kunt u mechanismen zoals bearer-tokens of een gebruikersnaam en wachtwoord om te bepalen wie toegang heeft tot het dashboard en welke machtigingen zij hebben. Zie voor meer informatie over verificatiemethoden, de Kubernetes-dashboard-wiki op [besturingselementen voor toegang][dashboard-authentication].
-
-```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: ClusterRoleBinding
-metadata:
-  name: kubernetes-dashboard
-  labels:
-    k8s-app: kubernetes-dashboard
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: kubernetes-dashboard
-  namespace: kube-system
-```
-
-Toepassen van de binding met [kubectl toepassen] [ kubectl-apply] en geef uw *dashboard admin.yaml*, zoals wordt weergegeven in het volgende voorbeeld:
-
-```
-$ kubectl apply -f dashboard-admin.yaml
-
-clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
+```console
+kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 ```
 
 U kunt nu toegang tot het Kubernetes-dashboard in uw cluster RBAC-functionaliteit. Gebruiken om het Kubernetes-dashboard starten, de [az aks Bladeren] [ az-aks-browse] opdracht zoals beschreven in de vorige stap.
-
 
 ## <a name="run-an-application"></a>Een toepassing uitvoeren
 
@@ -120,6 +97,7 @@ Zie voor meer informatie over het Kubernetes-dashboard, de Kubernetes-documentat
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->

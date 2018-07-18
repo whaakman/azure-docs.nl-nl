@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: be94a508a10fdbbed194fb71e28fd7c3b72a080c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 8b32b241c4122893bb07993402a22d2223053f3d
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989475"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115174"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
 
@@ -84,22 +84,13 @@ In deze sectie bevat een overzicht van de inzichten.
 |privacyMode|Uitsplitsing van uw kan hebben een van de volgende modi: **persoonlijke**, **openbare**. **Openbare** -de video is zichtbaar voor iedereen in uw account en iedereen met een koppeling naar de video. **Persoonlijke** -de video is zichtbaar voor iedereen in uw account.|
 |duur|Bevat een duur van de beschrijving van de tijd die een inzicht is opgetreden. Er is een duur in seconden.|
 |thumbnailUrl|Miniatuur van de video volledige URL. Bijvoorbeeld, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO... '. U ziet als de video privé is, de URL van een toegangstoken van één uur bevat. Na een uur, de URL niet langer geldig en moet u naar de uitsplitsing van de opnieuw met een nieuwe url in het ophalen of aanroepen GetAccessToken om een nieuw toegangstoken en de volledige url handmatig maken ('https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [ accessToken]').|
-|gezichten|Kan een of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
-|onderwerpen|Kan een of meer onderwerpen bevatten. Zie voor meer informatie, [onderwerpen](#topics).|
-|sentimenten|Kan een of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
-|audioEffects| Kan een of meer audioEffects bevatten. Zie voor meer informatie, [audioEffects](#audioeffects).|
+|gezichten|Kan nul of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
+|trefwoorden|Kan nul of meer trefwoorden bevatten. Zie voor meer informatie, [trefwoorden](#keywords).|
+|sentimenten|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
+|audioEffects| Kan nul of meer audioEffects bevatten. Zie voor meer informatie, [audioEffects](#audioeffects).|
+|labels| Kan nul of meer labels bevatten. Zie voor meer informatie, [labels](#labels).|
 |merken| Kan nul of meer merken bevatten. Zie voor meer informatie, [merken](#brands).|
 |statistieken | Zie voor meer informatie, [statistieken](#statistics).|
-
-### <a name="statistics"></a>statistieken
-
-|Naam|Beschrijving|
-|---|---|
-|CorrespondenceCount|Het aantal berichten in de video.|
-|WordCount|Het aantal woorden per spreker.|
-|SpeakerNumberOfFragments|De hoeveelheid van de spreker in een video heeft fragmenten.|
-|SpeakerLongestMonolog|Van de spreker langste monolog. Als de spreker silences binnen de monolog is opgenomen. Stilte aan het begin en het einde van de monolog wordt verwijderd.| 
-|SpeakerTalkToListenRatio|De berekening is gebaseerd op de tijd die op van de spreker monolog (zonder de stilte in tussen) gedeeld door de totale tijd van de video. De tijd wordt afgerond op de derde decimaalteken.|
 
 ## <a name="videos"></a>video's
 
@@ -116,7 +107,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |externalUrl|Van de video externe url (indien opgegeven door de gebruiker).|
 |metagegevens|De metagegevens van video's externe (indien opgegeven door de gebruiker).|
 |isAdult|Geeft aan of er handmatig de video is bekeken en geïdentificeerd als een volwassene video.|
-|inzichten|De insights-object.|
+|inzichten|De insights-object. Zie voor meer informatie, [insights](#insights).|
 |thumbnailUrl|Miniatuur van de video volledige URL. Bijvoorbeeld, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO... '. U ziet als de video privé is, de URL van een toegangstoken van één uur bevat. Na een uur, de URL niet langer geldig en moet u naar de uitsplitsing van de opnieuw met een nieuwe url in het ophalen of aanroepen GetAccessToken om een nieuw toegangstoken en de volledige url handmatig maken ('https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [ accessToken]').|
 |publishedUrl|Een url naar de video te streamen.|
 |publishedUrlProxy|Een url naar het streamen van video van (voor Apple-apparaten).|
@@ -166,7 +157,7 @@ Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een
 |transcript|De [transcript](#transcript) dimensie.|
 |OCR|De [ocr](#ocr) dimensie.|
 |trefwoorden|De [trefwoorden](#keywords) dimensie.|
-| blokken|Kan bevatten een of meer [blokken](#blocks)|
+|blokken|Kan bevatten een of meer [blokken](#blocks)|
 |gezichten|De [gezichten](#faces) dimensie.|
 |labels|De [labels](#labels) dimensie.|
 |foto 's|De [opnamen](#shots) dimensie.|
@@ -201,16 +192,8 @@ Voorbeeld:
 
 Kenmerk | Beschrijving
 ---|---
-id|ID van het blok.
-regels|Kan bevatten een of meer [regels](#lines)
-sentimentIds|De **sentimentIds** kenmerk is gereserveerd voor toekomstig gebruik.
-thumbnailIds|De **thumbnailIds** kenmerk is gereserveerd voor toekomstig gebruik.
-sentiment|Het gevoel in het blok (0-1, negatief zijn om te positief).
-gezichten|Kan bevatten een of meer [gezichten](#faces).
-optisch|Kan bevatten een of meer [optisch](#ocrs).
-audioEffectInstances|Kan bevatten een of meer [audioEffectInstances](#audioEffectInstances).
-schermen|Kan bevatten een of meer [schermen](#scenes).
-aantekeningen|Kan nul of meer bevatten [aantekeningen](#annotations).
+id|ID van het blok.|
+instanties|Een lijst met tijdsbereiken van dit blok.|
 
 #### <a name="transcript"></a>transcript
 
@@ -563,6 +546,16 @@ Bedrijfs- en merknamen gedetecteerd in de spraak-naar-tekst transcriptie en/of V
 ]
 ```
 
+#### <a name="statistics"></a>statistieken
+
+|Naam|Beschrijving|
+|---|---|
+|CorrespondenceCount|Het aantal berichten in de video.|
+|WordCount|Het aantal woorden per spreker.|
+|SpeakerNumberOfFragments|De hoeveelheid van de spreker in een video heeft fragmenten.|
+|SpeakerLongestMonolog|Van de spreker langste monolog. Als de spreker silences binnen de monolog is opgenomen. Stilte aan het begin en het einde van de monolog wordt verwijderd.| 
+|SpeakerTalkToListenRatio|De berekening is gebaseerd op de tijd die op van de spreker monolog (zonder de stilte in tussen) gedeeld door de totale tijd van de video. De tijd wordt afgerond op de derde decimaalteken.|
+
 #### <a name="audioeffects"></a>audioEffects
 
 |Naam|Beschrijving|
@@ -599,12 +592,14 @@ Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/
 |id|De id van de gevoelsscore.|
 |averageScore |Het gemiddelde van alle scores van alle exemplaren van dat type sentiment - positieve/neutraal/negatieve|
 |instanties|Een lijst met tijdsbereik waar deze sentiment werd weergegeven.|
+|sentimentType |Het type kan worden 'Positief', 'Neutrale' of 'Negatieve'.|
 
 ```json
 "sentiments": [
 {
     "id": 0,
     "averageScore": 0.87,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:23",
@@ -614,6 +609,7 @@ Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/
 }, {
     "id": 1,
     "averageScore": 0.11,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:13",

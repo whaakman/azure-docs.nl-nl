@@ -1,6 +1,6 @@
 ---
-title: Oproep-eindpunt met cognitieve Python - Bing aangepaste zoekactie - Microsoft-Services
-description: Deze snelstartgids laat zien hoe zoekresultaten aanvragen van uw aangepaste zoekactie-exemplaar met behulp van Python aanroepen van het eindpunt van de aangepaste Bing-zoekactie.
+title: Eindpunt aanroepen met behulp van Python - Bing Custom Search - Microsoft Cognitive Services
+description: Deze quickstart laat zien hoe zoekresultaten van uw exemplaar voor aangepast zoeken met behulp van Python om aan te roepen van het eindpunt van de Bing Custom Search aanvraagt.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -10,38 +10,38 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
 ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 07/17/2018
 ms.locfileid: "35345858"
 ---
-# <a name="call-bing-custom-search-endpoint-python"></a>Aanroep Bing aangepaste zoekactie eindpunt (Python)
+# <a name="call-bing-custom-search-endpoint-python"></a>Bing Custom Search-eindpunt (Python) aanroepen
 
-Deze snelstartgids laat zien hoe zoekresultaten aanvragen van uw aangepaste zoekactie-exemplaar met behulp van Python aanroepen van het eindpunt van de aangepaste Bing-zoekactie. 
+Deze quickstart laat zien hoe zoekresultaten van uw exemplaar voor aangepast zoeken met behulp van Python om aan te roepen van het eindpunt van de Bing Custom Search aanvraagt. 
 
 ## <a name="prerequisites"></a>Vereisten
 U hebt het volgende nodig om deze quickstart te voltooien:
 
-- Een exemplaar van de aangepaste zoekactie. Zie [maken van uw eerste exemplaar van Bing aangepaste zoekactie](quick-start.md).
+- Een exemplaar voor aangepast zoeken. Zie [maken van uw eerste exemplaar van de Bing Custom Search](quick-start.md).
 
 -  [Python](https://www.python.org/) geïnstalleerd.
 
-- Een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard. 
+- Een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) is voldoende voor deze Quick Start. Moet u de toegangssleutel die is opgegeven wanneer u uw gratis proefversie activeren, of u de sleutel van een betaald abonnement van uw Azure-dashboard kunt. 
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-Volg deze stappen voor het aanroepen van het eindpunt Bing aangepaste zoeken:
+Volg deze stappen voor het aanroepen van de Bing Custom Search-eindpunt:
 
 1. Maak een map voor uw code.
-2. Navigeer naar de map die u zojuist hebt gemaakt vanaf een opdrachtprompt als administrator of terminal.
+2. Navigeer naar de map die u zojuist hebt gemaakt van een administrator-opdrachtprompt of terminal.
 3. Installeer de **aanvragen** python-module:
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
-7. Het bestand BingCustomSearch.py maken en kopieer de volgende code toe.
-8. Vervang **uw ABONNEMENTSSLEUTEL** en **uw-aangepaste-CONFIG-ID** met uw sleutel en configuratie-ID (Zie stap 1).
+7. Maak het bestand BingCustomSearch.py en kopieer de volgende code toe.
+8. Vervang **uw-SUBSCRIPTION-KEY** en **uw-aangepaste-CONFIG-ID** door uw sleutel en -configuratie-ID (Zie stap 1).
 
     ``` Python
     import json
@@ -55,12 +55,12 @@ Volg deze stappen voor het aanroepen van het eindpunt Bing aangepaste zoeken:
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
     ```
-9. De code met de volgende opdracht uitvoeren.
+9. Voer de code met de volgende opdracht uit.
     ```
     python BingCustomSearch.py
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Configureer uw gehoste UI-mogelijkheden](./hosted-ui.md)
+- [Configureren van uw gehoste gebruikersinterface-ervaring](./hosted-ui.md)
 - [Decoration markeringen gebruiken om te markeren van tekst](./hit-highlighting.md)
 - [Pagina webpagina 's](./page-webpages.md)

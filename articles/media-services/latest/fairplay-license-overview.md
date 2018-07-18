@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2018
 ms.author: juliako
-ms.openlocfilehash: ef2865152d94612a38f238de9cbd7d2cb08f5cbb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a68896d061040843990318cbc39eaf1aaa3c8b27
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009096"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115111"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Vereisten voor Apple FairPlay-licenties en configuratie 
 
@@ -116,4 +116,4 @@ private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOpti
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Overzicht](content-protection-overview.md)
+Bekijk hoe u [beveiligen met DRM](protect-with-drm.md)

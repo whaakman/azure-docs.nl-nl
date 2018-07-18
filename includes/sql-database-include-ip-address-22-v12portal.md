@@ -1,43 +1,44 @@
-
-<!--
-includes/sql-database-include-ip-address-22-v12portal.md
-
-Latest Freshness check:  2016-03-21 , daleche.
-
-As of circa 2015-09-04, the following topics might include this include:
-articles/sql-database/sql-database-configure-firewall-settings.md
-articles/sql-database/sql-database-connect-query.md
-
-
-## Server-level firewall rules
-
-### Add a server-level firewall rule through the new Azure portal
--->
-
-
+---
+title: Firewallregels op serverniveau
+description: Firewallregels op serverniveau
+keywords: SQL-verbinding, verbindingsreeks
+services: sql-database
+author: dalechen
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: include
+ms.date: 07/13/2018
+ms.author: ninarn
+ms.openlocfilehash: 07bbba28b7e1b048ef3a4e1afa4db255967dc093
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117270"
+---
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-2. Selecteer in de lijst aan de linkerkant **alle services**. 
+2. Selecteer in de lijst aan de linkerkant, **alle services**.
 
-3. Blader en selecteer **SQL-servers**. 
-   
+3. Schuif omlaag en selecteer **SQL-servers**.
+
     ![Uw Azure SQL Database-server niet vinden in de portal][b21-FindServerInPortal]
-5. Typ de naam van uw server in het filtertekstvak. De rij wordt weergegeven.
+5. Begin met het typen van de naam van uw server in het filtertekstvak. De rij wordt weergegeven.
 
 6. Selecteer de rij voor uw server. Een blade voor uw server wordt weergegeven.
 
-7. Selecteer op de blade van uw server **instellingen**. 
+7. Selecteer op de serverblade **instellingen**.
 
-8. Selecteer **Firewall**. 
-   
+8. Selecteer **Firewall**.
+
     ![Selecteer instellingen > Firewall][b31-SettingsFirewallNavig]
-9. Selecteer **-Client toevoegen IP**. Typ een naam voor de nieuwe regel in het tekstvak eerste.
+9. Selecteer **-Client toevoegen IP**. Typ een naam voor de nieuwe regel in het eerste tekstvak in.
 
-10. Typ in de lage en hoge IP-adreswaarden voor het bereik dat u wilt inschakelen.
-    
-    * Het kan zijn bij de hand hebt om het einde van de lage waarde met **.0** en de hoogste waarde eindigen met **.255**.
-    
-    ![Toevoegen van een IP-adresbereik om toe te staan][b41-AddRange]
+10. Typ in de hoge en lage IP-adreswaarden voor het bereik dat u wilt inschakelen.
+
+    * Kan het zijn handig om te hebben van het end lage waarde met **.0** en de hoge waarde eindigen met **.255**.
+
 11. Selecteer **Opslaan**.
 
 <!-- Image references. -->
