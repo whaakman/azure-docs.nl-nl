@@ -319,6 +319,10 @@
           href: transform-data-using-data-lake-analytics.md
         - name: Databricks Notebook-activiteit
           href: transform-data-databricks-notebook.md
+        - name: Databricks Jar-activiteit
+          href: transform-data-databricks-jar.md
+        - name: Databricks Python-activiteit
+          href: transform-data-databricks-python.md
         - name: Aangepaste activiteit
           href: transform-data-using-dotnet-custom-activity.md
         - name: Gekoppelde services berekenen

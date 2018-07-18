@@ -10,6 +10,8 @@
   items:
     - name: Een oplossing voor bewaking op afstand implementeren
       href: quickstart-remote-monitoring-deploy.md
+    - name: Een oplossing voor een verbonden fabriek implementeren
+      href: quickstart-connected-factory-deploy.md
     - name: Een oplossing voor voorspellend onderhoud implementeren
       href: quickstart-predictive-maintenance-deploy.md
     - name: Een apparaatsimulatieoplossing implementeren
@@ -141,8 +143,8 @@
           href: iot-accelerators-predictive-overview.md
     - name: Verbonden factory
       items:
-        - name: Een oplossingsversneller implementeren
-          href: iot-accelerators-connected-factory-overview.md
+        - name: Het dashboard gebruiken
+          href: iot-accelerators-connected-factory-dashboard.md
         - name: Een gateway implementeren
           href: iot-accelerators-connected-factory-gateway-deployment.md
         - name: De uitgever van OPC gebruiken

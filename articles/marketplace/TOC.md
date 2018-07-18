@@ -8,12 +8,8 @@
 ### Publiceren op Azure Marketplace  
 #### [Type vermelding voor uw oplossing bepalen](./determine-your-listing-type.md)  
 #### [Uitgever worden op de Marketplace](./become-publisher.md)  
-#### [Vereisten per type vermelding](./listing-type-requirements.md) 
-#### Controlelijsten voor bedrijven  
-##### [Richtlijnen](./guidelines.md)  
-##### [Registreren in Dev Center](./register-dev-center.md)  
-##### [Bank- en belastinggegevens toevoegen](./add-bank-tax-info.md)  
-##### [Proefversie inschakelen met Azure AD](./enable-trial-using-azure-ad.md)  
+##### [Een Microsoft-account maken](./guidelines.md)
+##### [Registreren in Dev Center](./register-dev-center.md) 
 ##### [Factureringsopties voor Azure Marketplace](./billing-options-azure-marketplace.md)  
 
 ### Publicatiehandleiding op Type aanbieding 
@@ -24,12 +20,21 @@
 #### [Containers](./marketplace-containers.md)
 #### [Adviesservices](./consulting-services.md)  
 #### [AppSource-apps](./appsource-offer-publishing-guide.md)
+#### [Uw Marketplace-proefversie inschakelen met Azure Active Directory](./enable-trial-using-azure-ad.md)
 
 ### [Laat uw bedrijf groeien via de marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Voorkeursoplossingen](./preferred-solutions.md) 
 
 ### Ondersteuning  
 #### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)  
+
+### Publicatiehandleidingen  
+#### [Adviesdienst voor Azure Marketplace](consulting-services.md)  
+#### [Technische handleiding voor publicatie van SaaS-toepassingen op Azure Marketplace](marketplace-saas-applications-technical-publishing-guide.md) 
+#### [Uw Marketplace-proefversie inschakelen met Azure Active Directory](./enable-trial-using-azure-ad.md)  
+
+### [Laat uw bedrijf groeien via de marketplace](./grow-your-business-with-azure-marketplace.md)  
+#### [Voorkeursoplossingen](./preferred-solutions.md) 
 
 ## [Cloud Partner-portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 

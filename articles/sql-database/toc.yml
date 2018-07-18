@@ -402,6 +402,8 @@
           href: sql-database-cloud-migrate.md
         - name: Migreren naar beheerd exemplaar
           href: sql-database-managed-instance-migrate.md
+        - name: TDE-certificaat migreren naar beheerd exemplaar
+          href: sql-database-managed-instance-migrate-tde-certificate.md
         - name: SQL Database na migratie beheren
           href: sql-database-manage-after-migration.md
     - name: Gegevens laden en verplaatsen

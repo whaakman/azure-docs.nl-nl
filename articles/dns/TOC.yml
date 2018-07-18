@@ -5,12 +5,13 @@
     - name: Wat is Azure DNS?
       href: dns-overview.md
 - name: Snelstartgidsen
+  expanded: true
   items:
     - name: Naamomzetting - portal
       href: dns-getstarted-portal.md
-    - name: Een DNS-zone en -record maken - PowerShell
+    - name: Naamomzetting - PowerShell
       href: dns-getstarted-powershell.md
-    - name: Een DNS-zone en -record maken - CLI
+    - name: Naamomzetting - CLI
       href: dns-getstarted-cli.md
 - name: Zelfstudies
   items:

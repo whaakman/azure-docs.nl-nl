@@ -35,7 +35,7 @@
       href: policy-samples.md
 - name: Concepten
   items:
-    - name: Beveiliging
+    - name: Beveiligingsgroepen
       href: security-overview.md
     - name: Routering
       href: virtual-networks-udr-overview.md

@@ -28,7 +28,7 @@
       href: visual-search-sdk-python.md
 - name: Zelfstudies
   items:
-    - name: Afbeelding voor Visual Search uploaden
+    - name: Web-app voor het uploaden van afbeeldingen
       href: tutorial-visual-search-image-upload.md
     - name: Web-app van één pagina
       href: tutorial-bing-visual-search-single-page-app.md

@@ -11,12 +11,18 @@
   items:
     - name: Speech Service gratis uitproberen
       href: get-started.md
-    - name: 'Spraak herkennen in C#'
-      href: quickstart-csharp-windows.md
+    - name: 'Spraak herkennen in C# (.NET in Windows)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: 'Spraak herkennen in C# (.NET Core in Windows)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: Spraak herkennen in een UWP-app
+      href: quickstart-csharp-uwp.md
     - name: Spraak herkennen in C++ voor Windows
       href: quickstart-cpp-windows.md
     - name: Spraak herkennen in C++ voor Linux
       href: quickstart-cpp-linux.md
+    - name: Spraak herkennen in Java voor Android
+      href: quickstart-java-android.md
     - name: Aan de slag met Speech Devices SDK
       href: speech-devices-sdk-qsg.md
 - name: Handleidingen

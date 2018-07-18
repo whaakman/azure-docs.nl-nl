@@ -1,0 +1,63 @@
+- name: Documentatie voor Service Fabric Mesh
+  href: index.yml
+- name: Overzicht
+  expanded: true
+  items:
+    - name: Over Service Fabric Mesh
+      href: service-fabric-mesh-overview.md
+- name: Snelstartgidsen
+  items:
+    - name: Hallo wereld implementeren
+      href: service-fabric-mesh-quickstart-deploy-container.md
+    - name: Een webtoepassing maken en implementeren
+      href: service-fabric-mesh-quickstart-dotnet-core.md
+- name: Zelfstudies
+  items:
+    - name: Een web-app met meerdere services maken en implementeren
+      items:
+        - name: 1- Een ASP.NET Core-toepassing bouwen
+          href: service-fabric-mesh-tutorial-create-dotnetcore.md
+        - name: 2 - Fouten in de toepassing opsporen
+          href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
+        - name: 3 - De toepassing implementeren
+          href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+- name: Concepten
+  items:
+    - name: Terminologie
+      href: service-fabric-mesh-terminology.md
+    - name: Service Fabric-resources
+      href: service-fabric-mesh-service-fabric-resources.md
+    - name: Controle en diagnose
+      href: service-fabric-mesh-monitoring-diagnostics.md
+    - name: Status opslaan
+      href: service-fabric-mesh-storing-state.md
+- name: Handleidingen
+  items:
+    - name: De ontwikkelomgeving instellen
+      href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+    - name: Service Fabric Mesh CLI instellen
+      href: service-fabric-mesh-howto-setup-cli.md
+    - name: Een .NET Core-microservices-app implementeren
+      href: service-fabric-mesh-howto-deploy-app-template.md
+    - name: Een app implementeren vanuit een privéregister
+      href: service-fabric-mesh-howto-deploy-app-private-registry.md
+    - name: Status opslaan met Azure Files-volume
+      href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
+    - name: Onafhankelijk microservices schalen in een app
+      href: service-fabric-mesh-howto-app-scale-out.md
+- name: Resources
+  items:
+    - name: Veelgestelde vragen
+      href: service-fabric-mesh-faq.md
+    - name: Voorbeeldtoepassingen
+      href: 'https://github.com/Azure-Samples/service-fabric-mesh'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=service-fabric-mesh'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=service-fabric-mesh'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric-mesh'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric-mesh'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'

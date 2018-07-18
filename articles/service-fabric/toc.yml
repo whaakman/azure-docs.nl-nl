@@ -551,7 +551,7 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Programmatisch uitschalen
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: VM’s van het primaire knooppunttype opschalen
+                - name: De virtuele machines van het primaire knooppunttype schalen of upgraden
                   href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: Upgraden
               href: service-fabric-cluster-upgrade.md
@@ -569,8 +569,6 @@
               href: service-fabric-cluster-delete.md
             - name: Extern verbinding maken met de VM die het clusterknooppunt vormt
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-            - name: VMSS-SKU upgraden/migreren
-              href: service-fabric-update-vmss-sku.md
         - name: Zelfstandige clusters
           items:
             - name: Maken

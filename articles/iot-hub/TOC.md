@@ -16,24 +16,10 @@
 ## [Een apparaat beheren (Python)](quickstart-control-device-python.md)
 
 # Zelfstudies
-
-<!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Berichten routeren](tutorial-routing.md)
 ## [Uw apparaten configureren](tutorial-device-twins.md)
 ## [Firmware-updates beheren](tutorial-firmware-update.md)
 ## [Connectiviteit van apparaten testen](tutorial-connectivity.md)
-## Cloud-naar-apparaat-berichten verzenden
-### [.NET](iot-hub-csharp-csharp-c2d.md)
-### [Java](iot-hub-java-java-c2d.md)
-### [Node.js](iot-hub-node-node-c2d.md)
-### [Python](iot-hub-python-python-c2d.md)
-## Aan de slag met apparaatbeheer
-### [Node.js](iot-hub-node-node-device-management-get-started.md)
-### [.NET](iot-hub-csharp-csharp-device-management-get-started.md)
-### [Java](iot-hub-java-java-device-management-getstarted.md)
-### [Python](iot-hub-python-python-device-management-get-started.md)
-
-### [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
 
 # Concepten
 ## [Overzicht van apparaatbeheer](iot-hub-device-management-overview.md)
@@ -42,6 +28,7 @@
 ## [Hoge beschikbaarheid en herstel na noodgevallen](iot-hub-ha-dr.md)
 ## [Aanvullende protocollen ondersteunen](iot-hub-protocol-gateway.md)
 ## [Berichtroutering en gebeurtenisroutering vergelijken](iot-hub-event-grid-routing-comparison.md)
+## [Aanbevolen procedures voor apparaatconfiguratie](iot-hub-configuration-best-practices.md)
 
 ## [Ontwikkelaarsgids](iot-hub-devguide.md)
 ### [Gids voor apparaat-naar-cloud-functies](iot-hub-devguide-d2c-guidance.md)
@@ -58,6 +45,7 @@
 ### [Apparaatidentiteiten beheren](iot-hub-devguide-identity-registry.md)
 ### [Toegang tot IoT Hub regelen](iot-hub-devguide-security.md)
 ### [Meer informatie over apparaatdubbels](iot-hub-devguide-device-twins.md)
+### [Meer informatie over moduledubbels](iot-hub-devguide-module-twins.md)
 ### [Directe methoden aanroepen op een apparaat](iot-hub-devguide-direct-methods.md)
 ### [Taken op meerdere apparaten plannen](iot-hub-devguide-jobs.md)
 ### [IoT Hub-eindpunten](iot-hub-devguide-endpoints.md)
@@ -65,89 +53,29 @@
 ### [Quota en beperkingen](iot-hub-devguide-quotas-throttling.md)
 ### [Prijsvoorbeelden](iot-hub-devguide-pricing.md)
 ### [Apparaat- en service-SDK's](iot-hub-devguide-sdks.md)
-### [Ontwikkelen voor beperkte apparaten](iot-hub-devguide-develop-for-constrained-devices.md)
-### [Ontwikkelen voor mobiele apparaten](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT-ondersteuning](iot-hub-mqtt-support.md)
 ### [Woordenlijst](iot-hub-devguide-glossary.md)
 
-## Uw apparaat instellen
-### [Een apparaat simuleren op uw pc](iot-hub-get-started-simulated.md)
-#### [.NET](iot-hub-csharp-csharp-getstarted.md)
-#### [Java](iot-hub-java-java-getstarted.md)
-#### [Node.js](iot-hub-node-node-getstarted.md)
-#### [Python](iot-hub-python-getstarted.md)
-## [De IoT-apparaat-SDK voor C gebruiken](iot-hub-device-sdk-c-intro.md)
-### [De IoTHubClient gebruiken](iot-hub-device-sdk-c-iothubclient.md)
-### [De serialisatiefunctie gebruiken](iot-hub-device-sdk-c-serializer.md)
+## Beveiliging
+### [Fundamentele beveiliging](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+### [Aanbevolen procedures voor beveiliging](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+### [Beveiligingsarchitectuur](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+### [Uw IoT-implementatie beveiligen](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 
-## [Fundamentele beveiliging](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
-## [Aanbevolen procedures voor beveiliging](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
-## [Beveiligingsarchitectuur](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
-## [Uw IoT-implementatie beveiligen](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## Beveiligen met behulp van X.509-CA-certificaten
 ### [Overzicht van beveiliging op basis van X.509-CA-certificaten](iot-hub-x509ca-overview.md)
-#### [Concepten van beveiliging op basis van X.509-CA-certificaten](iot-hub-x509ca-concept.md)
-### [Aan de slag met beveiliging op basis van X.509-CA-certificaten](iot-hub-security-x509-get-started.md)
-#### [Certificaten maken - PowerShell](iot-hub-security-x509-create-certificates.md)
-
-
-### Uitgebreide IoT-scenario 's
-#### [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-#### [IoT Hub-berichten opslaan in Azure Blob-opslag](iot-hub-store-data-in-azure-table-storage.md)
-#### [Gegevensvisualisatie in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-#### [Gegevensvisualisatie met Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
-#### [Weersvoorspelling met behulp van Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-#### [Apparaatbeheer met iothub-explorer](iot-hub-device-management-iothub-explorer.md)
-#### [Apparaatbeheer met IoT-extensie voor Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
-#### [Externe bewaking en meldingen met Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-
-### MXChip IoT DevKit gebruiken
-#### [Spraakberichten vertalen met Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
-#### [Een Twitter-bericht ophalen met Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
-#### [Berichten verzenden naar een MQTT-server met Eclipse Paho-API's](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
-#### [De magnetische sensor bewaken en e-mailmeldingen verzenden met Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
-
-## [Aanbevolen procedures voor apparaatconfiguratie](iot-hub-configuration-best-practices.md)
+### [Concepten van beveiliging op basis van X.509-CA-certificaten](iot-hub-x509ca-concept.md)
 
 # Handleidingen
-## Plannen
-### [IoT Hub en Event Hubs vergelijken](iot-hub-compare-event-hubs.md)
-### [De juiste laag kiezen](iot-hub-scaling.md)
-### [Hoge beschikbaarheid en herstel na noodgevallen](iot-hub-ha-dr.md)
-### [Aanvullende protocollen ondersteunen](iot-hub-protocol-gateway.md)
-### [Berichtroutering en gebeurtenisroutering vergelijken](iot-hub-event-grid-routing-comparison.md)
-## [Ontwikkelen](iot-hub-how-to.md)
-### [Ontwikkelaarsgids](iot-hub-devguide.md)
-#### [Gids voor apparaat-naar-cloud-functies](iot-hub-devguide-d2c-guidance.md)
-#### [Gids voor cloud-naar-apparaat-functies](iot-hub-devguide-c2d-guidance.md)
-#### [Berichten verzenden en ontvangen](iot-hub-devguide-messaging.md)
-##### [Apparaat-naar-cloud-berichten verzenden naar IoT Hub](iot-hub-devguide-messages-d2c.md)
-##### [Apparaat-naar-cloud-berichten lezen van het geïntegreerde eindpunt](iot-hub-devguide-messages-read-builtin.md)
-##### [Reageren op IoT Hub-gebeurtenissen](iot-hub-event-grid.md)
-##### [Aangepaste eindpunten en routeringsregels gebruiken voor apparaat-naar-cloud-berichten](iot-hub-devguide-messages-read-custom.md)
-##### [Cloud-naar-apparaat-berichten verzenden vanuit IoT Hub](iot-hub-devguide-messages-c2d.md)
-##### [IoT Hub-berichten maken en lezen](iot-hub-devguide-messages-construct.md)
-##### [Een communicatieprotocol kiezen](iot-hub-devguide-protocols.md)
-#### [Bestanden vanaf een apparaat uploaden](iot-hub-devguide-file-upload.md)
-#### [Apparaatidentiteiten beheren](iot-hub-devguide-identity-registry.md)
-#### [Toegang tot IoT Hub regelen](iot-hub-devguide-security.md)
-#### [Meer informatie over apparaatdubbels](iot-hub-devguide-device-twins.md)
-#### [Meer informatie over moduledubbels](iot-hub-devguide-module-twins.md)
-#### [Directe methoden aanroepen op een apparaat](iot-hub-devguide-direct-methods.md)
-#### [Taken op meerdere apparaten plannen](iot-hub-devguide-jobs.md)
-#### [IoT Hub-eindpunten](iot-hub-devguide-endpoints.md)
-#### [Querytaal](iot-hub-devguide-query-language.md)
-#### [Quota en beperkingen](iot-hub-devguide-quotas-throttling.md)
-#### [Prijsvoorbeelden](iot-hub-devguide-pricing.md)
-#### [Apparaat- en service-SDK's](iot-hub-devguide-sdks.md)
-#### [MQTT-ondersteuning](iot-hub-mqtt-support.md)
-#### [Woordenlijst](iot-hub-devguide-glossary.md)
+
+## Ontwikkelen
 ### [De IoT-apparaat-SDK voor C gebruiken](iot-hub-device-sdk-c-intro.md)
 #### [De IoTHubClient gebruiken](iot-hub-device-sdk-c-iothubclient.md)
 #### [De serialisatiefunctie gebruiken](iot-hub-device-sdk-c-serializer.md)
 ### [Ontwikkelen voor beperkte apparaten](iot-hub-devguide-develop-for-constrained-devices.md)
 ### [Ontwikkelen voor mobiele apparaten](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [Avro-gegevens opvragen van een hubroute](iot-hub-query-avro-data.md)
+
 ### Cloud-naar-apparaat-berichten verzenden
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
@@ -170,37 +98,47 @@
 #### [Python](iot-hub-python-python-module-twin-getstarted.md)
 #### [C](iot-hub-c-c-module-twin-getstarted.md)
 #### [Node](iot-hub-node-node-module-twin-getstarted.md)
-### Directe methoden gebruiken
-#### [Node.js](iot-hub-node-node-direct-methods.md)
-#### [.NET](iot-hub-csharp-csharp-direct-methods.md)
-#### [Java](iot-hub-java-java-direct-methods.md)
-#### [Python](iot-hub-python-python-direct-methods.md)
+### Aan de slag met apparaatbeheer
+#### [Node.js](iot-hub-node-node-device-management-get-started.md)
+#### [.NET](iot-hub-csharp-csharp-device-management-get-started.md)
+#### [Java](iot-hub-java-java-device-management-getstarted.md)
+#### [Python](iot-hub-python-python-device-management-get-started.md)
 ### Taken plannen en uitzenden
 #### [Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [.NET](iot-hub-csharp-csharp-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 #### [Python](iot-hub-python-python-schedule-jobs.md)
-## Bestanden uploaden vanaf apparaten
-### [.NET](iot-hub-csharp-csharp-file-upload.md)
-### [Java](iot-hub-java-java-file-upload.md)
-### [Node.js](iot-hub-node-node-file-upload.md)
-### [Python](iot-hub-python-python-file-upload.md)
+### MXChip IoT DevKit gebruiken
+#### [Spraakberichten vertalen met Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
+#### [Een Twitter-bericht ophalen met Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+#### [Berichten verzenden naar een MQTT-server met Eclipse Paho-API's](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
+#### [De magnetische sensor bewaken en e-mailmeldingen verzenden met Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
-## Een IoT Hub maken 
-### [Azure Portal gebruiken](iot-hub-create-through-portal.md)
-### [Azure PowerShell gebruiken](iot-hub-create-using-powershell.md)
-### [Azure CLI gebruiken](iot-hub-create-using-cli.md)
-### [CLI gebruiken](iot-hub-create-using-cli-nodejs.md)
-### [De REST-API gebruiken](iot-hub-rm-rest.md)
-### [Een Azure PowerShell-sjabloon gebruiken](iot-hub-rm-template-powershell.md)
-### [Een .NET-sjabloon gebruiken](iot-hub-rm-template.md)
-## Uploaden van bestanden configureren
-### [Azure Portal gebruiken](iot-hub-configure-file-upload.md)
-### [Azure PowerShell gebruiken](iot-hub-configure-file-upload-powershell.md)
-### [Azure CLI gebruiken](iot-hub-configure-file-upload-cli.md)
-## [Bewaken met diagnostische gegevens](iot-hub-monitor-resource-health.md)
-### [Migreren naar diagnostische instellingen](iot-hub-migrate-to-diagnostics-settings.md)
-### [Controle van bewerkingen](iot-hub-operations-monitoring.md)
+## Beheren
+### Een IoT Hub maken 
+#### [Azure Portal gebruiken](iot-hub-create-through-portal.md)
+#### [Azure PowerShell gebruiken](iot-hub-create-using-powershell.md)
+#### [Azure CLI gebruiken](iot-hub-create-using-cli.md)
+#### [CLI gebruiken](iot-hub-create-using-cli-nodejs.md)
+#### [De REST-API gebruiken](iot-hub-rm-rest.md)
+#### [Een Azure PowerShell-sjabloon gebruiken](iot-hub-rm-template-powershell.md)
+#### [Een .NET-sjabloon gebruiken](iot-hub-rm-template.md)
+### Uploaden van bestanden configureren
+#### [Azure Portal gebruiken](iot-hub-configure-file-upload.md)
+#### [Azure PowerShell gebruiken](iot-hub-configure-file-upload-powershell.md)
+#### [Azure CLI gebruiken](iot-hub-configure-file-upload-cli.md)
+### [Bewaken met diagnostische gegevens](iot-hub-monitor-resource-health.md)
+#### [Migreren naar diagnostische instellingen](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Controle van bewerkingen](iot-hub-operations-monitoring.md)
+### [Uw hub beveiligen met een X.509-certificaat](iot-hub-security-x509-get-started.md)
+### [Een IoT-hub upgraden](iot-hub-upgrade.md)
+### [Metrische gebruiksgegevens](iot-hub-metrics.md)
+### [IP-filtering configureren](iot-hub-ip-filtering.md)
+### Apparaten op schaal configureren
+#### [Azure Portal gebruiken](iot-hub-auto-device-config.md)
+#### [Azure CLI gebruiken](iot-hub-auto-device-config-cli.md)
+### [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
+
 ## Een echt apparaat gebruiken
 ### [Aan de slag](iot-hub-get-started.md)
 ### [Een online simulator gebruiken](iot-hub-raspberry-pi-web-simulator-get-started.md)
@@ -214,15 +152,17 @@
 #### [Adafruit Feather HUZZAH ESP8266 met Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
 #### [Sparkfun ESP8266 Thing Dev met Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Adafruit Feather M0 met Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
-## [Een IoT-hub upgraden](iot-hub-upgrade.md)
-## [Metrische gebruiksgegevens](iot-hub-metrics.md)
-## [IP-filtering configureren](iot-hub-ip-filtering.md)
-## Apparaten op schaal configureren
-### [Azure Portal gebruiken](iot-hub-auto-device-config.md)
-### [Azure CLI gebruiken](iot-hub-auto-device-config-cli.md)
+### Uitgebreide IoT-scenario 's
+#### [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [IoT Hub-berichten opslaan in Azure Blob-opslag](iot-hub-store-data-in-azure-table-storage.md)
+#### [Gegevensvisualisatie in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+#### [Gegevensvisualisatie met Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Weersvoorspelling met behulp van Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Apparaatbeheer met iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+#### [Apparaatbeheer met IoT-extensie voor Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
+#### [Externe bewaking en meldingen met Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure-CLI](/cli/azure/iot)
 ## [.NET (service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (apparaten)](/dotnet/api/microsoft.azure.devices.client)
@@ -232,15 +172,14 @@
 ## [Node.js (service)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [Apparaat-SDK voor C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
-## [REST (resourceprovider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
-## [REST (apparaatidentiteiten)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
-## [REST (apparaatdubbels)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
-## [REST (apparaatberichten)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
-## [REST (taken)](https://docs.microsoft.com/rest/api/iothub/jobapi)
+## [REST (apparaat)](https://docs.microsoft.com/rest/api/iothub/device)
+## [REST (service)](https://docs.microsoft.com/rest/api/iothub/service)
+## [REST (IoT Hub-resource)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (certificaten)](https://docs.microsoft.com/rest/api/iothub/certificates)
 
 # Verwant
 ## Oplossingen 
-### [IoT-oplossingsversnellers](/azure/iot-suite) 
+### [IoT-oplossingsversnellers](/azure/iot-accelerators) 
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Platformservices 
 ### [IoT Hub](/azure/iot-hub) 
