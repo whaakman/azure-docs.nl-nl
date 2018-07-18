@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: 6ee54f1405d94235784831d63e1abe87a495953b
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: fb52bc3fa398cbe5ba4cbea7c1908ee1fece876e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072565"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114699"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Snelstartgids: Spraakherkenning in Java op Android met behulp van de SDK spraak herkennen
 
@@ -60,7 +60,7 @@ Nadat het is uitgevoerd voor een tijdje uw zojuist gemaakte Android Studio-proje
 
 ## <a name="configure-your-project-for-the-speech-sdk"></a>Uw project voor de spraak-SDK configureren
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 De huidige versie van de Cognitive Services Speech SDK is `0.5.0`.
 
