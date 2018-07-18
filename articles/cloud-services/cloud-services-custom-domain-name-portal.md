@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7488bfbabaf2ce12d2f7315f5142ffea93f584c2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 43a3458ba0f08d73931b5ecddf6a2c7b1ae259f4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001630"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044812"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Een aangepaste domeinnaam voor een Azure-cloudservice configureren
 Wanneer u een Cloudservice maakt, Azure toegewezen aan een subdomein van **cloudapp.net**. Bijvoorbeeld, als uw Cloudservice is de naam "contoso", uw gebruikers zich toegang tot uw toepassing op een URL, zoals http://contoso.cloudapp.net. Azure wijst ook een virtueel IP-adres.
@@ -124,7 +124,7 @@ Bijvoorbeeld, de volgende een record al het verkeer van verzendt **contoso.com**
 
 | Host-naam/subdomein | IP-adres |
 | --- | --- |
-| @ |137.135.70.239 |
+| \@ |137.135.70.239 |
 
 In dit voorbeeld ziet u het maken van een A-record voor het hoofddomein. Als u een jokerteken-vermelding aan zodat alle subdomeinen maken wilt, voert u dus ' ***' als het subdomein.
 

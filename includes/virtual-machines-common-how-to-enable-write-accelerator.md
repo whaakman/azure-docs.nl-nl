@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: cd9b8eaf84ac4c1227c521628fd4156eec4506bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3c5746d0fd2c471f767bac4891178c63e21f0418
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38746264"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39094409"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator inschakelt
 
@@ -67,7 +67,7 @@ De volgende vereisten gelden op dit moment voor het gebruik van Write Accelerato
 - De schijven die u wilt toepassen Azure Write Accelerator tegen moeten [Azure beheerde schijven](https://azure.microsoft.com/services/managed-disks/) op Premium Storage.
 - U moet gebruiken een VM uit de M-serie
 
-### <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Azure Write Accelerator met behulp van Azure PowerShell inschakelen
+## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Azure Write Accelerator met behulp van Azure PowerShell inschakelen
 
 De Azure PowerShell-module van versie 5.5.0 bevatten de wijzigingen in de relevante cmdlets voor het in- of uitschakelen van Write Accelerator voor specifieke Azure Premium Storage-schijven.
 Als u wilt in- of schijven die worden ondersteund door Write Accelerator implementeren, hebt u de volgende Power Shell-opdrachten gewijzigd en uitgebreid voor het accepteren van een parameter voor Write Accelerator.
@@ -108,7 +108,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 Twee hoofdscenario's kunnen scripts worden gebruikt, zoals wordt weergegeven in de volgende secties.
 
-#### <a name="adding-a-new-disk-supported-by-write-accelerator-using-powershell"></a>Toevoegen van een nieuwe schijf wordt ondersteund door Write Accelerator met behulp van PowerShell
+### <a name="adding-a-new-disk-supported-by-write-accelerator-using-powershell"></a>Toevoegen van een nieuwe schijf wordt ondersteund door Write Accelerator met behulp van PowerShell
 
 Met dit script kunt u een nieuwe schijf toevoegen aan uw virtuele machine. De schijf gemaakt met dit script maakt gebruik van Write Accelerator.
 
@@ -133,9 +133,9 @@ Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$dat
 Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 ```
 
-#### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Write Accelerator inschakelt op een bestaande Azure-schijf met behulp van PowerShell
+### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Write Accelerator inschakelt op een bestaande Azure-schijf met behulp van PowerShell
 
-U kunt dit script gebruiken om in te schakelen Write Accelerator op een bestaande schijf. Vervang `myVM`, `myWAVMs`, en `test-log001` met waarden die geschikt is voor uw specifieke implementatie. Het script voegt Write Accelerator toe aan een bestaande schijf waarvan de waarde voor $newstatus is ingesteld op '$true'. Met behulp van de waarde '$false', wordt de Write Accelerator uitgeschakeld op een bepaalde schijf.
+U kunt dit script gebruiken om in te schakelen Write Accelerator op een bestaande schijf. Vervang `myVM`, `myWAVMs`, en `test-log001` met waarden die geschikt is voor uw specifieke implementatie. Het script voegt Write Accelerator toe aan een bestaande schijf waar de waarde voor **$newstatus** is ingesteld op '$true'. Met behulp van de waarde '$false', wordt de Write Accelerator uitgeschakeld op een bepaalde schijf.
 
 ```PowerShell
 #Specify your VM Name
@@ -157,15 +157,15 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 > [!Note]
 > Uitvoeren van het bovenstaande script wordt de opgegeven schijf loskoppelen, Write Accelerator inschakelen op basis van de schijf en vervolgens de schijf opnieuw koppelen
 
-### <a name="enabling-write-accelerator-using-the-azure-portal"></a>Inschakelen van Write Accelerator met behulp van de Azure portal
+## <a name="enabling-write-accelerator-using-the-azure-portal"></a>Inschakelen van Write Accelerator met behulp van de Azure portal
 
-U kunt Write Accelerator inschakelen via de portal waar u de instellingen voor cache schijf opgeven: 
+U kunt Write Accelerator inschakelen via de portal waar u de instellingen voor cache schijf opgeven:
 
 ![Write Accelerator in Azure portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
-### <a name="enabling-write-accelerator-using-the-azure-cli"></a>Inschakelen van Write Accelerator met de Azure CLI
+## <a name="enabling-write-accelerator-using-the-azure-cli"></a>Inschakelen van Write Accelerator met de Azure CLI
 
-U kunt de [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) Write Accelerator inschakelen. 
+U kunt de [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) Write Accelerator inschakelen.
 
 Gebruiken om in te schakelen Write Accelerator op een bestaande schijf, [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), mag u de volgende voorbeelden gebruiken als u de diskName, -VMName en ResourceGroup door uw eigen waarden vervangen: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
@@ -173,11 +173,11 @@ Het koppelen van een schijf met Write Accelerator ingeschakeld gebruik [az vm di
 
 Als u wilt uitschakelen Write Accelerator, gebruikt u [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), de eigenschappen instellen op false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
-### <a name="enabling-through-rest-apis"></a>Inschakelen via de Rest-API 's
+## <a name="enabling-write-accelerator-using-rest-apis"></a>Inschakelen van Write Accelerator met behulp van Rest-API 's
 
 Als u wilt implementeren via Rest API van Azure, moet u de Azure armclient installeren.
 
-#### <a name="install-armclient"></a>Armclient installeren
+### <a name="install-armclient"></a>Armclient installeren
 
 Om uit te voeren armclient, moet u deze via Chocolatey installeren. U kunt deze installeren via cmd.exe of powershell. Gebruik verhoogde bevoegdheden voor deze opdrachten ('als Administrator uitvoeren").
 
@@ -187,7 +187,7 @@ Met behulp van Power Shell, voert u de volgende opdracht uit: `Set-ExecutionPoli
 
 U kunt nu de armclient installeren met behulp van de volgende opdracht uit in cmd.exe of PowerShell `choco install armclient`
 
-#### <a name="getting-your-current-vm-configuration"></a>De huidige configuratie van de virtuele machine ophalen
+### <a name="getting-your-current-vm-configuration"></a>De huidige configuratie van de virtuele machine ophalen
 
 Als u wilt de kenmerken van de schijfconfiguratie wijzigen, moet u eerst op te halen van de huidige configuratie in een JSON-bestand. U kunt de huidige configuratie krijgen door het uitvoeren van de volgende opdracht: `armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
 

@@ -8,14 +8,14 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: bf37ffa9b5a185845c8eeafa7e00d352486fdce2
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069461"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113388"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Informatie over de Cognitive Services Speech-SDK
 
@@ -23,7 +23,7 @@ De Cognitive Services spraak Software Development Kit (SDK) biedt uw toepassinge
 
 [!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="get-the-windows-sdk"></a>Ophalen van de Windows SDK
 
@@ -57,14 +57,19 @@ Voor het maken van een toepassing, kopiëren of verplaatsen van de vereiste bina
 
 De Java-SDK voor Android wordt geleverd als een [AAR (Android-bibliotheek)](https://developer.android.com/studio/projects/android-library), waaronder de vereiste bibliotheken, evenals de vereiste Android-machtigingen voor het gebruik ervan.
 Deze wordt gehost in een Maven-opslagplaats op `https://csspeechstorage.blob.core.windows.net/maven/` als pakket `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
+De verbruiken het pakket van uw Android Studio-project de volgende wijzigingen aanbrengen:
 
-* In de Android Studio-project toevoegen
+* In de project-niveau `build.gradle` bestand, voeg de volgende in de `repository` sectie:
+
+  ```text
+  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
+  ```
+
+* In de module-niveau `build.gradle` bestand, voeg de volgende in de `dependencies` sectie:
 
   ```text
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
   ```
-
-  in de `dependencies` sectie van de module-niveau `build.gradle` bestand.
 
 De Java-SDK is ook deel uit van de [spraak Devices SDK](speech-devices-sdk.md).
 

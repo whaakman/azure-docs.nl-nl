@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f0ad879bb084a8d3a50a0934557eae64621c0160
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 68613b8613a2e5a9139b83eb23e66884659efc47
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054248"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114931"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Zelfstudie: Azure Active Directory-integratie met Atlassian Cloud
 
@@ -39,7 +39,7 @@ Zie voor meer informatie over software als een service (SaaS)-app-integratie met
 Voor het configureren van Azure AD-integratie met Atlassian Cloud, moet u de volgende items:
 
 - Een Azure AD-abonnement.
-- Om in te schakelen Security Assertion Markup Language (SAML) eenmalige aanmelding voor Atlassian cloudproducten, moet u instellen van Identity Manager. Meer informatie over [Identity Manager]( https://www.atlassian.com/enterprise/cloud/identity-manager).
+- Om in te schakelen Security Assertion Markup Language (SAML) eenmalige aanmelding voor Atlassian cloudproducten, moet u het instellen van Atlassian toegang. Meer informatie over [Atlassian toegang]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 > [!NOTE]
 > Wanneer u de stappen in deze zelfstudie hebt getest, raden wij aan dat u niet een productie-omgeving.
@@ -99,22 +99,27 @@ Voor het configureren van Azure AD eenmalige aanmelding met Atlassian Cloud, het
 
     ![Venster voor eenmalige aanmelding](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
 
-3. Het configureren van de toepassing in de modus voor IDP gestart door onder **Atlassian Cloud domein en URL's**, doet u het volgende:
+3. Het configureren van de toepassing in **IDP gestart door** modus onder **Atlassian Cloud domein en URL's**, doet u het volgende:
 
     ![Atlassian Cloud domein en URL's, eenmalige aanmelding informatie](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
     
-    a. In de **id** in het vak **`https://auth.atlassian.com/saml/<unique ID>`**.
+    a. In de **id** vak, typ een URL met het volgende patroon: `https://auth.atlassian.com/saml/<unique ID>`.
     
-    b. In de **antwoord-URL** in het vak **`https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`**.
+    b. In de **antwoord-URL** vak, typ een URL met het volgende patroon: `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`.
 
-    c. In de **Relaystatus** vak, typ een URL met de volgende syntaxis: **`https://<instancename>.atlassian.net`**.
+    c. Controleer **geavanceerde URL-instellingen weergeven**.
 
-4. Voor het configureren van de toepassing in de modus SP geïnitieerde, selecteer de **geavanceerde URL-instellingen weergeven** en klikt u op de **aanmeldings-URL** vak, typ een URL met de volgende syntaxis: **`https://<instancename>.atlassian.net`** .
+    d. In de **Relaystatus** vak, typ een URL met het volgende patroon: `https://<instancename>.atlassian.net`.
+
+    > [!NOTE]
+    > De bovenstaande waarden zijn niet echt. Werk deze waarden met de werkelijke-id en antwoord-URL. U ontvangt deze echte waarden van het scherm Atlassian Cloud SAML-configuratie die later in de zelfstudie wordt uitgelegd.
+
+4. Voor het configureren van de toepassing in de modus SP geïnitieerde, selecteer de **geavanceerde URL-instellingen weergeven** en klikt u op de **aanmeldings-URL** vak, typ een URL met het volgende patroon: `https://<instancename>.atlassian.net`.
 
     ![Atlassian Cloud domein en URL's, eenmalige aanmelding informatie](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
     > [!NOTE]
-    > De bovenstaande waarden zijn niet echt. Deze bijwerken met de werkelijke-id, de antwoord-URL en de aanmeldings-URL-waarden. U krijgt de werkelijke waarden van het scherm Atlassian Cloud SAML-configuratie. We leggen de waarden later in de zelfstudie.
+    > Het vorige teken op URL-waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Atlassian Cloud Client ondersteuningsteam](https://support.atlassian.com/) deze waarde op te halen.
 
 5. Onder **SAML-handtekeningcertificaat**, selecteer **Certificate(Base64)**, en sla het certificaatbestand op uw computer.
 

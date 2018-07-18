@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: juliako
-ms.openlocfilehash: b62c528716d9386b9da6ddee260fd1ec382fb4a5
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 3e5de521570a587b049702dabd3e3692c4227796
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036782"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114790"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice
 
@@ -40,7 +40,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
 ## <a name="download-code"></a>Code downloaden
 
-Kloon van een GitHub-opslagplaats met het volledige .NET-voorbeeld wordt besproken in dit onderwerp voor de computer met de volgende opdracht:
+Kloon van een GitHub-opslagplaats met het volledige .NET-voorbeeld wordt besproken in dit artikel op de computer met de volgende opdracht:
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
@@ -53,13 +53,13 @@ Het voorbeeld ' versleuteld met AES-128 ' bevindt zich de [EncryptWithAES](https
 
 ## <a name="start-using-media-services-apis-with-net-sdk"></a>Starten met het gebruik van Media Services API's met .NET SDK
 
-Als u wilt starten met Media Services API's met .NET, moet u een **AzureMediaServicesClient**-object maken. Als u het object wilt maken, moet u referenties opgeven die de client nodig heeft om verbinding te maken met Azure met behulp van Microsoft Azure Active Directory. In de code die u aan het begin van het artikel hebt gekloond, wordt met de functie **GetCredentialsAsync** het object ServiceClientCredentials gemaakt op basis van de referenties die zijn opgegeven in het lokale configuratiebestand. 
+Als u wilt starten met Media Services API's met .NET, moet u een **AzureMediaServicesClient**-object maken. Als u het object wilt maken, moet u referenties opgeven die de client nodig heeft om verbinding te maken met Azure met behulp van Microsoft Azure Active Directory. In de code die u hebt gekloond aan het begin van het artikel, de **GetCredentialsAsync** functie maakt het ServiceClientCredentials-object op basis van de referenties die zijn opgegeven in het lokale configuratiebestand. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateMediaServicesClient)]
 
 ## <a name="create-an-output-asset"></a>Een uitvoeractivum maken  
 
-In de [uitvoerasset](https://docs.microsoft.com/rest/api/media/assets) wordt het resultaat van de coderingstaak opgeslagen. Nadat de codering is voltooid, wordt de uitvoerasset gepubliceerd met de AES (ClearKey)-versleuteling.  
+In de [uitvoerasset](https://docs.microsoft.com/rest/api/media/assets) wordt het resultaat van de coderingstaak opgeslagen.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateOutputAsset)]
  
@@ -87,27 +87,22 @@ De **taak** doorloopt meestal de volgende statussen: **gepland**, **in wachtrij*
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#WaitForJobToFinish)]
 
-## <a name="create-a-contentkey-policy"></a>Maak een beleid voor ContentKey
+## <a name="create-a-contentkeypolicy"></a>Een ContentKeyPolicy maken
 
-Een inhoudssleutel biedt veilige toegang tot uw activa. U moet inhoud key-beleid maken dat Hiermee configureert u hoe de inhoudssleutel wordt geleverd als u wilt beëindigen van clients. De inhoudssleutel is gekoppeld aan StreamingLocator. Media Services biedt ook de sleutelleveringsservice die zorgt voor versleutelingssleutels gemachtigde gebruikers. 
+Een inhoudssleutel biedt veilige toegang tot uw activa. U moet maken een **ContentKeyPolicy** die Hiermee configureert u hoe de inhoudssleutel wordt geleverd als u wilt beëindigen van clients. De inhoudssleutel is gekoppeld aan **StreamingLocator**. Media Services biedt ook de sleutelleveringsservice die zorgt voor versleutelingssleutels gemachtigde gebruikers. 
 
 Wanneer een stroom wordt aangevraagd door een speler, Media Services maakt gebruik van de opgegeven sleutel voor het versleutelen van uw inhoud dynamisch (in dit geval met behulp van AES-versleuteling.) Voor het ontsleutelen van de stroom, vraagt de speler de sleutel van de sleutelleveringsservice. Om te bepalen dat of de gebruiker is gemachtigd om op te halen van de sleutel, de service beoordeelt wat het beleid voor het sleutels van inhoud die u hebt opgegeven voor de sleutel.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## <a name="get-a-token"></a>Een token verkrijgen
-        
-In deze zelfstudie geven we voor de inhoud sleutel beleid heeft een beperking van de token. Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door een beveiligingstokenservice (STS). Media Services ondersteunt tokens in de [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT)-indelingen en dat is wat we in het voorbeeld configureren.
-
-De ContentKeyIdentifierClaim wordt gebruikt in de ContentKeyPolicy, wat betekent dat het token dat wordt weergegeven voor de service voor het leveren van de sleutel moet de id van de ContentKey erin. In het voorbeeld we niet een inhoudssleutel opgeeft bij het maken van de StreamingLocator, het systeem maakt een willekeurige voor ons. Als u wilt genereren van de test token, moet krijgen we de ContentKeyId in de claim ContentKeyIdentifierClaim te plaatsen.
-
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
-
 ## <a name="create-a-streaminglocator"></a>Een StreamingLocator maken
 
-Nadat de codering is voltooid, bestaat de volgende stap eruit om de video in de uitvoerasset beschikbaar te maken voor weergave door clients. U kunt dit doen in twee stappen: maak eerst een [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) en bouw vervolgens de streaming-URL's die clients kunnen gebruiken. 
+Nadat de codering voltooid is en het beleid voor de inhoud van de sleutels is ingesteld, wordt de volgende stap is om de video in de uitvoer van de Asset die beschikbaar zijn voor clients om te worden afgespeeld. U doet dit in twee stappen: 
 
-Het proces van het maken van een **StreamingLocator** wordt publiceren genoemd. Standaard is de **StreamingLocator** onmiddellijk geldig nadat u de API-aanroepen hebt gemaakt en totdat deze wordt verwijderd, tenzij u de optionele start- en eindtijden configureert. 
+1. Maak een [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
+2. Bouw de streaming-URL's die clients kunnen gebruiken. 
+
+Het proces voor het maken van de **StreamingLocator** wordt publiceren genoemd. Standaard is de **StreamingLocator** onmiddellijk geldig nadat u de API-aanroepen hebt gemaakt en totdat deze wordt verwijderd, tenzij u de optionele start- en eindtijden configureert. 
 
 Bij het maken van een [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) moet u de gewenste **StreamingPolicyName** opgeven. In deze zelfstudie gebruiken we een van de PredefinedStreamingPolicies, dit geeft het publiceren van de inhoud voor het streamen van aan Azure Media Services. In dit voorbeeld wordt de versleuteling AES Envelope toegepast (ook bekend als ClearKey versleuteling omdat de sleutel wordt geleverd aan de client afspelen via HTTPS en niet een DRM-licentie).
 
@@ -115,6 +110,14 @@ Bij het maken van een [StreamingLocator](https://docs.microsoft.com/rest/api/med
 > Wanneer u een aangepast [streamingbeleid](https://docs.microsoft.com/rest/api/media/streamingpolicies) gebruikt, moet u een beperkte set met dergelijke beleidsregels ontwerpen voor uw Media Service-account, en deze opnieuw gebruiken voor de StreamingLocators wanneer dezelfde versleutelingsopties en protocollen nodig zijn. Uw Media Service-account heeft een quotum voor het aantal StreamingPolicy-vermeldingen. U dient geen nieuw StreamingPolicy voor elke StreamingLocator te maken.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateStreamingLocator)]
+
+## <a name="get-a-test-token"></a>Een test-token ophalen
+        
+In deze zelfstudie geven we voor de inhoud sleutel beleid heeft een beperking van de token. Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door een beveiligingstokenservice (STS). Media Services ondersteunt tokens in de [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT)-indelingen en dat is wat we in het voorbeeld configureren.
+
+De ContentKeyIdentifierClaim wordt gebruikt in de ContentKeyPolicy, wat betekent dat het token dat wordt weergegeven voor de service voor het leveren van de sleutel moet de id van de ContentKey erin. In het voorbeeld we niet een inhoudssleutel opgeeft bij het maken van de StreamingLocator, het systeem maakt een willekeurige voor ons. Als u wilt genereren van de test token, moet krijgen we de ContentKeyId in de claim ContentKeyIdentifierClaim te plaatsen.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
 
 ## <a name="build-a-dash-streaming-url"></a>Bouw een streepje streaming-URL
 
@@ -130,4 +133,4 @@ Over het algemeen moet u alles opschonen, behalve objecten die u van plan bent t
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Overzicht](content-protection-overview.md)
+Bekijk hoe u [beveiligen met DRM](protect-with-drm.md)

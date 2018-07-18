@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: 1fa69cc09772b9f90e6de05820c823f0409d926e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9ce95bcf15d0186c1baea3df407d0fc0c4200f45
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070333"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115473"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -40,7 +40,7 @@ Als u niet investeren in één extra virtuele machine wilt, kunt u ook de omhein
 ![Pacemaker op SLES-overzicht](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Met behulp van een apparaat SBD voor uw cluster Pacemaker, is het essentieel is voor de algehele betrouwbaarheid van het volledige cluster dat de routering tussen de betrokken virtuele machines en de VM (s) die als host fungeert voor de apparaten SBD niet via een andere apparaten zoals doorgegeven wordt [NVA's](https://azure.microsoft.com/solutions/network-appliances/). Problemen met de NVA kunnen anders heeft een nadelige invloed op de stabiliteit en betrouwbaarheid van de algemene configuratie van het cluster. Onderzoeken om te voorkomen dat dergelijke obstakels, regels voor doorsturen van NVA's en [gebruiker gedefinieerde routeringsregels](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) bij het plannen en implementeren van SBD apparaten.
+> Bij het plannen en implementeren van Linux Pacemaker knooppunten en SBD apparaten geclusterde, is het essentieel is voor de algehele betrouwbaarheid van de volledige clusterconfiguratie die de routering tussen de virtuele machines die betrokken zijn en de VM (s) die als host fungeert voor de apparaten SBD wordt niet doorgegeven via alle andere apparaten, zoals [NVA's](https://azure.microsoft.com/solutions/network-appliances/). Anders, problemen en onderhoudsgebeurtenissen met de NVA kunnen een nadelige invloed op de stabiliteit en betrouwbaarheid van de algehele clusterconfiguratie hebben. Om te voorkomen dat dergelijke obstakels, regels voor doorsturen van NVA's niet bepalen of [gebruiker gedefinieerde routeringsregels](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) die verkeer routeren tussen geclusterde knooppunten en SBD apparaten via de NVA's en vergelijkbare apparaten bij het plannen en implementeren van Linux Pacemaker geclusterde knooppunten en SBD apparaten. 
 >
 
 

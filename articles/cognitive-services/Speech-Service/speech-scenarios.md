@@ -9,14 +9,14 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 6ea55f5d329a037ef35984cb9276b27a532824ec
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1488f95296bcc11a55a45aff56cee83b7708a789
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347405"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072211"
 ---
-# <a name="speech-scenarios"></a>Spraak-scenario 's
+# <a name="speech-scenarios"></a>Spraakscenario's
 
 Er zijn veel scenario's die kunnen worden gemachtigd met behulp van technologie voor spraak. We analyseren van enkele van de meest voorkomende en ontdekt u de desbetreffende functies in de documentatie. Voor het merendeel van de inhoud, de [SDK](speech-sdk.md) speelt een centrale rol bij het inschakelen van deze scenario's.
 
@@ -32,11 +32,11 @@ Veel gebruikers wilt inschakelen spraakinvoer in op hun toepassingen. Spraakinvo
 
 ### <a name="voice-triggered-apps-with-baseline-models"></a>Stem geactiveerd Apps met basislijn-modellen
 
-Als uw app wordt gebruikt om te worden gebruikt door het grote publiek in omgevingen waar de achtergrondgeluiden niet overmatig is, de eenvoudigste en snelste manier om dit te doen gewoon worden downloaden van onze [spraak SDK](speech-sdk.md) en de relevante [ Voorbeelden](quickstart-csharp-windows.md). De SDK mogelijk gemaakt door uw [Azure-abonnementssleutel](https://azure.microsoft.com/try/cognitive-services/) biedt ontwikkelaars de mogelijkheid voor het uploaden van audio naar basislijn erkenning spraakmodellen die ten grondslag Cortana en Skype. De mdoels van moderne, en worden gebruikt door de hiervoor genoemde producten. U kunt binnen een paar minuten aan de slag gaan.
+Als uw app wordt gebruikt om te worden gebruikt door het grote publiek in omgevingen waar de achtergrondgeluiden niet overmatig is, de eenvoudigste en snelste manier om dit te doen gewoon worden downloaden van onze [spraak SDK](speech-sdk.md) en de relevante [ Voorbeelden](quickstart-csharp-dotnet-windows.md). De SDK mogelijk gemaakt door uw [Azure-abonnementssleutel](https://azure.microsoft.com/try/cognitive-services/) biedt ontwikkelaars de mogelijkheid voor het uploaden van audio naar basislijn erkenning spraakmodellen die ten grondslag Cortana en Skype. De mdoels van moderne, en worden gebruikt door de hiervoor genoemde producten. U kunt binnen een paar minuten aan de slag gaan.
 
 ### <a name="voice-triggered-apps-with-custom-models"></a>Stem geactiveerd Apps met aangepaste modellen
 
-Als uw app in een specifiek domein, (zeg chemie, biologie of speciale wensen)-adressen is u misschien wilt gebruiken om aan te passen een [taalmodel](how-to-customize-language-model.md). Een taalmodel aan te passen, leert de decoder over de meest voorkomende zinnen en woorden die worden gebruikt door uw app. De decoder is mogelijk een met een aangepast taalmodel voor een bepaald domein in plaats van de basislijn-model spraak nauwkeuriger te transcriberen. Op dezelfde manier als de achtergrondgeluiden waar uw app gaat worden gebruikt opvallende kunt u een akoestisch model aanpassen. Verkennen van de documentatie voor andere gevallen waarin [aanpassing van taal](how-to-customize-language-model.md) en [akoestische aanpassing](how-to-customize-acoustic-models.md) waarde opgeven en Ga naar onze [aanpassing van woordenlijsten portal](https://customspeech.ai) voor beluisteren de ervaring van het maken van het model. Net als bij basislijn modellen, aangepaste modellen worden aangeroepen onze [spraak SDK](speech-sdk.md) en de relevante [voorbeelden](quickstart-csharp-windows.md).
+Als uw app in een specifiek domein, (zeg chemie, biologie of speciale wensen)-adressen is u misschien wilt gebruiken om aan te passen een [taalmodel](how-to-customize-language-model.md). Een taalmodel aan te passen, leert de decoder over de meest voorkomende zinnen en woorden die worden gebruikt door uw app. De decoder is mogelijk een met een aangepast taalmodel voor een bepaald domein in plaats van de basislijn-model spraak nauwkeuriger te transcriberen. Op dezelfde manier als de achtergrondgeluiden waar uw app gaat worden gebruikt opvallende kunt u een akoestisch model aanpassen. Verkennen van de documentatie voor andere gevallen waarin [aanpassing van taal](how-to-customize-language-model.md) en [akoestische aanpassing](how-to-customize-acoustic-models.md) waarde opgeven en Ga naar onze [aanpassing van woordenlijsten portal](https://customspeech.ai) voor beluisteren de ervaring van het maken van het model. Net als bij basislijn modellen, aangepaste modellen worden aangeroepen onze [spraak SDK](speech-sdk.md) en de relevante [voorbeelden](quickstart-csharp-dotnet-windows.md).
 
 ## <a name="transcribe-call-center-audio-calls"></a>Call center audio gesprekken transcriberen
 
@@ -62,5 +62,5 @@ Bovendien kunnen de Speech-Service voor gebruikers die u wilt meer herkenbaarhei
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw proefabonnement voor spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
+* [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
 * [Beginnen met de spraak-SDK](speech-sdk.md)

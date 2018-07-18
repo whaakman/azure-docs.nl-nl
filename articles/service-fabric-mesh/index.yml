@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2018
   ms.author: ryanwi
-  ms.openlocfilehash: e5fc62d84ace2acd46816a7116ea1cf2198be63f
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+  ms.openlocfilehash: fccd805f6d4abcf7005fca0cc6f4d368ac5764f1
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39073684"
+  ms.locfileid: "39090040"
 abstract:
   description: Azure Service Fabric Mesh is een volledig beheerde service waarmee ontwikkelaars essentiële toepassingen kunnen maken en implementeren zonder enige infrastructuur te beheren.  Gebruik Service Fabric Mesh om veilige, gedistribueerde microservices-toepassingen, die op aanvraag worden geschaald, te bouwen en uit te voeren. Leer aan de hand van onze snelstarts en zelfstudies hoe u Service Fabric Mesh gebruikt.  Lees voor meer informatie het <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric Mesh-overzicht</a>.
 sections:
@@ -45,15 +45,3 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Een .NET Core-toepassing implementeren</a>
-- title: Voorbeelden
-  items:
-  - type: paragraph
-    text: '.NET Core-voorbeeldtoepassingen voor Windows en Linux:'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld">Hallo wereld!</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/azurefiles-volume">Azure Files-volume</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/todolistapp">Takenlijst</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/visualobjects">Visuele objecten</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp">Stemmen</a>
