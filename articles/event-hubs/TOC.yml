@@ -26,6 +26,10 @@
   items:
     - name: Overzicht van de gebeurtenisprocessorhost
       href: event-hubs-event-processor-host.md
+    - name: Filters voor IP-verbinding
+      href: event-hubs-ip-filtering.md
+    - name: Service-eindpunten voor virtueel netwerk
+      href: event-hubs-service-endpoints.md
     - name: Programmeergids
       href: event-hubs-programming-guide.md
     - name: Integreren met Event Grid
@@ -150,7 +154,7 @@
     - name: Veelgestelde vragen
       href: event-hubs-faq.md
     - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Leertraject
       href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
     - name: Prijzen

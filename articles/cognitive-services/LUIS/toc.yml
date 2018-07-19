@@ -17,6 +17,8 @@
           items:
             - name: 'C#'
               href: luis-get-started-cs-get-intent.md
+            - name: Aan de slag
+              href: luis-get-started-go-get-intent.md
             - name: Java
               href: luis-get-started-java-get-intent.md
             - name: Javascript
@@ -33,6 +35,8 @@
           items:
             - name: 'C#'
               href: luis-get-started-cs-add-utterance.md
+            - name: Aan de slag
+              href: luis-get-started-go-add-utterance.md
             - name: Java
               href: luis-get-started-java-add-utterance.md
             - name: Javascript
@@ -220,7 +224,7 @@
             - name: Eindpuntgebruik weergeven met PowerShell
               href: luis-how-to-manage-from-cloud-shell.md
             - name: Eindpuntquota over sleutels verdelen met Traffic Manager
-              href: traffic-manager.md
+              href: luis-traffic-manager.md
     - name: Migreren naar V2-API
       href: migration-v1-to-v2.md
     - name: Regio zoeken via programma
