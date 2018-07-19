@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: fb67d1eea588d96129c4b58a8c1b2f569c9663bf
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904404"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049334"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>Zelfstudie: toegang krijgen tot Azure Storage met de beheerde entiteit van een Linux-VM 
 
@@ -61,7 +61,7 @@ In deze sectie maakt u een virtuele Linux-machine waaraan later een beheerde ide
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
 3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
 
-   ![‘Basis’-deelvenster voor het maken van een virtuele machine](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![‘Basis’-deelvenster voor het maken van een virtuele machine](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Selecteer een abonnement voor de virtuele machine in de lijst **Abonnement**.
 5. Als u de virtuele machine in een nieuwe resourcegroep wilt maken, selecteert u **Resourcegroep** > **Nieuwe maken**. Selecteer **OK** wanneer u klaar bent.
@@ -87,7 +87,7 @@ In deze sectie maakt u een opslagaccount.
 5. Zorg ervoor dat de waarden van **Abonnement** en **Resourcegroep** overeenkomen met de waarden die u hebt opgegeven bij het maken van de virtuele machine in de vorige stap.
 6. Klik op **Create**.
 
-    ![Nieuw opslagaccount maken](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Nieuw opslagaccount maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Een blobcontainer maken en een bestand naar het opslagaccount uploaden
 
@@ -98,14 +98,14 @@ Voor bestanden is blobopslag nodig, dus moeten we een blobcontainer maken waarin
 3. Klik op **+ Container** boven aan de pagina.
 4. Voer onder **Nieuwe container** een naam in voor de container en laat **Niveau openbare toegang** ingesteld staan op de standaardwaarde.
 
-    ![Opslagcontainer maken](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Opslagcontainer maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Maak met behulp van een editor naar keuze een bestand met de naam *hello_world.txt* op uw lokale computer.  Open het bestand en voeg de tekst ‘Hello world! :)’ toe (zonder de aanhalingstekens) en sla het bestand vervolgens op. 
 
 6. Upload het bestand naar de zojuist gemaakte container door op de naam van de container te klikken, en vervolgens op **Uploaden**
 7. Klik in het deelvenster **Blob uploaden** onder **Bestanden** op het mappictogram en blader naar het bestand **hello_world.txt** op uw lokale computer, selecteer het bestand en klik vervolgens op **Uploaden**.
 
-    ![Tekstbestand uploaden](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Tekstbestand uploaden](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Uw virtuele machine toegang verlenen tot een Azure Storage-container 
 

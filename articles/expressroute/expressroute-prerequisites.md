@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 332bfba0664391b6126669c4c89e38d1af4cf4fa
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b4358d1ccffd31d1f347f1872237620bee081251
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30265081"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989356"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Vereisten en controlelijst voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u controleren of er is voldaan aan de vereisten die in de volgende secties worden genoemd.
@@ -65,6 +65,6 @@ Als u Dynamics 365 op ExpressRoute wilt inschakelen, raadpleegt u de volgende do
 * Zoek een ExpressRoute-connectiviteitsprovider. Zie [ExpressRoute partners and peering locations](expressroute-locations.md) (ExpressRoute-partners en -peeringlocaties).
 * Raadpleeg de vereisten voor [Routering](expressroute-routing.md), [NAT](expressroute-nat.md) en [QoS](expressroute-qos.md).
 * Configureer uw ExpressRoute-verbinding.
-  * [Een ExpressRoute-circuit maken](expressroute-howto-circuit-classic.md)
-  * [Routering configureren](expressroute-howto-routing-classic.md)
-  * [Een VNet koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-classic.md)
+  * [Een ExpressRoute-circuit maken](expressroute-howto-circuit-arm.md)
+  * [Routering configureren](expressroute-howto-routing-arm.md)
+  * [Een VNet koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-arm.md)

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: c608c1b40c7b4cdaedb2b7e7a609ad65c6357584
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 85e67be406b3d9723476821adfb09fc4db8dc1d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344213"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068570"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Zelfstudie: Een aangepast taalmodel maken
 
@@ -115,5 +115,5 @@ Als u de 'Name' (naam) of 'Description' (omschrijving) van het model op een bepa
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
-- [Spraak herkennen in C#](quickstart-csharp-windows.md)
+- [Spraak herkennen in C#](quickstart-csharp-dotnet-windows.md)
 - [Git-voorbeeldgegevens](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

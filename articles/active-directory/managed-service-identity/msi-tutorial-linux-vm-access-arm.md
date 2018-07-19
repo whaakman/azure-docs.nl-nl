@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1195161a0c4045620447439bf9361b7c4c0189ae
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 06abd7867a99c20597ed17faf6fa61b91f70baaa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904387"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007703"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Zelfstudie: een door de gebruiker toegewezen identiteit gebruiken op een Linux-VM om toegang te krijgen tot Azure Resource Manager
 
@@ -58,7 +58,7 @@ Voor deze zelfstudie maakt u eerst een nieuwe virtuele Linux-machine. U kunt ook
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
 3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
 
-    ![Linux-VM maken](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Linux-VM maken](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Kies een **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
 5. Om een nieuwe **resourcegroep** te selecteren waarin u de virtuele machine wilt maken, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.

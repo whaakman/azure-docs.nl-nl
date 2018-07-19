@@ -22,8 +22,16 @@
   items:
     - name: Zoomniveaus en tegelraster
       href: zoom-levels-and-tile-grid.md
-    - name: Ondersteunde zoekcategorieën
-      href: supported-search-categories.md
+    - name: Servicedekking
+      items:
+        - name: Geocodering
+          href: geocoding-coverage.md
+        - name: Verkeer
+          href: traffic-coverage.md
+        - name: Renderen
+          href: render-coverage.md
+        - name: Routering
+          href: routing-coverage.md
     - name: Ondersteunde talen
       href: supported-languages.md
 - name: Handleidingen
@@ -64,22 +72,14 @@
           href: map-accessibility.md
 - name: Naslaginformatie
   items:
-    - name: Servicedekking
-      items:
-        - name: Geocodering
-          href: geocoding-coverage.md
-        - name: Verkeer
-          href: traffic-coverage.md
-        - name: Renderen
-          href: render-coverage.md
-        - name: Routering
-          href: routing-coverage.md
     - name: API- en parameterextensies
       items:
         - name: Verbruiksmodel voor voertuig
           href: consumption-model.md
         - name: Uitgebreide GeoJSON-indeling
           href: extend-geojson.md
+        - name: Ondersteunde zoekcategorieën
+          href: supported-search-categories.md
     - name: REST
       items:
         - name: Service voor rendering
@@ -129,7 +129,7 @@
     - name: Azure IoT-ontwikkelaarscentrum
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Prijzen

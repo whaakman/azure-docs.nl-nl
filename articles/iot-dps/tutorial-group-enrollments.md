@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 02cc3f861864d3bfa878be6501b8563715f88dac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 79f1b299417acbfa2d9e565f0ec9aebede2508e1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971316"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002652"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd X.509-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met de SDK voor Java-apparaten en -services en registratiegroepen
 
@@ -32,7 +32,7 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 
 1. Zorg ervoor dat `git` op de computer wordt geïnstalleerd en toegevoegd aan de omgevingsvariabelen die voor het opdrachtvenster toegankelijk zijn. Zie [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) (Git-clienthulpprogramma's van Software Freedom Conservancy) om de nieuwste versie van `git`-hulpprogramma's te installeren, waaronder **Git Bash**, de opdrachtregel-app die u kunt gebruiken voor interactie met de lokale Git-opslagplaats. 
 
-1. Gebruik het volgende [certificaatoverzicht](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) om uw testcertificaten te maken. Zie [PowerShell-scripts voor het beheren van CA ondertekende X.509-certificaten](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) voor een meer diepgaande blik op het maken van certificaten.
+1. Gebruik het volgende [certificaatoverzicht](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) om uw testcertificaten te maken.
 
     > [!NOTE]
     > Deze stap vereist [OpenSSL](https://www.openssl.org/), dat ofwel kan worden gebouwd en geïnstalleerd vanuit de bron of van [derden](https://wiki.openssl.org/index.php/Binaries) worden gedownload en geïnstalleerd zoals [deze](https://sourceforge.net/projects/openssl/). Als u al het _hoofd_-, _tussen_- en _apparaat_certificaat hebt gemaakt, kunt u deze stap overslaan.

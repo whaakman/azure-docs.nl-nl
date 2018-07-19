@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c2c93b8f6b4f8c4d888f7105f09e96dd9df7b574
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 72452382c4fd2f9c1acb0d773da5c7ed014f9bda
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902619"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001929"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Zelfstudie: Toegang krijgen tot SQL met een Managed Service Identity (MSI) voor Windows-VM
 
@@ -53,7 +53,7 @@ Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt MSI o
 5.  Om een nieuwe **resourcegroep** te selecteren waarin de virtuele machine moet worden gemaakt, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
 6.  Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf de standaardinstellingen op de pagina Instellingen en klik op **OK**.
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen 
 
@@ -63,7 +63,7 @@ Met een MSI op de VM kunt u toegangstokens uit Azure AD ophalen zonder referenti
 2.  Klik op de linkernavigatiebalk op **Configuratie**. 
 3.  U ziet **Managed Service Identity**. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee. 
 4.  Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.  
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Uw virtuele machine toegang verlenen tot een database op een Azure SQL-server
 

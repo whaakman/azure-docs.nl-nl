@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 7254e8d1b5a525c3ab06230837bd368e17911dbe
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ff5227ab61145ab372fdc6e28f1b97ec31e47023
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100276"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049140"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Gebruikersportal voor de Azure Multi-Factor Authentication-server
 
@@ -30,7 +30,7 @@ Afhankelijk van uw omgeving kan het raadzaam zijn om de gebruikersportal te impl
 ![MFA-gebruikersportal](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> De gebruikersportal is alleen beschikbaar met Multi-Factor Authentication Server. Als u Multi-Factor Authentication in de cloud gebruikt, verwijst u uw gebruikers naar [Uw account instellen voor verificatie in twee stappen](end-user/current/multi-factor-authentication-end-user-first-time.md) of [Uw instellingen beheren voor verificatie in twee stappen](end-user/current/multi-factor-authentication-end-user-manage-settings.md).
+> De gebruikersportal is alleen beschikbaar met Multi-Factor Authentication Server. Als u Multi-Factor Authentication in de cloud gebruikt, verwijst u uw gebruikers naar [Uw account instellen voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-first-time.md) of [Uw instellingen beheren voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-manage-settings.md).
 
 ## <a name="install-the-web-service-sdk"></a>De webservice-SDK installeren
 

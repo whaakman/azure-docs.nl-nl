@@ -8,15 +8,15 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 2/14/2018
-ms.author: iainfou
+ms.date: 7/17/2018
+ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 19711fcac4bdcca93abb4dcbb830dd9869360362
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d2578e10916d3770e73ab88e4d0e63aea3fe420
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609032"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114773"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Een back-up van een virtuele machine maken in Azure
 Back-ups in Azure kunt u maken via Azure Portal. Deze methode biedt een gebruikersinterface op basis van een browser voor het maken en configureren van back-ups in Azure en van alle verwante resources. U kunt uw gegevens beschermen door regelmatig back-ups te maken. Gebruik Azure Backup om herstelpunten te maken die kunnen worden opgeslagen in geografisch redundante kluizen van Recovery Services. In dit artikel wordt uitgelegd hoe u een back-up van een virtuele machine (VM) maakt met Azure Portal. 

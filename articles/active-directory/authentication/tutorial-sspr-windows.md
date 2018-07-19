@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2a6fbd9e52e07141ae1d8c630bde6ab23801fb18
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972978"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054498"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
@@ -99,7 +99,7 @@ Welke wijzigingen zien de gebruikers nadat het beleid is geconfigureerd en toege
 
 Wanneer gebruikers zich proberen aan te melden, zien ze nu de koppeling Wachtwoord opnieuw instellen die toegang biedt tot de self-service voor wachtwoordherstel vanuit het aanmeldingsscherm. Deze functionaliteit maakt het mogelijk dat gebruikers hun wachtwoord opnieuw instellen zonder dat ze een ander apparaat moeten gebruiken om toegang te krijgen tot een webbrowser.
 
-Uw gebruikers vinden hulp voor het gebruik van deze functie in [Uw wachtwoord voor werk of school opnieuw instellen](../active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
+Uw gebruikers vinden hulp voor het gebruik van deze functie in [Uw wachtwoord voor werk of school opnieuw instellen](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 ## <a name="common-issues"></a>Algemene problemen
 

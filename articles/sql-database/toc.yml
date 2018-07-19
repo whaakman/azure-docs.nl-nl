@@ -135,7 +135,7 @@
         - name: Databaseback-ups
           href: sql-database-automated-backups.md
         - name: Langetermijnretentie van back-ups
-          itmes:
+          items:
             - name: Langetermijnretentie van back-ups
               href: sql-database-long-term-retention.md
             - name: Langetermijnretentie van back-ups configureren - SQL-opslag

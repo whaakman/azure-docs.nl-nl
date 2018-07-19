@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 701fe17869d6e7744751d80330422ea47361b411
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff2659ed7dbdb21bccb8b5858d946b47951e40cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216137"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048930"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Synchronisatie van wachtwoordhashes inschakelen voor Azure Active Directory Domain Services
 Tijdens de vorige taken hebt u Azure Active Directory Domain Services ingeschakeld voor uw Azure Active Directory-tenant (Azure AD). De volgende taak bestaat uit het inschakelen van synchronisatie voor wachtwoordhashes die zijn vereist voor NTLM- (NT LAN Manager) en Kerberos-verificatie met Azure AD Domain Services. Wanneer u de synchronisatie voor wachtwoordhashes hebt ingesteld, kunnen gebruikers zich bij het beheerde domein aanmelden met hun zakelijke referenties.
@@ -78,7 +78,7 @@ Hier vindt u de instructies voor het wijzigen van het wachtwoord die u moet door
 Een paar minuten nadat u uw wachtwoord hebt gewijzigd, kunt u het nieuwe wachtwoord gebruiken in Azure Active Directory Domain Services. Na ongeveer 20 minuten kunt u zich met het gewijzigde wachtwoord aanmelden bij computers die zijn gekoppeld aan het beheerde domein.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-* [Uw eigen wachtwoord bijwerken](../active-directory/active-directory-passwords-update-your-own-password.md)
+* [Uw eigen wachtwoord bijwerken](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Aan de slag met wachtwoordbeheer in Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Synchronisatie van wachtwoordhashes met Azure Active Directory Domain Services inschakelen voor een gesynchroniseerde Azure AD-tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Een beheerd domein van Azure Active Directory Domain Services beheren](active-directory-ds-admin-guide-administer-domain.md)

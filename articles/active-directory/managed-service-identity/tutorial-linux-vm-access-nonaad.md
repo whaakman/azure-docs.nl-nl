@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e775ed9d918e53b8381a010691c679d80e7dd216
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901473"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044047"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Zelfstudie: Toegang krijgen tot Azure Key Vault met een Managed Service Identity (MSI) voor Linux-VM 
 
@@ -51,7 +51,7 @@ Voor deze zelfstudie maken we een nieuwe virtuele Linux-machine. U kunt MSI ook 
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
 3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Kies een **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
 5. Om een nieuwe **resourcegroep** te selecteren waarin u de virtuele machine wilt maken, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
@@ -66,7 +66,7 @@ Met een MSI op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zo
 3. U ziet **Managed Service Identity**. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee.
 4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Uw virtuele machine toegang verlenen tot een geheim dat is opgeslagen in een sleutelkluis  
 
@@ -83,7 +83,7 @@ Eerst moeten we een sleutelkluis maken en de identiteit van onze virtuele machin
 7. Klik op **OK** om het nieuwe toegangsbeleid toe te voegen en klik op **OK** om de selectie van het toegangsbeleid te voltooien. 
 8. Klik op **Maken** om het maken van de sleutelkluis te voltooien. 
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Alt-tekst voor afbeelding](../managed-service-identity/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 Voeg vervolgens een geheim toe aan de sleutelkluis, zodat u het geheim later kunt ophalen met behulp van code die wordt uitgevoerd op uw virtuele machine: 
 

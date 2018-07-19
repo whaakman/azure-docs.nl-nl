@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3e14c51d644a29985e759da7c8a29927680d3891
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866980"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048948"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
 
@@ -86,8 +86,8 @@ Selfservice voor wachtwoordherstel kan eenvoudig worden uitgeschakeld. Open uw A
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw wachtwoord opnieuw instellen of wijzigen](../active-directory-passwords-update-your-own-password.md)
-* [Registreren voor de selfservice voor wachtwoordherstel](../active-directory-passwords-reset-register.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registreren voor de selfservice voor wachtwoordherstel](../user-help/active-directory-passwords-reset-register.md)
 * [Hebt u een vraag over licenties?](concept-sspr-licensing.md)
 * [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
 * [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](concept-sspr-policy.md)

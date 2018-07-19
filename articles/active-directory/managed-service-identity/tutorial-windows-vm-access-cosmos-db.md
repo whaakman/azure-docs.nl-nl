@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: ed1aff411ae5446688fe717ddc4570ea756c4c1e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904268"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005642"
 ---
 # <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Zelfstudie: toegang krijgen tot Azure Cosmos DB met een MSI voor Windows-VM
 
@@ -56,7 +56,7 @@ Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt MSI o
 5. Om een nieuwe **resourcegroep** te selecteren waarin de virtuele machine moet worden gemaakt, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
 6. Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf de standaardinstellingen op de pagina Instellingen en klik op **OK**.
 
-   ![Alt-tekst voor afbeelding](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen 
 
@@ -66,7 +66,7 @@ Met een MSI op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zo
 2. Klik op de linkernavigatiebalk op **Configuratie**. 
 3. U ziet **Managed Service Identity**. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee. 
 4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.  
-   ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-cosmos-db-account"></a>Cosmos DB-account maken 
 

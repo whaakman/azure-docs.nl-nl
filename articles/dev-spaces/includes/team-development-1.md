@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: MT
+ms.openlocfilehash: 23b5373f4986c4a3d113baebe9e04ce65b9a9df0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934470"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39062965"
 ---
 Tot nu toe hebt u de code van de toepassing uitgevoerd alsof u de enige ontwikkelaar bent die werkt aan de app. In deze sectie leert u hoe teamontwikkeling wordt gestroomlijnd met Azure Dev Spaces:
 * Laat een team ontwikkelaars in dezelfde omgeving werken door ze naar behoefte in een gedeelde ontwikkelruimte of in individuele ontwikkelruimten te laten werken.
@@ -45,7 +45,7 @@ Terwijl u code ontwikkelt voor uw service en voordat u klaar bent om deze uit te
 > [!Note]
 > Sluit voordat u verdergaat all VS Code-vensters voor beide services en voer `azds up -d` uit in elke hoofdmap van de service. (Dit is een Preview-beperking.)
 
-Laten we eens beter kijken naar waar de services momenteel worden uitgevoerd. Voer de opdracht `azds list` uit en de uitvoer is vergelijkbaar met de volgende uitvoer:
+Laten we eens beter kijken naar waar de services momenteel worden uitgevoerd. Voer de opdracht `azds list-up` uit en de uitvoer is vergelijkbaar met de volgende uitvoer:
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points

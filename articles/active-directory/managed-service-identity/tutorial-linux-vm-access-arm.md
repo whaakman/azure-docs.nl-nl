@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 690775bb2ff0d5ee16ec5d7f1869c4f23b3745ad
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 60a15c69f1ec748e366697640707804565245cea
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900912"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001582"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Toegang krijgen tot Azure Resource Manager met een Managed Service Identity (MSI) voor Linux-VM
 
@@ -50,7 +50,7 @@ Voor deze zelfstudie maken we een nieuwe virtuele Linux-machine. U kunt MSI ook 
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
 3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Kies een **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
 5. Om een nieuwe **resourcegroep** te selecteren waarin u de virtuele machine wilt maken, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
@@ -65,7 +65,7 @@ Met een MSI op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zo
 3. U ziet **Managed Service Identity**. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee.
 4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Uw virtuele machine toegang verlenen tot een resourcegroep in Azure Resource Manager 
 
@@ -79,7 +79,7 @@ Met behulp van MSI kan uw code toegangstokens ophalen voor verificatie bij resou
 6. Controleer vervolgens of het juiste abonnement wordt weergegeven in de vervolgkeuzelijst **Abonnement**. Bij **Resourcegroep** selecteert u **Alle resourcegroepen**.
 7. Kies ten slotte bij **Selecteren** uw virtuele Linux-machine in de vervolgkeuzelijst en klik op **Opslaan**.
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
+    ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en daarmee Resource Manager aanroepen 
 

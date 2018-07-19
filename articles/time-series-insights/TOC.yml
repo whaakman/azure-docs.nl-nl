@@ -101,7 +101,7 @@
     - name: Aanvragen van klantgegevens
       href: time-series-insights-customer-data-requests.md
     - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Prijzen
       href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
     - name: Prijscalculator

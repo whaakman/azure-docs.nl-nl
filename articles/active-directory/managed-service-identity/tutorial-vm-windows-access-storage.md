@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: a9b0ddbd8d0a348d00e57526e6d248e59a8a1e79
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903952"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056171"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Zelfstudie: Toegang krijgen tot Azure Storage met een beheerde entiteit voor Windows-VM
 
@@ -58,7 +58,7 @@ In deze sectie maakt u een virtuele Windows-machine waaraan later een beheerde i
 5.  Om een nieuwe **resourcegroep** te selecteren waarin de virtuele machine moet worden gemaakt, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
 6.  Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-managed-identity-on-your-vm"></a>Beheerde identiteit op de virtuele machine inschakelen
 
@@ -80,7 +80,7 @@ In deze sectie maakt u een opslagaccount.
 5. Zorg ervoor dat de waarden van **Abonnement** en **Resourcegroep** overeenkomen met de waarden die u hebt opgegeven bij het maken van de virtuele machine in de vorige stap.
 6. Klik op **Create**.
 
-    ![Nieuw opslagaccount maken](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Nieuw opslagaccount maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Een blobcontainer maken en een bestand naar het opslagaccount uploaden
 
@@ -91,16 +91,16 @@ Voor bestanden is blobopslag nodig, dus moeten we een blobcontainer maken waarin
 3. Klik op **+ Container** boven aan de pagina.
 4. Voer onder **Nieuwe container** een naam in voor de container en laat **Niveau openbare toegang** ingesteld staan op de standaardwaarde.
 
-    ![Opslagcontainer maken](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Opslagcontainer maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Maak met behulp van een editor naar keuze een bestand met de naam *hello_world.txt* op uw lokale computer.  Open het bestand en voeg de tekst (zonder de aanhalingstekens) 'Hello world! :)' toe en sla het bestand vervolgens op. 
+5. Maak met behulp van een editor naar keuze een bestand met de naam *hello_world.txt* op uw lokale computer.  Open het bestand en voeg de tekst ‘Hello world! :)’ toe (zonder de aanhalingstekens) en sla het bestand vervolgens op. 
 6. Upload het bestand naar de zojuist gemaakte container door op de naam van de container te klikken, en vervolgens op **Uploaden**
 7. Klik in het deelvenster **Blob uploaden** onder **Bestanden** op het mappictogram en blader naar het bestand **hello_world.txt** op uw lokale computer, selecteer het bestand en klik vervolgens op **Uploaden**.
-    ![Tekstbestand uploaden](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Tekstbestand uploaden](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Uw virtuele machine toegang verlenen tot een Azure Storage-container 
 
-U kunt de beheerde identiteit van de virtuele machine gebruiken om de gegevens in de Azure storage-blob op te halen.   
+U kunt de beheerde identiteit van de virtuele machine gebruiken om de gegevens in de Azure Storage-blob op te halen.   
 
 1. Navigeer terug naar het zojuist gemaakte opslagaccount.  
 2. Klik op de koppeling **Toegangsbeheer (IAM)** in het linkerpaneel.  

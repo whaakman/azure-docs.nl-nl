@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: cde1af63fe609170c65bc469fa57573d7bc48490
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: eee0787518a17826d6256cb9b7dad8f4547f5663
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901507"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048841"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Zelfstudie: Toegang krijgen tot Azure Storage via toegangssleutel met een Managed Service Identity voor Linux-VM
 
@@ -50,7 +50,7 @@ Voor deze zelfstudie maken we een nieuwe virtuele Linux-machine. U kunt MSI ook 
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
 3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Kies een **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
 5. Om een nieuwe **resourcegroep** te selecteren waarin u de virtuele machine wilt maken, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
@@ -65,7 +65,7 @@ Met een MSI op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zo
 3. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee.
 4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Create a storage account 
 
@@ -78,7 +78,7 @@ Als u nog geen opslagaccount hebt, maakt u er nu een.  U kunt deze stap ook over
 5. Zorg ervoor dat de waarden van **Abonnement** en **Resourcegroep** overeenkomen met de waarden die u hebt opgegeven bij het maken van de virtuele machine in de vorige stap.
 6. Klik op **Create**.
 
-    ![Nieuw opslagaccount maken](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Nieuw opslagaccount maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Een blobcontainer in het opslagaccount maken
 
@@ -89,7 +89,7 @@ Later zullen we een bestand uploaden en downloaden naar het nieuwe opslagaccount
 3. Klik op **+ Container** boven aan de pagina om het paneel Nieuwe container deelvenster uit te schuiven.
 4. Geef een naam voor de container op, selecteer een toegangsniveau en klik op **OK**. De naam die u hebt opgegeven, wordt verderop in de zelfstudie gebruikt. 
 
-    ![Opslagcontainer maken](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Opslagcontainer maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>MSI van de virtuele machine toegang verlenen voor het gebruik van toegangssleutels voor opslagaccounts
 
@@ -103,7 +103,7 @@ Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  
 6. Controleer vervolgens of het juiste abonnement wordt weergegeven in de vervolgkeuzelijst **Abonnement**, en stel **Resourcegroep** in op Alle resourcegroepen.  
 7. Kies ten slotte onder **Selecteren** uw virtuele Linux-machine in de vervolgkeuzelijst en klik op **Opslaan**. 
 
-    ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Alt-tekst voor afbeelding](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en daarmee Azure Resource Manager aanroepen
 

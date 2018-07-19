@@ -28,14 +28,6 @@
 ### Ondersteuning  
 #### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)  
 
-### Publicatiehandleidingen  
-#### [Adviesdienst voor Azure Marketplace](consulting-services.md)  
-#### [Technische handleiding voor publicatie van SaaS-toepassingen op Azure Marketplace](marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Uw Marketplace-proefversie inschakelen met Azure Active Directory](./enable-trial-using-azure-ad.md)  
-
-### [Laat uw bedrijf groeien via de marketplace](./grow-your-business-with-azure-marketplace.md)  
-#### [Voorkeursoplossingen](./preferred-solutions.md) 
-
 ## [Cloud Partner-portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 
 ## Resources  
