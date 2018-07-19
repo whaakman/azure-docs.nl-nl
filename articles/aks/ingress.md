@@ -1,40 +1,46 @@
 ---
 title: Inkomend verkeer met Azure Kubernetes Service (AKS)-cluster configureren
-description: Installeren en configureren van een NGINX-controller voor binnenkomend verkeer in een cluster Azure Kubernetes Service (AKS).
+description: Informatie over het installeren en configureren van een NGINX-controller voor binnenkomend verkeer die gebruikmaakt van we gaan coderen voor het automatisch genereren van SSL-certificaat in een cluster Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: bd223e9eebac495d7336c618b831528505c30959
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d31a3e62aaabf7a865078aa2e7c6d1585466b379
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857392"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126674"
 ---
-# <a name="https-ingress-on-azure-kubernetes-service-aks"></a>HTTPS inkomend verkeer op Azure Kubernetes Service (AKS)
+# <a name="deploy-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Een controller voor HTTPS binnenkomend verkeer op Azure Kubernetes Service (AKS) implementeren
 
 Een controller voor binnenkomend verkeer is een stukje software die voorziet in omgekeerde proxy, configureerbare verkeersroutering en TLS-beëindiging voor Kubernetes-services. Kubernetes-resources voor inkomend verkeer worden gebruikt voor het configureren van de ingress regels en routes voor afzonderlijke Kubernetes-services. Met behulp van een controller voor binnenkomend verkeer en ingress regels, kan één extern adres worden gebruikt voor het routeren van verkeer naar meerdere services in een Kubernetes-cluster.
 
-Dit document helpt bij de Voorbeeldimplementatie van een van de [controller voor binnenkomend verkeer van NGINX] [ nginx-ingress] in een cluster Azure Kubernetes Service (AKS). Bovendien de [Certificaatbeheer] [ cert-manager] project wordt gebruikt om automatisch te genereren en configureer [laten versleutelen] [ lets-encrypt] certificaten. Ten slotte worden verschillende toepassingen uitgevoerd in de AKS-cluster, die toegankelijk via één adres is.
+In dit artikel leest u over het implementeren van de [controller voor binnenkomend verkeer van NGINX] [ nginx-ingress] in een cluster Azure Kubernetes Service (AKS). De [Certificaatbeheer] [ cert-manager] project wordt gebruikt om automatisch te genereren en configureer [laten versleutelen] [ lets-encrypt] certificaten. Ten slotte worden verschillende toepassingen uitgevoerd in de AKS-cluster, die toegankelijk via één adres is.
+
+## <a name="before-you-begin"></a>Voordat u begint
+
+In dit artikel maakt gebruik van Helm om de NGINX-controller voor binnenkomend verkeer, certificaat-manager en een voorbeeld-web-app te installeren. U moet hebben Helm geïnitialiseerd in uw AKS-cluster en het gebruik van een service-account voor Tiller. Zie voor meer informatie over het configureren en het gebruik van Helm [installeren van toepassingen met Helm in Azure Kubernetes Service (AKS)][use-helm].
+
+In dit artikel is ook vereist dat u de Azure CLI versie 2.0.41 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="install-an-ingress-controller"></a>Installeren van een controller voor binnenkomend verkeer
 
-Helm gebruiken voor het installeren van de NGINX-controller voor binnenkomend verkeer. Zie de NGINX-controller voor binnenkomend verkeer [documentatie] [ nginx-ingress] voor gedetailleerde implementatie-informatie.
+Helm gebruiken voor het installeren van de NGINX-controller voor binnenkomend verkeer. Zie voor gedetailleerde implementatie-informatie, de [NGINX inkomend controller documentatie][nginx-ingress].
 
-In dit voorbeeld installeert de controller in de `kube-system` naamruimte, dit kan worden gewijzigd met een naamruimte van uw keuze. Als uw AKS-cluster niet RBAC ingeschakeld is, voegt u toe `--set rbac.create=false` aan de opdracht. Zie voor meer informatie de [nginx-inkomend grafiek][nginx-ingress].
+Het volgende voorbeeld installeert de controller in de `kube-system` naamruimte. U kunt een andere naamruimte opgeven voor uw eigen omgeving. Als uw AKS-cluster niet RBAC ingeschakeld is, voegt u toe `--set rbac.create=false` aan de opdracht.
 
-```bash
+```console
 helm install stable/nginx-ingress --namespace kube-system
 ```
 
-Tijdens de installatie van is een openbaar IP-adres van Azure gemaakt voor de controller voor binnenkomend verkeer. Als u het openbare IP-adres, gebruikt u de opdracht kubectl get service. Het duurt enige tijd voor het IP-adres moet worden toegewezen aan de service.
+Tijdens de installatie van is een openbaar IP-adres van Azure gemaakt voor de controller voor binnenkomend verkeer. Als u het openbare IP-adres, gebruikt de `kubectl get service` opdracht. Het duurt een paar minuten voor het IP-adres moet worden toegewezen aan de service.
 
-```console
+```
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
 
 NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
@@ -42,18 +48,18 @@ eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.
 eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
-Omdat er geen binnenkomende regels hebt gemaakt, als u naar het openbare IP-adres bladert, wordt u doorgestuurd naar de ingress controllers 404 standaardpagina van NGINX.
+Nog zijn geen binnenkomende regels gemaakt. Als u naar het openbare IP-adres bladert, wordt de NGINX-ingangscontroller standaard 404-pagina weergegeven, zoals wordt weergegeven in het volgende voorbeeld:
 
 ![Standaard NGINX-back-end](media/ingress/default-back-end.png)
 
-## <a name="configure-dns-name"></a>Configureren van DNS-naam
+## <a name="configure-a-dns-name"></a>Configureren van een DNS-naam
 
-Omdat het HTTPS-certificaten worden gebruikt, moet u een FQDN-naam voor het IP-adres voor inkomend verkeer domeincontrollers configureren. In dit voorbeeld wordt een Azure-FQDN gemaakt met de Azure CLI. Het script bijwerken met het IP-adres van de controller voor binnenkomend verkeer en de naam die u wilt gebruiken in de FQDN-naam.
+Voor de HTTPS-certificaten correct te laten werken, configureert u een FQDN-naam voor het IP-adres voor inkomend verkeer controller. Het volgende script bijwerken met het IP-adres van de controller voor binnenkomend verkeer en een unieke naam die u wilt gebruiken voor de FQDN-naam:
 
-```bash
+```console
 #!/bin/bash
 
-# Public IP address
+# Public IP address of your ingress controller
 IP="51.145.155.210"
 
 # Name to associate with public IP address
@@ -62,27 +68,30 @@ DNSNAME="demo-aks-ingress"
 # Get the resource-id of the public ip
 PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
 
-# Update public ip address with dns name
+# Update public ip address with DNS name
 az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
 ```
 
-Nu moet de controller voor binnenkomend verkeer toegankelijk zijn via de FQDN-naam.
+De controller voor binnenkomend verkeer is nu toegankelijk zijn via de FQDN-naam.
 
 ## <a name="install-cert-manager"></a>Certificaat-manager installeren
 
-De NGINX-controller voor binnenkomend verkeer biedt ondersteuning voor TLS-beëindiging. Er zijn verschillende manieren om te halen en certificaten configureren voor HTTPS, in dit document wordt gedemonstreerd met behulp van [Certificaatbeheer][cert-manager], waarmee u automatische [kuntversleutelen] [ lets-encrypt] generatie en de beheerfunctionaliteit van het certificaat.
+De NGINX-controller voor binnenkomend verkeer biedt ondersteuning voor TLS-beëindiging. Er zijn verschillende manieren om te halen en certificaten configureren voor HTTPS. In dit artikel wordt gedemonstreerd hoe [Certificaatbeheer][cert-manager], waarmee u automatische [kunt versleutelen] [ lets-encrypt] certificaat genereren en Management-functionaliteit.
 
-Gebruik de volgende Helm installeren voor het installeren van de controller Certificaatbeheer opdracht.
+> [!NOTE]
+> In dit artikel wordt de `staging` omgeving voor laten we versleutelen. Gebruik in productie-implementaties, `letsencrypt-prod` en `https://acme-v02.api.letsencrypt.org/directory` in de resourcedefinities en bij het installeren van de Helm-diagram.
 
-```bash
-helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-prod --set ingressShim.defaultIssuerKind=ClusterIssuer
+Als u wilt de certificaat-manager-domeincontroller installeren in een cluster RBAC is ingeschakeld, gebruikt u de volgende `helm install` opdracht:
+
+```console
+helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
-Als uw cluster niet RBAC ingeschakeld is, moet u deze opdracht gebruiken.
+Als uw cluster niet RBAC ingeschakeld is, gebruikt u in plaats daarvan de volgende opdracht uit:
 
-```bash
+```console
 helm install stable/cert-manager \
-  --set ingressShim.defaultIssuerName=letsencrypt-prod \
+  --set ingressShim.defaultIssuerName=letsencrypt-staging \
   --set ingressShim.defaultIssuerKind=ClusterIssuer \
   --set rbac.create=false \
   --set serviceAccount.create=false
@@ -90,31 +99,39 @@ helm install stable/cert-manager \
 
 Zie voor meer informatie over Certificaatbeheer configuratie, de [Certificaatbeheer project][cert-manager].
 
-## <a name="create-ca-cluster-issuer"></a>Uitgever van CA-cluster maken
+## <a name="create-a-ca-cluster-issuer"></a>Een uitgevende CA-cluster maken
 
-Voordat u certificaten kunnen worden uitgegeven, certificaat-manager vereist een [verlener] [ cert-manager-issuer] of [ClusterIssuer] [ cert-manager-cluster-issuer] resource. De resources zijn identiek in functionaliteit echter `Issuer` werkt in één enkele naamruimte waar `ClusterIssuer` werkt met alle naamruimten. Zie voor meer informatie de [Certificaatbeheer verlener] [ cert-manager-issuer] documentatie.
+Voordat u certificaten kunnen worden uitgegeven, certificaat-manager vereist een [verlener] [ cert-manager-issuer] of [ClusterIssuer] [ cert-manager-cluster-issuer] resource. Deze Kubernetes-resources zijn identiek in functionaliteit, maar `Issuer` werkt in één enkele naamruimte en `ClusterIssuer` werkt met alle naamruimten. Zie voor meer informatie de [Certificaatbeheer verlener] [ cert-manager-issuer] documentatie.
 
-De verlener van een cluster met behulp van de volgende manifest maken. Het e-mailadres bijwerken met een geldig adres van uw organisatie.
+Maken van de verlener van een cluster, zoals `cluster-issuer.yaml`, met behulp van het volgende voorbeeld-manifest. Het e-mailadres bijwerken met een geldig adres van uw organisatie:
 
 ```yaml
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-prod
+  name: letsencrypt-staging
 spec:
   acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
     email: user@contoso.com
     privateKeySecretRef:
-      name: letsencrypt-prod
+      name: letsencrypt-staging
     http01: {}
 ```
 
-## <a name="create-certificate-object"></a>Certificaatobject maken
+Gebruik voor het maken van de uitgever van de `kubectl create -f cluster-issuer.yaml` opdracht.
 
-Vervolgens moet een certificaat-bron worden gemaakt. De certificaatresource definieert de gewenste X.509-certificaat. Voor meer informatie ziet, [Certificaatbeheer certificaten][cert-manager-certificates].
+```
+$ kubectl create -f cluster-issuer.yaml
 
-De certificaatresource met de volgende manifest maken.
+clusterissuer.certmanager.k8s.io/letsencrypt-prod created
+```
+
+## <a name="create-a-certificate-object"></a>Een certificaatobject maken
+
+Vervolgens moet een certificaat-bron worden gemaakt. De certificaatresource definieert de gewenste X.509-certificaat. Zie voor meer informatie, [Certificaatbeheer certificaten][cert-manager-certificates].
+
+Maak de certificaat-resource, zoals `certificates.yaml`, met het volgende voorbeeld-manifest. Update de *dnsNames* en *domeinen* aan de DNS-naam die u in de vorige stap hebt gemaakt.
 
 ```yaml
 apiVersion: certmanager.k8s.io/v1alpha1
@@ -132,43 +149,47 @@ spec:
       domains:
       - demo-aks-ingress.eastus.cloudapp.azure.com
   issuerRef:
-    name: letsencrypt-prod
+    name: letsencrypt-staging
     kind: ClusterIssuer
 ```
 
-## <a name="run-application"></a>Toepassing uitvoeren
+Gebruik voor het maken van de certificaatresource de `kubectl create -f certificates.yaml` opdracht.
 
-Op dit moment zijn een controller voor binnenkomend verkeer en een oplossing voor het beheer van certificaten geconfigureerd. Voer nu een paar toepassingen in uw AKS-cluster.
+```
+$ kubectl create -f certificates.yaml
 
-In dit voorbeeld wordt Helm gebruikt om meerdere exemplaren van een eenvoudige hello world-toepassing uitvoeren.
+certificate.certmanager.k8s.io/tls-secret created
+```
 
-Toevoegen voordat u de toepassing uitvoert, de Azure-voorbeelden Helm-opslagplaats op uw ontwikkelsysteem.
+## <a name="run-demo-applications"></a>Demotoepassingen uitvoeren
 
-```bash
+Een controller voor binnenkomend verkeer en een oplossing voor het beheer van certificaten zijn geconfigureerd. Nu gaan we twee run demo voor toepassingen in uw AKS-cluster. In dit voorbeeld Helm gebruikt om twee instanties van een eenvoudige 'Hallo wereld'-toepassing implementeren.
+
+Voordat u het voorbeeld Helm-grafieken installeren kunt, de Azure-voorbeelden opslagplaats toevoegen aan uw omgeving Helm als volgt:
+
+```console
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
-Voer de AKS hello world-grafiek met de volgende opdracht:
+De eerste demo-toepassing maken van een Helm-diagram met de volgende opdracht:
 
-```bash
+```console
 helm install azure-samples/aks-helloworld
 ```
 
-Nu een tweede exemplaar van de hello world-toepassing installeren.
+Nu een tweede exemplaar van de demo-toepassing installeren. Voor de tweede instantie geeft u een nieuwe titel zodat de twee toepassingen, visueel verschilt. U ook opgeven een unieke naam:
 
-Voor het tweede exemplaar, moet u een nieuwe titel opgeven zodat de twee toepassingen, visueel verschilt. U moet ook een unieke naam opgeven. Deze configuraties kunnen worden weergegeven in de volgende opdracht.
-
-```bash
+```console
 helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
 ```
 
-## <a name="create-ingress-route"></a>Binnenkomende route maken
+## <a name="create-an-ingress-route"></a>Een binnenkomende route maken
 
-Beide toepassingen zijn nu echter die worden uitgevoerd op uw Kubernetes-cluster zijn geconfigureerd met een service van het type `ClusterIP`. De toepassingen zijn daarom niet toegankelijk is vanaf internet. Deze beschikbaar te maken, moet u een Kubernetes ingress-resource maken. De resource met inkomend verkeer configureert u de regels die verkeer naar een van de twee toepassingen routeren.
+Beide toepassingen wordt nu uitgevoerd in uw Kubernetes-cluster, maar ze zijn geconfigureerd met een service van het type `ClusterIP`. Daarom zijn de toepassingen niet toegankelijk is vanaf internet. Om deze openbaar beschikbaar maken door een Kubernetes-ingress-resource te maken. De resource met inkomend verkeer configureert u de regels die verkeer naar een van de twee toepassingen routeren.
 
-Maken van een bestandsnaam `hello-world-ingress.yaml` en kopieer de volgende YAML.
+In het volgende voorbeeld wordt het verkeer naar het adres `https://demo-aks-ingress.eastus.cloudapp.azure.com/` wordt doorgestuurd naar de service met de naam `aks-helloworld`. Verkeer naar het adres `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` wordt doorgestuurd naar de `ingress-demo` service. Update de *hosts* en *host* aan de DNS-naam die u in de vorige stap hebt gemaakt.
 
-Houd er rekening mee houden dat het verkeer naar het adres `https://demo-aks-ingress.eastus.cloudapp.azure.com/` wordt doorgestuurd naar de service met de naam `aks-helloworld`. Verkeer naar het adres `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` wordt doorgestuurd naar de `ingress-demo` service.
+Maak een bestand met de naam `hello-world-ingress.yaml` en kopieer de volgende YAML-voorbeeld:
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -177,7 +198,7 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
@@ -198,29 +219,37 @@ spec:
           servicePort: 80
 ```
 
-De resource met inkomend verkeer met maakt de `kubectl apply` opdracht.
+Maakt de ingress resource via de `kubectl create -f hello-world-ingress.yaml` opdracht.
 
-```console
-kubectl apply -f hello-world-ingress.yaml
+```
+$ kubectl create -f hello-world-ingress.yaml
+
+ingress.extensions/hello-world-ingress created
 ```
 
 ## <a name="test-the-ingress-configuration"></a>De configuratie van de inkomende gegevens testen
 
-Blader naar de FQDN-naam van de controller voor binnenkomend verkeer van Kubernetes, ziet u de hello world-toepassing.
+Open een webbrowser naar de FQDN-naam van uw ingangscontroller Kubernetes zoals *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
+
+Zoals deze voorbeelden `letsencrypt-staging`, het verleende SSL-certificaat niet wordt vertrouwd door de browser. Accepteer de waarschuwing om door te gaan naar uw toepassing. Informatie over het certificaat wordt dit weergegeven *vals LE tussenliggende X1* certificaat is uitgegeven door laten versleutelen. Dit certificaat valse geeft `cert-manager` verwerkt de aanvraag goed en ontvangen van een certificaat van de provider:
+
+![We gaan coderen staging-certificaat](media/ingress/staging-certificate.png)
+
+Wanneer u wijzigen we versleutelen gebruiken `prod` in plaats van `staging`, een vertrouwd certificaat dat is uitgegeven door laten versleutelen wordt gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
+
+![Laten we gecodeerd certificaat](media/ingress/certificate.png)
+
+De demo-toepassing wordt weergegeven in de webbrowser:
 
 ![Voorbeeld van de toepassing een](media/ingress/app-one.png)
 
-Blader nu naar de FQDN-naam van de controller voor binnenkomend verkeer met de `/hello-world-two` pad, ziet u de hello world-toepassing met de aangepaste titel.
+Voeg nu de */hello-world-two* pad naar de FQDN-naam, zoals *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. De tweede demo-toepassing met de aangepaste titel wordt weergegeven:
 
 ![Voorbeeld van de toepassing twee](media/ingress/app-two.png)
 
-U ziet ook dat de verbinding is versleuteld en dat een certificaat dat is uitgegeven door laten versleutelen wordt gebruikt.
-
-![Hiermee kunt versleutelen van certificaat](media/ingress/certificate.png)
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de software die in dit document wordt gedemonstreerd.
+In dit artikel bevat enkele externe onderdelen over AKS. Zie voor meer informatie over deze onderdelen, de volgende project-pagina's:
 
 - [Helm CLI][helm-cli]
 - [NGINX-controller voor binnenkomend verkeer][nginx-ingress]
@@ -234,3 +263,7 @@ Meer informatie over de software die in dit document wordt gedemonstreerd.
 [cert-manager-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/issuers.html
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+
+<!-- LINKS - internal -->
+[use-helm]: kubernetes-helm.md
+[azure-cli-install]: /cli/azure/install-azure-cli

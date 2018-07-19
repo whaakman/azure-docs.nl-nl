@@ -1,6 +1,6 @@
 ---
-title: C#-Snelstartgids voor Azure cognitieve Services, Text Analytics API | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de tekst Analytics-API in Microsoft cognitieve Services in Azure.
+title: C# Quickstart voor Azure Cognitive Services Text Analytics-API | Microsoft Docs
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 documentationcenter: ''
 author: luiscabrer
@@ -9,46 +9,46 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: d9c61a83450844461f621ff16354881a029f7ad6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 94847adf761652a25fd3e2d594c7169776fefc89
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266291"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125122"
 ---
-# <a name="quickstart-for-text-analytics-api-with-c"></a>Snelstartgids voor Tekstanalyse API met C# 
+# <a name="quickstart-for-text-analytics-api-with-c"></a>Snelstartgids voor Tekstanalyse-API met C# 
 <a name="HOLTop"></a>
 
-Dit artikel laat zien hoe taal wordt gedetecteerd, gevoel analyseren en uitpakken van sleutel woordgroepen met behulp van de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met C#. De code is geschreven om te werken op een .net Core toepassing, met minimale verwijzingen naar externe bibliotheken, zodat u het ook op Linux- of Mac OS uitvoeren kan.
+Dit artikel leest u hoe u taal detecteren, sentiment analyseren en belangrijke woordgroepen met behulp van de [Tekstanalyse-API's](//go.microsoft.com/fwlink/?LinkID=759711) met C#. De code is geschreven om te werken op een .net Core-toepassing, met minimale verwijzingen naar externe bibliotheken, dus u het ook in Linux of MacOS uitvoeren kunt.
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Text Analytics API**. U kunt de **gratis laag voor 5000 transacties/maand** voltooien van deze snelstartgids.
+Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Tekstanalyse-API**. U kunt de **gratis laag voor 5000 transacties per maand** om uit te voeren van deze Quick Start.
 
-U moet ook beschikken over de [eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) die is gegenereerd voor u tijdens de aanmelding van. 
+Ook moet u de [eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) die is gegenereerd voor u tijdens het aanmelden van. 
 
 
-## <a name="install-the-nuget-sdk-package"></a>Installeer het Nuget-SDK-pakket
+## <a name="install-the-nuget-sdk-package"></a>Installeer de SDK Nuget-pakket
 1. Maak een nieuwe Console-oplossing in Visual Studio.
 1. Klik met de rechtermuisknop op de oplossing en klik op **NuGet-pakketten beheren voor oplossing**
-1. Markeer de **omvatten Prerelease** selectievakje.
-1. Selecteer de **Bladeren** tabblad en zoek naar **Microsoft.Azure.CognitiveServices.Language**
-1. Het Nuget-pakket te selecteren en te installeren.
+1. Markeren de **voorlopige versie opnemen** selectievakje.
+1. Selecteer de **Bladeren** tabblad en zoek naar de **Microsoft.Azure.CognitiveServices.Language**
+1. Selecteer het Nuget-pakket en installeer deze.
 
 > [!Tip]
->  Terwijl u de [HTTP-eindpunten](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) rechtstreeks vanuit C#, de SDK Microsoft.Azure.CognitiveServices.Language veel gemakkelijker de service aanroepen zonder te hoeven maken over serialiseren en deserialiseren van JSON.
+>  Terwijl u de [HTTP-eindpunten](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) rechtstreeks via C#, de SDK Microsoft.Azure.CognitiveServices.Language veel gemakkelijker om aan te roepen van de service zonder te hoeven maken over het serialiseren en deserialiseren van JSON.
 >
-> Enkele nuttige koppelingen:
+> Een paar nuttige koppelingen:
 > - [SDK Nuget-pagina](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 > - [SDK-code ](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 
-## <a name="call-the-text-analytics-api-using-the-sdk"></a>De tekst Analytics API met behulp van de SDK niet aanroepen
-1. Program.cs vervangen door de code hieronder. Dit programma ziet u de mogelijkheden van de tekst Analytics API in de 3 punten (taal extractie, uitpakken van sleutel-zin en gevoel analyse).
+## <a name="call-the-text-analytics-api-using-the-sdk"></a>Aanroep van de Tekstanalyse-API met behulp van de SDK
+1. Vervang Program.cs door de code hieronder. Dit programma ziet u de mogelijkheden van de Tekstanalyse-API in 3 secties (taal uitpakken, sleutel vindt er sleuteltermextractie plaats en sentimentanalyse).
 1. Vervang de `Ocp-Apim-Subscription-Key` headerwaarde met een geldige toegangssleutel voor uw abonnement.
-1. Vervang de locatie in `client.AzureRegion` (momenteel `AzureRegions.Westus`) voor de regio die u zich heeft aangemeld.
+1. Vervang de locatie in `client.BaseUri` naar het eindpunt dat u zich heeft aangemeld. U vindt het eindpunt voor de resource van Azure Portal. Het eindpunt is doorgaans ziet eruit als 'https://[region].api.cognitive.microsoft.com/text/analytics/v2.0'.
 1. Voer het programma.
 
 ```csharp
@@ -81,8 +81,8 @@ namespace ConsoleApp1
         {
 
             // Create a client.
-            ITextAnalyticsAPI client = new TextAnalyticsAPI(new ApiKeyServiceClientCredentials());
-            client.AzureRegion = AzureRegions.Westus;
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials());
+            client.BaseUri = new Uri("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0");
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
@@ -155,10 +155,10 @@ namespace ConsoleApp1
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Tekstanalyse met Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Text Analytics met Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>Zie ook 
 
- [Overzicht van tekst Analytics](../overview.md)  
+ [Text Analytics-overzicht](../overview.md)  
  [Veelgestelde vragen (FAQ)](../text-analytics-resource-faq.md)
 

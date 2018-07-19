@@ -2,24 +2,24 @@
 title: Instellingen voor Hadoop, Spark, Kafka, HBase of R-Server maken-Azure HDInsight-cluster
 description: Instellen van Hadoop, Kafka, Spark, HBase, R Server of Storm-clusters voor HDInsight vanuit een browser, de Azure CLI, Azure PowerShell, REST of SDK.
 keywords: setup van hadoop-cluster, kafka-cluster setup, spark-cluster setup, wat is hadoop cluster
-services: hdinsight
+services: storage
 documentationcenter: ''
 author: jamesbak
 manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 725e79596a919cba4214dba8b3cc86e9bb48cc79
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346583"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136635"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snelstartgids: Clusters instellen in HDInsight
 
@@ -258,7 +258,7 @@ Zie [Vereisten voor toegangsbeheer](../../hdinsight/hdinsight-administer-use-por
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Hadoop-bestandssysteem ABFS-stuurprogramma voor Azure Data Lake Storage Gen2](abfs-driver.md)
-- [Zelfstudie: Extraheren, transformeren en laden van gegevens met behulp van Apache Hive op Azure HDInsight](tutorial-extract-transform-load-hive.md)
+- [Zelfstudie: Gegevens uitpakken, transformeren en laden met Apache Hive in Azure HDInsight](tutorial-extract-transform-load-hive.md)
 - [Wat zijn HDInsight, de Hadoop-ecosysteem en Hadoop-clusters?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [Aan de slag met Hadoop in HDInsight](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Werken in Hadoop op HDInsight vanaf een Windows-PC](../../hdinsight/hdinsight-hadoop-windows-tools.md)
