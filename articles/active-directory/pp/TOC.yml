@@ -1,4 +1,0 @@
-- name: Een VM MSI gebruiken voor toegang tot Azure Storage
-  items:
-    - name: Vanaf een Linux-VM met behulp van een toegangssleutel
-      href: msi-tutorial-linux-vm-access-storage.md
