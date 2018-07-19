@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/29/2018
+ms.date: 07/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856413"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136652"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Azure AD Gebruiksrechtovereenkomst.
@@ -86,7 +86,7 @@ Wanneer u uw gebruiksrechtovereenkomstdocument hebt voltooid, gebruikt u de volg
 
     ![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/create-tou.png)
 
-## <a name="view-who-has-accepted-and-declined"></a>Bekijken wie hebben geaccepteerd en geweigerd
+## <a name="view-report-of-who-has-accepted-and-declined"></a>Rapport weergeven van wie heeft geaccepteerd en geweigerd
 In de Gebruiksrechtovereenkomst-blade ziet u de aantallen gebruikers die al dan niet hebben geaccepteerd. Deze aantallen en wie hebben geaccepteerd/geweigerd worden opgeslagen voor de duur van de gebruiksrechtovereenkomst.
 
 1. Meld u aan bij Azure en navigeer naar **Gebruiksrechtovereenkomst** op [https://aka.ms/catou](https://aka.ms/catou).
@@ -97,10 +97,10 @@ In de Gebruiksrechtovereenkomst-blade ziet u de aantallen gebruikers die al dan 
 
     ![Controlegebeurtenis](media/active-directory-tou/accepted-tou.png)
 
-## <a name="view-audit-logs"></a>Auditlogboeken weergeven
+## <a name="view-azure-ad-audit-logs"></a>Auditlogboeken weergeven Azure AD
 Als u aanvullende activiteiten wilt bekijken, bevat Azure AD Gebruiksrechtovereenkomst auditlogboeken. Elke toestemming van de gebruiker wordt een gebeurtenis in de auditlogboeken die zijn opgeslagen voor 30 dagen geactiveerd. U kunt deze logboeken bekijken in de portal of downloaden als CSV-bestand.
 
-Gebruik de volgende procedure om aan de slag te gaan met controlelogboeken:
+Aan de slag met Azure AD controlelogboeken, gebruikt u de volgende procedure:
 
 1. Meld u aan bij Azure en navigeer naar **Gebruiksrechtovereenkomst** op [https://aka.ms/catou](https://aka.ms/catou).
 
@@ -167,10 +167,19 @@ Beleid voor voorwaardelijke toegang wordt onmiddellijk van kracht. Als dit gebeu
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 **V: Hoe kan ik zien wanneer/of een gebruiker een gebruiksrechtovereenkomst heeft geaccepteerd?**</br>
-A: klik op de voorwaarden van de blade gebruiken, klikt u op het aantal onder **geaccepteerde**. U kunt ook weergeven of de accept-activiteit in de auditlogboeken zoeken. Zie voor meer informatie, [weergeven die is geaccepteerd en niet](#view-who-has-accepted-and-declined) en [auditlogboeken weergeven](#view-audit-logs).
+A: klik op de voorwaarden van de blade gebruiken, klikt u op het aantal onder **geaccepteerde**. U kunt ook weergeven of zoeken naar de accept-activiteit in de Azure AD auditlogboeken. Zie voor meer informatie, [rapport weergeven van wie heeft geaccepteerd en afgewezen](#view-who-has-accepted-and-declined) en [weergave Azure AD-auditlogboeken](#view-azure-ad-audit-logs).
+ 
+**V: hoe lang worden gegevens opgeslagen?**</br>
+A: de gebruiker wordt geteld in de voorwaarden van het rapport gebruiken en die voor de levensduur van de gebruiksrechtovereenkomst geaccepteerd/afgewezen worden opgeslagen. De Azure AD-audit logboeken worden opgeslagen voor 30 dagen.
 
-**Vraag: als u van de gebruiksrechtovereenkomst wijzigt,, moeten gebruikers opnieuw accepteren?**</br>
+**V: Waarom zie ik een ander aantal toestemmingen in de voorwaarden van gebruik rapport vergeleken met de Azure AD auditlogboeken?**</br>
+A: de gebruiksrechtovereenkomst gebruik rapport wordt opgeslagen voor de levensduur van deze gebruiksrechtovereenkomst, terwijl de Azure AD-audit logboeken worden opgeslagen voor 30 dagen. Ook de voorwaarden van gebruik rapport alleen de huidige toestemming-status van gebruikers weergegeven. Bijvoorbeeld, als een gebruiker geweigerd en vervolgens accepteert de gebruiksrechtovereenkomst gebruik rapport wordt alleen weergegeven van die gebruiker accepteren. Als u nodig hebt om te zien van de geschiedenis, kunt u de Azure AD auditlogboeken.
+
+**V: als ik van de gebruiksrechtovereenkomst wijzigt,, moeten gebruikers opnieuw accepteren?**</br>
 A: Ja, kan een beheerder van de gebruiksrechtovereenkomst wijzigen en het vereist dat gebruikers de nieuwe voorwaarden accepteren.
+
+**V: als hyperlinks in PDF-document met de gebruiksrechtovereenkomst, eindgebruikers zich erop klikt?**</br>
+A: het PDF-bestand wordt standaard weergegeven als een JPEG, zodat hyperlinks niet geklikt. Gebruikers hebben de optie te selecteren **hebt u problemen met weergeven? Klik hier**, die wordt weergegeven het PDF-bestand systeemeigen waar hyperlinks worden ondersteund.
 
 **V: Wordt een gebruiksrechtovereenkomst in meerdere talen ondersteund?**</br>
 A: Ja.  Er zijn momenteel 18 verschillende talen die een beheerder voor één gebruiksrechtovereenkomst kan configureren. 
@@ -189,6 +198,7 @@ A: De gebruiker krijgt dan geen toegang tot de toepassing. De gebruiker moet zic
  
 **Vraag: is het mogelijk om de gebruiksvoorwaarden die eerder zijn geaccepteerd unaccept?**</br>
 A: u kunt [revisie geaccepteerd eerder gebruiksvoorwaarden](#how-users-can-review-their-terms-of-use), maar er is momenteel een manier te unaccept.
- 
-**V: hoe lang worden gegevens opgeslagen?**</br>
-A: De aantallen gebruikers en wie hebben geaccepteerd/geweigerd worden opgeslagen voor de duur van de gebruiksrechtovereenkomst. De auditlogboeken worden 30 dagen bewaard.
+
+## <a name="next-steps"></a>Volgende stappen
+
+- [Best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md) (Best practices voor voorwaardelijke toegang in Azure Active Directory)

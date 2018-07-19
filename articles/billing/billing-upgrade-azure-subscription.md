@@ -1,7 +1,7 @@
 ---
-title: Upgrade van uw gratis Azure-abonnement naar betalen per gebruik | Microsoft Docs
-description: Hierin wordt beschreven hoe u een omslagstelsel kunt doen upgrade vanaf een gratis abonnement en de vereisten
-keywords: upgrade variabel omslagstelsel
+title: Uw gratis Azure-abonnement upgraden naar betalen per gebruik | Microsoft Docs
+description: Hierin wordt beschreven hoe u een betalen kunt doen een upgrade uitvoeren voor een gratis abonnement en de vereisten
+keywords: upgrade van de betalen naar gebruik
 services: ''
 documentationcenter: ''
 author: jlian
@@ -17,23 +17,28 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 089bb6f3fd187a56495dfd353ee89086e6bea120
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769168"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124980"
 ---
-# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Upgrade van uw gratis proefversie of Microsoft Denk aan Azure-abonnement naar betalen per gebruik
+# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Uw gratis proefversie of Azure voor Microsoft Imagine-abonnement upgraden naar betalen per gebruik
 
-Upgrade uw [gratis proefversie](https://azure.microsoft.com/free/) of [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) abonnement op [betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) in het Azure-Accountcentrum.
+Upgrade uw [gratis proefversie](https://azure.microsoft.com/free/) of [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) abonnement op [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) in het Azure-Accountcentrum.
 
 1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/subscriptions).
-2. Selecteer in de sectie van de status abonnement de **nu bijwerken** banner.
+2. Selecteer in de sectie van de status van abonnement de **nu een upgrade uitvoeren** banner.
    
-    ![Schermopname die laat waar u zien moet klikken om een upgrade van de gratis proefversie naar betalen per gebruik](./media/billing-upgrade-azure-subscription/billpage.png)
-3. Bevestig de upgrade.
+    ![Schermopname die laat waar u zien moet klikken om te upgraden van gratis proefversie naar betalen per gebruik](./media/billing-upgrade-azure-subscription/billpage.png)
+3. Controleer of de upgrade.
    
-    ![Schermopname die laat wat u zien moet selecteren om te bevestigen dat u wilt uw abonnement](./media/billing-upgrade-azure-subscription/Upgrade.png)
+    ![Schermopname die laat wat u zien moet selecteren om te bevestigen dat u wilt upgraden van uw abonnement](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
- Wanneer u een van een gratis abonnement upgrade, kunt u uw resterende tegoed houden voor de volledige 30 dagen nadat u het abonnement hebt gemaakt. U hebt ook toegang tot services gedurende 12 maanden gratis.
+ Wanneer u een van een gratis proefversie van abonnement upgrade, kunt u het resterende tegoed houden voor de volledige 30 dagen nadat u het abonnement hebt gemaakt. U hebt ook toegang tot gratis services voor 12 maanden.
+ 
+ Als u wilt [het abonnement overdraagt](billing-subscription-transfer.md) na een upgrade uitvoert, moet u wachten tot de aanbieding van een ID wordt gewijzigd in **MS-AZR - 003P**. De aanbiedings-ID wordt gewijzigd
+
+* U het resterende tegoed hebt verbruikt of
+* 30 dagen verstreken sinds de start van de gratis proefversie

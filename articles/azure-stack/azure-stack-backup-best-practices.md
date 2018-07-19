@@ -3,7 +3,7 @@ title: Infrastructuur voor Backup-Service aanbevolen procedures voor Azure Stack
 description: Als u implementeert en Azure Stack in uw datacenter beheert om te beperken gegevens verloren gaan als er een onherstelbare fout, kunt u set met aanbevolen procedures volgen.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 7/18/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 06a2d4ab12d2a7e03a538a98f5232a417fb39e4f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0b6153a863b0637f314b4f333b255ec8d24b5b0c
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969466"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136431"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Aanbevolen procedures voor infrastructuur voor Backup-Service
 
@@ -34,7 +34,7 @@ U moet de aanbevolen procedures bekijken met een regelmatig interval om te contr
 
 ### <a name="deployment"></a>Implementatie
 
-Infrastructuur voor back-up inschakelen na de implementatie van elke Azure Stack-Cloud. Met behulp van AzureStack-hulpprogramma's die u kunt back-ups plannen vanaf een client/server met toegang tot de operator management API-eindpunt.
+Infrastructuur voor back-up inschakelen na de implementatie van elke Azure Stack-Cloud. U kunt back-ups van een client/server met toegang op de operator management API-eindpunt met behulp van PowerShell voor Azure Stack plannen.
 
 ### <a name="networking"></a>Netwerken
 

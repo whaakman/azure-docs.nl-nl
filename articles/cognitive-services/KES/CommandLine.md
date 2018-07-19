@@ -1,6 +1,6 @@
 ---
-title: Kennis exploratie Service opdrachtregelinterface | Microsoft Docs
-description: De opdrachtregelinterface KES gebruiken om bestanden index en grammatica van gestructureerde gegevens samen te stellen en vervolgens als webservices in cognitieve Microsoft-Services te implementeren.
+title: Knowledge Exploration Service-opdrachtregelinterface | Microsoft Docs
+description: Gebruik de KES-opdrachtregelinterface voor het bouwen van de index en grammatica-bestanden van gestructureerde gegevens en ze vervolgens te implementeren als webservices in de Microsoft Cognitive Services.
 services: cognitive-services
 author: bojunehsu
 manager: stesp
@@ -9,15 +9,15 @@ ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: ffa42ac73b42a8271004d2d45d7a80f3307ef059
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344547"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136352"
 ---
 # <a name="command-line-interface"></a>Opdrachtregelinterface
-De KES opdrachtregelinterface biedt de mogelijkheid om te bouwen index en grammatica-bestanden van gestructureerde gegevens en deze als webservices te implementeren.  De algemene syntaxis wordt gebruikt: `kes.exe <command> <required_args> [<optional_args>]`.  U kunt uitvoeren `kes.exe` zonder argumenten om een lijst met opdrachten weer te geven of `kes.exe <command>` om een lijst met argumenten die beschikbaar zijn voor de opgegeven opdracht weer te geven.  Hieronder volgt een lijst met beschikbare opdrachten:
+De KES command line interface biedt de mogelijkheid om te bouwen index en grammatica-bestanden van gestructureerde gegevens en ze te implementeren als webservices.  Het maakt gebruik van de algemene syntaxis: `kes.exe <command> <required_args> [<optional_args>]`.  U kunt uitvoeren `kes.exe` zonder argumenten om een lijst van opdrachten, weer te geven of `kes.exe <command>` om een lijst met argumenten die beschikbaar zijn voor de opgegeven opdracht weer te geven.  Hieronder volgt een lijst van beschikbare opdrachten:
 * build_index
 * build_grammar
 * host_service
@@ -26,96 +26,108 @@ De KES opdrachtregelinterface biedt de mogelijkheid om te bouwen index en gramma
 * describe_grammar
 
 <a name="build_index-command"></a>
+
 ## <a name="buildindex-command"></a>build_index opdracht
-De **build_index** opdracht maakt u een bestand binaire index van een schemadefinitiebestand en een gegevensbestand van objecten moeten worden geïndexeerd.  Het resulterende indexbestand kan worden gebruikt om gestructureerde queryexpressies te evalueren of interpretatie van natuurlijke taal query's in combinatie met een gecompileerde grammaticabestand genereren.
+
+De **build_index** opdracht bouwt een binair indexbestand uit een bestand van de definitie van schema en een gegevensbestand van objecten moeten worden geïndexeerd.  Het resulterende indexbestand kan worden gebruikt om gestructureerde queryexpressies te evalueren of voor het genereren van een perfecte ervaring bij van query's in natuurlijke taal in combinatie met een gecompileerde grammaticabestand.
 
 `kes.exe build_index <schemaFile> <dataFile> <indexFile> [options]`
 
 | Parameter      | Beschrijving               |
 |----------------|---------------------------|
-| `<schemaFile>` | Invoer schema pad |
-| `<dataFile>`   | Pad van de invoergegevens   |
+| `<schemaFile>` | Pad van de invoer-schema |
+| `<dataFile>`   | Invoergegevens pad   |
 | `<indexFile>`  | Uitvoerpad index |
 | `--description <description>` | Beschrijving |
 | `--remote <vmSize>`           | Grootte van virtuele machine voor externe build |
 
-Deze bestanden kunnen worden opgegeven door lokale paden of URL-paden naar Azure blobs.  Het schemabestand beschrijft de structuur van de objecten die worden geïndexeerd en de bewerkingen worden ondersteund (Zie [Schema-indeling](SchemaFormat.md)).  Het gegevensbestand inventariseert de objecten en kenmerkwaarden worden geïndexeerd (Zie [gegevensindeling](DataFormat.md)).  Wanneer de opbouwbewerking is voltooid, bevat het uitvoerbestand index een gecomprimeerde weergave van de invoergegevens die ondersteuning biedt voor de gewenste bewerkingen.  
+Deze bestanden kunnen worden opgegeven met lokale paden of URL-paden naar Azure-blobs.  Het schemabestand beschrijft de structuur van de objecten worden geïndexeerd en de bewerkingen worden ondersteund (Zie [Schema-indeling](SchemaFormat.md)).  Het gegevensbestand inventariseert de objecten en kenmerkwaarden worden geïndexeerd (Zie [gegevensindeling](DataFormat.md)).  Als de build is geslaagd, bevat het uitvoerbestand index een gecomprimeerde weergave van de ingevoerde gegevens die ondersteuning biedt voor de gewenste bewerkingen.  
 
 Een beschrijving (optioneel) worden opgegeven voor het identificeren van een binaire index met de **describe_index** opdracht.  
 
-Standaard worden de index is gebaseerd op de lokale computer.  Lokale builds zijn buiten de Azure-omgeving, beperkt tot gegevensbestanden die maximaal 10.000 objecten bevat.  Wanneer de--externe vlag is opgegeven, wordt de index wordt gebouwd op een tijdelijk gemaakte Azure virtuele machine van de opgegeven grootte.  Hiermee kunt grote indexen kunnen worden gebouwd efficiënt gebruik maakt van Azure VM's met meer geheugen.  Om te voorkomen paginering die de procedure voor het maken vertraagt, wordt u aangeraden een virtuele machine met 3 keer de hoeveelheid RAM-geheugen als de bestandsgrootte invoergegevens.  Zie voor een lijst met beschikbare grootten voor virtuele machine, [grootten voor virtuele machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+De index is standaard gebouwd op de lokale computer.  Lokale builds zijn buiten de Azure-omgeving, beperkt tot gegevensbestanden die maximaal 10.000 objecten bevatten.  Wanneer de--externe vlag is opgegeven, wordt de index op een tijdelijk gemaakte Azure-VM van de opgegeven grootte worden samengesteld.  Hiermee kunt grote indexen kunnen worden gebouwd efficiënt gebruik van virtuele Azure-machines met meer geheugen.  Om te voorkomen wisselbestand die het bouwproces vertraagt, wordt u aangeraden een virtuele machine met 3 keer de hoeveelheid RAM-geheugen als de bestandsgrootte van invoergegevens.  Zie voor een lijst van beschikbare VM-grootten, [grootten voor virtuele machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
 > [!TIP] 
-> Post voor snellere builds voor de objecten in het gegevensbestand door de kans te verlagen.
+> Post voor snellere builds voor de objecten in het bestand met door de kans te verkleinen.
 
 <a name="build_grammar-command"></a>
+
 ## <a name="buildgrammar-command"></a>build_grammar opdracht
-De **build_grammar** opdracht wordt een grammatica die is opgegeven in XML naar een binaire grammaticabestand gecompileerd.  Het resulterende grammaticabestand kan worden gebruikt in combinatie met een indexbestand interpretatie van natuurlijke taal query's te genereren.
+
+De **build_grammar** opdracht wordt een grammatica is opgegeven in XML-bestand naar een binaire grammaticabestand gecompileerd.  Het resulterende grammaticabestand kan worden gebruikt in combinatie met een indexbestand voor het genereren van een perfecte ervaring bij van query's in natuurlijke taal.
 
 `kes.exe build_grammar <xmlFile> <grammarFile>`
 
 | Parameter       | Beschrijving               |
 |-----------------|---------------------------|
-| `<xmlFile>`     | Invoer-XML-grammatica specificatie pad |
+| `<xmlFile>`     | XML-grammatica-specificatie invoerpad |
 | `<grammarFile>` | Uitvoerpad gecompileerde grammatica         |
 
-Deze bestanden kunnen worden opgegeven door lokale paden of URL-paden naar Azure blobs.  De specificatie grammatica wordt beschreven welke gewogen natuurlijke taal expressies en hun semantische interpretaties (Zie [grammatica-indeling](GrammarFormat.md)).  Wanneer de opbouwbewerking is voltooid, bevat de grammatica-bestand voor uitvoer een binaire voorstelling van de grammatica-specificatie inschakelen snel decoderen.
+Deze bestanden kunnen worden opgegeven met lokale paden of URL-paden naar Azure-blobs.  De specificatie grammatica wordt beschreven welke gewogen natuurlijke taal expressies en hun functionaliteit voor semantische interpretaties (Zie [grammatica-indeling](GrammarFormat.md)).  Wanneer de build is gelukt, bevat het uitvoerbestand grammatica een binaire weergave van de grammatica-specificatie om in te schakelen snelle decoderen.
 
 <a name="host_service-command"/>
+
 ## <a name="hostservice-command"></a>host_service opdracht
+
 De **host_service** opdracht als host fungeert voor een exemplaar van de service KES op de lokale computer.
 
 `kes.exe host_service <grammarFile> <indexFile> [options]`
 
 | Parameter       | Beschrijving                |
 |-----------------|----------------------------|
-| `<grammarFile>` | Invoer binaire grammatica pad         |
-| `<indexFile>`   | Invoer binaire index pad           |
+| `<grammarFile>` | Invoer binaire grammatica-pad         |
+| `<indexFile>`   | Pad van invoer binaire index           |
 | `--port <port>` | Lokale poortnummer.  Standaard: 8000 |
 
-Deze bestanden kunnen worden opgegeven door lokale paden of URL-paden naar Azure blobs.  Een webservice wordt gehost op http://localhost:&lt; poort&gt;/.  Zie [Web-API's](WebAPI.md) voor een lijst met ondersteunde bewerkingen.
+Deze bestanden kunnen worden opgegeven met lokale paden of URL-paden naar Azure-blobs.  Een webservice wordt gehost op http://localhost:&lt; poort&gt;/.  Zie [Web-API's](WebAPI.md) voor een lijst met ondersteunde bewerkingen.
 
-Omgeving lokaal gehoste services beperkt zijn tot het indexeren bestanden buiten de Azure maximaal 1 MB in grootte, 10 aanvragen per seconde en het totaal aantal aanroepen 1000.  Uitvoeren als u wilt opheffen van deze beperkingen, **host_service** binnen een virtuele machine van Azure of implementeren naar een Azure-cloud service met behulp van **deploy_service**.
+Buiten de Azure-omgeving lokaal gehoste services beperkt zijn tot index maximaal 1 MB in grootte, 10 aanvragen per seconde en totaal aantal aanroepen van 1000 bestanden.  Uitvoeren om te strijden tegen deze beperkingen, **host_service** binnen een Azure-VM of implementeren op een Azure-cloud service met behulp van **deploy_service**.
 
 <a name="deploy_service-command"/>
+
 ## <a name="deployservice-command"></a>deploy_service opdracht
-De **deploy_service** opdracht een exemplaar van de service KES naar een Azure cloudservice wordt geïmplementeerd.
+
+De **deploy_service** opdracht wordt een exemplaar van de service KES geïmplementeerd in een Azure cloudservice.
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
 
 | Parameter       | Beschrijving                  |
 |-----------------|------------------------------|
-| `<grammarFile>` | Invoer binaire grammatica pad           |
-| `<indexFile>`   | Invoer binaire index pad             |
-| `<serviceName>` | Naam van de cloudservice doel |
+| `<grammarFile>` | Invoer binaire grammatica-pad           |
+| `<indexFile>`   | Pad van invoer binaire index             |
+| `<serviceName>` | Naam van de doelcloudservice |
 | `<vmSize>`      | Grootte van cloudservice-VM     |
-| `--slot <slot>` | Cloud service sleuf: "fasering' (standaard), 'productie' |
+| `--slot <slot>` | Cloudservicesite: "staging" (standaard), 'productie' |
 
-Deze bestanden kunnen worden opgegeven door lokale paden of URL-paden naar Azure blobs.  De naam van service geeft een vooraf geconfigureerde Azure-cloud-service (Zie [maken en implementeren van een Cloudservice](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md)).  De opdracht wordt automatisch de KES-service implementeren in de opgegeven Azure-cloudservice, met behulp van virtuele machines van de opgegeven grootte.  Om te voorkomen paginering die aanzienlijk duurt, wordt u aangeraden een virtuele machine met 1 GB meer RAM-geheugen dan de bestandsgrootte van de invoer-index.  Zie voor een lijst met beschikbare grootten voor virtuele machine, [grootten voor Cloudservices](../../../articles/cloud-services/cloud-services-sizes-specs.md).
+Deze bestanden kunnen worden opgegeven met lokale paden of URL-paden naar Azure-blobs.  De naam van service geeft aan dat een vooraf geconfigureerde Azure-cloud-service (Zie [maken en implementeren van een Cloudservice](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md)).  De opdracht wordt de service KES automatisch geïmplementeerd naar de opgegeven Azure-cloud-service, met behulp van virtuele machines van de opgegeven grootte.  Om te voorkomen wisselbestand die de prestaties aanzienlijk verlaagd, wordt u aangeraden een virtuele machine met 1 GB meer RAM-geheugen dan de grootte van het invoer-index.  Zie voor een lijst van beschikbare VM-grootten, [groottes voor Cloud Services](../../../articles/cloud-services/cloud-services-sizes-specs.md).
 
-Standaard wordt de service geïmplementeerd bij de faseringsomgeving eventueel overschreven via de--sleuf-parameter.  Zie [Web-API's](WebAPI.md) voor een lijst met ondersteunde bewerkingen.
+Standaard de service wordt geïmplementeerd in de faseringsomgeving (optioneel) via de sleuf parameter--overschreven.  Zie [Web-API's](WebAPI.md) voor een lijst met ondersteunde bewerkingen.
 
 <a name="describe_index-command"/>
-## <a name="describeindex-command"></a>describe_index-opdracht
-De **describe_index** opdracht levert informatie over een indexbestand, met inbegrip van het schema en de beschrijving.
+
+## <a name="describeindex-command"></a>describe_index opdracht
+
+De **describe_index** opdracht voert informatie over een indexbestand, met inbegrip van het schema en de beschrijving.
 
 `kes.exe describe_index <indexFile>`
 
 | Parameter     | Beschrijving      |
 |---------------|------------------|
-| `<indexFile>` | Invoer index pad |
+| `<indexFile>` | Pad van de invoer-index |
 
-Dit bestand kan worden opgegeven met een lokaal pad of een URL-pad naar een Azure-blob.  De beschrijving van de uitvoer kan worden opgegeven met de--parameter beschrijving van de **build_index** opdracht.
+Dit bestand kan worden opgegeven met een lokaal bestandspad of een URL-pad naar een Azure-blob.  De beschrijving van de uitvoer kan worden opgegeven met behulp van de--beschrijvingsparameter van de **build_index** opdracht.
 
 <a name="describe_grammar-command"/>
-## <a name="describegrammar-command"></a>describe_grammar-opdracht
-De **describe_grammar** opdracht levert de oorspronkelijke grammatica-specificatie voor het samenstellen van de binaire grammatica.
+
+## <a name="describegrammar-command"></a>describe_grammar opdracht
+
+De **describe_grammar** opdracht levert de oorspronkelijke grammatica-specificatie gebruikt voor het bouwen van de binaire grammatica.
 
 `kes.exe describe_grammar <grammarFile>`
 
 | Parameter       | Beschrijving      |
 |-----------------|------------------|
-| `<grammarFile>` | Invoer grammatica pad |
+| `<grammarFile>` | Pad van de invoer-grammatica |
 
-Dit bestand kan worden opgegeven met een lokaal pad of een URL-pad naar een Azure-blob.
+Dit bestand kan worden opgegeven met een lokaal bestandspad of een URL-pad naar een Azure-blob.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 657e4b212b79fec40299e639c3818fd97a339579
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213121"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126725"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Uw eerste Service Fabric-containertoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -165,18 +165,18 @@ Om een Service Fabric-containertoepassing te maken, opent u een terminalvenster 
 
 Geef uw toepassing een naam (bijvoorbeeld `mycontainer`) evenals de toepassingsservice (bijvoorbeeld `myservice`).
 
-Voor de naam van de installatiekopie, moet u de URL opgeven voor de container-installatiekopie in een container register (bijvoorbeeld ' myregistry.azurecr.io/samples/helloworldapp'). 
+Geef de URL voor de installatiekopie van de container in een containerregister (bijvoorbeeld "myregistry.azurecr.io/samples/helloworldapp") voor de naam van de installatiekopie. 
 
 Omdat voor deze installatiekopie een workloadinvoerpunt is gedefinieerd, hoeft u niet expliciet invoeropdrachten op te geven (opdrachten worden uitgevoerd in de container, zodat de container na het opstarten actief blijft). 
 
 Geef '1' exemplaar op.
 
-Geef de poorttoewijzing in de juiste indeling. Voor dit artikel, moet u opgeven ```80:4000``` als de poorttoewijzing. Hierdoor u die hebt geconfigureerd, kunt u alle inkomende aanvragen op poort 4000 binnenkort op de hostcomputer wordt omgeleid naar poort 80 voor de container.
+De poorttoewijzing opgeven in de juiste indeling. Voor dit artikel, moet u opgeven ```80:4000``` als de poorttoewijzing. Zodoende u die hebt geconfigureerd, kunt u alle inkomende aanvragen op poort 4000 binnenkort op de hostcomputer worden omgeleid naar poort 80 in de container.
 
 ![Service Fabric Yeoman-generator voor containers][sf-yeoman]
 
-## <a name="configure-container-repository-authentication"></a>Container opslagplaats verificatie configureren
- Als de container moet verifiëren bij een persoonlijke privéopslagplaats, voegt u `RepositoryCredentials` toe. Voeg voor dit artikel de accountnaam en het wachtwoord in voor het containerregister myregistry.azurecr.io. Zorg ervoor dat het beleid wordt toegevoegd onder de 'ServiceManifestImport'-tag die overeenkomt met het juiste servicepakket.
+## <a name="configure-container-repository-authentication"></a>Verificatie van de opslagplaats container configureren
+ Als de container moet verifiëren bij een persoonlijke privéopslagplaats, voegt u `RepositoryCredentials` toe. Voeg voor dit artikel de accountnaam en het wachtwoord in voor het containerregister myregistry.azurecr.io. Zorg ervoor dat het beleid wordt toegevoegd onder de 'ServiceManifestImport'-tag die overeenkomt met de juiste service-pakket.
 
 ```xml
    <ServiceManifestImport>
@@ -189,6 +189,39 @@ Geef de poorttoewijzing in de juiste indeling. Voor dit artikel, moet u opgeven 
     </Policies>
    </ServiceManifestImport>
 ``` 
+
+
+## <a name="configure-isolation-mode"></a>Isolatiemodus configureren
+Met de release 6.3 runtime isolatie van de virtuele machine wordt ondersteund voor Linux-containers, waardoor ondersteunt twee isolatiemodi voor containers: proces en Hyper-v. Met de Hyper-v-isolatiemodus zijn de kernels scheiding tussen elke container en de containerhost. De Hyper-v-isolatie is geïmplementeerd met behulp van [wissen Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). De isolatiemodus is opgegeven voor Linux-clusters in de `ServicePackageContainerPolicy` -element in het manifestbestand van de toepassing. De isolatiemodi die kunnen worden opgegeven zijn `process`, `hyperv` en `default`. De standaardwaarde is de isolatiemodus. Het volgende codefragment toont hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0"/>
+      <Policies>
+        <ServicePackageContainerPolicy Hostname="votefront" Isolation="hyperv">
+          <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ServicePackageContainerPolicy>
+    </Policies>
+  </ServiceManifestImport>
+```
+
+
+## <a name="configure-resource-governance"></a>Resourcebeheer configureren
+[Resourcebeheer](service-fabric-resource-governance.md) beperkt de resources die de container op de host kan gebruiken. Het element `ResourceGovernancePolicy`, dat is opgegeven in het toepassingsmanifest, wordt gebruikt om resourcebeperkingen te declareren voor een servicecodepakket. Er kunnen resourcebeperkingen worden ingesteld voor de volgende resources: geheugen, MemorySwap, CpuShares (relatief CPU-gewicht), MemoryReservationInMB, BlkioWeight (relatief BlockIO-gewicht). In dit voorbeeld krijgt het servicepakket Guest1Pkg één kern op de clusterknooppunten waar het wordt geplaatst. Geheugenlimieten zijn absoluut, dus het codepakket wordt beperkt tot 1024 MB aan geheugen (en een gegarandeerde flexibele reservering hierop). Codepakketten (containers of processen) kunnen niet meer geheugen toewijzen dan deze limiet. Een poging dit toch te doen, leidt tot een Onvoldoende geheugen-uitzondering. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="MyServicePKg" ServiceManifestVersion="1.0.0" />
+  <Policies>
+    <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+    <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
+  </Policies>
+</ServiceManifestImport>
+```
+
+
+
+
 ## <a name="configure-docker-healthcheck"></a>Docker-STATUSCONTROLE configureren 
 Vanaf versie 6.1 integreert Service Fabric automatisch [Docker-STATUSCONTROLE](https://docs.docker.com/engine/reference/builder/#healthcheck)-gebeurtenissen in het systeemstatusrapport. Dit betekent dat als voor uw container **STATUSCONTROLE** is ingeschakeld, Service Fabric de status van de container rapporteert wanneer Docker aangeeft dat deze is gewijzigd. In [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) wordt de status **OK** weergegeven wanneer *health_status* *healthy* is en **WAARSCHUWING** wanneer *health_status* *unhealthy* is. De instructie **STATUSCONTROLE**, die verwijst naar de feitelijke controle die wordt uitgevoerd voor het bewaken van de containerstatus, moet aanwezig zijn in de Dockerfile die wordt gebruikt tijdens het genereren van de containerinstallatiekopie. 
 

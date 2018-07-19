@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951645"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126014"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Problemen met replicatie voor virtuele VMware-machines en fysieke servers
 
@@ -74,25 +74,7 @@ Als u kan geen verbinding maken, klikt u vervolgens controleren of het toegangsp
 
 * **Controleer als URL-gebaseerde firewall op de processerver toegang niet blokkeert**: als u een URL-gebaseerde firewall-regels op de server, controleert u of de volgende URL's worden toegevoegd aan de firewall-configuratie.
 
-  `*.accesscontrol.windows.net:` Word gebruikt voor toegangs- en identiteitsbeheer
-
-  `*.backup.windowsazure.com:` Wordt gebruikt voor overdracht en indeling van replicatiegegevens
-
-  `*.blob.core.windows.net:` Gebruikt voor toegang tot het opslagaccount waarin de gerepliceerde gegevens
-
-  `*.hypervrecoverymanager.windowsazure.com:` Wordt gebruikt voor bewerkingen en indeling in het kader van replicatiebeheer
-
-  `time.nist.gov` en `time.windows.com`: gebruikt om te controleren van de tijdsynchronisatie tussen de systeemtijd en de algemene tijd.
-
-URL's voor **Azure Government-Cloud**:
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **Controleer als Proxy-instellingen op de processerver toegang niet blokkeert**.  Als u een proxyserver, controleert u of dat de naam van de proxy-server wordt omgezet door de DNS-server.
 Om te controleren wat u hebt opgegeven op het moment van de installatie van de configuratieserver. Ga naar de registersleutel

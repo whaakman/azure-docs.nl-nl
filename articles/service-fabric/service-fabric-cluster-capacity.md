@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: cc6837ab14aa8fb36317da52cf011ddbd7e464be
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972228"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126048"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen voor capaciteitsplanning
 Voor een productie-implementatie is plannen van capaciteit een belangrijke stap. Hier volgen enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
@@ -165,6 +165,7 @@ Voor werkbelastingen voor productie:
 - Het is raadzaam te reserveren voor uw clusters primaire NodeType systeemservices en plaatsingsbeperkingen gebruiken om uw toepassing naar secundaire NodeTypes te implementeren.
 - De aanbevolen VM-SKU is Standard D3 of standaard D3_V2 of gelijkwaardig met een minimum van 14 GB lokale SSD.
 - De minimale ondersteunde gebruik VM-SKU is Standard D1 of standaard D1_V2 of gelijkwaardig met een minimum van 14 GB lokale SSD. 
+- De lokale SSD van 14 GB is een minimale vereiste. Onze aanbeveling is een minimum van 50 GB. Voor uw werkbelastingen, met name wanneer Windows-containers, zijn grotere schijven vereist. 
 - Gedeeltelijke kern als Standard A0 VM-SKU's worden niet ondersteund voor productieworkloads.
 - Standard A1-SKU wordt niet ondersteund voor productieworkloads voor betere prestaties.
 

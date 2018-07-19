@@ -1,57 +1,57 @@
 ---
-title: Inzicht in de Azure IoT Hub ingebouwd eindpunt | Microsoft Docs
-description: Handleiding voor ontwikkelaars - beschrijft het gebruik van de ingebouwde Event Hub-compatibele eindpunt toread apparaat-naar-cloud-berichten.
+title: Informatie over de ingebouwde Azure IoT Hub-eindpunt | Microsoft Docs
+description: Handleiding voor ontwikkelaars - wordt beschreven hoe u van de ingebouwde, Event Hub-compatibele eindpunt toread apparaat-naar-cloud-berichten.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: a09cc42763787890a4dabf17b1a1a87e7427ba37
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 912bb0dd3e48e53134ad848119ae7428b380b88d
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808533"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124933"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Apparaat-naar-cloud-berichten lezen van het ingebouwde eindpunt
 
-Standaard berichten worden doorgestuurd naar het ingebouwde gerichte service-eindpunt (**berichten/gebeurtenissen**) die compatibel is met [Event Hubs][lnk-event-hubs]. Dit eindpunt is momenteel alleen zichtbare met behulp van de [AMQP] [ lnk-amqp] -protocol op poort 5671. Een IoT-hub toont de volgende eigenschappen om te bepalen van de ingebouwde Event Hub-compatibele messaging eindpunt **berichten/gebeurtenissen**.
+Standaard berichten worden doorgestuurd naar het eindpunt van de ingebouwde service gerichte (**berichten/gebeurtenissen**) die compatibel is met [Event Hubs][lnk-event-hubs]. Dit eindpunt is momenteel alleen beschikbaar gemaakte met behulp van de [AMQP] [ lnk-amqp] -protocol op poort 5671. Een IoT-hub toont de volgende eigenschappen om te bepalen van het ingebouwde eindpunt van de Event Hub-compatibele-messaging **berichten/gebeurtenissen**.
 
 | Eigenschap            | Beschrijving |
 | ------------------- | ----------- |
-| **Aantal partities** | Stel deze eigenschap bij het maken van het aantal definiëren [partities] [ lnk-event-hub-partitions] voor opname van apparaat-naar-cloud-gebeurtenis. |
-| **Bewaartijd**  | Deze eigenschap specificeert hoe lang in dagen dat berichten door de IoT Hub worden bewaard. De standaardwaarde is één dag, maar deze kan worden verhoogd tot zeven dagen. |
+| **Aantal partities** | Deze eigenschap instellen tijdens het maken van voor het definiëren van het aantal [partities] [ lnk-event-hub-partitions] voor gebeurtenisopname van apparaat-naar-cloud. |
+| **Bewaartijd**  | Deze eigenschap geeft aan hoe lang in dagen berichten door de IoT Hub worden bewaard. De standaardwaarde is één dag, maar deze kan worden verhoogd tot zeven dagen. |
 
-IoT-Hub kunt u beheren consumer-groepen op de ingebouwde apparaat-naar-cloud eindpunt ontvangen.
+IoT Hub ook kunt u voor het beheren van consumentengroepen van de ingebouwde apparaat-naar-cloud eindpunt ontvangen.
 
-Standaard worden alle berichten die niet expliciet overeen met een regel voor het doorsturen van een bericht geschreven naar het eindpunt van de ingebouwde. Als u deze route voor terugval uitschakelt, worden berichten die niet expliciet overeen met alle regels voor het doorsturen van bericht verwijderd.
+Standaard worden alle berichten die niet expliciet overeenkomen met een regel voor het doorsturen van bericht naar het eindpunt van de ingebouwde geschreven. Als u deze alternatieve route uitschakelt, worden de berichten die niet expliciet overeen met alle regels voor berichtroutering verwijderd.
 
-U kunt de bewaartijd wijzigen programmatisch met behulp van de [resourceprovider IoT Hub REST-API's][lnk-resource-provider-apis], of met de [Azure-portal] [ lnk-management-portal].
+U kunt de bewaartijd wijzigen via een programma met behulp van de [IoT-Hub resourceprovider REST-API's][lnk-resource-provider-apis], of met de [Azure-portal] [ lnk-management-portal].
 
-IoT-Hub toont de **berichten/gebeurtenissen** ingebouwd eindpunt voor uw back-end-services om te lezen van de apparaat-naar-cloud-berichten dat is ontvangen door de hub. Dit eindpunt is Event Hub-compatibele, waarmee u een van de mechanismen gebruiken de Event Hubs-service ondersteunt voor het lezen van berichten.
+IoT-Hub toont de **berichten/gebeurtenissen** ingebouwd eindpunt voor uw back-end-services met de apparaat-naar-cloud-berichten ontvangen via uw hub lezen. Dit eindpunt is Event Hub-compatibele, waarmee u een van de mechanismen voor de Event Hubs-service biedt ondersteuning voor het lezen van berichten.
 
 ## <a name="read-from-the-built-in-endpoint"></a>Lezen van het ingebouwde eindpunt
 
-Wanneer u gebruikt de [Azure Service Bus-SDK voor .NET] [ lnk-servicebus-sdk] of de [Event Hubs - Gebeurtenisprocessorhost][lnk-eventprocessorhost], kunt u eventuele verbindingstekenreeksen IoT Hub met de juiste machtigingen. Gebruik vervolgens **berichten/gebeurtenissen** als de naam van de Event Hub.
+Wanneer u gebruikt de [Azure Service Bus-SDK voor .NET] [ lnk-servicebus-sdk] of de [Event Hubs - Event Processor Host][lnk-eventprocessorhost], kunt u een IoT Hub-verbinding tekenreeksen met de juiste machtigingen. Gebruik vervolgens **berichten/gebeurtenissen** als de naam van de Event Hub.
 
-Wanneer u SDK's (of product integraties) gebruikt die zich niet bewust zijn van IoT Hub, moet u een Event Hub-compatibele eindpunt en een Event Hub-compatibele naam ophalen:
+Wanneer u SDK's (of productintegraties) gebruikt die zich niet bewust van IoT Hub, moet u een Event Hub-compatibele eindpunt en een Event Hub-compatibele naam ophalen:
 
 1. Aanmelden bij de [Azure-portal] [ lnk-management-portal] en navigeer naar uw IoT-hub.
 1. Klik op **Eindpunten**.
 1. In de **ingebouwde eindpunten** sectie, klikt u op **gebeurtenissen**. 
-1. Een pagina met eigenschappen wordt geopend, waarin de volgende waarden: **Event Hub-compatibele eindpunt**, **Event Hub-compatibele naam**, **partities**,  **Bewaartijd**, en **consumergroepen**.
+1. Een pagina met eigenschappen wordt geopend, waarin de volgende waarden: **Event Hub-compatibele eindpunt**, **Event Hub-compatibele naam**, **partities**,  **Bewaartijd**, en **consumentengroepen**.
 
     ![Apparaat-naar-cloudinstellingen][img-eventhubcompatible]
 
-De naam voor het eindpunt van IoT Hub, die is vereist dat de IoT Hub SDK **berichten/gebeurtenissen** zoals wordt weergegeven onder **eindpunten**.
+De SDK voor IoT Hub is de naam voor het eindpunt van IoT Hub, die is vereist **berichten/gebeurtenissen** zoals wordt weergegeven onder **eindpunten**.
 
-Als de SDK die u moet een **hostnaam** of **Namespace** waarde, verwijdert u het schema van de **Event Hub-compatibele eindpunt**. Bijvoorbeeld, als uw Event Hub-compatibele eindpunt **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, wordt de **hostnaam** zou worden  **iothub ns-myiothub 1234.servicebus.windows.net**. De **Namespace** zou **iothub-ns-myiothub-1234**.
+Als de SDK die u moet een **hostnaam** of **Namespace** waarde, verwijdert u het schema van de **Event Hub-compatibele eindpunt**. Bijvoorbeeld, als uw Event Hub-compatibele eindpunt **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, wordt de **hostnaam** zou  **iothub-ns-myiothub-1234.servicebus.windows.net**. De **Namespace** zou **iothub-ns-myiothub-1234**.
 
-U kunt een beleid voor gedeelde toegang met de **ServiceConnect** machtigingen verbinding maken met de opgegeven Event Hub.
+Vervolgens kunt u een beleid voor gedeelde toegang waarvoor de **ServiceConnect** machtigingen voor het verbinding maken met de opgegeven Event Hub.
 
-Als u een Event Hub-verbindingsreeks bouwen wilt met behulp van de vorige gegevens, gebruikt u het volgende patroon volgen:
+Als u moet een Event Hub-verbindingsreeks kunt maken met behulp van de vorige gegevens, gebruikt u het volgende patroon:
 
 `Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}`
 
@@ -59,20 +59,20 @@ De SDK's en integraties gebruikt die u kunt gebruiken met Event Hub-compatibele 
 
 * [Java Event Hubs-client](https://github.com/Azure/azure-event-hubs-java).
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). U vindt de [spout bron](https://github.com/apache/storm/tree/master/external/storm-eventhubs) op GitHub.
-* [Apache Spark-integratie](../hdinsight/spark/apache-spark-eventhub-streaming.md).
+* [Integratie van Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over IoT-hubeindpunten [IoT-hubeindpunten][lnk-endpoints].
+Zie voor meer informatie over IoT Hub-eindpunten, [IoT Hub-eindpunten][lnk-endpoints].
 
-De [aan de slag] [ lnk-get-started] zelfstudies ziet u hoe u apparaat-naar-cloud-berichten verzenden van de gesimuleerde apparaten en de berichten lezen van het ingebouwde eindpunt. Zie voor meer details over de [proces IoT Hub apparaat-naar-cloud-berichten met behulp van routes] [ lnk-d2c-tutorial] zelfstudie.
+De [snelstartgidsen] [ lnk-get-started] ziet u hoe u apparaat-naar-cloud-berichten worden verzonden vanuit gesimuleerde apparaten en de berichten lezen van het ingebouwde eindpunt. Zie voor meer informatie de [Process IoT Hub apparaat-naar-cloud-berichten met behulp van routes] [ lnk-d2c-tutorial] zelfstudie.
 
-Als u wilt voor het routeren van uw apparaat-naar-cloud-berichten met aangepaste eindpunten, Zie [berichtroutes en aangepaste eindpunten gebruikt voor apparaat-naar-cloud-berichten][lnk-custom].
+Als u wilt voor het routeren van uw apparaat-naar-cloud-berichten met aangepaste eindpunten, Zie [berichtroutes en aangepaste eindpunten gebruiken voor apparaat-naar-cloud-berichten][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 
 [lnk-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/

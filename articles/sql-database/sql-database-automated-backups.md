@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: fcc860daddbaa0b3275116027136bcde9dbcf256
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cedad5f48769ed864fef10cfd7059111a4502fd3
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092024"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136601"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -26,7 +26,7 @@ SQL Database automatisch maakt databaseback-ups en geografisch redundante opslag
 
 ## <a name="what-is-a-sql-database-backup"></a>Wat is er een back-up van SQL Database?
 
-SQL-Database maakt gebruik van SQL Server-technologie maken [volledige](https://msdn.microsoft.com/library/ms186289.aspx), [differentiële](http://msdn.microsoft.com/library/ms175526.aspx), en [transactielogboek](https://msdn.microsoft.com/library/ms191429.aspx) back-ups voor de doeleinden van Point in time restore (PITR). Elke 5-10 minuten, de transactielogboekback-ups in het algemeen gebeurt met de frequentie op basis van het prestatieniveau en de hoeveelheid activiteit in een database. Transactielogboekback-ups, met volledige en differentiële back-ups, kunnen u een database herstellen naar een specifieke point-in-time op dezelfde server die als host fungeert voor de database. Wanneer u een database herstelt, wordt de service zoekt uit welke volledige, differentiële en transactie-logboek back-ups moeten worden teruggezet.
+SQL-Database maakt gebruik van SQL Server-technologie maken [volledige](https://msdn.microsoft.com/library/ms186289.aspx), [differentiële](http://msdn.microsoft.com/library/ms175526.aspx), en [transactielogboek](https://msdn.microsoft.com/library/ms191429.aspx) back-ups voor de doeleinden van Point in time restore (PITR). De transactielogboekback-ups meestal elke 5-10 minuten en plaatsvinden differentiële back-ups in het algemeen elke 12 uur, met de frequentie op basis van het prestatieniveau en de hoeveelheid activiteit in een database. Transactielogboekback-ups, met volledige en differentiële back-ups, kunnen u een database herstellen naar een specifieke point-in-time op dezelfde server die als host fungeert voor de database. Wanneer u een database herstelt, wordt de service zoekt uit welke volledige, differentiële en transactie-logboek back-ups moeten worden teruggezet.
 
 
 U kunt deze back-ups te gebruiken:
@@ -46,7 +46,7 @@ Elke SQL-Database back-up is de bewaarperiode voor een standaard die is gebaseer
 
 Als u een database verwijdert, blijven SQL-Database de back-ups op dezelfde manier als zou voor een online-database. Als u een Basic-database met een bewaarperiode van zeven dagen verwijdert, wordt bijvoorbeeld een back-up die vier dagen oud is drie dagen opgeslagen.
 
-Als u de back-ups langer dan de maximale bewaarperiode van PITR houden wilt, kunt u de back-eigenschappen voor het toevoegen van een of meer op de lange termijn retetion perioden met uw database wijzigen. Zie [langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
+Als u de back-ups langer dan de maximale bewaarperiode van PITR houden wilt, kunt u de back-eigenschappen voor het toevoegen van een of meer langdurige bewaarperioden met uw database wijzigen. Zie [langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 
 > [!IMPORTANT]
 > Als u de Azure SQL-server die als host fungeert voor SQL-databases verwijdert, worden alle elastische pools en databases die deel uitmaken van de server worden ook verwijderd en kunnen niet worden hersteld. U kunt een server verwijderd niet herstellen. Maar als u met een langetermijnbewaarperiode hebt geconfigureerd, wordt de back-ups voor de databases met LTR worden niet verwijderd en wordt deze databases kunnen worden hersteld.
@@ -64,7 +64,7 @@ Als u de huidige PITR bewaarperiode verhoogt, wordt SQL Database de bestaande ba
 
 ## <a name="how-often-do-backups-happen"></a>Hoe vaak gebeurt er back-ups?
 ### <a name="backups-for-point-in-time-restore"></a>Back-ups voor point-in-time restore
-SQL Database biedt ondersteuning voor self-service voor point-in-time restore (PITR) door het automatisch maken van volledige back-up, differentiële back-ups en transactielogboekback-ups. Volledige databaseback-ups wekelijks worden gemaakt, differentiële databaseback-ups worden gemaakt om de paar uur en transactielogboekback-ups worden gemaakt om de 5-10 minuten. De eerste volledige back-up is gepland, onmiddellijk nadat een database wordt gemaakt. Deze meestal binnen 30 minuten is voltooid, maar het kan langer duren als de database van een aanzienlijke grootte is. Bijvoorbeeld, de eerste back-up kan dit langer duren voor een herstelde database of een databasekopie. Na de eerste volledige back-up, worden alle verdere back-ups automatisch gepland en beheerd op de achtergrond op de achtergrond. De precieze timing van alle databaseback-ups wordt bepaald door de service SQL Database, zoals het geeft een balans de werkbelasting van het algehele systeem tussen.
+SQL Database biedt ondersteuning voor self-service voor point-in-time restore (PITR) door het automatisch maken van volledige back-up, differentiële back-ups en transactielogboekback-ups. Volledige databaseback-ups wekelijks worden gemaakt, differentiële databaseback-ups worden in het algemeen gemaakt voor elke 12 uur en transactielogboekback-ups meestal elke 5-10 minuten worden gemaakt met de frequentie op basis van het prestatieniveau en de hoeveelheid activiteit in een database. De eerste volledige back-up is gepland, onmiddellijk nadat een database wordt gemaakt. Deze meestal binnen 30 minuten is voltooid, maar het kan langer duren als de database van een aanzienlijke grootte is. Bijvoorbeeld, de eerste back-up kan dit langer duren voor een herstelde database of een databasekopie. Na de eerste volledige back-up, worden alle verdere back-ups automatisch gepland en beheerd op de achtergrond op de achtergrond. De precieze timing van alle databaseback-ups wordt bepaald door de service SQL Database, zoals het geeft een balans de werkbelasting van het algehele systeem tussen.
 
 De PITR back-ups zijn geografisch redundante en beveiligd door [Azure Storage-overschrijdend-replicatie](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -83,7 +83,7 @@ Als uw database is versleuteld met TDE, wordt de back-ups worden automatisch ver
 
 ## <a name="how-do-automated-backups-impact-my-compliance"></a>Hoe geautomatiseerde back-ups van invloed zijn op mijn naleving?
 
-Wanneer u uw database van een servicelaag met de standaard PITR bewaarperiode van 35 dagen, op basis van DTU naar een vCore-servicelaag migreert, is de bewaarperiode PITR om ervoor te zorgen dat een beleid voor gegevensherstel van uw toepassing niet compromized bewaard. Als de bewaarperiode standaard niet voldoet aan uw vereisten voor naleving, kunt u de bewaarperiode voor PITR met PowerShell of REST-API wijzigen. Zie [bewaarperiode voor back-up wijzigen](#how-to-change-backup-retention-period) voor meer informatie.
+Wanneer u uw database van een servicelaag op basis van DTU, met de standaard PITR bewaarperiode van 35 dagen, naar een laag vCore-gebaseerde service migreert, wordt de bewaarperiode PITR behouden om ervoor te zorgen dat beleid voor gegevensherstel van uw toepassing niet worden gecompromitteerd. Als de bewaarperiode standaard niet voldoet aan uw vereisten voor naleving, kunt u de bewaarperiode voor PITR met PowerShell of REST-API wijzigen. Zie [bewaarperiode voor back-up wijzigen](#how-to-change-backup-retention-period) voor meer informatie.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

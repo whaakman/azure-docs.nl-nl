@@ -1,44 +1,37 @@
 ---
-title: Azure IoT Hub - aan de slag IoT-apparaten verbinding laten maken met de cloud | Microsoft Docs
-description: Meer informatie over het aansluiten van uw IoT-boards en starter Kit op Azure IoT Hub. Uw apparaten kunnen verzenden telemetrie naar IoT Hub en IoT-Hub kunt controleren en beheren van uw apparaten.
+title: Azure IoT Hub - aan de slag voor IoT-apparaten verbinden met de cloud | Microsoft Docs
+description: Leer hoe u uw IoT-kaarten en -startpakketten verbinden met Azure IoT Hub. Uw apparaten kunnen verzenden telemetrie naar IoT Hub en IoT-Hub kunt bewaken en beheren van uw apparaten.
 author: dominicbetts
 manager: timlt
-keywords: Azure iot hub-zelfstudie
+keywords: zelfstudie voor Azure iot hub
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 76f427204f0ad31196ce8b995b9e4ed9676209ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77abe7e2187a3cb28b326ffa833a856625d6c33d
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634699"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125189"
 ---
 # <a name="azure-iot-hub-get-started-with-real-devices"></a>Azure IoT-Hub aan de slag met echte apparaten
 
-U kunt Azure IoT Hub en het apparaat met Azure IoT SDK's gebruiken om oplossingen voor Internet der dingen (IoT) te maken:
-
-* Azure IoT Hub is een volledig beheerde service in de cloud die veilig verbindt, bewaakt en beheert uw IoT-apparaten. Gebruik de Azure IoT-apparaat-SDK's voor het implementeren van uw IoT-apparaten.
-* Gebruik een IoT-gateway in complexere IoT-scenario's. Bijvoorbeeld, waarbij u moet rekening houden factoren zoals de oudere apparaten, kosten van bandbreedte, beveiliging en privacy-beleid of gegevensverwerking rand. In deze scenario's, gebruikt u [Azure IoT rand](https://docs.microsoft.com/azure/iot-edge/) voor het implementeren van een gateway die apparaten verbinding met uw IoT-hub.
-
-## <a name="what-the-how-to-articles-cover"></a>Wat de artikelen met procedures hebben betrekking op
-
-Deze artikelen vindt u Azure IoT Hub en het apparaat-SDK's. De artikelen hebben betrekking op algemene IoT-scenario's om aan te tonen van de mogelijkheden van IoT-Hub. De artikelen ook te laten zien hoe IoT Hub worden gecombineerd met andere Azure-services en hulpprogramma's voor het bouwen van krachtige IoT-oplossingen. In de artikelen gebruikt u echte IoT-apparaten.
+Deze artikelen met procedures vindt u Azure IoT Hub en de apparaat-SDK's worden uitgevoerd op echte apparaten.
 
 ## <a name="set-up-your-device"></a>Uw apparaat instellen
 
-Verbinding maken met een IoT-apparaat of de gateway naar Azure IoT Hub:
+Verbinding maken met een IoT-apparaat of de gateway voor Azure IoT Hub:
 
 | IoT-apparaat                       | Programmeertaal |
 |----------------------------------|----------------------|
 | Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
-| IoT DevKit                       | [Arduino in VSCode][DevKit]     |
+| IoT DevKit                       | [Arduino vscode][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
-| Adafruit Doezelaar HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
-| Sparkfun ESP8266 ding Dev       | [Arduino][Th_Ard]              |
-| Adafruit Doezelaar M0              | [Arduino][M0_Ard]              |
+| Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
+| Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |
+| Adafruit Feather M0              | [Arduino][M0_Ard]              |
 | Online apparaatsimulator         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]

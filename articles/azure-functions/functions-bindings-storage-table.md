@@ -1,13 +1,13 @@
 ---
 title: Azure Table storage-bindingen voor Azure Functions
-description: Begrijpen hoe Azure Table storage bindingen in de Azure Functions.
+description: Over het gebruik van Azure Table storage-bindingen in Azure Functions.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
-keywords: Azure functions, functies, verwerking van gebeurtenissen, dynamische compute zonder server architectuur
+keywords: Azure functions, functies, gebeurtenisverwerking, dynamische Computing, serverloze architectuur
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,28 +15,28 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 51b9f7bfd25da7dfd4ae9038f8dab70e9232b944
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2e6b63e3ff48d4234bceadfe0556a8af92d9f8cc
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724578"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136584"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
-Dit artikel wordt uitgelegd hoe u werkt met Azure Table storage bindingen in de Azure Functions. Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Azure Table storage.
+In dit artikel wordt uitgelegd hoe u werkt met Azure Table storage-bindingen in Azure Functions. Azure Functions ondersteunt invoer- en uitvoerbindingen voor Azure Table storage.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De bindingen van de opslag tabel vindt u in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-opslagplaats.
+De Table storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
 
-De bindingen van de opslag tabel vindt u in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 3.x. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-opslagplaats.
+De Table storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 3.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -44,24 +44,26 @@ De bindingen van de opslag tabel vindt u in de [Microsoft.Azure.WebJobs](http://
 
 ## <a name="input"></a>Invoer
 
-De invoer binding voor Azure Table storage gebruiken om te lezen van een tabel in een Azure Storage-account.
+Gebruik de Azure Table storage-Invoerbinding om een tabel in een Azure Storage-account te lezen.
 
 ## <a name="input---example"></a>Invoer - voorbeeld
 
 Zie het voorbeeld taalspecifieke:
 
-* [C# lezen één entiteit](#input---c-example-1)
-* [Lezen van meerdere entiteiten van C#](#input---c-example-2)
-* [C# script - één entiteit lezen](#input---c-script-example-1)
-* [C# script - meerdere entiteiten lezen](#input---c-script-example-2)
-* [F#](#input---f-example-2)
+* [C# lezen één entiteit](#input---c-example---one-entity)
+* [C#-binding aan IQueryable](#input---c-example---iqueryable)
+* [C#-binding aan CloudTable](#input---c-example---cloudtable)
+* [C#-script één entiteit lezen](#input---c-script-example---one-entity)
+* [C#-script-binding aan IQueryable](#input---c-script-example---iqueryable)
+* [C#-script-binding aan CloudTable](#input---c-script-example---cloudtable)
+* [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 
-### <a name="input---c-example-1"></a>Invoer - C#-voorbeeld 1
+### <a name="input---c-example---one-entity"></a>Invoer - voorbeeld met C# - één entiteit
 
-Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die een enkele tabelrij leest. 
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die een rij in een enkele tabel leest. 
 
-De waarde '{queueTrigger}' van de rij geeft aan dat de rijsleutel is afkomstig uit de wachtrij bericht-tekenreeks.
+De sleutelwaarde van de rij '{queueTrigger}' geeft aan dat de rijsleutel afkomstig uit de wachtrij bericht-tekenreeks is.
 
 ```csharp
 public class TableStorage
@@ -84,9 +86,9 @@ public class TableStorage
 }
 ```
 
-### <a name="input---c-example-2"></a>Invoer - C#-voorbeeld 2
+### <a name="input---c-example---iqueryable"></a>Invoer - voorbeeld met C# - IQueryable
 
-Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die meerdere rijen leest. Houd er rekening mee dat de `MyPoco` klasse is afgeleid van `TableEntity`.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die meerdere tabelrijen leest. Houd er rekening mee dat de `MyPoco` klasse is afgeleid van `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -110,14 +112,62 @@ public class TableStorage
 }
 ```
 
-  > [!NOTE]
-  > `IQueryable` wordt niet ondersteund de [runtime van Functions v2](functions-versions.md). Een alternatief is [CloudTable paramName methodeparameter gebruiken](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) lezen van de tabel met behulp van de Azure-opslag-SDK. Als u probeert te binden aan `CloudTable` en verschijnt een foutbericht, zorg ervoor dat u een verwijzing naar hebt [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
+### <a name="input---c-example---cloudtable"></a>Invoer - voorbeeld met C# - CloudTable
 
-### <a name="input---c-script-example-1"></a>Invoer - C# scriptvoorbeeld 1
+`IQueryable` wordt niet ondersteund de [v2-Functions-runtime](functions-versions.md). Een alternatief is het gebruik van een `CloudTable` methodeparameter om te lezen van de tabel met behulp van de Azure Storage SDK. Hier volgt een voorbeeld van een 2.x-functie die in een tabel van Azure Functions-logboek zoekt:
 
-Het volgende voorbeeld ziet u een tabel invoer binding in een *function.json* bestand en [C# script](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie maakt gebruik van een trigger wachtrij lezen van een enkele tabelrij. 
+```csharp
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
 
-De *function.json* bestand geeft een `partitionKey` en een `rowKey`. De `rowKey` '{queueTrigger}' van de waarde geeft aan dat de rijsleutel is afkomstig uit de wachtrij bericht-tekenreeks.
+namespace FunctionAppCloudTable2
+{
+    public class LogEntity : TableEntity
+    {
+        public string OriginalName { get; set; }
+    }
+    public static class CloudTableDemo
+    {
+        [FunctionName("CloudTableDemo")]
+        public static async Task Run(
+            [TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, 
+            [Table("AzureWebJobsHostLogscommon")] CloudTable cloudTable,
+            TraceWriter log)
+        {
+            log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+
+            TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+                TableQuery.CombineFilters(
+                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+                        "FD2"),
+                    TableOperators.And,
+                    TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+                        "t")));
+
+            // Execute the query and loop through the results
+            foreach (LogEntity entity in 
+                await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+            {
+                log.Info(
+                    $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+            }
+        }
+    }
+}
+```
+
+Zie voor meer informatie over het gebruik van CloudTable [aan de slag met Azure Table storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+
+Als u probeert te binden aan `CloudTable` en een foutmelding krijgt, zorg ervoor dat u een verwijzing naar [de juiste versie van de Storage-SDK](#azure-storage-sdk-version-in-functions-1x).
+
+### <a name="input---c-script-example---one-entity"></a>Invoer - C#-voorbeeldscript - een entiteit
+
+Het volgende voorbeeld wordt een tabel Invoerbinding in een *function.json* bestand en [C#-script](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrijtrigger om te lezen van een rij in een enkele tabel. 
+
+De *function.json* bestand bevat een `partitionKey` en een `rowKey`. De `rowKey` waarde '{queueTrigger}' geeft aan dat de rijsleutel afkomstig uit de wachtrij bericht-tekenreeks is.
 
 ```json
 {
@@ -143,7 +193,7 @@ De *function.json* bestand geeft een `partitionKey` en een `rowKey`. De `rowKey`
 }
 ```
 
-De [configuratie](#input---configuration) sectie wordt uitgelegd deze eigenschappen.
+De [configuratie](#input---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
 Dit is de C#-scriptcode:
 
@@ -162,9 +212,9 @@ public class Person
 }
 ```
 
-### <a name="input---c-script-example-2"></a>Invoer - C# scriptvoorbeeld 2
+### <a name="input---c-script-example---iqueryable"></a>Invoer - scriptvoorbeeld met C# - IQueryable
 
-Het volgende voorbeeld ziet u een tabel invoer binding in een *function.json* bestand en [C# script](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie leest entiteiten voor een partitiesleutel die is opgegeven in een wachtrijbericht.
+Het volgende voorbeeld wordt een tabel Invoerbinding in een *function.json* bestand en [C#-script](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie leest entiteiten voor een partitiesleutel die is opgegeven in een wachtrijbericht.
 
 Hier volgt de *function.json* bestand:
 
@@ -190,9 +240,9 @@ Hier volgt de *function.json* bestand:
 }
 ```
 
-De [configuratie](#input---configuration) sectie wordt uitgelegd deze eigenschappen.
+De [configuratie](#input---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
-De C#-scriptcode wordt een verwijzing naar de Azure-opslag-SDK toegevoegd zodat het entiteitstype kan worden afgeleid van `TableEntity`:
+De C#-script-code een verwijzing naar de Azure Storage SDK wordt toegevoegd zodat het entiteitstype kan worden afgeleid van `TableEntity`:
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -213,11 +263,73 @@ public class Person : TableEntity
 }
 ```
 
+### <a name="input---c-script-example---cloudtable"></a>Invoer - scriptvoorbeeld met C# - CloudTable
+
+`IQueryable` wordt niet ondersteund de [v2-Functions-runtime](functions-versions.md). Een alternatief is het gebruik van een `CloudTable` methodeparameter om te lezen van de tabel met behulp van de Azure Storage SDK. Hier volgt een voorbeeld van een 2.x-functie die in een tabel van Azure Functions-logboek zoekt:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */1 * * * *"
+    },
+    {
+      "name": "cloudTable",
+      "type": "table",
+      "connection": "AzureWebJobsStorage",
+      "tableName": "AzureWebJobsHostLogscommon",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
+
+public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+
+    TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+    TableQuery.CombineFilters(
+        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+            "FD2"),
+        TableOperators.And,
+        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+            "a")));
+
+    // Execute the query and loop through the results
+    foreach (LogEntity entity in 
+    await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+    {
+        log.Info(
+            $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+    }
+}
+
+public class LogEntity : TableEntity
+{
+    public string OriginalName { get; set; }
+}
+```
+
+Zie voor meer informatie over het gebruik van CloudTable [aan de slag met Azure Table storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+
+Als u probeert te binden aan `CloudTable` en een foutmelding krijgt, zorg ervoor dat u een verwijzing naar [de juiste versie van de Storage-SDK](#azure-storage-sdk-version-in-functions-1x).
+
 ### <a name="input---f-example"></a>Invoer - F #-voorbeeld
 
-Het volgende voorbeeld ziet u een tabel invoer binding in een *function.json* bestand en [F # script](functions-reference-fsharp.md) code die gebruikmaakt van de binding. De functie maakt gebruik van een trigger wachtrij lezen van een enkele tabelrij. 
+Het volgende voorbeeld wordt een tabel Invoerbinding in een *function.json* bestand en [skriptu F #](functions-reference-fsharp.md) code die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrijtrigger om te lezen van een rij in een enkele tabel. 
 
-De *function.json* bestand geeft een `partitionKey` en een `rowKey`. De `rowKey` '{queueTrigger}' van de waarde geeft aan dat de rijsleutel is afkomstig uit de wachtrij bericht-tekenreeks.
+De *function.json* bestand bevat een `partitionKey` en een `rowKey`. De `rowKey` waarde '{queueTrigger}' geeft aan dat de rijsleutel afkomstig uit de wachtrij bericht-tekenreeks is.
 
 ```json
 {
@@ -243,7 +355,7 @@ De *function.json* bestand geeft een `partitionKey` en een `rowKey`. De `rowKey`
 }
 ```
 
-De [configuratie](#input---configuration) sectie wordt uitgelegd deze eigenschappen.
+De [configuratie](#input---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
 Dit is de F #-code:
 
@@ -262,9 +374,9 @@ let Run(myQueueItem: string, personEntity: Person) =
 
 ### <a name="input---javascript-example"></a>Invoer - JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u een tabel invoer binding in een *function.json* bestands- en [JavaScript-code] (functies verwijzing node.md) die gebruikmaakt van de binding. De functie maakt gebruik van een trigger wachtrij lezen van een enkele tabelrij. 
+Het volgende voorbeeld wordt een tabel Invoerbinding in een *function.json* bestands- en [JavaScript-code] (functions-referentie-node.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrijtrigger om te lezen van een rij in een enkele tabel. 
 
-De *function.json* bestand geeft een `partitionKey` en een `rowKey`. De `rowKey` '{queueTrigger}' van de waarde geeft aan dat de rijsleutel is afkomstig uit de wachtrij bericht-tekenreeks.
+De *function.json* bestand bevat een `partitionKey` en een `rowKey`. De `rowKey` waarde '{queueTrigger}' geeft aan dat de rijsleutel afkomstig uit de wachtrij bericht-tekenreeks is.
 
 ```json
 {
@@ -290,9 +402,9 @@ De *function.json* bestand geeft een `partitionKey` en een `rowKey`. De `rowKey`
 }
 ```
 
-De [configuratie](#input---configuration) sectie wordt uitgelegd deze eigenschappen.
+De [configuratie](#input---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
-Hier volgt de JavaScript-code:
+Dit is de JavaScript-code:
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -304,11 +416,11 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Invoer - kenmerken
  
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenmerken gebruiken voor het configureren van een tabel invoer binding:
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenmerken gebruiken om een tabel invoer binding te configureren:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
 
-  De constructor van het kenmerk werkt met de tabelnaam, partitiesleutel en rijsleutel. Deze kan worden gebruikt op een out-parameter of op de geretourneerde waarde van de functie, zoals wordt weergegeven in het volgende voorbeeld:
+  De constructor van het kenmerk wordt de tabelnaam, partitiesleutel en rijsleutel. Het kan worden gebruikt op een out-parameter of op de geretourneerde waarde van de functie, zoals wordt weergegeven in het volgende voorbeeld:
 
   ```csharp
   [FunctionName("TableInput")]
@@ -321,7 +433,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenme
   }
   ```
 
-  U kunt instellen de `Connection` eigenschap om de storage-account moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
+  U kunt instellen dat de `Connection` eigenschap om op te geven van het opslagaccount dat moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
 
   ```csharp
   [FunctionName("TableInput")]
@@ -334,11 +446,11 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenme
   }
   ```
 
-  Zie voor een compleet voorbeeld [invoer - C#-voorbeeld](#input---c-example).
+  Zie voor een compleet voorbeeld [invoer - voorbeeld met C#](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
-  Biedt een andere manier om op te geven van de storage-account te gebruiken. De constructor, wordt de naam van een app-instelling met een verbindingsreeks voor opslag. Het kenmerk kan worden toegepast op het parameter, klasseniveau of methode. Het volgende voorbeeld ziet u klasseniveau en methode:
+  Biedt een andere manier om op te geven van de storage-account te gebruiken. De constructor, wordt de naam van een app-instelling met een verbindingsreeks voor opslag. Het kenmerk kan worden toegepast op de parameter, klasseniveau of methode. Het volgende voorbeeld toont het klasseniveau en methode:
 
   ```csharp
   [StorageAccount("ClassLevelStorageAppSetting")]
@@ -352,9 +464,9 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenme
   }
   ```
 
-Het opslagaccount moet worden gebruikt, wordt bepaald in de volgende volgorde:
+Het storage-account te gebruiken, wordt bepaald in de volgende volgorde:
 
-* De `Table` van het kenmerk `Connection` eigenschap.
+* De `Table` van kenmerk `Connection` eigenschap.
 * De `StorageAccount` kenmerk toegepast op de dezelfde parameter als de `Table` kenmerk.
 * De `StorageAccount` kenmerk toegepast op de functie.
 * De `StorageAccount` kenmerk toegepast op de klasse.
@@ -362,49 +474,49 @@ Het opslagaccount moet worden gebruikt, wordt bepaald in de volgende volgorde:
 
 ## <a name="input---configuration"></a>Invoer - configuratie
 
-De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Table` kenmerk.
+De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Table` kenmerk.
 
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
-|**type** | N.v.t. | moet worden ingesteld op `table`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal.|
-|**direction** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
-|**Naam** | N.v.t. | De naam van de variabele die staat voor de tabel of de entiteit in functiecode. | 
-|**TableName** | **TableName** | De naam van de tabel.| 
-|**PartitionKey** | **PartitionKey** |Optioneel. De partitiesleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
-|**RowKey** |**RowKey** | Optioneel. De rijsleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
-|**duren** |**duren** | Optioneel. Het maximum aantal entiteiten kunnen worden gelezen in JavaScript. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
-|**filter** |**Filter** | Optioneel. Een OData-filterexpressie voor de tabel invoer in JavaScript. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
-|**Verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**type** | N.v.t. | Moet worden ingesteld op `table`. Deze eigenschap wordt automatisch ingesteld wanneer u de binding in Azure portal maakt.|
+|**direction** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de binding in Azure portal maakt. |
+|**De naam** | N.v.t. | De naam van de variabele die staat voor de tabel of entiteit in functiecode aan te geven. | 
+|**Tabelnaam** | **Tabelnaam** | De naam van de tabel.| 
+|**PartitionKey** | **PartitionKey** |Optioneel. De partitiesleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
+|**RowKey** |**RowKey** | Optioneel. De rijsleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
+|**toets maken** |**toets maken** | Optioneel. Het maximale aantal entiteiten om te lezen in JavaScript. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
+|**filter** |**Filter** | Optioneel. Een OData-filter-expressie voor de tabel invoer in JavaScript. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
+|**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Invoer - gebruik
 
-De tabel opslag invoer binding ondersteunt de volgende scenario's:
+De Invoerbinding van tabel storage ondersteunt de volgende scenario's:
 
-* **Lezen van een rij in C# of C#-script**
+* **Lezen van één rij in C# of C#-script**
 
-  Stel `partitionKey` en `rowKey`. Toegang tot gegevens in de tabel met behulp van een methodeparameter `T <paramName>`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` is meestal een type dat wordt geïmplementeerd `ITableEntity` of is afgeleid van `TableEntity`. De `filter` en `take` eigenschappen worden niet gebruikt in dit scenario. 
+  Stel `partitionKey` en `rowKey`. Toegang tot gegevens in de tabel met behulp van een methodeparameter `T <paramName>`. In C#-script, `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` is doorgaans een type dat wordt geïmplementeerd `ITableEntity` of is afgeleid van `TableEntity`. De `filter` en `take` eigenschappen worden niet gebruikt in dit scenario. 
 
-* **Een of meer rijen in C# of C# script lezen**
+* **Lezen van een of meer rijen in C# of C#-script**
 
-  Toegang tot gegevens in de tabel met behulp van een methodeparameter `IQueryable<T> <paramName>`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` moet een type dat implementeert `ITableEntity` of is afgeleid van `TableEntity`. U kunt `IQueryable` methoden wilt filteren vereist. De `partitionKey`, `rowKey`, `filter`, en `take` eigenschappen worden niet gebruikt in dit scenario.  
+  Toegang tot gegevens in de tabel met behulp van een methodeparameter `IQueryable<T> <paramName>`. In C#-script, `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` moet een type dat implementeert `ITableEntity` of is afgeleid van `TableEntity`. U kunt `IQueryable` methoden voor het doen van een filter vereist. De `partitionKey`, `rowKey`, `filter`, en `take` eigenschappen worden niet gebruikt in dit scenario.  
 
   > [!NOTE]
-  > `IQueryable` wordt niet ondersteund de [runtime van Functions v2](functions-versions.md). Een alternatief is [CloudTable paramName methodeparameter gebruiken](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) lezen van de tabel met behulp van de Azure-opslag-SDK. Als u probeert te binden aan `CloudTable` en verschijnt een foutbericht, zorg ervoor dat u een verwijzing naar hebt [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
+  > `IQueryable` wordt niet ondersteund de [v2-Functions-runtime](functions-versions.md). Een alternatief is [gebruikt u een methodeparameter voor CloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) lezen in de tabel met de Azure Storage SDK. Als u probeert te binden aan `CloudTable` en een foutmelding krijgt, zorg ervoor dat u een verwijzing naar [de juiste versie van de Storage-SDK](#azure-storage-sdk-version-in-functions-1x).
 
 * **Lezen van een of meer rijen in JavaScript**
 
-  Stel de `filter` en `take` eigenschappen. Stelt niet `partitionKey` of `rowKey`. Toegang tot de invoer tabel entiteit (of entiteiten) met behulp van `context.bindings.<name>`. De gedeserialiseerde objecten hebben `RowKey` en `PartitionKey` eigenschappen.
+  Stel de `filter` en `take` eigenschappen. Stel `partitionKey` of `rowKey`. Toegang tot de invoer tabel entiteit (of entiteiten) met behulp van `context.bindings.<name>`. Het gedeserialiseerde objecten hebben `RowKey` en `PartitionKey` eigenschappen.
 
 ## <a name="output"></a>Uitvoer
 
-Een Azure Table storage uitvoer binding entiteiten schrijven naar een tabel in een Azure Storage-account gebruiken.
+Gebruik een Azure Table storage-Uitvoerbinding entiteiten schrijven naar een tabel in een Azure Storage-account.
 
 > [!NOTE]
-> Deze binding uitvoer biedt geen ondersteuning voor het bijwerken van bestaande entiteiten. Gebruik de `TableOperation.Replace` bewerking [van de Azure-opslag-SDK](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) bijwerken van een bestaande entiteit.   
+> Deze Uitvoerbinding biedt geen ondersteuning voor het bijwerken van bestaande entiteiten. Gebruik de `TableOperation.Replace` bewerking [van de Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) om bij te werken van een bestaande entiteit.   
 
-## <a name="output---example"></a>Output - voorbeeld
+## <a name="output---example"></a>Uitvoer - voorbeeld
 
 Zie het voorbeeld taalspecifieke:
 
@@ -413,9 +525,9 @@ Zie het voorbeeld taalspecifieke:
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
-### <a name="output---c-example"></a>Output - C#-voorbeeld
+### <a name="output---c-example"></a>Uitvoer - voorbeeld met C#
 
-Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die gebruikmaakt van een HTTP-trigger voor het schrijven van een enkele tabelrij. 
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die een HTTP-trigger gebruikt om te schrijven van een rij in een enkele tabel. 
 
 ```csharp
 public class TableStorage
@@ -437,9 +549,9 @@ public class TableStorage
 }
 ```
 
-### <a name="output---c-script-example"></a>Output - voorbeeld van C#-script
+### <a name="output---c-script-example"></a>Uitvoer - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u de tabeluitvoer van een het binden van een *function.json* bestand en [C# script](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie schrijft meerdere tabelentiteiten.
+Het volgende voorbeeld wordt een tabel-Uitvoerbinding een *function.json* bestand en [C#-script](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie schrijft meerdere tabelentiteiten.
 
 Hier volgt de *function.json* bestand:
 
@@ -463,7 +575,7 @@ Hier volgt de *function.json* bestand:
 }
 ```
 
-De [configuratie](#output---configuration) sectie wordt uitgelegd deze eigenschappen.
+De [configuratie](#output---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
 Dit is de C#-scriptcode:
 
@@ -492,9 +604,9 @@ public class Person
 
 ```
 
-### <a name="output---f-example"></a>Output - F #-voorbeeld
+### <a name="output---f-example"></a>Uitvoer - F #-voorbeeld
 
-Het volgende voorbeeld ziet u de tabeluitvoer van een het binden van een *function.json* bestand en [F # script](functions-reference-fsharp.md) code die gebruikmaakt van de binding. De functie schrijft meerdere tabelentiteiten.
+Het volgende voorbeeld wordt een tabel-Uitvoerbinding een *function.json* bestand en [skriptu F #](functions-reference-fsharp.md) code die gebruikmaakt van de binding. De functie schrijft meerdere tabelentiteiten.
 
 Hier volgt de *function.json* bestand:
 
@@ -518,7 +630,7 @@ Hier volgt de *function.json* bestand:
 }
 ```
 
-De [configuratie](#output---configuration) sectie wordt uitgelegd deze eigenschappen.
+De [configuratie](#output---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
 Dit is de F #-code:
 
@@ -539,9 +651,9 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
               Name = "Name" + i.ToString() })
 ```
 
-### <a name="output---javascript-example"></a>Output - JavaScript-voorbeeld
+### <a name="output---javascript-example"></a>Uitvoer - JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u de tabeluitvoer van een het binden van een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie schrijft meerdere tabelentiteiten.
+Het volgende voorbeeld wordt een tabel-Uitvoerbinding een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie schrijft meerdere tabelentiteiten.
 
 Hier volgt de *function.json* bestand:
 
@@ -565,9 +677,9 @@ Hier volgt de *function.json* bestand:
 }
 ```
 
-De [configuratie](#output---configuration) sectie wordt uitgelegd deze eigenschappen.
+De [configuratie](#output---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
-Hier volgt de JavaScript-code:
+Dit is de JavaScript-code:
 
 ```javascript
 module.exports = function (context) {
@@ -586,11 +698,11 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="output---attributes"></a>Output - kenmerken
+## <a name="output---attributes"></a>Uitvoer - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs).
 
-De constructor van het kenmerk wordt de tabelnaam. Kan worden gebruikt op een `out` parameter of op de geretourneerde waarde van de functie, zoals wordt weergegeven in het volgende voorbeeld:
+De constructor van het kenmerk wordt de naam van de tabel. Het kan worden gebruikt op een `out` parameter of op de geretourneerde waarde van de functie, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```csharp
 [FunctionName("TableOutput")]
@@ -603,7 +715,7 @@ public static MyPoco TableOutput(
 }
 ```
 
-U kunt instellen de `Connection` eigenschap om de storage-account moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
+U kunt instellen dat de `Connection` eigenschap om op te geven van het opslagaccount dat moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```csharp
 [FunctionName("TableOutput")]
@@ -616,53 +728,53 @@ public static MyPoco TableOutput(
 }
 ```
 
-Zie voor een compleet voorbeeld [uitvoer - C#-voorbeeld](#output---c-example).
+Zie voor een compleet voorbeeld [uitvoer - voorbeeld met C#](#output---c-example).
 
-U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [invoer - kenmerken](#input---attributes).
+U kunt de `StorageAccount` kenmerk om op te geven van de storage-account op het niveau van klasse, methode of parameter. Zie voor meer informatie, [invoer - kenmerken](#input---attributes).
 
-## <a name="output---configuration"></a>Output - configuratie
+## <a name="output---configuration"></a>Uitvoer - configuratie
 
-De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Table` kenmerk.
+De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Table` kenmerk.
 
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
-|**type** | N.v.t. | moet worden ingesteld op `table`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal.|
-|**direction** | N.v.t. | moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
-|**Naam** | N.v.t. | De naam van de variabele gebruikt in de functiecode die de tabel of een entiteit vertegenwoordigt. Ingesteld op `$return` om te verwijzen naar de retourwaarde van de functie.| 
-|**TableName** |**TableName** | De naam van de tabel.| 
-|**PartitionKey** |**PartitionKey** | De partitiesleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor hulp bij het gebruik van deze eigenschap.| 
-|**RowKey** |**RowKey** | De rijsleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor hulp bij het gebruik van deze eigenschap.| 
-|**Verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**type** | N.v.t. | Moet worden ingesteld op `table`. Deze eigenschap wordt automatisch ingesteld wanneer u de binding in Azure portal maakt.|
+|**direction** | N.v.t. | Moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de binding in Azure portal maakt. |
+|**De naam** | N.v.t. | De naam van de variabele die wordt gebruikt in de functiecode aan te geven dat de tabel of entiteit vertegenwoordigt. Ingesteld op `$return` om te verwijzen naar de geretourneerde waarde van de functie.| 
+|**Tabelnaam** |**Tabelnaam** | De naam van de tabel.| 
+|**PartitionKey** |**PartitionKey** | De partitiesleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor informatie over hoe u deze eigenschap wilt gebruiken.| 
+|**RowKey** |**RowKey** | De rijsleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor informatie over hoe u deze eigenschap wilt gebruiken.| 
+|**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="output---usage"></a>Output - gebruik
+## <a name="output---usage"></a>Uitvoer - gebruik
 
 De Table storage uitvoer binding ondersteunt de volgende scenario's:
 
-* **Schrijven van een rij in een andere taal**
+* **Schrijven van een rij in een willekeurige taal**
 
-  In C# en C# script, toegang krijgen tot de entiteit van de tabel uitvoer met een methodeparameter zoals `out T paramName` of de functie retourwaarde bevat. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` kan serialiseerbaar type zijn als de partitiesleutel en de rijsleutel worden geleverd door de *function.json* bestand of de `Table` kenmerk. Anders `T` moet een type met `PartitionKey` en `RowKey` eigenschappen. In dit scenario `T` doorgaans implementeert `ITableEntity` of is afgeleid van `TableEntity`, maar heeft geen aan.
+  In C# en C#-script, toegang krijgen tot de entiteit van de tabel uitvoer met behulp van een methodeparameter zoals `out T paramName` of de functie waarde retourneren. In C#-script, `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` elk serialiseerbaar type zijn als de partitiesleutel en rijsleutel worden geleverd door de *function.json* bestand of de `Table` kenmerk. Anders `T` moet een type met `PartitionKey` en `RowKey` eigenschappen. In dit scenario `T` gewoonlijk `ITableEntity` of is afgeleid van `TableEntity`, maar dit hoeft te.
 
-* **Een of meer rijen in C# of C# schrijven**
+* **Een of meer rijen schrijven in C# of C#**
 
-  In C# en C# script, toegang krijgen tot de entiteit van de tabel uitvoer met een methodeparameter `ICollector<T> paramName` of `IAsyncCollector<T> paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` Hiermee geeft u het schema van de entiteiten die u wilt toevoegen. Normaal gesproken `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar heeft geen aan. De partitiesleutel en rij waarden in sleutel *function.json* of de `Table` kenmerkconstructor worden niet gebruikt in dit scenario.
+  In C# en C#-script, toegang krijgen tot de entiteit van de tabel uitvoer met behulp van een methodeparameter `ICollector<T> paramName` of `IAsyncCollector<T> paramName`. In C#-script, `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` Hiermee geeft u het schema van de entiteiten die u wilt toevoegen. Normaal gesproken `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar dit hoeft te. De partitiesleutel en de rij waarden in sleutel *function.json* of de `Table` kenmerkconstructie niet in dit scenario worden gebruikt.
 
-  Een alternatief is een `CloudTable paramName` methodeparameter om te schrijven naar de tabel met behulp van de Azure-opslag-SDK. Als u probeert te binden aan `CloudTable` en verschijnt een foutbericht, zorg ervoor dat u een verwijzing naar hebt [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
+  Een alternatief is het gebruik van een `CloudTable` methodeparameter om te schrijven naar de tabel met behulp van de Azure Storage SDK. Als u probeert te binden aan `CloudTable` en een foutmelding krijgt, zorg ervoor dat u een verwijzing naar [de juiste versie van de Storage-SDK](#azure-storage-sdk-version-in-functions-1x). Voor een voorbeeld van code die wordt gebonden aan `CloudTable`, Zie de voorbeelden Invoerbinding voor [C#](#input---c-example---cloudtable) of [C#-script](#input---c-script-example---cloudtable) eerder in dit artikel.
 
-* **Schrijven van een of meer rijen in JavaScript**
+* **Een of meer rijen in JavaScript schrijven**
 
-  Toegang tot de tabel met behulp van de uitvoer in JavaScript-functies `context.bindings.<name>`.
+  Toegang tot de tabel met behulp van de uitvoer in JavaScript-functies, `context.bindings.<name>`.
 
 ## <a name="exceptions-and-return-codes"></a>Uitzonderingen en retourcodes
 
 | Binding | Referentie |
 |---|---|
-| Tabel | [Tabel-foutcodes](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
-| BLOB, Table, wachtrij | [Foutcodes voor opslag](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| BLOB, Table, wachtrij | [Problemen oplossen](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Tabel | [Foutcodes voor tabel](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| BLOB-, tabel, wachtrij | [Foutcodes voor opslag](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| BLOB-, tabel, wachtrij | [Problemen oplossen](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over Azure functions triggers en bindingen](functions-triggers-bindings.md)
+> [Meer informatie over Azure functions-triggers en bindingen](functions-triggers-bindings.md)

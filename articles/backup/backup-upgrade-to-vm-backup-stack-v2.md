@@ -1,75 +1,78 @@
 ---
-title: Een upgrade uitvoert naar de Azure Resource Manager-implementatiemodel voor back-stack van virtuele machine in Azure
-description: Proces en veelgestelde vragen voor VM-back-stack, Resource Manager-implementatiemodel bijwerken
-services: backup, virtual-machines
+title: Een upgrade uitvoeren naar de Azure-VM-back-Upstack V2
+description: Proces en veelgestelde vragen voor VM-back-upstack, Resource Manager-implementatiemodel bijwerken
+services: backup
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.topic: conceptual
-ms.date: 03/08/2018
+ms.date: 7/18/2018
 ms.author: trinadhk
-ms.openlocfilehash: e822e0c354fd671ee2802506e0e268d4078b395e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c9dff77f6b9fffc02ec94caa3454500772651195
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606899"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39137369"
 ---
-# <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Een upgrade uitvoert naar de Azure Resource Manager-implementatiemodel voor back-stack van virtuele machine in Azure
-Het implementatiemodel van Resource Manager voor de upgrade naar back-stack van virtuele machine (VM) biedt de volgende verbeteringen:
-* De mogelijkheid om te zien van de momentopnamen die zijn gemaakt als onderdeel van een back-uptaak die beschikbaar is voor herstel zonder te wachten op voor de overdracht van gegevens te voltooien. De wachttijd voor momentopnamen kopiëren naar de kluis voordat restore vermindert. Deze mogelijkheid wordt ook voorkomen dat de vereiste extra opslag voor back-ups van VM's voor premium, met uitzondering van de eerste back-up.  
+# <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Upgrade uitvoeren naar Azure VM Backup-stack V2
 
-* Verlaging van de back-up en herstel tijden door momentopnamen lokaal gedurende zeven dagen bewaren.
+Het Resource Manager-implementatiemodel voor de upgrade naar de virtuele machine (VM)-back-upstack biedt de volgende verbeteringen:
+
+* De mogelijkheid om te zien van de momentopnamen die zijn gemaakt als onderdeel van een back-uptaak die is beschikbaar voor herstel zonder te wachten op voor de overdracht te voltooien. Beperkt het de wachttijd voor momentopnamen te kopiëren naar de kluis voordat het activeren van de herstelbewerking. Ook deze mogelijkheid wordt voorkomen dat de vereiste extra opslag voor back-ups van virtuele machines voor premium, met uitzondering van de eerste back-up.  
+
+* Vermindert back-up en herstel met behoud van momentopnamen lokaal, zeven dagen.
 
 * Ondersteuning voor de schijf de grootte van maximaal 4 TB.
 
-* Mogelijkheid om het gebruik van een niet-beheerde VM oorspronkelijke storage-accounts bij het herstellen. Deze mogelijkheid bestaat zelfs wanneer de virtuele machine bevat schijven die over de storage-accounts zijn gedistribueerd. Deze zorgt herstelbewerkingen sneller voor een groot aantal verschillende configuraties van virtuele machine.
-    > [!NOTE] 
-    > Deze mogelijkheid is niet hetzelfde zijn als de oorspronkelijke virtuele machine te overschrijven. 
+* Mogelijkheid om een niet-beheerde VM oorspronkelijke storage-accounts kunt gebruiken bij het herstellen van. Deze mogelijkheid bestaat, zelfs wanneer de virtuele machine heeft schijven die zijn verdeeld over de storage-accounts. Het downloadproces versneld herstelbewerkingen voor een groot aantal VM-configuraties.
+    > [!NOTE]
+    > Deze mogelijkheid is niet hetzelfde als de oorspronkelijke virtuele machine te overschrijven. 
     >
 
-## <a name="whats-changing-in-the-new-stack"></a>Wat wordt gewijzigd in de nieuwe stack?
-Op dit moment wordt bestaat de back-uptaak uit twee fasen:
+## <a name="whats-changing-in-the-new-stack"></a>Wat wordt gewijzigd over de nieuwe stack?
+Op dit moment bestaat de back-uptaak uit twee fasen:
 1.  Maken van een VM-momentopname. 
-2.  Een VM-momentopname worden overgebracht naar de Azure Backup-kluis. 
+2.  Een momentopname van een virtuele machine worden overgebracht naar de Azure Backup-kluis. 
 
-Een herstelpunt wordt beschouwd als pas nadat fasen 1 en 2 hebt gemaakt. Als onderdeel van de nieuwe stack, wordt een herstelpunt gemaakt als de momentopname is voltooid. U kunt ook vanaf dit herstelpunt herstellen met behulp van dezelfde stroom terugzetten. U kunt dit herstelpunt in de Azure portal identificeren met behulp van 'snapshot' als het type van het herstel. Nadat de momentopname is overgebracht naar de kluis, het type van het herstel gewijzigd in 'momentopname en kluis'. 
+Een herstelpunt wordt beschouwd als alleen nadat fasen 1 en 2 hebt gemaakt. Als onderdeel van de nieuwe stack, wordt een herstelpunt gemaakt als de momentopname is voltooid. U kunt ook vanaf dit herstelpunt herstellen met behulp van dezelfde stroom terugzetten. U kunt dit herstelpunt in Azure portal identificeren met behulp van 'snapshot' als het type herstelpunt. Nadat de momentopname worden overgedragen naar de kluis, het type herstelpunt gewijzigd in "momentopname en kluis." 
 
-![Back-uptaak in VM back-stack van Resource Manager-implementatiemodel--opslag en kluis](./media/backup-azure-vms/instant-rp-flow.jpg) 
+![Back-uptaak in VM-back-upstack Resource Manager-implementatiemodel, opslag en de kluis](./media/backup-azure-vms/instant-rp-flow.jpg) 
 
-Momentopnamen zijn standaard voor zeven dagen bewaard. Deze functie kunt het terugzetten van sneller voltooien van deze momentopnamen. Vermindert de tijd die nodig is om gegevens te kopiëren uit de kluis terug naar de storage-account van de klant. 
+Momentopnamen zijn standaard voor zeven dagen bewaard. Deze functie kunt het terugzetten van sneller voltooien van deze momentopnamen. Dit vermindert de tijd die nodig is om gegevens te kopiëren van de kluis naar het storage-account van de klant. 
 
 ## <a name="considerations-before-upgrade"></a>Overwegingen voor de upgrade
-* De upgrade van de VM-back-stack is één richting. Zodat alle back-ups werken in deze stroom. Omdat deze is ingeschakeld op het abonnementsniveau, gaat alle VM's in deze stroom. Alle nieuwe functie toevoegingen zijn gebaseerd op de dezelfde stack. Mogelijkheid om te bepalen die dit beleid niveau in de toekomst wordt binnenkort versies.
 
-* Momentopnamen worden lokaal opgeslagen herstelpunten vergroten en sneller herstellen. Daarom ziet u de opslagkosten die met momentopnamen binnen de periode zeven dagen overeenkomen.
+* De upgrade van de VM-back-upstack is een gerichte, alle back-ups met ingang van deze stroom. Omdat de wijziging uitgevoerd op het abonnementsniveau wordt, gaan alle virtuele machines in deze stroom. Alle nieuwe functie toevoegingen zijn gebaseerd op de dezelfde stack. U kunt niet op dit moment bepalen de stack op het beleidsniveau van.
 
-* Incrementele momentopnamen worden opgeslagen als pagina-blobs. Alle klanten die gebruikmaken van niet-beheerde schijven voor de zeven dagen die de momentopnamen die zijn opgeslagen in het account van de lokale opslag van de klant in rekening worden gebracht. Volgens het actuele prijsmodel is er geen kosten voor klanten op beheerde schijven.
+* Momentopnamen worden lokaal opgeslagen om herstelpunten te verbeteren en om herstelbewerkingen te versnellen. Als gevolg hiervan, ziet u kosten voor opslag die overeenkomen met de momentopnamen die zijn gemaakt tijdens de periode van zeven dagen.
 
-* Als u een herstel van een momentopname herstelpunt voor een premium VM doet, ziet u een locatie voor de tijdelijke opslag die wordt gebruikt tijdens het maken van de virtuele machine als onderdeel van het terugzetten.
+* Incrementele momentopnamen worden opgeslagen als pagina-blobs. Alle klanten die gebruikmaken van niet-beheerde schijven worden in rekening gebracht voor de zeven dagen die de momentopnamen worden opgeslagen in het account van de lokale opslag van de klant. Op basis van het huidige prijsmodel is er geen kosten voor klanten op beheerde schijven.
 
-* Voor premium storage-accounts nemen de momentopnamen die worden uitgevoerd voor chatberichten herstel 10 TB toegewezen ruimte.
+* Als u een premium VM vanaf een herstelpunt momentopname herstellen, wordt een tijdelijke opslaglocatie gebruikt terwijl de virtuele machine wordt gemaakt.
+
+* Voor premium storage-accounts de momentopnamen die voor instant recovery points aantal voor de limiet van 10 TB van toegewezen ruimte.
 
 ## <a name="upgrade"></a>Upgraden
-### <a name="the-azure-portal"></a>De Azure-portal
-Als u de Azure-portal gebruikt, ziet u een melding op het kluisdashboard. Deze melding is gekoppeld aan back-up en herstel snelheid-verbeteringen en ondersteuning voor grote schijven.
+### <a name="the-azure-portal"></a>Azure Portal
+Als u de Azure-portal gebruikt, ziet u een melding op het kluisdashboard. Deze melding is gekoppeld aan ondersteuning voor grote schijven en verbeteringen in back-up en herstel snelheid.
 
-![Back-uptaak in VM back-stack van Resource Manager-implementatiemodel--ondersteuning melding](./media/backup-azure-vms/instant-rp-banner.png) 
+![Back-uptaak in VM-back-upstack Resource Manager-implementatiemodel--ondersteuning-melding](./media/backup-azure-vms/instant-rp-banner.png) 
 
-Als een scherm voor het upgraden naar de nieuwe stack, schakelt u de banner. 
+Als u wilt een scherm voor het upgraden naar de nieuwe stack openen, selecteer de banner. 
 
-![Back-uptaak in VM-back-stack Resource Manager-implementatiemodel--upgraden](./media/backup-azure-vms/instant-rp.png) 
+![Back-uptaak in VM-back-upstack Resource Manager-implementatiemodel--upgrade](./media/backup-azure-vms/instant-rp.png) 
 
 ### <a name="powershell"></a>PowerShell
-Voer de volgende cmdlets uit vanaf een verhoogde PowerShell terminal:
-1.  Meld u bij uw Azure-account: 
+De volgende cmdlets uitvoeren vanaf een hogergelegen PowerShell terminal:
+1.  Meld u aan bij uw Azure-account: 
 
     ```
     PS C:> Connect-AzureRmAccount
     ```
 
-2.  Selecteer het abonnement dat u wilt registreren voor preview:
+2.  Selecteer het abonnement dat u wilt registreren voor Preview-versie:
 
     ```
     PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
@@ -82,10 +85,46 @@ Voer de volgende cmdlets uit vanaf een verhoogde PowerShell terminal:
     ```
 
 ## <a name="verify-that-the-upgrade-is-finished"></a>Controleer of de upgrade is voltooid
-Voer de volgende cmdlet vanaf een verhoogde PowerShell-terminal:
+Voer de volgende cmdlet vanaf een verhoogde PowerShell terminal:
 
 ```
 Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-Als deze optie 'Geregistreerde', is uw abonnement bijgewerkt naar VM back-stack van Resource Manager-implementatiemodel.
+De status 'Registered', wordt vervolgens uw abonnement bijgewerkt naar VM-back-upstack Resource Manager-implementatiemodel.
+
+## <a name="frequently-asked-questions"></a>Veelgestelde vragen
+
+De volgende vragen en antwoorden zijn verzameld van forums en vragen van klanten.
+
+### <a name="will-upgrading-to-v2-impact-current-backups"></a>Huidige back-ups invloed upgraden naar V2?
+
+Als u een upgrade naar V2 uitvoert, is er niet van invloed op uw huidige back-ups en hoeft niet te configureren van uw omgeving. Upgrade en uw back-omgeving blijft werken als deze is.
+
+### <a name="what-does-it-cost-to-upgrade-to-azure-backup-stack-v2"></a>Wat zijn de kosten om te upgraden naar Azure Backup-stack v2?
+
+Er zijn geen kosten verbonden aan een upgrade uitvoert naar Azure Backup-stack v2. Momentopnamen worden lokaal opgeslagen voor het maken van het herstelpunt versnellen en herstelbewerkingen. Als gevolg hiervan, ziet u kosten voor opslag die met de momentopnamen die tijdens de periode van zeven dagen overeenkomen.
+
+### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>Bijwerken voor stack v2 premium storage-accountlimiet voor de Momentopnames van 10 TB verhogen?
+
+Nee.
+
+### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Premium-opslagaccounts kunt momentopnamen die zijn gemaakt voor directe herstelpunt dat de momentopname-limiet van 10 TB innemen?
+
+Voor premium storage-accounts nemen de momentopnamen voor directe herstelpunt, Ja, de toegewezen 10 TB aan schijfruimte.
+
+### <a name="how-does-the-snapshot-work-during-the-seven-day-period"></a>Hoe werkt de momentopname tijdens de periode van zeven dagen? 
+
+Elke dag een nieuwe momentopname wordt gemaakt. Er zijn zeven afzonderlijke momentopnamen. De service biedt **niet** nemen van een kopie op de eerste dag en het toevoegen van wijzigingen voor de komende zes dagen.
+
+### <a name="what-happens-if-the-default-resource-group-is-deleted-accidentally"></a>Wat gebeurt er als de standaard-resourcegroep per ongeluk is verwijderd?
+
+Als de resourcegroep wordt verwijderd, de directe herstelpunten voor alle beveiligde virtuele machines in deze regio, gaan verloren. Wanneer de volgende back-up plaatsvindt, de resourcegroep opnieuw is gemaakt en de back-ups blijven zoals verwacht. Deze functionaliteit is niet exclusief voor directe herstelpunten.
+
+### <a name="can-i-delete-the-default-resource-group-created-for-instant-recovery-points"></a>Kan ik de standaard-resourcegroep gemaakt voor directe herstelpunten verwijderen?
+
+Azure Backup-service wordt gemaakt van de beheerde resourcegroep. Op dit moment niet wijzigen of wijzigen van de resourcegroep. Bovendien moet u de resourcegroep niet vergrendelen. Deze handleiding is niet alleen voor de V2-stack.
+ 
+### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Een v2-momentopname is een momentopname van incrementele of een volledige momentopname?
+
+Incrementele momentopnamen worden gebruikt voor niet-beheerde schijven. De momentopname is voor beheerde schijven, een volledige momentopname.

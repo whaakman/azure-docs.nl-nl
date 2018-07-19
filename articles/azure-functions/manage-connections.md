@@ -10,28 +10,29 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 07/13/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6c0af8f6f7e1d4aea8880a7af311aaa21f474f7e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9e5c56dc3679e9ffbd67d906ca7d971439319ee5
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969001"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125373"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Over het beheren van verbindingen in Azure Functions
 
-Functies in een functie-app-resources delen en tussen deze gedeelde resources zijn verbindingen &mdash; HTTP-verbindingen, databaseverbindingen en verbindingen met Azure-services zoals opslag. Het is mogelijk te weinig beschikbare verbindingen wanneer er veel functies gelijktijdig worden uitgevoerd. In dit artikel wordt uitgelegd hoe u code van uw functies om te voorkomen met behulp van meer verbindingen dan ze echt nodig hebt.
+Functies in een functie-app-resources delen en tussen deze gedeelde resources zijn verbindingen &mdash; HTTP-verbindingen, databaseverbindingen en verbindingen met Azure-services zoals opslag. Wanneer veel functies gelijktijdig worden uitgevoerd, is het mogelijk te weinig beschikbare verbindingen. In dit artikel wordt uitgelegd hoe u code van uw functies om te voorkomen met behulp van meer verbindingen dan ze echt nodig hebt.
 
 ## <a name="connections-limit"></a>Limiet voor verbindingen
 
 Het aantal beschikbare verbindingen is beperkt, deels omdat een functie-app wordt uitgevoerd in de [Azure App Service-sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Een van de beperkingen die de sandbox opgelegd, uw code is een [bovengrens voor het aantal verbindingen, momenteel 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). Wanneer u deze limiet is bereikt, de functions-runtime wordt een logboekbestand gemaakt met het volgende bericht: `Host thresholds exceeded: Connections`.
 
-Kans op meer dan de limiet verhogen als de [schaal controller voegt de functie-app-instanties](functions-scale.md#how-the-consumption-plan-works). Elke functie-app-exemplaar kan worden aanroepen van functies vaak in één keer, en al deze functies mee voor de limiet van 300 tellen verbindingen gebruikt.
+De kans op meer dan de limiet gaat wanneer de [schaal controller voegt de functie-app-instanties](functions-scale.md#how-the-consumption-plan-works) om meer aanvragen te verwerken. Elke functie-app-exemplaar kan veel functies tegelijk, die allemaal zijn tellen mee voor de limiet van 300 verbindingen met een worden uitgevoerd.
 
 ## <a name="use-static-clients"></a>Gebruik statische clients
 
-Om te voorkomen dat bevat meer verbindingen dan nodig, opnieuw gebruiken clientexemplaren in plaats van het maken van nieuwe kennis met elke functieaanroep. .NET-clients, zoals de `HttpClient`, `DocumentClient`, en Azure Storage-clients verbindingen kunnen beheren als u een enkele, statische-client gebruiken.
+Om te voorkomen dat bevat meer verbindingen dan nodig, opnieuw gebruiken clientexemplaren in plaats van het maken van nieuwe kennis met elke functieaanroep. .NET-clients, zoals de [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+), en Azure Storage-clients verbindingen kunnen beheren als u een enkele, statische-client gebruiken.
 
 Hier vindt u enkele richtlijnen te volgen bij het gebruik van een client servicespecifieke in een Azure Functions-toepassing:
 
@@ -41,7 +42,7 @@ Hier vindt u enkele richtlijnen te volgen bij het gebruik van een client service
 
 ## <a name="httpclient-code-example"></a>Codevoorbeeld httpclient maakt
 
-Hier volgt een voorbeeld van de functiecode die wordt gemaakt van een statische `HttpClient`:
+Hier volgt een voorbeeld van de functiecode die wordt gemaakt van een statische [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx):
 
 ```cs
 // Create a single, static HttpClient
@@ -54,15 +55,16 @@ public static async Task Run(string input)
 }
 ```
 
-Een algemene vraag over de .NET `HttpClient` is "Moet ik worden verwijdering mijn client?" In het algemeen is het verwijderen van objecten die worden geïmplementeerd `IDisposable` wanneer u klaar bent met behulp van deze. Maar u een statische client niet verwijderen omdat u niet worden uitgevoerd met behulp van deze wanneer de functie wordt beëindigd. U wilt dat de statische client live voor de duur van uw toepassing.
+Een algemene vraag over de .NET [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) is "Moet ik worden verwijdering mijn client?" In het algemeen is het verwijderen van objecten die worden geïmplementeerd `IDisposable` wanneer u klaar bent met behulp van deze. Maar u een statische client niet verwijderen omdat u niet worden uitgevoerd met behulp van deze wanneer de functie wordt beëindigd. U wilt dat de statische client live voor de duur van uw toepassing.
 
 ## <a name="documentclient-code-example"></a>Voorbeeld van de DocumentClient-code
 
-`DocumentClient` maakt verbinding met een Cosmos DB-exemplaar. De Cosmos DB-documentatie wordt aanbevolen dat u [een singleton-Azure Cosmos DB-client gebruiken voor de levensduur van uw toepassing](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). Het volgende voorbeeld ziet een patroon voor het uitvoeren van die in een functie.
+[DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+) verbinding maakt met een Azure Cosmos DB-exemplaar. De documentatie van Azure Cosmos DB wordt aanbevolen dat u [een singleton-Azure Cosmos DB-client gebruiken voor de levensduur van uw toepassing](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). Het volgende voorbeeld ziet u een patroon voor het uitvoeren van die in een functie:
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
-using Microsoft.Azure.Documents.Client; 
+using Microsoft.Azure.Documents.Client;
 
 private static Lazy<DocumentClient> lazyClient = new Lazy<DocumentClient>(InitializeDocumentClient);
 private static DocumentClient documentClient => lazyClient.Value;
@@ -85,6 +87,14 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
+
+## <a name="sqlclient-connections"></a>SqlClient-verbindingen
+
+Uw functiecode aan te geven de .NET Framework Data Provider voor SQL Server kan gebruiken ([SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)) verbinding te maken met een relationele SQL-database. Dit is ook de onderliggende provider voor gegevens-frameworks die afhankelijk van ADO.NET, zoals Entity Framework zijn. In tegenstelling tot [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) en [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+) verbindingen, ADO.NET implementeert standaard Groepsgewijze verbinding. Omdat u kunt nog steeds worden uitgevoerd buiten-verbindingen, moet u verbindingen met de database optimaliseren. Zie voor meer informatie, [SQL Server-verbinding groeperen (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling).
+
+> [!TIP]
+> Sommige gegevens frameworks, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx), doorgaans downloadt verbindingsreeksen uit de **ConnectionStrings** gedeelte van een configuratiebestand. In dit geval moet u expliciet verbindingsreeksen van de SQL-database naar toevoegen de **verbindingsreeksen** verzameling van de instellingen van uw functie-app en in de [bestand local.settings.json](functions-run-local.md#local-settings-file) in uw lokale project. Als u maakt een [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in uw functiecode aan te geven, moet u de connection string-waarde in opslaan **toepassingsinstellingen** met uw andere verbindingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

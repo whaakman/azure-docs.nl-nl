@@ -9,15 +9,19 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 849f8e4f961bcfde2bb4984185d571601060d957
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 07c0347793f6541a3e047f3f357d0d1b05dc3bca
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076213"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136178"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Veelgestelde vragen over Service Fabric NET
 Azure Service Fabric NET is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen implementeren zonder beheer van virtuele machines, opslag, of netwerken. In dit artikel vindt u antwoorden op veelgestelde vragen.
+
+## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>Hoe ik een probleem melden of een vraag stellen?
+
+Stel vragen, krijg antwoorden van Microsoft-technici en rapporteren van problemen in de [GitHub-opslagplaats voor service-fabric-mesh-preview](https://aka.ms/sfmeshissues).
 
 ## <a name="quota-and-cost"></a>Quota en kosten
 

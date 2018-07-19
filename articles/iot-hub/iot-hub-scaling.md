@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 1ad2dc9d826ec42dfca8547a73117a6c967a8ae7
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 446fe139e3d1abe79b877d663842f7c7c6168f19
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113645"
+ms.locfileid: "39126691"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
@@ -53,34 +53,34 @@ Het verschil tussen de lagen basic en standard van IoT Hub-betekent dat sommige 
 
 | API | Basislaag | Standaardlaag |
 | --- | ---------- | ------------- |
-| [Apparaat verwijderen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | Ja | Ja |
-| [Apparaat](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | Ja | Ja |
+| [Apparaat verwijderen](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Ja | Ja |
+| [Apparaat](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Ja | Ja |
 | Module verwijderen | Ja | Ja |
 | Module ophalen | Ja | Ja |
-| [Statistieken over register ophalen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Ja | Ja |
-| [Statistieken over services ophalen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Ja | Ja |
-| [Maken of bijwerken van apparaat](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Ja | Ja |
+| [Statistieken over register ophalen](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Ja | Ja |
+| [Statistieken over services ophalen](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Ja | Ja |
+| [Maken of bijwerken van apparaat](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Ja | Ja |
 | Put-module | Ja | Ja |
-| [Query uitvoeren op IoT-Hub](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Ja | Ja |
+| [Query uitvoeren op IoT-Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Ja | Ja |
 | Query-modules | Ja | Ja |
-| [Bestand uploaden SAS-URI maken](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Ja | Ja |
-| [Apparaat gebonden melding ontvangen](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Ja | Ja |
-| [Verzenden van apparaatgebeurtenis](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | Ja | Ja |
+| [Bestand uploaden SAS-URI maken](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Ja | Ja |
+| [Apparaat gebonden melding ontvangen](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Ja | Ja |
+| [Verzenden van apparaatgebeurtenis](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Ja | Ja |
 | Verzenden van gebeurtenissen van module | Ja | Ja |
-| [Uploadstatus bestand bijwerken](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | Ja | Ja |
-| [Bulkbewerking voor apparaat](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | Ja, met uitzondering van IoT Edge-mogelijkheden | Ja | 
-| [Opdracht wachtrij leegmaken](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | Ja |
-| [Ophalen van apparaatdubbel](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | Ja |
+| [Uploadstatus bestand bijwerken](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Ja | Ja |
+| [Bulkbewerking voor apparaat](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | Ja, met uitzondering van IoT Edge-mogelijkheden | Ja | 
+| [Opdracht wachtrij leegmaken](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Ja |
+| [Ophalen van apparaatdubbel](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Ja |
 | Ophalen van de moduledubbel |   | Ja |
-| [Apparaatmethode aanroepen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | Ja |
-| [Dubbele apparaat bijwerken](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | Ja | 
+| [Apparaatmethode aanroepen](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Ja |
+| [Dubbele apparaat bijwerken](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Ja | 
 | Bijwerken van de moduledubbel |   | Ja | 
-| [Gebonden apparaatbericht afbreken](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | Ja |
-| [Apparaatconfiguratie voltooien gebonden melding](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | Ja |
-| [Taak annuleren](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/canceljob) |   | Ja |
-| [Taak maken](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/createjob) |   | Ja |
-| [Taak ophalen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getjob) |   | Ja |
-| [Query-taken](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/queryjobs) |   | Ja |
+| [Gebonden apparaatbericht afbreken](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Ja |
+| [Apparaatconfiguratie voltooien gebonden melding](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Ja |
+| [Taak annuleren](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Ja |
+| [Taak maken](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | Ja |
+| [Taak ophalen](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | Ja |
+| [Query-taken](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | Ja |
 
 ## <a name="message-throughput"></a>Doorvoer van berichten
 

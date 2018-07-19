@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 754449dcf759820c8bb99d082c3a5ba2792f02c8
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444392"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126320"
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -35,15 +35,15 @@ U moet de juiste machtigingen voor toegang tot een van de IoT Hub-eindpunten heb
 
 U kunt verlenen [machtigingen](#iot-hub-permissions) in de volgende manieren:
 
-* **Niveau van IoT hub gedeelde toegangsbeleid**. Beleid voor gedeelde toegang kunnen verlenen tot een combinatie van [machtigingen](#iot-hub-permissions). U kunt beleid in definiëren de [Azure-portal][lnk-management-portal], of programmatisch met behulp van de [IoT-Hub resourceprovider REST-API's][lnk-resource-provider-apis]. Een nieuwe IoT-hub heeft de volgende standaard-beleid:
+* **Niveau van IoT hub gedeelde toegangsbeleid**. Beleid voor gedeelde toegang kunnen verlenen tot een combinatie van [machtigingen](#iot-hub-permissions). Definieert u beleid in de [Azure-portal][lnk-management-portal], via een programma met behulp van de [REST API's voor Resource van de IoT Hub][lnk-resource-provider-apis], of met behulp van de [az iot hub-beleid](https://docs.microsoft.com/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI. Een nieuwe IoT-hub heeft de volgende standaard-beleid:
   
   | Beleid voor gedeelde toegang | Machtigingen |
   | -------------------- | ----------- |
   | iothubowner | Alle machtigingen |
   | service | **ServiceConnect** machtigingen |
   | apparaat | **DeviceConnect** machtigingen |
-  | registryRead | **RegistryRead** machtigingen |
-  | registryReadWrite | **RegistryRead** en **RegistryWrite** machtigingen |
+  | RegistryRead | **RegistryRead** machtigingen |
+  | RegistryReadWrite | **RegistryRead** en **RegistryWrite** machtigingen |
 
 * **Beveiligingsreferenties per apparaat**. Elke IoT-Hub bevat een [id-register][lnk-identity-registry]. Voor elk apparaat in deze id-register, kunt u beveiligingsreferenties op die verlenen **DeviceConnect** machtigingen binnen het bereik van de bijbehorende apparaat-eindpunten.
 
@@ -91,7 +91,9 @@ HTTPS wordt de verificatie geïmplementeerd door te nemen van een geldig token i
 
 Gebruikersnaam (apparaat-id is hoofdlettergevoelig): `iothubname.azure-devices.net/DeviceId`
 
-Wachtwoord (genereren van SAS-token met de [apparatenverkenner] [ lnk-device-explorer] hulpprogramma): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Wachtwoord (u kunt genereren van een SAS-token met de [apparatenverkenner] [ lnk-device-explorer] hulpprogramma of de CLI-opdracht voor gegevensextensies [az iot hub genereren-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)):
+
+`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > De [Azure IoT SDK's] [ lnk-sdks] automatisch genereren van tokens bij het verbinden met de service. In sommige gevallen kan ondersteunen de Azure IoT SDK's niet alle protocollen of alle verificatiemethoden.
@@ -268,7 +270,7 @@ Het resultaat, waarmee de toegang tot alle functionaliteit voor device1 worden v
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Het is mogelijk voor het genereren van een SAS-token met behulp van de .NET [apparatenverkenner] [ lnk-device-explorer] hulpprogramma of de platformoverschrijdende, op basis van Python [de IoT-extensie voor Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] opdrachtregel-hulpprogramma.
+> Het is mogelijk voor het genereren van een SAS-token met behulp van de .NET [apparatenverkenner] [ lnk-device-explorer] hulpprogramma of de platformoverschrijdende, op basis van Python [de IoT-extensie voor Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] opdrachtregelprogramma of de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### <a name="use-a-shared-access-policy"></a>Een beleid voor gedeelde toegang gebruiken
 
@@ -308,7 +310,7 @@ Een protocolgateway kunt gebruiken om hetzelfde token voor alle apparaten eenvou
 
 Serviceonderdelen kunnen alleen beveiligingstokens met behulp van de juiste machtigingen verlenen zoals hierboven is beleid voor gedeelde toegang genereren.
 
-Dit is de servicefuncties beschikbaar gesteld op de eindpunten:
+Hier vindt u de servicefuncties beschikbaar gesteld op de eindpunten:
 
 | Eindpunt | Functionaliteit |
 | --- | --- |
@@ -348,11 +350,13 @@ Ondersteunde certificaten zijn onder andere:
 
 Een apparaat kan gebruiken een X.509-certificaat of een beveiligingstoken voor verificatie, maar niet beide.
 
-Zie voor meer informatie over verificatie met behulp van de certificeringsinstantie, [conceptuele kennis van x.509-CA-certificaten](iot-hub-x509ca-concept.md).
+Zie voor meer informatie over verificatie met behulp van de certificeringsinstantie, [Apparaatverificatie met behulp van x.509-CA-certificaten](iot-hub-x509ca-overview.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Een X.509-certificaat voor een apparaat registreren
 
 De [Azure IoT Service SDK voor C#] [ lnk-service-sdk] (versie 1.0.8+) biedt ondersteuning voor het registreren van een apparaat dat gebruikmaakt van een X.509-certificaat voor verificatie. Andere API's zoals importeren/exporteren van apparaten ondersteunen ook X.509-certificaten.
+
+U kunt ook de CLI-opdracht voor gegevensextensies [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) x.509-certificaten voor apparaten configureren.
 
 ### <a name="c-support"></a>C\# ondersteuning
 

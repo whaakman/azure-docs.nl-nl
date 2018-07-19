@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 2c744866bdec3ebc3ebb336d42c2b837fc888149
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b889c77bbbcff31aa84cb0df5d06de487ba91d8e
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093109"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136550"
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Overzicht: Failover-groepen en actieve geo-replicatie
 Actieve geo-replicatie kunt u maximaal vier leesbare secundaire databases in de dezelfde of verschillende data center locaties (regio's) configureren. Secundaire databases zijn beschikbaar voor het uitvoeren van query's en voor failover als er een storing in het datacenter of het feit dat verbinding maakt met de primaire database. De failover moet handmatig worden gestart door de toepassing van de gebruiker. Na een failover is de nieuwe primaire het eindpunt van een andere verbinding. 
@@ -89,8 +89,9 @@ Automatische failover-groepen functie biedt een krachtige abstractie van actieve
    >
 
 * **Failover-listener voor lezen / schrijven**: een DNS CNAME-record gevormd als  **&lt;failover-groepsnaam&gt;. database.windows.net** die verwijst naar de URL voor de huidige primaire server. Hierdoor kan de SQL-toepassingen voor lezen / schrijven transparant opnieuw verbinding maken met de primaire database als de primaire gewijzigd na een failover. 
-* **Failover-groep alleen-lezen-listener**: een DNS CNAME-record gevormd als  **&lt;failover-groepsnaam&gt;. secondary.database.windows.net** die verwijst naar de URL van de secundaire server. Hierdoor kan de alleen-lezen SQL-toepassingen op transparante wijze verbinding maken met de secundaire database met behulp van de opgegeven regels voor taakverdeling. U kunt eventueel opgeven als u wilt dat het verkeer alleen-lezen worden automatisch omgeleid naar de primaire server als de secundaire server niet beschikbaar is.
+* **Failover-groep alleen-lezen-listener**: een DNS CNAME-record gevormd als  **&lt;failover-groepsnaam&gt;. secondary.database.windows.net** die verwijst naar de URL van de secundaire server. Hierdoor kan de alleen-lezen SQL-toepassingen op transparante wijze verbinding maken met de secundaire database met behulp van de opgegeven regels voor taakverdeling. 
 * **Automatische failover-beleid**: de failovergroep is standaard geconfigureerd met een automatische failover-beleid. Het systeem wordt de failover geactiveerd zodra de storing wordt gedetecteerd. Als u wilt voor het beheren van de werkstroom van de toepassing, kunt u automatische failover uitschakelen. 
+* **Alleen-lezen failoverbeleid**: standaard, de failover van de alleen-lezen-listener is uitgeschakeld. Het zorgt ervoor dat de prestaties van de primaire wordt niet negatief beïnvloed wanneer de secundaire offline is. Echter, het betekent ook dat de alleen-lezen-sessies wordt pas weer verbinding maken, totdat de secundaire server is hersteld. Als u downtime voor de alleen-lezen-sessies niet kan tolereren en OK tijdelijk de primaire te gebruiken voor zowel alleen-lezen als lezen / schrijven-verkeer ten koste van de afname van de mogelijke prestaties van de primaire, kunt u failover voor de alleen-lezen-listener inschakelen. In dat geval wordt het alleen-lezen-verkeer automatisch omgeleid naar de primaire server als de secundaire server niet beschikbaar is.  
 * **Handmatige failover**: U kunt failover handmatig starten op elk gewenst moment, ongeacht de configuratie van de automatische failover. Als automatische failover-beleid niet is geconfigureerd, is handmatige failover vereist om databases in de failovergroep te herstellen. Geforceerde of beschrijvende failover (met volledige gegevenssynchronisatie), kunt u starten. De laatste kan worden gebruikt om aan de actieve server verplaatsen naar de primaire regio. Wanneer failover is voltooid, wordt de DNS-records worden automatisch bijgewerkt om te controleren of de verbinding met de juiste server.
 * **Respijtperiode verlies van gegevens**: omdat de primaire en secundaire databases worden gesynchroniseerd met behulp van asynchrone replicatie, failover kan leiden tot verlies van gegevens. U kunt de automatische failover-beleid om de tolerantie van uw toepassing tot verlies van gegevens weer te geven. Door het configureren van **GracePeriodWithDataLossHours**, kunt u bepalen hoe lang het systeem moet wachten voordat u begint de failover die waarschijnlijk zal resultaat gegevens verloren gaan. 
 

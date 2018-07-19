@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 474efbf3a9255e4699c27c6b0bfcc30ff54c4b45
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971448"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125756"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Wat is Team Data Science Process?
 
@@ -67,7 +67,7 @@ De doelen, taken en documentatie artefacten voor elke fase van de TDSP-levenscyc
 
 Het volgende diagram biedt een rasterweergave van de taken (in het blauw) en de artefacten (in het groen) die zijn gekoppeld aan elke fase van de levenscyclus (op de horizontale as) voor deze rollen (op de verticale as). 
 
-![TDSP-rollen-en-taken](./media/overview/tdsp-tasks-by-roles.png)
+[ ![TDSP-rollen-en-taken](./media/overview/tdsp-tasks-by-roles.png) ](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>Gestandaardiseerde projectstructuur
 
@@ -81,7 +81,7 @@ We bieden sjablonen voor de mapstructuur en de vereiste documenten in standaardl
 - model maatstaven voor prestaties zoals ROC-curve of MSE
 
 
-![TDSP-directories](./media/overview/tdsp-dir-structure.png)
+[ ![TDSP-mappen](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
 De mapstructuur kan worden gekloond van [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -98,7 +98,7 @@ De analyse- en opslaginfrastructuur kan zich in de cloud of on-premises. Dit is 
 
 Hier volgt een voorbeeld van een team werkt aan meerdere projecten en het delen van verschillende onderdelen van de cloud analytics infrastructuur.
 
-![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)
+[ ![TDSP-infrastructuur](./media/overview/tdsp-analytics-infra.png) ](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Hulpprogramma's voor de projectuitvoering van

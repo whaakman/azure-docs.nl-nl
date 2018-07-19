@@ -3,8 +3,8 @@
 | Batch-accounts per regio per abonnement | 1 - 3 |50 |
 | Toegewezen kerngeheugens per Batch-account | 10 - 100 | N.v.t.<sup>1</sup> |
 | Kernen per Batch-account met lage prioriteit | 10 - 100 | N.V.T.<sup>2</sup> |
-| Actieve taken en taakplanningen<sup>3</sup> per Batch-account | 100 - 300 | 5000<sup>4</sup> |
-| Pools per Batch-account | 20 - 100 | 2500 |
+| Actieve taken en taakplanningen<sup>3</sup> per Batch-account | 100 - 300 | 2500<sup>4</sup> |
+| Pools per Batch-account | 20 - 100 | 500 |
 
 > [!NOTE]
 > Standaardlimieten zijn afhankelijk van het type abonnement dat u een Batch-account maken. Kernquota's weergegeven, zijn voor Batch-accounts in de modus voor Batch-service. [De quota in uw Batch-account weergeven](../articles/batch/batch-quota-limit.md#view-batch-quotas). 

@@ -1,39 +1,39 @@
 ---
-title: Python-Snelstartgids voor Azure cognitieve Services, Microsoft Translator Speech-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de Microsoft Translator Speech-API in Microsoft cognitieve Services in Azure.
+title: Python-Quickstart voor Azure Cognitive Services, Microsoft Translator Speech-API | Microsoft Docs
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Speech-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
 ms.service: cognitive-services
 ms.component: translator-speech
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 29722b3fa7fe61aff0b2406002453020d999ea41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 40535f400bc5359019e89320489721bf481c1210
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344677"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124824"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Quick Start voor Microsoft Translator spraak API met behulp van Python 
+# <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Snelstartgids voor Microsoft Translator Speech-API met Python 
 <a name="HOLTop"></a>
 
-Dit artikel laat zien hoe u met de Microsoft Translator Speech-API woorden gesproken wav-bestanden.
+In dit artikel leest u hoe de Microsoft Translator Speech-API gebruiken voor de omzetting van woorden die in een wav-bestand.
 
 ## <a name="prerequisites"></a>Vereisten
 
 U moet [Python 3.x](https://www.python.org/downloads/) deze code uit te voeren.
 
-U moet installeren de [websocket-clientpakket](https://pypi.python.org/pypi/websocket-client) voor Python.
+U moet voor het installeren van de [websocket-client-pakket](https://pypi.python.org/pypi/websocket-client) voor Python.
 
-U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat van de volgende code worden gecompileerd. Dit WAV-bestand moet zich in de standaard PCM, 16-bits, 16kHz mono-indeling. U ontvangt deze een wav-bestand van de [conversieprogramma tekst uitspreken API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat uit de onderstaande code worden gecompileerd. Dit WAV-bestand moet zich in de standard PCM, 16-bits, 16kHz mono-indeling.
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnementssleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnement-sleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Spraak vertalen
 
-De volgende code vertaalt spraak van één taal.
+De volgende code wordt omgezet in spraak in één taal.
 
 1. Maak een nieuwe Python-project in uw favoriete IDE.
 2. Voeg de code hieronder.
@@ -120,16 +120,16 @@ client.run_forever()
 
 **Spraak antwoord vertalen**
 
-Een geslaagde resultaat is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de omzetting van de woorden 'speak.wav' gesproken.
+Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de vertaling van gesproken in "speak.wav" woorden.
 
 [Terug naar boven](#HOLTop)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Conversieprogramma spraak-zelfstudie](../tutorial-translator-speech-csharp.md)
+> [Translator Speech-zelfstudie](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Zie ook 
 
-[Conversieprogramma spraak-overzicht](../overview.md)
-[API-referentiemateriaal](http://docs.microsofttranslator.com/speech-translate.html)
+[Overzicht van Translator Speech](../overview.md)
+[API-verwijzing](http://docs.microsofttranslator.com/speech-translate.html)

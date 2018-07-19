@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/28/2018
+ms.date: 07/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 92b0f0aad812e82fd0410b96b96de9384019c1cb
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d422c463d07459e73e07bddfe441e42e642b8bce
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437957"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136873"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -33,11 +33,12 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.AAD/domainServices/delete | Hiermee verwijdert u Domain Services. |
-> | Bewerking | Microsoft.AAD/domainServices/read | Domain Services worden gelezen. |
-> | Bewerking | Microsoft.AAD/domainServices/write | Domain Services schrijven |
+> | Bewerking | Microsoft.AAD/domainServices/delete | Domeinservice verwijderen |
+> | Bewerking | Microsoft.AAD/domainServices/read | Lees domeinservice |
+> | Bewerking | Microsoft.AAD/domainServices/write | Write-domeinservice |
 > | Bewerking | Microsoft.AAD/locations/operationresults/read |  |
 > | Bewerking | Microsoft.AAD/Operations/read |  |
+> | Bewerking | Microsoft.AAD/register/action | Domeinservice registreren |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
@@ -649,6 +650,23 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.BingMaps/mapApis/Write | Schrijfbewerking |
 > | Bewerking | Microsoft.BingMaps/Operations/read | Beschrijving van de bewerking. |
 
+## <a name="microsoftbotservice"></a>Microsoft.BotService
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Actietype | Bewerking | Beschrijving |
+> | --- | --- | --- |
+> | Bewerking | Microsoft.BotService/botServices/channels/delete | Verwijderen van een Bot-Service |
+> | Bewerking | Microsoft.BotService/botServices/channels/read | Lees een Botservice |
+> | Bewerking | Microsoft.BotService/botServices/channels/write | Schrijven van een Bot-Service |
+> | Bewerking | Microsoft.BotService/botServices/connections/delete | Verwijderen van een Bot-Service |
+> | Bewerking | Microsoft.BotService/botServices/connections/read | Lees een Botservice |
+> | Bewerking | Microsoft.BotService/botServices/connections/write | Schrijven van een Bot-Service |
+> | Bewerking | Microsoft.BotService/botServices/delete | Verwijderen van een Bot-Service |
+> | Bewerking | Microsoft.BotService/botServices/read | Lees een Botservice |
+> | Bewerking | Microsoft.BotService/botServices/write | Schrijven van een Bot-Service |
+> | Bewerking | Microsoft.BotService/locations/operationresults/read | De status van een asynchrone bewerking lezen |
+> | Bewerking | Microsoft.BotService/Operations/read | De leesbewerkingen voor alle resourcetypen |
+
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -903,15 +921,26 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
+> | Bewerking | Microsoft.ClassicNetwork/expressroutecrossconnections/operationstatuses/read | De bewerkingsstatus van een ExpressRoute-kruisverbinding ophalen. |
+> | Bewerking | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/delete | Peering van ExpressRoute-kruisverbinding verwijderen. |
+> | Bewerking | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/operationstatuses/read | De bewerkingsstatus van een ExpressRoute-kruisverbindingspeering ophalen. |
+> | Bewerking | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/read | Peering van ExpressRoute-kruisverbinding ophalen. |
+> | Bewerking | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/write | Peering van ExpressRoute-kruisverbinding toevoegen. |
+> | Bewerking | Microsoft.ClassicNetwork/expressroutecrossconnections/read | ExpressRoute-kruisverbindingen ophalen. |
+> | Bewerking | Microsoft.ClassicNetwork/expressroutecrossconnections/write | ExpressRoute-kruisverbindingen toevoegen. |
 > | Bewerking | Microsoft.ClassicNetwork/gatewaySupportedDevices/read | De lijst met ondersteunde apparaten wordt opgehaald. |
 > | Bewerking | Microsoft.ClassicNetwork/networkSecurityGroups/delete | Hiermee wordt de netwerkbeveiligingsgroep verwijderd. |
 > | Bewerking | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | Hiermee wordt de bewerkingsstatus van de netwerkbeveiligingsgroep gelezen. |
+> | Bewerking | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee worden de diagnostische instellingen voor netwerkbeveiligingsgroepen opgehaald |
+> | Bewerking | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee kunt u diagnostische instellingen voor netwerkbeveiligingsgroepen maken of bijwerken. Deze bewerking wordt aangevuld door de resourceprovider voor inzichten. |
+> | Bewerking | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Hiermee worden de gebeurtenissen voor de netwerkbeveiligingsgroep opgehaald |
 > | Bewerking | Microsoft.ClassicNetwork/networkSecurityGroups/read | Hiermee wordt de netwerkbeveiligingsgroep opgehaald. |
 > | Bewerking | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete | Hiermee wordt de beveiligingsregel verwijderd. |
 > | Bewerking | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/operationStatuses/read | Hiermee wordt de bewerkingsstatus van de beveiligingsregels voor de netwerkbeveiligingsgroep gelezen. |
 > | Bewerking | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/read | Hiermee wordt de beveiligingsregel opgehaald. |
 > | Bewerking | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/write | Hiermee wordt een beveiligingsregel toegevoegd of bijgewerkt. |
 > | Bewerking | Microsoft.ClassicNetwork/networkSecurityGroups/write | Hiermee wordt een nieuwe netwerkbeveiligingsgroep toegevoegd. |
+> | Bewerking | Microsoft.ClassicNetwork/operations/read | Klassieke netwerkbewerkingen ophalen. |
 > | Bewerking | Microsoft.ClassicNetwork/quotas/read | Hiermee worden de quota voor het abonnement opgehaald. |
 > | Bewerking | Microsoft.ClassicNetwork/register/action | Registreren bij klassiek netwerk |
 > | Bewerking | Microsoft.ClassicNetwork/reservedIps/delete | Hiermee wordt een gereserveerd IP verwijderd. |
@@ -920,8 +949,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ClassicNetwork/reservedIps/operationStatuses/read | Hiermee wordt de bewerkingsstatus van de gereserveerde IP's gelezen. |
 > | Bewerking | Microsoft.ClassicNetwork/reservedIps/read | Hiermee worden de gereserveerde IP's opgehaald. |
 > | Bewerking | Microsoft.ClassicNetwork/reservedIps/write | Een nieuw gereserveerd IP toevoegen |
+> | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/abortMigration/action | Hiermee wordt de migratie van een virtueel netwerk afgebroken |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/capabilities/read | Hiermee worden de mogelijkheden weergegeven |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/checkIPAddressAvailability/action | Hiermee wordt de beschikbaarheid van een bepaald IP-adres in een virtueel netwerk gecontroleerd. |
+> | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/commitMigration/action | Hiermee wordt de migratie van een virtueel netwerk doorgevoerd |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/delete | Hiermee wordt het virtuele netwerk verwijderd. |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRevokedCertificates/delete | Hiermee wordt de intrekking van een clientcertificaat ongedaan gemaakt. |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRevokedCertificates/read | De ingetrokken clientcertificaten lezen. |
@@ -949,11 +980,17 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/join/action | Hiermee wordt de deelname aan het virtuele netwerk uitgevoerd. |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/operationStatuses/read | Hiermee wordt de bewerkingsstatus van de virtuele netwerken gelezen. |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/peer/action | Hiermee wordt een virtueel netwerk via peercommunicatie gebruikt met een ander virtueel netwerk. |
+> | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/prepareMigration/action | Hiermee wordt de migratie van een virtueel netwerk voorbereid |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/read | Het virtuele netwerk wordt opgehaald. |
+> | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/delete | De proxy voor de peering van het externe virtuele netwerk. |
+> | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/read | Hiermee wordt de proxy voor de peering van het externe virtuele netwerk opgehaald. |
+> | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/write | Hiermee wordt de proxy voor de peering van het externe virtuele netwerk toegevoegd. |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete | Hiermee wordt de netwerkbeveiligingsgroep verwijderd die aan het subnet is gekoppeld. |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | Hiermee wordt de bewerkingsstatus van de netwerkbeveiligingsgroep die aan het subnet van het virtueel netwerk is gekoppeld gelezen. |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/read | Hiermee wordt de netwerkbeveiligingsgroep opgehaald die aan het subnet is gekoppeld. |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/write | Hiermee wordt een netwerkbeveiligingsgroep toegevoegd die aan het subnet is gekoppeld. |
+> | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/validateMigration/action | Hiermee wordt de migratie van een virtueel netwerk gevalideerd |
+> | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/virtualNetworkPeerings/read | Hiermee wordt de peering voor het virtuele netwerk opgehaald. |
 > | Bewerking | Microsoft.ClassicNetwork/virtualNetworks/write | Een nieuw virtueel netwerk wordt toegevoegd. |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
@@ -963,23 +1000,32 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ClassicStorage/capabilities/read | Hiermee worden de mogelijkheden weergegeven |
 > | Bewerking | Microsoft.ClassicStorage/checkStorageAccountAvailability/action | Hiermee wordt gecontroleerd of een opslagaccount beschikbaar is. |
+> | Bewerking | Microsoft.ClassicStorage/checkStorageAccountAvailability/read | De beschikbaarheid van een opslagaccount ophalen. |
 > | Bewerking | Microsoft.ClassicStorage/disks/read | Hiermee wordt de opslagaccountschijf geretourneerd. |
+> | Bewerking | Microsoft.ClassicStorage/images/operationstatuses/read | Hiermee wordt de bewerkingsstatus van een installatiekopie opgehaald. |
 > | Bewerking | Microsoft.ClassicStorage/images/read | Hiermee wordt de afbeelding geretourneerd. |
+> | Bewerking | Microsoft.ClassicStorage/operations/read | Hiermee worden klassieke opslagbewerkingen opgehaald |
 > | Bewerking | Microsoft.ClassicStorage/osImages/read | De installatiekopie van het besturingssysteem herstellen. |
+> | Bewerking | Microsoft.ClassicStorage/osPlatformImages/read | Hiermee wordt de platforminstallatiekopie van het besturingssysteem opgehaald. |
 > | Bewerking | Microsoft.ClassicStorage/publicImages/read | Hiermee wordt de openbare installatiekopie voor de virtuele machine opgehaald. |
 > | Bewerking | Microsoft.ClassicStorage/quotas/read | Hiermee worden de quota voor het abonnement opgehaald. |
 > | Bewerking | Microsoft.ClassicStorage/register/action | Registreren bij klassieke opslag |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/abortMigration/action | Hiermee wordt de migratie van een opslagaccount afgebroken. |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/commitMigration/action | Hiermee wordt de migratie van een opslagaccount doorgevoerd. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/delete | Hiermee wordt het opslagaccount verwijderd. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/disks/delete | Hiermee wordt een opgegeven opslagaccountschijf verwijderd. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/disks/operationStatuses/read | Hiermee wordt de bewerkingsstatus voor de resource ingelezen. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/disks/read | Hiermee wordt de opslagaccountschijf geretourneerd. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/disks/write | Hiermee wordt een opslagaccountschijf toegevoegd. |
-> | Bewerking | Microsoft.ClassicStorage/storageAccounts/images/delete | Hiermee verwijdert u een installatiekopie van het opgegeven opslagaccount. |
-> | Bewerking | Microsoft.ClassicStorage/storageAccounts/images/read | Retourneert de installatiekopie van het opslagaccount. |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/images/delete | Hiermee verwijdert u een installatiekopie van het opgegeven opslagaccount. (Afgeschaft. Gebruik 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/images/operationstatuses/read | Hiermee wordt de bewerkingsstatus van de opslagaccountinstallatiekopie geretourneerd. |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/images/read | Retourneert de installatiekopie van het opslagaccount. (Afgeschaft. Gebruik 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Hiermee worden de toegangssleutels voor de opslagaccounts weergegeven. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/operationStatuses/read | Hiermee wordt de bewerkingsstatus voor de resource ingelezen. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/osImages/delete | Hiermee wordt de betreffende installatiekopie van het besturingssysteem van een opslagaccount verwijderd. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/osImages/read | Hiermee wordt de installatiekopie van het besturingssysteem van een opslagaccount hersteld. |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/osImages/write | Hiermee wordt de betreffende installatiekopie van het besturingssysteem van een opslagaccount toegevoegd. |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/prepareMigration/action | Hiermee wordt de migratie van een opslagaccount voorbereid. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/read | Opslagaccount met het opgegeven account wordt geretourneerd. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/regenerateKey/action | De bestaande toegangssleutels voor het opslagaccount worden geregenereerd. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/services/diagnosticSettings/read | Hiermee worden de diagnostische instellingen opgehaald. |
@@ -987,7 +1033,13 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/services/metricDefinitions/read | Hiermee worden de metrische definities opgehaald. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/services/metrics/read | Hiermee worden de metrische gegevens opgehaald. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/services/read | De beschikbare services ophalen. |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/validateMigration/action | Hiermee wordt de migratie van een opslagaccount gevalideerd. |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/vmImages/delete | Hiermee wordt de betreffende installatiekopie van virtuele machine verwijderd. |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/vmImages/operationstatuses/read | Hiermee wordt de bewerkingsstatus van de installatiekopie van een gegeven virtuele machine opgehaald. |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/vmImages/read | Hiermee wordt de installatiekopie van de virtuele machine hersteld. |
+> | Bewerking | Microsoft.ClassicStorage/storageAccounts/vmImages/write | Hiermee wordt de betreffende installatiekopie van virtuele machine toegevoegd. |
 > | Bewerking | Microsoft.ClassicStorage/storageAccounts/write | Hiermee wordt een nieuw opslagaccount toegevoegd. |
+> | Bewerking | Microsoft.ClassicStorage/vmImages/read | Hiermee wordt een lijst met installatiekopieën van virtuele machines weergegeven. |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -1032,6 +1084,15 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Compute/disks/endGetAccess/action | Hiermee wordt de SAS-URI van de schijf ingetrokken |
 > | Bewerking | Microsoft.Compute/disks/read | Hiermee worden de eigenschappen van een schijf opgehaald |
 > | Bewerking | Microsoft.Compute/disks/write | Hiermee wordt een nieuwe schijf gemaakt of een bestaande bijgewerkt |
+> | Bewerking | Microsoft.Compute/galleries/delete | Hiermee wordt de galerie verwijderd |
+> | Bewerking | Microsoft.Compute/galleries/images/delete | Hiermee wordt de galerieafbeelding verwijderd |
+> | Bewerking | Microsoft.Compute/galleries/images/read | Hiermee worden de eigenschappen van de galerieafbeelding opgehaald |
+> | Bewerking | Microsoft.Compute/galleries/images/versions/delete | Hiermee verwijdert u de versie van de afbeeldingsgalerie |
+> | Bewerking | Microsoft.Compute/galleries/images/versions/read | Hiermee worden de eigenschappen van de versie van de galerieafbeelding opgehaald |
+> | Bewerking | Microsoft.Compute/galleries/images/versions/write | Hiermee wordt een nieuwe versie van de galerieafbeelding gemaakt of een bestaande bijgewerkt |
+> | Bewerking | Microsoft.Compute/galleries/images/write | Hiermee wordt een nieuwe galerieafbeelding gemaakt of een bestaande bijgewerkt |
+> | Bewerking | Microsoft.Compute/galleries/read | Hiermee worden de eigenschappen van de galerie opgehaald |
+> | Bewerking | Microsoft.Compute/galleries/write | Hiermee wordt een nieuwe galerie gemaakt of een bestaande bijgewerkt |
 > | Bewerking | Microsoft.Compute/images/delete | Hiermee wordt de installatiekopie verwijderd |
 > | Bewerking | Microsoft.Compute/images/read | Ga naar de eigenschappen van de installatiekopie |
 > | Bewerking | Microsoft.Compute/images/write | Hiermee wordt een nieuwe installatiekopie gemaakt of een bestaande bijgewerkt |
@@ -1109,6 +1170,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/read | Hiermee worden de eigenschappen van de virtuele-machineschaalset opgehaald |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/redeploy/action | De instanties van de virtuele-machineschaalset opnieuw implementeren |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/reimage/action | Hiermee worden installatiekopieën voor de instanties van de virtuele-machineschaalset teruggezet |
+> | Bewerking | Microsoft.Compute/virtualMachineScaleSets/reimageAll/action | Hiermee wordt de installatiekopie van alle schijven (besturingssysteemschijf en gegevensschijven) teruggezet voor de instanties van een virtuele-machineschaalset  |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/restart/action | Hiermee worden de instanties van de virtuele-machineschaalset opnieuw gestart |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades/cancel/action | Hiermee wordt de roulerende upgrade van een virtuele-machineschaalset geannuleerd |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades/read | De meest recente status van de roulerende upgrade voor een virtuele-machineschaalset ophalen |
@@ -1127,7 +1189,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read | Hiermee worden de eigenschappen van een virtuele machine in een VM-schaalset opgehaald |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/redeploy/action | Hiermee wordt een instantie van een virtuele machine in een virtuele-machineschaalset opnieuw geïmplementeerd |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/reimage/action | Hiermee wordt de installatiekopie van een instantie van een virtuele machine in een virtuele-machineschaalset teruggezet. |
+> | Bewerking | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/reimageAll/action | Hiermee wordt de installatiekopie van alle schijven (besturingssysteemschijf en gegevensschijven) voor de instantie van een virtuele machine teruggezet in een virtuele-machineschaalset. |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/restart/action | Hiermee wordt de instantie van een specifieke virtuele machine in een VM-schaalset opnieuw gestart. |
+> | Bewerking | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommand/action | Hiermee wordt een vooraf gedefinieerd script uitgevoerd op een instantie van een virtuele machine in een virtuele-machineschaalset. |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/start/action | Hiermee wordt de instantie van een specifieke virtuele machine in een VM-schaalset gestart. |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/write | Hiermee worden de eigenschappen van een virtuele machine in een VM-schaalset bijgewerkt |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/write | Hiermee wordt een nieuwe virtuele-machineschaalset gemaakt of een bestaande bijgewerkt |
@@ -1163,6 +1227,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Hiermee worden de beschikbare metrische gegevens opgehaald voor de containergroep. |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/read | Alle containergroepen ophalen. |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/write | Een specifieke containergroep maken of bijwerken. |
+> | Bewerking | Microsoft.ContainerInstance/register/action | Hiermee wordt het abonnement voor de resourceprovider van het containerexemplaar geregistreerd en wordt het maken van containergroepen mogelijk. |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -1170,6 +1235,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContainerRegistry/checkNameAvailability/read | Controleert of de naam van het containerregister beschikbaar voor gebruik is. |
+> | Bewerking | Microsoft.ContainerRegistry/locations/deleteVirtualNetworkOrSubnets/action | Microsoft.ContainerRegistry meldt dat virtuele netwerk of subnet wordt verwijderd |
 > | Bewerking | Microsoft.ContainerRegistry/locations/operationResults/read | De resultaten van een asynchrone bewerking opgehaald |
 > | Bewerking | Microsoft.ContainerRegistry/operations/read | Een lijst met alle van de beschikbare bewerkingen voor de REST-API van Azure Container Registry |
 > | Bewerking | Microsoft.ContainerRegistry/register/action | Hiermee wordt het abonnement voor de container registry-resourceprovider geregistreerd en wordt het maken van de container Registry. |
@@ -1179,6 +1245,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ContainerRegistry/registries/eventGridFilters/write | Hiermee of bijwerken van een event grid-filter voor een container registry met de opgegeven parameters. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/importImage/action | Importeren van de installatiekopie naar container registry met de opgegeven parameters. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/listCredentials/action | Een lijst met de aanmeldingsreferenties voor de opgegeven container registry. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/listPolicies/read | Geeft een lijst van de beleidsregels voor de opgegeven container registry |
 > | Bewerking | Microsoft.ContainerRegistry/registries/listUsages/read | Geeft een lijst van het gebruik van het quotum voor de opgegeven container registry. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/operationStatuses/read | Hiermee wordt een status register asynchrone bewerking opgehaald |
 > | Bewerking | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald |
@@ -1190,6 +1257,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ContainerRegistry/registries/replications/operationStatuses/read | Hiermee wordt een status van replicatie asynchrone bewerking opgehaald |
 > | Bewerking | Microsoft.ContainerRegistry/registries/replications/read | De eigenschappen van de opgegeven replicatie opgehaald of een lijst met alle replicaties voor de opgegeven container registry. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/replications/write | Hiermee of een replicatie voor een container registry bijgewerkt met de opgegeven parameters. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/updatePolicies/write | Updates van de beleidsregels voor de opgegeven container registry |
 > | Bewerking | Microsoft.ContainerRegistry/registries/webhooks/delete | Hiermee verwijdert een webhook uit een containerregister. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action | Hiermee haalt de configuratie van service-URI en aangepaste headers voor de webhook. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/webhooks/listEvents/action | Een lijst met recente gebeurtenissen voor de opgegeven webhook. |
@@ -1207,6 +1275,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ContainerService/containerServices/delete | Hiermee verwijdert u een containerservice |
 > | Bewerking | Microsoft.ContainerService/containerServices/read | Ophalen van een containerservice |
 > | Bewerking | Microsoft.ContainerService/containerServices/write | Hiermee maakt u een nieuwe containerservice of een bestaande bijgewerkt |
+> | Bewerking | Microsoft.ContainerService/locations/operationresults/read | Hiermee wordt de status van het resultaat van een asynchrone bewerking opgehaald |
+> | Bewerking | Microsoft.ContainerService/locations/operations/read | Hiermee wordt de status van een asynchrone bewerking opgehaald |
+> | Bewerking | Microsoft.ContainerService/locations/orchestrators/read | Geeft een lijst van de ondersteunde orchestrators |
 > | Bewerking | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Een profiel van de toegang tot beheerde cluster met op rolnaam met behulp van de lijst met referenties ophalen |
 > | Bewerking | Microsoft.ContainerService/managedClusters/accessProfiles/read | Ophalen van een profiel van de toegang tot beheerde cluster met op rolnaam |
 > | Bewerking | Microsoft.ContainerService/managedClusters/delete | Hiermee verwijdert u een beheerd cluster |
@@ -1215,7 +1286,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor beheerd Cluster |
 > | Bewerking | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor beheerd Cluster |
 > | Bewerking | Microsoft.ContainerService/managedClusters/read | Een beheerd cluster ophalen |
+> | Bewerking | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Het upgrade-profiel van het cluster opgehaald |
 > | Bewerking | Microsoft.ContainerService/managedClusters/write | Hiermee maakt u een nieuwe beheerde cluster of een bestaande bijgewerkt |
+> | Bewerking | Microsoft.ContainerService/operations/read | Een lijst met bewerkingen weergegeven die beschikbaar zijn op de Microsoft.ContainerService-resourceprovider |
+> | Bewerking | Microsoft.ContainerService/register/action | Hiermee wordt een abonnement bij de resourceprovider Microsoft.ContainerService |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
@@ -1336,6 +1410,23 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.CustomerInsights/operations/read | Azure-klant Insights Api Metadatas lezen |
 > | Bewerking | Microsoft.CustomerInsights/register/action | Hiermee wordt het abonnement voor de Customer Insights-resourceprovider geregistreerd en wordt het maken van Customer Insights-resources |
 > | Bewerking | Microsoft.CustomerInsights/unregister/action | De registratie van het abonnement voor de Customer Insights-resourceprovider |
+
+## <a name="microsoftdatabox"></a>Microsoft.DataBox
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Actietype | Bewerking | Beschrijving |
+> | --- | --- | --- |
+> | Bewerking | Microsoft.DataBox/jobs/bookShipmentPickUp/action | Hiermee kan het ophalen van retourzendingen worden geboekt. |
+> | Bewerking | Microsoft.DataBox/jobs/cancel/action | Hiermee wordt een order in uitvoering geannuleerd. |
+> | Bewerking | Microsoft.DataBox/jobs/copyLogsUri/action | De URL ophalen voor de logboeken met kopieerbewerkingen van elk bestemmingsaccount. |
+> | Bewerking | Microsoft.DataBox/jobs/delete | De Orders verwijderen |
+> | Bewerking | Microsoft.DataBox/jobs/downloadShippingLabel/action | Het verzendlabel ophalen voor de retourzending. |
+> | Bewerking | Microsoft.DataBox/jobs/listSecrets/action | Hiermee wordt een lijst gemaakt van niet-versleutelde geheimen die betrekking hebben op de order. |
+> | Bewerking | Microsoft.DataBox/jobs/read | Lijst maken of ophalen van de Orders |
+> | Bewerking | Microsoft.DataBox/jobs/reportIssue/action | Hiermee wordt een probleem in de order gerapporteerd. |
+> | Bewerking | Microsoft.DataBox/jobs/write | Maken of bijwerken van de Orders |
+> | Bewerking | Microsoft.DataBox/locations/availableSkus/action | Met deze methode wordt de lijst met beschikbare SKU's geretourneerd. |
+> | Bewerking | Microsoft.DataBox/locations/validateAddress/action | Hiermee wordt het verzendadres gevalideerd en eventuele alternatieve adressen opgegeven. |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
@@ -1990,26 +2081,26 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Insights/ActionGroups/Delete | Een actiegroep verwijderen |
 > | Bewerking | Microsoft.Insights/ActionGroups/Read | Een actiegroep lezen |
-> | Bewerking | Microsoft.Insights/ActionGroups/Write | Een actiegroep schrijven |
-> | Bewerking | Microsoft.Insights/ActivityLogAlerts/Activated/Action | Waarschuwing voor een activiteitenlogboek geactiveerd |
-> | Bewerking | Microsoft.Insights/ActivityLogAlerts/Delete | Een waarschuwing voor een activiteitenlogboek verwijderen |
-> | Bewerking | Microsoft.Insights/ActivityLogAlerts/Read | Waarschuwing voor een activiteitenlogboek lezen |
-> | Bewerking | Microsoft.Insights/ActivityLogAlerts/Write | Waarschuwing voor een activiteitenlogboek lezen |
-> | Bewerking | Microsoft.Insights/AlertRules/Activated/Action | Waarschuwingsregel geactiveerd |
-> | Bewerking | Microsoft.Insights/AlertRules/Delete | De configuratie van een waarschuwingsregel verwijderen |
-> | Bewerking | Microsoft.Insights/AlertRules/Incidents/Read | Het incident configuratie van een waarschuwingsregel lezen |
-> | Bewerking | Microsoft.Insights/AlertRules/Read | De configuratie van een waarschuwingsregel lezen |
-> | Bewerking | Microsoft.Insights/AlertRules/Resolved/Action | Waarschuwingsregel opgelost |
-> | Bewerking | Microsoft.Insights/AlertRules/Throttled/Action | Waarschuwingsregel wordt beperkt |
-> | Bewerking | Microsoft.Insights/AlertRules/Write | Aan de configuratie van een waarschuwingsregel schrijven |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/Delete | Een configuratie van de instelling voor automatisch schalen verwijderen |
+> | Bewerking | Microsoft.Insights/ActionGroups/Write | Maken of bijwerken van een actiegroep |
+> | Bewerking | Microsoft.Insights/ActivityLogAlerts/Activated/Action | Activiteit Log waarschuwing geactiveerd |
+> | Bewerking | Microsoft.Insights/ActivityLogAlerts/Delete | Waarschuwing voor een activiteitenlogboek verwijderen |
+> | Bewerking | Microsoft.Insights/ActivityLogAlerts/Read | Een waarschuwing voor een activiteitenlogboek lezen |
+> | Bewerking | Microsoft.Insights/ActivityLogAlerts/Write | Een waarschuwing voor een activiteitenlogboek maken of bijwerken |
+> | Bewerking | Microsoft.Insights/AlertRules/Activated/Action | Klassieke waarschuwing voor metrische gegevens geactiveerd |
+> | Bewerking | Microsoft.Insights/AlertRules/Delete | Een klassieke waarschuwing voor metrische gegevens verwijderen |
+> | Bewerking | Microsoft.Insights/AlertRules/Incidents/Read | Een incident van een klassieke waarschuwing voor metrische gegevens lezen |
+> | Bewerking | Microsoft.Insights/AlertRules/Read | Een klassieke waarschuwing voor metrische gegevens lezen |
+> | Bewerking | Microsoft.Insights/AlertRules/Resolved/Action | Klassieke waarschuwing voor metrische gegevens opgelost |
+> | Bewerking | Microsoft.Insights/AlertRules/Throttled/Action | Regel voor klassieke waarschuwing voor metrische gegevens beperkt |
+> | Bewerking | Microsoft.Insights/AlertRules/Write | Een klassieke waarschuwing voor metrische gegevens maken of bijwerken |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/Delete | Een instelling voor automatisch schalen verwijderen |
 > | Bewerking | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | Metrische definities lezen |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/Read | Configuratie-instelling voor automatisch schalen lezen |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Automatisch schalen bewerking omlaag schalen |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Automatisch schalen resultaat bewerking omlaag schalen |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Automatisch schalen bewerking omhoog schalen |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Automatisch schalen resultaat bewerking omhoog schalen |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/Write | Schrijven naar een configuratie van de instelling voor automatisch schalen |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/Read | Een instelling voor automatisch schalen lezen |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Automatisch omlaag schalen gestart |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Automatisch omlaag schalen voltooid |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Automatisch omhoog schalen gestart |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Automatisch omhoog schalen voltooid |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/Write | Een instelling voor automatisch schalen maken of bijwerken |
 > | Bewerking | Microsoft.Insights/Components/AnalyticsItems/Delete | Een analyse-item van Application Insights verwijderen |
 > | Bewerking | Microsoft.Insights/Components/AnalyticsItems/Read | Een analyse-item van Application Insights lezen |
 > | Bewerking | Microsoft.Insights/Components/AnalyticsItems/Write | Een analyse-item van Application Insights schrijven |
@@ -2064,25 +2155,25 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Insights/Components/WorkItemConfigs/Read | De configuratie voor ALM-integratie van Application Insights lezen |
 > | Bewerking | Microsoft.Insights/Components/WorkItemConfigs/Write | De configuratie voor ALM-integratie van Application Insights schrijven |
 > | Bewerking | Microsoft.Insights/Components/Write | Schrijven naar de configuratie van een Application Insights-onderdeel |
-> | Bewerking | Microsoft.Insights/DiagnosticSettings/Delete | Configuratie voor de diagnostische instellingen verwijderen |
-> | Bewerking | Microsoft.Insights/DiagnosticSettings/Read | Een configuratie voor de diagnostische instellingen lezen |
-> | Bewerking | Microsoft.Insights/DiagnosticSettings/Write | Configuratie van diagnostische instellingen schrijven |
-> | Bewerking | Microsoft.Insights/EventCategories/Read | Een gebeurteniscategorie lezen |
+> | Bewerking | Microsoft.Insights/DiagnosticSettings/Delete | Een diagnostische instelling voor de resource verwijderen |
+> | Bewerking | Microsoft.Insights/DiagnosticSettings/Read | Een diagnostische instelling voor de resource lezen |
+> | Bewerking | Microsoft.Insights/DiagnosticSettings/Write | Een diagnostische instelling voor de resource maken of bijwerken |
+> | Bewerking | Microsoft.Insights/EventCategories/Read | Beschikbare gebeurteniscategorieën van het activiteitenlogboek lezen |
 > | Bewerking | Microsoft.Insights/eventtypes/digestevents/Read | Samenvatting beheergebeurtenistype lezen |
-> | Bewerking | Microsoft.Insights/eventtypes/values/Read | Beheer van waarden beheergebeurtenistype lezen |
-> | Bewerking | Microsoft.Insights/ExtendedDiagnosticSettings/Delete | Configuratie voor de uitgebreide diagnostische instellingen verwijderen |
-> | Bewerking | Microsoft.Insights/ExtendedDiagnosticSettings/Read | Een configuratie voor de uitgebreide diagnostische instellingen lezen |
-> | Bewerking | Microsoft.Insights/ExtendedDiagnosticSettings/Write | Configuratie van de uitgebreide diagnostische instellingen schrijven |
+> | Bewerking | Microsoft.Insights/eventtypes/values/Read | Gebeurtenissen voor het activiteitenlogboek lezen |
+> | Bewerking | Microsoft.Insights/ExtendedDiagnosticSettings/Delete | Een diagnostische instelling voor het netwerkstroomlogboek verwijderen |
+> | Bewerking | Microsoft.Insights/ExtendedDiagnosticSettings/Read | Een diagnostische instelling voor het netwerkstroomlogboek lezen |
+> | Bewerking | Microsoft.Insights/ExtendedDiagnosticSettings/Write | Een diagnostische instelling voor het netwerkstroomlogboek maken of bijwerken |
 > | Bewerking | Microsoft.Insights/ListMigrationDate/Action | Migratiedatum van abonnement terughalen |
 > | Bewerking | Microsoft.Insights/ListMigrationDate/Read | Migratiedatum van abonnement terughalen |
 > | Bewerking | Microsoft.Insights/LogDefinitions/Read | Logboekdefinities lezen |
-> | Bewerking | Microsoft.Insights/LogProfiles/Delete | Configuratie voor logboekprofielen verwijderen |
-> | Bewerking | Microsoft.Insights/LogProfiles/Read | Logboekprofielen lezen |
-> | Bewerking | Microsoft.Insights/LogProfiles/Write | Schrijven naar een logboek-profielconfiguratie |
+> | Bewerking | Microsoft.Insights/LogProfiles/Delete | Een logboekprofiel voor het activiteitenlogboek verwijderen |
+> | Bewerking | Microsoft.Insights/LogProfiles/Read | Een logboekprofiel voor het activiteitenlogboek lezen |
+> | Bewerking | Microsoft.Insights/LogProfiles/Write | Een logboekprofiel voor het activiteitenlogboek maken of bijwerken |
 > | Bewerking | Microsoft.Insights/MetricAlerts/Delete | Een waarschuwing voor metrische gegevens verwijderen |
 > | Bewerking | Microsoft.Insights/MetricAlerts/Read | Een waarschuwing voor metrische gegevens lezen |
 > | Bewerking | Microsoft.Insights/MetricAlerts/Status/Read | Status van waarschuwing voor metrische gegevens lezen |
-> | Bewerking | Microsoft.Insights/MetricAlerts/Write | Een waarschuwing voor metrische gegevens schrijven |
+> | Bewerking | Microsoft.Insights/MetricAlerts/Write | Een waarschuwing voor metrische gegevens maken of bijwerken |
 > | Bewerking | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | Metrische definities lezen |
 > | Bewerking | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Metrische definities lezen |
 > | Bewerking | Microsoft.Insights/MetricDefinitions/Read | Metrische definities lezen |
@@ -2090,14 +2181,14 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Insights/Metrics/Read | De metrische gegevens lezen |
 > | Bewerking | Microsoft.Insights/Metrics/Write | Metrische gegevens schrijven |
 > | Bewerking | Microsoft.Insights/MigrateToNewpricingModel/Action | Abonnement migreren naar nieuw prijsmodel |
-> | Bewerking | Microsoft.Insights/Operations/Read | De bewerkingen lezen |
-> | Bewerking | Microsoft.Insights/Register/Action | De Microsoft Insights-provider registeren |
+> | Bewerking | Microsoft.Insights/Operations/Read | Leesbewerkingen |
+> | Bewerking | Microsoft.Insights/Register/Action | De Microsoft Insights-provider registreren |
 > | Bewerking | Microsoft.Insights/RollbackToLegacyPricingModel/Action | Abonnement terugdraaien naar oude prijsmodel |
 > | Bewerking | Microsoft.Insights/ScheduledQueryRules/Delete | Een geplande queryregel verwijderen |
 > | Bewerking | Microsoft.Insights/ScheduledQueryRules/Read | Een geplande queryregel lezen |
 > | Bewerking | Microsoft.Insights/ScheduledQueryRules/Write | Een geplande queryregel schrijven |
-> | Bewerking | Microsoft.Insights/Tenants/Register/Action | Hiermee wordt de Microsoft Insights-provider geïnitialiseerd |
-> | Bewerking | Microsoft.Insights/Unregister/Action | De Microsoft Insights-provider registeren |
+> | Bewerking | Microsoft.Insights/Tenants/Register/Action | De Microsoft Insights-provider geïnitialiseerd |
+> | Bewerking | Microsoft.Insights/Unregister/Action | De Microsoft Insights-provider registreren |
 > | Bewerking | Microsoft.Insights/Webtests/Delete | Een configuratie voor een webtest verwijderen |
 > | Bewerking | Microsoft.Insights/Webtests/GetToken/Read | Een webtesttoken lezen |
 > | Bewerking | Microsoft.Insights/Webtests/MetricDefinitions/Read | De metrische definities van een webtest lezen |
@@ -2141,6 +2232,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Kusto/Clusters/Databases/delete | Hiermee verwijdert u een databaseresource. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Hiermee verwijdert u een event hub-verbindingen-resource. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Hiermee wordt een event hub-verbindingen resource gelezen. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Schrijft een event hub connetions-resource. |
 > | Bewerking | Microsoft.Kusto/Clusters/Databases/read | Hiermee wordt een databaseresource gelezen. |
 > | Bewerking | Microsoft.Kusto/Clusters/Databases/write | Een databaseresource schrijft. |
 > | Bewerking | Microsoft.Kusto/Clusters/delete | Hiermee verwijdert u een cluster-bron. |
@@ -2160,6 +2254,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.LabServices/labAccounts/CreateLab/action | Een lab maken in een lab-account. |
 > | Bewerking | Microsoft.LabServices/labAccounts/delete | Lab-accounts verwijderen. |
+> | Bewerking | Microsoft.LabServices/labAccounts/galleryImages/delete | Verwijder de galerie met installatiekopieën. |
 > | Bewerking | Microsoft.LabServices/labAccounts/galleryImages/read | Galerie met installatiekopieën worden gelezen. |
 > | Bewerking | Microsoft.LabServices/labAccounts/galleryImages/write | Toevoegen of wijzigen van de galerie met installatiekopieën. |
 > | Bewerking | Microsoft.LabServices/labAccounts/labs/delete | Labs verwijderen. |
@@ -2183,12 +2278,14 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.LabServices/labAccounts/labs/users/write | Toevoegen of wijzigen van gebruikers. |
 > | Bewerking | Microsoft.LabServices/labAccounts/labs/write | Toevoegen of wijzigen van labs. |
 > | Bewerking | Microsoft.LabServices/labAccounts/read | Lab-accounts worden gelezen. |
-> | Bewerking | Microsoft.LabServices/labAccounts/sizes/ListAvailableSkus/action | Lijst met beschikbare SKU's voor elk type grootte in een lab-account |
+> | Bewerking | Microsoft.LabServices/labAccounts/sizes/GetRegionalAvailability/action | Informatie over de regionale beschikbaarheid voor elke categorie grootte onder een lab-account ophalen |
 > | Bewerking | Microsoft.LabServices/labAccounts/sizes/read | Grootten worden gelezen. |
+> | Bewerking | Microsoft.LabServices/labAccounts/sizes/ResetOverrides/action | De configuratie van de grootte van dit lab-account op de standaardinstellingen opnieuw instellen |
 > | Bewerking | Microsoft.LabServices/labAccounts/write | Toevoegen of wijzigen van lab-accounts. |
 > | Bewerking | Microsoft.LabServices/locations/operations/read | Leesbewerkingen. |
 > | Bewerking | Microsoft.LabServices/register/action | Hiermee wordt het abonnement geregistreerd |
 > | Bewerking | Microsoft.LabServices/users/GetEnvironment/action | Haalt de details van de virtuele machine |
+> | Bewerking | Microsoft.LabServices/users/GetOperationBatchStatus/action | Status van de batch-bewerking ophalen |
 > | Bewerking | Microsoft.LabServices/users/GetOperationStatus/action | Hiermee wordt de status van de langdurige bewerking opgehaald |
 > | Bewerking | Microsoft.LabServices/users/ListEnvironments/action | Lijst met omgevingen voor de gebruiker |
 > | Bewerking | Microsoft.LabServices/users/ListLabs/action | Lijst met labs voor de gebruiker. |
@@ -2210,6 +2307,21 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) Nieuwe Location Based Services-Account primaire of secundaire sleutel genereren |
 > | Bewerking | Microsoft.LocationBasedServices/accounts/write | (Afgeschaft: gebruik /providers/Microsoft.Maps) Maken of bijwerken van een Location Based Services-Account. |
 > | Bewerking | Microsoft.LocationBasedServices/register/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) De provider registreren |
+
+## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Actietype | Bewerking | Beschrijving |
+> | --- | --- | --- |
+> | Bewerking | Microsoft.LocationServices/accounts/delete | (Afgeschaft: gebruik /providers/Microsoft.Maps) Een locatie-Services-Account verwijderen. |
+> | Bewerking | Microsoft.LocationServices/accounts/listKeys/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) Een lijst met Location Based Services-Account sleutels |
+> | Bewerking | Microsoft.LocationServices/accounts/providers/Microsoft.Insights/diagnosticSettings/read | (Afgeschaft: gebruik /providers/Microsoft.Maps) Hiermee wordt de diagnostische instelling voor de resource opgehaald |
+> | Bewerking | Microsoft.LocationServices/accounts/providers/Microsoft.Insights/diagnosticSettings/write | (Afgeschaft: gebruik /providers/Microsoft.Maps) Hiermee maken of bijwerken van de diagnostische instelling voor de resource |
+> | Bewerking | Microsoft.LocationServices/accounts/providers/Microsoft.Insights/metricDefinitions/read | (Afgeschaft: gebruik /providers/Microsoft.Maps) Hiermee haalt u de beschikbare metrische gegevens voor de locatie op basis van Services-Accounts |
+> | Bewerking | Microsoft.LocationServices/accounts/read | (Afgeschaft: gebruik /providers/Microsoft.Maps) Maak een locatie-Services-Account. |
+> | Bewerking | Microsoft.LocationServices/accounts/regenerateKey/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) Nieuwe Location Based Services-Account primaire of secundaire sleutel genereren |
+> | Bewerking | Microsoft.LocationServices/accounts/write | (Afgeschaft: gebruik /providers/Microsoft.Maps) Maken of bijwerken van een locatie-Services-Account. |
+> | Bewerking | Microsoft.LocationServices/register/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) De provider registreren |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 
@@ -2259,6 +2371,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | Gegevens lezen uit de tabel ETWEvent |
 > | DataAction | Microsoft.LogAnalytics/logs/Event/read | Gegevens lezen uit de tabel gebeurtenis |
 > | DataAction | Microsoft.LogAnalytics/logs/ExchangeAssessmentRecommendation/read | Gegevens lezen uit de tabel ExchangeAssessmentRecommendation |
+> | DataAction | Microsoft.LogAnalytics/logs/ExchangeOnlineAssessmentRecommendation/read | Gegevens lezen uit de tabel ExchangeOnlineAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Lezen van gegevens van de Heartbeat-tabel |
 > | DataAction | Microsoft.LogAnalytics/logs/IISAssessmentRecommendation/read | Gegevens lezen uit de tabel IISAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/InboundConnection/read | Gegevens lezen uit de tabel InboundConnection |
@@ -2300,6 +2413,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | Gegevens lezen uit de tabel OutboundConnection |
 > | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Gegevens lezen uit de tabel voor prestaties |
 > | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Gegevens lezen uit de tabel ProtectionStatus |
+> | Bewerking | Microsoft.LogAnalytics/logs/read | Lezen van gegevens uit alle uw logboeken |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Gegevens lezen uit de tabel ReservedAzureCommonFields |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Gegevens lezen uit de tabel ReservedCommonFields |
 > | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | Gegevens lezen uit de tabel SCCMAssessmentRecommendation |
@@ -2313,6 +2427,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | Gegevens lezen uit de tabel ServiceFabricReliableActorEvent |
 > | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | Gegevens lezen uit de tabel ServiceFabricReliableServiceEvent |
 > | DataAction | Microsoft.LogAnalytics/logs/SfBAssessmentRecommendation/read | Gegevens lezen uit de tabel SfBAssessmentRecommendation |
+> | DataAction | Microsoft.LogAnalytics/logs/SfBOnlineAssessmentRecommendation/read | Gegevens lezen uit de tabel SfBOnlineAssessmentRecommendation |
+> | DataAction | Microsoft.LogAnalytics/logs/SharePointOnlineAssessmentRecommendation/read | Gegevens lezen uit de tabel SharePointOnlineAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/SPAssessmentRecommendation/read | Gegevens lezen uit de tabel SPAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/SQLAssessmentRecommendation/read | Gegevens lezen uit de tabel SQLAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/SQLQueryPerformance/read | Gegevens lezen uit de tabel SQLQueryPerformance |
@@ -2390,10 +2506,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Logic/integrationAccounts/sessions/read | Hiermee leest u de batchconfiguratie in het integratieaccount. |
 > | Bewerking | Microsoft.Logic/integrationAccounts/sessions/write | Hiermee maakt u de sessie in het integratieaccount of werkt u deze bij. |
 > | Bewerking | Microsoft.Logic/integrationAccounts/write | Hiermee maakt u het integratieaccount of werkt u het bij. |
-> | Bewerking | Microsoft.Logic/isolatedEnvironments/delete | Hiermee verwijdert u de geïsoleerde omgeving. |
-> | Bewerking | Microsoft.Logic/isolatedEnvironments/join/action | Hiermee voegt u de geïsoleerde omgeving samen. |
-> | Bewerking | Microsoft.Logic/isolatedEnvironments/read | Hiermee leest u de geïsoleerde omgeving. |
-> | Bewerking | Microsoft.Logic/isolatedEnvironments/write | Hiermee maakt u de geïsoleerde omgeving of werkt u deze bij. |
+> | Bewerking | Microsoft.Logic/integrationServiceEnvironments/delete | Hiermee kunt u de integratieserviceomgeving verwijderen. |
+> | Bewerking | Microsoft.Logic/integrationServiceEnvironments/join/action | Hiermee kunt u de integratieserviceomgeving koppelen. |
+> | Bewerking | Microsoft.Logic/integrationServiceEnvironments/read | Hiermee kunt u de integratieserviceomgeving lezen. |
+> | Bewerking | Microsoft.Logic/integrationServiceEnvironments/write | Hiermee kunt u de integratieserviceomgeving maken of bijwerken. |
 > | Bewerking | Microsoft.Logic/locations/workflows/validate/action | Hiermee wordt de werkstroom gevalideerd. |
 > | Bewerking | Microsoft.Logic/operations/read | Hiermee haalt u de bewerking op. |
 > | Bewerking | Microsoft.Logic/register/action | Hiermee registreert u de Microsoft.Logic-resourceprovider voor een bepaald abonnement. |
@@ -2672,10 +2788,12 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Migrate/locations/assessmentOptions/read | Hiermee worden de evaluatieopties opgehaald die op de opgegeven locatie beschikbaar zijn |
 > | Bewerking | Microsoft.Migrate/locations/checknameavailability/action | Hiermee wordt de beschikbaarheid van de resourcenaam voor het betreffende abonnement op de betreffende locatie gecontroleerd |
 > | Bewerking | Microsoft.Migrate/Operations/read | Hiermee worden bewerkingen weergegeven die beschikbaar zijn op de Microsoft.Migrate-resourceprovider |
+> | Bewerking | Microsoft.Migrate/projects/assessments/read | Hiermee geeft u een lijst met evaluaties binnen een project weer |
 > | Bewerking | Microsoft.Migrate/projects/delete | Hiermee wordt het project verwijderd |
 > | Bewerking | Microsoft.Migrate/projects/groups/assessments/assessedmachines/read | De eigenschappen van een geëvalueerde machine ophalen |
 > | Bewerking | Microsoft.Migrate/projects/groups/assessments/delete | Hiermee wordt een evaluatie verwijderd |
-> | Bewerking | Microsoft.Migrate/projects/groups/assessments/read | Hiermee worden de eigenschappen van een evaluatie |
+> | Bewerking | Microsoft.Migrate/projects/groups/assessments/downloadurl/action | Hiermee downloadt u de URL van een evaluatierapport |
+> | Bewerking | Microsoft.Migrate/projects/groups/assessments/read | Hiermee haalt u de eigenschappen van een evaluatie op |
 > | Bewerking | Microsoft.Migrate/projects/groups/assessments/write | Hiermee wordt een nieuwe evaluatie gemaakt of een bestaande evaluatie bijgewerkt |
 > | Bewerking | Microsoft.Migrate/projects/groups/delete | Verwijdert een groep |
 > | Bewerking | Microsoft.Migrate/projects/groups/read | De eigenschappen van een groep ophalen |
@@ -2741,6 +2859,11 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Lid wordt van een beveiligingsregel voor beveiligingsgroepen voor toepassing. |
 > | Bewerking | Microsoft.Network/applicationSecurityGroups/read | Haalt een Toepassingsbeveiligingsgroep-ID. |
 > | Bewerking | Microsoft.Network/applicationSecurityGroups/write | Hiermee maakt u een Toepassingsbeveiligingsgroep of updates van een bestaande Toepassingsbeveiligingsgroep. |
+> | Bewerking | Microsoft.Network/azurefirewalls/delete | Verwijderen van de Firewall van Azure |
+> | Bewerking | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/logDefinitions/read | Hiermee haalt u de gebeurtenissen voor de Firewall van Azure |
+> | Bewerking | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/metricDefinitions/read | De beschikbare metrische gegevens opgehaald voor de Firewall van Azure |
+> | Bewerking | Microsoft.Network/azurefirewalls/read | Firewall van Azure ophalen |
+> | Bewerking | Microsoft.Network/azurefirewalls/write | Hiermee maken of bijwerken van een Azure-Firewall |
 > | Bewerking | Microsoft.Network/bgpServiceCommunities/read | Service voor Bgp-community's ophalen |
 > | Bewerking | Microsoft.Network/checkTrafficManagerNameAvailability/action | Controleert de beschikbaarheid van een Traffic Manager ten opzichte van DNS-naam. |
 > | Bewerking | Microsoft.Network/connections/delete | Deletes VirtualNetworkGatewayConnection |
@@ -2836,11 +2959,14 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/expressRouteCrossConnections/write | Maken of bijwerken Cross Express Route-verbinding |
 > | Bewerking | Microsoft.Network/expressRoutePorts/delete | Hiermee verwijdert u ExpressRoutePorts |
 > | Bewerking | Microsoft.Network/expressRoutePorts/join/action | Joins ExpressRoutePorts |
-> | Bewerking | Microsoft.Network/expressRoutePorts/ports/read | ExpressRoutePortsPort opgehaald |
-> | Bewerking | Microsoft.Network/expressRoutePorts/ports/write | Hiermee maakt of ExpressRoutePortsPort werkt |
+> | Bewerking | Microsoft.Network/expressRoutePorts/links/read | ExpressRouteLink opgehaald |
 > | Bewerking | Microsoft.Network/expressRoutePorts/read | ExpressRoutePorts opgehaald |
 > | Bewerking | Microsoft.Network/expressRoutePorts/write | Hiermee maakt of ExpressRoutePorts werkt |
+> | Bewerking | Microsoft.Network/expressRoutePortsLocations/read | Get Express Route poorten locaties |
 > | Bewerking | Microsoft.Network/expressRouteServiceProviders/read | Express Route-serviceproviders opgehaald |
+> | Bewerking | Microsoft.Network/frontdoors/read | Frontdoor ophalen |
+> | Bewerking | Microsoft.Network/getDnsResourceReference/action | DNS-alias resource afhankelijkheid aanvraag |
+> | Bewerking | Microsoft.Network/internalNotify/action | DNS-alias resource-melding |
 > | Bewerking | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Lid wordt van een load balancer-back-end-adresgroep |
 > | Bewerking | Microsoft.Network/loadBalancers/backendAddressPools/read | Een load balancer-back-end-adres-groepsdefinitie opgehaald |
 > | Bewerking | Microsoft.Network/loadBalancers/delete | Hiermee verwijdert u een load balancer |
@@ -2959,6 +3085,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | De metrische definities van openbare IP-adres ophalen |
 > | Bewerking | Microsoft.Network/publicIPAddresses/read | Hiermee haalt u de definitie van een openbaar IP-adres. |
 > | Bewerking | Microsoft.Network/publicIPAddresses/write | Hiermee maakt u een openbaar Ip-adres of een bestaande openbare Ip-adres-updates.  |
+> | Bewerking | Microsoft.Network/publicIPPrefixes/delete | Hiermee verwijdert u een openbaar Ip-voorvoegsel |
+> | Bewerking | Microsoft.Network/publicIPPrefixes/join/action | Lid wordt van een PublicIPPrefix |
+> | Bewerking | Microsoft.Network/publicIPPrefixes/read | De definitie van een openbaar Ip-voorvoegsel opgehaald |
+> | Bewerking | Microsoft.Network/publicIPPrefixes/write | Hiermee maakt u een openbaar Ip-voorvoegsel of Updates van een bestaande openbare Ip-voorvoegsel |
 > | Bewerking | Microsoft.Network/register/action | Hiermee wordt het abonnement geregistreerd |
 > | Bewerking | Microsoft.Network/routeFilters/delete | Hiermee verwijdert u de definitie van een route-filter |
 > | Bewerking | Microsoft.Network/routeFilters/join/action | Lid wordt van een routefilter |
@@ -3027,6 +3157,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/virtualnetworkgateways/getadvertisedroutes/Action | Haalt virtualNetworkGateway aangekondigde routes |
 > | Bewerking | Microsoft.Network/virtualnetworkgateways/getbgppeerstatus/Action | Met deze eigenschap virtualNetworkGateway bgp-peer-status |
 > | Bewerking | Microsoft.Network/virtualnetworkgateways/getlearnedroutes/Action | Virtualnetworkgateway geleerde routes opgehaald |
+> | Bewerking | Microsoft.Network/virtualnetworkgateways/getvpnclientconnectionhealth/Action | Per status van Vpn-Client de verbinding voor VirtualNetworkGateway ophalen |
 > | Bewerking | Microsoft.Network/virtualnetworkgateways/getvpnclientipsecparameters/Action | Get Vpnclient Ipsec-parameters voor VirtualNetworkGateway P2S-client. |
 > | Bewerking | Microsoft.Network/virtualnetworkgateways/getvpnprofilepackageurl/Action | Hiermee haalt u de URL van het hulpprogramma voor het profiel van een vooraf gegenereerde vpn-clientpakket |
 > | Bewerking | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read | De diagnostische instellingen voor Virtual Network Gateway worden opgehaald |
@@ -3200,9 +3331,11 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
+> | Bewerking | Microsoft.PolicyInsights/asyncOperationResults/read | Hiermee wordt het resultaat van de asynchrone bewerking opgehaald. |
 > | Bewerking | Microsoft.PolicyInsights/policyEvents/queryResults/action | Informatie over beleidsgebeurtenissen opvragen. |
 > | Bewerking | Microsoft.PolicyInsights/policyStates/queryResults/action | Informatie over beleidsstatussen opvragen. |
 > | Bewerking | Microsoft.PolicyInsights/policyStates/summarize/action | Samenvattingsinformatie over de meest recente beleidsstatussen opvragen. |
+> | Bewerking | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | Hiermee wordt een nieuwe evaluatie van de compatibiliteit voor het geselecteerde bereik geactiveerd. |
 > | Bewerking | Microsoft.PolicyInsights/register/action | Hiermee wordt de resourceprovider voor policy insights geregistreerd en wordt acties uitgevoerd. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
@@ -3252,6 +3385,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupconfig/read | Retourneert-configuratie voor de Recovery Services-kluis. |
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupconfig/write | Configuratie van de updates voor de Recovery Services-kluis. |
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupEngines/read | Hiermee worden alle servers voor back-upbeheer geretourneerd die in de kluis zijn geregistreerd. |
+> | Bewerking | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | Een back-Upbeveiligingsintentie verwijderen |
+> | Bewerking | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Een back-Upbeveiligingsintentie ophalen |
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Een back-Upbeveiligingsintentie maken |
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Status van de bewerking geretourneerd |
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Alle beveiligbare containers ophalen |
@@ -3288,6 +3423,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Hiermee wordt een lijst met alle beveiligbare items opgehaald. |
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Hiermee wordt de lijst met alle beveiligde items geretourneerd. |
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retourneert alle containers van het abonnement |
+> | Bewerking | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lijst van alle back-up Protection Intents |
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Beveiligingspincode retourneert informatie over Recovery Services-kluis. |
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Retourneert de opslagconfiguratie voor Recovery Services-kluis. |
 > | Bewerking | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | De opslagconfiguratie updates voor de Recovery Services-kluis. |
@@ -3562,7 +3698,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Security/locations/alerts/activate/action | Een beveiligingswaarschuwing geactiveerd |
 > | Bewerking | Microsoft.Security/locations/alerts/dismiss/action | Een beveiligingswaarschuwing negeren |
 > | Bewerking | Microsoft.Security/locations/alerts/read | Alle beschikbare beveiligingswaarschuwingen opgehaald |
-> | Bewerking | Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action | Initieert een just-in-time-toegang netwerkbeleid |
+> | Bewerking | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Hiermee verwijdert u de just-in-time-toegang netwerkbeleid |
+> | Bewerking | Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action | Initieert een just-in-time toegang beleid netwerkaanvraag |
 > | Bewerking | Microsoft.Security/locations/jitNetworkAccessPolicies/read | Haalt de just-in-time-netwerkbeleid |
 > | Bewerking | Microsoft.Security/locations/jitNetworkAccessPolicies/write | Hiermee maakt u een nieuw beleid voor de netwerken van just-in-time-toegang of een bestaande bijgewerkt |
 > | Bewerking | Microsoft.Security/locations/read | Met deze eigenschap wordt de locatie van de beveiliging |
@@ -4089,6 +4226,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
+> | Bewerking | microsoft.storagesync/locations/checkNameAvailability/action | Controleren op beschikbaarheid van de naam Opslagsynchronisatieservices |
 > | Bewerking | microsoft.storagesync/storageSyncServices/delete | Verwijderen van eventuele Opslagsynchronisatieservices |
 > | Bewerking | microsoft.storagesync/storageSyncServices/providers/Microsoft.Insights/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor Opslagsynchronisatieservices |
 > | Bewerking | microsoft.storagesync/storageSyncServices/read | Lees elk Opslagsynchronisatieservices |
@@ -4119,132 +4257,176 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.StorSimple/managers/accessControlRecords/delete | Hiermee verwijdert u de Access Control Records |
+> | Bewerking | Microsoft.StorSimple/managers/accessControlRecords/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/accessControlRecords/read | Geeft een lijst of de Access Control Records opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/accessControlRecords/write | Maken of bijwerken van de Access Control Records |
 > | Bewerking | Microsoft.StorSimple/managers/alerts/read | Geeft een lijst of opgehaald van de waarschuwingen |
+> | Bewerking | Microsoft.StorSimple/managers/backups/read | Geeft een lijst of back-upset opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/bandwidthSettings/delete | Hiermee verwijdert u een bestaande bandbreedte-instellingen (alleen 8000-serie) |
+> | Bewerking | Microsoft.StorSimple/managers/bandwidthSettings/operationResults/read | Lijst van de resultaten van de bewerking |
 > | Bewerking | Microsoft.StorSimple/managers/bandwidthSettings/read | Lijst van de bandbreedte-instellingen (8000-serie alleen) |
 > | Bewerking | Microsoft.StorSimple/managers/bandwidthSettings/write | Hiermee maakt u een nieuw gemaakt of bijgewerkt bandbreedte-instellingen (alleen 8000-serie) |
+> | Bewerking | Microsoft.StorSimple/managers/certificates/write | De certificaten maken of bijwerken |
 > | Bewerking | Microsoft.StorSimple/Managers/certificates/write | De bewerking Resourcecertificaat bijwerken de bron-/ kluisreferentiecertificaat bijgewerkt. |
 > | Bewerking | Microsoft.StorSimple/managers/clearAlerts/action | Schakel alle waarschuwingen die zijn gekoppeld aan de device manager. |
 > | Bewerking | Microsoft.StorSimple/managers/cloudApplianceConfigurations/read | Lijst met het Cloudapparaat ondersteunde configuraties |
 > | Bewerking | Microsoft.StorSimple/managers/configureDevice/action | Hiermee configureert u een apparaat |
 > | Bewerking | Microsoft.StorSimple/managers/delete | Hiermee verwijdert u de Apparaatmanagers |
 > | Bewerking | Microsoft.StorSimple/Managers/delete | De opgegeven Azure-resource van het type 'kluis' Hiermee verwijdert u de bewerking kluis verwijderen |
+> | Bewerking | Microsoft.StorSimple/managers/devices/alertSettings/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/alertSettings/read | Geeft een lijst of opgehaald van de instellingen voor meldingen |
 > | Bewerking | Microsoft.StorSimple/managers/devices/alertSettings/write | Maken of bijwerken van de instellingen voor meldingen |
+> | Bewerking | Microsoft.StorSimple/managers/devices/authorizeForServiceEncryptionKeyRollover/action | Voor Service Rollover van de versleutelingssleutel van apparaten toestaan |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backupPolicies/backup/action | Neem een handmatige back-up maken van een on-demand back-up van alle volumes die zijn beveiligd door het beleid. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backupPolicies/delete | Hiermee verwijdert u een beleid in een bestaande back-up (alleen 8000-serie) |
+> | Bewerking | Microsoft.StorSimple/managers/devices/backupPolicies/operationResults/read | Lijst van de resultaten van de bewerking |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backupPolicies/read | Lijst met de back-up-beleidsregels (8000-serie alleen) |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backupPolicies/schedules/delete | Hiermee verwijdert u een bestaande schema 's |
+> | Bewerking | Microsoft.StorSimple/managers/devices/backupPolicies/schedules/operationResults/read | Lijst van de resultaten van de bewerking |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backupPolicies/schedules/read | Lijst van de schema 's |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backupPolicies/schedules/write | Hiermee maakt u een nieuw gemaakt of bijgewerkt schema 's |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backupPolicies/write | Maakt u een nieuwe gemaakt of bijgewerkt met het beleid van de back-up (alleen 8000-serie) |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backups/delete | Hiermee verwijdert u de back-upset |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backups/elements/clone/action | Klonen van een share of een volume met behulp van een back-element. |
+> | Bewerking | Microsoft.StorSimple/managers/devices/backups/elements/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
+> | Bewerking | Microsoft.StorSimple/managers/devices/backups/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backups/read | Geeft een lijst of back-upset opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backups/restore/action | Alle volumes herstellen vanuit een back-upset. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backupScheduleGroups/delete | Hiermee verwijdert u de back-upschema-groepen |
+> | Bewerking | Microsoft.StorSimple/managers/devices/backupScheduleGroups/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backupScheduleGroups/read | Geeft een lijst of de back-up plannen groepen opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/backupScheduleGroups/write | De back-up plannen groepen maken of bijwerken |
 > | Bewerking | Microsoft.StorSimple/managers/devices/chapSettings/delete | De Chap-instellingen worden verwijderd |
+> | Bewerking | Microsoft.StorSimple/managers/devices/chapSettings/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/chapSettings/read | Geeft een lijst of de Chap-instellingen worden opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/chapSettings/write | Maken of bijwerken van de Chap-instellingen |
 > | Bewerking | Microsoft.StorSimple/managers/devices/deactivate/action | Een apparaat wordt gedeactiveerd. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/delete | Hiermee verwijdert u de apparaten |
+> | Bewerking | Microsoft.StorSimple/managers/devices/disks/read | Geeft een lijst of de schijven opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/download/action | Download updates voor een apparaat. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/failover/action | Failover van het apparaat. |
+> | Bewerking | Microsoft.StorSimple/managers/devices/failover/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
+> | Bewerking | Microsoft.StorSimple/managers/devices/failoverTargets/read | Geeft een lijst of de Failover-doelen van de apparaten opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/backup/action | Back-up maken van een bestandsserver. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/delete | Hiermee verwijdert u de bestandsservers |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/metrics/read | Geeft een lijst of de metrische gegevens opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/metricsDefinitions/read | Geeft een lijst of de metrische definities opgehaald |
+> | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/read | Geeft een lijst of de bestandsservers opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/shares/delete | Hiermee verwijdert u de Shares |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/shares/metrics/read | Geeft een lijst of de metrische gegevens opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/shares/metricsDefinitions/read | Geeft een lijst of de metrische definities opgehaald |
+> | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/shares/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/shares/read | Geeft een lijst of de Shares opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/shares/write | Maken of bijwerken van de Shares |
 > | Bewerking | Microsoft.StorSimple/managers/devices/fileservers/write | Maken of bijwerken van de bestandsservers |
 > | Bewerking | Microsoft.StorSimple/managers/devices/hardwareComponentGroups/changeControllerPowerState/action | Controller-/ uitstatus van hardware-onderdeelgroepen wijzigen |
+> | Bewerking | Microsoft.StorSimple/managers/devices/hardwareComponentGroups/operationResults/read | Lijst van de resultaten van de bewerking |
 > | Bewerking | Microsoft.StorSimple/managers/devices/hardwareComponentGroups/read | Lijst van de Hardware-onderdeelgroepen |
 > | Bewerking | Microsoft.StorSimple/managers/devices/install/action | Updates installeren op een apparaat. |
-> | Bewerking | Microsoft.StorSimple/managers/devices/installUpdates/action | Hiermee worden updates geïnstalleerd op de apparaten |
+> | Bewerking | Microsoft.StorSimple/managers/devices/installUpdates/action | Hiermee worden updates geïnstalleerd op de apparaten (alleen 8000-serie). |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/backup/action | Back-up maken van een iSCSI-server. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/delete | Hiermee verwijdert u de iSCSI-Servers |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/disks/delete | Hiermee verwijdert u de schijven |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/disks/metrics/read | Geeft een lijst of de metrische gegevens opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/disks/metricsDefinitions/read | Geeft een lijst of de metrische definities opgehaald |
+> | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/disks/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/disks/read | Geeft een lijst of de schijven opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/disks/write | Maken of bijwerken van de schijven |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/metrics/read | Geeft een lijst of de metrische gegevens opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/metricsDefinitions/read | Geeft een lijst of de metrische definities opgehaald |
+> | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/read | Geeft een lijst of opgehaald van de iSCSI-Servers |
 > | Bewerking | Microsoft.StorSimple/managers/devices/iscsiservers/write | Maken of bijwerken van de iSCSI-Servers |
 > | Bewerking | Microsoft.StorSimple/managers/devices/jobs/cancel/action | Een actieve taak annuleren |
+> | Bewerking | Microsoft.StorSimple/managers/devices/jobs/operationResults/read | Lijst van de resultaten van de bewerking |
 > | Bewerking | Microsoft.StorSimple/managers/devices/jobs/read | Geeft een lijst of de taken opgehaald |
-> | Bewerking | Microsoft.StorSimple/managers/devices/listFailoverSets/action | Lijst met die de failover wordt ingesteld voor een bestaand apparaat. |
-> | Bewerking | Microsoft.StorSimple/managers/devices/listFailoverTargets/action | Doelen voor de failover van de apparaten |
+> | Bewerking | Microsoft.StorSimple/managers/devices/listFailoverSets/action | Een lijst van de sets failover voor een bestaand apparaat (alleen 8000-serie). |
+> | Bewerking | Microsoft.StorSimple/managers/devices/listFailoverTargets/action | Doelen voor de failover van de apparaten (alleen 8000-serie). |
 > | Bewerking | Microsoft.StorSimple/managers/devices/metrics/read | Geeft een lijst of de metrische gegevens opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/metricsDefinitions/read | Geeft een lijst of de metrische definities opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/confirmMigration/action | Een geslaagde migratie bevestigt en voer deze door. |
+> | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/confirmMigrationStatus/read | Lijst met de migratiestatus controleren |
 > | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/fetchConfirmMigrationStatus/action | Haal de status van het bevestigen van de migratie. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/fetchMigrationEstimate/action | Haal de status van de schatting van de migratietaak. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/fetchMigrationStatus/action | Haal de status van de migratie. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/import/action | Importeren van de bron-configuraties voor migratie |
+> | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/migrationEstimate/read | Lijst van de schatting van de migratie |
+> | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/migrationStatus/read | De migratiestatus weergeven |
+> | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/operationResults/read | Lijst van de resultaten van de bewerking |
 > | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/startMigration/action | Migratie met behulp van de bron-configuraties starten |
 > | Bewerking | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/startMigrationEstimate/action | Een taak om een schatting van de duur van het migratieproces te starten. |
+> | Bewerking | Microsoft.StorSimple/managers/devices/networkSettings/operationResults/read | Lijst van de resultaten van de bewerking |
 > | Bewerking | Microsoft.StorSimple/managers/devices/networkSettings/read | Geeft een lijst of de instellingen van het netwerk worden opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/networkSettings/write | Hiermee maakt u een nieuw gemaakt of bijgewerkt netwerkinstellingen |
+> | Bewerking | Microsoft.StorSimple/managers/devices/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/publicEncryptionKey/action | Lijst met openbare versleutelingssleutel van Apparaatbeheer |
 > | Bewerking | Microsoft.StorSimple/managers/devices/publishSupportPackage/action | Ondersteuningspakket van een apparaat voor het oplossen van Microsoft Support publiceren. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/read | Geeft een lijst of de apparaten opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/scanForUpdates/action | Scannen op updates voor een apparaat. |
+> | Bewerking | Microsoft.StorSimple/managers/devices/securitySettings/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/securitySettings/read | Lijst van de instellingen voor beveiliging |
 > | Bewerking | Microsoft.StorSimple/managers/devices/securitySettings/syncRemoteManagementCertificate/action | Het certificaat voor extern beheer voor een apparaat synchroniseren. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/securitySettings/update/action | Werk de instellingen voor beveiliging. |
 > | Bewerking | Microsoft.StorSimple/managers/devices/securitySettings/write | Hiermee maakt u een nieuw gemaakt of bijgewerkt beveiligingsinstellingen |
 > | Bewerking | Microsoft.StorSimple/managers/devices/sendTestAlertEmail/action | E-mailwaarschuwing test verzenden naar geconfigureerde e-mailontvangers. |
+> | Bewerking | Microsoft.StorSimple/managers/devices/shares/read | Geeft een lijst of de Shares opgehaald |
+> | Bewerking | Microsoft.StorSimple/managers/devices/timeSettings/operationResults/read | Lijst van de resultaten van de bewerking |
 > | Bewerking | Microsoft.StorSimple/managers/devices/timeSettings/read | Geeft een lijst of de instellingen van de tijd worden opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/timeSettings/write | Hiermee maakt u een nieuw gemaakt of bijgewerkt tijdinstellingen |
+> | Bewerking | Microsoft.StorSimple/managers/devices/updates/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/devices/updateSummary/read | Geeft een lijst of opgehaald van de samenvatting bijwerken |
 > | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/delete | Hiermee verwijdert u een bestaande Volumecontainers (alleen 8000-serie) |
-> | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/listEncryptionKeys/action | De versleutelingssleutels lijst van alle Volumecontainers |
 > | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/metrics/read | Lijst van de metrische gegevens |
 > | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/metricsDefinitions/read | Lijst van de metrische definities |
+> | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/operationResults/read | Lijst van de resultaten van de bewerking |
 > | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/read | Lijst van de Volumecontainers (8000-serie alleen) |
-> | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/rolloverEncryptionKey/action | De versleutelingssleutels rollover van Volumecontainers |
 > | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/delete | Hiermee verwijdert u een bestaande Volumes |
 > | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/metrics/read | Lijst van de metrische gegevens |
 > | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/metricsDefinitions/read | Lijst van de metrische definities |
+> | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/operationResults/read | Lijst van de resultaten van de bewerking |
 > | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/read | Lijst van de Volumes |
 > | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/write | Hiermee maakt u een nieuw gemaakt of bijgewerkt Volumes |
 > | Bewerking | Microsoft.StorSimple/managers/devices/volumeContainers/write | Hiermee maakt u een nieuw gemaakt of bijgewerkt Volumecontainers (alleen 8000-serie) |
+> | Bewerking | Microsoft.StorSimple/managers/devices/volumes/read | Lijst van de Volumes |
 > | Bewerking | Microsoft.StorSimple/managers/devices/write | Maken of bijwerken van de apparaten |
 > | Bewerking | Microsoft.StorSimple/managers/encryptionSettings/read | Geeft een lijst of de instellingen voor codering worden opgehaald |
+> | Bewerking | Microsoft.StorSimple/managers/extendedInformation/delete | Hiermee verwijdert u de uitgebreide Vault-gegevens |
 > | Bewerking | Microsoft.StorSimple/Managers/extendedInformation/delete | Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt |
+> | Bewerking | Microsoft.StorSimple/managers/extendedInformation/read | Geeft een lijst of de kluis uitgebreide informatie ophalen |
 > | Bewerking | Microsoft.StorSimple/Managers/extendedInformation/read | Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt |
+> | Bewerking | Microsoft.StorSimple/managers/extendedInformation/write | De kluis uitgebreide informatie maken of bijwerken |
 > | Bewerking | Microsoft.StorSimple/Managers/extendedInformation/write | Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt |
+> | Bewerking | Microsoft.StorSimple/managers/features/read | Overzicht van de functies |
+> | Bewerking | Microsoft.StorSimple/managers/fileservers/read | Geeft een lijst of de bestandsservers opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/getActivationKey/action | Haal activeringscode voor Apparaatbeheer. |
 > | Bewerking | Microsoft.StorSimple/managers/getEncryptionKey/action | Coderingssleutel ophalen voor Apparaatbeheer. |
+> | Bewerking | Microsoft.StorSimple/managers/iscsiservers/read | Geeft een lijst of opgehaald van de iSCSI-Servers |
+> | Bewerking | Microsoft.StorSimple/managers/jobs/read | Geeft een lijst of de taken opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/listActivationKey/action | Hiermee haalt u de activeringssleutel van de StorSimple Device Manager. |
-> | Bewerking | Microsoft.StorSimple/managers/listPrivateEncryptionKey/action | Hiermee haalt u persoonlijke sleutel voor een StorSimple Device Manager. |
 > | Bewerking | Microsoft.StorSimple/managers/listPublicEncryptionKey/action | Lijst met codering met openbare sleutels van een StorSimple Device Manager. |
 > | Bewerking | Microsoft.StorSimple/managers/metrics/read | Geeft een lijst of de metrische gegevens opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/metricsDefinitions/read | Geeft een lijst of de metrische definities opgehaald |
+> | Bewerking | Microsoft.StorSimple/managers/migrateClassicToResourceManager/action | Migreren van klassiek naar Resource Manager van Mangers |
+> | Bewerking | Microsoft.StorSimple/managers/migrationSourceConfigurations/read | Lijst van de bron-configuraties voor migratie (8000-serie alleen) |
+> | Bewerking | Microsoft.StorSimple/managers/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/provisionCloudAppliance/action | Maak een nieuw cloudapparaat. |
 > | Bewerking | Microsoft.StorSimple/managers/read | Geeft een lijst of de Apparaatmanagers opgehaald |
 > | Bewerking | Microsoft.StorSimple/Managers/read | De bewerking kluis ophalen wordt een object waarmee de Azure-resource van het type 'kluis' |
 > | Bewerking | Microsoft.StorSimple/managers/regenarateRegistationCertificate/action | Registratiecertificaat opnieuw genereren voor de device Manager-services. |
 > | Bewerking | Microsoft.StorSimple/managers/regenerateActivationKey/action | Genereer een nieuwe activeringscode voor Apparaatbeheer. |
 > | Bewerking | Microsoft.StorSimple/managers/storageAccountCredentials/delete | Hiermee verwijdert u de referenties van het Storage-Account |
-> | Bewerking | Microsoft.StorSimple/managers/storageAccountCredentials/listAccessKey/action | Lijst met toegangssleutels opslagaccountreferenties |
+> | Bewerking | Microsoft.StorSimple/managers/storageAccountCredentials/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/storageAccountCredentials/read | Geeft een lijst of de referenties van het Storage-Account opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/storageAccountCredentials/write | Maken of bijwerken van de referenties van het Storage-Account |
 > | Bewerking | Microsoft.StorSimple/managers/storageDomains/delete | Hiermee verwijdert u de Opslagdomeinen |
+> | Bewerking | Microsoft.StorSimple/managers/storageDomains/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
 > | Bewerking | Microsoft.StorSimple/managers/storageDomains/read | Geeft een lijst of opgehaald van de opslag-domeinen |
 > | Bewerking | Microsoft.StorSimple/managers/storageDomains/write | Maken of bijwerken van de opslag-domeinen |
 > | Bewerking | Microsoft.StorSimple/managers/write | Maken of bijwerken van de Device Manager-services |
 > | Bewerking | Microsoft.StorSimple/Managers/write | Met de bewerking Kluis maken wordt een Azure-resource van het type vault gemaakt. |
+> | Bewerking | Microsoft.StorSimple/operations/read | Geeft een lijst of de bewerkingen opgehaald |
+> | Bewerking | Microsoft.StorSimple/register/action | Provider Microsoft.StorSimple registreren |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
@@ -4744,8 +4926,17 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.WorkloadMonitor/components/read | Bronnen voor bedrijfsactiviteiten lezen |
 > | Bewerking | Microsoft.WorkloadMonitor/healthInstances/read | Bronnen voor bedrijfsactiviteiten lezen |
 > | Bewerking | Microsoft.WorkloadMonitor/Operations/read | Bronnen voor bedrijfsactiviteiten lezen |
-> | Bewerking | Microsoft.WorkloadMonitor/workloads/delete | Hiermee verwijdert u een workload resource |
+> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/delete | Hiermee verwijdert u een resource workloadInsights |
+> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/delete | Hiermee verwijdert u een resource workloadInsights |
+> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/read | Leest een workloadInsights-resource |
+> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/read | Leest een workloadInsights-resource |
+> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/write | Schrijft een workloadInsights-resource |
+> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/write | Schrijft een workloadInsights-resource |
+> | Bewerking | Microsoft.WorkloadMonitor/workloads/delete |  |
+> | Bewerking | Microsoft.WorkloadMonitor/workloads/delete |  |
 > | Bewerking | Microsoft.WorkloadMonitor/workloads/read | Leest een workload resource |
+> | Bewerking | Microsoft.WorkloadMonitor/workloads/read | Leest een workload resource |
+> | Bewerking | Microsoft.WorkloadMonitor/workloads/write | Schrijft een workload resource |
 > | Bewerking | Microsoft.WorkloadMonitor/workloads/write | Schrijft een workload resource |
 
 ## <a name="next-steps"></a>Volgende stappen

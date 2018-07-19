@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/28/2018
+ms.date: 07/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 8152a9934d6a280abfc75fdc74e0864053d82f45
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116075"
+ms.locfileid: "39136839"
 ---
 # <a name="built-in-roles-in-azure"></a>Ingebouwde rollen in Azure
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -78,6 +78,8 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Logische App-Operator](#logic-app-operator) | Hiermee kunt u logische apps lezen, inschakelen en uitschakelen. |
 | [Inzender beheerde identiteit](#managed-identity-contributor) | Door gebruiker toegewezen identiteit maken, lezen, bijwerken en verwijderen |
 | [Operator beheerde identiteit](#managed-identity-operator) | Door gebruiker toegewezen identiteit maken en toewijzen |
+| [Beheergroep-Inzender](#management-group-contributor) | De rol Inzender beheergroep |
+| [Lezer van de beheergroep](#management-group-reader) | Rol Lezer beheergroep |
 | [Controlebijdrager](#monitoring-contributor) | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Controlelezer](#monitoring-reader) | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Inzender voor netwerken](#network-contributor) | Hiermee beheert u netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
@@ -617,7 +619,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.ClassicNetwork/virtualNetworks/join/action | Hiermee wordt de deelname aan het virtuele netwerk uitgevoerd. |
 > | Microsoft.ClassicNetwork/virtualNetworks/read | Het virtuele netwerk wordt opgehaald. |
 > | Microsoft.ClassicStorage/storageAccounts/disks/read | Hiermee wordt de opslagaccountschijf geretourneerd. |
-> | Microsoft.ClassicStorage/storageAccounts/images/read | Retourneert de installatiekopie van het opslagaccount. |
+> | Microsoft.ClassicStorage/storageAccounts/images/read | Retourneert de installatiekopie van het opslagaccount. (Afgeschaft. Gebruik 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Hiermee worden de toegangssleutels voor de opslagaccounts weergegeven. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Opslagaccount met het opgegeven account wordt geretourneerd. |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
@@ -826,6 +828,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Een lab maken in een lab-account. |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Informatie over de regionale beschikbaarheid voor elke categorie grootte onder een lab-account ophalen |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
@@ -947,6 +950,28 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
+## <a name="management-group-contributor"></a>Inzender beheergroep
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | De rol Inzender beheergroep |
+> | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
+> | **Acties** |  |
+> | Microsoft.Management/managementGroups/delete | Beheergroep verwijderen. |
+> | Microsoft.Management/managementGroups/read | Lijst met beheergroepen omwille van de geverifieerde gebruiker. |
+> | Microsoft.Management/managementGroups/subscriptions/delete | Hiermee koppelt u abonnement uit de beheergroep ongedaan maken. |
+> | Microsoft.Management/managementGroups/subscriptions/write | Collega's het bestaande abonnement met de beheergroep. |
+> | Microsoft.Management/managementGroups/write | Maken of bijwerken van een beheergroep. |
+
+## <a name="management-group-reader"></a>Lezer beheergroep
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Rol Lezer beheergroep |
+> | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
+> | **Acties** |  |
+> | Microsoft.Management/managementGroups/read | Lijst met beheergroepen omwille van de geverifieerde gebruiker. |
+
 ## <a name="monitoring-contributor"></a>Controlebijdrager
 > [!div class="mx-tableFixed"]
 > | | |
@@ -957,18 +982,18 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
+> | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/AlertRules/* | Waarschuwingsregels voor lezen/schrijven/verwijderen. |
 > | Microsoft.Insights/components/* | Onderdelen van de Application Insights lezen, schrijven en verwijderen. |
 > | Microsoft.Insights/DiagnosticSettings/* | Diagnostische instellingen lezen, schrijven en verwijderen. |
 > | Microsoft.Insights/eventtypes/* | Lijst met gebeurtenissen in activiteitenlogboeken (van Beheergebeurtenissen) in een abonnement. Deze machtiging is van toepassing op zowel programmatische als portal toegang tot het activiteitenlogboek. |
 > | Microsoft.Insights/LogDefinitions/* | Deze machtiging is vereist voor gebruikers die toegang nodig tot activiteitenlogboeken via de portal. Logboekcategorieën lijst in het activiteitenlogboek. |
+> | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | Metrische definities (lijst met beschikbare metrische gegevens typen voor een resource) lezen. |
 > | Microsoft.Insights/Metrics/* | De metrische gegevens voor een resource lezen. |
-> | Microsoft.Insights/Register/Action | De Microsoft Insights-provider registeren |
-> | Microsoft.Insights/webtests/* | Lezen/schrijven/verwijderen Application Insights-webtests. |
-> | Microsoft.Insights/actiongroups/* |  |
-> | Microsoft.Insights/metricalerts/* |  |
+> | Microsoft.Insights/Register/Action | De Microsoft Insights-provider registreren |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
+> | Microsoft.Insights/webtests/* | Lezen/schrijven/verwijderen Application Insights-webtests. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Oplossingspakketten voor lezen/schrijven/verwijderen Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Lezen, schrijven en verwijderen met Log Analytics opgeslagen zoekopdrachten. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Een zoekquery uitgevoerd |
@@ -976,6 +1001,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Lezen/schrijven/verwijderen Log Analytics insight opslagconfiguraties. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-reader"></a>Controlelezer
 > [!div class="mx-tableFixed"]

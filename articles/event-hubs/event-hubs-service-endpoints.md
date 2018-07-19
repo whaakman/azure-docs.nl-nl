@@ -1,6 +1,6 @@
 ---
-title: Virtueel netwerk service-eindpunten en regels voor Azure Event Hubs | Microsoft Docs
-description: Een service-eindpunt Microsoft.ServiceBus toevoegen aan een virtueel netwerk.
+title: Virtual Network-service-eindpunten en regels voor Azure Event Hubs | Microsoft Docs
+description: Een service-eindpunt voor Microsoft.EventHub toevoegen aan een virtueel netwerk.
 services: event-hubs
 documentationcenter: ''
 author: clemensv
@@ -10,46 +10,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: clemensv
-ms.openlocfilehash: a23e5414cd3c60192badfee65b14c49cd5e96f4e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 3746c4b7d1b53d7522f317fd2e349d31ba77f406
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035910"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136335"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Service-eindpunten voor virtueel netwerk gebruiken met Azure Event Hubs
+# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Service-eindpunten voor Virtueelnetwerk gebruiken met Azure Event Hubs
 
-De integratie van Event Hubs met [virtueel netwerk (VNet) Service-eindpunten] [ vnet-sep] Hiermee schakelt u veilige toegang tot messaging mogelijkheden uit werkbelastingen, zoals virtuele machines die zijn gebonden aan virtuele netwerken met het netwerkpad verkeer aan beide uiteinden worden beveiligd. 
+De integratie van Event Hubs met [Service-eindpunten voor Virtueelnetwerk (VNet)] [ vnet-sep] kunt veilige toegang tot messaging mogelijkheden van werkbelastingen, zoals virtuele machines die zijn gekoppeld aan virtuele netwerken, met het netwerkpad verkeer aan beide uiteinden worden beveiligd. 
 
-Eenmaal worden gekoppeld aan ten minste één virtueel netwerk subnet service-eindpunt is geconfigureerd, wordt de respectieve Event Hubs-naamruimte niet meer verkeer vanaf elke locatie accepteert maar geautoriseerd virtuele netwerken. Vanuit het perspectief van virtueel netwerk wordt een naamruimte Event Hubs binden aan een service-eindpunt configureert u een geïsoleerde netwerken tunnel van het subnet van het virtuele netwerk met de messaging-service.
+Eenmaal is geconfigureerd om te worden gekoppeld aan ten minste één virtueel netwerk subnet service-eindpunt, wordt de respectieve Event Hubs-naamruimte niet meer accepteert verkeer vanaf elke locatie maar geautoriseerd virtuele netwerken. Vanuit het perspectief virtueel netwerk met de binding van een Event Hubs-naamruimte met een service-eindpunt configureert een geïsoleerde netwerken tunnel vanuit het subnet van het virtuele netwerk naar de messaging-service.
 
-Het resultaat is een privé en geïsoleerd relatie tussen de werkbelastingen die zijn gebonden aan het subnet en de betreffende naamruimte Event Hubs, altijd een beroep het waarneembare netwerkadres van het messaging service eindpunt wordt in een openbare IP-adresbereik.
+Het resultaat is een privé- en geïsoleerd relatie tussen de werkbelastingen die zijn gebonden aan het subnet en de respectieve Event Hubs-naamruimte, ondanks het waarneembare netwerkadres van de berichten service eindpunt wordt in een openbare IP-adresbereik.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Geavanceerde beveiliging mogelijke scenario's met VNet-integratie 
 
-Oplossingen die dicht en compartmentalized beveiliging vereisen en waarin virtueel netwerksubnetten opgeven voor de segmentering tussen de compartmentalized services, moeten doorgaans nog steeds communicatiepaden tussen services die zich in deze secties.
+Oplossingen die voorziet in een hechte en compartmentalized beveiliging vereisen, en waarbij virtuele subnetten hardwareoplossing tussen de compartmentalized services, moeten doorgaans nog steeds communicatiepaden tussen services die zich bevinden in deze secties.
 
-Alle direct IP-route tussen de afdelingen, inclusief de uitvoering van HTTPS via TCP/IP, wordt het risico op misbruik van zwakke plekken die vanaf het netwerk op omhoog. Messaging-services bieden volledig geïsoleerd communicatiepaden, waar berichten zelfs worden geschreven naar de schijf als ze worden overgedragen tussen partijen. Werkbelastingen in twee afzonderlijke virtuele netwerken die zijn beide gekoppeld aan hetzelfde exemplaar van Event Hubs kunnen communiceren efficiënt en betrouwbaar via berichten, terwijl de respectieve netwerk isolatie grens integriteit blijft behouden.
+Een direct IP-route tussen de afdelingen, inclusief de uitvoering van HTTPS via TCP/IP, voert u het risico van misbruik van zwakke plekken van de netwerklaag op omhoog. Messaging-services bieden een volledig geïsoleerd communicatiepaden, waar berichten ook naar de schijf als ze worden overgedragen tussen de partijen worden geschreven. Workloads in twee verschillende virtuele netwerken die zijn beide gekoppeld aan hetzelfde exemplaar van de Event Hubs kunnen communiceren efficiënt en betrouwbaar via berichten, terwijl de respectieve netwerk isolatie grens integriteit behouden blijft.
  
-Dit betekent dat de beveiliging van uw gevoelige cloudoplossingen niet alleen toegang te krijgen tot de toonaangevende betrouwbaar en schaalbaar asynchrone messaging mogelijkheden van Azure, maar ze kunnen nu gebruiken messaging communicatiepaden tussen veilige oplossing maken die reizigerscompartimenten zijn veiliger dan haalbare met een peer-to-peer communicatiemodus, met inbegrip van HTTPS en andere protocollen socket TLS beveiligd is.
+Dit betekent dat de beveiliging van uw gevoelige cloudoplossingen niet alleen toegang krijgen tot toonaangevende betrouwbare en schaalbare asynchrone messaging mogelijkheden van Azure, maar ze kunnen nu gebruiken messaging communicatiepaden tussen veilige oplossing maken die reizigerscompartimenten zijn inherent veiliger is dan wat met een peer-to-peer communicatiemodus is, met inbegrip van HTTPS en andere TLS beveiligde socket-protocollen.
 
-## <a name="bind-event-hubs-to-virtual-networks"></a>Event Hubs binden aan virtuele netwerken
+## <a name="bind-event-hubs-to-virtual-networks"></a>Eventhubs koppelen aan virtuele netwerken
 
-*Virtueel netwerk regels* zijn van de functie van de firewall-beveiliging die bepaalt of de server van uw Azure Event Hubs verbindingen van een bepaald virtueel netwerksubnet aanvaardt.
+*Regels voor virtueel netwerk* zijn van de firewall beveiligingsfunctie die bepaalt of de server van uw Azure Event Hubs-verbindingen van een bepaald virtueel netwerksubnet accepteert.
 
-Een naamruimte Event Hubs binden aan een virtueel netwerk is een proces. U moet eerst maken een **Virtual Network service-eindpunt** op een virtueel netwerksubnet en inschakelen voor "Microsoft.ServiceBus' als beschreven in de [overzicht van de service-eindpunt] [ vnet-sep]. Nadat u het service-eindpunt hebt toegevoegd, u de naamruimte van Event Hubs binden aan deze met een *virtueel netwerk regel*.
+Een Event Hubs-naamruimte binden aan een virtueel netwerk is een proces in twee stappen. U moet eerst maken een **service-eindpunt voor Virtueelnetwerk** op een Virtueelnetwerk, subnet en inschakelen voor "Microsoft.EventHub" als beschreven in de [overzicht van service-eindpunt] [ vnet-sep]. Nadat u het service-eindpunt hebt toegevoegd, verbindt u de Event Hubs-naamruimte toe met een *regel voor virtuele netwerken*.
 
-De regel van het virtuele netwerk is een benoemde koppeling van de Event Hubs-naamruimte met een virtueel netwerksubnet. Terwijl de regel bestaat, krijgen alle werkbelastingen die zijn gebonden aan het subnet toegang tot de Event Hubs-naamruimte. Event Hubs zelf nooit uitgaande verbindingen vaststelt, heeft geen nodig om toegang te krijgen en daarom nooit krijgt toegang tot uw subnet doordat deze regel.
+De regel voor virtuele netwerken is een benoemde koppeling van de Event Hubs-naamruimte met een subnet van een virtueel netwerk. Terwijl de regel bestaat, worden alle werkbelastingen die zijn gekoppeld aan het subnet toegang tot de Event Hubs-naamruimte toegekend. Eventhubs zelf nooit uitgaande verbindingen maakt, heeft niet nodig om toegang te krijgen en is daarom nooit toegang verleend tot uw subnet door in te schakelen met deze regel.
 
-### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Een regel virtueel netwerk maken met Azure Resource Manager-sjablonen
+### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Een regel voor virtuele netwerken maken met Azure Resource Manager-sjablonen
 
-De volgende Resource Manager-sjabloon kunt een regel van het virtuele netwerk toe te voegen aan een bestaande Event Hubs-naamruimte.
+De volgende Resource Manager-sjabloon kunt een regel voor virtuele netwerken toe te voegen aan een bestaande Event Hubs-naamruimte.
 
 Sjabloonparameters:
 
 * **namespaceName**: Event Hubs-naamruimte.
-* **vnetRuleName**: naam voor de regel van het virtuele netwerk moet worden gemaakt.
-* **virtualNetworkingSubnetId**: volledig gekwalificeerde Resource Manager-pad voor het subnet van het virtuele netwerk; bijvoorbeeld `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` voor het subnet standaard van een virtueel netwerk.
+* **vnetRuleName**: naam voor de regel van het Virtueelnetwerk moet worden gemaakt.
+* **virtualNetworkingSubnetId**: volledig gekwalificeerde pad van de Resource Manager voor het subnet van het virtuele netwerk; bijvoorbeeld `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` voor de standaard-subnet van een virtueel netwerk.
 
 ```json
 {  
@@ -88,13 +88,13 @@ Sjabloonparameters:
 }
 ```
 
-Volg de instructies voor het als sjabloon wilt implementeren, [Azure Resource Manager][lnk-deploy].
+Volg de instructies voor het implementeren van de sjabloon, [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende koppelingen voor meer informatie over virtuele netwerken:
+Zie voor meer informatie over virtuele netwerken, de volgende koppelingen:
 
-- [Virtueel netwerk van Azure service-eindpunten][vnet-sep]
+- [Azure virtual network-service-eindpunten][vnet-sep]
 - [Azure Event Hubs-IP-filtering][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md
