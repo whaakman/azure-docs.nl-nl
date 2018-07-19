@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: afd35c963c2c1c4badb32f7e8f7dba1dce87481c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: a7935aa245239ed32527d2c22fd41845c6da2ae1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904285"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007964"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Zelfstudie: Toegang krijgen tot Azure Data Lake Storage met een Managed Service Identity (MSI) voor Windows-VM
 
@@ -53,7 +53,7 @@ Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt MSI o
 5. Om een nieuwe **resourcegroep** te selecteren waarin de virtuele machine moet worden gemaakt, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
 6. Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf de standaardinstellingen op de pagina Instellingen en klik op **OK**.
 
-   ![Alt-tekst voor afbeelding](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen 
 
@@ -63,11 +63,11 @@ Met een MSI op de VM kunt u toegangstokens uit Azure AD ophalen zonder referenti
 2. Klik op de linkernavigatiebalk op **Configuratie**. 
 3. U ziet **Managed Service Identity**. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee. 
 4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.  
-   ![Alt-tekst voor afbeelding](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Als u wilt controleren en nagaan welke extensies aanwezig zijn op deze virtuele machine, klikt u op **Extensies**. Als MSI is ingeschakeld, wordt **ManagedIdentityExtensionforWindows** weergegeven in de lijst.
 
-   ![Alt-tekst voor afbeelding](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+   ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Uw virtuele machine toegang verlenen tot Azure Data Lake Storage
 
@@ -207,7 +207,7 @@ In deze zelfstudie gebruikt u PowerShell voor het maken van REST-aanvragen om te
 
 Met andere API's van het Data Lake Storage-bestandssysteem kunt u toevoegen aan bestanden, bestanden downloaden, en nog veel meer.
 
-Gefeliciteerd.  U hebt geverifieerd bij het Data Lake Storage-bestandssysteem met behulp van een MSI voor een virtuele machine.
+Gefeliciteerd!  U hebt geverifieerd bij het Data Lake Storage-bestandssysteem met behulp van een MSI voor een virtuele machine.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 92bd7190832da6ee9da7d1679b9f27b66a15e3a4
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904302"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004877"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Zelfstudie: Managed Service Identity voor een Linux-VM gebruiken om toegang te krijgen tot Azure Data Lake Storage
 
@@ -52,7 +52,7 @@ Voor deze zelfstudie maken we een nieuwe virtuele Linux-machine. U kunt MSI ook 
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
 3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
 
-   ![‘Basis’-deelvenster voor het maken van een virtuele machine](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![‘Basis’-deelvenster voor het maken van een virtuele machine](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Selecteer een abonnement voor de virtuele machine in de lijst **Abonnement**.
 5. Als u de virtuele machine in een nieuwe resourcegroep wilt maken, selecteert u **Resourcegroep** > **Nieuwe maken**. Selecteer **OK** wanneer u klaar bent.
@@ -65,7 +65,7 @@ Met een MSI op de VM kunt u toegangstokens uit Azure AD ophalen zonder referenti
 1. Selecteer bij **Virtuele machine** de virtuele machine waarop u MSI wilt inschakelen.
 2. Selecteer **Configuratie** in het linkerdeelvenster.
 3. U ziet **Managed Service Identity**. Selecteer **Ja** om MSI te registreren en in te schakelen. Als u dit wilt uitschakelen, selecteert u **Nee**.
-   ![Selectie ‘Registreren bij Azure Active Directory’](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Selectie ‘Registreren bij Azure Active Directory’](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Selecteer **Opslaan**.
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Uw virtuele machine toegang verlenen tot Azure Data Lake Storage
@@ -180,7 +180,7 @@ U hebt een SSH-client nodig om deze stappen uit te voeren. Als u Windows gebruik
 
 Met andere API's voor het Data Lake Storage-bestandssysteem kunt u toevoegen aan bestanden, bestanden downloaden, en nog veel meer.
 
-Gefeliciteerd. U bent geverifieerd bij het bestandssysteem van Data Lake Storage door MSI te gebruiken voor een Linux-VM.
+Gefeliciteerd! U bent geverifieerd bij het bestandssysteem van Data Lake Storage door MSI te gebruiken voor een Linux-VM.
 
 ## <a name="next-steps"></a>Volgende stappen
 
