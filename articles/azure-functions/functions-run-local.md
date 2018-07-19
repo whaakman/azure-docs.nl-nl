@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 44485d04dad3ff9dfc6067a3737989c5d273541f
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116177"
+ms.locfileid: "39126211"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -121,7 +121,7 @@ De volgende stappen [APT](https://wiki.debian.org/Apt) Core Tools installeren op
 
 ## <a name="create-a-local-functions-project"></a>Een lokale Functions-project maken
 
-Een map functions-project bevat de bestanden [host.json](functions-host-json.md) en [local.settings.json](#local-settings-file), langs de submappen die de code voor afzonderlijke functies bevatten. Deze map is het equivalent van een functie-app in Azure. Zie voor meer informatie over de structuur van de functies, de [handleiding voor ontwikkelaars van Azure Functions voor](functions-reference.md#folder-structure).
+Een map functions-project bevat de bestanden [host.json](functions-host-json.md) en [local.settings.json](#local-settings-file), samen met de submappen die de code voor afzonderlijke functies bevatten. Deze map is het equivalent van een functie-app in Azure. Zie voor meer informatie over de structuur van de functies, de [handleiding voor ontwikkelaars van Azure Functions voor](functions-reference.md#folder-structure).
 
 Versie 2.x, moet u een taal voor uw project selecteren wanneer deze wordt geïnitialiseerd en alle functies gebruiken standaard taalsjablonen toegevoegd. In versie 1.x, u de taal opgeven telkens wanneer u een functie maken.
 
@@ -137,6 +137,7 @@ In versie 2.x, wanneer u de opdracht uitvoert moet u een runtime voor uw project
 Select a worker runtime:
 dotnet
 node
+java
 ```
 
 Omhoog/omlaag pijltoetsen een taal kiezen, druk op Enter. De uitvoer ziet eruit zoals in het volgende voorbeeld voor een JavaScript-project:
@@ -151,6 +152,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 Gebruik voor het maken van het project zonder een lokale Git-opslagplaats het `--no-source-control [-n]` optie.
+
+> [!IMPORTANT]
+> Standaard versie 2.x van de essentiële hulpprogramma maakt de functie app-projecten voor de .NET runtime als [projecten van C#-klasse](functions-dotnet-class-library.md) (.csproj). Deze C# projecten, die kunnen worden gebruikt met Visual Studio 2017 of Visual Studio Code, worden gecompileerd tijdens het testen en bij het publiceren naar Azure. Als u in plaats daarvan wilt maken en werken met de dezelfde C#-script (.csx)-bestanden gemaakt in versie 1.x en in de portal, moet u de `--csx` parameter bij het maken en implementeren van functions.
 
 ## <a name="register-extensions"></a>Extensies registreren
 
@@ -177,7 +181,7 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
     "CORS": "*"
   },
   "ConnectionStrings": {
-    "SQLConnectionString": "Value"
+    "SQLConnectionString": "<sqlclient-connection-string>"
   }
 }
 ```
@@ -189,7 +193,7 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 | **Host** | Instellingen in deze sectie aanpassen hostproces van de functies bij lokale uitvoering. |
 | **LocalHttpPort** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie te gebruiken heeft voorrang op deze waarde. |
 | **CORS** | Definieert de oorsprongen toegestaan voor [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
-| **ConnectionStrings** | Gebruik deze verzameling niet voor de verbindingsreeksen die worden gebruikt door uw functiebindingen. Deze verzameling wordt alleen gebruikt door frameworks die u moeten ophalen verbindingsreeksen uit de **ConnectionStrings** gedeelte van een configuratie-bestand, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in deze verzameling zijn niet gepubliceerd naar Azure met andere app-instellingen. U moet expliciet toevoegen met deze waarden naar de **verbindingsreeksen** sectie van de **toepassingsinstellingen** voor uw functie-app. |
+| **ConnectionStrings** | Gebruik deze verzameling niet voor de verbindingsreeksen die worden gebruikt door uw functiebindingen. Deze verzameling wordt alleen gebruikt door frameworks die doorgaans downloadt verbindingsreeksen uit de **ConnectionStrings** gedeelte van een configuratie-bestand, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in deze verzameling zijn niet gepubliceerd naar Azure met andere app-instellingen. U moet expliciet toevoegen met deze waarden naar de **verbindingsreeksen** verzameling van de instellingen van uw functie-app. Als u maakt een [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in uw functiecode aan te geven, moet u de connection string-waarde in opslaan **toepassingsinstellingen** met uw andere verbindingen. |
 
 De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Zie de sectie van de variabelen voor de omgeving van de volgende taalspecifieke referentie-onderwerpen voor meer informatie:
 
@@ -271,8 +275,9 @@ U kunt deze opties ook opgeven in de opdracht met behulp van de volgende argumen
 | Argument     | Beschrijving                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--language -l`**| De sjabloon programmeertaal zoals C#, F # of JavaScript. Deze optie is vereist in versie 1.x. In versie 2.x gebruikt, geen gebruik deze optie en kiest u de standaardtaal van uw project. |
-| **`--template -t`** | De sjabloonnaam, dit kan een van de waarden:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--template -t`** | Gebruik de `func templates list` opdracht om te zien van de volledige lijst met beschikbare sjablonen voor elke ondersteunde taal.   |
 | **`--name -n`** | De naam van de functie. |
+| **`--csx`** | (Versie 2.x) Genereert de dezelfde C#-script (.csx) sjablonen die worden gebruikt in versie 1.x en in de portal. |
 
 Voer bijvoorbeeld de volgende opdracht voor het maken van een JavaScript-HTTP-trigger in één opdracht:
 

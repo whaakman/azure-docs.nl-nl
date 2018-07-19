@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 480bbd543ddef60dc8dd84d4b454ef5a8c742636
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 76f2bed22d62895e1c537a807ff729c0ba56fbf6
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008389"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136754"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -35,7 +35,33 @@ Azure AD ontvangt verbeteringen regelmatig. Als u wilt bijhouden met de meest re
 
 Deze pagina wordt maandelijks bijgewerkt, dus regelmatig bezoekt.
 
+---
+
 ## <a name="july-2018"></a>Juli 2018
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Verbeteringen in Azure Active Directory-e-mailmeldingen
+
+**Type:** plannen voor wijziging  
+**Service-categorie:** andere  
+**Product-mogelijkheid:** beheer van identiteitslevenscycli
+ 
+Op de **einde van juli 2018**, Azure Active Directory (Azure AD) e-mailberichten worden voorzien van het ontwerp van een bijgewerkte, evenals wijzigingen in de e-mailadres van afzender en de afzender weergavenaam, wanneer verzonden vanuit de volgende services:
+ 
+- Azure AD-Toegangsbeoordelingen
+- Azure AD Connect Health (Engelstalig) 
+- Azure AD-identiteitsbeveiliging 
+- Azure AD Privileged Identity Management
+- Enterprise-App verloopt certificaat meldingen
+- Servicemeldingen voor inrichting van Enterprise-App
+ 
+De e-mailmeldingen worden verzonden van de volgende e-mailadres en de weergavenaam:
+
+- E-mailadres: azure-noreply@microsoft.com
+- Weergavenaam: Microsoft Azure
+ 
+Voor een voorbeeld van enkele van de nieuwe e-ontwerpen en meer informatie, Zie [e-mailmeldingen in Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832).
+
+---
 
 ### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Verouderde verificaties weergeven via logboeken met aanmeldingsactiviteiten
 
@@ -49,7 +75,7 @@ Dankzij de introductie van de **Client-App** veld in de activiteit aanmelden zic
 
 ## <a name="june-2018"></a>Juni 2018
 
-### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Kennisgeving te wijzigen: Security-oplossing voor de autorisatiestroom gedelegeerde voor apps met behulp van Logboeken API van Azure AD-activiteit
+### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Wijzigingsmelding: beveiligingsupdate voor de gedelegeerde-autorisatiestroom voor apps met een API voor Azure AD-activiteitenlogboeken
 
 **Type:** plannen voor wijziging  
 **Service-categorie:** rapportage  
@@ -73,7 +99,7 @@ Zie voor meer informatie de [machtigingen verlenen](https://docs.microsoft.com/a
 
 ---
 
-### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Verbinding maken met Azure AD-services voor het PCI DSS-compliance TLS-instellingen configureren
+### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>TLS-instellingen voor verbinding met Azure AD-services configureren voor compatibiliteit met PCI DSS
 
 **Type:** nieuwe functie  
 **Service-categorie:** N.V.T.  
@@ -113,7 +139,7 @@ Verouderde browsers ondersteunen mogelijk niet de nieuwere TLS-versies, zoals TL
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - juni 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Er zijn nieuwe federatieve apps beschikbaar in de Azure AD-app-galerie - juni 2018
 
 **Type:** nieuwe functie  
 **Service-categorie:** zakelijke Apps  
@@ -127,7 +153,7 @@ Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Acti
 
 ---
 
-### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>Azure AD-wachtwoordbeveiliging is beschikbaar in openbare preview
+### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>Azure AD-wachtwoordbeveiliging is beschikbaar in de openbare preview
 
 **Type:** nieuwe functie  
 **Service-categorie:** Identity Protection  
@@ -145,7 +171,7 @@ Zie voor meer informatie over Azure AD-wachtwoord Protection [onjuiste wachtwoor
 
 ---
 
-### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nieuwe "alle gasten" voorwaardelijke toegang beleidssjabloon gemaakt tijdens het maken van gebruiksvoorwaarden (gebruiksvoorwaarden)
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Er is een nieuwe sjabloon voor beleid voor voorwaardelijke toegang gemaakt voor Alle gasten tijdens het maken van de gebruiksvoorwaarden (ToU)
 
 **Type:** nieuwe functie  
 **Service-categorie:** gebruiksvoorwaarden  
@@ -157,7 +183,7 @@ Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie geb
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nieuwe 'aangepaste' voorwaardelijk beleidssjabloon gemaakt tijdens het maken van gebruiksvoorwaarden (gebruiksvoorwaarden)
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Er is een nieuwe, aangepaste sjabloon voor beleid voor voorwaardelijke toegang gemaakt tijdens het maken van de gebruiksvoorwaarden (ToU)
 
 **Type:** nieuwe functie  
 **Service-categorie:** gebruiksvoorwaarden  
@@ -169,7 +195,7 @@ Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie geb
 
 ---
 
-### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Nieuwe en uitgebreide richtlijnen over het implementeren van Azure multi-factor Authentication
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Nieuwe en uitgebreide richtlijnen voor het implementeren van Azure Multi-Factor Authentication
 
 **Type:** nieuwe functie  
 **Service-categorie:** andere  
@@ -181,7 +207,7 @@ Als u de MFA-implementatiehandleiding, gaat u naar de [identiteit implementatieh
 
 ---
 
-### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Azure AD gedelegeerd beheer van apps rollen in openbare preview zijn
+### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>De gedelegeerde app-beheerrollen van Azure AD zijn aanwezig in de openbare preview
 
 **Type:** nieuwe functie  
 **Service-categorie:** zakelijke Apps  
@@ -209,7 +235,7 @@ Zie voor meer informatie over de openbare preview-versie, de [overgedragen Toepa
 
 ## <a name="may-2018"></a>Mei 2018
 
-### <a name="expressroute-support-changes"></a>Ondersteuning voor ExpressRoute-wijzigingen
+### <a name="expressroute-support-changes"></a>Wijzigingen in ExpressRoute-ondersteuning
 
 **Type:** plannen voor wijziging  
 **Service-categorie:** verificaties (aanmeldingen)  
@@ -319,7 +345,7 @@ Azure AD activiteitenlogboeken, waaronder, aanmeldingen en auditlogboeken, zijn 
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - mei 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Er zijn nieuwe federatieve apps beschikbaar in de Azure AD-app-galerie - mei 2018
 
 **Type:** nieuwe functie  
 **Service-categorie:** zakelijke Apps  
@@ -490,7 +516,7 @@ Zie voor meer informatie, [uitnodigingen toestaan of blokkeren voor B2B-gebruike
 
 ---
  
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nieuwe federatieve apps beschikbaar in Azure AD app-galerie
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Er zijn nieuwe federatieve apps beschikbaar in de Azure AD-app-galerie
 
 **Type:** nieuwe functie  
 **Service-categorie:** zakelijke Apps  
@@ -558,7 +584,7 @@ Zie voor meer informatie, [Azure AD-wachtwoord opnieuw instellen vanuit het aanm
 
 ## <a name="march-2018"></a>Maart 2018
  
-### <a name="certificate-expire-notification"></a>Melding voor het verlopen van het certificaat
+### <a name="certificate-expire-notification"></a>Certificaat verloopt melding
 
 **Type:** vast  
 **Service-categorie:** zakelijke Apps  
@@ -587,7 +613,7 @@ Zie voor meer informatie, [wat is Azure AD B2B-samenwerking?](https://docs.micro
  
 ---
 
-### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Browsertoegang beperken via Intune Managed Browser met voorwaardelijke Azure AD-toegang op basis van de toepassing voor iOS- en Android
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Beperken van toegang via de browser met behulp van Intune Managed Browser voor iOS en Android met Azure AD-toepassing gebaseerde voorwaardelijke toegang
 
 **Type:** nieuwe functie  
 **Service-categorie:** voorwaardelijke toegang  
@@ -609,7 +635,7 @@ Zie voor meer informatie:
 
 ---
  
-### <a name="app-proxy-cmdlets-in-powershell-ga-module"></a>App Proxy-cmdlets in Powershell GA-module
+### <a name="app-proxy-cmdlets-in-powershell-ga-module"></a>App-Proxy-Cmdlets in algemene beschikbaarheid van Powershell-Module
 
 **Type:** nieuwe functie  
 **Service-categorie:** App Proxy  
@@ -621,7 +647,7 @@ Zie voor meer informatie, [AzureAD](https://docs.microsoft.com/powershell/module
  
 ---
  
-### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Systeemeigen Office 365-clients worden ondersteund door naadloos SSO via een niet-interactief protocol
+### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Office 365 systeemeigen clients worden ondersteund door een naadloze eenmalige aanmelding met een niet-interactieve protocol
 
 **Type:** nieuwe functie  
 **Service-categorie:** verificaties (aanmeldingen)  
@@ -645,7 +671,7 @@ Zie voor meer informatie, [Azure Active Directory naadloze eenmalige aanmelding]
 
 ---
  
-### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Er hoeft slechts één Azure AD-URL te worden toegevoegd aan de intranetzone-instellingen van gebruikers om naadloze SSO te implementeren, in plaats van zoals voorheen twee URL's
+### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Moet slechts één Azure AD-URL, in plaats van twee URL's eerder, toevoegen aan gebruikers Intranet zone-instellingen voor de implementatie van naadloze eenmalige aanmelding
 
 **Type:** nieuwe functie  
 **Service-categorie:** verificaties (aanmeldingen)  
