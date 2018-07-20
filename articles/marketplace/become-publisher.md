@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9795beca93ab4dbbeb1e0e99a50952ea23ca1568
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b516dd165bfc22ad3966ffe51e99591379f9e680
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005482"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144326"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
 
@@ -28,18 +28,18 @@ In dit artikel bevat informatie over registreren als een cloud-marketplace-uitge
 
 |  | Registratiestap | Duur | Details |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Registreren in Microsoft Partner Network | 15 minuten | [Registreren in Microsoft Partner Network](#register-in-microsoft-partner-network) |  
-| 2 | Een Microsoft-Account maken <ul>(vereist voor Azure Marketplace biedt transact; aanbevolen voor anderen)</ul> | 15 minuten | [Maken van een Microsoft-ID](#create-a-microsoft-id) |  
-| 3 | Het registratieformulier marketplace verzenden | 15 minuten | [De marketplace-nominatieformulier verzenden](#submit-the-marketplace-nomination-form) |  
-| 4 |  Meld u aan bij de Cloud Partner-Portal | 1-3 dagen | [Meld u aan bij de Cloud Partner-Portal](#sign-into-cloud-partner-portal) |  
-| 5 | Registreren in Microsoft Developer Center (Dev Center) (voor Azure Marketplace transact aanbiedingen) | 5-10 dagen | [Registreren in Dev Center](#register-in-dev-center) |  
+| 1 | Registreren in Microsoft Partner Network | 15 minuten | [Registreren in Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Een Microsoft-Account maken <ul>(vereist voor Azure Marketplace biedt transact; aanbevolen voor anderen)</ul> | 15 minuten | [Maken van een Microsoft-ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | Het registratieformulier marketplace verzenden | 15 minuten | [De marketplace-nominatieformulier verzenden](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  Meld u aan bij de Cloud Partner-Portal | 1-3 dagen | [Meld u aan bij de Cloud Partner-Portal](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5 | Registreren in Microsoft Developer Center (Dev Center) (voor Azure Marketplace transact aanbiedingen) | 5-10 dagen | [Registreren in Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Registreren in Microsoft Partner Network  
 | 15 minuten |  
 Deelname aan Microsoft cloud-marketplace vereist lidmaatschap in het Microsoft Partner Network (MPN), waarmee u ook de belangrijkste voordelen, programma's en partner prestaties bijhouden. Als uw organisatie nog geen lid is, worden toegevoegd aan het Microsoft Partner Network (MPN) als u wilt een officiële Microsoft-partner en extra voordelen en ondersteuning voor publicatie op marketplace. 
 
-*   Als u wilt registreren in Microsoft Partner Network, gaat u naar de [lidmaatschapspagina](https://partner.microsoft.com/membership)en volg de stappen voor het starten van uw inschrijving.  
+*   Als u wilt registreren in Microsoft Partner Network, gaat u naar de [lidmaatschapspagina](https://partner.microsoft.com/membership) en volg de stappen voor het starten van uw inschrijving.  
 
 Noteer het Microsoft Partner Network-ID voor uw organisatie na de registratie. U moet dit tijdens de stap 3 bij het indienen van uw marketplace-registratieformulier.
 *   Meer informatie over de voordelen van de [Microsoft Partner Network](https://partner.microsoft.com/en-us/commercial)
@@ -99,7 +99,7 @@ Wanneer u hebt de [Dev Center](https://developer.microsoft.com/en-us/store/regis
 >Om te vervallen de kosten $99 Developer Center registratie, vul het registratieformulier marketplace en u ontvangt een e-mail met uw promotiecode. 
 
 >[!Important]
->Voordat u een Microsoft Developer Center-account maakt, Controleer of dat uw organisatie nog geen een Dev Center-account om te voorkomen dat dubbele accounts. Voor meer informatie gaat u naar de [registreren in Dev Center](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-44571#how-to-register-in-dev-center) sectie.
+>Voordat u een Microsoft Developer Center-account maakt, Controleer of dat uw organisatie nog geen een Dev Center-account om te voorkomen dat dubbele accounts. Voor meer informatie gaat u naar de [registreren in Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center) sectie.
 
 
 ## <a name="next-steps"></a>Volgende stappen

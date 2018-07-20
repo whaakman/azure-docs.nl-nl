@@ -1,24 +1,24 @@
 ---
-title: Upgraden van een cluster Azure Kubernetes Service (AKS)
-description: Upgraden van een cluster Azure Kubernetes Service (AKS)
+title: Een cluster Azure Kubernetes Service (AKS) upgraden
+description: Een cluster Azure Kubernetes Service (AKS) upgraden
 services: container-service
 author: gabrtv
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f6b8e964f4277150e104cd6d77db092aaa8553b4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933271"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144581"
 ---
-# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Upgraden van een cluster Azure Kubernetes Service (AKS)
+# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Een cluster Azure Kubernetes Service (AKS) upgraden
 
-Azure Kubernetes Service (AKS) kunt gemakkelijk algemene beheertaken uitvoeren, waaronder Kubernetes clusters upgraden.
+Azure Kubernetes Service (AKS) kunt eenvoudig algemene beheertaken uitvoeren, inclusief het upgraden van Kubernetes-clusters.
 
 ## <a name="upgrade-an-aks-cluster"></a>Een AKS-cluster upgraden
 
@@ -36,10 +36,10 @@ Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-Er zijn drie versies beschikbaar voor de upgrade: 1.9.1, 1.9.2 en 1.9.6. We kunnen de opdracht `az aks upgrade` gebruiken om te upgraden naar de meest recente beschikbare versie.  Tijdens het upgradeproces knooppunten zijn zorgvuldig [cordoned en geleegd] [ kubernetes-drain] onderbreking van actieve toepassingen minimaliseren.  Voordat u begint met het upgraden van een cluster, moet u controleren of u genoeg compute-capaciteit heeft om de workload te verwerken wanneer klusterknooppunten worden toegevoegd en verwijderd.
+Er zijn drie versies beschikbaar voor de upgrade: 1.9.1, 1.9.2 en 1.9.6. We kunnen de opdracht `az aks upgrade` gebruiken om te upgraden naar de meest recente beschikbare versie.  Tijdens het upgradeproces AKS wordt een nieuw knooppunt toevoegen aan het cluster, klikt u vervolgens zorgvuldig [cordon en leegmaken] [ kubernetes-drain] één knooppunt tegelijk om onderbreking actieve toepassingen te minimaliseren.
 
 > [!NOTE]
-> Bij de upgrade van een cluster AKS kunnen niet Kubernetes secundaire versies worden overgeslagen. Bijvoorbeeld, upgrades tussen 1.7.x > 1.8.x of 1.8.x > 1.9.x zijn toegestaan, maar 1,7 > 1,9 is niet.
+> Bij het upgraden van een AKS-cluster, kunnen niet secundaire versies van Kubernetes worden overgeslagen. Bijvoorbeeld, upgrades tussen 1.8.x -> 1.9.x of 1.9.x -> 1.10.x zijn toegestaan, maar 1.8 -> 1.10 is niet.
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6

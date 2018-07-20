@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9bd370e8070816d62b22c1e3d5ad4b6cdd2da30a
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969602"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144948"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric-stuurprogramma voor Azure Files-Volume (Preview)
 De invoegtoepassing Azure Files-volume is een [Docker volume invoegtoepassing](https://docs.docker.com/engine/extend/plugins_volume/) waarmee de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) op basis van volumes voor Docker-containers. Deze invoegtoepassing Docker-volume wordt geleverd als een Service Fabric-toepassing die kan worden geïmplementeerd naar Service Fabric-clusters. Het doel is voor Azure Files op basis van volumes voor andere toepassingen met Service Fabric-containers die zijn geïmplementeerd in het cluster.
@@ -36,6 +36,33 @@ De invoegtoepassing Azure Files-volume is een [Docker volume invoegtoepassing](h
 * Volg de instructies in de [documentatie voor Azure Files](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) om een bestandsshare voor de Service Fabric-containertoepassing te gebruiken als een volume te maken.
 
 * U moet [Powershell gebruiken met de module Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) of [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) geïnstalleerd.
+
+* Als u van Hyper-v-containers gebruikmaakt, moeten de volgende codefragmenten worden toegevoegd in het ClusterManifest (lokale cluster) of de instelling fabricSettings sectie in het ARM-sjabloon (Azure-cluster) of ClusterConfig.json (zelfstandige cluster). U moet de naam van het volume en de poort waarop het volume naar het cluster luistert. 
+
+In het ClusterManifest, het volgende moet worden toegevoegd in de sectie Hosting. In dit voorbeeld wordt de naam van het volume is **sfazurefile** en de poort die deze naar op het cluster luistert is **19300**.  
+
+``` xml 
+<Section Name="Hosting">
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+</Section>
+```
+
+In de instelling fabricSettings-sectie van de ARM-sjabloon (voor Azure-implementaties) of ClusterConfig.json (voor zelfstandige implementaties) moet het volgende codefragment worden toegevoegd. 
+
+```json
+"fabricSettings": [
+  {
+    "name": "Hosting",
+    "parameters": [
+      {
+          "name": "VolumePluginPorts",
+          "value": "sfazurefile:19300"
+      }
+    ]
+  }
+]
+```
+
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>De bestanden van de Azure Service Fabric-toepassing implementeren
 

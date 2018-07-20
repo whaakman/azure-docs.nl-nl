@@ -4,18 +4,18 @@ description: Tips voor een geslaagde implementatie van Azure AD-self-service voo
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e14c51d644a29985e759da7c8a29927680d3891
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: HT
+ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048948"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158859"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
 
@@ -23,35 +23,32 @@ De meeste klanten voeren de volgende stappen uit voor een goede implementatie va
 
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
-1. [Schakel wachtwoordherstel in in uw directory](quickstart-sspr.md).
-2. [Configureer on-premises Active Directory-machtigingen voor write-back van wachtwoord](howto-sspr-writeback.md#active-directory-permissions).
-3. [Configureer write-back van wachtwoord](howto-sspr-writeback.md#configure-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory.
-4. [Wijs de vereiste licenties toe en verifieer ze](concept-sspr-licensing.md).
-5. Bepaal of u een geleidelijke implementatie wilt uitvoeren. Als u selfservice voor wachtwoordherstel geleidelijk wilt implementeren, kunt u de toegang beperken tot bepaalde gebruikers, zodat u het programma met een specifieke groep kunt testen. Voor implementatie in een specifieke groep stelt u de schakeloptie **Selfservice voor wachtwoordherstel is ingeschakeld** in op **Geselecteerd** en selecteert u de beveiligingsgroep waarvoor u wachtwoordherstel mogelijk wilt maken.  Het nesten van beveiligingsgroepen wordt hier ondersteund.
-6. Vul de [verificatiegegevens](howto-sspr-authenticationdata.md) in die uw gebruikers nodig hebben om zich te kunnen registreren, zoals hun zakelijke telefoonnummer, mobiele telefoonnummer en een alternatief e-mailadres.
-7. [Pas de Azure Active Directory-aanmeldingservaring aan met de huisstijl van uw bedrijf](concept-sspr-customization.md).
-8. Leer uw gebruikers hoe ze de selfservice voor wachtwoordherstel moeten gebruiken. Geef ze instructies voor hoe ze zich kunnen registreren en hun wachtwoord kunnen herstellen.
-9. Bepaal of u de registratie verplicht wilt maken. U kunt ervoor kiezen registratie op elk gewenst moment af te dwingen. U kunt ook afdwingen dat gebruikers hun verificatiegegevens na een bepaalde periode opnieuw moeten bevestigen.
-10. Gebruik de rapportagefunctionaliteit. Na verloop van tijd kunt u de registratie van gebruikers en het gebruik controleren met de [rapportagefunctionaliteit van Azure AD](howto-sspr-reporting.md).
-11. Schakel wachtwoordherstel in. Wanneer u klaar bent, schakelt u wachtwoordherstel in voor alle gebruikers door de schakeloptie **Selfservice voor wachtwoordherstel is ingeschakeld** in te stellen op **Alle**. 
+1. Voer de implementatie van een prototype van met een kleine subset van uw organisatie.
+   * Meer informatie over het pilot vindt u de [zelfstudie: implementeer Complete een prototype van Azure AD Self-service voor wachtwoord opnieuw instellen van](tutorial-sspr-pilot.md).
+1. Leer uw helpdesk.
+   * Hoe kunnen ze uw gebruikers?
+   * Forceert u gebruikers SSPR gebruiken en niet toestaan dat uw helpdesk om gebruikers te helpen?
+   * Hebt u opgegeven ze de URL's voor registratie en opnieuw instellen?
+      * Registratie:  https://aka.ms/ssprsetup
+      * Opnieuw instellen: https://aka.ms/sspr
+1. Leer uw gebruikers.
+   * De volgende secties van dit document gaat over de voorbeeld-communicatie, wachtwoord portals, het afdwingen van inschrijving en vullen met gegevens van de verificatie.
+   * De Azure Active Directory-productgroep heeft een [stapsgewijs implementatieplan](https://aka.ms/SSPRDeploymentPlan) gemaakt, dat organisaties in combinatie met de documentatie kunnen gebruiken die te vinden is op deze site om een bedrijfsscenario te maken en de implementatie te plannen van selfservice voor wachtwoordherstel.
+1. Self-service voor wachtwoord opnieuw instellen voor uw hele organisatie inschakelen.
+   * Wanneer u klaar bent, schakelt u wachtwoordherstel in voor alle gebruikers door de schakeloptie **Selfservice voor wachtwoordherstel is ingeschakeld** in te stellen op **Alle**.
 
-   > [!NOTE]
-   > Als u deze optie wijzigt van een geselecteerde groep naar iedereen, worden bestaande authenticatiegegevens die een gebruiker als onderdeel van een testgroep heeft geregistreerd, niet ongeldig. Gebruikers die geconfigureerd zijn en geldige authenticatiegegevens geregistreerd hebben, blijven functioneren.
+## <a name="sample-communication"></a>Voorbeeld-communicatie
 
-12. [Bied Windows 10-gebruikers de mogelijkheid tot wachtwoordherstel op het aanmeldingsscherm](tutorial-sspr-windows.md).
-
-   > [!IMPORTANT]
-   > Test de selfservice voor wachtwoordherstel als gebruiker en niet als beheerder, omdat Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel over wachtwoordbeleid](concept-sspr-policy.md#administrator-password-policy-differences) voor meer informatie over het wachtwoordbeleid voor beheerders.
-
-## <a name="email-based-rollout"></a>Implementatie op basis van e-mail
-
-Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, de eenvoudigste manier om gebruikers selfservice voor wachtwoordherstel te laten gebruiken. [We hebben drie eenvoudige e-mailberichten gemaakt die u als sjabloon kunt gebruiken om te helpen bij uw implementatie](https://www.microsoft.com/download/details.aspx?id=56768):
+Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, de eenvoudigste manier om gebruikers selfservice voor wachtwoordherstel te laten gebruiken. [We hebben gemaakt met eenvoudige e-mailberichten en andere activa die u als sjabloon gebruiken kunt om te helpen bij uw implementatie](https://www.microsoft.com/download/details.aspx?id=56768):
 
 * **Binnenkort beschikbaar**: Een e-mailsjabloon die in de weken of dagen vóór implementatie moet worden gebruikt om gebruikers te laten weten dat ze iets moeten gaan doen.
 * **Nu beschikbaar**: Een e-mailsjabloon die moet worden gebruikt op de dag van de lancering om gebruikers ertoe over te halen zich te registreren en hun verificatiegegevens te bevestigen. Als de gebruikers zich nu registreren, kunnen ze selfservice voor wachtwoordherstel gebruiken wanneer het nodig is.
 * **Herinnering voor aanmelding**: Een e-mailsjabloon die enkele weken of dagen na de implementatie moet worden gebruikt om gebruikers eraan te herinneren dat ze zich moeten registreren en hun verificatiegegevens moeten bevestigen.
+* **SSPR-Posters**: Posters die u kunt aanpassen en weergeven over uw organisatie in de dagen en leidt tot weken en na de implementatie.
+* **SSPR naambordjes**: tabel kaarten die u kunt plaatsen in de ruimte op lunch, vergaderruimten, of op eigen bureau ter bevordering van uw gebruikers om registratie te voltooien.
+* **SSPR Stickers**: Sticker sjablonen kunt u aanpassen en afdrukken als u wilt plaatsen, laptops, monitors, toetsenborden of mobiele telefoons om te weten hoe u toegang krijgen tot SSPR.
 
-![E-mail][Email]
+![Voorbeelden van SSPR-e-mailadres][Email]
 
 ## <a name="create-your-own-password-portal"></a>Uw eigen wachtwoordportal maken
 
@@ -64,10 +61,6 @@ Veel klanten kiezen ervoor een webpagina te hosten en een DNS-basisvermelding te
 
 In e-mailberichten of flyers die u verstuurt, kunt u een in huisstijl opgemaakte, gemakkelijk te onthouden URL opnemen die gebruikers kunnen raadplegen wanneer ze de services moeten gebruiken. We hebben een [voorbeeldpagina voor wachtwoordherstel](https://github.com/ajamess/password-reset-page) gemaakt die u kunt gebruiken en aanpassen aan de behoeften van uw organisatie.
 
-## <a name="step-by-step-deployment-plan"></a>Stapsgewijs implementatieplan
-
-De Azure Active Directory-productgroep heeft een [stapsgewijs implementatieplan](https://aka.ms/SSPRDeploymentPlan) gemaakt, dat organisaties in combinatie met de documentatie kunnen gebruiken die te vinden is op deze site om een bedrijfsscenario te maken en de implementatie te plannen van selfservice voor wachtwoordherstel.
-
 ## <a name="use-enforced-registration"></a>Gedwongen registratie gebruiken
 
 Als u wilt dat uw gebruikers zich registreren voor wachtwoordherstel, kunt u hen dwingen zich te registreren wanneer ze zich aanmelden via Azure AD. U kunt deze optie inschakelen via het deelvenster **Wachtwoordherstel** van uw directory door de optie **Vereisen dat gebruikers zich bij aanmelding registreren?** te kiezen op het tabblad **Registratie**.
@@ -78,11 +71,11 @@ Nadat u deze optie hebt ingeschakeld, zien gebruikers bij aanmelding een bericht
 
 ## <a name="populate-authentication-data"></a>Verificatiegegevens invullen
 
-U moet [de verificatiegegevens voor uw gebruikers invullen](howto-sspr-authenticationdata.md). Op die manier hoeven gebruikers zich niet te registreren voor wachtwoordherstel voordat ze SSPR kunnen gebruiken. Zolang gebruikers de verificatiegegevens hebben gedefinieerd die voldoen aan het beleid voor wachtwoordherstel dat u hebt gedefinieerd, kunnen gebruikers hun wachtwoord opnieuw instellen.
+U moet rekening houden met [sommige gegevens van de verificatie voor uw gebruikers vooraf invullen](howto-sspr-authenticationdata.md). Op die manier hoeven gebruikers zich niet te registreren voor wachtwoordherstel voordat ze SSPR kunnen gebruiken. Zolang gebruikers de verificatiegegevens hebben gedefinieerd die voldoen aan het beleid voor wachtwoordherstel dat u hebt gedefinieerd, kunnen gebruikers hun wachtwoord opnieuw instellen.
 
 ## <a name="disable-self-service-password-reset"></a>Selfservice voor wachtwoordherstel uitschakelen
 
-Selfservice voor wachtwoordherstel kan eenvoudig worden uitgeschakeld. Open uw Azure AD-tenant en ga naar **Wachtwoord opnieuw instellen** > **Eigenschappen** en selecteer vervolgens **Geen** onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld**.
+Als uw organisatie besluit om het uitschakelen van self-service voor wachtwoord opnieuw instellen is een eenvoudig proces. Open uw Azure AD-tenant en ga naar **Wachtwoord opnieuw instellen** > **Eigenschappen** en selecteer vervolgens **Geen** onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld**. Gebruikers handhaaft nog steeds hun
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,47 +1,47 @@
 ---
-title: Azure Diagnostics-extensie 1.3 en hoger configuratieschema
-description: Schemaversie 1.3 en hoger Azure diagnostics geleverd als onderdeel van de Microsoft Azure SDK 2.4 en hoger.
+title: De extensie van Azure Diagnostics 1.3 en hoger configuratieschema
+description: Schemaversie 1.3 en hoger van Azure diagnostics geleverd als onderdeel van de Microsoft Azure SDK 2.4 en hoger.
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/15/2017
+ms.date: 06/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 501e28cf3d01385d65a2308db06702d2db0d91ee
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: d9d61762a2e7956c95356cb4e884675e38deeb1b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937910"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145380"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 en hoger configuratieschema
 > [!NOTE]
-> De extensie Azure Diagnostics is het onderdeel dat wordt gebruikt voor het verzamelen van prestatiemeteritems en andere statistieken van:
+> De Azure Diagnostics-extensie is het onderdeel dat wordt gebruikt voor het verzamelen van prestatiemeteritems en andere statistieken met:
 > - Azure Virtual Machines 
-> - Schaalsets voor virtuele machines
+> - Virtual Machine Scale Sets
 > - Service Fabric 
 > - Cloud Services 
 > - Netwerkbeveiligingsgroepen
 > 
-> Deze pagina is alleen relevant als u een van deze services.
+> Deze pagina is alleen van toepassing als u een van deze services.
 
-Deze pagina is ongeldig voor versies 1.3 en nieuwere (Azure SDK 2,4 en hoger). Nieuwere configuratiesecties zijn opgenomen als opmerkingen om weer te geven in welke versie ze zijn toegevoegd.  
+Deze pagina is geldig voor versie 1.3 en nieuwer (Azure SDK 2.4 en hoger). Nieuwere configuratiesecties zijn opgenomen als om weer te geven in welke versie ze zijn toegevoegd.  
 
-Het configuratiebestand dat hier wordt beschreven, wordt gebruikt om diagnostische configuratie-instellingen wanneer de monitor diagnostics wordt gestart.  
+Het configuratiebestand dat hier wordt beschreven, wordt gebruikt om in te stellen diagnostische configuratie-instellingen wanneer de monitor diagnostische gegevens wordt gestart.  
 
-De uitbreiding wordt gebruikt in combinatie met andere Microsoft-producten voor diagnostische gegevens zoals Azure Monitor, Application Insights en Log Analytics.
+De extensie wordt gebruikt in combinatie met andere Microsoft-producten voor diagnostische gegevens, zoals Azure Monitor, Application Insights en Log Analytics.
 
 
 
-De schemadefinitie van de openbare configuratie bestand downloaden door het uitvoeren van de volgende PowerShell-opdracht:  
+De schemadefinitie voor de configuratie van de openbare-bestand downloaden door het uitvoeren van de volgende PowerShell-opdracht:  
 
 ```powershell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
-Zie voor meer informatie over het gebruik van Azure Diagnostics [Azure-extensie voor diagnostische gegevens](azure-diagnostics.md).  
+Zie voor meer informatie over het gebruik van Azure Diagnostics [Azure Diagnostics-extensie](azure-diagnostics.md).  
 
 ## <a name="example-of-the-diagnostics-configuration-file"></a>Voorbeeld van het configuratiebestand van de diagnostische gegevens  
  Het volgende voorbeeld ziet u een configuratiebestand typische diagnostische gegevens:  
@@ -154,9 +154,9 @@ Zie voor meer informatie over het gebruik van Azure Diagnostics [Azure-extensie 
 
 ```  
 
-JSON-equivalent van het vorige XML-configuratiebestand. 
+JSON-equivalent van de vorige XML-configuratiebestand. 
 
-De PublicConfig en PrivateConfig worden gescheiden omdat in de meeste gevallen voor json-gebruik, de als verschillende variabelen worden doorgegeven. Deze gevallen zijn onder andere Resource Manager-sjablonen, virtuele-machineschaalset PowerShell en Visual Studio. 
+De PublicConfig en PrivateConfig worden gescheiden omdat in de meeste gevallen voor json-gebruik, ze als verschillende variabelen doorgegeven worden. Deze Resource Manager-sjablonen voor gegevensuitwisseling, virtuele-machineschaalset PowerShell en Visual Studio. 
 
 ```json
 "PublicConfig" {
@@ -359,105 +359,107 @@ De PublicConfig en PrivateConfig worden gescheiden omdat in de meeste gevallen v
 ```
 
 ## <a name="reading-this-page"></a>Deze pagina lezen  
- De volgende codes zijn ongeveer in volgorde weergegeven in het voorgaande voorbeeld.  Als u niet een volledige beschrijving waar u verwacht ziet, zoekt u de pagina voor het element of kenmerk.  
+ De volgende codes zijn grofweg in volgorde weergegeven in het voorgaande voorbeeld.  Als u niet een volledige beschrijving waar u verwacht dat het ziet, zoekt u de pagina voor het element of kenmerk.  
 
 ## <a name="common-attribute-types"></a>Algemene kenmerktypen  
- **scheduledTransferPeriod** kenmerk wordt weergegeven in verschillende elementen. Het interval tussen de geplande overdrachten naar opslag afgerond naar het dichtstbijzijnde aantal minuten is. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp)
+ **scheduledTransferPeriod** kenmerk wordt weergegeven in de verschillende elementen. Dit is het interval tussen de geplande overdrachten naar de opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp)
 
 
-## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration Element  
+## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration-Element  
  *Structuur: Root - DiagnosticsConfiguration*
 
-In versie 1.3 toegevoegd.  
+Toegevoegd in versie 1.3.  
 
 Het element op het hoogste niveau van het configuratiebestand van de diagnostische gegevens.  
 
-**Kenmerk** xmlns - de XML-naamruimte voor de diagnostics-configuratiebestand is:  
+**Kenmerk** xmlns - de XML-naamruimte voor het configuratiebestand van de diagnostische gegevens is:  
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**PublicConfig**|Vereist. Zie de beschrijving ergens anders op deze pagina.|  
-|**PrivateConfig**|Optioneel. Zie de beschrijving ergens anders op deze pagina.|  
-|**IsEnabled**|Booleaanse waarde. Zie de beschrijving ergens anders op deze pagina.|  
+|**PublicConfig**|Vereist. Zie de beschrijving elders op deze pagina.|  
+|**PrivateConfig**|Optioneel. Zie de beschrijving elders op deze pagina.|  
+|**isEnabled**|Booleaanse waarde. Zie de beschrijving elders op deze pagina.|  
 
-## <a name="publicconfig-element"></a>PublicConfig Element  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig*
+## <a name="publicconfig-element"></a>PublicConfig-Element  
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig*
 
- Beschrijft de configuratie van de openbare diagnostische gegevens.  
+ Beschrijving van de configuratie van de openbare diagnostische gegevens.  
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**WadCfg**|Vereist. Zie de beschrijving ergens anders op deze pagina.|  
+|**WadCfg**|Vereist. Zie de beschrijving elders op deze pagina.|  
 |**StorageAccount**|De naam van de Azure Storage-account voor het opslaan van de gegevens in. Kan ook worden opgegeven als parameter bij het uitvoeren van de cmdlet Set-AzureServiceDiagnosticsExtension.|  
 |**StorageType**|Kan *tabel*, *Blob*, of *TableAndBlob*. De tabel is standaard. Wanneer TableAndBlob is gekozen, diagnostische gegevens worden geschreven tweemaal--eenmaal voor elk type.|  
-|**LocalResourceDirectory**|De map op de virtuele machine waar de gebeurtenisgegevens worden opgeslagen in de Monitoring Agent. Als dat niet wordt is ingesteld, de standaardmap gebruikt:<br /><br /> Voor een functie Worker/webservice: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Voor een virtuele Machine: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Vereiste kenmerken zijn:<br /><br /> - **pad** -de map op het systeem moet worden gebruikt door Azure Diagnostics.<br /><br /> - **expandEnvironment** -Hiermee wordt bepaald of omgevingsvariabelen in de padnaam worden uitgevouwen.|  
+|**LocalResourceDirectory**|De map op de virtuele machine waar gebeurtenisgegevens worden opgeslagen in de Monitoring Agent. Als dit niet het geval is, wordt stelt de standaard-map gebruikt:<br /><br /> Voor een rol Worker/webservice: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Voor een virtuele Machine: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Vereiste kenmerken zijn:<br /><br /> - **pad** -de map op het systeem moet worden gebruikt door Azure Diagnostics.<br /><br /> - **expandEnvironment** -bepaalt of omgevingsvariabelen worden uitgebreid in het padnaam.|  
 
-## <a name="wadcfg-element"></a>WadCFG Element  
- *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG-*
+## <a name="wadcfg-element"></a>WadCFG-Element  
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
  
  Identificeert en configureert u de telemetriegegevens te verzamelen.  
 
 
-## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element 
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
+## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration-Element 
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
  Vereist 
 
 |Kenmerken|Beschrijving|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | De maximale hoeveelheid ruimte op lokale schijf die kan worden gebruikt door de verschillende typen diagnostische gegevens verzameld door Azure Diagnostics. De standaardinstelling is 4096 MB.<br />
-|**useProxyServer** | Azure Diagnostics voor het gebruik van de proxy-instellingen zoals in de instellingen van Internet Explorer configureren.|  
+| **overallQuotaInMB** | De maximale hoeveelheid lokale schijfruimte die kan worden gebruikt door de verschillende typen diagnostische gegevens die zijn verzameld door Azure Diagnostics. De standaardinstelling is 4096 MB.<br />
+|**useProxyServer** | Azure Diagnostics voor het gebruik van de proxy-instellingen zoals in de instellingen van Internet Explorer configureren.|
+|**sinks** | In 1.5 toegevoegd. Optioneel. Verwijst naar een sink-locatie voor het verzenden van diagnostische gegevens voor alle onderliggende elementen die ondersteuning bieden voor sinks ook. Voorbeeld van de sink is Application Insights of Event Hubs.|  
+
 
 <br /> <br />
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**CrashDumps**|Zie de beschrijving ergens anders op deze pagina.|  
-|**DiagnosticInfrastructureLogs**|Inschakelen van verzamelen van logboeken die worden gegenereerd door Azure Diagnostics. De infrastructuur voor diagnostische logboeken zijn nuttig voor het oplossen van het systeem diagnostische gegevens zelf. Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -configureert u de minimale ernst van de logboeken die worden verzameld.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
-|**Mappen**|Zie de beschrijving ergens anders op deze pagina.|  
-|**EtwProviders**|Zie de beschrijving ergens anders op deze pagina.|  
-|**Metrische gegevens**|Zie de beschrijving ergens anders op deze pagina.|  
-|**PerformanceCounters**|Zie de beschrijving ergens anders op deze pagina.|  
-|**WindowsEventLog**|Zie de beschrijving ergens anders op deze pagina.| 
-|**DockerSources**|Zie de beschrijving ergens anders op deze pagina. | 
+|**CrashDumps**|Zie de beschrijving elders op deze pagina.|  
+|**DiagnosticInfrastructureLogs**|Het verzamelen van logboeken die worden gegenereerd door Azure Diagnostics inschakelen. De logboeken met diagnostische gegevens over infrastructuur zijn handig voor het oplossen van het systeem diagnostics zelf. Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -configureert u het minimale ernstniveau van de logboeken die worden verzameld.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar de opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**Adreslijsten**|Zie de beschrijving elders op deze pagina.|  
+|**EtwProviders**|Zie de beschrijving elders op deze pagina.|  
+|**Metrische gegevens**|Zie de beschrijving elders op deze pagina.|  
+|**PerformanceCounters**|Zie de beschrijving elders op deze pagina.|  
+|**WindowsEventLog**|Zie de beschrijving elders op deze pagina.| 
+|**DockerSources**|Zie de beschrijving elders op deze pagina. | 
 
 
 
-## <a name="crashdumps-element"></a>CrashDumps Element  
- *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps-*
+## <a name="crashdumps-element"></a>CrashDumps-Element  
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
  
  Schakel het verzamelen van crashdumps.  
 
 |Kenmerken|Beschrijving|  
 |----------------|-----------------|  
 |**containerName**|Optioneel. De naam van de blob-container in uw Azure Storage-account moet worden gebruikt voor het opslaan van crashdumps.|  
-|**crashDumpType**|Optioneel.  Hiermee configureert u Azure Diagnostics voor het verzamelen van dumpbestanden voor mini of volledige loopt vast.|  
-|**directoryQuotaPercentage**|Optioneel.  Hiermee configureert u het percentage **overallQuotaInMB** moet worden gereserveerd voor crashdumps op de virtuele machine.|  
+|**crashDumpType**|Optioneel.  Hiermee configureert u Azure Diagnostics voor het verzamelen van dumpbestanden voor foutopsporing mini of volledige loopt vast.|  
+|**directoryQuotaPercentage**|Optioneel.  Hiermee configureert u het percentage van de **overallQuotaInMB** moet worden gereserveerd voor crashdumps op de virtuele machine.|  
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Vereist. Hiermee definieert u configuratiewaarden voor elk proces.<br /><br /> Het volgende kenmerk is ook vereist:<br /><br /> **Procesnaam** -de naam van het proces wilt u diagnostische Azure-gegevens voor het verzamelen van een crashdump voor.|  
+|**CrashDumpConfiguration**|Vereist. Definieert de configuratiewaarden voor elk proces.<br /><br /> Het volgende kenmerk is ook vereist:<br /><br /> **Procesnaam** -de naam van het proces dat u wilt dat Azure Diagnostics voor het verzamelen van een crashdump voor.|  
 
-## <a name="directories-element"></a>Mappen Element 
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - mappen*
+## <a name="directories-element"></a>Mappen-Element 
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - mappen*
 
- Kan de verzameling van de inhoud van een map, logboeken van IIS is mislukt toegang aanvragen en/of IIS-logboeken.  
+ Zorgt ervoor dat de inhoud van een map, IIS kan geen toegang tot aanvraag logboeken en/of IIS-logboeken.  
 
- Optionele **scheduledTransferPeriod** kenmerk. Zie eerder uitleg.  
+ Optionele **scheduledTransferPeriod** kenmerk. Zie de uitleg eerder.  
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**IISLogs**|Met inbegrip van dit element in de configuratie, kunt de verzameling van IIS-logboeken:<br /><br /> **containerName** -de naam van de blob-container in uw Azure Storage-account moet worden gebruikt voor het opslaan van de IIS-logboeken.|   
-|**FailedRequestLogs**|Met inbegrip van dit element in de configuratie kunt verzamelen van logboeken over mislukte aanvragen voor een IIS-site of toepassing. U moet ook de traceringsopties onder inschakelen **system. WebServer** in **Web.config**.|  
+|**IISLogs**|Met inbegrip van dit element in de configuratie kunt u het verzamelen van IIS-logboeken:<br /><br /> **containerName** -de naam van de blob-container in uw Azure Storage-account moet worden gebruikt voor het opslaan van de IIS-logboeken.|   
+|**FailedRequestLogs**|Met inbegrip van dit element in de configuratie kunt verzamelen van logboeken over mislukte aanvragen voor een IIS-site of toepassing. U moet ook traceringsopties onder inschakelen **system. WebServer** in **Web.config**.|  
 |**Gegevensbronnen**|Een lijst met mappen om te controleren.| 
 
 
 
 
-## <a name="datasources-element"></a>Gegevensbronnen Element  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - mappen - gegevensbronnen*
+## <a name="datasources-element"></a>Gegevensbronnen-Element  
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - mappen - gegevensbronnen*
 
  Een lijst met mappen om te controleren.  
 
@@ -469,87 +471,87 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
+## <a name="directoryconfiguration-element"></a>DirectoryConfiguration-Element  
  *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - mappen - gegevensbronnen - DirectoryConfiguration-*
 
- Mogelijk bevat de **Absolute** of **LocalResource** element, maar niet beide.  
+ Mogelijk bevat het **Absolute** of **LocalResource** element, maar niet beide.  
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**Absolute**|Het absolute pad naar de map bewaken. De volgende kenmerken zijn vereist:<br /><br /> - **Pad** -het absolute pad naar de map bewaken.<br /><br /> - **expandEnvironment** -configureert u of omgevingsvariabelen in pad worden uitgevouwen.|  
-|**LocalResource**|Het pad ten opzichte van een lokale bron om te controleren. Vereiste kenmerken zijn:<br /><br /> - **Naam** -de lokale resource die de map voor het bewaken van bevat<br /><br /> - **relativePath** -het pad ten opzichte van de naam die de map voor het bewaken van bevat|  
+|**Absolute**|Het absolute pad naar de map om te controleren. De volgende kenmerken zijn vereist:<br /><br /> - **Pad** -het absolute pad naar de map om te controleren.<br /><br /> - **expandEnvironment** -configureert u of omgevingsvariabelen in het pad worden uitgevouwen.|  
+|**LocalResource**|Het pad relatief ten opzichte van een lokale bron om te controleren. Vereiste kenmerken zijn:<br /><br /> - **Naam** -de lokale resource die de map voor het bewaken van bevat<br /><br /> - **relativePath** -het pad relatief ten opzichte van de naam die de map voor het bewaken van bevat|  
 
 
 
-## <a name="etwproviders-element"></a>EtwProviders Element  
+## <a name="etwproviders-element"></a>EtwProviders-Element  
  *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders-*
 
- Hiermee configureert u de verzameling van ETW-gebeurtenissen van EventSource en/of ETW Manifest op basis van providers.  
+ Hiermee configureert u verzamelen van ETW-gebeurtenissen uit de gebeurtenisbron en/of ETW Manifest op basis van de providers.  
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Hiermee configureert u de verzameling van gebeurtenissen die worden gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Vereist kenmerk:<br /><br /> **provider** -de naam van de klasse van de gebeurtenis EventSource.<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -de minimum ernst om over te dragen naar uw opslagaccount.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
-|**EtwManifestProviderConfiguration**|Vereist kenmerk:<br /><br /> **provider** -de GUID van de gebeurtenisprovider<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -de minimum ernst om over te dragen naar uw opslagaccount.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Hiermee configureert u verzamelen van gebeurtenissen die zijn gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Vereist kenmerk:<br /><br /> **provider** -de naam van de klasse van de gebeurtenis gebeurtenisbron.<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -het minimale ernstniveau om over te dragen naar uw opslagaccount.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar de opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwManifestProviderConfiguration**|Vereist kenmerk:<br /><br /> **provider** -de GUID van de gebeurtenisprovider<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -het minimale ernstniveau om over te dragen naar uw opslagaccount.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar de opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
-## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
+## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration-Element  
  *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwEventSourceProviderConfiguration*
 
- Hiermee configureert u de verzameling van gebeurtenissen die worden gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
+ Hiermee configureert u verzamelen van gebeurtenissen die zijn gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**DefaultEvents**|Het optionele kenmerk:<br/><br/> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
-|**Gebeurtenis**|Vereist kenmerk:<br /><br /> **id** -de id van de gebeurtenis.<br /><br /> Het optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
+|**DefaultEvents**|Optionele kenmerk:<br/><br/> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
+|**Gebeurtenis**|Vereist kenmerk:<br /><br /> **id** -de id van de gebeurtenis.<br /><br /> Optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
 
 
 
-## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
+## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration-Element  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**DefaultEvents**|Het optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
-|**Gebeurtenis**|Vereist kenmerk:<br /><br /> **id** -de id van de gebeurtenis.<br /><br /> Het optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
+|**DefaultEvents**|Optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
+|**Gebeurtenis**|Vereist kenmerk:<br /><br /> **id** -de id van de gebeurtenis.<br /><br /> Optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
 
 
 
 ## <a name="metrics-element"></a>Element van de metrische gegevens  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - metrische gegevens*
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - metrische gegevens*
 
- Hiermee kunt u voor het genereren van een tabel van prestaties teller die is geoptimaliseerd voor snelle query's. Elk prestatiemeteritem dat is gedefinieerd in de **PerformanceCounters** element is opgeslagen in de tabel metrische gegevens naast het prestatiemeteritem-tabel.  
+ Hiermee kunt u voor het genereren van een tabel met prestaties teller die is geoptimaliseerd voor snelle query's. Elk prestatiemeteritem dat is gedefinieerd in de **PerformanceCounters** element wordt opgeslagen in de metrische gegevenstabel voor naast het prestatiemeteritem-tabel.  
 
- De **resourceId** kenmerk is vereist.  De resource-ID van de virtuele Machine of virtuele-Machineschaalset die u om Azure Diagnostics implementeert. Ophalen van de **resourceID** van de [Azure-portal](https://portal.azure.com). Selecteer **Bladeren** -> **resourcegroepen** -> **< naam\>**. Klik op de **eigenschappen** tegel en kopieer de waarde van de **ID** veld.  
+ De **resourceId** kenmerk is vereist.  De resource-ID van de virtuele Machine of virtuele-Machineschaalset implementeert u om de Azure Diagnostics. Krijgen de **resourceID** uit de [Azure-portal](https://portal.azure.com). Selecteer **Bladeren** -> **resourcegroepen** -> **< naam\>**. Klik op de **eigenschappen** tegel en kopieer de waarde van de **ID** veld.  
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**MetricAggregation**|Vereist kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**MetricAggregation**|Vereist kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar de opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
-## <a name="performancecounters-element"></a>PerformanceCounters Element  
+## <a name="performancecounters-element"></a>PerformanceCounters-Element  
  *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters-*
 
- Hiermee kunt het verzamelen van prestatiemeteritems.  
+ Kunt u het verzamelen van prestatiemeteritems.  
 
- Het optionele kenmerk:  
+ Optionele kenmerk:  
 
- Optionele **scheduledTransferPeriod** kenmerk. Zie eerder uitleg.
+ Optionele **scheduledTransferPeriod** kenmerk. Zie de uitleg eerder.
 
 |Onderliggend Element|Beschrijving|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|De volgende kenmerken zijn vereist:<br /><br /> - **counterSpecifier** -de naam van het prestatiemeteritem. Bijvoorbeeld `\Processor(_Total)\% Processor Time`. Als u een lijst met prestatiemeteritems op de host, voert u de opdracht `typeperf`.<br /><br /> - **sampleRate** -hoe vaak de teller moet actieve.<br /><br /> Het optionele kenmerk:<br /><br /> **eenheid** -de eenheid van de teller.|  
+|**PerformanceCounterConfiguration**|De volgende kenmerken zijn vereist:<br /><br /> - **counterSpecifier** -de naam van het prestatiemeteritem. Bijvoorbeeld `\Processor(_Total)\% Processor Time`. Als u een lijst met prestatiemeteritems op uw host, voert u de opdracht `typeperf`.<br /><br /> - **sampleRate** -hoe vaak het item dat moet worden verzameld.<br /><br /> Optionele kenmerk:<br /><br /> **eenheid** -de eenheid van de teller.|  
 
 
 
 
-## <a name="windowseventlog-element"></a>WindowsEventLog Element
+## <a name="windowseventlog-element"></a>WindowsEventLog-Element
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
  
- Kan de verzameling van het Windows-gebeurtenislogboeken.  
+ Kunt u het verzamelen van de Windows-gebeurtenislogboeken.  
 
- Optionele **scheduledTransferPeriod** kenmerk. Zie eerder uitleg.  
+ Optionele **scheduledTransferPeriod** kenmerk. Zie de uitleg eerder.  
 
 |Onderliggend Element|Beschrijving|  
 |-------------------|-----------------|  
@@ -558,40 +560,40 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="logs-element"></a>Logboeken Element  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logboeken*
+## <a name="logs-element"></a>Logboeken-Element  
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logboeken*
 
- Aanwezig zijn op versie 1.0 en 1.1. 1.2 ontbreken. Terug in 1.3 toegevoegd.  
+ Aanwezig zijn in versie 1.0 en 1.1. Ontbreekt in 1.2. Terug in 1.3 toegevoegd.  
 
- Definieert de configuratie van de buffer voor basic-Azure Logboeken.  
+ Definieert de configuratie van de buffer voor basic Logboeken in Azure.  
 
 |Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|Optioneel. Hiermee geeft u de maximale hoeveelheid opslagruimte op het bestand systeem die beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
-|**scheduledTransferLogLevelFilterr**|**Tekenreeks**|Optioneel. Hiermee geeft u het minimale ernstniveau van logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, die alle logboeken overdraagt. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
-|**scheduledTransferPeriod**|**Duur**|Optioneel. Hiermee geeft u het interval tussen geplande de overdracht van gegevens, afgerond naar het dichtstbijzijnde aantal minuten.<br /><br /> De standaardwaarde is PT0S.|  
-|**sinks** toegevoegd in 1.5|**Tekenreeks**|Optioneel. Verwijst naar een locatie sink ook diagnostische gegevens verzenden. Bijvoorbeeld, Application Insights.|  
+|**bufferQuotaInMB**|**unsignedInt**|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
+|**scheduledTransferLogLevelFilterr**|**Tekenreeks**|Optioneel. Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, waarop alle logboeken gegevensoverdrachten. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
+|**scheduledTransferPeriod**|**Duur**|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
+|**sinks** |**Tekenreeks**| In 1.5 toegevoegd. Optioneel. Verwijst naar een sink-locatie voor het verzenden van diagnostische gegevens ook. Bijvoorbeeld, Application Insights of Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources-*
 
- In 1,9 toegevoegd.
+ In 1.9 toegevoegd.
 
-|Elementnaam|Beschrijving|  
+|De naam van element|Beschrijving|  
 |------------------|-----------------|  
 |**Statistieken**|Geeft het systeem voor het verzamelen van statistieken voor Docker-containers|  
 
-## <a name="sinksconfig-element"></a>SinksConfig Element  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+## <a name="sinksconfig-element"></a>SinksConfig-Element  
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
 
- Een lijst met locaties voor het verzenden van diagnostische gegevens naar en de configuratie die is gekoppeld aan deze locaties.  
+ Een lijst met locaties voor het verzenden van diagnostische gegevens en de configuratie die is gekoppeld aan deze locaties.  
 
-|Elementnaam|Beschrijving|  
+|De naam van element|Beschrijving|  
 |------------------|-----------------|  
-|**Sink**|Zie de beschrijving ergens anders op deze pagina.|  
+|**Sink**|Zie de beschrijving elders op deze pagina.|  
 
 ## <a name="sink-element"></a>Sink-Element
- *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink-*
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
 
  In versie 1.5 toegevoegd.  
 
@@ -599,26 +601,26 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
-|**Naam**|tekenreeks|Een tekenreeks die de sinkname te identificeren.|  
+|**De naam**|tekenreeks|Een tekenreeks die de sinkname identificeren.|  
 
 |Element|Type|Beschrijving|  
 |-------------|----------|-----------------|  
-|**Application Insights**|tekenreeks|Alleen gebruikt wanneer het verzenden van gegevens naar Application Insights. De Instrumentatiesleutel voor een actieve Application Insights-account dat u toegang tot hebt bevatten.|  
-|**Kanalen**|tekenreeks|Één voor elke extra filteren die u stream|  
+|**Application Insights**|tekenreeks|Alleen gebruikt wanneer gegevens worden verzonden naar Application Insights. De Instrumentatiesleutel voor een actieve Application Insights-account dat u toegang tot hebt bevatten.|  
+|**kanalen**|tekenreeks|Één voor elke aanvullende filters die u streamen|  
 
-## <a name="channels-element"></a>Kanalen Element  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanalen*
+## <a name="channels-element"></a>Kanalen-Element  
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanalen*
 
  In versie 1.5 toegevoegd.  
 
- Hiermee definieert u filters voor stromen van logboekgegevens een sink te doorlopen.  
+ Filters voor gegevensstromen van logboekgegevens die zijn doorgegeven via een sink definieert.  
 
 |Element|Type|Beschrijving|  
 |-------------|----------|-----------------|  
-|**Kanaal**|tekenreeks|Zie de beschrijving ergens anders op deze pagina.|  
+|**Kanaal**|tekenreeks|Zie de beschrijving elders op deze pagina.|  
 
 ## <a name="channel-element"></a>Kanaal-Element
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanalen - kanaal*
+ *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanalen - kanaal*
 
  In versie 1.5 toegevoegd.  
 
@@ -626,14 +628,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Kenmerken|Type|Beschrijving|  
 |----------------|----------|-----------------|  
-|**logLevel**|**Tekenreeks**|Hiermee geeft u het minimale ernstniveau van logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, die alle logboeken overdraagt. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
-|**Naam**|**Tekenreeks**|Een unieke naam van het kanaal om te verwijzen naar|  
+|**logLevel**|**Tekenreeks**|Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, waarop alle logboeken gegevensoverdrachten. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
+|**De naam**|**Tekenreeks**|Een unieke naam van het kanaal om te verwijzen naar|  
 
 
-## <a name="privateconfig-element"></a>PrivateConfig Element 
- *Structuur: Basis - DiagnosticsConfiguration - PrivateConfig*
+## <a name="privateconfig-element"></a>PrivateConfig-Element 
+ *Structuur: Root - DiagnosticsConfiguration - PrivateConfig*
 
- In versie 1.3 toegevoegd.  
+ Toegevoegd in versie 1.3.  
 
  Optioneel  
 
@@ -641,10 +643,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**StorageAccount**|Het storage-account te gebruiken. De volgende kenmerken zijn vereist<br /><br /> - **naam** -de naam van het opslagaccount.<br /><br /> - **sleutel** -de sleutel tot het opslagaccount.<br /><br /> - **eindpunt** -het eindpunt voor toegang tot het opslagaccount. <br /><br /> -**sasToken** (toegevoegd 1.8.1)-kunt u een SAS-token in plaats van de sleutel van een opslagaccount in de persoonlijke configuratie. Indien opgegeven, wordt de sleutel van het opslagaccount wordt genegeerd. <br />Vereisten voor de SAS-Token: <br />-Ondersteunt alleen account SAS-token <br />- *b*, *t* servicetypen zijn vereist. <br /> - *een*, *c*, *u*, *w* machtigingen zijn vereist. <br /> - *c*, *o* brontypen die zijn vereist. <br /> -Ondersteunt alleen het HTTPS-protocol <br /> -Starten en het verlooptijdstip moet geldig zijn.|  
+|**StorageAccount**|De storage-account te gebruiken. De volgende kenmerken zijn vereist<br /><br /> - **naam** -de naam van het storage-account.<br /><br /> - **sleutel** -de sleutel tot het opslagaccount.<br /><br /> - **eindpunt** -het eindpunt voor toegang tot het opslagaccount. <br /><br /> -**sasToken** (toegevoegd 1.8.1)-kunt u een SAS-token in plaats van een opslagaccountsleutel in de persoonlijke configuratie. Indien opgegeven, wordt de opslagaccountsleutel genegeerd. <br />Vereisten voor het SAS-Token: <br />-Ondersteunt alleen SAS-token van account <br />- *b*, *t* servicetypen zijn vereist. <br /> - *een*, *c*, *u*, *w* machtigingen zijn vereist. <br /> - *c*, *o* resourcetypen zijn vereist. <br /> -Ondersteunt alleen het HTTPS-protocol <br /> -De starten en verlooptijd moet geldig zijn.|  
 
 
-## <a name="isenabled-element"></a>IsEnabled Element  
- *Structuur: Basis - DiagnosticsConfiguration - IsEnabled*
+## <a name="isenabled-element"></a>IsEnabled-Element  
+ *Structuur: Root - DiagnosticsConfiguration - IsEnabled*
 
- Booleaanse waarde. Gebruik `true` de diagnostische gegevens inschakelen of `false` uitschakelen van de diagnostische gegevens.
+ Booleaanse waarde. Gebruik `true` de diagnostische gegevens inschakelen of `false` om uit te schakelen van de diagnostische gegevens.

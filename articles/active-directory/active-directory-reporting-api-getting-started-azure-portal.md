@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442080"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159676"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Aan de slag met de Azure Active Directory reporting API
 
@@ -49,7 +49,7 @@ Zie voor gedetailleerde instructies, de [vereisten voor toegang tot de Azure Act
 
 ## <a name="apis-with-graph-explorer"></a>API's met Graph Explorer
 
-U kunt de [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) Controleer uw aanmelding en analyseren van gegevens van de API. Zorg ervoor dat u zich aanmeldt bij uw account met behulp van de knoppen voor aanmelding bij in de gebruikersinterface van Graph Explorer en stel **Tasks.ReadWrite** en **Directory.ReadAll** machtigingen voor uw tenant, zoals wordt weergegeven.   
+U kunt de [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) Controleer uw aanmelding en analyseren van gegevens van de API. Zorg ervoor dat u zich aanmeldt bij uw account met behulp van de knoppen voor aanmelding bij in de gebruikersinterface van Graph Explorer en stel **AuditLog.Read.All** en **Directory.Read.All** machtigingen voor uw tenant, zoals wordt weergegeven.   
 
 ![Graph Explorer](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
 

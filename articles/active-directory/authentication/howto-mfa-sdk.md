@@ -1,76 +1,76 @@
 ---
 title: Azure MFA software development kit voor aangepaste apps
-description: In dit artikel leest u hoe om te downloaden en de Azure MFA-SDK gebruiken voor verificatie in twee stappen voor uw aangepaste apps inschakelen.
+description: In dit artikel wordt beschreven hoe u kunt downloaden en de Azure MFA-SDK gebruiken om in te schakelen van verificatie in twee stappen voor uw aangepaste apps.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 11/29/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 28b48df27bf9b2f7176b886ef684f9281b3c4f37
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 6b82ba53e7a469b01d77865831c2f5fb37f71044
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866023"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160838"
 ---
-# <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Gebouw multi-factor Authentication in aangepaste Apps (SDK)
+# <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Building multi-factor Authentication in aangepaste Apps (SDK)
 
 > [!IMPORTANT]
-> De afschaffing van de Azure Multi-Factor Authentication Software Development Kit (SDK) is aangekondigd. Deze functie wordt niet langer ondersteund voor nieuwe klanten. Huidige klanten kunnen de SDK nog gebruiken tot en met 14 november 2018. Na deze datum kan de SDK niet meer worden aangeroepen. 
+> De afschaffing van de Azure Multi-Factor Authentication Software Development Kit (SDK) is aangekondigd. Deze functie wordt niet meer worden ondersteund voor nieuwe klanten. Huidige klanten kunnen de SDK nog gebruiken tot en met 14 november 2018. Na deze datum kan de SDK niet meer worden aangeroepen. 
 
-De Azure multi-factor Authentication Software Development Kit (SDK) kunt u de verificatie in twee stappen rechtstreeks in het aanmelden of transactie processen van toepassingen in uw Azure AD-tenant maken.
+De Azure multi-factor Authentication Software Development Kit (SDK) kunt u verificatie in twee rechtstreeks in de aanmelding of transactie processen van toepassingen in uw Azure AD-tenant maken.
 
-De multi-factor Authentication SDK is beschikbaar voor C#, Visual Basic (.NET), Java, Perl, PHP en Ruby. De SDK biedt een thin wrapper rond verificatie in twee stappen. Het bevat alles wat die u nodig hebt om uw code, inclusief opmerkingen broncodebestanden, bijvoorbeeld bestanden en een gedetailleerde Leesmij-bestand te schrijven. Elke SDK bevat ook een certificaat en de persoonlijke sleutel voor het versleutelen van transacties die uniek voor uw multi-factor Authentication-Provider zijn. Als u een provider hebt, kunt u de SDK in zoveel talen en indelingen downloaden als u nodig hebt.
+De SDK voor multi-factor Authentication is beschikbaar voor C#, Visual Basic (.NET), Java, Perl, PHP en Ruby. De SDK biedt een thin wrapper rond verificatie in twee stappen. Dit omvat alles wat die u nodig hebt om uw code, inclusief opmerkingen broncodebestanden, van de voorbeeldbestanden en een gedetailleerde Leesmij-bestand te schrijven. Elke SDK bevat ook een certificaat en de persoonlijke sleutel voor het versleutelen van transacties die uniek voor uw multi-factor Authentication-Provider zijn. Als u een provider hebt, kunt u de SDK in zo veel talen en -indelingen kunt downloaden als u nodig hebt.
 
-De structuur van de API's in de multi-factor Authentication SDK is eenvoudig. Controleer één functie-aanroep om een API met de multi-factor-optie parameters (zoals de verificatie-modus) en de gebruikersgegevens (zoals het telefoonnummer of de pincode valideren). De API's vertalen de functieaanroep in web services aanvragen naar de cloud-gebaseerde Azure multi-factor Authentication-Service. Alle aanroepen moeten een verwijzing naar het persoonlijke certificaat dat is opgenomen in elke SDK bevatten.
+De structuur van de API's in de SDK voor multi-factor Authentication is eenvoudig. Controleer één functie aanroepen van een API met de optie multi-factor-parameters (zoals controle-modus) en de gebruikersgegevens (zoals het telefoonnummer of de pincode valideren). De API's vertalen de functieaanroep naar web services-aanvragen naar de cloud gebaseerde Azure multi-factor Authentication-Service. Alle aanroepen, moeten een verwijzing naar het persoonlijke certificaat dat is opgenomen in elke SDK bevatten.
 
-Omdat de API's geen toegang tot gebruikers die zijn geregistreerd bij Azure Active Directory, moet u gebruikersgegevens in een bestand of de database opgeven. Ook bieden de API's geen informatie over de beheerfuncties van inschrijving of gebruiker, dus u moet deze processen in uw toepassing bouwen.
+Omdat de API's geen toegang tot gebruikers die zijn geregistreerd bij Azure Active Directory hebt, kunt u gegevens van de gebruiker in een bestand of de database moet opgeven. Ook bieden de API's geen functies voor inschrijving of gebruiker, dus moet u deze processen inbouwen in uw toepassing.
 
 > [!IMPORTANT]
-> Als u de SDK wilt downloaden, moet u een Azure Multi-Factor Authentication-provider maken, zelfs als u Azure MFA, AAD Premium of EMS-licenties hebt. Als u een Azure multi-factor Authentication-Provider voor dit doel maken en hebt al licenties, controleert u of voor het maken van de Provider met de **Per ingeschakelde gebruiker** model. Koppel de provider vervolgens aan de map die de licenties voor Azure MFA, Azure AD Premium of EMS bevat. Deze configuratie zorgt ervoor dat u wordt alleen gefactureerd als u meer unieke gebruikers met behulp van de SDK dan het aantal licenties dat u bezit hebt.
+> Als u de SDK wilt downloaden, moet u een Azure Multi-Factor Authentication-provider maken, zelfs als u Azure MFA, AAD Premium of EMS-licenties hebt. Als u Azure multi-factor Authentication-Provider voor dit doel maken en al licenties hebt, zorg ervoor dat u de Provider maakt met de **Per ingeschakelde gebruiker** model. Koppel de provider vervolgens aan de map die de licenties voor Azure MFA, Azure AD Premium of EMS bevat. Deze configuratie zorgt ervoor dat u alleen een rekening ontvangt als u meer unieke gebruikers met de SDK gebruiken dan het aantal licenties dat u bezit hebt.
 
 
 ## <a name="download-the-sdk"></a>De SDK downloaden
-De Azure multi-factor Authentication SDK downloaden vereist een [Azure multi-factor Authentication-Provider](concept-mfa-authprovider.md).  Hiervoor moet een volledige Azure-abonnement, zelfs als het eigendom van Azure MFA, Azure AD Premium of Enterprise Mobility Suite licenties zijn. De openbare methoden voor het downloaden van de SDK hebt gesteld, omdat de SDK is afgeschaft. Als u wilt downloaden van de SDK, moet u een ondersteuningsaanvraag openen met Microsoft. De SDK wordt geleverd alleen aan klanten die al van de SDK gebruikmaken. Nieuwe klanten worden niet vrijgegeven.
+Downloaden van de SDK van Azure multi-factor Authentication vereist een [Azure multi-factor Authentication-Provider](concept-mfa-authprovider.md).  Hiervoor moet een volledige Azure-abonnement, zelfs als het eigendom van Azure MFA, Azure AD Premium of Enterprise Mobility Suite-licenties zijn. De openbare methoden van het downloaden van de SDK hebt genomen, omdat de SDK is afgeschaft. Als u nodig hebt voor het downloaden van de SDK, moet u een ondersteuningsaanvraag openen met Microsoft. De SDK is geleverd alleen aan klanten die al van de SDK gebruikmaken. Nieuwe klanten, niet worden toegevoegd.
 
 ## <a name="whats-in-the-sdk"></a>Wat is er in de SDK
 De SDK bevat de volgende items:
 
-* **LEESMIJ**. Legt uit hoe u de multi-factor Authentication-API's gebruiken in een nieuwe of bestaande toepassing.
-* **Bronbestanden** voor multi-factor Authentication
+* **LEESMIJ-BESTAND**. Wordt uitgelegd hoe u de multi-factor Authentication-API's in een nieuwe of bestaande toepassing.
+* **De bronbestanden** voor meervoudige verificatie
 * **Clientcertificaat** die u gebruikt om te communiceren met de multi-factor Authentication-service
 * **Persoonlijke sleutel** voor het certificaat
-* **Aanroepen van resultaten.** Een lijst met oproepresultaatcodes. Om dit bestand openen, een toepassing met de tekst, zoals WordPad te gebruiken. Gebruik de oproepresultaatcodes om te testen en oplossen van de implementatie van multi-factor Authentication in uw toepassing. Ze zijn geen statuscodes voor verificatie.
-* **voorbeelden.** Voorbeeldcode voor een eenvoudige werkende implementatie van multi-factor Authentication.
+* **Resultaten aanroepen.** Een lijst met oproepresultaatcodes. Als u wilt dit bestand opent, een toepassing met tekst, zoals WordPad te gebruiken. Gebruik de oproepresultaatcodes voor testen en probleemoplossing van de implementatie van multi-factor Authentication in uw toepassing. Ze zijn niet statuscodes voor verificatie.
+* **Voorbeelden.** Voorbeeldcode voor een eenvoudige werkende implementatie van multi-factor Authentication.
 
 > [!WARNING]
-> Het clientcertificaat is een unieke persoonlijk certificaat die speciaal voor u is gegenereerd. Geen delen of dit bestand verloren. Het is uw sleutel voor de beveiliging van uw communicatie met de multi-factor Authentication-service.
+> Het clientcertificaat is een unieke persoonlijke certificaat dat is gegenereerd met name voor u. Geen delen of dit bestand verloren gaan. Het is uw sleutel voor de beveiliging van uw communicatie met de multi-factor Authentication-service.
 
 ## <a name="code-sample"></a>Codevoorbeeld
-Dit voorbeeld ziet u hoe de API's gebruiken in de SDK van Azure multi-factor Authentication standaardmodus stem aanroep verificatie toevoegen aan uw toepassing. Standaardmodus is een telefoongesprek die de gebruiker reageert op door op de toets # te drukken.
+Dit codevoorbeeld ziet u hoe u de API's in de Azure multi-factor Authentication SDK standaardmodus aanroep stemverificatie toevoegen aan uw toepassing. Standaard-modus is een telefoongesprek die de gebruiker door de toets # te drukken op reageert.
 
-Dit voorbeeld gebruikt de C# .NET 2.0 multi-factor Authentication SDK in een eenvoudige ASP.NET-toepassing met C#-serverzijde logica, maar het proces is vergelijkbaar in andere talen. Omdat de SDK bronbestanden, niet-uitvoerbare bestanden bevat, kunt u bouwen van de bestanden en ernaar te verwijzen of deze rechtstreeks in uw toepassing opnemen.
+In dit voorbeeld maakt gebruik van de C# .NET 2.0 SDK multi-factor Authentication in een eenvoudige ASP.NET-toepassing met C#-serverzijde logica, maar het proces is vergelijkbaar in andere talen. Omdat de SDK bronbestanden, niet-uitvoerbare bestanden bevat, kunt u bouwen van de bestanden en ernaar te verwijzen of deze rechtstreeks in uw toepassing opnemen.
 
 > [!NOTE]
-> Bij het implementeren van multi-factor Authentication, de aanvullende methoden gebruiken (telefoongesprek of tekstbericht) als secundair of tertiair verificatie ter aanvulling van de primaire authenticatiemethode (gebruikersnaam en wachtwoord). Deze methoden zijn niet bedoeld als primaire verificatiemethoden.
+> Bij het implementeren van multi-factor Authentication, gebruikt u de aanvullende methoden (telefonische oproep of SMS-bericht) als secundair of tertiair verificatie om te vormen een aanvulling op de primaire verificatiemethode (gebruikersnaam en wachtwoord). Deze methoden zijn niet bedoeld als primaire verificatiemethoden.
 
-### <a name="code-sample-overview"></a>Overzicht van de code-voorbeeld
-Deze voorbeeldcode voor een eenvoudige demo webtoepassing maakt gebruik van een telefoongesprek met een antwoord van de hostsleutel # om te controleren of verificatie van de gebruiker. Deze factoren telefoongesprek wordt genoemd in de multi-factor Authentication standaardmodus.
+### <a name="code-sample-overview"></a>Overzicht van de voorbeeld-code
+Deze voorbeeldcode voor een eenvoudige web-demo-toepassing maakt gebruik van een telefoongesprek met een # antwoord om te controleren of verificatie van de gebruiker. Deze factoren telefoongesprek wordt genoemd in multi-factor Authentication standaardmodus.
 
-De client-side '-code bevat geen een multi-Factor Authentication-specifieke elementen bevat. Omdat de aanvullende verificatiefactoren onafhankelijk van de primaire verificatie, kunt u ze kunt toevoegen zonder dat u de interface voor bestaande wijzigt. De API's in de multi-factor-SDK kunt u de gebruikerservaring aanpassen, maar moet u mogelijk niet op alle belang.
+De client-side-code bevat geen elke multi-factor Authentication-specifieke elementen bevat. Omdat de aanvullende verificatiefactoren onafhankelijk van de primaire verificatie zijn, kunt u ze kunt toevoegen zonder te hoeven wijzigen van de interface voor bestaande. De API's in de multi-factor Authentication-SDK kunt u de gebruikerservaring aanpassen, maar mogelijk moet u niet alles helemaal te wijzigen.
 
-De code op de server wordt standaard verificatiemodus toegevoegd in stap 2. Er wordt een PfAuthParams-object gemaakt met de parameters die vereist voor de verificatie standaardmodus zijn: gebruikersnaam, getal, en de modus en het pad naar het clientcertificaat (CertFilePath), die vereist is in elke aanroep van de telefoon. Zie het voorbeeld van een bestand in de SDK voor een demonstratie van alle parameters in PfAuthParams.
+De code op de server wordt verificatie in de standard-modus toegevoegd in stap 2. Een PfAuthParams-object wordt gemaakt met de parameters die vereist voor verificatie van de standard-modus zijn: gebruikersnaam, getal, en -modus en het pad naar het clientcertificaat (CertFilePath), die vereist is in elke aanroep van de telefoon. Zie het voorbeeld van een bestand in de SDK voor een demonstratie van alle parameters in PfAuthParams.
 
-De code wordt vervolgens het PfAuthParams-object doorgegeven aan de pf_authenticate()-functie. De geretourneerde waarde geeft aan het slagen of mislukken van de verificatie. De parameters, callStatus en Aanroepstatus, extra aanroep resultaat informatie bevatten. De oproepresultaatcodes worden beschreven in het bestand met resultaten aanroep in de SDK.
+De code wordt vervolgens het PfAuthParams-object doorgegeven aan de functie pf_authenticate(). De geretourneerde waarde geeft aan dat het slagen of mislukken van de verificatie. De parameters, callStatus en Aanroepstatus, extra aanroep resultaat informatie bevatten. De oproepresultaatcodes worden beschreven in het bestand met resultaten aanroep in de SDK.
 
-Deze minimale implementatie kan worden geschreven in een paar regels. In productiecode moet zou u bevatten echter meer geavanceerde foutafhandeling, extra databasecode en een betere gebruikerservaring.
+Deze minimale implementatie kan worden geschreven in een paar regels. Bij de productiecode zou u bevatten echter meer geavanceerde foutafhandeling, extra databasecode en een verbeterde gebruikerservaring.
 
-### <a name="web-client-code"></a>Web-Client-Code
-Hieronder vindt u een web-clientcode voor een demo-pagina.
+### <a name="web-client-code"></a>Web-clientcode
+Hier volgt een web-clientcode voor een demo-pagina.
 
     <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="\_Default" %>
 
@@ -104,7 +104,7 @@ Hieronder vindt u een web-clientcode voor een demo-pagina.
 
 
 ### <a name="server-side-code"></a>Code op de server
-Multi-factor Authentication is geconfigureerd en worden uitgevoerd in stap 2 in de volgende code van de serverzijde. Standaard-modus (MODE_STANDARD) is een telefoongesprek waarop de gebruiker reageert door # te drukken.
+Multi-factor Authentication is geconfigureerd en uitvoeren in stap 2 in de volgende code van de serverzijde. Standaard-modus (MODE_STANDARD) is een telefoongesprek waarop de gebruiker reageert door op de toets # te drukken.
 
     using System;
     using System.Collections.Generic;

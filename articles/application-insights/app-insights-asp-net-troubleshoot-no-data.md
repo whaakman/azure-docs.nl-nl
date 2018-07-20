@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ddc9941792b0c5d8fbf29bfdc698b16a999a3858
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: c239f2b04d8aad621adb4d31146cdc105b439889
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971037"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159805"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -175,8 +175,11 @@ Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insig
 
 U kunt deze uitschakelen, maar dit wordt niet aanbevolen. Steekproeven is zo ontworpen dat gerelateerde telemetrie correct wordt verzonden, voor diagnostische doeleinden. 
 
+## <a name="client-ip-address-is-0000"></a>Client-IP-adres is 0.0.0.0 
+Februari 2018, we [aangekondigd](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) dat we het vastleggen van de Client-IP-adres verwijderd. Dit heeft geen invloed op geografische locatie.
+
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Onjuiste geografische gegevens in de telemetrie van de gebruiker
-De plaats, regio en land dimensies zijn afgeleid van IP-adressen en niet altijd nauwkeurig.
+De plaats, regio en land dimensies zijn afgeleid van IP-adressen en niet altijd nauwkeurig. Deze IP-adressen zijn voor de locatie als eerste verwerkt en vervolgens worden gewijzigd op 0.0.0.0 worden opgeslagen.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Uitzondering Methode niet gevonden bij het uitvoeren van uw app in Azure Cloud Services
 Hebt u uw app ontwikkeld voor .NET 4.6? 4.6 wordt niet automatisch ondersteund in Azure Cloud Services-rollen. [Installeer 4.6 voor elke rol](../cloud-services/cloud-services-dotnet-install-dotnet.md) voordat u uw app uitvoert.

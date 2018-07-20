@@ -11,13 +11,13 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 04/13/2018
-ms.openlocfilehash: d3991bdbcd9c3dcd08572dc92cc75aaebb02b133
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.date: 07/18/2018
+ms.openlocfilehash: 9bd1690003fd37b6c2edd0f0421cf8d0e74f8cb5
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34627361"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144173"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 In dit overzicht beschrijft strategieën voor het oplossen van veelvoorkomende problemen met bij het gebruik van de service Microsoft Genomics. Zie voor veelgestelde vragen over algemene, [Veelgestelde vragen over](frequently-asked-questions-genomics.md). 
@@ -65,7 +65,7 @@ U kunt dit oplossen controleren als de fastq-bestanden dat is verzonden naar de 
 
 
 ### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>Fout bij uploaden van bestand .bam. Er bestaat al een uitvoer-blob en de optie voor objectoverschrijving is ingesteld op False.
-Als u het volgende foutbericht wordt vermeld ziet `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, de map voor uitvoer bevat al een bestand voor uitvoer met dezelfde naam.  Verwijder het bestaande bestand voor uitvoer of schakel de optie voor overschrijven in het configuratiebestand. Verzend uw werkstroom.
+Als u het volgende foutbericht ziet `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, de map voor uitvoer bevat al een bestand voor uitvoer met dezelfde naam.  Verwijder het bestaande bestand voor uitvoer of schakel de optie voor overschrijven in het configuratiebestand. Verzend uw werkstroom.
 
 ### <a name="when-to-contact-microsoft-genomics-support"></a>Wanneer u contact op met ondersteuning voor Microsoft Genomics
 Als u de volgende foutberichten ziet, is een interne fout opgetreden. 

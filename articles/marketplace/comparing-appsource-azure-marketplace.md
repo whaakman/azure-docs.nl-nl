@@ -1,6 +1,6 @@
 ---
-title: Vergelijking van AppSource en Azure Marketplace | Azure
-description: In dit artikel beschrijft de winkelobjecten op AppSource en Azure Marketplace.
+title: Vergelijking van AppSource en de Azure Marketplace | Azure
+description: Dit artikel beschrijft de storefronts in Microsoft AppSource en de Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,42 +14,41 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b0ed71efd99d55315b217686e978048712a7b7c4
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: be7c7e5ad66d6a3412b358c95f74a7d2d653a190
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825113"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158774"
 ---
-# <a name="comparing-appsource-and-azure-marketplace"></a>Vergelijking van AppSource en Azure Marketplace  
-De winkelobjecten fungeren unieke vereisten. De winkelobjecten inschakelen die gericht is op door de rol. U kan bieden de juiste oplossing of de service op basis van uw klant.  
+# <a name="comparing-appsource-and-the-azure-marketplace"></a>Vergelijking van AppSource en de Azure Marketplace
+Storefronts in de [Azure Marketplace](https://azuremarketplace.microsoft.com) en [Microsoft AppSource](https://appsource.microsoft.com) unieke klantvereisten fungeren. Gebruik storefronts doel klanten door de rol. U kunt de juiste oplossing of de service op basis van uw klant kunt aanbieden.
 
-## <a name="understanding-the-differences-between-the-storefronts"></a>Wat zijn de verschillen tussen de winkelobjecten?  
-Het kiezen van een via begint met het identificeren van de doelgroep voor uw aanbieding. Als beide doelgroepen ontwikkelt, mogelijk publiceert u één keer te verkopen in beide winkelobjecten.  
+## <a name="understanding-the-differences-between-storefronts"></a>Informatie over de verschillen tussen storefronts
+Als u een webwinkel, begint u met het vaststellen van de doelgroep voor uw aanbieding. Als u hebt geconfigureerd voor doelgroepen van meerdere storefronts, kunt u één keer publiceren om te mogen verkopen in meerdere storefronts.
  
-Houd rekening met de extra voordelen voor de winkelobjecten.   
+De volgende tabellen beschrijven de voordelen van het gebruik van een webwinkel:
 
-### <a name="appsource"></a>AppSource  
+### <a name="appsource"></a>AppSource
 
-| Voordelen | Details | 
+| Voordeel | Details | 
 |:--- |:--- | 
-| ***Flexibiliteit in facturering*** | Richt een evaluatieversie. Op dit moment biedt geen een publicatieoptie commerce ingeschakeld. U kunt uw huidige ordening en facturering infrastructuur zonder extra worden geïnvesteerd of wijzigingen. | 
-| ***Vereenvoudiging van de verbindingen met andere partners*** | Koppelingen onafhankelijke softwareleveranciers, systeemintegrators en beheerde serviceproviders voor specifieke implementatie-scenario's. U kan samenwerken aan nieuwe klanten verkopen. | 
-| ***Automatisering*** | Koppelingen onafhankelijke softwareleveranciers, systeemintegrators en beheerde serviceproviders voor specifieke implementatie-scenario's. U kan samenwerken aan nieuwe klanten verkopen. |  
-| ***Meerdere cloudtypen*** | Ondersteunt momenteel geen Azure-Stack, Azure Government of regionale clouds. | 
-| ***Presentatie voor klanten in de context*** | Meer klanten via de ervaring in-app voor Microsoft-producten zoals Dynamics 365 Power BI en Office 365 bereiken. |  
+| **Facturering flexibiliteit** | Richt een evaluatieversie. Op dit moment bieden niet een publicatieoptie commerce-functionaliteit. U kunt uw huidige bestellen en facturering infrastructuur gebruiken zonder extra worden geïnvesteerd of wijzigingen. | 
+| **Verbindingen met andere partners** | Koppelingen-onafhankelijke softwareleveranciers, systeemintegratie en providers van beheerde services voor specifieke implementatie-scenario's. U kunt voorbeelddashboards verkoop aan nieuwe klanten. | 
+| **Automatisering** | Koppelingen-onafhankelijke softwareleveranciers, systeemintegratie en providers van beheerde services voor specifieke implementatie-scenario's. U kunt voorbeelddashboards verkoop aan nieuwe klanten. |
+| **Meerdere cloudtypen** | Op dit moment biedt geen ondersteuning voor Azure Stack, Azure Government of regionale clouds. | 
+| **In de context-presentatie voor klanten** | Bereik meer klanten via de in-app voor Microsoft-producten, zoals Dynamics 365, Power BI en Office 365. |
 
-### <a name="azure-marketplace"></a>Azure Marketplace  
+### <a name="azure-marketplace"></a>Azure Marketplace
 
-| Voordelen | Details | 
+| Voordeel | Details | 
 |:--- |:--- | 
-| ***Flexibiliteit in facturering*** | Betalen naar gebruik facturering opties gebruiken voor virtuele machines, Microsoft Enterprise Agreements (EAs) of directe verkoop modellen web. Prijscategorie opties zijn onder andere een laag gratis abonnement waarbij een aanbieding onbeperkte vrij is. Prijscategorie opties zijn ook een abonnement probeert nu. Een abonnement probeer het nu is promotionally beschikbaar voor een beperkte periode; de virtuele machine wordt waarna geconverteerd naar een betaald abonnement. BYOL-activering is ook een optie voor het ondersteunen van u.<br />Voor facturering opties en de volgende VM-aanbiedingen, worden alle ingerichte Azure-resources gefactureerd rechtstreeks aan de klant.<ul> <li>Apps van Azure: beheerde app</li> <li>Apps van Azure: oplossingssjabloon</li> </ul> | 
-| ***Vereenvoudiging van de verbindingen met andere partners*** | U zich niet op dit moment een service-provider of elk leveringsmodel partners koppelen aan uw aanbieding. Deze functionaliteit is in 2018 starten. | 
-| ***Automatisering*** | U zich niet op dit moment een service-provider of elk leveringsmodel partners koppelen aan uw aanbieding. Profiteer van geautomatiseerde SaaS met het leveren van de invoegtoepassing. Apps van Azure gebruiken: oplossingssjabloon voor het automatiseren van gegevens op basis van een SaaS-verzameling- en implementatiescenario's. |  
-| ***Meerdere cloudtypen*** | Publiceren op openbare cloud en oplossingen voor on-premises met behulp van de volgende typen.<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>regionale clouds, inclusief China en Duitsland</li> </ul> | 
-| ***Presentatie voor klanten in de context*** | Zorg dat uw oplossing beschikbaar is in de Azure-portal-ervaring voor contextuele search met behulp van de virtuele machines en apps van Azure: oplossingssjabloon. |  
+| **Facturering flexibiliteit** | Betalen per gebruik factureringsopties gebruiken voor virtuele machines, Microsoft Enterprise Agreements (EA's) of web direct-verkopen modellen. Prijsopties omvatten een gratis laag-abonnement, waarin een aanbieding altijd gratis is. Er is ook een abonnement nu proberen prijsopties. Een abonnement nu uitproberen is gratis gedurende een beperkte periode. Wanneer de periode eindigt, wordt de virtuele machine wordt geconverteerd naar een betaald abonnement. Breng uw eigen licentie (BYOL) activering is ook een optie die u voor klanten gebruiken kunt.<br /><br/>Voor beide opties voor facturering en de volgende VM-aanbiedingen, alle ingerichte Azure-resources worden in rekening gebracht direct aan de klant:<ul> <li>Azure-apps: beheerde app</li> <li>Azure-apps: oplossingssjabloon</li> </ul> | 
+|**Verbindingen met andere partners** | U kunt een service-provider of delivery-partners op dit moment niet koppelen aan uw aanbieding. | 
+| **Automatisering** | U kunt een service-provider of delivery-partners op dit moment niet koppelen aan uw aanbieding. Profiteer van geautomatiseerde software als een service (SaaS) met de invoegtoepassing wordt ingericht. De Azure-apps gebruiken: oplossingssjabloon publiceren de optie voor het automatiseren van gegevens op basis van SaaS-verzameling- en implementatiescenario's. |
+| **Meerdere cloudtypen** | Oplossingen voor zowel de openbare cloud en on-premises publiceren met behulp van de volgende typen:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Regionale clouds, waaronder China en Duitsland</li></ul> | 
+| **In de context-presentatie voor klanten** | Uw oplossing beschikbaar maken in de Azure portal-ervaring voor contextuele zoeken. De virtuele machine en de Azure-apps gebruiken: publicatieopties oplossingssjabloon. |
 
 ## <a name="next-steps"></a>Volgende stappen
-*   Ga naar de [AppSource Publisher handleiding en Azure Marketplace](./marketplace-publishers-guide.md) pagina.  
-*   
----  
+*   Controleer de [Azure Marketplace en AppSource publicatiehandleiding voor](./marketplace-publishers-guide.md).
+

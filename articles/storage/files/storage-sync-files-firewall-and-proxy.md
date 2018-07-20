@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/19/2018
 ms.author: fauhse
-ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 39888772a257e9dc00e5a93736d8676ac6891a16
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342723"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161738"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Proxy- en firewallinstellingen van Azure File Sync
 Azure File Sync verbindt uw on-premises servers naar Azure Files, synchronisatie van meerdere locaties en cloud-opslaglagen functies inschakelen. Als zodanig moet een on-premises server worden verbonden met internet. IT-beheerder nodig heeft om te bepalen van het beste pad voor de server te bereiken in Azure cloudservices.
@@ -27,7 +27,7 @@ Azure File Sync verbindt uw on-premises servers naar Azure Files, synchronisatie
 In dit artikel biedt inzicht in de specifieke vereisten en opties die beschikbaar zijn met succes en veilig verbinding maken als uw server met Azure File Sync.
 
 > [!Important]
-> Azure File Sync nog ondersteunt geen firewalls en virtuele netwerken voor een opslagaccount. 
+> Azure File Sync nog ondersteunt geen firewalls en virtuele netwerken voor een opslagaccount.
 
 ## <a name="overview"></a>Overzicht
 Azure File Sync fungeert als een service orchestration tussen uw Windows-Server, uw Azure-bestandsshare en verschillende andere Azure-services om te synchroniseren van gegevens, zoals beschreven in de groep voor synchronisatie. Voor Azure File Sync correct te laten werken, moet u de servers om te communiceren met de volgende Azure-services configureren:
@@ -39,7 +39,6 @@ Azure File Sync fungeert als een service orchestration tussen uw Windows-Server,
 
 > [!Note]  
 > De Azure File Sync-agent op Windows Server initieert alle aanvragen naar de cloud services, wat leidt tot alleen die rekening houden met het uitgaande verkeer vanuit het oogpunt van de firewall. <br /> Er is geen Azure-service maken van verbinding met de Azure File Sync-agent.
-
 
 ## <a name="ports"></a>Poorten
 Azure File Sync verplaatst gegevens uit een bestand en metagegevens uitsluitend via HTTPS en vereist-poort 443 uitgaande worden geopend.
@@ -79,26 +78,27 @@ De volgende tabel beschrijft de vereiste domeinen voor de communicatie:
 > [!Important]
 > Wanneer het verkeer naar &ast;. one.microsoft.com, verkeer naar meer dan alleen de sync-service is mogelijk van de server. Er zijn veel meer Microsoft-services beschikbaar onder subdomeinen.
 
-Als &ast;. one.microsoft.com te ruim is, kunt u de communicatie van de server beperken door toe te staan alleen expliciete regionale exemplaren van de Azure File Sync-service. Welke instantie (s) om te kiezen, is afhankelijk van de regio van de Opslagsynchronisatieservice waarnaar u hebt geïmplementeerd en de server geregistreerd. Dat is de regio die u wilt toestaan voor de server. Binnenkort zullen er meer URL's voor het inschakelen van nieuwe functies voor bedrijfscontinuïteit. 
+Als &ast;. one.microsoft.com te ruim is, kunt u de communicatie van de server beperken door toe te staan communicatie met alleen een expliciete regionale exemplaren van de Azure File Sync-service. Welke instantie (s) om te kiezen, is afhankelijk van de regio van de opslagsynchronisatieservice hebt u de server geregistreerd en geïmplementeerd. Deze regio heet 'primaire eindpunt-URL' in de onderstaande tabel.
 
-| Regio | Azure File Sync regionale eindpunt-URL |
-|--------|---------------------------------------|
-| Australië - oost | https://kailani-aue.one.microsoft.com |
-| Canada - midden | https://kailani-cac.one.microsoft.com |
-| VS - oost | https://kailani1.one.microsoft.com |
-| Zuidoost-Azië | https://kailani10.one.microsoft.com |
-| Verenigd Koninkrijk Zuid | https://kailani-uks.one.microsoft.com |
-| West-Europa | https://kailani6.one.microsoft.com |
-| VS - west | https://kailani.one.microsoft.com |
+Voor zakelijke continuïteit en noodherstel (BCDR) recovery redenen kan u hebt opgegeven dat uw Azure-bestandsshares in een wereldwijd redundant (GRS) storage-account. Als dit het geval is, wordt klikt u vervolgens uw Azure-bestandsshares failover naar de gekoppelde regio in geval van een langdurige regionale uitval. Azure File Sync maakt gebruik van de dezelfde regionale koppelingen als opslag. Dus als u GRS-opslagaccounts gebruiken, moet u om in te schakelen als u meer URL's voor het toestaan van uw server om te communiceren met de gekoppelde regio voor Azure File Sync. De onderstaande tabel roept deze 'gepaarde regio'. Daarnaast is er een traffic manager-profiel-URL die moet ook worden ingeschakeld. Dit zorgt ervoor netwerkverkeer kan worden naadloos opnieuw doorgestuurd naar de gekoppelde regio in het geval van een failover en met de naam 'Detectie-URL' in de onderstaande tabel.
 
-> [!Important]
-> Als u deze gedetailleerde firewallregels definieert, in dit document vaak controleren en bijwerken van uw firewall-regels om te voorkomen dat de service wordt onderbroken vanwege een verouderde of onvolledige URL-aanbiedingen in de firewall-instellingen.
+| Regio | Primair eindpunt-URL | Gekoppelde regio | Detectie-URL | |---|---|| --------|| ---------------------------------------| | Australië-Oost | https://kailani-aue.one.microsoft.com | Australië Souteast | https://kailani-aue.one.microsoft.com | | Australië-Zuidoost | https://kailani-aus.one.microsoft.com | Australië-Oost | https://tm-kailani-aus.one.microsoft.com | | Canada centraal | https://kailani-cac.one.microsoft.com | Canada-Oost | https://tm-kailani-cac.one.microsoft.com | | Canada-Oost | https://kailani-cae.one.microsoft.com | Canada centraal | https://tm-kailani.cae.one.microsoft.com | | VS-midden | https://kailani-cus.one.microsoft.com | VS-Oost 2 | https://tm-kailani-cus.one.microsoft.com | | Oost-Azië | https://kailani11.one.microsoft.com | Zuidoost-Azië | https://tm-kailani11.one.microsoft.com | | VS-Oost | https://kailani1.one.microsoft.com | VS-West | https://tm-kailani1.one.microsoft.com | | VS-Oost 2 | https://kailani-ess.one.microsoft.com | VS-midden | https://tm-kailani-ess.one.microsoft.com | | Noord-Europa | https://kailani7.one.microsoft.com | West-Europa | https://tm-kailani7.one.microsoft.com | | Zuidoost-Azië | https://kailani10.one.microsoft.com | Oost-Azië | https://tm-kailani10.one.microsoft.com | | UK-Zuid | https://kailani-uks.one.microsoft.com | UK-West | https://tm-kailani-uks.one.microsoft.com | | UK-West | https://kailani-ukw.one.microsoft.com | UK-Zuid | https://tm-kailani-ukw.one.microsoft.com | | West-Europa | https://kailani6.one.microsoft.com | Noord-Europa | https://tm-kailani6.one.microsoft.com | | VS-West | https://kailani.one.microsoft.com | VS-Oost | https://tm-kailani.one.microsoft.com |
+
+- Als u lokaal redundant (LRS) of zone redundant (ZRS) storage-accounts gebruiken, moet u alleen de URL die wordt vermeld onder 'primaire eindpunt-URL' inschakelen.
+
+- Als u wereldwijd redundant (GRS) storage-accounts gebruiken, schakelt u drie URL's.
+
+**Voorbeeld:** implementeren van een opslagsynchronisatieservice in `"West US"` en registreer de server met het. De URL's waarmee de server om te communiceren met in dit geval zijn:
+
+> - https://kailani.one.microsoft.com (primaire eindpunt: VS-West)
+> - https://kailani1.one.microsoft.com (gekoppelde failover regio: VS-Oost)
+> - https://tm-kailani.one.microsoft.com (detectie-URL van de primaire regio)
 
 ## <a name="summary-and-risk-limitation"></a>Samenvatting en risico-beperking
-De lijsten die u eerder in dit document bevat de URL's met Azure File Sync momenteel communiceert met. Firewalls moeten u mogelijk verkeer uitgaand naar deze domeinen, evenals de antwoorden van deze toestaan. Microsoft streeft ernaar te houden deze lijst bijgewerkt.
+De lijsten die u eerder in dit document bevat de URL's met Azure File Sync momenteel communiceert met. Firewalls moeten in staat om toe te staan verkeer uitgaand naar deze domeinen zijn. Microsoft streeft ernaar te houden deze lijst bijgewerkt.
 
-Instellen van het domein te beperken van firewall-regels mag een meting om beveiliging te verbeteren. Als deze firewallconfiguraties worden gebruikt, moet een Houd er rekening mee dat URL's worden toegevoegd en gewijzigd na verloop van tijd. Daarom is het een voorzichtige meting om te controleren of de tabellen in dit document als onderdeel van een beheerproces van het wijzigen van een Azure File Sync-agent-versie naar een andere op een test-implementatie van de meest recente agent. Op deze manier kunt u ervoor zorgen dat uw firewall is geconfigureerd voor het toestaan van verkeer naar domeinen de meest recente agent vereist.
+Instellen van het domein te beperken van firewall-regels mag een meting om beveiliging te verbeteren. Als deze firewallconfiguraties worden gebruikt, moet een Houd er rekening mee dat URL's worden toegevoegd en kunnen zelfs na verloop van tijd worden gewijzigd. Controleer regelmatig in dit artikel.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Planning voor de implementatie van een Azure File Sync](storage-sync-files-planning.md)
-- [Azure File Sync implementeren (preview)](storage-sync-files-deployment-guide.md)
+- [Azure Files Sync implementeren](storage-sync-files-deployment-guide.md)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 754449dcf759820c8bb99d082c3a5ba2792f02c8
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126320"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145346"
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -91,7 +91,7 @@ HTTPS wordt de verificatie geïmplementeerd door te nemen van een geldig token i
 
 Gebruikersnaam (apparaat-id is hoofdlettergevoelig): `iothubname.azure-devices.net/DeviceId`
 
-Wachtwoord (u kunt genereren van een SAS-token met de [apparatenverkenner] [ lnk-device-explorer] hulpprogramma of de CLI-opdracht voor gegevensextensies [az iot hub genereren-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)):
+Wachtwoord (u kunt genereren van een SAS-token met de [apparatenverkenner] [ lnk-device-explorer] hulpprogramma, de CLI-opdracht voor gegevensextensies [az iot hub genereren-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), of de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -270,7 +270,7 @@ Het resultaat, waarmee de toegang tot alle functionaliteit voor device1 worden v
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Het is mogelijk voor het genereren van een SAS-token met behulp van de .NET [apparatenverkenner] [ lnk-device-explorer] hulpprogramma of de platformoverschrijdende, op basis van Python [de IoT-extensie voor Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] opdrachtregelprogramma of de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+> Het is mogelijk voor het genereren van een SAS-token met de [apparatenverkenner] [ lnk-device-explorer] hulpprogramma, de CLI-opdracht voor gegevensextensies [az iot hub genereren-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), of de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### <a name="use-a-shared-access-policy"></a>Een beleid voor gedeelde toegang gebruiken
 
@@ -415,7 +415,7 @@ Hier volgen de belangrijkste stappen van de service voor beveiligingstokens-patr
 
 De service voor beveiligingstokens kunt het verlopen van het token naar wens instellen. Wanneer het token is verlopen, verbreekt de IoT-hub de apparaatmodule /-verbinding. De apparaatmodule moet vervolgens een nieuw token aanvragen van de service voor beveiligingstokens. Een korte verlooptijd verhoogt de belasting van zowel de apparaatmodule als de service voor beveiligingstokens.
 
-Voor een apparaat/module verbinding maken met uw hub, moet u nog steeds deze toevoegen aan de id-register van IoT Hub, zelfs als de it een token en niet een sleutel wordt gebruikt om verbinding te maken. Daarom kunt u blijven gebruikmaken van per-apparaat/per-module toegangsbeheer met in- of uitschakelen van de apparaatmodule /-id's in de [id-register][lnk-identity-registry]. Deze aanpak vermindert de risico's van het gebruik van tokens met minder lang verlopen.
+Voor een apparaat/module verbinding maken met uw hub, moet u nog steeds deze toevoegen aan de id-register van IoT Hub, zelfs als er een token en niet een sleutel wordt gebruikt om verbinding te maken. Daarom kunt u blijven gebruikmaken van per-apparaat/per-module toegangsbeheer met in- of uitschakelen van de apparaatmodule /-id's in de [id-register][lnk-identity-registry]. Deze aanpak vermindert de risico's van het gebruik van tokens met minder lang verlopen.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Vergelijking met een aangepaste gateway
 
@@ -492,8 +492,6 @@ Als u wilt voor het uitproberen van enkele concepten die worden beschreven in di
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
-
-[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-node.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: tutorial-routing.md

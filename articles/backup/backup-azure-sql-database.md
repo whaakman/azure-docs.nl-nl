@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/6/2018
+ms.date: 7/19/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 249f473d7318051e0ce27bcc47a9fde080c4c8f6
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38302820"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160312"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Back-up van SQL Server-database in Azure
 
@@ -784,6 +784,10 @@ Nee. Bij het configureren van beveiliging voor een SQL-server, als u het selecti
 ### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Als ik het herstelmodel wijzigen hoe ik opnieuw beveiliging
 
 Als u het herstelmodel wijzigt, activeer een volledige back-up en logboekback-ups zullen zoals verwacht.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Ik kan SQL Always On Availability Groups waar de primaire replica on-premises is beveiligen
+
+Nee. Azure Backup beschermt SQL-Servers die worden uitgevoerd in Azure. Als een beschikbaarheid van groep (AG) wordt verdeeld tussen Azure en on-premises machines, kan de AG worden beveiligd, alleen als de primaire replica wordt uitgevoerd in Azure. Azure Backup beveiligt alleen de knooppunten die worden uitgevoerd in dezelfde Azure-regio als de Recovery Services-kluis.
 
 ## <a name="next-steps"></a>Volgende stappen
 

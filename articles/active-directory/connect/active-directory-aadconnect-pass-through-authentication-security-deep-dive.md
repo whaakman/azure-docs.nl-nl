@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ea7fb5951cd0b2925aa3dd5ae14b452292ba582c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 48710bc10a57854fcbd4ffbe44bc426333baddc0
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917989"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159226"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory Pass through-verificatie grondig onderzoek van beveiliging
 
@@ -156,7 +156,7 @@ Om ervoor te zorgen dat de Pass through-verificatie operationeel beveiligd blijf
 
 Vernieuwen van een verificatie-Agent-vertrouwensrelatie met Azure AD:
 
-1. De verificatie-Agent regelmatig pingt Azure AD elke paar uur om te controleren als het is tijd om het certificaat te vernieuwen. 
+1. De verificatie-Agent regelmatig pingt Azure AD elke paar uur om te controleren als het is tijd om het certificaat te vernieuwen. Het certificaat is 30 dagen vóór de vervaldatum van de vernieuwd.
     - Deze controle wordt uitgevoerd via een wederzijds HTTPS-kanaal en maakt gebruik van hetzelfde certificaat dat is uitgegeven tijdens de registratie.
 2. Als de service wordt aangegeven dat is het tijd om te vernieuwen, de verificatie-Agent wordt een nieuw sleutelpaar gegenereerd: een openbare sleutel en een persoonlijke sleutel.
     - Deze sleutels worden gegenereerd door middel van standaard RSA 2048-bits codering.

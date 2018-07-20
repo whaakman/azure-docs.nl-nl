@@ -1,31 +1,31 @@
 ---
-title: Self-service voor wachtwoord opnieuw instellen van beleid - Azure Active Directory
-description: Azure AD-selfservice wachtwoord opnieuw instellen van beleidsopties
+title: Beleid voor Azure AD-selfservice voor wachtwoordherstel
+description: Opties voor Azure AD Self-service voor wachtwoord opnieuw instellen configureren
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a851b3842e44dbb81ef80bacde645ebafdb48d86
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054757"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162045"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
 Dit artikel wordt beschreven voor het wachtwoordbeleid en -vereisten voor wachtwoordcomplexiteit die zijn gekoppeld met behulp van gebruikersaccounts die zijn opgeslagen in uw tenant Azure Active Directory (Azure AD).
 
-## <a name="administrator-password-policy-differences"></a>Beheerder wachtwoord beleid verschillen
+## <a name="administrator-reset-policy-differences"></a>Beheerder opnieuw instellen van beleid verschillen
 
-Microsoft dwingt een sterk standaardbeleid *twee-gate* wachtwoord opnieuw instellen voor alle Azure-beheerdersrol. 
+**Microsoft dwingt een sterk standaardbeleid *twee-gate* wachtwoord opnieuw instellen voor alle Azure-beheerdersrol** deze polciy kan afwijken van de waarde die u voor uw gebruikers hebt gedefinieerd en kan niet worden gewijzigd. U moet altijd functionaliteit voor het wachtwoord opnieuw instellen als een gebruiker testen zonder een Azure-beheerdersrollen toegewezen.
 
-Met een twee-gate-beleid geen beheerders de mogelijkheid om te vragen over de beveiliging gebruiken.
+Met een twee-gate-beleid, **beheerders niet hebben de mogelijkheid om de beveiligingsvragen gebruiken als**.
 
  Een twee-gate-beleid vereist twee soorten verificatiegegevens, zoals een e-mailadres *en* een telefoonnummer. Een twee-gate-beleid van toepassing is in de volgende omstandigheden:
 
@@ -49,7 +49,7 @@ Met een twee-gate-beleid geen beheerders de mogelijkheid om te vragen over de be
   * Servicebeheerder voor toepassingsproxy
   * CRM-servicebeheerder
   * Power BI-servicebeheerder
-  
+
 * Als de 30 dagen in een proefabonnement zijn verstreken
 
   of
@@ -61,18 +61,18 @@ Met een twee-gate-beleid geen beheerders de mogelijkheid om te vragen over de be
 * Azure AD Connect synchroniseert identiteiten van uw on-premises directory
 
 ### <a name="exceptions"></a>Uitzonderingen
+
 Een beleid voor één gate vereist een stukje authenticatiegegevens, zoals een e-mailadres *of* telefoonnummer. Een één-gate-beleid van toepassing is in de volgende omstandigheden:
 
 * Het is binnen de eerste 30 dagen van een proefabonnement
 
   of
 
-* Een aangepast domein niet aanwezig (*. onmicrosoft.com) 
+* Een aangepast domein niet aanwezig (*. onmicrosoft.com)
 
-  en 
+  en
 
   Azure AD Connect is niet identiteiten synchroniseren
-
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName-beleidsregels die van toepassing op alle gebruikersaccounts
 
@@ -109,13 +109,13 @@ Deze handleiding is van toepassing op andere providers, zoals Intune en Office 3
 > [!NOTE]
 > Alleen de wachtwoorden voor gebruikersaccounts die niet zijn gesynchroniseerd via adreslijstsynchronisatie kunnen worden geconfigureerd voor het niet is verlopen. Zie voor meer informatie over synchronisatie van directory [AD met Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 >
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Instellen of het wachtwoordbeleid controleren met behulp van PowerShell
 
 Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShell-module](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Nadat u deze geïnstalleerd hebt, kunt u de volgende stappen uit om te configureren van elk veld.
 
-### <a name="how-to-check-the-expiration-policy-for-a-password"></a>Het vervalbeleid voor wachtwoord controleren
+### <a name="check-the-expiration-policy-for-a-password"></a>Het vervalbeleid voor wachtwoord controleren
+
 1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
 2. Voer een van de volgende opdrachten:
 

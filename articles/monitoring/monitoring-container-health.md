@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 1fd5ac0f9994a4dbf4365c21ac4f31ba0eccbb15
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6658eeb70e31593da5f3612ccac8685ecbb976b9
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069148"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161585"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Containerstatus van Azure Kubernetes Service (AKS) (voorbeeld) bewaken
 
@@ -78,7 +78,7 @@ Voer de volgende stappen uit voor bewaking van uw AKS-container vanuit Azure por
 4. Op de **Onboarding naar containerstatus en logboeken** pagina, hebt u een bestaande Log Analytics-werkruimte in hetzelfde abonnement bevinden als het cluster, selecteert u deze in de vervolgkeuzelijst.  De lijst worden er de standaardwerkruimte en locatie van de AKS-container is geïmplementeerd op in het abonnement.<br><br> ![Statuscontrole van AKS container inschakelen](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
 >[!NOTE]
->Als u maken van een nieuwe werkruimte voor logboekanalyse wilt voor het opslaan van de gegevens uit het cluster, volg de stappen in [Cretae een Log Analytics-werkruimte](../log-analytics/log-analytics-quick-create-workspace.md) en zorg ervoor dat u de werkruimte maakt in hetzelfde abonnement als dat het AKS-container geïmplementeerd op.  
+>Als u maken van een nieuwe werkruimte voor logboekanalyse wilt voor het opslaan van de gegevens uit het cluster, volg de stappen in [een Log Analytics-werkruimte maken](../log-analytics/log-analytics-quick-create-workspace.md) en zorg ervoor dat u de werkruimte maakt in hetzelfde abonnement als dat het AKS-container geïmplementeerd op.  
 >
  
 Nadat de controle is ingeschakeld, kunnen duurt ongeveer 15 minuten voordat u zich kunt om te zien van operationele gegevens voor het cluster. 
@@ -371,7 +371,7 @@ De pictogrammen in het statusveld geven aan de onlinestatus van containers:
 | ![Pictogram voor actieve status gereed](./media/monitoring-container-health/container-health-ready-icon.png) | Wordt uitgevoerd (klaar)|
 | ![In afwachting van ' of ' onderbroken statuspictogram](./media/monitoring-container-health/container-health-waiting-icon.png) | In afwachting van ' of ' onderbroken|
 | ![De laatste keer doorgegeven met statuspictogram](./media/monitoring-container-health/container-health-grey-icon.png) | Laatst gerapporteerd uitgevoerd maar meer dan 30 minuten nog niet is gereageerd|
-| ![Beëindigde statuspictogram](./media/monitoring-container-health/container-health-green-icon.png) | Is gestopt of niet stoppen|
+| ![Geslaagde statuspictogram](./media/monitoring-container-health/container-health-green-icon.png) | Is gestopt of niet stoppen|
 
 De van het statuspictogram bevat een aantal op basis van wat de schil biedt. Hier ziet u de slechter twee statussen en wanneer u de muisaanwijzer over de status, toont een implementatie van de status van alle schillen in de container.  Als er geen gereed is, de waarde van de status wordt weergegeven in een **(0)**.  
 
@@ -489,9 +489,7 @@ Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebru
           "addonProfiles": {
             "omsagent": {
               "enabled": false,
-              "config": {
-                "logAnalyticsWorkspaceResourceID": null
-              }
+              "config": null
             }
            }
          }

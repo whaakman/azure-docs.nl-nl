@@ -11,17 +11,17 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: d11ddb0bc15798187ccea22fe1a80a9c86162dcd
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 89c1bb0404e1fbff9241fe42404123288fffea71
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866467"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160226"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
-[Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync (preview) voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
+[Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
 
 In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functies en functionaliteit, waaronder het gebruik van Azure File Sync met Azure Files. Als u het antwoord op uw vraag niet ziet, u kunt contact met ons opnemen via de volgende kanalen (in steeds sneller groeiende volgorde):
 
@@ -90,8 +90,8 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
-**Welke regio's worden ondersteund voor Azure File Sync (preview)?**  
-    Azure File Sync is momenteel beschikbaar in Australië-Oost, Australië-Zuidoost, Canada-centraal, Canada-Oost, VS-midden, Oost-Azië, VS-Oost, VS-Oost 2, Noord-Europa, Zuidoost-Azië, UK-Zuid, UK-West, West-Europa en VS-West. Ondersteuning voor meer regio's wordt toegevoegd als we voor algemene beschikbaarheid werken. Zie voor meer informatie, [beschikbaarheid in regio](storage-sync-files-planning.md#region-availability).
+**Welke regio's worden ondersteund voor Azure File Sync?**  
+    De lijst met beschikbare regio's te vinden in de [beschikbaarheid in regio](storage-sync-files-planning.md#region-availability) sectie van de planning van de Azure File Sync begeleiden. Er wordt continu ondersteuning voor extra regio's, inclusief niet-openbare regio's toevoegen.
 
 * <a id="cross-domain-sync"></a>
 **Kan ik in de groep voor synchronisatie met hetzelfde domein en niet-domein-servers hebben?**  
@@ -367,4 +367,4 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 ## <a name="see-also"></a>Zie ook
 * [Problemen met Azure Files in Windows oplossen](storage-troubleshoot-windows-file-connection-problems.md)
 * [Problemen oplossen met Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Azure File Sync (preview) oplossen](storage-sync-files-troubleshoot.md)
+* [Azure Files Sync oplossen](storage-sync-files-troubleshoot.md)

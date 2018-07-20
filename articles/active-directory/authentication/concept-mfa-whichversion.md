@@ -1,32 +1,35 @@
 ---
-title: Kiezen tussen de cloud of server van Azure MFA| Microsoft Docs
-description: "Kies de Multi-Factor Authentication-beveiligingsoplossing die bij u past, door uzelf de vraag te stellen: 'Wat wil ik beveiligen en waar bevinden zich mijn gebruikers?'"
+title: Azure MFA-Server of -Service, On-premises of in de cloud?
+description: Als een Azure AD-beheerder, die ik nodig om te begrijpen welke versie van MFA ik moet implementeren?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 8314d72aa2cc6787d3f65dd48cd693a0ac332c0a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: 0d68c88bdad63bb022babcc4a6ee4ee7c59ce58a
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158449"
 ---
-# <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Kies de Azure Multi-Factor Authentication-oplossing die bij u past
-Omdat er verschillende versies van Azure Multi-Factor Authentication (MFA) zijn, moet u een aantal vragen beantwoorden om te kunnen beoordelen welke versie voor u de beste is.  Deze vragen zijn:
+# <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Welke versie van Azure MFA is geschikt voor mijn organisatie?
+
+Voordat u waar en hoe bepalen kunt bij het implementeren van multi-factor Authentication (MFA), moet u drie algemene vragen beantwoorden.
 
 * [Wat wil ik beveiligen?](#what-am-i-trying-to-secure)
 * [Waar bevinden de gebruikers zich?](#where-are-the-users-located)
 * [Welke functies heb ik nodig?](#what-features-do-i-need)
 
-In de volgende secties vindt u richtlijnen die u helpen om elk van deze vragen te beantwoorden.
+Elk van de volgende secties vindt u informatie op basis waarvan u de voorgaande vragen te beantwoorden.
 
 ## <a name="what-am-i-trying-to-secure"></a>Wat wil ik beveiligen?
-Om te bepalen welke oplossing voor verificatie in twee stappen de juiste is, moet eerst de vraag worden beantwoord wat u wilt beveiligen met een tweede verificatiemethode.  Is het een toepassing die deel uitmaakt van Azure?  Of een systeem met externe toegang?  Door te bepalen wat we willen beveiligen, kan de vraag worden beantwoord waar Multi-Factor Authentication moet worden ingeschakeld.  
+
+Als u wilt bepalen welke de juiste verificatie in twee stappen verificatie-oplossing, eerst u moet de vraag worden beantwoord wat u wilt beveiligen met een extra authenticatiefactor. Is het een toepassing die deel uitmaakt van Azure? Of een systeem met externe toegang? Door te bepalen wat u wilt beveiligen, kunt u de vraag waar multi-factor Authentication moet worden ingeschakeld.
 
 | Wat wilt u beveiligen | MFA in de cloud | MFA-server |
 | --- |:---:|:---:|
@@ -37,17 +40,19 @@ Om te bepalen welke oplossing voor verificatie in twee stappen de juiste is, moe
 | Externe toegang zoals VPN, RDG | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>Waar bevinden de gebruikers zich?
-Als we vervolgens kijken waar onze gebruikers zich bevinden, kunnen we bepalen wat de juiste oplossing is, in de cloud of on-premises via de MFA Server.
+
+Vervolgens kunt u bepalen waar gebruikers van uw organisatie zich bevindt helpt om te bepalen wat de juiste oplossing moet worden gebruikt, in de cloud of on-premises via de MFA-Server.
 
 | Locatie van gebruikers | MFA in de cloud | MFA-server |
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD en on-premises AD dat gebruikmaakt van federatie met AD FS |● |● |
-| Azure AD en on-premises AD dat gebruikmaakt van DirSync, Azure AD Sync, Azure AD Connect - geen wachtwoord-hashsynchronisatie of pass through-verificatie |● |● |
-| Azure AD en on-premises AD dat gebruikmaakt van DirSync, Azure AD Sync, Azure AD Connect - met wachtwoord-hashsynchronisatie of pass through-verificatie |● | |
+| Azure AD en on-premises AD met behulp van Azure AD Connect - geen synchronisatie van wachtwoordhashes of Pass through-verificatie |● |● |
+| Azure AD en on-premises AD dat gebruikmaakt van Azure AD Connect - met wachtwoord-hash-synchronisatie of Pass through-verificatie |● | |
 | On-premises Active Directory | |● |
 
 ## <a name="what-features-do-i-need"></a>Welke functies heb ik nodig?
+
 De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authentication die beschikbaar zijn in de cloud en de functies die beschikbaar zijn op de Multi-Factor Authentication-server.
 
 | Functie | MFA in de cloud | MFA-server |
@@ -56,13 +61,12 @@ De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authen
 | Een verificatiecode op mobiele app als een tweede factor | ● | ● |
 | Telefoonoproep als tweede factor | ● | ● |
 | Sms in één richting als tweede factor | ● | ● |
-| Sms in twee richtingen als tweede factor | | ●  (Afgeschaft)| 
 | Hardwaretokens als tweede factor | | ● |
 | App-wachtwoorden voor Office 365-clients die geen ondersteuning voor MFA bieden | ● | |
 | Beheerdercontrole over verificatiemethoden | ● | ● |
 | Pincodemodus | | ● |
-| Fraudewaarschuwing |● | ● |
-| MFA-rapporten |● | ● |
+| Fraudewaarschuwing | ● | ● |
+| MFA-rapporten | ● | ● |
 | Eenmalige toegang | | ● |
 | Aangepaste begroeting voor telefoongesprekken | ● | ● |
 | Aanpasbare nummerweergave voor telefoongesprekken | ● | ● |

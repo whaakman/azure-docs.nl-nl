@@ -1,52 +1,50 @@
 ---
-title: Spark te lezen en schrijven van gegevens van de HBase - Azure HDInsight gebruiken | Microsoft Docs
-description: De Spark HBase-Connector gebruiken om te lezen en schrijven van gegevens van een Spark-cluster naar een HBase-cluster.
+title: Spark gebruiken om te lezen en schrijven van gegevens in HBase - Azure HDInsight
+description: De Spark-HBase-Connector gebruiken om te lezen en schrijven van gegevens van een Spark-cluster naar een HBase-cluster.
 services: hdinsight
-documentationcenter: ''
 author: maxluk
+ms.author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: maxluk
-ms.openlocfilehash: 7cfc7f586e8a92c29736a7c4cff0b12796be430a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.topic: conceptual
+ms.date: 07/18/2018
+ms.openlocfilehash: 5123a95852fae58adf0b4a4684b012d3b9c71e3b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161172"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144768"
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Spark gebruiken om HBase-gegevens te lezen en te schrijven
 
-Apache HBase query wordt doorgaans uitgevoerd met de op laag niveau API (scans, opgehaald en puts) of met een SQL-syntaxis met Phoenix. Apache biedt ook de Spark HBase-Connector een handige is en alternatieve zodat om te vragen en gegevens die zijn opgeslagen door HBase te wijzigen.
+Apache HBase is meestal een query uitgevoerd met de laag niveau API (scans, opgehaald en plaatst) of met een SQL-syntaxis Phoenix gebruiken. Apache biedt ook de Spark HBase-Connector, dit een handige is en goed presterende alternatieve om te vragen en gegevens die zijn opgeslagen door HBase te wijzigen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Twee afzonderlijke HDInsight-clusters, één HBase en één Spark met Spark 2.1 (HDInsight 3.6) geïnstalleerd.
-* Het Spark-cluster moet communiceren rechtstreeks met de HBase-cluster met een minimale latentie, zodat de aanbevolen configuratie beide clusters in hetzelfde virtuele netwerk implementeert. Zie voor meer informatie [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md).
+* Twee HDInsight-clusters, één HBase en Spark op een afzonderlijke met Spark 2.1 (HDInsight 3.6) geïnstalleerd.
+* Het Spark-cluster moet communiceren rechtstreeks met de HBase-cluster met een minimale latentie, zodat beide clusters in hetzelfde virtuele netwerk is de implementatie van de aanbevolen configuratie. Zie voor meer informatie, [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 * SSH-toegang tot elk cluster.
-* Toegang tot elke clusteropslag standaard.
+* Toegang tot de standaardopslag voor van elke cluster.
 
-## <a name="overall-process"></a>Algemene proces
+## <a name="overall-process"></a>Algehele proces
 
-Het hoofdproces voor het inschakelen van uw Spark-cluster query uitvoeren op uw HDInsight-cluster is als volgt:
+Het proces op hoog niveau voor het inschakelen van uw Spark-cluster query uitvoeren op uw HDInsight-cluster is als volgt:
 
 1. Voorbeeldgegevens in HBase maken.
-2. Het bestand hbase-site.xml van uw map met HBase-cluster (/ hbase/etc/conf) verkrijgen.
-3. Plaats een kopie van hbase-site.xml in de map van uw Spark-2-configuratie (/ spark2/etc/conf).
-4. Voer `spark-shell` in die verwijzen naar de Connector Spark HBase door de Maven coördineert de `packages` optie.
-5. Definieer een catalogus die het schema van Spark HBase wordt toegewezen.
+2. De hbase-site.xml-bestand van de configuratiemap voor HBase-cluster (/ etc/hbase/conf) aan te schaffen.
+3. Plaats een kopie van hbase-site.xml in de map van uw Spark-2-configuratie (/ etc/spark2/conf).
+4. Voer `spark-shell` verwijst naar de HBase-Connector voor Spark, door de Maven-coördinaten het `packages` optie.
+5. Definieer een catalogus die het schema van Spark voor HBase-kaarten.
 6. Interactie met de HBase-gegevens met behulp van de RDD of DataFrame APIs.
 
-## <a name="prepare-sample-data-in-hbase"></a>Voorbeeldgegevens in HBase voorbereiden
+## <a name="prepare-sample-data-in-hbase"></a>Van voorbeeldgegevens in HBase voorbereiden
 
-In deze stap maakt u maakt en een eenvoudige tabel in HBase die u kunt opvragen met Spark vullen.
+In deze stap maakt u maken en vullen van een eenvoudige tabel in HBase die u kunt vervolgens een query met behulp van Spark.
 
-1. Verbinding maken met het hoofdknooppunt van het HBase-cluster via SSH. Zie voor meer informatie [verbinding maken met HDInsight met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Verbinding maken met het hoofdknooppunt van het HBase-cluster via SSH. Zie voor meer informatie, [verbinding maken met HDInsight met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 2. Voer de HBase-shell:
 
         hbase shell
@@ -55,7 +53,7 @@ In deze stap maakt u maakt en een eenvoudige tabel in HBase die u kunt opvragen 
 
         create 'Contacts', 'Personal', 'Office'
 
-4. Een paar voorbeeld-rijen van de gegevens worden geladen:
+4. Enkele voorbeeldrijen met gegevens laden:
 
         put 'Contacts', '1000', 'Personal:Name', 'John Dole'
         put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
@@ -66,51 +64,51 @@ In deze stap maakt u maakt en een eenvoudige tabel in HBase die u kunt opvragen 
         put 'Contacts', '8396', 'Office:Phone', '230-555-0191'
         put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
 
-## <a name="acquire-hbase-sitexml-from-your-hbase-cluster"></a>Verkrijgen van hbase-site.xml van het HBase-cluster
+## <a name="acquire-hbase-sitexml-from-your-hbase-cluster"></a>Hbase-site.xml vanuit de HBase-cluster te verkrijgen
 
 1. Verbinding maken met het hoofdknooppunt van het HBase-cluster via SSH.
-2. Kopieer de hbase-site.xml van lokale opslag naar de hoofdmap van uw HBase-cluster standaard opslag:
+2. Kopieer de hbase-site.xml uit de lokale opslag in de hoofdmap van de standaardopslag voor het HBase-cluster:
 
         hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml /
 
-3. Navigeer naar uw HBase-cluster met de [Azure-portal](https://portal.azure.com).
+3. Navigeer naar de HBase-cluster met de [Azure-portal](https://portal.azure.com).
 4. Selecteer de Storage-accounts. 
 
     ![Opslagaccounts](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
 
-5. Selecteer het opslagaccount in de lijst met een vinkje onder de standaard-kolom.
+5. Selecteer het opslagaccount in de lijst met een vinkje onder de standaardkolom.
 
-    ![Storage-standaardaccount](./media/hdinsight-using-spark-query-hbase/default-storage.png)
+    ![Standaardopslagaccount](./media/hdinsight-using-spark-query-hbase/default-storage.png)
 
-6. Selecteer de tegel Blobs in het deelvenster Storage-account.
+6. Selecteer de tegel van de Blobs in het deelvenster Storage-account.
 
-    ![BLOBs tegel](./media/hdinsight-using-spark-query-hbase/blobs-tile.png)
+    ![BLOBs-tegel](./media/hdinsight-using-spark-query-hbase/blobs-tile.png)
 
-7. Selecteer de container die wordt gebruikt door uw HBase-cluster in de lijst van containers.
+7. Selecteer de container die wordt gebruikt door uw HBase-cluster in de lijst met containers.
 8. Selecteer in de lijst met bestanden `hbase-site.xml`.
 
     ![HBase-site.xml](./media/hdinsight-using-spark-query-hbase/hbase-site-xml.png)
 
-9. In het deelvenster van de eigenschappen van Blob Selecteer downloaden en opslaan `hbase-site.xml` naar een locatie op uw lokale computer.
+9. Blob-eigenschappen in het venster, selecteer downloaden en opslaan `hbase-site.xml` naar een locatie op uw lokale computer.
 
     ![Downloaden](./media/hdinsight-using-spark-query-hbase/download.png)
 
-## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Hbase-site.xml op uw Spark-cluster plaatsen
+## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Hbase-site.xml plaatsen op uw Spark-cluster
 
 1. Navigeer naar uw Spark-cluster met de [Azure-portal](https://portal.azure.com).
 2. Selecteer de Storage-accounts.
 
     ![Opslagaccounts](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
 
-3. Selecteer het opslagaccount in de lijst met een vinkje onder de standaard-kolom.
+3. Selecteer het opslagaccount in de lijst met een vinkje onder de standaardkolom.
 
-    ![Storage-standaardaccount](./media/hdinsight-using-spark-query-hbase/default-storage.png)
+    ![Standaardopslagaccount](./media/hdinsight-using-spark-query-hbase/default-storage.png)
 
-4. Selecteer de tegel Blobs in het deelvenster Storage-account.
+4. Selecteer de tegel van de Blobs in het deelvenster Storage-account.
 
-    ![BLOBs tegel](./media/hdinsight-using-spark-query-hbase/blobs-tile.png)
+    ![BLOBs-tegel](./media/hdinsight-using-spark-query-hbase/blobs-tile.png)
 
-5. Selecteer de container die wordt gebruikt door uw Spark-cluster in de lijst van containers.
+5. Selecteer de container die wordt gebruikt door uw Spark-cluster in de lijst met containers.
 6. Selecteer uploaden.
 
     ![Uploaden](./media/hdinsight-using-spark-query-hbase/upload.png)
@@ -121,34 +119,34 @@ In deze stap maakt u maakt en een eenvoudige tabel in HBase die u kunt opvragen 
 
 8. Selecteer uploaden.
 9. Verbinding maken met het hoofdknooppunt van uw Spark-cluster via SSH.
-10. Kopiëren `hbase-site.xml` uit de opslag van uw Spark-cluster standaard naar de configuratiemap Spark 2 op de lokale opslag van het cluster:
+10. Kopie `hbase-site.xml` uit uw Spark-cluster standaardopslag naar de map Spark 2-configuratie op de lokale opslag van het cluster:
 
         sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
 
-## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Spark-Shell die verwijzen naar de HBase-Connector Spark uitvoeren
+## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Uitvoeren van Spark-Shell die verwijst naar de Spark-Connector voor HBase
 
 1. Verbinding maken met het hoofdknooppunt van uw Spark-cluster via SSH.
-2. Start de spark-shell opgeven van het pakket Spark HBase-Connector:
+2. Start de spark-shell, het Spark-Connector voor HBase-pakket op te geven:
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
 
-3. Dit exemplaar Spark Shell open houden en doorgaan naar volgende stap.
+3. Houd dit exemplaar van de Spark-Shell geopend en Ga door met de volgende stap.
 
-## <a name="define-a-catalog-and-query"></a>Definieer een catalogus en de Query
+## <a name="define-a-catalog-and-query"></a>Een catalogus en een Query definiëren
 
-In deze stap definieert u een catalogusobject dat het schema van Spark HBase wordt toegewezen. 
+In deze stap definieert u een catalogusobject dat het schema van Spark voor HBase-kaarten. 
 
-1. Uw open Spark-shell, voert u de volgende `import` instructies:
+1. In uw open Spark-Shell, voert u de volgende `import` instructies:
 
         import org.apache.spark.sql.{SQLContext, _}
         import org.apache.spark.sql.execution.datasources.hbase._
         import org.apache.spark.{SparkConf, SparkContext}
         import spark.sqlContext.implicits._
 
-2. Een catalogus voor de tabel contactpersonen die u hebt gemaakt in HBase definiëren:
-    1. Definieer een catalogusschema voor de HBase-tabel met de naam `Contacts`.
-    2. Identificeren van de rowkey als `key`, en de kolomnamen in Spark gebruikt de kolomfamilie, kolomnaam en kolomtype zoals gebruikt in HBase toewijzen.
-    3. De rowkey heeft ook worden gedefinieerd in detail als een kolom met de naam (`rowkey`), die een specifieke kolomfamilie heeft `cf` van `rowkey`.
+2. Definieer een catalogus voor de tabel met contacten die u hebt gemaakt in HBase:
+    1. Een catalogusschema voor de HBase-tabel met de naam definiëren `Contacts`.
+    2. Identificeren van de rowkey als `key`, en de namen van de kolommen die worden gebruikt in Spark kolomfamilie, kolomnaam en het kolomtype, zoals de term in HBase toewijzen.
+    3. De rowkey heeft ook worden gedefinieerd in detail als een benoemde kolom (`rowkey`), die is voorzien van een specifieke kolom-familie `cf` van `rowkey`.
 
             def catalog = s"""{
                 |"table":{"namespace":"default", "name":"Contacts"},
@@ -162,7 +160,7 @@ In deze stap definieert u een catalogusobject dat het schema van Spark HBase wor
                 |}
             |}""".stripMargin
 
-3. Een methode waarmee een DataFrame rond definiëren uw `Contacts` tabel in HBase:
+3. Definieer een methode waarmee een DataFrame rond uw `Contacts` tabel in HBase:
 
             def withCatalog(cat: String): DataFrame = {
                 spark.sqlContext
@@ -172,11 +170,11 @@ In deze stap definieert u een catalogusobject dat het schema van Spark HBase wor
                 .load()
             }
 
-4. Maak een instantie van de DataFrame:
+4. Maak een instantie van het gegevensframe:
 
         val df = withCatalog(catalog)
 
-5. De DataFrame query:
+5. Query van het gegevensframe:
 
         df.show()
 
@@ -189,16 +187,16 @@ In deze stap definieert u een catalogusobject dat het schema van Spark HBase wor
         |  8396|5415 San Gabriel Dr.|  230-555-0191|  Calvin Raji|  230-555-0191|
         +------+--------------------+--------------+-------------+--------------+
 
-7. Registreer een tijdelijke tabel zodat u kunt de HBase-tabel met behulp van Spark SQL query:
+7. Een tijdelijke tabel registreren, zodat u kunt de HBase-tabel met behulp van Spark SQL query:
 
         df.registerTempTable("contacts")
 
-8. Uitgeven van een SQL-query op de `contacts` tabel:
+8. Een SQL-query op basis van de `contacts` tabel:
 
         val query = spark.sqlContext.sql("select personalName, officeAddress from contacts")
         query.show()
 
-9. Hier ziet u resultaten zoals deze:
+9. Hier ziet u de resultaten zoals deze:
 
         +-------------+--------------------+
         | personalName|       officeAddress|
@@ -207,9 +205,9 @@ In deze stap definieert u een catalogusobject dat het schema van Spark HBase wor
         |  Calvin Raji|5415 San Gabriel Dr.|
         +-------------+--------------------+
 
-## <a name="insert-new-data"></a>Invoegen van nieuwe gegevens
+## <a name="insert-new-data"></a>Nieuwe gegevens invoegen
 
-1. Voor het invoegen van een nieuwe contactpersoonrecord definiëren een `ContactRecord` klasse:
+1. Voor het invoegen van een nieuwe record van de contactpersoon, definieert een `ContactRecord` klasse:
 
         case class ContactRecord(
             rowkey: String,
@@ -219,7 +217,7 @@ In deze stap definieert u een catalogusobject dat het schema van Spark HBase wor
             personalPhone: String
             )
 
-2. Maak een instantie van `ContactRecord` en plaats deze in een matrix:
+2. Maak een instantie van `ContactRecord` en plaatst deze in een matrix:
 
         val newContact = ContactRecord("16891", "40 Ellis St.", "674-555-0110", "John Jackson","230-555-0194")
 
@@ -248,4 +246,4 @@ In deze stap definieert u een catalogusobject dat het schema van Spark HBase wor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Spark HBase-Connector](https://github.com/hortonworks-spark/shc)
+* [Spark-Connector voor HBase](https://github.com/hortonworks-spark/shc)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b89ab77b1cd97fd501a754dbf41d1aa74ef118d9
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126657"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144989"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Tenantbeperkingen gebruiken voor het beheren van toegang tot SaaS-cloudtoepassingen
 
@@ -97,7 +97,7 @@ Een van de voorbeeldgebruiker is in het Contoso-netwerk, maar wil toegang tot de
 
 Tijdens de configuratie van de Tenantbeperkingen wordt uitgevoerd op de zakelijke proxy-infrastructuur, beheerders kunnen rechtstreeks toegang hebben tot de rapporten beperkingen voor Tenants in de Azure-portal. Aan de rapporten bekijken, gaat u naar de pagina overzicht van Azure Active Directory en kijk onder 'Andere mogelijkheden'.
 
-De beheerder voor de tenant die is opgegeven als de tenant van de Context van een beperkte toegang tot dit rapport gebruiken kunt om te zien van alle aanmeldingen geblokkeerd vanwege het beleid voor beperkingen voor Tenants, met inbegrip van de identiteit die wordt gebruikt en de doelmap-id.
+De beheerder voor de tenant die is opgegeven als de tenant van de Context van een beperkte toegang tot dit rapport gebruiken kunt om te zien van aanmeldingen die zijn geblokkeerd vanwege het beleid voor beperkingen voor Tenants, met inbegrip van de identiteit die wordt gebruikt en de doelmap-id. Aanmeldingen worden opgenomen als de instelling van de beperking van de tenant is de tenant van de gebruiker of de resource-tenant voor de aanmelding.
 
 ![Azure portal gebruiken om beperkte aanmeldpogingen weer te geven](./media/tenant-restrictions/portal-report.png)
 

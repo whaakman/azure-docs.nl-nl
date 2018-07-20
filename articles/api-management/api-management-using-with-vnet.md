@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 11af7a7a8acde263ad278239546e145245343581
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 067404193507f9787c994e82267679737ebe4832
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437192"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145414"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -111,7 +111,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 | * / 80, 443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Communicatie van clients met API Management|Extern |
 | * / 3443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Beheereindpunt voor Azure-portal en Powershell |Intern |
 | * / 80, 443 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Afhankelijkheid van Azure Storage**, Azure Service Bus en Azure Active Directory (indien van toepassing).|Externe en interne |
-| * / 1433 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot Azure SQL-eindpunten** |Externe en interne |
+| * / 1433 |Uitgaand |TCP |VIRTUAL_NETWORK / SQL|**Toegang tot Azure SQL-eindpunten** |Externe en interne |
 | * / 5672 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent |Externe en interne |
 | * / 445 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid van Azure-bestandsshare voor GIT |Externe en interne |
 | * / 1886 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Die nodig zijn voor het publiceren van de Integriteitsstatus van de op Resource Health |Externe en interne |

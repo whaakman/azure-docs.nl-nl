@@ -4,24 +4,25 @@ description: Veelgestelde vragen en antwoorden die betrekking hebben op de Azure
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049408"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159838"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 
 Deze Veelgestelde vragen vindt u antwoorden op veelgestelde vragen over Azure multi-factor Authentication en het gebruik van de multi-factor Authentication-service. Het onderverdeeld in vragen over de service in het algemeen modellen, gebruikerservaringen, facturering en het oplossen van problemen.
 
 ## <a name="general"></a>Algemeen
+
 **V: op welke manier wordt een Azure multi-factor Authentication-Server gebruikersgegevens verwerkt?**
 
 Gebruikersgegevens zijn opgeslagen met multi-factor Authentication-Server, alleen op de on-premises servers. In de cloud worden geen permanente gebruikersgegevens opgeslagen. Wanneer de gebruiker verificatie in twee stappen uitvoert, verzendt multi-Factor Authentication-Server gegevens naar de cloudservice van Azure multi-factor Authentication voor verificatie. Communicatie tussen de multi-factor Authentication-Server en de multi-factor Authentication-cloudservice maakt gebruik van Secure Sockets Layer (SSL) of Transport Layer Security (TLS) via poort 443, uitgaand.
@@ -60,6 +61,7 @@ In Canada Microsoft maakt gebruik van de volgende SMS korte codes:
 Microsoft garandeert niet consistent, SMS of spraak op basis van multi-factor Authentication vragen levering met hetzelfde getal. Uit oogpunt van onze gebruikers, kan Microsoft toevoegen of verwijderen van korte-codes op elk gewenst moment wanneer we aanpassingen van de route voor het verbeteren van de SMS-mailbezorging. Microsoft biedt geen ondersteuning voor korte-codes voor de landen naast de Verenigde Staten en Canada
 
 ## <a name="billing"></a>Billing
+
 De meeste vragen over facturering kunnen worden beantwoord door te verwijzen naar een de [pagina met prijzen van multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) of de documentatie over [over het verkrijgen van Azure multi-factor Authentication](concept-mfa-licensing.md).
 
 **Vraag: is mijn organisatie in rekening gebracht voor het verzenden van de telefonische oproepen en SMS-berichten die worden gebruikt voor verificatie?**
@@ -119,7 +121,6 @@ Azure Active Directory is vereist voor het licentiemodel omdat licenties aan de 
 Hopelijk geconfigureerd al uw gebruikers meer dan één verificatiemethode. Vraag hen om te proberen zich opnieuw aan te melden, maar een andere verificatiemethode op de aanmeldpagina te selecteren.
 
 U kunt uw gebruikers om te verwijzen de [gids voor probleemoplossing door eindgebruikers](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
-
 
 **V: wat moet ik doen als een van mijn gebruikers geen toegang hebt tot hun account?**
 
@@ -196,8 +197,8 @@ Er zijn diverse redenen dat gebruikers kunnen worden gevraagd om hun beveiliging
 - De organisatie heeft gemaakt en een registratie bij MFA-beleid dat is toegepast op de gebruiker ingeschakeld.
 - De gebruiker eerder hebt geregistreerd voor MFA, maar een verificatiemethode die een beheerder heeft sindsdien uitgeschakeld hebt gekozen. De gebruiker moet daarom gaan via de MFA-registratie opnieuw om te selecteren van een nieuwe standaardmethode voor verificatie.
 
-
 ## <a name="errors"></a>Fouten
+
 **V: wat moeten gebruikers doen als er een foutbericht 'verificatieaanvraag is niet voor een geactiveerd account' bij het gebruik van mobiele app-meldingen?**
 
 Vertel Volg deze procedure om hun account verwijderen uit de mobiele app, en vervolgens opnieuw toevoegen:
@@ -214,6 +215,7 @@ De 0x800434D4L fout treedt op wanneer u probeert aan te melden bij een niet-brow
 Een tijdelijke oplossing voor deze fout is dat afzonderlijke accounts voor met betrekking tot beheer en bewerkingen voor niet-beheerders. U kunt later, postvakken tussen uw beheerdersaccount en niet-beheerdersaccount koppelen zodat u bij Outlook aanmelden kunt met behulp van uw niet-beheerdersaccount. Voor meer informatie over deze oplossing informatie over hoe u [bieden een beheerder de mogelijkheid te openen en weergeven van de inhoud van het postvak van gebruikers](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Als uw vraag hier niet wordt beantwoord, laat u het pakket in de opmerkingen onder aan de pagina. Of hier zijn enkele aanvullende opties om hulp te krijgen:
 
 * Zoek de [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) voor oplossingen voor technische problemen.

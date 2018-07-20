@@ -1,6 +1,6 @@
 ---
-title: Uw startpagina bouwen | Azure
-description: Voor uitgevers van de app en service landingspagina voor de Azure Marketplace en AppSource zijn
+title: Bouw uw landingspagina in de Azure Marketplace | Azure
+description: Informatie over het maken van een startpagina in de Azure Marketplace en Microsoft AppSource, voor uitgevers van app- en service.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,48 +14,50 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc2e1e735f4d3dd97fdb291154da656b9a2c71c7
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d3af6484a2c62a0ffa0a21e2df277ef3255ada84
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825114"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160855"
 ---
-# <a name="build-your-landing-page"></a>Uw startpagina maken  
-Een startpagina op de website van uw bedrijf is een gateway van uw activiteiten voor het genereren van vraag aan uw aanbieding op de marketplace.  
+# <a name="build-your-landing-page"></a>Bouw uw startpagina
 
-Beginnen met het vaststellen van uw doelstellingen. Kies uw klant doel en de actie voor uw klant te nemen voor uw oplossingen.  Uw oplossing kan de volgende acties omvatten.  
-*   De oplossing testen  
-*   Een oplossing nu ophalen  
-*   en nog veel meer...  
+Een startpagina op de website van uw bedrijf is een gateway van uw activiteiten voor het genereren van vraag naar uw aanbieding in de [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
-U kan verwijzen naar uw startpagina over meerdere marketing tactieken. U kunt de marketing tactieken.  
-*   Gebeurtenissen  
-*   Webcasts  
-*   Social media  
-*   Technische documenten  
-*   Technische trainingssessies  
-*   Persberichten  
+Beginnen met het vaststellen van uw doelstellingen. Kies uw doel-klant en de actie die de klant wordt uitgevoerd voor uw oplossingen. Uw oplossing zijn onder andere de volgende acties:
+*   Maak een proefrit met de oplossing
+*   Een oplossing nu ophalen
 
-De consistente dat u zich in uw messaging en uw aanroep om tot actie, het gemakkelijker voor uw klanten om uw oplossing te vinden.  
+U kunt verwijzen naar de landingspagina voor meerdere marketing tactieken. U kunt de volgende marketing tactieken gebruiken: 
+*   Gebeurtenissen
+*   Webcasts
+*   Social media
+*   Technische documenten
+*   Technische trainingssessies
+*   Persberichten
 
-Wanneer u een plan campagne gereed hebt, maakt u uw startpagina. Bekijk de volgende tabel om te maximaliseren, de effectiviteit van uw startpagina.  
+De consistente bent u in uw berichtgeving en in de aanroep van actie, des te makkelijker het is voor uw klanten om uw oplossing te zoeken.
 
-| Best practices | Wat te vermijden |  
-|:--- |:--- |  
-| ***Wat is uw oplossing is opgelost klant het probleem en hoe Azure kunt u gebeuren communiceren*** |  Geen communicatie van de manieren waarop uw oplossing met Azure werkt. |  
-| ***Maak de URL van een korte, gemakkelijk te onthouden*** | Met behulp van lange URL's. Lange URL's zijn niet gemakkelijk te onthouden en moeilijk te vinden. |  
-| ***Relevante visual inhoud toevoegen, zoals een video klant ervaringen of een oplossingsarchitectuur*** | Te veel tekst zorgt ervoor dat uw klanten te stoppen met het verkennen en uw inhoud negeren. |  
-| ***Maken van een duidelijke mogelijkheid voor actie om te leiden bezoekers van uw pagina van de catalogus Marketplace*** | Te veel koppelingen of acties die op de pagina. |  
-| ***De aanroep naar de actie in een kop of een duidelijk omlijnde sectie plaatsen*** |  De koppelingen aan uw aanbieding op marketplace insluiten in een alinea met tekst. |  
-| ***De beste trefwoorden onderzoeken en optimaliseren van de pagina voor zoeken*** | Ervan uitgaande dat de productnaam van uw hoger zoeken classificaties genereert. |  
-| ***Trefwoorden uit uw advertentiecampagnes gebruiken*** |  Met behulp van veel verschillende trefwoorden in de Webeigenschappen van uw verdunt uw reclame-investeringen. |  
-| ***Namen van relevante producten en trefwoorden plaatsen `above the fold`*** | Ga naar het product of een oplossing die u zijn rouleren gebruikers aan te brengen. |  
-| ***Merk beelden gebruik voor het valideren van uw oplossing in overeenstemming met Microsoft richtlijnen huisstijl<br />zoals Azure gecertificeerd*** | Met behulp van Microsoft merk beelden die niet is goedgekeurd. |  
+## <a name="recommendations"></a>Aanbevelingen
 
-*   Voor meer informatie over de badge Azure gecertificeerd, gaat u naar de Microsoft Azure-gecertificeerd richtlijnen pagina zich bevindt op [azure.microsoft.com/support/legal/marketplace/certified-guidelines](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).  
-*   Ga naar de pagina zich bevindt op van het type merk centrale voor aanvullende bronnen voor de huisstijl [microsoft.sharepoint.com/teams/brandcentral](https://microsoft.sharepoint.com/teams/brandcentral).  
-*   Voor meer informatie over het hulpprogramma Logo Builder, gaat u naar de opbouwfunctie voor het Logo pagina zich bevindt op [logobuilder.partner.microsoft.com](https://logobuilder.partner.microsoft.com).  
-*   Voor meer informatie gaat u naar de manier waarop deze zich bevindt op pagina werkt [partner.microsoft.com/membership/how-it-works](https://partner.microsoft.com/membership/how-it-works).  
+Wanneer u een campagne plan klaar hebt, maakt u uw startpagina in de Marketplace. De volgende tabel beschrijft de manieren waarop u de effectiviteit van uw startpagina kunt maximaliseren: 
 
----  
+| Best practices | Voorkomen |
+|:--- |:--- |
+| **Wat is het probleem klant uw oplossing is opgelost en hoe u Azure gebruiken om te realiseren communiceren** | Geen communicatie van de manieren waarop uw oplossing met Azure werkt. |
+| **Een korte, gemakkelijk te onthouden URL maken** | Met behulp van lange URL's. Lange URL's zijn niet gemakkelijk te onthouden en moeilijk te vinden. |
+| **Relevante visuele inhoud, zoals een video klantgetuigschrift of een architectuur voor oplossing toevoegen** | Te veel tekst zorgt ervoor dat uw klanten voor het negeren van uw inhoud en stop verkennen.|
+| **Een duidelijke aanzet tot actie om te leiden van bezoekers van uw Marketplace-cataloguspagina maken** | Te veel koppelingen of acties die op de pagina. |
+| **De aanroep van actie in een kop- of duidelijk omlijnde sectie plaatsen** | De koppelingen aan uw aanbieding insluiten in de Marketplace in een lid van de tekst. |
+| **Onderzoek de beste trefwoorden en optimaliseren van de pagina voor zoeken** | Ervan uitgaande dat de productnaam van uw hogere zoeken classificaties genereert. |
+| **Trefwoorden uit uw reclamecampagnes gebruiken** | Met behulp van veel verschillende trefwoorden in de Webeigenschappen van uw verdunt uw reclame-investeringen. |
+| **Relevante productnamen en trefwoorden "boven de vouw"** | Zodat gebruikers scrollen om te zien van het product of de oplossing die u die laat zien. |
+| **Merk beeldmateriaal gebruiken om te valideren van uw oplossing in overeenstemming met Microsoft huisstijlrichtlijnen, zoals Azure Certified** | Met behulp van Microsoft-merk beelden die niet is goedgekeurd. |
+
+## <a name="next-steps"></a>Volgende stappen
+
+*   Zie voor meer informatie over het Azure Certified-badge [Microsoft Azure Certified-richtlijnen](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).
+*   Zie voor meer informatie over de huisstijl [Brand Central](https://microsoft.sharepoint.com/teams/brandcentral).
+*   Zie voor meer informatie over het hulpprogramma Logo Builder [Logo Builder](https://logobuilder.partner.microsoft.com).
+*   Beoordeling [programma hoe de Microsoft-Partner bij u past](https://partner.microsoft.com/membership/how-it-works).

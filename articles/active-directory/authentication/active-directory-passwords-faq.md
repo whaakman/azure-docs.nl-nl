@@ -4,18 +4,18 @@ description: Veelgestelde vragen over Azure AD Self-service voor wachtwoord opni
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c006e448b8da1acaf51c8339cbcd0b6170f29874
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054808"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160739"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -115,7 +115,7 @@ Deze Veelgestelde vragen is opgesplitst in de volgende secties:
   >
 * **V: hoe kan ik mijn gebruikers over waar u om hun wachtwoord opnieuw in te trainen?**
 
-  > **A:** Probeer enkele van de suggesties in onze [SSPR implementatie](howto-sspr-deployment.md#email-based-rollout) artikel.
+  > **A:** Probeer enkele van de suggesties in onze [SSPR implementatie](howto-sspr-deployment.md#sample-communication) artikel.
   >
   >
 * **V: kan ik deze pagina op een mobiel apparaat gebruiken?**
@@ -170,7 +170,7 @@ Deze Veelgestelde vragen is opgesplitst in de volgende secties:
   >
 * **V: kan ik mijn beleid om te vereisen dat gebruikers vragen over de beveiliging gebruiken voor het opnieuw instellen hebt geconfigureerd, maar de Azure-beheerders lijken op verschillende manieren worden geconfigureerd.**
 
-  > **A:** dit is het verwachte gedrag. Microsoft dwingt een beleid standaard een sterk wachtwoord twee-poort opnieuw instellen voor alle Azure-beheerdersrol. Dit voorkomt dat beheerders met behulp van vragen over de beveiliging. U vindt meer informatie over dit beleid in de [wachtwoordbeleid en beperkingen in Azure Active Directory](concept-sspr-policy.md#administrator-password-policy-differences) artikel.
+  > **A:** dit is het verwachte gedrag. Microsoft dwingt een beleid standaard een sterk wachtwoord twee-poort opnieuw instellen voor alle Azure-beheerdersrol. Dit voorkomt dat beheerders met behulp van vragen over de beveiliging. U vindt meer informatie over dit beleid in de [wachtwoordbeleid en beperkingen in Azure Active Directory](concept-sspr-policy.md) artikel.
   >
   >
 * **Vraag: als een gebruiker meer dan het maximum aantal vragen dat vereist is voor het opnieuw instellen is geregistreerd, hoe worden de beveiligingsvragen geselecteerd tijdens het opnieuw instellen?**
@@ -274,7 +274,7 @@ Deze Veelgestelde vragen is opgesplitst in de volgende secties:
   >
 * **V: is wachtwoord terugschrijven beveiligd?  Hoe kan ik dat ik wordt niet ingebroken zijn?**
 
-  > **A:** Ja, het terugschrijven van wachtwoorden is beveiligd. Bekijk meer informatie over de vier beveiligingslagen die door de service wachtwoord terugschrijven hebt geïmplementeerd, de [beveiligingsmodel van wachtwoord terugschrijven](howto-sspr-writeback.md#password-writeback-security-model) sectie de [wachtwoord terugschrijven overzicht](howto-sspr-writeback.md) artikel.
+  > **A:** Ja, het terugschrijven van wachtwoorden is beveiligd. Bekijk meer informatie over de meerdere beveiligingslagen die door de service wachtwoord terugschrijven hebt geïmplementeerd, de [wachtwoord terugschrijven security](concept-sspr-writeback.md#password-writeback-security) sectie de [wachtwoord terugschrijven overzicht](howto-sspr-writeback.md) artikel.
   >
   >
 

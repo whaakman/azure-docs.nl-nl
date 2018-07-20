@@ -3,7 +3,7 @@ title: Een Linux-VM maken in Azure met meerdere NIC's | Microsoft Docs
 description: Informatie over het maken van een Linux-VM met meerdere NIC's die zijn gekoppeld aan met behulp van de Azure CLI 2.0 of Resource Manager-sjablonen.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -12,19 +12,19 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2017
-ms.author: cynthn
-ms.openlocfilehash: 257b80c30823be41893be8659845d4fcbc922da3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.date: 06/07/2018
+ms.author: iainfou
+ms.openlocfilehash: aae71dafd3685e44975049c4287c083abc2330bc
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932269"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144853"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Over het maken van een virtuele Linux-machine in Azure met meerdere netwerkinterfacekaarten
 U kunt een virtuele machine (VM) maken in Azure met meerdere virtuele netwerkinterfaces (NIC's) die zijn gekoppeld aan. Een veelvoorkomend scenario is dat verschillende subnetten voor front-end en back-end-connectiviteit of een netwerk dat is toegewezen aan een oplossing voor controle of back-up. Dit artikel wordt uitgelegd hoe u een virtuele machine met meerdere NIC's die zijn gekoppeld aan het maken en hoe u toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Verschillende [VM-grootten](sizes.md) een verschillend aantal NIC's ondersteunen, dus het formaat van uw virtuele machine dienovereenkomstig.
 
-Dit artikel wordt uitgelegd hoe u een virtuele machine maken met meerdere NIC's met de Azure CLI 2.0. 
+Dit artikel wordt uitgelegd hoe u een virtuele machine maken met meerdere NIC's met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](multiple-nics-nodejs.md).
 
 
 ## <a name="create-supporting-resources"></a>Ondersteunende resources maken
@@ -44,9 +44,9 @@ Maken van het virtuele netwerk met [az network vnet maken](/cli/azure/network/vn
 az network vnet create \
     --resource-group myResourceGroup \
     --name myVnet \
-    --address-prefix 192.168.0.0/16 \
+    --address-prefix 10.0.0.0/16 \
     --subnet-name mySubnetFrontEnd \
-    --subnet-prefix 192.168.1.0/24
+    --subnet-prefix 10.0.1.0/24
 ```
 
 Maak een subnet voor de back-end-verkeer met [az network vnet subnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Het volgende voorbeeld wordt een subnet met de naam *mySubnetBackEnd*:
@@ -56,7 +56,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name mySubnetBackEnd \
-    --address-prefix 192.168.2.0/24
+    --address-prefix 10.0.2.0/24
 ```
 
 Maak een netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg#az_network_nsg_create). In het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* gemaakt:
@@ -86,7 +86,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Een virtuele machine maken en de NIC's koppelen
-Wanneer u de virtuele machine, maakt de NIC's geven u hebt gemaakt met `--nics`. U moet ook Wees voorzichtig bij het selecteren van de VM-grootte. Er zijn limieten voor het totale aantal NIC's die u aan een virtuele machine toevoegen kunt. Meer informatie over [Linux VM-grootten](sizes.md). 
+Wanneer u de virtuele machine, maakt de NIC's geven u hebt gemaakt met `--nics`. U moet ook Wees voorzichtig bij het selecteren van de VM-grootte. Er zijn limieten voor het totale aantal NIC's die u aan een virtuele machine toevoegen kunt. Meer informatie over [Linux VM-grootten](sizes.md).
 
 Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt:
 
@@ -187,75 +187,68 @@ U kunt een compleet voorbeeld van lezen [het maken van meerdere NIC's met behulp
 Routering tabellen toevoegen aan het gastbesturingssysteem te installeren via de stappen in [configureren van het gastbesturingssysteem te installeren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Gast-OS configureren voor meerdere NIC 's
-Wanneer u meerdere NIC's aan een Linux-VM toevoegen, moet u maken van regels voor doorsturen. Met deze regels kunt de virtuele machine te verzenden en ontvangen van verkeer die deel uitmaakt van een specifieke netwerkadapter. Anders wordt het verkeer dat hoort bij *eth1*, kan niet bijvoorbeeld correct worden verwerkt door de gedefinieerde standaardroute.
 
-Om op te lossen dit probleem routering, moet u eerst twee routering tabellen toevoegen */etc/iproute2/rt_tables* als volgt:
+De vorige stappen hebt gemaakt van een virtueel netwerk en subnet, NIC's die zijn gekoppeld en vervolgens een virtuele machine gemaakt. Een openbare IP-adres en regels voor netwerkbeveiligingsgroepen die SSH-verkeer toestaan zijn niet gemaakt. Voor meer informatie over het configureren van het gastbesturingssysteem te installeren voor meerdere NIC's die u wilt toestaan van externe verbindingen en lokaal uitvoeren van opdrachten op de virtuele machine.
 
-```bash
-echo "200 eth0-rt" >> /etc/iproute2/rt_tables
-echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+Als u wilt toestaan dat SSH-verkeer, maakt u een netwerkbeveiligingsgroepregel met [az network nsg-regel maken](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) als volgt:
+
+```azurecli
+az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name allow_ssh \
+    --priority 101 \
+    --destination-port-ranges 22
 ```
 
-Bewerken om de wijziging permanent en toegepast tijdens de activering van netwerk-stack, */etc/sysconfig/network-scripts/ifcfg-eth0* en */etc/sysconfig/network-scripts/ifcfg-eth1*. Wijzigen van de regel *"NM_CONTROLLED = yes"* naar *"NM_CONTROLLED = Nee"*. Zonder deze stap wordt worden de extra dat regels/routes niet automatisch toegepast.
- 
-De routetabellen vervolgens worden uitgebreid. Stel dat we hebben de volgende instellingen:
+Maken van een openbaar IP-adres met [az network public-ip maken](/cli/azure/network/public-ip#az-network-public-ip-create) en wijs deze toe aan de eerste NIC met [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
 
-*Routering*
+```azurecli
+az network public-ip-address create --resource-group myResourceGroup --name myPublicIP
 
-```bash
-default via 10.0.1.1 dev eth0 proto static metric 100
-10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
-10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
-168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
-169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+az network nic ip-config update \
+    --resource-group myResourceGroup \
+    --nic-name myNic1 \
+    --name ipconfig1 \
+    --public-ip-addres myPublicIP
 ```
 
-*Interfaces*
+Als u de weergave openbare IP-adres van de virtuele machine, gebruikt u [az vm show](/cli/azure/vm#az-vm-show) als volgt:
 
-```bash
-lo: inet 127.0.0.1/8 scope host lo
-eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
-eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```azurecli
+az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-U zou vervolgens de volgende bestanden maken en de juiste regels en routes toevoegen aan elk(e):
-
-- */etc/SysConfig/Network-scripts/rule-eth0*
-
-    ```bash
-    from 10.0.1.4/32 table eth0-rt
-    to 10.0.1.4/32 table eth0-rt
-    ```
-
-- */etc/SysConfig/Network-scripts/route-eth0*
-
-    ```bash
-    10.0.1.0/24 dev eth0 table eth0-rt
-    default via 10.0.1.1 dev eth0 table eth0-rt
-    ```
-
-- */etc/SysConfig/Network-scripts/rule-eth1*
-
-    ```bash
-    from 10.0.1.5/32 table eth1-rt
-    to 10.0.1.5/32 table eth1-rt
-    ```
-
-- */etc/SysConfig/Network-scripts/route-eth1*
-
-    ```bash
-    10.0.1.0/24 dev eth1 table eth1-rt
-    default via 10.0.1.1 dev eth1 table eth1-rt
-    ```
-
-De wijzigingen wilt toepassen, opnieuw de *netwerk* service als volgt:
+Nu SSH naar het openbare IP-adres van uw virtuele machine. De standaardgebruikersnaam die is opgegeven in de vorige stap is *azureuser*. Geef uw eigen gebruikersnaam en het openbare IP-adres:
 
 ```bash
-systemctl restart network
+ssh azureuser@137.117.58.232
 ```
 
-De regels voor doorsturen is nu correct voldaan en u kunt verbinding maken met een van beide interface indien nodig.
+Als u wilt verzenden naar of van een secundaire netwerkinterface, moet u handmatig permanente routes toevoegen aan het besturingssysteem voor elke secundaire netwerkinterface. In dit artikel *eth1* is de secundaire-interface. Instructies voor het permanente routes toevoegen aan het besturingssysteem zijn afhankelijk van distributie. Raadpleeg de documentatie bij uw distributie voor instructies.
 
+Als de route wordt toegevoegd aan het besturingssysteem, het gatewayadres is *.1* voor elk subnet de netwerkinterface zich bevindt. Bijvoorbeeld, als het adres is toegewezen aan de network interface *10.0.2.4*, de gateway u opgeeft voor de route is *10.0.2.1*. U kunt definiëren van een bepaald netwerk voor het doel van de route of geef een bestemming van *0.0.0.0*, als u wilt dat al het verkeer voor de interface voor de opgegeven gateway doorlopen. De gateway voor elk subnet wordt beheerd door het virtuele netwerk.
+
+Als u de route voor een secundaire netwerkinterface hebt toegevoegd, Controleer of de route is in de routetabel, met `route -n`. De volgende voorbeelduitvoer wordt voor de routetabel waarin die de twee netwerkinterfaces die zijn toegevoegd aan de virtuele machine in dit artikel is:
+
+```bash
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.1.1        0.0.0.0         UG    0      0        0 eth0
+0.0.0.0         10.0.2.1        0.0.0.0         UG    0      0        0 eth1
+10.0.1.0        0.0.0.0         255.255.255.0   U     0      0        0 eth0
+10.0.2.0        0.0.0.0         255.255.255.0   U     0      0        0 eth1
+168.63.129.16   10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
+169.254.169.254 10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
+```
+
+Bevestig dat de route die u hebt toegevoegd clusterverbinding blijven tussen opnieuw wordt opgestart behouden door het controleren van de routetabel opnieuw na het opnieuw opstarten. Connectiviteit wilt testen, kunt u bijvoorbeeld de volgende opdracht, invoeren, waarbij *eth1* is de naam van een secundaire netwerkinterface:
+
+```bash
+ping bing.com -c 4 -I eth1
+```
 
 ## <a name="next-steps"></a>Volgende stappen
-Beoordeling [Linux VM-grootten](sizes.md) bij het maken van een virtuele machine met meerdere NIC's. Let op het maximum aantal NIC's die ondersteuning biedt voor elke VM-grootte. 
+Beoordeling [Linux VM-grootten](sizes.md) bij het maken van een virtuele machine met meerdere NIC's. Let op het maximum aantal NIC's die ondersteuning biedt voor elke VM-grootte.
+
+Voor nog betere beveiliging uw virtuele machines, gebruiken just-in-time-VM-toegang. Deze functie wordt geopend regels voor netwerkbeveiligingsgroepen voor SSH-verkeer wanneer dat nodig is, en voor een gedefinieerde periode. Zie [Manage virtual machine access using just in time](../../security-center/security-center-just-in-time.md) (VM-toegang beheren met behulp van JIT) voor meer informatie.

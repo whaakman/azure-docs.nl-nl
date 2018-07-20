@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 23567c985f4f9df46ee7d80051c15dc5910a1ea8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1989017361c148f9a6c8fcb73537be78555fd650
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904059"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160587"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-the-azure-cli"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen identiteit met de Azure CLI
 
@@ -32,7 +32,7 @@ In dit artikel leert u hoe u kunt maken, weergeven en verwijderen van een gebrui
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
-- Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
+- Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 
 - Als u wilt de CLI-scriptvoorbeelden uitvoeren, hebt u drie opties:
 
@@ -44,7 +44,7 @@ In dit artikel leert u hoe u kunt maken, weergeven en verwijderen van een gebrui
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Maak een beheerde identiteit toegewezen gebruiker 
 
-Gebruik voor het maken van een gebruiker toegewezen identiteit het [az-identiteit maken](/cli/azure/identity#az-identity-create) opdracht. De `-g` parameter geeft u de resourcegroep waar moet worden gemaakt van de identiteit van de gebruiker toegewezen, en de `-n` parameter geeft u de naam ervan. Vervang de `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` parameterwaarden door uw eigen waarden:
+Gebruik voor het maken van een gebruiker toegewezen identiteit het [az-identiteit maken](/cli/azure/identity#az-identity-create) opdracht. De `-g` parameter geeft u de resourcegroep waar moet worden gemaakt van de identiteit van de gebruiker toegewezen, en de `-n` parameter geeft u de naam ervan. Ten minste uw account moet worden toegewezen de [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van de identiteit van een gebruiker toegewezen. Vervang de `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` parameterwaarden door uw eigen waarden:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -53,7 +53,7 @@ az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-identities"></a>Lijst met door gebruiker toegewezen identiteiten
 
-Aan de lijst van een gebruiker toegewezen identiteiten, gebruikt u de [az identiteit lijst](/cli/azure/identity#az-identity-list) opdracht.  De `-g` parameter geeft u de resourcegroep waarin de gebruiker toegewezen identiteit is gemaakt.  Vervang de `<RESOURCE GROUP>` door uw eigen waarde:
+Aan de lijst van een gebruiker toegewezen identiteiten, gebruikt u de [az identiteit lijst](/cli/azure/identity#az-identity-list) opdracht.  De `-g` parameter geeft u de resourcegroep waarin de gebruiker toegewezen identiteit is gemaakt. Ten minste uw account moet worden toegewezen de [beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol om de eigenschappen van een gebruiker toegewezen identiteit weer te geven.  Vervang de `<RESOURCE GROUP>` door uw eigen waarde:
 
 ```azurecli-interactive
 az identity list -g <RESOURCE GROUP>
@@ -64,7 +64,7 @@ In de json-antwoord, gebruikers-id's hebben `"Microsoft.ManagedIdentity/userAssi
 
 ## <a name="delete-a-user-assigned-identity"></a>Verwijderen van een gebruiker toegewezen identiteit
 
-Als u wilt verwijderen van een gebruiker toegewezen identiteit, gebruikt u de [az identiteit verwijderen](/cli/azure/identity#az-identity-delete) opdracht.  De parameter - n Hiermee geeft u de naam en de parameter -g Hiermee geeft u de resourcegroep waarin de gebruiker toegewezen identiteit is gemaakt.  Vervang de `<USER ASSIGNED IDENTITY NAME>` en `<RESOURCE GROUP>` parameterwaarden door uw eigen waarden:
+Als u wilt verwijderen van een gebruiker toegewezen identiteit, gebruikt u de [az identiteit verwijderen](/cli/azure/identity#az-identity-delete) opdracht.  De parameter - n Hiermee geeft u de naam en de parameter -g Hiermee geeft u de resourcegroep waarin de gebruiker toegewezen identiteit is gemaakt.  Ten minste uw account moet worden toegewezen de [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol verwijderen van de identiteit van een gebruiker toegewezen. Vervang de `<USER ASSIGNED IDENTITY NAME>` en `<RESOURCE GROUP>` parameterwaarden door uw eigen waarden:
 
  ```azurecli-interactive
 az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>

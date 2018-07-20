@@ -1,27 +1,27 @@
 ---
 title: LDAP-verificatie en Azure MFA Server | Microsoft Docs
-description: Implementatie van LDAP-verificatie en Azure multi-factor Authentication-Server.
+description: LDAP-verificatie en Azure multi-factor Authentication-Server implementeren.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 05/03/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 2fca59b9b486012367b3d996e0ec76044f48f690
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 2b6573182500df6a43a28eeba99ec932d95a5232
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866447"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158495"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP-verificatie en Azure multi-factor Authentication-Server
 
-Standaard is de Azure Multi-Factor Authentication-server geconfigureerd om de gebruikers van Active Directory te importeren of te synchroniseren. Deze kan echter worden geconfigureerd om verbinding te maken met verschillende LDAP-adreslijsten, zoals een ADAM-adreslijst of een specifieke Active Directory-domeincontroller. Wanneer verbonden met een directory via LDAP, wordt de Azure multi-factor Authentication-Server kan fungeren als een LDAP-proxy om uit te voeren verificaties. Daarnaast kunt u de LDAP-binding gebruiken als een RADIUS-doel voor het uitvoeren van pre-verificaties van gebruikers met IIS-verificatie, of voor het uitvoeren van primaire verificaties in de Azure MFA-gebruikersportal.
+Standaard is de Azure Multi-Factor Authentication-server geconfigureerd om de gebruikers van Active Directory te importeren of te synchroniseren. Deze kan echter worden geconfigureerd om verbinding te maken met verschillende LDAP-adreslijsten, zoals een ADAM-adreslijst of een specifieke Active Directory-domeincontroller. Wanneer verbonden met een directory via LDAP, wordt de Azure multi-factor Authentication-Server kan fungeren als een LDAP-proxy om uit te voeren van verificaties. Daarnaast kunt u de LDAP-binding gebruiken als een RADIUS-doel voor het uitvoeren van pre-verificaties van gebruikers met IIS-verificatie, of voor het uitvoeren van primaire verificaties in de Azure MFA-gebruikersportal.
 
-Plaats voor het gebruik van Azure multi-factor Authentication als een LDAP-proxy, de Azure multi-factor Authentication-Server tussen de LDAP-client (bijvoorbeeld VPN-apparaat, toepassing) en de LDAP-adreslijstserver. De Azure Multi-Factor Authentication-server moet worden geconfigureerd om te kunnen communiceren met zowel de clientservers als de LDAP-directory. In deze configuratie accepteert de Azure Multi-Factor Authentication-server LDAP-aanvragen van clientservers en toepassingen, en stuurt deze door naar de doel-LDAP-adreslijstserver om de primaire referenties te valideren. Als de LDAP-adreslijst wordt de primaire referenties gevalideerd, wordt Azure multi-factor Authentication wordt een tweede ID-verificatie wordt uitgevoerd en stuurt een antwoord terug naar de LDAP-client. De volledige verificatie slaagt alleen als de LDAP-serververificatie en de verificatie in de tweede stap zijn gelukt.
+Voor het gebruik van Azure multi-factor Authentication als een LDAP-proxy, voegt u de Azure multi-factor Authentication-Server tussen de LDAP-client (bijvoorbeeld VPN-apparaat, toepassing) en de LDAP-adreslijstserver. De Azure Multi-Factor Authentication-server moet worden geconfigureerd om te kunnen communiceren met zowel de clientservers als de LDAP-directory. In deze configuratie accepteert de Azure Multi-Factor Authentication-server LDAP-aanvragen van clientservers en toepassingen, en stuurt deze door naar de doel-LDAP-adreslijstserver om de primaire referenties te valideren. Als de LDAP-directory wordt de primaire referenties gevalideerd, wordt Azure multi-factor Authentication wordt uitgevoerd een tweede identiteit te verifiëren en stuurt een antwoord terug naar de LDAP-client. De volledige verificatie slaagt alleen als de LDAP-serververificatie en de verificatie in de tweede stap zijn gelukt.
 
 ## <a name="configure-ldap-authentication"></a>LDAP-verificatie configureren
 Als u LDAP-verificatie wilt configureren, moet u de Azure Multi-Factor Authentication-server op een Windows-server installeren. Gebruik de volgende procedure:
@@ -34,9 +34,9 @@ Als u LDAP-verificatie wilt configureren, moet u de Azure Multi-Factor Authentic
    ![LDAP-verificatie](./media/howto-mfaserver-dir-ldap/ldap2.png)
 
 3. Wijzig op het tabblad Clients de TCP-poort en de SSL-poort als de LDAP-service van Azure Multi-Factor Authentication verbinding moet maken met niet-standaardpoorten om te luisteren naar LDAP-aanvragen.
-4. Als u van plan bent LDAPS te gebruiken vanaf de client naar de Azure multi-factor Authentication-Server, moet u een SSL-certificaat geïnstalleerd op dezelfde server als de MFA-Server. Klik op **Bladeren** naast de SSL-certificaat vak en selecteer een certificaat wilt gebruiken voor de beveiligde verbinding.
+4. Als u van plan bent LDAPS te gebruiken van de client naar de Azure multi-factor Authentication-Server, moet een SSL-certificaat worden geïnstalleerd op dezelfde server als de MFA-Server. Klik op **Bladeren** naast de SSL-certificaat vak en selecteert u een certificaat voor de beveiligde verbinding.
 5. Klik op **Add**.
-6. Voer in het dialoogvenster LDAP-Client toevoegen het IP-adres van het toestel, server of toepassing die wordt geverifieerd met de Server en een toepassingsnaam in (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
+6. Voer in het dialoogvenster LDAP-Client toevoegen het IP-adres van het apparaat, server of toepassing die wordt geverifieerd met de Server en een toepassingsnaam in (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
 7. Schakel het selectievakje **Overeenkomende Azure Multi-Factor Authentication-gebruiker** vereisen in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan verificatie in twee stappen onderworpen zijn. Als een groot aantal gebruikers nog niet is geïmporteerd in de Server en/of vrijgesteld van verificatie in twee stappen zijn, laat u het vakje uitgeschakeld. Zie de help-bestand voor meer informatie over deze functie MFA-Server.
 
 Herhaal deze stappen om extra LDAP-clients toe te voegen.
@@ -62,14 +62,14 @@ Wanneer Azure Multi-Factor Authentication is geconfigureerd om LDAP-verificaties
 12. Klik op het pictogram **Bedrijfsinstellingen** en selecteer het tabblad **Gebruikersnaamomzetting**.
 13. Als u een verbinding maakt met Active Directory vanaf een server die is gekoppeld aan een domein, laat u het keuzerondje **Windows-beveiligings-id's (SID's) gebruiken voor overeenkomende gebruikersnamen** ingeschakeld. Schakel anders het keuzerondje **Het kenmerk Unieke LDAP-id gebruiken voor overeenkomende gebruikersnamen** in. 
 
-Wanneer het keuzerondje **Het kenmerk Unieke LDAP-id gebruiken voor overeenkomende gebruikersnamen** is geselecteerd, probeert de Azure Multi-Factor Authentication-server elke gebruikersnaam om te zetten in een unieke id in de LDAP-directory. Een LDAP-zoekopdracht wordt uitgevoerd op de gebruikersnaamkenmerken die zijn gedefinieerd op het tabblad Directoryintegratie > Kenmerken. Wanneer een gebruiker zich verifieert, wordt de gebruikersnaam omgezet naar de unieke id in de LDAP-adreslijst. De unieke id wordt gebruikt voor het afstemmen van de gebruiker in de Azure multi-factor Authentication-gegevensbestand. Hierdoor kunnen niet-hoofdlettergevoelige vergelijkingen en lange en korte gebruikersnaamnotaties worden gebruikt.
+Wanneer het keuzerondje **Het kenmerk Unieke LDAP-id gebruiken voor overeenkomende gebruikersnamen** is geselecteerd, probeert de Azure Multi-Factor Authentication-server elke gebruikersnaam om te zetten in een unieke id in de LDAP-directory. Een LDAP-zoekopdracht wordt uitgevoerd op de gebruikersnaamkenmerken die zijn gedefinieerd op het tabblad Directoryintegratie > Kenmerken. Wanneer een gebruiker zich verifieert, wordt de gebruikersnaam omgezet naar de unieke id in de LDAP-directory. De unieke id wordt gebruikt voor het afstemmen van de gebruiker in de Azure multi-factor Authentication-gegevensbestand. Hiermee wordt voor niet-hoofdlettergevoelige vergelijkingen en lange en korte gebruikersnaamnotaties worden gebruikt.
 
-Nadat u deze stappen hebt voltooid, wordt de MFA-Server luistert op de geconfigureerde poorten naar toegangsaanvragen van LDAP van de geconfigureerde clients, en fungeert als proxy voor deze aanvragen voor de LDAP-adreslijst voor verificatie.
+Nadat u deze stappen hebt voltooid, wordt de MFA-Server luistert op de geconfigureerde poorten naar toegangsaanvragen van LDAP van de geconfigureerde clients, en fungeert als een proxy voor deze aanvragen voor de LDAP-directory voor verificatie.
 
 ## <a name="configure-ldap-client"></a>LDAP-client configureren
 Als u de LDAP-client wilt configureren, gebruikt u de volgende richtlijnen:
 
 * Configureer uw apparaat, server of toepassing als u wilt dat deze via LDAP bij de Azure Multi-Factor Authentication-server wordt geverifieerd alsof het uw LDAP was. Gebruik dezelfde instellingen die u normaal gesproken gebruikt om rechtstreeks verbinding te maken met de LDAP-directory, met uitzondering van de servernaam of het IP-adres omdat deze toebehoren aan de Azure Multi-Factor Authentication-server.
-* De time-out voor LDAP in op 30 tot 60 seconden zodanig configureren dat er is nu tijd om de referenties van de gebruiker met de LDAP-adreslijst te valideren, uitvoeren van de tweede stap-verificatie, hun reactie ontvangen en reageren op de LDAP-toegangsaanvraag.
+* Configureer de time-out voor LDAP in op 30 tot 60 seconden zodat er voldoende tijd om te valideren van de referenties van de gebruiker met de LDAP-directory, de tweede stap verificatie uitvoeren met hun reactie ontvangen en reageren op de LDAP-toegangsaanvraag is.
 * Als LDAPS wordt gebruikt, moet het apparaat of de server die de LDAP-query's maakt het SSL-certificaat kunnen vertrouwen dat op de Azure Multi-Factor Authentication-server is geïnstalleerd.
 

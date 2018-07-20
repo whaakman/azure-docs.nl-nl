@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e955973008f1ba3900deb691426d0409440ad08a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f2480fb1068096bf77a3677ad62c886bc4774bb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917724"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160151"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory Pass through-verificatie: Upgrade preview verificatie-Agents
 
@@ -51,7 +51,7 @@ Volg deze instructies om te controleren of de versies van de verificatie-Agents,
 
 1. Ga naar **Configuratiescherm -> programma's -> programma's en onderdelen** op de on-premises server.
 2. Als er een vermelding voor '**Microsoft Azure AD Connect Authentication-Agent**', niet hoeft geen actie te ondernemen op deze server.
-3. Als er een vermelding voor '**Microsoft Azure AD Application Proxy Connector**", versie 1.5.132.0 of eerder gebruikt, moet u handmatig een upgrade uitvoert op deze server.
+3. Als er een vermelding voor '**Microsoft Azure AD Application Proxy Connector**', moet u handmatig een upgrade uitvoert op deze server.
 
 ![Preview-versie van verificatie-Agent](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 

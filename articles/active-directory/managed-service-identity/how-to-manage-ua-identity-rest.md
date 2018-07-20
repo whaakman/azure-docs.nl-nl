@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: afeac0cdb24593f5b7614a145021eefd7b376be9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7a7c4bd7ba8afe20732f092126820fb821c42195
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904022"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162181"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-rest-api-calls"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen identiteit met behulp van REST-API aanroepen
 
@@ -32,7 +32,7 @@ In dit artikel leert u hoe u te maken, weergeven, verwijderen van een gebruiker 
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
-- Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
+- Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 - Als u Windows gebruikt, installeert u de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) of gebruik de [Azure Cloud Shell](../../cloud-shell/overview.md) in Azure portal.
 - Als u de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) of een [Linux-distributie](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installeren van de Azure CLI lokale console](/azure/install-azure-cli).
 - Als u van Azure CLI lokale console gebruikmaakt, aanmelden bij Azure met `az login` met een account dat is gekoppeld aan het Azure-abonnement u wilt implementeren of op te halen toegewezen gebruiker gegevens van beheerde identiteit.
@@ -42,7 +42,7 @@ In dit artikel leert u hoe u te maken, weergeven, verwijderen van een gebruiker 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Maak een beheerde identiteit toegewezen gebruiker 
 
-Gebruik de volgende CURL-aanvraag naar de Azure Resource Manager-API voor het maken van een gebruiker toegewezen beheerde identiteit. Vervang de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, en `<ACCESS TOKEN>` waarden door uw eigen waarden:
+Gebruik de volgende CURL-aanvraag naar de Azure Resource Manager-API voor het maken van een gebruiker toegewezen beheerde identiteit. Ten minste uw account moet worden toegewezen de [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van de identiteit van een gebruiker toegewezen. Vervang de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, en `<ACCESS TOKEN>` waarden door uw eigen waarden:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -54,14 +54,14 @@ ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Be
 
 ## <a name="list-user-assigned-managed-identities"></a>Lijst met door gebruiker toegewezen beheerde identiteiten
 
-Aan de lijst van beheerde identiteiten toegewezen gebruiker, gebruikt u de volgende CURL-aanvraag naar de Azure Resource Manager-API.  Vervang de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, en `<ACCESS TOKEN>` waarden door uw eigen waarden:
+Aan de lijst van beheerde identiteiten toegewezen gebruiker, gebruikt u de volgende CURL-aanvraag naar de Azure Resource Manager-API. Ten minste uw account moet worden toegewezen de [beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol om de eigenschappen van een gebruiker toegewezen identiteit weer te geven. Vervang de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, en `<ACCESS TOKEN>` waarden door uw eigen waarden:
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 ## <a name="delete-a-user-assigned-managed-identity"></a>Een beheerde identiteit toegewezen gebruiker verwijderen
 
-Als u wilt verwijderen van een gebruiker toegewezen beheerde identiteit, gebruikt u de volgende CURL-aanvraag naar de Azure Resource Manager-API. Vervang de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, en `<ACCESS TOKEN>` parameterwaarden door uw eigen waarden:
+Als u wilt verwijderen van een gebruiker toegewezen beheerde identiteit, gebruikt u de volgende CURL-aanvraag naar de Azure Resource Manager-API. Ten minste uw account moet worden toegewezen de [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol verwijderen van de identiteit van een gebruiker toegewezen. Vervang de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, en `<ACCESS TOKEN>` parameterwaarden door uw eigen waarden:
 
 > [!NOTE]
 > Verwijderen van een gebruiker toegewezen identiteit, wordt de verwijzing van een willekeurige deze is toegewezen aan resource niet verwijderen. Het verwijderen van een gebruiker toegewezen beheerd vanaf een virtuele machine met CURL Zie [verwijderen van een gebruiker toegewezen identiteit van een Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).

@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: aab03c92bee0d3b69062cdcb179eebbb5c0fc8f8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971071"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160243"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -59,6 +59,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 
 |Fout|Beschrijving|
 |---|---|
+|16000|Dit is een interne implementatiedetail en niet een fout optreedt. U kunt deze referentie negeren.|
 |20001|Er is een probleem met uw federatieve id-provider. Neem contact op met uw IDP om dit probleem op te lossen.|
 |20012|Er is een probleem met uw federatieve id-provider. Neem contact op met uw IDP om dit probleem op te lossen.|
 |20033|Er is een probleem met uw federatieve id-provider. Neem contact op met uw IDP om dit probleem op te lossen.|
@@ -174,6 +175,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |81001|Kerberos-ticket van de gebruiker is te groot. Dit kan gebeuren als de gebruiker te veel groepen heeft en het Kerberos-ticket dus te veel groepslidmaatschappen bevat. Reduceer het aantal groepslidmaatschappen van de gebruiker en probeer het opnieuw.|
 |81005|Verificatiepakket wordt niet ondersteund|
 |81007|Tenant is niet ingeschakeld voor naadloze eenmalige aanmelding|
+|81012|Dit is een fout optreedt. Hiermee wordt aangegeven dat gebruiker zich aanmelden bij Azure AD verschilt van de gebruiker is aangemeld bij het apparaat. U kunt deze code in de logboeken negeren.|
 |90010|De aanvraag wordt niet ondersteund om verschillende redenen. Bijvoorbeeld, de aanvraag wordt gedaan met behulp van een niet-ondersteunde aanvraag-methode (alleen POST-methode wordt ondersteund) of het token-ondertekening algoritme dat is aangevraagd, wordt niet ondersteund. Neem contact op met de ontwikkelaar van de toepassing.|
 |90014| Er ontbreekt een vereist veld voor een protocolbericht, neem contact op met de eigenaar van de toepassing. Als u eigenaar van de toepassing bent, zorgt u ervoor dat u de vereiste parameters voor de aanmeldingsaanvraag hebt. |
 |90072| Het account moet eerst worden toegevoegd als een externe gebruiker in de tenant. Afmelden en aanmelden met een andere Azure AD account.|
