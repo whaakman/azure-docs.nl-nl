@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 64b94baeaede9b05e953b69324648c63d97cea8e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a453e2d16edecda9753c2940a745b260a3a2b893
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045435"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160260"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Zelfstudie: Azure Active Directory-integratie met Salesforce
 
@@ -60,14 +60,14 @@ Voor het configureren van de integratie van Salesforce in Azure AD, moet u Sales
 
 **Als u wilt toevoegen Salesforce uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De Azure Active Directory-knop][1]
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
-    
+
 3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
@@ -103,26 +103,26 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
+
     ![In het dialoogvenster voor eenmalige aanmelding](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. Op de **Salesforce-domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![SalesForce-domein en URL's, eenmalige aanmelding informatie](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-    
+
     a. In de **aanmeldings-URL** tekstvak typt u de waarde met behulp van het volgende patroon:
-    
+
     Enterprise-account: `https://<subdomain>.my.salesforce.com`
 
     Developer-account: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     b. In de **id** tekstvak typt u de waarde met behulp van het volgende patroon:
-    
+
     Enterprise-account: `https://<subdomain>.my.salesforce.com`
 
     Developer-account: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Salesforce-Client-ondersteuningsteam](https://help.salesforce.com/support) om deze waarden te verkrijgen.
 
 4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat** en slaat u het certificaatbestand op uw computer.
@@ -170,14 +170,14 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. In de **verlener** veld, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure portal.
 
     c. In de **entiteit-Id tekstvak**, typ de naam van uw Salesforce-domein met behulp van het volgende patroon:
-      
+
       * Enterprise-account: `https://<subdomain>.my.salesforce.com`
       * Developer-account: `https://<subdomain>-dev-ed.my.salesforce.com`
-      
+
     d. Het uploaden van de **Provider identiteitscertificaat**, klikt u op **bestand kiezen** om te bladeren en selecteer het certificaatbestand dat u hebt gedownload vanuit Azure portal.
 
     e. Als **SAML identiteitstype**, kies een van de volgende opties:
-    
+
       * Selecteer **verklaring bevat de gebruikersnaam van de Salesforce**als van de gebruiker Salesforce Username wordt doorgegeven in de SAML-verklaring
 
       * Selecteer **verklaring bevat de Federation-ID van het gebruikersobject**, als de Federation-ID van het gebruikersobject wordt doorgegeven in de SAML-verklaring
@@ -189,7 +189,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     g. Voor **Service Provider gestart aanvragen Binding**, selecteer **HTTP-omleiding**.
 
     h. In **aanmeldings-URL van id-Provider** tekstvak, plak de waarde van **Single Sign-On Service URL**, die u hebt gekopieerd vanuit Azure portal
-    
+
     i. Klik tot slot, **opslaan** instellingen toe te passen de SAML eenmalige aanmelding.
 
 14. Klik op het navigatiedeelvenster links in Salesforce, **Bedrijfsinstellingen** de gerelateerde sectie uitvouwen en klik vervolgens op **mijn domein**.
@@ -200,7 +200,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-16. In de **verificatieconfiguratie** sectie, Controleer de **aanmeldingspagina** als **verificatie gevolgd** van de SAML SSO-configuratie, en klik vervolgens op  **Sla**.
+16. In de **verificatieconfiguratie** sectie, Controleer de **AzureSSO** als **verificatie gevolgd** van de SAML SSO-configuratie, en klik vervolgens op **opslaan** .
 
     ![Eenmalige aanmelding configureren](./media/salesforce-tutorial/sf-auth-config.png)
 

@@ -1,21 +1,21 @@
 ---
-title: Self-service voor wachtwoord opnieuw instellen voor aanpassing - Azure Active Directory
+title: Aanpassen Azure AD Self-service voor wachtwoord opnieuw instellen
 description: Opties voor het aanpassen voor Azure AD Self-service voor wachtwoord opnieuw instellen
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 23a2897142f5cba90513e8b79e4cd461f1dd25b7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 70f36447270199545ac27cf27f87f971e34ef424
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054587"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162123"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Aanpassen van de Azure AD-functionaliteit voor self-service voor wachtwoord opnieuw instellen
 
@@ -24,8 +24,9 @@ IT-professionals die u wilt om de selfservice voor wachtwoordherstel (SSPR) impl
 ## <a name="customize-the-contact-your-administrator-link"></a>De koppeling 'Neem contact op met uw beheerder' aanpassen
 
 Zelfs als SSPR niet is ingeschakeld, hebben gebruikers nog steeds een koppeling 'Neem contact op met uw beheerder' op de wachtwoord-portal opnieuw instellen. Als de gebruiker kiest deze koppeling klikt, wordt een van beide:
-   * Een e-mail van uw beheerders en voor hulp bij het wijzigen van het wachtwoord van de gebruiker wordt gevraagd. 
-   * Uw gebruikers verzendt naar een URL die u voor hulp opgeeft. 
+
+   * Een e-mail van uw beheerders en voor hulp bij het wijzigen van het wachtwoord van de gebruiker wordt gevraagd.
+   * Uw gebruikers verzendt naar een URL die u voor hulp opgeeft.
 
 U wordt aangeraden dat u deze contact op met ingesteld op iets bijvoorbeeld een e-mailadres of een website die uw gebruikers al voor ondersteuningsvragen gebruiken.
 
@@ -45,9 +46,7 @@ Zie voor meer informatie over de verschillende beheerdersrollen en hoe u toe te 
 
 Als uw organisatie wil niet op de hoogte stellen beheerders over het wachtwoord opnieuw instellen aanvragen, kunt u de volgende configuratie inschakelen:
 
-* Self-service voor wachtwoord opnieuw instellen voor alle eindgebruikers inschakelen. Deze optie is onder **wachtwoordherstel** > **eigenschappen**.
-  
-  Als u niet wilt dat gebruikers hun eigen wachtwoorden opnieuw kunnen instellen, kunt u toegang tot een lege groep beperken. *Deze optie wordt niet aanbevolen.*
+* Self-service voor wachtwoord opnieuw instellen voor alle eindgebruikers inschakelen. Deze optie is onder **wachtwoordherstel** > **eigenschappen**. Als u niet wilt dat gebruikers hun eigen wachtwoorden opnieuw kunnen instellen, kunt u toegang tot een lege groep beperken. *Deze optie wordt niet aanbevolen.*
 * Aanpassen van de helpdeskkoppeling voor een web-URL of mailto: adres waarmee gebruikers hulp te krijgen. Deze optie is onder **wachtwoordherstel** > **aanpassing** > **aangepaste helpdesk e-mailadres of URL**.
 
 ## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>De AD FS-aanmeldingspagina voor SSPR aanpassen

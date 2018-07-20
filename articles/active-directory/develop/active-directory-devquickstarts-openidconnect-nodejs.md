@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7aa48b65423db2a3af032ed64d9d571fa603668d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969075"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144751"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js web-app aan de slag
 We gebruiken hier Passport aan:
@@ -62,7 +62,10 @@ De voltooide toepassing wordt verstrekt aan het einde van deze zelfstudie ook.
 
 6. Nadat u hebt geregistreerd, wijst Azure AD uw app een unieke toepassings-ID. U moet deze waarde in de volgende secties, dus te kopiëren uit de toepassingspagina.
 7. Uit de **instellingen** -> **eigenschappen** pagina voor uw toepassing, het bijwerken van de URI van de App-ID. De **App ID URI** is een unieke id voor uw toepassing. De overeenkomst is met de indeling `https://<tenant-domain>/<app-name>`, bijvoorbeeld: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Voor het maken van een geheime sleutel, volgt u stap 4 in [toepassing referenties of machtigingen voor toegang tot web-API's toe te voegen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+8. Uit de **instellingen** -> **antwoord-URL's** pagina voor uw toepassing, de URL die is toegevoegd in de aanmeldings-URL uit stap 5 toevoegen en klik op opslaan.
+
+9. Voor het maken van een geheime sleutel, volgt u stap 4 in [toepassing referenties of machtigingen voor toegang tot web-API's toe te voegen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
    > Kopieer de waarde van de toepassing. Dit is de waarde voor de `clientSecret`, die u nodig hebt voor **stap 3** hieronder. 
@@ -91,7 +94,7 @@ Hier, configureren we Express voor het gebruik van de OpenID Connect-verificatie
 
   * De `clientID` is de **toepassings-Id** die toegewezen aan uw app in de portal voor wachtwoordregistratie.
 
-  * De `returnURL` is de **omleidings-Uri** die u hebt ingevoerd in de portal.
+  * De `returnURL` is de **antwoord-URL** die u hebt ingevoerd in de portal.
 
   * De `clientSecret` is het geheim dat u hebt gegenereerd in de portal.
 

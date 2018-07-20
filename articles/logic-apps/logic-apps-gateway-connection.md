@@ -1,170 +1,150 @@
 ---
-title: Toegang tot on-premises gegevensbronnen voor Azure Logic Apps | Microsoft Docs
-description: De lokale data gateway instellen, zodat u toegang hebt tot gegevensbronnen on-premises vanuit logic apps
-keywords: toegang tot gegevens, op de lokale, gegevensoverdracht, versleuteling en gegevensbronnen
+title: Toegang tot gegevensbronnen on-premises voor Azure Logic Apps | Microsoft Docs
+description: Maken en instellen van de on-premises gegevensgateway, zodat u gegevensbronnen on-premises vanuit logische apps openen kunt
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 6cb4449d-e6b8-4c35-9862-15110ae73e6a
 ms.service: logic-apps
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 09/14/2017
-ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 0bf51f22e41ec78ef1dca7cba7bd5e26cbe1d969
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 07/20/2018
+ms.reviewer: yshoukry, LADocs
+ms.suite: integration
+ms.openlocfilehash: 65c7e03b349314ad61fa5f1ea8322f4d1352b8e6
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300002"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145686"
 ---
-# <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Verbinding maken met gegevensbronnen on-premises vanuit logic apps met lokale gegevensgateway
+# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Verbinding maken met gegevensbronnen on-premises van Azure Logic Apps met on-premises gegevensgateway
 
-Instellen voor toegang tot gegevensbronnen on-premises van uw logische apps moet een lokale gegevensgateway die logische apps met ondersteunde connectors kunnen gebruiken. De gateway fungeert als een brug waarmee snelle gegevensoverdracht en -versleuteling tussen gegevensbronnen on-premises en uw logische apps. De gateway stuurt gegevens van lokale bronnen op gecodeerde kanalen via de Azure Service Bus. Al het verkeer afkomstig is als beveiligde uitgaand verkeer van de gateway-agent. Meer informatie over [de werking van de gegevensgateway](logic-apps-gateway-install.md#gateway-cloud-service). 
+Voor toegang tot gegevensbronnen on-premises van uw logische apps, kunt u een data gateway-resource in Azure maken zodat uw logische apps kunnen gebruiken de [on-premises connectors](../logic-apps/logic-apps-gateway-install.md#supported-connections). Dit artikel wordt beschreven hoe u uw Azure-gateway-resource maakt *nadat* u [downloaden en installeren van de gateway op uw lokale computer](../logic-apps/logic-apps-gateway-install.md). 
 
-De gateway ondersteunt verbindingen met deze gegevensbronnen on-premises:
+Zie de volgende artikelen voor meer informatie over het gebruik van de gateway met andere services:
 
-*   BizTalk Server 2016
-*   DB2  
-*   Bestandssysteem
-*   Informix
-*   MQ
-*   MySQL
-*   Oracle Database
-*   PostgreSQL
-*   SAP Application Server 
-*   SAP Message Server
-*   SharePoint
-*   SQL Server
-*   Teradata
+* [Microsoft Power BI on-premises gegevensgateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
+* [Microsoft Flow on-premises gegevensgateway](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Microsoft PowerApps on-premises gegevensgateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Azure Analysis Services on-premises gegevensgateway](../analysis-services/analysis-services-gateway.md)
 
-Deze stappen laten zien hoe de gegevens op de lokale gateway instellen om te werken met uw logische apps. Zie voor meer informatie over ondersteunde connectors [Connectors voor Azure Logic Apps](../connectors/apis-list.md). 
+## <a name="prerequisites"></a>Vereisten
 
-Zie voor informatie over het gebruik van de gateway met andere services, deze artikelen:
+* U hebt al [gedownload en de data gateway geïnstalleerd op een lokale computer](../logic-apps/logic-apps-gateway-install.md).
 
-*   [Microsoft Power BI lokale gegevensgateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-*   [Azure Analysis Services op locatie gegevensgateway](../analysis-services/analysis-services-gateway.md)
-*   [Microsoft-Flow lokale gegevensgateway](https://flow.microsoft.com/documentation/gateway-manage/)
-*   [Microsoft PowerApps lokale gegevensgateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* De gatewayinstallatie van uw nog niet is gekoppeld aan een gateway-resource in Azure. U kunt de gatewayinstallatie koppelen slechts aan één gateway-resource, die wordt uitgevoerd wanneer u de gateway-resource maakt en selecteer de gatewayinstallatie. Deze koppeling wordt de installatie van de gateway niet beschikbaar voor andere bronnen.
 
-## <a name="requirements"></a>Vereisten
+* Wanneer u zich aanmeldt bij de Azure portal en de gateway-resource maakt, moet u de dezelfde aanmeldingsaccount die eerder gebruikt voor het was [installeren van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md#requirements).
+U moet ook gebruiken dezelfde [Azure-abonnement](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) die is gebruikt voor het installeren van de gateway. Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>.
 
-* U moet al hebben [data gateway geïnstalleerd op een lokale computer](logic-apps-gateway-install.md).
-
-* Wanneer u zich bij de Azure-portal aanmelden, hebt u dezelfde werk of schoolaccount dat is gebruikt om te gebruiken [installeren van de lokale data gateway](logic-apps-gateway-install.md#requirements). Uw account aanmelden moet ook beschikken over een Azure-abonnement moet worden gebruikt wanneer u een gateway-resource in de Azure-portal voor uw gateway-installatie maken.
-
-* De gateway-installatie kan niet al door een Azure-gateway-resource wordt geclaimd. U kunt de gateway-installatie slechts aan één Azure-gateway resource koppelen. Claim gebeurt wanneer u de gateway-resource maken, zodat de installatie niet beschikbaar voor andere bronnen is.
-
-* De lokale data gateway wordt uitgevoerd als een Windows-service en is ingesteld om te gebruiken `NT SERVICE\PBIEgwService` aanmeldingsreferenties voor het Windows-service. Maken en onderhouden van de gateway-resource in de Azure-portal, de [Windows-serviceaccount](../logic-apps/logic-apps-gateway-install.md) moet er ten minste **Inzender** machtigingen. 
+* Maken en onderhouden van de gateway-resource in Azure portal, uw [Windows-serviceaccount](../logic-apps/logic-apps-gateway-install.md#windows-service-account) moet ten minste beschikken over **Inzender** machtigingen. De on-premises gegevensgateway wordt uitgevoerd als een Windows-service en is ingesteld voor het gebruik `NT SERVICE\PBIEgwService` voor de Windows-service aanmeldingsreferenties. 
 
   > [!NOTE]
-  > Het Windows-service-account verschilt van het account dat wordt gebruikt voor het verbinden met on-premises gegevens bronnen, en van de Azure werk- of schoolaccount gebruikt voor aanmelding bij cloud-services.
+  > De Windows-serviceaccount wijkt af van het account voor verbinding maken met on-premises gegevens gebruikt voor gegevensbronnen en werken met de Azure- of schoolaccount gebruikt om aan te melden bij cloudservices.
 
-## <a name="install-the-on-premises-data-gateway"></a>De on-premises gegevensgateway installeren
+## <a name="download-and-install-gateway"></a>Gateway downloaden en installeren
 
-Als u nog niet gedaan hebt, volgt u de [stappen voor het installeren van de lokale data gateway](logic-apps-gateway-install.md). Voordat u met de andere stappen doorgaat, zorg er dan voor dat u de data gateway geïnstalleerd op een lokale computer.
+Voordat u kunt doorgaan met de stappen in dit artikel, moet u de gateway is al geïnstalleerd op een lokale computer hebben.
+en als u niet hebt gedaan, volgt u de stappen voor het [downloaden en installeren van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md). 
 
 <a name="create-gateway-resource"></a>
 
-## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Een Azure-resource voor de lokale data gateway maken
+## <a name="create-azure-resource-for-gateway"></a>Azure-resource voor gateway maken
 
-Nadat u de gateway op een lokale computer installeert, maakt u uw data gateway als een resource in Azure. Uw gateway-resource koppelt in deze stap ook aan uw Azure-abonnement.
+Nadat u de gateway op een lokale computer installeert, kunt u vervolgens een Azure-resource maken voor uw gateway. Uw gateway-resource koppelt in deze stap ook aan uw Azure-abonnement.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com "Azure Portal"). Zorg ervoor dat voor het gebruik van hetzelfde Azure werk of school e-mailadres gebruikt voor het installeren van de gateway.
+1. Meld u aan bij <a href="https://portal.azure.com" target="_blank">Azure Portal</a>. Zorg ervoor dat u gebruikt hetzelfde Azure werk of school-e-mailadres gebruikt voor het installeren van de gateway.
 
-2. Kies in het Azure hoofdmenu **maken van een resource** > **Enterprise Integration** > **On-premises gegevensgateway**.
+2. Selecteer in het hoofdmenu van Azure **een resource maken** > 
+**integratie** > **On-premises gegevensgateway**.
 
-   !['On-premises data gateway' vinden](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
+   ![Zoek 'On-premises gegevensgateway'](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
-3. Op de **verbinding-gateway maken** pagina, vindt u deze informatie om de bron van uw data gateway te maken:
+3. Op de **verbindingsgateway maken** pagina, typt u deze informatie voor uw gateway:
 
-    * **Naam**: Voer een naam voor uw gateway-resource. 
+   | Eigenschap | Beschrijving | 
+   |----------|-------------|
+   | **Naam** | De naam voor uw gateway-resource | 
+   | **Abonnement** | De naam van uw Azure-abonnement, moet hetzelfde abonnement als uw logische app. Het standaardabonnement is gebaseerd op het Azure-account waarmee u zich. | 
+   | **Resourcegroep** | De naam voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) voor het ordenen van verwante bronnen | 
+   | **Locatie** | Azure beperkt deze locatie bij dezelfde regio die is geselecteerd voor de gateway-cloudservice tijdens [gatewayinstallatie](../logic-apps/logic-apps-gateway-install.md). <p>**Houd er rekening mee**: Zorg ervoor dat deze gateway Resourcelocatie komt overeen met de servicelocatie van de gateway-cloud. De gatewayinstallatie mogelijk anders niet weergegeven in de lijst met geïnstalleerde gateways voor u om te selecteren in de volgende stap. U kunt verschillende regio's gebruiken voor uw gateway en voor uw logische app. | 
+   | **De Installatienaam van de** | Als de gatewayinstallatie is niet nog is geselecteerd, selecteert u de gateway die u eerder hebt geïnstalleerd. | 
+   | | | 
 
-    * **Abonnement**: Selecteer de Azure-abonnement wilt koppelen aan uw gateway-resource. 
-    Dit abonnement moet hetzelfde abonnement als uw logische app.
-   
-      Het standaardabonnement is gebaseerd op het Azure-account dat u gebruikt voor aanmelden.
+   Hier volgt een voorbeeld:
 
-    * **Resourcegroep**: een resourcegroep maken of een bestaande resourcegroep selecteren voor het implementeren van uw gateway-resource. 
-    Resourcegroepen kunnen u gerelateerde Azure activa beheren als een verzameling.
+   ![Geef details voor het maken van uw on-premises gegevensgateway](./media/logic-apps-gateway-connection/createblade.png)
 
-    * **Locatie**: Azure beperkt deze locatie bij dezelfde regio die is geselecteerd voor de gateway-cloudservice tijdens [gateway-installatie](logic-apps-gateway-install.md). 
+4. Selecteer de gateway-resource toevoegen aan uw Azure-dashboard, **vastmaken aan dashboard**. Wanneer u klaar bent, kiest u **Maken**.
 
-      > [!NOTE]
-      > Zorg ervoor dat de locatie van de resource gateway overeenkomt met de gateway cloud service-locatie. De gateway-installatie mogelijk anders niet weergegeven in de lijst Geïnstalleerde gateways voor selectie in de volgende stap.
-      > 
-      > U kunt verschillende regio's gebruiken voor uw gateway-resource en voor uw logische app.
+   Als u wilt vinden of weergeven van uw gateway op elk gewenst moment, vanuit het hoofdmenu van Azure, selecteer **alle services**. 
+   Voer in het zoekvak 'on-premises gegevensgateways' en selecteer vervolgens **On-premises gegevensgateways**.
 
-    * **De naam van de installatie**: als uw gateway-installatie niet is geselecteerd, selecteert u de gateway die u eerder hebt geïnstalleerd. 
-
-    Als u wilt de bron van de gateway toevoegen aan uw Azure-dashboard, kies **vastmaken aan dashboard**. 
-    Wanneer u klaar bent, kiest u **Maken**.
-
-    Bijvoorbeeld:
-
-    ![Geef details op uw on-premises gegevensgateway maken](./media/logic-apps-gateway-connection/createblade.png)
-
-    Als u wilt zoeken of weergeven van uw data gateway op elk gewenst moment, vanuit het Azure hoofdmenu kiezen **alle services**. 
-    Voer in het zoekvak 'on-premises gegevensgateways' en kies vervolgens **On-premises gegevensgateways**.
-
-    !['On-premises gegevensgateways' vinden](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+   ![Zoek 'On-premises gegevensgateways"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 
-## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Uw logische app verbinden met de lokale data gateway
+## <a name="connect-to-on-premises-data"></a>Verbinding maken met on-premises gegevens
 
-Nu dat u hebt uw data gateway resource gemaakt en die uw Azure-abonnement is gekoppeld aan deze resource, maak een verbinding tussen uw logische app en de data gateway.
+Nadat u uw gateway-resource maakt en uw Azure-abonnement aan deze bron koppelen, kunt u nu een verbinding maken tussen uw logische app en uw on-premises gegevensbron met behulp van de gateway.
 
-> [!NOTE]
-> De locatie van uw gateway verbinding moet aanwezig zijn in dezelfde regio bevinden als uw logische app, maar u kunt een data gateway die voorkomt in een andere regio.
+1. In de Azure-portal maken of uw logische app in Logic App Designer openen.
 
-1. In de Azure portal maken of openen van uw logische app in Logic App-ontwerper.
+2. Toevoegen van een connector die ondersteuning biedt voor on-premises verbindingen, bijvoorbeeld **SQL Server**.
 
-2. Toevoegen van een connector die ondersteuning biedt voor lokale verbindingen, zoals SQL Server.
+3. Stel nu de verbinding:
 
-3. Na de aangegeven volgorde en selecteer **verbinden via lokale gegevensgateway**, Geef een unieke verbindingsnaam en de vereiste gegevens in en selecteert u de gateway-resource voor gegevens die u wilt gebruiken. Wanneer u klaar bent, kiest u **Maken**.
+   1. Selecteer **verbinding maken via een on-premises gegevensgateway**. 
 
-   > [!TIP]
-   > Een unieke verbindingsnaam kunt u gemakkelijk herkennen die verbinding later, vooral wanneer u meerdere verbindingen maken. Indien van toepassing, moet u ook de gekwalificeerde domeinnaam voor uw gebruikersnaam bevatten. 
+   2. Voor **Gateways**, selecteert u de gateway-resource die u eerder hebt gemaakt. 
 
-   ![Verbinding maken tussen logic app en data gateway](./media/logic-apps-gateway-connection/blankconnection.png)
+      Hoewel de locatie van uw gateway verbinding moet aanwezig zijn in dezelfde regio als uw logische app, kunt u een gateway selecteren in een andere regio.
 
-Gefeliciteerd, uw gatewayverbinding is nu gereed voor uw logische app te gebruiken.
+   3. Geef een unieke verbindingsnaam en de vereiste gegevens. 
 
-## <a name="edit-your-gateway-connection-settings"></a>De instellingen voor de gateway-verbinding bewerken
+      Naam van de unieke verbinding kunt u eenvoudig identificeren die verbinding later, met name wanneer u meerdere verbindingen maken. Indien van toepassing, moet u ook de gekwalificeerde domein voor uw gebruikersnaam bevatten.
+   
+      Hier volgt een voorbeeld:
 
-Nadat u een gatewayverbinding voor uw logische app maakt, kunt u later de instellingen voor die specifieke verbinding bijwerken.
+      ![Verbinding maken tussen logische Apps en gegevens-gateway](./media/logic-apps-gateway-connection/blankconnection.png)
+
+   4. Wanneer u klaar bent, kiest u **Maken**. 
+
+De gatewayverbinding is nu gereed voor uw logische app te gebruiken.
+
+## <a name="edit-connection"></a>Verbinding bewerken
+
+Nadat u een gateway-verbinding voor uw logische app gemaakt, wilt u mogelijk de instellingen voor die specifieke verbinding later bijwerken.
 
 1. De gatewayverbinding vinden:
 
-   * Klik in het menu logic app onder **ontwikkelingsprogramma's**, selecteer **API verbindingen**. 
+   * Alle API-verbindingen voor uw logische app, onder in het menu van uw logische app vinden **ontwikkeltools**, selecteer **API-verbindingen**. 
    
-     De **API verbindingen** deelvenster ziet u alle API-verbindingen die zijn gekoppeld aan uw logische app, inclusief gatewayverbindingen.
+     ![Ga naar uw logische app, selecteert u "API-verbindingen"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-     ![Ga naar uw logische app, selecteert u 'API verbindingen'](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+   * Zoek alle API-verbindingen die zijn gekoppeld aan uw Azure-abonnement: 
 
-   * Of Ga naar in het Azure hoofdmenu **meer Services** > **Web en mobiel** > **API verbindingen** voor alle API-verbindingen, met inbegrip van gateway verbindingen die gekoppeld aan uw Azure-abonnement zijn. 
+     * Ga in het hoofdmenu van Azure naar **alle services** > **Web** > **API-verbindingen**. 
+     * Of, in het hoofdmenu van Azure, gaat u naar **alle resources**.
 
-   * Of op het Azure hoofdmenu, gaat u naar **alle resources** voor alle API-verbindingen, inclusief gatewayverbindingen die gekoppeld aan uw Azure-abonnement zijn.
-
-2. Selecteer de gatewayverbinding die u wilt weergeven of bewerken en kies **API bewerken verbinding**.
+2. Selecteer de gatewayverbinding die u wilt en kies vervolgens **bewerken API-verbinding**.
 
    > [!TIP]
-   > Als u de updates worden niet doorgevoerd, probeert u [stoppen en opnieuw starten van de gateway Windows-service](./logic-apps-gateway-install.md#restart-gateway).
+   > Als de updates worden niet doorgevoerd, probeert u [stoppen en opnieuw starten van de Windows-gatewayservice](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
 
-## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Schakelt u of uw lokale gegevens gateway bron verwijderen
+## <a name="delete-gateway-resource"></a>Gateway-resource verwijderen
 
-Als u wilt maken van een andere gateway-resource, uw gateway koppelen aan een andere resource of verwijder de gateway-resource, kunt u de bron van de gateway verwijderen zonder gevolgen voor de installatie van de gateway. 
+Als u wilt maken van een andere gateway-resource, uw gateway koppelen aan een andere resource of verwijder de gateway-resource, kunt u de gateway-resource verwijderen zonder gevolgen voor de gatewayinstallatie. 
 
-1. Ga naar in het Azure hoofdmenu **alle resources**. 
-2. Zoek en selecteer uw data gateway-resource.
-3. Kies **On-premises Data Gateway**, en kies op de werkbalk resource **verwijderen**.
+1. Ga in het hoofdmenu van Azure naar **alle resources**. 
+
+2. Zoek en selecteer de gateway-resource.
+
+3. Als u nog niet is geselecteerd in het menu van de resource gateway selecteert **On-premises Data Gateway**. 
+
+4. Kies op de werkbalk resource **verwijderen**.
 
 <a name="faq"></a>
 
@@ -172,7 +152,12 @@ Als u wilt maken van een andere gateway-resource, uw gateway koppelen aan een an
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
+## <a name="get-support"></a>Ondersteuning krijgen
+
+* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Uw logische apps beveiligen](./logic-apps-securing-a-logic-app.md)
-* [Algemene voorbeelden en scenario's voor logic apps](./logic-apps-examples-and-scenarios.md)
+* [Algemene voorbeelden en scenario's voor logische apps](./logic-apps-examples-and-scenarios.md)

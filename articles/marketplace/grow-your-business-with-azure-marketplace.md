@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: edafc2e0c11f4395540081e4b09614f2beb70696
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f1616f7a20fdd55b98b3bfb37973a783997e2eb0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115922"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145237"
 ---
 # <a name="grow-your-business-on-marketplace"></a>Breid uw bedrijf op marketplace 
 Nadat u uw aanbieding in AppSource of Azure Marketplace hebt gepubliceerd, kunt u uw aanbieding gebruiken als een launchpad voor gezamenlijke (GTM)-activiteiten met go-to-market met Microsoft. Verkeer naar uw marketplace-aanbieding te stimuleren en nurturing marketplace leads, zijn bijvoorbeeld geweldige manieren om uw zakelijke groei te versnellen. In dit artikel hebben we veel marketing aanbevolen procedures voor het vergroten van uw bedrijf op marketplace.
@@ -215,7 +215,7 @@ Gebruik de volgende tabel voor toegang tot meer voordelen en bronnen ter bevorde
 | IP-CO-sell Ready geworden | Het is mogelijk dat u in aanmerking komen voor het IP-CO-sell Ready-programma, waarmee u rechtstreeks kunt samenwerken met Microsoft-verkopers en andere partners op verkoopkansen doel en het plannen van de account. Uw oplossing zichtbaar voor Microsoft-verkopers in de catalogus van de oplossing verkoper. Microsoft-verkopers worden beloond voor samenwerken en het verschil maken met u.<br /> Voor meer informatie over de gereedheid voor gezamenlijke verkoop, met inbegrip van de vereisten voor geschiktheid, gaat u naar [bevordering van uw bedrijf](https://partner.microsoft.com/reach-customers/promote-your-business). |
 
 
-# <a name="azure-partner-revenue-attribution"></a>Azure-Partner omzet Attribution
+## <a name="azure-partner-customer-usage-attribution"></a>Azure-Partner klant gebruik Attribution
 
 Als een software-partner voor Azure is uw oplossingen vereisen Azure-onderdelen of rechtstreeks op de Azure-infrastructuur is geïmplementeerd.  Vandaag de dag wanneer een partneroplossing is geïmplementeerd door de klant en maakt gebruik van Azure-resources ingericht door de klant, is het moeilijk voor de partner te krijgen van de zichtbaarheid van de status van deze implementaties en lastig om beeldverwerkingstoepassingen in gevolgen voor de Azure-groei en de uitlijning met de Microsoft-verkoopteams en het tegoed voor Microsoft-partner-programma's.   
 
@@ -291,8 +291,6 @@ client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
 
 >Dit moet worden uitgevoerd voor elke client, er is geen globale statische configuratie (u kunt kiezen een factory client om er zeker van dat elke client zoiets doen. 
 >[Aanvullende referentie-informatie](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
-
-## <a name="registering-a-guid"></a>Registreren van een GUID: 
 
 Informatie over het taggen van een implementatie met behulp van Azure PowerShell of Azure CLI: als u resources via AzurePowerShell implementeert, kunt u uw GUID toevoegen met behulp van de volgende methode:
 
@@ -398,11 +396,14 @@ Bij het implementeren van onze Microsoft-software is mogelijk moet u de installa
 
 Hulp nodig hebt, volgt u de onderstaande stappen te volgen:
  1. Ga naar de ondersteuningspagina te vinden op [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
- 2. Selecteer het probleemtype voor problemen met het gebruik van koppeling -: **Marketplace Onboarding** en categorie: **andere** en klik vervolgens op **aanvraag starten.**
-
-Voor problemen met toegang tot de Azure Marketplace Cloud Partner Portal - Selecteer probleemtype: **Marketplace Onboarding** en categorie: **probleem met toegang tot** en klik vervolgens op **aanvraag starten.**
+ 2. Selecteer het probleemtype voor problemen met het gebruik van koppeling -: **Marketplace Onboarding** en categorie: **andere** en klik vervolgens op **aanvraag starten.** 
+>[!Note]
+>Voor problemen met toegang tot de Azure Marketplace Cloud Partner Portal - Selecteer probleemtype: **Marketplace Onboarding** en categorie: **probleem met toegang tot** en klik vervolgens op **aanvraag starten.**
  3. Vul de vereiste velden op de volgende pagina en klik op **doorgaan.**
  4. Vul de velden vrije tekst op de volgende pagina.  
+ 
+
+
  
 >[!Important] 
 >Vul in de titel van Incident met **'ISV gebruik bijhouden'** en beschrijf het probleem in de details in het veld grote vrije tekst na.  Voltooi de rest van het formulier en klikt u op **indienen**.
