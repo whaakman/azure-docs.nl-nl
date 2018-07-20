@@ -40,6 +40,8 @@
       href: ../azure-resource-manager/resource-group-overview.md
 - name: Resources
   items:
+    - name: Veelgestelde vragen
+      href: firewall-faq.md
     - name: Auteursjablonen
       href: ../azure-resource-manager/resource-group-authoring-templates.md
     - name: Azure-roadmap

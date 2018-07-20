@@ -230,9 +230,9 @@
     - name: Regio zoeken via programma
       items:
         - name: 'C# gebruiken'
-          href: find-region-csharp.md
+          href: luis-find-region-csharp.md
         - name: Node.js gebruiken
-          href: find-region-nodejs.md
+          href: luis-find-region-nodejs.md
 - name: Naslaginformatie
   items:
     - name: Gebruikersprivacy
