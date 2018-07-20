@@ -9,17 +9,17 @@
   items:
     - name: Hallo wereld implementeren
       href: service-fabric-mesh-quickstart-deploy-container.md
-    - name: Een webtoepassing maken en implementeren
+    - name: Een web-app maken en implementeren in Azure Service Fabric Mesh
       href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Zelfstudies
   items:
-    - name: Een web-app met meerdere services maken en implementeren
+    - name: 'Een Service Fabric Mesh-web-app voor meerdere services maken, implementeren en foutvrij maken'
       items:
-        - name: 1- Een ASP.NET Core-toepassing bouwen
+        - name: 1- Een Service Fabric-web-app bouwen
           href: service-fabric-mesh-tutorial-create-dotnetcore.md
-        - name: 2 - Fouten in de toepassing opsporen
+        - name: 2- Een Service Fabric-web-app foutvrij maken
           href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-        - name: 3 - De toepassing implementeren
+        - name: 3- Een Service Fabric-web-app implementeren
           href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
 - name: Concepten
   items:

@@ -118,6 +118,8 @@ items:
                         href: sql-api-dotnetcore-get-started.md
                       - name: Java
                         href: sql-api-java-get-started.md
+                      - name: Async Java
+                        href: sql-api-async-java-get-started.md
                       - name: Node.js
                         href: sql-api-nodejs-get-started.md
                   - name: Een web-app bouwen
@@ -412,38 +414,50 @@ items:
                 href: cassandra-import-data.md
   - name: Handleidingen
     items:
-      - name: Sleutels en consistentie
-        href: manage-account.md
-      - name: Doorvoer
-        href: set-throughput.md
-      - name: Firewallondersteuning
-        href: firewall-support.md
-      - name: Service-eindpunt voor virtueel netwerk instellen
-        href: vnet-service-endpoint.md
-      - name: Metrische gegevens
-        href: use-metrics.md
-      - name: SLA's bewaken
-        href: monitor-accounts.md
-      - name: Back-up en herstel
-        href: online-backup-and-restore.md
-      - name: Regionale failover
-        href: regional-failover.md
-      - name: Diagnostische logboeken
-        href: logging.md
-      - name: 'Opgeslagen procedures, triggers en UDF''s'
-        href: programming.md
-      - name: Overzicht van BulkExecutor
+      - name: Beheren
+        items:
+          - name: Beheren met PowerShell
+            href: manage-account-with-powershell.md
+          - name: Het gebruik van Storage Explorer beheren
+            href: storage-explorer.md
+          - name: Beheren met Data Explorer
+            href: data-explorer.md
+          - name: Sleutels en consistentieniveaus beheren
+            href: manage-account.md
+          - name: Doorvoer
+            href: set-throughput.md
+          - name: Gegevens automatisch laten verlopen
+            href: time-to-live.md
+          - name: Diagnostische logboeken
+            href: logging.md
+      - name: Beveiligde gegevens
+        items:
+          - name: Firewallondersteuning
+            href: firewall-support.md
+          - name: Service-eindpunt voor virtueel netwerk instellen
+            href: vnet-service-endpoint.md
+      - name: Controleren
+        items:
+          - name: Bewaken met metrische gegevens
+            href: use-metrics.md
+          - name: SLA's bewaken
+            href: monitor-accounts.md
+      - name: Back-ups en herstellen
+        items:
+          - name: Online back-ups maken en herstellen
+            href: online-backup-and-restore.md
+          - name: Regionale failover
+            href: regional-failover.md
+      - name: Automatiseren
+        items:
+          - name: 'Opgeslagen procedures, triggers en UDF''s'
+            href: programming.md
+          - name: Meerdere masters instellen
+            href: multi-master-workaround.md
+      - name: Bibliotheek voor bulksgewijs uitvoeren
         href: bulk-executor-overview.md
       - name: Rendabele lees- en schrijfbewerkingen
         href: key-value-store-cost.md
-      - name: Gegevens automatisch laten verlopen
-        href: time-to-live.md
-      - name: Beheren met PowerShell
-        href: manage-account-with-powershell.md
-      - name: Het gebruik van Storage Explorer beheren
-        href: storage-explorer.md
-      - name: Meerdere masters instellen
-        href: multi-master-workaround.md
   - name: Resources
     items:
       - name: Query-cheatsheet

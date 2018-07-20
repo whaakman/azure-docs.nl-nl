@@ -24,7 +24,8 @@
 ## [Overzicht van back-ups van SAP HANA](sap-hana-backup-guide.md)
 ## [Back-ups maken van SAP HANA op bestandsniveau](sap-hana-backup-file-level.md)
 ## [Back-ups maken van SAP HANA-opslagmomentopnamen](sap-hana-backup-storage-snapshots.md)
-# SAP NetWeaver op virtuele machines van Azure
+# SAP NetWeaver en Business One in virtuele Azure-machines
+## [SAP Business One in virtuele Azure-machines](business-one-azure.md)
 ## [Implementatiehandleiding voor SAP IDES op Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver in virtuele Linux-machines op Azure](suse-quickstart.md)
 ## [SAP NetWeaver op Azure plannen en implementeren](planning-guide.md)

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/27/2018
+ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: 499c7182fba9d8efeebfb22e22a692d431dcb7ac
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 6bc979e277c71610ebc0f7a603915689b0b0605b
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888650"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160372"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en Fabric-Upgradebeleid aanpassen
 Dit document leest u hoe de verschillende fabric-instellingen aanpassen en Upgradebeleid in de infrastructuur voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon.
@@ -59,7 +59,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="applicationgatewayhttp"></a>Application Gateway/Http
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|tekenreeks, standaard is L 'None'|Statisch| ApplicationCertificateValidationPolicy: Geen: servercertificaat; wordt niet gevalideerd de aanvraag mislukt. ServiceCertificateThumbprints: Raadpleeg config ServiceCertificateThumbprints voor de door komma's gescheiden lijst met vingerafdrukken van de externe certificaten die de reverse proxy kunt vertrouwen. ServiceCommonNameAndIssuer: Raadpleeg config ServiceCommonNameAndIssuer voor de vingerafdruk van het onderwerp en -verlenersleutel van de externe certificaten die de reverse proxy kunt vertrouwen. |
+|ApplicationCertificateValidationPolicy|reeks, standaard is ingesteld op 'None'|Statisch| ApplicationCertificateValidationPolicy: Geen: servercertificaat; wordt niet gevalideerd de aanvraag mislukt. ServiceCertificateThumbprints: Raadpleeg config ServiceCertificateThumbprints voor de door komma's gescheiden lijst met vingerafdrukken van de externe certificaten die de reverse proxy kunt vertrouwen. ServiceCommonNameAndIssuer: Raadpleeg config ServiceCommonNameAndIssuer voor de vingerafdruk van het onderwerp en -verlenersleutel van de externe certificaten die de reverse proxy kunt vertrouwen. |
 |BodyChunkSize |Uint, de standaardwaarde is 16384 tekens |Dynamisch| Geeft de grootte van voor het segment in bytes die worden gebruikt om te lezen van de hoofdtekst. |
 |CrlCheckingFlag|uint, standaard is 0x40000000 |Dynamisch| Vlaggen voor de toepassing/service validatie van certificaatketen; bijvoorbeeld CRL-controle 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY instellen op 0 Hiermee schakelt CRL controleren of volledige lijst met ondersteunde waarden wordt beschreven door dwFlags van CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tijd in seconden. de standaardwaarde is 120 |Dynamisch|Interval in seconden opgeven.  Geeft de standaardtime-out-aanvraag naar de http-aanvragen worden verwerkt in de http-gateway-app. |
@@ -73,10 +73,10 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |IgnoreCrlOfflineError|BOOL, standaard is ingesteld op TRUE|Dynamisch|Hiermee geeft u op of u offline fout van de CRL voor certificaatverificatie van de toepassing/service-negeert. |
 |IsEnabled |BOOL, de standaardinstelling is false |Statisch| / Schakelt de HttpApplicationGateway. HttpApplicationGateway is standaard uitgeschakeld en deze configuratie moet worden ingesteld om te schakelen. |
 |NumberOfParallelOperations | Uint, de standaardwaarde is 5000 |Statisch|Het aantal leesbewerkingen en op de server HTTP-wachtrij plaatsen. Hiermee bepaalt u het aantal gelijktijdige aanvragen op dat door de HttpGateway kan worden voldaan. |
-|RemoveServiceResponseHeaders|tekenreeks, standaard is L "datum. Server'|Statisch|Een puntkomma / door komma's gescheiden lijst met reactieheaders die wordt verwijderd uit het antwoord van de service; voordat deze worden doorgestuurd naar de client. Als deze is ingesteld op een lege tekenreeks; doorgeven van de headers die zijn geretourneerd door de service-is. Internet Explorer de datum en de Server niet overschrijven |
+|RemoveServiceResponseHeaders|tekenreeks, standaard is 'datum; Server'|Statisch|Een puntkomma / door komma's gescheiden lijst met reactieheaders die wordt verwijderd uit het antwoord van de service; voordat deze worden doorgestuurd naar de client. Als deze is ingesteld op een lege tekenreeks; doorgeven van de headers die zijn geretourneerd door de service-is. Internet Explorer de datum en de Server niet overschrijven |
 |ResolveServiceBackoffInterval |Tijd in seconden, de standaardwaarde is 5 |Dynamisch|Interval in seconden opgeven.  Geeft het oplossen van het standaard back-off interval voordat opnieuw wordt geprobeerd een mislukte service bewerking. |
 |SecureOnlyMode|BOOL, standaard is ingesteld op FALSE|Dynamisch| SecureOnlyMode: true: omgekeerde Proxy alleen wordt doorgestuurd naar services die beveiligde eindpunten publiceren. ONWAAR: omgekeerde Proxy kan aanvragen voor beveiligde/niet-beveiligde eindpunten worden doorgestuurd.  |
-|ServiceCertificateThumbprints|tekenreeks, standaard is L""|Dynamisch| |
+|ServiceCertificateThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch| |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>Application Gateway/Http/ServiceCommonNameAndIssuer
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
@@ -87,9 +87,9 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, standaard is 0|Statisch|De MinReplicaSetSize voor BackupRestoreService |
-|PlacementConstraints|wstring, standaard is L""|Statisch| De PlacementConstraints voor BackupRestore-service |
-|SecretEncryptionCertThumbprint|wstring, standaard is L""|Dynamisch|Vingerafdruk van het geheim versleutelingscertificaat X509 |
-|SecretEncryptionCertX509StoreName|wstring, standaard is L "Mijn"|  Dynamisch|    Dit geeft aan dat het certificaat moet worden gebruikt voor versleuteling en ontsleuteling van referenties voor de naam van de X.509-certificaatarchief die wordt gebruikt voor het versleutelen van ontsleutelen store referenties die worden gebruikt door de service back-up terugzetten |
+|PlacementConstraints|tekenreeks, standaardwaarde is ""|Statisch|  De PlacementConstraints voor BackupRestore-service |
+|SecretEncryptionCertThumbprint|tekenreeks, standaardwaarde is ""|Dynamisch|Vingerafdruk van het geheim versleutelingscertificaat X509 |
+|SecretEncryptionCertX509StoreName|tekenreeks, standaardwaarde is 'My'|   Dynamisch|    Dit geeft aan dat het certificaat moet worden gebruikt voor versleuteling en ontsleuteling van referenties voor de naam van de X.509-certificaatarchief die wordt gebruikt voor het versleutelen van ontsleutelen store referenties die worden gebruikt door de service back-up terugzetten |
 |TargetReplicaSetSize|int, standaard is 0|Statisch| De TargetReplicaSetSize voor BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
@@ -157,8 +157,10 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="dnsservice"></a>De DNS-service
 | **Parameter** | **Toegestane waarden** |**Upgradebeleid**| **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|IsEnabled|BOOL, standaard is ingesteld op FALSE|Statisch| |
 |InstanceCount|int, standaard is 1|Statisch|  |
+|IsEnabled|BOOL, standaard is ingesteld op FALSE|Statisch| |
+|PartitionPrefix|tekenreeks, standaardwaarde is "-"|Statisch|Hiermee stelt u de voorvoegseltekenreeks partitie in de DNS-namen voor gepartitioneerde services: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<doel partitienaam van\> \< PartitionSuffix\>.\< Resterende-gepartitioneerd-Service-DNSName\>.|
+|PartitionSuffix|tekenreeks, standaardwaarde is ""|Statisch|Hiermee stelt u het achtervoegsel van de partitie in de DNS-namen voor gepartitioneerde services: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<doel partitienaam van\> \< PartitionSuffix\>.\< Resterende-gepartitioneerd-Service-DNSName\>. |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
@@ -220,14 +222,14 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |ExpectedNodeFabricUpgradeDuration|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisch|Interval in seconden opgeven. Dit is de verwachte duur voor een knooppunt moet worden bijgewerkt tijdens de upgrade van Windows Fabric. |
 |ExpectedReplicaUpgradeDuration|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisch|Interval in seconden opgeven. Dit is de verwachte duur voor alle replica's moeten worden bijgewerkt op een knooppunt tijdens de upgrade van de toepassing. |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|BOOL, standaard is ingesteld op TRUE|Dynamisch|Als is ingesteld op onwaar. replica's met een grootte van de doel-1 worden toegestaan om te verplaatsen tijdens de upgrade. |
-|MinReplicaSetSize|int, standaardinstelling is 3|Niet toegestaan|Dit is de grootte van de minimale replica voor de FM. Als het aantal actieve FM-replica's onder deze waarde komt; de FM weigert wijzigingen aan het cluster tot ten minste het minimum aantal replica's kunnen worden hersteld |
-|PlacementConstraints|tekenreeks, standaard is L""|Niet toegestaan|Alle plaatsingsbeperkingen voor de failover manager replica 's |
+|MinReplicaSetSize|Int, de standaardwaarde is 3|Niet toegestaan|Dit is de grootte van de minimale replica voor de FM. Als het aantal actieve FM-replica's onder deze waarde komt; de FM weigert wijzigingen aan het cluster tot ten minste het minimum aantal replica's kunnen worden hersteld |
+|PlacementConstraints|tekenreeks, standaardwaarde is ""|Niet toegestaan|Alle plaatsingsbeperkingen voor de failover manager replica 's |
 |PlacementTimeLimit|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(600)|Dynamisch|Interval in seconden opgeven. De tijdslimiet voor het bereiken van doel replica count; na een statusrapport van de waarschuwing wordt gestart |
 |QuorumLossWaitDuration |Tijd in seconden, de standaardwaarde is MaxValue |Dynamisch|Interval in seconden opgeven. Dit is de maximale duur waarvoor we een partitie in een status van quorumverlies toestaan. Als de partitie nog steeds sprake van quorumverlies na deze duur is; de partitie is hersteld van quorumverlies door rekening te houden de omlaag replica's als verloren. Houd er rekening mee dat dit mogelijk verlies van gegevens kan dit tot. |
 |ReconfigurationTimeLimit|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(300)|Dynamisch|Interval in seconden opgeven. De tijdslimiet voor herconfiguratie; na een statusrapport van de waarschuwing wordt gestart |
 |ReplicaRestartWaitDuration|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(60.0 * 30)|Niet toegestaan|Interval in seconden opgeven. Dit is de ReplicaRestartWaitDuration voor de FMService |
 |StandByReplicaKeepDuration|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(3600.0 * 24 * 7)|Niet toegestaan|Interval in seconden opgeven. Dit is de StandByReplicaKeepDuration voor de FMService |
-|TargetReplicaSetSize|int, standaard is 7|Niet toegestaan|Dit is het doelaantal FM-replica's die wordt onderhouden van Windows Fabric. Hoe hoger de waarde resulteert in meer betrouwbaarheid van de gegevens FM; met een negatieve gevolgen voor de prestaties van kleine. |
+|TargetReplicaSetSize|Int, de standaardwaarde is 7|Niet toegestaan|Dit is het doelaantal FM-replica's die wordt onderhouden van Windows Fabric. Hoe hoger de waarde resulteert in meer betrouwbaarheid van de gegevens FM; met een negatieve gevolgen voor de prestaties van kleine. |
 |UserMaxStandByReplicaCount |Int, de standaardwaarde is 1 |Dynamisch|De standaard maximale aantal StandBy-replica's die het systeem voor de services gebruiken blijft. |
 |UserReplicaRestartWaitDuration |Tijd in seconden, is standaard 60,0 * 30 |Dynamisch|Interval in seconden opgeven. Wanneer een persistente replica wordt uitgeschakeld; Windows Fabric wacht voor deze duur voor de replica op terugkomen om vóór het maken van nieuwe vervanging replica's (waarvoor een kopie van de status). |
 |UserStandByReplicaKeepDuration |Tijd in seconden, de standaardwaarde is 3600.0 * 24 * 7 |Dynamisch|Interval in seconden opgeven. Wanneer een persistente replica terugkeren van een status down; mogelijk is deze al vervangen. Deze timer bepaalt hoe lang de FM de standby-replica blijft bewaard voordat deze worden verwijderd. |
@@ -257,14 +259,15 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="filestoreservice"></a>FileStoreService
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
+|AcceptChunkUpload|BOOL, standaard is ingesteld op TRUE|Dynamisch|De configuratie te bepalen of het bestand store-service uploaden van chunk op basis van het bestand accepteert of niet tijdens het toepassingspakket kopiëren. |
 |AnonymousAccessEnabled | BOOL, de standaardinstelling is true |Statisch|Anonieme toegang tot de shares FileStoreService inschakelen/uitschakelen. |
-|CommonName1Ntlmx509CommonName|tekenreeks, standaard is L""|Statisch| De algemene naam van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName1NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
-|CommonName1Ntlmx509StoreLocation|tekenreeks, standaard is L "LocalMachine /"|Statisch|De opslaglocatie van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName1NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
-|CommonName1Ntlmx509StoreName|tekenreeks, standaard is L "Mijn"| Statisch|De naam van de store van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName1NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
-|CommonName2Ntlmx509CommonName|tekenreeks, standaard is L""|Statisch|De algemene naam van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName2NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
-|CommonName2Ntlmx509StoreLocation|tekenreeks, standaard is L "LocalMachine /"| Statisch|De opslaglocatie van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName2NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
-|CommonName2Ntlmx509StoreName|tekenreeks, standaard is L "Mijn"|Statisch| De naam van de store van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName2NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
-|CommonNameNtlmPasswordSecret|SecureString, de standaardwaarde is Common::SecureString(L"")| Statisch|Het geheim wachtwoord dat gebruikt als de seed aan hetzelfde wachtwoord gegenereerd bij het gebruik van NTLM-verificatie |
+|CommonName1Ntlmx509CommonName|tekenreeks, standaardwaarde is ""|Statisch| De algemene naam van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName1NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
+|CommonName1Ntlmx509StoreLocation|tekenreeks, standaard is "LocalMachine /"|Statisch|De opslaglocatie van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName1NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
+|CommonName1Ntlmx509StoreName|tekenreeks, standaard is 'MY'| Statisch|De naam van de store van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName1NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
+|CommonName2Ntlmx509CommonName|tekenreeks, standaardwaarde is ""|Statisch|De algemene naam van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName2NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
+|CommonName2Ntlmx509StoreLocation|tekenreeks, standaard is "LocalMachine /"| Statisch|De opslaglocatie van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName2NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
+|CommonName2Ntlmx509StoreName|tekenreeks, standaard is 'MY'|Statisch| De naam van de store van de X509 certificaat dat wordt gebruikt voor het genereren van HMAC op de CommonName2NtlmPasswordSecret bij het gebruik van NTLM-verificatie |
+|CommonNameNtlmPasswordSecret|SecureString, de standaardwaarde is Common::SecureString("")| Statisch|Het geheim wachtwoord dat gebruikt als de seed aan hetzelfde wachtwoord gegenereerd bij het gebruik van NTLM-verificatie |
 |GenerateV1CommonNameAccount| BOOL, standaard is ingesteld op TRUE|Statisch|Hiermee bepaalt u of voor het genereren van een account met de gebruiker de naam van V1 generatie algoritme. Beginnen met Service Fabric versie 6.1; een account met v2 generatie wordt altijd gemaakt. De V1-account is nodig voor upgrades van/naar versies die geen ondersteuning voor het genereren van de V2 (vóór 6.1).|
 |MaxCopyOperationThreads | Uint, de standaardwaarde is 0 |Dynamisch| Het maximale aantal parallelle bestanden dat secundaire kunt van primaire kopiëren. '0' == aantal kernen. |
 |MaxFileOperationThreads | Uint, de standaardwaarde is 100 |Statisch| Het maximale aantal parallelle threads om uit te voeren FileOperations (kopiëren/verplaatsen) in de primaire toegestaan. '0' == aantal kernen. |
@@ -303,7 +306,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|MaxPercentDeltaUnhealthyNodes|int, standaardinstelling is 10|Statisch|Upgrade statusbeleid voor evaluatie van cluster: maximale percentage van knooppunten met slechte deltastatus toegestaan voor het cluster in orde zijn |
+|MaxPercentDeltaUnhealthyNodes|Int, de standaardwaarde is 10|Statisch|Upgrade statusbeleid voor evaluatie van cluster: maximale percentage van knooppunten met slechte deltastatus toegestaan voor het cluster in orde zijn |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, de standaardwaarde is 15|Statisch|Upgrade statusbeleid voor evaluatie van cluster: maximale percentage van de delta van beschadigde knooppunten in een upgradedomein is toegestaan voor het cluster in orde zijn |
 
 ## <a name="hosting"></a>Die als host fungeert
@@ -315,9 +318,11 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |ActivationTimeout| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(180)|Dynamisch| Interval in seconden opgeven. De time-out voor activering van de toepassing. deactiveren en upgrade. |
 |ApplicationHostCloseTimeout| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch| Interval in seconden opgeven. Als Fabric afsluiten is gedetecteerd in een zelf geactiveerde processen; FabricRuntime alle replica's in het hostproces (applicationhost) van de gebruiker gesloten. Dit is de time-out voor de bewerking sluiten. |
 |ApplicationUpgradeTimeout| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(360)|Dynamisch| Interval in seconden opgeven. De time-out voor upgrade van de toepassing. Als de time-out minder is dan de deployer "ActivationTimeout" mislukken. |
-|ContainerServiceArguments|wstring, standaard is L "-H localhost: 2375 -H npipe: / /"|Statisch|Service Fabric (SF) beheert docker-daemon (behalve op windows-clientcomputers, zoals Win10). Deze configuratie kan de gebruiker om op te geven van de aangepaste argumenten die moeten worden doorgegeven aan docker-daemon bij het starten van het. Wanneer er aangepaste argumenten zijn opgegeven, Service Fabric niet een van de andere argumenten doorgegeven aan Docker-engine, behalve '--pidfile' argument. Daarom mag geen gebruikers opgegeven '--pidfile' argument als onderdeel van de argumenten van de klant. De aangepaste argumenten moeten zorg er ook voor dat docker daemon luistert op de standaard benoemde pipe voor Windows (of Unix-domeinsocket voor Linux) voor Service Fabric om te communiceren met het.|
+|ContainerServiceArguments|tekenreeks, standaardwaarde is "-H localhost: 2375 -H npipe: / /"|Statisch|Service Fabric (SF) beheert docker-daemon (behalve op windows-clientcomputers, zoals Win10). Deze configuratie kan de gebruiker om op te geven van de aangepaste argumenten die moeten worden doorgegeven aan docker-daemon bij het starten van het. Wanneer er aangepaste argumenten zijn opgegeven, Service Fabric niet een van de andere argumenten doorgegeven aan Docker-engine, behalve '--pidfile' argument. Daarom mag geen gebruikers opgegeven '--pidfile' argument als onderdeel van de argumenten van de klant. De aangepaste argumenten moeten zorg er ook voor dat docker daemon luistert op de standaard benoemde pipe voor Windows (of Unix-domeinsocket voor Linux) voor Service Fabric om te communiceren met het.|
 |CreateFabricRuntimeTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch| Interval in seconden opgeven. De time-outwaarde voor de synchronisatie FabricCreateRuntime aanroepen |
-|DeploymentMaxFailureCount|int, de standaardwaarde is 20| Dynamisch|Implementatie van de toepassing wordt opnieuw uitgevoerd voor DeploymentMaxFailureCount tijden voor het mislukken van de implementatie van toepassing op het knooppunt.| 
+|DefaultContainerRepositoryAccountName|tekenreeks, standaardwaarde is ""|Statisch|Standaardreferenties gebruikt in plaats van de referenties die zijn opgegeven in ApplicationManifest.xml |
+|DefaultContainerRepositoryPassword|tekenreeks, standaardwaarde is ""|Statisch||
+|DeploymentMaxFailureCount|Int, de standaardwaarde is 20| Dynamisch|Implementatie van de toepassing wordt opnieuw uitgevoerd voor DeploymentMaxFailureCount tijden voor het mislukken van de implementatie van toepassing op het knooppunt.| 
 |DeploymentMaxRetryInterval| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(3600)|Dynamisch| Interval in seconden opgeven. Interval voor maximum aantal nieuwe pogingen voor de implementatie. Bij elke continue fout wordt het interval voor opnieuw proberen berekend als Min (DeploymentMaxRetryInterval; Continue foutenteller * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(10)|Dynamisch|Interval in seconden opgeven. Uitstelinterval voor de implementatie mislukt. Het systeem wordt opnieuw geprobeerd de implementatie voor maximaal de MaxDeploymentFailureCount op elke continue implementatie is mislukt. Het interval voor opnieuw proberen is een product van continue implementatie is mislukt en het uitstel implementatie interval. |
 |EnableActivateNoWindow| BOOL, standaard is ingesteld op FALSE|Dynamisch| De geactiveerde procedure is gemaakt op de achtergrond zonder een console. |
@@ -328,9 +333,10 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |FirewallPolicyEnabled|BOOL, standaard is ingesteld op FALSE|Statisch| Hiermee firewall-poorten voor eindpunt resources te openen met expliciete poorten die zijn opgegeven in het ServiceManifest |
 |GetCodePackageActivationContextTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch|Interval in seconden opgeven. De time-outwaarde voor de CodePackageActivationContext-aanroepen. Dit is niet van toepassing op ad-hoc-services. |
 |IPProviderEnabled|BOOL, standaard is ingesteld op FALSE|Statisch|Hiermee is het beheer van IP-adressen. |
-|LinuxExternalExecutablePath|wstring, standaard is L ' / usr/bin / " |Statisch|De primaire-map van externe uitvoerbare opdrachten op het knooppunt.|
+|IsDefaultContainerRepositoryPasswordEncrypted|BOOL, standaard is ingesteld op FALSE|Statisch||
+|LinuxExternalExecutablePath|tekenreeks, standaardwaarde is ' / usr/bin / " |Statisch|De primaire-map van externe uitvoerbare opdrachten op het knooppunt.|
 |NTLMAuthenticationEnabled|BOOL, standaard is ingesteld op FALSE|Statisch| Hiermee schakelt u ondersteuning voor het gebruik van NTLM door de codepakketten die uitgevoerd als andere gebruikers worden zodat de processen tussen computers veilig kunnen communiceren. |
-|NTLMAuthenticationPasswordSecret|SecureString, de standaardwaarde is Common::SecureString(L"")|Statisch|Is dat een versleutelde heeft die wordt gebruikt voor het genereren van het wachtwoord voor NTLM-gebruikers. Moet worden ingesteld als NTLMAuthenticationEnabled ingesteld op true is. Gevalideerd door de implementatie. |
+|NTLMAuthenticationPasswordSecret|SecureString, de standaardwaarde is Common::SecureString("")|Statisch|Is dat een versleutelde heeft die wordt gebruikt voor het genereren van het wachtwoord voor NTLM-gebruikers. Moet worden ingesteld als NTLMAuthenticationEnabled ingesteld op true is. Gevalideerd door de implementatie. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|Interval, de standaardwaarde is Common::TimeSpan::FromMinutes(3)|Dynamisch|Interval in seconden opgeven. Omgeving-specifieke instellingen voor het periodiek interval op welke Hosting scant op nieuwe certificaten worden gebruikt voor de configuratie van FileStoreService NTLM. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromMinutes(4)|Dynamisch| Interval in seconden opgeven. De time-out voor het configureren van NTLM-gebruikers met behulp van de algemene naam van het certificaat. De NTLM-gebruikers nodig zijn voor FileStoreService shares. |
 |RegisterCodePackageHostTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch| Interval in seconden opgeven. De time-outwaarde voor de FabricRegisterCodePackageHost sync-aanroep. Dit is van toepassing voor alleen meerdere code pakket application hosts, zoals FWP |
@@ -385,7 +391,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |AzureStorageMaxConnections | Int, de standaardwaarde is 5000 |Dynamisch|Het maximale aantal gelijktijdige verbindingen naar azure storage. |
-|AzureStorageMaxWorkerThreads | Int, de standaardwaarde is 25 |Dynamisch|Het maximum aantal werkthreads parallel. |
+|AzureStorageMaxWorkerThreads | int, de standaardwaarde is 25 |Dynamisch|Het maximum aantal werkthreads parallel. |
 |AzureStorageOperationTimeout | Tijd in seconden, de standaardwaarde is 6000 |Dynamisch|Interval in seconden opgeven. Time-out voor xstore bewerking is voltooid. |
 |CleanupApplicationPackageOnProvisionSuccess|BOOL, standaard is ingesteld op FALSE |Dynamisch|Deze configuratie of het automatisch opschonen van het toepassingspakket op geslaagde inrichten uitgeschakeld. |
 |DisableChecksumValidation | BOOL, de standaardinstelling is false |Statisch| Deze configuratie kan we controlesomvalidatie tijdens het inrichten van de toepassing uit te schakelen. |
@@ -475,9 +481,9 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |ConstraintFixPartialDelayAfterNodeDown | Tijd in seconden, de standaardwaarde is 120 |Dynamisch| Interval in seconden opgeven. Niet repareren FaultDomain en UpgradeDomain schendingen van plaatsingsbeperkingen doen binnen deze periode na een knooppunt is uitgevallen gebeurtenis. |
 |ConstraintViolationHealthReportLimit | Int, de standaardwaarde is 50 |Dynamisch| Hiermee definieert u het aantal keren beperking schenden replica is permanent niet-opgeloste moet voor de diagnostische gegevens worden uitgevoerd en systeemstatusrapporten worden uitgezonden. |
 |DetailedConstraintViolationHealthReportLimit | Int, standaard is 200 |Dynamisch| Hiermee definieert u het aantal keren beperking schenden replica moet permanent niet-opgeloste voor diagnostische gegevens worden uitgevoerd en gedetailleerde rapporten worden uitgezonden status heeft. |
-|DetailedDiagnosticsInfoListLimit | Int, de standaardwaarde is 15 |Dynamisch| Definieert het aantal diagnose-items (met gedetailleerde informatie) per beperking om op te nemen voor afkapping in diagnostische gegevens.|
-|DetailedNodeListLimit | Int, de standaardwaarde is 15 |Dynamisch| Hiermee definieert u het aantal knooppunten per beperking om op te nemen voor afkapping in de rapporten met niet-geplaatste Replica. |
-|DetailedPartitionListLimit | Int, de standaardwaarde is 15 |Dynamisch| Hiermee definieert u het aantal partities per diagnostische vermelding voor een beperking voor om op te nemen voor afkapping in diagnostische gegevens. |
+|DetailedDiagnosticsInfoListLimit | int, de standaardwaarde is 15 |Dynamisch| Definieert het aantal diagnose-items (met gedetailleerde informatie) per beperking om op te nemen voor afkapping in diagnostische gegevens.|
+|DetailedNodeListLimit | int, de standaardwaarde is 15 |Dynamisch| Hiermee definieert u het aantal knooppunten per beperking om op te nemen voor afkapping in de rapporten met niet-geplaatste Replica. |
+|DetailedPartitionListLimit | int, de standaardwaarde is 15 |Dynamisch| Hiermee definieert u het aantal partities per diagnostische vermelding voor een beperking voor om op te nemen voor afkapping in diagnostische gegevens. |
 |DetailedVerboseHealthReportLimit | Int, standaard is 200 | Dynamisch|Hiermee definieert u het aantal keren dat die een niet-geplaatste replica niet permanent-geplaatste is voordat gedetailleerde statusrapporten worden uitgezonden. |
 |FaultDomainConstraintPriority | Int, de standaardwaarde is 0 |Dynamisch| Hiermee bepaalt u de prioriteit van fout met betrekking tot domeinbeperking: 0: vaste; 1: zachte; negatieve: negeren. |
 |GlobalMovementThrottleCountingInterval | Tijd in seconden, de standaardwaarde is 600 |Statisch| Interval in seconden opgeven. De lengte van het afgelopen interval waarvoor om bij te houden per domein replica verplaatsingen (gebruikt samen met GlobalMovementThrottleThreshold) geven. Kan worden ingesteld op 0 om te negeren globale beperking kan worden overgeslagen. |
@@ -524,7 +530,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |GracefulReplicaShutdownMaxDuration|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch|Interval in seconden opgeven. De tijdsduur waarvoor het systeem wacht voordat het beëindigen van servicehosts die replica's hebben die zitten vast in sluiten. Als deze waarde is ingesteld op 0, worden replica's niet gevraagd om te sluiten.|
 |NodeDeactivationMaxReplicaCloseDuration | Tijd in seconden, de standaardwaarde is 900 |Dynamisch|Interval in seconden opgeven. De tijdsduur waarvoor het systeem wacht voordat het beëindigen van servicehosts die replica's hebben die zitten vast in sluiten tijdens knooppunt deactiveren. |
 |PeriodicApiSlowTraceInterval | Tijd in seconden, de standaardwaarde is 5 minuten |Dynamisch| Interval in seconden opgeven. PeriodicApiSlowTraceInterval definieert het interval waarover wordt traag API-aanroepen worden ververst door de API-monitor. |
-|ReplicaChangeRoleFailureRestartThreshold|int, standaardinstelling is 10|Dynamisch| Geheel getal. Geef het aantal API-fouten tijdens de primaire promotie waarna automatisch risicobeperking actie (replica opnieuw is opgestart) wordt toegepast. |
+|ReplicaChangeRoleFailureRestartThreshold|Int, de standaardwaarde is 10|Dynamisch| Geheel getal. Geef het aantal API-fouten tijdens de primaire promotie waarna automatisch risicobeperking actie (replica opnieuw is opgestart) wordt toegepast. |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, de standaardwaarde is 2147483647|Dynamisch| Geheel getal. Geef het aantal API-fouten tijdens primaire promotie waarna statusrapport waarschuwing wordt weergegeven.|
 |ServiceApiHealthDuration | Tijd in seconden, de standaardwaarde is 30 minuten |Dynamisch| Interval in seconden opgeven. ServiceApiHealthDuration wordt gedefinieerd hoe lang moet we wachten voor een service-API om uit te voeren voordat we deze niet in orde. |
 |ServiceReconfigurationApiHealthDuration | Tijd in seconden, de standaardwaarde is 30 |Dynamisch| Interval in seconden opgeven. ServiceReconfigurationApiHealthDuration wordt gedefinieerd hoe lang moet we wachten voor een service-API om uit te voeren voordat we niet in orde. Dit geldt voor API-aanroepen die invloed hebben op beschikbaarheid.|
@@ -534,17 +540,17 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|Interval, de standaardwaarde is Common::TimeSpan::FromMilliseconds(15)|Statisch|Interval in seconden opgeven. Bepaalt de hoeveelheid tijd dat de replicatie moet wachten na de ontvangst van een bewerking voordat u een bevestiging terug te sturen. Andere bewerkingen die tijdens deze periode is ontvangen, wordt hun bevestigingen verzonden in een enkel bericht te reduceren netwerkverkeer, maar mogelijk vermindering van de doorvoer van de replicatie -> hebben.|
 |MaxCopyQueueSize|uint, standaard is 1024|Statisch|Dit is de maximale waarde definieert de aanvankelijke grootte van de wachtrij waarmee replicatiebewerkingen worden bewaard. Houd er rekening mee dat het moet een macht van 2. Als tijdens runtime de wachtrij voor deze bewerking grootte toeneemt worden beperkt tussen de primaire en secundaire distributeurs.|
-|MaxPrimaryReplicationQueueMemorySize|uint, standaard is 0|Statisch|Dit is de maximale waarde van de wachtrij primaire replicatie in bytes.|
+|MaxPrimaryReplicationQueueMemorySize|Uint, de standaardwaarde is 0|Statisch|Dit is de maximale waarde van de wachtrij primaire replicatie in bytes.|
 |MaxPrimaryReplicationQueueSize|uint, standaard is 1024|Statisch|Dit is het maximum aantal bewerkingen die kunnen bestaan in de wachtrij primaire replicatie. Houd er rekening mee dat het moet een macht van 2.|
 |MaxReplicationMessageSize|uint, standaard is 52428800|Statisch|Maximale berichtgrootte van replicatiebewerkingen. Standaardwaarde is 50MB.|
-|MaxSecondaryReplicationQueueMemorySize|uint, standaard is 0|Statisch|Dit is de maximale waarde van de secundaire replicatiewachtrij in bytes.|
+|MaxSecondaryReplicationQueueMemorySize|Uint, de standaardwaarde is 0|Statisch|Dit is de maximale waarde van de secundaire replicatiewachtrij in bytes.|
 |MaxSecondaryReplicationQueueSize|uint, standaard is 2048|Statisch|Dit is het maximum aantal bewerkingen die kunnen bestaan in de replicatiewachtrij secundaire. Houd er rekening mee dat het moet een macht van 2.|
 |QueueHealthMonitoringInterval|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(30)|Statisch|Interval in seconden opgeven. Deze waarde bepaalt de periode die is gebruikt door de replicatie voor het bewaken van de waarschuwing/fout health-gebeurtenissen in de bewerking replicatiewachtrijen. Een waarde van de statuscontrole van '0' uitgeschakeld |
 |QueueHealthWarningAtUsagePercent|uint, standaard is 80|Statisch|Deze waarde bepaalt de replicatie wachtrij gebruik (als percentage) waarna we waarschuwing rapporteren over het gebruik van hoge wachtrij. Dit doen we na een interval van de respijtperiode van QueueHealthMonitoringInterval. Als de wachtrij-gebruik lager is dan dit percentage in de respijtperiode-interval|
-|ReplicatorAddress|tekenreeks, standaard is L "localhost:0"|Statisch|Het eindpunt in de vorm van een tekenreeks-'IP: poort' die wordt gebruikt door de Windows Fabric-replicatie verbindingen tot stand gebracht met andere replica's om te kunnen verzenden en ontvangen van bewerkingen.|
-|ReplicatorListenAddress|tekenreeks, standaard is L "localhost:0"|Statisch|Het eindpunt in de vorm van een tekenreeks-'IP: poort' die met de Windows Fabric-replicatie wordt gebruikt voor het ontvangen van bewerkingen van andere replica's.|
-|ReplicatorPublishAddress|tekenreeks, standaard is L "localhost:0"|Statisch|Het eindpunt in de vorm van een tekenreeks-'IP: poort' die met de Windows Fabric-replicatie wordt gebruikt voor het verzenden van bewerkingen op andere replica's.|
-|RetryInterval|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(5)|Statisch|Interval in seconden opgeven. Wanneer een bewerking verloren is gegaan of deze timer geweigerd bepaalt hoe vaak de replicatie opnieuw verzenden van de bewerking wordt uit.|
+|ReplicatorAddress|tekenreeks, standaard is "localhost:0"|Statisch|Het eindpunt in de vorm van een tekenreeks-'IP: poort' die wordt gebruikt door de Windows Fabric-replicatie verbindingen tot stand gebracht met andere replica's om te kunnen verzenden en ontvangen van bewerkingen.|
+|ReplicatorListenAddress|tekenreeks, standaard is "localhost:0"|Statisch|Het eindpunt in de vorm van een tekenreeks-'IP: poort' die met de Windows Fabric-replicatie wordt gebruikt voor het ontvangen van bewerkingen van andere replica's.|
+|ReplicatorPublishAddress|tekenreeks, standaard is "localhost:0"|Statisch|Het eindpunt in de vorm van een tekenreeks-'IP: poort' die met de Windows Fabric-replicatie wordt gebruikt voor het verzenden van bewerkingen op andere replica's.|
+|retryInterval|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(5)|Statisch|Interval in seconden opgeven. Wanneer een bewerking verloren is gegaan of deze timer geweigerd bepaalt hoe vaak de replicatie opnieuw verzenden van de bewerking wordt uit.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid**| **Richtlijnen of korte beschrijving** |
@@ -582,35 +588,35 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="security"></a>Beveiliging
 | **Parameter** | **Toegestane waarden** |**Upgradebeleid**| **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|AADClientApplication|tekenreeks, standaard is L""|Statisch|Naam van de toepassing Native Client of voor Clients van de Fabric-ID |
-|AADClusterApplication|tekenreeks, standaard is L""|Statisch|Naam van de web-API-toepassing of voor het cluster-ID |
-|AADTenantId|tekenreeks, standaard is L""|Statisch|Tenant-ID (GUID) |
-|AdminClientCertThumbprints|tekenreeks, standaard is L""|Dynamisch|Vingerafdrukken van de certificaten die worden gebruikt door clients in de rol van beheerder. Het is een naam door komma's gescheiden lijst. |
-|AdminClientClaims|tekenreeks, standaard is L""|Dynamisch|Alle mogelijke claims verwacht van beheerder clients; dezelfde indeling als ClientClaims; Deze lijst wordt intern toegevoegd aan ClientClaims; dus hoeft u ook de dezelfde items toevoegen aan ClientClaims. |
-|AdminClientIdentities|tekenreeks, standaard is L""|Dynamisch|Windows-identiteit van de fabric-clients in de rol admin; gebruikt voor de autorisatie van fabric bevoorrechte bewerkingen. Het is een door komma's gescheiden lijst. elk item is een domeinaccountnaam of groepsnaam. Voor het gemak; het account dat wordt uitgevoerd fabric.exe is beheerdersrol; automatisch toegewezen wordt gegroepeerd zodat ServiceFabricAdministrators. |
+|AADClientApplication|tekenreeks, standaardwaarde is ""|Statisch|Naam van de toepassing Native Client of voor Clients van de Fabric-ID |
+|AADClusterApplication|tekenreeks, standaardwaarde is ""|Statisch|Naam van de web-API-toepassing of voor het cluster-ID |
+|AADTenantId|tekenreeks, standaardwaarde is ""|Statisch|Tenant-ID (GUID) |
+|AdminClientCertThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch|Vingerafdrukken van de certificaten die worden gebruikt door clients in de rol van beheerder. Het is een naam door komma's gescheiden lijst. |
+|AdminClientClaims|tekenreeks, standaardwaarde is ""|Dynamisch|Alle mogelijke claims verwacht van beheerder clients; dezelfde indeling als ClientClaims; Deze lijst wordt intern toegevoegd aan ClientClaims; dus hoeft u ook de dezelfde items toevoegen aan ClientClaims. |
+|AdminClientIdentities|tekenreeks, standaardwaarde is ""|Dynamisch|Windows-identiteit van de fabric-clients in de rol admin; gebruikt voor de autorisatie van fabric bevoorrechte bewerkingen. Het is een door komma's gescheiden lijst. elk item is een domeinaccountnaam of groepsnaam. Voor het gemak; het account dat wordt uitgevoerd fabric.exe is beheerdersrol; automatisch toegewezen wordt gegroepeerd zodat ServiceFabricAdministrators. |
 |CertificateExpirySafetyMargin|Interval, de standaardwaarde is Common::TimeSpan::FromMinutes(43200)|Statisch|Interval in seconden opgeven. Veiligheidsmarge voor certificaat verloopt; certificaat health rapportstatus verandert van OK in waarschuwing wanneer de vervaldatum is minder dan dit. Standaard is 30 dagen. |
 |CertificateHealthReportingInterval|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(3600 * 8)|Statisch|Interval in seconden opgeven. Interval voor certificaat rapportage voor health; opgeven standaard ingesteld op 8 uur; instellen op 0 schakelt certificaat status rapporteren |
-|ClientCertThumbprints|tekenreeks, standaard is L""|Dynamisch|Vingerafdrukken van de certificaten die door clients worden gebruikt om te communiceren met het cluster. cluster maakt gebruik van dit autoriseren van binnenkomende verbinding. Het is een naam door komma's gescheiden lijst. |
+|ClientCertThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch|Vingerafdrukken van de certificaten die door clients worden gebruikt om te communiceren met het cluster. cluster maakt gebruik van dit autoriseren van binnenkomende verbinding. Het is een naam door komma's gescheiden lijst. |
 |ClientClaimAuthEnabled|BOOL, standaard is ingesteld op FALSE|Statisch|Geeft aan of claims gebaseerde verificatie is ingeschakeld op clients; Hiermee stelt u deze instelling de waarde true impliciet ClientRoleEnabled. |
-|ClientClaims|tekenreeks, standaard is L""|Dynamisch|Alle mogelijke claims verwacht van clients voor het verbinden met de gateway. Dit is een lijst 'OR': ClaimsEntry \| \| ClaimsEntry \| \| ClaimsEntry... elke ClaimsEntry is een lijst met 'En': ClaimType ClaimValue = & & ClaimType ClaimValue = & & ClaimType = ClaimValue... |
-|ClientIdentities|tekenreeks, standaard is L""|Dynamisch|Windows-identiteit van FabricClient; naamgeving gateway gebruikt dit om te autoriseren van binnenkomende verbindingen. Het is een door komma's gescheiden lijst. elk item is een domeinaccountnaam of groepsnaam. Voor het gemak; het account dat wordt uitgevoerd fabric.exe is automatisch toegestaan. groep ServiceFabricAllowedUsers en ServiceFabricAdministrators zijn. |
+|ClientClaims|tekenreeks, standaardwaarde is ""|Dynamisch|Alle mogelijke claims verwacht van clients voor het verbinden met de gateway. Dit is een lijst 'OR': ClaimsEntry \| \| ClaimsEntry \| \| ClaimsEntry... elke ClaimsEntry is een lijst met 'En': ClaimType ClaimValue = & & ClaimType ClaimValue = & & ClaimType = ClaimValue... |
+|ClientIdentities|tekenreeks, standaardwaarde is ""|Dynamisch|Windows-identiteit van FabricClient; naamgeving gateway gebruikt dit om te autoriseren van binnenkomende verbindingen. Het is een door komma's gescheiden lijst. elk item is een domeinaccountnaam of groepsnaam. Voor het gemak; het account dat wordt uitgevoerd fabric.exe is automatisch toegestaan. groep ServiceFabricAllowedUsers en ServiceFabricAdministrators zijn. |
 |ClientRoleEnabled|BOOL, standaard is ingesteld op FALSE|Statisch|Geeft aan of de functie is ingeschakeld; Wanneer ingesteld op ' True '; clients toegewezen rollen op basis van hun identiteiten. Voor V2; inschakelen van dit betekent dat de client niet in AdminClientCommonNames/AdminClientIdentities alleen-lezen bewerkingen kan alleen worden uitgevoerd. |
-|ClusterCertThumbprints|tekenreeks, standaard is L""|Dynamisch|Vingerafdrukken van certificaten mogen worden toegevoegd aan het cluster. een naam door komma's gescheiden lijst. |
-|ClusterCredentialType|tekenreeks, standaard is L 'None'|Niet toegestaan|Geeft het type van de beveiligingsreferenties gebruiken om u te beveiligen van het cluster. Geldige waarden zijn "Geen/X509/Windows" |
-|ClusterIdentities|tekenreeks, standaard is L""|Dynamisch|Windows-identiteit van de clusterknooppunten; gebruikt voor het cluster lidmaatschap autorisatie. Het is een door komma's gescheiden lijst. elk item is een domeinaccountnaam of groepsnaam |
-|ClusterSpn|tekenreeks, standaard is L""|Niet toegestaan|Service-principal-naam van het cluster. Wanneer de infrastructuur wordt uitgevoerd als een gebruiker één domein (gMSA-domein-gebruikersaccount). Het is de SPN-naam van de lease-listeners en listeners in fabric.exe: federation listeners; interne replicatieprocedure listeners; Runtime-service-listener en naming gateway-listener. Dit mag leeg zijn wanneer de infrastructuur wordt uitgevoerd als computeraccounts; compute-listener SPN van listener transport-adres in dat geval verbinding te maken aan clientzijde. |
+|ClusterCertThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch|Vingerafdrukken van certificaten mogen worden toegevoegd aan het cluster. een naam door komma's gescheiden lijst. |
+|ClusterCredentialType|reeks, standaard is ingesteld op 'None'|Niet toegestaan|Geeft het type van de beveiligingsreferenties gebruiken om u te beveiligen van het cluster. Geldige waarden zijn "Geen/X509/Windows" |
+|ClusterIdentities|tekenreeks, standaardwaarde is ""|Dynamisch|Windows-identiteit van de clusterknooppunten; gebruikt voor het cluster lidmaatschap autorisatie. Het is een door komma's gescheiden lijst. elk item is een domeinaccountnaam of groepsnaam |
+|ClusterSpn|tekenreeks, standaardwaarde is ""|Niet toegestaan|Service-principal-naam van het cluster. Wanneer de infrastructuur wordt uitgevoerd als een gebruiker één domein (gMSA-domein-gebruikersaccount). Het is de SPN-naam van de lease-listeners en listeners in fabric.exe: federation listeners; interne replicatieprocedure listeners; Runtime-service-listener en naming gateway-listener. Dit mag leeg zijn wanneer de infrastructuur wordt uitgevoerd als computeraccounts; compute-listener SPN van listener transport-adres in dat geval verbinding te maken aan clientzijde. |
 |CrlCheckingFlag|uint, standaard is 0x40000000|Dynamisch|Standaard certificaatketen validatie vlag. kan worden genegeerd door component-specifieke vlag. bijvoorbeeld Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ ALLEEN instellen op 0, wordt het CRL controleren of volledige lijst met ondersteunde waarden wordt beschreven door dwFlags van CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |CrlDisablePeriod|Interval, de standaardwaarde is Common::TimeSpan::FromMinutes(15)|Dynamisch|Interval in seconden opgeven. Hoe lang CRL-controle is uitgeschakeld voor een bepaald certificaat na het vaststellen van offline-fout. als CRL offline fout kan worden genegeerd. |
 |CrlOfflineHealthReportTtl|Interval, de standaardwaarde is Common::TimeSpan::FromMinutes(1440)|Dynamisch|Interval in seconden opgeven. |
 |DisableFirewallRuleForDomainProfile| BOOL, standaard is ingesteld op TRUE |Statisch| Hiermee wordt aangegeven als firewallregel mag niet worden ingeschakeld voor het domeinprofiel |
 |DisableFirewallRuleForPrivateProfile| BOOL, standaard is ingesteld op TRUE |Statisch| Hiermee wordt aangegeven als firewallregel mag niet worden ingeschakeld voor persoonlijk profiel | 
 |DisableFirewallRuleForPublicProfile| BOOL, standaard is ingesteld op TRUE | Statisch|Hiermee wordt aangegeven als firewallregel mag niet worden ingeschakeld voor openbare profiel |
-|FabricHostSpn| tekenreeks, standaard is L"" |Statisch| Service principal name FabricHost; Wanneer de infrastructuur wordt uitgevoerd als een gebruiker één domein (gMSA-domein-gebruikersaccount) en FabricHost wordt uitgevoerd onder het computeraccount. Het is de SPN van IPC-listener voor FabricHost; Hiervoor is standaard leeg omdat FabricHost wordt uitgevoerd onder het computeraccount |
+|FabricHostSpn| tekenreeks, standaardwaarde is "" |Statisch| Service principal name FabricHost; Wanneer de infrastructuur wordt uitgevoerd als een gebruiker één domein (gMSA-domein-gebruikersaccount) en FabricHost wordt uitgevoerd onder het computeraccount. Het is de SPN van IPC-listener voor FabricHost; Hiervoor is standaard leeg omdat FabricHost wordt uitgevoerd onder het computeraccount |
 |IgnoreCrlOfflineError|BOOL, standaard is ingesteld op FALSE|Dynamisch|Of u wilt de CRL offline fout negeren wanneer serverzijde controleert of inkomende clientcertificaten |
 |IgnoreSvrCrlOfflineError|BOOL, standaard is ingesteld op TRUE|Dynamisch|Of u wilt de CRL offline fout negeren wanneer clientzijde controleert of servercertificaten voor binnenkomende; standaard op ' True '. Aanvallen met ingetrokken certificaten vereisen dat DNS; moeilijker dan met ingetrokken clientcertificaten. |
-|ServerAuthCredentialType|tekenreeks, standaard is L 'None'|Statisch|Geeft het type van de beveiligingsreferenties gebruiken om u te beveiligen de communicatie tussen FabricClient en het Cluster. Geldige waarden zijn "Geen/X509/Windows" |
-|ServerCertThumbprints|tekenreeks, standaard is L""|Dynamisch|Vingerafdrukken van servercertificaten door cluster gebruikt om te communiceren met clients; clients gebruiken deze om te verifiëren van het cluster. Het is een naam door komma's gescheiden lijst. |
-|SettingsX509StoreName| tekenreeks, standaard is L "Mijn"| Dynamisch|X509 certificaatarchief door fabric gebruikt voor de beveiliging van de configuratie |
+|ServerAuthCredentialType|reeks, standaard is ingesteld op 'None'|Statisch|Geeft het type van de beveiligingsreferenties gebruiken om u te beveiligen de communicatie tussen FabricClient en het Cluster. Geldige waarden zijn "Geen/X509/Windows" |
+|ServerCertThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch|Vingerafdrukken van servercertificaten door cluster gebruikt om te communiceren met clients; clients gebruiken deze om te verifiëren van het cluster. Het is een naam door komma's gescheiden lijst. |
+|SettingsX509StoreName| tekenreeks, standaard is 'MY'| Dynamisch|X509 certificaatarchief door fabric gebruikt voor de beveiliging van de configuratie |
 |UseClusterCertForIpcServerTlsSecurity|BOOL, standaard is ingesteld op FALSE|Statisch|Of u wilt het clustercertificaat dat is gebruikt voor het beveiligen van IPC Server TLS eenheid transport |
 |X509Folder|tekenreeks, standaard is /var/lib/waagent|Statisch|Map waar X509 certificaten en persoonlijke sleutels zich bevinden |
 
@@ -626,17 +632,19 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |CancelTestCommand |tekenreeks, standaard is 'Admin' |Dynamisch| Als er tijdens de overdracht is, wordt een specifieke TestCommand - geannuleerd. |
 |CodePackageControl |tekenreeks, standaard is 'Admin' |Dynamisch| Beveiligingsconfiguratie codepakketten opnieuw wordt opgestart. |
 |SubmitMetadata |tekenreeks, standaard is 'Admin' | Dynamisch|De beveiligingsconfiguratie voor het maken van de toepassing. |
-|CreateComposeDeployment|tekenreeks, standaard is 'Admin' L| Dynamisch|Maakt een opstellen implementatie beschreven door compositiebestanden |
+|CreateComposeDeployment|tekenreeks, standaard is 'Admin'| Dynamisch|Maakt een opstellen implementatie beschreven door compositiebestanden |
 |CreateName |tekenreeks, standaard is 'Admin' |Dynamisch|De beveiligingsconfiguratie voor het maken van naamgevings-URI. |
 |CreateService |tekenreeks, standaard is 'Admin' |Dynamisch| Beveiligingsconfiguratie om services te maken. |
 |CreateServiceFromTemplate |tekenreeks, standaard is 'Admin' |Dynamisch|Beveiligingsconfiguratie om services te maken van de sjabloon. |
+|CreateVolume|tekenreeks, standaard is 'Admin'|Dynamisch|Hiermee maakt u een volume |
 |DeactivateNode |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het deactiveren van een knooppunt. |
 |DeactivateNodesBatch |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het deactiveren van meerdere knooppunten. |
 |Verwijderen |tekenreeks, standaard is 'Admin' |Dynamisch| Beveiligingsconfiguraties voor afbeelding opslaan clientbewerking verwijderen. |
 |DeleteApplication |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor verwijdering van de toepassing. |
-|DeleteComposeDeployment|tekenreeks, standaard is 'Admin' L| Dynamisch|Hiermee verwijdert u de implementatie voor opstellen |
+|DeleteComposeDeployment|tekenreeks, standaard is 'Admin'| Dynamisch|Hiermee verwijdert u de implementatie voor opstellen |
 |DeleteName |tekenreeks, standaard is 'Admin' |Dynamisch|De beveiligingsconfiguratie voor verwijdering naamgevings-URI. |
 |DeleteService |tekenreeks, standaard is 'Admin' |Dynamisch|De beveiligingsconfiguratie voor verwijdering van de service. |
+|DeleteVolume|tekenreeks, standaard is 'Admin'|Dynamisch|Hiermee verwijdert u een volume.| 
 |EnumerateProperties |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " | Dynamisch|De beveiligingsconfiguratie voor de naamgeving van inventarisatie van eigenschappen. |
 |EnumerateSubnames |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor naamgevings-URI-opsomming. |
 |FileContent |tekenreeks, standaard is 'Admin' |Dynamisch| Beveiligingsconfiguratie voor de installatiekopie van opslaan bestandsoverdracht client (extern aan cluster). |
@@ -654,11 +662,11 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |GetServiceDescription |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor servicemeldingen long-polling en servicebeschrijvingen te lezen. |
 |GetStagingLocation |tekenreeks, standaard is 'Admin' |Dynamisch| Beveiligingsconfiguratie voor de installatiekopie van opslaan client staging-locatie voor het ophalen. |
 |GetStoreLocation |tekenreeks, standaard is 'Admin' |Dynamisch| Beveiligingsconfiguratie voor de installatiekopie van client voor het ophalen van store-locatie opslaan. |
-|GetUpgradeOrchestrationServiceState|tekenreeks, standaard is 'Admin' L| Dynamisch|GetUpgradeOrchestrationServiceState induceert op een partitie |
+|GetUpgradeOrchestrationServiceState|tekenreeks, standaard is 'Admin'| Dynamisch|GetUpgradeOrchestrationServiceState induceert op een partitie |
 |GetUpgradesPendingApproval |tekenreeks, standaard is 'Admin' |Dynamisch| Induceert GetUpgradesPendingApproval op een partitie. |
 |GetUpgradeStatus |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor polling upgradestatus van toepassing. |
 |InternalList |tekenreeks, standaard is 'Admin' | Dynamisch|Beveiligingsconfiguratie voor de installatiekopie van bestand lijst clientbewerking (intern) worden opgeslagen. |
-|InvokeContainerApi|wstring, standaard is 'Admin' L|Dynamisch|Container-API aanroepen |
+|InvokeContainerApi|tekenreeks, standaard is 'Admin'|Dynamisch|Container-API aanroepen |
 |InvokeInfrastructureCommand |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor infrastructuur-opdrachten voor het beheer van taak. |
 |InvokeInfrastructureQuery |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie voor het uitvoeren van query's infrastructuurtaken. |
 |Lijst |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie voor de installatiekopie van clientbewerking bestand lijst opslaan. |
@@ -689,11 +697,11 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |ResolveNameOwner |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " | Dynamisch|De beveiligingsconfiguratie voor het oplossen van de eigenaar van naamgevings-URI. |
 |ResolvePartition |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " | Dynamisch|De beveiligingsconfiguratie voor het oplossen van systeemservices. |
 |ResolveService |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor de omzetting van de service op basis van een klacht. |
-|ResolveSystemService|tekenreeks, standaard is L "beheerder\|\|gebruiker"|Dynamisch| Configuratie van de beveiliging voor het oplossen van systeemservices |
+|ResolveSystemService|tekenreeks, standaardwaarde is ' Admin\|\|gebruiker "|Dynamisch| Configuratie van de beveiliging voor het oplossen van systeemservices |
 |RollbackApplicationUpgrade |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor upgrades van toepassingen worden teruggedraaid. |
 |RollbackFabricUpgrade |tekenreeks, standaard is 'Admin' |Dynamisch| Beveiligingsconfiguratie voor het terugdraaien van een cluster-upgrades. |
 |ServiceNotifications |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor servicemeldingen op basis van gebeurtenissen. |
-|SetUpgradeOrchestrationServiceState|tekenreeks, standaard is 'Admin' L| Dynamisch|SetUpgradeOrchestrationServiceState induceert op een partitie |
+|SetUpgradeOrchestrationServiceState|tekenreeks, standaard is 'Admin'| Dynamisch|SetUpgradeOrchestrationServiceState induceert op een partitie |
 |StartApprovedUpgrades |tekenreeks, standaard is 'Admin' |Dynamisch| Induceert StartApprovedUpgrades op een partitie. |
 |StartChaos |tekenreeks, standaard is 'Admin' |Dynamisch| Chaos - gestart als deze nog niet is gestart. |
 |StartClusterConfigurationUpgrade |tekenreeks, standaard is 'Admin' |Dynamisch| Induceert StartClusterConfigurationUpgrade op een partitie. |
@@ -709,7 +717,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |UnreliableTransportControl |tekenreeks, standaard is 'Admin' |Dynamisch| Onbetrouwbare Transport voor het toevoegen en verwijderen van gedrag. |
 |UpdateService |tekenreeks, standaard is 'Admin' |Dynamisch|De beveiligingsconfiguratie voor service-updates. |
 |UpgradeApplication |tekenreeks, standaard is 'Admin' |Dynamisch| Beveiligingsconfiguratie voor het starten of dat upgrades van toepassingen wordt onderbroken. |
-|UpgradeComposeDeployment|tekenreeks, standaard is 'Admin' L| Dynamisch|Upgrades van de implementatie voor opstellen |
+|UpgradeComposeDeployment|tekenreeks, standaard is 'Admin'| Dynamisch|Upgrades van de implementatie voor opstellen |
 |UpgradeFabric |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het upgraden van clusters te starten. |
 |Uploaden |tekenreeks, standaard is 'Admin' | Dynamisch|Beveiligingsconfiguratie voor de installatiekopie uploaden clientbewerking opslaan. |
 
@@ -746,7 +754,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="setup"></a>Instellen
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|ContainerNetworkName|tekenreeks, standaard is L""| Statisch |De naam van het netwerk te gebruiken bij het instellen van een netwerk container.|
+|ContainerNetworkName|tekenreeks, standaardwaarde is ""| Statisch |De naam van het netwerk te gebruiken bij het instellen van een netwerk container.|
 |ContainerNetworkSetup|BOOL, standaard is ingesteld op FALSE| Statisch |Hiermee geeft u op of u voor het instellen van een netwerk container.|
 |FabricDataRoot |Reeks | Niet toegestaan |Hoofdmap voor service Fabric-gegevens. Standaard voor Azure d:\svcfab is |
 |FabricLogRoot |Reeks | Niet toegestaan |Service fabric log-hoofdmap. Dit is waar de SF-logboeken en traceringen worden geplaatst. |
@@ -772,7 +780,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |MaxCopyQueueSize |Uint, de standaardwaarde is 16384 tekens | Statisch |Dit is de maximale waarde definieert de aanvankelijke grootte van de wachtrij waarmee replicatiebewerkingen worden bewaard. Houd er rekening mee dat het moet een macht van 2. Als tijdens runtime de wachtrij voor deze bewerking grootte toeneemt worden beperkt tussen de primaire en secundaire distributeurs. |
 |MaxPrimaryReplicationQueueMemorySize |Uint, de standaardwaarde is 0 | Statisch |Dit is de maximale waarde van de wachtrij primaire replicatie in bytes. |
 |MaxPrimaryReplicationQueueSize |Uint, de standaardwaarde is 8192 liggen | Statisch |Dit is het maximum aantal bewerkingen die kunnen bestaan in de wachtrij primaire replicatie. Houd er rekening mee dat het moet een macht van 2. |
-|MaxReplicationMessageSize |Uint, de standaardwaarde is 52428800 | Statisch | Maximale berichtgrootte van replicatiebewerkingen. Standaardwaarde is 50MB. |
+|MaxReplicationMessageSize |uint, standaard is 52428800 | Statisch | Maximale berichtgrootte van replicatiebewerkingen. Standaardwaarde is 50MB. |
 |MaxSecondaryReplicationQueueMemorySize |Uint, de standaardwaarde is 0 | Statisch |Dit is de maximale waarde van de secundaire replicatiewachtrij in bytes. |
 |MaxSecondaryReplicationQueueSize |Uint, de standaardwaarde is 16384 tekens | Statisch |Dit is het maximum aantal bewerkingen die kunnen bestaan in de replicatiewachtrij secundaire. Houd er rekening mee dat het moet een macht van 2. |
 |ReplicatorAddress |tekenreeks, standaard is "localhost:0" | Statisch | Het eindpunt in de vorm van een tekenreeks-'IP: poort' die wordt gebruikt door de Windows Fabric-replicatie verbindingen tot stand gebracht met andere replica's om te kunnen verzenden en ontvangen van bewerkingen. |
@@ -781,7 +789,10 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | **Parameter** | **Toegestane waarden** |**Upgradebeleid** |**Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(60)|Statisch|Interval in seconden opgeven. Time-out voor de installatie van de verbinding aan zowel inkomende als accepteren (inclusief onderhandelen over de beveiliging in veilige modus) |
-|ResolveOption|tekenreeks, de standaardwaarde is 'niet-gespecificeerde' L|Statisch|Bepaalt hoe de FQDN-naam is opgelost.  Geldige waarden zijn 'niet opgegeven/ipv4/ipv6'. |
+|FrameHeaderErrorCheckingEnabled|BOOL, standaard is ingesteld op TRUE|Statisch|Standaardinstelling voor een fout bij het controleren op frameheader in niet-beveiligde modus. onderdeelinstelling overschrijft dit. |
+|MessageErrorCheckingEnabled|BOOL, standaard is ingesteld op FALSE|Statisch|Standaardinstelling voor een fout bij het controleren op de koptekst van bericht en de hoofdtekst in niet-beveiligde modus; onderdeelinstelling overschrijft dit. |
+|ResolveOption|tekenreeks, de standaardwaarde is 'Onbekende'|Statisch|Bepaalt hoe de FQDN-naam is opgelost.  Geldige waarden zijn 'niet opgegeven/ipv4/ipv6'. |
+|SendTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(300)|Dynamisch|Interval in seconden opgeven. Time-out voor het detecteren van vastgelopen verbinding verzenden. TCP-fout rapporten zijn niet betrouwbaar zijn in een omgeving. Dit moet mogelijk worden aangepast op basis van de beschikbare netwerkbandbreedte en de grootte van uitgaande gegevens (\*MaxMessageSize\/\*SendQueueSizeLimit). |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |

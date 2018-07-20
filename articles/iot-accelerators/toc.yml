@@ -8,13 +8,13 @@
       href: about-iot-accelerators.md
 - name: Snelstartgidsen
   items:
-    - name: Een oplossing voor bewaking op afstand implementeren
+    - name: Een oplossing voor bewaking op afstand uitproberen
       href: quickstart-remote-monitoring-deploy.md
-    - name: Een oplossing voor een verbonden fabriek implementeren
+    - name: Een oplossing voor een verbonden fabriek uitproberen
       href: quickstart-connected-factory-deploy.md
-    - name: Een oplossing voor voorspellend onderhoud implementeren
+    - name: Een oplossing voor voorspellend onderhoud uitproberen
       href: quickstart-predictive-maintenance-deploy.md
-    - name: Een apparaatsimulatieoplossing implementeren
+    - name: Een apparaatsimulatieoplossing uitproberen
       href: quickstart-device-simulation-deploy.md
 - name: Zelfstudies
   items:
@@ -137,10 +137,6 @@
               href: ../iot-suite/iot-suite-v1-custom-rule.md
             - name: Apparaatgegevens in de oplossing voor bewaking op afstand
               href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
-    - name: Predictief onderhoud
-      items:
-        - name: Een oplossingsversneller implementeren
-          href: iot-accelerators-predictive-overview.md
     - name: Verbonden factory
       items:
         - name: Het dashboard gebruiken

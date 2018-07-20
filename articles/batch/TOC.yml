@@ -121,18 +121,14 @@
           href: batch-get-resource-counts.md
         - name: Efficiënt query's uitvoeren op resources
           href: batch-efficient-list-queries.md
-    - name: Hulpprogramma's voor ontwikkelaars gebruiken
+    - name: Scripthulpprogramma's gebruiken
       items:
-        - name: Batch .NET gebruiken
-          href: batch-dotnet-get-started.md
-        - name: Batch Python gebruiken
-          href: batch-python-tutorial.md
-        - name: Batch Node.js gebruiken
-          href: batch-nodejs-get-started.md
         - name: PowerShell-cmdlets gebruiken
           href: batch-powershell-cmdlets-get-started.md
         - name: Azure CLI gebruiken
           href: batch-cli-get-started.md
+    - name: Batch Node.js-SDK gebruiken
+      href: batch-nodejs-get-started.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

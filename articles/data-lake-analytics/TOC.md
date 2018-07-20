@@ -59,6 +59,9 @@
 #### [Aangepaste code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Lokaal uitvoeren en fouten opsporen](data-lake-tools-for-vscode-local-run-and-debug.md)
 
+## U-SQL-taken plannen
+### [Taken plannen met behulp van SSIS](data-lake-analytics-schedule-jobs-ssis.md)
+
 ## Doorlopende integratie en doorlopende implementatie
 ### [Overzicht](data-lake-analytics-cicd-overview.md)
 ### [Tests instellen](data-lake-analytics-cicd-test.md)
