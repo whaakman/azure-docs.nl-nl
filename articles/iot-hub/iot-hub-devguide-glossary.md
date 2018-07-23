@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 1dae926a3a368e518877b210fb1caf487688750c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125914"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187363"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst voor IoT Hub
 In dit artikel worden enkele van de algemene termen gebruikt in de IoT Hub-artikelen.
@@ -151,7 +151,7 @@ Een IoT-hub toont meerdere [eindpunten](iot-hub-devguide-endpoints.md) waarmee u
 Om te lezen [apparaat-naar-cloud](#device-to-cloud) berichten verzonden naar uw IoT-hub, u kunt verbinding maken met een eindpunt op uw hub en een Event Hub-compatibele-methode gebruiken om deze berichten te lezen. Event Hub-compatibele methoden zijn onder meer met behulp van de [Event Hubs-SDK's](../event-hubs/event-hubs-programming-guide.md) en [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Veldgateway
-Een veldgateway maakt de connectiviteit voor apparaten die niet kan rechtstreeks een verbinding met [IoT-Hub](#iot-hub) en meestal lokaal is geïmplementeerd in uw apparaten. Zie voor meer informatie, [wat is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
+Een veldgateway maakt de connectiviteit voor apparaten die niet kan rechtstreeks een verbinding met [IoT-Hub](#iot-hub) en meestal lokaal is geïmplementeerd in uw apparaten. Zie voor meer informatie, [wat is Azure IoT Hub?](about-iot-hub.md)
 
 ## <a name="free-account"></a>Gratis account
 U kunt maken een [gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/) voor het voltooien van de IoT Hub-zelfstudies en Experimenteer met de IoT Hub-service (en andere Azure-services).
@@ -168,7 +168,7 @@ Een interactieve bericht is een [cloud-naar-apparaat](#cloud-to-device) bericht 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT Hub
-IoT Hub is een volledig beheerde Azure-service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten mogelijk maakt en een back-end oplossing. Zie voor meer informatie, [wat is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Met behulp van uw [Azure-abonnement](#subscription), kunt u IoT-hubs voor het afhandelen van uw IoT messaging-workloads.
+IoT Hub is een volledig beheerde Azure-service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten mogelijk maakt en een back-end oplossing. Zie voor meer informatie, [wat is Azure IoT Hub?](about-iot-hub.md) Met behulp van uw [Azure-abonnement](#subscription), kunt u IoT-hubs voor het afhandelen van uw IoT messaging-workloads.
 
 ## <a name="iot-hub-metrics"></a>Metrische gegevens van IoT Hub
 [Metrische gegevens van IoT-Hub](iot-hub-metrics.md) bieden u de gegevens over de status van de IoT-hubs in uw [Azure-abonnement](#subscription). Metrische gegevens van IoT Hub kunt u de algemene status van de service en de apparaten die zijn verbonden met het beoordelen. Metrische gegevens van IoT Hub kunt u zien wat er gebeurt met uw IoT-hub en hoofdoorzaak problemen onderzoeken zonder contact opnemen met ondersteuning van Azure.
@@ -180,7 +180,7 @@ De [IoT Hub-querytaal](iot-hub-devguide-query-language.md) is een SQL-achtige ta
 U kunt de [REST-API voor IoT Hub Resource](https://docs.microsoft.com/rest/api/iothub/iothubresource) voor het beheren van de IoT-hubs in uw [Azure-abonnement](#subscription) uitvoeren van bewerkingen, zoals het maken, bijwerken en verwijderen van hubs.
 
 ## <a name="iot-solution-accelerators"></a>IoT-oplossingsversnellers
-Pakket in oplossingen voor Azure IoT-oplossingsversnellers samen meerdere Azure-services. Deze oplossingen kunnen u snel aan de slag met end-to-end-implementaties van algemene IoT-scenario's. Zie voor meer informatie, [wat zijn Azure-IoT-oplossingsversnellers?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
+Pakket in oplossingen voor Azure IoT-oplossingsversnellers samen meerdere Azure-services. Deze oplossingen kunnen u snel aan de slag met end-to-end-implementaties van algemene IoT-scenario's. Zie voor meer informatie, [wat zijn Azure-IoT-oplossingsversnellers?](../iot-accelerators/about-iot-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>De IoT-extensie voor Azure CLI 2.0
 [De IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is een platformoverschrijdende, opdrachtregel-hulpprogramma. Het hulpprogramma kunt u voor het beheren van uw apparaten in de [id-register](#identity-registry), verzenden en ontvangen van berichten en bestanden van uw apparaten en bewaken van uw IoT hub-bewerkingen.
@@ -201,7 +201,7 @@ Een fysiek apparaat is een echt apparaat zoals een Raspberry Pi die verbinding m
 Wanneer u verbinding met een apparaat gerichte of gerichte service-eindpunt voor een IoT-hub maakt, uw [verbindingsreeks](#connection-string) bevat om u toegang kunt krijgen. Wanneer u een apparaat toevoegt aan de [id-register](#identity-registry) of toe te voegen een [gedeeld toegangsbeleid](#shared-access-policy) op uw hub, de service een primaire en secundaire sleutel is gegenereerd. Twee sleutels betekent dat, kunt u vernieuwen uit één sleutel naar een andere wanneer u een sleutel bijwerken zonder te verliezen toegang tot de IoT-hub.
 
 ## <a name="protocol-gateway"></a>Protocolgateway
-Een protocolgateway wordt gewoonlijk geïmplementeerd in de cloud en biedt protocol vertaalservices voor apparaten die verbinding maken met [IoT-Hub](#iot-hub). Zie voor meer informatie, [wat is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
+Een protocolgateway wordt gewoonlijk geïmplementeerd in de cloud en biedt protocol vertaalservices voor apparaten die verbinding maken met [IoT-Hub](#iot-hub). Zie voor meer informatie, [wat is Azure IoT Hub?](about-iot-hub.md)
 
 ## <a name="quotas-and-throttling"></a>Quota en beperkingen
 Er zijn verschillende [quota](iot-hub-devguide-quotas-throttling.md) die van toepassing is op het gebruik van [IoT-Hub](#iot-hub), veel van de quota variëren op basis van de laag van de IoT-hub. [IoT Hub](#iot-hub) geldt ook [beperkt](iot-hub-devguide-quotas-throttling.md) op het gebruik van de service tijdens runtime.
