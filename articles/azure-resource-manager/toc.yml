@@ -15,6 +15,13 @@
       href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
     - name: Sjablonen maken - Visual Studio
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+- name: Zelfstudies
+  expanded: true
+  items:
+    - name: Versleuteld opslagaccount maken
+      href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+    - name: Meerdere resources maken
+      href: resource-manager-tutorial-create-templates-with-dependent-resources.md
 - name: Concepten
   items:
     - name: Resourceproviders en -typen

@@ -48,6 +48,8 @@
       href: tutorials/15-branching-and-undo.md
     - name: Versiebeheer en taggen
       href: tutorials/16-versioning-and-tagging.md
+    - name: Hybride bots
+      href: tutorials/17-hybrid-bots.md
     - name: Demo - Wachtwoord opnieuw instellen
       href: tutorials/demo-password-reset.md
     - name: Demo - Pizzabestelling

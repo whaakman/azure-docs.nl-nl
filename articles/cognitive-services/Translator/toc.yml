@@ -105,6 +105,10 @@
           href: quickstart-ruby-languages.md
         - name: Lengte van zinnen in tekst bepalen
           href: quickstart-ruby-sentences.md
+- name: Zelfstudies
+  items:
+    - name: Een WPF-app maken voor Translator Text
+      href: tutorial-wpf-translation-csharp.md
 - name: Concepten
   items:
     - name: Ondersteunde talen
@@ -125,8 +129,6 @@
       href: word-alignment.md
     - name: De dynamische woordenlijstfunctie gebruiken
       href: dynamic-dictionary.md
-    - name: Een Translator Text-app maken met WPF
-      href: tutorial-wpf-translation-csharp.md
 - name: Naslaginformatie
   items:
     - name: v3 Translator Text-API-verwijzing

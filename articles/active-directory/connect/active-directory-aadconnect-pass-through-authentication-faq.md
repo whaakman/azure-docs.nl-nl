@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e62117ee98b1d47600141249dcd3b17ec58a9654
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
+ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918152"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048965"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass through-verificatie: Veelgestelde vragen
 
@@ -60,7 +60,7 @@ Voor deze functie te gebruiken, moet u versie 1.1.486.0 of hoger voor Azure AD C
 
 ## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>Wat gebeurt er als mijn gebruikerswachtwoord is verlopen en probeert u aan te melden met behulp van Pass through-verificatie?
 
-Als u hebt geconfigureerd [wachtwoord terugschrijven](../active-directory-passwords-update-your-own-password.md) voor een specifieke gebruiker, en als de gebruiker zich aanmeldt met behulp van Pass through-verificatie, kunnen ze wijzigen of hun wachtwoord opnieuw instellen. De wachtwoorden worden teruggeschreven naar on-premises Active Directory, zoals verwacht.
+Als u hebt geconfigureerd [wachtwoord terugschrijven](../user-help/active-directory-passwords-update-your-own-password.md) voor een specifieke gebruiker, en als de gebruiker zich aanmeldt met behulp van Pass through-verificatie, kunnen ze wijzigen of hun wachtwoord opnieuw instellen. De wachtwoorden worden teruggeschreven naar on-premises Active Directory, zoals verwacht.
 
 Als u het terugschrijven van wachtwoorden voor een specifieke gebruiker niet hebt geconfigureerd of als de gebruiker beschikt niet over een geldige Azure AD-licentie is toegewezen, de gebruiker het wachtwoord in de cloud kan niet bijwerken. Het wachtwoord bijwerken niet, zelfs als het wachtwoord is verlopen. De gebruiker in plaats daarvan ziet dit bericht: 'uw organisatie niet kunt u uw wachtwoord op deze site bij te werken. Bijgewerkt op basis van de door uw organisatie aanbevolen wijze of vraag uw beheerder als u hulp nodig hebt." De gebruiker of beheerder moet de hun on-premises Active Directory-wachtwoord opnieuw instellen.
 
@@ -76,15 +76,15 @@ Lezen [Azure Active Directory Pass through-verificatie: Smart Lockout](../authen
      >[!NOTE]
      >Recente updates beperkt het aantal poorten die door de functie is vereist. Als u oudere versies van Azure AD Connect of de verificatie-Agent hebt, houd deze poorten open ook: 5671, 8080 9090, 9091, 9350, 9352 en 10100 10120.
 
-## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>De Azure AD Connect-wizard opnieuw uitvoeren en wijzig de aanmeldingsmethode gebruiker van Pass through-verificatie in een andere methode.
+## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Kan de Pass through-verificatie-Agents communiceren via een uitgaande webproxyserver?
 
-Ja. Deze wijziging wordt uitgeschakeld Pass through-verificatie voor de tenant en wordt de verificatie-Agent verwijderd van de server.
+Ja. Als Web Proxy Auto-Discovery (WPAD) is ingeschakeld in uw on-premises-omgeving, wordt de verificatie-Agents automatisch probeert om te zoeken en een webproxyserver gebruikt op het netwerk.
 
-## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>U moet de verificatie-Agents handmatig verwijderen van de andere servers.
+## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Kan ik twee of meer Pass through-verificatie-Agents installeren op dezelfde server?
 
-Wat gebeurt er wanneer ik een Pass through-verificatie-Agent verwijderen? Als u een Pass through-verificatie-Agent van een server verwijderen, worden de server om te stoppen met het accepteren van aanmeldingsaanvragen.
+Nee, kunt u alleen een Pass through-verificatie-Agent installeren op één server. Als u configureren van Pass-through-verificatie voor maximale beschikbaarheid wilt, volg de instructies in [Azure Active Directory Pass through-verificatie: snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Om te voorkomen dat de gebruiker aanmelden mogelijkheid belangrijke op uw tenant, controleert u of een andere verificatie-Agent wordt uitgevoerd voordat u een Pass through-verificatie-Agent verwijderen.
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hoe kan ik een Pass through-verificatie-Agent verwijderen?
 
 Als een Pass through-verificatie-Agent wordt uitgevoerd, blijft actief en gebruiker aanmeldingsaanvragen voortdurend worden verwerkt. Als u een verificatie-Agent verwijderen wilt, gaat u naar **Configuratiescherm -> programma's -> programma's en onderdelen** en verwijderen van zowel de **Microsoft Azure AD Connect Authentication-Agent** en de  **Microsoft Azure AD Connect-Agent Updater** programma's.
 

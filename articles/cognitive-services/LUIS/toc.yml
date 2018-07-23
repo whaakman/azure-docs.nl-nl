@@ -79,6 +79,10 @@
           href: luis-tutorial-batch-testing.md
         - name: Met patronen
           href: luis-tutorial-pattern.md
+        - name: Met rollen
+          href: luis-tutorial-pattern-roles.md
+        - name: Met entiteit Pattern.any
+          href: luis-tutorial-pattern-any.md
 - name: Voorbeelden
   items:
     - name: Codevoorbeelden
@@ -194,7 +198,7 @@
     - name: Testen
       items:
         - name: Interactief testen
-          href: interactive-test.md
+          href: luis-interactive-test.md
         - name: Batchgewijs testen
           href: luis-how-to-batch-test.md
     - name: App publiceren
@@ -226,7 +230,7 @@
             - name: Eindpuntquota over sleutels verdelen met Traffic Manager
               href: luis-traffic-manager.md
     - name: Migreren naar V2-API
-      href: migration-v1-to-v2.md
+      href: luis-migration-api-v1-to-v2.md
     - name: Regio zoeken via programma
       items:
         - name: 'C# gebruiken'

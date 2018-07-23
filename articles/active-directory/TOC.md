@@ -140,33 +140,13 @@
 #### [Voorbeelden van aanmelden](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Certificaten gebruiken](active-directory-reporting-api-with-certificates.md)
 
-## Wachtwoorden beheren
-### [Overzicht met betrekking tot wachtwoorden](authentication/active-directory-passwords-overview.md)
+## Wachtwoorden beheren (active-directory/authentication/concept-sspr-howitworks.md)
 ### Gebruikersdocumenten
 #### [Uw wachtwoord opnieuw instellen of wijzigen](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Aanbevolen procedures voor wachtwoorden](active-directory-secure-passwords.md)
 #### [Registreren voor de selfservice voor wachtwoordherstel](user-help/active-directory-passwords-reset-register.md)
-### [Hoe SSPR werkt](authentication/concept-sspr-howitworks.md)
-### [SSPR-implementatiegids](authentication/howto-sspr-deployment.md)
-### [SSPR en Windows 10](authentication/tutorial-sspr-windows.md)
-### [Beleidsregels voor SSPR](authentication/concept-sspr-policy.md)
-### [SSPR aanpassen](authentication/concept-sspr-customization.md)
-### [Gegevensvereisten voor SSPR](authentication/howto-sspr-authenticationdata.md)
-### [Rapportage voor SSPR](authentication/howto-sspr-reporting.md)
-### [Slimme vergrendeling](authentication/howto-password-smart-lockout.md)
-### [Zwakke wachtwoorden elimineren](authentication/concept-password-ban-bad.md)
-### [De lijst met verboden wachtwoorden configureren](authentication/howto-password-ban-bad.md)
-### [On-premises integratie](authentication/concept-password-ban-bad-on-premises.md)
-### [Wachtwoordbeveiliging in Azure AD implementeren](authentication/howto-password-ban-bad-on-premises.md)
-### [Wachtwoordbeveiliging in Azure AD configureren](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Wachtwoordbeveiliging in Azure AD bewaken](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT-beheerders: wachtwoorden opnieuw instellen
 #### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [SSPR licentiëren](authentication/concept-sspr-licensing.md)
-### [Wachtwoord terugschrijven](authentication/howto-sspr-writeback.md)
-### [Problemen oplossen](authentication/active-directory-passwords-troubleshoot.md)
-### [Veelgestelde vragen](authentication/active-directory-passwords-faq.md)
-
 
 ## Apparaten beheren
 ### [Inleiding](device-management-introduction.md)

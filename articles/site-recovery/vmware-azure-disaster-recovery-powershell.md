@@ -1,31 +1,31 @@
 ---
-title: Repliceren en de failover van virtuele VMware-machines naar Azure met PowerShell in Azure Site Recovery | Microsoft Docs
-description: Informatie over het instellen van de replicatie en failover naar Azure voor virtuele VMware-machines met PowerShell in Azure Site Recovery.
+title: Voor het repliceren en failover van virtuele VMware-machines naar Azure met behulp van PowerShell in Azure Site Recovery | Microsoft Docs
+description: Meer informatie over het instellen van replicatie en failover naar Azure voor VMware-VM's met behulp van PowerShell in Azure Site Recovery.
 services: site-recovery
 author: bsiva
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: bsiva
-ms.openlocfilehash: 051bc3a0e1c0126826e96b49ff0a4e8008c88006
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287851"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917809"
 ---
-# <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Repliceren en de failover van virtuele VMware-machines naar Azure met PowerShell
+# <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Voor het repliceren en failover van virtuele VMware-machines naar Azure met PowerShell
 
-In dit artikel ziet u hoe u voor replicatie en failover virtuele VMware-machines naar Azure met Azure PowerShell. 
+In dit artikel ziet u hoe u kunt repliceren en failover virtuele VMware-machines naar Azure met behulp van Azure PowerShell. 
 
 In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> - Maak een Recovery Services-kluis en stelt u de context van de kluis.
-> - Valideren van de registratie van de server in de kluis.
-> - De replicatie, met inbegrip van een beleid voor wachtwoordreplicatie instellen. De vCenter-server toevoegen en virtuele machines te detecteren. >: Een vCenter-server toevoegen en detecteren 
-> - Storage-accounts voor het opslaan van gegevens van replicatie maken en de virtuele machines repliceren.
-> - Voer een failover. Configureer voor de failover, voert u een e-mailinstellingen voor het repliceren van virtuele machines.
+> - Maak een Recovery Services-kluis en de kluiscontext instellen.
+> - Serverregistratie in de kluis valideert.
+> - Instellen van replicatie, met inbegrip van beleid voor replicatie. De vCenter-server toevoegen en detecteren van virtuele machines. >: Een vCenter-server toevoegen en detecteren 
+> - Storage-accounts voor het opslaan van replicatiegegevens maken en de virtuele machines repliceren.
+> - Een failover uitvoeren. Failover-instellingen configureren, uitvoeren van een e-mailinstellingen voor het repliceren van virtuele machines.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +33,7 @@ Voordat u begint:
 
 - Zorg ervoor dat u inzicht hebt in de [architectuur en onderdelen voor dit scenario](vmware-azure-architecture.md).
 - Raadpleeg de [ondersteuningsvereisten](site-recovery-support-matrix-to-azure.md) voor alle onderdelen.
-- U beschikt over versie 5.0.1 of hoger van de AzureRm PowerShell-module. Als u wilt installeren of upgraden van Azure PowerShell, voert u [handleiding voor het installeren en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs).
+- U beschikt over versie 5.0.1 of hoger van de AzureRm PowerShell-module. Als u wilt installeren of upgraden van Azure PowerShell, volgt u deze [handleiding voor het installeren en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="log-into-azure"></a>Aanmelden bij Azure
 
@@ -42,14 +42,14 @@ Meld u aan bij uw Azure-abonnement met de cmdlet Connect-AzureRmAccount:
 ```azurepowershell
 Connect-AzureRmAccount
 ```
-Selecteer het Azure-abonnement dat u wilt uw virtuele VMware-machines te repliceren. Gebruik de cmdlet Get-AzureRmSubscription voor de lijst met Azure-abonnementen hebt u toegang tot. Selecteer het Azure-abonnement werken met behulp van de Select-AzureRmSubscription-cmdlet.
+Selecteer het Azure-abonnement dat u wilt uw VMware-machines te repliceren. Gebruik de cmdlet Get-AzureRmSubscription om te profiteren van de lijst met Azure-abonnementen hebt. Selecteer het Azure-abonnement om te werken met behulp van de Select-AzureRmSubscription-cmdlet.
 
 ```azurepowershell
 Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>Een Recovery Services-kluis instellen
 
-1. Maak een resourcegroep in te maken van de Recovery Services-kluis. In het onderstaande voorbeeld de resourcegroep met de naam VMwareDRtoAzurePS en wordt gemaakt in de regio Oost-Azië.
+1. Maak een resourcegroep waarin u wilt maken van de Recovery Services-kluis. In het volgende voorbeeld wordt de resourcegroep met de naam VMwareDRtoAzurePS en wordt gemaakt in de regio Oost-Azië.
 
    ```azurepowershell
    New-AzureRmResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
@@ -62,7 +62,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
 ```
    
-2. Maak een Recovery services-kluis. In het onderstaande voorbeeld de Recovery services-kluis VMwareDRToAzurePs heet en wordt gemaakt in dezelfde regio Oost-Azië, en in de resourcegroep in de vorige stap hebt gemaakt.
+2. Maak een Recovery services-kluis. In het volgende voorbeeld wordt de Recovery services-kluis is de naam VMwareDRToAzurePs en is gemaakt in de regio Oost-Azië en in de resourcegroep in de vorige stap hebt gemaakt.
 
    ```azurepowershell
    New-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
@@ -77,7 +77,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
    ``` 
 
-3. Download de registratiecode kluis voor de kluis. De kluisregistratiesleutel wordt gebruikt om de lokale configuratie-Server in deze kluis te registreren. Registratie is onderdeel van een software-installatieproces van de configuratieserver.
+3. Download de kluisregistratiesleutel voor de kluis. De kluisregistratiesleutel wordt gebruikt voor het registreren van de on-premises configuratieserver bij deze kluis. Registratie is onderdeel van het installatieproces van de configuratieserver-software.
 
    ```azurepowershell
    #Get the vault object by name and resource group and save it to the $vault PowerShell variable 
@@ -92,18 +92,18 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials
    ```
 
-4. Gebruik de gedownloade kluisregistratiesleutel en volg de stappen in de artikelen hieronder volledige installatie en registratie van de configuratieserver.
+4. Gebruik de gedownloade kluisregistratiesleutel en volg de stappen in de artikelen die onder aan de volledige installatie en registratie van de configuratieserver.
    - [Uw beveiligingsdoelstellingen kiezen](vmware-azure-set-up-source.md#choose-your-protection-goals)
    - [De bronomgeving instellen](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
-### <a name="set-the-vault-context"></a>De context van de kluis instellen
+### <a name="set-the-vault-context"></a>De kluiscontext instellen
 
-De context van de kluis met de cmdlet Set-ASRVaultContext instellen. Nadat deze is ingesteld, worden verdere Azure Site Recovery-bewerkingen in de PowerShell-sessie uitgevoerd in de context van de geselecteerde kluis.
+Stel de context van de kluis met de cmdlet Set-ASRVaultContext. Nadat deze is ingesteld, de volgende Azure Site Recovery-bewerkingen in de PowerShell-sessie worden uitgevoerd in de context van de geselecteerde kluis.
 
 > [!TIP]
-> De Azure Site Recovery PowerShell-module (AzureRm.RecoveryServices.SiteRecovery module) wordt geleverd met eenvoudig te gebruiken voor de meeste cmdlets-aliassen. De cmdlets in de module de indeling nemen  *\<bewerking >-**AzureRmRecoveryServicesAsr**\<Object >* en gelijkwaardige aliassen die de vorm hebben  *\<Bewerking >-**ASR**\<Object >*. In dit artikel gebruikt de cmdlet-aliassen voor betere leesbaarheid.
+> De Azure Site Recovery PowerShell-module (AzureRm.RecoveryServices.SiteRecovery-module) wordt geleverd met eenvoudig te gebruiken-aliassen voor de meeste cmdlets. De cmdlets in de module verstaan het  *\<bewerking >-**AzureRmRecoveryServicesAsr**\<Object >* en gelijkwaardige aliassen die de vorm hebben  *\<Bewerking >-**ASR**\<Object >*. In dit artikel wordt de cmdlet-aliassen voor betere leesbaarheid.
 
-In het onderstaande voorbeeld de details van de kluis van de $vault wordt variabele gebruikt om op te geven van de kluis context voor de PowerShell-sessie.
+In het voorbeeld hieronder de details van de kluis van de $vault wordt variabele gebruikt om op te geven van de context van de kluis voor de PowerShell-sessie.
 
    ```azurepowershell
    Set-ASRVaultContext -Vault $vault
@@ -114,7 +114,7 @@ In het onderstaande voorbeeld de details van de kluis van de $vault wordt variab
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Als alternatief voor de cmdlet Set-ASRVaultContext kunt een ook de cmdlet Import-AzureRmRecoveryServicesAsrVaultSettingsFile gebruiken om in te stellen de context van de kluis. Geef het pad waar de kluis registratiesleutelbestand zich bevindt als de parameter - path aan de cmdlet Import-AzureRmRecoveryServicesAsrVaultSettingsFile. Bijvoorbeeld:
+Als alternatief voor de cmdlet Set-ASRVaultContext kunt een ook de cmdlet Import-AzureRmRecoveryServicesAsrVaultSettingsFile gebruiken om in te stellen van de context van de kluis. Geef het pad op waarop het registratiesleutelbestand voor kluis zich bevindt als de parameter - path aan de cmdlet Import-AzureRmRecoveryServicesAsrVaultSettingsFile. Bijvoorbeeld:
 
    ```azurepowershell
    Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -122,15 +122,15 @@ Als alternatief voor de cmdlet Set-ASRVaultContext kunt een ook de cmdlet Import
    ```
 Latere secties van dit artikel wordt ervan uitgegaan dat de context van de kluis voor Azure Site Recovery-bewerkingen is ingesteld.
 
-## <a name="validate-vault-registration"></a>Registratie van de kluis valideren
+## <a name="validate-vault-registration"></a>Valideren van de kluis registreren
 
 In dit voorbeeld hebben we het volgende:
 
-- Een configuratieserver (**ConfigurationServer**) in deze kluis is geregistreerd.
-- Een extra processerver (**ScaleOut surrogaatbestand**) is geregistreerd bij de *ConfigurationServer*
-- Accounts (**vCenter_account**, **WindowsAccount**, **LinuxAccount**) zijn ingesteld op de configuratieserver. Deze accounts worden gebruikt voor het toevoegen van de vCenter-server voor het detecteren van virtuele machines en voor push-installatie van de software voor de mobility-service op Windows- en Linux-servers die moeten worden gerepliceerd.
+- Een configuratieserver (**ConfigurationServer**) is geregistreerd bij deze kluis.
+- Een aanvullende processerver (**ScaleOut-surrogaatbestand**) is geregistreerd bij de *ConfigurationServer*
+- Accounts (**vCenter_account**, **WindowsAccount**, **LinuxAccount**) is ingesteld op de configuratieserver. Deze accounts worden gebruikt voor het toevoegen van de vCenter-server voor het detecteren van virtuele machines en push-installatie van de mobility-service-software op Windows en Linux-servers die moeten worden gerepliceerd.
 
-1. De van de geregistreerde configuratieservers worden vertegenwoordigd door een fabric-object in Site Recovery. De lijst met fabric objecten ophalen in de kluis en identificeren van de configuratieserver.
+1. Van geregistreerde configuratieservers worden vertegenwoordigd door een fabric-object in de Site Recovery. De lijst met fabric objecten ophalen in de kluis en de configuratieserver te identificeren.
 
    ```azurepowershell
    # Verify that the Configuration server is successfully registered to the vault
@@ -155,7 +155,7 @@ In dit voorbeeld hebben we het volgende:
    FabricSpecificDetails : Microsoft.Azure.Commands.RecoveryServices.SiteRecovery.ASRVMWareSpecificDetails
    ```
 
-2. De processervers die kunnen worden gebruikt voor replicatie van machines identificeren.
+2. Identificeer de processervers die kunnen worden gebruikt om virtuele machines repliceren.
 
    ```azurepowershell
    $ProcessServers = $ASRFabrics[0].FabricSpecificDetails.ProcessServers
@@ -168,7 +168,7 @@ In dit voorbeeld hebben we het volgende:
    1     ConfigurationServer
    ```
 
-   Uit de bovenstaande uitvoer ***$ProcessServers [0]*** komt overeen met *ScaleOut surrogaatbestand* en ***$ProcessServers [1]*** komt overeen met de proces-serverrol op *ConfigurationServer*
+   In de bovenstaande uitvoer ***$ProcessServers [0]*** komt overeen met *ScaleOut-surrogaatbestand* en ***$ProcessServers [1]*** komt overeen met de rol van de processerver op *ConfigurationServer*
 
 3. Identificeer de accounts die zijn ingesteld op de configuratieserver.
 
@@ -185,16 +185,16 @@ In dit voorbeeld hebben we het volgende:
    3         LinuxAccount
    ```
 
-   Uit de bovenstaande uitvoer ***$AccountHandles [0]*** komt overeen met het account *vCenter_account*, ***$AccountHandles [1]*** account *WindowsAccount*, en ***$AccountHandles [2]*** account *LinuxAccount*
+   In de bovenstaande uitvoer ***$AccountHandles [0]*** komt overeen met het account *vCenter_account*, ***$AccountHandles [1]*** naar account *WindowsAccount*, en ***$AccountHandles [2]*** naar account *LinuxAccount*
 
 ## <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
 
-In deze stap zijn twee beleidsregels voor replicatie gemaakt. Failover van één beleid virtuele VMware-machines repliceren naar Azure en de andere voor replicatie van virtuele machines worden uitgevoerd in Azure weer naar de lokale VMware-site.
+In deze stap maakt worden twee beleidsregels gemaakt. Failover van één beleid voor het repliceren van virtuele VMware-machines naar Azure, en de andere voor het repliceren van virtuele machines die worden uitgevoerd in Azure terug naar de on-premises VMware-site.
 
 > [!NOTE]
-> De meeste Azure Site Recovery-bewerkingen worden asynchroon uitgevoerd. Wanneer u een bewerking initieert, wordt een Azure Site Recovery-taak wordt verzonden en wordt een taak voor het bijhouden van object wordt geretourneerd. Deze taak voor het bijhouden van object kan worden gebruikt voor het bewaken van de status van de bewerking.
+> De meeste Azure Site Recovery-bewerkingen worden asynchroon uitgevoerd. Wanneer u een bewerking hebt gestart, wordt een Azure Site Recovery-taak wordt verzonden en wordt een taak voor het bijhouden van object wordt geretourneerd. Deze taak voor het bijhouden van object kan worden gebruikt om de status van de bewerking te controleren.
 
-1. Maak een replicatiebeleid voor met de naam *ReplicationPolicy* virtuele VMware-machines repliceren naar Azure met de opgegeven eigenschappen.
+1. Maakt een replicatiebeleid met de naam *ReplicationPolicy* voor het repliceren van virtuele VMware-machines naar Azure met de opgegeven eigenschappen.
 
    ```azurepowershell
    $Job_PolicyCreate = New-ASRPolicy -VMwareToAzure -Name "ReplicationPolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
@@ -228,15 +228,15 @@ In deze stap zijn twee beleidsregels voor replicatie gemaakt. Failover van één
    Errors           : {}
    ```
 
-2. Maak een beleid voor wachtwoordreplicatie wilt gebruiken voor failback vanuit Azure naar de lokale VMware-site.
+2. Maakt een replicatiebeleid voor failback van Azure naar de on-premises VMware-site.
 
    ```azurepowershell
    $Job_FailbackPolicyCreate = New-ASRPolicy -AzureToVMware -Name "ReplicationPolicy-Failback" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
    ```
 
-   Gebruik de taakgegevens in *$Job_FailbackPolicyCreate* voor het bijhouden van de bewerking te voltooien.
+   Gebruik de taakgegevens in *$Job_FailbackPolicyCreate* om bij te houden van de bewerking te voltooien.
 
-   * Maak een toewijzing van de container beveiliging als u wilt toewijzen, beleidsregels voor replicatie met de configuratieserver.
+   * Maak een toewijzing van beveiligingscontainer om toe te wijzen replicatiebeleid met de configuratieserver.
 
    ```azurepowershell
    #Get the protection container corresponding to the Configuration Server
@@ -273,9 +273,9 @@ In deze stap zijn twee beleidsregels voor replicatie gemaakt. Failover van één
 
    ```
 
-## <a name="add-a-vcenter-server-and-discover-vms"></a>Een vCenter-server toevoegen en virtuele machines te detecteren
+## <a name="add-a-vcenter-server-and-discover-vms"></a>Een vCenter-server toevoegen en detecteren van virtuele machines
 
-Voeg een vCenter-Server op IP-adres of hostnaam. De **-poort** parameter wordt de poort op de vCenter-server verbinding maken met, **-naam** parameter geeft u een beschrijvende naam moet worden gebruikt voor de vCenter-server en de **-Account** parameter geeft u de account-ingang op de configuratieserver moet worden gebruikt voor het detecteren van virtuele machines die worden beheerd door de vCenter-server.
+Een vCenter-Server op IP-adres of hostnaam toevoegen. De **-poort** parameter geeft de poort op de vCenter-server verbinding maken met, **-naam** parameter geeft u een beschrijvende naam moet worden gebruikt voor de vCenter-server en de **-Account** parameter geeft u de account-ingang op de configuratieserver te gebruiken voor het detecteren van virtuele machines die worden beheerd door de vCenter-server.
 
 ```azurepowershell
 # The $AccountHandles[0] variable holds details of vCenter_account
@@ -310,12 +310,12 @@ Tasks            : {Adding vCenter server}
 Errors           : {}
 ```
 
-## <a name="create-storage-accounts-for-replication"></a>Storage-accounts voor replicatie maken
+## <a name="create-storage-accounts-for-replication"></a>Opslagaccounts voor replicatie maken
 
-In deze stap worden moet worden gebruikt voor replicatie de storage-accounts gemaakt. Deze opslagaccounts worden later gebruikt voor het repliceren van virtuele machines. Zorg ervoor dat de storage-accounts worden gemaakt in dezelfde Azure-regio als de kluis. U kunt deze stap overslaan als u wilt een bestaand opslagaccount gebruiken voor replicatie.
+In deze stap worden gemaakt van de storage-accounts moet worden gebruikt voor replicatie. Deze opslagaccounts worden later gebruikt voor het repliceren van virtuele machines. Zorg ervoor dat de storage-accounts worden gemaakt in dezelfde Azure-regio als de kluis. U kunt deze stap overslaan als u van plan bent een bestaand opslagaccount gebruiken voor replicatie.
 
 > [!NOTE]
-> Tijdens het on-premises virtuele machines repliceren naar een premium storage-account, moet u een extra standard-opslagaccount (logboek storage-account) opgeven. Het opslagaccount van het logboek bevat replicatielogboeken als een tussenliggende archief totdat de logboeken kunnen worden toegepast op het doel van de premium-opslag.
+> Tijdens het repliceren van on-premises virtuele machines naar een premium storage-account, moet u een extra standard-opslagaccount (logboekopslagaccount) opgeven. Het logboekopslagaccount behoudt replicatielogboeken als een tussenliggende archief totdat de logboeken kunnen worden toegepast op het doel van de premium-opslag.
 >
 
 ```azurepowershell
@@ -329,22 +329,22 @@ $ReplicationStdStorageAccount= New-AzureRmStorageAccount -ResourceGroupName "VMw
 
 ## <a name="replicate-vmware-vms"></a>Virtuele VMware-machines repliceren
 
-Het duurt ongeveer 15-20 minuten voor virtuele machines moeten worden gedetecteerd van de vCenter-server. Wanneer wordt gedetecteerd, wordt een object van het beveiligbare object gemaakt in Azure Site Recovery voor elke gedetecteerde virtuele machine. In deze stap worden drie van de gedetecteerde virtuele machines gerepliceerd naar de Azure Storage-accounts in de vorige stap hebt gemaakt.
+Het duurt ongeveer 15-20 minuten virtuele machines kunnen worden gedetecteerd door de vCenter-server. Wanneer wordt gedetecteerd, wordt een object beveiligbaar item gemaakt in Azure Site Recovery voor elke gedetecteerde virtuele machine. In deze stap worden drie van de gedetecteerde virtuele machines gerepliceerd naar de Azure Storage-accounts in de vorige stap hebt gemaakt.
 
 U moet de volgende informatie om een gedetecteerde virtuele machine te beveiligen:
 
-* De beveiligbare item worden gerepliceerd.
-* Het opslagaccount voor replicatie van de virtuele machine. Bovendien is een logboek-opslag vereist voor het beveiligen van virtuele machines naar een premium-opslagaccount.
-* De processerver moet worden gebruikt voor replicatie. De lijst met beschikbare processervers zijn opgehaald en opgeslagen in de ***$ProcessServers [0]****(ScaleOut surrogaatbestand)* en ***$ProcessServers [1]*** *(ConfigurationServer)* variabelen.
-* Het account moet worden gebruikt voor de software voor de Mobility-service op de machines push-installatie. De lijst met beschikbare accounts is opgehaald en opgeslagen in de ***$AccountHandles*** variabele.
-* De toewijzing van de container beveiliging voor het replicatiebeleid moet worden gebruikt voor replicatie.
-* De resourcegroep waarin virtuele machines op failover moet worden gemaakt.
-* Optioneel, de virtuele Azure-netwerk en het subnet waarop de mislukte via de virtuele machine moet worden verbonden.
+* Het beveiligbare item dat moet worden gerepliceerd.
+* Het opslagaccount voor het repliceren van de virtuele machine. Bovendien is een logboekopslag vereist voor het beveiligen van virtuele machines naar een premium storage-account.
+* De processerver moet worden gebruikt voor replicatie. De lijst met beschikbare processervers zijn opgehaald en opgeslagen in de ***$ProcessServers [0]****(ScaleOut-surrogaatbestand)* en ***$ProcessServers [1]*** *(ConfigurationServer)* variabelen.
+* Het account moet worden gebruikt voor de software voor de Mobility-service op de machines push-installatie. De lijst met beschikbare accounts zijn opgehaald en opgeslagen de ***$AccountHandles*** variabele.
+* De toewijzing van beveiligingscontainer voor het replicatiebeleid moet worden gebruikt voor replicatie.
+* De resourcegroep waarin de virtuele machines bij failover moet worden gemaakt.
+* (Optioneel) de Azure-netwerk en subnet waarop de mislukte via virtuele machine moet worden verbonden.
 
-Nu de volgende virtuele machines met behulp van de instellingen die zijn opgegeven in deze tabel repliceren
+De volgende virtuele machines met behulp van de instellingen die zijn opgegeven in deze tabel repliceren
 
 
-|Virtuele machine  |Processerver        |Opslagaccount              |Meld u Storage-account  |Beleid           |Account voor de installatie van de Mobility-service|Doelresourcegroep  | Doel virtueel netwerk  |Doelsubnet  |
+|Virtuele machine  |Processerver        |Opslagaccount              |Logboekopslagaccount  |Beleid           |Account voor de installatie van de Mobility-service|Doelresourcegroep  | Virtueel doelnetwerk  |Doelsubnet  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
@@ -383,7 +383,7 @@ $Job_EnableRepication3 = New-ASRReplicationProtectedItem -VMwareToAzure -Protect
 
 ```
 
-Zodra de taak van de replicatie inschakelen voltooid is, wordt de initiële replicatie gestart voor de virtuele machines. Initiële replicatie kan duren, afhankelijk van de hoeveelheid gegevens worden gerepliceerd en de bandbreedte die beschikbaar voor replicatie. Nadat de initiële replicatie is voltooid, wordt de virtuele machine verplaatst naar een beveiligde status. Zodra de virtuele machine bereikt een beveiligde status die u kunt uitvoeren met een testfailover voor de virtuele machine, deze toevoegen aan herstelplannen enzovoort.
+Zodra de inschakelen replicatie-taak voltooid is, wordt de eerste replicatie voor de virtuele machines gestart. Initiële replicatie kan duren, afhankelijk van de hoeveelheid gegevens worden gerepliceerd en de bandbreedte die beschikbaar voor replicatie. Nadat de initiële replicatie is voltooid, wordt de virtuele machine wordt verplaatst naar een beveiligde status. Zodra de virtuele machine bereikt een beveiligde status die u kunt uitvoeren met een testfailover uitvoeren voor de virtuele machine, het toevoegen aan herstelplannen enzovoort.
 
 U kunt de replicatiestatus en de replicatiestatus van de virtuele machine met de cmdlet Get-ASRReplicationProtectedItem controleren.
 
@@ -400,15 +400,15 @@ Win2K12VM1   Protected                       Normal
 
 ## <a name="configure-failover-settings"></a>Failover-instellingen configureren
 
-Failover-instellingen voor beveiligde machines kunnen worden bijgewerkt met de cmdlet Set-ASRReplicationProtectedItem. Enkele van de instellingen die kunnen worden bijgewerkt via deze cmdlet zijn:
-* Naam van de virtuele machine wilt maken op failover
-* VM-grootte van de virtuele machine wilt maken op failover
-* Virtuele Azure-netwerk en subnet die de NIC's van de virtuele machine moeten worden verbonden met failover
-* Failover naar beheerde schijven
-* Azure hybride gebruik voordeel toepassen
-* Wijs een statisch IP-adres van het virtuele doelnetwerk moet worden toegewezen aan de virtuele machine op failover.
+Failover-instellingen voor beveiligde machines kunnen worden bijgewerkt met de cmdlet Set-ASRReplicationProtectedItem. Enkele van de instellingen die kunnen worden bijgewerkt met deze cmdlet zijn:
+* Naam van de virtuele machine bij failover worden gemaakt
+* VM-grootte van de virtuele machine bij failover worden gemaakt
+* Azure-netwerk en subnet dat de NIC's van de virtuele machine moeten worden aangesloten op de failover
+* Failover voor beheerde schijven
+* Azure Hybrid Use Benefit toepassen op
+* Een statisch IP-adres uit het virtuele netwerk moet worden toegewezen aan de virtuele machine bij failover toewijzen.
 
-In dit voorbeeld gaan we de VM-grootte van de virtuele machine wilt maken op failover voor de virtuele machine bijwerken *Win2K12VM1* en opgeven dat wordt beheerd door het gebruik van de virtuele machine schijven op failover.
+In dit voorbeeld werken we de VM-grootte van de virtuele machine moet worden gemaakt op de failover voor de virtuele machine *Win2K12VM1* en opgeven dat wordt beheerd door het gebruik van de virtuele machine schijven bij failover.
 
 ```azurepowershell
 $ReplicatedVM1 = Get-ASRReplicationProtectedItem -FriendlyName "Win2K12VM1" -ProtectionContainer $ProtectionContainer
@@ -437,7 +437,7 @@ Errors           : {}
 
 ## <a name="run-a-test-failover"></a>Een testfailover uitvoeren
 
-1. Voer een DR-herstelanalyse (testfailover) als volgt:
+1. Voer een DR-oefening (testfailover) als volgt te werk:
 
    ```azurepowershell
    #Test failover of Win2K12VM1 to the test virtual network "V2TestNetwork"
@@ -448,9 +448,9 @@ Errors           : {}
    #Start the test failover operation
    $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
    ```
-2. Zodra de test failover-taak voltooid is, ziet u dat een virtuele machine moet worden voorafgegaan door *'-Test "* (Win2K12VM1-Test in dit geval) de naam is gemaakt in Azure.
+2. Zodra de test-failover-taak voltooid is, ziet u dat een virtuele machine moet worden voorafgegaan door *'-Test "* (Win2K12VM1-Test in dit geval) in de naam is gemaakt in Azure.
 3. U kunt nu verbinding maken met de virtuele machine failover testen en valideren van de testfailover.
-4. De testfailover met de cmdlet Start-ASRTestFailoverCleanupJob opschonen. Deze bewerking worden verwijderd van de virtuele machine gemaakt als onderdeel van de testfailover.
+4. Opschonen van de testfailover met behulp van de cmdlet Start-ASRTestFailoverCleanupJob. Deze bewerking wordt verwijderd van de virtuele machine gemaakt als onderdeel van de testfailover.
 
    ```azurepowershell
    $Job_TFOCleanup = Start-ASRTestFailoverCleanupJob -ReplicationProtectedItem $ReplicatedVM1
@@ -458,9 +458,9 @@ Errors           : {}
 
 ## <a name="fail-over-to-azure"></a>Failover naar Azure
 
-In deze stap failover wordt de virtuele machine Win2K12VM1 een specifiek herstelpunt.
+We niet in deze stap over de virtuele machine Win2K12VM1 naar een specifiek herstelpunt.
 
-1. Een lijst met beschikbare herstelpunten te gebruiken voor de failover ophalen:
+1. Haal een lijst van beschikbare herstelpunten worden gebruikt voor de failover:
    ```azurepowershell
    # Get the list of available recovery points for Win2K12VM1
    $RecoveryPoints = Get-ASRRecoveryPoint -ReplicationProtectedItem $ReplicatedVM1
@@ -483,7 +483,7 @@ In deze stap failover wordt de virtuele machine Win2K12VM1 een specifiek herstel
    Succeeded
    ```
 
-2. Zodra de failover is, u kunt de failoverbewerking doorvoeren en stelt u de omgekeerde replicatie van Azure weer naar de lokale VMware site.
+2. Nadat failover is, u kunt de failoverbewerking doorvoeren en stelt u de omgekeerde replicatie van Azure back-ups maken met de on-premises VMware-site.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over het automatiseren van meer taken met behulp van de [Azure Site Recovery PowerShell-referentie ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
