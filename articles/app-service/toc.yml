@@ -23,8 +23,6 @@
       href: app-service-web-get-started-php.md
     - name: Een Java-app maken
       href: app-service-web-get-started-java.md
-    - name: Een Python-app maken
-      href: app-service-web-get-started-python.md
     - name: Een statische HTML-site maken
       href: app-service-web-get-started-html.md
 - name: Zelfstudies
@@ -41,8 +39,6 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java met MySQL
           href: app-service-web-tutorial-java-mysql.md
-        - name: Python met PostgreSQL
-          href: app-service-web-tutorial-python-postgresql.md
     - name: Veilig toegang krijgen tot SQL DB
       href: app-service-web-tutorial-connect-msi.md
     - name: RESTful API hosten

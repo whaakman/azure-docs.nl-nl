@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: e795a6c5f76fb8d40c7e6778555de619d00b3a41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600898"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172741"
 ---
 # <a name="app-service-documentation"></a>Documentatie over App Service
 Met Azure App Service kunt u webtoepassingen maken en hosten in een programmeertaal naar keuze zonder dat u de infrastructuur, taal of runtime van het webframework hoeft te beheren. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Visual Studio Team Services of een willekeurige Git-repo. Ontdek met onze snelstarts, zelfstudies en voorbeelden hoe u Azure App Service gebruikt.
@@ -29,7 +29,7 @@ Ontdek hoe u uw eerste toepassing in de cloud implementeert met behulp van App S
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
 - [PHP](/azure/app-service/app-service-web-get-started-php)
 - [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/app-service-web-get-started-python)
+- [Python](/azure/app-service/containers/quickstart-python)
 - [HTML](/azure/app-service/app-service-web-get-started-html)
 
 ## <a name="step-by-step-tutorials"></a>Zelfstudies met stapsgewijze instructies
@@ -40,7 +40,7 @@ Ontdek hoe u in Azure beveiligde web-apps implementeert, beheert en bewaakt.
   - [.NET met Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js met MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java met MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python met PostgreSQL](/app-service/app-service-web-tutorial-python-postgresql)
+  - [Python met PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
 - [Een bestaand aangepast domein toewijzen aan uw toepassing](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Een bestaand SSL-certificaat binden aan uw toepassing](/azure/app-service/app-service-web-tutorial-custom-SSL)
 
