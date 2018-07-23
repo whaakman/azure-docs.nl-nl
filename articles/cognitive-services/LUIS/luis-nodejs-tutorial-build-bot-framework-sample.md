@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 23809b40026955f0c864764781d7a151e5ab2756
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b685dd65954da7a898875b67faa798fb2a1e33f9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144389"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172252"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>LUIS integreren met een bot met behulp van de Bot Builder-SDK voor Node.js
 
@@ -235,7 +235,7 @@ Selecteer in de Azure-Portal op **testen in Web Chat** voor het testen van de bo
    ![HomeAutomation bot in Web Chat testen](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Als u merkt dat uw bot niet altijd wordt herkend door de juiste bedoeling of entiteiten, moet u uw LUIS-app-prestaties verbeteren door meer voorbeeld uitingen service trainen wordt gegeven. U kunt uw LUIS-app zonder wijzigingen in de code van uw bot opnieuw trainen. Zie [voorbeeld utterances toevoegen](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) en [trainen en testen van uw LUIS-app](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+> Als u merkt dat uw bot niet altijd wordt herkend door de juiste bedoeling of entiteiten, moet u uw LUIS-app-prestaties verbeteren door meer voorbeeld uitingen service trainen wordt gegeven. U kunt uw LUIS-app zonder wijzigingen in de code van uw bot opnieuw trainen. Zie [voorbeeld utterances toevoegen](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) en [trainen en testen van uw LUIS-app](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>Meer informatie over Bot Framework
 Meer informatie over [Bot Framework](https://dev.botframework.com/) en de [3.x](https://github.com/Microsoft/BotBuilder) en [4.x](https://github.com/Microsoft/botbuilder-js) SDK's.

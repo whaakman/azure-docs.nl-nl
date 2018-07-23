@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: add61dbbdaa90ae23e200163f1fa962adc2b3b8e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e8714086a334576db120f82a1f2470a1de6ea6a1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902092"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186013"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configureren van een virtuele machine Managed Service Identity (MSI) met behulp van PowerShell
 
@@ -33,7 +33,11 @@ Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde id
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
-- Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
+- Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
+- Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende roltoewijzingen:
+    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aan een virtuele machine maken en inschakelen en verwijderen van systeem toegewezen beheerde identiteit van een Azure-VM.
+    - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van de identiteit van een gebruiker toegewezen.
+    - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol die u wilt toewijzen en verwijderen van een gebruiker toegewezen identiteit van en naar een virtuele machine.
 - Installeer [de meest recente versie van Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) als u dat nog niet gedaan hebt.
 
 ## <a name="system-assigned-identity"></a>Systeem toegewezen identiteit
@@ -68,7 +72,7 @@ Voor het maken van een Azure-VM met het systeem toegewezen identiteit ingeschake
 
 Als u nodig hebt om in te schakelen van een systeem toegewezen identiteit op een bestaande virtuele Machine:
 
-1. Aanmelden bij Azure met `Login-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Ook voor zorgen dat uw account deel uitmaakt van een rol waarmee u beschikt over machtigingen voor schrijven op de virtuele machine, zoals 'Inzender voor virtuele machines':
+1. Aanmelden bij Azure met `Login-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine.
 
    ```powershell
    Login-AzureRmAccount
@@ -97,7 +101,7 @@ Als u nodig hebt om in te schakelen van een systeem toegewezen identiteit op een
 
 Als u een virtuele Machine die niet meer nodig is op het systeem toegewezen identiteit maar nog steeds moet gebruiker toegewezen identiteiten hebt, gebruikt u de volgende cmdlet:
 
-1. Aanmelden bij Azure met `Login-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Ook voor zorgen dat uw account deel uitmaakt van een rol waarmee u beschikt over machtigingen voor schrijven op de virtuele machine, zoals 'Inzender voor virtuele machines':
+1. Aanmelden bij Azure met `Login-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine.
 
    ```powershell
    Login-AzureRmAccount
@@ -145,7 +149,7 @@ De identiteit van een gebruiker toegewezen aan een Azure-VM toewijzen bij het ma
 
 Als u wilt toewijzen van een gebruiker toegewezen identiteit aan een bestaande Azure-VM:
 
-1. Aanmelden bij Azure met `Connect-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Ook voor zorgen dat uw account deel uitmaakt van een rol waarmee u beschikt over machtigingen voor schrijven op de virtuele machine, zoals 'Inzender voor virtuele machines':
+1. Aanmelden bij Azure met `Connect-AzureRmAccount`. Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine.
 
    ```powershell
    Connect-AzureRmAccount
@@ -153,13 +157,12 @@ Als u wilt toewijzen van een gebruiker toegewezen identiteit aan een bestaande A
 
 2. Maken van een gebruiker toegewezen identiteit via de [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) cmdlet.  Houd er rekening mee de `Id` in de uitvoer omdat u dit in de volgende stap moet.
 
-    > [!IMPORTANT]
-    > Het maken van een gebruiker toegewezen identiteiten ondersteunt alleen alfanumerieke tekens en afbreekstreepjes (0-9 of a-z of A-Z of -) tekens. Bovendien moet de naam zijn beperkt tot 24 tekens voor de toewijzing van VM/VMSS goed te laten werken. Kijk binnenkort voor updates. Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
+   > [!IMPORTANT]
+   > Het maken van een gebruiker toegewezen identiteiten ondersteunt alleen alfanumerieke tekens en afbreekstreepjes (0-9 of a-z of A-Z of -) tekens. Bovendien moet de naam zijn beperkt tot 24 tekens voor de toewijzing van VM/VMSS goed te laten werken. Controleer later op updates. Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
 
-
-  ```powershell
-  New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
-  ```
+   ```powershell
+   New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
+   ```
 3. Ophalen van de eigenschappen van de virtuele machine met behulp van de `Get-AzureRmVM` cmdlet. Als u wilt de identiteit van een gebruiker toegewezen aan de Azure-VM toewijst, gebruikt u de `-IdentityType` en `-IdentityID` overschakelen op de [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet.  De waarde voor de`-IdentityId` parameter wordt de `Id` u in de vorige stap hebt genoteerd.  Vervang `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, en `<USER ASSIGNED IDENTITY NAME>` door uw eigen waarden.
 
    ```powershell
@@ -177,9 +180,9 @@ Als u wilt toewijzen van een gebruiker toegewezen identiteit aan een bestaande A
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Een beheerde identiteit van een Azure VM toegewezen gebruiker verwijderen
 
 > [!NOTE]
->  Alle gebruiker toegewezen identiteiten verwijderen uit een virtuele Machine wordt momenteel niet ondersteund, tenzij er een systeem toegewezen identiteit. Kijk binnenkort voor updates.
+>  Alle gebruiker toegewezen identiteiten verwijderen uit een virtuele Machine wordt momenteel niet ondersteund, tenzij er een systeem toegewezen identiteit. Controleer later op updates.
 
-Als uw virtuele machine meerdere gebruiker toegewezen identiteiten heeft, kunt u alles behalve het laatste item met de volgende opdrachten verwijderen. Vervang de `<RESOURCE GROUP>` en `<VM NAME>` parameterwaarden door uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die op de virtuele machine moet blijven. Deze informatie kan worden gevonden door in de sectie van de identiteit van het gebruik van de virtuele machine `az vm show`:
+Als uw virtuele machine meerdere gebruiker toegewezen identiteiten heeft, kunt u alles behalve het laatste item met de volgende opdrachten verwijderen. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VM NAME>` door uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die op de virtuele machine moet blijven. Deze informatie kan worden gevonden door in de sectie van de identiteit van het gebruik van de virtuele machine `az vm show`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm

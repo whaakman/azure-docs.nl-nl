@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: raynew
-ms.openlocfilehash: a02218922a4d4238abf752190293a788504e0cfb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 516cb69042e923a46168c7655dc3e3010d9557e6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070906"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173789"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Ondersteuningsmatrix voor VMware en fysieke servers repliceren naar Azure
 
@@ -61,7 +61,7 @@ Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wor
 **Onderdeel** | **Details**
 --- | ---
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
-Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. </br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> * *Windows 2016 Nano Server wordt niet ondersteund.*
+Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. </br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> Windows 2016 Nano Server wordt niet ondersteund.
 Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 naar 7.5 <br/><br/>CentOS: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 naar 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/></br>* *Gerepliceerde machines upgraden van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.*
 
 
@@ -120,7 +120,12 @@ Mappen | Deze mappen (indien ingesteld als afzonderlijke partities /-bestandssys
 Vrije schijfruimte| 2 GB op de/root-partitie <br/><br/> 250 MB op de map voor installatie
 XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom worden van Mobility Service versie 9.10 stationstoewijzingen ondersteund. Gebruik het hulpprogramma xfs_info om te controleren of de superblock XFS voor de partitie. Als ftype is ingesteld op 1, klikt u vervolgens zijn XFSv5 functies in gebruik.
 
+## <a name="vmdisk-management"></a>Beheer van de virtuele machine/schijf
 
+**Actie** | **Details**
+--- | ---
+Grootte van de schijf op gerepliceerde virtuele machine wijzigen | Ondersteund.
+Schijf toevoegen op de gerepliceerde virtuele machine | Schakel de replicatie voor de virtuele machine, de schijf toevoegen en vervolgens weer inschakelen replicatie. Toevoegen van een schijf op een replicerende virtuele machine wordt momenteel niet ondersteund.
 
 ## <a name="network"></a>Netwerk
 

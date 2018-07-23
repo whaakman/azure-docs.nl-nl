@@ -1,7 +1,7 @@
 ---
-title: Sessie-retouraanroepen gebruiken met de toepassing van een conversatie cursist - cognitieve Microsoft-Services | Microsoft Docs
+title: Sessie callbacks gebruiken met een model Conversatiecursist - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het gebruik van de sessie retouraanroepen aan een conversatie cursist-toepassing.
+description: Informatie over het gebruik van de callbacks sessie met een Conversatiecursist-model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,54 +10,58 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f8970620c1f0f87ccae13d031092a048144ffb19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0f51b232470e4e4da3f25d40d025dd3b09dd1204
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345286"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171912"
 ---
-# <a name="how-to-use-session-callbacks-with-a-conversation-learner-application"></a>Het gebruik van retouraanroepen sessie met een conversatie cursist-toepassing
+# <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Sessie callbacks gebruiken met een model Conversatiecursist
 
 Deze zelfstudie laat zien hoe de callbacks onSessionStart en onSessionEnd.
 
+## <a name="video"></a>Video
+
+[![Zelfstudie-11-Preview](http://aka.ms/cl-tutorial-11-preview)](http://aka.ms/blis-tutorial-11)
+
 ## <a name="requirements"></a>Vereisten
-Deze zelfstudie vereist dat de bot 'tutorialSessionCallbacks.ts' wordt uitgevoerd.
+In deze zelfstudie vereist dat de `tutorialSessionCallbacks` bot wordt uitgevoerd.
 
     npm run tutorial-session-callbacks
 
 ## <a name="details"></a>Details
-Deze zelfstudie bevat informatie over het concept van een sessie, hoe sessies standaard worden verwerkt en hoe u dit gedrag kunt negeren.
+In deze zelfstudie bevat informatie over het concept van een sessie, hoe sessies standaard worden verwerkt en hoe u dit gedrag kunt negeren.
 
-Een sessie is een conversatie met de bot. Hiermee schakelt u meerdere kan hebben, maar er zijn geen lange onderbrekingen in de conversatie (bijvoorbeeld: 30 minuten).  Zie de help-pagina van 'Limieten' voor de standaardduur voor de time-out van sessie.
+Een sessie is een gesprek met de bot. Hiermee schakelt u meerdere kan hebben, maar er zijn geen lange onderbrekingen in de uitwisseling (bijvoorbeeld 30 minuten).  Zie de help-pagina op 'Limieten' voor de standaardduur voor de time-out van sessie.
 
-Als er lange onderbrekingen, wordt de bot Ga naar de volgende sessie.  Een nieuwe sessie starten, worden de periodieke neurale netwerk wordt in de initiële status geplaatst.  Standaard deze ook worden gewist alle waarden van de entiteit, hoewel dit gedrag kan worden gewijzigd (geïllustreerde hieronder).
+Als er lange onderbrekingen, klikt u vervolgens de bot wordt omgeleid naar de volgende sessie.  Een nieuwe sessie starten, worden de terugkerende neural network opgenomen in de oorspronkelijke staat.  Standaard ook wist de App alle entiteitswaarden, hoewel dit gedrag kan worden gewijzigd (geïllustreerde hieronder).
 
 ### <a name="open-the-demo"></a>Open de demo
 
-Klik in de lijst met Apps op zelfstudie-11-SessionCallbacks. 
+Klik in de lijst Model op zelfstudie-11-SessionCallbacks. 
 
 ### <a name="entities"></a>Entiteiten
 
-We hebben vier entiteiten gedefinieerd in de toepassing.
+Vier entiteiten zijn gedefinieerd in het model.
 
 ![](../media/tutorial11_entities.PNG)
 
-Hierbij moet u onthouden is dat BotName een programmatische entiteit.  Hierdoor wordt ingesteld door de bot tijdens het starten van een sessie.
+Eén ding te weten is dat BotName een programmatische entiteit.  Deze entiteit wordt door de bot tijdens het starten van een sessie worden ingesteld.
 
 ### <a name="actions"></a>Acties
 
-Wij hebben vier acties gemaakt. 
+Vier acties zijn gedefinieerd in het model.
 
 ![](../media/tutorial11_actions.PNG)
 
-Eerst wordt deze zelfstudie beschreven hoe waarmee waarden aan het begin van de sessie--entiteit bijvoorbeeld de entiteit BotName instellen voordat de gebruiker zegt.
+Eerst wordt in deze zelfstudie beschreven hoe voor het beheren van entiteitswaarden aan het begin van de sessie, bijvoorbeeld de entiteit BotName instellen voordat de gebruiker iets zegt.
 
-Ten tweede in deze zelfstudie wordt beschreven hoe om vast te leggen van de waarden van een nieuwe sessie naar de volgende.  In deze zelfstudie gaan we ervan uit naam van de gebruiker en telefoonnummer blijven hetzelfde van een nieuwe sessie naar de volgende, maar dat de locatie mag wijzigen.  Daarom persistent we is de naam en het telefoonnummer voor sessies, maar de locatie van de gebruiker wissen.
+Ten tweede worden in deze zelfstudie laten zien hoe om vast te leggen van de waarden van een nieuwe sessie naar de volgende.  In deze zelfstudie gaan we ervan uit naam van de gebruiker en telefoonnummer blijven hetzelfde uit een sessie naar de volgende, maar dat kan worden gewijzigd door hun locatie.  We daarom behouden de naam en het telefoonnummer tussen sessies, maar de locatie van de gebruiker wissen.
 
-### <a name="train-dialog"></a>Dialoogvenster Train
+### <a name="train-dialog"></a>Dialoogvenster van de trein
 
-Hier volgt een voorbeeld van dit dialoogvenster. Dit is één sessie - dat wil zeggen, er zijn geen lange onderbrekingen in dit dialoogvenster.
+Hier volgt een voorbeeld van dit dialoogvenster. Dit is een sessie - dat wil zeggen, er zijn geen lange pauzes in dit dialoogvenster.
 
 ![](../media/tutorial11_traindialog.PNG)
 
@@ -70,39 +74,39 @@ De code voor de callback-methoden is in het bestand: c:\<installedpath > \src\de
 Beide methoden zijn optioneel.
 
 - OnSessionStartCallback: deze methode stelt de BotName-entiteit.
-- OnSessionEndCallback: u kunt opgeven wat u wilt wissen. Hiermee worden alle entiteiten met uitzondering van gebruikersnaam en het telefoonnummer gebruiker gewist.
+- OnSessionEndCallback: u kunt opgeven wat u wilt behouden. Hiermee worden alle entiteiten met uitzondering van de gebruikersnaam en het telefoonnummer van de gebruiker gewist.
 
 ### <a name="try-the-bot"></a>Probeer de bot
 
-Overschakelen naar de Webgebruikersinterface en klik op logboek-dialoogvensters.
+Schakel over naar de Web-UI en klik op het logboek-dialoogvensters.
 
 1. Voer 'Hallo'.
-2. Systeem: "Hallo, ik ben Botty. Wat is de naam van uw?' waarvan de naam Botty afkomstig van de OnSessionStartCallback heeft.
+2. Systeem: "Hallo, ik ben Botty. Wat is jouw naam?' de naam Botty afkomstig van de OnSessionStartCallback heeft.
 3. Voer 'jason'.
-4. Systeem: ' High jason. Wat is uw telefoonnummer?'
+4. Systeem: ' Hi jason. Wat is uw telefoonnummer?'
 5. Voer ' 555-555-5555'.
-6. Systeem: 'kunt u zien Botty uw locatie en jason?'
+6. Systeem: 'kunt u zien Botty uw locatie, jason?'
 7. Typ "Redmond".
 
-Dit is één sessie. Voor het starten van een nieuwe sessie moet om deze sessie te beëindigen. 
+Dit is één sessie. Om een nieuwe sessie starten, moeten we deze sessie beëindigen. 
 
 1. Klik op de sessietime-out. Dit gaat u naar de volgende sessie.
-    - De knop 'Sessietime-out' is opgegeven voor foutopsporing.  In een werkelijke sessie moet een lange pauze zou optreden van ongeveer 30 minuten.  Zie de help-pagina van 'Limieten' voor de standaardduur voor de time-out van sessie.
+    - De knop 'Sessietime-out' is opgegeven voor foutopsporing.  In een werkelijke-sessie moet een lange pauze plaatsvinden, ongeveer 30 minuten duren.  Zie de help-pagina op 'Limieten' voor de standaardduur voor de time-out van sessie.
 1. Voer 'Hallo'.
-2. Systeem: 'kunt u zien Botty uw locatie en jason?'
-    - Het systeem heeft de naam en het telefoonnummer aantal onthouden.
+2. Systeem: 'kunt u zien Botty uw locatie, jason?'
+    - Het systeem heeft het nummer van de naam en het telefoonnummer onthouden.
 2. Voer een nieuwe locatie: 'Seattle'.
-3. Systeem: 'dus jason u zich in Haarlem'.
+3. Systeem: 'dus jason u bent in Seattle'.
 4. Klik op gereed testen.
 
-Laten we Ga terug naar het Log-dialoogvensters. U ziet dat de laatste conversatie is opgesplitst in twee omdat elk logboek dialoogvenster komt met één sessie overeen.  
+Laten we gaat u terug naar het Log-dialoogvensters. U ziet dat de laatste conversatie is opgesplitst in twee omdat elke log-dialoogvenster komt met één sessie overeen.  
 
 ![](../media/tutorial11_splitdialogs.PNG)
 
 - In de eerste interactie Botty is ingesteld, maar zijn niet de naam en het telefoonnummer.
-- De tweede interactie ziet u het nummer van de naam en het telefoonnummer.
+- De tweede interactie bevat het nummer van de naam en het telefoonnummer.
 
-U hebt nu gezien hoe sessies standaard worden verwerkt en hoe kunt u het standaardgedrag vervangen. 
+U hebt nu gezien hoe sessies standaard worden verwerkt, en hoe kunt u het standaardgedrag negeren. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,7 +1,7 @@
 ---
-title: Het gebruiken van kaarten met een toepassing conversatie cursist, deel 2 - cognitieve Microsoft-Services | Microsoft Docs
+title: 'Over het gebruiken van kaarten met een model Conversatiecursist, deel 2: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Informatie over het gebruiken van kaarten met een conversatie cursist-toepassing.
+description: Informatie over het gebruiken van kaarten met een Conversatiecursist-model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,87 +10,91 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 254f0953fd3e281a35857e69d9795e3decebf45d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345268"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170569"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Het gebruik van kaarten (deel 1 van 2)
-Deze zelfstudie laat zien hoe u een kaart invulbaar formulier toevoegt aan uw bot. Deze wordt weergegeven hoe formuliervelden verplaatsen naar entiteiten.
+Deze zelfstudie laat zien hoe u een kaart invulbaar formulier toevoegen aan uw bot. U ziet hoe velden in het formulier in op entiteiten verplaatsen.
 
-Conversatie cursist verwacht uw definitiebestanden kaart zich bevinden in een map met de naam 'kaarten', die aanwezig is in de map waar de bot wordt gestart.
+Conversatiecursist wordt verwacht dat de kaart definitiebestanden zich bevinden in een map genaamd 'kaarten', die is aanwezig in de map waar de bot wordt gestart.
+
+## <a name="video"></a>Video
+
+[![Zelfstudie 14-Preview](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>Vereisten
-Deze zelfstudie vereist dat de algemene zelfstudie bot wordt uitgevoerd
+In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
 
     npm run tutorial-general
 
 ## <a name="details"></a>Details
 
-Kaarten zijn UI-elementen waarmee de gebruiker een optie selecteren in de conversatie. 
+Kaarten zijn UI-elementen waarmee de gebruiker een optie te selecteren in de conversatie. 
 
 ### <a name="open-the-demo"></a>Open de demo
 
-Klik in de lijst met Apps van de webgebruikersinterface, op de zelfstudie-14-kaarten-2. 
+Klik in de lijst Model van de web-UI op zelfstudie-14-kaarten-2. 
 
 ### <a name="the-card"></a>De kaart
 
 De definitie van de kaart is op de volgende locatie: C:\<installedpath\>\src\cards\shippingAddress.json.
 
-Deze kaart verzamelt drie velden van het verzendadres: straat, plaats en status.
+Deze kaart verzamelt drie velden van het verzendadres: straat, plaats en staat.
 
 ![](../media/tutorial14_card.PNG)
 
 ### <a name="actions"></a>Acties
 
-We hebt drie acties gemaakt. Zoals u hieronder ziet, is de eerste actie een kaart.
+We hebben drie acties gemaakt. Zoals u hieronder ziet, is de eerste actie in een kaart.
 
 ![](../media/tutorial14_actions.PNG)
 
-Laten we zien hoe het kaarttype actie is gemaakt:
+We gaan nu kijken hoe het actietype kaart wordt gemaakt op:
 
-- U ziet straat waar het type van Input.text en bijbehorende-ID is.
-- Er is op deze manier adres plaats en een vervolgkeuzelijst met de ID van de adres-status.
+- U ziet de straat waar het type van het Input.text en de ID is.
+- Er is op deze manier adres plaats en een vervolgkeuzelijst met ID van de adres-status.
 
-De id's zijn belangrijk omdat wanneer de velden zijn ingevuld en verzonden, worden de namen van entiteiten die deze waarden in de bot ontvangt.
+De id's zijn belangrijk omdat als de velden zijn ingevuld en verzonden, worden de namen van entiteiten die deze waarden in de bot ontvangt.
 
 ## <a name="entities"></a>Entiteiten
-Er zijn drie entiteiten die overeenkomt met de kaart, zoals u hebt gezien hierboven gedefinieerd.
+We hebben drie entiteiten die overeenkomen met de kaart zoals we hierboven al hebben gezien gedefinieerd.
 
 ![](../media/tutorial14_entities.PNG)
 
 ## <a name="actions"></a>Acties
 
-Er zijn twee acties gedefinieerd.
+We hebben hebt twee acties gedefinieerd.
 
 ![](../media/tutorial14_actions.PNG)
 
-- De eerste is de back-upfunctie adreskaart waarbij het Type actie kaart en de sjabloon uit de vervolgkeuzelijst als shippingAddress is geselecteerd.
-- De tweede is een eenvoudige actie lezen van het verzendadres.
+- De eerste is de verzending adreskaart waarbij het actietype kaart en sjabloon wordt geselecteerd in de vervolgkeuzelijst als shippingAddress.
+- De tweede is een eenvoudige actie om te lezen terug het verzendadres.
 
 ![](../media/tutorial14_sa_card.PNG)
 
-### <a name="train-dialog"></a>Dialoogvenster Train
+### <a name="train-dialog"></a>Dialoogvenster van de trein
 
-We gaan een dialoogvenster onderwijs doorlopen.
+We nemen een dialoogvenster voor onderwijs.
 
-1. Klik op de trein dialoogvensters, klikt u vervolgens nieuwe Train dialoogvenster.
+1. Klik op de trein dialoogvensters, en vervolgens Nieuw dialoogvenster van de trein.
 1. Voer 'Hallo'.
-2. Klik op de actie Score.
+2. Klik op Score actie.
 3. Klik op 'Verzendadres'.
 4. Vul in de kaart en het verzenden.
-    - U ziet dat nu de waarden in het geheugen van de entiteit zijn verplaatst. Geen parseren is nodig als het formulier gepartitioneerd al de invoer.
+    - U ziet dat nu de waarden in het geheugen van de entiteit zijn verplaatst. Geen parseren is nodig omdat het formulier gepartitioneerd al de invoer.
 5. Klik op Score acties.
 3. Klik op selecteren ' verzenden naar $Address... '.
 4. Klik op gereed testen.
 
 ![](../media/tutorial14_train_dialog.PNG)
 
-U hebt nu het ophalen van waarden van de kaart die invulbare velden en vervolgkeuzelijsten heeft, en vastleggen en ze te verzamelen in bot entiteiten gezien.
+U hebt nu gezien hoe om waarden te verkrijgen van de kaart met invulbare velden en vervolgkeuzelijsten, en voor het vastleggen en ze in bot entiteiten te verzamelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Vertakking en ongedaan maken](./15-branching-and-undo.md)
+> [Vertakkingen en ongedaan maken](./15-branching-and-undo.md)

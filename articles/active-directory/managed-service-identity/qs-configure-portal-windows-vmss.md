@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 34911c6133a6a2549a98db426f979b0c3c85dbd7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035238"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185294"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Een virtuele machine configureren Virtual Machine scale sets Managed Service Identity (MSI) met behulp van de Azure portal
 
@@ -30,13 +30,14 @@ Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde id
 In dit artikel leert u hoe u kunt in- en uitschakelen van het systeem toegewezen identiteit voor een virtuele-machineschaalset met behulp van de Azure portal. Toe te wijzen en een gebruiker toegewezen identiteiten verwijderen uit een schaalset voor virtuele machine van Azure is momenteel niet ondersteund via Azure portal.
 
 > [!NOTE]
-> Door gebruiker toegewezen identiteit bewerkingen worden momenteel niet ondersteund via de Azure Portal. Kijk binnenkort voor updates.
+> Door gebruiker toegewezen identiteit bewerkingen worden momenteel niet ondersteund via de Azure Portal. Controleer later op updates.
 
 ## <a name="prerequisites"></a>Vereisten
 
-
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md).
-- Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
+- Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
+- Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de roltoewijzing van de volgende:
+    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) inschakelen en beheerde Service-identiteit van een virtuele-machineschaalset verwijderen.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Beheerde Service-identiteit tijdens het maken van een schaalset voor virtuele Azure-machine
 

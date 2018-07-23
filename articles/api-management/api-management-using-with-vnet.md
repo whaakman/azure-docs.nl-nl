@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 067404193507f9787c994e82267679737ebe4832
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145414"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187380"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -150,6 +150,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 * **Instellingen voor de eerste**: wanneer de eerste implementatie van API Management-service in een subnet niet gelukt is, is het raadzaam eerst een virtuele machine implementeren in hetzelfde subnet bevinden. Extern bureaublad van de volgende bij de virtuele machine en controleren of er verbinding met een van elke resource hieronder in uw azure-abonnement
     * Azure Storage-blob
     * Azure SQL Database
+    * Azure Storage-tabel
 
  > [!IMPORTANT]
  > Nadat u de connectiviteit hebt gevalideerd, zorg ervoor dat alle resources die zijn geïmplementeerd in het subnet voor het implementeren van API Management in het subnet te verwijderen.

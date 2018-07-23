@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.openlocfilehash: b553da54cd8ce63638fc52dd078bb517a1f9e713
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: f335ffae153893a39312326738ee4188c3756ff4
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34634655"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185472"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
 
@@ -79,7 +79,9 @@ Als een apparaat de apparaat-SDK's gebruiken kan, kan deze nog steeds verbinding
 
   Zie voor meer informatie over het genereren van SAS-tokens, de apparaat-sectie van [beveiligingstokens van IoT-Hub met behulp van][lnk-sas-tokens].
 
-  Wanneer u test, kunt u ook gebruiken de [apparatenverkenner] [ lnk-device-explorer] hulpprogramma voor het snel genereren van een SAS-token dat u kunt kopiëren en plakken in uw eigen code:
+  Wanneer u test, kunt u ook gebruiken de [Device Explorer] [ lnk-device-explorer] hulpprogramma of de platformoverschrijdende [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) om snel te genereren een SAS-token waarmee u kunt kopiëren en plakken in uw eigen code:
+
+Voor Device Explorer:
 
   1. Ga naar de **Management** tabblad **Device Explorer**.
   2. Klik op **SAS-Token** (top rechts).
@@ -93,6 +95,13 @@ Als een apparaat de apparaat-SDK's gebruiken kan, kan deze nog steeds verbinding
      Het deel van deze token gebruiken als de **wachtwoord** veld verbinding maken met behulp van MQTT is:
 
      `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+     
+Voor Azure IoT Toolkit:
+
+  1. Vouw de **AZURE IOT HUB-apparaten** tabblad in de linkeronderhoek van Visual Studio Code.
+  2. Met de rechtermuisknop op uw apparaat en selecteer **genereren van SAS-Token voor apparaat**.
+  3. Stel **verlooptijd** en druk op 'Enter'.
+  4. De SAS-token is gemaakt en gekopieerd naar het Klembord.
 
 MQTT verbinding maken met en pakketten verbreken, problemen met IoT Hub een gebeurtenis op de **bewerkingen controleren** kanaal. Deze gebeurtenis heeft aanvullende informatie die kan helpen bij het oplossen van problemen met de netwerkverbinding.
 

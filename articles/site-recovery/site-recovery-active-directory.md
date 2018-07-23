@@ -7,14 +7,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: e8094c582af6ea03f5ffcc4f61914488891cb556
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920886"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172235"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery gebruiken om te beveiligen van Active Directory en DNS
 
@@ -31,13 +31,10 @@ In dit artikel wordt uitgelegd hoe u een oplossing voor noodherstel voor Active 
 
 ## <a name="replicate-the-domain-controller"></a>De domeincontroller worden gerepliceerd
 
-U moet instellen [Site Recovery-replicatie](#enable-protection-using-site-recovery), op ten minste één virtuele machine die als host fungeert voor een domeincontroller of DNS. Als u hebt [meerdere domeincontrollers](#environment-with-multiple-domain-controllers) in uw omgeving, ook moet u instellen een [extra domeincontroller](#protect-active-directory-with-active-directory-replication) op de doelsite. De extra domeincontroller kan zijn in Azure of in een secundaire on-premises datacenter.
-
-### <a name="single-domain-controller"></a>Single-domeincontroller
-Als u slechts een paar toepassingen en één domeincontroller hebt, kunt u een failover wordt uitgevoerd de gehele site. In dit geval wordt u aangeraden Site Recovery voor het repliceren van de domeincontroller met de doelsite (ofwel in Azure of in een secundaire on-premises datacenter). U kunt de dezelfde gerepliceerde domeincontroller of DNS-virtuele machine voor [testfailover](#test-failover-considerations).
-
-### <a name="multiple-domain-controllers"></a>Meerdere domeincontrollers
-Als u veel toepassingen en meer dan één domeincontroller in uw omgeving hebt, of als u van plan bent failover wilt uitvoeren voor enkele toepassingen op een tijdstip, naast het repliceren van de domain controller virtuele machine met Site Recovery, is het raadzaam dat u om een instelt[extra domeincontroller](#protect-active-directory-with-active-directory-replication) op de doelsite (ofwel in Azure of in een secundaire on-premises datacenter). Voor [testfailover](#test-failover-considerations), kunt u de domeincontroller die gerepliceerd door Site Recovery kunt gebruiken. Voor de failover, kunt u de extra domeincontroller op de doelsite.
+- U moet instellen [Site Recovery-replicatie](#enable-protection-using-site-recovery), op ten minste één virtuele machine die als host fungeert voor een domeincontroller of DNS.
+- Als u hebt [meerdere domeincontrollers](#environment-with-multiple-domain-controllers) in uw omgeving, ook moet u instellen een [extra domeincontroller](#protect-active-directory-with-active-directory-replication) op de doelsite. De extra domeincontroller kan zijn in Azure of in een secundaire on-premises datacenter.
+- Als u slechts een paar toepassingen en één domeincontroller hebt, kunt u een failover wordt uitgevoerd de gehele site. In dit geval wordt u aangeraden Site Recovery voor het repliceren van de domeincontroller met de doelsite (ofwel in Azure of in een secundaire on-premises datacenter). U kunt de dezelfde gerepliceerde domeincontroller of DNS-virtuele machine voor [testfailover](#test-failover-considerations).
+- - Als u veel toepassingen en meer dan één domeincontroller in uw omgeving hebt, of als u van plan bent failover wilt uitvoeren voor enkele toepassingen op een tijdstip, naast het repliceren van de domain controller virtuele machine met Site Recovery, is het raadzaam dat u om een instelt[extra domeincontroller](#protect-active-directory-with-active-directory-replication) op de doelsite (ofwel in Azure of in een secundaire on-premises datacenter). Voor [testfailover](#test-failover-considerations), kunt u de domeincontroller die gerepliceerd door Site Recovery kunt gebruiken. Voor de failover, kunt u de extra domeincontroller op de doelsite.
 
 ## <a name="enable-protection-with-site-recovery"></a>Schakel de beveiliging met Site Recovery
 
@@ -186,9 +183,11 @@ Als de vorige voorwaarden wordt voldaan, is het waarschijnlijk dat de domeincont
     Zie voor meer informatie, [uitschakelen van de vereiste dat een globale-catalogusserver beschikbaar zijn voor het valideren van gebruikersaanmeldingen](http://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS- en domeincontroller op verschillende computers
-Als DNS bevindt zich niet op dezelfde virtuele machine als de domeincontroller, moet u een DNS-virtuele machine voor de testfailover maken. Als DNS- en de domeincontroller niet op dezelfde virtuele machine, kunt u deze sectie overslaan.
 
-U kunt een nieuwe DNS-server gebruiken en de vereiste zones maken. Als uw Active Directory-domein contoso.com is, kunt u bijvoorbeeld een DNS-zone maken met de naam contoso.com. De items die overeenkomen met de Active Directory moeten worden bijgewerkt in DNS als volgt:
+Als u de domeincontroller en DNs op dezelfde virtuele machine, kunt u deze procedure overslaan.
+
+
+Als DNS bevindt zich niet op dezelfde virtuele machine als de domeincontroller, moet u een DNS-VM voor de testfailover maken. U kunt een nieuwe DNS-server gebruiken en de vereiste zones maken. Als uw Active Directory-domein contoso.com is, kunt u bijvoorbeeld een DNS-zone maken met de naam contoso.com. De items die overeenkomen met de Active Directory moeten worden bijgewerkt in DNS als volgt:
 
 1. Zorg ervoor dat deze instellingen voldaan is voordat een andere virtuele machine in het herstelplan wordt gestart:
    * De zone moet de naam achter de naam van de hoofdmap forest.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: ced2a8354e63288ad9957b6a177b43c97b58698c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 42d5b55e0bddf2d027810bfdf146de9bfee8a0fb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160532"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188128"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Maken, weergeven en verwijderen van een gebruiker toegewezen identiteit met Azure Resource Manager
 
@@ -37,8 +37,8 @@ Het is niet mogelijk om te vermelden en verwijderen van een gebruiker toegewezen
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
-
-Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine. Zorg er ook voor dat uw account deel uitmaakt van een functie waarmee u beschikt over machtigingen voor schrijven op de virtuele machine (bijvoorbeeld de rol 'Inzender voor virtuele machines').
+- Als u wilt de bewerkingen in dit artikel uitvoert, moet uw account de roltoewijzing van de volgende:
+    - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) (lijst) rol te maken, lezen, bijwerken en verwijderen van de identiteit van een gebruiker toegewezen.
 
 ## <a name="template-creation-and-editing"></a>Sjabloon maken en bewerken
 
@@ -51,7 +51,7 @@ Als met de Azure bieden portal en schrijven van scripts en Azure Resource Manage
 
 ## <a name="create-a-user-assigned-identity"></a>Door de gebruiker toegewezen identiteit maken 
 
-Gebruik de volgende sjabloon voor het maken van een gebruiker toegewezen identiteit. Ten minste uw account moet worden toegewezen de [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van de identiteit van een gebruiker toegewezen. Vervang de `<USER ASSIGNED IDENTITY NAME>` waarde door uw eigen waarden:
+Gebruik de volgende sjabloon voor het maken van een gebruiker toegewezen identiteit. Vervang de `<USER ASSIGNED IDENTITY NAME>` waarde door uw eigen waarden:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 

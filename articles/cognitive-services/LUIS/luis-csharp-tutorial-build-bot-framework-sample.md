@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: af5079e8c448a0df6b1109f5f23e3e3a2871a167
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: f666b59db978774cd299cb91eccdfac99e66ae76
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887263"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172048"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web App-Bot met behulp van de sjabloon LUIS voor C#
 
@@ -80,7 +80,7 @@ Open **toepassingsinstellingen** en bewerk de **LuisAppId** veld bevat de toepas
 > Als u geen de LUIS-app-ID van de [start Automation app](luis-get-started-create-app.md), meld u aan bij de [LUIS](luis-reference-regions.md) website met hetzelfde account als u zich aanmeldt bij Azure. 
 > 1. Klik op **mijn apps**. 
 > 2. De LUIS-app die u eerder hebt gemaakt, waarin de intenties en entiteiten uit het domein HomeAutomation vinden.
-> 3. In de **instellingen** pagina voor de app LUIS, zoeken en kopiëren van de app-ID. Zorg ervoor dat dit [getrainde](interactive-test.md) en [gepubliceerd](luis-how-to-publish-app.md). 
+> 3. In de **instellingen** pagina voor de app LUIS, zoeken en kopiëren van de app-ID. Zorg ervoor dat dit [getrainde](luis-interactive-test.md) en [gepubliceerd](luis-how-to-publish-app.md). 
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
@@ -145,7 +145,7 @@ Klik in de Azure-portal op **testen in Web Chat** voor het testen van de bot. Ty
    ![HomeAutomation bot in Web Chat testen](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> U kunt uw LUIS-app zonder wijzigingen in de code van uw bot opnieuw trainen. Zie [voorbeeld utterances toevoegen](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) en [trainen en testen van uw LUIS-app](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test). 
+> U kunt uw LUIS-app zonder wijzigingen in de code van uw bot opnieuw trainen. Zie [voorbeeld utterances toevoegen](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) en [trainen en testen van uw LUIS-app](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>De bot voor foutopsporing downloaden
 Als uw bot niet werkt, het project hebt gedownload naar uw lokale computer en verder [foutopsporing](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 

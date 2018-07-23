@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 07/11/2018
-ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 70891e4c1425badb43dac66ada9c0b3a43b8fb0d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971934"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173670"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
@@ -94,6 +94,8 @@ U kunt uw i/o-gebruik in Azure portal of met behulp van Azure CLI-opdrachten kun
 De server wordt gemarkeerd als alleen-lezen wanneer de hoeveelheid vrije opslagruimte kleiner is dan 5 GB of 5% van de ingerichte opslag bereikt, afhankelijk van wat kleiner is. Bijvoorbeeld, als u 100 GB aan opslag hebt ingericht, en het gebruik van de werkelijke gaat via 95 GB, de server is gemarkeerd als alleen-lezen. U kunt ook als u 5 GB aan opslag hebt ingericht, is de server gemarkeerd alleen-lezen wanneer de vrije opslagruimte is minder dan 250 MB bereikt.  
 
 Terwijl de service probeert te maken van de server alleen-lezen, alle nieuwe schrijftransactieaanvragen geblokkeerd en kunnen bestaande actieve transacties blijft om uit te voeren. Wanneer de server is ingesteld op alleen-lezen, voert alle daaropvolgende schrijfbewerkingen en transactie is mislukt. Lezen query's blijven doorwerken. Nadat u de ingerichte opslag verhoogt, wordt de server zijn klaar om te accepteren schrijftransacties opnieuw.
+
+U wordt aangeraden dat u een waarschuwing instellen om u te waarschuwen als de opslag van uw server bijna de drempelwaarde is bereikt, zodat u kunt te voorkomen dat de status alleen-lezen. Zie voor meer informatie de documentatie over [over het instellen van een waarschuwing](howto-alert-on-metric.md).
 
 ## <a name="backup"></a>Backup
 

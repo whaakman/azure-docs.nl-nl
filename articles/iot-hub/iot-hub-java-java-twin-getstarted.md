@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 96cad0fc7f387c5f0cb14996ae6ac015c104b81d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b8884cafbf250b9d7a88219b5647addafee9904a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619434"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186897"
 ---
 # <a name="get-started-with-device-twins-java"></a>Aan de slag met apparaatdubbels (Java)
 
@@ -350,8 +350,8 @@ In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en 
 
 Gebruik de volgende bronnen voor meer informatie over het:
 
-* Verzenden van telemetrie van apparaten met de [aan de slag met IoT Hub](iot-hub-java-java-getstarted.md) zelfstudie.
-* Beheren van apparaten interactief (zoals het inschakelen van een fan, van een gebruiker beheerde app) met de [directe methoden gebruiken](iot-hub-java-java-direct-methods.md) zelfstudie.
+* Verzenden van telemetrie van apparaten met de [aan de slag met IoT Hub](quickstart-send-telemetry-java.md) zelfstudie.
+* Beheren van apparaten interactief (zoals het inschakelen van een fan, van een gebruiker beheerde app) met de [directe methoden gebruiken](quickstart-control-device-java.md) zelfstudie.
 
 <!-- Images. -->
 [7]: ./media/iot-hub-java-java-twin-getstarted/invoke-method.png

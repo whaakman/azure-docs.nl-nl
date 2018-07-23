@@ -4,14 +4,14 @@ description: Biedt een overzicht van evaluatie van berekeningen in de Azure Migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/20/2018
 ms.author: raynew
-ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 890614133649762788418c538bd22bb6ffc425bf
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920920"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173755"
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -106,10 +106,9 @@ Azure Migrate begint met de schijven die zijn gekoppeld aan de virtuele machine,
 Als het criterium voor groottebepaling *zoals on-premises '*, Azure Migrate houdt geen rekening met de prestatiegeschiedenis van de virtuele machines en schijven en een VM-SKU in Azure op basis van de on-premises toegewezen grootte kan worden toegewezen. Op dezelfde manier voor grootte van de schijf, het kijkt naar het Storage-type dat is opgegeven in de evaluatie-eigenschappen (Standard/Premium) en raadt het schijftype dienovereenkomstig aan. Opslagtype standaard is de Premium-schijven.
 
 ### <a name="confidence-rating"></a>Betrouwbaarheidsclassificatie
+Elke evaluatie op basis van prestaties in Azure Migrate wordt gekoppeld aan een betrouwbaarheidsclassificatie van 1 ster tot 5 sterren (1 ster de laagste en 5 sterren de hoogste). De betrouwbaarheidsclassificatie wordt aan een evaluatie toegewezen op basis van de beschikbaarheid van de gegevenspunten die nodig zijn om de evaluatie te berekenen. De betrouwbaarheidsclassificatie van een evaluatie helpt u om de betrouwbaarheid in te schatten van de aanbevelingen voor de grootte die Azure Migrate geeft. Betrouwbaarheidsclassificatie is niet van toepassing op als on-premises evaluaties.
 
-Elke evaluatie in Azure Migrate wordt gekoppeld aan een betrouwbaarheidsclassificatie van 1 ster tot 5 sterren (1 ster is de laagste score en 5 sterren de hoogste). De betrouwbaarheidsclassificatie wordt aan een evaluatie toegewezen op basis van de beschikbaarheid van de gegevenspunten die nodig zijn om de evaluatie te berekenen. De betrouwbaarheidsclassificatie van een evaluatie helpt u om de betrouwbaarheid in te schatten van de aanbevelingen voor de grootte die Azure Migrate geeft.
-
-De betrouwbaarheidsclassificatie van een evaluatie is nuttiger voor evaluaties die gebruikmaken van het criterium voor het aanpassen van de grootte als deze op basis van de prestaties plaatsvinden. Als u de grootte instelt op basis van de prestaties, heeft Azure Migrate de gebruiksgegevens nodig van de CPU en het geheugen van de virtuele machine. Voor elke schijf die aan de virtuele machine is gekoppeld, zijn de IOPS-gegevens van de schijf en de doorvoergegevens vereist. Ook heeft Azure Migrate voor iedere netwerkadapter die aan een VM is gekoppeld, gegevens over het inkomende/uitgaande netwerkverkeer nodig om de grootte in te kunnen stellen op basis van de prestaties. Als een of meer van de bovenstaande gebruiksgetallen niet beschikbaar zijn in vCenter Server, is de aanbeveling voor de grootte die Azure Migrate doet, mogelijk niet betrouwbaar. De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten, zoals hieronder wordt weergegeven:
+Als u de grootte instelt op basis van de prestaties, heeft Azure Migrate de gebruiksgegevens nodig van de CPU en het geheugen van de virtuele machine. Voor elke schijf die aan de virtuele machine is gekoppeld, zijn de IOPS-gegevens van de schijf en de doorvoergegevens vereist. Ook heeft Azure Migrate voor iedere netwerkadapter die aan een VM is gekoppeld, gegevens over het inkomende/uitgaande netwerkverkeer nodig om de grootte in te kunnen stellen op basis van de prestaties. Als een of meer van de bovenstaande gebruiksgetallen niet beschikbaar zijn in vCenter Server, is de aanbeveling voor de grootte die Azure Migrate doet, mogelijk niet betrouwbaar. De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten, zoals hieronder wordt weergegeven:
 
    **Beschikbaarheid van gegevenspunten** | **Betrouwbaarheidsclassificatie**
    --- | ---

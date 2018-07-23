@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d3c0cad8743869c904db38e089cbaa28b237ed56
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114876"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185809"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Een virtuele machine beheerde Service-identiteit configureren met behulp van een sjabloon
 
@@ -33,6 +33,10 @@ In dit artikel leert u hoe u de volgende bewerkingen van de beheerde Service-ide
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
+- Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende roltoewijzingen:
+    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aan een virtuele machine maken en inschakelen en verwijderen van systeem toegewezen beheerde identiteit van een Azure-VM.
+    - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van de identiteit van een gebruiker toegewezen.
+    - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol die u wilt toewijzen en verwijderen van een gebruiker toegewezen identiteit van en naar een virtuele machine.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 
@@ -51,7 +55,7 @@ In deze sectie maakt u inschakelen en uitschakelen van een systeem toegewezen id
 
 ### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Systeem toegewezen identiteit tijdens het maken van een Azure-VM of op een bestaande virtuele machine inschakelen
 
-1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine. Zorg er ook voor dat uw account deel uitmaakt van een functie waarmee u beschikt over machtigingen voor schrijven op de virtuele machine (bijvoorbeeld de rol 'Inzender voor virtuele machines').
+1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine.
 
 2. Na het laden van de sjabloon in een editor, Ga naar de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Uw uitzien enigszins afwijken van de volgende schermafbeelding, afhankelijk van de editor die u gebruikt en of het bewerken van een sjabloon voor de implementatie van een nieuwe of bestaande resourcegroep.
 
@@ -105,7 +109,7 @@ In deze sectie maakt u inschakelen en uitschakelen van een systeem toegewezen id
 
 Nadat u hebt systeem toegewezen identiteit ingeschakeld op de virtuele machine, kunt u het geven een rol, zoals **lezer** toegang tot de resourcegroep waarin deze is gemaakt.
 
-1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine. Zorg er ook voor dat uw account deel uitmaakt van een functie waarmee u beschikt over machtigingen voor schrijven op de virtuele machine (bijvoorbeeld de rol 'Inzender voor virtuele machines').
+1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine.
  
 2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en voeg de volgende informatie zodat de virtuele machine **lezer** toegang tot de resourcegroep waarin deze is gemaakt.  De structuur van uw sjabloon kan variëren, afhankelijk van de editor en het implementatiemodel dat u kiest.
    
@@ -149,7 +153,7 @@ Nadat u hebt systeem toegewezen identiteit ingeschakeld op de virtuele machine, 
 
 Als u een virtuele machine die een beheerde service-identiteit niet meer nodig hebt:
 
-1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine. Zorg er ook voor dat uw account deel uitmaakt van een functie waarmee u beschikt over machtigingen voor schrijven op de virtuele machine (bijvoorbeeld de rol 'Inzender voor virtuele machines').
+1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine.
 
 2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Als u een virtuele machine die alleen systeem toegewezen identiteit heeft hebt, kunt u deze uitschakelen door het veranderen van de id-type naar `None`.  Als uw virtuele machine is zowel de systeem- en de gebruiker toegewezen identiteiten, verwijdert u `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `identityIds` matrix van de gebruiker toegewezen identiteiten.  Het volgende voorbeeld ziet u hoe een systeem toegewezen identiteit van een virtuele machine zonder gebruiker toegewezen identiteiten verwijderen:
    

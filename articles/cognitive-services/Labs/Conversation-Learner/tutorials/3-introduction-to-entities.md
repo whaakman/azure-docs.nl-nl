@@ -1,7 +1,7 @@
 ---
-title: Het gebruik van entiteiten met een toepassing conversatie cursist - cognitieve Microsoft-Services | Microsoft Docs
+title: Over het gebruik van entiteiten met een model Conversatiecursist - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het gebruik van entiteiten met een conversatie cursist-toepassing.
+description: Informatie over het gebruik van entiteiten met een Conversatiecursist-model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,81 +10,86 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 85df31c2e2ff3ca81698921a1f17f415daefb6c5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f851d43d69999a848dea01c9457a379adb63353b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345281"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172378"
 ---
-# <a name="introduction-to-entities"></a>Inleiding tot entiteiten
+# <a name="introduction-to-entities"></a>Kennismaking met entiteiten
 
-Deze zelfstudie maakt u kennis met entiteiten en laat zien hoe u de 'Disqualifying entiteiten' en 'Vereist entiteiten' velden in acties.
+In deze zelfstudie bevat entiteiten en ziet u hoe u de 'Disqualifying entiteiten' en 'Entiteiten is vereist' velden in acties.
+
+## <a name="video"></a>Video
+
+[![Zelfstudie 3-Preview](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
 
 ## <a name="requirements"></a>Vereisten
 
-Deze zelfstudie vereist dat de algemene zelfstudie bot wordt uitgevoerd
+In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
 
     npm run tutorial-general
 
 ## <a name="details"></a>Details
 
-Deze zelfstudie ziet u twee veelvoorkomende toepassingen voor entiteiten.  Ten eerste kunnen entiteiten subtekenreeksen extraheren uit een gebruikersbericht, zoals een plaats in 'Wat is het weer in Haarlem?' te identificeren.  Entiteiten kunnen ten tweede beperken wanneer er acties beschikbaar zijn.  Een actie kunt in het bijzonder een entiteit wordt 'vereist' of 'tot ' uitsluiting weergeven:
-- Een actie vereist entiteiten moet aanwezig zijn in het geheugen van de bot in volgorde voor de actie beschikbaar
-- Tot entiteiten uitsluiting moet *niet* aanwezig zijn in de bot geheugen om de actie beschikbaar
+In deze zelfstudie ziet u twee veelvoorkomende toepassingen voor entiteiten.  Entiteiten kunnen eerst subtekenreeksen extraheren uit een gebruikersbericht, zoals het identificeren van een plaats in 'Wat is het weer in Seattle?'.  Entiteiten kunnen ten tweede beperken wanneer er acties beschikbaar zijn.  Een actie kan met name een entiteit wordt 'vereist' of 'diskwalificeren' lijst:
+- Vereiste entiteiten van een actie moeten aanwezig zijn in het geheugen van de bot in volgorde voor de actie moet beschikbaar zijn
+- Entiteiten diskwalificeren moet *niet* aanwezig zijn in het geheugen van de bot in volgorde voor de actie beschikbaar
 
-Andere zelfstudies betrekking hebben op andere aspecten van entiteiten, zoals de vooraf gemaakte entiteiten, met meerdere waarden en negatable entiteiten, programmatische entiteiten en manipuleren entiteiten in code.
+Andere zelfstudies betrekking hebben op andere aspecten van entiteiten, zoals de vooraf gemaakte entiteiten, meerdere waarden en negatable entiteiten, programmatische entiteiten en manipuleren entiteiten in de code.
 
 ## <a name="steps"></a>Stappen
 
-### <a name="create-the-application"></a>De toepassing maken
+### <a name="create-the-model"></a>Het model maken
 
-1. Klik op nieuwe App in de Webgebruikersinterface
+1. Klik op Nieuw Model in de Web-UI
 2. Voer in het vak Naam IntroToEntities. Klik vervolgens op maken.
 
 ### <a name="create-entity"></a>Entiteit maken
 
-1. Klik op entiteiten en vervolgens nieuwe entiteit.
-2. Voer plaats in de naam van de entiteit.
+1. Klik op entiteiten, en vervolgens nieuwe entiteit.
+2. Voer in de naam van de entiteit, plaats.
 3. Klik op Maken
 
-Houd er rekening mee voor het entiteitstype is 'custom'--Dit betekent dat de entiteit kan worden getraind.  Er zijn ook vooraf samengestelde entiteiten, wat betekent dat hun gedrag kan niet worden gecorrigeerd--deze in een andere zelfstudie vallen.
+> [!NOTE]
+> Het entiteitstype is 'custom'--Dit betekent dat de entiteit kan worden getraind.  Er zijn ook vooraf gemaakte entiteiten, wat betekent dat hun gedrag kan niet worden aangepast--deze worden behandeld in een andere zelfstudie.
 
 ### <a name="create-two-actions"></a>Twee acties maken
 
 1. Klik op acties en vervolgens nieuwe actie
-2. In het antwoord, typ 'Ik niet weet welke stad gewenste'.
-3. Voer $city in tot uitsluiting entiteiten. Klik op opslaan.
-    - Dit betekent dat als deze entiteit is gedefinieerd in het geheugen van de bot, klikt u vervolgens deze actie wordt *niet* beschikbaar.
+2. Typ 'Ik weet niet welke plaats die u wilt' in het antwoord.
+3. Voer $city in diskwalificeren van entiteiten. Klik op Opslaan.
+    - Dit betekent dat als deze entiteit is gedefinieerd in het geheugen van de bot, klikt u vervolgens deze actie wordt *niet* beschikbaar zijn.
 2. Klik op acties en vervolgens een nieuwe actie voor het maken van een tweede actie.
-3. In het antwoord, typt u 'het in de $city mooi weer is waarschijnlijk'.
-4. Houd er rekening mee dat stad entiteit automatisch is toegevoegd sinds het is bedoeld in entiteiten vereist.
+3. Typ 'het weer in de $city is waarschijnlijk zonnige' in het antwoord.
+4. In de vereiste entiteiten, is stad entiteit automatisch toegevoegd omdat deze is bedoeld.
 5. Op Opslaan klikken
 
 U hebt nu twee acties.
 
 ![](../media/tutorial3_actions.PNG)
 
-### <a name="train-the-bot"></a>De bot trainen
+### <a name="train-the-bot"></a>De bot te trainen
 
-1. Klik op de trein dialoogvensters, klikt u vervolgens nieuwe Train dialoogvenster.
+1. Klik op de trein dialoogvensters, en vervolgens Nieuw dialoogvenster van de trein.
 2. Typ 'Hallo'.
-3. Score acties op en selecteer 'Ik niet weet welke stad gewenste?'
-    - Houd er rekening mee dat het antwoord waar de entiteit plaats vereist is omdat de plaats entiteit is niet gedefinieerd in het geheugen van de bot kan niet worden geselecteerd.
-2. Selecteer 'Ik niet weet welke stad gewenste'.
-4. Voer 'seattle'. Markeer seattle en klik vervolgens op plaats.
-5. Klik op Score-acties
-    - Opmerking stad waarde is nu in het geheugen van de bot.
-    - ' In $city mooi weer is waarschijnlijk' is nu beschikbaar als antwoord. 
-6. Selecteer ' In $city mooi weer is waarschijnlijk'.
+3. Klik op Score acties en selecteer 'Ik weet niet welke plaats die u wilt?'
+    - Het antwoord waar de entiteit plaats vereist is, kan niet worden geselecteerd omdat de entiteit plaats is niet gedefinieerd in het geheugen van de bot.
+2. Selecteer 'Ik weet niet welke plaats die u wilt'.
+4. Voer 'seattle'. Markeer seattle, en klik vervolgens plaats.
+5. Klik op Score acties
+    - Waarde van stad is nu in het geheugen van de bot.
+    - 'Weer in $city is waarschijnlijk zonnige' is nu beschikbaar als een antwoord. 
+6. Selecteer 'Weer in $city is waarschijnlijk zonnige'.
 
-Stel dat de gebruiker invoert, die repeat". 
-1. Die te typen en. Houd er rekening mee dat stad entiteit en de waarde in het geheugen en beschikbaar is.
-2. Selecteer ' In $city mooi weer is waarschijnlijk'.
+Stel dat de gebruiker voert 'herhalen op die'. 
+1. Typ die en invoeren. Plaats entiteit en de waarde ervan is in het geheugen beschikbaar.
+2. Selecteer 'Weer in $city is waarschijnlijk zonnige'.
 
 ![](../media/tutorial3_entities.PNG)
 
-U hebt nu een entiteit gemaakt en exemplaren ervan in de gebruiker berichten met het label.  U hebt ook de aanwezigheid/afwezigheid van de entiteit gebruikt in het geheugen van de bot om te bepalen wanneer acties beschikbaar via de actie tot uitsluiting en vereiste entiteitsvelden zijn.
+U hebt nu een entiteit gemaakt en exemplaren van deze gebruiker berichten met het label.  U hebt ook de aanwezigheid/afwezigheid van de entiteit in het geheugen om te bepalen van de bot gebruikt voor het acties beschikbaar via een van de actie diskwalificeren en entiteitsvelden van de vereiste zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 

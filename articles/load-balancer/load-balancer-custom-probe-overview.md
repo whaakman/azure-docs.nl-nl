@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2018
+ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8d354e3f409a51bdbb03ad340c951c39cc6137e1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112719"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186441"
 ---
 # <a name="understand-load-balancer-probes"></a>Load Balancer-testen
 
@@ -28,7 +28,7 @@ Azure Load Balancer maakt gebruik van de gezondheid van tests om te bepalen welk
 
 Statuscontroles beheren of nieuwe stromen worden gemaakt met een goede back-end-exemplaren. Wanneer een statustest mislukt, stopt Load Balancer nieuwe stromen te verzenden naar het desbetreffende exemplaar niet in orde.  TCP-verbindingen tot stand gebrachte doorgaan na-fout health-test.  Bestaande UDP-stromen worden verplaatst van het niet in orde exemplaar naar een ander in orde exemplaar in de back-endpool.
 
-Als alle tests voor een back-endpool mislukken, wordt Basic Load Balancers alle bestaande TCP-stromen naar de back-endpool beëindigd terwijl de standaardversie van Load balancer wordt tot stand gebrachte TCP stromen om door te gaan; toestaan geen nieuwe stromen worden worden verzonden naar de back-endpool.  Alle bestaande UDP-stromen worden voor Basic en Standard Load Balancers beëindigd wanneer alle tests voor een back-end-groep is mislukt.
+Als alle tests voor een back-endpool mislukken, wordt Basic Load Balancers alle bestaande TCP-stromen naar de back-endpool beëindigd terwijl de standaardversie van Load balancer wordt tot stand gebrachte TCP stromen om door te gaan; toestaan geen nieuwe stromen worden worden verzonden naar de back-endpool.  Alle bestaande UDP-stromen worden voor Basic en Standard Load Balancers beëindigd wanneer alle tests voor een back-end-groep is mislukt.  UDP is zonder verbinding en er is geen flow-status voor UDP bijgehouden.  Als de hash-hetzelfde resultaat levert, blijft de stroom van datagrammen op een specifiek exemplaar.  Een wijziging van een statustest in de back-endpool kan nieuwe datagrammen verplaatsen naar een ander exemplaar in de back-endpool.
 
 Cloudservicerollen (werkrollen en webrollen) gebruiken een gastagent voor bewaking van de test. TCP- of HTTP aangepaste statustests moeten worden geconfigureerd wanneer u Cloud Services met IaaS-VM's achter Load Balancer gebruiken.
 

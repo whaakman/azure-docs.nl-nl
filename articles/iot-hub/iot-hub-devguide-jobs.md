@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub taken begrijpen | Microsoft Docs
-description: Handleiding voor ontwikkelaars - plannen van taken uit te voeren op meerdere apparaten verbonden met uw IoT-hub. Taken kunnen bijwerken labels en gewenste eigenschappen en methoden niet aanroepen direct voor meerdere apparaten.
+title: Informatie over Azure IoT Hub-taken | Microsoft Docs
+description: Handleiding voor ontwikkelaars - plannen van taken om uit te voeren op meerdere apparaten worden verbonden met uw IoT-hub. Taken kunnen labels en gewenste eigenschappen bijwerken en directe methoden aanroepen op meerdere apparaten.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,32 +8,32 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 35b8536b944df39d0d47bf3529698fc94e51110e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 47d321788251462f2b34e1eb60231454dd6a72cf
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633941"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185928"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Taken op meerdere apparaten plannen
 
-Azure IoT-Hub maakt een aantal bouwstenen zoals [twin apparaateigenschappen en tags] [ lnk-twin-devguide] en [methoden directe][lnk-dev-methods].  Back-end-apps inschakelen normaal gesproken apparaatbeheerders en operators om te werken en te communiceren met IoT-apparaten bulksgewijs en op een gepland tijdstip.  Taken uitvoeren twin apparaatupdates en rechtstreekse methoden op basis van een verzameling apparaten op een gepland tijdstip.  Een operator gebruikt bijvoorbeeld een back-end-app die geïnitieerd en bijgehouden van een taak opnieuw opstarten van een reeks apparaten bij het bouwen van 43 en floor 3 tegelijk die niet aan de bewerkingen van het gebouw verstoren.
+Azure IoT Hub kunt u een aantal van bouwstenen zoals [apparaatdubbeleigenschappen- en -codes] [ lnk-twin-devguide] en [directe methoden][lnk-dev-methods].  Back-end-apps inschakelen normaal gesproken apparaatbeheerders en operators om te werken en te communiceren met IoT-apparaten bulksgewijs en op het geplande tijdstip.  Taken uitvoeren van apparaatdubbel werkt bij en directe methoden aan de hand van apparaten op het geplande tijdstip.  Een operator kan bijvoorbeeld een back-end-app die geïnitieerd en bijgehouden van een taak voor het opnieuw opstarten van een set met apparaten in het bouwen van 43 en floor 3 op een tijdstip dat niet zou verstorend voor de bewerkingen van het gebouw gebruiken.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Overweeg het gebruik van taken als u wilt plannen en de voortgang bijhouden van de volgende activiteiten op een set apparaten:
+Overweeg het gebruik van taken wanneer u nodig hebt voor het plannen en de voortgang volgen een van de volgende activiteiten op een set apparaten:
 
 * Gewenste eigenschappen bijwerken
-* Labels bijwerken
+* Bijwerken van tags
 * Directe methoden aanroepen
 
-## <a name="job-lifecycle"></a>De levenscyclus van taak
-Taken worden gestart door de back-end van de oplossing en beheerd door de IoT Hub.  U kunt een taak via een URI service gerichte starten (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) en de query voor de voortgang van een taak wordt uitgevoerd via een URI service gerichte (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Als u wilt vernieuwen van de status van actieve taken zodra een taak wordt gestart, moet u een taak-query uitvoeren.
+## <a name="job-lifecycle"></a>Levenscyclus van taak
+Taken worden gestart door de back-end van de oplossing en beheerd door IoT Hub.  U kunt een taak via een URI service gerichte starten (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) en query's uitvoeren voor de voortgang van een taak wordt uitgevoerd via een gerichte service-URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Als u wilt vernieuwen van de status van actieve taken wanneer een taak wordt gestart, moet u een taakquery uitvoeren.
 
 > [!NOTE]
-> Wanneer u een taak gestart, namen en waarden mogen alleen US-ASCII-afdrukbare alfanumerieke behalve aanwezig in de volgende set: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`.
+> Wanneer u een taak start, namen en waarden mag alleen US-ASCII-afdrukbare uit alfanumerieke tekens, met uitzondering in de volgende set: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`.
 
-## <a name="jobs-to-execute-direct-methods"></a>Taken direct methoden uit te voeren
+## <a name="jobs-to-execute-direct-methods"></a>Taken voor het uitvoeren van de directe methoden
 Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor het uitvoeren van een [directe methode] [ lnk-dev-methods] in een set van apparaten met behulp van een taak:
 
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -56,17 +56,17 @@ Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor het uitvoe
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
 
-De queryvoorwaarde kan ook worden op een enkel apparaat-ID of een lijst van apparaat-id's, zoals wordt weergegeven in de volgende voorbeelden:
+De queryvoorwaarde kan ook worden op een enkel apparaat-ID of een lijst van apparaat-id's zoals weergegeven in de volgende voorbeelden:
 
 ```
 queryCondition = "deviceId = 'MyDevice1'"
 queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
 queryCondition = "deviceId IN ['MyDevice1']
 ```
-[IoT Hub-querytaal] [ lnk-query] worden querytaal IoT-Hub in meer detail behandeld.
+[IoT Hub-querytaal] [ lnk-query] bevat informatie over IoT Hub-querytaal in meer detail.
 
-## <a name="jobs-to-update-device-twin-properties"></a>Taken bijwerken twin apparaateigenschappen
-Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor twin apparaateigenschappen met behulp van een job bijwerken:
+## <a name="jobs-to-update-device-twin-properties"></a>Taken apparaatdubbeleigenschappen bijwerken
+Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor het bijwerken van apparaatdubbeleigenschappen met behulp van een taak:
 
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
     Authorization: <config.sharedAccessSignature>
@@ -83,8 +83,8 @@ Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor twin appar
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
 
-## <a name="querying-for-progress-on-jobs"></a>Een query uitvoert voor de voortgang van taken
-Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor [opvragen van taken][lnk-query]:
+## <a name="querying-for-progress-on-jobs"></a>Query's uitvoeren voor de voortgang van taken
+Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor [query's uitvoeren voor taken][lnk-query]:
 
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
@@ -96,18 +96,18 @@ Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor [opvragen 
 De continuationToken wordt geleverd door het antwoord.  
 
 ## <a name="jobs-properties"></a>Eigenschappen van taken
-De volgende lijst bevat de eigenschappen en de bijbehorende beschrijvingen, die kunnen worden gebruikt voor het uitvoeren van query's voor taken of taak resultaten.
+De volgende lijst bevat de eigenschappen en de bijbehorende beschrijvingen, die kunnen worden gebruikt voor het uitvoeren van query's voor taken of Taakresultaten.
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| **JobId** |Aanvraag-ID opgegeven voor de taak. |
+| **taak-id** |Toepassing opgegeven ID voor de taak. |
 | **startTime** |Toepassing opgegeven begintijd (ISO 8601-) voor de taak. |
-| **endTime** |IoT Hub opgegeven datum (ISO 8601-) voor wanneer de taak is voltooid. Geldig nadat de taak de status 'voltooid' bereikt. |
+| **endTime** |IoT Hub opgegeven datum (ISO 8601-) voor wanneer de taak is voltooid. Geldige pas nadat de taak de status 'voltooid' hebben bereikt. |
 | **type** |Typen taken: |
-| | **scheduledUpdateTwin**: een taak die wordt gebruikt voor het bijwerken van een reeks gewenste eigenschappen of labels. |
-| | **scheduledDeviceMethod**: een taak gebruikt de methode van een apparaat op een reeks horende apparaten aan te roepen. |
+| | **scheduledUpdateTwin**: een taak die wordt gebruikt voor het bijwerken van een set van gewenste eigenschappen of labels. |
+| | **scheduledDeviceMethod**: een taak die wordt gebruikt om aan te roepen een apparaatmethode op een set dubbele apparaten. |
 | **status** |Huidige status van de taak. Mogelijke waarden voor de status van: |
-| | **in behandeling**: gepland en wacht om te worden opgenomen door de taak service. |
+| | **in behandeling**: gepland en wachten op het door de taak service opgehaald. |
 | | **geplande**: gepland voor een tijd in de toekomst. |
 | | **met**: momenteel actieve taken. |
 | | **geannuleerd**: taak is geannuleerd. |
@@ -116,24 +116,24 @@ De volgende lijst bevat de eigenschappen en de bijbehorende beschrijvingen, die 
 | **deviceJobStatistics** |Statistieken over van de taak kan worden uitgevoerd. |
 | | **deviceJobStatistics** eigenschappen: |
 | | **deviceJobStatistics.deviceCount**: aantal apparaten in de taak. |
-| | **deviceJobStatistics.failedCount**: het aantal apparaten waarop de taak is mislukt. |
+| | **deviceJobStatistics.failedCount**: aantal apparaten waarop de taak is mislukt. |
 | | **deviceJobStatistics.succeededCount**: aantal apparaten waarop de taak is voltooid. |
-| | **deviceJobStatistics.runningCount**: aantal apparaten dat de taak die momenteel worden uitgevoerd. |
-| | **deviceJobStatistics.pendingCount**: aantal apparaten dat in behandeling zijn de taak uit te voeren. |
+| | **deviceJobStatistics.runningCount**: aantal apparaten dat de taak momenteel worden uitgevoerd. |
+| | **deviceJobStatistics.pendingCount**: aantal apparaten dat in behandeling voor het uitvoeren van de taak zijn. |
 
-### <a name="additional-reference-material"></a>Aanvullende referentiemateriaal
-Er zijn andere onderwerpen waarnaar wordt verwezen in de IoT Hub developer guide:
+### <a name="additional-reference-material"></a>Meer referentiemateriaal dat beschikbaar is
+Er zijn andere onderwerpen met naslaginformatie in de IoT Hub developer guide:
 
-* [IoT-hubeindpunten] [ lnk-endpoints] beschrijft de verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont.
-* [Bandbreedtebeperking en quota's] [ lnk-quotas] beschrijving van de quota die betrekking hebben op de IoT Hub-service en het gedrag bandbreedteregeling kunt verwachten wanneer u de service gebruiken.
-* [Azure IoT-SDKs voor apparaat en de service] [ lnk-sdks] geeft een lijst van de verschillende SDK's kunt u bij het ontwikkelen van apps voor het apparaat en de service die communiceren met IoT Hub-taal.
-* [IoT Hub-querytaal voor apparaat horende, taken en berichtroutering] [ lnk-query] beschrijft de querytaal IoT Hub. Gebruik deze querytaal ophalen van gegevens uit IoT Hub over uw apparaat horende en taken.
-* [Ondersteuning voor IoT Hub MQTT] [ lnk-devguide-mqtt] meer informatie over IoT Hub ondersteuning biedt voor het MQTT-protocol.
+* [IoT Hub-eindpunten] [ lnk-endpoints] beschrijft de verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont.
+* [Bandbreedtebeperking en quota's] [ lnk-quotas] beschrijving van de quota die betrekking hebben op de IoT Hub-service en de beperkingsgedrag u kunt verwachten wanneer u de service gebruiken.
+* [Azure IoT-apparaat en service-SDK's] [ lnk-sdks] geeft een lijst van de verschillende SDK's kunt u bij het ontwikkelen van apparaat- en service-apps die communiceren met IoT Hub-taal.
+* [IoT Hub-querytaal voor apparaatdubbels, taken en berichtroutering] [ lnk-query] beschrijving van de IoT Hub-querytaal. Gebruik deze querytaal gegevens ophalen uit IoT Hub over uw apparaatdubbels en taken.
+* [IoT Hub MQTT-ondersteuning] [ lnk-devguide-mqtt] vindt u meer informatie over IoT Hub-ondersteuning voor het MQTT-protocol.
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u wilt uitproberen enkele concepten die worden beschreven in dit artikel, Zie de volgende IoT Hub-zelfstudie:
+Als u wilt uitproberen enkele concepten die worden beschreven in dit artikel, raadpleegt u de volgende zelfstudie voor IoT-Hub:
 
-* [Planning en broadcast-taken][lnk-jobs-tutorial]
+* [Taken plannen en uitzenden][lnk-jobs-tutorial]
 
 <!-- links and images -->
 
@@ -143,7 +143,7 @@ Als u wilt uitproberen enkele concepten die worden beschreven in dit artikel, Zi
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-jobs-tutorial]: iot-hub-node-node-schedule-jobs.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md

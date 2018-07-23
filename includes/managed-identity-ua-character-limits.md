@@ -9,11 +9,11 @@ ms.date: 05/29/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 082a4fafe76631435b5969298b0a806565666956
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/20/2018
-ms.locfileid: "39165260"
+ms.locfileid: "39188582"
 ---
 > [!IMPORTANT]
 > Bij het maken van aan gebruikers toegewezen identiteiten, worden alleen alfanumerieke tekens (0-9, a-z, A-Z) en het afbreekstreepje (-) ondersteund. Voor een correcte toewijzing aan VM/VMSS mag de naam bovendien niet langer zijn dan 24 tekens. Controleer later op updates. Zie [Veelgestelde vragen en bekende problemen](/azure/active-directory/managed-service-identity/known-issues) voor meer informatie.

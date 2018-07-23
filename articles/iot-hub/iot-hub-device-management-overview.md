@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: c4d0b5d5ba429dc5d839fa054476461f96a52143
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 55c28b9ec39ffd617c816d76f67ff6f9853d7012
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030730"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185911"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Overzicht van apparaatbeheer met IoT Hub
 
@@ -51,16 +51,16 @@ Binnen elk van deze vijf fasen zijn er verschillende vereisten voor de apparaato
 
 * **Plannen**: operators in staat stellen een schema voor de metagegevens van een apparaat te maken waarmee ze eenvoudig en nauwkeurig kunnen zoeken naar en zich richten op een groep apparaten voor bulksgewijze beheerbewerkingen. U kunt de apparaatdubbel gebruiken om de metagegevens van dit apparaat op te slaan in de vorm van tags en eigenschappen.
   
-    *Meer informatie*: [aan de slag met apparaat horende][lnk-twins-getstarted], [apparaat horende begrijpen][lnk-twins-devguide], [hoe Gebruik twin apparaateigenschappen][lnk-twin-properties], [aanbevolen procedures voor de configuratie van het apparaat binnen een IoT-oplossing][lnk-adm-best-practices].
+    *Meer weten*: [aan de slag met apparaatdubbels][lnk-twins-getstarted], [meer informatie over apparaatdubbels][lnk-twins-devguide], [hoe apparaatdubbeleigenschappen gebruiken][lnk-twin-properties], [aanbevolen procedures voor de configuratie van het apparaat in een IoT-oplossing][lnk-adm-best-practices].
 * **Inrichten**: nieuwe apparaten veilig inrichten voor IoT Hub en operators in staat stellen apparaatmogelijkheden onmiddellijk te detecteren.  Gebruik het id-register van IoT Hub om flexibele apparaat-id's en -referenties te maken. Voer dit uit in één bulkbewerking met behulp van een taak. Bouw apparaten om hun mogelijkheden en voorwaarden via apparaateigenschappen te rapporteren in de apparaatdubbel.
   
-    *Meer informatie*: [apparaat identiteiten beheren][lnk-identity-registry], [bulksgewijs beheer van apparaat-id's][lnk-bulk-identity], [Gebruiken twin apparaateigenschappen][lnk-twin-properties], [aanbevolen procedures voor de configuratie van het apparaat binnen een IoT-oplossing][lnk-adm-best-practices], [Azure IoT Hub apparaat-Service inricht][lnk-dps].
+    *Meer weten*: [apparaatidentiteiten beheren][lnk-identity-registry], [bulksgewijs beheren van apparaat-id's][lnk-bulk-identity], [Apparaatdubbeleigenschappen gebruiken][lnk-twin-properties], [aanbevolen procedures voor de configuratie van het apparaat in een IoT-oplossing][lnk-adm-best-practices], [Azure IoT Hub Device Provisioning Service][lnk-dps].
 * **Configureren**: bulksgewijze configuratiewijzigingen en firmware-updates op apparaten ondersteunen terwijl de status en beveiliging behouden blijven. Voer deze apparaatbeheerbewerkingen bulksgewijs uit met behulp van de gewenste eigenschappen of met rechtstreekse methoden en broadcast-taken.
   
-    *Meer informatie*: [twin apparaateigenschappen gebruiken][lnk-twin-properties], [configureren en controleren van de IoT-apparaten op schaal][lnk-adm-how-to], [ Aanbevolen procedures voor de configuratie van het apparaat binnen een IoT-oplossing][lnk-adm-best-practices].
+    *Meer weten*: [apparaatdubbeleigenschappen gebruiken][lnk-twin-properties], [configureren en controleren van IoT-apparaten op schaal][lnk-adm-how-to], [ Aanbevolen procedures voor de configuratie van het apparaat in een IoT-oplossing][lnk-adm-best-practices].
 * **Bewaken**: de verzamelde status van alle apparaten bewaken, de status van lopende bewerkingen bewaken en operators attenderen op problemen die mogelijk hun aandacht vereisen.  Pas de apparaatdubbel toe, zodat apparaten in realtime bewerkingsvoorwaarden en de status van de update-bewerkingen kunnen rapporteren. Bouw krachtige dashboardrapporten die de meeste directe problemen melden via apparaatdubbel-query's.
   
-    *Meer informatie*: [twin apparaateigenschappen gebruiken][lnk-twin-properties], [querytaal IoT Hub voor apparaat horende, taken en berichtroutering] [ lnk-query-language], [Configureren en controleren van de IoT-apparaten op schaal][lnk-adm-how-to], [aanbevolen procedures voor de configuratie van het apparaat binnen een IoT-oplossing] [lnk-adm-best-practices].
+    *Meer weten*: [apparaatdubbeleigenschappen gebruiken][lnk-twin-properties], [IoT Hub-querytaal voor apparaatdubbels, taken en berichtroutering] [ lnk-query-language], [Configureren en controleren van IoT-apparaten op schaal][lnk-adm-how-to], [aanbevolen procedures voor de configuratie van het apparaat in een IoT-oplossing] [lnk-adm-best-practices].
 * **Buiten gebruik stellen**: apparaten vervangen of uit bedrijf nemen na een storing, upgradecyclus of aan het einde van de levensduur.  Gebruik de apparaatdubbel om apparaatgegevens te onderhouden als het fysieke apparaat wordt vervangen, of te archiveren als het apparaat buiten gebruik wordt gesteld. Gebruik het id-register van IoT Hub voor het veilig intrekken van apparaat-id's en -referenties.
   
     *Meer weten*: [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [Apparaatidentiteiten beheren][lnk-identity-registry].
@@ -77,7 +77,7 @@ Met IoT Hub wordt de volgende set apparaatbeheerpatronen mogelijk gemaakt.  In d
 * **Configuratie**: voor de back-endtoepassing worden de gewenste eigenschappen gebruikt voor het configureren van software die op het apparaat wordt uitgevoerd.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen om de configuratiestatus van het apparaat bij te werken.
   
     ![Afbeelding van het configuratiepatroon van apparaatbeheer][img-config_pattern]
-* **Firmware-Update** -de back-end-app gebruikmaakt van een automatische device management-configuratie te selecteren van de apparaten voor het ontvangen van de update, om op te geven van de apparaten waar vinden van de update, en het controleren van het updateproces. Het apparaat initieert een proces voor het downloaden, controleren, en de firmware-installatiekopie toe te passen en start vervolgens opnieuw voordat u opnieuw verbinding te maken met de IoT Hub-service op het apparaat.  Gedurende het proces met meerdere stappen wordt gebruikgemaakt van de gerapporteerde eigenschappen om de voortgang en status van het apparaat bij te werken.
+* **Firmware-Update** -de back-end-app maakt gebruik van een configuratie van automatische device management om te selecteren van de apparaten voor het ontvangen van de update, om te zien van de apparaten waar u op zoek naar de update en het controleren van het updateproces. Het apparaat wordt een proces voor het downloaden, controleren, en de firmware-installatiekopie toe te passen en vervolgens het apparaat opnieuw opstarten voordat u opnieuw verbinding maken met de IoT Hub-service.  Gedurende het proces met meerdere stappen wordt gebruikgemaakt van de gerapporteerde eigenschappen om de voortgang en status van het apparaat bij te werken.
   
     ![Afbeelding van het firmware-updatepatroon van apparaatbeheer][img-fwupdate_pattern]
 * **Voortgang en status rapporteren**: met de back-end van de oplossing worden query's voor apparaatdubbels uitgevoerd op een set apparaten om de status en voortgang te rapporteren van acties die op de apparaten worden uitgevoerd.
@@ -101,12 +101,12 @@ Zie de zelfstudie [Aan de slag met apparaatbeheer][lnk-get-started] voor meer in
 [lnk-twins-devguide]: iot-hub-devguide-device-twins.md
 [lnk-get-started]: iot-hub-node-node-device-management-get-started.md
 [lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
-[lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-twin-properties]: tutorial-device-twins.md
+[lnk-hub-getstarted]: quickstart-send-telemetry-dotnet.md
 [lnk-identity-registry]: iot-hub-devguide-identity-registry.md
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-query-language]: iot-hub-devguide-query-language.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md

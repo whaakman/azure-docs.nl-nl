@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 77bfaad4909927d277d856a6b79f9f4c871b4f35
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a104578b0c010ea7ded99e6bf24e4daa30526318
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159749"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187317"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace en AppSource publicatiehandleiding voor
 
@@ -71,10 +71,9 @@ Nadat u [indienen van uw oplossing](https://azuremarketplace.microsoft.com/sell/
 Zie voor meer informatie over de voordelen van Microsoft Go-To-Market en manieren om uw bedrijfsactiviteiten in de Marketplace [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
 ## <a name="storefronts"></a>Webwinkels
-In een webwinkel, kunt u lijst aanbiedingen, proefversies inschakelen en transact rechtstreeks met Microsoft-klanten. Microsoft biedt verschillende storefronts in de Marketplace en AppSource. Zie de volgende artikelen voor meer informatie en een vergelijking van storefronts:
-*   [Vergelijking van AppSource en de Azure Marketplace](./comparing-appsource-azure-Marketplace.md)
-*   [Breid uw bedrijf uit met Appsource](./grow-your-business-with-appsource.md)
-*   [Breid uw bedrijf met de Azure Marketplace](./grow-your-business-with-azure-Marketplace.md)
+In een webwinkel, kunt u lijst aanbiedingen, proefversies inschakelen en transact rechtstreeks met Microsoft-klanten. Microsoft biedt verschillende storefronts in de Marketplace en AppSource. Voor de voordelen van de details van elke storefronts, Zie de volgende koppeling:
+* [AppSource en Azure Marketplace vergelijken](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+* [Breid uw bedrijf op Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-with-azure-marketplace)
 
 Storefronts kunnen klanten zoeken, uitproberen en kopen apps en services die van de klant digitale transformatie versnellen. Storefronts kunnen u uw bedrijf groeien door toegang tot Microsoft-klanten en partners.
  
@@ -88,13 +87,12 @@ Iedere storefront biedt gespecialiseerde opties waarmee u kunt uw publicatie-inv
 | Type aanbieding | <ul><li>Adviesservices</li><li>Contact opnemen</li><li>Gratis proefversie</li><li>Nu ophalen</li><li>Test drive</li></ul> | <ul><li>Azure-apps: beheerde app</li><li>Azure-apps: oplossingssjabloon</li><li>Adviesservices</li><li>Contact opnemen</li><li>Proefversie</li><li>Virtuele machine</li></ul> |
 | In-app-ervaring aan gebruikers toegang geven tot apps en services in de context van uw app | <ul><li>Dynamics 365</li><li>Office 365</li><li>Office-ClientApps</li><li>Power BI</li></ul> | <ul><li>Azure Portal</li><li>Azure Resource Manager</li><li>Azure-CLI</li></ul> |
 
-## <a name="publish-in-a-storefront-in-the-marketplace"></a>Publiceren in een winkel in de Marketplace
+## <a name="publish-in-the-marketplace"></a>Publiceren op Marketplace
 De volgende artikelen kunt u meer informatie over de opties voor publiceren in AppSource en de Azure Marketplace.
 
 Word een uitgever in een winkel in de Marketplace in drie eenvoudige stappen:
-1. [De publicatie voor uw oplossing bepalen](./determine-your-listing-type.md)
-2. [Uitgever op Marketplace-storefronts geworden](./become-publisher.md)
-3. [Informatie over systeemvereisten door type weer te geven](./listing-type-requirements.md) 
+1. [Bepalen welke optie het publiceren](https://review.docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type?branch=pr-en-us-47093)
+2. [Uitgever op Marketplace-storefronts geworden](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-47093)
 
 ## <a name="publishing-checklists"></a>Controlelijsten voor publiceren
 *   [Publiceren controlelijst voor AppSource](publishing-checklist-appsource.md)

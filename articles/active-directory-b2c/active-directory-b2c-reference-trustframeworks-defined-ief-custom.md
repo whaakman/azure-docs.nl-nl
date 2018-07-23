@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4eee1f2c9ca37227ca2cea0ef5e2ff25f6fad828
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443406"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185776"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Vertrouwensrelatie Frameworks met Azure AD B2C Identity-Ervaringsframework definiëren
 
@@ -89,7 +89,7 @@ Wat betreft implementatie, wordt de specificatie TF bestaat uit een verzameling 
 
 - De metagegevens voor het tot stand brengen van netwerkcommunicatie tussen deelnemers. Deze metagegevens, samen met de technische profielen worden gebruikt tijdens een transactie leegmaken 'op de kabel"interoperabiliteit tussen de relying party's en andere deelnemers aan de community.
 
-- De conversie van het protocol indien van toepassing (bijvoorbeeld, SAML, OAuth2, WS-Federation en OpenID Connect).
+- De conversie van het protocol indien van toepassing (bijvoorbeeld, SAML 2.0, OAuth2, WS-Federation en OpenID Connect).
 
 - De verificatievereisten.
 

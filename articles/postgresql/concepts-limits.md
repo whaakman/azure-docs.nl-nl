@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342950"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171769"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Beperkingen in Azure Database for PostgreSQL
 De volgende secties beschrijven de capaciteits- en functionele limieten in de database-service.
@@ -55,8 +55,9 @@ De Azure-systeem is vijf verbindingen voor het bewaken van de Azure Database for
 ### <a name="vnet-service-endpoints"></a>VNet-service-eindpunten
 - Ondersteuning voor VNet-service-eindpunten is alleen voor algemeen gebruik en geoptimaliseerd voor geheugen-servers.
 
-### <a name="point-in-time-restore-pitr"></a>Punt-in-time-restore (PITR)
-- Wanneer u de functie PITR, wordt de nieuwe server gemaakt met dezelfde configuratie als de server die is gebaseerd op.
+### <a name="restoring-a-server"></a>Herstellen van een server
+- Wanneer u de functie PITR, wordt de nieuwe server gemaakt met dezelfde prijzen laag schijfconfiguraties als de server die is gebaseerd op.
+- De nieuwe server die is gemaakt tijdens een terugzetbewerking hoeft niet de firewallregels die aanwezig op de oorspronkelijke server was. Firewallregels moeten afzonderlijk worden ingesteld voor deze nieuwe server.
 - Een verwijderde server herstelt, wordt niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen

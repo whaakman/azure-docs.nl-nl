@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0eaf1115dc6ed5a7dc9e7354340d5eb529116c88
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 181432c3050bbc614898b1ddf779bc90239a35be
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37780652"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189304"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Beveiliging van Internet of Things vanaf de grond
 
@@ -45,7 +45,7 @@ De Microsoft-systemen bieden continue inbraakdetectie en preventie, aanvalbeveil
 
 De oplossingsversnellers te profiteren van de beveiliging en privacy is ingebouwd in het Azure-platform, samen met de processen van SDL en OSA-code voor veilige ontwikkeling en het gebruik van alle Microsoft-software. Deze procedures bieden beveiliging van de infrastructuur, netwerkbeveiliging en identiteit- en beheerfuncties cruciaal belang voor de beveiliging van een oplossing.
 
-De [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) binnen de [IoT-oplossingsversnellers](../articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md) biedt een volledig beheerde service die stabiele en veilige bidirectionele communicatie tussen IoT-apparaten en Azure-services zoals [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) en [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) met behulp van beveiligingsreferenties per apparaat- en toegangsbeheer.
+De [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md) binnen de [IoT-oplossingsversnellers](../articles/iot-fundamentals/iot-introduction.md) biedt een volledig beheerde service die stabiele en veilige bidirectionele communicatie tussen IoT-apparaten en Azure-services zoals [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) en [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) met behulp van beveiligingsreferenties per apparaat- en toegangsbeheer.
 
 Om te communiceren beste beveiliging en privacy-functies die zijn ingebouwd in de Azure IoT-oplossingsversnellers, wordt in dit artikel het pakket in de drie beveiligingsgebieden van de primaire.
 

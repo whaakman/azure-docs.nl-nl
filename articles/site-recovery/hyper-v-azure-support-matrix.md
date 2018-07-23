@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921526"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171980"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Ondersteuningsmatrix voor Hyper-V-replicatie naar Azure
 
@@ -48,7 +48,12 @@ VM-configuratie | Virtuele machines die worden gerepliceerd naar Azure moeten vo
 Gast-besturingssysteem | Een gast-OS ondersteund door Azure.<br/><br/> Windows Server 2016 Nano Server wordt niet ondersteund.
 
 
+## <a name="vmdisk-management"></a>Beheer van de virtuele machine/schijf
 
+**Actie** | **Details**
+--- | ---
+Grootte van de schijf op gerepliceerde Hyper-V-virtuele machine wijzigen | Wordt niet ondersteund. Replicatie uitschakelen, moet u de wijziging en vervolgens weer inschakelen replicatie voor de virtuele machine.
+Schijf toevoegen op gerepliceerde Hyper-V-VM | Wordt niet ondersteund. Replicatie uitschakelen, moet u de wijziging en vervolgens weer inschakelen replicatie voor de virtuele machine.
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V-netwerkconfiguratie
 

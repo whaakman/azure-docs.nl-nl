@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001827"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171252"
 ---
 # <a name="monitor-batch-solutions"></a>Batch-oplossingen controleren
 
@@ -63,7 +63,7 @@ In uw Batch-toepassingen, gebruikt u de Batch-API's om te controleren of de stat
   > Er worden mogelijk extra kosten voor het gebruik van Application Insights. Zie de [prijsopties](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [BatchLabs](https://github.com/Azure/BatchLabs) is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. Download een [installatiepakket](https://azure.github.io/BatchLabs/) voor Mac, Linux of Windows. Configureer desgewenst uw Batch-oplossing [Application Insights-gegevens weergeven](https://github.com/Azure/batch-insights) zoals VM-prestatiemeteritems in BatchLabs.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer) is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken, foutopsporing en Azure Batch-toepassingen bewaken. Download een [installatiepakket](https://azure.github.io/BatchExplorer/) voor Mac, Linux of Windows. Configureer desgewenst uw Batch-oplossing [Application Insights-gegevens weergeven](https://github.com/Azure/batch-insights) zoals VM-prestatiemeteritems in Batch Explorer.
 
 
 ## <a name="next-steps"></a>Volgende stappen

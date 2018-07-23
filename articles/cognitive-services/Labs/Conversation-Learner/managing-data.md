@@ -1,7 +1,7 @@
 ---
-title: Het beheren van gebruikersgegevens met de conversatie cursist - cognitieve Microsoft-Services | Microsoft Docs
+title: Beheren van gebruikersgegevens met Conversatiecursist - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het beheren van gegevens van de gebruiker met de conversatie cursist.
+description: Informatie over het beheren van gegevens van de gebruiker met Conversatiecursist.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,36 +10,36 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d42f903559a1e07b42ded33972be4b552f21b5e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9de4377857188a8cf483321654fb857e428c7f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345272"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171636"
 ---
 # <a name="managing-user-data"></a>Gebruikersgegevens beheren
 
-Deze pagina wordt beschreven wat de conversatie cursist cloud-service registreert bij het uitvoeren van dialoogvensters met eindgebruikers.  Ook wordt beschreven hoe u logboeken van de conversatie cursist koppelen aan gebruikersnamen, zodat u kunt ophalen en verwijderen van alle logboeken die zijn gekoppeld aan een bepaalde gebruiker.
+Deze pagina wordt beschreven wat de cloudservice Conversatiecursist zich aanmeldt bij het uitvoeren van dialoogvensters met eindgebruikers.  Het wordt ook beschreven hoe u Conversatiecursist logboeken koppelen aan gebruikers-id's, zodat u kunt ophalen of verwijderen van alle logboeken die zijn gekoppeld aan een bepaalde gebruiker.
 
-## <a name="overview-of-end-user-data-logging"></a>Overzicht van logboekregistratie van gegevens door eindgebruikers
+## <a name="overview-of-end-user-data-logging"></a>Overzicht van logboekregistratie van gegevens van eindgebruikers
 
-Standaard registreert de conversatie cursist cloudservice interactie tussen gebruikers en uw bot.  Deze logboeken zijn belangrijk voor het verbeteren van uw bot, zodat u kunt het identificeren van gevallen waarin uw bot opgehaald van de entiteit onjuist of de onjuiste actie geselecteerd.  Deze fouten kunnen dan worden gecorrigeerd door te gaan naar de pagina 'Log-dialoogvensters' van de gebruikersinterface, correcties aanbrengen en deze gecorrigeerde dialoogvenster Opslaan als een nieuwe train-dialoogvenster. Voor meer informatie, Zie de zelfstudie op 'Logboek dialoogvensters'.
+De cloudservice Conversatiecursist registreert standaard, interactie tussen gebruikers en uw bot.  Deze logboeken zijn belangrijk voor het verbeteren van uw bot, zodat u kunt voor het identificeren van gevallen waarin uw bot opgehaald van de entiteit onjuist of de onjuiste actie geselecteerd.  Deze fouten kunnen vervolgens worden gecorrigeerd door te gaan naar de pagina 'Log-dialoogvensters' van de gebruikersinterface, correcties maken en dit gecorrigeerde dialoogvenster Opslaan als een nieuw dialoogvenster van de trein. Zie voor meer informatie de zelfstudie op "Log-dialoogvensters."
 
 ## <a name="how-to-disable-logging"></a>Logboekregistratie uitschakelen
 
-U kunt bepalen of gesprekken met eindgebruikers op de pagina 'Instellingen' voor uw toepassing conversatie cursist zijn.  Er is een selectievakje voor "Logboek conversaties."  Als u dit selectievakje uitschakelt, zijn de gesprekken met eindgebruikers worden niet geregistreerd.
+U kunt bepalen of gesprekken met eindgebruikers op de pagina 'Instellingen' voor het model van uw Conversatiecursist zijn.  Er is een selectievakje voor "Log gesprekken."  Als u dit selectievakje uitschakelt, worden gesprekken met eindgebruikers kunnen niet geregistreerd.
 
-## <a name="what-is-logged"></a>Wat is geregistreerd 
+## <a name="what-is-logged"></a>Wat is aangemeld 
 
-In het logboek dialoogvensters slaat conversatie cursist de invoer van gebruiker, de waarden entiteit, de geselecteerde acties en de tijdstempels voor elke inschakelen.  Deze logboeken worden opgeslagen voor een bepaalde periode, en vervolgens verwijderd (Zie de help-pagina op 'standaardwaarde en grenzen' voor meer informatie).  
+In logboek dialoogvensters slaat Conversatiecursist de invoer van de gebruiker, entiteitswaarden, geselecteerde acties en een tijdstempel voor elke inschakelen.  Deze logboeken worden opgeslagen voor een bepaalde periode en vervolgens verwijderd (Zie de help-pagina op 'standaardwaarde en grenzen' voor meer informatie).  
 
-Conversatie cursist maakt een unieke ID voor elke aangemelde dialoogvenster.  Conversatie cursist biedt *niet* een gebruikers-id met aangemelde dialoogvensters opslaan.  
+Conversatiecursist Hiermee maakt u een unieke ID voor elke geregistreerde dialoogvenster.  Conversatiecursist heeft *niet* een gebruikers-id met geregistreerde dialoogvensters opslaan.  
 
-## <a name="associating-logged-dialogs-with-a-user-id"></a>Koppelen van dialoogvensters geregistreerd met een gebruikers-ID
+## <a name="associating-logged-dialogs-with-a-user-id"></a>Dialoogvensters voor koppelen worden geregistreerd met een gebruikers-ID
 
-Vaak is het belangrijk om te kunnen aangemelde dialoogvensters bijvoorbeeld met de ID van de gebruiker--koppelen, te kunnen ophalen of aangemelde dialoogvensters verwijderen uit een bepaalde gebruiker.  Omdat de conversatie cursist een gebruikers-id niet opslaat, moet deze koppeling worden beheerd door de code van de ontwikkelaar.  
+Vaak is het belangrijk dat u aangemeld dialoogvensters bijvoorbeeld met de ID van de gebruiker--koppelen, te kunnen ophalen of aangemelde dialoogvensters verwijderen uit een bepaalde gebruiker.  Omdat Conversatiecursist niet met een gebruikers-id opgeslagen worden, moet deze koppeling worden beheerd door de code van de ontwikkelaar.  
 
-Voor het maken van deze toewijzing verkrijgen van de ID van het logboek dialoogvenster in `EntityDetectionCallback`; slaat u vervolgens de koppeling tussen de gebruikers-ID en dit logboek dialoogvenster in uw bot-opslag.  
+Voor het maken van deze toewijzing, verkrijgen de ID van het dialoogvenster geregistreerd in `EntityDetectionCallback`; slaat u vervolgens in de opslag van uw bot, de koppeling tussen de gebruikers-ID en dit dialoogvenster geregistreerd.  
 
 ```
 cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManager): Promise<void> => {
@@ -65,60 +65,61 @@ cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManag
 
 ## <a name="headers-for-http-calls"></a>Headers voor HTTP-aanroepen
 
-In elk van de onderstaande HTTP-aanroepen, de volgende koptekst kunt toevoegen:
+In elk van de volgende HTTP-aanroepen, toevoegen de volgende header:
 
 ```
 Ocp-Apim-Subscription-Key=<LUIS_AUTHORING_KEY>
 ```
 
-waar `<LUIS_AUTHORING_KEY>` is de sleutel die wordt gebruikt voor toegang tot de conversatie cursist toepassingen ontwerpen LUIS.
+waar `<LUIS_AUTHORING_KEY>` is de sleutel die wordt gebruikt voor toegang tot de conversatie Learner toepassingen ontwerpen LUIS.
 
 ## <a name="how-to-obtain-raw-data-for-a-logged-dialog"></a>Het ophalen van onbewerkte gegevens voor een geregistreerde dialoogvenster
 
-Als u de onbewerkte gegevens voor een dialoogvenster logboek, kunt u deze aanroep HTTP:
+Als u de onbewerkte gegevens voor een dialoogvenster logboek wilt, kunt u deze HTTP-aanroep:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Waar `<appId>` is de GUID voor deze toepassing conversatie cursist en `<logDialgoId>` is de ID van het logboek dialoogvenster dat u wilt ophalen.  
+Waar `<appId>` is de GUID voor dit model Conversatiecursist en `<logDialgoId>` is de ID van het logboek-dialoogvenster dat u wilt ophalen.  
 
-Houd er rekening mee dat logboek dialoogvensters kunnen worden bewerkt door de ontwikkelaar, en vervolgens als trainen dialoogvensters opgeslagen.  Wanneer dit wordt gedaan, slaat conversatie cursist de ID van het dialoogvenster voor het logboek van 'bron' met het dialoogvenster train.  Bovendien wordt kunt een dialoogvenster train worden 'vertakte' in de gebruikersinterface; Als een dialoogvenster train een bijbehorende bron logboek dialoogvenster ID heeft, worden klikt u vervolgens vertakkingen van dialoogvenster train gemarkeerd met dezelfde logboek dialoogvenster ID.
+> [!NOTE]
+> Logboek dialoogvensters kunnen worden bewerkt door de ontwikkelaar en vervolgens opgeslagen als dialoogvensters trainen.  Wanneer dit wordt gedaan, slaat Conversatiecursist de ID van het dialoogvenster 'bron' logboek met het dialoogvenster van de trein.  Bovendien wordt kan een dialoogvenster van de trein worden "vertakt' in de gebruikersinterface; Als een dialoogvenster van de trein een bijbehorende bron log dialoog-ID heeft, worden klikt u vervolgens vertakkingen van de trein dialoogvenster gemarkeerd met dezelfde log dialoogvenster-ID.
 
-Volg deze stappen voor alle train-dialoogvensters die zijn afgeleid van een dialoogvenster logboek.
+Volg deze stappen voor alle dialoogvensters van de trein die zijn afgeleid van een dialoogvenster logboek.
 
-Eerst alle train dialoogvensters ophalen:
+Eerst alle dialoogvensters van de trein ophalen:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialogs
 ```
 
-Waar `<appId>` is de GUID voor deze conversatie cursist-toepassing.  
+Waar `<appId>` is de GUID voor dit model Conversatiecursist.  
 
-Hiermee wordt alle train-dialoogvensters.  Zoeken in deze lijst voor de bijbehorende `sourceLogDialogId`, en noteer de bijbehorende `trainDialogId`. 
+Hiermee wordt alle dialoogvensters van de trein geretourneerd.  Zoeken in deze lijst voor de bijbehorende `sourceLogDialogId`, en noteer de bijbehorende `trainDialogId`. 
 
-Aan een enkele trainen dialoogvenster door-ID:
+Naar een enkele trainen dialoogvenster door-ID:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Waar `<appId>` is de GUID voor deze toepassing conversatie cursist en `<trainDialogId>` is de ID van de trein dialoogvenster dat u wilt ophalen.  
+Waar `<appId>` is de GUID voor dit model Conversatiecursist en `<trainDialogId>` is de ID van de trein dialoogvenster dat u wilt ophalen.  
 
 ## <a name="how-to-delete-a-logged-dialog"></a>Het verwijderen van een geregistreerde dialoogvenster
 
-Als u verwijderen van een logboek dialoogvenster gegeven van de bijbehorende ID wilt, kunt u deze HTTP-aanroep kunt gebruiken:
+Als u verwijderen van een logboek dialoogvenster gegeven van de ID wilt, kunt u deze HTTP-aanroep:
 
 ```
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Waar `<appId>` is de GUID voor deze toepassing conversatie cursist en `<logDialogId>` is de ID van het logboek dialoogvenster dat u wilt verwijderen. 
+Waar `<appId>` is de GUID voor dit model Conversatiecursist en `<logDialogId>` is de ID van het logboek-dialoogvenster dat u wilt verwijderen. 
 
-Als u verwijderen van een train dialoogvenster gegeven van de bijbehorende ID wilt, kunt u deze HTTP-aanroep kunt gebruiken:
+Als u verwijderen van een train dialoogvenster gegeven van de ID wilt, kunt u deze HTTP-aanroep:
 
 ```
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Waar `<appId>` is de GUID voor deze toepassing conversatie cursist en `<trainDialogId>` is de ID van de trein dialoogvenster dat u wilt verwijderen. 
+Waar `<appId>` is de GUID voor dit model Conversatiecursist en `<trainDialogId>` is de ID van de trein dialoogvenster dat u wilt verwijderen. 

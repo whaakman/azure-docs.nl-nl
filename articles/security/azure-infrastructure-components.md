@@ -1,6 +1,6 @@
 ---
 title: Onderdelen van het systeem Azure informatie en grenzen
-description: In dit artikel biedt een algemene beschrijving van de architectuur van Microsoft Azure en het beheer.
+description: Dit artikel bevat een algemene beschrijving van de Microsoft Azure-architectuur en het beheer.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,102 +14,118 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 8db1dce5fcc56c229d1fdd746bafbd2fae2c9bad
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: b2e8ef232e1b25c7d000f4683830ff2e188047fb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102336"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186473"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Onderdelen van het systeem Azure informatie en grenzen
-In dit artikel biedt een algemene beschrijving van de architectuur van Microsoft Azure en het beheer. De Azure systeemomgeving bestaat uit de volgende netwerken:
+Dit artikel bevat een algemene beschrijving van de Azure-architectuur en het beheer. De Azure-systeem-omgeving bestaat uit de volgende netwerken:
 
-- Microsoft Azure productienetwerk (Azure-netwerk)
-- Microsoft Corporate-netwerk (Corpnet-netwerk)
+- Microsoft Azure-productienetwerk (Azure-netwerk)
+- Zakelijke Microsoft-netwerk (corpnet)
 
-Afzonderlijke IT-teams zijn verantwoordelijk voor bewerkingen en onderhoud van de Azure-netwerk- en CorpNet-netwerken.
+Afzonderlijke IT-teams zijn verantwoordelijk voor bewerkingen en onderhoud van deze netwerken.
 
 ## <a name="azure-architecture"></a>Azure-architectuur
-Microsoft Azure is een cloud computing platform en infrastructuur voor het bouwen, te implementeren, en het beheer van toepassingen en services via een netwerk van Microsoft beheerde datacenters. Op basis van het aantal bronnen die zijn opgegeven door klanten, maakt Azure VM's op basis van de resource nodig. Deze virtuele machines worden uitgevoerd op een Microsoft Azure-Hypervisor, die is ontworpen voor gebruik in de cloud en is niet toegankelijk voor het publiek.
+Azure is een cloud computing-platform en infrastructuur voor het bouwen, implementeren, en beheren van toepassingen en services via een netwerk van datacenters. Microsoft beheert deze datacenters. Op basis van het aantal resources die u opgeeft, maakt Azure virtuele machines (VM's) op basis van resource-behoeften. Deze virtuele machines worden uitgevoerd op een Azure-hypervisor, die is ontworpen voor gebruik in de cloud en is niet toegankelijk voor het publiek.
 
-Op elk knooppunt Azure fysieke server is er een Hypervisor die wordt direct boven de hardware worden uitgevoerd. Hypervisor verdeelt een knooppunt in een variabele aantal virtuele machines (VM's) voor gasten. Elk knooppunt heeft ook een speciale 'Root' virtuele machine, die het Host-besturingssysteem wordt uitgevoerd. Windows Firewall is ingeschakeld op elke virtuele machine. De enige poorten zijn geopend en adresseerbare, zijn intern of extern, poorten expliciet is gedefinieerd in het servicedefinitiebestand geconfigureerd door de klant. Alle verkeer van en toegang tot de schijf en netwerk beslissingen wordt beïnvloed door de Hypervisor en basis-besturingssysteem.
+Op elk knooppunt Azure fysieke server is er een hypervisor die rechtstreeks via de hardware uitgevoerd. De hypervisor verdeelt een knooppunt in een variabele aantal Gast-VM's. Elk knooppunt heeft ook een toegangspunt VM, die het host-besturingssysteem wordt uitgevoerd. Windows Firewall is ingeschakeld op elke virtuele machine. Definieert u welke poorten kunnen worden opgevraagd door het configureren van het servicedefinitiebestand. Deze poorten zijn de enige die open en adresseerbare, intern of extern. Alle verkeer en toegang tot de schijf en het netwerk wordt via door de hypervisor en root-besturingssysteem.
 
-Op de host-laag, virtuele Azure-machines uitgevoerd op een aangepaste en beperkte versie van de meest recente Windows-Server. Microsoft Azure maakt gebruik van een minder uitgebreide versie van Windows Server met alleen de onderdelen die nodig zijn voor virtuele machines host. Dit wordt gedaan om prestaties te verbeteren, en ook om kwetsbaarheid te beperken. Machinegrenzen worden afgedwongen door de Hypervisor, die niet afhankelijk van de beveiliging van het besturingssysteem zijn.
+Azure virtuele machines worden uitgevoerd op het niveau van de host, een aangepaste en beveiligde versie van de meest recente Windows-Server. Gebruikt een versie van Windows Server met alleen de onderdelen die nodig zijn voor de host virtuele machines van Azure. Dit verbetert de prestaties en vermindert de kwetsbaarheid voor aanvallen. De machinegrenzen van de worden afgedwongen door de hypervisor, die niet afhankelijk van de beveiliging van het besturingssysteem zijn.
 
-**Azure Management door Infrastructuurcontrollers (FCs)**: In Azure, virtuele machines die worden uitgevoerd op fysieke servers (blades/knooppunten) zijn gegroepeerd in 'clusters' ongeveer 1000. De virtuele machines worden afzonderlijk beheerd door een uitgebreid en redundante platform softwareonderdeel met de naam van de FC.
+### <a name="azure-management-by-fabric-controllers"></a>Azure management van infrastructuurcontrollers
 
-Elke FC de levenscyclus van toepassingen die worden uitgevoerd in de cluster en de bepalingen beheert en bewaakt de status van de hardware onder het beheer. Zowel autonome bewerkingen, zoals VM-exemplaren op in orde servers reincarnating bij het bepalen dat een server niet wordt uitgevoerd. De FC voert ook Toepassingsbeheer bewerkingen zoals het implementeren, bijwerken en uitbreiden van toepassingen.
+In Azure, zijn virtuele machines die worden uitgevoerd op fysieke servers (blades/knooppunten) gegroepeerd in clusters van ongeveer 1000. De virtuele machines worden afzonderlijk beheerd door een platform met uitgebreide en redundante softwarecomponent, genaamd de infrastructuurcontroller (FC).
 
-Het datacenter is onderverdeeld in clusters. Clusters fouten op het niveau van FC isoleren en te voorkomen dat bepaalde klassen van fouten die invloed hebben op servers buiten het cluster waarin ze plaatsvinden. FCs die een bepaald Azure cluster dienen zijn gegroepeerd in een FC-Cluster.
+Elke FC beheert de levenscyclus van toepassingen die worden uitgevoerd in de cluster en de bepalingen en controleert de status van de hardware onder het besturingselement. Deze wordt uitgevoerd autonome bewerkingen, zoals VM-exemplaren op in orde servers reincarnating wanneer wordt vastgesteld dat een server is mislukt. De FC voert ook een toepassing-management-bewerkingen, zoals het implementeren, bijwerken en schalen van toepassingen.
 
-**Inventaris van Hardware**: een inventaris van Azure hardware- en -apparaten wordt voorbereid tijdens het configuratieproces van de bootstrap en in het configuratiebestand datacenter.xml beschreven. Het configuratieproces van de bootstrap moeten voldoen aan de nieuwe hardware en netwerkonderdelen invoeren van de Azure-productieomgeving. De FC is verantwoordelijk voor het beheren van de gehele voorraad weergegeven in het configuratiebestand datacenter.xml.
+Het datacenter is onderverdeeld in clusters. Clusters fouten op het niveau van de FC isoleren en te voorkomen dat bepaalde klassen van fouten die betrekking hebben op servers buiten het cluster waarin deze zich voordoen. FCs die dienen een bepaald Azure-cluster zijn gegroepeerd in een FC-cluster.
 
-**FC-beheerde OS**: de OS-team biedt installatiekopieën van het besturingssysteem in de vorm van virtuele harde schijven (VHD) die zijn geïmplementeerd op alle Host en Gast-VM's in de Azure-productieomgeving. De OS-team vormt deze 'Installatiekopieën Base' via een geautomatiseerde offline buildproces. De Base-installatiekopie is een versie van het besturingssysteem op waarin de kernel en andere kernonderdelen zijn gewijzigd en geoptimaliseerd voor ondersteuning van de Azure-omgeving.
+### <a name="hardware-inventory"></a>Hardware-inventaris
 
-Er zijn drie typen installatiekopieën van het besturingssysteem Fabric worden beheerd:
+De FC bereidt een inventarisatie maken van Azure-hardware- en apparaten tijdens de bootstrap-configuratie. De nieuwe hardware en netwerkonderdelen invoeren van de Azure-productie-omgeving moeten de bootstrap configuratieprocedure volgen. De FC is verantwoordelijk voor het beheren van de volledige inventaris die worden vermeld in het configuratiebestand datacenter.xml.
 
-- Host-OS: hostbesturingssysteem is een aangepaste besturingssysteem die wordt uitgevoerd op virtuele machines Host
-- Systeemeigen OS: systeemeigen besturingssysteem dat wordt uitgevoerd op tenants (bijvoorbeeld Azure-opslag) waarop geen elke Hypervisor
-- Gastbesturingssysteem – Gastbesturingssysteem dat wordt uitgevoerd op de Gast-VM 's
+### <a name="fc-managed-operating-system-images"></a>Installatiekopieën van besturingssystemen FC-beheerd
 
-De Host en de beheerde systeemeigen FC-besturingssystemen zijn ontworpen voor gebruik in de cloud en zijn niet openbaar toegankelijk.
+Het team van het besturingssysteem biedt afbeeldingen, in de vorm van virtuele Hardeschijven, geïmplementeerd op alle host en de Gast-VM's in de Azure-productie-omgeving. Het team vormt deze basisinstallatiekopieën via een geautomatiseerd buildproces voor offline. De basisinstallatiekopie is een versie van het besturingssysteem waarin de kernel en andere basisonderdelen zijn gewijzigd en geoptimaliseerd voor het ondersteunen van de Azure-omgeving.
 
-**Host en systeemeigen OS**: Host-OS en systeemeigen OS uitvoeren op een rekenknooppunt (werkt als eerste virtuele machine op het knooppunt) en de configuratie voor opslagknooppunten beperkte installatiekopieën van het besturingssysteem die als host fungeren voor de Fabric-Agents (VA) zijn. De voordelen van het gebruik van geoptimaliseerde Base installatiekopieën van de Host en systeemeigen besturingssysteem dat dit verlaagt het oppervlak door API's of ongebruikte onderdelen die hoge risico's voor beveiliging en het verhogen van de voetafdruk van het besturingssysteem beschikbaar gesteld. Deze besturingssystemen verminderd footprint bevatten alleen de onderdelen die nodig zijn voor Azure. Dit verbetert de prestaties en vermindert de kwetsbaarheid voor aanvallen.
+Er zijn drie typen van installatiekopieën van besturingssystemen beheerde fabric:
 
-**Gastbesturingssysteem**: Azure interne onderdelen die worden uitgevoerd op de Gast OS-VM's hebben geen mogelijkheid om uit te voeren van Remote Desktop Protocol (RDP) in tegenstelling tot externe klanten. Eventuele wijzigingen aan configuratie-instellingen van basislijn nodig zijn voor de wijziging doorlopen en beheerproces release.
+- Host: Een aangepast besturingssysteem dat wordt uitgevoerd op host virtuele machines.
+- Standaard: Een systeemeigen besturingssysteem dat wordt uitgevoerd op tenants (bijvoorbeeld Azure Storage). Dit besturingssysteem beschikt niet over een hypervisor.
+- Gast: Een gast-besturingssysteem die wordt uitgevoerd op de Gast-VM's.
+
+De host en de systeemeigen FC-beheerde besturingssystemen zijn ontworpen voor gebruik in de cloud en zijn niet openbaar toegankelijk is.
+
+#### <a name="host-and-native-operating-systems"></a>Host- en systeemeigen besturingssystemen
+
+Host- en native zijn installatiekopieën van beveiligde besturingssystemen die als host van de fabric-agents en worden uitgevoerd op een rekenknooppunt (wordt uitgevoerd als eerste virtuele machine op het knooppunt) en storage-knooppunten. Het voordeel van het gebruik van geoptimaliseerde basisinstallatiekopieën voor host en native modus is dat de surface area die worden weergegeven door de API's of niet-gebruikte onderdelen vermindert. Deze kunnen hoog risico's voor beveiliging en vergroot het bereik van het besturingssysteem. Verminderde footprint-besturingssystemen bevatten alleen de onderdelen die nodig zijn voor Azure.
+
+#### <a name="guest-operating-system"></a>Gast-besturingssysteem
+
+Azure-interne onderdelen die worden uitgevoerd op het gastbesturingssysteem system virtuele machines hebben geen kans om uit te voeren van Remote Desktop Protocol. Eventuele wijzigingen in de configuratiebasislijn-instellingen moeten doorlopen van de wijziging en release management-proces.
 
 ## <a name="azure-datacenters"></a>Azure-datacenters
-Het team van Microsoft Cloud-infrastructuur en bewerkingen (MCIO) beheert van Microsoft fysieke infrastructuur en datacenter installaties voor alle Microsoft online services. MCIO is voornamelijk verantwoordelijk voor het beheren van de fysieke en omgevingsbeveiliging besturingselementen binnen de datacentra, evenals beheren en de ondersteunende buitenste rand netwerkapparaten (Randrouters en Datacenter-Routers). MCIO is tevens verantwoordelijk voor het instellen van de bare minimale serverhardware op rekken in het datacenter. Klanten hebben geen directe interactie met Azure.
+Het team van Microsoft-Cloud-infrastructuur en bewerkingen (MCIO) beheert de fysieke infrastructuur- en datacenter-installaties voor alle Microsoft online services. MCIO is primair verantwoordelijk is voor het beheren van de fysieke en omgevingsbeveiliging besturingselementen binnen de datacenters, evenals beheren en ondersteunen van buitenste perimeter network apparaten (zoals randrouters en datacenter-routers). MCIO is ook verantwoordelijk voor het instellen van de bare-minimale serverhardware op rekken in het datacenter. Klanten hebben geen directe interactie met Azure.
 
-## <a name="service-management--service-teams"></a>Service management & serviceteams
-Ondersteuning van de Azure-service wordt beheerd door een aantal technische groepen bekend als Service-Teams. Elk van de Teams Service is verantwoordelijk voor een gebied van ondersteuning voor Azure. Elk Service-Team moet een technicus 24 x 7 beschikbaar om te onderzoeken en oplossen van fouten in de service maken. Service-Teams, standaard geen fysieke toegang tot de hardware die wordt uitgevoerd in Azure.
+## <a name="service-management-and-service-teams"></a>Service management en service-teams
+Verschillende technische groepen, service-teams, ook wel beheren de ondersteuning van de Azure-service. Elke service-team is verantwoordelijk voor een gebied van ondersteuning voor Azure. Elke service-team moet een technicus 24 x 7 beschikbaar om te onderzoeken en oplossen van fouten in de service maken. Service-teams, standaard geen fysieke toegang tot de hardware uitgevoerd in Azure.
 
-Service-teams zijn:
+De serviceteams zijn:
 
 - Application-platform
 - Azure Active Directory
 - Azure Compute
 - Azure Net
-- Engineering Cloudservices
+- Engineering-Cloudservices
 - ISSD: beveiliging
 - Multifactor Authentication
 - SQL Database
 - Storage
 
-## <a name="types-of-users"></a>Type gebruikers
-Alle Azure interne gebruikers hebben de status van de werknemer ingedeeld met een gevoeligheidsniveau die definieert de toegang tot klantgegevens (of geen toegang). Werknemers (of aannemers) van Microsoft als worden beschouwd als interne gebruikers. Alle andere gebruikers worden beschouwd als externe gebruikers. Gebruiker heeft bevoegdheden die naar Azure (autorisatie machtiging nadat verificatie plaatsgevonden heeft) worden in de volgende tabel beschreven:
+## <a name="types-of-users"></a>Typen gebruikers
+Werknemers (of ingehuurd personeel) van Microsoft worden beschouwd als interne gebruikers. Alle andere gebruikers worden beschouwd als externe gebruikers. Alle Azure-interne gebruikers hebben de status van de werknemer gecategoriseerd met een gevoeligheidsniveau waarmee de toegang tot klantgegevens (toegang of geen toegang). Gebruiker heeft bevoegdheden die naar Azure (autorisatie machtiging nadat verificatie plaatsgevonden heeft) worden in de volgende tabel beschreven:
 
-| Rol | Interne of externe | Gevoeligheidsniveau | Geautoriseerde bevoegdheden en functies die worden uitgevoerd | Toegangstype
+| Rol | Intern of extern | Het gevoeligheidsniveau van | Geautoriseerde bevoegdheden en functies die worden uitgevoerd | Toegangstype
 | --- | --- | --- | --- | --- |
-| Azure Datacenter engineering | Intern | Geen toegang tot gegevens van de klant | Beheren van de fysieke beveiliging van de lokale; Patrouilles naar en vanuit het datacenter uitvoeren en bewaken van alle toegangspunten; Begeleiding services uitvoeren naar en van het datacenter voor bepaalde niet-gewist personeel die bieden algemene services (eten, reinigen) of IT-werk in het datacenter; Uitvoeren van routinematige bewaking en het onderhoud van de netwerkhardware; Incidentbeheer en schadevergoeding werk met tal van hulpprogramma's; uitvoeren Uitvoeren van routinematige bewaking en het onderhoud van de fysieke hardware in de datacentra; Toegang tot de omgeving op aanvraag van de eigenschap eigenaar van. Compatibele forensische onderzoeken, incident rapport logboekregistratie uitvoeren en vereisen verplichte beveiligingstraining & beleidsvereisten; Operationele eigendom en het onderhoud van kritieke beveiligingsprogramma's zoals scanners en logboekgegevens verzameld. | Permanente toegang tot de omgeving |
-| Microsoft Azure Incident selectie (snelle respons Engineers) | Intern | Toegang tot gegevens van de klant | Beheren van de communicatie tussen de Operations-infrastructuur, ondersteuning en technische Azure teams; Selectie platform incidenten, problemen bij de implementatie en serviceaanvragen. | Alleen bij het toegang in uitvoeringstijd tot de omgeving - met beperkte permanente toegang tot niet-klant systemen |
-| Microsoft Azure-implementatie Engineers | Intern | Toegang tot gegevens van de klant | Implementatie/upgrades van de platform-onderdelen, software en geplande configuratiewijzigingen ter ondersteuning van Microsoft Azure uitvoeren. | Alleen bij het toegang in uitvoeringstijd tot de omgeving - met beperkte permanente toegang tot niet-klant systemen |
-| Microsoft Azure onderbreking klantenondersteuning (Tenant) | Intern | Toegang tot gegevens van de klant | Fouten opsporen en onderzoeken van platform storingen en fouten voor afzonderlijke compute tenants en Microsoft Azure-accounts; Fouten analyseren en kritieke updates station platform/klant, station technische verbeteringen voor ondersteuning. | Alleen bij het toegang in uitvoeringstijd tot de omgeving - met beperkte permanente toegang tot niet-klant systemen |
-| (Bewaking Engineers) van Microsoft Azure Live Site Engineers & Incident | Intern | Toegang tot gegevens van de klant | Verantwoordelijk voor het analyseren en platform health beperkende met diagnostische hulpprogramma's; Station van oplossingen voor volume-stuurprogramma's, ten gevolge van storingen items herstellen en storing siteherstelacties helpen. | Alleen bij het toegang in uitvoeringstijd tot de omgeving - met beperkte permanente toegang tot niet-klant systemen |
-|Microsoft Azure-klanten | Extern | N/A | N/A | N/A |
+| Azure-datacenter engineer | Intern | Geen toegang tot klantgegevens | De fysieke beveiliging van de locatie beheren. Patrouilles vanuit het datacenter uitvoeren en bewaken van alle toegangspunten toegepast. Begeleiding van en naar het datacenter van bepaalde niet-gewist personeel die bieden algemene services (zoals eten of opschonen) of op het werk van de IT binnen het datacenter. Routinematige bewaking en het onderhoud van netwerkhardware uitvoeren. Incident werken voor beheer en probleemoplossing uitvoeren met behulp van verschillende hulpprogramma's. Voeren routinematige bewaking en het onderhoud van de fysieke hardware in de datacenters. Toegang tot de omgeving op aanvraag via de eigenschap eigenaren. Kan het uitvoeren van forensische onderzoeken, Incidentrapporten aanmelden en verplichte trainings- en beleid beveiligingsvereisten vereisen. Operationele eigendom en het onderhoud van kritieke beveiligingsprogramma's, zoals scanners en logboekverzameling. | Permanente toegang tot de omgeving. |
+| Azure incident sorteren (snelle respons engineers) | Intern | Toegang tot klantgegevens | Beheer van communicatie tussen MCIO, ondersteuning en -engineering-teams. Sorteren platform incidenten, problemen met implementatie en serviceaanvragen. | Just-in-time-toegang tot de omgeving, met beperkte permanente toegang tot niet-systemen. |
+| Implementatie van Azure-technici | Intern | Toegang tot klantgegevens | Implementeren en upgraden van de platformonderdelen, software en wijzigingen in de geplande configuratie ter ondersteuning van Azure. | Just-in-time-toegang tot de omgeving, met beperkte permanente toegang tot niet-systemen. |
+| Ondersteuning voor Azure-klant onderbreking (tenant) | Intern | Toegang tot klantgegevens | Fouten opsporen en diagnosticeren van platform storingen en fouten voor afzonderlijke computerknooppunten tenants en Azure-accounts. Analyseer fouten. Kritieke fixes station naar het platform of de klant en Verwerf technische verbeteringen voor ondersteuning. | Just-in-time-toegang tot de omgeving, met beperkte permanente toegang tot niet-systemen. |
+| Technici van Azure live site (bewaking engineers) en incidenten | Intern | Toegang tot klantgegevens | Opsporen en corrigeren van de gezondheid van platform met behulp van diagnostische hulpprogramma's. Oplossingen voor volumestuurprogramma station, items als gevolg van storingen te herstellen en helpen onderbreking herstelbewerking acties. | Just-in-time-toegang tot de omgeving, met beperkte permanente toegang tot niet-systemen. |
+|Azure-klanten | Extern | N/A | N/A | N/A |
 
-Azure maakt gebruik van unieke id's om te verifiëren van de organisatie-gebruikers en klanten (of processen fungeert namens organisatie gebruikers) voor alle activa/apparaten die deel van de Azure-omgeving uitmaken.
+Azure maakt gebruik van de unieke id's om te verifiëren van de organisatie-gebruikers en klanten (of processen fungeert namens gebruikers organisatie). Dit geldt voor alle activa en apparaten die deel van de Azure-omgeving uitmaken.
 
-**Microsoft Azure interne verificatie**: communicatie tussen Azure interne onderdelen zijn beveiligd met TLS-codering. In de meeste gevallen zijn de X.509-certificaten zelf-ondertekend. Uitzonderingen worden gemaakt voor certificaten met verbindingen dat kunnen worden geopend op buiten het Azure-netwerk, en voor de FCs. FCs certificaten uitgegeven door een Microsoft Certificate van (Certificeringsinstantie) dat wordt ondersteund door een vertrouwde basiscertificeringsinstantie hebben. Hierdoor FC openbare sleutels eenvoudig worden vernieuwd. Bovendien worden FC openbare sleutels gebruikt door Microsoft-hulpprogramma's voor ontwikkelaars, zodat wanneer ontwikkelaars installatiekopieën van het nieuwe aanvraag indienen, ze zijn gecodeerd met een openbare sleutel FC om een ingesloten geheimen beveiligen.
+### <a name="azure-internal-authentication"></a>Azure interne verificatie
 
-**Microsoft Azure Hardware apparaat Authentication**: de FC houdt een set referenties (sleutels en/of wachtwoorden) gebruikt om u te authenticeren bij verschillende hardware-apparaten onder het beheer. Het systeem dat wordt gebruikt voor het transport van behouden blijven en gebruik van deze referenties is ontworpen om te voorkomen dat Azure ontwikkelaars en beheerders en back-services/medewerkers toegang tot gevoelige, vertrouwelijke of persoonlijke informatie.
+Communicatie tussen Azure-interne onderdelen zijn beveiligd met TLS-versleuteling. In de meeste gevallen zijn de X.509-certificaten zelfondertekend. Certificaten met verbindingen die kunnen worden benaderd vanaf buiten het netwerk van Azure vormen een uitzondering, zoals certificaten voor de FCs zijn. FCs dat is uitgegeven door een Microsoft-certificaten van de certificeringsinstantie (CA) die wordt ondersteund door een vertrouwde basis-CA-certificaten hebben. Hiermee wordt de openbare sleutels FC eenvoudig worden vernieuwd. Bovendien gebruiken Microsoft-ontwikkelhulpprogramma's FC openbare sleutels. Wanneer ontwikkelaars nieuwe toepassingsinstallatiekopieën verzendt, worden de afbeeldingen versleuteld met de openbare sleutel van een FC om een ingesloten geheimen beveiligen.
 
-Versleuteling op basis van de FC master identiteit openbare sleutel wordt gebruikt op een FC-instellingen en FC-herconfiguratie keer om over te dragen van de referenties gebruikt voor toegang tot hardware netwerkapparaten. Referenties worden opgehaald en worden ontsleuteld door de FC wanneer deze claimgegevens moet.
+### <a name="azure-hardware-device-authentication"></a>Verificatie van de Azure-hardware-apparaten
 
-**Netwerkapparaten**: Network service-accounts zijn geconfigureerd door het team van Azure toegang om in te schakelen van een client voor Microsoft Azure om netwerkapparaten (routers, switches en netwerktaakverdelers) te verifiëren.
+De FC houdt een set referenties (sleutels en/of wachtwoorden) gebruikt om u te authenticeren bij verschillende hardware-apparaten onder het besturingselement. Microsoft maakt gebruik van een systeem om te voorkomen dat toegang tot deze referenties. Met name is het transport, persistentie en het gebruik van deze referenties ontworpen om te voorkomen dat Azure-ontwikkelaars en beheerders en back-services en medewerkers toegang tot gevoelige, persoonlijke of vertrouwelijke informatie.
+
+Microsoft maakt gebruik van versleuteling op basis van de openbare sleutel van de FC van master identiteit. Dit gebeurt op FC-instellingen en FC herconfiguratie tijden, om over te dragen van de referenties die worden gebruikt voor toegang tot netwerken hardwareapparaten. Wanneer de FC de referenties moet, wordt de FC opgehaald en ontsleutelt deze.
+
+### <a name="network-devices"></a>Netwerkapparaten
+
+Het Azure networking-team configureert u netwerk service-accounts om in te schakelen van een Azure-client om netwerkapparaten te beheren (routers, switches en netwerktaakverdelers) te verifiëren.
 
 ## <a name="secure-service-administration"></a>Beveiligen van servicebeheer
-Medewerkers van Microsoft Azure-bewerkingen zijn vereist beveiligde beheerwerkstations (zagen; klanten mogelijk vergelijkbare controles te implementeren met behulp van Privileged Access Workstations of poten). De aanpak ZAG is een uitbreiding van de goed vastgestelde aanbevolen werkwijze met afzonderlijke admin en gebruikersaccounts voor beheerders. Deze procedure maakt gebruik van een afzonderlijk toegewezen Administrator-account dat is gescheiden van de standaard gebruikersaccount van de gebruiker. ZAG bouwt voort op deze account scheiding praktijk door te geven een betrouwbare werkstation voor die gevoelige accounts.
+Azure-bewerkingen personeel moet secure admin workstations (saw) gebruiken. Klanten kunnen vergelijkbare besturingselementen worden geïmplementeerd met behulp van privileged access workstations. Beheermedewerkers gebruiken met saw, een afzonderlijk toegewezen beheerdersaccount gebruikt dat is gescheiden van het standaardgebruikersaccount van de gebruiker. De ZAG bouwt voort op deze werkwijze door te geven van een betrouwbaar werkstation voor deze gevoelige accounts.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over Microsoft biedt voor het beveiligen van de Azure-infrastructuur:
+Zie voor meer informatie over wat Microsoft doet om te helpen beveiligen van de Azure-infrastructuur:
 
-- [Azure opslagruimten, ruimten en fysieke beveiliging](azure-physical-security.md)
-- [Beschikbaarheid van de Azure-infrastructuur](azure-infrastructure-availability.md)
-- [Architectuur van de Azure-netwerk](azure-infrastructure-network.md)
+- [Azure faciliteiten, lokale en fysieke beveiliging](azure-physical-security.md)
+- [Beschikbaarheid van Azure-infrastructuur](azure-infrastructure-availability.md)
+- [Architectuur van Azure-netwerk](azure-infrastructure-network.md)
 - [Azure productienetwerk](azure-production-network.md)
-- [Beveiligingsfuncties van Microsoft Azure SQL Database](azure-infrastructure-sql.md)
-- [Azure productie-uitvoering en beheer](azure-infrastructure-operations.md)
-- [Bewaking van Azure-infrastructuur](azure-infrastructure-monitoring.md)
+- [Azure SQL Database-beveiligingsfuncties](azure-infrastructure-sql.md)
+- [-Azure-productiebewerkingen en beheer](azure-infrastructure-operations.md)
+- [Azure-infrastructuur bewaken](azure-infrastructure-monitoring.md)
 - [Integriteit van de Azure-infrastructuur](azure-infrastructure-integrity.md)
-- [Beveiliging van gegevens van de klant in Azure](azure-protection-of-customer-data.md)
+- [Azure-klant-gegevensbeveiliging](azure-protection-of-customer-data.md)

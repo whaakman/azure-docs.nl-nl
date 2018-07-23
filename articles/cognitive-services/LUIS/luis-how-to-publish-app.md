@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 43a26f9e81b788c2a110c24bf2e02c56c0714f1e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d579ba8913eeb6ce22e277dab454ba7e3b628703
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988833"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171929"
 ---
 # <a name="publish-your-trained-app"></a>Uw getrainde app publiceren
 Wanneer u klaar bent met het bouwen en testen van uw LUIS-app, publiceren. Nadat de app is gepubliceerd, wordt de pagina publiceren weergegeven alle bijbehorende HTTP [eindpunten](luis-glossary.md#endpoint). Deze eindpunten per [regio](luis-reference-regions.md) en per [sleutel](luis-how-to-manage-keys.md), klikt u vervolgens zijn geïntegreerd in elke client, chatbot of back-end-toepassing. 
 
-U kunt altijd [testen](interactive-test.md) uw app voordat het wordt gepubliceerd. 
+U kunt altijd [testen](luis-interactive-test.md) uw app voordat het wordt gepubliceerd. 
 
 ## <a name="production-and-staging-slots"></a>Productie- als stagingsleuven
 U kunt uw app te publiceren de **Staging-site** of de **productiesite**. Met behulp van twee publishing sleuven, kunt hiermee u twee verschillende versies met gepubliceerde eindpunten of dezelfde versie hebben op twee verschillende eindpunten. 
@@ -154,4 +154,4 @@ Uw gepubliceerde eindpunt testen door te selecteren van de URL in de **eindpunt*
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie [sleutels beheren](./luis-how-to-manage-keys.md) sleutels toevoegen aan uw LUIS-app, en meer informatie over hoe sleutels worden toegewezen aan regio's.
-* Zie [trainen en testen van uw app](interactive-test.md) voor instructies over het testen van de gepubliceerde app in de testconsole.
+* Zie [trainen en testen van uw app](luis-interactive-test.md) voor instructies over het testen van de gepubliceerde app in de testconsole.

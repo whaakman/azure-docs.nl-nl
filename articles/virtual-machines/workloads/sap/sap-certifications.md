@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 07/12/2018
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: d1d2bd74a5118b48f7ed79a77ca2d7b6545607c6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: f293adc6a25ef9e6ed916043c40233f9dd7bfbc1
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072377"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171276"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>SAP-certificeringen en configuraties die worden uitgevoerd op Microsoft Azure
 
@@ -36,13 +36,13 @@ Referenties:
 | SAP-product | Ondersteund besturingssysteem | Aanbiedingen voor Azure |
 | --- | --- | --- |
 | SAP HANA Developer Edition (inclusief de HANA-clientsoftware bestaat uit SQLODBC, ODBO-Windows alleen, ODBC, JDBC-stuurprogramma's, HANA studio en HANA database) | Red Hat Enterprise Linux, SUSE Linux Enterprise | Uit de D-serie VM-reeks |
-| Zakelijke één op HANA | SUSE Linux Enterprise | DS14_v2 |
-| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Gecontroleerde beschikbaarheid voor GS5, M64s, M64ms, M128s, M128ms, SAP HANA op Azure (grote instanties) |
-| Suite op HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 voor niet-productie scenario's, M64s, M64ms, M128s, M128ms, SAP HANA op Azure (grote instanties) |
-| HANA Enterprise voor BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, SAP HANA op Azure (grote instanties) |
-| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, SAP HANA op Azure (grote instanties) |
+| Zakelijke één op HANA | SUSE Linux Enterprise | DS14_v2 <br /> [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |
+| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Gecontroleerde beschikbaarheid voor GS5. Volledige ondersteuning voor M64s, M64ms, M128s, M128ms, SAP HANA op Azure (grote instanties) <br /> [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| Suite op HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, SAP HANA op Azure (grote instanties) <br /> [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| HANA Enterprise voor BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, SAP HANA op Azure (grote instanties) <br /> [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, SAP HANA op Azure (grote instanties) <br /> [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 
-Alle Azure-virtuele machines zijn gecertificeerd voor SAP HANA omhoog tot nu toe.
+Houd er rekening mee dat SAP maakt gebruik van de term 'clustering' in [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) als synoniem voor 'scale-out' en niet voor hoge beschikbaarheid 'clustering'
 
 ## <a name="sap-netweaver-certifications"></a>SAP NetWeaver-certificeringen
 Microsoft Azure is gecertificeerd voor de volgende SAP-producten, met volledige ondersteuning van Microsoft en SAP.

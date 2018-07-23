@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 629659a3a5090bae987be77637a574fcbe0abe98
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163914"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186710"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Automatisch schalen van cluster op Azure Kubernetes Service (AKS) - Preview
 
@@ -32,7 +32,19 @@ Dit document wordt ervan uitgegaan dat u een RBAC-functionaliteit AKS-cluster he
 
 ## <a name="gather-information"></a>Gegevens verzamelen
 
-De volgende tabel bevat alle informatie die u in de definitie van automatisch schalen opgeven moet.
+De volgende lijst bevat alle informatie die u moet opgeven in de definitie van automatisch schalen.
+
+- *Abonnements-ID*: ID die overeenkomt met het abonnement dat is gebruikt voor dit cluster
+- *Naam resourcegroep* : naam van resourcegroep waarin het cluster behoort 
+- *Clusternaam*: naam van het cluster
+- *Client-ID*: App-ID die zijn verleend door machtiging stap genereren
+- *Clientgeheim*: App-geheim verleend door machtiging stap genereren
+- *Tenant-ID*: ID van de tenant (eigenaar van account)
+- *Knooppunt resourcegroep*: naam van resourcegroep met de agentknooppunten in het cluster
+- *Knooppunt-groepsnaam*: naam van het knooppunt toepassingen u wilt dat de schaal
+- *Minimum aantal knooppunten*: minimumaantal knooppunten in het cluster voor te komen
+- *Maximum aantal knooppunten*: maximumaantal knooppunten in het cluster voor te komen
+- *VM-Type*: Service gebruikt voor het genereren van het Kubernetes-cluster
 
 Haal uw abonnements-ID met: 
 
@@ -92,18 +104,7 @@ QUtTCg==
 ```
 
 ## <a name="create-secret"></a>Geheim maken
-Met deze gegevens kunt maken van een geheim voor de implementatie van de waarden in de vorige stappen, zoals:
-
-- ClientID: `<base64-encoded-client-id>`
-- ClientSecret: `<base64-encoded-client-secret>`
-- ResourceGroup: `<base64-encoded-resource-group>` (kleine letters gebruikt)
-- Abonnements-id: `<base64-encode-subscription-id>`
-- Tenant-id: `<base64-encoded-tenant-id>`
-- VMType: `<base64-encoded-vm-type>`
-- Clusternaam: `<base64-encoded-clustername>`
-- NodeResourceGroup: `<base64-encoded-node-resource-group>` (de waarde van het label verbatim gebruiken. De aanvraag is gevoelig)
-
-in de volgende indeling:
+Met deze gegevens kunt maken van een geheim voor de implementatie van de waarden in de vorige stappen in de volgende indeling:
 
 ```yaml
 ---

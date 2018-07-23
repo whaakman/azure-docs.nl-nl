@@ -1,7 +1,7 @@
 ---
-title: Entiteit detectie callback gebruiken met de toepassing van een conversatie cursist - cognitieve Microsoft-Services | Microsoft Docs
+title: Entiteit detectie callback gebruiken met een model Conversatiecursist - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het entiteit detectie callback gebruiken met een conversatie cursist-toepassing.
+description: Informatie over het gebruik van entiteit detectie callback met een Conversatiecursist-model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,99 +10,103 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e41ea5930ff0c8395d0c93aa42e224ebfc894ba8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f168018a23d03ffb957da2dd1f67881420a21208
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345287"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171100"
 ---
-# <a name="how-to-use-entity-detection-callback"></a>Het gebruik van de entiteit detectie terugbellen
+# <a name="how-to-use-entity-detection-callback"></a>Het gebruik van entiteit detectie terugbellen
 
-In deze zelfstudie toont de callback van de detectie van entiteit en ziet u een algemene patroon voor het oplossen van entiteiten.
+In deze zelfstudie ziet u de callback van de detectie van entiteit en ziet u een algemeen patroon voor het oplossen van entiteiten.
+
+## <a name="video"></a>Video
+
+[![Zelfstudie-10-Preview](http://aka.ms/cl-tutorial-10-preview)](http://aka.ms/blis-tutorial-10)
 
 ## <a name="requirements"></a>Vereisten
-Deze zelfstudie vereist dat de bot 'tutorialEntityDetectionCallback' wordt uitgevoerd.
+In deze zelfstudie vereist dat de `tutorialEntityDetectionCallback` bot wordt uitgevoerd.
 
     npm run tutorial-entity-detection
 
 ## <a name="details"></a>Details
-Entiteit detectie callback kan met behulp van aangepaste code voor het afhandelen van bedrijfsregels die betrekking hebben op entiteiten. In deze demonstratie gebruiken we retouraanroepen en programmatische entiteiten om op te lossen de plaatsnaam ingevoerd door de gebruiker naar een canonieke naam--bijvoorbeeld, het oplossen van 'de big apple' naar 'new york'.
+Detectie-callback entiteit kunt met behulp van aangepaste code voor het afhandelen van bedrijfsregels die betrekking hebben op entiteiten. In deze demo maakt gebruik van retouraanroepen en programmatische entiteiten op te lossen de plaatsnaam ingevoerd door de gebruiker naar een canonieke naam, bijvoorbeeld, het oplossen van 'de big apple' naar 'Antwerpen'.
 
 ### <a name="open-the-demo"></a>Open de demo
 
-Klik in de lijst met Apps op zelfstudie-10-EntityDetenctionCallback. 
+Klik in de modellijst op zelfstudie-10-EntityDetectionCallback. 
 
 ### <a name="entities"></a>Entiteiten
 
-We hebben drie entiteiten gedefinieerd in de toepassing.
+Drie entiteiten zijn gedefinieerd in het model.
 
 ![](../media/tutorial10_entities.PNG)
 
-1. Plaats is een aangepaste entiteit die de gebruiker als tekstinvoer krijgt.
-2. CityUnknown is een programmatische entiteit. Dit wordt door het systeem ophalen ingevuld. Als het systeem niet weet welke stad is, wordt het de gebruikersinvoer kopiëren.
-3. CityResolved is de plaats die het systeem kent. Dit is de plaats van canonieke naam, die bijvoorbeeld 'big apple' wordt omgezet in 'new york'.
+1. De plaat is een aangepaste entiteit die de gebruiker als tekstinvoer biedt.
+2. CityUnknown is een programmatische entiteit. Deze entiteit worden de waarden door het systeem. Het kopieert u de invoer van de gebruiker als het systeem niet weet welke plaats is.
+3. CityResolved is de plaats die het systeem kent. Deze entiteit is de plaats canonieke naam, die bijvoorbeeld 'big apple' naar 'new york' wordt opgelost.
 
 ### <a name="actions"></a>Acties
 
-We hebt drie acties gemaakt. 
+Drie acties zijn gedefinieerd in het model.
 
 ![](../media/tutorial10_actions.PNG)
 
-1. De eerste actie is, welke stad wilt u?'
-2. De tweede ' Ik weet deze plaats, $CityUknown niet. Welke stad wilt u toch?'
-3. Het derde is "u $City gezegd, en ik die omgezet naar $CityResolved."
+1. De eerste actie is 'welke stad wilt u dat?'
+2. De tweede is ' Ik weet niet deze plaats, $CityUknown. Welke plaats wilt u dat?'
+3. De derde is "je al zei $City en ik die omgezet naar $CityResolved."
 
-### <a name="callback-code"></a>Callback code
+### <a name="callback-code"></a>Callback-code
 
 We bekijken de code. U kunt de methode EntityDetectionCallback vinden in de C:\<installedpath > \src\demos\tutorialSessionCallbacks.ts-bestand.
 
 ![](../media/tutorial10_callbackcode.PNG)
 
-Deze functie wordt aangeroepen nadat de omzetting van de entiteit heeft plaatsgevonden.
+Deze functie wordt aangeroepen nadat de entiteit oplossing werd gevonden.
  
-- Het eerste wat dat het doet is duidelijk $CityUknown. $CityUknown alleen bewaard voor een enkele inschakelen als deze altijd wordt uitgeschakeld aan het begin.
-- We u vervolgens de lijst met plaatsen die zijn herkend. Eerste nemen en proberen te verhelpen.
-- De functie dat het oplost (resolveCity) is gedefinieerd verdere boven in de code. Er wordt een lijst met plaatsnamen van de canonieke. De plaatsnaam gevonden in de lijst, wordt deze. Anders raadpleegt 'cityMap' en retourneert de naam van de toegewezen. Als een plaats niet wordt gevonden, is het resultaat null.
+- Het eerste wat dat het doet is duidelijk $CityUknown. $CityUknown blijven alleen behouden voor een enkel inschakelen als deze altijd wordt uitgeschakeld aan het begin.
+- Haal vervolgens de lijst plaatsen die zijn herkend. Duren voordat het eerste certificaat en probeert om dit te verhelpen.
+- De functie die wordt omgezet deze (resolveCity) is gedefinieerd verdere boven in de code. Er wordt een lijst van canonical plaatsnamen. De naam van de stad is gevonden in de lijst, wordt deze. Anders gezocht in 'cityMap' en retourneert de naam van de toegewezen. Als dit niet een stad kunt vinden, is het resultaat null.
 - Ten slotte, als de plaats is omgezet naar een naam, we opslaan in $CityKnown entiteit. Anders, schakelt u wat de gebruiker heeft gezegd en $CityUknown entiteit te vullen.
 
 ### <a name="train-dialogs"></a>Dialoogvensters trainen
 
-1. Klik op de trein dialoogvensters, klikt u vervolgens nieuwe Train dialoogvenster.
+1. Klik op de trein dialoogvensters, en vervolgens Nieuw dialoogvenster van de trein.
 2. Typ 'Hallo'.
-3. Score acties op en selecteer 'welke stad wilt u?'
+3. Klik op Score acties en selecteer 'welke stad wilt u dat?'
 2. Voer 'new york'.
-    - Houd er rekening mee dat deze wordt opgehaald herkend als een entiteit plaats.
-5. Klik op Score-acties
-    - Houd er rekening mee dat plaats en CityResolved zijn ingevuld.
-6. 'U $City gezegd en ik die omgezet naar $CityResolved' selecteren.
+    - De tekst wordt herkend als een entiteit plaats.
+5. Klik op Score acties
+    - `City` en `CityResolved` zijn ingevuld.
+6. Selecteer 'je al zei $City en ik die omgezet naar $CityResolved'.
 7. Klik op het onderwijs gereed.
 
 Voeg een ander voorbeeld van dit dialoogvenster:
 
-1. Klik op nieuwe Train dialoogvenster.
+1. Klik op nieuwe dialoogvenster van de trein.
 2. Typ 'Hallo'.
-3. Score acties op en selecteer 'welke stad wilt u?'
+3. Klik op Score acties en selecteer 'welke stad wilt u dat?'
 2. Voer 'big apple'.
-    - Houd er rekening mee dat deze wordt opgehaald herkend als een entiteit plaats.
-5. Klik op Score-acties
-    - Houd er rekening mee dat CityResolved ziet u het effect van code die wordt uitgevoerd.
-6. 'U $City gezegd en ik die omgezet naar $CityResolved' selecteren.
+    - De tekst wordt herkend als een entiteit plaats.
+5. Klik op Score acties
+    - `CityResolved` ziet u het effect van code die wordt uitgevoerd.
+6. Selecteer 'je al zei $City en ik die omgezet naar $CityResolved'.
 7. Klik op het onderwijs gereed.
 
 Voeg een ander voorbeeld van dit dialoogvenster:
 
-1. Klik op nieuwe Train dialoogvenster.
+1. Klik op nieuwe dialoogvenster van de trein.
 2. Typ 'Hallo'.
-3. Score acties op en selecteer 'welke stad wilt u?'
-2. Voer 'foo'.
-    - Dit is een voorbeeld van een stad die het systeem niet weet. 
-5. Klik op Score-acties
-6. Selecteer ' Ik weet deze plaats, $CityUknown niet. Welke stad wilt u toch?'.
+3. Klik op Score acties en selecteer 'welke stad wilt u dat?'
+2. Voer "foo".
+    - Dit is een voorbeeld van een plaats die het systeem niet weet. 
+5. Klik op Score acties
+6. Selecteer ' Ik weet niet deze plaats, $CityUknown. Welke plaats wilt u dat?'.
 7. Voer 'new york'.
 8. Klik op Score acties.
-    - Houd er rekening mee dat CityUknown is gewist en CityResolved wordt gevuld.
-6. 'U $City gezegd en ik die omgezet naar $CityResolved' selecteren.
+    - `CityUknown` is uitgeschakeld, en `CityResolved` is gevuld.
+6. Selecteer 'je al zei $City en ik die omgezet naar $CityResolved'.
 7. Klik op het onderwijs gereed.
 
 ![](../media/tutorial10_bigapple.PNG)
@@ -110,4 +114,4 @@ Voeg een ander voorbeeld van dit dialoogvenster:
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Sessie-retouraanroepen](./11-session-callbacks.md)
+> [Sessie retouraanroepen](./11-session-callbacks.md)

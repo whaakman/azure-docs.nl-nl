@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/21/2018
-ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970258"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173704"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database voor PostgreSQL Prijscategorieën
 
@@ -97,6 +97,8 @@ De server wordt gemarkeerd als alleen-lezen wanneer de hoeveelheid vrije opslagr
 Wanneer de server is ingesteld op alleen-lezen, alle bestaande sessies worden beëindigd en niet-doorgevoerde transacties worden teruggedraaid. Alle daaropvolgende schrijfbewerkingen en de transactie wordt doorgevoerd mislukken. Alle volgende lezen query's werken ononderbroken.  
 
 U kunt de ingerichte opslag met de server vergroten of een nieuwe sessie starten in de modus en -neerzetten gegevens lezen / schrijven vrije opslagruimte vrij te maken. Met `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` Hiermee stelt u de huidige sessie om te lezen, schrijven-modus. Om te voorkomen dat een beschadiging van gegevens, Voer niet uit alle schrijfbewerkingen wanneer de server nog steeds in de status alleen-lezen is.
+
+U wordt aangeraden dat u een waarschuwing instellen om u te waarschuwen als de opslag van uw server bijna de drempelwaarde is bereikt, zodat u kunt te voorkomen dat de status alleen-lezen. Zie voor meer informatie de documentatie over [over het instellen van een waarschuwing](howto-alert-on-metric.md).
 
 ## <a name="backup"></a>Backup
 

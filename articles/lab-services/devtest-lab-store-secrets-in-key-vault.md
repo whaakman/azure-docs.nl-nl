@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0397c520dd0135df56e7eb7e8cd6ed7ffa46156e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009390"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186829"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Store-geheimen in een key vault in Azure DevTest Labs
 Mogelijk moet u een complexe geheim invoeren bij het gebruik van Azure DevTest Labs: wachtwoord voor uw Windows-VM, openbare SSH-sleutel voor uw Linux-VM of persoonlijk toegangstoken voor het klonen van de Git-repo via een artefact. Geheimen zijn gewoonlijk lang en willekeurige tekens bevatten. Ze voeren kan dus lastig en onhandig, met name als u meerdere keren dezelfde geheim gebruiken.
 
-Als u wilt dit probleem is opgelost en houd er ook uw geheimen in een veilige plaats, DevTest Labs biedt ondersteuning voor opslag geheimen in een [Azure sleutelkluis](../key-vault/key-vault-overview.md). Wanneer een gebruiker een geheim voor de eerste keer opslaat, maakt de DevTest Labs-service automatisch een key vault in dezelfde resourcegroep die het lab bevat en het geheim opslaat in de key vault. 
+Als u wilt dit probleem is opgelost en houd er ook uw geheimen in een veilige plaats, DevTest Labs biedt ondersteuning voor opslag geheimen in een [Azure sleutelkluis](../key-vault/key-vault-overview.md). Wanneer een gebruiker wordt een geheim voor de eerste keer opgeslagen, maakt de DevTest Labs-service automatisch een key vault in dezelfde resourcegroep die het lab bevat en het geheim opslaat in de key vault. DevTest Labs Hiermee maakt u een afzonderlijke key vault voor elke gebruiker. 
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Een geheim opslaan in Azure Key Vault
 Als u wilt uw geheim opslaan in Azure Key Vault, moet u de volgende stappen uitvoeren:

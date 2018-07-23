@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 61fa6c94c0d717fe1e71bf8929f2e3b4a0982562
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d5071a55c49a0749d91ec9617558ced76ebb007e
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903876"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188094"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configureren van een VMSS Managed Service Identity (MSI) met behulp van PowerShell
 
@@ -34,7 +34,11 @@ In dit artikel leert u hoe u de beheerde Service-identiteit-bewerkingen op een v
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
-- Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
+- Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
+- Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende roltoewijzingen:
+    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) maken van een virtuele-machineschaalset en inschakelen en systeem toegewezen beheerde identiteit van een virtuele-machineschaalset verwijderen.
+    - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van de identiteit van een gebruiker toegewezen.
+    - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol die u wilt toewijzen en verwijderen van een gebruiker toegewezen identiteit van en naar een virtuele-machineschaalset.
 - Installeer [de meest recente versie van Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) als u dat nog niet gedaan hebt. 
 
 ## <a name="system-assigned-managed-identity"></a>Het systeem toegewezen beheerde identiteit
@@ -108,7 +112,7 @@ In deze sectie leert u hoe u toevoegen en verwijderen van een gebruiker toegewez
 
 ### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-vmss"></a>Een gebruiker toegewezen identiteit tijdens het maken van een Azure-VMSS toewijzen
 
-Het maken van een nieuwe VMSS met een gebruiker toegewezen identiteit wordt momenteel niet ondersteund via PowerShell. Zie de volgende sectie over het toevoegen van de identiteit van een gebruiker toegewezen aan een bestaand VMSS. Kijk binnenkort voor updates.
+Het maken van een nieuwe VMSS met een gebruiker toegewezen identiteit wordt momenteel niet ondersteund via PowerShell. Zie de volgende sectie over het toevoegen van de identiteit van een gebruiker toegewezen aan een bestaand VMSS. Controleer later op updates.
 
 ### <a name="assign-a-user-identity-to-an-existing-azure-vmss"></a>De identiteit van een gebruiker toewijzen aan een bestaande Azure VMSS
 
@@ -133,9 +137,9 @@ Een gebruiker toegewezen identiteit aan een bestaande Azure VMSS toewijzen:
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Een gebruiker toegewezen identiteit van een Azure-VMSS verwijderen
 
 > [!NOTE]
-> Verwijderen van alle gebruiker toegewezen identiteiten uit een virtuele-Machineschaalset is momenteel niet ondersteund, tenzij er een systeem toegewezen identiteit. Kijk binnenkort voor updates.
+> Verwijderen van alle gebruiker toegewezen identiteiten uit een virtuele-Machineschaalset is momenteel niet ondersteund, tenzij er een systeem toegewezen identiteit. Controleer later op updates.
 
-Als uw VMSS meerdere gebruiker toegewezen identiteiten heeft, kunt u alles behalve het laatste item met de volgende opdrachten verwijderen. Vervang de `<RESOURCE GROUP>` en `<VMSS NAME>` parameterwaarden door uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die op de VMSS moet blijven. Deze informatie kan worden gevonden door in de sectie van de identiteit van het gebruik van de VMSS `az vmss show`:
+Als uw VMSS meerdere gebruiker toegewezen identiteiten heeft, kunt u alles behalve het laatste item met de volgende opdrachten verwijderen. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VMSS NAME>` door uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die op de VMSS moet blijven. Deze informatie kan worden gevonden door in de sectie van de identiteit van het gebruik van de VMSS `az vmss show`:
 
 ```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss

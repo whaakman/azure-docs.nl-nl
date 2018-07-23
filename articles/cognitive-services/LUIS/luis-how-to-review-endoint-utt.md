@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: v-geberr
-ms.openlocfilehash: c695aed4bc6d2553c719f8dfe664634e2f3b2613
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 54a4caf9c66bdacd7cac63330550e704c27236c0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37966846"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173447"
 ---
 # <a name="review-endpoint-utterances"></a>Eindpuntuitingen controleren
 
@@ -79,4 +79,4 @@ Als u wilt verwijderen van verschillende uitingen, selecteert u elk item en sele
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt testen hoe prestaties worden verbeterd wanneer u de voorgestelde uitingen labels, kunt u de testconsole openen door het selecteren van **testen** in het bovenste deelvenster. Zie voor instructies over het testen van uw app met behulp van de testconsole [trainen en testen van uw app](interactive-test.md).
+Als u wilt testen hoe prestaties worden verbeterd wanneer u de voorgestelde uitingen labels, kunt u de testconsole openen door het selecteren van **testen** in het bovenste deelvenster. Zie voor instructies over het testen van uw app met behulp van de testconsole [trainen en testen van uw app](luis-interactive-test.md).

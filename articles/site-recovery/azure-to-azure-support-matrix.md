@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 3825183fa7e8ca15a86935b5b96ff8d25d7bef14
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070862"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173047"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -27,34 +27,21 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 **Gebruikersinterface** |  **Ondersteund / niet ondersteund**
 --- | ---
 **Azure Portal** | Ondersteund
-**Klassieke portal** | Niet ondersteund
 **PowerShell** | [Replicatie van Azure naar Azure met PowerShell](azure-to-azure-powershell.md)
 **REST API** | Momenteel niet ondersteund
 **CLI** | Momenteel niet ondersteund
 
 
-## <a name="resource-move-support"></a>Ondersteuning voor het verplaatsen van resource
+## <a name="resource-support"></a>Resource-ondersteuning
 
-**Resourcetype verplaatsen** | **Ondersteund / niet ondersteund** | **Opmerkingen**  
+**Resourcetype verplaatsen** | **Details** 
 --- | --- | ---
-**Kluis verplaatsen tussen resourcegroepen** | Niet ondersteund |U kunt de Recovery services-kluis niet verplaatsen tussen resourcegroepen.
-**Compute, opslag en netwerk verplaatsen tussen resourcegroepen** | Niet ondersteund |Als u een virtuele machine (of de bijbehorende onderdelen, zoals opslag en netwerk) verplaatst nadat replicatie is ingeschakeld, moet u replicatie uitschakelen en inschakelen van replicatie voor de virtuele machine opnieuw.
+**Kluis verplaatsen tussen resourcegroepen** | Niet ondersteund<br/><br/> U kunt een Recovery services-kluis niet verplaatsen tussen resourcegroepen.
+**Compute/opslagnetwerk resources verplaatsen tussen resourcegroepen** | Wordt niet ondersteund.<br/><br/> Als u een virtuele machine of de bijbehorende onderdelen, zoals opslag/netwerk verplaatsen wanneer deze wordt gerepliceerd, moet u replicatie uitschakelen en weer inschakelen replicatie voor de virtuele machine.
+**Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen** | Wordt niet ondersteund.
+**Virtuele machines migreren tussen abonnementen** | Wordt niet ondersteund.
+**Migreren van VM's binnen dezelfde regio** | Wordt niet ondersteund.
 
-
-
-## <a name="support-for-deployment-models"></a>Ondersteuning voor implementatiemodellen
-
-**Implementatiemodel** | **Ondersteund / niet ondersteund** | **Opmerkingen**  
---- | --- | ---
-**Klassiek** | Ondersteund | U kunt alleen een klassieke virtuele machine repliceren en deze herstellen als een klassieke virtuele machine. U kunt deze niet herstellen als een virtuele machine van Resource Manager. Als u een klassieke virtuele machine zonder een virtueel netwerk en rechtstreeks naar een Azure-regio implementeert, wordt niet ondersteund.
-**Resource Manager** | Ondersteund |
-
->[!NOTE]
->
-> 1. Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen wordt niet ondersteund.
-> 2. Migreren Azure virtuele machines tussen abonnementen wordt niet ondersteund.
-> 3. Migreren Azure virtuele machines in dezelfde regio wordt niet ondersteund.
-> 4. Virtuele Azure-machines migreren van klassieke implementatiemodel naar Resource manager-implementatiemodel wordt niet ondersteund.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Ondersteuning voor de gerepliceerde machine besturingssysteemversies
 
@@ -145,6 +132,13 @@ China | China-Oost, China-Noord
 >[!NOTE]
 >
 > Voor de regio Brazilië-Zuid, kunt u alleen repliceren en failover naar een van Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noord-centraal VS-regio's en een failback uitvoeren.
+
+## <a name="support-for-vmdisk-management"></a>Ondersteuning voor het beheer van de virtuele machine/schijf
+
+**Actie** | **Details**
+-- | ---
+Grootte van de schijf op gerepliceerde virtuele machine wijzigen | Ondersteund
+Schijf toevoegen aan de gerepliceerde virtuele machine | Wordt niet ondersteund. U moet aan het uitschakelen van replicatie voor de virtuele machine, de schijf toevoegen en schakelt u de replicatie opnieuw.
 
 
 ## <a name="support-for-compute-configuration"></a>Ondersteuning voor Compute-configuratie

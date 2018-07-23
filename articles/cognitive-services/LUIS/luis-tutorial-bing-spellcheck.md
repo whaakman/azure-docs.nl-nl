@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: e7bf447dafecf090f610f670539ca4673827953a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 8d86bf3974cd11b644f59799e3d6140b46899244
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343975"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173823"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Juiste verkeerd gespelde woorden met Bing spellingcontrole
 
@@ -57,7 +57,7 @@ Als uw gratis sleutel is verlopen, moet u de eindpuntsleutel van een maken.
 10. Kopieer de eerste sleutel. U hoeft slechts een van de twee sleutels. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>Met behulp van de sleutel in Configuratiescherm van LUIS-test
-Er zijn twee plaatsen in LUIS om de sleutel te gebruiken. De eerste is in de [test deelvenster](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). De sleutel wordt niet opgeslagen in LUIS, maar in plaats daarvan wordt een variabele van sessie. U moet de sleutel telkens wanneer u het deelvenster test toe te passen van de Bing Spell Check-API voor Bing versie 7-service op de utterance wilt instellen. Zie [instructies](interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in het deelvenster test voor het instellen van de sleutel.
+Er zijn twee plaatsen in LUIS om de sleutel te gebruiken. De eerste is in de [test deelvenster](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). De sleutel wordt niet opgeslagen in LUIS, maar in plaats daarvan wordt een variabele van sessie. U moet de sleutel telkens wanneer u het deelvenster test toe te passen van de Bing Spell Check-API voor Bing versie 7-service op de utterance wilt instellen. Zie [instructies](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in het deelvenster test voor het instellen van de sleutel.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>De sleutel toe te voegen aan de eindpunt-URL
 De eindpunt-query moet de sleutel die wordt doorgegeven in de queryreeks-parameters voor elke query die u wilt correctie toepassen. U hebt mogelijk een chatbot waarmee LUIS wordt aangeroepen of u mogelijk het eindpunt LUIS API rechtstreeks aanroepen. Ongeacht hoe het eindpunt wordt aangeroepen, moet elke aanroep bevatten de benodigde informatie voor spellingcorrecties goed te laten werken.

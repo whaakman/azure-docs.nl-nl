@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b516dd165bfc22ad3966ffe51e99591379f9e680
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144326"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172310"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
 
@@ -65,7 +65,7 @@ Een Microsoft-account, bijvoorbeeld *@outlook.com of @live.com*, wordt gebruikt 
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Het registratieformulier marketplace verzenden  
 | 15 minuten |  
-Voltooi deze korte registratieformulier om te worden van een marketplace-uitgever. De informatie in dit formulier wordt ingediend zal worden gebruikt om een publisher-account maken in de Cloud Partner-Portal waarmee u kunt maken, publiceren en beheren van marketplace-aanbiedingen.
+Voltooien van dit resumé [registratieformulier](https://azuremarketplace.microsoft.com/en-us/sell/signup) om te worden van een marketplace-uitgever. De informatie in dit formulier wordt ingediend zal worden gebruikt om een publisher-account maken in de Cloud Partner-Portal waarmee u kunt maken, publiceren en beheren van marketplace-aanbiedingen.
 
 U wordt gevraagd om op te nemen van de volgende informatie:
 *   Meer informatie over uw organisatie, met inbegrip van het Microsoft Partner Network-ID (die u kunt opzoeken in een [Partner Center](https://partnercenter.microsoft.com/partner/home) of [lidmaatschap Partnercentrum](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))

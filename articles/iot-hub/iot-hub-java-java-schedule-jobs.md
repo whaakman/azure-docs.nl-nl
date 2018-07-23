@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: cb25ae0e90189f0c808f561b20e45f08b49df0d6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3161715ac2ff212e2de8a27ff8f8eb53fb858b92
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299158"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186802"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Taken plannen en uitzenden (Java)
 
@@ -31,11 +31,11 @@ Een taak een van deze acties wordt verpakt en houdt de uitvoering op basis van e
 Zie voor meer informatie over elk van deze mogelijkheden:
 
 * Apparaatdubbel en eigenschappen: [aan de slag met apparaatdubbels](iot-hub-java-java-twin-getstarted.md)
-* Directe methoden: [het Ontwikkelaarshandleiding voor IoT Hub - directe methoden](iot-hub-devguide-direct-methods.md) en [zelfstudie: directe methoden gebruiken](iot-hub-java-java-direct-methods.md)
+* Directe methoden: [het Ontwikkelaarshandleiding voor IoT Hub - directe methoden](iot-hub-devguide-direct-methods.md) en [zelfstudie: directe methoden gebruiken](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-In deze handleiding ontdekt u hoe u:
+In deze zelfstudie ontdekt u hoe u:
 
 * Maakt een apparaat-app die u een rechtstreekse methode met de naam implementeert **lockDoor**. De apparaat-app ontvangt ook wijzigingen in de gewenste eigenschappen van de back-end-app.
 * Maakt een back-end-app die u maakt een taak aan te roepen de **lockDoor** directe methode op meerdere apparaten. Een andere taak verzendt gewenste eigenschap updates voor meerdere apparaten.
@@ -482,5 +482,5 @@ In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en 
 
 Gebruik de volgende bronnen voor meer informatie over het:
 
-* Verzenden van telemetrie van apparaten met de [aan de slag met IoT Hub](iot-hub-java-java-getstarted.md) zelfstudie.
-* Beheren van apparaten interactief (zoals het inschakelen van een fan, van een gebruiker beheerde app) met de [directe methoden gebruiken](iot-hub-java-java-direct-methods.md) zelfstudie.
+* Verzenden van telemetrie van apparaten met de [aan de slag met IoT Hub](quickstart-send-telemetry-java.md) zelfstudie.
+* Beheren van apparaten interactief (zoals het inschakelen van een fan, van een gebruiker beheerde app) met de [directe methoden gebruiken](quickstart-control-device-java.md) zelfstudie.

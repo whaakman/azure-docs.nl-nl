@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: 6bc979e277c71610ebc0f7a603915689b0b0605b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a6351971ceb502297193bf0f2c3a452f30cade5d
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160372"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187397"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en Fabric-Upgradebeleid aanpassen
 Dit document leest u hoe de verschillende fabric-instellingen aanpassen en Upgradebeleid in de infrastructuur voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon.
@@ -59,11 +59,11 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="applicationgatewayhttp"></a>Application Gateway/Http
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|reeks, standaard is ingesteld op 'None'|Statisch| ApplicationCertificateValidationPolicy: Geen: servercertificaat; wordt niet gevalideerd de aanvraag mislukt. ServiceCertificateThumbprints: Raadpleeg config ServiceCertificateThumbprints voor de door komma's gescheiden lijst met vingerafdrukken van de externe certificaten die de reverse proxy kunt vertrouwen. ServiceCommonNameAndIssuer: Raadpleeg config ServiceCommonNameAndIssuer voor de vingerafdruk van het onderwerp en -verlenersleutel van de externe certificaten die de reverse proxy kunt vertrouwen. |
+|ApplicationCertificateValidationPolicy|reeks, standaard is ingesteld op 'None'|Statisch| Dit valideert niet certificaat van de server; de aanvraag mislukt. Raadpleeg config ServiceCertificateThumbprints voor de door komma's gescheiden lijst met vingerafdrukken van de externe certificaten die de reverse proxy kunt vertrouwen. Raadpleeg config ServiceCommonNameAndIssuer voor de vingerafdruk van het onderwerp en -verlenersleutel van de externe certificaten die de reverse proxy kunt vertrouwen. |
 |BodyChunkSize |Uint, de standaardwaarde is 16384 tekens |Dynamisch| Geeft de grootte van voor het segment in bytes die worden gebruikt om te lezen van de hoofdtekst. |
 |CrlCheckingFlag|uint, standaard is 0x40000000 |Dynamisch| Vlaggen voor de toepassing/service validatie van certificaatketen; bijvoorbeeld CRL-controle 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY instellen op 0 Hiermee schakelt CRL controleren of volledige lijst met ondersteunde waarden wordt beschreven door dwFlags van CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tijd in seconden. de standaardwaarde is 120 |Dynamisch|Interval in seconden opgeven.  Geeft de standaardtime-out-aanvraag naar de http-aanvragen worden verwerkt in de http-gateway-app. |
-|ForwardClientCertificate|BOOL, standaard is ingesteld op FALSE|Dynamisch| |
+|ForwardClientCertificate|BOOL, standaard is ingesteld op FALSE|Dynamisch|Wanneer wordt ingesteld op false, omgekeerde proxy geen aanvragen voor het clientcertificaat. Wanneer is ingesteld op true, omgekeerde proxy wordt voor het clientcertificaat tijdens de SSL-handshake aanvragen en doorsturen van de met base64 gecodeerde kan tekenreeks voor PEM-indeling naar de service in een header X-Client-Certificate.The service genaamd de aanvraag met de juiste statuscode mislukken na het inspecteren van gegevens van het certificaat. Als dit correct is en de client heeft een certificaat niet aanwezig, wordt reverse proxy-doorsturen van een lege-header en kan de service die de aanvraag te verwerken. Omgekeerde proxy fungeert als een transparante laag.|
 |GatewayAuthCredentialType |reeks, standaard is ingesteld op 'None' |Statisch| Hiermee geeft u het type van de beveiligingsreferenties voor het gebruik van op de HTTP-app gateway-eindpunt geldige waarden zijn ' geen / X 509. |
 |GatewayX509CertificateFindType |tekenreeks, standaard is "FindByThumbprint" |Dynamisch| Geeft aan hoe om te zoeken naar certificaat in het archief dat is opgegeven door de waarde GatewayX509CertificateStoreName ondersteund: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | tekenreeks, standaardwaarde is "" |Dynamisch| Filter zoekwaarde gebruikt voor het HTTP-app gateway-certificaat te zoeken. Dit certificaat is geconfigureerd op het https-eindpunt en kan ook worden gebruikt om te controleren of de identiteit van de app zo nodig door de services. FindValue wordt eerst; opgezocht en als dat niet bestaat; FindValueSecondary wordt opgezocht. |
@@ -76,12 +76,12 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |RemoveServiceResponseHeaders|tekenreeks, standaard is 'datum; Server'|Statisch|Een puntkomma / door komma's gescheiden lijst met reactieheaders die wordt verwijderd uit het antwoord van de service; voordat deze worden doorgestuurd naar de client. Als deze is ingesteld op een lege tekenreeks; doorgeven van de headers die zijn geretourneerd door de service-is. Internet Explorer de datum en de Server niet overschrijven |
 |ResolveServiceBackoffInterval |Tijd in seconden, de standaardwaarde is 5 |Dynamisch|Interval in seconden opgeven.  Geeft het oplossen van het standaard back-off interval voordat opnieuw wordt geprobeerd een mislukte service bewerking. |
 |SecureOnlyMode|BOOL, standaard is ingesteld op FALSE|Dynamisch| SecureOnlyMode: true: omgekeerde Proxy alleen wordt doorgestuurd naar services die beveiligde eindpunten publiceren. ONWAAR: omgekeerde Proxy kan aanvragen voor beveiligde/niet-beveiligde eindpunten worden doorgestuurd.  |
-|ServiceCertificateThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch| |
+|ServiceCertificateThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch|De door komma's gescheiden lijst met vingerafdrukken van de externe certificaten die de reverse proxy kunt vertrouwen.  |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>Application Gateway/Http/ServiceCommonNameAndIssuer
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch|  |
+|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch| Onderwerp en -verlenersleutel vingerafdruk van het externe certificaten die de reverse proxy kunt vertrouwen.|
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
@@ -157,10 +157,10 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="dnsservice"></a>De DNS-service
 | **Parameter** | **Toegestane waarden** |**Upgradebeleid**| **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|InstanceCount|int, standaard is 1|Statisch|  |
-|IsEnabled|BOOL, standaard is ingesteld op FALSE|Statisch| |
-|PartitionPrefix|tekenreeks, standaardwaarde is "-"|Statisch|Hiermee stelt u de voorvoegseltekenreeks partitie in de DNS-namen voor gepartitioneerde services: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<doel partitienaam van\> \< PartitionSuffix\>.\< Resterende-gepartitioneerd-Service-DNSName\>.|
-|PartitionSuffix|tekenreeks, standaardwaarde is ""|Statisch|Hiermee stelt u het achtervoegsel van de partitie in de DNS-namen voor gepartitioneerde services: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<doel partitienaam van\> \< PartitionSuffix\>.\< Resterende-gepartitioneerd-Service-DNSName\>. |
+|InstanceCount|int, standaard is 1|Statisch|standaardwaarde is 1, wat betekent dat de DNS-service wordt uitgevoerd op elk knooppunt. OneBox moet dit moet worden ingesteld op 1, omdat de DNS-service maakt gebruik van bekende poort 53, zodat deze kan niet meerdere exemplaren op dezelfde computer hebt.|
+|IsEnabled|BOOL, standaard is ingesteld op FALSE|Statisch|Schakelt/DNS-service. De DNS-service is standaard uitgeschakeld en deze configuratie moet worden ingesteld zodat het. |
+|PartitionPrefix|tekenreeks, standaardwaarde is "-"|Statisch|Hiermee bepaalt u de partitie voorvoegsel string-waarde in de DNS-query's voor gepartitioneerde services. Raadpleeg deze koppeling voor meer informatie:[Service Fabric-DNS-Service.](service-fabric-dnsservice.md)|
+|PartitionSuffix|tekenreeks, standaardwaarde is ""|Statisch|Hiermee bepaalt u de partitie achtervoegsel string-waarde in de DNS-query's voor gepartitioneerde services. Raadpleeg deze koppeling voor meer informatie:[Service Fabric-DNS-Service.](service-fabric-dnsservice.md) |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
@@ -253,6 +253,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="federation"></a>Federatie
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
+|GlobalTicketLeaseDuration|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(300)|Statisch|Interval in seconden opgeven. Knooppunten in het cluster moeten een globale lease onderhouden met de kiezers. Kiezers indienen hun algemene leases worden doorgegeven in het cluster voor deze duur. Als de duur is verlopen; de lease is verbroken. Quorumverlies van de lease zorgt ervoor dat een knooppunt aan het afbreken van het cluster. door gebrek aan communicatie met een quorum van knooppunten in deze periode ontvangen.  Deze waarde moet worden aangepast op basis van de grootte van het cluster. |
 |LeaseDuration |Tijd in seconden, de standaardwaarde is 30 |Dynamisch|De duur die een lease tussen een knooppunt en de aangrenzende routers duurt. |
 |LeaseDurationAcrossFaultDomain |Tijd in seconden, de standaardwaarde is 30 |Dynamisch|De duur die een lease tussen een knooppunt en de aangrenzende routers over foutdomeinen duurt. |
 
@@ -321,7 +322,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |ContainerServiceArguments|tekenreeks, standaardwaarde is "-H localhost: 2375 -H npipe: / /"|Statisch|Service Fabric (SF) beheert docker-daemon (behalve op windows-clientcomputers, zoals Win10). Deze configuratie kan de gebruiker om op te geven van de aangepaste argumenten die moeten worden doorgegeven aan docker-daemon bij het starten van het. Wanneer er aangepaste argumenten zijn opgegeven, Service Fabric niet een van de andere argumenten doorgegeven aan Docker-engine, behalve '--pidfile' argument. Daarom mag geen gebruikers opgegeven '--pidfile' argument als onderdeel van de argumenten van de klant. De aangepaste argumenten moeten zorg er ook voor dat docker daemon luistert op de standaard benoemde pipe voor Windows (of Unix-domeinsocket voor Linux) voor Service Fabric om te communiceren met het.|
 |CreateFabricRuntimeTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch| Interval in seconden opgeven. De time-outwaarde voor de synchronisatie FabricCreateRuntime aanroepen |
 |DefaultContainerRepositoryAccountName|tekenreeks, standaardwaarde is ""|Statisch|Standaardreferenties gebruikt in plaats van de referenties die zijn opgegeven in ApplicationManifest.xml |
-|DefaultContainerRepositoryPassword|tekenreeks, standaardwaarde is ""|Statisch||
+|DefaultContainerRepositoryPassword|tekenreeks, standaardwaarde is ""|Statisch|Standaard-wachtwoordreferenties die is gebruikt in plaats van de referenties die zijn opgegeven in ApplicationManifest.xml|
 |DeploymentMaxFailureCount|Int, de standaardwaarde is 20| Dynamisch|Implementatie van de toepassing wordt opnieuw uitgevoerd voor DeploymentMaxFailureCount tijden voor het mislukken van de implementatie van toepassing op het knooppunt.| 
 |DeploymentMaxRetryInterval| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(3600)|Dynamisch| Interval in seconden opgeven. Interval voor maximum aantal nieuwe pogingen voor de implementatie. Bij elke continue fout wordt het interval voor opnieuw proberen berekend als Min (DeploymentMaxRetryInterval; Continue foutenteller * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(10)|Dynamisch|Interval in seconden opgeven. Uitstelinterval voor de implementatie mislukt. Het systeem wordt opnieuw geprobeerd de implementatie voor maximaal de MaxDeploymentFailureCount op elke continue implementatie is mislukt. Het interval voor opnieuw proberen is een product van continue implementatie is mislukt en het uitstel implementatie interval. |
@@ -333,7 +334,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |FirewallPolicyEnabled|BOOL, standaard is ingesteld op FALSE|Statisch| Hiermee firewall-poorten voor eindpunt resources te openen met expliciete poorten die zijn opgegeven in het ServiceManifest |
 |GetCodePackageActivationContextTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch|Interval in seconden opgeven. De time-outwaarde voor de CodePackageActivationContext-aanroepen. Dit is niet van toepassing op ad-hoc-services. |
 |IPProviderEnabled|BOOL, standaard is ingesteld op FALSE|Statisch|Hiermee is het beheer van IP-adressen. |
-|IsDefaultContainerRepositoryPasswordEncrypted|BOOL, standaard is ingesteld op FALSE|Statisch||
+|IsDefaultContainerRepositoryPasswordEncrypted|BOOL, standaard is ingesteld op FALSE|Statisch|Of de DefaultContainerRepositoryPassword is versleuteld of niet.|
 |LinuxExternalExecutablePath|tekenreeks, standaardwaarde is ' / usr/bin / " |Statisch|De primaire-map van externe uitvoerbare opdrachten op het knooppunt.|
 |NTLMAuthenticationEnabled|BOOL, standaard is ingesteld op FALSE|Statisch| Hiermee schakelt u ondersteuning voor het gebruik van NTLM door de codepakketten die uitgevoerd als andere gebruikers worden zodat de processen tussen computers veilig kunnen communiceren. |
 |NTLMAuthenticationPasswordSecret|SecureString, de standaardwaarde is Common::SecureString("")|Statisch|Is dat een versleutelde heeft die wordt gebruikt voor het genereren van het wachtwoord voor NTLM-gebruikers. Moet worden ingesteld als NTLMAuthenticationEnabled ingesteld op true is. Gevalideerd door de implementatie. |

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 54c7565dd00305d3ce1faba5d7cc5616c53dd026
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: fe82899dc4db24c0d4c09a42872ad9113ef7ebad
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888153"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171997"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Bouw een LUIS-app via een programma met behulp van Node.js
 
@@ -171,7 +171,7 @@ Nadat het script is voltooid, kunt u zich aanmeldt bij [LUIS](luis-reference-reg
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Testen en trainen van uw app in de website van LUIS](interactive-test.md)
+> [Testen en trainen van uw app in de website van LUIS](luis-interactive-test.md)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

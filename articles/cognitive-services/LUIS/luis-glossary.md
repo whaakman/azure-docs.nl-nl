@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: c7a57ad13bbab66f0c100ed0a5bdb3fb20064806
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: aa971da964a2a5b7a81c882a346ac10fcda971a5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887671"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173207"
 ---
 # <a name="glossary"></a>Woordenlijst
 
@@ -92,15 +92,15 @@ Een eindpunt voorbeeld lijkt:
 
 ## <a name="f-measure"></a>F-meting
 
-In [batch testen](interactive-test.md#batch-testing), een maateenheid voor de nauwkeurigheid van de test.
+In [batch testen](luis-interactive-test.md#batch-testing), een maateenheid voor de nauwkeurigheid van de test.
 
 ## <a name="false-negative"></a>De waarde False negatief (TN)
 
-In [batch testen](interactive-test.md#batch-testing), de gegevenspunten vertegenwoordigen uitingen waarin uw app ten onrechte de afwezigheid van de doel-/ doelentiteit voorspeld.
+In [batch testen](luis-interactive-test.md#batch-testing), de gegevenspunten vertegenwoordigen uitingen waarin uw app ten onrechte de afwezigheid van de doel-/ doelentiteit voorspeld.
 
 ## <a name="false-positive"></a>Fout-positief (TP)
 
-In [batch testen](interactive-test.md#batch-testing), de gegevenspunten vertegenwoordigen uitingen waarin uw app onjuist sprake is van de doel-/ doelentiteit voorspeld.
+In [batch testen](luis-interactive-test.md#batch-testing), de gegevenspunten vertegenwoordigen uitingen waarin uw app onjuist sprake is van de doel-/ doelentiteit voorspeld.
 
 ## <a name="features"></a>Functies
 
@@ -138,7 +138,7 @@ Een [vooraf gemaakte domein](luis-how-to-use-prebuilt-domains.md) is een LUIS-ap
 Een [vooraf gedefinieerde entiteit](luis-prebuilt-entities.md) is een entiteit LUIS voor algemene typen gegevens, zoals, de URL en de e-mailbericht biedt. U wilt een vooraf gedefinieerde entiteit toevoegen aan uw toepassing. 
 
 ## <a name="precision"></a>Precisie
-In [batch testen](interactive-test.md#batch-testing), precisie (ook wel een positieve waarde voor de voorspellende genoemd) is het gedeelte van de relevante uitingen onder de opgehaalde uitingen.
+In [batch testen](luis-interactive-test.md#batch-testing), precisie (ook wel een positieve waarde voor de voorspellende genoemd) is het gedeelte van de relevante uitingen onder de opgehaalde uitingen.
 
 ## <a name="programmatic-key"></a>Programmatische sleutel
 
@@ -153,7 +153,7 @@ Publiceren van betekent dat het maken van een LUIS [actieve versie](#active-vers
 LUIS quotum is de beperking van de [laag van Azure-abonnement](https://aka.ms/luis-price-tier). Het quotum LUIS kan worden beperkt door beide aanvragen per seconde (http-Status 429) en het totale aantal aanvragen in een maand (http-Status 403). 
 
 ## <a name="recall"></a>Intrekken
-In [batch testen](interactive-test.md#batch-testing), intrekken (ook bekend als gevoeligheid), is de mogelijkheid voor LUIS om te generaliseren. 
+In [batch testen](luis-interactive-test.md#batch-testing), intrekken (ook bekend als gevoeligheid), is de mogelijkheid voor LUIS om te generaliseren. 
 
 ## <a name="semantic-dictionary"></a>Semantische woordenlijst
 Een semantische woordenlijst is beschikbaar op de pagina van de entiteit lijst, evenals de pagina van de lijst met woorden. De functionaliteit voor semantische woordenlijst bevat suggesties van woorden op basis van het huidige bereik.
@@ -179,7 +179,7 @@ De abonnementssleutel is de **eindpunt** sleutel die is gekoppeld met de service
 
 ## <a name="test"></a>Test
 
-[Testen](interactive-test.md#test-your-app) een LUIS-app betekent een utterance wordt doorgegeven aan LUIS en het weergeven van de JSON-resultaten.
+[Testen](luis-interactive-test.md#test-your-app) een LUIS-app betekent een utterance wordt doorgegeven aan LUIS en het weergeven van de JSON-resultaten.
 
 ## <a name="timezoneoffset"></a>Verschuiving van de tijdzone
 
@@ -196,11 +196,11 @@ Training is het proces van LUIS lessen over wijzigingen in de [actieve versie](#
 
 ## <a name="true-negative"></a>De waarde True negatief (TN)
 
-In [batch testen](interactive-test.md#batch-testing), de gegevenspunten vertegenwoordigen uitingen waarin uw app juist de afwezigheid van de doel-/ doelentiteit voorspeld.
+In [batch testen](luis-interactive-test.md#batch-testing), de gegevenspunten vertegenwoordigen uitingen waarin uw app juist de afwezigheid van de doel-/ doelentiteit voorspeld.
 
 ## <a name="true-positive"></a>Terecht positief (TP)
 
-In [batch testen](interactive-test.md#batch-testing), de gegevenspunten vertegenwoordigen uitingen waarin uw app correct sprake is van de doel-/ doelentiteit voorspeld.
+In [batch testen](luis-interactive-test.md#batch-testing), de gegevenspunten vertegenwoordigen uitingen waarin uw app correct sprake is van de doel-/ doelentiteit voorspeld.
 
 ## <a name="utterance"></a>Utterance
 

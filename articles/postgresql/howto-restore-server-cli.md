@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: de0d6ee32380367bfba4a27958c9c1e739b5dba3
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635065"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173423"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure Database for PostgreSQL via de Azure CLI
 
@@ -84,6 +84,8 @@ De locatie en prijscategorie van de herstelde server blijven gelijk zijn aan de 
 
 Nadat het herstelproces is voltooid, Ga naar de nieuwe server en controleer of dat de gegevens is hersteld zoals verwacht.
 
+De nieuwe server die is gemaakt tijdens een terugzetbewerking hoeft niet de firewallregels die aanwezig op de oorspronkelijke server was. Firewallregels moeten afzonderlijk worden ingesteld voor deze nieuwe server.
+
 ## <a name="geo-restore"></a>Geo-herstel
 Als u uw server voor geografisch redundante back-ups hebt geconfigureerd, kan een nieuwe server worden gemaakt van de back-up van de bestaande server. Deze nieuwe server kan worden gemaakt in andere regio's dat Azure Database for PostgreSQL beschikbaar is.  
 
@@ -121,6 +123,8 @@ De `az postgres server georestore` opdracht requies de volgende parameters:
 >Wanneer het maken van een nieuwe server door een geo-herstel, neemt de dezelfde opslaggrootte en de prijscategorie als de bronserver. Deze waarden kunnen niet worden gewijzigd tijdens het maken van. Nadat de nieuwe server is gemaakt, kan de opslaggrootte worden opgeschaald.
 
 Nadat het herstelproces is voltooid, Ga naar de nieuwe server en controleer of dat de gegevens is hersteld zoals verwacht.
+
+De nieuwe server die is gemaakt tijdens een terugzetbewerking hoeft niet de firewallregels die aanwezig op de oorspronkelijke server was. Firewallregels moeten afzonderlijk worden ingesteld voor deze nieuwe server.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over van de service [back-ups](concepts-backup.md).

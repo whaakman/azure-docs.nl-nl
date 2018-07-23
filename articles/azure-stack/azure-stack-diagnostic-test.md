@@ -1,6 +1,6 @@
 ---
-title: Een validatietest uitvoeren in Azure-Stack | Microsoft Docs
-description: Het verzamelen van logboekbestanden voor diagnostische gegevens in Azure-Stack
+title: Een validatietest uitvoeren in Azure Stack | Microsoft Docs
+description: Klik hier voor meer informatie over het verzamelen van logboekbestanden voor diagnostische gegevens in Azure Stack.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -9,49 +9,50 @@ ms.assetid: D44641CB-BF3C-46FE-BCF1-D7F7E1D01AFA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 07/19/2018
 ms.author: mabrigg
-ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: hectorl
+ms.openlocfilehash: a70c736489b25f6e8fd0d838c4c7b4b4db96a4f2
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31394387"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188797"
 ---
-# <a name="run-a-validation-test-for-azure-stack"></a>Een validatietest uitvoeren voor Azure-Stack
+# <a name="run-a-validation-test-for-azure-stack"></a>Uitvoeren van een validatietest voor Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
  
-U kunt de status van uw Azure-Stack valideren. Wanneer u een probleem hebt, moet u contact op met klantondersteuning van Microsoft voor Services. Ondersteuning wordt u gevraagd te testen AzureStack uitvoeren vanaf het beheerknooppunt. De validatietest isoleert de fout. Ondersteuning kunt analyseren van gedetailleerde logboekgegevens, ligt de nadruk op het gebied waar de fout is opgetreden en werken met u bij het oplossen van het probleem.
+U kunt de status van uw Azure Stack kunt valideren. Wanneer u een probleem hebt, neem dan contact op met klantondersteuning van Microsoft voor Services. Ondersteuning wordt gevraagd om uit te voeren **Test AzureStack** van het beheerknooppunt. De validatietest worden geïsoleerd van de fout. Ondersteuning kan vervolgens gedetailleerde logboeken analyseren, richt u op het gebied waar de fout is opgetreden en werken met u bij het oplossen van het probleem.
 
 ## <a name="run-test-azurestack"></a>Run Test-AzureStack
 
-Wanneer u een probleem hebt, neem contact op met de klantondersteuning van Microsoft voor Services en voer vervolgens **Voer Test-AzureStack**.
+Wanneer u een probleem hebt, neem contact op met klantondersteuning van Microsoft voor Services en voer **Voer Test-AzureStack**.
 
-1. Er is een probleem.
+1. Hebt u een probleem.
 2. Neem contact op met Microsoft Customer Services Support.
-3. Voer **Test AzureStack** vanaf het bevoegde eindpunt.
-    1. Toegang tot de bevoegde eindpunt. Zie voor instructies [met behulp van de bevoegde eindpunt in Azure-Stack](azure-stack-privileged-endpoint.md). 
-    2. Op de ASDK, meld u aan bij de host beheer als **AzureStack\CloudAdmin**.  
-    Op een geïntegreerd systeem moet u het IP-adres gebruiken voor het beschermde--eindpunt voor het beheer aan u geleverd door de leverancier van de OEM-hardware.
+3. Voer **Test AzureStack** van het eindpunt dat bevoegde.
+    1. Het eindpunt van de bevoegde toegang. Zie voor instructies [met behulp van het eindpunt van de bevoegde in Azure Stack](azure-stack-privileged-endpoint.md). 
+    2. Op de ASDK, moet u zich aanmelden bij de management host als **AzureStack\CloudAdmin**.  
+    Op een geïntegreerd systeem moet u het IP-adres gebruiken voor het bevoegdheden--eindpunt voor het beheer die u van de leverancier van de OEM-hardware.
     3. Open PowerShell als beheerder.
-    4. Uitvoeren: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
+    4. Uitvoeren: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Uitvoeren: `Test-AzureStack`
-4. Als het rapport mislukken alle tests uitvoeren: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` de cmdlet haalt de logboeken van de Test-AzureStack. Zie voor meer informatie over diagnostische logboeken [diagnostische hulpprogramma's van Azure-Stack](azure-stack-diagnostics.md).
-5. Verzenden van de **SeedRing** logboeken aan de klantenservice van Microsoft voor Services. Services klantondersteuning van Microsoft werkt samen met u het probleem op te lossen.
+4. Als een test mislukt, worden uitgevoerd: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` de cmdlet haalt de logboeken van Test-AzureStack. Zie voor meer informatie over diagnostische logboeken [diagnostische hulpprogramma's voor Azure Stack](azure-stack-diagnostics.md).
+5. Verzendt de **SeedRing** logboeken aan de klantenservice van Microsoft voor Services. Klantondersteuning van Microsoft voor Services werkt samen met u het probleem op te lossen.
 
 ## <a name="reference-for-test-azurestack"></a>Naslaginformatie voor Test-AzureStack
 
-Deze sectie bevat een overzicht van de cmdlet Test-AzureStack en een overzicht van het rapport.
+In deze sectie bevat een overzicht van de cmdlet Test-AzureStack en een overzicht van het rapport.
 
 ### <a name="test-azurestack"></a>Test-AzureStack
 
-Valideert de status van de Azure-Stack. De cmdlet meldt de status van uw Azure-Stack hardware en software. Ondersteuningsmedewerkers kunt dit rapport in minder tijd om op te lossen ondersteuningsaanvragen Azure-Stack gebruiken.
+Hiermee valideert u de status van Azure Stack. De cmdlet rapporteert de status van uw Azure Stack-hardware en software. Ondersteuningsmedewerkers kunt dit rapport gebruiken om de tijd om op te lossen kwesties van Azure Stack te verkorten.
 
 > [!Note]  
-> Test AzureStack detecteert mogelijk fouten die zijn niet cloud-uitval waardoor zoals één schijf of een knooppuntfout één fysieke host is mislukt.
+> **Test-AzureStack** kan detecteren van fouten die niet tot uitval van de cloud leidt zijn, zoals één schijf of een knooppuntfout één fysieke host is mislukt.
 
 #### <a name="syntax"></a>Syntaxis
 
@@ -66,110 +67,137 @@ Valideert de status van de Azure-Stack. De cmdlet meldt de status van uw Azure-S
 | ServiceAdminCredentials | PSCredential    | Nee       | DE WAARDE FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | Nee       | DE WAARDE FALSE   |
 | AdminCredential         | PSCredential    | Nee       | N.v.t.      |
-<!-- | StorageConnectionString | Tekenreeks          | Nee       | N.v.t.      | niet ondersteund in 1802-->
 | Lijst                    | SwitchParameter | Nee       | DE WAARDE FALSE   |
-| Negeren                  | Tekenreeks          | Nee       | N.v.t.      |
-| Opnemen                 | Tekenreeks          | Nee       | N.v.t.      |
+| Negeren                  | Reeks          | Nee       | N.v.t.      |
+| Opnemen                 | Reeks          | Nee       | N.v.t.      |
+| BackupSharePath         | Reeks          | Nee       | N.v.t.      |
+| BackupShareCredential   | PSCredential    | Nee       | N.v.t.      |
 
-De cmdlet Test-AzureStack ondersteunt de algemene parameters: uitgebreid, foutopsporing, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable en OutVariable. Zie voor meer informatie [over algemene Parameters](http://go.microsoft.com/fwlink/?LinkID=113216). 
 
-### <a name="examples-of-test-azurestack"></a>Voorbeelden van Test AzureStack
+De cmdlet Test-AzureStack de gangbare parameters ondersteund: uitgebreid, foutopsporing, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable en OutVariable. Zie voor meer informatie, [over algemene Parameters](http://go.microsoft.com/fwlink/?LinkID=113216). 
 
-De volgende voorbeelden wordt ervan uitgegaan dat u bent aangemeld als **CloudAdmin** en de toegang tot de bevoegde eindpunt (PEP). Zie voor instructies [met behulp van de bevoegde eindpunt in Azure-Stack](azure-stack-privileged-endpoint.md). 
+### <a name="examples-of-test-azurestack"></a>Voorbeelden van Test-AzureStack
 
-#### <a name="run-test-azurestack-interactively-without-cloud-scenarios"></a>Test AzureStack interactief worden uitgevoerd zonder cloud scenario 's
+De volgende voorbeelden wordt ervan uitgegaan dat u bent aangemeld als **CloudAdmin** en de toegang tot het eindpunt van de bevoegde (PEP). Zie voor instructies [met behulp van het eindpunt van de bevoegde in Azure Stack](azure-stack-privileged-endpoint.md). 
 
-In een sessie PEP uitvoeren:
+#### <a name="run-test-azurestack-interactively-without-cloud-scenarios"></a>Test-AzureStack interactief worden uitgevoerd zonder cloud-scenario 's
+
+Voer in een sessie PEP:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
-      Test-AzureStack
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack
 ````
 
-#### <a name="run-test-azurestack-with-cloud-scenarios"></a>Voer Test AzureStack met cloud-scenario 's
+#### <a name="run-test-azurestack-with-cloud-scenarios"></a>Test-AzureStack uitvoeren met cloud-scenario 's
 
-Test AzureStack kunt u cloud-scenario's uitvoeren op uw Azure-Stack. Deze scenario's omvatten:
+U kunt **Test AzureStack** cloudscenario's uitvoeren voor uw Azure Stack. Deze scenario's omvatten:
 
- - Maken van resourcegroepen
- - Plannen maken
- - Aanbiedingen maken
+ - Het maken van resourcegroepen
+ - Het maken van abonnementen
+ - Het maken van aanbiedingen
  - Storage-accounts maken
- - Een virtuele machine maken
- - Blob-bewerkingen met behulp van het opslagaccount dat is gemaakt in de Testscenario uitvoeren
- - Wachtrij-bewerkingen met behulp van het opslagaccount dat is gemaakt in de Testscenario uitvoeren
- - Tabelbewerkingen met behulp van het opslagaccount dat is gemaakt in de Testscenario uitvoeren
+ - Het maken van een virtuele machine
+ - Blob-bewerkingen met behulp van de storage-account hebt gemaakt in de Testscenario uitvoeren
+ - Wachtrijbewerkingen met behulp van de storage-account hebt gemaakt in de Testscenario uitvoeren
+ - Tabelbewerkingen met behulp van de storage-account hebt gemaakt in de Testscenario uitvoeren
 
 De cloud-scenario's waarvoor cloud beheerdersreferenties zijn vereist. 
 > [!Note]  
 > U kunt de cloud-scenario's met behulp van Active Directory Federated Services (AD FS)-referenties niet uitvoeren. De **Test AzureStack** cmdlet is alleen toegankelijk via de PEP. Maar de PEP biedt geen ondersteuning voor AD FS-referenties.
 
-Typ de gebruikersnaam van de cloud-beheerder in UPN-indeling serviceadmin@contoso.onmicrosoft.com (AAD). Typ desgevraagd het wachtwoord voor het beheerdersaccount van de cloud.
+Typ de gebruikersnaam van de cloud-beheerder in de indeling van de UPN serviceadmin@contoso.onmicrosoft.com (Azure AD). Wanneer u hierom wordt gevraagd, typt u het wachtwoord aan het beheerdersaccount van de cloud.
 
-In een sessie PEP uitvoeren:
+Voer in een sessie PEP:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
 ````
 
-#### <a name="run-test-azurestack-without-cloud-scenarios"></a>Test AzureStack worden uitgevoerd zonder cloud scenario 's
+#### <a name="run-test-azurestack-without-cloud-scenarios"></a>Test-AzureStack zonder cloud-scenario's worden uitgevoerd
 
-In een sessie PEP uitvoeren:
+Voer in een sessie PEP:
 
 ````PowerShell
-  $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  $session = New-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
 ````
 
 #### <a name="list-available-test-scenarios"></a>Lijst met beschikbare Testscenario's:
 
-In een sessie PEP uitvoeren:
+Voer in een sessie PEP:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -List
 ````
 
 #### <a name="run-a-specified-test"></a>Een opgegeven test uitvoeren
 
-In een sessie PEP uitvoeren:
+Voer in een sessie PEP:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
 ````
 
-Specifieke tests uitsluiten:
+Uitsluiten van specifieke tests:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
-  Test-AzureStack -Ignore AzsInfraPerformance
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Test-AzureStack -Ignore AzsInfraPerformance
+````
+
+### <a name="run-test-azurestack-to-test-infrastructure-backup-settings"></a>Test-AzureStack als u wilt testen van back-instellingen van de infrastructuur worden uitgevoerd
+
+Voordat u back-up van de infrastructuur configureert, kunt u het pad van de back-upshare testen en referenties met behulp van de **AzsBackupShareAccessibility** testen.
+
+Voer in een sessie PEP:
+
+````PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
+````
+U kunt uitvoeren na het configureren van back-up, AzsBackupShareAccessibility voor het valideren van de share is toegankelijk vanuit de ERCS, vanuit een PEP sessie uitvoeren:
+
+````PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility
+````
+
+Als u wilt testen van nieuwe referenties met de geconfigureerde back-upshare, vanuit een sessie PEP uitvoeren:
+
+````PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential <PSCredential for backup share>
 ````
 
 ### <a name="validation-test"></a>Validatietest
 
-De volgende tabel geeft een overzicht van de validatietests uitvoeren door Test AzureStack.
+De volgende tabel geeft een overzicht van de validatietests uitvoeren door **Test AzureStack**.
 
 | Naam                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| Azure Stack Cloud samenvatting van de infrastructuur die als host fungeert                                                                                  |
-| Overzicht van Stack van Azure Storage-Services                                                                                              |
-| Overzicht van Azure Stack infrastructuur rollen exemplaar                                                                                  |
-| Azure Stack Cloud die als host fungeert voor het gebruik van de infrastructuur                                                                              |
-| Capaciteit van de Azure-Stack-infrastructuur                                                                                               |
-| De Stack van de Azure Portal en API-overzicht                                                                                                |
-| Azure stapelen samenvatting van Azure Resource Manager-certificaat                                                                                               |
-| Infrastructuur beheercontroller, netwerkcontroller Storage-services en bevoorrechte eindpunt infrastructuur functies          |
-| Infrastructuur beheercontroller, netwerkcontroller Storage-services en bevoorrechte eindpunt infrastructuur Rolinstanties |
-| Overzicht van Azure Stack infrastructuur rollen                                                                                           |
-| Stack Azure Cloud Service Fabric-Services                                                                                         |
-| Prestaties van Azure Stack infrastructuur rol exemplaar                                                                              |
+| Azure Stack-Cloud die als host fungeert voor infrastructuur-overzicht                                                                                  |
+| Overzicht van Azure Stack Storage-Services                                                                                              |
+| Overzicht rollen exemplaar van Azure Stack-infrastructuur                                                                                  |
+| Azure Stack-Cloud die als host fungeert voor het gebruik van de infrastructuur                                                                              |
+| Azure Stack-infrastructuurcapaciteit                                                                                               |
+| Azure Stack-Portal en API-overzicht                                                                                                |
+| Azure Stack-samenvatting van Azure Resource Manager-certificaat                                                                                               |
+| Infrastructuur Baseboard management controller, netwerkcontroller, Storage-services en bevoorrechte eindpunt infrastructuur rollen          |
+| Infrastructuur Baseboard management controller, netwerkcontroller, Storage-services en bevoorrechte eindpunt instanties van de infrastructuur |
+| Overzicht van Azure Stack-infrastructuur rollen                                                                                           |
+| Azure Stack-Cloud Service Fabric-Services                                                                                         |
+| Prestaties van Azure Stack-infrastructuur rol instanties                                                                              |
 | Overzicht van Azure Stack Cloud Host prestaties                                                                                        |
-| Samenvatting van de Stack van Azure Service Resource-verbruik                                                                                  |
-| Azure-Stack Scale Unit kritieke gebeurtenissen (laatste 8 uur)                                                                             |
+| Samenvatting van de Azure Stack-Service Resource-verbruik                                                                                  |
+| Azure Stack Scale Unit kritieke gebeurtenissen (afgelopen 8 uur)                                                                             |
 | Overzicht van Azure Stack Storage Services fysieke schijven                                                                               |
+|Overzicht van Azure Stack back-Upshare toegankelijkheid                                                                                     |
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - Zie voor meer informatie over Azure-Stack diagnostische hulpprogramma's en probleem logboekregistratie, [ diagnostische hulpprogramma's van Azure-Stack](azure-stack-diagnostics.md).
- - Zie voor meer informatie over het oplossen van problemen, [Microsoft Azure-Stack probleemoplossing](azure-stack-troubleshooting.md)
+ - Zie voor meer informatie over Azure Stack diagnostische hulpprogramma's en probleem logboekregistratie, [ diagnostische hulpprogramma's voor Azure Stack](azure-stack-diagnostics.md).
+ - Zie voor meer informatie over het oplossen van problemen, [Microsoft Azure Stack oplossen](azure-stack-troubleshooting.md)

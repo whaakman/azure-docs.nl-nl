@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0414fa16f277c7495cc7fe4bdd7a51fc3a23ad93
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988619"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185115"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Maken van aangepaste artefacten voor uw virtuele machine van DevTest Labs
 
@@ -113,7 +113,7 @@ Het volgende voorbeeld laat zien hoe u expressies en functies te maken van een w
 1. Installeer een JSON-editor. U moet een JSON-editor om te werken met artefact definitiebestanden. Wordt u aangeraden [Visual Studio Code](https://code.visualstudio.com/), die beschikbaar is voor Windows, Linux en OS X.
 2. Een voorbeeldbestand artifactfile.json in het definitie ophalen. Bekijk de artefacten die zijn gemaakt door de DevTest Labs-team in onze [GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab). Er is een uitgebreide bibliotheek met artefacten die kan helpen u bij het maken van uw eigen artefacten gemaakt. Download een definitiebestand artefact en wijzigingen aanbrengen in het maken van uw eigen artefacten.
 3. Maakt gebruik van IntelliSense. IntelliSense gebruiken om te zien van geldige elementen die u gebruiken kunt om een definitiebestand artefact samen te stellen. U kunt ook de verschillende opties voor waarden van een element zien. Bijvoorbeeld, wanneer u bewerkt de **targetOsType** -element, IntelliSense ziet u twee opties voor Windows of Linux.
-4. Het artefact in Store de [openbare Git-opslagplaats voor DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) of [uw eigen Git-opslagplaats](devtest-lab-add-artifact-repo.md).
+4. Het artefact in Store de [openbare Git-opslagplaats voor DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) of [uw eigen Git-opslagplaats](devtest-lab-add-artifact-repo.md). In de openbare opslagplaats, kunt u de artefacten die gedeeld met anderen kunt u rechtstreeks gebruiken of pas ze aan uw eigen wensen aan weergeven. 
    
    1. Maak een afzonderlijke map voor elke artefact. Naam van de map moet hetzelfde zijn als de naam van het assemblyartefact.
    2. Het artefact-definitiebestand (artifactfile.json) Store in de map die u hebt gemaakt.

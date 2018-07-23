@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 09580f3bb5d6f6f5ccb15adddf0cf1f9e19c2210
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 165c6ed53b611ba6b4f56260f20069661cf22da7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619400"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186556"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden van uw apparaat naar de cloud met IoT Hub
 
@@ -25,7 +25,7 @@ In deze zelfstudie bouwt voort op de code in de [Cloud-naar-apparaat-berichten v
 - Veilig een apparaat voorzien van een Azure blob-URI voor het uploaden van een bestand.
 - Gebruik de IoT Hub-bestand uploaden meldingen voor het activeren van het bestand in de back-end van uw app wordt verwerkt.
 
-De [aan de slag met IoT Hub](iot-hub-java-java-getstarted.md) en [Cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-java-java-c2d.md) zelfstudies ziet u de apparaat-naar-cloud en cloud-naar-apparaat berichten basisfunctionaliteit van IoT-Hub. De [proces apparaat-naar-Cloud-berichten](tutorial-routing.md) zelfstudie een manier voor het opslaan van apparaat-naar-cloud-berichten op betrouwbare wijze in Azure blob-opslag wordt beschreven. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Bijvoorbeeld:
+De [aan de slag met IoT Hub](quickstart-send-telemetry-java.md) en [Cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-java-java-c2d.md) zelfstudies ziet u de apparaat-naar-cloud en cloud-naar-apparaat berichten basisfunctionaliteit van IoT-Hub. De [proces apparaat-naar-Cloud-berichten](tutorial-routing.md) zelfstudie een manier voor het opslaan van apparaat-naar-cloud-berichten op betrouwbare wijze in Azure blob-opslag wordt beschreven. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Bijvoorbeeld:
 
 * Grote bestanden met afbeeldingen
 * Video's

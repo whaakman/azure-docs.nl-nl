@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: eebaf679ada9da554f8582ad89db4e7491dcc134
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b5028010953b9dbe2386c30e6fa05cc4a94cb971
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004350"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185489"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Apparaatverificatie met behulp van x.509-CA-certificaten
 
@@ -30,7 +30,7 @@ De X.509-CA-functie kunt verificatie van apparaten naar IoT Hub met behulp van e
 
 ## <a name="prerequisite"></a>Vereiste
 
-Met de functie voor X.509-CA, moet u een IoT Hub-account hebben.  [Informatie over het maken van een IoT Hub-instantie](iot-hub-csharp-csharp-getstarted.md) als u er nog geen hebt.
+Met de functie voor X.509-CA, moet u een IoT Hub-account hebben.  [Informatie over het maken van een IoT Hub-instantie](quickstart-send-telemetry-dotnet.md) als u er nog geen hebt.
 
 ## <a name="how-to-get-an-x509-ca-certificate"></a>Over het verkrijgen van een X.509-CA-certificaat
 

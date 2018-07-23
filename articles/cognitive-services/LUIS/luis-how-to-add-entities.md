@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7e60bc217562d91aa5ed3c653458a46251a45c8d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: bcdd4b681992b015b817e1245681c41c09b78210
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347414"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173687"
 ---
 # <a name="manage-entities"></a>Entiteiten beheren
 Nadat u uw app hebt geïdentificeerd [intents](luis-concept-intent.md), moet u [label voorbeeld uitingen](luis-concept-utterance.md) met [entiteiten](luis-concept-entity-types.md). Entiteiten kunnen worden de belangrijke onderdelen van een opdracht of een vraag, en essentieel zijn voor uw client-app de taak uit te voeren. 
@@ -149,7 +149,7 @@ De syntaxis voor een rol is **{naam: rol entiteitnaam}** waar de naam van de ent
 
 1. In uw app uit de **bouwen** uit en selecteer vervolgens **entiteiten** in het linkerpaneel.
 
-2. Selecteer **nieuwe entiteit maken**. Voer de naam van `Location`. Selecteer het type **eenvoudige** en selecteer **gedaan**
+2. Selecteer **Create new intent**. Voer de naam van `Location`. Selecteer het type **eenvoudige** en selecteer **gedaan**
 
 3. Selecteer **entiteiten** in het linkerpaneel, selecteer vervolgens de nieuwe entiteit **locatie** in stap 2 hebt gemaakt.
 
@@ -260,5 +260,5 @@ U kunt zoeken en filteren uitingen met het pictogram met Vergrootglas op de werk
 Na het toevoegen, bewerken of verwijderen van entiteiten, [trainen](luis-how-to-train.md) en [publiceren](luis-how-to-publish-app.md) uw app voor uw wijzigingen zijn doorgevoerd in eindpunt query's. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u intenties, uitingen en entiteiten hebt toegevoegd, hebt u een eenvoudige LUIS-app. Meer informatie over het [trainen](luis-how-to-train.md), [testen](interactive-test.md), en [publiceren](luis-how-to-publish-app.md) uw app.
+Nu dat u intenties, uitingen en entiteiten hebt toegevoegd, hebt u een eenvoudige LUIS-app. Meer informatie over het [trainen](luis-how-to-train.md), [testen](luis-interactive-test.md), en [publiceren](luis-how-to-publish-app.md) uw app.
  

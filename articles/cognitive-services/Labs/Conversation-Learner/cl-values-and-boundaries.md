@@ -1,7 +1,7 @@
 ---
-title: Conversatie cursist standaardconfiguratie - cognitieve Microsoft-Services | Microsoft Docs
+title: Conversatie Learner standaardconfiguratie - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Meer informatie over de standaardconfiguratie van de conversatie cursist.
+description: Meer informatie over de standaardconfiguratie voor Conversatiecursist.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,16 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 56e2140b83bf1c5722a459c14f31b2b4b0ba6b15
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c0ad9f71665e503fe794c68200b90a8474750823
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345263"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173622"
 ---
-# <a name="default-values-and-boundaries"></a>Standaardwaarden en grenzen
+# <a name="default-values-and-boundaries"></a>Standaardwaarden en -grenzen
 
-Dit document beschrijft de standaardconfiguratie van de conversatie cursist en grenzen aspecten van de service.
+Dit document beschrijft de standaardconfiguratie van Conversatiecursist en belangrijke servicegrenzen.
 
 ## <a name="default-configuration"></a>Standaardconfiguratie
 
@@ -31,23 +31,23 @@ Standaard sessietime-out | 30 minuten
 
 Parameter | Limiet
 --- | --- 
-API ontwerpen, max HTTP-aanroepen per maand | 5M
+API ontwerpen, max HTTP-aanroepen per maand | 5 MIN.
 API ontwerpen, max HTTP-aanroepen per seconde | 25
-Sessie-API, Max. HTTP-aanroepen per maand | 500.000
-Sessie-API, Max. HTTP-aanroepen per seconde | 10
-Maximumaantal aangepaste (niet-programmatische) entiteiten per toepassing | Zie [LUIS grenzen doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries); in de praktijk werkelijke nummer mogelijk iets kleiner
-Maximumaantal vooraf samengestelde entiteiten per toepassing | Zie [LUIS grenzen doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)
-Maximumaantal entiteiten (in totaal) per toepassing | 100
-Maximumaantal acties per toepassing | 32
-Maximumaantal train dialoogvensters per toepassing | 1000
-Hiermee schakelt u maximumaantal gebruikers per train dialoogvenster | 100
-Maximumaantal logboek dialoogvensters per toepassing | Geen vooraf ingestelde limiet, maar log dialoogvensters blijven alleen behouden voor een bepaalde periode voordat het wordt verwijderd.  Ook wordt de gebruikersinterface van de conversatie cursist 100 logboek dialoogvensters weergegeven op een tijdstip. 
-Maximumaantal toepassingen per gebruiker | Geen vooraf ingestelde limiet
-Maximumaantal opeenvolgende niet-wait-acties | 5 (*)
+Sessie-API, max HTTP-aanroepen per maand | 500.000
+Sessie-API, max HTTP-aanroepen per seconde | 10
+Maximumaantal aangepaste (niet-programmatische) entiteiten per model | Zie [LUIS grenzen doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries); in de praktijk werkelijke nummer is mogelijk iets kleinere
+Maximumaantal vooraf gemaakte entiteiten per model | Zie [LUIS grenzen doc-bestand](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)
+Maximumaantal per model-entiteiten (in totaal) | 100
+Maximumaantal acties per model | 32
+Maximumaantal van de trein dialogen per model | 1000
+Hiermee schakelt u maximumaantal gebruikers per dialoogvenster van de trein | 100
+Maximumaantal log dialoogvensters per model | Er is geen vooraf ingestelde limiet, maar log dialoogvensters worden alleen bewaard voor een bepaalde periode voordat het wordt verwijderd.  Ook wordt de gebruikersinterface van de cursist conversatie 100 log dialoogvensters weergeven op een tijdstip. 
+Maximumaantal modellen per gebruiker | Geen vooraf ingestelde limiet
+Maximumaantal opeenvolgende acties voor niet-wait | 5 (*)
 
-(*) Alle niet-wait-acties worden gemaskeerd na 5 opeenvolgende niet-wait-acties, en conversatie cursist kiest onder acties beschikbaar wacht.
+(*) Alle acties voor niet-wait worden gemaskeerd na 5 opeenvolgende niet-wait-acties en Conversatiecursist, kiest u onder acties beschikbaar wachten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Aan de slag met de conversatie cursist](./quickstart.md)
+> [Aan de slag met Conversatiecursist](./quickstart.md)

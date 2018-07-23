@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5babe089575d03db1f6bc0dd3f01bd3b6a5475fe
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: acf328b706a992df03de837ba8837c5810593ae5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951896"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173738"
 ---
 # <a name="utterances-in-luis"></a>Uitingen in LUIS
 
@@ -47,7 +47,7 @@ De term core hier is 'computer', niet gewijzigd. Ze konden zeggen desktopcompute
 Elk doel moet voorbeeld uitingen, ten minste 10 tot 15. Als u een doel dat geen alle uitingen voorbeeld hebt, wordt het niet mogelijk met het trainen van LUIS. Hebt u een doel met één of enkele voorbeeld-uitingen, LUIS wordt niet nauwkeurig te voorspellen de bedoeling. 
 
 ## <a name="add-small-groups-of-10-15-utterances-for-each-authoring-iteration"></a>Kleine groepen van 10-15-uitingen voor elke herhaling authoring toevoegen
-In elke herhaling van het model, Voeg een grote hoeveelheid uitingen niet. Utterances toevoegen in hoeveelheden van tientallen. [Train](luis-how-to-train.md), [publiceren](luis-how-to-publish-app.md), en [testen](interactive-test.md) opnieuw.  
+In elke herhaling van het model, Voeg een grote hoeveelheid uitingen niet. Utterances toevoegen in hoeveelheden van tientallen. [Train](luis-how-to-train.md), [publiceren](luis-how-to-publish-app.md), en [testen](luis-interactive-test.md) opnieuw.  
 
 LUIS bouwt effectieve modellen met uitingen die goed zijn geselecteerd. Te veel uitingen toevoegen is geen waardevolle omdat het verwarring leidt.  
 

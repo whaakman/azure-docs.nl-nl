@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub hoge beschikbaarheid en herstel na noodgevallen | Microsoft Docs
-description: Beschrijft de functies voor Azure en IoT-Hub die u helpen bij het bouwen van maximaal beschikbare Azure IoT-oplossingen met na noodgevallen herstelfuncties.
+description: Beschrijft de functies voor Azure en IoT-Hub die u helpen bij het ontwikkelen van maximaal beschikbare Azure-IoT-oplossingen met disaster recovery-mogelijkheden.
 author: fsautomata
 manager: ''
 ms.service: iot-hub
@@ -8,45 +8,45 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 428209defa554599c01789e6f2a8b62f155b0f2f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 992c42511f7bc9e9af71ff552ee91bc2472ebcf8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633703"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185700"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hoge beschikbaarheid en herstel na noodgevallen
-Een Azure-service biedt IoT Hub redundantie op het niveau van de Azure-regio, zonder extra werk vereist voor de oplossing met hoge beschikbaarheid (HA). Het Microsoft Azure-platform omvat ook functies waarmee u oplossingen bouwen met herstelfuncties van noodherstel (DR) of de regio-overschrijdende beschikbaarheid. Als u wilt bieden globale, hoge beschikbaarheid van de regio-overschrijdende voor apparaten of gebruikers profiteren van deze Azure DR-functies. Het artikel [Azure zakelijke continuïteit technische richtlijnen](../resiliency/resiliency-technical-guidance.md) beschrijving van de ingebouwde functies in Azure voor bedrijfscontinuïteit en Noodherstel. De [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen] [ Disaster recovery and high availability for Azure applications] papier biedt architectuurrichtlijnen op strategieën voor het Azure-toepassingen om HA en Noodherstel te bereiken.
+Als een Azure-service biedt IoT Hub hoge beschikbaarheid (HA) met behulp van redundantie op het niveau van de Azure-regio, zonder extra werk vereist voor de oplossing. De Microsoft Azure-platform bevat ook functies voor informatie over het bouwen van oplossingen met mogelijkheden voor disaster recovery (DR) of regio-overschrijdende beschikbaarheid. Als u wilt voor globale, interregionale hoge beschikbaarheid voor apparaten of gebruikers profiteren van deze functies Azure herstel na Noodgevallen. Het artikel [technische richtlijnen voor Azure Business Continuity](../resiliency/resiliency-technical-guidance.md) beschrijving van de ingebouwde functies in Azure voor bedrijfscontinuïteit en herstel na Noodgevallen. De [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen] [ Disaster recovery and high availability for Azure applications] document bevat architectuurrichtlijnen voor strategieën voor Azure-toepassingen om HA en DR te realiseren.
 
-## <a name="azure-iot-hub-dr"></a>Azure IoT-Hub DR
-IoT Hub implementeert naast intra-regio HA, failover-mechanismen voor herstel na noodgevallen waarvoor geen tussenkomst van de gebruiker. IoT Hub DR automatisch wordt gestart en heeft een beoogde hersteltijd (RTO) van 2-26 uur en de volgende herstelpuntdoelen (RPO's):
+## <a name="azure-iot-hub-dr"></a>Herstel na Noodgevallen voor Azure IoT Hub
+IoT Hub implementeert naast intra-regio HA, failover-mechanismen voor herstel na noodgevallen waarvoor geen tussenkomst van de gebruiker. Herstel na Noodgevallen van IoT Hub wordt automatisch gestart en heeft een beoogde hersteltijd (RTO) van 2-26 uur en de volgende herstelpuntdoelen (RPO's):
 
 | Functionaliteit | RPO |
 | --- | --- |
-| Beschikbaarheid van de service voor register- en bewerkingen |Mogelijk CName verlies |
+| Beschikbaarheid van de service voor register- en communicatiebewerkingen |CName gegevensverlies |
 | Identiteitsgegevens in register-id 's |0-5 minuten gegevensverlies |
 | Apparaat-naar-cloud-berichten |Alle ongelezen berichten gaan verloren |
-| Bewerkingen berichten controleren |Alle ongelezen berichten gaan verloren |
+| Bewerkingen controleren van berichten |Alle ongelezen berichten gaan verloren |
 | Cloud-naar-apparaat-berichten |0-5 minuten gegevensverlies |
 | Cloud-naar-apparaat feedbackwachtrij |Alle ongelezen berichten gaan verloren |
-| Apparaatgegevens twin |0-5 minuten gegevensverlies |
-| Taken met bovenliggende en apparaat |0-5 minuten gegevensverlies |
+| Dubbele apparaatgegevens |0-5 minuten gegevensverlies |
+| Bovenliggende en apparaat-taken |0-5 minuten gegevensverlies |
 
 ## <a name="regional-failover-with-iot-hub"></a>Regionale failover met IoT Hub
-Een volledige behandeling van implementatietopologieën in IoT-oplossingen is buiten het bereik van dit artikel. Het artikel behandelt de *regionale failover* implementatiemodel omwille van de hoge beschikbaarheid en herstel na noodgevallen.
+Een volledige verwerking van de implementatietopologieën in IoT-oplossingen is buiten het bereik van dit artikel. Het artikel behandelt de *regionale failover* implementatiemodel ten behoeve van hoge beschikbaarheid en herstel na noodgevallen.
 
-De oplossing in een model regionale failover back-end uitgevoerd voornamelijk in een datacenter-locatie. Een secundaire IoT-hub en de back-end zijn geïmplementeerd in een andere locatie van het datacenter. Als de IoT-hub in het primaire datacenter te lijden heeft onder een storing of de netwerkverbinding van het apparaat met het primaire datacenter wordt onderbroken, gebruikt u apparaten een secundaire service-eindpunt. U kunt de beschikbaarheid van de oplossing verbeteren door het implementeren van een model regio-overschrijdende failover in plaats van binnen één regio blijft. 
+In een regionale failover-model, de oplossing back-end wordt voornamelijk in één datacenterlocatie. Een secundaire IoT-hub en de back-end zijn geïmplementeerd in een ander datacenterlocatie. Als de IoT hub in het primaire datacenter een storing voordoet of de netwerkverbinding van het apparaat naar het primaire datacenter wordt onderbroken, apparaten een secundaire service-eindpunt gebruiken. U kunt de oplossing beschikbaarheid verbeteren door het implementeren van een model interregionale failover in plaats van binnen één regio blijft. 
 
 Op een hoog niveau voor het implementeren van een model regionale failover met IoT Hub, moet u het volgende:
 
-* **Een secundaire iothub en routering logica apparaat**: als de service in uw primaire regio wordt onderbroken, apparaten verbinding maken met uw secundaire regio moeten beginnen. Gezien de statusbewust aard van de meeste services die zijn betrokken, is het gebruikelijk dat beheerders van de oplossing voor het activeren van het failoverproces tussen regio. De beste manier om het nieuwe eindpunt naar apparaten, terwijl controle van het proces wordt behouden communiceren is dat ze regelmatig controleren op een *concierge* service voor het huidige actieve eindpunt. De service concierge kan een webtoepassing die is gerepliceerd en bereikbaar bewaard zijn met behulp van DNS-omleiding technieken (bijvoorbeeld [Azure Traffic Manager][Azure Traffic Manager]).
-* **Identiteit register repliceren**: om te worden gebruikt, de secundaire IoT-hub alle apparaat-id's die verbinding met de oplossing maken kunnen moet bevatten. De oplossing moet back-ups geogerepliceerde van apparaat-id's houden en te uploaden naar de secundaire IoT-hub voordat u overschakelt van de actieve eindpunt voor de apparaten. De apparaat-id exportfunctie van IoT Hub is handig in deze context. Zie voor meer informatie [IoT Hub developer guide - id-register][IoT Hub developer guide - identity registry].
-* **Samenvoegen van logica**: wanneer de primaire regio weer beschikbaar is, alle de status en gegevens die zijn gemaakt in de secundaire site moeten worden gemigreerd terug naar de primaire regio. Deze status en gegevens, vooral betrekking hebben op apparaat-id's en metagegevens van toepassing moet worden samengevoegd met de primaire IoT-hub en andere toepassingsspecifieke winkels in de primaire regio. Om te vereenvoudigen in deze stap, moet u de idempotent-bewerkingen. De Idempotent operations minimaliseert de neveneffecten van de uiteindelijke consistente distributie van gebeurtenissen en van duplicaten of out-van-levering van gebeurtenissen. Bovendien moet de toepassingslogica worden ontworpen voor mogelijke inconsistenties of 'enigszins' verouderde status tolereren. Deze situatie kan optreden vanwege de extra tijd die nodig is voor het systeem 'retoucheren' op basis van herstelpuntdoelen (RPO).
+* **Een secundaire IoT-hub en apparaat routering logische**: als de service in de primaire regio wordt onderbroken, apparaten verbinding maken met uw secundaire regio moeten beginnen. Gezien de statusbewust aard van de meeste services die betrokken zijn, is het gebruikelijk voor beheerders van de oplossing voor het activeren van het failoverproces tussen regio's. De beste manier om te communiceren van het nieuwe eindpunt naar apparaten, terwijl het beheer van het proces is dat ze regelmatig controleren op een *concierge* service voor het huidige actieve eindpunt. De conciërge-service kan een webtoepassing die wordt gerepliceerd en opgeslagen bereikbaar zijn met behulp van DNS-omleiding technieken (bijvoorbeeld met behulp van [Azure Traffic Manager][Azure Traffic Manager]).
+* **Replicatie voor Identity-registry**: om te worden gebruikt, de secundaire IoT-hub alle apparaat-id's die u verbinding met de oplossing maken kunnen moet bevatten. De oplossing moet bewaren van back-ups via geo-replicatie van apparaat-id's en upload deze naar de secundaire IoT-hub voordat u overschakelt van de actieve eindpunt voor de apparaten. De exportfunctie van apparaat-id van IoT-Hub is handig in deze context. Zie voor meer informatie, [het Ontwikkelaarshandleiding voor IoT Hub - identiteitsregister][IoT Hub developer guide - identity registry].
+* **Samenvoegen van logische**: wanneer de primaire regio weer beschikbaar is, alle de status en gegevens die zijn gemaakt op de secundaire site moeten worden gemigreerd terug naar de primaire regio. Deze status en gegevens, voornamelijk betrekking hebben op apparaat-id's en metagegevens van de toepassing, die moet worden samengevoegd met de primaire IoT-hub en andere toepassingsspecifieke winkels in de primaire regio. Ter vereenvoudiging van deze stap, moet u idempotente bewerkingen. Idempotente bewerkingen Minimaliseer de neveneffecten van de uiteindelijke consistente distributie van gebeurtenissen en van duplicaten of out volgorde bezorging van gebeurtenissen. Bovendien moet de toepassingslogica worden ontworpen te tolereren mogelijke inconsistenties of 'enigszins' verouderde status. Deze situatie kan optreden vanwege de extra tijd die nodig is voor het systeem "herstel knooppuntservice" op basis van de doelstellingen voor herstelpunten (RPO).
 
 ## <a name="next-steps"></a>Volgende stappen
 Volg deze koppelingen voor meer informatie over Azure IoT Hub:
 
-* [Aan de slag met IoT Hubs (zelfstudie)][lnk-get-started]
+* [Aan de slag met IoT-Hubs (zelfstudie)][lnk-get-started]
 * [Wat is Azure IoT Hub?][What is Azure IoT Hub?]
 
 [Disaster recovery and high availability for Azure applications]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
@@ -54,5 +54,5 @@ Volg deze koppelingen voor meer informatie over Azure IoT Hub:
 [Azure Traffic Manager]: https://azure.microsoft.com/documentation/services/traffic-manager/
 [IoT Hub developer guide - identity registry]: iot-hub-devguide-identity-registry.md
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
+[What is Azure IoT Hub?]: about-iot-hub.md

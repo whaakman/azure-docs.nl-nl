@@ -1,6 +1,6 @@
 ---
-title: MSI-bestand op een virtuele Azure-machine met behulp van de Azure-portal configureren
-description: Voor stap door stap instructies voor het configureren van een Managed Service Identity (MSI) op een Azure-VM, met behulp van de Azure portal.
+title: Beheerde Service-identiteit op een virtuele Azure-machine met behulp van de Azure-portal configureren
+description: Voor stap door stap instructies voor het configureren van een beheerde Service-identiteit op een Azure-VM met behulp van de Azure portal.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 81aa8153198f69abd1722f97462927a0c242d4e7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035938"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186156"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Een virtuele machine Managed Service Identity (MSI) met behulp van de Azure-portal configureren
+# <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Een virtuele machine beheerde Service-identiteit met Azure portal configureren
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -30,12 +30,14 @@ Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde id
 In dit artikel leert u hoe u kunt in- en uitschakelen van het systeem toegewezen identiteit voor een Azure-VM met behulp van de Azure portal. Toe te wijzen en het verwijderen van gebruiker toegewezen identiteiten van Azure VM's is momenteel niet ondersteund via de Azure Portal.
 
 > [!NOTE]
-> Door gebruiker toegewezen identiteit bewerkingen worden momenteel niet ondersteund via de Azure Portal. Kijk binnenkort voor updates. 
+> Door gebruiker toegewezen identiteit bewerkingen worden momenteel niet ondersteund via de Azure Portal. Controleer later op updates. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md).
-- Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
+- Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
+- Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de roltoewijzing van de volgende:
+    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) inschakelen en verwijderen van beheerde Service-identiteit van een Azure-VM.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Beheerde Service-identiteit tijdens het maken van een Azure VM
 
@@ -50,14 +52,14 @@ Vervolgens gaat u verder met de volgende sectie voor meer informatie over het in
 
 Het systeem toegewezen identiteit op een virtuele machine die oorspronkelijk is ingericht zonder inschakelen:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Ook voor zorgen dat uw account deel uitmaakt van een rol waarmee u beschikt over machtigingen voor schrijven op de virtuele machine, zoals 'Inzender voor virtuele machines'.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine.
 
 2. Navigeer naar de gewenste virtuele Machine en selecteert u de pagina "Configuratie".
 
 3. Schakelt het systeem toegewezen identiteit op de virtuele machine door 'Ja' onder 'Beheerde service-identiteit' en klik vervolgens op **opslaan**. Met deze bewerking duurt 60 seconden of langer om uit te voeren:
 
-    > [!NOTE]
-    > Een gebruiker toegewezen identiteit toe te voegen aan een virtuele machine wordt momenteel niet ondersteund via de Azure Portal.
+   > [!NOTE]
+   > Een gebruiker toegewezen identiteit toe te voegen aan een virtuele machine wordt momenteel niet ondersteund via de Azure Portal.
 
    ![Schermafbeelding van de pagina configuratie](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -65,7 +67,7 @@ Het systeem toegewezen identiteit op een virtuele machine die oorspronkelijk is 
 
 Als u een virtuele Machine die het systeem toegewezen identiteit niet meer nodig hebt:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. Ook voor zorgen dat uw account deel uitmaakt van een rol waarmee u beschikt over machtigingen voor schrijven op de virtuele machine, zoals 'Inzender voor virtuele machines'.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. 
 
 2. Navigeer naar de gewenste virtuele Machine en selecteert u de pagina "Configuratie".
 
@@ -82,5 +84,5 @@ Als u een virtuele Machine die het systeem toegewezen identiteit niet meer nodig
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Met behulp van de Azure portal een Azure-VM-MSI geven [toegang tot een andere Azure-resource](howto-assign-access-portal.md).
+- Met behulp van de Azure portal een Azure-VM beheerde Service-identiteit geven [toegang tot een andere Azure-resource](howto-assign-access-portal.md).
 

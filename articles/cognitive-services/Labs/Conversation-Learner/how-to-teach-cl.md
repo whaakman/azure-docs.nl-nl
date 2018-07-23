@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 06fd547ff87263b660e697693c65d9ac1a907628
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866722"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170596"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Lesgeven met Conversatiecursist 
 
@@ -56,9 +56,10 @@ Systeemacties voorafgaand aan de vorige inschakelen | 4 |
 Entiteiten die aanwezig zijn op zijn beurt voorafgaand aan de huidige inschakelen | 4 | 
 Uitingen voorafgaand aan de huidige gebruiker inschakelen | 5 | 
 
-Houd er rekening mee actieselectie vindt niet de inhoud van het systeemacties--de tekst, inhoud van de kaart, of API-naam of gedrag--alleen de identiteit van de systeemactie.  Als gevolg hiervan niet wijzigen van de inhoud van een actie wordt het gedrag van het model van de selectie actie niet wijzigen.
-
-Verder, houd er rekening mee dat de inhoud/waarden van de entiteiten worden niet gebruikt--alleen hun aanwezigheid/afwezigheid.
+> [!NOTE]
+> Actieselectie neemt de inhoud van het systeemacties--de tekst, inhoud van de kaart, of API-naam of gedrag--alleen de identiteit van de systeemactie.  Als gevolg hiervan niet wijzigen van de inhoud van een actie wordt het gedrag van het model van de selectie actie niet wijzigen.
+>
+> Bovendien wordt de inhoud/waarden van entiteiten zijn niet gebruikt--alleen hun aanwezigheid/afwezigheid.
 
 Als de actie selecteren is niet gedraagt zoals verwacht, moet u dit mogelijke oplossingen zijn:
 

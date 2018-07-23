@@ -1,27 +1,27 @@
 ---
-title: Vereisten voor Azure Import/Export-service | Microsoft Docs
-description: Inzicht in de hardware- en softwarevereisten voor de Azure Import/Export-service.
+title: Vereisten voor de Azure Import/Export service | Microsoft Docs
+description: Informatie over de hardware- en softwarevereisten voor de Azure Import/Export-service.
 author: alkohli
 manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 4c6e22f50f4550cb4a6e25960bcc13a4d92e9819
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825064"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188804"
 ---
-# <a name="azure-importexport-system-requirements"></a>Systeemvereisten voor Azure Import/Export
+# <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systeemvereisten
 
-Dit artikel worden de belangrijke vereisten voor uw Azure Import/Export-service. Het is raadzaam dat u de informatie voordat u het gebruik van de service voor importeren/exporteren en vervolgens naar deze zo nodig tijdens de bewerking terugverwijzen zorgvuldig te controleren.
+Dit artikel beschrijft de belangrijke vereisten voor uw Azure Import/Export-service. Het is raadzaam dat u de informatie voordat u de Import/Export-service gebruiken en vervolgens terug naar deze zo nodig tijdens de bewerking verwijzen zorgvuldig te controleren.
 
 ## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
 
-Voorbereiden van de harde schijven met het hulpprogramma WAImportExport, de volgende **64-bits besturingssysteem die ondersteuning bieden voor BitLocker-stationsversleuteling** worden ondersteund.
+Voor het voorbereiden van de harde schijven met het hulpprogramma WAImportExport van de volgende **64-bits besturingssysteem die ondersteuning bieden voor BitLocker-stationsversleuteling** worden ondersteund.
 
 
 |Platform |Versie |
@@ -31,24 +31,24 @@ Voorbereiden van de harde schijven met het hulpprogramma WAImportExport, de volg
 
 
 
-## <a name="supported-storage-accounts"></a>Ondersteunde storage-accounts
+## <a name="supported-storage-accounts"></a>Ondersteunde opslagaccounts
 
 Azure Import/Export-service ondersteunt de volgende Azure storage-accounts.
 - Klassiek
 - Blob Storage-accounts
-- Algemene doel v1-opslagaccounts. 
+- Algemeen gebruik v1-opslagaccounts. 
 
-Elke taak kan worden gebruikt voor gegevensoverdracht naar of van slechts één opslagaccount. Een enkel voor importeren/exporteren-taak kan niet met andere woorden, meerdere opslagaccounts overbruggen. Zie voor meer informatie over het maken van een nieuw opslagaccount [het maken van een Opslagaccount](storage-create-storage-account.md#create-a-storage-account).
+Elke taak kan worden gebruikt voor het overbrengen van gegevens naar of van slechts één opslagaccount. Een taak één import/export kan niet met andere woorden, omvatten voor meerdere opslagaccounts. Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-create-storage-account.md#create-a-storage-account).
 
 > [!IMPORTANT] 
-> Storage-accounts biedt geen ondersteuning voor de service Azure Import exporteren waar de [Virtual Network Service-eindpunten](../../virtual-network/virtual-network-service-endpoints-overview.md) functie is ingeschakeld. 
+> De Azure Import Export-service biedt geen ondersteuning voor storage-accounts waarbij de [Virtual Network-Service-eindpunten](../../virtual-network/virtual-network-service-endpoints-overview.md) functie is ingeschakeld. 
 
 ## <a name="supported-storage-types"></a>Ondersteunde opslagtypen
 
 De volgende lijst met opslagtypen wordt ondersteund met Azure Import/Export-service.
 
 
-|Job  |Storage  |Ondersteund  |Niet ondersteund  |
+|Taak  |Storage  |Ondersteund  |Niet ondersteund  |
 |---------|---------|---------|---------|
 |Importeren     |  Azure Blob-opslag. <br>Blok-Blobs, pagina-blobs ondersteund. <br> Azure-bestanden ondersteund.       |         |
 |Exporteren     |   Azure Blob-opslag. <br>Blok-blobs, pagina-blobs en toevoeg-blobs ondersteund.       | Azure Files wordt niet ondersteund.        |
@@ -56,7 +56,7 @@ De volgende lijst met opslagtypen wordt ondersteund met Azure Import/Export-serv
 
 ## <a name="supported-hardware"></a>Ondersteunde hardware 
 
-Voor de service Azure Import/Export ondersteunde schijven nodig en ondersteunde SATA-connectors om gegevens te kopiëren.
+Voor de Azure Import/Export-service moet u ondersteunde schijven om gegevens te kopiëren.
 
 ### <a name="supported-disks"></a>Ondersteunde schijven
 
@@ -66,30 +66,21 @@ De volgende lijst van schijven wordt ondersteund voor gebruik met de Import/Expo
 |Schijftype  |Grootte  |Ondersteund |Niet ondersteund  |
 |---------|---------|---------|---------|
 |SSD    |   2,5-inch      |         |         |
-|HDD     |  2,5-inch<br>3.5"       |SATA II, SATA III         |Externe harde schijf met ingebouwde USB-adapter <br> Schijf binnen het hoofdlettergebruik van een externe harde schijf         |
+|HDD     |  2,5-inch<br>3,5-inch       |SATA II, SATA III         |Externe harde schijf met ingebouwde USB-adapter <br> Schijf binnen het hoofdlettergebruik van een externe harde schijf         |
 
 
-Een taak één importeren/exporteren kan hebben:
-- Maximaal 10 HDD SSD's.
-- Een combinatie van harde schijven per SSD van elke grootte.
+Een enkele import-/ exporttaak kan hebben:
+- Maximaal 10 HDD/SSD's.
+- Een combinatie van HDD per SSD van elke grootte.
 
-Groot aantal schijven kan worden verdeeld over meerdere taken en er is geen beperkingen op het aantal taken dat kan worden gemaakt. 
+Groot aantal stations kan worden verdeeld over meerdere taken en er is geen beperkingen voor het aantal taken dat kan worden gemaakt. Voor de taken van gegevensimport, wordt alleen de eerste gegevensvolume op het station verwerkt. Het gegevensvolume moet zijn geformatteerd met NTFS.
 
-Voor taken van gegevensimport wordt alleen het eerste gegevensvolume op het station verwerkt. Het gegevensvolume moet zijn geformatteerd met NTFS.
-
-### <a name="supported-external-usb-adaptors"></a>Externe USB-adapters ondersteund
-
-Wanneer het voorbereiden van de harde schijven en kopiëren van de gegevens met het hulpprogramma WAImportExport, kunt u externe USB-adapters (buiten-de-shelp) te volgen: 
-- Anker 68UPSATAA 02 door
-- Anker 68UPSHHDS-door
-- Startech SATADOCK22UE
-- Orico 6628SUS3-C-BK (6628-serie)
-- Thermaltake BlacX Hot Swap SATA externe harde schijf dockingstation (USB 2.0 & eSATA)
+Bij het voorbereiden van harde schijven en kopiëren van de gegevens met behulp van het hulpprogramma WAImportExport, kunt u externe USB-adapters. Meest gebruiksklare USB 3.0 of hoger adapters kunnen worden gebruikt. 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Het hulpprogramma WAImportExport instellen](storage-import-export-tool-how-to.md)
+* [Instellen van het hulpprogramma WAImportExport](storage-import-export-tool-how-to.md)
 * [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
-* [Azure Import exporteren REST-API-voorbeeld](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Voorbeeld van Azure Import Export REST-API](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 

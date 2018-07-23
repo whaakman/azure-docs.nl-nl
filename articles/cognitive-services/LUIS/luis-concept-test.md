@@ -9,18 +9,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: d6cbba2a5bf9ff44439c6e98debde5cd47d4bfc3
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 46aa23ee359fd1f2f5a1cf8a05854d5c4cc7c739
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950386"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170613"
 ---
 # <a name="testing-in-luis"></a>Testen in LUIS
 
 Testen, is het proces van LUIS voorbeeld uitingen die en het ophalen van een reactie van LUIS herkend intenties en entiteiten. 
 
-U kunt [testen](interactive-test.md) LUIS interactief, één utterance tegelijkertijd, of geef een [batch](luis-concept-batch-test.md) van uitingen. Met testen, vergelijkt u de huidige [active](luis-concept-version.md#active-version) modellen met het gepubliceerde model. 
+U kunt [testen](luis-interactive-test.md) LUIS interactief, één utterance tegelijkertijd, of geef een [batch](luis-concept-batch-test.md) van uitingen. Met testen, vergelijkt u de huidige [active](luis-concept-version.md#active-version) modellen met het gepubliceerde model. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -57,4 +57,4 @@ Informatie over [aanbevolen procedures](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [testen](interactive-test.md) uw uitingen.
+* Meer informatie over [testen](luis-interactive-test.md) uw uitingen.

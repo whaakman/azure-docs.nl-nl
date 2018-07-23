@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: 8851d2cad5958b01df1d21ea44e5c03bb788c83b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c90ab99908f2fd8095eca1a8d58582fb339362be
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904039"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187975"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Een virtuele machine configureren Virtual Machine scale sets Managed Service Identity (MSI) met behulp van Azure CLI
 
@@ -35,13 +35,15 @@ In dit artikel leert u hoe u de volgende bewerkingen voor beheerde Service-ident
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
-- Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
-
-Als u wilt de CLI-scriptvoorbeelden uitvoeren, hebt u drie opties:
-
-- Gebruik [Azure Cloud Shell](../../cloud-shell/overview.md) vanuit Azure portal (Zie volgende sectie).
-- Gebruik de ingesloten Azure Cloud Shell via het 'Try It' de knop, zich in de rechterbovenhoek van elk codeblok.
-- [Installeer de nieuwste versie van CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 of hoger) als u liever een lokale CLI-console. 
+- Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
+- Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende roltoewijzingen:
+    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) maken van een virtuele-machineschaalset en inschakelen en systeem toegewezen beheerde identiteit van een virtuele-machineschaalset verwijderen.
+    - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van de identiteit van een gebruiker toegewezen.
+    - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol die u wilt toewijzen en verwijderen van een gebruiker toegewezen identiteit van en naar een virtuele-machineschaalset.
+- Als u wilt de CLI-scriptvoorbeelden uitvoeren, hebt u drie opties:
+    - Gebruik [Azure Cloud Shell](../../cloud-shell/overview.md) vanuit Azure portal (Zie volgende sectie).
+    - Gebruik de ingesloten Azure Cloud Shell via het 'Try It' de knop, zich in de rechterbovenhoek van elk codeblok.
+    - [Installeer de nieuwste versie van CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 of hoger) als u liever een lokale CLI-console. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -53,7 +55,7 @@ In deze sectie leert u hoe u inschakelen en uitschakelen van het systeem toegewe
 
 Maken van een virtuele-machineschaalset met het systeem toegewezen identiteit is ingeschakeld:
 
-1. Als u de Azure CLI in een lokale console gebruikt, eerst aanmelden bij Azure met [az login](/cli/azure/reference-index#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarin u wilt implementeren van de virtuele-machineschaalset:
+1. Als u de Azure CLI in een lokale console gebruikt, meldt u zich eerst aan bij Azure met [az login](/cli/azure/reference-index#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarin u wilt implementeren van de virtuele-machineschaalset:
 
    ```azurecli-interactive
    az login
@@ -65,7 +67,7 @@ Maken van een virtuele-machineschaalset met het systeem toegewezen identiteit is
    az group create --name myResourceGroup --location westus
    ```
 
-3. Maak een VM-schaalset met behulp van [az vmss maken](/cli/azure/vmss/#az_vmss_create) . Het volgende voorbeeld wordt een virtuele-machineschaalset met de naam *myVMSS* met een systeem toegewezen identiteit, zoals aangevraagd door de `--assign-identity` parameter. De `--admin-username` en `--admin-password` parameters geeft u het account voor gebruiker met beheerdersrechten en het wachtwoord voor aanmelding bij de virtuele machine. Deze waarden als geschikt is voor uw omgeving bijwerken: 
+3. Maak een VM-schaalset met behulp van [az vmss maken](/cli/azure/vmss/#az_vmss_create) . Het volgende voorbeeld wordt een virtuele-machineschaalset met de naam *myVMSS* met een systeem toegewezen identiteit, zoals aangevraagd door de `--assign-identity` parameter. Met de parameters `--admin-username` en `--admin-password` worden de naam van de gebruiker met beheerdersrechten en het wachtwoord van het account voor aanmelding bij de virtuele machine opgegeven. Werk deze waarden bij met waarden die geschikt zijn voor uw omgeving: 
 
    ```azurecli-interactive 
    az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
@@ -75,7 +77,7 @@ Maken van een virtuele-machineschaalset met het systeem toegewezen identiteit is
 
 Als u nodig hebt om in te schakelen van het systeem toegewezen identiteit op een bestaande schaalset voor virtuele Azure-machine:
 
-1. Als u de Azure CLI in een lokale console gebruikt, eerst aanmelden bij Azure met [az login](/cli/azure/reference-index#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
+1. Als u de Azure CLI in een lokale console gebruikt, meldt u zich eerst aan bij Azure met [az login](/cli/azure/reference-index#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
 
    ```azurecli-interactive
    az login
@@ -90,7 +92,7 @@ Als u nodig hebt om in te schakelen van het systeem toegewezen identiteit op een
 ### <a name="disable-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Systeem toegewezen identiteit van een schaalset voor virtuele Azure-machine uitschakelen
 
 > [!NOTE]
-> Beheerde Service-identiteit van een virtuele-Machineschaalset uitschakelen wordt momenteel niet ondersteund. In de tussentijd kunt u overschakelen tussen het gebruik van het systeem toegewezen en de gebruiker toegewezen identiteiten. Kijk binnenkort voor updates.
+> Beheerde Service-identiteit van een virtuele-Machineschaalset uitschakelen wordt momenteel niet ondersteund. In de tussentijd kunt u overschakelen tussen het gebruik van het systeem toegewezen en de gebruiker toegewezen identiteiten. Controleer later op updates.
 
 Als u een virtuele-machineschaalset die niet langer een systeem toegewezen identiteit, maar nog steeds moet gebruiker toegewezen identiteiten hebt, voert u de volgende opdracht uit:
 
@@ -112,13 +114,13 @@ In deze sectie leert u hoe u om te schakelen en te verwijderen van een gebruiker
 
 In deze sectie helpt u bij het maken van een VMSS en de toewijzing van een gebruiker toegewezen identiteit voor de VMSS. Als u al een VMSS hebt die u wilt gebruiken, kunt u deze sectie overslaan en doorgaan met de volgende.
 
-1. U kunt deze stap overslaan als u al een resourcegroep die u wilt gebruiken. Maak een [resourcegroep](~/articles/azure-resource-manager/resource-group-overview.md#terminology) voor insluiting en implementatie van de gebruiker toegewezen identiteit, met behulp van [az-groep maken](/cli/azure/group/#az_group_create). Vervang de `<RESOURCE GROUP>` en `<LOCATION>` parameterwaarden door uw eigen waarden. :
+1. U kunt deze stap overslaan als u al een resourcegroep die u wilt gebruiken. Maak een [resourcegroep](~/articles/azure-resource-manager/resource-group-overview.md#terminology) voor insluiting en implementatie van de gebruiker toegewezen identiteit, met behulp van [az-groep maken](/cli/azure/group/#az_group_create). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<LOCATION>` door uw eigen waarden. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Een gebruiker toegewezen identiteit maken [az-identiteit maken](/cli/azure/identity#az-identity-create).  De `-g` parameter geeft u de resourcegroep waar de gebruiker toegewezen identiteit is gemaakt, en de `-n` parameter geeft u de naam ervan. Vervang de `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` parameterwaarden door uw eigen waarden:
+2. Een gebruiker toegewezen identiteit maken [az-identiteit maken](/cli/azure/identity#az-identity-create).  De `-g` parameter geeft u de resourcegroep waar de gebruiker toegewezen identiteit is gemaakt, en de `-n` parameter geeft u de naam ervan. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` door uw eigen waarden:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -143,7 +145,7 @@ Het antwoord bevat details voor de gebruiker toegewezen identiteit gemaakt, verg
    }
    ```
 
-3. Maak een VMSS met [az vmss maken](/cli/azure/vmss/#az-vmss-create). Het volgende voorbeeld wordt een VMSS die zijn gekoppeld aan de nieuwe gebruiker toegewezen identiteit, zoals opgegeven door de `--assign-identity` parameter. Vervang de `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>`, en `<USER ASSIGNED IDENTITY ID>` parameterwaarden door uw eigen waarden. Voor `<USER ASSIGNED IDENTITY ID>`, gebruik van de identiteit van de gebruiker toegewezen resource `id` eigenschap in de vorige stap hebt gemaakt: 
+3. Maak een VMSS met [az vmss maken](/cli/azure/vmss/#az-vmss-create). Het volgende voorbeeld wordt een VMSS die zijn gekoppeld aan de nieuwe gebruiker toegewezen identiteit, zoals opgegeven door de `--assign-identity` parameter. Vervang de parameterwaarden `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` en `<USER ASSIGNED IDENTITY ID>` door uw eigen waarden. Voor `<USER ASSIGNED IDENTITY ID>`, gebruik van de identiteit van de gebruiker toegewezen resource `id` eigenschap in de vorige stap hebt gemaakt: 
 
    ```azurecli-interactive 
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY ID>
@@ -151,10 +153,10 @@ Het antwoord bevat details voor de gebruiker toegewezen identiteit gemaakt, verg
 
 ### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Een gebruiker toegewezen identiteit aan een bestaande VM in Azure toewijzen
 
-1. Een gebruiker toegewezen identiteit maken [az-identiteit maken](/cli/azure/identity#az-identity-create).  De `-g` parameter geeft u de resourcegroep waar de gebruiker toegewezen identiteit is gemaakt, en de `-n` parameter geeft u de naam ervan. Vervang de `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` parameterwaarden door uw eigen waarden:
+1. Een gebruiker toegewezen identiteit maken [az-identiteit maken](/cli/azure/identity#az-identity-create).  De `-g` parameter geeft u de resourcegroep waar de gebruiker toegewezen identiteit is gemaakt, en de `-n` parameter geeft u de naam ervan. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` door uw eigen waarden:
 
     > [!IMPORTANT]
-    > Het maken van de gebruiker toegewezen identiteiten met speciale tekens (dat wil zeggen onderstrepingstekens) in de naam is momenteel niet ondersteund. Gebruik alfanumerieke tekens. Kijk binnenkort voor updates.  Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
+    > Het maken van de gebruiker toegewezen identiteiten met speciale tekens (dat wil zeggen onderstrepingstekens) in de naam is momenteel niet ondersteund. Gebruik alfanumerieke tekens. Controleer later op updates.  Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
@@ -176,7 +178,7 @@ Het antwoord bevat details voor de gebruiker toegewezen identiteit gemaakt, verg
    }
    ```
 
-2. Toewijzen van de identiteit van de gebruiker toegewezen aan uw VMSS met [az vmss-identiteit toewijzen](/cli/azure/vmss/identity#az_vm_assign_identity). Vervang de `<RESOURCE GROUP>` en `<VMSS NAME>` parameterwaarden door uw eigen waarden. De `<USER ASSIGNED IDENTITY ID>` is van de identiteit van de gebruiker toegewezen resource `id` eigenschap, zoals in de vorige stap hebt gemaakt:
+2. Toewijzen van de identiteit van de gebruiker toegewezen aan uw VMSS met [az vmss-identiteit toewijzen](/cli/azure/vmss/identity#az_vm_assign_identity). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VMSS NAME>` door uw eigen waarden. De `<USER ASSIGNED IDENTITY ID>` is van de identiteit van de gebruiker toegewezen resource `id` eigenschap, zoals in de vorige stap hebt gemaakt:
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
@@ -187,7 +189,7 @@ Het antwoord bevat details voor de gebruiker toegewezen identiteit gemaakt, verg
 > [!NOTE]
 >  Verwijderen van alle gebruiker toegewezen identiteiten uit een virtuele-Machineschaalset is momenteel niet ondersteund, tenzij er een systeem toegewezen identiteit. 
 
-Als uw VMSS meerdere gebruiker toegewezen identiteiten heeft, kunt u alles behalve de laatste via [az vmss-identiteit verwijderen](/cli/azure/vmss/identity#az-vmss-identity-remove). Vervang de `<RESOURCE GROUP>` en `<VMSS NAME>` parameterwaarden door uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die kan worden gevonden door in de sectie van de identiteit van het gebruik van de virtuele machine `az vm show`:
+Als uw VMSS meerdere gebruiker toegewezen identiteiten heeft, kunt u alles behalve de laatste via [az vmss-identiteit verwijderen](/cli/azure/vmss/identity#az-vmss-identity-remove). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VMSS NAME>` door uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die kan worden gevonden door in de sectie van de identiteit van het gebruik van de virtuele machine `az vm show`:
 
 ```azurecli-interactive
 az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>

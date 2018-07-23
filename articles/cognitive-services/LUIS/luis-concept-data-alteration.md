@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: ab70839b4fa8f2064a3ff929034a6ffcb8fc7788
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1f6f05376240b90aa82c25172349d716fb49234a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887739"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170657"
 ---
 # <a name="data-alterations"></a>Wijzigingen van gegevens
 LUIS biedt methoden voor het bewerken van de utterance vóór of tijdens de voorspelling. 
@@ -22,7 +22,7 @@ LUIS biedt methoden voor het bewerken van de utterance vóór of tijdens de voor
 ## <a name="correct-spelling-errors-in-utterance"></a>Corrigeren van spelfouten in utterance
 Maakt gebruik van LUIS [Bing spellingcontrole controleren-API-versie 7](https://azure.microsoft.com/services/cognitive-services/spell-check/) te corrigeren van spelfouten in de utterance. LUIS moet de sleutel die is gekoppeld aan die service. De sleutel maken en vervolgens de sleutel toevoegen als een queryreeksparameter aan de [eindpunt](https://aka.ms/luis-endpoint-apis). 
 
-U kunt ook corrigeren van spelfouten in de **Test** door het deelvenster [invoeren van de sleutel](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). De sleutel wordt opgeslagen als een variabele van sessie in de browser voor het deelvenster Test. De sleutel toevoegen aan het deelvenster Test in elke spelling gecorrigeerd gewenste browsersessie. 
+U kunt ook corrigeren van spelfouten in de **Test** door het deelvenster [invoeren van de sleutel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). De sleutel wordt opgeslagen als een variabele van sessie in de browser voor het deelvenster Test. De sleutel toevoegen aan het deelvenster Test in elke spelling gecorrigeerd gewenste browsersessie. 
 
 Gebruik van de sleutel in het deelvenster testen en op het eindpunt tellen mee voor de [sleutelgebruik](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) quotum. LUIS implementeert Bing Spell Check-beperkingen voor tekstlengte. 
 
