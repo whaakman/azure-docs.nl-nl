@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049449"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205456"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -26,76 +26,38 @@ U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 1. Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie, [maken van uw Azure IoT Central Application](howto-create-application.md).
 1. Een apparaat DevKit. Als u wilt een apparaat DevKit kopen, gaat u naar [MXChip IoT DevKit](http://mxchip.com/az3166).
 
-Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **MXChip** apparaat sjabloon met de volgende kenmerken:
 
-### <a name="measurements"></a>Metingen
+## <a name="sample-devkits-application"></a>**Voorbeeld van een Devkits** toepassing
 
-#### <a name="telemetry"></a>Telemetrie 
+Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **MXChip** apparaat sjabloon met de volgende kenmerken: 
 
-| Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
-| -------------- | ------ | ------- | ------- | -------------- |
-| vochtigheid       | %      | 0       | 100     | 0              |
-| TEMP           | ° C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | MDP 's   | -2000   | 2000    | 0              |
-| gyroscopeY     | MDP 's   | -2000   | 2000    | 0              |
-| gyroscopeZ     | MDP 's   | -2000   | 2000    | 0              |
-
-#### <a name="states"></a>Staten 
-
-| Naam          | Weergavenaam   | NORMAAL | LET OP | GEVAAR | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Apparaatstatus   | Groen  | Orange  | Rood    | 
-
-#### <a name="events"></a>Gebeurtenissen 
-
-| Naam             | Weergavenaam      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Knop B ingedrukt  | 
+- Telemetrie waarin de metingen voor het apparaat **vochtigheid**, **temperatuur**, **druk te verlichten**, **Magnometer** (gemeten langs de X Y, Z-as), **Accelorometer** (gemeten langs de X, Y, Z-as) en **gyroscoop** (gemeten langs de X, Y, Z-as).
+- Status die bevat een voorbeeld van de meting voor **Apparaatstatus**.
+- Gebeurtenis-meting met een **B gedrukt** gebeurtenis. 
+- Instellingen van **spanning**, **huidige**, **ventilatorsnelheid**, en een **IR** in-/ uitschakelen.
+- Eigenschappen van de apparaateigenschappen **die nummer** en **locatie van het apparaat** is een locatie-eigenschap ook als in een **geproduceerd In** eigenschap in de cloud. 
 
 
-
-### <a name="settings"></a>Instellingen
-
-Numerieke instellingen
-
-| Weergavenaam | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Voltage      | setVoltage | Voltage | 0              | 0       | 240     | 0       |
-| Huidige      | setCurrent | Stroom  | 0              | 0       | 100     | 0       |
-| Snelheid van ventilator    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
-
-Instellingen voor in-/ uitschakelen
-
-| Weergavenaam | Veldnaam | Van tekst | Uit tekst | Oorspronkelijk |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | AAN      | UIT      | Uit     |
-
-### <a name="properties"></a>Eigenschappen
-
-| Type            | Weergavenaam | Veldnaam | Gegevenstype |
-| --------------- | ------------ | ---------- | --------- |
-| Apparaateigenschappen | Aantal die   | dieNumber  | getal    |
-| Apparaateigenschappen | Locatie van het apparaat   | location  | location    |
-| Tekst            | Geproduceerd In     | manufacturedIn   | N/A       |
+Voor volledige informatie over de configuratie van de verwijzen naar [MXChip sjabloon Apparaatdetails](howto-connect-devkit.md#mxchip-device-template-details)
 
 
-### <a name="add-a-real-device"></a>Echt apparaat toevoegen
+## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
 Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** apparaat sjabloon en maak een notitie van de verbindingsreeks van het apparaat. Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central toepassing](tutorial-add-device.md).
 
-## <a name="prepare-the-devkit-device"></a>Het apparaat DevKit voorbereiden
+### <a name="prepare-the-devkit-device"></a>Het apparaat DevKit voorbereiden
 
 > [!NOTE]
 > Als u het apparaat eerder hebt gebruikt en Wi-Fi referenties opgeslagen en wilt configureren van het apparaat voor het gebruik van een ander Wi-Fi-netwerk, een verbindingsreeks of een telemetrie-meting hebt, drukt u op zowel de **A** en **B** tegelijkertijd knoppen op het bord. Als dit niet werkt, drukt u op **opnieuw** knop en probeer het opnieuw.
 
-Het apparaat DevKit voorbereiden:
+#### <a name="before-you-start-configuring-the-device"></a>Voordat u begint met het configureren van het apparaat:
+1. Uw IoT-centraal-India **voorbeeld Devkits** Ga naar `Device Explorer` ->  `select MXChip Template`  ->  `Click on +New and choose **Real** Device`  ->  `Connect this device` (in de rechterbovenhoek) 
+2. Kopieer de primaire verbindingsreeks
+3. Zorg ervoor dat u de verbindingsreeks opslaan als u temporaritly verbinding verbroken via internet bij het voorbereiden van het apparaat DevKit. 
+
+
+#### <a name="to-prepare-the-devkit-device"></a>Het apparaat DevKit voorbereiden:
+
 
 1. Download de meest recente vooraf gebouwde Azure IoT Central firmware voor de MXChip uit de [releases](https://github.com/Azure/iot-central-firmware/releases) pagina op GitHub. De bestandsnaam downloaden op de releasepagina ziet eruit als `AZ3166-IoT-Central-X.X.X.bin`.
 
@@ -113,7 +75,7 @@ Het apparaat DevKit voorbereiden:
     ```
 
     > [!NOTE]
-    > Als u iets anders van het scherm weergegeven, drukt u op de **opnieuw** knop op het apparaat. 
+    > Als u iets anders van het scherm weergegeven, drukt u op de **A** en **B** knoppen op het apparaat op hetzelfde moment opnieuw opstarten van het apparaat. 
 
 1. Het apparaat is nu in de toegangsmodus punt (AP). U kunt met dit Wi-Fi-toegangspunt voor het verbinden van uw computer of mobiel apparaat.
 
@@ -125,10 +87,9 @@ Het apparaat DevKit voorbereiden:
 
     In de webpagina wordt weergegeven: 
     - de naam van uw Wi-Fi-netwerk toevoegen 
-    - het wachtwoord voor het Wi-Fi-netwerk 
+    - het wachtwoord voor het Wi-Fi-netwerk
     - PIN-CODE die wordt weergegeven op het apparaat LCD 
-    - de verbindingsreeks van uw apparaat. 
-      U vindt de verbindingsreeks \@ `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (in de rechterbovenhoek) 
+    - de verbindingsreeks van uw apparaat (u moet al opgeslagen dit de stappen te volgen) vindt u de verbindingsreeks op `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (in de rechterbovenhoek)
     - Selecteer alle beschikbare telemetrie metingen. 
 
 1. Nadat u hebt gekozen **apparaat configureren**, ziet u deze pagina:
@@ -206,6 +167,66 @@ De functie `telemetryLoop` verzendt de **doubleTap** eigenschap gemeld wanneer d
 De code in de **iotHubClient.cpp** bronbestand gebruikmaakt van functies van de [ Microsoft Azure IoT SDK's en bibliotheken voor C](https://github.com/Azure/azure-iot-sdk-c) om te communiceren met IoT Hub.
 
 Zie voor meer informatie over het wijzigen, bouwen en de voorbeeldcode uploaden naar uw apparaat, de **readme.md** -bestand in de `AZ3166` map.
+
+## <a name="mxchip-device-template-details"></a>MXChip sjabloon Apparaatdetails 
+
+Een toepassing gemaakt op basis van de sjabloon van de toepassing Devkits voorbeeld bevat een sjabloon voor het apparaat van MXChip met de volgende kenmerken:
+
+### <a name="measurements"></a>Metingen
+
+#### <a name="telemetry"></a>Telemetrie 
+
+| Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
+| -------------- | ------ | ------- | ------- | -------------- |
+| vochtigheid       | %      | 0       | 100     | 0              |
+| TEMP           | ° C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | MDP 's   | -2000   | 2000    | 0              |
+| gyroscopeY     | MDP 's   | -2000   | 2000    | 0              |
+| gyroscopeZ     | MDP 's   | -2000   | 2000    | 0              |
+
+
+#### <a name="states"></a>Staten 
+| Naam          | Weergavenaam   | NORMAAL | LET OP | GEVAAR | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Apparaatstatus   | Groen  | Orange  | Rood    | 
+
+#### <a name="events"></a>Gebeurtenissen 
+| Naam             | Weergavenaam      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Knop B ingedrukt  | 
+
+### <a name="settings"></a>Instellingen
+
+Numerieke instellingen
+
+| Weergavenaam | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Voltage      | setVoltage | Voltage | 0              | 0       | 240     | 0       |
+| Huidige      | setCurrent | Stroom  | 0              | 0       | 100     | 0       |
+| Snelheid van ventilator    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Instellingen voor in-/ uitschakelen
+
+| Weergavenaam | Veldnaam | Van tekst | Uit tekst | Oorspronkelijk |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | AAN      | UIT      | Uit     |
+
+### <a name="properties"></a>Eigenschappen
+
+| Type            | Weergavenaam | Veldnaam | Gegevenstype |
+| --------------- | ------------ | ---------- | --------- |
+| Apparaateigenschappen | Aantal die   | dieNumber  | getal    |
+| Apparaateigenschappen | Locatie van het apparaat   | location  | location    |
+| Tekst            | Geproduceerd In     | manufacturedIn   | N/A       |
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

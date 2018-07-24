@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3fbf47eca2c623e55ff5e70095c04f16a1a1b3e6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868432"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215159"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Het configureren van hybride Azure Active Directory verbonden apparaten
 
@@ -97,7 +97,7 @@ Als uw organisatie is plan te gebruiken van naadloze eenmalige aanmelding, zijn 
 
 Als uw organisatie gebruikmaakt van beheerde (niet-gefedereerde)-installatie met behulp van on-premises AD en maakt geen gebruik van ADFS om te federeren met Azure AD en hybride Azure AD join op Windows 10 is afhankelijk van de computerobjecten in AD worden sync'ed naar Azure AD. Zorg ervoor dat een organisatie-eenheden (OE) waarin de computerobjecten die moeten worden toegevoegd aan hybrid Azure AD zijn ingeschakeld voor synchronisatie in de configuratie van de Azure AD Connect-synchronisatie.
 
-Als uw organisatie toegang tot Internet via een uitgaande proxy is vereist, moet u Web Proxy Auto-Discovery (WPAD) om in te schakelen om u te registreren bij Azure AD Windows 10-computers implementeren.
+Als uw organisatie toegang tot Internet via een uitgaande proxy vereist, moet u voor Windows 10-apparaten met versie 1703 of eerder, Web Proxy Auto-Discovery (WPAD) om in te schakelen om u te registreren bij Azure AD Windows 10-computers implementeren. 
 
 ## <a name="configuration-steps"></a>Configuratiestappen
 

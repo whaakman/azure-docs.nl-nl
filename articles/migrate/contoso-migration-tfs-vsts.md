@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 05340c8504150ed568e0d5ce5c8250127e59bca0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6d1d90ff0f9a49d3db9f4dc8894c9837942658f0
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003234"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214996"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Migratie van Contoso: een Team Foundation Server-implementatie naar Visual Studio Team Services (VSTS) herstructureren
 
@@ -242,7 +242,7 @@ Voordat ze starten, plant u Contoso downtime met het ontwikkelingsteam, de verza
 2. **Genereren van een back-up**: de volgende stap van het migratieproces is voor het genereren van een back-up die kan worden geïmporteerd in VSTS. Data-tier Application onderdeel pakketten (DACPAC) is een SQL Server-functie waarmee databasewijzigingen worden verpakt in een enkel bestand en geïmplementeerd voor andere exemplaren van SQL. Het kan ook rechtstreeks naar VSTS worden hersteld en wordt daarom gebruikt als de verpakking-methode voor het ophalen van gegevens te verzamelen in de cloud. Contoso gebruikt het hulpprogramma SqlPackage.exe voor het genereren van de DACPAC. Dit hulpprogramma is opgenomen in SQL Server Data Tools.
 3. **Uploaden naar storage**: nadat de DACPAC is gemaakt, ze te uploaden naar Azure Storage. Nadat deze geüpload, krijgen ze een shared access signature (SAS), dat het hulpprogramma voor migratie van TFS-toegang tot de opslag.
 4. **Vul de import**: Contoso vervolgens vult ontbrekende velden in het importbestand, met inbegrip van de instelling DACPAC. Beginnen met ze moeten opgeven dat ze willen doen een **is een** importeren om te controleren of alles goed voordat u de volledige migratie werkt.
-5. **Test**: droge uitvoeren invoer te verzamelingmigratie testen. Droog uitvoeringen beperkte levensduur hebben en worden verwijderd voordat u een migratie van een productie wordt uitgevoerd. Ze bent na een bepaalde tijd automatisch verwijderd. Een opmerking over wanneer de uitvoering droge worden verwijderd, is opgenomen in de e-mail met succesbericht ontvangen nadat het importeren is voltooid. Houd er rekening mee houden en dienovereenkomstig te plannen.
+5. **Test**: droge uitvoeren invoer te verzamelingmigratie testen. Droog uitvoeringen beperkte levensduur hebben en worden verwijderd voordat de migratie van een productie wordt uitgevoerd. Ze bent na een bepaalde tijd automatisch verwijderd. Een opmerking over wanneer de uitvoering droge worden verwijderd, is opgenomen in de e-mail met succesbericht ontvangen nadat het importeren is voltooid. Houd er rekening mee houden en dienovereenkomstig te plannen.
 6. **Voltooien van de productie-migratie**: Contoso heeft met de testmodus de migratie is voltooid, de laatste migratie door de import.json bijwerken en opnieuw importeren uit te voeren.
 
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0611662dfb0ad2e15f87bbe5ec5559e7d8da57d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: bf83a98010631fc20c5fd7365a3ca081bd9c8c75
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185717"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214854"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -41,9 +41,13 @@ Zorg ervoor dat de volgende vereisten voldaan is:
     >[!NOTE]
     >Azure AD Connect-versies 1.1.557.0, 1.1.558.0 1.1.561.0 en 1.1.614.0 is een probleem met betrekking tot wachtwoord-hashsynchronisatie. Als u _niet_ wilt wachtwoord-hashsynchronisatie gebruiken in combinatie met Pass through-verificatie, lees de [opmerkingen bij de release van Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) voor meer informatie.
 
+* **Gebruik een ondersteunde Azure AD Connect-topologie**: Zorg ervoor dat u van een van de Azure AD Connect van ondersteunde topologieën beschreven gebruikmaakt [hier](active-directory-aadconnect-topologies.md).
+
 * **Instellen van referenties voor de domeinbeheerder**: U moet domeinbeheerdersreferenties hebben voor elk Active Directory-forest:
     * U synchroniseren met Azure AD via Azure AD Connect.
     * Gebruikers die u wilt inschakelen voor naadloze eenmalige aanmelding bevat.
+    
+* **Moderne verificatie inschakelen**: U moet inschakelen [moderne verificatie](https://aka.ms/modernauthga) op uw tenant voor deze functie om te werken.
 
 ## <a name="step-2-enable-the-feature"></a>Stap 2: De functie inschakelen
 
@@ -77,21 +81,27 @@ Volg deze instructies om te controleren of u naadloze eenmalige aanmelding corre
 
 ## <a name="step-3-roll-out-the-feature"></a>Stap 3: Implementatie van de functie
 
-Voor de functie voor implementatie in uw gebruikers, moet u de volgende Azure AD-URL toevoegen aan zone-instellingen van de gebruikers Intranet met behulp van Groepsbeleid in Active Directory:
+U kunt geleidelijk implementeert naadloze eenmalige aanmelding voor uw gebruikers met behulp van de onderstaande instructies. U start met de volgende Azure AD-URL toe te voegen aan alle of Intranet zone-instellingen van gebruikers zijn geselecteerd met behulp van Groepsbeleid in Active Directory:
 
 - https://autologon.microsoftazuread-sso.com
-
 
 Bovendien moet u een Intranet zone beleid instelling inschakelen **toestaan van updates op de statusbalk via script** via Groepsbeleid. 
 
 >[!NOTE]
-> De volgende instructies werken alleen voor Internet Explorer en Google Chrome in Windows (indien deze een reeks URL's voor vertrouwde sites in Internet Explorer deelt). Lees de volgende sectie voor instructies over het instellen van Mozilla Firefox en Google Chrome op Mac.
+> De volgende instructies werken alleen voor Internet Explorer en Google Chrome in Windows (indien deze een reeks URL's voor vertrouwde sites in Internet Explorer deelt). Lees de volgende sectie voor instructies over het instellen van Mozilla Firefox en Google Chrome in macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Waarom moet u gebruikers Intranet zone-instellingen wijzigen?
 
 Standaard berekent de browser automatisch de juiste zone, Internet- of intranethosts van een specifieke URL. Bijvoorbeeld, "http://contoso/'wordt toegewezen aan de intranetzone, terwijl'http://intranet.contoso.com/' wordt toegewezen aan de zone Internet (omdat de URL een periode bevat). Browsers wordt Kerberos-tickets niet verzenden naar een cloudeindpunt, zoals de URL van de Azure AD, tenzij u expliciet de URL aan de intranetzone van de browser toevoegen.
 
-### <a name="detailed-steps"></a>Gedetailleerde stappen
+Er zijn twee manieren om gebruikers Intranet zone-instellingen te wijzigen:
+
+| Optie | Beheerder overweging | Gebruikerservaring |
+| --- | --- | --- |
+| Groepsbeleid | Beheerder vergrendelingen omlaag Intranet zone-instellingen te bewerken | Gebruikers kunnen hun eigen instellingen niet wijzigen |
+| Voorkeuren voor Groepsbeleid |  Beheerder kan op Intranet zone-instellingen bewerken | Gebruikers kunnen hun eigen instellingen wijzigen |
+
+### <a name="group-policy-option---detailed-steps"></a>"Groepsbeleid" optie - gedetailleerde stappen
 
 1. Open de Editor voor Groepsbeleidsbeheer-hulpprogramma.
 2. Bewerk het groepsbeleid dat wordt toegepast op sommige of alle gebruikers. In dit voorbeeld wordt **standaarddomeinbeleid**.
@@ -123,6 +133,32 @@ Standaard berekent de browser automatisch de juiste zone, Internet- of intraneth
 
     ![Eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso12.png)
 
+### <a name="group-policy-preference-option---detailed-steps"></a>Optie 'Groep voor voorkeuren voor Groepsbeleid' - gedetailleerde stappen
+
+1. Open de Editor voor Groepsbeleidsbeheer-hulpprogramma.
+2. Bewerk het groepsbeleid dat wordt toegepast op sommige of alle gebruikers. In dit voorbeeld wordt **standaarddomeinbeleid**.
+3. Blader naar **Gebruikersconfiguratie** > **voorkeuren** > **Windows-instellingen** > **register**  >  **Nieuw** > **registeritem**.
+
+    ![Eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso15.png)
+
+4. Voer de volgende waarden in de juiste velden en klik op **OK**.
+   - **Pad sleutel**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Waardenaam**: ***https***.
+   - **Waardetype**: ***REG_DWORD***.
+   - **Waardegegevens**: ***00000001***.
+ 
+    ![Eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso16.png)
+ 
+    ![Eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso17.png)
+
+6. Blader naar **Gebruikersconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >   **Internet Explorer** > **Configuratiescherm Internet** > **beveiligingspagina** > **intranetzone**. Selecteer vervolgens **toestaan van updates op de statusbalk via script**.
+
+    ![Eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. De instelling is ingeschakeld en selecteer vervolgens **OK**.
+
+    ![Eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso12.png)
+
 ### <a name="browser-considerations"></a>Overwegingen voor browser
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (alle platformen)
@@ -134,15 +170,15 @@ Mozilla Firefox niet automatisch Kerberos-verificatie gebruiken. Elke gebruiker 
 4. Voer https://autologon.microsoftazuread-sso.com in het veld.
 5. Selecteer **OK** en Open de browser.
 
-#### <a name="safari-mac-os"></a>Safari (Mac OS)
+#### <a name="safari-macos"></a>Safari (Mac OS)
 
-Zorg ervoor dat de machine met de Mac OS is gekoppeld aan AD. Zie voor instructies over het koppelen van AD [Best Practices voor OS X integreren met Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Zorg ervoor dat de machine met de macOS is gekoppeld aan AD. Zie voor instructies over het koppelen van AD [Best Practices voor OS X integreren met Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alle platformen)
 
 Als u hebt onderdrukt de [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) of de [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) beleidsinstellingen in uw omgeving, zorg ervoor dat u Azure AD-URL toevoegen (https://autologon.microsoftazuread-sso.com) aan hen ook.
 
-#### <a name="google-chrome-mac-os-only"></a>Google Chrome (alleen Mac OS)
+#### <a name="google-chrome-macos-only"></a>Google Chrome (alleen voor macOS)
 
 Raadpleeg voor Google Chrome op Mac OS- en andere niet-Windows-platforms, [de chroom Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) voor meer informatie over hoe aan lijst met geaccepteerde de URL van de Azure AD voor verificatie geïntegreerd.
 
@@ -169,7 +205,12 @@ Als u wilt testen van het scenario waarin de gebruiker beschikt niet over de geb
 
 ## <a name="step-5-roll-over-keys"></a>Stap 5: Meegenomen sleutels
 
-Azure AD Connect maakt in stap 2, computeraccounts (Azure AD representeren) in alle van de Active Directory-forests waarop u naadloze eenmalige aanmelding hebt ingeschakeld. Zie voor meer informatie, [Azure Active Directory naadloze eenmalige aanmelding: technische details](active-directory-aadconnect-sso-how-it-works.md). Voor betere beveiliging wordt u aangeraden dat u periodiek de Kerberos ontsleutelingssleutels van deze computeraccounts terugdraaien. Zie voor instructies over het meenemen van sleutels, [Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen over](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
+Azure AD Connect maakt in stap 2, computeraccounts (Azure AD representeren) in alle van de Active Directory-forests waarop u naadloze eenmalige aanmelding hebt ingeschakeld. Zie voor meer informatie, [Azure Active Directory naadloze eenmalige aanmelding: technische details](active-directory-aadconnect-sso-how-it-works.md).
+
+>[!IMPORTANT]
+>De Kerberos-ontsleutelingssleutel op een computeraccount, kan als gelekt, worden gebruikt voor het genereren van Kerberos-tickets voor elke gebruiker in de AD-forest. Kwaadwillende actoren kunnen vervolgens Azure AD-aanmeldingen voor verdachte gebruikers imiteren. Het is raadzaam dat u periodiek via deze ontsleutelingssleutels Kerberos - ten minste één keer voor elke 30 dagen terugdraaien.
+
+Zie voor instructies over het meenemen van sleutels, [Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen over](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). We werken aan een functie in te voeren van geautomatiseerde implementatie via van sleutels.
 
 >[!IMPORTANT]
 >U hoeft te doen in deze stap _onmiddellijk_ nadat u de functie hebt ingeschakeld. Beweeg de muis over de Kerberos-sleutels voor ontsleuteling ten minste één keer voor elke 30 dagen.

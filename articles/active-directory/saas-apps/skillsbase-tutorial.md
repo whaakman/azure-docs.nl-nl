@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 84aac0017496c50f0006fd6e184537e4c14f10c7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059443"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Zelfstudie: Azure Active Directory-integratie met vaardigheden
 
@@ -110,7 +110,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE] 
-    > De aanmeldings-URL-waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [vaardigheden Base Client ondersteuningsteam](mailto:support@skills-base.com) om de waarde.
+    > U kunt de aanmeldings-URL ophalen van vaardigheden Base-toepassing. Neem aanmelden als beheerder en beheerder naar Instellingen ->-exemplaar > details -> snelkoppeling. Kopieer de aanmeldings-URL en plak deze in bovenstaande tekstvak.
 
 4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -141,7 +141,6 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. Klik op **Opslaan**.
     
-
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
@@ -179,7 +178,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in vaardigheden Base. Vaardigheden Base ondersteunt just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot de vaardigheden Base als deze nog niet bestaat.
 
 >[!Note]
->Als u maken van een gebruiker handmatig wilt, neem dan contact op met [vaardigheden Base Client ondersteuningsteam](mailto:support@skills-base.com).
+>Als u een gebruiker handmatig hebt gemaakt moet, volgt u de instructies [hier](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
