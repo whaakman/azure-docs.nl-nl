@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: bc280e9b4ade8a4fb8107ec2dcc1c33f538472e1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 318a39e244f0fca3a1b2d8531dd9197a15400e02
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602972"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205354"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
@@ -132,7 +132,7 @@ De bindingen die worden gebruikt door de functie worden in de vooraf gecompileer
         }
     }
     ````
-    Een kenmerk binding-specifieke wordt toegepast op elke bindende parameter doorgegeven aan de methode post point. Het kenmerk wordt de informatie over de binding als parameters. In het vorige voorbeeld, de eerste parameter heeft een **QueueTrigger** kenmerk toegepast, waarmee wordt aangegeven wachtrij geactiveerde functie. De naam van de wachtrij en de naam van instelling voor de verbindingsreeks worden doorgegeven als parameters voor de **QueueTrigger** kenmerk.
+    Een kenmerk binding-specifieke wordt toegepast op elke bindende parameter doorgegeven aan de methode post point. Het kenmerk wordt de informatie over de binding als parameters. In het vorige voorbeeld, de eerste parameter heeft een **QueueTrigger** kenmerk toegepast, waarmee wordt aangegeven wachtrij geactiveerde functie. De naam van de wachtrij en de naam van instelling voor de verbindingsreeks worden doorgegeven als parameters voor de **QueueTrigger** kenmerk. Zie voor meer informatie, [Azure Queue storage-bindingen voor Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
     
 U kunt de bovenstaande procedure meer functies toevoegen aan uw functie-app-project. Elke functie in het project een andere trigger kan hebben, maar een functie moet exact één trigger hebben. Zie voor meer informatie, [Azure Functions-triggers en bindingen concepten](functions-triggers-bindings.md).
 

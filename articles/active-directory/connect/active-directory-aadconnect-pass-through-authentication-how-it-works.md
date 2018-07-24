@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 371f3ea3b764eecbb621fc06ec483de4778e7db2
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 674952982ac4342caaf31c05f3d644c1e74b649d
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159488"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215893"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory Pass through-verificatie: Technische details
 In dit artikel wordt beschreven hoe u Azure Active directory (Azure AD) Pass through-verificatie werkt. Zie voor technische deep en informatie over beveiliging, de [grondig onderzoek van beveiliging](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) artikel.
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Hoe werkt Azure Active Directory Pass through-verificatie?
 
-[!NOTE]
-Als een vereiste voor Pass through-verificatie om te werken, moeten gebruikers worden ingericht in Azure AD vanuit on-premises Active Directory met Azure AD Connect. Pass through-verificatie is niet van toepassing op gebruikers alleen in de cloud.
+>[!NOTE]
+>Als een vereiste voor Pass through-verificatie om te werken, moeten gebruikers worden ingericht in Azure AD vanuit on-premises Active Directory met Azure AD Connect. Pass through-verificatie is niet van toepassing op gebruikers alleen in de cloud.
 
 Wanneer een gebruiker wil zich aanmelden bij een toepassing die wordt beveiligd door Azure AD, en als Pass through-verificatie is ingeschakeld op de tenant, gebeuren de volgende stappen uit:
 
@@ -52,6 +52,7 @@ Het volgende diagram illustreert de onderdelen en de stappen voor het:
 ## <a name="next-steps"></a>Volgende stappen
 - [Huidige beperkingen](active-directory-aadconnect-pass-through-authentication-current-limitations.md): informatie over welke scenario's worden ondersteund en welke niet.
 - [Snel aan de slag](active-directory-aadconnect-pass-through-authentication-quick-start.md): aan de slag op Azure AD Pass-through-verificatie.
+- [Migreren van AD FS naar Pass-through-verificatie](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
 - [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): de mogelijkheid Smart Lockout configureren op uw tenant om te beveiligen van gebruikersaccounts.
 - [Veelgestelde vragen over](active-directory-aadconnect-pass-through-authentication-faq.md): vind antwoorden op veelgestelde vragen.
 - [Problemen oplossen](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informatie over het oplossen van veelvoorkomende problemen met de functie voor Pass through-verificatie.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ddf44ef933270c08b42f67387866cd7a3b34719
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ce95a2177260e97113fd5e639671075eb6ad40cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004076"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215013"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Een virtuele machine toevoegen aan een lab in Azure DevTest Labs
 Als u al hebt [maken van uw eerste virtuele machine](devtest-lab-create-first-vm.md), waarschijnlijk werd een vooraf geladen [marketplace-installatiekopie](devtest-lab-configure-marketplace-images.md). Nu, als u wilt de volgende virtuele machines toevoegen aan uw lab, u kunt ook een *basis* dat ofwel een [aangepaste installatiekopie](devtest-lab-create-template.md) of een [formule](devtest-lab-manage-formulas.md). In deze zelfstudie begeleidt u stapsgewijs door de Azure portal een virtuele machine toevoegen aan een lab in DevTest Labs.
@@ -35,17 +35,21 @@ In dit artikel leest u ook hoe voor het beheren van de artefacten voor een virtu
     ![VM-knop toevoegen](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
 1. Op de **kiest u een base** deelvenster, selecteert u een basis voor de virtuele machine.
-1. Op de **virtuele machine** deelvenster, voer een naam voor de nieuwe virtuele machine in de **virtuele-machinenaam** in het tekstvak.
+1. Op de **virtuele machine** deelvenster **virtuele-machinenaam** vooraf voor u is gevuld met een unieke naam voor het automatisch gegenereerde. De naam overeenkomt met de gebruikersnaam van de in uw e-mailadres gevolgd door een unieke nummer 3 cijfers. Deze functie bespaart u de tijd te denken van een computernaam en typt u dit telkens wanneer u een virtuele machine. Als u wilt, kunt u dit veld automatisch gevuld met een naam van uw keuze overschrijven. Als u wilt overschrijven de automatisch ingevulde naam voor de virtuele machine, voer een naam in de **virtuele-machinenaam** in het tekstvak. 
 
     ![Deelvenster voor Lab-virtuele machine](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. Voer een **gebruikersnaam** die administrator-bevoegdheden op de virtuele machine wordt verleend.  
-1. Als u gebruiken van een wachtwoord opgeslagen wilt een [Azure sleutelkluis](devtest-lab-store-secrets-in-key-vault.md), selecteer **een geheim opgeslagen**, en geeft u de waarde van een sleutel die overeenkomt met uw geheim (wachtwoord). Voer anders een wachtwoord in het tekstveld met het label **typt u een waarde**. Zie voor meer informatie over het opslaan van geheimen in een key vault en het gebruik ervan bij het maken van de labresources, [Store geheimen in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
-1. De **VM-schijftype** bepaalt welk opslagtype voor de schijf is toegestaan voor de virtuele machines in het lab.
-2. Selecteer **grootte van virtuele machine** en selecteer een van de vooraf gedefinieerde items die u opgeeft de processor-cores, RAM-geheugen en de grootte van de vaste schijf van de virtuele machine te maken.
-3. Selecteer **artefacten** en - uit de lijst met artefacten - selecteren en configureren van de artefacten die u wilt toevoegen aan de basisinstallatiekopie.
+1. De **gebruikersnaam** voor de machine vooraf ingevuld met een unieke naam voor het automatisch gegenereerde is. De naam overeenkomt met de gebruikersnaam van de in uw e-mailadres. Deze functie bespaart u tijd om te beslissen over een gebruikersnaam, telkens wanneer u een nieuwe virtuele machine. Nogmaals, kunt u dit veld automatisch gevuld met een gebruikersnaam van uw keuze als u wilt onderdrukken. Als u wilt overschrijven de automatisch ingevulde waarde voor de gebruikersnaam van de, typt u een waarde in de **gebruikersnaam** in het tekstvak. Deze gebruiker is verleend **beheerder** bevoegdheden op de virtuele machine.     
+1. Voor de **wachtwoord**:
+    
+    Als u de eerste virtuele machine in het lab maakt, voert u een wachtwoord in de **typt u een waarde** in het tekstvak. Sla dit wachtwoord als een standaardwachtwoord in de Azure-sleutelkluis die is gekoppeld aan het lab, selecteer **opslaan als standaardwachtwoord**. Het standaardwachtwoord wordt opgeslagen in de key vault met de naam: **VmPassword**. Wanneer u probeert te maken van latere virtuele machines in het lab **VmPassword** wordt automatisch geselecteerd voor de **wachtwoord**. Als u wilt overschrijven de waarde, schakelt u de **een geheim opgeslagen** selectievakje en voer een wachtwoord. 
+
+    U kunt ook geheimen eerst in de key vault opslaan en vervolgens worden gebruikt tijdens het maken van een virtuele machine in het lab. Zie voor meer informatie, [Store geheimen in een key vault](devtest-lab-store-secrets-in-key-vault.md). Selecteer voor het gebruik van het wachtwoord die zijn opgeslagen in de key vault, **een geheim opgeslagen**, en geeft u de waarde van een sleutel die overeenkomt met uw geheim (wachtwoord). 
+3. De **VM-schijftype** bepaalt welk opslagtype voor de schijf is toegestaan voor de virtuele machines in het lab.
+4. Selecteer **grootte van virtuele machine** en selecteer een van de vooraf gedefinieerde items die u opgeeft de processor-cores, RAM-geheugen en de grootte van de vaste schijf van de virtuele machine te maken.
+5. Selecteer **artefacten** en - uit de lijst met artefacten - selecteren en configureren van de artefacten die u wilt toevoegen aan de basisinstallatiekopie.
     **Opmerking:** als u geen ervaring hebt met DevTest Labs of configureren van artefacten, raadpleegt u de [een bestaande artefact toevoegen aan een virtuele machine](#add-an-existing-artifact-to-a-vm) uit en keer vervolgens hier terug wanneer u klaar bent.
-4. Selecteer **geavanceerde instellingen** voor het configureren van de virtuele machine netwerkmogelijkheden en opties. 
+6. Selecteer **geavanceerde instellingen** voor het configureren van de virtuele machine netwerkmogelijkheden en opties. 
 
    Als u wilt een vervaldatum-optie is ingesteld, kiest u het kalenderpictogram om op te geven van een datum op waarop de virtuele machine automatisch worden verwijderd.  Standaard wordt de virtuele machine nooit verlopen. 
 1. Als u wilt weergeven of de Azure Resource Manager-sjabloon te kopiëren, raadpleegt u de [opslaan Azure Resource Manager-sjabloon](#save-azure-resource-manager-template) uit en retourneren hier als u klaar bent.
@@ -102,7 +106,7 @@ De volgende stappen laten zien hoe u weergeven of wijzigen van de parameters van
 Een Azure Resource Manager-sjabloon biedt een declaratieve manier om een herhaalbare implementatie te definiëren. De volgende stappen wordt uitgelegd hoe u om op te slaan van de Azure Resource Manager-sjabloon voor de virtuele machine wordt gemaakt.
 Nadat het is opgeslagen, kunt u de Azure Resource Manager-sjabloon [implementeren van nieuwe virtuele machines met Azure PowerShell](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
-1. Op de **virtuele machine** venster **ARM-sjabloon weergeven**.
+1. Op de **virtuele machine** venster **weergave Azure Resource Manager-sjabloon**.
 2. Op de **weergave Azure Resource Manager-sjabloon** deelvenster, selecteert u de sjabloontekst.
 3. De geselecteerde tekst naar het Klembord kopiëren.
 4. Selecteer **OK** sluiten de **Azure Resource Manager-sjabloon weergeven deelvenster**.

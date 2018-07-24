@@ -1,6 +1,6 @@
 ---
-title: Hiermee stelt u apparaat gebruiken in uw Azure IoT centrale toepassing | Microsoft Docs
-description: Als operator stelt u het apparaat kunnen gebruiken in uw Azure IoT centrale toepassing.
+title: Hiermee stelt u apparaten gebruikt in uw Azure IoT Central-toepassing | Microsoft Docs
+description: Als operator stelt het gebruik van apparaten in uw Azure IoT Central-toepassing.
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261675"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206068"
 ---
-# <a name="use-device-sets-in-your-azure-iot-central-application"></a>Apparaatsets te gebruiken in uw Azure IoT centrale toepassing
+# <a name="use-device-sets-in-your-azure-iot-central-application"></a>Hiermee stelt u apparaten gebruikt in uw Azure IoT Central-toepassing
 
-Dit artikel wordt beschreven hoe, als een operator voor het gebruik van apparaat wordt ingesteld in uw Microsoft Azure IoT centrale toepassing.
+Dit artikel wordt beschreven hoe, als een operator voor het gebruik van apparaat wordt ingesteld in uw Microsoft Azure IoT Central-toepassing.
 
-Een apparaatset is een lijst met apparaten die samen worden gegroepeerd, omdat ze allemaal aan bepaalde opgegeven criteria voldoen. Apparaat wordt ingesteld voor hulp bij het beheren, visualiseren en analyseren van apparaten op schaal door apparaten groeperen in kleinere, logische groepen. Bijvoorbeeld, maken u een lijst met alle airconditioner apparaten in Haarlem inschakelen van de technicus Seattle gezocht naar alle apparaten waarvoor ze verantwoordelijk is. In dit artikel leest u hoe maken en configureren van Apparaatsets.
+Een apparaat is een lijst met apparaten die samen worden gegroepeerd, omdat ze allemaal overeenkomen met bepaalde opgegeven criteria. Apparaat Hiermee stelt u helpen te beheren, visualiseren en analyseren van apparaten op schaal door het groeperen van apparaten in kleinere, logische groepen. Bijvoorbeeld, maken u een lijst met alle airconditioner apparaten in Seattle om in te schakelen van de technicus Seattle om alle apparaten waarvoor ze verantwoordelijk is te vinden. In dit artikel wordt beschreven hoe u maken en configureren van Apparaatsets.
 
-## <a name="create-a-device-set"></a>Een apparaatset met maken
+## <a name="create-a-device-set"></a>Maken van een apparaat instellen
 
-Maken van een set apparaten:
+Voor het maken van een apparaat instellen:
 
 1. Kies **Apparaatsets** in het navigatiemenu links.
 
@@ -31,20 +31,20 @@ Maken van een set apparaten:
 
     ![Nieuw apparaat instellen](media/howto-use-device-sets/image1.png)
 
-1. Geef uw set apparaten een naam die is uniek voor de gehele toepassing. U kunt ook een beschrijving toevoegen. Een apparaatset kan alleen apparaten uit een sjabloon enkel apparaat bevatten. Kies het apparaat te gebruiken sjabloon voor deze set.
+1. Geeft de apparaat-verzameling een naam die uniek is voor de gehele toepassing. U kunt ook een beschrijving toevoegen. Het instellen van een apparaat kan alleen apparaten uit de sjabloon voor een enkel apparaat bevatten. Kies de sjabloon apparaat moet worden gebruikt voor deze verzameling.
 
-1. Maken van de query voor het identificeren van de apparaten voor het apparaat instellen door een eigenschap, een vergelijkingsoperator en een waarde te selecteren. U kunt meerdere query's en apparaten die voldoen aan toevoegen **alle** de criteria in de apparaatset worden geplaatst. De apparaatset die u maakt, is toegankelijk voor iedereen met toegang tot de toepassing, zodat iedereen kunt weergeven, wijzigen of verwijderen van de set apparaten.
+1. De query maken om te bepalen welke apparaten er voor het apparaat instellen door een eigenschap, een vergelijkingsoperator en een waarde te selecteren. U kunt meerdere query's en apparaten die voldoen aan toevoegen **alle** de criteria in de apparaatset worden geplaatst. De apparaat-verzameling die u maakt, is toegankelijk voor iedereen die toegang tot de toepassing, heeft zodat iedereen kan bekijken, wijzigen of verwijderen van het apparaat instellen.
 
-    ![Apparaat set-query](media/howto-use-device-sets/image2.png)
+    ![Apparaat instellen-query](media/howto-use-device-sets/image2.png)
 
     > [!NOTE]
-    > De apparaatset is een dynamische query. Telkens wanneer u de lijst van apparaten bekijken, kunnen er verschillende apparaten in de lijst. De lijst is afhankelijk van welke apparaten momenteel voldoen aan de criteria van de query.
+    > De apparaatset is een dynamische query. Telkens wanneer u de lijst met apparaten weergeven, mogelijk zijn er verschillende apparaten in de lijst. De lijst is afhankelijk van welke apparaten op dit moment voldoen aan de criteria van de query.
 
 1. Kies **Opslaan**.
 
 ## <a name="configure-the-dashboard-for-your-device-set"></a>Het Dashboard voor het instellen van uw apparaat configureren
 
-Nadat u uw apparaatset hebt gemaakt, kunt u de **Dashboard**. De **Dashboard** is de startpagina waarin u afbeeldingen en koppelingen kunt plaatsen. U kunt ook rasters die lijst van de apparaten in de apparaatset toevoegen.
+Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**. De **Dashboard** is de startpagina waar kunt u afbeeldingen en koppelingen plaatsen. U kunt ook rasters die lijst van de apparaten in de apparaatset toevoegen.
 
 1. Kies **Apparaatsets** in het navigatiemenu links.
 
@@ -54,76 +54,76 @@ Nadat u uw apparaatset hebt gemaakt, kunt u de **Dashboard**. De **Dashboard** i
 
     ![Ontwerpmodus op](media/howto-use-device-sets/image3.png)
 
-1. Zie voor meer informatie over het toevoegen van een installatiekopie van een [installatiekopieën van het voorbereiden en uploaden naar uw Azure IoT centrale toepassing](howto-prepare-images.md).
+1. Zie voor meer informatie over het toevoegen van een installatiekopie van een [voorbereiden en uploaden van afbeeldingen aan uw Azure IoT Central toepassing](howto-prepare-images.md).
 
 1. Een tegel koppeling toevoegen:
     1. Kies **koppeling** in het rechterdeelvenster.
 
         ![Kies koppeling](media/howto-use-device-sets/image6.png)
 
-    1. De koppeling geven een **titel**.
-    1. Kies een URL moet worden geopend wanneer de koppeling wordt geklikt.
-    1. De koppeling geven een beschrijving op die hieronder toont de **titel**.
+    1. Geef uw koppeling een **titel**.
+    1. Kies een URL worden geopend wanneer de koppeling wordt geklikt.
+    1. Geef uw koppeling een beschrijving waarin wordt weergegeven onder de **titel**.
     1. Kies **Opslaan**.
 
         ![Koppeling opslaan](media/howto-use-device-sets/image7.png)
 
-    1. U kunt verplaatsen en op de tegel koppeling vergroten of verkleinen de **Dashboard**.
+    1. U kunt verplaatsen en het formaat van de tegel koppelen op de **Dashboard**.
 
-1. Voeg een raster. Een raster is een tabel van apparaten in het apparaat instellen met de geselecteerde kolommen.
+1. Voeg een raster. Een raster is een tabel van de apparaten in het apparaat instellen met de kolommen die u kiest.
     1. Kies **raster** in het rechterdeelvenster.
 
         ![Kies raster](media/howto-use-device-sets/image8.png)
 
-    1. Geef het raster een **titel**.
-    1. Selecteer de kolommen moet worden weergegeven met de knop instellingen. Kies de kolom die u wilt weergeven en kies de pijl naar rechts om deze te selecteren in het deelvenster die wordt weergegeven.
+    1. Het raster geeft een **titel**.
+    1. Selecteer de kolommen die moeten worden weergegeven door de knop instellingen te kiezen. Kies in het deelvenster dat verschijnt, de kolom die u wilt weergeven en kies de pijl-rechts om deze te selecteren.
     1. Kies **OK**.
     1. Kies **Opslaan**.
 
         ![Raster opslaan](media/howto-use-device-sets/image9.png)
 
-    1. Slepen en neerzetten van het raster om het te plaatsen op de **Dashboard**.
+    1. Slepen en neerzetten het raster om het te plaatsen op de **Dashboard**.
 
     > [!NOTE]
-    > U kunt meerdere installatiekopieën, koppelingen en rasters toevoegen.
+    > U kunt meerdere afbeeldingen, koppelingen en rasters toevoegen.
   
-    1. Schakel **ontwerpmodus**.
+    1. Uitschakelen **ontwerpmodus**.
 
     ![Ontwerpmodus uitschakelen](media/howto-use-device-sets/image10.png)
 
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Dashboard instellen locatiekaart configureren in uw apparaat 
-U kunt toevoegen om een locatiekaart voor het visualiseren van locatie van uw apparaten worden ingesteld in een Map. 
+U kunt toevoegen om een locatiekaart voor het visualiseren van de locatie van uw apparaten ingesteld op een kaart. 
 
-Om te kunnen toevoegen aan een locatiekaart naar apparaat u stelt dashboard hebt u geconfigureerde locatie-eigenschap in de sjabloon voor het apparaat, Zie [maakt u een locatie-eigenschap aangedreven door Azure Maps](howto-set-up-template.md).
+Als u wilt toevoegen aan een locatiekaart op uw apparaat wordt ingesteld dashboard hebt u geconfigureerde locatie-eigenschap in de sjabloon voor het apparaat, Zie [maakt u een locatie-eigenschap aangestuurd door Azure Maps](howto-set-up-template.md).
 
 
-1. Selecteer op het apparaat Sets Dashboard kaart in de bibliotheek. 
+1. Op het Dashboard voor Sets, kaart te selecteren uit de bibliotheek. 
 
     ![Dashboard Maps wordt ingesteld voor apparaat](media/howto-use-device-sets/LocationMaps1.png)
 
 
-2. Geef een titel en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de eigenschap van uw apparaat.
+2. Geef een titel in en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de eigenschap van uw apparaat.
 
-    ![Dashboard Maps configureren](media/howto-use-device-sets/LocationMaps2.png)
+    ![Dashboard-toewijzingen configureren](media/howto-use-device-sets/LocationMaps2.png)
 
-3. Opslaan en u ziet de kaart tegel om de locatie van uw apparaten weer te geven in het apparaat ingesteld.
+3. Opslaan en u ziet de kaart tegel weergeven van de locatie van uw apparaten in het apparaat ingesteld.
 
-    ![Dashboard Maps opslaan](media/howto-use-device-sets/LocationMaps3.png)
+    ![Dashboard-toewijzingen opslaan](media/howto-use-device-sets/LocationMaps3.png)
 
 
-5. U hebt geconfigureerd met inbegrip van de locatie zijn toegewezen aan de apparaten locatie in een oogopslag visualiseren nu als een operator bekijkt het apparaat sets dashboard, ze alle tegels zien kan.
+5. U hebt geconfigureerd met inbegrip van de locatie van de kaart voor het visualiseren van alle apparaten-locatie in een oogopslag nu als een operator-dashboard voor de sets bekijkt, kan ze alle tegels zien! 
 
     ![Maps-Operator dashboardweergave](media/howto-use-device-sets/LocationMaps4.png)
 
-    U kunt zich vergroten of verkleinen van de kaart aan de gewenste grootte.
+    U kunt zich grootte van de kaart om de gewenste grootte te wijzigen.
 
-
+    Te klikken op een pincode op de kaart wordt weergegeven de apparaatgegevens, naam en locatie. U kunt klikken op het pop-upvenster om naar de eigenschappenpagina van het apparaat te gaan.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>De lijst voor het instellen van uw apparaat configureren
 
-Nadat u uw apparaatset hebt gemaakt, kunt u de **lijst**. De **lijst** bevat alle apparaten in het apparaat instellen in een tabel met de geselecteerde kolommen.
+Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **lijst**. De **lijst** ziet u alle apparaten in het apparaat instellen in een tabel met de kolommen die u kiest.
 
 1. Kies **Apparaatsets** in het navigatiemenu links.
 
@@ -133,19 +133,19 @@ Nadat u uw apparaatset hebt gemaakt, kunt u de **lijst**. De **lijst** bevat all
 
     ![Kolomopties voor](media/howto-use-device-sets/image11.png)
 
-1. Kies de kolommen moet worden weergegeven door het selecteren van de kolom die u wilt weergeven en vervolgens de pijl naar rechts om deze te selecteren.
+1. Kies de kolommen die moeten worden weergegeven door het selecteren van de kolom die u wilt weergeven en het kiezen van de pijl-rechts om deze te selecteren.
 
-    ![Kies kolom](media/howto-use-device-sets/image12.png)
+    ![Kolom kiezen](media/howto-use-device-sets/image12.png)
 
 1. Kies **OK**.
 
 ## <a name="analytics"></a>Analyse
 
-De analyses in apparaatsets is hetzelfde als het belangrijkste analytics-tabblad in het navigatiemenu links. Voor meer informatie over analytics in het artikel op [analytics maken](howto-create-analytics.md).
+De analyse in apparaatsets is hetzelfde als het tabblad belangrijkste analytische gegevens in het navigatiemenu links. U meer informatie over analytics in het artikel op [over het maken van analytics](howto-create-analytics.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt het gebruik van sets van apparaten in uw Azure IoT centrale toepassing hebt geleerd, wordt hier de voorgestelde volgende stap:
+Nu dat u het apparaat wordt gebruikt in uw Azure IoT Central-toepassing hebt geleerd, volgt de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Telemetrie-regels maken](howto-create-telemetry-rules.md)
+> [Over het maken van regels voor telemetrie](howto-create-telemetry-rules.md)

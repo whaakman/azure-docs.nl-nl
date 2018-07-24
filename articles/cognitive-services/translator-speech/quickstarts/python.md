@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 40535f400bc5359019e89320489721bf481c1210
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 8bf904b2029790d64a806fcf4a7e4860579a5a2f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39124824"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39204847"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Snelstartgids voor Microsoft Translator Speech-API met Python 
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ U moet [Python 3.x](https://www.python.org/downloads/) deze code uit te voeren.
 
 U moet voor het installeren van de [websocket-client-pakket](https://pypi.python.org/pypi/websocket-client) voor Python.
 
-U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat uit de onderstaande code worden gecompileerd. Dit WAV-bestand moet zich in de standard PCM, 16-bits, 16kHz mono-indeling.
+U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat uit de onderstaande code worden gecompileerd. Dit WAV-bestand moet zich in de standard PCM, 16-bits, 16kHz mono-indeling. U vindt deze een wav-bestand van de [Text to Speech-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnement-sleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

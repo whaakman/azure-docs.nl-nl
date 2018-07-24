@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 89fb805ac64be358ed4f52865d2e89ab16fe2b17
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ffd0f272d182e3362a82e137e902d433ca750b46
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005795"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216288"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Het Team Data Science Process in actie: met behulp van SQL Server
 In deze zelfstudie hebt u stapsgewijs door het proces van het bouwen en implementeren van een machine learning-model met behulp van SQL Server en een openbaar beschikbare gegevensset testlab voor de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De procedure volgt een standaard gegevenswetenschapwerkstroom: opnemen en Verken de gegevens, functies, dingen en vervolgens bouwen en implementeren van een model bouwen.
@@ -129,7 +129,7 @@ De prestaties van het laden/overdracht van grote hoeveelheden gegevens op een SQ
 7. In de **voorbeeldscripts** map, er zijn twee PowerShell-voorbeeldscripts bedoeld ter illustratie van parallelle bulksgewijs de invoer van gegevens naar SQL Server-tabellen.
    
    * **BCP\_parallelle\_generic.ps1** is een algemeen script aan parallelle bulksgewijs importeren van gegevens in een tabel. Met dit script om in te stellen van de invoer- en doel-variabelen, zoals aangegeven in de opmerkingen in het script wijzigen.
-   * **BCP\_parallelle\_nyctaxi.ps1** is een vooraf geconfigureerde versie van het algemene script en naar beide tabellen voor de NYC Taxi Trips gegevens laden kan worden gebruikt.  
+   * **BCP\_parallelle\_nyctaxi.ps1** is een vooraf geconfigureerde versie van het algemene script en kan worden gebruikt voor beide tabellen voor de NYC Taxi Trips-gegevens worden geladen.  
 8. Met de rechtermuisknop op de **bcp\_parallelle\_nyctaxi.ps1** scriptnaam en klikt u op **bewerken** om dit te openen in PowerShell. De vooraf ingestelde variabelen bekijken en wijzigen op basis van uw geselecteerde databasenaam, invoergegevens map, log doelmap en paden naar de indeling voorbeeldbestanden **nyctaxi_trip.xml** en **nyctaxi\_fare.xml** (opgegeven in de **voorbeeldscripts** map).
    
     ![Gegevens voor bulksgewijs importeren][16]

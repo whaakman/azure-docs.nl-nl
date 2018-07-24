@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 34911c6133a6a2549a98db426f979b0c3c85dbd7
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3421d0ab9007bdfe9fab093871a8517531059008
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185294"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213170"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Een virtuele machine configureren Virtual Machine scale sets Managed Service Identity (MSI) met behulp van de Azure portal
 
@@ -37,7 +37,7 @@ In dit artikel leert u hoe u kunt in- en uitschakelen van het systeem toegewezen
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md).
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 - Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de roltoewijzing van de volgende:
-    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) inschakelen en beheerde Service-identiteit van een virtuele-machineschaalset verwijderen.
+    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) inschakelen en het systeem toegewezen beheerde identiteit van een virtuele-machineschaalset verwijderen.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Beheerde Service-identiteit tijdens het maken van een schaalset voor virtuele Azure-machine
 

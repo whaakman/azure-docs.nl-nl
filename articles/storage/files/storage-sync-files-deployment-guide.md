@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: b3837da26868dcf3c14fab230b4dad4aa6f531b3
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161392"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215142"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Files SYNC implementeren
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -246,7 +246,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Een groep voor synchronisatie en een cloudeindpunt maken
-Een synchronisatiegroep definieert de synchronisatie-topologie voor een set bestanden. Eindpunten in een synchronisatiegroep worden synchroon met elkaar. Een groep voor synchronisatie moet ten minste één cloudeindpunt, dat staat voor een Azure-bestandsshare en een of meer servereindpunten bevatten. Een servereindpunt vertegenwoordigt een pad op de geregistreerde server. Een server kan servereindpunten in meerdere synchronisatiegroepen hebben. U kunt zoveel synchronisatiegroepen behoefte aan voor het beschrijven van de topologie van uw gewenste synchronisatie op de juiste wijze kunt maken.
+Een synchronisatiegroep definieert de synchronisatie-topologie voor een set bestanden. Eindpunten in een synchronisatiegroep worden synchroon met elkaar. Een groep voor synchronisatie moet ten minste één cloudeindpunt, dat staat voor een Azure-bestandsshare en een of meer servereindpunten bevatten. Een servereindpunt vertegenwoordigt een pad op de geregistreerde server. Een server kan servereindpunten in meerdere synchronisatiegroepen hebben. U kunt zoveel synchronisatiegroepen als nodig is voor de topologie van uw gewenste synchronisatie op de juiste wijze te beschrijven.
 
 Een cloudeindpunt is een aanwijzer naar een Azure-bestandsshare. Alle servereindpunten worden gesynchroniseerd met een cloudeindpunt, waardoor het cloudeindpunt van de hub. Het opslagaccount voor de Azure-bestandsshare moet zich bevinden in dezelfde regio als de Opslagsynchronisatieservice. Het geheel van de Azure-bestandsshare wordt gesynchroniseerd, met één uitzondering: een speciale map, vergelijkbaar met de verborgen "System Volume Information"-map op een NTFS-volume, worden ingericht. Deze map heet '. SystemShareInformation'. Het bevat metagegevens met belangrijke synchroniseren die niet worden gesynchroniseerd naar andere eindpunten. Gebruik of verwijder deze niet!
 

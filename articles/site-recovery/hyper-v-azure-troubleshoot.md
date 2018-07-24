@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 97006f2dfecc8d3ade680f97cbb7776dfda98dd5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 95941b3f9333273c11208c56a63c62d5d37a9386
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921022"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213551"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V naar Azure-replicatie en failover oplossen
 
@@ -131,7 +131,7 @@ Een app-consistente momentopname is een point-in-time-momentopname van de toepas
 2. Voor het genereren van VSS-momentopnamen voor de virtuele machine die Hyper-V-integratieservices zijn geïnstalleerd op de virtuele machine, en dat de back-up (VSS) Integration-Service is ingeschakeld.
     - Zorg ervoor dat de Integration Services VSS-service/daemons worden uitgevoerd op de Gast en zich in een **OK** staat.
     - U kunt dit controleren vanuit een sessie met verhoogde bevoegdheden PowerShell op de Hyper-V-host met de opdracht **et-VMIntegrationService - VMName<VMName>-naam VSS** u kunt deze informatie ook ophalen door aan te melden bij de Gast-VM. [Meer informatie](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Zorg ervoor dat de back-up/VSS-integratieservices op de virtuele machine actief is en in orde. Deze services opnieuw starten als dat niet het geval is, en en de Hyper-V Volume Shadow Copy-aanvrager-service op de Hyper-V-hostserver.
+    - Zorg ervoor dat de back-up/VSS-integratieservices op de virtuele machine actief is en in orde. Als dat niet het geval is, start deze services en de Hyper-V Volume Shadow Copy-aanvrager-service op de Hyper-V-hostserver.
 
 ### <a name="common-errors"></a>Veelvoorkomende fouten
 

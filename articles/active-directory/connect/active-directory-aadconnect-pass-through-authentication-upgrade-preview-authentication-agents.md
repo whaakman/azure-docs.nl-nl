@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 3f2480fb1068096bf77a3677ad62c886bc4774bb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: be76965e99a20c1f7164187255e26f6463926c2f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160151"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214724"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory Pass through-verificatie: Upgrade preview verificatie-Agents
 
@@ -60,7 +60,7 @@ Volg deze instructies om te controleren of de versies van de verificatie-Agents,
 Voordat u een upgrade uitvoert, moet u de volgende items hebt in plaats:
 
 1. **Maken van cloud-only hoofdbeheerdersaccount**: upgrade niet uitvoeren zonder een alleen-cloud globale beheerdersaccount te gebruiken in noodsituaties waar uw Pass through-verificatie-Agents niet goed werken. Meer informatie over [toevoegen van een alleen-cloud globale beheerdersaccount](../active-directory-users-create-azure-portal.md). U deze stap uitvoert, is van essentieel belang en zorgt ervoor dat u geen toegang meer hebt tot uw tenant.
-2.  **Zorg voor hoge beschikbaarheid**: als u niet eerder is voltooid, installeert u een tweede zelfstandige verificatie-Agent voor hoge beschikbaarheid van aanmeldingsaanvragen, gebruik van deze [instructies](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+2.  **Zorg voor hoge beschikbaarheid**: als u niet eerder is voltooid, installeert u een tweede zelfstandige verificatie-Agent voor hoge beschikbaarheid van aanmeldingsaanvragen, gebruik van deze [instructies](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Bijwerken van de verificatie-Agent op uw Azure AD Connect-server
 

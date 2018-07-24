@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/23/2018
 ms.author: marsma
-ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115792"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216101"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuratie van het netwerk in Azure Kubernetes Service (AKS)
 
@@ -49,9 +49,10 @@ Geavanceerde netwerken biedt de volgende voordelen:
 
 * Het VNet voor het AKS-cluster moet uitgaande internetverbinding toestaan.
 * Maak niet meer dan één AKS-cluster in hetzelfde subnet.
-* Geavanceerde netwerken voor AKS biedt geen ondersteuning voor vnet's die gebruikmaken van Azure privé-DNS-Zones.
 * AKS-clusters worden niet gebruikt `169.254.0.0/16`, `172.30.0.0/16`, of `172.31.0.0/16` voor het Kubernetes-service-adresbereik.
-* De service-principal gebruikt voor het AKS-cluster moet hebben `Contributor` machtigingen voor de resourcegroep met de bestaande VNet.
+* De service-principal die worden gebruikt door het AKS-cluster moet minimaal beschikken over [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor) machtigingen op het subnet binnen uw VNet. Als u wilt definiëren een [aangepaste rol](../role-based-access-control/custom-roles.md) in plaats van de ingebouwde rol van inzender voor netwerken, de volgende machtigingen zijn vereist:
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>IP-adressen voor uw cluster plannen
 

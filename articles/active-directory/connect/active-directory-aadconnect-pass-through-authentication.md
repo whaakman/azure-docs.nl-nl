@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d88bf5d20beb9de9bf4a0cdcb43548d0d582779
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: dfee42f813989da2333720ac92313344343d57a7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917275"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214026"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Aanmelden van gebruikers met Azure Active Directory Pass through-verificatie
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) Pass through-verificatie kunnen uw gebruikers 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Deze functie is een alternatief voor [Azure AD-wachtwoord-Hashsynchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md), waarmee u dezelfde voordelen van cloud-verificatie voor organisaties. Echter, beveiliging en naleving van beleid in bepaalde organisaties deze organisaties voor het verzenden van wachtwoorden van gebruikers, zelfs in een formulier hash buiten de grenzen van hun interne in staan niet toe. Pass through-verificatie is de juiste oplossing voor deze organisaties.
+Deze functie is een alternatief voor [Azure AD-wachtwoord-Hashsynchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md), waarmee u dezelfde voordelen van cloud-verificatie voor organisaties. Bepaalde organisaties die willen om af te dwingen van hun on-premises Active Directory-beveiliging en het wachtwoordbeleid voor kan echter kiezen in plaats daarvan Pass through-verificatie gebruiken. Beoordeling [in deze handleiding](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) voor een vergelijking van de verschillende Azure AD aanmelden methoden en hoe u de methode rechts aanmelding voor uw organisatie te kiezen.
 
 ![Azure AD Pass-through-verificatie](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
@@ -49,7 +49,7 @@ U kunt combineren Pass through-verificatie met de [naadloze eenmalige aanmelding
 - *Beveiligen*
   - On-premises wachtwoorden worden nooit opgeslagen in de cloud in welke vorm.
   - De agent maakt alleen uitgaande verbindingen in uw netwerk. Daarom is er geen vereiste voor het installeren van de agent in een perimeternetwerk, ook wel een DMZ.
-  - Uw gebruikersaccounts beveiligt door te werken naadloos met [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA) en door [gefilterd op wachtwoord beveiligingsaanvallen](../authentication/howto-password-smart-lockout.md).
+  - Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA), [blokkeren van verouderde](../active-directory-conditional-access-conditions.md) en door [ gefilterd op wachtwoord beveiligingsaanvallen](../authentication/howto-password-smart-lockout.md).
 - *Hoge beschikbaarheid*
   - Extra agents kunnen worden geïnstalleerd op meerdere on-premises servers voor maximale beschikbaarheid van aanmeldingsaanvragen.
 
@@ -68,12 +68,13 @@ U kunt combineren Pass through-verificatie met de [naadloze eenmalige aanmelding
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [**Snel aan de slag** ](active-directory-aadconnect-pass-through-authentication-quick-start.md) : aan de slag en Azure AD Pass-through-verificatie wordt uitgevoerd.
-- [**Vergrendeling van het smart** ](../authentication/howto-password-smart-lockout.md) -mogelijkheid Smart Lockout configureren op uw tenant om te beveiligen van gebruikersaccounts.
-- [**Huidige beperkingen** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) -informatie over welke scenario's worden ondersteund en welke niet.
-- [**Technische details** ](active-directory-aadconnect-pass-through-authentication-how-it-works.md) -te begrijpen hoe deze functie werkt.
-- [**Veelgestelde vragen over** ](active-directory-aadconnect-pass-through-authentication-faq.md) -antwoorden op veelgestelde vragen.
-- [**Problemen oplossen** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
-- [**Grondig onderzoek van beveiliging** ](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) -meer uitgebreide technische informatie over de functie.
-- [**Azure AD naadloze eenmalige aanmelding** ](active-directory-aadconnect-sso.md) -meer informatie over deze aanvullende functie.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen in te dienen.
+- [Snel aan de slag](active-directory-aadconnect-pass-through-authentication-quick-start.md) : aan de slag en Azure AD Pass-through-verificatie wordt uitgevoerd.
+- [Migreren van AD FS naar Pass-through-verificatie](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
+- [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md) -mogelijkheid Smart Lockout configureren op uw tenant om te beveiligen van gebruikersaccounts.
+- [Huidige beperkingen](active-directory-aadconnect-pass-through-authentication-current-limitations.md) -informatie over welke scenario's worden ondersteund en welke niet.
+- [Technische details](active-directory-aadconnect-pass-through-authentication-how-it-works.md) -te begrijpen hoe deze functie werkt.
+- [Veelgestelde vragen over](active-directory-aadconnect-pass-through-authentication-faq.md) -antwoorden op veelgestelde vragen.
+- [Problemen oplossen](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
+- [Grondig onderzoek van beveiliging](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) -meer uitgebreide technische informatie over de functie.
+- [Azure AD naadloze eenmalige aanmelding](active-directory-aadconnect-sso.md) -meer informatie over deze aanvullende functie.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen in te dienen.

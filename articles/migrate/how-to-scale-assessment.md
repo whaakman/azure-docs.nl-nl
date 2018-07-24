@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919859"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215176"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -36,7 +36,7 @@ Azure Migrate heeft toegang nodig tot de VMware-servers, zodat de virtuele machi
 
 Als u in een omgeving met tenants implementeert, als volgt één manier om in te stellen deze:
 
-1.  Maken van een gebruiker per tenant en en het gebruik van [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), alleen-lezen machtigingen toewijzen aan van de VM dat tot een bepaalde tenant. Vervolgens gebruikt u deze referenties voor detectie. RBAC zorgt ervoor dat de bijbehorende vCenter-gebruiker toegang heeft tot alleen specifieke virtuele machine voor de tenantsleutel.
+1.  Maken van een gebruiker per tenant en het gebruik van [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), alleen-lezen machtigingen toewijzen aan van de VM dat tot een bepaalde tenant. Vervolgens gebruikt u deze referenties voor detectie. RBAC zorgt ervoor dat de bijbehorende vCenter-gebruiker toegang heeft tot alleen specifieke virtuele machine voor de tenantsleutel.
 2. U RBAC instelt voor gebruikers van andere tenant zoals beschreven in het volgende voorbeeld voor 1 gebruiker en gebruiker #2:
 
     - In **gebruikersnaam** en **wachtwoord**, geef de referenties van het kenmerk alleen-lezen-account dat door de collector wordt gebruikt voor het detecteren van virtuele machines in

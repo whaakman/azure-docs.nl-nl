@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 48710bc10a57854fcbd4ffbe44bc426333baddc0
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: ad4567ffb927694872d5b86dd38833466f944ca8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159226"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215081"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory Pass through-verificatie grondig onderzoek van beveiliging
 
@@ -37,14 +37,14 @@ De onderwerpen zijn onder andere:
 Dit zijn de sleutelbeveiliging aspecten van deze functie:
 - Het gebouwd op een veilige, multitenant architectuur die isolatie van aanmeldingsaanvragen tussen tenants biedt.
 - On-premises wachtwoorden worden nooit opgeslagen in de cloud in welke vorm.
-- On-premises verificatie-Agents die luisteren naar en reageren op, wachtwoord validatie aanvragen alleen uitgaande verbindingen in uw netwerk maken. Er is geen vereiste voor het installeren van deze verificatie-Agents in een perimeternetwerk (DMZ).
+- On-premises verificatie-Agents die luisteren naar en reageren op, wachtwoord validatie aanvragen alleen uitgaande verbindingen in uw netwerk maken. Er is geen vereiste voor het installeren van deze verificatie-Agents in een perimeternetwerk (DMZ). Als best practice, behandelt u alle servers met verificatie-Agents als laag 0-systemen (Zie [verwijzing](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 - Alleen standaard poorten (80 en 443) worden gebruikt voor uitgaande communicatie tussen de verificatie-Agents en Azure AD. U hoeft niet te openen van poorten voor inkomend verkeer op uw firewall. 
   - Poort 443 wordt gebruikt voor alle geverifieerde uitgaande communicatie.
   - Poort 80 wordt alleen voor het downloaden van de certificaatintrekkingslijsten (CRL's) gebruikt om ervoor te zorgen dat geen van de certificaten die worden gebruikt door deze functie is ingetrokken.
   - Zie voor de volledige lijst van de netwerkvereisten [Azure Active Directory Pass through-verificatie: snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Wachtwoorden die gebruikers tijdens het aanmelden opgeven worden versleuteld in de cloud voordat de verificatie-Agents voor on-premises ermee akkoord bent gegaan voor validatie op basis van Active Directory.
 - Het HTTPS-kanaal tussen Azure AD en de on-premises Authentication-Agent is beveiligd met behulp van wederzijdse verificatie.
-- De functie wordt naadloos geïntegreerd met Azure AD-cloudbeveiliging mogelijkheden, zoals beleidsregels voor voorwaardelijke toegang (met inbegrip van Azure multi-factor Authentication), identity protection en Smart Lockout.
+- Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA), [blokkeren van verouderde](../active-directory-conditional-access-conditions.md) en door [ gefilterd op wachtwoord beveiligingsaanvallen](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>Onderdelen betrokken
 
@@ -209,6 +209,7 @@ Voor automatisch bijwerken een verificatie-Agent:
 ## <a name="next-steps"></a>Volgende stappen
 - [Huidige beperkingen](active-directory-aadconnect-pass-through-authentication-current-limitations.md): informatie over welke scenario's worden ondersteund en welke niet.
 - [Quick start-](active-directory-aadconnect-pass-through-authentication-quick-start.md): aan de slag op Azure AD Pass-through-verificatie.
+- [Migreren van AD FS naar Pass-through-verificatie](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
 - [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): de mogelijkheid Smart Lockout configureren op uw tenant om te beveiligen van gebruikersaccounts.
 - [Hoe het werkt](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Leer de basisprincipes van de werking van Azure AD Pass-through-verificatie.
 - [Veelgestelde vragen over](active-directory-aadconnect-pass-through-authentication-faq.md): vind antwoorden op veelgestelde vragen.

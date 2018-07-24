@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2e7f3b0f01dbd6656413c233fcf64c46963d00ef
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6cd6b139699b38a06a8e3f9fce5eb6e24fe24654
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917367"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214172"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Pass through-verificatie voor Azure Active Directory oplossen
 
@@ -97,7 +97,7 @@ Zorg ervoor dat u een account van de globale beheerder alleen in de cloud voor a
 
 Als u Pass-through-verificatie ingeschakeld in uw tenant hebt en u probeert te verwijderen van Azure AD Connect, wordt deze weergegeven u de volgende waarschuwing weergegeven: "gebruikers zich niet aanmelden bij Azure AD, tenzij u andere Pass through-verificatie-agents geïnstalleerd op hebt andere servers."
 
-Zorg ervoor dat uw setup [hoog beschikbare](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) voordat u Azure AD Connect om te voorkomen dat belangrijke aanmelden van gebruikers verwijderen.
+Zorg ervoor dat uw setup [hoog beschikbare](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) voordat u Azure AD Connect om te voorkomen dat belangrijke aanmelden van gebruikers verwijderen.
 
 ## <a name="issues-with-enabling-the-feature"></a>Problemen bij het inschakelen van de functie
 
@@ -112,18 +112,6 @@ Zorg ervoor dat de server waarop Azure AD Connect is geïnstalleerd met onze ser
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Inschakelen van de functie is mislukt vanwege een token of account-verificatiefouten
 
 Zorg ervoor dat u een account van de globale beheerder alleen in de cloud gebruiken bij het inschakelen van de functie. Er is een bekend probleem met multi-factor authentication (MFA)-accounts van globale beheerder; ingeschakeld MFA (alleen voor de bewerking is voltooid) tijdelijk uitschakelen als tijdelijke oplossing.
-
-## <a name="exchange-activesync-configuration-issues"></a>Problemen met Exchange ActiveSync-configuratie
-
-Dit zijn de algemene problemen bij het configureren van Exchange ActiveSync-ondersteuning voor Pass through-verificatie.
-
-### <a name="exchange-powershell-issue"></a>Exchange PowerShell-probleem
-
-Als u ziet de "**een parameter kan niet worden gevonden die overeenkomt met de parameternaam 'PerTenantSwitchToESTSEnabled'\.**" Fout tijdens het uitvoeren van de `Set-OrganizationConfig` Exchange PowerShell opdracht, neem contact op met Microsoft Support.
-
-### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync werkt niet
-
-De configuratie neemt enige tijd in het van kracht: de periode is afhankelijk van uw omgeving. Als het probleem zich blijft gedurende een lange periode voordoen, neem dan contact op met Microsoft Support.
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>Verzamelen Pass through-verificatie-Agent-logboeken
 

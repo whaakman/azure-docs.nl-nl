@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: fb8ae3b6225b2029ced3687083777ae47cb54acf
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b792798c64ed0a2eb12a16d868d8a17302466fea
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002327"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215353"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure Cosmos DB
@@ -68,7 +68,7 @@ Raadpleeg voor meer informatie, de [prijsinformatie van Azure Cosmos DB](https:/
 ### <a name="is-a-free-account-available"></a>Is een gratis account beschikbaar?
 Ja, kunt u aanmelden voor een account gedurende beperkte tijd gratis, zonder toezegging. Om u te registreren, gaat u naar [Azure Cosmosdb gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) of lees meer in de [probeer Azure Cosmos DB Veelgestelde vragen over](#try-cosmos-db).
 
-Als u niet bekend bent met Azure, kunt u zich aanmelden voor een [gratis Azure-account](https://azure.microsoft.com/free/), waardoor u 30 dagen en en een tegoed om te proberen alle Azure-services. Als u een Visual Studio-abonnement hebt, bent u ook in aanmerking komen voor [gratis Azure-tegoed](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) kunt gebruiken voor elke Azure-service. 
+Als u niet bekend bent met Azure, kunt u zich aanmelden voor een [gratis Azure-account](https://azure.microsoft.com/free/), waardoor u 30 dagen en een tegoed om te proberen alle Azure-services. Als u een Visual Studio-abonnement hebt, bent u ook in aanmerking komen voor [gratis Azure-tegoed](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) kunt gebruiken voor elke Azure-service. 
 
 U kunt ook de [Azure Cosmos DB-Emulator](local-emulator.md) ontwikkelen en testen van uw toepassing lokaal voor gratis, zonder dat het maken van een Azure-abonnement. Als u tevreden bent over hoe uw toepassing in de Azure Cosmos DB Emulator werkt, kunt u overstappen naar een Azure Cosmos DB-account in de cloud.
 

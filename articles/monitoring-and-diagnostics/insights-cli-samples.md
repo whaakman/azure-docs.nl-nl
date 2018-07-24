@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: 571e4707cd89f1d159928845eca955801ffb9209
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: dfc9a65325d25889c9d8d3c10aa0dcda2b5a9980
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971642"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213204"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Voorbeelden om snel aan de slag met Azure Monitor CLI 2.0
 Dit artikel laat u voorbeelden opdrachtregelinterface (CLI)-opdrachten kunt u toegang tot de functies van Azure Monitor. Azure Monitor kunt u om de Cloudservices voor automatisch schalen, virtuele Machines en Web-Apps te verzenden van meldingen van waarschuwingen of aanroepen van web-URL's op basis van waarden van de geconfigureerde telemetrische gegevens.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u de Azure CLI nog niet hebt geïnstalleerd, volgt u de instructies voor het [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). U kunt ook [Azure Cloud Shell](/azure/cloud-shell) uit te voeren van de CLI als een interactieve ervaring opdoen in uw browser. Zie een volledige verwijzing van alle beschikbare beschikbare opdrachten in de [naslaginformatie over de CLI van Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+Als u de Azure CLI nog niet hebt geïnstalleerd, volgt u de instructies voor het [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). U kunt ook [Azure Cloud Shell](/azure/cloud-shell) uit te voeren van de CLI als een interactieve ervaring opdoen in uw browser. Zie een volledige verwijzing van alle beschikbare opdrachten in de [naslaginformatie over de CLI van Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 De eerste stap is het aanmelden bij uw Azure-account.

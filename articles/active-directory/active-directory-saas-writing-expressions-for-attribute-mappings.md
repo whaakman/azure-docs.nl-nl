@@ -1,6 +1,6 @@
 ---
-title: Expressies voor kenmerktoewijzingen schrijven in Azure Active Directory | Microsoft Docs
-description: Informatie over het gebruik van expressie toewijzingen kenmerkwaarden transformeren naar een aanvaardbaar indeling tijdens de geautomatiseerde inrichting van objecten van de SaaS-app in Azure Active Directory.
+title: Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory | Microsoft Docs
+description: Informatie over het gebruik van expressietoewijzingen kenmerkwaarden omzetten in een acceptabele indeling tijdens de geautomatiseerde inrichting van objecten van de SaaS-app in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 24b20766997a9a41956f575f6cab8ee5ef0d9e25
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: c0c3e6fab27ff16f0cc75fde3587d280278be882
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035937"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215285"
 ---
-# <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies voor kenmerktoewijzingen schrijven in Azure Active Directory
-Wanneer u configureert het inrichten van een SaaS-toepassing, is een van de soorten kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Hiervoor moet u een script-achtige expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
+# <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
+Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
 
 ## <a name="syntax-overview"></a>Overzicht van de syntaxis
-De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visual Basic voor Applications (VBA)-functies.
+De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visual Basic voor toepassingen (VBA)-functies.
 
-* De volledige expressie moet worden gedefinieerd in termen van functies, die bestaan uit een naam die wordt gevolgd door haakjes argumenten: <br>
-  *Functienaam (<< argument 1 >>, <<argument N>>)*
-* U kunt functies binnen elkaar nesten. Bijvoorbeeld: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
-* U kunt drie soorten argumenten doorgegeven aan functies:
+* De volledige expressie moet worden gedefinieerd in termen van functies, die bestaan uit een naam, gevolgd door argumenten tussen haakjes: <br>
+  *Functienaam (<< argument 1 >> <<argument N>>)*
+* Functies in elkaar kan worden genest. Bijvoorbeeld: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
+* U kunt drie verschillende typen argumenten doorgeven in functies:
   
-  1. Kenmerken, die moeten worden tussen vierkante vierkante haken. Bijvoorbeeld: [attributeName]
-  2. Tekenreeksconstanten moeten tussen dubbele aanhalingstekens worden geplaatst. Bijvoorbeeld: 'Verenigde Staten'
+  1. Kenmerken moeten tussen rechte haakjes worden geplaatst. Bijvoorbeeld: [attributeName]
+  2. Tekenreeksconstanten moeten tussen dubbele aanhalingstekens worden geplaatst. Bijvoorbeeld: "VS"
   3. Andere functies. Bijvoorbeeld: FunctionOne (<<argument1>>, FunctionTwo (<<argument2>>))
-* Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: ' Bedrijfsnaam: \"Contoso\"'
+* Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: "de naam van bedrijf: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lijst met functies
-[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
+[Toevoeg-](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Toevoegen
 **Functie:**<br> Append(Source, suffix)
 
-**Beschrijving:**<br> Neemt een tekenreekswaarde voor de bron en het achtervoegsel toegevoegd aan het einde van deze.
+**Beschrijving:**<br> Neemt een tekenreekswaarde bron en het achtervoegsel toegevoegd aan het einde van deze.
 
 **Parameters:**<br> 
 
@@ -53,10 +53,10 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 | **suffix** |Vereist |Reeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
 
 - - -
-### <a name="formatdatetime"></a>FormatDateTime
-**Functie:**<br> FormatDateTime (bron, inputFormat, outputFormat)
+### <a name="formatdatetime"></a>formatDateTime
+**Functie:**<br> FormatDateTime (bron, inputFormat, uitvoerindeling)
 
-**Beschrijving:**<br> Een tekenreeks van de datum van de ene indeling en converteert naar een andere indeling.
+**Beschrijving:**<br> Neemt een tekenreeks met datum van de ene indeling en converteert naar een andere indeling.
 
 **Parameters:**<br> 
 
@@ -64,22 +64,22 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
 | **inputFormat** |Vereist |Reeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Vereist |Reeks |Indeling van de uitvoerdatum. |
+| **Uitvoerindeling** |Vereist |Reeks |Indeling van de uitvoerdatum. |
 
 - - -
 ### <a name="join"></a>Koppelen
-**Functie:**<br> Join (scheidingsteken, bron1, bron2,...)
+**Functie:**<br> Deelnemen aan (scheidingsteken, bron1, bron2,...)
 
-**Beschrijving:**<br> Join() is vergelijkbaar met Append(), behalve dat deze meerdere kunt combineren **bron** tekenreeks waarden in één tekenreeks en elke waarde worden gescheiden door een **scheidingsteken** tekenreeks.
+**Beschrijving:**<br> Join() is vergelijkbaar met Append(), behalve dat deze meerdere kunt combineren **bron** tekenreeks waarden in één tekenreeks en elke waarde wordt gescheiden door een **scheidingsteken** tekenreeks.
 
-Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde in wordt dat kenmerk zal worden samengevoegd, gescheiden van de waarde van het scheidingsteken.
+Als een van de bronwaarden is een kenmerk meerdere waarden wordt elke waarde in dit kenmerk wordt samengevoegd, van de waarde van het scheidingsteken gescheiden.
 
 **Parameters:**<br> 
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **separator** |Vereist |Reeks |De tekenreeks die wordt gebruikt voor het scheiden van bronwaarden wanneer ze worden samengevoegd tot één tekenreeks. Kan ' ' als er geen scheidingsteken vereist is. |
-| ** bron1... bronN ** |Vereiste, variabele-aantal keren |Reeks |Tekenreekswaarden samen worden toegevoegd. |
+| **separator** |Vereist |Reeks |De tekenreeks die wordt gebruikt om de bronwaarden scheiden wanneer ze worden samengevoegd tot één tekenreeks. Kan ' ' als er geen scheidingsteken vereist is. |
+| ** bron1... bronN ** |Vereist, variabele-aantal keren |Reeks |De tekenreeks die waarden die moeten worden samengevoegd. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -92,26 +92,26 @@ Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk. |
-| **start** |Vereist |geheel getal |Index in de **bron** tekenreeks waar subtekenreeks moet beginnen. Eerste teken in de tekenreeks heeft de index van 1, tweede teken wordt index 2 hebben, enzovoort. |
-| **lengte** |Vereist |geheel getal |Lengte van de subtekenreeks. Als de lengte buiten eindigt de **bron** tekenreeks, functie substring van resultaat **start** index tot het einde van **bron** tekenreeks. |
+| **start** |Vereist |geheel getal |Indexeren de **bron** tekenreeks waar de subtekenreeks moet beginnen. Het eerste teken in de tekenreeks index 1 hebben, tweede teken wordt index 2 hebben, enzovoort. |
+| **Lengte** |Vereist |geheel getal |De lengte van de subtekenreeks. Als de lengte buiten eindigt de **bron** tekenreeks, functie retourneert de subtekenreeks uit **start** index tot het einde van **bron** tekenreeks. |
 
 - - -
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
 **Functie:**<br> NormalizeDiacritics(source)
 
-**Beschrijving:**<br> Vereist een tekenreeksargument. Retourneert de tekenreeks, maar met diakritische tekens die is vervangen door gelijkwaardige niet diakritische tekens. Meestal gebruikt voor het omzetten van namen van de eerste en laatste met diakritische tekens (accenttekens) in de geldige waarden die kunnen worden gebruikt in verschillende gebruiker-id's zoals UPN-namen, SAM-accountnamen en e-mailadressen.
+**Beschrijving:**<br> Vereist een tekenreeksargument. Retourneert de tekenreeks, maar met diakritische tekens vervangen door gelijkwaardige niet-diakritische tekens. Doorgaans gebruikt voor het omzetten van namen van de eerste en laatste diakritische tekens bevatten (accenttekens) in de geldige waarden die kunnen worden gebruikt in verschillende gebruikers-id, zoals de UPN-namen, SAM-accountnamen en e-mailadressen.
 
 **Parameters:**<br> 
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks | Meestal de naam van een eerste of laatste name-kenmerk |
+| **Bron** |Vereist |Reeks | Doorgaans de naam van een eerste of laatste naamkenmerk |
 
 - - -
-### <a name="not"></a>Niet
+### <a name="not"></a>niet
 **Functie:**<br> NOT(Source)
 
-**Beschrijving:**<br> Gespiegeld de Boole-waarde van de **bron**. Als **bron** waarde is '*True*', retourneert '*False*'. Anders retourneert '*True*'.
+**Beschrijving:**<br> Draait u de Booleaanse waarde van de **bron**. Als **bron** waarde is '*waar*", retourneert '*False*'. Anders retourneert '*waar*'.
 
 **Parameters:**<br> 
 
@@ -126,36 +126,36 @@ Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde
 **Beschrijving:**<br>
 Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opgegeven parameters:
 
-* Wanneer **oldValue** en **vervangende waarde** zijn beschikbaar:
+* Wanneer **oldValue** en **vervangende waarde** vindt:
   
   * Alle instanties van oldValue in de bron vervangen door de vervangende waarde
-* Wanneer **oldValue** en **sjabloon** zijn beschikbaar:
+* Wanneer **oldValue** en **sjabloon** vindt:
   
   * Vervangt alle instanties van de **oldValue** in de **sjabloon** met de **bron** waarde
-* Wanneer **regexPattern**, **regexGroupName**, **vervangende waarde** zijn beschikbaar:
+* Wanneer **regexPattern**, **regexGroupName**, **vervangende waarde** vindt:
   
   * Vervangt alle waarden die overeenkomen met oldValueRegexPattern in de brontekenreeks met de vervangende waarde
-* Wanneer **regexPattern**, **regexGroupName**, **replacementPropertyName** zijn beschikbaar:
+* Wanneer **regexPattern**, **regexGroupName**, **replacementPropertyName** vindt:
   
   * Als **bron** heeft geen waarde **bron** wordt geretourneerd
-  * Als **bron** een waarde heeft, gebruikt de **regexPattern** en **regexGroupName** vervangende waarde ophalen uit de eigenschap met **replacementPropertyName** . Vervangende waarde wordt geretourneerd als resultaat
+  * Als **bron** een waarde heeft, maakt gebruik van **regexPattern** en **regexGroupName** vervangende waarde ophalen uit de eigenschap met de **replacementPropertyName** . Vervangende waarde wordt als het resultaat geretourneerd
 
 **Parameters:**<br> 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
-| **oldValue** |Optioneel |Reeks |Waarde moet worden vervangen **bron** of **sjabloon**. |
-| **regexPattern** |Optioneel |Reeks |Regex-patroon voor de waarde moet worden vervangen **bron**. Of, als replacementPropertyName wordt gebruikt, patroon Haal de waarde van eigenschap vervanging. |
-| **regexGroupName** |Optioneel |Reeks |Naam van de groep binnen **regexPattern**. Alleen wanneer replacementPropertyName wordt gebruikt, wordt er Haal de waarde van deze groep als vervangende waarde van eigenschap vervanging. |
-| **replacementValue** |Optioneel |Reeks |Nieuwe waarde ter vervanging van oude met. |
-| **replacementAttributeName** |Optioneel |Reeks |De naam van het kenmerk moet worden gebruikt voor de vervangende waarde wanneer de bron heeft geen waarde. |
-| **Sjabloon** |Optioneel |Reeks |Wanneer **sjabloon** waarde wordt opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
+| **oldValue** |Optioneel |Reeks |Waarde die moet worden vervangen **bron** of **sjabloon**. |
+| **regexPattern** |Optioneel |Reeks |Regex-patroon voor de waarde die moet worden vervangen **bron**. Of, als replacementPropertyName wordt gebruikt, patroon voor het extraheren van waarde uit de vervanging van de eigenschap. |
+| **regexGroupName** |Optioneel |Reeks |Naam van de groep binnen **regexPattern**. Alleen wanneer replacementPropertyName wordt gebruikt, wordt we Haal de waarde van deze groep als de vervangende waarde van de vervangende eigenschap. |
+| **replacementValue** |Optioneel |Reeks |Nieuwe waarde te vervangen door oude met. |
+| **replacementAttributeName** |Optioneel |Reeks |Naam van het kenmerk moet worden gebruikt voor de vervangende waarde, wanneer de gegevensbron heeft geen waarde. |
+| **sjabloon** |Optioneel |Reeks |Wanneer **sjabloon** waarde is opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
 
 - - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Functie:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Beschrijving:**<br> Vereist een tekenreeksargument. Retourneert de tekenreeks, maar met een luiden diakritische tekens met gelijkwaardige niet diakritische tekens.
+**Beschrijving:**<br> Vereist een tekenreeksargument. Hiermee wordt de tekenreeks wordt geretourneerd, maar met een luiden diakritische tekens met gelijkwaardige niet-diakritische tekens.
 
 **Parameters:**<br> 
 
@@ -173,26 +173,26 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks |**bron** waarde om te werken. |
+| **Bron** |Vereist |Reeks |**bron** waarde om bij te werken. |
 
 - - -
 ### <a name="switch"></a>Switch
 **Functie:**<br> Switch (bron, defaultValue, key1, value1, key2, waarde2,...)
 
-**Beschrijving:**<br> Wanneer **bron** waarde komt overeen met een **sleutel**, retourneert **waarde** voor die **sleutel**. Als **bron** waarde komt niet overeen met alle sleutels, retourneert **defaultValue**.  **Sleutel** en **waarde** parameters moeten altijd komen in paren worden gebruikt. De functie verwacht altijd een even aantal parameters.
+**Beschrijving:**<br> Wanneer **bron** waarde komt overeen met een **sleutel**, retourneert **waarde** voor die **sleutel**. Als **bron** waarde komt niet overeen met alle sleutels, retourneert **defaultValue**.  **Sleutel** en **waarde** parameters moeten altijd zijn verkrijgbaar in paren. De functie verwacht altijd een even aantal parameters.
 
 **Parameters:**<br> 
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks |**Bron** waarde om te werken. |
-| **defaultValue** |Optioneel |Reeks |De standaardwaarde moet worden gebruikt als bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |
-| **sleutel** |Vereist |Reeks |**Sleutel** vergelijken **bron** waarde met. |
+| **Bron** |Vereist |Reeks |**Bron** waarde om bij te werken. |
+| **defaultValue** |Optioneel |Reeks |De standaardwaarde moet worden gebruikt wanneer de bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |
+| **sleutel** |Vereist |Reeks |**Sleutel** vergelijken **bron** met de waarde. |
 | **value** |Vereist |Reeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
 
 ## <a name="examples"></a>Voorbeelden
-### <a name="strip-known-domain-name"></a>Strook bekende domeinnaam
-U moet een bekende domeinnaam in van een gebruiker e-mail met een gebruikersnaam verkrijgen van strook /. <br>
+### <a name="strip-known-domain-name"></a>Bekende domeinnaam van strook/lijn
+U moet de domeinnaam van een bekend van e-mailadres van een gebruiker om op te halen van de naam van een gebruiker verwijderen. <br>
 Bijvoorbeeld, als het domein 'contoso.com' is, kan u de volgende expressie:
 
 **Expressie:** <br>
@@ -200,75 +200,75 @@ Bijvoorbeeld, als het domein 'contoso.com' is, kan u de volgende expressie:
 
 **Voorbeeld van invoer / uitvoer:** <br>
 
-* **INVOER** (e-mail): 'john.doe@contoso.com'
-* **UITVOER**: 'john.doe'
+* **INVOER** (e-mail): "john.doe@contoso.com"
+* **UITVOER**: "john.doe"
 
-### <a name="append-constant-suffix-to-user-name"></a>Constante achtervoegsel toevoegen aan de gebruikersnaam van de
+### <a name="append-constant-suffix-to-user-name"></a>Constante achtervoegsel toevoegen aan de gebruikersnaam van
 Als u van een Sandbox met Salesforce gebruikmaakt, moet u mogelijk een extra achtervoegsel toevoegen aan uw gebruikersnamen voordat deze worden gesynchroniseerd.
 
 **Expressie:** <br>
 `Append([userPrincipalName], ".test"))`
 
-**I/o-voorbeeld:** <br>
+**Voorbeeld van invoer/uitvoer:** <br>
 
-* **INVOER**: (userPrincipalName): 'John.Doe@contoso.com'
-* **UITVOER**: 'John.Doe@contoso.com.test'
+* **INVOER**: (userPrincipalName): "John.Doe@contoso.com"
+* **UITVOER**: "John.Doe@contoso.com.test"
 
-### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Gebruikersalias genereren met cookievalidatie delen van de voornaam en achternaam
-U moet een gebruiker alias genereren door middel van eerste 3 letters van de voornaam van de gebruiker en de eerste 5 letters van de achternaam van de gebruiker.
+### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Gebruikersalias genereren door samenvoegen van onderdelen van de voornaam en achternaam
+U moet een gebruiker alias genereren door te nemen van de eerste 3 letters van de voornaam van de gebruiker en eerste 5 letters van de achternaam van de gebruiker.
 
 **Expressie:** <br>
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
-**I/o-voorbeeld:** <br>
+**Voorbeeld van invoer/uitvoer:** <br>
 
-* **INVOER** (givenName): "Jan"
-* **INVOER** (voornaam): 'De Vries'
-* **UITVOER**: 'JohDoe'
+* **INVOER** (givenName): "John"
+* **INVOER** (voornaam): "Doe"
+* **UITVOER**: "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Diakritische tekens verwijderen uit een tekenreeks
-U moet de tekens, accenttekens met gelijkwaardige tekens die geen accenttekens bevatten met vervangen.
+U moet vervangen van tekens lang zijn accenttekens met gelijkwaardige tekens die geen accenttekens bevatten.
 
 **Expressie:** <br>
 NormalizeDiacritics([givenName])
 
-**I/o-voorbeeld:** <br>
+**Voorbeeld van invoer/uitvoer:** <br>
 
-* **INVOER** (givenName): 'Zoë'
-* **UITVOER**: 'Zoe'
+* **INVOER** (givenName): "Zoë"
+* **UITVOER**: "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Uitvoerdatum als een tekenreeks in een bepaalde indeling
 Wilt u datums verzenden naar een SaaS-toepassing in een bepaalde indeling. <br>
-U wilt bijvoorbeeld datums voor ServiceNow opmaken.
+U wilt bijvoorbeeld datums voor ServiceNow.
 
 **Expressie:** <br>
 
 `FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
 
-**I/o-voorbeeld:**
+**Voorbeeld van invoer/uitvoer:**
 
-* **INVOER** (extensionAttribute1): '20150123105347.1Z'
-* **UITVOER**: '2015-01-23'
+* **INVOER** (extensionAttribute1): "20150123105347.1Z"
+* **UITVOER**: "23-01-2015"
 
-### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Een waarde op basis van vooraf gedefinieerde set opties vervangen
-U moet de tijdzone van de gebruiker op basis van de status code opgeslagen in Azure AD te definiëren. <br>
-Als de status code komt niet met de vooraf gedefinieerde opties overeen, gebruikt u standaardwaarde van 'Australië/Sydney'.
+### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Vervangen door een waarde op basis van vooraf gedefinieerde set opties
+U moet voor het definiëren van de tijdzone van de gebruiker op basis van de status opgeslagen in Azure AD. <br>
+Als de status code komt niet overeen met een van de vooraf gedefinieerde opties, gebruikt u standaardwaarde van 'Australië/Sydney'.
 
 **Expressie:** <br>
 
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
-**I/o-voorbeeld:**
+**Voorbeeld van invoer/uitvoer:**
 
-* **INVOER** (status): 'QLD'
-* **UITVOER**: ' Australië/Brisbane'
+* **INVOER** (status): "QLD"
+* **UITVOER**: "Australië/Brisbane"
 
-## <a name="related-articles"></a>Verwante artikelen
+## <a name="related-articles"></a>Gerelateerde artikelen
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
-* [Automatisch gebruikers inrichten/opheffen van inrichting tot SaaS-Apps](active-directory-saas-app-provisioning.md)
-* [Kenmerktoewijzingen voor gebruikers inrichten aanpassen](active-directory-saas-customizing-attribute-mappings.md)
-* [Bereikfilters voor gebruikers inrichten](active-directory-saas-scoping-filters.md)
+* [Gebruiker inrichting/ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](active-directory-saas-app-provisioning.md)
+* [Kenmerktoewijzingen voor het inrichten van gebruikers aan te passen](active-directory-saas-customizing-attribute-mappings.md)
+* [Bereikfilters toevoegen voor het inrichten van gebruikers](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
-* [Meldingen inrichten van een account](active-directory-saas-account-provisioning-notifications.md)
+* [Meldingen over accountinrichting](active-directory-saas-account-provisioning-notifications.md)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps](saas-apps/tutorial-list.md)
 

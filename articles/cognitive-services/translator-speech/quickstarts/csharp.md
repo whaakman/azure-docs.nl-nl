@@ -1,6 +1,6 @@
 ---
-title: C#-Snelstartgids voor Azure cognitieve Services, Microsoft Translator Speech-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de Microsoft Translator Speech-API in Microsoft cognitieve Services in Azure.
+title: C# Quickstart voor Azure Cognitive Services, Microsoft Translator Speech-API | Microsoft Docs
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Speech-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
@@ -9,29 +9,29 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6489a0be72cedffdfa4f7021f889b2d39c1c358f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4f12d74aedbcadc311cd9c5ccd12dc1ad3501dbf
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344679"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205099"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Quick Start voor Microsoft Translator spraak API met C# 
+# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Snelstartgids voor Microsoft Translator Speech-API met C# 
 <a name="HOLTop"></a>
 
-Dit artikel laat zien hoe u met de Microsoft Translator Speech-API woorden gesproken wav-bestanden.
+In dit artikel leest u hoe de Microsoft Translator Speech-API gebruiken voor de omzetting van woorden die in een wav-bestand.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) naar deze code in Windows worden uitgevoerd. (De editie free Community blijft werken.)
+U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om uit te voeren van deze code op Windows. (De gratis Community-editie blijft werken.)
 
-U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat van de volgende code worden gecompileerd. Dit WAV-bestand moet zich in de standaard PCM, 16-bits, 16kHz mono-indeling. U ontvangt deze een wav-bestand van de [conversieprogramma tekst uitspreken API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat uit de onderstaande code worden gecompileerd. Dit WAV-bestand moet zich in de standard PCM, 16-bits, 16kHz mono-indeling. U vindt deze een wav-bestand van de [Text to Speech-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnementssleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnement-sleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Spraak vertalen
 
-De volgende code vertaalt spraak van één taal.
+De volgende code wordt omgezet in spraak in één taal.
 
 1. Maak een nieuwe C#-project in uw favoriete IDE.
 2. Voeg de code hieronder.
@@ -144,16 +144,16 @@ namespace TranslateSpeechQuickStart
 
 **Spraak antwoord vertalen**
 
-Een geslaagde resultaat is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de omzetting van de woorden 'speak.wav' gesproken.
+Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de vertaling van gesproken in "speak.wav" woorden.
 
 [Terug naar boven](#HOLTop)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Conversieprogramma spraak-zelfstudie](../tutorial-translator-speech-csharp.md)
+> [Translator Speech-zelfstudie](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Zie ook 
 
-[Conversieprogramma spraak-overzicht](../overview.md)
-[API-referentiemateriaal](http://docs.microsofttranslator.com/speech-translate.html)
+[Overzicht van Translator Speech](../overview.md)
+[API-verwijzing](http://docs.microsofttranslator.com/speech-translate.html)

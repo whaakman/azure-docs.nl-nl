@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916163"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213228"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding
 
@@ -55,7 +55,7 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [wachtwoord-H
 - Als een toepassing (bijvoorbeeld https://myapps.microsoft.com/contoso.com) stuurt een `domain_hint` (OpenID Connect) of `whr` (SAML)-parameter - identificatie van uw tenant, of `login_hint` parameter - identificatie van de gebruiker in de Azure AD-aanmelden-aanvraag, gebruikers zijn automatisch wordt aangemeld zonder dat ze binnenkomen gebruikersnamen of wachtwoorden.
 - Gebruikers krijgen ook een op de achtergrond aanmelding als een toepassing (bijvoorbeeld https://contoso.sharepoint.com) aanmeldingsaanvragen naar Azure AD-tenants eindpunten - dat wil zeggen, verzendt https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> : in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>.
 - Meld u af wordt ondersteund. Hiermee kunnen gebruikers zich aanmelden met, in plaats van dat automatisch wordt aangemeld bij het gebruik van naadloze eenmalige aanmelding automatisch een andere Azure AD-account kiezen.
-- Office 365-clients (16.0.8730.xxxx en hoger) met behulp van een niet-interactieve flow worden ondersteund.
+- Office 365 Win32-clients (Outlook, Word, Excel en andere) met versies 16.0.8730.xxxx en hoger worden ondersteund met behulp van een niet-interactieve stroom. Voor OneDrive, hebt u activeren, de [OneDrive op de achtergrond config functie](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) voor een ervaring voor op de achtergrond.
 - Dit kan worden ingeschakeld via Azure AD Connect.
 - Het is een gratis functie en hoeft u betaald edities van Azure AD om deze te gebruiken.
 - Dit wordt ondersteund op browser gebaseerde webclients en Office-clients die ondersteuning bieden voor [moderne verificatie](https://aka.ms/modernauthga) op platforms en browsers kan Kerberos-verificatie:

@@ -3,23 +3,18 @@ title: Azure Health Analytics blauwdruk
 description: Richtlijnen voor het implementeren van een blauwdruk HIPAA/HITRUST Health Analytics
 services: security
 documentationcenter: na
-author: jomolesk
-manager: mbaldwin
-editor: tomsh
+author: RajeevRangappa
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
 ms.service: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/27/2018
-ms.author: jomolesk
-ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/23/2018
+ms.author: rarangap
+ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113228"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214938"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI
 
@@ -31,7 +26,7 @@ De Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI bla
 
 ![](images/components.png)
 
-De oplossing is ontworpen voor een verzameling voorbeeldgegevens geformatteerd met snelle gezondheidszorg interoperabiliteit Resources (FHIR), een wereldwijde standaard voor het uitwisselen van gezondheidszorg informatie elektronisch, gebruiken en op te slaan op een veilige manier. Klanten kunnen Azure Machine Learning vervolgens gebruiken om te profiteren van krachtige hulpprogramma's voor bedrijfsinformatie en analyses bekijken voorspellingen op de voorbeeldgegevens. Als een voorbeeld van het soort experiment die Azure Machine Learning kunt vereenvoudigen, omvat de blauwdruk een voorbeeldgegevensset, scripts en hulpprogramma's voor het voorspellen van een patiënt-verblijf in een ziekenhuisafdeling. 
+De oplossing is ontworpen voor een verzameling voorbeeldgegevens geformatteerd met snelle gezondheidszorg interoperabiliteit Resources (FHIR), een wereldwijde standaard voor het uitwisselen van gezondheidszorg informatie elektronisch, gebruiken en op te slaan op een veilige manier. Klanten kunnen vervolgens Azure Machine Learning Studio gebruiken om te profiteren van krachtige hulpprogramma's voor bedrijfsinformatie en analyses bekijken voorspellingen op de voorbeeldgegevens. Als een voorbeeld van het soort experiment die Azure Machine Learning Studio kunt vereenvoudigen, omvat de blauwdruk een voorbeeldgegevensset, scripts en hulpprogramma's voor het voorspellen van een patiënt-verblijf in een ziekenhuisafdeling. 
 
 Deze blauwdruk is bedoeld om te fungeren als een modulaire basis voor klanten om aan te passen aan hun specifieke vereisten, het ontwikkelen van nieuwe Azure Machine learning gebruikt om op te lossen beide klinische en operationele use-casescenario's. Het is ontworpen om te worden beveiligd en compatibel wanneer geïmplementeerd; klanten zijn echter verantwoordelijk voor rollen correct configureren en implementeren van eventuele wijzigingen. Houd rekening met het volgende:
 
@@ -66,7 +61,7 @@ Voor een snel overzicht van de werking van deze oplossing, bekijk deze [video](h
 
 De fundamentele architectuur bestaat uit de volgende onderdelen:
 
--   **[Risicomodel](https://aka.ms/healththreatmodel)**  een uitgebreide risicomodel is opgegeven in tm7-indeling voor gebruik met de [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168), de onderdelen van de oplossing wordt weergegeven, de gegevens stromen tussen de, en het vertrouwen grenzen. Het model kunt klanten inzicht krijgen in de punten van de mogelijke risico's in de infrastructuur van system bij het ontwikkelen van machine learning-onderdelen of andere wijzigingen aanbrengen.
+-   **[Risicomodel](https://aka.ms/healththreatmodel)**  een uitgebreide risicomodel is opgegeven in tm7-indeling voor gebruik met de [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168), de onderdelen van de oplossing wordt weergegeven, de gegevens stromen tussen de, en het vertrouwen grenzen. Het model kunt klanten inzicht krijgen in de punten van de mogelijke risico's in de infrastructuur van system bij het ontwikkelen van Machine Learning Studio-onderdelen of andere wijzigingen aanbrengen.
 
 -   **[Klant-implementatie matrix](https://aka.ms/healthcrmblueprint)**  een Microsoft Excel-werkmap bevat de relevante HITRUST-vereisten en wordt uitgelegd hoe Microsoft en de klant verantwoordelijk zijn voor het voldoen aan elkaar.
 
@@ -107,7 +102,7 @@ Ze hebben geen toegang tot de records.
  ### <a name="data-scientist"></a>Gegevenswetenschapper
 
 
-De gegevenswetenschapper werkt de Azure Machine Learning-service. Ze kunnen importeren, exporteren, en beheren van gegevens en rapporten uitvoeren. De gegevenswetenschapper heeft toegang tot de gegevens, maar heeft geen beheerdersrechten.
+De gegevenswetenschapper werkt de Azure Machine Learning Studio. Ze kunnen importeren, exporteren, en beheren van gegevens en rapporten uitvoeren. De gegevenswetenschapper heeft toegang tot de gegevens, maar heeft geen beheerdersrechten.
 
 -   Ingebouwde roltoewijzingen: [Inzender voor Opslagaccounts](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
@@ -148,12 +143,12 @@ De revisor evalueert de oplossing voor naleving. Ze hebben geen directe toegang 
 ## <a name="example-use-case"></a>Voorbeeld van de Use case
 
 
-De voorbeeld-use-case deel uitmaakt van deze blauwdruk ziet u hoe de blauwdruk kan worden gebruikt om in te schakelen van machine learning en analyse van health-gegevens in de cloud. Contosoclinic is een kleine ziekenhuis zich in de Verenigde Staten. De beheerders in ziekenhuizen netwerk wilt gebruiken van Azure Machine Learning om te voorspellen beter de verblijfsduur van een patiënt op het moment van toegelaten, om de werkbelasting van de operationele efficiëntie en verbeter de kwaliteit van zorg die kan bieden.
+De voorbeeld-use-case deel uitmaakt van deze blauwdruk ziet u hoe de blauwdruk kan worden gebruikt om in te schakelen van machine learning en analyse van health-gegevens in de cloud. Contosoclinic is een kleine ziekenhuis zich in de Verenigde Staten. Het ziekenhuisnetwerk die beheerders wilt gebruiken van Azure Machine Learning Studio om een beter de verblijfsduur van een patiënt te voorspellen op het moment van toegelaten, om de werkbelasting van de operationele efficiëntie en verbeter de kwaliteit van zorg kan bieden.
 
 ### <a name="predicting-length-of-stay"></a>Verblijfsduur
 
 
-Het voorbeeld van de use-casescenario maakt gebruik van Azure Machine Learning om te voorspellen van de verblijfsduur van een nieuwe toegelaten patiënt door het vergelijken van de details van de medische genomen om de inname tot samengevoegde historische gegevens van vorige patiënten.
+Het voorbeeld van de use-casescenario maakt gebruik van Azure Machine Learning Studio om te voorspellen van de verblijfsduur van een nieuwe toegelaten patiënt door het vergelijken van de details van de medische genomen om de inname tot samengevoegde historische gegevens van vorige patiënten.
 De blauwdruk omvat een groot aantal anonieme medische dossiers ter illustratie van de training en voorspellende mogelijkheden van de oplossing. In een productie-implementatie zou klanten hun eigen records gebruiken voor het trainen van de oplossing voor nauwkeurigere voorspellingen zetten op basis van de unieke details van hun omgeving, opslagruimten en patiënten.
 
 ### <a name="users-and-roles"></a>Gebruikers en rollen
@@ -356,8 +351,8 @@ De oplossing biedt ondersteuning voor Azure Event Grid, een geïntegreerde servi
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [Logboekregistratie is ingeschakeld](/azure/machine-learning/studio/web-services-logging) voor Machine Learning-webservices.
-- met behulp van [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench is vereist voor de ontwikkeling van experimenten, die de mogelijkheid om te voorspellen op een set oplossing biedt. [Integratie van de workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) beheer van experimenten kunt stroomlijnen.
+-   [Logboekregistratie is ingeschakeld](/azure/machine-learning/studio/web-services-logging) voor Machine Learning Studio-webservices.
+- met behulp van [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench is vereist voor de ontwikkeling van experimenten, die de mogelijkheid om te voorspellen op een set oplossing biedt. [Integratie van de workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) beheer van experimenten kunt stroomlijnen.
 
 ## <a name="security"></a>BEVEILIGING
 

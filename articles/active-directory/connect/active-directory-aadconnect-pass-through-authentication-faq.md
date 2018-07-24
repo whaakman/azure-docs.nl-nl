@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8b5f62daf2b43453aadb0373171bc98f96494688
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048965"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215064"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass through-verificatie: Veelgestelde vragen
 
@@ -28,7 +28,7 @@ In dit artikel komen de antwoorden op veelgestelde vragen over Azure Active Dire
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Welke methoden voor het aanmelden bij Azure AD, Pass-through-verificatie, wachtwoord-hash-synchronisatie en Active Directory Federation Services (AD FS), moet ik kiezen?
 
-Dat hangt ervan af op uw on-premises omgeving en vereisten van de organisatie. Controleer de [Azure AD Connect-gebruiker aanmelden opties](active-directory-aadconnect-user-signin.md) artikel voor een vergelijking van de verschillende Azure AD aanmelden methoden.
+Beoordeling [in deze handleiding](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) voor een vergelijking van de verschillende Azure AD aanmelden methoden en hoe u de methode rechts aanmelding voor uw organisatie te kiezen.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>Een gratis functie voor Pass through-verificatie is?
 
@@ -48,7 +48,7 @@ Ja. Pass through-verificatie ondersteunt `Alternate ID` als de gebruikersnaam wa
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Wachtwoord-hashsynchronisatie fungeren als een terugval naar Pass-through-verificatie?
 
-Nee. Pass through-verificatie _niet_ automatisch een failover naar wachtwoord-hashsynchronisatie. Het fungeert alleen als alternatieve methode voor [scenario's voor Pass through-verificatie biedt geen ondersteuning voor vandaag](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Om te voorkomen dat een gebruiker aanmeldingen dat is toegestaan, moet u Pass-through-verificatie voor configureren [hoge beschikbaarheid](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Nee. Pass through-verificatie _niet_ automatisch een failover naar wachtwoord-hashsynchronisatie. Het fungeert alleen als alternatieve methode voor [scenario's voor Pass through-verificatie biedt geen ondersteuning voor vandaag](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Om te voorkomen dat een gebruiker aanmeldingen dat is toegestaan, moet u Pass-through-verificatie voor configureren [hoge beschikbaarheid](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan ik Installeer een [Azure AD-toepassingsproxy](../manage-apps/application-proxy.md) connector op dezelfde server als een Pass through-verificatie-Agent?
 
@@ -82,7 +82,7 @@ Ja. Als Web Proxy Auto-Discovery (WPAD) is ingeschakeld in uw on-premises-omgevi
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Kan ik twee of meer Pass through-verificatie-Agents installeren op dezelfde server?
 
-Nee, kunt u alleen een Pass through-verificatie-Agent installeren op één server. Als u configureren van Pass-through-verificatie voor maximale beschikbaarheid wilt, volg de instructies in [Azure Active Directory Pass through-verificatie: snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Nee, kunt u alleen een Pass through-verificatie-Agent installeren op één server. Als u configureren van Pass-through-verificatie voor maximale beschikbaarheid wilt, volg de instructies in [Azure Active Directory Pass through-verificatie: snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hoe kan ik een Pass through-verificatie-Agent verwijderen?
 
@@ -92,12 +92,7 @@ Als u de blade Pass through-verificatie inschakelt op de [Azure Active Directory
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Ik AD FS gebruiken voor het aanmelden bij Azure AD. Hoe kan ik het schakelen naar Pass-through-verificatie?
 
-Als u AD FS hebt geconfigureerd als de methode aan te melden bij de Azure AD Connect-wizard, wijzigt u de methode die de gebruiker zich aanmeldt bij Pass through-verificatie gebruikt. Deze wijziging, schakelt u Pass-through-verificatie op de tenant en converteert _alle_ uw federatieve domeinen in beheerde domeinen. Pass through-verificatie verwerkt alle volgende aanvragen te melden bij uw tenant. Er is op dit moment geen ondersteunde manier in Azure AD Connect een combinatie van AD FS en Pass through-verificatie gebruiken in verschillende domeinen.
-
-Als AD FS is geconfigureerd als de methode aan te melden bij _buiten_ de Azure AD Connect-wizard methode wijzigen het aanmelden van gebruikers naar Pass-through-verificatie. Kunt u deze wijziging van de **niet configureert** optie. Door deze wijziging kunt Pass through-verificatie voor de tenant, maar uw federatieve domeinen worden echter ook doorgaan met AD FS voor aanmelding bij. PowerShell gebruiken voor het handmatig enkele of al deze federatieve domeinen converteren naar beheerde domeinen. Nadat u deze wijziging hebt aangebracht *alleen* alle aanvragen te melden bij de beheerde domeinen voor Pass through-verificatie afhandelt.
-
->[!IMPORTANT]
->Pass through-verificatie niet afhandelen van aanmelding voor alleen-cloud Azure AD-gebruikers.
+Als u van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie migreert, is het raadzaam dat u onze gedetailleerde Implementatiehandleiding gepubliceerd volgt [hier](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Kan ik Pass through-verificatie gebruiken in een omgeving met meerdere forests Active Directory?
 
@@ -105,7 +100,7 @@ Ja. Omgevingen met meerdere forests worden ondersteund als er forestvertrouwensr
 
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Hoeveel Pass through-verificatie-Agents heb ik nodig om te installeren?
 
-Meerdere Pass through-verificatie-Agents installeren garandeert [hoge beschikbaarheid](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Maar biedt niet deterministisch taakverdeling tussen de verificatie-Agents.
+Meerdere Pass through-verificatie-Agents installeren garandeert [hoge beschikbaarheid](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability). Maar biedt niet deterministisch taakverdeling tussen de verificatie-Agents.
 
 Houd rekening met de piek- en gemiddelde belasting van aanmeldingsaanvragen die u verwacht te zien op uw tenant. Als een benchmark kunnen 300-400 verificaties per seconde op een standaard CPU met 4 kernen, 16 GB RAM-server worden verwerkt door een afzonderlijke verificatie-Agent.
 
@@ -133,6 +128,7 @@ Als u een Pass through-verificatie-Agent van een server verwijderen, worden de s
 ## <a name="next-steps"></a>Volgende stappen
 - [Huidige beperkingen](active-directory-aadconnect-pass-through-authentication-current-limitations.md): informatie over welke scenario's worden ondersteund en welke niet.
 - [Quick start-](active-directory-aadconnect-pass-through-authentication-quick-start.md): aan de slag op Azure AD Pass-through-verificatie.
+- [Migreren van AD FS naar Pass-through-verificatie](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
 - [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): informatie over het configureren van de functie Smart Lockout op uw tenant om te beveiligen van gebruikersaccounts.
 - [Technische details](active-directory-aadconnect-pass-through-authentication-how-it-works.md): informatie over de werking van de functie voor Pass through-verificatie.
 - [Problemen oplossen](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informatie over het oplossen van veelvoorkomende problemen met de functie voor Pass through-verificatie.

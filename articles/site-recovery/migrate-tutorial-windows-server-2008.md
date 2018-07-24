@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: bsiva
-ms.openlocfilehash: 0d3f28f0a9f1e9862fabb6ce5e96597f1534abd8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 552a0d131f630db7b3a73293d330377ee350d2a9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008767"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214615"
 ---
 # <a name="migrate-servers-running-windows-server-2008-2008-r2-to-azure"></a>Servers met Windows Server 2008, 2008 R2 naar Azure migreren
 
@@ -110,15 +110,47 @@ De nieuwe kluis wordt toegevoegd op het **Dashboard** onder **Alle resources** e
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>Uw on-premises omgeving voor de migratie voorbereiden
 
 - Download de configuratieserver-installatieprogramma (geïntegreerde Setup) uit [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- [Instellen van](physical-azure-disaster-recovery.md#set-up-the-source-environment) de bronomgeving met het installatiebestand in de vorige stap hebt gedownload.
+- Volg de stappen die hieronder worden beschreven voor het instellen van de bronomgeving met behulp van de installer-bestand in de vorige stap hebt gedownload.
 
 > [!IMPORTANT]
-> Zorg ervoor dat u het setup-bestand gedownload in de eerste stap hierboven gebruiken om te installeren en registreren van de configuratieserver. Het setup-bestand niet downloaden via de Azure-portal. Het setup-bestand beschikbaar op [ https://aka.ms/asr-w2k8-migration-setup ](https://aka.ms/asr-w2k8-migration-setup) is de enige versie die ondersteuning biedt voor Windows Server 2008-migratie.
+> - Zorg ervoor dat u het setup-bestand gedownload in de eerste stap hierboven gebruiken om te installeren en registreren van de configuratieserver. Het setup-bestand niet downloaden via de Azure-portal. Het setup-bestand beschikbaar op [ https://aka.ms/asr-w2k8-migration-setup ](https://aka.ms/asr-w2k8-migration-setup) is de enige versie die ondersteuning biedt voor Windows Server 2008-migratie.
 >
-> U kunt een bestaande configuratieserver niet gebruiken voor het migreren van computers met Windows Server 2008. U moet het instellen van een nieuwe configuratie-Server met behulp van de bovenstaande koppeling.
+> - U kunt een bestaande configuratieserver niet gebruiken voor het migreren van computers met Windows Server 2008. U moet het instellen van een nieuwe configuratie-Server met behulp van de bovenstaande koppeling.
+>
+> - Volg de stappen hieronder vindt u voor het installeren van de configuratieserver. Probeer niet de procedure op basis van GUI-installatie door het uitvoeren van de geïntegreerde setup rechtstreeks gebruiken. In dat geval wordt de installatie-poging mislukken met een onjuiste foutbericht waarin wordt gemeld dat er geen verbinding met internet is verwijderd.
+
+ 
+1) Het bestand met kluisreferenties downloaden via de portal: in Azure portal, selecteert u de Recovery Services-kluis in de vorige stap hebt gemaakt. Selecteer in het menu op de pagina kluis **Site Recovery-infrastructuur** > **configuratieservers**. Klik vervolgens op **+ Server**. Selecteer *configuratieserver voor fysieke* in de vervolgkeuzelijst formulier op de pagina die wordt geopend. Klik op de downloadknop bij stap 4 van het bestand met kluisreferenties downloaden.
 
  ![Kluisregistratiesleutel downloaden](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
- 
+
+2) Kopieer het bestand met kluisreferenties gedownload in de vorige stap en de geïntegreerde setup-bestand op het bureaublad van de machine Configuration Server eerder hebt gedownload (de Windows Server 2012 R2 of Windows Server 2016-machine waarop u wilt installeren de configuratie van server-software.)
+
+3) Zorg ervoor dat de configuratieserver verbinding heeft met internet en of de systeemklok en de tijdzone-instellingen op de machine juist zijn geconfigureerd. Download de [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) installatieprogramma en plaats deze op *C:\Temp\ASRSetup* (Maak de map als deze nog niet bestaat.) 
+
+4) Maken van een bestand met MySQL met de volgende regels en plaats het op het bureaublad op **C:\Users\Administrator\MySQLCreds.txt** . Vervang ' wachtwoord ~ 1 "hieronder met een geschikt en een sterk wachtwoord:
+
+```
+[MySQLCredentials]
+MySQLRootPassword = "Password~1"
+MySQLUserPassword = "Password~1"
+```
+
+5) Pak de inhoud van het gedownloade geïntegreerde setup-bestand op het bureaublad met de volgende opdracht:
+
+```
+cd C:\Users\Administrator\Desktop
+
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
+```
+  
+6) De configuratie van server-software met behulp van de uitgepakte inhoud door het uitvoeren van de volgende opdrachten installeren:
+
+```
+cd C:\Users\Administrator\Desktop\9.18.1
+
+UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
+```
 
 ## <a name="set-up-the-target-environment"></a>De doelomgeving instellen
 

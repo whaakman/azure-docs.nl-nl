@@ -10,15 +10,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 09/19/2017
+ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 0ac43637adc91c22aaab78f04732a613c74706d9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f583e962023603dbd7428c32bde52b9040246814
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446113"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205116"
 ---
 # <a name="review-your-access"></a>Uw toegang controleren
 
@@ -26,7 +26,11 @@ Azure Active Directory (Azure AD) vereenvoudigt de manier waarop ondernemingen t
 
 ## <a name="open-an-access-review"></a>Een toegangsbeoordeling openen
 
-Als u wilt zien van de in behandeling zijnde toegangsbeoordelingen, selecteer de koppeling in het e-mailbericht. Als u het e-mailbericht niet hebt, kunt u de toegangsbeoordelingen vinden door de volgende stappen:
+De in behandeling zijnde om beoordelingen te bekijken, klikt u op de koppeling voor de controle-toegang in het e-mailbericht. Vanaf augustus 2018, hebben de e-mailmeldingen voor Azure AD-rollen voor het ontwerp van een bijgewerkte. Hieronder ziet u een voorbeeld van de e-mailbericht wordt verzonden wanneer een gebruiker is uitgenodigd om te worden van een revisor.
+
+![Controleer toegang tot e-mail](./media/active-directory-azure-ad-controls-how-to-review-your-access/new-ar-email.png)
+
+Als u het e-mailbericht niet hebt, kunt u de toegangsbeoordelingen vinden door de volgende stappen:
 
 1. Meld u bij de [Azure AD-toegangspaneel](https://myapps.microsoft.com).
 

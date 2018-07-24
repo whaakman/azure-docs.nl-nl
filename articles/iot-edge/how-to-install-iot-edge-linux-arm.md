@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 98392dbb2aa5d5eca58644467d54ccf39ababe11
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e814785af7041ba762f7c383a0cfdc434fce9dce
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162106"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213869"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IoT Edge-runtime installeren in Linux (ARM32v7/armhf)
 
@@ -101,6 +101,10 @@ Het edge-apparaat kan worden geconfigureerd handmatig met behulp van een [appara
      scope_id: "{scope_id}"
      registration_id: "{registration_id}"
    ```
+
+Sla het bestand op en sluit het. 
+
+   `CTRL + X`, `Y`, `Enter`
 
 Na het invoeren van de Inrichtingsgegevens in de configuratie, start u de daemon opnieuw:
 

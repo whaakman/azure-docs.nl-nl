@@ -1,6 +1,6 @@
 ---
-title: Object-detectie met Python en aangepaste Vision-API - cognitieve Azure-Services | Microsoft Docs
-description: Gebruik een eenvoudige Windows-app die gebruikmaakt van de aangepaste Vision-API in cognitieve Microsoft-Services. Maak een project, labels toevoegen, afbeeldingen uploaden, training van uw project en maken van een voorspelling met behulp van het standaardeindpunt.
+title: Object-detectie met Python en aangepaste Vision-API - Azure Cognitive Services | Microsoft Docs
+description: Verken een eenvoudige Windows-app die gebruikmaakt van de aangepaste Vision-API in Microsoft Cognitive Services. Een project maakt, tags toevoegen, afbeeldingen uploaden, trainen van uw project en een voorspelling met behulp van de standaardeindpunt.
 services: cognitive-services
 author: areddish
 manager: chbuehle
@@ -9,48 +9,48 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: b946265b431a7dcb16bf99e3bf78e09f2d0a7de3
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301009"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213578"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Aangepaste Vision-API gebruiken voor het bouwen van een object detectie-project met behulp van Python
+# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Custom Vision-API gebruiken om te maken van een project voor het detecteren van object met Python
 
-Verken een basic pythonscript dat gebruikmaakt van de Computer Vision-API om een object detectie-project te maken. Nadat deze gemaakt, kunt u toevoegen met tags regio's, afbeeldingen uploaden, trainen van het project, verkrijgen van het project standaard voorspelling eindpunt-URL en het eindpunt voor het testen van een installatiekopie van een programmatisch gebruiken. In dit voorbeeld open source als sjabloon gebruiken voor het bouwen van uw eigen app met behulp van de aangepaste Vision-API.
+Verken een basis Python-script die gebruikmaakt van de Computer Vision-API om een object-detectie-project te maken. Nadat deze gemaakt, kunt u gecodeerde regio's toevoegen, afbeeldingen uploaden, trainen van het project, verkrijgen van het project standaard voorspelling eindpunt-URL en het eindpunt voor het testen van een installatiekopie van een via een programma gebruiken. In dit voorbeeld open-source als sjabloon gebruiken voor het bouwen van uw eigen app met behulp van de aangepaste Vision-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt gebruiken de zelfstudie, moet u het volgende doen:
+Voor het gebruik van de zelfstudie, moet u het volgende doen:
 
-- Python 2.7 + of Python 3.5 + installeren.
-- Pip installeren.
+- Installeer Python 2.7 + of Python 3.5 +.
+- Instalovat modul pip.
 
 ### <a name="platform-requirements"></a>Platformvereisten
 In dit voorbeeld is ontwikkeld voor Python.
 
-### <a name="get-the-custom-vision-sdk"></a>De aangepaste visie SDK ophalen
+### <a name="get-the-custom-vision-sdk"></a>De Custom Vision SDK ophalen
 
-Als u wilt maken in dit voorbeeld, moet u de SDK voor Python installeren voor de aangepaste Vision-API:
+Als u wilt maken in dit voorbeeld, moet u de Python-SDK installeren voor de aangepaste Vision-API:
 
 ```
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-U kunt de afbeeldingen met downloaden de [Python voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
+U kunt de afbeeldingen met downloaden de [voorbeelden van Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
 
-## <a name="step-1-get-the-training-and-prediction-keys"></a>Stap 1: Haal de training en voorspelling sleutels
+## <a name="step-1-get-the-training-and-prediction-keys"></a>Stap 1: De trainen en voorspellen-sleutels ophalen
 
-Als u de sleutels in dit voorbeeld gebruikt, gaat u naar de [aangepaste visie site](https://customvision.ai) en selecteer de __tandwielpictogram pictogram__ in de rechterbovenhoek. In de __Accounts__ sectie, Kopieer de waarden van de __Training sleutel__ en __voorspelling sleutel__ velden.
+Als u de sleutels in dit voorbeeld gebruikt, gaat u naar de [Custom Vision site](https://customvision.ai) en selecteer de __tandwielpictogram__ in de rechterbovenhoek. In de __Accounts__ sectie, Kopieer de waarden van de __Training sleutel__ en __voorspelling sleutel__ velden.
 
 ![Afbeelding van de gebruikersinterface van de sleutels](./media/python-tutorial/training-prediction-keys.png)
 
 In dit voorbeeld wordt de installatiekopieën van [deze locatie](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>Stap 2: Een aangepaste visie Service-project maken
+## <a name="step-2-create-a-custom-vision-service-project"></a>Stap 2: Maak een project Custom Vision Service
 
-Maak een nieuw aangepast visie Service-project, een scriptbestand sample.py maken en toevoegen van de volgende inhoud. Noteer het verschil tussen het maken van de detectie van een object en afbeelding classificatie project is het domein dat is opgegeven voor de create_project-aanroep.
+Een scriptbestand sample.py maken voor het maken van een nieuw project voor Custom Vision Service, en voeg de volgende inhoud toe. Let op het verschil tussen het maken van de objectdetectie van een en afbeelding classificatie project is het domein dat is opgegeven bij de aanroep create_project.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -72,7 +72,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ## <a name="step-3-add-tags-to-your-project"></a>Stap 3: Labels toevoegen aan uw project
 
-Als u wilt labels toevoegen aan uw project, voeg de volgende code voor het maken van twee tags:
+Tags toevoegen aan uw project, voeg de volgende code voor het maken van twee labels:
 
 ```Python
 # Make two tags in the new project
@@ -82,9 +82,9 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 ## <a name="step-4-upload-images-to-the-project"></a>Stap 4: Afbeeldingen uploaden naar het project
 
-Voor object detectie project dat u wilt uploaden installatiekopie, regio's en labels. De regio is in genormaliseerde coordiantes en geeft de locatie van het label object.
+U moet uploaden-installatiekopie, regio's en labels voor object-detectie-project. De regio is in genormaliseerde coordiantes en geeft de locatie van het label-object.
 
-Als u wilt de installatiekopieën, regio en labels toevoegen aan het project, voeg de volgende code na het maken van het label. Houd er rekening mee dat voor deze zelfstudie de gebieden kunnen vastgelegd inline met de code worden. De regio's wordt het begrenzingsvak in genormaliseerde coördinaten opgeven.
+Als u wilt de installatiekopieën, regio en tags toevoegen aan het project, voeg de volgende code na het maken van de tag. Houd er rekening mee dat voor deze zelfstudie de regio's inline vastgelegd door de code. De regio's opgeven het selectiekader in genormaliseerde coördinaten.
 
 ```Python
 
@@ -158,10 +158,10 @@ trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
 
 ## <a name="step-5-train-the-project"></a>Stap 5: Het project trainen
 
-Nu dat u kunt tags en afbeeldingen hebt toegevoegd aan het project, kunt u het kunt trainen: 
+Nu dat u kunt labels en afbeeldingen hebt toegevoegd aan het project, kunt u deze training: 
 
-1. Voeg de volgende code. Hiermee maakt u de eerste iteratie in het project. 
-2. Markeer deze herhaling als de standaard herhaling.
+1. Voeg de volgende code. Hiermee maakt u de eerste versie in het project. 
+2. Markeer deze herhaling als de standaard-iteratie.
 
 ```Python
 import time
@@ -178,12 +178,12 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Stap 6: Halen en gebruik het standaardeindpunt voorspelling
+## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Stap 6: Halen en gebruik het standaardeindpunt voor de voorspelling
 
-U bent nu klaar voor gebruik van het model voor de prognose: 
+U bent nu klaar voor gebruik van het model voor voorspelling: 
 
-1. Het eindpunt dat is gekoppeld aan de standaard iteratie verkrijgen. 
-2. Een testinstallatiekopie van de verzenden naar het project met dat eindpunt.
+1. Het eindpunt dat is gekoppeld aan de standaard-iteratie verkrijgen. 
+2. Een testinstallatiekopie naar het project met behulp van dit eindpunt verzenden.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -194,7 +194,7 @@ from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint 
 predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
 
 # Open the sample image and get back the prediction results.
-with open("images/test/test_image.jpg", mode="rb") as test_data:
+with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
     results = predictor.predict_image(project.id, test_data, iteration.id)
 
 # Display the results.
@@ -202,9 +202,9 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
 ```
 
-## <a name="step-7-run-the-example"></a>Stap 7: Het voorbeeld uitvoert
+## <a name="step-7-run-the-example"></a>Stap 7: Het voorbeeld uitvoeren
 
-Voer de oplossing uit. De resultaten van de voorspelling weergegeven op de console.
+Voer de oplossing uit. De voorspellingsresultaten op die worden weergegeven in de console.
 
 ```
 python sample.py

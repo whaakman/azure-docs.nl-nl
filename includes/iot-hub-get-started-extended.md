@@ -5,7 +5,8 @@ Gebruik andere Azure-services en -hulpprogramma's. Wanneer u uw apparaat met IoT
 | Scenario                                                   | Azure-service of -hulpprogramma              |
 |----------------------------------------------------------- |------------------------------------|
 | [IoT Hub-berichten beheren][Mg_IoT_Hub_Msg]                  | Hulpprogramma iothub-explorer               |
-| [Uw IoT-apparaat beheren][Mg_IoT_Dv]                        | Azure CLI 2.0 en de IoT-uitbreiding|
+| [IoT Hub-berichten beheren][Mg_IoT_Toolkit]                  | VS Code Azure IoT Toolkit-extensie|
+| [Uw IoT-apparaat beheren][Mg_IoT_Dv]                        | Azure CLI 2.0 en de IoT-extensie|
 | [IoT Hub-berichten opslaan in Azure-opslag][Sv_IoT_Msg_Stor]  | Azure-tabelopslag                |
 | [Sensorgegevens visualiseren][Vis_Data_PBI]                      | Microsoft Power BI                 |
 | [Sensorgegevens visualiseren][Vis_Data_Web]                      | Azure Web Apps                     |
@@ -18,6 +19,7 @@ Wanneer u deze zelfstudies hebt voltooid, kunt u de mogelijkheden van IoT Hub ve
 
 
 [Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
+[Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
 [Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
 [Sv_IoT_Msg_Stor]: ../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md
 [Vis_Data_Web]: ../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md

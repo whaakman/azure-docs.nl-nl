@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c01a63867ca3df85b4e7203c93855b43e9cd04c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3dfe16cc09f0453aef8adf8bf87a00aebd2054bc
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044846"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214632"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -145,7 +145,7 @@ Dit is de service beschermen tegen runbooks die voor onbepaalde tijd worden uitg
 
 Als het runbook geen controlepunten heeft of de taak niet het eerste controlepunt bereikt heeft voordat het wordt ongedaan gemaakt, klikt u vervolgens opnieuw wordt gestart vanaf het begin.
 
-Voor het lang werken met taken, is het raadzaam te gebruiken een [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers worden niet beperkt door evenredige deel en beschikt niet over een beperking op hoe lang een runbook kunt uitvoeren.
+Voor het lang werken met taken, is het raadzaam te gebruiken een [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers worden niet beperkt door evenredige deel en ook geen een beperking op hoe lang een runbook kunt uitvoeren.
 
 Als u een PowerShell Workflow-runbook in Azure, wanneer u een runbook maakt, moet u ervoor zorgen dat de tijd voor het uitvoeren van alle activiteiten tussen twee controlepunten niet meer dan drie uur. U moet mogelijk controlepunten toevoegen aan uw runbook om ervoor te zorgen dat deze niet kan deze drie uur limiet is bereikt of splits lange bewerkingen. Uw runbook kan bijvoorbeeld een reindex uitvoeren op een grote SQL-database. Als deze één bewerking niet voltooid binnen de limiet van evenredige deel, vervolgens de taak is verwijderd en opnieuw opgestart vanaf het begin. In dit geval moet u splitst u de bewerking opnieuw indexeren in meerdere stappen, zoals het indexeren van een tabel op een tijdstip, en voeg vervolgens een controlepunt na elke bewerking zodat de taak kan worden hervat na de laatste bewerking is voltooid.
 

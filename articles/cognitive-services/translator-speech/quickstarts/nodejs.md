@@ -1,6 +1,6 @@
 ---
-title: Node.js-Snelstartgids voor Azure cognitieve Services, Microsoft Translator Speech-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de Microsoft Translator Speech-API in Microsoft cognitieve Services in Azure.
+title: Snelstartgids voor node.js voor Azure Cognitive Services, Microsoft Translator Speech-API | Microsoft Docs
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Speech-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
@@ -9,17 +9,17 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d469fa008ba8acaf505fa09596dd739d5cc7744c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0c0f3120811bba164a07783bc7ce3b7af389fd2b
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344704"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205211"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-nodejs"></a>Quick Start voor Microsoft Translator spraak API met behulp van Node.js 
+# <a name="quickstart-for-microsoft-translator-speech-api-with-nodejs"></a>Snelstartgids voor Microsoft Translator Speech-API met Node.js 
 <a name="HOLTop"></a>
 
-Dit artikel laat zien hoe u met de Microsoft Translator Speech-API woorden gesproken wav-bestanden.
+In dit artikel leest u hoe de Microsoft Translator Speech-API gebruiken voor de omzetting van woorden die in een wav-bestand.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -27,13 +27,13 @@ U moet [Node.js 6](https://nodejs.org/en/download/) deze code uit te voeren.
 
 U moet installeren de [Websocket pakket](https://www.npmjs.com/package/websocket) voor Node.js.
 
-U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat van de volgende code worden gecompileerd. Dit WAV-bestand moet zich in de standaard PCM, 16-bits, 16 kHz mono-indeling. U ontvangt deze een wav-bestand van de [conversieprogramma tekst uitspreken API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat uit de onderstaande code worden gecompileerd. Dit WAV-bestand moet zich in de standard PCM, 16-bits, 16 kHz mono-indeling. U vindt deze een wav-bestand van de [Text to Speech-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnementssleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnement-sleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Spraak vertalen
 
-De volgende code vertaalt spraak van één taal.
+De volgende code wordt omgezet in spraak in één taal.
 
 1. Maak een nieuwe Node.js-project in uw favoriete IDE.
 2. Voeg de code hieronder.
@@ -64,8 +64,8 @@ let params = '?api-version=1.0&from=en-US&to=it-IT&features=texttospeech&voice=i
 let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
-You can obtain such a .wav file using the Translator Text Speak API. See:
-http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak
+You can obtain such a .wav file using the Text to Speech API. See:
+https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech
 */
 let input_path = 'speak.wav';
 
@@ -110,7 +110,8 @@ function send(connection, filename) {
     });
 
 /* Make sure the audio file is followed by silence.
-This lets the service know that the audio input is finished. */
+This lets the service know that the audio file is finished.
+At 32 bytes per millisecond, this is 100 seconds of silence. */
     myReadableStreamBuffer.put(fs.readFileSync(filename));
     myReadableStreamBuffer.put(new Buffer(3200000));
     myReadableStreamBuffer.stop();
@@ -156,16 +157,16 @@ connect();
 
 **Spraak antwoord vertalen**
 
-Een geslaagde resultaat is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de omzetting van de woorden 'speak.wav' gesproken.
+Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de vertaling van gesproken in "speak.wav" woorden.
 
 [Terug naar boven](#HOLTop)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Conversieprogramma spraak-zelfstudie](../tutorial-translator-speech-csharp.md)
+> [Translator Speech-zelfstudie](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Zie ook 
 
-[Conversieprogramma spraak-overzicht](../overview.md)
-[API-referentiemateriaal](http://docs.microsofttranslator.com/speech-translate.html)
+[Overzicht van Translator Speech](../overview.md)
+[API-verwijzing](http://docs.microsofttranslator.com/speech-translate.html)

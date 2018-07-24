@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723859"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205796"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Resources beheren met Azure PowerShell
 
@@ -29,7 +29,7 @@ ms.locfileid: "38723859"
 
 Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) als u PowerShell lokaal wilt installeren en gebruiken. Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
-## <a name="understand-scope"></a>Reikwijdte
+## <a name="understand-scope"></a>Bereik
 
 [!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
@@ -72,13 +72,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 Normaal gesproken herhaalt u het proces voor **Inzender voor netwerken** en **Inzender voor opslagaccounts** om ervoor te zorgen dat gebruikers worden toegewezen om de geïmplementeerde resources te beheren. In dit artikel kunt u deze stappen overslaan.
 
-## <a name="azure-policies"></a>Azure-beleid
+## <a name="azure-policy"></a>Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>Beleid toepassen
-
-Uw abonnement heeft al meerdere beleidsdefinities. Als u wilt zien van de beschikbare beleidsdefinities, gebruikt u:
+[Azure Policy](../azure-policy/azure-policy-introduction.md) helpt u ervoor dat alle resources in het abonnement te voldoen aan de bedrijfsnormen. Uw abonnement heeft al meerdere beleidsdefinities. Als u wilt zien van de beschikbare beleidsdefinities, gebruikt u:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -186,17 +182,17 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Kosten weergeven op tagwaarden
 
-Na het toepassen van tags aan resources, kunt u kosten voor resources met deze tags weergeven. Het duurt even voor kostenanalyse om weer te geven van de meest recente informatie, zodat u de kosten nog niet kan zien. Wanneer de kosten beschikbaar zijn, kunt u de kosten voor resources in resourcegroepen weergeven in uw abonnement. Gebruikers moeten beschikken over [abonnement niveau toegang tot factureringsgegevens](../billing/billing-manage-access.md) om te zien van de kosten.
+Na het toepassen van tags op resources, kunt u kosten voor resources bij deze tags weergeven. Het duurt even voor de kostenanalyse de meest recente informatie toont, dus misschien ziet u de kosten nog niet. Wanneer de kosten beschikbaar zijn, kunt u de kosten voor resources in resourcegroepen in uw abonnement weergeven. Gebruikers moeten [toegang tot factureringsgegevens op abonnementsniveau](../billing/billing-manage-access.md) hebben om de kosten te kunnen zien.
 
-Als u kosten door-tag in de portal, selecteer uw abonnement en selecteer **Cost Analysis**.
+Om kosten per tag in de portal weer te geven, selecteert u uw abonnement en selecteert u **Kostenanalyse**.
 
 ![Kostenanalyse](./media/powershell-azure-resource-manager/select-cost-analysis.png)
 
-Vervolgens filteren op de waarde van het label en selecteer **toepassen**.
+Vervolgens filtert u op tagwaarde en selecteert u **Toepassen**.
 
-![Weergave-kosten per tag](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+![Kosten per tag weergeven](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
 
-U kunt ook de [Azure facturerings-API's](../billing/billing-usage-rate-card-overview.md) om programmatisch kosten weer te geven.
+U kunt ook de [Azure Billing-API's](../billing/billing-usage-rate-card-overview.md) gebruiken om kosten programmatisch weer te geven.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

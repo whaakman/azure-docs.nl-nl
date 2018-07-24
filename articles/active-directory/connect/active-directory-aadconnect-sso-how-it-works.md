@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6507158a63de508164fc74bcafe39785046a2c79
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918251"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213347"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory naadloze eenmalige aanmelding: technische details
 
@@ -36,8 +36,8 @@ Dit gedeelte bevat drie onderdelen:
 ### <a name="how-does-set-up-work"></a>Hoe werken instellen?
 
 Naadloze eenmalige aanmelding is ingeschakeld met behulp van Azure AD Connect, zoals [hier](active-directory-aadconnect-sso-quick-start.md). Tijdens het inschakelen van de functie, gebeuren de volgende stappen uit:
-- Een account met de naam `AZUREADSSOACC` (die vertegenwoordigt Azure AD) is gemaakt in uw on-premises Active Directory (AD).
-- Het computeraccount Kerberos ontsleutelingssleutel wordt veilig worden gedeeld met Azure AD.
+- Een account met de naam `AZUREADSSOACC` (die vertegenwoordigt Azure AD) is gemaakt in uw on-premises Active Directory (AD) in elk AD-forest.
+- Het computeraccount Kerberos ontsleutelingssleutel wordt veilig worden gedeeld met Azure AD. Als er meerdere AD-forests, hebben elk een eigen ontsleutelingssleutel Kerberos.
 - Bovendien zijn twee Kerberos-SPN-namen (SPN's) gemaakt voor twee URL's die worden gebruikt tijdens de aanmelding bij Azure AD.
 
 >[!NOTE]

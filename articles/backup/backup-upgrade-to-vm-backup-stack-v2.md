@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/18/2018
 ms.author: trinadhk
-ms.openlocfilehash: c9dff77f6b9fffc02ec94caa3454500772651195
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137369"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205337"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Upgrade uitvoeren naar Azure VM Backup-stack V2
 
@@ -48,7 +48,7 @@ Momentopnamen zijn standaard voor zeven dagen bewaard. Deze functie kunt het ter
 
 * Momentopnamen worden lokaal opgeslagen om herstelpunten te verbeteren en om herstelbewerkingen te versnellen. Als gevolg hiervan, ziet u kosten voor opslag die overeenkomen met de momentopnamen die zijn gemaakt tijdens de periode van zeven dagen.
 
-* Incrementele momentopnamen worden opgeslagen als pagina-blobs. Alle klanten die gebruikmaken van niet-beheerde schijven worden in rekening gebracht voor de zeven dagen die de momentopnamen worden opgeslagen in het account van de lokale opslag van de klant. Op basis van het huidige prijsmodel is er geen kosten voor klanten op beheerde schijven.
+* Incrementele momentopnamen worden opgeslagen als pagina-blobs. Alle klanten die gebruikmaken van niet-beheerde schijven worden in rekening gebracht voor de zeven dagen die de momentopnamen worden opgeslagen in het account van de lokale opslag van de klant. Omdat de restore-punt verzamelingen die worden gebruikt door beheerde VM-back-ups blob-momentopnamen op het opslagniveau van de onderliggende, overeenkomt met de kosten voor beheerde schijven wordt Zie [blob-momentopname prijzen](https://docs.microsoft.com/rest/api/storageservices/understanding-how-snapshots-accrue-charges) en ze zijn. 
 
 * Als u een premium VM vanaf een herstelpunt momentopname herstellen, wordt een tijdelijke opslaglocatie gebruikt terwijl de virtuele machine wordt gemaakt.
 
@@ -56,7 +56,7 @@ Momentopnamen zijn standaard voor zeven dagen bewaard. Deze functie kunt het ter
 
 ## <a name="upgrade"></a>Upgraden
 ### <a name="the-azure-portal"></a>Azure Portal
-Als u de Azure-portal gebruikt, ziet u een melding op het kluisdashboard. Deze melding is gekoppeld aan ondersteuning voor grote schijven en verbeteringen in back-up en herstel snelheid.
+Als u de Azure-portal gebruikt, ziet u een melding op het kluisdashboard. Deze melding is gekoppeld aan ondersteuning voor grote schijven en verbeteringen in back-up en herstel snelheid. U kunt ook gaan naar de pagina eigenschappen van de kluis om op te halen van de upgrade-optie.
 
 ![Back-uptaak in VM-back-upstack Resource Manager-implementatiemodel--ondersteuning-melding](./media/backup-azure-vms/instant-rp-banner.png) 
 
@@ -72,13 +72,13 @@ De volgende cmdlets uitvoeren vanaf een hogergelegen PowerShell terminal:
     PS C:> Connect-AzureRmAccount
     ```
 
-2.  Selecteer het abonnement dat u wilt registreren voor Preview-versie:
+2.  Selecteer het abonnement dat u wilt registreren:
 
     ```
     PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
     ```
 
-3.  Dit abonnement voor private preview registreren:
+3.  Dit abonnement registreren:
 
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
@@ -101,13 +101,13 @@ De volgende vragen en antwoorden zijn verzameld van forums en vragen van klanten
 
 Als u een upgrade naar V2 uitvoert, is er niet van invloed op uw huidige back-ups en hoeft niet te configureren van uw omgeving. Upgrade en uw back-omgeving blijft werken als deze is.
 
-### <a name="what-does-it-cost-to-upgrade-to-azure-backup-stack-v2"></a>Wat zijn de kosten om te upgraden naar Azure Backup-stack v2?
+### <a name="what-does-it-cost-to-upgrade-to-azure-vm-backup-stack-v2"></a>Wat zijn de kosten om te upgraden naar Azure VM Backup stack v2?
 
-Er zijn geen kosten verbonden aan een upgrade uitvoert naar Azure Backup-stack v2. Momentopnamen worden lokaal opgeslagen voor het maken van het herstelpunt versnellen en herstelbewerkingen. Als gevolg hiervan, ziet u kosten voor opslag die met de momentopnamen die tijdens de periode van zeven dagen overeenkomen.
+Er zijn geen kosten verbonden aan de stack upgraden naar v2. Momentopnamen worden lokaal opgeslagen voor het maken van het herstelpunt versnellen en herstelbewerkingen. Als gevolg hiervan, ziet u kosten voor opslag die met de momentopnamen die tijdens de periode van zeven dagen overeenkomen.
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>Bijwerken voor stack v2 premium storage-accountlimiet voor de Momentopnames van 10 TB verhogen?
 
-Nee.
+Momentopnamen als onderdeel van v2 stack aantal naar 10 TB momentopnamelimiet voor een premium storage-account voor niet-beheerde schijven. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Premium-opslagaccounts kunt momentopnamen die zijn gemaakt voor directe herstelpunt dat de momentopname-limiet van 10 TB innemen?
 
@@ -117,14 +117,6 @@ Voor premium storage-accounts nemen de momentopnamen voor directe herstelpunt, J
 
 Elke dag een nieuwe momentopname wordt gemaakt. Er zijn zeven afzonderlijke momentopnamen. De service biedt **niet** nemen van een kopie op de eerste dag en het toevoegen van wijzigingen voor de komende zes dagen.
 
-### <a name="what-happens-if-the-default-resource-group-is-deleted-accidentally"></a>Wat gebeurt er als de standaard-resourcegroep per ongeluk is verwijderd?
-
-Als de resourcegroep wordt verwijderd, de directe herstelpunten voor alle beveiligde virtuele machines in deze regio, gaan verloren. Wanneer de volgende back-up plaatsvindt, de resourcegroep opnieuw is gemaakt en de back-ups blijven zoals verwacht. Deze functionaliteit is niet exclusief voor directe herstelpunten.
-
-### <a name="can-i-delete-the-default-resource-group-created-for-instant-recovery-points"></a>Kan ik de standaard-resourcegroep gemaakt voor directe herstelpunten verwijderen?
-
-Azure Backup-service wordt gemaakt van de beheerde resourcegroep. Op dit moment niet wijzigen of wijzigen van de resourcegroep. Bovendien moet u de resourcegroep niet vergrendelen. Deze handleiding is niet alleen voor de V2-stack.
- 
 ### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Een v2-momentopname is een momentopname van incrementele of een volledige momentopname?
 
-Incrementele momentopnamen worden gebruikt voor niet-beheerde schijven. De momentopname is voor beheerde schijven, een volledige momentopname.
+Incrementele momentopnamen worden gebruikt voor niet-beheerde schijven. Voor beheerde schijven, herstelpunt verzameling die zijn gemaakt door Azure Backup maakt gebruik van blob-momentopnamen en daarom worden incrementele. 

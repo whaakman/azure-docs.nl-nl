@@ -2,19 +2,17 @@
 title: Instellen van de bronomgeving (fysieke servers naar Azure) | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u uw on-premises omgeving instelt om te beginnen met het repliceren van fysieke servers waarop Windows of Linux wordt uitgevoerd in Azure.
 services: site-recovery
-documentationcenter: ''
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 00b09db97e597521de5c73eeefab77b0dfa1304d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 07/21/2018
+ms.author: raynew
+ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38671019"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213481"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Instellen van de bronomgeving (fysieke server naar Azure)
 
@@ -23,8 +21,9 @@ Dit artikel wordt beschreven hoe u uw on-premises omgeving instelt om te beginne
 ## <a name="prerequisites"></a>Vereisten
 
 Het artikel wordt ervan uitgegaan dat u al hebt:
-1. Een Recovery Services-kluis de [Azure-portal](http://portal.azure.com "Azure-portal").
-3. Een fysieke computer waarop de configuratieserver.
+- Een Recovery Services-kluis de [Azure-portal](http://portal.azure.com "Azure-portal").
+- Een fysieke computer waarop de configuratieserver.
+- Als u TLS 1.0 hebt uitgeschakeld op de computer waarop u de configuratieserver installeert, zorg ervoor dat TLs 1.2 is ingeschakeld en dat het .NET Framework 4.6 of hoger is geïnstalleerd op de computer (met sterke cryptografie uitgeschakeld). [Meer informatie](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Minimale vereisten voor configuratie-server
 De volgende tabel bevat de minimale hardware, software en netwerkvereisten voor een configuratieserver.
@@ -63,7 +62,7 @@ De volgende tabel bevat de minimale hardware, software en netwerkvereisten voor 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> De configuratieserver kan worden geïnstalleerd via een opdrachtregel. Zie voor meer informatie, [configuratie-server installeren met behulp van opdrachtregelprogramma's](http://aka.ms/installconfigsrv).
+> De configuratieserver kan worden geïnstalleerd via een opdrachtregel. [Meer informatie](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
 ## <a name="common-issues"></a>Algemene problemen

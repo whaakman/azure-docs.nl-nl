@@ -10,20 +10,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: douglasl
-ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 53ea7425f0497eca7c95ddefeaa09aa40259672b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005829"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216260"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Een trigger die een pijplijn in reactie op een gebeurtenis wordt uitgevoerd
 
 Dit artikel beschrijft de triggers op basis van gebeurtenissen die u in uw Data Factory-pijplijnen kunt maken.
 
 Gebeurtenisafhankelijke architectuur (EDA) is een algemene integratie patroon voor gegevens die betrekking heeft op productie, detectie, verbruik en de reactie op gebeurtenissen. Scenario's voor gegevensintegratie vereisen vaak Data Factory-klanten voor het activeren van pijplijnen op basis van gebeurtenissen. Data Factory is nu geïntegreerd met [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), waarmee u activeert pijplijnen op een gebeurtenis.
+
+Bekijk de volgende video voor een inleiding van tien minuten en demonstratie van deze functie:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
+
 
 > [!NOTE]
 > Afhankelijk van de integratie in dit artikel beschreven [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Zorg ervoor dat uw abonnement is geregistreerd bij de resourceprovider van Event Grid. Zie voor meer informatie, [resourceproviders en typen](../azure-resource-manager/resource-manager-supported-services.md#portal).

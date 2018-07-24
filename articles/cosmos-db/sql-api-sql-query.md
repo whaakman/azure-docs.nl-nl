@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056814"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205966"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-query's voor Azure Cosmos DB
 
@@ -522,7 +522,7 @@ Voor andere vergelijkingsoperators zoals >, > =,! =, < en < =, de volgende regel
 
 Als het resultaat van de scalaire expressie die u in het filter is niet gedefinieerd, de bijbehorende document zou niet opgenomen in het resultaat, omdat Undefined logisch niet met een 'true overeen'.
 
-### <a name="between-keyword"></a>TUSSEN trefwoord
+## <a name="between-keyword"></a>TUSSEN trefwoord
 U kunt ook het sleutelwoord BETWEEN-query's op het bereik van waarden, zoals in de ANSI SQL Express gebruiken. TUSSEN kan worden gebruikt voor tekenreeksen of getallen.
 
 Deze query retourneert bijvoorbeeld alle familie documenten waarin het eerste onderliggende niveau tussen 1-5 (zowel inclusief is). 
@@ -561,7 +561,7 @@ Logische operators worden uitgevoerd voor Booleaanse waarden. De logische waarhe
 | False |True |
 | Niet gedefinieerd |Niet gedefinieerd |
 
-### <a name="in-keyword"></a>TREFWOORD
+## <a name="in-keyword"></a>TREFWOORD
 Het sleutelwoord kan worden gebruikt om te controleren of een opgegeven waarde komt overeen met een willekeurige waarde in een lijst. Bijvoorbeeld, retourneert deze query alle familie documenten waarin de id is een van de 'WakefieldFamily' of 'AndersenFamily'. 
 
     SELECT *
@@ -574,7 +574,7 @@ In dit voorbeeld retourneert alle documenten waarin de status is een van de opge
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>Ternair (?) en operators samenvoegen (?)
+## <a name="ternary--and-coalesce--operators"></a>Ternair (?) en operators samenvoegen (?)
 De operators Ternair en samenvoegen kunnen worden gebruikt om te bouwen voorwaardelijke expressies, die vergelijkbaar is met populaire programmeertalen, zoals C# en JavaScript. 
 
 De operator Ternair (?) is heel handig bij het maken van nieuwe JSON-eigenschappen op elk gewenst moment. Bijvoorbeeld: nu kunt u query's voor het classificeren van het niveau van de klasse in een mens leesbaar formulier zoals Beginner/tussenliggende/Geavanceerd zoals hieronder wordt weergegeven.
@@ -594,7 +594,7 @@ De operator samenvoegen (?) kan worden gebruikt om efficiënt te controleren op 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>Tussen aanhalingstekens eigenschapsaccessor
+## <a id="EscapingReservedKeywords"></a>Tussen aanhalingstekens eigenschapsaccessor
 U kunt ook toegang tot eigenschappen met behulp van de operator tussen aanhalingstekens eigenschap `[]`. Bijvoorbeeld, `SELECT c.grade` en `SELECT c["grade"]` gelijk zijn. Deze syntaxis is handig wanneer u nodig hebt als u een eigenschap die spaties, speciale tekens bevat of gebeurt er met dezelfde naam als een SQL-sleutelwoord of een gereserveerd woord.
 
     SELECT f["lastName"]
@@ -682,7 +682,7 @@ Bekijk de rol van `$1` hier. De `SELECT` component moet een JSON-object maken en
     }]
 
 
-### <a name="aliasing"></a>Aliasing
+## <a name="aliasing"></a>Aliasing
 Nu gaan we uitgebreid in het voorbeeld hierboven met expliciete aliasing van waarden. Als het sleutelwoord gebruikt voor aliasing is. Het is optioneel, zoals wordt weergegeven tijdens het projecteren van de tweede waarde als `NameInfo`. 
 
 Als een query twee eigenschappen met dezelfde naam heeft, moet aliasing worden gebruikt om een of beide van de eigenschappen wijzigen zodat ze zijn disambiguated in het verwachte resultaat.
@@ -708,7 +708,7 @@ Als een query twee eigenschappen met dezelfde naam heeft, moet aliasing worden g
     }]
 
 
-### <a name="scalar-expressions"></a>Scalaire expressies
+## <a name="scalar-expressions"></a>Scalaire expressies
 Naast de verwijzingen van de eigenschap ondersteuning de component SELECT ook voor scalaire expressies, zoals constanten, rekenkundige bewerkingen, logische expressies, enzovoort. Dit is bijvoorbeeld een eenvoudige 'Hallo wereld'-query.
 
 **Query**
@@ -754,7 +754,7 @@ In het volgende voorbeeld is het resultaat van de scalaire expressie die een Boo
     ]
 
 
-### <a name="object-and-array-creation"></a>Object en matrix maken
+## <a name="object-and-array-creation"></a>Object en matrix maken
 Een andere belangrijke functie van de SQL-API is object array/maken. In het vorige voorbeeld, houd er rekening mee dat we een nieuwe JSON-object gemaakt. Op deze manier kan een matrices ook bouwen zoals wordt weergegeven in de volgende voorbeelden:
 
 **Query**
@@ -779,7 +779,7 @@ Een andere belangrijke functie van de SQL-API is object array/maken. In het vori
       }
     ]
 
-### <a id="ValueKeyword"></a>WAARDE trefwoord
+## <a id="ValueKeyword"></a>WAARDE trefwoord
 De **waarde** sleutelwoord biedt een manier om JSON-waarde te retourneren. De onderstaande query retourneert bijvoorbeeld scalaire `"Hello World"` in plaats van `{$1: "Hello World"}`.
 
 **Query**
@@ -830,7 +830,7 @@ Het volgende voorbeeld is een uitbreiding om toe te laten zien hoe u JSON primit
     ]
 
 
-### <a name="-operator"></a>* Operator
+## <a name="-operator"></a>* Operator
 De speciale operator (*) wordt ondersteund voor het document als project-is. Als u gebruikt, moet deze de enige verwachte veld. Terwijl een query zoals `SELECT * FROM Families f` geldig is, `SELECT VALUE * FROM Families f ` en `SELECT *, f.id FROM Families f ` zijn niet geldig.
 
 **Query**
@@ -859,7 +859,7 @@ De speciale operator (*) wordt ondersteund voor het document als project-is. Als
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>TOP-Operator
+## <a id="TopKeyword"></a>TOP-Operator
 Het sleutelwoord TOP kan worden gebruikt om het aantal waarden uit een query te beperken. Als boven wordt gebruikt in combinatie met de component ORDER BY, is de resultatenset beperkt tot de eerste N aantal geordende waarden; anders, wordt de eerste N-nummer van de resultaten in een niet-gedefinieerde volgorde geretourneerd. Als een best practice, in een instructie SELECT gebruik altijd een ORDER BY-component met de TOP-component. Dit is de enige manier om aan te geven zoals verwacht waarin rijen zijn beïnvloed door boven. 
 
 **Query**
@@ -889,7 +889,7 @@ Het sleutelwoord TOP kan worden gebruikt om het aantal waarden uit een query te 
 
 TOP kan worden gebruikt met een constante waarde (zoals hierboven) of met de waarde van een variabele met geparameteriseerde query's. Zie geparameteriseerde query's hieronder voor meer informatie.
 
-### <a id="Aggregates"></a>Statistische functies
+## <a id="Aggregates"></a>Statistische functies
 U kunt ook uitvoeren de aggregaties in de `SELECT` component. Statistische functies een berekening uitgevoerd op een set waarden en één waarde retourneren. De volgende query retourneert bijvoorbeeld het aantal familie documenten binnen de verzameling.
 
 **Query**

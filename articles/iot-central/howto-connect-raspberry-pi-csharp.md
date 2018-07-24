@@ -1,6 +1,6 @@
 ---
-title: Processtappen verbinden een Pi frambozen aan uw Azure IoT centrale toepassing (C#) | Microsoft Docs
-description: Als een ontwikkelaar van het apparaat een Pi frambozen verbinding met uw Azure IoT centrale toepassing met C#.
+title: Connnect een Raspberry Pi tot uw Azure IoT Central-toepassing (C#) | Microsoft Docs
+description: Als ontwikkelaar in een apparaat, hoe u verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing met behulp van C#.
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/22/2018
@@ -8,83 +8,54 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 58f363c522f3e5abe6bf49a2aebafe4e953e00df
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628586"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205133"
 ---
-# <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Verbinding maken met een Pi frambozen aan uw Azure IoT centrale toepassing (C#)
+# <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (C#)
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
 
-Dit artikel wordt beschreven hoe u, als een ontwikkelaar apparaat een Pi frambozen verbinding met uw Microsoft Azure IoT centrale toepassing met de programmeertaal C#.
+Dit artikel wordt beschreven hoe u, als een apparaat-ontwikkelaar, een Raspberry Pi verbinden met uw Microsoft Azure IoT Central-toepassing met de C#-programmeertaal.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
 * [.NET core 2](https://www.microsoft.com/net) geïnstalleerd op uw ontwikkelcomputer. U moet ook een geschikte code-editor, zoals hebben [Visual Studio Code](https://code.visualstudio.com/).
-* Een Azure IoT centrale toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie [maken van uw Azure IoT centrale toepassing](howto-create-application.md).
-* Een frambozen Pi-apparaat waarop het besturingssysteem Raspbian.
+* Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie, [maken van uw Azure IoT Central Application](howto-create-application.md).
+* Een Raspberry Pi-apparaat met het besturingssysteem Raspbian.
 
-Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **frambozen Pi** apparaat sjabloon met de volgende kenmerken:
 
-### <a name="telemetry-measurements"></a>Telemetrie metingen
+## <a name="sample-devkits-application"></a>**Voorbeeld van een Devkits** toepassing
 
-| Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
-| -------------- | ------ | ------- | ------- | -------------- |
-| Vochtigheid       | %      | 0       | 100     | 0              |
-| TEMP           | ° C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | MDP 's   | -2000   | 2000    | 0              |
-| gyroscopeY     | MDP 's   | -2000   | 2000    | 0              |
-| gyroscopeZ     | MDP 's   | -2000   | 2000    | 0              |
+Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **Raspberry Pi** apparaat sjabloon met de volgende kenmerken: 
 
-### <a name="settings"></a>Instellingen
+- Telemetrie waarin de metingen voor het apparaat **vochtigheid**, **temperatuur**, **druk te verlichten**, **Magnometer** (gemeten langs de X Y, Z-as), **Accelorometer** (gemeten langs de X, Y, Z-as) en **gyroscoop** (gemeten langs de X, Y, Z-as).
+- Instellingen van **spanning**, **huidige**,**ventilatorsnelheid** en een **IR** in-/ uitschakelen.
+- Eigenschappen van de apparaateigenschappen **die nummer** en **locatie** eigenschap in de cloud.
 
-Numerieke instellingen
 
-| Weergavenaam | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Spanning      | setVoltage | V | 0              | 0       | 240     | 0       |
-| Huidige      | setCurrent | Stroom  | 0              | 0       | 100     | 0       |
-| Snelheid van ventilator    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+Raadpleeg voor volledige informatie van de configuratie van de sjabloon apparaat [Raspberry PI Apparaatdetails sjabloon](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 
-Instellingen voor in-of uitschakelen
 
-| Weergavenaam | Veldnaam | Op tekst | Uit tekst | Oorspronkelijk |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | AAN      | UIT      | Uit     |
+## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
-### <a name="properties"></a>Eigenschappen
+Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Raspberry Pi** apparaat sjabloon en maak een notitie van de verbindingsreeks van het apparaat. Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central toepassing](tutorial-add-device.md).
 
-| Type            | Weergavenaam | Veldnaam | Gegevenstype |
-| --------------- | ------------ | ---------- | --------- |
-| Apparaateigenschap | Aantal die   | dieNumber  | getal    |
-| Tekst            | Locatie     | location   | N/A       |
+### <a name="create-your-net-application"></a>Uw .NET-toepassing maken
 
-### <a name="add-a-real-device"></a>Echt apparaat toevoegen
+U maakt en de apparaattoepassing testen op uw computer.
 
-In uw Azure IoT centrale toepassing toevoegen een echte apparaat van de **frambozen Pi** apparaat sjabloon en maak een notitie van de verbindingsreeks van het apparaat. Zie voor meer informatie [een echte apparaat toevoegt aan uw Azure IoT centrale toepassing](tutorial-add-device.md).
-
-## <a name="create-your-net-application"></a>Uw .NET-toepassing maken
-
-U maakt en test de apparaattoepassing op uw computer.
-
-De volgende stappen uit te voeren, kunt u Visual Studio Code. Zie voor meer informatie [werken met C#](https://code.visualstudio.com/docs/languages/csharp).
+Als u wilt de volgende stappen hebt voltooid, kunt u Visual Studio Code. Zie voor meer informatie, [werken met C#](https://code.visualstudio.com/docs/languages/csharp).
 
 > [!NOTE]
-> Als u liever, kunt u de volgende stappen uit met een andere code-editor uitvoeren.
+> Als u liever, kunt u de volgende stappen met behulp van een andere code-editor.
 
-1. Voor het initialiseren van uw .NET-project en voeg de vereiste NuGet-pakketten, voer de volgende opdrachten:
+1. Voor het initialiseren van uw .NET-project en voeg de vereiste NuGet-pakketten toe, voer de volgende opdrachten:
 
   ```cmd/sh
   mkdir pisample
@@ -94,7 +65,7 @@ De volgende stappen uit te voeren, kunt u Visual Studio Code. Zie voor meer info
   dotnet restore
   ```
 
-1. Open de `pisample` map in Visual Studio Code. Open vervolgens de **pisample.csproj** projectbestand. Voeg de `<RuntimeIdentifiers>` label wordt weergegeven in het volgende fragment:
+1. Open de `pisample` map in Visual Studio Code. Open vervolgens de **pisample.csproj** projectbestand. Voeg de `<RuntimeIdentifiers>` label wordt weergegeven in het volgende codefragment:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -110,9 +81,9 @@ De volgende stappen uit te voeren, kunt u Visual Studio Code. Zie voor meer info
     ```
 
     > [!NOTE]
-    > Uw **Microsoft.Azure.Devices.Client** versienummer pakket mag niet hoger zijn dan wordt weergegeven.
+    > Uw **Microsoft.Azure.Devices.Client** versienummer-pakket mag niet hoger zijn dan de architectuur die wordt weergegeven.
 
-1. Sla **pisample.csproj**. Als Visual Studio Code u de opdracht restore uitvoeren vraagt, kiest u **herstellen**.
+1. Sla **pisample.csproj**. Als u voor het uitvoeren van de opdracht restore Visual Studio Code wordt gevraagd, kiest u **herstellen**.
 
 1. Open **Program.cs** en vervang de inhoud door de volgende code:
 
@@ -286,13 +257,13 @@ De volgende stappen uit te voeren, kunt u Visual Studio Code. Zie voor meer info
     ```
 
     > [!NOTE]
-    > Bijwerken van de tijdelijke aanduiding voor `{your device connection string}` in de volgende stap.
+    > Bijwerken van de tijdelijke aanduiding `{your device connection string}` in de volgende stap.
 
-## <a name="run-your-net-application"></a>Voer uw .NET-toepassing
+## <a name="run-your-net-application"></a>Uw .NET-toepassing uitvoeren
 
-De apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat te verifiëren met Azure IoT centrale. U hebt deze verbindingsreeks wanneer u uw echte apparaat toegevoegd aan uw Azure IoT centrale toepassing.
+Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat om te verifiëren met Azure IoT Central. U hebt deze verbindingsreeks wanneer u uw echt apparaat toegevoegd aan uw Azure IoT Central-toepassing.
 
-1. Vervang `{your device connection string}` in de **Program.cs** bestand met de verbindingsreeks die u eerder hebt genoteerd.
+1. Vervang `{your device connection string}` in de **Program.cs** -bestand met de verbindingsreeks die u eerder hebt genoteerd.
 
 1. Voer de volgende opdracht in uw omgeving opdrachtregel:
 
@@ -301,22 +272,22 @@ De apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat 
   dotnet publish -r linux-arm
   ```
 
-1. Kopieer de `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` map op uw apparaat frambozen Pi. U kunt de **scp** opdracht Kopieer de bestanden, bijvoorbeeld:
+1. Kopieer de `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` map op uw apparaat Raspberry Pi. U kunt de **scp** opdracht de bestanden te kopiëren, bijvoorbeeld:
 
     ```cmd/sh
     scp -r publish pi@192.168.0.40:publish
     ```
 
-    Zie voor meer informatie [frambozen Pi RAS](https://www.raspberrypi.org/documentation/remote-access/).
+    Zie voor meer informatie, [Raspberry Pi RAS](https://www.raspberrypi.org/documentation/remote-access/).
 
-1. Aanmelden bij uw apparaat frambozen Pi en voer de volgende opdrachten in een shell:
+1. Meld u aan met uw Raspberry Pi-apparaat en voer de volgende opdrachten in een shell:
 
     ```cmd/sh
     sudo apt-get update
     sudo apt-get install libc6 libcurl3 libgcc1 libgssapi-krb5-2 liblttng-ust0 libstdc++6 libunwind8 libuuid1 zlib1g
     ```
 
-1. Voer de volgende opdrachten op uw Pi frambozen:
+1. Op uw Raspberry Pi, voer de volgende opdrachten:
 
     ```cmd/sh
     cd publish
@@ -324,20 +295,65 @@ De apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat 
     ./pisample
     ```
 
-    ![Wordt gestart](./media/howto-connect-raspberry-pi-csharp/device_begin.png)
+    ![Programma wordt gestart](./media/howto-connect-raspberry-pi-csharp/device_begin.png)
 
-1. In de Azure IoT centrale toepassing, kunt u zien hoe de code die wordt uitgevoerd op de Pi frambozen samenwerkt met de toepassing:
+1. U kunt zien hoe de code die wordt uitgevoerd op de Raspberry Pi communiceert met de toepassing in uw Azure IoT Central-toepassing:
 
-    * Op de **metingen** pagina voor het echte apparaat ziet u de telemetrie.
-    * Op de **eigenschappen** pagina ziet u de waarde van de gerapporteerde **Die nummer** eigenschap.
-    * Op de **instellingen** pagina kunt u verschillende instellingen op de Pi frambozen zoals spanning en ventilator snelheid.
+    * Op de **metingen** pagina voor uw echte apparaten, kunt u de telemetrie bekijken.
+    * Op de **eigenschappen** pagina, ziet u de waarde van de gerapporteerde **Die nummer** eigenschap.
+    * Op de **instellingen** pagina, kunt u verschillende instellingen op de Raspberry Pi zoals spanning- en fan-snelheid.
 
-    De volgende schermafbeelding ziet de frambozen Pi ontvangen van de gewijzigde instelling:
+    De volgende schermafbeelding ziet u de Raspberry Pi ontvangen van de wijziging in de instelling:
 
-    ![Raspberry Pi ontvangt instelling wijziging](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+    ![Raspberry Pi ontvangt instelling wijzigen](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+
+
+## <a name="raspberry-pi-device-template-details"></a>Details van de sjabloon Raspberry PI-apparaat
+
+Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **Raspberry Pi** apparaat sjabloon met de volgende kenmerken:
+
+### <a name="telemetry-measurements"></a>Telemetrie-metingen
+
+| Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
+| -------------- | ------ | ------- | ------- | -------------- |
+| vochtigheid       | %      | 0       | 100     | 0              |
+| TEMP           | ° C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | MDP 's   | -2000   | 2000    | 0              |
+| gyroscopeY     | MDP 's   | -2000   | 2000    | 0              |
+| gyroscopeZ     | MDP 's   | -2000   | 2000    | 0              |
+
+### <a name="settings"></a>Instellingen
+
+Numerieke instellingen
+
+| Weergavenaam | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Voltage      | setVoltage | Voltage | 0              | 0       | 240     | 0       |
+| Huidige      | setCurrent | Stroom  | 0              | 0       | 100     | 0       |
+| Snelheid van ventilator    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Instellingen voor in-/ uitschakelen
+
+| Weergavenaam | Veldnaam | Van tekst | Uit tekst | Oorspronkelijk |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | AAN      | UIT      | Uit     |
+
+### <a name="properties"></a>Eigenschappen
+
+| Type            | Weergavenaam | Veldnaam | Gegevenstype |
+| --------------- | ------------ | ---------- | --------- |
+| Apparaateigenschappen | Aantal die   | dieNumber  | getal    |
+| Tekst            | Locatie     | location   | N/A       |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u een Pi frambozen verbinding te maken met uw Azure IoT centrale toepassing, vindt hier u de voorgestelde volgende stappen uit:
+Nu dat u hebt geleerd hoe een Raspberry Pi verbinden met uw Azure IoT Central-toepassing, vindt hier u de voorgestelde volgende stappen:
 
-* [Verbinding maken met een algemene Node.js-clienttoepassing naar Azure IoT Central](howto-connect-nodejs.md)
+* [Verbinding maken met een algemene Node.js-clienttoepassing op Azure IoT Central](howto-connect-nodejs.md)

@@ -2,24 +2,16 @@
 title: Toepassingen met SQL Server en Azure Site Recovery repliceert | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u SQL Server met behulp van Azure Site Recovery voor de mogelijkheden van SQL Server na een noodgeval repliceren.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: pratshar
-ms.openlocfilehash: c877f4bbc0ed14e859ff39f1d719a9cd0b787118
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
+ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920828"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216356"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server met behulp van SQL Server-noodherstel en Azure Site Recovery beveiligen
 
@@ -78,7 +70,7 @@ Deze tabel bevat een overzicht van onze aanbevelingen voor het integreren van SQ
 
 | **Versie** | **Editie** | **Implementatie** | **On-premises naar on-premises** | **On-premises naar Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 of 2012 |Enterprise |Failover-clusterexemplaar |AlwaysOn-beschikbaarheidsgroepen |AlwaysOn-beschikbaarheidsgroepen |
+| SQL Server 2016, 2014 of 2012 |Enterprise |Failover-clusterexemplaar |AlwaysOn-beschikbaarheidsgroepen |AlwaysOn-beschikbaarheidsgroepen |
 || Enterprise |AlwaysOn-beschikbaarheidsgroepen voor hoge beschikbaarheid |AlwaysOn-beschikbaarheidsgroepen |AlwaysOn-beschikbaarheidsgroepen | |
 || Standard |Failover clusterexemplaar (FCI) |Replicatie van site Recovery met lokale mirror |Replicatie van site Recovery met lokale mirror | |
 || Enterprise of Standard |Zelfstandig |Replicatie van site Recovery |Replicatie van site Recovery | |

@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met OfficeOutlook 365 - Azure Logic Apps | Microsoft Docs
-description: E-mail, contactpersonen en agenda's met Office 365 REST-API's en Azure Logic Apps beheren
+title: Verbinding maken met Office 365 Outlook - Azure Logic Apps | Microsoft Docs
+description: E-mail, contactpersonen en agenda's met REST API's van Office 365 en Azure Logic Apps beheren
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,33 +11,33 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: aa900a486b9b0bd0f570da866f3d0ab78c31bc6e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0355f121a09e1ba89f98a8af5037eb1371db2242
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296149"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215635"
 ---
-# <a name="get-started-with-the-office-365-outlook-connector"></a>Aan de slag met de Outlook van Office 365-connector
-De Outlook van Office 365-connector wordt interactie met Outlook in Office 365. Met deze connector kunt maken, bewerken, en contactpersonen en agenda-items, bijwerken en ook krijgen, verzenden en e-mailbericht beantwoordt.
+# <a name="get-started-with-the-office-365-outlook-connector"></a>Aan de slag met de Office 365 Outlook-connector
+De Office 365 Outlook-connector wordt interactie met Outlook in Office 365. Met deze connector kunt maken, bewerken, bijwerken, contactpersonen en agenda-items, en ook ophalen, verzenden en e-mail beantwoorden.
 
-Met Office 365 Outlook u:
+Met Office 365 Outlook, u:
 
 * Bouw uw werkstroom met behulp van de e-mail en agenda-functies in Office 365. 
-* Met triggers kunt u uw werkstroom starten als er een nieuw e-mailadres, wanneer een agenda-item wordt bijgewerkt en meer.
-* Acties gebruiken om te e-mailbericht verzenden, maakt u een nieuwe gebeurtenis en meer. Bijvoorbeeld, wanneer er een nieuw object in Salesforce (een trigger), een e-mail sturen naar uw Office 365 Outlook (een actie). 
+* Met triggers kunt u uw werkstroom starten wanneer er een nieuwe e-mail wanneer een agenda-item wordt bijgewerkt, en meer.
+* Acties voor een e-mailbericht verzenden, het maken van een nieuwe agendagebeurtenis en meer gebruiken. Bijvoorbeeld, wanneer er een nieuw object in Salesforce (een trigger), een e-mail verzenden naar uw Office 365 Outlook (een actie). 
 
-In dit artikel leest u het gebruik van de Outlook van Office 365-connector in een logische app, en vermeldt tevens de triggers en acties.
+Dit artikel ziet u hoe u de Office 365 Outlook-connector in een logische app, en bevat ook de triggers en acties.
 
 > [!NOTE]
-> Deze versie van het artikel is van toepassing op Logic Apps algemene beschikbaarheid (GA).
+> Deze versie van het artikel is van toepassing op Logic Apps-algemene beschikbaarheid (GA).
 > 
 > 
 
-Zie voor meer informatie over Logic Apps, [wat zijn logic apps](../logic-apps/logic-apps-overview.md) en [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Zie voor meer informatie over Logic Apps, [wat zijn logische apps](../logic-apps/logic-apps-overview.md) en [maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-office-365"></a>Verbinding maken met Office 365
-Om uw logische app toegang alle services tot, maakt u eerst een *verbinding* naar de service. Een verbinding biedt connectiviteit tussen een logische app en een andere service. Bijvoorbeeld, als u wilt verbinding maken met Office 365 Outlook, moet u eerst een Office 365 *verbinding*. Voer de referenties die u gebruikt om toegang tot de service die u verbinding maken wilt met een verbinding wilt maken. Met Outlook van Office 365, voert u de referenties op voor uw Office 365-account om de verbinding te maken.
+Voordat uw logische app toegang heeft tot elke service, maakt u eerst een *verbinding* naar de service. Een verbinding biedt connectiviteit tussen een logische app en een andere service. Bijvoorbeeld, als u wilt verbinding maken met Office 365 Outlook, moet u eerst een Office 365 *verbinding*. Een verbinding wilt maken, voert u de referenties die u normaal gesproken gebruiken voor toegang tot de service die u wilt verbinden. Met Office 365 Outlook, voert u de referenties op voor uw Office 365-account om de verbinding te maken.
 
 ## <a name="create-the-connection"></a>De verbinding maken
 > [!INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
@@ -45,25 +45,25 @@ Om uw logische app toegang alle services tot, maakt u eerst een *verbinding* naa
 > 
 
 ## <a name="use-a-trigger"></a>Een trigger te gebruiken
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. Triggers pollen' ' de service op het interval en de gewenste frequentie. [Meer informatie over triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom gedefinieerd in een logische app te starten. Triggers controleren' ' de service op een interval en de frequentie die u wilt. [Meer informatie over triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Typ in de logische app, 'office 365' om een lijst van de triggers:  
+1. Typ 'office 365' een lijst van de triggers te krijgen in de logische app:  
    
     ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-2. Selecteer **Office 365 Outlook - bij het snel starten van een aanstaande gebeurtenis**. Als er al een verbinding bestaat, selecteert u een kalender in de lijst vervolgkeuzelijst.
+2. Selecteer **Office 365 Outlook - wanneer een aanstaande agendagebeurtenis binnenkort begint**. Als er al een verbinding bestaat, moet u vervolgens een agenda selecteren uit de vervolgkeuzelijst.
    
     ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
    
-    Als u wordt gevraagd aan te melden, voert u het teken in details om de verbinding te maken. [De verbinding](connectors-create-api-office365-outlook.md#create-the-connection) vermeldt de stappen in dit onderwerp. 
+    Als u wordt gevraagd of u zich aanmeldt, voert u het teken in de details van de verbinding te maken. [Maak de verbinding](connectors-create-api-office365-outlook.md#create-the-connection) vermeldt de stappen in dit onderwerp. 
    
    > [!NOTE]
-   > In dit voorbeeld wordt de logische app uitgevoerd wanneer een gebeurtenis wordt bijgewerkt. U kunt de resultaten van deze trigger toevoegen nog een actie die u een SMS-bericht verzonden. Bijvoorbeeld, voeg de Twilio *bericht verzenden* actie die tekst wanneer de gebeurtenis wordt gestart binnen 15 minuten. 
+   > In dit voorbeeld wordt de logische app uitgevoerd wanneer een agenda-gebeurtenis wordt bijgewerkt. U kunt de resultaten van deze trigger, een andere actie toevoegen die u een SMS-bericht stuurt. Voeg bijvoorbeeld de Twilio *bericht verzenden* actie die teksten u bij het starten van de agendagebeurtenis in 15 minuten. 
    > 
    > 
-3. Selecteer de **bewerken** knop en stel de **frequentie** en **Interval** waarden. Bijvoorbeeld, als u wilt dat de trigger voor het pollen van elke 15 minuten, wordt ingesteld de **frequentie** naar **minuut**, en stel de **Interval** naar **15**. 
+3. Selecteer de **bewerken** knop en stel de **frequentie** en **Interval** waarden. Bijvoorbeeld, als u wilt dat de trigger op te vragen om de 15 minuten, stelt de **frequentie** naar **minuut**, en stel de **Interval** naar **15**. 
    
     ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
-4. **Sla** uw wijzigingen (linkerbovenhoek van de werkbalk). Uw logische app wordt opgeslagen en automatisch kan worden ingeschakeld.
+4. **Sla** uw wijzigingen (linkerbovenhoek van de werkbalk). Uw logische app wordt opgeslagen en kan automatisch worden ingeschakeld.
 
 ## <a name="use-an-action"></a>Gebruik een actie
 Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).
@@ -72,25 +72,25 @@ Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in 
    
     ![](./media/connectors-create-api-office365-outlook/add-action.png)
 2. Kies **een actie toevoegen**.
-3. Typ 'office 365' om een lijst met alle beschikbare acties in het tekstvak.
+3. Typ in het tekstvak, "office 365' als u een lijst met alle beschikbare acties.
    
     ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
-4. Kies in ons voorbeeld **Outlook van Office 365 - maken contact op met**. Als er al een verbinding bestaat, kiest u de **map-ID**, **voornaam**, en andere eigenschappen:  
+4. Kies in ons voorbeeld **Office 365 Outlook - contactpersoon maken**. Als er al een verbinding bestaat, kiest u de **map-ID**, **voornaam**, en andere eigenschappen:  
    
     ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
    
-    Als u wordt gevraagd om de verbindingsinformatie, voert u de details om de verbinding te maken. [De verbinding](connectors-create-api-office365-outlook.md#create-the-connection) in dit onderwerp beschrijft deze eigenschappen. 
+    Als u de verbindingsgegevens wordt gevraagd, voert u de details van de verbinding te maken. [Maak de verbinding](connectors-create-api-office365-outlook.md#create-the-connection) in dit onderwerp beschrijft deze eigenschappen. 
    
    > [!NOTE]
-   > In dit voorbeeld maken we een nieuwe contactpersoon in Outlook van Office 365. De uitvoer van een andere trigger kunt u de contactpersoon maken. Bijvoorbeeld, voeg de SalesForce *wanneer een object wordt gemaakt* trigger. Voeg vervolgens de Office 365 Outlook *maken contact op met* actie die de SalesForce-velden gebruikt voor het maken van de nieuwe nieuwe contactpersoon in Office 365. 
+   > In dit voorbeeld maken we een nieuwe contactpersoon in Office 365 Outlook. Uitvoer van een andere trigger kunt u de contactpersoon maken. Voeg bijvoorbeeld SalesForce *wanneer een object wordt gemaakt* trigger. Voeg op de Office 365 Outlook *-contactpersoon maken* actie die de SalesForce-velden gebruikt voor het maken van de nieuwe contactpersoon in Office 365. 
    > 
    > 
-5. **Sla** uw wijzigingen (linkerbovenhoek van de werkbalk). Uw logische app wordt opgeslagen en automatisch kan worden ingeschakeld.
+5. **Sla** uw wijzigingen (linkerbovenhoek van de werkbalk). Uw logische app wordt opgeslagen en kan automatisch worden ingeschakeld.
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/office365connector/). 
+Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook eventuele beperkingen in de [connectorgegevens](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
+[Maak een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Verken de andere beschikbare connectors in Logic Apps op onze [lijst van API's](apis-list.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 81aa8153198f69abd1722f97462927a0c242d4e7
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6ba090065b18a44cc1f01a62eefb5dcf52bcf356
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186156"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213262"
 ---
 # <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Een virtuele machine beheerde Service-identiteit met Azure portal configureren
 
@@ -37,7 +37,7 @@ In dit artikel leert u hoe u kunt in- en uitschakelen van het systeem toegewezen
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md).
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 - Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de roltoewijzing van de volgende:
-    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) inschakelen en verwijderen van beheerde Service-identiteit van een Azure-VM.
+    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) inschakelen en verwijder de systeem toegewezen identiteit van een Azure-VM.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Beheerde Service-identiteit tijdens het maken van een Azure VM
 

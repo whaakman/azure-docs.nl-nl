@@ -1,6 +1,6 @@
 ---
-title: Java-Snelstartgids voor Azure cognitieve Services, Microsoft Translator Speech-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de Microsoft Translator Speech-API in Microsoft cognitieve Services in Azure.
+title: Java-Quickstart voor Azure Cognitive Services, Microsoft Translator Speech-API | Microsoft Docs
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Speech-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
@@ -9,31 +9,40 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 447164bd8d786fbfc46dff878b77f11a286bcfb8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b06ee0c37d52f81db1a3bad6907690619002ef7c
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344680"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205500"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>Quick Start voor Microsoft Translator spraak API met Java 
+# <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>Snelstartgids voor Microsoft Translator Speech-API met Java 
 <a name="HOLTop"></a>
 
-Dit artikel laat zien hoe u met de Microsoft Translator Speech-API woorden gesproken wav-bestanden.
+In dit artikel leest u hoe de Microsoft Translator Speech-API gebruiken voor de omzetting van woorden die in een wav-bestand.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U mag een IDE voor Java gebruiken als u een favoriet hebben, maar worden volstaan met een teksteditor.
+U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U kunt een Java-IDE gebruiken als u een favoriet hebt, maar worden volstaan met een teksteditor.
 
-U moet de [javax.websocket-api-1.1.jar](http://central.maven.org/maven2/javax/websocket/javax.websocket-api/1.1/) en [tyrus zelfstandige-client 1.9.jar](http://repo1.maven.org/maven2/org/glassfish/tyrus/bundles/tyrus-standalone-client/1.9/) bestanden.
+U moet de volgende bestanden.
+- [javax.websocket-api-1.1.jar (of nieuwer)](https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api)
+- [jetty-http-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http)
+- [jetty-i/o-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io)
+- [jetty-util-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util)
+- [websocket-api-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api)
+- [websocket-client-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-client)
+- [websocket-gemeenschappelijke-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-common)
+- [javax-websocket-client-impl-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
+- [jetty-client-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat van de volgende code worden gecompileerd. Dit WAV-bestand moet zich in de standaard PCM, 16-bits, 16kHz mono-indeling. U ontvangt deze een wav-bestand van de [conversieprogramma tekst uitspreken API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat uit de onderstaande code worden gecompileerd. Dit WAV-bestand moet zich in de standard PCM, 16-bits, 16kHz mono-indeling. U vindt deze een wav-bestand van de [Text to Speech-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnementssleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnement-sleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Spraak vertalen
 
-De volgende code vertaalt spraak van één taal.
+De volgende code wordt omgezet in spraak in één taal.
 
 1. Maak een nieuwe Java-project in uw favoriete IDE.
 2. Voeg de code hieronder.
@@ -78,6 +87,14 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
+
+import org.eclipse.jetty.client.*;
+import org.eclipse.jetty.http.*;
+import org.eclipse.jetty.io.*;
+import org.eclipse.jetty.util.*;
+import org.eclipse.jetty.websocket.api.*;
+import org.eclipse.jetty.websocket.client.io.*;
+import org.eclipse.jetty.websocket.common.scopes.*;
 
 /* Useful reference links:
     https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html
@@ -162,9 +179,10 @@ See:
             OutputStream stream = this.session.getBasicRemote().getSendStream();
             stream.write (message);
 /* Make sure the audio file is followed by silence.
- * This lets the service know that the audio input is finished. */
+ * This lets the service know that the audio file is finished.
+ * At 32 bytes per millisecond, this is 10 seconds of silence. */
             System.out.println ("Sending silence.");
-            byte silence[] = new byte[3200000];
+            byte silence[] = new byte[320000];
             stream.write (silence);
             stream.flush();
         } catch (Exception e) {
@@ -176,6 +194,8 @@ See:
         try {
             System.out.println("Connecting.");
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+/* The response message might exceed the default max message size of 65536. */
+            container.setDefaultMaxBinaryMessageBufferSize(131072);
 /* Some code samples show container.connectToServer as returning a Session, but this seems to be false. */
             container.connectToServer(this, new URI(uri));
         } catch (Exception e) {
@@ -198,17 +218,33 @@ Speak.Java:
 
 ```java
 /*
-Download javax.websocket-api-1.1.jar from:
+Download javax.websocket-api-1.1.jar (or newer) from:
     http://central.maven.org/maven2/javax/websocket/javax.websocket-api/1.1/
-Download tyrus-standalone-client-1.9.jar from:
-    http://repo1.maven.org/maven2/org/glassfish/tyrus/bundles/tyrus-standalone-client/1.9/
+Download jetty-http-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http
+Download jetty-io-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io
+Download jetty-util-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util
+Download websocket-api-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api
+Download websocket-client-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-client
+Download websocket-common-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-common
+Download javax-websocket-client-impl-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl
+Download jetty-client-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client
 
 Compile and run with:
     javac Config.java -cp .;javax.websocket-api-1.1.jar
-    javac Client.java -cp .;javax.websocket-api-1.1.jar;tyrus-standalone-client-1.9.jar
-    javac Speak.java
-    java -cp .;javax.websocket-api-1.1.jar;tyrus-standalone-client-1.9.jar Speak
+    javac Client.java -cp .;javax.websocket-api-1.1.jar;javax-websocket-client-impl-9.4.11.v20180605.jar;websocket-common-9.4.11.v20180605.jar;jetty-util-9.4.11.v20180605.jar;jetty-io-9.4.11.v20180605.jar;websocket-api-9.4.11.v20180605.jar;websocket-client-9.4.11.v20180605.jar;jetty-client-9.4.11.v20180605.jar;jetty-http-9.4.11.v20180605.jar
+    javac Speak.java -cp .;javax.websocket-api-1.1.jar;javax-websocket-client-impl-9.4.11.v20180605.jar;websocket-common-9.4.11.v20180605.jar;jetty-util-9.4.11.v20180605.jar;jetty-io-9.4.11.v20180605.jar;websocket-api-9.4.11.v20180605.jar;websocket-client-9.4.11.v20180605.jar;jetty-client-9.4.11.v20180605.jar;jetty-http-9.4.11.v20180605.jar
+    java -cp .;javax.websocket-api-1.1.jar;javax-websocket-client-impl-9.4.11.v20180605.jar;websocket-common-9.4.11.v20180605.jar;jetty-util-9.4.11.v20180605.jar;jetty-io-9.4.11.v20180605.jar;websocket-api-9.4.11.v20180605.jar;websocket-client-9.4.11.v20180605.jar;jetty-client-9.4.11.v20180605.jar;jetty-http-9.4.11.v20180605.jar Speak
 */
+
+import java.lang.Thread;
 
 public class Speak {
     public static void main(String[] args) {
@@ -216,7 +252,8 @@ public class Speak {
             Client client = new Client ();
             client.Connect ();
             // Wait for the reply.
-            System.out.println ("Press any key to exit the application at any time.");
+            Thread.sleep (5000);
+            System.out.println ("Press Enter to exit the application at any time.");
             System.in.read();
         }
         catch (Exception e) {
@@ -228,16 +265,16 @@ public class Speak {
 
 **Spraak antwoord vertalen**
 
-Een geslaagde resultaat is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de omzetting van de woorden 'speak.wav' gesproken.
+Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de vertaling van gesproken in "speak.wav" woorden.
 
 [Terug naar boven](#HOLTop)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Conversieprogramma spraak-zelfstudie](../tutorial-translator-speech-csharp.md)
+> [Translator Speech-zelfstudie](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Zie ook 
 
-[Conversieprogramma spraak-overzicht](../overview.md)
-[API-referentiemateriaal](http://docs.microsofttranslator.com/speech-translate.html)
+[Overzicht van Translator Speech](../overview.md)
+[API-verwijzing](http://docs.microsofttranslator.com/speech-translate.html)

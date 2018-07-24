@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: 43ec962c91b354d8f07f1be8885b89424d00e452
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 484f04dc2ed523d3f979b0ba857c92f90d9d32ad
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069856"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215807"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Updates beheren in Azure Stack-overzicht
 
 *Is van toepassing op: Azure Stack-geïntegreerde systemen*
 
-Microsoft-updatepakketten vrij voor Azure Stack-systemen doorgaans geïntegreerde rond de vierde dinsdag van elke maand. Stel uw OEM over hun specifieke melding om ervoor te zorgen updatemeldingen bereiken in uw organisatie. U kunt ook controleren in deze Documentatiebibliotheek onder onder **overzicht** > **opmerkingen bij de Release** voor informatie over de versies die in de actieve ondersteuning zijn. 
+Microsoft-updatepakketten vrij voor Azure Stack-systemen doorgaans geïntegreerde rond de vierde dinsdag van elke maand. Stel uw OEM over hun specifieke melding om ervoor te zorgen updatemeldingen bereiken in uw organisatie. U kunt ook controleren in deze Documentatiebibliotheek onder **overzicht** > **opmerkingen bij de Release** voor informatie over de versies die in de actieve ondersteuning zijn. 
 
 Elke versie van Microsoft-software-updates wordt geleverd als één update-pakket. Als Azure Stack-operators, u kunt importeren, installeren en de voortgang van installatie van de volgende pakketten uit de beheerdersportal bijwerken. 
 

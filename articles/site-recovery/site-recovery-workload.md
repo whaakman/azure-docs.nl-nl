@@ -2,24 +2,17 @@
 title: Welke workloads kunt u met Azure Site Recovery beveiligen? | Microsoft Docs
 description: Hierin worden de workloads beschreven die met behulp van herstel na noodgevallen kunnen worden beveiligd met de service Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: e0094b48bc602a1b59339458b430319f4a705d44
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
+ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920102"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205949"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Welke workloads kunt u met Azure Site Recovery beveiligen?
 
@@ -61,9 +54,8 @@ Met Site Recovery kan elke app die wordt uitgevoerd op een ondersteunde machine,
 | Extern bureaublad/VDI |J |J |J |J |J|
 | Linux (besturingssysteem en apps) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest)|
 | Dynamics AX |J |J |J |J |J|
-| Oracle |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest)|
 | Windows-bestandsserver |J |J |J |J |J|
-| Citrix XenApp en XenDesktop |J|N.v.t. |J |N.v.t. |J |
+| Citrix XenApp en XenDesktop |J|N/A |J |N/A |J |
 
 ## <a name="replicate-active-directory-and-dns"></a>Active Directory en DNS repliceren
 Voor de meeste zakelijke apps zijn een Active Directory- en DNS-infrastructuur essentieel. Tijdens het herstel na noodgevallen moet u deze infrastructuuronderdelen beveiligen en herstellen voordat u uw workloads en apps herstelt.

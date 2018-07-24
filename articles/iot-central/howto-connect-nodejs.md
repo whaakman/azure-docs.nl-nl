@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met een algemene Node.js-clienttoepassing op Azure IoT centrale | Microsoft Docs
-description: Als een ontwikkelaar van het apparaat, hoe u een algemene Node.js-apparaat aansluit op uw Azure IoT centrale toepassing.
+title: Verbinding maken met een algemene Node.js-clienttoepassing op Azure IoT Central | Microsoft Docs
+description: Als ontwikkelaar in een apparaat, hoe u een algemene Node.js-apparaat verbinden met uw Azure IoT Central-toepassing.
 author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
@@ -8,44 +8,46 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628535"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206034"
 ---
-# <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing naar uw Azure IoT centrale (Node.js)
+# <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
-Dit artikel wordt beschreven hoe u, als een ontwikkelaar apparaat verbinding maken van een algemene Node.js-toepassing die een fysiek apparaat aan uw Microsoft Azure IoT centrale toepassing vertegenwoordigt.
+Dit artikel wordt beschreven hoe u als ontwikkelaar apparaat om een algemene Node.js-toepassing die een fysiek apparaat naar uw Microsoft Azure IoT Central-toepassing verbinding te maken.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
-1. Een Azure IoT centrale toepassing. Zie voor meer informatie [maken van uw Azure IoT centrale toepassing](howto-create-application.md).
-1. Een ontwikkelcomputer met [Node.js](https://nodejs.org/) versie 4.0.0 of hoger is geïnstalleerd. U kunt uitvoeren `node --version` op de opdrachtregel om te controleren van uw versie. Node.js is beschikbaar voor een groot aantal verschillende besturingssystemen.
+1. Een Azure IoT Central-toepassing. Zie voor meer informatie, [maken van uw Azure IoT Central Application](howto-create-application.md).
+1. Een ontwikkelcomputer met [Node.js](https://nodejs.org/) versie 4.0.0 of hoger is geïnstalleerd. U kunt uitvoeren `node --version` vanaf de opdrachtregel om uw versie te controleren. Node.js is beschikbaar voor een groot aantal verschillende besturingssystemen.
 
-In de Azure IoT centrale toepassing moet u een sjabloon van het apparaat met de volgende metingen en apparaateigenschappen gedefinieerd:
+## <a name="create-a-device-template"></a>Een apparaat-sjabloon maken
 
-### <a name="telemetry-measurements"></a>Telemetrie metingen
+U moet een sjabloon van het apparaat met de volgende metingen en apparaateigenschappen die zijn gedefinieerd in uw Azure IoT Central-toepassing:
+
+### <a name="telemetry-measurements"></a>Telemetrie-metingen
 
 Voeg de volgende telemetrie in de **metingen** pagina:
 
-| Weergavenaam | Veldnaam  | Eenheden | Min. | Max. | Decimalen |
+| Weergavenaam | Veldnaam  | Eenheden | Min. | Max. | Aantal decimalen |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatuur  | temperatuur | F     | 60  | 110 | 0              |
-| Vochtigheid     | Vochtigheid    | %     | 0   | 100 | 0              |
+| Vochtigheid     | vochtigheid    | %     | 0   | 100 | 0              |
 | Druk     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
   Het gegevenstype van de meting telemetrie is dubbel.
 
-Voer veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet overeenkomen, kan de telemetrie kan niet worden weergegeven in de toepassing.
+Veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat invoeren. Als de veldnamen niet overeenkomen, kan de telemetrie kan niet worden weergegeven in de toepassing.
 
 ### <a name="state-measurements"></a>Status metingen
 
-Voeg de volgende status in de **metingen** pagina:
+Voeg de volgende status hebben in de **metingen** pagina:
 
 | Weergavenaam | Veldnaam  | Waarde 1 | Weergavenaam | Waarde 2 | Weergavenaam |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
@@ -54,9 +56,9 @@ Voeg de volgende status in de **metingen** pagina:
 > [!NOTE]
   Het gegevenstype van de meting van de status is een tekenreeks.
 
-Voer veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet overeenkomen, kan de status kan niet worden weergegeven in de toepassing.
+Veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat invoeren. Als de veldnamen niet overeenkomen, kan de status kan niet worden weergegeven in de toepassing.
 
-### <a name="event-measurements"></a>Gebeurtenis metingen
+### <a name="event-measurements"></a>Gebeurtenis-metingen
 
 Voeg de volgende gebeurtenis in de **metingen** pagina:
 
@@ -69,46 +71,46 @@ Voeg de volgende gebeurtenis in de **metingen** pagina:
 
 ### <a name="device-properties"></a>Apparaateigenschappen
 
-Voeg de volgende eigenschappen van de apparaten in de **eigenschappenpagina**:
+Voeg de volgende apparaateigenschappen in de **eigenschappenpagina**:
 
 | Weergavenaam        | Veldnaam        | Gegevenstype |
 | ------------------- | ----------------- | --------- |
 | Serienummer       | Serienummer      | tekst      |
 | De fabrikant van apparaat | fabrikant      | tekst      |
 
-Voer de veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet overeenkomen, kan de toepassing niet de waarde van eigenschap weergeven.
+Voer de veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet overeenkomen, kan de toepassing de eigenschapswaarde niet weergeven.
 
 ### <a name="settings"></a>Instellingen
 
 Voeg de volgende **getal** instellingen in de **instellingenpagina**:
 
-| Weergavenaam    | Veldnaam     | Eenheden | Decimalen | Min. | Max.  | Oorspronkelijk |
+| Weergavenaam    | Veldnaam     | Eenheden | Aantal decimalen | Min. | Max.  | Oorspronkelijk |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Snelheid van ventilator       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Temperatuur instellen | temperatuurInstellen | F     | 0        | 20  | 200  | 80      |
 
-Geef veldnaam precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet overeenkomen, kan het apparaat geen waarde van de instelling ontvangen.
+Voer veldnaam precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet overeenkomen, kan het apparaat geen waarde van de instelling ontvangen.
 
-### <a name="add-a-real-device"></a>Echt apparaat toevoegen
+## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
-In uw Azure IoT centrale toepassing, voegt u een echte apparaat van de sjabloon van het apparaat u maken en noteer de verbindingsreeks van het apparaat. Zie voor meer informatie [een echte apparaat toevoegt aan uw Azure IoT centrale toepassing](tutorial-add-device.md)
+Voeg een echt apparaat van de sjabloon van het apparaat u maken en noteer de apparaatverbindingsreeks in uw Azure IoT Central-toepassing. Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central-toepassing](tutorial-add-device.md)
 
-## <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
+### <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
 
-De volgende stappen laten zien hoe een clienttoepassing maken die het echte apparaat dat u hebt toegevoegd aan de toepassing implementeert.
+De volgende stappen laten zien over het maken van een clienttoepassing die het echte apparaat dat u hebt toegevoegd aan de toepassing implementeert.
 
-1. Maak de map `connected-air-conditioner-adv` op uw computer. Navigeer naar de map in uw omgeving vanaf de opdrachtregel.
+1. Maak de map `connected-air-conditioner-adv` op uw computer. Navigeer naar die map in uw opdrachtregelomgeving.
 
-1. Als u wilt initialiseren uw Node.js-project, voer de volgende opdrachten:
+1. Voer de volgende opdrachten voor het initialiseren van uw Node.js-project:
 
     ```cmd/sh
     npm init
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. Maken van een bestand met de naam **connectedAirConditionerAdv.js** in de `connected-air-conditioner-adv` map.
+1. Maak een bestand met de naam **connectedAirConditionerAdv.js** in de `connected-air-conditioner-adv` map.
 
-1. Voeg de volgende `require` instructies aan het begin van de **connectedAirConditionerAdv.js** bestand:
+1. Voeg de volgende `require` instructies toe aan het begin van de **connectedAirConditionerAdv.js** bestand:
 
     ```javascript
     "use strict";
@@ -127,9 +129,9 @@ De volgende stappen laten zien hoe een clienttoepassing maken die het echte appa
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Bijwerken van de tijdelijke aanduiding voor `{your device connection string}` met de verbindingsreeks van uw apparaat. U hebt deze waarde gekopieerd uit de detailpagina verbinding wanneer u uw apparaat echte toegevoegd. In dit voorbeeld wordt geïnitialiseerd `targetTemperature` aan nul, u kunt eventueel nemen de huidige lezen van het apparaat of de waarde van het apparaat twin. 
+    Bijwerken van de tijdelijke aanduiding `{your device connection string}` met de verbindingsreeks van uw apparaat. U hebt deze waarde gekopieerd uit de pagina met Verbindingsdetails wanneer u uw echt apparaat toegevoegd. In dit voorbeeld wordt geïnitialiseerd `targetTemperature` op nul, eventueel tilt u de huidige lezen van het apparaat of -waarde van het dubbele apparaat. 
 
-1. Voor het verzenden van telemetrie, status en gebeurtenis metingen aan uw Azure IoT centrale toepassing, aan het bestand met toevoegen van de volgende functie:
+1. Voor het verzenden van telemetrie, status en gebeurtenis metingen aan uw Azure IoT Central-toepassing, voeg de volgende functie naar het bestand:
 
     ```javascript
     // Send device measurements.
@@ -151,7 +153,7 @@ De volgende stappen laten zien hoe een clienttoepassing maken die het echte appa
     }
     ```
 
-    1. Toevoegen om de eigenschappen van een apparaat verzendt naar uw Azure IoT centrale toepassing, de volgende functie aan het bestand:
+    1. Voor het verzenden van eigenschappen van een apparaat aan uw Azure IoT Central-toepassing, voeg de volgende functie toe aan het bestand:
 
     ```javascript
     // Send device properties.
@@ -165,7 +167,7 @@ De volgende stappen laten zien hoe een clienttoepassing maken die het echte appa
     }
     ```
 
-1. Toevoegen om de instellingen voor die het apparaat reageert op definieert, de volgende definitie:
+1. Voeg de definitie van de volgende voor het definiëren van de instellingen voor die het apparaat reageert op:
 
     ```javascript
     // Add any settings your device supports,
@@ -191,7 +193,7 @@ De volgende stappen laten zien hoe een clienttoepassing maken die het echte appa
     };
     ```
 
-1. Voeg de volgende naar het bestand voor het afhandelen van de bijgewerkte instellingen van uw Azure IoT centrale toepassing:
+1. Voor het afhandelen van bijgewerkte instellingen vanuit uw Azure IoT Central-toepassing, moet u het volgende toevoegen aan het bestand:
 
     ```javascript
     // Handle settings changes that come from Azure IoT Central via the device twin.
@@ -218,7 +220,7 @@ De volgende stappen laten zien hoe een clienttoepassing maken die het echte appa
     }
     ```
 
-1. Voeg de volgende voor het voltooien van de verbinding met Azure IoT centrale en de functies in de clientcode aansluiten:
+1. Voeg het volgende voor het voltooien van de verbinding met Azure IoT Central en koppelt de functies in de clientcode:
 
     ```javascript
     // Handle device connection to Azure IoT Central.
@@ -249,7 +251,7 @@ De volgende stappen laten zien hoe een clienttoepassing maken die het echte appa
     client.open(connectCallback);
     ```
 
-## <a name="run-your-nodejs-application"></a>Voer uw Node.js-toepassing
+## <a name="run-your-nodejs-application"></a>Uw Node.js-toepassing uitvoeren
 
 Voer de volgende opdracht in uw omgeving opdrachtregel:
 
@@ -257,22 +259,22 @@ Voer de volgende opdracht in uw omgeving opdrachtregel:
 node connectedAirConditionerAdv.js
 ```
 
-Als operator in uw Azure IoT centrale toepassing voor het echte apparaat kunt u:
+Als operator in uw Azure IoT Central-toepassing voor uw echte apparaat kunt u:
 
-* De telemetrie weergeven op de **metingen** pagina:
+* De telemetrie bekijken die op de **metingen** pagina:
 
     ![Telemetrie bekijken](media/howto-connect-nodejs/viewtelemetry.png)
 
-* De apparaat-eigenschapswaarden op van het apparaat verzonden weergeven de **eigenschappen** pagina.
+* Bekijk de eigenschapswaarden van het apparaat verzonden van uw apparaat op de **eigenschappen** pagina.
 
-    ![Apparaateigenschappen weergeven](media/howto-connect-nodejs/viewproperties.png)
+    ![Eigenschappen van apparaat weergeven](media/howto-connect-nodejs/viewproperties.png)
 
-* Stel de temperatuur ventilator snelheid en doel van de **instellingen** pagina.
+* Stel de temperatuur ventilator snelheid en het doel van de **instellingen** pagina.
 
     ![Snelheid van de set-ventilator](media/howto-connect-nodejs/setfanspeed.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u een algemene Node.js-client verbindt met uw Azure IoT centrale toepassing, vindt hier u de voorgestelde volgende stappen uit:
-* [Raspberry Pi voorbereiden en verbinden](howto-connect-raspberry-pi-python.md)
+U hebt geleerd hoe u een algemene Node.js-client verbinden met uw Azure IoT Central-toepassing, vindt hier u de voorgestelde volgende stappen:
+* [Voorbereiden en verbinding maken met een Raspberry Pi](howto-connect-raspberry-pi-python.md)
 <!-- Next how-tos in the sequence -->

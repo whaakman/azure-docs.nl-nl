@@ -1,6 +1,6 @@
 ---
 title: Maken en herstellen van een back-up in BizTalk Services | Microsoft Docs
-description: BizTalk Services omvat back-up en herstel. Meer informatie over het maken en herstellen van een back-up om te bepalen wat opgehaald back-up gemaakt. MABS, WABS
+description: BizTalk Services bevat back-up en herstel. Informatie over het maken en herstellen van een back-up en te bepalen wat wordt een back-up. MABS, WABS
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 90cf2d0ddbba47a856bf1299a101c5185873b5d8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102338"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214409"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: back-ups maken en herstellen
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Azure BizTalk Services bevat de mogelijkheden van back-up en herstel. 
+Azure BizTalk Services omvat mogelijkheden voor back-up en herstel. 
 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!NOTE]
-> Hybride verbindingen zijn geen back-up, ongeacht de editie. U moet uw hybride verbindingen opnieuw maken.
+> Hybride verbindingen zijn niet back-ups, ongeacht de editie. U moet uw hybride verbindingen opnieuw maken.
 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 * Back-up en herstel mogelijk niet beschikbaar voor alle edities. Zie [BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md).
-* Back-inhoud kan worden hersteld naar dezelfde BizTalk Service of naar een nieuwe BizTalk Service. Voor het herstellen van de BizTalk Service gebruikt dezelfde naam, de bestaande BizTalk-Service moet worden verwijderd en de naam moet beschikbaar zijn. Nadat u een BizTalk Service hebt verwijderd, kan duren langer dan wilden voor dezelfde naam beschikbaar. Als u dezelfde naam beschikbaar niet kunt wachten, zet u een nieuwe BizTalk Service.
+* Back-inhoud kan worden hersteld naar dezelfde BizTalk Service of naar een nieuwe BizTalk Service. Als u wilt herstellen van de BizTalk-Service met dezelfde naam, de bestaande BizTalk-Service moeten worden verwijderd en de naam mag niet beschikbaar. Nadat u een BizTalk Service hebt verwijderd, duurt het langer dan wilde voor dezelfde naam beschikbaar is. Als u niet kunt op dezelfde naam wachten beschikbaar is, zet u een nieuwe BizTalk Service.
 * BizTalk Services kunnen worden hersteld naar dezelfde versie of een hogere editie. BizTalk Services is teruggezet naar een lagere versie, wordt uit wanneer de back-up is gemaakt, niet ondersteund.
   
-    Bijvoorbeeld, kan een back-up met behulp van de Basic-editie worden hersteld naar de Premium-versie. Een back-up met behulp van de Premium-versie kan niet worden hersteld naar de Standard-editie.
-* De getallen EDI-besturingselement worden back-up continuïteit van de getallen besturingselement. Als berichten worden verwerkt na de laatste back-up, herstellen van de inhoud van deze back-up kan leiden tot dubbele besturingselement cijfers.
-* Als een batch actieve berichten heeft, de batch verwerkt **voordat** waarop een back-up. Wanneer u een back-up (als de benodigde of geplande) maakt, worden berichten in batches nooit worden opgeslagen. 
+    Bijvoorbeeld, kan een back-up met behulp van de Basic-editie worden hersteld naar de Premium-editie. Een back-up met behulp van de Premium-editie kan niet worden hersteld naar de Standard-editie.
+* De EDI-controlenummers back-ups continuïteit van de controlenummers. Als berichten worden verwerkt na de laatste back-up, kan de inhoud van deze back-up herstellen dubbele controlenummers veroorzaken.
+* Als een batch actieve berichten heeft, verwerking van de batch **voordat** waarop een back-up wordt uitgevoerd. Bij het maken van een back-up (als vereiste of geplande), worden berichten in batches worden nooit opgeslagen. 
   
-    **Als u een back-up wordt gemaakt met actieve berichten in een batch, wordt deze berichten worden niet een back-up en zijn daarom verloren.**
-* Optioneel: In de Portal BizTalk-Services stop alle beheerbewerkingen.
+    **Als u een back-up is gemaakt met actieve berichten in een batch, wordt deze berichten worden niet ondersteund en zijn daarom verloren gaan.**
+* Optioneel: In de BizTalk Services-Portal, niet alle beheerbewerkingen.
 
-## <a name="create-a-backup"></a>Maak een back-up
-Een back-up kan worden uitgevoerd op elk gewenst moment en volledig door u worden beheerd. Gebruik voor het maken van een back-up de [REST-API voor het beheren van BizTalk Services op Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+## <a name="create-a-backup"></a>Een back-up maken
+Een back-up kan worden uitgevoerd op elk gewenst moment en volledig wordt beheerd door u. U kunt een back-up maken met de [REST-API voor het beheren van BizTalk Services op Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ## <a name="restore"></a>Herstellen
 Als u een back-up herstellen, gebruikt u de [REST-API voor het beheren van BizTalk Services op Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
-### <a name="postrestore"></a>Na het terugzetten van een back-up
-De BizTalk Service altijd wordt hersteld een **onderbroken** status. In deze toestand is, kunt u geen configuratiewijzigingen maken voordat de nieuwe omgeving functioneel is, met inbegrip van:
+### <a name="postrestore"></a>Na het herstellen van een back-up
+De BizTalk Service altijd hersteld in een **onderbroken** staat. In deze staat, kunt u eventuele wijzigingen in de configuratie voordat de nieuwe omgeving functioneel is, met inbegrip van:
 
-* Als u een BizTalk Service-toepassingen met behulp van de Azure BizTalk Services SDK gemaakt, mogelijk moet u naar de Access Control (ACS)-referenties in die toepassingen werken met de herstelde omgeving bijwerken.
-* U herstelt een BizTalk Service om te repliceren van een bestaande BizTalk Service-omgeving. In dit geval als er zijn geconfigureerd in de oorspronkelijke BizTalk Services-portal overeenkomsten die gebruikmaken van een FTP-bronmap mogelijk moet u de overeenkomsten in de herstelde omgeving naar een andere bron FTP-map gebruiken bijwerken. Anders kunnen er twee verschillende overeenkomsten probeert om hetzelfde bericht binnen te halen.
-* Als u voor omgevingen met meerdere BizTalk Service hebt hersteld, zorg er dan voor dat u de juiste omgeving in de Visual Studio-toepassingen, PowerShell-cmdlets, REST-API's of Trading Partner Management OM API's zijn gericht.
-* Het is verstandig om te configureren van automatische back-ups op de herstelde BizTalk Service-omgeving.
+* Als u een BizTalk Service-toepassingen met behulp van de Azure BizTalk Services SDK hebt gemaakt, moet u mogelijk de Access Control (ACS)-referenties in die toepassingen werken met de herstelde omgeving bijwerken.
+* U herstellen een BizTalk Service als u wilt repliceren van een bestaande BizTalk Service-omgeving. In dit geval, als er zijn geconfigureerd in de oorspronkelijke BizTalk Services-portal overeenkomsten die gebruikmaken van een bron FTP-map, moet u mogelijk om bij te werken van de overeenkomsten in de herstelde omgeving om een andere bron FTP-map te gebruiken. Anders kunnen er twee verschillende overeenkomsten probeert om op te halen van hetzelfde bericht.
+* Als u hebt hersteld als u wilt dat meerdere BizTalk Service-omgevingen, zorg er dan voor dat u zich richten op de juiste omgeving in de Visual Studio-toepassingen, PowerShell-cmdlets, REST-API's of Trading Partner Management OM API's.
+* Het is raadzaam om te configureren van automatische back-ups op de herstelde BizTalk Service-omgeving.
 
 ## <a name="what-gets-backed-up"></a>Wat wordt een back-up
-Wanneer een back-up is gemaakt, de volgende items zijn back-up gemaakt:
+Wanneer een back-up wordt gemaakt, de volgende items zijn back-up gemaakt:
 
 <table border="1"> 
 <tr bgcolor="FAF9F9">
 <th> </th>
-<TH>Een back-up items</TH> 
+<TH>Back-ups van items</TH> 
 </tr> 
 <tr>
 <td colspan="2">
  <strong>Azure BizTalk Services-Portal</strong></td>
 </tr> 
 <tr>
-<td>Configuratie- en Runtime</td> 
+<td>Configuratie en Runtime</td> 
 <td>
 <ul>
-<li>Details van partners en -profiel</li>
-<li>Partner overeenkomsten</li>
+<li>Details van de partner en het profiel</li>
+<li>Overeenkomsten</li>
 <li>Aangepaste assembly's die zijn geïmplementeerd</li>
 <li>Bruggen geïmplementeerd</li>
 <li>Certificaten</li>
 <li>Transformaties geïmplementeerd</li>
 <li>Pijplijnen</li>
-<li>Sjablonen gemaakt en opgeslagen in de Portal van BizTalk Services</li>
+<li>Sjablonen gemaakt en opgeslagen in de BizTalk Services-Portal</li>
 <li>X12 ST01 en GS01 toewijzingen</li>
-<li>Besturingselement cijfers (EDI)</li>
-<li>AS2-bericht MIC waarden</li>
+<li>Controlenummers (EDI)</li>
+<li>AS2-bericht MIC-waarden</li>
 </ul>
 </td>
 </tr> 
@@ -98,7 +98,7 @@ Wanneer een back-up is gemaakt, de volgende items zijn back-up gemaakt:
 <td>SSL-certificaat</td> 
 <td>
 <ul>
-<li>Gegevens van SSL-certificaat</li>
+<li>De gegevens van de SSL-certificaat</li>
 <li>Wachtwoord voor SSL-certificaat</li>
 </ul>
 </td>
@@ -107,14 +107,14 @@ Wanneer een back-up is gemaakt, de volgende items zijn back-up gemaakt:
 <td>BizTalk Service-instellingen</td> 
 <td>
 <ul>
-<li>Aantal Scale-eenheden</li>
+<li>Schaalaanpassingsaantal eenheid</li>
 <li>Editie</li>
-<li>Versie van het product</li>
+<li>Productversie</li>
 <li>Regio/Datacenter</li>
-<li>Access Control Service (ACS) naamruimte en -sleutel</li>
-<li>Tekenreeks voor databaseverbinding bijhouden</li>
-<li>Archiveren van de verbindingsreeks voor opslag-account</li>
-<li>Bewaking van de verbindingsreeks voor opslag-account</li>
+<li>Access Control Service (ACS)-naamruimte en de sleutel</li>
+<li>Bijhouden van de tekenreeks voor databaseverbinding</li>
+<li>Tekenreeks opslagaccountverbinding voor archivering</li>
+<li>Tekenreeks opslagaccountverbinding voor bewaking</li>
 </ul>
 </td>
 </tr> 
@@ -124,10 +124,10 @@ Wanneer een back-up is gemaakt, de volgende items zijn back-up gemaakt:
 </tr> 
 <tr>
 <td>Traceringsdatabase</td> 
-<td>Wanneer de BizTalk Service wordt gemaakt, worden de details van de Database bijhouden ingevoerd, met inbegrip van de Azure SQL Database-Server en de naam van de Database bijhouden. De Database bijhouden wordt niet automatisch back-up.
+<td>Wanneer de BizTalk Service wordt gemaakt, worden de details van de Database bijhouden ingevoerd, met inbegrip van de Azure SQL Database-Server en de naam van de Database bijhouden. Het bijhouden van Database wordt niet automatisch back-ups.
 <br/><br/>
 <strong>Belangrijk</strong><br/>
-Als de Database bijhouden wordt verwijderd en de databasebehoeften is hersteld, moet een eerdere back-up bestaan. Als een back-up niet bestaat, zijn de Database bijhouden en de gegevens niet hersteld. In dit geval maakt u een nieuwe Database voor het bijhouden met dezelfde databasenaam. Geo-replicatie wordt aanbevolen.</td>
+Als de Database bijhouden is verwijderd en de behoeften van de database is hersteld, moet een eerdere back-up bestaan. Als u een back-up niet bestaat, zijn de Database bijhouden en de bijbehorende gegevens niet hersteld. In dit geval maakt u een nieuwe Database voor het bijhouden van met de naam van de dezelfde database. Geo-replicatie wordt aanbevolen.</td>
 </tr> 
 </table>
 
@@ -136,7 +136,7 @@ Voor het maken van Azure BizTalk Services, gaat u naar [BizTalk Services: inrich
 
 ## <a name="see-also"></a>Zie ook
 * [Back-up van BizTalk-Service](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [BizTalk Service back-up terugzetten](http://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk-Service te herstellen vanuit back-up](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](http://go.microsoft.com/fwlink/p/?LinkID=302279)
 * [BizTalk Services: inrichten](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: statusgrafiek voor de inrichting](http://go.microsoft.com/fwlink/p/?LinkID=329870)

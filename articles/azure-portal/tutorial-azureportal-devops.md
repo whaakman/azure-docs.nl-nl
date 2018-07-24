@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Activeren met de Azure portal | Microsoft Docs'
+title: 'Zelfstudie: DevOps met Azure portal | Microsoft Docs'
 description: Informatie over de verschillende DevOps-werkstromen in Azure Portal.
 services: azure-portal
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164836"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216339"
 ---
-# <a name="tutorial-devops-with-the-azure-portal"></a>Zelfstudie: Activeren met de Azure-portal
-Het Azure-platform bevat tal van flexibele DevOps-werkstromen. In deze zelfstudie leert u hoe u de mogelijkheden van de Azure portal om te ontwikkelen, testen, implementeren, oplossen, bewaken en beheren van actieve toepassingen. Deze zelfstudie is gericht op het volgende:
+# <a name="tutorial-devops-with-the-azure-portal"></a>Zelfstudie: DevOps met de Azure-portal
+Het Azure-platform bevat tal van flexibele DevOps-werkstromen. In deze zelfstudie leert u hoe u gebruik kunt maken van de mogelijkheden van de Azure portal om te ontwikkelen, testen, implementeren, problemen oplossen, bewaken en beheren van actieve toepassingen. Deze zelfstudie is gericht op het volgende:
 
 1. Een webtoepassing maken en continue implementatie inschakelen
 2. Een app ontwikkelen en testen
@@ -30,12 +30,12 @@ Het Azure-platform bevat tal van flexibele DevOps-werkstromen. In deze zelfstudi
 4. Algemene taken voor toepassingsbeheer
 
 ## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Een webtoepassing maken en continue implementatie inschakelen
-Maak met [Azure App Service](https://azure.microsoft.com/services/app-service/) een webtoepassing die u in de rest van deze handleiding gaat gebruiken. U hebt continue implementatie in eerste instantie inschakelen vanuit de opslagplaats van uw bron code in uw actief Azure-omgeving.
+Maak met [Azure App Service](https://azure.microsoft.com/services/app-service/) een webtoepassing die u in de rest van deze handleiding gaat gebruiken. In eerste instantie schakelt u continue implementatie vanuit de opslagplaats van uw broncode in uw actieve Azure-omgeving.
 
 1. Meld u aan bij de Azure-portal
 2. Kies **App Services** &gt; **Pictogram toevoegen** en voer een naam in. Kies uw abonnement en maak een nieuwe resourcegroep die als de container voor de service zal fungeren.
    
-   Resourcegroepen kunnen u verschillende aspecten van de oplossing zoals facturering, implementaties, en alle als één groep via bewaking beheren [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Resourcegroepen kunt u voor het beheren van verschillende aspecten van de oplossing, zoals facturering, implementaties en controle, als één groep via [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
    ![image1][image1]
 3. Na enkele ogenblikken is de app-service gemaakt. Neem even de tijd om de verschillende menu-opties voor de service in de portal te verkennen.
@@ -44,7 +44,7 @@ Maak met [Azure App Service](https://azure.microsoft.com/services/app-service/) 
 4. Klik op de URL. Let op de keuze aan hulpprogramma's en opslagplaatsen. U kunt ook de talen en frameworks van uw keuze gebruiken, waaronder .NET, Java en Ruby.
    
    ![image3][image3]    
-5. Dankzij Azure Portal is continue implementatie een gemakkelijk proces dat uit slechts enkele eenvoudige stappen bestaat. Kies de instellingen van het pictogram voor de app-service die u hebt gemaakt in de Azure portal.
+5. Dankzij Azure Portal is continue implementatie een gemakkelijk proces dat uit slechts enkele eenvoudige stappen bestaat. Kies de instellingen van het pictogram voor de app-service die u hebt gemaakt in de Azure-portal.
    
    ![image4][image4]
    
@@ -54,7 +54,7 @@ Maak met [Azure App Service](https://azure.microsoft.com/services/app-service/) 
 6. Configureer vervolgens een aantal instellingen om continue implementatie voor de app in te schakelen. Klik op Implementatiebron en vervolgens op Bron kiezen. Let op de verschillende opties die u voor opslagplaatsbronnen hebt.
    
    ![image6][image6]
-7. Kies voor dit voorbeeld GitHub. (Optioneel) Kies de opslagplaats van uw keuze en instellen van de autorisatiereferenties.
+7. Kies voor dit voorbeeld GitHub. (Optioneel) Kies de opslagplaats van uw keuze en de autorisatiereferenties instellen.
    
    ![image7][image7]
 8. Nadat de opslagplaats is geautoriseerd, kunt u kiezen welk project en welke vertakking u wilt implementeren. Hieronder ziet u een aantal fictieve voorbeelden.
@@ -63,7 +63,7 @@ Maak met [Azure App Service](https://azure.microsoft.com/services/app-service/) 
 9. Klik op OK nadat u het project en de vertakking hebt gekozen. Nu moeten er meldingen over een implementatie binnen beginnen te komen.
    
    ![image9][image9]
-10. Ga terug naar GitHub om de webhook te zien die is gemaakt om de opslagplaats van het besturingselement te integreren met Azure. De Azure-portal kunt integratie met GitHub met slechts een paar eenvoudige stappen.
+10. Ga terug naar GitHub om de webhook te zien die is gemaakt om de opslagplaats van het besturingselement te integreren met Azure. De Azure portal kunt integratie met GitHub uit slechts een paar eenvoudige stappen.
     
     ![image10][image10]
 11. Om continue implementatie te demonstreren, gaat u snel wat inhoud aan de opslagplaats toevoegen. Voeg als eenvoudig voorbeeld een voorbeeldtekstbestand toe aan een GitHub-opslagplaats. U kunt .NET, Ruby, Python of een ander type toepassing met App Service gebruiken. Voeg gerust een tekstbestand, ASP.NET MVC-, Java- of Ruby-toepassing aan de gewenste opslagplaats toe.
@@ -72,7 +72,7 @@ Maak met [Azure App Service](https://azure.microsoft.com/services/app-service/) 
 12. Nadat de wijzigingen aan de opslagplaats zijn doorgegeven, ziet u in het meldingengebied van de portal dat er een nieuwe implementatie is gestart. Klik op Synchroniseren als u de wijzigingen niet snel genoeg ziet nadat u ze hebt doorgevoerd in de opslagplaats.
     
     ![image12][image12]
-13. Als u op dit punt probeert de pagina voor de app-service te laden, wordt mogelijk de fout 403 weergegeven. In dit voorbeeld komt dat omdat er geen standaarddocumentconfiguratie is, zoals een bestand als index.htm of default.html. U kunt snel lost dit probleem met de hulpprogramma's worden hiervoor in de Azure portal.  Kies in de Azure portal instellingen &gt; toepassingsinstellingen.
+13. Als u op dit punt probeert de pagina voor de app-service te laden, wordt mogelijk de fout 403 weergegeven. In dit voorbeeld komt dat omdat er geen standaarddocumentconfiguratie is, zoals een bestand als index.htm of default.html. U kunt dit snel verhelpen met de hulpprogramma's in Azure portal.  Kies in de Azure portal instellingen &gt; toepassingsinstellingen.
     
      ![image13][image13]
 14. Er wordt nu een blade met toepassingsinstellingen geopend. Voer de naam van de pagina SamplePage.html in en klik op Opslaan. Neem even de tijd om de overige instellingen te verkennen.
@@ -82,18 +82,18 @@ Maak met [Azure App Service](https://azure.microsoft.com/services/app-service/) 
     
     ![image15][image15]
     
-    Inschakelen van continue implementatie met de Azure portal is een eenvoudige ervaring. U kunt ook complexere releasepijplijnen maken en vele andere technieken met bestaand broncodebeheer en continue integratiesystemen gebruiken om in Azure te implementeren, zoals het gebruik van systemen voor automatisch build- en releasebeheer.
+    Inschakelen van continue implementatie met de Azure-portal is heel eenvoudig. U kunt ook complexere releasepijplijnen maken en vele andere technieken met bestaand broncodebeheer en continue integratiesystemen gebruiken om in Azure te implementeren, zoals het gebruik van systemen voor automatisch build- en releasebeheer.
 
 ## <a name="develop-and-test-an-app"></a>Een app ontwikkelen en testen
-Vervolgens brengt u enkele wijzigingen in de code aan en gaat u deze wijzigingen snel implementeren. U wordt ook instellen om sommige prestatietests voor de Web-app.
+Vervolgens brengt u enkele wijzigingen in de code aan en gaat u deze wijzigingen snel implementeren. U wordt ook een aantal prestatietests voor de Web-app instellen.
 
-1. App-Services in het navigatiedeelvenster kiezen in de Azure portal en zoek uw App Service.
+1. App Services kiezen in het navigatiedeelvenster in Azure portal en zoek uw App Service.
    
    ![image16][image16]
 2. Klik op Hulpprogramma’s
    
    ![image17][image17]
-3. Let op de categorie Ontwikkelen onder Hulpprogramma’s. Er zijn enkele nuttige hulpmiddelen hier dat wij werken met apps zonder de Azure-portal. Klik op Console.
+3. Let op de categorie Ontwikkelen onder Hulpprogramma’s. Er zijn verschillende nuttige hulpprogramma's die we kunnen werken met apps zonder de Azure portal te verlaten. Klik op Console.
    
    ![image18][image18]
 4. In het consolevenster kunt u live opdrachten geven voor uw app. Typ de opdracht dir en druk op Enter. Opdrachten waarvoor verhoogde bevoegdheden zijn vereist, werken echter niet.
@@ -142,7 +142,7 @@ Vervolgens brengt u enkele wijzigingen in de code aan en gaat u deze wijzigingen
     Als de test is voltooid, kunt u op het resultaat klikken om meer informatie weer te geven.
     
     ![image33][image33]
-16. In dit voorbeeld hebt u een kleine test gemaakt. Er zijn dus niet veel gegevens om te analyseren, maar in deze weergave kunt u verschillende metrische gegevens zien en de test opnieuw uitvoeren. De Azure portal maakt het creëren, webprestaties analyseren en uitvoeren van een eenvoudig proces getest. In onderstaande schermafbeeldingen worden de prestatiegegevens weergegeven.
+16. In dit voorbeeld hebt u een kleine test gemaakt. Er zijn dus niet veel gegevens om te analyseren, maar in deze weergave kunt u verschillende metrische gegevens zien en de test opnieuw uitvoeren. De Azure portal kunt maken, test uitvoeren en analyseren van prestaties van web een eenvoudig proces. In onderstaande schermafbeeldingen worden de prestatiegegevens weergegeven.
     
     ![image34][image34]
     
@@ -153,7 +153,7 @@ Vervolgens brengt u enkele wijzigingen in de code aan en gaat u deze wijzigingen
 ## <a name="monitoring-and-troubleshooting-an-app"></a>Een app bewaken en problemen oplossen
 Azure biedt veel opties voor het bewaken van actieve toepassingen en het oplossen van problemen.
 
-1. Kies de hulpprogramma's in de Azure portal voor Web-app.
+1. Kies hulpprogramma's in de Azure-portal voor Web-app.
    
    ![image37][image37]
 2. Let onder de categorie Problemen oplossen op alle mogelijke hulpprogramma's waarmee u potentiële problemen met een actieve app kunt oplossen. U kunt onder andere live HTTP-verkeer bewaken, zelfherstel inschakelen en logboeken weergeven.
@@ -176,7 +176,7 @@ Azure biedt veel opties voor het bewaken van actieve toepassingen en het oplosse
    Als u op het bestand Geheugendump klikt, kunt u het analyserapport DebugDiag downloaden en analyseren om potentiële problemen op te sporen.
    
    ![image43][image43]
-6. Voor meer gegevens moet u aanvullende logboekregistratie inschakelen. Navigeer naar de Web-app in de Azure portal en instellingen kiezen.
+6. Voor meer gegevens moet u aanvullende logboekregistratie inschakelen. In de Azure-portal, gaat u naar de Web-app en kies instellingen.
    
    ![image44][image44]
 7. Blader omlaag naar de categorie Functies en kies Diagnostische logboeken.
@@ -194,10 +194,10 @@ Azure biedt veel opties voor het bewaken van actieve toepassingen en het oplosse
 11. Als u op het logboek voor HTML-logboekbestand klikt, wordt er een opgemaakt rapport geproduceerd dat u verder kunt onderzoeken.
     
     ![image49][image49]
-12. Verplaatst naar het gedeelte hulpprogramma's in de Azure-portal voor de app. Blader naar de sectie Hulpprogramma's en kies Procesverkenner.
+12. Ga terug naar de sectie hulpprogramma's in Azure portal voor de app. Blader naar de sectie Hulpprogramma's en kies Procesverkenner.
     
     ![image50][image50]
-13. Kies Procesverkenner als u gegevens over actieve processen wilt bekijken. U ziet u kunt inzoomen processen en zelfs kill processen via de Azure-portal.
+13. Kies Procesverkenner als u gegevens over actieve processen wilt bekijken. U ziet dat u kunt inzoomen op processen en zelfs kill processen via Azure portal.
     
     ![image51][image51]
     
@@ -205,13 +205,13 @@ Azure biedt veel opties voor het bewaken van actieve toepassingen en het oplosse
 14. Ga terug naar de blade Instellingen aan de linkerkant. Klik op Nieuw ondersteuningsverzoek.
     
     ![image53][image53]
-15. Op de blade aan de rechterkant kunt u meer informatie over de problemen invullen, contactgegevens invoeren en zelfs diagnostische gegevens uploaden. De Azure-portal kunt werken met Microsoft ondersteuning naadloos.
+15. Op de blade aan de rechterkant kunt u meer informatie over de problemen invullen, contactgegevens invoeren en zelfs diagnostische gegevens uploaden. De Azure portal kunt werken met Microsoft ondersteuning een naadloze ervaring.
     
     ![image54][image54]
     
     ![image55][image55]
     
-    De Azure-portal biedt krachtige en bekend tooling ervaringen om te helpen controleren en problemen met uw actieve toepassingen. U kunt ook snel actie ondernemen met taken als het recyclen van processen en het in- en uitschakelen van verschillende gegevensverzamelingen. U kunt zelfs professionele ondersteuning van Microsoft integreren.
+    De Azure-portal biedt krachtige en vertrouwde hulpmiddelen kunt bewaken en problemen oplossen met uw actieve toepassingen worden weergegeven. U kunt ook snel actie ondernemen met taken als het recyclen van processen en het in- en uitschakelen van verschillende gegevensverzamelingen. U kunt zelfs professionele ondersteuning van Microsoft integreren.
 
 ## <a name="general-application-management"></a>Algemeen toepassingsbeheer
 Bij het beheer van toepassingen moet u vaak tal van activiteiten uitvoeren, zoals de configuratie van back-upstrategieën, de implementatie en het beheer van id-providers, en de configuratie van op rollen gebaseerd toegangsbeheer. Net als bij de andere DevOps-ervaringen integreert het Azure-platform deze taken rechtstreeks in de portal.
@@ -249,13 +249,13 @@ Bij het beheer van toepassingen moet u vaak tal van activiteiten uitvoeren, zoal
 11. Klik op de blade aan de rechterkant op App Service-verificatie. Let op de verschillende opties die u voor populaire providers kunt configureren.
     
      ![image66][image66]
-12. Kies de gewenste provider en bekijk de opties voor het bereik. U kunt een App-id en App-geheim opgeven en snel Facebook-verificatie voor de app inschakelen. De Azure-portal kunt verificatie als klare oplossing voor apps.
+12. Kies de gewenste provider en bekijk de opties voor het bereik. U kunt een App-id en App-geheim opgeven en snel Facebook-verificatie voor de app inschakelen. De Azure portal biedt verificatie als kant en klare oplossing voor apps.
     
      ![image67][image67]
 13. Ga terug naar de blade Instellingen en kies onder de categorie Resourcebeheer de optie Gebruikers.
     
      ![image68][image68]
-14. Bekijk op de blade aan de rechterkant de verschillende opties voor het toevoegen van rollen en gebruikers. De Azure-portal kunt u eenvoudig bepalen RBAC (op rollen gebaseerde toegangsbeheer) voor de toepassing.
+14. Bekijk op de blade aan de rechterkant de verschillende opties voor het toevoegen van rollen en gebruikers. De Azure portal kunt u eenvoudig RBAC (Role-based access control) voor de toepassing.
     
      ![image69][image69]
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 77ccfccc0a575cb64272b634b11e80f9e07280f1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160025"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214880"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -149,7 +149,7 @@ Zie voor meer informatie, [DFS-replicatie-overzicht](https://technet.microsoft.c
 Met behulp van sysprep op een server die de Azure File Sync-agent geïnstalleerd is, wordt niet ondersteund en kan leiden tot onverwachte resultaten. De registratie van de installatie en server van de agent moet worden uitgevoerd na het implementeren van de server-installatiekopie en sysprep mini-installatie te voltooien.
 
 ### <a name="windows-search"></a>Windows Search
-Als cloud tiering is ingeschakeld op een servereindpunt, bestanden die zijn genoeg worden overgeslagen en niet zijn geïndexeerd met Windows Search. Niet-gelaagde bestanden worden juist geïndexeerd.
+Als cloud tiering is ingeschakeld op een servereindpunt, bestanden die zich gelaagd worden overgeslagen en niet zijn geïndexeerd met Windows Search. Niet-gelaagde bestanden worden juist geïndexeerd.
 
 ### <a name="antivirus-solutions"></a>Anti-virussoftware
 Omdat antivirus werkt door te scannen van bestanden voor bekende schadelijke code, kan het intrekken van gelaagde bestanden leiden tot een antivirusproduct. Aangezien de gelaagde bestanden hebben het kenmerk 'offline' is ingesteld, wordt u aangeraden overleg met de softwareleverancier voor meer informatie over het configureren van de oplossing voor het lezen van offlinebestanden overslaan. 
@@ -180,7 +180,7 @@ Azure File Sync bekend is niet werken met:
 
 - NTFS versleuteld File System (EFS)
 
-In het algemeen moet interoperabiliteit met versleutelingsoplossingen voor onderliggende het bestandssysteem, zoals BitLocker, en met oplossingen die zijn geïmplementeerd in de bestandsindeling, zoals BitLocker-ondersteuning voor Azure File Sync. Er zijn geen speciale interoperabiliteit zijn gemaakt in oplossingen die zich boven het bestandssysteem (zoals NTFS EFS).
+Azure File Sync moet in het algemeen interoperabiliteit met versleutelingsoplossingen voor onderliggende het bestandssysteem, zoals BitLocker, en met oplossingen die zijn geïmplementeerd in de bestandsindeling, zoals Azure Information Protection ondersteunen. Er zijn geen speciale interoperabiliteit zijn gemaakt in oplossingen die zich boven het bestandssysteem (zoals NTFS EFS).
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andere oplossingen hiërarchische opslag Management (HSM)
 Er zijn geen andere HSM-oplossingen moeten worden gebruikt met Azure File Sync.
