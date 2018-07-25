@@ -2,19 +2,19 @@
 title: Bekijk eindpunt uitingen actief leren gebruiken in Language Understanding (LUIS) - Azure | Microsoft Docs
 description: Gebruik de functie actief leren is met de naam 'Eindpunt uitingen bekijken' voor het verbeteren van prestaties voorspellingen sneller.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 4144db7474f20f464d14722431d5d4a2546a8c5a
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 05b3404d318359c6966df44bfab9baff3ded980f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949846"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222610"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Actief leren aan de hand van de eindpunt-uitingen inschakelen
 Actief leren is een van drie strategieën voor het verbeteren van nauwkeurigheid en het gemakkelijkst te implementeren. 

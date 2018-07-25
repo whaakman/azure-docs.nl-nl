@@ -1,31 +1,31 @@
 ---
-title: Vooraf gedefinieerde LUIS entiteiten nummer verwijzing - Azure | Microsoft Docs
+title: LUIS vooraf gemaakte entiteiten nummer verwijzing - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Dit artikel bevat een aantal vooraf gedefinieerde entiteitsgegevens in Language Understanding (LUIS).
+description: In dit artikel bevat een aantal vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: aa0b389a0694a3b742259fd42bed08055fbbadbe
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: c1a263f21ae249ea80c0798ac81818c9e9cf1319
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321860"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236802"
 ---
-# <a name="number-entity"></a>Aantal entiteit
-Er zijn veel manieren waarin numerieke waarden die worden gebruikt om te kwantificeren, express en beschrijven stukjes informatie. Dit artikel behandelt alleen enkele mogelijke voorbeelden. LUIS interpreteert de verschillen in gebruiker utterances en consistente numerieke waarden als resultaat. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld utterances getal tot de toepassing die met toevoegen. 
+# <a name="number-entity"></a>Cijferentiteit
+Er zijn veel manieren waarin numerieke waarden te kwantificeren, express en beschrijven stukjes informatie worden gebruikt. Dit artikel behandelt alleen enkele van de mogelijke voorbeelden. LUIS interpreteert de variaties faciliteren voor de gebruiker uitingen en consistente numerieke waarden als resultaat. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met getal tot de toepassing intents. 
 
-## <a name="types-of-number"></a>Typen getal
-Nummer wordt beheerd vanaf de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) Github-opslagplaats
+## <a name="types-of-number"></a>Typen van getal
+Aantal wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) Github-opslagplaats
 
-## <a name="examples-of-number-resolution"></a>Voorbeelden van nummer resolutie
+## <a name="examples-of-number-resolution"></a>Voorbeelden van het aantal resolutie
 
-| utterance        | Entiteit   | Oplossing |
+| Utterance        | Entiteit   | Oplossing |
 | ------------- |:----------------:| --------------:|
 | ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      | 
 | ```1,000 people```        | ```"1,000"```    |   ```"1000"```      |
@@ -37,10 +37,10 @@ Nummer wordt beheerd vanaf de [kenmerken tekst](https://github.com/Microsoft/Rec
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
 
-LUIS omvat de herkende waarde van een **`builtin.number`** entiteit in de `resolution` veld van het JSON-antwoord geretourneerd.
+LUIS omvat de herkende waarde van een **`builtin.number`** entiteit in de `resolution` veld van het JSON-antwoord wordt geretourneerd.
 
 ## <a name="resolution-for-prebuilt-number"></a>Oplossing voor vooraf gedefinieerde getal
-Het volgende voorbeeld ziet een JSON-reactie van LUIS, die de resolutie van de waarde van 24, voor de utterance "twintig" bevat.
+Het volgende voorbeeld ziet een JSON-antwoord van LUIS, die de resolutie van de waarde van 24 uur per dag, voor de utterance "tientallen" bevat.
 
 ```JSON
 {

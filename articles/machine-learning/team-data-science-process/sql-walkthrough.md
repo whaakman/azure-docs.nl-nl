@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: ffd0f272d182e3362a82e137e902d433ca750b46
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: dae8549cb951a463688869454e2f4c71103c1363
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216288"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226390"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Het Team Data Science Process in actie: met behulp van SQL Server
 In deze zelfstudie hebt u stapsgewijs door het proces van het bouwen en implementeren van een machine learning-model met behulp van SQL Server en een openbaar beschikbare gegevensset testlab voor de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De procedure volgt een standaard gegevenswetenschapwerkstroom: opnemen en Verken de gegevens, functies, dingen en vervolgens bouwen en implementeren van een model bouwen.
@@ -623,7 +623,7 @@ Er is een voorbeeld van een experiment scores in de afbeelding hieronder. Wannee
 Als u wilt samenvatting in deze zelfstudie scenario kunt u een Azure data science-omgeving heeft gewerkt met een grote openbare gegevensset van gegevens ophalen om modellen te trainen en implementeren van een Azure Machine Learning-webservice hebt gemaakt.
 
 ### <a name="license-information"></a>Licentie-informatie
-In dit voorbeeld scenario en de bijbehorende scripts en IPython notebook(s) worden gedeeld door Microsoft onder de MIT-licentie. Controleer of het bestand LICENSE.txt in in de map van de voorbeeldcode op GitHub voor meer informatie.
+In dit voorbeeld scenario en de bijbehorende scripts en IPython notebook(s) worden gedeeld door Microsoft onder de MIT-licentie. Controleer of het bestand LICENSE.txt in de map van de voorbeeldcode op GitHub voor meer informatie.
 
 ### <a name="references"></a>Verwijzingen
 • [Andrés Monroy NYC Taxi Trips downloadpagina](http://www.andresmh.com/nyctaxitrips/)  

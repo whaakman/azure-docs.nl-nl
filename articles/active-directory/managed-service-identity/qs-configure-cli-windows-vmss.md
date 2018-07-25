@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: fe0b2531ef4bb85513d63207b903ee14b6652fc0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 36df9d00d41f3c092320fa88772b41c9a41c6d8e
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216257"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237278"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Een virtuele machine configureren Virtual Machine scale sets Managed Service Identity (MSI) met behulp van Azure CLI
 
@@ -91,20 +91,26 @@ Als u nodig hebt om in te schakelen van het systeem toegewezen identiteit op een
 
 ### <a name="disable-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Systeem toegewezen identiteit van een schaalset voor virtuele Azure-machine uitschakelen
 
-> [!NOTE]
-> Beheerde Service-identiteit van een virtuele-Machineschaalset uitschakelen wordt momenteel niet ondersteund. In de tussentijd kunt u overschakelen tussen het gebruik van het systeem toegewezen en de gebruiker toegewezen identiteiten. Controleer later op updates.
-
-Als u een virtuele-machineschaalset die niet langer een systeem toegewezen identiteit, maar nog steeds moet gebruiker toegewezen identiteiten hebt, voert u de volgende opdracht uit:
+Als u een virtuele-machineschaalset die niet langer moet het systeem toegewezen identiteit, maar nog steeds moet gebruiker toegewezen identiteiten hebt, gebruikt u de volgende opdracht uit:
 
 ```azurecli-interactive
-az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned' 
+az vmss update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
+```
+
+Als u een virtuele machine die systeem toegewezen identiteit niet meer nodig hebt en er geen gebruiker toegewezen identiteiten, gebruikt u de volgende opdracht uit:
+
+> [!NOTE]
+> De waarde `none` is hoofdlettergevoelig. Er moet een kleine letter. 
+
+```azurecli-interactive
+az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
 U kunt de MSI-VM-extensie verwijderen [az vmss-identiteit verwijderen](/cli/azure/vmss/identity/#az_vmss_remove_identity) opdracht om te verwijderen van het systeem toegewezen identiteit van een VMSS:
 
-   ```azurecli-interactive
-   az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
-   ```
+```azurecli-interactive
+az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
+```
 
 ## <a name="user-assigned-identity"></a>Door gebruiker toegewezen identiteit
 
@@ -122,13 +128,12 @@ In deze sectie helpt u bij het maken van een VMSS en de toewijzing van een gebru
 
 2. Een gebruiker toegewezen identiteit maken [az-identiteit maken](/cli/azure/identity#az-identity-create).  De `-g` parameter geeft u de resourcegroep waar de gebruiker toegewezen identiteit is gemaakt, en de `-n` parameter geeft u de naam ervan. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` door uw eigen waarden:
 
-[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
-
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
-    ```
-Het antwoord bevat details voor de gebruiker toegewezen identiteit gemaakt, vergelijkbaar met de volgende. De resource `id` waarde die is toegewezen aan de gebruiker toegewezen identiteit wordt gebruikt in de volgende stap.
+   ```azurecli-interactive
+   az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+   ```
+   Het antwoord bevat details voor de gebruiker toegewezen identiteit gemaakt, vergelijkbaar met de volgende. De resource `id` waarde die is toegewezen aan de gebruiker toegewezen identiteit wordt gebruikt in de volgende stap.
 
    ```json
    {
@@ -184,20 +189,27 @@ Het antwoord bevat details voor de gebruiker toegewezen identiteit gemaakt, verg
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
-### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Een gebruiker toegewezen identiteit van een Azure-VMSS verwijderen
+### <a name="remove-a-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Een gebruiker toegewezen identiteit verwijderen uit een schaalset voor virtuele Azure-machine
 
-> [!NOTE]
->  Verwijderen van alle gebruiker toegewezen identiteiten uit een virtuele-Machineschaalset is momenteel niet ondersteund, tenzij er een systeem toegewezen identiteit. 
-
-Als uw VMSS meerdere gebruiker toegewezen identiteiten heeft, kunt u alles behalve de laatste via [az vmss-identiteit verwijderen](/cli/azure/vmss/identity#az-vmss-identity-remove). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VMSS NAME>` door uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die kan worden gevonden door in de sectie van de identiteit van het gebruik van de virtuele machine `az vm show`:
+Verwijderen van een toegewezen gebruikers-id van het gebruik van een virtuele machine scale set [az vmss-identiteit verwijderen](/cli/azure/vmss/identity#az-vmss-identity-remove). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VMSS NAME>` door uw eigen waarden. De `<MSI NAME>` is van de gebruiker toegewezen identiteit `name` eigenschap, die kan worden gevonden door in de sectie van de identiteit van het gebruik van de virtuele machine `az vmss identity show`:
 
 ```azurecli-interactive
 az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
-Als uw VMSS is zowel de systeem toegewezen als de gebruiker toegewezen identiteiten, kunt u alle gebruiker toegewezen identiteiten door over te schakelen voor het gebruik van alleen systeem toegewezen verwijderen. Gebruik de volgende opdracht: 
+
+Als uw virtuele-machineschaalset heeft geen een systeem toegewezen identiteit en u wilt verwijderen van alle gebruiker toegewezen identiteiten uit, gebruikt u de volgende opdracht uit:
+
+> [!NOTE]
+> De waarde `none` is hoofdlettergevoelig. Er moet een kleine letter.
 
 ```azurecli-interactive
-az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.identityIds=null
+```
+
+Als uw virtuele-machineschaalset is zowel de systeem toegewezen als de gebruiker toegewezen identiteiten, kunt u alle gebruiker toegewezen identiteiten door over te schakelen voor het gebruik van alleen systeem toegewezen verwijderen. Gebruik de volgende opdracht:
+
+```azurecli-interactive
+az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

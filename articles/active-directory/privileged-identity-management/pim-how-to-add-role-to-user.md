@@ -1,6 +1,6 @@
 ---
-title: Toevoegen of verwijderen van een gebruikersrol | Microsoft Docs
-description: Informatie over het toevoegen van rollen aan bevoorrechte identiteiten met de Azure Active Directory Privileged Identity Management-toepassing.
+title: Directory-rollen toewijzen aan gebruikers met behulp van Azure AD PIM | Microsoft Docs
+description: Informatie over het directory-rollen toewijzen aan gebruikers met behulp van Azure Active Directory Privileged Identity Management en de Azure-portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,57 +10,106 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 01/03/2018
+ms.date: 07/23/2018
 ms.author: rolyon
-ms.openlocfilehash: eac0869c0f4a7dd780d6988ff9bc4362458a7e3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1834addb4e51030afda43a2d7acad5d7ffc1889a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590504"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226693"
 ---
-# <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: Hoe kan ik een gebruiker toevoegen of verwijderen?
-Met Azure Active Directory (AD), een globale beheerder (of bedrijfsbeheerder) kunt bijwerken die gebruikers **permanent** toegewezen aan rollen in Azure AD. Dit wordt gedaan met de PowerShell-cmdlets, zoals `Add-MsolRoleMember` en `Remove-MsolRoleMember`. Of de Azure-portal kan worden gebruikt zoals beschreven in [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+# <a name="assign-directory-roles-to-users-using-azure-ad-pim"></a>Directory-rollen toewijzen aan gebruikers met behulp van Azure AD PIM
 
-De Azure AD Privileged Identity Management-toepassing kan beheerders met bevoegdheid kunnen ook permanente roltoewijzingen. Beheerders met bevoegdheid kunnen bovendien zodat gebruikers **in aanmerking komende** voor beheerdersrollen. Een in aanmerking komende beheerder kan de rol kunt activeren wanneer ze deze nodig hebben, en vervolgens hun machtigingen verlopen wanneer ze klaar bent.
+Met Azure Active Directory (Azure AD), een globale beheerder kunnen er **permanente** directory-roltoewijzingen. Deze roltoewijzingen kunnen worden gemaakt met de [Azure-portal](../users-groups-roles/directory-assign-admin-roles.md) of met behulp van [PowerShell-opdrachten](/powershell/module/azuread#directory_roles).
 
-## <a name="manage-roles-with-pim-in-the-azure-portal"></a>Rollen met PIM in Azure portal beheren
-In uw organisatie, kunt u gebruikers toewijzen aan andere beheerdersrollen in Azure AD, Office 365 en andere Microsoft-services en toepassingen.  Meer informatie over de beschikbare rollen kunnen worden gevonden op [rollen in Azure AD PIM](pim-roles.md).
+De service Azure AD Privileged Identity Management (PIM) kunnen ook beheerders met bevoegdheid kunnen roltoewijzingen permanente directory. Beheerders met bevoegdheid kunnen bovendien zodat gebruikers **in aanmerking komende** voor directory-rollen. Een in aanmerking komende beheerder kan de rol kunt activeren wanneer ze deze nodig hebben, en vervolgens hun machtigingen verlopen wanneer ze klaar bent. Zie voor meer informatie over de functies die u kunt beheren met PIM [Directory-rollen die u kunt beheren met behulp van Azure AD PIM](pim-roles.md).
 
-Als u wilt toevoegen of verwijderen van een gebruiker in een rol met Privileged Identity Management, zodat u de PIM-dashboard. Klik vervolgens op de **in beheerdersrollen** knop, of Selecteer een specifieke rol (zoals globale beheerder) uit de tabel functies.
+## <a name="make-a-user-eligible-for-a-role"></a>Een gebruiker in aanmerking voor een rol maken
 
-> [!NOTE]
-> Als u nog PIM in Azure portal nog niet hebt ingeschakeld, gaat u naar [aan de slag met Azure AD PIM](pim-getting-started.md) voor meer informatie.
+Volg deze stappen voor het maken van een gebruiker in aanmerking voor een Azure AD-directory-rol.
 
-Als u een andere gebruikerstoegang geven tot PIM zelf wilt, de rollen waarmee PIM vereist dat de gebruiker zijn beschreven in [hoe u toegang geven tot PIM](pim-how-to-give-access-to-pim.md).
+1. Aanmelden bij [Azure-portal](https://portal.azure.com/) met een gebruiker die lid is van de [beheerder met bevoorrechte rol](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) rol.
 
-## <a name="add-a-user-to-a-role"></a>Een gebruiker toevoegen aan een rol
-1. In de [Azure-portal](https://portal.azure.com/), selecteer de **Azure AD Privileged Identity Management** tegel op het dashboard.
-2. Selecteer **bevoorrechte rollen beheren**.
-3. In de **Rolsamenvatting** tabel, selecteert u de rol die u wilt beheren.
-4. Selecteer in de rolblade **toevoegen**.
-5. Klik op **gebruikers selecteren** en zoek naar de gebruiker op de **gebruikers selecteren** blade.  
-6. Selecteer de gebruiker in de lijst met zoekresultaten en klik op **gedaan**.
-7. Klik op **OK** om op te slaan, uw selectie. De gebruiker die u hebt geselecteerd wordt in de lijst als in aanmerking komen voor de rol weergegeven.
+    Zie voor meer informatie over het verlenen van een andere gebruiker toegang tot het beheer PIM [hoe u toegang geven tot PIM](pim-how-to-give-access-to-pim.md).
 
-> [!NOTE]
-> Nieuwe gebruikers in een rol zijn alleen in aanmerking komen voor de rol van standaard. Als u wilt de rol om permanent te maken, klikt u op de gebruiker in de lijst. Gegevens van de gebruiker wordt weergegeven in een nieuwe blade. Selecteer **maken permanent** in het menu van de gebruiker gegevens.  
-> Als een gebruiker niet voor Azure multi-factor Authentication (MFA registreren kan), of met behulp van een Microsoft-account (meestal @outlook.com), moet u deze permanent in alle hun rollen te maken. In aanmerking komende beheerders wordt gevraagd om u te registreren voor MFA tijdens de activering.
+1. Open **Azure AD Privileged Identity Management**.
 
-Nu dat de gebruiker in aanmerking voor een rol komt, laat deze weten dat ze deze willen activeren op basis van de instructies in [activeren of deactiveren van een rol](pim-how-to-activate-role.md).
+    Als u nog PIM in Azure portal nog niet hebt ingeschakeld, gaat u naar [aan de slag met Azure AD PIM](pim-getting-started.md).
+
+1. Klik op **Azure AD-maprollen**.
+
+1. Klik op **rol (preview)** of **leden**.
+
+    ![Rollen voor Azure AD-adreslijst](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+
+1. Klik op **lid toevoegen** beheerde leden toevoegen te openen.
+
+1. Klik op **Selecteer een rol**, klikt u op een rol die u wilt beheren, en klik vervolgens op **Selecteer**.
+
+    ![Rol selecteren](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+
+1. Klik op **leden selecteren**, selecteer de gebruikers die u wilt toewijzen aan de rol en klik vervolgens op **Selecteer**.
+
+    ![Rol selecteren](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+
+1. Klik in toevoegen beheerde leden op **OK** om toe te voegen van de gebruiker aan de rol.
+
+     Wanneer de rol wordt toegewezen, de geselecteerde gebruiker wordt weergegeven in de lijst met leden als **in aanmerking komende** voor de rol.
+
+    ![Gebruiker komt in aanmerking voor een rol](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+
+1. De gebruiker is die in aanmerking komen voor de rol, laat deze weten dat ze deze willen activeren op basis van de instructies in [activeren of deactiveren van een rol](pim-how-to-activate-role.md).
+
+    In aanmerking komende beheerders wordt gevraagd om u te registreren voor Azure multi-factor Authentication (MFA) tijdens de activering. Als een gebruiker niet voor MFA registreren kan of met behulp van een Microsoft-account (meestal @outlook.com), moet u deze permanent in alle hun rollen te maken.
+
+## <a name="make-a-role-assignment-permanent"></a>Een roltoewijzing permanent maken
+
+Standaard worden alleen nieuwe gebruikers in aanmerking voor een directory-rol. Volg deze stappen als u wilt dat een roltoewijzing om permanent te maken.
+
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Klik op **Azure AD-maprollen**.
+
+1. Klik op **leden**.
+
+    ![Lijst met leden](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+
+1. Klik op een **in aanmerking komende** rol die u wilt om permanent te maken.
+
+1. Klik op **meer** en klik vervolgens op **maken permanent**.
+
+    ![Roltoewijzing permanent maken](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+
+    De functie wordt nu weergegeven als **permanente**.
+
+    ![Lijst met leden met permanente wijziging](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## <a name="remove-a-user-from-a-role"></a>Een gebruiker verwijderen van een rol
-U kunt gebruikers van in aanmerking komende roltoewijzingen verwijderen, maar zorg ervoor dat er altijd ten minste één gebruiker die een globale beheerder is permanent.
 
-Volg deze stappen voor het verwijderen van een specifieke gebruiker vanuit een functie:
+U kunt gebruikers van roltoewijzingen verwijderen, maar zorg ervoor dat er altijd ten minste één gebruiker die een globale beheerder is permanent. Als u niet zeker weet welke gebruikers moeten nog steeds hun roltoewijzingen, kunt u [een toegangscontrole voor de rol starten](pim-how-to-start-security-review.md).
 
-1. Navigeer naar de rol in de lijst van de functie door het selecteren van een rol in het dashboard Azure AD PIM of door te klikken op de **in beheerdersrollen** knop.
-2. Klik op de gebruiker in de lijst met gebruikers.
-3. Klik op **verwijderen**. Een bericht wordt u gevraagd om te bevestigen.
-4. Klik op **Ja** te verwijderen van de rol van de gebruiker.
+Volg deze stappen voor een specifieke gebruiker verwijderen van een directory-rol.
 
-Als u niet zeker weet welke gebruikers moeten nog steeds hun roltoewijzingen, dan u kunt [een toegangscontrole voor de rol starten](pim-how-to-start-security-review.md).
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Klik op **Azure AD-maprollen**.
+
+1. Klik op **leden**.
+
+    ![Lijst met leden](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+
+1. Klik op een roltoewijzing die u wilt verwijderen.
+
+1. Klik op **meer** en klik vervolgens op **verwijderen**.
+
+    ![Een rol verwijderen](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+
+1. In het bericht dat u vraagt te bevestigen, klikt u op **Ja**.
+
+    ![Een rol verwijderen](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+
+    De roltoewijzing is verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
-

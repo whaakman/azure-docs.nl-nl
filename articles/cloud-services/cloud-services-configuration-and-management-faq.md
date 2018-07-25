@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 6cdfb40ce02cc5f80e3347b921e2b2c75ae3d8ea
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5b8c7e8880f7e467b1b5a305cc7381e6499571f5
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37437134"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238618"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen met configuratie en beheer voor Azure Cloud Services: veelgestelde vragen
 
@@ -41,6 +41,7 @@ Dit artikel bevat veelgestelde vragen over problemen met configuratie en beheer 
 
 - [Wat zijn de aanstaande Service in de Cloud die in Azure portal kunt beheren en bewaken van toepassingen?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [Waarom IIS stopt met schrijven naar de logboekmap?](#why-does-iis-stop-writing-to-the-log-directory)
+- [Hoe schakel ik WAD logboekregistratie voor Cloud Services?](#how-do-i-enable-wad-logging-for-cloud-services)
 
 **Netwerkconfiguratie**
 
@@ -138,6 +139,15 @@ U hebt de lokale opslag van inhoud voor het schrijven naar de logboekmap volledi
 Zie de volgende documenten voor meer informatie:
 * [Diagnostische gegevens opslaan en weergeven in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 * [IIS-logboeken stoppen met schrijven in de Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+
+### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hoe schakel ik WAD logboekregistratie voor Cloud Services?
+U kunt logboekregistratie in Windows Azure Diagnostics (WAD) via de volgende opties inschakelen:
+1. [Inschakelen vanuit Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Schakel via .net-code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+3. [Schakel via Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+
+Om de huidige WAD-instellingen van uw Cloudservice, kunt u [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd of u kunt deze weergeven via de portal blade 'Cloudservices--> extensies'.
+
 
 ## <a name="network-configuration"></a>Netwerkconfiguratie
 

@@ -4,7 +4,7 @@ description: Over het instellen van de vervaldatum voor Office 365-groepen in Az
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.component: users-groups-roles
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: curtand
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c973245b6c8ee3557f9bf410544f9f698b2733c5
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 111be7d3ee00f2b40ace3bfe4efdacc5029ccf77
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872039"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239131"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Afdwingen van een naamgevingsbeleid voor Office 365-groepen in Azure Active Directory (preview)
 
@@ -200,9 +200,9 @@ Office 365-beheercentrum | Office 365-beheercentrum is compatibel met het naamge
 ## <a name="next-steps"></a>Volgende stappen
 Deze artikelen bevatten aanvullende informatie over Azure AD-groepen.
 
-* [Zie de bestaande groepen](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Bestaande groepen weergeven](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Verloopbeleid voor Office 365-groepen](groups-lifecycle.md)
 * [Instellingen van een groep beheren](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Leden van een groep beheren](../fundamentals/active-directory-groups-members-azure-portal.md)
-* [Lidmaatschap van een groep beheren](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Lidmaatschappen van een groep beheren](../fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Dynamische regels voor gebruikers in een groep beheren](groups-dynamic-membership.md)

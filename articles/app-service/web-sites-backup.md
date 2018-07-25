@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: e8e41c51b6df9962e561d56be75108ba9cd76377
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901616"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224799"
 ---
 # <a name="back-up-your-app-in-azure"></a>Back-up maken van uw app in Azure
 De functie back-up en herstel in [Azure App Service](app-service-web-overview.md) kunt u eenvoudig back-ups maken, handmatig of volgens een schema. U kunt de app op een momentopname van een eerdere status herstellen door overschrijft de bestaande app of het herstellen naar een andere app. 
@@ -37,8 +37,8 @@ App Service kunt back-up van de volgende informatie op een Azure storage-account
 
 De volgende databaseoplossingen worden ondersteund door back-up: 
    - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-   - [Azure Database for MySQL (Preview)](https://azure.microsoft.com/services/mysql)
-   - [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/services/postgresql)
+   - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
+   - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
    - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 
@@ -166,7 +166,7 @@ U kunt back-upbeheer met scripts automatiseren met behulp van de [Azure CLI](/cl
 Zie voor voorbeelden:
 
 - [Azure CLI-voorbeelden](app-service-cli-samples.md)
-- [Azure PowerShell-voorbeelden](app-service-powershell-samples.md)
+- [Voorbeelden van Azure PowerShell](app-service-powershell-samples.md)
 
 <a name="nextsteps"></a>
 

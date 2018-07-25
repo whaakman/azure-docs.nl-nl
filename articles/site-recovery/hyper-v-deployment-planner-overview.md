@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921209"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226557"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner voor Hyper-V naar Azure
 
@@ -94,13 +94,13 @@ Het hulpprogramma heeft drie belangrijke fasen voor Hyper-V: lijst ophalen met d
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>Meer informatie voor het toevoegen van servers in de lijst TrustedHosts
 1.  De virtuele machine vanaf waar het hulpprogramma moet worden geïmplementeerd, dient alle hosts te bevatten in de lijst met TrustedHosts. Om de client toe te voegen aan de lijst met Trustedhosts voert u de volgende opdracht uit vanaf een hogergelegen PowerShell op de virtuele machine. De virtuele machine is een Windows Server 2012 R2 of Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
 2.  Elke Hyper-V-Host die moet worden geprofileerd dient te beschikken over:
 
     a. De virtuele machine waarop het hulpprogramma moet worden uitgevoerd in de lijst met TrustedHosts. Voer de volgende opdracht uit vanuit een PowerShell-sessie met verhoogde bevoegdheden op de Hyper-V-host.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. Externe communicatie van PowerShell is ingeschakeld.
 

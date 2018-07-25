@@ -2,19 +2,19 @@
 title: Informatie over versiebeheer in LUIS - Azure | Microsoft Docs
 description: Informatie over het gebruik van versies voor het beheren van wijzigingen in Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
-ms.author: v-geberr
-ms.openlocfilehash: f897a3c85bebff3c4534679d45e8af49aacba44a
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: diberry
+ms.openlocfilehash: 17abe383d3074d636605c3b1b91927f89f7dd896
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888113"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225724"
 ---
 # <a name="versions"></a>Versies
 Maken van verschillende modellen van dezelfde app met [versies](luis-how-to-manage-versions.md). 

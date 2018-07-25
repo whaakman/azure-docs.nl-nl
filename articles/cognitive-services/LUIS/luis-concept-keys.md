@@ -2,19 +2,19 @@
 title: Informatie over de sleutels van uw LUIS - Azure | Microsoft Docs
 description: Language Understanding (LUIS) sleutels gebruiken voor het ontwerpen van uw app en uw endpoing query.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: v-geberr
-ms.openlocfilehash: 083169b300cc2714da3921c3abeee68d52444b9b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.author: diberry
+ms.openlocfilehash: b40ca74999be1821ffa329224ff419646591960e
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145703"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225173"
 ---
 # <a name="keys-in-luis"></a>Sleutels in LUIS
 LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpunt](#endpoint-key). De ontwerphandleiding sleutel wordt automatisch voor u gemaakt wanneer u uw LUIS-account maakt. Wanneer u klaar om uw LUIS-app te publiceren bent, moet u [maken van de eindpuntsleutel](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [toewijzen](luis-how-to-manage-keys.md#assign-endpoint-key) aan uw LUIS-app en [gebruiken met de query eindpunt](#use-endpoint-key-in-query). 

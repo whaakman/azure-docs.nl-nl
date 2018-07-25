@@ -1,6 +1,6 @@
 ---
 title: Referenties van het certificaat in Azure AD | Microsoft Docs
-description: Dit artikel wordt beschreven voor de registratie en het gebruik van referenties van het computercertificaat voor de verificatie van de toepassing
+description: Dit artikel wordt beschreven voor de registratie en het gebruik van de referenties van het computercertificaat voor de verificatie van de toepassing
 services: active-directory
 documentationcenter: .net
 author: CelesteDG
@@ -13,26 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/24/2018
 ms.author: celested
-ms.reviewer: nacanuma
+ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c782429ac2d8ee030ca8b589b4241242c7b101d6
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 49561434688806b3959824f87d1c81e07d7a7559
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156497"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238702"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Referenties van het computercertificaat voor de verificatie van de toepassing
 
-Azure Active Directory kunt een toepassing zijn eigen referenties voor verificatie. Bijvoorbeeld, in de stroom OAuth 2.0-Client referenties Grant ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) en de On-namens-stroom ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
-Een vorm van de referentie die kan worden gebruikt is een JSON Web Token(JWT) assertion ondertekend met een certificaat waartoe de toepassing.
+Azure Active Directory (Azure AD) kunt u een toepassing zijn eigen referenties gebruiken voor verificatie, bijvoorbeeld in de stroom voor OAuth 2.0-clientreferenties ([v1.0](active-directory-protocols-oauth-service-to-service.md), [v2.0](active-directory-v2-protocols-oauth-client-creds.md)) en de On-Behalf-Of stroom ([v1.0](active-directory-protocols-oauth-on-behalf-of.md), [v2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 
-## <a name="format-of-the-assertion"></a>Indeling van de verklaring
-Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON Web Token](https://jwt.ms/) bibliotheken in de taal van uw keuze. De informatie die door het token is:
+Een vorm van de referentie op die een toepassing voor verificatie gebruiken kunt is een JSON Web Token(JWT) verklaring ondertekend met een certificaat die eigendom zijn van de toepassing.
 
-#### <a name="header"></a>Koptekst
+## <a name="assertion-format"></a>Bewering indeling
+De verklaring Reken-, kunt u een van de vele [JSON Web Token](https://jwt.ms/) bibliotheken in de taal van uw keuze. De informatie die door het token zijn als volgt:
+
+### <a name="header"></a>Koptekst
 
 | Parameter |  Opmerking |
 | --- | --- |
@@ -40,22 +41,22 @@ Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON We
 | `typ` | Moet **JWT** |
 | `x5t` | Moet de vingerafdruk van het x.509-certificaat SHA-1 |
 
-#### <a name="claims-payload"></a>Claims (Payload)
+### <a name="claims-payload"></a>Claims (payload)
 
-| Parameter |  Opmerking |
+| Parameter |  Opmerkingen |
 | --- | --- |
 | `aud` | : Doelgroep  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/token** |
-| `exp` | Vervaldatum: de datum waarop het token verloopt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de geldigheid van het token is verlopen.|
+| `exp` | De datum van afloop: de datum waarop het token verloopt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de geldigheid van het token is verlopen.|
 | `iss` | Uitgever: moet de client_id (toepassings-ID van de client-service) |
 | `jti` | GUID: de JWT-ID |
-| `nbf` | Niet vooraf: de datum voor het token kan niet worden gebruikt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de tijd die het token is uitgegeven. |
+| `nbf` | Niet vooraf: de datum waarvoor het token kan niet worden gebruikt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC tot het moment dat het token is uitgegeven. |
 | `sub` | Onderwerp:-als voor `iss`, moet de client_id (toepassings-ID van de client-service) |
 
-#### <a name="signature"></a>Handtekening
+### <a name="signature"></a>Handtekening
 
-De handtekening wordt berekend met het toepassen van het certificaat, zoals beschreven in de [JSON Web Token RFC7519 specificatie](https://tools.ietf.org/html/rfc7519)
+De handtekening wordt berekend met het toepassen van het certificaat zoals is beschreven in de [JSON Web Token RFC7519-specificatie](https://tools.ietf.org/html/rfc7519)
 
-### <a name="example-of-a-decoded-jwt-assertion"></a>Voorbeeld van een gedecodeerde JWT-verklaring
+## <a name="example-of-a-decoded-jwt-assertion"></a>Voorbeeld van een gedecodeerde JWT-verklaring
 
 ```
 {
@@ -77,44 +78,59 @@ De handtekening wordt berekend met het toepassen van het certificaat, zoals besc
 
 ```
 
-### <a name="example-of-an-encoded-jwt-assertion"></a>Voorbeeld van een gecodeerde JWT bewering
+## <a name="example-of-an-encoded-jwt-assertion"></a>Voorbeeld van een gecodeerde JWT-bewering
 
-De volgende tekenreeks is een voorbeeld van gecodeerde verklaring. Als u zorgvuldig bekijkt, ziet u drie secties gescheiden door punten (.).
-De eerste sectie codeert de kop van de tweede de nettolading en de laatste is de handtekening berekend met de certificaten van de inhoud van de eerste twee secties.
+De volgende tekenreeks is een voorbeeld van gecodeerde assertion. Als u zorgvuldig bekijkt, ziet u drie secties die zijn gescheiden door punten (.):
+* De eerste sectie codeert de koptekst
+* De tweede sectie codeert de nettolading
+* Het laatste gedeelte is de handtekening die is berekend met de certificaten van de inhoud van de eerste twee secties
+
 ```
 "eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-### <a name="register-your-certificate-with-azure-ad"></a>Uw certificaat registreren met Azure AD
+## <a name="register-your-certificate-with-azure-ad"></a>Uw certificaat registreren bij Azure AD
 
-U kunt de referentie certificaat koppelen aan de clienttoepassing in Azure AD via de Azure portal met behulp van een van de volgende methoden:
+U kunt de certificaatreferentie koppelen aan de clienttoepassing in Azure AD via de Azure-portal met behulp van een van de volgende methoden:
 
-**Het certificaatbestand uploaden**
+### <a name="uploading-the-certificate-file"></a>Het certificaatbestand uploaden
 
-Klik in de Azure-app-registratie voor de clienttoepassing, op **instellingen**, klikt u op **sleutels** en klik vervolgens op **openbare sleutel uploaden**. Selecteer het certificaatbestand dat u wilt uploaden en klik op **opslaan**. Zodra u opslaat, het certificaat is geüpload en de vingerafdruk begindatum en verloopt worden waarden weergegeven. 
+In de Azure-app-registratie voor de clienttoepassing:
+1. Selecteer **instellingen > sleutels** en selecteer vervolgens **openbare sleutel uploaden**. 
+2. Selecteer het certificaatbestand dat u wilt uploaden.
+3. Selecteer **Opslaan**. 
+   
+   Nadat u hebt opgeslagen, wordt het certificaat is geüpload en de vingerafdruk, de begindatum en de verloopdatum waarden worden weergegeven. 
 
-**Het toepassingsmanifest bijwerken**
+### <a name="updating-the-application-manifest"></a>Het toepassingsmanifest bijwerken
 
-De blokkering van een certificaat hebt, moet u berekenen:
+Wanneer u de blokkering van een certificaat, moet u om te berekenen:
 
-- `$base64Thumbprint`, namelijk het base64-codering van het certificaat-Hash
-- `$base64Value`, namelijk het base64-codering van de onbewerkte gegevens van certificaat
+- `$base64Thumbprint`, dit is de met base64-codering van de certificaat-hash
+- `$base64Value`, dit is de met base64-codering van de onbewerkte gegevens van het certificaat
 
-U moet ook een GUID voor het identificeren van de sleutel in het toepassingsmanifest bieden (`$keyId`).
+U moet ook opgeven van een GUID voor het identificeren van de sleutel in het toepassingsmanifest (`$keyId`).
 
-In de Azure-app-registratie voor de clienttoepassing, open het toepassingsmanifest en vervang de *keyCredentials* eigenschap met de nieuwe certificaatinformatie van een met het volgende schema:
+In de Azure-app-registratie voor de clienttoepassing:
+1. Open het toepassingsmanifest.
+2. Vervang de *keyCredentials* eigenschap met de nieuwe gegevens van een certificaat met het volgende schema.
 
-```
-"keyCredentials": [
-    {
-        "customKeyIdentifier": "$base64Thumbprint",
-        "keyId": "$keyid",
-        "type": "AsymmetricX509Cert",
-        "usage": "Verify",
-        "value":  "$base64Value"
-    }
-]
-```
+   ```
+   "keyCredentials": [
+       {
+           "customKeyIdentifier": "$base64Thumbprint",
+           "keyId": "$keyid",
+           "type": "AsymmetricX509Cert",
+           "usage": "Verify",
+           "value":  "$base64Value"
+       }
+   ]
+   ```
+3. De wijzigingen opslaan in het toepassingsmanifest en upload vervolgens het manifest naar Azure AD. 
 
-De wijzigingen opslaan in het toepassingsmanifest en uploaden naar Azure AD. De eigenschap keyCredentials heeft meerdere waarden, zodat u meerdere certificaten voor uitgebreidere Sleutelbeheer kan uploaden.
+   De `keyCredentials` eigenschap heeft meerdere waarden, zodat u meerdere certificaten voor uitgebreidere Sleutelbeheer kunt uploaden.
+   
+## <a name="code-sample"></a>Codevoorbeeld
+
+De voorbeeldcode op [zich verifiëren bij Azure AD in daemon-apps met certificaten](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) laat zien hoe een toepassing zijn eigen referenties gebruikt voor verificatie. U ziet ook hoe u kunt [een zelfondertekend certificaat maken](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) met behulp van de `New-SelfSignedCertificate` Powershell-opdracht. U kunt ook profiteren en gebruiken de [scripts voor het maken van app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) te maken van de certificaten, de vingerafdruk van het compute, enzovoort.

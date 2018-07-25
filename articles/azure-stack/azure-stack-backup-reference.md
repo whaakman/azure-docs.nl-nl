@@ -1,6 +1,6 @@
 ---
-title: Naslaginformatie over Azure Backup-Service van Stack infrastructuur | Microsoft Docs
-description: Dit artikel bevat referentiemateriaal voor de back-up-Service van Azure Stack-infrastructuur.
+title: Naslaginformatie over Azure Stack-infrastructuur Backup-Service | Microsoft Docs
+description: In dit artikel bevat referentiemateriaal dat beschikbaar is voor de Backup-Service van Azure Stack-infrastructuur.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,56 +16,56 @@ ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.openlocfilehash: 608f3043e0e4b851820274ca743cbc44d1c8c0f1
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075839"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242900"
 ---
-# <a name="infrastructure-backup-service-reference"></a>Verwijzing naar de back-up-Service van de infrastructuur
+# <a name="infrastructure-backup-service-reference"></a>Documentatie over Backup-Service-infrastructuur
 
-## <a name="azure-backup-infrastructure"></a>Azure-back-infrastructuur
+## <a name="azure-backup-infrastructure"></a>Azure-back-upinfrastructuur
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Azure Stack bestaat uit veel services die bestaan uit de portal, Azure Resource Manager en beheer van de infrastructuur optreden. De apparaat-achtige beheerervaring van Azure-Stack is gericht op het verminderen van de complexiteit blootgesteld aan de operator van de oplossing.
+Azure Stack bestaat uit vele services die deel uitmaken van de portal, Azure Resource Manager en beheer van infrastructuur optreden. De apparaat-achtige beheerervaring van Azure Stack is gericht op het verkorten van de complexiteit blootgesteld aan de beheerder van de oplossing.
 
-Infrastructuur back-up is ontworpen om eigen de complexiteit van een back-up maken en herstellen van gegevens voor infrastructuurservices gezorgd operators kan zich concentreren op de oplossing beheren en onderhouden van een SLA voor gebruikers.
+Infrastructuur voor back-up is ontworpen om de complexiteit van de back-ups van eigen maken en herstellen van gegevens voor infrastructuurservices, ervoor te zorgen dat operators zich kunt richten op de oplossing voor beheer en onderhoud van een SLA voor gebruikers.
 
-Exporteren van de back-upgegevens naar een externe share is vereist om te voorkomen dat opslaan van back-ups op hetzelfde systeem. Vereisen van een externe share, biedt de beheerder de flexibiliteit om te bepalen waar de gegevens op basis van bestaande BC-/ DR bedrijfsbeleid wordt opgeslagen. 
+Exporteren van de back-upgegevens naar een externe bestandsshare is vereist om te voorkomen dat opslaan van back-ups op hetzelfde systeem. Vereisen van een externe bestandsshare, biedt de beheerder de flexibiliteit om te bepalen waar de gegevens op basis van bestaande bedrijf BC-/ DR-beleid wordt opgeslagen. 
 
-### <a name="infrastructure-backup-components"></a>Onderdelen van de back-up-infrastructuur
+### <a name="infrastructure-backup-components"></a>Back-up infrastructuuronderdelen
 
 Back-up van de infrastructuur omvat de volgende onderdelen:
 
  - **Infrastructuur voor back-Controller**  
- De Controller infrastructuur-back-up is gemaakt met en bevindt zich op elke Azure-Cloud-Stack.
+ De Controller van de back-up-infrastructuur met wordt geïnstantieerd en bevindt zich in elke Azure Stack-Cloud.
  - **Back-Resourceprovider**  
- De back-Resourceprovider (back-up RP) bestaat uit de gebruiker interface- en programma-interfaces (API) s blootstellen van back-up basisfunctionaliteit voor Azure-Stack-infrastructuur.
+ De back-Resourceprovider (back-RP) bestaat uit de gebruiker-interface en toepassing program interfaces (API) s die basisfunctionaliteit voor back-up voor Azure Stack-infrastructuur.
 
 #### <a name="infrastructure-backup-controller"></a>Infrastructuur voor back-Controller
 
-De infrastructuur back-up-Controller is een Service Fabric service opgehaald geïnstantieerd voor een Azure-Cloud-Stack. Back-resources worden gemaakt in een regionale niveau en vastleggen regiospecifieke service van AD, CA, Azure Resource Manager, CRP, SRP, NRP, KeyVault, RBAC. 
+De infrastructuur voor back-up-Controller is een Service Fabric service wordt gestart voor een Azure Stack-Cloud. Back-resources worden gemaakt op een regionaal niveau en vastleggen regiospecifiek-servicegegevens van AD, CA, Azure Resource Manager, CRP, SRP, NRP, KeyVault, RBAC. 
 
 ### <a name="backup-resource-provider"></a>Back-Resourceprovider
 
-De back-Resourceprovider geeft de gebruikersinterface in de Stack van Azure-portal voor basisconfiguratie en overzicht van back-resources. Operator kunt u de volgende bewerkingen uitvoeren in de gebruikersinterface:
+De back-Resourceprovider geeft de gebruikersinterface in de Azure Stack-portal voor de basisconfiguratie en lijst met back-resources. Operator kunt u de volgende bewerkingen uitvoeren in de gebruikersinterface:
 
- - Back-up voor het eerst door te geven locatie voor de externe opslag, referenties en versleutelingssleutel inschakelen
- - Weergave voltooid gemaakt back-bronnen en bronnen van de status onder maken
- - Wijzigen van de opslaglocatie waar back-Controller back-upgegevens geplaatst
+ - Back-up inschakelen voor de eerste keer door te geven locatie voor de externe opslag, referenties en versleutelingssleutel
+ - Weergave voltooid gemaakt back-bronnen en bronnen van de status wordt gemaakt
+ - Wijzigen van de opslaglocatie waar de back-Controller back-upgegevens geplaatst
  - De referenties die back-up Controller gebruikt voor toegang tot externe opslaglocatie wijzigen
  - De versleutelingssleutel die back-up Controller gebruikt voor het versleutelen van back-ups wijzigen 
 
 
 ## <a name="backup-controller-requirements"></a>Vereisten voor de back-domeincontroller
 
-Deze sectie beschrijft de belangrijke vereisten voor infrastructuur back-up. Het is raadzaam dat u de informatie voordat u back-up voor uw Azure-Stack-exemplaar inschakelen en vervolgens naar deze zo nodig tijdens de implementatie en de volgende bewerking terugverwijzen zorgvuldig te controleren.
+Deze sectie beschrijft de belangrijke vereisten voor infrastructuur voor back-up. Het is raadzaam dat u de informatie voordat u back-up voor uw exemplaar van Azure Stack inschakelen, en vervolgens terug naar deze zo nodig tijdens de implementatie en latere bewerking verwijzen zorgvuldig te controleren.
 
-De vereisten zijn:
+De vereisten zijn onder andere:
 
-  - **Softwarevereisten** – beschrijft ondersteunde opslaglocaties en Richtlijn. 
-  - **Vereisten voor de** – netwerkvereisten voor de verschillende opslaglocaties beschrijft.  
+  - **Softwarevereisten** – worden ondersteunde opslaglocaties en Richtlijn voor formaatbepaling beschreven. 
+  - **Vereisten voor de** – netwerkvereisten voor verschillende opslaglocaties beschrijft.  
 
 ### <a name="software-requirements"></a>Softwarevereisten
 
@@ -73,50 +73,50 @@ De vereisten zijn:
 
 | Opslaglocatie                                                                 | Details                                                                                                                                                  |
 |----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SMB-bestandsshare die wordt gehost op een opslagapparaat binnen de omgeving vertrouwd netwerk | SMB-share in hetzelfde datacenter waarop Azure Stack wordt geïmplementeerd of in een ander datacenter. Meerdere exemplaren van de Azure-Stack kunnen dezelfde bestandsshare gebruiken. |
+| SMB-bestandsshare die wordt gehost op een opslagapparaat binnen de omgeving vertrouwd netwerk | SMB-share in hetzelfde datacenter waar Azure Stack is geïmplementeerd of in een ander datacenter. Meerdere exemplaren van Azure Stack kunnen gebruiken dezelfde bestandsshare. |
 | SMB-bestandsshare op Azure                                                          | Momenteel niet ondersteund.                                                                                                                                 |
-| BLOB-opslag in Azure                                                            | Momenteel niet ondersteund.                                                                                                                                 |
+| Azure BLOB-opslag                                                            | Momenteel niet ondersteund.                                                                                                                                 |
 
-#### <a name="supported-smb-versions"></a>Ondersteunde SMB-versies
+#### <a name="supported-smb-versions"></a>Ondersteunde versies van SMB
 
 | SMB | Versie |
 |-----|---------|
 | SMB | 3.x     |
 
-#### <a name="storage-location-sizing"></a>Formaat van de locatie van opslag 
+#### <a name="storage-location-sizing"></a>Grootte van opslag-locatie 
 
-Infrastructuur voor back-up-Controller wordt back-up gegevens op verzoek. De aanbeveling is back-up ten minste twee keer een dag en het bewaren van back-ups van maximaal zeven dagen. 
+Infrastructuur voor back-up Controller worden back-up van gegevens op aanvraag. De aanbeveling is het back-up van ten minste twee keer een dag en blijf aan de back-ups van maximaal zeven dagen. 
 
-| Schaal van de omgeving | Geschatte grootte van de back-up | Totale hoeveelheid vereiste schijfruimte |
+| Omgeving schalen | Geschatte grootte van back-up | Totale hoeveelheid vereiste schijfruimte |
 |-------------------|--------------------------|--------------------------------|
 | 4-12-knooppunten        | 10 GB                     | 140 GB                          |
 
 ### <a name="network-requirements"></a>Netwerkvereisten
 | Opslaglocatie                                                                 | Details                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SMB-bestandsshare die wordt gehost op een opslagapparaat binnen de omgeving vertrouwd netwerk | Poort 445 is vereist als het exemplaar van Azure-Stack bevindt zich in een omgeving met firewall. Back-up infrastructuurbeheerder initieert een verbinding met de SMB-bestandsserver via poort 445. |
-| Voor het gebruik van de FQDN-naam van de bestandsserver moet de naam worden omgezet vanaf de PEP             |                                                                                                                                                                                         |
+| SMB-bestandsshare die wordt gehost op een opslagapparaat binnen de omgeving vertrouwd netwerk | Poort 445 is vereist als de Azure Stack-exemplaar bevindt zich in een omgeving met firewall. Infrastructuur voor back-up Controller initiëren een verbinding met de SMB-bestandsserver via poort 445. |
+| Voor het gebruik van FQDN-naam van de bestandsserver, de naam moet kunnen worden omgezet vanaf de PEP             |                                                                                                                                                                                         |
 
 > [!Note]  
 > Er zijn geen poorten voor inkomend verkeer moeten worden geopend.
 
 
-## <a name="infrastructure-backup-limits"></a>Back-limieten infrastructuur
+## <a name="infrastructure-backup-limits"></a>Infrastructuur voor back-limieten
 
-U kunt deze limieten zoals plannen, implementeren en uw Microsoft Azure-Stack-exemplaren werkt. De volgende tabel beschrijft deze limieten.
+Rekening houden deze limieten bij het plannen, implementeren en uitvoeren van uw Microsoft Azure Stack-instanties. De volgende tabel beschrijft deze limieten.
 
-### <a name="infrastructure-backup-limits"></a>Limieten voor infrastructuur-back-up
+### <a name="infrastructure-backup-limits"></a>Limieten voor back-up van infrastructuur
 | Limiet-id                                                 | Limiet        | Opmerkingen                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Type back-up                                                      | Alleen volledige    | Infrastructuur voor back-up-Controller ondersteunt alleen volledige back-ups. Incrementele back-ups worden niet ondersteund.                                          |
 | Geplande back-ups                                                | Alleen handmatig  | Back-controller ondersteunt momenteel alleen back-ups op aanvraag                                                                                 |
-| Maximum aantal gelijktijdige back-uptaken                                   | 1            | Slechts één actieve back-uptaak wordt per exemplaar van de back-Controller ondersteund.                                                                  |
-| Netwerkconfiguratie van de switch                                     | Niet binnen het bereik | De beheerder moet back-up switch netwerkconfiguratie met de OEM-hulpprogramma's. Raadpleeg de documentatie voor Azure-Stack geleverd door de leverancier van elke OEM. |
-| Hardware Lifecycle Host                                          | Niet binnen het bereik | De beheerder moet back-up Hardware Lifecycle-Host op met OEM-hulpprogramma's. Raadpleeg de documentatie voor Azure-Stack geleverd door de leverancier van elke OEM.      |
+| Maximum aantal gelijktijdige back-uptaken                                   | 1            | Slechts één actieve back-uptaak wordt per exemplaar van de back-domeincontroller ondersteund.                                                                  |
+| Configuratie van de netwerkswitch                                     | Niet in bereik | De beheerder moet back-up van configuratie van de netwerkswitch met behulp van OEM-hulpprogramma's. Raadpleeg de documentatie voor Azure Stack is geleverd door de OEM-leverancier. |
+| Hardware levenscyclus van Host                                          | Niet in bereik | De beheerder moet back-up Hardware Lifecycle Host met behulp van OEM-hulpprogramma's. Raadpleeg de documentatie voor Azure Stack is geleverd door de OEM-leverancier.      |
 | Maximum aantal bestandsshares                                    | 1            | Slechts één bestandsshare kan worden gebruikt voor het opslaan van back-upgegevens                                                                                        |
-| Back-App-Services, functie, SQL, mysql resource provider-gegevens | Niet binnen het bereik | Raadpleeg de richtlijnen voor het implementeren en beheren van toegevoegde waarde van-RPs gemaakt door Microsoft gepubliceerd.                                                  |
-| Resourceproviders voor back-up van derden                              | Niet binnen het bereik | Raadpleeg de richtlijnen voor het implementeren en beheren van toegevoegde waarde van-RPs gemaakt door externe leveranciers gepubliceerd.                                          |
+| Back-up van App Services, functies, SQL, mysql resource provider-gegevens | Niet in bereik | Raadpleeg richtlijnen gepubliceerd voor het implementeren en beheren-de toegevoegde waarde van RPs die zijn gemaakt door Microsoft.                                                  |
+| Resourceproviders voor back-up van derden                              | Niet in bereik | Raadpleeg richtlijnen gepubliceerd voor het implementeren en beheren-de toegevoegde waarde van RPs die zijn gemaakt door externe leveranciers.                                          |
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - Zie voor meer informatie over de infrastructuur Backup-Service, [back-up en gegevensherstel voor Azure-Stack met de infrastructuur Backup-Service](azure-stack-backup-infrastructure-backup.md).
+ - Zie voor meer informatie over de infrastructuur voor Backup-Service, [back-up en gegevensherstel voor Azure Stack met de infrastructuur voor Backup-Service](azure-stack-backup-infrastructure-backup.md).

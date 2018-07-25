@@ -3,19 +3,19 @@ title: Patroon sjablonen in LUIS-apps toevoegen | Microsoft Docs
 titleSuffix: Azure
 description: Informatie over het toevoegen van patroon-sjablonen in toepassingen voor het verbeteren van nauwkeurigheid Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 26fb9c6349b46e0c920506c39ba53b26f215d330
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry;
+ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867185"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222593"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Patronen voor het verbeteren van nauwkeurigheid toevoegen
 Nadat een LUIS-app eindpunt uitingen ontvangt, gebruikt u de [concept](luis-concept-patterns.md) van patronen voor het verbeteren van nauwkeurigheid voor uitingen dat een patroon in de woordvolgorde en word keuze. Gebruik patronen [entiteiten](luis-concept-entity-types.md) en hun rollen om gegevens met behulp van specifieke patroon syntaxis te extraheren. 

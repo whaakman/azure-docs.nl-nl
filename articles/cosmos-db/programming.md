@@ -1,7 +1,7 @@
 ---
-title: Programmeren-server JavaScript voor Azure Cosmos DB | Microsoft Docs
-description: Informatie over het gebruik van Azure DB die Cosmos om te schrijven van opgeslagen procedures, databasetriggers en de gebruiker gedefinieerde functies (UDF's) in JavaScript. Gebruik database programing tips en meer.
-keywords: Database-triggers, opgeslagen procedure, opgeslagen procedure, database-programma, sproc, azure, Microsoft azure
+title: JavaScript programmeren-server voor Azure Cosmos DB | Microsoft Docs
+description: Informatie over het gebruik van Azure Cosmos DB opgeslagen procedures, databasetriggers en gebruikersgedefinieerde functies (UDF's) in JavaScript schrijven. Get-database programmeren tips en nog veel meer.
+keywords: Triggers, opgeslagen procedure, opgeslagen procedure, database-programma, opgeslagen procedure, azure, Microsoft azure-database
 services: cosmos-db
 author: aliuy
 manager: kfile
@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 904a5c3de9ddc8fa8146c4e2c87ab968c31e5d59
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2b6c4b3598013baaf3277cb7810edc009df27ce2
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221203"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238417"
 ---
-# <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos programmeren-server: opgeslagen procedures, databasetriggers en UDF's
+# <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB-server-side-programmering: opgeslagen procedures, databasetriggers en UDF's
 
-Meer informatie over hoe Azure Cosmos DB taal geïntegreerd, transactionele uitvoering van JavaScript kan ontwikkelaars van schrijven **opgeslagen procedures**, **triggers**, en **gebruiker gedefinieerde functies (UDF's)**  systeemeigen in een [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Integratie van JavaScript kunt u schrijven programmalogica die kan worden verzonden en rechtstreeks in de database-opslag-partities worden uitgevoerd. 
+Leer hoe u met Azure Cosmos DB-taal geïntegreerd, transactionele uitvoering van JavaScript kunt schrijven ontwikkelaars **opgeslagen procedures**, **triggers**, en **gebruikersgedefinieerde functies (UDF's)**  systeemeigen in een [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript-integratie kunt u het schrijven van programmalogica die kan worden verzonden en rechtstreeks in de database-opslag-partities worden uitgevoerd. 
 
-Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij Andrew Liu een inleiding tot Azure Cosmos DB serverzijde database-programmeermodel bevat. 
+Het is raadzaam om aan de slag met het bekijken van de volgende video, waar Andrew Liu een inleiding tot Azure Cosmos DB-database-server-side-programmeermodel bevat. 
 
 > [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
 >
@@ -29,34 +29,34 @@ Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij 
 
 Keer vervolgens terug naar dit artikel, waarin u leert de antwoorden op de volgende vragen:  
 
-* Hoe schrijf ik een opgeslagen procedure, trigger of UDF met JavaScript
-* Hoe garandeert Cosmos DB ACID
-* Hoe werken transacties in Cosmos-database?
-* Wat zijn vooraf activeert en na activeert en hoe schrijf ik een?
-* Hoe ik registreren en uitvoeren van een opgeslagen procedure, trigger of UDF in een RESTful manier met behulp van HTTP?
-* Wat Cosmos DB SDK's zijn beschikbaar voor het maken en uitvoeren, opgeslagen procedures, triggers en UDF's?
+* Hoe schrijf ik een opgeslagen procedure, trigger of met behulp van JavaScript-UDF?
+* Hoe garandeert Cosmos DB ACID?
+* Hoe werken transacties in Cosmos DB?
+* Wat zijn vooraf wordt geactiveerd en na activeert en hoe schrijf ik een?
+* Hoe ik registreren en een opgeslagen procedure, trigger of UDF uitvoeren op een RESTful manier met behulp van HTTP?
+* Wat Cosmos DB SDK's zijn beschikbaar om te maken en uitvoeren van opgeslagen procedures, triggers en UDF's?
 
-## <a name="introduction-to-stored-procedure-and-udf-programming"></a>Inleiding tot de opgeslagen Procedure en UDF programmering
-Deze benadering van *'JavaScript als een moderne dag T-SQL'* toepassingsontwikkelaars van de complexiteit van het systeem niet-overeenkomende typen en -technologieën voor object-relationele gegevens maakt. Er wordt ook een aantal ingebouwde voordelen die kunnen worden gebruikt om uitgebreide toepassingen te bouwen:  
+## <a name="introduction-to-stored-procedure-and-udf-programming"></a>Inleiding tot de opgeslagen Procedure en de UDF-programmering
+Deze benadering van *'JavaScript als een moderne T-SQL-dag'* kunnen ontwikkelaars van toepassingen van de complexiteit van het systeem niet-overeenkomende typen en -technologieën voor object-relationele gegevens. Het bevat ook een aantal ingebouwde voordelen die kan worden gebruikt om uitgebreide toepassingen te bouwen:  
 
-* **Procedurele logica:** JavaScript op hoog niveau programmeertaal biedt een uitgebreid en bekend interface bedrijfslogica Express. U kunt complexe reeksen operations dichter in de gegevens kunt uitvoeren.
-* **Atomische transacties:** Cosmos DB wordt gegarandeerd dat de bewerkingen die worden uitgevoerd binnen een enkele opgeslagen procedure of trigger database atomic zijn. Deze atomic functionaliteit kunt een toepassing gerelateerde bewerkingen in één batch combineren zodat ze allemaal slagen of geen van beide slagen. 
-* **Prestaties:** het feit dat JSON intrinsiek is toegewezen aan het typesysteem Javascript-taal en ook de basiseenheid voor opslag in Cosmos DB is kunt u een aantal optimalisaties zoals vertraagde materialisatie van JSON-documenten in de buffergroep en zodat ze beschikbaar op aanvraag voor het uitvoeren van code. Er zijn meer prestatievoordelen die zijn gekoppeld aan back-upfunctie bedrijfsregels in te schakelen naar de database:
+* **Procedurele logica:** JavaScript als een op hoog niveau programmeertaal, biedt een rijke en vertrouwde interface om zakelijke logica. U kunt complexe reeksen van bewerkingen dichter in de gegevens uitvoeren.
+* **Atomische transacties:** Cosmos DB-garanties die database-bewerkingen die worden uitgevoerd in een enkele opgeslagen procedure of een trigger zijn atomisch. Deze atomic functionaliteit kunt een toepassing gerelateerde bewerkingen in een enkel batchproces combineren, zodat ze allemaal slagen of geen van beide slagen. 
+* **Prestaties:** het feit dat JSON intrinsiek is toegewezen aan de taal Javascript-typesysteem, en ook de basiseenheid voor opslag in Cosmos DB is kunt u een aantal optimalisaties, zoals vertraagde materialisatie van JSON-documenten in de buffergroep en zodat ze on-demand beschikbaar voor het uitvoeren van code. Er zijn meer prestatievoordelen verzending bedrijfslogica aan de database is gekoppeld:
   
-  * Batchverwerking: ontwikkelaars kunnen groep bewerkingen zoals ingevoegd en deze bulksgewijs te verzenden. De netwerklatentie verkeer de kosten en de store-overhead voor het maken van afzonderlijke transacties aanzienlijk verminderd. 
-  * Vooraf compilatie – Cosmos DB precompiles opgeslagen procedures, triggers en gebruiker gedefinieerde functies (UDF's) om te voorkomen dat JavaScript compilatie kosten voor elke aanroep. De overhead van het bouwen van de byte-code voor de procedurele logica is afgelost op een minimale waarde.
-  * Sequentiëren – veel bewerkingen moet een neveneffect ('trigger') die mogelijk het uitvoeren van een of meer secundaire store-bewerkingen. Behalve atomisch, maar dit is meer zodat wanneer verplaatst naar de server. 
-* **Inkapseling:** opgeslagen procedures kunnen worden gebruikt voor het groeperen van bedrijfsregels in te schakelen op één plek die twee voordelen heeft:
-  * Een abstractielaag boven op de onbewerkte gegevens, zodat gegevens architecten ontwikkelen hun toepassingen onafhankelijk van de gegevens worden toegevoegd. Deze laag van abstractie is nuttig wanneer de gegevens zonder schema, vanwege de brosse veronderstellingen die worden standaard uitbreidbaar in de toepassing moeten mogelijk als ze hebben om te gaan met de gegevens rechtstreeks.  
-  * Deze abstractie kan bedrijven hun gegevens beveiligen door af te stroomlijnen de toegang van de scripts.  
+  * Batchverwerking: ontwikkelaars kunnen bewerkingen zoals toevoegingen groep en legt u deze in één bulkbewerking. De netwerklatentie verkeer de kosten en de store-overhead voor het maken van afzonderlijke transacties zijn aanzienlijk verminderd. 
+  * Vooraf compileren – precompiles Cosmos DB opgeslagen procedures, triggers en gebruikersgedefinieerde functies (UDF's) om te voorkomen dat JavaScript compilatie kosten voor elke aanroep. De overhead van het bouwen van de byte-code voor de procedurele logica is afgeschreven op een minimale waarde.
+  * Sequentiëren – veel bewerkingen moet een-neveneffect ("trigger") die mogelijk het uitvoeren van een of meer secundaire store-bewerkingen. Afgezien van wat atomisch, maar dit is beter wanneer verplaatst naar de server. 
+* **Inkapseling:** opgeslagen procedures kunnen worden gebruikt voor het groeperen van bedrijfslogica op één plek, met twee voordelen:
+  * Een abstractielaag bovenop de onbewerkte gegevens, zodat gegevensarchitecten ontwikkelen van hun toepassingen onafhankelijk van de gegevens worden toegevoegd. Deze laag van abstractie is nuttig wanneer de gegevens zonder schema, vanwege de Fragiel blijft veronderstellingen die mogelijk in de toepassing worden standaard als ze zich hoeven te bekommeren om gegevens rechtstreeks.  
+  * Deze abstractie kan bedrijven hun gegevens beveiligen door af te stroomlijnen van de toegang van de scripts.  
 
-Het maken en de uitvoering van de databasetriggers, opgeslagen procedures en aangepaste query's wordt ondersteund door de [Azure-portal](https://portal.azure.com), wordt de [REST-API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), en [client-SDK's](sql-api-sdk-dotnet.md) op verschillende platforms, waaronder .NET, Node.js en JavaScript.
+Het maken en uitvoeren van de databasetriggers en opgeslagen procedures en aangepaste query's wordt ondersteund door de [Azure-portal](https://portal.azure.com), wordt de [REST-API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), en [client-SDK's](sql-api-sdk-dotnet.md) op verschillende platforms, waaronder .NET, Node.js en JavaScript.
 
-Deze zelfstudie wordt gebruikgemaakt van de [Node.js-SDK met Q](http://azure.github.io/azure-documentdb-node-q/) ter illustratie van de syntaxis en het gebruik van opgeslagen procedures, triggers en UDF's.   
+In deze zelfstudie wordt de [Node.js-SDK met Q beloften](http://azure.github.io/azure-documentdb-node-q/) ter illustratie van de syntaxis en het gebruik van opgeslagen procedures, triggers en UDF's.   
 
 ## <a name="stored-procedures"></a>Opgeslagen procedures
 ### <a name="example-write-a-stored-procedure"></a>Voorbeeld: Een opgeslagen procedure schrijven
-Laten we beginnen met een eenvoudige opgeslagen procedure die een antwoord 'Hallo wereld' geretourneerd.
+Laten we beginnen met een eenvoudige, opgeslagen procedure die een 'Hallo wereld'-antwoord geretourneerd.
 
 ```javascript
 var helloWorldStoredProc = {
@@ -70,7 +70,7 @@ var helloWorldStoredProc = {
 }
 ```
 
-Opgeslagen procedures worden geregistreerd per verzameling en kunnen worden uitgevoerd op een document en bijlage aanwezig zijn in die verzameling. Het volgende fragment toont hoe de helloWorld opgeslagen procedure registreren bij een verzameling. 
+Opgeslagen procedures zijn geregistreerd per verzameling en kunnen worden uitgevoerd op een document en de bijlage die aanwezig zijn in deze verzameling. Het volgende fragment toont informatie over het registreren van de helloWorld opgeslagen procedure met een verzameling. 
 
 
 ```javascript
@@ -86,7 +86,7 @@ client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredP
 ```
 
 
-Zodra de opgeslagen procedure is geregistreerd, kunt u uitgevoerd op de verzameling en bekijk de resultaten weer op de client. 
+Zodra de opgeslagen procedure is geregistreerd, kunt u uitvoeren op basis van de verzameling en bekijk de resultaten terug op de client. 
 
 ```javascript
 // execute the stored procedure
@@ -98,12 +98,12 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-Het contextobject biedt toegang tot alle bewerkingen die kunnen worden uitgevoerd op Cosmos databaseopslag, evenals de toegang tot de aanvraag en antwoord-objecten. In dit geval kunt u het object response de hoofdtekst van het antwoord dat is verzonden naar de client ingesteld. Zie voor meer informatie de [Azure Cosmos DB JavaScript server SDK-documentatie](http://azure.github.io/azure-documentdb-js-server/).  
+Het contextobject biedt toegang tot alle bewerkingen die kunnen worden uitgevoerd op Cosmos DB-opslag, evenals de toegang tot de aanvraag- en -objecten. In dit geval kunt u de antwoordobject voor de hoofdtekst van het antwoord dat is verzonden naar de client ingesteld. Zie voor meer informatie de [Azure Cosmos DB JavaScript server SDK-documentatie](http://azure.github.io/azure-documentdb-js-server/).  
 
-Laat het ons uitvouwt op dit voorbeeld en meer Databasegerelateerde functionaliteit toevoegen aan de opgeslagen procedure. Opgeslagen procedures kunnen maken, bijwerken, lezen, zoeken en verwijderen van documenten en bijlagen binnen de verzameling.    
+Laat het ons Vouw op het volgende voorbeeld en meer met betrekking tot database functionaliteit toevoegen aan de opgeslagen procedure. Opgeslagen procedures kunnen maken, bijwerken, lezen, query's uitvoeren en verwijderen van documenten en bijlagen in de verzameling.    
 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Voorbeeld: Een opgeslagen procedure voor het maken van een document schrijven
-Het volgende fragment toont hoe het context-object gebruiken om te communiceren met de resources van de Cosmos-DB.
+Het volgende codefragment laat zien hoe het context-object gebruiken om te communiceren met Cosmos DB-resources.
 
 ```javascript
 var createDocumentStoredProc = {
@@ -124,9 +124,9 @@ var createDocumentStoredProc = {
 ```
 
 
-Deze opgeslagen procedure neemt als invoer documentToCreate, de hoofdtekst van een document moet worden gemaakt in de huidige verzameling. Alle dergelijke bewerkingen zijn asynchroon en zijn afhankelijk van retouraanroepen van JavaScript-functie. De callbackfunctie heeft twee parameters, één voor het foutobject in geval mislukt de bewerking en één voor het gemaakte object. Binnen de callback kunnen gebruikers de uitzondering verwerken of een fout. Als een retouraanroep niet opgegeven is en er een fout is, wordt in de Azure DB die Cosmos-runtime een fout genereert.   
+Deze opgeslagen procedure wordt gebruikt als invoer documentToCreate, de hoofdtekst van een document moet worden gemaakt in de huidige verzameling. Alle dergelijke bewerkingen zijn asynchroon en afhankelijk zijn van de callbacks van JavaScript-functie. De callbackfunctie heeft twee parameters, één voor het foutobject in geval die de bewerking is mislukt en één voor het gemaakte object. Binnen de terugbelfunctie kunnen gebruikers de uitzondering verwerken of foutmelding. Een retouraanroep is niet opgegeven en er een fout is, genereert de Azure Cosmos DB-runtime een fout.   
 
-De callback genereert een fout opgetreden in het bovenstaande voorbeeld als de bewerking is mislukt. Anders wordt de ID van het gemaakte document als de berichttekst van het antwoord op de client ingesteld. Hier ziet u hoe u deze opgeslagen procedure uitvoeren met de invoerparameters.
+De callback genereert een fout in het bovenstaande voorbeeld als de bewerking is mislukt. Anders wordt de ID van de gemaakte document ingesteld als de hoofdtekst van het antwoord op de client. Hier ziet u hoe u deze opgeslagen procedure uitvoeren met de invoerparameters.
 
 ```javascript
 // register the stored procedure
@@ -153,13 +153,13 @@ client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentSto
 });
 ```
 
-Deze opgeslagen procedure kan worden aangepast voor het uitvoeren van een matrix van document instanties als invoer en maak ze allemaal in dezelfde opgeslagen procedure uitvoering in plaats van meerdere aanvragen voor elk van deze afzonderlijk maken. Deze opgeslagen procedure kan worden gebruikt voor het implementeren van een efficiënte bulksgewijs importfunctie voor Cosmos-DB (Zie verderop in deze zelfstudie).   
+Deze opgeslagen procedure kan worden gewijzigd voor het uitvoeren van een matrix van document instanties als invoer en maken ze allemaal in dezelfde opgeslagen procedure uitvoering in plaats van meerdere aanvragen voor elk van deze afzonderlijk maken. Deze opgeslagen procedure kan worden gebruikt voor het implementeren van een efficiënte bulksgewijs importprogramma voor Cosmos DB (Zie verderop in deze zelfstudie).   
 
-In het voorbeeld dat wordt beschreven hoe u opgeslagen procedures gedemonstreerd. Vervolgens leert u over triggers en de gebruiker gedefinieerde functies (UDF's) verderop in de zelfstudie.
+In het voorbeeld dat wordt beschreven hoe u opgeslagen procedures geïllustreerd. Vervolgens leert u over triggers en gebruikersgedefinieerde functies (UDF's) later in de zelfstudie.
 
 ### <a name="known-issues"></a>Bekende problemen
 
-Bij het definiëren van een opgeslagen procedure met behulp van Azure portal, worden invoerparameters altijd verzonden als een tekenreeks met de opgeslagen procedure. Zelfs als u een matrix met tekenreeksen als invoer doorgeeft, wordt de matrix geconverteerd naar een tekenreeks en verzonden naar de opgeslagen procedure. Als tijdelijke oplossing dit probleem, kunt u een functie binnen de opgeslagen procedure om de tekenreeks als een matrix. De volgende code is een voorbeeld om de tekenreeks als een matrix: 
+Bij het definiëren van een opgeslagen procedure met behulp van Azure portal, worden invoerparameters altijd verzonden als een tekenreeks voor de opgeslagen procedure. Zelfs als u een matrix met tekenreeksen als invoer doorgeeft, wordt de matrix geconverteerd naar een tekenreeks en verzonden naar de opgeslagen procedure. Tijdelijke oplossing dit probleem, kunt u een functie binnen de opgeslagen procedure voor het parseren van de tekenreeks als een matrix. De volgende code is een voorbeeld van de tekenreeks als een matrix parseren: 
 
 ```javascript
 function sample(arr) {
@@ -173,11 +173,11 @@ function sample(arr) {
 ```
 
 ## <a name="database-program-transactions"></a>Programma databasetransacties
-Transactie in een typische database kan worden gedefinieerd als een reeks bewerkingen die worden uitgevoerd als één logische eenheid van het werk. Elke transactie biedt **ACID garanties**. ACID is een bekende acroniem die voor de vier eigenschappen - atomisch, consistentie, isolatie- en duurzaamheid staat.  
+Transactie in een typische database kan worden gedefinieerd als een reeks bewerkingen die worden uitgevoerd als één logische eenheid van het werk. Elke transactie biedt **ACID-garanties**. ACID is een bekende afkorting van vier eigenschappen - atomisch, consistent, isolatie en duurzaamheid.  
 
-Kort samengevat kunt atomisch zorgt ervoor dat alle het werk dat binnen een transactie wordt behandeld als één eenheid waar beide alles is doorgevoerd of none. Consistentie zorgt ervoor dat de gegevens altijd in goede staat verkeren interne over transacties is. Isolatie zorgt ervoor dat geen twee transacties verstoren elkaar – algemeen, de meeste commerciële systemen Geef meerdere isolatieniveaus die kunnen worden gebruikt op basis van de behoeften van de toepassing. Duurzaamheid zorgt ervoor dat elke wijziging die vastgelegd in de database altijd aanwezig zijn.   
+Kort samengevat kunt atomisch zorgt ervoor dat alle werk binnen een transactie wordt beschouwd als één eenheid waar een van beide allemaal is doorgevoerd of geen. Consistentie zorgt ervoor dat de gegevens altijd in goede staat verkeren interne voor transacties is. Isolatie zorgt ervoor dat er zijn geen twee transacties leiden tot problemen met elkaar – algemeen, de meeste commerciële systemen bieden verschillende isolatieniveaus die kunnen worden gebruikt op basis van de vereisten voor de toepassing. Duurzaamheid zorgt ervoor dat eventuele wijzigingen die doorgevoerd in de database altijd aanwezig zijn.   
 
-JavaScript wordt in Cosmos-database gehost in de geheugenruimte als de database. Daarom aanvragen uitgevoerd in opgeslagen procedures en triggers in hetzelfde bereik van een databasesessie uitvoeren. Deze functie kunt Cosmos DB ACID voor alle bewerkingen die deel van één opgeslagen procedure/trigger uitmaken te garanderen. Houd rekening met de volgende opgeslagen procedure-definitie:
+JavaScript wordt in Cosmos DB worden gehost in dezelfde geheugenruimte als de database. Daarom kan aanvragen in opgeslagen procedures en triggers in hetzelfde bereik van de databasesessie van een uitvoeren. Deze functie kunt Cosmos DB om te waarborgen van ACID voor alle bewerkingen die deel van één opgeslagen procedure/trigger uitmaken. Houd rekening met de volgende definitie van de opgeslagen procedure:
 
 ```javascript
 // JavaScript source code
@@ -244,27 +244,27 @@ client.createStoredProcedureAsync(collection._self, exchangeItemsSproc)
 );
 ```
 
-Deze opgeslagen procedure maakt gebruik van transacties binnen een gaming-app handel items tussen twee spelers in één bewerking. De opgeslagen procedure probeert te lezen van de twee documenten elke overeenkomt met de player-id's als argument doorgegeven. Als beide player-documenten zijn gevonden, werkt de opgeslagen procedure de documenten door hun items wisselen. Als er fouten langs de manier optreden, genereert het een JavaScript-uitzondering die impliciet afbreken van de transactie.
+Deze opgeslagen procedure maakt gebruik van transacties binnen een gaming-app voor handel items tussen twee spelers in één bewerking. De opgeslagen procedure probeert te lezen van de twee documenten elke overeenkomt met de speler-id's als argument doorgegeven. Als beide player-documenten worden gevonden, wordt de opgeslagen procedure de documenten werkt door te wisselen hun items. Als er fouten optreden weg, dit genereert een JavaScript-uitzondering die impliciet Hiermee de transactie wordt afgebroken.
 
-Als de verzameling de opgeslagen procedure is geregistreerd op basis van een verzameling van één partitie, wordt de transactie is afgestemd op de documenten binnen de verzameling. Als de verzameling is gepartitioneerd, worden de opgeslagen procedures in het transactiebereik van een enkele partitiesleutel uitgevoerd. Elke opgeslagen procedure-uitvoering moet een waarde voor de partitiesleutel overeenkomt met het bereik dat de transactie moet worden uitgevoerd onder vervolgens bevatten. Zie voor meer informatie [Azure Cosmos DB partitioneren](partition-data.md).
+Als de verzameling de opgeslagen procedure is geregistreerd op basis van een verzameling met één partitie, wordt de transactie is afgestemd op de documenten binnen de verzameling. Als de verzameling is gepartitioneerd, worden klikt u vervolgens opgeslagen procedures uitgevoerd binnen het transactiebereik van een enkele partitiesleutel. De opgeslagen procedure uitvoeren moet vervolgens een waarde voor de partitiesleutel overeenkomt met het bereik dat de transactie moet worden uitgevoerd onder bevatten. Zie voor meer informatie, [partitioneren van Azure Cosmos DB](partition-data.md).
 
-### <a name="commit-and-rollback"></a>Commit- en rollback
-Transacties zijn systeemeigen en nauw geïntegreerd in Cosmos-database JavaScript-programmeermodel. Binnen een JavaScript-functie, worden alle bewerkingen automatisch ingepakt onder één transactie. Als JavaScript zonder een uitzondering is voltooid, wordt de bewerkingen in de database zijn doorgevoerd. De instructies 'BEGIN TRANSACTION' en 'COMMIT TRANSACTION' in relationele databases zijn in feite impliciete in Cosmos-database.  
+### <a name="commit-and-rollback"></a>Doorvoeren en ongedaan maken
+Transacties zijn systeemeigen en diep geïntegreerd in JavaScript Cosmos-DB-programmeermodel. Binnen een JavaScript-functie, worden alle bewerkingen automatisch verpakt in één transactie. Als de JavaScript zonder een uitzondering is voltooid, zijn de bewerkingen in de database zijn doorgevoerd. De instructies 'BEGIN TRANSACTION' en 'COMMIT TRANSACTION' in relationele databases zijn in feite impliciet in Cosmos DB.  
 
-Als er een uitzondering die wordt doorgegeven vanuit het script, wordt Cosmos-database JavaScript-runtime Draai de hele transactie terug. Zoals u in het vorige voorbeeld, is het effectief gelijk is aan een 'ROLLBACK TRANSACTION' toe aan DB Cosmos om uitzondering opgetreden.
+Als er een uitzondering die van het script wordt doorgegeven, wordt Cosmos-DB JavaScript-runtime Draai de hele transactie terug. Zoals weergegeven in het vorige voorbeeld, is die een uitzondering veroorzaakt effectief gelijk is aan een 'ROLLBACK TRANSACTION' in Cosmos DB.
 
 ### <a name="data-consistency"></a>Gegevensconsistentie
-Opgeslagen procedures en triggers worden altijd uitgevoerd op de primaire replica van de Azure DB die Cosmos-container. Dit zorgt ervoor dat leesbewerkingen van binnen procedures aanbieding sterke consistentie opgeslagen. Query's op basis van de gebruiker gedefinieerde functies kunnen worden uitgevoerd op de primaire of elke secundaire replica, maar u ervoor zorgen dat de aangevraagde consistentieniveau te voldoen aan de juiste replica kiezen.
+Opgeslagen procedures en triggers worden altijd uitgevoerd op de primaire replica van de Azure Cosmos DB-container. Dit zorgt ervoor dat leesbewerkingen van in procedures aanbieding sterke consistentie opgeslagen. Query's met behulp van de gebruiker gedefinieerde functies kunnen worden uitgevoerd op de primaire of een secundaire replica's, maar u ervoor zorgen dat de aangevraagde consistentieniveau te voldoen aan de juiste replica kiezen.
 
-## <a name="bounded-execution"></a>Begrensde uitvoering
-Alle bewerkingen van de Cosmos-DB moeten voltooid binnen de opgegeven server time-outduur aanvragen. Deze beperking geldt ook voor JavaScript-functies (opgeslagen procedures, triggers en gebruiker gedefinieerde functies). Als een bewerking niet wordt voltooid met deze termijn, de transactie is teruggedraaid. JavaScript-functies moeten worden voltooid binnen de tijdslimiet of implementeren van een model op basis van voortzetting voor het uitvoeren van batch/hervatten.  
+## <a name="bounded-execution"></a>Gebonden uitvoering
+Alle Cosmos DB-bewerkingen moeten voltooid binnen de opgegeven server time-out aanvraagduur. Deze beperking geldt ook voor JavaScript-functies (opgeslagen procedures, triggers en gebruikersgedefinieerde functies). Als een bewerking niet wordt voltooid met deze termijn, wordt de transactie teruggedraaid. JavaScript-functies moeten worden voltooid binnen de tijdslimiet of implementeren van een model op basis van een voortzetting van batch/hervatten kan worden uitgevoerd.  
 
-Alle functies in het verzamelingsobject (voor het maken, lezen, vervangen en verwijderen van documenten en bijlagen) retourneren om de ontwikkeling van opgeslagen procedures en triggers voor het afhandelen van de tijdslimiet vereenvoudigen, een Booleaanse waarde die aangeeft of die voor deze bewerking wordt voltooid. Als deze waarde false is, is het een indicatie dat de tijdslimiet is bijna verlopen en dat de procedure van uitvoering inpakken moet.  Bewerkingen in de wachtrij vóór de eerste niet-geaccepteerde-bewerking te voltooien als u de opgeslagen procedure is voltooid in de tijd en niet in een wachtrij geen aanvullende aanvragen meer zijn gegarandeerd.  
+Vereenvoudigt de ontwikkeling van opgeslagen procedures en triggers om af te handelen tijdslimieten, alle functies in de verzamelingsobject (voor het maken, lezen, vervangen en verwijderen van documenten en bijlagen) retourneren een Booleaanse waarde die vertegenwoordigt of de waarde die voor deze bewerking wordt voltooid. Als deze waarde ingesteld op false is, is het een indicatie dat de tijdslimiet is bijna verlopen en dat de procedure van kan worden uitgevoerd inpakken moet.  Bewerkingen in de wachtrij vóór de eerste bewerking in niet-geaccepteerde store om uit te voeren als de opgeslagen procedure is voltooid in de tijd en geen aanvullende aanvragen niet in de wachtrij worden gegarandeerd.  
 
-JavaScript-functies worden ook begrensd op resourceverbruik. Cosmos DB reserveert doorvoer per verzameling of voor een set van containers. Doorvoer wordt uitgedrukt in termen van genormaliseerde eenheid van de CPU, geheugen en i/o-verbruik aanvraageenheden of RUs genoemd. JavaScript-functies kunnen gebruiken om een groot aantal RUs binnen een korte periode en mogelijk ophalen snelheid beperkte als de verzameling limiet is bereikt. Bronintensieve opgeslagen procedures mogelijk ook om te controleren of de beschikbaarheid van primitieve databasebewerkingen in quarantaine worden geplaatst.  
+JavaScript-functies zijn ook gebonden op resourceverbruik. Cosmos DB reserveert doorvoer per verzameling of voor een set met containers. Doorvoer wordt uitgedrukt in termen van een genormaliseerde eenheid van CPU, geheugen en i/o-verbruik van aanvraageenheden of ru's genoemd. JavaScript-functies kunnen gebruiken om een groot aantal ru's binnen een korte periode en kunnen er rate-limited als van de verzameling limiet is bereikt. Resource-intensieve opgeslagen procedures mogelijk ook in quarantaine worden geplaatst voor beschikbaarheid van primitieve databasebewerkingen.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Voorbeeld: Bulksgewijs importeren van gegevens in een database-programma
-Hieronder volgt een voorbeeld van een opgeslagen procedure die is geschreven naar bulkimport documenten in een verzameling. Houd er rekening mee hoe de opgeslagen procedure begrensde uitvoering verwerkt door het controleren van de Booleaanse waarde retourneren vanuit createDocument, en gebruikt vervolgens het aantal documenten dat is ingevoegd in elke aanroep van de opgeslagen procedure volgen en voortgang in batches hervatten.
+Hieronder volgt een voorbeeld van een opgeslagen procedure die worden geschreven naar bulkimport documenten in een verzameling. Houd er rekening mee hoe de opgeslagen procedure omgaat met begrensde worden uitgevoerd door het controleren van de Booleaanse waarde retourneren vanuit createDocument, en gebruikt vervolgens het aantal documenten die zijn ingevoegd in elke aanroep van de opgeslagen procedure bij te houden en de voortgang van alle batches hervatten.
 
 ```javascript
 function bulkImport(docs) {
@@ -318,8 +318,8 @@ function bulkImport(docs) {
 ```
 
 ## <a id="trigger"></a> Databasetriggers
-### <a name="database-pre-triggers"></a>Vooraf databasetriggers
-Cosmos DB biedt triggers die zijn uitgevoerd of geactiveerd door een bewerking op een document. U kunt bijvoorbeeld een vooraf trigger opgeven wanneer u bij het maken van een document: deze vooraf trigger wordt uitgevoerd voordat het document wordt gemaakt. Het volgende voorbeeld ziet u hoe vooraf triggers kunnen worden gebruikt voor het valideren van de eigenschappen van een document dat wordt gemaakt:
+### <a name="database-pre-triggers"></a>Vóór databasetriggers
+Cosmos DB biedt triggers die zijn uitgevoerd of geactiveerd door een bewerking op een document. U kunt bijvoorbeeld een pre-trigger opgeven wanneer u het maken van een document – deze vooraf trigger wordt uitgevoerd voordat het document wordt gemaakt. Het volgende voorbeeld ziet u hoe vooraf triggers kunnen worden gebruikt voor het valideren van de eigenschappen van een document dat wordt gemaakt:
 
 ```javascript
 var validateDocumentContentsTrigger = {
@@ -345,7 +345,7 @@ var validateDocumentContentsTrigger = {
 }
 ```
 
-En de bijbehorende Node.js-clientzijde registratiecode voor de trigger:
+En de bijbehorende Node.js registratie aan clientkant code voor de trigger:
 
 ```javascript
 // register pre-trigger
@@ -373,9 +373,9 @@ client.createTriggerAsync(collection.self, validateDocumentContentsTrigger)
 });
 ```
 
-Vooraf triggers kunnen geen invoer parameters hebben. Het request-object kan worden gebruikt voor het bewerken van het aanvraagbericht die zijn gekoppeld aan de bewerking. Hier worden de vooraf trigger wordt uitgevoerd met het maken van een document en de berichttekst van de aanvraag bevat het document moet worden gemaakt in JSON-indeling.   
+Vooraf triggers kunnen geen invoer parameters hebben. Het request-object kan worden gebruikt voor het bewerken van het aanvraagbericht dat is gekoppeld aan de bewerking. Hier worden de pre-trigger wordt uitgevoerd met het maken van een document en de berichttekst van de aanvraag bevat het document dat moet worden gemaakt in JSON-indeling.   
 
-Wanneer triggers zijn geregistreerd, kunnen gebruikers de bewerkingen die kan worden uitgevoerd met opgeven. Deze trigger is gemaakt met TriggerOperation.Create, wat betekent het gebruik van de trigger in een vervangingsbewerking dat zoals weergegeven in de volgende code is niet toegestaan.
+Als triggers zijn geregistreerd, kunnen gebruikers de bewerkingen die het kan worden uitgevoerd met opgeven. Deze trigger is gemaakt met TriggerOperation.Create, wat betekent met behulp van de trigger in een vervangingsbewerking dat zoals wordt weergegeven in de volgende code is niet toegestaan.
 
 ```javascript
 var options = { preTriggerInclude: "validateDocumentContents" };
@@ -389,12 +389,12 @@ client.replaceDocumentAsync(docToReplace.self,
 });
 
 // Fails, can’t use a create trigger in a replace operation
+```
+### <a name="database-post-triggers"></a>Na databasetriggers
+Na triggers, zoals pre triggers zijn gekoppeld aan een bewerking op een document en geen duren voordat alle invoerparameters die zijn opgegeven. Ze worden uitgevoerd **nadat** de bewerking is voltooid en toegang hebben tot het antwoordbericht dat wordt verzonden naar de client.   
 
-### Database post-triggers
-Post-triggers, like pre-triggers, are associated with an operation on a document and don’t take any input parameters. They run **after** the operation has completed, and have access to the response message that is sent to the client.   
-
-The following example shows post-triggers in action:
-
+Het volgende voorbeeld ziet u na triggers in actie:
+```
 var updateMetadataTrigger = {
     id: "updateMetadata",
     serverScript: function updateMetadata() {
@@ -432,9 +432,9 @@ var updateMetadataTrigger = {
     triggerOperation: TriggerOperation.All
 }
 
-
-The trigger can be registered as shown in the following sample.
-
+```
+De trigger kan worden geregistreerd, zoals wordt weergegeven in het volgende voorbeeld.
+```
 // register post-trigger
 client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
     .then(function(createdTrigger) { 
@@ -459,14 +459,14 @@ client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
 });
 ```
 
-Deze trigger wordt gevraagd om het metagegevensdocument en bijgewerkt met informatie over het zojuist gemaakte document.  
+Deze trigger zoekt naar het document met metagegevens en bijgewerkt met informatie over het zojuist gemaakte document.  
 
-Één ding dat is belangrijk te weten is de **transactionele** uitvoering van triggers in Cosmos-database. Deze na trigger wordt uitgevoerd als onderdeel van de dezelfde transactie als het maken van het originele document. Dus als u Veroorzaak een uitzondering van de na trigger (zeg als u niet bijwerken van het metagegevensdocument), de hele transactie zal mislukken en worden teruggedraaid. Er is geen document wordt gemaakt en wordt een uitzondering geretourneerd.  
+Eén ding dat is belangrijk te weten is de **transactionele** uitvoering van triggers in Cosmos DB. Deze na trigger wordt uitgevoerd als onderdeel van dezelfde transactie als het maken van het originele document. Als u een uitzondering genereren door de na trigger (zeg als u niet de metadata-document bij te werken), de hele transactie mislukken en worden teruggedraaid. Er is geen document wordt gemaakt en wordt een uitzondering geretourneerd.  
 
-## <a id="udf"></a>Gebruiker gedefinieerde functies
-Gebruiker gedefinieerde functies (UDF's) worden gebruikt voor het uitbreiden van de Azure Cosmos DB SQL query language-grammatica en aangepaste bedrijfslogica implementeren. Ze kunnen alleen worden aangeroepen vanuit in query's. Ze hebben geen toegang tot het contextobject en zijn bedoeld om te worden gebruikt als JavaScript compute alleen-lezen. Daarom kunnen UDF's worden uitgevoerd op secundaire replica's van de Cosmos-DB-service.  
+## <a id="udf"></a>De gebruiker gedefinieerde functies
+Gebruiker gedefinieerde functies (UDF's) worden gebruikt voor het uitbreiden van de Azure Cosmos DB SQL-query language-grammatica en aangepaste bedrijfslogica implementeren. Ze kunnen alleen worden aangeroepen vanuit in query's. Ze hebben geen toegang tot het context-object en zijn bedoeld om te worden gebruikt als alleen-compute-JavaScript. Daarom kunnen UDF's worden uitgevoerd op secundaire replica's van de Cosmos DB-service.  
 
-Het volgende voorbeeld maakt een UDF voor het berekenen van de fiscale op basis van de tarieven voor verschillende inkomsten haken en vervolgens alle mensen die meer dan 20.000 $ betaald belastingen te vinden binnen een query gebruikt.
+Het volgende voorbeeld maakt een UDF voor het berekenen van de inkomstenbelasting op basis van tarieven voor verschillende inkomsten vierkante haken, en vervolgens in een query gebruikt om te zoeken naar alle personen die meer dan $20.000 betaald belastingen.
 
 ```javascript
 var taxUdf = {
@@ -486,7 +486,7 @@ var taxUdf = {
 }
 ```
 
-De UDF kan vervolgens worden gebruikt in query's zoals in het volgende voorbeeld:
+De UDF kan vervolgens worden gebruikt in query's, zoals in het volgende voorbeeld:
 
 ```javascript
 // register UDF
@@ -508,21 +508,21 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 });
 ```
 
-## <a name="javascript-language-integrated-query-api"></a>JavaScript-taal geïntegreerd query API
-Naast het uitgeven van query's met behulp van de SQL-grammatica Azure Cosmos DB, kunt de SDK-serverzijde u geoptimaliseerde query's met een beheersen JavaScript-interface zonder dat daarvoor kennis van SQL kan uitvoeren. De JavaScript-query die API u programmatisch query's opbouwen kunt door predikaat functies in de chainable functie aanroept met een bekende ECMAScript5 van matrix dient te worden en populaire JavaScript-bibliotheken zoals Lodash syntaxis. Query's worden geparseerd door de JavaScript-runtime efficiënt met behulp van Azure Cosmos DB indices worden uitgevoerd.
+## <a name="javascript-language-integrated-query-api"></a>JavaScript language integrated query API
+Naast het uitgeven van query's met behulp van Azure Cosmos DB SQL-grammatica, kunt de SDK-serverzijde u geoptimaliseerde query's uitvoeren met een gestroomlijnde JavaScript-interface zonder enige kennis van SQL. De JavaScript-query-API u query's via een programma kunt maken kunt met het predicaat functies wordt doorgegeven aan de chainable functie aanroept, met een syntaxis die bekend is bij de matrix dient te worden en populaire JavaScript-bibliotheken zoals Lodash van ECMAScript5. Query's worden geparseerd door het JavaScript-runtime efficiënt met behulp van Azure Cosmos DB-indexen worden uitgevoerd.
 
 > [!NOTE]
-> `__` (double liggend streepje) is een alias voor `getContext().getCollection()`.
+> `__` (dubbel-onderstrepingsteken) is een alias voor `getContext().getCollection()`.
 > <br/>
-> Met andere woorden, u kunt `__` of `getContext().getCollection()` voor toegang tot de query die JavaScript API.
+> Met andere woorden, kunt u `__` of `getContext().getCollection()` voor toegang tot de JavaScript API-query.
 > 
 > 
 
-Ondersteunde functies omvatten:
+Ondersteunde functies zijn onder andere:
 
 <ul>
 <li>
-<b>... chain(). waarde ([retouraanroep] [, opties])</b>
+<b>... chain(). waarde ([callback] [, opties voor])</b>
 <ul>
 <li>
 Start een keten-aanroep die moet worden afgesloten met value().
@@ -533,7 +533,7 @@ Start een keten-aanroep die moet worden afgesloten met value().
 <b>filter (predicateFunction [, opties] [, callback])</b>
 <ul>
 <li>
-Filtert de invoer met behulp van een predikaat functie die resulteert in waar/onwaar om te filteren in/out invoerdocumenten in de resulterende set. Deze functie werkt vergelijkbaar met een WHERE-component in SQL.
+Filtert de invoer met behulp van een predicaat functie die resulteert in waar/onwaar om te filteren in/uit-invoer documenten in de resulterende set. Deze functie werkt die vergelijkbaar is met een WHERE-component in SQL.
 </li>
 </ul>
 </li>
@@ -541,7 +541,7 @@ Filtert de invoer met behulp van een predikaat functie die resulteert in waar/on
 <b>kaart (transformationFunction [, opties] [, callback])</b>
 <ul>
 <li>
-Van toepassing is een projectie een transformatiefunctie die elk item invoer wordt toegewezen aan een JavaScript-object of een waarde opgegeven. Deze functie werkt vergelijkbaar met een SELECT-clausule in SQL.
+Van toepassing is een projectie een transformatiefunctie die elk item invoer wordt toegewezen aan een JavaScript-object of een waarde opgegeven. Deze functie werkt die vergelijkbaar is met een SELECT-component in SQL.
 </li>
 </ul>
 </li>
@@ -549,15 +549,15 @@ Van toepassing is een projectie een transformatiefunctie die elk item invoer wor
 <b>pluck ([propertyName] [, opties] [, callback])</b>
 <ul>
 <li>
-Deze functie is een snelkoppeling naar een kaart die de waarde van één eigenschap uit elk item invoer ophaalt.
+Deze functie is een snelkoppeling voor een kaart die de waarde van één eigenschap van elk item invoer geëxtraheerd.
 </li>
 </ul>
 </li>
 <li>
-<b>plat ([isShallow] [, opties] [, callback])</b>
+<b>samenvoegen ([isShallow] [, opties] [, callback])</b>
 <ul>
 <li>
-Combineert en matrices van elk item invoer in op één array worden samengevoegd. Deze functie werkt vergelijkbaar met SelectMany in LINQ.
+Combineert en matrices van elk item invoer in om een matrix te worden samengevoegd. Deze functie werkt die vergelijkbaar is met SelectMany in LINQ.
 </li>
 </ul>
 </li>
@@ -565,7 +565,7 @@ Combineert en matrices van elk item invoer in op één array worden samengevoegd
 <b>sortBy ([predicate] [, opties] [, callback])</b>
 <ul>
 <li>
-Een nieuwe reeks documenten produceren de documenten in de stroom invoerdocument in oplopende volgorde met behulp van het gegeven predicaat wordt gesorteerd. Deze functie werkt vergelijkbaar met een component ORDER BY van SQL.
+Een nieuwe set documenten door te sorteren van de documenten in de stroom invoerdocument in oplopende volgorde met behulp van de opgegeven predicaat produceren. Deze functie werkt die vergelijkbaar is met een ORDER BY-component in SQL.
 </li>
 </ul>
 </li>
@@ -573,28 +573,28 @@ Een nieuwe reeks documenten produceren de documenten in de stroom invoerdocument
 <b>sortByDescending ([predicate] [, opties] [, callback])</b>
 <ul>
 <li>
-Een nieuwe reeks documenten produceren de documenten in de stroom invoerdocument in aflopende volgorde, met behulp van het gegeven predicaat wordt gesorteerd. Deze functie werkt vergelijkbaar met een x DESC ORDER BY-component in SQL.
+Een nieuwe set documenten door te sorteren van de documenten in de stroom invoerdocument in aflopende volgorde met behulp van de opgegeven predicaat produceren. Deze functie werkt die vergelijkbaar is met een component ORDER BY x DESC in SQL.
 </li>
 </ul>
 </li>
 </ul>
 
 
-Wanneer opgenomen binnen een predikaat en/of selector-functies, krijgen automatisch de volgende JavaScript-constructs geoptimaliseerd direct op Azure Cosmos DB indexen uitvoeren:
+Wanneer ze zijn opgenomen in het predikaat en/of de selectie van functies, worden de volgende JavaScript-constructies automatisch geoptimaliseerd om te worden uitgevoerd op Azure Cosmos DB-indexen:
 
 * Eenvoudige operators: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
-* Letterlijke waarden, met inbegrip van het object letterlijke: {}
-* var, return
+* Letterlijke waarden, met inbegrip van de letterlijke object: {}
+* var, Ga terug
 
-De volgende JavaScript-constructs komen niet ophalen geoptimaliseerd voor Azure Cosmos DB indexen:
+De volgende JavaScript-constructies kunnen niet worden geoptimaliseerd voor Azure Cosmos DB-indexen:
 
-* Transportbesturing (bijvoorbeeld, als voor, tijdens)
+* Controlestroom (bijvoorbeeld, als voor, tijdens)
 * Functieaanroepen
 
 Zie voor meer informatie de [serverzijde JSDocs](http://azure.github.io/azure-documentdb-js-server/).
 
-### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Voorbeeld: Een opgeslagen procedure met behulp van de query die JavaScript API schrijven
-Het volgende codevoorbeeld is een voorbeeld van hoe de JavaScript-API-Query kan worden gebruikt in de context van een opgeslagen procedure. De opgeslagen procedure voegt een document, dat is opgegeven door een invoerparameter en updates van metagegevens van een document, met behulp van de `__.filter()` methode met minimaal, maxSize en totalSize op basis van de eigenschap size het invoerdocument.
+### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Voorbeeld: Een opgeslagen procedure met behulp van de JavaScript API-query schrijven
+Het volgende codevoorbeeld is een voorbeeld van hoe de JavaScript-Query-API kan worden gebruikt in de context van een opgeslagen procedure. De opgeslagen procedure voegt u een document, komt overeen met een invoerparameter en updates van de metagegevens van een document, met behulp van de `__.filter()` methode, met minSize, maxSize en totalSize op basis van de eigenschap van de grootte van het ingevoerde document.
 
 ```javascript
 /**
@@ -650,40 +650,40 @@ function insertDocumentAndUpdateMetadata(doc) {
 }
 ```
 
-## <a name="sql-to-javascript-cheat-sheet"></a>SQL voor Javascript-referentieoverzicht
-De volgende tabel geeft verschillende SQL-query's en de bijbehorende JavaScript-query's.
+## <a name="sql-to-javascript-cheat-sheet"></a>SQL voor het referentiemateriaal voor Javascript
+De volgende tabel bevat verschillende SQL-query's en de bijbehorende JavaScript-query's.
 
-Als het document sleutels met SQL-query's (bijvoorbeeld `doc.id`) zijn hoofdlettergevoelig.
+Als u met SQL-query's, documenteer sleutels (bijvoorbeeld `doc.id`) zijn hoofdlettergevoelig.
 
-|SQL| Query die JavaScript API|Onderstaande beschrijving|
+|SQL| JavaScript API-Query|Onderstaande beschrijving|
 |---|---|---|
-|SELECTEER *<br>VAN documenten| {__.map(Function(doc) <br>&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc;<br>});|1|
-|Selecteer docs.id, docs.message als gegevenstarieven in rekening, docs.actions <br>VAN documenten|{__.map(Function(doc)<br>&nbsp;&nbsp;&nbsp;&nbsp;{retourneren<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bericht: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions:doc.Actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|2|
-|SELECTEER *<br>VAN documenten<br>WAAR docs.id="X998_Y998 '|{__.filter(Function(doc)<br>&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc.id === 'X998_Y998';<br>});|3|
-|SELECTEER *<br>VAN documenten<br>WAAR ARRAY_CONTAINS (documenten. Tags, 123)|{__.filter(Function(x)<br>&nbsp;&nbsp;&nbsp;&nbsp;retourneren van x.Tags & & x.Tags.indexOf(123) > -1;<br>});|4|
-|Selecteer docs.id, docs.message als bericht<br>VAN documenten<br>WAAR docs.id="X998_Y998 '|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;{.filter(function(doc)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc.id === 'X998_Y998';<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;{.map(function(doc)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{retourneren<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bericht: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|5|
-|De SELECT VALUE-tag<br>VAN documenten<br>Voeg de tag IN documenten. Labels<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;{.filter(function(doc)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc retourneren. Labels & & Array.isArray (doc. Tags);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;{.sortBy(function(doc)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|6|
+|SELECTEER *<br>VAN docs| __.map(Function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc-bestand;<br>});|1|
+|Selecteer docs.id, docs.message als msg, docs.actions <br>VAN docs|__.map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;{retourneren<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions:doc.Actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|2|
+|SELECTEER *<br>VAN docs<br>WAAR docs.id="X998_Y998"|__.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc.id === 'X998_Y998';<br>});|3|
+|SELECTEER *<br>VAN docs<br>WAAR ARRAY_CONTAINS (docs. -Tags, 123)|__.filter(Function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;retourneren van x.Tags & & x.Tags.indexOf(123) > -1;<br>});|4|
+|Selecteer docs.id, docs.message als msg<br>VAN docs<br>WAAR docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc.id === 'X998_Y998';<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{retourneren<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|5|
+|SELECT VALUE-tag<br>VAN docs<br>Neem deel aan een tag IN docs. Tags<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document retourneren. Labels & & Array.isArray (doc-bestand. -Tags);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|6|
 
 De volgende beschrijvingen uitgelegd elke query in de bovenstaande tabel.
-1. Resultaten in alle documenten (gepagineerd met vervolgtoken) als is.
-2. De id, het bericht (alias voor bericht) en de actie van alle documenten projecten.
+1. Resultaten in alle documenten (gepagineerde met vervolgtoken) als is.
+2. De-id, een bericht (alias voor msg) en een actie uit alle documenten projecten.
 3. Query's voor documenten met het predicaat: id = 'X998_Y998'.
-4. Query's voor documenten die een eigenschap voor Tags en labels hebben, is een matrix met de waarde 123.
-5. Query's voor documenten met een predicaat id = "X998_Y998" en vervolgens projecteert de id en het bericht (alias voor bericht).
-6. Filters voor documenten waarvoor de matrixeigenschap van een, Tags, en de resulterende documenten door de eigenschap _ts timestamp-systeem en projecten sorteert + de matrix labels worden samengevoegd.
+4. Query's voor documenten die een eigenschap Tags en labels hebben, is een matrix met de waarde 123.
+5. Query's voor documenten met een predicaat, id = 'X998_Y998', en vervolgens de id en het bericht (alias voor msg)-projecten.
+6. Filters voor documenten met een matrixeigenschap, labels, en sorteert de resulterende documenten door de eigenschap _ts timestamp-systeem en projecten + de matrix Tags worden samengevoegd.
 
 
 ## <a name="runtime-support"></a>Runtime-ondersteuning
-De Azure DB die Cosmos [JavaScript server side API](http://azure.github.io/azure-documentdb-js-server/) biedt ondersteuning voor de meeste van de algemene JavaScript-taalfuncties als gestandaardiseerde door [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+De Azure Cosmos DB [JavaScript-API van server side](http://azure.github.io/azure-documentdb-js-server/) biedt ondersteuning voor de meeste van de algemene functies van JavaScript taal als gestandaardiseerde door [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Beveiliging
-JavaScript opgeslagen procedures en triggers zijn sandbox zodat de gevolgen van een script niet naar het andere gelekt komen zonder tussenkomst van de transactie snapshot-isolatie op databaseniveau. De runtimeomgevingen zijn gegroepeerd, maar na elke uitvoering van de context is verwijderd. Ze zijn daarom gegarandeerd veilig van onbedoelde nadelen van elkaar.
+JavaScript opgeslagen procedures en triggers zijn sandbox zodat de gevolgen van een script niet naar het andere gelekt kunnen zonder tussenkomst van de snapshot-isolatie voor transactie op het databaseniveau van de. De runtime-omgevingen zijn gegroepeerd, maar na elke uitvoering van de context is verwijderd. Ze worden daarom gegarandeerd veilig van een onbedoelde neveneffecten van elkaar.
 
 ### <a name="pre-compilation"></a>Vooraf compileren
-Opgeslagen procedures, triggers en UDF's zijn om te voorkomen dat compilatie kosten op het moment van elke aanroep script impliciet vooraf gecompileerde naar de indeling van de code byte. Vooraf compilatie aanroep van opgeslagen procedures is snel en een lage footprint hebben.
+Opgeslagen procedures, triggers en UDF's zijn impliciet vooraf gecompileerde naar de byte-codeopmaak om te voorkomen dat compilatie kosten op het moment van elke aanroepen van scripts. Vooraf compilatie aanroep van opgeslagen procedures is snel en een lage footprint hebben.
 
-## <a name="client-sdk-support"></a>Ondersteuning voor client-SDK
-Naast de Cosmos Azure DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB heeft [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), en [Python SDK's](sql-api-sdk-python.md) voor de SQL-API. Opgeslagen procedures, triggers en UDF's kunnen worden gemaakt en wordt uitgevoerd met een van deze SDK's ook. Het volgende voorbeeld laat zien hoe kunnen maken en uitvoeren van een opgeslagen procedure met de .NET-client. Houd er rekening mee hoe de .NET-typen zijn doorgegeven naar de opgeslagen procedure als JSON en de inhoud weer.
+## <a name="client-sdk-support"></a>Client SDK-ondersteuning
+Naast de Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB heeft [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), en [Python SDK's](sql-api-sdk-python.md) voor de SQL-API. Opgeslagen procedures, triggers en UDF's kunnen worden gemaakt en uitgevoerd met behulp van een van deze SDK's ook. Het volgende voorbeeld ziet hoe u maakt en een opgeslagen procedure met behulp van de .NET-client uitvoeren. Houd er rekening mee hoe de .NET-typen zijn doorgegeven aan de opgeslagen procedure als JSON en terug te lezen.
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure
@@ -717,7 +717,7 @@ document.Year = 1949;
 Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 ```
 
-Dit voorbeeld laat zien hoe u de [SQL .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) voor het maken van een vooraf trigger en maken van een document met de trigger is ingeschakeld. 
+In dit voorbeeld laat zien hoe u de [SQL .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) een pre-trigger maken en een document maken met de trigger ingeschakeld. 
 
 ```javascript
 Trigger preTrigger = new Trigger()
@@ -739,7 +739,7 @@ Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumen
     });
 ```
 
-En het volgende voorbeeld laat zien hoe een door de gebruiker gedefinieerde functie (UDF) maken en gebruiken in een [SQL-query](sql-api-sql-query.md).
+En het volgende voorbeeld laat zien hoe een door de gebruiker gedefinieerde functie (UDF's) maken en deze gebruiken in een [SQL-query](sql-api-sql-query.md).
 
 ```javascript
 UserDefinedFunction function = new UserDefinedFunction()
@@ -759,7 +759,7 @@ foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollec
 ```
 
 ## <a name="rest-api"></a>REST-API
-Alle Azure DB die Cosmos-bewerkingen kunnen worden uitgevoerd op een RESTful manier. Opgeslagen procedures, triggers en gebruiker gedefinieerde functies kunnen worden geregistreerd in een verzameling met behulp van HTTP POST. Het volgende voorbeeld ziet u hoe u kunt een opgeslagen procedure registreren:
+Alle Azure Cosmos DB-bewerkingen kunnen worden uitgevoerd op een RESTful manier. Opgeslagen procedures, triggers en gebruikersgedefinieerde functies kunnen worden geregistreerd bij een verzameling met behulp van HTTP POST. Het volgende voorbeeld ziet u informatie over het registreren van een opgeslagen procedure:
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -782,8 +782,8 @@ Alle Azure DB die Cosmos-bewerkingen kunnen worden uitgevoerd op een RESTful man
     }
 
 
-De opgeslagen procedure wordt geregistreerd door een POST-aanvraag tegen de URI-databases/testdb/colls/testColl/sprocs uitvoeren met de hoofdtekst van de opgeslagen procedure maken. Triggers en UDF's kunnen op dezelfde manier worden geregistreerd door uitgifte van een POST tegen/triggers en /udfs respectievelijk.
-Deze opgeslagen procedure kan vervolgens worden uitgevoerd door uitgifte van een POST-aanvraag tegen de resourcekoppeling:
+De opgeslagen procedure is geregistreerd door het uitvoeren van een POST-aanvraag op basis van de URI databases/testdb/colls/testColl/sprocs met de opgeslagen procedure maken in de hoofdtekst. Triggers en UDF's kunnen op dezelfde manier worden geregistreerd met behulp van een bericht tegen/triggers en /udfs respectievelijk.
+Deze opgeslagen procedure kan vervolgens worden uitgevoerd met behulp van een POST-aanvraag op basis van de resourcekoppeling:
 
     POST https://<url>/sprocs/<sproc> HTTP/1.1
     authorization: <<auth>>
@@ -793,7 +793,7 @@ Deze opgeslagen procedure kan vervolgens worden uitgevoerd door uitgifte van een
     [ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
 
-Hier worden de invoer van de opgeslagen procedure wordt doorgegeven in de aanvraagtekst. De invoer is doorgegeven als een JSON-matrix van invoerparameters. De opgeslagen procedure wordt de eerste invoer als een document dat een antwoordtekst. Het antwoord dat u ontvangt, is als volgt:
+Hier worden de invoer voor de opgeslagen procedure wordt doorgegeven in de aanvraagtekst. De invoer wordt doorgegeven als een JSON-matrix van invoerparameters die zijn opgegeven. De opgeslagen procedure wordt de eerste invoer als een document dat een antwoordtekst. Het antwoord u ontvangt is als volgt:
 
     HTTP/1.1 200 OK
 
@@ -825,23 +825,23 @@ In tegenstelling tot opgeslagen procedures, triggers kunnen niet rechtstreeks wo
     }
 
 
-Hier worden de trigger vooraf moeten worden uitgevoerd met de aanvraag is opgegeven in de x-ms-documentdb-pre-trigger-include header. Dienovereenkomstig, eventuele na triggers zijn opgegeven in de x-ms-documentdb-post-trigger-include-header. Beide vóór en na triggers kunnen worden opgegeven voor een bepaalde aanvraag.
+Hier wordt de trigger vooraf moeten worden uitgevoerd met de aanvraag opgegeven in de x-ms-documentdb-pre-trigger-include header. Dienovereenkomstig, geen na triggers zijn opgegeven in de x-ms-documentdb-post-trigger-include header. Zowel vóór en na triggers kunnen worden opgegeven voor een bepaalde aanvraag.
 
 ## <a name="sample-code"></a>Voorbeeldcode
-U vindt meer serverzijde codevoorbeelden (inclusief [bulk verwijderen](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), en [bijwerken](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) in de [GitHub-opslagplaats](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+U vindt meer voorbeelden van code op de server (met inbegrip van [bulksgewijs verwijderen](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), en [bijwerken](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) in de [GitHub-opslagplaats](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
-Wilt u uw geweldig opgeslagen procedure delen? bijdragen aan de opslagplaats en maakt u een pull-aanvraag! 
+Wilt u uw geweldige opgeslagen procedure delen? bijdragen aan de opslagplaats en maakt u een pull-aanvraag. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zodra u hebt een of meer opgeslagen procedures, triggers en gebruiker gedefinieerde functies die zijn gemaakt, kunt u ze laden en ze weergeven in de Azure-portal met behulp van Data Explorer.
+Zodra u hebt een of meer opgeslagen procedures, triggers en gebruikersgedefinieerde functies die zijn gemaakt, kunt u ze laden en ze weergeven in de Azure-portal met behulp van Data Explorer.
 
-Ook kan nuttig voor u de volgende verwijzingen en resources in het pad voor meer informatie over Azure Cosmos dB programmeren-server:
+Ook kan nuttig voor u de volgende verwijzingen en resources in het pad voor meer informatie over Azure Cosmos dB-serverzijde programmeren:
 
 * [Azure Cosmos DB SDK 's](sql-api-sdk-dotnet.md)
 * [DocumentDB-Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Veilige en draagbare Database uitbreidbaarheid](http://dl.acm.org/citation.cfm?id=276339) 
-* [Service Oriented Architecture van de Database](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+* [Service Oriented Architecture voor Database](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [De .NET Runtime in Microsoft SQL server die als host fungeert](http://dl.acm.org/citation.cfm?id=1007669)
 

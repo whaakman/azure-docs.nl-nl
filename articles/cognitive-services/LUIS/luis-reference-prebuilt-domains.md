@@ -3,19 +3,19 @@ title: Vooraf gedefinieerde domein referentie - Azure | Microsoft Docs
 titleSuffix: Azure
 description: Referentie voor de vooraf gemaakte domeinen vooraf gemaakte verzamelingen van intenties en entiteiten van Language Understanding Intelligent Services (LUIS zijn).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 45289b712a127e70636e225778d7a36578b34fa5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931623"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238893"
 ---
 # <a name="prebuilt-domain-reference"></a>Vooraf gemaakte domeinverwijzing
 Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
@@ -30,7 +30,7 @@ LUIS biedt 20 vooraf gemaakte domeinen.
 | Agenda | Het domein van de agenda biedt intentie en entiteiten voor toe te voegen, te verwijderen, of bewerken van een afspraak, deelnemers aan de beschikbaarheid gecontroleerd en zoeken naar informatie over een agenda-gebeurtenis.| nl-NL<br/> zh-CN |
 | Camera | Het domein van de Camera biedt intenties en entiteiten voor het maken van afbeeldingen, video's opnemen en uitzenden video aan een toepassing.| nl-NL |
 | Communicatie | Verzenden van berichten en telefoongesprekken.| nl-NL <br/> zh-CN |
-| Entertainment  | Verwerking van query's met betrekking tot muziek, films en tv-programma's.| nl-NL |
+| entertainment  | Verwerking van query's met betrekking tot muziek, films en tv-programma's.| nl-NL |
 | Gebeurtenissen | Reservering van tickets voor concerten, festivals, sport-games en comedy bevat.| nl-NL |
 | Geschiktheid | Afhandeling van aanvragen met betrekking tot het bijhouden van geschiktheid activiteiten.| nl-NL |
 | Gaming | Afhandeling van aanvragen die betrekking hebben op een game partij in een spel.| nl-NL |
@@ -120,7 +120,7 @@ Het domein communicatie biedt intenties en entiteiten die betrekking hebben op e
 | SetSpeedDial| Stel een snelkoppeling naar de snelheid kiezen voor het telefoonnummer van een contactpersoon.|Stel snelkiezen een voor Carola.<br/>Snelheid kiezen voor mom instellen.|
 | ShowNext| Zie het volgende item, bijvoorbeeld in een lijst van de SMS-berichten of e-mailberichten.|Het volgende object weergeven.<br/>Ga naar de volgende pagina.|
 | ShowPrevious| Zie het vorige item, bijvoorbeeld in een lijst van de SMS-berichten of e-mailberichten.|Het vorige voorbeeld weergegeven.<br/>Vorige<br/>Ga naar vorige.|
-| Opnieuw| Het systeem opnieuw starten of een nieuwe sessie starten.|Opnieuw beginnen<br/>Nieuwe sessie<br/>opnieuw opstarten|
+| Opnieuw| Het systeem opnieuw starten of een nieuwe sessie starten.|Opnieuw beginnen<br/>Nieuwe sessie<br/>restart|
 | TurnForwardingOff| Oproep doorschakelen uitschakelen.|Niet langer doorgestuurd van mijn oproepen<br/>Oproep doorschakelen uitschakelen|
 | TurnForwardingOn| De telefoon spreker uitschakelen.|Mijn oproepen naar 3333 doorsturen<br/>Oproep doorschakelen aan 3333 inschakelen|
 | TurnSpeakerOff| De telefoon spreker uitschakelen.|Breng me uit spreker.<br/>Handsfree uitschakelen.<br/>|
@@ -130,7 +130,7 @@ Het domein communicatie biedt intenties en entiteiten die betrekking hebben op e
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AudioDeviceType | Het type van audio-apparaat (spreker, hoofdtelefoon, microfoon, enzovoort).| Spreker<br/>Hands-free<br/>Bluetooth|
-| Category | De categorie van een bericht of e-mail.| Belangrijk<br/>Hoge prioriteit|
+| Categorie | De categorie van een bericht of e-mail.| Belangrijk<br/>Hoge prioriteit|
 | ContactAttribute | Een kenmerk van de Neem contact op met die de gebruiker query's over.| Verjaardagen<br/>Adres<br/>Telefoonnummer|
 | Naam contactpersoon | De naam van de ontvanger van een contactpersoon of een bericht.| Carola<br/>Jim<br/>Chris|
 | EmailSubject | De tekst die wordt gebruikt als de onderwerpregel voor een e-mailbericht.| RE: interessant verhaal|
@@ -140,7 +140,7 @@ Het domein communicatie biedt intenties en entiteiten die betrekking hebben op e
 | OrderReference | De rangtelwoord of relatieve positie in een lijst, het identificeren van een item om op te halen. Bijvoorbeeld, 'last' of 'recente"in"Wat was de laatste ik verzonden bericht?"| Laatste<br/>Recent|
 | SenderName | De naam van de afzender.| Patti Owens|
 
-## <a name="entertainment"></a>Entertainment  
+## <a name="entertainment"></a>entertainment  
 Het domein biedt intenties en entiteiten die betrekking hebben op te zoeken naar films, muziek, games en muziek Entertainment bevat.
 
 ### <a name="intents"></a>Intents
@@ -233,7 +233,7 @@ Het domein HomeAutomation biedt intenties en entiteiten die betrekking hebben op
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Apparaat | Een type apparaat dat kan worden ingeschakeld in- of uitschakelen.|koffie maker<br/>thermostaat<br/>licht|
+| Apparaat | Een type apparaat dat kan worden ingeschakeld in- of uitschakelen.|koffie maker<br/>Thermostaat<br/>licht|
 | Bewerking | De status van het apparaat.|vergrendelen<br/>openen<br/>op<br/>uit|
 | Ruimte | De locatie of het apparaat zich in de ruimte.|Woonkamer<br/>slaapkamers<br/>keuken|
 
@@ -419,7 +419,7 @@ At what time does Safeway close?
 |ShowNext|Het volgende item in een reeks weergeven.|Het volgende object weergeven<br/>Ga naar de volgende pagina|
 |ShowPrevious|Het vorige item weergeven in een serie.|Vorige weergeven<br/>vorige<br/>Ga naar vorige|
 |Opnieuw|De app opnieuw starten of een nieuwe sessie starten.|Opnieuw beginnen<br/>Nieuwe sessie<br/>
-opnieuw opstarten|
+restart|
 |TakesReservations|Vragen of een plaats reserveringen accepteert.|Accepteert de Galerie WordArt reserveringen<br/>Is het mogelijk om een reservering op de Olive Garden maken
 
 ### <a name="entities"></a>Entiteiten
@@ -431,10 +431,10 @@ opnieuw opstarten|
 | Cuisine | De cuisine van een centrale locatie. |Middellandse<br/>Italiaans<br/>Indiase|
 | DestinationAddress| Een nieuwe locatie of het adres.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName| De naam van een doel dat is een bedrijf, restaurant, openbare voordelen of instelling.|centrale park<br/>safeway<br/>walmart|
-| DestinationPlaceType | Het type van een doel dat is een lokale bedrijven, restaurant, openbare voordelen of instelling. |Restaurant<br/>Opera<br/>Bioscoopvertoningen|
+| DestinationPlaceType | Het type van een doel dat is een lokale bedrijven, restaurant, openbare voordelen of instelling. |Restaurant<br/>Opera<br/>bioscoopvertoningen|
 | Afstand | De afstand op een plaats.|15 mijl<br/>5 mijl<br/>10 mijl opslaan|
-| MealType | Het type maaltijd zoals ontbijt of lunch. |ontbijt<br/>Diner<br/>Lunchpauze<br/>supper|
-| OpenStatus | Geeft aan of een plaats open of gesloten is.|Open<br/>gesloten<br/>openen|
+| MealType | Het type maaltijd zoals ontbijt of lunch. |Ontbijt<br/>Diner<br/>Lunchpauze<br/>Supper|
+| OpenStatus | Geeft aan of een plaats open of gesloten is.|Open<br/>Gesloten<br/>openen|
 | PlaceName | De naam van een centrale locatie.|Cheesecake Factory|
 | PlaceType | Het type van een centrale locatie.|Cafe<br/>Theater<br/>Bibliotheek|
 | PreferredRoute | De voorkeursroute is opgegeven door de gebruiker. | 101 <br/>202 <br/>Route 401|
@@ -492,7 +492,7 @@ Table for 3 in Palo Alto at 7
 | AppName | De naam van een toepassing voor het maken van reserveringen.|TabelOpenen<br/>Yelp<br/>TripAdvisor|
 | Lucht | Een beschrijving van de omgeving van een restaurant of een andere locatie.|Romantisch<br/>illegaal<br/>goed voor groepen|
 | Cuisine | Een type eten, cuisine of cuisine nationaliteit. |Chinees<br/>Italiaans<br/>Mexicaanse|
-| MealType | Een maaltijd-type dat is gekoppeld aan een reservering.|ontbijt<br/>Diner<br/>Lunchpauze<br/>supper|
+| MealType | Een maaltijd-type dat is gekoppeld aan een reservering.|Ontbijt<br/>Diner<br/>Lunchpauze<br/>Supper|
 | PlaceName | De naam van een lokale bedrijven, restaurant, openbare voordelen of instelling.|IHOP<br/>Cheesecake Factory<br/>Louvre|
 | PlaceType | Het type van een lokale bedrijven, restaurant, openbare voordelen of instelling.|restaurant<br/>Opera<br/>bioscoopvertoningen|
 | Classificatie | De classificatie van een plaats of een restaurant.|5 sterren<br/>3 sterren<br/>4 sterren|
@@ -521,9 +521,9 @@ Cancel my Uber
 | Adres| Het adres dat is gekoppeld aan een taxi reservering. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationAddress| Een nieuwe locatie of het adres. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName | De naam van een doel dat is een lokale bedrijven, restaurant, openbare voordelen of instelling. |Centrale Park<br/>Safeway<br/>Walmart|
-| DestinationPlaceType | Het type van een doel dat is een lokale bedrijven, restaurant, openbare voordelen of instelling. |Restaurant<br/>Opera<br/>Bioscoopvertoningen|
+| DestinationPlaceType | Het type van een doel dat is een lokale bedrijven, restaurant, openbare voordelen of instelling. |Restaurant<br/>Opera<br/>bioscoopvertoningen|
 | PlaceName | De naam van lokale bedrijven, restaurant, openbare voordelen of instelling. |Centrale Park<br/>Safeway<br/>Walmart|
-| PlaceType| Het type van plaats in een aanvraag voor een taxi het adresboek.|Restaurant<br/>Opera<br/>Bioscoopvertoningen|
+| PlaceType| Het type van plaats in een aanvraag voor een taxi het adresboek.|Restaurant<br/>Opera<br/>bioscoopvertoningen|
 | TransportationCompany | De naam van een transportprovider.|Amtrak<br/>Acela<br/>Greyhound|
 | TransportationType | Het soort vervoer.|Bus<br/>Trainen<br/>Auto|
 
@@ -593,7 +593,7 @@ Repeat last question please
 | Herhalen | Een actie herhalen.|Herhaal de laatste vraag.<br/>Herhaal de laatste nummer|
 | ShowNext | Het volgende item in een reeks weergeven. |Het volgende object weergeven<br/>Ga naar de volgende pagina|
 | ShowPrevious | Het vorige item weergeven in een serie.|Vorige weergeven|
-| Opnieuw | De app opnieuw starten of een nieuwe sessie starten.|Opnieuw beginnen<br/>Nieuwe sessie<br/>opnieuw opstarten|
+| Opnieuw | De app opnieuw starten of een nieuwe sessie starten.|Opnieuw beginnen<br/>Nieuwe sessie<br/>restart|
 | Stoppen | Een actie stoppen.| Dit zeggen stoppen<br/>Afsluiten van<br/>Stoppen.|
 
 ## <a name="weather"></a>Weer 

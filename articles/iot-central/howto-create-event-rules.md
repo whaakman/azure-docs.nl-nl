@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: timlt
-ms.openlocfilehash: ede7748b1471136cf792c2b30b7c90e12b0b274a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c5697f6d4ca2c9d9948b7cdd005a6a75bdabb246
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006845"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222562"
 ---
 # <a name="create-an-event-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Maken van een regel voor gebeurtenissen en een actie in uw Azure IoT Central-toepassing instellen
 
@@ -62,7 +62,9 @@ Deze sectie leest u hoe u een voorwaarde voor het bewaken van de meting ventilat
 
 ### <a name="add-an-action"></a>Een actie toevoegen
 
-Deze sectie leest u hoe u een actie toevoegen aan een regel. Dit laat zien hoe u de e-mailactie toevoegen, maar u kunt ook [toevoegen van een Microsoft Flow-actie](howto-add-microsoft-flow.md) op de regel moet een vliegende start een werkstroom in Microsoft Flow wanneer de regel wordt geactiveerd.
+Het tis voorbeeld ziet u hoe u een actie toevoegen aan een regel. Dit laat zien hoe u de e-mailactie toevoegen, maar u kunt ook andere acties toevoegen:
+-  [Microsoft Flow-actie](howto-add-microsoft-flow.md) aan een werkstroom in Microsoft Flow vliegende start wanneer een regel wordt geactiveerd
+- [Webhookactie](howto-create-webhooks.md) naar andere services waarschuwen wanneer een regel wordt geactiveerd
 
 > [!NOTE]
 > Alleen 1 actie kan worden gekoppeld aan een enkele regel op dit moment.

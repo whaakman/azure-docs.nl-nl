@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7726d7eae2d9b3a37ffc141e4a4cbdc9a1af459c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145034"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238308"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -96,8 +96,9 @@ Hier zijn de limieten voor een enkele logische app:
 | Acties gelijktijdige uitgaande oproepen | ~2,500 | Verminder het aantal gelijktijdige aanvragen of Beperk de duur, indien nodig. | 
 | Runtime-eindpunt: gelijktijdige binnenkomende oproepen | ~1,000 | Verminder het aantal gelijktijdige aanvragen of Beperk de duur, indien nodig. | 
 | Runtime-eindpunt: aanroepen per vijf minuten lezen  | 60,000 | Workload kunt worden verdelen over meer dan één app, indien nodig. | 
-| Runtime-eindpunt: aanroepen aanroepen per vijf minuten| 45,000 | Workload kunt worden verdelen over meer dan één app, indien nodig. | 
-|||| 
+| Runtime-eindpunt: aanroepen aanroepen per vijf minuten| 45,000 | Workload kunt worden verdelen over meer dan één app, indien nodig. |
+| Inhoud doorvoer per vijf minuten | 600 MB | Workload kunt worden verdelen over meer dan één app, indien nodig. |  
+||||| 
 
 Hoger dan deze limieten in de normale verwerking of voer belastingtests uitvoeren die mogelijk verder gaan dan deze limieten [contact op met de Logic Apps-team](mailto://logicappsemail@microsoft.com) voor hulp bij uw vereisten.
 

@@ -1,28 +1,28 @@
 ---
-title: Referentie - Azure-LUIS vooraf gemaakte entiteiten dimensie | Microsoft Docs
+title: LUIS vooraf gemaakte entiteiten dimensie referentie - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Dit artikel bevat vooraf gedefinieerde entiteitsgegevens in Language Understanding (LUIS) dimensie.
+description: In dit artikel bevat vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS) dimensie.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3b2758f1d68ae3659f2e43cad555d327b21f8732
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 3c923e7791c58255690100b04700577eb5c3f5dd
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321979"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237261"
 ---
-# <a name="dimension-entity"></a>Dimensie entiteit
-De vooraf gedefinieerde dimensie entiteit detecteert verschillende soorten dimensies, ongeacht de cultuur van de app LUIS. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld utterances met dimensies die de toepassing die u wilt toevoegen. Dimensie entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
+# <a name="dimension-entity"></a>Dimensie-entiteit
+De vooraf gedefinieerde dimensie entiteit detecteert de verschillende typen dimensies, ongeacht de cultuur van LUIS-app. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met dimensies aan de toepassing intents. Dimensie entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-dimension"></a>Typen van de dimensie
 
-Dimensie wordt beheerd vanaf de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) Github-opslagplaats
+Dimensie wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) Github-opslagplaats
 
 
 ## <a name="resolution-for-dimension-entity"></a>Oplossing voor de dimensie entiteit

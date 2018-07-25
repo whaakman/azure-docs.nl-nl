@@ -2,19 +2,19 @@
 title: Informatie over Language Understanding (LUIS) in Azure | Microsoft Docs
 description: Informatie over het gebruik van Language Understanding (LUIS) om de vele mogelijkheden van machine learning aan uw toepassingen.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: v-geberr
-ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 072176347adacbabc0a92f1c7e437f8233531003
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952535"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225455"
 ---
 # <a name="what-is-language-understanding-luis"></a>Wat is Language Understanding (LUIS)?
 Language Understanding (LUIS) is een cloud-gebaseerde service die aangepaste machine learning is van toepassing op van een gebruiker tekst met betrekking tot een conversatie, natuurlijke taal algehele betekenis te voorspellen en pull-relevante, gedetailleerde informatie. 
@@ -101,7 +101,7 @@ Nadat uw LUIS-app is gepubliceerd en real-user-uitingen ontvangt, LUIS, biedt ve
 ### <a name="active-learning"></a>Actief leren
 In de [actief leren](luis-how-to-review-endoint-utt.md) proces, LUIS kunt u uw LUIS-app op echte uitingen aanpassen door te uitingen die het ontvangen op het eindpunt voor de beoordeling selecteren. U kunt accepteren of corrigeer de voorspelling van het eindpunt, retrain en opnieuw publiceren. LUIS snel aan het aanleren met dit proces duurt de minimale hoeveelheid tijd en moeite. 
 
-### <a name="phrase-lists"></a>Frasenlijsten 
+### <a name="phrase-lists"></a>Woordgroepenlijsten 
 LUIS biedt [woordgroepen met lijsten](luis-concept-feature.md) zodat u belangrijke woorden of zinsdelen aan het domein van uw model aangeven kunt. LUIS maakt gebruik van deze lijsten meer betekenis toevoegen aan deze woorden en zinnen die zouden anders niet worden gevonden in het model.
 
 ### <a name="patterns"></a>Patronen 

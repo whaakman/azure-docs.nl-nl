@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 47d321788251462f2b34e1eb60231454dd6a72cf
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 460c7d24b2810de41e20ea803ded2ea988613f10
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185928"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223793"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Taken op meerdere apparaten plannen
 
@@ -84,7 +84,7 @@ Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor het bijwer
     }
 
 ## <a name="querying-for-progress-on-jobs"></a>Query's uitvoeren voor de voortgang van taken
-Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor [query's uitvoeren voor taken][lnk-query]:
+Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor het uitvoeren van query's voor taken:
 
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
@@ -94,6 +94,8 @@ Het volgende fragment toont de details van de aanvraag HTTPS 1.1 voor [query's u
     User-Agent: <sdk-name>/<sdk-version>
 
 De continuationToken wordt geleverd door het antwoord.  
+
+U kunt een query voor de status van de taak kan worden uitgevoerd op elk apparaat met behulp van de [IoT Hub-querytaal voor apparaatdubbels, taken en berichtroutering][lnk-query].
 
 ## <a name="jobs-properties"></a>Eigenschappen van taken
 De volgende lijst bevat de eigenschappen en de bijbehorende beschrijvingen, die kunnen worden gebruikt voor het uitvoeren van query's voor taken of Taakresultaten.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: ea51252de4877cdeee093c4f21f68f59a061cdc9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 703595bbc13fb859f406e7c9fa422a9c573957ab
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213510"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237244"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Een virtuele machine beheerde Service-identiteit configureren met behulp van een sjabloon
 
@@ -155,7 +155,7 @@ Als u een virtuele machine die een beheerde service-identiteit niet meer nodig h
 
 1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine.
 
-2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Als u een virtuele machine die alleen systeem toegewezen identiteit heeft hebt, kunt u deze uitschakelen door het veranderen van de id-type naar `None`.  Als uw virtuele machine is zowel de systeem- en de gebruiker toegewezen identiteiten, verwijdert u `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `identityIds` matrix van de gebruiker toegewezen identiteiten.  Het volgende voorbeeld ziet u hoe een systeem toegewezen identiteit van een virtuele machine zonder gebruiker toegewezen identiteiten verwijderen:
+2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Hebt u een virtuele machine die alleen systeem toegewezen identiteit heeft, kunt u deze uitschakelen door het wijzigen van het identiteitstype aan `None`.  Als uw virtuele machine is zowel de systeem- en de gebruiker toegewezen identiteiten, verwijdert u `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `identityIds` matrix van de gebruiker toegewezen identiteiten.  Het volgende voorbeeld ziet u hoe een systeem toegewezen identiteit van een virtuele machine zonder gebruiker toegewezen identiteiten verwijderen:
    
    ```JSON
     {
@@ -222,8 +222,30 @@ In deze sectie maakt u de identiteit van een gebruiker toegewezen aan een Azure 
 
       ![Schermafbeelding van de gebruiker toegewezen identiteit](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
+### <a name="remove-user-assigned-identity-from-an-azure-vm"></a>Verwijder de gebruiker toegewezen identiteit van een Azure-VM
+
+Als u een virtuele machine die een beheerde service-identiteit niet meer nodig hebt:
+
+1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine.
+
+2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Als u een virtuele machine waarvoor alleen toegewezen gebruikers-id hebt, kunt u deze uitschakelen door het veranderen van de id-type naar `None`.  Als uw virtuele machine heeft zowel de systeem- en de gebruiker toegewezen identiteiten en u wilt behouden systeem toegewezen identiteit, verwijdert u `UserAssigned` van het identiteitstype samen met de `identityIds` matrix van de gebruiker toegewezen identiteiten.
+    
+   Verwijderen van een een enkele gebruiker toegewezen identiteit van een virtuele machine verwijderen uit de `identityIds` matrix.
+   
+   Het volgende voorbeeld ziet u hoe alle gebruiker toegewezen identiteiten van een virtuele machine met geen enkel systeem toegewezen identiteit verwijderen:
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 
-- Voor een breder perspectief over MSI leest de [overzicht van de beheerde Service-identiteit](overview.md).
+- Lees voor een breder perspectief over beheerde Service-identiteit, de [overzicht van de beheerde Service-identiteit](overview.md).
 

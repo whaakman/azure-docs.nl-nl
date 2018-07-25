@@ -3,19 +3,19 @@ title: Zelfstudie over het gebruiken van pattern.any entiteit voor het verbetere
 titleSuffix: Cognitive Services
 description: In deze zelfstudie, gebruikt u de entiteit pattern.any voor het verbeteren van LUIS intentie en entiteit voorspellingen.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 07/20/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 95c88bf1e452e945948b47fdada5811db6a0e454
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry
+ms.openlocfilehash: ca4ed4444cd753c0fe22c6596dfd34d033b7b0cf
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174612"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236999"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Zelfstudie: Een app met pattern.any entiteit verbeteren
 

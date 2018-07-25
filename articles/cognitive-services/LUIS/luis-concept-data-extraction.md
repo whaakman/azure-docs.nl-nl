@@ -2,19 +2,19 @@
 title: Gegevens uitpakken concepten in LUIS - Azure | Microsoft Docs
 description: Informatie over wat voor soort gegevens kan worden geëxtraheerd uit Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 4341233e56ef62486b935457f606e54e54af84f4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952586"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225679"
 ---
 # <a name="data-extraction"></a>Ophalen van gegevens
 LUIS biedt u de mogelijkheid informatie ophalen van natuurlijke taal-uitingen van een gebruiker. De informatie wordt opgehaald op een manier dat deze kan worden gebruikt door een programma, toepassing of chatbot om actie te ondernemen.
@@ -139,7 +139,7 @@ Alle entiteiten worden geretourneerd in de **entiteiten** matrix van het antwoor
 ]
 ```
 
-## <a name="tokenized-entity-returned"></a>Tokens entiteit geretourneerd
+## <a name="tokenized-entity-returned"></a>tokens entiteit geretourneerd
 Verschillende [culturen](luis-supported-languages.md#tokenization) retourneren van de entiteit met de `entity` waarde [tokenized](luis-glossary.md#token). De startIndex en endIndex die zijn geretourneerd door LUIS in de entiteitsobject toewijzen niet aan de nieuwe, tokens waarde, maar in plaats daarvan naar de oorspronkelijke query zodat u de onbewerkte entiteit via een programma ophalen. 
 
 Bijvoorbeeld, in het Duits, het woord `das Bauernbrot` is tokenized in `das bauern brot`. De waarde van tokens, `das bauern brot`, wordt geretourneerd en de oorspronkelijke waarde kan via een programma kan worden bepaald uit het startIndex en endIndex van de oorspronkelijke query, zodat u `das Bauernbrot`.

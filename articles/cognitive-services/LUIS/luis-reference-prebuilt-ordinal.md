@@ -1,27 +1,27 @@
 ---
-title: Vooraf gedefinieerde LUIS entiteiten verwijzingsnummer - Azure | Microsoft Docs
+title: LUIS vooraf gemaakte entiteiten rangtelwoord referentie - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Dit artikel bevat informatie rangtelwoord vooraf gedefinieerde entiteit in Language Understanding (LUIS).
+description: In dit artikel bevat rangtelwoord vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 2ff9b083e6cabe455baea3ed777dd6cc00b6fbfe
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 216114ec521e2065cb13cd39b4086f50ec81ba56
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321965"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236751"
 ---
-# <a name="ordinal-entity"></a>Rangtelwoord entiteit
-Rangtelwoord is een numerieke representatie van een object in een set: `first`, `second`, `third`. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld utterances met rangtelwoord voor de toepassing intents toevoegen. Rangtelwoord entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
+# <a name="ordinal-entity"></a>Rangtelwoordentiteit
+Rangtelwoord is een numerieke representatie van een object in een set: `first`, `second`, `third`. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met rangtelwoord voor de toepassing intents. Rangtelwoord entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
 
-## <a name="types-of-ordinal"></a>Typen rangtelwoord
-Rangtelwoord wordt beheerd vanaf de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) Github-opslagplaats
+## <a name="types-of-ordinal"></a>Typen volgnummer
+Het rangtelwoord voor wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) Github-opslagplaats
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Oplossing voor vooraf gedefinieerde rangtelwoord entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.ordinal** entiteit.

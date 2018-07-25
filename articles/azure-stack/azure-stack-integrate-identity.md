@@ -1,55 +1,55 @@
 ---
-title: Stack datacenter integratie van Azure - identiteit
-description: Meer informatie over het Azure-Stack AD FS integreren in uw datacenter AD FS
+title: Datacenter-integratie Azure Stack - identiteit
+description: Meer informatie over het integreren van Azure Stack AD FS met uw datacenter AD FS
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ee1c48c4a33d699dcb3da24b2e9a3d6e001b16c5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801470"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242934"
 ---
-# <a name="azure-stack-datacenter-integration---identity"></a>Stack datacenter integratie van Azure - identiteit
-U kunt Azure-Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure-Stack implementeert, moet u de keuze maken. Implementatie met behulp van AD FS ook aangeduid als Azure-Stack in de modus zonder verbinding implementeert.
+# <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
+U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
 
-De volgende tabel ziet u de verschillen tussen de twee identiteit keuzes:
+De volgende tabel ziet u de verschillen tussen de twee identity-opties:
 
-||De internetverbinding verbroken|Verbonden met internet|
+||Niet verbonden met het internet|Verbonden met internet|
 |---------|---------|---------|
-|Billing|Capaciteit moet<br> Enterprise Agreement (EA) alleen|Capaciteit of Pay-as-gebruik<br>EA of Cloud Solution Provider (CSP)|
+|Billing|Capaciteit moet worden<br> Alleen Enterprise Agreement (EA)|Capaciteit of betalen als u-gebruik<br>EA- of Cloud Solution Provider (CSP)|
 |Identiteit|Moet de AD FS|Azure AD of AD FS|
 |Marketplace-syndicatie|Ondersteund<br>BYOL-licentieverlening|Ondersteund<br>BYOL-licentieverlening|
-|Registratie|Aanbevolen, vereist een verwisselbaar medium<br> en een afzonderlijke aangesloten apparaat.|Geautomatiseerd|
-|Patch en bij te werken|Vereist, vereist een verwisselbaar medium<br> en een afzonderlijke aangesloten apparaat.|Updatepakket kan rechtstreeks worden gedownload.<br> van Internet naar het Azure-Stack.|
+|Registratie|Aanbevolen, verwisselbare media vereist<br> en een afzonderlijke verbonden apparaten.|Geautomatiseerd|
+|Voor patches en updates|Vereist, verwisselbare media vereist<br> en een afzonderlijke verbonden apparaten.|Updatepakket kan rechtstreeks worden gedownload.<br> vanaf het Internet met Azure Stack.|
 
 > [!IMPORTANT]
-> U kunt de id-provider niet wijzigen zonder de volledige Azure-Stack-oplossing opnieuw te implementeren.
+> U kunt niet de id-provider overstappen zonder de gehele Azure Stack-oplossing opnieuw te implementeren.
 
-## <a name="active-directory-federation-services-and-graph"></a>Active Directory Federatieservices en de grafiek
+## <a name="active-directory-federation-services-and-graph"></a>Active Directory Federatieservices en een graaf
 
-Met AD FS implementeren, kunt identiteiten in een bestaand Active Directory-forest om te verifiëren met resources in Azure-Stack. Deze bestaande Active Directory-forest moet een implementatie van AD FS waarmee het maken van een AD FS federation-vertrouwensrelatie.
+Implementeren met AD FS kunt-id's in een bestaand Active Directory-forest om te verifiëren met resources in Azure Stack. Deze bestaande Active Directory-forest vereist een implementatie van AD FS voor het toestaan van het maken van een AD FS federatieve vertrouwensrelatie.
 
-Verificatie is een deel van de identiteit. Als u wilt beheren op rollen gebaseerd toegangsbeheer (RBAC) in Azure-Stack, moet het onderdeel van de grafiek worden geconfigureerd. Wanneer u toegang tot een resource wordt overgedragen, zoekt het onderdeel van de grafiek het gebruikersaccount in het bestaande Active Directory-forest met de LDAP-protocol.
+Verificatie is een deel van de identiteit. Als u wilt beheren op rollen gebaseerd toegangsbeheer (RBAC) in Azure Stack, moet het onderdeel van de grafiek worden geconfigureerd. Wanneer toegang tot een resource wordt overgedragen, wordt de Graph-component zoekt u het gebruikersaccount in het bestaande Active Directory-forest met de LDAP-protocol.
 
-![Azure AD FS-Stack architectuur](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![Azure Stack AD FS-architectuur](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
 
-De bestaande AD FS is de account beveiligingstokenservice (STS) waarmee claims naar de Stack van Azure AD FS (de bron-STS) worden verzonden. In Azure-Stack maakt automation de vertrouwensrelatie met claimproviders met het metagegevenseindpunt voor de bestaande AD FS.
+De bestaande AD FS is de account beveiligingstokenservice (STS) waarmee claims voor de Azure Stack AD FS (de resource STS) worden verzonden. In Azure Stack maakt automation de claims provider vertrouwensrelatie met het eindpunt van de metagegevens voor de bestaande AD FS.
 
-Op de bestaande AD FS, moet u een relying party trust configureren. Deze stap wordt niet uitgevoerd door de automatisering en moet worden geconfigureerd door de operator. Het eindpunt van de metagegevens van Azure-Stack wordt beschreven in het bestand AzureStackStampDeploymentInfo.JSON of via het bevoegde eindpunt met de opdracht `Get-AzureStackInfo`.
+Op de bestaande AD FS, moet een relying party trust worden geconfigureerd. Deze stap niet wordt uitgevoerd door de automatisering en moet worden geconfigureerd door de operator. Het eindpunt van de Azure Stack-metagegevens wordt beschreven in het bestand AzureStackStampDeploymentInfo.JSON of via het eindpunt van de bevoegdheden met de opdracht `Get-AzureStackInfo`.
 
-De configuratie van de relying party-vertrouwensrelatie moet u de claim transformatie regels configureren die worden geleverd door Microsoft.
+De configuratie van de relying party trust moet u de claim transformatie regels configureren die worden geleverd door Microsoft.
 
-Voor de configuratie van de grafiek moet een service-account mits leesmachtiging heeft in de bestaande Active Directory. Dit account is vereist als invoer voor de automatisering RBAC scenario's te maken.
+Voor de configuratie van de grafiek moet een service-account dat is de machtiging lezen in de bestaande Active Directory. Dit account is vereist als invoer voor de automatisering RBAC-scenario's inschakelen.
 
-Voor de laatste stap wordt een nieuwe eigenaar geconfigureerd voor het abonnement van de provider standaard. Dit account heeft volledige toegang tot alle resources wanneer aangemeld bij de Azure-Stack-beheerdersportal.
+Voor de laatste stap is een nieuwe eigenaar voor het abonnement van de provider standaard geconfigureerd. Dit account heeft volledige toegang tot alle resources wanneer aangemeld bij de Azure Stack-beheerdersportal.
 
 Vereisten:
 
@@ -59,9 +59,9 @@ Vereisten:
 |Graph|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
-## <a name="setting-up-graph-integration"></a>Instellen van integratie met grafiek
+## <a name="setting-up-graph-integration"></a>Graph-integratie instellen
 
-Grafiek biedt alleen ondersteuning voor integratie met één Active Directory-forest. Als meerdere forests bestaat, wordt alleen het forest die zijn opgegeven in de configuratie wordt gebruikt voor het ophalen van gebruikers en groepen.
+Grafiek biedt alleen ondersteuning voor integratie met één Active Directory-forest. Als meerdere forests bestaat, wordt alleen het forest die zijn opgegeven in de configuratie worden gebruikt voor het ophalen van gebruikers en groepen.
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
@@ -69,21 +69,21 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 |Parameter|Beschrijving|Voorbeeld|
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN-naam van het doel van Active Directory-forest<br>dat u integreren wilt met|Contoso.com|
-|CustomADAdminCredentials|Een gebruiker met de machtiging lezen LDAP|YOURDOMAIN\graphservice|
+|CustomADAdminCredentials|Een gebruiker met de machtiging lezen voor LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Maak gebruikersaccount in de bestaande Active Directory (optioneel)
 
-Desgewenst kunt u een account voor de grafiek service in de bestaande Active Directory. Deze stap uitvoeren als u hebt al een account dat u wilt gebruiken.
+U kunt eventueel een account voor de Graph-service maken in de bestaande Active Directory. Deze stap uitvoeren als u geen al een account dat u wilt gebruiken.
 
-1. Maak de volgende gebruikersaccount (aanbevolen) in de bestaande Active Directory:
+1. In de bestaande Active Directory, maken de volgende gebruikersaccount (aanbevolen):
    - **Gebruikersnaam**: graphservice
-   - **Wachtwoord**: gebruik een sterk wachtwoord<br>Configureer het wachtwoord nooit verloopt.
+   - **Wachtwoord**: gebruik een sterk wachtwoord<br>Configureer het wachtwoord voor het nooit verloopt.
 
-   Er is geen speciale machtigingen of lidmaatschap vereist.
+   Er zijn geen speciale machtigingen of lidmaatschap is vereist.
 
-#### <a name="trigger-automation-to-configure-graph"></a>Automatisering van trigger voor het configureren van de grafiek
+#### <a name="trigger-automation-to-configure-graph"></a>Trigger automation graph configureren
 
-Voor deze procedure gebruikt u een computer in uw datacenternetwerk die met het bevoorrechte eindpunt in Azure-Stack communiceren kan.
+Voor deze procedure gebruikt u een computer in uw netwerk van datacenters die met de bevoorrechte eindpunt in Azure Stack communiceren kan.
 
 2. Open een verhoogde Windows PowerShell-sessie (als administrator uitvoeren) en verbinding maken met het IP-adres van de bevoegde eindpunt. Gebruik de referenties voor **CloudAdmin** om te verifiëren.
 
@@ -92,22 +92,22 @@ Voor deze procedure gebruikt u een computer in uw datacenternetwerk die met het 
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdracht: 
+3. Nu dat u met het bevoorrechte eindpunt verbonden bent, voert u de volgende opdracht uit: 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   Wanneer u wordt gevraagd, geef de referenties voor de gebruikersaccount die u wilt gebruiken voor de grafiek service (zoals graphservice). De invoer voor de cmdlet Register-DirectoryService moet de naam van het forest worden-root domein in het forest in plaats van een ander domein in het forest.
+   Wanneer u hierom wordt gevraagd, geeft u de referentie voor het gebruikersaccount dat u wilt gebruiken voor de Graph-service (zoals graphservice). De invoer voor de cmdlet Register-DirectoryService moet overeenkomen met de forestnaam / domein in het forest in plaats van een ander domein in het forest root.
 
    > [!IMPORTANT]
-   > Wacht totdat de pop-referenties (Get-Credential wordt niet ondersteund in de beschermde eindpunt) en voer de referenties van het serviceaccount van de grafiek.
+   > Wachten op de pop-referenties (Get-Credential wordt niet ondersteund in het privileged eindpunt) en voer de referenties van de Graph-serviceaccount.
 
-#### <a name="graph-protocols-and-ports"></a>Grafiek-protocollen en poorten
+#### <a name="graph-protocols-and-ports"></a>Graph-protocollen en poorten
 
-Grafiek-service in Azure-Stack gebruikt de volgende protocollen en poorten om te communiceren met een beschrijfbare Global Catalog-Server (GC) en het KDC Key Distribution Center () die kan worden verwerkt aanmeldingsaanvragen in de doel-Active Directory-forest.
+Graph-service in Azure Stack maakt gebruik van de volgende protocollen en poorten om te communiceren met een beschrijfbare Global Catalog Server (GC) en het KDC Key Distribution Center () waarmee aanmeldingsaanvragen in de doel-Active Directory-forest kunnen worden verwerkt.
 
-Grafiek-service in Azure-Stack maakt gebruik van de volgende protocollen en poorten om te communiceren met het doel van Active Directory:
+Graph-service in Azure Stack maakt gebruik van de volgende protocollen en poorten om te communiceren met het doel van Active Directory:
 
 |Type|Poort|Protocol|
 |---------|---------|---------|
@@ -116,28 +116,28 @@ Grafiek-service in Azure-Stack maakt gebruik van de volgende protocollen en poor
 |GLOBALE CATALOGUS LDAP|3268|TCP|
 |LDAP GC SSL|3269|TCP|
 
-## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Instellen van integratie met AD FS federatiemetagegevens downloaden
+## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>AD FS-integratie instellen door te downloaden van federatiemetagegevens
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
 |Parameter|Beschrijving|Voorbeeld|
 |---------|---------|---------|
-|CustomAdfsName|Naam van de claimprovider. <cr>Lijkt op die manier op de startpagina van de AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Koppeling van federatieve metagegevens|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAdfsName|De naam van de claimprovider. <cr>Lijkt op die manier op de startpagina van de AD FS.|Contoso|
+|CustomAD<br>FSFederationMetadataEndpointUri|Federatieve metagegevens van koppeling|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatisering van trigger voor het configureren van de vertrouwensrelatie met claimproviders in Azure-Stack
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Trigger automation te configureren van de vertrouwensrelatie met claimproviders in Azure Stack
 
-Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorrechte eindpunt in Azure-Stack. Er wordt verwacht dat het certificaat wordt gebruikt door het account **STS AD FS** wordt vertrouwd door de Azure-Stack.
+Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorrechte eindpunt in Azure Stack. Er wordt verwacht dat het certificaat wordt gebruikt door de account **STS AD FS** wordt vertrouwd door Azure Stack.
 
-1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en verbinding maken met de bevoorrechte eindpunt.
+1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en verbinding maken met het eindpunt van de bevoegde.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdracht met de parameters die geschikt is voor uw omgeving:
+2. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdracht uit met behulp van de parameters die geschikt is voor uw omgeving:
 
    ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
@@ -149,26 +149,26 @@ Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorr
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
-## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Instellen van integratie met AD FS aan de hand van bestand met federatieve metagegevens
+## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>AD FS-integratie instellen door op te geven van bestand met federatieve metagegevens
 
 Gebruik deze methode als een van de volgende voorwaarden voldaan wordt:
 
-- De certificaatketen is verschillend voor AD FS in vergelijking met andere eindpunten in Azure-Stack.
-- Er is geen netwerkverbinding met de bestaande AD FS-server van AD FS-exemplaar van Azure-Stack.
+- De certificaatketen is verschillend voor AD FS in vergelijking met alle andere eindpunten in Azure Stack.
+- Er is geen netwerkverbinding met de bestaande AD FS-server van AD FS-exemplaar van Azure Stack.
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
 
 |Parameter|Beschrijving|Voorbeeld|
 |---------|---------|---------|
-|CustomAdfsName|Naam van de claimprovider. De indeling lijkt op die manier op de startpagina van de AD FS.|Contoso|
-|CustomADFSFederationMetadataFile|Bestand met federatieve metagegevens|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAdfsName|De naam van de claimprovider. Op die manier op de startpagina van de AD FS wordt deze weergegeven.|Contoso|
+|CustomADFSFederationMetadataFileContent|De metagegevens van inhoud|$using: federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Bestand met federatieve metagegevens maken
 
-Voor de volgende procedure moet u een computer die een netwerkverbinding heeft met de bestaande AD FS-implementatie, wordt het account STS. Bovendien moeten de benodigde certificaten zijn geïnstalleerd.
+Voor de volgende procedure, moet u een computer die een netwerkverbinding heeft met de bestaande AD FS-implementatie, wordt de STS-account gebruiken. Bovendien moeten de benodigde certificaten zijn geïnstalleerd.
 
-1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht, met de parameters die geschikt is voor uw omgeving:
+1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht uit, met behulp van de parameters die geschikt is voor uw omgeving:
 
    ```PowerShell  
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
@@ -176,27 +176,22 @@ Voor de volgende procedure moet u een computer die een netwerkverbinding heeft m
    $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
-2. Het metagegevensbestand kopiëren naar een share die toegankelijk is vanaf de bevoorrechte eindpunt.
+2. Kopieer het bestand met metagegevens op een computer die met de bevoorrechte eindpunt communiceren kan.
 
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Trigger automation te configureren van de vertrouwensrelatie met claimproviders in Azure Stack
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatisering van trigger voor het configureren van de vertrouwensrelatie met claimproviders in Azure-Stack
+Voor deze procedure gebruikt u een computer die kan communiceren met de bevoorrechte eindpunt in Azure Stack en heeft toegang tot het bestand met metagegevens dat in een vorige stap hebt gemaakt.
 
-Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorrechte eindpunt in Azure-Stack.
-
-1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en verbinding maken met de bevoorrechte eindpunt.
+1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden.
 
    ```PowerShell  
+   $federationMetadataFileContent = get-content c:\metadata.cml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdracht met de parameters die geschikt is voor uw omgeving:
-
-   ```PowerShell  
-   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
-   ```
-
-3. Voer de volgende opdracht voor het bijwerken van de eigenaar van het abonnement van de provider standaard met de parameters die geschikt is voor uw omgeving:
+2. Voer de volgende opdracht voor het bijwerken van de eigenaar van het abonnement van de provider standaard met de parameters die geschikt is voor uw omgeving:
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
@@ -204,13 +199,13 @@ Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorr
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Relying party configureren op de bestaande AD FS-implementatie (account STS)
 
-Microsoft biedt een script waarmee de relying party trust, met inbegrip van de transformatie claimregels geconfigureerd. Met het script is optioneel als u handmatig de opdrachten kunt uitvoeren.
+Microsoft biedt een script waarmee de relying party-trust, met inbegrip van de claimregels transformatie worden geconfigureerd. Gebruik het script is optioneel als u de opdrachten handmatig kunt uitvoeren.
 
-U kunt downloaden via het script helper vanaf [Stack-hulpprogramma's van Azure](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) op Github.
+U kunt de helper-script uit downloaden [hulpprogramma's voor Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) op Github.
 
-Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
+Als u besluit de opdrachten handmatig uitvoeren, volgt u deze stappen:
 
-1. Kopieer de volgende inhoud naar een txt-bestand (bijvoorbeeld opgeslagen als c:\ClaimRules.txt) op uw datacenter AD FS-exemplaar of -farm lid:
+1. Kopieer de volgende inhoud in een txt-bestand (bijvoorbeeld opgeslagen als c:\ClaimRules.txt) op van uw datacenter AD FS-exemplaar of van farm lid:
 
    ```text
    @RuleTemplate = "LdapClaims"
@@ -243,13 +238,13 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
    => issue(claim = c);
    ```
 
-2. Om verificatie op basis van Windows Forms, open een Windows PowerShell-sessie als een gebruiker met verhoogde bevoegdheid en voer de volgende opdracht:
+2. Om in te schakelen op basis van formulieren voor Windows-verificatie, open een Windows PowerShell-sessie als een gebruiker met verhoogde bevoegdheid en voer de volgende opdracht uit:
 
    ```PowerShell  
    Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
    ```
 
-3. Als u wilt de relying party trust toevoegen, de volgende Windows PowerShell-opdracht worden uitgevoerd op uw exemplaar van AD FS of een Farmlid. Zorg ervoor dat het eindpunt van de AD FS worden bijgewerkt en verwijzen naar het bestand is gemaakt in stap 1.
+3. Als wilt toevoegen de relying party trust, voert u de volgende Windows PowerShell-opdracht op uw exemplaar van AD FS of een Farmlid. Zorg ervoor dat u het bijwerken van de AD FS-eindpunt en verwijzen naar het bestand dat in stap 1 hebt gemaakt.
 
    **Voor AD FS 2016**
 
@@ -264,18 +259,18 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
    ```
 
    > [!IMPORTANT]
-   > U moet de AD FS MMC-module gebruiken voor het configureren van de autorisatieregels voor uitgifte bij gebruik van Windows Server 2012 of 2012 R2 AD FS.
+   > De AD FS MMC-module moet u de regels voor Uitgifteautorisatie configureren bij gebruik van Windows Server 2012 of 2012 R2 AD FS.
 
-4. Wanneer u Internet Explorer of Edge-browser gebruikt voor toegang tot Azure-Stack, moet u token bindingen negeren. Anders worden de aanmeldingspogingen mislukken. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:
+4. Wanneer u Internet Explorer of de Edge-browser gebruikt voor toegang tot Azure Stack, moet u de token bindingen negeren. Anders mislukt de aanmeldingspogingen. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:
 
    > [!note]  
-   > Deze stap is niet van toepassing wanneer u Windows Server 2012 of 2012 R2 AD FS. Het is veilig voor deze opdracht overslaan en doorgaan met de integratie.
+   > Deze stap is niet van toepassing wanneer u Windows Server 2012 of 2012 R2 AD FS. Is het veilig om deze opdracht overslaan en doorgaan met de integratie.
 
    ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
-5. De Azure-Stack-portals en tooling (Visual Studio) vereisen vernieuwen van tokens. Deze moeten worden geconfigureerd door partyvertrouwensrelatie. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht:
+5. De Azure Stack-portals en hulpprogramma's (Visual Studio) vereisen vernieuwingstokens. Deze moeten worden geconfigureerd door een vertrouwensrelatie van. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht uit:
 
    ```PowerShell  
    Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
@@ -285,14 +280,14 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
 
 Er zijn veel scenario's waarvoor het gebruik van een service principal name (SPN) voor verificatie. Hier volgen enkele voorbeelden:
 
-- Gebruik met AD FS-implementatie van de Azure CLI
-- System Center Management Pack voor Azure-Stack wanneer geïmplementeerd met AD FS
-- Resourceproviders in Azure-Stack wanneer geïmplementeerd met AD FS
+- Gebruik CLI met AD FS-implementatie van Azure Stack
+- System Center Management Pack voor Azure Stack bij de implementatie met AD FS
+- Resourceproviders in Azure Stack bij de implementatie met AD FS
 - Verschillende toepassingen
 - U moet een niet-interactieve aanmelding
 
 > [!Important]  
-> AD FS biedt alleen ondersteuning voor interactieve aanmeldingssessies. Als u een niet-interactief aanmelden voor een geautomatiseerde scenario vereist, moet u een SPN.
+> AD FS ondersteunt alleen interactief aanmeldingssessies. Als u een niet-interactieve aanmelding voor een geautomatiseerde scenario vereist, moet u een SPN-naam gebruiken.
 
 Zie voor meer informatie over het maken van een SPN [service-principal maken voor AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
@@ -301,9 +296,9 @@ Zie voor meer informatie over het maken van een SPN [service-principal maken voo
 
 ### <a name="configuration-rollback"></a>Configuratie terugdraaien
 
-Een optie voor het terugdraaien is beschikbaar als een fout optreedt die verlaat de omgeving in een status waar u niet meer kunnen verifiëren.
+Als er een fout optreedt die blijven van de omgeving in een status waar u niet meer kunt verifiëren, is een optie voor het terugdraaien is beschikbaar.
 
-1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdrachten:
+1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdrachten uit:
 
    ```PowerShell  
    $creds = Get-Credential
@@ -316,10 +311,10 @@ Een optie voor het terugdraaien is beschikbaar als een fout optreedt die verlaat
    Reset-DatacenterIntegationConfiguration
    ```
 
-   Na het uitvoeren van de actie terugdraaien worden alle configuratiewijzigingen die hersteld. Alleen verificatie met de ingebouwde **CloudAdmin** gebruiker is mogelijk.
+   Nadat de terugdraaiactie is uitgevoerd, alle wijzigingen teruggedraaid. Alleen verificatie met de ingebouwde **CloudAdmin** gebruiker is mogelijk.
 
    > [!IMPORTANT]
-   > U moet de oorspronkelijke eigenaar van het standaard provider-abonnement configureren
+   > U moet de oorspronkelijke eigenaar van het abonnement van de provider standaard configureren
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
@@ -327,9 +322,9 @@ Een optie voor het terugdraaien is beschikbaar als een fout optreedt die verlaat
 
 ### <a name="collecting-additional-logs"></a>Verzamelen van aanvullende logboeken
 
-Als een van de cmdlets mislukt, kunt u aanvullende logboekbestanden verzamelen met behulp van de `Get-Azurestacklogs` cmdlet.
+Als een van de cmdlets mislukt, kunt u extra logboeken verzamelen met behulp van de `Get-Azurestacklogs` cmdlet.
 
-1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdrachten:
+1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdrachten uit:
 
    ```PowerShell  
    $creds = Get-Credential

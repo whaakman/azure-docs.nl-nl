@@ -1,36 +1,36 @@
 ---
-title: Azure Event raster Service Bus event schema
-description: Beschrijft de eigenschappen die beschikbaar zijn voor Service Bus-gebeurtenissen met Azure Event raster
+title: Azure Service Bus van Event Grid-gebeurtenisschema
+description: Beschrijft de eigenschappen die beschikbaar zijn voor Service Bus-gebeurtenissen met Azure Event Grid
 services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 02/21/2018
+ms.date: 07/23/2018
 ms.author: babanisa
-ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39bf8df69f491aace546386b1b3aabce9ea6c696
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34303314"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226540"
 ---
-# <a name="azure-event-grid-event-schema-for-service-bus"></a>Azure Event raster gebeurtenis-schema voor Service Bus
+# <a name="azure-event-grid-event-schema-for-service-bus"></a>Azure Event Grid-gebeurtenisschema voor Service Bus
 
-Dit artikel bevat de eigenschappen en het schema voor Service Bus-gebeurtenissen. Zie voor een inleiding tot gebeurtenis schema's, [Azure gebeurtenis raster gebeurtenis schema](event-schema.md).
+Dit artikel bevat de eigenschappen en het schema voor Service Bus-gebeurtenissen. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
-## <a name="available-event-types"></a>Typen beschikbare gebeurtenissen
+## <a name="available-event-types"></a>Typen van de gebeurtenis berichten beschikbaar
 
 Service Bus verzendt de volgende typen gebeurtenissen:
 
 | Gebeurtenistype | Beschrijving |
 | ---------- | ----------- |
-| Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Deze gebeurtenis treedt op wanneer er actieve berichten in een wachtrij of abonnement en er zijn geen ontvangers luisteren. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Deze gebeurtenis treedt op wanneer er actieve berichten in een wachtrij met onbestelde berichten en geen actieve listeners. |
+| Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Treedt op wanneer er zich actieve berichten in een wachtrij of abonnement en er geen ontvangers luisteren. |
+| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Treedt op wanneer er actieve berichten in een wachtrij voor onbestelbare berichten en er zijn geen actieve listeners zijn. |
 
 ## <a name="example-event"></a>Voorbeeld van de gebeurtenis
 
-Het volgende voorbeeld ziet u het schema van een actieve berichten met geen luisteraars gebeurtenis:
+Het volgende voorbeeld ziet u het schema van actieve berichten met geen listeners-gebeurtenis:
 
 ```json
 [{
@@ -52,7 +52,7 @@ Het volgende voorbeeld ziet u het schema van een actieve berichten met geen luis
 }]
 ```
 
-Het schema voor een gebeurtenis van de wachtrij voor onbestelbare lijkt:
+Het schema voor een gebeurtenis dead-letter-wachtrij is vergelijkbaar:
 
 ```json
 [{
@@ -80,29 +80,29 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
-| Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| EventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
-| eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
+| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | id | tekenreeks | De unieke id voor de gebeurtenis. |
-| gegevens | object | BLOB storage-gebeurtenisgegevens. |
+| gegevens | object | Gebeurtenisgegevens voor BLOB-opslag. |
 | dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
+| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| nameSpaceName | tekenreeks | De Service Bus-naamruimte de resource bestaat in. |
-| requestUri | tekenreeks | De URI naar de specifieke wachtrij of een abonnement dat de gebeurtenis. |
-| EntityType | tekenreeks | Het type van Service Bus-entiteit die gebeurtenissen (wachtrij of abonnement). |
-| queueName | tekenreeks | De wachtrij met de actieve berichten als u zich abonneert op een wachtrij. Waarde van null als onderwerpen over het gebruik / abonnementen. |
-| TopicName | tekenreeks | Het onderwerp de Service Bus-abonnement met actieve berichten behoort. De waarde null zijn als u gebruikmaakt van een wachtrij. |
-| SubscriptionName | tekenreeks | De Service Bus-abonnement met actieve berichten. De waarde null zijn als u gebruikmaakt van een wachtrij. |
+| namespaceName | tekenreeks | De Service Bus-naamruimte de resource bestaat in. |
+| requestUri | tekenreeks | De URI naar de specifieke wachtrij of abonnement dat verzendt de gebeurtenis. |
+| EntityType | tekenreeks | Het type van Service Bus-entiteit voor het verzenden van gebeurtenissen (wachtrij of abonnement). |
+| queueName | tekenreeks | De wachtrij met de actieve berichten als u zich abonneert op een wachtrij. Null-waarde als onderwerpen / abonnementen. |
+| topicName | tekenreeks | Het onderwerp het Service Bus-abonnement met de actieve berichten behoort tot. De waarde null als het gebruik van een wachtrij. |
+| subscriptionName | tekenreeks | Het Service Bus-abonnement met de actieve berichten. De waarde null als het gebruik van een wachtrij. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot Azure gebeurtenis raster, [wat gebeurtenis raster is?](overview.md)
-* Zie voor meer informatie over het maken van een abonnement op Azure gebeurtenis raster [gebeurtenis raster abonnement schema](subscription-creation-schema.md).
-* Zie voor meer informatie over het gebruik van Azure Event raster met Service Bus de [Service Bus Event raster integratie overzicht](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md).
-* Probeer [ontvangen van Service Bus-gebeurtenissen met de functies of Logic Apps](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json).
+* Zie voor een inleiding tot Azure Event Grid, [wat is Event Grid?](overview.md)
+* Zie voor meer informatie over het maken van een Azure Event Grid-abonnement [Event Grid-abonnementsschema](subscription-creation-schema.md).
+* Zie voor meer informatie over het gebruik van Azure Event Grid met Service Bus de [Service Bus en Event Grid-integratie overzicht](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md).
+* Probeer [ontvangen van Service Bus-gebeurtenissen met Functions of Logic Apps](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json).

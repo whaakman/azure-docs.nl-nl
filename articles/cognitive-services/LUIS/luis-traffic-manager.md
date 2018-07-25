@@ -1,20 +1,20 @@
 ---
 title: Microsoft Azure Traffic Manager gebruiken voor het verhogen van quota voor eindpunt in Language Understanding (LUIS) - Azure | Microsoft Docs
 description: Gebruik Microsoft Azure Traffic Manager naar het eindpunt quotum verdeeld over verschillende abonnementen in Language Understanding (LUIS) om eindpunt quotum te verhogen
-author: v-geberr
+author: diberry
 manager: kaiqb
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8c8228b13c972c65596f0389e2fdfde585f8a742
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.author: diberry
+ms.openlocfilehash: 77a9d4197804dcdd1e0c8b3f8a0d66100f770855
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137491"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238189"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager gebruiken voor het beheer van eindpunt quotum voor sleutels
 Language Understanding (LUIS) biedt de mogelijkheid om het quotum van de aanvraag eindpunt meer dan één sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en deze toevoegen aan de LUIS-toepassing op de **publiceren** pagina in de **Resources en sleutels** sectie. 

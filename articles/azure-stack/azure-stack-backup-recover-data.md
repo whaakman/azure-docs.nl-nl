@@ -1,6 +1,6 @@
 ---
-title: Herstellen van onherstelbaar gegevensverlies in met behulp van de infrastructuur Backup-Service van Azure-Stack | Microsoft Docs
-description: Wanneer een onherstelbare fout zorgt dat Azure Stack mislukt, kunt uw infrastructuur-gegevens herstellen bij het hervatten van de implementatie van uw Azure-Stack.
+title: Herstel na onherstelbare gegevensverlies in Azure Stack met behulp van de infrastructuur voor Backup-Service | Microsoft Docs
+description: Wanneer een onherstelbare fout zorgt ervoor dat Azure Stack mislukken, u kunt uw infrastructuur-gegevens herstellen als uw Azure Stack-implementatie hervatten.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,62 +15,62 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 7ca3945dd3768ac71e0a962417f0a621aa83be1e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f1582efa7d357f6f535c562a656ec17024357320
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075717"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242866"
 ---
-# <a name="recover-from-catastrophic-data-loss"></a>Herstellen van onherstelbaar gegevensverlies
+# <a name="recover-from-catastrophic-data-loss"></a>Herstel na onherstelbare gegevensverlies
 
-*Van toepassing op: Azure Stack geïntegreerd systemen.*
+*Is van toepassing op: Azure Stack-geïntegreerde systemen.*
 
-Azure Stack Azure-services worden uitgevoerd in uw datacenter. Azure Stack kunt uitvoeren op omgevingen met vier knooppunten zijn geïnstalleerd in één rack zo klein. Daarentegen Azure wordt uitgevoerd in meer dan 40 regio's in meerdere datacenters en meerdere zones in elke regio. Gebruikersbronnen kunnen meerdere servers, rekken datacenters en regio's omvatten. Met Azure-Stack hebt momenteel alleen u de keuze voor het implementeren van uw volledige in de cloud op één rack. Hiermee wordt uw cloud aan het risico van rampen bij uw datacenter of storingen als gevolg van fouten die belangrijke product. Wanneer een noodgeval biedt, wordt het exemplaar netwerkstack Azure offline gaat. Alle gegevens is niet kunnen worden hersteld.
+Azure Stack Azure-services worden uitgevoerd in uw datacenter. Azure Stack kunt uitvoeren op omgevingen zo klein is als vier knooppunten in één rack zijn geïnstalleerd. Daarentegen Azure wordt uitgevoerd in meer dan 40 regio's in meerdere datacenters en meerdere zones in elke regio. Gebruikersbronnen kunnen meerdere servers, rekken, datacenters en regio's omvatten. Met Azure Stack nog u alleen kiezen waarmee u uw volledige in de cloud implementeren met een enkele rack. Hiermee wordt aangegeven dat de cloud om het risico van catastrofale gebeurtenissen in uw datacenter of storingen als gevolg van belangrijke productfouten. Wanneer zich een noodsituatie voordoet, wordt het Azure Stack-exemplaar offline gaat. Alle gegevens is mogelijk niet kan worden hersteld.
 
-Afhankelijk van de hoofdoorzaak van het verlies van gegevens, kunt u wellicht een service één infrastructuur repareren of herstellen van de volledige Azure-Stack-instantie. Mogelijk moet u zelfs herstellen naar andere hardware in dezelfde locatie of in een andere locatie.
+Afhankelijk van de hoofdoorzaak van het verlies van gegevens moet u een service één infrastructuur repareren of herstellen van de volledige Azure Stack-exemplaar. Mogelijk moet u ook naar andere hardware op dezelfde locatie of in een andere locatie herstellen.
 
-Dit scenario adressen herstellen van de volledige installatie bij een storing van de apparatuur en het opnieuw distribueren van de privécloud.
+In dit scenario adressen herstellen van de volledige installatie in het geval van een storing van de apparatuur en het opnieuw distribueren van de privécloud.
 
 | Scenario                                                           | Verlies van gegevens                            | Overwegingen                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| Herstellen van een onherstelbare gegevensverlies als gevolg van noodherstel of product-fout | Alle infrastructuur en de gebruiker en de app-gegevens | Gebruiker toepassings- en afzonderlijk van infrastructuur-gegevens worden beveiligd |
+| Herstel na onherstelbare gegevensverlies vanwege een natuurramp of product-fout | Alle infrastructuur en de gebruiker en de app-gegevens | Gebruikerstoepassing en de gegevens zijn afzonderlijk uit infrastructuur-gegevens beveiligd |
 
 ## <a name="workflows"></a>Werkstromen
 
-Het traject van het beschermen van Azure Start begint met het afzonderlijk back-ups van de infrastructuur- en app/tenant-gegevens. Dit document bevat informatie over het beveiligen van de infrastructuur. 
+De reis van het beveiligen van Azure starten begint met het afzonderlijk back-ups van de infrastructuur en -app/tenant-gegevens. In dit document bevat informatie over het beveiligen van de infrastructuur. 
 
-![Eerste implementatie van Azure-Stack](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Eerste implementatie van Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow1.png)
 
-In slechtste case scenario's waarin alle gegevens gaan verloren, met de Azure-Stack herstellen is het proces voor het herstellen van de infrastructuur-gegevens uniek zijn voor deze implementatie van Azure-Stack en alle gegevens van de gebruiker. 
+In slechtste geval scenario's waarin alle gegevens verloren gaan, is herstellen van Azure Stack het proces van het terugzetten van de infrastructuur van de unieke gegevens naar deze implementatie van Azure Stack en alle gebruikersgegevens. 
 
-![Azure Stack implementeren](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Azure Stack opnieuw implementeren](media\azure-stack-backup\azure-stack-backup-workflow2.png)
 
 ## <a name="restore"></a>Herstellen
 
-Als onherstelbaar gegevensverlies maar de hardware kan nog steeds gebruikt worden, is opnieuw distribueren van Azure-Stack is vereist. Tijdens het opnieuw implementeren, kunt u de locatie voor de opslag en de referenties die zijn vereist voor toegang tot de back-ups. In deze modus zijn is er niet nodig om op te geven van de services die moeten worden teruggezet. Back-up infrastructuurbeheerder injects vlak status als onderdeel van de werkstroom voor de implementatie.
+Als er onherstelbaar gegevensverlies is, maar de hardware kan nog steeds worden gebruikt, is opnieuw implementeren van Azure Stack is vereist. U kunt de locatie voor de opslag en de referenties die zijn vereist voor toegang tot back-ups opgeven tijdens het opnieuw te implementeren. In deze modus is er niet nodig om op te geven van de services die moeten worden hersteld. Infrastructuur voor back-up Controller injects besturingselement vlak status als onderdeel van de implementatiewerkstroom.
 
-Als er een ramp dat de hardware onbruikbaar samenstelt, is opnieuw implementeren gaande alleen mogelijk op nieuwe hardware. Opnieuw distribueren kan duren voordat enkele weken vervanging hardware is ingedeeld en binnenkomt in het datacenter. Het herstellen van gegevens van het besturingselement vlak kan op elk gewenst moment. Terugzetten wordt niet ondersteund als de versie van het exemplaar opnieuw gedistribueerde meer dan één versie is groter dan de versie in de laatste back-up. 
+Als er een ramp die de hardware onbruikbaar wordt weergegeven, is opnieuw implementeren alleen mogelijk op nieuwe hardware. Opnieuw implementeren kan enkele weken duren terwijl vervanging hardware is ingedeeld en in het datacenter wordt ontvangen. Terugzetten van besturingselement vlak van gegevens is mogelijk op elk gewenst moment. Terugzetten wordt niet ondersteund als de versie van het opnieuw geïmplementeerde exemplaar groter is dan de versie die wordt gebruikt in de laatste back-up van meer dan één versie is. 
 
 | Implementatiemodus | Beginpunt | Eindpunt                                                                                                                                                                                                     |
 |-----------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Schone installatie   | Basislijn build | OEM-Stack Azure implementeert en updates voor de laatste ondersteunde versie.                                                                                                                                          |
-| Modus voor herstel   | Basislijn build | OEM Azure-Stack in herstelmodus implementeert en de versie die overeenkomt met de vereisten op basis van de meest recente back-up beschikbaar worden afgehandeld. De OEM voltooit de implementatie met het bijwerken van de laatste ondersteunde versie. |
+| Schone installatie   | Basislijn maken | OEM implementeert Azure Stack en updates voor de nieuwste ondersteunde versie.                                                                                                                                          |
+| Modus voor herstel   | Basislijn maken | OEM Azure Stack in de herstelmodus implementeert en de versie die overeenkomt met de vereisten op basis van de meest recente back-up beschikbaar worden verwerkt. De OEM is de implementatie voltooid door te werken naar de nieuwste ondersteunde versie. |
 
 ## <a name="data-in-backups"></a>Gegevens in de back-ups
 
-Azure-Stack biedt ondersteuning voor een type implementatie cloud herstelmodus aangeroepen. Deze modus wordt alleen gebruikt als u Azure-Stack herstellen na een noodgeval of product bug de oplossing onherstelbare weergegeven. Deze implementatiemodus worden niet hersteld van de gebruikersgegevens opgeslagen in de oplossing. Het bereik van deze implementatiemodus is beperkt tot het herstellen van de volgende gegevens:
+Azure Stack biedt ondersteuning voor een type implementatie met de naam cloud-herstelmodus. In deze modus wordt alleen gebruikt als u Azure Stack herstellen na een noodgeval of productfout de oplossing niet kan worden hersteld weergegeven. In deze implementatiemodus niet binnen een van de gegevens die zijn opgeslagen in de oplossing. Het bereik van deze implementatiemodus is beperkt tot het herstellen van de volgende gegevens:
 
- - Implementatie van invoer
+ - Implementatie-invoer
  - Interne identiteitssystemen
- - Federatieve identificeren configuration (niet-verbonden implementaties)
- - Basiscertificaten die wordt gebruikt door een interne certificeringsinstantie
- - Azure Resource Manager configuration gebruikersgegevens, zoals abonnementen, plannen, aanbiedingen en quota's voor opslag, netwerken en bronnen berekenen
- - KeyVault geheimen en kluizen
- - RBAC beleidstoewijzingen en roltoewijzingen 
+ - Federatieve identificatie configuratie (niet-verbonden implementaties)
+ - Basiscertificaten die worden gebruikt door een interne certificeringsinstantie
+ - Azure Resource Manager configuratie gebruikersgegevens, zoals abonnementen, plannen, aanbiedingen en quota's voor opslag, netwerk en compute-resources
+ - KeyVault-geheimen en kluizen
+ - Toewijzingen van beleid voor RBAC en roltoewijzingen 
 
-Geen van de gebruiker infrastructuur als een Service (IaaS) of Platform als een Service (PaaS)-resources zijn hersteld tijdens de implementatie. Dat wil gaan IaaS VM's, opslagaccounts, blobs, tabellen, netwerkconfiguratie, enzovoort, verloren. Het doel van het herstel van de cloud is om te controleren of de operators en gebruikers kunnen zich aanmelden in de portal nadat de implementatie is voltooid. Gebruikers die zich aanmelden in ziet hun bronnen. Gebruikers hebben hun abonnementen hersteld en samen met die de oorspronkelijke plannen en biedt beleidsregels die zijn gedefinieerd door de beheerder. Gebruikers die zich aanmelden terug in het systeem wordt uitgevoerd onder de dezelfde beperkingen die zijn opgelegd door de oorspronkelijke oplossing voordat de na noodgevallen. Nadat het herstel van de cloud is voltooid, de operator handmatig kunt terugzetten waarde toevoegen en de derde partij RPs en de bijbehorende gegevens.
+Geen van de gebruiker infrastructuur als een Service (IaaS) of Platform als een Service (PaaS)-resources worden hersteld tijdens de implementatie. Dat wil zeggen gaan IaaS-VM's, opslagaccounts, blobs, tabellen, netwerkconfiguratie en enzovoort, verloren. Het doel van cloudherstel is om te controleren of uw operators en gebruikers kunnen zich aanmelden weer in de portal nadat de implementatie is voltooid. Weer aanmelden niet zichtbaar voor gebruikers van hun resources. Gebruikers hebben hun abonnementen hersteld en samen met die de oorspronkelijke plannen en biedt beleidsregels die zijn gedefinieerd door de beheerder. Gebruikers die zich aanmelden terug in het systeem werkt onder de dezelfde beperkingen die zijn opgelegd door de oorspronkelijke oplossing voordat de na noodgevallen. Nadat de cloudherstel is voltooid, de operator handmatig kunt herstellen toegevoegde waarde en de derde partij RPs en de bijbehorende gegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - Meer informatie over aanbevolen procedures voor het [met behulp van de infrastructuur Backup-Service](azure-stack-backup-best-practices.md).
+ - Meer informatie over de best practices voor [met behulp van de infrastructuur voor Backup-Service](azure-stack-backup-best-practices.md).

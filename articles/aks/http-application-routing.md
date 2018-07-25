@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 4484031b20e625f81ba8b3869110e90df189323e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117425"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238519"
 ---
 # <a name="http-application-routing"></a>Routering van HTTP-toepassing
 
@@ -60,12 +60,12 @@ Nadat het cluster is geïmplementeerd, blader naar de resourcegroep automatisch 
 
 De oplossing voor het routering van HTTP-toepassingen kan alleen worden geactiveerd voor inkomend verkeer bronnen die zijn gemarkeerd als volgt:
 
-```
+```yaml
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Maak een bestand met de naam **voorbeelden-http-aanvraag-routing.yaml** en kopieer de volgende YAML. Update op regel 43 `<CLUSTER_SPECIFIC_DNS_ZONE>` verzameld met de naam van de DNS-zone in de laatste stap van dit artikel.
+Maak een bestand met de naam **voorbeelden-http-aanvraag-routing.yaml** en kopieer de volgende YAML. Update op regel 43 `<CLUSTER_SPECIFIC_DNS_ZONE>` verzameld met de naam van de DNS-zone in de vorige stap in dit artikel.
 
 
 ```yaml
@@ -119,7 +119,7 @@ spec:
 
 Gebruik de [kubectl toepassen] [ kubectl-apply] opdracht om de resources te maken.
 
-```
+```bash
 $ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
@@ -129,7 +129,7 @@ ingress "party-clippy" created
 
 CURL of een browser gebruiken om te navigeren naar de hostnaam die is opgegeven in de sectie host van de voorbeelden-http-aanvraag-routing.yaml-bestand. De toepassing duurt maximaal één minuut voordat deze beschikbaar zijn via internet.
 
-```
+```bash
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
  _________________________________
@@ -150,6 +150,14 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
+## <a name="remove-http-routing"></a>Verwijderen van de HTTP-routering
+
+De HTTP-routering oplossing kan worden verwijderd met de Azure CLI. Voer de volgende opdracht uit om dit te doen, vervangen door uw AKS-cluster en resource groepsnaam.
+
+```azurecli
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+```
+
 ## <a name="troubleshoot"></a>Problemen oplossen
 
 Gebruik de [kubectl logboeken] [ kubectl-logs] opdracht om de toepassingslogboeken voor de externe DNS-toepassing weer te geven. De logboeken te bevestigen dat een A- en DNS TXT-record zijn gemaakt.
@@ -167,7 +175,7 @@ Deze records kunnen ook worden weergegeven op de bron van de DNS-zone in Azure p
 
 Gebruik de [kubectl logboeken] [ kubectl-logs] opdracht om de toepassingslogboeken voor de Nginx-ingangscontroller weer te geven. De logboeken te bevestigen de `CREATE` van een resource inkomend verkeer en het opnieuw laden van de controller. Alle HTTP-activiteit wordt geregistreerd.
 
-```
+```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
 
 -------------------------------------------------------------------------------
@@ -208,7 +216,7 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 Verwijder de gekoppelde Kubernetes-objecten in dit artikel hebt gemaakt.
 
-```
+```bash
 $ kubectl delete -f samples-http-application-routing.yaml
 
 deployment "party-clippy" deleted

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: c06811afbf575b36dd1cf185a4554427ce2cd9e3
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0f4ff7c11952e6e222104b3953c547a91b4fc124
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205228"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223069"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace en AppSource publicatiehandleiding voor
 
@@ -70,47 +70,6 @@ Nadat u [indienen van uw oplossing](https://azuremarketplace.microsoft.com/sell/
 
 Zie voor meer informatie over de voordelen van Microsoft Go-To-Market en manieren om uw bedrijfsactiviteiten in de Marketplace [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
-## <a name="storefronts"></a>Webwinkels
-In een webwinkel, kunt u lijst aanbiedingen, proefversies inschakelen en transact rechtstreeks met Microsoft-klanten. Microsoft biedt verschillende storefronts in de Marketplace en AppSource. Voor de voordelen van de details van elke storefronts, Zie de volgende koppeling:
-* [AppSource en Azure Marketplace vergelijken](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
-* [Breid uw bedrijf op Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-with-azure-marketplace)
+## <a name="next-steps"></a>Volgende stappen
 
-Storefronts kunnen klanten zoeken, uitproberen en kopen apps en services die van de klant digitale transformatie versnellen. Storefronts kunnen u uw bedrijf groeien door toegang tot Microsoft-klanten en partners.
- 
-Iedere storefront biedt gespecialiseerde opties waarmee u kunt uw publicatie-investering te maximaliseren. De volgende tabel geeft een overzicht van deze opties:
-
-| Optie | AppSource | Azure Marketplace |
-|:--- |:--- |:--- |
-| Doelgroep | Besluitvormers voor line-of-business<table> <tr> <th>gespecialiseerde functies </th> </tr> <tr> <td>Boekhouding</td> </tr> <tr> <td>Een Inkoopanalyse</td> </tr> <tr> <td>Productie</td> </tr> </table> | IT-professionals en ontwikkelaars<table> <tr> <th>gespecialiseerde functies </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBA</td> </tr> <tr> <td>SecOps</td> </tr> </table> |
-| Gebouwd met of uit te breiden | <ul><li>Azure Dynamics 365</li><li>Office 365</li><li>Power BI</li><li>PowerApps</li></ul> | Azure | 
-| Typen oplossingen en services | <ul><li>Line-of-business-cloud-apps is voltooid</li><li>Office 365-invoegtoepassingen</li></ul> | <ul><li>Infrastructuuroplossingen</li><li>Professionele diensten</li></ul> |
-| Type aanbieding | <ul><li>Adviesservices</li><li>Contact opnemen</li><li>Gratis proefversie</li><li>Nu ophalen</li><li>Test drive</li></ul> | <ul><li>Azure-apps: beheerde app</li><li>Azure-apps: oplossingssjabloon</li><li>Adviesservices</li><li>Contact opnemen</li><li>Proefversie</li><li>Virtuele machine</li></ul> |
-| In-app-ervaring aan gebruikers toegang geven tot apps en services in de context van uw app | <ul><li>Dynamics 365</li><li>Office 365</li><li>Office-ClientApps</li><li>Power BI</li></ul> | <ul><li>Azure Portal</li><li>Azure Resource Manager</li><li>Azure-CLI</li></ul> |
-
-## <a name="publish-in-the-marketplace"></a>Publiceren op Marketplace
-De volgende artikelen kunt u meer informatie over de opties voor publiceren in AppSource en de Azure Marketplace.
-
-Word een uitgever in een winkel in de Marketplace in drie eenvoudige stappen:
-1. [Bepalen welke optie het publiceren](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type) 
-2. [Uitgever op Marketplace-storefronts geworden](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) 
-
-## <a name="publishing-checklists"></a>Controlelijsten voor publiceren
-*   [Publiceren controlelijst voor AppSource](publishing-checklist-appsource.md)
-*   [Controlelijst voor de Azure Marketplace in de Cloud Partner-Portal voor publiceren](./publishing-checklist-azure-Marketplace.md)
-*   [Een proefversie van aanbieding met behulp van Azure Active Directory inschakelen](./enable-trial-using-azure-ad.md)
-
-## <a name="support"></a>Ondersteuning
-*   [Ondersteuning voor AppSource](./support-appsource.md) 
-*   [Ondersteuning voor de Azure Marketplace](./support-azure-Marketplace.md)
-
-## <a name="guides"></a>Handleidingen
-*   [Adviesdiensten voor Azure Marketplace](consulting-services.md)
-*   [Technische handleiding voor publicatie van SaaS-toepassingen op Azure Marketplace](Marketplace-saas-applications-technical-publishing-guide.md)
-
-## <a name="guidelines"></a>Richtlijnen
-*   [Richtlijnen](./guidelines.md)
-*   [Richtlijnen voor het maken van een Microsoft-ID voor het beheren van een Marketplace-account](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)
-*   [Registreren in Dev Center](./register-dev-center.md) 
-*   [Voeg informatie over de bank en belasting](./add-bank-tax-info.md) 
-*   [Een proefversie van aanbieding met behulp van Azure Active Directory inschakelen](./enable-trial-using-azure-ad.md)
-*   [Opties voor de Azure Marketplace voor facturering](./billing-options-azure-marketplace.md) 
+Bekijk uitgebreide informatie over cloudonderwerpen marketplace door te verkennen van de inhoudsopgave aan de linkerkant. 

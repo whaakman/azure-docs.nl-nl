@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea134cde8b174d020a0adf73256aec3a6c406eaa
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044863"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237594"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -79,7 +79,7 @@ Om te bepalen als u hebt geverifieerd naar Azure en hebben toegang tot het abonn
 
 #### <a name="issue"></a>Probleem
 
-U ontvangt het de volgende fout wanneer verificatie bij Azure met uw Azure gebruikersnaam en wachtwoord:
+U ontvangt de volgende fout wanneer verificatie bij Azure met uw Azure gebruikersnaam en wachtwoord:
 
 ```
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required

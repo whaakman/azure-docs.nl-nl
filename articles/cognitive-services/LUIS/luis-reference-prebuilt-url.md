@@ -1,29 +1,29 @@
 ---
 title: Url-verwijzing LUIS vooraf gemaakte entiteiten - Azure | Microsoft Docs
 titleSuffix: Azure
-description: In dit artikel bevat een url vooraf gedefinieerde entiteitsgegevens in Language Understanding (LUIS).
+description: In dit artikel bevat een url vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4eacf564a295a568a3e2c8d2f44ad0af3fbbe258
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 86989abab1dcf64384b8b26b9484bc508f2ce31f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321958"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236785"
 ---
 # <a name="url-entity"></a>URL-entiteit
-URL-entiteit extraheert URL's met domeinnamen of IP-adressen. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld utterances met URL's naar de toepassing toevoegen. URL-entiteit wordt ondersteund in `en-us` alleen de cultuur. 
+URL-entiteit extraheert URL's met domeinnamen of IP-adressen. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met URL's naar de toepassing. URL-entiteit wordt ondersteund in `en-us` alleen de cultuur. 
 
-## <a name="types-of-urls"></a>URL 's
-De URL wordt beheerd vanaf de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) Github-opslagplaats
+## <a name="types-of-urls"></a>Typen van URL 's
+URL wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) Github-opslagplaats
 
-## <a name="resolution-for-prebuilt-url-entity"></a>Oplossing voor vooraf gedefinieerde URL entiteit
+## <a name="resolution-for-prebuilt-url-entity"></a>Oplossing voor vooraf gedefinieerde URL-entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.url** entiteit.
 
 ```JSON

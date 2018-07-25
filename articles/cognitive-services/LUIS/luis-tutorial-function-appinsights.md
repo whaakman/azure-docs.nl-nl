@@ -1,66 +1,66 @@
 ---
-title: LUIS gegevens toevoegen aan de Application Insights met behulp van Node.js | Microsoft Docs
+title: LUIS-gegevens toevoegen aan de Application Insights met behulp van Node.js | Microsoft Docs
 titleSuffix: Azure
-description: Bouw een bot geïntegreerd met een LUIS toepassing en de Application Insights met behulp van Node.js.
+description: Bouw een bot die is geïntegreerd met een LUIS-toepassing en de Application Insights met behulp van Node.js.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: v-geberr
-ms.openlocfilehash: 929b6e1cc980d7215f91a616820e257aed26bab7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 5b65747bea7d2496558c5b3b533bb8420eee6254
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345769"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236836"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>LUIS resultaten van een web-app-bot naar Application Insights toevoegen
-Deze zelfstudie voegt LUIS aanvraag en antwoord-informatie naar [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie gegevensopslag. Zodra u dat de gegevens hebt, kunt u deze query met de Kusto taal of Power BI analyseren, samenvoegen, en in het rapport op intents en entiteiten van de utterance in realtime. Dit analyse kunt u bepalen of u moet toevoegen of intents en entiteiten van uw app LUIS bewerken.
+# <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>LUIS resultaten naar Application Insights toevoegen uit een web-app-bot
+In deze zelfstudie voegt LUIS-aanvraag en respons informatie aan [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 * Application Insights-bibliotheek toevoegen aan een web-app-bot
 * Vastleggen en LUIS queryresultaten verzenden naar Application Insights
-* Application Insights voor bovenste bedoelingen, score en utterance query
+* Query uitvoeren op Application Insights voor het belangrijkste doel, score en utterance
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Uw bot LUIS web-app uit de **[vorige zelfstudie](luis-nodejs-tutorial-build-bot-framework-sample.md)** met Application Insights is ingeschakeld. 
+* Uw LUIS web app-bot uit de **[vorige zelfstudie](luis-nodejs-tutorial-build-bot-framework-sample.md)** met Application Insights is ingeschakeld. 
 
 > [!Tip]
-> Als u nog geen een abonnement, kunt u registreren voor een [gratis account](https://azure.microsoft.com/free/).
+> Als u nog geen een abonnement, kunt u zich registreren voor een [gratis account](https://azure.microsoft.com/free/).
 
-Alle code in deze zelfstudie is beschikbaar op de [LUIS-Samples github-opslagplaats](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) en elke regel die is gekoppeld aan deze zelfstudie is toegelicht met `//APPINSIGHT:`. 
+Alle code in deze zelfstudie vindt u op de [LUIS-Samples github-opslagplaats](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) en elke regel die is gekoppeld aan deze zelfstudie is opgenomen als met `//APPINSIGHT:`. 
 
-## <a name="web-app-bot-with-luis"></a>Web-app bot met LUIS
-Deze zelfstudie wordt ervan uitgegaan dat u hebt code dat vergelijkbaar is met de volgende of dat u hebt voltooid de [andere zelfstudie](luis-nodejs-tutorial-build-bot-framework-sample.md): 
+## <a name="web-app-bot-with-luis"></a>Web app-bot gebruikmaken van LUIS
+In deze zelfstudie wordt ervan uitgegaan dat u hebt code dat er als volgt of dat u hebt voltooid de [andere zelfstudie](luis-nodejs-tutorial-build-bot-framework-sample.md): 
 
    [!code-javascript[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/nodejs/app.js "Web app bot with LUIS")]
 
-## <a name="add-application-insights-library-to-web-app-bot"></a>Application Insights-bibliotheek toevoegen aan web-app bot
-Op dit moment in de Application Insights-service gebruikt in deze web-app-bot telemetrie van de algemene status voor de bot worden verzameld. Deze verzamelt geen LUIS aanvraag en -antwoord informatie die u nodig hebt om te controleren en herstellen van uw intents en entiteiten. 
+## <a name="add-application-insights-library-to-web-app-bot"></a>Application Insights-bibliotheek toevoegen aan web app-bot
+Op dit moment verzamelt de Application Insights-service, die wordt gebruikt in deze web-app-bot, telemetrie van de algemene status voor de bot. Deze verzamelt geen LUIS aanvraag- en informatie die u nodig hebt om te controleren en herstellen van uw intenties en entiteiten. 
 
-Als u wilt vastleggen die de LUIS aanvraag en -antwoord zijn, de WebBot-app moet de **[Application Insights](https://www.npmjs.com/package/applicationinsights)** NPM-pakket geïnstalleerd en geconfigureerd de **app.js** bestand. De handlers opzet dialoogvenster moeten de LUIS aanvraag en -antwoord om informatie te verzenden naar Application Insights. 
+Om te kunnen leggen de LUIS-aanvraag en respons, de web-app-bot moet de **[Application Insights](https://www.npmjs.com/package/applicationinsights)** NPM-pakket geïnstalleerd en geconfigureerd in de **app.js** bestand. Vervolgens moeten de intentie dialoogvenster handlers de LUIS aanvraag en respons gegevens verzenden naar Application Insights. 
 
-1. Selecteer in de Azure-portal in de web-app bot service **bouwen** onder de **Bot Management** sectie. 
+1. Selecteer in de Azure portal, in de web-app-bot-service **bouwen** onder de **Bot Management** sectie. 
 
-    ![Zoeken naar de app insights](./media/luis-tutorial-appinsights/build.png)
+    ![Zoeken naar app insights](./media/luis-tutorial-appinsights/build.png)
 
-2. Een nieuw browsertabblad geopend met de App Service-Editor. Selecteer de naam van de app in de bovenste balk en vervolgens **Kudu-Console openen**. 
+2. Er wordt een nieuw browsertabblad geopend met de App Service-Editor. Selecteer de naam van de app in de bovenste balk en selecteer vervolgens **Kudu-Console openen**. 
 
-    ![Zoeken naar de app insights](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Zoeken naar app insights](./media/luis-tutorial-appinsights/kudu-console.png)
 
-3. Voer de volgende opdracht om Application Insights en het onderstrepingsteken pakketten te installeren in de console:
+3. Voer de volgende opdracht om Application Insights en het onderstrepingsteken-pakketten te installeren in de console:
 
     ```
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
-    ![Zoeken naar de app insights](./media/luis-tutorial-appinsights/npm-install.png)
+    ![Zoeken naar app insights](./media/luis-tutorial-appinsights/npm-install.png)
 
     Wacht tot de pakketten te installeren:
 
@@ -79,16 +79,16 @@ Als u wilt vastleggen die de LUIS aanvraag en -antwoord zijn, de WebBot-app moet
     `-- underscore@1.8.3 
     ```
 
-    U klaar bent met het browsertabblad kudu-console.
+    U klaar bent met het browsertabblad voor kudu-console.
 
 ## <a name="capture-and-send-luis-query-results-to-application-insights"></a>Vastleggen en LUIS queryresultaten verzenden naar Application Insights
-1. Open in het tabblad App Service-Editor browser de **app.js** bestand.
+1. Open in het browsertabblad App Service-Editor de **app.js** bestand.
 
 2. Voeg de volgende bibliotheken NPM onder de bestaande `requires` regels:
 
    [!code-javascript[Add NPM packages to app.js](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=12-16 "Add NPM packages to app.js")]
 
-3. De Application Insights-object maken en gebruiken van de toepassingsinstelling voor web-app bot **BotDevInsightsKey**: 
+3. De Application Insights-object maken en gebruiken van de toepassingsinstelling voor web-app-bot **BotDevInsightsKey**: 
 
    [!code-javascript[Create the Application Insights object](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=68-80 "Create the Application Insights object")]
 
@@ -96,49 +96,49 @@ Als u wilt vastleggen die de LUIS aanvraag en -antwoord zijn, de WebBot-app moet
 
    [!code-javascript[Add the appInsightsLog function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=82-109 "Add the appInsightsLog function")]
 
-    De laatste regel van de functie is waar de gegevens naar Application Insights is toegevoegd. De naam van de gebeurtenis is **LUIS resultaten**, een unieke naam naast andere telemetriegegevens die door deze web-app-bot worden verzameld. 
+    De laatste regel van de functie is waar de gegevens naar Application Insights is toegevoegd. De naam van de gebeurtenis is **LUIS-resultaten**, een unieke naam naast andere telemetriegegevens die zijn verzameld door deze web-app-bot. 
 
-5. Gebruik de **appInsightsLog** functie. U toevoegen deze aan elke opzet dialoogvenster:
+5. Gebruik de **appInsightsLog** functie. U toevoegen deze aan elke intentie dialoogvenster:
 
    [!code-javascript[Use the appInsightsLog function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=117-118 "Use the appInsightsLog function")]
 
-6. U kunt uw web-app-bot testen met de **testen in Web chatten** functie. U moet zien geen verschil omdat al het werk in Application Insights, niet in de bot-antwoorden.
+6. U kunt uw web-app-bot testen met de **testen in Web Chat** functie. U kunt geen verschil moeten zien, omdat al het werk in Application Insights, niet in de antwoorden van een bot.
 
-## <a name="view-luis-entries-in-application-insights"></a>LUIS items weergeven in Application Insights
-Application Insights om te zien van de vermeldingen LUIS openen. 
+## <a name="view-luis-entries-in-application-insights"></a>LUIS-items weergeven in Application Insights
+Open Application Insights om te zien van de LUIS-vermeldingen. 
 
-1. Selecteer in de portal **alle resources** vervolgens filteren op de bot-naam van de web-app. Klik op de resource met het type **Application Insights**. Het pictogram voor Application Insights is een gloeilampje. 
+1. Selecteer in de portal **alle resources** vervolgens filteren op de naam van de web-app-bot. Klik op de resource met het type **Application Insights**. Het pictogram voor Application Insights is een gloeilampje. 
 
-    ![Zoeken naar de app insights](./media/luis-tutorial-appinsights/search-for-app-insights.png)
+    ![Zoeken naar app insights](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 
 
-2. Wanneer de bron wordt geopend, klikt u op de **Search** pictogram van het Vergrootglas in het deelvenster uiterst rechts. Een nieuw deelvenster naar de juiste wordt weergegeven. Afhankelijk van hoeveel telemetriegegevens wordt gevonden, het paneel kan duren voordat een tweede om weer te geven. Zoeken naar `LUIS-results` en drukt op het toetsenbord invoeren. De lijst wordt met NET LUIS queryresultaten toegevoegd met deze zelfstudie verkleind.
+2. Wanneer de resource wordt geopend, klikt u op de **zoeken** pictogram van het Vergrootglas in het deelvenster uiterst rechts. Een nieuw deelvenster met de juiste weergegeven. Afhankelijk van hoeveel telemetriegegevens wordt gevonden, het deelvenster kan duren voordat een tweede om weer te geven. Zoeken naar `LUIS-results` en hits invoeren op het toetsenbord. De lijst wordt met alleen LUIS queryresultaten toegevoegd met deze zelfstudie teruggebracht.
 
     ![Filteren op afhankelijkheden](./media/luis-tutorial-appinsights/app-insights-filter.png)
 
-3. Selecteer de bovenste waarde. Meer gedetailleerde gegevens, inclusief de aangepaste gegevens voor de query LUIS helemaal rechts in een nieuw venster weergegeven. De gegevens bevatten het belangrijkste doel en de score.
+3. Selecteer het eerste item. Een nieuw venster geeft meer gedetailleerde gegevens, met inbegrip van de aangepaste gegevens voor de query LUIS helemaal rechts. De gegevens bevatten het belangrijkste doel en de score.
 
     ![Details van afhankelijkheid](./media/luis-tutorial-appinsights/app-insights-detail.png)
 
-    Wanneer u klaar bent, selecteert u de meest rechtse top **X** om terug te keren naar de lijst met items van afhankelijkheid. 
+    Wanneer u klaar bent, selecteert u de top rechtse **X** om terug te keren naar de lijst met items van de afhankelijkheid. 
 
 
 > [!Tip]
-> Als u de lijst afhankelijkheid opslaan en terugkeren naar deze later wilt, klikt u op **... Meer** en klik op **favoriet opslaan**.
+> Als u de afhankelijkheidslijst opslaan en dit bestand later wilt, klikt u op **... Meer** en klikt u op **favoriet opslaan**.
 
-## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights-query voor het doel en score utterance
-Application Insights biedt u de power query uitvoeren op de gegevens met de [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) taal, alsmede exporteren naar [PowerBI](https://powerbi.microsoft.com). 
+## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights-query voor het doel, score en utterance
+Application Insights biedt u de power query uitvoeren op gegevens die met de [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) taal, alsmede exporteren naar [Power BI](https://powerbi.microsoft.com). 
 
-1. Klik op **Analytics** aan de bovenkant van de afhankelijkheid aanbieding boven het filtervak. 
+1. Klik op **Analytics** aan de bovenkant van de afhankelijkheid worden vermeld, boven het filtervak. 
 
     ![Knop Analytics](./media/luis-tutorial-appinsights/analytics-button.png)
 
-2. Een nieuw venster geopend met een venster van de tabel gegevens hieronder die en een queryvenster aan de bovenkant. Als u eerder databases hebt gebruikt, wordt deze rangschikking bekend is. De query bevat alle items uit de afgelopen 24 uur dat begint met de naam `LUIS-results`. De **CustomDimensions** kolom heeft de queryresultaten LUIS als naam/waarde-paren.
+2. Er wordt een nieuw venster geopend met een query aan de bovenkant en een venster van de tabel gegevens hieronder die. Als u databases hebt gebruikt, wordt deze rangschikking bekend is. De query bevat alle objecten van de afgelopen 24 uur beginnen met de naam van de `LUIS-results`. De **CustomDimensions** kolom bevat de resultaten van de LUIS-query als naam/waarde-paren.
 
-    ![Analytics query-venster](./media/luis-tutorial-appinsights/analytics-query-window.png)
+    ![Analytics-query-venster](./media/luis-tutorial-appinsights/analytics-query-window.png)
 
-3. Toevoegen om op te halen uit de bovenste bedoelingen, score en utterance, de volgende net boven de laatste regel in het queryvenster:
+3. Als u wilt ophalen van de belangrijkste doel, score en utterance, voeg u de volgende vlak boven de laatste regel in het queryvenster:
 
     ```SQL
     | extend topIntent = tostring(customDimensions.LUIS_intent_intent)
@@ -146,18 +146,18 @@ Application Insights biedt u de power query uitvoeren op de gegevens met de [Kus
     | extend utterance = tostring(customDimensions.LUIS_text)
     ```
 
-4. Voer de query uit. Schuif naar rechts in de tabel. De nieuwe kolommen van topIntent, score en utterance zijn beschikbaar. Klik op de topIntent kolom te sorteren.
+4. Voer de query uit. Blader naar de rechterkant in de tabel. De nieuwe kolommen topIntent, score en utterance zijn beschikbaar. Klik op de topIntent kolom te sorteren.
 
-    ![De bovenste bedoeling Analytics](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
+    ![Belangrijkste doel van Analytics](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-Meer informatie over de [Kusto querytaal](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) of [exporteren van gegevens naar PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Meer informatie over de [Kusto-querytaal](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) of [de gegevens exporteren naar Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Andere informatie die u mogelijk wilt toevoegen aan de application insights-gegevens omvat app-ID, versie-ID, datum van laatste model, laatste trainen datum, datum laatste te publiceren. Deze waarden kunnen ofwel worden opgehaald van de eindpunt-URL (app-ID en versie-ID), of van een [API authoring](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) Roep vervolgens ingesteld in de web-appinstellingen bot en van daaruit opgehaald.  
+Andere informatie die u mogelijk wilt toevoegen aan de application insights-gegevens omvatten app-ID, versie-ID, datum laatste model, laatste datum van de trein, de laatste publicatiedatum. Deze waarden kunnen ofwel worden opgehaald van de eindpunt-URL (app-ID en versie-ID) of van een [API ontwerpen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) aanroepen en vervolgens ingesteld in de bot-instellingen van de web-app en van daaruit opgehaald.  
 
-Als u hetzelfde abonnement endpoint voor meer dan één LUIS app gebruikt, moet u ook de abonnements-ID en een eigenschap met de mededeling dat deze een gedeelde sleutel opnemen. 
+Als u van hetzelfde abonnement endpoint voor meer dan één LUIS-app gebruikmaakt, moet u ook de abonnements-ID en een eigenschap met de mededeling dat het een gedeelde sleutel opnemen. 
 
 > [!div class="nextstepaction"]
-> [Meer informatie over voorbeeld utterances](luis-how-to-add-example-utterances.md)
+> [Meer informatie over de voorbeeld-uitingen](luis-how-to-add-example-utterances.md)

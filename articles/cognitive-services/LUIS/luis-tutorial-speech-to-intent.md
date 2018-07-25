@@ -3,19 +3,19 @@ title: Gebruik spraak SDK voor C# met LUIS - Azure | Microsoft Docs
 titleSuffix: Azure
 description: Gebruik het spraak SDK voor C#-voorbeeld te spreken in microfoon en LUIS-voorspellingen intentie en entiteiten geretourneerd.
 services: cognitive-services
-author: v-geberr
+author: diberry
 manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 3b225a012abe4796172327d8a723338e8de67749
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry;
+ms.openlocfilehash: 4249b908cc64eb229281cff60ddaa0394f946433
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930015"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238910"
 ---
 # <a name="integrate-speech-service"></a>Integreer Speech-service
 De [spraakservice](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u gebruikmaken van een enkele aanvraag voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren.
@@ -42,7 +42,7 @@ Do I have any paid time off?
 ## <a name="add-keyphrase-prebuilt-entity"></a>Toevoegen van KeyPhrase vooraf gemaakte entiteiten
 Na het importeren van de app, selecteer **entiteiten**, klikt u vervolgens **vooraf gemaakte entiteiten beheren**. Voeg de **KeyPhrase** entiteit. De entiteit KeyPhrase sleutels onderwerp van de utterance worden uitgepakt.
 
-## <a name="train-and-publish-the-app"></a>Trainen en publiceren van de app.
+## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
 1. Selecteer in de bovenste, rechts navigatiebalk de **trainen** knop met het trainen van de LUIS-app.
 
 2. Selecteer **publiceren** naar de pagina publiceren. 

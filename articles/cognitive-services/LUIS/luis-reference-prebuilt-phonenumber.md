@@ -1,27 +1,27 @@
 ---
-title: Vooraf gedefinieerde LUIS entiteiten phone nummer referentie - Azure | Microsoft Docs
+title: LUIS vooraf gemaakte entiteiten telefoon de referentie naar - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Dit artikel bevat phone aantal vooraf gedefinieerde entiteitsgegevens in Language Understanding (LUIS).
+description: In dit artikel bevat vooraf gedefinieerde entiteit telefoonnummergegevens in Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0f72b807b9b0ec110a80d67babb1c45902b8c810
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 1ae14f72f0dc610b9399e675f49ef5fff51a6965
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321881"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238988"
 ---
-# <a name="phonenumber-entity"></a>PhoneNumber entiteit
-De `phonenumber` entiteit extraheert tal van telefoonnummers, met inbegrip van de landcode. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld utterances toevoegen aan de toepassing. De `phonenumber` entiteit wordt ondersteund in `en-us` alleen de cultuur. 
+# <a name="phonenumber-entity"></a>Telefoonnummerentiteit
+De `phonenumber` entiteit extraheert tal van telefoonnummers, inclusief landcode. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld uitingen toevoegen aan de toepassing. De `phonenumber` entiteit wordt ondersteund in `en-us` alleen de cultuur. 
 
-## <a name="types-of-phonenumber"></a>Typen telefoonnummer
-Telefoonnummer wordt beheerd vanaf de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) Github-opslagplaats
+## <a name="types-of-phonenumber"></a>Typen van telefoonnummer
+Telefoonnummer wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) Github-opslagplaats
 
 ## <a name="resolution-for-prebuilt-phonenumber-entity"></a>Oplossing voor vooraf gedefinieerde phonenumber entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.phonenumber** entiteit.

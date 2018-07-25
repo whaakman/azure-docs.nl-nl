@@ -1,26 +1,26 @@
 ---
-title: Vooraf gedefinieerde LUIS entiteiten e-referentie - Azure | Microsoft Docs
+title: LUIS vooraf gemaakte entiteiten e-referentie - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Dit artikel e-mailbericht bevat vooraf gedefinieerde entiteitsgegevens in Language Understanding (LUIS).
+description: In dit artikel e-mailbericht bevat vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 517e92202bdd5bc8d970306b9e24999fa62a8e43
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 5f2ff9ef8e06c747558d795b52423d494824a746
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321867"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236727"
 ---
-# <a name="email-entity"></a>E-entiteit
-Uitpakken van het e-mailbericht bevat het volledige e-mailadres van een utterance. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld utterances met e-mailbericht naar de toepassing intents toevoegen. E-entiteit wordt ondersteund in `en-us` alleen de cultuur. 
+# <a name="email-entity"></a>E-mailentiteit
+Extractie van e-mailbericht bevat het volledige e-mailadres van een utterance. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met e-mailbericht naar de toepassing intents. E-entiteit wordt ondersteund in `en-us` alleen de cultuur. 
 
-## <a name="resolution-for-prebuilt-email"></a>Oplossing voor vooraf gemaakte e-mail
+## <a name="resolution-for-prebuilt-email"></a>Oplossing voor vooraf gemaakte e-mailadres
 Het volgende voorbeeld ziet u de resolutie van de **builtin.email** entiteit.
 
 ```JSON

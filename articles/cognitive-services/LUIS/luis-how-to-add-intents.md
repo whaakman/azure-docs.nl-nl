@@ -2,19 +2,19 @@
 title: Intents toevoegen in toepassingen LUIS | Microsoft Docs
 description: Language Understanding (LUIS) om toe te voegen intents om apps te begrijpen van gebruikersaanvragen en reageren op deze correct te gebruiken.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 479fa450b86d19032e75ef6aa511a7bdca608d75
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869040"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225883"
 ---
 # <a name="manage-intents"></a>Intents beheren 
 Voeg [intents](luis-concept-intent.md) aan uw LUIS-app voor het identificeren van groepen van vragen of de opdrachten die het hetzelfde doel hebben. 

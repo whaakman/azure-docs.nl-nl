@@ -1,27 +1,27 @@
 ---
-title: Vooraf gedefinieerde LUIS entiteiten percentage referentie - Azure | Microsoft Docs
+title: LUIS vooraf gemaakte entiteiten percentage referentie - Azure | Microsoft Docs
 titleSuffix: Azure
-description: In dit artikel bevat percentage vooraf gedefinieerde entiteitsgegevens in Language Understanding (LUIS).
+description: In dit artikel bevat percentage vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4d502e93f8b6bf3af2da05a499c359faeabb51da
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: d445dbf69e3d2163b5d44b894f8795d41fbd34e3
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321909"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238961"
 ---
-# <a name="percentage-entity"></a>Percentage entiteit
-Percentage getallen kunnen worden weergegeven als breuken, `3 1/2`, of als percentage, `2%`. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld utterances percentage voor de toepassing die met toevoegen. Percentage entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
+# <a name="percentage-entity"></a>Percentage-entiteit
+Percentage getallen kunnen worden weergegeven als delen, `3 1/2`, of als percentage, `2%`. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met percentage van de toepassing intents. Percentage entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-percentage"></a>Typen percentage
-Percentage wordt beheerd vanaf de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) Github-opslagplaats
+Percentage wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) Github-opslagplaats
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>Oplossing voor vooraf gedefinieerde percentage entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.percentage** entiteit.

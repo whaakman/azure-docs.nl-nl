@@ -9,12 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: davidmu
-ms.openlocfilehash: 20865fc3adf8610b5a4ce111e3db91aef714fdd6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.component: B2C
+ms.openlocfilehash: cc48cd3eb40d93c26a68caf843a89f7bbfb46c6c
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448302"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236890"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Zelfstudie: Een Azure Active Directory B2C-tenant maken
 
@@ -46,7 +47,7 @@ Als u wilt beginnen met het beheren van uw nieuwe tenant, klikt u op het woord *
 
 ## <a name="link-your-tenant-to-your-subscription"></a>Uw tenant koppelt aan uw abonnement
 
-U moet uw Azure AD B2C-tenant koppelen aan uw Azure-abonnement om te schakelen van alle functionaliteit van en betaalt voor de kosten voor het gebruik. Als u niet uw tenant aan uw abonnement koppelt, werkt uw toepassingen niet correct.
+U moet uw Azure AD B2C-tenant koppelen aan uw Azure-abonnement om te beschikken over alle functionaliteit en te betalen voor gebruikskosten. Als u niet uw tenant aan uw abonnement koppelt, werkt uw toepassingen niet correct.
 
 1. Zorg ervoor dat u de map waarin het abonnement dat u wilt koppelen aan de nieuwe tenant door over te schakelen van de map in de rechterbovenhoek van de Azure-portal.
 

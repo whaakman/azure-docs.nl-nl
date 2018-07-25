@@ -2,19 +2,19 @@
 title: Inzicht in iteratieve LUIS-app ontwerpen - Azure | Microsoft Docs
 description: LUIS-apps vereisen ontwerp iteraties met het trainen van LUIS om op te halen van de beste gegevensextractie.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: v-geberr
-ms.openlocfilehash: e0467e4c41209c937f548edc0c40c05cae588f4c
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: diberry
+ms.openlocfilehash: 947350a1d0dcfb0caaca654768c3660fc1b146e1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888245"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225438"
 ---
 # <a name="authoring-cycle"></a>Ontwerpcyclus
 LUIS leert beste in een iteratief cyclus van wijzigingen in het gegevensmodel, utterance voorbeelden, publiceren en verzamelen van gegevens van eindpunt query's. 
@@ -36,7 +36,7 @@ U LUIS negeren uitingen die niet relevant zijn voor het domein van uw app door t
 ## Not just yet
 Do not add features such as a [phrase list](luis-concept-feature.md) feature in your first cycle. Phrase lists are phrases that would be specific to your app's subject area.  
 -->
-## <a name="train-and-publish-the-app"></a>Trainen en publiceren van de app.
+## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
 Zodra u verschillende uitingen van 10 tot en met 15 in elk doel, met de vereiste entiteiten met het label hebt, u LUIS trainen en publiceren om op te halen van de eindpunten. Zorg ervoor dat u uw app maken en publiceren van uw app zodat deze beschikbaar zijn in de [eindpunt regio's](luis-reference-regions.md) u nodig hebt. 
 
 ## <a name="https-endpoint-testing"></a>HTTPS-eindpunt testen

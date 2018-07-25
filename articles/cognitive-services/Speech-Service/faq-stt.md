@@ -9,14 +9,14 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: ad4b31fa7b4f4b062f01935c34f7cacf82f99106
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072123"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223884"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Veelgestelde vragen over Custom Speech Service
+# <a name="speech-to-text-frequently-asked-questions"></a>Veelgestelde vragen over spraak naar tekst
 
 Als u antwoorden op uw vragen niet in deze Veelgestelde vragen vinden, misschien dat de Custom Speech Service-community op [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) en [UserVoice](https://cognitive.uservoice.com/)
 
@@ -36,7 +36,7 @@ Als u antwoorden op uw vragen niet in deze Veelgestelde vragen vinden, misschien
 
 **Vraag**: hoe weet ik wanneer de verwerking van de gegevensset of het model voltooid is?
 
-**Antwoord**: de status van het model of de gegevensset in de tabel is momenteel de enige wil weten.
+**Antwoord**: de status van het model of de gegevensset in de tabel is momenteel de enige manier om te weten.
 Wanneer de verwerking voltooid is, wordt de status worden 'geslaagd'.
 
 **Vraag**: kan ik meer dan één model maken?
@@ -49,7 +49,7 @@ Wanneer de verwerking voltooid is, wordt de status worden 'geslaagd'.
 
 **Vraag**: Wat is het verschil tussen de zoekopdracht & dicteren modellen en het conversatie-modellen?
 
-**Antwoord**: Er zijn meer dan één basislijn modellen kiezen uit in de Speech-Service. Het conversatie-model is geschikt voor het herkennen van spraak gesproken in een eigen stijl. Dit model zou ideaal voor trnascribing aanroepen tijdens het zoeken en dicteren is ideaal voor spraak geactiveerd Apps. Universal is een nieuw model dat is erop gericht voor beide scenario's.
+**Antwoord**: Er zijn meer dan één basislijn modellen kiezen uit in de Speech-Service. Het conversatie-model is geschikt voor het herkennen van spraak gesproken in een eigen stijl. Dit model zou ideaal voor het aanroepen van tijdens het zoeken te transcriberen en dicteren is ideaal voor spraak geactiveerd Apps. Universal is een nieuw model dat is erop gericht voor beide scenario's.
 
 **Vraag**: kan ik mijn bestaande model (model stapelen) bijwerken?
 
@@ -133,7 +133,7 @@ U moet erop gericht zijn op maat van het model basislijn zodat aanpassing van de
 
 **Vraag**: hoeveel tekstgegevens heb ik nodig om te uploaden?
 
-**Antwoord**: dit is afhankelijk van hoe verschillende vocabulaire en zinnen die wordt gebruikt in uw toepassing afkomstig zijn van de eerste taalmodellen. Voor alle nieuwe woorden is het handig om zo veel voorbeelden bieden mogelijk van het gebruik van deze woorden. Voor veelvoorkomende zinnen die worden gebruikt in uw toepassing, is met inbegrip van zinnen in de taal-gegevens ook handig als het systeem om te luisteren naar deze voorwaarden ook krijgt. Het is gebruikelijk om ten minste één hudrend en doorgaans enkele honderden uitingen in de gegevensset taal of meer. Als bepaalde typen query's worden naar verwachting worden vaker voor dan anderen, kunt u ook meerdere exemplaren van de algemene query's invoegen in de gegevensset.
+**Antwoord**: dit is afhankelijk van hoe verschillende vocabulaire en zinnen die wordt gebruikt in uw toepassing afkomstig zijn van de eerste taalmodellen. Voor alle nieuwe woorden is het handig om zo veel voorbeelden bieden mogelijk van het gebruik van deze woorden. Voor veelvoorkomende zinnen die worden gebruikt in uw toepassing, is met inbegrip van zinnen in de taal-gegevens ook handig als het systeem om te luisteren naar deze voorwaarden ook krijgt. Het is gebruikelijk om ten minste één honderd en doorgaans enkele honderden uitingen in de gegevensset taal of meer. Als bepaalde typen query's worden naar verwachting worden vaker voor dan anderen, kunt u ook meerdere exemplaren van de algemene query's invoegen in de gegevensset.
 
 **Vraag**: kan ik net uploaden een lijst met woorden?
 

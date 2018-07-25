@@ -1,35 +1,35 @@
 ---
-title: Vooraf gedefinieerde LUIS afgeschaft entiteiten referentie - Azure | Microsoft Docs
+title: LUIS vooraf gemaakte afgeschaft Entity reference - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Dit artikel bevat informatie afgeschaft vooraf gedefinieerde entiteit in Language Understanding (LUIS).
+description: In dit artikel bevat de afgeschafte vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8ff260adf437eb8b390d5cfb708d2a98f989bdcb
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 8fbd2e7ea0998a6a3dc141b97d64341c8140fa61
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321874"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237057"
 ---
 # <a name="deprecated-entities"></a>Afgeschafte entiteiten
-De volgende vooraf gemaakte entiteiten zijn afgeschaft en kunnen niet worden toegevoegd aan de nieuwe LUIS apps.
+De volgende vooraf gemaakte entiteiten zijn afgeschaft en kunnen niet worden toegevoegd aan de nieuwe LUIS-apps.
 
-* **Datum-/**: bestaande LUIS apps die gebruikmaken van **datetime** moeten worden gemigreerd naar **datetimeV2**, hoewel de datum/tijd-entiteit blijft werken in bestaande apps die worden gebruikt.
-* **Geografie**: bestaande LUIS apps die gebruikmaken van **Geografie** tot en met December 2018 wordt ondersteund.
-* **Encyclopedie**: bestaande LUIS apps die gebruikmaken van **encyclopedie** tot en met December 2018 wordt ondersteund.
+* **Datum-/**: bestaande LUIS-apps die gebruikmaken van **datum-/** moeten worden gemigreerd naar **datetimeV2**, hoewel de datum/tijd-entiteit blijft werken in bestaande apps die worden gebruikt.
+* **Geografie**: bestaande LUIS-apps die gebruikmaken van **Geografie** tot December 2018 wordt ondersteund.
+* **Encyclopedie**: bestaande LUIS-apps die gebruikmaken van **encyclopedie** tot December 2018 wordt ondersteund.
 
 ## <a name="geography-culture"></a>Geografie cultuur
 **Geografie** is alleen beschikbaar in de `en-us` landinstelling.
 
 #### <a name="3-geography-subtypes"></a>3 Geografie subtypen
 
-Vooraf gedefinieerde entiteit   |   Voorbeeld utterance   |   JSON
+Vooraf gemaakte entiteiten   |   Voorbeeld utterance   |   JSON
 ------|------|------|
 ```builtin.geography.city```   |  ```seattle```    |```{ "type": "builtin.geography.city", "entity": "seattle" }```|
 ```builtin.geography.city```   |  ```paris```    |```{ "type": "builtin.geography.city", "entity": "paris" }```|
@@ -42,7 +42,7 @@ Vooraf gedefinieerde entiteit   |   Voorbeeld utterance   |   JSON
 **Encyclopedie** is alleen beschikbaar in de `en-US` landinstelling.
 
 #### <a name="encyclopedia-subtypes"></a>Encyclopedie subtypen
-Ingebouwde entiteit encyclopedie bevat meer dan 100 subtypen in de volgende tabel: bovendien encyclopedie entiteiten vaak worden toegewezen aan meerdere typen. Bijvoorbeeld: de query Ronald Reagan levert: 
+Encyclopedie ingebouwde entiteit bevat meer dan 100 subtypen in de volgende tabel: bovendien encyclopedie entiteiten vaak worden toegewezen aan meerdere typen. Bijvoorbeeld, de query Ronald Reagan levert: 
 
 ```JSON
 {
@@ -64,7 +64,7 @@ Ingebouwde entiteit encyclopedie bevat meer dan 100 subtypen in de volgende tabe
  ```
 
 
-Vooraf gedefinieerde entiteit   |   Vooraf gedefinieerde entiteit (subtypen)   |   Voorbeeld utterance
+Vooraf gemaakte entiteiten   |   Vooraf gedefinieerde entiteit (subtypen)   |   Voorbeeld utterance
 ------|------|------|
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.people.person ```|```bryan adams``` |
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.producer ```| ```walt disney``` |

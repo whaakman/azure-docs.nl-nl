@@ -3,19 +3,19 @@ title: Zelfstudie over het gebruiken van patronen voor het verbeteren van LUIS v
 titleSuffix: Cognitive Services
 description: In deze zelfstudie, gebruikt u patroon voor intents voor het verbeteren van LUIS intentie en entiteit voorspellingen.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 07/20/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 5d486272f7f713c5d4e6f7b598073c5c09875d43
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry
+ms.openlocfilehash: 9ad1d9e1543c3d9a74025fb23bd1767478b53b4b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172463"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238451"
 ---
 # <a name="tutorial-improve-app-with-patterns"></a>Zelfstudie: Een app met patronen verbeteren
 

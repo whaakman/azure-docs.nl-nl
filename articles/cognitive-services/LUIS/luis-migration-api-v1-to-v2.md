@@ -3,19 +3,19 @@ title: Handleiding API migreren van v1 in v2 | Microsoft Docs
 titleSuffix: Azure
 description: Informatie over hoe voor migratie naar de meest recente API instellen.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: v-geberr
-ms.openlocfilehash: b60aa551d55907fcac7953efa61473c845e3c2ae
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry
+ms.openlocfilehash: cb68ad57302f151975c1ca6616a24db9804a6a68
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174556"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223052"
 ---
 # <a name="api-v2-migration-guide"></a>Migratiehandleiding voor API-versie 2
 De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's wordt afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 

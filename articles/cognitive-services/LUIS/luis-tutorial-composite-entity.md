@@ -2,19 +2,19 @@
 title: Zelfstudie voor het maken van een samengestelde entiteit om uit te pakken van complexe gegevens - Azure | Microsoft Docs
 description: Informatie over het maken van een samengestelde entiteit in uw LUIS-app om op te halen van verschillende typen entiteitsgegevens.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: v-geberr
-ms.openlocfilehash: d73dc9b9f204e334a75c9de5e19c6b11e3a95b12
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: d14041e895bdf70544f7e956c76f91992a2df991
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929182"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238094"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>Zelfstudie: 6. Samengestelde entiteit toevoegen 
 In deze zelfstudie voegt u een samengestelde entiteit die u wilt de opgehaalde gegevens in een entiteit met bundelen.
@@ -25,13 +25,13 @@ In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Samengestelde entiteiten begrijpen 
 > * Samengestelde entiteit om gegevens te extraheren toevoegen
-> * App inleren en publiceren
+> * App trainen en publiceren
 > * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u geen Human Resources-app uit de zelfstudie over de [entiteit Hierarchical](luis-quickstart-intent-and-hier-entity.md) hebt, [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
 
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `composite`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd.  
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `composite`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd.  
 
 ## <a name="composite-entity-is-a-logical-grouping"></a>Samengestelde entiteit is een logische groepering 
 Het doel van de samengestelde entiteit is het groeperen van gerelateerde entiteiten in een entiteit van bovenliggende categorie. De informatie bestaat als afzonderlijke entiteiten voordat een samengestelde wordt gemaakt. Het is vergelijkbaar met hiërarchische entiteit, maar u kunt meer typen entiteiten bevatten. 
@@ -54,7 +54,7 @@ De verplaatsingsaanvraag moet ten minste bevatten de werknemer (met behulp van e
 De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en deze op in een `RequestEmployeeMove` samengestelde entiteit. 
 
 ## <a name="create-composite-entity"></a>Samengestelde entiteit maken
-1. Zorg ervoor dat uw Human Resources-app zich bevindt in de sectie **Build** van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
     [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-tutorial-composite-entity/hr-first-image.png)](./media/luis-tutorial-composite-entity/hr-first-image.png#lightbox)
 
@@ -100,16 +100,16 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en deze op i
 
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Schermafbeelding van LUIS op 'MoveEmployee' met alle uitingen met het label")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
-## <a name="train-the-luis-app"></a>LUIS-app inleren
+## <a name="train-the-luis-app"></a>LUIS-app trainen
 LUIS weten niet over de nieuwe samengestelde entiteit totdat de app wordt getraind. 
 
 1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
 
-    ![App inleren](./media/luis-tutorial-composite-entity/hr-train-button.png)
+    ![De app trainen](./media/luis-tutorial-composite-entity/hr-train-button.png)
 
-2. Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
+2. Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
 
-    ![Inleren is voltooid](./media/luis-tutorial-composite-entity/hr-trained.png)
+    ![Trainen is voltooid](./media/luis-tutorial-composite-entity/hr-trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
 Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing, moet u de app publiceren. 
@@ -123,7 +123,7 @@ Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing,
 3. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
 ## <a name="query-the-endpoint"></a>Query uitvoeren op het eindpunt 
-1. Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
+1. Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
 
     ![Eindpunt-URL selecteren](./media/luis-tutorial-composite-entity/hr-publish-select-endpoint.png)
 
@@ -312,7 +312,7 @@ Uw chatbot heeft nu voldoende gegevens om te bepalen van de primaire actie en de
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **mijn apps** in het bovenste menu links. Selecteer het weglatingsteken (***...*** ) knop aan de rechterkant van de naam van de app in de applijst, selecteer **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het menu linksboven. Selecteer het weglatingsteken (***...*** ) knop aan de rechterkant van de naam van de app in de applijst, selecteer **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 

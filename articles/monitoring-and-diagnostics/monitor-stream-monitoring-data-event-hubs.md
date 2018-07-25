@@ -5,19 +5,21 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/06/2018
+ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d131fb09e365a7a2d17b8a96c6a5fbc5d82164dc
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902986"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237930"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
 Azure Monitor biedt één pijplijn voor het verkrijgen van toegang tot alle bewakingsgegevens uit uw Azure-omgeving, zodat u kunt eenvoudig partner SIEM instellen en controlehulpprogramma's die gegevens gebruiken. Dit artikel helpt bij het instellen van de verschillende lagen van de gegevens van uw Azure-omgeving moet worden verzonden naar een enkele Event Hubs-naamruimte of event hub, waar deze kan worden verzameld door een extern hulpprogramma.
+
+> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ## <a name="what-data-can-i-send-into-an-event-hub"></a>Welke gegevens kan ik in een event hub verzenden? 
 

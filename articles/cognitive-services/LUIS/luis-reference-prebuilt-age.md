@@ -1,27 +1,27 @@
 ---
-title: Vooraf gedefinieerde LUIS entiteiten na verloop van tijd referentie - Azure | Microsoft Docs
+title: LUIS vooraf gemaakte entiteiten de ouderdom van referentie - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Dit artikel bevat leeftijd vooraf gedefinieerde entiteitsgegevens in Language Understanding (LUIS).
+description: In dit artikel bevat leeftijd vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 59732469cf0d1e55643f3977958ec34a887130d3
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: f93acb8bece8c66c3ed7197f1c4530011aec3f29
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321986"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237397"
 ---
-# <a name="age-entity"></a>Leeftijd entiteit
-De vooraf gedefinieerde leeftijd entiteit bevat de leeftijdswaarde zowel numeriek en in termen van dagen, weken, maanden en jaren. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld utterances met de toepassing die een leeftijd jonger toevoegen. Leeftijd entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
+# <a name="age-entity"></a>Leeftijdsentiteit
+De vooraf gedefinieerde leeftijd entiteit bevat de leeftijdwaarde zowel numeriek en in termen van dagen, weken, maanden en jaren. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met leeftijd aan de toepassing intents. Leeftijd entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-age"></a>Typen leeftijd
-Leeftijd wordt beheerd vanaf de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) Github-opslagplaats
+Leeftijd wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) Github-opslagplaats
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Oplossing voor vooraf gedefinieerde leeftijd entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.age** entiteit.

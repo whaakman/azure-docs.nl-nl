@@ -1,6 +1,6 @@
 ---
-title: Azure Stack beleid onderhoud | Microsoft Docs
-description: Meer informatie over de Azure-Stack onderhoud beleid en hoe u een geïntegreerde systeem in een ondersteunde status.
+title: Azure Stack servicebeleid | Microsoft Docs
+description: Meer informatie over de Azure Stack-beleid en hoe u een geïntegreerd systeem in een ondersteunde status onderhoud.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,56 +12,54 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/24/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: c3cc8857373238079fee06c61faec962d7e3a6b2
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b1e162b9ae151ee947559d40f02909aea4010e5b
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796416"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242917"
 ---
-# <a name="azure-stack-servicing-policy"></a>Azure Stack onderhoud van beleid
-Dit artikel wordt beschreven voor het beleid voor Azure-Stack geïntegreerd systemen, en wat u moet doen om uw systeem bewaren in een ondersteunde status voor onderhoud. 
+# <a name="azure-stack-servicing-policy"></a>Azure Stack servicebeleid
+Dit artikel wordt beschreven voor het uitvoeren van onderhoud beleid voor geïntegreerde Azure Stack-systemen, en wat u moet doen om te voorkomen dat uw systeem in een ondersteunde status. 
 
 ## <a name="update-package-types"></a>Pakkettypen bijwerken
 
 Er zijn twee soorten updatepakketten voor geïntegreerde systemen: 
 
-- **Microsoft software-updates**. Microsoft is verantwoordelijk voor het onderhoud levenscyclus van de end-to-end voor de Microsoft-software-updatepakketten. Deze pakketten kunnen zijn de meest recente beveiligingsupdates van Windows Server, niet-beveiligingsupdates en Azure Stack functie-updates. Bij deze updatepakketten kunt u rechtstreeks van Microsoft downloaden.
+- **Microsoft-software-updates**. Microsoft is verantwoordelijk voor het uitvoeren van onderhoud levenscyclus van de end-to-end voor de Microsoft-software-updatepakketten. Deze pakketten kunnen opnemen de meest recente beveiligingsupdates van Windows Server, niet-beveiligingsupdates en functie-updates voor Azure Stack. U kunt deze updatepakketten downloaden rechtstreeks van Microsoft.
 
-- **Door OEM geleverde leverancier updates van de hardware**. Azure Stack hardwarepartners zijn verantwoordelijk voor de end-to-end onderhoud lifecycle (inclusief richtlijnen) voor de hardware-gerelateerde firmware en stuurprogramma updatepakketten. Bovendien Azure Stack hardwarepartners eigenaar en onderhouden van de richtlijnen voor alle software en hardware op de host van de levenscyclus van hardware. De OEM-hardwareleverancier fungeert als host voor deze pakketten op hun eigen downloadsite bijwerken.
+- **OEM hardware leverancier verstrekte updates**. Azure Stack-hardware-partners zijn verantwoordelijk voor de end-to-end servicing-levenscyclus (met inbegrip van richtlijnen) voor de hardware-gerelateerde firmware en stuurprogramma-updatepakketten. Bovendien Azure Stack-hardwarepartners eigenaar en onderhouden van de richtlijnen voor alle software en hardware op de host van de levenscyclus van hardware. De hardware van OEM-leverancier als host fungeert voor deze pakketten op hun eigen downloadsite bijwerken.
 
 
-## <a name="update-package-release-cadence"></a>Update-pakket versie uitgebracht
-Microsoft verwacht voor het vrijgeven van software-updatepakketten een maandelijkse uitgebracht. Het is echter mogelijk om meerdere of geen updates in een maand. OEM-hardwareleveranciers vrijgeven hun updates op een als dat nodig is. 
+## <a name="update-package-release-cadence"></a>Vrijgeeffrequentie pakket bijwerken
+Microsoft verwacht om software-updatepakketten een maandelijkse uitgebracht vrij te geven. Het is echter mogelijk om meerdere, of er zijn geen updates in een maand. OEM-hardwareleveranciers vrijgeven hun updates op basis van behoefte. 
 
-Documentatie over het plannen en beheren van updates en het bepalen van uw huidige versie in vinden [beheren updates overzicht](azure-stack-updates.md). Voor informatie over een specifieke update, met inbegrip van hoe u dit downloaden, Zie de releaseopmerkingen voor die bijwerken: 
-- [Azure-Stack 1805 update](azure-stack-update-1805.md)
-- [Azure-Stack 1804 update](azure-stack-update-1804.md)
-- [Azure-Stack 1803 update](azure-stack-update-1803.md)
-
+Documentatie voor het plannen en beheren van updates en het bepalen van uw huidige versie in [beheren updates overzicht](azure-stack-updates.md). Voor informatie over een bepaalde update, met inbegrip van hoe u het downloaden, Zie de releaseopmerkingen voor deze update: 
+- [Azure Stack 1805 update](azure-stack-update-1805.md)
+- [Azure Stack 1804 update](azure-stack-update-1804.md)
 
 ## <a name="hotfixes"></a>Hotfixes
-In sommige gevallen kan biedt Microsoft hotfixes voor Azure-Stack dat een specifiek probleem die vaak preventief of tijdgebonden-adres.  Elke hotfix is uitgebracht met een bijbehorende Microsoft Knowledge Base-artikel waarin wordt uitgelegd van het probleem, oorzaak en oplossing. 
+In sommige gevallen biedt Microsoft hotfixes voor Azure Stack dat adres een specifiek probleem die vaak preventief of tijdgebonden.  Elke hotfix is uitgebracht met een bijbehorende Microsoft Knowledge Base-artikel waarin wordt uitgelegd van het probleem, de oorzaak en de oplossing. 
 
-Hotfixes worden gedownload en geïnstalleerd net als de gewone volledige updatepakketten voor Azure-Stack. In tegenstelling tot een volledige update de hotfixes kunt installeren in minuten. U kunt het beste dat Azure Stack Operators onderhoudsvensters instellen bij het installeren van hotfixes. Hotfixes bijwerken de versie van uw Azure-Stack-cloud, zodat u gemakkelijk bepalen kunt of de hotfix is toegepast. Er is een afzonderlijke hotfix beschikbaar voor elke versie van Azure-Stack wordt nog steeds ondersteund. Elke oplossing voor een specifieke iteratie is cumulatief en bevat de vorige updates voor die dezelfde versie. U kunt meer lezen over de toepasselijkheid van een specifieke hotfix in een oplossingen overeenkomt Knowledge Base-artikel.  
+Hotfixes worden gedownload en geïnstalleerd net als bij de reguliere volledige update-pakketten voor Azure Stack. In tegenstelling tot een volledige update de hotfixes kunt installeren in minuten. U wordt aangeraden dat Azure Stack-Operators Stel de onderhoudsvensters bij het installeren van hotfixes. Hotfixes werk de versie van uw Azure Stack-cloud, zodat u eenvoudig bepalen kunt of de hotfix is toegepast. Er is een afzonderlijke hotfix beschikbaar voor elke versie van Azure-Stack die wordt nog steeds ondersteund. Elke oplossing voor een specifieke herhaling is cumulatief en bevat de vorige updates voor die dezelfde versie. U kunt meer lezen over de toepasselijkheid van een specifieke hotfix in een correcties bijbehorende Knowledge Base-artikel.  
 
 
-## <a name="keep-your-system-under-support"></a>Houd uw systeem ondersteuning
-Om door te gaan ondersteuning krijgen, moet u de implementatie van uw Azure-Stack huidige bewaren. Het beleid uitgestelde voor updates: voor uw Azure-Stack-implementatie blijft in de ondersteuning, moet het uitvoeren van de meest recent uitgebrachte versie van de update of voer een van de twee voorgaande updateversies. Hotfixes worden niet beschouwd als primaire updateversies. Als uw Azure-Stack-cloud op achter is *meer dan twee updates*, dit wordt beschouwd als niet-compatibel en moeten bijwerken naar ten minste de minimaal ondersteunde versie om ondersteuning te ontvangen. 
+## <a name="keep-your-system-under-support"></a>Houd uw systeem onder ondersteuning
+Als u wilt doorgaan om ondersteuning te ontvangen, moet u uw Azure Stack-implementatie actueel houden. Het beleid om op updates is: voor uw Azure Stack-implementatie moet worden bewaard in de ondersteuning, moet deze het meest recent uitgebrachte versie van de update uitvoeren of een van de twee voorgaande updateversies van de uitvoeren. Hotfixes worden niet beschouwd als grote update-versies. Als uw Azure Stack-cloud op is achter *meer dan twee updates*, deze wordt beschouwd als niet-compatibel en moeten bijwerken naar ten minste de minimaal ondersteunde versie om ondersteuning te ontvangen. 
 
-Bijvoorbeeld, als de meest recente beschikbare updateversie 1805 is en de vorige twee updatepakketten versies 1804 en 1803 zijn, zowel 1803 1804 blijven en ondersteuning. 1802 is echter niet worden ondersteund. Het beleid geldt wanneer er geen release voor een maand of twee. Bijvoorbeeld, als de huidige release 1805 is en er geen 1804 release is, blijven de vorige twee updatepakketten van 1803 en 1802 worden ondersteund.
+Bijvoorbeeld, als de meest recente beschikbare versie van de update 1805 is en de vorige twee updatepakketten versies 1804 en 1803 zijn, blijven zowel 1803 1804 en ondersteuning. 1802 is echter ondersteuning vervalt. Het beleid geldt wanneer er geen versie voor een maand of twee. Bijvoorbeeld, als de huidige versie 1805 is en er geen 1804 release is, blijven de vorige twee updatepakketten 1803 en 1802 ondersteund.
 
-Microsoft-software-updatepakketten zijn niet cumulatief en moeten het vorige updatepakket als een vereiste. Als u besluit om een of meer updates te stellen, moet u overwegen de algehele runtime als u wilt ophalen naar de nieuwste versie. 
+Microsoft-software-updatepakketten zijn niet cumulatief en de vorige updatepakket als een vereiste vereisen. Als u besluit om een of meer updates uit te stellen, kunt u overwegen de totale runtime als u wilt ontvangen naar de nieuwste versie. 
 
 ## <a name="get-support"></a>Ondersteuning krijgen
-Azure Stack volgt hetzelfde proces als Azure support. Enterprise-klanten kunnen Volg de procedure beschreven in [het maken van een aanvraag voor de ondersteuning van Azure](/azure/azure-supportability/how-to-create-azure-support-request). Als u een klant van een Cloud Service Provider (CSP), neem dan contact op met uw CSP voor ondersteuning.  Zie voor meer informatie de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/support/faq/). 
+Azure Stack volgt hetzelfde ondersteuningsproces als Azure. Enterprise-klanten kunnen gaat u als volgt de procedure beschreven in [over het maken van een Azure-ondersteuningsaanvraag](/azure/azure-supportability/how-to-create-azure-support-request). Als u een klant bent van een Cloud Service Provider (CSP), neem dan contact op met uw CSP voor ondersteuning.  Zie voor meer informatie de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/support/faq/). 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Beheren van updates in de Azure-Stack](azure-stack-updates.md)
+- [Updates beheren in Azure Stack](azure-stack-updates.md)
 
 

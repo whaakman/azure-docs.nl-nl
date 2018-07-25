@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 68baab14e2adf7f43bb1e0e0f47c414555a28659
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213398"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225299"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Lab-accounts in Azure Lab Services beheren 
 Een lab-account is in Azure Lab-Services, een container voor beheerde labs zoals leslokaallabs. Een beheerder stelt u een lab-account met Azure Lab-Services en biedt toegang tot een lab-eigenaren die labs in het account maken kunnen. In dit artikel wordt beschreven hoe u een lab-account maken, alle lab-accounts weergeven of verwijderen van een lab-account.
@@ -54,6 +54,22 @@ Als u een leslokaallab in een lab-account instelt, moet de gebruiker een lid van
 
     ![Gebruiker toevoegen aan de rol Labmaker](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>Marketplace-installatiekopieën die beschikbaar zijn voor lab-eigenaars opgeven
+In deze sectie geeft u de Marketplace-installatiekopieën die lab eigenaren gebruiken kunnen om te maken van leslokaallabs. 
+
+1. Selecteer **Marketplace-installatiekopieën** in het menu aan de linkerkant. Standaard ziet u de volledige lijst met installatiekopieën (zowel ingeschakelde en uitgeschakelde). U kunt alleen ingeschakeld/uitgeschakeld installatiekopieën bekijken door te selecteren in de lijst filteren de **ingeschakeld alleen**/**alleen uitgeschakeld** optie in de vervolgkeuzelijst aan de bovenkant. 
+
+    ![Marketplace-installatiekopieën-pagina](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. Naar **uitschakelen** een Marketplace-installatiekopie die is ingeschakeld, voer een van de volgende acties: 
+    1. Selecteer **... (ellips)**  in de laatste kolom en selecteert u **uitschakelen installatiekopie**. 
+
+        ![Een afbeelding uitschakelen](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Selecteer een of meer installatiekopieën in de lijst door het selecteren van de selectievakjes in voor de namen van de installatiekopie in de lijst en selecteer **uitschakelen van de geselecteerde kopieën**. 
+
+        ![Meerdere installatiekopieën uitschakelen](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. Op dezelfde manier naar **inschakelen** een Marketplace-installatiekopie, voert u een van de volgende acties: 
+    1. Selecteer **... (ellips)**  in de laatste kolom en selecteert u **inschakelen installatiekopie**. 
+    2. Selecteer een of meer installatiekopieën in de lijst door het selecteren van de selectievakjes in voor de namen van de installatiekopie in de lijst en selecteer **inschakelen van de geselecteerde kopieën**. 
 
 ## <a name="view-lab-accounts"></a>Lab-accounts weergeven
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
