@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: da81f26109eb140135eb972fd28e487139470b82
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a69bfbe4c062012e82ca49233226eb1fcb8eb75e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032689"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113537"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Snelstart: Een Stream Analytics-taak maken met behulp van de Azure Stream Analytics-tools voor Visual Studio
 
@@ -71,6 +71,11 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
 4. Voer de **Naam**, **Locatie**en **Oplossingsnaam** van het project in en selecteer **OK**.
 
    ![Een Stream Analytics-project maken](./media/stream-analytics-quick-create-vs/create-stream-analytics-project.png)
+
+Let op de elementen die zijn opgenomen in een Azure Stream Analytics-project.
+
+   <img src="./media/stream-analytics-quick-create-vs/stream-analytics-project.png" alt="Azure Stream Analytics project elements" width="300px"/>
+
 
 ## <a name="choose-the-required-subscription"></a>Kies het vereiste abonnement
 

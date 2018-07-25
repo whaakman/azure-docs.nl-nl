@@ -6,14 +6,14 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653651"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001538"
 ---
 # <a name="introduction-to-azure-storage"></a>Kennismaking met Azure Storage
 
@@ -140,6 +140,7 @@ Er zijn twee basistypen versleuteling beschikbaar voor de Storage-services. Raad
 
 Azure SSE (Storage Service Encryption) ondersteunt versleuteling 'at rest' om uw gegevens te beschermen en te beveiligen, zodat u aan de beveiligings- en nalevingsafspraken van uw organisatie voldoet. Met deze functie worden uw gegevens automatisch versleuteld door Azure Storage voordat deze worden opgeslagen en ontsleutelt voordat ze weer worden opgehaald. De processen van versleuteling, ontsleuteling en sleutelbeheer zijn volledig transparant voor gebruikers.
 
+
 SSE versleutelt automatisch gegevens in alle prestatielagen (Standaard en Premium), alle implementatiemodellen (Azure Resource Manager en het klassieke model) en alle services van Azure Storage (Blob, Queue, Table en File). SSE heeft geen invloed op de prestaties van Azure Storage.
 
 Meer informatie over SSE-versleuteling 'at rest' vindt u in [Azure Storage Service-versleuteling voor inactieve gegevens](storage-service-encryption.md).
@@ -168,6 +169,8 @@ U kunt het opdrachtregelhulpprogramma AzCopy gebruiken om blob- en bestandsgegev
 AzCopy is gebouwd boven op de [Azure-bibliotheek voor gegevensverplaatsing](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), die momenteel beschikbaar is als voorbeeld.
 
 De Azure Import/Export-service kan worden gebruikt om grote hoeveelheden blob-gegevens naar of van uw opslagaccount te importeren of exporteren. U bereidt meerdere harde schijven voor en verstuurt die naar een Azure-datacenter, waar de gegevens vervolgens worden overgezet naar/van de harde schijven en de harde schijven vervolgens worden teruggestuurd. Zie [De Microsoft Azure Import/Export-service gebruiken om gegevens over te brengen naar Blob Storage](../storage-import-export-service.md) voor meer informatie over de Import/Export-service.
+
+Als u op een snelle, voordelige en betrouwbare manier grote hoeveelheden blob-gegevens in uw opslagaccount wilt importeren, kunt u ook Azure Data Box Disk gebruiken. Microsoft verzendt tot 5 versleutelde SSD’s (Solid-State Disks) met een capaciteit van 40 TB naar uw datacenter via een regionale transporteur. U kunt snel de schijven configureren, gegevens via een USB-verbinding naar de schijven kopiëren en de schijven naar Azure terugsturen. In het Azure-datacenter worden uw gegevens automatisch van de schijven naar de cloud geüpload. Ga naar [Overzicht van Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) voor meer informatie over deze oplossing.
 
 ## <a name="pricing"></a>Prijzen
 

@@ -1,22 +1,22 @@
 ---
 title: Zelfstudie voor het indexeren van Azure SQL-databases in Azure Search | Microsoft Docs
-description: Een Azure SQL-database verkennen om doorzoekbare gegevens op te halen en een Azure Search-index te vullen.
+description: In deze zelfstudie verkent u een Azure SQL-database om doorzoekbare gegevens op te halen en een Azure Search-index te vullen.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/10/2017
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: abf121ec369d84dd307416d2c08971d9096de4a8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799512"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988792"
 ---
-# <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Zelfstudie: Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
 
 In deze zelfstudie ziet u hoe u een indexeerfunctie configureert die doorzoekbare gegevens uit een Azure SQL-voorbeelddatabase ophaalt. [Indexeerfuncties](search-indexer-overview.md) zijn onderdelen van Azure Search die externe gegevensbronnen verkennen en een [zoekindex](search-what-is-an-index.md) vullen met inhoud. Van alle indexeerfuncties is de indexeerfunctie voor Azure SQL Database de meest gebruikte. 
 
@@ -33,9 +33,9 @@ In deze zelfstudie gebruikt u de [clientbibliotheken van Azure Search .NET](http
 > * Zoeken in de index
 > * De configuratie van de indexeerfunctie in de portal bekijken
 
-## <a name="prerequisites"></a>Vereisten
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-* Een actief Azure-account. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefabonnement](https://azure.microsoft.com/free/). 
+## <a name="prerequisites"></a>Vereisten
 
 * Een Azure Search-service. Zie [Een zoekservice maken](search-create-service-portal.md) voor meer informatie over het instellen hiervan.
 
@@ -269,21 +269,14 @@ Alle indexeerfuncties, inclusief de functie die u zojuist via programmacode hebt
 
   ![Tegels met indexeerfuncties en gegevensbronnen](./media/search-indexer-tutorial/tiles-portal.png)
 
+
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze services verder niet gaat gebruiken, volgt u deze stappen om alle resources te verwijderen die met deze zelfstudie in de Azure Portal zijn gemaakt. 
-
-1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
-2. Klik op de pagina van uw resourcegroep op **Resourcegroep verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
+De snelste manier om op te schonen na een zelfstudie is de resourcegroep met de Azure Search-service te verwijderen. U kunt de resourcegroep nu verwijderen om alles daarin permanent te verwijderen. De naam van de resourcegroep staat in de portal op de pagina Overzicht van de Azure Search-service.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Raadpleeg de volgende artikelen voor meer informatie en taken die specifiek zijn voor andere ondersteunde gegevensbronnen:
+U kunt AI-algoritmen aan een indexeringspijplijn koppelen. Als volgende stap kunt u verdergaan met de volgende zelfstudie.
 
-* [Azure SQL Database of SQL Server op een virtuele Azure-machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Indexeren van CSV-blobs met de indexeerfunctie Azure Search Blob](search-howto-index-csv-blobs.md)
-* [Indexeren van JSON-blobs met de indexeerfunctie Azure Search Blob](search-howto-index-json-blobs.md)
-
+> [!div class="nextstepaction"]
+> [Documenten in Azure Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md)

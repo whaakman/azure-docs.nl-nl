@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/19/2018
+ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f8de53f03cc1378e8aaafa9a2f486eadc23fe14
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb957346cb0e003e9aff19026ed81495abf432c5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637850"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049374"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Een inleiding tot Azure Lab Services
 Met Azure Lab Services kunt u snel in de cloud een omgeving inrichten voor uw team (zoals een ontwikkelomgeving, testomgeving of labomgeving voor het leslokaal). De eigenaar van een lab maakt een lab, richt virtuele machines met Windows of Linux in, installeert de benodigde software en hulpprogramma's en maakt deze beschikbaar voor gebruikers van het lab. Labgebruikers maken verbinding met virtuele machines (VM's) in het lab en gebruiken deze voor hun dagelijkse werk, kortlopende projecten of voor het uitvoeren van oefeningen in het leslokaal. Zodra gebruikers aan de slag gaan met resources in het lab, kan een beheerder van het lab kosten en gebruik voor meerdere labs analyseren en overkoepelend beleid instellen om de kosten van uw organisatie of het team te optimaliseren.
@@ -36,6 +36,9 @@ Azure Lab Services ondersteunt de volgende belangrijke mogelijkheden en-functies
 - **Optimalisatie van kosten en analyse**. De eigenaar van een lab kan planningen voor het lab instellen om virtuele machines automatisch af te sluiten en op te starten. De eigenaar van het lab kan een planning instellen om de tijdstippen op te geven wanneer de virtuele machines van het lab toegankelijk zijn voor gebruikers. De eigenaar kan bovendien een gebruiksbeleid per gebruiker of per lab instellen om de kosten te optimaliseren, en om gebruiks- en activiteitstrends te analyseren. Voor beheerde labs zoals leslokaal-labs is momenteel een kleinere subset met opties voor kostenoptimalisatie en -analyse beschikbaar. 
 - **Ingesloten beveiliging**. De eigenaar van een lab kan particuliere virtuele netwerken en een subnet inrichten voor een lab, en een gedeeld openbaar IP-adres inschakelen. Labgebruikers hebben op een veilige manier toegang tot resources met behulp van een virtueel netwerk dat is geconfigureerd met ExpressRoute of site-naar-site-VPN. (momenteel alleen beschikbaar in DevTest Labs)
 - **Integratie met uw werkstromen en hulpprogramma's**. Met behulp van Azure Lab Services kunt u de labs integreren met de website en beheersystemen van uw organisatie. U kunt vanuit uw hulpprogramma's voor continue integratie/continue implementatie (CI/CD) automatisch omgevingen inrichten. (momenteel alleen beschikbaar in DevTest Labs)
+
+> [!NOTE]
+> Azure Lab Services ondersteunt momenteel alleen VM's die zijn gemaakt op basis van Microsoft Azure Marketplace-installatiekopieën. Als u aangepaste installatiekopieën wilt gebruiken of andere PaaS-resources wilt maken in een testomgeving, gebruikt u DevTest Labs. Zie [Een aangepaste installatiekopie maken in DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) en [Labomgevingen maken met behulp van Resource Manager-sjablonen maken](devtest-lab-create-environment-from-arm.md) voor meer informatie. 
 
 ## <a name="scenarios"></a>Scenario's
 Hier volgen enkele van de scenario's die worden ondersteund door Azure Lab Services: 

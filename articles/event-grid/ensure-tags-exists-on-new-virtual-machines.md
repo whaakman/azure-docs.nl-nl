@@ -1,7 +1,7 @@
 ---
-title: Azure Automation integreren met gebeurtenis raster | Microsoft Docs
-description: Informatie over het automatisch toevoegen van een label wanneer een nieuwe virtuele machine wordt gemaakt en een melding verzenden naar Microsoft-Teams.
-keywords: Automation, runbook, teams, gebeurtenis raster, virtuele machine, VM
+title: Azure Automation integreren met Event Grid | Microsoft Docs
+description: Leer hoe u automatisch een tag toevoegt wanneer een nieuwe virtuele machine wordt gemaakt en een melding verzendt naar Microsoft Teams.
+keywords: automatisering, runbook, teams, event grid, virtuele machine, VM
 services: automation
 documentationcenter: ''
 author: eamonoreilly
@@ -14,112 +14,120 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: eamono
-ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26349066"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049861"
 ---
-# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Automation integreren met gebeurtenis raster en Microsoft-Teams
+# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Automation integreren met Event Grid en Microsoft-Teams
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een voorbeeldrunbook gebeurtenis raster importeren.
-> * Maak een optionele webhook van de Microsoft-Teams.
-> * Maak een webhook voor het runbook.
-> * Een gebeurtenis raster-abonnement maken.
-> * Maak een VM die het runbook wordt geactiveerd.
+> * Een voorbeeldrunbook importeren in Event Grid.
+> * Een optionele Microsoft Teams-webhook maken.
+> * Een webhook voor het runbook maken.
+> * Hiermee wordt een Event Grid-abonnement gemaakt.
+> * Een virtuele machine maken die het runbook activeert.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie een [Azure Automation-account](../automation/automation-offering-get-started.md) nodig is voor het runbook dat uit het abonnement raster voor Azure-gebeurtenis wordt geactiveerd.
+Voor het volgen van deze zelfstudie is een [Azure Automation-account](../automation/automation-offering-get-started.md) vereist voor het opslaan van het runbook dat wordt geactiveerd vanuit het Azure Event Grid-abonnement.
 
-## <a name="import-an-event-grid-sample-runbook"></a>Een voorbeeldrunbook gebeurtenis raster importeren
-1. Selecteer uw Automation-account en selecteer de **Runbooks** pagina.
+* De `AzureRM.Tags`module moet worden geladen in uw Automation-account. Zie [Modules in Azure Automation importeren](../automation/automation-update-azure-modules.md) voor informatie over het importeren van modules in Azure Automation.
+
+## <a name="import-an-event-grid-sample-runbook"></a>Een voorbeeldrunbook importeren in Event Grid
+
+1. Selecteer uw Automation-account en selecteer de pagina **Runbooks**.
 
    ![Runbooks selecteren](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
-2. Selecteer de **bladeren galerie** knop.
+2. Selecteer de knop **Bladeren in galerie**.
 
-3. Zoeken naar **gebeurtenis raster**, en selecteer **Azure Automation integreren met gebeurtenis raster**. 
+3. Zoek naar **Event Grid** en selecteer **Azure Automation integreren met Event Grid**.
 
-    ![Galerie runbook importeren](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
+    ![Galerierunbook importeren](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
-4. Selecteer **importeren** en noem deze **controle VMWrite**.
+4. Selecteer **Importeren** en noem het runbook **Watch VMWrite**.
 
-5. Nadat deze is geïmporteerd, selecteer **bewerken** om de runbookbron weer te geven. Selecteer de knop **Publiceren**.
+5. Nadat het is geïmporteerd, selecteert u **Bewerken** om de runbookbron weer te geven. Selecteer de knop **Publiceren**.
 
-## <a name="create-an-optional-microsoft-teams-webhook"></a>Een optionele Microsoft-Teams-webhook maken
-1. Selecteer in de Microsoft-Teams **meer opties** volgende op de naam van het kanaal en selecteert u vervolgens **Connectors**.
+> [!NOTE]
+> In regel 74 van het script moet de regel zijn gewijzigd in `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. De parameter `-Tags` is nu `-Tag`.
 
-    ![Microsoft-Teams verbindingen](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
+## <a name="create-an-optional-microsoft-teams-webhook"></a>Een optionele Microsoft Teams-webhook maken
 
-2. Blader door de lijst met connectors **binnenkomende Webhook**, en selecteer **toevoegen**.
+1. Selecteer in Microsoft Teams **Meer opties** naast de naam van het kanaal, en selecteer vervolgens **Connectors**.
 
-3. Voer **AzureAutomationIntegration** voor de naam en selecteer **maken**.
+    ![Microsoft Teams-connectors](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
 
-4. De webhook naar het Klembord kopiëren en opslaan. De webhook-URL wordt gebruikt om informatie te verzenden naar Microsoft-Teams.
+2. Blader door de lijst met connectors naar **Binnenkomende webhook** en selecteer **Toevoegen**.
 
-5. Selecteer **gedaan** om op te slaan van de webhook.
+3. Voer **AzureAutomationIntegration** in voor de naam en selecteer **Maken**.
 
-## <a name="create-a-webhook-for-the-runbook"></a>Maken van een webhook voor het runbook
-1. Open het runbook controle VMWrite.
+4. Kopieer de webhook naar het klembord en sla deze op. De webhook-URL wordt gebruikt voor het verzenden van gegevens naar Microsoft Teams.
 
-2. Selecteer **Webhooks**, en selecteer de **Webhook toevoegen** knop.
+5. Selecteer **Gereed** om de webhook op te slaan.
 
-3. Voer **WatchVMEventGrid** voor de naam. De URL naar het Klembord kopiëren en opslaan.
+## <a name="create-a-webhook-for-the-runbook"></a>Een webhook voor het runbook maken
 
-    ![De webhooknaam configureren](media/ensure-tags-exists-on-new-virtual-machines/copy-url.png)
+1. Open het runbook Watch VMWrite.
 
-4. Selecteer **parameters configureren en instellingen uitvoeren**, en voer de Microsoft-Teams webhook-URL voor **CHANNELURL**. Laat **WEBHOOKDATA** leeg.
+2. Selecteer **Webhooks** en selecteer de knop **Webhook toevoegen**.
 
-    ![Webhookparameters voor configureren](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
+3. Voer **WatchVMEventGrid** in voor de naam. Kopieer de URL naar het klembord en sla deze op.
 
-5. Selecteer **OK** de Automation-runbook-webhook maken.
+    ![Webhooknaam configureren](media/ensure-tags-exists-on-new-virtual-machines/copy-url.png)
+
+4. Selecteer **Parameters en runinstellingen configureren** en voer de URL van de Microsoft Teams-webhook voor **CHANNELURL** in. Laat **WEBHOOKDATA** leeg.
+
+    ![Webhookparameters configureren](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
+
+5. Selecteer **OK** om de Automation-runbookwebhook te maken.
 
 
-## <a name="create-an-event-grid-subscription"></a>Een gebeurtenis raster-abonnement maken
-1. Op de **Automation-Account** overzichtspagina, selecteer **gebeurtenis raster**.
+## <a name="create-an-event-grid-subscription"></a>Een Event Grid-abonnement maken
+1. Selecteer op de overzichtspagina **Automation-Account** de optie **Event Grid**.
 
-    ![Selecteer gebeurtenis raster](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
+    ![Event Grid selecteren](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Selecteer de **+ gebeurtenisabonnement** knop.
+2. Selecteer de knop **Gebeurtenisabonnement**.
 
-3. Het abonnement te configureren met de volgende informatie:
+3. Configureer het abonnement met de volgende gegevens:
 
-    *   Voer **AzureAutomation** voor de naam.
-    *   In **Onderwerptype**, selecteer **Azure-abonnementen**.
-    *   Schakel de **abonneren op alle gebeurtenistypen** selectievakje.
-    *   In **gebeurtenistypen**, selecteer **Resource schrijven geslaagd**.
-    *   In **abonnee eindpunt**, voert u de webhook-URL voor het runbook controle VMWrite.
-    *   In **Filter voorvoegsel**, voert u het abonnement en resourcegroep waar u wilt zoeken naar de nieuwe virtuele machines worden gemaakt. Het moet eruitzien als:`/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+    *   Voer **AzureAutomation** in voor de naam.
+    *   Selecteer **Azure-abonnementen** bij **Onderwerptype**.
+    *   Schakel het selectievakje **Abonneren op alle gebeurtenistypen** uit.
+    *   Selecteer bij **Gebeurtenistypen** de optie **Schrijven van resource geslaagd**.
+    *   Voer bij **Eindpunt abonnee** de webhook-URL voor het Watch-VMWrite-runbook in.
+    *   Voer bij **Voorvoegselfilter** het abonnement en de resourcegroep in waarin u wilt zoeken naar de nieuwe virtuele machines die zijn gemaakt. Dit ziet er als volgt uit: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
-4. Selecteer **maken** om op te slaan van het abonnement gebeurtenis raster.
+4. Selecteer **Maken** om het Event Grid-abonnement op te slaan.
 
-## <a name="create-a-vm-that-triggers-the-runbook"></a>Maak een VM die het runbook wordt geactiveerd
-1. Maak een nieuwe virtuele machine in de resourcegroep die u hebt opgegeven in het geval van raster abonnement voorvoegsel filter.
+## <a name="create-a-vm-that-triggers-the-runbook"></a>Een virtuele machine maken die het runbook activeert
+1. Maak een nieuwe virtuele machine in de resourcegroep die u hebt opgegeven in het voorvoegselfilter van het Event Grid-abonnement.
 
-2. Het controle-VMWrite runbook moet worden aangeroepen en een nieuwe tag toegevoegd aan de virtuele machine.
+2. Het VMWrite-runbook moet worden aangeroepen en er moet een nieuwe tag worden toegevoegd aan de virtuele machine.
 
     ![VM-tag](media/ensure-tags-exists-on-new-virtual-machines/vm-tag.png)
 
-3. Een nieuw bericht is verzonden naar het Microsoft-Teams-kanaal.
+3. Er wordt een nieuw bericht verzonden naar het Microsoft Teams-kanaal.
 
-    ![Melding van de Microsoft-Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
+    ![Microsoft Teams-melding](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie maakt instellen u integratie tussen gebeurtenis raster en automatisering. U hebt geleerd hoe u:
+In deze zelfstudie stelt u de integratie tussen Event Grid en Automation in. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Een voorbeeldrunbook gebeurtenis raster importeren.
-> * Maak een optionele webhook van de Microsoft-Teams.
-> * Maak een webhook voor het runbook.
-> * Een gebeurtenis raster-abonnement maken.
-> * Maak een VM die het runbook wordt geactiveerd.
+> * Een voorbeeldrunbook importeren in Event Grid.
+> * Een optionele Microsoft Teams-webhook maken.
+> * Een webhook voor het runbook maken.
+> * Hiermee wordt een Event Grid-abonnement gemaakt.
+> * Een virtuele machine maken die het runbook activeert.
 
 > [!div class="nextstepaction"]
-> [Maken en aangepaste gebeurtenissen met de gebeurtenis raster routeren](../event-grid/custom-event-quickstart.md)
+> [Aangepaste gebeurtenissen maken en routeren met behulp van Event Grid](../event-grid/custom-event-quickstart.md)

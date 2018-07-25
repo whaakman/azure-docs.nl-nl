@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Automatisch aanvullen aan het zoekvak toevoegen met Azure Search | Microsoft Docs'
+title: Zelfstudie voor het toevoegen van automatisch aanvullen aan het zoekvak met Azure Search | Microsoft Docs
 description: Voorbeelden van hoe u voor het verbeteren van de eindgebruikerservaring van uw gegevensgerichte toepassingen met behulp van Azure Search-API's voor automatisch aanvullen en het bieden van suggesties.
 manager: pablocas
 author: mrcarter8
@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 90e99e7d44183d70f4e348c7b9070001fa3c6329
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100982"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989672"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Zelfstudie: Automatisch aanvullen aan het zoekvak toevoegen met Azure Search
 

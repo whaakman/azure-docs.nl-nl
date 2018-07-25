@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 11b2fccf3c02555f50f48252f2cd9968c9ec90d7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 19fd671514da0dbfb1704c37d4347e870763d41b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38632881"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091810"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstart: Uw eerste IoT Edge-module van Azure Portal naar een Windows-apparaat implementeren - preview
 
@@ -65,16 +65,16 @@ Begin met de snelstart door uw IoT Hub in Azure Portal te maken.
 
 Het gratis niveau van IoT Hub werkt voor deze snelstart. Als u in het verleden IoT Hub hebt gebruikt en al een gratis hub hebt gemaakt, kunt u die IoT-hub gebruiken. Elk abonnement biedt toegang tot slechts één gratis IoT-hub. 
 
-1. Maak een resourcegroep in Azure Cloud Shell. In het volgende voorbeeld wordt een resourcegroep met de naam **TestResources** gemaakt in de regio **US - west**. Door alle resources voor de snelstarts en zelfstudies in een groep te plaatsen, kunt u ze samen beheren. 
+1. Maak een resourcegroep in Azure Cloud Shell. In het volgende voorbeeld wordt een resourcegroep met de naam **IoTEdgeResources** gemaakt in de regio **US - west**. Door alle resources voor de snelstarts en zelfstudies in een groep te plaatsen, kunt u ze samen beheren. 
 
    ```azurecli-interactive
-   az group create --name TestResources --location westus
+   az group create --name IoTEdgeResources --location westus
    ```
 
-1. Maak een IoT-hub in uw nieuwe resourcegroep. Met de volgende code wordt een gratis **F1**-hub gemaakt in de resourcegroep **TestResources**. Vervang *{hub_name}* door een unieke naam voor uw IoT-hub.
+1. Maak een IoT-hub in uw nieuwe resourcegroep. Met de volgende code wordt een gratis **F1**-hub gemaakt in de resourcegroep **IoTEdgeResources**. Vervang *{hub_name}* door een unieke naam voor uw IoT-hub.
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
 ## <a name="register-an-iot-edge-device"></a>Een IoT Edge-apparaat registreren
@@ -116,14 +116,15 @@ Met de instructies in dit gedeelte wordt de IoT Edge-runtime met Linux-container
 
 2. Download het IoT Edge-servicepakket.
 
-  ```powershell
-  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-  rmdir C:\ProgramData\iotedge\iotedged-windows
-  $env:Path += ";C:\ProgramData\iotedge"
-  SETX /M PATH "$env:Path"
-  ```
+   ```powershell
+   Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+   rmdir C:\ProgramData\iotedge\iotedged-windows
+   $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+   $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+   Set-ItemProperty -Path $sysenv -Name Path -Value $path
+   ```
 
 3. Installeer de vcruntime.
 
@@ -185,18 +186,11 @@ Configureer de runtime met uw IoT Edge-apparaatverbindingsreeks die u hebt gekop
 
 5. Maak een omgevingsvariabele genaamd **IOTEDGE_HOST** en vervang *\<ip_address\>* door het IP-adres voor uw IoT Edge-apparaat. 
 
-  ```powershell
-  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-  ```
-  
-  Zorg dat de omgevingsvariabele blijft behouden tijdens alle pogingen om opnieuw op te starten.
+   ```powershell
+   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+   ```
 
-  ```powershell
-  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
-  ```
-
-
-6. Zoek in het bestand `config.yaml` het gedeelte **Connect settings** op. Werk de waarden **management_uri** en **workload_uri** bij met uw IP-adres en de poorten die u in het vorige gedeelte hebt geopend. Vervang **\<GATEWAY_ADDRESS\>** door uw IP-adres. 
+6. Zoek in het bestand `config.yaml` het gedeelte **Connect settings** op. Werk de waarden **management_uri** en **workload_uri** bij met uw IP-adres en de poorten die u in het vorige gedeelte hebt geopend. Vervang **\<GATEWAY_ADDRESS\>** met het DockerNAT-IP-adres dat u hebt gekopieerd. 
 
    ```yaml
    connect: 
@@ -285,19 +279,55 @@ U kunt de berichten die worden ontvangen door uw IoT-hub ook bekijken met behulp
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt het gesimuleerde apparaat dat u in deze snelstart hebt geconfigureerd, gebruiken om de IoT Edge-zelfstudies te testen. Als u wilt voorkomen dat de module tempSensor gegevens naar uw IoT-hub verzendt, gebruikt u de volgende opdracht om de IoT Edge-service te stoppen en de containers te verwijderen die op uw apparaat zijn gemaakt. Als u uw machine opnieuw als IoT Edge-apparaat wilt gebruiken, vergeet dan niet de service te starten. 
+Als u wilt doorgaan met de IoT Edge-zelfstudies, kunt u het apparaat gebruiken dat u hebt geregistreerd en ingesteld in deze snelstart. Anders kunt u de Azure-resources die u hebt gemaakt en de IoT Edge-runtime van uw apparaat verwijderen. 
+
+### <a name="delete-azure-resources"></a>Azure-resources verwijderen
+
+Als u uw virtuele machine en IoT-hub in een nieuwe resourcegroep hebt gemaakt, kunt u die groep en alle bijbehorende resources verwijderen. Als er iets in die resourcegroep staat dat u wilt behouden, verwijder dan alleen de afzonderlijke resources die u wilt opschonen. 
+
+Verwijder de groep **IoTEdgeResources**. 
+
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
+
+### <a name="remove-the-iot-edge-runtime"></a>De IoT Edge-runtime verwijderen
+
+Als u van plan bent om het IoT Edge-apparaat in de toekomst voor testdoeleinden te gebruiken, maar niet wilt dat de module tempSensor gegevens naar uw IoT-hub verzendt als die niet wordt gebruikt, gebruikt u de volgende opdracht om de IoT Edge-service te beëindigen. 
 
    ```powershell
    Stop-Service iotedge -NoWait
-   docker rm -f $(docker ps -aq)
    ```
 
-Wanneer u de gemaakte Azure-resources niet meer nodig hebt, kunt u de gemaakte resourcegroep en alle bijbehorende gekoppelde resources verwijderen met de volgende opdracht:
+U kunt de service opnieuw starten wanneer u klaar om weer te gaan testen.
 
-   ```azurecli-interactive
-   az group delete --name TestResources
+   ```powershell
+   Start-Service iotedge
    ```
 
+Als u de installaties van uw apparaat wilt verwijderen, gebruikt u de volgende opdrachten.  
+
+Verwijder de IoT Edge-runtime.
+
+   ```powershell
+   cmd /c sc delete iotedge
+   rm -r c:\programdata\iotedge
+   ```
+
+Wanneer de IoT Edge-runtime is verwijderd, worden de containers die deze heeft gemaakt gestopt. Ze worden echter niet van uw apparaat verwijderd. Geef alle containers weer.
+
+   ```powershell
+   docker ps -a
+   ```
+
+Verwijder de containers die door de IoT Edge-runtime op uw apparaat zijn gemaakt. Verander de naam van de container tempSensor als u die anders had genoemd. 
+
+   ```powershell
+   docker rm -f tempSensor
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
+   
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze snelstart hebt u een nieuw IoT Edge-apparaat gemaakt en de Azure IoT Edge-cloudinterface gebruikt om code te implementeren op het apparaat. U hebt nu een testapparaat waarmee ruwe gegevens over de omgeving worden gegenereerd. 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f66aaa23a631bd71494587683aab87a74a5aef20
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30dbe6590cc1d70dfc026330a09645c86be24288
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261267"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036884"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt
 Deze zelfstudie laat zien hoe u een aangepast domein toevoegt aan een Azure CDN-eindpunt (Content Delivery Network). Wanneer u een CDN-eindpunt gebruikt voor het leveren van inhoud, is een aangepast domein nodig als u wilt dat uw eigen domeinnaam zichtbaar is in de URL van uw CDN. Een zichtbare domeinnaam kan handig zijn voor uw klanten en nuttig zijn voor branding-doelen. 
@@ -54,11 +54,11 @@ Een aangepast domein en het subdomein kunnen worden slechts aan één eindpunt t
 
 Wanneer u een bestaand domein toewijst dat in productie is genomen, zijn er speciale overwegingen. Terwijl u uw aangepaste domein in het Azure Portal registreert, kan een korte periode van uitvaltijd voor het domein optreden. Om te voorkomen dat het webverkeer wordt onderbroken, moet u eerst uw aangepaste domein toewijzen aan de hostnaam van uw CDN-eindpunt met het subdomein Azure cdnverify, om een tijdelijke CNAME-toewijzing te maken. Met deze methode kunnen gebruikers zonder onderbreking toegang krijgen tot uw domein terwijl de DNS-toewijzing wordt uitgevoerd. 
 
-U kunt ook uw aangepaste domein rechtstreeks aan uw CDN-eindpunt toewijzen, als u uw aangepaste domein voor het eerst gebruikt en er geen productieverkeer op wordt uitgevoerd. Ga door naar [Permanent aangepast domein toewijzen](#map-permanent-custom-domain).
+U kunt ook uw aangepaste domein rechtstreeks aan uw CDN-eindpunt toewijzen, als u uw aangepaste domein voor het eerst gebruikt en er geen productieverkeer op wordt uitgevoerd. Ga door naar [Permanent aangepast domein toewijzen](#map-the-permanent-custom-domain).
 
 Om een CNAME-record te maken met het subdomein cdnverify:
 
-1. Aanmelden bij de website van de domeinprovider voor uw aangepaste domein.
+1. Meld u aan bij de website van de domeinprovider voor uw aangepaste domein.
 
 2. Zoek de pagina voor het beheren van DNS-records door de documentatie van de provider te raadplegen, of te zoeken naar gebieden van de website met het label **Domeinnaam**, **DNS**, of **Serverbeheernaam**. 
 
@@ -78,7 +78,7 @@ Om een CNAME-record te maken met het subdomein cdnverify:
 
 Bijvoorbeeld: de procedure voor de registrar van een GoDaddy-domein is als volgt:
 
-1. Log in en selecteer het aangepaste domein dat u wilt gebruiken.
+1. Meld u aan en selecteer het aangepaste domein dat u wilt gebruiken.
 
 2. Selecteer in de sectie Domeinen **Alle beheren**, selecteer daarna **DNS** | **Zones beheren**.
 
@@ -109,7 +109,7 @@ Bijvoorbeeld: de procedure voor de registrar van een GoDaddy-domein is als volgt
 
 Nadat u uw aangepaste domein hebt geregistreerd, kunt u dit toevoegen aan uw CDN-eindpunt. 
 
-1. Meld u aan bij het [Azure Portal](https://portal.azure.com/) en blader naar het CDN-profiel met het eindpunt dat u wilt toewijzen aan een aangepast domein.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/) en blader naar het CDN-profiel met het eindpunt dat u wilt toewijzen aan een aangepast domein.
     
 2. Op de **CDN-profiel**pagina, selecteert u het CDN-eindpunt dat u wilt koppelen aan het aangepaste domein.
 
@@ -152,7 +152,7 @@ Als u hebt gecontroleerd dat het subdomein cdnverify met succes is toegewezen aa
 
 Maken van een CNAME-record voor uw aangepaste domein:
 
-1. Aanmelden bij de website van de domeinprovider voor uw aangepaste domein.
+1. Meld u aan bij de website van de domeinprovider voor uw aangepaste domein.
 
 2. Zoek de pagina voor het beheren van DNS-records door de documentatie van de provider te raadplegen, of te zoeken naar gebieden van de website met het label **Domeinnaam**, **DNS**, of **Serverbeheernaam**. 
 
@@ -176,7 +176,7 @@ Maken van een CNAME-record voor uw aangepaste domein:
 
 Bijvoorbeeld: de procedure voor de registrar van een GoDaddy-domein is als volgt:
 
-1. Log in en selecteer het aangepaste domein dat u wilt gebruiken.
+1. Meld u aan en selecteer het aangepaste domein dat u wilt gebruiken.
 
 2. Selecteer in de sectie Domeinen **Alle beheren**, selecteer daarna **DNS** | **Zones beheren**.
 

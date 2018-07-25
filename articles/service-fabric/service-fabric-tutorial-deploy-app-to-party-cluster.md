@@ -12,24 +12,24 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: f83ebcce68a7abe53d7b8eaeff5913a907e3df9a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 58b7dc532511ae25c7db2bf021a42fecc3dd9bb5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344186"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056678"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Zelfstudie: Een Service Fabric-toepassing implementeren naar een cluster in Azure
 
-Deze zelfstudie is deel twee van een reeks en laat zien hoe u direct vanuit Visual Studio een Azure Service Fabric-toepassing implementeert naar een nieuw cluster in Azure.
+Deze zelfstudie is deel twee van een reeks en laat zien hoe u een Azure Service Fabric-toepassing implementeert in een nieuw cluster in Azure.
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
-> * Een cluster maken vanuit Visual Studio
-> * Een toepassing implementeren in een extern cluster met behulp van Visual Studio
+> * Een cluster van derden maken.
+> * Een toepassing implementeren in een extern cluster met behulp van Visual Studio.
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
@@ -43,9 +43,9 @@ In deze zelfstudie leert u het volgende:
 
 Voor u met deze zelfstudie begint:
 
-* Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan.
 * [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer de workloads **Azure-ontwikkeling** en **ASP.NET-ontwikkeling en webontwikkeling**.
-* [Installeer de Service Fabric-SDK](service-fabric-get-started.md)
+* [Installeer de Service Fabric-SDK](service-fabric-get-started.md).
 
 ## <a name="download-the-voting-sample-application"></a>De voorbeeldtoepassing om te stemmen downloaden
 
@@ -55,69 +55,91 @@ Als u in [deel één van deze zelfstudiereeks](service-fabric-tutorial-create-do
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="create-a-service-fabric-cluster"></a>Een Service Fabric-cluster maken
+## <a name="publish-to-a-service-fabric-cluster"></a>Een Service Fabric-cluster publiceren
 
-Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar een cluster. Een [Service Fabric-cluster](/service-fabric/service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd
+Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar een cluster. Een [Service Fabric-cluster](/service-fabric/service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd.
 
-U hebt twee opties voor implementatie binnen Visual Studio:
+Voor deze zelfstudie kunt u de stemtoepassing op twee manieren met behulp van Visual Studio implementeren naar een Service Fabric-cluster:
 
-* Een cluster maken in Azure vanuit Visual Studio. Met deze optie kunt u een beveiligd cluster rechtstreeks vanuit Visual Studio met de configuraties van uw voorkeur maken. Dit type cluster is ideaal voor testscenario's, waar u het cluster kunt maken en er vervolgens direct naar kunt publiceren binnen Visual Studio.
+* Publiceren naar een (extern) testcluster.
 * Publiceren naar een bestaand cluster in uw abonnement.  U kunt Service Fabric-clusters maken via [Azure Portal](https://portal.azure.com), met behulp van [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)- of [Azure CLI](./scripts/cli-create-cluster.md)-scripts, of vanuit een [Azure Resource Manager-sjabloon](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-In deze zelfstudie maakt u een cluster vanuit Visual Studio. Als u al een cluster hebt geïmplementeerd, kunt u uw verbindingseindpunt kopiëren en plakken, of kunt u het kiezen vanuit uw abonnement.
 > [!NOTE]
 > Veel services gebruiken de omgekeerde proxy om met elkaar te communiceren. Clusters die zijn gemaakt vanuit Visual Studio en clusters van derden hebben omgekeerde proxy standaard ingeschakeld.  Als u een bestaand cluster gebruikt, moet u [de omgekeerde proxy in het cluster inschakelen](service-fabric-reverseproxy.md#setup-and-configuration).
 
-### <a name="find-the-votingweb-service-endpoint"></a>Het service-eindpunt van VotingWeb vinden
 
-Zoek eerst het eindpunt van de front-endwebservice op.  De front-endwebservice luistert op een specifieke poort.  Wanneer de toepassing in een cluster in Azure wordt geïmplementeerd, worden zowel het cluster als de toepassing achter een load balancer van Azure uitgevoerd.  De poort van de toepassing moet open zijn in de load balancer van Azure zodat binnenkomend verkeer de webservice kan bereiken.  De poort (bijvoorbeeld 8080) wordt gevonden in het bestand *VotingWeb/PackageRoot/ServiceManifest.xml* in het element **Eindpunt**:
+### <a name="find-the-votingweb-service-endpoint-for-your-azure-subscription"></a>Het service-eindpunt van VotingWeb vinden voor uw Azure-abonnement
+
+Als u de stemtoepassing wilt publiceren naar uw eigen Azure-abonnement, dient u het eindpunt van de front-end-webservice op te zoeken. Als u van een cluster van derden gebruikmaakt, is het gebruik van poort 8080 door de Voting-voorbeeldtoepassing automatisch toegestaan en hoeft u deze niet te configureren in de load balancer van het externe cluster.
+
+De front-endwebservice luistert op een specifieke poort.  Wanneer de toepassing in een cluster in Azure wordt geïmplementeerd, worden zowel het cluster als de toepassing achter een load balancer van Azure uitgevoerd.  De poort van de toepassing moet met behulp van een regel geopend zijn in de load balancer van Azure die voor dit cluster wordt gebruikt, zodat binnenkomend verkeer de webservice kan bereiken.  De poort (bijvoorbeeld 8080) wordt gevonden in het bestand *VotingWeb/PackageRoot/ServiceManifest.xml* in het element **Eindpunt**:
 
 ```xml
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-In de volgende stap geeft u deze poort op het tabblad **Geavanceerd** van het dialoogventer **Cluster maken** op.  Als u de toepassing in een bestaand cluster implementeert, kunt u deze poort openen in de load balancer van Azure met een [PowerShell-script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) of in [Azure Portal](https://portal.azure.com).
+Open deze poort voor uw Azure-abonnement met behulp van een taakverdelingsregel in Azure. Gebruik hiervoor een [PowerShell-script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) of de ga naar de load balancer voor dit cluster in [Azure Portal](https://portal.azure.com).
 
-### <a name="create-a-cluster-in-azure-through-visual-studio"></a>Een cluster maken in Azure via Visual Studio
+### <a name="join-a-party-cluster"></a>Deelnemen aan een Party-cluster
 
-Klik met de rechtermuisknop op het toepassingsproject in Solution Explorer en kies **Publiceren**.
+> [!NOTE]
+> Ga in de volgende sectie naar De toepassing implementeren met behulp van Visual Studio, indien u de toepassing wilt publiceren in uw eigen cluster binnen een Azure-abonnement.
 
-Meld u aan met behulp van uw Azure-account, zodat u toegang hebt tot uw abonnement(en). Deze stap is optioneel als u een cluster van derden gebruikt.
+Party-clusters zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt.
 
-Selecteer de vervolgkeuzelijst voor het **verbindingseindpunt** en selecteer de optie **<Create New Cluster...>**.
+Meld u aan en [neem deel aan een Windows-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Klik op de koppeling **Hoe kan ik verbinding maken met een beveiligd Party-cluster?** en kopieer het certificaatwachtwoord. Het certificaat, het certificaatwachtwoord en de waarde van het **verbindingseindpunt** worden in volgende stappen gebruikt.
 
-![Het dialoogvenster Publiceren](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+![PFX en verbindingseindpunt](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
-Wijzig de volgende instellingen in het dialoogvenster **Cluster maken**:
+> [!Note]
+> Er zijn per uur een beperkt aantal Party-clusters beschikbaar. Als er een fout optreedt wanneer u zich probeert aan te melden voor een cluster van derden, kunt u een bepaalde tijd wachten en het opnieuw proberen, of kunt u deze stappen in de zelfstudie [Een .NET-app implementeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) volgen om een Service Fabric-cluster in uw Azure-abonnement te maken en daarin de toepassing te implementeren. Als u nog geen abonnement op Azure hebt, kunt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maken.
+>
 
-1. Geef de naam van het cluster op in het veld **Clusternaam**, evenals het abonnement en de locatie die u wilt gebruiken.
-2. Optioneel: u kunt het aantal knooppunten wijzigen. Standaard beschikt u over drie knooppunten, het minimale aantal dat is vereist om Service Fabric-scenario's te kunnen testen.
-3. Selecteer het tabblad **Certificaat**. Typ op dit tabblad een wachtwoord dat u wilt gebruiken om het certificaat van uw cluster te beschermen. Met dit certificaat is uw cluster beter beveiligd. U kunt ook het pad wijzigen waar u het certificaat wilt opslaan. Visual Studio kan het certificaat voor u importeren, aangezien dit een vereiste stap is om de toepassing naar het cluster te kunnen publiceren.
-4. Selecteer het tabblad **VM-details**. Geef het wachtwoord op dat u wilt gebruiken voor de virtuele machines (VM's) die het cluster vormen. De gebruikersnaam en het wachtwoord kunnen worden gebruikt om een externe verbinding met de virtuele machines tot stand te brengen. U moet ook een VM-machinegrootte selecteren, en u kunt indien nodig de VM-installatiekopie wijzigen.
-5. Op het tabblad **Geavanceerd** kunt u de lijst met poorten wijzigen die u wilt openen in de load balancer van Azure die samen met het cluster wordt gemaakt.  Voeg het VotingWeb-service-eindpunt toe dat u hebt gedetecteerd in een vorige stap. U kunt ook een bestaande Application Insights-sleutel toevoegen om toepassingslogboekbestanden naar door te sturen.
-6. Wanneer u klaar bent met het wijzigen van de instellingen, selecteert u de knop **Maken**. Het maakproces duurt maar een paar minuten; in het uitvoervenster wordt aangegeven wanneer het cluster helemaal klaar is.
+Installeer de PFX op uw Windows-computer in het certificaatarchief *CurrentUser\My*.
 
-![Dialoogvenster Cluster maken](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
 
-## <a name="deploy-the-sample-application"></a>De voorbeeldtoepassing implementeren
 
-Zodra het cluster dat u wilt gebruiken gereed is, klikt u met de rechtermuisknop op het toepassingsproject en kiest u **Publiceren**.
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
 
-Nadat het publiceren is voltooid, moet u via een browser een aanvraag kunnen verzenden naar de toepassing.
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
 
-Open de browser van uw voorkeur en typ het adres van het cluster (het verbindingseindpunt zonder de poortgegevens, bijvoorbeeld win1kw5649s.westus.cloudapp.azure.com).
+Onthoud de vingerafdruk voor de volgende stap.
 
-U moet nu hetzelfde resultaat zien als bij het lokaal uitvoeren van de toepassing.
+> [!Note]
+> Standaard is de web-front-endservice geconfigureerd om te luisteren op poort 8080 naar binnenkomend verkeer. Poort 8080 is geopend in het cluster van derden.  Als u de poort van de toepassing moet wijzigen, moet u dat doen op een van de poorten die in het cluster van derden zijn geopend.
+>
 
-![API-reactie van cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
+### <a name="publish-the-application-using-visual-studio"></a>De toepassing publiceren met Visual Studio
+
+Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar een cluster.
+
+1. Klik met de rechtermuisknop op **Voting** in Solution Explorer en kies **Publiceren**. Het dialoogvenster Publiceren wordt weergegeven.
+
+2. Kopieer het **verbindingseindpunt** van het cluster van derden of van uw Azure-abonnement naar het veld **Verbindingseindpunt**. Bijvoorbeeld `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klik op **Geavanceerde verbindingsparameters** en controleer of de waarden *FindValue* en *ServerCertThumbprint* overeenkomen met de vingerafdruk van het certificaat dat in een vorige stap voor een cluster van derden is geïnstalleerd of het certificaat dat overeenkomt met uw Azure-abonnement.
+
+    ![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-dotnet/publish-app.png)
+
+    Elke toepassing in het cluster moet een unieke naam hebben.  Clusters van derden vormen echter een openbare, gedeelde omgeving en er kan een conflict met een bestaande toepassing optreden.  Als er een naamconflict is, wijzigt u de naam van het Visual Studio-project en voert u de implementatie opnieuw uit.
+
+3. Klik op **Publish**.
+
+4. Open een browser en typ het adres van het cluster gevolgd door ':8080' (of het poortnummer dat u zelf hebt geconfigureerd) om bij uw stemtoepassing in het cluster te komen. Dit ziet er ongeveer zo uit: `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. U zou nu moeten kunnen zien dat de toepassing in het cluster in Azure wordt uitgevoerd. Probeer op de webpagina Voting enkele stemopties toe te voegen en te verwijderen en stem op een of meer van deze opties.
+
+    ![Front-end van toepassing](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een cluster maken vanuit Visual Studio
-> * Een toepassing implementeren in een extern cluster met behulp van Visual Studio
+> * Een cluster van derden maken.
+> * Een toepassing implementeren in een extern cluster met behulp van Visual Studio.
 
 Ga door naar de volgende zelfstudie:
 > [!div class="nextstepaction"]

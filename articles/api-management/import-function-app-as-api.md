@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ee83446bb08e66c7f325bdd5585b8cc0484a74e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306470"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090925"
 ---
 # <a name="import-a-function-app-as-an-api"></a>Een functie-app als API importeren
 
@@ -34,7 +34,8 @@ In dit artikel leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 + Lees de volgende snelstart: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md)
-+ Zorg ervoor dat er een functie-app in uw abonnement aanwezig is. Bekijk [Een functie-app maken](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) voor meer informatie
++ Zorg ervoor dat er een Azure Function-app in uw abonnement aanwezig is. Bekijk [Een functie-app maken](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) voor meer informatie
++ [Een OpenAPI-definitie](../azure-functions/functions-openapi-definition.md) van uw Azure Function-app maken
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -56,6 +57,24 @@ In dit artikel leert u het volgende:
     * **Starter**
     * **Onbeperkt**   
 7. Selecteer **Maken**.
+
+## <a name="populate-azure-functions-keys-in-azure-api-management"></a>Azure Function-sleutels invullen in Azure API Management
+
+Als de geïmporteerde Azure Functions worden beschermd door sleutels, worden er met Azure API Management automatisch **benoemde waarden** voor gemaakt, maar worden de vermeldingen niet met geheimen gevuld. Voor elk vermelding moet u de volgende stappen uitvoeren.  
+
+1. Navigeer naar het tabblad **Benoemde waarden** in de instantie van API Management.
+2. Klik op een vermelding en druk op **Waarde weergeven** in de zijbalk.
+
+    ![Benoemde waarden](./media/import-function-app-as-api/apim-named-values.png)
+
+3. Als de inhoud lijkt op *code voor {Azure Function name}*, gaat u naar de geïmporteerde Azure Functions-app en navigeert naar uw instantie van Azure Function.
+4. Ga naar de sectie **Beheren** van de gewenste Azure-functie en kopieer de relevante sleutel op basis van de verificatiemethode van uw instantie van Azure Function.
+
+    ![Function App](./media/import-function-app-as-api/azure-functions-app-keys.png)
+
+5. Plak de sleutel in het tekstvak van **Benoemde waarden** en klik op **Opslaan**.
+
+    ![Function App](./media/import-function-app-as-api/apim-named-values-2.png)
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>De nieuwe APIM API testen in Azure Portal
 

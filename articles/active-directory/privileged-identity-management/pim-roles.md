@@ -10,25 +10,22 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 03/04/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bbc87f529cb70b6f4b21984199ed87427b4e3108
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6553fdba463144c6eda1e35c0967e92a3c44aff6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590343"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225573"
 ---
-# <a name="different-administrative-role-in-azure-active-directory-pim"></a>Andere administratieve rollen in Azure Active Directory PIM
+# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>U kunt beheren met behulp van Azure AD PIM-Directory-rollen
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 U kunt gebruikers toewijzen in uw organisatie aan andere beheerdersrollen in Azure AD. Deze roltoewijzingen beheren welke taken, zoals het toevoegen of verwijderen van gebruikers of wijzigen van service-instellingen, de gebruikers kunnen uitvoeren op Azure AD, Office 365 en andere Microsoft Online Services en verbonden toepassingen.  
 
-> [!IMPORTANT]
-> Microsoft raadt aan dat u met behulp van Azure AD beheert de [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure portal.
-
-Een globale beheerder zijn van gebruikers kunt bijwerken **permanent** toegewezen aan rollen in Azure AD, met behulp van PowerShell-cmdlets, zoals `Add-MsolRoleMember` en `Remove-MsolRoleMember`, of via de portal zoals wordt beschreven in [toewijzen beheerdersrollen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Een globale beheerder zijn van gebruikers kunt bijwerken **permanent** toegewezen aan rollen in Azure AD via de portal, zoals beschreven in [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) of met behulp van [ PowerShell-opdrachten](/powershell/module/azuread#directory_roles).
 
 Beleid voor bevoegde toegang voor gebruikers van beheert Azure AD Privileged Identity Management (PIM) in Azure AD. PIM gebruikers toegewezen aan een of meer rollen in Azure AD en u iemand zich permanent in de rol, of die in aanmerking komen voor de rol kunt toewijzen. Wanneer een gebruiker permanent wordt toegewezen aan een rol of een in aanmerking komende roltoewijzing activeren en vervolgens deze Active Directory van Azure, Office 365 en andere toepassingen met de machtigingen worden toegewezen aan hun rollen beheren kunnen.
 
@@ -66,7 +63,7 @@ Als u een andere gebruikerstoegang geven wilt tot PIM zelf beheren, de rollen wa
 ## <a name="roles-not-managed-in-pim"></a>Functies die niet worden beheerd in PIM
 Rollen in Exchange Online of SharePoint Online, met uitzondering van die hierboven vermeld, worden niet weergegeven in Azure AD en dus zijn niet zichtbaar in PIM. Zie voor meer informatie over het wijzigen van fijnmazig roltoewijzingen in deze Office 365-services, [machtigingen in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Azure-abonnementen en resourcegroepen worden ook niet weergegeven in Azure AD. Zie voor het beheren van Azure-abonnementen, [toevoegen of wijzigen van de Azure-beheerdersrollen](../../billing/billing-add-change-azure-subscription-administrator.md) en voor meer informatie over Azure RBAC Zie [toegangsbeheer](../../role-based-access-control/role-assignments-portal.md).
+Azure-abonnementen en resourcegroepen worden ook niet weergegeven in Azure AD. Zie voor het beheren van Azure-abonnementen, [toevoegen of wijzigen van de Azure-beheerdersrollen](../../billing/billing-add-change-azure-subscription-administrator.md) en Zie voor meer informatie over Azure RBAC [op rollen gebaseerd toegangsbeheer in Azure](../../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

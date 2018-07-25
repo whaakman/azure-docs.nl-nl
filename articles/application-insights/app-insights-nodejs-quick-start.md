@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386534"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991592"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Beginnen met controleren van de Node.js-webtoepassing
 
@@ -25,12 +25,12 @@ Deze snelstartgids helpt u Application Insights SDK versie 0.22 voor Node.js toe
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 - U hebt een Azure-abonnement en een bestaande Node.js-webtoepassing nodig.
 
 Als u geen Node.js-webtoepassing hebt, kunt u er een maken door de snelstartgids [Een Node.js-webapp maken](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs) te volgen.
- 
+
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
@@ -60,7 +60,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 1. Selecteer **Overzicht** > **Essentials** > kopieer de **Instrumentatiesleutel** van uw toepassing.
 
-   ![Nieuw App Insights-resourceformulier](./media/app-insights-nodejs-quick-start/003-Black.png)
+   ![Nieuw App Insights-resourceformulier](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
 
 2. Voeg de Application Insights-SDK voor Node.js toe aan uw toepassing. Voer deze opdracht uit vanuit de hoofdmap van uw app:
 
@@ -84,25 +84,25 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 1. U kunt de pagina **Overzicht** van Application Insights in Azure Portal, waar u de instrumentatiesleutel hebt opgehaald, nu opnieuw openen om de details te bekijken van de toepassing die momenteel wordt uitgevoerd.
 
-   ![Menu Overzicht van Application Insights](./media/app-insights-nodejs-quick-start/004-Black.png)
+   ![Menu Overzicht van Application Insights](./media/app-insights-nodejs-quick-start/overview-001.png)
 
 2. Klik op **App-kaart** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing. Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
 
-   ![Toepassingskaart](./media/app-insights-nodejs-quick-start/005-Black.png)
+   ![Toepassingskaart](./media/app-insights-nodejs-quick-start/application-map.png)
 
 3. Klik op het **App Analytics**-pictogram ![Pictogram Toepassingskaart](./media/app-insights-nodejs-quick-start/006.png).  Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
    ![Analytics-grafiek met gebruikersaanvragen gedurende een tijdsperiode](./media/app-insights-nodejs-quick-start/007-Black.png)
 
-4. Ga terug naar de pagina **Overzicht** en bekijk de **tijdlijn voor het Statusoverzicht**.  Dit dashboard biedt statistische gegevens over de toepassingsstatus, waaronder het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden. 
+4. Ga terug naar de pagina **Overzicht** en bekijk de KPI-grafieken.  Dit dashboard biedt statistische gegevens over de toepassingsstatus, waaronder het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden. 
 
-   ![Tijdlijngrafieken voor het Statusoverzicht](./media/app-insights-nodejs-quick-start/008-Black.png)
+   ![Tijdlijngrafieken voor het Statusoverzicht](./media/app-insights-nodejs-quick-start/overview-perf.png)
 
    Als u de grafiek **Laadtijd voor paginaweergave** wilt vullen met **telemetriegegevens aan de clientzijde**, voegt u dit script toe aan elke pagina die u wilt bijhouden:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics tools about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

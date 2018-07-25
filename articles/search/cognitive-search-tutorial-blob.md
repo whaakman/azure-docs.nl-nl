@@ -1,20 +1,20 @@
 ---
-title: "Zelfstudie: API's voor cognitief zoeken aanroepen in Azure Search | Microsoft Docs"
-description: Voorbeeld van gegevensextractie, natuurlijke taal en AI-beeldverwerking in Azure Search indexeren voor gegevensextractie en transformatie.
+title: Zelfstudie voor het aanroepen van API's voor cognitief zoeken in Azure Search | Microsoft Docs
+description: In deze zelfstudie ziet u een voorbeeld van gegevensextractie, natuurlijke taal en AI-beeldverwerking in Azure Search indexeren voor gegevensextractie en transformatie.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757567"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991870"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Zelfstudie: API's voor cognitief zoeken aanroepen (preview)
 
@@ -23,8 +23,8 @@ In deze zelfstudie leert u de mechanismen achter gegevensverrijking programmeren
 In deze zelfstudie maakt u REST API-aanroepen om de volgende taken uit te voeren:
 
 > [!div class="checklist"]
-> * Een indexeringspijplijn maken die brongegevens onderweg naar een index verrijkt
-> * Gebruik ingebouwde vaardigheden op voorbeeldgegevens: herkenning van entiteiten, taaldetectie, tekstbewerkingen en extractie van sleuteltermen
+> * Een indexeringspijplijn maken die voorbeeldgegevens onderweg naar een index verrijkt
+> * Pas ingebouwde vaardigheden toe: herkenning van entiteiten, taaldetectie, tekstbewerkingen en extractie van sleuteltermen
 > * Vaardigheden aan elkaar koppelen door invoeren aan uitvoeren toe te wijzen in een set vaardigheden
 > * Aanvragen uitvoeren en resultaten bekijken
 > * De index en indexeerfuncties opnieuw instellen voor verdere ontwikkeling
@@ -80,7 +80,7 @@ De verrijkingspijplijn haalt gegevens uit Azure-gegevensbronnen. Brongegevens mo
 
 1. Klik in de container `basicdemo` die u hebt gemaakt met behulp van Azure Storage Explorer op **Uploaden** om de voorbeeldbestanden te uploaden.
 
-1. Nadat de voorbeeldbestanden zijn geladen, haalt u de containernaam en een verbindingsreeks voor de Blob-opslag op. U kunt dat doen door in Azure Portal naar uw opslagaccount te navigeren. Ga naar **Toegangssleutels** en kopieer het veld **Verbindingsreeks**.
+1. Nadat de voorbeeldbestanden zijn geladen, haalt u de containernaam en een verbindingsreeks voor de Blob-opslag op. U kunt dat doen door in de Azure-portal naar uw opslagaccount te navigeren. Ga naar **Toegangssleutels** en kopieer het veld **Verbindingsreeks**.
 
   De verbindingsreeks moet een URL zijn die er ongeveer als volgt uitziet:
 

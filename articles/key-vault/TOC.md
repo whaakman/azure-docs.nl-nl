@@ -7,7 +7,7 @@
 ## [Een sleutelkluis maken - CLI](quick-create-cli.md)
 ## [Een sleutelkluis maken - PowerShell](quick-create-powershell.md)
 ## [Een sleutelkluis maken - Portal](quick-create-portal.md)
-
+## [Lezen uit Key Vault - .NET](quick-create-net.md)
 # Zelfstudies
 ## [Een geheim lezen in Key Vault](tutorial-web-application-keyvault.md)
 ## [Aan de slag met Key Vault](key-vault-get-started.md)

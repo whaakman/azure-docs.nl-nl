@@ -7,22 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: e3eff46299ecfbfe39b57bc2cf5ed4a655a6d7f1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8dd630650498f3698fea3ed03882fe8c5c3d338e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37087949"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004315"
 ---
-# <a name="quickstart-deploy-a-cloud-based-remote-monitoring-solution"></a>Snelstart: Een cloudoplossing voor externe controle implementeren
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Quickstart: Een cloudoplossing voor externe controle uitproberen
 
-In deze snelstart ziet u hoe u de Azure Iot-oplossingsverbetering voor externe controle implementeert en deze gebruikt als cloudoplossing voor externe controle van uw IoT-apparaten. Nadat u de oplossingsverbetering hebt geïmplementeerd, gebruikt u de pagina met het **Oplossingsdashboard** om gesimuleerde apparaten te visualiseren in een kaart, en de **Onderhoudspagina** om te reageren op een waarschuwing van een gesimuleerde koelunit.
+In deze quickstart ziet u hoe u de Azure IoT-oplossingsverbetering voor externe controle implementeert om een cloudsimulatie voor externe controle uit te voeren. Nadat u de oplossingsverbetering hebt geïmplementeerd, gebruikt u de pagina met het **Oplossingsdashboard** om gesimuleerde apparaten te visualiseren in een kaart, en de **Onderhoudspagina** om te reageren op een waarschuwing van een gesimuleerde koelunit. U kunt deze oplossingsverbetering gebruiken als uitgangspunt voor uw eigen implementatie of als leermiddel.
 
-Met de standaardimplementatie wordt de oplossingsverbetering voor externe controle geconfigureerd voor een bedrijf met de naam Contoso. Contoso beheert een selectie met verschillende typen apparaten, zoals koelunits, geïmplementeerd in verschillende fysieke omgevingen. Vanaf een koelunit worden telemetriegegevens over de temperatuur, vochtigheid en druk verzonden naar de oplossingsverbetering voor externe controle.
-
-## <a name="prerequisites"></a>Vereisten
+Met de eerste implementatie wordt de oplossingsverbetering voor externe controle geconfigureerd voor een bedrijf met de naam Contoso. Contoso beheert een selectie met verschillende typen apparaten, zoals koelunits, geïmplementeerd in verschillende fysieke omgevingen. Vanaf een koelunit worden telemetriegegevens over de temperatuur, vochtigheid en druk verzonden naar de oplossingsverbetering voor externe controle.
 
 U hebt een actief Azure-abonnement nodig om deze snelstart te voltooien.
 
@@ -42,9 +40,9 @@ Selecteer een **basisimplementatie** op de pagina **Oplossing voor externe contr
 
 Kies **.NET** als de taal. De Java- en .NET-implementaties hebben identieke functies.
 
-Voer een unieke **Oplossingsnaam** in voor de oplossingsverbetering voor externe controle.
+Voer een unieke **Oplossingsnaam** in voor de oplossingsverbetering voor externe controle. Voor deze quickstart noemen we die van ons **contoso-rm2**.
 
-Selecteer het **Abonnement** en de **Regio** die u wilt gebruiken om de oplossingsverbetering te implementeren. U kiest meestal de regio die zich het meest in uw buurt bevindt. U moet een [globale beheerder of gebruiker](iot-accelerators-permissions.md) zijn in het abonnement.
+Selecteer het **Abonnement** en de **Regio** die u wilt gebruiken om de oplossingsverbetering te implementeren. U kiest meestal de regio die zich het meest in uw buurt bevindt. Voor deze quickstart gebruiken we **Visual Studio Enterprise** en **Europa - west**. U moet een [globale beheerder of gebruiker](iot-accelerators-permissions.md) zijn in het abonnement.
 
 Klik op **Oplossing maken** om de implementatie te starten. Het duurt minstens vijf minuten om dit proces uit te voeren:
 
@@ -52,7 +50,7 @@ Klik op **Oplossing maken** om de implementatie te starten. Het duurt minstens v
 
 ## <a name="sign-in-to-the-solution"></a>Aanmelden bij de oplossing
 
-Zodra de implementatie in uw Azure-abonnement is voltooid, kunt u zich aanmelden bij het dashboard van de oplossingsverbetering voor externe controle.
+Wanneer de implementatie in uw Azure-abonnement is voltooid, ziet u een groen vinkje en **Gereed** op de tegel staan. U kunt zich nu aanmelden bij het dashboard van de oplossingsverbetering voor externe controle.
 
 Klik op de pagina **Ingerichte oplossingen** op de nieuwe oplossingsverbetering voor externe controle:
 
@@ -68,7 +66,7 @@ Klik op **Accepteren** om de machtigingsaanvraag te accepteren. Het oplossingsda
 
 ## <a name="view-your-devices"></a>Uw apparaten weergeven
 
-Op het oplossingsdashboard wordt de volgende informatie weergegeven over de apparaten van Contoso:
+Op het oplossingsdashboard wordt de volgende informatie weergegeven over de gesimuleerde apparaten van Contoso:
 
 * In **Apparaatstatistieken** worden samenvattingsgegevens weergegeven over de waarschuwingen en het totale aantal apparaten. In de standaardimplementatie heeft Contoso 10 gesimuleerde apparaten van verschillende typen.
 
@@ -132,7 +130,7 @@ De waarde in de statuskolom wordt gewijzigd in **Gesloten**.
 
 Als u van plan bent verder te gaan met de zelfstudies, laat u de oplossingsverbetering voor externe controle geïmplementeerd.
 
-Als u de oplossingsverbetering niet meer nodig hebt, verwijdert u deze op de pagina [Ingerichte oplossingen](https://www.azureiotsolutions.com/Accelerators#dashboard):
+Als u de oplossingsverbetering niet meer nodig hebt, verwijdert u deze op de pagina [Ingerichte oplossingen](https://www.azureiotsolutions.com/Accelerators#dashboard) door de oplossingsverbetering te selecteren en op **Oplossing verwijderen** te klikken:
 
 ![Oplossing verwijderen](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
@@ -140,7 +138,7 @@ Als u de oplossingsverbetering niet meer nodig hebt, verwijdert u deze op de pag
 
 In de snelstart hebt u de oplossingsverbetering voor externe controle geïmplementeerd en een controletaak voltooid met behulp van gesimuleerde apparaten in de Contoso-standaardimplementatie.
 
-Ga verder met de volgende zelfstudie voor informatie over het bijwerken van de firmware in uw verbonden apparaten en het organiseren van uw activa in de oplossingsverbetering.
+Ga verder naar de volgende zelfstudie voor meer informatie over de oplossingsverbetering die gebruikmaakt van gesimuleerde apparaten.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Uw IoT-apparaten controleren](iot-accelerators-remote-monitoring-monitor.md)

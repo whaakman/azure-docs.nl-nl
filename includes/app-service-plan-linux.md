@@ -4,5 +4,5 @@ In App Service-plannen wordt het volgende gedefinieerd:
 
 * Regio (bijvoorbeeld: Noord-Europa, VS - oost of Zuidoost-Azië)
 * Exemplaargrootte (klein, normaal of groot)
-* Het schaalaanpassingsaantal (1 tot 10 exemplaren)
+* Het schaalaanpassingsaantal (1 tot 10 instanties)
 * SKU (Basic, Standard)

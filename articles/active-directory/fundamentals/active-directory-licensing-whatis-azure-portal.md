@@ -15,12 +15,12 @@ ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c6800e5a00d2fb837538141571c105a1d21e4374
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860335"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005228"
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Basisbeginselen van licenties op basis van groepen in Azure Active Directory
 
@@ -30,8 +30,8 @@ Tot nu toe konden licenties alleen worden toegewezen op het niveau van de indivi
 
 Azure AD bevat nu licenties op basis van groepen om met dergelijke uitdagingen om te gaan. U kunt een of meer productlicenties toewijzen aan een groep. De licenties worden in Azure AD toegewezen aan alle leden van de groep. Wanneer er nieuwe gebruikers lid worden van de groep, worden aan hen de juiste licenties toegewezen. Wanneer zij de groep weer verlaten, worden deze licenties verwijderd. Hierdoor is er geen noodzaak meer om licentiebeheer via PowerShell te automatiseren om wijzigingen in de organisatie- en afdelingsstructuur per gebruiker weer te geven.
 
->[!NOTE]
->Deze functie is momenteel beschikbaar als openbare preview-versie. Wees voorbereid om terug te keren of eventuele wijzigingen te verwijderen. Deze functie is tijdens de openbare preview-versie beschikbaar met elk betaald Azure AD-licentieplan (Azure Active Directory). Wanneer deze functie algemeen beschikbaar komt, kan het echter zijn dat voor sommige aspecten van de functie een of meer Azure Active Directory Premium-licenties nodig zijn.
+>[!Note]
+>Groepslicenties is een openbare preview-functie van Azure Active Directory (Azure AD) en is beschikbaar met elk betaald Azure AD-licentieplan. Zie [Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 ## <a name="features"></a>Functies
 

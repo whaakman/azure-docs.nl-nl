@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 07/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5cc109467f9affa9cf5f43342203e8d4298269e0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308610"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115203"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Zelfstudie: Video's uploaden, coderen en streamen met REST
 
@@ -27,11 +27,11 @@ Met Media Services kunt u uw mediabestanden coderen in indelingen die kunnen wor
 
 ![De video afspelen](./media/stream-files-tutorial-with-api/final-video.png)
 
-In deze handleiding ontdekt u hoe u:    
+In deze zelfstudie ontdekt u hoe u:    
 
 > [!div class="checklist"]
-> * Een Media Services-account maken
-> * Toegang krijgen tot de Media Services API
+> * Een Media Services-account kunt maken
+> * Toegang kunt krijgen tot de Media Services API
 > * Postman-bestanden downloaden
 > * Postman configureren
 > * Aanvragen verzenden met behulp van Postman
@@ -77,16 +77,17 @@ In deze sectie ziet u hoe u de Postman configureert.
     > [!Note]
     > Werk de toegangsvariabelen bij met waarden die u hebt gekregen in de sectie **Toegang krijgen tot de Media Services API** hierboven.
 
-7. Sluit het dialoogvenster.
-8. Selecteer de omgeving **Azure Media Service v3 Environment** in de vervolgkeuzelijst.
+7. Dubbelklik op het geselecteerde bestand en voer de waarden in die u hebt verkregen door de stappen voor het verkrijgen van [toegang tot API's](#access-the-media-services-api) te volgen.
+8. Sluit het dialoogvenster.
+9. Selecteer de omgeving **Azure Media Service v3 Environment** in de vervolgkeuzelijst.
 
     ![Omgeving kiezen](./media/develop-with-postman/choose-env.png)
    
 ### <a name="configure-the-collection"></a>De collectie configureren
 
 1. Klik op **Import** om het verzamelingbestand te importeren.
-1. Blader naar het bestand `Media Services v3 (2018-03-30-preview).postman_collection.json` dat is gedownload toen u `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` kloonde
-3. Kies het bestand **Media Services v3 (2018-03-30-preview).postman_collection.json**.
+1. Blader naar het bestand `Media Services v3.postman_collection.json` dat is gedownload toen u `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` kloonde
+3. Kies het bestand **Media Services v3.postman_collection.json**.
 
     ![Een bestand importeren](./media/develop-with-postman/postman-import-collection.png)
 
@@ -128,11 +129,21 @@ In de [uitvoerasset](https://docs.microsoft.com/rest/api/media/assets) wordt het
 2. Selecteer vervolgens Create or update an Asset.
 3. Druk op **Verzenden**.
 
-    De volgende **PUT**-bewerking wordt verzonden.
+    * De volgende **PUT**-bewerking wordt verzonden:
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
+        ```
+    * De bewerking heeft de volgende hoofdtekst:
+
+        ```json
+        {
+        "properties": {
+            "description": "My Asset",
+            "alternateId" : "some GUID"
+         }
+        }
+        ```
 
 ### <a name="create-a-transform"></a>Een transformatie maken
 
@@ -149,11 +160,30 @@ U kunt een ingebouwde EncoderNamedPreset gebruiken of aangepaste voorinstellinge
 2. Selecteer daarna Create Transform.
 3. Druk op **Verzenden**.
 
-    De volgende **PUT**-bewerking wordt verzonden.
+    * De volgende **PUT**-bewerking wordt verzonden.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
+        ```
+    * De bewerking heeft de volgende hoofdtekst:
+
+        ```json
+        {
+            "properties": {
+                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "outputs": [
+                    {
+                    "onError": "StopProcessingJob",
+                "relativePriority": "Normal",
+                    "preset": {
+                        "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                        "presetName": "AdaptiveStreaming"
+                    }
+                    }
+                ]
+            }
+        }
+        ```
 
 ### <a name="create-a-job"></a>Een taak maken
 
@@ -165,15 +195,36 @@ In dit voorbeeld is de invoer van de taak gebaseerd op een HTTPS-URL (https://ni
 2. Selecteer vervolgens Create or Update Job.
 3. Druk op **Verzenden**.
 
-    De volgende **PUT**-bewerking wordt verzonden.
+    * De volgende **PUT**-bewerking wordt verzonden.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
+        ```
+    * De bewerking heeft de volgende hoofdtekst:
 
-De taak neemt enige tijd in beslag en wanneer dit het geval is, wordt u hiervan op de hoogte gesteld. Als u de voortgang van de taak wilt zien, kunt u het best Event Grid gebruiken. Dit is ontworpen voor hoge beschikbaarheid, consistente prestaties en dynamische schaalbaarheid. Met Event Grid kunnen uw apps luisteren naar en reageren op gebeurtenissen uit vrijwel alle Azure-services, evenals aangepaste bronnen. Eenvoudige, op HTTP gebaseerde reactieve gebeurtenisafhandeling maakt het mogelijk om efficiënte oplossingen te bouwen met intelligente filtering en routering van gebeurtenissen.  Zie [Gebeurtenissen routeren naar een aangepast eindpunt](job-state-events-cli-how-to.md).
+        ```json
+        {
+        "properties": {
+            "input": {
+            "@odata.type": "#Microsoft.Media.JobInputHttp",
+            "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+            "files": [
+                    "Ignite-short.mp4"
+                ]
+            },
+            "outputs": [
+            {
+                "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                "assetName": "testAsset1"
+            }
+            ]
+        }
+        }
+        ```
 
-De **taak** doorloopt meestal de volgende statussen: **gepland**, **in wachtrij**, **wordt verwerkt**, **voltooid** (definitieve status). Als bij de taak een fout is opgetreden is, krijgt u de status **fout**. Als de taak momenteel wordt geannuleerd, krijgt u de melding **wordt geannuleerd** en **geannuleerd** wanneer het annuleren is voltooid.
+De taak neemt enige tijd in beslag en wanneer deze is voltooid, wordt u hiervan op de hoogte gesteld. Als u de voortgang van de taak wilt zien, kunt u het best Event Grid gebruiken. Dit is ontworpen voor hoge beschikbaarheid, consistente prestaties en dynamische schaalbaarheid. Met Event Grid kunnen uw apps luisteren naar en reageren op gebeurtenissen uit vrijwel alle Azure-services, evenals aangepaste bronnen. Eenvoudige, op HTTP gebaseerde reactieve gebeurtenisafhandeling maakt het mogelijk om efficiënte oplossingen te bouwen met intelligente filtering en routering van gebeurtenissen.  Zie [Gebeurtenissen routeren naar een aangepast eindpunt](job-state-events-cli-how-to.md).
+
+De **taak** doorloopt meestal de volgende statussen: **gepland**, **in wachtrij**, **wordt verwerkt**, **voltooid** (definitieve status). Als bij de taak een fout is opgetreden is, krijgt u de status **Fout**. Als de taak momenteel wordt geannuleerd, krijgt u de melding **Wordt geannuleerd** en **Geannuleerd** wanneer het annuleren is voltooid.
 
 ### <a name="create-a-streaming-locator"></a>Een streaming-locator te maken
 
@@ -189,14 +240,24 @@ Bij het maken van een [StreamingLocator](https://docs.microsoft.com/rest/api/med
 Uw Media Service-account heeft een quotum voor het aantal StreamingPolicy-vermeldingen. U dient geen nieuw StreamingPolicy voor elke StreamingLocator te maken.
 
 1. Selecteer in het linkervenster van Postman de optie Streaming Policies.
-2. Selecteer vervolgens Create Streaming Policy.
+2. Selecteer vervolgens Create a Streaming Locator.
 3. Druk op **Verzenden**.
 
-    De volgende **PUT**-bewerking wordt verzonden.
+    * De volgende **PUT**-bewerking wordt verzonden.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        ```
+    * De bewerking heeft de volgende hoofdtekst:
+
+        ```json
+        {
+            "properties":{
+            "assetName": "{{assetName}}",
+            "streamingPolicyName": "{{streamingPolicyName}}"
+            }
+        }
+        ```
 
 ### <a name="list-paths-and-build-streaming-urls"></a>Paden weergeven en streaming-URL's maken
 
@@ -208,40 +269,40 @@ Nu de [StreamingLocator](https://docs.microsoft.com/rest/api/media/streamingloca
 2. Selecteer vervolgens List Paths.
 3. Druk op **Verzenden**.
 
-    De volgende **POST**-bewerking wordt verzonden.
+    * De volgende **POST**-bewerking wordt verzonden.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
+        ```
+        
+    * De bewerking heeft geen hoofdtekst:
+        
 4. Noteer een van de paden die u voor streaming wilt gebruiken. U hebt deze nodig in de volgende sectie. In dit geval worden de volgende paden geretourneerd:
     
     ```
-    {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-    }
+    "streamingPaths": [
+        {
+            "streamingProtocol": "Hls",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)"
+            ]
+        },
+        {
+            "streamingProtocol": "Dash",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=mpd-time-csf)"
+            ]
+        },
+        {
+            "streamingProtocol": "SmoothStreaming",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest"
+            ]
+        }
+    ]
     ```
 
 #### <a name="build-the-streaming-urls"></a>De streaming-URL's maken
@@ -253,16 +314,27 @@ In deze sectie gaat u een URL voor HLS-streaming maken. URL's bestaan uit de vol
     > [!NOTE]
     > Als een speler wordt gehost op een https-site, moet u de URL bijwerken naar 'https'.
 
-2. De hostnaam van het StreamingEndpoint. In dit geval is de naam 'amsaccount-usw22.streaming.media.azure.net'
-3. Een pad dat u in de vorige sectie hebt verkregen.  
+2. De hostnaam van het StreamingEndpoint. In dit geval is de naam 'amsaccount-usw22.streaming.media.azure.net'.
+
+    U kunt de volgende GET-bewerking gebruiken om de hostnaam te verkrijgen:
+    
+    ```
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    ```
+    
+3. Een pad dat u in de vorige sectie (Paden weergeven) hebt verkregen.  
 
 Als resultaat wordt de volgende HLS-URL gemaakt
 
 ```
-https://amsaccount-usw22.streaming.media.azure.net/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)
+https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
 ## <a name="test-the-streaming-url"></a>De streaming-URL testen
+
+
+> [!NOTE]
+> Controleer of het streaming-eindpunt van waar u wilt streamen, wordt uitgevoerd.
 
 In dit artikel gebruiken we Azure Media Player om de stream te testen. 
 
@@ -282,7 +354,7 @@ Als u een resource wilt verwijderen, selecteert u de Delete-bewerking onder de r
 
 Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van de Media Services en opslagaccounts die u hebt gemaakt voor deze zelfstudie, verwijdert u de resourcegroep die u eerder hebt gemaakt. U kunt het hulpprogramma **CloudShell** gebruiken.
 
-Voer in de **CloudShell** de volgende opdracht uit:
+Voer in **CloudShell** de volgende opdracht uit:
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup

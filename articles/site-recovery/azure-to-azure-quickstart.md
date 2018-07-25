@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c72ae695c33bf9147bce7f326e8501ce2a88bb33
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916599"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990860"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Een Azure-VM repliceren naar een andere Azure-regio
 
@@ -34,7 +34,7 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
 1. Klik in Azure Portal op **Virtuele machines** en selecteer de VM die u wilt repliceren.
 
-2. Klik bij **Instellingen** op **Herstel na noodgeval**.
+2. Klik bij **Bewerkingen** op **Herstel na noodgeval**.
 3. Selecteer in **Noodherstel configureren** > **Doelregio** de doelregio waarnaar u wilt repliceren.
 4. Accepteer voor deze snelstartgids de overige standaardinstellingen.
 5. Klik op **Replicatie inschakelen**. Hierdoor wordt een taak gestart voor het inschakelen van replicatie voor de VM.

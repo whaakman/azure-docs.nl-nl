@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 04/13/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639204"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990511"
 ---
 # <a name="azure-managed-applications-overview"></a>Overzicht van Azure Managed Applications
 
@@ -41,7 +41,7 @@ U kunt uw beheerde toepassing zowel extern als intern publiceren.
 
 ### <a name="service-catalog"></a>Servicecatalogus
 
-De servicecatalogus is een interne catalogus van goedgekeurde oplossingen voor gebruikers in een organisatie. U gebruikt de catalogus om naleving van bepaalde organisatiestandaarden te garanderen en tegelijkertijd oplossingen voor de organisaties te bieden. Werknemers gebruiken de catalogus om eenvoudig de uitgebreide set toepassingen te bekijken die worden aanbevolen en zijn goedgekeurd door hun IT-afdelingen. Ze zien welke beheerde toepassingen andere personen in hun organisatie met hen delen.
+De servicecatalogus is een interne catalogus van goedgekeurde oplossingen voor gebruikers in een organisatie. U gebruikt de catalogus om naleving van bepaalde organisatiestandaarden te garanderen en tegelijkertijd oplossingen voor de organisaties te bieden. Werknemers gebruiken de catalogus om eenvoudig toepassingen te bekijken die worden aanbevolen en zijn goedgekeurd door hun IT-afdelingen. Ze zien welke beheerde toepassingen andere personen in hun organisatie met hen delen.
 
 Zie [Een beheerde toepassing voor intern verbruik publiceren](publish-service-catalog-app.md) voor meer informatie over het publiceren van beheerde toepassing in een servicecatalogus.
 
@@ -70,6 +70,10 @@ De consument heeft volledige toegang tot de resourcegroep en gebruikt deze om de
 Deze resourcegroep bevat alle resources die de beheerde toepassing nodig heeft. Deze resourcegroep bevat bijvoorbeeld de virtuele machines, opslagaccounts en virtuele netwerken voor de oplossing. De consument heeft beperkte toegang tot deze resourcegroep omdat de consument de afzonderlijke resources voor de beheerde toepassing niet beheert. De toegang van de uitgever tot deze resourcegroep komt overeen met de rol die is opgegeven in de definitie van de beheerde toepassing. De uitgever kan bijvoorbeeld de rol van eigenaar of bijdrager voor deze resourcegroep aanvragen.
 
 Wanneer de gebruiker de beheerde toepassing verwijdert, wordt ook de beheerde resourcegroep verwijderd.
+
+## <a name="azure-policy"></a>Azure Policy
+
+U kunt een [Azure Policy](../azure-policy/azure-policy-introduction.md) toepassen op uw beheerde toepassing. U past beleidsregels toe om te verzekeren dat geïmplementeerde exemplaren van uw beheerde toepassing aan gegevens- en beveiligingsvereisten voldoen. Als uw toepassing met gevoelige gegevens werkt, zorg er dan voor dat u hebt geëvalueerd hoe die moeten worden beschermd. Als uw toepassing bijvoorbeeld met gegevens uit Office 365 werkt, past u een beleid toe om te verzekeren dat gegevensversleuteling is ingeschakeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 

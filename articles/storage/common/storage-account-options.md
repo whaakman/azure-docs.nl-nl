@@ -7,37 +7,37 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 07/03/2018
+ms.date: 07/14/2018
 ms.author: hux
-ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ea4a6f0d1ff6e78d97fbc64b8a23406172ebf36
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445418"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072411"
 ---
 # <a name="azure-storage-account-options"></a>Opties voor Azure Storage-account
 
 ## <a name="overview"></a>Overzicht
 Azure Storage biedt drie verschillende accountopties, met verschillende prijzen en functies. Neem deze verschillen in overweging voordat u een opslagaccount maakt om de optie te kiezen die het best bij uw toepassingen past. De drie verschillende opslagaccounts zijn:
 
-* Accounts voor **algemeen gebruik v2 (GPv2)** 
-* Accounts voor **algemeen gebruik v1 (GPv1)**
-* **Blob Storage**-accounts
+* [**Accounts voor algemeen gebruik v2 (GPv2-** accounts)](#general-purpose-v2-accounts)
+* [**Accounts voor algemeen gebruik v1 (GPv1-** accounts)](#general-purpose-v1-accounts)
+* [**Blob**-opslagaccounts](#blob-storage-accounts)
 
 Elk accounttype wordt in de volgende sectie in meer detail beschreven:
 
 ## <a name="storage-account-options"></a>Opslagaccountopties
 
-### <a name="general-purpose-v2"></a>Algemeen gebruik v2
+### <a name="general-purpose-v2-accounts"></a>V2-accounts voor algemeen gebruik
 
-Accounts voor algemeen gebruik v2 (GPv2) zijn opslagaccounts die de nieuwste functies voor blobs, bestanden, wachtrijen en tabellen ondersteunen. GPv2-accounts ondersteunen alle API’s en functies die in GPv1- en Blob Storage-accounts worden ondersteund. Ze ondersteunen ook dezelfde functies voor duurzaamheid, beschikbaarheid, schaalbaarheid en prestatieverhogende functies in deze accounttypen. Prijsmodellen voor GPv2-accounts bieden de laagste prijzen per gigabyte en concurrerende transactieprijzen in de branche.
+Accounts voor algemeen gebruik v2 (GPv2) zijn opslagaccounts die de nieuwste functies voor blobs, bestanden, wachtrijen en tabellen ondersteunen. GPv2-accounts ondersteunen alle API’s, services en functies die in accounts voor algemeen gebruik v1 (GPv1) en Blob-opslagaccounts worden ondersteund. Ze bevatten ook dezelfde functies voor duurzaamheid, beschikbaarheid, schaalbaarheid en prestatieverhogende functies die worden geleverd door alle opslagaccounttypen. Prijsmodellen voor GPv2-accounts bieden de laagste prijzen per gigabyte en concurrerende transactieprijzen in de branche.
 
 U kunt uw GPv1- of Blob Storage-account upgraden naar een GPv2-account via Azure Portal, PowerShell of Azure CLI. 
 
-Voor blok-blobs in een GPv2-opslagaccount kunt u kiezen tussen dynamische- en statische-opslaglagen op accountniveau, of dynamische-, statische- en archiefopslaglagen op blob-niveau op basis van toegangspatronen. Sla gegevens die vaak, onregelmatig en zelden worden geopend op in respectievelijk de dynamische-, statische- en archiefopslaglaag om de kosten te optimaliseren. 
+Voor blok-blobs in een GPv2-opslagaccount kunt u kiezen tussen dynamische of statische lagen voor opslagtoegang op accountniveau, of dynamische, statische of archiefopslaglagen op blobniveau op basis van gebruikspatronen. Sla gegevens die vaak, onregelmatig en zelden worden geopend op in respectievelijk de dynamische, statische en archiefopslaglaag om opslag- en transactiekosten te optimaliseren. 
 
-GPv2-opslag-accounts geven het kenmerk **Toegangslaag** op accountniveau weer. De standaardopslagaccountlaag wordt aangeduid als **Dynamisch** of **Statisch**. De standaardopslagaccountlaag wordt toegepast op blobs waarvoor op blob-niveau geen expliciete laag is ingesteld. Als er een wijziging optreedt in het gebruikspatroon van de gegevens, kunt u op elk gewenst moment schakelen tussen deze opslaglagen. De **archive-laag** kan alleen worden toegepast op blob-niveau.
+GPv2-opslag-accounts geven het kenmerk **Toegangslaag** op accountniveau weer. De standaardopslagaccountlaag wordt aangeduid als **Dynamisch** of **Statisch**. De standaardopslagaccountlaag wordt toegepast op blobs waarvoor op blob-niveau geen expliciete laag is ingesteld. Als er een wijziging optreedt in het gebruikspatroon van de gegevens, kunt u op elk gewenst moment schakelen tussen deze opslaglagen. De **archieflaag** kan alleen worden toegepast op blobniveau.
 
 > [!NOTE]
 > Aan het wijzigen van de opslaglaag kunnen extra kosten zijn verbonden. Zie [Prijzen en facturering](#pricing-and-billing) voor meer informatie.
@@ -46,7 +46,10 @@ GPv2-opslag-accounts geven het kenmerk **Toegangslaag** op accountniveau weer. D
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Een upgrade van een opslagaccount naar GPv2 uitvoeren
 
-Gebruikers kunnen op ieder moment een GPv1- of Blob-opslagaccount upgraden naar een GPv2-account via Azure Portal, PowerShell of Azure CLI. Deze wijziging kan niet ongedaan worden gemaakt en er zijn geen andere wijzigingen toegestaan.
+Gebruikers kunnen op ieder moment een GPv1- of Blob-opslagaccount upgraden naar een GPv2-account via Azure Portal, PowerShell of Azure CLI. Deze wijziging kan niet ongedaan worden gemaakt en er zijn geen andere wijzigingen in het accounttype toegestaan. Zie de sectie [Evalueren en migreren naar GPv2-opslagaccounts](#evaluating-and-migrating-to-gpv2-storage-accounts) voor meer informatie over het evalueren van uw bestaande opslagaccount.
+* [Een upgrade uitvoeren naar GPv2 met Azure Portal](#upgrade-with-azure-portal)
+* [Een upgrade uitvoeren naar GPv2 met PowerShell](#upgrade-with-powershell)
+* [Een upgrade uitvoeren naar GPv2 met Azure CLI](#upgrade-with-azure-cli)
 
 #### <a name="upgrade-with-azure-portal"></a>Een upgrade uitvoeren in Azure Portal
 Als u een GPv1- of Blob-opslagaccount wilt upgraden naar een GPv2-account met behulp van Azure Portal, meldt u zich aan bij [Azure Portal](https://portal.azure.com) en selecteert u uw opslagaccount. Selecteer **Instellingen** > **Configuratie**. U ziet nu de knop **Upgrade uitvoeren**, samen met een opmerking over het upgradeproces.
@@ -67,7 +70,7 @@ Als u een upgrade wilt uitvoeren van een GPv1- of Blob Storage-account naar een 
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```` 
 
-### <a name="general-purpose-v1"></a>Algemeen gebruik v1
+### <a name="general-purpose-v1-accounts"></a>V1-accounts voor algemeen gebruik
 
 Accounts voor algemeen gebruik v1 (GPv1) hebben toegang tot alle Azure Storage-services, maar hebben mogelijk niet de nieuwste functies of de laagste prijzen per gigabyte. Statische en archiefopslag worden bijvoorbeeld niet ondersteund in GPv1. Prijzen zijn lager voor GPv1-transacties, zodat workloads met een hoog verloop of hoge leessnelheden van dit accounttype kunnen profiteren.
 
@@ -196,14 +199,19 @@ Het doel van deze sectie is om gebruikers op soepele wijze te helpen migreren va
 * U beschikt over een bestaand GPv1-opslagaccount en wilt een wijziging evalueren in een GPv2-opslagaccount met de juiste opslaglaag.
 * U hebt besloten om een GPv2-opslagaccount te gebruiken of u hebt er al een, en u wilt evaluearen of u een dynamische- of statische-opslaglaag moet gebruiken.
 
-In beide gevallen moeten eerst de kosten worden geschat van het opslaan en openen van uw gegevens die zijn opgeslagen in een GPv2-opslagaccount en dient u deze te vergelijken met uw huidige kosten.
+In beide gevallen moeten eerst de kosten worden geschat van het opslaan, openen en uitvoeren van uw gegevens die zijn opgeslagen in een GPv2-opslagaccount en dient u deze te vergelijken met uw huidige kosten.
 
 ## <a name="evaluating-gpv2-storage-account-tiers"></a>Lagen voor GPv2-opslagaccounts evalueren
 
 Voor het maken van een schatting van de kosten voor het opslaan en openen van gegevens die zijn opgeslagen in een GPv2-opslagaccount, moet u uw bestaande gebruikspatroon evalueren of een schatting maken van het verwachte gebruikspatroon. Doorgaans zijn de volgende gegevens hiervoor van belang:
 
-* Wat is het gebruik van de opslag? Hoeveel gegevens worden er opgeslagen en hoe wijzigt dit maandelijks?
-* Wat is het toegangspatroon voor de opslag? Op hoeveel gegevens in het account worden er lees- en/of schrijfbewerkingen uitgevoerd (inclusief nieuwe gegevens)? Hoeveel transacties worden gebruikt voor toegang tot gegevens? En wat voor soort transacties zijn dit?
+* Uw gegevensopslagverbruik (GB)
+    - Hoeveel gegevens worden opgeslagen in het opslagaccount?
+    - Hoe verandert het gegevensvolume op maandbasis; worden oude gegevens voortdurend vervangen door nieuwe gegevens?
+* Uw patroon voor toegang tot de opslag (bewerkingen en gegevensoverdracht)
+    - Hoeveel gegevens worden gelezen uit (uitgaand verkeer) en geschreven naar het opslagaccount (inkomend verkeer)? 
+    - Hoeveel bewerkingen vinden plaats op de gegevens in het opslagaccount?
+    - Welke soorten bewerkingen (lezen vs. schrijven) worden uitgevoerd op de gegevens?
 
 ## <a name="monitoring-existing-storage-accounts"></a>Bewaking van bestaande opslagaccounts
 
@@ -244,7 +252,7 @@ Het totaal van *'TotalBillableRequests'*, in alle items voor een API in de metri
 Voor het schatten van de transactiekosten van Blob Storage-accounts moet u de transacties in drie groepen opdelen omdat ze verschillend zijn geprijsd.
 
 * Schrijftransacties zoals *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* en *'CopyBlob'*.
-* Verwijdertransacties zoals *'DeleteBlob'* en *'DeleteContainer'*.
+* Leestransacties zoals *'GetBlob'*.
 * Alle andere transacties.
 
 Voor het schatten van de transactiekosten voor GPv1-opslagaccounts moet u alle transacties verzamelen ongeacht de bewerking/API.

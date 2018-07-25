@@ -9,18 +9,16 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/05/2018
 ms.author: dobett
-ms.openlocfilehash: f3a252d6f7c49a65e0c548599b1958825b134ee8
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fd4a637ebb05493bf0c0a940c3ff0cb56ad94c54
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37966936"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005030"
 ---
 # <a name="quickstart-deploy-and-run-a-cloud-based-device-simulation-solution"></a>Snelstart: Een cloudoplossing voor apparaatsimulatie implementeren en uitvoeren
 
 In deze snelstart leert u een oplossingsverbetering voor apparaatsimulatie in Azure IoT implementeren om uw IoT-oplossing mee te testen. Nadat u de oplossingsverbetering hebt geïmplementeerd, gebruikt u de pagina **Simulatie** om een simulatie te maken en uit te voeren.
-
-## <a name="prerequisites"></a>Vereisten
 
 U hebt een actief Azure-abonnement nodig om deze snelstart te voltooien.
 
@@ -88,7 +86,7 @@ U kunt met een ingerichte exemplaar van de oplossingsverbetering slechts één s
 
 Laat de oplossingsversneller voor apparaatsimulatie geïmplementeerd als u de functie nog meer wilt verkennen.
 
-Als u de oplossingsverbetering niet meer nodig hebt, verwijdert u deze op de pagina [Ingerichte oplossingen](https://www.azureiotsolutions.com/Accelerators#dashboard):
+Als u de oplossingsverbetering niet meer nodig hebt, verwijdert u deze op de pagina [Ingerichte oplossingen](https://www.azureiotsolutions.com/Accelerators#dashboard) door de oplossingsverbetering te selecteren en op **Oplossing verwijderen** te klikken:
 
 ![Oplossing verwijderen](media/quickstart-device-simulation-deploy/deletesolution.png)
 
@@ -96,7 +94,7 @@ Als u de oplossingsverbetering niet meer nodig hebt, verwijdert u deze op de pag
 
 In deze snelstart hebt u de oplossingsverbetering voor apparaatsimulatie geïmplementeerd en een simulatie van een IoT-apparaat uitgevoerd.
 
-Raadpleeg voor meer informatie over het gebruik van een bestaande IoT Hub in een simulatie de bijbehorende handleiding:
+Raadpleeg voor meer informatie over het gebruik van een bestaande IoT Hub in een simulatie de volgende handleiding:
 
 > [!div class="nextstepaction"]
 > [Een bestaande IoT-hub gebruiken met de oplossingsverbetering voor apparaatsimulatie](iot-accelerators-device-simulation-choose-hub.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930525"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072143"
 ---
 # <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten:
@@ -221,7 +221,7 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 > 
 > 
 
-### <a name="bgp-community-support-in-national-clouds-preview"></a>Ondersteuning voor BGP-community's in nationale clouds (preview)
+### <a name="bgp-community-support-in-national-clouds"></a>Ondersteuning voor BGP-community's in nationale clouds
 
 | **Nationale clouds Azure-regio**| **BGP-communitywaarde** |
 | --- | --- |

@@ -6,17 +6,17 @@ ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
+ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0a629deec0cc18f65dfe5e88a3eaea528636dd0f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4774efda6748ac640d87ce83e2d5c4ee68310546
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300936"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125736"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snelstart: maak uw eerste geautomatiseerde werkstroom met Azure Logic Apps - Azure-portal
 
@@ -34,7 +34,7 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
 
 ## <a name="create-your-logic-app"></a>Uw logische app maken 
 
-1. Kies in het hoofdmenu van Azure **Een resource maken** > **Bedrijfsintegratie** > **Logische app**.
+1. Kies in het hoofdmenu van Azure **Een resource maken** > **Integratie** > **Logische app**.
 
    ![Logische app maken](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
@@ -42,12 +42,12 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
 
    ![Gegevens van logische app opgeven](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Instelling | Waarde | Beschrijving | 
-   | ------- | ----- | ----------- | 
+   | Eigenschap | Waarde | Beschrijving | 
+   |----------|-------|-------------| 
    | **Naam** | MyFirstLogicApp | De naam voor uw logische app | 
    | **Abonnement** | <*your-Azure-subscription-name*> | De naam van uw Azure-abonnement | 
    | **Resourcegroep** | My-First-LA-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren | 
-   | **Locatie** | VS - oost 2 | De regio waar uw logische app-gegevens wordt opgeslagen | 
+   | **Locatie** | VS - west | De regio waar uw logische app-gegevens wordt opgeslagen | 
    | **Log Analytics** | Uit | Behoud de instelling **Uit** voor het vastleggen van diagnostische gegevens. | 
    |||| 
 
@@ -69,12 +69,12 @@ Vervolgens voegt u een [trigger](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Trigger instellen met RSS-feed, frequentie en interval](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
-   | Instelling | Waarde | Beschrijving | 
-   | ------- | ----- | ----------- | 
+   | Eigenschap | Waarde | Beschrijving | 
+   |----------|-------|-------------| 
    | **De URL voor de RSS-feed** | ```http://feeds.reuters.com/reuters/topNews``` | De koppeling voor de RSS-feed die u wilt bijhouden | 
    | **Interval** | 1 | Het aantal intervallen dat tussen controles moet worden gewacht | 
    | **Frequentie** | Minuut | De tijdseenheid voor elk interval tussen controles  | 
-   |  |  |  | 
+   |||| 
 
    Het interval en de frequentie bepalen samen de planning van de trigger voor uw logische app. 
    Deze logische app controleert de feed elke minuut.
@@ -95,9 +95,11 @@ Voeg nu een [actie](../logic-apps/logic-apps-overview.md#logic-app-concepts) waa
 
    ![Een actie toevoegen](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. Zoek onder **Kies een actie** naar 'e-mail verzenden' en selecteer de actie 'e-mail verzenden' voor de gewenste e-mailprovider. Als u de lijst met acties wilt filteren op een bepaalde service, kunt u eerst de connector onder **Connectors** selecteren.
+2. Voer onder **Kies een actie** 'een e-mail verzenden' als filter in. Selecteer in de lijst met acties de actie 'een e-mail verzenden' voor de gewenste e-mailprovider. 
 
    ![Selecteer deze actie: 'Office 365 Outlook - Een e-mail verzenden'](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+
+   Als u de lijst met acties wilt filteren op een bepaalde app of service, kunt u eerst die app of service selecteren:
 
    * Voor werk- of schoolaccounts van Azure selecteert u Outlook van Office 365. 
    * Selecteer Outlook.com voor persoonlijke Microsoft-accounts.
@@ -109,21 +111,14 @@ Voeg nu een [actie](../logic-apps/logic-apps-overview.md#logic-app-concepts) waa
    1. Voer het e-mailadres van de ontvanger in het vak **Aan** in. 
    Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken.
 
-      Negeer voorlopig de parameterlijst of de lijst **Dynamische inhoud toevoegen** die wordt weergegeven. 
-      Wanneer u in bepaalde invoervakken klikt, wordt deze lijst geopend met alle beschikbare parameters uit de vorige stap die u als invoer in uw werkstroom kunt opnemen.
-      De breedte van uw browser bepaalt welke lijst wordt weergegeven.
+      Negeer voorlopig de lijst **Dynamische inhoud toevoegen** die wordt weergegeven. 
+      Wanneer u in bepaalde invoervakken klikt, wordt deze lijst geopend met alle beschikbare parameters uit de vorige stap die u als invoer in uw werkstroom kunt opnemen. 
 
    2. Voer in het vak **Onderwerp** deze tekst met een afsluitende spatie in: ```New RSS item: ```
 
       ![Het onderwerp van de e-mail invoeren](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  
-   3. In de parameterlijst of de lijst **Dynamische inhoud toevoegen** selecteert u **Feedtitel** om de titel van het RSS-item op te nemen.
-
-      Hier ziet u bijvoorbeeld de parameterlijst:
-
-      ![Parameterlijst - ‘Feedtitel’](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-parameters-list.png)
-
-      En dit is de lijst met dynamische inhoud:
+   3. In de lijst **Dynamische inhoud toevoegen** selecteert u **Feedtitel** om de titel van het RSS-item op te nemen.
 
       ![Lijst met dynamische inhoud - 'Feedtitel'](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
 
@@ -131,18 +126,18 @@ Voeg nu een [actie](../logic-apps/logic-apps-overview.md#logic-app-concepts) waa
 
       ![Feedtitel toegevoegd](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
 
-      Als een 'For each'-lus in de ontwerpfunctie wordt weergegeven, hebt u een veld met een matrix geselecteerd, zoals het veld **categories-item**. 
-      Voor dit type velden voegt de ontwerpfunctie automatisch deze lus toe rond de actie die verwijst naar dat veld. 
+      Als een 'For each'-lus in de ontwerpfunctie wordt weergegeven, hebt u een token voor een matrix geselecteerd, bijvoorbeeld het token **categories-Item**. 
+      Voor dit type tokens voegt de ontwerpfunctie automatisch deze lus toe rond de actie die verwijst naar dat token. 
       Op die manier wordt dezelfde actie uitgevoerd voor elk matrixitem. 
       Als u de lus wilt verwijderen, kiest u de (**puntjes** (**...**) op de titelbalk van de lus. Kies vervolgens **Verwijderen**.
 
-   4. In het vak voor de **hoofdtekst** voert u deze tekst in en selecteert u deze velden voor de inhoud van het e-mailbericht. 
+   4. In het vak voor de **hoofdtekst** voert u deze tekst in en selecteert u deze tokens voor de inhoud van het e-mailbericht. 
    Als u lege regels wilt toevoegen in een invoervak, drukt u op Shift + Enter. 
 
       ![Inhoud voor de hoofdtekst van de e-mail toevoegen](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | Instelling | Beschrijving | 
-      | ------- | ----------- | 
+      | Eigenschap | Beschrijving | 
+      |----------|-------------| 
       | **Feedtitel** | De titel van het item | 
       | **Feed gepubliceerd op** | De publicatiedatum en -tijd van het item | 
       | **Primaire feedkoppeling** | De URL voor het item | 
@@ -167,9 +162,15 @@ Gefeliciteerd, u hebt uw eerste logische app in Azure Portal gemaakt en uitgevoe
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u die niet meer nodig hebt, verwijdert u de resourcegroep die uw logische app en alle gerelateerde resources bevat. Ga in het Azure-hoofdmenu naar **Resourcegroepen** en selecteer de resourcegroep voor uw logische app. Kies **Resourcegroep verwijderen**. Voer ter bevestiging de naam van de resourcegroep in en kies **Verwijderen**.
+Als u dit voorbeeld niet meer nodig hebt, verwijdert u de resourcegroep die uw logische app en alle gerelateerde resources bevat. 
 
-!['Resourcegroepen' > 'Overzicht' > 'Resourcegroep verwijderen'](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+1. Ga in het Azure-hoofdmenu naar **Resourcegroepen** en selecteer de resourcegroep voor uw logische app. Kies op de pagina **Overzicht** de optie **Resourcegroep verwijderen**. 
+
+   !['Resourcegroepen' > 'Overzicht' > 'Resourcegroep verwijderen'](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+
+2. Voer ter bevestiging de naam van de resourcegroep in en kies **Verwijderen**.
+
+   ![Verwijdering bevestigen](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 

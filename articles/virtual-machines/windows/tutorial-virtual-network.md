@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8bf8388829504b18e71ec597d21b844e29a82346
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6e5b9ce7a4625cccdfaa29492250a5e8255ec23d
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931126"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136516"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Zelfstudie: Virtuele Azure-netwerken voor virtuele Windows-machines maken en beheren met Azure PowerShell
 
@@ -49,7 +49,7 @@ Tijdens het volgen van deze zelfstudie worden de volgende resources gemaakt:
 - *myVNet*: het virtuele netwerk dat de virtuele machines gebruiken om met elkaar en met internet te communiceren.
 - *myFrontendSubnet*: het subnet in *myVNet* dat door de front-endresources wordt gebruikt.
 - *myPublicIPAddress*: het openbare IP-adres dat wordt gebruikt voor toegang tot *myFrontendVM* via internet.
-- *myFrontentNic*: de netwerkinterface die wordt gebruikt door *myFrontendVM* om te communiceren met *myBackendVM*.
+- *myFrontendNic*: de netwerkinterface die wordt gebruikt door *myFrontendVM* om te communiceren met *myBackendVM*.
 - *myFrontendVM*: de VM die wordt gebruikt voor communicatie tussen internet en *myBackendVM*.
 - *myBackendNSG*: de netwerkbeveiligingsgroep waardoor de communicatie tussen de *myFrontendVM* en *myBackendVM* wordt bepaald.
 - *myBackendSubnet*: het subnet dat is gekoppeld aan *myBackendNSG* en door de back-endresources wordt gebruikt.

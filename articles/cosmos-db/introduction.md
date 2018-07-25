@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: dcc384fad0479c66211fe31e547ad7076150b58e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 256c951b5bf193f5ee5bfe5f70c3549ef17a4d9b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611225"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071975"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
@@ -68,7 +68,7 @@ Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het een
     * De database-engine van Azure Cosmos DB is volledig schemaneutraal. Alle ontvangen gegevens worden automatisch geïndexeerd zonder dat hiervoor schema's of indexen nodig zijn en query's worden razendsnel uitgevoerd. 
 
 * **Lage eigendomskosten**
-    * Vijf tot tien keer [kosteneffectiever](https://aka.ms/cosmos-db-tco-paper) dan een niet-beheerde of on-premises NoSQL-oplossing.
+    * Vijf tot tien keer kosteneffectiever dan een niet-beheerde of on-premises NoSQL-oplossing.
     * Drie keer goedkoper dan AWS DynamoDB of Google Spanner.
 
 ## <a name="capability-comparison"></a>Vergelijking van functionaliteit

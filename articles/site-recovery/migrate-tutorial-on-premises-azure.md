@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919118"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070674"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>On-premises machines migreren naar Azure
 
@@ -40,7 +40,10 @@ Voordat u begint, is het handig om de architectuur voor noodherstel van [VMware]
 
 ## <a name="prerequisites"></a>Vereisten
 
-Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
+- Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
+ 
+> [!WARNING]
+> Het is mogelijk om virtuele machines op andere virtualisatieplatforms te migreren (met uitzondering van VMware, Hyper-V), zoals XenServer, door de virtuele machines als fysieke servers te behandelen. Deze benadering is echter nog niet getest en gevalideerd door Microsoft en werkt mogelijk niet. Virtuele machines die worden uitgevoerd op het XenServer-platform worden bijvoorbeeld mogelijk niet uitgevoerd in Azure, tenzij XenServer-hulpprogramma's en para-gevirtualiseerde opslag- en netwerkstuurprogramma's van de virtuele machine zijn verwijderd voordat u met de migratie begint.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
@@ -109,7 +112,7 @@ Een failover uitvoeren voor de machines die u wilt migreren.
 1. Klik in **Instellingen** > **Gerepliceerde items** op de machine > **Failover**.
 2. Selecteer in **Failover** een **Herstelpunt** waarnaar u de failover wilt uitvoeren. Selecteer het meest recente herstelpunt.
 3. De instelling voor de coderingssleutel is niet relevant in dit scenario.
-4. Selecteer **Sluit de computer af voordat de failover wordt gestart**. Site Recovery zal proberen om virtuele bronmachines af te sluiten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
+4. Selecteer **Sluit de computer af voordat de failover wordt gestart**. Site Recovery zal proberen om virtuele machines af te sluiten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
 5. Controleer of de virtuele Azure-machine in Azure wordt weergegeven zoals verwacht.
 6. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine > **Migratie voltooien**. Hiermee wordt het migratieproces voltooid, de replicatie voor de VM gestopt en Site Recovery-facturering voor de virtuele machine gestopt.
 
@@ -119,12 +122,12 @@ Een failover uitvoeren voor de machines die u wilt migreren.
 > [!WARNING]
 > **Annuleer een failover die in voortgang is niet**: voordat de failover wordt gestart, wordt de VM-replicatie gestopt. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.
 
-In sommige scenario's vereist de failover extra verwerking die circa acht tot tien minuten duurt. U zou langere failover-tijden kunnen waarnemen voor fysieke servers, VMware Linux-computers, VMware-VM's waarop de DHCP-service niet is ingeschakeld, en VMware-VM's die niet de volgende opstartstuurprogramma’s hebben: storvsc, vmbus, storflt, intelide, atapi.
+In sommige scenario's vereist de failover extra verwerking die circa acht tot tien minuten duurt. U zou langere failover-tijden kunnen waarnemen voor fysieke servers, VMware Linux-computers, VMware VM's waarop de DHCP-service niet is ingeschakeld, en VMware VM's die niet de volgende opstartstuurprogramma’s hebben: storvsc, vmbus, storflt, intelide, atapi.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u on-premises virtuele machines naar virtuele Azure-machines gemigreerd. U kunt nu herstel na noodgevallen configureren voor de virtuele Azure-machines.
-
-> [!div class="nextstepaction"]
-> [Stel herstel na noodgeval in](azure-to-azure-replicate-after-migration.md) voor Azure-VM's na de migratie van een on-premises locatie.
+In deze zelfstudie hebt u on-premises virtuele machines naar virtuele Azure-machines gemigreerd. Nu u virtuele machines hebt gemigreerd, kunt u het volgende doen:
+- [Herstel na noodgeval instellen](azure-to-azure-replicate-after-migration.md) voor de gemigreerde machines.
+- Profiteren van de mogelijkheden van de [veilige en goed beheerde cloud](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) van Azure voor het beheren van uw virtuele machines in Azure.
+  

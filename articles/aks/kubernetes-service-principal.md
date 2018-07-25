@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: f933788968ffdbd4a856a84476d8d82b32637d62
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 4dbb8b7abf6da77115d0e1d12621ec20ec60d174
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100331"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035197"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Service-principals met AKS (Azure Kubernetes Service)
 
@@ -35,7 +35,7 @@ Wanneer u een AKS-cluster maakt met behulp van de opdracht `az aks create`, kunt
 
 In het volgende voorbeeld wordt een AKS-cluster gemaakt en vervolgens ook een service-principal, omdat er geen bestaande service-principal is opgegeven. Uw account moet beschikken over de juiste rechten voor het maken van een service-principal om deze bewerking te kunnen voltooien.
 
-```azurecli
+```azurecli-interactive
 az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
@@ -47,7 +47,7 @@ Er kan een bestaande service-principal voor Azure AD worden gebruikt of vooraf g
 
 Gebruik de opdracht [az ad sp create-for-rbac][az-ad-sp-create] om een service-principal te maken met de Azure CLI.
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
@@ -84,7 +84,12 @@ Houd rekening met het volgende als u werkt met AKS en service-principals voor Az
 * Als u de **client-id** voor de service-principal opgeeft, gebruikt u de waarde van de `appId` (zoals beschreven in dit artikel) of de bijbehorende service-principal `name` (bijvoorbeeld `https://www.contoso.org/example`).
 * Op de hoofd- en knooppunt-VM's in het Kubernetes-cluster worden de referenties voor de service-principal opgeslagen in het bestand `/etc/kubernetes/azure.json`.
 * Als u de opdracht `az aks create` gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand `~/.azure/aksServicePrincipal.json` geschreven op de computer die wordt gebruikt om de opdracht uit te voeren.
-* Wanneer u een AKS-cluster verwijdert dat is gemaakt door `az aks create`, wordt de service-principal die automatisch is gemaakt, niet verwijderd. U kunt deze verwijderen met `az ad sp delete --id $clientID`.
+* Wanneer u een AKS-cluster verwijdert dat is gemaakt door `az aks create`, wordt de service-principal die automatisch is gemaakt, niet verwijderd. Als u de service-principal wilt verwijderen, haalt u eerst het id voor de service-principal op met [az ad app list][az-ad-app-list]. In het volgende voorbeeld wordt eerst een query uitgevoerd voor het cluster met de naam *myAKSCluster* en wordt vervolgens het app-id verwijderd met [az ad app delete][az-ad-app-delete]. Vervang deze namen door uw eigen waarden:
+
+    ```azurecli-interactive
+    az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
+    az ad app delete --id <appId>
+    ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -101,3 +106,5 @@ Zie de documentatie over Azure AD-toepassingen voor meer informatie over service
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]: ../active-directory/develop/active-directory-application-objects.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
+[az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
+[az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 63acf0297a694ff442d56e67d52fd9b4e49f812d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36288039"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008583"
 ---
 De eerste stap is Azure Portal te gebruiken om een IoT-hub te maken in uw abonnement. Met de IoT-hub kunt u grote hoeveelheden telemetrie naar de cloud opnemen vanaf een groot aantal apparaten. De hub stelt één of meerdere back-end diensten in de cloud in staat om die telemetrie te lezen en te verwerken.
 
@@ -26,12 +26,9 @@ De eerste stap is Azure Portal te gebruiken om een IoT-hub te maken in uw abonne
 1. Voer in het deelvenster **IoT Hub** deelvenster de volgende informatie in voor uw IoT-hub:
 
    * **Abonnement**: kies het abonnement dat u wilt gebruiken om deze IoT-hub te maken.
-
-   * **Resourcegroep**: maak een resourcegroep voor het hosten van de IoT-hub of gebruik een bestaande. Door alle gerelateerde resources in een groep te plaatsen, kunt u ze samen beheren. Als u bijvoorbeeld de resourcegroep verwijdert, worden alle resources verwijderd die deze groep bevat. Raadpleeg voor meer informatie [Resourcegroepen gebruiken om Azure-resources te beheren][lnk-resource-groups].
-
-   * **Regio**: selecteer de locatie die het dichtst bij u in de buurt is.
-
-   * **Naam**: verzin een naam voor uw IoT-hub. Als de door u opgegeven naam beschikbaar is, verschijnt er een groen vinkje.
+   * **Resourcegroep**: maak een nieuwe resourcegroep voor de IoT-hub of gebruik een bestaande. Door alle gerelateerde resources samen in een groep te plaatsen, zoals **TestResources**, kunt u ze samen beheren. Als u bijvoorbeeld de resourcegroep verwijdert, worden alle resources verwijderd die deze groep bevat. Raadpleeg voor meer informatie [Resourcegroepen gebruiken om Azure-resources te beheren][lnk-resource-groups].
+   * **Regio**: selecteer de locatie die het dichtst bij uw apparaten in de buurt is.
+   * **Naam**: bedenk een unieke naam voor uw IoT-hub. Als de door u opgegeven naam beschikbaar is, verschijnt er een groen vinkje.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 

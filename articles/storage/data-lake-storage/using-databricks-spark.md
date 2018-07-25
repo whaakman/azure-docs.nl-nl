@@ -1,29 +1,29 @@
 ---
-title: Toegang tot Azure Data Lake Storage Gen2 Preview-gegevens met DataBricks met behulp van Spark | Microsoft Docs
-description: Informatie over het uitvoeren van Spark-query’s in een DataBricks-cluster voor toegang tot gegevens in een Azure Data Lake Storage Gen2-opslagaccount.
+title: Toegang tot Azure Data Lake Storage Gen2 Preview-gegevens met Azure Databricks met behulp van Spark | Microsoft Docs
+description: Informatie over het uitvoeren van Spark-query's in een Azure Databricks-cluster voor toegang tot gegevens in een Azure Data Lake Storage Gen2-opslagaccount.
 services: hdinsight,storage
 tags: azure-portal
 author: dineshm
 manager: twooley
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 41c34b2c1459178c59af66a75e7b34e2ec158025
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096913"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136400"
 ---
-# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Zelfstudie: toegang tot Azure Data Lake Storage Gen2 Preview-gegevens met DataBricks met behulp van Spark
+# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Azure Data Lake Storage Gen2 Preview-gegevens met Azure Databricks met behulp van Spark
 
-In deze zelfstudie leert u hoe u Spark-query’s kunt uitvoeren op een DataBricks-cluster om query’s uit te voeren voor gegevens in een account dat geschikt is voor Azure Data Lake Storage Gen2 Preview.
+In deze zelfstudie leert u hoe u Spark-query’s kunt uitvoeren op een Azure Databricks-cluster om query’s uit te voeren voor gegevens in een account dat geschikt is voor Azure Data Lake Storage Gen2 Preview.
 
 > [!div class="checklist"]
-> * Een DataBricks-cluster maken
+> * Een Databricks-cluster maken
 > * Niet-gestructureerde gegevens opnemen in een opslagaccount
 > * Een Azure-functie activeren om gegevens te verwerken
 > * Analyse uitvoeren op gegevens in Blob-opslag
@@ -47,11 +47,11 @@ Maak om te beginnen een [Azure Data Lake Storage Gen2-account](quickstart-create
 
 Zowel de accountnaam als de sleutel hebt u nodig in latere stappen in deze zelfstudie. Open een teksteditor en noteer de accountnaam en sleutel voor later gebruik.
 
-## <a name="create-a-databricks-cluster"></a>Een DataBricks-cluster maken
+## <a name="create-a-databricks-cluster"></a>Een Databricks-cluster maken
 
-De volgende stap is het maken van een [DataBricks-cluster](https://docs.azuredatabricks.net/) om een gegevenswerkruimte te maken.
+De volgende stap is het maken van een [Databricks-cluster](https://docs.azuredatabricks.net/) om een gegevenswerkruimte te maken.
 
-1. Maak een [DataBricks-service](https://ms.portal.azure.com/#create/Microsoft.Databricks) en noem deze **myFlightDataService**. (Schakel het selectievakje *Vastmaken aan dashboard* in bij het maken van de service.)
+1. Maak een [Databricks-service](https://ms.portal.azure.com/#create/Microsoft.Databricks) en noem deze **myFlightDataService**. (Schakel het selectievakje *Vastmaken aan dashboard* in bij het maken van de service.)
 2. Klik op **Werkruimte starten** om de werkruimte te openen in een nieuw browservenster.
 3. Klik in de navigatiebalk links op **Clusters**.
 4. Klik op **Cluster maken**.
@@ -85,9 +85,9 @@ set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 
-### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>DataBricks Notebook gebruiken om CSV te converteren naar Parquet
+### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Notebook gebruiken om CSV te converteren naar Parquet
 
-Open DataBricks opnieuw in de browser en voer de volgende stappen uit:
+Open Databricks opnieuw in de browser en voer de volgende stappen uit:
 
 1. Selecteer linksboven in de navigatiebalk de optie **Azure Databricks**.
 2. Selecteer in de sectie **Nieuw** op de onderste helft van de pagina de optie **Notitieblok**.
@@ -116,7 +116,7 @@ Open DataBricks opnieuw in de browser en voer de volgende stappen uit:
 
 ## <a name="explore-data-using-hadoop-distributed-file-system"></a>Gegevens verkennen met behulp van Hadoop Distributed File System
 
-Ga terug naar de DataBricks-werkruimte en klik in de linkernavigatiebalk op het pictogram **Recent**.
+Ga terug naar de Databricks-werkruimte en klik in de linkernavigatiebalk op het pictogram **Recent**.
 
 1. Klik op het notitieblok **Analyse van vluchtgegevens**.
 2. Druk op **Ctrl + Alt + N** om een nieuwe cel te maken.

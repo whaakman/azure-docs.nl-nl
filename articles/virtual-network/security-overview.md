@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure-netwerkbeveiliging| Microsoft Docs
-description: Meer informatie over de beveiligingsopties voor het beheer van het netwerkverkeer tussen Azure-resources.
+title: Overzicht van Azure-beveiligingsgroepen| Microsoft Docs
+description: Meer informatie over netwerk- en toepassingsbeveiligingsgroepen. Beveiligingsgroepen helpen u bij het filteren van netwerkverkeer tussen Azure-resources.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e43f476c6f816a912e5739d5e2c13676cd1ca3e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657584"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092664"
 ---
-# <a name="network-security"></a>Netwerkbeveiliging
+# <a name="network-and-application-security-groups"></a>Netwerk- en toepassingsbeveiligingsgroepen
 
-Met behulp van een netwerkbeveiligingsgroep kunt u netwerkverkeer beperken tot resources in een virtueel netwerk. Een netwerkbeveiligingsgroep bevat een lijst met beveiligingsregels die binnenkomend of uitgaand netwerkverkeer toestaan of weigeren op basis van het bron- of doel-IP-adres, de poort en het protocol. 
+Met behulp van netwerk- en toepassingsbeveiligingsgroepen kunt u netwerkverkeer beperken tot resources in een virtueel netwerk. Een netwerkbeveiligingsgroep bevat een lijst met beveiligingsregels die binnenkomend of uitgaand netwerkverkeer toestaan of weigeren op basis van het bron- of doel-IP-adres, de poort en het protocol. Met een toepassingsbeveiligingsgroep kunt u virtuele machines met vergelijkbare functies groeperen, zoals webservers. U kunt een toepassingsbeveiligingsgroep opgeven als bron en doel in een regel voor een netwerkbeveiligingsgroep.
 
 ## <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
 
-Aan elke netwerkinterface is geen of één netwerkbeveiligingsgroep gekoppeld. Elke netwerkinterface bestaat in een subnet van een [virtueel netwerk](virtual-networks-overview.md). Aan een subnet kan ook geen of één netwerkbeveiligingsgroep zijn gekoppeld. 
+Aan elke netwerkinterface is geen of één netwerkbeveiligingsgroep gekoppeld. Elke netwerkinterface bestaat in een subnet van een [virtueel netwerk](virtual-networks-overview.md). Aan een subnet kan ook geen of één netwerkbeveiligingsgroep zijn gekoppeld.
 
 Wanneer beveiligingsregels worden toegepast op een subnet, worden ze toegepast op alle resources in het subnet. Naast netwerkinterfaces hebt u mogelijk exemplaren van andere Azure-services zoals HDInsight, virtuele-machineschaalsets en toepassingsserviceomgevingen geïmplementeerd in het subnet.
 
@@ -167,10 +167,10 @@ Toepassingsbeveiligingsgroepen hebben de volgende beperkingen:
 
      - **Enterprise Overeenkomst**: communicatie via poort 25 is toegestaan. U kunt uitgaande e-mail rechtstreeks vanaf virtuele machines naar externe e-mailproviders verzenden, zonder dat daar beperkingen voor gelden op grond van het Azure-platform. 
      - **Betalen naar gebruik:** communicatie via uitgaande poort 25 is voor alle resources geblokkeerd. Als u e-mail vanaf een virtuele machine rechtstreeks naar de externe e-mailproviders wilt verzenden (niet via een geverifieerde SMTP-relay), kunt u een aanvraag indienen om de beperking op te heffen. Het is aan Microsoft om te bepalen of aanvragen worden gecontroleerd en goedgekeurd, en aanvragen worden alleen toegekend nadat er controles ter voorkoming van fraude zijn uitgevoerd. Als u een aanvraag wilt indienen, opent u een ondersteuningsaanvraag met het probleemtype *Technisch*, *Virtuele netwerkverbinding*, *Kan geen e-mail verzenden (SMTP/poort 25)*. Vermeld in uw ondersteuningsaanvraag informatie zoals waarom uw abonnement e-mail rechtstreeks naar e-mailproviders moet kunnen verzenden in plaats van via een geverifieerde SMTP-relay. Als de aanvraag voor uw abonnement wordt toegekend, kunnen alleen de virtuele machines die na de toekenningsdatum zijn gemaakt poort 25 voor uitgaande communicatie gebruiken.
-     - **Cloudserviceprovider (CSP), MSDN, Azure Pass, Azure in Open, Education, BizSpark en gratis proefabonnementen**: uitgaande communicatie via poort 25 voor alle resources geblokkeerd. Er kunnen geen aanvragen worden ingediend voor het opheffen van de beperking, omdat zulke aanvragen niet worden toegekend. Als u e-mail moet verzenden vanaf uw virtuele machine, moet u een SMTP-relayservice gebruiken.
+     - **MSDN, Azure Pass, Azure in Open, Education, BizSpark en gratis proefabonnementen**: uitgaande communicatie via poort 25 voor alle resources geblokkeerd. Er kunnen geen aanvragen worden ingediend voor het opheffen van de beperking, omdat zulke aanvragen niet worden toegekend. Als u e-mail moet verzenden vanaf uw virtuele machine, moet u een SMTP-relayservice gebruiken.
+     - **Cloudserviceprovider**: klanten die Azure-resources via een cloudserviceprovider gebruiken, kunnen een ondersteuningsaanvraag maken bij hun cloudserviceprovider. Zij kunnen vervolgens aanvragen dat de provider namens hen een blokkering opheft, als er geen beveiligde SMTP-relay kan worden gebruikt.
 
-  Als u in Azure e-mail kunt verzenden via poort 25, garandeert Microsoft niet dat e-mailproviders inkomende e-mail vanaf uw virtuele machine accepteren. Als een specifieke provider e-mail van uw virtuele machine weigert, moet u samen met de provider alle eventuele problemen met de aflevering van berichten of met de spamfilter oplossen, of u moet een geverifieerde SMTP-relayservice gebruiken. 
-
+  Als u in Azure e-mail kunt verzenden via poort 25, garandeert Microsoft niet dat e-mailproviders inkomende e-mail vanaf uw virtuele machine accepteren. Als een specifieke provider e-mail van uw virtuele machine weigert, moet u samen met de provider alle eventuele problemen met de aflevering van berichten of met de spamfilter oplossen, of u moet een geverifieerde SMTP-relayservice gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

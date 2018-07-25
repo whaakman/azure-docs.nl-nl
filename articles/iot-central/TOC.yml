@@ -53,6 +53,8 @@
           href: howto-create-telemetry-rules.md
         - name: Een gebeurtenisregel maken
           href: howto-create-event-rules.md
+        - name: Webhookacties op basis van regels maken
+          href: howto-create-webhooks.md
         - name: Werkstromen bouwen in Microsoft Flow
           href: howto-add-microsoft-flow.md
         - name: Startpagina configureren

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 07/11/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 463ac7ee3e640f8bc275adb9e6ac27cc3e6a037a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 8e78528783d57d31e1eb9bcda82fa9acccf69dde
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127956"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005246"
 ---
 # <a name="what-is-azure-log-analytics"></a>Wat is Azure Log Analytics?
 Log Analytics speelt een centrale rol in Azure-management door telemetrie en andere gegevens te verzamelen uit verschillende bronnen en een querytaal en analysesysteem te leveren die inzicht geven in de werking van uw toepassingen en resources.  U kunt rechtstreeks met Log Analytics- gegevens werken door logboeken en weergaven te doorzoeken, of u kunt gebruikmaken van analyseprogramma's in andere Azure-services die hun gegevens opslaan in Log Analytics, zoals Application Insights of Azure Security Center.  
@@ -41,12 +41,12 @@ Log Analytics verzamelt gegevens uit verschillende bronnen.  Zodra de gegevens z
 
 Log Analytics beschikt over de volgende methoden voor het verzamelen van gegevens:
 
-- Configureer Azure Monitor om metrische gegevens en de logboeken die van Azure-resources zijn verzameld, te kopiëren.
-- Agents op virtuele [Windows](log-analytics-windows-agent.md)- en [Linux](log-analytics-linux-agents.md)-machines verzenden telemetrie vanuit het gastbesturingssysteem en toepassingen naar Log Analytics volgens [gegevensbronnen](log-analytics-data-sources.md) die u hebt geconfigureerd.  
-- Verbind een [System Center Operations Manager-beheergroep](log-analytics-om-agents.md) met Log Analytics om gegevens van de agents te verzamelen.
+- Configureer Azure Monitor om [metrische gegevens en logboeken](../monitoring/monitoring-data-collection.md#types-of-monitoring-data) te kopiëren die uit Azure-resources worden verzameld.
+- Verzamel telemetrie die naar [Azure Storage](log-analytics-azure-storage-iis-table.md) wordt geschreven.
+- Agents op virtuele [Windows](log-analytics-windows-agent.md)- en [Linux](log-analytics-linux-agents.md)-machines verzenden telemetrie vanuit het gastbesturingssysteem en toepassingen naar Log Analytics volgens [gegevensbronnen](log-analytics-data-sources.md) die u hebt geconfigureerd. Agents kunnen rechtstreeks, via een [OMS-gateway](log-analytics-oms-gateway.md) (wanneer ze geen firewalltoegang hebben) of via een [System Center Operations Manager-beheergroep](log-analytics-om-agents.md) worden verbonden.
 - Azure-services, zoals [Application Insights](https://docs.microsoft.com/azure/application-insights/) en [Azure Security Center](https://docs.microsoft.com/azure/security-center/) slaan hun gegevens rechtstreeks en zonder configuratie op in Log Analytics.
 - Schrijf gegevens vanaf de PowerShell-opdrachtregel of vanuit het [Azure Automation-runbook](../automation/automation-runbook-types.md) met behulp van Log Analytics-cmdlets.
-- Als u speciale vereisten hebt, kunt u de [API HTTP Data Collector](log-analytics-data-collector-api.md) gebruiken om vanuit een willekeurige REST API-client gegevens weg te schrijven naar Log Analytics.
+- Als u speciale vereisten hebt, kunt u de [API HTTP Data Collector](log-analytics-data-collector-api.md) gebruiken om vanuit een willekeurige REST API-client gegevens weg te schrijven naar Log Analytics, of een [logische app van Azure](https://docs.microsoft.com/azure/logic-apps/) gebruiken om vanuit een aangepaste werkstroom gegevens weg te schrijven.
 
 
 ![Onderdelen van Log Analytics](media/log-analytics-overview/collecting-data.png)

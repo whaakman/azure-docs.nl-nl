@@ -1,28 +1,34 @@
 ---
-title: Zelfstudie over synoniemen in Azure Search | Microsoft Docs
-description: Voeg de synoniemenfunctie toe aan een index in Azure Search.
+title: C#-zelfstudie over synoniemen in Azure Search | Microsoft Docs
+description: In deze zelfstudie voegt u de synoniemenfunctie toe aan een index in Azure Search.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/20/2018
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182086"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990558"
 ---
-# <a name="synonym-c-tutorial-for-azure-search"></a>C#-zelfstudie over synoniemen voor Azure Search
+# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Zelfstudie: Synoniemen toevoegen voor Azure Search in C#
 
-Met synoniemen breidt u een query uit door termen te gebruiken die semantisch overeenkomen met de ingevoerde term. Mogelijk wilt u bijvoorbeeld dat met 'auto' ook documenten worden geretourneerd met de termen 'voertuig' of 'cabrio'.
+Met synoniemen breidt u een query uit door termen te gebruiken die semantisch overeenkomen met de ingevoerde term. Mogelijk wilt u bijvoorbeeld dat met 'auto' ook documenten worden geretourneerd met de termen 'voertuig' of 'cabrio'. 
 
-In Azure Search worden synoniemen gedefinieerd in een *synoniementoewijzing* op basis van *toewijzingsregels* waarmee equivalente termen worden gekoppeld. U kunt meerdere synoniementoewijzingen maken en deze als algemene serviceresource beschikbaar maken voor alle indexen. Daarna kunt u op veldniveau aangeven welke u wilt gebruiken. Bij het uitvoeren van query's doorzoekt Azure Search niet alleen een index, maar wordt er ook in een synoniementoewijzing gekeken als er een is opgegeven in de velden die voor de query zijn gebruikt.
+In Azure Search worden synoniemen gedefinieerd in een *synoniementoewijzing* op basis van *toewijzingsregels* waarmee equivalente termen worden gekoppeld. Deze zelfstudie bevat essentiële stappen voor het toevoegen en gebruiken van synoniemen met een bestaande index. In deze zelfstudie leert u procedures om het volgende te doen:
+
+> [!div class="checklist"]
+> * Synoniemen inschakelen door toewijzingsregels te maken en plaatsen 
+> * Verwijzen naar een synoniemtoewijzing in een queryreeks
+
+U kunt meerdere synoniementoewijzingen maken en deze als algemene serviceresource beschikbaar maken voor alle indexen. Daarna kunt u op veldniveau aangeven welke u wilt gebruiken. Bij het uitvoeren van query's doorzoekt Azure Search niet alleen een index, maar wordt er ook in een synoniementoewijzing gekeken als er een is opgegeven in de velden die voor de query zijn gebruikt.
 
 > [!NOTE]
-> De synoniemenfunctie wordt ondersteund in de nieuwste API- en SDK-versie (API-versie=2017-11-11, SDK-versie 5.0.0). Azure Portal biedt er momenteel geen ondersteuning voor. Als u graag Azure Portal-ondersteuning voor synoniemen wilt, kunt u hieronder feedback verzenden via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Synoniemen worden ondersteund in de nieuwste API- en SDK-versie (API-versie=2017-11-11, SDK-versie 5.0.0). Azure Portal biedt er momenteel geen ondersteuning voor. Als u graag Azure Portal-ondersteuning voor synoniemen wilt, kunt u hieronder feedback verzenden via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -73,7 +79,7 @@ De stappen voor het maken en vullen van de voorbeeldindex worden uitgelegd in [A
 
 ## <a name="before-queries"></a>'Voor'-query's
 
-In `RunQueriesWithNonExistentTermsInIndex` worden er zoekquery's uitgevoerd met 'vijfsterren', 'internet' en 'voordelig EN hotel'.
+In `RunQueriesWithNonExistentTermsInIndex` voert u zoekquery's uit met 'vijfsterren', 'internet' en 'voordelig EN hotel'.
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = indexClient.Documents.Search<Hotel>("\"five star\"", parameters);
@@ -159,8 +165,13 @@ Door synoniemen toe te voegen, wordt de zoekervaring volledig veranderd. In deze
 ## <a name="sample-application-source-code"></a>Broncode van een voorbeeldtoepassing
 U vindt de volledige broncode van de voorbeeldtoepassing die in deze walkthrough wordt gebruikt, op [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+De snelste manier om op te schonen na een zelfstudie is de resourcegroep met de Azure Search-service te verwijderen. U kunt de resourcegroep nu verwijderen om alles daarin permanent te verwijderen. De naam van de resourcegroep staat in de portal op de pagina Overzicht van de Azure Search-service.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-* Neem [Synoniemen gebruiken in Azure Search](search-synonyms.md) door.
-* Neem [REST API-documentatie over synoniemen](https://aka.ms/rgm6rq) door.
-* Neem de referenties voor de [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) en [REST API](https://docs.microsoft.com/rest/api/searchservice/) door.
+In deze zelfstudie is de [REST-API voor synoniemen](https://aka.ms/rgm6rq) in C#-code gedemonstreerd om toewijzingsregels te maken en plaatsen en de synoniemtoewijzing vervolgens in een query aan te roepen. Aanvullende informatie vindt u in de referentiedocumentatie voor de [.NET-SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) en [REST-API](https://docs.microsoft.com/rest/api/searchservice/).
+
+> [!div class="nextstepaction"]
+> [Synoniemen gebruiken in Azure Search](search-synonyms.md)

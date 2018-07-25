@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 6/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6f12c44c2d65eef7e8d3345ec79b812304fe9791
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311028"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091535"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Zelfstudie: Uw eerste Azure SQL-database ontwerpen met SSMS
 
@@ -31,7 +31,7 @@ Azure SQL Database is een relationele DBaaS (database-as-a-service) in de Micros
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
    >[!NOTE]
-   > Voor deze zelfstudie gebruiken we het [aankoopmodel op basis van DTU](sql-database-service-tiers-dtu.md), maar u kunt desgewenst ook het [aankoopmodel op basis van vCore (preview)](sql-database-service-tiers-vcore.md) kiezen. 
+   > Voor deze zelfstudie gebruiken we het [aankoopmodel op basis van DTU](sql-database-service-tiers-dtu.md), maar u kunt desgewenst ook het [aankoopmodel op basis van vCore](sql-database-service-tiers-vcore.md) kiezen. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -77,7 +77,7 @@ Volg deze stappen om een lege SQL-database te maken.
 
 5. Klik op **Selecteren**.
 
-6. Klik op **Prijscategorie** om de servicelaag, het aantal DTU's of vCores en de hoeveelheid opslag op te geven. Bekijk de opties voor de hoeveelheid DTU's en opslag die voor elke servicelaag beschikbaar zijn. Voor deze zelfstudie gebruiken we het [aankoopmodel op basis van DTU](sql-database-service-tiers-dtu.md), maar u kunt desgewenst ook het [aankoopmodel op basis van vCore (preview)](sql-database-service-tiers-vcore.md) kiezen. 
+6. Klik op **Prijscategorie** om de servicelaag, het aantal DTU's of vCores en de hoeveelheid opslag op te geven. Bekijk de opties voor de hoeveelheid DTU's en opslag die voor elke servicelaag beschikbaar zijn. Voor deze zelfstudie gebruiken we het [aankoopmodel op basis van DTU](sql-database-service-tiers-dtu.md), maar u kunt desgewenst ook het [aankoopmodel op basis van vCore](sql-database-service-tiers-vcore.md) kiezen. 
 
 7. Voor deze zelfstudie selecteert u de servicelaag **Standard** en gebruikt u vervolgens de schuifregelaar om **100 DTU's (S3)** en **400** GB aan opslagruimte te selecteren.
 
@@ -137,7 +137,7 @@ Haal de volledig gekwalificeerde servernaam van uw Azure SQL Database-server op 
 
    ![verbindingsgegevens](./media/sql-database-get-started-portal/server-name.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database via SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database via SQL Server Management Studio
 
 Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) om verbinding te maken met uw Azure SQL Database-server.
 
@@ -159,7 +159,7 @@ Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
    ![verbinding maken met database op server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Klik op **Verbinden**. Het venster Objectverkenner wordt geopend in SSMS. 
+4. Klik op **Verbinden**. Het venster Objectverkenner wordt geopend in SQL Server Management Studio. 
 
 5. In Objectverkenner vouwt u **Databases** en daarna **mySampleDatabase** uit om de objecten in de voorbeelddatabase weer te geven.
 

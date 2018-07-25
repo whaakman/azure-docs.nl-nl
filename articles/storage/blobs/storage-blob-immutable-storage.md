@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970241"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070005"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Onveranderbare opslagfunctie van Azure Blob Storage (preview)
 
@@ -178,11 +178,11 @@ U kunt de onveranderbare opslagfunctie gebruiken met een bestaand GPv2-account o
 
 **Wat gebeurt er als ik een container probeer te verwijderen die een *vergrendeld* retentiebeleid op basis van tijd of een juridische bewaring heeft?**
 
-De bewerking Container verwijderen mislukt als deze minimaal één blob met een vergrendeld retentiebeleid op basis van tijd of een juridische bewaring bevat. De bewerking Container verwijderen slaagt als deze geen blob bevat die een actieve retentieperiode of een juridische bewaring heeft. Voordat u de container kunt verwijderen, moet u eerst de blobs verwijderen.
+De bewerking Container verwijderen mislukt als deze minimaal één blob met een vergrendeld retentiebeleid op basis van tijd of een juridische bewaring bevat. Dit geldt ook als de gegevens [voorlopig zijn verwijderd](storage-blob-soft-delete.md). De bewerking Container verwijderen slaagt als deze geen blob bevat die een actieve retentieperiode of een juridische bewaring heeft. Voordat u de container kunt verwijderen, moet u eerst de blobs verwijderen. 
 
 **Wat gebeurt er als ik een opslagaccount probeer te verwijderen met een WORM-container die een *vergrendeld* retentiebeleid op basis van tijd of een juridische bewaring heeft?**
 
-De verwijdering van het opslagaccount mislukt als er minimaal één WORM-container is die een juridische bewaring of een blob met een actieve retentieperiode bevat.  Alle WORM-containers moeten worden verwijderd voordat het opslagaccount kan worden verwijderd.  Zie vraag 2 voor informatie over het verwijderen van een container.
+De verwijdering van het opslagaccount mislukt als er minimaal één WORM-container is die een juridische bewaring of een blob met een actieve retentieperiode bevat.  Alle WORM-containers moeten worden verwijderd voordat het opslagaccount kan worden verwijderd.  Zie de vorige vraag voor informatie over het verwijderen van een container.
 
 **Kan ik de gegevens verplaatsen tussen verschillende blob-lagen (dynamische toegang, statische toegang, archieftoegang) als de blob de status onveranderbaar heeft?**
 

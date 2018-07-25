@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ccd55633f71be172edc330459bf8610f2146ad8d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386379"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991589"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Beginnen met controleren van de ASP.NET Core-webtoepassing
 
@@ -25,7 +25,7 @@ Deze snelstartgids helpt u de Application Insights SDK toe te voegen aan een bes
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 - [Installeer Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
   - ASP.NET-ontwikkeling en webontwikkeling
@@ -33,7 +33,7 @@ Dit zijn de vereisten voor het voltooien van deze Quickstart:
 - [.NET Core 2.0 SDK installeren](https://www.microsoft.com/net/core)
 - U hebt een Azure-abonnement en een bestaande .NET Core-webtoepassing nodig.
 
-Als u geen ASP.NET Core-webtoepassing hebt, kunt u er een maken door de handleiding [Een ASP.NET Core-web-app maken](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs) te volgen.
+Als u geen ASP.NET Core-webtoepassing hebt, kunt u onze stapsgewijze handleiding gebruiken om [een ASP.NET Core-app te maken en Application Insights toe te voegen](app-insights-asp-net-core.md).
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -77,25 +77,25 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 1. U kunt de pagina **Overzicht** van Application Insights in Azure Portal nu opnieuw openen door **Project** > **Application Insights** > **Application Insights openen** te selecteren om de details te bekijken van de toepassing die momenteel wordt uitgevoerd.
 
-   ![Menu Overzicht van Application Insights](./media/app-insights-dotnetcore-quick-start/004-Black.png)
+   ![Menu Overzicht van Application Insights](./media/app-insights-dotnetcore-quick-start/overview-001.png)
 
-2. Klik op **App-kaart** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing. Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
+2. Klik op **Toepassingsoverzicht** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing. Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
 
-   ![Toepassingskaart](./media/app-insights-dotnetcore-quick-start/0002-dc.png)
+   ![Toepassingskaart](./media/app-insights-dotnetcore-quick-start/application-map.png)
 
 3. Klik op het **App Analytics**-pictogram ![Pictogram Toepassingskaart](./media/app-insights-dotnetcore-quick-start/006.png).  Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
    ![Analytics-grafiek met gebruikersaanvragen gedurende een tijdsperiode](./media/app-insights-dotnetcore-quick-start/0007-dc.png)
 
-4. Ga terug naar de pagina **Overzicht** en bekijk de **tijdlijn voor het Statusoverzicht**.  Dit dashboard biedt statistische gegevens over de toepassingsstatus, waaronder het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden. 
+4. Ga terug naar de pagina **Overzicht** en bekijk de KPI-dashboards.  Dit dashboard biedt statistische gegevens over de toepassingsstatus, waaronder het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden. 
 
-   ![Tijdlijngrafieken voor het Statusoverzicht](./media/app-insights-dotnetcore-quick-start/0008-dc.png)
+   ![Tijdlijngrafieken voor het Statusoverzicht](./media/app-insights-dotnetcore-quick-start/overview-graphs.png)
 
    Als u de grafiek **Laadtijd voor paginaweergave** wilt vullen met **telemetriegegevens aan de clientzijde**, voegt u dit script toe aan elke pagina die u wilt bijhouden:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

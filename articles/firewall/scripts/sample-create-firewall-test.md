@@ -1,0 +1,87 @@
+---
+title: 'Azure PowerShell-voorbeeldscript: een Azure Firewall-testomgeving maken'
+description: 'Azure PowerShell-voorbeeldscript: een Azure Firewall-testomgeving maken.'
+services: virtual-network
+author: vhorne
+ms.service: firewall
+ms.devlang: powershell
+ms.topic: sample
+ms.date: 7/11/2018
+ms.author: victorh
+ms.openlocfilehash: ffc9d3c15f045079585ea2aeceab278cf0349041
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991864"
+---
+# <a name="create-an-azure-firewall-test-environment"></a>Een Azure Firewall-testomgeving maken
+
+[!INCLUDE [firewall-preview-notice](../../../includes/firewall-preview-notice.md)]
+
+Bij de voorbeelden in de Azure Firewall-artikelen wordt ervan uitgegaan dat u de openbare preview van Azure Firewall al hebt ingeschakeld. Zie [De openbare preview van Azure Firewall inschakelen](../public-preview.md) voor meer informatie.
+
+In dit voorbeeldscript wordt een firewall en een testnetwerkomgeving gemaakt. Het netwerk heeft één VNet met drie subnetten: een *AzureFirewallSubnet*, een *ServersSubnet* en een *JumpboxSubnet*. Het ServersSubnet en het JumpboxSubnet hebben elk één Windows Server met twee kernen.
+
+De firewall bevindt zich in het AzureFirewallSubnet en is geconfigureerd met een toepassingsregelverzameling met één regel die toegang geeft tot www.microsoft.com.
+
+Er wordt een gebruikergedefinieerde route gemaakt die het netwerkverkeer vanuit het ServersSubnet door de firewall leidt, waar de firewallregels worden toegepast.
+
+U kunt het script uitvoeren vanuit de Azure [Cloud Shell](https://shell.azure.com/powershell) of vanuit een lokale installatie van PowerShell. 
+
+Als u PowerShell lokaal uitvoert, vereist dit script de AzureRM PowerShell-module versie 6.4.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om na te gaan welke versie er is geïnstalleerd. 
+
+Als u moet upgraden, kunt u `PowerShellGet` gebruiken, wat in Windows 10 en Windows Server 2016 is ingebouwd.
+
+> [!NOTE]
+>Voor andere Windows-versies moet u `PowerShellGet` installeren voordat u het kunt gebruiken. U kunt `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path` uitvoeren om te bepalen of het op uw systeem is geïnstalleerd. Als de uitvoer leeg is, moet u het nieuwste [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616) installeren.
+
+Zie [Azure PowerShell in Windows installeren met PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0) voor meer informatie.
+
+Een bestaande Azure PowerShell-installatie die met het webplatforminstallatieprogramma is uitgevoerd, conflicteert met de PowerShellGet-installatie en moet worden verwijderd.
+
+Daarnaast moet u de preview-versie van AzureRM.Network (versie 6.4.0) installeren. Als u een oudere module hebt, voert u `Uninstall-Module AzureRM.Network -Force` uit om deze te verwijderen. Voer vervolgens
+
+ `Install-Module -Name AzureRM.Network -Repository PSGallery -RequiredVersion 6.4.0-preview -AllowPrerelease -Force`
+
+uit om versie 6.4.0 te installeren.
+
+Vergeet niet dat als u PowerShell lokaal uitvoert, u ook `Connect-AzureRmAccount` moet uitvoeren om verbinding te kunnen maken met Azure.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="sample-script"></a>Voorbeeldscript
+
+
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/firewall/create-fw-test.ps1  "Create a firewall test environment")]
+
+## <a name="clean-up-deployment"></a>Opschonen van implementatie 
+
+Voer de volgende opdracht uit om de resourcegroep, VM en alle gerelateerde resources te verwijderen:
+
+```powershell
+Remove-AzureRmResourceGroup -Name AzfwSampleScriptEastUS -Force
+```
+
+## <a name="script-explanation"></a>Uitleg van het script
+
+In dit script worden de volgende opdrachten gebruikt voor het maken van een resourcegroep, een virtueel netwerk en netwerkbeveiligingsgroepen. Elke opdracht in de volgende tabel is een koppeling naar opdrachtspecifieke documentatie:
+
+| Opdracht | Opmerkingen |
+|---|---|
+| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Hiermee maakt u een subnetconfiguratie |
+| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | Hiermee maakt u een virtueel Azure-netwerk en front-end-subnet. |
+| [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) | Hiermee maakt u beveiligingsregels voor verbindingen die worden toegewezen aan een netwerkbeveiligingsgroep. |
+| [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) |Hiermee maakt u NSG-regels die bepaalde poorten tot specifieke subnetten blokkeren of toestaan. |
+| [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) | Hiermee koppelt u NSG's aan subnetten. |
+| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Hiermee maakt u een openbaar IP-adres voor toegang tot de VM via internet. |
+| [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Hiermee maakt u virtuele netwerkinterfaces en koppelt u ze aan de front-end- en back-end-subnetten van het virtuele netwerk. |
+| [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Hiermee maakt u een VM-configuratie. Deze configuratie bevat informatie zoals de naam, het besturingssysteem en de beheerdersreferenties van de virtuele machine. De configuratie wordt gebruikt tijdens het maken van de virtuele machine. |
+| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Hiermee maakt u een virtuele machine. |
+|[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep en alle daarin opgenomen resources. |
+
+## <a name="next-steps"></a>Volgende stappen
+
+Zie [Documentatie over Azure PowerShell](/powershell/azure/overview) voor meer informatie over Azure PowerShell.
+

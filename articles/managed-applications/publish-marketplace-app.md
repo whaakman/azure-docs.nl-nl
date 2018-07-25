@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 03/15/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 39797bb4fe2b0576cd5696d7111826dcf807ff5c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304528"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989782"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Door Azure beheerde toepassingen in Marketplace
 
@@ -42,7 +42,7 @@ Bovendien zijn er verschillende zakelijke vereisten. Dit zijn:
 Voer de volgende stappen uit om een uitgever te worden in Azure Marketplace:
 
 1. Een Microsoft-id maken: maak een Microsoft-account met een e-mailadres dat deel uitmaakt van het domein van uw bedrijf, maar dat niet aan een bepaalde persoon is gekoppeld. Dit e-mailadres wordt gebruikt voor zowel het Microsoft Developer Center als de Cloud Partner-portal. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
-1. [Azure Marketplace-aanvraagformulier](https://aka.ms/ampnomination) versturen: selecteer **Managed Application** voor **Solution that you intend to publish?**. Zodra het formulier is verzonden, wordt de aanvraag bekeken en gevalideerd door het Marketplace Onboarding Team. Het goedkeuringsproces kan één tot drie dagen duren. Wanneer uw aanvraag is goedgekeurd, ontvangt u een promotiecode waarmee u de registratiekosten voor het Developer Center kunt voldoen. Als u het Azure Marketplace-aanvraagformulier **niet** invult, moet een registratiebijdrage van $99 betalen.
+1. [Azure Marketplace-aanvraagformulier](https://aka.ms/ampnomination) versturen: selecteer **Managed Application** voor **Solution that you intend to publish?**. Zodra het formulier is verzonden, wordt de aanvraag bekeken en gevalideerd door het Marketplace Onboarding Team. Het goedkeuringsproces kan één tot drie dagen duren. Wanneer uw aanvraag is goedgekeurd, ontvangt u een promotiecode waarmee u de registratiekosten voor het Developer Center kunt voldoen. Als u het Marketplace-aanvraagformulier **niet** invult, moet u een registratiebijdrage van $99 betalen.
 1. Registreren in [Developer Center](http://dev.windows.com/registration?accountprogram=azure): Microsoft controleert of uw organisatie een geldige rechtspersoon is met een geldig btw-nummer voor het land waar de organisatie is geregistreerd. Het goedkeuringsproces kan vijf tot tien dagen duren. U kunt de registratiekosten voldoen met behulp van de promotiecode die u in de e-mail over de aanvraag hebt ontvangen. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
 1. Aanmelden bij de [Cloud Partner-portal](https://cloudpartner.azure.com): koppel het Developer Center-account in uw uitgeversprofiel aan het uitgeversprofiel van Marketplace. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
 
@@ -101,12 +101,13 @@ Een SKU wordt in Marketplace weergegeven onder de bovenliggende aanbieding. Een 
 
    Vul de volgende velden in:
 
-   * **Current Version**: voer een versie in voor het pakket dat u uploadt. Gebruik hierbij de notatie `{number}.{number}.{number}{number}`.
-   * **Select a package file**: dit pakket bevat twee vereiste bestanden die in één ZIP-pakket zijn gecomprimeerd. Het ene bestand is een Resource Manager-sjabloon die de resources definieert die voor de beheerde toepassing moeten worden geïmplementeerd. Het andere bestand definieert de [gebruikersinterface](create-uidefinition-overview.md) voor consumenten die de beheerde toepassing implementeren via de portal. In de gebruikersinterface geeft u elementen op waarmee consumenten parameterwaarden kunnen opgeven.
+   * **Version**: voer een versie in voor het pakket dat u uploadt. Gebruik hierbij de notatie `{number}.{number}.{number}{number}`.
+   * **Package file (.zip)**: dit pakket bevat twee vereiste bestanden die in één ZIP-pakket zijn gecomprimeerd. Het ene bestand is een Resource Manager-sjabloon die de resources definieert die voor de beheerde toepassing moeten worden geïmplementeerd. Het andere bestand definieert de [gebruikersinterface](create-uidefinition-overview.md) voor consumenten die de beheerde toepassing implementeren via de portal. In de gebruikersinterface geeft u elementen op waarmee consumenten parameterwaarden kunnen opgeven.
    * **PrincipalId**: deze eigenschap is de id van Azure Active Directory (Azure AD) van een gebruiker, groep of toepassing die toegang krijgt tot de resources in het abonnement van de klant. In de roldefinitie worden de machtigingen beschreven.
    * **Role Definition**: deze eigenschap bestaat uit een lijst met alle ingebouwde rollen voor op rollen gebaseerd toegangsbeheer (RBAC) die worden aangeboden door Azure AD. U kunt de rol selecteren die het meest geschikt is voor het beheren van resources namens de klant.
+   * **Policy Settings**: pas een [Azure Policy](../azure-policy/azure-policy-introduction.md) op uw beheerde toepassing toe om nalevingsvereisten voor de geïmplementeerde oplossingen te specificeren. Selecteer de gewenste beleidsregels in de beschikbare opties. Geef bij **Policy Parameters** een JSON-tekenreeks met de parameterwaarden op. Zie [Voorbeelden van Azure Policy](../azure-policy/json-samples.md) voor beleidsdefinities en de indeling van de parameterwaarden.
 
-U kunt meerdere autorisaties toevoegen. Het wordt aangeraden om een AD-gebruikersgroep te maken en de id van deze groep op te geven voor **PrincipalId**. Op deze manier kunt u meer gebruikers toevoegen aan de gebruikersgroep zonder dat u de SKU hoeft bij te werken.
+U kunt verschillende autorisaties toevoegen. Het wordt aangeraden om een AD-gebruikersgroep te maken en de id van deze groep op te geven voor **PrincipalId**. Op deze manier kunt u meer gebruikers toevoegen aan de gebruikersgroep zonder dat u de SKU hoeft bij te werken.
 
 Zie [Aan de slag met toegangsbeheer op basis van rollen in Azure Portal](../role-based-access-control/overview.md) voor meer informatie over RBAC.
 
