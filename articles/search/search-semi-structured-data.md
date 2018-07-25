@@ -1,20 +1,21 @@
 ---
-title: Semi-gestructureerde gegevens zoeken in Azure-cloudopslag
-description: Semi-gestructureerde blobgegevens zoeken met behulp van Azure Search.
-author: roygara
+title: Zelfstudie voor het zoeken van semi-gestructureerde gegevens in Azure-cloudopslag in Azure Search | Microsoft Docs
+description: In deze zelfstudie leert u hoe u semi-gestructureerde Azure-blob-gegevens kunt zoeken met Azure Search.
+author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 10/12/2017
-ms.author: v-rogara
-ms.openlocfilehash: 7579862e132724d101e4267023afd9e3336bc3b1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 07/12/2018
+ms.author: heidist
+ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005074"
 ---
-# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Deel 2: Semi-gestructureerde gegevens zoeken in cloudopslag
+# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Zelfstudie: Semi-gestructureerde gegevens zoeken in Azure-cloudopslag
 
 In een tweedelige zelfstudie leert u hoe u semi-gestructureerde en niet-gestructureerde gegevens kunt doorzoeken met behulp van Azure Search. In [deel 1](../storage/blobs/storage-unstructured-search.md) hebt u gezien hoe u niet-gestructureerde gegevens doorzoekt en zijn ook belangrijke vereisten voor deze zelfstudie behandeld, zoals het maken van het opslagaccount. 
 
@@ -27,14 +28,16 @@ In deel 2 vindt u informatie over:
 > * Een Azure Search-index maken en vullen, en een indexeerfunctie maken om de container te verkennen en doorzoekbare inhoud uit te pakken
 > * De index doorzoeken die u zojuist hebt gemaakt
 
-> [!NOTE]
-> In deze zelfstudie wordt gebruikgemaakt van JSON-matrixondersteuning. Dit is momenteel een preview-functie in Azure Search. Deze is niet beschikbaar in de portal. Daarom wordt hier gebruikgemaakt van de preview-REST API, die deze functie biedt, en een REST-clienthulpprogramma om de API aan te roepen.
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * De [vorige zelfstudie](../storage/blobs/storage-unstructured-search.md) moet zijn voltooid. Deze biedt het opslagaccount en daar is de zoekservice gemaakt.
 
 * Installatie van een REST-client en goed begrip van hoe u een HTTP-aanvraag moet maken. Voor deze zelfstudie wordt gebruikgemaakt van [Postman](https://www.getpostman.com/). U kunt ook een andere REST-client gebruiken als u daar meer ervaring mee hebt.
+
+> [!NOTE]
+> In deze zelfstudie wordt gebruikgemaakt van JSON-matrixondersteuning. Dit is momenteel een preview-functie in Azure Search. Deze is niet beschikbaar in de portal. Daarom wordt hier gebruikgemaakt van de preview-REST API, die deze functie biedt, en een REST-clienthulpprogramma om de API aan te roepen.
 
 ## <a name="set-up-postman"></a>Postman instellen
 
@@ -54,7 +57,7 @@ Er is een voorbeeldgegevensset voor u voorbereid. **Download [clinical-trials-js
 
 In de zip vindt u voorbeeld-JSON-bestanden. Dit waren oorspronkelijk tekstbestanden, verkregen via [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Deze zijn voor uw gemak geconverteerd naar JSON.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Meld u aan bij [Azure Portal](http://portal.azure.com).
 
@@ -276,15 +279,13 @@ Ga gerust uw gang als u wilt experimenteren en zelf nog een aantal query's wilt 
 
 De parameter `$filter` werkt alleen met metagegevens die bij het maken van de index zijn gemarkeerd als filterbaar.
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+De snelste manier om op te schonen na een zelfstudie is de resourcegroep met de Azure Search-service te verwijderen. U kunt de resourcegroep nu verwijderen om alles daarin permanent te verwijderen. De naam van de resourcegroep staat in de portal op de pagina Overzicht van de Azure Search-service.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over het doorzoeken van semi-gestructureerde gegevens met behulp van Azure Search. U hebt onder andere het volgende geleerd:
-
-> [!div class="checklist"]
-> * Een Azure Search Service maken met de REST API
-> * De Azure Search Service gebruiken om uw container te doorzoeken
-
-Volg deze koppeling voor meer informatie over zoeken.
+U kunt AI-algoritmen aan een indexeringspijplijn koppelen. Als volgende stap kunt u verdergaan met de volgende zelfstudie.
 
 > [!div class="nextstepaction"]
 > [Documenten in Azure Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md)

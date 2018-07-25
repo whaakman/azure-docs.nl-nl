@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 7248e2477a217c769bd232b87a8e510fcfd59790
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c0a1caca1c7b026965d2a83211c87d49db53c4ca
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798437"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991595"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Beginnen met controleren van de Java-webtoepassing
 
@@ -25,7 +25,7 @@ Deze snelstartgids helpt u de Application Insights SDK toe te voegen aan een bes
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 - JRE 1.7 of 1.8 installeren
 - [Gratis Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/downloads/) installeren. In deze snelstartgids wordt gebruikgemaakt van Eclipse Oxygen (4.7)
@@ -89,25 +89,25 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 1. U kunt de pagina **Overzicht** van Application Insights in Azure Portal, waar u de instrumentatiesleutel hebt opgehaald, nu opnieuw openen om de details te bekijken van de toepassing die momenteel wordt uitgevoerd.
 
-   ![Menu Overzicht van Application Insights](./media/app-insights-java-quick-start/0008-j.png)
+   ![Menu Overzicht van Application Insights](./media/app-insights-java-quick-start/overview-001.png)
 
-2. Klik op **App-kaart** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing. Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
+2. Klik op **Toepassingsoverzicht** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing. Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
 
-   ![Toepassingskaart](./media/app-insights-java-quick-start/005-j.png)
+   ![Toepassingskaart](./media/app-insights-java-quick-start/application-map-001.png)
 
 3. Klik op het **App Analytics**-pictogram ![Pictogram Toepassingskaart](./media/app-insights-java-quick-start/006.png). Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
    ![Analytics-grafiek met gebruikersaanvragen gedurende een tijdsperiode](./media/app-insights-java-quick-start/0010-j.png)
 
-4. Ga terug naar de pagina **Overzicht** en bekijk de **tijdlijn voor het Statusoverzicht**.  Dit dashboard biedt statistische gegevens over de toepassingsstatus, waaronder het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden.
+4. Ga terug naar de pagina **Overzicht** en bekijk de KPI-grafieken.  Dit dashboard biedt statistische gegevens over de toepassingsstatus, waaronder het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden.
 
-   ![Tijdlijngrafieken voor het Statusoverzicht](./media/app-insights-java-quick-start/0009-j.png)
+   ![Tijdlijngrafieken voor het Statusoverzicht](./media/app-insights-java-quick-start/overview-perf.png)
 
    Als u de grafiek **Laadtijd voor paginaweergave** wilt vullen met **telemetriegegevens aan de clientzijde**, voegt u dit script toe aan elke pagina die u wilt bijhouden:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

@@ -50,7 +50,7 @@ De volgende tabel bevat een vergelijking tussen een aantal algemene query's naar
 |                        | Type gebeurtenis = &#124; top 100 | Gebeurtenis &#124; 100 duren |
 | Vergelijking van tekenreeksen      | Type=Event Computer=srv01.contoso.com   | Gebeurtenis &#124; waar Computer == "srv01.contoso.com" |
 |                        | Type=Event Computer=contains("contoso") | Gebeurtenis &#124; waar Computer bevat 'contoso' (niet hoofdlettergevoelig)<br>Gebeurtenis &#124; waar Computer contains_cs 'Contoso' (hoofdlettergevoelig) |
-|                        | Type gebeurtenis Computer = = RegEx ('\@contoso @")  | Gebeurtenis &#124; Computer overeenkomt met de reguliere expressie '. *contoso*' |
+|                        | Type gebeurtenis Computer = = RegEx ('\@contoso \@\")  | Gebeurtenis &#124; Computer overeenkomt met de reguliere expressie '. *contoso*' |
 | Datumvergelijking        | Type gebeurtenis TimeGenerated = > nu 1DAYS | Gebeurtenis &#124; waar TimeGenerated > ago(1d) |
 |                        | Type gebeurtenis TimeGenerated = > 2017-05-01 TimeGenerated < 2017-05-31 | Gebeurtenis &#124; waar TimeGenerated tussen (datetime(2017-05-01)... datetime(2017-05-31)) |
 | Boole-vergelijking     | Type Heartbeat IsGatewayInstalled = = false  | Heartbeat \| waar IsGatewayInstalled == false |

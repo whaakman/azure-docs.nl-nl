@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3d6df04df8ceac1f868e64f0e8fbc7eb0fa317e3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547970"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006927"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Wat is Managed Service Identity voor Azure-resources?
 
@@ -40,7 +40,7 @@ Als gevolg hiervan kan uw code een door het systeem of door de gebruiker toegewe
 
 Hier volgt een voorbeeld van hoe door het systeem toegewezen identiteiten werken met Azure-VM's:
 
-![Voorbeeld van beheerde identiteit van virtuele machine](overview/msi-vm-vmextension-imds-example.png)
+![Voorbeeld van beheerde identiteit van virtuele machine](media/overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager ontvangt een aanvraag voor het inschakelen van de door het systeem toegewezen identiteit op een VM.
 2. Azure Resource Manager maakt een Service-principal in Azure AD die de identiteit van de virtuele machine voorstelt. De Service-principal wordt gemaakt in de Azure AD-tenant die wordt vertrouwd door dit abonnement.
@@ -101,6 +101,7 @@ Volgt een zelfstudie over Managed Service Identity om complete scenario's te ler
 | Azure Functions    | [Managed Service Identity gebruiken met Azure App Service of Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Managed Service Identity gebruiken met Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Managed Service Identity gebruiken met Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Azure API Management | [Managed Service Identity gebruiken met Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Welke Azure-services ondersteunen Managed Service Identity?
 

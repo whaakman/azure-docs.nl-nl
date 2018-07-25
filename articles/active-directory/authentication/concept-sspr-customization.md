@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 70f36447270199545ac27cf27f87f971e34ef424
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162123"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222785"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Aanpassen van de Azure AD-functionaliteit voor self-service voor wachtwoord opnieuw instellen
 
@@ -55,7 +55,7 @@ Active Directory Federation Services (AD FS)-beheerders kunnen een koppeling toe
 
 Om toe te voegen een koppeling naar de AD FS-aanmeldingspagina, gebruikt u de volgende opdracht uit op uw AD FS-server. Gebruikers kunnen deze pagina gebruiken om in te voeren van de SSPR-werkstroom.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>De aanmelding bij pagina- en toegangsbeheer deelvenster uiterlijk aanpassen
 

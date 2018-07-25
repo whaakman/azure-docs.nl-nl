@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: 205c62246210373333c1315d5f3a9b3ec8571e59
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6178c4a55d24bb37aae787129c9a0d390a2e536b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004367"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226223"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Het Team Data Science Process in actie: met behulp van SQL Data Warehouse
 In deze zelfstudie, we begeleidt u bij het bouwen en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar beschikbare gegevensset--de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De binaire classificeringsmodel samengesteld voorspelt al dan niet een tip wordt betaald voor een reis, en modellen voor multiklassen classificatie- en regressiemodellen worden ook besproken die het distributiepunt voor de betaalde bedragen tip voorspellen.
@@ -882,7 +882,7 @@ Een voorbeeld van een experiment scoren is opgegeven in de afbeelding hieronder.
 Voor samenvatting van wat we hebben gedaan in deze zelfstudie scenario, u hebt gemaakt een Azure data science-omgeving, met een grote openbare gegevensset gewerkt deze te zetten door het Team Data Science Process, helemaal uit gegevens ophalen voor modeltraining en vervolgens naar de implementatie van een Azure Machine Learning-webservice.
 
 ### <a name="license-information"></a>Licentie-informatie
-In dit voorbeeld scenario en de bijbehorende scripts en IPython notebook(s) worden gedeeld door Microsoft onder de MIT-licentie. Controleer of het bestand LICENSE.txt in in de map van de voorbeeldcode op GitHub voor meer informatie.
+In dit voorbeeld scenario en de bijbehorende scripts en IPython notebook(s) worden gedeeld door Microsoft onder de MIT-licentie. Controleer of het bestand LICENSE.txt in de map van de voorbeeldcode op GitHub voor meer informatie.
 
 ## <a name="references"></a>Verwijzingen
 • [Andrés Monroy NYC Taxi Trips downloadpagina](http://www.andresmh.com/nyctaxitrips/)  

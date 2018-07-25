@@ -1,6 +1,6 @@
 ---
-title: Databricks CLI van Azure-Cloud-Shell gebruiken | Microsoft Docs
-description: Informatie over het gebruik van de CLI Databricks vanuit Azure Cloud-Shell.
+title: Databricks CLI van Azure Cloudshell gebruiken | Microsoft Docs
+description: Informatie over het gebruik van de Databricks CLI van Azure Cloud Shell.
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -13,68 +13,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: c20ad02f962fbee22bb16653c5eab351d9f3de17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3ea4ebbd95237b50054fb0e344f260120d597ab5
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598722"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225231"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Databricks CLI van Azure Cloud Shell gebruiken
 
-Informatie over het gebruik van de CLI Databricks vanuit Azure Cloud-Shell op bewerkingen uitvoeren op Databricks.
+Informatie over het gebruik van de Databricks CLI van Azure Cloud Shell bewerkingen op Databricks uit te voeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-Databricks werkruimte en de cluster. Zie voor instructies [aan de slag met Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
+* Een Azure Databricks-werkruimte en het cluster. Zie voor instructies [aan de slag met Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
 
-* Een persoonlijk toegangstoken in Databricks instellen. Zie voor instructies [management Token](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
+* Instellen van een persoonlijk toegangstoken in Databricks. Zie voor instructies [management Token](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
 
-## <a name="use-the-azure-cloud-shell"></a>De Azure-Cloud-Shell gebruiken
+## <a name="use-the-azure-cloud-shell"></a>De Azure Cloudshell gebruiken
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
  
 2. Klik in de rechterbovenhoek op het **Cloud Shell** pictogram.
 
-   ![Cloud-Shell starten](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "ODBC vanuit Excel starten")
+   ![Open Cloudshell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Azure Cloudshell starten")
 
-3. Zorg ervoor dat u selecteert **Bash** voor de Cloud Shell-omgeving. U kunt selecteren uit de vervolgkeuzelijst optie, zoals wordt weergegeven in de volgende schermafbeelding.
+3. Zorg ervoor dat u selecteert **Bash** voor de Cloud Shell-omgeving. U kunt kiezen uit de vervolgkeuzemenu-optie, zoals wordt weergegeven in de volgende schermafbeelding.
 
-   ![Cloud-Shell starten](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "ODBC vanuit Excel starten") 
+   ![Selecteer Bash voor de Cloud Shell-omgeving](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Selecteer Bash") 
 
-4. Maak een virtuele omgeving waarin u de CLI Databtricks kunt installeren. In het onderstaande codefragment maakt u een virtuele omgeving aangeroepen `databrickscli`.
+4. Maak een virtuele omgeving waarin u de Databricks CLI kunt installeren. In het onderstaande codefragment maakt u een virtuele omgeving met de naam `databrickscli`.
 
        virtualenv -p /usr/bin/python2.7 databrickscli
 
-5. Overschakelen naar de virtuele omgeving die u hebt gemaakt.
+5. Schakel over naar de virtuele omgeving die u hebt gemaakt.
 
        source databrickscli/bin/activate
 
-6. Installeer de CLI Databricks.
+6. De Databricks-CLI installeren.
 
        pip install databricks-cli
 
-7. Instellen van Databricks-verificatie met behulp van het toegangstoken dat u hebt gemaakt, vermeld als deel van de vereisten. Gebruik de volgende opdracht:
+7. Instellen van verificatie met Databricks met behulp van het toegangstoken dat u hebt gemaakt, als onderdeel van de vereisten vermeld. Gebruik de volgende opdracht:
 
        databricks configure --token
 
-    U ontvangt de volgende vragen:
+    U ontvangt de volgende stappen:
 
-    * U wordt gevraagd de Databricks host invoeren. De waarde in de indeling Ente `https://eastus2.azuredatabricks.net`. Hier **VS-Oost 2** is de Azure-regio waar u uw Azure-Databricks-werkruimte gemaakt.
+    * U wordt eerst gevraagd om in te voeren van de Databricks-host. Voer de waarde in de indeling `https://eastus2.azuredatabricks.net`. Hier **VS-Oost 2** is de Azure-regio waar u uw Azure Databricks-werkruimte hebt gemaakt.
 
-    * U wordt gevraagd een gebruikersnaam invoeren. Voer **token**.
+    * U wordt vervolgens gevraagd om in te voeren van een token. Voer het token dat u eerder hebt gemaakt.
 
-    * Ten slotte wordt u gevraagd het wachtwoord invoeren. Voer in het token dat u eerder hebt gemaakt.
-
-Wanneer u deze stappen hebt voltooid, kunt u beginnen met Databricks CLI van Azure Cloud-Shell.
+Nadat u deze stappen hebt voltooid, kunt u beginnen met Databricks CLI van Azure Cloud Shell.
 
 ## <a name="use-databricks-cli"></a>Databricks CLI gebruiken
 
-U kunt nu starten met de Databricks CLI. Voer bijvoorbeeld de volgende opdracht voor een lijst met alle Databricks-clusters die u in uw werkruimte hebt.
+U kunt nu starten met behulp van de Databricks-CLI. Bijvoorbeeld, voer de volgende opdracht om alle Databricks-clusters die u in uw werkruimte hebt weer te geven.
 
     databricks clusters list
 
-U kunt ook de volgende opdracht gebruiken voor toegang tot het bestandssysteem Databricks (DBFS).
+U kunt ook de volgende opdracht gebruiken voor toegang tot het Databricks filesystem (DBFS).
 
     databricks fs ls
 
@@ -85,7 +83,7 @@ Zie voor een volledig overzicht van opdrachten, [Databricks CLI](https://docs.az
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor meer informatie over Azure CLI, [overzicht van Azure CLI](../cloud-shell/overview.md)
-* Zie voor een lijst met opdrachten voor Azure CLI [Azure CLI-verwijzing](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
-* Zie voor een lijst met opdrachten voor Databricks CLI [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
+* Zie voor een lijst van opdrachten voor Azure CLI [Azure CLI-verwijzing](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
+* Zie voor een lijst van opdrachten voor Databricks CLI [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
 
 

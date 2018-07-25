@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.openlocfilehash: cbbaa789295a0e8fe602d7d90055f6d3af6bfc01
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3d6eb70b3ce9072dc2c51220af89549022b5dacf
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34643753"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238265"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>ActiveDirectoryInteractive modus gebruiken om te verbinden met Azure SQL Database
 
@@ -124,7 +124,7 @@ Een naamruimten die afhankelijk van het C#-voorbeeld is **System.Data.SqlClient*
 
 - **SqlAuthenticationMethod.ActiveDirectory*interactief ***:&nbsp; Gebruik dit met de naam van een Azure AD-gebruiker om multi-factor authentication, MFA.
     - Deze waarde is de focus van dit artikel. Het genereert een interactieve ervaring door het weergeven van dialoogvensters voor het wachtwoord van de gebruiker, en vervolgens voor MFA-validatie als MFA is ingesteld op deze gebruiker.
-    - Deze waarde is beschikbaar vanaf met .NET Framework versie 4.7.2.
+    - Deze waarde is beschikbaar vanaf .NET Framework versie 4.7.2.
 
 - **SqlAuthenticationMethod.ActiveDirectory*geïntegreerde ***:&nbsp; Gebruik deze optie voor een *federatieve* account. Voor een federatieve-account is de naam van de gebruiker bekend aan het Windows-domein. Deze methode biedt geen ondersteuning voor MFA.
 
