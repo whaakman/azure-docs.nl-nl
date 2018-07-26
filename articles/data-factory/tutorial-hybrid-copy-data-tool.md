@@ -134,7 +134,7 @@ In deze sectie maakt u in uw Blob Storage een blobcontainer met de naam **adftut
       - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in. 
         
       Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
-5. Selecteer **V2 ** onder **Versie**.
+5. Selecteer **V2** onder **Versie**.
 6. Selecteer bij **Locatie** de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven (bijvoorbeeld Azure Storage en SQL Database) en -berekeningen (bijvoorbeeld Azure HDInsight) die door Data Factory worden gebruikt, kunnen zich in andere locaties/regio's bevinden.
 7. Selecteer **Vastmaken aan dashboard**. 
 8. Selecteer **Maken**.
@@ -164,7 +164,7 @@ In deze sectie maakt u in uw Blob Storage een blobcontainer met de naam **adftut
 
    ![SQL Server-selecteren](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
 
-5. Voer onder Nieuwe gekoppelde service (SQL Server) ** Naam *** **SqlServerLinkedService** in. Selecteer **+ Nieuw** onder **Verbinding maken via integratieruntime**. U moet een zelf-hostende integratieruntime maken, deze downloaden op de computer en registreren bij Data Factory. Met de zelf-hostende integratieruntime worden gegevens gekopieerd tussen uw on-premises omgeving en de cloud.
+5. Voer onder Nieuwe gekoppelde service (SQL Server) **Naam**** **SqlServerLinkedService** in. Selecteer **+ Nieuw** onder **Verbinding maken via integratieruntime**. U moet een zelf-hostende integratieruntime maken, deze downloaden op de computer en registreren bij Data Factory. Met de zelf-hostende integratieruntime worden gegevens gekopieerd tussen uw on-premises omgeving en de cloud.
 
    ![Een zelf-hostende integratieruntime maken](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
 
